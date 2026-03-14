@@ -68,7 +68,7 @@ livepeer -gateway \
   # You will need to add your local orchestrator address if you are running off-chain
   -orchAddr=<ORCHESTRATOR_ADDRESSES> #comma separated list of orchestrator addresses
   # Example: -orchAddr=http://192.168.1.100:8935,http://192.168.1.101:8935
-  # You can also use a JSON file: -orchAddr=/path/to/orchestrators/orchestrators-portal.json
+  # You can also use a JSON file: -orchAddr=/path/to/orchestrators/portal.json
 ```
 </Tab>
 <Tab title="On-Chain" icon="link">
@@ -91,7 +91,7 @@ livepeer -gateway \
   # You will need to connect to a public orchestrator if you are running onchain
   -orchAddr=<ORCHESTRATOR_ADDRESSES> #comma separated list of orchestrators
   # Example:  -orchAddr=https://orch1.example.com:8935,https://orch2.example.com:8935
-  # You can also use a JSON file: -orchAddr=/path/to/orchestrators/orchestrators-portal.json
+  # You can also use a JSON file: -orchAddr=/path/to/orchestrators/portal.json
 
 ```
 
@@ -101,7 +101,7 @@ Livepeer does not currently maintain a list of publicly available Orchestrators.
 - **Network discovery**: The gateway discovers orchestrators from the on-chain registry
 - **Community resources**: Check Livepeer community channels or documentation
 
-Jump to the <DoubleIconLink label="Connect Guide" href="/v2/gateways/run-a-gateway/connect/connect-with-offerings" iconLeft="link" /> for details on connecting to orchestrators.
+Jump to the <DoubleIconLink label="Connect Guide" href="/v2/gateways/setup/connect/connect-with-offerings" iconLeft="link" /> for details on connecting to orchestrators.
 
 </Tab>
 </Tabs>
@@ -232,7 +232,7 @@ flowchart TB
  Set to <Badge color="gray"> `path/to/transcodingOptions.json` </Badge> to use a custom transcoding configuration
 </ResponseField>
 #### Additional On-Chain Flags
-Add these flags for on-chain configuration. See <DoubleIconLink label="On-Chain Setup Guide" href="/v2/gateways/run-a-gateway/requirements/on-chain%20setup/on-chain" iconLeft="link" /> for details.
+Add these flags for on-chain configuration. See <DoubleIconLink label="On-Chain Setup Guide" href="/v2/gateways/setup/requirements/on-chain%20setup/on-chain" iconLeft="link" /> for details.
 
 <CustomResponseField
   name="-network"

@@ -46,13 +46,13 @@ target_files=(
   "v2/orchestrators/advanced/payments.mdx"
   "v2/orchestrators/get-started/realtime-ai-quickstart.mdx"
   "v2/orchestrators/get-started/batch-ai-quickstart.mdx"
-  "v2/orchestrators/get-started/setup-paths.mdx"
+  "v2/orchestrators/guides/setup-paths/setup-navigator.mdx"
 )
 
 # Required migration outcomes from implementation steps.
 migration_required_files=(
-  "v2/orchestrators/get-started/quickstart.mdx"
-  "v2/orchestrators/get-started/join-a-pool.mdx"
+  "v2/orchestrators/quickstart/guide.mdx"
+  "v2/orchestrators/guides/setup-paths/join-a-pool.mdx"
   "v2/orchestrators/get-started/AI-prompt-start.mdx"
 )
 
@@ -61,7 +61,7 @@ legacy_blocked_files=(
   "v2/gateways/run-a-gateway/payments/payment-clearinghouse.mdx"
   "v2/orchestrators/quickstart/overview.mdx"
   "v2/orchestrators/quickstart/join-a-pool.mdx"
-  "v2/orchestrators/quickstart/orchestrator-setup.mdx"
+  "v2/orchestrators/quickstart/guide.mdx"
   "v2/orchestrators/quickstart/realtime-ai-quickstart.mdx"
   "v2/orchestrators/quickstart/batch-ai-quickstart.mdx"
 )

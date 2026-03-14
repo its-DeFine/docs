@@ -30,8 +30,8 @@ function runTests() {
 
   try {
     const routes = getDocsJsonTabRouteKeys('GPU Nodes');
-    assert(routes.includes('v2/orchestrators/tools-and-guides/guides'));
-    assert(routes.includes('v2/orchestrators/tools-and-guides/tooling'));
+    assert(routes.includes('v2/orchestrators/resources/x-guides'));
+    assert(routes.includes('v2/orchestrators/guides/monitoring-and-troubleshooting/tools'));
     assert(!routes.includes('v2/orchestrators/guides/guides'));
     assert(!routes.includes('v2/orchestrators/guides/tooling'));
   } catch (error) {
@@ -45,8 +45,8 @@ function runTests() {
       group: 'Tools and Guides'
     });
     assert.deepStrictEqual(toolsAndGuides, [
-      'v2/orchestrators/tools-and-guides/guides',
-      'v2/orchestrators/tools-and-guides/tooling'
+      'v2/orchestrators/resources/x-guides',
+      'v2/orchestrators/guides/monitoring-and-troubleshooting/tools'
     ]);
   } catch (error) {
     errors.push(`Tools and Guides group derivation failed: ${error.message}`);
@@ -60,17 +60,17 @@ function runTests() {
     });
     const relevant = setupRoutes.filter((route) =>
       [
-        'v2/orchestrators/setup/install-go-livepeer',
-        'v2/orchestrators/setup/orch-config',
-        'v2/orchestrators/setup/connect-to-arbitrum',
-        'v2/orchestrators/setup/publish-offerings'
+        'v2/orchestrators/setup/rs-install',
+        'v2/orchestrators/setup/r-configure',
+        'v2/orchestrators/setup/sc-connect',
+        'v2/orchestrators/setup/activate'
       ].includes(route)
     );
     assert.deepStrictEqual(relevant, [
-      'v2/orchestrators/setup/install-go-livepeer',
-      'v2/orchestrators/setup/orch-config',
-      'v2/orchestrators/setup/connect-to-arbitrum',
-      'v2/orchestrators/setup/publish-offerings'
+      'v2/orchestrators/setup/rs-install',
+      'v2/orchestrators/setup/r-configure',
+      'v2/orchestrators/setup/sc-connect',
+      'v2/orchestrators/setup/activate'
     ]);
   } catch (error) {
     errors.push(`Setup order derivation failed: ${error.message}`);
@@ -83,13 +83,13 @@ function runTests() {
       group: 'Tools and Guides'
     }).map(toRepoPath);
     assert.deepStrictEqual(groupFiles, [
-      'v2/orchestrators/tools-and-guides/guides.mdx',
-      'v2/orchestrators/tools-and-guides/tooling.mdx'
+      'v2/orchestrators/resources/x-guides.mdx',
+      'v2/orchestrators/guides/monitoring-and-troubleshooting/tools.mdx'
     ]);
 
     const tabFiles = getDocsJsonTabFiles('GPU Nodes').map(toRepoPath);
-    assert(tabFiles.includes('v2/orchestrators/tools-and-guides/guides.mdx'));
-    assert(tabFiles.includes('v2/orchestrators/tools-and-guides/tooling.mdx'));
+    assert(tabFiles.includes('v2/orchestrators/resources/x-guides.mdx'));
+    assert(tabFiles.includes('v2/orchestrators/guides/monitoring-and-troubleshooting/tools.mdx'));
     assert(!tabFiles.includes('v2/orchestrators/guides/guides.mdx'));
   } catch (error) {
     errors.push(`docs.json scope file resolution failed: ${error.message}`);

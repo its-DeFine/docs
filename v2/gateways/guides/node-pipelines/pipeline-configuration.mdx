@@ -444,73 +444,75 @@ For the full side-by-side comparison, see <LinkArrow href="./ai-pipelines#ai-vs-
 
 ## Configuration Verification
 
-<Tabs>
-  <Tab title="Video" icon="video">
-    **Check startup log for profile loading:**
+<BorderedBox variant="accent">
+    <Tabs>
+    <Tab title="Video" icon="video">
+        **Check startup log for profile loading:**
 
-    ```
-    I0501 11:07:47.609839  1 mediaserver.go:201] Transcode Job Type: [{480p0 ...} {720p0 ...}]
-    ```
+        ```
+        I0501 11:07:47.609839  1 mediaserver.go:201] Transcode Job Type: [{480p0 ...} {720p0 ...}]
+        ```
 
-    **Send a test stream and check the HLS manifest:**
+        **Send a test stream and check the HLS manifest:**
 
-    ```bash
-    ffprobe http://localhost:8935/<stream-key>.m3u8
-    ```
+        ```bash
+        ffprobe http://localhost:8935/<stream-key>.m3u8
+        ```
 
-    **Update transcoding options at runtime:**
+        **Update transcoding options at runtime:**
 
-    ```bash
-    curl -X POST http://localhost:5935/setTranscodingOptions \
-      -d "transcodingOptions=P240p30fps16x9,P720p30fps16x9"
-    ```
-  </Tab>
-  <Tab title="AI" icon="brain">
-    **Check the health endpoint:**
+        ```bash
+        curl -X POST http://localhost:5935/setTranscodingOptions \
+        -d "transcodingOptions=P240p30fps16x9,P720p30fps16x9"
+        ```
+    </Tab>
+    <Tab title="AI" icon="brain">
+        **Check the health endpoint:**
 
-    ```bash
-    curl -s http://localhost:8935/health
-    ```
+        ```bash
+        curl -s http://localhost:8935/health
+        ```
 
-    **Send a test inference request:**
+        **Send a test inference request:**
 
-    ```bash
-    curl -X POST http://localhost:8935/text-to-image \
-      -H "Content-Type: application/json" \
-      -d '{
-        "model_id": "SG161222/RealVisXL_V4.0_Lightning",
-        "prompt": "a test image",
-        "width": 512,
-        "height": 512,
-        "num_inference_steps": 4,
-        "guidance_scale": 1.5
-      }'
-    ```
+        ```bash
+        curl -X POST http://localhost:8935/text-to-image \
+        -H "Content-Type: application/json" \
+        -d '{
+            "model_id": "SG161222/RealVisXL_V4.0_Lightning",
+            "prompt": "a test image",
+            "width": 512,
+            "height": 512,
+            "num_inference_steps": 4,
+            "guidance_scale": 1.5
+        }'
+        ```
 
-    A JSON response with an `images` array confirms routing is working.
+        A JSON response with an `images` array confirms routing is working.
 
-    **Check connected orchestrators and their capabilities:**
+        **Check connected orchestrators and their capabilities:**
 
-    ```bash
-    curl http://localhost:5935/getOrchestrators
-    ```
-  </Tab>
-  <Tab title="General" icon="terminal">
-    **Check effective configuration via livepeer_cli:**
+        ```bash
+        curl http://localhost:5935/getOrchestrators
+        ```
+    </Tab>
+    <Tab title="General" icon="terminal">
+        **Check effective configuration via livepeer_cli:**
 
-    ```bash
-    livepeer_cli -host 127.0.0.1 -http 5935
-    ```
+        ```bash
+        livepeer_cli -host 127.0.0.1 -http 5935
+        ```
 
-    Option 1 ("Get node status") shows your current deposit, reserve, connected orchestrators, and active sessions.
+        Option 1 ("Get node status") shows your current deposit, reserve, connected orchestrators, and active sessions.
 
-    **Check gateway status:**
+        **Check gateway status:**
 
-    ```bash
-    curl http://localhost:5935/status
-    ```
-  </Tab>
-</Tabs>
+        ```bash
+        curl http://localhost:5935/status
+        ```
+    </Tab>
+    </Tabs>
+</BorderedBox>
 
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 

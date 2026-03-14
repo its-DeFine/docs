@@ -31,7 +31,7 @@ lastVerified: 2026-03-13
 
 By default, go-livepeer runs the orchestrator and transcoder as a single combined process on one machine. The split setup separates them: one machine handles the protocol (on-chain interactions, job routing, reward calling) and one or more machines handle the GPU work. The two connect over the network using a shared secret.
 
-This is the architectural foundation for [running a pool](/v2/orchestrators/advanced/run-a-pool) — a pool is simply the split setup extended to accept connections from external workers.
+This is the architectural foundation for [running a pool](/v2/orchestrators/guides/advanced-operations/run-a-pool) — a pool is simply the split setup extended to accept connections from external workers.
 
 ---
 
@@ -192,7 +192,7 @@ The split O-T setup and a worker pool are the same architecture. The difference 
 | No off-chain payout system needed | Off-chain payout tracking required |
 | Single operator | Multiple participants |
 
-For pool operations — accepting external worker connections and managing off-chain fee distribution — see [Run a Pool](/v2/orchestrators/advanced/run-a-pool).
+For pool operations — accepting external worker connections and managing off-chain fee distribution — see [Run a Pool](/v2/orchestrators/guides/advanced-operations/run-a-pool).
 
 ---
 
@@ -263,7 +263,7 @@ The transcoder's GPU startup test failed, typically because the NVENC session ca
 ---
 
 <CardGroup cols={2}>
-  <Card title="Run a Pool" icon="server" href="/v2/orchestrators/advanced/run-a-pool">
+  <Card title="Run a Pool" icon="server" href="/v2/orchestrators/guides/advanced-operations/run-a-pool">
     Extend this architecture to accept external worker connections — the full pool operations guide.
   </Card>
   <Card title="Siphon Setup" icon="shield-check" href="/v2/orchestrators/guides/setup-paths/siphon-setup">

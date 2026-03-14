@@ -63,7 +63,7 @@ const MIGRATED_V2_DOMAIN_DIRS = new Set([
   'notes'
 ]);
 const MISSING_LINK_ALLOWLIST = new Set([
-  '/gateways/run-a-gateway/test/test-gateway',
+  '/gateways/quickstart/gateway-setup',
   './protocol-economics'
 ]);
 const EXTRA_V2_DIRS = (() => {

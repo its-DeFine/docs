@@ -52,6 +52,7 @@
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
                         "pages": [
                           "v2/gateways/quickstart/gateway-setup",
+                          "v2/gateways/guides/tutorials/byoc-cpu-tutorial",
                           "v2/gateways/quickstart/AI-prompt"
                         ]
                       },
@@ -154,8 +155,8 @@
                               "v2/gateways/guides/payments-and-pricing/payment-guide",
                               "v2/gateways/guides/payments-and-pricing/funding-guide",
                               "v2/gateways/guides/payments-and-pricing/pricing-strategy",
-                              "v2/gateways/guides/payments-and-pricing/clearinghouse-guide",
-                              "v2/gateways/guides/payments-and-pricing/remote-signers"
+                              "v2/gateways/guides/payments-and-pricing/remote-signers",
+                              "v2/gateways/guides/payments-and-pricing/clearinghouse-guide"
                             ]
                           },
                           {
@@ -190,7 +191,6 @@
                           {
                             "group": "Tutorials",
                             "pages": [
-                              "v2/gateways/guides/tutorials/byoc-cpu-tutorial",
                               {
                                 "group": "Gateway-Orchestrator Zero-To-Hero Tutorial",
                                 "pages": [

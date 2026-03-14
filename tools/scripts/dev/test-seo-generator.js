@@ -30,9 +30,9 @@ const testFiles = [
   fs.existsSync('v2/about/portal.mdx')
     ? 'v2/about/portal.mdx'
     : 'v2/about/portal.mdx',
-  fs.existsSync('v2/gateways/gateways-portal.mdx')
-    ? 'v2/gateways/gateways-portal.mdx'
-    : 'v2/gateways/gateways-portal.mdx',
+  fs.existsSync('v2/gateways/portal.mdx')
+    ? 'v2/gateways/portal.mdx'
+    : 'v2/gateways/portal.mdx',
 ]
 
 let allTestsPassed = true

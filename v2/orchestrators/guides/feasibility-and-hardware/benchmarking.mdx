@@ -32,7 +32,7 @@ Before you set a session limit and go live, run `livepeer_bench`. It simulates t
 This page covers: downloading the benchmark assets, running the tool, reading the output, and using the session scaling script to find your hardware ceiling.
 
 <Note>
-  Benchmarking only measures local transcoding capacity. It does not simulate network bandwidth, ticket redemption, or AI inference workloads. For session limit calculation that factors in both hardware and bandwidth, continue to [Bandwidth and Session Limits](/v2/orchestrators/guides/feasibility/session-limits) after completing this guide.
+  Benchmarking only measures local transcoding capacity. It does not simulate network bandwidth, ticket redemption, or AI inference workloads. For session limit calculation that factors in both hardware and bandwidth, continue to [Bandwidth and Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-limits) after completing this guide.
 </Note>
 
 ---
@@ -61,7 +61,7 @@ The key output metric is the **Real-Time Duration Ratio**: total transcoding tim
 livepeer_bench -help
 ```
 
-If the command is not found, check your go-livepeer installation. The binary should be in the same directory as `livepeer` and `livepeer_cli`. See [Install go-livepeer](/v2/orchestrators/setup/install-go-livepeer) if needed.
+If the command is not found, check your go-livepeer installation. The binary should be in the same directory as `livepeer` and `livepeer_cli`. See [Install go-livepeer](/v2/orchestrators/setup/rs-install) if needed.
 </Step>
 
 <Step title="Download the test stream">
@@ -273,13 +273,13 @@ The CSV includes per-segment rows plus the summary table at the end. Strip the s
 
 You now have your **hardware session limit** (the concurrent session count at which ratio ≤ 0.8).
 
-The next step is calculating your **bandwidth limit** and deriving the final `-maxSessions` value you'll pass to go-livepeer. Continue to [Bandwidth and Session Limits](/v2/orchestrators/guides/feasibility/session-limits).
+The next step is calculating your **bandwidth limit** and deriving the final `-maxSessions` value you'll pass to go-livepeer. Continue to [Bandwidth and Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-limits).
 
 <CardGroup cols={2}>
-  <Card title="Bandwidth and Session Limits" icon="gauge" href="/v2/orchestrators/guides/feasibility/session-limits">
+  <Card title="Bandwidth and Session Limits" icon="gauge" href="/v2/orchestrators/guides/feasibility-and-hardware/session-limits">
     Calculate your bandwidth ceiling and set -maxSessions correctly.
   </Card>
-  <Card title="GPU and Hardware Reference" icon="microchip" href="/v2/orchestrators/guides/feasibility/hardware">
+  <Card title="GPU and Hardware Reference" icon="microchip" href="/v2/orchestrators/guides/feasibility-and-hardware/hardware">
     NVENC session caps, VRAM tiers, and the production checklist.
   </Card>
 </CardGroup>

@@ -147,7 +147,7 @@ flowchart TD
 ```
 
 <Note>
-Running both transcoding and AI inference on the same node is supported and common. The two workload types use separate configuration files (`-pricePerUnit` for transcoding, `aiModels.json` for AI) and do not conflict. See [Job Types Overview](/v2/orchestrators/concepts/job-types) for a full comparison.
+Running both transcoding and AI inference on the same node is supported and common. The two workload types use separate configuration files (`-pricePerUnit` for transcoding, `aiModels.json` for AI) and do not conflict. See [Job Types Overview](/v2/orchestrators/guides/workloads-and-ai/job-types) for a full comparison.
 </Note>
 
 **Workload quick reference:**
@@ -159,7 +159,7 @@ Running both transcoding and AI inference on the same node is supported and comm
 | Real-time AI (live-video-to-video) | 8 GB+ VRAM | Per-interval during stream; price advertised per capability | Capability match + latency |
 
 <Tip>
-Gateways filter orchestrators by price before routing work. For video transcoding, your `-pricePerUnit` must be at or below the gateway's `-maxPricePerUnit`. For AI, each capability has its own price ceiling configured on the gateway. If your prices are too high for current market rates, you will not receive work even if your hardware is competitive. Check [Configure Pricing](/v2/orchestrators/setup/configure-pricing) before going live.
+Gateways filter orchestrators by price before routing work. For video transcoding, your `-pricePerUnit` must be at or below the gateway's `-maxPricePerUnit`. For AI, each capability has its own price ceiling configured on the gateway. If your prices are too high for current market rates, you will not receive work even if your hardware is competitive. Check [Configure Pricing](/v2/orchestrators/setup/r-configure) before going live.
 </Tip>
 
 ---
@@ -199,11 +199,11 @@ flowchart TD
   <Card title="Siphon Split Setup" icon="shield-check" href="/v2/orchestrators/guides/setup-paths/siphon-setup">
     Keep your keystore on a secure machine; run your GPU on a separate worker machine. The reward-safe path.
   </Card>
-  <Card title="Feasibility and Economics" icon="scale-balanced" href="/v2/orchestrators/guides/feasibility/feasibility-economics">
+  <Card title="Feasibility and Economics" icon="scale-balanced" href="/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics">
     Not sure if it is worth it? Review the full cost and revenue breakdown before committing to hardware.
   </Card>
 </CardGroup>
 
-<Card title="Job Types Overview" icon="list-check" href="/v2/orchestrators/concepts/job-types">
+<Card title="Job Types Overview" icon="list-check" href="/v2/orchestrators/guides/workloads-and-ai/job-types">
   Understand the four workload categories — transcoding, batch AI, real-time AI, and LLM — before you configure your node.
 </Card>

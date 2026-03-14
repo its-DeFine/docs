@@ -128,8 +128,8 @@ git checkout docs-v2
 
 **Why it matters here:** Two substantial architecture diagrams are **commented out** in the existing MDX files, almost certainly because they were too complex to render cleanly in-page:
 
-- `v2/gateways/references/technical-architecture.mdx` — Marketplace Interaction Model (commented out)
-- `v2/gateways/references/technical-architecture.mdx` — BYOC Container Architecture (commented out)
+- `v2/gateways/resources/technical/technical-architecture.mdx` — Marketplace Interaction Model (commented out)
+- `v2/gateways/resources/technical/technical-architecture.mdx` — BYOC Container Architecture (commented out)
 
 These are exactly the diagrams that orchestrator and gateway operator audiences need most.
 
@@ -279,7 +279,7 @@ Regenerate before major handovers or when onboarding new maintainers.
 ### Week 2: Diagram Rescue Pilot
 
 - Generate diagram artifacts for the two commented Mermaid diagrams in:
-  - `v2/gateways/references/technical-architecture.mdx`
+  - `v2/gateways/resources/technical/technical-architecture.mdx`
 - Keep links internal during the pilot (do not publish into user-facing pages yet).
 
 ### Weeks 3-4: Evidence and Onboarding
@@ -330,7 +330,7 @@ Outputs should remain out-of-repo and follow the naming convention in this guide
 | File | Relevance to Visual Explainer Use |
 |---|---|
 | `docs.json` | Navigation structure — primary target for `/diff-review` on nav PRs |
-| `v2/gateways/references/technical-architecture.mdx` | Contains commented-out BYOC and Marketplace diagrams to rescue |
+| `v2/gateways/resources/technical/technical-architecture.mdx` | Contains commented-out BYOC and Marketplace diagrams to rescue |
 | `v2/gateways/about/architecture.mdx` | English gateway architecture page with diagrams that may benefit from full-page outputs |
 | `tools/scripts/` | Target for `/fact-check` script claim verification |
 | `.github/workflows/` | Target for `/fact-check` workflow claim verification |

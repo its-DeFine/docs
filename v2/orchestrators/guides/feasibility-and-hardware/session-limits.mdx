@@ -32,7 +32,7 @@ Your session limit is the ceiling on how many concurrent transcoding streams you
 This page explains how to calculate both your bandwidth limit and hardware limit, then combine them into the right `-maxSessions` value.
 
 <Note>
-  Complete [Benchmarking Your Setup](/v2/orchestrators/guides/feasibility/benchmarking) first. That process gives you the hardware limit number this page uses as an input.
+  Complete [Benchmarking Your Setup](/v2/orchestrators/guides/feasibility-and-hardware/benchmarking) first. That process gives you the hardware limit number this page uses as an input.
 </Note>
 
 ---
@@ -102,7 +102,7 @@ Your session limit is the **minimum** of your hardware limit and your bandwidth 
 session limit = min(hardware limit, bandwidth limit)
 ```
 
-**Hardware limit** — the last concurrent session count in your benchmark where the Real-Time Duration Ratio was ≤ 0.8. See [Benchmarking Your Setup](/v2/orchestrators/guides/feasibility/benchmarking).
+**Hardware limit** — the last concurrent session count in your benchmark where the Real-Time Duration Ratio was ≤ 0.8. See [Benchmarking Your Setup](/v2/orchestrators/guides/feasibility-and-hardware/benchmarking).
 
 **Bandwidth limit** — calculated above from your available symmetric bandwidth.
 
@@ -204,13 +204,13 @@ The `capacity` field limits concurrent inference requests to that pipeline. AI c
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Benchmarking Your Setup" icon="gauge-high" href="/v2/orchestrators/guides/feasibility/benchmarking">
+  <Card title="Benchmarking Your Setup" icon="gauge-high" href="/v2/orchestrators/guides/feasibility-and-hardware/benchmarking">
     Run livepeer_bench to measure your hardware session ceiling.
   </Card>
   <Card title="Models and VRAM Reference" icon="memory" href="/v2/orchestrators/guides/workloads/model-vram-reference">
     AI inference capacity — VRAM tiers, warm model strategy, and the capacity field.
   </Card>
-  <Card title="Feasibility and Economics" icon="scale-balanced" href="/v2/orchestrators/guides/feasibility/feasibility-economics">
+  <Card title="Feasibility and Economics" icon="scale-balanced" href="/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics">
     Full cost and revenue breakdown before you commit to setup.
   </Card>
   <Card title="Metrics and Monitoring" icon="chart-mixed" href="/v2/orchestrators/guides/monitoring/metrics">

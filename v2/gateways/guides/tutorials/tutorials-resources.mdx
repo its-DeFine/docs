@@ -56,7 +56,7 @@ Verify:
 **What it covers:** Running an off-chain AI gateway using Docker — flags, ports, `-httpIngest`, `-orchAddr`, expected startup logs. Includes the confirmed Docker command using `livepeer/go-livepeer:master`.
 **Format:** Configuration reference + walkthrough
 **Level:** Intermediate
-**Link:** https://docs.livepeer.org/gateways/run-a-gateway/configure/ai-configuration
+**Link:** https://docs.livepeer.org/gateways/setup/configure/ai-configuration
 **Status:** Live — content verified from repo upload during research
 
 > **Note:** The existing page contains one known error: it states you need your own GPU to test an off-chain gateway. This is wrong. The community remote signer at `signer.eliteencoder.net` handles ETH on your behalf. Treat this page as a reference for flags only.
@@ -67,7 +67,7 @@ Verify:
 **What it covers:** Installing and running go-livepeer as a gateway via Docker. Includes volume mounts (`-v ~/.lpData`), network config (`--network host`), and port mapping.
 **Format:** Step-by-step install guide
 **Level:** Beginner
-**Link:** https://docs.livepeer.org/gateways/run-a-gateway/install/docker-install
+**Link:** https://docs.livepeer.org/gateways/setup/install/docker-install
 **Status:** Live in docs-v2 repo (confirmed via GitHub MCP — file exists and has content)
 
 ---
@@ -153,7 +153,7 @@ Verify:
 **What it covers:** Running a single node that handles both RTMP video transcoding (port 1935) and AI inference jobs (port 8937) simultaneously. Flag combinations and conflict avoidance.
 **Format:** Configuration guide
 **Level:** Advanced
-**Link:** https://docs.livepeer.org/gateways/run-a-gateway/configure/dual-configuration
+**Link:** https://docs.livepeer.org/gateways/setup/configure/dual-configuration
 **Status:** `[VERIFY]` — page confirmed in docs.json nav; content quality unknown
 
 ---
@@ -168,7 +168,7 @@ Verify:
 **What it covers:** Binary install on Linux amd64 — download, verify, set up keystore, first run. Includes Docker path and build-from-source option.
 **Format:** Step-by-step install guide
 **Level:** Beginner
-**Link:** https://docs.livepeer.org/orchestrators/setting-up-an-orchestrator/install-go-livepeer
+**Link:** https://docs.livepeer.org/orchestrators/setup/rs-install
 **Status:** Confirmed in docs-v2 repo (5,418-byte file, GitHub MCP)
 
 ---
@@ -186,7 +186,7 @@ Verify:
 **What it covers:** Pointing your orchestrator at an Arbitrum One RPC, wallet setup, on-chain activation, and verifying you appear in Explorer.
 **Format:** Step-by-step guide
 **Level:** Intermediate
-**Link:** https://docs.livepeer.org/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum
+**Link:** https://docs.livepeer.org/orchestrators/setup/sc-connect
 **Status:** Confirmed — file exists (1,665 bytes), content not fully retrieved
 
 ---
@@ -195,7 +195,7 @@ Verify:
 **What it covers:** After activation — advertising your service address, capability list, and pricing to the network so gateways can discover and route to you.
 **Format:** Step-by-step guide
 **Level:** Intermediate
-**Link:** https://docs.livepeer.org/orchestrators/setting-up-an-orchestrator/publish-offerings
+**Link:** https://docs.livepeer.org/orchestrators/setup/activate
 **Status:** Confirmed — file exists (1,344 bytes), GitHub MCP
 
 ---

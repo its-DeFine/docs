@@ -31,7 +31,7 @@ lastVerified: 2026-03-13
 
 This page is for people who are considering running a Livepeer orchestrator but haven't committed yet. It covers the real costs, revenue ceiling questions, and practical decision points — so you can make an honest assessment before spending time on setup.
 
-If you've already decided to run a node and just need to set it up, go directly to [Setup Paths](/v2/orchestrators/get-started/setup-paths).
+If you've already decided to run a node and just need to set it up, go directly to [Setup Paths](/v2/orchestrators/guides/setup-paths/setup-navigator).
 
 ---
 
@@ -46,7 +46,7 @@ Orchestrators earn from two sources. Understanding both matters before you begin
 
 Neither stream pays from day one without setup. ETH fees require gateways to route work to you. LPT rewards require bonded LPT, an active orchestrator registration, and a running node that calls `Reward()` each round.
 
-For the full mechanics, see [Earnings Explained](/v2/orchestrators/guides/staking/earnings).
+For the full mechanics, see [Earnings Explained](/v2/orchestrators/guides/staking-and-rewards/earnings).
 
 ---
 
@@ -64,7 +64,7 @@ The primary upfront cost. You need at least one NVIDIA GPU.
 - **AI inference (batch):** 8–24 GB VRAM depending on which pipelines you want to run. An RTX 3090 (24 GB) is the practical minimum for competitive diffusion pipelines.
 - **AI inference (real-time / Cascade):** 24 GB VRAM minimum. Real-time pipelines are more demanding than batch.
 
-See [GPU and Hardware Reference](/v2/orchestrators/guides/feasibility/hardware) for specific per-workload requirements.
+See [GPU and Hardware Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware) for specific per-workload requirements.
 
 Hardware you already own has zero ongoing cost. Hardware you're buying to run Livepeer has an amortisation cost you should model explicitly: if you spend £800 on an RTX 4090 and earn £30/month, the payback period is over 2 years before electricity.
 
@@ -154,7 +154,7 @@ Calling `Reward()` costs gas. If your stake is small, the LPT you'd receive per 
 
 A rough check: open [explorer.livepeer.org](https://explorer.livepeer.org) and find your orchestrator's "Estimated Reward This Round." If that LPT value (converted to ETH at the current price) is less than approximately 0.00005 ETH ($0.12 at ETH=$2,500), the gas cost may exceed the reward. In that case, start with manual reward calling until your stake grows.
 
-This threshold changes with LPT price, ETH price, and inflation rate. It is not a fixed number. See [Rewards and Fees](/v2/orchestrators/guides/staking/rewards-and-fees) for the detailed calculation.
+This threshold changes with LPT price, ETH price, and inflation rate. It is not a fixed number. See [Rewards and Fees](/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees) for the detailed calculation.
 
 ### 2. Can I compete on pricing and capability?
 
@@ -219,16 +219,16 @@ Check these before setting up a node:
 ## Continue
 
 <CardGroup cols={2}>
-  <Card title="GPU and Hardware Reference" icon="microchip" href="/v2/orchestrators/guides/feasibility/hardware">
+  <Card title="GPU and Hardware Reference" icon="microchip" href="/v2/orchestrators/guides/feasibility-and-hardware/hardware">
     Which GPU for which workloads, NVENC session caps, and production hardware checklist.
   </Card>
-  <Card title="Benchmarking Your Setup" icon="gauge-high" href="/v2/orchestrators/guides/feasibility/benchmarking">
+  <Card title="Benchmarking Your Setup" icon="gauge-high" href="/v2/orchestrators/guides/feasibility-and-hardware/benchmarking">
     Test your GPU's actual transcoding capacity with livepeer_bench before going live.
   </Card>
-  <Card title="Setup Paths — Navigator" icon="map" href="/v2/orchestrators/get-started/setup-paths">
+  <Card title="Setup Paths — Navigator" icon="map" href="/v2/orchestrators/guides/setup-paths/setup-navigator">
     Decided? Choose your setup path: pool worker, solo orchestrator, or pool operator.
   </Card>
-  <Card title="Earnings Explained" icon="chart-line" href="/v2/orchestrators/guides/staking/earnings">
+  <Card title="Earnings Explained" icon="chart-line" href="/v2/orchestrators/guides/staking-and-rewards/earnings">
     Full mechanics of how ETH fees and LPT rewards flow to your wallet.
   </Card>
 </CardGroup>

@@ -195,8 +195,8 @@ async function runTests() {
 
     assert.strictEqual(result.fileCount, 2);
     const analyzedFiles = (result.jsonReport?.files || []).map((file) => file.file || file.filePath || '');
-    assert(analyzedFiles.some((file) => file.endsWith('v2/orchestrators/tools-and-guides/guides.mdx')));
-    assert(analyzedFiles.some((file) => file.endsWith('v2/orchestrators/tools-and-guides/tooling.mdx')));
+    assert(analyzedFiles.some((file) => file.endsWith('v2/orchestrators/resources/x-guides.mdx')));
+    assert(analyzedFiles.some((file) => file.endsWith('v2/orchestrators/guides/monitoring-and-troubleshooting/tools.mdx')));
     assert(analyzedFiles.every((file) => !file.includes('v2/orchestrators/guides/')));
   });
 

@@ -39,7 +39,7 @@
     "Daydream SDKs": null
   },
   "GATEWAYS": {
-    "Gateways Portal": "v2/gateways/gateways-portal.mdx",
+    "Gateways Portal": "v2/gateways/portal.mdx",
     "What is a Gateway?": "v2/gateways/about/explainer.mdx",
     "Gateway Requirements & Economics": "v2/gateways/about/economics.mdx",
     "Gateway Quickstart": "v2/gateways/quickstart/gateway-setup.mdx",
@@ -50,8 +50,8 @@
     "Using Cloud SPE Gateway": "v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx",
     "Using Daydream Gateway": "v2/gateways/using-gateways/gateway-providers/daydream-gateway.mdx",
     "Using Studio Gateway": null,
-    "CLI Reference": "v2/gateways/references/cli-commands.mdx",
-    "Configuration Flags": "v2/gateways/references/configuration-flags.mdx",
+    "CLI Reference": "v2/gateways/resources/technical/cli-commands.mdx",
+    "Configuration Flags": "v2/gateways/resources/technical/configuration-flags.mdx",
     "Hardware Requirements": "v2/gateways/about/architecture.mdx",
     "Prometheus Metrics": null,
     "AI API Reference": null,
@@ -59,15 +59,15 @@
     "Gateway FAQ": "v2/gateways/guides-and-resources/faq.mdx"
   },
   "GPU NODES": {
-    "GPU Nodes Portal": "v2/orchestrators/orchestrators-portal.mdx",
+    "GPU Nodes Portal": "v2/orchestrators/portal.mdx",
     "What is an Orchestrator?": "v2/orchestrators/concepts/overview.mdx",
     "Orchestrator Requirements & Economics": "v2/orchestrators/concepts/economics.mdx",
-    "Join a Pool": "v2/orchestrators/get-started/join-a-pool.mdx",
-    "Orchestrator Quickstart": "v2/orchestrators/get-started/quickstart.mdx",
-    "Configuring AI on Your Orchestrator": "v2/orchestrators/advanced/ai-pipelines.mdx",
+    "Join a Pool": "v2/orchestrators/guides/setup-paths/join-a-pool.mdx",
+    "Orchestrator Quickstart": "v2/orchestrators/quickstart/guide.mdx",
+    "Configuring AI on Your Orchestrator": "v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide.mdx",
     "Model Curation Strategy": null,
-    "Orchestrator Earnings & Optimisation": "v2/orchestrators/advanced/earnings.mdx",
-    "Hardware Requirements": "v2/orchestrators/setup/hardware-requirements.mdx",
+    "Orchestrator Earnings & Optimisation": "v2/orchestrators/guides/staking-and-rewards/earnings.mdx",
+    "Hardware Requirements": "v2/orchestrators/setup/rcs-requirements.mdx",
     "CLI Flags Reference": "v2/orchestrators/resources/cli-flags.mdx",
     "Orchestrator Troubleshooting": null,
     "Orchestrator FAQ": "v2/orchestrators/resources/faq.mdx"

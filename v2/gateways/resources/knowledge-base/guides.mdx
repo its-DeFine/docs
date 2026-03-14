@@ -33,7 +33,7 @@ This index covers operator-side setup. If you are a developer looking to **use**
   <Card title="go-livepeer Releases (GitHub)" href="https://github.com/livepeer/go-livepeer/releases" icon="download">
     Official binary releases for Linux (amd64 and arm64). Always download a tagged release for production use.
   </Card>
-  <Card title="Why Run a Gateway" href="https://docs.livepeer.org/gateways/run-a-gateway/why-run-a-gateway" icon="lightbulb">
+  <Card title="Why Run a Gateway" href="https://docs.livepeer.org/gateways/guides/operator-considerations/business-case" icon="lightbulb">
     Business case for self-hosting: cost savings at scale, full orchestrator control, lower latency, and inference fee capture.
   </Card>
 </CardGroup>
@@ -64,7 +64,7 @@ Off-chain mode removes all Ethereum dependencies from the gateway. No ETH, no Ar
   <Card title="Remote Signers Design Doc (PR #3822)" href="https://github.com/livepeer/go-livepeer/pull/3822" icon="file-code">
     Canonical technical specification for remote signing by j0sh. PM bookkeeping, state design, alternatives considered, and security implications.
   </Card>
-  <Card title="AI Configuration Reference" href="https://docs.livepeer.org/gateways/run-a-gateway/configure/ai-configuration" icon="sliders">
+  <Card title="AI Configuration Reference" href="https://docs.livepeer.org/gateways/setup/configure/ai-configuration" icon="sliders">
     AI-specific flags: `-aiWorker`, `-orchAddr`, `-remoteSignerAddr`, ports, and startup log verification.
   </Card>
 </CardGroup>
@@ -101,19 +101,19 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
 ## Video gateway (on-chain transcoding)
 
 <CardGroup cols={2}>
-  <Card title="Run a Video Gateway" href="https://docs.livepeer.org/gateways/run-a-gateway/run-a-gateway" icon="video">
+  <Card title="Run a Video Gateway" href="https://docs.livepeer.org/gateways/setup/run-a-gateway" icon="video">
     Full setup for a video transcoding gateway: RTMP input on port 1935, on-chain ETH key, Arbitrum RPC, and orchestrator connection.
   </Card>
   <Card title="On-chain Requirements" href="https://docs.livepeer.org/gateways/run-a-gateway/requirements/on-chain" icon="ethereum">
     ETH deposit and reserve requirements, Arbitrum RPC setup, wallet management, and the `livepeer_cli` commands to deposit and activate.
   </Card>
-  <Card title="Video Configuration" href="https://docs.livepeer.org/gateways/run-a-gateway/configure/video-configuration" icon="gear">
+  <Card title="Video Configuration" href="https://docs.livepeer.org/gateways/setup/configure/video-configuration" icon="gear">
     Video-specific flags: `-broadcaster`, RTMP port, transcode profiles, segment size, and webhook auth config.
   </Card>
-  <Card title="Advanced Transcoding Config" href="https://docs.livepeer.org/gateways/run-a-gateway/transcoding" icon="sliders">
+  <Card title="Advanced Transcoding Config" href="https://docs.livepeer.org/gateways/setup/transcoding" icon="sliders">
     Output profiles, per-capability pricing, and `setbroadcastconfig` CLI commands for production transcoding setups.
   </Card>
-  <Card title="Bridge LPT to Arbitrum" href="https://docs.livepeer.org/gateways/references/bridge-lpt-to-arbitrum" icon="bridge-water">
+  <Card title="Bridge LPT to Arbitrum" href="https://docs.livepeer.org/gateways/resources/technical/bridge-lpt-to-arbitrum" icon="bridge-water">
     How to move LPT from Ethereum mainnet to Arbitrum One for on-chain registration and staking.
   </Card>
   <Card title="Livepeer Explorer" href="https://explorer.livepeer.org" icon="chart-bar">
@@ -126,7 +126,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
 ## Dual gateway (video and AI on the same node)
 
 <CardGroup cols={2}>
-  <Card title="Dual Configuration Guide" href="https://docs.livepeer.org/gateways/run-a-gateway/configure/dual-configuration" icon="layer-group">
+  <Card title="Dual Configuration Guide" href="https://docs.livepeer.org/gateways/setup/configure/dual-configuration" icon="layer-group">
     Run video transcoding and AI inference from the same go-livepeer instance. Port assignments, flag combinations, and pitfalls to avoid.
   </Card>
   <Card title="Gateway Architecture Overview" href="https://docs.livepeer.org/gateways/about/architecture" icon="diagram-project">
@@ -142,7 +142,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
   <Card title="How Payments Work" href="https://docs.livepeer.org/gateways/payments/how-payments-work" icon="circle-dollar-to-slot">
     PM mechanics: ticket face value, per-pixel pricing for AI inference, per-segment pricing for video, deposit/reserve lifecycle.
   </Card>
-  <Card title="Pricing Configuration" href="https://docs.livepeer.org/gateways/run-a-gateway/configure/pricing-configuration" icon="tag">
+  <Card title="Pricing Configuration" href="https://docs.livepeer.org/gateways/setup/configure/pricing-configuration" icon="tag">
     Set `-maxPricePerUnit` and `-maxPricePerCapability`, format the AI pricing JSON, and understand price negotiation between gateway and orchestrators.
   </Card>
   <Card title="Payment Clearinghouse" href="https://docs.livepeer.org/gateways/payments/payment-clearinghouse" icon="building-columns">
@@ -151,7 +151,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
   <Card title="NaaP Dashboard (JWT Auth Demo)" href="https://github.com/livepeer/naap" icon="id-card">
     Network as a Platform dashboard. Implements JWT issuer service (SIWE → user-scoped JWT) and Developer API Keys. Reference for building user auth on top of a remote signer.
   </Card>
-  <Card title="Arbitrum Exchanges Reference" href="https://docs.livepeer.org/gateways/references/arbitrum-exchanges" icon="arrows-rotate">
+  <Card title="Arbitrum Exchanges Reference" href="https://docs.livepeer.org/gateways/resources/technical/arbitrum-exchanges" icon="arrows-rotate">
     Exchanges where you can acquire ETH on Arbitrum One for gateway PM deposits.
   </Card>
 </CardGroup>
@@ -161,10 +161,10 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
 ## Orchestrator discovery
 
 <CardGroup cols={2}>
-  <Card title="Connect with Orchestrator Offerings" href="https://docs.livepeer.org/gateways/run-a-gateway/connect/connect-with-offerings" icon="link">
+  <Card title="Connect with Orchestrator Offerings" href="https://docs.livepeer.org/gateways/setup/connect/connect-with-offerings" icon="link">
     How an on-chain gateway discovers and selects orchestrators: stake-weighted for video, capability-based for AI.
   </Card>
-  <Card title="Discover Orchestrator Offerings" href="https://docs.livepeer.org/gateways/run-a-gateway/connect/discover-offerings" icon="magnifying-glass">
+  <Card title="Discover Orchestrator Offerings" href="https://docs.livepeer.org/gateways/setup/connect/discover-offerings" icon="magnifying-glass">
     Browsing available orchestrators by capability, model support, and pricing via the Livepeer Marketplace.
   </Card>
   <Card title="select_orchestrator.py Example (SDK)" href="https://github.com/j0sh/livepeer-python-gateway/blob/main/examples/select_orchestrator.py" icon="python">
@@ -180,7 +180,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
 ## Monitoring and operations
 
 <CardGroup cols={2}>
-  <Card title="Monitor and Optimise" href="https://docs.livepeer.org/gateways/run-a-gateway/monitor/monitor-and-optimise" icon="gauge">
+  <Card title="Monitor and Optimise" href="https://docs.livepeer.org/gateways/setup/monitor/monitor-and-optimise" icon="gauge">
     Key metrics, ETH balance monitoring, ticket redemption rates, and log patterns indicating payment or session failures.
   </Card>
   <Card title="Gateway Introspection with Loki" href="https://docs.livepeer.org/gateways/gateway-tools/gateway-introspection" icon="magnifying-glass-chart">
@@ -221,7 +221,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
 ## Gateway-as-a-Service (Provider persona)
 
 <CardGroup cols={2}>
-  <Card title="Gateway Operator Opportunities" href="https://docs.livepeer.org/gateways/run-a-gateway/gateway-operator-opportunities" icon="briefcase">
+  <Card title="Gateway Operator Opportunities" href="https://docs.livepeer.org/gateways/guides/opportunities/overview" icon="briefcase">
     Revenue models: inference fees, SPE grants, Foundation programmes, and the NaaP approach to building a gateway business on top of the Livepeer network.
   </Card>
   <Card title="Livepeer.Cloud — How to Run a Gateway Node" href="https://livepeer.cloud/how-to-run-a-livepeer-gateway-node" icon="cloud">

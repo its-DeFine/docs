@@ -172,7 +172,7 @@ audience: developer
 \`\`\`
 `;
 
-    const landingPage = analyzeMdxPage({ content: landingContent, filePath: 'v2/gateways/gateways-portal.mdx', routePath: '/v2/gateways/gateways-portal' });
+    const landingPage = analyzeMdxPage({ content: landingContent, filePath: 'v2/gateways/portal.mdx', routePath: '/v2/gateways/portal' });
     const referencePage = analyzeMdxPage({ content: referenceContent, filePath: 'v2/developers/api-reference.mdx', routePath: '/v2/developers/api-reference' });
 
     const landingScore = scorePage(landingPage, { rubric: loadRubric() });

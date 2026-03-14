@@ -64,7 +64,7 @@ Errors are grouped by category. Use the index below to jump straight to what you
 3. If you are already at GPU VRAM limits, you cannot safely increase sessions — you need to reduce the model size, reduce output dimensions, or add GPU capacity
 4. If you are running a split setup, verify the transcoder machine (not just the orchestrator) has capacity headroom
 
-See [Session Limits](/v2/orchestrators/guides/feasibility/session-limits) for the full calculation methodology.
+See [Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-limits) for the full calculation methodology.
 </Accordion>
 
 <Accordion title="Transcode loop timed out / Segment loop timed out">
@@ -123,7 +123,7 @@ See [Session Limits](/v2/orchestrators/guides/feasibility/session-limits) for th
 3. If you have multiple warm models loaded, consider making some cold (remove from warm list) to free VRAM for others
 4. Check whether you have set dimensions in your inference requests that exceed what your VRAM can handle
 
-See [Model VRAM Reference](/v2/orchestrators/guides/feasibility/hardware#ai-vram-requirements) for per-pipeline minimums.
+See [Model VRAM Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware#ai-vram-requirements) for per-pipeline minimums.
 </Accordion>
 
 <Accordion title="Node not using GPU for transcoding despite -nvidia flag">
@@ -203,7 +203,7 @@ For persistent missed rounds, consider the [Siphon split setup](/v2/orchestrator
 |---|---|---|
 | Wrong Docker image tag | `docker logs livepeer-ai-runner` shows image pull error | Use the correct versioned tag from `aiModels.json` documentation |
 | VRAM insufficient | `docker logs livepeer-ai-runner` shows CUDA OOM at startup | Reduce loaded models, free VRAM, or check minimum requirements |
-| NVIDIA Container Toolkit missing | `docker run --gpus all nvidia/cuda:11.0-base nvidia-smi` fails | Install `nvidia-container-toolkit` — see [Hardware Reference](/v2/orchestrators/guides/feasibility/hardware#nvidia-container-toolkit) |
+| NVIDIA Container Toolkit missing | `docker run --gpus all nvidia/cuda:11.0-base nvidia-smi` fails | Install `nvidia-container-toolkit` — see [Hardware Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware#nvidia-container-toolkit) |
 | Docker not in GPU mode | Container starts but no GPU visible inside | Pass `--gpus all` or `--gpus device=<id>` in docker run |
 </Accordion>
 

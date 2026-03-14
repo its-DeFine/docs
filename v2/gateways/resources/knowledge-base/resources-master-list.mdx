@@ -18,7 +18,7 @@ How-to guides, tutorials, and walkthroughs for running Livepeer gateways.
 
 1. **[Official Gateway Setup Guide](https://docs.livepeer.org/gateways/run-a-gateway/gateway-setup)** — Canonical quickstart in these docs. Binary or Docker install, essential flags, verify the node is running. Official.
 2. **[Livepeer Gateway Path (Decision Matrix)](https://docs.livepeer.org/gateways/gateway-path)** — Video vs AI gateway, on-chain vs off-chain, hosted service vs self-hosted. Choose your entry point before touching any config. Official.
-3. **[Why Run a Gateway](https://docs.livepeer.org/gateways/run-a-gateway/why-run-a-gateway)** — Business case: cost savings at scale, full orchestrator control, lower latency, inference fee capture. Official.
+3. **[Why Run a Gateway](https://docs.livepeer.org/gateways/guides/operator-considerations/business-case)** — Business case: cost savings at scale, full orchestrator control, lower latency, inference fee capture. Official.
 4. **[go-livepeer Releases](https://github.com/livepeer/go-livepeer/releases)** — Official binary releases for Linux amd64 and arm64. Always download a tagged release for production.
 5. **[Gateway Architecture Overview](https://docs.livepeer.org/gateways/about/architecture)** — System architecture covering on-chain gateway, off-chain gateway, dual mode, and the remote signer model. Official.
 
@@ -30,7 +30,7 @@ How-to guides, tutorials, and walkthroughs for running Livepeer gateways.
 9. **[Remote Signers: Design and Setup (Docs)](https://docs.livepeer.org/gateways/payments/remote-signers)** — Signing protocol walkthrough (getOrchInfoSig → signTicket), stateless design rationale, and how to point a gateway at a remote signer. Official.
 10. **[Elite Encoder Remote Signer (Community-hosted)](https://signer.eliteencoder.net/)** — Publicly available remote signer with free ETH for testing off-chain gateways. Confirmed operational by Elite Encoder in #local-gateways Discord.
 11. **[Orchestrator Discovery for Off-chain Gateways (SDK examples)](https://github.com/j0sh/livepeer-python-gateway/tree/main/examples)** — Three discovery methods demonstrated: explicit orchAddr list, discovery webhook URL, remote signer GetOrchestrators endpoint. j0sh / Livepeer.
-12. **[AI Configuration Reference](https://docs.livepeer.org/gateways/run-a-gateway/configure/ai-configuration)** — AI-specific flags: `-aiWorker`, `-orchAddr`, `-remoteSignerAddr`, ports, and startup log verification. Official.
+12. **[AI Configuration Reference](https://docs.livepeer.org/gateways/setup/configure/ai-configuration)** — AI-specific flags: `-aiWorker`, `-orchAddr`, `-remoteSignerAddr`, ports, and startup log verification. Official.
 13. **[select_orchestrator.py (SDK example)](https://github.com/j0sh/livepeer-python-gateway/blob/main/examples/select_orchestrator.py)** — Discovery and selection via the remote signer's GetOrchestrators endpoint, filtered by model ID and capability. Python gateway SDK.
 14. **[Elite Encoder Orch List Endpoint Proposal](https://github.com/eliteprox/go-livepeer/commit/bf6f151dde3508646439f993610899ac04ee3f42)** — Proposed HTTP endpoint for off-chain gateways to retrieve on-chain orchestrator lists without a full Ethereum dependency. Community.
 
@@ -47,21 +47,21 @@ How-to guides, tutorials, and walkthroughs for running Livepeer gateways.
 
 ### Video gateway setup (on-chain)
 
-23. **[Run a Video Gateway](https://docs.livepeer.org/gateways/run-a-gateway/run-a-gateway)** — Full on-chain video transcoding gateway setup: RTMP input, ETH key, Arbitrum RPC, orchestrator connection. Official.
+23. **[Run a Video Gateway](https://docs.livepeer.org/gateways/setup/run-a-gateway)** — Full on-chain video transcoding gateway setup: RTMP input, ETH key, Arbitrum RPC, orchestrator connection. Official.
 24. **[On-chain Requirements](https://docs.livepeer.org/gateways/run-a-gateway/requirements/on-chain)** — ETH deposit and reserve requirements, Arbitrum RPC setup, wallet management, and `livepeer_cli` commands to deposit and activate. Official.
-25. **[Video Configuration](https://docs.livepeer.org/gateways/run-a-gateway/configure/video-configuration)** — Video-specific flags: `-broadcaster`, RTMP port, transcode profiles, segment size, and webhook auth config. Official.
-26. **[Advanced Transcoding Config](https://docs.livepeer.org/gateways/run-a-gateway/transcoding)** — Output profiles, per-capability pricing, and `setbroadcastconfig` CLI commands for production transcoding. Official.
-27. **[Bridge LPT to Arbitrum](https://docs.livepeer.org/gateways/references/bridge-lpt-to-arbitrum)** — How to move LPT from Ethereum mainnet to Arbitrum One for on-chain registration and staking. Official.
+25. **[Video Configuration](https://docs.livepeer.org/gateways/setup/configure/video-configuration)** — Video-specific flags: `-broadcaster`, RTMP port, transcode profiles, segment size, and webhook auth config. Official.
+26. **[Advanced Transcoding Config](https://docs.livepeer.org/gateways/setup/transcoding)** — Output profiles, per-capability pricing, and `setbroadcastconfig` CLI commands for production transcoding. Official.
+27. **[Bridge LPT to Arbitrum](https://docs.livepeer.org/gateways/resources/technical/bridge-lpt-to-arbitrum)** — How to move LPT from Ethereum mainnet to Arbitrum One for on-chain registration and staking. Official.
 28. **[Livepeer Gateway Node Setup (YouTube — Titan Node)](https://www.youtube.com/results?search_query=livepeer+gateway+setup+titan+node)** — Community video walkthrough of the full gateway setup process. Binary install, flags, on-chain registration. Community.
 
 ### Dual gateway (video + AI)
 
-29. **[Dual Configuration Guide](https://docs.livepeer.org/gateways/run-a-gateway/configure/dual-configuration)** — Run video transcoding and AI inference from the same go-livepeer instance. Port assignments, flag combinations, pitfalls. Official.
+29. **[Dual Configuration Guide](https://docs.livepeer.org/gateways/setup/configure/dual-configuration)** — Run video transcoding and AI inference from the same go-livepeer instance. Port assignments, flag combinations, pitfalls. Official.
 
 ### Payments and economics
 
 30. **[How Payments Work](https://docs.livepeer.org/gateways/payments/how-payments-work)** — PM mechanics: ticket face value, per-pixel pricing for AI, per-segment pricing for video, deposit/reserve lifecycle. Official.
-31. **[Pricing Configuration](https://docs.livepeer.org/gateways/run-a-gateway/configure/pricing-configuration)** — Set `-maxPricePerUnit` and `-maxPricePerCapability`, format the AI pricing JSON, price negotiation between gateway and orchestrators. Official.
+31. **[Pricing Configuration](https://docs.livepeer.org/gateways/setup/configure/pricing-configuration)** — Set `-maxPricePerUnit` and `-maxPricePerCapability`, format the AI pricing JSON, price negotiation between gateway and orchestrators. Official.
 32. **[Payment Clearinghouse](https://docs.livepeer.org/gateways/payments/payment-clearinghouse)** — What a clearinghouse is (remote signer + user management + auth + accounting), current status, and NaaP dashboard as reference implementation. Official.
 33. **[NaaP Dashboard: JWT Auth Demo](https://github.com/livepeer/naap)** — Developer API Keys section implementing JWT issuer service (SIWE → user-scoped JWT). Reference for building user auth on top of a remote signer. Qiang Han / Livepeer.
 34. **[JWT Issuer Service Implementation (Elite Encoder)](https://forum.livepeer.org)** — SIWE flow via `/auth/login` endpoint, JWT tied to eth address, drafted into NaaP dashboard. Described in #local-gateways Discord. Community.
@@ -69,20 +69,20 @@ How-to guides, tutorials, and walkthroughs for running Livepeer gateways.
 
 ### Orchestrator discovery
 
-36. **[Connect with Orchestrator Offerings](https://docs.livepeer.org/gateways/run-a-gateway/connect/connect-with-offerings)** — How an on-chain gateway connects to orchestrators: stake-weighted for video, capability-based for AI. Official.
-37. **[Discover Orchestrator Offerings](https://docs.livepeer.org/gateways/run-a-gateway/connect/discover-offerings)** — Browse available orchestrators by capability, model support, and pricing via the Livepeer Marketplace. Official.
-38. **[Livepeer Marketplace](https://docs.livepeer.org/gateways/run-a-gateway/connect/lp-marketplace)** — How the on-chain marketplace works: publishing, pricing, and capability advertisement. Official.
+36. **[Connect with Orchestrator Offerings](https://docs.livepeer.org/gateways/setup/connect/connect-with-offerings)** — How an on-chain gateway connects to orchestrators: stake-weighted for video, capability-based for AI. Official.
+37. **[Discover Orchestrator Offerings](https://docs.livepeer.org/gateways/setup/connect/discover-offerings)** — Browse available orchestrators by capability, model support, and pricing via the Livepeer Marketplace. Official.
+38. **[Livepeer Marketplace](https://docs.livepeer.org/gateways/setup/connect/lp-marketplace)** — How the on-chain marketplace works: publishing, pricing, and capability advertisement. Official.
 
 ### Monitoring and operations
 
-39. **[Monitor and Optimise](https://docs.livepeer.org/gateways/run-a-gateway/monitor/monitor-and-optimise)** — Key metrics, ETH balance monitoring, ticket redemption rates, log patterns for payment and session failures. Official.
+39. **[Monitor and Optimise](https://docs.livepeer.org/gateways/setup/monitor/monitor-and-optimise)** — Key metrics, ETH balance monitoring, ticket redemption rates, log patterns for payment and session failures. Official.
 40. **[Gateway Introspection with Loki](https://docs.livepeer.org/gateways/gateway-tools/gateway-introspection)** — Query gateway logs via Loki API at `loki.livepeer.report`. Pre-built queries for session starts, payment failures, orchestrator errors. Official.
 41. **[Gateway Middleware](https://docs.livepeer.org/gateways/gateway-tools/gateway-middleware)** — Auth, rate limiting, and request routing in front of your gateway. Patterns for the Gateway-as-a-Service model using go-livepeer webhook hooks. Official.
 42. **[Production Log Monitoring for Gateways (Forum)](https://forum.livepeer.org)** — Detailed forum guide on structured logging, alerting, pattern matching for production nodes. Search "Production Log Monitoring" on the forum.
 
 ### Gateway-as-a-Service (Provider persona)
 
-43. **[Gateway Operator Opportunities](https://docs.livepeer.org/gateways/run-a-gateway/gateway-operator-opportunities)** — Revenue models: inference fees, SPE grants, Foundation programmes, the NaaP approach to building a gateway business. Official.
+43. **[Gateway Operator Opportunities](https://docs.livepeer.org/gateways/guides/opportunities/overview)** — Revenue models: inference fees, SPE grants, Foundation programmes, the NaaP approach to building a gateway business. Official.
 44. **[Livepeer.Cloud — How to Run a Gateway Node](https://livepeer.cloud/how-to-run-a-livepeer-gateway-node)** — Livepeer.Cloud SPE's own operator guide. Real-world operational detail from an active multi-region gateway provider. SPE community.
 
 ### Contributing to gateway repos

@@ -54,7 +54,7 @@ Before choosing a path, answer these two questions honestly.
 | Real-time AI (Cascade) | NVIDIA RTX 3090 (24 GB VRAM) | RTX 4090 / A100 |
 | LLM inference only | NVIDIA RTX 3060 Ti (8 GB VRAM) | RTX 3090+ |
 
-NVIDIA GPUs only. AMD and Apple Silicon are not supported by go-livepeer's AI runner. See [Hardware Requirements](/v2/orchestrators/guides/feasibility/hardware) for the full spec list.
+NVIDIA GPUs only. AMD and Apple Silicon are not supported by go-livepeer's AI runner. See [Hardware Requirements](/v2/orchestrators/guides/feasibility-and-hardware/hardware) for the full spec list.
 </Accordion>
 
 <Accordion title="Do I need LPT to participate?">
@@ -71,7 +71,7 @@ If you cannot stake enough LPT to compete but want to earn network fees, the poo
 
 **If you answered yes to hardware and LPT, continue to Step 2. If you want GPU earnings without protocol ops, skip to [Path 1: Pool Worker](#path-1-pool-worker).**
 
-Not sure if running an orchestrator is economically viable for your specific setup? Review [Feasibility and Economics](/v2/orchestrators/guides/feasibility/feasibility-economics) first.
+Not sure if running an orchestrator is economically viable for your specific setup? Review [Feasibility and Economics](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics) first.
 
 ---
 
@@ -105,7 +105,7 @@ Not sure if running an orchestrator is economically viable for your specific set
 | **Reward safety** | Pool handles it | Risk if node is busy | Siphon runs independently | Dedicated reward infra |
 | **Setup complexity** | Low | Medium | Medium | High |
 | **AI inference ready** | Depends on pool | Yes, with aiModels.json | Yes | Yes |
-| **Start here** | → [Join a Pool](/v2/orchestrators/setup/join-a-pool) | → [Setup Guide](/v2/orchestrators/setup/guide) | → [Siphon Setup](/v2/orchestrators/setup/siphon-setup) | → Contact us |
+| **Start here** | → [Join a Pool](/v2/orchestrators/guides/setup-paths/join-a-pool) | → [Setup Guide](/v2/orchestrators/setup/guide) | → [Siphon Setup](/v2/orchestrators/guides/setup-paths/siphon-setup) | → Contact us |
 
 ---
 
@@ -131,7 +131,7 @@ Your GPU Node
 
 **You can run both on the same node.** Most production operators run video transcoding alongside AI inference. If your GPU has limited VRAM (under 16 GB), you can start with LLM inference and `audio-to-text`, which run comfortably at 8–12 GB.
 
-For the full breakdown of what each workload earns and requires, see [Job Types](/v2/orchestrators/concepts/job-types).
+For the full breakdown of what each workload earns and requires, see [Job Types](/v2/orchestrators/guides/workloads-and-ai/job-types).
 
 ---
 
@@ -163,7 +163,7 @@ You connect your GPU as a transcoder or AI worker that a pool orchestrator point
 - Docker and NVIDIA Container Toolkit
 - An Ethereum address to receive payouts
 
-<Card title="Join a Pool — Full Guide" icon="swimming-pool" href="/v2/orchestrators/setup/join-a-pool" arrow>
+<Card title="Join a Pool — Full Guide" icon="swimming-pool" href="/v2/orchestrators/guides/setup-paths/join-a-pool" arrow>
   Step-by-step instructions for joining Titan Node, understanding the connection models, and starting to earn.
 </Card>
 
@@ -193,7 +193,7 @@ The standard path. One machine runs the full go-livepeer binary as both orchestr
 <Steps>
   <Step title="Hardware and feasibility">
     Review the hardware requirements and do an economics sense-check before setting up.
-    [Hardware Requirements](/v2/orchestrators/guides/feasibility/hardware) · [Feasibility and Economics](/v2/orchestrators/guides/feasibility/feasibility-economics)
+    [Hardware Requirements](/v2/orchestrators/guides/feasibility-and-hardware/hardware) · [Feasibility and Economics](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics)
   </Step>
   <Step title="Install go-livepeer">
     Download and install the go-livepeer binary or Docker image.
@@ -205,7 +205,7 @@ The standard path. One machine runs the full go-livepeer binary as both orchestr
   </Step>
   <Step title="Configure pricing and session limits">
     Set your transcoding price, maximum sessions, and AI pipeline configuration.
-    [Session Limits](/v2/orchestrators/guides/feasibility/session-limits) · [Pricing Setup](/v2/orchestrators/setup/pricing)
+    [Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-limits) · [Pricing Setup](/v2/orchestrators/setup/r-configure)
   </Step>
   <Step title="Add AI workloads (optional)">
     Configure aiModels.json to earn fees from AI inference alongside transcoding.
@@ -250,7 +250,7 @@ The split setup separates two concerns across different machines:
   You can run OrchestratorSiphon as a passive orchestrator with no GPU attached. Stake LPT, register your service URI as inactive, and collect inflation rewards while you prepare your GPU setup. When ready, update the service URI to point to your go-livepeer GPU machine and go active.
 </Tip>
 
-<Card title="Siphon Setup — Full Guide" icon="shield-halved" href="/v2/orchestrators/setup/siphon-setup" arrow>
+<Card title="Siphon Setup — Full Guide" icon="shield-halved" href="/v2/orchestrators/guides/setup-paths/siphon-setup" arrow>
   Complete installation and configuration guide for OrchestratorSiphon, systemd service setup, and verifying the split works.
 </Card>
 
@@ -274,11 +274,11 @@ This path extends the split setup to a fleet model. The architecture is the same
 
 | If you are... | Start with | Then continue to |
 |---|---|---|
-| A home miner with 1–2 GPUs and no LPT | [Join a Pool](/v2/orchestrators/setup/join-a-pool) | [Feasibility](/v2/orchestrators/guides/feasibility/feasibility-economics) (when considering solo) |
-| A solo operator wanting full control | [Setup Guide](/v2/orchestrators/setup/guide) | [Session Limits](/v2/orchestrators/guides/feasibility/session-limits) → [Pricing Setup](/v2/orchestrators/setup/pricing) |
-| An operator wanting key security + reward safety | [Siphon Setup](/v2/orchestrators/setup/siphon-setup) | [Setup Guide](/v2/orchestrators/setup/guide) (GPU machine) |
+| A home miner with 1–2 GPUs and no LPT | [Join a Pool](/v2/orchestrators/guides/setup-paths/join-a-pool) | [Feasibility](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics) (when considering solo) |
+| A solo operator wanting full control | [Setup Guide](/v2/orchestrators/setup/guide) | [Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-limits) → [Pricing Setup](/v2/orchestrators/setup/r-configure) |
+| An operator wanting key security + reward safety | [Siphon Setup](/v2/orchestrators/guides/setup-paths/siphon-setup) | [Setup Guide](/v2/orchestrators/setup/guide) (GPU machine) |
 | An existing transcoding orchestrator adding AI | [AI Workloads Overview](/v2/orchestrators/concepts/ai-workloads) | [Batch AI Setup](/v2/orchestrators/guides/ai-workloads/batch-ai-setup) |
-| Evaluating whether it's worth it at all | [Feasibility and Economics](/v2/orchestrators/guides/feasibility/feasibility-economics) | [Benchmarking](/v2/orchestrators/guides/feasibility/benchmarking) |
+| Evaluating whether it's worth it at all | [Feasibility and Economics](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics) | [Benchmarking](/v2/orchestrators/guides/feasibility-and-hardware/benchmarking) |
 | A data centre / multi-node operator | [Contact the team](https://discord.gg/livepeer) | Fleet Ops (advanced) |
 
 ---
@@ -302,13 +302,13 @@ This path extends the split setup to a fleet model. The architecture is the same
 ---
 
 <CardGroup cols={2}>
-  <Card title="Feasibility and Economics" icon="scale-balanced" href="/v2/orchestrators/guides/feasibility/feasibility-economics">
+  <Card title="Feasibility and Economics" icon="scale-balanced" href="/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics">
     Cost breakdown, revenue expectations, and the decision matrix before committing to setup.
   </Card>
-  <Card title="Job Types" icon="layer-group" href="/v2/orchestrators/concepts/job-types">
+  <Card title="Job Types" icon="layer-group" href="/v2/orchestrators/guides/workloads-and-ai/job-types">
     Video transcoding, batch AI, real-time AI, and LLM — what each workload earns and requires.
   </Card>
-  <Card title="Hardware Requirements" icon="microchip" href="/v2/orchestrators/guides/feasibility/hardware">
+  <Card title="Hardware Requirements" icon="microchip" href="/v2/orchestrators/guides/feasibility-and-hardware/hardware">
     GPU tiers, VRAM requirements, driver versions, and the pre-launch checklist.
   </Card>
   <Card title="Setup Guide" icon="rocket" href="/v2/orchestrators/setup/guide">

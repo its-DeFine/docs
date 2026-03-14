@@ -470,11 +470,11 @@ Once your off-chain smoke test passes, follow this path to move to a production 
 
     Options for acquiring Arbitrum ETH:
     - Bridge from Ethereum mainnet via the [official Arbitrum bridge](https://bridge.arbitrum.io/)
-    - Buy directly on Arbitrum via exchanges listed at the [Arbitrum Exchanges reference](/v2/gateways/references/arbitrum-exchanges)
+    - Buy directly on Arbitrum via exchanges listed at the [Arbitrum Exchanges reference](/v2/gateways/resources/technical/arbitrum-exchanges)
     - Buy on a CEX (Coinbase, Binance) and withdraw directly to Arbitrum One
 
     <Warning>
-    Confirm current ETH deposit requirements in [#lounge on Discord](https://discord.gg/livepeer) or the [on-chain requirements page](/v2/gateways/run-a-gateway/requirements/on-chain) before depositing — amounts can change as ETH/USD rates shift.
+    Confirm current ETH deposit requirements in [#lounge on Discord](https://discord.gg/livepeer) or the [on-chain requirements page](/v2/gateways/setup/requirements/on-chain%20setup/on-chain) before depositing — amounts can change as ETH/USD rates shift.
     </Warning>
   </Step>
 
@@ -495,7 +495,7 @@ Once your off-chain smoke test passes, follow this path to move to a production 
     Your on-chain gateway needs a reliable Arbitrum One RPC. Options:
     - [Infura](https://infura.io) — `https://arbitrum-mainnet.infura.io/v3/YOUR_KEY`
     - [Alchemy](https://alchemy.com) — `https://arb-mainnet.g.alchemy.com/v2/YOUR_KEY`
-    - Community Arbitrum RPC (see [Arbitrum RPC reference](/v2/gateways/references/arbitrum-rpc))
+    - Community Arbitrum RPC (see [Arbitrum RPC reference](/v2/gateways/resources/technical/arbitrum-rpc))
 
     Test your RPC:
     ```bash
@@ -600,7 +600,7 @@ Once your off-chain smoke test passes, follow this path to move to a production 
   <Card title="Payment clearinghouse" href="/v2/gateways/payments/payment-clearinghouse" icon="building-columns">
     Build a Gateway-as-a-Service layer: JWT auth, user management, accounting on top of the remote signer model (NaaP reference implementation).
   </Card>
-  <Card title="Monitoring and optimisation" href="/v2/gateways/run-a-gateway/monitor/monitor-and-optimise" icon="gauge">
+  <Card title="Monitoring and optimisation" href="/v2/gateways/setup/monitor/monitor-and-optimise" icon="gauge">
     Set up Prometheus metrics, Loki log queries, and ETH balance alerts for production gateway operation.
   </Card>
 </CardGroup>
