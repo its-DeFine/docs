@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-14T15:24:21.730Z",
+  "generated": "2026-03-14T17:21:43.863Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/portal",
@@ -3891,6 +3891,74 @@
       "codeLanguages": [
         "jsx"
       ]
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/tooling/reference-maps/icon-map",
+      "title": "Icon Map",
+      "description": "Proposed icon-to-usage map for tabs, accordions, cards, and guide navigation across current Livepeer docs.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "icon-map",
+        "fontawesome",
+        "reference-map",
+        "docs-guide",
+        "authoring",
+        "tooling",
+        "reference-maps"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 905,
+      "lastVerified": "2026-03-15T02:24:20+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Scope"
+        },
+        {
+          "level": 2,
+          "text": "Section Jump"
+        },
+        {
+          "level": 2,
+          "text": "Review Queue"
+        },
+        {
+          "level": 3,
+          "text": "Inline Review Notes"
+        },
+        {
+          "level": 3,
+          "text": "`wand-magic-sparkles`"
+        },
+        {
+          "level": 3,
+          "text": "`book`"
+        },
+        {
+          "level": 3,
+          "text": "`server`"
+        },
+        {
+          "level": 3,
+          "text": "`tools`"
+        },
+        {
+          "level": 3,
+          "text": "`coins`"
+        },
+        {
+          "level": 3,
+          "text": "`link`"
+        },
+        {
+          "level": 2,
+          "text": "Data Location"
+        }
+      ],
+      "codeLanguages": []
     }
   ]
 }

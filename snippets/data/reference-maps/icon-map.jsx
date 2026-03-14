@@ -572,16 +572,16 @@ export const iconMapReviewQueue = [
   {
     icon: 'wand-magic-sparkles',
     issue:
-      'Currently overloaded across AI hubs, preview badges, and general emphasis.',
+      'Overloaded across AI entry surfaces, product cards, quickstarts, badges, and managed-platform choices.',
     recommendation:
-      'Reserve it for AI-first jump pads, preview labels, and top-level AI entry points. Use `brain-circuit` or `microchip-ai` lower in the stack.',
+      'Keep `wand-magic-sparkles` for AI entry surfaces only. Use product icons for named solutions, `bolt` for quickstarts, a badge-specific icon set for badges, and `cloud` for managed or hosted platforms.',
   },
   {
     icon: 'book',
     issue:
-      'Used for both broad docs links and more specific guide collections.',
+      'Overloaded across generic guides, external docs, technical guides, references, tutorials, and GitHub links.',
     recommendation:
-      'Keep `book` for generic documentation or resources. Prefer `book-open` when the destination is a guide collection, docs repo, or reading-oriented reference.',
+      'Keep `book` for non-technical guides and concepts. Use product or external-link icons for external docs, `laptop-file` for technical guides, tutorial-specific icons for tutorials, resource/reference icons for references, and `github` for GitHub destinations.',
   },
   {
     icon: 'server',
