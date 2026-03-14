@@ -536,11 +536,6 @@ function buildScopedMetadata(selection, optionData, allRoutes, scopedRoutes) {
   };
 }
 
-function ensureWorkspaceScaffold(repoRoot, workspaceDir) {
-  const overrideNames = new Set(['docs.json', '.mintignore', '.lpd-scope.json']);
-  syncWorkspaceTree(repoRoot, workspaceDir, { skipNames: overrideNames });
-}
-
 function pathExists(pathname) {
   try {
     fs.lstatSync(pathname);
@@ -578,37 +573,383 @@ function ensureLinkedFile(source, target) {
   fs.symlinkSync(source, target, 'file');
 }
 
-function syncWorkspaceTree(sourceDir, targetDir, options = {}) {
-  const { skipNames = new Set() } = options;
+function ensureWrittenFile(target, content) {
+  const desiredContent = String(content || '');
 
-  ensureRealDirectory(targetDir);
+  if (pathExists(target)) {
+    const stats = fs.lstatSync(target);
+    if (stats.isFile() && !stats.isSymbolicLink()) {
+      const current = fs.readFileSync(target, 'utf8');
+      if (current === desiredContent) {
+        return;
+      }
+    }
 
-  const sourceEntries = fs.readdirSync(sourceDir, { withFileTypes: true });
-  const sourceNames = new Set();
+    fs.rmSync(target, { recursive: true, force: true });
+  }
 
-  for (const entry of sourceEntries) {
-    const name = entry.name;
-    if (skipNames.has(name)) continue;
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  fs.writeFileSync(target, desiredContent, 'utf8');
+}
 
-    sourceNames.add(name);
+function toPosixPath(value) {
+  return String(value || '').split(path.sep).join('/');
+}
 
-    const source = path.join(sourceDir, name);
-    const target = path.join(targetDir, name);
+function normalizeRepoRelativePath(repoRoot, absolutePath) {
+  return toPosixPath(path.relative(repoRoot, absolutePath)).replace(/^\/+/, '');
+}
 
-    if (entry.isDirectory()) {
-      syncWorkspaceTree(source, target);
+function isSafeRepoRelativePath(relPath) {
+  return Boolean(relPath) && relPath !== '.' && !relPath.startsWith('../');
+}
+
+function routeToFileCandidates(routeValue) {
+  const route = normalizeRoute(routeValue).replace(/\.(md|mdx)$/i, '');
+  if (!route) return [];
+  return [`${route}.mdx`, `${route}.md`, `${route}/index.mdx`, `${route}/index.md`, `${route}/README.mdx`, `${route}/README.md`];
+}
+
+function resolveFirstExistingRepoFile(repoRoot, candidates) {
+  for (const candidate of candidates) {
+    const absolute = path.resolve(candidate);
+    if (!absolute.startsWith(repoRoot)) continue;
+    if (!pathExists(absolute)) continue;
+    const stats = fs.lstatSync(absolute);
+    if (!stats.isFile()) continue;
+    const relPath = normalizeRepoRelativePath(repoRoot, absolute);
+    if (!isSafeRepoRelativePath(relPath)) continue;
+    return relPath;
+  }
+  return '';
+}
+
+function resolveRouteToRepoFile(repoRoot, routeValue) {
+  const normalizedRoute = normalizeRoute(routeValue);
+  if (!normalizedRoute) return '';
+  const candidates = routeToFileCandidates(normalizedRoute).map((candidate) => path.resolve(repoRoot, candidate));
+  return resolveFirstExistingRepoFile(repoRoot, candidates);
+}
+
+function buildImportResolutionCandidates(basePath) {
+  const extension = path.extname(basePath).toLowerCase();
+  if (extension) {
+    return [basePath];
+  }
+
+  const candidates = [basePath];
+  ['.js', '.jsx', '.ts', '.tsx', '.mdx', '.md', '.json', '.css', '.svg'].forEach((ext) => {
+    candidates.push(`${basePath}${ext}`);
+  });
+  ['index.js', 'index.jsx', 'index.ts', 'index.tsx', 'index.mdx', 'index.md', 'index.json', 'index.css'].forEach((name) => {
+    candidates.push(path.join(basePath, name));
+  });
+  return candidates;
+}
+
+function resolveRepoFileReference(repoRoot, importerRelPath, reference, options = {}) {
+  const raw = String(reference || '').trim();
+  if (!raw) return '';
+
+  const sanitized = raw.split('#')[0].split('?')[0].trim();
+  if (!sanitized) return '';
+  if (/^(?:[A-Za-z][A-Za-z+.-]*:|#)/.test(sanitized)) return '';
+
+  let basePath = '';
+  if (sanitized.startsWith('/')) {
+    basePath = path.resolve(repoRoot, sanitized.replace(/^\/+/, ''));
+  } else if (sanitized.startsWith('.')) {
+    if (!importerRelPath) return '';
+    basePath = path.resolve(repoRoot, path.dirname(importerRelPath), sanitized);
+  } else if (String(options.kind || 'import') === 'route' && importerRelPath) {
+    basePath = path.resolve(repoRoot, path.dirname(importerRelPath), sanitized);
+  } else if (/^(?:v1|v2|snippets|docs-guide|tools|tests)\//.test(sanitized)) {
+    basePath = path.resolve(repoRoot, sanitized);
+  } else {
+    return '';
+  }
+
+  if (!basePath.startsWith(repoRoot)) return '';
+  const kind = String(options.kind || 'import');
+  if (kind === 'route') {
+    return resolveRouteToRepoFile(repoRoot, normalizeRepoRelativePath(repoRoot, basePath));
+  }
+
+  const candidates = buildImportResolutionCandidates(basePath);
+  return resolveFirstExistingRepoFile(repoRoot, candidates);
+}
+
+function extractImportReferences(content) {
+  const source = String(content || '');
+  const refs = new Set();
+  const importRegex =
+    /^import\s+(?:(?:\{[^}]*\}|\*\s+as\s+\w+|\w+)(?:\s*,\s*(?:\{[^}]*\}|\*\s+as\s+\w+|\w+))*\s+from\s+)?['"]([^'"]+)['"];?/gm;
+  const requireRegex = /\brequire\(\s*['"]([^'"]+)['"]\s*\)/g;
+  const dynamicImportRegex = /\bimport\(\s*['"]([^'"]+)['"]\s*\)/g;
+
+  let match;
+  while ((match = importRegex.exec(source)) !== null) refs.add(match[1]);
+  while ((match = requireRegex.exec(source)) !== null) refs.add(match[1]);
+  while ((match = dynamicImportRegex.exec(source)) !== null) refs.add(match[1]);
+  return [...refs];
+}
+
+function extractAssetReferences(content, extension) {
+  const source = String(content || '');
+  const refs = new Set();
+  const normalizedExt = String(extension || '').toLowerCase();
+
+  if (normalizedExt === '.css') {
+    const cssUrlRegex = /url\(\s*['"]?([^"')]+)['"]?\s*\)/g;
+    let match;
+    while ((match = cssUrlRegex.exec(source)) !== null) {
+      refs.add(match[1]);
+    }
+    return [...refs];
+  }
+
+  const markdownImageRegex = /!\[[^\]]*]\(([^)]+)\)/g;
+  const jsxAssetRegex = /\b(?:src|poster|img)\s*=\s*["']([^"']+)["']/g;
+  const jsxLiteralAssetRegex = /\b(?:src|poster|img)\s*=\s*\{["']([^"']+)["']\}/g;
+
+  let match;
+  while ((match = markdownImageRegex.exec(source)) !== null) refs.add(match[1]);
+  while ((match = jsxAssetRegex.exec(source)) !== null) refs.add(match[1]);
+  while ((match = jsxLiteralAssetRegex.exec(source)) !== null) refs.add(match[1]);
+  return [...refs];
+}
+
+function collectDocsConfigFileReferences(node, out = new Set()) {
+  if (typeof node === 'string') {
+    const value = String(node || '').trim();
+    if (!value) return out;
+    if (/^(?:https?:\/\/|mailto:|tel:|#)/i.test(value)) return out;
+    if ((value.startsWith('/') || /^(?:v1|v2|snippets|docs-guide|tools|tests)\//.test(value)) && /\.[A-Za-z0-9]+(?:[?#].*)?$/.test(value)) {
+      out.add(value);
+    }
+    return out;
+  }
+
+  if (Array.isArray(node)) {
+    node.forEach((entry) => collectDocsConfigFileReferences(entry, out));
+    return out;
+  }
+
+  if (!node || typeof node !== 'object') {
+    return out;
+  }
+
+  Object.values(node).forEach((value) => collectDocsConfigFileReferences(value, out));
+  return out;
+}
+
+function isGeneratedPagesIndexFile(filePath, content) {
+  if (path.basename(filePath) !== 'index.mdx') return false;
+  const body = String(content || '');
+  return body.includes('generated-file-banner:v1') && body.includes('tools/scripts/generate-pages-index.js');
+}
+
+function looksLikeRepoLink(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return false;
+  if (/^(?:https?:\/\/|mailto:|tel:|#)/i.test(raw)) return false;
+  return (
+    raw.startsWith('/') ||
+    raw.startsWith('./') ||
+    raw.startsWith('../') ||
+    /^v[12]\//.test(raw) ||
+    raw.includes('/') ||
+    /\.(?:md|mdx)$/i.test(raw)
+  );
+}
+
+function rewriteGeneratedIndexContentForScope(repoRoot, fileRelPath, content, includedFiles) {
+  const lines = String(content || '').split('\n');
+  const markdownLinkRegex = /\[[^\]]+]\(([^)]+)\)/;
+  const rewritten = [];
+
+  for (const line of lines) {
+    const match = line.match(markdownLinkRegex);
+    if (!match) {
+      rewritten.push(line);
       continue;
     }
 
-    ensureLinkedFile(source, target);
+    const target = String(match[1] || '').trim();
+    if (!looksLikeRepoLink(target)) {
+      rewritten.push(line);
+      continue;
+    }
+
+    const resolved = resolveRepoFileReference(repoRoot, fileRelPath, target, { kind: 'route' });
+    if (!resolved) {
+      continue;
+    }
+    if (!includedFiles.has(resolved)) {
+      continue;
+    }
+
+    rewritten.push(line);
   }
 
-  for (const name of fs.readdirSync(targetDir)) {
-    if (skipNames.has(name)) continue;
-    if (!sourceNames.has(name)) {
-      fs.rmSync(path.join(targetDir, name), { recursive: true, force: true });
+  return `${rewritten.join('\n').replace(/\n*$/, '\n')}`;
+}
+
+function addWorkspaceEntry(entries, relPath, entry) {
+  const normalizedPath = toPosixPath(relPath).replace(/^\/+/, '');
+  if (!normalizedPath) return;
+  entries.set(normalizedPath, entry);
+}
+
+function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
+  const includedFiles = new Set();
+  const routeFiles = new Set();
+  const queue = [];
+  const seen = new Set();
+
+  const enqueue = (relPath) => {
+    const normalizedPath = toPosixPath(relPath).replace(/^\/+/, '');
+    if (!normalizedPath || seen.has(normalizedPath)) return;
+    seen.add(normalizedPath);
+    includedFiles.add(normalizedPath);
+    queue.push(normalizedPath);
+  };
+
+  for (const route of scopedRoutes) {
+    const resolved = resolveRouteToRepoFile(repoRoot, route);
+    if (!resolved) {
+      throw new Error(`Scoped route does not resolve to a file: ${route}`);
+    }
+    routeFiles.add(resolved);
+    enqueue(resolved);
+  }
+
+  for (const reference of collectDocsConfigFileReferences(scopedDocs)) {
+    const resolved = resolveRepoFileReference(repoRoot, '', reference, { kind: 'import' });
+    if (resolved) {
+      enqueue(resolved);
     }
   }
+
+  while (queue.length > 0) {
+    const fileRelPath = queue.shift();
+    const absolutePath = path.join(repoRoot, fileRelPath);
+    if (!pathExists(absolutePath)) continue;
+    const extension = path.extname(fileRelPath).toLowerCase();
+
+    if (!['.md', '.mdx', '.js', '.jsx', '.ts', '.tsx', '.css'].includes(extension)) {
+      continue;
+    }
+
+    const content = fs.readFileSync(absolutePath, 'utf8');
+
+    extractImportReferences(content).forEach((reference) => {
+      const resolved = resolveRepoFileReference(repoRoot, fileRelPath, reference, { kind: 'import' });
+      if (resolved) enqueue(resolved);
+    });
+
+    extractAssetReferences(content, extension).forEach((reference) => {
+      const resolved = resolveRepoFileReference(repoRoot, fileRelPath, reference, { kind: 'import' });
+      if (resolved && !/\.(md|mdx)$/i.test(resolved)) {
+        enqueue(resolved);
+      }
+    });
+  }
+
+  const entries = new Map();
+  [...includedFiles].sort((left, right) => left.localeCompare(right)).forEach((fileRelPath) => {
+    const absolutePath = path.join(repoRoot, fileRelPath);
+    if (!pathExists(absolutePath)) return;
+
+    const content = /\.(?:md|mdx)$/i.test(fileRelPath) ? fs.readFileSync(absolutePath, 'utf8') : '';
+    if (routeFiles.has(fileRelPath) && isGeneratedPagesIndexFile(fileRelPath, content)) {
+      addWorkspaceEntry(entries, fileRelPath, {
+        type: 'content',
+        content: rewriteGeneratedIndexContentForScope(repoRoot, fileRelPath, content, includedFiles)
+      });
+      return;
+    }
+
+    addWorkspaceEntry(entries, fileRelPath, {
+      type: 'symlink',
+      source: absolutePath
+    });
+  });
+
+  return {
+    entries,
+    routeFiles,
+    includedFiles
+  };
+}
+
+function collectWorkspaceParentDirs(fileEntries) {
+  const dirs = new Set();
+  dirs.add('');
+
+  for (const relPath of fileEntries.keys()) {
+    const segments = String(relPath || '')
+      .split('/')
+      .filter(Boolean);
+
+    for (let index = 1; index < segments.length; index += 1) {
+      dirs.add(segments.slice(0, index).join('/'));
+    }
+  }
+
+  return dirs;
+}
+
+function pruneWorkspaceTree(workspaceDir, currentRelDir, desiredDirs, desiredFiles) {
+  const absoluteDir = currentRelDir ? path.join(workspaceDir, currentRelDir) : workspaceDir;
+  if (!pathExists(absoluteDir)) return;
+
+  const entries = fs.readdirSync(absoluteDir, { withFileTypes: true });
+  for (const entry of entries) {
+    const relPath = currentRelDir ? `${currentRelDir}/${entry.name}` : entry.name;
+    const absolutePath = path.join(workspaceDir, relPath);
+
+    if (entry.isDirectory()) {
+      if (!desiredDirs.has(relPath)) {
+        fs.rmSync(absolutePath, { recursive: true, force: true });
+        continue;
+      }
+      pruneWorkspaceTree(workspaceDir, relPath, desiredDirs, desiredFiles);
+      continue;
+    }
+
+    if (!desiredFiles.has(relPath)) {
+      fs.rmSync(absolutePath, { recursive: true, force: true });
+    }
+  }
+}
+
+function syncScopedWorkspace(workspaceDir, fileEntries) {
+  ensureRealDirectory(workspaceDir);
+
+  const desiredDirs = collectWorkspaceParentDirs(fileEntries);
+  [...desiredDirs]
+    .sort((left, right) => {
+      const depthDiff = left.split('/').filter(Boolean).length - right.split('/').filter(Boolean).length;
+      return depthDiff !== 0 ? depthDiff : left.localeCompare(right);
+    })
+    .forEach((relDirPath) => {
+      if (!relDirPath) return;
+      ensureRealDirectory(path.join(workspaceDir, relDirPath));
+    });
+
+  [...fileEntries.entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .forEach(([relPath, entry]) => {
+      const absoluteTarget = path.join(workspaceDir, relPath);
+      if (entry.type === 'content') {
+        ensureWrittenFile(absoluteTarget, entry.content);
+        return;
+      }
+      ensureLinkedFile(entry.source, absoluteTarget);
+    });
+
+  pruneWorkspaceTree(workspaceDir, '', desiredDirs, new Set(fileEntries.keys()));
 }
 
 function sortStringsForIdentity(values) {
@@ -1225,14 +1566,21 @@ async function createScopedProfile(args) {
   const scopedMintignore = buildScopedMintignore(mintignoreBase, metadata);
   const scopeHash = createWorkspaceHash(args.repoRoot, docsPath, selection, args.workspaceId || '');
   const workspaceDir = path.join(args.workspaceBase, scopeHash);
+  const workspaceProjection = buildScopedWorkspaceEntries(args.repoRoot, scopedDocs, scopedRoutes);
 
   if (!args.printOnly) {
-    ensureWorkspaceScaffold(args.repoRoot, workspaceDir);
-    fs.writeFileSync(path.join(workspaceDir, 'docs.json'), `${JSON.stringify(scopedDocs, null, 2)}\n`, 'utf8');
-    fs.writeFileSync(path.join(workspaceDir, '.mintignore'), scopedMintignore, 'utf8');
-    fs.writeFileSync(
-      path.join(workspaceDir, '.lpd-scope.json'),
-      `${JSON.stringify(
+    const fileEntries = new Map(workspaceProjection.entries);
+    addWorkspaceEntry(fileEntries, 'docs.json', {
+      type: 'content',
+      content: `${JSON.stringify(scopedDocs, null, 2)}\n`
+    });
+    addWorkspaceEntry(fileEntries, '.mintignore', {
+      type: 'content',
+      content: scopedMintignore
+    });
+    addWorkspaceEntry(fileEntries, '.lpd-scope.json', {
+      type: 'content',
+      content: `${JSON.stringify(
         {
           generatedAt: new Date().toISOString(),
           sourceRepoRoot: args.repoRoot,
@@ -1241,13 +1589,14 @@ async function createScopedProfile(args) {
           routeCounts: {
             original: allRoutes.length,
             scoped: scopedRoutes.length
-          }
+          },
+          workspaceFileCount: workspaceProjection.includedFiles.size
         },
         null,
         2
-      )}\n`,
-      'utf8'
-    );
+      )}\n`
+    });
+    syncScopedWorkspace(workspaceDir, fileEntries);
   }
 
   return {
@@ -1259,6 +1608,7 @@ async function createScopedProfile(args) {
       original: allRoutes.length,
       scoped: scopedRoutes.length
     },
+    workspaceFileCount: workspaceProjection.includedFiles.size,
     disabledOpenapi: Boolean(selection.disableOpenapi)
   };
 }
@@ -1297,6 +1647,12 @@ module.exports = {
   buildScopedNavigation,
   buildScopedMintignore,
   buildScopedMetadata,
+  resolveRouteToRepoFile,
+  resolveRepoFileReference,
+  extractImportReferences,
+  extractAssetReferences,
+  buildScopedWorkspaceEntries,
+  syncScopedWorkspace,
   createWorkspaceHash,
   promptForScopedReload,
   ScopedMintSessionSupervisor,

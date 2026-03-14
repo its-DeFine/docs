@@ -376,6 +376,11 @@ async function runTests() {
     };
     writeFile(path.join(tmp, 'docs.json'), `${JSON.stringify(docs, null, 2)}\n`);
     writeFile(path.join(tmp, '.mintignore'), '# fixture\n');
+    writeFile(path.join(tmp, 'v2/dev/get-started.mdx'), '# Get started\n');
+    writeFile(path.join(tmp, 'v2/dev/api-reference/auth.mdx'), '# Auth\n');
+    writeFile(path.join(tmp, 'v2/gateways/overview.mdx'), '# Gateway overview\n');
+    writeFile(path.join(tmp, 'v2/es/dev/get-started.mdx'), '# Empezar\n');
+    writeFile(path.join(tmp, 'v1/legacy/overview.mdx'), '# Legacy\n');
 
     const run = runScopeScript(
       ['--repo-root', tmp, '--versions', 'v2', '--languages', 'en', '--tabs', 'Developers', '--disable-openapi', '--print-only'],
@@ -426,6 +431,7 @@ async function runTests() {
     writeFile(path.join(tmp, 'docs.json'), `${JSON.stringify(rootDocs, null, 2)}\n`);
     writeFile(path.join(tmp, 'docs-orch-work.json'), `${JSON.stringify(altDocs, null, 2)}\n`);
     writeFile(path.join(tmp, '.mintignore'), '# fixture\n');
+    writeFile(path.join(tmp, 'v2/orchestrators/operations/x-running-workloads.mdx'), '# Workloads\n');
 
     const run = runScopeScript(['--repo-root', tmp, '--docs-config', path.join(tmp, 'docs-orch-work.json'), '--print-only'], REPO_ROOT);
     assert.strictEqual(run.status, 0, `scope generator with docs config failed: ${run.stderr || run.stdout}`);
@@ -442,6 +448,7 @@ async function runTests() {
       $schema: 'https://mintlify.com/docs.json',
       theme: 'palm',
       name: 'Workspace Fixture',
+      favicon: '/snippets/assets/favicon.png',
       navigation: {
         tabs: [
           {
@@ -459,8 +466,20 @@ async function runTests() {
 
     writeFile(path.join(repoRoot, 'docs.json'), `${JSON.stringify(docs, null, 2)}\n`);
     writeFile(path.join(repoRoot, '.mintignore'), '# fixture\n');
-    writeFile(path.join(repoRoot, 'v2/dev/get-started.mdx'), '# Get started\n');
-    writeFile(path.join(repoRoot, 'snippets/components/demo.jsx'), 'export default function Demo() { return null; }\n');
+    writeFile(
+      path.join(repoRoot, 'v2/dev/get-started.mdx'),
+      ['import Demo from "/snippets/components/demo.jsx";', '', '![Diagram](./diagram.png)', '', '<Demo />', ''].join('\n')
+    );
+    writeFile(
+      path.join(repoRoot, 'snippets/components/demo.jsx'),
+      ['import logo from "../assets/logo.svg";', 'import { getLabel } from "../shared/util.js";', '', 'export default function Demo() {', '  return <img src={logo} alt={getLabel()} />;', '}', ''].join('\n')
+    );
+    writeFile(path.join(repoRoot, 'snippets/shared/util.js'), 'export function getLabel() { return "demo"; }\n');
+    writeFile(path.join(repoRoot, 'snippets/assets/logo.svg'), '<svg />\n');
+    writeFile(path.join(repoRoot, 'snippets/assets/favicon.png'), 'PNG\n');
+    writeFile(path.join(repoRoot, 'v2/dev/diagram.png'), 'PNG\n');
+    writeFile(path.join(repoRoot, 'snippets/components/unused.jsx'), 'export default function Unused() { return null; }\n');
+    writeFile(path.join(repoRoot, 'v2/index.mdx'), '- [Broken](gateways/guides/advanced-operations/sources.md)\n');
 
     const result = await createScopedProfile({
       repoRoot,
@@ -480,6 +499,12 @@ async function runTests() {
     const snippetsDir = path.join(result.workspaceDir, 'snippets');
     const pageFile = path.join(result.workspaceDir, 'v2/dev/get-started.mdx');
     const snippetFile = path.join(result.workspaceDir, 'snippets/components/demo.jsx');
+    const helperFile = path.join(result.workspaceDir, 'snippets/shared/util.js');
+    const logoFile = path.join(result.workspaceDir, 'snippets/assets/logo.svg');
+    const faviconFile = path.join(result.workspaceDir, 'snippets/assets/favicon.png');
+    const imageFile = path.join(result.workspaceDir, 'v2/dev/diagram.png');
+    const unusedFile = path.join(result.workspaceDir, 'snippets/components/unused.jsx');
+    const rootIndexFile = path.join(result.workspaceDir, 'v2/index.mdx');
 
     assert.ok(fs.lstatSync(v2Dir).isDirectory(), 'workspace v2 should be a real directory');
     assert.ok(!fs.lstatSync(v2Dir).isSymbolicLink(), 'workspace v2 should not be a symlink');
@@ -487,6 +512,81 @@ async function runTests() {
     assert.ok(!fs.lstatSync(snippetsDir).isSymbolicLink(), 'workspace snippets should not be a symlink');
     assert.ok(fs.lstatSync(pageFile).isSymbolicLink(), 'workspace page file should remain a symlink');
     assert.ok(fs.lstatSync(snippetFile).isSymbolicLink(), 'workspace snippet file should remain a symlink');
+    assert.ok(fs.lstatSync(helperFile).isSymbolicLink(), 'transitive helper import should remain a symlink');
+    assert.ok(fs.lstatSync(logoFile).isSymbolicLink(), 'transitive asset import should remain a symlink');
+    assert.ok(fs.lstatSync(faviconFile).isSymbolicLink(), 'docs config asset should remain a symlink');
+    assert.ok(fs.lstatSync(imageFile).isSymbolicLink(), 'page asset should remain a symlink');
+    assert.ok(!fs.existsSync(unusedFile), 'unused snippet files should be excluded from scoped workspace');
+    assert.ok(!fs.existsSync(rootIndexFile), 'out-of-scope generated indexes should be excluded from scoped workspace');
+  });
+
+  cases.push(async () => {
+    const repoRoot = mkTmpDir('lpd-scope-generated-index-');
+    const workspaceBase = mkTmpDir('lpd-scope-generated-index-out-');
+    const docs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Generated Index Fixture',
+      navigation: {
+        tabs: [
+          {
+            tab: 'Gateways',
+            groups: [
+              {
+                group: 'Gateway',
+                pages: ['v2/gateways', 'v2/gateways/overview']
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    writeFile(path.join(repoRoot, 'docs.json'), `${JSON.stringify(docs, null, 2)}\n`);
+    writeFile(path.join(repoRoot, '.mintignore'), '# fixture\n');
+    writeFile(
+      path.join(repoRoot, 'v2/gateways/index.mdx'),
+      [
+        '---',
+        'title: Gateways Index',
+        '---',
+        '',
+        '{/*',
+        'generated-file-banner: generated-file-banner:v1',
+        'Generation Script: tools/scripts/generate-pages-index.js',
+        '*/}',
+        '',
+        '- [Overview](overview.mdx)',
+        '- [Sources](guides/advanced-operations/sources.md)',
+        ''
+      ].join('\n')
+    );
+    writeFile(path.join(repoRoot, 'v2/gateways/overview.mdx'), '# Overview\n');
+
+    const result = await createScopedProfile({
+      repoRoot,
+      workspaceBase,
+      scopeFile: '',
+      versions: [],
+      languages: [],
+      tabs: [],
+      prefixes: ['v2/gateways'],
+      interactive: false,
+      disableOpenApi: false,
+      printOnly: false,
+      help: false
+    });
+
+    const generatedIndexFile = path.join(result.workspaceDir, 'v2/gateways/index.mdx');
+    const generatedIndexContent = fs.readFileSync(generatedIndexFile, 'utf8');
+
+    assert.ok(!fs.lstatSync(generatedIndexFile).isSymbolicLink(), 'selected generated index should be rewritten in scoped workspace');
+    assert.match(generatedIndexContent, /\[Overview]\(overview\.mdx\)/, 'in-scope generated index links should be preserved');
+    assert.doesNotMatch(
+      generatedIndexContent,
+      /\[Sources]\(guides\/advanced-operations\/sources\.md\)/,
+      'missing or out-of-scope generated index links should be removed'
+    );
   });
 
   cases.push(async () => {
