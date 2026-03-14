@@ -101,7 +101,7 @@ Source: `.vscode/mdx.code-snippets`
 
 **`frontmatter`** — full block with auto-filled title and date:
 
-```yaml
+```yaml icon="terminal" title="frontmatter snippet"
 ---
 title: 'Explorer' # ← auto-filled from filename
 sidebarTitle: Explorer
@@ -130,7 +130,7 @@ keywords:
 |--------|--------|
 | `pageType` | `landing`, `overview`, `tutorial`, `quickstart`, `how_to`, `concept`, `reference`, `faq`, `troubleshooting`, `changelog`, `glossary`, `guide` |
 | `audience` | `developer`, `gateway-operator`, `orchestrator`, `delegator`, `platform-builder`, `community`, `internal`, `general`, `everyone` |
-| `status` | `draft`, `review`, `published`, `deprecated`, `archived`, `stub`, `wip`, `needs_update`, `frozen` |
+| `status` | `draft`, `review`, `current`, `published`, `deprecated`, `coming-soon`, `production`, `provisional`, `verified_2026` |
 | `purpose` | `landing`, `overview`, `walkthrough`, `how_to`, `explanation`, `reference`, `troubleshooting`, `faq`, `changelog`, `glossary` |
 | `lastVerified` | Auto-fills today's date |
 
@@ -178,7 +178,7 @@ Source: `.vscode/components.code-snippets` — generated from `docs-guide/compon
 
 **Most used:**
 
-```mdx
+```mdx icon="terminal" title="primitives examples"
 <CustomDivider />
 
 <CustomDivider middleText="OVERVIEW" />
@@ -198,7 +198,7 @@ Source: `.vscode/components.code-snippets` — generated from `docs-guide/compon
 
 **Most used:**
 
-```mdx
+```mdx icon="terminal" title="layout examples"
 <BorderedBox variant="accent" padding="16px">
   content
 </BorderedBox>
@@ -218,7 +218,7 @@ Source: `.vscode/components.code-snippets` — generated from `docs-guide/compon
 
 **Most used:**
 
-```mdx
+```mdx icon="terminal" title="content examples"
 <ScrollableDiagram title="Livepeer Protocol Contract Architecture" maxHeight="600px">
   content
 </ScrollableDiagram>
@@ -230,6 +230,8 @@ Source: `.vscode/components.code-snippets` — generated from `docs-guide/compon
 <CustomCodeBlock {...DOCKER_CODE.install} />
 ```
 
+For code samples, include an icon and preferably a filename or title. Use `terminal` as the default icon when a more specific icon is not needed.
+
 **Also available:** `Quote`, `FrameQuote`, `CustomResponseField`, `ValueResponseField`, `CodeComponent`, `CodeSection`, `ComplexCodeBlock`, `ResponseFieldAccordion`, `ResponseFieldExpandable`, `TwitterTimeline`, `YouTubeVideoData`, `CardVideo`, `ShowcaseVideo`, `TitledVideo`, `Video`, `YouTubeVideoDownload`, `EmbedMarkdown`, `ExternalContent`, `LinkedInEmbed`, `MarkdownEmbed`, `ResponseFieldGroup`
 
 </Accordion>
@@ -238,7 +240,7 @@ Source: `.vscode/components.code-snippets` — generated from `docs-guide/compon
 
 **Most used — portal hero pattern:**
 
-```mdx
+```mdx icon="terminal" title="page-structure examples"
 <HeroSectionContainer>
   <HeroImageBackgroundComponent>
     <HeroContentContainer>
@@ -256,7 +258,7 @@ Source: `.vscode/components.code-snippets` — generated from `docs-guide/compon
 
 **Most used:**
 
-```mdx
+```mdx icon="terminal" title="data examples"
 <PdfEmbed title="Livepeer Brand Guidelines"
   src="https://www.dropbox.com/scl/fi/tblvrdl3chfklvujhri19/Livepeer-Brand-Guidelines.pdf?rlkey=mfp3zj8kbp8aw3z0kqhez8wn9&st=or62duey&raw=1" />
 
@@ -273,7 +275,7 @@ Source: `.vscode/components.code-snippets` — generated from `docs-guide/compon
 
 <Tip>
 Regenerate component snippets after registry changes:
-```bash
+```bash icon="terminal" title="regenerate component snippets"
 python3 tools/scripts/generate-component-snippets.py
 ```
 </Tip>

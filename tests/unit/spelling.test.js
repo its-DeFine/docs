@@ -15,8 +15,9 @@
  */
 
 const { execSync } = require('child_process');
-const { getMdxFiles, getStagedDocsPageFiles } = require('../utils/file-walker');
+const { getAuthoredMdxFiles, getStagedAuthoredDocsPageFiles } = require('../utils/file-walker');
 const { checkMultipleFiles, resolveCspellBinary, resolveCspellConfig } = require('../utils/spell-checker');
+const { filterAuthoredDocsPageFiles } = require('../../tools/lib/docs-page-scope');
 
 let errors = [];
 
@@ -50,10 +51,12 @@ async function runTests(options = {}) {
   let testFiles = files;
   if (!testFiles) {
     if (stagedOnly) {
-      testFiles = getStagedDocsPageFiles().filter(f => f.endsWith('.mdx'));
+      testFiles = getStagedAuthoredDocsPageFiles().filter(f => f.endsWith('.mdx'));
     } else {
-      testFiles = getMdxFiles();
+      testFiles = getAuthoredMdxFiles();
     }
+  } else {
+    testFiles = filterAuthoredDocsPageFiles(testFiles).filter(f => f.endsWith('.mdx'));
   }
   
   // Check if cspell is available

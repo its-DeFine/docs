@@ -45,6 +45,7 @@ export const BorderedBox = ({
 
   return (
     <div
+      data-docs-bordered-box=""
       style={{
         ...variants[variant],
         padding: padding,

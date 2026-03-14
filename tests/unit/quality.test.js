@@ -15,13 +15,15 @@
  */
 
 const path = require('path');
-const { getMdxFiles, getStagedDocsPageFiles, readFile } = require('../utils/file-walker');
+const { getAuthoredMdxFiles, getStagedAuthoredDocsPageFiles, readFile } = require('../utils/file-walker');
 const { extractFrontmatter } = require('../utils/mdx-parser');
+const { filterAuthoredDocsPageFiles } = require('../../tools/lib/docs-page-scope');
+const taxonomy = require('../../tools/lib/frontmatter-taxonomy');
+const { loadAudienceNormalization, audienceTokensFromRaw } = require('../../tools/lib/docs-usefulness/rubric-loader');
 
 const ENFORCE_OG_IMAGE = process.env.ENFORCE_OG_IMAGE === '1';
-const VALID_PAGE_TYPES = ['quickstart', 'tutorial', 'reference', 'conceptual', 'portal', 'api', 'guide', 'overview', 'index'];
-const VALID_AUDIENCES = ['developer', 'orchestrator', 'gateway', 'delegator', 'community', 'all'];
-const VALID_STATUSES = ['draft', 'published', 'review', 'deprecated'];
+const AUDIENCE_NORMALIZATION = loadAudienceNormalization();
+const VALID_AUDIENCES = AUDIENCE_NORMALIZATION.canonical_audiences || [];
 
 let errors = [];
 let warnings = [];
@@ -56,6 +58,54 @@ function collectFilesFromArgs(args) {
   }
 
   return [...new Set(files)];
+}
+
+function normaliseAudienceValue(rawAudience) {
+  const tokens = audienceTokensFromRaw(rawAudience, AUDIENCE_NORMALIZATION);
+  if (tokens.length === 0) {
+    return {
+      valid: false,
+      canonical: '',
+      advisory: '',
+      candidates: []
+    };
+  }
+
+  const precedence = AUDIENCE_NORMALIZATION.deterministic_precedence || VALID_AUDIENCES;
+  const canonical = precedence.find((candidate) => tokens.includes(candidate)) || tokens[0];
+  const rawValues = Array.isArray(rawAudience)
+    ? rawAudience.map((entry) => String(entry || '').trim()).filter(Boolean)
+    : [String(rawAudience || '').trim()].filter(Boolean);
+  const rawScalar = rawValues.join(', ');
+  const isSingleCanonicalScalar =
+    rawValues.length === 1 &&
+    VALID_AUDIENCES.includes(rawValues[0].toLowerCase()) &&
+    !/[;,|]/.test(rawValues[0]);
+
+  if (tokens.length > 1) {
+    return {
+      valid: true,
+      canonical,
+      advisory: `Audience resolves to multiple values (${tokens.join(', ')}). Use one canonical audience value, ideally "${canonical}".`,
+      candidates: tokens
+    };
+  }
+
+  if (!isSingleCanonicalScalar || rawValues[0].toLowerCase() !== canonical) {
+    return {
+      valid: true,
+      canonical,
+      advisory: `Normalise audience "${rawScalar}" to "${canonical}".`,
+      candidates: tokens
+    };
+  }
+
+  return {
+    valid: true,
+    canonical,
+    advisory: '',
+    candidates: tokens
+  };
 }
 
 /**
@@ -134,24 +184,44 @@ function checkFrontmatter(files) {
 
     if (!data.pageType) {
       report('advisory', file, 'Missing pageType field (recommended for audit framework)');
-    } else if (!VALID_PAGE_TYPES.includes(data.pageType)) {
-      report('advisory', file, `Invalid pageType: "${data.pageType}". Valid: ${VALID_PAGE_TYPES.join(', ')}`);
+    } else {
+      const pageTypeResult = taxonomy.normalizePageType(data.pageType);
+      if (!pageTypeResult.valid) {
+        report('advisory', file, `Invalid pageType: "${data.pageType}". Valid: ${taxonomy.describeCanonicalPageTypes()}`);
+      } else if (pageTypeResult.deprecatedAlias) {
+        report('advisory', file, taxonomy.getPageTypeAdvisory(data.pageType));
+      }
     }
 
     if (!data.audience) {
       report('advisory', file, 'Missing audience field (recommended for audit framework)');
-    } else if (!VALID_AUDIENCES.includes(data.audience)) {
-      report('advisory', file, `Invalid audience: "${data.audience}". Valid: ${VALID_AUDIENCES.join(', ')}`);
+    } else {
+      const audienceResult = normaliseAudienceValue(data.audience);
+      if (!audienceResult.valid) {
+        report('advisory', file, `Invalid audience: "${data.audience}". Valid: ${VALID_AUDIENCES.join(', ')}`);
+      } else if (audienceResult.advisory) {
+        report('advisory', file, audienceResult.advisory);
+      }
     }
 
     if (!data.status) {
       report('advisory', file, 'Missing status field (recommended for audit framework)');
-    } else if (!VALID_STATUSES.includes(data.status)) {
-      report('advisory', file, `Invalid status: "${data.status}". Valid: ${VALID_STATUSES.join(', ')}`);
+    } else {
+      const statusResult = taxonomy.normalizeStatus(data.status);
+      if (!statusResult.valid) {
+        report('advisory', file, `Invalid status: "${data.status}". Valid: ${taxonomy.describeCanonicalPageStatuses()}`);
+      }
     }
 
+    const statusRequiresLastVerified = taxonomy.statusRequiresLastVerified(data.status);
     if (!data.lastVerified) {
-      report('advisory', file, 'Missing lastVerified field (recommended for audit framework)');
+      report(
+        statusRequiresLastVerified ? 'warning' : 'advisory',
+        file,
+        statusRequiresLastVerified
+          ? `Missing lastVerified field (required for status "${data.status}")`
+          : 'Missing lastVerified field (recommended for audit framework)'
+      );
     } else if (Number.isNaN(Date.parse(data.lastVerified))) {
       report('advisory', file, `Invalid lastVerified date: "${data.lastVerified}"`);
     }
@@ -211,10 +281,12 @@ function runTests(options = {}) {
   let testFiles = files;
   if (!testFiles) {
     if (stagedOnly) {
-      testFiles = getStagedDocsPageFiles().filter(f => f.endsWith('.mdx'));
+      testFiles = getStagedAuthoredDocsPageFiles().filter(f => f.endsWith('.mdx'));
     } else {
-      testFiles = getMdxFiles();
+      testFiles = getAuthoredMdxFiles();
     }
+  } else {
+    testFiles = filterAuthoredDocsPageFiles(testFiles).filter(f => f.endsWith('.mdx'));
   }
   
   checkImageAltText(testFiles);

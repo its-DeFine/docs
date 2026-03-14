@@ -1,6 +1,6 @@
 ---
 title: 'Monitoring Setup'
-description: 'Configure Prometheus and Grafana for your Livepeer gateway — enable metrics, set up scraping, key metrics by workload type, Docker monitoring stack, and alert recommendations.'
+description: 'Configure Prometheus and Grafana for a Livepeer gateway - enable metrics, set up scraping, key metrics by workload type, Docker monitoring stack, Grafana dashboards, and alert recommendations.'
 sidebarTitle: 'Monitoring Setup'
 keywords:
   - livepeer
@@ -21,63 +21,83 @@ pageType: how-to
 audience: gateway-operator
 purpose: operational
 status: current
-lastVerified: '2026-03'
+lastVerified: '2026-03-15'
 ---
 {/* TODO:
 Terminology Validation:
 - Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
 Verify:
-- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
-- Fontawesome icons are used on accordions and tabs
-- Tables use StyledTable component
-- No em-dashes are used (instead use standard -)
+- ~~Mermaid diagrams use theme colours~~ (N/A)
+- ~~Fontawesome icons are used on accordions and tabs~~
+- ~~Tables use StyledTable component~~
+- ~~No em-dashes are used (instead use standard -)~~
 - UK spelling is used
-- Headers are concise and technical - no long headers or questions (aim for max 3 words)
-- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
-- Placeholders for Media & Video Resources are in comments with a TODO for a human.
-- REVIEW flags are in JSX flags for a human.
+- ~~Headers are concise and technical~~
+- ~~CustomDivider is used~~
+- Placeholders for Media & Video Resources are in comments with a TODO for a human. (N/A)
+- ~~REVIEW flags are in JSX flags for a human.~~
+Human:
+- Port 8937 → 8935 throughout
+- Dual gateway config fixed (single port, single scrape job)
+- "AI gateways operate off-chain" → both modes acknowledged
+- Broken link gateway-health-checks → health-checks
+- Voice converted to entity-led
+- Em dashes removed
+- Grafana section expanded with dashboards and custom panel guidance
+- Prometheus and Docker stack in tabs
+- livepeer_success_rate flagged for REVIEW
 */}
 
-This guide sets up production observability for your Livepeer gateway. It assumes your gateway is already running — if you need quick health verification first, see [Gateway Health Checks](/v2/gateways/guides/monitoring-and-tooling/gateway-health-checks).
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
+import { LinkArrow } from '/snippets/components/primitives/links.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { BorderedBox } from "/snippets/components/layout/containers.jsx"
 
-For on-chain gateways, Prometheus metrics complement but do not replace [on-chain debugging](/v2/gateways/guides/monitoring-and-tooling/on-chain-debugging) — contract events and deposit state require separate monitoring.
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-<Info>
-  Jump to your workload type: [Video](#key-metrics-video-gateway) · [AI](#key-metrics-ai-gateway) · [Dual](#key-metrics-dual-gateway) · [Docker stack](#docker-monitoring-stack)
-</Info>
+This is the third of five monitoring guides. It sets up production observability for a Livepeer Gateway using Prometheus and Grafana. The Gateway must already be running - for quick verification, see <LinkArrow href="/v2/gateways/guides/monitoring-and-tooling/health-checks" label="Health Checks" newline={false} />.
 
----
+For on-chain Gateways, Prometheus metrics complement but do not replace <LinkArrow href="/v2/gateways/guides/monitoring-and-tooling/on-chain-debugging" label="On-Chain Debugging" newline={false} /> - contract events and deposit state require separate monitoring.
 
-## Step 1 — Enable Prometheus Metrics
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-Add the `-monitor` flag when starting your gateway. Without it, the `/metrics` endpoint is not exposed.
+## Enable Metrics
+
+Add the `-monitor` flag when starting the Gateway. Without it, the `/metrics` endpoint is not exposed.
 
 ```bash
-# Video gateway with monitoring enabled
 livepeer \
   -gateway \
-  -network arbitrum-one-mainnet \
-  -ethUrl https://arb1.arbitrum.io/rpc \
   -monitor \
   -metricsPerStream \
-  [other flags...]
-
-# AI gateway with monitoring enabled
-livepeer \
-  -gateway \
-  -monitor \
-  -httpAddr 0.0.0.0:8937 \
-  -orchAddr https://orch1.example.com:8936 \
+  -httpAddr 0.0.0.0:8935 \
   [other flags...]
 ```
 
 **Monitoring flags:**
 
-| Flag | Purpose | Recommendation |
-|------|---------|----------------|
-| `-monitor` | Enables the `/metrics` Prometheus endpoint | Always enable in production |
-| `-metricsPerStream` | Groups performance metrics by individual stream | Enable for per-stream debugging; note higher metric cardinality |
-| `-metricsClientIP` | Includes client IP as a metric label | Enable only if you need per-client breakdown |
+<StyledTable>
+  <TableRow header>
+    <TableCell header>Flag</TableCell>
+    <TableCell header>Purpose</TableCell>
+    <TableCell header>Recommendation</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-monitor`</TableCell>
+    <TableCell>Enables the `/metrics` Prometheus endpoint</TableCell>
+    <TableCell>Always enable in production</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-metricsPerStream`</TableCell>
+    <TableCell>Groups performance metrics by individual stream</TableCell>
+    <TableCell>Enable for per-stream debugging; note higher metric cardinality</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-metricsClientIP`</TableCell>
+    <TableCell>Includes client IP as a metric label</TableCell>
+    <TableCell>Enable only for per-client breakdown</TableCell>
+  </TableRow>
+</StyledTable>
 
 **Verify metrics are exposed:**
 
@@ -85,178 +105,273 @@ livepeer \
 curl http://localhost:8935/metrics | head -30
 ```
 
-You should see Prometheus-format output with `livepeer_` prefixed metric names.
+Prometheus-format output with `livepeer_` prefixed metric names confirms the endpoint is active.
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## Step 2 — Prometheus Configuration
+## Setup
 
-Create or update your `prometheus.yml` to scrape the gateway:
+<Tabs>
+  <Tab title="Prometheus" icon="chart-simple">
+    ### Configuration
 
-```yaml
-global:
-  scrape_interval: 15s
-  evaluation_interval: 15s
+    Create or update `prometheus.yml` to scrape the Gateway:
 
-scrape_configs:
-  - job_name: 'livepeer-video-gateway'
-    static_configs:
-      - targets: ['localhost:8935']
-    metrics_path: '/metrics'
-    scrape_interval: 15s
-    scrape_timeout: 10s
-    labels:
-      gateway_type: 'video'
-      environment: 'production'
+    ```yaml
+    global:
+      scrape_interval: 15s
+      evaluation_interval: 15s
 
-  - job_name: 'livepeer-ai-gateway'
-    static_configs:
-      - targets: ['localhost:8937']
-    metrics_path: '/metrics'
-    scrape_interval: 15s
-    labels:
-      gateway_type: 'ai'
-      environment: 'production'
-```
+    scrape_configs:
+      - job_name: 'livepeer-gateway'
+        static_configs:
+          - targets: ['localhost:8935']
+        metrics_path: '/metrics'
+        scrape_interval: 15s
+        scrape_timeout: 10s
+        labels:
+          node_type: 'dual'
+          environment: 'production'
+    ```
 
-For a dual gateway, include both scrape jobs — they expose different metrics from the same node.
+    All Gateway types (Video, AI, Dual) expose metrics on the same `-httpAddr` port (default 8935). A single scrape job covers both video and AI metrics.
 
----
+    Adjust the `node_type` label to match the deployment: `video`, `ai`, or `dual`.
+  </Tab>
 
-## Key Metrics — Video Gateway
+  <Tab title="Docker Stack" icon="docker">
+    ### Monitoring Container
 
-These are the metrics that matter most for on-chain video gateways. Full reference: [Prometheus Metrics](/v2/gateways/resources/technical/go-livepeer/prometheus-metrics).
+    The `livepeer/livepeer-monitoring` repository bundles Prometheus, Grafana, and starter dashboard templates in a single Docker deployment.
 
-### Health and Performance
+    {/* REVIEW: Rick - confirm livepeer/livepeer-monitoring repo is current and maintained */}
 
-| Metric | What it tells you | Alert threshold |
-|--------|------------------|-----------------|
-| `livepeer_success_rate` | Transcoded segments ÷ source segments | Alert when `< 0.95` |
-| `livepeer_transcode_overall_latency_seconds` | End-to-end transcoding latency | Alert when `> 5s` |
-| `livepeer_segment_transcode_failed_total` | Cumulative failed transcode count | Alert on rate increase |
-| `livepeer_http_client_segment_transcoded_realtime_slow` | Segments that took 2× longer than realtime | Alert on sustained increase |
-| `livepeer_orchestrator_swaps` | Mid-stream orchestrator changes | Alert on high rate |
-| `livepeer_current_sessions_total` | Active transcoding sessions | Capacity planning |
+    ```bash
+    # Clone the monitoring repository
+    git clone https://github.com/livepeer/livepeer-monitoring
+    cd livepeer-monitoring
 
-### Payment Metrics
+    # Start the stack
+    docker compose up -d
+    ```
 
-| Metric | What it tells you | Alert threshold |
-|--------|------------------|-----------------|
-| `livepeer_gateway_deposit` | Remaining ETH deposit (wei) | Alert when `< 10000000000000000` (0.01 ETH) |
-| `livepeer_gateway_reserve` | Remaining ETH reserve (wei) | Alert when `< 5000000000000000` (0.005 ETH) |
-| `livepeer_ticket_value_sent` | ETH value of tickets issued | Budget tracking |
-| `livepeer_tickets_sent` | Total tickets issued | Volume tracking |
-| `livepeer_payment_create_errors` | Failed ticket creation | Alert on any increase |
-| `livepeer_suggested_gas_price` | Arbitrum gas price oracle | Alert on spike (affects orchestrator costs) |
+    The stack starts:
+    - **Prometheus** on port `9090` - scraping the Gateway at `localhost:8935`
+    - **Grafana** on port `3000` - default credentials `admin / admin`
 
-<Warning>
-  `livepeer_gateway_deposit` and `livepeer_gateway_reserve` are your most critical alerts. When deposit hits zero, job routing stops immediately with no warning to end users.
-</Warning>
+    Update `prometheus.yml` in the repo to point to the Gateway host if it is not on `localhost`.
+  </Tab>
+</Tabs>
 
-### Useful Prometheus Queries
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
-```promql
-# Success rate over last 5 minutes
-rate(livepeer_segment_transcoded_total[5m]) /
-  rate(livepeer_segment_source_appeared_total[5m])
+## Key Metrics
 
-# ETH deposit remaining in ETH (not wei)
-livepeer_gateway_deposit / 1e18
+<Tabs>
+  <Tab title="Video" icon="video">
+    <Badge color="blue">Video</Badge> - on-chain Gateways. Full reference: <LinkArrow href="/v2/gateways/resources/technical/go-livepeer/prometheus-metrics" label="Prometheus Metrics" newline={false} />.
 
-# Failed transcode rate per minute
-rate(livepeer_segment_transcode_failed_total[1m])
+    ### Performance
 
-# Average transcoding latency
-rate(livepeer_transcode_overall_latency_seconds_sum[5m]) /
-  rate(livepeer_transcode_overall_latency_seconds_count[5m])
-```
+    <StyledTable>
+      <TableRow header>
+        <TableCell header>Metric</TableCell>
+        <TableCell header>What it shows</TableCell>
+        <TableCell header>Alert threshold</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`livepeer_segment_transcoded_total`</TableCell>
+        <TableCell>Successfully transcoded segments (counter)</TableCell>
+        <TableCell>Calculate success rate (see queries below)</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`livepeer_transcode_overall_latency_seconds`</TableCell>
+        <TableCell>End-to-end transcoding latency</TableCell>
+        <TableCell>Alert when avg `> 5s`</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`livepeer_segment_transcode_failed_total`</TableCell>
+        <TableCell>Cumulative failed transcode count</TableCell>
+        <TableCell>Alert on rate increase</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`livepeer_orchestrator_swaps`</TableCell>
+        <TableCell>Mid-stream Orchestrator changes</TableCell>
+        <TableCell>Alert on high rate</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`livepeer_current_sessions_total`</TableCell>
+        <TableCell>Active transcoding sessions</TableCell>
+        <TableCell>Capacity planning</TableCell>
+      </TableRow>
+    </StyledTable>
 
----
+    {/* REVIEW: Confirm livepeer_success_rate exists as a direct gauge, or whether it must be calculated from livepeer_segment_transcoded_total / livepeer_segment_source_appeared_total. j0sh to verify. */}
 
-## Key Metrics — AI Gateway
+    ### Payments
 
-AI gateways operate off-chain. There are fewer built-in metrics than video gateways, but the ones that exist are critical.
+    <StyledTable>
+      <TableRow header>
+        <TableCell header>Metric</TableCell>
+        <TableCell header>What it shows</TableCell>
+        <TableCell header>Alert threshold</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`livepeer_gateway_deposit`</TableCell>
+        <TableCell>Remaining ETH deposit (wei)</TableCell>
+        <TableCell>Alert when `< 10000000000000000` (0.01 ETH)</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`livepeer_gateway_reserve`</TableCell>
+        <TableCell>Remaining ETH reserve (wei)</TableCell>
+        <TableCell>Alert when `< 5000000000000000` (0.005 ETH)</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`livepeer_ticket_value_sent`</TableCell>
+        <TableCell>ETH value of tickets issued</TableCell>
+        <TableCell>Budget tracking</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`livepeer_payment_create_errors`</TableCell>
+        <TableCell>Failed ticket creation</TableCell>
+        <TableCell>Alert on any increase</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`livepeer_suggested_gas_price`</TableCell>
+        <TableCell>Arbitrum gas price oracle</TableCell>
+        <TableCell>Alert on spike</TableCell>
+      </TableRow>
+    </StyledTable>
 
-| Metric | What it tells you | Alert threshold |
-|--------|------------------|-----------------|
-| `livepeer_current_sessions_total` | Active AI sessions | Capacity planning |
-| `livepeer_max_sessions_total` | Configured session limit | Alert when `current > 0.8 × max` |
-| `livepeer_discovery_errors_total` | Orchestrator discovery failures | Alert on any increase |
-| `livepeer_segment_source_upload_failed_total` | Failed job submissions | Alert on rate increase |
+    <Warning>
+      `livepeer_gateway_deposit` and `livepeer_gateway_reserve` are the most critical alerts. When the deposit hits zero, job routing stops immediately with no warning to clients.
+    </Warning>
 
-<Note>
-  AI-specific inference latency (per-pipeline, per-model) is not currently exposed via `/metrics`. For AI inference latency monitoring, use [Livepeer Tools](/v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards#livepeer-tools-dashboard) or instrument your own application layer.
+    ### Useful Queries
 
-  {/* REVIEW: j0sh / Peter — confirm whether inference latency will be added to Prometheus metrics in upcoming releases */}
-</Note>
+    ```promql
+    # Success rate over last 5 minutes
+    rate(livepeer_segment_transcoded_total[5m]) /
+      rate(livepeer_segment_source_appeared_total[5m])
 
-### Useful Queries
+    # ETH deposit remaining in ETH (not wei)
+    livepeer_gateway_deposit / 1e18
 
-```promql
-# Sessions approaching capacity
-livepeer_current_sessions_total / livepeer_max_sessions_total
+    # Failed transcode rate per minute
+    rate(livepeer_segment_transcode_failed_total[1m])
 
-# Discovery error rate
-rate(livepeer_discovery_errors_total[5m])
-```
+    # Average transcoding latency
+    rate(livepeer_transcode_overall_latency_seconds_sum[5m]) /
+      rate(livepeer_transcode_overall_latency_seconds_count[5m])
+    ```
+  </Tab>
 
----
+  <Tab title="AI" icon="brain">
+    <Badge color="purple">AI</Badge> - both on-chain and off-chain Gateways. Fewer built-in metrics than video, but the ones that exist are critical.
 
-## Key Metrics — Dual Gateway
+    <StyledTable>
+      <TableRow header>
+        <TableCell header>Metric</TableCell>
+        <TableCell header>What it shows</TableCell>
+        <TableCell header>Alert threshold</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`livepeer_current_sessions_total`</TableCell>
+        <TableCell>Active AI sessions</TableCell>
+        <TableCell>Capacity planning</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`livepeer_max_sessions_total`</TableCell>
+        <TableCell>Configured session limit</TableCell>
+        <TableCell>Alert when `current > 0.8 x max`</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`livepeer_discovery_errors_total`</TableCell>
+        <TableCell>Orchestrator discovery failures</TableCell>
+        <TableCell>Alert on any increase</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`livepeer_segment_source_upload_failed_total`</TableCell>
+        <TableCell>Failed job submissions</TableCell>
+        <TableCell>Alert on rate increase</TableCell>
+      </TableRow>
+    </StyledTable>
 
-Run both video and AI metric sets. The additional concern for dual gateways is GPU resource contention.
+    <Note>
+      AI-specific inference latency (per-pipeline, per-model) is not currently exposed via `/metrics`. For AI inference latency monitoring, use <LinkArrow href="/v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards" label="Livepeer Tools" newline={false} /> or instrument the application layer.
 
-**GPU monitoring via HTTP API:**
+      {/* REVIEW: j0sh / Peter - confirm whether inference latency will be added to Prometheus metrics in upcoming releases */}
+    </Note>
 
-```bash
-# Poll hardware stats every 30 seconds
-watch -n 30 'curl -s http://localhost:8935/hardware/stats | python3 -m json.tool'
-```
+    ### Useful Queries
 
-Key fields to watch:
-- `gpu_memory_used` / `gpu_memory_total` — approach to 100% precedes model load failures
-- `gpu_utilization` — sustained 100% during low-volume periods indicates bottleneck
+    ```promql
+    # Sessions approaching capacity
+    livepeer_current_sessions_total / livepeer_max_sessions_total
 
-**When to separate workloads:**
+    # Discovery error rate
+    rate(livepeer_discovery_errors_total[5m])
+    ```
+  </Tab>
 
-Consider splitting video and AI onto separate nodes when:
-- GPU memory is consistently above 85%
-- AI model loading causes video transcoding latency spikes
-- `livepeer_orchestrator_swaps` rate increases during AI inference peaks
+  <Tab title="Dual" icon="clone">
+    <Badge color="green">Dual</Badge> - on-chain Gateways running both video and AI. Run all video metrics AND all AI metrics. The additional concern is GPU resource contention.
 
----
+    **GPU monitoring via HTTP API:**
 
-## Docker Monitoring Stack
+    ```bash
+    # Poll hardware stats every 30 seconds
+    watch -n 30 'curl -s http://localhost:8935/hardware/stats | python3 -m json.tool'
+    ```
 
-The Livepeer Foundation maintains a Docker monitoring container that bundles Prometheus, Grafana, and starter dashboard templates.
+    Key fields to watch:
+    - `gpu_memory_used` / `gpu_memory_total` - approach to 100% precedes model load failures
+    - `gpu_utilization` - sustained 100% during low-volume periods indicates a bottleneck
 
-{/* REVIEW: Rick — confirm livepeer/livepeer-monitoring repo is current and maintained */}
+    **When to separate workloads:**
 
-```bash
-# Clone the monitoring repository
-git clone https://github.com/livepeer/livepeer-monitoring
-cd livepeer-monitoring
+    Consider splitting video and AI onto separate nodes when:
+    - GPU memory is consistently above 85%
+    - AI model loading causes video transcoding latency spikes
+    - `livepeer_orchestrator_swaps` rate increases during AI inference peaks
 
-# Start the stack
-docker compose up -d
-```
+    See <LinkArrow href="/v2/gateways/guides/advanced-operations/scaling" label="Scaling" newline={false} /> for architecture patterns.
+  </Tab>
+</Tabs>
 
-The stack starts:
-- **Prometheus** on port `9090` — scraping your gateway at `localhost:8935`
-- **Grafana** on port `3000` — default credentials `admin / admin`
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
-Update `prometheus.yml` in the repo to point to your gateway host if it is not on `localhost`.
+## Grafana Dashboards
 
-**Default Grafana dashboards included:**
-- Node overview (sessions, success rate, latency)
-- Payment overview (deposit, reserve, ticket value)
-- Transcoding performance (realtime ratios, latency distribution)
+The `livepeer/livepeer-monitoring` Docker stack includes three starter Grafana dashboards:
 
----
+<AccordionGroup>
+  <Accordion title="Node overview" icon="gauge-high">
+    Active sessions, success rate, transcoding latency, and Orchestrator connectivity. The primary operational dashboard for day-to-day monitoring.
+  </Accordion>
+  <Accordion title="Payment overview" icon="coins">
+    ETH deposit and reserve over time, ticket value sent, and payment creation errors. Critical for on-chain Gateways to track deposit depletion rate.
+  </Accordion>
+  <Accordion title="Transcoding performance" icon="chart-line">
+    Realtime ratios, latency distribution (p50, p95, p99), and segment success/failure breakdown. Useful for identifying quality degradation patterns.
+  </Accordion>
+</AccordionGroup>
 
-## Alert Recommendations
+Access Grafana at `http://localhost:3000` (default credentials `admin / admin`). The starter dashboards are pre-configured to query the bundled Prometheus instance.
 
-### Critical Alerts — Act Immediately
+**Custom panels to consider adding:**
+
+- Deposit depletion forecast (linear regression on `livepeer_gateway_deposit` over 24h)
+- Session count vs `-maxSessions` limit as a percentage gauge
+- AI discovery error rate overlaid with session count (correlation check)
+
+{/* REVIEW: Rick - confirm whether the livepeer-monitoring repo dashboards cover AI metrics or are video-only. If video-only, note that AI dashboards must be created manually. */}
+
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
+
+## Alert Rules
+
+### Critical - act immediately
 
 ```yaml
 groups:
@@ -268,10 +383,10 @@ groups:
         labels:
           severity: critical
         annotations:
-          summary: "Livepeer gateway is unreachable"
+          summary: "Livepeer Gateway is unreachable"
 
       - alert: DepositExhausted
-        expr: livepeer_gateway_deposit < 10000000000000000  # 0.01 ETH
+        expr: livepeer_gateway_deposit < 10000000000000000
         for: 5m
         labels:
           severity: critical
@@ -279,7 +394,9 @@ groups:
           summary: "Gateway ETH deposit critically low ({{ $value | humanize }} wei)"
 
       - alert: SuccessRateCritical
-        expr: livepeer_success_rate < 0.90
+        expr: |
+          rate(livepeer_segment_transcoded_total[5m]) /
+          rate(livepeer_segment_source_appeared_total[5m]) < 0.90
         for: 5m
         labels:
           severity: critical
@@ -287,22 +404,16 @@ groups:
           summary: "Transcoding success rate below 90%"
 ```
 
-### Warning Alerts — Investigate
+### Warning - investigate
 
 ```yaml
       - alert: DepositLow
-        expr: livepeer_gateway_deposit < 50000000000000000  # 0.05 ETH
+        expr: livepeer_gateway_deposit < 50000000000000000
         for: 10m
         labels:
           severity: warning
         annotations:
-          summary: "Gateway ETH deposit below 0.05 ETH — top up soon"
-
-      - alert: SuccessRateWarning
-        expr: livepeer_success_rate < 0.95
-        for: 5m
-        labels:
-          severity: warning
+          summary: "Gateway ETH deposit below 0.05 ETH - top up soon"
 
       - alert: HighTranscodeLatency
         expr: |
@@ -320,7 +431,7 @@ groups:
         labels:
           severity: warning
         annotations:
-          summary: "Ticket creation errors — check Arbitrum RPC health"
+          summary: "Ticket creation errors - check Arbitrum RPC health"
 
       - alert: AIDiscoveryErrors
         expr: rate(livepeer_discovery_errors_total[5m]) > 0
@@ -328,154 +439,45 @@ groups:
         labels:
           severity: warning
         annotations:
-          summary: "Orchestrator discovery failing — check -orchAddr list"
+          summary: "Orchestrator discovery failing - check -orchAddr list"
 ```
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
+
+## Related Pages
 
 <CardGroup cols={3}>
-  <Card title="Prometheus Metrics Reference" icon="table" href="/v2/gateways/resources/technical/go-livepeer/prometheus-metrics">
-    Full table of all livepeer_* metrics
+  <Card title="Prometheus Metrics" icon="table" href="/v2/gateways/resources/technical/go-livepeer/prometheus-metrics">
+    Full table of all livepeer_* metrics.
   </Card>
   <Card title="On-Chain Debugging" icon="cube" href="/v2/gateways/guides/monitoring-and-tooling/on-chain-debugging">
-    TicketBroker events and Arbitrum contract monitoring
+    TicketBroker events and Arbitrum contract monitoring.
   </Card>
-  <Card title="Tools & Dashboards" icon="layout-dashboard" href="/v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards">
-    Explorer, Livepeer Tools, livepeer_cli
+  <Card title="Tools & Dashboards" icon="gauge-high" href="/v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards">
+    Explorer, Livepeer Tools, livepeer_cli.
   </Card>
 </CardGroup>
-
-
-{/* ---
-title: 'Monitoring Setup'
-description: 'Set up Prometheus and Grafana monitoring for your Livepeer gateway — enable metrics, configure scraping, key metrics by workload type (video, AI, dual), and alert recommendations.'
-sidebarTitle: 'Monitoring Setup'
-pageType: 'how-to'
-audience: 'gateway'
-status: 'stub'
---- */}
 
 {/*
   PURPOSE:
   Journey step: "How do I set up proper observability?"
   Step-by-step guide to configuring Prometheus + Grafana for gateway monitoring.
   Covers all 3 workload types with different key metrics for each.
-  This is the deep monitoring guide — health-checks.mdx is the quick verification,
+  This is the deep monitoring guide - health-checks.mdx is the quick verification,
   this is the production observability setup.
 
-  SECTION HOME: Guides → Monitoring & Troubleshooting
+  SECTION HOME: Guides > Monitoring & Tooling
 
   JOURNEY POSITION:
-  1. Gateway Health Checks — "Is it alive?"
-  2. Tools & Dashboards — "Where do I see what's happening?"
-  3. Monitoring Setup (this page) — "How do I set up proper observability?"
-  4. Troubleshooting — "Something broke"
-  5. FAQ — "Common questions"
-
-  RELATED FILES (draw from):
-  - all-resources/v1--monitor-metrics.mdx                  — PRIMARY: V1 Prometheus+Grafana setup guide (70%), -monitor flag, metricsPerStream, Docker monitoring container
-  - all-resources/v2-refs--prometheus-metrics.mdx           — PRIMARY: Full metrics table (90%), 116 lines of detailed metric definitions by node type
-  - all-resources/v2-monitor--monitor-and-optimise.mdx      — Brainstorm: request flow, dual resource allocation, scaling strategies
-  - all-resources/ctx-new--monitor-and-optimise.mdx        — _contextData_ duplicate
-  - all-resources/v2-setup--monitor-and-optimise.mdx       — setup/ duplicate
-  - all-resources/ctx-new--prometheus-metrics.mdx           — _contextData_ metrics duplicate
-  - all-resources/v2-refs--hardware-stats-api.mdx           — Hardware stats endpoint (GPU monitoring)
-  - all-resources/v2-refs--hardware-info-api.mdx            — Hardware info endpoint
-  - all-resources/v2-refs--contract-addresses.mdx          — Livepeer contract addresses on Arbitrum (TicketBroker, etc.)
-  - all-resources/v2-onchain--bridge-lpt-to-arbitrum.mdx   — Arbiscan links, contract interactions
+  1. Health Checks - "Is it alive?"
+  2. Tools & Dashboards - "Where do I see what's happening?"
+  3. Monitoring Setup (this page) - "How do I set up proper observability?"
+  4. On-Chain Debugging - "What's happening at the contract layer?"
+  5. Troubleshooting - "Something broke"
 
   CROSS-REFS:
-  - Resources → Prometheus Metrics reference (full metric table)
-  - Health Checks (this section) — quick checks vs deep monitoring
-  - Tools & Dashboards (this section) — GUI tools complement Prometheus
-  - Advanced Operations guide — production ops, scaling (links back here)
+  - Resources > Prometheus Metrics reference (full metric table)
+  - Health Checks (this section) - quick checks vs deep monitoring
+  - Tools & Dashboards (this section) - GUI tools complement Prometheus
+  - Advanced Operations > Scaling - links back here for monitoring thresholds
 */}
-{/*
-# Monitoring Setup
-
-<Note>This page is a stub. Content to be developed from the sources listed above.</Note>
-
-## Proposed Structure
-
-### 1. Enable Metrics
-Enable Prometheus metrics on your gateway:
-```bash
-livepeer -gateway -monitor [-metricsPerStream] [-metricsClientIP] ...
-```
-Flags:
-- `-monitor` — enables the `/metrics` Prometheus endpoint
-- `-metricsPerStream` — groups metrics per stream (more granular, more cardinality)
-- `-metricsClientIP` — includes client IP in metrics labels
-
-### 2. Prometheus Configuration
-Scrape config example:
-```yaml
-scrape_configs:
-  - job_name: 'livepeer-gateway'
-    static_targets: ['localhost:8935']  # or 8937 for AI
-    metrics_path: '/metrics'
-```
-- Scrape interval recommendations
-- Label configuration
-
-### 3. Key Metrics — Video Gateway (on-chain)
-| Metric | What it tells you | Alert threshold |
-|--------|------------------|-----------------|
-| `livepeer_gateway_deposit` | Remaining ETH deposit | Alert when &lt; 0.01 ETH |
-| `livepeer_gateway_reserve` | Remaining reserve | Alert when &lt; 0.005 ETH |
-| `livepeer_success_rate` | Transcoded segments / source segments | Alert when &lt; 0.95 |
-| `livepeer_transcode_overall_latency_seconds` | End-to-end transcoding latency | Alert when &gt; 5s |
-| `livepeer_segment_transcode_failed_total` | Failed transcodes (counter) | Alert on rate increase |
-| `livepeer_ticket_value_sent` | ETH being spent on tickets | Budget monitoring |
-| `livepeer_payment_create_errors` | Ticket creation failures | Alert on any increase |
-| `livepeer_orchestrator_swaps` | Mid-stream orchestrator changes | Alert on rate increase |
-
-### 4. Key Metrics — AI Gateway (off-chain)
-| Metric | What it tells you | Alert threshold |
-|--------|------------------|-----------------|
-| `livepeer_current_sessions_total` | Active AI sessions | Capacity planning |
-| `livepeer_max_sessions_total` | Session limit | Alert when current approaches max |
-| `livepeer_discovery_errors_total` | Orchestrator discovery failures | Alert on any increase |
-
-Note: AI-specific inference latency metrics — check if exposed via `/metrics` or only via
-Livepeer Tools. Document what IS available vs what requires external monitoring.
-
-### 5. Key Metrics — Dual Gateway
-- All video metrics + all AI metrics
-- Additional concern: resource contention
-- GPU monitoring via `/hardware/stats`: utilisation, memory, temperature
-- Scaling indicators: when to separate video and AI onto different nodes
-
-### 6. Grafana Dashboards
-- Docker monitoring container: github.com/livepeer/livepeer-monitoring
-  - Pre-built Prometheus + Grafana + starter dashboards
-  - `docker-compose up` to start
-- Dashboard panels to create:
-  - Deposit/reserve over time (video/dual)
-  - Success rate over time
-  - Latency distribution (p50, p95, p99)
-  - Session count vs capacity
-  - Payment ticket errors
-
-### 7. On-Chain Monitoring — Arbitrum Events (Video/Dual only)
-Beyond Prometheus (which tracks node-local metrics), on-chain gateways should also monitor
-Arbitrum contract events:
-- **TicketBroker events**: deposit fund/withdraw, reserve fund/withdraw, ticket redemptions
-- **Gas price trends**: Arbitrum gas spikes affect ticket redemption costs and can trigger
-  the autoAdjustPrice mechanism on orchestrators
-- **How to set up**: Arbiscan watchlist on your gateway address, or index events via
-  Subgraph/custom script polling the TicketBroker contract
-- Cross-ref → Tools & Dashboards (Arbiscan section) for manual monitoring
-- Cross-ref → Resources → Contract Addresses for contract locations
-
-### 8. Alert Recommendations
-Priority alerts by gateway type:
-- **Critical (all)**: gateway process down, `/health` failing
-- **Critical (video/dual)**: deposit exhausted, success rate &lt; 90%
-- **Critical (video/dual)**: unexpected large ticket redemption (Arbiscan event)
-- **Warning (video/dual)**: deposit below threshold, high latency, gas price spike
-- **Warning (AI)**: no orchestrators reachable, session limit approaching
-- **Info**: orchestrator swaps, model cold-start delays
-
-### 9. Next Steps
-Cards: Prometheus Metrics Reference (Resources), Tools & Dashboards, Contract Addresses (Resources), Troubleshooting */}

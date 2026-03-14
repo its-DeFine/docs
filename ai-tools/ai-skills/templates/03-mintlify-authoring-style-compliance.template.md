@@ -44,6 +44,10 @@ Workflow
    - Avoid boilerplate self-description like `This page covers...` or `In this guide...`, unless the page genuinely needs it.
    - Capitalise `Gateway`, `Orchestrator`, and `Delegator` when they are used as actor/persona labels, diagram nodes, tab titles, or other title-style role labels. Keep generic prose lowercase.
    - Use FontAwesome icons on Tabs and Accordions. Source icon names from `https://fontawesome.com/search`.
+   - On guide pages, prefer `StyledSteps` / `StyledStep` over raw `Steps` / `Step`.
+   - On guide pages, standalone Tabs outside steps should usually sit inside `BorderedBox variant="accent"` unless the page clearly uses a full-page tabs layout.
+   - Fenced code blocks and code block components should have an icon. Use `icon="terminal"` as the default when a specific icon is not needed.
+   - Prefer a filename or title on code blocks when it helps the reader understand what the block represents.
    - Keep headings concise and technical. On guide pages, aim for 3 words or less when clarity allows.
    - Review filler and marketing language as a warning-level issue. Trim words like `simply`, `just`, `seamless`, `robust`, and `powerful` when they weaken clarity.
    - Prefer positive definitions. Use negation only as a secondary boundary sentence when it prevents a common misreading.
@@ -88,6 +92,10 @@ Validation Checklist
 - [ ] Any opening utility block is brief, page-critical, and followed by main explanatory prose.
 - [ ] `Gateway`, `Orchestrator`, and `Delegator` are capitalised when used as actor/persona labels, tabs, diagram nodes, or comparison labels, and left lowercase in generic prose.
 - [ ] Guide-page icons use FontAwesome names sourced from `https://fontawesome.com/search`.
+- [ ] Guide pages prefer `StyledSteps` / `StyledStep` over raw `Steps` / `Step`.
+- [ ] Guide-page standalone Tabs outside steps use `BorderedBox variant="accent"` unless the tabs are clearly the full-page layout.
+- [ ] Fenced code blocks and code block components include an icon, with `terminal` as the default fallback.
+- [ ] Code blocks preferably include a filename or title when it helps the reader.
 - [ ] Guide-page headings stay concise and technical. Aim for 3 words or less when clarity allows.
 - [ ] Filler or marketing language has been reviewed and reduced where it weakens clarity.
 - [ ] Definitions are positive-first; negation is secondary and only used to prevent misreadings.

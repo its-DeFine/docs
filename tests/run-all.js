@@ -20,6 +20,9 @@ const styleGuideTests = require('./unit/style-guide.test');
 const mdxTests = require('./unit/mdx.test');
 const mdxGuardsTests = require('./unit/mdx-guards.test');
 const mdxSafeMarkdownUnitTests = require('./unit/mdx-safe-markdown.test');
+const docsPageScopeTests = require('./unit/docs-page-scope.test');
+const docsAuthoringRulesTests = require('./unit/docs-authoring-rules.test');
+const frontmatterTaxonomyTests = require('./unit/frontmatter-taxonomy.test');
 const spellingTests = require('./unit/spelling.test');
 const qualityTests = require('./unit/quality.test');
 const linksImportsTests = require('./unit/links-imports.test');
@@ -164,6 +167,27 @@ async function runAllTests() {
   totalErrors += mdxSafeMarkdownUnitResult.errors.length;
   totalWarnings += mdxSafeMarkdownUnitResult.warnings.length;
   console.log(`   ${mdxSafeMarkdownUnitResult.errors.length} errors, ${mdxSafeMarkdownUnitResult.warnings.length} warnings`);
+
+  // Docs Page Scope Tests
+  console.log('\n🗂️  Running Docs Page Scope Tests...');
+  const docsPageScopeResult = normalizeSuiteResult(docsPageScopeTests.runTests());
+  totalErrors += docsPageScopeResult.errors.length;
+  totalWarnings += docsPageScopeResult.warnings.length;
+  console.log(`   ${docsPageScopeResult.errors.length} errors, ${docsPageScopeResult.warnings.length} warnings`);
+
+  // Docs Authoring Rules Tests
+  console.log('\n🧭 Running Docs Authoring Rules Tests...');
+  const docsAuthoringRulesResult = normalizeSuiteResult(docsAuthoringRulesTests.runTests());
+  totalErrors += docsAuthoringRulesResult.errors.length;
+  totalWarnings += docsAuthoringRulesResult.warnings.length;
+  console.log(`   ${docsAuthoringRulesResult.errors.length} errors, ${docsAuthoringRulesResult.warnings.length} warnings`);
+
+  // Frontmatter Taxonomy Tests
+  console.log('\n🧾 Running Frontmatter Taxonomy Tests...');
+  const frontmatterTaxonomyResult = normalizeSuiteResult(frontmatterTaxonomyTests.runTests());
+  totalErrors += frontmatterTaxonomyResult.errors.length;
+  totalWarnings += frontmatterTaxonomyResult.warnings.length;
+  console.log(`   ${frontmatterTaxonomyResult.errors.length} errors, ${frontmatterTaxonomyResult.warnings.length} warnings`);
   
   // Spelling Tests
   console.log('\n🔤 Running Spelling Tests...');

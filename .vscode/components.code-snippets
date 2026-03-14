@@ -23,7 +23,7 @@
       "CodeComponent"
     ],
     "body": [
-      "<CodeComponent />"
+      "<CodeComponent filename=\"${1:example.sh}\" icon=\"terminal\" language=\"${2:bash}\" codeString={\"${3:echo hello}\"} />"
     ],
     "description": "[content] Code Component content component for rendering reader-facing documentation content."
   },
@@ -45,7 +45,7 @@
       "ComplexCodeBlock"
     ],
     "body": [
-      "<ComplexCodeBlock filename=\"${1}\" icon=\"${2}\" language=\"${3}\" highlight=\"${4}\" />"
+      "<ComplexCodeBlock filename=\"${1:example.sh}\" icon=\"${2:terminal}\" language=\"${3:bash}\" highlight=\"${4}\" />"
     ],
     "description": "[content] Complex Code Block content component for rendering reader-facing documentation content."
   },
@@ -56,7 +56,7 @@
       "CustomCodeBlock"
     ],
     "body": [
-      "<CustomCodeBlock filename=\"${1}\" icon=\"${2}\" language=\"${3}\" highlight=\"${4}\" />"
+      "<CustomCodeBlock filename=\"${1:example.sh}\" icon=\"${2:terminal}\" language=\"${3:bash}\" highlight=\"${4}\" />"
     ],
     "description": "[content] Custom Code Block content component for rendering reader-facing documentation content."
   },

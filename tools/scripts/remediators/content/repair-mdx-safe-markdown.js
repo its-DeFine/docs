@@ -41,7 +41,7 @@ function printHelp() {
       '  --stage     Re-stage files changed by --write.',
       '',
       'Safety:',
-      '  - Repairs HTML comments, raw <br> table breaks, raw comparison operators, code-like table cells, angle-bracket placeholders, and standalone Markdown --- dividers.',
+      '  - Repairs HTML comments, raw <br> table breaks, raw comparison operators, code-like table cells, angle-bracket placeholders, standalone Markdown --- dividers, and missing default icons on authored docs code blocks.',
       '  - Skips fenced code blocks and inline code spans.',
       '  - Leaves ambiguous prose rewrites untouched.'
     ].join('\n')

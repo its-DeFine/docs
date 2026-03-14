@@ -15,6 +15,7 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('../../lib/load-js-yaml');
 const { isExcludedV2ExperimentalPath } = require('../../lib/docs-publishability');
+const { isGeneratedDocsPageFile } = require('../../lib/docs-page-scope');
 
 const REPO_ROOT = path.resolve(__dirname, '../../../../');
 const DOCS_JSON_PATH = path.join(REPO_ROOT, 'docs.json');
@@ -132,6 +133,10 @@ function fileEntryFromRepoPath(repoPath) {
   };
 }
 
+function isGeneratedEntry(entry) {
+  return isGeneratedDocsPageFile(entry.absPath);
+}
+
 function loadDefaultFiles() {
   if (!fs.existsSync(DOCS_JSON_PATH)) {
     throw new Error('docs.json not found at repository root');
@@ -172,7 +177,10 @@ function loadDefaultFiles() {
       if (!fs.existsSync(path.join(REPO_ROOT, repoPath))) return;
 
       seen.add(repoPath);
-      files.push(fileEntryFromRepoPath(repoPath));
+      const entry = fileEntryFromRepoPath(repoPath);
+      if (!isGeneratedEntry(entry)) {
+        files.push(entry);
+      }
     });
   });
 
@@ -221,10 +229,13 @@ function walkDirectory(dirPath, out = []) {
       return;
     }
 
-    out.push({
+    const entry = {
       absPath,
       relPath
-    });
+    };
+    if (!isGeneratedEntry(entry)) {
+      out.push(entry);
+    }
   });
 
   return out;
@@ -243,7 +254,8 @@ function loadTargetFiles(targetPath) {
     return [];
   }
 
-  return [{ absPath: resolvedPath, relPath }];
+  const entry = { absPath: resolvedPath, relPath };
+  return isGeneratedEntry(entry) ? [] : [entry];
 }
 
 function extractFrontmatter(content) {

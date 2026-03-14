@@ -15,6 +15,9 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const { unified } = require('unified');
+const { isExcludedV2ExperimentalPath } = require('./docs-publishability');
+const { isGeneratedDocsPageContent } = require('./docs-page-scope');
+const { repairCodeBlockMetadata } = require('./docs-authoring-rules');
 
 function loadPlugin(name) {
   const plugin = require(name);
@@ -308,6 +311,24 @@ function splitFrontmatterPrefix(content) {
   };
 }
 
+function isEligibleDocsAuthoringRepairTarget(filePath, content) {
+  const relPath = normalizeRepoPath(filePath).replace(/^\/+/, '');
+  const ext = path.extname(relPath).toLowerCase();
+  if (ext !== '.mdx') {
+    return false;
+  }
+
+  if (relPath.startsWith('v2/')) {
+    return !isExcludedV2ExperimentalPath(relPath) && !isGeneratedDocsPageContent(content);
+  }
+
+  if (relPath.startsWith('docs-guide/')) {
+    return !isGeneratedDocsPageContent(content);
+  }
+
+  return false;
+}
+
 function mapOutsideInlineCode(line, transform) {
   let output = '';
   let index = 0;
@@ -476,16 +497,98 @@ function repairAnglePlaceholders(line) {
   return { line: nextLine, changed };
 }
 
-function repairMarkdownDivider(line, index, lines) {
+function updateJsxBlockStack(stack, tagName, isClosing) {
+  if (isClosing) {
+    for (let index = stack.length - 1; index >= 0; index -= 1) {
+      if (stack[index] === tagName) {
+        stack.splice(index, 1);
+        break;
+      }
+    }
+    return;
+  }
+
+  stack.push(tagName);
+}
+
+function getJsxBlockDepths(lines) {
+  const depths = [];
+  const stack = [];
+  let inJsxComment = false;
+  let pendingOpenTag = '';
+
+  lines.forEach((line) => {
+    depths.push(stack.length);
+    const trimmed = String(line || '').trim();
+
+    if (inJsxComment) {
+      if (trimmed.includes('*/}')) {
+        inJsxComment = false;
+      }
+      return;
+    }
+
+    if (trimmed.startsWith('{/*')) {
+      if (!trimmed.includes('*/}')) {
+        inJsxComment = true;
+      }
+      return;
+    }
+
+    if (pendingOpenTag) {
+      pendingOpenTag = `${pendingOpenTag} ${trimmed}`;
+      if (!trimmed.includes('>')) {
+        return;
+      }
+
+      const match = pendingOpenTag.match(/^<([A-Za-z][\w-]*)\b[\s\S]*>$/);
+      if (match && !/\/>\s*$/.test(pendingOpenTag)) {
+        updateJsxBlockStack(stack, match[1], false);
+      }
+      pendingOpenTag = '';
+      return;
+    }
+
+    if (/^<([A-Za-z][\w-]*)\b[^>]*$/.test(trimmed) && !trimmed.startsWith('</')) {
+      pendingOpenTag = trimmed;
+      return;
+    }
+
+    if (!trimmed.startsWith('<') && !trimmed.startsWith('</')) {
+      return;
+    }
+
+    const tagRegex = /<\/?([A-Za-z][\w-]*)\b[^>]*>/g;
+    let match;
+    while ((match = tagRegex.exec(trimmed)) !== null) {
+      const fullMatch = match[0];
+      const tagName = match[1];
+      const isClosing = fullMatch.startsWith('</');
+      const isSelfClosing = /\/>\s*$/.test(fullMatch);
+      const closesSameLine = !isClosing && new RegExp(`</${escapeRegExp(tagName)}\\s*>`).test(trimmed.slice(tagRegex.lastIndex));
+
+      if (isClosing) {
+        updateJsxBlockStack(stack, tagName, true);
+        continue;
+      }
+
+      if (!isSelfClosing && !closesSameLine) {
+        updateJsxBlockStack(stack, tagName, false);
+      }
+    }
+  });
+
+  return depths;
+}
+
+function repairMarkdownDivider(line, index, lines, jsxBlockDepths = []) {
   if (String(line || '').trim() !== '---') {
     return { line, changed: false };
   }
 
-  const previousLine = index > 0 ? String(lines[index - 1] || '').trim() : '';
-  const nextLine = index < lines.length - 1 ? String(lines[index + 1] || '').trim() : '';
-  const hasDividerSpacing = previousLine === '' && nextLine === '';
+  const isTopLevel = Number(jsxBlockDepths[index] || 0) === 0;
 
-  if (!hasDividerSpacing) {
+  if (!isTopLevel) {
     return { line, changed: false };
   }
 
@@ -611,6 +714,7 @@ function repairMarkdownContent(content, filePath = '', options = {}) {
 
     let working = segment.text;
     const originalLines = working.split('\n');
+    const jsxBlockDepths = getJsxBlockDepths(originalLines);
 
     working = working.replace(/<!--([\s\S]*?)-->/g, (match, body, offset) => {
       changes.push({
@@ -664,7 +768,7 @@ function repairMarkdownContent(content, filePath = '', options = {}) {
         currentLine = placeholderRepair.line;
       }
 
-      const dividerRepair = repairMarkdownDivider(currentLine, index, originalLines);
+      const dividerRepair = repairMarkdownDivider(currentLine, index, originalLines, jsxBlockDepths);
       if (dividerRepair.changed) {
         changes.push({
           file: filePath,
@@ -681,7 +785,19 @@ function repairMarkdownContent(content, filePath = '', options = {}) {
     repairedSegments.push(nextLines.join('\n'));
   });
 
-  const repairedContent = `${frontmatter.prefix}${repairedSegments.join('\n')}`;
+  let repairedContent = `${frontmatter.prefix}${repairedSegments.join('\n')}`;
+  if (isEligibleDocsAuthoringRepairTarget(filePath, repairedContent)) {
+    const codeBlockRepair = repairCodeBlockMetadata(repairedContent, filePath);
+    repairedContent = codeBlockRepair.content;
+    codeBlockRepair.findings.forEach((finding) => {
+      changes.push({
+        file: filePath,
+        line: finding.line || 1,
+        rule: finding.rule,
+        message: finding.message
+      });
+    });
+  }
 
   return {
     content: repairedContent,

@@ -18,7 +18,7 @@ const { execSync } = require('child_process');
 const { unified } = require('unified');
 const remarkParse = require('remark-parse').default;
 const remarkMdx = require('remark-mdx').default;
-const { getMdxFiles } = require('../../../../tests/utils/file-walker');
+const { getAuthoredMdxFiles } = require('../../../../tests/utils/file-walker');
 
 const PROPER_NOUNS = {
   livepeer: 'Livepeer',
@@ -147,7 +147,7 @@ function resolveTargetFiles(explicitFiles) {
     return explicitFiles;
   }
 
-  return getMdxFiles(REPO_ROOT).map((filePath) => path.resolve(filePath));
+  return getAuthoredMdxFiles(REPO_ROOT).map((filePath) => path.resolve(filePath));
 }
 
 function splitFrontmatter(raw) {

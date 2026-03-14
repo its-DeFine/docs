@@ -21,6 +21,7 @@ const {
   getDocsJsonRouteKeys,
   toDocsRouteKeyFromFileV2Aware
 } = require('../../tests/utils/file-walker');
+const { isGeneratedDocsPageContent } = require('../lib/docs-page-scope');
 const { analyzeMdxPage, scorePage, computeBand } = require('../lib/docs-usefulness/scoring');
 const { getRulesForPage } = require('../lib/docs-usefulness/rubric-loader');
 const { checkJourneys } = require('../lib/docs-usefulness/journey-check');
@@ -638,6 +639,9 @@ async function main() {
 
     const absPath = path.join(repoRoot, relFile);
     const content = fs.readFileSync(absPath, 'utf8');
+    if (isGeneratedDocsPageContent(content)) {
+      continue;
+    }
     const page = analyzeMdxPage({
       content,
       filePath: relFile,

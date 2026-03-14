@@ -15,12 +15,17 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const matter = require('gray-matter');
-const { getMdxFiles, getStagedDocsPageFiles } = require('../../../../tests/utils/file-walker');
+const { getAuthoredMdxFiles, getStagedAuthoredDocsPageFiles } = require('../../../../tests/utils/file-walker');
 
 const RULE_DUPLICATE_TITLE = 'duplicate-title';
 const RULE_DUPLICATE_DESCRIPTION = 'duplicate-description';
 
 let parserPromise = null;
+
+function loadPlugin(name) {
+  const plugin = require(name);
+  return plugin.default || plugin;
+}
 
 function getRepoRoot() {
   try {
@@ -35,8 +40,10 @@ const REPO_ROOT = getRepoRoot();
 async function getParser() {
   if (!parserPromise) {
     parserPromise = (async () => {
-      const [{ unified }, { default: remarkParse }, { default: remarkGfm }, { default: remarkMdx }] =
-        await Promise.all([import('unified'), import('remark-parse'), import('remark-gfm'), import('remark-mdx')]);
+      const { unified } = require('unified');
+      const remarkParse = loadPlugin('remark-parse');
+      const remarkGfm = loadPlugin('remark-gfm');
+      const remarkMdx = loadPlugin('remark-mdx');
       return unified().use(remarkParse).use(remarkGfm).use(remarkMdx);
     })();
   }
@@ -491,12 +498,12 @@ async function scanFile(filePath, options = {}) {
 
 function getDefaultTargets(options = {}) {
   if (options.stagedOnly) {
-    return getStagedDocsPageFiles(REPO_ROOT)
+    return getStagedAuthoredDocsPageFiles(REPO_ROOT)
       .filter((filePath) => filePath.endsWith('.mdx'))
       .map((filePath) => path.resolve(filePath));
   }
 
-  return getMdxFiles(REPO_ROOT)
+  return getAuthoredMdxFiles(REPO_ROOT)
     .filter((filePath) => filePath.endsWith('.mdx'))
     .map((filePath) => path.resolve(filePath));
 }

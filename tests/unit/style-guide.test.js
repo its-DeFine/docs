@@ -17,7 +17,14 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
-const { getMdxFiles, getJsxFiles, getStagedDocsPageFiles, readFile } = require('../utils/file-walker');
+const {
+  getAuthoredMdxFiles,
+  getJsxFiles,
+  getStagedAuthoredDocsPageFiles,
+  readFile
+} = require('../utils/file-walker');
+const { filterAuthoredDocsPageFiles } = require('../../tools/lib/docs-page-scope');
+const { analyzeGuideLayoutWarnings, analyzeCodeBlockMetadata } = require('../../tools/lib/docs-authoring-rules');
 
 const REPO_ROOT = process.cwd();
 let errors = [];
@@ -534,6 +541,58 @@ function checkDefinitionByNegation(files, stagedOnly = false) {
 }
 
 /**
+ * Check guide-only layout recommendations.
+ */
+function checkGuideLayoutRules(files, stagedOnly = false) {
+  files
+    .filter((file) => file.endsWith('.mdx'))
+    .forEach((file) => {
+      const content = readFile(file);
+      if (!content) return;
+
+      analyzeGuideLayoutWarnings(content, file).forEach((finding) => {
+        const lineNumber = finding.line || 1;
+        if (!shouldCheckLine(file, lineNumber, stagedOnly)) {
+          return;
+        }
+
+        warnings.push({
+          file,
+          rule: finding.rule,
+          message: finding.message,
+          line: lineNumber
+        });
+      });
+    });
+}
+
+/**
+ * Check code-block icon and filename guidance.
+ */
+function checkCodeBlockMetadata(files, stagedOnly = false) {
+  files
+    .filter((file) => file.endsWith('.mdx'))
+    .forEach((file) => {
+      const content = readFile(file);
+      if (!content) return;
+
+      analyzeCodeBlockMetadata(content, file).forEach((finding) => {
+        const lineNumber = finding.line || 1;
+        if (!shouldCheckLine(file, lineNumber, stagedOnly)) {
+          return;
+        }
+
+        warnings.push({
+          file,
+          rule: finding.rule,
+          message: finding.message,
+          line: lineNumber
+        });
+      });
+    });
+}
+
+/**
  * Check import paths
  */
 function checkImportPaths(files, stagedOnly = false) {
@@ -631,13 +690,13 @@ function runTests(options = {}) {
   let testFiles = files;
   if (!testFiles) {
     if (stagedOnly) {
-      testFiles = getStagedDocsPageFiles().filter(f => f.endsWith('.mdx') && !f.includes('style-guide.mdx'));
+      testFiles = getStagedAuthoredDocsPageFiles().filter(f => f.endsWith('.mdx') && !f.includes('style-guide.mdx'));
     } else {
-      testFiles = [...getMdxFiles(), ...getJsxFiles()].filter(f => !f.includes('style-guide.mdx'));
+      testFiles = [...getAuthoredMdxFiles(), ...getJsxFiles()].filter(f => !f.includes('style-guide.mdx'));
     }
   } else {
     // Filter out style-guide.mdx even if files are explicitly provided
-    testFiles = testFiles.filter(f => !f.includes('style-guide.mdx'));
+    testFiles = filterAuthoredDocsPageFiles(testFiles).filter(f => !f.includes('style-guide.mdx'));
   }
 
   if (changedOnly) {
@@ -655,6 +714,8 @@ function runTests(options = {}) {
   checkBoilerplateOpenings(testFiles, changedOnly);
   checkFillerMarketingLanguage(testFiles, changedOnly);
   checkDefinitionByNegation(testFiles, changedOnly);
+  checkGuideLayoutRules(testFiles, changedOnly);
+  checkCodeBlockMetadata(testFiles, changedOnly);
   checkImportPaths(testFiles, changedOnly);
   checkFileNaming(testFiles);
   

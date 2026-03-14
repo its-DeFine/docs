@@ -124,7 +124,7 @@ function run(options = {}) {
         message: finding.message || 'Unknown MDX-safe markdown violation'
       };
 
-      if (entry.rule === 'markdown-divider') {
+      if (entry.rule === 'markdown-divider' || entry.rule === 'code-block-icon' || entry.rule === 'code-block-filename') {
         warnings.push(entry);
       } else {
         errors.push(entry);

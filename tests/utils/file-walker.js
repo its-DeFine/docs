@@ -20,6 +20,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 const { filterPathsByMintIgnore } = require('./mintignore');
 const { isExcludedV2ExperimentalPath } = require('../../tools/lib/docs-publishability');
+const { filterAuthoredDocsPageFiles } = require('../../tools/lib/docs-page-scope');
 
 function toPosix(filePath) {
   return String(filePath || '').split(path.sep).join('/');
@@ -214,10 +215,18 @@ function getDocsJsonTabFiles(tabName, rootDir = null, options = {}) {
     .filter(Boolean);
 }
 
+function getAuthoredDocsJsonTabFiles(tabName, rootDir = null, options = {}) {
+  return filterAuthoredDocsPageFiles(getDocsJsonTabFiles(tabName, rootDir, options));
+}
+
 function getDocsJsonGroupFiles(config = {}) {
   return getDocsJsonGroupRouteKeys(config)
     .map((routeKey) => resolveDocsRouteToFile(routeKey, config.rootDir))
     .filter(Boolean);
+}
+
+function getAuthoredDocsJsonGroupFiles(config = {}) {
+  return filterAuthoredDocsPageFiles(getDocsJsonGroupFiles(config));
 }
 
 function toDocsRouteKeyFromFile(filePath, rootDir = null) {
@@ -317,6 +326,10 @@ function getMdxFiles(rootDir = null, options = {}) {
   });
 }
 
+function getAuthoredMdxFiles(rootDir = null, options = {}) {
+  return filterAuthoredDocsPageFiles(getMdxFiles(rootDir, options));
+}
+
 /**
  * Get all JSX files in snippets/components
  */
@@ -372,6 +385,10 @@ function getStagedDocsPageFiles(rootDir = null, options = {}) {
     const key = toDocsRouteKeyFromFile(filePath, repoRoot);
     return key && docsRouteKeys.has(key);
   });
+}
+
+function getStagedAuthoredDocsPageFiles(rootDir = null, options = {}) {
+  return filterAuthoredDocsPageFiles(getStagedDocsPageFiles(rootDir, options));
 }
 
 function walkDocsContentFiles(dir, out = []) {
@@ -434,11 +451,15 @@ module.exports = {
   getDocsJsonTabRouteKeys,
   getDocsJsonGroupRouteKeys,
   getDocsJsonTabFiles,
+  getAuthoredDocsJsonTabFiles,
   getDocsJsonGroupFiles,
+  getAuthoredDocsJsonGroupFiles,
   resolveDocsRouteToFile,
   toDocsRouteKeyFromFile,
   toDocsRouteKeyFromFileV2Aware,
   isExcludedV2ExperimentalPath,
   filterPathsByMintIgnore,
+  getAuthoredMdxFiles,
+  getStagedAuthoredDocsPageFiles,
   readFile
 };

@@ -70,9 +70,9 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
-pageType: [overview|concept|tutorial|how_to|reference|faq|troubleshooting|changelog|glossary|landing]
-audience: [gateway-operator|orchestrator|developer|delegator|general]
-status: current
+pageType: [landing|overview|tutorial|quickstart|how_to|concept|reference|faq|troubleshooting|changelog|glossary|guide]
+audience: [developer|gateway-operator|orchestrator|delegator|platform-builder|community|internal|general|everyone]
+status: [draft|review|current|published|deprecated|coming-soon|production|provisional|verified_2026]
 lastVerified: YYYY-MM-DD
 ---
 ```
@@ -140,6 +140,7 @@ Terminology Validation:
 Verify:
 - Mermaid diagrams use theme colours (but must be hardcoded - see /snippets/components/page-structure/mermaid-colours.jsx)
 - Fontawesome icons are used on accordions and tabs (see https://fontawesome.com/search)
+- Code blocks have an icon, and preferably a filename or title
 - Tables use StyledTable component
 - No em-dashes are used (instead use standard -)
 - UK spelling is used
@@ -241,6 +242,7 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
 | Centred content | `CenteredContainer` | `/snippets/components/layout/containers.jsx` |
 | Bordered callout boxes | `BorderedBox` | `/snippets/components/layout/containers.jsx` |
 | Sequential steps | `StyledSteps`, `StyledStep` | `/snippets/components/layout/steps.jsx` |
+| Code samples | Fenced code blocks or `CodeComponent`, `CustomCodeBlock`, `ComplexCodeBlock` | `/snippets/components/content/code.jsx` |
 | Images | `Image` | `/snippets/components/primitives/image.jsx` |
 | Videos | `YouTubeVideo` | `/snippets/components/content/video.jsx` |
 
@@ -329,6 +331,38 @@ These are available without imports:
   </StyledStep>
 </StyledSteps>
 ```
+
+- On guide pages, prefer `StyledSteps` / `StyledStep` over raw `Steps` / `Step`
+
+**Guide-page tab sets (when tabs are not the full-page layout and not inside steps):**
+```mdx
+<BorderedBox variant="accent" padding="16px">
+  <Tabs>
+    <Tab title="Option A" icon="bolt">
+      [Content]
+    </Tab>
+    <Tab title="Option B" icon="server">
+      [Content]
+    </Tab>
+  </Tabs>
+</BorderedBox>
+```
+
+- On guide pages, standalone Tabs outside steps should usually sit inside `BorderedBox variant="accent"`
+- Skip the accent wrapper only when the tabs are clearly acting as the full-page layout
+
+**Code blocks and code components:**
+````mdx
+```bash icon="terminal" title="Check Status"
+livepeer_cli status
+```
+
+<CustomCodeBlock filename="gateway.env" icon="terminal" language="bash" />
+````
+
+- Code blocks should include an icon; use `terminal` by default
+- Prefer a filename or title when it helps the reader understand what the block represents
+- Inline single-backtick code is excluded from this rule
 
 **Cross-references (inline):**
 ```mdx
@@ -642,6 +676,10 @@ npm run test:browser  # Page rendering
 - [ ] All cross-references use LinkArrow (inline) or Card (navigational)
 - [ ] Mermaid diagrams use the canonical hardcoded palette from `/snippets/components/page-structure/mermaid-colours.jsx`
 - [ ] FontAwesome icons used on Accordions and Tabs, sourced from `https://fontawesome.com/search`
+- [ ] Guide pages prefer `StyledSteps` / `StyledStep` over raw `Steps` / `Step`
+- [ ] Guide-page standalone Tabs outside steps use `BorderedBox variant="accent"` unless the tabs are clearly the full-page layout
+- [ ] Fenced code blocks and code block components include an icon; use `terminal` by default
+- [ ] Code blocks preferably include a filename or title when it helps the reader
 - [ ] Unverified claims flagged with `{/* REVIEW: */}` or `{/* SME: */}` JSX comments
 - [ ] Media/video placeholders use `{/* TODO: */}` JSX comments
 - [ ] Narrative voice is entity-led. Avoid first-person editorial voice and reader-owned second-person explanatory prose

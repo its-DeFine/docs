@@ -188,7 +188,7 @@ The intended developer experience is designed to abstract pain points:
 
 <CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
-## Building One
+## Building A Clearinghouse
 
 For operators building gateway-as-a-service infrastructure (a "Provider" or NaaP operator), the minimum components are:
 
@@ -227,11 +227,12 @@ For operators building gateway-as-a-service infrastructure (a "Provider" or NaaP
 
 The remote signer's stateless design means horizontal scaling is straightforward: run multiple signer instances behind a load balancer with no shared database. Each instance is independent.
 
-For the NaaP (Network as a Platform) architecture that frames clearinghouse infrastructure, see <LinkArrow href="/v2/gateways/guides/opportunities/naap-multi-tenancy" label="NaaP Multi-Tenancy" newline={false} /> and the NaaP-related proposals on the [Livepeer Forum](https://forum.livepeer.org).
+For the NaaP <Badge color="surface-destructive">Design Stage Only!</Badge> (Network as a Platform) planned architecture that frames clearinghouse infrastructure, see <LinkArrow href="/v2/gateways/guides/opportunities/naap-multi-tenancy" label="NaaP Multi-Tenancy" newline={false} /> and the NaaP-related proposals on the [Livepeer Forum](https://forum.livepeer.org).
 
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Current Status
+<Badge color="yellow"> Beta </Badge>
 
 While a fully productionised public clearinghouse matures, the following access points exist:
 
@@ -245,21 +246,25 @@ While a fully productionised public clearinghouse matures, the following access 
 
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## Trade-offs
+## Operator Choice Matrix
 
-<AccordionGroup>
-  <Accordion title="What the operator gains" icon="circle-check">
-    Elimination of all Ethereum complexity: no ETH to acquire, no keys to secure, no PM internals to understand, no balance monitoring. Onboarding reduces to an API key sign-up. ETH price volatility becomes the clearinghouse's concern.
-  </Accordion>
+Reference to help guide Gateway Operator decisions on using a Clearinghouse.
 
-  <Accordion title="What the operator gives up" icon="circle-xmark">
-    Direct control over Orchestrator selection (the clearinghouse may limit selection or impose its own routing logic). Pricing transparency (the clearinghouse rate, not the raw network rate). Independence (dependency on a third party remaining operational). Potential margin markup on top of raw network costs.
-  </Accordion>
+<CenteredContainer style={{width: "90%", minWidth: "fit-content"}}>
+    <AccordionGroup>
+    <Accordion title="Operator Benefits" icon="circle-check">
+        Elimination of all Ethereum complexity: no ETH to acquire, no keys to secure, no PM internals to understand, no balance monitoring. Onboarding reduces to an API key sign-up. ETH price volatility becomes the clearinghouse's concern.
+    </Accordion>
 
-  <Accordion title="When to stay self-managed" icon="scale-balanced">
-    Full Orchestrator selection control, exact network pricing, or sufficient engineering capacity to manage ETH all favour self-management. Video transcoding operators have no clearinghouse option at present: remote signing is not supported for that workload, so self-management is the only path.
-  </Accordion>
-</AccordionGroup>
+    <Accordion title="Operator Tradeoffs" icon="shuffle">
+        Direct control over Orchestrator selection (the clearinghouse may limit selection or impose its own routing logic). Pricing transparency (the clearinghouse rate, not the raw network rate). Independence (dependency on a third party remaining operational). Potential margin markup on top of raw network costs.
+    </Accordion>
+
+    <Accordion title="Decision Guide" icon="scale-balanced">
+        Full Orchestrator selection control, exact network pricing, or sufficient engineering capacity to manage ETH all favour self-management. Video transcoding operators have no clearinghouse option at present: remote signing is not supported for that workload, so self-management is the only path.
+    </Accordion>
+    </AccordionGroup>
+</CenteredContainer>
 
 <CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
@@ -273,7 +278,7 @@ While a fully productionised public clearinghouse matures, the following access 
     Decision guide for choosing between self-managed, remote signer, and clearinghouse.
   </Card>
   <Card title="NaaP Multi-Tenancy" icon="users" href="/v2/gateways/guides/opportunities/naap-multi-tenancy">
-    Network as a Platform architecture for multi-tenant gateway operation.
+    <Badge color="surface-destructive">Design Stage Only!</Badge> <br/> Network as a Platform architecture for multi-tenant gateway operation.
   </Card>
   <Card title="go-livepeer PR #3822" icon="github" href="https://github.com/livepeer/go-livepeer/pull/3822">
     Implementation PR for remote signer and clearinghouse protocol support.

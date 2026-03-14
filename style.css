@@ -427,6 +427,17 @@ img[alt="US"][src*="flags/US.svg"]::before {
   margin-bottom: 0 !important;
 }
 
+/* BorderedBox should own its internal spacing.
+   Trim default block margins on the first/last rendered child so headings
+   and paragraphs do not add a false gap inside the padded shell. */
+[data-docs-bordered-box] > :first-child {
+  margin-top: 0 !important;
+}
+
+[data-docs-bordered-box] > :last-child {
+  margin-bottom: 0 !important;
+}
+
 /* Frame mode container - 80% of #content-container width, centered */
 /* Breaks out of #content padding to center in full #content-container */
 .frame-mode-container {

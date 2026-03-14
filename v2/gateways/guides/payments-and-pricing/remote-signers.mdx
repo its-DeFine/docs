@@ -39,24 +39,24 @@ Human:
 import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { StyledSteps, StyledStep } from "/snippets/components/layout/steps.jsx"
+
+<Tip>
+  **Current scope: Realtime AI Video (live-video-to-video) workloads only.**
+  <br/> Remote signing is not supported for video transcoding.
+</Tip>
 
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 A **remote signer** is a standalone `go-livepeer` mode that takes over all Ethereum-related responsibilities from the Gateway: signing payment tickets, managing PM session state, and providing the authentication signature for Orchestrator info requests. The Gateway communicates with the signer over the network and holds no Ethereum private key.
 
-Remote signers were introduced in [PR #3791](https://github.com/livepeer/go-livepeer/pull/3791) and [PR #3822](https://github.com/livepeer/go-livepeer/pull/3822), both merged in January 2026.
+Remote signers were introduced in [PR #3791](https://github.com/livepeer/go-livepeer/pull/3791) and [PR #3822](https://github.com/livepeer/go-livepeer/pull/3822), in January 2026.
 
 {/* REVIEW: Confirm the minimum go-livepeer version that includes PR #3791 and #3822. Rick to verify the release tag. PRs merged January 2026. */}
 
-<Warning>
-  **Current scope: Live AI (live-video-to-video) workloads only.** Remote signing is not supported for video transcoding. Transcoding uses a different payment path where signing occurs in the hot path of segment processing. This is an explicit design decision and is unlikely to change in the near term.
-</Warning>
-
-<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
-
 ## Benefits
 
-### Key isolation
+### Key Isolation
 
 By default, a `go-livepeer` Gateway holds its Ethereum private key in the same process that handles media from external clients. A vulnerability in media parsing or job handling could expose that key, allowing an attacker to drain the ETH deposit.
 
@@ -81,7 +81,7 @@ A remote signer separates these concerns. The signer runs as a hardened service 
   </TableRow>
 </StyledTable>
 
-### Platform flexibility
+### Platform Flexibility
 
 The PM system is complex enough that `go-livepeer` was historically the only Gateway implementation. Remote signers remove this barrier. A Python, browser, or mobile application can integrate with the Livepeer network by using a remote signer for all PM mechanics and interacting with a simple HTTP signing API rather than raw Arbitrum contracts. This is the foundation for the Livepeer SDK's Gateway capabilities.
 
@@ -93,17 +93,17 @@ Remote signers are also the technical primitive that <LinkArrow href="/v2/gatewa
 
 The remote signer implements two operations corresponding to the two places where Ethereum signing occurs in a Live AI Gateway session.
 
-### Operation 1: GetOrchestratorInfo signature
+### 1. `GetOrchestratorInfo` signature
 
 When a Gateway contacts an Orchestrator, it must provide an authentication signature. This signature is static for a given key and can be safely cached. At startup, the Gateway fetches this signature from the signer once, caches it, and reuses it for all Orchestrator info requests.
 
-```
+``` icon="text"
 Gateway -> Signer: getOrchInfoSig()
 Signer  -> Gateway: gatewaySig
 Gateway -> Orchestrator: getOrchInfo(gatewaySig)
 ```
 
-### Operation 2: Payment ticket signing
+### 2. Payment Ticket Signing
 
 For each payment in a Live AI session, the Gateway asks the signer to sign a ticket. The signer returns the signed ticket and updated session state. The Gateway is responsible for carrying that state forward into the next call.
 
@@ -133,14 +133,16 @@ sequenceDiagram
     end
 ```
 
-### Stateless design
+### Stateless Design
 
 The signer stores **no state between calls**. State is carried by the Gateway and round-tripped on every signing request. The signer's state is cryptographically signed to prevent the Gateway from fabricating or replaying it.
 
 This design enables running multiple signer instances behind a load balancer with no shared database, no synchronisation infrastructure, and seamless failover between instances.
 
 <Note>
-  **HTTP 480 - expired ticket params:** If the signer returns HTTP status 480, the ticket parameters from the Orchestrator have expired. The Gateway should re-fetch OrchestratorInfo and restart the signing chain from the new parameters.
+  **HTTP 480 - expired ticket params**
+  <br/>If the signer returns HTTP status 480, the ticket parameters from the Orchestrator have expired.
+  <br/>The Gateway should re-fetch OrchestratorInfo and restart the signing chain from the new parameters.
 </Note>
 
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
@@ -156,11 +158,11 @@ This design enables running multiple signer instances behind a load balancer wit
 
 ## Running the Signer
 
-<Steps>
-  <Step title="Start the remote signer service">
+<StyledSteps>
+  <StyledStep title="Start the remote signer service">
     Run `go-livepeer` in signer mode on a dedicated host or process:
 
-    ```bash
+    ```bash icon="terminal" Signer Start
     livepeer \
       -signer \
       -network arbitrum-one-mainnet \
@@ -177,12 +179,12 @@ This design enables running multiple signer instances behind a load balancer wit
     <Warning>
       Flag names for remote signer mode are subject to change as the feature matures. Verify with `livepeer -help | grep -i signer` on the installed version before deploying.
     </Warning>
-  </Step>
+  </StyledStep>
 
-  <Step title="Configure the Gateway to use the signer">
+  <StyledStep title="Configure the Gateway to use the signer">
     Start the Gateway pointing at the signer instead of a local keystore:
 
-    ```bash
+    ```bash icon="terminal" Signer Configuration
     livepeer \
       -gateway \
       -network arbitrum-one-mainnet \
@@ -198,22 +200,23 @@ This design enables running multiple signer instances behind a load balancer wit
     The Gateway uses `-signerAddr` for all PM signing. `-ethKeystorePath` and a local ETH account are not needed on the Gateway host.
 
     {/* REVIEW: Confirm whether -ethUrl is still required on the gateway when -signerAddr is set, or whether the gateway can run with no Arbitrum connection at all. Rick to verify. */}
-  </Step>
+  </StyledStep>
 
-  <Step title="Verify the signer is active">
+  <StyledStep title="Verify the signer is active">
     Check the Gateway startup logs for a line confirming the remote signer is connected.
 
     {/* REVIEW: Rick / j0sh to provide the exact log message that confirms remote signer is active at startup. */}
 
     Submit a Live AI job and confirm it processes successfully. Check that payments are flowing via `livepeer_cli`:
 
-    ```bash
+    ```bash icon="terminal" CLI command
     livepeer_cli -host 127.0.0.1 -http 5935
     # Select Option 1 - Get node status
     # Review active sessions and payment activity
     ```
-  </Step>
-</Steps>
+
+  </StyledStep>
+</StyledSteps>
 
 <CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
@@ -272,7 +275,12 @@ A community-operated remote signer is available for testing and early developmen
 
 {/* REVIEW: Confirm the exact URL is signer.eliteencoder.net (Discord referenced signer.eiteencoder.net as a typo). Verify with John at Elite Encoder. */}
 
-This instance provides free ETH for testing. It uses SIWE (ERC-4361 Sign-In with Ethereum) for authentication and issues per-user JWT tokens. It is **not** for production workloads without understanding the custody implications: the signer holds the Gateway's signing key and can observe all tickets signed through it.
+This instance provides free ETH for testing. It uses SIWE (ERC-4361 Sign-In with Ethereum) for authentication and issues per-user JWT tokens.
+
+<Warning>
+    Do not use for production workloads.
+    <br/> The signer holds the Gateway's signing key and can observe all tickets signed through it.
+</Warning>
 
 For production, run a dedicated signer instance.
 
