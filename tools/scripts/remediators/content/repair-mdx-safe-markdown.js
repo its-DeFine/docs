@@ -3,7 +3,7 @@
  * @script            repair-mdx-safe-markdown
  * @category          remediator
  * @purpose           qa:content-quality
- * @scope             tools/scripts/remediators/content, first-party markdown/mdx files
+ * @scope             full-repo
  * @owner             docs
  * @needs             E-R1, R-R11
  * @purpose-statement Auto-repairs deterministic MDX-unsafe markdown patterns across first-party markdown and MDX content.
@@ -41,7 +41,7 @@ function printHelp() {
       '  --stage     Re-stage files changed by --write.',
       '',
       'Safety:',
-      '  - Repairs HTML comments, raw <br> table breaks, raw comparison operators, code-like table cells, and angle-bracket placeholders.',
+      '  - Repairs HTML comments, raw <br> table breaks, raw comparison operators, code-like table cells, angle-bracket placeholders, and standalone Markdown --- dividers.',
       '  - Skips fenced code blocks and inline code spans.',
       '  - Leaves ambiguous prose rewrites untouched.'
     ].join('\n')

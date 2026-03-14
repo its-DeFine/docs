@@ -62,5 +62,21 @@
       "<!-- REVIEW: confirm path -->"
     ],
     "expectedRules": ["html-comment", "parse-error"]
+  },
+  {
+    "name": "Flags standalone markdown dividers for CustomDivider repair",
+    "filePath": "fixtures/divider.mdx",
+    "contentLines": [
+      "---",
+      "title: Divider Example",
+      "---",
+      "",
+      "Paragraph before.",
+      "",
+      "---",
+      "",
+      "## Next"
+    ],
+    "expectedRules": ["markdown-divider"]
   }
 ]

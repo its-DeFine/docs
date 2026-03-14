@@ -29,6 +29,7 @@ const scriptDocsTests = require('./unit/script-docs.test');
 const componentGovernanceUtilsTests = require('./unit/component-governance-utils.test');
 const componentGovernanceGeneratorTests = require('./unit/component-governance-generators.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
+const doubleHeadersValidator = require('../tools/scripts/validators/content/check-double-headers');
 const mdxSafeMarkdownValidator = require('../tools/scripts/validators/content/check-mdx-safe-markdown');
 const pagesIndexGenerator = require('../tools/scripts/generate-pages-index');
 const browserTests = require('./integration/browser.test');
@@ -118,6 +119,24 @@ async function runAllTests() {
   totalErrors += mdxResult.errors.length;
   totalWarnings += mdxResult.warnings.length;
   console.log(`   ${mdxResult.errors.length} errors, ${mdxResult.warnings.length} warnings`);
+
+  // Duplicate Header Validation
+  console.log('\n🪞 Running Duplicate Header Validation...');
+  const doubleHeadersResult = await doubleHeadersValidator.run({ stagedOnly });
+  doubleHeadersResult.results.forEach((result) => {
+    if (result.error) {
+      console.error(`  ${result.displayPath}:1 [error] ${result.error}`);
+      return;
+    }
+
+    result.findings.forEach((finding) => {
+      if (!finding.fixed) {
+        console.error(`  ${result.displayPath}:${finding.line} [${finding.rule}] ${finding.message} ${finding.evidence}`);
+      }
+    });
+  });
+  totalErrors += doubleHeadersResult.errors.length + doubleHeadersResult.remaining;
+  console.log(`   ${doubleHeadersResult.errors.length + doubleHeadersResult.remaining} errors, 0 warnings`);
 
   // Repo-wide MDX-safe Markdown Validation
   console.log('\n🧱 Running Repo-wide MDX-safe Markdown Validation...');

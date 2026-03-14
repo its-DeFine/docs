@@ -19,7 +19,7 @@ const os = require('os');
 const path = require('path');
 
 const prompts = require('../../tools/lib/docs-usefulness/prompts');
-const { EVALUATORS } = require('../../tools/lib/docs-usefulness/rule-evaluators');
+const { EVALUATORS, BOOLEAN_CHECKS } = require('../../tools/lib/docs-usefulness/rule-evaluators');
 const { resolvePurpose, resolveAudience, loadRubric, loadAudienceNormalization } = require('../../tools/lib/docs-usefulness/rubric-loader');
 const { validateUsefulnessConfig } = require('../../tools/lib/docs-usefulness/config-validator');
 const { analyzeMdxPage, scorePage } = require('../../tools/lib/docs-usefulness/scoring');
@@ -180,6 +180,93 @@ audience: developer
 
     assert.ok(landingScore.combined_score > landingScore.agent_score, 'Landing should favor human routing usefulness');
     assert.ok(referenceScore.agent_score > landingScore.agent_score, 'Reference should be more extractable for agents than landing');
+  }));
+
+  results.push(await runCase('Usefulness boolean checks flag boilerplate openings, filler language, and negation-first definitions', async () => {
+    const openingPage = {
+      content: `---
+title: Example
+description: Example
+---
+
+This page covers gateway routing and pricing decisions.
+
+## Routing
+
+Details.
+`,
+      textContent: 'This page covers gateway routing and pricing decisions. Details.'
+    };
+    assert.strictEqual(BOOLEAN_CHECKS.opening_not_boilerplate(openingPage), false);
+
+    const fillerPage = {
+      textContent: 'This powerful and robust guide simply helps operators unlock seamless routing with just a few changes.'
+    };
+    assert.strictEqual(BOOLEAN_CHECKS.low_filler_marketing_language(fillerPage), false);
+
+    const negationPage = {
+      textContent: 'BYOC is a routing layer, not a model hosting layer. A gateway is a control plane, not a model server.'
+    };
+    assert.strictEqual(BOOLEAN_CHECKS.limited_negation_definitions(negationPage), false);
+  }));
+
+  results.push(await runCase('Concept scoring favors natural openings and positive definitions over boilerplate copy', async () => {
+    const strongContent = `---
+title: BYOC Routing
+description: Understand gateway-side BYOC routing
+purpose: concept
+audience: gateway-operator
+---
+
+BYOC is a gateway-side routing layer that handles workload placement and policy across external compute.
+
+## Routing Model
+
+Gateways evaluate capability, policy, and availability before dispatching work.
+
+| Factor | Meaning |
+| --- | --- |
+| Capability | Advertised workload support |
+
+## Related Pages
+
+See [Pipeline Configuration](/v2/gateways/guides/node-pipelines/pipeline-configuration).
+`;
+
+    const weakContent = `---
+title: BYOC Routing
+description: Understand gateway-side BYOC routing
+purpose: concept
+audience: gateway-operator
+---
+
+This page covers BYOC routing. BYOC is a routing layer, not a model hosting layer. It is a powerful and robust way to unlock seamless workloads.
+
+## Routing Model
+
+Gateways evaluate capability, policy, and availability before dispatching work.
+
+| Factor | Meaning |
+| --- | --- |
+| Capability | Advertised workload support |
+
+## Related Pages
+
+See [Pipeline Configuration](/v2/gateways/guides/node-pipelines/pipeline-configuration).
+`;
+
+    const rubric = loadRubric();
+    const strongPage = analyzeMdxPage({ content: strongContent, filePath: 'v2/gateways/guides/node-pipelines/byoc-routing-good.mdx', routePath: '/v2/gateways/guides/node-pipelines/byoc-routing-good' });
+    const weakPage = analyzeMdxPage({ content: weakContent, filePath: 'v2/gateways/guides/node-pipelines/byoc-routing-bad.mdx', routePath: '/v2/gateways/guides/node-pipelines/byoc-routing-bad' });
+
+    const strongScore = scorePage(strongPage, { rubric });
+    const weakScore = scorePage(weakPage, { rubric });
+
+    assert.ok(strongScore.tier1_score > weakScore.tier1_score, 'Natural, positive-first concept pages should outscore boilerplate marketing copy');
+    assert.strictEqual(strongScore.tier1_details.opening_not_boilerplate.passed, true);
+    assert.strictEqual(weakScore.tier1_details.opening_not_boilerplate.passed, false);
+    assert.strictEqual(weakScore.tier1_details.low_filler_marketing_language.passed, false);
+    assert.strictEqual(weakScore.tier1_details.limited_negation_definitions.passed, false);
   }));
 
   results.push(await runCase('Tier1 usefulness score is independent of quality-gate parse failures', async () => {

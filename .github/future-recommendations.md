@@ -10,4 +10,5 @@ Capture repo-wide follow-up items that should become GitHub issues later, withou
 - Add a validator for context-aware `CustomDivider` margins so divider spacing can be checked against the surrounding content type and adjacent heading level.
 - Align the style-guide validator with the approved `CustomDivider style={{margin: ...}}` authoring patterns so divider spacing can be recommended without triggering generic inline-style failures.
 - Add a validator or fixer for `StyledTable` usage on authored guide pages to reduce raw Markdown tables in production MDX.
+- Review whether the current usefulness rubric/journey tooling should expand to cover boilerplate openings, filler language, and positive-definition preferences in a later authoring phase.
 - Review whether legacy inline-style and Tailwind cleanup should be handled as a dedicated repo-wide remediation project rather than folded into unrelated content edits.

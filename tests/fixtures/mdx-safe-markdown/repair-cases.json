@@ -91,5 +91,32 @@
       "[//]: # (REVIEW: confirm path)"
     ],
     "expectedRules": ["html-comment"]
+  },
+  {
+    "name": "Replaces standalone markdown dividers after frontmatter",
+    "filePath": "fixtures/divider.mdx",
+    "inputLines": [
+      "---",
+      "title: Divider Example",
+      "---",
+      "",
+      "Paragraph before.",
+      "",
+      "---",
+      "",
+      "## Next"
+    ],
+    "expectedLines": [
+      "---",
+      "title: Divider Example",
+      "---",
+      "",
+      "Paragraph before.",
+      "",
+      "<CustomDivider />",
+      "",
+      "## Next"
+    ],
+    "expectedRules": ["markdown-divider"]
   }
 ]

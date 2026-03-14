@@ -29,6 +29,7 @@ const remarkMdx = loadPlugin('remark-mdx');
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const STAGED_SNAPSHOT_ENV = 'LPD_STAGED_FILES_SNAPSHOT';
 const MARKDOWN_EXTENSIONS = new Set(['.md', '.mdx']);
+const FRONTMATTER_BLOCK_RE = /^\uFEFF?---[ \t]*\r?\n[\s\S]*?\r?\n---[ \t]*(?:\r?\n|$)/;
 const PLACEHOLDER_TAG_RE = /<([a-z][a-z0-9-]{1,})>/g;
 const RAW_BR_RE = /<br>(?!\s*\/>)/g;
 const COMPARISON_RE = /(^|[\s([{])(<={0,1}|>={0,1})(?=\s*\d)/g;
@@ -288,6 +289,25 @@ function getLineNumberAtIndex(content, index, baseLine = 1) {
   return baseLine + String(content || '').slice(0, Math.max(0, index)).split('\n').length - 1;
 }
 
+function splitFrontmatterPrefix(content) {
+  const raw = String(content || '');
+  const match = raw.match(FRONTMATTER_BLOCK_RE);
+
+  if (!match) {
+    return {
+      prefix: '',
+      body: raw,
+      bodyStartLine: 1
+    };
+  }
+
+  return {
+    prefix: match[0],
+    body: raw.slice(match[0].length),
+    bodyStartLine: match[0].split('\n').length
+  };
+}
+
 function mapOutsideInlineCode(line, transform) {
   let output = '';
   let index = 0;
@@ -456,6 +476,25 @@ function repairAnglePlaceholders(line) {
   return { line: nextLine, changed };
 }
 
+function repairMarkdownDivider(line, index, lines) {
+  if (String(line || '').trim() !== '---') {
+    return { line, changed: false };
+  }
+
+  const previousLine = index > 0 ? String(lines[index - 1] || '').trim() : '';
+  const nextLine = index < lines.length - 1 ? String(lines[index + 1] || '').trim() : '';
+  const hasDividerSpacing = previousLine === '' && nextLine === '';
+
+  if (!hasDividerSpacing) {
+    return { line, changed: false };
+  }
+
+  return {
+    line: '<CustomDivider />',
+    changed: true
+  };
+}
+
 function repairTableLine(line) {
   if (!isMarkdownTableLine(line) || isMarkdownTableSeparator(line)) {
     return { line, changes: [] };
@@ -505,13 +544,13 @@ function convertHtmlCommentBlock(body) {
   return lines.map((line) => `[//]: # (${escapeMarkdownCommentText(line)})`).join('\n');
 }
 
-function splitFencedSegments(content) {
+function splitFencedSegments(content, startLine = 1) {
   const lines = String(content || '').split('\n');
   const segments = [];
   let buffer = [];
   let protectedBlock = false;
   let fenceToken = '';
-  let lineStart = 1;
+  let lineStart = startLine;
 
   function pushBuffer() {
     if (buffer.length === 0) return;
@@ -559,7 +598,8 @@ function splitFencedSegments(content) {
 
 function repairMarkdownContent(content, filePath = '', options = {}) {
   const original = String(content || '');
-  const segments = splitFencedSegments(original);
+  const frontmatter = splitFrontmatterPrefix(original);
+  const segments = splitFencedSegments(frontmatter.body, frontmatter.bodyStartLine);
   const repairedSegments = [];
   const changes = [];
 
@@ -570,6 +610,7 @@ function repairMarkdownContent(content, filePath = '', options = {}) {
     }
 
     let working = segment.text;
+    const originalLines = working.split('\n');
 
     working = working.replace(/<!--([\s\S]*?)-->/g, (match, body, offset) => {
       changes.push({
@@ -623,15 +664,28 @@ function repairMarkdownContent(content, filePath = '', options = {}) {
         currentLine = placeholderRepair.line;
       }
 
+      const dividerRepair = repairMarkdownDivider(currentLine, index, originalLines);
+      if (dividerRepair.changed) {
+        changes.push({
+          file: filePath,
+          line: lineNumber,
+          rule: 'markdown-divider',
+          message: 'Replace Markdown thematic breaks with <CustomDivider />.'
+        });
+        currentLine = dividerRepair.line;
+      }
+
       return currentLine;
     });
 
     repairedSegments.push(nextLines.join('\n'));
   });
 
+  const repairedContent = `${frontmatter.prefix}${repairedSegments.join('\n')}`;
+
   return {
-    content: repairedSegments.join('\n'),
-    changed: repairedSegments.join('\n') !== original,
+    content: repairedContent,
+    changed: repairedContent !== original,
     changes
   };
 }

@@ -10,7 +10,7 @@ description: >-
 
 This skill contains everything needed to write a new MDX page in the Livepeer v2 documentation. It covers content strategy, UX patterns, component library usage, frontmatter standards, journey mapping, hard repo rules, and reviewer expectations. Repo-enforced rules are backed by hooks and tests; reviewer conventions in this skill are not yet fully scripted.
 
----
+<CustomDivider />
 
 ## 1. HARD RULES (Will Break Build or Fail Review)
 
@@ -79,9 +79,22 @@ lastVerified: YYYY-MM-DD
 
 Optional but recommended: `purpose`, `tag` (for "Start Here" badges).
 
----
+<CustomDivider />
 
 ## 2. PAGE TYPES AND THEIR PURPOSE
+
+### Lightweight Document Brief (Recommended)
+
+For new pages or major rewrites, start with a short planning brief before drafting. This is a guide aid, not a hard repo requirement, and it can live in task notes rather than the page itself.
+
+Recommended fields:
+- `pageType`
+- `reader persona`
+- `reader question`
+- `what the page should help the reader do or understand`
+- `what the page explicitly excludes`
+- `primary sources to verify`
+- `the next action after reading`
 
 Each page type answers a specific question. Never mix concerns.
 
@@ -107,7 +120,7 @@ Every tab (Gateways, Orchestrators) has 4 concepts pages:
 | **Architecture** | How does it WORK? | Layer position, system interactions, request flow lifecycle, internal components, software references |
 | **Economics** | Should I CARE? | Revenue streams, cost structure, payment flow, pricing configuration, case studies, "why operate" motivation |
 
----
+<CustomDivider />
 
 ## 3. UX PATTERNS (Gold Standard)
 
@@ -194,6 +207,8 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
 - Do not repeat the frontmatter page title as a visible top-of-page H1 or H2. Frontmatter metadata already becomes the page header.
 - After frontmatter and page TODO/review comments, make the first rendered body element `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />`
 - Then start the page body with 2-3 sentences of narrative prose, or an optional `<CenteredContainer>` + `<Tip>` followed by narrative prose
+- Open like a human explaining the system, not like a template announcing itself
+- Avoid boilerplate self-description such as "This page covers...", "In this guide...", or "This section explains..." unless a procedural page genuinely needs that framing
 - Optionally follow with a Mermaid timeline or overview diagram
 - Then cross-reference links: "For X, see [Page]. For Y, see [Page]."
 
@@ -209,7 +224,7 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
 - After complex visuals, add a sentence or two explaining the implications
 - Pattern: **Explain -> Show -> Interpret**
 
----
+<CustomDivider />
 
 ## 4. COMPONENT USAGE GUIDE
 
@@ -329,7 +344,7 @@ See <LinkArrow href="/v2/path/to/page" label="Page Name" newline={false} /> for 
 </Warning>
 ```
 
----
+<CustomDivider />
 
 ## 5. MERMAID DIAGRAM STANDARDS
 
@@ -378,7 +393,7 @@ Use for any Mermaid that might exceed viewport height:
 </ScrollableDiagram>
 ````
 
----
+<CustomDivider />
 
 ## 6. JOURNEY MAPPING AND PERSONAS
 
@@ -424,7 +439,7 @@ Content maps to reader stages:
 5. **Path Matrix** - Markdown table: persona x (start / continue / reference)
 6. **Quick Links (CardGroup)** - 6 cards in cols={3}
 
----
+<CustomDivider />
 
 ## 7. CROSS-REFERENCING RULES
 
@@ -444,7 +459,7 @@ When referencing the other tab (gateways mentioning orchestrators or vice versa)
 - Always include context: "Orchestrators, by contrast, earn at the protocol level"
 - Use LinkArrow with full label: `<LinkArrow href="/v2/orchestrators/concepts/role" label="Orchestrator Role" />`
 
----
+<CustomDivider />
 
 ## 8. WRITING STYLE
 
@@ -470,12 +485,36 @@ When referencing the other tab (gateways mentioning orchestrators or vice versa)
 - Present tense for current behaviour, past tense for history
 - Active voice preferred
 
+### Tone
+- Human, technical, and calm
+- Prefer concrete nouns and verbs over promotional adjectives
+- Prefer readability over artificial sentence-shortening. Shorten sentences when it improves clarity, not to satisfy a mechanical rule.
+- Avoid meta-prose that talks about the document more than the system
+- If a sentence sounds like product copy rather than technical explanation, rewrite it
+
 ### Structure
 - Short paragraphs (2-4 sentences max)
 - Bullet lists for 3+ parallel items
 - Numbered lists only for sequential steps
 - Bold for key terms on first use: **probabilistic micropayment tickets**
 - Code formatting for CLI flags, file names, and config values: `-maxPricePerUnit`, `aiModels.json`
+
+### Review Warnings: Filler And Marketing Language
+- Treat filler and marketing language as a review warning, not a hard blocker by default
+- Trim words like `simply`, `just`, `seamless`, `robust`, `powerful`, `leverage`, `unlock`, `easy`, `intuitive`, `best-in-class`, and `in this guide we will` when they do not add precise meaning
+- Replace generic praise with concrete behaviour, constraints, or evidence
+- If an adjective cannot be tied to a measurable or observable claim, remove it
+
+### Definitions
+- Define positively first
+- Avoid definition by negation as the primary explanation
+- Use negation only as a secondary boundary sentence when it prevents a common misreading
+- Preferred pattern:
+  - `X is [broader class] that [distinguishing function].`
+  - optional boundary: `It does not [common misreading].`
+- Avoid: `BYOC is a routing and policy concern, not a model hosting concern.`
+- Prefer: `BYOC handles workload routing and policy across external compute.`
+- If contrast is still needed: `BYOC defines routing and policy for external compute. It does not define model hosting.`
 
 ### Punctuation
 - Hyphens (-) for all dashes. NEVER em dashes.
@@ -505,7 +544,7 @@ When referencing the other tab (gateways mentioning orchestrators or vice versa)
 - LPT (the token), ETH (the currency)
 - Arbitrum One (the L2 chain)
 
----
+<CustomDivider />
 
 ## 9. CONTENT BOUNDARIES
 
@@ -535,9 +574,21 @@ When referencing the other tab (gateways mentioning orchestrators or vice versa)
 **Economics page contains:** Revenue, costs, payment flow, pricing config, case studies, "why operate"
 **Economics page does NOT contain:** Architecture internals, setup steps, workload details
 
----
+<CustomDivider />
 
-## 10. PRE-COMMIT CHECKS
+## 10. USEFULNESS CHECK
+
+- Aim for pages that help a reader act, decide, or route to the next correct page
+- A good page should feel useful enough to bookmark, share with a teammate, or use during a real task
+- Use the current usefulness tooling as a quality reference:
+  - `tools/lib/docs-usefulness/`
+  - `tests/unit/usefulness-rubric.test.js`
+  - `tests/unit/usefulness-journey.test.js`
+- Phase 1 guidance: treat usefulness as a review signal, not as a full tone-enforcement system. Script upgrades can follow in a later phase.
+
+<CustomDivider />
+
+## 11. PRE-COMMIT CHECKS
 
 The following are validated by git hooks on every commit:
 
@@ -561,10 +612,11 @@ npm run test:quality  # Alt text, links, frontmatter
 npm run test:browser  # Page rendering
 ```
 
----
+<CustomDivider />
 
-## 11. CHECKLIST: Before Submitting a New Page
+## 12. CHECKLIST: Before Submitting a New Page
 
+- [ ] For new pages or major rewrites, a lightweight Document Brief exists in task notes or planning context
 - [ ] Frontmatter has all required fields (title, sidebarTitle, description, keywords, og:image set, pageType, audience, status, lastVerified)
 - [ ] Guide root pages include the standard review block directly below frontmatter and before imports
 - [ ] UK English spelling throughout (colour, behaviour, organise, optimise, etc.)
@@ -574,6 +626,7 @@ npm run test:browser  # Page rendering
 - [ ] No imports of Mintlify globals (Card, Tabs, Note, etc.)
 - [ ] The first rendered body element after frontmatter/comments is `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />`
 - [ ] The frontmatter page title is not repeated as a visible top-of-page H1/H2 in the page body
+- [ ] Opening prose reads naturally and avoids boilerplate self-description such as "This page covers..." unless the page genuinely needs it
 - [ ] Headings are concise and technical. On guide pages, aim for 3 words or less when clarity allows
 - [ ] CustomDividers between all major sections
 - [ ] Prose before every diagram, table, and code block
@@ -584,9 +637,12 @@ npm run test:browser  # Page rendering
 - [ ] Unverified claims flagged with `{/* REVIEW: */}` or `{/* SME: */}` JSX comments
 - [ ] Media/video placeholders use `{/* TODO: */}` JSX comments
 - [ ] Narrative voice is entity-led. Avoid first-person editorial voice and reader-owned second-person explanatory prose
+- [ ] Filler and marketing language has been reviewed and reduced where it weakens clarity
+- [ ] Definitions are positive-first; negation is used only as a secondary boundary sentence when needed
 - [ ] On-chain/off-chain described as payment modes, not workload types
 - [ ] No speculative claims without explicit labels
 - [ ] Page answers ONE question (matches its page type)
 - [ ] Content does not duplicate another page's scope
 - [ ] All personas considered: does this page serve at least one defined persona?
+- [ ] The page feels useful enough to bookmark, share, or act on; use the current usefulness rubric/journey tooling as a reference when relevant
 - [ ] Page routes correctly in docs.json (or will be added)

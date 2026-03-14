@@ -23,6 +23,19 @@ const REPO_ROOT = process.cwd();
 let errors = [];
 let warnings = [];
 let changedLineMap = null;
+const OPENING_BOILERPLATE_PATTERNS = [
+  /\bthis page (?:covers|explains|shows|describes)\b/i,
+  /\bthis guide (?:covers|explains|shows|walks through)\b/i,
+  /\bin this guide\b/i,
+  /\bin this page\b/i,
+  /\bthis section explains\b/i,
+  /\bthis tutorial (?:covers|shows|walks through)\b/i
+];
+const FILLER_MARKETING_REGEX = /\b(simply|just|seamless|robust|powerful|leverage|unlock|easy|intuitive|best-in-class)\b/gi;
+const NEGATION_DEFINITION_PATTERNS = [
+  /\bis\s+[^.\n]{0,120}?,\s*not\s+(?:an?|the)\s+[a-z]/i,
+  /\bis\s+[^.\n]{0,120}\s+not\s+(?:an?|the)\s+[a-z]/i
+];
 
 function toPosix(filePath) {
   return String(filePath || '').split(path.sep).join('/');
@@ -86,6 +99,94 @@ function shouldCheckLine(file, line, changedOnly) {
   return changedLines.has(line);
 }
 
+function lineClosesSelfClosingTag(line) {
+  return line.includes('/>') || line.trim() === '>';
+}
+
+function stripFrontmatter(content) {
+  return String(content || '').replace(/^---\s*\r?\n[\s\S]*?\r?\n---\s*(?:\r?\n)?/, '');
+}
+
+function isProseLine(line) {
+  const trimmed = String(line || '').trim();
+  if (!trimmed) return false;
+  if (
+    trimmed.startsWith('import ') ||
+    trimmed.startsWith('export ') ||
+    trimmed.startsWith('{/*') ||
+    trimmed.startsWith('<') ||
+    trimmed.startsWith('#') ||
+    trimmed.startsWith('```') ||
+    /^\d+\.\s+/.test(trimmed) ||
+    /^[-*+]\s+/.test(trimmed) ||
+    trimmed.startsWith('[//]:')
+  ) {
+    return false;
+  }
+
+  return /[A-Za-z]/.test(trimmed);
+}
+
+function getOpeningParagraphInfo(content) {
+  const body = stripFrontmatter(content);
+  const lines = body.split('\n');
+  let inJsxComment = false;
+  let inCodeBlock = false;
+  let paragraphLine = 1;
+  const paragraph = [];
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const rawLine = lines[index];
+    const trimmed = rawLine.trim();
+
+    if (trimmed.startsWith('```')) {
+      inCodeBlock = !inCodeBlock;
+      continue;
+    }
+
+    if (inCodeBlock) {
+      continue;
+    }
+
+    if (inJsxComment) {
+      if (trimmed.includes('*/}')) {
+        inJsxComment = false;
+      }
+      continue;
+    }
+
+    if (trimmed.startsWith('{/*')) {
+      if (!trimmed.includes('*/}')) {
+        inJsxComment = true;
+      }
+      continue;
+    }
+
+    if (paragraph.length === 0) {
+      if (isProseLine(rawLine)) {
+        paragraphLine = index + 1;
+        paragraph.push(trimmed);
+      }
+      continue;
+    }
+
+    if (!trimmed || !isProseLine(rawLine)) {
+      break;
+    }
+
+    paragraph.push(trimmed);
+  }
+
+  if (paragraph.length === 0) {
+    return null;
+  }
+
+  return {
+    line: paragraphLine,
+    text: paragraph.join(' ')
+  };
+}
+
 /**
  * Check for ThemeData usage (deprecated)
  */
@@ -131,13 +232,28 @@ function checkHardcodedColors(files, stagedOnly = false) {
     const lines = content.split('\n');
     let inCodeBlock = false;
     let inTable = false;
+    let inMermaidComponent = false;
+    let inMermaidChart = false;
     
     lines.forEach((line, index) => {
+      const trimmedLine = line.trim();
       if (line.trim().startsWith('```')) inCodeBlock = !inCodeBlock;
       if (line.includes('|') && line.includes('---')) inTable = true;
-      if (line.trim() === '') inTable = false;
+      if (trimmedLine === '') inTable = false;
+
+      if (!inCodeBlock) {
+        if (line.includes('<Mermaid')) {
+          inMermaidComponent = true;
+        }
+
+        if (inMermaidComponent && line.includes('chart={`')) {
+          inMermaidChart = true;
+        }
+      }
+
+      const inMermaidAllowedBlock = inMermaidChart || line.includes('%%{init:');
       
-      if (!inCodeBlock && !inTable) {
+      if (!inCodeBlock && !inTable && !inMermaidAllowedBlock) {
         const lineNumber = index + 1;
         if (!shouldCheckLine(file, lineNumber, stagedOnly)) {
           return;
@@ -152,6 +268,14 @@ function checkHardcodedColors(files, stagedOnly = false) {
             });
           }
         });
+      }
+
+      if (inMermaidChart && /`\s*}\s*(?:\/>|>)?\s*$/.test(trimmedLine)) {
+        inMermaidChart = false;
+      }
+
+      if (inMermaidComponent && (trimmedLine.includes('/>') || trimmedLine.includes('</Mermaid>'))) {
+        inMermaidComponent = false;
       }
     });
   });
@@ -168,9 +292,10 @@ function checkInlineStylesInMdx(files, stagedOnly = false) {
     if (!content) return;
     
     // Check for style={{}} in MDX (should use components instead)
-    const styleRegex = /style\s*=\s*\{\{/g;
+    const styleRegex = /style\s*=\s*\{\{/;
     const lines = content.split('\n');
     let inJsxComment = false;
+    let inCustomDividerTag = false;
     
     lines.forEach((line, index) => {
       const lineNumber = index + 1;
@@ -192,13 +317,30 @@ function checkInlineStylesInMdx(files, stagedOnly = false) {
         return;
       }
 
+      if (line.includes('<CustomDivider')) {
+        inCustomDividerTag = true;
+      }
+
       if (styleRegex.test(line) && !line.includes('//')) {
-        errors.push({
-          file,
-          rule: 'No inline styles in MDX',
-          message: 'Inline styles in MDX files - use component primitives instead',
-          line: lineNumber
-        });
+        if (inCustomDividerTag) {
+          warnings.push({
+            file,
+            rule: 'CustomDivider inline styles',
+            message: 'CustomDivider inline styles are advisory only - prefer plain <CustomDivider /> unless spacing context requires a margin override',
+            line: lineNumber
+          });
+        } else {
+          errors.push({
+            file,
+            rule: 'No inline styles in MDX',
+            message: 'Inline styles in MDX files - use component primitives instead',
+            line: lineNumber
+          });
+        }
+      }
+
+      if (inCustomDividerTag && lineClosesSelfClosingTag(line)) {
+        inCustomDividerTag = false;
       }
     });
   });
@@ -233,6 +375,158 @@ function checkTailwindClasses(files, stagedOnly = false) {
               line: lineNumber
             });
           }
+        });
+      }
+    });
+  });
+}
+
+/**
+ * Check for boilerplate opening paragraphs.
+ */
+function checkBoilerplateOpenings(files, stagedOnly = false) {
+  files.filter((file) => file.endsWith('.mdx')).forEach((file) => {
+    if (file.includes('style-guide.mdx') || file.includes('component-library')) return;
+
+    const content = readFile(file);
+    if (!content) return;
+
+    const opening = getOpeningParagraphInfo(content);
+    if (!opening) return;
+    if (!shouldCheckLine(file, opening.line, stagedOnly)) {
+      return;
+    }
+
+    if (OPENING_BOILERPLATE_PATTERNS.some((pattern) => pattern.test(opening.text))) {
+      warnings.push({
+        file,
+        rule: 'Boilerplate opening',
+        message: 'Opening paragraph sounds templated - prefer a human explanatory opening over "This page/guide..." boilerplate',
+        line: opening.line
+      });
+    }
+  });
+}
+
+/**
+ * Check for filler and marketing language.
+ */
+function checkFillerMarketingLanguage(files, stagedOnly = false) {
+  files.filter((file) => file.endsWith('.mdx')).forEach((file) => {
+    if (file.includes('style-guide.mdx') || file.includes('component-library')) return;
+
+    const content = readFile(file);
+    if (!content) return;
+
+    const lines = content.split('\n');
+    let inJsxComment = false;
+    let inCodeBlock = false;
+
+    lines.forEach((line, index) => {
+      const lineNumber = index + 1;
+      const trimmed = line.trim();
+
+      if (!shouldCheckLine(file, lineNumber, stagedOnly)) {
+        return;
+      }
+
+      if (trimmed.startsWith('```')) {
+        inCodeBlock = !inCodeBlock;
+        return;
+      }
+
+      if (inCodeBlock) {
+        return;
+      }
+
+      if (inJsxComment) {
+        if (trimmed.includes('*/}')) {
+          inJsxComment = false;
+        }
+        return;
+      }
+
+      if (trimmed.startsWith('{/*')) {
+        if (!trimmed.includes('*/}')) {
+          inJsxComment = true;
+        }
+        return;
+      }
+
+      if (trimmed.startsWith('import ') || trimmed.startsWith('<') || trimmed.startsWith('[//]:')) {
+        return;
+      }
+
+      const matches = [...new Set((line.match(FILLER_MARKETING_REGEX) || []).map((match) => match.toLowerCase()))];
+      if (matches.length === 0) {
+        return;
+      }
+
+      warnings.push({
+        file,
+        rule: 'Filler or marketing language',
+        message: `Review filler/marketing wording: ${matches.join(', ')}`,
+        line: lineNumber
+      });
+    });
+  });
+}
+
+/**
+ * Check for negation-first definitions.
+ */
+function checkDefinitionByNegation(files, stagedOnly = false) {
+  files.filter((file) => file.endsWith('.mdx')).forEach((file) => {
+    if (file.includes('style-guide.mdx') || file.includes('component-library')) return;
+
+    const content = readFile(file);
+    if (!content) return;
+
+    const lines = content.split('\n');
+    let inJsxComment = false;
+    let inCodeBlock = false;
+
+    lines.forEach((line, index) => {
+      const lineNumber = index + 1;
+      const trimmed = line.trim();
+
+      if (!shouldCheckLine(file, lineNumber, stagedOnly)) {
+        return;
+      }
+
+      if (trimmed.startsWith('```')) {
+        inCodeBlock = !inCodeBlock;
+        return;
+      }
+
+      if (inCodeBlock) {
+        return;
+      }
+
+      if (inJsxComment) {
+        if (trimmed.includes('*/}')) {
+          inJsxComment = false;
+        }
+        return;
+      }
+
+      if (trimmed.startsWith('{/*')) {
+        if (!trimmed.includes('*/}')) {
+          inJsxComment = true;
+        }
+        return;
+      }
+
+      if (trimmed.startsWith('import ') || trimmed.startsWith('<') || trimmed.startsWith('[//]:')) {
+        return;
+      }
+
+      if (NEGATION_DEFINITION_PATTERNS.some((pattern) => pattern.test(line))) {
+        warnings.push({
+          file,
+          rule: 'Definition by negation',
+          message: 'Possible negation-first definition - define positively first, then add a boundary sentence only if needed',
+          line: lineNumber
         });
       }
     });
@@ -358,6 +652,9 @@ function runTests(options = {}) {
   checkHardcodedColors(testFiles, changedOnly);
   checkInlineStylesInMdx(testFiles, changedOnly);
   checkTailwindClasses(testFiles, changedOnly);
+  checkBoilerplateOpenings(testFiles, changedOnly);
+  checkFillerMarketingLanguage(testFiles, changedOnly);
+  checkDefinitionByNegation(testFiles, changedOnly);
   checkImportPaths(testFiles, changedOnly);
   checkFileNaming(testFiles);
   
