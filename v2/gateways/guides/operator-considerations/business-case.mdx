@@ -1,7 +1,7 @@
 ---
 title: 'Gateway Business Case'
 sidebarTitle: 'Business Rationale'
-description: 'Should you run a Livepeer gateway? The use case fit, business model, operator revenue patterns, and economics by deployment mode.'
+description: 'Should you run a Livepeer gateway? The use case fit, business model, operator revenue patterns, and economics by operational mode.'
 keywords:
   - livepeer
   - gateway business case
@@ -25,6 +25,8 @@ status: current
 lastVerified: '2026-03-14'
 ---
 {/* TODO:
+Terminology Validation:
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
 Verify:
 - Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
 - Fontawesome icons are used on accordions and tabs
@@ -38,9 +40,12 @@ Verify:
 */}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
-import { BorderedBox } from '/snippets/components/layout/containers.jsx'
+import { BorderedBox, CenteredContainer } from '/snippets/components/layout/containers.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
+<CenteredContainer style={{ width: "80%", minWidth: "fit-content"}}>
+    <Tip> Gateways are Application Layers built on the Livepeer Protocol. They provide access to services for downstream developers and users. </Tip>
+</CenteredContainer>
 A Livepeer gateway is the access point between your application and the Livepeer compute network. It receives jobs, selects an orchestrator (a GPU operator), handles payment, and returns results. The gateway holds no GPU - all compute happens on orchestrators.
 
 Running your own gateway is not a technical requirement for using Livepeer. You can point at a hosted gateway and start building in minutes. The question is whether the control, cost savings, and capabilities of owning that layer are worth it for your situation.
@@ -49,45 +54,62 @@ Running your own gateway is not a technical requirement for using Livepeer. You 
 
 ## Hosted vs Self-Hosted
 
-<Tabs>
-  <Tab title="Use a hosted gateway">
-    A hosted gateway (Daydream API, Livepeer Studio, Livepeer Cloud) handles all infrastructure for you. You send requests; they handle routing, payment, and uptime.
+<BorderedBox>
+    <Tabs>
+        <Tab title="Use a hosted gateway" icon="clapperboard-play">
+            <CenteredContainer style={{width: "70%", minWidth: "fit-content"}}>
+                <Tip>
+                    **Best for**: developers looking to integrate services.
+                    <CenteredContainer style={{width: "90%", minWidth: "fit-content", marginRight: "2rem"}}>
+                        <Card horizontal arrow title="Gateway Providers" icon="merge" href="../../../developers/navigator" />
+                    </CenteredContainer>
+                </Tip>
+            </CenteredContainer>
 
-    **Best when:**
-    - You are building and experimenting
-    - Volume is low to moderate
-    - You do not need custom orchestrator routing or SLA policies
-    - Crypto infrastructure is not something you want to manage
+            A hosted gateway like [Daydream API]("../../../solutions/daydream/), [Livepeer Studio]("../../../../../developers/") or [Livepeer Cloud]("") handles all infrastructure for you and provdide an application layer for service integrations.
+            You send requests; they handle routing, payment, and uptime.
 
-    **Limitations at scale:**
-    - You pay a service margin on every request
-    - You depend on the provider's uptime, pricing, and feature roadmap
-    - You cannot customise routing, pricing caps, or access policies
-    - You have no visibility into orchestrator selection or failure patterns
-  </Tab>
-  <Tab title="Run your own gateway">
-    Running your own gateway gives you direct access to the Livepeer compute network. You set your own policies, connect directly to orchestrators, and capture the margin between what you charge customers and what you pay for compute.
+            **Best when:**
+            - You are building and experimenting
+            - Volume is low to moderate
+            - You do not need custom orchestrator routing or SLA policies
+            - Crypto infrastructure is not something you want to manage
 
-    **Best when:**
-    - You are processing significant volume and want to reduce per-request costs
-    - You need custom routing, SLA policies, or geographic preferences
-    - You want to build a product or service layer on top of Livepeer
-    - You are embedding AI or video capabilities directly in your infrastructure
+            **Limitations at scale:**
+            - You pay a service margin on every request
+            - You depend on the provider's uptime, pricing, and feature roadmap
+            - You cannot customise routing, pricing caps, or access policies
+            - You have no visibility into orchestrator selection or failure patterns
+        </Tab>
+        <Tab title="Run your own gateway" icon="torii-gate">
+            <CenteredContainer style={{width: "70%", minWidth: "fit-content"}}>
+                <Tip>**Best for**: application developers or businesses providing their own services.</Tip>
+            </CenteredContainer>
 
-    **What it requires:**
-    - A Linux server (for <Badge color="purple">AI</Badge> or <Badge color="green">Dual</Badge> node types; <Badge color="blue">Video</Badge> also supports Windows)
-    - No ETH required in off-chain deployment mode
-    - On-chain deployment mode requires an ETH deposit on Arbitrum
-  </Tab>
-</Tabs>
+            Running your own gateway gives you direct access to the Livepeer compute network. You set your own policies, connect directly to orchestrators, and capture the margin between what you charge customers and what you pay for compute.
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+            **Best when:**
+            - You are processing significant volume and want to reduce per-request costs
+            - You need custom routing, SLA policies, or geographic preferences
+            - You want to build a product or service layer on top of Livepeer
+            - You are embedding AI or video capabilities directly in your infrastructure
+
+            **What it requires:**
+            - A Linux server (for <Badge color="purple">AI</Badge> or <Badge color="green">Dual</Badge> node types; <Badge color="blue">Video</Badge> also supports Windows)
+            - No ETH required in off-chain operational mode
+            - On-chain operational mode requires an ETH deposit on Arbitrum
+        </Tab>
+    </Tabs>
+</BorderedBox>
+
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
 ## Business Model
 
-Gateways earn at the **business layer**, not at the protocol level. Orchestrators earn protocol fees. Gateways earn the margin between what they charge customers and what they pay for compute.
+Gateways are Product routers. They earn at the **business layer**, not at the protocol level. Orchestrators earn protocol fees. Gateways earn the margin between what they charge customers and what they pay for compute.
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#E0E4E0', 'primaryBorderColor': '#18794E', 'lineColor': '#2b9a66', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#3CB540', 'background': '#0d0d0d', 'fontFamily': "Inter, 'Inter Fallback', -apple-system, system-ui" }}}%%
 flowchart LR
     A["Your customers\nor your own app"] -->|"Pay your service rate\n(fiat, crypto, subscription)"| B["Your gateway"]
     B -->|"Pay network rate\n(ETH on Arbitrum)"| C["Livepeer network\n(orchestrators)"]
@@ -95,7 +117,7 @@ flowchart LR
 ```
 
 <Note>
-For AI gateways running in off-chain deployment mode, your gateway node itself holds no ETH. A remote signer handles all on-chain payment operations. Your gateway operator costs are whatever you pay the signer - which can be zero if using a community-hosted signer.
+For AI gateways running in off-chain operational mode, your gateway node itself holds no ETH. A remote signer handles all on-chain payment operations. Your gateway operator costs are whatever you pay the signer - which can be zero if using a community-hosted signer.
 </Note>
 
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
@@ -146,7 +168,7 @@ For AI gateways running in off-chain deployment mode, your gateway node itself h
 
     **What this requires:**
     - A Linux server (for AI workloads; video also supports Windows)
-    - No ETH for off-chain deployment mode; ETH deposit for on-chain deployment mode
+    - No ETH for off-chain operational mode; ETH deposit for on-chain operational mode
     - The same application code - only the endpoint changes
 
     **Who is doing this:** App developers who scaled past the point where hosted gateway costs exceeded the operational cost of self-hosting.
@@ -169,12 +191,13 @@ For AI gateways running in off-chain deployment mode, your gateway node itself h
     **What you capture:** Your product margin. The gateway keeps compute costs below what you would pay a hosted inference provider (Replicate, Fal, Mux, AWS) while giving you full routing control.
 
     **What this requires:**
-    - For AI: off-chain deployment mode, Linux, no ETH
+    - For AI: off-chain operational mode, Linux, no ETH
     - The same infrastructure as an inference API minus the external-facing billing layer
 
     **Who is doing this:** Daydream (real-time AI video for creators), Embody Avatars, AI Video Startup Programme participants.
   </Tab>
   <Tab title="Build a gateway platform (NaaP)">
+    <Warning> NaaP is in active design consideration and listed here as a possible future project only </Warning>
     You operate a gateway platform that handles all crypto complexity on behalf of your users. Users sign up, receive API keys, and pay in fiat or standard crypto. Your platform converts that into ETH micropayments to orchestrators.
 
     This is the Network as a Platform (NaaP) pattern. The NaaP dashboard (`github.com/livepeer/naap`) is the reference implementation: JWT-based auth, Developer API Keys, and usage metering built on top of go-livepeer.
@@ -192,9 +215,9 @@ For AI gateways running in off-chain deployment mode, your gateway node itself h
 
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-## Deployment Mode Economics
+## Mode Economics
 
-The economic model differs between the two deployment modes.
+The economic model differs between the two operational modes.
 
 <StyledTable variant="bordered">
   <thead>
@@ -294,10 +317,10 @@ Your revenue is the difference between what customers pay you and what you pay o
 
     {/* REVIEW: Verified cost comparison figures needed. Check Livepeer blog/Mirror for published benchmarks. Source: community claim, not independently verified against current network rates. */}
   </Accordion>
-  <Accordion title="Free to start with off-chain deployment mode">
-    AI gateways in off-chain deployment mode require no ETH deposit and no Arbitrum wallet. You point at a community-hosted remote signer (which handles the payment layer for you), connect to orchestrators, and start routing inference requests immediately with no upfront crypto cost.
+  <Accordion title="Free to start with off-chain operational mode">
+    AI gateways in off-chain operational mode require no ETH deposit and no Arbitrum wallet. You point at a community-hosted remote signer (which handles the payment layer for you), connect to orchestrators, and start routing inference requests immediately with no upfront crypto cost.
 
-    This is a meaningful contrast to on-chain deployment mode, which requires bridging ETH to Arbitrum before you can process a single job.
+    This is a meaningful contrast to on-chain operational mode, which requires bridging ETH to Arbitrum before you can process a single job.
   </Accordion>
 </AccordionGroup>
 
@@ -388,7 +411,7 @@ Beyond routing your own workloads, the go-livepeer gateway is a platform primiti
     </TableRow>
     <TableRow>
       <TableCell>Do you need AI inference specifically?</TableCell>
-      <TableCell>Yes - off-chain deployment mode makes this low-friction</TableCell>
+      <TableCell>Yes - off-chain operational mode makes this low-friction</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>Are you comfortable with Docker or Go binaries?</TableCell>
@@ -408,9 +431,9 @@ If most of your answers align with self-hosting, continue to requirements and se
     Real products and community projects built on Livepeer gateways.
   </Card>
   <Card title="Requirements" icon="clipboard-check" href="/v2/gateways/guides/operator-considerations/operator-requirements">
-    Hardware, OS, network, and deployment mode requirements.
+    Hardware, OS, network, and operational mode requirements.
   </Card>
   <Card title="Deployment Options" icon="arrow-right" href="/v2/gateways/guides/setup-options/deployment-options">
-    Choose between AI, video, dual, platform, or SDK gateway paths.
+    Choose your setup type and node type.
   </Card>
 </CardGroup>

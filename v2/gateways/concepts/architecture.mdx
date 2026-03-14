@@ -29,6 +29,13 @@ purpose: concept
 status: current
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Terminology is consistent with resources/glossary
+*/}
+
 
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
@@ -109,7 +116,7 @@ Orchestrators are the supply side. The gateway selects, negotiates with, and dis
 
 ### Remote Signer
 
-In **off-chain mode**, the gateway delegates all payment operations to a **remote signer** service. The remote signer:
+In the **off-chain operational mode**, the gateway delegates all payment operations to a **remote signer** service. The remote signer:
 
 - Holds the ETH deposit and reserve
 - Generates probabilistic micropayment tickets on the gateway's behalf
@@ -120,7 +127,7 @@ This architecture allows gateways to operate with zero crypto knowledge and zero
 
 ### Arbitrum Protocol
 
-In **on-chain mode**, the gateway interacts directly with Arbitrum smart contracts:
+In the **on-chain operational mode**, the gateway interacts directly with Arbitrum smart contracts:
 
 | Contract | Gateway interaction |
 |---|---|
@@ -238,7 +245,7 @@ graph TD
 1. **Job arrives** - An application sends a video segment (RTMP) or AI request (HTTP) to the gateway.
 2. **Pipeline routing** - The gateway routes the request to the appropriate session manager (`BroadcastSessionsManager` for video, `AISessionManager` for AI).
 3. **Orchestrator selection** - The session manager selects the best orchestrator from its pool based on capability, price, latency, and performance history.
-4. **Payment ticket generation** - The gateway (or remote signer in off-chain mode) generates a probabilistic micropayment ticket and attaches it to the job.
+4. **Payment ticket generation** - The gateway (or remote signer in off-chain operational mode) generates a probabilistic micropayment ticket and attaches it to the job.
 5. **Work dispatch** - The job + ticket are sent to the orchestrator over HTTP.
 6. **Execution** - The orchestrator routes the work to its GPU worker (transcoder for video, AI Runner for inference) and returns the result.
 7. **Result delivery** - The gateway sends the processed output back to the application.
@@ -254,7 +261,7 @@ The core node software. When started in gateway mode (`-gateway`), it runs as th
 
 - Job intake (RTMP server + HTTP API server)
 - Orchestrator discovery and session management
-- Payment ticket generation (on-chain mode) or remote signer communication (off-chain mode)
+- Payment ticket generation (on-chain operational mode) or remote signer communication (off-chain operational mode)
 - Prometheus metrics (port 7935)
 
 Source: [github.com/livepeer/go-livepeer](https://github.com/livepeer/go-livepeer) - specifically [core/livepeernode.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/livepeernode.go)
@@ -271,13 +278,13 @@ A command-line tool that connects to a running go-livepeer node. Used for:
 - Funding the on-chain deposit and reserve
 - Viewing node status and connected orchestrators
 
-### Remote signer (off-chain mode)
+### Remote Signer (off-chain)
 
 A separate service that handles ETH custody and payment ticket signing on behalf of off-chain gateways. Not part of go-livepeer itself - it runs as a sidecar or external service.
 
 See <LinkArrow href="/v2/gateways/payments/remote-signers" label="Remote Signers" newline={false} /> for architecture and configuration.
 
-### Arbitrum smart contracts (on-chain mode)
+### Arbitrum Contracts (on-chain)
 
 | Contract | Gateway use |
 |---|---|

@@ -1,7 +1,7 @@
 ---
-title: 'Gateways in Practice'
-sidebarTitle: 'Commercial Gateways'
-description: 'Real applications, community tools, and Foundation programmes built on Livepeer gateways - showing what becomes possible when you route through the Livepeer network.'
+title: 'Public and Commercial Gateways Operating on Livepeer'
+sidebarTitle: 'Production Gateways'
+description: 'Real applications, community tools, and Foundation programmes built on Livepeer gateways.'
 keywords:
   - livepeer
   - ecosystem
@@ -25,6 +25,8 @@ status: current
 lastVerified: '2026-03-14'
 ---
 {/* TODO:
+Terminology Validation:
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
 Verify:
 - Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
 - Fontawesome icons are used on accordions and tabs
@@ -41,6 +43,10 @@ Verify:
 
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+
+<CenteredContainer style={{width: "90%", minWidth: "fit-content", marginRight: "2rem"}}>
+    <Card horizontal arrow title="Gateway Providers" icon="merge" href="../../../developers/navigator" />
+</CenteredContainer>
 
 Gateways are how value flows through the Livepeer network. Every product built on Livepeer - whether a consumer app, a developer API, or internal infrastructure - connects to the compute network through a gateway.
 
@@ -60,38 +66,39 @@ This page documents real applications and community projects that are already ru
   </thead>
   <tbody>
     <TableRow>
-      <TableCell>**Daydream**</TableCell>
+      <TableCell>**Daydream** <br/><Badge color="green"> Livepeer Product </Badge></TableCell>
       <TableCell>Commercial AI video product; subscription and per-use pricing</TableCell>
       <TableCell>AI gateway embedded in product</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell>**Livepeer Studio**</TableCell>
+      <TableCell>**Livepeer Studio** <br/><Badge color="green"> Livepeer Product </Badge></TableCell>
       <TableCell>Video API for developers; per-minute pricing</TableCell>
-      <TableCell>Video gateway (on-chain)</TableCell>
+      <TableCell>Video gateway (on-chain) <br/><Badge color="blue"> Public </Badge></TableCell>
     </TableRow>
     <TableRow>
-      <TableCell>**Livepeer Cloud SPE**</TableCell>
+      <TableCell>**Livepeer Cloud SPE** <br/><Badge color="yellow"> SPE Funded </Badge></TableCell>
       <TableCell>Free public gateways funded by treasury SPE grant</TableCell>
-      <TableCell>AI and video</TableCell>
+      <TableCell>AI and video <br/><Badge color="blue"> Public </Badge></TableCell>
     </TableRow>
     <TableRow>
-      <TableCell>**LLM SPE**</TableCell>
+      <TableCell>**LLM SPE** <br/><Badge color="yellow"> SPE Funded </Badge></TableCell>
       <TableCell>LLM inference routing on Livepeer network</TableCell>
-      <TableCell>AI gateway (LLM-focused)</TableCell>
+      <TableCell>AI gateway (LLM-focused) <br/><Badge color="blue"> Public </Badge></TableCell>
     </TableRow>
     <TableRow>
-      <TableCell>**Self-hosted developers**</TableCell>
-      <TableCell>Route own AI or video workloads; eliminate hosted gateway fees</TableCell>
-      <TableCell>AI or video depending on workload</TableCell>
+      <TableCell>**Streamplace** <br/><Badge color="yellow"> SPE Funded </Badge></TableCell>
+      <TableCell>Decentralised livestreaming platform (AT Protocol); embedded gateway</TableCell>
+      <TableCell>Video gateway embedded in product</TableCell>
     </TableRow>
   </tbody>
 </StyledTable>
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} middleText="Commercial Products" />
+<CustomDivider style={{margin: "0 0 -1rem 0"}} middleText="Commercial Products" />
 
 ## Commercial Products
 
 ### Daydream
+<Badge color="green"> Livepeer Inc. </Badge> <Badge color="purple"> Commercial Product </Badge>
 
 **What it is:** A real-time AI video creation platform for creators and builders. Daydream lets users apply AI models to live video streams in real time - style transfer, motion effects, generative video overlays.
 
@@ -101,7 +108,38 @@ This page documents real applications and community projects that are already ru
 
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
+### Streamplace
+<Badge color="yellow"> SPE-funded </Badge> <Badge color="purple"> Commercial Product </Badge>
+
+**What it is:** A decentralised livestreaming platform built on the AT Protocol (Bluesky ecosystem). Streamplace enables peer-to-peer live video broadcasting with no centralised infrastructure requirement.
+
+**Gateway role:** Streamplace embeds a Livepeer video gateway directly in its platform to handle live transcoding. Like Daydream, the gateway is not exposed as a public API - it is an internal component of the product. Streamplace is funded through an SPE treasury grant.
+
+- Website: [stream.place](https://stream.place)
+
+{/* REVIEW: Confirm Streamplace gateway setup details, current SPE status, and whether AT Protocol integration is live. Check Foundation BD team or Discord. */}
+
+<CustomDivider style={{margin: "-1rem 0 -1.5rem 0"}} />
+
+### Embody Avatars
+<Badge color="purple"> Commercial Product </Badge>
+
+**What it is:** A commercial platform for embodied AI agents built on Livepeer orchestration. Embody provides real-time interactive 3D avatars for education, training, and communication - using Unreal Engine MetaHumans with Pixel Streaming technology. The platform enables AI agents to operate with virtual bodies in a digital economy.
+
+**Gateway role:** Embody runs AI inference workloads through the Livepeer orchestrator network for GPU-intensive avatar rendering. Orchestrators run MetaHuman avatars with Pixel Streaming, handling real-time rendering, TTS, and WebRTC-to-RTMP broadcast (for streaming to Twitch/YouTube).
+
+- Platform: [embody.zone](https://embody.zone)
+- Source: [github.com/its-DeFine/Unreal_Vtuber](https://github.com/its-DeFine/Unreal_Vtuber)
+
+{/* REVIEW: Confirm Embody's current gateway setup - does it run its own gateway or route through a public one? Check forum.livepeer.org for latest updates. */}
+
+
+<CustomDivider style={{margin: "0 0 -1rem 0"}} middleText="Public Gateways" />
+
+## Public Gateways
+
 ### Livepeer Studio
+<Badge color="green"> Livepeer Inc. </Badge>
 
 **What it is:** A developer API and dashboard for video streaming and video-on-demand. Livepeer Studio provides SDKs, an API, and a web console for video workflows - live streaming, transcoding, clip storage, analytics.
 
@@ -110,9 +148,12 @@ This page documents real applications and community projects that are already ru
 - Website: [livepeer.studio](https://livepeer.studio)
 - Studio powers video workflows for games, social apps, creator tools, and live event platforms
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+{/* REVIEW: Add Livepeer Studio link and current product URL. Confirm Livepeer Studio is still a public gateway provider. */}
+
+<CustomDivider style={{margin: "-1rem 0 -1.5rem 0"}} />
 
 ### Livepeer Cloud (Cloud SPE)
+<Badge color="yellow"> SPE Funded </Badge>
 
 **What it is:** A public gateway service operated by the Livepeer Cloud SPE - a treasury-funded Special Purpose Entity focused on ecosystem adoption. Cloud provides free RTMP and AI inference gateways for developers evaluating Livepeer.
 
@@ -122,36 +163,28 @@ This page documents real applications and community projects that are already ru
 - Blog and tutorials at [livepeer.cloud/blog](https://livepeer.cloud/blog) - includes gateway setup guides
 - Getting started guide: [livepeer.cloud/how-to-run-a-livepeer-gateway-node](https://livepeer.cloud/how-to-run-a-livepeer-gateway-node)
 
-{/* REVIEW: Confirm livepeer.cloud URLs are current and accessible. */}
+{/* REVIEW: Add Livepeer Cloud link and current product URL. Confirm Livepeer Cloud is still a public gateway provider. */}
+<CustomDivider style={{margin: "-1rem 0 -1.5rem 0"}} />
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+### LLM SPE
+<Badge color="yellow"> SPE Funded </Badge>
 
-### Embody Avatars
+**What it is:** The first SPE dedicated to a specific AI pipeline. Launched in September 2024, the LLM SPE operates a public AI gateway that routes LLM inference workloads to GPU operators on the Livepeer network.
 
-**What it is:** An AI avatar and digital human platform. Embody uses Livepeer AI inference for real-time avatar animation and video generation.
+**Gateway role:** The LLM SPE runs a specialised AI gateway for large language model inference. The API is identical to OpenAI's SDK, making it a drop-in replacement for developers building RAG applications and AI agents. The SPE focuses on driving demand through education, open-source tooling, and subsidised costs for app developers.
 
-**Gateway role:** Runs AI inference jobs through Livepeer gateway infrastructure.
+- AI workloads generated over $63,700 in revenue in Q2 2025 (over 55% of total protocol fees)
+- Related: the Cloud SPE has built a custom Ollama-based AI Runner optimised for GPUs with as little as 8GB VRAM
 
-{/* REVIEW: Confirm Embody's current gateway setup and whether they operate their own gateway or use a public one. Check Foundation BD team. */}
+{/* REVIEW: Confirm LLM SPE team lead, public gateway URL, and current API endpoint. Check forum.livepeer.org for the LLM SPE proposal and milestone reports. */}
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} middleText="Infrastructure & Tooling" />
 
-## Infrastructure & Tooling
+<CustomDivider style={{margin: "-1rem 0 -1.5rem 0"}} middleText="Gateway Projects" />
 
-### NaaP - Network as a Platform
-
-**What it is:** An in-development clearinghouse reference implementation. NaaP (Network as a Platform) provides JWT-based authentication, Developer API Keys, and per-user usage tracking on top of a Livepeer gateway.
-
-**What it enables:** Multi-tenant gateway access - you operate a gateway, issue API keys to developers, track their usage, and handle billing. Developers never interact with Ethereum or Livepeer contracts directly.
-
-- Repository: [github.com/livepeer/naap](https://github.com/livepeer/naap)
-- Status: Active development, not yet stable API
-
-{/* REVIEW: Confirm NaaP public availability and current status with Qiang Han. */}
-
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+## Gateway Projects
 
 ### livepeer-python-gateway (j0sh)
+<Badge color="orange"> Community Project </Badge>
 
 **What it is:** A Python implementation of the Livepeer gateway client. Enables AI/ML engineers to route Livepeer inference jobs natively from Python without running a Go binary.
 
@@ -160,9 +193,10 @@ This page documents real applications and community projects that are already ru
 - Repository: [github.com/j0sh/livepeer-python-gateway](https://github.com/j0sh/livepeer-python-gateway)
 - Examples: `github.com/j0sh/livepeer-python-gateway/tree/main/examples`
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider style={{margin: "-1rem 0 -1.5rem 0"}} />
 
 ### Community Remote Signer (Elite Encoder)
+<Badge color="orange"> Community Project </Badge>
 
 **What it is:** A publicly hosted remote signer endpoint maintained by community operator Elite Encoder. Provides a free ETH signing service for off-chain gateway operators who do not want to manage their own Ethereum infrastructure.
 
@@ -173,9 +207,24 @@ This page documents real applications and community projects that are already ru
 
 {/* REVIEW: Confirm signer.eliteencoder.net is still operational and free. Last confirmed via Discord #local-gateways. */}
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider style={{margin: "-1rem 0 -1.5rem 0"}} />
+
+### NaaP - Network as a Platform
+<Badge color="red"> In Development </Badge>
+
+**What it is:** An in-development reference implementation. NaaP (Network as a Platform) provides JWT-based authentication, Developer API Keys, and per-user usage tracking on top of a Livepeer gateway.
+
+**What it enables:** Multi-tenant gateway access - you operate a gateway, issue API keys to developers, track their usage, and handle billing. Developers never interact with Ethereum or Livepeer contracts directly.
+
+- Repository: [github.com/livepeer/naap](https://github.com/livepeer/naap)
+- Status: Active development, not yet stable API
+
+{/* REVIEW: Confirm NaaP public availability and current status with Qiang Han. */}
+
+<CustomDivider style={{margin: "-1rem 0 -1.5rem 0"}} />
 
 ### tools.livepeer.cloud
+<Badge color="yellow"> SPE Funded </Badge>
 
 **What it is:** A community dashboard for monitoring the Livepeer AI network. Shows active orchestrators, their capabilities, pricing, and performance metrics.
 
@@ -183,13 +232,10 @@ This page documents real applications and community projects that are already ru
 
 - Site: [tools.livepeer.cloud](https://tools.livepeer.cloud)
 
-<Note>
-`livepeer.tools` was previously the community monitoring site but is currently showing an nginx default page. The active tool is `tools.livepeer.cloud`.
-</Note>
-
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider style={{margin: "-1rem 0 -1.5rem 0"}} />
 
 ### Owncast Integration
+<Badge color="surface-destructive"> Status Unknown </Badge>
 
 **What it is:** Owncast is an open-source, self-hosted live streaming platform. It supports RTMP input from OBS and other encoders, and can route transcoding through a Livepeer gateway.
 
@@ -198,36 +244,10 @@ This page documents real applications and community projects that are already ru
 - Owncast: [owncast.online](https://owncast.online)
 - Livepeer + Owncast integration: documented on livepeer.cloud blog
 
+
 {/* REVIEW: Add direct link to the Livepeer + Owncast tutorial on livepeer.cloud/blog when confirmed. */}
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} middleText="Foundation Programmes" />
-
-## Foundation Programmes
-
-### AI Video Startup Programme
-
-The Livepeer Foundation runs a programme for startups and teams building AI-powered video products on Livepeer. Accepted teams receive network resources, technical support, and investor introductions.
-
-If you are building a product that routes AI inference through Livepeer (and running a gateway is the operational model), this programme is specifically for you.
-
-{/* REVIEW: Confirm current programme name, application process, and URL with Foundation BD team. */}
-
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
-
-### SPE Grants
-
-Several gateway operators are funded through treasury proposals to the Livepeer governance process. The pattern is:
-
-1. Identify a gap in gateway capacity, capability, or adoption
-2. Write a proposal describing the work, timeline, and requested budget
-3. Submit to Livepeer governance for token holder vote
-4. Execute and report on milestones
-
-Funded SPEs in the gateway operator space include Livepeer Cloud SPE (public gateways), LLM SPE (LLM inference routing), and NaaP (Network as a Platform).
-
-Forum proposals and active SPE discussions: [forum.livepeer.org](https://forum.livepeer.org)
-
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} middleText="Community" />
 
 ## Community Channels
 
@@ -258,9 +278,9 @@ Forum proposals and active SPE discussions: [forum.livepeer.org](https://forum.l
   </tbody>
 </StyledTable>
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} middleText="Video Resources" />
+{/* <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} middleText="Video Resources" /> */}
 
-## Video Resources
+{/* ## Video Resources */}
 
 {/* REVIEW: Titan Node YouTube channel (https://www.youtube.com/@TitanNode) - search for gateway setup tutorials, broadcaster setup, and live video AI. No specific gateway tutorial URLs confirmed at time of writing. */}
 
@@ -268,9 +288,11 @@ Forum proposals and active SPE discussions: [forum.livepeer.org](https://forum.l
 
 {/* REVIEW: livepeer.cloud/blog - check for any embedded tutorial videos alongside gateway setup guides. */}
 
+{/* TODO:
+MEDIA NEEDED:
 Community tutorials and video content will be added here as they are identified. If you have created a tutorial or walkthrough for running a Livepeer gateway, share it in the `#local-gateways` Discord channel for consideration.
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> */}
 
 ## Related Pages
 
@@ -279,9 +301,9 @@ Community tutorials and video content will be added here as they are identified.
     Should you run a gateway? Business model, operator patterns, and economics.
   </Card>
   <Card title="Requirements" icon="clipboard-check" href="/v2/gateways/guides/operator-considerations/operator-requirements">
-    Hardware, OS, and deployment mode requirements.
+    Hardware, OS, and operational mode requirements.
   </Card>
-  <Card title="Deployment Options" icon="arrow-right" href="/v2/gateways/guides/setup-options/deployment-options">
-    Choose between AI, video, dual, platform, or SDK gateway paths.
+  <Card title="Setup Options" icon="arrow-right" href="/v2/gateways/guides/deployment-details/setup-options">
+    Choose your setup type and node type.
   </Card>
 </CardGroup>

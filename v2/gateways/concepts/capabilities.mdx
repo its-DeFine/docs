@@ -27,6 +27,13 @@ purpose: concept
 status: current
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Terminology is consistent with resources/glossary
+*/}
+
 
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
@@ -47,7 +54,7 @@ A gateway performs five core functions for every job it processes:
 1. **Job intake** - accept requests from applications via RTMP (video) or HTTP API (AI, video, BYOC)
 2. **Orchestrator selection** - match each job to the best available orchestrator based on capability, price, latency, and performance history
 3. **Session management** - maintain persistent connections to orchestrators for the duration of a stream or job batch
-4. **Payment handling** - generate probabilistic micropayment tickets per job segment (on-chain mode) or delegate payment to a remote signer (off-chain mode)
+4. **Payment handling** - generate probabilistic micropayment tickets per job segment (on-chain operational mode) or delegate payment to a remote signer (off-chain operational mode)
 5. **Result delivery** - return transcoded video (HLS/DASH), inference output (JSON/binary), or stream results to the calling application
 
 <Note>
@@ -58,7 +65,7 @@ Gateways do **not** perform GPU compute, run AI models, transcode video, or exec
 
 ## AI and Video Pipelines
 
-Gateways can route four categories of work into the Livepeer network. Which workloads you can route depends on your payment mode (on-chain or off-chain).
+Gateways can route four categories of work into the Livepeer network. Which workloads you can route depends on your operational mode (on-chain or off-chain).
 
 <StyledTable variant="bordered">
   <thead>
@@ -148,7 +155,7 @@ The selection algorithm considers:
 
 ### Discovery Methods
 
-How a gateway discovers available orchestrators depends on the mode:
+How a gateway discovers available orchestrators depends on the operational mode:
 
 <Tabs>
   <Tab title="On-chain gateway">
@@ -162,7 +169,7 @@ How a gateway discovers available orchestrators depends on the mode:
     - **Orchestrator list from the remote signer** - the signer provides a set of known orchestrators
     - **Manual configuration** - the operator provides an explicit orchestrator list
 
-    See the <LinkArrow href="/v2/gateways/payments/remote-signers" label="Remote Signers" newline={false} /> page for how discovery works in off-chain mode.
+    See the <LinkArrow href="/v2/gateways/payments/remote-signers" label="Remote Signers" newline={false} /> page for how discovery works in off-chain operational mode.
   </Tab>
 </Tabs>
 

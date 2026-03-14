@@ -26,6 +26,13 @@ purpose: 'overview'
 status: 'current'
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Terminology is consistent with resources/glossary
+*/}
+
 
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
@@ -180,7 +187,7 @@ import { CenteredContainer } from '/snippets/components/layout/containers.jsx'
 <CustomDivider middleText="Role Evolution" style={{margin: "0 0 -1rem 0"}} />
 In the early days of Livepeer, gateways (then called **broadcasters**) had a single job: send video streams to orchestrators for transcoding.
 
-Today, with the off-chain gateway payment mode shipped in Q4 2025, the role has expanded dramatically. Gateways now route AI inference, live video AI, LLM requests, and custom BYOC workloads - often with **zero ETH required**. The gateway is where business logic, customer relationships, and service margins live.
+Today, with the off-chain gateway operational mode shipped in Q4 2025, the role has expanded dramatically. Gateways now route AI inference, live video AI, LLM requests, and custom BYOC workloads - often with **zero ETH required**. The gateway is where business logic, customer relationships, and service margins live.
 
 <CenteredContainer maxWidth="900px" style={{ marginBottom: '-1rem' }}>
   <p style={{ textAlign: 'center', fontSize: '1.2rem', fontWeight: 700, margin: '0', color: "var(--theme-hero-text)" }}>
@@ -195,7 +202,7 @@ timeline
                : On-chain only
                : ETH deposit required
     Q4 2025   : Remote signer ships
-               : Off-chain payment mode
+               : Off-chain operational mode
                : Zero ETH at gateway layer
                : Python SDK viable
     Today     : Unified gateway role
@@ -264,13 +271,13 @@ See <LinkArrow href="/v2/gateways/concepts/architecture" label="Gateway Architec
 <CustomDivider style={{margin: "0 0 -1rem 0"}}/>
 
 
-## Payments Role
+## Operational Mode
 
-"On-chain" and "off-chain" describe how **your gateway handles payments** to orchestrators, not where compute happens. All workloads (video and AI) run off-chain on orchestrator GPU hardware. The distinction is whether your gateway node holds ETH and signs payment tickets directly, or delegates that to a remote signer.
+"On-chain" and "off-chain" describe your gateway's **operational mode** - how it integrates with the Livepeer protocol to orchestrators, not where compute happens. All workloads (video and AI) run off-chain on orchestrator GPU hardware. The distinction is whether your gateway node holds ETH and signs payment tickets directly, or delegates that to a remote signer.
 
 <Tabs>
   <Tab title="On-chain gateway">
-    Your gateway holds ETH on Arbitrum and generates probabilistic micropayment tickets directly. This is the original payment mode. Required for video transcoding; also supports AI inference.
+    Your gateway holds ETH on Arbitrum and generates probabilistic micropayment tickets directly. This is the original operational mode. Required for video transcoding; also supports AI inference.
 
     - **Payment:** Gateway signs tickets locally using its own ETH deposit + reserve
     - **ETH required:** Yes - deposit (~0.065 ETH) + reserve (~0.03 ETH) on Arbitrum
@@ -292,7 +299,7 @@ See <LinkArrow href="/v2/gateways/concepts/architecture" label="Gateway Architec
 </Tabs>
 
 <Note>
-An on-chain gateway can run video, AI, or both workloads - "dual" refers to running both workload types from a single node, not a third payment mode. See <LinkArrow href="/v2/gateways/guides/setup-options/path-requirements#dual-ai-video" label="Dual gateway configuration" newline={false} /> for setup details.
+An on-chain gateway can run video, AI, or both workloads - "dual" refers to running both workload types from a single node, not a third operational mode. See <LinkArrow href="/v2/gateways/guides/setup-options/path-requirements#dual-ai-video" label="Dual gateway configuration" newline={false} /> for setup details.
 </Note>
 
 <StyledTable variant="bordered">

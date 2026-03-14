@@ -24,6 +24,8 @@ status: current
 lastVerified: '2026-03-14'
 ---
 {/* TODO:
+Terminology Validation:
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
 Verify:
 - Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
 - Fontawesome icons are used on accordions and tabs
@@ -42,7 +44,7 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/ta
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 <CenteredContainer style={{ width: '90%' }}>
-  <Tip>Gateways do not require a GPU. All compute runs on orchestrators. Your gateway needs CPU, RAM, and stable network connectivity - not graphics hardware.</Tip>
+  <Tip>Gateways are software nodes that require network optimisations (bandwidth and latency) and only minimal hardware (CPU and RAM).</Tip>
 </CenteredContainer>
 
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />

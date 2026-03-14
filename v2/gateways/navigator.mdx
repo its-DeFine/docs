@@ -24,6 +24,13 @@ purpose: 'navigation'
 status: 'current'
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Terminology is consistent with resources/glossary
+*/}
+
 
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
@@ -89,9 +96,9 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
 
 <CustomDivider middleText="Gateway Types" />
 
-## Choose your gateway's payment mode
+## Operational Mode
 
-"On-chain" and "off-chain" describe how your gateway handles **payments** to orchestrators - not where compute happens. All workloads run off-chain on orchestrator hardware.
+"On-chain" and "off-chain" describe your gateway's **operational mode** - how it integrates with the Livepeer protocol. All workloads run off-chain on orchestrator hardware.
 
 <StyledTable variant="bordered">
   <thead>
@@ -140,12 +147,12 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
   </tbody>
 </StyledTable>
 
-<Note>Running both video and AI workloads from a single node ("dual configuration") is a workload setup choice, not a payment mode. An on-chain gateway supports all workload types. See <LinkArrow href="/v2/gateways/guides/setup-options/path-requirements#dual-ai-video" label="Dual gateway configuration" newline={false} /> for details.</Note>
+<Note>Running both video and AI workloads from a single node ("dual configuration") is a workload setup choice, not an operational mode. An on-chain gateway supports all workload types. See <LinkArrow href="/v2/gateways/guides/setup-options/path-requirements#dual-ai-video" label="Dual gateway configuration" newline={false} /> for details.</Note>
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
 flowchart TD
-    Q{"How should your gateway<br/>handle payments?"} -->|"Sign tickets locally"| V["On-chain gateway<br/>(holds ETH)"]
+    Q{"What operational mode<br/>for your gateway?"} -->|"Sign tickets locally"| V["On-chain gateway<br/>(holds ETH)"]
     Q -->|"Delegate to remote signer"| A["Off-chain gateway<br/>(zero ETH)"]
     Q -->|"Not sure yet"| A
 
