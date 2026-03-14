@@ -801,6 +801,30 @@ function addWorkspaceEntry(entries, relPath, entry) {
   entries.set(normalizedPath, entry);
 }
 
+function collectRepoFilesUnderDir(repoRoot, dirRelPath, out = new Set()) {
+  const normalizedDir = toPosixPath(dirRelPath).replace(/^\/+/, '').replace(/\/+$/, '');
+  if (!normalizedDir) return out;
+
+  const absoluteDir = path.join(repoRoot, normalizedDir);
+  if (!pathExists(absoluteDir) || !fs.statSync(absoluteDir).isDirectory()) {
+    return out;
+  }
+
+  const entries = fs.readdirSync(absoluteDir, { withFileTypes: true });
+  entries.forEach((entry) => {
+    const relPath = `${normalizedDir}/${entry.name}`;
+    if (entry.isDirectory()) {
+      collectRepoFilesUnderDir(repoRoot, relPath, out);
+      return;
+    }
+    if (entry.isFile() || entry.isSymbolicLink()) {
+      out.add(relPath);
+    }
+  });
+
+  return out;
+}
+
 function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
   const includedFiles = new Set();
   const routeFiles = new Set();
@@ -830,6 +854,10 @@ function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
       enqueue(resolved);
     }
   }
+
+  collectRepoFilesUnderDir(repoRoot, 'snippets').forEach((fileRelPath) => {
+    enqueue(fileRelPath);
+  });
 
   while (queue.length > 0) {
     const fileRelPath = queue.shift();

@@ -479,6 +479,10 @@ async function runTests() {
     writeFile(path.join(repoRoot, 'snippets/assets/favicon.png'), 'PNG\n');
     writeFile(path.join(repoRoot, 'v2/dev/diagram.png'), 'PNG\n');
     writeFile(path.join(repoRoot, 'snippets/components/unused.jsx'), 'export default function Unused() { return null; }\n');
+    writeFile(
+      path.join(repoRoot, 'snippets/components/primitives/deep/nested-divider.jsx'),
+      'export default function NestedDivider() { return null; }\n'
+    );
     writeFile(path.join(repoRoot, 'v2/index.mdx'), '- [Broken](gateways/guides/advanced-operations/sources.md)\n');
 
     const result = await createScopedProfile({
@@ -504,6 +508,7 @@ async function runTests() {
     const faviconFile = path.join(result.workspaceDir, 'snippets/assets/favicon.png');
     const imageFile = path.join(result.workspaceDir, 'v2/dev/diagram.png');
     const unusedFile = path.join(result.workspaceDir, 'snippets/components/unused.jsx');
+    const deeplyNestedSnippetFile = path.join(result.workspaceDir, 'snippets/components/primitives/deep/nested-divider.jsx');
     const rootIndexFile = path.join(result.workspaceDir, 'v2/index.mdx');
 
     assert.ok(fs.lstatSync(v2Dir).isDirectory(), 'workspace v2 should be a real directory');
@@ -516,7 +521,11 @@ async function runTests() {
     assert.ok(fs.lstatSync(logoFile).isSymbolicLink(), 'transitive asset import should remain a symlink');
     assert.ok(fs.lstatSync(faviconFile).isSymbolicLink(), 'docs config asset should remain a symlink');
     assert.ok(fs.lstatSync(imageFile).isSymbolicLink(), 'page asset should remain a symlink');
-    assert.ok(!fs.existsSync(unusedFile), 'unused snippet files should be excluded from scoped workspace');
+    assert.ok(fs.lstatSync(unusedFile).isSymbolicLink(), 'unused snippet files should be included in the scoped workspace');
+    assert.ok(
+      fs.lstatSync(deeplyNestedSnippetFile).isSymbolicLink(),
+      'deeply nested snippet files should be included in the scoped workspace'
+    );
     assert.ok(!fs.existsSync(rootIndexFile), 'out-of-scope generated indexes should be excluded from scoped workspace');
   });
 
