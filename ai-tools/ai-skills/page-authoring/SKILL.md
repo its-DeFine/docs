@@ -142,11 +142,9 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 import { CenteredContainer, BorderedBox } from '/snippets/components/layout/containers.jsx'
 
-<CenteredContainer>
-  <Tip>[One sentence: the single most important thing the reader should know]</Tip>
-</CenteredContainer>
-
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+
+[Optional: CenteredContainer + Tip]
 
 [2-3 sentence narrative intro establishing context and scope]
 
@@ -193,9 +191,9 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
   - After prose, before non-heading content: `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />`
 
 ### Opening Hook Pattern
-- Always start with `<CenteredContainer>` + `<Tip>` containing the page's core value prop
-- Follow with `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />`
-- Then 2-3 sentences of narrative prose (evolution, context, scope)
+- Do not repeat the frontmatter page title as a visible top-of-page H1 or H2. Frontmatter metadata already becomes the page header.
+- After frontmatter and page TODO/review comments, make the first rendered body element `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />`
+- Then start the page body with 2-3 sentences of narrative prose, or an optional `<CenteredContainer>` + `<Tip>` followed by narrative prose
 - Optionally follow with a Mermaid timeline or overview diagram
 - Then cross-reference links: "For X, see [Page]. For Y, see [Page]."
 
@@ -488,6 +486,7 @@ When referencing the other tab (gateways mentioning orchestrators or vice versa)
 ### Headings
 - **Title Case** for H1 (`#`) and H2 (`##`) headings - capitalise the first letter of each major word: "Payment Flow", "Gateway Costs", "Related Pages"
 - **Sentence case** for H3 (`###`) and below: "What gateways pay", "Protocol-level costs"
+- Do not restate the frontmatter title as the first visible heading in the page body. Start with the opening divider instead of a duplicate page-title header.
 - Keep headings concise and technical. On guide pages, aim for 3 words or less when clarity allows. Use the `middleText` on `CustomDivider` to preview the label. Avoid questions and marketing-style phrasing.
 - H3 (`###`) for subsections within a major section
 - H4 (`####`) rarely, only for sub-subsections in reference pages
@@ -573,7 +572,8 @@ npm run test:browser  # Page rendering
 - [ ] No ad hoc inline styles in MDX files. Approved exceptions: Mermaid hardcoded colour blocks and the documented `CustomDivider` margin patterns
 - [ ] All imports use absolute paths with file extensions
 - [ ] No imports of Mintlify globals (Card, Tabs, Note, etc.)
-- [ ] Opening hook: CenteredContainer + Tip
+- [ ] The first rendered body element after frontmatter/comments is `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />`
+- [ ] The frontmatter page title is not repeated as a visible top-of-page H1/H2 in the page body
 - [ ] Headings are concise and technical. On guide pages, aim for 3 words or less when clarity allows
 - [ ] CustomDividers between all major sections
 - [ ] Prose before every diagram, table, and code block

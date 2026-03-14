@@ -33,6 +33,8 @@ Workflow
 2. Treat Mermaid as the approved hardcoded-colour exception in authored MDX. Source Mermaid colours from `/snippets/components/page-structure/mermaid-colours.jsx`.
 3. Do not broaden a scoped content edit into repo-wide cleanup by default. If legacy inline-style or Tailwind cleanup is out of scope, log the follow-up in `.github/future-recommendations.md`.
 4. For guide pages, apply authoring guidance where the current task touches the content:
+   - Do not duplicate the frontmatter page title as a top-of-page H1 or H2. Frontmatter metadata already becomes the visible page header.
+   - Start the page body with `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />` immediately after frontmatter and page TODO/review comments.
    - Use FontAwesome icons on Tabs and Accordions. Source icon names from `https://fontawesome.com/search`.
    - Keep headings concise and technical. On guide pages, aim for 3 words or less when clarity allows.
    - Use `CustomDivider` margin patterns based on context:
@@ -63,6 +65,8 @@ Validation Checklist
 - [ ] All imports to snippets use absolute paths.
 - [ ] Mermaid diagrams that hardcode colours use `/snippets/components/page-structure/mermaid-colours.jsx` as the source of truth.
 - [ ] Inline-style or Tailwind cleanup outside the requested scope is either fixed or recorded in `.github/future-recommendations.md`.
+- [ ] Guide pages do not repeat the frontmatter title as a visible top-of-page H1/H2.
+- [ ] Guide pages start the rendered body with `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />` after frontmatter/comments.
 - [ ] Guide-page icons use FontAwesome names sourced from `https://fontawesome.com/search`.
 - [ ] Guide-page headings stay concise and technical. Aim for 3 words or less when clarity allows.
 - [ ] Guide-page `CustomDivider` spacing follows the documented context rules.
