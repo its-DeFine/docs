@@ -45,6 +45,10 @@ const wcagNoFix = args.includes('--wcag-no-fix');
 let totalErrors = 0;
 let totalWarnings = 0;
 
+function getStagedRepoRelativeFiles() {
+  return getStagedFiles(REPO_ROOT).map((filePath) => path.relative(REPO_ROOT, filePath).split(path.sep).join('/'));
+}
+
 function normalizeSuiteResult(result) {
   const normalized = result && typeof result === 'object' ? { ...result } : {};
   normalized.errors = Array.isArray(normalized.errors) ? normalized.errors : [];
@@ -53,10 +57,30 @@ function normalizeSuiteResult(result) {
 }
 
 function getStagedComponentFiles() {
-  return getStagedFiles(REPO_ROOT)
-    .map((filePath) => path.relative(REPO_ROOT, filePath).split(path.sep).join('/'))
+  return getStagedRepoRelativeFiles()
     .filter((filePath) => filePath.startsWith('snippets/components/') && filePath.endsWith('.jsx'))
     .filter((filePath) => !filePath.includes('/_archive/'));
+}
+
+function hasStagedComponentGovernanceChanges() {
+  if (!stagedOnly) {
+    return true;
+  }
+
+  const relevantFiles = new Set([
+    'docs-guide/component-registry.json',
+    'docs-guide/component-usage-map.json',
+    'tools/lib/component-governance-utils.js',
+    'tools/scripts/generate-component-registry.js',
+    'tools/scripts/scan-component-imports.js',
+    'tools/scripts/generate-component-docs.js',
+    'tools/scripts/remediators/components/repair-component-metadata.js',
+    'tests/unit/component-governance-generators.test.js'
+  ]);
+
+  return getStagedRepoRelativeFiles().some(
+    (filePath) => filePath.startsWith('snippets/components/') || relevantFiles.has(filePath)
+  );
 }
 
 /**
@@ -175,12 +199,16 @@ async function runAllTests() {
 
   // Component Governance Generator Tests
   console.log('\n🗂️  Running Component Governance Generator Tests...');
-  const componentGovernanceGeneratorResult = normalizeSuiteResult(componentGovernanceGeneratorTests.runTests());
-  totalErrors += componentGovernanceGeneratorResult.errors.length;
-  totalWarnings += componentGovernanceGeneratorResult.warnings.length;
-  console.log(
-    `   ${componentGovernanceGeneratorResult.errors.length} errors, ${componentGovernanceGeneratorResult.warnings.length} warnings`
-  );
+  if (hasStagedComponentGovernanceChanges()) {
+    const componentGovernanceGeneratorResult = normalizeSuiteResult(componentGovernanceGeneratorTests.runTests());
+    totalErrors += componentGovernanceGeneratorResult.errors.length;
+    totalWarnings += componentGovernanceGeneratorResult.warnings.length;
+    console.log(
+      `   ${componentGovernanceGeneratorResult.errors.length} errors, ${componentGovernanceGeneratorResult.warnings.length} warnings`
+    );
+  } else {
+    console.log('   skipped (no staged component governance changes)');
+  }
 
   // Usefulness Unit Tests
   console.log('\n📈 Running Usefulness Unit Tests...');

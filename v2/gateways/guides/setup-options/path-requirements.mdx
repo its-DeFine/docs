@@ -32,7 +32,7 @@ import { DoubleIconLink } from '/snippets/components/primitives/links.jsx'
 
 This page lists the prerequisites for each gateway path in full. Use the tabs to jump to your chosen path.
 
-If you have not yet chosen a path, start with [Choose Your Gateway Path](/v2/gateways/guides/setup-paths/gateway-setup-paths).
+If you have not yet chosen a path, start with [Choose Your Gateway Path](/v2/gateways/guides/setup-options/gateway-setup-paths).
 
 ---
 
@@ -186,7 +186,7 @@ All gateway paths use the same underlying machine requirements. Gateways do not 
 
         This signer is operated by Elite Encoder, a community member and active contributor. It is free to use and suitable for development and early production. For high-volume production deployments you may want to operate your own signer.
 
-        <Card title="Remote signers — full documentation" icon="key" href="/v2/gateways/advanced/remote-signers" arrow horizontal>
+        <Card title="Remote signers — full documentation" icon="key" href="/v2/gateways/guides/payments-and-pricing/remote-signers" arrow horizontal>
           How the remote signing protocol works, state management requirements, and how to operate your own signer.
         </Card>
       </StyledStep>
@@ -236,7 +236,7 @@ All gateway paths use the same underlying machine requirements. Gateways do not 
     HTTP Server listening on http://0.0.0.0:8937
     ```
 
-    <Card title="AI gateway quickstart" icon="bolt" href="/v2/gateways/get-started/ai-gateway-quickstart" arrow horizontal>
+    <Card title="AI gateway quickstart" icon="bolt" href="/v2/gateways/quickstart/gateway-setup" arrow horizontal>
       Full step-by-step including test request and troubleshooting.
     </Card>
 
@@ -291,7 +291,7 @@ All gateway paths use the same underlying machine requirements. Gateways do not 
           4. **Wait for bridge confirmation** — typically 10–20 minutes.
           5. After bridging, run the gateway binary and use the Livepeer CLI to allocate your deposit and reserve.
 
-          <Card title="Full fund gateway guide" icon="ethereum" href="/v2/gateways/setup/requirements/on-chain/fund-gateway" arrow horizontal>
+          <Card title="Full fund gateway guide" icon="ethereum" href="/v2/gateways/guides/payments-and-pricing/fund-your-gateway" arrow horizontal>
             Step-by-step CLI walkthrough for allocating your deposit and reserve.
           </Card>
         </Accordion>
@@ -341,7 +341,7 @@ All gateway paths use the same underlying machine requirements. Gateways do not 
       -f flv rtmp://YOUR_GATEWAY_IP:1935/live/stream-key
     ```
 
-    <Card title="Video gateway setup" icon="play" href="/v2/gateways/get-started/gateway-setup" arrow horizontal>
+    <Card title="Video gateway setup" icon="play" href="/v2/gateways/quickstart/gateway-setup" arrow horizontal>
       Full setup walkthrough: install, fund, connect, start streaming.
     </Card>
 
@@ -664,7 +664,7 @@ All gateway paths use the same underlying machine requirements. Gateways do not 
 
     {/* REVIEW: Confirm `-remoteSigner` flag name and exact startup command with j0sh or from go-livepeer source. This is inferred from the design doc — verify exact binary flags before publishing. */}
 
-    <Card title="Remote signers — full protocol documentation" icon="key" href="/v2/gateways/advanced/remote-signers" arrow horizontal>
+    <Card title="Remote signers — full protocol documentation" icon="key" href="/v2/gateways/guides/payments-and-pricing/remote-signers" arrow horizontal>
       The full remote signing protocol spec: signing sequence, state machine, bookkeeping, and running your own signer.
     </Card>
 
@@ -693,7 +693,7 @@ Once you have confirmed your requirements, move to install:
   <Card title="Configuration" icon="gear" href="/v2/gateways/setup/configure/configuration-overview" arrow>
     Configure your gateway for your chosen workload type.
   </Card>
-  <Card title="Fund your gateway" icon="ethereum" href="/v2/gateways/setup/requirements/on-chain/fund-gateway" arrow>
+  <Card title="Fund your gateway" icon="ethereum" href="/v2/gateways/guides/payments-and-pricing/fund-your-gateway" arrow>
     On-chain path only: get ETH on Arbitrum and allocate deposit and reserve.
   </Card>
 </CardGroup>

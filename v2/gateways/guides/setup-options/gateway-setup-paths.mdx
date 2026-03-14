@@ -196,7 +196,7 @@ Before you pick a path, you need to understand what "on-chain" and "off-chain" m
 
     **Who uses this path:** App developers graduating from a hosted service (Daydream, Livepeer.Cloud), AI Video Startup Programme participants, teams building on the Livepeer AI network.
 
-    <Card title="AI gateway quickstart" icon="bolt" href="/v2/gateways/get-started/ai-gateway-quickstart" arrow horizontal>
+    <Card title="AI gateway quickstart" icon="bolt" href="/v2/gateways/quickstart/gateway-setup" arrow horizontal>
       Full step-by-step: Docker command, orchestrator selection, verify your first inference request.
     </Card>
   </Accordion>
@@ -220,10 +220,10 @@ Before you pick a path, you need to understand what "on-chain" and "off-chain" m
     **Who uses this path:** Video operators replacing cloud transcoding, Owncast users looking for decentralised transcoding, production broadcast infrastructure.
 
     <CardGroup cols={2}>
-      <Card title="Fund your gateway" icon="ethereum" href="/v2/gateways/setup/requirements/on-chain/fund-gateway" arrow>
+      <Card title="Fund your gateway" icon="ethereum" href="/v2/gateways/guides/payments-and-pricing/fund-your-gateway" arrow>
         Get ETH on Arbitrum and allocate deposit and reserve.
       </Card>
-      <Card title="Video gateway setup" icon="play" href="/v2/gateways/get-started/gateway-setup" arrow>
+      <Card title="Video gateway setup" icon="play" href="/v2/gateways/quickstart/gateway-setup" arrow>
         Step-by-step from install to live stream.
       </Card>
     </CardGroup>
@@ -248,7 +248,7 @@ Before you pick a path, you need to understand what "on-chain" and "off-chain" m
 
     On-chain setup is required (for the video payment side). See full dual configuration in the requirements page.
 
-    <Card title="Dual gateway requirements" icon="clipboard-check" href="/v2/gateways/guides/setup-paths/requirements-by-path#dual-ai-video" arrow horizontal>
+    <Card title="Dual gateway requirements" icon="clipboard-check" href="/v2/gateways/guides/setup-options/path-requirements#dual-ai-video" arrow horizontal>
       Full requirements, port assignments, and Docker Compose pattern for dual mode.
     </Card>
   </Accordion>
@@ -274,7 +274,7 @@ Before you pick a path, you need to understand what "on-chain" and "off-chain" m
       <Card title="SPE grant model" icon="vault" href="/v2/gateways/guides/opportunities/spe-grant-model" arrow>
         How gateway-as-service operators get Treasury-funded.
       </Card>
-      <Card title="Payment clearinghouse" icon="arrows-left-right" href="/v2/gateways/advanced/payment-clearinghouse" arrow>
+      <Card title="Payment clearinghouse" icon="arrows-left-right" href="/v2/gateways/guides/payments-and-pricing/clearinghouse-guide" arrow>
         Architecture for separating operator billing from PM settlement.
       </Card>
     </CardGroup>
@@ -301,7 +301,7 @@ Before you pick a path, you need to understand what "on-chain" and "off-chain" m
     - ⚠️ Batch AI — same payment mechanism; full remote signer support not confirmed as shipped
     - ❌ Video transcoding — explicitly excluded by design (ticket signing is synchronous in hot path)
 
-    <Card title="SDK and alternative gateways" icon="code" href="/v2/gateways/guides/setup-paths/requirements-by-path#sdk-alternative" arrow horizontal>
+    <Card title="SDK and alternative gateways" icon="code" href="/v2/gateways/guides/setup-options/path-requirements#sdk-alternative" arrow horizontal>
       Full prerequisites, remote signer integration, discovery methods, and implementation rules.
     </Card>
   </Accordion>
@@ -371,7 +371,7 @@ Relevant search terms: "livepeer gateway", "livepeer AI gateway", "livepeer broa
 Once you have chosen your path, check what you need before you start.
 
 <CardGroup cols={2}>
-  <Card title="Requirements by path" icon="clipboard-list" href="/v2/gateways/guides/setup-paths/requirements-by-path" arrow>
+  <Card title="Requirements by path" icon="clipboard-list" href="/v2/gateways/guides/setup-options/path-requirements" arrow>
     Tabbed requirements for AI off-chain, video on-chain, dual, and SDK paths — including what you do NOT need.
   </Card>
   <Card title="General requirements overview" icon="clipboard-check" href="/v2/gateways/setup/requirements/setup" arrow>

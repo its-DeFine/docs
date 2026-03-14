@@ -111,7 +111,7 @@ Source confirming correction: Remote Signers design doc — "the go-livepeer gat
 {
   "group": "Setup Paths",
   "pages": [
-    "v2/gateways/guides/setup-paths/gateway-setup-paths",
+    "v2/gateways/guides/setup-options/gateway-setup-paths",
     "v2/gateways/guides/setup-paths/requirements-by-path"
   ]
 }

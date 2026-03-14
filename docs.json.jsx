@@ -5313,9 +5313,9 @@ const gatewaysNew = {
         {
           group: 'Setup Paths',
           pages: [
-            'v2/gateways/guides/setup-paths/gateway-setup-paths',
-            'v2/gateways/guides/setup-paths/path-requirements',
-            'v2/gateways/guides/setup-paths/ecosystem-projects',
+            'v2/gateways/guides/setup-options/gateway-setup-paths',
+            'v2/gateways/guides/setup-options/path-requirements',
+            'v2/gateways/guides/setup-options/ecosystem-projects',
           ],
         },
         {
