@@ -27,6 +27,29 @@ purpose: concept
 status: published
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -425,3 +448,35 @@ The network capabilities tool shows all registered orchestrators and their adver
     Upgrade path for existing transcoding orchestrators adding AI pipelines.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Journey step: "How does AI inference work on my orchestrator?"
+  Comprehensive guide to running AI workloads: pipeline types, model management,
+  the AI worker/runner architecture, and operational considerations.
+
+  CONTENT SHOULD INCLUDE:
+  - AI worker architecture (go-livepeer + AI runner container)
+  - Supported pipelines (text-to-image, image-to-image, LLM, audio, etc.)
+  - Model management: downloading, loading, warm vs cold
+  - aiModels.json configuration format
+  - GPU memory management and model swapping
+  - On-chain capability registration (-aiServiceRegistry)
+  - AI-specific pricing (-pricePerCapability on orchestrator side)
+
+  SECTION HOME: Guides > Workloads & AI
+
+  JOURNEY POSITION:
+  1. Job Types - "What work is available?"
+  2. Video Transcoding - "How does video work?"
+  3. AI Workloads Guide (this page) - "How does AI work?"
+  4. Batch AI Setup - "Set up batch AI"
+  5. Realtime AI Setup - "Set up realtime AI"
+  6. Model VRAM Reference - "Which models fit my GPU?"
+
+  CROSS-REFS:
+  - Gateway Tab > Node Pipelines > AI Pipelines - gateway side of AI routing
+  - Workloads & AI > Model VRAM Reference - GPU requirements per model
+  - Workloads & AI > Batch AI Setup - practical setup steps
+  - Payments & Pricing > Pricing Strategy - setting AI prices
+*/}

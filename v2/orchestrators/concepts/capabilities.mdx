@@ -1,206 +1,322 @@
 ---
-title: Orchestrator Capabilities
-sidebarTitle: Capabilities
+title: 'Orchestrator Capabilities'
+sidebarTitle: 'Capabilities'
 description: >-
-  What orchestrators do on the Livepeer network - transcoding, AI inference,
-  real-time AI, LLM, and custom workloads - plus governance and delegation.
+  What Orchestrators can execute, the workload types they support across video and AI,
+  how Gateways select them, and the boundaries of the Orchestrator role.
 keywords:
   - livepeer
-  - orchestrators
+  - orchestrator
   - orchestrator capabilities
-  - transcoding
+  - video transcoding
   - AI inference
+  - batch AI
   - real-time AI
   - Cascade
-  - ComfyStream
-  - LLM
   - BYOC
-  - GPU compute
-  - governance
-  - delegation
-'og:image': /snippets/assets/site/og-image/en/orchestrators.png
+  - job types
+  - GPU workloads
+  - capability advertisement
+  - orchestrator selection
+  - active set
+'og:image': /snippets/assets/site/og-image/fallback.png
 'og:image:alt': Livepeer Docs social preview image for Orchestrators
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
-pageType: concept
-audience: orchestrator
-status: current
-lastVerified: 2026-03-13
+pageType: 'concept'
+audience: 'orchestrator'
+purpose: 'concept'
+status: 'current'
+lastVerified: '2026-03-15'
 ---
+
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used
+- UK spelling is used
+- Headers are concise and technical (aim for max 3 words)
+- CustomDivider uses approved margin patterns
+- Placeholders for Media and Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+Human
+- Find Media
+- Review REVIEW items
+*/}
 
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
-import { CenteredContainer } from '/snippets/components/layout/containers.jsx'
+import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
+import { CenteredContainer, BorderedBox } from '/snippets/components/layout/containers.jsx'
 
 <CenteredContainer style={{ width: '90%' }}>
-  <Tip>Orchestrators are general-purpose GPU compute providers. They transcode video, run AI inference, serve LLMs, process real-time AI video, and execute custom containers - all while earning LPT rewards and ETH fees.</Tip>
+  <Tip>Orchestrators perform compute - they do not route or discover work. Gateways send jobs; Orchestrators execute them on GPU hardware and return results. Every capability an Orchestrator exposes must be declared on registration so Gateways can discover and select it.</Tip>
 </CenteredContainer>
 
-<CustomDivider />
+<CustomDivider middleText="Workload Types" style={{margin: "0 0 -1rem 0"}} />
 
-This page covers what orchestrators can do. For what an orchestrator *is*, see [Role](/v2/orchestrators/concepts/role). For how it works internally, see [Architecture](/v2/orchestrators/concepts/architecture).
+## Workload Types
 
-<CustomDivider middleText="Compute Capabilities" />
-
-## Workload types
-
-Orchestrators earn ETH service fees by completing jobs routed to them by gateways. Four categories of compute work are available on the network today.
+Orchestrators can execute four categories of compute workload. Which workloads a node accepts depends
+on its hardware, the pipelines and models it has loaded, and how it is configured.
 
 <StyledTable variant="bordered">
   <thead>
     <TableRow header>
       <TableCell header>Workload</TableCell>
-      <TableCell header>What it does</TableCell>
-      <TableCell header>Min VRAM</TableCell>
-      <TableCell header>Pricing unit</TableCell>
+      <TableCell header>What the Orchestrator does</TableCell>
+      <TableCell header>Unit of work</TableCell>
+      <TableCell header>GPU required</TableCell>
     </TableRow>
   </thead>
   <tbody>
     <TableRow>
       <TableCell>**Video transcoding**</TableCell>
-      <TableCell>Convert live video streams into multiple resolutions and formats</TableCell>
-      <TableCell>None (GPU optional)</TableCell>
-      <TableCell>Wei per pixel</TableCell>
+      <TableCell>Re-encode live video segments from RTMP ingest into multiple output profiles (resolution, bitrate, format)</TableCell>
+      <TableCell>Per segment (typically 2 seconds of video)</TableCell>
+      <TableCell>Yes (NVENC preferred; CPU possible)</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>**Batch AI inference**</TableCell>
-      <TableCell>Single-request AI jobs: text-to-image, image-to-video, audio-to-text, captioning, segmentation</TableCell>
-      <TableCell>4-24GB</TableCell>
-      <TableCell>Wei per pixel or per ms</TableCell>
+      <TableCell>Run single-request AI jobs: text-to-image, image-to-image, image-to-video, audio-to-text, upscale, segmentation</TableCell>
+      <TableCell>Per request (pixel or millisecond-based)</TableCell>
+      <TableCell>Yes (VRAM requirements vary by model)</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>**Real-time AI (Cascade)**</TableCell>
-      <TableCell>Continuous AI on a live video stream - style transfer, avatars, real-time agents</TableCell>
-      <TableCell>8GB+</TableCell>
-      <TableCell>TBC</TableCell>
+      <TableCell>Apply continuous AI processing to a live video stream - style transfer, avatar rendering, real-time generative overlays</TableCell>
+      <TableCell>Per interval during stream duration</TableCell>
+      <TableCell>Yes (high VRAM; dedicated GPU strongly recommended)</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell>**LLM inference**</TableCell>
-      <TableCell>Text generation, chat, instruction-following via large language models</TableCell>
-      <TableCell>8GB (quantised 7-8B)</TableCell>
-      <TableCell>Wei per token unit</TableCell>
+      <TableCell>**BYOC containers**</TableCell>
+      <TableCell>Execute application-defined Docker containers on Orchestrator hardware for custom ML workflows or novel compute tasks</TableCell>
+      <TableCell>Per request or per interval (defined by pipeline)</TableCell>
+      <TableCell>Depends on container</TableCell>
     </TableRow>
   </tbody>
 </StyledTable>
 
-See <LinkArrow href="/v2/orchestrators/concepts/rs-workloads" label="Job Types" newline={false} /> for the detailed breakdown of each workload including hardware requirements, pricing models, current pipelines, and configuration.
+<Note>
+An Orchestrator running both video transcoding and AI inference is described as operating in a
+**dual-workload configuration**. This is not a separate mode - it is the same Orchestrator process
+with both pipelines enabled. See <LinkArrow href="/v2/orchestrators/concepts/architecture" label="Orchestrator Architecture" newline={false} /> for the pipeline internals.
+</Note>
 
-### Video transcoding
+<CustomDivider middleText="AI Pipelines" style={{margin: "0 0 -1rem 0"}} />
 
-The original workload on Livepeer, live since 2017. Gateways send RTMP video segments; your node re-encodes them into the requested output profiles (resolution, bitrate, format) and returns the results. Transcoding can run on CPU alone, but NVIDIA GPU acceleration (NVENC/NVDEC) is strongly recommended to remain competitive.
+## Supported AI Pipelines
 
-### Batch AI inference
+Livepeer defines a standard set of AI pipelines that Orchestrators can advertise. Each pipeline maps
+to a category of inference task and a compatible set of models.
 
-Added in Q3 2024 with the AI Subnet launch. Your node receives an AI request (text-to-image, image-to-video, audio-to-text, etc.), runs inference via an `ai-runner` Docker container, and returns the result. Nine distinct pipelines are currently supported, with varying VRAM requirements.
+<StyledTable variant="bordered">
+  <thead>
+    <TableRow header>
+      <TableCell header>Pipeline</TableCell>
+      <TableCell header>Input</TableCell>
+      <TableCell header>Output</TableCell>
+      <TableCell header>Example models</TableCell>
+    </TableRow>
+  </thead>
+  <tbody>
+    <TableRow>
+      <TableCell>**text-to-image**</TableCell>
+      <TableCell>Text prompt</TableCell>
+      <TableCell>Image</TableCell>
+      <TableCell>`stabilityai/stable-diffusion-3-medium-diffusers`, `ByteDance/SDXL-Lightning`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**image-to-image**</TableCell>
+      <TableCell>Image + prompt</TableCell>
+      <TableCell>Image</TableCell>
+      <TableCell>`timbrooks/instruct-pix2pix`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**image-to-video**</TableCell>
+      <TableCell>Image + motion prompt</TableCell>
+      <TableCell>Video clip</TableCell>
+      <TableCell>`stabilityai/stable-video-diffusion-img2vid-xt-1-1`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**audio-to-text**</TableCell>
+      <TableCell>Audio file</TableCell>
+      <TableCell>Transcript (JSON)</TableCell>
+      <TableCell>`openai/whisper-large-v3`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**upscale**</TableCell>
+      <TableCell>Low-resolution image</TableCell>
+      <TableCell>High-resolution image</TableCell>
+      <TableCell>`stabilityai/stable-diffusion-x4-upscaler`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**segment-anything-2**</TableCell>
+      <TableCell>Image + prompt</TableCell>
+      <TableCell>Segmentation mask</TableCell>
+      <TableCell>`facebook/sam2-hiera-large`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**live-video-to-video**</TableCell>
+      <TableCell>Live video stream</TableCell>
+      <TableCell>Transformed live stream</TableCell>
+      <TableCell>Cascade pipeline models</TableCell>
+    </TableRow>
+  </tbody>
+</StyledTable>
 
-### Real-time AI (Cascade)
+{/* REVIEW: Confirm pipeline list is complete and up-to-date with AI subnet - check go-livepeer AI runner for current list */}
 
-Architecturally distinct from batch inference. Instead of one request = one response, your GPU is allocated to a **persistent live video stream**, processing each frame through a ComfyUI workflow in real time. Used for live avatar generation, style transfer overlays, and interactive AI applications.
+An Orchestrator can support any subset of pipelines and models. Each combination of pipeline and model
+is independently priced and advertised. Gateways discover these via the AIServiceRegistry contract or
+from the Orchestrator's capability response during session negotiation.
 
-### LLM inference
+<CustomDivider middleText="Capability Advertisement" style={{margin: "0 0 -1rem 0"}} />
 
-Text completion and chat using large language models. Requires a separate Ollama-based runner container. Quantised 7-8B models fit in 8GB VRAM, making this accessible to operators with older consumer GPUs who cannot run the diffusion-based image pipelines.
+## How Capabilities Are Advertised
 
-### BYOC (Bring Your Own Container)
+When a Gateway wants to route a job, it must find an Orchestrator that can handle it. Orchestrators
+make themselves discoverable through two mechanisms:
 
-Applications can define custom container-based workloads that your orchestrator executes. This extends the network beyond standard AI pipelines into enterprise-specific processing, custom ML workflows, and novel applications like <LinkArrow href="/v2/solutions/embody" label="Embody AI avatars" newline={false} /> and <LinkArrow href="/v2/solutions/daydream" label="Daydream real-time AI video" newline={false} />.
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+flowchart TD
+    A["Orchestrator starts"] --> B["Register on-chain\n(ServiceRegistry / AIServiceRegistry)"]
+    B --> C["Advertise service URI\n(HTTPS endpoint)"]
+    C --> D["Gateway queries registry"]
+    D --> E["Gateway contacts Orchestrator\ndirectly (capability negotiation)"]
+    E --> F["Orchestrator returns\ncapabilities + prices"]
+    F --> G["Gateway selects, dispatches job"]
 
-<CustomDivider middleText="What Orchestrators Don't Do" />
+    classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
+```
 
-## Boundary: orchestrators vs gateways
+### On-chain registration
 
-Orchestrators provide compute. They do **not**:
+Orchestrators register their service URI in the **ServiceRegistry** contract on Arbitrum. AI-capable
+Orchestrators additionally register with the **AIServiceRegistry** contract (or use the `-aiServiceRegistry`
+flag to connect to the AI subnet). This makes the Orchestrator discoverable to all Gateways that query
+the registry.
 
-- Route or schedule jobs (gateways do this)
-- Manage customer relationships, API keys, or billing (gateways or application layer)
-- Set business pricing for end users (gateways set margins)
-- Ingest video streams directly from applications (gateways handle ingest)
+### Capability negotiation
 
-The gateway is the demand side; the orchestrator is the supply side. If you want to route work rather than compute it, see <LinkArrow href="/v2/gateways/concepts/role" label="Gateway Role" newline={false} />.
+When a Gateway establishes a session with an Orchestrator, the Orchestrator returns a **capability
+manifest** - the full list of pipelines it supports, the models it has loaded, and its price per unit
+for each. The Gateway uses this to decide whether to proceed with the session.
 
-<CustomDivider middleText="Protocol Capabilities" />
+Capabilities that are advertised but not actually available (e.g. models not yet loaded into VRAM) will
+result in job failures. Keep declared capabilities in sync with loaded models.
 
-## Beyond compute
+<CustomDivider middleText="Gateway Selection" style={{margin: "0 0 -1rem 0"}} />
 
-Orchestrators are not passive compute providers. They are active protocol participants with responsibilities and influence beyond processing jobs.
+## How Gateways Select Orchestrators
 
-### Staking and delegation
+Understanding Gateway selection is essential for Orchestrators that want to attract work. Gateways do
+not randomly assign jobs - they apply a multi-factor ranking algorithm to every session.
 
-Orchestrators stake LPT to register on the network and attract delegation from LPT holders. Your total stake (self-stake + delegated stake) determines:
+<StyledTable variant="bordered">
+  <thead>
+    <TableRow header>
+      <TableCell header>Factor</TableCell>
+      <TableCell header>What the Gateway looks at</TableCell>
+      <TableCell header>Operator implication</TableCell>
+    </TableRow>
+  </thead>
+  <tbody>
+    <TableRow>
+      <TableCell>**Capability match**</TableCell>
+      <TableCell>Does the Orchestrator support the requested pipeline and model?</TableCell>
+      <TableCell>Declare only what you can actually run</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Price**</TableCell>
+      <TableCell>Is your `-pricePerUnit` at or below the Gateway's `-maxPricePerUnit`?</TableCell>
+      <TableCell>Price competitively; too high means no jobs</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Latency**</TableCell>
+      <TableCell>How fast did you respond to recent segments?</TableCell>
+      <TableCell>Low-latency GPU access and reliable network connectivity are critical</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Performance history**</TableCell>
+      <TableCell>What is your success rate and error rate over recent sessions?</TableCell>
+      <TableCell>Uptime and job reliability directly affect how much work you receive</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Stake weight**</TableCell>
+      <TableCell>How much LPT is bonded to your Orchestrator (self-stake + delegated)?</TableCell>
+      <TableCell>Higher stake increases selection probability when other factors are equal</TableCell>
+    </TableRow>
+  </tbody>
+</StyledTable>
 
-- Whether you are in the **active set** (eligible for work and rewards)
-- Your **selection probability** (gateways factor stake weight into orchestrator ranking)
-- Your **protocol reward share** (proportional to stake)
+A Gateway that sends a job and receives an error or timeout will deprioritise your Orchestrator for
+subsequent sessions. Sustained availability and accurate capability declaration are the strongest
+signals for consistent job flow.
 
-You configure **reward cut** and **fee cut** percentages to determine how rewards and fees are split with your delegators. See <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards" label="Staking and Rewards" newline={false} />.
+See <LinkArrow href="/v2/orchestrators/guides/payments-and-pricing/pricing-strategy" label="Pricing Strategy" newline={false} /> for how to configure competitive prices.
 
-### Governance
+<CustomDivider middleText="What Orchestrators Don't Do" style={{margin: "0 0 -1rem 0"}} />
 
-Orchestrators vote on **Livepeer Improvement Proposals (LIPs)** that change protocol parameters, add new features, or alter network economics. Your voting weight is proportional to your total stake, making high-stake orchestrators influential governance actors.
+## Capability Boundaries
 
-See <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards/governance" label="Delegates and Voting" newline={false} />.
+Orchestrators handle compute and payment receipt. They do not handle job routing, application
+integration, or business-layer concerns.
 
-### Reward calls
+<StyledTable variant="bordered">
+  <thead>
+    <TableRow header>
+      <TableCell header>Not part of the Orchestrator role</TableCell>
+      <TableCell header>Where it happens instead</TableCell>
+    </TableRow>
+  </thead>
+  <tbody>
+    <TableRow>
+      <TableCell>Accepting RTMP streams from applications</TableCell>
+      <TableCell>Gateway (RTMP ingest, port 1935)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Routing jobs between multiple Orchestrators</TableCell>
+      <TableCell>Gateway (orchestrator selection algorithm)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Managing API keys or billing for end users</TableCell>
+      <TableCell>Gateway or application layer</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Sending payment tickets to anyone</TableCell>
+      <TableCell>Gateways send tickets; Orchestrators receive and redeem them</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Staking LPT for Delegators</TableCell>
+      <TableCell>BondingManager contract (Delegators do this themselves)</TableCell>
+    </TableRow>
+  </tbody>
+</StyledTable>
 
-Once per round (~24 hours), your node calls `reward()` on the Arbitrum smart contracts to mint your share of newly created LPT. Missing a reward call forfeits that round's rewards for you and your delegators.
+If you want to aggregate application demand and route work across multiple Orchestrators, that is
+the Gateway role. See <LinkArrow href="/v2/gateways/concepts/role" label="Gateway Role" newline={false} /> for that path.
 
-<CustomDivider middleText="Choosing Your Path" />
-
-## What should you run?
-
-The workloads you can offer depend on your hardware and goals.
-
-<Tabs>
-  <Tab  title="Consumer GPU (8-12GB)" icon="server">
-    - **Transcoding** - always available, no VRAM minimum
-    - **LLM inference** - quantised 7-8B models fit in 8GB
-    - **Lightweight AI** - `image-to-text` (4GB), `segment-anything-2` (6GB)
-
-    Best for: hobbyists, passive income, older GPUs
-  </Tab>
-  <Tab  title="Mid-range GPU (16GB)" icon="server">
-    - Everything above, plus:
-    - **Batch AI** - audio-to-text, image-to-image, and more pipelines
-    - **Real-time AI** - lightweight ComfyStream workflows
-
-    Best for: serious operators entering the AI subnet
-  </Tab>
-  <Tab  title="High-end GPU (24GB+)" icon="server">
-    - Everything above, plus:
-    - **Full AI suite** - text-to-image (SDXL), image-to-video
-    - **Production real-time AI** - style transfer, avatar workflows
-
-    Best for: data centres, dedicated AI operators, maximum revenue potential
-  </Tab>
-</Tabs>
-
-See <LinkArrow href="/v2/orchestrators/concepts/rs-workloads" label="Job Types" newline={false} /> for per-pipeline hardware requirements and pricing configuration.
-
-<CustomDivider />
-
-## Example services powered by orchestrators
-
-Real applications running on orchestrator compute today:
-
-- **[Daydream](/v2/solutions/daydream)** - interactive AI video platform powering real-time AI experiences
-- **[Embody](/v2/solutions/embody)** - AI avatar generation for virtual agents and VTubers
-- **Video streaming** - live transcoding for platforms using Livepeer as their encoding backend
-- **BYOC workloads** - custom ML pipelines and enterprise processing
-
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
 ## Related Pages
 
-<CardGroup cols={3}>
-  <Card title="Job Types" icon="cubes" href="/v2/orchestrators/concepts/rs-workloads" arrow>
-    Detailed per-workload breakdown: hardware, pricing, configuration.
+<CardGroup cols={2}>
+  <Card title="Orchestrator Role" icon="user-gear" href="/v2/orchestrators/concepts/role" arrow horizontal>
+    What Orchestrators are and how the role has evolved.
   </Card>
-  <Card title="Role" icon="user-gear" href="/v2/orchestrators/concepts/role" arrow>
-    What orchestrators are and why they exist.
+  <Card title="Orchestrator Architecture" icon="diagram-project" href="/v2/orchestrators/concepts/architecture" arrow horizontal>
+    Internal components, request flow, and system interactions.
   </Card>
-  <Card title="Architecture" icon="diagram-project" href="/v2/orchestrators/concepts/architecture" arrow>
-    Internal components and request flow.
+  <Card title="Incentive Model" icon="coins" href="/v2/orchestrators/concepts/incentive-model" arrow horizontal>
+    Revenue streams, cost structure, and earnings potential.
+  </Card>
+  <Card title="Workloads and AI" icon="microchip" href="/v2/orchestrators/guides/workloads-and-ai/job-types" arrow horizontal>
+    Detailed setup guides for video, AI, and BYOC workloads.
   </Card>
 </CardGroup>

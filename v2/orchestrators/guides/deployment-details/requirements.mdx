@@ -29,6 +29,29 @@ purpose: reference
 status: published
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
@@ -338,3 +361,32 @@ Your orchestrator wallet needs ETH on Arbitrum before activation. Budget at leas
     Cost categories, revenue sources, and the decision matrix before setup.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Journey step: "What hardware and prerequisites do I need?"
+  Reference page listing technical and non-technical requirements for running
+  an orchestrator, organised by deployment type and workload.
+
+  CONTENT SHOULD INCLUDE:
+  - Minimum hardware specs: CPU, RAM, storage, network
+  - GPU requirements by workload (video: any NVIDIA, AI: by model family)
+  - Software requirements: OS, drivers, Docker, go-livepeer version
+  - Network requirements: bandwidth, ports, static IP/domain
+  - Blockchain requirements: ETH for gas, LPT for staking, Arbitrum RPC
+  - Non-technical requirements: monitoring commitment, update cadence
+  - Tiered recommendations: minimum viable, recommended, production
+
+  SECTION HOME: Guides > Deployment Details
+
+  JOURNEY POSITION:
+  1. Setup Options - "Which path?"
+  2. Requirements (this page) - "What do I need?"
+  3. Join a Pool - "How do I join a pool?"
+
+  CROSS-REFS:
+  - Resources > GPU Support - detailed GPU compatibility list
+  - Operator Considerations > Benchmarking - performance testing hardware
+  - Setup > Requirements Checklist - actionable setup checklist
+  - Workloads & AI > Model VRAM Reference - VRAM needs per AI model
+*/}

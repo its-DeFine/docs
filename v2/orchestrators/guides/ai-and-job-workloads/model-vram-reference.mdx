@@ -29,6 +29,29 @@ purpose: reference
 status: published
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -610,3 +633,30 @@ The only requirement is the `/health` endpoint contract and matching the AI work
     Custom model hosting and external container integration.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Journey step: "Which AI models fit my GPU?"
+  Reference table mapping AI models to VRAM requirements, helping operators
+  choose which models to advertise based on their hardware.
+
+  CONTENT SHOULD INCLUDE:
+  - VRAM requirements by model family (SD 1.5, SDXL, Lightning, LLM)
+  - Models per pipeline (text-to-image, image-to-image, LLM, audio)
+  - Multi-model GPU sharing considerations
+  - Recommended models by GPU tier (8GB, 16GB, 24GB, 48GB+)
+  - Warm vs cold model trade-offs
+  - Community-tested model configurations
+
+  SECTION HOME: Guides > Workloads & AI
+
+  JOURNEY POSITION:
+  1-5. Previous pages...
+  6. Model VRAM Reference (this page) - "Which models fit my GPU?"
+
+  CROSS-REFS:
+  - Resources > GPU Support - supported GPU hardware list
+  - AI Workloads Guide (this section) - model management concepts
+  - Operator Considerations > Benchmarking - testing model performance
+  - Batch AI Setup (this section) - configuring chosen models
+*/}

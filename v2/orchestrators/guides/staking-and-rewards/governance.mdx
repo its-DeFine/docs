@@ -26,6 +26,29 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
@@ -310,3 +333,31 @@ This is by design: delegating LPT to an orchestrator is a delegation of governan
     Full versioned history of all Livepeer Improvement Proposals.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Journey step: "How do I participate in Livepeer governance?"
+  Guide for orchestrators' governance responsibilities: voting on LIPs,
+  treasury proposals, and protocol parameter changes.
+
+  CONTENT SHOULD INCLUDE:
+  - Orchestrator governance role (vote weight = total stake)
+  - LIP (Livepeer Improvement Proposal) voting process
+  - Treasury proposal voting
+  - Protocol parameter changes
+  - Where to follow governance discussions (Forum, Discord)
+  - Impact of governance participation on delegator trust
+
+  SECTION HOME: Guides > Staking & Rewards
+
+  JOURNEY POSITION:
+  1. Earnings - "How do I earn?"
+  2. Rewards and Fees - "How do rewards and fees work?"
+  3. Attracting Delegates - "How do I grow my stake?"
+  4. Governance (this page) - "How do I participate in governance?"
+
+  CROSS-REFS:
+  - Delegators Tab > Governance - shared governance mechanics
+  - Staking & Rewards > Attracting Delegates - governance as trust signal
+  - LPT Tab > Governance > Model - governance model details
+*/}

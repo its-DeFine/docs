@@ -1,5 +1,5 @@
 ---
-title: Find Your Path to Running an Orchestrator
+title: Setup Options to Running an Orchestrator
 sidebarTitle: Navigator
 description: >-
   Not sure where to start? Answer three questions about your goals, resources,
@@ -29,6 +29,29 @@ pageType: landing
 status: published
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -262,3 +285,32 @@ flowchart TD
 <Card title="Job Types Overview" icon="list-check" href="/v2/orchestrators/guides/workloads-and-ai/job-types">
   Understand the four workload categories — transcoding, batch AI, real-time AI, and LLM — before you configure your node.
 </Card>
+
+{/*
+  PURPOSE:
+  Journey step: "Which deployment path is right for me?"
+  Guide comparing orchestrator deployment options: solo operator, pool worker,
+  pool operator, O-T split, and siphon configurations.
+
+  CONTENT SHOULD INCLUDE:
+  - Decision framework: solo vs pool vs split
+  - Solo operator: full control, full responsibility, full earnings
+  - Pool worker: simplest path, shared infrastructure, reduced earnings
+  - Pool operator: running infrastructure for others
+  - O-T split: separate orchestrator and transcoder nodes
+  - Siphon setup: lightweight transcoder feeding an orchestrator
+  - Comparison table: complexity, earnings, hardware requirements per option
+
+  SECTION HOME: Guides > Deployment Details
+
+  JOURNEY POSITION:
+  1. Setup Options (this page) - "Which path?"
+  2. Requirements - "What do I need?"
+  3. Join a Pool - "How do I join a pool?"
+
+  CROSS-REFS:
+  - Setup section - practical setup steps for chosen path
+  - Advanced Operations > O-T Setup - detailed split architecture
+  - Advanced Operations > Run a Pool - pool operator guide
+  - Operator Considerations > Value Proposition - economics per path
+*/}

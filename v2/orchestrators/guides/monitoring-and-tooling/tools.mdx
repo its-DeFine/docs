@@ -27,6 +27,29 @@ purpose: reference
 status: published
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -305,3 +328,32 @@ Tools for verifying your node is correctly serving jobs end-to-end, rather than 
     Setting up Prometheus, Grafana, and the Docker monitoring stack.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Journey step: "What tools are available for orchestrator operators?"
+  Overview of community and official tools for monitoring, managing,
+  and optimising orchestrator operations.
+
+  CONTENT SHOULD INCLUDE:
+  - Livepeer Explorer (orchestrator dashboard)
+  - tools.livepeer.cloud (network capabilities, pricing)
+  - Community tools (Orchestrator Watcher, bots, dashboards)
+  - livepeer_cli tool and common operations
+  - Prometheus + Grafana setup pointers
+  - Third-party monitoring integrations
+
+  SECTION HOME: Guides > Monitoring & Tools
+
+  JOURNEY POSITION:
+  1. Tools (this page) - "What tools exist?"
+  2. Explorer Guide - "How do I use the Explorer?"
+  3. Metrics Monitoring - "How do I set up monitoring?"
+  4. Troubleshooting - "How do I debug issues?"
+
+  CROSS-REFS:
+  - Monitoring & Tools > Explorer Guide - detailed Explorer usage
+  - Monitoring & Tools > Metrics Monitoring - Prometheus setup
+  - Resources > Community Guides - community-built tools
+  - Setup > Monitor - basic monitoring from setup
+*/}

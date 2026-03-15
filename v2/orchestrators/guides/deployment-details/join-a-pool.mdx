@@ -26,6 +26,29 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -286,3 +309,32 @@ Livepeer transcoding pools work differently from proof-of-work mining pools — 
     Separate reward claiming from workload processing. The secure path for operators who want key isolation.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Journey step: "How do I join an orchestrator pool?"
+  Guide for operators who want the simplest path to earning: joining an
+  existing pool as a transcoder worker.
+
+  CONTENT SHOULD INCLUDE:
+  - What pools are and how they work
+  - How to evaluate pools (fee share, reliability, workload type)
+  - Step-by-step: connecting to a pool operator
+  - Configuration for pool workers (-orchAddr, -transcoder mode)
+  - Earnings split mechanics (how pool operators distribute fees)
+  - Active community pools and how to find them
+  - When to consider running solo instead
+
+  SECTION HOME: Guides > Deployment Details
+
+  JOURNEY POSITION:
+  1. Setup Options - "Which path?"
+  2. Requirements - "What do I need?"
+  3. Join a Pool (this page) - "How do I join a pool?"
+
+  CROSS-REFS:
+  - Resources > Community Pools - list of active pools
+  - Advanced Operations > Run a Pool - for operators wanting to create a pool
+  - Deployment Details > Setup Options - comparing pool vs solo
+  - Staking & Rewards > Earnings - how pool earnings work
+*/}

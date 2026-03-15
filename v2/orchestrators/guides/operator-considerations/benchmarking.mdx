@@ -26,6 +26,29 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
@@ -346,3 +369,31 @@ The next step is calculating your **bandwidth limit** and deriving the final `-m
     NVENC session caps, VRAM tiers, and the production checklist.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Journey step: "How does my hardware perform on Livepeer workloads?"
+  Guide for benchmarking GPU and system performance against Livepeer workloads
+  before committing to operation.
+
+  CONTENT SHOULD INCLUDE:
+  - go-livepeer benchmark tools and commands
+  - Video transcoding benchmarks by GPU model
+  - AI inference benchmarks by pipeline and model
+  - Interpreting benchmark results (segments/second, inference time)
+  - Comparison tables: expected performance by GPU tier
+  - When benchmarks suggest upgrading hardware
+
+  SECTION HOME: Guides > Operator Considerations
+
+  JOURNEY POSITION:
+  1. Value Proposition - "Is it worth it?"
+  2. Benchmarking (this page) - "How does my hardware perform?"
+  3. Session Limits - "How many jobs can I handle?"
+
+  CROSS-REFS:
+  - Deployment Details > Requirements - minimum hardware specs
+  - Resources > GPU Support - supported GPU list
+  - Workloads & AI > Model VRAM Reference - VRAM requirements per model
+  - Operator Considerations > Session Limits - capacity planning from benchmarks
+*/}

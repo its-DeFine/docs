@@ -28,6 +28,29 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -336,3 +359,34 @@ The transcoder's GPU startup test failed, typically because the NVENC session ca
     Full error reference including GPU, transcoding, and networking issues.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Journey step: "How do I run a split orchestrator-transcoder setup?"
+  Guide for the O-T (orchestrator-transcoder) split architecture where
+  the orchestrator node handles protocol/payment and a separate transcoder
+  node handles GPU workloads.
+
+  CONTENT SHOULD INCLUDE:
+  - When to use O-T split (multiple GPUs, security isolation, scaling)
+  - Architecture diagram: orchestrator ↔ transcoder communication
+  - Orchestrator node configuration (no GPU needed)
+  - Transcoder node configuration (-transcoder flag, GPU setup)
+  - Networking between O and T nodes
+  - Multi-transcoder setups (multiple GPUs, multiple machines)
+  - Monitoring split deployments
+
+  SECTION HOME: Guides > Advanced Operations
+
+  JOURNEY POSITION:
+  1. O-T Setup (this page) - "How do I split O and T?"
+  2. Run a Pool - "How do I run a pool?"
+  3. Working with Gateways - "How do gateways interact with me?"
+  4. Large-Scale Operations - "How do I run at scale?"
+
+  CROSS-REFS:
+  - Concepts > Architecture - O-T split architecture concept
+  - Deployment Details > Setup Options - choosing split vs solo
+  - Advanced Operations > Large-Scale Operations - scaling O-T
+  - Setup > Configure - base configuration reference
+*/}

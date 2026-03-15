@@ -27,6 +27,29 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { BorderedBox } from '/snippets/components/layout/containers.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
@@ -282,3 +305,33 @@ There is no zero-downtime rotation mechanism. Communicate the new secret to all 
     Pool economics, fee strategy, and what to expect from transcoding revenue.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Journey step: "How do I run an orchestrator pool?"
+  Guide for operators who want to run a pool: accepting external transcoders,
+  managing workers, distributing fees, and pool economics.
+
+  CONTENT SHOULD INCLUDE:
+  - Pool operator responsibilities
+  - Configuration for accepting pool workers
+  - Fee distribution to pool workers
+  - Pool economics: operator take vs worker share
+  - Managing worker reliability and performance
+  - Communication with pool members
+  - Comparison with solo operation
+
+  SECTION HOME: Guides > Advanced Operations
+
+  JOURNEY POSITION:
+  1. O-T Setup - "How do I split O and T?"
+  2. Run a Pool (this page) - "How do I run a pool?"
+  3. Working with Gateways - "How do gateways interact with me?"
+  4. Large-Scale Operations - "How do I run at scale?"
+
+  CROSS-REFS:
+  - Deployment Details > Join a Pool - worker perspective
+  - Resources > Community Pools - existing pools
+  - Staking & Rewards > Earnings - pool earnings distribution
+  - Advanced Operations > O-T Setup - pool with split architecture
+*/}

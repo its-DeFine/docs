@@ -30,6 +30,29 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -443,3 +466,34 @@ curl http://localhost:7935/metrics
     Read your on-chain state — stake, reward calls, earnings — to spot issues from the outside.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Journey step: "How do I debug orchestrator issues?"
+  Symptom-based troubleshooting guide for common orchestrator problems:
+  no jobs, failed transcoding, reward calling failures, AI errors.
+
+  CONTENT SHOULD INCLUDE:
+  - No incoming jobs (selection, connectivity, pricing)
+  - Video transcoding failures (GPU errors, codec issues)
+  - AI inference failures (model loading, VRAM, container issues)
+  - Reward calling failures (gas, timing, ETH balance)
+  - Ticket redemption failures
+  - Connectivity issues (ports, firewall, NAT)
+  - Log interpretation guide
+  - Escalation: Discord, Forum, GitHub issues
+
+  SECTION HOME: Guides > Monitoring & Tools
+
+  JOURNEY POSITION:
+  1. Tools - "What tools exist?"
+  2. Explorer Guide - "How do I use the Explorer?"
+  3. Metrics Monitoring - "How do I set up monitoring?"
+  4. Troubleshooting (this page) - "How do I debug issues?"
+
+  CROSS-REFS:
+  - Resources > FAQ - common questions
+  - Monitoring & Tools > Metrics - diagnosing via metrics
+  - Setup > Test - verification steps
+  - Gateway Tab > Monitoring > Troubleshooting - shared troubleshooting patterns
+*/}

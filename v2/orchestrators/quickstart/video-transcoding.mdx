@@ -23,6 +23,29 @@ audience: orchestrator
 status: current
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -274,3 +297,16 @@ Your node is now:
   <Card title="Add AI Workloads" icon="microchip-ai" href="/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide" arrow />
   <Card title="Earnings Explained" icon="coins" href="/v2/orchestrators/guides/staking-and-rewards/earnings" arrow />
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Quickstart for getting a GPU transcoding node running on Livepeer.
+  Minimal steps to go from zero to processing video segments.
+  Should cover both video AND basic AI setup as a unified GPU quickstart.
+
+  SECTION HOME: Quickstart
+  JOURNEY POSITION: 2 of 3 in Quickstart
+  CROSS-REFS:
+  - Setup section - full detailed setup
+  - Workloads & AI > Video Transcoding - detailed video guide
+*/}

@@ -33,6 +33,29 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
@@ -458,3 +481,32 @@ The auto-adjustment mechanism is there precisely for Arbitrum gas spikes. Disabl
     OrchestratorCapped, NVENC memory errors, and pricing-related diagnostics.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Journey step: "How does video transcoding work on my orchestrator?"
+  Guide covering video transcoding workloads from the orchestrator perspective:
+  how segments arrive, processing, and output.
+
+  CONTENT SHOULD INCLUDE:
+  - Segment-based transcoding pipeline
+  - Codec and profile support (H.264, VP8/VP9)
+  - GPU vs CPU transcoding and when each applies
+  - Session management for video streams
+  - Quality verification (pixel count, PSNR)
+  - Pricing: per-pixel model and how to set prices
+  - Performance optimisation (concurrent sessions, GPU utilisation)
+
+  SECTION HOME: Guides > Workloads & AI
+
+  JOURNEY POSITION:
+  1. Job Types - "What work is available?"
+  2. Video Transcoding (this page) - "How does video work?"
+  3-6. AI pages...
+
+  CROSS-REFS:
+  - Gateway Tab > Node Pipelines > Video Pipelines - gateway side of video
+  - Payments & Pricing > Pricing Strategy - setting video prices
+  - Monitoring & Tools > Metrics - video transcoding metrics
+  - Operator Considerations > Benchmarking - video performance testing
+*/}

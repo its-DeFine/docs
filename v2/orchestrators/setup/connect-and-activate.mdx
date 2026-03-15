@@ -1,6 +1,6 @@
 ---
 title: Connecting to the Livepeer Network on Arbitrum
-sidebarTitle: Connect
+sidebarTitle: Connect & Activate
 description: >-
   Connect go-livepeer to the Arbitrum network using a hosted or self-hosted RPC
   endpoint — required for staking, activation, and payments.
@@ -22,7 +22,31 @@ keywords:
 pageType: how_to
 audience: orchestrator
 status: current
+lastVerified: '2026-03-15'
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -193,3 +217,19 @@ If you lose access to your private key, you lose access to your orchestrator acc
 - [Activate on the Network](/v2/orchestrators/setup/activate) — next step: register on-chain and join the active set
 - [Frequently Asked Questions](/v2/orchestrators/resources/faq) — Arbitrum RPC error reference {/* REVIEW: confirm path */}
 {/* REVIEW: Deleted setting-up-an-orchestrator/connect-to-arbitrum.mdx had: "Use a stable RPC; flaky endpoints can cause missed reward calls." Not present in new draft. Human to decide whether to include. */}
+
+{/*
+  PURPOSE:
+  Connect to Arbitrum and activate on-chain - merged flow covering
+  ETH/LPT funding, Arbitrum network connection, and on-chain activation
+  to join the orchestrator set.
+
+  NOTE: Merged from separate connect and activate pages.
+
+  SECTION HOME: Setup
+  JOURNEY POSITION: 5 of 7 in Setup
+  CROSS-REFS:
+  - Resources > Arbitrum RPC - RPC endpoint selection
+  - Resources > Arbitrum Exchanges - acquiring ETH/LPT
+  - Staking & Rewards > Rewards and Fees - post-activation reward calling
+*/}

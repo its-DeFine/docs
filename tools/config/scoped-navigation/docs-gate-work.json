@@ -385,6 +385,14 @@
                           "v2/orchestrators/guides/advanced-operations/gateways-orchestrators",
                           "v2/orchestrators/guides/advanced-operations/large-scale-operations"
                         ]
+                      },
+                      {
+                        "group": "Tutorials",
+                        "pages": [
+                          "v2/orchestrators/guides/tutorials/imported-tutorial-1-byoc-cpu-pipeline",
+                          "v2/orchestrators/guides/tutorials/imported-tutorial-2-offchain-transcoding-test",
+                          "v2/orchestrators/guides/tutorials/imported-tutorial-3-go-production"
+                        ]
                       }
                     ]
                   },

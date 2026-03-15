@@ -1,6 +1,6 @@
 ---
-title: Feasibility and Economics
-sidebarTitle: Feasibility & Economics
+title: Value Proposition
+sidebarTitle: Value Proposition
 description: >-
   Is running a Livepeer orchestrator worth it for your situation? Cost
   categories, revenue sources, viability thresholds, and a decision matrix
@@ -28,6 +28,29 @@ purpose: concept
 status: published
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -324,3 +347,32 @@ Check these before setting up a node:
     Full mechanics of how ETH fees and LPT rewards flow to your wallet.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Journey step: "Is operating an orchestrator worth it for me?"
+  Guide helping potential operators evaluate the economics and effort of running
+  an orchestrator. Earnings potential vs hardware costs vs operational overhead.
+
+  CONTENT SHOULD INCLUDE:
+  - Current earnings landscape (video fees, AI fees, inflation rewards)
+  - Hardware cost analysis by tier (consumer GPU, pro GPU, enterprise)
+  - Operational overhead (monitoring, updates, uptime requirements)
+  - Break-even analysis framework
+  - Comparison: solo operator vs pool worker vs pool operator
+  - AI as growth opportunity (emerging demand, higher margins)
+  - Risks and considerations (ETH price, competition, hardware depreciation)
+
+  SECTION HOME: Guides > Operator Considerations
+
+  JOURNEY POSITION:
+  1. Value Proposition (this page) - "Is it worth it?"
+  2. Benchmarking - "How does my hardware perform?"
+  3. Session Limits - "How many jobs can I handle?"
+
+  CROSS-REFS:
+  - Concepts > Incentive Model - protocol-level economics
+  - Staking & Rewards > Earnings - detailed earnings mechanics
+  - Deployment Details > Requirements - what hardware do I need
+  - Workloads & AI > Job Types - what work is available
+*/}

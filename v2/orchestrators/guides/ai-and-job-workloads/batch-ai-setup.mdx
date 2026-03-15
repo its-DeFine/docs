@@ -882,3 +882,33 @@ When configuring `aiModels.json`, two external references are authoritative:
     Pipeline types, batch vs real-time, and how jobs flow to your node.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Journey step: "Set up batch AI inference on my orchestrator"
+  Step-by-step guide for configuring batch (non-realtime) AI pipelines:
+  text-to-image, image-to-image, upscale, LLM, audio, etc.
+
+  CONTENT SHOULD INCLUDE:
+  - Prerequisites: GPU, Docker, AI runner container
+  - aiModels.json configuration for batch pipelines
+  - Docker compose setup with AI runner
+  - Model download and warm-up configuration
+  - Testing inference locally before going live
+  - Registering capabilities on-chain
+  - Monitoring AI job performance
+
+  SECTION HOME: Guides > Workloads & AI
+
+  JOURNEY POSITION:
+  1-3. Overview pages...
+  4. Batch AI Setup (this page) - "Set up batch AI"
+  5. Realtime AI Setup - "Set up realtime AI"
+  6. Model VRAM Reference - "Which models fit my GPU?"
+
+  CROSS-REFS:
+  - AI Workloads Guide (this section) - conceptual overview first
+  - Model VRAM Reference (this section) - choosing models for your GPU
+  - Setup > Configure - base node configuration
+  - Gateway Tab > Node Pipelines > AI Pipelines - how gateways route to you
+*/}
