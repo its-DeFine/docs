@@ -2,7 +2,7 @@
 
 _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 
----
+<CustomDivider />
 
 ## 1. Job Stories
 
@@ -41,7 +41,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 - Pages serving: troubleshooting (comprehensive)
 - Gap: No quick-reference error lookup. Must scroll a long page.
 
----
+<CustomDivider />
 
 ## 2. Opportunity Solution Tree
 
@@ -77,14 +77,14 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 - **S2b**: Add "expected earnings by path" table to operator-rationale
 - **S2c**: Cross-ref to Explorer data with "how to read orchestrator earnings"
 
----
+<CustomDivider />
 
 ## 3. Assumption Map
 
 | # | Assumption | Dim | Conf | Risk | Test |
 |---|-----------|-----|------|------|------|
 | 1 | Separating "Operator Considerations" from "Deployment Details" helps users | Value | M | M | Check if users go Considerations → Deployment or skip Considerations entirely |
-| 2 | batch-ai-setup and realtime-ai-setup need separate pages | Value | L | M | Content overlap analysis - if >60% shared, merge with tabs |
+| 2 | batch-ai-setup and realtime-ai-setup need separate pages | Value | L | M | Content overlap analysis - if &gt;60% shared, merge with tabs |
 | 3 | Staking & Rewards and Payments & Pricing should be separate sections | Value | L | H | Operators think about earning holistically. Four separate sections for money-related content may fragment the journey. |
 | 4 | benchmarking and session-limits deserve their own pages | Value | L | M | User deprecated these. May be better as sections within requirements or monitoring. |
 | 5 | The tutorials (imported gateway content) add value for orchestrator operators | Value | L | H | Gateway BYOC CPU tutorial is not an orchestrator job. Low curation signal. |
@@ -96,7 +96,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 | 11 | **BLIND SPOT**: Operators revisiting docs for a specific task can find it | Usability | L | H | No task-based index or "I want to..." quick-ref |
 | 12 | **BLIND SPOT**: The section order implies reading order | Usability | M | M | Returning operators skip to section 5+ but nav weight is on sections 1-3 |
 
----
+<CustomDivider />
 
 ## 4. Customer Journey Map (J1: GPU owner wanting earnings)
 
@@ -117,7 +117,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 - **Churn trigger**: "No jobs" after setup. Operator doesn't know if the problem is pricing, capability, or connectivity. troubleshooting helps but the gap is "why am I not being selected?"
 - **Advocacy trigger**: Sharing first month's earnings report showing both video + AI revenue
 
----
+<CustomDivider />
 
 ## 5. Value Propositions (by job story)
 
@@ -133,7 +133,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 **J6 (AI-first, low LPT)**: "Start earning from AI inference immediately - no active set membership required. Your GPU capability is your entry ticket."
 - **This value prop is buried. batch-ai-setup doesn't lead with it.**
 
----
+<CustomDivider />
 
 ## 6. Section-by-Section Review
 
@@ -152,7 +152,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 1. Add scannable summary (table or bordered box) to top of operator-rationale - the decision matrix and viability questions should be visible without scrolling
 2. Consider renaming section: "Is It Worth It?" or "Why Operate?" - more outcome-focused than "Operator Considerations"
 
----
+<CustomDivider />
 
 ### Deployment Details (3-6 pages depending on Dep resolution)
 
@@ -174,7 +174,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 2. Decide on benchmarking/session-limits: if the content is valuable, fold key sections into requirements (hardware capacity) and monitoring (runtime capacity). If not, leave deprecated.
 3. The "new-join-a-pool" in nav suggests a rewrite is in progress. Ensure the Dep/New pattern resolves cleanly.
 
----
+<CustomDivider />
 
 ### Workloads & AI (6 pages - all COMPLETE)
 
@@ -195,7 +195,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 2. Evaluate merging batch-ai-setup + realtime-ai-setup into single page with tabs - they share docker-compose patterns, aiModels.json format, model downloads. Difference is pipeline type and latency config. Combined = ~1000 lines but with tabs the user only reads their path.
 3. Add demand/earnings context to model-vram-reference - "which models are actually being requested?" alongside "which models fit my GPU?" Cross-ref to tools.livepeer.cloud/ai/network-capabilities.
 
----
+<CustomDivider />
 
 ### Staking & Rewards (4 pages - all COMPLETE)
 
@@ -214,7 +214,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 2. Add "optimising for yield" framing to earnings - currently mechanistic ("how rewards work") not strategic ("how to earn more"). J3 operators want strategy.
 3. **Evaluate merging this section with Payments & Pricing** into a single "Earning & Pricing" section. From the operator's perspective, staking, rewards, fees, pricing, and payment flow are all "how do I earn money?" Four money-related pages spread across two sections fragments the journey.
 
----
+<CustomDivider />
 
 ### Payments & Pricing (3 pages - 2 STUBS, 1 COMPLETE)
 
@@ -232,7 +232,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 2. **P1: Write payment-flow.mdx** - Ticket receipt, winning ticket detection, redemption, gas economics.
 3. Consider whether payments.mdx content overlaps with payment-flow once written. May need deduplication.
 
----
+<CustomDivider />
 
 ### Monitoring & Tools (4 pages - all COMPLETE)
 
@@ -251,7 +251,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 2. Add quick-nav symptom index to top of troubleshooting (accordion with jump links by symptom category)
 3. Consider absorbing benchmarking content (from deprecated) into metrics-monitoring as "capacity planning" section
 
----
+<CustomDivider />
 
 ### Advanced Operations (3 pages - all COMPLETE)
 
@@ -269,7 +269,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 2. Rename gateways-orchestrators to "working-with-gateways" for clarity
 3. Add "when to split from hybrid to dedicated nodes" criteria - this bridges O1 (hybrid) with O6 (scaling)
 
----
+<CustomDivider />
 
 ### Roadmap & Funding (2 pages - both STUBS)
 
@@ -285,7 +285,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 2. operator-support should cross-ref the gateway equivalent when both are built.
 3. orchestrator-showcase needs real operator data to be useful. Don't write until there are concrete examples.
 
----
+<CustomDivider />
 
 ### Tutorials (3 pages - all MINIMAL imports)
 
@@ -302,7 +302,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 2. Evaluate tutorials 2+3 - are these substantial enough to justify a section? If they're just imports with 47 lines, consider removing the section until orchestrator-specific tutorials exist.
 3. If tutorials stay, they need orchestrator framing: "Set up a video orchestrator from zero to first reward call" not "off-chain transcoding test."
 
----
+<CustomDivider />
 
 ## 7. Priority Actions
 
@@ -339,7 +339,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 | 12 | Write operator-support.mdx when SPE details available | Stub. Low priority. | Medium |
 | 13 | Rename gateways-orchestrators to working-with-gateways | Clearer intent. | Trivial |
 
----
+<CustomDivider />
 
 ## Content Status Summary
 
@@ -358,7 +358,7 @@ _Applied using ai-tools/ai-skills/product-thinking/SKILL.md_
 
 **73% of guide pages are complete.** The critical gaps are pricing-strategy and payment-flow (both P0), plus the hybrid bridge content (P0, no dedicated page needed - accordion/section on existing pages).
 
----
+<CustomDivider />
 
 ## 8. Structural Proposal: "Configuration & Optimisation" Section + "Staking & Earning" Merge
 
@@ -454,13 +454,13 @@ For gateways, pricing IS the payment decision (how much to pay orchestrators). F
 
 This places Config & Optimisation after earning (you need to understand what you're optimising FOR) and before monitoring (tuning should precede ongoing observation). The operator journey becomes: understand earnings → tune for better earnings → monitor the results.
 
----
+<CustomDivider />
 
 ## 9. First-Principles Page Breakdown (What Pages Are NEEDED)
 
 Starting from zero. No reference to existing pages. Pure "what does an orchestrator operator need to know and do?" derived from operational reality, job stories, and the Livepeer value proposition.
 
----
+<CustomDivider />
 
 ### 1. Operator Considerations → "Should I operate?"
 
@@ -472,7 +472,7 @@ Someone with a GPU hears about Livepeer. They need to answer one question: "Is t
 | **business-case** | "What if I'm a business, not a hobbyist?" Commercial orchestrator model. Serving application workloads (Livepeer Studio, Daydream, custom platforms) under SLAs. Service fee economics vs inflation. Per-gateway pricing. The mental model shift from "mining" to "infrastructure provider." Who the current commercial orchestrators are and what that looks like operationally. | Different persona, different economics. A commercial operator doesn't care about inflation rewards as primary income - they care about service reliability, customer relationships, and fee volume. Mixing this with hobbyist economics confuses both audiences. |
 | **protocol-influence** | "Why does this matter beyond money?" The sovereignty and governance case. Orchestrators carry governance weight proportional to total stake. What gets voted on (LIPs, treasury, protocol parameters). The sovereign compute thesis: open infrastructure vs AWS/GCP/Azure monopoly. Censorship resistance. Permissionless GPU access. Who benefits from open video/AI infrastructure. The compounding effect: better operation → more delegation → more governance weight → more protocol influence. | Some operators are aligned actors who care about open infrastructure, not just earnings. This page serves them. It also helps all operators understand why governance participation matters for the protocol they depend on. |
 
----
+<CustomDivider />
 
 ### 2. Deployment Details → "What do I need and which path?"
 
@@ -486,7 +486,7 @@ Decided to proceed. Three decisions to make: (a) what deployment architecture, (
 | **siphon-setup** | "How do I contribute a residential GPU?" Lightweight transcoder connecting to a remote orchestrator. Use cases: GPU at home with unstable internet, GPU on shared hosting, GPU where you can't run a full node. Configuration, limitations, earnings expectations. | Niche but real. Operators with capable hardware in non-ideal network conditions need this path. Without it they either don't participate or set up a full node that fails due to connectivity. |
 | **join-a-pool** | "What's the fastest path to earning with zero LPT?" What pools are. How to evaluate: fee share percentage, pool reliability/uptime history, supported workloads (video/AI/dual), operator reputation. Step-by-step: connect as transcoder worker. Earnings mechanics: how the pool operator distributes fees. Active community pools (with links). When to consider going solo. | Pool workers are the largest operator segment by count but the least well-served by docs. Most pool workers learn by asking in Discord. A clear guide with pool evaluation criteria and active pool links reduces friction to first earning. |
 
----
+<CustomDivider />
 
 ### 3. Workloads & AI → "What jobs do I run?"
 
@@ -499,11 +499,11 @@ Hardware ready, deployment chosen. Now: what does the network actually need, wha
 | **ai-inference-operations** | "How does AI inference work from my node's perspective?" AI worker/runner architecture: go-livepeer orchestrates, separate AI runner containers execute. Two runner types: livepeer/ai-runner (diffusion, vision, audio) and Ollama runner (LLM). aiModels.json: the single config that defines what you serve, at what price, and how. Model lifecycle: download from HuggingFace → load into VRAM (warm) or keep on disk (cold) → process inference requests → return results. On-chain capability registration via -aiServiceRegistry and AIServiceRegistry contract. 10 pipeline types with their resource profiles. | AI is fundamentally different from video. Different runner architecture, different pricing model, different discovery mechanism. Operators coming from video need the conceptual bridge. Operators starting with AI need the complete picture without video baggage. |
 | **diffusion-pipeline-setup** | "How do I set up text-to-image, image-to-image, upscale, and image-to-video?" Step-by-step for the core diffusion pipelines (the most in-demand AI workloads). Docker-compose with livepeer/ai-runner. aiModels.json entries for each pipeline. Model selection by VRAM tier (Lightning/Turbo for speed, SDXL for quality). Warm model configuration. Optimisation flags (SFAST, DEEPCACHE - when to use, which models, can't combine). Testing locally. Registering on-chain. Verifying at tools.livepeer.cloud. | Diffusion is the highest-demand AI workload category. It needs its own setup guide because the models, pricing, and optimisation are specific to diffusion. Mixing with LLM or audio setup creates confusion. |
 | **llm-pipeline-setup** | "How do I set up LLM inference?" Completely different architecture from diffusion. Ollama runner (not livepeer/ai-runner). Docker-compose with Ollama + Ollama AI Runner container. Model selection: quantised models for 8 GB VRAM (llama3.1:8b), larger for 24 GB+. Model ID mapping: Ollama uses different IDs than HuggingFace (both are valid). Pricing: per-token equivalent (not per-pixel). The entry point for operators with older/smaller GPUs who can't run diffusion. | LLM is architecturally distinct. Different container, different model ecosystem, different pricing unit, different VRAM profile. Operators with 8 GB GPUs can run LLM but not diffusion - this is their entry point to AI earning. Burying it inside a "batch AI setup" page loses this audience. |
-| **realtime-ai-setup** | "How do I run live video-to-video AI?" Fundamentally different from batch: continuous frame-by-frame transformation of live video streams, not request/response. WebRTC input/output. ComfyStream workflow engine. VRAM: 24 GB recommended. -livePaymentInterval for ongoing payment during stream. Latency requirements (<100ms per frame). Testing with live streams. The highest-value compute on the network per GPU-second. | Real-time AI (Cascade) is a different operational model. Continuous streams, not individual requests. Payment intervals, not per-job tickets. Frame latency, not request latency. It deserves dedicated treatment because an operator setting this up needs different mental models than batch AI. |
+| **realtime-ai-setup** | "How do I run live video-to-video AI?" Fundamentally different from batch: continuous frame-by-frame transformation of live video streams, not request/response. WebRTC input/output. ComfyStream workflow engine. VRAM: 24 GB recommended. -livePaymentInterval for ongoing payment during stream. Latency requirements (&lt;100ms per frame). Testing with live streams. The highest-value compute on the network per GPU-second. | Real-time AI (Cascade) is a different operational model. Continuous streams, not individual requests. Payment intervals, not per-job tickets. Frame latency, not request latency. It deserves dedicated treatment because an operator setting this up needs different mental models than batch AI. |
 | **audio-and-vision-pipelines** | "How do I set up audio-to-text, text-to-speech, image-to-text, segment-anything-2?" The less common but growing pipelines. Each has distinct model requirements: Whisper (12 GB), SAM2 (12 GB+), vision-language models (4 GB), TTS (varies). Per-pipeline setup and pricing. These are niche enough to share one page but distinct enough from diffusion that they shouldn't be buried in a general setup guide. | Operators looking at pipeline diversification need a reference for the less common workloads. These have lower competition (fewer operators serving them) which can mean higher margins. |
 | **model-demand-reference** | "Which models fit my GPU AND are actually being requested?" Two-part reference: (1) VRAM requirements by model family (SD 1.5, SDXL, Lightning, LLM quantised, Whisper, SAM2) mapped to GPU tiers (8/12/16/24/48/80 GB). (2) Current demand data: which pipelines and models are actively being requested by gateways, at what prices, with what frequency. Links to tools.livepeer.cloud/ai/network-capabilities for live data. Warm vs cold trade-offs. Community-tested configurations. | The biggest AI operator mistake is loading models nobody requests. A VRAM reference without demand data is half the answer. This page combines "what fits" with "what earns" - the complete model selection guide. |
 
----
+<CustomDivider />
 
 ### 4. Staking & Earning → "How do I earn?"
 
@@ -517,7 +517,7 @@ The complete money story in one section. An operator should be able to read this
 | **growing-delegation** | "How do I attract more delegated stake?" Why delegation matters (active set position → more work → more fees, AND more governance weight). What delegators evaluate: reward cut (lower = more LPT to delegators), fee cut (lower = more ETH to delegators), uptime history, performance consistency, communication/reputation. Building operator reputation: Explorer profile, Discord presence, social media, transparent governance communication. Self-stake signalling (skin in the game). When to lower cuts vs when to hold. | Delegation is the primary lever for growing earnings. Most operators set cuts at activation and never revisit. This page teaches the delegation market - it's a competitive landscape where cuts, reliability, and communication all matter. |
 | **governance-participation** | "How do I vote and why should I?" Voting mechanics: LIPs via Livepeer Explorer, stake-weighted votes, quorum requirements (33.33% staked LPT support + 50% votes cast), polling periods (~10 rounds). Delegator override (delegators can vote independently). SPE proposals and treasury allocation. Where to follow proposals (Forum, GitHub livepeer/LIPs). Why governance participation matters for delegation (delegators want engaged orchestrators). | Governance is part of the earning story because: (1) governance decisions directly affect earning parameters (inflation rate, fee structures, active set size), (2) governance participation is a delegation attraction signal, (3) orchestrators with large stake shape the protocol they depend on. |
 
----
+<CustomDivider />
 
 ### 5. Configuration & Optimisation → "How do I tune my node?"
 
@@ -527,11 +527,11 @@ The node runs. Earnings are flowing. Now: how to earn MORE efficiently. Every pa
 |------|----------------|-----------------|
 | **pricing-strategy** | "How do I set prices that attract work without leaving money on the table?" Video pricing: -pricePerUnit in wei per pixel, typical ranges, how to survey competitor pricing via Explorer. AI pricing: per-pipeline, per-model pricing in aiModels.json, wei vs USD string notation (0.5e-2USD), the capabilities_prices array format for -maxPricePerCapability. Per-gateway pricing: -pricePerGateway for commercial relationships (different price for Livepeer Studio vs public gateways). Dynamic pricing: -autoAdjustPrice (experimental). Competitive positioning: "too high = no jobs, too low = unprofitable" framework with concrete methodology (check Explorer, find the 25th-75th percentile, position within). | **The #1 content gap.** Operators cannot compete without pricing guidance. Every other piece of the earning puzzle is documented; pricing is not. An operator who sets -pricePerUnit wrong earns nothing regardless of hardware, stake, and uptime. |
 | **dual-mode-configuration** | "How do I run both video and AI on the same node?" The hybrid/dual mode page. For new operators: unified docker-compose with all flags. For existing video operators: the exact configuration delta (add -aiWorker, -aiModels, AI runner container - no other changes needed). VRAM coexistence: NVENC/NVDEC use dedicated silicon (doesn't compete with CUDA for AI), but CUDA cores and VRAM are shared. Warm model strategy for dual nodes: one warm AI model + video transcoding fits in 24 GB. When to split to O-T instead of running dual on one card (GPU contention signals, session failure rates). Earnings from both streams simultaneously. | Most active operators run dual mode. It's the majority production configuration. Without this page, operators stitch together the video setup guide and AI setup guide manually, missing the VRAM coexistence nuances and the "when to split" decision. |
-| **capacity-planning** | "How many concurrent jobs can my node handle, and how do I maximise throughput?" Session limits: -maxSessions flag, what it controls, how to determine the right value. VRAM budget calculator: video sessions (NVENC-limited, not VRAM-limited) + warm AI models (VRAM-limited) + cold model headroom. NVENC hardware session limits: consumer GPUs cap at 3-8 concurrent hardware encode sessions; the NVIDIA driver patch to remove the limit; implications for session count. Benchmarking: livepeer_bench tool, how to run it, interpreting real-time duration ratio (>1.0 = your GPU can keep up), finding your session ceiling. CPU vs GPU transcoding: when CPU makes sense (no NVIDIA GPU, or NVENC sessions exhausted). When to add hardware vs optimise config. | Capacity planning is the bridge between "it works" and "it earns well." Operators who don't understand NVENC limits hit OrchestratorCapped errors and lose work. Operators who don't benchmark over-commit and produce failed segments. This page prevents both. |
+| **capacity-planning** | "How many concurrent jobs can my node handle, and how do I maximise throughput?" Session limits: -maxSessions flag, what it controls, how to determine the right value. VRAM budget calculator: video sessions (NVENC-limited, not VRAM-limited) + warm AI models (VRAM-limited) + cold model headroom. NVENC hardware session limits: consumer GPUs cap at 3-8 concurrent hardware encode sessions; the NVIDIA driver patch to remove the limit; implications for session count. Benchmarking: livepeer_bench tool, how to run it, interpreting real-time duration ratio (&gt;1.0 = your GPU can keep up), finding your session ceiling. CPU vs GPU transcoding: when CPU makes sense (no NVIDIA GPU, or NVENC sessions exhausted). When to add hardware vs optimise config. | Capacity planning is the bridge between "it works" and "it earns well." Operators who don't understand NVENC limits hit OrchestratorCapped errors and lose work. Operators who don't benchmark over-commit and produce failed segments. This page prevents both. |
 | **ai-model-management** | "How do I choose, load, and rotate AI models for maximum earnings?" Warm vs cold strategy: warm models respond instantly (competitive advantage), cold models save VRAM (flexibility). One warm model per GPU during beta. VRAM allocation: how to budget VRAM across multiple models (warm + cold headroom). Model rotation: swapping warm models based on demand patterns (check tools.livepeer.cloud weekly). Optimisation flags: SFAST (up to 25% faster, no quality loss), DEEPCACHE (up to 50% faster, minimal quality loss), cannot combine, only for warm diffusion models, NOT for Lightning/Turbo. Monitoring model loading times. Demand-driven selection: load what gateways are requesting, not what sounds impressive. | AI model management is the highest-leverage tuning activity. Loading the wrong model = zero AI earnings. Loading the right model warm = instant response = gateway preference = more jobs. This is operational alpha for AI operators. |
 | **reward-call-tuning** | "How do I optimise reward calling to maximise LPT per gas spent?" When reward calling is unprofitable (small stake → reward value < gas cost). The profitability threshold calculation: (your_stake / total_stake) × round_inflation × LPT_price vs gas_cost_in_ETH. Automatic vs manual calling (-reward flag). Timing strategies: calling early in the round (guaranteed, higher gas) vs waiting (risk of missing, lower gas). Monitoring for missed rounds. Automated alerting (Prometheus alert on missed reward calls). When to skip calling (stake too small) and accumulate instead. | Reward calling seems simple ("just call it each round") but has real economics. Small operators may spend more on gas than they earn in rewards. The threshold calculation tells them whether to call or wait. Missing rounds without knowing this costs real money. |
 
----
+<CustomDivider />
 
 ### 6. Monitoring & Tools → "How do I keep it running?"
 
@@ -541,10 +541,10 @@ The node is tuned and earning. Now: how to detect problems before they cost mone
 |------|----------------|-----------------|
 | **operator-toolbox** | "What tools exist for managing my orchestrator?" Livepeer Explorer: live stake, rank, sessions, fees, rewards, delegator list, performance history. tools.livepeer.cloud: AI network capabilities, pipeline demand, pricing benchmarks. livepeer_cli: local node management (status, price updates, reward calls, staking operations). Community tools: Speedy Bird monitoring stack (Prometheus + Grafana + Loki), Titan Node pool client, Orchestrator Watcher bots. Diagnostic endpoints: /status, /getOrchestrator, /getNetworkCapabilities, /metrics. | Operators need to know what tools exist before they can set up monitoring. This is the "what's available" page that precedes the "how to set it up" page. |
 | **explorer-operations** | "How do I use the Explorer to manage my node day-to-day?" Profile page walkthrough. Setting reward cut and fee cut. Viewing delegator list and stake distribution. Performance metrics: what the scoring means. Round history: identifying missed reward calls. Comparing with competitors: price, stake, performance, session count. Using Explorer as the external mirror of your node's state (if you're not on Explorer, gateways can't find you). | Explorer is the primary management dashboard for most operators. A guide focused on operational use (not just "here's what Explorer shows") helps operators extract actionable insight. |
-| **metrics-and-alerting** | "How do I set up monitoring that tells me when something is wrong?" Prometheus setup: -monitor flag, endpoint at localhost:7935/metrics, -metricsPerStream for granular data. Key metrics to scrape: transcoding_success_rate, session_count, session_max_limit, ai_job_success_rate, go_memstats_heap_bytes, segment_duration. Grafana dashboard configuration. Alert rules: missed reward calls, session saturation (>80%), high error rate, OOM approaching, zero sessions for >1 hour. Docker monitoring for AI runner containers. Loki for log aggregation (optional). | Without alerting, operators discover problems after they've lost money (missed rewards, failed jobs, dropped sessions). Proactive monitoring is the difference between a hobby and an operation. |
+| **metrics-and-alerting** | "How do I set up monitoring that tells me when something is wrong?" Prometheus setup: -monitor flag, endpoint at localhost:7935/metrics, -metricsPerStream for granular data. Key metrics to scrape: transcoding_success_rate, session_count, session_max_limit, ai_job_success_rate, go_memstats_heap_bytes, segment_duration. Grafana dashboard configuration. Alert rules: missed reward calls, session saturation (&gt;80%), high error rate, OOM approaching, zero sessions for &gt;1 hour. Docker monitoring for AI runner containers. Loki for log aggregation (optional). | Without alerting, operators discover problems after they've lost money (missed rewards, failed jobs, dropped sessions). Proactive monitoring is the difference between a hobby and an operation. |
 | **troubleshooting** | "Something broke. How do I fix it?" Symptom-based guide organised by what the operator observes: (1) Not receiving video jobs - 7 diagnostic checks (active set membership, service URI reachability, price competitiveness, NAT/firewall, transcoding capability). (2) Not receiving AI jobs - 5 checks (AIServiceRegistry, capability visibility, runner health, pricing, model loaded). (3) OrchestratorCapped - session limit hit, VRAM causes, fixes. (4) GPU OOM - warm model overcommit, session excess, fixes. (5) Missed reward calls - automation failure, gas depletion, fixes. (6) NVENC session limit - driver limit, the patch, alternatives. (7) Networking unreachable - firewall, NAT, serviceAddr misconfiguration. (8) Price not updated on-chain. (9) AI model download failures. Diagnostic command reference. Escalation: Discord #orchestrating, Forum, GitHub issues. | Every operator will hit problems. A symptom-based guide (indexed by what they SEE, not what's technically wrong) is the fastest path from "broken" to "fixed." This is the page operators will visit most after initial setup. |
 
----
+<CustomDivider />
 
 ### 7. Advanced Operations → "How do I scale and grow?"
 
@@ -556,7 +556,7 @@ For operators who've been running profitably and want to increase their operatio
 | **running-a-pool** | "How do I run an orchestrator pool that accepts external GPU workers?" Pool architecture: your orchestrator node accepts remote transcoder workers via -orchSecret. Worker management: onboarding, performance monitoring, disconnection handling. Fee distribution: entirely off-chain and custom - you decide how to pay workers. Pool economics: operator take vs worker share, volume-based fee tiers. Worker reliability: monitoring per-worker performance, handling underperforming workers. Communication: setting expectations, payout frequency, reporting. Pool listing in community directories. | Pool operation is a qualitatively different business from solo operation. You're managing other people's hardware and distributing their earnings. The off-chain nature of fee distribution means there's no protocol safety net - you need operational processes. |
 | **fleet-operations** | "How do I run orchestrators at data-centre scale?" Multi-GPU single machine: assigning GPUs to different workloads (-nvidia flag per transcoder). Multi-machine: O-T split across machines, network topology. Fleet deployment: config management (Ansible, Terraform), standardised docker-compose templates, centralised logging. Cost optimisation: workload routing to lowest-cost hardware, demand-based scaling (spin up/down GPU workers). Geographic distribution: transcoders in multiple DCs feeding single orchestrator. When to run multiple orchestrator identities vs one orchestrator with many transcoders. | Enterprise operators need fleet patterns. A single orchestrator with 20 transcoders across 3 data centres is a real deployment pattern. Without this guide they reinvent the architecture. |
 
----
+<CustomDivider />
 
 ### 8. Roadmap & Funding → "What support exists?"
 
@@ -567,7 +567,7 @@ Ecosystem resources for operators at any stage. Not operational - motivational a
 | **funding-and-support** | "What grants, programmes, and community resources exist for orchestrator operators?" SPE (Strategic Priority Enabler) grants: what they fund, how to apply, milestone accountability. AI Video Startup Programme. Livepeer Foundation resources. Treasury proposals: how to propose funding for tooling or infrastructure. Community support channels: Discord #orchestrating (real-time), Forum /c/transcoders (long-form), Livepeer Docs (reference). Getting started: what new operators should do first. | Operators considering Livepeer need to know there's an ecosystem behind them. Grant funding can offset initial hardware/LPT costs. Community support reduces the "alone in a docs maze" feeling. |
 | **operator-showcase** | "Who's actually running orchestrators and what does that look like?" Active operator profiles: hardware, workloads, earnings range, operating model. Pool operator profiles. Commercial operator examples. Community highlights: what operators have built beyond basic operation (monitoring tools, pool clients, guides). Links to Explorer for live data. | Social proof. An aspiring operator needs to see that real people are doing this profitably. A showcase with concrete examples (hardware, earnings, operating model) is more convincing than any amount of technical documentation. |
 
----
+<CustomDivider />
 
 ### 9. Tutorials → "Show me, start to finish"
 
@@ -578,8 +578,16 @@ Complete end-to-end walkthroughs. Not reference, not concepts - one specific out
 | **zero-to-first-reward** | "Walk me through every step from nothing to my first LPT reward." Install go-livepeer. Configure for video transcoding. Acquire and stake LPT. Connect to Arbitrum. Activate on-chain. Set pricing. Verify service URI is reachable. Send a test transcode. Wait for round. Call Reward(). See reward on Explorer. Total time: ~4-8 hours. | The most requested content: a single page that takes you from zero to earning. No cross-references to other pages. No "see the Setup section." Everything in one place, in order. |
 | **ai-earning-quickstart** | "I have a 24 GB GPU and want to earn from AI in under 2 hours." Install go-livepeer + AI runner. Write aiModels.json with one warm diffusion model (e.g. SG161222/RealVisXL_V4.0_Lightning). Configure docker-compose. Register on AIServiceRegistry. Verify at tools.livepeer.cloud. Send a test inference. See first AI job in logs. Emphasises: no active set needed, minimal LPT, capability-based routing. | The lowest-barrier entry to Livepeer earning. Operators with 24 GB GPUs but limited LPT can start earning from AI immediately. This tutorial makes that concrete: 2 hours, one model, first job. |
 | **add-ai-to-video-node** | "I run video transcoding. Show me exactly how to add AI without breaking anything." The configuration delta: what to ADD (aiModels.json, AI runner container, -aiWorker flag). What NOT to change (existing video config, ports, staking). VRAM check: how much headroom you have. Model selection: which single model to start with based on remaining VRAM. Test: verify both video AND AI are working. Dual earnings verification: see both fee types in Explorer. | The hybrid bridge as a tutorial. Existing video operators are the largest audience for AI adoption. They need confidence that adding AI won't break their video operation. This tutorial provides that confidence through explicit "what changes and what doesn't" framing. |
+| **full-ai-pipeline-tutorial** | "Show me AI end-to-end: gateway + orchestrator + model, from download to inference result." End-to-end AI tutorial covering BOTH sides. Start with a HuggingFace model (e.g. ByteDance/SDXL-Lightning). Set up orchestrator with AI runner + aiModels.json. Set up a gateway (off-chain, same machine or separate) pointing at the orchestrator. Send inference request through the gateway. Verify the full pipeline: gateway receives request → routes to orchestrator → AI runner processes → response returned. Covers model download, warm loading, gateway configuration, and the complete request lifecycle. **This bridges the gateway-orchestrator gap** - many operators run both roles and need to understand the full pipeline. | A significant number of orchestrator operators also run gateways. No current tutorial covers the combined flow. This is the "understand the whole system" tutorial that shows how both roles interact with a real AI model. |
+| **realtime-ai-tutorial** | "Show me live video-to-video AI: stream in, transformed stream out." End-to-end real-time AI (Cascade) tutorial. Set up orchestrator with `livepeer/ai-runner:live-base` container and a ComfyStream workflow. Set up gateway for live AI routing. Send a WebRTC or RTMP stream. See transformed output in real-time (&lt;100ms per-frame). Covers: ComfyStream workflow selection, `-livePaymentInterval` configuration, VRAM requirements (24 GB), latency monitoring. **End state**: operator has a working real-time AI pipeline where a video stream enters and a transformed stream exits continuously. | Real-time AI is Livepeer's highest-value compute offering and the most differentiated from competitors. It's also the most complex to set up (different runner image, continuous stream model, payment intervals). A dedicated tutorial prevents operators from trying to extrapolate from batch AI setup. |
 
----
+<Note>
+**Gateway-Orchestrator bridge**: A significant number of orchestrator operators also run gateways. The `full-ai-pipeline-tutorial` and `realtime-ai-tutorial` deliberately cover BOTH roles in a single tutorial because that reflects operational reality. These tutorials should cross-reference the Gateway tab's setup and pipeline documentation rather than duplicating it. The gateway setup steps within these tutorials should be minimal (off-chain, single docker-compose service) with links to the full gateway guides for production gateway configuration.
+
+**Action**: These tutorial stubs will be fleshed out after the core Guides sections are complete. The Workloads & AI section pages (diffusion-pipeline-setup, realtime-ai-setup) provide the reference material; these tutorials provide the "do it all in one sitting" experience.
+</Note>
+
+<CustomDivider />
 
 ### Summary
 
@@ -593,8 +601,8 @@ Complete end-to-end walkthroughs. Not reference, not concepts - one specific out
 | 6. Monitoring & Tools | 4 | How do I keep it running? |
 | 7. Advanced Operations | 3 | How do I scale? |
 | 8. Roadmap & Funding | 2 | What support exists? |
-| 9. Tutorials | 3 | Show me |
-| **Total** | **38** | |
+| 9. Tutorials | 6 | Show me |
+| **Total** | **41** | |
 
 ### What's different from the current IA
 
@@ -607,7 +615,7 @@ Complete end-to-end walkthroughs. Not reference, not concepts - one specific out
 7. **Tutorials are orchestrator-specific**: Three tutorials mapped to the three highest-priority job stories (J1, J6, J2), replacing imported gateway content.
 8. **"Gateway relationships" replaces "gateways-orchestrators"**: Named for what the operator cares about (relationships with gateways), not what the page compares (gateways vs orchestrators).
 
----
+<CustomDivider />
 
 ## 10. Quickstart and Setup Paths (First Principles)
 
@@ -617,7 +625,7 @@ What is the fastest path from "I have a GPU" to "I am earning on Livepeer"? And 
 
 These are different questions. The quickstart minimises time-to-first-value. The setup maximises long-term operational readiness. They serve different moments in the journey.
 
----
+<CustomDivider />
 
 ### Quickstart: Lowest Time to Activation
 
@@ -686,22 +694,25 @@ The quickstart verifies the technology works on your hardware. It is NOT the pat
 
 **OS: Linux only for quickstart.** AI runner containers require Linux. Video-only Docker works on Windows (WSL2) and macOS but with caveats. The quickstart should not introduce OS-specific branching - that's a Setup concern. Linux is the production OS. Use Linux.
 
----
+<CustomDivider />
 
-### Setup: Complete Path for the Primary Persona
+### Setup: Complete Path
 
-**Who is the primary persona?**
+**Correction: AI IS testable locally.** The same pattern as video and BYOC works for AI:
+- Orchestrator: `-orchestrator -transcoder -aiWorker -aiModels /path/to/aiModels.json -network offchain`
+- Gateway: `-gateway -network offchain -orchAddr 127.0.0.1:8935 -httpIngest`
+- Test: `curl -X POST http://localhost:8935/text-to-image -H "Content-Type: application/json" -d '{"model_id": "ByteDance/SDXL-Lightning", "prompt": "test"}'`
+- The AI runner container downloads the model from HuggingFace on first start
+- No on-chain registration needed for local testing
 
-The primary orchestrator persona in 2026 is: **a dual-mode operator running both video transcoding and AI inference on a single machine, activated on-chain.** This is the majority production configuration.
+This means **all three node modes (video, AI, dual) can be set up and verified locally** before any on-chain commitment. The setup guide should cover all three.
 
-Secondary personas (pool worker, AI-only, commercial/enterprise) are important but the Setup section should be designed around the primary persona with clear branch points for alternatives.
-
-**What the Setup section IS:**
-- A sequential, ordered guide that takes the primary persona from "I've decided to operate" to "my node is technically operational, on-chain, and monitored"
-- On-chain by default (production operation requires on-chain activation)
-- Dual mode by default (video + AI is the standard configuration)
-- Docker-based (matching quickstart, consistent tooling)
-- Linux-focused (production OS, AI runner compatibility)
+**What the Setup section covers:**
+- Video setup, AI setup, AND dual mode setup
+- All supported OS (Linux primary, Docker makes Windows/macOS viable for video-only; AI runner requires Linux)
+- On-chain activation as the production target
+- Docker-based (primary), binary (alternative)
+- Each page is one session of work
 
 **What the Setup section IS NOT:**
 - An earning guide (that's Guides > Staking & Earning + Config & Optimisation)
@@ -709,9 +720,9 @@ Secondary personas (pool worker, AI-only, commercial/enterprise) are important b
 - A reference (that's Resources > CLI Flags)
 - A tuning guide (that's Config & Optimisation)
 - An explanation of how things work (that's Concepts)
-
-**The Setup→Earning boundary:** Setup ends when the node is on-chain, processing jobs, and monitored. Earning begins when the operator configures competitive pricing, attracts delegation, manages workload demand, and optimises reward calling. These are business decisions covered in the Guides section, not technical setup steps.
 - A troubleshooting guide (that's Monitoring > Troubleshooting)
+
+**The Setup→Earning boundary:** Setup ends when the node is technically operational, on-chain, and monitored. Earning is a business outcome that depends on pricing, demand, stake, reputation, and market conditions - covered in the Guides section.
 
 **Setup flow (pages needed):**
 
@@ -723,16 +734,17 @@ Secondary personas (pool worker, AI-only, commercial/enterprise) are important b
 | 4 | **configure** | Write the docker-compose and set operational flags. Dual mode config: `-orchestrator -transcoder -aiWorker -aiModels /path/to/aiModels.json -network arbitrum-one-mainnet -ethUrl <RPC> -serviceAddr <PUBLIC:8935> -pricePerUnit <WEI> -nvidia <GPU_IDS> -v 6 -monitor`. Write aiModels.json with one warm model. Ports: 8935 (service), 7935 (CLI/metrics). Volume mounts for persistent data and model storage. | "Video only? Skip -aiWorker, -aiModels, AI runner. AI only? Skip -pricePerUnit, add -aiServiceRegistry." |
 | 5 | **connect-and-activate** | Connect to Arbitrum: verify -ethUrl endpoint responds. Fund wallet: transfer arbETH for gas. Stake LPT: use livepeer_cli to bond LPT to self. Set service URI: register public address. Activate: on-chain registration transaction. Verify on Explorer: confirm active, correct service URI, correct pricing. Enable reward calling: -reward flag or manual via livepeer_cli. | "AI-only without active set? Register on AIServiceRegistry instead of full activation." |
 | 6 | **verify** | Comprehensive verification sequence. Video: send test stream via ffmpeg, verify HLS output, check segment processing in logs. AI: send test inference request (curl), verify response, check model loaded in logs. On-chain: verify on Explorer (active set position, service URI, pricing). Monitoring: verify Prometheus endpoint responds, check key metrics. Reward calling: wait for next round, verify reward claimed. | "Test failed? → Troubleshooting page for specific symptoms." |
-| 7 | **initial-monitoring** | Minimum viable monitoring for day-one operation. Enable -monitor flag. Set up basic Prometheus scrape. Three alerts that every operator needs from day one: missed reward call, session saturation (>80%), node unreachable. Link to full Monitoring section for Grafana dashboards and advanced alerting. | "Want full monitoring stack? → Monitoring & Tools > Metrics and Alerting." |
+| 7 | **initial-monitoring** | Minimum viable monitoring for day-one operation. Enable -monitor flag. Set up basic Prometheus scrape. Three alerts that every operator needs from day one: missed reward call, session saturation (&gt;80%), node unreachable. Link to full Monitoring section for Grafana dashboards and advanced alerting. | "Want full monitoring stack? → Monitoring & Tools > Metrics and Alerting." |
 
 **Key design decisions:**
 - **7 pages, not 5 or 10.** Each page is one session of work (~30-60 mins). An operator can complete one page per sitting.
-- **Dual mode is the default path.** Branch points clearly mark where video-only or AI-only diverge, but the main flow covers both.
-- **On-chain is the default.** Off-chain orchestrators can't earn rewards and have limited discoverability. The setup targets production earning.
-- **Docker is primary, binary is alternative.** Not separate paths - Docker is the recommended approach with binary as an accordion alternative on the install page.
-- **Linux only.** No Windows or macOS setup paths. AI runner requires Linux. Video-only works on other OS but the dual-mode primary path requires Linux. Other OS can be covered in a separate "alternative platforms" page in Resources if needed.
+- **All three node modes covered.** The configure page uses tabs or sections for Video, AI, and Dual. Not separate setup flows - one flow with mode-specific configuration. Same pattern as the gateway setup.
+- **All OS covered.** Linux is primary and required for AI/dual. Docker enables Windows (WSL2) and macOS for video-only. OS branching happens on the install and configure pages via tabs, not as separate flows.
+- **On-chain is the production target.** Off-chain is used during local verification (step 6) then the node connects on-chain. The configure page includes both off-chain test config and on-chain production config.
+- **Docker is primary, binary is alternative.** Docker recommended, binary as accordion alternative on install page.
+- **Setup does NOT cover earning.** Setup gets the node operational. Pricing, demand, delegation, and competitive positioning are Guides concerns.
 
----
+<CustomDivider />
 
 ### Gateway Comparison (Same First Principles)
 
@@ -789,7 +801,7 @@ This asymmetry should be documented in both the gateway and orchestrator glossar
 - Needed: Same 7-page structure as orchestrators. The monolithic page works for a quickstart but the full Setup should be sequential pages, each one session of work.
 - Current setup section (`setup/`) has scattered pages without a clear sequence. Needs the same sequential discipline as the orchestrator setup.
 
----
+<CustomDivider />
 
 ### Summary: Quickstart vs Setup
 
