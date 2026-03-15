@@ -37,7 +37,7 @@ import { BorderedBox } from "/snippets/components/layout/containers.jsx"
 import { StyledSteps, StyledStep } from "/snippets/components/layout/steps.jsx"
 
 <Tip>
-Unlike Orchestrators, which register on-chain via the `ServiceRegistry` contract and appear in the Livepeer Explorer automatically, there is no equivalent on-chain registry for Gateways. Discoverability today is manual and community-driven.
+AI Gateways can register on-chain via the [`AIServiceRegistry`](https://arbiscan.io/address/0x04C0b249740175999E5BF5c9ac1dA92431EF34C5) contract using the `-aiServiceRegistry` flag. Video/transcoding Gateways do not yet have an equivalent on-chain registry - discoverability for video is currently manual and community-driven.
 
 A Gateway Explorer Page is in Development: <LinkArrow label="Gateway Explorer Preview" href="https://explorer-arbitrum-one-git-feat-add-g-10dba1-livepeer-foundation.vercel.app/"/><LinkArrow label="Github PR #410" href="https://github.com/livepeer/explorer/pull/410"/>
 </Tip>
@@ -249,10 +249,10 @@ RTMP ingest (port 1935) is separate from the service address and is what video s
   <Card title="Gateway Middleware" icon="layer-group" href="/v2/gateways/guides/advanced-operations/gateway-middleware">
     Auth and routing - prerequisites for a public-facing Gateway.
   </Card>
-  <Card title="Opportunities" icon="lightbulb" href="/v2/gateways/guides/opportunities/overview">
+  <Card title="Opportunities" icon="lightbulb" href="/v2/gateways/guides/roadmap-and-funding/operator-support">
     Revenue models and Foundation support for Gateway operators.
   </Card>
-  <Card title="NaaP Multi-Tenancy" icon="users" href="/v2/gateways/guides/opportunities/naap-multi-tenancy">
+  <Card title="NaaP Multi-Tenancy" icon="users" href="/v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy">
     Network as a Platform architecture for multi-tenant operation.
   </Card>
   <Card title="Technical Architecture" icon="diagram-project" href="/v2/gateways/resources/technical/technical-architecture">

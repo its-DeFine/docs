@@ -179,12 +179,12 @@
                             ]
                           },
                           {
-                            "group": "Opportunities",
+                            "group": "Roadmap and Funding",
                             "pages": [
-                              "v2/gateways/guides/opportunities/overview",
-                              "v2/gateways/guides/opportunities/naap-multi-tenancy",
-                              "v2/gateways/guides/opportunities/spe-grant-model",
-                              "v2/gateways/guides/opportunities/community-ecosystem"
+                              "v2/gateways/guides/roadmap-and-funding/operator-support",
+                              "v2/gateways/guides/roadmap-and-funding/spe-grant-model",
+                              "v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy",
+                              "v2/gateways/guides/roadmap-and-funding/community-ecosystem"
                             ]
                           },
                           {

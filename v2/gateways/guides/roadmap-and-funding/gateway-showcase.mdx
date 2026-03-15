@@ -1,7 +1,7 @@
 ---
-title: 'Gateway Ecosystem Projects'
-description: 'Real applications, community tools, and Foundation programmes built on Livepeer gateways  - showing what becomes possible when you route through the Livepeer network.'
-sidebarTitle: 'Community & Ecosystem'
+title: 'Gateway Showcase'
+description: 'Commercial products, community tools, and infrastructure projects built on Livepeer Gateways - a living directory of the ecosystem.'
+sidebarTitle: 'Gateway Showcase'
 keywords:
   - livepeer
   - ecosystem
@@ -68,11 +68,15 @@ Verify:
   - Concepts → Capabilities  - what capabilities these projects use
 */}
 
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
+import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 
-Gateways are how value flows through the Livepeer network. Every product built on Livepeer  - whether a consumer app, a developer API, or internal infrastructure  - connects to the compute network through a gateway.
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-This page documents real applications and community projects that are already running, gives you tooling references, and points to Foundation programmes for new builders.
+The Livepeer Gateway ecosystem is active and growing. This page is a living directory of commercial products, community tools, and infrastructure projects built on Livepeer Gateways - demonstrating what operators and developers are building on the network today.
+
+For the full directory of public Gateway operators with badges and status, see <LinkArrow href="/v2/gateways/guides/operator-considerations/production-gateways" label="Production Gateways" newline={false} />.
 
 ---
 
@@ -136,7 +140,7 @@ This page documents real applications and community projects that are already ru
 
 {/* REVIEW: Confirm NaaP public availability and current status with Qiang Han. */}
 
-For a deep-dive on the NaaP architecture, see [NaaP & Multi-Tenancy](/v2/gateways/guides/opportunities/naap-multi-tenancy).
+For a deep-dive on the NaaP architecture, see [NaaP & Multi-Tenancy](/v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy).
 
 ---
 
@@ -216,7 +220,7 @@ Funded SPEs in the gateway operator space include Livepeer Cloud SPE (public gat
 
 Forum proposals and active SPE discussions: [forum.livepeer.org](https://forum.livepeer.org)
 
-For the full SPE grant process, see [SPE & Grant Models](/v2/gateways/guides/opportunities/spe-grant-model).
+For the full SPE grant process, see [SPE & Grant Models](/v2/gateways/guides/roadmap-and-funding/spe-grant-model).
 
 ---
 
@@ -244,10 +248,10 @@ Community tutorials and video content will be added here as they are identified.
 ## Next steps
 
 <CardGroup cols={3}>
-  <Card title="Opportunities Overview" icon="chart-line" href="/v2/gateways/guides/opportunities/overview">
+  <Card title="Opportunities Overview" icon="chart-line" href="/v2/gateways/guides/roadmap-and-funding/operator-support">
     Revenue models, business patterns, and who is running gateways today.
   </Card>
-  <Card title="SPE Grant Model" icon="coins" href="/v2/gateways/guides/opportunities/spe-grant-model">
+  <Card title="SPE Grant Model" icon="coins" href="/v2/gateways/guides/roadmap-and-funding/spe-grant-model">
     How to get treasury funding for gateway infrastructure.
   </Card>
   <Card title="Choose your setup path" icon="arrow-right" href="/v2/gateways/guides/setup-options/setup-paths">
