@@ -3,10 +3,9 @@ name: agentic-project-management-orchestrator
 description: Plan Livepeer Docs repo changes through gated discovery, phased scoping, validation mapping, and handover-ready artifacts; not for direct execution or cross-agent packaging.
 tier: 3
 triggers:
-  - "review research and plan this repo change"
-  - "break this docs infra work into phases"
-  - "prepare implementation plan and validation gates"
-  - "create a handover-ready task plan"
+  - "skill-plan"
+  - "plan this repo change"
+  - "full plan for this"
 primary_paths:
   - "README.md"
   - "docs-guide/overview.mdx"
@@ -32,21 +31,32 @@ Constraints
 - Do not introduce `.apm/` assets, upstream slash-command packs, or multi-role APM clones for v1.
 - Do not add this skill to `ai-tools/ai-skills/catalog/skill-catalog.json`, `ai-tools/ai-skills/catalog/execution-manifest.json`, or `ai-tools/agent-packs/*` unless a later task explicitly expands scope.
 - Do not bypass hooks (`--no-verify` or `-n`) and do not modify frozen `v1/` content unless explicitly requested.
+- Emit the final planning artifact with explicit section headers so another engineer can scan it quickly: `Aim`, `Purpose`, `Scope`, `Current Repo State`, `Implementation Flags / Constraints`, `Testing / Validation`, and `Success Metrics` are mandatory.
 
 Workflow
 1. Discovery gate:
    - Inspect current repository state, impacted paths, existing automation, and source-of-truth docs in `README.md`, `docs-guide/overview.mdx`, `docs-guide/policies/source-of-truth-policy.mdx`, `docs-guide/policies/quality-gates.mdx`, `docs-guide/features/feature-map.mdx`, `docs-guide/features/architecture-map.mdx`, and `tests/README.md`.
    - Identify what is already canonical, generated, or test-owned so the plan targets root causes instead of surface edits.
    - List missing facts, likely dependent surfaces, and risks caused by hidden generated artifacts or policy drift.
-2. Planning gate:
-   - Define goal, success criteria, scope in/out, assumptions, dependencies, acceptance checks, and approval checkpoints.
+2. Readiness gate:
+   - End discovery with one explicit verdict: `ready for implementation`, `ready after scoped fixes`, or `blocked pending source-of-truth decision`.
+   - Create a blocker register for every issue that would cause execution drift, duplicate canonical ownership, broken generated output, or unverifiable claims.
+   - For each blocker, record the canonical source, conflicting files or surfaces, why the conflict matters, the required owner or specialist skill, the exact next action, and the validation needed before implementation starts.
+   - Do not treat the work as implementation-ready while the blocker register still contains unresolved source-of-truth or validation-critical conflicts.
+3. Planning gate:
+   - Define the plan using explicit sections for `Aim`, `Purpose`, `Scope`, `Current Repo State`, `Implementation Flags / Constraints`, `Testing / Validation`, and `Success Metrics`.
+   - In `Scope`, state what is in, out, deferred, and frozen.
+   - In `Implementation Flags / Constraints`, capture repo guardrails, generated-file ownership, frozen surfaces, rollout limits, policy constraints, migration constraints, and any no-go areas that execution must not cross.
+   - In `Success Metrics`, define measurable completion indicators, not just qualitative success criteria.
+   - Define assumptions, dependencies, acceptance checks, and approval checkpoints.
    - Break work into anti-packing task slices that can be handed to specialist skills or implementation tasks without forcing the implementer to make design decisions.
    - If the request implies immediate execution, still emit the plan first and mark the transition point where implementation can safely begin.
-3. Validation gate:
+4. Validation gate:
    - Map each workstream to the smallest sufficient validation set: staged checks, targeted unit tests, generators, link audits, browser sweeps, navigation checks, or docs-guide sync checks.
+   - Make `Testing / Validation` explicit in the output, separating automated checks, manual checks, and evidence still missing.
    - Prefer repository-backed commands and note when generated outputs must be refreshed in the same change.
    - Call out any gaps where no reliable automated check exists and define the required manual evidence.
-4. Handover gate:
+5. Handover gate:
    - Produce one reusable handover artifact that summarises context, phased tasks, dependencies, blockers, risks, validation matrix, and exact next actions.
    - Recommend the next specialist skill explicitly when execution should move to `mintlify-authoring-style-compliance`, `docs-ia-route-placement`, `docs-source-verification`, `staged-test-suite-runner`, `v2-link-audit-runbook`, `v2-browser-sweep-runbook`, or `codex-task-isolation-standard`.
 
@@ -58,13 +68,19 @@ node tests/run-all.js --staged --skip-browser
 
 Deliverable Format
 - A planning artifact with:
-  - request summary and target outcome
-  - current-state findings and canonical sources consulted
-  - scope in / scope out
+  - readiness verdict: `ready for implementation`, `ready after scoped fixes`, or `blocked pending source-of-truth decision`
+  - blocker register listing canonical source, conflicting surfaces, impact, owner or specialist skill, exact next action, and required validation
+  - `Aim`: the exact outcome the work is meant to achieve
+  - `Purpose`: why the work matters now and what decision or user need it serves
+  - `Scope`: in scope, out of scope, deferred, and frozen surfaces
+  - `Current Repo State`: relevant existing files, generated surfaces, canonical docs, active drift, and constraints discovered during discovery
+  - `Implementation Flags / Constraints`: repo guardrails, ownership boundaries, generated-file rules, migration constraints, rollout constraints, and explicit do-not-cross lines
   - phased task breakdown with dependencies and approval gates
-  - validation matrix mapping each phase to exact commands or manual evidence
+  - `Testing / Validation`: validation matrix mapping each phase to exact commands, manual evidence, and unresolved testing gaps
+  - `Success Metrics`: measurable indicators that the plan is complete and the resulting implementation can be judged successful
   - risks, blockers, and assumptions
   - recommended next skill(s) or execution surface
+- If the readiness verdict is blocked, state whether planning stops at discovery or can continue only for unblocked workstreams.
 - The artifact must be decision-complete enough that another engineer or agent can implement it without making new product or governance decisions.
 
 Failure Modes / Fallback
@@ -75,8 +91,13 @@ Failure Modes / Fallback
 
 Validation Checklist
 - [ ] Discovery references current repo state and canonical docs-guide sources.
+- [ ] Discovery ends with an explicit readiness verdict.
+- [ ] Blockers are recorded with canonical source, conflict, next action, and validation needed to clear them.
+- [ ] `Aim`, `Purpose`, `Scope`, `Current Repo State`, `Implementation Flags / Constraints`, `Testing / Validation`, and `Success Metrics` are all present as explicit sections.
 - [ ] Scope, assumptions, dependencies, and approval checkpoints are explicit.
 - [ ] Work is split into phased, anti-packing task slices.
+- [ ] Blocked work is not presented as implementation-ready.
 - [ ] Every workstream has mapped validation commands or manual evidence.
+- [ ] Success metrics are measurable and can be checked after implementation.
 - [ ] Generated artifacts and sync requirements are called out where applicable.
 - [ ] Final output includes risks, blockers, and recommended next skill(s).
