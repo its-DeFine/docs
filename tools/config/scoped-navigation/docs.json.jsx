@@ -5206,246 +5206,255 @@ const docsJsonV1 = {
 }
 
 const gatewaysNew = {
-  anchor: 'Gateways Final',
-  icon: 'torii-gate',
-  groups: [
+  "anchor": "Gateways Final",
+  "icon": "torii-gate",
+  "groups": [
     {
-      group: 'Home',
-      icon: 'graduation-cap',
-      pages: ['v2/gateways/portal', 'v2/gateways/navigator'],
+      "group": "Home",
+      "icon": "graduation-cap",
+      "pages": [
+        "v2/gateways/portal",
+        "v2/gateways/navigator",
+        "docs-guide/tooling/reference-maps/icon-map"
+      ]
     },
     {
-      group: 'Concepts',
-      icon: 'graduation-cap',
-      pages: [
-        'v2/gateways/concepts/role',
-        'v2/gateways/concepts/capabilities',
-        'v2/gateways/concepts/architecture',
-        'v2/gateways/concepts/business-model',
-      ],
+      "group": "Concepts",
+      "icon": "graduation-cap",
+      "pages": [
+        "v2/gateways/concepts/role",
+        "v2/gateways/concepts/capabilities",
+        "v2/gateways/concepts/architecture",
+        "v2/gateways/concepts/business-model"
+      ]
     },
     {
-      group: 'Quickstart ⚡ [docker only dual off-chain]',
-      icon: '/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg',
-      pages: [
-        'v2/gateways/about-old/quickstart',
-        'v2/gateways/quickstart/gateway-setup',
-        'v2/gateways/quickstart/AI-prompt',
-      ],
+      "group": "Quickstart ⚡ [docker only dual off-chain]",
+      "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
+      "pages": [
+        "v2/gateways/quickstart/gateway-setup",
+        "v2/gateways/guides/tutorials/byoc-cpu-tutorial",
+        "v2/gateways/quickstart/AI-prompt"
+      ]
     },
     {
-      group: 'Run A Gateway',
-      icon: 'sign-posts-wrench',
-      pages: [
+      "group": "Run A Gateway",
+      "icon": "sign-posts-wrench",
+      "pages": [
         {
-          group: 'Gateway Setup Guide',
-          expanded: true,
-          pages: [
-            'v2/gateways/setup/run-a-gateway',
-            'v2/gateways/setup/transcoding',
+          "group": "Gateway Setup Guide",
+          "expanded": true,
+          "pages": [
+            "v2/gateways/setup/run-a-gateway",
+            "v2/gateways/setup/transcoding",
             {
-              group: 'Setup Checklist',
-              pages: [
-                'v2/gateways/setup/requirements/setup',
-                'v2/gateways/setup/requirements/on-chain setup/on-chain',
-                'v2/gateways/setup/requirements/on-chain setup/fund-gateway',
-              ],
+              "group": "Setup Checklist",
+              "pages": [
+                "v2/gateways/setup/requirements/setup",
+                "v2/gateways/setup/requirements/on-chain setup/on-chain",
+                "v2/gateways/setup/requirements/on-chain setup/fund-gateway"
+              ]
             },
             {
-              group: 'Installation',
-              pages: [
-                'v2/gateways/setup/install/install-overview',
-                'v2/gateways/setup/install/docker-install',
-                'v2/gateways/setup/install/linux-install',
-                'v2/gateways/setup/install/windows-install',
-                'v2/gateways/setup/install/community-projects',
-              ],
+              "group": "Installation",
+              "pages": [
+                "v2/gateways/setup/install/install-overview",
+                "v2/gateways/setup/install/docker-install",
+                "v2/gateways/setup/install/linux-install",
+                "v2/gateways/setup/install/windows-install",
+                "v2/gateways/setup/install/community-projects"
+              ]
             },
             {
-              group: 'Configuration',
-              pages: [
-                'v2/gateways/setup/configure/configuration-overview',
-                'v2/gateways/setup/configure/video-configuration',
-                'v2/gateways/setup/configure/ai-configuration',
-                'v2/gateways/setup/configure/dual-configuration',
-                'v2/gateways/setup/configure/pricing-configuration',
-              ],
+              "group": "Configuration",
+              "pages": [
+                "v2/gateways/setup/configure/configuration-overview",
+                "v2/gateways/setup/configure/video-configuration",
+                "v2/gateways/setup/configure/ai-configuration",
+                "v2/gateways/setup/configure/dual-configuration",
+                "v2/gateways/setup/configure/pricing-configuration"
+              ]
             },
             {
-              group: 'End-to-End Tutorial',
-              pages: [
-                'v2/gateways/needed/tutorial-offchain-transcoding-test',
-                'v2/gateways/needed/tutorial-byoc-cpu-pipeline',
-                'v2/gateways/needed/tutorial-go-production',
-              ],
+              "group": "End-to-End Tutorial",
+              "pages": [
+                "v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test",
+                "v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline",
+                "v2/gateways/guides/tutorials/tutorial-3-go-production"
+              ]
             },
             {
-              group: 'Network Connect',
-              tag: 'Go Live!',
-              pages: [
-                'v2/gateways/setup/connect/lp-marketplace',
-                'v2/gateways/setup/connect/discover-offerings',
-                'v2/gateways/setup/connect/connect-with-offerings',
-              ],
+              "group": "Network Connect",
+              "tag": "Go Live!",
+              "pages": [
+                "v2/gateways/setup/connect/lp-marketplace",
+                "v2/gateways/setup/connect/discover-offerings",
+                "v2/gateways/setup/connect/connect-with-offerings"
+              ]
             },
             {
-              group: 'Monitor & Optimise',
-              pages: ['v2/gateways/setup/monitor/monitor-and-optimise'],
-            },
-          ],
-        },
-      ],
+              "group": "Monitor & Optimise",
+              "pages": [
+                "v2/gateways/setup/monitor/monitor-and-optimise"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      group: 'Guides',
-      icon: 'map',
-      pages: [
+      "group": "Guides",
+      "icon": "map",
+      "pages": [
         {
-          group: 'Operator Considerations',
-          pages: [
-            'v2/gateways/guides/operator-considerations/why-run-a-gateway',
-            'v2/gateways/guides/operator-considerations/operator-opportunities',
-            'v2/gateways/guides/operator-considerations/gateway-requirements',
-            'v2/gateways/guides/operator-considerations/business-case',
-            'v2/gateways/guides/operator-considerations/ecosystem-projects',
-          ],
+          "group": "Operator Considerations",
+          "pages": [
+            "v2/gateways/guides/operator-considerations/business-case",
+            "v2/gateways/guides/operator-considerations/production-gateways"
+          ]
         },
         {
-          group: 'Setup Options',
-          pages: [
-            'v2/gateways/guides/setup-options/setup-paths',
-            'v2/gateways/guides/setup-options/path-requirements',
-            'v2/gateways/guides/setup-options/ecosystem-offerings',
-          ],
+          "group": "Deployment Options",
+          "pages": [
+            "v2/gateways/guides/deployment-details/setup-options",
+            "v2/gateways/guides/deployment-details/setup-requirements"
+          ]
         },
         {
-          group: 'AI & Job Pipelines',
-          pages: [
-            'v2/gateways/guides/job-pipelines/overview',
-            'v2/gateways/guides/job-pipelines/video-transcoding',
-            'v2/gateways/guides/job-pipelines/ai-inference',
-            'v2/gateways/guides/job-pipelines/byoc-pipelines',
-            'v2/gateways/guides/job-pipelines/pipeline-configuration',
-          ],
+          "group": "AI & Job Pipelines",
+          "pages": [
+            "v2/gateways/guides/node-pipelines/guide",
+            "v2/gateways/guides/node-pipelines/video-pipelines",
+            "v2/gateways/guides/node-pipelines/ai-pipelines",
+            "v2/gateways/guides/node-pipelines/byoc-pipelines",
+            "v2/gateways/guides/node-pipelines/pipeline-configuration"
+          ]
         },
         {
-          group: 'Payments & Pricing',
-          pages: [
-            'v2/gateways/guides/payments-and-pricing/payment-paths',
-            'v2/gateways/guides/payments-and-pricing/fund-your-gateway',
-            'v2/gateways/guides/payments-and-pricing/pricing-strategy',
-            'v2/gateways/guides/payments-and-pricing/clearinghouse-guide',
-            'v2/gateways/guides/payments-and-pricing/remote-signers',
-          ],
+          "group": "Payments & Pricing",
+          "pages": [
+            "v2/gateways/guides/payments-and-pricing/payment-guide",
+            "v2/gateways/guides/payments-and-pricing/funding-guide",
+            "v2/gateways/guides/payments-and-pricing/pricing-strategy",
+            "v2/gateways/guides/payments-and-pricing/remote-signers",
+            "v2/gateways/guides/payments-and-pricing/clearinghouse-guide"
+          ]
         },
         {
-          group: 'Monitoring and Tooling',
-          pages: [
-            'v2/gateways/guides/monitoring-and-tooling/gateway-health-checks',
-            'v2/gateways/guides/monitoring-and-tooling/monitoring-setup',
-            'v2/gateways/guides/monitoring-and-tooling/on-chain-debugging',
-            'v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards',
-            'v2/gateways/guides/monitoring-and-tooling/troubleshooting',
-          ],
+          "group": "Monitoring and Tooling",
+          "pages": [
+            "v2/gateways/guides/monitoring-and-tooling/health-checks",
+            "v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards",
+            "v2/gateways/guides/monitoring-and-tooling/monitoring-setup",
+            "v2/gateways/guides/monitoring-and-tooling/on-chain-metrics",
+            "v2/gateways/guides/monitoring-and-tooling/troubleshooting"
+          ]
         },
         {
-          group: 'Advanced Operations',
-          pages: [
-            'v2/gateways/guides/advanced-operations/production-hardening',
-            'v2/gateways/guides/advanced-operations/orchestrator-selection',
-            'v2/gateways/guides/advanced-operations/scaling',
-            'v2/gateways/guides/advanced-operations/gateway-middleware',
-            'v2/gateways/guides/advanced-operations/publishing',
-          ],
+          "group": "Advanced Operations",
+          "pages": [
+            "v2/gateways/guides/advanced-operations/orchestrator-selection",
+            "v2/gateways/guides/advanced-operations/scaling",
+            "v2/gateways/guides/advanced-operations/gateway-middleware",
+            "v2/gateways/guides/advanced-operations/gateway-discoverability"
+          ]
         },
         {
-          group: 'Opportunities',
-          pages: [
-            'v2/gateways/guides/opportunities/overview',
-            'v2/gateways/guides/opportunities/naap-multi-tenancy',
-            'v2/gateways/guides/opportunities/spe-grant-model',
-            'v2/gateways/guides/opportunities/community-ecosystem',
-          ],
+          "group": "Roadmap and Funding",
+          "pages": [
+            "v2/gateways/guides/roadmap-and-funding/operator-support",
+            "v2/gateways/guides/roadmap-and-funding/spe-grant-model",
+            "v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy",
+            "v2/gateways/guides/roadmap-and-funding/gateway-showcase"
+          ]
         },
         {
-          group: 'Tutorials',
-          pages: [
-            'v2/gateways/guides/tutorials/byoc-cpu-tutorial',
-            {
-              group: 'Gateway-Orchestrator Zero-To-Hero Tutorial',
-              pages: [
-                'v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-offchain-transcoding-test',
-                'v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-byoc-cpu-pipeline',
-                'v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-go-production',
-              ],
-            },
-          ],
-        },
-      ],
+          "group": "Tutorial: Zero-to-Hero",
+          "pages": [
+            "v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test",
+            "v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline",
+            "v2/gateways/guides/tutorials/tutorial-3-go-production"
+          ]
+        }
+      ]
     },
     {
-      group: 'Resources',
-      icon: 'code',
-      pages: [
-        'FAQ',
-        'Glossary',
+      "group": "Resources",
+      "icon": "code",
+      "pages": [
+        "v2/gateways/resources/faq",
+        "v2/gateways/resources/glossary",
         {
-          group: 'Technical Reference',
-          pages: [
-            'v2/gateways/references/technical-architecture',
-            'v2/gateways/references/configuration-flags',
-            'v2/gateways/references/configuration-flags',
-            'v2/gateways/references/cli-commands',
+          "group": "Technical Reference",
+          "pages": [
+            "v2/gateways/resources/technical/technical-architecture",
+            "v2/gateways/resources/technical/configuration-flags",
+            "v2/gateways/resources/technical/contract-addresses",
+            "v2/gateways/resources/technical/cli-commands",
             {
-              group: 'AI API',
-              pages: [
-                'v2/gateways/references/api-reference/AI-API/ai',
-                'v2/gateways/references/api-reference/AI-API/text-to-image',
-                'v2/gateways/references/api-reference/AI-API/image-to-image',
-                'v2/gateways/references/api-reference/AI-API/image-to-video',
-                'v2/gateways/references/api-reference/AI-API/upscale',
-                'v2/gateways/references/api-reference/AI-API/audio-to-text',
-                'v2/gateways/references/api-reference/AI-API/segment-anything-2',
-                'v2/gateways/references/api-reference/AI-API/llm',
-                'v2/gateways/references/api-reference/AI-API/image-to-text',
-                'v2/gateways/references/api-reference/AI-API/live-video-to-video',
-                'v2/gateways/references/api-reference/AI-API/text-to-speech',
-                'v2/gateways/references/api-reference/AI-API/health',
-                'v2/gateways/references/api-reference/AI-API/hardware-info',
-                'v2/gateways/references/api-reference/AI-API/hardware-stats',
-              ],
+              "group": "AI API",
+              "pages": [
+                "v2/gateways/resources/technical/api-reference/AI-API/ai",
+                "v2/gateways/resources/technical/api-reference/AI-API/text-to-image",
+                "v2/gateways/resources/technical/api-reference/AI-API/image-to-image",
+                "v2/gateways/resources/technical/api-reference/AI-API/image-to-video",
+                "v2/gateways/resources/technical/api-reference/AI-API/upscale",
+                "v2/gateways/resources/technical/api-reference/AI-API/audio-to-text",
+                "v2/gateways/resources/technical/api-reference/AI-API/segment-anything-2",
+                "v2/gateways/resources/technical/api-reference/AI-API/llm",
+                "v2/gateways/resources/technical/api-reference/AI-API/image-to-text",
+                "v2/gateways/resources/technical/api-reference/AI-API/live-video-to-video",
+                "v2/gateways/resources/technical/api-reference/AI-API/text-to-speech",
+                "v2/gateways/resources/technical/api-reference/AI-API/health",
+                "v2/gateways/resources/technical/api-reference/AI-API/hardware-info",
+                "v2/gateways/resources/technical/api-reference/AI-API/hardware-stats"
+              ]
             },
             {
-              group: 'CLI HTTP API',
-              pages: [
-                'v2/gateways/references/api-reference/CLI-HTTP/cli-http-api',
-                'v2/gateways/references/api-reference/CLI-HTTP/unbond',
-                'v2/gateways/references/api-reference/CLI-HTTP/rebond',
-                'v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator',
-                'v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig',
-                'v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability',
-                'v2/gateways/references/api-reference/CLI-HTTP/reward',
-                'v2/gateways/references/api-reference/CLI-HTTP/transfertokens',
-                'v2/gateways/references/api-reference/CLI-HTTP/signmessage',
-              ],
+              "group": "CLI HTTP API",
+              "pages": [
+                "v2/gateways/resources/technical/api-reference/CLI-HTTP/cli-http-api",
+                "v2/gateways/resources/technical/api-reference/CLI-HTTP/unbond",
+                "v2/gateways/resources/technical/api-reference/CLI-HTTP/rebond",
+                "v2/gateways/resources/technical/api-reference/CLI-HTTP/activateorchestrator",
+                "v2/gateways/resources/technical/api-reference/CLI-HTTP/setbroadcastconfig",
+                "v2/gateways/resources/technical/api-reference/CLI-HTTP/setmaxpriceforcapability",
+                "v2/gateways/resources/technical/api-reference/CLI-HTTP/reward",
+                "v2/gateways/resources/technical/api-reference/CLI-HTTP/transfertokens",
+                "v2/gateways/resources/technical/api-reference/CLI-HTTP/signmessage"
+              ]
             },
             {
-              group: 'Exchanges & RPCs',
-              pages: [
-                'v2/gateways/references/livepeer-exchanges',
-                'v2/gateways/references/arbitrum-exchanges',
-                'v2/gateways/references/arbitrum-rpc',
-              ],
-            },
-          ],
+              "group": "Exchanges & RPCs",
+              "pages": [
+                "v2/gateways/resources/technical/livepeer-exchanges",
+                "v2/gateways/resources/technical/arbitrum-exchanges",
+                "v2/gateways/resources/technical/arbitrum-rpc"
+              ]
+            }
+          ]
         },
         {
-          group: 'Resources',
-          pages: [],
+          "group": "go-livepeer Reference",
+          "pages": [
+            "v2/gateways/resources/go-livepeer/bandwidth-requirements",
+            "v2/gateways/resources/go-livepeer/hardware-requirements",
+            "v2/gateways/resources/go-livepeer/gpu-support",
+            "v2/gateways/resources/go-livepeer/cli-reference",
+            "v2/gateways/resources/go-livepeer/prometheus-metrics"
+          ]
         },
-      ],
-    },
-  ],
+        {
+          "group": "More Resources",
+          "pages": [
+            "v2/gateways/resources/knowledge-base/guides",
+            "v2/gateways/resources/knowledge-base/resources",
+            "v2/gateways/resources/knowledge-base/help"
+          ]
+        }
+      ]
+    }
+  ]
 }
 
 const orchNew = {

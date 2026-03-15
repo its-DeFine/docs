@@ -77,7 +77,7 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
     1. <LinkArrow href="/v2/gateways/concepts/business-model" label="Gateway business model" newline={false} />  - margin capture, pricing independence
     2. <LinkArrow href="/v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy" label="NaaP multi-tenancy guide" newline={false} />  - tenant isolation, auth flows, billing integration
     3. <LinkArrow href="/v2/gateways/guides/advanced-operations/gateway-middleware" label="Middleware layer" newline={false} />  - rate limiting, routing, orchestrator tiering
-    4. <LinkArrow href="/v2/gateways/guides/advanced-operations/production-hardening" label="Production hardening" newline={false} />  - scaling, reliability, monitoring
+    4. <LinkArrow href="/v2/gateways/guides/advanced-operations/scaling" label="Scaling & resource management" newline={false} />  - scaling, reliability, monitoring
     5. <LinkArrow href="/v2/gateways/guides/roadmap-and-funding/spe-grant-model" label="SPE grant funding" newline={false} />  - get funded to build
 
     <Tip>The NaaP (Network as a Platform) model is how operators like Livepeer Studio and Cloud SPE serve thousands of customers through a single gateway.</Tip>
@@ -257,23 +257,22 @@ Each guides subsection covers a specific operational area. Expand any topic to s
   </Accordion>
 
   <Accordion title="Monitoring & Tooling" icon="chart-line">
-    Health checks, Prometheus/Grafana monitoring, on-chain debugging, available tools and dashboards, and troubleshooting guides.
+    Health checks, Prometheus/Grafana monitoring, on-chain metrics, available tools and dashboards, and troubleshooting guides.
 
-    - <LinkArrow href="/v2/gateways/guides/monitoring-and-tooling/gateway-health-checks" label="Gateway health checks" newline={false} />
+    - <LinkArrow href="/v2/gateways/guides/monitoring-and-tooling/health-checks" label="Gateway health checks" newline={false} />
     - <LinkArrow href="/v2/gateways/guides/monitoring-and-tooling/monitoring-setup" label="Monitoring setup" newline={false} />
-    - <LinkArrow href="/v2/gateways/guides/monitoring-and-tooling/on-chain-debugging" label="On-chain debugging" newline={false} />
+    - <LinkArrow href="/v2/gateways/guides/monitoring-and-tooling/on-chain-metrics" label="On-chain metrics" newline={false} />
     - <LinkArrow href="/v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards" label="Tools & dashboards" newline={false} />
     - <LinkArrow href="/v2/gateways/guides/monitoring-and-tooling/troubleshooting" label="Troubleshooting" newline={false} />
   </Accordion>
 
   <Accordion title="Advanced Operations" icon="gear">
-    Production hardening, orchestrator selection strategy, scaling, middleware, and publishing your gateway to the network.
+    Orchestrator selection strategy, scaling, middleware, and publishing a gateway to the network.
 
-    - <LinkArrow href="/v2/gateways/guides/advanced-operations/production-hardening" label="Production hardening" newline={false} />
     - <LinkArrow href="/v2/gateways/guides/advanced-operations/orchestrator-selection" label="Orchestrator selection" newline={false} />
     - <LinkArrow href="/v2/gateways/guides/advanced-operations/scaling" label="Scaling" newline={false} />
     - <LinkArrow href="/v2/gateways/guides/advanced-operations/gateway-middleware" label="Gateway middleware" newline={false} />
-    - <LinkArrow href="/v2/gateways/guides/advanced-operations/publishing" label="Publishing your gateway" newline={false} />
+    - <LinkArrow href="/v2/gateways/guides/advanced-operations/gateway-discoverability" label="Publishing a gateway" newline={false} />
   </Accordion>
 
   <Accordion title="Opportunities" icon="rocket">
@@ -302,7 +301,7 @@ Each guides subsection covers a specific operational area. Expand any topic to s
 | **Video platform** | [Requirements](/v2/gateways/setup/requirements/setup) | [Video config](/v2/gateways/setup/configure/video-configuration) | [Troubleshooting](/v2/gateways/guides/monitoring-and-tooling/troubleshooting) |
 | **Platform builder** | [Business model](/v2/gateways/concepts/business-model) | [NaaP guide](/v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy) | [Middleware](/v2/gateways/guides/advanced-operations/gateway-middleware) |
 | **Evaluating** | [Gateway role](/v2/gateways/concepts/role) | [Capabilities](/v2/gateways/concepts/capabilities) | [Ecosystem](/v2/gateways/guides/roadmap-and-funding/gateway-showcase) |
-| **Existing operator** | [Advanced ops](/v2/gateways/guides/advanced-operations/production-hardening) | [Scaling](/v2/gateways/guides/advanced-operations/scaling) | [Health checks](/v2/gateways/guides/monitoring-and-tooling/gateway-health-checks) |
+| **Existing operator** | [Orchestrator selection](/v2/gateways/guides/advanced-operations/orchestrator-selection) | [Scaling](/v2/gateways/guides/advanced-operations/scaling) | [Health checks](/v2/gateways/guides/monitoring-and-tooling/health-checks) |
 | **Grant applicant** | [SPE model](/v2/gateways/guides/roadmap-and-funding/spe-grant-model) | [Opportunities](/v2/gateways/guides/roadmap-and-funding/operator-support) | [Community](/v2/gateways/guides/roadmap-and-funding/gateway-showcase) |
 
 <CustomDivider />

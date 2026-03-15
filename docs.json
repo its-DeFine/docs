@@ -2559,6 +2559,7 @@
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
                         "pages": [
                           "v2/gateways/quickstart/gateway-setup",
+                          "v2/gateways/guides/tutorials/byoc-cpu-tutorial",
                           "v2/gateways/quickstart/AI-prompt"
                         ]
                       },
@@ -2603,9 +2604,9 @@
                               {
                                 "group": "End-to-End Tutorial",
                                 "pages": [
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-offchain-transcoding-test",
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-byoc-cpu-pipeline",
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-go-production"
+                                  "v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test",
+                                  "v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline",
+                                  "v2/gateways/guides/tutorials/tutorial-3-go-production"
                                 ]
                               },
                               {
@@ -2661,51 +2662,44 @@
                               "v2/gateways/guides/payments-and-pricing/payment-guide",
                               "v2/gateways/guides/payments-and-pricing/funding-guide",
                               "v2/gateways/guides/payments-and-pricing/pricing-strategy",
-                              "v2/gateways/guides/payments-and-pricing/clearinghouse-guide",
-                              "v2/gateways/guides/payments-and-pricing/remote-signers"
+                              "v2/gateways/guides/payments-and-pricing/remote-signers",
+                              "v2/gateways/guides/payments-and-pricing/clearinghouse-guide"
                             ]
                           },
                           {
                             "group": "Monitoring and Tooling",
                             "pages": [
-                              "v2/gateways/guides/monitoring-and-tooling/gateway-health-checks",
-                              "v2/gateways/guides/monitoring-and-tooling/monitoring-setup",
-                              "v2/gateways/guides/monitoring-and-tooling/on-chain-debugging",
+                              "v2/gateways/guides/monitoring-and-tooling/health-checks",
                               "v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards",
+                              "v2/gateways/guides/monitoring-and-tooling/monitoring-setup",
+                              "v2/gateways/guides/monitoring-and-tooling/on-chain-metrics",
                               "v2/gateways/guides/monitoring-and-tooling/troubleshooting"
                             ]
                           },
                           {
                             "group": "Advanced Operations",
                             "pages": [
-                              "v2/gateways/guides/advanced-operations/production-hardening",
                               "v2/gateways/guides/advanced-operations/orchestrator-selection",
                               "v2/gateways/guides/advanced-operations/scaling",
                               "v2/gateways/guides/advanced-operations/gateway-middleware",
-                              "v2/gateways/guides/advanced-operations/publishing"
+                              "v2/gateways/guides/advanced-operations/gateway-discoverability"
                             ]
                           },
                           {
-                            "group": "Opportunities",
+                            "group": "Roadmap and Funding",
                             "pages": [
-                              "v2/gateways/guides/opportunities/overview",
-                              "v2/gateways/guides/opportunities/naap-multi-tenancy",
-                              "v2/gateways/guides/opportunities/spe-grant-model",
-                              "v2/gateways/guides/opportunities/community-ecosystem"
+                              "v2/gateways/guides/roadmap-and-funding/operator-support",
+                              "v2/gateways/guides/roadmap-and-funding/spe-grant-model",
+                              "v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy",
+                              "v2/gateways/guides/roadmap-and-funding/gateway-showcase"
                             ]
                           },
                           {
-                            "group": "Tutorials",
+                            "group": "Tutorial: Zero-to-Hero",
                             "pages": [
-                              "v2/gateways/guides/tutorials/byoc-cpu-tutorial",
-                              {
-                                "group": "Gateway-Orchestrator Zero-To-Hero Tutorial",
-                                "pages": [
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-offchain-transcoding-test",
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-byoc-cpu-pipeline",
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-go-production"
-                                ]
-                              }
+                              "v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test",
+                              "v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline",
+                              "v2/gateways/guides/tutorials/tutorial-3-go-production"
                             ]
                           }
                         ]
@@ -2721,7 +2715,7 @@
                             "pages": [
                               "v2/gateways/resources/technical/technical-architecture",
                               "v2/gateways/resources/technical/configuration-flags",
-                              "v2/gateways/resources/technical/configuration-flags",
+                              "v2/gateways/resources/technical/contract-addresses",
                               "v2/gateways/resources/technical/cli-commands",
                               {
                                 "group": "AI API",
@@ -2764,6 +2758,16 @@
                                   "v2/gateways/resources/technical/arbitrum-rpc"
                                 ]
                               }
+                            ]
+                          },
+                          {
+                            "group": "go-livepeer Reference",
+                            "pages": [
+                              "v2/gateways/resources/go-livepeer/bandwidth-requirements",
+                              "v2/gateways/resources/go-livepeer/hardware-requirements",
+                              "v2/gateways/resources/go-livepeer/gpu-support",
+                              "v2/gateways/resources/go-livepeer/cli-reference",
+                              "v2/gateways/resources/go-livepeer/prometheus-metrics"
                             ]
                           },
                           {
@@ -3923,7 +3927,7 @@
     },
     {
       "source": "/v2/gateways/run-a-gateway/gateway-operator-opportunities",
-      "destination": "/v2/gateways/guides/opportunities/overview"
+      "destination": "/v2/gateways/guides/roadmap-and-funding/operator-support"
     },
     {
       "source": "/v2/gateways/run-a-gateway/run-a-gateway",
@@ -4248,6 +4252,78 @@
     {
       "source": "/v2/orchestrators/resources/cli-flags",
       "destination": "/v2/orchestrators/resources/technical/cli-flags"
+    },
+    {
+      "source": "/v2/gateways/guides/opportunities/overview",
+      "destination": "/v2/gateways/guides/roadmap-and-funding/operator-support"
+    },
+    {
+      "source": "/v2/gateways/guides/opportunities/naap-multi-tenancy",
+      "destination": "/v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy"
+    },
+    {
+      "source": "/v2/gateways/guides/opportunities/spe-grant-model",
+      "destination": "/v2/gateways/guides/roadmap-and-funding/spe-grant-model"
+    },
+    {
+      "source": "/v2/gateways/guides/opportunities/community-ecosystem",
+      "destination": "/v2/gateways/guides/roadmap-and-funding/gateway-showcase"
+    },
+    {
+      "source": "/v2/gateways/guides/monitoring-and-tooling/gateway-health-checks",
+      "destination": "/v2/gateways/guides/monitoring-and-tooling/health-checks"
+    },
+    {
+      "source": "/v2/gateways/guides/monitoring-and-tooling/on-chain-debugging",
+      "destination": "/v2/gateways/guides/monitoring-and-tooling/on-chain-metrics"
+    },
+    {
+      "source": "/v2/gateways/guides/advanced-operations/production-hardening",
+      "destination": "/v2/gateways/guides/advanced-operations/orchestrator-selection"
+    },
+    {
+      "source": "/v2/gateways/guides/advanced-operations/publishing",
+      "destination": "/v2/gateways/guides/advanced-operations/gateway-discoverability"
+    },
+    {
+      "source": "/v2/gateways/tutorials/tutorial-offchain-transcoding-test",
+      "destination": "/v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test"
+    },
+    {
+      "source": "/v2/gateways/tutorials/tutorial-byoc-cpu-pipeline",
+      "destination": "/v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline"
+    },
+    {
+      "source": "/v2/gateways/tutorials/tutorial-go-production",
+      "destination": "/v2/gateways/guides/tutorials/tutorial-3-go-production"
+    },
+    {
+      "source": "/v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-1-offchain-transcoding-test",
+      "destination": "/v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test"
+    },
+    {
+      "source": "/v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-2-byoc-cpu-pipeline",
+      "destination": "/v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline"
+    },
+    {
+      "source": "/v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-3-go-production",
+      "destination": "/v2/gateways/guides/tutorials/tutorial-3-go-production"
+    },
+    {
+      "source": "/v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/verify-notes",
+      "destination": "/v2/gateways/guides/tutorials/verify-notes"
+    },
+    {
+      "source": "/v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/stubs/tutorial-offchain-transcoding-test",
+      "destination": "/v2/gateways/guides/tutorials/stubs/tutorial-offchain-transcoding-test"
+    },
+    {
+      "source": "/v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/stubs/tutorial-byoc-cpu-pipeline",
+      "destination": "/v2/gateways/guides/tutorials/stubs/tutorial-byoc-cpu-pipeline"
+    },
+    {
+      "source": "/v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/stubs/tutorial-go-production",
+      "destination": "/v2/gateways/guides/tutorials/stubs/tutorial-go-production"
     }
   ],
   "styling": {

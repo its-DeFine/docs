@@ -110,7 +110,7 @@ The following existing pages in the Livepeer docs were referenced but not treate
 - `https://docs.livepeer.org/gateways/setup/connect/discover-offerings`
 - `https://docs.livepeer.org/gateways/setup/connect/lp-marketplace`
 - `https://docs.livepeer.org/gateways/setup/monitor/monitor-and-optimise`
-- `https://docs.livepeer.org/gateways/guides/opportunities/overview`
+- `https://docs.livepeer.org/gateways/guides/roadmap-and-funding/operator-support`
 - `https://docs.livepeer.org/gateways/about/architecture`
 - `https://docs.livepeer.org/gateways/gateway-tools/gateway-introspection`
 - `https://docs.livepeer.org/gateways/gateway-tools/gateway-middleware`
