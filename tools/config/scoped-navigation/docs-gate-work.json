@@ -97,9 +97,9 @@
                               {
                                 "group": "End-to-End Tutorial",
                                 "pages": [
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-offchain-transcoding-test",
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-byoc-cpu-pipeline",
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-go-production"
+                                  "v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test",
+                                  "v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline",
+                                  "v2/gateways/guides/tutorials/tutorial-3-go-production"
                                 ]
                               },
                               {
@@ -188,16 +188,11 @@
                             ]
                           },
                           {
-                            "group": "Tutorials",
+                            "group": "Tutorial: Zero-to-Hero",
                             "pages": [
-                              {
-                                "group": "Gateway-Orchestrator Zero-To-Hero Tutorial",
-                                "pages": [
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-1-offchain-transcoding-test",
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-2-byoc-cpu-pipeline",
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-3-go-production"
-                                ]
-                              }
+                              "v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test",
+                              "v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline",
+                              "v2/gateways/guides/tutorials/tutorial-3-go-production"
                             ]
                           }
                         ]
