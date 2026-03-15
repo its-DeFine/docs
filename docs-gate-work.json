@@ -172,7 +172,6 @@
                           {
                             "group": "Advanced Operations",
                             "pages": [
-                              "v2/gateways/guides/advanced-operations/production-hardening",
                               "v2/gateways/guides/advanced-operations/orchestrator-selection",
                               "v2/gateways/guides/advanced-operations/scaling",
                               "v2/gateways/guides/advanced-operations/gateway-middleware",
@@ -214,7 +213,7 @@
                             "pages": [
                               "v2/gateways/resources/technical/technical-architecture",
                               "v2/gateways/resources/technical/configuration-flags",
-                              "v2/gateways/resources/technical/configuration-flags",
+                              "v2/gateways/resources/technical/contract-addresses",
                               "v2/gateways/resources/technical/cli-commands",
                               {
                                 "group": "AI API",
@@ -257,6 +256,16 @@
                                   "v2/gateways/resources/technical/arbitrum-rpc"
                                 ]
                               }
+                            ]
+                          },
+                          {
+                            "group": "go-livepeer Reference",
+                            "pages": [
+                              "v2/gateways/resources/go-livepeer/bandwidth-requirements",
+                              "v2/gateways/resources/go-livepeer/hardware-requirements",
+                              "v2/gateways/resources/go-livepeer/gpu-support",
+                              "v2/gateways/resources/go-livepeer/cli-reference",
+                              "v2/gateways/resources/go-livepeer/prometheus-metrics"
                             ]
                           },
                           {

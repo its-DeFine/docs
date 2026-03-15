@@ -1,5 +1,33 @@
 # Monitoring & Tooling Section Review
 
+## Outstanding REVIEW Flags (Gateway Tab)
+
+The troubleshooting page has 4 REVIEW flags but 253 REVIEW flags exist across 60 gateway files (72 in x-deprecated/x-archived, ~181 in active files). The troubleshooting page does not need all of them, but key TECHNICAL VERIFICATION flags that affect troubleshooting advice should be tracked here.
+
+**Key unresolved flags affecting troubleshooting content:**
+- **Deposit/reserve amounts**: Multiple pages reference "0.065 ETH deposit + 0.03 ETH reserve" for testing and "0.36 ETH reserve" for production. Needs Rick/Mehrdad confirmation. (funding-guide, health-checks, faq, business-case)
+- **CLI option numbers**: Option 1 (Get node status), Option 11 (Deposit broadcasting funds), Option 16 (Set max price per capability). Needs Rick confirmation. (funding-guide, pricing-strategy, tools-and-dashboards)
+- **CLI default port**: Is 5935 the default livepeer_cli port? v1 docs say yes but v2 tooling may differ. (funding-guide, health-checks, tools-and-dashboards)
+- **`/getOrchestratorInfo` endpoint**: Is this the correct endpoint for AI capability queries? (troubleshooting, health-checks, faq)
+- **Windows AI binary**: Is a Windows AI binary on the roadmap? (troubleshooting, faq)
+- **`-signer` flag name**: Is `-signer` the correct flag for remote signer mode? (remote-signers)
+- **`-signerAddr` flag name**: Is this the correct flag for pointing gateway at a signer? (remote-signers, clearinghouse-guide)
+- **`livepeer_success_rate` metric**: Does this exist as a direct gauge or must it be calculated? (monitoring-setup)
+- **`/hardware/stats` and `/hardware/info`**: Exposed on all gateway types or only when GPU is present? (health-checks)
+- **TicketBroker contract address**: Current address on Arbitrum One mainnet. (on-chain-metrics)
+- **TicketBroker event names**: Exact event names (`FundDeposit`, `FundReserve`, `RedeemWinningTicket`, `Unlock`, `Withdraw`). (on-chain-metrics)
+- **TicketBroker unlock period**: Historically 7 days on L1, may differ on Arbitrum. (funding-guide)
+- **`livepeer/livepeer-monitoring` repo**: Is it current and maintained? (monitoring-setup)
+- **Livepeer Tools URL**: `tools.livepeer.cloud` vs `livepeer.tools/gateways`. (tools-and-dashboards)
+- **Community signer URL**: `signer.eliteencoder.net` vs typo `signer.eiteencoder.net`. (remote-signers, clearinghouse-guide)
+- **Minimum go-livepeer version for remote signer**: PRs #3791/#3822 merged Jan 2026. (remote-signers)
+- **AI inference latency in Prometheus**: Will per-pipeline/per-model latency be added to `/metrics`? (monitoring-setup)
+- **LLM per-token pricing**: Is this implemented in go-livepeer? (pricing-strategy)
+- **`-priceFeedAddr` requirement**: Required when using USD notation in `-maxPricePerUnit`? (pricing-strategy)
+- **ByteDance/SDXL-Lightning**: Still a reliable model for onboarding tests? (troubleshooting, health-checks)
+
+---
+
 ## Section Structure
 
 **Current nav order:**
