@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-15T11:28:43.716Z",
+  "generated": "2026-03-15T17:48:15.657Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/portal",
@@ -3579,7 +3579,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 4369,
+      "wordCount": 4457,
       "lastVerified": "2026-03-12T15:26:20+11:00",
       "headings": [
         {
@@ -3624,22 +3624,17 @@
     {
       "url": "https://docs.livepeer.org/docs-guide/catalog/workflows-catalog",
       "title": "Workflows Catalog",
-      "description": "Aggregate catalog of repository GitHub workflows",
+      "description": "",
       "section": "docs-guide",
       "tags": [
-        "livepeer",
-        "workflows-catalog",
-        "aggregate-inventory",
-        "repository",
-        "github",
-        "workflows",
         "docs-guide",
-        "catalog"
+        "catalog",
+        "workflows-catalog"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 986,
+      "wordCount": 837,
       "lastVerified": "2026-03-12T15:26:20+11:00",
       "headings": [],
       "codeLanguages": []
@@ -3647,21 +3642,17 @@
     {
       "url": "https://docs.livepeer.org/docs-guide/catalog/templates-catalog",
       "title": "Templates Catalog",
-      "description": "Aggregate catalog of repository templates",
+      "description": "",
       "section": "docs-guide",
       "tags": [
-        "livepeer",
-        "templates-catalog",
-        "aggregate-inventory",
-        "repository",
-        "templates",
         "docs-guide",
-        "catalog"
+        "catalog",
+        "templates-catalog"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 301,
+      "wordCount": 243,
       "lastVerified": "2026-03-12T15:26:20+11:00",
       "headings": [],
       "codeLanguages": []
