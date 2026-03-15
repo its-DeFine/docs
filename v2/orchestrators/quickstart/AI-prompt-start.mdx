@@ -7,12 +7,11 @@ pageType: 'guide'
 audience: 'orchestrator'
 status: 'review'
 'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
+'og:image:alt': Livepeer Docs social preview image for Orchestrators
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
 lastVerified: '2026-03-10'
-og:image: /snippets/assets/site/og-image/fallback.png
-og:image:alt: Livepeer Docs social preview image for Orchestrators
-og:image:type: image/png
-og:image:width: 1200
-og:image:height: 630
 ---
 {/* TODO:
 Terminology Validation:
@@ -56,7 +55,7 @@ Before you begin:
 This guide adds AI inference to an existing transcoding node. If you are setting up from scratch, start with [Install go-livepeer](/v2/orchestrators/setup/rs-install).
 </Note>
 
----
+<CustomDivider />
 
 ## Check your hardware
 
@@ -64,13 +63,13 @@ AI inference runs in a separate Docker container alongside your transcoding proc
 
 Run this command to list your GPUs and their VRAM:
 
-```bash
+```bash icon="terminal"
 nvidia-smi --query-gpu=index,name,memory.total,memory.free --format=csv
 ```
 
 You should see output similar to:
 
-```
+``` icon="terminal"
 index, name, memory.total [MiB], memory.free [MiB]
 0, NVIDIA GeForce RTX 3090, 24576 MiB, 22000 MiB
 ```
@@ -95,25 +94,25 @@ For details on each pipeline, see [Job Types](/v2/orchestrators/guides/workloads
 If your GPU does not have enough free VRAM to run both transcoding and your chosen AI pipeline, AI runner containers will fail to start. Either select a lower-VRAM pipeline, dedicate a second GPU exclusively to AI, or stop transcoding on that GPU before enabling AI. {/* REVIEW: confirm safe VRAM headroom needed alongside transcoding from Discord/#orchestrating */}
 </Warning>
 
----
+<CustomDivider />
 
 ## Step 1 — Pull the AI runner image
 
 The AI subnet uses a separate Docker image (`livepeer/ai-runner`) to run inference. Pull it before starting your node:
 
-```bash
+```bash icon="terminal"
 docker pull livepeer/ai-runner:latest
 ```
 
 If you plan to run the `segment-anything-2` pipeline, also pull its pipeline-specific image:
 
-```bash
+```bash icon="terminal"
 docker pull livepeer/ai-runner:segment-anything-2
 ```
 
 Check the [AI Pipelines](/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide) documentation for any other pipeline-specific images.
 
----
+<CustomDivider />
 
 ## Step 2 — Configure aiModels.json
 
@@ -121,13 +120,13 @@ The `aiModels.json` file tells your orchestrator which AI pipelines and models t
 
 Create the file at `~/.lpData/aiModels.json`:
 
-```bash
+```bash icon="terminal"
 touch ~/.lpData/aiModels.json
 ```
 
 Add at least one pipeline entry. The example below configures a single `text-to-image` pipeline with a warm model — the minimal working configuration:
 
-```json
+```json icon="terminal"
 [
   {
     "pipeline": "text-to-image",
@@ -157,7 +156,7 @@ During Beta, only one warm model per GPU is supported. Set `"warm": true` for th
 
 For recommended pricing per pipeline, see [Job Types](/v2/orchestrators/guides/workloads-and-ai/job-types). For a full multi-pipeline example, see [AI Pipeline Configuration](/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide). {/* REVIEW: confirm path */}
 
----
+<CustomDivider />
 
 ## Step 3 — Update your startup command
 
@@ -169,7 +168,7 @@ Stop your current go-livepeer process, then restart it with the following additi
 
 **Before (transcoding only):**
 
-```bash
+```bash icon="terminal"
 livepeer \
   -network arbitrum-one-mainnet \
   -ethUrl <ETH_URL> \
@@ -182,7 +181,7 @@ livepeer \
 
 **After (transcoding + AI):**
 
-```bash
+```bash icon="terminal"
 livepeer \
   -network arbitrum-one-mainnet \
   -ethUrl <ETH_URL> \
@@ -198,7 +197,7 @@ livepeer \
 
 If you are running via Docker, mount the Docker socket so the orchestrator can manage ai-runner containers:
 
-```bash
+```bash icon="terminal"
 docker run \
   --name livepeer_orchestrator \
   -v ~/.lpData/:/root/.lpData/ \
@@ -222,7 +221,7 @@ docker run \
 The `-aiModelsDir` path must be the **host machine path**, not the path inside the Docker container. The orchestrator uses docker-out-of-docker to start ai-runner containers, and passes this path directly to them.
 </Note>
 
----
+<CustomDivider />
 
 ## Step 4 — Verify AI is active
 
@@ -230,7 +229,7 @@ The `-aiModelsDir` path must be the **host machine path**, not the path inside t
 
 Within a few seconds of startup, you should see a line like this for each model configured as warm:
 
-```
+``` icon="terminal"
 2024/05/01 09:01:39 INFO Starting managed container gpu=0 name=text-to-image_ByteDance_SDXL-Lightning modelID=ByteDance/SDXL-Lightning
 ```
 
@@ -245,7 +244,7 @@ Once running, confirm the AI runner responds by sending a test inference request
 
 Alternatively, use curl:
 
-```bash
+```bash icon="terminal"
 curl -X POST "http://localhost:8000/text-to-image" \
   -H "Content-Type: application/json" \
   -d '{"model_id": "ByteDance/SDXL-Lightning", "prompt": "A cool cat on the beach", "width": 512, "height": 512}'
@@ -259,7 +258,7 @@ A successful response returns a JSON object with an `images` array containing a 
 
 Your AI pipelines will appear in the [Livepeer Explorer](https://explorer.livepeer.org) on your orchestrator's profile once on-chain capability advertisement is configured. See [Publish Offerings](/v2/orchestrators/setup/activate) for that step. {/* REVIEW: confirm path */}
 
----
+<CustomDivider />
 
 ## Choose your AI path
 
@@ -282,7 +281,7 @@ Your AI runner is active. The next step depends on which pipeline type you want 
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Related
 

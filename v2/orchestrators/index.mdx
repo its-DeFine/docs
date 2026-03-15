@@ -25,6 +25,8 @@ Run command: node tools/scripts/generate-pages-index.js --write
 
 - [⚠️ IA](IA.mdx)
 - [Should You Run a Livepeer Orchestrator?](navigator.mdx)
+- [⚠️ Orchestrator Tab Review V2](orchestrator-tab-review-v2.md)
+- [⚠️ Orchestrator Tab Review](orchestrator-tab-review.md)
 - [⚠️ Personas-and-pages Temp file](personas-and-pages.mdx)
 - [Orchestrator Portal](portal.mdx)
 - [⚠️ Find Your Path to Becoming a Livepeer Orchestrator](rc-navigator.mdx)
@@ -49,8 +51,12 @@ Run command: node tools/scripts/generate-pages-index.js --write
 ## Concepts
 - [Orchestrator Architecture](concepts/architecture.mdx)
 - [Orchestrator Capabilities](concepts/capabilities.mdx)
+- [⚠️ Orchestrator Architecture](concepts/dep-architecture.mdx)
+- [⚠️ Orchestrator Capabilities](concepts/dep-capabilities.mdx)
+- [⚠️ Orchestrator Economics and Incentives](concepts/dep-incentive-model.mdx)
+- [⚠️ The Orchestrator Role in the Livepeer Network](concepts/dep-role.mdx)
 - [⚠️ Orchestrator Core Services and Workloads](concepts/dep-workloads.mdx)
-- [Orchestrator Economics and Incentives](concepts/rcs-incentives.mdx)
+- [⚠️ Orchestrator Incentive Model](concepts/incentive-model.mdx)
 - [The Orchestrator Role in the Livepeer Network](concepts/role.mdx)
 - [⚠️ Job Types](concepts/rs-workloads.mdx)
 
@@ -58,74 +64,95 @@ Run command: node tools/scripts/generate-pages-index.js --write
 - [⚠️ Orchestrator Role Diagram](concepts/composable/orchestratorRole.mdx)
 
 ## Guides
-- [⚠️ Advanced Operations Guide](guides/guide.mdx)
 - [⚠️ Notes](guides/notes.md)
 - [⚠️ RESTRUCTURE PLAN](guides/RESTRUCTURE-PLAN.md)
 
 ### Advanced Operations
 - [⚠️ Advanced Sources](guides/advanced-operations/advanced-sources.md)
+- [⚠️ Advanced Operations Guide](guides/advanced-operations/dep-guide.mdx)
 - [Gateway Relationships](guides/advanced-operations/gateways-orchestrators.mdx)
 - [Fleet Operations](guides/advanced-operations/large-scale-operations.mdx)
 - [Split Orchestrator-Transcoder Setup](guides/advanced-operations/orchestrator-transcoder-setup.mdx)
 - [Run a Pool](guides/advanced-operations/run-a-pool.mdx)
 
-### Feasibility And Hardware
-- [Benchmarking Your Setup](guides/feasibility-and-hardware/benchmarking.mdx)
-- [⚠️ Feasibilits Sources](guides/feasibility-and-hardware/feasibilits-sources.md)
-- [Feasibility and Economics](guides/feasibility-and-hardware/feasibility-economics.mdx)
-- [GPU and Hardware Reference](guides/feasibility-and-hardware/hardware-reference.mdx)
-- [Bandwidth and Session Limits](guides/feasibility-and-hardware/session-limits.mdx)
+### Ai And Job Workloads
+- [⚠️ Ai Sources](guides/ai-and-job-workloads/ai-sources.md)
+- [⚠️ AI Workloads on Livepeer](guides/ai-and-job-workloads/ai-workloads-guide.mdx)
+- [⚠️ Ai Workloads Resource List](guides/ai-and-job-workloads/ai-workloads-resource-list.md)
+- [⚠️ Batch AI Setup](guides/ai-and-job-workloads/batch-ai-setup.mdx)
+- [⚠️ Job Types Overview](guides/ai-and-job-workloads/job-types.mdx)
+- [⚠️ Models and VRAM Planning](guides/ai-and-job-workloads/model-vram-reference.mdx)
+- [⚠️ Real-time AI Setup](guides/ai-and-job-workloads/realtime-ai-setup.mdx)
+- [⚠️ Video Transcoding](guides/ai-and-job-workloads/video-transcoding.mdx)
 
-### Monitoring And Troubleshooting
-- [Reading the Livepeer Explorer](guides/monitoring-and-troubleshooting/explorer-guide.mdx)
-- [Metrics and Monitoring](guides/monitoring-and-troubleshooting/metrics-monitoring.mdx)
-- [⚠️ Monitoring Sources](guides/monitoring-and-troubleshooting/monitoring-sources.md)
-- [Orchestrator Tools](guides/monitoring-and-troubleshooting/tools.mdx)
-- [Troubleshooting](guides/monitoring-and-troubleshooting/troubleshooting.mdx)
+### Deployment Details
+- [⚠️ Benchmarking Your Setup](guides/deployment-details/benchmarking.mdx)
+- [⚠️ Benchmarking Your Setup](guides/deployment-details/dep-benchmarking.mdx)
+- [⚠️ GPU and Hardware Reference](guides/deployment-details/dep-requirements.mdx)
+- [⚠️ Bandwidth and Session Limits](guides/deployment-details/dep-session-limits.mdx)
+- [⚠️ Find Your Orchestrator Path](guides/deployment-details/dep-setup-navigator.mdx)
+- [⚠️ Setup Options to Running an Orchestrator](guides/deployment-details/dep-setup-options.mdx)
+- [⚠️ Split Setup with OrchestratorSiphon](guides/deployment-details/dep-siphon-setup.mdx)
+- [⚠️ Join a Pool](guides/deployment-details/join-a-pool.mdx)
+- [⚠️ Join a Pool](guides/deployment-details/new-join-a-pool.mdx)
+- [⚠️ Hardware Requirements](guides/deployment-details/requirements.mdx)
+- [⚠️ Review](guides/deployment-details/review.md)
+- [⚠️ Session Limits](guides/deployment-details/session-limits.mdx)
+- [⚠️ Setup Options](guides/deployment-details/setup-options.mdx)
+- [⚠️ Setup Sources](guides/deployment-details/setup-sources.md)
 
-### Setup Paths
-- [Find Your Path to Running an Orchestrator](guides/setup-paths/find-your-path.mdx)
-- [Join a Pool](guides/setup-paths/join-a-pool.mdx)
-- [Find Your Orchestrator Path](guides/setup-paths/setup-navigator.mdx)
-- [⚠️ Setup Sources](guides/setup-paths/setup-sources.md)
-- [Split Setup with OrchestratorSiphon](guides/setup-paths/siphon-setup.mdx)
+### Monitoring And Tooling
+- [⚠️ Reading the Livepeer Explorer](guides/monitoring-and-tooling/explorer-guide.mdx)
+- [⚠️ Metrics and Monitoring](guides/monitoring-and-tooling/metrics-monitoring.mdx)
+- [⚠️ Monitoring Sources](guides/monitoring-and-tooling/monitoring-sources.md)
+- [⚠️ Orchestrator Tools](guides/monitoring-and-tooling/tools.mdx)
+- [⚠️ Troubleshooting](guides/monitoring-and-tooling/troubleshooting.mdx)
+
+### Operator Considerations
+- [⚠️ The Commercial Case](guides/operator-considerations/business-case.mdx)
+- [⚠️ Business Case](guides/operator-considerations/dep-business-case.mdx)
+- [⚠️ Operator Rationale](guides/operator-considerations/dep-operator-rationale.mdx)
+- [⚠️ Protocol Influence](guides/operator-considerations/dep-protocol-influence.mdx)
+- [⚠️ Feasibilits Sources](guides/operator-considerations/feasibilits-sources.md)
+- [⚠️ Operating Rationale](guides/operator-considerations/operator-rationale.mdx)
+- [⚠️ Protocol Influence](guides/operator-considerations/protocol-influence.mdx)
+- [⚠️ Review](guides/operator-considerations/review.md)
+
+### Payments And Pricing
+- [⚠️ Payment Flow](guides/payments-and-pricing/payment-flow.mdx)
+- [⚠️ Payments](guides/payments-and-pricing/payments.mdx)
+- [⚠️ Pricing Strategy](guides/payments-and-pricing/pricing-strategy.mdx)
+
+### Roadmap And Funding
+- [⚠️ Operator Support](guides/roadmap-and-funding/operator-support.mdx)
+- [⚠️ Orchestrator Showcase](guides/roadmap-and-funding/orchestrator-showcase.mdx)
 
 ### Staking And Rewards
 - [Getting Delegates](guides/staking-and-rewards/attracting-delegates.mdx)
 - [Earnings Explained](guides/staking-and-rewards/earnings.mdx)
 - [Governance and Voting](guides/staking-and-rewards/governance.mdx)
-- [Payments](guides/staking-and-rewards/payments.mdx)
 - [Rewards and Fees](guides/staking-and-rewards/rewards-and-fees.mdx)
 - [⚠️ Staking Rewards Sources](guides/staking-and-rewards/staking-rewards-sources.md)
 
 ### Tutorials
 - [⚠️ BYOC smoke-test: CPU gateway and orchestrator (off-chain to on-chain)](guides/tutorials/byoc-cpu-tutorial.mdx)
+- [⚠️ Add AI: BYOC CPU pipeline](guides/tutorials/imported-tutorial-1-byoc-cpu-pipeline.mdx)
+- [⚠️ Your first gateway: off-chain transcoding test](guides/tutorials/imported-tutorial-2-offchain-transcoding-test.mdx)
+- [⚠️ Go production: on-chain, GPU, and network connect](guides/tutorials/imported-tutorial-3-go-production.mdx)
 
-#### Gateway Orchestrator Full Tutorial
-- [⚠️ Add AI: BYOC CPU pipeline](guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-byoc-cpu-pipeline.mdx)
-- [⚠️ Go production: on-chain, GPU, and network connect](guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-go-production.mdx)
-- [⚠️ Your first gateway: off-chain transcoding test](guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-offchain-transcoding-test.mdx)
-- [⚠️ Verify Notes](guides/tutorials/gateway-orchestrator-full-tutorial/verify-notes.md)
+#### Gateway Tutorial Composable Pages
+- [⚠️ Verify Notes](guides/tutorials/gateway-tutorial-composable-pages/verify-notes.md)
 
 ##### Stubs
-- [⚠️ Add AI: BYOC CPU Pipeline](guides/tutorials/gateway-orchestrator-full-tutorial/stubs/tutorial-byoc-cpu-pipeline.mdx)
-- [⚠️ Go Production: On-chain, GPU, and Network Connect](guides/tutorials/gateway-orchestrator-full-tutorial/stubs/tutorial-go-production.mdx)
-- [⚠️ Your First Gateway: Off-chain Transcoding Test](guides/tutorials/gateway-orchestrator-full-tutorial/stubs/tutorial-offchain-transcoding-test.mdx)
-
-### Workloads And Ai
-- [⚠️ Ai Sources](guides/workloads-and-ai/ai-sources.md)
-- [AI Workloads on Livepeer](guides/workloads-and-ai/ai-workloads-guide.mdx)
-- [⚠️ Ai Workloads Resource List](guides/workloads-and-ai/ai-workloads-resource-list.md)
-- [Batch AI Setup](guides/workloads-and-ai/batch-ai-setup.mdx)
-- [Job Types Overview](guides/workloads-and-ai/job-types.mdx)
-- [Models and VRAM Planning](guides/workloads-and-ai/model-vram-reference.mdx)
-- [Real-time AI Setup](guides/workloads-and-ai/realtime-ai-setup.mdx)
-- [Video Transcoding](guides/workloads-and-ai/video-transcoding.mdx)
+- [⚠️ Add AI: BYOC CPU Pipeline](guides/tutorials/gateway-tutorial-composable-pages/stubs/tutorial-byoc-cpu-pipeline.mdx)
+- [⚠️ Go Production: On-chain, GPU, and Network Connect](guides/tutorials/gateway-tutorial-composable-pages/stubs/tutorial-go-production.mdx)
+- [⚠️ Your First Gateway: Off-chain Transcoding Test](guides/tutorials/gateway-tutorial-composable-pages/stubs/tutorial-offchain-transcoding-test.mdx)
 
 ## Quickstart
 - [⚠️ Add AI to Your Node](quickstart/AI-prompt-start.mdx)
 - [⚠️ How to Get Started](quickstart/dep-x-setup-paths.mdx)
 - [Orchestrator Quickstart](quickstart/guide.mdx)
+- [⚠️ Tutorial](quickstart/tutorial.mdx)
 - [Video Transcoding Quickstart](quickstart/video-transcoding.mdx)
 
 ## Resources
@@ -134,6 +161,7 @@ Run command: node tools/scripts/generate-pages-index.js --write
 - [Community Guides & Tutorials](resources/community-guides.mdx)
 - [Community Orchestrator Pools](resources/community-pools.mdx)
 - [FAQ and Troubleshooting](resources/faq.mdx)
+- [⚠️ Glossary](resources/glossary.mdx)
 - [GPU Support Matrix](resources/gpu-support.mdx)
 - [⚠️ Plan](resources/plan.md)
 - [Orchestrator Guides](resources/x-guides.mdx)
@@ -141,14 +169,15 @@ Run command: node tools/scripts/generate-pages-index.js --write
 - [Orchestrator Payments](resources/x-payments.mdx)
 
 ### Technical
-- [cli-flags reference](resources/technical/cli-flags.mdx)
+- [CLI Flags Reference](resources/technical/cli-flags.mdx)
 - [X-changelog](resources/technical/x-changelog.mdx)
 - [Livepeer Arbitrum Contract Adresses](resources/technical/x-contract-addresses.mdx)
 - [Support Status](resources/technical/x-support-status.mdx)
 - [Troubleshooting](resources/technical/x-troubleshooting.mdx)
 
 ## Setup
-- [Activate on the Network](setup/activate.mdx)
+- [⚠️ Connecting to the Livepeer Network on Arbitrum](setup/connect-and-activate.mdx)
+- [⚠️ Activate on the Network](setup/dep-activate.mdx)
 - [⚠️ Configure Your Orchestrator](setup/dep-config.mdx)
 - [⚠️ Setting up an Orchestrator](setup/dep-s-guide.mdx)
 - [Run an Orchestrator](setup/guide.mdx)
@@ -157,7 +186,6 @@ Run command: node tools/scripts/generate-pages-index.js --write
 - [Setup Checklist](setup/rcs-requirements.mdx)
 - [Install go-livepeer](setup/rs-install.mdx)
 - [⚠️ Setting up an Orchestrator](setup/s-guide.mdx)
-- [Connecting to the Livepeer Network on Arbitrum](setup/sc-connect.mdx)
 - [Verify Your Setup](setup/test.mdx)
 - [⚠️ Testing Your Orchestrator Setup](setup/x-test.mdx)
 

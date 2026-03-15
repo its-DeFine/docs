@@ -2,9 +2,8 @@
 title: 'Hardware Requirements'
 sidebarTitle: 'Hardware Requirements'
 description: >-
-  GPU support policy, NVENC session limits by card tier, VRAM requirements by
-  AI pipeline, system stack minimums, capacity testing with livepeer_bench,
-  and a pre-launch readiness checklist.
+  GPU support policy, NVENC and NVDEC session limits by card tier, VRAM requirements
+  by AI pipeline, system stack minimums, and a pre-launch readiness checklist.
 keywords:
   - livepeer
   - orchestrator
@@ -15,11 +14,10 @@ keywords:
   - nvdec
   - vram
   - cuda
-  - livepeer_bench
+  - session limits
   - transcoding hardware
   - ai inference hardware
   - requirements
-  - capacity
 'og:image': /snippets/assets/site/og-image/en/orchestrators.png
 'og:image:alt': Livepeer Docs social preview image for Orchestrators
 'og:image:type': image/png
@@ -41,8 +39,6 @@ Verify:
 Human:
 - REVIEW: NVENC consumer card session cap (2-3 for RTX 40xx) - Ada Lovelace generation may have changed. Rick to confirm.
 - REVIEW: CUDA minimum version (12.0) - verify against current AI runner container base image
-- REVIEW: test stream URL (storage.googleapis.com) - verify still live before publishing. Rick to test.
-- REVIEW: 0.8 ratio threshold is a community convention, not a go-livepeer hard limit. Confirm with Discord #orchestrators.
 - Confirm port numbers (8935 orchestrator RPC, 7935 CLI) are still current go-livepeer defaults
 */}
 
@@ -53,9 +49,11 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-Hardware is the primary constraint for every workload type on Livepeer. This page covers GPU
-support policy, session limits by card tier, VRAM requirements by AI pipeline, the minimum
-system stack, capacity testing, and the checklist to run before activating on the network.
+Hardware is the primary constraint for every workload type on Livepeer. This page is a practical
+reference: GPU support policy, session limits by card tier, VRAM requirements by AI pipeline, the
+minimum system stack, and the checklist to run before activating on the network.
+
+For help choosing the right path before setup, see <LinkArrow href="/v2/orchestrators/guides/deployment-details/setup-options" label="Setup Options" newline={false} />. For measuring actual GPU transcoding capacity, see <LinkArrow href="/v2/orchestrators/guides/deployment-details/benchmarking" label="Benchmarking" newline={false} />.
 
 <CustomDivider middleText="GPU Support" style={{margin: "-1rem 0 -2rem 0"}} />
 
@@ -99,11 +97,11 @@ Consumer cards are typically limited to **2-3 concurrent NVENC encode sessions**
 or failing with `NvEncOpenEncodeSessionEx` errors. This is a hardware-enforced licensing restriction,
 not a software limitation in go-livepeer.
 
-Check the official NVIDIA matrix for exact limits per generation:
+The official NVIDIA matrix shows NVENC and NVDEC session counts per GPU generation:
 
 **[developer.nvidia.com/video-encode-decode-gpu-support-matrix](https://developer.nvidia.com/video-encode-decode-gpu-support-matrix)**
 
-{/* REVIEW: Consumer card session cap may have changed for Ada Lovelace (RTX 40xx series). Rick to verify current RTX 4090/4080 NVENC session cap. */}
+{/* REVIEW: Consumer card session cap may have changed for Ada Lovelace (RTX 40xx series). Rick to verify current RTX 4090 / 4080 NVENC session cap against the matrix. */}
 
 <StyledTable variant="bordered">
   <thead>
@@ -142,9 +140,9 @@ Check the official NVIDIA matrix for exact limits per generation:
   </tbody>
 </StyledTable>
 
-Exact session counts can vary by GPU generation and NVIDIA policy. Verify the specific card in the
-matrix. The NVENC cap is the binding constraint for consumer card operators - the capacity test
-below will confirm this.
+Exact session counts can vary by GPU generation and NVIDIA policy. Verify the specific card in
+the matrix rather than assuming a tier-wide cap applies. If running a consumer card,
+<LinkArrow href="/v2/orchestrators/guides/deployment-details/benchmarking" label="benchmark it" newline={false} /> first - the NVENC cap will constrain the practical ceiling to 2-3 sessions.
 
 <CustomDivider middleText="Hardware Tiers" style={{margin: "-1rem 0 -2rem 0"}} />
 
@@ -188,8 +186,8 @@ Not competitive at scale.
 
 ### Batch AI inference
 
-AI inference requires VRAM. Full pipeline-by-pipeline VRAM figures are in
-<LinkArrow href="/v2/orchestrators/guides/workloads-and-ai/model-vram-reference" label="Models and VRAM Reference" newline={false} />.
+AI inference requires VRAM. The table below is a summary - full pipeline-by-pipeline VRAM figures
+are in <LinkArrow href="/v2/orchestrators/guides/workloads-and-ai/model-vram-reference" label="Models and VRAM Reference" newline={false} />.
 
 <StyledTable variant="bordered">
   <thead>
@@ -224,15 +222,17 @@ Real-time video AI has stricter requirements than batch AI:
 
 - **Minimum VRAM:** 12-16 GB (StreamDiffusion with SD 1.5)
 - **Competitive VRAM:** 24 GB (StreamDiffusion with SDXL)
+- **Additional requirements:** fast PCIe bandwidth for frame buffer throughput; low-latency memory
 - **Frame buffer overhead:** add 1-2 GB on top of the model's base VRAM footprint
-- **Additional requirements:** fast PCIe bandwidth; low-latency memory
 
 Real-time pipelines require models warm at all times. A cold start during an active stream causes
-visible interruption. See <LinkArrow href="/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup" label="Realtime AI Setup" newline={false} /> for full runtime requirements.
+visible interruption for end users. See <LinkArrow href="/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup" label="Realtime AI Setup" newline={false} /> for full runtime requirements.
 
 <CustomDivider middleText="System Stack" style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## System Requirements
+
+Beyond the GPU, the full system stack has minimum requirements:
 
 <StyledTable variant="bordered">
   <thead>
@@ -286,89 +286,19 @@ visible interruption. See <LinkArrow href="/v2/orchestrators/guides/workloads-an
   </tbody>
 </StyledTable>
 
-**Storage note:** A single SDXL model is approximately 7-8 GB. Running multiple pipelines requires
-fast NVMe storage to load models without latency spikes. Budget at least 100 GB per 4-5 models
-served simultaneously.
+**Storage note:** AI model weights are large. A single SDXL model is approximately 7-8 GB.
+Running multiple pipelines requires fast storage (NVMe) to load models without introducing latency
+spikes. Budget at least 100 GB of fast storage per 4-5 models served simultaneously.
 
 **Network note:** Latency to Gateways matters more than raw throughput for AI jobs. A 100 Mbps
 connection with sub-20ms latency to major regions outperforms a 1 Gbps connection with high
 latency for real-time AI workloads.
 
-<CustomDivider middleText="Testing Capacity" style={{margin: "-1rem 0 -2rem 0"}} />
-
-## Testing Your Capacity
-
-Before setting `-maxSessions` and going live, run `livepeer_bench` to find the GPU's actual
-concurrent transcoding ceiling. This is a one-time test - run it after hardware is confirmed
-but before activation.
-
-`livepeer_bench` ships with go-livepeer. Verify it is on PATH:
-
-```bash icon="terminal"
-livepeer_bench -help
-```
-
-**Step 1 - Download the test stream:**
-
-```bash icon="terminal"
-wget -c https://storage.googleapis.com/lp_testharness_assets/bbb_1080p_30fps_1min_2sec_hls.tar.gz
-tar -xvf bbb_1080p_30fps_1min_2sec_hls.tar.gz
-```
-
-{/* REVIEW: Verify this URL is still live before publishing. Rick to test. */}
-
-**Step 2 - Run the scaling test:**
-
-```bash icon="code" title="bench-scale.sh"
-for i in {1..20}
-do
-    livepeer_bench \
-        -in bbb/source.m3u8 \
-        -nvidia 0 \
-        -concurrentSessions $i |& grep "Duration Ratio" >> bench.log
-done
-```
-
-This appends one result line per session count to `bench.log`. Increase the range to `{1..40}`
-if the ratio is still below 1.0 at 20 sessions.
-
-**Step 3 - Read the result:**
-
-The **Real-Time Duration Ratio** is total transcoding time divided by total source duration.
-
-<StyledTable variant="bordered">
-  <thead>
-    <TableRow header>
-      <TableCell header>Ratio</TableCell>
-      <TableCell header>Meaning</TableCell>
-    </TableRow>
-  </thead>
-  <tbody>
-    <TableRow>
-      <TableCell>**&lt; 1.0**</TableCell>
-      <TableCell>Transcoding faster than real time - headroom available</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>**= 1.0**</TableCell>
-      <TableCell>Exactly real time - no headroom; any spike causes lag</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>**&gt; 1.0**</TableCell>
-      <TableCell>Slower than real time - overloaded at this session count</TableCell>
-    </TableRow>
-  </tbody>
-</StyledTable>
-
-The last concurrent session count at which ratio ≤ 0.8 is the **hardware limit**. The 0.8
-threshold leaves 20% headroom for upload/download overhead and transient spikes.
-
-{/* REVIEW: 0.8 is a community convention, not a go-livepeer hard limit. Confirm with Discord #orchestrators. */}
-
-Take this number to <LinkArrow href="/v2/orchestrators/setup/r-configure" label="Configure" newline={false} /> and set it as the input for the `-maxSessions` calculation.
-
 <CustomDivider middleText="Pre-launch Checklist" style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Checklist Before Going Live
+
+Run through this before activating on the network:
 
 <StyledSteps>
 
@@ -413,9 +343,11 @@ Take this number to <LinkArrow href="/v2/orchestrators/setup/r-configure" label=
   <StyledStep title="Confirm required ports are open">
 
     ```bash icon="terminal"
+    # Default go-livepeer Orchestrator ports:
     # 8935 - Orchestrator RPC (must be reachable from the internet)
-    # 7935 - CLI HTTP interface (localhost only)
+    # 7935 - CLI HTTP interface (localhost only; not exposed externally)
     sudo ufw status
+    # or: sudo iptables -L
     ```
 
     Port 8935 must be reachable from the internet. If behind NAT, configure port forwarding.
@@ -424,36 +356,31 @@ Take this number to <LinkArrow href="/v2/orchestrators/setup/r-configure" label=
 
   <StyledStep title="Confirm Arbitrum RPC access">
 
+    An Arbitrum One RPC endpoint is required. Options:
+
+    - Public: `https://arb1.arbitrum.io/rpc`
+    - Alchemy, Infura, QuickNode (recommended for production - more reliable)
+
     ```bash icon="terminal"
     curl -s https://arb1.arbitrum.io/rpc \
       -H "Content-Type: application/json" \
       -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' | python3 -m json.tool
     ```
 
-    For production, use a dedicated RPC endpoint via Alchemy, Infura, or QuickNode rather than the
-    public endpoint.
-
   </StyledStep>
 
   <StyledStep title="Check static IP or DDNS">
 
-    The `serviceAddr` must be stable. Home connections with dynamic IPs need DDNS or a static
-    IP via the ISP. Changing IP without updating `serviceAddr` causes Gateways to lose contact.
-
-  </StyledStep>
-
-  <StyledStep title="Run the capacity test">
-
-    Run the `livepeer_bench` scaling test above to find the hardware session limit. Record the
-    number - it is required for the `-maxSessions` calculation in Configure.
+    The `serviceAddr` (the address Gateways use to reach the Orchestrator) must be stable.
+    Home connections with dynamic IPs need DDNS or a static IP via the ISP. Changing IP without
+    updating `serviceAddr` causes Gateways to lose contact.
 
   </StyledStep>
 
   <StyledStep title="Confirm ETH balance on Arbitrum">
 
     The Orchestrator wallet needs ETH on Arbitrum One before activation. Budget at least 0.01 ETH
-    for the activation transaction and initial reward calls. See
-    <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards/payments" label="Payments" newline={false} /> for ongoing ETH requirements.
+    for the activation transaction and initial reward calls. See <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards/payments" label="Payments" newline={false} /> for ongoing ETH requirements.
 
   </StyledStep>
 
@@ -464,14 +391,14 @@ Take this number to <LinkArrow href="/v2/orchestrators/setup/r-configure" label=
 ## Related Pages
 
 <CardGroup cols={2}>
-  <Card title="Configure" icon="sliders" href="/v2/orchestrators/setup/r-configure" arrow horizontal>
-    Set `-maxSessions`, `-pricePerUnit`, `-nvidia`, and all other go-livepeer flags before activation.
+  <Card title="Benchmarking" icon="gauge-high" href="/v2/orchestrators/guides/deployment-details/benchmarking" arrow horizontal>
+    Use `livepeer_bench` to find the GPU's actual concurrent session capacity before setting `-maxSessions`.
+  </Card>
+  <Card title="Session Limits" icon="gauge" href="/v2/orchestrators/guides/deployment-details/session-limits" arrow horizontal>
+    Calculate bandwidth and hardware limits and derive the correct `-maxSessions` value.
   </Card>
   <Card title="Models and VRAM Reference" icon="memory" href="/v2/orchestrators/guides/workloads-and-ai/model-vram-reference" arrow horizontal>
     Full VRAM table by AI pipeline and model, warm strategy, and multi-GPU configuration.
-  </Card>
-  <Card title="Alternate Deployments" icon="diagram-project" href="/v2/orchestrators/guides/deployment-details/setup-options" arrow horizontal>
-    Pool worker, O-T split, and Siphon - the alternatives to the combined single-machine setup.
   </Card>
   <Card title="Operating Rationale" icon="scale-balanced" href="/v2/orchestrators/guides/operator-considerations/operator-rationale" arrow horizontal>
     Cost and revenue breakdown before committing hardware.

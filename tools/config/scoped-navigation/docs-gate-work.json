@@ -293,6 +293,14 @@
                     "group": "Concepts",
                     "icon": "book-open",
                     "pages": [
+                      {
+                        "group": "Dep",
+                        "pages": []
+                      },
+                      {
+                        "group": "New",
+                        "pages": []
+                      },
                       "v2/orchestrators/concepts/role",
                       "v2/orchestrators/concepts/capabilities",
                       "v2/orchestrators/concepts/architecture",
@@ -329,22 +337,69 @@
                       {
                         "group": "Operator Considerations",
                         "pages": [
-                          "v2/orchestrators/guides/operator-considerations/value-proposition",
-                          "v2/orchestrators/guides/operator-considerations/benchmarking",
-                          "v2/orchestrators/guides/operator-considerations/session-limits"
+                          {
+                            "group": "Dep",
+                            "pages": []
+                          },
+                          {
+                            "group": "New",
+                            "pages": [
+                              "v2/orchestrators/guides/operator-considerations/operator-rationale",
+                              "v2/orchestrators/guides/operator-considerations/business-case",
+                              "v2/orchestrators/guides/operator-considerations/protocol-influence"
+                            ]
+                          }
                         ]
                       },
                       {
                         "group": "Deployment Details",
                         "pages": [
-                          "v2/orchestrators/guides/deployment-details/setup-options",
-                          "v2/orchestrators/guides/deployment-details/requirements",
-                          "v2/orchestrators/guides/deployment-details/join-a-pool"
+                          {
+                            "group": "Dep",
+                            "pages": [
+                              "v2/orchestrators/guides/deployment-details/x-deprecated/benchmarking",
+                              "v2/orchestrators/guides/deployment-details/x-deprecated/dep-benchmarking",
+                              "v2/orchestrators/guides/deployment-details/x-deprecated/dep-2-benchmarking",
+
+                              "v2/orchestrators/guides/deployment-details/x-deprecated/dep-requirements",
+                              "v2/orchestrators/guides/deployment-details/x-deprecated/dep-2-requirements",
+
+                              "v2/orchestrators/guides/deployment-details/x-deprecated/session-limits",
+                              "v2/orchestrators/guides/deployment-details/x-deprecated/dep-session-limits",
+                              "v2/orchestrators/guides/deployment-details/x-deprecated/dep-2-session-limits",
+
+                              "v2/orchestrators/guides/deployment-details/x-deprecated/dep-setup-navigator",
+                              "v2/orchestrators/guides/deployment-details/x-deprecated/dep-setup-options",
+
+                              "v2/orchestrators/guides/deployment-details/x-deprecated/dep-orchestrator-transcoder-setup",
+                              "v2/orchestrators/guides/deployment-details/x-deprecated/dep-siphon-setup"
+                            ]
+                          },
+                          {
+                            "group": "New",
+                            "pages": [
+                              "v2/orchestrators/guides/deployment-details/setup-options",
+                              "v2/orchestrators/guides/deployment-details/requirements",
+                              "v2/orchestrators/guides/deployment-details/dual-workload-setup",
+                              "v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup",
+                              "v2/orchestrators/guides/deployment-details/siphon-setup",
+                              "v2/orchestrators/guides/deployment-details/join-a-pool",
+                              "v2/orchestrators/guides/deployment-details/new-join-a-pool"
+                            ]
+                          }
                         ]
                       },
                       {
                         "group": "Workloads & AI",
                         "pages": [
+                          {
+                            "group": "Dep",
+                            "pages": []
+                          },
+                          {
+                            "group": "New",
+                            "pages": []
+                          },
                           "v2/orchestrators/guides/ai-and-job-workloads/job-types",
                           "v2/orchestrators/guides/ai-and-job-workloads/video-transcoding",
                           "v2/orchestrators/guides/ai-and-job-workloads/ai-workloads-guide",
@@ -356,6 +411,14 @@
                       {
                         "group": "Staking & Rewards",
                         "pages": [
+                          {
+                            "group": "Dep",
+                            "pages": []
+                          },
+                          {
+                            "group": "New",
+                            "pages": []
+                          },
                           "v2/orchestrators/guides/staking-and-rewards/earnings",
                           "v2/orchestrators/guides/staking-and-rewards/rewards-and-fees",
                           "v2/orchestrators/guides/staking-and-rewards/attracting-delegates",
@@ -365,12 +428,30 @@
                       {
                         "group": "Payments & Pricing",
                         "pages": [
+                          {
+                            "group": "Dep",
+                            "pages": []
+                          },
+                          {
+                            "group": "New",
+                            "pages": []
+                          },
+                          "v2/orchestrators/guides/payments-and-pricing/payment-flow",
+                          "v2/orchestrators/guides/payments-and-pricing/pricing-strategy",
                           "v2/orchestrators/guides/payments-and-pricing/payments"
                         ]
                       },
                       {
                         "group": "Monitoring & Tools",
                         "pages": [
+                          {
+                            "group": "Dep",
+                            "pages": []
+                          },
+                          {
+                            "group": "New",
+                            "pages": []
+                          },
                           "v2/orchestrators/guides/monitoring-and-tooling/tools",
                           "v2/orchestrators/guides/monitoring-and-tooling/explorer-guide",
                           "v2/orchestrators/guides/monitoring-and-tooling/metrics-monitoring",
@@ -380,15 +461,45 @@
                       {
                         "group": "Advanced Operations",
                         "pages": [
-                          "v2/orchestrators/guides/advanced-operations/orchestrator-transcoder-setup",
+                          {
+                            "group": "Dep",
+                            "pages": []
+                          },
+                          {
+                            "group": "New",
+                            "pages": []
+                          },
                           "v2/orchestrators/guides/advanced-operations/run-a-pool",
                           "v2/orchestrators/guides/advanced-operations/gateways-orchestrators",
                           "v2/orchestrators/guides/advanced-operations/large-scale-operations"
                         ]
                       },
                       {
+                        "group": "Roadmap & Funding",
+                        "pages": [
+                          {
+                            "group": "Dep",
+                            "pages": []
+                          },
+                          {
+                            "group": "New",
+                            "pages": []
+                          },
+                          "v2/orchestrators/guides/roadmap-and-funding/operator-support",
+                          "v2/orchestrators/guides/roadmap-and-funding/orchestrator-showcase"
+                        ]
+                      },
+                      {
                         "group": "Tutorials",
                         "pages": [
+                          {
+                            "group": "Dep",
+                            "pages": []
+                          },
+                          {
+                            "group": "New",
+                            "pages": []
+                          },
                           "v2/orchestrators/guides/tutorials/imported-tutorial-1-byoc-cpu-pipeline",
                           "v2/orchestrators/guides/tutorials/imported-tutorial-2-offchain-transcoding-test",
                           "v2/orchestrators/guides/tutorials/imported-tutorial-3-go-production"

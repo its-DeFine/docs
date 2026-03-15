@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-15T02:40:17.772Z",
+  "generated": "2026-03-15T11:28:43.716Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/portal",
@@ -27,7 +27,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 175,
-      "lastVerified": "2026-03-12T19:09:38+11:00",
+      "lastVerified": "2026-03-15T20:39:57+11:00",
       "headings": [
         {
           "level": 2,
@@ -621,7 +621,7 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/AI-prompt-start",
       "title": "Add AI to Your Node",
-      "description": "Add AI inference pipelines to an existing go-livepeer transcoding node — hardware check, aiModels.json configuration, and startup command update.",
+      "description": "An Experimental AI Prompt for setting up your GPU as a Livepeer Orchestrator. Add AI inference pipelines to an existing go-livepeer transcoding node — hardware check, aiModels.json configuration, and startup command update.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
@@ -643,7 +643,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 931,
+      "wordCount": 924,
       "lastVerified": "2026-03-10",
       "headings": [
         {
@@ -1766,7 +1766,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 67,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-15T20:39:57+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -7275,6 +7275,29 @@
         "markdown",
         "yaml"
       ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/resources/technical/x-contract-addresses",
+      "title": "Livepeer Arbitrum Contract Adresses",
+      "description": "Description of x-contract-addresses",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "keyword",
+        "orchestrators",
+        "resources",
+        "technical",
+        "x-contract-addresses"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 0,
+      "lastVerified": "2026-03-15T20:39:57+11:00",
+      "headings": [],
+      "codeLanguages": []
     }
   ]
 }
