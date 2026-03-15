@@ -20,6 +20,7 @@ const { spawn } = require('child_process');
 
 const STRUCTURAL_ARRAY_KEYS = ['versions', 'languages', 'tabs', 'anchors', 'groups', 'pages'];
 const SCOPED_ROOT_RUNTIME_FILES = ['style.css'];
+const SCOPED_NAVIGATION_CONFIG_DIR = 'tools/config/scoped-navigation';
 
 function printUsage() {
   console.log(
@@ -64,6 +65,27 @@ function normalizeRoute(value) {
 
 function normalizeForCompare(value) {
   return String(value || '').trim().toLowerCase();
+}
+
+function resolveRepoConfigPath(repoRoot, candidatePath) {
+  const raw = String(candidatePath || '').trim();
+  if (!raw) return '';
+
+  if (path.isAbsolute(raw)) {
+    return raw;
+  }
+
+  const directPath = path.resolve(repoRoot, raw);
+  if (pathExists(directPath)) {
+    return directPath;
+  }
+
+  const fallbackPath = path.join(repoRoot, SCOPED_NAVIGATION_CONFIG_DIR, path.basename(raw));
+  if (pathExists(fallbackPath)) {
+    return fallbackPath;
+  }
+
+  return directPath;
 }
 
 function routeMatchesPrefix(route, prefix) {
@@ -275,7 +297,8 @@ function parseArgs(argv) {
 
   out.repoRoot = out.repoRoot ? path.resolve(out.repoRoot) : process.cwd();
   out.workspaceBase = out.workspaceBase ? path.resolve(out.workspaceBase) : path.join(os.tmpdir(), 'lpd-mint-dev');
-  out.docsConfig = out.docsConfig ? path.resolve(out.repoRoot, out.docsConfig) : '';
+  out.docsConfig = resolveRepoConfigPath(out.repoRoot, out.docsConfig);
+  out.scopeFile = resolveRepoConfigPath(out.repoRoot, out.scopeFile);
   out.versions = uniqStrings(out.versions);
   out.languages = uniqStrings(out.languages);
   out.tabs = uniqStrings(out.tabs);
@@ -295,7 +318,7 @@ function loadScopeFile(scopeFile, repoRoot) {
     };
   }
 
-  const absolutePath = path.isAbsolute(scopeFile) ? scopeFile : path.join(repoRoot, scopeFile);
+  const absolutePath = resolveRepoConfigPath(repoRoot, scopeFile);
   const payload = JSON.parse(fs.readFileSync(absolutePath, 'utf8'));
   const looksLikeDocsConfig =
     payload &&
@@ -1582,7 +1605,7 @@ async function runScopedMintSession(args, deps = {}) {
 
 async function createScopedProfile(args) {
   const fromScopeFile = loadScopeFile(args.scopeFile, args.repoRoot);
-  const docsPath = args.docsConfig || fromScopeFile.docsConfig || path.join(args.repoRoot, 'docs.json');
+  const docsPath = resolveRepoConfigPath(args.repoRoot, args.docsConfig || fromScopeFile.docsConfig || path.join(args.repoRoot, 'docs.json'));
   const mintignorePath = path.join(args.repoRoot, '.mintignore');
   if (!fs.existsSync(docsPath)) throw new Error(`docs.json not found at ${docsPath}`);
 

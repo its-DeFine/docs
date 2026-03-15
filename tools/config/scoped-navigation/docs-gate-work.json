@@ -184,7 +184,7 @@
                               "v2/gateways/guides/roadmap-and-funding/operator-support",
                               "v2/gateways/guides/roadmap-and-funding/spe-grant-model",
                               "v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy",
-                              "v2/gateways/guides/roadmap-and-funding/community-ecosystem"
+                              "v2/gateways/guides/roadmap-and-funding/gateway-showcase"
                             ]
                           },
                           {
@@ -193,9 +193,9 @@
                               {
                                 "group": "Gateway-Orchestrator Zero-To-Hero Tutorial",
                                 "pages": [
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-offchain-transcoding-test",
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-byoc-cpu-pipeline",
-                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-go-production"
+                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-1-offchain-transcoding-test",
+                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-2-byoc-cpu-pipeline",
+                                  "v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-3-go-production"
                                 ]
                               }
                             ]

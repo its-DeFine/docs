@@ -27,8 +27,13 @@ if [ "${1:-}" = "--" ]; then
 fi
 
 if [ ! -f "$CUSTOM_DOCS_JSON" ]; then
-  echo "Error: $CUSTOM_DOCS_JSON not found."
-  exit 1
+  FALLBACK_DOCS_JSON="$REPO_ROOT/tools/config/scoped-navigation/$(basename "$CUSTOM_DOCS_JSON")"
+  if [ -f "$FALLBACK_DOCS_JSON" ]; then
+    CUSTOM_DOCS_JSON="$FALLBACK_DOCS_JSON"
+  else
+    echo "Error: $CUSTOM_DOCS_JSON not found."
+    exit 1
+  fi
 fi
 
 echo "Launching Mint with alternate docs config: $CUSTOM_DOCS_JSON"

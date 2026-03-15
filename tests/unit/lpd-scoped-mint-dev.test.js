@@ -442,6 +442,108 @@ async function runTests() {
   });
 
   cases.push(async () => {
+    const tmp = mkTmpDir('lpd-alt-docs-fallback-');
+    const rootDocs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Root Docs',
+      navigation: SAMPLE_NAVIGATION
+    };
+    const altDocs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Moved Alt Docs',
+      navigation: {
+        versions: [
+          {
+            version: 'v2',
+            languages: [
+              {
+                language: 'en',
+                tabs: [
+                  {
+                    tab: 'Gateways',
+                    groups: [
+                      {
+                        group: 'Guides',
+                        pages: ['v2/gateways/guides/roadmap-and-funding/operator-support']
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    };
+    writeFile(path.join(tmp, 'docs.json'), `${JSON.stringify(rootDocs, null, 2)}\n`);
+    writeFile(path.join(tmp, '.mintignore'), '# fixture\n');
+    writeFile(
+      path.join(tmp, 'tools/config/scoped-navigation/docs-gate-work.json'),
+      `${JSON.stringify(altDocs, null, 2)}\n`
+    );
+    writeFile(path.join(tmp, 'v2/gateways/guides/roadmap-and-funding/operator-support.mdx'), '# Operator Support\n');
+
+    const run = runScopeScript(['--repo-root', tmp, '--docs-config', 'docs-gate-work.json', '--print-only'], REPO_ROOT);
+    assert.strictEqual(run.status, 0, `scope generator with moved docs config failed: ${run.stderr || run.stdout}`);
+    const payload = JSON.parse(String(run.stdout || '{}').trim());
+    assert.strictEqual(payload.routeCounts.original, 1, 'legacy docs-config basename should resolve moved scoped navigation file');
+    assert.match(payload.sourceDocsConfig, /tools\/config\/scoped-navigation\/docs-gate-work\.json$/);
+  });
+
+  cases.push(async () => {
+    const tmp = mkTmpDir('lpd-alt-scopefile-fallback-');
+    const rootDocs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Root Docs',
+      navigation: SAMPLE_NAVIGATION
+    };
+    const movedScopeDocs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Moved Scope Docs',
+      navigation: {
+        versions: [
+          {
+            version: 'v2',
+            languages: [
+              {
+                language: 'en',
+                tabs: [
+                  {
+                    tab: 'Gateways',
+                    groups: [
+                      {
+                        group: 'Guides',
+                        pages: ['v2/gateways/guides/roadmap-and-funding/gateway-showcase']
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    };
+    writeFile(path.join(tmp, 'docs.json'), `${JSON.stringify(rootDocs, null, 2)}\n`);
+    writeFile(path.join(tmp, '.mintignore'), '# fixture\n');
+    writeFile(
+      path.join(tmp, 'tools/config/scoped-navigation/docs-gate-work.json'),
+      `${JSON.stringify(movedScopeDocs, null, 2)}\n`
+    );
+    writeFile(path.join(tmp, 'v2/gateways/guides/roadmap-and-funding/gateway-showcase.mdx'), '# Gateway Showcase\n');
+
+    const run = runScopeScript(['--repo-root', tmp, '--scope-file', 'docs-gate-work.json', '--print-only'], REPO_ROOT);
+    assert.strictEqual(run.status, 0, `scope generator with moved scope file failed: ${run.stderr || run.stdout}`);
+    const payload = JSON.parse(String(run.stdout || '{}').trim());
+    assert.strictEqual(payload.routeCounts.original, 1, 'legacy scope-file basename should resolve moved scoped navigation file');
+    assert.match(payload.sourceDocsConfig, /tools\/config\/scoped-navigation\/docs-gate-work\.json$/);
+  });
+
+  cases.push(async () => {
     const repoRoot = mkTmpDir('lpd-scope-workspace-');
     const workspaceBase = mkTmpDir('lpd-scope-workspace-out-');
     const docs = {
