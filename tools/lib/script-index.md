@@ -6,7 +6,9 @@
 | Script | Summary | Usage | Owner |
 |---|---|---|---|
 | `tools/lib/component-governance-utils.js` | Shared parsing and validation utilities for component governance scripts. | `const utils = require('../lib/component-governance-utils');` | docs |
+| `tools/lib/docs-authoring-rules.js` | Shared warning-level authoring rules for guide layouts and code-block metadata, plus deterministic code-block icon repair. | `const { analyzeGuideLayoutWarnings, repairCodeBlockMetadata } = require('../lib/docs-authoring-rules');` | docs |
 | `tools/lib/docs-index-utils.js` | Shared utilities for docs-index.json generation — path resolution, frontmatter extraction, index merging | `node tools/lib/docs-index-utils.js [flags]` | docs |
+| `tools/lib/docs-page-scope.js` | Shared authored-page scope helpers that distinguish generated docs pages from authored docs pages for warning-only validators and reports. | `const { filterAuthoredDocsPageFiles } = require('../lib/docs-page-scope');` | docs |
 | `tools/lib/docs-publishability.js` | Shared path publishability rules for v2 docs content and tooling. | `const { isExcludedV2ExperimentalPath } = require('../lib/docs-publishability');` | docs |
 | `tools/lib/docs-usefulness/config-validator.js` | Validates docs-usefulness config structure and field completeness. | `const { validateConfig } = require('../lib/docs-usefulness/config-validator');` | docs |
 | `tools/lib/docs-usefulness/journey-check.js` | Evaluates docs pages against user journey completeness criteria. | `const { checkJourney } = require('../lib/docs-usefulness/journey-check');` | docs |

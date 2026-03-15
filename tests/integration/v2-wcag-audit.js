@@ -3,7 +3,7 @@
  * @script            v2-wcag-audit
  * @category          validator
  * @purpose           qa:content-quality
- * @scope             tests/integration, tests/utils, tasks/reports, v2
+ * @scope             v2-content
  * @owner             docs
  * @needs             E-R1, R-R11
  * @purpose-statement WCAG accessibility audit for v2 pages — checks heading hierarchy, alt text, ARIA. Supports --fix mode for auto-repair.

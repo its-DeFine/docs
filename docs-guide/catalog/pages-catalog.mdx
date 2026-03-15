@@ -22,62 +22,120 @@ Run command: node tools/scripts/generate-docs-guide-pages-index.js --write
 
 <Tree>
   <Tree.Folder name="v2" defaultOpen>
+    <Tree.Folder name="gateways">
+      <Tree.Folder name="quickstart">
+        <Tree.File name="AI-prompt.mdx" />
+        <Tree.File name="gateway-setup.mdx" />
+      </Tree.Folder>
+    </Tree.Folder>
     <Tree.Folder name="orchestrators">
       <Tree.Folder name="concepts">
-        <Tree.File name="r-role.mdx" />
-        <Tree.File name="rcs-capabilities.mdx" />
+        <Tree.File name="architecture.mdx" />
+        <Tree.File name="capabilities.mdx" />
         <Tree.File name="rcs-incentives.mdx" />
-        <Tree.File name="rs-workloads.mdx" />
-        <Tree.File name="x-architecture.mdx" />
+        <Tree.File name="role.mdx" />
       </Tree.Folder>
       <Tree.Folder name="guides">
-        <Tree.File name="join-a-pool.mdx" />
-        <Tree.File name="r-run-a-pool.mdx" />
-        <Tree.File name="rcs-tooling.mdx" />
-        <Tree.File name="x-explorer.mdx" />
-        <Tree.File name="x-governance.mdx" />
-        <Tree.File name="x-payments.mdx" />
-      </Tree.Folder>
-      <Tree.Folder name="operations">
-        <Tree.File name="earnings.mdx" />
-        <Tree.File name="r-hosting-models.mdx" />
-        <Tree.File name="rc-ai-pipelines.mdx" />
-        <Tree.File name="rcs-staking-delegation.mdx" />
-        <Tree.File name="rs-rewards-and-fees.mdx" />
-        <Tree.File name="x-optimise.mdx" />
+        <Tree.Folder name="advanced-operations">
+          <Tree.File name="gateways-orchestrators.mdx" />
+          <Tree.File name="large-scale-operations.mdx" />
+          <Tree.File name="orchestrator-transcoder-setup.mdx" />
+          <Tree.File name="run-a-pool.mdx" />
+        </Tree.Folder>
+        <Tree.Folder name="feasibility-and-hardware">
+          <Tree.File name="benchmarking.mdx" />
+          <Tree.File name="feasibility-economics.mdx" />
+          <Tree.File name="hardware-reference.mdx" />
+          <Tree.File name="session-limits.mdx" />
+        </Tree.Folder>
+        <Tree.Folder name="monitoring-and-troubleshooting">
+          <Tree.File name="explorer-guide.mdx" />
+          <Tree.File name="metrics-monitoring.mdx" />
+          <Tree.File name="tools.mdx" />
+          <Tree.File name="troubleshooting.mdx" />
+        </Tree.Folder>
+        <Tree.Folder name="setup-paths">
+          <Tree.File name="find-your-path.mdx" />
+          <Tree.File name="join-a-pool.mdx" />
+          <Tree.File name="setup-navigator.mdx" />
+          <Tree.File name="siphon-setup.mdx" />
+        </Tree.Folder>
+        <Tree.Folder name="staking-and-rewards">
+          <Tree.File name="attracting-delegates.mdx" />
+          <Tree.File name="earnings.mdx" />
+          <Tree.File name="governance.mdx" />
+          <Tree.File name="payments.mdx" />
+          <Tree.File name="rewards-and-fees.mdx" />
+        </Tree.Folder>
+        <Tree.Folder name="workloads-and-ai">
+          <Tree.File name="ai-workloads-guide.mdx" />
+          <Tree.File name="batch-ai-setup.mdx" />
+          <Tree.File name="job-types.mdx" />
+          <Tree.File name="model-vram-reference.mdx" />
+          <Tree.File name="realtime-ai-setup.mdx" />
+          <Tree.File name="video-transcoding.mdx" />
+        </Tree.Folder>
       </Tree.Folder>
       <Tree.Folder name="quickstart">
-        <Tree.File name="AI-prompt-start.mdx" />
+        <Tree.File name="guide.mdx" />
         <Tree.File name="video-transcoding.mdx" />
-        <Tree.File name="x-ai.mdx" />
-        <Tree.File name="x-batch-ai.mdx" />
-        <Tree.File name="x-realtime-ai.mdx" />
-        <Tree.File name="x-setup-paths.mdx" />
       </Tree.Folder>
       <Tree.Folder name="resources">
         <Tree.Folder name="technical">
           <Tree.File name="cli-flags.mdx" />
+          <Tree.File name="x-changelog.mdx" />
+          <Tree.File name="x-contract-addresses.mdx" />
+          <Tree.File name="x-support-status.mdx" />
           <Tree.File name="x-troubleshooting.mdx" />
         </Tree.Folder>
+        <Tree.File name="arbitrum-exchanges.mdx" />
+        <Tree.File name="arbitrum-rpc.mdx" />
+        <Tree.File name="community-guides.mdx" />
         <Tree.File name="community-pools.mdx" />
         <Tree.File name="faq.mdx" />
+        <Tree.File name="gpu-support.mdx" />
         <Tree.File name="x-guides.mdx" />
+        <Tree.File name="x-help.mdx" />
+        <Tree.File name="x-payments.mdx" />
       </Tree.Folder>
       <Tree.Folder name="setup">
+        <Tree.File name="activate.mdx" />
+        <Tree.File name="guide.mdx" />
         <Tree.File name="r-configure.mdx" />
         <Tree.File name="r-monitor.mdx" />
         <Tree.File name="rcs-requirements.mdx" />
         <Tree.File name="rs-install.mdx" />
-        <Tree.File name="s-guide.mdx" />
         <Tree.File name="sc-connect.mdx" />
-        <Tree.File name="x-test.mdx" />
+        <Tree.File name="test.mdx" />
       </Tree.Folder>
-      <Tree.Folder name="unclassified">
-        <Tree.File name="rcs-06-add-ai-to-node-output.mdx" />
-        <Tree.File name="rcs-connect-activate-publish.mdx" />
-      </Tree.Folder>
+      <Tree.File name="navigator.mdx" />
       <Tree.File name="portal.mdx" />
-      <Tree.File name="rc-navigator.mdx" />
+    </Tree.Folder>
+    <Tree.Folder name="resources">
+      <Tree.Folder name="changelog">
+        <Tree.File name="changelog.mdx" />
+        <Tree.File name="migration-guide.mdx" />
+      </Tree.Folder>
+      <Tree.Folder name="documentation-guide">
+        <Tree.Folder name="component-library">
+          <Tree.File name="component-library.mdx" />
+          <Tree.File name="content.mdx" />
+          <Tree.File name="data.mdx" />
+          <Tree.File name="layout.mdx" />
+          <Tree.File name="overview.mdx" />
+          <Tree.File name="page-structure.mdx" />
+          <Tree.File name="primitives.mdx" />
+        </Tree.Folder>
+        <Tree.File name="automations-workflows.mdx" />
+        <Tree.File name="contribute-to-the-docs.mdx" />
+        <Tree.File name="docs-features-and-ai-integrations.mdx" />
+        <Tree.File name="documentation-guide.mdx" />
+        <Tree.File name="documentation-overview.mdx" />
+        <Tree.File name="snippets-inventory.mdx" />
+        <Tree.File name="style-guide.mdx" />
+      </Tree.Folder>
+      <Tree.File name="livepeer-glossary.mdx" />
+      <Tree.File name="resources-portal.mdx" />
     </Tree.Folder>
   </Tree.Folder>
 </Tree>

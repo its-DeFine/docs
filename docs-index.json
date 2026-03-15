@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-15T02:40:17.772Z",
+  "generated": "2026-03-15T08:17:51.243Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/portal",
@@ -2142,7 +2142,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 445,
-      "lastVerified": "2026-03-12T15:26:20+11:00",
+      "lastVerified": "2026-03-12T22:44:52+11:00",
       "headings": [
         {
           "level": 2,
@@ -2212,7 +2212,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 167,
-      "lastVerified": "2026-03-12T15:26:20+11:00",
+      "lastVerified": "2026-03-12T22:44:52+11:00",
       "headings": [
         {
           "level": 2,
@@ -3579,7 +3579,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 4369,
+      "wordCount": 4507,
       "lastVerified": "2026-03-12T15:26:20+11:00",
       "headings": [
         {

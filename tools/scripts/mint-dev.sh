@@ -2,7 +2,7 @@
 # @script            mint-dev
 # @category          utility
 # @purpose           tooling:dev-tools
-# @scope             tools/scripts
+# @scope             full-repo
 # @owner             docs
 # @needs             E-C6, F-C1
 # @purpose-statement Mintlify dev server launcher — starts mint dev with correct configuration

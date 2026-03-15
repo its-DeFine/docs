@@ -199,7 +199,7 @@
     "scope": "tests/integration",
     "needs": "E-R12, E-R14",
     "purpose_statement": "Self-test suite for v2-link-audit.js — validates audit logic against known fixtures",
-    "pipeline": "manual — not yet in pipeline",
+    "pipeline": "P2, P3",
     "dualmode": "--full (validator) | --write-links (remediator)"
   },
   {
@@ -349,6 +349,16 @@
     "dualmode": "dual-mode (document flags)"
   },
   {
+    "path": "tests/unit/docs-authoring-rules.test.js",
+    "script": "docs-authoring-rules.test",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tests, tools/lib",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Verifies guide-layout warning rules and deterministic code-block icon repair for authored docs pages.",
+    "pipeline": "P1 (commit, via run-all)"
+  },
+  {
     "path": "tests/unit/docs-guide-sot.test.js",
     "script": "docs-guide-sot.test",
     "category": "validator",
@@ -369,6 +379,16 @@
     "purpose_statement": "Validates docs.json page-entry syntax, reports missing routes, suggests remaps, and optionally applies approved remaps",
     "pipeline": "P1, P3, P6",
     "dualmode": "dual-mode (document flags)"
+  },
+  {
+    "path": "tests/unit/docs-page-scope.test.js",
+    "script": "docs-page-scope.test",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tests, tools/lib",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Verifies generated authored-page scope helpers so warning-only validators skip generated docs pages while keeping authored pages in scope.",
+    "pipeline": "P1 (commit, via run-all)"
   },
   {
     "path": "tests/unit/docs-path-sync.test.js",
@@ -400,6 +420,16 @@
     "needs": "E-R1, R-R11",
     "purpose_statement": "Verifies shared docs frontmatter taxonomy normalization and purpose mapping.",
     "pipeline": "P1 (commit, via run-all)"
+  },
+  {
+    "path": "tests/unit/legacy-root-v1-redirects.test.js",
+    "script": "legacy-root-v1-redirects.test",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tests/unit, tools/scripts/redirects, tools/data/redirects, docs.json",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Validates legacy root-to-v1 redirect integrity, docs.json sync, root catch-all fallbacks, and legacy fallback-page cleanup behavior.",
+    "pipeline": "manual — targeted redirect migration coverage"
   },
   {
     "path": "tests/unit/links-imports.test.js",
@@ -485,6 +515,16 @@
     "dualmode": "--dry-run (validator) | --write (remediator)"
   },
   {
+    "path": "tests/unit/og-image-policy.test.js",
+    "script": "og-image-policy.test",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tests/unit, tools/scripts/snippets/lib",
+    "needs": "E-R1, R-R14",
+    "purpose_statement": "Unit tests for og-image-policy — validates route mapping, locale asset selection, fallback assignment, and URL guardrails.",
+    "pipeline": "manual — targeted unit coverage for OG image governance"
+  },
+  {
     "path": "tests/unit/openapi-reference-audit.test.js",
     "script": "openapi-reference-audit.test",
     "category": "validator",
@@ -504,16 +544,6 @@
     "needs": "F-R17",
     "purpose_statement": "Tests OpenAPI rolling issue tracker — validates issue creation and dedup logic",
     "pipeline": "manual — not yet in pipeline"
-  },
-  {
-    "path": "tests/unit/og-image-policy.test.js",
-    "script": "og-image-policy.test",
-    "category": "validator",
-    "purpose": "qa:content-quality",
-    "scope": "tests/unit, tools/scripts/snippets/lib",
-    "needs": "E-R1, R-R14",
-    "purpose_statement": "Unit tests for og-image-policy — validates route mapping, locale asset selection, fallback assignment, and URL guardrails.",
-    "pipeline": "manual — targeted unit coverage for OG image governance"
   },
   {
     "path": "tests/unit/quality.test.js",
@@ -713,6 +743,16 @@
     "pipeline": "indirect"
   },
   {
+    "path": "tools/lib/docs-authoring-rules.js",
+    "script": "docs-authoring-rules",
+    "category": "utility",
+    "purpose": "qa:content-quality",
+    "scope": "tools/lib, tests, tools/scripts",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Shared warning-level authoring rules for guide layouts and code-block metadata, plus deterministic code-block icon repair.",
+    "pipeline": "indirect"
+  },
+  {
     "path": "tools/lib/docs-index-utils.js",
     "script": "docs-index-utils",
     "category": "utility",
@@ -723,6 +763,16 @@
     "pipeline": "indirect — library module"
   },
   {
+    "path": "tools/lib/docs-page-scope.js",
+    "script": "docs-page-scope",
+    "category": "utility",
+    "purpose": "qa:content-quality",
+    "scope": "tools/lib, tests, tools/scripts",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Shared authored-page scope helpers that distinguish generated docs pages from authored docs pages for warning-only validators and reports.",
+    "pipeline": "indirect"
+  },
+  {
     "path": "tools/lib/docs-publishability.js",
     "script": "docs-publishability",
     "category": "utility",
@@ -731,16 +781,6 @@
     "needs": "E-C6, F-C1",
     "purpose_statement": "Shared path publishability rules for v2 docs content and tooling.",
     "pipeline": "indirect"
-  },
-  {
-    "path": "tools/scripts/lib/docs-path-sync.js",
-    "script": "docs-path-sync",
-    "category": "utility",
-    "purpose": "qa:repo-health",
-    "scope": "full-repo",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Shared docs path sync library — detects staged page moves, plans deterministic route rewrites, and applies governed docs.json/path reference updates.",
-    "pipeline": "indirect -- library module"
   },
   {
     "path": "tools/lib/docs-usefulness/config-validator.js",
@@ -1822,6 +1862,16 @@
     "pipeline": "P6"
   },
   {
+    "path": "tools/scripts/lib/docs-path-sync.js",
+    "script": "docs-path-sync",
+    "category": "utility",
+    "purpose": "qa:repo-health",
+    "scope": "full-repo",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Shared docs path sync library — detects staged page moves, plans deterministic route rewrites, and applies governed docs.json/path reference updates.",
+    "pipeline": "indirect -- library module"
+  },
+  {
     "path": "tools/scripts/mint-dev.sh",
     "script": "mint-dev",
     "category": "utility",
@@ -1863,6 +1913,16 @@
     "pipeline": "manual — not yet in pipeline"
   },
   {
+    "path": "tools/scripts/redirects/sync-legacy-root-v1.js",
+    "script": "sync-legacy-root-v1",
+    "category": "generator",
+    "purpose": "governance:index-management",
+    "scope": "full-repo",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Legacy root redirect synchronizer — bootstraps root-level legacy-to-v1 mappings, rewrites managed docs.json redirects, installs root catch-all fallbacks, and removes legacy generated fallback pages",
+    "pipeline": "manual — on-demand maintainer sync tool"
+  },
+  {
     "path": "tools/scripts/remediators/assets/migrate-assets-to-branch.js",
     "script": "migrate-assets-to-branch",
     "category": "remediator",
@@ -1895,17 +1955,6 @@
     "dualmode": "--dry-run (validator) | --write (remediator)"
   },
   {
-    "path": "tools/scripts/remediators/content/sync-docs-paths.js",
-    "script": "sync-docs-paths",
-    "category": "remediator",
-    "purpose": "qa:repo-health",
-    "scope": "staged",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Docs path sync remediator — applies deterministic docs.json and governed reference rewrites for moved docs pages.",
-    "pipeline": "P1, P6",
-    "dualmode": "--dry-run (validator) | --write (remediator)"
-  },
-  {
     "path": "tools/scripts/remediators/content/repair-spelling.js",
     "script": "repair-spelling",
     "category": "remediator",
@@ -1915,6 +1964,17 @@
     "purpose_statement": "Auto-corrects spelling errors using the shared cspell configuration. Safe, dictionary-based corrections only.",
     "pipeline": "manual",
     "dualmode": "--dry-run (validator: show corrections) | --write (remediator: apply corrections)"
+  },
+  {
+    "path": "tools/scripts/remediators/content/sync-docs-paths.js",
+    "script": "sync-docs-paths",
+    "category": "remediator",
+    "purpose": "qa:repo-health",
+    "scope": "staged",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Docs path sync remediator — applies deterministic docs.json and governed reference rewrites for moved docs pages.",
+    "pipeline": "P1, P6",
+    "dualmode": "--dry-run (validator) | --write (remediator)"
   },
   {
     "path": "tools/scripts/repo-audit-orchestrator.js",
@@ -2007,16 +2067,6 @@
     "pipeline": "manual — not yet in pipeline"
   },
   {
-    "path": "tools/scripts/snippets/generate-seo.js",
-    "script": "generate-seo",
-    "category": "generator",
-    "purpose": "feature:seo",
-    "scope": "tools/scripts",
-    "needs": "E-R19, F-R7",
-    "purpose_statement": "SEO generator — generates SEO metadata (title, description, keywords) for v2 pages from content analysis",
-    "pipeline": "P6 (on-demand, SEO refresh)"
-  },
-  {
     "path": "tools/scripts/snippets/generate-og-images.js",
     "script": "generate-og-images",
     "category": "generator",
@@ -2025,6 +2075,16 @@
     "needs": "E-R1, R-R14",
     "purpose_statement": "Generate canonical site-level Open Graph image assets and manifest for fallback and section-level social previews.",
     "pipeline": "manual — run when OG assets, section labels, or branding change"
+  },
+  {
+    "path": "tools/scripts/snippets/generate-seo.js",
+    "script": "generate-seo",
+    "category": "generator",
+    "purpose": "feature:seo",
+    "scope": "tools/scripts",
+    "needs": "E-R19, F-R7",
+    "purpose_statement": "SEO generator — generates SEO metadata (title, description, keywords) for v2 pages from content analysis",
+    "pipeline": "P6 (on-demand, SEO refresh)"
   },
   {
     "path": "tools/scripts/snippets/lib/og-image-policy.js",

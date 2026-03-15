@@ -1,19 +1,26 @@
-task_id: 20260310
-branch: codex/20260310-dev-setup-a-docs-v2-dev
-base_branch: docs-v2
+task_id: 20260315-merge-docs-v2-into-docs-v2-dev-validation
+branch: tmp/merge-docs-v2-into-docs-v2-dev-validation-20260315
+base_branch: docs-v2-dev
 scope_in:
   - .codex/task-contract.yaml
-  - v2/developers/**
-scope_out: []
+  - .vscode/settings.json
+  - docs-guide/**
+  - docs-index.json
+  - docs.json
+  - tasks/plan/active/merge-docs-v2-into-docs-v2-dev-root-cause-review.md
+  - tests/**
+  - tools/**
+  - v2/**
+scope_out:
+  - v1/**
 allowed_generated: []
 acceptance_checks:
-  - find v2/developers -name "*.mdx" | sort
-  - git status --short | grep "^ D"
-  - ls v2/developers/get-started/
-  - ls v2/developers/build/
-  - ls v2/developers/guides/
-  - ls v2/developers/opportunities/
-  - ls v2/developers/resources/
-  - ls v2/developers/_archive/ | wc -l
-risk_flags: []
+  - node tests/run-pr-checks.js --base-ref docs-v2
+  - npm --prefix tests run test:docs-guide
+  - node tests/integration/openapi-reference-audit.js --full --strict --report /tmp/openapi-audit-final.md --report-json /tmp/openapi-audit-final.json
+  - MINT_BASE_URL=http://localhost:3000 npm --prefix tools run test:browser
+  - MINT_BASE_URL=http://localhost:3000 npm --prefix tools run test:v2-pages
+risk_flags:
+  - merge-validation
+  - no-pr
 follow_up_issues: []

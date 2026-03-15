@@ -7,14 +7,14 @@
  * @owner             docs
  * @needs             E-C1, R-R14
  * @purpose-statement Validates docs-guide source-of-truth coverage, README pointers, and generated index freshness
- * @pipeline          manual — not yet in pipeline
+ * @pipeline          P2, P3
  * @dualmode          dual-mode (document flags)
  * @usage             node tests/unit/docs-guide-sot.test.js [flags]
  */
 
 const fs = require('fs');
 const path = require('path');
-const { spawnSync } = require('child_process');
+const { execSync, spawnSync } = require('child_process');
 const {
   hasFrontmatterKey,
   hasGeneratedNote,
@@ -22,7 +22,15 @@ const {
 } = require('../../tools/lib/generated-file-banners');
 const { checkAggregateIndex } = require('./script-docs.test.js');
 
-const REPO_ROOT = process.cwd();
+function getRepoRoot() {
+  try {
+    return execSync('git rev-parse --show-toplevel', { encoding: 'utf8' }).trim();
+  } catch (_error) {
+    return process.cwd();
+  }
+}
+
+const REPO_ROOT = getRepoRoot();
 
 const REQUIRED_MANUAL_FILES = [
   'docs-guide/overview.mdx',

@@ -10,6 +10,28 @@
  * @pipeline          indirect
  * @usage             const { analyzeGuideLayoutWarnings, repairCodeBlockMetadata } = require('../lib/docs-authoring-rules');
  */
+/**
+ * @script            docs-authoring-rules
+ * @category          utility
+ * @purpose           qa:content-quality
+ * @scope             tools/lib, tests, tools/scripts
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Shared warning-level authoring rules for guide layouts and code-block metadata, plus deterministic code-block icon repair.
+ * @pipeline          indirect
+ * @usage             const { analyzeGuideLayoutWarnings, repairCodeBlockMetadata } = require('../lib/docs-authoring-rules');
+ */
+/**
+ * @script            docs-authoring-rules
+ * @category          utility
+ * @purpose           qa:content-quality
+ * @scope             tools/lib, tests, tools/scripts
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Shared warning-level authoring rules for guide layouts and code-block metadata, plus deterministic code-block icon repair.
+ * @pipeline          indirect
+ * @usage             const { analyzeGuideLayoutWarnings, repairCodeBlockMetadata } = require('../lib/docs-authoring-rules');
+ */
 
 const path = require('path');
 

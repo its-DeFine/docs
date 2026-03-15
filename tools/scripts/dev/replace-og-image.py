@@ -8,7 +8,6 @@
 # @purpose-statement Deprecated wrapper for the legacy OG image replacement helper. Use the canonical OG generator workflow instead.
 # @pipeline          manual — developer tool
 # @usage             python3 tools/scripts/dev/replace-og-image.py
-
 print("Deprecated helper.")
 print("Use the canonical OG workflow instead:")
 print("  node tools/scripts/snippets/generate-og-images.js")

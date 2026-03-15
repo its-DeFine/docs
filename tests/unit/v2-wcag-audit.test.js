@@ -3,7 +3,7 @@
  * @script            v2-wcag-audit.test
  * @category          validator
  * @purpose           qa:content-quality
- * @scope             tests/unit, tests/integration
+ * @scope             v2-content
  * @owner             docs
  * @needs             E-R1, R-R11
  * @purpose-statement Unit tests for v2-wcag-audit.js — tests individual WCAG rules
