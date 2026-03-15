@@ -96,7 +96,7 @@ The `TicketBroker` contract on Arbitrum One manages all gateway payment activity
 - Orchestrators redeem winning tickets by calling `redeemWinningTicket()` on this contract
 - Unlock and withdrawal of deposited funds also goes through TicketBroker
 
-**For Arbiscan monitoring:** watch your gateway address for `RedeemWinningTicket` events emitted by the TicketBroker contract address. See [On-Chain Debugging](/v2/gateways/guides/monitoring-troubleshooting/on-chain-debugging) for how to set up watchlists and interpret these events.
+**For Arbiscan monitoring:** watch your gateway address for `RedeemWinningTicket` events emitted by the TicketBroker contract address. See [On-Chain Debugging](/v2/gateways/guides/monitoring-and-tooling/on-chain-metrics) for how to set up watchlists and interpret these events.
 
 ### ServiceRegistry — Orchestrator Discovery
 
@@ -123,10 +123,10 @@ Always verify contract addresses before use:
 3. Ask in [Discord #dev](https://discord.gg/livepeer) — protocol team can confirm current deployments
 
 <CardGroup cols={2}>
-  <Card title="On-Chain Debugging" icon="cube" href="/v2/gateways/guides/monitoring-troubleshooting/on-chain-debugging">
+  <Card title="On-Chain Debugging" icon="cube" href="/v2/gateways/guides/monitoring-and-tooling/on-chain-metrics">
     How to use TicketBroker events and Arbiscan to monitor gateway payments
   </Card>
-  <Card title="Fund Your Gateway" icon="wallet" href="/v2/gateways/guides/payments-pricing/fund-your-gateway">
+  <Card title="Fund Your Gateway" icon="wallet" href="/v2/gateways/guides/payments-and-pricing/funding-guide">
     Deposit ETH to the TicketBroker via livepeer_cli
   </Card>
 </CardGroup>

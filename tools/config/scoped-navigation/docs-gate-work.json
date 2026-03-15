@@ -326,21 +326,21 @@
                     "icon": "chart-line",
                     "pages": [
                       {
-                        "group": "Feasibility & Hardware",
+                        "group": "Operator Considerations",
                         "pages": [
-                          "v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics",
-                          "v2/orchestrators/guides/feasibility-and-hardware/hardware-reference",
-                          "v2/orchestrators/guides/feasibility-and-hardware/benchmarking",
-                          "v2/orchestrators/guides/feasibility-and-hardware/session-limits"
+                          "v2/orchestrators/guides/operator-considerations/feasibility-economics",
+                          "v2/orchestrators/guides/operator-considerations/hardware-reference",
+                          "v2/orchestrators/guides/operator-considerations/benchmarking",
+                          "v2/orchestrators/guides/operator-considerations/session-limits"
                         ]
                       },
                       {
-                        "group": "Setup Paths",
+                        "group": "Deployment Options",
                         "pages": [
-                          "v2/orchestrators/guides/setup-paths/setup-navigator",
-                          "v2/orchestrators/guides/setup-paths/find-your-path",
-                          "v2/orchestrators/guides/setup-paths/join-a-pool",
-                          "v2/orchestrators/guides/setup-paths/siphon-setup"
+                          "v2/orchestrators/guides/deployment-options/setup-navigator",
+                          "v2/orchestrators/guides/deployment-options/find-your-path",
+                          "v2/orchestrators/guides/deployment-options/join-a-pool",
+                          "v2/orchestrators/guides/deployment-options/siphon-setup"
                         ]
                       },
                       {
@@ -356,21 +356,21 @@
                       {
                         "group": "Workloads & AI",
                         "pages": [
-                          "v2/orchestrators/guides/workloads-and-ai/job-types",
-                          "v2/orchestrators/guides/workloads-and-ai/video-transcoding",
-                          "v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide",
-                          "v2/orchestrators/guides/workloads-and-ai/batch-ai-setup",
-                          "v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup",
-                          "v2/orchestrators/guides/workloads-and-ai/model-vram-reference"
+                          "v2/orchestrators/guides/ai-and-job-workloads/job-types",
+                          "v2/orchestrators/guides/ai-and-job-workloads/video-transcoding",
+                          "v2/orchestrators/guides/ai-and-job-workloads/ai-workloads-guide",
+                          "v2/orchestrators/guides/ai-and-job-workloads/batch-ai-setup",
+                          "v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup",
+                          "v2/orchestrators/guides/ai-and-job-workloads/model-vram-reference"
                         ]
                       },
                       {
-                        "group": "Monitoring & Troubleshooting",
+                        "group": "Monitoring & Tools",
                         "pages": [
-                          "v2/orchestrators/guides/monitoring-and-troubleshooting/tools",
-                          "v2/orchestrators/guides/monitoring-and-troubleshooting/explorer-guide",
-                          "v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring",
-                          "v2/orchestrators/guides/monitoring-and-troubleshooting/troubleshooting"
+                          "v2/orchestrators/guides/monitoring-and-tooling/tools",
+                          "v2/orchestrators/guides/monitoring-and-tooling/explorer-guide",
+                          "v2/orchestrators/guides/monitoring-and-tooling/metrics-monitoring",
+                          "v2/orchestrators/guides/monitoring-and-tooling/troubleshooting"
                         ]
                       },
                       {
@@ -380,6 +380,14 @@
                           "v2/orchestrators/guides/advanced-operations/gateways-orchestrators",
                           "v2/orchestrators/guides/advanced-operations/large-scale-operations",
                           "v2/orchestrators/guides/advanced-operations/orchestrator-transcoder-setup"
+                        ]
+                      },
+                      {
+                        "group": "Tutorials",
+                        "pages": [
+                          "v2/orchestrators/guides/tutorials/imported-tutorial-1-byoc-cpu-pipeline",
+                          "v2/orchestrators/guides/tutorials/imported-tutorial-2-offchain-transcoding-test",
+                          "v2/orchestrators/guides/tutorials/imported-tutorial-3-go-production"
                         ]
                       }
                     ]
