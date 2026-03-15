@@ -21,6 +21,10 @@ keywords:
 
 This document defines canonical ownership boundaries to prevent drift across README, docs-guide, tests docs, and Mintlify pages.
 
+Related policy:
+
+- `docs-guide/policies/generated-artifact-and-hook-governance.mdx` defines generated artifact classes, hook rules, and local-only report boundaries.
+
 ## Canonical Boundaries
 
 | Concern                         | Canonical source                                      | Notes                                                                  |
@@ -58,7 +62,7 @@ The following files are generated and should not be edited directly:
 
 Regenerate with:
 
-```bash
+```bash icon="terminal"
 node tools/scripts/generate-docs-guide-indexes.js --write
 node tools/scripts/generate-docs-guide-pages-index.js --write
 node tools/scripts/generate-docs-guide-components-index.js --write
@@ -83,10 +87,19 @@ Guidelines:
 
 Use the generated banner enforcer utility:
 
-```bash
+```bash icon="terminal"
 node tools/scripts/enforce-generated-file-banners.js --write
 node tools/scripts/enforce-generated-file-banners.js --check
 ```
+
+## Generated Artifact Governance
+
+Generated artifacts must be governed explicitly, not by convention alone.
+
+- Hook-managed and CI-managed generated outputs must be declared in `tools/config/generated-artifacts.json`.
+- Authoritative generated artifacts may be committed only when runtime, tests, or repo contracts require them.
+- Report-only or inspection-only outputs must not be hook-staged and should live in non-authoritative locations.
+- Pre-commit should fail with a targeted regeneration command instead of auto-staging broad generated diffs.
 
 ## README Contract
 

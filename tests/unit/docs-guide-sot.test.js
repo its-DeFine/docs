@@ -35,6 +35,7 @@ const REPO_ROOT = getRepoRoot();
 const REQUIRED_MANUAL_FILES = [
   'docs-guide/overview.mdx',
   'docs-guide/policies/source-of-truth-policy.mdx',
+  'docs-guide/policies/generated-artifact-and-hook-governance.mdx',
   'docs-guide/features/feature-map.mdx',
   'docs-guide/features/architecture-map.mdx',
   'docs-guide/tooling/lpd-cli.mdx',
@@ -62,6 +63,7 @@ const REQUIRED_README_REFERENCES = [
   'docs-guide/overview.mdx',
   'docs-guide/features/feature-map.mdx',
   'docs-guide/policies/source-of-truth-policy.mdx',
+  'docs-guide/policies/generated-artifact-and-hook-governance.mdx',
   'docs-guide/tooling/lpd-cli.mdx',
   'docs-guide/policies/quality-gates.mdx',
   'docs-guide/policies/audit-system-overview.mdx',

@@ -36,6 +36,11 @@ const {
   sentenceFromParagraph,
   formatInlineArray
 } = require('../lib/docs-index-utils');
+const {
+  readManifest,
+  getFirstArtifactByPath,
+  matchesAnyPattern
+} = require('../lib/generated-artifacts');
 
 const BASE_URL = 'https://docs.livepeer.org';
 const VERSION = 'docs-index.v1';
@@ -120,9 +125,18 @@ function getStagedFiles() {
   }
 }
 
-function getStagedDocPaths() {
+function getDocsIndexArtifact() {
+  const manifest = readManifest(REPO_ROOT);
+  return getFirstArtifactByPath('docs-index.json', manifest);
+}
+
+function getStagedDocPaths(docsIndexArtifact) {
   return getStagedFiles()
     .filter((filePath) => /\.(md|mdx)$/i.test(filePath))
+    .filter((filePath) => {
+      if (!docsIndexArtifact) return true;
+      return matchesAnyPattern(filePath, docsIndexArtifact.sources);
+    })
     .map((filePath) => normalizeRel(filePath.replace(/\.(md|mdx)$/i, '')));
 }
 
@@ -408,8 +422,9 @@ function main() {
 
   const pages = getV2NavPages();
   const stagedFiles = stagedOnly ? getStagedFiles() : [];
+  const docsIndexArtifact = stagedOnly ? getDocsIndexArtifact() : null;
   const docsJsonStaged = stagedFiles.includes('docs.json');
-  const stagedDocPaths = stagedOnly ? getStagedDocPaths() : [];
+  const stagedDocPaths = stagedOnly ? getStagedDocPaths(docsIndexArtifact) : [];
 
   if (shouldBackfill) {
     backfillFrontmatter({

@@ -32,6 +32,7 @@
 | `tools/scripts/dev/batch-update-og-image.sh` | Deprecated wrapper for the legacy bulk OG image replacement helper. Use the canonical OG generator workflow instead. | `bash tools/scripts/dev/batch-update-og-image.sh` | docs |
 | `tools/scripts/dev/ensure-mint-watcher-patch.sh` | Mint watcher patcher — applies patch to fix Mintlify file watcher issues in dev mode | `bash tools/scripts/dev/ensure-mint-watcher-patch.sh [flags]` | docs |
 | `tools/scripts/dev/generate-mint-dev-scope.js` | Mint dev scope generator — creates a scoped docs.json for running mint dev on a subset of pages | `node tools/scripts/dev/generate-mint-dev-scope.js [flags]` | docs |
+| `tools/scripts/dev/lib/resolve-scoped-docs-config.js` | Scoped docs config resolver — resolves named scoped navigation configs and explicit docs config paths for mint-dev tooling | `node -e "require('./tools/scripts/dev/lib/resolve-scoped-docs-config')"` | docs |
 | `tools/scripts/dev/mint-custom-loader.sh` | Mint custom loader — launches lpd dev with an alternate docs config as the active Mint navigation source. | `bash tools/scripts/dev/mint-custom-loader.sh [flags]` | docs |
 | `tools/scripts/dev/replace-og-image.py` | Deprecated wrapper for the legacy OG image replacement helper. Use the canonical OG generator workflow instead. | `python3 tools/scripts/dev/replace-og-image.py` | docs |
 | `tools/scripts/dev/seo-generator-safe.js` | Deprecated wrapper for the legacy safe SEO generator. Use the canonical OG generator workflow instead. | `node tools/scripts/dev/seo-generator-safe.js` | docs |
