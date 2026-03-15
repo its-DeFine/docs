@@ -1,6 +1,6 @@
 ---
 title: 'NaaP & Multi-Tenancy'
-description: 'Network-as-a-Platform model  - multi-tenant gateway architecture, API key management, billing integration, tenant isolation, and building a platform business on Livepeer.'
+description: 'Network-as-a-Platform model - multi-tenant Gateway architecture, API key management, billing integration, tenant isolation, and building a platform business on Livepeer.'
 sidebarTitle: 'NaaP & Multi-Tenancy'
 keywords:
   - livepeer
@@ -19,9 +19,9 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 pageType: 'guide'
-audience: 'gateway'
+audience: 'gateway-operator'
 status: 'current'
-lastVerified: '2026-03-13'
+lastVerified: '2026-03-15'
 ---
 {/* TODO:
 Terminology Validation:
@@ -66,14 +66,16 @@ Verify:
   - Concepts → Architecture  - gateway architecture that NaaP builds on
 */}
 
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
+import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { BorderedBox } from '/snippets/components/layout/containers.jsx'
 
-The Network as a Platform (NaaP) model is the most advanced gateway operator pattern: build a multi-tenant platform that wraps Livepeer compute as a managed service for your customers. Users sign up, receive API keys, and pay in fiat or standard crypto. Your platform handles all crypto complexity internally  - users never interact with Livepeer contracts.
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-This page explains the NaaP architecture, how the reference implementation works, and what you need to build a multi-tenant gateway platform.
+The Network as a Platform (NaaP) model is the most advanced Gateway operator pattern: build a multi-tenant platform that wraps Livepeer compute as a managed service. Users sign up, receive API keys, and pay in fiat or standard crypto. The platform handles all crypto complexity internally - users never interact with Livepeer contracts.
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## What NaaP solves
 
@@ -105,7 +107,7 @@ Livepeer network (orchestrators)
 From the Discord discussion that defined this model:
 > "The user never interacts with Livepeer contracts. The signer uses incoming USDC revenue to keep its hot wallet funded for PM ticket generation. The two payment layers are fully independent."
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Two independent payment layers
 
@@ -138,7 +140,7 @@ The core architectural insight behind NaaP: your customer-facing payments and th
 
 Your margin is the difference between what customers pay you and what the network charges. The customer never sees ETH, Arbitrum, or payment tickets. The protocol is invisible to them.
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Reference implementation: the NaaP dashboard
 
@@ -155,7 +157,7 @@ NaaP is in active development. The demo is operational but the production API is
 
 {/* REVIEW: Confirm NaaP public URL, demo availability, and production timeline with Qiang Han. */}
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Multi-tenant architecture
 
@@ -204,7 +206,7 @@ For premium tenants, you can configure orchestrator routing preferences:
 
 This is configured at the middleware layer using `-orchAddr` or `-maxPricePerCapability` per request path. The NaaP layer passes routing hints to the gateway based on the customer's tier.
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Building the product layer
 
@@ -256,7 +258,7 @@ Standard tools for each layer:
 
 See [Gateway Middleware](/v2/gateways/guides/advanced-operations/gateway-middleware) for detailed middleware architecture patterns.
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Billing integration
 
@@ -283,7 +285,7 @@ See [Gateway Middleware](/v2/gateways/guides/advanced-operations/gateway-middlew
 
 Your margin is the difference between what you charge customers and what you pay orchestrators. Use `-maxPricePerUnit` and `-maxPricePerCapability` to control your network costs; set your customer prices independently.
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Clearinghouse: the payment bridge
 
@@ -298,7 +300,7 @@ The clearinghouse means your gateway node holds no ETH and has no direct Ethereu
 
 For the full clearinghouse design and implementation, see [Clearinghouse Guide](/v2/gateways/guides/payments-and-pricing/clearinghouse-guide) (Payments & Pricing section).
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Who is building NaaP platforms
 
@@ -329,7 +331,7 @@ For the full clearinghouse design and implementation, see [Clearinghouse Guide](
   </tbody>
 </StyledTable>
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Next steps
 
