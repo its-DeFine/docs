@@ -380,8 +380,6 @@
                             "pages": [
                               "v2/orchestrators/guides/deployment-details/setup-options",
                               "v2/orchestrators/guides/deployment-details/requirements",
-                              "v2/orchestrators/guides/deployment-details/dual-workload-setup",
-                              "v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup",
                               "v2/orchestrators/guides/deployment-details/siphon-setup",
                               "v2/orchestrators/guides/deployment-details/join-a-pool",
                               "v2/orchestrators/guides/deployment-details/new-join-a-pool"
@@ -389,6 +387,14 @@
                           }
                         ]
                       },
+                      {
+                        "group": "Configuration and Optimisation",
+                        "pages": [
+                              "v2/orchestrators/guides/deployment-details/dual-workload-setup",
+                              "v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup",
+                        ]
+
+                      }
                       {
                         "group": "Workloads & AI",
                         "pages": [

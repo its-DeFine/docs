@@ -302,6 +302,41 @@ Deployment type is independent of node mode. A solo operator can run in <Badge c
   </Accordion>
 </AccordionGroup>
 
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+
+## Operational Mode Asymmetry: Gateways vs Orchestrators
+
+Gateways and orchestrators both use go-livepeer but have a fundamental asymmetry in how operational modes work:
+
+<StyledTable variant="bordered">
+  <thead>
+    <TableRow header>
+      <TableCell header></TableCell>
+      <TableCell header>Gateway</TableCell>
+      <TableCell header>Orchestrator</TableCell>
+    </TableRow>
+  </thead>
+  <tbody>
+    <TableRow>
+      <TableCell>**Off-chain viable for production?**</TableCell>
+      <TableCell>**Yes.** Off-chain gateways use a remote signer for payment operations. No ETH wallet, no staking, no blockchain interaction at the gateway. This is a genuine, sustainable production configuration.</TableCell>
+      <TableCell>**No.** Off-chain orchestrators (`-network offchain`) have no protocol discoverability, no inflation rewards, no active set membership. Only gateways explicitly pointing via `-orchAddr` can send work. Useful for testing and development only.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**On-chain requirements**</TableCell>
+      <TableCell>ETH deposit + reserve on Arbitrum. No LPT staking. No active set. No reward calling.</TableCell>
+      <TableCell>LPT stake (active set threshold for video). arbETH for gas. On-chain activation. Reward calling each round. Service URI registration.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Operational mode fork**</TableCell>
+      <TableCell>**Yes** - on-chain vs off-chain is a genuine production choice that affects the entire operational model, setup flow, and payment architecture.</TableCell>
+      <TableCell>**No** - orchestrators are effectively always on-chain for production. Off-chain is a testing configuration, not an operational mode choice.</TableCell>
+    </TableRow>
+  </tbody>
+</StyledTable>
+
+This asymmetry means the gateway documentation needs a genuine on-chain/off-chain fork throughout (setup, payments, monitoring). The orchestrator documentation does not - it can treat on-chain as the default with off-chain mentioned only in the quickstart (for local testing) and in pool worker documentation (where the pool operator handles on-chain).
+
 {/*
   PURPOSE:
   Reference page defining all orchestrator-specific terminology. Establishes canonical
