@@ -18,6 +18,7 @@ const readline = require('readline');
 const { execSync } = require('child_process');
 const { listMintIgnoredRepoPaths } = require('../utils/mintignore');
 const { isExcludedV2ExperimentalPath } = require('../../tools/lib/docs-publishability');
+const legacyRootV1 = require('../../tools/scripts/redirects/sync-legacy-root-v1');
 
 const REPORT_MD_REL = 'tasks/reports/navigation-links/navigation-report.md';
 const REPORT_JSON_REL = 'tasks/reports/navigation-links/navigation-report.json';
@@ -26,6 +27,7 @@ const DEFAULT_REMAP_THRESHOLD = 0.85;
 const RESOURCE_HUB_REDIRECT_ROUTE = 'v2/resources/redirect';
 const RESOURCE_HUB_PORTAL_ROUTE = 'v2/resources/resources-portal';
 const LEGACY_RESOURCE_HUB_ROUTE = 'v2/pages/07_resources/redirect';
+const LEGACY_ROOT_MANIFEST_REL = legacyRootV1.DEFAULT_MANIFEST_REL;
 
 let errors = [];
 let warnings = [];
@@ -336,6 +338,158 @@ function resolveRouteWithAliases(repoRoot, docsJson, rawRoute) {
   if (viaRedirect) return viaRedirect;
 
   return resolveRouteViaCanonicalMap(repoRoot, rawRoute);
+}
+
+function validateLegacyRootRedirectSubset(repoRoot, docsJson) {
+  const manifestPath = path.join(repoRoot, LEGACY_ROOT_MANIFEST_REL);
+  if (!fs.existsSync(manifestPath)) return [];
+
+  let manifest;
+  try {
+    manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    legacyRootV1.validateManifest(repoRoot, manifest);
+  } catch (error) {
+    return [
+      {
+        file: 'docs.json',
+        rule: 'Legacy root redirect manifest',
+        message: `Invalid ${LEGACY_ROOT_MANIFEST_REL}: ${error.message}`,
+        pointer: 'redirects'
+      }
+    ];
+  }
+
+  const errors = [];
+  const manifestBySource = new Map();
+  const manifestSources = [];
+
+  manifest.forEach((entry) => {
+    const source = legacyRootV1.normalizeRoute(entry.source);
+    const destination = legacyRootV1.normalizeRoute(entry.destination);
+    manifestBySource.set(source, destination);
+    manifestSources.push(source);
+  });
+
+  manifestBySource.forEach((destination, source) => {
+    if (!manifestBySource.has(destination)) return;
+    errors.push({
+      file: 'docs.json',
+      rule: 'Legacy root redirect loop',
+      message: `Managed legacy root redirect must not target another managed source: ${source} -> ${destination}`,
+      pointer: 'redirects'
+    });
+  });
+
+  const redirects = Array.isArray(docsJson?.redirects) ? docsJson.redirects : [];
+  const docsManagedBySource = new Map();
+  const docsManagedSources = [];
+  const docsCatchAllBySource = new Map();
+  const docsCatchAllSources = [];
+
+  redirects.forEach((redirect, index) => {
+    if (legacyRootV1.isManagedRootCatchAllSource(redirect && redirect.source)) {
+      const source = legacyRootV1.normalizeRoute(redirect.source);
+      const destination = legacyRootV1.normalizeRoute(redirect.destination);
+
+      if (docsCatchAllBySource.has(source)) {
+        errors.push({
+          file: 'docs.json',
+          rule: 'Duplicate legacy root catch-all redirect source',
+          message: `Managed root catch-all redirect source is duplicated: ${source}`,
+          pointer: `redirects[${index}]`
+        });
+        return;
+      }
+
+      docsCatchAllBySource.set(source, destination);
+      docsCatchAllSources.push(source);
+      return;
+    }
+
+    if (!legacyRootV1.isManagedRootSource(redirect && redirect.source)) return;
+
+    const source = legacyRootV1.normalizeRoute(redirect.source);
+    const destination = legacyRootV1.normalizeRoute(redirect.destination);
+
+    if (docsManagedBySource.has(source)) {
+      errors.push({
+        file: 'docs.json',
+        rule: 'Duplicate legacy root redirect source',
+        message: `Managed root redirect source is duplicated: ${source}`,
+        pointer: `redirects[${index}]`
+      });
+      return;
+    }
+
+    docsManagedBySource.set(source, destination);
+    docsManagedSources.push(source);
+  });
+
+  const sortedDocsManagedSources = [...docsManagedSources].sort((left, right) => left.localeCompare(right));
+  const sortedManifestSources = [...manifestSources].sort((left, right) => left.localeCompare(right));
+  if (JSON.stringify(sortedDocsManagedSources) !== JSON.stringify(sortedManifestSources)) {
+    errors.push({
+      file: 'docs.json',
+      rule: 'Legacy root redirect manifest drift',
+      message: `Managed root redirects in docs.json must exactly match ${LEGACY_ROOT_MANIFEST_REL}`,
+      pointer: 'redirects'
+    });
+  }
+
+  docsManagedBySource.forEach((destination, source) => {
+    const expectedDestination = manifestBySource.get(source);
+    if (!expectedDestination) return;
+    if (destination !== expectedDestination) {
+      errors.push({
+        file: 'docs.json',
+        rule: 'Legacy root redirect destination drift',
+        message: `Managed root redirect destination for ${source} must be "${expectedDestination}"`,
+        pointer: 'redirects'
+      });
+    }
+  });
+
+  manifestSources.forEach((source) => {
+    if (docsManagedBySource.has(source)) return;
+    errors.push({
+      file: 'docs.json',
+      rule: 'Missing managed legacy root redirect',
+      message: `docs.json is missing managed legacy root redirect source: ${source}`,
+      pointer: 'redirects'
+    });
+  });
+
+  const expectedCatchAllBySource = new Map(
+    legacyRootV1.ROOT_FALLBACK_REDIRECTS.map((entry) => [
+      legacyRootV1.normalizeRoute(entry.source),
+      legacyRootV1.normalizeRoute(entry.destination)
+    ])
+  );
+  const sortedDocsCatchAllSources = [...docsCatchAllSources].sort((left, right) => left.localeCompare(right));
+  const sortedExpectedCatchAllSources = [...expectedCatchAllBySource.keys()].sort((left, right) => left.localeCompare(right));
+  if (JSON.stringify(sortedDocsCatchAllSources) !== JSON.stringify(sortedExpectedCatchAllSources)) {
+    errors.push({
+      file: 'docs.json',
+      rule: 'Legacy root catch-all redirect drift',
+      message: 'Managed root catch-all redirects in docs.json must exactly match the sync tool contract',
+      pointer: 'redirects'
+    });
+  }
+
+  docsCatchAllBySource.forEach((destination, source) => {
+    const expectedDestination = expectedCatchAllBySource.get(source);
+    if (!expectedDestination) return;
+    if (destination !== expectedDestination) {
+      errors.push({
+        file: 'docs.json',
+        rule: 'Legacy root catch-all destination drift',
+        message: `Managed root catch-all redirect destination for ${source} must be "${expectedDestination}"`,
+        pointer: 'redirects'
+      });
+    }
+  });
+
+  return errors;
 }
 
 function collectIgnoredResolvedDocsPaths(repoRoot, docsJson, entries) {
@@ -941,6 +1095,8 @@ function runTests(options = {}) {
       });
     }
   });
+
+  errors.push(...validateLegacyRootRedirectSubset(repoRoot, docsJson));
 
   const orphanedPages = collectOrphanedV2Pages(repoRoot, docsJson);
   orphanedPages.forEach((filePath) => {
