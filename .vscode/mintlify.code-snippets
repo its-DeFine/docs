@@ -1,7 +1,12 @@
 {
   "Mintlify: Card": {
     "scope": "mdx,markdown",
-    "prefix": ["Card", "card"],
+    "prefix": [
+      "Card",
+      "card",
+      "<Card",
+      "<card"
+    ],
     "body": [
       "<Card title=\"${1:Title}\" icon=\"${2:icon}\" href=\"${3:link}\">",
       "  ${4:Description}",
@@ -11,7 +16,12 @@
   },
   "Mintlify: CardGroup": {
     "scope": "mdx,markdown",
-    "prefix": ["CardGroup", "cardGroup"],
+    "prefix": [
+      "CardGroup",
+      "cardGroup",
+      "<CardGroup",
+      "<cardGroup"
+    ],
     "body": [
       "<CardGroup cols={${1|2,3,4|}}>",
       "  <Card title=\"${2:Title}\" icon=\"${3:icon}\">",
@@ -26,7 +36,12 @@
   },
   "Mintlify: Tabs": {
     "scope": "mdx,markdown",
-    "prefix": ["Tabs", "tabs"],
+    "prefix": [
+      "Tabs",
+      "tabs",
+      "<Tabs",
+      "<tabs"
+    ],
     "body": [
       "<Tabs>",
       "  <Tab title=\"${1:Tab 1}\">",
@@ -41,7 +56,12 @@
   },
   "Mintlify: Tab": {
     "scope": "mdx,markdown",
-    "prefix": ["Tab", "tab"],
+    "prefix": [
+      "Tab",
+      "tab",
+      "<Tab",
+      "<tab"
+    ],
     "body": [
       "<Tab title=\"${1:Title}\">",
       "  $0",
@@ -51,7 +71,12 @@
   },
   "Mintlify: Steps": {
     "scope": "mdx,markdown",
-    "prefix": ["Steps", "steps"],
+    "prefix": [
+      "Steps",
+      "steps",
+      "<Steps",
+      "<steps"
+    ],
     "body": [
       "<Steps>",
       "  <Step title=\"${1:Step 1}\">",
@@ -66,7 +91,12 @@
   },
   "Mintlify: Step": {
     "scope": "mdx,markdown",
-    "prefix": ["Step", "step"],
+    "prefix": [
+      "Step",
+      "step",
+      "<Step",
+      "<step"
+    ],
     "body": [
       "<Step title=\"${1:Title}\">",
       "  $0",
@@ -76,7 +106,12 @@
   },
   "Mintlify: Accordion": {
     "scope": "mdx,markdown",
-    "prefix": ["Accordion", "accordion"],
+    "prefix": [
+      "Accordion",
+      "accordion",
+      "<Accordion",
+      "<accordion"
+    ],
     "body": [
       "<Accordion title=\"${1:Title}\">",
       "  $0",
@@ -86,7 +121,12 @@
   },
   "Mintlify: AccordionGroup": {
     "scope": "mdx,markdown",
-    "prefix": ["AccordionGroup", "accordionGroup"],
+    "prefix": [
+      "AccordionGroup",
+      "accordionGroup",
+      "<AccordionGroup",
+      "<accordionGroup"
+    ],
     "body": [
       "<AccordionGroup>",
       "  <Accordion title=\"${1:Title 1}\">",
@@ -101,7 +141,12 @@
   },
   "Mintlify: CodeGroup": {
     "scope": "mdx,markdown",
-    "prefix": ["CodeGroup", "codeGroup"],
+    "prefix": [
+      "CodeGroup",
+      "codeGroup",
+      "<CodeGroup",
+      "<codeGroup"
+    ],
     "body": [
       "<CodeGroup>",
       "",
@@ -119,7 +164,12 @@
   },
   "Mintlify: Note": {
     "scope": "mdx,markdown",
-    "prefix": ["Note", "note"],
+    "prefix": [
+      "Note",
+      "note",
+      "<Note",
+      "<note"
+    ],
     "body": [
       "<Note>",
       "  $0",
@@ -129,7 +179,12 @@
   },
   "Mintlify: Warning": {
     "scope": "mdx,markdown",
-    "prefix": ["Warning", "warning"],
+    "prefix": [
+      "Warning",
+      "warning",
+      "<Warning",
+      "<warning"
+    ],
     "body": [
       "<Warning>",
       "  $0",
@@ -139,7 +194,12 @@
   },
   "Mintlify: Info": {
     "scope": "mdx,markdown",
-    "prefix": ["Info", "info"],
+    "prefix": [
+      "Info",
+      "info",
+      "<Info",
+      "<info"
+    ],
     "body": [
       "<Info>",
       "  $0",
@@ -149,7 +209,12 @@
   },
   "Mintlify: Tip": {
     "scope": "mdx,markdown",
-    "prefix": ["Tip", "tip"],
+    "prefix": [
+      "Tip",
+      "tip",
+      "<Tip",
+      "<tip"
+    ],
     "body": [
       "<Tip>",
       "  $0",
@@ -159,7 +224,12 @@
   },
   "Mintlify: Check": {
     "scope": "mdx,markdown",
-    "prefix": ["Check", "check"],
+    "prefix": [
+      "Check",
+      "check",
+      "<Check",
+      "<check"
+    ],
     "body": [
       "<Check>",
       "  $0",
@@ -169,7 +239,12 @@
   },
   "Mintlify: Frame": {
     "scope": "mdx,markdown",
-    "prefix": ["Frame", "frame"],
+    "prefix": [
+      "Frame",
+      "frame",
+      "<Frame",
+      "<frame"
+    ],
     "body": [
       "<Frame>",
       "  $0",
@@ -179,7 +254,12 @@
   },
   "Mintlify: Frame with caption": {
     "scope": "mdx,markdown",
-    "prefix": ["FrameCaption", "frameCaption"],
+    "prefix": [
+      "FrameCaption",
+      "frameCaption",
+      "<FrameCaption",
+      "<frameCaption"
+    ],
     "body": [
       "<Frame caption=\"${1:Caption text}\">",
       "  $0",
@@ -189,7 +269,12 @@
   },
   "Mintlify: Tooltip": {
     "scope": "mdx,markdown",
-    "prefix": ["Tooltip", "tooltip"],
+    "prefix": [
+      "Tooltip",
+      "tooltip",
+      "<Tooltip",
+      "<tooltip"
+    ],
     "body": [
       "<Tooltip tip=\"${1:Tooltip text}\">${2:Hover text}</Tooltip>"
     ],
@@ -197,7 +282,12 @@
   },
   "Mintlify: ResponseField": {
     "scope": "mdx,markdown",
-    "prefix": ["ResponseField", "responseField"],
+    "prefix": [
+      "ResponseField",
+      "responseField",
+      "<ResponseField",
+      "<responseField"
+    ],
     "body": [
       "<ResponseField name=\"${1:field}\" type=\"${2:string}\" required>",
       "  ${3:Description}",
@@ -207,7 +297,12 @@
   },
   "Mintlify: Expandable": {
     "scope": "mdx,markdown",
-    "prefix": ["Expandable", "expandable"],
+    "prefix": [
+      "Expandable",
+      "expandable",
+      "<Expandable",
+      "<expandable"
+    ],
     "body": [
       "<Expandable title=\"${1:properties}\">",
       "  <ResponseField name=\"${2:field}\" type=\"${3:string}\">",
@@ -219,7 +314,12 @@
   },
   "Mintlify: ParamField": {
     "scope": "mdx,markdown",
-    "prefix": ["ParamField", "paramField"],
+    "prefix": [
+      "ParamField",
+      "paramField",
+      "<ParamField",
+      "<paramField"
+    ],
     "body": [
       "<ParamField ${1|path,query,body,header|}=\"${2:name}\" type=\"${3:string}\" required>",
       "  ${4:Description}",
@@ -229,7 +329,12 @@
   },
   "Mintlify: Snippet": {
     "scope": "mdx,markdown",
-    "prefix": ["Snippet", "snippet"],
+    "prefix": [
+      "Snippet",
+      "snippet",
+      "<Snippet",
+      "<snippet"
+    ],
     "body": [
       "<Snippet file=\"${1:path}.mdx\" />"
     ],
@@ -237,7 +342,12 @@
   },
   "Mintlify: Icon": {
     "scope": "mdx,markdown",
-    "prefix": ["Icon", "icon"],
+    "prefix": [
+      "Icon",
+      "icon",
+      "<Icon",
+      "<icon"
+    ],
     "body": [
       "<Icon icon=\"${1:icon-name}\" size={${2|16,20,24,32|}} />"
     ],
@@ -245,7 +355,12 @@
   },
   "Mintlify: Columns": {
     "scope": "mdx,markdown",
-    "prefix": ["Columns", "columns"],
+    "prefix": [
+      "Columns",
+      "columns",
+      "<Columns",
+      "<columns"
+    ],
     "body": [
       "<Columns>",
       "  <Column>",
@@ -260,7 +375,12 @@
   },
   "Mintlify: Column": {
     "scope": "mdx,markdown",
-    "prefix": ["Column", "column"],
+    "prefix": [
+      "Column",
+      "column",
+      "<Column",
+      "<column"
+    ],
     "body": [
       "<Column>",
       "  $0",
@@ -270,7 +390,12 @@
   },
   "Mintlify: Update": {
     "scope": "mdx,markdown",
-    "prefix": ["Update", "update"],
+    "prefix": [
+      "Update",
+      "update",
+      "<Update",
+      "<update"
+    ],
     "body": [
       "<Update label=\"${1:v1.0.0}\" description=\"${2:Release notes}\">"
     ],

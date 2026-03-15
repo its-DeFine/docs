@@ -17,6 +17,28 @@ with open('docs-guide/component-registry.json') as f:
 snippets = {}
 seen = set()
 
+SNIPPET_OVERRIDES = {
+    'AccordionGroupList': {
+        'body': ['<AccordionGroupList num={${1|1,2,3,4,5,6,7,8,9,10|}} />'],
+        'description': '[layout] Renders N empty Accordions inside an AccordionGroup'
+    },
+    'CodeComponent': {
+        'body': ['<CodeComponent filename="${1:example.sh}" icon="terminal" language="${2:bash}" codeString={"${3:echo hello}"} />']
+    },
+    'ComplexCodeBlock': {
+        'body': ['<ComplexCodeBlock filename="${1:example.sh}" icon="${2:terminal}" language="${3:bash}" highlight="${4}" />']
+    },
+    'CustomCodeBlock': {
+        'body': ['<CustomCodeBlock filename="${1:example.sh}" icon="${2:terminal}" language="${3:bash}" highlight="${4}" />']
+    }
+}
+
+
+def build_prefixes(name):
+    lc = name[0].lower() + name[1:]
+    prefixes = [lc, name, '<' + lc, '<' + name]
+    return list(dict.fromkeys(prefixes))
+
 for c in data['components']:
     name = c['name']
     if name in seen:
@@ -62,12 +84,12 @@ for c in data['components']:
     else:
         body = ['<' + name + attr_str + ' />']
 
-    lc = name[0].lower() + name[1:]
+    override = SNIPPET_OVERRIDES.get(name, {})
     snippets[cat + ': ' + name] = {
         'scope': 'mdx,markdown',
-        'prefix': [lc, name],
-        'body': body,
-        'description': '[' + cat + '] ' + desc
+        'prefix': build_prefixes(name),
+        'body': override.get('body', body),
+        'description': override.get('description', '[' + cat + '] ' + desc)
     }
 
 snippets = dict(sorted(snippets.items()))

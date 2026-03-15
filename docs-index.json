@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-14T20:38:40.512Z",
+  "generated": "2026-03-15T02:40:17.772Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/portal",
@@ -2475,8 +2475,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 458,
-      "lastVerified": "2026-03-12T15:26:20+11:00",
+      "wordCount": 524,
+      "lastVerified": "2026-03-15T07:36:02+11:00",
       "headings": [
         {
           "level": 1,
@@ -6987,6 +6987,293 @@
       ],
       "codeLanguages": [
         "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/resources/documentation-guide/contribute-to-the-docs",
+      "title": "Contribute To The Docs",
+      "description": "Contribute to the Livepeer documentation and help us make it even better!",
+      "section": "resources",
+      "tags": [
+        "livepeer",
+        "resources",
+        "documentation-guide",
+        "contribute-to-the-docs",
+        "contribute",
+        "docs"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 2399,
+      "lastVerified": "2026-03-12T15:51:55+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Provide Feedback"
+        },
+        {
+          "level": 3,
+          "text": "On Any Page"
+        },
+        {
+          "level": 3,
+          "text": "General Feedback Channels"
+        },
+        {
+          "level": 2,
+          "text": "Contributing to the Docs"
+        },
+        {
+          "level": 3,
+          "text": "Non-Technical Contributions"
+        },
+        {
+          "level": 4,
+          "text": "Option 1: Feedback Form"
+        },
+        {
+          "level": 4,
+          "text": "Option 2: Content Suggestions"
+        },
+        {
+          "level": 3,
+          "text": "Technical Contributions (Git & Markdown)"
+        },
+        {
+          "level": 2,
+          "text": "Pull Request Workflow"
+        },
+        {
+          "level": 3,
+          "text": "Step-by-Step Guide"
+        },
+        {
+          "level": 4,
+          "text": "1. Fork the Repository"
+        },
+        {
+          "level": 4,
+          "text": "2. Clone Your Fork"
+        },
+        {
+          "level": 4,
+          "text": "3. Set Up Remote Tracking"
+        },
+        {
+          "level": 4,
+          "text": "4. Create a Branch"
+        },
+        {
+          "level": 4,
+          "text": "5. Install Pre-commit Hooks"
+        },
+        {
+          "level": 4,
+          "text": "6. Make Your Changes"
+        },
+        {
+          "level": 4,
+          "text": "7. Test Locally"
+        },
+        {
+          "level": 4,
+          "text": "8. Commit Your Changes"
+        },
+        {
+          "level": 4,
+          "text": "9. Push to Your Fork"
+        },
+        {
+          "level": 4,
+          "text": "10. Create a Pull Request"
+        },
+        {
+          "level": 4,
+          "text": "11. Address Review Feedback"
+        },
+        {
+          "level": 4,
+          "text": "12. Merge and Cleanup"
+        },
+        {
+          "level": 2,
+          "text": "Development Setup"
+        },
+        {
+          "level": 3,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 3,
+          "text": "Installation"
+        },
+        {
+          "level": 3,
+          "text": "Running Locally"
+        },
+        {
+          "level": 3,
+          "text": "Project Structure"
+        },
+        {
+          "level": 2,
+          "text": "Authoring Helpers"
+        },
+        {
+          "level": 3,
+          "text": "MDX Templates"
+        },
+        {
+          "level": 3,
+          "text": "VS Code Snippets"
+        },
+        {
+          "level": 2,
+          "text": "Contribution Guidelines"
+        },
+        {
+          "level": 3,
+          "text": "Style Guide"
+        },
+        {
+          "level": 3,
+          "text": "Component Usage"
+        },
+        {
+          "level": 3,
+          "text": "Content Guidelines"
+        },
+        {
+          "level": 3,
+          "text": "Code Examples"
+        },
+        {
+          "level": 3,
+          "text": "Testing Requirements"
+        },
+        {
+          "level": 2,
+          "text": "Review Process"
+        },
+        {
+          "level": 3,
+          "text": "Who Reviews What"
+        },
+        {
+          "level": 3,
+          "text": "Review Timeline"
+        },
+        {
+          "level": 3,
+          "text": "Review Criteria"
+        },
+        {
+          "level": 3,
+          "text": "Addressing Feedback"
+        },
+        {
+          "level": 2,
+          "text": "What to Contribute"
+        },
+        {
+          "level": 3,
+          "text": "Content Improvements"
+        },
+        {
+          "level": 3,
+          "text": "New Content"
+        },
+        {
+          "level": 3,
+          "text": "Technical Improvements"
+        },
+        {
+          "level": 3,
+          "text": "Translations"
+        },
+        {
+          "level": 2,
+          "text": "File Structure Guide"
+        },
+        {
+          "level": 3,
+          "text": "Where to Edit Different Types of Content"
+        },
+        {
+          "level": 3,
+          "text": "Section Organisation"
+        },
+        {
+          "level": 2,
+          "text": "Resources for Contributors"
+        },
+        {
+          "level": 2,
+          "text": "Contribution Workflow Summary"
+        },
+        {
+          "level": 3,
+          "text": "For Small Changes (Typos, Broken Links)"
+        },
+        {
+          "level": 3,
+          "text": "For Medium Changes (Content Updates, Examples)"
+        },
+        {
+          "level": 3,
+          "text": "For Large Changes (New Guides, Major Restructuring)"
+        },
+        {
+          "level": 2,
+          "text": "Recognition"
+        },
+        {
+          "level": 2,
+          "text": "Questions?"
+        },
+        {
+          "level": 2,
+          "text": "Non-Technical Contribution Proposal"
+        },
+        {
+          "level": 3,
+          "text": "Current Options"
+        },
+        {
+          "level": 3,
+          "text": "Proposed Workflows"
+        },
+        {
+          "level": 4,
+          "text": "Option 1: Mintlify Web Editor Integration"
+        },
+        {
+          "level": 4,
+          "text": "Option 2: Form-Based Submission System"
+        },
+        {
+          "level": 4,
+          "text": "Option 3: \"Edit This Page\" Button with PR Template"
+        },
+        {
+          "level": 4,
+          "text": "Option 4: External CMS Integration"
+        },
+        {
+          "level": 3,
+          "text": "Recommended Implementation Order"
+        },
+        {
+          "level": 3,
+          "text": "Feedback Welcome"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "text",
+        "markdown",
+        "yaml"
       ]
     }
   ]

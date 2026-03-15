@@ -50,7 +50,7 @@ Best practice split:
 For your use case, the strongest setup is usually:
 
 1. **Repo-native MDX templates** in a `/templates` or `/snippets` folder
-2. **Repo-specific VS Code snippets** in `.vscode/livepeer-docs.code-snippets`
+2. **Repo-specific VS Code snippets** in `.vscode/*.code-snippets`
 3. **Optional Gists** for quick-share patterns or external contributor starter kits
 
 Example uses:
@@ -89,9 +89,11 @@ Three snippet files, organised by scope:
 
 | File | Snippets | Scope |
 |------|----------|-------|
-| `.vscode/mdx.code-snippets` | 7 | Frontmatter fields |
+| `.vscode/mdx.code-snippets` | 17 | Frontmatter, page scaffolds, and reusable MDX blocks |
 | `.vscode/mintlify.code-snippets` | 25 | Mintlify built-in components |
-| `.vscode/components.code-snippets` | 114 | Custom Livepeer components |
+| `.vscode/components.code-snippets` | 115 | Custom Livepeer components |
+
+JSX tag snippets accept both bare names such as `Card` and opening-tag prefixes such as `<Card`, so you can expand them after typing the angle bracket without ending up with `<<`.
 
 <AccordionGroup>
 
@@ -140,7 +142,7 @@ keywords:
 
 Source: `.vscode/mintlify.code-snippets`
 
-Type any Mintlify component name to insert it with placeholder props.
+Type any Mintlify component name, with or without the opening `<`, to insert it with placeholder props.
 
 | Prefix | What it inserts |
 |--------|----------------|

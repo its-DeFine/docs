@@ -86,14 +86,14 @@ If you're comfortable with Git and Markdown, you can contribute directly:
 
 #### 2. Clone Your Fork
 
-```bash
+```bash icon="terminal"
 git clone https://github.com/YOUR_USERNAME/docs.git
 cd docs
 ```
 
 #### 3. Set Up Remote Tracking
 
-```bash
+```bash icon="terminal"
 # Add the original repository as upstream
 git remote add upstream https://github.com/livepeer/docs.git
 
@@ -107,7 +107,7 @@ git remote -v
 **Important:** Always create a new branch for your changes. Never commit directly to `main` or `docs-v2-preview`.
 </Warning>
 
-```bash
+```bash icon="terminal"
 # Make sure you're on the latest version
 git checkout docs-v2-preview
 git pull upstream docs-v2-preview
@@ -131,7 +131,7 @@ git checkout -b docs/update-component-docs
 Pre-commit hooks automatically check your code for style guide violations and syntax errors before you commit.
 </Tip>
 
-```bash
+```bash icon="terminal"
 # Install the pre-commit hook
 ./.githooks/install.sh
 ```
@@ -154,7 +154,7 @@ Edit the relevant files:
 - **Assets:** `snippets/assets/`
 
 **File structure:**
-```text
+```text icon="terminal"
 v2/
 ├── home/          # Home tab content
 ├── about/         # About tab content
@@ -179,7 +179,7 @@ v2/
 **Always test your changes locally before submitting a PR!**
 </Warning>
 
-```bash
+```bash icon="terminal"
 # Install Mintlify CLI (if not already installed)
 npm i -g mintlify
 
@@ -199,7 +199,7 @@ This starts a local server (usually at `http://localhost:3000`) where you can pr
 
 #### 8. Commit Your Changes
 
-```bash
+```bash icon="terminal"
 # Stage your changes
 git add .
 
@@ -216,19 +216,19 @@ git commit -m "docs: fix typo in quickstart guide"
 
 If a human intentionally needs to edit `.allowlist`, use:
 
-```bash
+```bash icon="terminal"
 git commit -m "Update .allowlist" --trailer "allowlist-edit=true"
 ```
 
 If a human intentionally needs to allow file deletions, use:
 
-```bash
+```bash icon="terminal"
 git commit -m "Remove obsolete files" --trailer "allow-deletions=true"
 ```
 
 #### 9. Push to Your Fork
 
-```bash
+```bash icon="terminal"
 git push origin docs/your-branch-name
 ```
 
@@ -245,7 +245,7 @@ git push origin docs/your-branch-name
    - **Testing:** Describe how you tested
 
 **PR Template:**
-```markdown
+```markdown icon="terminal"
 ## Description
 Brief description of changes
 
@@ -293,7 +293,7 @@ Once your PR is approved and merged:
 
 ### Installation
 
-```bash
+```bash icon="terminal"
 # Clone the repository
 git clone https://github.com/livepeer/docs.git
 cd docs
@@ -307,7 +307,7 @@ npm i -g mintlify
 
 ### Running Locally
 
-```bash
+```bash icon="terminal"
 # Start development server
 mint dev
 
@@ -316,7 +316,7 @@ mint dev
 
 ### Project Structure
 
-```text
+```text icon="terminal"
 docs/
 ├── v2/                    # Main documentation pages (MDX)
 ├── snippets/              # Reusable components and data
@@ -366,6 +366,8 @@ Checked-in templates live under `snippets/templates/` so they stay versioned, re
 
 Workspace snippets in `.vscode/` load automatically when you open this repo in VS Code.
 
+JSX tag snippets accept both bare component names such as `Card` and opening-tag prefixes such as `<Card`, so you can expand them after typing the angle bracket without generating `<<`.
+
 | File | Snippets | Scope |
 |---|---:|---|
 | `.vscode/mdx.code-snippets` | 17 | Frontmatter, page scaffolds, and reusable MDX blocks |
@@ -379,7 +381,7 @@ Workspace snippets in `.vscode/` load automatically when you open this repo in V
 
   Use `frontmatter` for the full draft block, `fm` for the smaller version, and the single-field snippets when you need to patch one field in place.
 
-  ```yaml
+  ```yaml icon="terminal"
   ---
   title: "Page Title"
   sidebarTitle: Page Title
@@ -562,7 +564,7 @@ We welcome contributions in many areas:
 
 ### Section Organisation
 
-```text
+```text icon="terminal"
 v2/
 ├── home/                 # Home tab
 │   ├── mission-control.mdx
@@ -658,7 +660,7 @@ If you have questions about contributing:
 
 Thank you for helping improve the Livepeer documentation! 🎉
 
----
+<CustomDivider />
 
 ## Non-Technical Contribution Proposal
 

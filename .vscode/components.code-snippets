@@ -1,15 +1,11 @@
 {
-  "layout: AccordionGroupList": {
-    "scope": "mdx,markdown",
-    "prefix": ["accordionGroupList", "AccordionGroupList"],
-    "body": ["<AccordionGroupList num={${1|1,2,3,4,5,6,7,8,9,10|}} />"],
-    "description": "[layout] Renders N empty Accordions inside an AccordionGroup"
-  },
   "content: CardVideo": {
     "scope": "mdx,markdown",
     "prefix": [
       "cardVideo",
-      "CardVideo"
+      "CardVideo",
+      "<cardVideo",
+      "<CardVideo"
     ],
     "body": [
       "<CardVideo embedUrl=\"${1}\" title=\"${2}\" style=\"${3}\" />"
@@ -20,7 +16,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "codeComponent",
-      "CodeComponent"
+      "CodeComponent",
+      "<codeComponent",
+      "<CodeComponent"
     ],
     "body": [
       "<CodeComponent filename=\"${1:example.sh}\" icon=\"terminal\" language=\"${2:bash}\" codeString={\"${3:echo hello}\"} />"
@@ -31,7 +29,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "codeSection",
-      "CodeSection"
+      "CodeSection",
+      "<codeSection",
+      "<CodeSection"
     ],
     "body": [
       "<CodeSection />"
@@ -42,7 +42,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "complexCodeBlock",
-      "ComplexCodeBlock"
+      "ComplexCodeBlock",
+      "<complexCodeBlock",
+      "<ComplexCodeBlock"
     ],
     "body": [
       "<ComplexCodeBlock filename=\"${1:example.sh}\" icon=\"${2:terminal}\" language=\"${3:bash}\" highlight=\"${4}\" />"
@@ -53,7 +55,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "customCodeBlock",
-      "CustomCodeBlock"
+      "CustomCodeBlock",
+      "<customCodeBlock",
+      "<CustomCodeBlock"
     ],
     "body": [
       "<CustomCodeBlock filename=\"${1:example.sh}\" icon=\"${2:terminal}\" language=\"${3:bash}\" highlight=\"${4}\" />"
@@ -64,7 +68,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "customResponseField",
-      "CustomResponseField"
+      "CustomResponseField",
+      "<customResponseField",
+      "<CustomResponseField"
     ],
     "body": [
       "<CustomResponseField description=\"${1}\" props=\"${2}\" />"
@@ -75,7 +81,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "embedMarkdown",
-      "EmbedMarkdown"
+      "EmbedMarkdown",
+      "<embedMarkdown",
+      "<EmbedMarkdown"
     ],
     "body": [
       "<EmbedMarkdown url=\"${1}\" />"
@@ -86,7 +94,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "externalContent",
-      "ExternalContent"
+      "ExternalContent",
+      "<externalContent",
+      "<ExternalContent"
     ],
     "body": [
       "<ExternalContent repoName=\"${1}\" githubUrl=\"${2}\">",
@@ -99,7 +109,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "frameQuote",
-      "FrameQuote"
+      "FrameQuote",
+      "<frameQuote",
+      "<FrameQuote"
     ],
     "body": [
       "<FrameQuote author=\"${1}\" source=\"${2}\" href=\"${3}\" borderColor=\"${4}\" img=\"${5}\" props=\"${6}\">",
@@ -112,7 +124,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "linkedInEmbed",
-      "LinkedInEmbed"
+      "LinkedInEmbed",
+      "<linkedInEmbed",
+      "<LinkedInEmbed"
     ],
     "body": [
       "<LinkedInEmbed embedUrl=\"${1}\" caption=\"${2}\" />"
@@ -123,7 +137,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "markdownEmbed",
-      "MarkdownEmbed"
+      "MarkdownEmbed",
+      "<markdownEmbed",
+      "<MarkdownEmbed"
     ],
     "body": [
       "<MarkdownEmbed url=\"${1}\" />"
@@ -134,7 +150,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "quote",
-      "Quote"
+      "Quote",
+      "<quote",
+      "<Quote"
     ],
     "body": [
       "<Quote>",
@@ -147,7 +165,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "responseFieldAccordion",
-      "ResponseFieldAccordion"
+      "ResponseFieldAccordion",
+      "<responseFieldAccordion",
+      "<ResponseFieldAccordion"
     ],
     "body": [
       "<ResponseFieldAccordion props=\"${1}\" />"
@@ -158,7 +178,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "responseFieldExpandable",
-      "ResponseFieldExpandable"
+      "ResponseFieldExpandable",
+      "<responseFieldExpandable",
+      "<ResponseFieldExpandable"
     ],
     "body": [
       "<ResponseFieldExpandable props=\"${1}\" />"
@@ -169,7 +191,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "responseFieldGroup",
-      "ResponseFieldGroup"
+      "ResponseFieldGroup",
+      "<responseFieldGroup",
+      "<ResponseFieldGroup"
     ],
     "body": [
       "<ResponseFieldGroup props=\"${1}\" />"
@@ -180,7 +204,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "scrollableDiagram",
-      "ScrollableDiagram"
+      "ScrollableDiagram",
+      "<scrollableDiagram",
+      "<ScrollableDiagram"
     ],
     "body": [
       "<ScrollableDiagram>",
@@ -193,7 +219,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "showcaseVideo",
-      "ShowcaseVideo"
+      "ShowcaseVideo",
+      "<showcaseVideo",
+      "<ShowcaseVideo"
     ],
     "body": [
       "<ShowcaseVideo src=\"${1}\" title=\"${2}\" subtitle=\"${3}\" />"
@@ -204,7 +232,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "titledVideo",
-      "TitledVideo"
+      "TitledVideo",
+      "<titledVideo",
+      "<TitledVideo"
     ],
     "body": [
       "<TitledVideo src=\"${1}\" title=\"${2}\" subtitle=\"${3}\" />"
@@ -215,7 +245,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "twitterTimeline",
-      "TwitterTimeline"
+      "TwitterTimeline",
+      "<twitterTimeline",
+      "<TwitterTimeline"
     ],
     "body": [
       "<TwitterTimeline />"
@@ -226,7 +258,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "valueResponseField",
-      "ValueResponseField"
+      "ValueResponseField",
+      "<valueResponseField",
+      "<ValueResponseField"
     ],
     "body": [
       "<ValueResponseField description=\"${1}\" props=\"${2}\">",
@@ -239,7 +273,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "video",
-      "Video"
+      "Video",
+      "<video",
+      "<Video"
     ],
     "body": [
       "<Video src=\"${1}\" caption=\"${2}\">",
@@ -252,7 +288,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "youTubeVideo",
-      "YouTubeVideo"
+      "YouTubeVideo",
+      "<youTubeVideo",
+      "<YouTubeVideo"
     ],
     "body": [
       "<YouTubeVideo embedUrl=\"${1}\" caption=\"${2}\" />"
@@ -263,7 +301,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "youTubeVideoData",
-      "YouTubeVideoData"
+      "YouTubeVideoData",
+      "<youTubeVideoData",
+      "<YouTubeVideoData"
     ],
     "body": [
       "<YouTubeVideoData limit={${1:1}} />"
@@ -274,7 +314,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "blogCard",
-      "BlogCard"
+      "BlogCard",
+      "<blogCard",
+      "<BlogCard"
     ],
     "body": [
       "<BlogCard title=\"${1}\" content=\"${2}\" href=\"${3}\" />"
@@ -285,7 +327,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "blogDataLayout",
-      "BlogDataLayout"
+      "BlogDataLayout",
+      "<blogDataLayout",
+      "<BlogDataLayout"
     ],
     "body": [
       "<BlogDataLayout limit={${1:1}} />"
@@ -296,7 +340,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "cardBlogDataLayout",
-      "CardBlogDataLayout"
+      "CardBlogDataLayout",
+      "<cardBlogDataLayout",
+      "<CardBlogDataLayout"
     ],
     "body": [
       "<CardBlogDataLayout limit={${1:1}} />"
@@ -307,7 +353,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "cardColumnsPostLayout",
-      "CardColumnsPostLayout"
+      "CardColumnsPostLayout",
+      "<cardColumnsPostLayout",
+      "<CardColumnsPostLayout"
     ],
     "body": [
       "<CardColumnsPostLayout limit={${1:1}} />"
@@ -318,7 +366,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "cardInCardLayout",
-      "CardInCardLayout"
+      "CardInCardLayout",
+      "<cardInCardLayout",
+      "<CardInCardLayout"
     ],
     "body": [
       "<CardInCardLayout limit={${1:1}} />"
@@ -329,7 +379,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "coinGeckoExchanges",
-      "CoinGeckoExchanges"
+      "CoinGeckoExchanges",
+      "<coinGeckoExchanges",
+      "<CoinGeckoExchanges"
     ],
     "body": [
       "<CoinGeckoExchanges />"
@@ -340,7 +392,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "columnsBlogCardLayout",
-      "ColumnsBlogCardLayout"
+      "ColumnsBlogCardLayout",
+      "<columnsBlogCardLayout",
+      "<ColumnsBlogCardLayout"
     ],
     "body": [
       "<ColumnsBlogCardLayout limit={${1:1}} />"
@@ -351,7 +405,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "discordAnnouncements",
-      "DiscordAnnouncements"
+      "DiscordAnnouncements",
+      "<discordAnnouncements",
+      "<DiscordAnnouncements"
     ],
     "body": [
       "<DiscordAnnouncements limit={${1:1}} />"
@@ -362,7 +418,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "forumLatestLayout",
-      "ForumLatestLayout"
+      "ForumLatestLayout",
+      "<forumLatestLayout",
+      "<ForumLatestLayout"
     ],
     "body": [
       "<ForumLatestLayout limit={${1:1}} />"
@@ -373,7 +431,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "latestVersion",
-      "LatestVersion"
+      "LatestVersion",
+      "<latestVersion",
+      "<LatestVersion"
     ],
     "body": [
       "<LatestVersion version=\"${1}\" />"
@@ -384,7 +444,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "lumaEvents",
-      "LumaEvents"
+      "LumaEvents",
+      "<lumaEvents",
+      "<LumaEvents"
     ],
     "body": [
       "<LumaEvents data=\"${1}\" limit={${2:1}} />"
@@ -395,7 +457,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "pdfEmbed",
-      "PdfEmbed"
+      "PdfEmbed",
+      "<pdfEmbed",
+      "<PdfEmbed"
     ],
     "body": [
       "<PdfEmbed title=\"${1}\" src=\"${2}\" />"
@@ -406,7 +470,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "postCard",
-      "PostCard"
+      "PostCard",
+      "<postCard",
+      "<PostCard"
     ],
     "body": [
       "<PostCard title=\"${1}\" content=\"${2}\" href=\"${3}\" />"
@@ -417,18 +483,35 @@
     "scope": "mdx,markdown",
     "prefix": [
       "showcaseCards",
-      "ShowcaseCards"
+      "ShowcaseCards",
+      "<showcaseCards",
+      "<ShowcaseCards"
     ],
     "body": [
       "<ShowcaseCards />"
     ],
     "description": "[data] Renders the showcase cards component"
   },
+  "layout: AccordionGroupList": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "accordionGroupList",
+      "AccordionGroupList",
+      "<accordionGroupList",
+      "<AccordionGroupList"
+    ],
+    "body": [
+      "<AccordionGroupList num={${1|1,2,3,4,5,6,7,8,9,10|}} />"
+    ],
+    "description": "[layout] Renders N empty Accordions inside an AccordionGroup"
+  },
   "layout: AccordionLayout": {
     "scope": "mdx,markdown",
     "prefix": [
       "accordionLayout",
-      "AccordionLayout"
+      "AccordionLayout",
+      "<accordionLayout",
+      "<AccordionLayout"
     ],
     "body": [
       "<AccordionLayout>",
@@ -441,7 +524,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "basicList",
-      "BasicList"
+      "BasicList",
+      "<basicList",
+      "<BasicList"
     ],
     "body": [
       "<BasicList listItems=\"${1}\" />"
@@ -452,7 +537,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "borderedBox",
-      "BorderedBox"
+      "BorderedBox",
+      "<borderedBox",
+      "<BorderedBox"
     ],
     "body": [
       "<BorderedBox>",
@@ -465,7 +552,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "cardCarousel",
-      "CardCarousel"
+      "CardCarousel",
+      "<cardCarousel",
+      "<CardCarousel"
     ],
     "body": [
       "<CardCarousel style=\"${1}\">",
@@ -478,7 +567,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "centeredContainer",
-      "CenteredContainer"
+      "CenteredContainer",
+      "<centeredContainer",
+      "<CenteredContainer"
     ],
     "body": [
       "<CenteredContainer>",
@@ -491,7 +582,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "displayCard",
-      "DisplayCard"
+      "DisplayCard",
+      "<displayCard",
+      "<DisplayCard"
     ],
     "body": [
       "<DisplayCard icon=\"${1}\" title=\"${2}\" style={${3:{}}}>",
@@ -504,7 +597,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "dynamicTable",
-      "DynamicTable"
+      "DynamicTable",
+      "<dynamicTable",
+      "<DynamicTable"
     ],
     "body": [
       "<DynamicTable margin=\"${1}\" />"
@@ -515,7 +610,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "flexContainer",
-      "FlexContainer"
+      "FlexContainer",
+      "<flexContainer",
+      "<FlexContainer"
     ],
     "body": [
       "<FlexContainer>",
@@ -528,7 +625,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "fullWidthContainer",
-      "FullWidthContainer"
+      "FullWidthContainer",
+      "<fullWidthContainer",
+      "<FullWidthContainer"
     ],
     "body": [
       "<FullWidthContainer backgroundColor=\"${1}\">",
@@ -541,7 +640,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "gridContainer",
-      "GridContainer"
+      "GridContainer",
+      "<gridContainer",
+      "<GridContainer"
     ],
     "body": [
       "<GridContainer columns=\"${1}\">",
@@ -554,7 +655,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "iconList",
-      "IconList"
+      "IconList",
+      "<iconList",
+      "<IconList"
     ],
     "body": [
       "<IconList listItems=\"${1}\" />"
@@ -565,7 +668,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "inlineImageCard",
-      "InlineImageCard"
+      "InlineImageCard",
+      "<inlineImageCard",
+      "<InlineImageCard"
     ],
     "body": [
       "<InlineImageCard imgProps={${1:{}}} imgStyle={${2:{}}} cardProps={${3:{}}} style={${4:{}}}>",
@@ -578,7 +683,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "interactiveCard",
-      "InteractiveCard"
+      "InteractiveCard",
+      "<interactiveCard",
+      "<InteractiveCard"
     ],
     "body": [
       "<InteractiveCard style=\"${1}\" cardProps=\"${2}\" />"
@@ -589,7 +696,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "interactiveCards",
-      "InteractiveCards"
+      "InteractiveCards",
+      "<interactiveCards",
+      "<InteractiveCards"
     ],
     "body": [
       "<InteractiveCards />"
@@ -600,7 +709,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "listSteps",
-      "ListSteps"
+      "ListSteps",
+      "<listSteps",
+      "<ListSteps"
     ],
     "body": [
       "<ListSteps />"
@@ -611,7 +722,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "quadGrid",
-      "QuadGrid"
+      "QuadGrid",
+      "<quadGrid",
+      "<QuadGrid"
     ],
     "body": [
       "<QuadGrid>",
@@ -624,7 +737,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "scrollBox",
-      "ScrollBox"
+      "ScrollBox",
+      "<scrollBox",
+      "<ScrollBox"
     ],
     "body": [
       "<ScrollBox style=\"${1}\">",
@@ -637,7 +752,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "searchTable",
-      "SearchTable"
+      "SearchTable",
+      "<searchTable",
+      "<SearchTable"
     ],
     "body": [
       "<SearchTable margin=\"${1}\" />"
@@ -648,7 +765,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "spacer",
-      "Spacer"
+      "Spacer",
+      "<spacer",
+      "<Spacer"
     ],
     "body": [
       "<Spacer />"
@@ -659,7 +778,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "stepLinkList",
-      "StepLinkList"
+      "StepLinkList",
+      "<stepLinkList",
+      "<StepLinkList"
     ],
     "body": [
       "<StepLinkList listItems=\"${1}\" />"
@@ -670,7 +791,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "stepList",
-      "StepList"
+      "StepList",
+      "<stepList",
+      "<StepList"
     ],
     "body": [
       "<StepList listItems=\"${1}\" />"
@@ -681,7 +804,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "styledStep",
-      "StyledStep"
+      "StyledStep",
+      "<styledStep",
+      "<StyledStep"
     ],
     "body": [
       "<StyledStep title=\"${1}\" icon=\"${2}\">",
@@ -694,7 +819,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "styledSteps",
-      "StyledSteps"
+      "StyledSteps",
+      "<styledSteps",
+      "<StyledSteps"
     ],
     "body": [
       "<StyledSteps iconColor=\"${1}\" titleColor=\"${2}\" lineColor=\"${3}\">",
@@ -707,7 +834,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "styledTable",
-      "StyledTable"
+      "StyledTable",
+      "<styledTable",
+      "<StyledTable"
     ],
     "body": [
       "<StyledTable>",
@@ -720,7 +849,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "tableCell",
-      "TableCell"
+      "TableCell",
+      "<tableCell",
+      "<TableCell"
     ],
     "body": [
       "<TableCell>",
@@ -733,7 +864,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "tableRow",
-      "TableRow"
+      "TableRow",
+      "<tableRow",
+      "<TableRow"
     ],
     "body": [
       "<TableRow>",
@@ -746,7 +879,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "updateLinkList",
-      "UpdateLinkList"
+      "UpdateLinkList",
+      "<updateLinkList",
+      "<UpdateLinkList"
     ],
     "body": [
       "<UpdateLinkList listItems=\"${1}\" />"
@@ -757,7 +892,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "updateList",
-      "UpdateList"
+      "UpdateList",
+      "<updateList",
+      "<UpdateList"
     ],
     "body": [
       "<UpdateList listItems=\"${1}\" />"
@@ -768,7 +905,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "widthCard",
-      "WidthCard"
+      "WidthCard",
+      "<widthCard",
+      "<WidthCard"
     ],
     "body": [
       "<WidthCard>",
@@ -781,7 +920,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "customCardTitle",
-      "CustomCardTitle"
+      "CustomCardTitle",
+      "<customCardTitle",
+      "<CustomCardTitle"
     ],
     "body": [
       "<CustomCardTitle icon=\"${1}\" title=\"${2}\" style=\"${3}\" />"
@@ -792,7 +933,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "divider",
-      "Divider"
+      "Divider",
+      "<divider",
+      "<Divider"
     ],
     "body": [
       "<Divider color=\"${1}\" />"
@@ -803,7 +946,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "h1",
-      "H1"
+      "H1",
+      "<h1",
+      "<H1"
     ],
     "body": [
       "<H1 icon=\"${1}\" iconColor=\"${2}\">",
@@ -816,7 +961,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "h2",
-      "H2"
+      "H2",
+      "<h2",
+      "<H2"
     ],
     "body": [
       "<H2 icon=\"${1}\" iconColor=\"${2}\">",
@@ -829,7 +976,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "h3",
-      "H3"
+      "H3",
+      "<h3",
+      "<H3"
     ],
     "body": [
       "<H3 icon=\"${1}\" iconColor=\"${2}\">",
@@ -842,7 +991,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "h4",
-      "H4"
+      "H4",
+      "<h4",
+      "<H4"
     ],
     "body": [
       "<H4 icon=\"${1}\" iconColor=\"${2}\">",
@@ -855,7 +1006,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "h5",
-      "H5"
+      "H5",
+      "<h5",
+      "<H5"
     ],
     "body": [
       "<H5 icon=\"${1}\" iconColor=\"${2}\">",
@@ -868,7 +1021,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "h6",
-      "H6"
+      "H6",
+      "<h6",
+      "<H6"
     ],
     "body": [
       "<H6 icon=\"${1}\" iconColor=\"${2}\">",
@@ -881,7 +1036,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "heroContentContainer",
-      "HeroContentContainer"
+      "HeroContentContainer",
+      "<heroContentContainer",
+      "<HeroContentContainer"
     ],
     "body": [
       "<HeroContentContainer>",
@@ -894,7 +1051,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "heroImageBackgroundComponent",
-      "HeroImageBackgroundComponent"
+      "HeroImageBackgroundComponent",
+      "<heroImageBackgroundComponent",
+      "<HeroImageBackgroundComponent"
     ],
     "body": [
       "<HeroImageBackgroundComponent>",
@@ -907,7 +1066,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "heroOverviewContent",
-      "HeroOverviewContent"
+      "HeroOverviewContent",
+      "<heroOverviewContent",
+      "<HeroOverviewContent"
     ],
     "body": [
       "<HeroOverviewContent>",
@@ -920,7 +1081,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "heroSectionContainer",
-      "HeroSectionContainer"
+      "HeroSectionContainer",
+      "<heroSectionContainer",
+      "<HeroSectionContainer"
     ],
     "body": [
       "<HeroSectionContainer>",
@@ -933,7 +1096,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "logoHeroContainer",
-      "LogoHeroContainer"
+      "LogoHeroContainer",
+      "<logoHeroContainer",
+      "<LogoHeroContainer"
     ],
     "body": [
       "<LogoHeroContainer>",
@@ -946,7 +1111,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "p",
-      "P"
+      "P",
+      "<p",
+      "<P"
     ],
     "body": [
       "<P icon=\"${1}\" iconColor=\"${2}\">",
@@ -959,7 +1126,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "pageHeader",
-      "PageHeader"
+      "PageHeader",
+      "<pageHeader",
+      "<PageHeader"
     ],
     "body": [
       "<PageHeader title=\"${1}\" subtitle=\"${2}\" description=\"${3}\" titleColor=\"${4}\" subtitleColor=\"${5}\" descriptionColor=\"${6}\">",
@@ -972,7 +1141,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "portalCardsHeader",
-      "PortalCardsHeader"
+      "PortalCardsHeader",
+      "<portalCardsHeader",
+      "<PortalCardsHeader"
     ],
     "body": [
       "<PortalCardsHeader title=\"${1}\">",
@@ -985,7 +1156,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "portalContentContainer",
-      "PortalContentContainer"
+      "PortalContentContainer",
+      "<portalContentContainer",
+      "<PortalContentContainer"
     ],
     "body": [
       "<PortalContentContainer>",
@@ -998,7 +1171,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "portalHeroContent",
-      "PortalHeroContent"
+      "PortalHeroContent",
+      "<portalHeroContent",
+      "<PortalHeroContent"
     ],
     "body": [
       "<PortalHeroContent description=\"${1}\" refCardLink=\"${2}\" overview=\"${3}\" titleColor=\"${4}\" subtitleColor=\"${5}\">",
@@ -1011,7 +1186,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "portalSectionHeader",
-      "PortalSectionHeader"
+      "PortalSectionHeader",
+      "<portalSectionHeader",
+      "<PortalSectionHeader"
     ],
     "body": [
       "<PortalSectionHeader title=\"${1}\" icon=\"${2}\">",
@@ -1024,7 +1201,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "refCardContainer",
-      "RefCardContainer"
+      "RefCardContainer",
+      "<refCardContainer",
+      "<RefCardContainer"
     ],
     "body": [
       "<RefCardContainer>",
@@ -1037,7 +1216,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "starfield",
-      "Starfield"
+      "Starfield",
+      "<starfield",
+      "<Starfield"
     ],
     "body": [
       "<Starfield />"
@@ -1048,7 +1229,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "accordionTitleWithArrow",
-      "AccordionTitleWithArrow"
+      "AccordionTitleWithArrow",
+      "<accordionTitleWithArrow",
+      "<AccordionTitleWithArrow"
     ],
     "body": [
       "<AccordionTitleWithArrow text=\"${1}\">",
@@ -1061,7 +1244,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "basicBtn",
-      "BasicBtn"
+      "BasicBtn",
+      "<basicBtn",
+      "<BasicBtn"
     ],
     "body": [
       "<BasicBtn />"
@@ -1072,7 +1257,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "blinkingIcon",
-      "BlinkingIcon"
+      "BlinkingIcon",
+      "<blinkingIcon",
+      "<BlinkingIcon"
     ],
     "body": [
       "<BlinkingIcon color=\"${1}\" />"
@@ -1083,7 +1270,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "cardTitleTextWithArrow",
-      "CardTitleTextWithArrow"
+      "CardTitleTextWithArrow",
+      "<cardTitleTextWithArrow",
+      "<CardTitleTextWithArrow"
     ],
     "body": [
       "<CardTitleTextWithArrow cardProps=\"${1}\">",
@@ -1096,7 +1285,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "comingSoonCallout",
-      "ComingSoonCallout"
+      "ComingSoonCallout",
+      "<comingSoonCallout",
+      "<ComingSoonCallout"
     ],
     "body": [
       "<ComingSoonCallout />"
@@ -1107,7 +1298,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "copyText",
-      "CopyText"
+      "CopyText",
+      "<copyText",
+      "<CopyText"
     ],
     "body": [
       "<CopyText text=\"${1}\" label=\"${2}\" />"
@@ -1118,7 +1311,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "customCallout",
-      "CustomCallout"
+      "CustomCallout",
+      "<customCallout",
+      "<CustomCallout"
     ],
     "body": [
       "<CustomCallout color=\"${1}\" textColor=\"${2}\">",
@@ -1131,7 +1326,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "customDivider",
-      "CustomDivider"
+      "CustomDivider",
+      "<customDivider",
+      "<CustomDivider"
     ],
     "body": [
       "<CustomDivider />"
@@ -1142,7 +1339,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "doubleIconLink",
-      "DoubleIconLink"
+      "DoubleIconLink",
+      "<doubleIconLink",
+      "<DoubleIconLink"
     ],
     "body": [
       "<DoubleIconLink />"
@@ -1153,7 +1352,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "downloadButton",
-      "DownloadButton"
+      "DownloadButton",
+      "<downloadButton",
+      "<DownloadButton"
     ],
     "body": [
       "<DownloadButton downloadLink=\"${1}\" />"
@@ -1164,7 +1365,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "focusableScrollRegions",
-      "FocusableScrollRegions"
+      "FocusableScrollRegions",
+      "<focusableScrollRegions",
+      "<FocusableScrollRegions"
     ],
     "body": [
       "<FocusableScrollRegions selectors=\"${1}\" />"
@@ -1175,7 +1378,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "gotoCard",
-      "GotoCard"
+      "GotoCard",
+      "<gotoCard",
+      "<GotoCard"
     ],
     "body": [
       "<GotoCard label=\"${1}\" relativePath=\"${2}\" icon=\"${3}\" text=\"${4}\" props=\"${5}\" />"
@@ -1186,7 +1391,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "gotoLink",
-      "GotoLink"
+      "GotoLink",
+      "<gotoLink",
+      "<GotoLink"
     ],
     "body": [
       "<GotoLink label=\"${1}\" relativePath=\"${2}\" />"
@@ -1197,7 +1404,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "image",
-      "Image"
+      "Image",
+      "<image",
+      "<Image"
     ],
     "body": [
       "<Image src=\"${1}\" alt=\"${2}\" caption=\"${3}\" icon=\"${4}\" hint=\"${5}\" />"
@@ -1208,7 +1417,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "linkArrow",
-      "LinkArrow"
+      "LinkArrow",
+      "<linkArrow",
+      "<LinkArrow"
     ],
     "body": [
       "<LinkArrow href=\"${1}\" label=\"${2}\" description=\"${3}\" borderColor=\"${4}\" />"
@@ -1219,7 +1430,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "linkImage",
-      "LinkImage"
+      "LinkImage",
+      "<linkImage",
+      "<LinkImage"
     ],
     "body": [
       "<LinkImage src=\"${1}\" alt=\"${2}\" caption=\"${3}\" icon=\"${4}\" hint=\"${5}\" href=\"${6}\" />"
@@ -1230,7 +1443,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "livepeerIcon",
-      "LivepeerIcon"
+      "LivepeerIcon",
+      "<livepeerIcon",
+      "<LivepeerIcon"
     ],
     "body": [
       "<LivepeerIcon color=\"${1}\" props=\"${2}\" />"
@@ -1241,7 +1456,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "livepeerIconFlipped",
-      "LivepeerIconFlipped"
+      "LivepeerIconFlipped",
+      "<livepeerIconFlipped",
+      "<LivepeerIconFlipped"
     ],
     "body": [
       "<LivepeerIconFlipped props=\"${1}\" />"
@@ -1252,7 +1469,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "livepeerIconOld",
-      "LivepeerIconOld"
+      "LivepeerIconOld",
+      "<livepeerIconOld",
+      "<LivepeerIconOld"
     ],
     "body": [
       "<LivepeerIconOld props=\"${1}\" />"
@@ -1263,7 +1482,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "livepeerSVG",
-      "LivepeerSVG"
+      "LivepeerSVG",
+      "<livepeerSVG",
+      "<LivepeerSVG"
     ],
     "body": [
       "<LivepeerSVG props=\"${1}\" />"
@@ -1274,7 +1495,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "mathBlock",
-      "MathBlock"
+      "MathBlock",
+      "<mathBlock",
+      "<MathBlock"
     ],
     "body": [
       "<MathBlock latex=\"${1}\" ariaLabel=\"${2}\" />"
@@ -1285,7 +1508,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "mathInline",
-      "MathInline"
+      "MathInline",
+      "<mathInline",
+      "<MathInline"
     ],
     "body": [
       "<MathInline latex=\"${1}\" ariaLabel=\"${2}\" />"
@@ -1296,7 +1521,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "previewCallout",
-      "PreviewCallout"
+      "PreviewCallout",
+      "<previewCallout",
+      "<PreviewCallout"
     ],
     "body": [
       "<PreviewCallout />"
@@ -1307,7 +1534,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "reviewCallout",
-      "ReviewCallout"
+      "ReviewCallout",
+      "<reviewCallout",
+      "<ReviewCallout"
     ],
     "body": [
       "<ReviewCallout />"
@@ -1318,7 +1547,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "socialLinks",
-      "SocialLinks"
+      "SocialLinks",
+      "<socialLinks",
+      "<SocialLinks"
     ],
     "body": [
       "<SocialLinks color=\"${1}\" />"
@@ -1329,7 +1560,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "subtitle",
-      "Subtitle"
+      "Subtitle",
+      "<subtitle",
+      "<Subtitle"
     ],
     "body": [
       "<Subtitle text=\"${1}\">",
@@ -1342,7 +1575,9 @@
     "scope": "mdx,markdown",
     "prefix": [
       "tipWithArrow",
-      "TipWithArrow"
+      "TipWithArrow",
+      "<tipWithArrow",
+      "<TipWithArrow"
     ],
     "body": [
       "<TipWithArrow color=\"${1}\">",
