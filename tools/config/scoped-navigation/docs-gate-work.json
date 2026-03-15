@@ -296,7 +296,7 @@
                       "v2/orchestrators/concepts/role",
                       "v2/orchestrators/concepts/capabilities",
                       "v2/orchestrators/concepts/architecture",
-                      "v2/orchestrators/concepts/rcs-incentives"
+                      "v2/orchestrators/concepts/incentive-model"
                     ]
                   },
                   {
@@ -304,7 +304,9 @@
                     "icon": "bolt",
                     "pages": [
                       "v2/orchestrators/quickstart/guide",
-                      "v2/orchestrators/quickstart/video-transcoding"
+                      "v2/orchestrators/quickstart/video-transcoding",
+                      "v2/orchestrators/quickstart/tutorial",
+                      "v2/orchestrators/quickstart/ai-prompt-start"
                     ]
                   },
                   {
@@ -315,8 +317,7 @@
                       "v2/orchestrators/setup/rcs-requirements",
                       "v2/orchestrators/setup/rs-install",
                       "v2/orchestrators/setup/r-configure",
-                      "v2/orchestrators/setup/sc-connect",
-                      "v2/orchestrators/setup/activate",
+                      "v2/orchestrators/setup/connect-and-activate",
                       "v2/orchestrators/setup/test",
                       "v2/orchestrators/setup/r-monitor"
                     ]
@@ -328,29 +329,17 @@
                       {
                         "group": "Operator Considerations",
                         "pages": [
-                          "v2/orchestrators/guides/operator-considerations/feasibility-economics",
-                          "v2/orchestrators/guides/operator-considerations/hardware-reference",
+                          "v2/orchestrators/guides/operator-considerations/value-proposition",
                           "v2/orchestrators/guides/operator-considerations/benchmarking",
                           "v2/orchestrators/guides/operator-considerations/session-limits"
                         ]
                       },
                       {
-                        "group": "Deployment Options",
+                        "group": "Deployment Details",
                         "pages": [
-                          "v2/orchestrators/guides/deployment-options/setup-navigator",
-                          "v2/orchestrators/guides/deployment-options/find-your-path",
-                          "v2/orchestrators/guides/deployment-options/join-a-pool",
-                          "v2/orchestrators/guides/deployment-options/siphon-setup"
-                        ]
-                      },
-                      {
-                        "group": "Staking & Rewards",
-                        "pages": [
-                          "v2/orchestrators/guides/staking-and-rewards/earnings",
-                          "v2/orchestrators/guides/staking-and-rewards/rewards-and-fees",
-                          "v2/orchestrators/guides/staking-and-rewards/attracting-delegates",
-                          "v2/orchestrators/guides/staking-and-rewards/payments",
-                          "v2/orchestrators/guides/staking-and-rewards/governance"
+                          "v2/orchestrators/guides/deployment-details/setup-options",
+                          "v2/orchestrators/guides/deployment-details/requirements",
+                          "v2/orchestrators/guides/deployment-details/join-a-pool"
                         ]
                       },
                       {
@@ -365,6 +354,21 @@
                         ]
                       },
                       {
+                        "group": "Staking & Rewards",
+                        "pages": [
+                          "v2/orchestrators/guides/staking-and-rewards/earnings",
+                          "v2/orchestrators/guides/staking-and-rewards/rewards-and-fees",
+                          "v2/orchestrators/guides/staking-and-rewards/attracting-delegates",
+                          "v2/orchestrators/guides/staking-and-rewards/governance"
+                        ]
+                      },
+                      {
+                        "group": "Payments & Pricing",
+                        "pages": [
+                          "v2/orchestrators/guides/payments-and-pricing/payments"
+                        ]
+                      },
+                      {
                         "group": "Monitoring & Tools",
                         "pages": [
                           "v2/orchestrators/guides/monitoring-and-tooling/tools",
@@ -376,18 +380,10 @@
                       {
                         "group": "Advanced Operations",
                         "pages": [
+                          "v2/orchestrators/guides/advanced-operations/orchestrator-transcoder-setup",
                           "v2/orchestrators/guides/advanced-operations/run-a-pool",
                           "v2/orchestrators/guides/advanced-operations/gateways-orchestrators",
-                          "v2/orchestrators/guides/advanced-operations/large-scale-operations",
-                          "v2/orchestrators/guides/advanced-operations/orchestrator-transcoder-setup"
-                        ]
-                      },
-                      {
-                        "group": "Tutorials",
-                        "pages": [
-                          "v2/orchestrators/guides/tutorials/imported-tutorial-1-byoc-cpu-pipeline",
-                          "v2/orchestrators/guides/tutorials/imported-tutorial-2-offchain-transcoding-test",
-                          "v2/orchestrators/guides/tutorials/imported-tutorial-3-go-production"
+                          "v2/orchestrators/guides/advanced-operations/large-scale-operations"
                         ]
                       }
                     ]
@@ -397,6 +393,7 @@
                     "icon": "books",
                     "pages": [
                       "v2/orchestrators/resources/faq",
+                      "v2/orchestrators/resources/glossary",
                       "v2/orchestrators/resources/community-guides",
                       "v2/orchestrators/resources/community-pools",
                       {
@@ -406,18 +403,67 @@
                           "v2/orchestrators/resources/technical/x-contract-addresses",
                           "v2/orchestrators/resources/gpu-support",
                           "v2/orchestrators/resources/arbitrum-rpc",
-                          "v2/orchestrators/resources/arbitrum-exchanges",
-                          "v2/orchestrators/resources/technical/x-troubleshooting",
-                          "v2/orchestrators/resources/technical/x-changelog",
-                          "v2/orchestrators/resources/technical/x-support-status"
+                          "v2/orchestrators/resources/arbitrum-exchanges"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tab": "Delegators & LPT",
+                "icon": "hand-holding-dollar",
+                "anchors": [
+                  {
+                    "anchor": "Delegators & LPT",
+                    "icon": "hand-holding-dollar",
+                    "groups": [
+                      {
+                        "group": "About LPT",
+                        "icon": "graduation-cap",
+                        "pages": [
+                          "v2/lpt/token-portal",
+                          "v2/lpt/about/overview",
+                          "v2/lpt/about/purpose",
+                          "v2/lpt/about/tokenomics",
+                          "v2/lpt/about/mechanics"
                         ]
                       },
                       {
-                        "group": "Guides Index [Review]",
+                        "group": "Delegating LPT",
+                        "icon": "money-bill-transfer",
                         "pages": [
-                          "v2/orchestrators/resources/x-guides",
-                          "v2/orchestrators/resources/x-help",
-                          "v2/orchestrators/resources/x-payments"
+                          "v2/lpt/delegation/getting-started",
+                          "v2/lpt/delegation/overview",
+                          "v2/lpt/delegation/delegation-economics",
+                          "v2/lpt/delegation/about-delegators",
+                          "v2/lpt/delegation/delegation-guide"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Governance",
+                        "icon": "box-ballot",
+                        "pages": [
+                          "v2/lpt/governance/overview",
+                          "v2/lpt/governance/model",
+                          "v2/lpt/governance/processes"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Treasury",
+                        "pages": [
+                          "v2/lpt/treasury/overview",
+                          "v2/lpt/treasury/proposals",
+                          "v2/lpt/treasury/allocations"
+                        ]
+                      },
+                      {
+                        "group": "Guides & Resources",
+                        "icon": "books",
+                        "pages": [
+                          "v2/lpt/resources/delegator-videos-and-blogs",
+                          "v2/lpt/resources/exchanges",
+                          "v2/lpt/resources/lpt-eth-usage"
                         ]
                       }
                     ]
