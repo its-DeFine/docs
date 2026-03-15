@@ -1,6 +1,6 @@
 ---
 title: 'Gateway Middleware'
-sidebarTitle: 'Gateway Middleware'
+sidebarTitle: 'Middleware'
 description: 'Add a middleware layer to a Livepeer Gateway for authentication, rate limiting, billing integration, custom routing logic, and BYOC pipeline support.'
 keywords: ['livepeer', 'gateway', 'middleware', 'authentication', 'rate limiting', 'API key', 'JWT', 'reverse proxy', 'custom routing', 'BYOC', 'billing']
 og:image: '/snippets/assets/site/og-image/fallback.png'
@@ -35,22 +35,28 @@ Human:
 import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { BorderedBox } from "/snippets/components/layout/containers.jsx"
+import { ScrollableDiagram } from "/snippets/components/content/zoomableDiagram.jsx"
+import { StyledSteps, StyledStep } from "/snippets/components/layout/steps.jsx"
+
+<Tip>
+    This page covers the **request pipeline** - the layer between clients and the Gateway.
+    <br />The **payment pipeline** (how the Gateway settles with Orchestrators) is covered in <LinkArrow href="/v2/gateways/guides/payments-and-pricing/clearinghouse-guide" label="Clearinghouses" newline={false} />.
+</Tip>
 
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-This is the third of four advanced operations guides. The go-livepeer binary is a routing and payment engine. It does not authenticate users, meter usage, or route premium customers to different Orchestrators. Those concerns belong to a middleware layer sitting between clients and the Gateway process.
+The `go-livepeer` binary is a routing and payment engine. It does not authenticate users, meter usage, or route premium customers to different Orchestrators.
+<br/> Those concerns belong to a middleware layer sitting between clients and the Gateway process.
 
-<Note>
-This page covers the **request pipeline** - the layer between clients and the Gateway. The **payment pipeline** (how the Gateway settles with Orchestrators) is covered in <LinkArrow href="/v2/gateways/guides/payments-and-pricing/clearinghouse-guide" label="Clearinghouses" newline={false} />.
-</Note>
-
-<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Responsibilities
 
+<ScrollableDiagram title="Middleware Architecture" maxHeight="500px">
+
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2b9a66', 'primaryTextColor': '#E0E4E0', 'primaryBorderColor': '#18794E', 'lineColor': '#2b9a66', 'secondaryColor': '#1a1a1a', 'tertiaryColor': '#3CB540', 'background': '#0d0d0d', 'fontFamily': "Inter, 'Inter Fallback', -apple-system, system-ui" }}}%%
-flowchart LR
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+flowchart TB
     C[Client App] --> MW
     subgraph MW["Middleware Layer"]
       A[Auth / API keys]
@@ -65,6 +71,8 @@ flowchart LR
     end
     GW --> ORCH[Orchestrator Network]
 ```
+
+</ScrollableDiagram>
 
 The middleware handles the customer-facing interface. The Gateway handles the network interface.
 
@@ -122,130 +130,132 @@ The middleware handles the customer-facing interface. The Gateway handles the ne
 
 Three deployment patterns cover most middleware use cases.
 
-<Tabs>
-  <Tab title="Reverse proxy" icon="shield-halved">
-    The simplest and most maintainable pattern: an existing reverse proxy handles TLS, auth, and rate limiting before passing requests to the Gateway.
+<BorderedBox>
+    <Tabs>
+        <Tab title="Reverse Proxy" icon="shield-halved">
+            The simplest and most maintainable pattern: an existing reverse proxy handles TLS, auth, and rate limiting before passing requests to the Gateway.
 
-    **Caddy with API key auth** (simplest):
+            **Caddy with API key auth** (simplest):
 
-    ```caddyfile
-    ai-gateway.yourdomain.com {
-        @authenticated {
-            header Authorization "Bearer {$VALID_API_KEY}"
-        }
-        handle @authenticated {
-            reverse_proxy localhost:8935
-        }
-        respond 401
-    }
-    ```
+            ```caddyfile icon="terminal" Caddy File
+            ai-gateway.yourdomain.com {
+                @authenticated {
+                    header Authorization "Bearer {$VALID_API_KEY}"
+                }
+                handle @authenticated {
+                    reverse_proxy localhost:8935
+                }
+                respond 401
+            }
+            ```
 
-    **Nginx with external auth** (more flexible - delegates auth to a backend):
+            **Nginx with external auth** (more flexible - delegates auth to a backend):
 
-    ```nginx
-    server {
-        listen 443 ssl;
-        server_name ai-gateway.yourdomain.com;
+            ```nginx icon="terminal" NGINX
+            server {
+                listen 443 ssl;
+                server_name ai-gateway.yourdomain.com;
 
-        location / {
-            auth_request /auth;
-            proxy_pass http://127.0.0.1:8935;
-        }
+                location / {
+                    auth_request /auth;
+                    proxy_pass http://127.0.0.1:8935;
+                }
 
-        location = /auth {
-            proxy_pass http://127.0.0.1:3000/verify-token;
-            proxy_pass_request_body off;
-            proxy_set_header Content-Length "";
-            proxy_set_header X-Original-URI $request_uri;
-        }
-    }
-    ```
+                location = /auth {
+                    proxy_pass http://127.0.0.1:3000/verify-token;
+                    proxy_pass_request_body off;
+                    proxy_set_header Content-Length "";
+                    proxy_set_header X-Original-URI $request_uri;
+                }
+            }
+            ```
 
-    The `/verify-token` endpoint returns `200` to allow or `401` to deny. It can also return headers that nginx forwards to the Gateway, such as customer ID or tier.
-  </Tab>
-  <Tab title="API gateway" icon="layer-group">
-    For multi-tenant deployments where per-customer rate limits, quota enforcement, and usage analytics are needed, a dedicated API gateway layer fits well.
+            The `/verify-token` endpoint returns `200` to allow or `401` to deny. It can also return headers that nginx forwards to the Gateway, such as customer ID or tier.
+        </Tab>
+        <Tab title="API Gateway" icon="layer-group">
+            For multi-tenant deployments where per-customer rate limits, quota enforcement, and usage analytics are needed, a dedicated API gateway layer fits well.
 
-    **Kong** (open source, self-hosted):
+            **Kong** (open source, self-hosted):
 
-    ```yaml
-    # kong.yml - declarative config
-    services:
-      - name: livepeer-gateway
-        url: http://livepeer-gateway:8935
-        routes:
-          - name: ai-inference
-            paths:
-              - /
-        plugins:
-          - name: key-auth
-          - name: rate-limiting
-            config:
-              minute: 60
-              policy: local
-          - name: request-termination
-            config:
-              status_code: 429
-              message: "Rate limit exceeded"
-    ```
+            ```yaml icon="terminal" Kong
+            # kong.yml - declarative config
+            services:
+            - name: livepeer-gateway
+                url: http://livepeer-gateway:8935
+                routes:
+                - name: ai-inference
+                    paths:
+                    - /
+                plugins:
+                - name: key-auth
+                - name: rate-limiting
+                    config:
+                    minute: 60
+                    policy: local
+                - name: request-termination
+                    config:
+                    status_code: 429
+                    message: "Rate limit exceeded"
+            ```
 
-    **Traefik** (Docker-native, automatic service discovery):
+            **Traefik** (Docker-native, automatic service discovery):
 
-    ```yaml
-    # docker-compose.yml
-    services:
-      traefik:
-        image: traefik:v3
-        command:
-          - "--providers.docker=true"
-          - "--entrypoints.websecure.address=:443"
+            ```yaml icon="terminal" Traefik
+            # docker-compose.yml
+            services:
+            traefik:
+                image: traefik:v3
+                command:
+                - "--providers.docker=true"
+                - "--entrypoints.websecure.address=:443"
 
-      livepeer-gateway:
-        image: livepeer/go-livepeer:master
-        labels:
-          - "traefik.http.routers.livepeer.rule=Host(`ai-gateway.yourdomain.com`)"
-          - "traefik.http.routers.livepeer.middlewares=auth@docker"
-          - "traefik.http.middlewares.auth.basicauth.users=user:$$apr1$$..."
-    ```
-  </Tab>
-  <Tab title="Custom proxy" icon="code">
-    For operators who need full control over routing logic, a lightweight custom proxy in Node.js, Go, or Python sits in front of the Gateway.
+            livepeer-gateway:
+                image: livepeer/go-livepeer:master
+                labels:
+                - "traefik.http.routers.livepeer.rule=Host(`ai-gateway.yourdomain.com`)"
+                - "traefik.http.routers.livepeer.middlewares=auth@docker"
+                - "traefik.http.middlewares.auth.basicauth.users=user:$$apr1$$..."
+            ```
+        </Tab>
+        <Tab title="Custom Proxy" icon="code">
+        For operators who need full control over routing logic, a lightweight custom proxy in Node.js, Go, or Python sits in front of the Gateway.
 
-    **Node.js example** (Express + http-proxy-middleware):
+        **Node.js example** (Express + http-proxy-middleware):
 
-    ```javascript
-    const express = require('express');
-    const { createProxyMiddleware } = require('http-proxy-middleware');
-    const app = express();
+        ```javascript icon="code"  Custom Proxy
+        const express = require('express');
+        const { createProxyMiddleware } = require('http-proxy-middleware');
+        const app = express();
 
-    // Auth middleware
-    app.use(async (req, res, next) => {
-      const apiKey = req.headers['x-api-key'];
-      const customer = await validateApiKey(apiKey);
-      if (!customer) return res.status(401).json({ error: 'Invalid API key' });
-      req.customer = customer;
-      next();
-    });
+        // Auth middleware
+        app.use(async (req, res, next) => {
+        const apiKey = req.headers['x-api-key'];
+        const customer = await validateApiKey(apiKey);
+        if (!customer) return res.status(401).json({ error: 'Invalid API key' });
+        req.customer = customer;
+        next();
+        });
 
-    // Usage metering
-    app.use((req, res, next) => {
-      const start = Date.now();
-      res.on('finish', () => {
-        recordUsage(req.customer.id, req.path, Date.now() - start);
-      });
-      next();
-    });
+        // Usage metering
+        app.use((req, res, next) => {
+        const start = Date.now();
+        res.on('finish', () => {
+            recordUsage(req.customer.id, req.path, Date.now() - start);
+        });
+        next();
+        });
 
-    // Route to Gateway
-    app.use('/', createProxyMiddleware({
-      target: 'http://localhost:8935',
-      changeOrigin: true,
-    }));
+        // Route to Gateway
+        app.use('/', createProxyMiddleware({
+        target: 'http://localhost:8935',
+        changeOrigin: true,
+        }));
 
-    app.listen(3000);
-    ```
-  </Tab>
-</Tabs>
+        app.listen(3000);
+        ```
+    </Tab>
+    </Tabs>
+</BorderedBox>
 
 <CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
@@ -298,98 +308,104 @@ Three deployment patterns cover most middleware use cases.
 
 <CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
-## Rate Limiting
+## Settings
+<StyledSteps>
+    <StyledStep icon="integral">
+        ### Rate Limiting
 
-Rate limiting protects the Gateway from abuse and enforces fair usage across customers. Implement it in the middleware layer, not in go-livepeer.
+        Rate limiting protects the Gateway from abuse and enforces fair usage across customers. Implement it in the middleware layer, not in go-livepeer.
 
-The appropriate limits depend on the Orchestrator pool capacity and customer agreements. A reasonable starting point for an AI inference Gateway:
+        The appropriate limits depend on the Orchestrator pool capacity and customer agreements. A reasonable starting point for an AI inference Gateway:
 
-<StyledTable>
-  <TableRow header>
-    <TableCell header>Tier</TableCell>
-    <TableCell header>Requests per minute</TableCell>
-    <TableCell header>Concurrent sessions</TableCell>
-  </TableRow>
-  <TableRow>
-    <TableCell>Free</TableCell>
-    <TableCell>10</TableCell>
-    <TableCell>1</TableCell>
-  </TableRow>
-  <TableRow>
-    <TableCell>Standard</TableCell>
-    <TableCell>60</TableCell>
-    <TableCell>5</TableCell>
-  </TableRow>
-  <TableRow>
-    <TableCell>Premium</TableCell>
-    <TableCell>300</TableCell>
-    <TableCell>20</TableCell>
-  </TableRow>
-</StyledTable>
+        <StyledTable>
+        <TableRow header>
+            <TableCell header>Tier</TableCell>
+            <TableCell header>Requests per minute</TableCell>
+            <TableCell header>Concurrent sessions</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Free</TableCell>
+            <TableCell>10</TableCell>
+            <TableCell>1</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Standard</TableCell>
+            <TableCell>60</TableCell>
+            <TableCell>5</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Premium</TableCell>
+            <TableCell>300</TableCell>
+            <TableCell>20</TableCell>
+        </TableRow>
+        </StyledTable>
 
-Track limits in Redis for shared-memory rate limiting across multiple middleware instances:
+        Track limits in Redis for shared-memory rate limiting across multiple middleware instances:
 
-```javascript
-const rateLimit = require('express-rate-limit');
-const RedisStore = require('rate-limit-redis');
+        ```javascript icon="code" Redis
+        const rateLimit = require('express-rate-limit');
+        const RedisStore = require('rate-limit-redis');
 
-const limiter = rateLimit({
-  windowMs: 60 * 1000,
-  max: (req) => req.customer.tier === 'premium' ? 300 : 60,
-  store: new RedisStore({ client: redisClient }),
-  keyGenerator: (req) => req.customer.id,
-});
-```
+        const limiter = rateLimit({
+        windowMs: 60 * 1000,
+        max: (req) => req.customer.tier === 'premium' ? 300 : 60,
+        store: new RedisStore({ client: redisClient }),
+        keyGenerator: (req) => req.customer.id,
+        });
+        ```
+        <CustomDivider style={{margin: "-2.5rem auto -2rem auto", width: "50%"}} />
+    </StyledStep>
+    <StyledStep icon="route">
+        ### Custom Routing
 
-<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
+        The most powerful use of middleware is routing different customers or job types to different Gateway instances, each configured with a distinct Orchestrator pool.
 
-## Custom Routing
+        ```javascript
+        // Route premium customers to high-performance Orchestrators
+        app.use('/process', async (req, res) => {
+        const target = req.customer.tier === 'premium'
+            ? 'http://localhost:8935'   // Gateway A: premium orch list, high price cap
+            : 'http://localhost:8936';  // Gateway B: standard orch list, lower price cap
 
-The most powerful use of middleware is routing different customers or job types to different Gateway instances, each configured with a distinct Orchestrator pool.
+        proxyRequest(req, res, target);
+        });
+        ```
 
-```javascript
-// Route premium customers to high-performance Orchestrators
-app.use('/process', async (req, res) => {
-  const target = req.customer.tier === 'premium'
-    ? 'http://localhost:8935'   // Gateway A: premium orch list, high price cap
-    : 'http://localhost:8936';  // Gateway B: standard orch list, lower price cap
+        This pattern, combined with <LinkArrow href="/v2/gateways/guides/advanced-operations/orchestrator-selection#tiering-strategy" label="tiered Orchestrator selection" newline={false} />, allows delivering different SLA levels from one middleware deployment.
+        <CustomDivider style={{margin: "-2.5rem auto -2rem auto", width: "50%"}} />
+    </StyledStep>
+    <StyledStep icon="gauge-high">
+        ### Usage Metering
 
-  proxyRequest(req, res, target);
-});
-```
+        go-livepeer does not track how much each customer has consumed - it only tracks what the Gateway owes Orchestrators. Customer usage must be metered in the middleware.
 
-This pattern, combined with <LinkArrow href="/v2/gateways/guides/advanced-operations/orchestrator-selection#tiering-strategy" label="tiered Orchestrator selection" newline={false} />, allows delivering different SLA levels from one middleware deployment.
+        What to track per request:
+        - Customer ID
+        - Pipeline type (text-to-image, video transcoding, etc.)
+        - Input parameters (resolution, number of outputs, duration)
+        - Response time
+        - Success or failure
 
-<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
+        Store events in a time-series database or event queue, then aggregate for invoicing.
 
-## Usage Metering
+        ```javascript icon="code" Usage Metering
+        res.on('finish', () => {
+        usageQueue.push({
+            customerId: req.customer.id,
+            pipeline: extractPipeline(req.path),
+            durationMs: Date.now() - startTime,
+            statusCode: res.statusCode,
+            timestamp: new Date().toISOString(),
+        });
+        });
+        ```
+        <CustomDivider style={{margin: "-2.5rem auto -2rem auto", width: "50%"}} />
+    </StyledStep>
+</StyledSteps>
 
-go-livepeer does not track how much each customer has consumed - it only tracks what the Gateway owes Orchestrators. Customer usage must be metered in the middleware.
+{/* <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} /> */}
 
-What to track per request:
-- Customer ID
-- Pipeline type (text-to-image, video transcoding, etc.)
-- Input parameters (resolution, number of outputs, duration)
-- Response time
-- Success or failure
-
-Store events in a time-series database or event queue, then aggregate for invoicing.
-
-```javascript
-res.on('finish', () => {
-  usageQueue.push({
-    customerId: req.customer.id,
-    pipeline: extractPipeline(req.path),
-    durationMs: Date.now() - startTime,
-    statusCode: res.statusCode,
-    timestamp: new Date().toISOString(),
-  });
-});
-```
-
-<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
-
-## vs Clearinghouse
+## Middleware vs Clearinghouse
 
 A clearinghouse combines middleware concerns with payment pipeline concerns into a single managed service:
 

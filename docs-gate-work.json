@@ -175,7 +175,7 @@
                               "v2/gateways/guides/advanced-operations/orchestrator-selection",
                               "v2/gateways/guides/advanced-operations/scaling",
                               "v2/gateways/guides/advanced-operations/gateway-middleware",
-                              "v2/gateways/guides/advanced-operations/publishing"
+                              "v2/gateways/guides/advanced-operations/gateway-discoverability"
                             ]
                           },
                           {

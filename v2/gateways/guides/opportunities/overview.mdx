@@ -249,7 +249,7 @@ Before Q4 2025, every gateway required an Ethereum account funded on Arbitrum. T
     ```bash
     docker run -d \
       --name livepeer-ai-gateway \
-      -p 8935:8935 -p 8937:8937 \
+      -p 8935:8935 \
       livepeer/go-livepeer:master \
         -gateway -httpIngest \
         -orchAddr="ORCHESTRATOR_ADDRESS" \

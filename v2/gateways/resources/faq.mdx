@@ -192,13 +192,13 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
     docker run \
       --name livepeer_ai_gateway \
       -v ~/.lpData2/:/root/.lpData2 \
-      -p 8937:8937 \
+      -p 8935:8935 \
       --network host \
       livepeer/go-livepeer:master \
       -datadir /root/.lpData2 \
       -gateway \
       -orchAddr <orchestrator-list> \
-      -httpAddr 0.0.0.0:8937 \
+      -httpAddr 0.0.0.0:8935 \
       -v 6 \
       -httpIngest
     ```
@@ -223,10 +223,10 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
   <Accordion title="What ports does the AI gateway use?">
     | Port | Purpose | Configurable with |
     |------|---------|------------------|
-    | `8937` | HTTP AI gateway API | `-httpAddr` |
+    | `8935` | HTTP API (video and AI share the same port) | `-httpAddr` |
     | `5935` | CLI management API | `-cliAddr` |
 
-    Note that the AI gateway defaults to `8937`, not `8935` (which is the video gateway default). This is intentional — you can run both on the same machine without port conflicts.
+    Both video and AI endpoints share the same `-httpAddr` port (default 8935). The `-httpIngest` flag enables AI pipeline endpoints (`/text-to-image`, `/llm`, etc.) on this port. To run separate video and AI Gateway processes on the same machine, set different `-httpAddr` values for each.
   </Accordion>
 
   <Accordion title="How do I find which AI models and pipelines are available?">
@@ -342,7 +342,7 @@ layer. Common starting value: 300 wei/pixel.
 
 #### Can I run a gateway from home?
 Possible but not recommended (NAT, port forwarding needed). Need public IP or port forwarding
-for port 8935/8937. See v1 troubleshoot for hairpinning details.
+for port 8935. See v1 troubleshoot for hairpinning details.
 
 #### How do I keep a record of my node's logs?
 `livepeer ... 2>&1 | tee livepeer.log`
@@ -363,7 +363,7 @@ forums. Documented gap.
 ### 3. AI Gateway Questions
 
 #### What ports does the AI gateway use?
-HTTP: 8937 (different from video 8935). No RTMP. CLI: 5935.
+HTTP: 8935 (same default as video, set via `-httpAddr`). No RTMP. CLI: 5935.
 
 #### How do I find which AI models/pipelines are available?
 No single registry. Query orchestrator `/getOrchestratorInfo`. Check Discord #local-gateways.

@@ -25,6 +25,8 @@ The troubleshooting page has 4 REVIEW flags but 253 REVIEW flags exist across 60
 - **LLM per-token pricing**: Is this implemented in go-livepeer? (pricing-strategy)
 - **`-priceFeedAddr` requirement**: Required when using USD notation in `-maxPricePerUnit`? (pricing-strategy)
 - **ByteDance/SDXL-Lightning**: Still a reliable model for onboarding tests? (troubleshooting, health-checks)
+- **Port 8937 vs 8935 conflict**: The quickstart `code.jsx` uses port 8935 for ALL gateway types (video, AI, dual) via `-httpAddr`. But `faq.mdx` line 229 explicitly states "the AI gateway defaults to 8937, not 8935. This is intentional." These two authoritative sources disagree. Pages still using 8937 in rendered content: `faq.mdx`, `guide.mdx`, `capabilities.mdx`, `role.mdx`, `architecture.mdx`, `overview.mdx`, `tutorials-resources.mdx`. All guides-section pages have been fixed to 8935 per quickstart. **Needs Rick to confirm which port is correct before fixing the remaining pages.**
+- **`-aiServiceRegistry` is a boolean flag**: ai-pipelines.mdx previously showed `-aiServiceRegistry <REGISTRY_CONTRACT_ADDRESS>` (fixed). The flag takes no argument - the contract address is hardcoded in go-livepeer.
 
 ---
 

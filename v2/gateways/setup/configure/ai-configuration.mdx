@@ -81,13 +81,13 @@ Follow the steps below to start your Livepeer AI Gateway node.
                 docker run \
                     --name livepeer_ai_gateway \
                     -v ~/.lpData2/:/root/.lpData2 \
-                    -p 8937:8937 \
+                    -p 8935:8935 \
                     --network host \
                     livepeer/go-livepeer:master \
                     -datadir ~/.lpData2 \
                     -gateway \
                     -orchAddr <orchestrator list> \
-                    -httpAddr 0.0.0.0:8937 \
+                    -httpAddr 0.0.0.0:8935 \
                     -v 6 \
                     -httpIngest
                 ```
@@ -99,12 +99,12 @@ Follow the steps below to start your Livepeer AI Gateway node.
 
                 ```bash icon="terminal"
                 I0501 11:07:47.609839       1 mediaserver.go:201] Transcode Job Type: [{P240p30fps16x9 600k 30 0 426x240 16:9 0 0 0s 0 0 0 0} {P360p30fps16x9 1200k 30 0 640x360 16:9 0 0 0s 0 0 0 0}]
-                I0501 11:07:47.609917       1 mediaserver.go:226] HTTP Server listening on http://0.0.0.0:8937
+                I0501 11:07:47.609917       1 mediaserver.go:226] HTTP Server listening on http://0.0.0.0:8935
                 I0501 11:07:47.609963       1 lpms.go:92] LPMS Server listening on rtmp://127.0.0.1:1935
                 ```
             </StyledStep>
             <StyledStep title="Check Port Availability">
- Ensure that port `8937` is open and accessible, and configure your router for port forwarding if necessary to make the Gateway accessible from the internet.
+ Ensure that port `8935` is open and accessible, and configure your router for port forwarding if necessary to make the Gateway accessible from the internet.
             </StyledStep>
             <StyledStep title="Test the AI Gateway">
  Follow the instructions in the <DoubleIconLink label="AI Gateway Testing Guide" href="/gateways/quickstart/gateway-setup" iconLeft="link" /> to verify that the AI Gateway is operational.
@@ -136,7 +136,7 @@ Follow the steps below to start your Livepeer AI Gateway node.
                     -datadir ~/.lpData2 \
                     -gateway \
                     -orchAddr <orchestrator list> \
-                    -httpAddr 0.0.0.0:8937 \
+                    -httpAddr 0.0.0.0:8935 \
                     -v 6 \
                     -httpIngest
                 ```
@@ -148,12 +148,12 @@ Follow the steps below to start your Livepeer AI Gateway node.
 
                 ```bash icon="terminal"
                 I0501 11:07:47.609839       1 mediaserver.go:201] Transcode Job Type: [{P240p30fps16x9 600k 30 0 426x240 16:9 0 0 0s 0 0 0 0} {P360p30fps16x9 1200k 30 0 640x360 16:9 0 0 0s 0 0 0 0}]
-                I0501 11:07:47.609917       1 mediaserver.go:226] HTTP Server listening on http://0.0.0.0:8937
+                I0501 11:07:47.609917       1 mediaserver.go:226] HTTP Server listening on http://0.0.0.0:8935
                 I0501 11:07:47.609963       1 lpms.go:92] LPMS Server listening on rtmp://127.0.0.1:1935
                 ```
             </StyledStep>
             <StyledStep title="Check Port Availability">
- Ensure that port `8937` is open and accessible, and configure port forwarding if needed.
+ Ensure that port `8935` is open and accessible, and configure port forwarding if needed.
             </StyledStep>
             <StyledStep title="Test the AI Gateway">
  Follow the instructions in the <DoubleIconLink label="AI Gateway Testing Guide" href="/gateways/quickstart/gateway-setup" iconLeft="link" /> to verify that the AI Gateway is operational.

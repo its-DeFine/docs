@@ -130,7 +130,7 @@ A gateway interacts with four categories of actors:
 Applications are the gateway's customers. They send workloads and receive results.
 
 - Video applications send RTMP streams (port 1935) and receive HLS/DASH output
-- AI applications send HTTP requests (port 8937) and receive JSON/binary inference results
+- AI applications send HTTP requests (port 8935, enabled via `-httpIngest`) and receive JSON/binary inference results
 - BYOC applications send custom payloads via HTTP and receive container output
 
 The gateway abstracts the Livepeer network entirely - applications do not need to know about orchestrators, payment tickets, or the protocol layer.

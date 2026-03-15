@@ -110,7 +110,7 @@ The gateway accepts HTTP requests for AI pipelines (text-to-image, audio-to-text
 
 Off-chain AI gateways require no ETH deposit. The gateway targets orchestrators directly via `-orchAddr`. For on-chain AI (dual node type), the PM system applies.
 
-**Port:** HTTP API on `:8937`.
+**Port:** HTTP API on `:8935` (set via `-httpAddr`, enabled by `-httpIngest`).
 
 See <LinkArrow href="/v2/developers/build/model-support" label="Model Support" newline={false} /> for all supported batch AI pipeline types and model architectures.
 
@@ -122,7 +122,7 @@ The primary framework is **ComfyStream**, an open-source ComfyUI plugin that ena
 
 Real-time AI runs on <Badge color="purple">AI</Badge> or <Badge color="green">Dual</Badge> nodes. It uses the `live-video-to-video` pipeline type and the trickle streaming protocol (not the REST AI Jobs API). Billing is per-second rather than per-pixel.
 
-**Port:** HTTP API on `:8937`.
+**Port:** HTTP API on `:8935` (set via `-httpAddr`, enabled by `-httpIngest`).
 
 {/* REVIEW: Real-time AI accounts for ~72% of current network fees - confirm this figure is still current. */}
 

@@ -315,15 +315,15 @@ How your AI gateway finds orchestrators depends on your operational mode.
     The webhook returns a JSON array of orchestrator addresses. This enables custom filtering, whitelisting, or load balancing without modifying the gateway itself. Used by platform builders (NaaP) and operators with orchestrator tiering or geographic routing requirements.
   </Accordion>
   <Accordion title="On-chain discovery (-aiServiceRegistry)" icon="link">
-    On-chain AI gateways (dual node type) can use the AI service registry for automatic discovery:
+    On-chain AI Gateways use the AI service registry for automatic Orchestrator discovery:
 
     ```bash
-    -aiServiceRegistry <REGISTRY_CONTRACT_ADDRESS>
+    -aiServiceRegistry
     ```
 
-    {/* REVIEW: confirm -aiServiceRegistry contract address and whether this is active on Arbitrum One with Rick/j0sh. */}
+    This is a boolean flag (no argument required). When set, the Gateway registers with the [`AIServiceRegistry`](https://arbiscan.io/address/0x04C0b249740175999E5BF5c9ac1dA92431EF34C5) contract on Arbitrum Mainnet and discovers AI-capable Orchestrators on-chain. The contract address is hardcoded in go-livepeer. Requires on-chain operational mode (`-network=arbitrum-one-mainnet`, `-ethUrl`, funded ETH account).
 
-    This queries registered AI-capable orchestrators from the on-chain registry. The gateway's `/getNetworkCapabilities` endpoint exposes the aggregated capability data from discovered orchestrators.
+    The Gateway's `/getNetworkCapabilities` endpoint exposes the aggregated capability data from discovered Orchestrators.
   </Accordion>
 </AccordionGroup>
 
