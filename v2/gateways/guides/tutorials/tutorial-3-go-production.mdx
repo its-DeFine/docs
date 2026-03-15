@@ -1,23 +1,44 @@
 ---
-title: "Go production: on-chain, GPU, and network connect"
-sidebarTitle: "Tutorial 3: Go production"
-description: "Graduate your tested gateway to the live Livepeer network — on-chain registration, GPU pipelines, and public orchestrator discovery."
-status: draft
+title: 'Go Production: On-chain, GPU, and Network'
+sidebarTitle: 'Tutorial 3: Go Production'
+description: 'Graduate the tested Gateway to the live Livepeer network - on-chain registration, GPU pipelines, and public Orchestrator discovery.'
+status: current
 tutorial: 3-of-3
 keywords: ["livepeer", "gateway", "production", "on-chain", "GPU", "Arbitrum", "ETH", "orchestrator", "network"]
-og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+og:image: /snippets/assets/site/og-image/fallback.png
+pageType: tutorial
+audience: gateway-operator
+purpose: tutorial
+lastVerified: '2026-03-15'
 ---
 {/* TODO:
 Terminology Validation:
 - Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
 Verify:
-- Terminology is consistent with resources/glossary
+- ~~No em-dashes are used~~
+- ~~CustomDivider is used~~
+- UK spelling is used
+REVIEW:
+- `-remoteSignerAddr` flag name: may be `-signerAddr` in current go-livepeer builds. Rick to confirm.
+- `-network arbitrum-one-mainnet` confirmed correct per quickstart code.jsx.
 */}
 
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
+import { LinkArrow } from '/snippets/components/primitives/links.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 
-In this tutorial you will graduate from the local off-chain setup in Tutorials 1 and 2 to a live Livepeer network deployment. There are three independent upgrades — do any or all depending on your use case.
+<Note>
+This is Tutorial 3 of 3.
 
-**Time:** 30–90 minutes depending on which upgrades you apply
+- **Tutorial 1:** <LinkArrow href="/v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test" label="Off-chain transcoding test" newline={false} />
+- **Tutorial 2:** <LinkArrow href="/v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline" label="BYOC CPU pipeline" newline={false} />
+</Note>
+
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+
+This tutorial graduates from the local off-chain setup in Tutorials 1 and 2 to a live Livepeer network deployment. There are three independent upgrades - apply any or all depending on the use case.
+
+**Time:** 30-90 minutes depending on which upgrades you apply
 **Cost:** ETH on Arbitrum (Upgrade 1 only)
 **What you need:** Tutorial 1 and/or Tutorial 2 completed
 
@@ -28,7 +49,7 @@ This is Tutorial 3 of 3.
 - **← Tutorial 2:** [BYOC CPU pipeline](/v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline)
 </Note>
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Which upgrades do you need?
 
@@ -36,19 +57,19 @@ The three upgrades are independent. Choose based on your persona:
 
 | Your situation | Upgrade 1: On-chain | Upgrade 2: GPU | Upgrade 3: Network |
 |----------------|:-------------------:|:--------------:|:------------------:|
-| **AI app developer** — self-hosting gateway for cost savings, using remote signer | ✗ optional | ✓ yes | ✓ yes |
-| **Gateway-as-a-Service provider** — public gateway, inference fees, SPE grants | ✓ yes | ✓ yes | ✓ yes |
+| **AI app developer** - self-hosting gateway for cost savings, using remote signer | ✗ optional | ✓ yes | ✓ yes |
+| **Gateway-as-a-Service provider** - public gateway, inference fees, SPE grants | ✓ yes | ✓ yes | ✓ yes |
 | **SDK / alternative gateway builder** | ✗ remote signer | depends | ✓ yes |
-| **Video operator** — transcoding, broadcast | ✓ required | ✗ orchestrators have GPU | ✓ yes |
-| **Platform builder** — clearinghouse / NaaP | ✗ clearinghouse | ✓ yes | ✓ yes |
+| **Video operator** - transcoding, broadcast | ✓ required | ✗ orchestrators have GPU | ✓ yes |
+| **Platform builder** - clearinghouse / NaaP | ✗ clearinghouse | ✓ yes | ✓ yes |
 
 <Tip>
-If you are running an AI gateway (BYOC, LV2V, inference workloads), **Upgrade 1 is optional**. The off-chain remote signer model introduced in Q4 2025 allows production AI gateway operation without holding ETH directly. If you are running a video transcoding gateway, Upgrade 1 is **required** — the video pathway does not support remote signers.
+If you are running an AI gateway (BYOC, LV2V, inference workloads), **Upgrade 1 is optional**. The off-chain remote signer model introduced in Q4 2025 allows production AI gateway operation without holding ETH directly. If you are running a video transcoding gateway, Upgrade 1 is **required** - the video pathway does not support remote signers.
 </Tip>
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## Upgrade 1 — On-chain registration
+## Upgrade 1 - On-chain registration
 
 ### What this gives you
 
@@ -58,7 +79,7 @@ On-chain registration connects your gateway to the Livepeer protocol's payment s
 - For video gateways: required for any production transcoding
 - For AI gateways: optional when using a remote signer, but enables full on-chain custody
 
-### 1.1 — Acquire ETH on Arbitrum One
+### 1.1 - Acquire ETH on Arbitrum One
 
 You need ETH on Arbitrum One (not Ethereum mainnet). The approximate requirement is:
 
@@ -70,26 +91,26 @@ You need ETH on Arbitrum One (not Ethereum mainnet). The approximate requirement
 | **Total** | **~0.1 ETH** | Safe starting amount |
 
 <Warning>
-ETH price volatility affects these amounts — a Livepeer deposit of a given USD value buys more or fewer tickets as the ETH/USD rate moves. Check current requirements in [#lounge on Discord](https://discord.gg/livepeer) or the [on-chain requirements page](/v2/gateways/setup/requirements/on-chain%20setup/on-chain) before depositing.
+ETH price volatility affects these amounts - a Livepeer deposit of a given USD value buys more or fewer tickets as the ETH/USD rate moves. Check current requirements in [#lounge on Discord](https://discord.gg/livepeer) or the [on-chain requirements page](/v2/gateways/setup/requirements/on-chain%20setup/on-chain) before depositing.
 </Warning>
 
 **Options for getting ETH on Arbitrum One:**
 
-- **Bridge from Ethereum mainnet:** [bridge.arbitrum.io](https://bridge.arbitrum.io/) — official bridge, ~15 minutes
+- **Bridge from Ethereum mainnet:** [bridge.arbitrum.io](https://bridge.arbitrum.io/) - official bridge, ~15 minutes
 - **Buy directly on Arbitrum:** Coinbase, Binance, and OKX all support direct withdrawal to Arbitrum One
 - **Base → Arbitrum:** if you have ETH on Base, use the Base bridge then Across Protocol
 
 <Tip>
-The cheapest path for most people is to buy ETH on a CEX that supports Arbitrum One withdrawals (Coinbase, Binance, OKX) and withdraw directly. This avoids the Ethereum mainnet bridge fee (~$5–20 at moderate gas) and the bridging wait time.
+The cheapest path for most people is to buy ETH on a CEX that supports Arbitrum One withdrawals (Coinbase, Binance, OKX) and withdraw directly. This avoids the Ethereum mainnet bridge fee (~$5-20 at moderate gas) and the bridging wait time.
 </Tip>
 
-### 1.2 — Create a dedicated wallet for your gateway
+### 1.2 - Create a dedicated wallet for your gateway
 
 **Never use a personal wallet for gateway operations.** Create a dedicated keystore:
 
 ```bash
 ./livepeer \
-  -network arbitrum-one \
+  -network arbitrum-one-mainnet \
   -datadir ~/.lpData-gw-prod \
   # Follow CLI prompts to initialise a new keystore
 ```
@@ -99,20 +120,20 @@ Note your gateway's Ethereum address. You will send ETH to this address in the n
 Alternatively, use `cast` (from Foundry) for a clean key generation:
 ```bash
 cast wallet new
-# Save the private key and address securely — treat this like a server key
+# Save the private key and address securely - treat this like a server key
 ```
 
 <Warning>
 This wallet will hold ETH for gateway operations. Use a hardware wallet or a dedicated key management solution for any significant amount. Never put the keystore file in a public repository.
 </Warning>
 
-### 1.3 — Deposit PM funds on-chain
+### 1.3 - Deposit PM funds on-chain
 
 Send ETH to your gateway address, then deposit using `livepeer_cli`:
 
 ```bash
 ./livepeer_cli \
-  -network arbitrum-one \
+  -network arbitrum-one-mainnet \
   -ethUrl YOUR_ARBITRUM_RPC_URL \
   -datadir ~/.lpData-gw-prod
 ```
@@ -120,10 +141,10 @@ Send ETH to your gateway address, then deposit using `livepeer_cli`:
 From the interactive menu:
 
 1. Select **"Deposit broadcasting funds (ETH)"**
-   Enter approximately `0.065` — this becomes your PM deposit (funds the tickets you send to orchestrators)
+   Enter approximately `0.065` - this becomes your PM deposit (funds the tickets you send to orchestrators)
 
 2. Select **"Fund reserve for PM"** (if shown separately)
-   Enter approximately `0.03` — this is the reserve orchestrators can claim from if your deposit runs out
+   Enter approximately `0.03` - this is the reserve orchestrators can claim from if your deposit runs out
 
 After depositing, confirm your balance:
 ```bash
@@ -136,14 +157,14 @@ After depositing, confirm your balance:
 You can also fund your gateway using `cast send` directly to the Livepeer `TicketBroker` contract on Arbitrum One. The contract address is in the [Contract Addresses reference](/v2/gateways/resources/technical/contract-addresses). This is useful for scripting gateway fund management in CI/CD pipelines.
 </Tip>
 
-### 1.4 — Start your gateway on-chain
+### 1.4 - Start your gateway on-chain
 
 Replace `-network offchain` with your Arbitrum RPC:
 
 ```bash
 ./livepeer \
   -gateway \
-  -network arbitrum-one \
+  -network arbitrum-one-mainnet \
   -ethUrl YOUR_ARBITRUM_RPC_URL \
   -datadir ~/.lpData-gw-prod \
   -httpAddr 0.0.0.0:8935 \
@@ -159,15 +180,15 @@ For an Arbitrum RPC endpoint, use [Infura](https://infura.io) (`https://arbitrum
 
 Check your gateway is visible on the network:
 ```bash
-curl http://localhost:7935/status
+curl http://localhost:5935/status
 # Look for: "ethAddress" and "pmInfo" sections
 ```
 
 Visit [explorer.livepeer.org](https://explorer.livepeer.org) and search for your gateway's ETH address. Once funded, it will appear in the protocol state.
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## Upgrade 2 — GPU pipelines
+## Upgrade 2 - GPU pipelines
 
 ### What this gives you
 
@@ -177,10 +198,10 @@ GPU acceleration enables real-time AI inference that is not possible at producti
 - Video transcoding via NVENC/NVDEC (faster than CPU libx264)
 
 <Tip>
-As the gateway operator, **you do not need a GPU** unless you are also running your own orchestrator. Gateways are routing nodes — compute lives on orchestrators. If you are self-hosting an orchestrator alongside your gateway (Tutorial 1 / 2 pattern), then yes, that orchestrator needs a GPU for AI workloads. If you are routing to public network orchestrators (Upgrade 3), their GPUs handle everything.
+As the gateway operator, **you do not need a GPU** unless you are also running your own orchestrator. Gateways are routing nodes - compute lives on orchestrators. If you are self-hosting an orchestrator alongside your gateway (Tutorial 1 / 2 pattern), then yes, that orchestrator needs a GPU for AI workloads. If you are routing to public network orchestrators (Upgrade 3), their GPUs handle everything.
 </Tip>
 
-### 2.1 — GPU requirements by pipeline type
+### 2.1 - GPU requirements by pipeline type
 
 | Pipeline | Minimum VRAM | Recommended |
 |----------|-------------|-------------|
@@ -189,13 +210,13 @@ As the gateway operator, **you do not need a GPU** unless you are also running y
 | image-to-video (SVD) | 16 GB | 24 GB |
 | live-video-to-video (StreamDiffusion) | 8 GB | 16 GB |
 | LLM (Llama-3.2-3B) | 6 GB | 12 GB |
-| Video transcoding (NVENC) | Any CUDA | — |
+| Video transcoding (NVENC) | Any CUDA | - |
 
 <Warning>
 GPU VRAM requirements are per active pipeline. Running multiple concurrent pipeline types on a single GPU requires enough VRAM for the largest model loaded. Check the [hardware requirements reference](/v2/gateways/resources/technical/hardware-requirements) for the current model matrix before purchasing hardware.
 </Warning>
 
-### 2.2 — Enable GPU on the orchestrator
+### 2.2 - Enable GPU on the orchestrator
 
 Add `-nvidia` to your orchestrator startup command:
 
@@ -220,7 +241,7 @@ For multiple GPUs:
 # Look for: "GPU: NVIDIA GeForce RTX XXXX" entries
 ```
 
-### 2.3 — Run your GPU BYOC container (BYOC operators only)
+### 2.3 - Run your GPU BYOC container (BYOC operators only)
 
 If you built a BYOC container in Tutorial 2, swap the base image to use CUDA:
 
@@ -256,9 +277,9 @@ docker run -d \
 The `--gpus device=0` flag passes GPU 0 to the container. Use `--gpus all` to pass all GPUs. Requires the NVIDIA Container Toolkit installed on the host (`apt install nvidia-container-toolkit`).
 </Tip>
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## Upgrade 3 — Network connect
+## Upgrade 3 - Network connect
 
 ### What this gives you
 
@@ -268,14 +289,14 @@ Removing `-orchAddr localhost` and switching to network discovery means your gat
 - Can handle demand spikes without running your own hardware
 - Participates in the Livepeer network's economic system
 
-### 3.1 — On-chain gateway: automatic discovery
+### 3.1 - On-chain gateway: automatic discovery
 
 If you completed Upgrade 1, network discovery works automatically. Remove `-orchAddr` entirely:
 
 ```bash
 ./livepeer \
   -gateway \
-  -network arbitrum-one \
+  -network arbitrum-one-mainnet \
   -ethUrl YOUR_ARBITRUM_RPC_URL \
   -datadir ~/.lpData-gw-prod \
   -httpAddr 0.0.0.0:8935 \
@@ -287,14 +308,14 @@ If you completed Upgrade 1, network discovery works automatically. Remove `-orch
 The gateway queries the Arbitrum registry for registered orchestrators and selects based on stake weight (video) or capability + price (AI).
 
 <Tip>
-`-maxPricePerUnit` sets the maximum price **you will pay** per pixel per unit to an orchestrator — not a price you charge your customers. If an orchestrator quotes higher than this, the gateway rejects it. Start with a permissive value (e.g., `1000` wei per pixel) and lower it once you understand the typical market rate in the Explorer.
+`-maxPricePerUnit` sets the maximum price **you will pay** per pixel per unit to an orchestrator - not a price you charge your customers. If an orchestrator quotes higher than this, the gateway rejects it. Start with a permissive value (e.g., `1000` wei per pixel) and lower it once you understand the typical market rate in the Explorer.
 </Tip>
 
-### 3.2 — Off-chain gateway: orchestrator list or remote signer discovery
+### 3.2 - Off-chain gateway: orchestrator list or remote signer discovery
 
 Off-chain gateways cannot use the Arbitrum registry. You have three options:
 
-**Option A — Explicit orchestrator list (simplest):**
+**Option A - Explicit orchestrator list (simplest):**
 ```bash
 ./livepeer \
   -gateway \
@@ -307,7 +328,7 @@ Off-chain gateways cannot use the Arbitrum registry. You have three options:
 
 Find available AI orchestrators in the [Livepeer Explorer](https://explorer.livepeer.org) → Orchestrators → filter by capability.
 
-**Option B — Discovery endpoint:**
+**Option B - Discovery endpoint:**
 
 Some orchestrators publish a webhook-format discovery endpoint. Point your gateway at it:
 ```bash
@@ -316,7 +337,7 @@ Some orchestrators publish a webhook-format discovery endpoint. Point your gatew
 
 The gateway polls this endpoint for fresh orchestrator lists on the same schedule as the on-chain webhook cadence (~1 minute).
 
-**Option C — Remote signer discovery (recommended for AI gateways):**
+**Option C - Remote signer discovery (recommended for AI gateways):**
 
 The community remote signer at `signer.eliteencoder.net` provides a `GetOrchestrators` endpoint that returns on-chain orchestrator data, parameterised by capability and model ID. This removes the need to manually manage orchestrator lists:
 
@@ -334,13 +355,13 @@ The community remote signer at `signer.eliteencoder.net` provides a `GetOrchestr
 The community remote signer at `signer.eliteencoder.net` is operated by John (Elite Encoder) and provides free ETH for test workloads. Confirm availability in [#local-gateways on Discord](https://discord.gg/livepeer) before using it in production. For production AI gateways, run your own remote signer using go-livepeer's `-remoteSigner` mode with a dedicated funded Ethereum key.
 </Tip>
 
-### 3.3 — Set pricing
+### 3.3 - Set pricing
 
 Before routing to public orchestrators, set your max price to avoid over-paying:
 
 **For video transcoding:**
 ```bash
-./livepeer_cli -network arbitrum-one -ethUrl YOUR_RPC -datadir ~/.lpData-gw-prod
+./livepeer_cli -network arbitrum-one-mainnet -ethUrl YOUR_RPC -datadir ~/.lpData-gw-prod
 # Select: "Set max price for transcoding"
 # Enter: e.g. 0.01USD (auto-converts to wei using Chainlink ETH/USD feed)
 ```
@@ -376,29 +397,29 @@ Pass to the gateway:
 **Common confusion:** `-maxPricePerUnit` and `-maxPricePerCapability` set the maximum price your gateway **pays to orchestrators** for compute. This is not the price you charge your own customers. If you are building a Gateway-as-a-Service product, your user-facing pricing is entirely separate from this network-level setting.
 </Warning>
 
-### 3.4 — Verify public orchestrator routing
+### 3.4 - Verify public orchestrator routing
 
 Once connected to the network, verify jobs are routing to public orchestrators:
 
 ```bash
 # In livepeer_cli, select "Get node status"
-# Look for: "Connected Orchestrators" — should show public IP addresses, not localhost
+# Look for: "Connected Orchestrators" - should show public IP addresses, not localhost
 ```
 
 Check the [Livepeer Explorer](https://explorer.livepeer.org) → your gateway address → "Recent Sessions" to see which orchestrators have handled your jobs.
 
 Use `tools.livepeer.cloud` for a richer view of orchestrator performance, pricing, and availability before locking in your orchestrator selection strategy.
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## Putting it together — full production command
+## Putting it together - full production command
 
 Here is a complete production gateway command incorporating all three upgrades (on-chain, GPU orchestrator nearby, public network):
 
 ```bash
 ./livepeer \
   -gateway \
-  -network arbitrum-one \
+  -network arbitrum-one-mainnet \
   -ethUrl https://arb-mainnet.g.alchemy.com/v2/YOUR_KEY \
   -datadir ~/.lpData-gw-prod \
   -httpAddr 0.0.0.0:8935 \
@@ -419,7 +440,7 @@ After=network.target
 [Service]
 ExecStart=/usr/local/bin/livepeer \
   -gateway \
-  -network arbitrum-one \
+  -network arbitrum-one-mainnet \
   -ethUrl https://arb-mainnet.g.alchemy.com/v2/YOUR_KEY \
   -datadir /var/lib/livepeer/gateway \
   -httpAddr 0.0.0.0:8935 \
@@ -437,10 +458,10 @@ WantedBy=multi-user.target
 ```
 
 <Tip>
-Run your gateway behind a TLS-terminating reverse proxy (nginx, Caddy) before exposing it to the internet. The go-livepeer gateway serves plain HTTP. If you are building a public API product on top of the gateway, your load balancer handles TLS, rate limiting, and auth — the gateway only handles Livepeer network routing.
+Run your gateway behind a TLS-terminating reverse proxy (nginx, Caddy) before exposing it to the internet. The go-livepeer gateway serves plain HTTP. If you are building a public API product on top of the gateway, your load balancer handles TLS, rate limiting, and auth - the gateway only handles Livepeer network routing.
 </Tip>
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Monitoring your production gateway
 
@@ -448,7 +469,7 @@ Once live, set up monitoring before you need it:
 
 ```bash
 # Check PM deposit balance (alerts you before it runs dry)
-./livepeer_cli -network arbitrum-one -ethUrl YOUR_RPC -datadir ~/.lpData-gw-prod
+./livepeer_cli -network arbitrum-one-mainnet -ethUrl YOUR_RPC -datadir ~/.lpData-gw-prod
 # Select: "Get node status" → check "PM Deposit" value
 
 # Watch gateway logs for payment and routing health
@@ -461,61 +482,62 @@ curl -G 'https://loki.livepeer.report/loki/api/v1/query_range' \
 ```
 
 <Tip>
-Set up an alert on your gateway's PM deposit balance. If the deposit runs to zero, orchestrators will stop serving your jobs immediately — they check the deposit before accepting work. A deposit of 0.065 ETH will last weeks to months depending on your job volume, but top it up before it reaches zero rather than scrambling during an incident.
+Set up an alert on your gateway's PM deposit balance. If the deposit runs to zero, orchestrators will stop serving your jobs immediately - they check the deposit before accepting work. A deposit of 0.065 ETH will last weeks to months depending on your job volume, but top it up before it reaches zero rather than scrambling during an incident.
 </Tip>
 
-The [Monitor and Optimise](/v2/gateways/setup/monitor/monitor-and-optimise) page covers the full production monitoring stack: Prometheus metrics exporter, Grafana dashboards, Loki log queries, and ETH balance alerting.
+The [Monitor and Optimise](/v2/gateways/guides/monitoring-and-tooling/monitoring-setup) page covers the full production monitoring stack: Prometheus metrics exporter, Grafana dashboards, Loki log queries, and ETH balance alerting.
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title="Gateway cannot find orchestrators after removing -orchAddr">
-    On-chain mode: confirm your Arbitrum RPC is working (`curl -X POST YOUR_RPC -d '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}'`) and your gateway has a funded PM deposit. Orchestrators will only respond to gateways with valid deposits.
+  <Accordion title="Cannot find Orchestrators after removing -orchAddr" icon="magnifying-glass">
+    On-chain mode: confirm the Arbitrum RPC is working (`curl -X POST YOUR_RPC -d '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}'`) and the Gateway has a funded PM deposit. Orchestrators only respond to Gateways with valid deposits.
 
-    Off-chain mode: you must provide an `-orchAddr` or `-remoteSignerAddr` with discovery support. There is no automatic discovery in off-chain mode.
+    {/* REVIEW: `-remoteSignerAddr` may be `-signerAddr` in current builds. Rick to confirm. */}
+    Off-chain mode: an `-orchAddr` or `-remoteSignerAddr` with discovery support must be provided. There is no automatic discovery in off-chain mode.
   </Accordion>
 
-  <Accordion title="Orchestrators reject my gateway's job requests">
+  <Accordion title="Orchestrators reject job requests" icon="ban">
     Most common causes:
-    1. PM deposit is zero or very low — fund it via `livepeer_cli`
-    2. Your `-maxPricePerUnit` is lower than any available orchestrator's price — raise it temporarily to diagnose
-    3. The orchestrators you are connecting to do not support your capability/model — check the Explorer for orchestrators advertising the capability you need
+    1. PM deposit is zero or very low - fund it via `livepeer_cli`
+    2. `-maxPricePerUnit` is lower than any available Orchestrator's price - raise it temporarily to diagnose
+    3. The connected Orchestrators do not support the required capability/model - check the Explorer for Orchestrators advertising the needed capability
   </Accordion>
 
-  <Accordion title="GPU not detected by orchestrator (-nvidia 0 shows error)">
+  <Accordion title="GPU not detected (-nvidia 0 error)" icon="microchip">
     Check:
-    ```bash
-    nvidia-smi  # Must show your GPU
+    ```bash icon="terminal" GPU Check
+    nvidia-smi  # Must show the GPU
     docker run --rm --gpus all nvidia/cuda:12.1-base nvidia-smi  # Docker GPU access
     ```
-    If `nvidia-smi` works but the orchestrator fails, check that the NVIDIA Container Toolkit is installed: `nvidia-ctk --version`.
+    If `nvidia-smi` works but the Orchestrator fails, check that the NVIDIA Container Toolkit is installed: `nvidia-ctk --version`.
   </Accordion>
 
-  <Accordion title="On-chain registration: transaction fails or times out">
-    Arbitrum transactions are cheap (fractions of a cent) but require a small ETH gas balance. Ensure your gateway wallet has at least 0.005 ETH above your intended deposit amount for gas. If using a public RPC endpoint, try a different provider — Alchemy and Infura are generally reliable.
+  <Accordion title="On-chain transaction fails or times out" icon="circle-exclamation">
+    Arbitrum transactions are cheap (fractions of a cent) but require a small ETH gas balance. Ensure the Gateway wallet has at least 0.005 ETH above the intended deposit amount for gas. If using a public RPC endpoint, try a different provider - Alchemy and Infura are generally reliable.
   </Accordion>
 
-  <Accordion title="PM deposit drains faster than expected">
-    Either job volume is higher than anticipated, or your orchestrators are pricing above your budget. Check the [AI Dune Dashboard](https://dune.com/livepeer) for current network pricing and compare against your `-maxPricePerUnit` / `-maxPricePerCapability` settings. You can also run `livepeer_cli → Set max price` to temporarily lower your cap and diagnose which orchestrators are consuming your budget.
+  <Accordion title="PM deposit drains faster than expected" icon="coins">
+    Either job volume is higher than anticipated, or the Orchestrators are pricing above budget. Check the [AI Dune Dashboard](https://dune.com/livepeer) for current network pricing and compare against `-maxPricePerUnit` / `-maxPricePerCapability` settings.
   </Accordion>
 </AccordionGroup>
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## What is next — the operations guides
+## Related Pages
 
-You now have a working production gateway. The following guides take you deeper into each operational area:
+With a working production Gateway, these guides cover each operational area in depth:
 
 <CardGroup cols={2}>
-  <Card title="Payments and pricing" href="/v2/gateways/payments/how-payments-work" icon="circle-dollar-to-slot">
+  <Card title="Payments and pricing" href="/v2/gateways/guides/payments-and-pricing/payment-guide" icon="circle-dollar-to-slot">
     Understand the full PM fee flow: ticket face value, per-pixel AI pricing, deposit lifecycle, and how to set a pricing strategy that balances cost and orchestrator availability.
   </Card>
-  <Card title="Monitor and optimise" href="/v2/gateways/setup/monitor/monitor-and-optimise" icon="gauge">
+  <Card title="Monitor and optimise" href="/v2/gateways/guides/monitoring-and-tooling/monitoring-setup" icon="gauge">
     Production observability: Prometheus metrics, Loki log queries, ETH balance alerts, and the key metrics that predict problems before they become incidents.
   </Card>
-  <Card title="Remote signers" href="/v2/gateways/payments/remote-signers" icon="key">
+  <Card title="Remote signers" href="/v2/gateways/guides/payments-and-pricing/remote-signers" icon="key">
     Run your own remote signer for production off-chain AI workloads. Stateless design, redundancy, JWT auth integration, and NaaP clearinghouse patterns.
   </Card>
   <Card title="Gateway operator opportunities" href="/v2/gateways/guides/roadmap-and-funding/operator-support" icon="briefcase">

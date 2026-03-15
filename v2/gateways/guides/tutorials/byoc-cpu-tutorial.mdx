@@ -223,8 +223,8 @@ The orchestrator accepts jobs from the gateway and routes them to the BYOC conta
   <Step title="Download the go-livepeer binary">
     ```bash
     # Replace vX.Y.Z with the latest release from github.com/livepeer/go-livepeer/releases
-    curl -LO https://github.com/livepeer/go-livepeer/releases/download/vX.Y.Z/livepeer_linux_amd64.tar.gz
-    tar -xzf livepeer_linux_amd64.tar.gz
+    curl -LO https://github.com/livepeer/go-livepeer/releases/download/vX.Y.Z/livepeer-linux-amd64.tar.gz
+    tar -xzf livepeer-linux-amd64.tar.gz
     chmod +x livepeer livepeer_cli
     ```
   </Step>
@@ -497,7 +497,7 @@ Once your off-chain smoke test passes, follow this path to move to a production 
 
     ```bash
     ./livepeer_cli \
-      -network arbitrum-one \
+      -network arbitrum-one-mainnet \
       -datadir ./data-gateway \
       # Follow the CLI prompts to create a new keystore
     ```
@@ -524,7 +524,7 @@ Once your off-chain smoke test passes, follow this path to move to a production 
 
     ```bash
     ./livepeer_cli \
-      -network arbitrum-one \
+      -network arbitrum-one-mainnet \
       -ethUrl YOUR_ARBITRUM_RPC \
       -datadir ./data-gateway
     ```
@@ -536,7 +536,7 @@ Once your off-chain smoke test passes, follow this path to move to a production 
     After depositing, confirm your balance:
     ```bash
     ./livepeer_cli \
-      -network arbitrum-one \
+      -network arbitrum-one-mainnet \
       -ethUrl YOUR_ARBITRUM_RPC \
       -datadir ./data-gateway \
       # Select "Get node status" to see PM deposit balance
@@ -550,7 +550,7 @@ Once your off-chain smoke test passes, follow this path to move to a production 
     ./livepeer \
       -orchestrator \
       -serviceAddr YOUR_PUBLIC_IP:8935 \
-      -network arbitrum-one \
+      -network arbitrum-one-mainnet \
       -ethUrl YOUR_ARBITRUM_RPC \
       -datadir ./data-orchestrator \
       -byoc \
@@ -562,7 +562,7 @@ Once your off-chain smoke test passes, follow this path to move to a production 
     Then activate via the CLI:
     ```bash
     ./livepeer_cli \
-      -network arbitrum-one \
+      -network arbitrum-one-mainnet \
       -ethUrl YOUR_ARBITRUM_RPC \
       -datadir ./data-orchestrator
     # Select: "Activate orchestrator"
@@ -578,7 +578,7 @@ Once your off-chain smoke test passes, follow this path to move to a production 
       -gateway \
       -cliAddr 127.0.0.1:7936 \
       -httpAddr 0.0.0.0:8935 \
-      -network arbitrum-one \
+      -network arbitrum-one-mainnet \
       -ethUrl YOUR_ARBITRUM_RPC \
       -datadir ./data-gateway
     ```
@@ -614,7 +614,7 @@ Once your off-chain smoke test passes, follow this path to move to a production 
   <Card title="Payment clearinghouse" href="/v2/gateways/guides/payments-and-pricing/clearinghouse-guide" icon="building-columns">
     Build a Gateway-as-a-Service layer: JWT auth, user management, accounting on top of the remote signer model (NaaP reference implementation).
   </Card>
-  <Card title="Monitoring and optimisation" href="/v2/gateways/setup/monitor/monitor-and-optimise" icon="gauge">
+  <Card title="Monitoring and optimisation" href="/v2/gateways/guides/monitoring-and-tooling/monitoring-setup" icon="gauge">
     Set up Prometheus metrics, Loki log queries, and ETH balance alerts for production gateway operation.
   </Card>
 </CardGroup>

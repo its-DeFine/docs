@@ -1,659 +1,565 @@
 ---
-title: "Add AI: BYOC CPU pipeline"
-sidebarTitle: "Tutorial 2: BYOC CPU"
-description: "Build a custom AI pipeline container and route jobs through your gateway — no GPU required."
-status: draft
+title: 'Add AI: BYOC CPU Pipeline'
+sidebarTitle: 'Tutorial 2: BYOC CPU'
+description: 'Build a custom AI pipeline container and route jobs through the Gateway - no GPU required.'
+status: current
 tutorial: 2-of-3
 keywords: ["livepeer", "gateway", "BYOC", "PyTrickle", "CPU", "AI", "tutorial", "Docker", "Whisper"]
-og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+og:image: /snippets/assets/site/og-image/fallback.png
+pageType: tutorial
+audience: gateway-operator
+purpose: tutorial
+lastVerified: '2026-03-15'
 ---
 {/* TODO:
 Terminology Validation:
 - Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
 Verify:
-- Terminology is consistent with resources/glossary
+- ~~Fontawesome icons are used on accordions~~
+- ~~Tables use StyledTable component~~
+- ~~No em-dashes are used (instead use standard -)~~
+- UK spelling is used
+- ~~CustomDivider is used~~
+- ~~Code blocks have icons and filenames~~
+REVIEW:
+- PyTrickle API: verify `FrameProcessor` and `run_processor` are the current API. The pytrickle repo may use `process_video_async()` instead. Check https://github.com/livepeer/pytrickle before publishing.
+- http-trickle: `j0sh/http-trickle` is a Go project (62.5% Go), NOT a Python pip package. The `pip install` command in Step 3b is likely wrong. Verify testing approach with j0sh.
+- BYOC flags: verify `-byoc`, `-byocContainerURL`, `-byocModelID` are current flag names in go-livepeer.
 */}
 
-
-In this tutorial you will build a custom AI pipeline using PyTrickle, package it as a Docker container, and route jobs through the gateway–orchestrator pipeline you built in Tutorial 1. No GPU is required.
-
-**Time:** ~30 minutes
-**Cost:** zero
-**What you need:** Tutorial 1 completed, Docker, Python 3.10+
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
+import { LinkArrow } from '/snippets/components/primitives/links.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { StyledSteps, StyledStep } from "/snippets/components/layout/steps.jsx"
 
 <Note>
 This is Tutorial 2 of 3.
 
-- **← Tutorial 1:** [Off-chain transcoding test](/v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test) — gateway + orchestrator baseline (start here if you have not)
-- **Tutorial 3 →** [Go production](/v2/gateways/guides/tutorials/tutorial-3-go-production) — on-chain, GPU, public network
+- **Tutorial 1:** <LinkArrow href="/v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test" label="Off-chain transcoding test" newline={false} /> (start here if not completed)
+- **Tutorial 3:** <LinkArrow href="/v2/gateways/guides/tutorials/tutorial-3-go-production" label="Go production" newline={false} />
 </Note>
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-## What you will build
+This tutorial builds a custom AI pipeline using PyTrickle, packages it as a Docker container, and routes jobs through the Gateway-Orchestrator pipeline from Tutorial 1. No GPU is required.
+
+**Time:** ~30 minutes | **Cost:** zero | **Requirements:** Tutorial 1 completed, Docker, Python 3.10+
+
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
+
+## Architecture
 
 ```
 HTTP client (test job)
-     │
-     ▼
-┌──────────────────────────────────────┐
-│  Gateway  (port 8935)                │  ← AI job API, off-chain mode
-│  -network offchain                   │
-└────────────────┬─────────────────────┘
-                 │  HTTP BYOC job request
-                 ▼
-┌──────────────────────────────────────┐
-│  Orchestrator  (port 8936)           │  ← routes job to BYOC container
-│  -network offchain                   │
-└────────────────┬─────────────────────┘
-                 │  Trickle HTTP
-                 ▼
-┌──────────────────────────────────────┐
-│  BYOC Container  (port 8000)         │  ← your Python processor (CPU)
-│  PyTrickle frame processor           │
-│  e.g. green-tint | grayscale |       │
-│       passthrough | whisper-tiny     │
-└──────────────────────────────────────┘
+     |
+     v
++--------------------------------------+
+|  Gateway  (port 8935)                |  <- AI job API, off-chain mode
+|  -network offchain                   |
++----------------+---------------------+
+                 |  HTTP BYOC job request
+                 v
++--------------------------------------+
+|  Orchestrator  (port 8936)           |  <- routes job to BYOC container
+|  -network offchain                   |
++----------------+---------------------+
+                 |  Trickle HTTP
+                 v
++--------------------------------------+
+|  BYOC Container  (port 8000)         |  <- Python processor (CPU)
+|  PyTrickle frame processor           |
+|  e.g. green-tint | grayscale |       |
+|       passthrough | whisper-tiny     |
++--------------------------------------+
 ```
 
-BYOC (Bring Your Own Container) lets you attach any Docker container as a compute pipeline on the Livepeer network. The container speaks the trickle streaming protocol — PyTrickle gives you a Python interface for this. The gateway and orchestrator handle all the routing and payment logic; your container only needs to receive frames (or other media) and return processed output.
+BYOC (Bring Your Own Container) attaches any Docker container as a compute pipeline on the Livepeer network. The container speaks the trickle streaming protocol - PyTrickle provides a Python interface. The Gateway and Orchestrator handle all routing and payment logic; the container only needs to receive frames (or other media) and return processed output.
 
 <Tip>
-**BYOC vs standard pipelines:** Standard Livepeer AI pipelines (text-to-image, image-to-image, etc.) run inside the `ai-runner` runtime using the `Pipeline` interface. BYOC is different — your container speaks the trickle HTTP protocol directly, bypassing ai-runner. This makes BYOC much simpler for custom processors: you only need PyTrickle and your processing logic, not the full ai-runner stack. The tradeoff is that BYOC has a different job flow (HTTP not gRPC for OrchestratorInfo) and "first orchestrator to respond gets the work" selection semantics.
+**BYOC vs standard pipelines:** Standard Livepeer AI pipelines (text-to-image, image-to-image, etc.) run inside the `ai-runner` runtime using the `Pipeline` interface. BYOC is different - the container speaks the trickle HTTP protocol directly, bypassing ai-runner. This makes BYOC simpler for custom processors: only PyTrickle and processing logic are needed, not the full ai-runner stack.
 </Tip>
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## How BYOC works
-
-Before writing any code, it is worth understanding the protocol your container must implement.
+## Trickle Protocol
 
 The trickle protocol is a simple HTTP-based streaming convention:
 
-1. The orchestrator calls your container's `PUT /live/{job_id}/source` — this is the **input stream** (frames, audio, or arbitrary bytes)
-2. Your container processes the data and writes results to `GET /live/{job_id}/output` — this is the **output stream** the orchestrator will pull
-3. PyTrickle abstracts both sides: you write a `FrameProcessor` that receives data and returns data
+1. The Orchestrator calls the container's `PUT /live/{job_id}/source` - the **input stream** (frames, audio, or arbitrary bytes)
+2. The container processes the data and writes results to `GET /live/{job_id}/output` - the **output stream** the Orchestrator pulls
+3. PyTrickle abstracts both sides: implement a `FrameProcessor` that receives data and returns data
 
-PyTrickle's `async_processor_example.py` is the canonical starting point. The pattern is:
+{/* REVIEW: Verify FrameProcessor is the current class name in pytrickle. The repo may use process_video_async() instead. */}
 
-```python
+```python icon="code" Pattern
 async def process(self, frame: bytes) -> bytes:
     # Transform frame and return result
     return transformed_frame
 ```
 
-The container runs as an HTTP server. The orchestrator connects to it at startup and keeps the connection alive for the job duration.
+The container runs as an HTTP server. The Orchestrator connects to it at startup and keeps the connection alive for the job duration.
 
-<Tip>
-`j0sh/http-trickle` is the reference implementation of the trickle HTTP server used by the orchestrator. You do not need to run it yourself — the orchestrator handles the server side. It is useful for **local testing of your container in isolation** before wiring it into the full gateway–orchestrator stack (see Step 3 below).
-</Tip>
-
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Prerequisites
 
 From Tutorial 1:
 - `./livepeer` binary installed and working
-- Off-chain orchestrator + gateway tested
+- Off-chain Orchestrator + Gateway tested
 
 New for this tutorial:
 - Docker Engine 24+
 - Python 3.10+ with pip
 - Optional: `pip install openai-whisper` for the Whisper-tiny step
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## Step 1 — Build the PyTrickle frame processor
+## Steps
 
-Create a project directory:
-```bash
-mkdir byoc-cpu && cd byoc-cpu
-```
+<StyledSteps iconColor="#2d9a67" titleColor="var(--accent)">
+  <StyledStep title="Build the processor" icon="code">
+    Create a project directory:
 
-### 1a — Install PyTrickle locally (for development)
+    ```bash icon="terminal" Create Project
+    mkdir byoc-cpu && cd byoc-cpu
+    ```
 
-```bash
-pip install git+https://github.com/livepeer/pytrickle.git
-```
+    ### Install PyTrickle
 
-<Tip>
-PyTrickle is the Python binding for the trickle streaming protocol used by Livepeer BYOC containers. The library handles the HTTP server plumbing, frame queuing, and session lifecycle. You only implement the `process()` method.
-</Tip>
+    ```bash icon="terminal" Install PyTrickle
+    pip install git+https://github.com/livepeer/pytrickle.git
+    ```
 
-### 1b — Write the processor
+    ### Write the processor
 
-Create `processor.py`. Start with the green-tint passthrough — the simplest possible processor that demonstrates the full frame-in / frame-out contract:
+    Create `processor.py` - the green-tint passthrough is the simplest processor that demonstrates the full frame-in / frame-out contract:
 
-```python
-"""
-green_tint_processor.py — BYOC CPU pipeline for Livepeer
-
-Applies a green-tint overlay to every incoming video frame.
-CPU only, no GPU, no model loading.
-
-Based on the canonical async_processor_example.py from livepeer/pytrickle.
-"""
-
-import asyncio
-import struct
-import logging
-
-from pytrickle import FrameProcessor, run_processor
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-
-class GreenTintProcessor(FrameProcessor):
+    ```python icon="code" processor.py
     """
-    Applies a simple green channel boost to every frame.
-    Input/output: raw RGB bytes (width * height * 3 bytes per frame).
-    The trickle protocol passes frames as a length-prefixed binary stream.
+    green_tint_processor.py - BYOC CPU pipeline for Livepeer
+
+    Applies a green-tint overlay to every incoming video frame.
+    CPU only, no GPU, no model loading.
     """
 
-    async def initialize(self):
-        """Called once when the container starts. Load models here."""
-        logger.info("GreenTintProcessor: initialised (CPU, no model loading)")
+    import asyncio
+    import logging
 
+    from pytrickle import FrameProcessor, run_processor
+
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
+
+
+    class GreenTintProcessor(FrameProcessor):
+        """
+        Applies a simple green channel boost to every frame.
+        Input/output: raw RGB bytes (width * height * 3 bytes per frame).
+        """
+
+        async def initialize(self):
+            """Called once when the container starts. Load models here."""
+            logger.info("GreenTintProcessor: initialised (CPU, no model loading)")
+
+        async def process(self, frame: bytes) -> bytes:
+            """Receive one frame of raw bytes, return transformed bytes."""
+            data = bytearray(frame)
+
+            # Boost the green channel (offset 1 in RGB triplet)
+            for i in range(1, len(data), 3):
+                data[i] = min(255, data[i] + 80)
+
+            return bytes(data)
+
+        async def shutdown(self):
+            """Called when the job ends."""
+            logger.info("GreenTintProcessor: shutdown")
+
+
+    if __name__ == "__main__":
+        asyncio.run(run_processor(GreenTintProcessor(), port=8000))
+    ```
+
+    <Tip>
+    The `process()` method is the only required implementation. `initialize()` and `shutdown()` are optional but useful for model loading and cleanup. A PyTorch model, scikit-learn classifier, or any CPU-compatible library can be loaded in `initialize()`.
+    </Tip>
+
+    ### Grayscale variant (alternative)
+
+    ```python icon="code" grayscale_process
     async def process(self, frame: bytes) -> bytes:
-        """
-        Receive one frame of raw bytes, return transformed bytes.
-        Frame format: raw RGB24 (width * height * 3 bytes).
-        """
-        # Convert bytes to a mutable bytearray
+        """Convert RGB frame to grayscale, return as RGB."""
         data = bytearray(frame)
+        result = bytearray(len(data))
 
-        # Boost the green channel (offset 1 in RGB triplet)
-        for i in range(1, len(data), 3):
-            data[i] = min(255, data[i] + 80)  # Clamp at 255
+        for i in range(0, len(data), 3):
+            r, g, b = data[i], data[i+1], data[i+2]
+            y = int(0.299 * r + 0.587 * g + 0.114 * b)
+            result[i] = result[i+1] = result[i+2] = y
 
-        return bytes(data)
+        return bytes(result)
+    ```
+  </StyledStep>
 
-    async def shutdown(self):
-        """Called when the job ends."""
-        logger.info("GreenTintProcessor: shutdown")
+  <StyledStep title="Package as Docker container" icon="docker">
+    ### Dockerfile
 
+    ```dockerfile icon="docker" Dockerfile
+    # BYOC CPU pipeline - green tint / grayscale processor
+    FROM python:3.11-slim
 
-if __name__ == "__main__":
-    # run_processor starts the trickle HTTP server and wires in the processor
-    # Default port: 8000
-    asyncio.run(run_processor(GreenTintProcessor(), port=8000))
-```
+    WORKDIR /app
 
-<Tip>
-The `process()` method is the only thing you must implement. `initialize()` and `shutdown()` are optional but useful for model loading and cleanup. You can load a PyTorch model, a scikit-learn classifier, or any other CPU-compatible library in `initialize()` and store it as `self.model`.
-</Tip>
+    RUN apt-get update && apt-get install -y --no-install-recommends \
+        git \
+        && rm -rf /var/lib/apt/lists/*
 
-### 1c — Grayscale variant (alternative to green tint)
+    RUN pip install --no-cache-dir \
+        git+https://github.com/livepeer/pytrickle.git
 
-If you prefer a grayscale processor (equally simple, easier to verify visually):
+    COPY processor.py ./processor.py
 
-```python
-async def process(self, frame: bytes) -> bytes:
-    """Convert RGB frame to grayscale, return as RGB (repeated Y channel)."""
-    data = bytearray(frame)
-    result = bytearray(len(data))
+    EXPOSE 8000
 
-    for i in range(0, len(data), 3):
-        r, g, b = data[i], data[i+1], data[i+2]
-        # BT.601 luminance
-        y = int(0.299 * r + 0.587 * g + 0.114 * b)
-        result[i] = result[i+1] = result[i+2] = y
+    ENTRYPOINT ["python", "processor.py"]
+    ```
 
-    return bytes(result)
-```
+    <Warning>
+    Use `python:3.11-slim` as the base image - not `nvidia/cuda`. BYOC containers are independent of the GPU stack. For GPU inference inside BYOC, swap the base to `nvidia/cuda:12.x-runtime-ubuntu22.04` later (covered in Tutorial 3).
+    </Warning>
 
----
+    ### Build
 
-## Step 2 — Package as a Docker container
+    ```bash icon="terminal" Build Image
+    docker build -t byoc-green-tint:latest .
+    ```
 
-### 2a — Write the Dockerfile
+    Verify:
 
-```dockerfile
-# BYOC CPU pipeline — green tint / grayscale processor
-# Base: python:3.11-slim (NOT nvidia/cuda — this is CPU-only)
-FROM python:3.11-slim
+    ```bash icon="terminal" Verify
+    docker images | grep byoc-green-tint
+    ```
+  </StyledStep>
 
-WORKDIR /app
+  <StyledStep title="Test in isolation" icon="flask-vial">
+    Before connecting to the Orchestrator, verify the container works standalone.
 
-# System dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    git \
-    && rm -rf /var/lib/apt/lists/*
+    {/* REVIEW: The http-trickle package (j0sh/http-trickle) is a Go project, NOT pip-installable. This testing step needs verification. The container may need to be tested via direct HTTP calls instead. */}
 
-# Install PyTrickle from source
-RUN pip install --no-cache-dir \
-    git+https://github.com/livepeer/pytrickle.git
+    ### Run the container
 
-# Copy the processor
-COPY processor.py ./processor.py
+    ```bash icon="terminal" Run Container
+    docker run -d \
+      --name byoc-test \
+      -p 8000:8000 \
+      byoc-green-tint:latest
+    ```
 
-# Expose the trickle HTTP port
-EXPOSE 8000
+    Confirm startup:
 
-# Start the trickle server
-ENTRYPOINT ["python", "processor.py"]
-```
+    ```bash icon="terminal" Check Logs
+    docker logs byoc-test
+    # INFO: GreenTintProcessor: initialised (CPU, no model loading)
+    # INFO: Trickle server listening on port 8000
+    ```
 
-<Warning>
-Use `python:3.11-slim` as the base image — not `nvidia/cuda`. BYOC containers are independent of the GPU stack. If you later want GPU inference inside BYOC, you can swap the base to `nvidia/cuda:12.x-runtime-ubuntu22.04` and install your CUDA libraries, but that is not needed for this tutorial.
-</Warning>
+    ### Send a test frame
 
-### 2b — Build the image
+    Send a raw 1280x720 RGB frame (zeros - black frame) via a Python script:
 
-```bash
-docker build -t byoc-green-tint:latest .
-```
+    ```python icon="code" test_container.py
+    import asyncio
+    from http_trickle import TrickleClient
 
-Verify:
-```bash
-docker images | grep byoc-green-tint
-# byoc-green-tint   latest   abc123   2 minutes ago   120MB
-```
+    async def test():
+        frame = bytes(1280 * 720 * 3)  # black frame
 
----
+        async with TrickleClient('http://localhost:8000') as client:
+            result = await client.process_frame(frame)
+            g_channel_sum = sum(result[1::3])
+            print(f'Frame processed. Size: {len(result)} bytes')
+            print(f'Green channel sum: {g_channel_sum} (should be > 0)')
 
-## Step 3 — Test the container in isolation
+    asyncio.run(test())
+    ```
 
-Before connecting the container to the orchestrator, verify it works standalone using `http-trickle`.
+    <Tip>
+    This isolation test proves the container logic is correct before debugging Gateway-Orchestrator wiring. Once this passes, any end-to-end failure is a configuration problem, not a container logic problem.
+    </Tip>
 
-### 3a — Run the container
+    Stop the test container:
 
-```bash
-docker run -d \
-  --name byoc-test \
-  -p 8000:8000 \
-  byoc-green-tint:latest
-```
+    ```bash icon="terminal" Cleanup
+    docker stop byoc-test && docker rm byoc-test
+    ```
+  </StyledStep>
 
-Confirm it started:
-```bash
-docker logs byoc-test
-# INFO: GreenTintProcessor: initialised (CPU, no model loading)
-# INFO: Trickle server listening on port 8000
-```
+  <StyledStep title="Wire into Gateway-Orchestrator" icon="diagram-project">
+    ### Start the BYOC container
 
-### 3b — Send a test frame
+    ```bash icon="terminal" Start BYOC
+    docker run -d \
+      --name byoc-green-tint \
+      --network host \
+      byoc-green-tint:latest
+    ```
 
-Install `http-trickle` (j0sh's trickle client tool):
-```bash
-pip install git+https://github.com/j0sh/http-trickle.git
-```
+    `--network host` lets the Orchestrator reach the container at `localhost:8000`. Fine for local development; for production use a Docker network or Kubernetes service.
 
-Send a raw 1280×720 RGB frame (just zeros — black frame):
-```bash
-python3 -c "
-import asyncio
-from http_trickle import TrickleClient
+    ### Start the Orchestrator with BYOC capability
 
-async def test():
-    # A black 1280x720 RGB frame = 1280 * 720 * 3 bytes
-    frame = bytes(1280 * 720 * 3)
+    ```bash icon="terminal" Start Orchestrator
+    ./livepeer \
+      -orchestrator \
+      -network offchain \
+      -serviceAddr 127.0.0.1:8936 \
+      -cliAddr 127.0.0.1:7936 \
+      -datadir ~/.lpData-orch \
+      -byoc \
+      -byocContainerURL http://127.0.0.1:8000 \
+      -byocModelID green-tint-cpu
+    ```
 
-    async with TrickleClient('http://localhost:8000') as client:
-        result = await client.process_frame(frame)
-        # If green tint: every 3rd byte (G channel) should be higher
+    **BYOC flags:**
+
+    <StyledTable>
+      <TableRow header>
+        <TableCell header>Flag</TableCell>
+        <TableCell header>Effect</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`-byoc`</TableCell>
+        <TableCell>Enable BYOC mode on this Orchestrator</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`-byocContainerURL`</TableCell>
+        <TableCell>URL of the running BYOC container</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>`-byocModelID`</TableCell>
+        <TableCell>Capability name advertised to Gateways (any string)</TableCell>
+      </TableRow>
+    </StyledTable>
+
+    ### Start the AI Gateway
+
+    ```bash icon="terminal" Start AI Gateway
+    ./livepeer \
+      -gateway \
+      -network offchain \
+      -orchAddr 127.0.0.1:8936 \
+      -httpAddr 0.0.0.0:8935 \
+      -httpIngest \
+      -cliAddr 127.0.0.1:5935 \
+      -datadir ~/.lpData-gw
+    ```
+
+    ### Send a job through the Gateway
+
+    ```python icon="code" test_byoc_job.py
+    import requests
+
+    GATEWAY_URL = "http://localhost:8935"
+    MODEL_ID = "green-tint-cpu"
+
+    frame = bytes(640 * 480 * 3)  # black 640x480 RGB frame
+
+    print(f"Sending BYOC job to Gateway: model_id={MODEL_ID}")
+
+    response = requests.post(
+        f"{GATEWAY_URL}/live/video-to-video",
+        headers={
+            "Content-Type": "application/octet-stream",
+            "X-Model-Id": MODEL_ID,
+        },
+        data=frame,
+        timeout=30,
+    )
+
+    if response.status_code == 200:
+        result = response.content
         g_channel_sum = sum(result[1::3])
-        print(f'Frame processed. Size: {len(result)} bytes')
-        print(f'Green channel sum: {g_channel_sum} (should be > 0 for black input + tint)')
-
-asyncio.run(test())
-"
-```
-
-Expected output:
-```
-Frame processed. Size: 2764800 bytes
-Green channel sum: 59719680
-```
-
-The green channel sum is non-zero on a black input frame — confirming the tint was applied.
-
-<Tip>
-This isolation test is valuable: it proves your container logic is correct before you spend time debugging gateway–orchestrator wiring. Once this passes, any end-to-end failure is a configuration problem, not a container logic problem.
-</Tip>
-
-Stop the test container:
-```bash
-docker stop byoc-test && docker rm byoc-test
-```
-
----
-
-## Step 4 — Wire into gateway → orchestrator
-
-Now connect your container to the pipeline from Tutorial 1.
-
-### 4a — Start the BYOC container
-
-```bash
-docker run -d \
-  --name byoc-green-tint \
-  --network host \
-  byoc-green-tint:latest
-```
-
-`--network host` lets the orchestrator reach the container at `localhost:8000` without Docker bridge networking. This is fine for local development; for production you would use a Docker network or Kubernetes service.
-
-Verify it is running:
-```bash
-docker logs byoc-green-tint
-# INFO: GreenTintProcessor: initialised (CPU, no model loading)
-# INFO: Trickle server listening on port 8000
-```
-
-### 4b — Start the orchestrator with BYOC capability registered
-
-The orchestrator needs to know about your BYOC container so it can advertise this capability to the gateway.
-
-```bash
-./livepeer \
-  -orchestrator \
-  -network offchain \
-  -serviceAddr 127.0.0.1:8936 \
-  -cliAddr 127.0.0.1:7936 \
-  -datadir ~/.lpData-orch \
-  -byoc \
-  -byocContainerURL http://127.0.0.1:8000 \
-  -byocModelID green-tint-cpu
-```
-
-**New flags:**
-
-| Flag | Value | Effect |
-|------|-------|--------|
-| `-byoc` | — | Enable BYOC mode on this orchestrator |
-| `-byocContainerURL` | `http://127.0.0.1:8000` | URL of the running BYOC container |
-| `-byocModelID` | `green-tint-cpu` | Capability name advertised to gateways |
-
-<Note>
-`-byocModelID` is the name gateways use when routing jobs to this capability. It can be any string — use something descriptive. When you test from the gateway (Step 4c), you will target this model ID.
-</Note>
-
-Expected startup:
-```
-I0000 Starting Livepeer node
-I0000 Orchestrator registered with service address 127.0.0.1:8936
-I0000 BYOC capability registered: green-tint-cpu at http://127.0.0.1:8000
-```
-
-### 4c — Start the AI gateway
-
-This is a different gateway configuration from Tutorial 1. The AI gateway uses HTTP ingest (not RTMP), and communicates with the AI API on port 8935.
-
-```bash
-./livepeer \
-  -gateway \
-  -network offchain \
-  -orchAddr 127.0.0.1:8936 \
-  -httpAddr 0.0.0.0:8935 \
-  -httpIngest \
-  -cliAddr 127.0.0.1:7935 \
-  -datadir ~/.lpData-gw
-```
-
-**New flags vs Tutorial 1:**
-
-| Flag | Effect |
-|------|--------|
-| `-httpAddr 0.0.0.0:8935` | AI API port — where you will POST jobs |
-| `-httpIngest` | Enable HTTP ingest (required for AI / BYOC jobs) |
+        print(f"Success! Response size: {len(result)} bytes")
+        print(f"Green channel sum: {g_channel_sum} (should be > 0)")
+    else:
+        print(f"Error {response.status_code}: {response.text}")
+    ```
 
-Expected startup:
-```
-I0000 Starting Livepeer node
-I0000 HTTP Server listening on http://0.0.0.0:8935
-I0000 Registered orchestrator: 127.0.0.1:8936
-```
+    ```bash icon="terminal" Run Test
+    python3 test_byoc_job.py
+    ```
 
-### 4d — Send a job through the gateway
+    <Tip>
+    Watch the logs in all four terminals simultaneously. The Gateway logs the incoming request, the Orchestrator routes to the BYOC container, the container logs the frame, and the Gateway returns the result. Reading these four log streams is the fastest way to debug routing problems.
+    </Tip>
+  </StyledStep>
 
-Send a raw frame to your BYOC pipeline via the gateway's AI API:
+  <StyledStep title="Optional: Whisper-tiny inference" icon="microphone">
+    Once the green-tint passthrough works, swap the processor for a real AI model. Whisper-tiny (79M parameters) runs on CPU.
 
-```python
-# test_byoc_job.py
-import requests
-import time
+    <Note>
+    Whisper-tiny on CPU is approximately 10x slower than real-time on a modern laptop. It is a functional proof - the same code runs at real-time with GPU acceleration (Tutorial 3).
+    </Note>
 
-GATEWAY_URL = "http://localhost:8935"
-MODEL_ID = "green-tint-cpu"
+    ### Install Whisper
 
-# A black 640x480 RGB frame
-frame = bytes(640 * 480 * 3)
-
-print(f"Sending BYOC job to gateway: model_id={MODEL_ID}")
-
-response = requests.post(
-    f"{GATEWAY_URL}/live/video-to-video",
-    headers={
-        "Content-Type": "application/octet-stream",
-        "X-Model-Id": MODEL_ID,
-    },
-    data=frame,
-    timeout=30,
-)
-
-if response.status_code == 200:
-    result = response.content
-    g_channel_sum = sum(result[1::3])
-    print(f"Success! Response size: {len(result)} bytes")
-    print(f"Green channel sum: {g_channel_sum} (should be > 0)")
-else:
-    print(f"Error {response.status_code}: {response.text}")
-```
+    ```bash icon="terminal" Install Whisper
+    pip install openai-whisper ffmpeg-python
+    ```
 
-Run it:
-```bash
-python3 test_byoc_job.py
-```
+    ### Whisper processor
 
-Expected output:
-```
-Sending BYOC job to gateway: model_id=green-tint-cpu
-Success! Response size: 921600 bytes
-Green channel sum: 36864000
-```
+    ```python icon="code" whisper_processor.py
+    """
+    whisper_processor.py - BYOC CPU pipeline using Whisper-tiny
 
-**End-to-end path confirmed:** your HTTP client → gateway → orchestrator → BYOC container (green tint applied) → result back to client.
+    Input:  Raw audio bytes (PCM 16-bit mono 16kHz)
+    Output: UTF-8 encoded transcription text as bytes
+    """
 
-<Tip>
-Watch the logs in all four terminals simultaneously when you send a job. You will see: the gateway log the incoming request and forward to the orchestrator, the orchestrator route the job to the BYOC container URL, the container log the frame, and the gateway return the result. Reading these four log streams is the fastest way to debug any routing problem.
-</Tip>
+    import asyncio
+    import logging
+    import whisper
+    import numpy as np
 
----
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
 
-## Step 5 (optional) — Swap in Whisper-tiny for real AI inference
 
-Once the green-tint passthrough is working, you can swap the processor for a real AI model. Whisper-tiny (79M parameters) runs on CPU and demonstrates real inference without requiring a GPU.
+    class WhisperProcessor:
+        async def initialize(self):
+            logger.info("WhisperProcessor: loading whisper-tiny model (CPU)")
+            self.model = await asyncio.to_thread(
+                whisper.load_model, "tiny", device="cpu"
+            )
+            logger.info("WhisperProcessor: model loaded")
 
-<Note>
-Whisper-tiny on CPU is approximately 10× slower than real-time on a modern laptop. It is a functional proof — the same code runs at real-time with GPU acceleration, which is covered in Tutorial 3.
-</Note>
+        async def process(self, audio_bytes: bytes) -> bytes:
+            audio_array = np.frombuffer(audio_bytes, dtype=np.int16).astype(np.float32)
+            audio_array = audio_array / 32768.0
 
-### 5a — Install Whisper
+            result = await asyncio.to_thread(
+                self.model.transcribe, audio_array, language="en"
+            )
+            transcription = result["text"].strip()
 
-```bash
-pip install openai-whisper ffmpeg-python
-```
+            logger.info(f"Transcription: {transcription!r}")
+            return transcription.encode("utf-8")
 
-### 5b — Write the Whisper processor
+        async def shutdown(self):
+            logger.info("WhisperProcessor: shutdown")
+    ```
 
-Create `whisper_processor.py`:
+    ### Updated Dockerfile
 
-```python
-"""
-whisper_processor.py — BYOC CPU pipeline using Whisper-tiny for transcription
+    ```dockerfile icon="docker" Dockerfile.whisper
+    FROM python:3.11-slim
 
-Input:  Raw audio bytes (PCM 16-bit mono 16kHz)
-Output: UTF-8 encoded transcription text as bytes
+    WORKDIR /app
 
-Whisper-tiny: 79M params, ~10x realtime on CPU, no GPU needed.
-"""
+    RUN apt-get update && apt-get install -y --no-install-recommends \
+        git ffmpeg \
+        && rm -rf /var/lib/apt/lists/*
 
-import asyncio
-import logging
-import tempfile
-import os
-import struct
+    RUN pip install --no-cache-dir \
+        git+https://github.com/livepeer/pytrickle.git \
+        openai-whisper numpy
 
-import whisper
-import numpy as np
+    # Pre-download model at build time (avoids cold start)
+    RUN python3 -c "import whisper; whisper.load_model('tiny')"
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+    COPY whisper_processor.py ./processor.py
 
+    EXPOSE 8000
+    ENTRYPOINT ["python", "processor.py"]
+    ```
 
-class WhisperProcessor:
-    """CPU Whisper-tiny transcription processor."""
+    ```bash icon="terminal" Build Whisper
+    docker build -t byoc-whisper-tiny:latest .
+    ```
 
-    async def initialize(self):
-        logger.info("WhisperProcessor: loading whisper-tiny model (CPU)")
-        # This takes ~5 seconds on first load
-        self.model = await asyncio.to_thread(
-            whisper.load_model, "tiny", device="cpu"
-        )
-        logger.info("WhisperProcessor: model loaded")
+    Run the Whisper container, restart the Orchestrator with `-byocModelID whisper-tiny`, and send an audio payload following the same pattern as Step 4.
+  </StyledStep>
+</StyledSteps>
 
-    async def process(self, audio_bytes: bytes) -> bytes:
-        """
-        Receive PCM 16-bit mono 16kHz audio bytes.
-        Return UTF-8 transcription text.
-        """
-        # Convert raw PCM bytes to float32 numpy array
-        audio_array = np.frombuffer(audio_bytes, dtype=np.int16).astype(np.float32)
-        audio_array = audio_array / 32768.0  # Normalise to [-1, 1]
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
-        # Transcribe (blocking — run in thread to avoid blocking the event loop)
-        result = await asyncio.to_thread(
-            self.model.transcribe, audio_array, language="en"
-        )
-        transcription = result["text"].strip()
+## What Happened
 
-        logger.info(f"Transcription: {transcription!r}")
-        return transcription.encode("utf-8")
-
-    async def shutdown(self):
-        logger.info("WhisperProcessor: shutdown")
-```
-
-### 5c — Update the Dockerfile
-
-```dockerfile
-FROM python:3.11-slim
-
-WORKDIR /app
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    git ffmpeg \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN pip install --no-cache-dir \
-    git+https://github.com/livepeer/pytrickle.git \
-    openai-whisper \
-    numpy
-
-# Pre-download the model at build time (optional but avoids cold start)
-RUN python3 -c "import whisper; whisper.load_model('tiny')"
-
-COPY whisper_processor.py ./processor.py
-
-EXPOSE 8000
-
-ENTRYPOINT ["python", "processor.py"]
-```
-
-<Tip>
-Pre-downloading the model at Docker build time (`whisper.load_model('tiny')`) avoids a 30-second cold start when the container first receives a job. For production containers this is always worth doing.
-</Tip>
-
-Rebuild:
-```bash
-docker build -t byoc-whisper-tiny:latest .
-```
-
-Run the Whisper container, restart the orchestrator with the new model ID, and send an audio payload following the same pattern as Step 4. The response will be UTF-8 transcription text instead of image bytes.
-
----
-
-## What just happened
-
-You built and deployed a complete custom AI pipeline on the Livepeer network without a GPU:
+A complete custom AI pipeline was built and deployed on the Livepeer network without a GPU:
 
 ```
 test_byoc_job.py
-  └─► POST to gateway:8935 (model_id=green-tint-cpu)
-        └─► Gateway routes to orchestrator:8936 (BYOC HTTP, not gRPC)
-              └─► Orchestrator forwards to container:8000 via trickle PUT
-                    └─► GreenTintProcessor.process() called with frame bytes
-                          └─► Tinted frame returned via trickle GET
-                                └─► Orchestrator returns result to gateway
-                                      └─► Gateway returns result to your client
+  +-> POST to Gateway:8935 (model_id=green-tint-cpu)
+        +-> Gateway routes to Orchestrator:8936 (BYOC HTTP, not gRPC)
+              +-> Orchestrator forwards to container:8000 via trickle PUT
+                    +-> GreenTintProcessor.process() called with frame bytes
+                          +-> Tinted frame returned via trickle GET
+                                +-> Orchestrator returns result to Gateway
+                                      +-> Gateway returns result to client
 ```
 
-**Key things you have proven:**
-- BYOC containers use the trickle HTTP protocol — not gRPC, not the ai-runner Pipeline interface
+**Key takeaways:**
+- BYOC containers use the trickle HTTP protocol - not gRPC, not the ai-runner Pipeline interface
 - Any Docker container that speaks trickle can be a Livepeer pipeline
-- The gateway–orchestrator routing logic is identical for BYOC and standard pipelines
+- The Gateway-Orchestrator routing logic is identical for BYOC and standard pipelines
 - CPU-based AI inference (Whisper-tiny, scikit-learn, etc.) works without any GPU changes
 
-**The same container will work on GPU** — Tutorial 3 shows you how to add `-nvidia 0` to the orchestrator and switch to a GPU-accelerated base image when you are ready for production inference speeds.
-
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title="Gateway returns 404 or 'model not found'">
-    Check that the `-byocModelID` flag on the orchestrator matches the `X-Model-Id` header in your test job. They must be identical strings. Also confirm the orchestrator log shows `BYOC capability registered: green-tint-cpu`.
+  <Accordion title="Gateway returns 404 or 'model not found'" icon="circle-xmark">
+    Check that `-byocModelID` on the Orchestrator matches `X-Model-Id` in the test job. They must be identical strings. Confirm the Orchestrator log shows `BYOC capability registered: green-tint-cpu`.
   </Accordion>
 
-  <Accordion title="Orchestrator cannot reach the BYOC container">
+  <Accordion title="Orchestrator cannot reach the BYOC container" icon="plug-circle-xmark">
     Verify the container is running and reachable:
-    ```bash
+    ```bash icon="terminal" Check Container
     docker ps | grep byoc-green-tint
     curl http://localhost:8000/health
     ```
-    If you did not use `--network host`, check that the Docker bridge network allows the orchestrator process to reach port 8000. The simplest fix is to use `--network host` for local development.
+    If `--network host` was not used, check Docker bridge network connectivity to port 8000.
   </Accordion>
 
-  <Accordion title="Container exits immediately after docker run">
-    Check Docker logs:
-    ```bash
+  <Accordion title="Container exits immediately" icon="docker">
+    ```bash icon="terminal" Check Logs
     docker logs byoc-green-tint
     ```
-    Common causes: PyTrickle import error (check pip install succeeded inside the container), or a Python syntax error in your processor.
+    Common causes: PyTrickle import error (check pip install inside container) or Python syntax error in the processor.
   </Accordion>
 
-  <Accordion title="Process receives empty bytes">
-    The orchestrator may be sending a keepalive ping before the actual job payload. Your processor should handle `len(frame) == 0` gracefully:
-    ```python
+  <Accordion title="Process receives empty bytes" icon="file-circle-question">
+    The Orchestrator may send a keepalive ping before the actual payload:
+    ```python icon="code" Handle Empty
     async def process(self, frame: bytes) -> bytes:
         if not frame:
-            return frame  # Return empty bytes on keepalive
-        # ... your processing
+            return frame  # Return empty on keepalive
+        # ... processing
     ```
   </Accordion>
 
-  <Accordion title="Whisper-tiny is very slow">
-    On CPU, Whisper-tiny processes approximately 1 second of audio in ~10 seconds. This is expected and is a CPU throughput limit, not a Livepeer issue. For real-time inference, you need a GPU (Tutorial 3 covers this).
+  <Accordion title="Whisper-tiny is very slow" icon="clock">
+    On CPU, Whisper-tiny processes approximately 1 second of audio in ~10 seconds. This is expected. For real-time inference, a GPU is needed (Tutorial 3).
   </Accordion>
 </AccordionGroup>
 
----
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
-## Next steps
+## Related Pages
 
 <CardGroup cols={2}>
-  <Card title="Tutorial 3: Go production →" href="/v2/gateways/guides/tutorials/tutorial-3-go-production" icon="rocket">
-    Add on-chain registration, GPU acceleration, and connect to the public orchestrator network.
+  <Card title="Tutorial 3: Go Production" icon="rocket" href="/v2/gateways/guides/tutorials/tutorial-3-go-production">
+    On-chain registration, GPU acceleration, and the public Orchestrator network.
   </Card>
-  <Card title="BYOC development reference" href="/v2/gateways/guides-and-tools/gateway-job-pipelines/byoc" icon="book">
-    Full BYOC reference: discovery mechanics, capability advertisement, payment flow, and container requirements.
+  <Card title="BYOC Pipelines" icon="docker" href="/v2/gateways/guides/node-pipelines/byoc-pipelines">
+    Full BYOC reference: discovery, capability advertisement, and container requirements.
   </Card>
-  <Card title="ai-runner custom pipelines" href="https://github.com/livepeer/ai-runner/blob/main/docs/custom-pipeline.md" icon="microchip">
-    For GPU models that need the full ai-runner stack (text-to-image, image-to-video, etc.), use the Pipeline interface instead of BYOC.
+  <Card title="ai-runner Pipelines" icon="microchip" href="https://github.com/livepeer/ai-runner/blob/main/docs/custom-pipeline.md">
+    For GPU models needing the full ai-runner stack, use the Pipeline interface instead of BYOC.
   </Card>
-  <Card title="Python gateway SDK" href="https://github.com/j0sh/livepeer-python-gateway" icon="python">
-    Use the livepeer-python-gateway SDK to send jobs programmatically with full session management, orchestrator discovery, and remote signer payments.
+  <Card title="Python Gateway SDK" icon="code" href="https://github.com/j0sh/livepeer-python-gateway">
+    Send jobs programmatically with session management and remote signer payments.
   </Card>
 </CardGroup>
