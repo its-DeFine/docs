@@ -275,6 +275,215 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
     });
   });
 
+  await runCase('Collect evidence prefers recent GitHub release or merged PR for implementation-sensitive claims', async () => {
+    await withMockedFetch(async (url) => {
+      if (String(url).includes('/releases/latest')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return JSON.stringify({
+              tag_name: 'v0.8.0',
+              published_at: '2026-03-12T00:00:00Z',
+              body: 'Clearinghouse and remote signer support updated.'
+            });
+          }
+        };
+      }
+      if (String(url).includes('/issues/3810')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return JSON.stringify({
+              state: 'open',
+              updated_at: '2025-10-01T00:00:00Z',
+              body: 'Old note about clearinghouse support'
+            });
+          }
+        };
+      }
+      return {
+        ok: true,
+        status: 200,
+        async text() {
+          return JSON.stringify({
+            merged_at: '2026-03-10T00:00:00Z',
+            body: 'Remote signer support for clearinghouse path'
+          });
+        }
+      };
+    }, async () => {
+      const evidence = await research.collectEvidence({
+        claim_family: 'clearinghouse-public-readiness',
+        claim_summary: 'Current implementation readiness should be tied to recent GitHub implementation evidence.',
+        canonical_owner: 'v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx',
+        source_type: 'github-pr',
+        freshness_class: 'review-on-change',
+        status: 'time-sensitive',
+        notes: 'implementation readiness',
+        match_terms: ['clearinghouse', 'remote signer support', 'current scope'],
+        evidence_refs: [
+          {
+            type: 'github-issue',
+            ref: 'https://github.com/livepeer/go-livepeer/issues/3810',
+            match_any: ['clearinghouse']
+          },
+          {
+            type: 'github-pr',
+            ref: 'https://github.com/livepeer/go-livepeer/pull/3822',
+            match_any: ['remote signer']
+          },
+          {
+            type: 'github-release',
+            ref: 'https://github.com/livepeer/go-livepeer/releases/latest',
+            match_any: ['clearinghouse']
+          }
+        ]
+      });
+      assert.strictEqual(evidence[0].type, 'github-release');
+      assert.ok(evidence[0].selection_score > evidence[1].selection_score);
+      assert.ok(evidence[1].selection_score > evidence[2].selection_score);
+    });
+  });
+
+  await runCase('Collect evidence prefers forum over GitHub for programme and support claims', async () => {
+    await withMockedFetch(async (url) => {
+      if (String(url).includes('forum.livepeer.org')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return JSON.stringify({
+              title: 'SPE milestone report',
+              last_posted_at: '2026-03-01T00:00:00Z',
+              cooked: 'Current SPE support remains active and the programme continues this quarter.'
+            });
+          }
+        };
+      }
+      return {
+        ok: true,
+        status: 200,
+        async text() {
+          return JSON.stringify({
+            state: 'open',
+            updated_at: '2026-03-10T00:00:00Z',
+            body: 'Issue mentions support but not the programme state.'
+          });
+        }
+      };
+    }, async () => {
+      const evidence = await research.collectEvidence({
+        claim_family: 'programme-availability',
+        claim_summary: 'Support pages should describe current programme availability and support status from public programme sources.',
+        canonical_owner: 'v2/gateways/guides/roadmap-and-funding/operator-support.mdx',
+        source_type: 'forum-milestone-report',
+        freshness_class: 'review-periodic',
+        status: 'time-sensitive',
+        notes: 'support and programme status',
+        match_terms: ['support', 'programme', 'active'],
+        evidence_refs: [
+          {
+            type: 'github-issue',
+            ref: 'https://github.com/livepeer/docs/issues/999',
+            match_any: ['support']
+          },
+          {
+            type: 'forum-topic',
+            ref: 'https://forum.livepeer.org/t/spe-milestone-report/3035',
+            match_any: ['support', 'programme']
+          }
+        ]
+      });
+      assert.strictEqual(evidence[0].type, 'forum-topic');
+      assert.ok(evidence[0].preference_score > 0);
+    });
+  });
+
+  await runCase('Implementation-status families do not take a forum penalty from generic support wording', async () => {
+    await withMockedFetch(async () => ({
+      ok: true,
+      status: 200,
+      async text() {
+        return JSON.stringify({
+          pushed_at: '2026-03-12T00:00:00Z',
+          archived: false,
+          description: 'Community-maintained tooling for split setup support.'
+        });
+      }
+    }), async () => {
+      const evidence = await research.collectEvidence({
+        claim_family: 'community-tooling-status',
+        claim_summary:
+          'Split-setup guidance depends on a community-maintained project still being active and checked against the current GitHub repository.',
+        canonical_owner: 'v2/orchestrators/guides/deployment-details/setup-options.mdx',
+        source_type: 'github-repo',
+        freshness_class: 'review-periodic',
+        status: 'verified',
+        notes: 'Use GitHub repository metadata to confirm the project still exists and is publicly accessible.',
+        match_terms: ['OrchestratorSiphon', 'split setup'],
+        evidence_refs: [
+          {
+            type: 'github-repo',
+            ref: 'https://github.com/Stronk-Tech/OrchestratorSiphon',
+            match_any: ['OrchestratorSiphon', 'Stronk-Tech']
+          }
+        ]
+      });
+      assert.strictEqual(evidence[0].type, 'github-repo');
+      assert.ok(evidence[0].preference_score >= 0);
+    });
+  });
+
+  await runCase('Repo Discord signals stay lower-ranked than matched official sources', async () => {
+    const root = mkTmpDir('docs-page-research-discord-rank-');
+    const repoDir = path.join(root, 'repo');
+    writeFile(
+      path.join(repoDir, '.github/workflows/discord-issue-intake.yml'),
+      'name: discord-issue-intake\n# support programme active discord.com/channels/livepeer\n'
+    );
+
+    await withMockedFetch(async () => ({
+      ok: true,
+      status: 200,
+      async text() {
+        return '<html><body>The support programme is currently active and officially documented.</body></html>';
+      }
+    }), async () => {
+      const previousCwd = process.cwd();
+      process.chdir(repoDir);
+      try {
+        const evidence = await research.collectEvidence({
+          claim_family: 'programme-availability',
+          claim_summary: 'Current support programme status should prioritize official evidence over repo Discord hints.',
+          canonical_owner: 'v2/gateways/guides/roadmap-and-funding/operator-support.mdx',
+          source_type: 'official-program-page',
+          freshness_class: 'review-periodic',
+          status: 'time-sensitive',
+          notes: 'support programme status',
+          match_terms: ['support programme active', 'currently active'],
+          evidence_refs: [
+            {
+              type: 'repo-discord-signal',
+              ref: '.github/workflows/discord-issue-intake.yml',
+              match_any: ['support programme active', 'discord.com/channels']
+            },
+            {
+              type: 'official-page',
+              ref: 'https://www.livepeer.org/dev-hub',
+              match_any: ['support programme active']
+            }
+          ]
+        });
+        assert.strictEqual(evidence[0].type, 'official-page');
+        assert.ok(evidence[1].selection_score <= 59);
+      } finally {
+        process.chdir(previousCwd);
+      }
+    });
+  });
+
   await runCase('Family selection uses path affinity for current IA siblings', async () => {
     const families = [
       {
@@ -620,9 +829,100 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
     }
   });
 
+  await runCase('Runner annotates primary evidence and weaker-source reasons', async () => {
+    const root = mkTmpDir('docs-page-research-primary-');
+    const repoDir = path.join(root, 'repo');
+    const registryDir = path.join(repoDir, 'tasks/research/claims');
+    const guideA = 'v2/gateways/a.mdx';
+    writeFile(path.join(repoDir, guideA), 'The support programme is currently active.');
+    writeFile(
+      path.join(registryDir, 'gateways.json'),
+      `${JSON.stringify(
+        {
+          version: 1,
+          domain: 'gateways',
+          claim_families: [
+            {
+              claim_id: 'gw-startup-program-current',
+              claim_family: 'programme-availability',
+              entity: 'gateway',
+              claim_summary: 'Support programme status should use current public evidence.',
+              canonical_owner: guideA,
+              source_type: 'official-program-page',
+              source_ref: 'https://www.livepeer.org/dev-hub',
+              evidence_date: '2026-03-16',
+              status: 'time-sensitive',
+              freshness_class: 'review-periodic',
+              dependent_pages: [],
+              related_claims: [],
+              last_reviewed_by: 'codex',
+              notes: 'support and programme status',
+              match_terms: ['support programme', 'currently active'],
+              comparison_patterns: [],
+              evidence_refs: [
+                {
+                  type: 'official-page',
+                  ref: 'https://www.livepeer.org/dev-hub',
+                  match_any: ['support programme']
+                },
+                {
+                  type: 'forum-topic',
+                  ref: 'https://forum.livepeer.org/t/programme/9999',
+                  match_any: ['support programme']
+                }
+              ]
+            }
+          ]
+        },
+        null,
+        2
+      )}\n`
+    );
+
+    await withMockedFetch(async (url) => {
+      if (String(url).includes('forum.livepeer.org')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return JSON.stringify({ cooked: 'Support programme discussed historically.', last_posted_at: '2025-01-01T00:00:00Z' });
+          }
+        };
+      }
+      return {
+        ok: true,
+        status: 200,
+        async text() {
+          return '<html><body>The support programme is currently active.</body></html>';
+        }
+      };
+    }, async () => {
+      const previousCwd = process.cwd();
+      process.chdir(repoDir);
+      try {
+        const reportPath = path.join(root, 'report.json');
+        await research.run({
+          registry: 'tasks/research/claims',
+          page: guideA,
+          files: [],
+          reportMd: '',
+          reportJson: reportPath,
+          quiet: true
+        });
+        const parsed = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+        assert.strictEqual(parsed.time_sensitive_claims[0].primary_evidence.type, 'official-page');
+        const weaker = parsed.evidence_sources.find((entry) => entry.type === 'forum-topic');
+        assert.strictEqual(weaker.selection_role, 'weaker');
+        assert.ok(weaker.comparison_reason.length > 0);
+      } finally {
+        process.chdir(previousCwd);
+      }
+    });
+  });
+
   return {
     passed: errors.length === 0,
-    total: 17,
+    total: 21,
     errors
   };
 }
