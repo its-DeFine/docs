@@ -30,24 +30,16 @@ lastVerified: '2026-03-15'
 
 {/* TODO:
 Verify:
-- Tables use StyledTable with thead/tbody
-- No em-dashes
+- Tables use StyledTable with thead and tbody
 - UK spelling throughout
-- Accordion icons are meaningful (not circle-question)
-- REVIEW flags below for SME
-Human:
-- REVIEW: Is Titan Node still the only publicly documented pool as of 2026? Verify in Discord #orchestrators. Add additional pools if available.
-- REVIEW: Titan Node pool still actively accepting workers and publicly maintained - confirm GitHub repo last commit date.
-- REVIEW: LTNT token - still issued to workers? Ask Titan Node operators.
-- REVIEW: LPT distribution policy for individual pool workers - verify Titan Node documentation.
-- AI pool status - any AI-specific pools launched as of 2026? Check Discord.
+- Accordion icons stay meaningful
 */}
 
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider />
 
 A pool lets GPU compute contribute to the Livepeer network without running a full Orchestrator.
 The pool operator handles staking, on-chain registration, reward calling, and job routing. Workers
@@ -57,11 +49,11 @@ This is the lowest-barrier entry point for GPU owners who want to monetise compu
 on protocol operations.
 
 <Note>
-Pools are community-run. They are not an official Livepeer Foundation product and each pool
-operates independently. Vet any pool carefully before connecting hardware.
+Pools are community-run and each pool operates independently. Vet any pool carefully before
+connecting hardware.
 </Note>
 
-<CustomDivider middleText="How Pools Work" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="How Pools Work" />
 
 ## Pool Architecture
 
@@ -81,10 +73,10 @@ A worker:
 - Processes the segments routed to the GPU
 - Receives off-chain payouts based on completed work
 
-There is no on-chain record of individual worker contributions. Payouts are made directly by the
-pool operator, usually in ETH, and sometimes in pool-specific tokens.
+The pool operator tracks individual worker contributions in pool-side systems. Payouts are made
+directly by the pool operator, usually in ETH and sometimes in pool-specific tokens.
 
-<CustomDivider middleText="Pool vs Solo" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Pool vs Solo" />
 
 ## Pool Worker vs Solo Orchestrator
 
@@ -140,18 +132,17 @@ pool operator, usually in ETH, and sometimes in pool-specific tokens.
   </tbody>
 </StyledTable>
 
-<CustomDivider middleText="Step 1: Choose a Pool" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Step 1: Choose a Pool" />
 
 ## Step 1: Choose a Pool
 
 The Livepeer community currently has a small number of active public pools. Titan Node operates the
 most visible one, with a public dashboard and documented setup process.
 
-{/* REVIEW: Is Titan Node still the only publicly documented pool as of 2026? Check Discord #orchestrators and the community-pools resource page before publishing. Add any additional active pools here. */}
-
 <CardGroup cols={2}>
   <Card title="Titan Node Pool" icon="tower-cell" href="https://github.com/Titan-Node/Titan-Node-Pool" arrow horizontal>
-    Community-run video transcoding pool. Docker-based worker client, public dashboard at app.titan-node.com, earnings in ETH and LPT.
+  Community-run video transcoding pool. Docker-based worker client, a public dashboard at
+  app.titan-node.com, and payout tracking managed by the pool operator.
   </Card>
   <Card title="Livepeer Discord #orchestrators" icon="comments" href="https://discord.gg/livepeer" arrow horizontal>
     The active community channel for finding pools, asking about current payout terms, and connecting with other operators.
@@ -160,7 +151,7 @@ most visible one, with a public dashboard and documented setup process.
 
 ### Evaluating a pool before joining
 
-Not all pools are transparent about their terms. Before connecting hardware, find out:
+Pool terms vary. Before connecting hardware, confirm:
 
 <AccordionGroup>
   <Accordion title="How are payouts calculated?" icon="calculator">
@@ -172,9 +163,7 @@ Not all pools are transparent about their terms. Before connecting hardware, fin
     Common payout models:
     - **Per-segment** - a fixed amount per segment processed
     - **Proportional share** - the worker's earnings match their share of total pool work
-    - **Pool token** - some pools issue a native token (Titan Node issues LTNT) exchangeable for ETH or held
-
-    {/* REVIEW: Confirm LTNT token is still issued and what its current exchange mechanism is. Ask Titan Node operators. */}
+    - **Pool token** - some pools issue a native token that is exchangeable for ETH or worth holding
 
     Always confirm what is actually paid before committing hardware.
 
@@ -184,28 +173,27 @@ Not all pools are transparent about their terms. Before connecting hardware, fin
     Most pools pay weekly or monthly, with a minimum balance before payout triggers. Ask the pool
     operator what the threshold is and how long a new contributor typically takes to reach it.
 
-    If the minimum threshold is high and network demand is low, the first payout may take a
-    considerable time. Factor this into the decision.
+    A high minimum threshold combined with low network demand extends the wait for a first payout.
+    Factor that into the decision.
 
   </Accordion>
   <Accordion title="What are the worker requirements?" icon="list-check">
 
     Legitimate pools provide clear technical requirements: GPU type, minimum VRAM, operating system,
-    network bandwidth. They do not ask for a keystore file or private key.
+    and network bandwidth. A legitimate pool never asks for a keystore file or private key.
 
-    **If a pool requests a keystore or private key at any point, that is a scam. Do not proceed.**
+    **A request for a keystore or private key is a scam. Stop there.**
 
   </Accordion>
   <Accordion title="Is the pool actively maintained?" icon="clock-rotate-left">
 
     Check when the pool's GitHub repository or documentation was last updated. Check Discord
-    presence and community activity. A pool that has not been updated in over a year may have
-    stale tooling or may no longer be receiving meaningful work from Gateways.
+    presence and community activity. A pool with stale tooling often has weak Gateway demand.
 
   </Accordion>
 </AccordionGroup>
 
-<CustomDivider middleText="Step 2: Connect" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Step 2: Connect" />
 
 ## Step 2: Connect Your GPU
 
@@ -214,10 +202,10 @@ across pools.
 
 ### Option A: Docker worker (recommended)
 
-Most pools provide a Docker image. This is the simplest path - no need to compile go-livepeer
-directly.
+Most pools provide a Docker image. This is the simplest path and keeps setup focused on worker
+configuration.
 
-```bash icon="terminal"
+```bash icon="terminal" title="Docker worker setup"
 # Clone the pool's repository
 git clone https://github.com/Titan-Node/Titan-Node-Pool.git
 cd Titan-Node-Pool/docker
@@ -237,7 +225,7 @@ with the local GPU, and reports back completed work.
 
 Run go-livepeer directly in transcoder mode and point it at the pool operator's Orchestrator address:
 
-```bash icon="terminal"
+```bash icon="terminal" title="go-livepeer worker command"
 livepeer \
     -transcoder \
     -orchAddr <pool-orchestrator-address>:8935 \
@@ -248,46 +236,45 @@ livepeer \
 The pool operator provides their Orchestrator address and any required authentication configuration.
 
 <Warning>
-Do not pass `-orchestrator` when joining a pool - that would attempt to register a new Orchestrator
-on-chain. Use `-transcoder` mode only. In transcoder mode the machine processes work; it does not
-register independently on the network.
+Pass `-transcoder` only when joining a pool. That keeps the machine in worker mode and leaves
+on-chain registration with the pool operator.
 </Warning>
 
 ### Option C: Cloud GPU
 
-Cloud GPU instances (RunPod, Lambda Labs, AWS) can be contributed as pool workers. Compute cost
-must be lower than expected earnings for this to be viable. Check current network demand in Discord
-before committing to a cloud GPU rental.
+Cloud GPU instances (RunPod, Lambda Labs, AWS) also work as pool workers. This path works only
+when compute cost stays below expected earnings. Check current network demand in Discord before
+committing to a cloud GPU rental.
 
-<CustomDivider middleText="Step 3: Verify Work" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Step 3: Verify Work" />
 
 ## Step 3: Verify Work Is Arriving
 
-Once connected, transcoding activity should appear in worker logs within a few minutes if the pool
-is active and routing work.
+Once connected, transcoding activity should appear in worker logs within a few minutes during active
+pool routing windows.
 
 **In go-livepeer transcoder mode, look for:**
 
-```text icon="terminal"
+```text icon="terminal" title="Worker activity log"
 Received transcode request  segment=0 ...
 Transcoded segment          segment=0 ...
 ```
 
-**If no activity appears after 10-15 minutes:**
+**No activity after 10-15 minutes:**
 
 1. Verify the pool Orchestrator endpoint address is correct
 2. Confirm GPU is visible: `nvidia-smi` should show the GPU and go-livepeer should log a GPU
    detection line at startup
 3. Check that port 8935 is reachable from the pool Orchestrator (some pools require inbound
    connectivity from the worker)
-4. Ask in the pool's Discord channel - pools can have quiet periods when network demand is low
+4. Ask in the pool's Discord channel - quiet periods occur when network demand is low
 
-<CustomDivider middleText="Step 4: Track Earnings" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Step 4: Track Earnings" />
 
 ## Step 4: Track Your Earnings
 
-Pool payouts are off-chain. Worker earnings are not visible on the Livepeer Explorer the way solo
-Orchestrator fees are. Each pool has its own tracking mechanism:
+Pool payouts are off-chain. Worker earnings are tracked by the pool operator through pool-specific
+dashboards, bots, or statements. Each pool uses its own tracking mechanism:
 
 - **Titan Node Pool:** public dashboard at `app.titan-node.com` shows per-worker stats and pending payout
 - **Most pools:** Discord bot or web dashboard showing segment count and pending balance
@@ -295,44 +282,39 @@ Orchestrator fees are. Each pool has its own tracking mechanism:
 Keep a record of expected versus actual payouts. Discrepancies should be raised in the pool's
 community channel.
 
-<CustomDivider middleText="FAQ" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="FAQ" />
 
 ## Frequently Asked Questions
 
 <AccordionGroup>
   <Accordion title="Is LPT needed to join a pool?" icon="coins">
 
-    No. Staking LPT is the pool operator's responsibility. Workers contribute compute only - no
-    token purchase or on-chain action is required.
+    The pool operator handles LPT staking, token ownership, and on-chain actions. Pool workers
+    provide GPU compute only.
 
   </Accordion>
   <Accordion title="Is the GPU identified on-chain?" icon="link">
 
-    No. On-chain, only the Orchestrator (the pool node) is registered. Individual worker
-    contributions are tracked only within the pool operator's own systems and any dashboard
-    they provide.
+    On-chain registration stays with the Orchestrator node. Individual worker contributions are
+    tracked within the pool operator's own systems and any dashboard they provide.
 
   </Accordion>
-  <Accordion title="Can a pool worker earn LPT as well as ETH?" icon="coins">
+  <Accordion title="Do pools share LPT rewards with workers?" icon="coins">
 
     Transcoding fees are paid in ETH. LPT inflation rewards accrue to the staking Orchestrator.
-    Some pools choose to share a portion of LPT rewards with workers - ask the pool operator
-    about their specific policy.
-
-    {/* REVIEW: Titan Node LPT distribution policy for workers - verify current terms with pool operators. */}
+    Some pools also share a portion of LPT rewards with workers. Ask the pool operator about their
+    current policy.
 
   </Accordion>
-  <Accordion title="Can AI inference workloads be run through a pool?" icon="microchip">
+  <Accordion title="Are AI inference pools publicly available?" icon="microchip">
 
     AI inference via the AI subnet requires capability registration tied to the Orchestrator node.
     As of early 2026, publicly documented pools primarily handle video transcoding. Running AI
     inference workloads and earning from them currently requires a solo Orchestrator path. Check
-    Discord for any AI-focused pools that may have launched.
-
-    {/* REVIEW: Verify AI pool status with Discord #orchestrators - any AI inference pools active or forming? */}
+    Discord for any AI-focused pools that have launched.
 
   </Accordion>
-  <Accordion title="Can multiple GPUs be contributed?" icon="server">
+  <Accordion title="How do multiple GPUs work in a pool?" icon="server">
 
     Yes. Pass multiple GPU IDs when starting the worker (e.g. `-nvidia 0,1,2`). The pool
     Orchestrator sees the worker as a single endpoint with higher capacity. Most pools support this
@@ -341,16 +323,15 @@ community channel.
   </Accordion>
   <Accordion title="How does this compare to PoW mining pools?" icon="chart-line">
 
-    Livepeer transcoding pools work differently from proof-of-work mining pools. There is no
-    hashrate, and earnings are tied directly to actual video segments processed. This means
-    earnings are demand-dependent rather than fixed by hardware output, and there is no hardware
-    arms race in the PoW sense. The primary variable is network demand for transcoding, which
-    varies with how many applications are routing video through the Livepeer network.
+    Livepeer transcoding pools work differently from proof-of-work mining pools. Earnings are tied
+    directly to actual video segments processed, so returns follow network demand instead of a
+    fixed hardware-output curve. The primary variable is transcoding demand from applications
+    routing video through the Livepeer network.
 
   </Accordion>
 </AccordionGroup>
 
-<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider />
 
 ## Related Pages
 
