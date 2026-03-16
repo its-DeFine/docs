@@ -156,11 +156,15 @@ Use this as a starting pattern, not a rigid template:
 [frontmatter]
 ---
 
-[optional short value callout when it clarifies the page job]
+[imports]
+
+<CustomDivider />                           ← opening divider (always present, always first visual element)
+
+[optional media: video embed, hero image, or bordered callout — placed ABOVE intro prose]
 
 [brief prose opening: what this page helps the reader do, decide, or understand]
 
-## [First major section]
+## [First major section]                    ← NO divider between intro and first H2
 
 [prose]
 
@@ -168,20 +172,33 @@ Use this as a starting pattern, not a rigid template:
 
 [follow-up interpretation or next action]
 
+<CustomDivider />                           ← between major sections (optional, use for visual breathing room)
+
 ## [Next major section]
 
 [repeat as needed]
+
+<CustomDivider />
 
 ## Related pages
 
 [navigation cards or links only when they help the next move]
 ```
 
-What matters:
+### CustomDivider placement rules
 
-- the opening matches the declared page job
-- visuals support the prose instead of replacing it
-- related links help the next decision or action
+1. **ONE opening divider** after imports, before any content. Always present.
+2. **NO second divider before the first H2.** The intro text flows directly into the first heading. Never place a `middleText` divider between the intro and the first section.
+3. **Between major sections** (optional) for visual separation. Use plain `<CustomDivider />` or `<CustomDivider middleText="..." />` between H2 blocks when the topic shift warrants it.
+4. **Before Related Pages** - always place a divider before the closing Related Pages / CardGroup section.
+5. **Media and callouts above intro prose.** If the page has a video embed, bordered callout, or visual asset in the intro area, place it AFTER the opening divider and BEFORE the intro prose paragraph.
+
+### What matters
+
+- The opening matches the declared page job
+- Visuals support the prose instead of replacing it
+- Related links help the next decision or action
+- The opening divider is the only divider before the first H2
 
 <CustomDivider />
 
