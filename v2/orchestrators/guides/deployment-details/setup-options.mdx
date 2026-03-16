@@ -29,9 +29,20 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 
+<Tip>
+Key Decisions for Orchestrator Setup
+1. **Setup Type** - On-chain or off-chain
+2. **Setup Path** - What software is installed
+3. **Operational Mode** - Whether you control and handle all operational requirements or delegate them
+4. **Workload Mode** - What compute job workloads the node processes
+</Tip>
+
 <CustomDivider />
 
-This page covers the deployment options available for Orchestrators by category and their focus:
+This page acts as a guide to finding the Orchestrator setup path that matches your operational aims.
+
+
+covers the deployment options available for Orchestrators by category and their focus:
 1. Software Setup Options:
 - `go-livepeer` <Badge color="green"> Livepeer Software </Badge>
 - Siphon <Badge color="yellow"> Ecosystem Software </Badge>
@@ -41,49 +52,6 @@ This page covers the deployment options available for Orchestrators by category 
 - Video and Transcoding
 - Dual
 
-
-
-- the `go-livepeer` setup and provides alternative setup options then addresses the separate question of workload type (video, AI, or dual mode).
-
-<Note>
-Two independent decisions determine an orchestrator deployment:
-1. **Deployment type** (this section) - how the infrastructure is organised
-2. **Workload mode** (bottom of this page) - what jobs the node processes
-
-Any deployment type can run any workload mode.
-</Note>
-
-## Three Questions
-
-<AccordionGroup>
-  <Accordion title="1. Do you want direct control over your node?" icon="server">
-    **Yes** - Solo orchestrator, O-T split, or siphon. The operator registers on-chain, holds stake, sets prices, and earns directly.
-
-    **No** - Pool node. The pool operator handles all protocol operations. The worker contributes GPU compute and receives off-chain payouts from the pool operator.
-
-    <LinkArrow href="/v2/orchestrators/guides/deployment-details/join-a-pool" label="Join a Pool" />
-  </Accordion>
-
-  <Accordion title="2. Do you have LPT to stake?" icon="coins">
-    Solo orchestrators must activate on-chain by staking LPT. The active set (top orchestrators by total bonded stake) determines video job eligibility. The current threshold varies - check [Livepeer Explorer](https://explorer.livepeer.org/orchestrators) for current rankings.
-
-    {/* REVIEW: confirm current active set size with Rick/Mehrdad */}
-
-    Without LPT, **joining a pool** is the practical entry point. AI-only operators need minimal LPT (enough to activate, not enough for active set) since AI routing is capability-based, not stake-based.
-  </Accordion>
-
-  <Accordion title="3. How many machines are involved?" icon="network-wired">
-    **One machine** - Solo orchestrator (standard go-livepeer). Everything runs in one process.
-
-    **Two machines** - O-T split or siphon. The protocol/keystore runs on a secure machine, the GPU work runs on a separate machine.
-
-    **Many machines** - O-T split with multiple transcoders, or a pool operator accepting external workers.
-
-    <LinkArrow href="/v2/orchestrators/guides/advanced-operations/scale-operations" label="Scale Operations" />
-  </Accordion>
-</AccordionGroup>
-
-<CustomDivider middleText="All Deployment Types" />
 
 ## Deployment Types
 
@@ -148,7 +116,7 @@ Any deployment type can run any workload mode.
 
 <CustomDivider middleText="Type Details" />
 
-## Deployment Type Details
+## Deployment Considerations
 
 <Tabs>
   <Tab title="Solo" icon="server">

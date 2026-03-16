@@ -104,6 +104,7 @@ Do not hardcode your own enum list in local docs or prompts.
 - Prefer governed snippets/components before inventing new presentation patterns
 - Use cards for navigation, tables for exact comparisons, steps for sequential task completion, and accordions for optional depth
 - If styling pressure is high, solve it in a component primitive rather than in page-level MDX
+- **Never stack consecutive tables.** Two StyledTables back-to-back is a layout failure. Use tabs, accordions, cards, bordered boxes, or prose to break up tabular content. The component library has over 100 components - use them.
 
 ### Terminology and context
 
