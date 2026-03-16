@@ -43,7 +43,7 @@ Use `bash lpd ...` until you have run `bash lpd setup --yes` and confirmed `lpd`
 - verify your environment
 - run Mint locally
 - launch scoped docs previews for large navs
-- load alternate docs config files through the custom loader helper
+- load alternate docs config files through scoped dev or the custom loader alias
 - run tests and CI-like checks
 - manage hooks
 - move pages with governed docs-path sync
@@ -69,8 +69,8 @@ bash lpd dev --scoped --scope-version v2 --scope-language en --scope-prefix v2/o
 ### Load an alternate docs config
 
 ```bash icon="terminal"
-bash tools/scripts/dev/mint-custom-loader.sh docs-orch-work.json
-bash tools/scripts/dev/mint-custom-loader.sh docs-gate-work.json
+bash lpd dev --scoped --docs-config docs-orch-work.json
+bash lpd dev --scoped --docs-config docs-gate-work.json
 ```
 
 ### Use the custom Mint loader helper
@@ -244,14 +244,14 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     ```
 
     **Recommended use**
-    Use `lpd dev --scoped` for filtered previews of the main docs navigation. For alternate docs config files such as `docs-orch-work.json` or `docs-gate-work.json`, use the custom loader helper below.
+    Use `lpd dev --scoped` for filtered previews of the main docs navigation and for alternate scoped navigation files such as `docs-orch-work.json` or `docs-gate-work.json`.
 
     **Advanced distinction**
     <ResponseField name="--docs-config [path]" type="string" default="">
-      Alternate docs-config input passed through to the scoped Mint launcher. This page does not recommend it as the primary contributor workflow.
+      Use an alternate docs config as the scoped navigation source. Scoped dev keeps Mint on a projected workspace and rewrites the active workspace-root `docs.json` when this source file changes.
     </ResponseField>
     <ResponseField name="--scope-file [path]" type="string" default="">
-      Load scoped selection settings from JSON. This is for filters such as `versions`, `languages`, `tabs`, `prefixes`, and optional `disableOpenapi`. It is not the normal way to switch to another docs navigation file.
+      Load scoped selection settings from JSON. This is for filters such as `versions`, `languages`, `tabs`, `prefixes`, and optional `disableOpenapi`.
     </ResponseField>
 
     **Flags**
@@ -313,7 +313,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
   </ResponseField>
 
   <ResponseField name="mint-custom-loader helper" type="command">
-    Primary workflow for alternate docs configs.
+    Thin alias for `lpd dev --scoped --docs-config`.
 
     **Usage**
     ```bash icon="terminal"
@@ -327,7 +327,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     ```
 
     **Use this when**
-    - you want alternate navigation from `docs-orch-work.json`
+    - you want a shorter alias for `lpd dev --scoped --docs-config ...`
     - you want alternate navigation from `docs-gate-work.json`
     - you want a custom docs config, not just a filtered view of the main docs nav
   </ResponseField>

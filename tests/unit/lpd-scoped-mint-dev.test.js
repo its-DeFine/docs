@@ -25,6 +25,7 @@ const {
   buildScopedMetadata,
   buildScopedMintignore,
   ScopedMintSessionSupervisor,
+  createScopedManifest,
   createScopedProfile
 } = require('../../tools/scripts/dev/generate-mint-dev-scope');
 
@@ -146,8 +147,11 @@ function waitFor(ms) {
 }
 
 function createSupervisorProfile(overrides = {}) {
+  const sourceDocsConfig = overrides.sourceDocsConfig || '/tmp/repo/docs.json';
+  const sourceMintignore = overrides.sourceMintignore || '/tmp/repo/.mintignore';
   return {
     workspaceDir: overrides.workspaceDir || '/tmp/lpd-scoped-workspace',
+    controlDir: overrides.controlDir || '/tmp/lpd-control/scoped-session',
     scopeHash: overrides.scopeHash || 'scoped-session',
     selection: {
       versions: ['v2'],
@@ -157,8 +161,12 @@ function createSupervisorProfile(overrides = {}) {
       disableOpenapi: false,
       ...(overrides.selection || {})
     },
-    sourceDocsConfig: overrides.sourceDocsConfig || '/tmp/repo/docs.json',
+    sourceDocsConfig,
+    sourceScopeFile: overrides.sourceScopeFile || '',
+    sourceMintignore,
     routeCounts: overrides.routeCounts || { original: 4, scoped: 2 },
+    scopedRoutes: overrides.scopedRoutes || ['v2/dev/get-started', 'v2/dev/overview'],
+    watchFiles: overrides.watchFiles || [sourceDocsConfig, sourceMintignore],
     disabledOpenapi: Boolean(overrides.disabledOpenapi)
   };
 }
@@ -180,18 +188,28 @@ function createFakeMintChild() {
 async function runTests() {
   const failures = [];
   const cases = [];
-  const createSupervisorHarness = (profiles, promptResponses = []) => {
+  const createSupervisorHarness = (profiles) => {
+    const repoRoot = mkTmpDir('lpd-scope-supervisor-');
     const logMessages = [];
     const errorMessages = [];
     const watchPaths = [];
     const watchListeners = [];
     const children = [];
     const profileCalls = [];
-    const promptCalls = [];
+    let activeWatchFiles = new Set();
+
+    const remapRepoPath = (value) => {
+      if (!value || typeof value !== 'string' || !value.startsWith('/tmp/repo')) {
+        return value;
+      }
+      const relPath = path.relative('/tmp/repo', value);
+      return path.join(repoRoot, relPath);
+    };
 
     const createScopedProfileStub = async (args) => {
       profileCalls.push({
         docsConfig: args.docsConfig,
+        scopeFile: args.scopeFile || '',
         workspaceId: args.workspaceId || '',
         versions: [...(args.versions || [])],
         languages: [...(args.languages || [])],
@@ -202,7 +220,21 @@ async function runTests() {
       if (next instanceof Error) {
         throw next;
       }
-      return next;
+
+      const realized = {
+        ...next,
+        sourceDocsConfig: remapRepoPath(next.sourceDocsConfig),
+        sourceScopeFile: remapRepoPath(next.sourceScopeFile || ''),
+        sourceMintignore: remapRepoPath(next.sourceMintignore || ''),
+        watchFiles: (next.watchFiles || []).map(remapRepoPath)
+      };
+
+      activeWatchFiles = new Set(realized.watchFiles || []);
+      activeWatchFiles.forEach((filePath) => {
+        writeFile(filePath, `${Date.now()}\n`);
+      });
+
+      return realized;
     };
 
     const spawnProcess = (_command, args, options) => {
@@ -221,14 +253,9 @@ async function runTests() {
       };
     };
 
-    const promptForReload = async (message) => {
-      promptCalls.push(message);
-      return promptResponses.length > 0 ? promptResponses.shift() : false;
-    };
-
     const supervisor = new ScopedMintSessionSupervisor(
       {
-        repoRoot: '/tmp/repo',
+        repoRoot,
         workspaceBase: '/tmp/lpd-workspaces',
         docsConfig: '',
         scopeFile: '',
@@ -244,7 +271,6 @@ async function runTests() {
         createScopedProfile: createScopedProfileStub,
         spawnProcess,
         watchFactory,
-        promptForReload,
         log: (message) => logMessages.push(message),
         logError: (message) => errorMessages.push(message)
       }
@@ -257,8 +283,15 @@ async function runTests() {
       watchPaths,
       children,
       profileCalls,
-      promptCalls,
+      repoRoot,
       emit(eventType, filename) {
+        if (filename) {
+          [...activeWatchFiles]
+            .filter((filePath) => path.basename(filePath) === filename)
+            .forEach((filePath) => {
+              writeFile(filePath, `${Date.now()}:${Math.random()}\n`);
+            });
+        }
         watchListeners.forEach((handler) => handler(eventType, filename));
       }
     };
@@ -544,6 +577,151 @@ async function runTests() {
   });
 
   cases.push(async () => {
+    const repoRoot = mkTmpDir('lpd-scope-manifest-');
+    const workspaceBase = mkTmpDir('lpd-scope-manifest-out-');
+    const docs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Manifest Fixture',
+      navigation: {
+        tabs: [
+          {
+            tab: 'Developers',
+            groups: [
+              {
+                group: 'Dev',
+                pages: ['v2/dev/get-started']
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    writeFile(path.join(repoRoot, 'docs.json'), `${JSON.stringify(docs, null, 2)}\n`);
+    writeFile(path.join(repoRoot, '.mintignore'), '# fixture\n');
+    writeFile(path.join(repoRoot, 'style.css'), ':root { --border: #e5e7eb; }\n');
+    writeFile(path.join(repoRoot, 'v2/dev/get-started.mdx'), 'import Demo from "/snippets/components/demo.jsx";\n<Demo />\n');
+    writeFile(path.join(repoRoot, 'snippets/components/demo.jsx'), 'export default function Demo() { return null; }\n');
+    writeFile(path.join(repoRoot, 'snippets/components/unused.jsx'), 'export default function Unused() { return null; }\n');
+
+    const manifest = await createScopedManifest({
+      repoRoot,
+      workspaceBase,
+      docsConfig: '',
+      scopeFile: '',
+      versions: [],
+      languages: [],
+      tabs: [],
+      prefixes: ['v2/dev'],
+      interactive: false,
+      disableOpenapi: false,
+      workspaceId: '',
+      printOnly: false,
+      help: false
+    });
+
+    assert.ok(manifest.controlDir.startsWith(path.join(workspaceBase, '.lpd-control')), 'manifest control dir should live outside the Mint workspace');
+    assert.ok(manifest.watchFiles.includes(path.join(repoRoot, 'docs.json')), 'manifest should watch the active docs config');
+    assert.ok(manifest.watchFiles.includes(path.join(repoRoot, '.mintignore')), 'manifest should watch the repo mintignore');
+    assert.ok(manifest.watchFiles.includes(path.join(repoRoot, 'v2/dev/get-started.mdx')), 'manifest should watch routed page sources');
+    assert.ok(manifest.watchFiles.includes(path.join(repoRoot, 'snippets/components/demo.jsx')), 'manifest should watch reachable dependencies');
+    assert.ok(!manifest.watchFiles.includes(path.join(repoRoot, 'snippets/components/unused.jsx')), 'manifest should exclude unused files');
+  });
+
+  cases.push(async () => {
+    const repoRoot = mkTmpDir('lpd-scope-draft-route-');
+    const workspaceBase = mkTmpDir('lpd-scope-draft-route-out-');
+    const docs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Draft Route Fixture',
+      navigation: {
+        tabs: [
+          {
+            tab: 'Orchestrators',
+            groups: [
+              {
+                group: 'Guides',
+                pages: ['v2/orchestrators/guides/deployment-details/draft1-setup-options']
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    writeFile(path.join(repoRoot, 'docs.json'), `${JSON.stringify(docs, null, 2)}\n`);
+    writeFile(path.join(repoRoot, '.mintignore'), '# fixture\n');
+    writeFile(path.join(repoRoot, 'v2/orchestrators/_workspace/drafts/draft1-setup-options.mdx'), '# Draft setup options\n');
+
+    const result = await createScopedProfile({
+      repoRoot,
+      workspaceBase,
+      scopeFile: '',
+      versions: [],
+      languages: [],
+      tabs: [],
+      prefixes: ['v2/orchestrators/guides/deployment-details'],
+      interactive: false,
+      disableOpenapi: false,
+      printOnly: false,
+      help: false
+    });
+
+    assert.ok(
+      fs.existsSync(path.join(result.workspaceDir, 'v2/orchestrators/_workspace/drafts/draft1-setup-options.mdx')),
+      'routes should resolve governed draft files from section _workspace/drafts when no live page exists'
+    );
+  });
+
+  cases.push(async () => {
+    const repoRoot = mkTmpDir('lpd-scope-missing-local-import-');
+    const workspaceBase = mkTmpDir('lpd-scope-missing-local-import-out-');
+    const docs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Missing Import Fixture',
+      navigation: {
+        tabs: [
+          {
+            tab: 'Developers',
+            groups: [
+              {
+                group: 'Dev',
+                pages: ['v2/dev/get-started']
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    writeFile(path.join(repoRoot, 'docs.json'), `${JSON.stringify(docs, null, 2)}\n`);
+    writeFile(path.join(repoRoot, '.mintignore'), '# fixture\n');
+    writeFile(path.join(repoRoot, 'v2/dev/get-started.mdx'), 'import Demo from "./missing-demo.jsx";\n<Demo />\n');
+
+    await assert.rejects(
+      () =>
+        createScopedProfile({
+          repoRoot,
+          workspaceBase,
+          scopeFile: '',
+          versions: [],
+          languages: [],
+          tabs: [],
+          prefixes: ['v2/dev'],
+          interactive: false,
+          disableOpenapi: false,
+          printOnly: false,
+          help: false
+        }),
+      /Could not resolve local import reference "\.\/missing-demo\.jsx"/,
+      'scoped projection should fail closed on missing local dependencies'
+    );
+  });
+
+  cases.push(async () => {
     const repoRoot = mkTmpDir('lpd-scope-workspace-');
     const workspaceBase = mkTmpDir('lpd-scope-workspace-out-');
     const docs = {
@@ -614,6 +792,8 @@ async function runTests() {
     const unusedFile = path.join(result.workspaceDir, 'snippets/components/unused.jsx');
     const deeplyNestedSnippetFile = path.join(result.workspaceDir, 'snippets/components/primitives/deep/nested-divider.jsx');
     const rootIndexFile = path.join(result.workspaceDir, 'v2/index.mdx');
+    const legacyWorkspaceMetadataFile = path.join(result.workspaceDir, '.lpd-scope.json');
+    const controlManifestFile = path.join(result.controlDir, 'manifest.json');
 
     assert.ok(fs.lstatSync(v2Dir).isDirectory(), 'workspace v2 should be a real directory');
     assert.ok(!fs.lstatSync(v2Dir).isSymbolicLink(), 'workspace v2 should not be a symlink');
@@ -626,12 +806,11 @@ async function runTests() {
     assert.ok(fs.lstatSync(logoFile).isSymbolicLink(), 'transitive asset import should remain a symlink');
     assert.ok(fs.lstatSync(faviconFile).isSymbolicLink(), 'docs config asset should remain a symlink');
     assert.ok(fs.lstatSync(imageFile).isSymbolicLink(), 'page asset should remain a symlink');
-    assert.ok(fs.lstatSync(unusedFile).isSymbolicLink(), 'unused snippet files should be included in the scoped workspace');
-    assert.ok(
-      fs.lstatSync(deeplyNestedSnippetFile).isSymbolicLink(),
-      'deeply nested snippet files should be included in the scoped workspace'
-    );
+    assert.ok(!fs.existsSync(unusedFile), 'unused snippet files should be excluded from the scoped workspace');
+    assert.ok(!fs.existsSync(deeplyNestedSnippetFile), 'deeply nested unused snippet files should be excluded from the scoped workspace');
     assert.ok(!fs.existsSync(rootIndexFile), 'out-of-scope generated indexes should be excluded from scoped workspace');
+    assert.ok(!fs.existsSync(legacyWorkspaceMetadataFile), 'controller metadata should stay outside the Mint workspace');
+    assert.ok(fs.existsSync(controlManifestFile), 'control manifest should be written outside the Mint workspace');
   });
 
   cases.push(async () => {
@@ -813,17 +992,14 @@ async function runTests() {
   });
 
   cases.push(async () => {
-    const harness = createSupervisorHarness(
-      [
-        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'root-session' }),
-        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'root-session', routeCounts: { original: 5, scoped: 3 } })
-      ],
-      [false]
-    );
+    const harness = createSupervisorHarness([
+      createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'root-session' }),
+      createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'root-session', routeCounts: { original: 5, scoped: 3 } })
+    ]);
 
     const sessionPromise = harness.supervisor.start();
     await waitFor(20);
-    assert.deepStrictEqual(harness.watchPaths, ['/tmp/repo']);
+    assert.deepStrictEqual(harness.watchPaths, [harness.repoRoot]);
 
     harness.emit('change', 'not-the-config.json');
     await waitFor(20);
@@ -832,21 +1008,21 @@ async function runTests() {
     harness.emit('change', 'docs.json');
     await waitFor(40);
     assert.strictEqual(harness.profileCalls.length, 2, 'active root docs.json should trigger refresh');
-    assert.strictEqual(harness.promptCalls.length, 1, 'config refresh should prompt for reload');
-    assert.strictEqual(harness.children.length, 1, 'declining reload should keep the existing mint child running');
+    assert.strictEqual(harness.children.length, 1, 'config refresh should not restart mint');
+    assert.ok(
+      harness.logMessages.some((message) => message.includes('Scoped workspace refreshed in place')),
+      'config refresh should reconcile the workspace in place'
+    );
 
     await harness.supervisor.shutdown();
     await sessionPromise;
   });
 
   cases.push(async () => {
-    const harness = createSupervisorHarness(
-      [
-        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs-gate-work.json', scopeHash: 'alt-session' }),
-        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs-gate-work.json', scopeHash: 'alt-session', routeCounts: { original: 7, scoped: 4 } })
-      ],
-      [false]
-    );
+    const harness = createSupervisorHarness([
+      createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs-gate-work.json', scopeHash: 'alt-session' }),
+      createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs-gate-work.json', scopeHash: 'alt-session', routeCounts: { original: 7, scoped: 4 } })
+    ]);
 
     const sessionPromise = harness.supervisor.start();
     await waitFor(20);
@@ -864,13 +1040,10 @@ async function runTests() {
   });
 
   cases.push(async () => {
-    const harness = createSupervisorHarness(
-      [
-        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'debounce-session' }),
-        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'debounce-session', routeCounts: { original: 6, scoped: 4 } })
-      ],
-      [false]
-    );
+    const harness = createSupervisorHarness([
+      createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'debounce-session' }),
+      createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'debounce-session', routeCounts: { original: 6, scoped: 4 } })
+    ]);
 
     const sessionPromise = harness.supervisor.start();
     await waitFor(20);
@@ -880,42 +1053,105 @@ async function runTests() {
     await waitFor(40);
 
     assert.strictEqual(harness.profileCalls.length, 2, 'debounced config events should collapse into a single refresh');
-    assert.strictEqual(harness.promptCalls.length, 1, 'debounced refresh should show one reload prompt');
+    assert.strictEqual(harness.children.length, 1, 'debounced refresh should not restart mint');
 
     await harness.supervisor.shutdown();
     await sessionPromise;
   });
 
   cases.push(async () => {
-    const harness = createSupervisorHarness(
-      [
-        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'restart-session' }),
-        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'restart-session', routeCounts: { original: 8, scoped: 5 } })
-      ],
-      [true]
+    const harness = createSupervisorHarness([
+      createSupervisorProfile({
+        sourceDocsConfig: '/tmp/repo/docs.json',
+        scopeHash: 'content-session',
+        watchFiles: ['/tmp/repo/docs.json', '/tmp/repo/.mintignore', '/tmp/repo/v2/dev/get-started.mdx']
+      }),
+      createSupervisorProfile({
+        sourceDocsConfig: '/tmp/repo/docs.json',
+        scopeHash: 'content-session',
+        routeCounts: { original: 8, scoped: 5 },
+        watchFiles: ['/tmp/repo/docs.json', '/tmp/repo/.mintignore', '/tmp/repo/v2/dev/get-started.mdx', '/tmp/repo/snippets/components/demo.jsx']
+      })
+    ]);
+
+    const sessionPromise = harness.supervisor.start();
+    await waitFor(20);
+    assert.deepStrictEqual(harness.watchPaths.sort(), [harness.repoRoot, path.join(harness.repoRoot, 'v2/dev')].sort());
+
+    harness.emit('change', 'get-started.mdx');
+    await waitFor(60);
+
+    assert.strictEqual(harness.profileCalls.length, 2, 'watched projected content changes should refresh the scoped workspace');
+    assert.strictEqual(harness.children.length, 1, 'content refresh should not restart mint');
+    assert.deepStrictEqual(
+      harness.watchPaths.sort(),
+      [harness.repoRoot, path.join(harness.repoRoot, 'v2/dev'), path.join(harness.repoRoot, 'snippets/components')].sort()
     );
+
+    await harness.supervisor.shutdown();
+    await sessionPromise;
+  });
+
+  cases.push(async () => {
+    const harness = createSupervisorHarness([
+      createSupervisorProfile({
+        sourceDocsConfig: '/tmp/repo/docs.json',
+        scopeHash: 'mintignore-session',
+        watchFiles: ['/tmp/repo/docs.json', '/tmp/repo/.mintignore', '/tmp/repo/v2/dev/get-started.mdx']
+      }),
+      createSupervisorProfile({
+        sourceDocsConfig: '/tmp/repo/docs.json',
+        scopeHash: 'mintignore-session',
+        routeCounts: { original: 5, scoped: 2 },
+        watchFiles: ['/tmp/repo/docs.json', '/tmp/repo/.mintignore', '/tmp/repo/v2/dev/get-started.mdx']
+      })
+    ]);
 
     const sessionPromise = harness.supervisor.start();
     await waitFor(20);
 
-    harness.emit('change', 'docs.json');
-    await waitFor(60);
+    harness.emit('change', '.mintignore');
+    await waitFor(40);
 
-    assert.strictEqual(harness.children.length, 2, 'approving reload should restart mint dev');
-    assert.deepStrictEqual(harness.children[0].kills, ['SIGINT'], 'mint child should be stopped gracefully before restart');
+    assert.strictEqual(harness.profileCalls.length, 2, 'repo .mintignore changes should refresh the projection');
+    assert.strictEqual(harness.children.length, 1, 'mintignore refresh should not restart mint');
 
     await harness.supervisor.shutdown();
     await sessionPromise;
   });
 
   cases.push(async () => {
-    const harness = createSupervisorHarness(
-      [
-        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'invalid-session' }),
-        new Error('Unexpected token } in JSON at position 10')
-      ],
-      [true]
-    );
+    const harness = createSupervisorHarness([
+      createSupervisorProfile({
+        sourceDocsConfig: '/tmp/repo/docs.json',
+        scopeHash: 'ignore-unrelated-session',
+        watchFiles: ['/tmp/repo/docs.json', '/tmp/repo/.mintignore', '/tmp/repo/v2/dev/get-started.mdx']
+      }),
+      createSupervisorProfile({
+        sourceDocsConfig: '/tmp/repo/docs.json',
+        scopeHash: 'ignore-unrelated-session',
+        routeCounts: { original: 5, scoped: 2 },
+        watchFiles: ['/tmp/repo/docs.json', '/tmp/repo/.mintignore', '/tmp/repo/v2/dev/get-started.mdx']
+      })
+    ]);
+
+    const sessionPromise = harness.supervisor.start();
+    await waitFor(20);
+
+    harness.emit('change', 'draft-not-in-scope.mdx');
+    await waitFor(40);
+
+    assert.strictEqual(harness.profileCalls.length, 1, 'out-of-scope file changes should be ignored');
+
+    await harness.supervisor.shutdown();
+    await sessionPromise;
+  });
+
+  cases.push(async () => {
+    const harness = createSupervisorHarness([
+      createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'invalid-session' }),
+      new Error('Unexpected token } in JSON at position 10')
+    ]);
 
     const sessionPromise = harness.supervisor.start();
     await waitFor(20);
@@ -924,9 +1160,8 @@ async function runTests() {
     await waitFor(40);
 
     assert.strictEqual(harness.children.length, 1, 'refresh failure should keep the existing mint child alive');
-    assert.strictEqual(harness.promptCalls.length, 0, 'refresh failure should not prompt for restart');
     assert.ok(
-      harness.errorMessages.some((message) => message.includes('Scoped docs config refresh failed')),
+      harness.errorMessages.some((message) => message.includes('Scoped workspace refresh failed')),
       'refresh failure should be reported clearly'
     );
 
