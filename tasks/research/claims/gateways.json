@@ -14,6 +14,7 @@
       "status": "time-sensitive",
       "freshness_class": "review-periodic",
       "dependent_pages": [
+        "v2/gateways/guides/operator-considerations/business-case.mdx",
         "v2/gateways/guides/roadmap-and-funding/spe-grant-model.mdx"
       ],
       "related_claims": [
@@ -142,7 +143,8 @@
       "freshness_class": "review-on-change",
       "dependent_pages": [
         "v2/gateways/guides/payments-and-pricing/payment-guide.mdx",
-        "v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy.mdx"
+        "v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy.mdx",
+        "v2/gateways/guides/operator-considerations/business-case.mdx"
       ],
       "related_claims": [
         "gw-clearinghouse-public-readiness"
@@ -192,7 +194,8 @@
       "freshness_class": "review-periodic",
       "dependent_pages": [
         "v2/gateways/guides/payments-and-pricing/payment-guide.mdx",
-        "v2/gateways/guides/roadmap-and-funding/operator-support.mdx"
+        "v2/gateways/guides/roadmap-and-funding/operator-support.mdx",
+        "v2/gateways/guides/operator-considerations/business-case.mdx"
       ],
       "related_claims": [
         "gw-discord-community-signal",
@@ -255,6 +258,7 @@
       "dependent_pages": [
         "v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx",
         "v2/gateways/guides/roadmap-and-funding/operator-support.mdx",
+        "v2/gateways/guides/operator-considerations/business-case.mdx",
         "v2/gateways/guides/payments-and-pricing/remote-signers.mdx"
       ],
       "related_claims": [
@@ -316,7 +320,8 @@
       "freshness_class": "review-on-change",
       "dependent_pages": [
         "v2/gateways/guides/payments-and-pricing/remote-signers.mdx",
-        "v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx"
+        "v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx",
+        "v2/gateways/guides/operator-considerations/business-case.mdx"
       ],
       "related_claims": [
         "gw-community-signer-testing-surface",
@@ -365,7 +370,8 @@
       "status": "time-sensitive",
       "freshness_class": "review-on-change",
       "dependent_pages": [
-        "v2/gateways/guides/payments-and-pricing/payment-guide.mdx"
+        "v2/gateways/guides/payments-and-pricing/payment-guide.mdx",
+        "v2/gateways/guides/roadmap-and-funding/operator-support.mdx"
       ],
       "related_claims": [
         "gw-offchain-payment-obligation",
@@ -411,6 +417,73 @@
             "remote signer",
             "video transcoding requires the on-chain self-managed path",
             "off-chain AI gateway"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "gw-self-hosted-business-case",
+      "claim_family": "business-case-viability",
+      "entity": "gateway",
+      "claim_summary": "Gateway business-case pages should keep self-hosting viability contextual: control, cost savings, support burden, and payment complexity depend on workload volume and operational mode, not on one universal recommendation.",
+      "canonical_owner": "v2/gateways/guides/operator-considerations/business-case.mdx",
+      "source_type": "repo-doc-reference",
+      "source_ref": "v2/gateways/guides/operator-considerations/business-case.mdx",
+      "evidence_date": "2026-03-16",
+      "status": "time-sensitive",
+      "freshness_class": "review-periodic",
+      "dependent_pages": [
+        "v2/gateways/guides/payments-and-pricing/payment-guide.mdx",
+        "v2/gateways/guides/roadmap-and-funding/operator-support.mdx"
+      ],
+      "related_claims": [
+        "gw-offchain-payment-obligation",
+        "gw-price-cap-role",
+        "gw-community-signer-testing-surface"
+      ],
+      "last_reviewed_by": "codex",
+      "notes": "This family keeps gateway economics grounded in mode-specific tradeoffs rather than generic 'worth it' language.",
+      "match_terms": [
+        "worth it",
+        "control",
+        "cost savings",
+        "service margin",
+        "self-hosted",
+        "hosted gateway",
+        "no ETH required in off-chain"
+      ],
+      "comparison_patterns": [
+        "\\bworth it\\b",
+        "\\bcost savings\\b",
+        "\\bservice margin\\b",
+        "\\bno ETH required\\b"
+      ],
+      "evidence_refs": [
+        {
+          "type": "repo-file",
+          "ref": "v2/gateways/guides/operator-considerations/business-case.mdx",
+          "match_any": [
+            "worth it",
+            "control, cost savings, and capabilities",
+            "service margin"
+          ]
+        },
+        {
+          "type": "repo-file",
+          "ref": "v2/gateways/guides/payments-and-pricing/payment-guide.mdx",
+          "match_any": [
+            "holds no ETH and no Ethereum key",
+            "Off-chain does not mean free",
+            "gateway-as-a-service operator"
+          ]
+        },
+        {
+          "type": "repo-file",
+          "ref": "v2/gateways/guides/roadmap-and-funding/operator-support.mdx",
+          "match_any": [
+            "programmes",
+            "community resources",
+            "funding"
           ]
         }
       ]

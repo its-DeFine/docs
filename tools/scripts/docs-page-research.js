@@ -40,6 +40,37 @@ const GENERIC_PATH_TOKENS = new Set([
   'page',
   'docs'
 ]);
+const EVIDENCE_TYPE_PRIORITY = {
+  'official-page': 100,
+  'repo-file': 90,
+  'github-release': 80,
+  'github-pr': 70,
+  'github-issue': 65,
+  'github-repo': 60,
+  'forum-topic': 50,
+  'repo-discord-signal': 40
+};
+const CURRENT_LANGUAGE_PATTERNS = [
+  /\bcurrent(?:ly)?\b/gi,
+  /\btoday\b/gi,
+  /\bsupported?\b/gi,
+  /\brecommended?\b/gi,
+  /\bviab(?:le|ility)\b/gi,
+  /\bworth it\b/gi,
+  /\bactive\b/gi,
+  /\bproduction\b/gi,
+  /\bgeneral availability\b/gi,
+  /\bga\b/gi
+];
+const HISTORICAL_LANGUAGE_PATTERNS = [
+  /\bhistorical(?:ly)?\b/gi,
+  /\bprevious(?:ly)?\b/gi,
+  /\bdeprecated\b/gi,
+  /\bno longer\b/gi,
+  /\bnot yet\b/gi,
+  /\bin development\b/gi,
+  /\bearly 20\d{2}\b/gi
+];
 
 function toPosix(value) {
   return String(value || '').split(path.sep).join('/');
@@ -416,6 +447,16 @@ function matchAnySignal(text, terms) {
   return terms.some((term) => signalMatches(text, term));
 }
 
+function matchedTerms(text, terms) {
+  const list = [];
+  (terms || []).forEach((term) => {
+    if (signalMatches(text, term)) {
+      list.push(String(term).trim());
+    }
+  });
+  return uniqueTerms(list, 12);
+}
+
 function uniqueTerms(terms, limit = 16) {
   const seen = new Set();
   const out = [];
@@ -439,6 +480,53 @@ function expandedEvidenceTerms(family, ref) {
     family.claim_summary,
     path.basename(family.canonical_owner || '', path.extname(family.canonical_owner || '')).replace(/[-_]/g, ' ')
   ]);
+}
+
+function countPatternHits(text, patterns) {
+  return patterns.reduce((count, pattern) => {
+    const matches = text.match(pattern);
+    return count + (matches ? matches.length : 0);
+  }, 0);
+}
+
+function sourcePriority(type) {
+  return EVIDENCE_TYPE_PRIORITY[type] || 10;
+}
+
+function familyNeedsCurrentness(family) {
+  const corpus = [family.claim_summary, family.notes, ...(family.match_terms || []), family.status].join(' ');
+  return countPatternHits(corpus, CURRENT_LANGUAGE_PATTERNS) > 0;
+}
+
+function evidenceRanking(type, corpus, terms, family) {
+  const matched = matchedTerms(corpus, terms);
+  const needsCurrentness = family ? familyNeedsCurrentness(family) : false;
+  const currentHits = countPatternHits(corpus, CURRENT_LANGUAGE_PATTERNS);
+  const historicalHits = countPatternHits(corpus, HISTORICAL_LANGUAGE_PATTERNS);
+  let score = sourcePriority(type) + matched.length * 10;
+  const reasons = [`source priority ${sourcePriority(type)}`];
+
+  if (matched.length > 0) {
+    reasons.push(`${matched.length} matched term${matched.length === 1 ? '' : 's'}`);
+  }
+  if (needsCurrentness && currentHits > 0) {
+    score += 8;
+    reasons.push(`current-language match ${currentHits}`);
+  }
+  if (needsCurrentness && historicalHits > 0) {
+    score -= Math.min(12, historicalHits * 3);
+    reasons.push(`historical-language penalty ${historicalHits}`);
+  }
+
+  return {
+    matched_terms: matched,
+    matched_terms_count: matched.length,
+    source_rank: sourcePriority(type),
+    current_language_hits: currentHits,
+    historical_language_hits: historicalHits,
+    selection_score: score,
+    ranking_reason: reasons.join('; ')
+  };
 }
 
 function parseGithubUrl(ref) {
@@ -467,16 +555,32 @@ async function fetchText(url, headers = {}) {
   };
 }
 
-async function fetchEvidenceRef(ref, termsOverride = null) {
+async function fetchEvidenceRef(ref, options = null) {
   const checked_on = localIsoDate();
-  const matchTerms = termsOverride || ref.match_any || [];
+  const matchTerms = Array.isArray(options) ? options : options?.termsOverride || ref.match_any || [];
+  const family = Array.isArray(options) ? null : options?.family || null;
   if (ref.type === 'repo-file' || ref.type === 'repo-discord-signal') {
     const absPath = path.resolve(repoRoot(), ref.ref);
     if (!fs.existsSync(absPath)) {
-      return { type: ref.type, ref: ref.ref, checked_on, ok: false, matched: false, summary: 'repo file missing' };
+      return {
+        type: ref.type,
+        ref: ref.ref,
+        checked_on,
+        ok: false,
+        matched: false,
+        summary: 'repo file missing',
+        source_rank: sourcePriority(ref.type),
+        matched_terms: [],
+        matched_terms_count: 0,
+        current_language_hits: 0,
+        historical_language_hits: 0,
+        selection_score: 0,
+        ranking_reason: `source priority ${sourcePriority(ref.type)}; repo file missing`
+      };
     }
     const text = readFile(absPath);
     const matched = matchAnySignal(text, matchTerms);
+    const ranking = evidenceRanking(ref.type, text, matchTerms, family);
     const matchedSummary = ref.type === 'repo-discord-signal' ? 'repo Discord/community signal matched' : 'repo evidence matched';
     const missingSummary =
       ref.type === 'repo-discord-signal'
@@ -488,7 +592,8 @@ async function fetchEvidenceRef(ref, termsOverride = null) {
       checked_on,
       ok: true,
       matched,
-      summary: matched ? matchedSummary : missingSummary
+      summary: matched ? matchedSummary : missingSummary,
+      ...ranking
     };
   }
 
@@ -496,13 +601,15 @@ async function fetchEvidenceRef(ref, termsOverride = null) {
     const response = await fetchText(ref.ref);
     const text = htmlToText(response.text);
     const matched = response.ok && matchAnySignal(text, matchTerms);
+    const ranking = evidenceRanking(ref.type, text, matchTerms, family);
     return {
       type: ref.type,
       ref: ref.ref,
       checked_on,
       ok: response.ok,
       matched,
-      summary: response.ok ? (matched ? 'official page matched' : 'official page fetched but signal missing') : `official page fetch failed (${response.status})`
+      summary: response.ok ? (matched ? 'official page matched' : 'official page fetched but signal missing') : `official page fetch failed (${response.status})`,
+      ...ranking
     };
   }
 
@@ -517,13 +624,15 @@ async function fetchEvidenceRef(ref, termsOverride = null) {
     }
     const corpus = parsed ? JSON.stringify(parsed) : response.text;
     const matched = response.ok && matchAnySignal(corpus, matchTerms);
+    const ranking = evidenceRanking(ref.type, corpus, matchTerms, family);
     return {
       type: ref.type,
       ref: ref.ref,
       checked_on,
       ok: response.ok,
       matched,
-      summary: response.ok ? (matched ? 'forum topic matched' : 'forum topic fetched but signal missing') : `forum topic fetch failed (${response.status})`
+      summary: response.ok ? (matched ? 'forum topic matched' : 'forum topic fetched but signal missing') : `forum topic fetch failed (${response.status})`,
+      ...ranking
     };
   }
 
@@ -548,13 +657,15 @@ async function fetchEvidenceRef(ref, termsOverride = null) {
     }
     const corpus = parsedJson ? JSON.stringify(parsedJson) : response.text;
     const matched = response.ok && matchAnySignal(corpus, matchTerms);
+    const ranking = evidenceRanking(ref.type, corpus, matchTerms, family);
     return {
       type: ref.type,
       ref: ref.ref,
       checked_on,
       ok: response.ok,
       matched,
-      summary: response.ok ? (matched ? 'GitHub evidence matched' : 'GitHub evidence fetched but signal missing') : `GitHub fetch failed (${response.status})`
+      summary: response.ok ? (matched ? 'GitHub evidence matched' : 'GitHub evidence fetched but signal missing') : `GitHub fetch failed (${response.status})`,
+      ...ranking
     };
   }
 
@@ -564,16 +675,42 @@ async function fetchEvidenceRef(ref, termsOverride = null) {
     checked_on,
     ok: false,
     matched: false,
-    summary: `unsupported evidence ref type: ${ref.type}`
+    summary: `unsupported evidence ref type: ${ref.type}`,
+    source_rank: sourcePriority(ref.type),
+    matched_terms: [],
+    matched_terms_count: 0,
+    current_language_hits: 0,
+    historical_language_hits: 0,
+    selection_score: 0,
+    ranking_reason: `source priority ${sourcePriority(ref.type)}; unsupported evidence type`
   };
 }
 
 async function collectEvidence(family) {
   const evidence = [];
   for (const ref of family.evidence_refs) {
-    evidence.push(await fetchEvidenceRef(ref, expandedEvidenceTerms(family, ref)));
+    evidence.push(
+      await fetchEvidenceRef(ref, {
+        termsOverride: expandedEvidenceTerms(family, ref),
+        family
+      })
+    );
   }
-  return evidence;
+  return evidence.sort((left, right) => {
+    if (Number(right.ok && right.matched) !== Number(left.ok && left.matched)) {
+      return Number(right.ok && right.matched) - Number(left.ok && left.matched);
+    }
+    if (Number(right.ok) !== Number(left.ok)) {
+      return Number(right.ok) - Number(left.ok);
+    }
+    if ((right.selection_score || 0) !== (left.selection_score || 0)) {
+      return (right.selection_score || 0) - (left.selection_score || 0);
+    }
+    if ((left.source_rank || 0) !== (right.source_rank || 0)) {
+      return (right.source_rank || 0) - (left.source_rank || 0);
+    }
+    return (right.matched_terms_count || 0) - (left.matched_terms_count || 0);
+  });
 }
 
 function confidenceLabel(status, evidence) {
@@ -711,7 +848,11 @@ function buildEvidenceSources(familyReports) {
       checked_on: evidence.checked_on,
       ok: evidence.ok,
       matched: evidence.matched,
-      summary: evidence.summary
+      summary: evidence.summary,
+      source_rank: evidence.source_rank,
+      matched_terms: evidence.matched_terms || [],
+      selection_score: evidence.selection_score || 0,
+      ranking_reason: evidence.ranking_reason || ''
     }))
   );
 }
@@ -803,6 +944,13 @@ function buildMarkdown(report) {
       lines.push(`- \`${entry.claim_id}\` → ${entry.type}: ${mdxSafe(entry.ref)}`);
       lines.push(`  - checked: ${entry.checked_on}`);
       lines.push(`  - result: ${mdxSafe(entry.summary)}`);
+      lines.push(`  - rank: ${entry.source_rank}; score: ${entry.selection_score}`);
+      if (entry.matched_terms.length) {
+        lines.push(`  - matched terms: ${mdxSafe(entry.matched_terms.join(', '))}`);
+      }
+      if (entry.ranking_reason) {
+        lines.push(`  - why selected: ${mdxSafe(entry.ranking_reason)}`);
+      }
     });
   }
   lines.push('');

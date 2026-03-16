@@ -7,14 +7,14 @@
       "claim_family": "stake-threshold",
       "entity": "orchestrator",
       "claim_summary": "Solo transcoding guidance repeatedly states that operators need enough bonded LPT to enter the active set, often phrased as top 100, but that wording is time-sensitive and should not be treated as durable fact without current evidence.",
-      "canonical_owner": "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+      "canonical_owner": "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
       "source_type": "official-product-page",
       "source_ref": "https://explorer.livepeer.org/orchestrators",
       "evidence_date": "2026-03-16",
       "status": "time-sensitive",
       "freshness_class": "volatile",
       "dependent_pages": [
-        "v2/orchestrators/guides/deployment-details/setup-options.mdx",
+        "v2/orchestrators/guides/operator-considerations/business-case.mdx",
         "v2/orchestrators/guides/deployment-details/setup-options.mdx",
         "v2/orchestrators/setup/rcs-requirements.mdx"
       ],
@@ -57,8 +57,8 @@
       "freshness_class": "review-on-change",
       "dependent_pages": [
         "v2/orchestrators/guides/deployment-details/setup-options.mdx",
-        "v2/orchestrators/guides/deployment-details/setup-options.mdx",
         "v2/orchestrators/setup/rcs-requirements.mdx",
+        "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
         "v2/orchestrators/guides/operator-considerations/business-case.mdx"
       ],
       "related_claims": [
@@ -113,6 +113,7 @@
       "status": "time-sensitive",
       "freshness_class": "volatile",
       "dependent_pages": [
+        "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
         "v2/orchestrators/guides/operator-considerations/business-case.mdx"
       ],
       "related_claims": [
@@ -158,6 +159,7 @@
       "dependent_pages": [
         "v2/orchestrators/guides/deployment-details/setup-options.mdx",
         "v2/orchestrators/setup/rcs-requirements.mdx",
+        "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
         "v2/orchestrators/guides/operator-considerations/business-case.mdx"
       ],
       "related_claims": [
@@ -413,6 +415,7 @@
       "freshness_class": "review-periodic",
       "dependent_pages": [
         "v2/orchestrators/guides/deployment-details/requirements.mdx",
+        "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
         "v2/orchestrators/guides/operator-considerations/business-case.mdx"
       ],
       "related_claims": [
@@ -502,13 +505,14 @@
       "claim_family": "business-case-viability",
       "entity": "orchestrator",
       "claim_summary": "Business-case guidance should explicitly stay approximate and local-context dependent. Payback, electricity cost, and 'worth it' framing are useful, but they should not be presented as portable constants across operators, geographies, or market conditions.",
-      "canonical_owner": "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+      "canonical_owner": "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
       "source_type": "repo-doc-reference",
-      "source_ref": "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+      "source_ref": "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
       "evidence_date": "2026-03-16",
       "status": "time-sensitive",
       "freshness_class": "volatile",
       "dependent_pages": [
+        "v2/orchestrators/guides/operator-considerations/business-case.mdx",
         "v2/orchestrators/guides/deployment-details/requirements.mdx"
       ],
       "related_claims": [
@@ -535,7 +539,7 @@
       "evidence_refs": [
         {
           "type": "repo-file",
-          "ref": "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+          "ref": "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
           "match_any": [
             "worth it",
             "payback period",
@@ -766,6 +770,62 @@
             "Total session capacity is the sum",
             "orchSecret",
             "scale Transcoder machines independently"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "orch-dual-revenue-model",
+      "claim_family": "operator-revenue-model",
+      "entity": "orchestrator",
+      "claim_summary": "Operator economics pages should keep the two revenue streams aligned: ETH service fees scale with workload and gateway demand, while LPT inflation rewards scale with stake and reward-call reliability. Docs should not flatten those into one generic earnings model.",
+      "canonical_owner": "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
+      "source_type": "repo-doc-reference",
+      "source_ref": "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
+      "evidence_date": "2026-03-16",
+      "status": "verified",
+      "freshness_class": "review-on-change",
+      "dependent_pages": [
+        "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+        "v2/orchestrators/guides/staking-and-rewards/rewards-and-fees.mdx"
+      ],
+      "related_claims": [
+        "orch-reward-profitability-threshold",
+        "orch-business-case-cost-viability"
+      ],
+      "last_reviewed_by": "codex",
+      "notes": "This family is about keeping operator evaluation honest about what scales with stake versus what scales with served demand.",
+      "match_terms": [
+        "two independent streams",
+        "ETH job fees",
+        "LPT inflation rewards",
+        "service fees scale",
+        "inflation as a base",
+        "variable upside"
+      ],
+      "comparison_patterns": [
+        "\\bETH job fees\\b",
+        "\\bLPT inflation rewards\\b",
+        "\\bservice fees scale\\b",
+        "\\binflation (?:as|is) (?:a )?base\\b"
+      ],
+      "evidence_refs": [
+        {
+          "type": "repo-file",
+          "ref": "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
+          "match_any": [
+            "two independent streams",
+            "ETH job fees",
+            "LPT inflation rewards"
+          ]
+        },
+        {
+          "type": "repo-file",
+          "ref": "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+          "match_any": [
+            "service fees scale",
+            "inflation as a base",
+            "variable upside"
           ]
         }
       ]

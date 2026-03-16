@@ -227,6 +227,54 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
     });
   });
 
+  await runCase('Collect evidence prefers stronger official sources for current-sensitive claims', async () => {
+    await withMockedFetch(async (url) => {
+      if (String(url).includes('livepeer.org')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return '<html><body>The programme is currently active and recommended for startups building AI video.</body></html>';
+          }
+        };
+      }
+      return {
+        ok: true,
+        status: 200,
+        async text() {
+          return JSON.stringify({
+            title: 'Older forum note',
+            cooked: 'The programme was previously discussed with limited public detail.'
+          });
+        }
+      };
+    }, async () => {
+      const evidence = await research.collectEvidence({
+        claim_family: 'programme-availability',
+        claim_summary: 'Support pages should describe current programme availability with current evidence.',
+        canonical_owner: 'v2/gateways/guides/roadmap-and-funding/operator-support.mdx',
+        status: 'time-sensitive',
+        notes: 'current cohort timing matters',
+        match_terms: ['currently active', 'recommended for startups', 'programme availability'],
+        evidence_refs: [
+          {
+            type: 'forum-topic',
+            ref: 'https://forum.livepeer.org/t/startup-programme/9995',
+            match_any: ['programme']
+          },
+          {
+            type: 'official-page',
+            ref: 'https://www.livepeer.org/dev-hub',
+            match_any: ['developer']
+          }
+        ]
+      });
+      assert.strictEqual(evidence[0].type, 'official-page');
+      assert.strictEqual(evidence[0].matched, true);
+      assert.ok(evidence[0].selection_score > evidence[1].selection_score);
+    });
+  });
+
   await runCase('Family selection uses path affinity for current IA siblings', async () => {
     const families = [
       {
@@ -245,6 +293,27 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
     const selected = research.selectFamilies(families, files, contents);
     assert.strictEqual(selected.length, 1);
     assert.strictEqual(selected[0].claim_id, 'gw-offchain-payment-obligation');
+  });
+
+  await runCase('Family selection matches operator-rationale economics pages through canonical and dependent ownership', async () => {
+    const families = [
+      {
+        claim_id: 'orch-dual-revenue-model',
+        claim_family: 'operator-revenue-model',
+        domain: 'orchestrators',
+        canonical_owner: 'v2/orchestrators/guides/operator-considerations/operator-rationale.mdx',
+        dependent_pages: ['v2/orchestrators/guides/operator-considerations/business-case.mdx'],
+        match_terms: ['ETH job fees', 'LPT inflation rewards', 'variable upside']
+      }
+    ];
+    const files = ['v2/orchestrators/guides/operator-considerations/operator-rationale.mdx'];
+    const contents = {
+      'v2/orchestrators/guides/operator-considerations/operator-rationale.mdx':
+        'Orchestrators earn from ETH job fees and LPT inflation rewards. Service fees scale with workload volume.'
+    };
+    const selected = research.selectFamilies(families, files, contents);
+    assert.strictEqual(selected.length, 1);
+    assert.strictEqual(selected[0].claim_id, 'orch-dual-revenue-model');
   });
 
   await runCase('Family selection does not bleed across domains via path affinity', async () => {
@@ -405,7 +474,7 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
 
   return {
     passed: errors.length === 0,
-    total: 12,
+    total: 14,
     errors
   };
 }
