@@ -165,9 +165,9 @@ This review incorporates:
 
 ### Official docs
 
-- OpenAI Codex AGENTS.md: <https://developers.openai.com/codex/guides/agents-md>
-- Claude Code memory and project instructions: <https://code.claude.com/docs/en/memory>
-- Cursor rules for AI: <https://docs.cursor.com/context/rules-for-ai>
-- Windsurf memories: <https://docs.windsurf.com/plugins/cascade/memories>
-- Windsurf AGENTS.md: <https://docs.windsurf.com/windsurf/cascade/agents-md>
-- GitHub Copilot custom instructions: <https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions>
+- [OpenAI Codex AGENTS.md](https://developers.openai.com/codex/guides/agents-md)
+- [Claude Code memory and project instructions](https://code.claude.com/docs/en/memory)
+- [Cursor rules for AI](https://docs.cursor.com/context/rules-for-ai)
+- [Windsurf memories](https://docs.windsurf.com/plugins/cascade/memories)
+- [Windsurf AGENTS.md](https://docs.windsurf.com/windsurf/cascade/agents-md)
+- [GitHub Copilot custom instructions](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions)
