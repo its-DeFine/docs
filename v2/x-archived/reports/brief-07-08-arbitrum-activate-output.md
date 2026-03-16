@@ -4,7 +4,7 @@
 **Date:** March 2026  
 **No commits. No repo writes. For human review only.**
 
----
+<CustomDivider />
 
 ## Part 1 — Shared Research Report
 
@@ -20,7 +20,7 @@
 | github.com/arddluma/awesome-list-rpc-nodes-providers | GitHub | Public endpoints confirmed: `https://arb1.arbitrum.io/rpc`, `https://rpc.ankr.com/arbitrum` |
 | github.com/livepeer/go-livepeer/issues/1959 | GitHub Issues | `-ethUrl` reliability issues when provider restarts; streams drop if RPC disconnects |
 
----
+<CustomDivider />
 
 ### 1.2 Research Questions Answered
 
@@ -96,7 +96,7 @@ curl -X POST <YOUR_RPC_URL> \
 ```
 A valid response returns a hex block number.
 
----
+<CustomDivider />
 
 ### 1.3 SME Review Items
 
@@ -108,7 +108,7 @@ A valid response returns a hex block number.
 | LPT minimum stake in practice | Varies by network state; Explorer link is the live source | Livepeer Explorer (live data) |
 | Re-activation requirement wording | "re-register or stake changes" — confirm exact protocol behaviour | Protocol docs / Mehrdad |
 
----
+<CustomDivider />
 
 ### 1.4 Media Candidates
 
@@ -117,7 +117,7 @@ No direct video walkthrough found in this pass. Search targets for publication p
 - Forum: activation threads where community members have shared screenshots of Explorer showing active state
 - Livepeer blog: any Confluence or Arbitrum migration posts that include activation screenshots
 
----
+<CustomDivider />
 
 ## Part 2 — Draft MDX: `connect-to-arbitrum.mdx`
 
@@ -167,7 +167,7 @@ For production orchestrator nodes, a hosted provider (Alchemy or Infura) is stro
     3. Copy your HTTPS endpoint. It will look like:
 
     ```
-    https://arb-mainnet.g.alchemy.com/v2/<YOUR_API_KEY>
+    https://arb-mainnet.g.alchemy.com/v2/YOUR_API_KEY
     ```
 
     Use this URL as your `-ethUrl` value in the next step.
@@ -179,7 +179,7 @@ For production orchestrator nodes, a hosted provider (Alchemy or Infura) is stro
     4. Your endpoint will look like:
 
     ```
-    https://arbitrum-mainnet.infura.io/v3/<YOUR_PROJECT_ID>
+    https://arbitrum-mainnet.infura.io/v3/YOUR_PROJECT_ID
     ```
 
     Use this URL as your `-ethUrl` value in the next step.
@@ -230,7 +230,7 @@ livepeer \
 If you omit `-ethAcctAddr`, go-livepeer will create a new Ethereum account on first run and prompt you for a passphrase to protect the keystore. The private key is stored at `~/.lpData/arbitrum-one-mainnet/keystore`.
 </Note>
 
----
+<CustomDivider />
 
 ## Step 3 — Verify the connection
 
@@ -256,7 +256,7 @@ curl -X POST <YOUR_RPC_URL> \
 
 A valid response looks like `{"id":1,"result":"0x1a2b3c4d","jsonrpc":"2.0"}`. An error or empty response means your endpoint or API key is not working.
 
----
+<CustomDivider />
 
 <Warning>
 **Protect your keystore.** Your Ethereum account controls your orchestrator identity and any LPT you stake. The private key is stored at `~/.lpData/arbitrum-one-mainnet/keystore`. Back it up to secure offline storage. Your passphrase and private key together allow anyone to sign transactions and move funds from your account — never share either.
@@ -264,7 +264,7 @@ A valid response looks like `{"id":1,"result":"0x1a2b3c4d","jsonrpc":"2.0"}`. An
 If you lose access to your private key, you lose access to your orchestrator account and any staked LPT permanently.
 </Warning>
 
----
+<CustomDivider />
 
 ## Related
 
@@ -384,7 +384,7 @@ The tool will walk you through the following parameters in sequence.
   </Step>
 </Steps>
 
----
+<CustomDivider />
 
 ## Verify you are in the active set
 
@@ -398,7 +398,7 @@ If your profile shows **Registered** but not **Active**, your total stake (self-
 After your activation transactions confirm, it may take until the next round begins before your status changes to Active in Explorer. Livepeer rounds are approximately 24 hours. [//]: # (REVIEW: confirm current round length with Mehrdad/protocol team)
 </Note>
 
----
+<CustomDivider />
 
 ## The active set
 
@@ -410,7 +410,7 @@ If your orchestrator drops below the top 100, it becomes inactive and stops rece
 1. You re-register (submit a new activation transaction), or
 2. Your total stake changes enough (through additional self-bonding or delegation) to push you back into the top 100
 
----
+<CustomDivider />
 
 <Accordion title="Not receiving jobs after activation?">
 
@@ -431,7 +431,7 @@ After activation, your node joins the active set in the following round (approxi
 For further troubleshooting, see [Frequently Asked Questions](/v2/resources/faq) or ask in `#orchestrating` on Discord. [//]: # (REVIEW: confirm FAQ path)
 </Accordion>
 
----
+<CustomDivider />
 
 ## Related
 
