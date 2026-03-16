@@ -101,7 +101,7 @@ See generated workflow inventory: [workflows-catalog.mdx](../catalog/workflows-c
 - Script inventory: [scripts-catalog.mdx](../catalog/scripts-catalog.mdx)
 - Pipeline map: [automations.md](./automations.mdx)
 
----
+<CustomDivider />
 
 ## Core Pipelines
   1. Quality + CI
@@ -123,7 +123,7 @@ See generated workflow inventory: [workflows-catalog.mdx](../catalog/workflows-c
     - Validator: `tests/integration/openapi-reference-audit.js`
     - Autofix scope: method case, `METHOD /path` spacing, leading slash only
     - Failure handling: unresolved findings update a single rolling marker issue (`[//]: # (openapi-reference-audit)`); clean runs close it with a resolution comment
-    - Labels ensured idempotently before issue sync: `docs-v2`, `help wanted`, `status: needs-triage`, `type: bug`, `area: ci-cd`
+    - Labels ensured idempotently before issue sync: `docs-v2`, `help wanted`, `status: needs-routing`, `type: bug`, `area: ci-cd`
     - Local reproduction:
       - `node tests/integration/openapi-reference-audit.js --full --strict --report /tmp/openapi-audit.md --report-json /tmp/openapi-audit.json`
       - `node tests/integration/openapi-reference-audit.js --full --fix --write --report /tmp/openapi-audit-fix.md --report-json /tmp/openapi-audit-fix.json`
@@ -153,7 +153,7 @@ See generated workflow inventory: [workflows-catalog.mdx](../catalog/workflows-c
   </Accordion>
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## Showcase + Trending Topics Pipeline Notes
   

@@ -4,7 +4,7 @@
  * @category          validator
  * @purpose           governance:repo-health
  * @scope             tests/unit, tools/scripts/orchestrators/repair-governance.js, .github/workflows/repair-governance.yml
- * @owner             docs
+ * @domain            docs
  * @needs             R-R14, R-R18, R-C6
  * @purpose-statement Tests repair-governance.js for safe dry-run, fix, rollback, strict exit handling, and workflow contract coverage.
  * @pipeline          manual
@@ -82,6 +82,8 @@ function makeRunner(repoRoot, scenario) {
     plainAuditCalls: 0,
     previewCalls: 0,
     applyCalls: 0,
+    auditArgs: [],
+    scriptDocsArgs: [],
     gitStatusArgs: [],
     gitAddArgs: [],
     gitCommitArgs: []
@@ -95,6 +97,7 @@ function makeRunner(repoRoot, scenario) {
     state,
     run(command, args) {
       if (command === 'node' && args[0] === AUDIT_SCRIPT_PATH) {
+        state.auditArgs.push(args.slice());
         if (args.includes('--fix') && args.includes('--dry-run')) {
           state.previewCalls += 1;
           writeJson(path.join(repoRoot, INVENTORY_JSON_PATH), scenario.previewReport);
@@ -117,6 +120,7 @@ function makeRunner(repoRoot, scenario) {
       }
 
       if (command === 'node' && args[0] === SCRIPT_DOCS_TEST_PATH) {
+        state.scriptDocsArgs.push(args.slice());
         return scenario.scriptDocsResult || ok();
       }
 
@@ -156,6 +160,20 @@ async function runTests() {
   const cases = [];
 
   cases.push(async () => {
+    assert.throws(
+      () => parseArgs([]),
+      /requires explicit scope during the @owner -> @domain migration/
+    );
+  });
+
+  cases.push(async () => {
+    assert.throws(
+      () => parseArgs(['--full']),
+      /Full-repo script-governance repair is disabled/
+    );
+  });
+
+  cases.push(async () => {
     const repoRoot = mkRepo('repair-governance-success-');
     const targetPath = 'tools/scripts/example.js';
     writeFile(path.join(repoRoot, targetPath), '#!/usr/bin/env node\nconsole.log("before");\n');
@@ -168,7 +186,7 @@ async function runTests() {
       repair: {
         fixes: {
           json_entries_updated: 2,
-          headers_owner_added: 1,
+          headers_domain_added: 1,
           headers_script_added: 1,
           headers_usage_added: 1,
           indexes_regenerated: true,
@@ -188,7 +206,7 @@ async function runTests() {
       repair: {
         fixes: {
           json_entries_updated: 2,
-          headers_owner_added: 1,
+          headers_domain_added: 1,
           headers_script_added: 1,
           headers_usage_added: 1,
           indexes_regenerated: true,
@@ -215,7 +233,7 @@ async function runTests() {
       }
     });
 
-    const result = runRepair(parseArgs([]), {
+    const result = runRepair(parseArgs(['--staged']), {
       repoRoot,
       auditScriptPath: AUDIT_SCRIPT_PATH,
       scriptDocsTestPath: SCRIPT_DOCS_TEST_PATH,
@@ -224,13 +242,64 @@ async function runTests() {
 
     assert.strictEqual(result.exitCode, 0);
     assert.strictEqual(result.report.verification, 'PASS');
+    assert.ok(runner.state.auditArgs.every((args) => args.includes('--staged')));
+    assert.deepStrictEqual(runner.state.scriptDocsArgs, [[SCRIPT_DOCS_TEST_PATH, '--check', '--staged']]);
     assert.deepStrictEqual(runner.state.gitAddArgs, [['tasks/reports/script-classifications.json', targetPath]]);
     assert.deepStrictEqual(runner.state.gitCommitArgs, []);
     assert.strictEqual(fs.existsSync(path.join(repoRoot, REPORT_MD_PATH)), true);
 
     const report = readReport(repoRoot);
     assert.strictEqual(report.repairs_applied.total_fixes, 5);
+    assert.strictEqual(report.repairs_applied.headers_domain_added, 1);
     assert.deepStrictEqual(report.repairs_applied.files_modified, ['tasks/reports/script-classifications.json', targetPath]);
+  });
+
+  cases.push(async () => {
+    const repoRoot = mkRepo('repair-governance-files-');
+    const targetPath = 'tools/scripts/example.js';
+    const baseline = buildAuditReport({
+      summary: buildSummary()
+    });
+    const preview = buildAuditReport({
+      summary: buildSummary(),
+      repair: {
+        fixes: {
+          headers_domain_added: 1,
+          total_fixes: 1,
+          planned_files: [targetPath]
+        },
+        projected_summary: buildSummary(),
+        needs_human: []
+      }
+    });
+    const applied = buildAuditReport({
+      summary: buildSummary(),
+      repair: {
+        fixes: {
+          headers_domain_added: 1,
+          total_fixes: 1,
+          files_modified: [targetPath]
+        },
+        needs_human: []
+      }
+    });
+    const runner = makeRunner(repoRoot, {
+      baselineReport: baseline,
+      previewReport: preview,
+      fixReport: applied,
+      postAuditReport: buildAuditReport({ summary: buildSummary() })
+    });
+
+    const result = runRepair(parseArgs(['--files', targetPath]), {
+      repoRoot,
+      auditScriptPath: AUDIT_SCRIPT_PATH,
+      scriptDocsTestPath: SCRIPT_DOCS_TEST_PATH,
+      runCommand: runner.run
+    });
+
+    assert.strictEqual(result.exitCode, 0);
+    assert.ok(runner.state.auditArgs.every((args) => args.includes('--files') && args.includes(targetPath)));
+    assert.deepStrictEqual(runner.state.scriptDocsArgs, [[SCRIPT_DOCS_TEST_PATH, '--check', '--files', targetPath]]);
   });
 
   cases.push(async () => {
@@ -284,7 +353,7 @@ async function runTests() {
       summary: buildSummary(),
       repair: {
         fixes: {
-          headers_owner_added: 1,
+          headers_domain_added: 1,
           total_fixes: 1,
           planned_files: [targetPath]
         },
@@ -296,7 +365,7 @@ async function runTests() {
       summary: buildSummary(),
       repair: {
         fixes: {
-          headers_owner_added: 1,
+          headers_domain_added: 1,
           total_fixes: 1,
           files_modified: [targetPath]
         },
@@ -318,7 +387,7 @@ async function runTests() {
       }
     });
 
-    const result = runRepair(parseArgs([]), {
+    const result = runRepair(parseArgs(['--staged']), {
       repoRoot,
       auditScriptPath: AUDIT_SCRIPT_PATH,
       scriptDocsTestPath: SCRIPT_DOCS_TEST_PATH,
@@ -383,7 +452,7 @@ async function runTests() {
         summary: buildSummary(),
         repair: {
           fixes: {
-            json_entries_updated: 1,
+            headers_domain_added: 1,
             total_fixes: 1,
             planned_files: [targetPath]
           },

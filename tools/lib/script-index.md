@@ -3,8 +3,9 @@
 {/* SCRIPT-INDEX:START */}
 ## Script Index
 
-| Script | Summary | Usage | Owner |
+| Script | Summary | Usage | Domain |
 |---|---|---|---|
+| `tools/lib/codex-skill-templates.js` | Shared helper for validating, selecting, and loading canonical Codex skill templates. | `const { discoverTemplates } = require('../lib/codex-skill-templates');` | docs |
 | `tools/lib/component-governance-utils.js` | Shared parsing and validation utilities for component governance scripts. | `const utils = require('../lib/component-governance-utils');` | docs |
 | `tools/lib/docs-authoring-rules.js` | Shared warning-level authoring rules for guide layouts and code-block metadata, plus deterministic code-block icon repair. | `const { analyzeGuideLayoutWarnings, repairCodeBlockMetadata } = require('../lib/docs-authoring-rules');` | docs |
 | `tools/lib/docs-index-utils.js` | Shared utilities for docs-index.json generation — path resolution, frontmatter extraction, index merging | `node tools/lib/docs-index-utils.js [flags]` | docs |

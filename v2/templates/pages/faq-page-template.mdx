@@ -1,24 +1,30 @@
 ---
-title: FAQ Page Template
-sidebarTitle: FAQ Template
-description: Legacy alias route for the copy-ready FAQ page template.
-audience: internal
-pageType: reference
-purpose: reference
-status: current
-keywords:
-  - livepeer
-  - templates
-  - faq
-'og:image': /snippets/assets/site/og-image/fallback.png
-'og:image:alt': Livepeer Docs social preview image
-'og:image:type': image/png
-'og:image:width': 1200
-'og:image:height': 630
+title: 'FAQ Page Template'
+sidebarTitle: 'FAQ Page Template'
+description: 'Copy-ready FAQ page scaffold with canonical frontmatter and AccordionGroup structure. Preview route generated from snippets/templates/pages/faq-page.mdx.'
+pageType: overview
+keywords: ['livepeer', 'template preview', 'faq-page']
 ---
 
-import FAQPageTemplate from '/snippets/templates/pages/faq-page.mdx'
+{/*
+generated-file-banner: generated-file-banner:v1
+Generation Script: tools/scripts/generate-ui-templates.js
+Purpose: Direct-route preview page for FAQ Page Template.
+Run when: Page/block templates change.
+Run command: node tools/scripts/generate-ui-templates.js --write
+*/}
 
-This route renders the source template stored at `/snippets/templates/pages/faq-page.mdx`.
+<Note>
+**Generation Script**: This file is generated from script(s): `tools/scripts/generate-ui-templates.js`. <br/>
+**Purpose**: Direct-route preview page for FAQ Page Template. <br/>
+**Run when**: Page/block templates change. <br/>
+**Important**: Do not manually edit this file; run `node tools/scripts/generate-ui-templates.js --write`. <br/>
+</Note>
 
-<FAQPageTemplate />
+import Template from '/snippets/templates/pages/faq-page.mdx'
+
+Source template: `snippets/templates/pages/faq-page.mdx`
+
+Snippet prefix: `template-faq-page`
+
+<Template />

@@ -1,5 +1,10 @@
+# Historical GitHub review mapping archive
+# Inactive. Kept only as legacy context during the ownerless governance migration.
+# Do not use this file as an approval rule, gate, or routing source.
+# Original CODEOWNERS snapshot retained below for historical reference.
+
 # CODEOWNERS file for Livepeer Documentation
-# This file defines who reviews changes to different sections of the documentation
+# This file previously defined who reviewed changes to different sections of the documentation
 # See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 
 # Global defaults - Documentation team reviews everything by default

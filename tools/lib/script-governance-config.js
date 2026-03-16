@@ -3,7 +3,7 @@
  * @category          utility
  * @purpose           governance:repo-health
  * @scope             full-repo
- * @owner             docs
+ * @domain            docs
  * @needs             R-R14, R-R18, R-C6
  * @purpose-statement Shared governance constants for script discovery, indexing, classification, and pipeline normalisation across the repo.
  * @pipeline          indirect -- library module
@@ -83,14 +83,14 @@ const FRAMEWORK_FIELDS = [
   { key: 'category', tag: '@category' },
   { key: 'purpose', tag: '@purpose' },
   { key: 'scope', tag: '@scope' },
-  { key: 'owner', tag: '@owner' },
+  { key: 'domain', tag: '@domain' },
   { key: 'needs', tag: '@needs' },
   { key: 'purpose_statement', tag: '@purpose-statement' },
   { key: 'pipeline', tag: '@pipeline' },
   { key: 'usage', tag: '@usage' }
 ];
 
-const REQUIRED_FRAMEWORK_KEYS = ['script', 'category', 'purpose', 'scope', 'owner', 'usage'];
+const REQUIRED_FRAMEWORK_KEYS = ['script', 'category', 'purpose', 'scope', 'domain', 'usage'];
 
 const CATEGORY_ENUM = [
   'validator',

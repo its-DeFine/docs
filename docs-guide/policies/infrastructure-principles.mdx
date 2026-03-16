@@ -3,7 +3,7 @@ title: Infrastructure First Principles
 sidebarTitle: Infra Principles
 description: >-
   Canonical first-principles design for repository infrastructure, quality
-  gates, automation flows, and policy ownership.
+  gates, automation flows, and policy layering.
 keywords:
   - livepeer
   - infrastructure
@@ -43,7 +43,7 @@ This is the canonical architecture contract for repository infrastructure. It de
 
 | Layer | First Principle | Primary Risks | Enforcement Point | Max Severity Owned |
 | --- | --- | --- | --- | --- |
-| Repository topology | Folder ownership is explicit and immutable. | Root sprawl, misplaced files, v1 mutation | `.githooks/pre-commit`, CI structure checks | `P1` |
+| Repository topology | Folder boundaries are explicit and immutable. | Root sprawl, misplaced files, v1 mutation | `.githooks/pre-commit`, CI structure checks | `P1` |
 | Content contract | Docs pages, navigation, and imports must stay structurally valid. | Broken docs routes/imports/frontmatter | `tests/run-all.js`, `tests/run-pr-checks.js` | `P1` |
 | Generated artifacts | Generated files are rebuilt from source scripts, never hand-maintained. | index drift, stale docs-index, script catalog drift | pre-commit staged generators + CI checks | `P2` |
 | Local commit gate | Pre-commit runs only fast staged local checks. | slow commits, dependency coupling, local flakiness | `.githooks/pre-commit` | `P2` |
@@ -65,7 +65,7 @@ This is the canonical architecture contract for repository infrastructure. It de
 1. Pre-commit must not implement codex governance policy.
 2. Pre-push must not duplicate style/authoring checks already in pre-commit and PR CI.
 3. CI must be source of truth for heavyweight, potentially flaky, or network-dependent checks.
-4. Any new rule must declare layer ownership before implementation.
+4. Any new rule must declare its primary gate layer before implementation.
 5. Any duplicated policy text outside this file is documentation debt and should be replaced by a link.
 
 ## Migration Rules for New Changes
@@ -74,4 +74,4 @@ This is the canonical architecture contract for repository infrastructure. It de
 2. Place the check in exactly one primary layer.
 3. Add runtime budget impact if the check runs locally.
 4. Add CI mirror only when local feedback is insufficient.
-5. Update this document in the same PR when ownership boundaries change.
+5. Update this document in the same PR when gate boundaries change.

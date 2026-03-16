@@ -26,7 +26,7 @@ For implementation work on agent branches, use:
 Enforcement behavior:
 
 - `pre-commit` validates contract presence/schema on `codex/*`.
-- `pre-commit` and `pre-push` validate local lock ownership on `codex/*`.
+- `pre-commit` and `pre-push` validate local execution lock state on `codex/*`.
 - `pre-push` validates contract scope and blocks non-fast-forward pushes by default on `codex/*`.
 - CI (`tests/run-pr-checks.js`) validates contract and required PR body sections on `codex/*`.
 

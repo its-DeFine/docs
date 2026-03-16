@@ -1,25 +1,30 @@
 ---
-title: Troubleshooting Page Template
-sidebarTitle: Troubleshooting Template
-description: Viewable version of the copy-ready troubleshooting page template.
-keywords:
-  - livepeer
-  - templates
-  - troubleshooting
-  - page template
-audience: internal
-pageType: reference
-purpose: reference
-status: current
-'og:image': /snippets/assets/site/og-image/fallback.png
-'og:image:alt': Livepeer Docs social preview image
-'og:image:type': image/png
-'og:image:width': 1200
-'og:image:height': 630
+title: 'Troubleshooting Page Template'
+sidebarTitle: 'Troubleshooting Page Template'
+description: 'Copy-ready troubleshooting page scaffold with Symptom, Cause, Fix, and Verify sections. Preview route generated from snippets/templates/pages/troubleshooting-page.mdx.'
+pageType: overview
+keywords: ['livepeer', 'template preview', 'troubleshooting-page']
 ---
 
-import TroubleshootingPageTemplate from '/snippets/templates/pages/troubleshooting-page.mdx'
+{/*
+generated-file-banner: generated-file-banner:v1
+Generation Script: tools/scripts/generate-ui-templates.js
+Purpose: Direct-route preview page for Troubleshooting Page Template.
+Run when: Page/block templates change.
+Run command: node tools/scripts/generate-ui-templates.js --write
+*/}
 
-This route renders the source template stored at `/snippets/templates/pages/troubleshooting-page.mdx`.
+<Note>
+**Generation Script**: This file is generated from script(s): `tools/scripts/generate-ui-templates.js`. <br/>
+**Purpose**: Direct-route preview page for Troubleshooting Page Template. <br/>
+**Run when**: Page/block templates change. <br/>
+**Important**: Do not manually edit this file; run `node tools/scripts/generate-ui-templates.js --write`. <br/>
+</Note>
 
-<TroubleshootingPageTemplate />
+import Template from '/snippets/templates/pages/troubleshooting-page.mdx'
+
+Source template: `snippets/templates/pages/troubleshooting-page.mdx`
+
+Snippet prefix: `template-troubleshooting-page`
+
+<Template />

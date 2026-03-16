@@ -37,6 +37,11 @@ const qualityTests = require('./unit/quality.test');
 const linksImportsTests = require('./unit/links-imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
+const skillDocsTests = require('./unit/skill-docs.test');
+const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
+const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
+const docsGuideSotTests = require('./unit/docs-guide-sot.test');
+const uiTemplateGeneratorTests = require('./unit/ui-template-generator.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
 
 const REPO_ROOT = getRepoRoot();
@@ -61,6 +66,9 @@ const GENERATED_AFFECTING_EXACT = new Set([
   'v2/index.mdx',
   'v2/resources/documentation-guide/component-library/overview.mdx'
 ]);
+const SKILL_SPEC_CONTRACT_PATH = 'ai-tools/ai-skills/skill-spec-contract.md';
+const OWNERLESS_MANIFEST_PATH = 'tools/config/ownerless-governance-surfaces.json';
+const OWNERLESS_POLICY_PATH = 'docs-guide/policies/ownerless-governance.mdx';
 
 function fallbackIsEligibleRepoMarkdownPath(filePath) {
   return /\.(md|mdx)$/i.test(String(filePath || ''));
@@ -155,6 +163,15 @@ function dedupe(values) {
   return [...new Set(values)];
 }
 
+function isGovernedSkillDocPath(filePath) {
+  const normalized = toPosix(filePath);
+  return (
+    normalized === SKILL_SPEC_CONTRACT_PATH
+    || /^ai-tools\/ai-skills\/[^/]+\/SKILL\.md$/.test(normalized)
+    || /^ai-tools\/ai-skills\/templates\/[^/]+\.template\.md$/.test(normalized)
+  );
+}
+
 function escapeRegExp(value) {
   return String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -200,6 +217,44 @@ function partitionFiles(changedFiles) {
     file.startsWith('tools/config/usefulness-') ||
     file.startsWith('tests/unit/usefulness-')
   );
+  const skillDocsFiles = existingChangedFiles.filter((file) => isGovernedSkillDocPath(file));
+  const portableSkillFiles = existingChangedFiles.filter((file) =>
+    file.startsWith('ai-tools/ai-skills/templates/') ||
+    file.startsWith('ai-tools/agent-packs/skills/') ||
+    file === 'tools/scripts/export-portable-skills.js' ||
+    file === 'tools/lib/codex-skill-templates.js' ||
+    file === 'tests/unit/export-portable-skills.test.js' ||
+    file === 'tests/unit/codex-skill-sync.test.js'
+  );
+  const docsGuideSotFiles = existingChangedFiles.filter((file) =>
+    file === 'README.md' ||
+    file.startsWith('docs-guide/') ||
+    file === 'tests/unit/docs-guide-sot.test.js' ||
+    file.startsWith('tools/scripts/generate-docs-guide-') ||
+    file === 'tools/scripts/generate-ui-templates.js' ||
+    file === 'tests/unit/script-docs.test.js'
+  );
+  const uiTemplateFiles = existingChangedFiles.filter((file) =>
+    file.startsWith('snippets/templates/') ||
+    file.startsWith('v2/templates/') ||
+    file.startsWith('.vscode/') ||
+    file === 'docs-guide/catalog/ui-templates.mdx' ||
+    file === 'docs-guide/features/ui-system.mdx' ||
+    file === 'docs-guide/component-registry.json' ||
+    file === 'tools/scripts/generate-ui-templates.js' ||
+    file === 'tests/unit/ui-template-generator.test.js'
+  );
+  const ownerlessGovernanceFiles = existingChangedFiles.filter((file) =>
+    file === OWNERLESS_MANIFEST_PATH ||
+    file === OWNERLESS_POLICY_PATH ||
+    file === 'tests/unit/ownerless-governance.test.js' ||
+    file === 'tools/scripts/repair-ownerless-language.js' ||
+    file === '.github/AGENTS.md' ||
+    file === 'README.md' ||
+    file === 'contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md' ||
+    file === '.github/workflows/docs-v2-issue-indexer.yml' ||
+    file.startsWith('.github/ISSUE_TEMPLATE/')
+  );
 
   return {
     docsMdx,
@@ -210,6 +265,11 @@ function partitionFiles(changedFiles) {
     repoMarkdownFilesAbs: dedupe(repoMarkdownFiles).map(relToAbs),
     governanceScriptFiles: dedupe(governanceScriptFiles),
     scriptFiles: dedupe(scriptFiles),
+    skillDocsFiles: dedupe(skillDocsFiles),
+    portableSkillFiles: dedupe(portableSkillFiles),
+    docsGuideSotFiles: dedupe(docsGuideSotFiles),
+    uiTemplateFiles: dedupe(uiTemplateFiles),
+    ownerlessGovernanceFiles: dedupe(ownerlessGovernanceFiles),
     usefulnessFiles: dedupe(usefulnessFiles)
   };
 }
@@ -306,6 +366,66 @@ function runScriptDocsCheck(files) {
   };
 }
 
+function runSkillDocsCheck(files) {
+  if (!files.length) {
+    return { label: 'Skill Docs', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = skillDocsTests.runTests({ files });
+  return {
+    label: 'Skill Docs',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
+function runOwnerlessGovernanceCheck(files) {
+  if (!files.length) {
+    return { label: 'Ownerless Governance', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = ownerlessGovernanceTests.runTests({ files });
+  return {
+    label: 'Ownerless Governance',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
+function runDocsGuideSotCheck(files) {
+  if (!files.length) {
+    return { label: 'Docs-guide SoT', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = docsGuideSotTests.runTests();
+  return {
+    label: 'Docs-guide SoT',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
+function runUiTemplateGeneratorCheck(files) {
+  if (!files.length) {
+    return { label: 'UI Template Generator', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = uiTemplateGeneratorTests.runTests();
+  return {
+    label: 'UI Template Generator',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
 function runComponentNamingCheck(files) {
   if (!files.length) {
     return { label: 'Component Naming', status: 'skipped', files: 0, errors: 0, warnings: 0 };
@@ -388,6 +508,20 @@ function runGlobalCheck(label, fn) {
   };
 }
 
+async function runAsyncGlobalCheck(label, files, fn) {
+  if (!files.length) {
+    return { label, status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+  const result = await fn();
+  return {
+    label,
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
 function runDocsNavigationCheck() {
   const result = docsNavigationTests.runTests({ writeReport: false });
   return {
@@ -455,9 +589,13 @@ function runGeneratedBannerCheck(changedFiles) {
     };
   }
 
-  const cmd = spawnSync('node', ['tools/scripts/enforce-generated-file-banners.js', '--check'], {
+  const cmd = spawnSync('node', ['tools/scripts/enforce-generated-file-banners.js', '--check', '--staged'], {
     cwd: REPO_ROOT,
-    encoding: 'utf8'
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      LPD_STAGED_FILES_SNAPSHOT: changedFiles.join('\n')
+    }
   });
   if (cmd.stdout) process.stdout.write(cmd.stdout);
   if (cmd.stderr) process.stderr.write(cmd.stderr);
@@ -554,6 +692,11 @@ async function main() {
   console.log(`Changed components: ${groups.componentJsx.length}`);
   console.log(`Changed governed scripts: ${groups.governanceScriptFiles.length}`);
   console.log(`Changed scripts: ${groups.scriptFiles.length}`);
+  console.log(`Changed skill docs: ${groups.skillDocsFiles.length}`);
+  console.log(`Changed portable-skill files: ${groups.portableSkillFiles.length}`);
+  console.log(`Changed docs-guide SoT files: ${groups.docsGuideSotFiles.length}`);
+  console.log(`Changed UI-template files: ${groups.uiTemplateFiles.length}`);
+  console.log(`Changed ownerless-governance files: ${groups.ownerlessGovernanceFiles.length}`);
   console.log(`Changed usefulness files: ${groups.usefulnessFiles.length}`);
 
   const checks = [];
@@ -576,6 +719,11 @@ async function main() {
   checks.push(runCodexSkillSyncCheck());
   checks.push(runScriptGovernanceCheck(groups.governanceScriptFiles));
   checks.push(runScriptDocsCheck(groups.scriptFiles));
+  checks.push(runSkillDocsCheck(groups.skillDocsFiles));
+  checks.push(runOwnerlessGovernanceCheck(groups.ownerlessGovernanceFiles));
+  checks.push(await runAsyncGlobalCheck('Portable Skill Export', groups.portableSkillFiles, exportPortableSkillsTests.runTests));
+  checks.push(runDocsGuideSotCheck(groups.docsGuideSotFiles));
+  checks.push(runUiTemplateGeneratorCheck(groups.uiTemplateFiles));
   checks.push(runUsefulnessChecks(groups.usefulnessFiles));
   checks.push(runLinkAuditCheck(groups.docsMdx));
 

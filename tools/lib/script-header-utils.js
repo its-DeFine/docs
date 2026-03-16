@@ -3,7 +3,7 @@
  * @category          utility
  * @purpose           governance:repo-health
  * @scope             full-repo
- * @owner             docs
+ * @domain            docs
  * @needs             R-R14, R-R18
  * @purpose-statement Shared helpers for extracting and reading top-of-file script governance headers without scanning into executable source.
  * @pipeline          indirect - library module
@@ -11,6 +11,10 @@
  */
 
 const HEADER_SCAN_LINES = 200;
+const TAG_ALIASES = Object.freeze({
+  '@domain': ['@owner'],
+  '@owner': ['@domain']
+});
 
 function trimBom(value) {
   return String(value || '').replace(/^\uFEFF/, '');
@@ -94,9 +98,15 @@ function extractLeadingScriptHeader(content) {
 }
 
 function getTagValue(header, tagName) {
-  const pattern = new RegExp(`(?:^|\\n)\\s*(?:\\*|#)\\s*\\${tagName}\\s+([^\\n\\r]+)`);
-  const match = String(header || '').match(pattern);
-  return match ? String(match[1] || '').trim() : '';
+  const tagsToTry = [tagName, ...(TAG_ALIASES[tagName] || [])];
+  for (const candidate of tagsToTry) {
+    const pattern = new RegExp(`(?:^|\\n)\\s*(?:\\*|#)\\s*\\${candidate}\\s+([^\\n\\r]+)`);
+    const match = String(header || '').match(pattern);
+    if (match) {
+      return String(match[1] || '').trim();
+    }
+  }
+  return '';
 }
 
 function getSectionLines(header, tagName) {

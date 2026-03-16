@@ -4,7 +4,7 @@
  * @category          validator
  * @purpose           governance:repo-health
  * @scope             full-repo
- * @owner             docs
+ * @domain            docs
  * @needs             R-R14, R-R18
  * @purpose-statement Generates a review checklist for dry-run governance repair proposals that require human approval before fix mode is applied.
  * @pipeline          manual
@@ -107,7 +107,7 @@ function mapTagValueToField(tags) {
     category: tags.category || '',
     purpose: tags.purpose || '',
     scope: tags.scope || '',
-    owner: tags.owner || '',
+    domain: tags.domain || tags.owner || '',
     needs: tags.needs || '',
     purpose_statement: tags['purpose-statement'] || '',
     pipeline_declared: tags.pipeline || '',
@@ -337,7 +337,7 @@ function buildPipelineReview(report, headerUpdateMap) {
 function buildSummary(report, judgementReview, pipelineReview) {
   const fixes = report.repair?.fixes || {};
   const tier1 = Number(fixes.json_phantoms_removed || 0) + Number(fixes.json_entries_added || 0) + Number(fixes.json_entries_updated || 0);
-  const tier2 = Number(fixes.headers_owner_added || 0) +
+  const tier2 = Number(fixes.headers_domain_added || 0) +
     Number(fixes.headers_script_added || 0) +
     Number(fixes.headers_usage_added || 0) +
     Number(fixes.headers_scope_added || 0) +
