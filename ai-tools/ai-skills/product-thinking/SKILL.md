@@ -1,10 +1,11 @@
 ---
 name: product-thinking
-description: >-
-  Product thinking framework for documentation IA and content strategy. Treats docs as
-  a product. Applies JTBD job stories, Opportunity Solution Trees, assumption mapping,
-  customer journey mapping, value proposition design, absence detection, cross-role
-  analysis, and quickstart/setup separation. Adapted from github.com/phuryn/pm-skills.
+version: "1.0"
+description: "Product thinking framework for documentation IA and content strategy. Treat docs as a product, apply product-management analysis methods, and use it when reviewing information architecture, journeys, gaps, or navigation priorities across docs."
+invoke_when:
+  - "review docs information architecture with product thinking"
+  - "audit navigation or journeys as a docs product"
+  - "apply product frameworks to documentation strategy"
 ---
 
 # SKILL: Product Thinking for Documentation
@@ -16,7 +17,7 @@ strategy, and user journey design.
 The skill has 9 steps. Steps 1-6 evaluate what exists. Steps 7-9 surface what's missing.
 Run all 9 for a complete review. Run individual steps when the scope is narrower.
 
----
+<CustomDivider />
 
 ## When to Use
 
@@ -33,7 +34,7 @@ Run all 9 for a complete review. Run individual steps when the scope is narrower
 - Individual page accuracy checks
 - Code or API reference generation
 
----
+<CustomDivider />
 
 ## Step 1: Job Stories
 
@@ -59,7 +60,7 @@ When [situation], I want to [motivation], so I can [outcome].
 - 6-10 job stories per review
 - Each describes a **situation**, not a role or demographic
 - 3-6 **acceptance criteria** per story (observable, measurable outcomes)
-- Job stories sharing >50% of acceptance criteria should be merged
+- Job stories sharing more than 50% of acceptance criteria should be merged
 - Cover the full lifecycle: evaluation, setup, operation, scaling, troubleshooting
 
 ### Anti-patterns
@@ -68,7 +69,7 @@ When [situation], I want to [motivation], so I can [outcome].
 - Job stories that map 1:1 to existing pages - you're describing the solution, not the problem
 - All job stories from the same lifecycle phase - you'll miss operational and scaling gaps
 
----
+<CustomDivider />
 
 ## Step 2: Opportunity Solution Tree
 
@@ -103,7 +104,7 @@ High score = high importance, low current satisfaction = biggest bang for effort
 - Solutions include: new page, restructured section, merged content, removed content,
   cross-reference, interactive element, navigation change, or "do nothing"
 
----
+<CustomDivider />
 
 ## Step 3: Assumption Mapping
 
@@ -133,7 +134,7 @@ assumptions. Making them explicit enables testing.
 - Actively hunt **blind spot assumptions** - beliefs so embedded they aren't stated
   (e.g. "users read sections in order", "all users need the same setup path")
 
----
+<CustomDivider />
 
 ## Step 4: Customer Journey Map
 
@@ -167,7 +168,7 @@ Design explicitly for these:
 - **Churn trigger**: What causes the user to give up?
 - **Advocacy trigger**: What makes the user recommend this to others?
 
----
+<CustomDivider />
 
 ## Step 5: Value Proposition
 
@@ -188,7 +189,7 @@ Unlike [current alternative], it [key differentiator].
 - If you can't write a clear value prop, the section has a purpose problem
 - Value props that sound identical across sections indicate redundancy
 
----
+<CustomDivider />
 
 ## Step 6: Section Review
 
@@ -222,7 +223,7 @@ With Steps 1-5 complete, evaluate the existing IA against them.
 1. [action] - [rationale]
 ```
 
----
+<CustomDivider />
 
 ## Step 7: Absence Detection
 
@@ -282,7 +283,7 @@ search analytics, onboarding feedback.
 4. Clusters with 3+ questions and no page = confirmed gap
 5. Single questions revealing a missing concept = potential gap
 
----
+<CustomDivider />
 
 ## Step 8: Cross-Role Analysis
 
@@ -311,13 +312,13 @@ perform multiple roles, and need to understand adjacent perspectives.
 4. **Combined operations guide**: Dedicated page for users performing both roles
 
 ### Rules
-- Combined operations guides only when >20% of users perform both roles
+- Combined operations guides only when more than 20% of users perform both roles
 - Every cross-reference is bidirectional
 - Shared terms must be defined consistently (or explicitly differentiated) across
   role-specific glossaries
 - Don't force symmetry between roles - document real asymmetries
 
----
+<CustomDivider />
 
 ## Step 9: Quickstart / Setup / Operations Separation
 
@@ -328,7 +329,7 @@ prevents false expectations and structural confusion.
 
 | Phase | Question | Scope | Commitment |
 |-------|---------|-------|-----------|
-| **Quickstart** | "Does this work for me?" | Verify the technology functions on your hardware/environment. Local, reversible, no financial commitment. | Time only (< 1 hour) |
+| **Quickstart** | "Does this work for me?" | Verify the technology functions on your hardware/environment. Local, reversible, no financial commitment. | Time only (under 1 hour) |
 | **Setup** | "How do I run this properly?" | Configure for production operation. May require accounts, credentials, financial commitment. | Time + technical commitment (hours to days) |
 | **Operations** | "How do I get value?" | Business outcomes: revenue, efficiency, scaling, optimisation. Ongoing decisions. | Ongoing (weeks to months) |
 
@@ -367,7 +368,7 @@ the asymmetry rather than forcing them into the same structure:
 | Phase that differs most | [which phase] | [which phase] | [why this matters for docs structure] |
 ```
 
----
+<CustomDivider />
 
 ## Deliverable Format
 
@@ -384,7 +385,7 @@ A markdown report with:
 9. **Quickstart/Setup/Operations Separation** (three phases evaluated + asymmetry)
 10. **Priority Actions** (P0/P1/P2/P3 with rationale and effort estimate)
 
----
+<CustomDivider />
 
 ## Reference
 

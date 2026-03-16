@@ -29,6 +29,8 @@ const linksImportsTests = require('./unit/links-imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
 const docsPathSyncTests = require('./unit/docs-path-sync.test');
 const scriptDocsTests = require('./unit/script-docs.test');
+const skillDocsTests = require('./unit/skill-docs.test');
+const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
 const componentGovernanceUtilsTests = require('./unit/component-governance-utils.test');
 const componentGovernanceGeneratorTests = require('./unit/component-governance-generators.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
@@ -230,6 +232,20 @@ async function runAllTests() {
   totalErrors += scriptDocsResult.errors.length;
   totalWarnings += scriptDocsResult.warnings.length;
   console.log(`   ${scriptDocsResult.errors.length} errors, ${scriptDocsResult.warnings.length} warnings`);
+
+  // Skill Docs Enforcement
+  console.log('\n📘 Running Skill Documentation Enforcement...');
+  const skillDocsResult = normalizeSuiteResult(skillDocsTests.runTests({ stagedOnly }));
+  totalErrors += skillDocsResult.errors.length;
+  totalWarnings += skillDocsResult.warnings.length;
+  console.log(`   ${skillDocsResult.errors.length} errors, ${skillDocsResult.warnings.length} warnings`);
+
+  // Portable Skill Export
+  console.log('\n📦 Running Portable Skill Export Checks...');
+  const exportPortableSkillsResult = normalizeSuiteResult(await exportPortableSkillsTests.runTests());
+  totalErrors += exportPortableSkillsResult.errors.length;
+  totalWarnings += exportPortableSkillsResult.warnings.length;
+  console.log(`   ${exportPortableSkillsResult.errors.length} errors, ${exportPortableSkillsResult.warnings.length} warnings`);
 
   // Component Governance Utility Tests
   console.log('\n🧩 Running Component Governance Utility Tests...');

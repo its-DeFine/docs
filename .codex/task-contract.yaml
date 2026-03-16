@@ -1,19 +1,32 @@
-task_id: 20260310
-branch: codex/20260310-dev-setup-a-docs-v2-dev
-base_branch: docs-v2
+task_id: 20260316
+branch: codex/20260316-ownerless-rollout
+base_branch: docs-v2-dev
 scope_in:
   - .codex/task-contract.yaml
-  - v2/developers/**
+  - ai-tools/ai-skills/
+  - ai-tools/agent-packs/skills/
+  - docs-guide/catalog/scripts-catalog.mdx
+  - tasks/reports/script-classifications.json
+  - tests/script-index.md
+  - tests/run-all.js
+  - tests/run-pr-checks.js
+  - tests/unit/
+  - tools/lib/script-index.md
+  - tools/lib/
+  - tools/script-index.md
+  - tools/scripts/
 scope_out: []
-allowed_generated: []
+allowed_generated:
+  - ai-tools/agent-packs/skills/
+  - docs-guide/catalog/scripts-catalog.mdx
+  - tests/script-index.md
+  - tools/lib/script-index.md
+  - tools/script-index.md
 acceptance_checks:
-  - find v2/developers -name "*.mdx" | sort
-  - git status --short | grep "^ D"
-  - ls v2/developers/get-started/
-  - ls v2/developers/build/
-  - ls v2/developers/guides/
-  - ls v2/developers/opportunities/
-  - ls v2/developers/resources/
-  - ls v2/developers/_archive/ | wc -l
+  - node tests/unit/skill-docs.test.js
+  - node tests/unit/codex-skill-sync.test.js
+  - node tests/unit/export-portable-skills.test.js
+  - node tests/run-all.js --staged --skip-browser
+  - node tests/run-pr-checks.js --base-ref docs-v2-dev
 risk_flags: []
 follow_up_issues: []

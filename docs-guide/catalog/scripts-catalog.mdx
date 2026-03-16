@@ -71,6 +71,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tests/unit/docs-page-scope.test.js` | Verifies generated authored-page scope helpers so warning-only validators skip generated docs pages while keeping authored pages in scope. | `node tests/unit/docs-page-scope.test.js` | docs |
 | `tests/unit/docs-path-sync.test.js` | Unit tests for docs path sync — validates staged move detection, deterministic docs.json/reference rewrites, validator behavior, and remediator write mode. | `node tests/unit/docs-path-sync.test.js` | docs |
 | `tests/unit/docs-route-scope.test.js` | Verifies docs.json-derived tab and group route scopes resolve to live files. | `node tests/unit/docs-route-scope.test.js` | docs |
+| `tests/unit/export-portable-skills.test.js` | Tests export-portable-skills.js — validates portable skill export packs from canonical templates. | `node tests/unit/export-portable-skills.test.js [flags]` | docs |
 | `tests/unit/frontmatter-taxonomy.test.js` | Verifies shared docs frontmatter taxonomy normalization and purpose mapping. | `node tests/unit/frontmatter-taxonomy.test.js` | docs |
 | `tests/unit/links-imports.test.js` | Validates MDX internal links and snippet import paths are resolvable | `node tests/unit/links-imports.test.js [flags]` | docs |
 | `tests/unit/lpd-scoped-mint-dev.test.js` | Tests lpd scoped mint-dev functionality — validates dev server scope filtering | `node tests/unit/lpd-scoped-mint-dev.test.js [flags]` | docs |
@@ -88,6 +89,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tests/unit/repair-spelling.test.js` | Unit tests for repair-spelling.js — validates deterministic spelling fixes and exclusion ranges | `node tests/unit/repair-spelling.test.js [flags]` | docs |
 | `tests/unit/repo-audit-pipeline.test.js` | Tests repo-audit-orchestrator.js pipeline — validates mode/scope combinations and report output | `node tests/unit/repo-audit-pipeline.test.js [flags]` | docs |
 | `tests/unit/script-docs.test.js` | Enforces script header schema, keeps group script indexes in sync, and builds aggregate script catalog | `node tests/unit/script-docs.test.js [flags]` | docs |
+| `tests/unit/skill-docs.test.js` | Validates governed skill documentation frontmatter, references, and contract integrity for canonical templates and local skill files. | `node tests/unit/skill-docs.test.js [--staged] [--files path[,path]]` | docs |
 | `tests/unit/spelling.test.js` | Spelling check — validates content against custom dictionary with en-GB rules | `node tests/unit/spelling.test.js [flags]` | docs |
 | `tests/unit/style-guide.test.js` | Style guide compliance — checks en-GB conventions, heading case, formatting rules | `node tests/unit/style-guide.test.js [flags]` | docs |
 | `tests/unit/usefulness-journey.test.js` | Tests journey-check evaluation logic against fixture pages. | `node tests/unit/usefulness-journey.test.js` | docs |
@@ -143,6 +145,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/scripts/enforce-generated-file-banners.js` | Generated file banner enforcer — checks (--check) or writes (default) "do not edit" banners on generated files. | `node tools/scripts/enforce-generated-file-banners.js --check &#124; --write [--staged]` | docs |
 | `tools/scripts/enforcers/pr/check-component-immutability.js` | Flags modifications to existing component files in PR context. New files allowed. Modifications require approval label. | `node tools/scripts/enforcers/pr/check-component-immutability.js --base-ref main` | docs |
 | `tools/scripts/enforcers/pr/check-pr-template.js` | Enforces that PR descriptions include required change and rationale sections before merge | `PR_BODY="..." node tools/scripts/enforcers/pr/check-pr-template.js` | docs |
+| `tools/scripts/export-portable-skills.js` | Portable skills exporter — copies canonical template skills into cross-agent pack folders and validates drift. | `node tools/scripts/export-portable-skills.js --write&#124;--check [--skills name[,name...]]` | docs |
 | `tools/scripts/generate-ai-sitemap.js` | AI sitemap generator — produces AI-optimised sitemap files. Dual-mode: --check (enforcer) / --write (generator). | `node tools/scripts/generate-ai-sitemap.js [flags]` | docs |
 | `tools/scripts/generate-component-docs.js` | Generates published component library MDX pages from the registry. Replaces update-component-library.sh. | `node tools/scripts/generate-component-docs.js [--dry-run&#124;--fix&#124;--write&#124;--check] [--template-only] [--category &lt;name&gt;]` | docs |
 | `tools/scripts/generate-component-governance-remediation-reports.js` | Generates component-governance remediation reports from the approved audit and live repo state, including defensive-rendering guidance for MDX-facing components. | `node tools/scripts/generate-component-governance-remediation-reports.js [flags]` | docs |
@@ -228,6 +231,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 
 | Script | Summary | Usage | Owner |
 |---|---|---|---|
+| `tools/lib/codex-skill-templates.js` | Shared helper for validating, selecting, and loading canonical Codex skill templates. | `const &#123; discoverTemplates &#125; = require('../lib/codex-skill-templates');` | docs |
 | `tools/lib/component-governance-utils.js` | Shared parsing and validation utilities for component governance scripts. | `const utils = require('../lib/component-governance-utils');` | docs |
 | `tools/lib/docs-authoring-rules.js` | Shared warning-level authoring rules for guide layouts and code-block metadata, plus deterministic code-block icon repair. | `const &#123; analyzeGuideLayoutWarnings, repairCodeBlockMetadata &#125; = require('../lib/docs-authoring-rules');` | docs |
 | `tools/lib/docs-index-utils.js` | Shared utilities for docs-index.json generation — path resolution, frontmatter extraction, index merging | `node tools/lib/docs-index-utils.js [flags]` | docs |

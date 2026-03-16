@@ -14,32 +14,15 @@
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const yaml = require('../lib/load-js-yaml');
+const {
+  discoverTemplates,
+  parseSkillsList,
+  selectTemplates,
+  toPosix
+} = require('../lib/codex-skill-templates');
 
 const REPO_ROOT = process.cwd();
 const DEFAULT_SOURCE_DIR = 'ai-tools/ai-skills/templates';
-const TEMPLATE_SUFFIX = '.template.md';
-const TEMPLATE_FILE_RE = /^\d{2}-[a-z0-9-]+\.template\.md$/;
-const SKILL_NAME_RE = /^[a-z0-9][a-z0-9-]*$/;
-
-const REQUIRED_FRONTMATTER_KEYS = [
-  'name',
-  'description',
-  'tier',
-  'triggers',
-  'primary_paths',
-  'primary_commands'
-];
-
-const REQUIRED_SECTIONS = [
-  'SKILL:',
-  'Goal',
-  'Constraints',
-  'Workflow',
-  'Deliverable Format',
-  'Failure Modes / Fallback',
-  'Validation Checklist'
-];
 
 const ACRONYMS = new Set(['GH', 'MCP', 'API', 'CI', 'CLI', 'LLM', 'PDF', 'PR', 'UI', 'URL', 'SQL', 'SEO', 'MDX', 'WCAG', 'LPD', 'N8N']);
 const BRANDS = new Map([
@@ -51,10 +34,6 @@ const BRANDS = new Map([
   ['cspell', 'cspell']
 ]);
 const SMALL_WORDS = new Set(['and', 'or', 'to', 'up', 'with', 'of', 'for']);
-
-function toPosix(value) {
-  return String(value || '').split(path.sep).join('/');
-}
 
 function usage() {
   const msg = [
@@ -71,16 +50,6 @@ function usage() {
     '  --help                  Show this message'
   ];
   console.log(msg.join('\n'));
-}
-
-function parseSkillsList(raw) {
-  if (!raw) return null;
-  const values = String(raw)
-    .split(',')
-    .map((item) => item.trim())
-    .filter(Boolean);
-  if (values.length === 0) return null;
-  return [...new Set(values)];
 }
 
 function resolveDefaultDest() {
@@ -159,99 +128,6 @@ function parseArgs(argv) {
   return out;
 }
 
-function splitFrontmatter(content, filePath) {
-  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
-  if (!match) {
-    throw new Error(`${toPosix(filePath)}: missing or invalid YAML frontmatter`);
-  }
-  return {
-    frontmatterRaw: match[1],
-    body: content.slice(match[0].length)
-  };
-}
-
-function escapeRegExp(value) {
-  return String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function requireSection(body, sectionTitle, filePath) {
-  const re = new RegExp(`^${escapeRegExp(sectionTitle)}(?:\\b|\\s|:)`, 'm');
-  if (!re.test(body)) {
-    throw new Error(`${toPosix(filePath)}: missing required section "${sectionTitle}"`);
-  }
-}
-
-function assertArrayCount(value, minCount, field, filePath) {
-  if (!Array.isArray(value)) {
-    throw new Error(`${toPosix(filePath)}: frontmatter "${field}" must be an array`);
-  }
-  if (value.length < minCount) {
-    throw new Error(`${toPosix(filePath)}: frontmatter "${field}" must have at least ${minCount} entries`);
-  }
-}
-
-function parseTemplateFile(filePathAbs) {
-  const content = fs.readFileSync(filePathAbs, 'utf8');
-  const { frontmatterRaw, body } = splitFrontmatter(content, filePathAbs);
-  let frontmatter;
-
-  try {
-    frontmatter = yaml.load(frontmatterRaw);
-  } catch (error) {
-    throw new Error(`${toPosix(filePathAbs)}: invalid frontmatter YAML (${error.message})`);
-  }
-
-  if (!frontmatter || typeof frontmatter !== 'object' || Array.isArray(frontmatter)) {
-    throw new Error(`${toPosix(filePathAbs)}: frontmatter must be a YAML object`);
-  }
-
-  for (const key of REQUIRED_FRONTMATTER_KEYS) {
-    if (!(key in frontmatter)) {
-      throw new Error(`${toPosix(filePathAbs)}: missing required frontmatter key "${key}"`);
-    }
-  }
-
-  const name = String(frontmatter.name || '').trim();
-  if (!name) {
-    throw new Error(`${toPosix(filePathAbs)}: frontmatter "name" must be non-empty`);
-  }
-  if (!SKILL_NAME_RE.test(name)) {
-    throw new Error(`${toPosix(filePathAbs)}: frontmatter "name" must match ${SKILL_NAME_RE}`);
-  }
-
-  assertArrayCount(frontmatter.triggers, 3, 'triggers', filePathAbs);
-  assertArrayCount(frontmatter.primary_commands, 2, 'primary_commands', filePathAbs);
-
-  for (const section of REQUIRED_SECTIONS) {
-    requireSection(body, section, filePathAbs);
-  }
-
-  return {
-    name,
-    templatePathAbs: filePathAbs,
-    templatePathRel: toPosix(path.relative(REPO_ROOT, filePathAbs)),
-    content
-  };
-}
-
-function discoverTemplates(sourceDirAbs) {
-  if (!fs.existsSync(sourceDirAbs) || !fs.statSync(sourceDirAbs).isDirectory()) {
-    throw new Error(`Template source directory does not exist: ${toPosix(sourceDirAbs)}`);
-  }
-
-  const entries = fs
-    .readdirSync(sourceDirAbs)
-    .filter((name) => name.endsWith(TEMPLATE_SUFFIX))
-    .filter((name) => TEMPLATE_FILE_RE.test(name))
-    .sort();
-
-  if (entries.length === 0) {
-    throw new Error(`No template files found in ${toPosix(sourceDirAbs)}`);
-  }
-
-  return entries.map((entry) => parseTemplateFile(path.join(sourceDirAbs, entry)));
-}
-
 function toDisplayName(skillName) {
   const words = skillName.split('-').filter(Boolean);
   return words
@@ -325,16 +201,6 @@ function formatPlannedFile(relPath, op) {
   if (op === 'create') return `create ${relPath}`;
   if (op === 'update') return `update ${relPath}`;
   return `keep   ${relPath}`;
-}
-
-function selectTemplates(templates, selectedNames) {
-  if (!selectedNames || selectedNames.length === 0) return templates;
-  const byName = new Map(templates.map((tpl) => [tpl.name, tpl]));
-  const missing = selectedNames.filter((name) => !byName.has(name));
-  if (missing.length > 0) {
-    throw new Error(`Unknown --skills value(s): ${missing.join(', ')}`);
-  }
-  return selectedNames.map((name) => byName.get(name));
 }
 
 function syncTemplate(template, options) {
@@ -451,7 +317,7 @@ function printResultLines(results, options) {
 }
 
 function run(options) {
-  const templates = discoverTemplates(options.sourceDir);
+  const templates = discoverTemplates(options.sourceDir, { repoRoot: REPO_ROOT });
   const selected = selectTemplates(templates, options.skills);
 
   printConfig(options, templates, selected);

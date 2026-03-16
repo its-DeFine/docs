@@ -37,6 +37,8 @@ const qualityTests = require('./unit/quality.test');
 const linksImportsTests = require('./unit/links-imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
+const skillDocsTests = require('./unit/skill-docs.test');
+const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
 
 const REPO_ROOT = getRepoRoot();
@@ -61,6 +63,7 @@ const GENERATED_AFFECTING_EXACT = new Set([
   'v2/index.mdx',
   'v2/resources/documentation-guide/component-library/overview.mdx'
 ]);
+const SKILL_SPEC_CONTRACT_PATH = 'ai-tools/ai-skills/skill-spec-contract.md';
 
 function fallbackIsEligibleRepoMarkdownPath(filePath) {
   return /\.(md|mdx)$/i.test(String(filePath || ''));
@@ -155,6 +158,15 @@ function dedupe(values) {
   return [...new Set(values)];
 }
 
+function isGovernedSkillDocPath(filePath) {
+  const normalized = toPosix(filePath);
+  return (
+    normalized === SKILL_SPEC_CONTRACT_PATH
+    || /^ai-tools\/ai-skills\/[^/]+\/SKILL\.md$/.test(normalized)
+    || /^ai-tools\/ai-skills\/templates\/[^/]+\.template\.md$/.test(normalized)
+  );
+}
+
 function escapeRegExp(value) {
   return String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -200,6 +212,15 @@ function partitionFiles(changedFiles) {
     file.startsWith('tools/config/usefulness-') ||
     file.startsWith('tests/unit/usefulness-')
   );
+  const skillDocsFiles = existingChangedFiles.filter((file) => isGovernedSkillDocPath(file));
+  const portableSkillFiles = existingChangedFiles.filter((file) =>
+    file.startsWith('ai-tools/ai-skills/templates/') ||
+    file.startsWith('ai-tools/agent-packs/skills/') ||
+    file === 'tools/scripts/export-portable-skills.js' ||
+    file === 'tools/lib/codex-skill-templates.js' ||
+    file === 'tests/unit/export-portable-skills.test.js' ||
+    file === 'tests/unit/codex-skill-sync.test.js'
+  );
 
   return {
     docsMdx,
@@ -210,6 +231,8 @@ function partitionFiles(changedFiles) {
     repoMarkdownFilesAbs: dedupe(repoMarkdownFiles).map(relToAbs),
     governanceScriptFiles: dedupe(governanceScriptFiles),
     scriptFiles: dedupe(scriptFiles),
+    skillDocsFiles: dedupe(skillDocsFiles),
+    portableSkillFiles: dedupe(portableSkillFiles),
     usefulnessFiles: dedupe(usefulnessFiles)
   };
 }
@@ -306,6 +329,21 @@ function runScriptDocsCheck(files) {
   };
 }
 
+function runSkillDocsCheck(files) {
+  if (!files.length) {
+    return { label: 'Skill Docs', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = skillDocsTests.runTests({ files });
+  return {
+    label: 'Skill Docs',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
 function runComponentNamingCheck(files) {
   if (!files.length) {
     return { label: 'Component Naming', status: 'skipped', files: 0, errors: 0, warnings: 0 };
@@ -383,6 +421,20 @@ function runGlobalCheck(label, fn) {
     label,
     status: result.passed ? 'passed' : 'failed',
     files: result.total || 1,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
+async function runAsyncGlobalCheck(label, files, fn) {
+  if (!files.length) {
+    return { label, status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+  const result = await fn();
+  return {
+    label,
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
     errors: Array.isArray(result.errors) ? result.errors.length : 0,
     warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
   };
@@ -554,6 +606,8 @@ async function main() {
   console.log(`Changed components: ${groups.componentJsx.length}`);
   console.log(`Changed governed scripts: ${groups.governanceScriptFiles.length}`);
   console.log(`Changed scripts: ${groups.scriptFiles.length}`);
+  console.log(`Changed skill docs: ${groups.skillDocsFiles.length}`);
+  console.log(`Changed portable-skill files: ${groups.portableSkillFiles.length}`);
   console.log(`Changed usefulness files: ${groups.usefulnessFiles.length}`);
 
   const checks = [];
@@ -576,6 +630,8 @@ async function main() {
   checks.push(runCodexSkillSyncCheck());
   checks.push(runScriptGovernanceCheck(groups.governanceScriptFiles));
   checks.push(runScriptDocsCheck(groups.scriptFiles));
+  checks.push(runSkillDocsCheck(groups.skillDocsFiles));
+  checks.push(await runAsyncGlobalCheck('Portable Skill Export', groups.portableSkillFiles, exportPortableSkillsTests.runTests));
   checks.push(runUsefulnessChecks(groups.usefulnessFiles));
   checks.push(runLinkAuditCheck(groups.docsMdx));
 

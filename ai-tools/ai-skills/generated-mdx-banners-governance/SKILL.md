@@ -1,6 +1,12 @@
 ---
 name: generated-mdx-banners-governance
-description: Standardize generated MDX artifacts with consistent frontmatter, hidden generated banner, and visible Note policy across docs-guide and v2 index generators. Use when adding/updating generators, migrating generated files (for example a retired scripts index route -> docs-guide/catalog/scripts-catalog.mdx), or enforcing i18n generated-page provenance and Note parity.
+version: "1.0"
+description: >-
+  Standardize generated MDX artifacts with consistent frontmatter, hidden generated banners, and visible Note policy across docs-guide and v2 generators while preserving provenance and parity rules.
+invoke_when:
+  - "add or update generated mdx banners"
+  - "enforce generated page note parity"
+  - "migrate generated docs outputs safely"
 ---
 
 SKILL: Generated MDX Banner Governance

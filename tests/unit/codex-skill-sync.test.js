@@ -49,9 +49,10 @@ function createTemplate(sourceDir, number, name, description) {
   const content = [
     '---',
     `name: ${name}`,
-    `description: ${description}`,
+    'version: "1.0"',
+    `description: ${description} Use when trigger one, trigger two, or trigger three apply to the requested workflow.`,
     'tier: 1',
-    'triggers:',
+    'invoke_when:',
     '  - "trigger one"',
     '  - "trigger two"',
     '  - "trigger three"',
