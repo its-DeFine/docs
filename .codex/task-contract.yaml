@@ -1,28 +1,50 @@
 task_id: 20260316
-branch: codex/20260316-research-skill-docs
+branch: codex/20260316-ownerless-rollout
 base_branch: docs-v2-dev
 scope_in:
   - .codex/task-contract.yaml
-  - docs-guide/catalog/ai-tools.mdx
-  - docs-guide/catalog/pages-catalog.mdx
-  - docs-guide/frameworks
+  - .githooks/script-index.md
+  - .github/script-index.md
+  - docs-guide/catalog/scripts-catalog.mdx
+  - docs-guide/tooling/lpd-cli.mdx
   - docs-index.json
-  - docs-guide/overview.mdx
-  - docs.json
+  - lpd
+  - snippets/automations/script-index.md
+  - tasks/scripts/script-index.md
+  - tests/script-index.md
   - tests/README.md
-  - v2/index.mdx
-  - v2/resources/index.mdx
-  - v2/resources/documentation-guide
+  - tests/unit/
+  - tools/config/ownerless-governance-surfaces.json
+  - tools/config/script-index.md
+  - tools/lib/script-governance-config.js
+  - tools/lib/script-header-utils.js
+  - tools/lib/script-index.md
+  - tools/notion/script-index.md
+  - tools/script-index.md
+  - tools/scripts/new-script.js
+  - tools/scripts/orchestrators/repair-governance.js
+  - tools/scripts/validators/governance/audit-script-inventory.js
+  - tools/scripts/validators/governance/review-governance-repair-checklist.js
 scope_out: []
 allowed_generated:
-  - .codex/pr-body.generated.md
-  - docs-guide/catalog/pages-catalog.mdx
+  - .githooks/script-index.md
+  - .github/script-index.md
+  - docs-guide/catalog/scripts-catalog.mdx
   - docs-index.json
-  - v2/index.mdx
-  - v2/resources/index.mdx
+  - snippets/automations/script-index.md
+  - tasks/scripts/script-index.md
+  - tests/script-index.md
+  - tools/config/script-index.md
+  - tools/lib/script-index.md
+  - tools/notion/script-index.md
+  - tools/script-index.md
 acceptance_checks:
+  - node tests/unit/audit-script-inventory-repair-rules.test.js
+  - node tests/unit/repair-governance.test.js
+  - node tests/unit/script-docs.test.js
+  - node tests/unit/ownerless-governance.test.js
+  - node tests/unit/docs-guide-sot.test.js
+  - node tests/run-all.js --staged --skip-browser
   - node tests/run-pr-checks.js --base-ref docs-v2-dev
-risk_flags:
-  - docs-ia
-  - docs-governance
+risk_flags: []
 follow_up_issues: []

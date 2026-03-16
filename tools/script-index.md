@@ -3,7 +3,7 @@
 {/* SCRIPT-INDEX:START */}
 ## Script Index
 
-| Script | Summary | Usage | Owner |
+| Script | Summary | Usage | Domain |
 |---|---|---|---|
 | `tools/scripts/add-framework-headers.js` | Inserts or extends framework headers on all repo scripts from classification data. | `node tools/scripts/add-framework-headers.js --data script-classifications.json --dry-run` | docs |
 | `tools/scripts/add-pagetype-mechanical.js` | Mechanically assigns pageType frontmatter to eligible v2 MDX pages. | `node tools/scripts/add-pagetype-mechanical.js [flags]` | docs |
@@ -85,7 +85,7 @@
 | `tools/scripts/lib/docs-path-sync.js` | Shared docs path sync library — detects staged page moves, plans deterministic route rewrites, and applies governed docs.json/path reference updates. | `const sync = require('./docs-path-sync');` | docs |
 | `tools/scripts/mint-dev.sh` | Mintlify dev server launcher — starts mint dev with correct configuration | `bash tools/scripts/mint-dev.sh [flags]` | docs |
 | `tools/scripts/new-script.js` | Script scaffolder — creates a new script file prefilled with the required docs header template | `node tools/scripts/new-script.js [flags]` | docs |
-| `tools/scripts/orchestrators/repair-governance.js` | Chains audit, safe repair, verification, and reporting into a single self-healing governance pipeline. | `node tools/scripts/orchestrators/repair-governance.js [--dry-run] [--auto-commit] [--report-only] [--strict]` | docs |
+| `tools/scripts/orchestrators/repair-governance.js` | Chains audit, safe repair, verification, and reporting into a single self-healing governance pipeline. | `node tools/scripts/orchestrators/repair-governance.js [--dry-run] [--auto-commit] [--report-only] [--strict] [--staged\|--files <path[,path...]>\|--full]` | docs |
 | `tools/scripts/publish-v2-internal-reports.js` | Report publisher — publishes v2 internal audit reports to configured output locations | `node tools/scripts/publish-v2-internal-reports.js [flags]` | docs |
 | `tools/scripts/remediators/assets/migrate-assets-to-branch.js` | Reads the media-audit manifest, migrates flagged assets to docs-v2-assets, and rewrites MDX/JSX references to raw GitHub URLs. | `node tools/scripts/remediators/assets/migrate-assets-to-branch.js --manifest tasks/reports/media-audit/media-audit-manifest.json --target migrate_r2,migrate_cloudinary --dry-run` | docs |
 | `tools/scripts/remediators/components/repair-component-metadata.js` | Auto-repairs derived JSDoc metadata fields from repo state. Safe fields only. Mirrors AUDIT-00 --fix pattern for components. | `node tools/scripts/remediators/components/repair-component-metadata.js [--dry-run] [--fix] [--staged]` | docs |
@@ -122,7 +122,7 @@
 | `tools/scripts/validators/content/check-mdx-safe-markdown.js` | Validates first-party markdown and MDX content for repo-wide MDX-safe syntax, including parse failures and deterministic unsafe patterns. | `node tools/scripts/validators/content/check-mdx-safe-markdown.js [--staged\|--files a,b] [--json]` | docs |
 | `tools/scripts/validators/content/check-page-endings.js` | Validates that English v2 MDX pages end with an approved navigational or closing element | `node tools/scripts/validators/content/check-page-endings.js [--fix] [--json]` | docs |
 | `tools/scripts/validators/content/check-proper-nouns.js` | Detects and fixes incorrect proper noun capitalisation in prose while skipping code, frontmatter, URLs, and path-like tokens. | `node tools/scripts/validators/content/check-proper-nouns.js [--file <path[,path...]>] [--fix]` | docs |
-| `tools/scripts/validators/governance/audit-script-inventory.js` | Deep inventory audit of every script in the repo. Traces triggers, outputs, downstream chains, and governance compliance. Produces reports grouped by trigger category. | `node tools/scripts/validators/governance/audit-script-inventory.js [--fix] [--dry-run] [--staged-only] [--quiet] [--json] [--md] [--output <dir>] [--verbose]` | docs |
+| `tools/scripts/validators/governance/audit-script-inventory.js` | Deep inventory audit of every script in the repo. Traces triggers, outputs, downstream chains, and governance compliance. Produces reports grouped by trigger category. | `node tools/scripts/validators/governance/audit-script-inventory.js [--fix] [--dry-run] [--staged-only\|--staged] [--files <path[,path...]>] [--quiet] [--json] [--md] [--output <dir>] [--verbose]` | docs |
 | `tools/scripts/validators/governance/check-agent-docs-freshness.js` | Validates that required agent governance docs exist and have been touched within a freshness threshold | `node tools/scripts/validators/governance/check-agent-docs-freshness.js [--threshold <days>] [--json]` | docs |
 | `tools/scripts/validators/governance/review-governance-repair-checklist.js` | Generates a review checklist for dry-run governance repair proposals that require human approval before fix mode is applied. | `node tools/scripts/validators/governance/review-governance-repair-checklist.js [--output <dir>] [--json] [--md]` | docs |
 | `tools/scripts/verify-all-pages.js` | Loads component-library routes in a headless browser and fails on render, console, or 404 issues. | `node tools/scripts/verify-all-pages.js` | docs |

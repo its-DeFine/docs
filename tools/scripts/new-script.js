@@ -4,7 +4,7 @@
  * @category          generator
  * @purpose           qa:repo-health
  * @scope             tools/scripts, tests/unit/script-docs.test.js
- * @owner             docs
+ * @domain            docs
  * @needs             E-C1, R-R14
  * @purpose-statement Script scaffolder — creates a new script file prefilled with the required docs header template
  * @pipeline          manual — not yet in pipeline
@@ -24,7 +24,7 @@ function argValue(name) {
 }
 
 function usage() {
-  console.log('Usage: node tools/scripts/new-script.js --path <repo-relative-path> [--owner <value>] [--summary <value>] [--scope <value>]');
+  console.log('Usage: node tools/scripts/new-script.js --path <repo-relative-path> [--domain <value>] [--summary <value>] [--scope <value>]');
 }
 
 function usageDefault(filePath) {
@@ -40,7 +40,7 @@ function hashTemplate(params) {
     '# @category utility',
     '# @purpose tooling:dev-tools',
     '# @needs TODO: requirement-id',
-    '# @owner ' + params.owner,
+    '# @domain ' + params.domain,
     '# @scope ' + params.scope,
     '# @purpose-statement ' + params.summary,
     '# @pipeline manual — interactive developer tool, not suited for automated pipelines',
@@ -58,7 +58,7 @@ function blockTemplate(params) {
     ' * @category utility',
     ' * @purpose tooling:dev-tools',
     ' * @needs TODO: requirement-id',
-    ` * @owner ${params.owner}`,
+    ` * @domain ${params.domain}`,
     ` * @scope ${params.scope}`,
     ` * @purpose-statement ${params.summary}`,
     ' * @pipeline manual — interactive developer tool, not suited for automated pipelines',
@@ -69,10 +69,10 @@ function blockTemplate(params) {
   return lines.join('\n');
 }
 
-function createContent(filePath, owner, summary, scope) {
+function createContent(filePath, domain, summary, scope) {
   const ext = path.extname(filePath).toLowerCase();
   const scriptName = path.basename(filePath, ext);
-  const params = { filePath, owner, summary, scope, scriptName };
+  const params = { filePath, domain, summary, scope, scriptName };
   const hashStyle = ext === '.sh' || ext === '.bash' || ext === '.py';
 
   let shebang = '';
@@ -98,10 +98,10 @@ function main() {
     process.exit(1);
   }
 
-  const owner = argValue('--owner') || 'docs';
+  const domain = argValue('--domain') || argValue('--owner') || 'docs';
   const summary = argValue('--summary') || 'TODO: one-line purpose';
   const scope = argValue('--scope') || path.dirname(normalized);
-  const content = createContent(normalized, owner, summary, scope);
+  const content = createContent(normalized, domain, summary, scope);
 
   fs.mkdirSync(path.dirname(fullPath), { recursive: true });
   fs.writeFileSync(fullPath, content, 'utf8');

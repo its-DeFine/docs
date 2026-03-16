@@ -4,12 +4,12 @@
  * @category          orchestrator
  * @purpose           governance:repo-health
  * @scope             full-repo
- * @owner             docs
+ * @domain            docs
  * @needs             R-R14, R-R18, R-C6
  * @purpose-statement Chains audit, safe repair, verification, and reporting into a single self-healing governance pipeline.
  * @pipeline          P2, P5, P6, indirect, manual
  * @dualmode          --report-only | --dry-run | default fix mode
- * @usage             node tools/scripts/orchestrators/repair-governance.js [--dry-run] [--auto-commit] [--report-only] [--strict]
+ * @usage             node tools/scripts/orchestrators/repair-governance.js [--dry-run] [--auto-commit] [--report-only] [--strict] [--staged|--files <path[,path...]>|--full]
  */
 
 const fs = require('fs');
@@ -27,14 +27,22 @@ const INVENTORY_MD_PATH = 'tasks/reports/repo-ops/SCRIPT_INVENTORY_FULL.md';
 const REPAIR_REPORT_JSON_PATH = 'tasks/reports/repo-ops/REPAIR_REPORT_LATEST.json';
 const REPAIR_REPORT_MD_PATH = 'tasks/reports/repo-ops/REPAIR_REPORT_LATEST.md';
 const PYTHON_VALIDATE_COMMAND = ['-c', "import json; json.load(open('tasks/reports/script-classifications.json'))"];
+const FIX_SCOPE_REQUIRED_MESSAGE =
+  'Script-governance fix mode requires explicit scope during the @owner -> @domain migration. Use --staged or --files.';
+const FULL_REPAIR_DISABLED_MESSAGE =
+  'Full-repo script-governance repair is disabled during the @owner -> @domain migration. Use --staged or --files for bounded repair; perform the corpus rewrite as a separate evidence-backed batch.';
 
 function parseArgs(argv) {
   const args = {
     dryRun: false,
     autoCommit: false,
     reportOnly: false,
-    strict: false
+    strict: false,
+    stagedOnly: false,
+    files: [],
+    full: false
   };
+  let scopeCount = 0;
 
   for (let index = 0; index < argv.length; index += 1) {
     const token = argv[index];
@@ -54,6 +62,45 @@ function parseArgs(argv) {
       args.strict = true;
       continue;
     }
+    if (token === '--staged') {
+      args.stagedOnly = true;
+      scopeCount += 1;
+      continue;
+    }
+    if (token === '--files' || token === '--file') {
+      const raw = String(argv[index + 1] || '').trim();
+      if (!raw) {
+        throw new Error('--files requires a comma-separated value.');
+      }
+      args.files.push(
+        ...raw
+          .split(',')
+          .map((part) => String(part || '').trim())
+          .filter(Boolean)
+      );
+      scopeCount += 1;
+      index += 1;
+      continue;
+    }
+    if (token.startsWith('--files=')) {
+      const raw = String(token.slice('--files='.length) || '').trim();
+      if (!raw) {
+        throw new Error('--files requires a comma-separated value.');
+      }
+      args.files.push(
+        ...raw
+          .split(',')
+          .map((part) => String(part || '').trim())
+          .filter(Boolean)
+      );
+      scopeCount += 1;
+      continue;
+    }
+    if (token === '--full') {
+      args.full = true;
+      scopeCount += 1;
+      continue;
+    }
     if (token === '--help' || token === '-h') {
       args.help = true;
       continue;
@@ -67,13 +114,25 @@ function parseArgs(argv) {
   if (args.autoCommit && (args.dryRun || args.reportOnly)) {
     throw new Error('--auto-commit is only valid in fix mode.');
   }
+  if (scopeCount > 1) {
+    throw new Error('Choose only one scope: --staged, --files, or --full.');
+  }
+
+  args.files = [...new Set(args.files)];
+  const fixMode = !args.dryRun && !args.reportOnly;
+  if (fixMode && args.full) {
+    throw new Error(FULL_REPAIR_DISABLED_MESSAGE);
+  }
+  if (fixMode && !args.stagedOnly && args.files.length === 0) {
+    throw new Error(FIX_SCOPE_REQUIRED_MESSAGE);
+  }
 
   return args;
 }
 
 function usage() {
   console.log(
-    'Usage: node tools/scripts/orchestrators/repair-governance.js [--dry-run] [--auto-commit] [--report-only] [--strict]'
+    'Usage: node tools/scripts/orchestrators/repair-governance.js [--dry-run] [--auto-commit] [--report-only] [--strict] [--staged|--files <path[,path...]>|--full]'
   );
 }
 
@@ -158,7 +217,7 @@ function cloneFixCounts(rawFixes = {}) {
     json_entries_updated: Number(rawFixes.json_entries_updated || 0),
     headers_category_added: Number(rawFixes.headers_category_added || 0),
     headers_purpose_added: Number(rawFixes.headers_purpose_added || 0),
-    headers_owner_added: Number(rawFixes.headers_owner_added || 0),
+    headers_domain_added: Number(rawFixes.headers_domain_added || 0),
     headers_script_added: Number(rawFixes.headers_script_added || 0),
     headers_usage_added: Number(rawFixes.headers_usage_added || 0),
     headers_scope_added: Number(rawFixes.headers_scope_added || 0),
@@ -247,7 +306,7 @@ function buildMarkdownReport(report) {
   lines.push(`- JSON entries updated: ${report.repairs_applied.json_entries_updated}`);
   lines.push(`- Header category added: ${report.repairs_applied.headers_category_added}`);
   lines.push(`- Header purpose added: ${report.repairs_applied.headers_purpose_added}`);
-  lines.push(`- Header owner added: ${report.repairs_applied.headers_owner_added}`);
+  lines.push(`- Header domain added: ${report.repairs_applied.headers_domain_added}`);
   lines.push(`- Header script added: ${report.repairs_applied.headers_script_added}`);
   lines.push(`- Header usage added: ${report.repairs_applied.headers_usage_added}`);
   lines.push(`- Header scope added: ${report.repairs_applied.headers_scope_added}`);
@@ -348,10 +407,21 @@ function runAuditStage(context, args, stageName) {
   return loadInventoryReport(context);
 }
 
-function runVerification(context) {
-  runCommandOrThrow(context, 'node', [context.scriptDocsTestPath], 'VERIFY script-docs');
+function buildScopeArgs(args) {
+  if (args.stagedOnly) {
+    return ['--staged'];
+  }
+  if (Array.isArray(args.files) && args.files.length > 0) {
+    return ['--files', args.files.join(',')];
+  }
+  return [];
+}
+
+function runVerification(context, args) {
+  const scopeArgs = buildScopeArgs(args);
+  runCommandOrThrow(context, 'node', [context.scriptDocsTestPath, '--check', ...scopeArgs], 'VERIFY script-docs');
   runCommandOrThrow(context, 'python3', PYTHON_VALIDATE_COMMAND, 'VERIFY classification-json');
-  const postAudit = runAuditStage(context, ['--json'], 'VERIFY post-audit');
+  const postAudit = runAuditStage(context, [...scopeArgs, '--json'], 'VERIFY post-audit');
   return postAudit;
 }
 
@@ -397,9 +467,10 @@ function successExitCode(args, needsHumanLength) {
 function runRepair(args, overrides = {}) {
   const context = buildContext(overrides);
   const warnings = [];
+  const scopeArgs = buildScopeArgs(args);
   ensureDirectory(path.join(context.repoRoot, path.dirname(context.repairReportJsonPath)));
 
-  const baselineReport = runAuditStage(context, ['--json'], 'AUDIT');
+  const baselineReport = runAuditStage(context, [...scopeArgs, '--json'], 'AUDIT');
   const preRepair = normalizeSummary(baselineReport.summary);
 
   if (args.reportOnly) {
@@ -420,7 +491,7 @@ function runRepair(args, overrides = {}) {
     };
   }
 
-  const previewReport = runAuditStage(context, ['--fix', '--dry-run', '--json'], 'REPAIR preview');
+  const previewReport = runAuditStage(context, [...scopeArgs, '--fix', '--dry-run', '--json'], 'REPAIR preview');
   const previewRepair = previewReport.repair || { fixes: {}, needs_human: [], projected_summary: previewReport.summary };
 
   if (args.dryRun) {
@@ -451,7 +522,7 @@ function runRepair(args, overrides = {}) {
 
   let fixReport;
   try {
-    fixReport = runAuditStage(context, ['--fix', '--json'], 'REPAIR apply');
+    fixReport = runAuditStage(context, [...scopeArgs, '--fix', '--json'], 'REPAIR apply');
   } catch (error) {
     restoreSnapshots(context.repoRoot, rollbackSnapshot);
     const report = buildReportObject({
@@ -476,7 +547,7 @@ function runRepair(args, overrides = {}) {
 
   let postAuditReport;
   try {
-    postAuditReport = runVerification(context);
+    postAuditReport = runVerification(context, args);
   } catch (error) {
     restoreSnapshots(context.repoRoot, rollbackSnapshot);
     const report = buildReportObject({

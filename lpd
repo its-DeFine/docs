@@ -4,7 +4,7 @@
 # @category          orchestrator
 # @purpose           infrastructure:pipeline-orchestration
 # @scope             full-repo
-# @owner             docs
+# @domain            docs
 # @needs             R-R29
 # @purpose-statement Developer CLI orchestrator — unified command surface for setup, dev server, testing, hooks, and script execution across all repo domains
 # @pipeline          manual — not yet in pipeline
@@ -113,8 +113,8 @@ Examples:
   lpd ai-sitemap --write
     - Generates sitemap-ai.xml at repo root.
 
-  lpd repair --surface portable-skills --write
-    - Repairs portable skill export drift and re-runs the validator.
+  lpd repair --surface script-governance --write --staged
+    - Repairs staged script-governance metadata drift with bounded scope.
 
   lpd scripts list --group tools
     - Lists available scripts in the tools group.
@@ -189,7 +189,7 @@ Common Workflows:
   regenerate AI sitemap
     lpd ai-sitemap --write
   repair a governed surface
-    lpd repair --surface component-governance --write
+    lpd repair --surface script-governance --write --staged
   move a docs page and sync docs.json
     lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/new.mdx
 
@@ -1638,21 +1638,24 @@ EOF
       script-governance)
         if [ "$mode" = "write" ]; then
           if [ "$scope_mode" = "full" ]; then
-            run_cli_step node tools/scripts/orchestrators/repair-governance.js || {
-              finish 1 "repair" "Script governance repair failed."
-              return 1
-            }
-          else
-            local -a script_cmd
-            script_cmd=(node tests/unit/script-docs.test.js "${quality_scope[@]}" --write --rebuild-indexes --autofill)
-            if [ "$stage_outputs" = "1" ]; then
-              script_cmd+=(--stage)
-            fi
-            run_cli_step "${script_cmd[@]}" || {
-              finish 1 "repair" "Script governance repair failed."
-              return 1
-            }
+            finish 1 "repair" "Full-repo script-governance repair is disabled during the @owner -> @domain migration. Use --staged or --files."
+            return 1
           fi
+          if [ "$scope_mode" != "staged" ] && [ "$scope_mode" != "files" ]; then
+            finish 1 "repair" "Script-governance write mode requires explicit scope. Use --staged or --files."
+            return 1
+          fi
+          local -a script_cmd
+          script_cmd=(node tools/scripts/orchestrators/repair-governance.js)
+          if [ "$scope_mode" = "staged" ]; then
+            script_cmd+=(--staged)
+          else
+            script_cmd+=(--files "$files_csv")
+          fi
+          run_cli_step "${script_cmd[@]}" || {
+            finish 1 "repair" "Script governance repair failed."
+            return 1
+          }
         else
           run_cli_step node tests/unit/script-docs.test.js "${quality_scope[@]}" || {
             finish 1 "repair" "Script governance validation failed."

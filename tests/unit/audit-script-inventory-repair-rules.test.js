@@ -4,7 +4,7 @@
  * @category          validator
  * @purpose           qa:repo-health
  * @scope             tests/unit, tools/scripts/validators/governance
- * @owner             docs
+ * @domain            docs
  * @needs             E-C1, R-R14
  * @purpose-statement Tests audit-script-inventory repair hardening rules for judgement-field backfill and pipeline safety.
  * @pipeline          manual (not yet in pipeline)
@@ -14,6 +14,7 @@
 const assert = require('assert');
 const {
   buildNeedsHumanEntry,
+  buildRepairPlan,
   buildProjectedHeaderState,
   selectSafePipelineProposal
 } = require('../../tools/scripts/validators/governance/audit-script-inventory.js');
@@ -27,7 +28,7 @@ function makeScriptInfo(overrides = {}) {
     category: overrides.category || '',
     purpose: overrides.purpose || '',
     scope: overrides.scope || '',
-    owner: overrides.owner || '',
+    domain: overrides.domain || '',
     needs: overrides.needs || '',
     purpose_statement: overrides.purpose_statement || '',
     pipeline_declared: overrides.pipeline_declared || '',
@@ -70,7 +71,7 @@ function main() {
     assert.strictEqual(state.projected.purpose, '');
     assert.strictEqual(state.projected.needs, '');
     assert.strictEqual(state.projected.purpose_statement, '');
-    assert.strictEqual(state.projected.owner, 'docs');
+    assert.strictEqual(state.projected.domain, 'docs');
     assert.strictEqual(state.projected.script, 'example');
     assert.strictEqual(state.projected.usage, 'node tools/scripts/example.js [flags]');
   });
@@ -142,6 +143,27 @@ function main() {
     );
 
     assert.strictEqual(needsHuman, null);
+  });
+
+  runCase('keeps explicit empty scoped repair from expanding to full repo', () => {
+    const plan = buildRepairPlan(
+      {
+        classification_rows: [
+          {
+            path: 'tools/scripts/missing.js',
+            script: 'missing'
+          }
+        ],
+        scripts: []
+      },
+      {
+        scopedMode: true,
+        scopedPaths: []
+      }
+    );
+
+    assert.strictEqual(plan.fixes.json_phantoms_removed, 0);
+    assert.deepStrictEqual(plan.planned_files, []);
   });
 
   if (failures.length > 0) {

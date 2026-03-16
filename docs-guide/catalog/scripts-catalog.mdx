@@ -22,7 +22,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 
 ## .githooks
 
-| Script | Summary | Usage | Owner |
+| Script | Summary | Usage | Domain |
 |---|---|---|---|
 | `.githooks/install.sh` | Installs git hooks by setting core.hooksPath to .githooks/ | `bash .githooks/install.sh [flags]` | docs |
 | `.githooks/pre-commit` | Pre-commit hook orchestrator — runs structural checks, unit tests, codex validation, and docs-index freshness check before allowing commit | `bash .githooks/pre-commit [flags]` | docs |
@@ -34,7 +34,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 
 ## .github/scripts
 
-| Script | Summary | Usage | Owner |
+| Script | Summary | Usage | Domain |
 |---|---|---|---|
 | `.github/scripts/fetch-forum-data.js` | Fetches latest topics and posts from Livepeer Forum API, writes to snippets/automations/forum/ | `node .github/scripts/fetch-forum-data.js [flags]` | docs |
 | `.github/scripts/fetch-ghost-blog-data.js` | Fetches blog posts from Ghost CMS API, writes to snippets/automations/blog/ | `node .github/scripts/fetch-ghost-blog-data.js [flags]` | docs |
@@ -43,7 +43,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 
 ## tests
 
-| Script | Summary | Usage | Owner |
+| Script | Summary | Usage | Domain |
 |---|---|---|---|
 | `tests/integration/browser.test.js` | Puppeteer browser integration test — renders pages from docs.json and checks for console errors, load failures, and visual regressions | `node tests/integration/browser.test.js [flags]` | docs |
 | `tests/integration/domain-pages-audit.js` | Audits deployed docs page HTTP status codes (v1, v2, or both) and emits a stable JSON report | `node tests/integration/domain-pages-audit.js [flags]` | docs |
@@ -110,7 +110,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 
 ## tools/scripts
 
-| Script | Summary | Usage | Owner |
+| Script | Summary | Usage | Domain |
 |---|---|---|---|
 | `tools/scripts/add-framework-headers.js` | Inserts or extends framework headers on all repo scripts from classification data. | `node tools/scripts/add-framework-headers.js --data script-classifications.json --dry-run` | docs |
 | `tools/scripts/add-pagetype-mechanical.js` | Mechanically assigns pageType frontmatter to eligible v2 MDX pages. | `node tools/scripts/add-pagetype-mechanical.js [flags]` | docs |
@@ -192,7 +192,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/scripts/lib/docs-path-sync.js` | Shared docs path sync library — detects staged page moves, plans deterministic route rewrites, and applies governed docs.json/path reference updates. | `const sync = require('./docs-path-sync');` | docs |
 | `tools/scripts/mint-dev.sh` | Mintlify dev server launcher — starts mint dev with correct configuration | `bash tools/scripts/mint-dev.sh [flags]` | docs |
 | `tools/scripts/new-script.js` | Script scaffolder — creates a new script file prefilled with the required docs header template | `node tools/scripts/new-script.js [flags]` | docs |
-| `tools/scripts/orchestrators/repair-governance.js` | Chains audit, safe repair, verification, and reporting into a single self-healing governance pipeline. | `node tools/scripts/orchestrators/repair-governance.js [--dry-run] [--auto-commit] [--report-only] [--strict]` | docs |
+| `tools/scripts/orchestrators/repair-governance.js` | Chains audit, safe repair, verification, and reporting into a single self-healing governance pipeline. | `node tools/scripts/orchestrators/repair-governance.js [--dry-run] [--auto-commit] [--report-only] [--strict] [--staged&#124;--files &lt;path[,path...]&gt;&#124;--full]` | docs |
 | `tools/scripts/publish-v2-internal-reports.js` | Report publisher — publishes v2 internal audit reports to configured output locations | `node tools/scripts/publish-v2-internal-reports.js [flags]` | docs |
 | `tools/scripts/remediators/assets/migrate-assets-to-branch.js` | Reads the media-audit manifest, migrates flagged assets to docs-v2-assets, and rewrites MDX/JSX references to raw GitHub URLs. | `node tools/scripts/remediators/assets/migrate-assets-to-branch.js --manifest tasks/reports/media-audit/media-audit-manifest.json --target migrate_r2,migrate_cloudinary --dry-run` | docs |
 | `tools/scripts/remediators/components/repair-component-metadata.js` | Auto-repairs derived JSDoc metadata fields from repo state. Safe fields only. Mirrors AUDIT-00 --fix pattern for components. | `node tools/scripts/remediators/components/repair-component-metadata.js [--dry-run] [--fix] [--staged]` | docs |
@@ -229,7 +229,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/scripts/validators/content/check-mdx-safe-markdown.js` | Validates first-party markdown and MDX content for repo-wide MDX-safe syntax, including parse failures and deterministic unsafe patterns. | `node tools/scripts/validators/content/check-mdx-safe-markdown.js [--staged&#124;--files a,b] [--json]` | docs |
 | `tools/scripts/validators/content/check-page-endings.js` | Validates that English v2 MDX pages end with an approved navigational or closing element | `node tools/scripts/validators/content/check-page-endings.js [--fix] [--json]` | docs |
 | `tools/scripts/validators/content/check-proper-nouns.js` | Detects and fixes incorrect proper noun capitalisation in prose while skipping code, frontmatter, URLs, and path-like tokens. | `node tools/scripts/validators/content/check-proper-nouns.js [--file &lt;path[,path...]&gt;] [--fix]` | docs |
-| `tools/scripts/validators/governance/audit-script-inventory.js` | Deep inventory audit of every script in the repo. Traces triggers, outputs, downstream chains, and governance compliance. Produces reports grouped by trigger category. | `node tools/scripts/validators/governance/audit-script-inventory.js [--fix] [--dry-run] [--staged-only] [--quiet] [--json] [--md] [--output &lt;dir&gt;] [--verbose]` | docs |
+| `tools/scripts/validators/governance/audit-script-inventory.js` | Deep inventory audit of every script in the repo. Traces triggers, outputs, downstream chains, and governance compliance. Produces reports grouped by trigger category. | `node tools/scripts/validators/governance/audit-script-inventory.js [--fix] [--dry-run] [--staged-only&#124;--staged] [--files &lt;path[,path...]&gt;] [--quiet] [--json] [--md] [--output &lt;dir&gt;] [--verbose]` | docs |
 | `tools/scripts/validators/governance/check-agent-docs-freshness.js` | Validates that required agent governance docs exist and have been touched within a freshness threshold | `node tools/scripts/validators/governance/check-agent-docs-freshness.js [--threshold &lt;days&gt;] [--json]` | docs |
 | `tools/scripts/validators/governance/review-governance-repair-checklist.js` | Generates a review checklist for dry-run governance repair proposals that require human approval before fix mode is applied. | `node tools/scripts/validators/governance/review-governance-repair-checklist.js [--output &lt;dir&gt;] [--json] [--md]` | docs |
 | `tools/scripts/verify-all-pages.js` | Loads component-library routes in a headless browser and fails on render, console, or 404 issues. | `node tools/scripts/verify-all-pages.js` | docs |
@@ -239,7 +239,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 
 ## tools/lib
 
-| Script | Summary | Usage | Owner |
+| Script | Summary | Usage | Domain |
 |---|---|---|---|
 | `tools/lib/codex-skill-templates.js` | Shared helper for validating, selecting, and loading canonical Codex skill templates. | `const &#123; discoverTemplates &#125; = require('../lib/codex-skill-templates');` | docs |
 | `tools/lib/component-governance-utils.js` | Shared parsing and validation utilities for component governance scripts. | `const utils = require('../lib/component-governance-utils');` | docs |
@@ -275,7 +275,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 
 ## tools/notion
 
-| Script | Summary | Usage | Owner |
+| Script | Summary | Usage | Domain |
 |---|---|---|---|
 | `tools/notion/1-read-notion-to-csv.js` | Reads the Notion pages database, filters v2 rows, and writes CSV/JSON exports for downstream sync steps. | `node tools/notion/1-read-notion-to-csv.js [flags]` | docs |
 | `tools/notion/2-read-docs-to-csv.js` | Parses docs.json v2 navigation and writes CSV/JSON exports with section-group metadata for Notion sync. | `node tools/notion/2-read-docs-to-csv.js [flags]` | docs |
@@ -290,18 +290,18 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 
 ## tools/config
 
-| Script | Summary | Usage | Owner |
+| Script | Summary | Usage | Domain |
 |---|---|---|---|
 | `tools/config/v2-internal-report-pages.js` | Configuration data — list of internal report page paths for publish-v2-internal-reports.js | `node tools/config/v2-internal-report-pages.js [flags]` | docs |
 
 ## tasks/scripts
 
-| Script | Summary | Usage | Owner |
+| Script | Summary | Usage | Domain |
 |---|---|---|---|
 | `tasks/scripts/audit-python.py` | Python audit utility — runs Python-based audit checks (alternative to Node auditors) | `python3 tasks/scripts/audit-python.py [flags]` | docs |
 
 ## snippets/automations
 
-| Script | Summary | Usage | Owner |
+| Script | Summary | Usage | Domain |
 |---|---|---|---|
 | `snippets/automations/youtube/filterVideos.js` | YouTube video filter — post-processes fetched YouTube data to filter/sort videos for display | `node snippets/automations/youtube/filterVideos.js [flags]` | docs |

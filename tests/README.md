@@ -253,7 +253,7 @@ Use those pages for workflow scope, commands, readiness, outputs, and source-of-
 Newly added scripts must include these tags near the top of the file:
 - `@script`
 - `@summary`
-- `@owner`
+- `@domain`
 - `@scope`
 - `@usage`
 - `@inputs`
@@ -267,7 +267,7 @@ Example:
 /**
  * @script domain-pages-audit
  * @summary Audit deployed docs page load status.
- * @owner docs
+ * @domain docs
  * @scope tests/integration, tests/reports
  *
  * @usage
@@ -296,7 +296,7 @@ Example:
 Use the generator to create a new script with header already attached:
 ```bash
 node tools/scripts/new-script.js --path tools/scripts/my-script.js
-node tools/scripts/new-script.js --path tasks/scripts/my-script.sh --owner docs --scope tasks/scripts
+node tools/scripts/new-script.js --path tasks/scripts/my-script.sh --domain docs --scope tasks/scripts
 ```
 
 {/* SCRIPT-INDEX:START */}

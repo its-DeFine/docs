@@ -158,9 +158,10 @@
       "tests/unit/ownerless-governance.test.js"
     ],
     "repair_commands": [
-      "lpd repair --surface script-governance --write",
-      "node tools/scripts/orchestrators/repair-governance.js",
-      "node tests/unit/script-docs.test.js --write --rebuild-indexes"
+      "lpd repair --surface script-governance --write --staged",
+      "lpd repair --surface script-governance --write --files <path[,path...]>",
+      "node tools/scripts/orchestrators/repair-governance.js --staged",
+      "node tools/scripts/orchestrators/repair-governance.js --files <path[,path...]>"
     ],
     "gate_layer": "pre-commit",
     "rollout_state": "migrating",
