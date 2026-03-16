@@ -4,7 +4,7 @@
  * @category          validator
  * @purpose           qa:repo-health
  * @scope             tests/unit, tools/scripts/redirects, tools/data/redirects, docs.json
- * @owner             docs
+ * @domain            docs
  * @needs             E-C1, R-R14
  * @purpose-statement Validates legacy root-to-v1 redirect integrity, docs.json sync, root catch-all fallbacks, and legacy fallback-page cleanup behavior.
  * @pipeline          manual — targeted redirect migration coverage

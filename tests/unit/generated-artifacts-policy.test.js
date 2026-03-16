@@ -4,7 +4,7 @@
  * @category          validator
  * @purpose           qa:repo-health
  * @scope             tests/unit, tools/lib/generated-artifacts.js, tools/config/generated-artifacts.json
- * @owner             docs
+ * @domain            docs
  * @needs             R-R16, R-R17
  * @purpose-statement Tests generated artifact governance manifest — validates enums, path matching, and hook-policy expectations
  * @pipeline          manual — targeted governance test

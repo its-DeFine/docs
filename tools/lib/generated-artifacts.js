@@ -3,7 +3,7 @@
  * @category          utility
  * @purpose           governance:index-management
  * @scope             tools/lib, tools/config, .githooks, tests/unit
- * @owner             docs
+ * @domain            docs
  * @needs             R-R16, R-R17
  * @purpose-statement Generated artifact governance helpers — load the manifest, validate enums, and match staged files to managed artifacts
  * @pipeline          indirect — library module

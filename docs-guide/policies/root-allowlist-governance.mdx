@@ -23,7 +23,7 @@ This document is the canonical policy for repo-root governance and `.allowlist` 
 
 `.allowlist` is not a notes file, a migration plan, or a report sink. It is machine-readable input to the root-structure gate in `.githooks/pre-commit`.
 
-Task 3 implements the canonical agent root layout and restores `.allowlist` to a machine-readable root-only file.
+The current governance contract uses the canonical agent root layout and keeps `.allowlist` machine-readable and root-only.
 
 ## Canonical Policy
 
@@ -43,7 +43,7 @@ Canonical authoring rules:
 4. Future target paths should be documented in governance docs, not pre-allowed in `.allowlist` before they exist.
 5. Root clutter (`.DS_Store`, debug logs, caches, backups) should be cleaned or ignored, not allowlisted.
 
-## Task 0 Verification: Last 3 Commits
+## Historical Verification Snapshot
 
 Verification date:
 
@@ -127,7 +127,7 @@ Current root inventory observed during this review:
 | `.DS_Store` | present | OS noise; should not be allowlisted. |
 | `.cache/` | present | Local cache; should not be allowlisted. |
 
-### Retired invalid or legacy entries removed in Task 3
+### Retired invalid or legacy entries removed during governance rollout
 
 | Entry | Status | Why this is a problem |
 |---|---|---|
@@ -144,7 +144,7 @@ Current root inventory observed during this review:
 
 Current parser behavior in `.githooks/pre-commit`:
 
-```bash
+```bash icon="terminal"
 ALLOWLIST=$(grep -v '^#' .allowlist | grep -v '^$' | tr '\n' '|' | sed 's/|$//')
 ```
 
@@ -213,7 +213,7 @@ Preserved decision matrix:
 | `docs-index.json` | no | yes | Move candidate. |
 | `sitemap-ai.xml` | conditional | conditional | Keep at root only if the public root URL is still required. |
 | `llms.txt`, `llms-full.txt` | no | not usefully | Delete custom overrides unless they are intentionally curated. |
-| `ASSISTANT.md` | no | yes | Legacy root file; move or retire in Task 3. |
+| `ASSISTANT.md` | no | yes | Legacy root file; move or retire under the current governance contract. |
 | `.codex/` | yes in current repo | yes | Keep at root under current Codex workflow. |
 | `contribute/` | no | yes | Move candidate with dependency mapping first. |
 

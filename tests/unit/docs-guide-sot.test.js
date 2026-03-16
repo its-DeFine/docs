@@ -4,10 +4,10 @@
  * @category          validator
  * @purpose           qa:repo-health
  * @scope             tests, docs-guide, README.md, tools/scripts/generate-docs-guide-indexes.js, tools/scripts/generate-docs-guide-pages-index.js, tools/scripts/generate-docs-guide-components-index.js
- * @owner             docs
+ * @domain            docs
  * @needs             E-C1, R-R14
  * @purpose-statement Validates docs-guide source-of-truth coverage, README pointers, and generated index freshness
- * @pipeline          P1, P3
+ * @pipeline          P1, P2, P3, manual
  * @dualmode          dual-mode (document flags)
  * @usage             node tests/unit/docs-guide-sot.test.js [flags]
  */
@@ -21,6 +21,7 @@ const {
   parseGeneratedHiddenBanner
 } = require('../../tools/lib/generated-file-banners');
 const { checkAggregateIndex } = require('./script-docs.test.js');
+const uiTemplateGenerator = require('../../tools/scripts/generate-ui-templates');
 
 function getRepoRoot() {
   try {
@@ -42,12 +43,15 @@ const REQUIRED_MANUAL_FILES = [
   'docs-guide/tooling/lpd-cli.mdx',
   'docs-guide/policies/quality-gates.mdx',
   'docs-guide/policies/ownerless-governance.mdx',
+  'docs-guide/policies/root-allowlist-governance.mdx',
+  'docs-guide/policies/agent-governance-framework.mdx',
   'docs-guide/policies/audit-system-overview.mdx',
   'docs-guide/policies/skill-pipeline-map.mdx',
   'docs-guide/policies/cleanup-quarantine-policy.mdx',
   'docs-guide/policies/component-layout-decisions.mdx',
   'docs-guide/features/automations.mdx',
   'docs-guide/frameworks/content-system.mdx',
+  'docs-guide/frameworks/component-governance.mdx',
   'docs-guide/features/data-integrations.mdx',
   'docs-guide/features/ui-system.mdx',
   'docs-guide/frameworks/component-framework.mdx',
@@ -182,6 +186,19 @@ function checkGeneratedIndexFreshness(errors) {
     if (!check.args) {
       const aggregateIndex = checkAggregateIndex();
       if (aggregateIndex.missing || aggregateIndex.changed) {
+        errors.push({
+          file: check.file,
+          rule: 'Generated index freshness',
+          message: check.message,
+          line: 1
+        });
+      }
+      return;
+    }
+
+    if (check.args[0] === 'tools/scripts/generate-ui-templates.js') {
+      const uiTemplates = uiTemplateGenerator.run({ write: false });
+      if (!uiTemplates.passed) {
         errors.push({
           file: check.file,
           rule: 'Generated index freshness',

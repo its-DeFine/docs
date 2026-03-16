@@ -586,7 +586,7 @@ function renderUiSystemShell() {
     '## Components',
     '',
     '- Governed JSX components live in `snippets/components/`.',
-    '- The generated component inventory lives in `docs-guide/indexes/components-index.mdx`.',
+    '- The generated component inventory lives in `docs-guide/catalog/components-catalog.mdx`.',
     '- Component snippets are generated from `docs-guide/component-registry.json`.',
     '',
     '## Templates',

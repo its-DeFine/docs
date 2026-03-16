@@ -3,7 +3,7 @@
  * @category          utility
  * @purpose           tooling:dev-tools
  * @scope             tools/scripts/dev/lib, tools/config/scoped-navigation
- * @owner             docs
+ * @domain            docs
  * @needs             E-C6, F-C1
  * @purpose-statement Scoped docs config resolver — resolves named scoped navigation configs and explicit docs config paths for mint-dev tooling
  * @pipeline          indirect -- library module

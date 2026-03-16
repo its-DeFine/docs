@@ -1,26 +1,62 @@
-task_id: 20260315-merge-docs-v2-into-docs-v2-dev-validation
-branch: tmp/merge-docs-v2-into-docs-v2-dev-validation-20260315
+task_id: 20260316
+branch: codex/20260316-docs-guide-governance-alignment
 base_branch: docs-v2-dev
 scope_in:
   - .codex/task-contract.yaml
-  - .vscode/settings.json
   - docs-guide/**
-  - docs-index.json
   - docs.json
-  - tasks/plan/active/merge-docs-v2-into-docs-v2-dev-root-cause-review.md
-  - tests/**
-  - tools/**
-  - v2/**
+  - tests/unit/docs-guide-sot.test.js
+  - tools/config/scoped-navigation/docs-gate-orch.json
+  - tools/scripts/generate-ui-templates.js
+  - v2/resources/documentation-guide/component-library/**
+  - v2/cn/docs-guide/**
+  - v2/es/docs-guide/**
+  - v2/fr/docs-guide/**
 scope_out:
-  - v1/**
-allowed_generated: []
+  - docs-guide/component-registry-schema.json
+  - docs-guide/component-registry.json
+  - docs-guide/component-usage-map.json
+allowed_generated:
+  - .codex/pr-body.generated.md
+  - docs-guide/catalog/templates-catalog.mdx
+  - docs-guide/catalog/workflows-catalog.mdx
+  - docs-guide/catalog/pages-catalog.mdx
+  - docs-guide/catalog/scripts-catalog.mdx
+  - docs-guide/catalog/ui-templates.mdx
+  - .vscode/templates.code-snippets
+  - .vscode/components.code-snippets
+  - docs-index.json
+  - tasks/reports/script-classifications.json
+  - tests/script-index.md
+  - v2/about/index.mdx
+  - v2/community/index.mdx
+  - v2/index.mdx
+  - v2/cn/index.mdx
+  - v2/es/index.mdx
+  - v2/fr/index.mdx
+  - v2/gateways/index.mdx
+  - v2/orchestrators/index.mdx
+  - v2/solutions/index.mdx
+  - v2/templates/pages/**
+  - v2/resources/documentation-guide/component-library/content.mdx
+  - v2/resources/documentation-guide/component-library/data.mdx
+  - v2/resources/documentation-guide/component-library/layout.mdx
+  - v2/resources/documentation-guide/component-library/page-structure.mdx
+  - v2/resources/documentation-guide/component-library/primitives.mdx
 acceptance_checks:
-  - node tests/run-pr-checks.js --base-ref docs-v2
-  - npm --prefix tests run test:docs-guide
-  - node tests/integration/openapi-reference-audit.js --full --strict --report /tmp/openapi-audit-final.md --report-json /tmp/openapi-audit-final.json
-  - MINT_BASE_URL=http://localhost:3000 npm --prefix tools run test:browser
-  - MINT_BASE_URL=http://localhost:3000 npm --prefix tools run test:v2-pages
+  - node tools/scripts/generate-pages-index.js --write --rebuild-indexes
+  - node tools/scripts/generate-docs-index.js --write
+  - node tools/scripts/generate-docs-guide-indexes.js --check
+  - node tools/scripts/generate-docs-guide-pages-index.js --check
+  - node tools/scripts/generate-docs-guide-components-index.js --check
+  - node tools/scripts/generate-component-docs.js --check --template-only
+  - node tests/unit/docs-guide-sot.test.js
+  - node tests/unit/docs-navigation.test.js
+  - node tests/unit/script-docs.test.js --check-indexes
+  - node tools/scripts/enforce-generated-file-banners.js --check
+  - node tools/scripts/validate-codex-task-contract.js --branch codex/20260316-docs-guide-governance-alignment
+  - node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md
 risk_flags:
-  - merge-validation
-  - no-pr
+  - docs-guide-route-contract
+  - localized-compatibility-cleanup
 follow_up_issues: []

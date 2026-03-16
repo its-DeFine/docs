@@ -4,7 +4,7 @@
  * @category          generator
  * @purpose           governance:index-management
  * @scope             full-repo
- * @owner             docs
+ * @domain            docs
  * @needs             E-C1, R-R14
  * @purpose-statement Legacy root redirect synchronizer — bootstraps root-level legacy-to-v1 mappings, rewrites managed docs.json redirects, installs root catch-all fallbacks, and removes legacy generated fallback pages
  * @pipeline          manual — on-demand maintainer sync tool

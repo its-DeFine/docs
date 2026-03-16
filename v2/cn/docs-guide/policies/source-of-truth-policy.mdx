@@ -35,13 +35,18 @@ keywords:
 以下文件必须存在且非空：
 
 - `docs-guide/overview.mdx`
-- `docs-guide/feature-map.mdx`
-- `docs-guide/architecture-map.mdx`
+- `docs-guide/features/feature-map.mdx`
+- `docs-guide/features/architecture-map.mdx`
+- `docs-guide/policies/v2-folder-governance.mdx`
 - `docs-guide/tooling/lpd-cli.mdx`
 - `docs-guide/policies/quality-gates.mdx`
 - `docs-guide/features/automations.mdx`
-- `docs-guide/content-system.mdx`
-- `docs-guide/data-integrations.mdx`
+- `docs-guide/frameworks/content-system.mdx`
+- `docs-guide/frameworks/component-governance.mdx`
+- `docs-guide/features/data-integrations.mdx`
+- `docs-guide/policies/ownerless-governance.mdx`
+- `docs-guide/policies/root-allowlist-governance.mdx`
+- `docs-guide/policies/agent-governance-framework.mdx`
 
 ## 生成的索引文件
 
@@ -55,7 +60,7 @@ keywords:
 
 重新生成方式：
 
-```bash
+```bash icon="terminal"
 node tools/scripts/generate-docs-guide-indexes.js --write
 node tools/scripts/generate-docs-guide-pages-index.js --write
 node tools/scripts/generate-docs-guide-components-index.js --write
@@ -80,7 +85,7 @@ node tests/unit/script-docs.test.js --write --rebuild-indexes
 
 如果你的分支包含生成的横幅强制工具，使用：
 
-```bash
+```bash icon="terminal"
 node tools/scripts/enforce-generated-file-banners.js --write
 node tools/scripts/enforce-generated-file-banners.js --check
 ```

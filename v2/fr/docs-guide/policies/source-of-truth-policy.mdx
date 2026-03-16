@@ -37,13 +37,18 @@ Ce document définit les limites d'appartenance canoniques pour éviter les éca
 Les fichiers suivants doivent exister et ne pas être vides :
 
 - `docs-guide/overview.mdx`
-- `docs-guide/feature-map.mdx`
-- `docs-guide/architecture-map.mdx`
+- `docs-guide/features/feature-map.mdx`
+- `docs-guide/features/architecture-map.mdx`
+- `docs-guide/policies/v2-folder-governance.mdx`
 - `docs-guide/tooling/lpd-cli.mdx`
 - `docs-guide/policies/quality-gates.mdx`
 - `docs-guide/features/automations.mdx`
-- `docs-guide/content-system.mdx`
-- `docs-guide/data-integrations.mdx`
+- `docs-guide/frameworks/content-system.mdx`
+- `docs-guide/frameworks/component-governance.mdx`
+- `docs-guide/features/data-integrations.mdx`
+- `docs-guide/policies/ownerless-governance.mdx`
+- `docs-guide/policies/root-allowlist-governance.mdx`
+- `docs-guide/policies/agent-governance-framework.mdx`
 
 ## Fichiers d'index générés
 
@@ -57,7 +62,7 @@ Les fichiers suivants sont générés et ne doivent pas être modifiés directem
 
 Regénérer avec :
 
-```bash
+```bash icon="terminal"
 node tools/scripts/generate-docs-guide-indexes.js --write
 node tools/scripts/generate-docs-guide-pages-index.js --write
 node tools/scripts/generate-docs-guide-components-index.js --write
@@ -82,7 +87,7 @@ Guidelines :
 
 Si votre branche inclut l'utilitaire d'application de bannière générée, utilisez :
 
-```bash
+```bash icon="terminal"
 node tools/scripts/enforce-generated-file-banners.js --write
 node tools/scripts/enforce-generated-file-banners.js --check
 ```

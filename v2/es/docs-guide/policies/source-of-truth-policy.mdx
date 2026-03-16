@@ -37,13 +37,18 @@ Este documento define los límites de propiedad canónicos para evitar desviacio
 Los siguientes archivos deben existir y no estar vacíos:
 
 - `docs-guide/overview.mdx`
-- `docs-guide/feature-map.mdx`
-- `docs-guide/architecture-map.mdx`
+- `docs-guide/features/feature-map.mdx`
+- `docs-guide/features/architecture-map.mdx`
+- `docs-guide/policies/v2-folder-governance.mdx`
 - `docs-guide/tooling/lpd-cli.mdx`
 - `docs-guide/policies/quality-gates.mdx`
 - `docs-guide/features/automations.mdx`
-- `docs-guide/content-system.mdx`
-- `docs-guide/data-integrations.mdx`
+- `docs-guide/frameworks/content-system.mdx`
+- `docs-guide/frameworks/component-governance.mdx`
+- `docs-guide/features/data-integrations.mdx`
+- `docs-guide/policies/ownerless-governance.mdx`
+- `docs-guide/policies/root-allowlist-governance.mdx`
+- `docs-guide/policies/agent-governance-framework.mdx`
 
 ## Archivos de Índice Generados
 
@@ -57,7 +62,7 @@ Los siguientes archivos se generan y no deben editarse directamente:
 
 Regenerar con:
 
-```bash
+```bash icon="terminal"
 node tools/scripts/generate-docs-guide-indexes.js --write
 node tools/scripts/generate-docs-guide-pages-index.js --write
 node tools/scripts/generate-docs-guide-components-index.js --write
@@ -82,7 +87,7 @@ Directrices:
 
 Si su rama incluye la utilidad de enforcador de banderas generadas, use:
 
-```bash
+```bash icon="terminal"
 node tools/scripts/enforce-generated-file-banners.js --write
 node tools/scripts/enforce-generated-file-banners.js --check
 ```

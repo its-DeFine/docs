@@ -24,14 +24,14 @@ This document is the canonical governance policy for agent-facing instructions i
 
 It remains a `docs-guide/policies/` page, not a `docs-guide/frameworks/` page, because canonical agent-file locations, overlap boundaries, and retirement targets are enforced governance decisions rather than optional improvement guidance.
 
-The implemented model is:
+The approved governance model is:
 
 - one cross-agent baseline
 - one native adapter per supported agent family
 - one shared repo knowledge set
 - no policy drift between overlapping instruction files
 
-Task 3 implements this layout. Future governance changes must update the runtime files, validators, and this policy together.
+Future governance changes must update the runtime files, validators, and this policy together.
 
 ## Approved Canonical Layout
 
@@ -124,7 +124,7 @@ Every supported agent must be grounded in the same repo knowledge set:
 
 ## Retired Legacy Surfaces
 
-These files were intentionally retired in Task 3 and should not be recreated as active governance sources:
+These files were intentionally retired during the approved governance rollout and should not be recreated as active governance sources:
 
 | Legacy surface | Retirement status | Replacement |
 |---|---|---|
@@ -141,15 +141,15 @@ Current duplication clusters:
 - `contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md` duplicates contributor-facing parts of the same policy set
 - `ai-tools/agent-packs/*` are generated from separate sources and must remain outputs, not canonical rule inputs
 
-## Implemented Migration Map
+## Approved Migration Map
 
-Task 3 implemented the following migration map:
+The current governance contract maps legacy surfaces to the following destinations:
 
 | Legacy surface | Approved destination |
 |---|---|
 | `.github/AGENTS.md` | merged into root `AGENTS.md` |
 | `.cursorrules` | replaced by `.cursor/rules/repo-governance.mdc` |
-| `ASSISTANT.md` | merged into root `AGENTS.md`; no `.mintlify/ASSISTANT.md` adoption in Task 3 |
+| `ASSISTANT.md` | merged into root `AGENTS.md`; no `.mintlify/ASSISTANT.md` adoption in the current contract |
 | `.github/augment-instructions.md` | retired from the supported matrix |
 | duplicated repo-policy blocks inside `.github/copilot-instructions.md` | reduced to a thin adapter that references `AGENTS.md` |
 
@@ -169,7 +169,7 @@ Relevant preserved findings:
 
 Approved decision set carried forward into this policy:
 
-```text
+```text icon="terminal"
 USE:
 AGENTS.md
 .github/copilot-instructions.md
