@@ -23,6 +23,8 @@ This document is the canonical policy for repo-root governance and `.allowlist` 
 
 `.allowlist` is not a notes file, a migration plan, or a report sink. It is machine-readable input to the root-structure gate in `.githooks/pre-commit`.
 
+Task 3 implements the canonical agent root layout and restores `.allowlist` to a machine-readable root-only file.
+
 ## Canonical Policy
 
 `.allowlist` exists to answer one question only:
@@ -58,8 +60,8 @@ Findings:
 - No currently existing root item that is clearly still needed was accidentally removed across the last 3 `.allowlist` commits.
 - Removed legacy entries `docs.json.jsx`, `docs-orch-work.json`, `todo.txt`, and `scripts` do not exist in the current worktree.
 - Current root items `SECURITY.md`, `docs-index.json`, `contribute/`, `tools/`, `docs-guide/`, `v1/`, and `v2/` were not removed from the allowlist history reviewed.
-- `ASSISTANT.md` exists at repo root but is still omitted from the staged `.allowlist`.
-- The current staged `.allowlist` contains parser-visible report prose and HTML comment blocks, which the hook does not safely ignore.
+- `ASSISTANT.md` exists at repo root but is still omitted from the current `.allowlist`.
+- The current `.allowlist` contains parser-visible report prose and HTML comment blocks, which the hook does not safely ignore.
 
 ## Current Root Inventory
 
@@ -68,8 +70,9 @@ Current root inventory observed during this review:
 ### Governed root state
 
 - `.allowlist`
+- `.claude/`
 - `.codex/`
-- `.cursorrules`
+- `.cursor/`
 - `.editorconfig`
 - `.gitattributes`
 - `.githooks/`
@@ -79,9 +82,10 @@ Current root inventory observed during this review:
 - `.mintignore`
 - `.prettierrc`
 - `.vscode/`
+- `.windsurf/`
+- `AGENTS.md`
 - `ai-tools/`
 - `api/`
-- `ASSISTANT.md`
 - `contribute/`
 - `Dockerfile`
 - `docs-guide/`
@@ -111,34 +115,30 @@ Current root inventory observed during this review:
 - `docs.json.bak`
 - `mint-debug.log`
 
-## Current Staged .allowlist Mismatches
+## Current `.allowlist` Mismatches
 
-### Present at root but missing from the staged `.allowlist`
+### Remaining unresolved root items present outside the governed allowlist scope
 
 | Entry | Current state | Notes |
 |---|---|---|
-| `ASSISTANT.md` | present | Real root file; staged `.allowlist` still uses the wrong `Assistant.md` casing. |
 | `docs/` | present | Root directory not covered by current governance notes; requires separate cleanup decision. |
 | `docs.json.bak` | present | Backup artifact; should be cleaned or explicitly governed outside `.allowlist`. |
 | `mint-debug.log` | present | Runtime/debug artifact; should not be allowlisted. |
 | `.DS_Store` | present | OS noise; should not be allowlisted. |
 | `.cache/` | present | Local cache; should not be allowlisted. |
 
-### Allowlisted in the staged file but absent or invalid
+### Retired invalid or legacy entries removed in Task 3
 
 | Entry | Status | Why this is a problem |
 |---|---|---|
-| `.claude/` | absent | Approved future target path, but not implemented yet. |
-| `.claude/CLAUDE.md` | invalid allowlist entry | `.allowlist` is root-only; nested paths are not valid entries. |
-| `.cursor/` | absent | Approved future target path, but not implemented yet. |
-| `.cursor/rules/` | invalid allowlist entry | Nested path; the root entry would be `.cursor/`, not `.cursor/rules/`. |
-| `.windsurf/` | absent | Approved future target path, but not implemented yet. |
-| `.windsurf/rules/` | invalid allowlist entry | Nested path; the root entry would be `.windsurf/`, not `.windsurf/rules/`. |
-| `.github/copilot-instructions.md` | invalid allowlist entry | `.github/` is the root entry; nested files under it should not appear in `.allowlist`. |
-| `.mintlify` | absent | No current repo need or implementation. |
-| `AGENTS.md` | absent | Approved future target file, but not implemented yet. |
-| `Assistant.md` | invalid/incorrect | Wrong casing for the real current file `ASSISTANT.md`. |
-| embedded report prose | invalid | The current staged file contains report text that the parser treats as live entries. |
+| `.claude/CLAUDE.md` | removed from `.allowlist` | Nested path; `.allowlist` is root-only. |
+| `.cursor/rules/` | removed from `.allowlist` | Nested path; the valid root entry is `.cursor`. |
+| `.windsurf/rules/` | removed from `.allowlist` | Nested path; the valid root entry is `.windsurf`. |
+| `.github/copilot-instructions.md` | removed from `.allowlist` | `.github` is the governed root entry. |
+| `.mintlify` | removed from `.allowlist` | Not implemented in this repo. |
+| `.cursorrules` | retired | Replaced by `.cursor/rules/repo-governance.mdc`. |
+| `Assistant.md` | removed | Wrong casing and replaced by the canonical `AGENTS.md` baseline. |
+| embedded report prose / HTML comments | removed | Parser-visible junk that broke machine-readable enforcement. |
 
 ## Why HTML Comments and Report Prose Are Unsafe
 
@@ -160,9 +160,9 @@ Implications:
 - nested file paths are not meaningful allowlist entries
 - pasted reports and free-form prose become parser-visible junk
 
-## Approved Agent Path Decisions and Allowlist Impact
+## Implemented Agent Path Decisions and Allowlist Impact
 
-Approved target locations for agent governance:
+Implemented target locations for agent governance:
 
 - `AGENTS.md`
 - `.github/copilot-instructions.md`
@@ -174,11 +174,11 @@ Allowlist implications:
 
 | Approved path | Future allowlist behavior |
 |---|---|
-| `AGENTS.md` | Add `AGENTS.md` only after the file exists. |
-| `.github/copilot-instructions.md` | Do not list separately; `.github/` already covers it. |
-| `.claude/CLAUDE.md` | Add `.claude/` only after the directory exists. Do not list the nested file path. |
-| `.cursor/rules/` | Add `.cursor/` only after the directory exists. Do not list the nested rules path. |
-| `.windsurf/rules/` | Add `.windsurf/` only after the directory exists. Do not list the nested rules path. |
+| `AGENTS.md` | Listed directly as a root file. |
+| `.github/copilot-instructions.md` | Not listed separately; `.github` covers it. |
+| `.claude/CLAUDE.md` | `.allowlist` lists `.claude` only. |
+| `.cursor/rules/` | `.allowlist` lists `.cursor` only. |
+| `.windsurf/rules/` | `.allowlist` lists `.windsurf` only. |
 
 ## Prior Reports Incorporated
 

@@ -1,152 +1,201 @@
 # Orchestrator Tab Execution Plan
 
-Priority: Finalise orchestrator tab - locked IA and content.
+Priority: Finalise orchestrator tab - locked IA and content added.
 
 ---
 
 ## Task Allocation
 
 ### Handoff Tasks (delegated to agents/worktrees)
-- a) Restructuring folders, file names, and docs-gate-work.json nav
-- b) Writing new pages (from templates/briefs)
-- c) Anything not high-level finalising
+- **a)** Restructuring folders, file names, and docs-gate-work.json nav
+- **b)** Writing new pages (from templates/briefs)
+- **c)** Anything not high-level finalising
 
-### This Thread - Phase 1 (IA Finalisation)
-1. Review and finalise Orchestrators Guides IA
-2. Write full plan (planning mode)
+### This Thread - Phase 1 (IA Finalisation & Handoff Preparation)
+1. Review and finalise Orchestrators Guides IA ✅ DONE
+2. Write full plan with exact file paths and nav JSON
 3. Write prompt handoff for task (a) - restructuring
 4. Identify gap pages needing writing, associate content knowledge for handoff
-5. Write prompt for task (b) - new page writing with content links and skill references
+5. Write prompt template for task (b) - new page writing
 
 ### This Thread - Phase 2 (Content Integration)
-7. Review merge/restructure page decisions and finalise
-8. Execute on 7 - section by section, page by page
-   - Human review of layout/style per page, assisted by AI for changes
-9. Integrate new content pages and review
+7. Review merge/restructure page decisions and finalise (section by section, nav order)
+8. Execute on 7 - page by page with human review of layout/style
+9. Write navigator.mdx (root orchestrator navigation page) after guides review complete
+10. Integrate new content pages from handoff agents and review
 
-### Phase 3 (Later - saved for future execution)
-10. Test pages for standards
-    - Apply verification framework (coming soon) to check information accuracy
-    - Apply copywriting framework to identify prose updates
-11. Re-review Gateways tab with same process
-
----
-
-## Phase 1 Detail
-
-### Step 1: Finalise Guides IA
-
-**Source of truth**: `v2/orchestrators/plan.md` Part 2
-
-**Locked section order**:
-```
-1. Operator Considerations (3 pages)
-2. Deployment Details (5 pages)
-3. Workloads & AI (8 pages)
-4. Staking & Earning (5 pages) - merged
-5. Config & Optimisation (5 pages) - new
-6. Monitoring & Tools (4 pages)
-7. Advanced Operations (4 pages)
-8. Roadmap & Funding (2 pages)
-9. Tutorials (6 pages)
-```
-
-**Decisions to lock**:
-- Final file names per page
-- Which pages are keep/rename/split/merge/move/new
-- Final section assignments (especially pages that move between sections)
-- Quickstart page names and structure
-- Setup page names (if any change)
-
-### Step 2: Write Plan
-
-Full planning mode output with:
-- Exact file paths (current → target)
-- Nav JSON structure (exact)
-- Dependencies between steps
-
-### Step 3: Restructuring Handoff Prompt
-
-Must include:
-- Branch name and worktree context
-- plan.md location for reference
-- Complete current→target file mapping
-- Exact nav JSON to write
-- Validation steps (JSON valid, all paths resolve, no broken refs)
-- What NOT to change (content, metadata beyond what's specified)
-
-### Step 4: Gap Page Identification
-
-For each page that needs writing:
-- Page name and target path
-- Content knowledge sources (existing pages to draw from, v1 docs, context data)
-- Job stories it serves
-- Acceptance criteria (what makes the page "done")
-
-### Step 5: Writing Handoff Prompt
-
-Template per page:
-- Target file path
-- PURPOSE comment (already written)
-- Content knowledge links (source files)
-- Authoring skill reference: `ai-tools/ai-skills/page-authoring/SKILL.md`
-- Style guide reference: `v2/resources/documentation-guide/style-guide.mdx`
-- Glossary reference: `v2/orchestrators/resources/glossary.mdx`
-- Component reference: `docs-guide/tooling/reference-maps/icon-map.mdx`
-- Frontmatter schema requirements
-- Specific content instructions per page
+### Phase 3 (Later - saved to `v2/orchestrators/phase-3-plan.md`)
+11. Standards testing and copywriting framework
+12. Gateway re-review
+13. Cleanup: move deprecated files to x-deprecated (LAST task, after all content finalised)
 
 ---
 
-## Phase 2 Detail
+## Critical Rules
 
-### Step 7: Merge/Restructure Decisions
-
-Section-by-section review of pages flagged for merge/split/restructure in plan.md Part 3:
-
-| Page | Decision | Detail |
-|------|----------|--------|
-| batch-ai-setup | SPLIT | Extract LLM → llm-pipeline-setup. Extract audio/vision → audio-and-vision-pipelines. Rename remainder → diffusion-pipeline-setup. |
-| new-join-a-pool vs join-a-pool | RESOLVE | Pick active version, deprecate other |
-| payments vs payment-receipt | EVALUATE | Scope overlap once payment-receipt written |
-| governance vs protocol-influence | DIFFERENTIATE | Mechanics vs motivation - cross-ref clearly |
-
-### Step 8: Execute Section by Section
-
-For each section:
-1. Review current page content against PURPOSE comment
-2. Human reviews layout and style
-3. Make approved changes
-4. Verify cross-references
-5. Move to next section
-
-Order: Operator Considerations → Deployment → Workloads → Staking & Earning → Config → Monitoring → Advanced → Roadmap → Tutorials
-
-### Step 9: Integrate New Pages
-
-As handoff agents complete new pages:
-1. Review content against PURPOSE and acceptance criteria
-2. Human reviews for accuracy and style
-3. Add to nav
-4. Verify cross-references bidirectional
+- **NO DELETIONS.** Only `git mv` to x-deprecated folders. Cleanup is Phase 3 Step 13.
+- **Stub pages** must include: (a) PURPOSE comment, (b) page structure outline as JSX comment, (c) complete frontmatter.
+- **Phase 2 order**: follow navigation order (Section 1 first, Section 9 last).
+- **navigator.mdx**: write AFTER all guides sections reviewed (Step 9).
+- **Quickstart and Setup sections**: OUT OF SCOPE for this plan. Flagged for separate review.
 
 ---
 
-## Phase 3 Detail (Saved for Later)
+## Resolved Items
 
-### Step 10: Standards Testing
-- Run page-authoring skill compliance check on all pages
-- Verify frontmatter schema compliance (all required fields)
-- Check UK spelling, no em dashes, entity-led voice
-- Verify all REVIEW flags are addressed or explicitly deferred
-- Apply information verification framework when available
-- Apply copywriting framework for prose quality
+- **configure.mdx**: Fixed. Nav references `setup/configure`. Committed.
+- **join-a-pool**: Keep. Do NOT delete `new-join-a-pool` - flag for Phase 2 merge review.
+- **reward-call-tuning**: Standalone for now. Flag for Phase 2 review (possible fold into delegate-operations).
+- **dual-mode + O-T setup**: Both stay in Deployment Details. Flag for Phase 2 merge review.
+- **batch-ai-setup split**: Create empty stubs in restructuring. Fill content in Phase 2.
+- **requirements**: Moved to Operator Considerations (Section 1). Cross-ref from setup-options.
+- **Quickstart + Setup**: Out of scope. Content and naming need separate review.
 
-### Step 11: Gateway Re-review
-- Apply same product-thinking skill to Gateway tab
-- Use orchestrator process as template
-- Focus on: quickstart/setup separation, section coherence, cross-role bridges
-- Document in gateway equivalent of plan.md
+---
+
+## Locked IA: Guides (9 Sections)
+
+### Section 1: Operator Considerations
+
+| Current path | Target path | Change | sidebarTitle | Flags |
+|-------------|------------|--------|-------------|-------|
+| `operator-considerations/operator-rationale.mdx` | `operator-considerations/operator-rationale.mdx` | none | Operator Rationale | Update: add scannable summary at top |
+| `operator-considerations/business-case.mdx` | `operator-considerations/business-case.mdx` | none | Business Case | |
+| `operator-considerations/protocol-influence.mdx` | `operator-considerations/operator-impact.mdx` | **rename** | Operator Impact | |
+| `deployment-details/requirements.mdx` | `operator-considerations/requirements.mdx` | **move** | Requirements | Must categorise by path/setup option. Cross-ref from setup-options in Section 2. |
+
+### Section 2: Deployment Details
+
+| Current path | Target path | Change | sidebarTitle | Flags |
+|-------------|------------|--------|-------------|-------|
+| `deployment-details/setup-options.mdx` | `deployment-details/setup-options.mdx` | none | Setup Options | Update: "combined mode" → "dual mode". Must link to requirements in Section 1. |
+| `deployment-details/siphon-setup.mdx` | `deployment-details/siphon-setup.mdx` | none | Siphon Setup | |
+| `deployment-details/dual-workload-setup.mdx` | `deployment-details/dual-mode-configuration.mdx` | **rename** | Dual Mode | ⚠️ REVIEW Phase 2: possible merge with O-T setup |
+| `deployment-details/orchestrator-transcoder-setup.mdx` | `deployment-details/orchestrator-transcoder-setup.mdx` | none | O-T Split | ⚠️ REVIEW Phase 2: possible merge with dual-mode |
+| `deployment-details/join-a-pool.mdx` | `deployment-details/join-a-pool.mdx` | none | Join a Pool | |
+| `deployment-details/new-join-a-pool.mdx` | `deployment-details/new-join-a-pool.mdx` | none | - | ⚠️ REVIEW Phase 2: merge into join-a-pool? |
+
+### Section 3: Workloads & AI
+
+| Current path | Target path | Change | sidebarTitle | Flags |
+|-------------|------------|--------|-------------|-------|
+| `ai-and-job-workloads/job-types.mdx` | `ai-and-job-workloads/workload-options.mdx` | **rename** | Workload Options | Overview page. Must cover BYOC, video, AI, dual, realtime. |
+| `ai-and-job-workloads/video-transcoding.mdx` | `ai-and-job-workloads/video-transcoding-operations.mdx` | **rename** | Video Transcoding | |
+| `ai-and-job-workloads/ai-workloads-guide.mdx` | `ai-and-job-workloads/ai-inference-operations.mdx` | **rename** | AI Inference | Update: add "Already running video?" bridge, add J6 low-LPT callout |
+| `ai-and-job-workloads/batch-ai-setup.mdx` | `ai-and-job-workloads/diffusion-pipeline-setup.mdx` | **rename** | Diffusion Setup | ⚠️ REVIEW Phase 2: possible tab-merge with LLM setup |
+| - | `ai-and-job-workloads/llm-pipeline-setup.mdx` | **NEW stub** | LLM Setup | ⚠️ REVIEW Phase 2: possible tab-merge with diffusion setup |
+| `ai-and-job-workloads/realtime-ai-setup.mdx` | `ai-and-job-workloads/realtime-ai-setup.mdx` | none | Realtime AI | ⚠️ REVIEW Phase 2: possible tab-merge with audio-and-vision |
+| - | `ai-and-job-workloads/audio-and-vision-pipelines.mdx` | **NEW stub** | Audio & Vision | ⚠️ REVIEW Phase 2: possible tab-merge with realtime |
+| `ai-and-job-workloads/model-vram-reference.mdx` | `ai-and-job-workloads/model-demand-reference.mdx` | **rename** | Model Reference | Update: add demand data |
+| - | `ai-and-job-workloads/model-hosting.mdx` | **NEW stub** | Model Hosting | Where to find models, how to host. ⚠️ REVIEW Phase 2: possible merge into ai-inference-operations |
+
+### Section 4: Staking & Earning (merged)
+
+| Current path | Target path | Change | sidebarTitle | Flags |
+|-------------|------------|--------|-------------|-------|
+| `staking-and-rewards/earnings.mdx` | `staking-and-rewards/earning-model.mdx` | **rename** | Earning Model | ⚠️ REVIEW Phase 2: might belong in Section 1 |
+| `staking-and-rewards/rewards-and-fees.mdx` | `staking-and-rewards/reward-mechanics.mdx` | **rename** | Reward Mechanics | LPT inflation rewards, round system, Reward() calling, gas, cuts |
+| `payments-and-pricing/payment-flow.mdx` | `payments-and-pricing/payment-receipts.mdx` | **rename** | Payment Receipts | STUB. ETH service fees via PM tickets, redemption, gas batching |
+| `payments-and-pricing/payments.mdx` | `payments-and-pricing/payments.mdx` | none | Payments | ⚠️ REVIEW Phase 2: scope overlap with payment-receipts |
+| `staking-and-rewards/attracting-delegates.mdx` | `staking-and-rewards/delegate-operations.mdx` | **rename** | Delegate Operations | Grow delegation, manage cuts, delegator relationships |
+| `staking-and-rewards/governance.mdx` | `staking-and-rewards/network-participation.mdx` | **rename** | Network Participation | |
+
+### Section 5: Config & Optimisation
+
+| Current path | Target path | Change | sidebarTitle | Flags |
+|-------------|------------|--------|-------------|-------|
+| `payments-and-pricing/pricing-strategy.mdx` | `config-and-optimisation/pricing-strategy.mdx` | **move** | Pricing Strategy | STUB - needs writing |
+| - | `config-and-optimisation/capacity-planning.mdx` | **NEW stub** | Capacity Planning | Absorb deprecated benchmarking + session-limits |
+| - | `config-and-optimisation/ai-model-management.mdx` | **NEW stub** | Model Management | Warm/cold, rotation, SFAST/DEEPCACHE, demand-driven |
+| - | `config-and-optimisation/reward-call-tuning.mdx` | **NEW stub** | Reward Tuning | ⚠️ REVIEW Phase 2: possible fold into delegate-operations |
+
+### Section 6: Monitoring & Tools
+
+| Current path | Target path | Change | sidebarTitle | Flags |
+|-------------|------------|--------|-------------|-------|
+| `monitoring-and-tooling/tools.mdx` | `monitoring-and-tooling/operator-toolbox.mdx` | **rename** | Operator Toolbox | 📌 Flag: good rename for gateway equivalent too |
+| `monitoring-and-tooling/explorer-guide.mdx` | `monitoring-and-tooling/explorer-operations.mdx` | **rename** | Explorer Guide | |
+| `monitoring-and-tooling/metrics-monitoring.mdx` | `monitoring-and-tooling/metrics-and-alerting.mdx` | **rename** | Metrics & Alerting | |
+| `monitoring-and-tooling/troubleshooting.mdx` | `monitoring-and-tooling/troubleshooting.mdx` | none | Troubleshooting | Update: add symptom quick-nav |
+
+### Section 7: Advanced Operations
+
+| Current path | Target path | Change | sidebarTitle | Flags |
+|-------------|------------|--------|-------------|-------|
+| `advanced-operations/gateways-orchestrators.mdx` | `advanced-operations/gateway-relationships.mdx` | **rename** | Gateway Relationships | 1st position |
+| - | `advanced-operations/gateway-orchestrator-interface.mdx` | **NEW stub** | Gateway Interface | 2nd position. 📌 Flag: gateway equiv = "Orchestrator Interface" |
+| `advanced-operations/run-a-pool.mdx` | `advanced-operations/pool-operators.mdx` | **rename** | Pool Operators | 3rd. Guide to running a pool for other GPUs. |
+| `advanced-operations/large-scale-operations.mdx` | `advanced-operations/scale-operations.mdx` | **rename** | Scale Operations | 4th. Data-centre / enterprise setups. |
+
+### Section 8: Roadmap & Funding
+
+| Current path | Target path | Change | sidebarTitle | Flags |
+|-------------|------------|--------|-------------|-------|
+| `roadmap-and-funding/operator-support.mdx` | `roadmap-and-funding/funding-and-support.mdx` | **rename** | Funding & Support | Community help, SPE funding guide |
+| `roadmap-and-funding/orchestrator-showcase.mdx` | `roadmap-and-funding/orchestrator-profiles.mdx` | **rename** | Operator Profiles | Showcase operators (Titan etc.), case studies |
+
+### Section 9: Tutorials
+
+| Current path | Target path | Change | sidebarTitle | Flags |
+|-------------|------------|--------|-------------|-------|
+| `tutorials/imported-tutorial-1-*` | x-deprecated | **move** | - | Replace with: |
+| - | `tutorials/byoc-cpu-smoke-test.mdx` | **NEW stub** | BYOC Smoke Test | |
+| `tutorials/imported-tutorial-2-*` | x-deprecated | **move** | - | Replace with: |
+| - | `tutorials/zero-to-first-reward.mdx` | **NEW stub** | Zero to Reward | |
+| `tutorials/imported-tutorial-3-*` | x-deprecated | **move** | - | Replace with: |
+| - | `tutorials/ai-earning-quickstart.mdx` | **NEW stub** | AI Quickstart | |
+| - | `tutorials/add-ai-to-video-node.mdx` | **NEW stub** | Add AI to Video | |
+| - | `tutorials/full-ai-pipeline-tutorial.mdx` | **NEW stub** | Full AI Pipeline | |
+| - | `tutorials/realtime-ai-tutorial.mdx` | **NEW stub** | Realtime AI | |
+
+---
+
+## Out of Scope (flagged for later)
+
+### Quickstart Section
+- Current pages: guide, video-transcoding, tutorial (empty), ai-prompt-start
+- Names and content need separate review. Do NOT restructure in this plan.
+- Flag: current page content does not match the quickstart design in product-thinking-review.
+
+### Setup Section
+- Current pages: guide, rcs-requirements, rs-install, configure, connect-and-activate, test, r-monitor
+- Locked as-is. Do NOT restructure in this plan.
+
+---
+
+## Summary Counts
+
+| Action | Count |
+|--------|-------|
+| Renames | 19 |
+| Moves | 3 (requirements, pricing-strategy, dual-mode to rename) |
+| New stubs | 13 |
+| Deprecated moves | 3 (imported tutorials) |
+| Unchanged | 12 |
+| ⚠️ Phase 2 review flags | 11 |
+| 📌 Gateway cross-flags | 2 |
+| **Total pages in guides** | **47** |
+
+---
+
+## Phase 2-3 Detail
+
+### Step 7-8: Section-by-section human review (nav order)
+
+1. Operator Considerations → 2. Deployment Details → 3. Workloads & AI → 4. Staking & Earning → 5. Config & Optimisation → 6. Monitoring & Tools → 7. Advanced Operations → 8. Roadmap & Funding → 9. Tutorials
+
+Per page: review content against PURPOSE → human reviews layout/style → make approved changes → verify cross-refs.
+
+### Step 9: Write navigator.mdx
+After ALL guides sections reviewed. Job-story router.
+
+### Step 10: Integrate new pages from handoff agents
+Review against PURPOSE + acceptance criteria.
+
+### Phase 3
+11. Standards testing
+12. Gateway re-review
+13. Cleanup (LAST - after all content in)
 
 ---
 
@@ -154,11 +203,10 @@ As handoff agents complete new pages:
 
 | File | Role |
 |------|------|
-| `v2/orchestrators/plan.md` | Consolidated plan (Parts 1-5) |
+| `v2/orchestrators/plan.md` | Consolidated plan - source of truth |
 | `v2/orchestrators/execution-plan.md` | This file - execution tracking |
 | `tools/config/scoped-navigation/docs-gate-work.json` | Nav config |
-| `ai-tools/ai-skills/product-thinking/SKILL.md` | Product thinking framework |
 | `ai-tools/ai-skills/page-authoring/SKILL.md` | Page authoring standards |
+| `ai-tools/ai-skills/product-thinking/SKILL.md` | Product thinking framework |
 | `v2/orchestrators/resources/glossary.mdx` | Terminology reference |
-| `v2/orchestrators/_plans-and-research/` | Archived planning docs |
-| `v2/orchestrators/_contextData/` | Source material and research |
+| `v2/orchestrators/_contextData/product-thinking-handoff.md` | Handoff brief |

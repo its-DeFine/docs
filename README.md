@@ -219,7 +219,9 @@ Automation deep docs:
 ## AI and Repo Guidance
 
 - AI assistant rules and safety: `tools/ai-rules/`
-- repository AI guidance files: `.github/AGENTS.md`, `.cursorrules`
+- canonical repo baseline: `AGENTS.md`
+- native adapters: `.github/copilot-instructions.md`, `.claude/CLAUDE.md`, `.cursor/rules/repo-governance.mdc`, `.windsurf/rules/repo-governance.md`
+- governance policy docs: `docs-guide/policies/agent-governance-framework.mdx`, `docs-guide/policies/root-allowlist-governance.mdx`
 
 ## Source-of-Truth Contract (Short Form)
 

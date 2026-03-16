@@ -4,6 +4,7 @@ This document provides specific instructions for AI agents working on this repos
 
 Canonical policy sources:
 
+- `AGENTS.md`
 - `docs-guide/policies/root-allowlist-governance.mdx`
 - `docs-guide/policies/agent-governance-framework.mdx`
 
@@ -272,4 +273,5 @@ When working on a fork:
 - [Full Git Hooks Documentation](./GIT-HOOKS.md)
 - [Style Guide](../../v2/resources/documentation-guide/style-guide.mdx)
 - [Agent Prerequisites](../../PLAN/AGENT-PREREQUISITES.md)
-- [Augment Instructions](../../.github/augment-instructions.md)
+- [Agent Governance Framework](../../docs-guide/policies/agent-governance-framework.mdx)
+- [Root Allowlist Governance](../../docs-guide/policies/root-allowlist-governance.mdx)

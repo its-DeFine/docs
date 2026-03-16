@@ -62,11 +62,28 @@ Produced assets:
 - Claude Code: `ai-tools/agent-packs/claude/CLAUDE.md`
 - Windsurf: `ai-tools/agent-packs/windsurf/rules.md`
 
+These are generated reference packs and onboarding aids, not the canonical source of repo governance policy.
+
+## Canonical Governance
+
+Canonical policy pages:
+
+- Agent governance: `docs-guide/policies/agent-governance-framework.mdx`
+- Root and allowlist governance: `docs-guide/policies/root-allowlist-governance.mdx`
+
+Approved runtime targets:
+
+- `AGENTS.md`
+- `.github/copilot-instructions.md`
+- `.claude/CLAUDE.md`
+- `.cursor/rules/*.mdc`
+- `.windsurf/rules/*.md`
+
 ## Agent Onboarding Path
 
-1. Run `node tools/scripts/cross-agent-packager.js --agent-pack all`.
-2. Pick the target pack from `ai-tools/agent-packs/<agent>/`.
-3. Add the pack file to the agent's local rules/skills location.
+1. Read `docs-guide/policies/agent-governance-framework.mdx` and `docs-guide/policies/root-allowlist-governance.mdx` first.
+2. Use the approved runtime target for the chosen agent family.
+3. Optionally run `node tools/scripts/cross-agent-packager.js --agent-pack all` to generate supplemental reference packs under `ai-tools/agent-packs/`.
 4. Run `node tools/scripts/repo-audit-orchestrator.js --mode static --scope full` as the first verification run.
 
 ## Codex Skill Portability

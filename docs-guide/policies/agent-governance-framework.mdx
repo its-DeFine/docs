@@ -22,14 +22,16 @@ keywords:
 
 This document is the canonical governance policy for agent-facing instructions in this repository.
 
-The target model is:
+It remains a `docs-guide/policies/` page, not a `docs-guide/frameworks/` page, because canonical agent-file locations, overlap boundaries, and retirement targets are enforced governance decisions rather than optional improvement guidance.
+
+The implemented model is:
 
 - one cross-agent baseline
 - one native adapter per supported agent family
 - one shared repo knowledge set
 - no policy drift between overlapping instruction files
 
-Task 3 migration work is not executed in this document. This page defines the approved contract that later rewrites must implement.
+Task 3 implements this layout. Future governance changes must update the runtime files, validators, and this policy together.
 
 ## Approved Canonical Layout
 
@@ -47,11 +49,11 @@ Current implementation state:
 
 | Target path | Current status |
 |---|---|
-| `AGENTS.md` | approved target, not yet implemented |
-| `.github/copilot-instructions.md` | already present |
-| `.claude/CLAUDE.md` | approved target, not yet implemented |
-| `.cursor/rules/*.mdc` | approved target, not yet implemented |
-| `.windsurf/rules/*.md` | approved target, not yet implemented |
+| `AGENTS.md` | implemented canonical repo-wide baseline |
+| `.github/copilot-instructions.md` | implemented thin native adapter |
+| `.claude/CLAUDE.md` | implemented thin native adapter |
+| `.cursor/rules/*.mdc` | implemented thin native adapter |
+| `.windsurf/rules/*.md` | implemented thin native adapter |
 
 ## Governance Taxonomy
 
@@ -104,21 +106,32 @@ Every supported agent must be grounded in the same repo knowledge set:
 | Validator enforcement | `tools/scripts/validators/governance/*` |
 | Codex operational governance | `.codex/*`, `tools/scripts/codex/*` |
 
-## Current Local Rule Inventory and Overlap Map
+## Current Active Rule Inventory and Overlap Map
 
 | Surface | Current role | Classification | Migration target |
 |---|---|---|---|
-| `.github/AGENTS.md` | repo-wide rules plus structure and safety guidance | legacy to retire | merge baseline content into root `AGENTS.md` |
-| `.github/copilot-instructions.md` | GitHub Copilot adapter with duplicated repo policy | native adapter | keep, but reduce to Copilot-specific delta |
-| `.github/augment-instructions.md` | Augment-specific copy of repo policy | legacy to retire | retire unless Augment is explicitly restored to the supported matrix |
-| `.cursorrules` | current Cursor-facing rule file | legacy to retire | migrate rule content into `.cursor/rules/*.mdc` |
-| `ASSISTANT.md` | repo-local assistant contract | legacy to retire | split cross-agent policy into `AGENTS.md`; keep Mintlify assistant behavior separate if later adopted |
+| `AGENTS.md` | repo-wide baseline covering safety, source-of-truth order, structure, and validation expectations | must-have canonical | canonical source |
+| `.github/copilot-instructions.md` | GitHub Copilot adapter with only GitHub-specific path guidance | native adapter | keep thin |
+| `.claude/CLAUDE.md` | Claude Code adapter | native adapter | keep thin |
+| `.cursor/rules/repo-governance.mdc` | Cursor adapter | native adapter | keep thin |
+| `.windsurf/rules/repo-governance.md` | Windsurf adapter | native adapter | keep thin |
 | `contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md` | human-facing contributor workflow doc | recommended supplemental | keep as contributor-facing summary with links to canonical policies |
 | `ai-tools/agent-packs/*` | generated cross-agent adapter outputs | recommended supplemental | keep generated; never treat as canonical source |
 | `.codex/README.md` | Codex local lock guidance | recommended supplemental | keep as operational documentation |
 | `.codex/task-contract.yaml` | Codex task contract | recommended supplemental | keep as operational contract |
 | `.codex/locks-local/*` | Codex local lock state | recommended supplemental | keep as operational state, not rule docs |
-| `tools/scripts/validators/governance/check-agent-docs-freshness.js` | validator for agent governance docs | recommended supplemental | update in Task 3 after canonical locations are implemented |
+| `tools/scripts/validators/governance/check-agent-docs-freshness.js` | validator for canonical agent governance docs and adapters | recommended supplemental | keep aligned with the implemented canonical set |
+
+## Retired Legacy Surfaces
+
+These files were intentionally retired in Task 3 and should not be recreated as active governance sources:
+
+| Legacy surface | Retirement status | Replacement |
+|---|---|---|
+| `.github/AGENTS.md` | retired | `AGENTS.md` |
+| `.cursorrules` | retired | `.cursor/rules/repo-governance.mdc` |
+| `ASSISTANT.md` | retired | `AGENTS.md` |
+| `.github/augment-instructions.md` | retired | none; Augment is not in the current supported matrix |
 
 ### Overlap clusters
 
@@ -128,17 +141,17 @@ Current duplication clusters:
 - `contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md` duplicates contributor-facing parts of the same policy set
 - `ai-tools/agent-packs/*` are generated from separate sources and must remain outputs, not canonical rule inputs
 
-## Approved Migration Targets for Legacy Surfaces
+## Implemented Migration Map
 
-Task 3 should implement the following migration map:
+Task 3 implemented the following migration map:
 
 | Legacy surface | Approved destination |
 |---|---|
-| `.github/AGENTS.md` | root `AGENTS.md` baseline plus short adapter references where needed |
-| `.cursorrules` | `.cursor/rules/*.mdc` |
-| `ASSISTANT.md` | root `AGENTS.md` baseline; optional future `.mintlify/ASSISTANT.md` only if Mintlify assistant is intentionally adopted |
-| `.github/augment-instructions.md` | retire unless Augment is re-added to the supported matrix |
-| duplicated repo-policy blocks inside `.github/copilot-instructions.md` | reduce to Copilot-specific adapter content that references `AGENTS.md` |
+| `.github/AGENTS.md` | merged into root `AGENTS.md` |
+| `.cursorrules` | replaced by `.cursor/rules/repo-governance.mdc` |
+| `ASSISTANT.md` | merged into root `AGENTS.md`; no `.mintlify/ASSISTANT.md` adoption in Task 3 |
+| `.github/augment-instructions.md` | retired from the supported matrix |
+| duplicated repo-policy blocks inside `.github/copilot-instructions.md` | reduced to a thin adapter that references `AGENTS.md` |
 
 ## Prior Reports Incorporated
 
