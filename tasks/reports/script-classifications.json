@@ -666,6 +666,16 @@
     "pipeline": "P1, P3"
   },
   {
+    "path": "tests/unit/precommit-staged-cache.test.js",
+    "script": "precommit-staged-cache.test",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tests/unit, tools/lib/precommit-staged-cache.js",
+    "needs": "R-R14, R-R29",
+    "purpose_statement": "Tests precommit-staged-cache.js — validates staged-tree cache hits, invalidation, and pruning",
+    "pipeline": "P1, manual"
+  },
+  {
     "path": "tests/unit/quality.test.js",
     "script": "quality.test",
     "category": "validator",
@@ -1210,6 +1220,16 @@
     "scope": "full-repo",
     "needs": "E-R1, R-R11",
     "purpose_statement": "Shared MDX-safe markdown helpers that collect first-party markdown files, detect unsafe patterns, and apply deterministic repairs.",
+    "pipeline": "indirect -- library module"
+  },
+  {
+    "path": "tools/lib/precommit-staged-cache.js",
+    "script": "precommit-staged-cache",
+    "category": "orchestrator",
+    "purpose": "infrastructure:pipeline-orchestration",
+    "scope": ".githooks, tests, tools/lib, tools/scripts",
+    "needs": "R-R29",
+    "purpose_statement": "Shared pre-commit staged-cache helpers — fingerprint staged content plus hook inputs and persist reusable pass markers",
     "pipeline": "indirect -- library module"
   },
   {

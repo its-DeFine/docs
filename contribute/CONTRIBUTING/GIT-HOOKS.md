@@ -22,6 +22,8 @@ lpd hooks status
 
 - fast staged local/offline checks only
 - structure/style/static checks + staged generator sync
+- fail-fast when cheap blocking violations already exist
+- reuses the expensive staged validation result when staged content and hook inputs are unchanged
 - enforces pre-commit runtime budget (default `<= 60s`)
 
 ### Pre-push (`.githooks/pre-push`)

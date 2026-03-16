@@ -27,8 +27,15 @@ Owned concerns:
 
 - fast staged local/offline checks
 - structure + style + staged static test validations
+- scoped basic test lane only; repo-wide governance/unit suites stay out of pre-commit
 - staged generator sync for managed artifacts
+- reuses cached pass results when the staged snapshot and hook/test inputs are unchanged
 - runtime budget enforcement (default: `<= 60s`)
+
+Install behavior:
+
+- configures worktree-local `core.hooksPath=.githooks`
+- runs hooks directly from tracked repo files instead of copying stale hook files into `.git/hooks`
 
 Out-of-scope concerns:
 
