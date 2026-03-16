@@ -4,7 +4,7 @@
  * @category          orchestrator
  * @purpose           infrastructure:pipeline-orchestration
  * @scope             tests
- * @owner             docs
+ * @domain            docs
  * @needs             R-R29
  * @purpose-statement Test orchestrator — dispatches all unit test suites. Called by pre-commit hook and npm test.
  * @pipeline          P1, P2, P3
@@ -37,6 +37,7 @@ const checkAgentDocsFreshnessTests = require('./unit/check-agent-docs-freshness.
 const rootAllowlistFormatTests = require('./unit/root-allowlist-format.test');
 const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
 const docsGuideSotTests = require('./unit/docs-guide-sot.test');
+const precommitStagedCacheTests = require('./unit/precommit-staged-cache.test');
 const uiTemplateGeneratorTests = require('./unit/ui-template-generator.test');
 const componentGovernanceUtilsTests = require('./unit/component-governance-utils.test');
 const componentGovernanceGeneratorTests = require('./unit/component-governance-generators.test');
@@ -54,6 +55,9 @@ const skipBrowser = args.includes('--skip-browser');
 const watch = args.includes('--watch');
 const runWcag = args.includes('--wcag');
 const wcagNoFix = args.includes('--wcag-no-fix');
+const skipMdxSafeMarkdownCheck = args.includes('--skip-mdx-safe-markdown-check');
+const skipPagesIndex = args.includes('--skip-pages-index');
+const skipScriptDocs = args.includes('--skip-script-docs');
 
 let totalErrors = 0;
 let totalWarnings = 0;
@@ -194,16 +198,20 @@ async function runAllTests() {
 
   // Repo-wide MDX-safe Markdown Validation
   console.log('\n🧱 Running Repo-wide MDX-safe Markdown Validation...');
-  const mdxSafeMarkdownResult = normalizeSuiteResult(mdxSafeMarkdownValidator.run({
-    args: {
-      stagedOnly,
-      files: [],
-      json: false
-    }
-  }));
-  totalErrors += mdxSafeMarkdownResult.errors.length;
-  totalWarnings += mdxSafeMarkdownResult.warnings.length;
-  console.log(`   ${mdxSafeMarkdownResult.errors.length} errors, ${mdxSafeMarkdownResult.warnings.length} warnings`);
+  if (skipMdxSafeMarkdownCheck) {
+    console.log('   skipped (handled earlier in pre-commit)');
+  } else {
+    const mdxSafeMarkdownResult = normalizeSuiteResult(mdxSafeMarkdownValidator.run({
+      args: {
+        stagedOnly,
+        files: [],
+        json: false
+      }
+    }));
+    totalErrors += mdxSafeMarkdownResult.errors.length;
+    totalWarnings += mdxSafeMarkdownResult.warnings.length;
+    console.log(`   ${mdxSafeMarkdownResult.errors.length} errors, ${mdxSafeMarkdownResult.warnings.length} warnings`);
+  }
 
   // MDX Guardrails
   console.log('\n🛡️  Running MDX Guardrail Tests...');
@@ -277,10 +285,14 @@ async function runAllTests() {
 
   // Script Docs Enforcement
   console.log('\n🧾 Running Script Documentation Enforcement...');
-  const scriptDocsResult = normalizeSuiteResult(scriptDocsTests.runTests({ stagedOnly }));
-  totalErrors += scriptDocsResult.errors.length;
-  totalWarnings += scriptDocsResult.warnings.length;
-  console.log(`   ${scriptDocsResult.errors.length} errors, ${scriptDocsResult.warnings.length} warnings`);
+  if (skipScriptDocs) {
+    console.log('   skipped (handled earlier in pre-commit)');
+  } else {
+    const scriptDocsResult = normalizeSuiteResult(scriptDocsTests.runTests({ stagedOnly }));
+    totalErrors += scriptDocsResult.errors.length;
+    totalWarnings += scriptDocsResult.warnings.length;
+    console.log(`   ${scriptDocsResult.errors.length} errors, ${scriptDocsResult.warnings.length} warnings`);
+  }
 
   // Skill Docs Enforcement
   console.log('\n📘 Running Skill Documentation Enforcement...');
@@ -341,6 +353,15 @@ async function runAllTests() {
     console.log('   skipped (no staged docs-guide source-of-truth changes)');
   }
 
+  // Pre-commit Cache Unit Tests
+  console.log('\n🧮 Running Pre-commit Cache Unit Tests...');
+  const precommitStagedCacheResult = normalizeSuiteResult(await precommitStagedCacheTests.runTests());
+  totalErrors += precommitStagedCacheResult.errors.length;
+  totalWarnings += precommitStagedCacheResult.warnings.length;
+  console.log(
+    `   ${precommitStagedCacheResult.errors.length} errors, ${precommitStagedCacheResult.warnings.length} warnings`
+  );
+
   // UI Template Generator
   console.log('\n🧱 Running UI Template Generator Checks...');
   if (hasStagedUiTemplateChanges()) {
@@ -398,13 +419,17 @@ async function runAllTests() {
 
   // Pages Index Sync Validation
   console.log('\n🗂️  Running Pages Index Sync Validation...');
-  const pagesIndexResult = normalizeSuiteResult(pagesIndexGenerator.run({ stagedOnly }));
-  totalErrors += pagesIndexResult.errors.length;
-  totalWarnings += pagesIndexResult.warnings.length;
-  if (pagesIndexResult.skipped) {
-    console.log('   skipped (no staged v2/pages changes)');
+  if (skipPagesIndex) {
+    console.log('   skipped (handled earlier in pre-commit)');
   } else {
-    console.log(`   ${pagesIndexResult.errors.length} errors, ${pagesIndexResult.warnings.length} warnings`);
+    const pagesIndexResult = normalizeSuiteResult(pagesIndexGenerator.run({ stagedOnly }));
+    totalErrors += pagesIndexResult.errors.length;
+    totalWarnings += pagesIndexResult.warnings.length;
+    if (pagesIndexResult.skipped) {
+      console.log('   skipped (no staged v2/pages changes)');
+    } else {
+      console.log(`   ${pagesIndexResult.errors.length} errors, ${pagesIndexResult.warnings.length} warnings`);
+    }
   }
 
   // Generated Banner Enforcement

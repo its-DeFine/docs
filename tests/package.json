@@ -27,6 +27,7 @@
     "test:pages-index:rebuild": "node ../tools/scripts/generate-pages-index.js --write --rebuild-indexes",
     "test:generated-banners": "node ../tools/scripts/enforce-generated-file-banners.js --check",
     "test:scripts": "node unit/script-docs.test.js",
+    "test:precommit-cache": "node unit/precommit-staged-cache.test.js",
     "test:components:governance": "node unit/component-governance-utils.test.js && node unit/component-governance-generators.test.js",
     "test:browser": "node integration/browser.test.js",
     "test:openapi:audit": "node integration/openapi-reference-audit.js --full --strict",

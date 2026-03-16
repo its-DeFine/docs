@@ -24,7 +24,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 
 | Script | Summary | Usage | Domain |
 |---|---|---|---|
-| `.githooks/install.sh` | Installs git hooks by setting core.hooksPath to .githooks/ | `bash .githooks/install.sh [flags]` | docs |
+| `.githooks/install.sh` | Installs git hooks by routing this worktree to .githooks via worktree-local core.hooksPath | `bash .githooks/install.sh [flags]` | docs |
 | `.githooks/pre-commit` | Pre-commit hook orchestrator — runs structural checks, unit tests, codex validation, and docs-index freshness check before allowing commit | `bash .githooks/pre-commit [flags]` | docs |
 | `.githooks/pre-commit-no-deletions` | Variant pre-commit hook that blocks file deletions (safety net for content preservation) | `bash .githooks/pre-commit-no-deletions [flags]` | docs |
 | `.githooks/pre-push` | Pre-push hook — blocks push if AI stash files present, codex locks stale, or task contract invalid | `bash .githooks/pre-push [flags]` | docs |
@@ -96,6 +96,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tests/unit/openapi-rolling-issue.test.js` | Tests OpenAPI rolling issue tracker — validates issue creation and dedup logic | `node tests/unit/openapi-rolling-issue.test.js [flags]` | docs |
 | `tests/unit/orchestrator-guides-research-review.test.js` | Tests orchestrator-guides-research-review.js — validates live Orchestrators Guides tranche extraction, report summary helpers, and registry-drift detection for the research packet generator. | `node tests/unit/orchestrator-guides-research-review.test.js` | docs |
 | `tests/unit/ownerless-governance.test.js` | Validates the ownerless governance manifest, primary gate-layer contract, and forbidden human-owner dependency in governed policy and GitHub surfaces. | `node tests/unit/ownerless-governance.test.js [--staged&#124;--files a,b]` | docs |
+| `tests/unit/precommit-staged-cache.test.js` | Tests precommit-staged-cache.js — validates staged-tree cache hits, invalidation, and pruning | `node tests/unit/precommit-staged-cache.test.js` | docs |
 | `tests/unit/quality.test.js` | Content quality checks — validates frontmatter completeness, thin content detection, placeholder flagging | `node tests/unit/quality.test.js [flags]` | docs |
 | `tests/unit/repair-governance.test.js` | Tests repair-governance.js for safe dry-run, fix, rollback, strict exit handling, and workflow contract coverage. | `node tests/unit/repair-governance.test.js` | docs |
 | `tests/unit/repair-spelling.test.js` | Unit tests for repair-spelling.js — validates deterministic spelling fixes and exclusion ranges | `node tests/unit/repair-spelling.test.js [flags]` | docs |
@@ -295,6 +296,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/lib/load-js-yaml.js` | YAML loader utility — resolves js-yaml from repo-local installs and falls back to a minimal parser for task-contract style files in bare worktrees | `node -e "require('./tools/lib/load-js-yaml')"` | docs |
 | `tools/lib/load-minimatch.js` | Glob matcher loader — resolves minimatch from repo-local installs and falls back to a simple glob matcher for bare worktrees | `node -e "require('./tools/lib/load-minimatch')"` | docs |
 | `tools/lib/mdx-safe-markdown.js` | Shared MDX-safe markdown helpers that collect first-party markdown files, detect unsafe patterns, and apply deterministic repairs. | `node tools/lib/mdx-safe-markdown.js [flags]` | docs |
+| `tools/lib/precommit-staged-cache.js` | Shared pre-commit staged-cache helpers — fingerprint staged content plus hook inputs and persist reusable pass markers | `const cache = require('./precommit-staged-cache');` | docs |
 | `tools/lib/script-governance-config.js` | Shared governance constants for script discovery, indexing, classification, and pipeline normalisation across the repo. | `const config = require('../lib/script-governance-config');` | docs |
 | `tools/lib/script-header-utils.js` | Shared helpers for extracting and reading top-of-file script governance headers without scanning into executable source. | `const &#123; extractLeadingScriptHeader &#125; = require('../lib/script-header-utils');` | docs |
 

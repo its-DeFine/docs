@@ -36,6 +36,7 @@
 | `tools/lib/load-js-yaml.js` | YAML loader utility — resolves js-yaml from repo-local installs and falls back to a minimal parser for task-contract style files in bare worktrees | `node -e "require('./tools/lib/load-js-yaml')"` | docs |
 | `tools/lib/load-minimatch.js` | Glob matcher loader — resolves minimatch from repo-local installs and falls back to a simple glob matcher for bare worktrees | `node -e "require('./tools/lib/load-minimatch')"` | docs |
 | `tools/lib/mdx-safe-markdown.js` | Shared MDX-safe markdown helpers that collect first-party markdown files, detect unsafe patterns, and apply deterministic repairs. | `node tools/lib/mdx-safe-markdown.js [flags]` | docs |
+| `tools/lib/precommit-staged-cache.js` | Shared pre-commit staged-cache helpers — fingerprint staged content plus hook inputs and persist reusable pass markers | `const cache = require('./precommit-staged-cache');` | docs |
 | `tools/lib/script-governance-config.js` | Shared governance constants for script discovery, indexing, classification, and pipeline normalisation across the repo. | `const config = require('../lib/script-governance-config');` | docs |
 | `tools/lib/script-header-utils.js` | Shared helpers for extracting and reading top-of-file script governance headers without scanning into executable source. | `const { extractLeadingScriptHeader } = require('../lib/script-header-utils');` | docs |
 {/* SCRIPT-INDEX:END */}

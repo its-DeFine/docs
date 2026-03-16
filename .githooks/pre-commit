@@ -3,7 +3,7 @@
 # @category          orchestrator
 # @purpose           infrastructure:pipeline-orchestration
 # @scope             .githooks
-# @owner             docs
+# @domain            docs
 # @needs             R-R29
 # @purpose-statement Pre-commit hook orchestrator — runs structural checks, unit tests, codex validation, and docs-index freshness check before allowing commit
 # @pipeline          P1 (commit, hook entry point)
@@ -12,14 +12,15 @@
 # Checks for common violations before allowing commits
 #
 # To install this hook, run:
-#   cp .githooks/pre-commit .git/hooks/pre-commit
-#   chmod +x .git/hooks/pre-commit
+#   bash .githooks/install.sh
+#   # or: lpd hooks install
 #
 # Bypass flags (use sparingly):
 #   SKIP_STRUCTURE_CHECK=1 - Skip root directory and snippets structure checks
 #   SKIP_STYLE_CHECK=1     - Skip style guide compliance checks
 #   SKIP_VERIFICATION=1    - Skip verification scripts
 #   SKIP_TESTS=1           - Skip test suite
+#   DISABLE_PRECOMMIT_STAGED_CACHE=1 - Force rerun of the expensive staged validation suite
 #   SKIP_ALL=1             - Skip all checks (use with extreme caution)
 #
 # Human-only override flags:
@@ -43,6 +44,7 @@ SKIP_STRUCTURE_CHECK=${SKIP_STRUCTURE_CHECK:-0}
 SKIP_STYLE_CHECK=${SKIP_STYLE_CHECK:-0}
 SKIP_VERIFICATION=${SKIP_VERIFICATION:-0}
 SKIP_TESTS=${SKIP_TESTS:-0}
+DISABLE_PRECOMMIT_STAGED_CACHE=${DISABLE_PRECOMMIT_STAGED_CACHE:-0}
 SKIP_ALL=${SKIP_ALL:-0}
 ALLOW_DELETIONS=${ALLOW_DELETIONS:-0}
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
@@ -63,6 +65,78 @@ get_staged_docs_pages() {
 }
 
 STAGED_DOCS_PAGES=$(get_staged_docs_pages)
+
+PRECOMMIT_STAGED_CACHE_HIT=0
+PRECOMMIT_STAGED_CACHE_KEY=""
+PRECOMMIT_STAGED_CACHE_INDEX_TREE=""
+PRECOMMIT_STAGED_CACHE_FILE=""
+PRECOMMIT_STAGED_CACHE_CREATED_AT=""
+
+can_use_precommit_staged_cache() {
+    if [ "$DISABLE_PRECOMMIT_STAGED_CACHE" = "1" ]; then
+        return 1
+    fi
+
+    if [ "$SKIP_VERIFICATION" = "1" ] || [ "$SKIP_TESTS" = "1" ]; then
+        return 1
+    fi
+
+    if ! command -v node &>/dev/null || [ ! -f "tools/lib/precommit-staged-cache.js" ]; then
+        return 1
+    fi
+
+    return 0
+}
+
+read_precommit_staged_cache() {
+    if ! can_use_precommit_staged_cache; then
+        return 1
+    fi
+
+    local output=""
+    output=$(node - "$PWD" <<'NODE'
+const cache = require('./tools/lib/precommit-staged-cache');
+const repoRoot = process.argv[2];
+
+try {
+  const result = cache.readCache({ repoRoot });
+  process.stdout.write([
+    result.hit ? '1' : '0',
+    result.key || '',
+    result.indexTree || '',
+    result.cacheFilePath || '',
+    result.entry?.createdAt || ''
+  ].join('\t'));
+} catch (error) {
+  process.stderr.write(`${error.message}\n`);
+  process.exit(1);
+}
+NODE
+    ) || return 1
+
+    IFS=$'\t' read -r PRECOMMIT_STAGED_CACHE_HIT PRECOMMIT_STAGED_CACHE_KEY PRECOMMIT_STAGED_CACHE_INDEX_TREE PRECOMMIT_STAGED_CACHE_FILE PRECOMMIT_STAGED_CACHE_CREATED_AT <<< "$output"
+    [ "$PRECOMMIT_STAGED_CACHE_HIT" = "1" ]
+}
+
+write_precommit_staged_cache() {
+    if ! can_use_precommit_staged_cache; then
+        return 1
+    fi
+
+    node - "$PWD" "$CURRENT_BRANCH" <<'NODE'
+const cache = require('./tools/lib/precommit-staged-cache');
+const repoRoot = process.argv[2];
+const branch = process.argv[3];
+
+cache.writeCache({
+  repoRoot,
+  metadata: {
+    branch,
+    source: 'pre-commit'
+  }
+});
+NODE
+}
 
 get_forbidden_staged_generated_outputs() {
     if ! command -v node &>/dev/null || [ ! -f "tools/lib/generated-artifacts.js" ]; then
@@ -823,35 +897,6 @@ else
     fi
 fi
 
-# Run verification scripts (legacy path disabled for faster staged-only hooks)
-if [ "$SKIP_VERIFICATION" = "1" ]; then
-    echo -e "${YELLOW}⚠️  Verification scripts bypassed (SKIP_VERIFICATION=1)${NC}"
-else
-    echo ""
-    echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo -e "${YELLOW}Skipping legacy verify.sh in pre-commit (staged-only fast mode).${NC}"
-    echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    FORBIDDEN_GENERATED_OUTPUTS=$(get_forbidden_staged_generated_outputs)
-    if [ -n "$FORBIDDEN_GENERATED_OUTPUTS" ]; then
-        echo -e "${RED}Forbidden staged ephemeral generated outputs detected:${NC}"
-        while IFS= read -r path; do
-            [ -z "$path" ] && continue
-            echo "  - $path"
-            WARNINGS+=("❌ Forbidden staged ephemeral generated output: $path")
-            VIOLATIONS=$((VIOLATIONS + 1))
-        done <<< "$FORBIDDEN_GENERATED_OUTPUTS"
-        echo "Move local-only reports to an ignored scratch path instead of committing them."
-        exit 1
-    fi
-    echo "Checking generated file banners..."
-    if node tools/scripts/enforce-generated-file-banners.js --check --staged; then
-        echo -e "${GREEN}✓ Generated file banner check passed${NC}"
-    else
-        echo "Generated file banners missing or incorrect. Run: node tools/scripts/enforce-generated-file-banners.js --write"
-        exit 1
-    fi
-fi
-
 run_node_check() {
     local label="$1"
     local failure_message="$2"
@@ -954,7 +999,7 @@ const tags = [
   '@category',
   '@purpose',
   '@scope',
-  '@owner',
+  '@domain',
   '@needs',
   '@purpose-statement',
   '@pipeline',
@@ -999,7 +1044,7 @@ const tags = [
   '@category',
   '@purpose',
   '@scope',
-  '@owner',
+  '@domain',
   '@needs',
   '@purpose-statement',
   '@pipeline',
@@ -1077,13 +1122,12 @@ NODE
 
 print_governance_dependency_error() {
     echo ""
-    echo "✗ Governance auto-repair is unavailable in this checkout."
+    echo "✗ Governance auto-repair tooling is unavailable or outdated in this checkout."
     echo ""
-    echo "  REPAIR-00a is not merged here yet."
     echo "  Expected tools/scripts/validators/governance/audit-script-inventory.js"
-    echo "  to support --staged-only and --quiet."
+    echo "  with --staged-only and --quiet support, plus the matching governance helpers."
     echo ""
-    echo "  Update from docs-v2 after REPAIR-00a merges, then retry."
+    echo "  Sync the checkout to the current governance baseline and ensure repo dependencies are installed."
     echo "  Run 'cd tools && npm run repair:governance -- --dry-run' for more detail."
     echo "  To skip: SKIP_VERIFICATION=1 git commit -m 'message'"
     echo ""
@@ -1295,170 +1339,228 @@ run_governance_auto_repair() {
     )
 }
 
-# Component governance checks
-if [ "$SKIP_TESTS" != "1" ]; then
-    STAGED_COMPONENTS=$(git diff --cached --name-only --diff-filter=ACM -- snippets/components | grep -E '\.jsx$' | grep -v '/_archive/' || true)
-    if [ -n "$STAGED_COMPONENTS" ]; then
-        run_node_check \
-          "Running component JSDoc validation (staged)..." \
-          "❌ Component JSDoc validation failed" \
-          tools/scripts/validators/components/check-component-docs.js --staged
+RUN_PRECOMMIT_EXPENSIVE_SUITE=1
 
-        run_node_check \
-          "Running component styling validation (staged)..." \
-          "❌ Component styling validation failed" \
-          tools/scripts/validators/components/check-component-css.js --staged
-
-        if [ $VIOLATIONS -eq 0 ]; then
-            echo -e "${YELLOW}Repairing derived component metadata...${NC}"
-            if node tools/scripts/remediators/components/repair-component-metadata.js --staged --fix 2>&1; then
-                echo "$STAGED_COMPONENTS" | xargs git add 2>/dev/null
-                echo -e "${GREEN}✓ Component metadata repaired${NC}"
-            else
-                VIOLATIONS=$((VIOLATIONS + 1))
-                WARNINGS+=("❌ Component metadata has NEEDS_HUMAN errors - inspect repair-component-metadata output")
-                echo -e "${RED}❌ Component metadata repair found issues requiring human attention${NC}"
-            fi
-        fi
-
-        if [ $VIOLATIONS -eq 0 ]; then
-            echo -e "${YELLOW}Regenerating component registry...${NC}"
-            if node tools/scripts/generate-component-registry.js 2>&1; then
-                git add docs-guide/component-registry.json docs-guide/component-registry-schema.json 2>/dev/null
-                echo -e "${GREEN}✓ Component registry regenerated${NC}"
-            else
-                VIOLATIONS=$((VIOLATIONS + 1))
-                WARNINGS+=("❌ Component registry generation failed")
-                echo -e "${RED}❌ Component registry generation failed${NC}"
-            fi
-        fi
-
-        if [ $VIOLATIONS -eq 0 ]; then
-            echo -e "${YELLOW}Regenerating component usage map...${NC}"
-            if node tools/scripts/scan-component-imports.js 2>&1; then
-                git add docs-guide/component-usage-map.json 2>/dev/null
-                echo -e "${GREEN}✓ Component usage map regenerated${NC}"
-            else
-                VIOLATIONS=$((VIOLATIONS + 1))
-                WARNINGS+=("❌ Component usage map generation failed")
-                echo -e "${RED}❌ Component usage map generation failed${NC}"
-            fi
-        fi
-
-        if [ $VIOLATIONS -eq 0 ] && [ -f "tools/scripts/generate-docs-guide-components-index.js" ]; then
-            echo -e "${YELLOW}Regenerating components catalog...${NC}"
-            if node tools/scripts/generate-docs-guide-components-index.js --fix 2>&1; then
-                git add docs-guide/catalog/components-catalog.mdx 2>/dev/null
-                echo -e "${GREEN}✓ Components catalog regenerated${NC}"
-            else
-                VIOLATIONS=$((VIOLATIONS + 1))
-                WARNINGS+=("❌ Components catalog generation failed")
-                echo -e "${RED}❌ Components catalog generation failed${NC}"
-            fi
-        fi
+if [ $VIOLATIONS -gt 0 ]; then
+    echo ""
+    echo -e "${YELLOW}Skipping expensive staged validation because blocking pre-check violations already exist.${NC}"
+    RUN_PRECOMMIT_EXPENSIVE_SUITE=0
+elif read_precommit_staged_cache; then
+    echo ""
+    echo -e "${GREEN}✓ Reusing cached staged validation for unchanged staged content${NC}"
+    if [ -n "$PRECOMMIT_STAGED_CACHE_CREATED_AT" ]; then
+        echo "  Cached at: $PRECOMMIT_STAGED_CACHE_CREATED_AT"
     fi
+    RUN_PRECOMMIT_EXPENSIVE_SUITE=0
 fi
 
-# Run test suite (fast mode for pre-commit)
-if [ "$SKIP_TESTS" = "1" ]; then
-    echo -e "${YELLOW}⚠️  Test suite bypassed (SKIP_TESTS=1)${NC}"
-else
-    echo ""
-    echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo -e "${YELLOW}Running test suite (staged files only)...${NC}"
-    if [ -f "tests/run-all.js" ] && command -v node &>/dev/null; then
-        if [ -d "tools/node_modules" ]; then
-            export NODE_PATH="$(pwd)/tools/node_modules:${NODE_PATH:-}"
-        elif [ -d "tests/node_modules" ]; then
-            export NODE_PATH="$(pwd)/tests/node_modules:${NODE_PATH:-}"
+if [ "$RUN_PRECOMMIT_EXPENSIVE_SUITE" = "1" ]; then
+    # Run verification scripts (legacy path disabled for faster staged-only hooks)
+    if [ "$SKIP_VERIFICATION" = "1" ]; then
+        echo -e "${YELLOW}⚠️  Verification scripts bypassed (SKIP_VERIFICATION=1)${NC}"
+    else
+        echo ""
+        echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+        echo -e "${YELLOW}Skipping legacy verify.sh in pre-commit (staged-only fast mode).${NC}"
+        echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+        FORBIDDEN_GENERATED_OUTPUTS=$(get_forbidden_staged_generated_outputs)
+        if [ -n "$FORBIDDEN_GENERATED_OUTPUTS" ]; then
+            echo -e "${RED}Forbidden staged ephemeral generated outputs detected:${NC}"
+            while IFS= read -r path; do
+                [ -z "$path" ] && continue
+                echo "  - $path"
+                WARNINGS+=("❌ Forbidden staged ephemeral generated output: $path")
+                VIOLATIONS=$((VIOLATIONS + 1))
+            done <<< "$FORBIDDEN_GENERATED_OUTPUTS"
+            echo "Move local-only reports to an ignored scratch path instead of committing them."
+            exit 1
+        fi
+        echo "Checking generated file banners..."
+        if node tools/scripts/enforce-generated-file-banners.js --check --staged; then
+            echo -e "${GREEN}✓ Generated file banner check passed${NC}"
         else
-            echo -e "${YELLOW}⚠️  Dependencies not installed. Run 'cd tools && npm install' or 'cd tests && npm install' to enable tests${NC}"
+            echo "Generated file banners missing or incorrect. Run: node tools/scripts/enforce-generated-file-banners.js --write"
+            exit 1
         fi
+    fi
 
-        if [ "$SKIP_VERIFICATION" != "1" ] && [ $VIOLATIONS -eq 0 ]; then
-            if ! run_governance_auto_repair; then
-                exit 1
-            fi
-        fi
-
-        if [ -f "tools/scripts/generate-pages-index.js" ]; then
+    # Component governance checks
+    if [ "$SKIP_TESTS" != "1" ]; then
+        STAGED_COMPONENTS=$(git diff --cached --name-only --diff-filter=ACM -- snippets/components | grep -E '\.jsx$' | grep -v '/_archive/' || true)
+        if [ -n "$STAGED_COMPONENTS" ]; then
             run_node_check \
-              "Running v2/pages index generation (staged changes)..." \
-              "❌ v2/pages index generation failed - fix index sync issues" \
-              tools/scripts/generate-pages-index.js --staged --write --stage
-        fi
+              "Running component JSDoc validation (staged)..." \
+              "❌ Component JSDoc validation failed" \
+              tools/scripts/validators/components/check-component-docs.js --staged
 
-        if [ -f "tools/scripts/remediators/content/repair-mdx-safe-markdown.js" ]; then
             run_node_check \
-              "Running staged MDX-safe markdown auto-repair..." \
-              "❌ MDX-safe markdown auto-repair failed - inspect repair-mdx-safe-markdown output" \
-              tools/scripts/remediators/content/repair-mdx-safe-markdown.js --write --staged --stage
-        fi
+              "Running component styling validation (staged)..." \
+              "❌ Component styling validation failed" \
+              tools/scripts/validators/components/check-component-css.js --staged
 
-        if [ -f "tools/scripts/validators/content/check-mdx-safe-markdown.js" ]; then
-            run_node_check \
-              "Running staged MDX-safe markdown validation..." \
-              "❌ MDX-safe markdown validation failed - inspect check-mdx-safe-markdown output" \
-              tools/scripts/validators/content/check-mdx-safe-markdown.js --staged
-        fi
-
-        if [ -f "tools/scripts/generate-docs-index.js" ]; then
-            if should_check_generated_artifact "docs-index.json"; then
-                echo -e "${YELLOW}Checking generated artifact freshness...${NC}"
-                GENERATED_ARTIFACT_SUMMARY=$(format_generated_artifact_message "docs-index.json" "summary")
-                DOCS_INDEX_ARGS="--staged"
-                if echo "$STAGED_FILES_SNAPSHOT_ALL" | grep -Eq '^docs\.json$'; then
-                    DOCS_INDEX_ARGS=""
-                fi
-                if node tools/scripts/generate-docs-index.js --check $DOCS_INDEX_ARGS >/dev/null 2>&1; then
-                    echo -e "${GREEN}✓ ${GENERATED_ARTIFACT_SUMMARY} is up to date${NC}"
+            if [ $VIOLATIONS -eq 0 ]; then
+                echo -e "${YELLOW}Repairing derived component metadata...${NC}"
+                if node tools/scripts/remediators/components/repair-component-metadata.js --staged --fix 2>&1; then
+                    echo "$STAGED_COMPONENTS" | xargs git add 2>/dev/null
+                    echo -e "${GREEN}✓ Component metadata repaired${NC}"
                 else
                     VIOLATIONS=$((VIOLATIONS + 1))
-                    GENERATED_ARTIFACT_GENERATOR=$(format_generated_artifact_message "docs-index.json" "generator")
-                    WARNINGS+=("❌ Generated artifact freshness issue: docs-index.json is stale. Run: ${GENERATED_ARTIFACT_GENERATOR}")
-                    echo -e "${RED}❌ ${GENERATED_ARTIFACT_SUMMARY} is stale${NC}"
-                    echo "   Source files changed within its declared manifest scope."
-                    echo "   Remediation: ${GENERATED_ARTIFACT_GENERATOR}"
+                    WARNINGS+=("❌ Component metadata has NEEDS_HUMAN errors - inspect repair-component-metadata output")
+                    echo -e "${RED}❌ Component metadata repair found issues requiring human attention${NC}"
+                fi
+            fi
+
+            if [ $VIOLATIONS -eq 0 ]; then
+                echo -e "${YELLOW}Regenerating component registry...${NC}"
+                if node tools/scripts/generate-component-registry.js 2>&1; then
+                    git add docs-guide/component-registry.json docs-guide/component-registry-schema.json 2>/dev/null
+                    echo -e "${GREEN}✓ Component registry regenerated${NC}"
+                else
+                    VIOLATIONS=$((VIOLATIONS + 1))
+                    WARNINGS+=("❌ Component registry generation failed")
+                    echo -e "${RED}❌ Component registry generation failed${NC}"
+                fi
+            fi
+
+            if [ $VIOLATIONS -eq 0 ]; then
+                echo -e "${YELLOW}Regenerating component usage map...${NC}"
+                if node tools/scripts/scan-component-imports.js 2>&1; then
+                    git add docs-guide/component-usage-map.json 2>/dev/null
+                    echo -e "${GREEN}✓ Component usage map regenerated${NC}"
+                else
+                    VIOLATIONS=$((VIOLATIONS + 1))
+                    WARNINGS+=("❌ Component usage map generation failed")
+                    echo -e "${RED}❌ Component usage map generation failed${NC}"
+                fi
+            fi
+
+            if [ $VIOLATIONS -eq 0 ] && [ -f "tools/scripts/generate-docs-guide-components-index.js" ]; then
+                echo -e "${YELLOW}Regenerating components catalog...${NC}"
+                if node tools/scripts/generate-docs-guide-components-index.js --fix 2>&1; then
+                    git add docs-guide/catalog/components-catalog.mdx 2>/dev/null
+                    echo -e "${GREEN}✓ Components catalog regenerated${NC}"
+                else
+                    VIOLATIONS=$((VIOLATIONS + 1))
+                    WARNINGS+=("❌ Components catalog generation failed")
+                    echo -e "${RED}❌ Components catalog generation failed${NC}"
+                fi
+            fi
+        fi
+    fi
+
+    # Run test suite (fast mode for pre-commit)
+    if [ "$SKIP_TESTS" = "1" ]; then
+        echo -e "${YELLOW}⚠️  Test suite bypassed (SKIP_TESTS=1)${NC}"
+    else
+        echo ""
+        echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+        echo -e "${YELLOW}Running test suite (staged files only)...${NC}"
+        if [ -f "tests/run-all.js" ] && command -v node &>/dev/null; then
+            if [ -d "tools/node_modules" ]; then
+                export NODE_PATH="$(pwd)/tools/node_modules:${NODE_PATH:-}"
+            elif [ -d "tests/node_modules" ]; then
+                export NODE_PATH="$(pwd)/tests/node_modules:${NODE_PATH:-}"
+            else
+                echo -e "${YELLOW}⚠️  Dependencies not installed. Run 'cd tools && npm install' or 'cd tests && npm install' to enable tests${NC}"
+            fi
+
+            if [ "$SKIP_VERIFICATION" != "1" ] && [ $VIOLATIONS -eq 0 ]; then
+                if ! run_governance_auto_repair; then
                     exit 1
                 fi
-            else
-                echo -e "${GREEN}✓ No manifest-declared docs-index sources staged, skipping docs-index freshness check${NC}"
             fi
-        fi
 
-        if [ -f "tools/scripts/remediators/content/sync-docs-paths.js" ]; then
+            if [ -f "tools/scripts/generate-pages-index.js" ]; then
+                run_node_check \
+                  "Running v2/pages index generation (staged changes)..." \
+                  "❌ v2/pages index generation failed - fix index sync issues" \
+                  tools/scripts/generate-pages-index.js --staged --write --stage
+            fi
+
+            if [ -f "tools/scripts/remediators/content/repair-mdx-safe-markdown.js" ]; then
+                run_node_check \
+                  "Running staged MDX-safe markdown auto-repair..." \
+                  "❌ MDX-safe markdown auto-repair failed - inspect repair-mdx-safe-markdown output" \
+                  tools/scripts/remediators/content/repair-mdx-safe-markdown.js --write --staged --stage
+            fi
+
+            if [ -f "tools/scripts/validators/content/check-mdx-safe-markdown.js" ]; then
+                run_node_check \
+                  "Running staged MDX-safe markdown validation..." \
+                  "❌ MDX-safe markdown validation failed - inspect check-mdx-safe-markdown output" \
+                  tools/scripts/validators/content/check-mdx-safe-markdown.js --staged
+            fi
+
+            if [ -f "tools/scripts/generate-docs-index.js" ]; then
+                if should_check_generated_artifact "docs-index.json"; then
+                    echo -e "${YELLOW}Checking generated artifact freshness...${NC}"
+                    GENERATED_ARTIFACT_SUMMARY=$(format_generated_artifact_message "docs-index.json" "summary")
+                    DOCS_INDEX_ARGS="--staged"
+                    if echo "$STAGED_FILES_SNAPSHOT_ALL" | grep -Eq '^docs\.json$'; then
+                        DOCS_INDEX_ARGS=""
+                    fi
+                    if node tools/scripts/generate-docs-index.js --check $DOCS_INDEX_ARGS >/dev/null 2>&1; then
+                        echo -e "${GREEN}✓ ${GENERATED_ARTIFACT_SUMMARY} is up to date${NC}"
+                    else
+                        VIOLATIONS=$((VIOLATIONS + 1))
+                        GENERATED_ARTIFACT_GENERATOR=$(format_generated_artifact_message "docs-index.json" "generator")
+                        WARNINGS+=("❌ Generated artifact freshness issue: docs-index.json is stale. Run: ${GENERATED_ARTIFACT_GENERATOR}")
+                        echo -e "${RED}❌ ${GENERATED_ARTIFACT_SUMMARY} is stale${NC}"
+                        echo "   Source files changed within its declared manifest scope."
+                        echo "   Remediation: ${GENERATED_ARTIFACT_GENERATOR}"
+                        exit 1
+                    fi
+                else
+                    echo -e "${GREEN}✓ No manifest-declared docs-index sources staged, skipping docs-index freshness check${NC}"
+                fi
+            fi
+
+            if [ -f "tools/scripts/remediators/content/sync-docs-paths.js" ]; then
+                run_node_check \
+                  "Running staged docs path sync..." \
+                  "❌ Docs path sync failed - inspect sync-docs-paths output" \
+                  tools/scripts/remediators/content/sync-docs-paths.js --write --staged --stage
+            fi
+
+            run_all_args=(tests/run-all.js --staged --skip-browser)
+            if [ "$SKIP_VERIFICATION" != "1" ]; then
+                run_all_args+=(--skip-mdx-safe-markdown-check --skip-pages-index --skip-script-docs)
+            fi
             run_node_check \
-              "Running staged docs path sync..." \
-              "❌ Docs path sync failed - inspect sync-docs-paths output" \
-              tools/scripts/remediators/content/sync-docs-paths.js --write --staged --stage
-        fi
+              "Running core staged test suite..." \
+              "❌ Core staged test suite failed - see output above" \
+              "${run_all_args[@]}"
 
-        run_node_check \
-          "Running core staged test suite..." \
-          "❌ Core staged test suite failed - see output above" \
-          tests/run-all.js --staged --skip-browser
+            if [ -n "$STAGED_DOCS_PAGES" ]; then
+                if [ -f "tests/integration/v2-link-audit.js" ]; then
+                    run_node_check \
+                      "Running staged V2 link audit..." \
+                      "❌ Staged V2 link audit failed - see /tmp/livepeer-link-audit-precommit.md" \
+                      tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-precommit.md
+                fi
 
-        if [ -n "$STAGED_DOCS_PAGES" ]; then
-            if [ -f "tests/integration/v2-link-audit.js" ]; then
-                run_node_check \
-                  "Running staged V2 link audit..." \
-                  "❌ Staged V2 link audit failed - see /tmp/livepeer-link-audit-precommit.md" \
-                  tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-precommit.md
-            fi
-
-            if [ -f "tests/integration/v2-wcag-audit.js" ]; then
-                run_node_check \
-                  "Running staged V2 WCAG accessibility audit..." \
-                  "❌ Staged V2 WCAG accessibility audit failed - see /tmp/livepeer-wcag-audit-precommit.md" \
-                  tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json
+                if [ -f "tests/integration/v2-wcag-audit.js" ]; then
+                    run_node_check \
+                      "Running staged V2 WCAG accessibility audit..." \
+                      "❌ Staged V2 WCAG accessibility audit failed - see /tmp/livepeer-wcag-audit-precommit.md" \
+                      tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json
+                fi
+            else
+                echo -e "${GREEN}✓ No staged docs pages, skipping link audit and WCAG audit${NC}"
             fi
         else
-            echo -e "${GREEN}✓ No staged docs pages, skipping link audit and WCAG audit${NC}"
+            echo -e "${YELLOW}⚠️  Test suite not available, skipping...${NC}"
         fi
-    else
-        echo -e "${YELLOW}⚠️  Test suite not available, skipping...${NC}"
+        echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     fi
-    echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+
+    if [ $VIOLATIONS -eq 0 ]; then
+        if write_precommit_staged_cache >/dev/null 2>&1; then
+            echo -e "${GREEN}✓ Cached staged validation results for reuse${NC}"
+        else
+            echo -e "${YELLOW}⚠️  Could not persist staged validation cache; future commits will rerun the expensive suite${NC}"
+        fi
+    fi
 fi
 
 # Report results

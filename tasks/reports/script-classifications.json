@@ -472,6 +472,16 @@
     "pipeline": "manual — experimental research system"
   },
   {
+    "path": "tests/unit/docs-research-packet.test.js",
+    "script": "docs-research-packet.test",
+    "category": "generator",
+    "purpose": "tooling:dev-tools",
+    "scope": "tests/unit, tools/scripts/docs-research-packet.js, tools/config/scoped-navigation/docs-gate-work.json",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Tests docs-research-packet.js — validates nav, manifest, and path tranche derivation plus packet-summary rollups for the generic research packet engine.",
+    "pipeline": "manual — packet generator validation"
+  },
+  {
     "path": "tests/unit/docs-route-scope.test.js",
     "script": "docs-route-scope.test",
     "category": "validator",
@@ -636,16 +646,6 @@
     "pipeline": "manual — not yet in pipeline"
   },
   {
-    "path": "tests/unit/docs-research-packet.test.js",
-    "script": "docs-research-packet.test",
-    "category": "generator",
-    "purpose": "tooling:dev-tools",
-    "scope": "tests/unit, tools/scripts/docs-research-packet.js, tools/config/scoped-navigation/docs-gate-work.json",
-    "needs": "R-R27, R-R30",
-    "purpose_statement": "Tests docs-research-packet.js — validates nav, manifest, and path tranche derivation plus packet-summary rollups for the generic research packet engine.",
-    "pipeline": "manual — packet generator validation"
-  },
-  {
     "path": "tests/unit/orchestrator-guides-research-review.test.js",
     "script": "orchestrator-guides-research-review.test",
     "category": "generator",
@@ -664,6 +664,16 @@
     "needs": "R-R14, R-R29",
     "purpose_statement": "Validates the ownerless governance manifest, primary gate-layer contract, and forbidden human-owner dependency in governed policy and GitHub surfaces.",
     "pipeline": "P1, P3"
+  },
+  {
+    "path": "tests/unit/precommit-staged-cache.test.js",
+    "script": "precommit-staged-cache.test",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tests/unit, tools/lib/precommit-staged-cache.js",
+    "needs": "R-R14, R-R29",
+    "purpose_statement": "Tests precommit-staged-cache.js — validates staged-tree cache hits, invalidation, and pruning",
+    "pipeline": "P1, manual"
   },
   {
     "path": "tests/unit/quality.test.js",
@@ -1210,6 +1220,16 @@
     "scope": "full-repo",
     "needs": "E-R1, R-R11",
     "purpose_statement": "Shared MDX-safe markdown helpers that collect first-party markdown files, detect unsafe patterns, and apply deterministic repairs.",
+    "pipeline": "indirect -- library module"
+  },
+  {
+    "path": "tools/lib/precommit-staged-cache.js",
+    "script": "precommit-staged-cache",
+    "category": "orchestrator",
+    "purpose": "infrastructure:pipeline-orchestration",
+    "scope": ".githooks, tests, tools/lib, tools/scripts",
+    "needs": "R-R29",
+    "purpose_statement": "Shared pre-commit staged-cache helpers — fingerprint staged content plus hook inputs and persist reusable pass markers",
     "pipeline": "indirect -- library module"
   },
   {
