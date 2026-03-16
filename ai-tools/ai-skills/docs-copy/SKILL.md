@@ -1,10 +1,15 @@
 ---
 name: docs-copy-framework
-version: 1.0
+version: "1.1"
 description: >
   Copy and content governance framework for Livepeer documentation.
   Enforces product-first, persona-first writing standards across all page types.
   Load this file first. It will tell you which skills to load for your task.
+invoke_when:
+  - "edit documentation copy"
+  - "apply docs copy governance"
+  - "review or rewrite docs prose"
+  - "load the docs copy framework"
 ---
 
 # Livepeer Docs Copy Framework

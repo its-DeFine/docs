@@ -4,7 +4,7 @@
  * @category          enforcer
  * @purpose           governance:agent-governance
  * @scope             tools/scripts, .codex/task-contract.yaml, tests/config/codex-issue-policy.json, .github/pull_request_template.md, .github/pull-request-template-v2.md
- * @owner             docs
+ * @domain            docs
  * @needs             R-R27, R-R30
  * @purpose-statement Codex task contract enforcer — validates branch naming, task files, PR body, and issue state for codex branches
  * @pipeline          P1 (commit), P2 (push), P3 (PR, Track B)
