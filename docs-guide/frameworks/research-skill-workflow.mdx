@@ -43,9 +43,11 @@ Canonical sources:
 
 - skill behavior: `ai-tools/ai-skills/templates/*.template.md`
 - fact storage: `tasks/research/claims/`
+- adjudication ledger: `tasks/research/adjudication/page-content-research-outcomes.json`
 - registry validation: `tools/scripts/docs-fact-registry.js`
 - manual fact runner: `tools/scripts/docs-page-research.js`
 - PR advisory runner: `tools/scripts/docs-page-research-pr-report.js`
+- adjudication workflow: `tools/scripts/docs-research-adjudication.js`
 - local/manual PR prep integration: `tools/scripts/create-codex-pr.js --advisory-research`
 - forward plan: `tasks/plan/future/page-content-research-trust-roadmap.md`
 
@@ -140,6 +142,54 @@ node tools/scripts/create-codex-pr.js \
   --changed-files v2/orchestrators/guides/deployment-details/setup-options.mdx,v2/orchestrators/setup/rcs-requirements.mdx,v2/orchestrators/guides/operator-considerations/business-case.mdx
 ```
 
+Validate the adjudication ledger:
+
+```bash icon="terminal"
+node tools/scripts/docs-research-adjudication.js \
+  --validate \
+  --ledger tasks/research/adjudication/page-content-research-outcomes.json
+```
+
+Record one adjudicated outcome from a report artifact:
+
+```bash icon="terminal"
+node tools/scripts/docs-research-adjudication.js \
+  --record \
+  --ledger tasks/research/adjudication/page-content-research-outcomes.json \
+  --report-json tasks/reports/repo-ops/2026-03-16-page-content-research-pilot-gateway-trust-hardening.json \
+  --reviewer codex \
+  --claim-id gw-startup-program-current \
+  --human-verdict time-sensitive \
+  --outcome-class true_positive \
+  --cause-tag wording_only_conflict \
+  --action "keep advisory and continue current verification"
+```
+
+Record a missing-coverage outcome that was not detected in the report:
+
+```bash icon="terminal"
+node tools/scripts/docs-research-adjudication.js \
+  --record \
+  --ledger tasks/research/adjudication/page-content-research-outcomes.json \
+  --report-json tasks/reports/repo-ops/2026-03-16-page-content-research-pilot-gateway-trust-hardening.json \
+  --reviewer codex \
+  --claim-family gateway-support-contact-channel \
+  --human-verdict time-sensitive \
+  --outcome-class false_negative \
+  --cause-tag missing_coverage \
+  --action "expand claim-family coverage for the support contact channel"
+```
+
+Write a trust summary from adjudicated outcomes:
+
+```bash icon="terminal"
+node tools/scripts/docs-research-adjudication.js \
+  --summary \
+  --ledger tasks/research/adjudication/page-content-research-outcomes.json \
+  --report-md /tmp/page-content-research-adjudication.md \
+  --report-out-json /tmp/page-content-research-adjudication.json
+```
+
 ## Expected Outputs
 
 Every substantive run should surface some combination of:
@@ -175,6 +225,8 @@ Interpretation:
 - higher `unresolved_claims` means the registry or evidence adapters still need work before trusting wording changes
 - higher `inferred_page_targets` is acceptable when path inference is covering current siblings, but it should not dominate stable high-confidence families
 - low `evidence_sources` on a broad review usually means claim-family coverage or source mapping is still too thin
+
+The trust summary is a proxy only. Trust-promotion decisions should come from adjudicated review outcomes, not from raw report counts alone.
 
 ## Source-of-Truth Boundaries
 
@@ -223,6 +275,51 @@ Use this rubric when deciding whether a run was useful enough to trust:
   - wording overlap keeps producing false contradictions
   - the claim is really style guidance, not factual truth
   - evidence quality is too weak to classify reliably
+
+## Adjudication Workflow
+
+Adjudicate runs when:
+
+- a report is used to make or block a real content decision
+- a contradiction group looks noisy or unexpectedly broad
+- a reviewer had to manually rediscover facts that should have been tracked
+- a gateway status claim is being considered for stronger PR-time trust
+
+Classify outcomes like this:
+
+- `true_positive`: the report surfaced a real issue or useful current-state warning
+- `false_positive`: the report surfaced a claim family that was not actually useful or was misleadingly grouped
+- `false_negative`: the reviewer had to manually verify a factual claim that the system failed to track
+- `needs_split`: one family is collapsing multiple concepts and needs to be divided
+- `needs_narrowing`: the family exists but its matching or propagation logic is too broad
+- `needs_more_sources`: the family is valid but current source coverage is too weak
+
+Treat these as the default family-status interpretations:
+
+- `stable`: repeated adjudications show the family is useful and low-noise
+- `advisory-only`: keep reporting, but do not move toward stronger PR behavior yet
+- `needs-split`: separate mixed concepts before trusting the family further
+- `needs-narrowing`: reduce matching or inference breadth before trusting the family further
+- `needs-more-sources`: expand or improve source coverage before trusting the family further
+
+## Trust Tiers
+
+Trust tiers are metadata only in the current phase:
+
+- `experimental`: not enough adjudicated evidence yet
+- `advisory`: usable, but still too noisy or under-evidenced for stronger handling
+- `advisory-high-confidence`: a narrow family with low noise and strong current source fit
+- `not-eligible`: outside the current trust-candidate slice
+
+Current trust-candidate slice:
+
+- `clearinghouse-public-readiness`
+- `remote-signer-current-scope`
+- `programme-availability`
+- `community-signer-testing-surface`
+- `gateway-support-contact-channel`
+
+Do not treat any other family as eligible for stronger PR-time trust until adjudicated outcomes say otherwise.
 
 Do not:
 

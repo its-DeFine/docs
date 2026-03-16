@@ -4,7 +4,7 @@
  * @category          validator
  * @purpose           governance:agent-governance
  * @scope             tests/unit, tools/scripts/docs-page-research.js, tools/scripts/docs-fact-registry.js, tasks/research/claims
- * @owner             docs
+ * @domain            docs
  * @needs             R-R27, R-R30
  * @purpose-statement Tests docs-page-research.js — validates claim extraction, contradiction detection, and evidence-source adapters for the experimental research runner.
  * @pipeline          manual — experimental research system
@@ -504,6 +504,47 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
     assert.strictEqual(selected[0].claim_id, 'gw-offchain-payment-obligation');
   });
 
+  await runCase('Family selection includes support contact family for explicit gateway support-channel wording', async () => {
+    const families = [
+      {
+        claim_id: 'gw-support-contact-channel',
+        claim_family: 'gateway-support-contact-channel',
+        domain: 'gateways',
+        canonical_owner: 'v2/gateways/guides/roadmap-and-funding/operator-support.mdx',
+        dependent_pages: [],
+        match_terms: ['#local-gateways', 'primary real-time support channel', 'Forum', 'GitHub']
+      }
+    ];
+    const files = ['v2/gateways/guides/roadmap-and-funding/operator-support.mdx'];
+    const contents = {
+      'v2/gateways/guides/roadmap-and-funding/operator-support.mdx':
+        'The #local-gateways channel on Discord is the primary real-time support channel. Forum and GitHub remain the durable support paths.'
+    };
+    const selected = research.selectFamilies(families, files, contents);
+    assert.strictEqual(selected.length, 1);
+    assert.strictEqual(selected[0].claim_id, 'gw-support-contact-channel');
+  });
+
+  await runCase('Narrowed community signal family does not match generic support wording alone', async () => {
+    const families = [
+      {
+        claim_id: 'gw-discord-community-signal',
+        claim_family: 'discord-intake-repo-signal',
+        domain: 'gateways',
+        canonical_owner: 'v2/gateways/guides/operator-considerations/production-gateways.mdx',
+        dependent_pages: [],
+        match_terms: ['discord-issue-intake', 'repository_dispatch', 'discord.com/channels']
+      }
+    ];
+    const files = ['v2/gateways/guides/roadmap-and-funding/operator-support.mdx'];
+    const contents = {
+      'v2/gateways/guides/roadmap-and-funding/operator-support.mdx':
+        'Discord is the primary real-time support channel for operators and the community responds within a few hours.'
+    };
+    const selected = research.selectFamilies(families, files, contents);
+    assert.strictEqual(selected.length, 0);
+  });
+
   await runCase('Family selection matches operator-rationale economics pages through canonical and dependent ownership', async () => {
     const families = [
       {
@@ -677,6 +718,8 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
         quiet: true
       });
       const parsed = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+      assert.ok(parsed.report_id);
+      assert.strictEqual(parsed.report_kind, 'page-research');
       assert.strictEqual(parsed.conflicted_claims.length, 1);
       assert.strictEqual(parsed.cross_page_contradictions.length, 1);
       assert.deepStrictEqual(
@@ -944,7 +987,7 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
 
   return {
     passed: errors.length === 0,
-    total: 22,
+    total: 25,
     errors
   };
 }

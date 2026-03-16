@@ -44,7 +44,6 @@ api
 Dockerfile
 Makefile
 sitemap-ai.xml
-llms-full.txt
 llms.txt
 docs-index.json
 contribute

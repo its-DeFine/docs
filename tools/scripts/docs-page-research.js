@@ -4,7 +4,7 @@
  * @category          validator
  * @purpose           governance:agent-governance
  * @scope             tools/scripts, tasks/research/claims, tests/unit/docs-page-research.test.js, tasks/reports/repo-ops
- * @owner             docs
+ * @domain            docs
  * @needs             R-R27, R-R30
  * @purpose-statement Docs page research runner — extracts factual claims from docs pages, checks evidence sources, detects contradictions across related pages, and emits manual-first research reports.
  * @pipeline          manual — experimental research system
@@ -14,10 +14,13 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
+const crypto = require('crypto');
 const { loadRegistry, flattenClaimFamilies } = require('./docs-fact-registry');
 
 const DEFAULT_REGISTRY = 'tasks/research/claims';
 const GENERIC_PATH_TOKENS = new Set([
+  'and',
+  'mdx',
   'v2',
   'guides',
   'guide',
@@ -311,15 +314,15 @@ function extractPatternValues(snippets, patterns) {
 }
 
 function pathTokens(file) {
-  return [...new Set(
-    toPosix(file)
-      .split(/[/. _-]+/)
-      .map((entry) => normalizeForMatch(entry))
-      .flatMap((entry) => entry.split(' '))
-      .map((entry) => entry.trim())
-      .filter((entry) => entry.length >= 3)
-      .filter((entry) => !GENERIC_PATH_TOKENS.has(entry))
-  )];
+  return [
+    ...new Set(
+      toPosix(file)
+        .replace(/\.mdx$/i, '')
+        .split(/[\/._-]+/)
+        .flatMap((entry) => significantTokens(entry))
+        .filter((entry) => !GENERIC_PATH_TOKENS.has(entry))
+    )
+  ];
 }
 
 function fileDir(relPath) {
@@ -365,7 +368,7 @@ function listSiblingDocFiles(relDir) {
 
 function familySeedFiles(family, targetFiles) {
   const domainPrefix = family.domain ? `v2/${family.domain}/` : null;
-  return [...new Set([family.canonical_owner, ...(family.dependent_pages || []), ...(targetFiles || [])])]
+  return [...new Set([family.canonical_owner, ...(family.dependent_pages || [])])]
     .filter(Boolean)
     .filter((file) => !domainPrefix || toPosix(file).startsWith(domainPrefix));
 }
@@ -1242,6 +1245,15 @@ function buildTrustSummary(report) {
   };
 }
 
+function buildReportId(kind, targetFiles, generatedAt) {
+  const hash = crypto
+    .createHash('sha1')
+    .update([kind, generatedAt, ...targetFiles].join('|'))
+    .digest('hex')
+    .slice(0, 12);
+  return `page-content-research-${String(generatedAt || '').slice(0, 10)}-${hash}`;
+}
+
 function buildMarkdown(report) {
   const mdxSafe = (value) =>
     String(value || '')
@@ -1376,6 +1388,8 @@ async function run(args) {
   }
 
   const report = {
+    report_kind: 'page-research',
+    report_id: '',
     generated_at: new Date().toISOString(),
     scope: {
       target_files: targetFiles
@@ -1396,6 +1410,7 @@ async function run(args) {
     trust_summary: {},
     validation: {}
   };
+  report.report_id = buildReportId(report.report_kind, targetFiles, report.generated_at);
   report.trust_summary = buildTrustSummary(report);
   report.validation = buildValidation(report);
 
@@ -1457,6 +1472,7 @@ module.exports = {
   selectFamilies,
   inferFamilyPages,
   familyRelatedFiles,
+  buildReportId,
   buildTrustSummary,
   splitSentences,
   stripMdx
