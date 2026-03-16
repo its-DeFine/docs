@@ -97,6 +97,40 @@ function hasStagedComponentGovernanceChanges() {
   );
 }
 
+function hasStagedDocsGuideSotChanges() {
+  if (!stagedOnly) {
+    return true;
+  }
+
+  return getStagedRepoRelativeFiles().some(
+    (filePath) =>
+      filePath === 'README.md' ||
+      filePath.startsWith('docs-guide/') ||
+      filePath === 'tests/unit/docs-guide-sot.test.js' ||
+      filePath.startsWith('tools/scripts/generate-docs-guide-') ||
+      filePath === 'tools/scripts/generate-ui-templates.js' ||
+      filePath === 'tests/unit/script-docs.test.js'
+  );
+}
+
+function hasStagedUiTemplateChanges() {
+  if (!stagedOnly) {
+    return true;
+  }
+
+  return getStagedRepoRelativeFiles().some(
+    (filePath) =>
+      filePath.startsWith('snippets/templates/') ||
+      filePath.startsWith('v2/templates/') ||
+      filePath.startsWith('.vscode/') ||
+      filePath === 'docs-guide/catalog/ui-templates.mdx' ||
+      filePath === 'docs-guide/features/ui-system.mdx' ||
+      filePath === 'docs-guide/component-registry.json' ||
+      filePath === 'tools/scripts/generate-ui-templates.js' ||
+      filePath === 'tests/unit/ui-template-generator.test.js'
+  );
+}
+
 /**
  * Run all tests
  */
@@ -284,17 +318,25 @@ async function runAllTests() {
 
   // Docs-guide Source of Truth
   console.log('\n📚 Running Docs-guide Source-of-Truth Checks...');
-  const docsGuideSotResult = normalizeSuiteResult(docsGuideSotTests.runTests({ stagedOnly }));
-  totalErrors += docsGuideSotResult.errors.length;
-  totalWarnings += docsGuideSotResult.warnings.length;
-  console.log(`   ${docsGuideSotResult.errors.length} errors, ${docsGuideSotResult.warnings.length} warnings`);
+  if (hasStagedDocsGuideSotChanges()) {
+    const docsGuideSotResult = normalizeSuiteResult(docsGuideSotTests.runTests({ stagedOnly }));
+    totalErrors += docsGuideSotResult.errors.length;
+    totalWarnings += docsGuideSotResult.warnings.length;
+    console.log(`   ${docsGuideSotResult.errors.length} errors, ${docsGuideSotResult.warnings.length} warnings`);
+  } else {
+    console.log('   skipped (no staged docs-guide source-of-truth changes)');
+  }
 
   // UI Template Generator
   console.log('\n🧱 Running UI Template Generator Checks...');
-  const uiTemplateGeneratorResult = normalizeSuiteResult(uiTemplateGeneratorTests.runTests());
-  totalErrors += uiTemplateGeneratorResult.errors.length;
-  totalWarnings += uiTemplateGeneratorResult.warnings.length;
-  console.log(`   ${uiTemplateGeneratorResult.errors.length} errors, ${uiTemplateGeneratorResult.warnings.length} warnings`);
+  if (hasStagedUiTemplateChanges()) {
+    const uiTemplateGeneratorResult = normalizeSuiteResult(uiTemplateGeneratorTests.runTests());
+    totalErrors += uiTemplateGeneratorResult.errors.length;
+    totalWarnings += uiTemplateGeneratorResult.warnings.length;
+    console.log(`   ${uiTemplateGeneratorResult.errors.length} errors, ${uiTemplateGeneratorResult.warnings.length} warnings`);
+  } else {
+    console.log('   skipped (no staged UI template changes)');
+  }
 
   // Component Governance Utility Tests
   console.log('\n🧩 Running Component Governance Utility Tests...');

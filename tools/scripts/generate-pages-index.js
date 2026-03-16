@@ -173,18 +173,17 @@ function getDirectSubdirs(absDir) {
   if (!fs.existsSync(absDir)) return [];
   const repoDirRel = normalizeRel(path.relative(REPO_ROOT, absDir));
   const trackedPaths = listTrackedPathsUnder(repoDirRel);
-  const fsEntries = fs.readdirSync(absDir, { withFileTypes: true });
-  const fsSubdirs = fsEntries
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name)
-    .filter((name) => !isMaintainerOnlyIndexPath(path.posix.join(repoDirRel, name)));
 
   if (trackedPaths.length === 0) {
-    return sortAlpha(fsSubdirs);
+    return sortAlpha(
+      fs.readdirSync(absDir, { withFileTypes: true })
+        .filter((entry) => entry.isDirectory())
+        .map((entry) => entry.name)
+        .filter((name) => !isMaintainerOnlyIndexPath(path.posix.join(repoDirRel, name)))
+    );
   }
 
   const directSubdirs = new Set();
-  fsSubdirs.forEach((subdir) => directSubdirs.add(subdir));
   trackedPaths.forEach((relPath) => {
     const remainder = normalizeRel(path.posix.relative(repoDirRel, relPath));
     if (!remainder || remainder === relPath) return;
@@ -201,25 +200,24 @@ function getDirectMarkdownFiles(absDir) {
   if (!fs.existsSync(absDir)) return [];
   const repoDirRel = normalizeRel(path.relative(REPO_ROOT, absDir));
   const trackedPaths = listTrackedPathsUnder(repoDirRel);
-  const fsEntries = fs.readdirSync(absDir, { withFileTypes: true });
-  const fsMarkdownFiles = fsEntries
-    .filter((entry) => entry.isFile())
-    .map((entry) => entry.name)
-    .filter((name) => isMarkdownFile(name) && !isIndexFile(name))
-    .filter((name) => !isMaintainerOnlyIndexPath(path.posix.join(repoDirRel, name)));
 
   if (trackedPaths.length === 0) {
-    return sortAlpha(fsMarkdownFiles);
+    return sortAlpha(
+      fs.readdirSync(absDir, { withFileTypes: true })
+        .filter((entry) => entry.isFile())
+        .map((entry) => entry.name)
+        .filter((name) => isMarkdownFile(name) && !isIndexFile(name))
+        .filter((name) => !isMaintainerOnlyIndexPath(path.posix.join(repoDirRel, name)))
+    );
   }
 
-  return sortAlpha([
-    ...fsMarkdownFiles,
-    ...trackedPaths
+  return sortAlpha(
+    trackedPaths
       .map((relPath) => normalizeRel(path.posix.relative(repoDirRel, relPath)))
       .filter(Boolean)
       .filter((relPath) => !relPath.includes('/'))
       .filter((name) => isMarkdownFile(name) && !isIndexFile(name))
-  ]);
+  );
 }
 
 function normalizeDocsRouteKey(routePath) {
