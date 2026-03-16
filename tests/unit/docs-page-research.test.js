@@ -155,6 +155,187 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
     });
   });
 
+  await runCase('Evidence adapter matches public GA and repo Discord signal variants', async () => {
+    const root = mkTmpDir('docs-page-research-discord-');
+    const repoDir = path.join(root, 'repo');
+    const workflowPath = path.join(repoDir, '.github/workflows/discord-issue-intake.yml');
+    writeFile(
+      workflowPath,
+      'name: discord-issue-intake\non:\n  repository_dispatch:\n    types: [discord]\n# discord.com/channels/livepeer\n'
+    );
+
+    const previousCwd = process.cwd();
+    process.chdir(repoDir);
+    try {
+      const signalEvidence = await research.fetchEvidenceRef({
+        type: 'repo-discord-signal',
+        ref: '.github/workflows/discord-issue-intake.yml',
+        match_any: ['discord.com/channels', 'repository_dispatch']
+      });
+      assert.strictEqual(signalEvidence.ok, true);
+      assert.strictEqual(signalEvidence.matched, true);
+    } finally {
+      process.chdir(previousCwd);
+    }
+
+    await withMockedFetch(async () => ({
+      ok: true,
+      status: 200,
+      async text() {
+        return JSON.stringify({
+          title: 'Clearinghouse status',
+          cooked: 'No public clearinghouse service is at general availability yet; the community remote signer is still the testing path.'
+        });
+      }
+    }), async () => {
+      const evidence = await research.fetchEvidenceRef({
+        type: 'forum-topic',
+        ref: 'https://forum.livepeer.org/t/clearinghouse-status/9997',
+        match_any: ['public use status', 'community signer']
+      });
+      assert.strictEqual(evidence.ok, true);
+      assert.strictEqual(evidence.matched, true);
+    });
+  });
+
+  await runCase('Collect evidence inherits family-level match terms when refs are too literal', async () => {
+    await withMockedFetch(async () => ({
+      ok: true,
+      status: 200,
+      async text() {
+        return JSON.stringify({
+          title: 'Gateway payments',
+          cooked: 'Off-chain does not mean free. PM tickets are still used, but ETH custody is delegated to a signer.'
+        });
+      }
+    }), async () => {
+      const evidence = await research.collectEvidence({
+        claim_family: 'off-chain-payment-obligation',
+        claim_summary: 'Off-chain gateways still pay through PM tickets even when the gateway process holds no ETH key.',
+        canonical_owner: 'v2/gateways/guides/payments-and-pricing/payment-guide.mdx',
+        match_terms: ['off-chain does not mean free', 'PM tickets', 'no ETH in gateway'],
+        evidence_refs: [
+          {
+            type: 'forum-topic',
+            ref: 'https://forum.livepeer.org/t/gateway-payments/9996',
+            match_any: ['delegated custody']
+          }
+        ]
+      });
+      assert.strictEqual(evidence[0].ok, true);
+      assert.strictEqual(evidence[0].matched, true);
+    });
+  });
+
+  await runCase('Collect evidence prefers stronger official sources for current-sensitive claims', async () => {
+    await withMockedFetch(async (url) => {
+      if (String(url).includes('livepeer.org')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return '<html><body>The programme is currently active and recommended for startups building AI video.</body></html>';
+          }
+        };
+      }
+      return {
+        ok: true,
+        status: 200,
+        async text() {
+          return JSON.stringify({
+            title: 'Older forum note',
+            cooked: 'The programme was previously discussed with limited public detail.'
+          });
+        }
+      };
+    }, async () => {
+      const evidence = await research.collectEvidence({
+        claim_family: 'programme-availability',
+        claim_summary: 'Support pages should describe current programme availability with current evidence.',
+        canonical_owner: 'v2/gateways/guides/roadmap-and-funding/operator-support.mdx',
+        status: 'time-sensitive',
+        notes: 'current cohort timing matters',
+        match_terms: ['currently active', 'recommended for startups', 'programme availability'],
+        evidence_refs: [
+          {
+            type: 'forum-topic',
+            ref: 'https://forum.livepeer.org/t/startup-programme/9995',
+            match_any: ['programme']
+          },
+          {
+            type: 'official-page',
+            ref: 'https://www.livepeer.org/dev-hub',
+            match_any: ['developer']
+          }
+        ]
+      });
+      assert.strictEqual(evidence[0].type, 'official-page');
+      assert.strictEqual(evidence[0].matched, true);
+      assert.ok(evidence[0].selection_score > evidence[1].selection_score);
+    });
+  });
+
+  await runCase('Family selection uses path affinity for current IA siblings', async () => {
+    const families = [
+      {
+        claim_id: 'gw-offchain-payment-obligation',
+        claim_family: 'off-chain-payment-obligation',
+        canonical_owner: 'v2/gateways/guides/payments-and-pricing/payment-guide.mdx',
+        dependent_pages: ['v2/gateways/guides/payments-and-pricing/remote-signers.mdx'],
+        match_terms: ['pm tickets', 'off-chain']
+      }
+    ];
+    const files = ['v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx'];
+    const contents = {
+      'v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx':
+        'A clearinghouse handles PM signing and ETH custody for off-chain gateway operators.'
+    };
+    const selected = research.selectFamilies(families, files, contents);
+    assert.strictEqual(selected.length, 1);
+    assert.strictEqual(selected[0].claim_id, 'gw-offchain-payment-obligation');
+  });
+
+  await runCase('Family selection matches operator-rationale economics pages through canonical and dependent ownership', async () => {
+    const families = [
+      {
+        claim_id: 'orch-dual-revenue-model',
+        claim_family: 'operator-revenue-model',
+        domain: 'orchestrators',
+        canonical_owner: 'v2/orchestrators/guides/operator-considerations/operator-rationale.mdx',
+        dependent_pages: ['v2/orchestrators/guides/operator-considerations/business-case.mdx'],
+        match_terms: ['ETH job fees', 'LPT inflation rewards', 'variable upside']
+      }
+    ];
+    const files = ['v2/orchestrators/guides/operator-considerations/operator-rationale.mdx'];
+    const contents = {
+      'v2/orchestrators/guides/operator-considerations/operator-rationale.mdx':
+        'Orchestrators earn from ETH job fees and LPT inflation rewards. Service fees scale with workload volume.'
+    };
+    const selected = research.selectFamilies(families, files, contents);
+    assert.strictEqual(selected.length, 1);
+    assert.strictEqual(selected[0].claim_id, 'orch-dual-revenue-model');
+  });
+
+  await runCase('Family selection does not bleed across domains via path affinity', async () => {
+    const families = [
+      {
+        claim_id: 'orch-pool-worker-offchain-payouts',
+        claim_family: 'pool-worker-payout-model',
+        domain: 'orchestrators',
+        canonical_owner: 'v2/orchestrators/guides/deployment-details/setup-options.mdx',
+        dependent_pages: ['v2/orchestrators/guides/deployment-details/join-a-pool.mdx'],
+        match_terms: ['pool worker', 'off-chain payouts']
+      }
+    ];
+    const files = ['v2/gateways/guides/payments-and-pricing/payment-guide.mdx'];
+    const contents = {
+      'v2/gateways/guides/payments-and-pricing/payment-guide.mdx':
+        'Off-chain gateways still use PM tickets, but they do not hold ETH in the gateway process.'
+    };
+    const selected = research.selectFamilies(families, files, contents);
+    assert.strictEqual(selected.length, 0);
+  });
+
   await runCase('Research runner reports contradictions on real value drift', async () => {
     const root = mkTmpDir('docs-page-research-runner-');
     const repoDir = path.join(root, 'repo');
@@ -226,9 +407,74 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
     }
   });
 
+  await runCase('Markdown report escapes raw braces in extracted claims', async () => {
+    const root = mkTmpDir('docs-page-research-markdown-');
+    const repoDir = path.join(root, 'repo');
+    const registryDir = path.join(repoDir, 'tasks/research/claims');
+    const guideA = 'v2/gateways/a.mdx';
+    writeFile(path.join(repoDir, guideA), '{/* TODO: test */}\nThe public clearinghouse is not at general availability yet.');
+    writeFile(
+      path.join(registryDir, 'gateways.json'),
+      `${JSON.stringify(
+        {
+          version: 1,
+          domain: 'gateways',
+          claim_families: [
+            {
+              claim_id: 'gw-clearinghouse-public-readiness',
+              claim_family: 'clearinghouse-public-readiness',
+              entity: 'gateway',
+              claim_summary: 'Use current public clearinghouse status wording.',
+              canonical_owner: guideA,
+              source_type: 'repo-doc-reference',
+              source_ref: guideA,
+              evidence_date: '2026-03-16',
+              status: 'time-sensitive',
+              freshness_class: 'review-periodic',
+              dependent_pages: [],
+              related_claims: [],
+              last_reviewed_by: 'codex',
+              notes: 'test',
+              match_terms: ['general availability'],
+              comparison_patterns: [],
+              evidence_refs: [
+                {
+                  type: 'repo-file',
+                  ref: guideA,
+                  match_any: ['general availability']
+                }
+              ]
+            }
+          ]
+        },
+        null,
+        2
+      )}\n`
+    );
+
+    const previousCwd = process.cwd();
+    process.chdir(repoDir);
+    try {
+      const reportPath = path.join(root, 'report.md');
+      await research.run({
+        registry: 'tasks/research/claims',
+        page: guideA,
+        files: [],
+        reportMd: reportPath,
+        reportJson: '',
+        quiet: true
+      });
+      const markdown = fs.readFileSync(reportPath, 'utf8');
+      assert.ok(!markdown.includes('{'));
+      assert.ok(!markdown.includes('{/* TODO: test */}'));
+    } finally {
+      process.chdir(previousCwd);
+    }
+  });
+
   return {
     passed: errors.length === 0,
-    total: 7,
+    total: 14,
     errors
   };
 }

@@ -7,14 +7,14 @@
       "claim_family": "stake-threshold",
       "entity": "orchestrator",
       "claim_summary": "Solo transcoding guidance repeatedly states that operators need enough bonded LPT to enter the active set, often phrased as top 100, but that wording is time-sensitive and should not be treated as durable fact without current evidence.",
-      "canonical_owner": "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+      "canonical_owner": "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
       "source_type": "official-product-page",
       "source_ref": "https://explorer.livepeer.org/orchestrators",
       "evidence_date": "2026-03-16",
       "status": "time-sensitive",
       "freshness_class": "volatile",
       "dependent_pages": [
-        "v2/orchestrators/guides/deployment-details/setup-options.mdx",
+        "v2/orchestrators/guides/operator-considerations/business-case.mdx",
         "v2/orchestrators/guides/deployment-details/setup-options.mdx",
         "v2/orchestrators/setup/rcs-requirements.mdx"
       ],
@@ -57,8 +57,8 @@
       "freshness_class": "review-on-change",
       "dependent_pages": [
         "v2/orchestrators/guides/deployment-details/setup-options.mdx",
-        "v2/orchestrators/guides/deployment-details/setup-options.mdx",
         "v2/orchestrators/setup/rcs-requirements.mdx",
+        "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
         "v2/orchestrators/guides/operator-considerations/business-case.mdx"
       ],
       "related_claims": [
@@ -113,6 +113,7 @@
       "status": "time-sensitive",
       "freshness_class": "volatile",
       "dependent_pages": [
+        "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
         "v2/orchestrators/guides/operator-considerations/business-case.mdx"
       ],
       "related_claims": [
@@ -158,6 +159,7 @@
       "dependent_pages": [
         "v2/orchestrators/guides/deployment-details/setup-options.mdx",
         "v2/orchestrators/setup/rcs-requirements.mdx",
+        "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
         "v2/orchestrators/guides/operator-considerations/business-case.mdx"
       ],
       "related_claims": [
@@ -413,6 +415,7 @@
       "freshness_class": "review-periodic",
       "dependent_pages": [
         "v2/orchestrators/guides/deployment-details/requirements.mdx",
+        "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
         "v2/orchestrators/guides/operator-considerations/business-case.mdx"
       ],
       "related_claims": [
@@ -502,13 +505,14 @@
       "claim_family": "business-case-viability",
       "entity": "orchestrator",
       "claim_summary": "Business-case guidance should explicitly stay approximate and local-context dependent. Payback, electricity cost, and 'worth it' framing are useful, but they should not be presented as portable constants across operators, geographies, or market conditions.",
-      "canonical_owner": "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+      "canonical_owner": "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
       "source_type": "repo-doc-reference",
-      "source_ref": "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+      "source_ref": "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
       "evidence_date": "2026-03-16",
       "status": "time-sensitive",
       "freshness_class": "volatile",
       "dependent_pages": [
+        "v2/orchestrators/guides/operator-considerations/business-case.mdx",
         "v2/orchestrators/guides/deployment-details/requirements.mdx"
       ],
       "related_claims": [
@@ -535,7 +539,7 @@
       "evidence_refs": [
         {
           "type": "repo-file",
-          "ref": "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+          "ref": "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
           "match_any": [
             "worth it",
             "payback period",
@@ -550,6 +554,278 @@
             "100 Mbps symmetric",
             "1 Gbps symmetric",
             "24 GB"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "orch-commercial-model-warmth",
+      "claim_family": "commercial-model-warmth",
+      "entity": "orchestrator",
+      "claim_summary": "Commercial AI operator guidance should keep warm-model, pre-loaded startup, and cold-start SLA language aligned across setup and business-case pages. These claims describe real operational expectations, but they remain experimental and workload-sensitive.",
+      "canonical_owner": "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+      "source_type": "repo-doc-reference",
+      "source_ref": "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+      "evidence_date": "2026-03-16",
+      "status": "time-sensitive",
+      "freshness_class": "review-on-change",
+      "dependent_pages": [
+        "v2/orchestrators/guides/ai-and-job-workloads/ai-workloads-guide.mdx",
+        "v2/orchestrators/guides/ai-and-job-workloads/batch-ai-setup.mdx",
+        "v2/orchestrators/guides/deployment-details/dual-workload-setup.mdx"
+      ],
+      "related_claims": [
+        "orch-business-case-cost-viability",
+        "orch-batch-ai-vram-threshold"
+      ],
+      "last_reviewed_by": "codex",
+      "notes": "This family tracks whether docs consistently present warm models as a commercial latency/SLA requirement rather than a generic optimisation tip.",
+      "match_terms": [
+        "pre-loaded and warm",
+        "keep them warm",
+        "cold starts are SLA failures",
+        "warm at startup",
+        "cold start latency"
+      ],
+      "comparison_patterns": [],
+      "evidence_refs": [
+        {
+          "type": "repo-file",
+          "ref": "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+          "match_any": [
+            "pre-loaded and warm",
+            "cold starts are SLA failures",
+            "commercial Orchestrators pre-load all advertised models"
+          ]
+        },
+        {
+          "type": "repo-file",
+          "ref": "v2/orchestrators/guides/deployment-details/dual-workload-setup.mdx",
+          "match_any": [
+            "\"warm\": true",
+            "model stays warm in VRAM",
+            "warm in VRAM"
+          ]
+        },
+        {
+          "type": "repo-file",
+          "ref": "v2/orchestrators/guides/ai-and-job-workloads/batch-ai-setup.mdx",
+          "match_any": [
+            "warm: true",
+            "Eliminates cold-start latency",
+            "one warm model per GPU"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "orch-consumer-nvenc-session-cap",
+      "claim_family": "consumer-nvenc-session-cap",
+      "entity": "orchestrator",
+      "claim_summary": "Consumer NVIDIA NVENC session-cap guidance is factual but volatile. Hardware requirement and transcoding guides should stay aligned on whether GeForce-class cards are typically capped at 2-3 concurrent sessions and whether newer generations changed that default.",
+      "canonical_owner": "v2/orchestrators/guides/deployment-details/requirements.mdx",
+      "source_type": "repo-doc-reference",
+      "source_ref": "v2/orchestrators/guides/deployment-details/requirements.mdx",
+      "evidence_date": "2026-03-16",
+      "status": "time-sensitive",
+      "freshness_class": "volatile",
+      "dependent_pages": [
+        "v2/orchestrators/guides/ai-and-job-workloads/job-types.mdx",
+        "v2/orchestrators/guides/ai-and-job-workloads/video-transcoding.mdx"
+      ],
+      "related_claims": [
+        "orch-session-limit-default",
+        "orch-bandwidth-per-stream-planning"
+      ],
+      "last_reviewed_by": "codex",
+      "notes": "The current docs already carry REVIEW notes for Ada Lovelace uncertainty. The runner should treat these figures as volatile operational claims, not settled constants.",
+      "match_terms": [
+        "NVENC session cap",
+        "2-3 concurrent sessions",
+        "consumer cards",
+        "Ada Lovelace",
+        "RTX 40xx"
+      ],
+      "comparison_patterns": [
+        "\\b2-3\\s*concurrent\\s*(?:NVENC\\s*)?(?:encode\\s*)?sessions\\b",
+        "\\b3\\s*concurrent\\s*(?:NVENC\\s*)?(?:encode\\s*)?sessions\\b",
+        "\\bAda\\s+Lovelace\\b"
+      ],
+      "evidence_refs": [
+        {
+          "type": "repo-file",
+          "ref": "v2/orchestrators/guides/deployment-details/requirements.mdx",
+          "match_any": [
+            "2-3 concurrent NVENC encode sessions",
+            "Ada Lovelace",
+            "NVIDIA matrix"
+          ]
+        },
+        {
+          "type": "repo-file",
+          "ref": "v2/orchestrators/guides/ai-and-job-workloads/video-transcoding.mdx",
+          "match_any": [
+            "NVENC session caps on consumer GPUs",
+            "If your GPU is capped at 3 concurrent NVENC sessions",
+            "Ada Lovelace"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "orch-pool-worker-offchain-payouts",
+      "claim_family": "pool-worker-payout-model",
+      "entity": "orchestrator",
+      "claim_summary": "Pool-worker guidance should stay explicit that a worker is not running an orchestrator identity, does not perform on-chain operations, and receives off-chain payouts from the pool operator rather than protocol-level reward flows.",
+      "canonical_owner": "v2/orchestrators/guides/deployment-details/setup-options.mdx",
+      "source_type": "repo-doc-reference",
+      "source_ref": "v2/orchestrators/guides/deployment-details/setup-options.mdx",
+      "evidence_date": "2026-03-16",
+      "status": "verified",
+      "freshness_class": "review-on-change",
+      "dependent_pages": [
+        "v2/orchestrators/guides/deployment-details/join-a-pool.mdx",
+        "v2/orchestrators/setup/rcs-requirements.mdx"
+      ],
+      "related_claims": [
+        "orch-pool-vs-solo-prerequisites",
+        "orch-active-set-threshold"
+      ],
+      "last_reviewed_by": "codex",
+      "notes": "This setup-path family is high-signal because several setup pages still blur protocol requirements and pool-worker requirements.",
+      "match_terms": [
+        "not an Orchestrator at all",
+        "off-chain payouts",
+        "no on-chain registration",
+        "pool operator directly",
+        "no Ethereum keystore"
+      ],
+      "comparison_patterns": [],
+      "evidence_refs": [
+        {
+          "type": "repo-file",
+          "ref": "v2/orchestrators/guides/deployment-details/setup-options.mdx",
+          "match_any": [
+            "not an Orchestrator at all",
+            "off-chain payouts",
+            "No Ethereum keystore"
+          ]
+        },
+        {
+          "type": "repo-file",
+          "ref": "v2/orchestrators/guides/deployment-details/join-a-pool.mdx",
+          "match_any": [
+            "pool worker",
+            "pool operator",
+            "payout"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "orch-ot-split-capacity-sum",
+      "claim_family": "ot-split-capacity-aggregation",
+      "entity": "orchestrator",
+      "claim_summary": "O-T split docs should keep the capacity model aligned: orchestrator session capacity is the sum of connected transcoder `-maxSessions` values, and protocol management remains separate from GPU workload processing.",
+      "canonical_owner": "v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup.mdx",
+      "source_type": "repo-doc-reference",
+      "source_ref": "v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup.mdx",
+      "evidence_date": "2026-03-16",
+      "status": "verified",
+      "freshness_class": "review-on-change",
+      "dependent_pages": [
+        "v2/orchestrators/guides/deployment-details/setup-options.mdx"
+      ],
+      "related_claims": [
+        "orch-session-limit-default",
+        "orch-bandwidth-per-stream-planning"
+      ],
+      "last_reviewed_by": "codex",
+      "notes": "This family is operationally important because setup comparison pages often compress the O-T split model into vague scaling language.",
+      "match_terms": [
+        "sum of all connected Transcoder",
+        "total session capacity",
+        "orchSecret",
+        "scale Transcoder machines independently"
+      ],
+      "comparison_patterns": [
+        "\\bsum of all connected Transcoder -maxSessions values\\b",
+        "\\btotal session capacity\\b",
+        "\\borchSecret\\b"
+      ],
+      "evidence_refs": [
+        {
+          "type": "repo-file",
+          "ref": "v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup.mdx",
+          "match_any": [
+            "sum of all connected Transcoder",
+            "orchSecret",
+            "effective session capacity"
+          ]
+        },
+        {
+          "type": "repo-file",
+          "ref": "v2/orchestrators/guides/deployment-details/setup-options.mdx",
+          "match_any": [
+            "Total session capacity is the sum",
+            "orchSecret",
+            "scale Transcoder machines independently"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "orch-dual-revenue-model",
+      "claim_family": "operator-revenue-model",
+      "entity": "orchestrator",
+      "claim_summary": "Operator economics pages should keep the two revenue streams aligned: ETH service fees scale with workload and gateway demand, while LPT inflation rewards scale with stake and reward-call reliability. Docs should not flatten those into one generic earnings model.",
+      "canonical_owner": "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
+      "source_type": "repo-doc-reference",
+      "source_ref": "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
+      "evidence_date": "2026-03-16",
+      "status": "verified",
+      "freshness_class": "review-on-change",
+      "dependent_pages": [
+        "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+        "v2/orchestrators/guides/staking-and-rewards/rewards-and-fees.mdx"
+      ],
+      "related_claims": [
+        "orch-reward-profitability-threshold",
+        "orch-business-case-cost-viability"
+      ],
+      "last_reviewed_by": "codex",
+      "notes": "This family is about keeping operator evaluation honest about what scales with stake versus what scales with served demand.",
+      "match_terms": [
+        "two independent streams",
+        "ETH job fees",
+        "LPT inflation rewards",
+        "service fees scale",
+        "inflation as a base",
+        "variable upside"
+      ],
+      "comparison_patterns": [
+        "\\bETH job fees\\b",
+        "\\bLPT inflation rewards\\b",
+        "\\bservice fees scale\\b",
+        "\\binflation (?:as|is) (?:a )?base\\b"
+      ],
+      "evidence_refs": [
+        {
+          "type": "repo-file",
+          "ref": "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx",
+          "match_any": [
+            "two independent streams",
+            "ETH job fees",
+            "LPT inflation rewards"
+          ]
+        },
+        {
+          "type": "repo-file",
+          "ref": "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+          "match_any": [
+            "service fees scale",
+            "inflation as a base",
+            "variable upside"
           ]
         }
       ]

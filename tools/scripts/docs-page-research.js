@@ -17,6 +17,60 @@ const { spawnSync } = require('child_process');
 const { loadRegistry, flattenClaimFamilies } = require('./docs-fact-registry');
 
 const DEFAULT_REGISTRY = 'tasks/research/claims';
+const GENERIC_PATH_TOKENS = new Set([
+  'v2',
+  'guides',
+  'guide',
+  'setup',
+  'resources',
+  'resource',
+  'concepts',
+  'concept',
+  'quickstart',
+  'payments',
+  'pricing',
+  'details',
+  'operator',
+  'operators',
+  'gateway',
+  'gateways',
+  'orchestrator',
+  'orchestrators',
+  'current',
+  'page',
+  'docs'
+]);
+const EVIDENCE_TYPE_PRIORITY = {
+  'official-page': 100,
+  'repo-file': 90,
+  'github-release': 80,
+  'github-pr': 70,
+  'github-issue': 65,
+  'github-repo': 60,
+  'forum-topic': 50,
+  'repo-discord-signal': 40
+};
+const CURRENT_LANGUAGE_PATTERNS = [
+  /\bcurrent(?:ly)?\b/gi,
+  /\btoday\b/gi,
+  /\bsupported?\b/gi,
+  /\brecommended?\b/gi,
+  /\bviab(?:le|ility)\b/gi,
+  /\bworth it\b/gi,
+  /\bactive\b/gi,
+  /\bproduction\b/gi,
+  /\bgeneral availability\b/gi,
+  /\bga\b/gi
+];
+const HISTORICAL_LANGUAGE_PATTERNS = [
+  /\bhistorical(?:ly)?\b/gi,
+  /\bprevious(?:ly)?\b/gi,
+  /\bdeprecated\b/gi,
+  /\bno longer\b/gi,
+  /\bnot yet\b/gi,
+  /\bin development\b/gi,
+  /\bearly 20\d{2}\b/gi
+];
 
 function toPosix(value) {
   return String(value || '').split(path.sep).join('/');
@@ -223,20 +277,72 @@ function extractPatternValues(snippets, patterns) {
   return [...new Set(values)].sort();
 }
 
+function pathTokens(file) {
+  return [...new Set(
+    toPosix(file)
+      .split(/[/. _-]+/)
+      .map((entry) => normalizeForMatch(entry))
+      .flatMap((entry) => entry.split(' '))
+      .map((entry) => entry.trim())
+      .filter((entry) => entry.length >= 3)
+      .filter((entry) => !GENERIC_PATH_TOKENS.has(entry))
+  )];
+}
+
+function sharedCount(left, right) {
+  const leftSet = new Set(left);
+  return right.filter((entry) => leftSet.has(entry)).length;
+}
+
+function familyPathAffinity(file, family) {
+  const target = toPosix(file);
+  const targetTokens = pathTokens(target);
+  const targetBase = path.basename(target, path.extname(target));
+  const relatedFiles = [family.canonical_owner, ...family.dependent_pages];
+  let score = 0;
+
+  relatedFiles.forEach((related) => {
+    const relatedPath = toPosix(related);
+    const relatedBase = path.basename(relatedPath, path.extname(relatedPath));
+    if (target === relatedPath) {
+      score = Math.max(score, 4);
+      return;
+    }
+    if (targetBase === relatedBase) {
+      score = Math.max(score, 3);
+    }
+    const overlap = sharedCount(targetTokens, pathTokens(relatedPath));
+    if (overlap >= 3) {
+      score = Math.max(score, 3);
+    } else if (overlap >= 2) {
+      score = Math.max(score, 2);
+    } else if (overlap >= 1) {
+      score = Math.max(score, 1);
+    }
+  });
+
+  return score;
+}
+
 function scoreFamilyForTargets(family, targetFiles, fileContents) {
   let score = 0;
   const lowerTerms = family.match_terms.map((entry) => entry.toLowerCase());
+  const summaryTerms = [
+    family.claim_family.replace(/-/g, ' '),
+    path.basename(family.canonical_owner, path.extname(family.canonical_owner)).replace(/[-_]/g, ' ')
+  ];
   const domainPrefix = family.domain ? `v2/${family.domain}/` : null;
   targetFiles.forEach((file) => {
-    if (file === family.canonical_owner || family.dependent_pages.includes(file)) {
-      score += 3;
-    }
     if (domainPrefix && !file.startsWith(domainPrefix)) {
       return;
     }
+    score += familyPathAffinity(file, family);
     const text = stripMdx(fileContents[file] || '').toLowerCase();
     lowerTerms.forEach((term) => {
       if (term && text.includes(term)) score += 1;
+    });
+    summaryTerms.forEach((term) => {
+      if (term && text.includes(term.toLowerCase())) score += 1;
     });
   });
   return score;
@@ -280,6 +386,18 @@ function normalizeForMatch(value) {
     .replace(/\bfeasibilit(?:y|ies)\b/g, ' viable ')
     .replace(/\bworth it\b/g, ' viable ')
     .replace(/\bprofitab(?:le|ility)\b/g, ' viable ')
+    .replace(/\bcommercial(?:ly)?\s+viable\b/g, ' viable ')
+    .replace(/\bpre[\s-]?loaded\b/g, ' warm ')
+    .replace(/\bkeep\s+(?:them|models?)\s+warm\b/g, ' warm ')
+    .replace(/\bwarmed?\s+at\s+startup\b/g, ' warm startup ')
+    .replace(/\bcold[\s-]?starts?\b/g, ' cold start ')
+    .replace(/\bservice[\s-]?level\s+agreement[s]?\b/g, ' sla ')
+    .replace(/\bgeneral\s+availability\b/g, ' public ga ')
+    .replace(/\bpublic\s+use\s+status\b/g, ' public ga ')
+    .replace(/\bmarketplace\s+filter\b/g, ' price filter ')
+    .replace(/\bsafety\s+ceiling\b/g, ' price ceiling ')
+    .replace(/\bsession\s+cap\b/g, ' session limit ')
+    .replace(/\bconcurrent\s+encoding\s+sessions?\b/g, ' nvenc session ')
     .replace(/\bmax\s*price\s*per\s*capability\b/g, ' price ceiling ')
     .replace(/\bmaxpricepercapability\b/g, ' price ceiling ')
     .replace(/\bmax\s*price\s*per\s*unit\b/g, ' price ceiling ')
@@ -329,6 +447,88 @@ function matchAnySignal(text, terms) {
   return terms.some((term) => signalMatches(text, term));
 }
 
+function matchedTerms(text, terms) {
+  const list = [];
+  (terms || []).forEach((term) => {
+    if (signalMatches(text, term)) {
+      list.push(String(term).trim());
+    }
+  });
+  return uniqueTerms(list, 12);
+}
+
+function uniqueTerms(terms, limit = 16) {
+  const seen = new Set();
+  const out = [];
+  terms
+    .map((entry) => String(entry || '').trim())
+    .filter(Boolean)
+    .forEach((entry) => {
+      const key = normalizeForMatch(entry);
+      if (!key || seen.has(key)) return;
+      seen.add(key);
+      out.push(entry);
+    });
+  return out.slice(0, limit);
+}
+
+function expandedEvidenceTerms(family, ref) {
+  return uniqueTerms([
+    ...(ref.match_any || []),
+    ...(family.match_terms || []),
+    family.claim_family.replace(/-/g, ' '),
+    family.claim_summary,
+    path.basename(family.canonical_owner || '', path.extname(family.canonical_owner || '')).replace(/[-_]/g, ' ')
+  ]);
+}
+
+function countPatternHits(text, patterns) {
+  return patterns.reduce((count, pattern) => {
+    const matches = text.match(pattern);
+    return count + (matches ? matches.length : 0);
+  }, 0);
+}
+
+function sourcePriority(type) {
+  return EVIDENCE_TYPE_PRIORITY[type] || 10;
+}
+
+function familyNeedsCurrentness(family) {
+  const corpus = [family.claim_summary, family.notes, ...(family.match_terms || []), family.status].join(' ');
+  return countPatternHits(corpus, CURRENT_LANGUAGE_PATTERNS) > 0;
+}
+
+function evidenceRanking(type, corpus, terms, family) {
+  const matched = matchedTerms(corpus, terms);
+  const needsCurrentness = family ? familyNeedsCurrentness(family) : false;
+  const currentHits = countPatternHits(corpus, CURRENT_LANGUAGE_PATTERNS);
+  const historicalHits = countPatternHits(corpus, HISTORICAL_LANGUAGE_PATTERNS);
+  let score = sourcePriority(type) + matched.length * 10;
+  const reasons = [`source priority ${sourcePriority(type)}`];
+
+  if (matched.length > 0) {
+    reasons.push(`${matched.length} matched term${matched.length === 1 ? '' : 's'}`);
+  }
+  if (needsCurrentness && currentHits > 0) {
+    score += 8;
+    reasons.push(`current-language match ${currentHits}`);
+  }
+  if (needsCurrentness && historicalHits > 0) {
+    score -= Math.min(12, historicalHits * 3);
+    reasons.push(`historical-language penalty ${historicalHits}`);
+  }
+
+  return {
+    matched_terms: matched,
+    matched_terms_count: matched.length,
+    source_rank: sourcePriority(type),
+    current_language_hits: currentHits,
+    historical_language_hits: historicalHits,
+    selection_score: score,
+    ranking_reason: reasons.join('; ')
+  };
+}
+
 function parseGithubUrl(ref) {
   const url = new URL(ref);
   const parts = url.pathname.split('/').filter(Boolean);
@@ -355,36 +555,61 @@ async function fetchText(url, headers = {}) {
   };
 }
 
-async function fetchEvidenceRef(ref) {
+async function fetchEvidenceRef(ref, options = null) {
   const checked_on = localIsoDate();
-  if (ref.type === 'repo-file') {
+  const matchTerms = Array.isArray(options) ? options : options?.termsOverride || ref.match_any || [];
+  const family = Array.isArray(options) ? null : options?.family || null;
+  if (ref.type === 'repo-file' || ref.type === 'repo-discord-signal') {
     const absPath = path.resolve(repoRoot(), ref.ref);
     if (!fs.existsSync(absPath)) {
-      return { type: ref.type, ref: ref.ref, checked_on, ok: false, matched: false, summary: 'repo file missing' };
+      return {
+        type: ref.type,
+        ref: ref.ref,
+        checked_on,
+        ok: false,
+        matched: false,
+        summary: 'repo file missing',
+        source_rank: sourcePriority(ref.type),
+        matched_terms: [],
+        matched_terms_count: 0,
+        current_language_hits: 0,
+        historical_language_hits: 0,
+        selection_score: 0,
+        ranking_reason: `source priority ${sourcePriority(ref.type)}; repo file missing`
+      };
     }
     const text = readFile(absPath);
-    const matched = matchAnySignal(text, ref.match_any);
+    const matched = matchAnySignal(text, matchTerms);
+    const ranking = evidenceRanking(ref.type, text, matchTerms, family);
+    const matchedSummary = ref.type === 'repo-discord-signal' ? 'repo Discord/community signal matched' : 'repo evidence matched';
+    const missingSummary =
+      ref.type === 'repo-discord-signal'
+        ? 'repo Discord/community signal fetched but signal missing'
+        : 'repo evidence fetched but signal missing';
     return {
       type: ref.type,
       ref: ref.ref,
       checked_on,
       ok: true,
       matched,
-      summary: matched ? 'repo evidence matched' : 'repo evidence fetched but signal missing'
+      summary: matched ? matchedSummary : missingSummary,
+      ...ranking
     };
   }
 
   if (ref.type === 'official-page') {
     const response = await fetchText(ref.ref);
     const text = htmlToText(response.text);
-    const matched = response.ok && matchAnySignal(text, ref.match_any);
+    const matched = response.ok && matchAnySignal(text, matchTerms);
+    const ranking = evidenceRanking(ref.type, text, matchTerms, family);
     return {
       type: ref.type,
       ref: ref.ref,
       checked_on,
       ok: response.ok,
       matched,
-      summary: response.ok ? (matched ? 'official page matched' : 'official page fetched but signal missing') : `official page fetch failed (${response.status})`
+      summary: response.ok ? (matched ? 'official page matched' : 'official page fetched but signal missing') : `official page fetch failed (${response.status})`,
+      ...ranking
     };
   }
 
@@ -398,14 +623,16 @@ async function fetchEvidenceRef(ref) {
       parsed = null;
     }
     const corpus = parsed ? JSON.stringify(parsed) : response.text;
-    const matched = response.ok && matchAnySignal(corpus, ref.match_any);
+    const matched = response.ok && matchAnySignal(corpus, matchTerms);
+    const ranking = evidenceRanking(ref.type, corpus, matchTerms, family);
     return {
       type: ref.type,
       ref: ref.ref,
       checked_on,
       ok: response.ok,
       matched,
-      summary: response.ok ? (matched ? 'forum topic matched' : 'forum topic fetched but signal missing') : `forum topic fetch failed (${response.status})`
+      summary: response.ok ? (matched ? 'forum topic matched' : 'forum topic fetched but signal missing') : `forum topic fetch failed (${response.status})`,
+      ...ranking
     };
   }
 
@@ -429,14 +656,16 @@ async function fetchEvidenceRef(ref) {
       parsedJson = null;
     }
     const corpus = parsedJson ? JSON.stringify(parsedJson) : response.text;
-    const matched = response.ok && matchAnySignal(corpus, ref.match_any);
+    const matched = response.ok && matchAnySignal(corpus, matchTerms);
+    const ranking = evidenceRanking(ref.type, corpus, matchTerms, family);
     return {
       type: ref.type,
       ref: ref.ref,
       checked_on,
       ok: response.ok,
       matched,
-      summary: response.ok ? (matched ? 'GitHub evidence matched' : 'GitHub evidence fetched but signal missing') : `GitHub fetch failed (${response.status})`
+      summary: response.ok ? (matched ? 'GitHub evidence matched' : 'GitHub evidence fetched but signal missing') : `GitHub fetch failed (${response.status})`,
+      ...ranking
     };
   }
 
@@ -446,16 +675,42 @@ async function fetchEvidenceRef(ref) {
     checked_on,
     ok: false,
     matched: false,
-    summary: `unsupported evidence ref type: ${ref.type}`
+    summary: `unsupported evidence ref type: ${ref.type}`,
+    source_rank: sourcePriority(ref.type),
+    matched_terms: [],
+    matched_terms_count: 0,
+    current_language_hits: 0,
+    historical_language_hits: 0,
+    selection_score: 0,
+    ranking_reason: `source priority ${sourcePriority(ref.type)}; unsupported evidence type`
   };
 }
 
 async function collectEvidence(family) {
   const evidence = [];
   for (const ref of family.evidence_refs) {
-    evidence.push(await fetchEvidenceRef(ref));
+    evidence.push(
+      await fetchEvidenceRef(ref, {
+        termsOverride: expandedEvidenceTerms(family, ref),
+        family
+      })
+    );
   }
-  return evidence;
+  return evidence.sort((left, right) => {
+    if (Number(right.ok && right.matched) !== Number(left.ok && left.matched)) {
+      return Number(right.ok && right.matched) - Number(left.ok && left.matched);
+    }
+    if (Number(right.ok) !== Number(left.ok)) {
+      return Number(right.ok) - Number(left.ok);
+    }
+    if ((right.selection_score || 0) !== (left.selection_score || 0)) {
+      return (right.selection_score || 0) - (left.selection_score || 0);
+    }
+    if ((left.source_rank || 0) !== (right.source_rank || 0)) {
+      return (right.source_rank || 0) - (left.source_rank || 0);
+    }
+    return (right.matched_terms_count || 0) - (left.matched_terms_count || 0);
+  });
 }
 
 function confidenceLabel(status, evidence) {
@@ -593,7 +848,11 @@ function buildEvidenceSources(familyReports) {
       checked_on: evidence.checked_on,
       ok: evidence.ok,
       matched: evidence.matched,
-      summary: evidence.summary
+      summary: evidence.summary,
+      source_rank: evidence.source_rank,
+      matched_terms: evidence.matched_terms || [],
+      selection_score: evidence.selection_score || 0,
+      ranking_reason: evidence.ranking_reason || ''
     }))
   );
 }
@@ -612,6 +871,11 @@ function buildValidation(report) {
 }
 
 function buildMarkdown(report) {
+  const mdxSafe = (value) =>
+    String(value || '')
+      .replace(/[{}]/g, (match) => `\\${match}`)
+      .replace(/\s+/g, ' ')
+      .trim();
   const lines = [];
   lines.push('# Docs Page Research Report');
   lines.push('');
@@ -624,7 +888,7 @@ function buildMarkdown(report) {
   report.claims_reviewed.forEach((entry) => {
     lines.push(`- \`${entry.file}\``);
     lines.push(`  - claim families: ${entry.matched_claim_families.length ? `\`${entry.matched_claim_families.join('`, `')}\`` : 'none'}`);
-    entry.extracted_claims.slice(0, 4).forEach((claim) => lines.push(`  - extracted: ${claim}`));
+    entry.extracted_claims.slice(0, 4).forEach((claim) => lines.push(`  - extracted: ${mdxSafe(claim)}`));
   });
   lines.push('');
 
@@ -643,7 +907,7 @@ function buildMarkdown(report) {
       entries.forEach((entry) => {
         lines.push(`- \`${entry.claim_id}\` (${entry.status}, ${entry.confidence})`);
         lines.push(`  - owner: \`${entry.canonical_owner}\``);
-        lines.push(`  - summary: ${entry.summary}`);
+        lines.push(`  - summary: ${mdxSafe(entry.summary)}`);
       });
     }
     lines.push('');
@@ -657,7 +921,7 @@ function buildMarkdown(report) {
     report.cross_page_contradictions.forEach((entry) => {
       lines.push(`- \`${entry.claim_id}\` (${entry.claim_family})`);
       lines.push(`  - action: ${entry.recommended_action}`);
-      entry.pages.forEach((page) => lines.push(`  - \`${page.file}\`: ${page.values.join(', ') || page.snippet}`));
+      entry.pages.forEach((page) => lines.push(`  - \`${page.file}\`: ${mdxSafe(page.values.join(', ') || page.snippet)}`));
     });
   }
   lines.push('');
@@ -677,9 +941,16 @@ function buildMarkdown(report) {
     lines.push('- None');
   } else {
     report.evidence_sources.forEach((entry) => {
-      lines.push(`- \`${entry.claim_id}\` → ${entry.type}: ${entry.ref}`);
+      lines.push(`- \`${entry.claim_id}\` → ${entry.type}: ${mdxSafe(entry.ref)}`);
       lines.push(`  - checked: ${entry.checked_on}`);
-      lines.push(`  - result: ${entry.summary}`);
+      lines.push(`  - result: ${mdxSafe(entry.summary)}`);
+      lines.push(`  - rank: ${entry.source_rank}; score: ${entry.selection_score}`);
+      if (entry.matched_terms.length) {
+        lines.push(`  - matched terms: ${mdxSafe(entry.matched_terms.join(', '))}`);
+      }
+      if (entry.ranking_reason) {
+        lines.push(`  - why selected: ${mdxSafe(entry.ranking_reason)}`);
+      }
     });
   }
   lines.push('');
@@ -691,7 +962,7 @@ function buildMarkdown(report) {
   });
   lines.push('');
 
-  return `${lines.join('\n')}\n`;
+  return `${lines.join('\n').trimEnd()}\n`;
 }
 
 async function run(args) {
