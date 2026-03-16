@@ -2584,11 +2584,11 @@
                 ]
               },
               {
-                "tab": "Gateways",
+                "tab": "Gateways NEW",
                 "icon": "torii-gate",
                 "anchors": [
                   {
-                    "anchor": "Gateways",
+                    "anchor": "Gateways NEW",
                     "icon": "torii-gate",
                     "groups": [
                       {
@@ -2703,7 +2703,7 @@
                             ]
                           },
                           {
-                            "group": "AI & Job Pipelines",
+                            "group": "AI and Job Pipelines",
                             "pages": [
                               "v2/gateways/guides/node-pipelines/guide",
                               "v2/gateways/guides/node-pipelines/video-pipelines",
@@ -2713,7 +2713,7 @@
                             ]
                           },
                           {
-                            "group": "Payments & Pricing",
+                            "group": "Payments and Pricing",
                             "pages": [
                               "v2/gateways/guides/payments-and-pricing/payment-guide",
                               "v2/gateways/guides/payments-and-pricing/funding-guide",
@@ -2836,20 +2836,6 @@
                           }
                         ]
                       }
-                    ]
-                  },
-                  {
-                    "anchor": "Resource HUB",
-                    "icon": "books",
-                    "pages": [
-                      "v2/resources/redirect"
-                    ]
-                  },
-                  {
-                    "anchor": " ",
-                    "icon": "horizontal-rule",
-                    "pages": [
-                      " "
                     ]
                   }
                 ]
