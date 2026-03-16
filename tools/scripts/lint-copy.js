@@ -16,6 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const matter = require('gray-matter');
 
 const COPY_GOVERNANCE_DIR = path.resolve(__dirname, '../lib/copy-governance');
 
@@ -76,6 +77,17 @@ const TIER2_PATTERNS = [
     tier1: true
   }
 ];
+
+const DESCRIPTION_ANNOUNCE_PATTERNS = [
+  /^this\s+(page|section)\b/i,
+  /^overview of\b/i,
+  /^how to\b/i,
+  /^the\s+(?:\d+|two|three|four|five)\s+alternatives?\s+to\b/i,
+  /^the\s+alternatives?\s+to\b/i
+];
+
+const COMPARATIVE_OPENING_REGEX = /^(what changes from|compared to|unlike|differences from|the key difference is)\b/i;
+const COINED_HEADING_TOKEN_REGEX = /\b[A-Z](?:-[A-Z])+\b/g;
 
 function readFileListFromEnv() {
   const listPath = String(process.env.LINT_FILE_LIST || '').trim();
@@ -247,6 +259,139 @@ function checkTier2Patterns(content, filePath) {
   return warnings;
 }
 
+function findFrontmatterLine(lines, key) {
+  const pattern = new RegExp(`^${key}:\\s*`);
+  for (let index = 0; index < lines.length; index += 1) {
+    if (!inFrontmatter(lines, index)) {
+      break;
+    }
+    if (pattern.test(lines[index].trim())) {
+      return index + 1;
+    }
+  }
+  return 1;
+}
+
+function checkDescriptionHeuristics(content, filePath) {
+  const warnings = [];
+  let parsed;
+
+  try {
+    parsed = matter(content);
+  } catch (_error) {
+    return warnings;
+  }
+
+  const description = String(parsed.data?.description || '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  if (!description) {
+    return warnings;
+  }
+
+  const lines = getLines(content);
+  const line = findFrontmatterLine(lines, 'description');
+
+  if (DESCRIPTION_ANNOUNCE_PATTERNS.some((pattern) => pattern.test(description))) {
+    warnings.push({
+      tier: 2,
+      file: filePath,
+      line,
+      id: 'DESCRIPTION_ANNOUNCES_CONTENT',
+      label: 'Description announces page contents — lead with reader outcome instead',
+      text: description.slice(0, 120)
+    });
+  }
+
+  if (description.length > 160) {
+    warnings.push({
+      tier: 2,
+      file: filePath,
+      line,
+      id: 'DESCRIPTION_TOO_LONG',
+      label: `Description exceeds 160-character target (${description.length}) — tighten the outcome statement`,
+      text: description.slice(0, 120)
+    });
+  }
+
+  return warnings;
+}
+
+function checkHeadingHeuristics(content, filePath) {
+  const warnings = [];
+  const lines = getLines(content);
+  let headingCount = 0;
+
+  lines.forEach((line, index) => {
+    if (inFrontmatter(lines, index)) {
+      return;
+    }
+
+    const trimmed = line.trim();
+    const headingMatch = trimmed.match(/^#{1,6}\s+(.+)$/);
+    const boldLeadInMatch = trimmed.match(/^\*\*(.+?)\*\*:?\s*$/);
+    const headingText = headingMatch ? headingMatch[1].trim() : '';
+    const boldLeadInText = boldLeadInMatch ? boldLeadInMatch[1].trim() : '';
+
+    if ((headingText && COMPARATIVE_OPENING_REGEX.test(headingText)) || (boldLeadInText && COMPARATIVE_OPENING_REGEX.test(boldLeadInText))) {
+      warnings.push({
+        tier: 2,
+        file: filePath,
+        line: index + 1,
+        id: 'COMPARATIVE_HEADER',
+        label: 'Comparative heading/opening — define the thing before comparing it',
+        text: trimmed.slice(0, 120)
+      });
+    }
+
+    if (!headingText) {
+      return;
+    }
+
+    headingCount += 1;
+    if (headingCount > 3) {
+      return;
+    }
+
+    const coinedTokens = headingText.match(COINED_HEADING_TOKEN_REGEX) || [];
+    if (coinedTokens.length === 0) {
+      return;
+    }
+
+    const priorBody = lines
+      .slice(0, index)
+      .filter((entry, entryIndex) => !inFrontmatter(lines, entryIndex))
+      .filter((entry) => !/^#{1,6}\s+/.test(entry.trim()))
+      .join(' ');
+
+    coinedTokens.forEach((token) => {
+      if (priorBody.includes(token)) {
+        return;
+      }
+
+      warnings.push({
+        tier: 2,
+        file: filePath,
+        line: index + 1,
+        id: 'UNDEFINED_HEADING_TERM',
+        label: `Coined shorthand "${token}" appears in a heading before definition — define it in body prose first`,
+        text: trimmed.slice(0, 120)
+      });
+    });
+  });
+
+  return warnings;
+}
+
+function checkAdvisoryHeuristics(content, filePath) {
+  return [
+    ...checkTier2Patterns(content, filePath),
+    ...checkDescriptionHeuristics(content, filePath),
+    ...checkHeadingHeuristics(content, filePath)
+  ];
+}
+
 function run() {
   const args = process.argv.slice(2);
   const warnOnly = args.includes('--warn-only');
@@ -271,7 +416,7 @@ function run() {
       ...checkBannedWords(content, filePath, { suppressedLines: phraseHitLines })
     ];
 
-    const tier2Warnings = tier1Only ? [] : checkTier2Patterns(content, filePath);
+    const tier2Warnings = tier1Only ? [] : checkAdvisoryHeuristics(content, filePath);
 
     const allTier1 = [...tier1Errors, ...tier2Warnings.filter((warning) => warning.tier === 1)];
     const allTier2 = tier2Warnings.filter((warning) => warning.tier === 2);
@@ -318,6 +463,9 @@ module.exports = {
   checkBannedWords,
   checkBannedPhrases,
   checkTier2Patterns,
+  checkDescriptionHeuristics,
+  checkHeadingHeuristics,
+  checkAdvisoryHeuristics,
   getFiles,
   run
 };

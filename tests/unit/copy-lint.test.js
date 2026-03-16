@@ -86,7 +86,7 @@ function buildCopyFindings(content, filePath) {
   return [
     ...phraseFindings,
     ...lintCopy.checkBannedWords(content, filePath, { suppressedLines: phraseHitLines }),
-    ...lintCopy.checkTier2Patterns(content, filePath)
+    ...lintCopy.checkAdvisoryHeuristics(content, filePath)
   ];
 }
 
