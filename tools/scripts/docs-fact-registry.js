@@ -33,13 +33,24 @@ const VALID_FRESHNESS = new Set([
 const VALID_EVIDENCE_TYPES = new Set([
   'official-page',
   'repo-file',
+  'repo-v1-file',
+  'repo-context-file',
+  'repo-archive-file',
   'repo-discord-signal',
   'github-repo',
   'github-issue',
   'github-pr',
   'github-release',
-  'forum-topic'
+  'forum-topic',
+  'deepwiki-page'
 ]);
+const VALID_TRUTH_MODES = new Set([
+  'repo_behavior',
+  'implementation_status',
+  'support_status',
+  'historical_lineage'
+]);
+const VALID_DISCOVERY_LANES = new Set(['v1', 'context', 'archive']);
 
 function toPosix(value) {
   return String(value || '').split(path.sep).join('/');
@@ -155,6 +166,76 @@ function normalizeStringArray(value, field) {
   return [...new Set(value.map((entry) => assertString(entry, `${field}[]`)))].sort();
 }
 
+function normalizeOptionalStringArray(value, field) {
+  if (value == null) return [];
+  return normalizeStringArray(value, field);
+}
+
+function normalizeGithubRepo(value, field) {
+  const raw = assertString(value, field)
+    .replace(/^https?:\/\/github\.com\//i, '')
+    .replace(/\/+$/, '');
+  if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(raw)) {
+    throw new Error(`${field} must be an owner/repo string or GitHub repo URL`);
+  }
+  return raw;
+}
+
+function normalizeGithubRepos(value, field) {
+  if (value == null) return [];
+  if (!Array.isArray(value)) {
+    throw new Error(`${field} must be an array`);
+  }
+  return [...new Set(value.map((entry, index) => normalizeGithubRepo(entry, `${field}[${index}]`)))].sort();
+}
+
+function inferTruthMode(entry) {
+  const sourceType = String(entry.source_type || '').trim();
+  const corpus = [entry.claim_summary, entry.notes, ...(entry.match_terms || [])].join(' ').toLowerCase();
+  if (sourceType.startsWith('github-')) return 'implementation_status';
+  if (sourceType.startsWith('forum-') || /\bprogram(?:me)?\b|\bsupport\b|\bavailability\b|\bcohort\b/.test(corpus)) {
+    return 'support_status';
+  }
+  if (String(entry.status || '').trim() === 'historical-only' || /\bhistorical\b|\blegacy\b|\bprevious(?:ly)?\b/.test(corpus)) {
+    return 'historical_lineage';
+  }
+  return 'repo_behavior';
+}
+
+function normalizeDiscovery(value, field, truthMode) {
+  const defaultRepoLanes =
+    truthMode === 'historical_lineage'
+      ? ['v1', 'context', 'archive']
+      : ['implementation_status', 'support_status'].includes(truthMode)
+        ? ['context', 'archive']
+        : [];
+  if (value == null) {
+    return {
+      repo_lanes: defaultRepoLanes,
+      github: truthMode === 'implementation_status' || truthMode === 'support_status',
+      deepwiki: false,
+      search_hints: []
+    };
+  }
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw new Error(`${field} must be an object`);
+  }
+
+  const repoLanes = value.repo_lanes == null ? defaultRepoLanes : normalizeStringArray(value.repo_lanes, `${field}.repo_lanes`);
+  repoLanes.forEach((lane) => {
+    if (!VALID_DISCOVERY_LANES.has(lane)) {
+      throw new Error(`${field}.repo_lanes entries must be one of: ${Array.from(VALID_DISCOVERY_LANES).join(', ')}`);
+    }
+  });
+
+  return {
+    repo_lanes: repoLanes,
+    github: value.github == null ? truthMode === 'implementation_status' || truthMode === 'support_status' : Boolean(value.github),
+    deepwiki: value.deepwiki == null ? false : Boolean(value.deepwiki),
+    search_hints: normalizeOptionalStringArray(value.search_hints, `${field}.search_hints`)
+  };
+}
+
 function readJson(absPath) {
   if (!fs.existsSync(absPath)) {
     throw new Error(`Registry not found: ${toPosix(path.relative(repoRoot(), absPath))}`);
@@ -237,6 +318,13 @@ function normalizeClaimFamily(entry, fileLabel, index, seenClaimIds) {
     );
   }
 
+  const truthMode = entry.truth_mode == null ? inferTruthMode(entry) : assertString(entry.truth_mode, `${fileLabel} claim_families[${index}].truth_mode`);
+  if (!VALID_TRUTH_MODES.has(truthMode)) {
+    throw new Error(
+      `${fileLabel} claim_families[${index}].truth_mode must be one of: ${Array.from(VALID_TRUTH_MODES).join(', ')}`
+    );
+  }
+
   return {
     claim_id: claimId,
     claim_family: assertString(entry.claim_family, `${fileLabel} claim_families[${index}].claim_family`),
@@ -250,6 +338,7 @@ function normalizeClaimFamily(entry, fileLabel, index, seenClaimIds) {
     evidence_date: assertDate(entry.evidence_date, `${fileLabel} claim_families[${index}].evidence_date`),
     status,
     freshness_class: freshnessClass,
+    truth_mode: truthMode,
     dependent_pages: normalizeStringArray(
       entry.dependent_pages || [],
       `${fileLabel} claim_families[${index}].dependent_pages`
@@ -266,6 +355,19 @@ function normalizeClaimFamily(entry, fileLabel, index, seenClaimIds) {
     match_terms: normalizeStringArray(
       entry.match_terms || [],
       `${fileLabel} claim_families[${index}].match_terms`
+    ),
+    github_repos: normalizeGithubRepos(
+      entry.github_repos || [],
+      `${fileLabel} claim_families[${index}].github_repos`
+    ),
+    deepwiki_repos: normalizeGithubRepos(
+      entry.deepwiki_repos || [],
+      `${fileLabel} claim_families[${index}].deepwiki_repos`
+    ),
+    discovery: normalizeDiscovery(
+      entry.discovery,
+      `${fileLabel} claim_families[${index}].discovery`,
+      truthMode
     ),
     comparison_patterns: normalizeStringArray(
       entry.comparison_patterns || [],

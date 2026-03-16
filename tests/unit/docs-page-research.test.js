@@ -31,6 +31,9 @@ function writeFile(absPath, value) {
 
 async function runCase(name, fn) {
   try {
+    if (typeof research.resetCaches === 'function') {
+      research.resetCaches();
+    }
     await fn();
     console.log(`   ✓ ${name}`);
   } catch (error) {
@@ -985,9 +988,361 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
     });
   });
 
+  await runCase('Repo discovery prefers v1 evidence ahead of context lanes for historical lineage claims', async () => {
+    const root = mkTmpDir('docs-page-research-history-');
+    const repoDir = path.join(root, 'repo');
+    writeFile(
+      path.join(repoDir, 'v2/gateways/guides/payments-and-pricing/payment-guide.mdx'),
+      'Current payment guide for gateways.'
+    );
+    writeFile(
+      path.join(repoDir, 'v1/gateways/payment-guide.mdx'),
+      'Legacy gateway flow used broadcaster payments and older payment routing terminology.'
+    );
+    writeFile(
+      path.join(repoDir, 'v2/gateways/_contextData/payment-guide.mdx'),
+      'Legacy gateway flow appears in internal research notes.'
+    );
+    writeFile(
+      path.join(repoDir, 'v2/x-archived/gateways/payment-guide.mdx'),
+      'Legacy gateway flow is also described in archived gateway docs.'
+    );
+
+    const previousCwd = process.cwd();
+    process.chdir(repoDir);
+    try {
+      const evidence = await research.collectEvidence(
+        {
+          claim_family: 'gateway-payment-lineage',
+          claim_summary: 'Legacy gateway payment terminology should use historical lineage evidence.',
+          canonical_owner: 'v2/gateways/guides/payments-and-pricing/payment-guide.mdx',
+          truth_mode: 'historical_lineage',
+          freshness_class: 'review-periodic',
+          notes: 'legacy gateway flow historical lineage',
+          match_terms: ['legacy gateway flow', 'broadcaster payments'],
+          discovery: {
+            repo_lanes: ['v1', 'context', 'archive'],
+            github: false,
+            deepwiki: false,
+            search_hints: ['legacy gateway flow']
+          },
+          evidence_refs: []
+        },
+        ['v2/gateways/guides/payments-and-pricing/payment-guide.mdx']
+      );
+
+      const v1Evidence = evidence.find((entry) => entry.type === 'repo-v1-file');
+      const contextEvidence = evidence.find((entry) => entry.type === 'repo-context-file');
+      assert.ok(v1Evidence, 'expected repo-v1-file evidence');
+      assert.ok(contextEvidence, 'expected repo-context-file evidence');
+      assert.strictEqual(evidence[0].type, 'repo-v1-file');
+      assert.ok(v1Evidence.selection_score > contextEvidence.selection_score);
+      assert.strictEqual(v1Evidence.source_origin, 'discovered');
+    } finally {
+      process.chdir(previousCwd);
+    }
+  });
+
+  await runCase('GitHub discovery finds livepeer issue PR and release candidates for implementation claims', async () => {
+    await withMockedFetch(async (url) => {
+      const ref = String(url);
+      if (ref.includes('/search/issues?') && ref.includes('is%3Aissue')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return JSON.stringify({
+              items: [{ html_url: 'https://github.com/livepeer/go-livepeer/issues/7001' }]
+            });
+          }
+        };
+      }
+      if (ref.includes('/search/issues?') && ref.includes('is%3Apr')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return JSON.stringify({
+              items: [{ html_url: 'https://github.com/livepeer/go-livepeer/pull/7002' }]
+            });
+          }
+        };
+      }
+      if (ref.includes('/issues/7001')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return JSON.stringify({
+              state: 'open',
+              updated_at: '2026-03-15T00:00:00Z',
+              body: 'Clearinghouse support issue tracks current scope and remote signer work.'
+            });
+          }
+        };
+      }
+      if (ref.includes('/pulls/7002')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return JSON.stringify({
+              merged_at: '2026-03-16T00:00:00Z',
+              body: 'Remote signer and clearinghouse support merged for gateways.'
+            });
+          }
+        };
+      }
+      if (ref.includes('/releases/latest')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return JSON.stringify({
+              published_at: '2026-03-17T00:00:00Z',
+              body: 'Remote signer and clearinghouse support shipped in the latest release.'
+            });
+          }
+        };
+      }
+      throw new Error(`Unexpected fetch in GitHub discovery test: ${ref}`);
+    }, async () => {
+      const evidence = await research.collectEvidence({
+        claim_family: 'clearinghouse-public-readiness',
+        claim_summary: 'Current clearinghouse readiness should prefer current implementation evidence.',
+        canonical_owner: 'v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx',
+        truth_mode: 'implementation_status',
+        freshness_class: 'review-on-change',
+        notes: 'current implementation status',
+        github_repos: ['livepeer/go-livepeer'],
+        match_terms: ['clearinghouse', 'remote signer support'],
+        discovery: {
+          repo_lanes: [],
+          github: true,
+          deepwiki: false,
+          search_hints: ['clearinghouse', 'remote signer support']
+        },
+        evidence_refs: []
+      });
+
+      assert.strictEqual(evidence[0].type, 'github-release');
+      assert.ok(evidence.some((entry) => entry.type === 'github-pr'));
+      assert.ok(evidence.some((entry) => entry.type === 'github-issue'));
+      assert.ok(evidence.every((entry) => entry.source_origin === 'discovered'));
+      assert.ok(evidence[0].ranking_reason.includes('discovered via github-release-latest'));
+    });
+  });
+
+  await runCase('DeepWiki stays corroboration-only below stronger current sources', async () => {
+    await withMockedFetch(async (url) => {
+      const ref = String(url);
+      if (ref.includes('livepeer.example.com/remote-signer')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return '<html><body>Remote signing is currently supported for Live AI workloads and not for video transcoding.</body></html>';
+          }
+        };
+      }
+      if (ref.includes('deepwiki.com/livepeer/go-livepeer')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return '<html><body>DeepWiki notes describe remote signer architecture and clearinghouse internals.</body></html>';
+          }
+        };
+      }
+      if (ref.includes('deepwiki.com/search?q=')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return '<html><body>Search results for remote signer support.</body></html>';
+          }
+        };
+      }
+      throw new Error(`Unexpected fetch in DeepWiki test: ${ref}`);
+    }, async () => {
+      const evidence = await research.collectEvidence({
+        claim_family: 'remote-signer-current-scope',
+        claim_summary: 'Remote signer support boundaries should use stronger current sources than summaries.',
+        canonical_owner: 'v2/gateways/guides/payments-and-pricing/remote-signers.mdx',
+        truth_mode: 'implementation_status',
+        freshness_class: 'review-on-change',
+        notes: 'current support boundary',
+        deepwiki_repos: ['livepeer/go-livepeer'],
+        match_terms: ['remote signer', 'video transcoding'],
+        discovery: {
+          repo_lanes: [],
+          github: false,
+          deepwiki: true,
+          search_hints: ['remote signer support']
+        },
+        evidence_refs: [
+          {
+            type: 'official-page',
+            ref: 'https://livepeer.example.com/remote-signer',
+            match_any: ['remote signing is currently supported']
+          }
+        ]
+      });
+
+      const deepwiki = evidence.find((entry) => entry.type === 'deepwiki-page');
+      assert.strictEqual(evidence[0].type, 'official-page');
+      assert.ok(deepwiki, 'expected deepwiki corroboration evidence');
+      assert.strictEqual(deepwiki.source_origin, 'discovered');
+      assert.ok(deepwiki.selection_score < evidence[0].selection_score);
+    });
+  });
+
+  await runCase('Runner records discovered source metadata in report outputs', async () => {
+    const root = mkTmpDir('docs-page-research-discovered-report-');
+    const repoDir = path.join(root, 'repo');
+    const registryDir = path.join(repoDir, 'tasks/research/claims');
+    const guideA = 'v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx';
+    writeFile(
+      path.join(repoDir, guideA),
+      'The clearinghouse protocol is implemented, but no public clearinghouse is generally available yet.'
+    );
+    writeFile(
+      path.join(registryDir, 'gateways.json'),
+      `${JSON.stringify(
+        {
+          version: 1,
+          domain: 'gateways',
+          claim_families: [
+            {
+              claim_id: 'gw-clearinghouse-public-readiness',
+              claim_family: 'clearinghouse-public-readiness',
+              entity: 'gateway',
+              claim_summary: 'Current clearinghouse readiness should use implementation status evidence.',
+              canonical_owner: guideA,
+              source_type: 'github-pr',
+              source_ref: 'https://github.com/livepeer/go-livepeer/pull/7002',
+              evidence_date: '2026-03-17',
+              status: 'time-sensitive',
+              freshness_class: 'review-on-change',
+              truth_mode: 'implementation_status',
+              github_repos: ['livepeer/go-livepeer'],
+              discovery: {
+                repo_lanes: [],
+                github: true,
+                deepwiki: false,
+                search_hints: ['clearinghouse', 'remote signer support']
+              },
+              dependent_pages: [],
+              related_claims: [],
+              last_reviewed_by: 'codex',
+              notes: 'implementation status',
+              match_terms: ['clearinghouse', 'generally available', 'remote signer support'],
+              comparison_patterns: [],
+              evidence_refs: []
+            }
+          ]
+        },
+        null,
+        2
+      )}\n`
+    );
+
+    await withMockedFetch(async (url) => {
+      const ref = String(url);
+      if (ref.includes('/search/issues?') && ref.includes('is%3Aissue')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return JSON.stringify({
+              items: [{ html_url: 'https://github.com/livepeer/go-livepeer/issues/7101' }]
+            });
+          }
+        };
+      }
+      if (ref.includes('/search/issues?') && ref.includes('is%3Apr')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return JSON.stringify({
+              items: [{ html_url: 'https://github.com/livepeer/go-livepeer/pull/7102' }]
+            });
+          }
+        };
+      }
+      if (ref.includes('/issues/7101')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return JSON.stringify({
+              state: 'open',
+              updated_at: '2026-03-15T00:00:00Z',
+              body: 'Issue tracks public clearinghouse readiness and current scope.'
+            });
+          }
+        };
+      }
+      if (ref.includes('/pulls/7102')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return JSON.stringify({
+              merged_at: '2026-03-16T00:00:00Z',
+              body: 'Merged clearinghouse remote signer support changes.'
+            });
+          }
+        };
+      }
+      if (ref.includes('/releases/latest')) {
+        return {
+          ok: true,
+          status: 200,
+          async text() {
+            return JSON.stringify({
+              published_at: '2026-03-17T00:00:00Z',
+              body: 'Clearinghouse remote signer release.'
+            });
+          }
+        };
+      }
+      throw new Error(`Unexpected fetch in discovered report test: ${ref}`);
+    }, async () => {
+      const previousCwd = process.cwd();
+      process.chdir(repoDir);
+      try {
+        const reportPath = path.join(root, 'report.json');
+        await research.run({
+          registry: 'tasks/research/claims',
+          page: guideA,
+          files: [],
+          reportMd: '',
+          reportJson: reportPath,
+          quiet: true
+        });
+        const parsed = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+        const discoveredRelease = parsed.evidence_sources.find(
+          (entry) => entry.type === 'github-release' && entry.source_origin === 'discovered'
+        );
+        const discoveredIssue = parsed.evidence_sources.find(
+          (entry) => entry.type === 'github-issue' && entry.source_origin === 'discovered'
+        );
+        assert.ok(discoveredRelease, 'expected discovered release evidence');
+        assert.ok(discoveredIssue, 'expected discovered issue evidence');
+        assert.strictEqual(discoveredRelease.evidence_class, 'active-current');
+        assert.strictEqual(discoveredIssue.issue_truth_role, 'status-evidence');
+        assert.ok(discoveredRelease.discovered_via.length > 0);
+      } finally {
+        process.chdir(previousCwd);
+      }
+    });
+  });
+
   return {
     passed: errors.length === 0,
-    total: 25,
+    total: 29,
     errors
   };
 }

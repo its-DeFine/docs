@@ -13,6 +13,7 @@
       "evidence_date": "2026-03-16",
       "status": "time-sensitive",
       "freshness_class": "review-periodic",
+      "truth_mode": "support_status",
       "dependent_pages": [
         "v2/gateways/guides/operator-considerations/business-case.mdx",
         "v2/gateways/guides/roadmap-and-funding/spe-grant-model.mdx"
@@ -22,6 +23,15 @@
       ],
       "last_reviewed_by": "codex",
       "notes": "Current availability and cohort timing must be checked against current public surfaces.",
+      "discovery": {
+        "github": false,
+        "deepwiki": false,
+        "search_hints": [
+          "AI Video Startup Program",
+          "startup program",
+          "operator support"
+        ]
+      },
       "match_terms": [
         "startup program",
         "AI Video Startup Program",
@@ -61,12 +71,22 @@
       "evidence_date": "2026-03-16",
       "status": "time-sensitive",
       "freshness_class": "review-periodic",
+      "truth_mode": "support_status",
       "dependent_pages": [],
       "related_claims": [
         "gw-startup-program-current"
       ],
       "last_reviewed_by": "codex",
       "notes": "This family was added after adjudication exposed missing coverage. It should stay advisory until stronger external confirmation paths are added.",
+      "discovery": {
+        "github": false,
+        "deepwiki": false,
+        "search_hints": [
+          "#local-gateways",
+          "primary real-time support channel",
+          "Forum GitHub Discord support"
+        ]
+      },
       "match_terms": [
         "#local-gateways",
         "primary real-time support channel",
@@ -230,6 +250,23 @@
       "evidence_date": "2026-03-16",
       "status": "time-sensitive",
       "freshness_class": "review-periodic",
+      "truth_mode": "implementation_status",
+      "github_repos": [
+        "livepeer/go-livepeer"
+      ],
+      "deepwiki_repos": [
+        "livepeer/go-livepeer"
+      ],
+      "discovery": {
+        "github": true,
+        "deepwiki": true,
+        "search_hints": [
+          "clearinghouse",
+          "remote signer",
+          "general availability",
+          "public clearinghouse"
+        ]
+      },
       "dependent_pages": [
         "v2/gateways/guides/payments-and-pricing/payment-guide.mdx",
         "v2/gateways/guides/roadmap-and-funding/operator-support.mdx",
@@ -293,6 +330,19 @@
       "evidence_date": "2026-03-16",
       "status": "time-sensitive",
       "freshness_class": "review-periodic",
+      "truth_mode": "support_status",
+      "github_repos": [
+        "livepeer/go-livepeer"
+      ],
+      "discovery": {
+        "github": true,
+        "deepwiki": false,
+        "search_hints": [
+          "signer.eliteencoder.net",
+          "community remote signer",
+          "testing surface"
+        ]
+      },
       "dependent_pages": [
         "v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx",
         "v2/gateways/guides/roadmap-and-funding/operator-support.mdx",
@@ -407,6 +457,23 @@
       "evidence_date": "2026-03-16",
       "status": "time-sensitive",
       "freshness_class": "review-on-change",
+      "truth_mode": "implementation_status",
+      "github_repos": [
+        "livepeer/go-livepeer"
+      ],
+      "deepwiki_repos": [
+        "livepeer/go-livepeer"
+      ],
+      "discovery": {
+        "github": true,
+        "deepwiki": true,
+        "search_hints": [
+          "remote signer",
+          "current scope",
+          "video transcoding support",
+          "live AI"
+        ]
+      },
       "dependent_pages": [
         "v2/gateways/guides/payments-and-pricing/payment-guide.mdx",
         "v2/gateways/guides/roadmap-and-funding/operator-support.mdx"

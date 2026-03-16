@@ -54,13 +54,28 @@ const INFERENCE_EXCLUDED_BASENAMES = new Set(['review', 'to', 'sources', 'source
 const EVIDENCE_TYPE_PRIORITY = {
   'official-page': 100,
   'repo-file': 90,
+  'repo-v1-file': 88,
   'github-release': 80,
   'github-pr': 70,
   'github-issue': 65,
   'github-repo': 60,
   'forum-topic': 50,
-  'repo-discord-signal': 40
+  'deepwiki-page': 44,
+  'repo-context-file': 42,
+  'repo-archive-file': 40,
+  'repo-discord-signal': 35
 };
+const DISCOVERY_LANE_PATTERNS = {
+  v1: [/^v1\//],
+  context: [/\/_contextData(?:_)?\//, /\/_plans-and-research\//, /\/_workspace\/research\//],
+  archive: [/^v2\/x-archived\//, /\/x-archived\//]
+};
+const GITHUB_DISCOVERY_ORG = 'livepeer';
+const MAX_DISCOVERED_REPO_REFS = 4;
+const MAX_DISCOVERED_GITHUB_REFS = 4;
+const MAX_DISCOVERED_DEEPWIKI_REFS = 3;
+const FETCH_TIMEOUT_MS = 4000;
+const FETCH_CACHE = new Map();
 const CURRENT_LANGUAGE_PATTERNS = [
   /\bcurrent(?:ly)?\b/gi,
   /\btoday\b/gi,
@@ -112,6 +127,10 @@ function toPosix(value) {
   return String(value || '').split(path.sep).join('/');
 }
 
+function repoRelative(absPath) {
+  return toPosix(path.relative(repoRoot(), absPath));
+}
+
 function repoRoot() {
   const result = spawnSync('git', ['rev-parse', '--show-toplevel'], {
     cwd: process.cwd(),
@@ -121,6 +140,19 @@ function repoRoot() {
     return String(result.stdout || '').trim();
   }
   return process.cwd();
+}
+
+function resetCaches() {
+  FETCH_CACHE.clear();
+  REPO_DISCOVERY_FILE_CACHE.clear();
+}
+
+function discoveryDisabled() {
+  return ['1', 'true', 'yes'].includes(String(process.env.DOCS_RESEARCH_DISABLE_DISCOVERY || '').trim().toLowerCase());
+}
+
+function remoteDiscoveryDisabled() {
+  return discoveryDisabled() || ['1', 'true', 'yes'].includes(String(process.env.DOCS_RESEARCH_DISABLE_REMOTE_DISCOVERY || '').trim().toLowerCase());
 }
 
 function usage() {
@@ -616,8 +648,295 @@ function uniqueTerms(terms, limit = 16) {
       if (!key || seen.has(key)) return;
       seen.add(key);
       out.push(entry);
-    });
+  });
   return out.slice(0, limit);
+}
+
+function familyTruthMode(family) {
+  return String(family?.truth_mode || '').trim() || 'repo_behavior';
+}
+
+function isCurrentStateTruthMode(family) {
+  return familyTruthMode(family) !== 'historical_lineage';
+}
+
+function discoveryConfig(family) {
+  const truthMode = familyTruthMode(family);
+  const configured = family?.discovery || {};
+  const defaultRepoLanes =
+    truthMode === 'historical_lineage'
+      ? ['v1', 'context', 'archive']
+      : ['implementation_status', 'support_status'].includes(truthMode)
+        ? ['context', 'archive']
+        : [];
+  const repoLanes = Array.isArray(configured.repo_lanes) ? configured.repo_lanes : defaultRepoLanes;
+  return {
+    repo_lanes: repoLanes,
+    github: configured.github === true || ['implementation_status', 'support_status'].includes(truthMode),
+    deepwiki: configured.deepwiki === true || Array.isArray(family?.deepwiki_repos) && family.deepwiki_repos.length > 0,
+    search_hints: Array.isArray(configured.search_hints) ? configured.search_hints : []
+  };
+}
+
+function evidenceLaneType(relPath) {
+  const normalized = toPosix(relPath);
+  if (DISCOVERY_LANE_PATTERNS.v1.some((pattern) => pattern.test(normalized))) return 'repo-v1-file';
+  if (DISCOVERY_LANE_PATTERNS.context.some((pattern) => pattern.test(normalized))) return 'repo-context-file';
+  if (DISCOVERY_LANE_PATTERNS.archive.some((pattern) => pattern.test(normalized))) return 'repo-archive-file';
+  return '';
+}
+
+const REPO_DISCOVERY_FILE_CACHE = new Map();
+
+function listRepoDiscoveryFiles() {
+  const root = repoRoot();
+  if (REPO_DISCOVERY_FILE_CACHE.has(root)) return REPO_DISCOVERY_FILE_CACHE.get(root);
+  const out = [];
+
+  function walk(dirAbs) {
+    const entries = fs.readdirSync(dirAbs, { withFileTypes: true });
+    entries.forEach((entry) => {
+      const abs = path.join(dirAbs, entry.name);
+      const rel = repoRelative(abs);
+      if (entry.isDirectory()) {
+        if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === '.next') return;
+        walk(abs);
+        return;
+      }
+      if (!/\.(md|mdx)$/i.test(entry.name)) return;
+      if (rel.includes('/_workspace/drafts/')) return;
+      const laneType = evidenceLaneType(rel);
+      if (!laneType) return;
+      out.push({ file: rel, laneType });
+    });
+  }
+
+  walk(root);
+  const sorted = out.sort((a, b) => a.file.localeCompare(b.file));
+  REPO_DISCOVERY_FILE_CACHE.set(root, sorted);
+  return sorted;
+}
+
+function laneEnabled(laneType, lanes) {
+  if (laneType === 'repo-v1-file') return lanes.includes('v1');
+  if (laneType === 'repo-context-file') return lanes.includes('context');
+  if (laneType === 'repo-archive-file') return lanes.includes('archive');
+  return false;
+}
+
+function familySearchHints(family) {
+  const discovery = discoveryConfig(family);
+  return uniqueTerms([
+    ...(discovery.search_hints || []),
+    ...(family.match_terms || []),
+    family.claim_family?.replace(/-/g, ' '),
+    family.claim_summary,
+    family.notes,
+    path.basename(family.canonical_owner || '', path.extname(family.canonical_owner || '')).replace(/[-_]/g, ' ')
+  ], 12);
+}
+
+function repoDiscoveryCandidates(family, targetFiles = []) {
+  if (discoveryDisabled()) {
+    return [];
+  }
+  const discovery = discoveryConfig(family);
+  if (!Array.isArray(discovery.repo_lanes) || discovery.repo_lanes.length === 0) {
+    return [];
+  }
+  const hints = familySearchHints(family);
+  if (hints.length === 0) {
+    return [];
+  }
+  const hintTokens = uniqueTerms([
+    ...hints.flatMap((term) => significantTokens(term)),
+    ...pathTokens(family.canonical_owner || '')
+  ], 24);
+  const targetSet = new Set((targetFiles || []).map(toPosix));
+  const currentDir = fileDir(family.canonical_owner || '');
+
+  return listRepoDiscoveryFiles()
+    .filter((entry) => laneEnabled(entry.laneType, discovery.repo_lanes))
+    .map((entry) => {
+      const baseTokens = basenameTokens(entry.file);
+      const relTokens = pathTokens(entry.file);
+      const overlap = sharedCount(hintTokens, [...baseTokens, ...relTokens]);
+      let score = overlap;
+      if (path.basename(entry.file, path.extname(entry.file)) === path.basename(family.canonical_owner || '', path.extname(family.canonical_owner || ''))) {
+        score += 4;
+      }
+      if (sameDir(entry.file, family.canonical_owner || '')) score += 1;
+      if (fileDir(entry.file) === currentDir) score += 1;
+      if (targetSet.has(entry.file)) score += 2;
+      let matched = [];
+      if (score >= 2) {
+        const abs = path.resolve(repoRoot(), entry.file);
+        const content = readFile(abs);
+        matched = matchedTerms(content, hints);
+      }
+      if (matched.length > 0) score += matched.length * 2;
+      return {
+        ...entry,
+        score,
+        matched
+      };
+    })
+    .filter((entry) => entry.score >= 4 && entry.matched.length > 0)
+    .sort((left, right) => {
+      if (right.score !== left.score) return right.score - left.score;
+      return left.file.localeCompare(right.file);
+    })
+    .slice(0, MAX_DISCOVERED_REPO_REFS)
+    .map((entry) => ({
+      type: entry.laneType,
+      ref: entry.file,
+      match_any: entry.matched,
+      source_origin: 'discovered',
+      discovered_via: entry.laneType
+    }));
+}
+
+function parseGitHubRepo(value) {
+  const raw = String(value || '')
+    .trim()
+    .replace(/^https?:\/\/github\.com\//i, '')
+    .replace(/\/+$/, '');
+  if (!raw) return '';
+  return raw;
+}
+
+function familyGithubRepos(family) {
+  const explicit = (family.evidence_refs || [])
+    .filter((entry) => String(entry.type || '').startsWith('github-'))
+    .map((entry) => {
+      try {
+        const parsed = parseGithubUrl(entry.ref);
+        return `${parsed.owner}/${parsed.repo}`;
+      } catch (_error) {
+        return '';
+      }
+    })
+    .filter(Boolean);
+  const configured = (family.github_repos || []).map(parseGitHubRepo).filter(Boolean);
+  const repos = [];
+  [...explicit, ...configured].forEach((repo) => {
+    if (!repo || repos.includes(repo)) return;
+    repos.push(repo);
+  });
+  return repos;
+}
+
+function deepwikiUrlForRepo(repo) {
+  return `https://deepwiki.com/${repo}`;
+}
+
+function deepwikiSearchUrl(family) {
+  const query = familySearchHints(family)
+    .slice(0, 4)
+    .join(' ')
+    .trim();
+  if (!query) return '';
+  return `https://deepwiki.com/search?q=${encodeURIComponent(query)}`;
+}
+
+async function discoverGithubEvidenceRefs(family) {
+  if (remoteDiscoveryDisabled()) return [];
+  if (!discoveryConfig(family).github) return [];
+
+  const hints = familySearchHints(family).slice(0, 4);
+  if (hints.length === 0) return [];
+  const repos = familyGithubRepos(family);
+  const repoQualifier = repos.length ? repos.map((repo) => `repo:${repo}`).join(' ') : `org:${GITHUB_DISCOVERY_ORG}`;
+  const baseQuery = `${repoQualifier} ${hints.map((term) => `"${term}"`).join(' ')}`.trim();
+
+  const discovered = [];
+  const searches = [
+    { type: 'github-issue', query: `${baseQuery} is:issue` },
+    { type: 'github-pr', query: `${baseQuery} is:pr` }
+  ];
+
+  for (const search of searches) {
+    const response = await fetchText(`https://api.github.com/search/issues?q=${encodeURIComponent(search.query)}&per_page=2`, {
+      accept: 'application/vnd.github+json'
+    });
+    if (!response.ok) continue;
+    let parsed = null;
+    try {
+      parsed = JSON.parse(response.text);
+    } catch (_error) {
+      parsed = null;
+    }
+    const items = Array.isArray(parsed?.items) ? parsed.items : [];
+    items.forEach((item) => {
+      if (!item?.html_url) return;
+      discovered.push({
+        type: search.type,
+        ref: item.html_url,
+        match_any: hints,
+        source_origin: 'discovered',
+        discovered_via: 'github-search'
+      });
+    });
+  }
+
+  familyGithubRepos(family)
+    .slice(0, 2)
+    .forEach((repo) => {
+      discovered.push({
+        type: 'github-release',
+        ref: `https://github.com/${repo}/releases/latest`,
+        match_any: hints,
+        source_origin: 'discovered',
+        discovered_via: 'github-release-latest'
+      });
+    });
+
+  return dedupeEvidenceRefs(discovered).slice(0, MAX_DISCOVERED_GITHUB_REFS);
+}
+
+function discoverDeepwikiEvidenceRefs(family) {
+  if (remoteDiscoveryDisabled()) return [];
+  if (!discoveryConfig(family).deepwiki) return [];
+  const repos = ((family.deepwiki_repos && family.deepwiki_repos.length > 0 ? family.deepwiki_repos : familyGithubRepos(family)) || [])
+    .map(parseGitHubRepo)
+    .filter(Boolean);
+  const refs = repos.map((repo) => ({
+    type: 'deepwiki-page',
+    ref: deepwikiUrlForRepo(repo),
+    match_any: familySearchHints(family),
+    source_origin: 'discovered',
+    discovered_via: 'deepwiki-repo'
+  }));
+  const searchRef = deepwikiSearchUrl(family);
+  if (searchRef) {
+    refs.push({
+      type: 'deepwiki-page',
+      ref: searchRef,
+      match_any: familySearchHints(family),
+      source_origin: 'discovered',
+      discovered_via: 'deepwiki-search'
+    });
+  }
+  return dedupeEvidenceRefs(refs).slice(0, MAX_DISCOVERED_DEEPWIKI_REFS);
+}
+
+function dedupeEvidenceRefs(refs) {
+  const seen = new Set();
+  const out = [];
+  refs.forEach((entry) => {
+    const key = `${entry.type}|${entry.ref}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    out.push(entry);
+  });
+  return out;
+}
+
+function evidenceClassification(type) {
+  if (type === 'repo-v1-file') return 'historical-v1';
+  if (type === 'repo-context-file' || type === 'repo-archive-file') return 'context-lane';
+  if (type === 'deepwiki-page') return 'corroboration-only';
+  return 'active-current';
 }
 
 function expandedEvidenceTerms(family, ref) {
@@ -674,6 +993,10 @@ function familyPrefersGithub(family) {
   if (!family) return false;
   const corpus = familyCorpus(family);
   return countPatternHits(corpus, IMPLEMENTATION_STATUS_PATTERNS) > 0 || /^github-/.test(family.source_type || '');
+}
+
+function sourceOriginScore(origin) {
+  return origin === 'explicit' ? 2 : 0;
 }
 
 function extractEvidenceMeta(type, parsedJson, responseText) {
@@ -752,26 +1075,68 @@ function recencyScoreForEvidence(type, meta, family) {
   };
 }
 
-function sourcePreferenceScore(type, family) {
+function sourcePreferenceScore(type, family, meta = {}, ref = null) {
+  const truthMode = familyTruthMode(family);
   const prefersForum = familyPrefersForum(family);
   const prefersGithub = familyPrefersGithub(family);
   let score = 0;
-  if (prefersForum && type === 'forum-topic') score += 14;
+
+  if (truthMode === 'implementation_status') {
+    if (type === 'github-release') score += 18;
+    else if (type === 'github-pr') score += meta?.state === 'merged' ? 16 : 10;
+    else if (type === 'github-issue') score += 8;
+    else if (type === 'official-page') score += 6;
+    else if (type === 'forum-topic') score -= 2;
+    else if (type === 'repo-context-file' || type === 'repo-archive-file') score -= 4;
+    else if (type === 'repo-v1-file') score -= 6;
+    else if (type === 'deepwiki-page') score -= 8;
+  } else if (truthMode === 'support_status') {
+    if (type === 'official-page') score += 16;
+    else if (type === 'forum-topic') score += 14;
+    else if (type === 'github-release') score += 8;
+    else if (type === 'github-pr') score += 6;
+    else if (type === 'github-issue') score += 4;
+    else if (type === 'repo-discord-signal') score -= 8;
+    else if (type === 'repo-context-file' || type === 'repo-archive-file') score -= 3;
+    else if (type === 'repo-v1-file') score -= 6;
+    else if (type === 'deepwiki-page') score -= 8;
+  } else if (truthMode === 'historical_lineage') {
+    if (type === 'repo-v1-file') score += 18;
+    else if (type === 'repo-archive-file') score += 12;
+    else if (type === 'repo-context-file') score += 8;
+    else if (type === 'repo-file') score += 6;
+    else if (type === 'deepwiki-page') score += 4;
+    else if (type === 'official-page') score -= 2;
+  } else {
+    if (type === 'repo-file') score += 8;
+    else if (type === 'official-page') score += 4;
+    else if (type === 'github-release') score += 2;
+    else if (type === 'github-pr') score += meta?.state === 'merged' ? 4 : 1;
+    else if (type === 'github-issue') score -= 4;
+    else if (type === 'forum-topic') score -= 3;
+    else if (type === 'repo-context-file' || type === 'repo-archive-file') score -= 4;
+    else if (type === 'repo-v1-file') score -= 6;
+    else if (type === 'deepwiki-page') score -= 8;
+  }
+
+  if (prefersForum && type === 'forum-topic') score += 6;
   if (prefersForum && !prefersGithub && type.startsWith('github-')) score -= 2;
-  if (prefersGithub && type === 'github-release') score += 14;
-  else if (prefersGithub && type === 'github-pr') score += 12;
-  else if (prefersGithub && type === 'github-issue') score += 8;
-  if (prefersGithub && !prefersForum && type === 'forum-topic') score -= 2;
+  if (prefersGithub && type === 'github-release') score += 4;
+  else if (prefersGithub && type === 'github-pr') score += 3;
+  else if (prefersGithub && type === 'github-issue') score += 2;
+  if (prefersGithub && !prefersForum && type === 'forum-topic') score -= 1;
+  score += sourceOriginScore(ref?.source_origin || 'explicit');
   return score;
 }
 
-function evidenceRanking(type, corpus, terms, family, meta = {}) {
+function evidenceRanking(type, corpus, terms, family, meta = {}, ref = null) {
   const matched = matchedTerms(corpus, terms);
   const needsCurrentness = family ? familyNeedsCurrentness(family) : false;
   const currentHits = countPatternHits(corpus, CURRENT_LANGUAGE_PATTERNS);
   const historicalHits = countPatternHits(corpus, HISTORICAL_LANGUAGE_PATTERNS);
   const recency = recencyScoreForEvidence(type, meta, family);
-  const preference = sourcePreferenceScore(type, family);
+  const preference = sourcePreferenceScore(type, family, meta, ref);
+  const origin = ref?.source_origin || 'explicit';
   let score = sourcePriority(type) + matched.length * 10 + recency.score + preference;
   const reasons = [`source priority ${sourcePriority(type)}`];
 
@@ -780,6 +1145,11 @@ function evidenceRanking(type, corpus, terms, family, meta = {}) {
   }
   if (preference !== 0) {
     reasons.push(`claim-family source preference ${preference}`);
+  }
+  if (origin === 'explicit') {
+    reasons.push('explicit evidence ref');
+  } else if (ref?.discovered_via) {
+    reasons.push(`discovered via ${ref.discovered_via}`);
   }
   if (recency.reason) {
     reasons.push(recency.reason);
@@ -823,26 +1193,59 @@ function parseGithubUrl(ref) {
 }
 
 async function fetchText(url, headers = {}) {
-  const response = await fetch(url, {
-    headers: {
-      'user-agent': 'livepeer-docs-research/1.0',
-      accept: 'application/json, text/html;q=0.9, text/plain;q=0.8',
-      ...headers
-    }
-  });
-  const text = await response.text();
-  return {
-    ok: response.ok,
-    status: response.status,
-    text
+  const normalizedHeaders = {
+    'user-agent': 'livepeer-docs-research/1.0',
+    accept: 'application/json, text/html;q=0.9, text/plain;q=0.8',
+    ...headers
   };
+  const cacheKey = JSON.stringify([url, Object.entries(normalizedHeaders).sort((a, b) => a[0].localeCompare(b[0]))]);
+  if (FETCH_CACHE.has(cacheKey)) {
+    return FETCH_CACHE.get(cacheKey);
+  }
+  let result;
+  let timeoutId = null;
+  try {
+    const controller = new AbortController();
+    timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+    const response = await fetch(url, {
+      headers: normalizedHeaders,
+      signal: controller.signal
+    });
+    const text = await response.text();
+    result = {
+      ok: response.ok,
+      status: response.status,
+      text
+    };
+  } catch (error) {
+    result = {
+      ok: false,
+      status: 0,
+      text: '',
+      error: error.message
+    };
+  } finally {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+  }
+  FETCH_CACHE.set(cacheKey, result);
+  return result;
 }
 
 async function fetchEvidenceRef(ref, options = null) {
   const checked_on = localIsoDate();
   const matchTerms = Array.isArray(options) ? options : options?.termsOverride || ref.match_any || [];
   const family = Array.isArray(options) ? null : options?.family || null;
-  if (ref.type === 'repo-file' || ref.type === 'repo-discord-signal') {
+  const sourceOrigin = ref.source_origin || 'explicit';
+  const discoveredVia = ref.discovered_via || (sourceOrigin === 'explicit' ? 'registry-evidence' : '');
+  if (
+    ref.type === 'repo-file' ||
+    ref.type === 'repo-discord-signal' ||
+    ref.type === 'repo-v1-file' ||
+    ref.type === 'repo-context-file' ||
+    ref.type === 'repo-archive-file'
+  ) {
     const absPath = path.resolve(repoRoot(), ref.ref);
     if (!fs.existsSync(absPath)) {
       return {
@@ -851,6 +1254,10 @@ async function fetchEvidenceRef(ref, options = null) {
         checked_on,
         ok: false,
         matched: false,
+        source_origin: sourceOrigin,
+        discovered_via: discoveredVia,
+        evidence_class: evidenceClassification(ref.type),
+        truth_mode: familyTruthMode(family),
         summary: 'repo file missing',
         source_rank: sourcePriority(ref.type),
         matched_terms: [],
@@ -863,16 +1270,41 @@ async function fetchEvidenceRef(ref, options = null) {
     }
     const text = readFile(absPath);
     const matched = matchAnySignal(text, matchTerms);
-    const ranking = evidenceRanking(ref.type, text, matchTerms, family, { date: '', state: 'repo-current' });
-    const matchedSummary = ref.type === 'repo-discord-signal' ? 'repo Discord/community signal matched' : 'repo evidence matched';
+    const repoState = ref.type === 'repo-v1-file'
+      ? 'repo-historical'
+      : ref.type === 'repo-context-file'
+        ? 'repo-context'
+        : ref.type === 'repo-archive-file'
+          ? 'repo-archive'
+          : 'repo-current';
+    const ranking = evidenceRanking(ref.type, text, matchTerms, family, { date: '', state: repoState }, ref);
+    const matchedSummary = ref.type === 'repo-discord-signal'
+      ? 'repo Discord/community signal matched'
+      : ref.type === 'repo-v1-file'
+        ? 'historical v1 repo evidence matched'
+        : ref.type === 'repo-context-file'
+          ? 'repo context evidence matched'
+          : ref.type === 'repo-archive-file'
+            ? 'repo archive evidence matched'
+            : 'repo evidence matched';
     const missingSummary =
       ref.type === 'repo-discord-signal'
         ? 'repo Discord/community signal fetched but signal missing'
-        : 'repo evidence fetched but signal missing';
+        : ref.type === 'repo-v1-file'
+          ? 'historical v1 repo evidence fetched but signal missing'
+          : ref.type === 'repo-context-file'
+            ? 'repo context evidence fetched but signal missing'
+            : ref.type === 'repo-archive-file'
+              ? 'repo archive evidence fetched but signal missing'
+              : 'repo evidence fetched but signal missing';
     return {
       type: ref.type,
       ref: ref.ref,
       checked_on,
+      source_origin: sourceOrigin,
+      discovered_via: discoveredVia,
+      evidence_class: evidenceClassification(ref.type),
+      truth_mode: familyTruthMode(family),
       ok: true,
       matched,
       summary: matched ? matchedSummary : missingSummary,
@@ -880,18 +1312,26 @@ async function fetchEvidenceRef(ref, options = null) {
     };
   }
 
-  if (ref.type === 'official-page') {
+  if (ref.type === 'official-page' || ref.type === 'deepwiki-page') {
     const response = await fetchText(ref.ref);
     const text = htmlToText(response.text);
     const matched = response.ok && matchAnySignal(text, matchTerms);
-    const ranking = evidenceRanking(ref.type, text, matchTerms, family, extractEvidenceMeta(ref.type, null, response.text));
+    const ranking = evidenceRanking(ref.type, text, matchTerms, family, extractEvidenceMeta(ref.type, null, response.text), ref);
     return {
       type: ref.type,
       ref: ref.ref,
       checked_on,
+      source_origin: sourceOrigin,
+      discovered_via: discoveredVia,
+      evidence_class: evidenceClassification(ref.type),
+      truth_mode: familyTruthMode(family),
       ok: response.ok,
       matched,
-      summary: response.ok ? (matched ? 'official page matched' : 'official page fetched but signal missing') : `official page fetch failed (${response.status})`,
+      summary: response.ok
+        ? (matched
+          ? (ref.type === 'deepwiki-page' ? 'DeepWiki page matched' : 'official page matched')
+          : (ref.type === 'deepwiki-page' ? 'DeepWiki page fetched but signal missing' : 'official page fetched but signal missing'))
+        : `${ref.type === 'deepwiki-page' ? 'DeepWiki' : 'official page'} fetch failed (${response.status}${response.error ? `: ${response.error}` : ''})`,
       ...ranking
     };
   }
@@ -907,11 +1347,15 @@ async function fetchEvidenceRef(ref, options = null) {
     }
     const corpus = parsed ? JSON.stringify(parsed) : response.text;
     const matched = response.ok && matchAnySignal(corpus, matchTerms);
-    const ranking = evidenceRanking(ref.type, corpus, matchTerms, family, extractEvidenceMeta(ref.type, parsed, response.text));
+    const ranking = evidenceRanking(ref.type, corpus, matchTerms, family, extractEvidenceMeta(ref.type, parsed, response.text), ref);
     return {
       type: ref.type,
       ref: ref.ref,
       checked_on,
+      source_origin: sourceOrigin,
+      discovered_via: discoveredVia,
+      evidence_class: evidenceClassification(ref.type),
+      truth_mode: familyTruthMode(family),
       ok: response.ok,
       matched,
       summary: response.ok ? (matched ? 'forum topic matched' : 'forum topic fetched but signal missing') : `forum topic fetch failed (${response.status})`,
@@ -940,11 +1384,15 @@ async function fetchEvidenceRef(ref, options = null) {
     }
     const corpus = parsedJson ? JSON.stringify(parsedJson) : response.text;
     const matched = response.ok && matchAnySignal(corpus, matchTerms);
-    const ranking = evidenceRanking(ref.type, corpus, matchTerms, family, extractEvidenceMeta(ref.type, parsedJson, response.text));
+    const ranking = evidenceRanking(ref.type, corpus, matchTerms, family, extractEvidenceMeta(ref.type, parsedJson, response.text), ref);
     return {
       type: ref.type,
       ref: ref.ref,
       checked_on,
+      source_origin: sourceOrigin,
+      discovered_via: discoveredVia,
+      evidence_class: evidenceClassification(ref.type),
+      truth_mode: familyTruthMode(family),
       ok: response.ok,
       matched,
       summary: response.ok ? (matched ? 'GitHub evidence matched' : 'GitHub evidence fetched but signal missing') : `GitHub fetch failed (${response.status})`,
@@ -956,6 +1404,10 @@ async function fetchEvidenceRef(ref, options = null) {
     type: ref.type,
     ref: ref.ref,
     checked_on,
+    source_origin: sourceOrigin,
+    discovered_via: discoveredVia,
+    evidence_class: evidenceClassification(ref.type),
+    truth_mode: familyTruthMode(family),
     ok: false,
     matched: false,
     summary: `unsupported evidence ref type: ${ref.type}`,
@@ -969,9 +1421,20 @@ async function fetchEvidenceRef(ref, options = null) {
   };
 }
 
-async function collectEvidence(family) {
+async function collectEvidence(family, targetFiles = []) {
+  const explicitRefs = (family.evidence_refs || []).map((ref) => ({
+    ...ref,
+    source_origin: 'explicit',
+    discovered_via: 'registry-evidence'
+  }));
+  const discoveredRefs = dedupeEvidenceRefs([
+    ...repoDiscoveryCandidates(family, targetFiles),
+    ...(await discoverGithubEvidenceRefs(family)),
+    ...discoverDeepwikiEvidenceRefs(family)
+  ]);
+  const refs = dedupeEvidenceRefs([...explicitRefs, ...discoveredRefs]);
   const evidence = [];
-  for (const ref of family.evidence_refs) {
+  for (const ref of refs) {
     evidence.push(
       await fetchEvidenceRef(ref, {
         termsOverride: expandedEvidenceTerms(family, ref),
@@ -991,6 +1454,9 @@ async function collectEvidence(family) {
     }
     if ((left.source_rank || 0) !== (right.source_rank || 0)) {
       return (right.source_rank || 0) - (left.source_rank || 0);
+    }
+    if ((left.source_origin || 'explicit') !== (right.source_origin || 'explicit')) {
+      return Number((right.source_origin || 'explicit') === 'explicit') - Number((left.source_origin || 'explicit') === 'explicit');
     }
     return (right.matched_terms_count || 0) - (left.matched_terms_count || 0);
   });
@@ -1140,7 +1606,7 @@ async function buildFamilyReport(family, fileContents, targetFiles = []) {
     };
   });
 
-  const evidence = annotateEvidenceCompetition(await collectEvidence(family));
+  const evidence = annotateEvidenceCompetition(await collectEvidence(family, targetFiles));
   const classification = classifyFamily(family, evidence, pageObservations);
   const primaryEvidence = evidence.find((entry) => entry.selection_role === 'primary') || null;
   return {
@@ -1151,12 +1617,16 @@ async function buildFamilyReport(family, fileContents, targetFiles = []) {
     registry_status: family.status,
     status: classification.status,
     freshness_class: family.freshness_class,
+    truth_mode: familyTruthMode(family),
     confidence: classification.confidence,
     summary: family.claim_summary,
     primary_evidence: primaryEvidence
       ? {
           type: primaryEvidence.type,
           ref: primaryEvidence.ref,
+          source_origin: primaryEvidence.source_origin,
+          discovered_via: primaryEvidence.discovered_via,
+          evidence_class: primaryEvidence.evidence_class,
           summary: primaryEvidence.summary,
           selection_score: primaryEvidence.selection_score,
           ranking_reason: primaryEvidence.ranking_reason
@@ -1203,6 +1673,16 @@ function buildEvidenceSources(familyReports) {
       matched_terms: evidence.matched_terms || [],
       selection_score: evidence.selection_score || 0,
       ranking_reason: evidence.ranking_reason || '',
+      source_origin: evidence.source_origin || 'explicit',
+      discovered_via: evidence.discovered_via || '',
+      evidence_class: evidence.evidence_class || evidenceClassification(evidence.type),
+      truth_mode: evidence.truth_mode || entry.truth_mode || familyTruthMode(entry),
+      issue_truth_role:
+        evidence.type === 'github-issue'
+          ? (String(evidence.truth_mode || entry.truth_mode || familyTruthMode(entry)) === 'repo_behavior'
+            ? 'behavior-adjacent'
+            : 'status-evidence')
+          : '',
       selection_role: evidence.selection_role || 'supporting',
       comparison_reason: evidence.comparison_reason || '',
       primary_ref: evidence.primary_ref || ''
@@ -1291,9 +1771,12 @@ function buildMarkdown(report) {
       entries.forEach((entry) => {
         lines.push(`- \`${entry.claim_id}\` (${entry.status}, ${entry.confidence})`);
         lines.push(`  - owner: \`${entry.canonical_owner}\``);
+        lines.push(`  - truth mode: ${entry.truth_mode}`);
         lines.push(`  - summary: ${mdxSafe(entry.summary)}`);
         if (entry.primary_evidence) {
           lines.push(`  - primary evidence: ${mdxSafe(`${entry.primary_evidence.type} → ${entry.primary_evidence.ref}`)}`);
+          lines.push(`  - evidence origin: ${entry.primary_evidence.source_origin}${entry.primary_evidence.discovered_via ? ` via ${entry.primary_evidence.discovered_via}` : ''}`);
+          lines.push(`  - evidence class: ${entry.primary_evidence.evidence_class}`);
           lines.push(`  - evidence why: ${mdxSafe(entry.primary_evidence.ranking_reason)}`);
         }
       });
@@ -1331,6 +1814,8 @@ function buildMarkdown(report) {
     report.evidence_sources.forEach((entry) => {
       lines.push(`- \`${entry.claim_id}\` → ${entry.type}: ${mdxSafe(entry.ref)}`);
       lines.push(`  - role: ${entry.selection_role}`);
+      lines.push(`  - origin: ${entry.source_origin}${entry.discovered_via ? ` via ${entry.discovered_via}` : ''}`);
+      lines.push(`  - class: ${entry.evidence_class}; truth mode: ${entry.truth_mode}`);
       lines.push(`  - checked: ${entry.checked_on}`);
       lines.push(`  - result: ${mdxSafe(entry.summary)}`);
       lines.push(`  - rank: ${entry.source_rank}; score: ${entry.selection_score}`);
@@ -1345,6 +1830,9 @@ function buildMarkdown(report) {
       }
       if (entry.comparison_reason) {
         lines.push(`  - why not primary: ${mdxSafe(entry.comparison_reason)}`);
+      }
+      if (entry.issue_truth_role) {
+        lines.push(`  - issue role: ${entry.issue_truth_role}`);
       }
     });
   }
@@ -1463,6 +1951,7 @@ module.exports = {
   buildContradictions,
   classifyFamily,
   collectEvidence,
+  resetCaches,
   extractClaimsFromContent,
   extractObservationSnippets,
   extractPatternValues,

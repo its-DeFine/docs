@@ -139,9 +139,60 @@ async function runTests() {
     assert.strictEqual(result.status, 0, result.stderr || result.stdout);
   });
 
+  await runCase('Validate accepts truth-mode discovery config and new evidence types', async () => {
+    const root = mkTmpDir('docs-fact-registry-discovery-');
+    const registry = sampleRegistry('gateways');
+    registry.claim_families[0].truth_mode = 'implementation_status';
+    registry.claim_families[0].github_repos = ['https://github.com/livepeer/go-livepeer'];
+    registry.claim_families[0].deepwiki_repos = ['livepeer/go-livepeer'];
+    registry.claim_families[0].discovery = {
+      repo_lanes: ['v1', 'context', 'archive'],
+      github: true,
+      deepwiki: true,
+      search_hints: ['remote signer', 'clearinghouse']
+    };
+    registry.claim_families[0].evidence_refs = [
+      {
+        type: 'repo-v1-file',
+        ref: 'v1/gateways/payment-guide.mdx',
+        match_any: ['legacy']
+      },
+      {
+        type: 'repo-context-file',
+        ref: 'v2/gateways/_contextData/payment-notes.mdx',
+        match_any: ['context']
+      },
+      {
+        type: 'repo-archive-file',
+        ref: 'v2/x-archived/gateways/payment-guide.mdx',
+        match_any: ['archive']
+      },
+      {
+        type: 'deepwiki-page',
+        ref: 'https://deepwiki.com/livepeer/go-livepeer',
+        match_any: ['remote signer']
+      }
+    ];
+    writeJson(path.join(root, 'gateways.json'), registry);
+
+    const result = runNode(['--validate', '--registry', root]);
+    assert.strictEqual(result.status, 0, result.stderr || result.stdout);
+  });
+
+  await runCase('Validate rejects invalid truth modes', async () => {
+    const root = mkTmpDir('docs-fact-registry-truth-mode-');
+    const registry = sampleRegistry('gateways');
+    registry.claim_families[0].truth_mode = 'future-state';
+    writeJson(path.join(root, 'gateways.json'), registry);
+
+    const result = runNode(['--validate', '--registry', root]);
+    assert.strictEqual(result.status, 1, 'invalid truth_mode should fail');
+    assert.ok((result.stderr + result.stdout).includes('truth_mode'), 'should mention invalid truth_mode');
+  });
+
   return {
     passed: errors.length === 0,
-    total: 4,
+    total: 6,
     errors
   };
 }

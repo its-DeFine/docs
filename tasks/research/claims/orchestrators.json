@@ -376,12 +376,25 @@
       "evidence_date": "2026-03-16",
       "status": "verified",
       "freshness_class": "review-periodic",
+      "truth_mode": "implementation_status",
+      "github_repos": [
+        "Stronk-Tech/OrchestratorSiphon"
+      ],
       "dependent_pages": [
         "v2/orchestrators/guides/deployment-details/setup-options.mdx"
       ],
       "related_claims": [],
       "last_reviewed_by": "codex",
       "notes": "Use GitHub repository metadata to confirm the project still exists and is publicly accessible.",
+      "discovery": {
+        "github": true,
+        "deepwiki": false,
+        "search_hints": [
+          "OrchestratorSiphon",
+          "split setup",
+          "siphon"
+        ]
+      },
       "match_terms": [
         "siphon",
         "OrchestratorSiphon",
