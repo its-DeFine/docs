@@ -5,6 +5,7 @@
  * @purpose           qa:content-quality
  * @scope             tests
  * @owner             docs
+ * @domain            docs
  * @needs             E-R1, R-R11
  * @purpose-statement Style guide compliance — checks en-GB conventions, heading case, formatting rules
  * @pipeline          P1, P3
@@ -46,6 +47,43 @@ const NEGATION_DEFINITION_PATTERNS = [
 
 function toPosix(filePath) {
   return String(filePath || '').split(path.sep).join('/');
+}
+
+function parseArgs(argv) {
+  const parsed = {
+    stagedOnly: false,
+    files: [],
+    baseRef: ''
+  };
+
+  for (let i = 0; i < argv.length; i += 1) {
+    const token = argv[i];
+    if (token === '--staged') {
+      parsed.stagedOnly = true;
+      continue;
+    }
+    if (token === '--files' || token === '--file') {
+      const raw = String(argv[i + 1] || '').trim();
+      if (raw) {
+        raw
+          .split(',')
+          .map((entry) => entry.trim())
+          .filter(Boolean)
+          .forEach((entry) => {
+            parsed.files.push(path.isAbsolute(entry) ? entry : path.resolve(REPO_ROOT, entry));
+          });
+      }
+      i += 1;
+      continue;
+    }
+    if (token === '--base-ref') {
+      parsed.baseRef = String(argv[i + 1] || '').trim();
+      i += 1;
+    }
+  }
+
+  parsed.files = [...new Set(parsed.files)];
+  return parsed;
 }
 
 function getChangedLineSetFromDiff(filePath, diffArgs) {
@@ -736,10 +774,12 @@ function runTests(options = {}) {
 
 // Run if called directly
 if (require.main === module) {
-  const args = process.argv.slice(2);
-  const stagedOnly = args.includes('--staged');
-  
-  const result = runTests({ stagedOnly });
+  const parsed = parseArgs(process.argv.slice(2));
+  const result = runTests({
+    stagedOnly: parsed.stagedOnly,
+    files: parsed.files.length > 0 ? parsed.files : null,
+    baseRef: parsed.baseRef
+  });
   
   if (result.errors.length > 0) {
     console.error('\n❌ Style Guide Violations:\n');
@@ -764,4 +804,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { runTests };
+module.exports = { parseArgs, runTests };

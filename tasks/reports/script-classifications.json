@@ -718,6 +718,16 @@
     "pipeline": "manual — not yet in pipeline"
   },
   {
+    "path": "tests/unit/run-pr-checks.test.js",
+    "script": "run-pr-checks.test",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tests/unit, tests/run-pr-checks.js",
+    "needs": "R-R14, R-R29",
+    "purpose_statement": "Tests run-pr-checks lane parsing, branch-health registry coverage, and incremental summary/progress behavior.",
+    "pipeline": "manual"
+  },
+  {
     "path": "tests/unit/script-docs.test.js",
     "script": "script-docs-test",
     "category": "validator",

@@ -80,25 +80,24 @@ The route/static validations that had already been repaired in the earlier navig
 - `node tests/unit/docs-navigation.test.js`
   - result: passed with warnings only, `187` warnings
 
-### Full PR runner attempt
+### Full PR runner result
 
-- Attempted: `node tests/run-pr-checks.js --lane branch-health --base-ref docs-v2`
-- Result: runner still stalls after the startup inventory summary and does not emit per-lane results in a reasonable interval
-- Startup summary captured:
-  - changed files: `2832`
-  - changed docs pages: `356`
-  - changed repo markdown files: `2315`
-  - changed components: `27`
-- Captured log: terminal session output plus `/tmp/livepeer-link-audit-merge-readiness-post-commit.md` for the direct strict link-audit evidence
-- Action taken: used the direct compare-scoped matrix above as the authoritative validation evidence for this branch
+- Attempted: `GITHUB_HEAD_REF=docs-v2-dev node tests/run-pr-checks.js --lane branch-health --base-ref docs-v2`
+- Result: runner completed natively, emitted per-check progress, and exited with a final summary instead of stalling after inventory
+- Native branch-health outcome:
+  - failed: `Style Guide`, `MDX-safe Markdown`, `Skill Docs`
+  - skipped as expected for branch emulation: `Codex Task Contract`
+  - passed: `Component Naming`, `Copy Lint`, `MDX Validation`, `Spelling`, `Quality`, `Links & Imports`, `MDX Guardrails`, `Docs Navigation`, `docs.json /redirect Guard`, `Generated Banners`, `Codex Skill Sync (--check)`, `Script Governance`, `Script Docs`, `Ownerless Governance`, `Agent Docs Freshness`, `Root Allowlist Format`, `Portable Skill Export`, `Docs-guide SoT`, `UI Template Generator`, `Usefulness Unit Tests`, `V2 Link Audit (Strict)`
+- Captured log: `/tmp/run-pr-checks-docsv2dev.log`
+- Action taken: the native runner is authoritative again for this lane; the direct compare-scoped matrix is no longer needed as a reliability fallback
 
 ## Non-Blocking Follow-Up Issues Found
 
-These did not fail the compare-scoped blocker gates, but they remain visible in the broader audit output:
+These do not currently block the native branch-health result, but they remain visible in the broader audit output:
 
 - `Quality` warnings remain widespread for missing `status`, legacy multi-audience strings, pageType/purpose mismatches, and relative-link advisories
 - `Docs Navigation` warnings remain concentrated in the orchestrators IA and in files that exist on disk but are not represented in `docs.json`
-- `Style Guide` still emits warning-level debt outside the blocker set, including:
+- Additional style-governance debt remains beyond the current blocking rows, including:
   - deprecated `ThemeData` in `v2/resources/documentation-guide/automations-workflows.mdx`
   - advisory `CustomDivider` inline-style usage in gateway/orchestrator concept pages
   - code-block metadata gaps
@@ -106,14 +105,12 @@ These did not fail the compare-scoped blocker gates, but they remain visible in 
 
 ## Readiness Call
 
-Based on the direct compare-scoped validation matrix, this branch clears the two remaining assigned blockers for this phase:
+The runner itself is now recovered, but `docs-v2-dev` is not replacement-ready yet.
+
+Current native branch-health blockers against `docs-v2` are:
 
 - `Style Guide`
-- `Copy Lint`
+- `MDX-safe Markdown`
+- `Skill Docs`
 
-This branch is ready for the next merge-readiness review step on the `docs-v2...docs-v2-dev` replacement path.
-
-Final unconditional replacement sign-off should still require one of the following:
-
-- a successful completed `branch-health` runner execution, or
-- explicit acceptance that the direct compare-scoped matrix above is the authoritative gate while the runner remains unreliable
+This branch should not replace `docs-v2` until those three lanes are cleared on a native `branch-health` run.

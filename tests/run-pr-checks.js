@@ -4,7 +4,7 @@
  * @category          orchestrator
  * @purpose           infrastructure:pipeline-orchestration
  * @scope             changed
- * @owner             docs
+ * @domain            docs
  * @needs             R-R29
  * @purpose-statement PR orchestrator — runs changed-file scoped validation checks for pull request CI. Dispatches per-file validators based on PR diff.
  * @pipeline          P2, P3
@@ -14,7 +14,7 @@
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const { execSync, spawnSync } = require('child_process');
+const { execSync, spawn, spawnSync } = require('child_process');
 const { getDocsJsonRouteKeys, toDocsRouteKeyFromFileV2Aware } = require('./utils/file-walker');
 const {
   AGGREGATE_INDEX_PATH,
@@ -56,6 +56,11 @@ const VALID_CATEGORY_SET = new Set(VALID_CATEGORIES);
 const VALID_PURPOSE_SET = new Set(VALID_PURPOSES);
 const LINK_AUDIT_REPORT = '/tmp/livepeer-link-audit-pr.md';
 const CODEX_BRANCH_RE = /^codex\//;
+const DEFAULT_LANE = 'branch-health';
+const SUPPORTED_LANES = new Set([DEFAULT_LANE]);
+const DEFAULT_CHECK_TIMEOUT_MS = 10 * 60 * 1000;
+const LONG_CHECK_TIMEOUT_MS = 20 * 60 * 1000;
+const HEARTBEAT_INTERVAL_MS = 30 * 1000;
 const GENERATED_AFFECTING_PREFIXES = [
   'docs-guide/catalog/',
   'tools/scripts/generate-docs-guide-',
@@ -105,14 +110,55 @@ function toPosix(filePath) {
   return String(filePath || '').split(path.sep).join('/');
 }
 
-function parseArgs(argv) {
-  const args = { baseRef: process.env.GITHUB_BASE_REF || '' };
+function printUsage() {
+  console.log(
+    [
+      'Usage:',
+      '  node tests/run-pr-checks.js [--base-ref <branch>] [--lane branch-health]',
+      '',
+      'Supported lanes:',
+      '  branch-health    Run the full changed-file PR validation suite.'
+    ].join('\n')
+  );
+}
+
+function parseArgs(argv, env = process.env) {
+  const args = {
+    baseRef: String(env.GITHUB_BASE_REF || '').trim(),
+    lane: DEFAULT_LANE,
+    help: false
+  };
+
   for (let i = 0; i < argv.length; i += 1) {
+    if (argv[i] === '--help' || argv[i] === '-h') {
+      args.help = true;
+      continue;
+    }
+
     if (argv[i] === '--base-ref') {
       args.baseRef = String(argv[i + 1] || '').trim();
       i += 1;
+      continue;
     }
+
+    if (argv[i] === '--lane') {
+      args.lane = String(argv[i + 1] || '').trim() || DEFAULT_LANE;
+      i += 1;
+      continue;
+    }
+
+    if (argv[i].startsWith('--lane=')) {
+      args.lane = String(argv[i].slice('--lane='.length) || '').trim() || DEFAULT_LANE;
+      continue;
+    }
+
+    throw new Error(`Unknown argument: ${argv[i]}`);
   }
+
+  if (!SUPPORTED_LANES.has(args.lane)) {
+    throw new Error(`Unsupported lane "${args.lane}". Supported lanes: ${[...SUPPORTED_LANES].join(', ')}`);
+  }
+
   return args;
 }
 
@@ -295,24 +341,239 @@ function rowResult(status) {
   return '⏭️ Skipped';
 }
 
+function formatCount(value) {
+  return Number.isFinite(value) ? String(value) : '—';
+}
+
+function formatDuration(milliseconds) {
+  const totalSeconds = Math.max(0, Math.round(Number(milliseconds || 0) / 1000));
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  if (minutes === 0) return `${seconds}s`;
+  return `${minutes}m ${String(seconds).padStart(2, '0')}s`;
+}
+
 function pushSummary(lines) {
   const summaryPath = process.env.GITHUB_STEP_SUMMARY;
   if (!summaryPath) return;
   fs.appendFileSync(summaryPath, `${lines.join('\n')}\n`, 'utf8');
 }
 
-async function runUnitCheck(label, files, fn) {
-  if (!files.length) {
-    return { label, status: 'skipped', files: 0, errors: 0, warnings: 0 };
-  }
-  const result = await fn({ files });
+function initializeSummary(context) {
+  const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+  if (!summaryPath) return;
+
+  fs.writeFileSync(
+    summaryPath,
+    [
+      '## PR Changed-File Checks',
+      '',
+      `- Lane: \`${context.lane}\``,
+      `- Base ref: \`${context.baseRef}\``,
+      `- Branch: \`${context.branch || 'unknown'}\``,
+      `- Changed files: \`${context.changedFiles}\``,
+      '',
+      '| Check | Files | Result | Errors | Warnings | Elapsed |',
+      '|---|---:|---|---:|---:|---:|'
+    ].join('\n') + '\n',
+    'utf8'
+  );
+}
+
+function appendSummaryRow(result) {
+  pushSummary([
+    `| ${result.label} | ${result.files} | ${rowResult(result.status)} | ${formatCount(result.errors)} | ${formatCount(result.warnings)} | ${formatDuration(result.elapsedMs)} |`
+  ]);
+}
+
+function finalizeSummary(results) {
+  const failed = results.filter((result) => result.status === 'failed').length;
+  pushSummary([
+    '',
+    failed > 0
+      ? `❌ ${failed} changed-file check(s) failed`
+      : '✅ All applicable changed-file checks passed',
+    ''
+  ]);
+}
+
+function normalizeCliFiles(files) {
+  return dedupe(
+    (Array.isArray(files) ? files : [])
+      .map((file) => {
+        const normalized = path.isAbsolute(file) ? path.relative(REPO_ROOT, file) : file;
+        return toPosix(normalized).trim();
+      })
+      .filter(Boolean)
+  );
+}
+
+function buildFilesArgs(files) {
+  const normalizedFiles = normalizeCliFiles(files);
+  return normalizedFiles.length > 0 ? ['--files', normalizedFiles.join(',')] : [];
+}
+
+function countFiles(files) {
+  if (Array.isArray(files)) return files.length;
+  return Number.isFinite(files) ? Number(files) : 0;
+}
+
+function createSkippedResult(label) {
   return {
     label,
-    status: result.passed ? 'passed' : 'failed',
-    files: files.length,
-    errors: Array.isArray(result.errors) ? result.errors.length : 0,
-    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+    status: 'skipped',
+    files: 0,
+    errors: 0,
+    warnings: 0
   };
+}
+
+function createCommandCheck({ label, files, args, timeoutMs = DEFAULT_CHECK_TIMEOUT_MS }) {
+  return {
+    label,
+    files: countFiles(files),
+    timeoutMs,
+    async run() {
+      if (countFiles(files) === 0) {
+        return createSkippedResult(label);
+      }
+
+      return runNodeCommandCheck(label, args, { files: countFiles(files), timeoutMs });
+    }
+  };
+}
+
+function createInlineCheck({ label, files, timeoutMs = DEFAULT_CHECK_TIMEOUT_MS, run }) {
+  return {
+    label,
+    files: countFiles(files),
+    timeoutMs,
+    async run() {
+      return run();
+    }
+  };
+}
+
+async function runNodeCommandCheck(label, args, options = {}) {
+  const timeoutMs = Number(options.timeoutMs || DEFAULT_CHECK_TIMEOUT_MS);
+  const fileCount = countFiles(options.files);
+  const startedAt = Date.now();
+  let timedOut = false;
+  let finished = false;
+
+  return new Promise((resolve) => {
+    const child = spawn('node', args, {
+      cwd: REPO_ROOT,
+      env: {
+        ...process.env,
+        ...(options.env || {})
+      },
+      stdio: ['ignore', 'pipe', 'pipe']
+    });
+
+    const heartbeat = setInterval(() => {
+      console.log(`⏱️  ${label} still running (${formatDuration(Date.now() - startedAt)})`);
+    }, HEARTBEAT_INTERVAL_MS);
+
+    const timeoutHandle = setTimeout(() => {
+      timedOut = true;
+      console.error(`\n❌ ${label} timed out after ${formatDuration(timeoutMs)}`);
+      child.kill('SIGTERM');
+      setTimeout(() => child.kill('SIGKILL'), 5000).unref();
+    }, timeoutMs);
+
+    const finalize = (result) => {
+      if (finished) return;
+      finished = true;
+      clearInterval(heartbeat);
+      clearTimeout(timeoutHandle);
+      resolve({
+        label,
+        files: fileCount,
+        errors: result.errors,
+        warnings: result.warnings,
+        status: result.status,
+        note: result.note || ''
+      });
+    };
+
+    child.stdout.on('data', (chunk) => process.stdout.write(chunk));
+    child.stderr.on('data', (chunk) => process.stderr.write(chunk));
+
+    child.on('error', (error) => {
+      finalize({
+        status: 'failed',
+        errors: 1,
+        warnings: 0,
+        note: error.message
+      });
+    });
+
+    child.on('close', (code, signal) => {
+      if (timedOut) {
+        finalize({
+          status: 'failed',
+          errors: 1,
+          warnings: 0,
+          note: signal ? `terminated by ${signal}` : 'timed out'
+        });
+        return;
+      }
+
+      finalize({
+        status: code === 0 ? 'passed' : 'failed',
+        errors: null,
+        warnings: null,
+        note: signal ? `terminated by ${signal}` : ''
+      });
+    });
+  });
+}
+
+async function runCheckRegistry(checks) {
+  const results = [];
+
+  for (const check of checks) {
+    const startedAt = Date.now();
+    console.log(
+      `\n▶ START ${check.label} (files: ${check.files}, timeout: ${formatDuration(check.timeoutMs)})`
+    );
+
+    let result;
+    try {
+      result = await check.run();
+    } catch (error) {
+      result = {
+        label: check.label,
+        status: 'failed',
+        files: check.files,
+        errors: 1,
+        warnings: 0,
+        note: error.message
+      };
+      console.error(`❌ ${check.label} crashed: ${error.message}`);
+    }
+
+    const normalized = {
+      label: result.label || check.label,
+      status: result.status || 'failed',
+      files: Number.isFinite(result.files) ? result.files : check.files,
+      errors: Number.isFinite(result.errors) ? result.errors : null,
+      warnings: Number.isFinite(result.warnings) ? result.warnings : null,
+      note: result.note || '',
+      elapsedMs: Date.now() - startedAt
+    };
+
+    console.log(
+      `${rowResult(normalized.status)} ${normalized.label} (${formatDuration(normalized.elapsedMs)})`
+      + (normalized.note ? ` — ${normalized.note}` : '')
+    );
+
+    appendSummaryRow(normalized);
+    results.push(normalized);
+  }
+
+  return results;
 }
 
 function runScriptGovernanceCheck(files) {
@@ -426,12 +687,12 @@ function runOwnerlessGovernanceCheck(files) {
   };
 }
 
-function runAgentDocsFreshnessCheck(files) {
+async function runAgentDocsFreshnessCheck(files) {
   if (!files.length) {
     return { label: 'Agent Docs Freshness', status: 'skipped', files: 0, errors: 0, warnings: 0 };
   }
 
-  const result = checkAgentDocsFreshnessTests.runTests();
+  const result = await checkAgentDocsFreshnessTests.runTests();
   return {
     label: 'Agent Docs Freshness',
     status: result.passed ? 'passed' : 'failed',
@@ -799,13 +1060,179 @@ function runCodexTaskContractCheck(branch, changedFiles, baseRef) {
   };
 }
 
+function createBranchHealthRegistry(context) {
+  const { args, changedFiles, groups, currentBranch } = context;
+
+  return [
+    createCommandCheck({
+      label: 'Component Naming',
+      files: groups.componentJsx,
+      args: [
+        'tools/scripts/validators/components/check-naming-conventions.js',
+        ...buildFilesArgs(groups.componentJsx)
+      ]
+    }),
+    createCommandCheck({
+      label: 'Style Guide',
+      files: groups.styleFiles,
+      args: ['tests/unit/style-guide.test.js', ...buildFilesArgs(groups.styleFiles)]
+    }),
+    createCommandCheck({
+      label: 'Copy Lint',
+      files: groups.docsMdxAbs,
+      args: ['tests/unit/copy-lint.test.js', ...buildFilesArgs(groups.docsMdxAbs)]
+    }),
+    createCommandCheck({
+      label: 'MDX Validation',
+      files: groups.docsMdxAbs,
+      args: ['tests/unit/mdx.test.js', ...buildFilesArgs(groups.docsMdxAbs)]
+    }),
+    createCommandCheck({
+      label: 'MDX-safe Markdown',
+      files: groups.repoMarkdownFilesAbs,
+      args: ['tools/scripts/validators/content/check-mdx-safe-markdown.js', ...buildFilesArgs(groups.repoMarkdownFilesAbs)]
+    }),
+    createCommandCheck({
+      label: 'Spelling',
+      files: groups.docsMdxAbs,
+      args: ['tests/unit/spelling.test.js', ...buildFilesArgs(groups.docsMdxAbs)]
+    }),
+    createCommandCheck({
+      label: 'Quality',
+      files: groups.docsMdxAbs,
+      args: ['tests/unit/quality.test.js', ...buildFilesArgs(groups.docsMdxAbs)]
+    }),
+    createCommandCheck({
+      label: 'Links & Imports',
+      files: groups.docsMdxAbs,
+      args: ['tests/unit/links-imports.test.js', ...buildFilesArgs(groups.docsMdxAbs)],
+      timeoutMs: LONG_CHECK_TIMEOUT_MS
+    }),
+    createInlineCheck({
+      label: 'MDX Guardrails',
+      files: 1,
+      run: () => runGlobalCheck('MDX Guardrails', mdxGuardsTests.runTests)
+    }),
+    createInlineCheck({
+      label: 'Docs Navigation',
+      files: 1,
+      run: () => runDocsNavigationCheck()
+    }),
+    createInlineCheck({
+      label: 'docs.json /redirect Guard',
+      files: changedFiles.includes('docs.json') ? 1 : 0,
+      run: () => runDocsJsonRedirectGuard(args.baseRef, changedFiles)
+    }),
+    createInlineCheck({
+      label: 'Generated Banners',
+      files: shouldRunGeneratedBannerCheck(changedFiles) ? 1 : 0,
+      run: () => runGeneratedBannerCheck(changedFiles)
+    }),
+    createInlineCheck({
+      label: 'Codex Task Contract',
+      files: CODEX_BRANCH_RE.test(currentBranch) ? 1 : 0,
+      run: () => runCodexTaskContractCheck(currentBranch, changedFiles, args.baseRef)
+    }),
+    createInlineCheck({
+      label: 'Codex Skill Sync (--check)',
+      files: 1,
+      run: () => runCodexSkillSyncCheck(),
+      timeoutMs: LONG_CHECK_TIMEOUT_MS
+    }),
+    createInlineCheck({
+      label: 'Script Governance',
+      files: groups.governanceScriptFiles,
+      run: () => runScriptGovernanceCheck(groups.governanceScriptFiles)
+    }),
+    createInlineCheck({
+      label: 'Script Docs',
+      files: groups.scriptFiles,
+      run: () => runScriptDocsCheck(groups.scriptFiles)
+    }),
+    createInlineCheck({
+      label: 'Skill Docs',
+      files: groups.skillDocsFiles,
+      run: () => runSkillDocsCheck(groups.skillDocsFiles)
+    }),
+    createInlineCheck({
+      label: 'AI-tools Registry',
+      files: groups.aiToolsRegistryFiles,
+      run: () => runAiToolsRegistryCheck(groups.aiToolsRegistryFiles)
+    }),
+    createInlineCheck({
+      label: 'Ownerless Governance',
+      files: groups.ownerlessGovernanceFiles,
+      run: () => runOwnerlessGovernanceCheck(groups.ownerlessGovernanceFiles)
+    }),
+    createInlineCheck({
+      label: 'Agent Docs Freshness',
+      files: groups.ownerlessGovernanceFiles,
+      run: () => runAgentDocsFreshnessCheck(groups.ownerlessGovernanceFiles)
+    }),
+    createInlineCheck({
+      label: 'Root Allowlist Format',
+      files: groups.ownerlessGovernanceFiles,
+      run: () => runRootAllowlistFormatCheck(groups.ownerlessGovernanceFiles)
+    }),
+    createInlineCheck({
+      label: 'Portable Skill Export',
+      files: groups.portableSkillFiles,
+      run: () => runAsyncGlobalCheck('Portable Skill Export', groups.portableSkillFiles, exportPortableSkillsTests.runTests),
+      timeoutMs: LONG_CHECK_TIMEOUT_MS
+    }),
+    createInlineCheck({
+      label: 'Docs-guide SoT',
+      files: groups.docsGuideSotFiles,
+      run: () => runDocsGuideSotCheck(groups.docsGuideSotFiles),
+      timeoutMs: LONG_CHECK_TIMEOUT_MS
+    }),
+    createInlineCheck({
+      label: 'UI Template Generator',
+      files: groups.uiTemplateFiles,
+      run: () => runUiTemplateGeneratorCheck(groups.uiTemplateFiles)
+    }),
+    createInlineCheck({
+      label: 'Usefulness Unit Tests',
+      files: groups.usefulnessFiles,
+      run: () => runUsefulnessChecks(groups.usefulnessFiles)
+    }),
+    createCommandCheck({
+      label: 'V2 Link Audit (Strict)',
+      files: groups.docsMdx,
+      args: [
+        'tests/integration/v2-link-audit.js',
+        '--files',
+        groups.docsMdx.join(','),
+        '--strict',
+        '--report',
+        LINK_AUDIT_REPORT
+      ],
+      timeoutMs: LONG_CHECK_TIMEOUT_MS
+    })
+  ];
+}
+
+function createCheckRegistry(context) {
+  if (context.args.lane === DEFAULT_LANE) {
+    return createBranchHealthRegistry(context);
+  }
+
+  throw new Error(`Unsupported lane "${context.args.lane}". Supported lanes: ${[...SUPPORTED_LANES].join(', ')}`);
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
+  if (args.help) {
+    printUsage();
+    return;
+  }
+
   const changedFiles = getChangedFiles(args.baseRef);
   const groups = partitionFiles(changedFiles);
   const currentBranch = detectCurrentBranch();
 
   console.log('🧪 Running PR changed-file checks');
+  console.log(`Lane: ${args.lane}`);
   console.log(`Base ref: ${args.baseRef}`);
   console.log(`Branch: ${currentBranch || 'unknown'}`);
   console.log(`Changed files: ${changedFiles.length}`);
@@ -822,60 +1249,27 @@ async function main() {
   console.log(`Changed ownerless-governance files: ${groups.ownerlessGovernanceFiles.length}`);
   console.log(`Changed usefulness files: ${groups.usefulnessFiles.length}`);
 
-  const checks = [];
-  checks.push(runComponentNamingCheck(groups.componentJsx));
-  checks.push(await runUnitCheck('Style Guide', groups.styleFiles, styleGuideTests.runTests));
-  checks.push(await runUnitCheck('Copy Lint', groups.docsMdxAbs, copyLintTests.runTests));
-  checks.push(await runUnitCheck('MDX Validation', groups.docsMdxAbs, mdxTests.runTests));
-  checks.push(
-    mdxSafeMarkdownValidator
-      ? await runUnitCheck('MDX-safe Markdown', groups.repoMarkdownFilesAbs, mdxSafeMarkdownValidator.run)
-      : { label: 'MDX-safe Markdown', status: 'skipped', files: 0, errors: 0, warnings: 0 }
-  );
-  checks.push(await runUnitCheck('Spelling', groups.docsMdxAbs, spellingTests.runTests));
-  checks.push(await runUnitCheck('Quality', groups.docsMdxAbs, qualityTests.runTests));
-  checks.push(await runUnitCheck('Links & Imports', groups.docsMdxAbs, linksImportsTests.runTests));
-  checks.push(runGlobalCheck('MDX Guardrails', mdxGuardsTests.runTests));
-  checks.push(runDocsNavigationCheck());
-  checks.push(runDocsJsonRedirectGuard(args.baseRef, changedFiles));
-  checks.push(runGeneratedBannerCheck(changedFiles));
-  checks.push(runCodexTaskContractCheck(currentBranch, changedFiles, args.baseRef));
-  checks.push(runCodexSkillSyncCheck());
-  checks.push(runScriptGovernanceCheck(groups.governanceScriptFiles));
-  checks.push(runScriptDocsCheck(groups.scriptFiles));
-  checks.push(runSkillDocsCheck(groups.skillDocsFiles));
-  checks.push(runAiToolsRegistryCheck(groups.aiToolsRegistryFiles));
-  checks.push(runOwnerlessGovernanceCheck(groups.ownerlessGovernanceFiles));
-  checks.push(runAgentDocsFreshnessCheck(groups.ownerlessGovernanceFiles));
-  checks.push(runRootAllowlistFormatCheck(groups.ownerlessGovernanceFiles));
-  checks.push(await runAsyncGlobalCheck('Portable Skill Export', groups.portableSkillFiles, exportPortableSkillsTests.runTests));
-  checks.push(runDocsGuideSotCheck(groups.docsGuideSotFiles));
-  checks.push(runUiTemplateGeneratorCheck(groups.uiTemplateFiles));
-  checks.push(runUsefulnessChecks(groups.usefulnessFiles));
-  checks.push(runLinkAuditCheck(groups.docsMdx));
+  initializeSummary({
+    lane: args.lane,
+    baseRef: args.baseRef,
+    branch: currentBranch,
+    changedFiles: changedFiles.length
+  });
+  const checks = createCheckRegistry({ args, changedFiles, groups, currentBranch });
+  const results = await runCheckRegistry(checks);
 
   console.log('\n============================================================');
   console.log('PR Changed-File Checks Summary');
   console.log('============================================================');
-  checks.forEach((check) => {
+  results.forEach((check) => {
     console.log(
-      `${rowResult(check.status)} ${check.label} (files: ${check.files}, errors: ${check.errors}, warnings: ${check.warnings})`
+      `${rowResult(check.status)} ${check.label} (files: ${check.files}, errors: ${formatCount(check.errors)}, warnings: ${formatCount(check.warnings)}, elapsed: ${formatDuration(check.elapsedMs)})`
     );
   });
 
-  pushSummary([
-    '## PR Changed-File Checks',
-    '',
-    '| Check | Files | Result | Errors | Warnings |',
-    '|---|---:|---|---:|---:|',
-    ...checks.map(
-      (check) =>
-        `| ${check.label} | ${check.files} | ${rowResult(check.status)} | ${check.errors} | ${check.warnings} |`
-    ),
-    ''
-  ]);
+  finalizeSummary(results);
 
-  const failed = checks.filter((check) => check.status === 'failed');
+  const failed = results.filter((check) => check.status === 'failed');
   if (failed.length > 0) {
     console.error(`\n❌ ${failed.length} changed-file check(s) failed`);
     process.exit(1);
@@ -887,11 +1281,19 @@ async function main() {
 if (require.main === module) {
   main().catch((error) => {
     console.error(`❌ Failed to run PR checks: ${error.message}`);
+    printUsage();
     process.exit(1);
   });
 }
 
 module.exports = {
+  DEFAULT_LANE,
+  createBranchHealthRegistry,
+  createCheckRegistry,
+  finalizeSummary,
+  initializeSummary,
   isGeneratedSystemAffectingFile,
+  parseArgs,
+  runCheckRegistry,
   shouldRunGeneratedBannerCheck
 };

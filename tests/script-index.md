@@ -61,6 +61,7 @@
 | `tests/unit/repair-spelling.test.js` | Unit tests for repair-spelling.js — validates deterministic spelling fixes and exclusion ranges | `node tests/unit/repair-spelling.test.js [flags]` | docs |
 | `tests/unit/repo-audit-pipeline.test.js` | Tests repo-audit-orchestrator.js pipeline — validates mode/scope combinations and report output | `node tests/unit/repo-audit-pipeline.test.js [flags]` | docs |
 | `tests/unit/root-allowlist-format.test.js` | Validates that .allowlist stays machine-readable, root-only, and aligned with the canonical agent root layout. | `node tests/unit/root-allowlist-format.test.js` | docs |
+| `tests/unit/run-pr-checks.test.js` | Tests run-pr-checks lane parsing, branch-health registry coverage, and incremental summary/progress behavior. | `node tests/unit/run-pr-checks.test.js` | docs |
 | `tests/unit/script-docs.test.js` | Enforces script header schema, keeps group script indexes in sync, and builds aggregate script catalog | `node tests/unit/script-docs.test.js [flags]` | docs |
 | `tests/unit/skill-docs.test.js` | Validates governed skill documentation frontmatter, references, and contract integrity for canonical templates and local skill files. | `node tests/unit/skill-docs.test.js [--staged] [--files path[,path]]` | docs |
 | `tests/unit/spelling.test.js` | Spelling check — validates content against custom dictionary with en-GB rules | `node tests/unit/spelling.test.js [flags]` | docs |

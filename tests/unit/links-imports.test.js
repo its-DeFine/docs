@@ -4,7 +4,7 @@
  * @category          validator
  * @purpose           qa:link-integrity
  * @scope             tests
- * @owner             docs
+ * @domain            docs
  * @needs             E-R12, E-R14
  * @purpose-statement Validates MDX internal links and snippet import paths are resolvable
  * @pipeline          P1, P3
@@ -45,6 +45,37 @@ const V2_DOMAIN_DIRS = new Set([
   'experimental',
   'notes'
 ]);
+
+function parseArgs(argv) {
+  const parsed = {
+    stagedOnly: false,
+    files: []
+  };
+
+  for (let i = 0; i < argv.length; i += 1) {
+    const token = argv[i];
+    if (token === '--staged') {
+      parsed.stagedOnly = true;
+      continue;
+    }
+    if (token === '--files' || token === '--file') {
+      const raw = String(argv[i + 1] || '').trim();
+      if (raw) {
+        raw
+          .split(',')
+          .map((entry) => entry.trim())
+          .filter(Boolean)
+          .forEach((entry) => {
+            parsed.files.push(path.isAbsolute(entry) ? entry : path.resolve(process.cwd(), entry));
+          });
+      }
+      i += 1;
+    }
+  }
+
+  parsed.files = [...new Set(parsed.files)];
+  return parsed;
+}
 
 function ensureExternalDocs() {
   const repoRoot = process.cwd();
@@ -464,10 +495,11 @@ function runTests(options = {}) {
 
 // Run if called directly
 if (require.main === module) {
-  const args = process.argv.slice(2);
-  const stagedOnly = args.includes('--staged');
-  
-  const result = runTests({ stagedOnly });
+  const parsed = parseArgs(process.argv.slice(2));
+  const result = runTests({
+    stagedOnly: parsed.stagedOnly,
+    files: parsed.files.length > 0 ? parsed.files : null
+  });
   
   if (result.errors.length > 0) {
     console.error('\n❌ Broken Links/Imports Errors:\n');
@@ -497,4 +529,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { runTests };
+module.exports = { parseArgs, runTests };

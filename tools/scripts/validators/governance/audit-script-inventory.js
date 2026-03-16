@@ -1457,6 +1457,14 @@ function buildRepairPlan(report, options = {}) {
         nextRow.pipeline = scriptInfo.pipeline_declared;
         rowChanged = true;
       }
+      if (
+        scriptInfo.pipeline_declared &&
+        scriptInfo.pipeline_verified === 'MATCH' &&
+        normalizeComparableValue(nextRow.pipeline) !== normalizeComparableValue(scriptInfo.pipeline_declared)
+      ) {
+        nextRow.pipeline = scriptInfo.pipeline_declared;
+        rowChanged = true;
+      }
       if (!nextRow.dualmode && scriptInfo.dualmode) {
         nextRow.dualmode = scriptInfo.dualmode;
         rowChanged = true;
