@@ -3,10 +3,10 @@ title: 'V2 Link Audit Report'
 sidebarTitle: 'Link Audit'
 description: 'Generated V2 MDX link audit report from tests/integration/v2-link-audit.js.'
 keywords: ["livepeer","internal","reports","navigation-links","v2-link-audit"]
-og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+og:image: "/snippets/assets/site/og-image/fallback.png"
 ---
-Last Generated (UTC ISO): `2026-03-09T04:40:20.822Z`
-Last Generated (UTC Human): `March 09, 2026 04:40 UTC`
+Last Generated (UTC ISO): `2026-03-16T15:11:31.531Z`
+Last Generated (UTC Human): `March 16, 2026 15:11 UTC`
 Generator Script: `tests/integration/v2-link-audit.js`
 What It Does: Generated V2 MDX link audit report from tests/integration/v2-link-audit.js.
 Audited Scope: `tests`
@@ -17,11 +17,11 @@ Outputs:
 Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.
 
 ## Run Metadata
-- Timestamp: 2026-03-09T04:39:25.120Z
+- Timestamp: 2026-03-16T14:46:50.377Z
 - Mode: full
-- Strict: false (internal refs only)
-- Files analyzed: 463
-- Total extracted references: 2826
+- Strict: true (internal refs only)
+- Files analyzed: 540
+- Total extracted references: 4482
 - Report JSON: tasks/reports/navigation-links/LINK_TEST_REPORT.json
 
 ## Summary Counts
@@ -87,15 +87,10 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - Livepeer Treasury (about/livepeer-protocol/treasury.mdx)
 - ### Resources
   - Blockchain Contracts (about/resources/blockchain-contracts.mdx)
-  - Gateways Vs. Orchestrators: What’s the Difference? (about/resources/gateways-vs-orchestrators.mdx)
+  - ⚠️ Gateways Vs. Orchestrators: What’s the Difference? (about/resources/gateways-vs-orchestrators.mdx)
   - Livepeer Glossary (about/resources/livepeer-glossary.mdx)
   - Livepeer Whitepaper (about/resources/livepeer-whitepaper.mdx)
   - Technical Roadmap (about/resources/technical-roadmap.mdx)
-- ### X Deprecated
-  - ⚠️ Livepeer Governance (about/x-deprecated/livepeer-governance.mdx)
-  - ⚠️ Livepeer Token Economics (about/x-deprecated/livepeer-token-economics.mdx)
-  - #### Livepeer Protocol
-    - ⚠️ Technical Overview (about/x-deprecated/livepeer-protocol/technical-overview.mdx)
 - Unindexed Pages
   - (none)
 
@@ -173,10 +168,8 @@ _Tabular data omitted in the published page. Use the repository report artifact 
     - ⚠️ Livepeer 生态系统合作伙伴集成 (cn/developers/guides/partner-integrations.mdx)
   - #### Guides And Resources
     - ⚠️ 贡献指南 (cn/developers/guides-and-resources/contribution-guide.mdx)
-    - ⚠️ Developer Guides 2 (cn/developers/guides-and-resources/developer-guides%202.mdx)
     - ⚠️ Developer Guides (cn/developers/guides-and-resources/developer-guides.mdx)
     - ⚠️ 开发者帮助 (cn/developers/guides-and-resources/developer-help.mdx)
-    - ⚠️ Resources 2 (cn/developers/guides-and-resources/resources%202.mdx)
     - ⚠️ Resources (cn/developers/guides-and-resources/resources.mdx)
   - #### Guides And Tools
     - ⚠️ 贡献指南 (cn/developers/guides-and-tools/contribution-guide.mdx)
@@ -196,46 +189,26 @@ _Tabular data omitted in the published page. Use the repository report artifact 
     - ⚠️ DeepWiki (cn/developers/technical-references/deepwiki.mdx)
     - ⚠️ SDK (cn/developers/technical-references/sdks.mdx)
     - ⚠️ Livepeer 维基 (cn/developers/technical-references/wiki.mdx)
-  - #### X Deprecated
-    - ⚠️ 贡献指南 (cn/developers/x-deprecated/contribution-guide.mdx)
-    - ⚠️ Developer Guides (cn/developers/x-deprecated/developer-guides.mdx)
-    - ⚠️ 开发者帮助 (cn/developers/x-deprecated/developer-help.mdx)
-    - ⚠️ Resources (cn/developers/x-deprecated/resources.mdx)
-    - ##### Builder Opportunities
-      - ⚠️ 开发计划 (cn/developers/x-deprecated/builder-opportunities/dev-programs.mdx)
-      - ⚠️ Livepeer RFPs (cn/developers/x-deprecated/builder-opportunities/livepeer-rfps.mdx)
-  - #### X Unstaged
-    - ⚠️ Livepeer 生态系统合作伙伴集成 (cn/developers/x-unstaged/partner-integrations.mdx)
-    - ##### Developer Tools
-      - ⚠️ 社区与网络仪表盘 (cn/developers/x-unstaged/developer-tools/dashboards.mdx)
-      - ⚠️ Livepeer 工具仪表板 (cn/developers/x-unstaged/developer-tools/livepeer-cloud.mdx)
-      - ⚠️ Livepeer 浏览器 (cn/developers/x-unstaged/developer-tools/livepeer-explorer.mdx)
-      - ⚠️ 工具中心 (cn/developers/x-unstaged/developer-tools/tooling-hub.mdx)
 - ### Docs Guide
-  - ⚠️ 组件索引 (cn/docs-guide/indexes/components-index.mdx)
-  - ⚠️ 功能图 (cn/docs-guide/feature-map.mdx)
-  - ⚠️ Lpd (cn/docs-guide/lpd.md)
-  - ⚠️ LPD CLI API 参考 (cn/docs-guide/tooling/lpd-cli.mdx)
-  - ⚠️ 页面索引 (cn/docs-guide/indexes/pages-index.mdx)
-  - ⚠️ README (cn/docs-guide/README.md)
   - ⚠️ 文档指南概述 (cn/docs-guide/overview.mdx)
-  - ⚠️ 脚本索引 (cn/docs-guide/indexes/scripts-index.mdx)
-  - ⚠️ Source Of Truth Policy (cn/docs-guide/policies/source-of-truth-policy.mdx)
-  - ⚠️ 真相来源政策 (cn/docs-guide/policies/source-of-truth-policy.mdx)
-  - ⚠️ 工作流索引 (cn/docs-guide/indexes/workflows-index.mdx)
-  - #### Feature Guides
+  - #### Catalog
+    - ⚠️ 组件目录 (cn/docs-guide/catalog/components-catalog.mdx)
+    - ⚠️ 页面目录 (cn/docs-guide/catalog/pages-catalog.mdx)
+    - ⚠️ 脚本目录 (cn/docs-guide/catalog/scripts-catalog.mdx)
+    - ⚠️ 模板目录 (cn/docs-guide/catalog/templates-catalog.mdx)
+    - ⚠️ 工作流目录 (cn/docs-guide/catalog/workflows-catalog.mdx)
+  - #### Features
     - ⚠️ 架构图 (cn/docs-guide/features/architecture-map.mdx)
     - ⚠️ 自动化流水线图 (cn/docs-guide/features/automations.mdx)
-    - ⚠️ 内容系统 (cn/docs-guide/feature-guides/content-system.mdx)
     - ⚠️ 数据集成 (cn/docs-guide/features/data-integrations.mdx)
     - ⚠️ 功能图 (cn/docs-guide/features/feature-map.mdx)
-  - #### Indexes
-    - ⚠️ 组件索引 (cn/docs-guide/indexes/components-index.mdx)
-    - ⚠️ 页面索引 (cn/docs-guide/indexes/pages-index.mdx)
-    - ⚠️ 模板索引 (cn/docs-guide/indexes/templates-index.mdx)
-    - ⚠️ 工作流索引 (cn/docs-guide/indexes/workflows-index.mdx)
-  - #### Quality Testing
+  - #### Frameworks
+    - ⚠️ 内容系统 (cn/docs-guide/frameworks/content-system.mdx)
+  - #### Policies
     - ⚠️ 质量门禁地图 (cn/docs-guide/policies/quality-gates.mdx)
+    - ⚠️ 真相来源政策 (cn/docs-guide/policies/source-of-truth-policy.mdx)
+  - #### Tooling
+    - ⚠️ LPD CLI API 参考 (cn/docs-guide/tooling/lpd-cli.mdx)
 - ### Gateways
   - ⚠️ 网关主页门户 (cn/gateways/gateways-portal.mdx)
   - #### About
@@ -304,5 +277,34 @@ _Tabular data omitted in the published page. Use the repository report artifact 
       - ⚠️ 探索市场产品 (cn/gateways/run-a-gateway/connect/discover-offerings.mdx)
       - ⚠️ Livepeer 市场概览 (cn/gateways/run-a-gateway/connect/lp-marketplace.mdx)
     - ##### Install
+      - ⚠️ Docker 安装 (cn/gateways/run-a-gateway/install/docker-install.mdx)
+      - ⚠️ 安装概述 (cn/gateways/run-a-gateway/install/install-overview.mdx)
+      - ⚠️ Linux 安装 (cn/gateways/run-a-gateway/install/linux-install.mdx)
+      - ⚠️ Windows 安装 (cn/gateways/run-a-gateway/install/windows-install.mdx)
+    - ##### Monitor
+      - ⚠️ 监控与优化网关服务 (cn/gateways/run-a-gateway/monitor/monitor-and-optimise.mdx)
+    - ##### Requirements
+      - ⚠️ 网关节点要求 (cn/gateways/run-a-gateway/requirements/setup.mdx)
+      - ###### On Chain Setup
+        - ⚠️ 资助 Livepeer 网关 (cn/gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway.mdx)
+        - ⚠️ 链上设置要求 (cn/gateways/run-a-gateway/requirements/on-chain%20setup/on-chain.mdx)
+  - #### Using Gateways
+    - ⚠️ 网关服务 (cn/gateways/using-gateways/choosing-a-gateway.mdx)
+    - ⚠️ 网关提供商 (cn/gateways/using-gateways/gateway-providers.mdx)
+    - ##### Gateway Providers
+      - ⚠️ Cloud Spe Gateway (cn/gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx)
+      - ⚠️ Daydream Gateway (cn/gateways/using-gateways/gateway-providers/daydream-gateway.mdx)
+      - ⚠️ Livepeer Studio Gateway (cn/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx)
+- ### Home
+  - ⚠️ 开始使用 Livepeer (cn/home/get-started.mdx)
+  - ⚠️ 欢迎来到 Livepeer 任务控制中心 (cn/home/mission-control.mdx)
+  - ⚠️ Livepeer 入门 (cn/home/primer.mdx)
+  - #### About Livepeer
+    - ⚠️ The Livepeer Advantage (cn/home/about-livepeer/benefits.mdx)
+    - ⚠️ Livepeer 组织结构 (cn/home/about-livepeer/ecosystem.mdx)
+    - ⚠️ Livepeer 演变 (cn/home/about-livepeer/evolution.mdx)
+    - ⚠️ Livepeer 的下一步是什么？ (cn/home/about-livepeer/roadmap.mdx)
+    - ⚠️ Livepeer 故事 (cn/home/about-livepeer/vision.mdx)
+  - #### Solutions
 
 _Published page truncated for site reliability. Use the repository report artifact for the full output._

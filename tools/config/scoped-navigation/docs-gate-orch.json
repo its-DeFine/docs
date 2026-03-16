@@ -3371,6 +3371,7 @@
                             "group": "Policies",
                             "pages": [
                               "docs-guide/policies/source-of-truth-policy",
+                              "docs-guide/policies/generated-artifact-and-hook-governance",
                               "docs-guide/policies/v2-folder-governance",
                               "docs-guide/policies/quality-gates",
                               "docs-guide/policies/audit-system-overview",

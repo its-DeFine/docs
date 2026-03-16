@@ -1,17 +1,3 @@
----
-title: 'V2 WCAG Audit Report'
-sidebarTitle: 'WCAG Audit'
-description: 'Generated WCAG audit report from tests/integration/v2-wcag-audit.js.'
-keywords: ["livepeer","internal","reports","quality-accessibility","v2-wcag-audit"]
-og:image: "/snippets/assets/site/og-image/fallback.png"
----
-Last Generated (UTC ISO): `2026-03-16T15:11:31.531Z`
-Last Generated (UTC Human): `March 16, 2026 15:11 UTC`
-Generator Script: `tests/integration/v2-wcag-audit.js`
-What It Does: Generated WCAG audit report from tests/integration/v2-wcag-audit.js.
-Audited Scope: `v2-content`
-Outputs:
-- _Not documented in script header._
 # V2 WCAG Accessibility Audit Report
 
 - Timestamp: 2026-03-16T15:09:41.536Z
