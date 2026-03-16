@@ -140,7 +140,7 @@
                             ]
                           },
                           {
-                            "group": "AI & Job Pipelines",
+                            "group": "AI and Job Pipelines",
                             "pages": [
                               "v2/gateways/guides/node-pipelines/guide",
                               "v2/gateways/guides/node-pipelines/video-pipelines",
@@ -150,7 +150,7 @@
                             ]
                           },
                           {
-                            "group": "Payments & Pricing",
+                            "group": "Payments and Pricing",
                             "pages": [
                               "v2/gateways/guides/payments-and-pricing/payment-guide",
                               "v2/gateways/guides/payments-and-pricing/funding-guide",
@@ -347,7 +347,7 @@
                         ]
                       },
                       {
-                        "group": "Workloads & AI",
+                        "group": "Workloads and AI",
                         "pages": [
                           "v2/orchestrators/guides/ai-and-job-workloads/workload-options",
                           "v2/orchestrators/guides/ai-and-job-workloads/video-transcoding-operations",
@@ -361,7 +361,7 @@
                         ]
                       },
                       {
-                        "group": "Staking & Earning",
+                        "group": "Staking and Earning",
                         "pages": [
                           "v2/orchestrators/guides/staking-and-rewards/earning-model",
                           "v2/orchestrators/guides/staking-and-rewards/reward-mechanics",
@@ -372,7 +372,7 @@
                         ]
                       },
                       {
-                        "group": "Config & Optimisation",
+                        "group": "Config and Optimisation",
                         "pages": [
                           "v2/orchestrators/guides/config-and-optimisation/pricing-strategy",
                           "v2/orchestrators/guides/config-and-optimisation/capacity-planning",
@@ -381,7 +381,7 @@
                         ]
                       },
                       {
-                        "group": "Monitoring & Tools",
+                        "group": "Monitoring and Tools",
                         "pages": [
                           "v2/orchestrators/guides/monitoring-and-tooling/operator-toolbox",
                           "v2/orchestrators/guides/monitoring-and-tooling/explorer-operations",
@@ -399,7 +399,7 @@
                         ]
                       },
                       {
-                        "group": "Roadmap & Funding",
+                        "group": "Roadmap and Funding",
                         "pages": [
                           "v2/orchestrators/guides/roadmap-and-funding/funding-and-support",
                           "v2/orchestrators/guides/roadmap-and-funding/orchestrator-profiles"
