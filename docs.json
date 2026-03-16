@@ -3248,6 +3248,7 @@
                             "group": "Policies",
                             "pages": [
                               "docs-guide/policies/source-of-truth-policy",
+                              "docs-guide/policies/generated-artifact-and-hook-governance",
                               "docs-guide/policies/v2-folder-governance",
                               "docs-guide/policies/quality-gates",
                               "docs-guide/policies/audit-system-overview",
@@ -3285,6 +3286,14 @@
                             ]
                           },
                           {
+                            "group": "Quality & Accessibility",
+                            "pages": [
+                              "v2/internal/reports/quality-accessibility/v2-wcag-audit",
+                              "v2/internal/reports/quality-accessibility/wcag-repair-common",
+                              "v2/internal/reports/quality-accessibility/audit-v2-usefulness"
+                            ]
+                          },
+                          {
                             "group": "Page Audits",
                             "pages": [
                               "v2/internal/reports/page-audits/test-all-pages-comprehensive",
@@ -3311,6 +3320,7 @@
                             "pages": [
                               "v2/internal/reports/navigation-links/docs-navigation",
                               "v2/internal/reports/navigation-links/v2-link-audit",
+                              "v2/internal/reports/quality-accessibility/v2-wcag-audit",
                               "v2/internal/reports/page-audits/domain-pages-audit"
                             ]
                           }

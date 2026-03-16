@@ -107,6 +107,7 @@ Recovery:
 |---|---|
 | Start here + update rules | [`docs-guide/overview.mdx`](docs-guide/overview.mdx) |
 | Source-of-truth boundaries | [`docs-guide/policies/source-of-truth-policy.mdx`](docs-guide/policies/source-of-truth-policy.mdx) |
+| Generated artifact and hook policy | [`docs-guide/policies/generated-artifact-and-hook-governance.mdx`](docs-guide/policies/generated-artifact-and-hook-governance.mdx) |
 | V2 publishability and workspace lanes | [`docs-guide/policies/v2-folder-governance.mdx`](docs-guide/policies/v2-folder-governance.mdx) |
 | Ownerless governance contract | [`docs-guide/policies/ownerless-governance.mdx`](docs-guide/policies/ownerless-governance.mdx) |
 | Full feature inventory | [`docs-guide/features/feature-map.mdx`](docs-guide/features/feature-map.mdx) |

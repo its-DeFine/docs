@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-16T13:59:01.898Z",
+  "generated": "2026-03-16T15:13:49.160Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -19642,8 +19642,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 433,
-      "lastVerified": "2026-03-16T18:09:19+11:00",
+      "wordCount": 434,
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 1,
@@ -20433,7 +20433,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 327,
-      "lastVerified": "2026-03-16T18:09:19+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 2,
@@ -20843,7 +20843,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 535,
-      "lastVerified": "2026-03-16T18:18:38+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 1,
@@ -20883,6 +20883,60 @@
       ]
     },
     {
+      "url": "https://docs.livepeer.org/docs-guide/policies/generated-artifact-and-hook-governance",
+      "title": "Generated Artifact And Hook Governance",
+      "description": "Policy for governing generated artifacts, hook behavior, and local-only reports without widening commit scope.",
+      "section": "docs-guide",
+      "tags": [
+        "generated-artifacts",
+        "hook-governance",
+        "pre-commit",
+        "docs-index",
+        "source-of-truth",
+        "repo-governance",
+        "livepeer-docs",
+        "docs-guide",
+        "policies",
+        "generated-artifact-and-hook-governance"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 552,
+      "lastVerified": "2026-03-16T04:39:23+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Generated Artifact And Hook Governance"
+        },
+        {
+          "level": 2,
+          "text": "Artifact Classes"
+        },
+        {
+          "level": 2,
+          "text": "Practical Rules"
+        },
+        {
+          "level": 2,
+          "text": "Manifest Contract"
+        },
+        {
+          "level": 2,
+          "text": "Hook Policy"
+        },
+        {
+          "level": 2,
+          "text": "Placement Rules"
+        },
+        {
+          "level": 2,
+          "text": "Maintainer Workflow"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
       "url": "https://docs.livepeer.org/docs-guide/policies/v2-folder-governance",
       "title": "V2 Folder Governance",
       "description": "Canonical policy for publishable versus non-publishable folder lanes in v2, legacy workspace retirement, and cleanup planning.",
@@ -20902,7 +20956,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 635,
-      "lastVerified": "2026-03-16T18:09:19+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 1,
@@ -21324,7 +21378,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1239,
-      "lastVerified": "2026-03-16T16:28:32+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 1,
@@ -21425,7 +21479,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 956,
-      "lastVerified": "2026-03-16T16:28:32+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 1,
@@ -21584,7 +21638,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 478,
-      "lastVerified": "2026-03-16T13:46:40+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 2,
@@ -21703,8 +21757,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 5160,
-      "lastVerified": "2026-03-16T19:21:37+11:00",
+      "wordCount": 5219,
+      "lastVerified": "2026-03-17T01:37:18+11:00",
       "headings": [
         {
           "level": 2,
@@ -21763,8 +21817,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 837,
-      "lastVerified": "2026-03-12T15:26:20+11:00",
+      "wordCount": 986,
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -21785,8 +21839,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 243,
-      "lastVerified": "2026-03-16T12:38:23+11:00",
+      "wordCount": 301,
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -21839,7 +21893,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1311,
+      "wordCount": 1318,
       "lastVerified": "2026-03-12T13:51:34+11:00",
       "headings": [
         {
@@ -21881,6 +21935,231 @@
         {
           "level": 3,
           "text": "Cn"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/internal/reports/quality-accessibility/v2-wcag-audit",
+      "title": "V2 WCAG Audit Report",
+      "description": "Generated WCAG audit report from tests/integration/v2-wcag-audit.js.",
+      "section": "internal",
+      "tags": [
+        "livepeer",
+        "internal",
+        "reports",
+        "quality-accessibility",
+        "v2-wcag-audit"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 266,
+      "lastVerified": "2026-03-09T02:51:06+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "V2 WCAG Accessibility Audit Report"
+        },
+        {
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "level": 2,
+          "text": "Blocking Issues"
+        },
+        {
+          "level": 2,
+          "text": "Top Rules And Suggestions"
+        },
+        {
+          "level": 2,
+          "text": "Autofixes Applied"
+        },
+        {
+          "level": 2,
+          "text": "Static-Only Findings"
+        },
+        {
+          "level": 2,
+          "text": "Runtime/Navigation Failures"
+        },
+        {
+          "level": 2,
+          "text": "Notes"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/internal/reports/quality-accessibility/wcag-repair-common",
+      "title": "WCAG Repair Common Report",
+      "description": "Generated WCAG repair report from tools/scripts/wcag-repair-common.js.",
+      "section": "internal",
+      "tags": [
+        "livepeer",
+        "internal",
+        "reports",
+        "quality-accessibility",
+        "wcag-repair-common"
+      ],
+      "entities": [
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 266,
+      "lastVerified": "2026-03-09T02:51:06+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "V2 WCAG Accessibility Audit Report"
+        },
+        {
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "level": 2,
+          "text": "Blocking Issues"
+        },
+        {
+          "level": 2,
+          "text": "Top Rules And Suggestions"
+        },
+        {
+          "level": 2,
+          "text": "Autofixes Applied"
+        },
+        {
+          "level": 2,
+          "text": "Static-Only Findings"
+        },
+        {
+          "level": 2,
+          "text": "Runtime/Navigation Failures"
+        },
+        {
+          "level": 2,
+          "text": "Notes"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/internal/reports/quality-accessibility/audit-v2-usefulness",
+      "title": "V2 Usefulness Audit Summary",
+      "description": "Generated usefulness audit summary from tools/scripts/audit-v2-usefulness.js.",
+      "section": "internal",
+      "tags": [
+        "livepeer",
+        "internal",
+        "reports",
+        "quality-accessibility",
+        "audit-v2-usefulness"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1236,
+      "lastVerified": "2026-03-04T01:00:46+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Docs Usefulness Audit Summary"
+        },
+        {
+          "level": 2,
+          "text": "Key Takeaways"
+        },
+        {
+          "level": 2,
+          "text": "Cohorts"
+        },
+        {
+          "level": 2,
+          "text": "Accuracy Status"
+        },
+        {
+          "level": 2,
+          "text": "Human Bands"
+        },
+        {
+          "level": 2,
+          "text": "Agent Bands"
+        },
+        {
+          "level": 2,
+          "text": "Top Flags"
+        },
+        {
+          "level": 2,
+          "text": "Source Types Used (Pages)"
+        },
+        {
+          "level": 2,
+          "text": "Section Breakdown"
+        },
+        {
+          "level": 2,
+          "text": "Verification Queue (High Priority)"
+        },
+        {
+          "level": 2,
+          "text": "Contradicted / Source Conflict Pages"
+        },
+        {
+          "level": 2,
+          "text": "Stale Risk Pages"
+        },
+        {
+          "level": 2,
+          "text": "Lowest Human Usefulness (Top 10)"
+        },
+        {
+          "level": 2,
+          "text": "Lowest Agent Usefulness (Top 10)"
+        },
+        {
+          "level": 2,
+          "text": "Highest Human Usefulness (Top 10)"
+        },
+        {
+          "level": 2,
+          "text": "Provider Error Breakdown (Top Patterns)"
+        },
+        {
+          "level": 2,
+          "text": "Recommended Actions (Prioritized)"
+        },
+        {
+          "level": 3,
+          "text": "P0: Fix broken/empty placeholders first (high impact, low effort)"
+        },
+        {
+          "level": 3,
+          "text": "P1: Resolve high-priority verification issues"
+        },
+        {
+          "level": 3,
+          "text": "P1: Remove legacy path leakage and metadata gaps"
+        },
+        {
+          "level": 3,
+          "text": "P2: Lift thin-content pages by section (rewrite batches)"
+        },
+        {
+          "level": 3,
+          "text": "P2: Improve verification coverage on medium-priority pages"
+        },
+        {
+          "level": 3,
+          "text": "Operator Notes (for reruns)"
+        },
+        {
+          "level": 2,
+          "text": "Notes"
         }
       ],
       "codeLanguages": []
@@ -21999,7 +22278,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 584,
+      "wordCount": 522,
       "lastVerified": "2026-03-09T17:16:19+11:00",
       "headings": [
         {
@@ -22024,42 +22303,6 @@
         },
         {
           "level": 3,
-          "text": "v2/gateways/payments/how-payments-work"
-        },
-        {
-          "level": 3,
-          "text": "v2/resources/documentation-guide/component-library/component-library"
-        },
-        {
-          "level": 3,
-          "text": "docs-guide/indexes/components-index"
-        },
-        {
-          "level": 3,
-          "text": "v2/gateways/payments/payment-clearinghouse"
-        },
-        {
-          "level": 3,
-          "text": "v2/internal/overview/docs-philosophy"
-        },
-        {
-          "level": 3,
-          "text": "v2/internal/rfp/aims"
-        },
-        {
-          "level": 3,
-          "text": "docs-guide/lpd"
-        },
-        {
-          "level": 3,
-          "text": "v2/lpt/treasury/overview"
-        },
-        {
-          "level": 3,
-          "text": "v2/resources/documentation-guide/component-library/overview"
-        },
-        {
-          "level": 3,
           "text": "v2/resources/documentation-guide/style-guide"
         },
         {
@@ -22068,27 +22311,35 @@
         },
         {
           "level": 3,
+          "text": "v2/home/primer"
+        },
+        {
+          "level": 3,
+          "text": "v2/developers/build/model-support"
+        },
+        {
+          "level": 3,
+          "text": "v2/gateways/resources/knowledge-base/guides"
+        },
+        {
+          "level": 3,
+          "text": "v2/gateways/guides/tutorials/tutorial-3-go-production"
+        },
+        {
+          "level": 3,
+          "text": "v2/gateways/resources/go-livepeer/hardware-requirements"
+        },
+        {
+          "level": 3,
           "text": "v2/solutions/streamplace/introduction/streamplace-funding-model"
         },
         {
           "level": 3,
-          "text": "v2/internal/overview/about"
+          "text": "v2/home/about-livepeer/ecosystem"
         },
         {
           "level": 3,
-          "text": "v2/solutions/streamplace/overview"
-        },
-        {
-          "level": 3,
-          "text": "v2/internal/overview/personas"
-        },
-        {
-          "level": 3,
-          "text": "v2/solutions/streamplace/introduction/streamplace-guide"
-        },
-        {
-          "level": 3,
-          "text": "v2/developers/ai-pipelines/byoc"
+          "text": "v2/orchestrators/setup/rcs-requirements"
         },
         {
           "level": 3,
@@ -22096,67 +22347,19 @@
         },
         {
           "level": 3,
-          "text": "v2/gateways/quickstart/gateway-setup"
+          "text": "v2/resources/documentation-guide/documentation-overview"
         },
         {
           "level": 3,
-          "text": "v2/orchestrators/orchestrator-journey"
+          "text": "v2/solutions/streamplace/introduction/streamplace-guide"
         },
         {
           "level": 3,
-          "text": "v2/resources/documentation-guide/docs-features-and-ai-integrations"
+          "text": "v2/orchestrators/resources/community-guides"
         },
         {
           "level": 3,
-          "text": "v2/gateways/payments/how-payments-work"
-        },
-        {
-          "level": 3,
-          "text": "v2/about/livepeer-network/actors"
-        },
-        {
-          "level": 3,
-          "text": "v2/solutions/livepeer-studio/livestream/overview"
-        },
-        {
-          "level": 3,
-          "text": "v2/community/livepeer-community/governance-and-foundation"
-        },
-        {
-          "level": 3,
-          "text": "docs-guide/feature-guides/visual-explainer-workflows"
-        },
-        {
-          "level": 3,
-          "text": "v2/lpt/governance/processes"
-        },
-        {
-          "level": 3,
-          "text": "v2/about/livepeer-network/marketplace"
-        },
-        {
-          "level": 3,
-          "text": "v2/resources/documentation-guide/component-library/display"
-        },
-        {
-          "level": 3,
-          "text": "v2/resources/documentation-guide/documentation-guide"
-        },
-        {
-          "level": 3,
-          "text": "v2/resources/documentation-guide/component-library/component-library"
-        },
-        {
-          "level": 3,
-          "text": "v2/solutions/livepeer-studio/get-started/studio-cli"
-        },
-        {
-          "level": 3,
-          "text": "v2/about/livepeer-network/technical-architecture"
-        },
-        {
-          "level": 3,
-          "text": "v2/resources/documentation-guide/snippets-inventory"
+          "text": "v2/orchestrators/concepts/capabilities"
         },
         {
           "level": 3,
@@ -22164,23 +22367,7 @@
         },
         {
           "level": 3,
-          "text": "v2/developers/ai-pipelines/comfystream"
-        },
-        {
-          "level": 3,
-          "text": "v2/developers/quickstart/ai/ai-jobs"
-        },
-        {
-          "level": 3,
-          "text": "v2/gateways/payments/payment-clearinghouse"
-        },
-        {
-          "level": 3,
-          "text": "v2/internal/overview/docs-philosophy"
-        },
-        {
-          "level": 3,
-          "text": "v2/about/livepeer-protocol/technical-architecture"
+          "text": "v2/gateways/guides/payments-and-pricing/payment-guide"
         }
       ],
       "codeLanguages": []
