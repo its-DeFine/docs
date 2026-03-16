@@ -1,8 +1,10 @@
 task_id: 20260316
-branch: codex/20260316-research-skill-source-hardening
+branch: codex/20260316-research-skill-trust-hardening
 base_branch: docs-v2-dev
 scope_in:
   - .codex/task-contract.yaml
+  - .codex/locks-local
+  - docs-guide/frameworks/research-skill-workflow.mdx
   - tasks/reports/repo-ops
   - tasks/research/claims
   - tests/unit/docs-fact-registry.test.js

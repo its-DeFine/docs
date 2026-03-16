@@ -1220,6 +1220,28 @@ function buildValidation(report) {
   };
 }
 
+function buildTrustSummary(report) {
+  const explicitTargets = new Set();
+  const inferredTargets = new Set();
+
+  report.propagation_queue.forEach((entry) => {
+    if (!entry?.file) return;
+    if (entry.role === 'inferred-page') {
+      inferredTargets.add(entry.file);
+    } else {
+      explicitTargets.add(entry.file);
+    }
+  });
+
+  return {
+    unresolved_claims: report.unverified_or_historical_claims.length,
+    contradiction_groups: report.cross_page_contradictions.length,
+    evidence_sources: report.evidence_sources.length,
+    explicit_page_targets: explicitTargets.size,
+    inferred_page_targets: inferredTargets.size
+  };
+}
+
 function buildMarkdown(report) {
   const mdxSafe = (value) =>
     String(value || '')
@@ -1316,6 +1338,13 @@ function buildMarkdown(report) {
   }
   lines.push('');
 
+  lines.push('## Trust Summary');
+  lines.push('');
+  Object.entries(report.trust_summary).forEach(([key, value]) => {
+    lines.push(`- ${key}: ${value}`);
+  });
+  lines.push('');
+
   lines.push('## Validation');
   lines.push('');
   Object.entries(report.validation).forEach(([key, value]) => {
@@ -1364,8 +1393,10 @@ async function run(args) {
       return a.claim_id.localeCompare(b.claim_id);
     }),
     evidence_sources: buildEvidenceSources(familyReports),
+    trust_summary: {},
     validation: {}
   };
+  report.trust_summary = buildTrustSummary(report);
   report.validation = buildValidation(report);
 
   if (args.reportJson) {
@@ -1426,6 +1457,7 @@ module.exports = {
   selectFamilies,
   inferFamilyPages,
   familyRelatedFiles,
+  buildTrustSummary,
   splitSentences,
   stripMdx
 };

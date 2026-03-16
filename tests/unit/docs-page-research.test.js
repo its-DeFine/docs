@@ -920,9 +920,31 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
     });
   });
 
+  await runCase('Runner emits trust summary with explicit and inferred page coverage', async () => {
+    const summary = research.buildTrustSummary({
+      unverified_or_historical_claims: [{ claim_id: 'a' }, { claim_id: 'b' }],
+      cross_page_contradictions: [{ claim_id: 'c' }],
+      evidence_sources: [{ ref: 'one' }, { ref: 'two' }, { ref: 'three' }],
+      propagation_queue: [
+        { file: 'v2/gateways/a.mdx', role: 'canonical-owner' },
+        { file: 'v2/gateways/b.mdx', role: 'dependent-page' },
+        { file: 'v2/gateways/c.mdx', role: 'inferred-page' },
+        { file: 'v2/gateways/c.mdx', role: 'inferred-page' }
+      ]
+    });
+
+    assert.deepStrictEqual(summary, {
+      unresolved_claims: 2,
+      contradiction_groups: 1,
+      evidence_sources: 3,
+      explicit_page_targets: 2,
+      inferred_page_targets: 1
+    });
+  });
+
   return {
     passed: errors.length === 0,
-    total: 21,
+    total: 22,
     errors
   };
 }
