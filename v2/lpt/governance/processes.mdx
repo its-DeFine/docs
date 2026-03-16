@@ -4,6 +4,7 @@ sidebarTitle: Processes
 description: >-
   End-to-end governance process lifecycle including off-chain signaling, LIP
   drafting, on-chain proposal execution, and treasury coordination.
+pageType: concept
 keywords:
   - livepeer
   - lpt
@@ -19,7 +20,8 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: delegator
-purpose: how_to
+lastVerified: 2026-03-17
+purpose: concept
 ---
 import { MathInline, MathBlock } from '/snippets/components/content/math.jsx'
 
@@ -30,7 +32,7 @@ Livepeer governance consists of both off-chain coordination processes and on-cha
 
 This page formalizes the complete governance lifecycle from idea formation to on-chain execution.
 
----
+<CustomDivider />
 
 ## 1. Governance Lifecycle Overview
 
@@ -41,7 +43,7 @@ Governance unfolds in two coordinated domains:
 
 These layers are complementary but distinct.
 
----
+<CustomDivider />
 
 ## 2. Off-Chain Process Layer
 
@@ -80,7 +82,7 @@ Before on-chain submission, proposals typically undergo:
 
 This reduces the probability of adversarial or poorly constructed proposals reaching execution.
 
----
+<CustomDivider />
 
 ## 3. On-Chain Voting Rules
 
@@ -102,7 +104,7 @@ Voting power is proportional to bonded LPT:
 
 Delegators exercise governance indirectly by delegating to orchestrators whose values align with their own; orchestrators must publicly declare their positions and can cast votes accordingly.
 
----
+<CustomDivider />
 
 ## 4. On-Chain Execution Layer
 
@@ -258,7 +260,7 @@ flowchart TD
     Timelock --> Execution
 ```
 
----
+<CustomDivider />
 
 ## 10. Protocol vs Network Separation
 
@@ -277,7 +279,7 @@ flowchart TD
 
 Governance modifies protocol rules; network actors operate within updated parameters.
 
----
+<CustomDivider />
 
 ## References
 

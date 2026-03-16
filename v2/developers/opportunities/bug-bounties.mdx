@@ -21,7 +21,7 @@ keywords:
 'og:image:height': 630
 purpose: how_to
 pageType: reference
-audience:
+audience: developer
   - security-researchers
   - protocol-contributors
   - developers
@@ -29,7 +29,6 @@ status: current
 lastVerified: 2026-03
 sourceOfTruth: 'https://immunefi.com/bug-bounty/livepeer/information/'
 ---
-
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { DisplayCard } from '/snippets/components/layout/customCards.jsx'
 import { BorderedBox } from '/snippets/components/layout/containers.jsx'
@@ -125,7 +124,7 @@ The following are explicitly excluded:
 - Phishing or social engineering attacks against employees or customers
 - Testing with third-party systems, browser extensions, or SSO providers
 - Denial of service attacks against project assets
-- Automated testing that generates significant traffic
+- Automated testing that generates high traffic
 - Public disclosure of an unpatched vulnerability before it has been resolved
 
 <br />
@@ -140,7 +139,7 @@ The following are explicitly excluded:
 
 <Steps>
   <Step title="Reproduce and document the vulnerability">
- Ensure you have a working proof of concept on a local fork of mainnet or testnet. Document the attack vector, impact, and reproduction steps clearly.
+ Ensure you have a working proof of concept on a local fork of mainnet or testnet. Document the attack vector, impact, and reproduction steps.
   </Step>
   <Step title="Submit via Immunefi">
  Submit your report through the [Livepeer programme page on Immunefi](https://immunefi.com/bug-bounty/livepeer/information/). Do not disclose the vulnerability publicly before it has been resolved.

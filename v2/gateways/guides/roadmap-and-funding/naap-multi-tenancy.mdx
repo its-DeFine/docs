@@ -1,6 +1,7 @@
 ---
 title: 'NaaP & Multi-Tenancy'
 description: 'Network-as-a-Platform model - multi-tenant Gateway architecture, API key management, billing integration, tenant isolation, and building a platform business on Livepeer.'
+purpose: operations
 sidebarTitle: 'NaaP & Multi-Tenancy'
 keywords:
   - livepeer
@@ -88,7 +89,7 @@ The go-livepeer gateway binary routes jobs and handles payments. It does not han
 
 NaaP is the product layer that sits on top of the gateway and handles all of these. It turns a single-operator gateway into a platform that can serve many customers independently.
 
-```
+``` icon="terminal"
 Your customers
       │
       │  API key + request
@@ -154,9 +155,6 @@ The NaaP dashboard ([github.com/livepeer/naap](https://github.com/livepeer/naap)
 <Warning>
 NaaP is in active development. The demo is operational but the production API is not yet stable. Build against it with the expectation that breaking changes will occur.
 </Warning>
-
-{/* REVIEW: Confirm NaaP public URL, demo availability, and production timeline with Qiang Han. */}
-
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Multi-tenant architecture
@@ -232,7 +230,7 @@ If your platform has specific requirements that NaaP does not cover, build your 
 
 **Architecture:**
 
-```
+``` icon="terminal"
 Customer request
       ↓
 [Auth middleware]       - validate API key / JWT

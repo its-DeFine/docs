@@ -6,7 +6,7 @@ keywords: ['livepeer', 'gateway', 'middleware', 'authentication', 'rate limiting
 og:image: '/snippets/assets/site/og-image/fallback.png'
 pageType: 'guide'
 audience: 'gateway-operator'
-purpose: 'guides'
+purpose: operations
 status: 'current'
 lastVerified: '2026-03-15'
 ---
@@ -48,7 +48,6 @@ import { StyledSteps, StyledStep } from "/snippets/components/layout/steps.jsx"
 
 The `go-livepeer` binary is a routing and payment engine. It does not authenticate users, meter usage, or route premium customers to different Orchestrators.
 <br/> Those concerns belong to a middleware layer sitting between clients and the Gateway process.
-
 
 ## Responsibilities
 
@@ -265,7 +264,7 @@ Three deployment patterns cover most middleware use cases.
   <Accordion title="API keys" icon="key">
     The simplest approach. Issue each customer a unique API key, validate it on every request, and store it hashed in a database.
 
-    ```
+    ``` icon="terminal"
     Request: X-Api-Key: sk_live_abc123...
     Middleware: hash(sk_live_abc123...) -> look up in DB -> get customer record
     ```
@@ -275,7 +274,7 @@ Three deployment patterns cover most middleware use cases.
   <Accordion title="JWT tokens" icon="id-badge">
     For consumer-facing applications where users authenticate via OAuth (Google, GitHub, etc.), issue short-lived JWT access tokens after authentication. Validate the JWT signature on every request without a database lookup.
 
-    ```javascript
+    ```javascript icon="terminal"
     const jwt = require('jsonwebtoken');
 
     function verifyToken(req, res, next) {
@@ -295,15 +294,13 @@ Three deployment patterns cover most middleware use cases.
   <Accordion title="Live AI webhook auth" icon="webhook">
     For Live AI (video-to-video) workloads, go-livepeer supports webhook-based RTMP authentication. The Gateway calls the webhook when an RTMP stream connects, and the webhook returns allow or deny.
 
-    ```bash
+    ```bash icon="terminal"
     -liveAIAuthWebhookUrl https://auth-service.example.com/rtmp-auth
     -liveAIAuthApiKey <internal-api-key-for-webhook>
     ```
 
     The webhook receives the stream key and can validate it against a customer database before allowing the stream through.
-
-    {/* REVIEW: Confirm `-liveAIAuthWebhookUrl` and `-liveAIAuthApiKey` are the correct flags and describe current webhook auth behaviour in go-livepeer - Rick or j0sh to verify */}
-  </Accordion>
+</Accordion>
 </AccordionGroup>
 
 <CustomDivider style={{margin: "0 0 -2rem 0"}} />
@@ -360,7 +357,7 @@ Three deployment patterns cover most middleware use cases.
 
         The most powerful use of middleware is routing different customers or job types to different Gateway instances, each configured with a distinct Orchestrator pool.
 
-        ```javascript
+        ```javascript icon="terminal"
         // Route premium customers to high-performance Orchestrators
         app.use('/process', async (req, res) => {
         const target = req.customer.tier === 'premium'

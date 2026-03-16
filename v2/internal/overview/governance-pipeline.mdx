@@ -3,6 +3,10 @@ title: Governance Pipeline
 description: >-
   How the script governance system detects drift, auto-repairs safe issues, and
   surfaces items needing human attention.
+purpose: operations
+audience: internal
+lastVerified: 2026-03-17
+pageType: guide
 keywords:
   - livepeer
   - internal
@@ -20,7 +24,6 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 ---
-
 This repository currently governs about 214 scripts, hooks, and support modules through a shared 9-field metadata model. The governance pipeline checks that metadata at commit time, in pull request CI, on the weekly repair schedule, and during manual maintainer runs. Safe, derivable drift is repaired automatically where the source of truth is clear, while judgement fields and risky wiring decisions are left for a human.
 
 ## Trigger chain
@@ -60,7 +63,7 @@ There is no dedicated merge or push stage governance-sync workflow today. Govern
 
 ## Commands
 
-```bash
+```bash icon="terminal"
 npm --prefix tools run audit:scripts
 node tools/scripts/validators/governance/audit-script-inventory.js --dry-run
 node tools/scripts/validators/governance/audit-script-inventory.js --fix

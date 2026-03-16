@@ -4,6 +4,7 @@ sidebarTitle: Treasury
 description: >-
   This page outlines how the treasury accumulates funds, how disbursements are
   authorised, and how its role is evolving across the protocol’s roadmap.
+pageType: concept
 keywords:
   - livepeer
   - about
@@ -17,6 +18,7 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: general
+lastVerified: 2026-03-17
 purpose: concept
 definition: >-
   The Livepeer Treasury is an on-chain community fund designed to finance public
@@ -49,7 +51,7 @@ The Livepeer Treasury is a smart contract-controlled pool of LPT tokens funded t
 </Quote>
 
 ## Genesis
-In late 2023, the community passed several proposals creating the Livepeer Treasury.
+In late 2023, the community passed multiple proposals creating the Livepeer Treasury.
 
 - **Creation & Governance**:
    - [LIP‑89](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md) established the [Treasury](./treasury)
@@ -148,7 +150,7 @@ This includes development, grants, security audits, research, operational initia
 
 > _See [LIP-73](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0073.md) and [LIP-77](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0077.md) for examples_
 
-<Card title="Livepeer Explorer - Treasury Dashboard" icon="globe" href="https://explorer.livepeer.org/treasury" arrow horizontal > Monitor on-chain staking, proposals, and treasury transactions in real time on the Livepeer Explorer </Card>
+<Card title="Livepeer Explorer - Treasury Dashboard" icon="globe" href="https://explorer.livepeer.org/treasury" arrow horizontal > Monitor on-chain staking, proposals, and treasury transactions live on the Livepeer Explorer </Card>
 {/* When the treasury balance reached a pre‑defined cap, contributions paused; future LIPs can adjust the rate or resume funding. */}
 
 ## Governance
@@ -166,7 +168,7 @@ Treasury balances, disbursements, and historical LIP outcomes are publicly visib
 - [Livepeer Explorer](https://explorer.livepeer.org/treasury): Track the treasury on-chain via the Livepeer Explorer – Treasury Page.
 - Governance History on [Arbiscan](https://arbiscan.io/address/0x363cdB9BaE210Ef182c60b5a496139E980330127#code): All proposals, votes, and payments are public
 - Disbursement Events in [ABI](https://arbiscan.io/address/0x363cdB9BaE210Ef182c60b5a496139E980330127#code)
-      ```javascript Example Query (using ethers.js)
+      ```javascript icon="terminal" Example Query (using ethers.js)
       const event = TreasuryContract.filters.TreasuryWithdrawal()
       provider.on(event, (log) => console.log(log.args))
       ```
@@ -190,7 +192,7 @@ While the on-chain treasury itself is wholly community-governed, the Livepeer Fo
 {/* <br/><br/> */}
 **Treasury mechanics remain on-chain and community governance-controlled**
 - The community controls the money
-- The Foundation ensures the money is effectively & accountably used.
+- The Foundation ensures the money is used accountably.
 </Info>
 Its role includes:
 - **Governance Orchestration**: Ensures treasury proposals move efficiently from idea to on-chain execution through structured processes and coordination.

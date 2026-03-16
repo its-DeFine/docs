@@ -4,6 +4,10 @@ sidebarTitle: Style Guide
 description: >-
   Style guide, Mintlify gotchas, and best practices for writing Livepeer
   documentation
+purpose: operations
+audience: everyone
+lastVerified: 2026-03-17
+pageType: guide
 keywords:
   - livepeer
   - resources
@@ -19,13 +23,10 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 ---
-
 import { FocusableScrollRegions } from '/snippets/components/primitives/a11y.jsx'
 
 <FocusableScrollRegions />
 
-
-# Documentation Style Guide
 
 This guide covers styling conventions, Mintlify-specific gotchas, and best practices for contributing to the Livepeer documentation.
 
@@ -69,7 +70,7 @@ All theme colors are defined as CSS Custom Properties in `style.css`:
 
 #### Inline Styles (Recommended)
 
-```jsx
+```jsx icon="terminal"
 <div style={{ 
   color: "var(--accent)", 
   border: "1px solid var(--border)",
@@ -81,7 +82,7 @@ All theme colors are defined as CSS Custom Properties in `style.css`:
 
 #### Component-Level CSS
 
-```jsx
+```jsx icon="terminal"
 export const MyComponent = () => {
   return (
     <>
@@ -102,7 +103,7 @@ export const MyComponent = () => {
 
 #### Global CSS in style.css
 
-```css
+```css icon="terminal"
 .my-custom-class {
   color: var(--accent);
   background: var(--card-background);
@@ -113,7 +114,7 @@ export const MyComponent = () => {
 
 Mintlify automatically adds a `.dark` class to the `<html>` element when dark mode is active. CSS variables automatically switch based on the theme:
 
-```css
+```css icon="terminal"
 :root {
   --accent: #3CB540; /* Light mode */
 }
@@ -143,14 +144,14 @@ Mintlify automatically adds a `.dark` class to the `<html>` element when dark mo
 **DO NOT USE THESE:**
 
 1. **ThemeData Object** - `snippets/styles/themeStyles.jsx` is **DEPRECATED**
-   ```jsx
+   ```jsx icon="terminal"
    // ❌ WRONG - DO NOT USE
    import { ThemeData } from "/snippets/styles/themeStyles.jsx";
    <div style={{ color: ThemeData.light.accent }}>Content</div>
    ```
 
 2. **Hardcoded Colors** - Never hardcode hex values that should adapt to theme
-   ```jsx
+   ```jsx icon="terminal"
    // ❌ WRONG - DO NOT USE
    <div style={{ color: "#3CB540" }}>Content</div>
    ```
@@ -188,7 +189,7 @@ The Livepeer documentation uses a **three-layer styling framework** designed to 
 - ❌ One-off styling needs
 
 **Structure:**
-```css
+```css icon="terminal"
 /* ============================================
    THEME VARIABLES (CSS Custom Properties)
    ============================================ */
@@ -220,7 +221,7 @@ The Livepeer documentation uses a **three-layer styling framework** designed to 
 - ❌ Use `className` without corresponding `<style>` tag
 
 **Pattern A: Inline Style Objects (Simple components)**
-```jsx
+```jsx icon="terminal"
 export const MyComponent = () => {
   return (
     <div style={{
@@ -236,7 +237,7 @@ export const MyComponent = () => {
 ```
 
 **Pattern B: Style Tag (Complex components)**
-```jsx
+```jsx icon="terminal"
 export const MyComponent = () => {
   return (
     <>
@@ -258,7 +259,7 @@ export const MyComponent = () => {
 ```
 
 **Pattern C: Style Constants (Reusable within component)**
-```jsx
+```jsx icon="terminal"
 export const MyComponent = ({ variant = "default" }) => {
   const baseStyle = {
     color: "var(--text)",
@@ -291,7 +292,7 @@ export const MyComponent = ({ variant = "default" }) => {
 - ❌ **NO custom `className` attributes**
 
 **Before (❌ WRONG):**
-```mdx
+```mdx icon="terminal"
 <div style={{ display: "flex", gap: "1rem" }}>
   <Card>Content 1</Card>
   <Card>Content 2</Card>
@@ -299,7 +300,7 @@ export const MyComponent = ({ variant = "default" }) => {
 ```
 
 **After (✅ CORRECT):**
-```mdx
+```mdx icon="terminal"
 import { FlexContainer } from '/snippets/components/layout/layout.jsx';
 
 <FlexContainer gap="1rem">
@@ -334,7 +335,7 @@ Use standard Markdown headings (`#`, `##`, `###`, etc.) for most content. Mintli
 
 For **frame mode pages**, use custom heading components:
 
-```jsx
+```jsx icon="terminal"
 import { H1, H2, PageHeader } from "/snippets/components/page-structure/frameMode.jsx";
 
 <PageHeader>Main Title</PageHeader>
@@ -353,7 +354,7 @@ import { H1, H2, PageHeader } from "/snippets/components/page-structure/frameMod
 
 ### Punctuation
 
-- Do not use em dashes in English docs prose. Replace `—` with spaced en dash ` – ` or rewrite the sentence if a comma or colon reads more clearly.
+- Do not use em dashes in English docs prose. Replace `—` with spaced en dash ` – ` or rewrite the sentence if a comma or colon reads more.
 
 ### Mathematical Expressions
 
@@ -363,7 +364,7 @@ Mintlify supports LaTeX for rendering mathematical expressions. Use proper synta
 
 Use single dollar signs `$...$` for inline mathematical expressions within text:
 
-```mdx
+```mdx icon="terminal"
 The voting power is calculated as $V_i = \frac{B_i}{B_T}$ where $B_i$ is bonded stake.
 ```
 
@@ -373,7 +374,7 @@ The voting power is calculated as $V_i = \frac{B_i}{B_T}$ where $B_i$ is bonded 
 
 Use double dollar signs `$$...$$` for standalone equations on their own line:
 
-```mdx
+```mdx icon="terminal"
 $$
 R_t = S_t \cdot r_t
 $$
@@ -401,7 +402,7 @@ $$
 
 **WRONG - These will cause MDX errors:**
 
-```mdx
+```mdx icon="terminal"
 {/* ❌ WRONG - backslash delimiters break MDX */}
 \(B_i\) for inline math
 \[R_t = S_t \cdot r_t\] for block math
@@ -409,7 +410,7 @@ $$
 
 **CORRECT - Use dollar sign delimiters:**
 
-```mdx
+```mdx icon="terminal"
 {/* ✅ CORRECT - dollar sign delimiters */}
 $B_i$ for inline math
 $$R_t = S_t \cdot r_t$$ for block math
@@ -469,7 +470,7 @@ You can configure LaTeX rendering in `docs.json` under `styles.latex` to overrid
 
 **Examples:**
 
-```mdx
+```mdx icon="terminal"
 {/* ❌ Plain markdown link */}
 [Getting Started](/get-started)
 
@@ -478,7 +479,7 @@ import { GotoLink } from '/snippets/components/primitives/links.jsx';
 <GotoLink label="Getting Started" relativePath="/get-started" icon="arrow-right" />
 ```
 
-```mdx
+```mdx icon="terminal"
 {/* ❌ Plain blockquote */}
 > This is a quote
 
@@ -489,7 +490,7 @@ import { FrameQuote } from '/snippets/components/content/quote.jsx';
 </FrameQuote>
 ```
 
-```mdx
+```mdx icon="terminal"
 {/* ❌ Basic Mintlify Card with href */}
 <Card title="API Reference" href="/api/reference">
   API documentation
@@ -525,7 +526,7 @@ Our styling framework intentionally overrides some Mintlify default recommendati
 **Reason**: Tailwind classes in MDX create maintenance burden and reduce semantic meaning. Component primitives are more maintainable and self-documenting.
 
 **Example:**
-```mdx
+```mdx icon="terminal"
 {/* ❌ Don't use Tailwind */}
 <div className="flex gap-4 items-center">
   <Card>Content</Card>
@@ -544,7 +545,7 @@ Our styling framework intentionally overrides some Mintlify default recommendati
 **Reason**: Consistency and maintainability. Inline styles in MDX make it harder to maintain theme consistency and create visual inconsistencies.
 
 **Example:**
-```mdx
+```mdx icon="terminal"
 {/* ❌ Don't use inline styles in MDX */}
 <div style={{ display: "flex", gap: "1rem" }}>
   <Card>Content</Card>
@@ -580,7 +581,7 @@ Our styling framework intentionally overrides some Mintlify default recommendati
 **Reason**: Mintlify doesn't support CSS imports in components reliably. Inline styles and `<style>` tags within components work consistently.
 
 **Pattern:**
-```jsx
+```jsx icon="terminal"
 {/* ✅ Styles within component */}
 export const MyComponent = () => {
   return (
@@ -602,7 +603,7 @@ export const MyComponent = () => {
 
 #### 1. Import Paths Must Be Absolute
 
-```jsx
+```jsx icon="terminal"
 // ✅ Correct - absolute path from repo root
 import { MyComponent } from '/snippets/components/MyComponent.jsx';
 
@@ -612,7 +613,7 @@ import { MyComponent } from '../components/MyComponent.jsx';
 
 #### 2. File Extensions Required
 
-```jsx
+```jsx icon="terminal"
 // ✅ Include extension
 import { Component } from '/snippets/Component.jsx';
 
@@ -624,7 +625,7 @@ import { Component } from '/snippets/Component';
 
 **You CANNOT import data or other components into a JSX component file:**
 
-```jsx
+```jsx icon="terminal"
 // ❌ WRONG - This will fail
 // snippets/components/MyComponent.jsx
 import { themeColor } from '/snippets/styles/themeStyles.jsx';
@@ -636,7 +637,7 @@ export const MyComponent = () => {
 
 **Solution: Import in the MDX file that uses the component:**
 
-```jsx
+```jsx icon="terminal"
 // ✅ CORRECT
 // MyPage.mdx
 import { MyComponent } from '/snippets/components/MyComponent.jsx';
@@ -660,7 +661,7 @@ When importing MDX files into other MDX files:
 
 **Example:**
 
-```mdx
+```mdx icon="terminal"
 // Parent.mdx
 import { DOCKER_CODE } from '/snippets/data/gateways/code.jsx'
 import ChildView from '/snippets/pages/ChildView.mdx'
@@ -668,7 +669,7 @@ import ChildView from '/snippets/pages/ChildView.mdx'
 <ChildView />
 ```
 
-```mdx
+```mdx icon="terminal"
 // ChildView.mdx
 {/* Can use DOCKER_CODE as props */}
 <CustomCodeBlock {...DOCKER_CODE.install} />  {/* ✅ Works */}
@@ -681,7 +682,7 @@ import ChildView from '/snippets/pages/ChildView.mdx'
 
 Mintlify provides React hooks globally - no imports needed:
 
-```jsx
+```jsx icon="terminal"
 // ✅ Works - hooks available without import
 export function MyComponent() {
   const [count, setCount] = useState(0);
@@ -697,7 +698,7 @@ import React, { useState, useEffect } from 'react';
 
 **CRITICAL:** Mintlify's `<Icon>` component renders custom icons as `<img alt="Image">` elements, NOT inline SVG.
 
-```jsx
+```jsx icon="terminal"
 // ❌ This will NOT work - color styling has no effect
 <span style={{ color: "#3CB540" }}>
   <Icon icon="/path/to/icon.svg" size={20} />
@@ -714,7 +715,7 @@ These components are available globally - **do not import them**:
 - `Note`, `Warning`, `Info`, `Tip`, `Danger`
 - `Accordion`, `Columns`, `CardGroup`, `CodeBlock`, `Expandable`, `Badge`, `Tooltip`
 
-```jsx
+```jsx icon="terminal"
 // ✅ Correct - use directly
 <Card title="Title">Content</Card>
 <Tabs>
@@ -727,7 +728,7 @@ import { Card, Tabs } from "@mintlify/components";
 
 **CRITICAL:** Mintlify global components **cannot be stored in variables** - they must be used directly as JSX:
 
-```jsx
+```jsx icon="terminal"
 // ❌ WRONG - Will cause "ReferenceError: Expandable is not defined"
 const componentMap = {
   expandable: Expandable,
@@ -746,7 +747,7 @@ return <Accordion {...props}>{content}</Accordion>;
 
 **CRITICAL:** JSX comments (`{/* */}`) in MDX files do **NOT** prevent MDX from parsing the content inside them. MDX will still try to evaluate JSX components and expressions within comments.
 
-```mdx
+```mdx icon="terminal"
 {/* ❌ WRONG - MDX will still try to parse CustomCodeBlock */}
 {/* 
 <CustomCodeBlock codeString="test" />
@@ -779,7 +780,7 @@ Frame mode (`mode: frame` in frontmatter) removes all default Mintlify styling. 
 
 #### Correct Pattern: Import in MDX, Use in Component
 
-```mdx
+```mdx icon="terminal"
 // ✅ MyPage.mdx
 import { MyComponent } from '/snippets/components/MyComponent.jsx';
 import { DOCKER_CODE } from '/snippets/data/gateways/code.jsx';
@@ -787,7 +788,7 @@ import { DOCKER_CODE } from '/snippets/data/gateways/code.jsx';
 <MyComponent />
 ```
 
-```jsx
+```jsx icon="terminal"
 // ✅ MyComponent.jsx - uses CSS Custom Properties (production-grade)
 export const MyComponent = () => {
   return (
@@ -804,7 +805,7 @@ export const MyComponent = () => {
 
 **ALWAYS create a new branch from `docs-v2`:**
 
-```bash
+```bash icon="terminal"
 git checkout docs-v2
 git pull
 git checkout -b docs-plan/XX-task-name
@@ -837,7 +838,7 @@ git checkout -b docs-plan/XX-task-name
 
 1. **Be Clear and Concise** - Write for users with varying technical backgrounds
 2. **Use Examples** - Include code examples and real-world scenarios
-3. **Provide Context** - Explain why, not just how
+3. **Provide Context** - Explain why, beyond how
 4. **Link Related Content** - Help users discover related information
 5. **Test Both Themes** - Verify content looks good in both light and dark modes
 
@@ -934,13 +935,13 @@ Before submitting documentation:
 - Ignore "require is not defined" from test scripts
 - Ignore "puppeteer" related errors
 - Ignore "fs has already been declared" errors
-- Focus on real component errors
+- Focus on actual component errors
 
 **Report must show:**
 - Page URL
 - Content length
 - H1 text
-- List of real console errors (if any)
+- List of actual console errors (if any)
 - Status: ✅ OK or ❌ ERRORS
 
 ### URL Structure Verification
@@ -956,7 +957,7 @@ Before submitting documentation:
 
 Mintlify also supports theme configuration in `docs.json`:
 
-```json
+```json icon="terminal"
 {
   "theme": "palm",
   "colors": {
@@ -988,7 +989,7 @@ The pre-commit hooks automatically check for:
 
 **MANDATORY**: You must install the hooks before making any commits:
 
-```bash
+```bash icon="terminal"
 ./.githooks/install.sh
 ```
 
@@ -1006,7 +1007,7 @@ The `.allowlist` file is protected by pre-commit checks.
 
 If a human intentionally needs to edit `.allowlist`, use:
 
-```bash
+```bash icon="terminal"
 git commit -m "Update .allowlist" --trailer "allowlist-edit=true"
 ```
 
@@ -1014,7 +1015,7 @@ This override still runs all other pre-commit checks.
 
 If a human intentionally needs to allow file deletions, use:
 
-```bash
+```bash icon="terminal"
 git commit -m "Remove obsolete files" --trailer "allow-deletions=true"
 ```
 
@@ -1022,7 +1023,7 @@ This deletion override also runs all other pre-commit checks.
 
 ### Example Error Output
 
-```
+``` icon="terminal"
 ╔═══════════════════════════════════════════════════════════════╗
 ║  STYLE GUIDE VIOLATIONS DETECTED - COMMIT BLOCKED           ║
 ╚═══════════════════════════════════════════════════════════════╝
@@ -1053,7 +1054,7 @@ The repository includes a comprehensive test suite that validates all style guid
 
 #### Running Tests
 
-```bash
+```bash icon="terminal"
 # Run all tests
 npm test
 

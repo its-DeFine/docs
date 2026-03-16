@@ -1,31 +1,39 @@
 task_id: 20260317
-branch: codex/20260317-merge-readiness-phase3
+branch: codex/20260317-merge-readiness-style-root-cause
 base_branch: docs-v2-dev
 scope_in:
   - .codex/
-  - .githooks/pre-commit
-  - docs.json
-  - snippets/pages/08_SHARED/
-  - tests/run-pr-checks.js
-  - tests/unit/links-imports.test.js
-  - tools/config/scoped-navigation/
-  - tools/scripts/lint-copy.js
-  - tools/scripts/lint-patterns.js
-  - tools/scripts/remediators/content/repair-mdx-safe-markdown.js
-  - v2/developers/
-  - v2/gateways/
-  - v2/home/mission-control.mdx
-  - v2/index.mdx
-  - v2/orchestrators/index.mdx
-  - v2/resources/documentation-guide/documentation-overview.mdx
-  - v2/solutions/livepeer-studio/overview.mdx
+  - docs-guide/
   - docs-index.json
-  - .codex/task-contract.yaml
+  - snippets/components/layout/
+  - snippets/components/primitives/divider.jsx
+  - snippets/data/gateways/
+  - tasks/reports/merge-readiness/
+  - tools/scripts/
+  - v2/about/
+  - v2/cn/resources/documentation-guide/component-library/
+  - v2/community/
+  - v2/developers/
+  - v2/es/resources/documentation-guide/component-library/
+  - v2/fr/resources/documentation-guide/component-library/
+  - v2/gateways/
+  - v2/home/
+  - v2/internal/
+  - v2/lpt/
+  - v2/orchestrators/
+  - v2/resources/
+  - v2/index.mdx
+  - v2/solutions/
 scope_out: []
 allowed_generated:
   - .codex/pr-body.generated.md
 acceptance_checks:
-  - node tests/run-pr-checks.js --base-ref docs-v2-dev
+  - node tests/unit/style-guide.test.js --staged
+  - node tests/unit/copy-lint.test.js --staged
+  - node tests/unit/mdx.test.js --staged
+  - node tests/unit/quality.test.js --staged
+  - node tools/scripts/validate-codex-task-contract.js --branch codex/20260317-merge-readiness-style-root-cause
 risk_flags:
-  - workflow-governance
+  - authoring-governance
+  - routed-page-normalization
 follow_up_issues: []

@@ -4,9 +4,9 @@ sidebarTitle: 'On-chain Funding'
 description: 'Step-by-step guide to funding an on-chain Livepeer Gateway with ETH on Arbitrum One. Covers bridging, depositing, setting reserve amounts via livepeer_cli, and monitoring balance.'
 keywords: ["livepeer", "gateway", "fund", "ETH", "Arbitrum", "deposit", "reserve", "TicketBroker", "livepeer_cli", "on-chain"]
 og:image: /snippets/assets/site/og-image/fallback.png
-pageType: 'how-to'
+pageType: guide
 audience: 'gateway-operator'
-purpose: 'task'
+purpose: operations
 status: 'current'
 lastVerified: '2026-03-15'
 ---
@@ -66,9 +66,6 @@ Confirm the following before starting:
     <TableCell>Default CLI port is `5935`.</TableCell>
   </TableRow>
 </StyledTable>
-
-{/* REVIEW: Confirm the default livepeer_cli port is 5935, not 7935 or another value. Rick to verify. The v1 docs reference port 5935 consistently but v2 tooling may differ. */}
-
 <CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
 ## Step 1 - Get ETH
@@ -130,10 +127,7 @@ The Livepeer payment system splits gateway funds into two components.
     The **reserve** is a collateral backstop that protects Orchestrators against gateway non-payment. It is not consumed directly by ticket redemption under normal operation; rather, it is available as a protection mechanism for Orchestrators with a stake-based relationship to the gateway.
 
     The reserve also determines the face value of PM tickets. Tickets are sized as a fraction of the reserve, so a larger reserve allows for higher-value tickets per redemption event.
-
-    {/* REVIEW: Confirm the reserve divisor (100) used in the ticket face value calculation. Rick to verify. */}
-
-    <Warning>
+<Warning>
       For production environments, a reserve of at least **0.36 ETH** is recommended to prevent service interruptions during gas price spikes. [Issue #3744](https://github.com/livepeer/go-livepeer/issues/3744) tracks work to reduce this requirement.
     </Warning>
   </Accordion>
@@ -143,7 +137,7 @@ The Livepeer payment system splits gateway funds into two components.
   <Step title="Open livepeer_cli">
     On the host running the gateway:
 
-    ```bash
+    ```bash icon="terminal"
     livepeer_cli -host 127.0.0.1 -http 5935
     ```
 
@@ -174,10 +168,7 @@ The Livepeer payment system splits gateway funds into two components.
         <TableCell>Reserve covers gas spike scenarios.</TableCell>
       </TableRow>
     </StyledTable>
-
-    {/* REVIEW: Confirm recommended deposit/reserve amounts are still accurate. Rick to verify. */}
-
-    The ticket face value is calculated as a fraction of the reserve. In the testing example: `0.03 ETH reserve / 100 = 0.0003 ETH per ticket`.
+The ticket face value is calculated as a fraction of the reserve. In the testing example: `0.03 ETH reserve / 100 = 0.0003 ETH per ticket`.
 
     <Note>
       These amounts are in ETH, not wei. The CLI accepts decimal ETH values directly.
@@ -207,7 +198,7 @@ The deposit depletes with every winning ticket redeemed. The reserve normally st
 
 **Check the balance:**
 
-```bash
+```bash icon="terminal"
 livepeer_cli -host 127.0.0.1 -http 5935
 # Select Option 1 - review BROADCASTER STATS
 ```
@@ -215,17 +206,11 @@ livepeer_cli -host 127.0.0.1 -http 5935
 **Top up the deposit:** Invoke Option 11 again at any time and add further ETH.
 
 **Automate monitoring:** For production deployments, monitor the gateway's ETH balance via the Arbitrum RPC endpoint. Alert when the deposit falls below the minimum operating threshold.
-
-{/* REVIEW: Confirm whether there is a livepeer_cli flag or HTTP API endpoint to query balance directly without the interactive menu, for scripted monitoring. Rick / j0sh to verify. */}
-
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Withdrawals
 
 To withdraw funds from the `TicketBroker` deposit, there is an unlock period. This prevents instantaneous withdrawal attacks.
-
-{/* REVIEW: Confirm the current TicketBroker unlock period (historically 7 days on L1, may differ on Arbitrum). Rick to verify the current on-chain value. */}
-
 Use `livepeer_cli` to initiate an unlock request. After the unlock period expires, withdraw the funds to the gateway's Ethereum address.
 
 <Tip>

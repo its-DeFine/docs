@@ -4,6 +4,7 @@ sidebarTitle: What's Happening
 description: >-
   Curated ecosystem highlights and a live feed of the latest topics from the
   Livepeer Forum.
+purpose: reference
 keywords:
   - livepeer
   - community
@@ -21,21 +22,18 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 pageType: reference
-audience:
+audience: community
   - everyone
 status: verified_2026
 lastVerified: '2026-03-02'
 sourceOfTruth: forum.livepeer.org
 ---
-
 import { ForumLatestLayout } from "/snippets/components/data/data.jsx";
 import { forumData } from "/snippets/automations/forum/forumData.jsx";
 
-# What's Happening in Livepeer
-
 Current initiatives, active governance, and the latest topics from the Livepeer community.
 
----
+<CustomDivider />
 
 ## Ecosystem Highlights
 
@@ -66,13 +64,13 @@ Key ongoing initiatives as of early 2026. Updated quarterly - check the [Governa
  Cards above are maintained manually and reviewed quarterly. For live governance activity, use the feed below or check the [Governance](https://forum.livepeer.org/c/governance/17) and [Treasury](https://forum.livepeer.org/c/treasury/18) forum categories directly.
 </Note>
 
----
+<CustomDivider />
 
 ## Latest Forum Topics
 
 <ForumLatestLayout items={forumData} limit={2} />
 
----
+<CustomDivider />
 
 ## Stay Connected
 

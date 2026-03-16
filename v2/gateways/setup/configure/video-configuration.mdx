@@ -2,6 +2,7 @@
 title: Video Configuration
 sidebarTitle: Video & Transcoding Configuration
 description: Configure Video Services on a Livepeer Gateway
+pageType: guide
 keywords:
   - livepeer
   - gateways
@@ -17,7 +18,8 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: gateway-operator
-purpose: concept
+lastVerified: 2026-03-17
+purpose: operations
 icon: film-canister
 ---
 {/* TODO:
@@ -40,7 +42,7 @@ Verify:
 import { DoubleIconLink } from '/snippets/components/primitives/links.jsx'
 import { DynamicTable } from '/snippets/components/layout/table.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
-import { CustomResponseField } from '/snippets/components/content/responseField.jsx'
+import { ValueResponseField } from '/snippets/components/content/responseField.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 {/* Page Flow:
@@ -234,72 +236,42 @@ flowchart TB
 #### Additional On-Chain Flags
 Add these flags for on-chain configuration. See <DoubleIconLink label="On-Chain Setup Guide" href="/v2/gateways/setup/requirements/on-chain%20setup/on-chain" iconLeft="link" /> for details.
 
-<CustomResponseField
+<ValueResponseField
   name="-network"
   type="string"
   default="offchain"
-  post={[
-    <span>
-      <span style={{ color: 'gray' }}>value:</span>
-      <span style={{ color: '#3b82f6' }}>"arbitrum-one-mainnet"</span>
-    </span>,
-  ]}
+  post={['"arbitrum-one-mainnet"']}
 />
-<CustomResponseField
+<ValueResponseField
   name="-maxPricePerUnit"
   type="int"
   default="0"
-  post={[
-    <span>
-      <span style={{ color: 'gray' }}>value:</span>
-      <span style={{ color: '#3b82f6' }}>"1000"</span>
-    </span>,
-  ]}
+  post={['"1000"']}
 />
-<CustomResponseField
+<ValueResponseField
   name="-ethUrl"
   type="string"
   default="none"
-  post={[
-    <span>
-      <span style={{ color: 'gray' }}>value:</span>
-      <span style={{ color: '#3b82f6' }}>"YOUR_RPC_URL"</span>
-    </span>,
-  ]}
+  post={['"YOUR_RPC_URL"']}
   required
 />
-<CustomResponseField
+<ValueResponseField
   name="-ethAcctAddr"
   type="string"
   default="leave empty to auto-create"
-  post={[
-    <span>
-      <span style={{ color: 'gray' }}>value:</span>
-      <span style={{ color: '#3b82f6' }}>"YOUR_ETH_ADDRESS"</span>
-    </span>,
-  ]}
+  post={['"YOUR_ETH_ADDRESS"']}
 />
-<CustomResponseField
+<ValueResponseField
   name="-ethPassword"
   type="string"
   default="leave empty to auto-create"
-  post={[
-    <span>
-      <span style={{ color: 'gray' }}>value:</span>
-      <span style={{ color: '#3b82f6' }}>"YOUR_PASSWORD"</span>
-    </span>,
-  ]}
+  post={['"YOUR_PASSWORD"']}
 />
-<CustomResponseField
+<ValueResponseField
   name="-ethKeystorePath"
   type="string"
   default="leave empty to auto-create"
-  post={[
-    <span>
-      <span style={{ color: 'gray' }}>value:</span>
-      <span style={{ color: '#3b82f6' }}>"KEYSTORE_PATH"</span>
-    </span>,
-  ]}
+  post={['"KEYSTORE_PATH"']}
 />
 
 <CustomDivider middleText="FULL CONFIGURATION GUIDE" />
@@ -367,7 +339,7 @@ docker-compose up -d
 </Tab>
 </Tabs>
 
-```bash
+```bash icon="terminal"
 livepeer -gateway \
   -network offchain \
   -transcodingOptions=${env:HOME}/.lpData/offchain/transcodingOptions.json \
@@ -422,7 +394,7 @@ docker-compose up -d
 </Tab>
 </Tabs>
 
-```bash
+```bash icon="terminal"
 livepeer -gateway \
   -network arbitrum-one-mainnet \
   -ethUrl=<YOUR_RPC_URL> \
@@ -733,7 +705,7 @@ Create the transcodingOptions.json file using the above template.
 Open notepad (or your text editor of choice) paste the template above and save
 the transcodingOptions.json file in the following location.
 
-In Windows, <span style={{ fontWeight: 'bold', color: '#fff' }}>%USERNAME%</span> is already a built-in environment variable
+In Windows, **`%USERNAME%`** is already a built-in environment variable
 -> You can use it directly.
 
 ```bash icon="windows"

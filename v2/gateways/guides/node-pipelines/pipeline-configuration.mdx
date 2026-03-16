@@ -14,9 +14,9 @@ keywords:
   - warm model
   - inference steps
 og:image: /snippets/assets/site/og-image/fallback.png
-pageType: how-to
-audience: gateway
-purpose: reference
+pageType: guide
+audience: gateway-operator
+purpose: operations
 status: current
 lastVerified: '2026-03-15'
 ---
@@ -47,7 +47,7 @@ import { BorderedBox, CenteredContainer } from "/snippets/components/layout/cont
 
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-<CenteredContainer style={{width: "80%", minWidth: 'fit-content'}}>
+<CenteredContainer preset="readable80">
 
     This page covers post-setup tuning mechanisms for video and AI pipelines.
     - Video tuning centres on the transcoding profile (output renditions).
@@ -105,7 +105,7 @@ import { BorderedBox, CenteredContainer } from "/snippets/components/layout/cont
 
             The simplest option. Presets follow the pattern `P<height>p<fps>fps<aspect>`:
 
-            ```bash
+            ```bash icon="terminal"
             -transcodingOptions P240p30fps16x9,P360p30fps16x9,P720p30fps16x9
             ```
 
@@ -115,7 +115,7 @@ import { BorderedBox, CenteredContainer } from "/snippets/components/layout/cont
 
             Create a `transcodingOptions.json` file and reference it with `-transcodingOptions /path/to/transcodingOptions.json`.
 
-            ```json
+            ```json icon="terminal"
             [
             {
                 "name": "1080p",
@@ -202,7 +202,7 @@ import { BorderedBox, CenteredContainer } from "/snippets/components/layout/cont
                 <Accordion title="Docker" icon="docker">
                     Mount the JSON file as a volume and reference it via a path inside the container:
 
-                    ```yaml
+                    ```yaml icon="terminal"
                     # docker-compose.yml
                     services:
                     gateway:
@@ -220,26 +220,26 @@ import { BorderedBox, CenteredContainer } from "/snippets/components/layout/cont
 
                     Alternatively, write directly to the gateway's data volume:
 
-                    ```bash
+                    ```bash icon="terminal"
                     nano /var/lib/docker/volumes/gateway-lpData/_data/transcodingOptions.json
                     ```
 
                     And reference it at the container path:
 
-                    ```
+                    ``` icon="terminal"
                     -transcodingOptions /root/.lpData/transcodingOptions.json
                     ```
                 </Accordion>
                 <Accordion title="Linux (systemd)" icon="linux">
                     Create the profile file in your chosen config directory:
 
-                    ```bash
+                    ```bash icon="terminal"
                     sudo nano /usr/local/bin/lptConfig/transcodingOptions.json
                     ```
 
                     Reference it in your systemd service file (`/etc/systemd/system/livepeer.service`):
 
-                    ```ini
+                    ```ini icon="terminal"
                     ExecStart=/usr/local/bin/livepeer \
                     -gateway \
                     -transcodingOptions /usr/local/bin/lptConfig/transcodingOptions.json \
@@ -249,20 +249,20 @@ import { BorderedBox, CenteredContainer } from "/snippets/components/layout/cont
 
                     Reload systemd after any service file change:
 
-                    ```bash
+                    ```bash icon="terminal"
                     sudo systemctl daemon-reload && sudo systemctl restart livepeer
                     ```
                 </Accordion>
                 <Accordion title="Windows" icon="windows">
                     Create the profile file in the `.lpData` directory:
 
-                    ```
+                    ``` icon="terminal"
                     C:\Users\%USERNAME%\.lpData\transcodingOptions.json
                     ```
 
                     Reference it in your startup `.bat` file:
 
-                    ```bat
+                    ```bat icon="terminal"
                     livepeer.exe ^
                     -gateway ^
                     -transcodingOptions C:\Users\%USERNAME%\.lpData\transcodingOptions.json ^
@@ -278,7 +278,7 @@ import { BorderedBox, CenteredContainer } from "/snippets/components/layout/cont
                 <Accordion title="Standard adaptive bitrate ladder (recommended)" icon="layer-group">
                     Four renditions covering mobile to desktop. Viewers' players switch automatically based on available bandwidth.
 
-                    ```json
+                    ```json icon="terminal"
                     [
                     { "name": "720p",  "width": 1280, "height": 720,  "bitrate": 3000000, "fps": 0, "profile": "h264constrainedhigh", "gop": "1" },
                     { "name": "480p",  "width": 854,  "height": 480,  "bitrate": 1600000, "fps": 0, "profile": "h264constrainedhigh", "gop": "1" },
@@ -291,7 +291,7 @@ import { BorderedBox, CenteredContainer } from "/snippets/components/layout/cont
                 <Accordion title="Low-latency single rendition" icon="bolt">
                     For use cases where you need a single output with minimal end-to-end latency (for example, feeding a monitoring pipeline or an AI processing step).
 
-                    ```json
+                    ```json icon="terminal"
                     [
                     { "name": "480p-lowlat", "width": 854, "height": 480, "bitrate": 1200000, "fps": 0, "profile": "h264baseline", "gop": "0.5" }
                     ]
@@ -303,7 +303,7 @@ import { BorderedBox, CenteredContainer } from "/snippets/components/layout/cont
                 <Accordion title="High-quality archive (1080p)" icon="archive">
                     Single high-quality rendition for recording or post-production.
 
-                    ```json
+                    ```json icon="terminal"
                     [
                     { "name": "1080p-hq", "width": 1920, "height": 1080, "bitrate": 8000000, "fps": 0, "profile": "h264high", "gop": "2" }
                     ]
@@ -320,14 +320,14 @@ import { BorderedBox, CenteredContainer } from "/snippets/components/layout/cont
             AI tuning focuses on retry behaviour, model selection, and inference parameters.
 
             <Note>
-            For AI routing architecture and orchestrator discovery, see <LinkArrow href="./ai-pipelines" label="AI Pipelines" newline={false} />. This section covers the tuning parameters you adjust after your AI gateway is running.
+ For AI routing architecture and orchestrator discovery, see <LinkArrow href="./ai-pipelines" label="AI Pipelines" newline={false} />. This section explains the tuning parameters you adjust after your AI gateway is running.
             </Note>
 
             ### Retry Timeouts
 
             The `-aiProcessingRetryTimeout` flag controls how long the gateway waits before retrying a failed AI request with another orchestrator. The value accepts Go duration format (`30s`, `1m`, `2m30s`).
 
-            ```bash
+            ```bash icon="terminal"
             -aiProcessingRetryTimeout 30s
             ```
 
@@ -365,10 +365,7 @@ import { BorderedBox, CenteredContainer } from "/snippets/components/layout/cont
             **Warm vs cold models:**
 
             Orchestrators load models into GPU memory. A warm model responds in milliseconds. A cold model must load from disk first, adding seconds to minutes of latency. During the current beta, orchestrators support one warm model per GPU.
-
-            {/* REVIEW: confirm whether warm-per-GPU limit has changed since beta. */}
-
-            Check [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities) before selecting a model. For latency-sensitive applications, confirm your chosen model is warm on at least one connected orchestrator.
+Check [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities) before selecting a model. For latency-sensitive applications, confirm your chosen model is warm on at least one connected orchestrator.
 
             **Inference parameters by model family:**
 
@@ -449,19 +446,19 @@ For the full side-by-side comparison, see <LinkArrow href="./ai-pipelines#ai-vs-
     <Tab title="Video" icon="video">
         **Check startup log for profile loading:**
 
-        ```
+        ``` icon="terminal"
         I0501 11:07:47.609839  1 mediaserver.go:201] Transcode Job Type: [{480p0 ...} {720p0 ...}]
         ```
 
         **Send a test stream and check the HLS manifest:**
 
-        ```bash
+        ```bash icon="terminal"
         ffprobe http://localhost:8935/<stream-key>.m3u8
         ```
 
         **Update transcoding options at runtime:**
 
-        ```bash
+        ```bash icon="terminal"
         curl -X POST http://localhost:5935/setTranscodingOptions \
         -d "transcodingOptions=P240p30fps16x9,P720p30fps16x9"
         ```
@@ -469,13 +466,13 @@ For the full side-by-side comparison, see <LinkArrow href="./ai-pipelines#ai-vs-
     <Tab title="AI" icon="brain">
         **Check the health endpoint:**
 
-        ```bash
+        ```bash icon="terminal"
         curl -s http://localhost:8935/health
         ```
 
         **Send a test inference request:**
 
-        ```bash
+        ```bash icon="terminal"
         curl -X POST http://localhost:8935/text-to-image \
         -H "Content-Type: application/json" \
         -d '{
@@ -492,14 +489,14 @@ For the full side-by-side comparison, see <LinkArrow href="./ai-pipelines#ai-vs-
 
         **Check connected orchestrators and their capabilities:**
 
-        ```bash
+        ```bash icon="terminal"
         curl http://localhost:5935/getOrchestrators
         ```
     </Tab>
     <Tab title="General" icon="terminal">
         **Check effective configuration via livepeer_cli:**
 
-        ```bash
+        ```bash icon="terminal"
         livepeer_cli -host 127.0.0.1 -http 5935
         ```
 
@@ -507,7 +504,7 @@ For the full side-by-side comparison, see <LinkArrow href="./ai-pipelines#ai-vs-
 
         **Check gateway status:**
 
-        ```bash
+        ```bash icon="terminal"
         curl http://localhost:5935/status
         ```
     </Tab>

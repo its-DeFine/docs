@@ -2,6 +2,7 @@
 title: Configure AI & Video Dual Gateway Services
 sidebarTitle: Dual Configuration
 description: Configure Dual AI & Video Services on a Livepeer Gateway
+pageType: guide
 keywords:
   - livepeer
   - gateways
@@ -18,7 +19,8 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: gateway-operator
-purpose: concept
+lastVerified: 2026-03-17
+purpose: operations
 icon: drone
 tag: AI & Video
 ---
@@ -35,6 +37,7 @@ Verify:
 
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 import { DoubleIconLink } from '/snippets/components/primitives/links.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 
 <Danger>
  This is way too long
@@ -130,91 +133,54 @@ The gateway determines the processing type based on the request:
 
 The gateway initializes with two distinct session managers:
 
-```go
+```go icon="terminal"
 // Traditional transcoding session manager
 sessManager = NewSessionManager(ctx, s.LivepeerNode, params)
 ```
 
-```go
+```go icon="terminal"
 // AI processing session manager
 AISessionManager: NewAISessionManager(lpNode, AISessionManagerTTL)
 ```
 
 **Key Differences**
 
-<table style={{ width: '100%', borderCollapse: 'collapse' }}>
+<StyledTable variant="bordered">
   <thead>
-    <tr style={{ background: '#1a1a1a', borderBottom: '2px solid #2d9a67' }}>
-      <th
-        style={{
-          padding: '12px 16px',
-          textAlign: 'left',
-          color: '#2d9a67',
-          fontWeight: '600',
-        }}
-      >
- Aspect
-      </th>
-      <th
-        style={{
-          padding: '12px 16px',
-          textAlign: 'left',
-          color: '#3b82f6',
-          fontWeight: '600',
-        }}
-      >
- Video Transcoding
-      </th>
-      <th
-        style={{
-          padding: '12px 16px',
-          textAlign: 'left',
-          color: '#a855f7',
-          fontWeight: '600',
-        }}
-      >
- AI Pipelines
-      </th>
-    </tr>
+    <TableRow header>
+      <TableCell header>Aspect</TableCell>
+      <TableCell header>Video Transcoding</TableCell>
+      <TableCell header>AI Pipelines</TableCell>
+    </TableRow>
   </thead>
   <tbody>
-    <tr style={{ borderBottom: '1px solid #333' }}>
-      <td style={{ padding: '10px 16px', color: '#2d9a67' }}>
- Processing Type
-      </td>
- <td style={{ padding: '10px 16px' }}>Format/bitrate conversion</td>
- <td style={{ padding: '10px 16px' }}>AI model inference</td>
-    </tr>
-    <tr style={{ borderBottom: '1px solid #333' }}>
-      <td style={{ padding: '10px 16px', color: '#2d9a67' }}>
- Session Manager
-      </td>
-      <td style={{ padding: '10px 16px', fontFamily: 'monospace' }}>
- BroadcastSessionsManager
-      </td>
-      <td style={{ padding: '10px 16px', fontFamily: 'monospace' }}>
- AISessionManager
-      </td>
-    </tr>
-    <tr style={{ borderBottom: '1px solid #333' }}>
- <td style={{ padding: '10px 16px', color: '#2d9a67' }}>Payment Model</td>
- <td style={{ padding: '10px 16px' }}>Per segment</td>
- <td style={{ padding: '10px 16px' }}>Per pixel processed</td>
-    </tr>
-    <tr style={{ borderBottom: '1px solid #333' }}>
- <td style={{ padding: '10px 16px', color: '#2d9a67' }}>Protocol</td>
- <td style={{ padding: '10px 16px' }}>Standard HLS/DASH</td>
-      <td style={{ padding: '10px 16px' }}>
- Trickle protocol for real-time AI
-      </td>
-    </tr>
-    <tr style={{ borderBottom: '1px solid #333' }}>
- <td style={{ padding: '10px 16px', color: '#2d9a67' }}>Components</td>
- <td style={{ padding: '10px 16px' }}>RTMP Server, Playlist Manager</td>
- <td style={{ padding: '10px 16px' }}>MediaMTX, Trickle Server</td>
-    </tr>
+    <TableRow>
+      <TableCell>Processing Type</TableCell>
+      <TableCell>Format/bitrate conversion</TableCell>
+      <TableCell>AI model inference</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Session Manager</TableCell>
+      <TableCell><code>BroadcastSessionsManager</code></TableCell>
+      <TableCell><code>AISessionManager</code></TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Payment Model</TableCell>
+      <TableCell>Per segment</TableCell>
+      <TableCell>Per pixel processed</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Protocol</TableCell>
+      <TableCell>Standard HLS/DASH</TableCell>
+      <TableCell>Trickle protocol for real-time AI</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Components</TableCell>
+      <TableCell>RTMP Server, Playlist Manager</TableCell>
+      <TableCell>MediaMTX, Trickle Server</TableCell>
+    </TableRow>
   </tbody>
-</table>
+</StyledTable>
 
 ## Configuration
 
@@ -225,84 +191,37 @@ to set the appropriate flags and options when starting the livepeer binary.
 
 To enable dual setup, configure the gateway with the following flags:
 
-<table style={{ width: '100%', borderCollapse: 'collapse' }}>
+<StyledTable variant="bordered">
   <thead>
-    <tr style={{ background: '#1a1a1a', borderBottom: '2px solid #2d9a67' }}>
-      <th
-        style={{
-          padding: '12px 16px',
-          textAlign: 'left',
-          color: '#2d9a67',
-          fontWeight: '600',
-        }}
-      >
- Flag
-      </th>
-      <th style={{ padding: '12px 16px', textAlign: 'left', color: '#fff' }}>
- Description
-      </th>
-      <th style={{ padding: '12px 16px', textAlign: 'center', color: '#fff' }}>
- Required
-      </th>
-    </tr>
+    <TableRow header>
+      <TableCell header>Flag</TableCell>
+      <TableCell header>Description</TableCell>
+      <TableCell header align="center">Required</TableCell>
+    </TableRow>
   </thead>
   <tbody>
-    <tr style={{ borderBottom: '1px solid #333' }}>
-      <td
-        style={{
-          padding: '10px 16px',
-          fontFamily: 'monospace',
-          color: '#2d9a67',
-        }}
-      >
- -gateway
-      </td>
- <td style={{ padding: '10px 16px' }}>Run as a gateway node</td>
- <td style={{ padding: '10px 16px', textAlign: 'center' }}>✓</td>
-    </tr>
-    <tr style={{ borderBottom: '1px solid #333' }}>
-      <td
-        style={{
-          padding: '10px 16px',
-          fontFamily: 'monospace',
-          color: '#2d9a67',
-        }}
-      >
- -httpIngest
-      </td>
-      <td style={{ padding: '10px 16px' }}>
- Enable HTTP ingest for AI requests
-      </td>
- <td style={{ padding: '10px 16px', textAlign: 'center' }}>✓</td>
-    </tr>
-    <tr style={{ borderBottom: '1px solid #333' }}>
-      <td
-        style={{
-          padding: '10px 16px',
-          fontFamily: 'monospace',
-          color: '#2d9a67',
-        }}
-      >
- -transcodingOptions
-      </td>
- <td style={{ padding: '10px 16px' }}>Transcoding profiles for video</td>
- <td style={{ padding: '10px 16px', textAlign: 'center' }}>✓</td>
-    </tr>
-    <tr style={{ borderBottom: '1px solid #333' }}>
-      <td
-        style={{
-          padding: '10px 16px',
-          fontFamily: 'monospace',
-          color: '#2d9a67',
-        }}
-      >
- -aiServiceRegistry
-      </td>
- <td style={{ padding: '10px 16px' }}>Enable AI service registry</td>
- <td style={{ padding: '10px 16px', textAlign: 'center' }}>✓</td>
-    </tr>
+    <TableRow>
+      <TableCell><code>-gateway</code></TableCell>
+      <TableCell>Run as a gateway node</TableCell>
+      <TableCell align="center">✓</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>-httpIngest</code></TableCell>
+      <TableCell>Enable HTTP ingest for AI requests</TableCell>
+      <TableCell align="center">✓</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>-transcodingOptions</code></TableCell>
+      <TableCell>Transcoding profiles for video</TableCell>
+      <TableCell align="center">✓</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>-aiServiceRegistry</code></TableCell>
+      <TableCell>Enable AI service registry</TableCell>
+      <TableCell align="center">✓</TableCell>
+    </TableRow>
   </tbody>
-</table>
+</StyledTable>
 See: <DoubleIconLink
   label="cmd/livepeer/livepeer.go"
   href="https://github.com/livepeer/go-livepeer/blob/5691cb48/cmd/livepeer/livepeer.go"

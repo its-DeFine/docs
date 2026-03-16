@@ -37,7 +37,7 @@ This is Tutorial 1 of 3. It covers the off-chain video transcoding path - the fa
 
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-This tutorial runs a complete Livepeer Gateway-Orchestrator pipeline on a single machine, transcodes a real video stream, and verifies the output - all without any Ethereum wallet, GPU, or network registration.
+This tutorial runs a complete Livepeer Gateway-Orchestrator pipeline on a single machine, transcodes a sample video stream, and verifies the output - all without any Ethereum wallet, GPU, or network registration.
 
 **Time:** ~15 minutes | **Cost:** zero | **Requirements:** Linux (amd64), Docker or go-livepeer binary, ffmpeg
 
@@ -45,7 +45,7 @@ This tutorial runs a complete Livepeer Gateway-Orchestrator pipeline on a single
 
 ## Architecture
 
-```
+``` icon="terminal"
 ffmpeg (test stream)
      |  RTMP
      v
@@ -65,7 +65,7 @@ ffmpeg (test stream)
 The Orchestrator transcodes the stream into multiple renditions (240p, 360p, 720p). The Gateway receives the renditions and makes them available as an HLS playlist. `-network offchain` means no Arbitrum RPC, no PM deposits, no staking - a fully local simulation.
 
 <Tip>
-`-network offchain` disables all on-chain operations but keeps the full job lifecycle intact: segment routing, transcoding, result delivery. The only thing missing is real ETH payments - the Gateway and Orchestrator still exchange session messages and segments.
+`-network offchain` disables all on-chain operations but keeps the full job lifecycle intact: segment routing, transcoding, result delivery. The only thing missing is on-chain ETH payments - the Gateway and Orchestrator still exchange session messages and segments.
 </Tip>
 
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
@@ -251,7 +251,7 @@ The `-gateway` flag replaces the old `-broadcaster` flag used in most pre-2024 c
       rtmp://127.0.0.1:1935/live/test_stream
     ```
 
-    **Option B - Real video file:**
+    **Option B - Sample video file:**
 
     ```bash icon="terminal" File Stream
     ffmpeg \
@@ -327,7 +327,7 @@ The `-gateway` flag replaces the old `-broadcaster` flag used in most pre-2024 c
 
 The full job lifecycle exercised in this tutorial:
 
-```
+``` icon="terminal"
 ffmpeg
   +-> RTMP publish to Gateway port 1935
         +-> Gateway creates a session, selects Orchestrator (127.0.0.1:8936)

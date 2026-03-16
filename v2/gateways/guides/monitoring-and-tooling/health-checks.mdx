@@ -17,9 +17,9 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
-pageType: how-to
+pageType: guide
 audience: gateway-operator
-purpose: verification
+purpose: operations
 status: current
 lastVerified: '2026-03-15'
 ---
@@ -102,9 +102,6 @@ curl http://localhost:8935/hardware/stats
 # GPU model and system info
 curl http://localhost:8935/hardware/info
 ```
-
-{/* REVIEW: Rick - confirm /hardware/stats and /hardware/info are exposed on all gateway types or only when GPU is present */}
-
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Node Type Checks
@@ -158,10 +155,7 @@ curl http://localhost:8935/hardware/info
     ```bash icon="terminal" Check Orchestrators
     curl https://<orchestrator-address>:<port>/getOrchestratorInfo
     ```
-
-    {/* REVIEW: Rick / j0sh - confirm /getOrchestratorInfo is the correct endpoint for capability queries */}
-
-    If an Orchestrator is unreachable, jobs silently fail to route. Replace addresses in `-orchAddr` with known-active AI Orchestrators. Ask in [Discord #local-gateways](https://discord.gg/livepeer) for current addresses.
+If an Orchestrator is unreachable, jobs silently fail to route. Replace addresses in `-orchAddr` with known-active AI Orchestrators. Ask in [Discord #local-gateways](https://discord.gg/livepeer) for current addresses.
 
     ### Run a test job
 
@@ -176,10 +170,7 @@ curl http://localhost:8935/hardware/info
         "num_images_per_prompt": 1
       }'
     ```
-
-    {/* REVIEW: Peter (AI SPE) - confirm ByteDance/SDXL-Lightning is still a reliable model for onboarding tests */}
-
-    A successful response returns a base64-encoded image. An error typically means either the Orchestrator does not have this model loaded or `-orchAddr` is misconfigured.
+A successful response returns a base64-encoded image. An error typically means either the Orchestrator does not have this model loaded or `-orchAddr` is misconfigured.
 
     <Note>
       On-chain AI gateways using `-aiServiceRegistry` discover Orchestrators automatically and do not need `-orchAddr`. Run the on-chain checks below in addition to the test job.
@@ -248,9 +239,7 @@ curl http://localhost:8935/hardware/info
       When the deposit reaches zero, the gateway stops routing jobs with
       <br/> <Icon icon="warning" /> **_no error_** shown to the client.
       <br/><br/>Community-recommended minimum for testing: **0.1 ETH total** (approximately 0.07 ETH deposit + 0.03 ETH reserve).
-
-      {/* REVIEW: Rick / Mehrdad - confirm current recommended minimum deposit/reserve amounts */}
-    </Warning>
+</Warning>
 
     If the deposit shows zero after bridging ETH, see <LinkArrow href="/v2/gateways/guides/payments-and-pricing/funding-guide" label="Funding Guide" newline={false} /> - bridging does not automatically allocate funds to the TicketBroker contract.
 

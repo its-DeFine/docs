@@ -19,7 +19,7 @@ keywords:
 'og:image:height': 630
 pageType: guide
 audience: gateway-operator
-purpose: guides
+purpose: operations
 status: current
 lastVerified: '2026-03-14'
 ---
@@ -43,7 +43,7 @@ import { BorderedBox, CenteredContainer } from '/snippets/components/layout/cont
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
-<CenteredContainer style={{ width: '90%' }}>
+<CenteredContainer preset="readable90">
   <Tip>Gateways are software nodes that require network optimisations (bandwidth and latency) and only minimal hardware (CPU and RAM).</Tip>
 </CenteredContainer>
 
@@ -145,7 +145,7 @@ Not all operating systems support all node types.
       <TableCell>**Windows** (WSL2 + Docker)</TableCell>
       <TableCell>✅ Supported via Docker</TableCell>
       <TableCell>⚠️ Fragile - use Linux VM instead</TableCell>
-      <TableCell>Effectively Linux-in-WSL</TableCell>
+      <TableCell>Linux in WSL</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>**Docker** (Linux host)</TableCell>
@@ -271,9 +271,6 @@ On-chain deployment mode requires Ethereum infrastructure. Off-chain operators c
     </TableRow>
   </tbody>
 </StyledTable>
-
-{/* REVIEW: Confirm current deposit/reserve amounts with Mehrdad or Rick. These figures are from fund-gateway.mdx and may have changed. Issue open to reduce reserve requirement: github.com/livepeer/go-livepeer/issues/3744 */}
-
 <Note>
 Gateways pay in ETH, not LPT. LPT is used for staking and governance by orchestrators - gateways never need LPT.
 </Note>
@@ -314,9 +311,6 @@ Off-chain deployment mode removes all Ethereum requirements from your gateway. Y
 <Note>
 **Remote signer:** The remote signer handles Ethereum payment signing on behalf of your gateway, so you do not need a funded wallet on the gateway node itself. Options: community signer (`https://signer.eliteencoder.net/` - free) or self-hosted for full control.
 </Note>
-
-{/* REVIEW: Confirm signer.eliteencoder.net is still operational and free. Verify with Elite Encoder in Discord #local-gateways. */}
-
 <CustomDivider style={{margin: "0 0 -1rem 0"}} middleText="Integration Notes" />
 
 ## Integration Notes
@@ -357,7 +351,7 @@ Technical skills required depend on your deployment mode and stage.
     None of this requires deep crypto expertise, but it is more involved than the off-chain path. If you have never used a crypto wallet before, budget extra time for the on-chain setup steps.
   </Accordion>
   <Accordion title="Production: systems administration">
-    For a production gateway handling real traffic, you additionally want:
+    For a production gateway handling production traffic, you additionally want:
 
     - Linux systems administration (systemd services, log rotation, process monitoring)
     - Basic networking (firewall rules, DNS, reverse proxy configuration)

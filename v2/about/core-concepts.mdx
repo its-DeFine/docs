@@ -4,6 +4,7 @@ sidebarTitle: Livepeer Core Concepts
 description: >-
   A high-level introduction to the key concepts and architecture of the Livepeer
   Real-time AI & Video Network
+pageType: concept
 keywords:
   - livepeer
   - about
@@ -18,9 +19,9 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: general
+lastVerified: 2026-03-17
 purpose: concept
 ---
-
 
 
 import Protocol from "/snippets/pages/01_ABOUT/concepts/protocol.mdx"
@@ -29,7 +30,7 @@ import Actors from "/snippets/pages/01_ABOUT/concepts/actors.mdx"
 
 ### Overview and separation
 
-Livepeer is designed as a modular video/AI network anchored by a minimal on‑chain protocol. The protocol manages assets and incentives on Ethereum, while the off‑chain network performs the heavy lifting of transcoding and AI processing. Official documents clearly separate these domains:
+Livepeer is designed as a modular video/AI network anchored by a minimal on‑chain protocol. The protocol manages assets and incentives on Ethereum, while the off‑chain network performs the heavy lifting of transcoding and AI processing. Official documents separate these domains:
 
 On‑chain protocol – smart contracts hold ETH deposits from broadcasters and orchestrators; mint and distribute LPT staking tokens; issue probabilistic payment tickets; enforce staking, slashing and reward rules; and manage governance. The protocol does not transcode video or run AI. Its role is to coordinate payments and maintain trustless state.
 

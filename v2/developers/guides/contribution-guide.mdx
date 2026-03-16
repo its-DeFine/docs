@@ -4,6 +4,7 @@ sidebarTitle: Contribution Guide
 description: >-
   How to contribute to Livepeer — code, documentation, governance, community
   support, and bug reports across all repositories.
+pageType: guide
 keywords:
   - livepeer
   - developers
@@ -19,14 +20,14 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: developer
-purpose: how_to
+lastVerified: 2026-03-17
+purpose: operations
 ---
-
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 
-Livepeer is an open-source project and community contributions are essential to its growth. You do not need to write code to make a meaningful impact — documentation improvements, governance participation, community support, and bug reports are all valued contributions.
+Livepeer is an open-source project and community contributions are essential to its growth. You do not need to write code to make a valuable impact — documentation improvements, governance participation, community support, and bug reports are all valued contributions.
 
----
+<CustomDivider />
 
 ## Contributors Spotlight
 
@@ -40,7 +41,7 @@ Livepeer is an open-source project and community contributions are essential to 
   />
 </Frame>
 
----
+<CustomDivider />
 
 ## Ways to Contribute
 
@@ -72,14 +73,14 @@ Livepeer is an open-source project and community contributions are essential to 
 
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Contributing to the Code
 
 ### Before You Start
 
 - **Check existing issues and discussions** — search GitHub before opening a new issue or starting work on a feature. A quick "is anyone working on this?" can save everyone time.
-- **Open a discussion for large changesets** — for significant new features, open a GitHub Discussion or Issue first. This avoids investing effort in a PR that may not be accepted.
+- **Open a discussion for large changesets** — for major new features, open a GitHub Discussion or Issue first. This avoids investing effort in a PR that may not be accepted.
 - **Read the repo's `CONTRIBUTING.md`** — each repository has its own contribution guide covering setup, testing, and PR conventions.
 
 ### Key Repositories
@@ -95,7 +96,7 @@ Livepeer is an open-source project and community contributions are essential to 
 </Card>
 
 <Card title="livepeer.js / React SDK" icon="react" href="https://github.com/livepeer/livepeer.js/blob/main/.github/CONTRIBUTING.md">
- The JavaScript/React SDK. Guide covers setting up a real Studio API key for tests, running the test suite, and PR etiquette. Discuss significant API changes before building.
+ The JavaScript/React SDK. Guide covers setting up a production Studio API key for tests, running the test suite, and PR etiquette. Discuss major API changes before building.
 </Card>
 
 <Card title="AI Runner" icon="microchip" href="https://github.com/livepeer/ai-runner">
@@ -117,13 +118,13 @@ Livepeer is an open-source project and community contributions are essential to 
 These apply across all Livepeer repositories:
 
 - **Keep PRs focused** — one logical change per pull request. Smaller, well-scoped PRs are easier to review and merge.
-- **Write readable commit messages** — use [Conventional Commits](https://www.conventionalcommits.org/) format where repos require it: `fix:`, `feat:`, `docs:`, and so on.
+- **Write readable commit messages** — use [Conventional Commits](https://www.conventionalcommits.org/) format where repos require it: `fix:`, `feat:`, `docs:`, and related types.
 - **Add tests** — when adding features or fixing bugs, include test cases covering the new or updated behaviour.
 - **Update the changelog** — `go-livepeer` and other repos require updates to `CHANGELOG_PENDING.md` with each PR.
 - **Respond to review feedback promptly** — do not force-push to a branch under active review.
 - **Rebase and merge** — for larger changesets, maintainers may request a local rebase to clean up the commit history before merging.
 
----
+<CustomDivider />
 
 ## Contributing to the Docs
 
@@ -146,7 +147,7 @@ Navigate to [github.com/livepeer/docs](https://github.com/livepeer/docs) and cli
 </Step>
 
 <Step title="Clone and configure remotes">
-```bash
+```bash icon="terminal"
 git clone https://github.com/YOUR_USERNAME/docs.git
 cd docs
 git remote add upstream https://github.com/livepeer/docs.git
@@ -154,7 +155,7 @@ git remote add upstream https://github.com/livepeer/docs.git
 </Step>
 
 <Step title="Create a branch from docs-v2">
-```bash
+```bash icon="terminal"
 git checkout docs-v2
 git pull upstream docs-v2
 git checkout -b docs-plan/your-short-description
@@ -175,11 +176,11 @@ Key rules:
 
 <Step title="Run pre-commit checks">
 The repository has pre-commit hooks that check structure, style, links, spelling, and MDX validity. Run them before pushing:
-```bash
+```bash icon="terminal"
 ./lpd hooks run
 ```
 Or run the full test suite:
-```bash
+```bash icon="terminal"
 node tests/run-pr-checks.js --base-ref docs-v2
 ```
 </Step>
@@ -199,7 +200,7 @@ Documentation changes are reviewed by section owners defined in [`.github/CODEOW
 - **Orchestrators section** — orchestrator team
 - **Resources / cross-cutting** — documentation team
 
----
+<CustomDivider />
 
 ## Contributing to Governance
 
@@ -225,7 +226,7 @@ If you have a protocol improvement idea, draft it on the Forum under the Governa
 
 </Steps>
 
----
+<CustomDivider />
 
 ## Grants and Bounties
 
@@ -247,19 +248,19 @@ If you want to contribute more substantially and receive compensation:
 Grant applications are reviewed bi-weekly by the Livepeer Grants committee. To discuss a potential grant application before submitting, ping the grants team in the `#governance` Discord channel.
 </Note>
 
----
+<CustomDivider />
 
 ## Community Contribution Principles
 
 These apply across all Livepeer repositories and contribution types:
 
-- **Read before you build** — check existing issues and discussions before starting significant work
+- **Read before you build** — check existing issues and discussions before starting major work
 - **Keep PRs focused** — one logical change per pull request
 - **Write readable commit messages** — use Conventional Commits format
-- **Be constructive in reviews** — if a contribution does not fit, explain why and offer suggestions for improvement
+- **Be constructive in reviews.** If a contribution does not fit, explain why and offer suggestions for improvement
 - **Link to relevant documentation** — when closing issues or declining PRs, link to existing resources where possible
 
----
+<CustomDivider />
 
 <Tip>
 Not sure where to start? Search for issues labelled `good first issue` or `help wanted` across the [Livepeer GitHub organisation](https://github.com/livepeer). These are specifically tagged as appropriate entry points for new contributors.

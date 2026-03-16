@@ -45,7 +45,6 @@ import { BorderedBox } from "/snippets/components/layout/containers.jsx"
 ## Payments Guide
 After initial gateway setup, the next step is configuring how the gateway pays Orchestrators for compute. The right payment path depends on the gateway's operational mode and node type.
 
-
 <AccordionGroup>
   <Accordion title={<span><Badge color="purple">AI</Badge> Off-chain AI gateway</span>} icon="cloud">
     The gateway holds no ETH and no Ethereum key. Payments are handled by a connected remote signer or clearinghouse. For testing, use the community signer at `signer.eliteencoder.net`. Once a public clearinghouse reaches GA, this becomes a pure API key sign-up.
@@ -132,11 +131,8 @@ The gateway's operational mode determines whether the gateway process itself han
     <TableCell>Supported (Live AI via remote signer)</TableCell>
   </TableRow>
 </StyledTable>
-
-{/* REVIEW: Confirm that off-chain AI gateways truly have zero payment obligation in the gateway process. The design doc implies gateways operating entirely off-chain still use PM tickets via remote signer. Clarify whether "off-chain" means "no Ethereum integration in the gateway process" or "no payments at all". j0sh to verify. */}
-
 <Note>
-  **Off-chain does not mean free.** Off-chain gateways still pay Orchestrators via PM tickets - the signing and ETH custody are handled by a remote signer or clearinghouse rather than the gateway process itself.
+ **Off-chain does not mean free.** Off-chain gateways still pay Orchestrators via PM tickets - the signing and ETH custody are handled by a remote signer or clearinghouse instead of the gateway process itself.
 </Note>
 
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
