@@ -1,14 +1,14 @@
 ---
-title: Real-time AI Setup
-sidebarTitle: Real-time AI Setup
+title: Cascade Setup
+sidebarTitle: Cascade Setup
 description: >-
   Deploy the live-video-to-video pipeline on a Livepeer orchestrator — Cascade
-  architecture, ComfyStream setup, real-time frame processing, WebRTC streaming,
+  architecture, ComfyStream setup, live-video frame processing, WebRTC streaming,
   hardware requirements, and custom pipeline development.
 keywords:
   - livepeer
   - orchestrator
-  - realtime ai
+  - live-video ai
   - cascade
   - live-video-to-video
   - comfystream
@@ -28,48 +28,26 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
-{/* TODO:
-Terminology Validation:
-- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
-- Voice converted to entity-led
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
-Verify:
-- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
-- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
-- Tables use StyledTable component
-- Tabs should be surrounded by BorderedBox variant="accent"
-- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
-- All tabs and accordions should have icons
-- No em-dashes are used (instead use standard -)
-- UK spelling is used
-- Headers are concise and technical
-- CustomDivider is used
-- Placeholders for Media and Video Resources are in comments with a TODO for a human
-- REVIEW flags are in JSX comments for a human
-- Accuracy is verified across repo as much as possible
-Human:
-- REVIEW flags
-- Review Page Layout
-*/}
+{/* Draft note: keep copy direct, UK spelling, and route unresolved factual checks to JSX comments only. */}
 
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
-Real-time AI inference is fundamentally different from batch inference. Instead of processing a discrete request and returning a result, your node continuously transforms live video — receiving frames from a WebRTC stream, running inference on each frame, and streaming processed frames back with sub-100ms latency.
+Cascade inference is fundamentally different from batch inference. Instead of processing a discrete request and returning a result, your node continuously transforms live video — receiving frames from a WebRTC stream, running inference on each frame, and streaming processed frames back with sub-100ms latency.
 
-This is the **Cascade** architecture: the `live-video-to-video` pipeline that powers live AI video effects, real-time style transfer, and streaming AI agents on the Livepeer network.
+This is the **Cascade** architecture: the `live-video-to-video` pipeline that powers live AI video effects, live style transfer, and streaming AI agents on the Livepeer network.
 
 <CustomDivider />
 
 ## What Cascade is
 
-Cascade is Livepeer's real-time AI video processing pipeline. The name refers to the architecture — video streams cascade through AI transformation nodes in the network, enabling live applications that were previously impossible without centralised infrastructure.
+Cascade is Livepeer's live-video AI processing pipeline. The name refers to the architecture — video streams cascade through AI transformation nodes in the network, enabling live applications that previously required centralised infrastructure.
 
-Real-world applications running on Cascade:
+Example applications on Cascade:
 
-- **Daydream** — generative AI video platform with real-time style application
-- **StreamDiffusionTD** — real-time diffusion via TouchDesigner
+- **Daydream** — generative AI video platform with live style application
+- **StreamDiffusionTD** — live diffusion via TouchDesigner
 - **ComfyStream** — browser-based ComfyUI pipelines with live video input
 - **OBS plugins** — live AI effects applied to streaming content
 
@@ -83,7 +61,7 @@ Real-world applications running on Cascade:
   <TableRow header>
     <TableCell header></TableCell>
     <TableCell header>Batch AI</TableCell>
-    <TableCell header>Real-time AI (Cascade)</TableCell>
+    <TableCell header>Cascade live-video AI</TableCell>
   </TableRow>
   <TableRow>
     <TableCell>**Input**</TableCell>
@@ -133,7 +111,7 @@ The key difference is the **continuous frame loop**. Your pipeline receives fram
 
 ## Prerequisites
 
-Real-time AI has stricter hardware requirements than batch:
+Cascade has stricter hardware requirements than batch inference:
 
 - **GPU:** RTX 4090 (24 GB) strongly recommended. RTX 3090 (24 GB) is functional but with less headroom. A100/H100 for production multi-stream setups.
 - **CPU:** 8+ cores recommended. Frame decoding/encoding is CPU-bound.
@@ -143,14 +121,14 @@ Real-time AI has stricter hardware requirements than batch:
 - **go-livepeer** running with `-aiWorker` enabled
 
 <Warning>
-  GPUs below 24 GB VRAM (e.g. RTX 3080 10 GB, RTX 3060 12 GB) are typically insufficient for real-time AI inference at acceptable quality and frame rates. The combination of model weights, StreamDiffusion/ComfyUI overhead, and frame buffers exhausts available VRAM.
+  GPUs below 24 GB VRAM (e.g. RTX 3080 10 GB, RTX 3060 12 GB) are typically insufficient for Cascade inference at acceptable quality and frame rates. The combination of model weights, StreamDiffusion/ComfyUI overhead, and frame buffers exhausts available VRAM.
 </Warning>
 
 <CustomDivider />
 
 ## Architecture overview
 
-``` icon="terminal"
+``` icon="terminal" title="Cascade architecture overview"
 Live video source (OBS, browser, camera)
          ↓
     WebRTC ingest
@@ -173,9 +151,9 @@ The orchestrator receives the WebRTC stream, passes it to the AI runner containe
 
 <CustomDivider />
 
-## ComfyStream — the real-time pipeline runtime
+## ComfyStream — the live-video pipeline runtime
 
-[ComfyStream](https://github.com/livepeer/comfystream) is the primary runtime for real-time AI inference on Livepeer. It wraps ComfyUI's node-based workflow system and adapts it for continuous frame processing.
+[ComfyStream](https://github.com/livepeer/comfystream) is the primary runtime for live-video AI inference on Livepeer. It wraps ComfyUI's node-based workflow system and adapts it for continuous frame processing.
 
 **What ComfyStream adds over standard ComfyUI:**
 - WebRTC frame ingestion and emission
@@ -184,15 +162,15 @@ The orchestrator receives the WebRTC stream, passes it to the AI runner containe
 - Livepeer AI worker integration via the `Pipeline` interface
 
 **Compatible model types:**
-- StreamDiffusion (optimised for real-time diffusion at 30+ fps)
+- StreamDiffusion (optimised for live diffusion at 30+ fps)
 - Standard SDXL / SD 1.5 (lower fps, higher quality)
 - ControlNet variants (depth, pose, sketch, canny)
 - IP-Adapter (style reference)
 - DepthAnything / MiDaS (depth estimation)
-- SAM2 (real-time segmentation)
+- SAM2 (live segmentation)
 - Any ComfyUI-compatible model loaded as a DAG node
 
-**Source:** [livepeer/comfystream on GitHub](https://github.com/livepeer/comfystream) · [ComfyUI-Stream-Pack](https://github.com/livepeer/ComfyUI-Stream-Pack) {/* REVIEW: Rick must confirm canonical node locations — ComfyUI-Stream-Pack README states no nodes have been added */}
+**Source:** [livepeer/comfystream on GitHub](https://github.com/livepeer/comfystream) · [ComfyUI-Stream-Pack](https://github.com/livepeer/ComfyUI-Stream-Pack)
 
 <CustomDivider />
 
@@ -201,7 +179,7 @@ The orchestrator receives the WebRTC stream, passes it to the AI runner containe
 <StyledSteps>
 
 <StyledStep title="Verify GPU and driver setup">
-```bash icon="terminal"
+```bash icon="terminal" title="Verify GPU access on host and in Docker"
 nvidia-smi
 # Should show your GPU and driver version
 
@@ -211,17 +189,16 @@ docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi
 </StyledStep>
 
 <StyledStep title="Pull the live-base AI runner image">
-```bash icon="terminal"
+```bash icon="terminal" title="Pull the live-base AI runner"
 docker pull livepeer/ai-runner:live-base
 ```
 
 The `live-base` tag is separate from the standard `livepeer/ai-runner` image used for batch pipelines. It includes ComfyStream and its dependencies.
 
-{/* REVIEW: Verify current image tag with Rick / go-livepeer Docker image map */}
 </StyledStep>
 
 <StyledStep title="Configure aiModels.json for the live pipeline">
-```json icon="terminal"
+```json icon="terminal" title="Minimal live-video-to-video aiModels.json entry"
 [
   {
     "pipeline": "live-video-to-video",
@@ -232,11 +209,9 @@ The `live-base` tag is separate from the standard `livepeer/ai-runner` image use
 ]
 ```
 
-`model_id` for real-time pipelines refers to the ComfyUI workflow or pipeline name, not a HuggingFace model ID in the traditional sense. The models themselves are loaded inside the ComfyStream container.
+`model_id` for live-video pipelines refers to the ComfyUI workflow or pipeline name, not a HuggingFace model ID in the traditional sense. The models themselves are loaded inside the ComfyStream container.
 
-{/* REVIEW: Confirm exact model_id format for live-video-to-video with Rick/j0sh — format may differ from batch pipelines */}
-
-**Pricing and gateway compatibility:** Your `price_per_unit` must be at or below the gateway's configured `-maxPricePerCapability` for `live-video-to-video`. This is a hard filter — gateways will not route jobs to your node if your price exceeds their cap, regardless of your hardware quality or latency.
+**Pricing and gateway compatibility:** Your `price_per_unit` must stay at or below the gateway's configured `-maxPricePerCapability` for `live-video-to-video`. This is a hard filter — gateways skip nodes priced above that cap, regardless of hardware quality or latency.
 
 For transcoding, the equivalent flag is `-maxPricePerUnit` on the gateway side. Before going live, verify that your transcoding price (set via `-pricePerUnit` or `livepeer_cli`) is below what major gateways have configured as their maximum. See [Gateway Pricing Configuration](/v2/gateways/setup/configure/pricing-configuration) for the full gateway pricing flag reference and the JSON structure used for AI capability pricing.
 </StyledStep>
@@ -244,7 +219,7 @@ For transcoding, the equivalent flag is `-maxPricePerUnit` on the gateway side. 
 <StyledStep title="Download the pipeline model weights">
 ComfyStream requires model weights to be present before the container starts. Download via the ComfyStream setup script:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Download ComfyStream model weights"
 git clone https://github.com/livepeer/comfystream
 cd comfystream
 pip install -r requirements.txt
@@ -257,7 +232,7 @@ Models are downloaded to the volume mounted by the AI runner container. Ensure t
 </StyledStep>
 
 <StyledStep title="Start go-livepeer with live AI flags">
-```bash icon="terminal"
+```bash icon="terminal" title="Start go-livepeer with live-video AI flags"
 docker run -d \
   --gpus all \
   --name livepeer-orchestrator \
@@ -275,18 +250,18 @@ docker run -d \
 <StyledStep title="Verify the pipeline is registered">
 Check [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities). Your orchestrator should appear under `live-video-to-video` with **Warm** status.
 
-You can also test the pipeline locally by sending a test WebRTC stream to your node. For setup scripts and test utilities, see the [ComfyStream repository](https://github.com/livepeer/comfystream).
+Test the pipeline locally by sending a test WebRTC stream to your node. For setup scripts and test utilities, see the [ComfyStream repository](https://github.com/livepeer/comfystream).
 </StyledStep>
 
 </StyledSteps>
 
 <CustomDivider />
 
-## StreamDiffusion — real-time diffusion models
+## StreamDiffusion — live-video diffusion models
 
-[StreamDiffusion](https://github.com/cumulo-autumn/StreamDiffusion) is the primary model architecture for real-time video AI on Livepeer. It was designed specifically for continuous frame processing and achieves 30+ fps on an RTX 4090.
+[StreamDiffusion](https://github.com/cumulo-autumn/StreamDiffusion) is the primary model architecture for live-video AI on Livepeer. It was designed specifically for continuous frame processing and achieves 30+ fps on an RTX 4090.
 
-**How StreamDiffusion achieves real-time performance:**
+**How StreamDiffusion achieves live performance:**
 
 1. **Stream Batch** — processes multiple frames simultaneously as a batch, amortising model overhead across frames
 2. **Residual CFG** — approximates classifier-free guidance with fewer forward passes
@@ -297,9 +272,9 @@ You can also test the pipeline locally by sending a test WebRTC stream to your n
 
 ### ComfyUI workflow for StreamDiffusion
 
-A typical ComfyStream workflow for real-time style application:
+A typical ComfyStream workflow for live style application:
 
-```json icon="terminal"
+```json icon="terminal" title="ComfyStream workflow example"
 {
   "nodes": [
     { "id": 1, "type": "LoadVideoInput", "outputs": ["frame"] },
@@ -314,19 +289,19 @@ A typical ComfyStream workflow for real-time style application:
 }
 ```
 
-Steps as low as `2` enable real-time performance. Quality vs latency is tunable through the workflow.
+Steps as low as `2` support live performance. Quality vs latency is tunable through the workflow.
 
 <CustomDivider />
 
 ## The Pipeline interface (custom pipelines)
 
-For operators who want to build custom real-time AI processing beyond ComfyUI, the AI runner exposes a Python `Pipeline` interface. Custom pipelines extend this interface and are packaged as Docker images extending `livepeer/ai-runner:live-base`.
+For operators who want to build custom live-video AI processing beyond ComfyUI, the AI runner exposes a Python `Pipeline` interface. Custom pipelines extend this interface and are packaged as Docker images extending `livepeer/ai-runner:live-base`.
 
-```python icon="terminal"
+```python icon="terminal" title="Custom live-video Pipeline interface example"
 from runner.live.pipelines import Pipeline
 from runner.live.trickle import VideoFrame, VideoOutput
 
-class MyRealtimePipeline(Pipeline):
+class MyLiveVideoPipeline(Pipeline):
     async def initialize(self, **params):
         # Load your model here
         # Use asyncio.to_thread() for blocking model load operations
@@ -358,12 +333,12 @@ class MyRealtimePipeline(Pipeline):
 
 ### Integration requirements for custom pipelines
 
-Custom real-time pipelines require two code changes in the upstream repositories:
+Custom live-video pipelines require two code changes in the upstream repositories:
 
 1. **`ai-worker/runner/dl_checkpoints.sh`** — add your pipeline to the model download script
 2. **`go-livepeer/ai/worker/docker.go`** — add your pipeline to the container image map (`livePipelineToImage`)
 
-These changes are required because the pipeline registry is not fully dynamic yet. See the full custom pipeline development guide in the [ai-runner.md](https://github.com/livepeer/ai-runner) documentation.
+These changes are required because the current pipeline registry still uses a static mapping. See the full custom pipeline development guide in the [ai-runner.md](https://github.com/livepeer/ai-runner) documentation.
 
 <Note>
   The Livepeer team is working toward a fully dynamic plugin architecture that eliminates these manual upstream changes. Track progress on the [ai-worker GitHub repository](https://github.com/livepeer/ai-worker).
@@ -371,11 +346,11 @@ These changes are required because the pipeline registry is not fully dynamic ye
 
 <CustomDivider />
 
-## Model types for real-time inference
+## Model types for live-video inference
 
 ### StreamDiffusion (primary)
 
-Best for: Continuous style application, generative video effects, real-time prompt-to-video
+Best for: Continuous style application, generative video effects, live prompt-to-video
 
 - `lcm-lora` variants for fastest inference
 - SD 1.5 base with Lightning LoRA
@@ -427,7 +402,7 @@ IP-Adapter conditions generation on a reference image, enabling consistent style
 
 ### Maximising fps
 
-Real-time AI performance is dominated by inference latency per frame. Key levers:
+Cascade performance is dominated by inference latency per frame. Key levers:
 
 **Model selection:** Use 1–2 step LCM or Lightning models instead of 20-step DDIM. The quality difference for streaming is acceptable; the latency difference is not.
 
@@ -435,7 +410,7 @@ Real-time AI performance is dominated by inference latency per frame. Key levers
 
 **TensorRT compilation:** For production deployments, compile the model to TensorRT engine format. One-time compilation overhead; 2–4× runtime speedup.
 
-```python icon="terminal"
+```python icon="terminal" title="TensorRT compilation example"
 # In your Pipeline.prepare_models():
 from torch2trt import torch2trt
 
@@ -443,11 +418,11 @@ model_trt = torch2trt(model, [example_input], fp16_mode=True)
 torch.save(model_trt.state_dict(), 'model_trt.pth')
 ```
 
-**Stochastic Similarity Filter:** Enable in StreamDiffusion to skip inference on static or slow-moving frames. Significant fps improvement with no visible quality loss for typical video content.
+**Stochastic Similarity Filter:** Enable in StreamDiffusion to skip inference on static or slow-moving frames. This usually lifts fps with no visible quality loss for typical video content.
 
 ### VRAM management
 
-Unlike batch AI, real-time pipelines hold models in VRAM continuously for the duration of the stream. VRAM must be reserved for:
+Unlike batch AI, live-video pipelines hold models in VRAM continuously for the duration of the stream. VRAM must be reserved for:
 
 - Model weights (~8–18 GB for SDXL-class)
 - Frame buffers (input + output, ~500 MB–1 GB per resolution)
@@ -460,24 +435,24 @@ On a 24 GB GPU, keep total loaded model + adapter weight below 20 GB to leave he
 
 ## Multi-stream capacity
 
-A single RTX 4090 can typically handle **1–2 concurrent real-time streams** depending on resolution and model complexity. For multi-stream capacity:
+A single RTX 4090 usually handles **1–2 concurrent live-video streams** depending on resolution and model complexity. For multi-stream capacity:
 
-- **Multiple GPUs:** The AI worker can dispatch streams across multiple physical GPUs
-- **Model parallelism:** Not natively supported in ComfyStream (single-GPU per stream)
+- **Multiple GPUs:** The AI worker dispatches streams across multiple physical GPUs
+- **Model parallelism:** ComfyStream uses one GPU per stream
 - **Scale-out:** Run multiple orchestrator instances, each handling 1–2 streams, behind a gateway load balancer
 
-Enterprise operators running 4090/A100 fleets can monetise real-time AI at scale by advertising higher `capacity` values and maintaining multiple warm pipeline instances.
+Enterprise operators running 4090/A100 fleets monetise live-video AI at scale by advertising higher `capacity` values and maintaining multiple warm pipeline instances.
 
 <CustomDivider />
 
-## Watch: Real-time AI and Cascade
+## Watch: Cascade and live-video AI
 
 <Frame>
   <iframe
     width="100%"
     height="400"
     src="https://www.youtube.com/embed/7a6kBrL0RYg"
-    title="ComfyStream — Real-time AI Video with Livepeer"
+    title="ComfyStream - Live Video AI with Livepeer"
     frameBorder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowFullScreen
@@ -486,18 +461,18 @@ Enterprise operators running 4090/A100 fleets can monetise real-time AI at scale
 
 <CardGroup cols={2}>
   <Card
-    title="Encode Club Real-Time Video AI Bootcamp"
+    title="Encode Club Live Video AI Bootcamp"
     icon="graduation-cap"
     href="https://www.youtube.com/watch?v=UKWdvJBqrNw"
   >
-    Full Q1 2025 bootcamp session. Covers ComfyStream, Cascade architecture, and orchestrator setup for real-time inference.
+    Full Q1 2025 bootcamp session. Covers ComfyStream, Cascade architecture, and orchestrator setup for live-video inference.
   </Card>
   <Card
     title="StreamDiffusion Demo"
     icon="play"
     href="https://github.com/cumulo-autumn/StreamDiffusion"
   >
-    StreamDiffusion GitHub repository includes benchmark videos showing 30+ fps real-time style transfer.
+    StreamDiffusion GitHub repository includes benchmark videos showing 30+ fps live style transfer.
   </Card>
 </CardGroup>
 
@@ -514,7 +489,7 @@ Enterprise operators running 4090/A100 fleets can monetise real-time AI at scale
 4. **Network jitter** — WebRTC is sensitive to packet loss; check your upstream network quality
 </Accordion>
 
-<Accordion  title="Pipeline not receiving real-time jobs" icon="microchip">
+<Accordion  title="Restore live-video job flow" icon="microchip">
 1. Confirm `live-video-to-video` appears on [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities) under your orchestrator
 2. Verify the `live-base` container is running and healthy: `docker ps --filter name=livepeer-ai-runner-live`
 3. Check that your orchestrator's `serviceAddr` is reachable from gateways — WebRTC ICE negotiation requires bidirectional reachability
@@ -525,13 +500,13 @@ Enterprise operators running 4090/A100 fleets can monetise real-time AI at scale
 1. Check model weights are present at the expected path (`-aiModelsDir` location)
 2. Check CUDA/driver compatibility — ComfyStream requires CUDA 12.0+
 3. Run the container manually to see startup output:
-```bash icon="terminal"
+```bash icon="terminal" title="Check CUDA access inside the live-base container"
 docker run --gpus all --rm livepeer/ai-runner:live-base python -c "import torch; print(torch.cuda.is_available())"
 ```
 This confirms CUDA is accessible inside the container.
 </Accordion>
 
-<Accordion  title="Custom pipeline not receiving jobs after registration" icon="triangle-exclamation">
+<Accordion  title="Custom pipeline registration issues" icon="triangle-exclamation">
 1. Verify `livePipelineToImage` in `go-livepeer/ai/worker/docker.go` includes your pipeline name
 2. Confirm `dl_checkpoints.sh` in `ai-runner` includes your pipeline's model preparation step
 3. The `model_id` in `aiModels.json` must match the `name` field in your `PipelineSpec` exactly
@@ -555,11 +530,16 @@ This confirms CUDA is accessible inside the container.
     Source repository for ComfyStream, including setup scripts, example workflows, and community contributions.
   </Card>
   <Card title="AI Workloads Overview" icon="diagram-project" href="/v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations">
-    Batch vs real-time, pipeline types, and network routing.
+    Batch vs live-video AI, pipeline types, and network routing.
   </Card>
 </CardGroup>
 
 {/*
+  REVIEW:
+  - Confirm canonical ComfyStream node locations.
+  - Confirm the current `live-base` image tag in the go-livepeer Docker image map.
+  - Confirm the exact `model_id` format for `live-video-to-video`.
+
   PURPOSE:
   "How do I run live video-to-video AI?" Fundamentally different from batch:
   continuous frame-by-frame transformation of live video streams, not
@@ -568,12 +548,12 @@ This confirms CUDA is accessible inside the container.
   requirements (&lt;100ms per frame). Testing with live streams. Highest-value
   compute on the network per GPU-second.
 
-  PLAN TARGET: realtime-ai-setup (keep)
+  PLAN TARGET: cascade-setup (keep path)
   SECTION: Workloads & AI → "What jobs do I run?"
-  JOB STORIES: J2 (realtime AI workload)
+  JOB STORIES: J2 (live-video AI workload)
 
   CROSS-REFS:
   - Workloads & AI > AI Inference Operations - AI architecture concepts
-  - Config & Optimisation > Capacity Planning - realtime VRAM requirements
-  - Tutorials > Realtime AI Tutorial - end-to-end walkthrough
+  - Config & Optimisation > Capacity Planning - live-video VRAM requirements
+  - Tutorials > Live Video AI Tutorial - end-to-end walkthrough
 */}

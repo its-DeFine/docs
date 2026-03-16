@@ -6,7 +6,8 @@ description: 'Welcome To The Orchestrator Portal: Explore, Earn, Operate'
 pageType: landing
 audience: orchestrator
 purpose: landing
-status: review
+status: current
+lastVerified: '2026-03-16'
 keywords:
   - home
   - index
@@ -77,7 +78,7 @@ Get Situated  */}
 
         <PortalHeroContent
           title="GPUs for AI Video"
-          subtitle="Run – Provide – Earn"
+          subtitle="Run - Provide - Earn"
           callout={<Tip>In the Livepeer network, GPU nodes are known as Orchestrators.</Tip>}
           refCardLink={
               <Card
@@ -90,7 +91,7 @@ Get Situated  */}
             }
           overview={
             <>
-              Orchestrators are the GPU compute nodes that power the Livepeer network. They provide the GPU horsepower and services to run AI pipelines & real-time video workloads.
+              Orchestrators are the GPU compute nodes that power the Livepeer network. They provide the GPU horsepower and services to run AI pipelines and live video workloads.
                 <br />
                 <br />
               Anyone can add a GPU to the Livepeer network and earn from idle GPU downtimes - either by adding it to a pool or setting up their own orchestrator container.
@@ -119,47 +120,52 @@ Get Situated  */}
 
     <Columns cols={2}>
       <Card
-        title="Just Exploring? Start here"
-        icon="comment-question"
-        href="/v2/orchestrators/concepts/role"
+        title="Find Your Path"
+        icon="compass"
+        href="/v2/orchestrators/navigator"
         arrow
       >
-
-Learn about Livepeer Orchestrators (GPU Nodes), their role, economics and the functions they perform in the Livepeer network.
-
+Choose the right starting point based on your situation - whether evaluating, joining a pool, running solo, or scaling commercially.
 </Card>
 <Card
-        title="Run an Orchestrator"
-        icon="rocket"
+        title="Quickstart: Verify Your Hardware"
+        icon="bolt"
+        href="/v2/orchestrators/quickstart/guide"
+        arrow
+      >
+Test video transcoding and AI inference on your GPU in under an hour. Off-chain, no staking required.
+</Card>
+<Card
+        title="Full Setup Guide"
+        icon="gear"
         href="/v2/orchestrators/setup/guide"
         arrow
       >
-Whether you want to add a single GPU to the network for passive income in idle times, or you want to run a full-fledged business in your data-center, this is the place to start.
-<Badge color="green" icon="wand-magic-sparkles">
-Developer Level Up
-</Badge>
-</Card>
-<Card title="Advanced Orchestrator Information" icon="circle-play" href="/v2/orchestrators/guides/staking-and-rewards/earning-model" arrow>
-Find out how to set pricing, become a delegator, vote in governance, earn rewards, and run AI pipelines.
+Install, configure, connect to Arbitrum, and verify. Covers video, AI, and dual mode.
 </Card>
 <Card
-        title="Running AI Pipelines on your Orchestrator"
-        icon="tools"
-        href="/v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations"
+        title="Is It Worth It?"
+        icon="scale-balanced"
+        href="/v2/orchestrators/guides/operator-considerations/operator-rationale"
         arrow
       >
-Learn how to run AI pipelines on your orchestrator, add models, set pricing, and more.
+Costs, revenue streams, break-even analysis, and a decision matrix by deployment path.
 </Card>
 <Card
-        title="Orchestrator Tools & Guides"
-        icon="wrench"
-        href="/v2/orchestrators/resources/x-guides"
+        title="AI and Workloads"
+        icon="microchip"
+        href="/v2/orchestrators/guides/ai-and-job-workloads/workload-options"
         arrow
       >
-Find Orchestrator tools, dashboards, guides, and community tutorials.
+Video transcoding, AI diffusion, LLM, live AI, audio - what to run and what earns.
 </Card>
-<Card title="Orchestrator References" icon="book" href="/v2/orchestrators/resources/faq" arrow>
-FAQ, CLI flags, and technical references.
+<Card
+        title="Earning and Staking"
+        icon="coins"
+        href="/v2/orchestrators/guides/staking-and-rewards/earning-model"
+        arrow
+      >
+Service fees, inflation rewards, delegation, reward calling, and governance participation.
 </Card>
 </Columns>
 

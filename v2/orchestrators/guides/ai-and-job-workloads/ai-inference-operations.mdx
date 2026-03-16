@@ -3,14 +3,14 @@ title: AI Inference Operations
 sidebarTitle: AI Inference
 description: >-
   How AI inference works on the Livepeer network — pipeline types, the batch vs
-  real-time distinction, hardware requirements, and how jobs flow from application
+  live-video distinction, hardware requirements, and how jobs flow from application
   to your GPU node.
 keywords:
   - livepeer
   - orchestrator
   - ai workloads
   - batch ai
-  - realtime ai
+  - live-video ai
   - cascade
   - live-video-to-video
   - ai pipelines
@@ -27,47 +27,25 @@ purpose: concept
 status: published
 lastVerified: 2026-03-13
 ---
-{/* TODO:
-Terminology Validation:
-- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
-- Voice converted to entity-led
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
-Verify:
-- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
-- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
-- Tables use StyledTable component
-- Tabs should be surrounded by BorderedBox variant="accent"
-- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
-- All tabs and accordions should have icons
-- No em-dashes are used (instead use standard -)
-- UK spelling is used
-- Headers are concise and technical
-- CustomDivider is used
-- Placeholders for Media and Video Resources are in comments with a TODO for a human
-- REVIEW flags are in JSX comments for a human
-- Accuracy is verified across repo as much as possible
-Human:
-- REVIEW flags
-- Review Page Layout
-*/}
+{/* Draft note: keep copy direct, UK spelling, and route unresolved factual checks to JSX comments only. */}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { BorderedBox } from '/snippets/components/layout/containers.jsx'
 
-Livepeer's AI subnet launched in Q3 2024 and has grown to become the primary source of new fee revenue for orchestrators. It turns GPU nodes into open, composable inference infrastructure — serving everything from image generation to real-time video effects to large language model completions.
+Livepeer's AI subnet launched in Q3 2024 and has grown into a major source of new fee revenue for orchestrators. It turns GPU nodes into open, composable inference infrastructure that serves image generation, live-video effects, and large language model completions.
 
-This page explains the fundamentals: what AI workloads are, how they reach your node, the key distinction between batch and real-time inference, and what hardware you need to participate.
+AI workloads reach your node through gateway routing, capability advertisement, and container-based inference. The core operator distinction is between batch inference and live-video inference because the hardware profile and routing logic differ.
 
 <BorderedBox variant="accent">
   <AccordionGroup>
     <Accordion title="Already running video?" icon="clapperboard">
-      AI pipelines sit beside an existing video orchestrator rather than replacing it. The usual delta is:
+      AI pipelines sit beside an existing video orchestrator. The usual delta is:
 
       - keep the existing go-livepeer service and video pricing flags
       - add the AI worker and `aiModels.json`
       - budget VRAM for the models you want warm
-      - expose only the pipelines you can actually keep healthy under load
+      - expose only the pipelines you keep healthy under load
 
       See [Dual Mode Configuration](/v2/orchestrators/guides/deployment-details/dual-mode-configuration) for the exact operational delta and [Diffusion Pipeline Setup](/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup) for the first AI worker path.
     </Accordion>
@@ -75,7 +53,7 @@ This page explains the fundamentals: what AI workloads are, how they reach your 
 </BorderedBox>
 
 <Note>
-  **Low-LPT entry path:** AI inference can be a better starting point than solo video orchestration when stake is limited. Capability, pricing, and latency matter more than active-set position for many AI jobs.
+  **Low-LPT entry path:** AI inference is often a better starting point than solo video orchestration when stake is limited. Capability, pricing, and latency matter more than active-set position for many AI jobs.
 </Note>
 
 <CustomDivider />
@@ -132,7 +110,7 @@ Gateways discover orchestrators through the `OrchestratorInfo` structure, which 
   </TableRow>
 </StyledTable>
 
-**The price filter is a hard gate.** Gateways configure a maximum price they will pay per capability using the `-maxPricePerCapability` JSON flag. If your advertised price for a pipeline exceeds the gateway's maximum, you will not receive jobs from that gateway for that pipeline, regardless of how capable your hardware is.
+**Gateway pricing is a hard gate.** Gateways configure a maximum price they will pay per capability using the `-maxPricePerCapability` JSON flag. A pipeline priced above that maximum receives no jobs from that gateway, regardless of hardware quality.
 
 Before setting prices in `aiModels.json`, check what prices the major gateways are using. See [Models and VRAM Reference](/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference) for a pricing reference table and [Gateway Orchestrator Offerings](/v2/gateways/resources/technical/orchestrator-offerings) for the full capability discovery protocol documentation.
 
@@ -142,13 +120,13 @@ For the complete list of supported pipelines and their model architectures, see 
 
 ## The two workload types
 
-The most important distinction for operators is between **batch AI** and **real-time AI**. These are different job types with different hardware profiles, different runtime architectures, and different operational characteristics.
+The most important distinction for operators is between **batch AI** and **live-video AI**. These are different job types with different hardware profiles, different runtime architectures, and different operational characteristics.
 
 <CardGroup cols={2}>
   <Card title="Batch AI" icon="layer-group" href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup">
     Request-response inference. An application sends a prompt or media file, your node processes it and returns the result. Includes text-to-image, audio-to-text, image-to-video, LLM completions, and more.
   </Card>
-  <Card title="Real-time AI (Cascade)" icon="video" href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup">
+  <Card title="Cascade live-video AI" icon="video" href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup">
     Continuous frame-by-frame video transformation. Live video streams in, processed video streams out with sub-100ms latency. Used for live AI effects, generative video overlays, and streaming AI agents.
   </Card>
 </CardGroup>
@@ -159,7 +137,7 @@ The most important distinction for operators is between **batch AI** and **real-
   <TableRow header>
     <TableCell header></TableCell>
     <TableCell header>Batch AI</TableCell>
-    <TableCell header>Real-time AI</TableCell>
+    <TableCell header>Live-video AI</TableCell>
   </TableRow>
   <TableRow>
     <TableCell>**Latency target**</TableCell>
@@ -294,15 +272,15 @@ The LLM pipeline uses a separate runner architecture from the standard `livepeer
 **Source:** [Cloud SPE Ollama runner blog post](https://www.livepeer.cloud/self-hosting-livepeers-llm-pipeline-deploying-an-ollama-based-gpu-runner-for-ai-orchestrators/)
 </Accordion>
 
-<Accordion  title="live-video-to-video — Real-time streaming AI (Cascade)" icon="microchip">
-Continuous frame-by-frame transformation of live video streams. This is the real-time pipeline — input is a WebRTC stream, output is a transformed WebRTC stream with sub-100ms per-frame latency.
+<Accordion  title="live-video-to-video — Cascade streaming AI" icon="microchip">
+Continuous frame-by-frame transformation of live video streams. This pipeline takes a WebRTC stream as input and returns a transformed WebRTC stream with sub-100ms per-frame latency.
 
 **Minimum VRAM:** 24 GB recommended
 **Pricing unit:** Per frame
 **Runtime:** `livepeer/ai-runner:live-base` + ComfyStream
 **Typical hardware:** RTX 4090, A100, H100
 
-This pipeline powers the **Cascade** architecture — Livepeer's real-time AI video processing system. It enables use cases like live AI video effects, real-time style transfer, and streaming AI agents.
+This pipeline powers the **Cascade** architecture — Livepeer's live-video AI system. It supports live AI effects, live style transfer, and streaming AI agents.
 
 **Source:** [ComfyStream on GitHub](https://github.com/livepeer/comfystream)
 </Accordion>
@@ -376,7 +354,7 @@ This pipeline powers the **Cascade** architecture — Livepeer's real-time AI vi
     <TableCell>`live-video-to-video`</TableCell>
     <TableCell>24 GB</TableCell>
     <TableCell>RTX 4090, A100</TableCell>
-    <TableCell>Real-time latency requirement</TableCell>
+    <TableCell>Live-video latency requirement</TableCell>
   </TableRow>
 </StyledTable>
 
@@ -384,7 +362,7 @@ For detailed VRAM planning, warm model strategy, and multi-pipeline configuratio
 
 <CustomDivider />
 
-## What you do and don't need to build
+## What you build and what the network supplies
 
 The Livepeer protocol handles the hard parts of running an inference marketplace. As an orchestrator:
 
@@ -394,7 +372,7 @@ The Livepeer protocol handles the hard parts of running an inference marketplace
 - Keep your primary models warm and your node performant
 - Stay competitive on latency and pricing
 
-**You do not need to:**
+**The network already supplies:**
 - Build a marketplace or API
 - Implement authentication or billing
 - Handle service discovery
@@ -411,7 +389,7 @@ To verify your pipelines are visible to the network and check live capability co
 - **Network capabilities:** [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities)
 - **Orchestrator performance:** [explorer.livepeer.org](https://explorer.livepeer.org)
 
-The network capabilities tool shows all registered orchestrators and their advertised pipelines in real time. Before your orchestrator can receive AI jobs, it must appear here under at least one pipeline.
+The network capabilities tool shows all registered orchestrators and their advertised pipelines currently visible on the network. Before your orchestrator receives AI jobs, it must appear there under at least one pipeline.
 
 <CustomDivider />
 
@@ -422,7 +400,7 @@ The network capabilities tool shows all registered orchestrators and their adver
     width="100%"
     height="400"
     src="https://www.youtube.com/embed/UKWdvJBqrNw"
-    title="Real-Time Video AI on Livepeer — Encode Club Bootcamp"
+  title="Live Video AI on Livepeer - Encode Club Bootcamp"
     frameBorder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowFullScreen
@@ -431,18 +409,18 @@ The network capabilities tool shows all registered orchestrators and their adver
 
 <CardGroup cols={2}>
   <Card
-    title="Encode Club Real-Time Video AI Bootcamp"
+    title="Encode Club Live Video AI Bootcamp"
     icon="graduation-cap"
     href="https://www.youtube.com/watch?v=UKWdvJBqrNw"
   >
-    Full session from the Q1 2025 bootcamp covering ComfyStream, live AI video pipelines, and orchestrator setup for real-time AI.
+    Full session from the Q1 2025 bootcamp covering ComfyStream, live AI video pipelines, and orchestrator setup for Cascade workloads.
   </Card>
   <Card
     title="ComfyStream Demo"
     icon="play"
     href="https://www.youtube.com/watch?v=7a6kBrL0RYg"
   >
-    Live demonstration of ComfyStream running real-time AI video effects via a Livepeer orchestrator node.
+    Live demonstration of ComfyStream running live-video AI effects through a Livepeer orchestrator.
   </Card>
 </CardGroup>
 
@@ -454,8 +432,8 @@ The network capabilities tool shows all registered orchestrators and their adver
   <Card title="Batch AI Setup" icon="gears" href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup">
     Configure pipelines, aiModels.json, the Ollama LLM runner, and BYOC external containers.
   </Card>
-  <Card title="Real-time AI Setup" icon="bolt" href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup">
-    Deploy the live-video-to-video pipeline with ComfyStream for real-time AI effects.
+  <Card title="Cascade Setup" icon="bolt" href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup">
+    Deploy the live-video-to-video pipeline with ComfyStream for live-video AI effects.
   </Card>
   <Card title="Model Hosting and VRAM" icon="microchip" href="/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference">
     VRAM planning, warm model strategy, pricing, and aiModels.json reference.

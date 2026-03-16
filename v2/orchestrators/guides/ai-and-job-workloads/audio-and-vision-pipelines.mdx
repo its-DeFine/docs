@@ -92,7 +92,7 @@ Each pipeline has a different VRAM footprint and a different pricing unit. The e
 
 **VRAM:** ~3 GB warm  
 **Pricing unit:** Per millisecond of audio input  
-**Competitive note:** Whisper is VRAM-efficient. A 12 GB or 24 GB card can hold Whisper warm alongside a diffusion model warm on a separate GPU.
+**Competitive note:** Whisper is VRAM-efficient. A 12 GB or 24 GB card supports a warm Whisper deployment alongside a diffusion model when those workloads are split across available GPU headroom.
 
 ### aiModels.json entry
 
@@ -108,20 +108,18 @@ Each pipeline has a different VRAM footprint and a different pricing unit. The e
 
 `price_per_unit` here is in wei per millisecond of audio. `12882811` wei is approximately $0.0000014 per second of audio at late-2025 ETH/USD rates.
 
-{/* REVIEW: Verify the per-millisecond pricing unit for audio-to-text is correctly implemented in go-livepeer — confirm it is milliseconds and not another audio time unit. j0sh to verify. */}
-
 ### Testing
 
 After restarting the AI worker, check container health:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Check audio-to-text containers and logs"
 docker ps --filter name=livepeer-ai-runner
 docker logs <audio-to-text-container> --tail 50
 ```
 
 Verify registration:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Verify audio-to-text registration"
 # Your address should appear under audio-to-text at tools.livepeer.cloud
 ```
 
@@ -136,8 +134,6 @@ Verify registration:
 **VRAM:** Varies by model  
 **Pricing unit:** Per character, or per millisecond of output audio (model-dependent)  
 **Model:** `suno/bark` is the documented baseline model for this pipeline.
-
-{/* REVIEW: Confirm current network-preferred TTS model and whether the pricing unit is per character or per ms — the source docs show "per character or per ms of output audio" which suggests it varies. j0sh to clarify the actual go-livepeer implementation. */}
 
 ### aiModels.json entry
 
@@ -163,7 +159,7 @@ After startup, verify the container is running and the pipeline appears register
 
 **VRAM:** ~1–2 GB (BLIP large)  
 **Pricing unit:** Per input pixel  
-**Entry point:** Runs on 4 GB GPUs. An operator with a GPU below the diffusion threshold (24 GB) can contribute via `image-to-text` and `audio-to-text`.
+**Entry point:** Runs on 4 GB GPUs. Operators below the 24 GB diffusion threshold still participate through `image-to-text` and `audio-to-text`.
 
 ### aiModels.json entry
 
@@ -180,8 +176,8 @@ After startup, verify the container is running and the pipeline appears register
 
 ### Testing
 
-```bash icon="terminal"
-docker logs <image-to-text-container> --tail 30
+```bash icon="terminal" title="Inspect image-to-text container logs"
+docker logs image-to-text-container --tail 30
 ```
 
 Check [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities) for registration status.
@@ -206,15 +202,13 @@ Check [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.clou
 }
 ```
 
-`segment-anything-2` can be left cold (no `"warm": true`) unless demand justifies the VRAM cost. The model loads on first request.
-
-{/* REVIEW: Confirm SAM2 model_id format — source shows "facebook/sam2-hiera-large" but the original Meta repository uses "facebookresearch/segment-anything-2". Verify the correct HuggingFace path. Rick / ai-runner team to confirm. */}
+`segment-anything-2` usually stays cold until demand justifies the VRAM cost. The model then loads on the first request.
 
 ### Testing
 
 After the AI worker starts, verify the pipeline container is running:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Check segment-anything-2 containers"
 docker ps --filter name=livepeer-ai-runner
 ```
 
@@ -224,7 +218,7 @@ Check registration at [tools.livepeer.cloud/ai/network-capabilities](https://too
 
 ## Running multiple pipelines
 
-Audio and vision pipelines can run alongside diffusion pipelines on the same node. Example configuration for a 24 GB card with diffusion warm and Whisper also warm:
+Audio and vision pipelines run alongside diffusion pipelines on the same node when the VRAM budget supports them. Example configuration for a 24 GB card with diffusion warm and Whisper also warm:
 
 ```json icon="code" title="Multi-pipeline aiModels.json"
 [
@@ -252,14 +246,20 @@ Audio and vision pipelines can run alongside diffusion pipelines on the same nod
 In this configuration, `text-to-image` and `audio-to-text` are warm (both fit within 24 GB across their respective VRAM budgets). `image-to-text` is cold and loads on first request.
 
 <Warning>
-  During the Beta phase, only one warm model per GPU is supported. If `text-to-image` and `audio-to-text` are on the same physical GPU, only one can be warm. Assign them to separate GPUs, or keep one cold. Check logs for `Error loading warm model` at startup.
+  During the Beta phase, only one warm model per GPU is supported. A single physical GPU therefore keeps either `text-to-image` or `audio-to-text` warm. Split them across separate GPUs, or keep one cold. Check logs for `Error loading warm model` at startup.
 </Warning>
-
-{/* REVIEW: Confirm whether the one-warm-model-per-GPU Beta constraint applies per-GPU or per-container. If audio-to-text runs in its own container on its own GPU, this constraint may not apply cross-pipeline. Rick / ai-runner team to clarify. */}
 
 <CustomDivider />
 
 ## Related pages
+
+{/*
+  REVIEW:
+  - Verify the audio-to-text pricing unit implementation.
+  - Confirm the preferred text-to-speech model and its pricing unit.
+  - Confirm the SAM2 HuggingFace model ID format.
+  - Confirm whether the one-warm-model-per-GPU constraint applies per GPU or per container.
+*/}
 
 <CardGroup cols={2}>
   <Card title="LLM Pipeline Setup" icon="message-bot" href="/v2/orchestrators/guides/ai-and-job-workloads/llm-pipeline-setup" arrow horizontal>

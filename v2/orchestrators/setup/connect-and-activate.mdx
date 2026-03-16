@@ -1,235 +1,284 @@
 ---
-title: Connecting to the Livepeer Network on Arbitrum
-sidebarTitle: Connect & Activate
-description: >-
-  Connect go-livepeer to the Arbitrum network using a hosted or self-hosted RPC
-  endpoint — required for staking, activation, and payments.
+title: 'Connect to Arbitrum'
+sidebarTitle: 'Connect'
+description: 'Connect the orchestrator to the Livepeer protocol on Arbitrum - fund the wallet, stake LPT, register the service URI, and activate on-chain.'
 keywords:
   - livepeer
   - orchestrator
   - Arbitrum
-  - RPC
-  - ethUrl
-  - Alchemy
-  - Infura
-  - Ethereum
-  - connection
-'og:image': /snippets/assets/site/og-image/fallback.png
-'og:image:alt': Livepeer Docs social preview image
+  - connect
+  - stake
+  - LPT
+  - activate
+  - service URI
+'og:image': /snippets/assets/site/og-image/en/orchestrators.png
+'og:image:alt': Livepeer Docs social preview image for Orchestrators
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
 pageType: how_to
 audience: orchestrator
 status: current
-lastVerified: '2026-03-15'
+lastVerified: '2026-03-16'
 ---
-{/* TODO:
-Terminology Validation:
-- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
-- Voice converted to entity-led
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
-Verify:
-- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
-- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
-- Tables use StyledTable component
-- Tabs should be surrounded by BorderedBox variant="accent"
-- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
-- All tabs and accordions should have icons
-- No em-dashes are used (instead use standard -)
-- UK spelling is used
-- Headers are concise and technical
-- CustomDivider is used
-- Placeholders for Media and Video Resources are in comments with a TODO for a human
-- REVIEW flags are in JSX comments for a human
-- Accuracy is verified across repo as much as possible
-Human:
-- REVIEW flags
-- Review Page Layout
-*/}
 
-import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+import { LinkArrow } from '/snippets/components/primitives/links.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 
-This guide shows you how to connect go-livepeer to the Arbitrum network using an RPC endpoint.
-
-<Note>
-Livepeer runs on **Arbitrum One**, an Ethereum Layer 2 network. Arbitrum handles the protocol's staking, payments, and governance contracts. Your orchestrator node needs a live connection to Arbitrum to activate, receive payments, and submit on-chain transactions. This connection is provided by an RPC endpoint — either from a hosted provider or a self-hosted node.
-</Note>
-
-## Prerequisites
-
-Before proceeding:
-
-- go-livepeer is installed and your GPU is verified (see [Install go-livepeer](/v2/orchestrators/setup/rs-install)) {/* REVIEW: confirm path */}
-- Your Ethereum account has a small amount of ETH on Arbitrum One for gas. Typical activation transactions cost fractions of a cent; a few dollars of arbETH is sufficient to get started. {/* REVIEW: check current gas costs with Mehrdad/community */}
-- You have an Arbitrum RPC endpoint (covered in Step 1 below)
-
-<CustomDivider />
-
-## Step 1 — Choose an RPC endpoint
-
-Your node needs a stable, low-latency connection to Arbitrum One. You have three options:
-
-<StyledTable variant="bordered">
-  <TableRow header>
-    <TableCell header>Option</TableCell>
-    <TableCell header>Best for</TableCell>
-    <TableCell header>Rate limits</TableCell>
-    <TableCell header>Sign-up</TableCell>
-  </TableRow>
-  <TableRow>
-    <TableCell>Alchemy (free tier)</TableCell>
-    <TableCell>Most operators</TableCell>
-    <TableCell>Generous — 300M compute units/month</TableCell>
-    <TableCell>Required</TableCell>
-  </TableRow>
-  <TableRow>
-    <TableCell>Infura (free tier)</TableCell>
-    <TableCell>Most operators</TableCell>
-    <TableCell>100K requests/day</TableCell>
-    <TableCell>Required</TableCell>
-  </TableRow>
-  <TableRow>
-    <TableCell>Public endpoint (`arb1.arbitrum.io/rpc`)</TableCell>
-    <TableCell>Testing only</TableCell>
-    <TableCell>Yes — may throttle under load</TableCell>
-    <TableCell>None</TableCell>
-  </TableRow>
-  <TableRow>
-    <TableCell>Self-hosted Arbitrum node</TableCell>
-    <TableCell>Advanced / privacy-focused</TableCell>
-    <TableCell>None</TableCell>
-    <TableCell>None</TableCell>
-  </TableRow>
-</StyledTable>
-
-For production orchestrator nodes, a hosted provider (Alchemy or Infura) is strongly recommended. Public endpoints have no uptime guarantees and will drop your sessions if they become unavailable.
-
-<Tabs>
-  <Tab  title="Alchemy" icon="square-terminal">
-    1. Create a free account at [alchemy.com](https://www.alchemy.com)
-    2. Create a new app — select **Arbitrum** as the chain and **Mainnet** as the network
-    3. Copy your HTTPS endpoint. It will look like:
-
-    ``` icon="terminal"
-    https://arb-mainnet.g.alchemy.com/v2/<YOUR_API_KEY>
-    ```
-
-    Use this URL as your `-ethUrl` value in the next step.
-  </Tab>
-  <Tab  title="Infura" icon="square-terminal">
-    1. Create a free account at [infura.io](https://infura.io)
-    2. Create a new API key — select **Web3 API**
-    3. In your key settings, enable the **Arbitrum** network
-    4. Your endpoint will look like:
-
-    ``` icon="terminal"
-    https://arbitrum-mainnet.infura.io/v3/<YOUR_PROJECT_ID>
-    ```
-
-    Use this URL as your `-ethUrl` value in the next step.
-  </Tab>
-  <Tab  title="Public endpoint" icon="square-terminal">
-    The Offchain Labs public endpoint requires no sign-up:
-
-    ``` icon="terminal"
-    https://arb1.arbitrum.io/rpc
-    ```
-
-    <Warning>
-    Public RPC endpoints have rate limits and no uptime guarantees. If the endpoint becomes unavailable, your orchestrator will drop all active sessions. Use a hosted provider for a production node.
-    </Warning>
-  </Tab>
-</Tabs>
-
-<CustomDivider />
-
-## Step 2 — Add the flag to your startup command
-
-Add `-ethUrl` and `-network arbitrum-one-mainnet` to your go-livepeer startup command:
-
-```bash icon="terminal"
-livepeer \
-  -network arbitrum-one-mainnet \
-  -ethUrl <YOUR_RPC_URL> \
-  -orchestrator \
-  -transcoder \
-  -nvidia 0 \
-  -pricePerUnit <PRICE_PER_UNIT> \
-  -serviceAddr <SERVICE_ADDR>
-```
-
-Replace `<YOUR_RPC_URL>` with the endpoint from Step 1.
-
-If you already have an Ethereum account and want to use it, add the `-ethAcctAddr` flag:
-
-```bash icon="terminal"
-livepeer \
-  -network arbitrum-one-mainnet \
-  -ethUrl <YOUR_RPC_URL> \
-  -ethAcctAddr <YOUR_ETH_ADDRESS> \
-  ...
-```
-
-<Note>
-If you omit `-ethAcctAddr`, go-livepeer will create a new Ethereum account on first run and prompt you for a passphrase to protect the keystore. The private key is stored at `~/.lpData/arbitrum-one-mainnet/keystore`.
-</Note>
-
-<CustomDivider />
-
-## Step 3 — Verify the connection
-
-Start go-livepeer. Within a few seconds you should see both of these log lines:
-
-``` icon="terminal"
-I0302 15:27:26.456804 rpc.go:167] Listening for RPC on :8935
-I0302 15:27:28.463151 rpc.go:207] Received Ping request
-```
-
-The `Received Ping request` line confirms your node is publicly reachable on the network.
-
-**If you see RPC errors instead**, check:
-- Your RPC URL is correctly formatted (no trailing slashes, correct API key)
-- Your API key has Arbitrum One enabled in the provider dashboard
-- The endpoint is reachable: test it directly with curl:
-
-```bash icon="terminal"
-curl -X POST <YOUR_RPC_URL> \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
-```
-
-A valid response looks like `{"id":1,"result":"0x1a2b3c4d","jsonrpc":"2.0"}`. An error or empty response means your endpoint or API key is not working.
-
-<CustomDivider />
+<Tip>
+  This step connects the orchestrator to Arbitrum One and registers it on the Livepeer protocol. It requires arbETH for gas and LPT for staking. Acquiring these assets may take hours to days depending on exchange availability and bridge confirmation times.
+</Tip>
 
 <Warning>
-**Protect your keystore.** Your Ethereum account controls your orchestrator identity and any LPT you stake. The private key is stored at `~/.lpData/arbitrum-one-mainnet/keystore`. Back it up to secure offline storage. Your passphrase and private key together allow anyone to sign transactions and move funds from your account — never share either.
-
-If you lose access to your private key, you lose access to your orchestrator account and any staked LPT permanently.
+  Do not start this step until arbETH and LPT are already in the orchestrator wallet on Arbitrum One. Acquiring LPT on Arbitrum involves exchanges and bridging that can take hours. Factor this into scheduling.
 </Warning>
+
+<CustomDivider middleText="Connection Steps" />
+
+<StyledSteps>
+
+  <StyledStep title="Set up an Arbitrum RPC endpoint">
+
+    The `-ethUrl` flag connects go-livepeer to Arbitrum One. Choose a provider:
+
+    <StyledTable variant="bordered">
+      <thead>
+        <TableRow header>
+          <TableCell header>Provider</TableCell>
+          <TableCell header>Best for</TableCell>
+          <TableCell header>Rate limit</TableCell>
+        </TableRow>
+      </thead>
+      <tbody>
+        <TableRow>
+          <TableCell>Alchemy (free tier)</TableCell>
+          <TableCell>Most operators</TableCell>
+          <TableCell>300M compute units/month</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Infura (free tier)</TableCell>
+          <TableCell>Most operators</TableCell>
+          <TableCell>100K requests/day</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>`arb1.arbitrum.io/rpc` (public)</TableCell>
+          <TableCell>Testing only</TableCell>
+          <TableCell>Rate-limited, no uptime guarantee</TableCell>
+        </TableRow>
+      </tbody>
+    </StyledTable>
+
+    For production nodes, use a hosted provider. Public endpoints have no uptime guarantees and will drop sessions if they become unavailable - a missed connection during round initialisation forfeits that round's LPT reward permanently.
+
+    **Alchemy setup:**
+    1. Create an account at [alchemy.com](https://www.alchemy.com)
+    2. Create a new app - select **Arbitrum** and **Mainnet**
+    3. Copy the HTTPS endpoint: `https://arb-mainnet.g.alchemy.com/v2/YOUR_API_KEY`
+
+    **Verify the endpoint responds correctly:**
+
+    ```bash icon="terminal" filename="verify-rpc"
+    curl -s -X POST \
+      -H "Content-Type: application/json" \
+      -d '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' \
+      YOUR_RPC_URL
+    ```
+
+    Expected: `"result":"0xa4b1"` - this is Arbitrum One (chain ID 42161). If you see `0x1`, the endpoint is connected to Ethereum mainnet, not Arbitrum.
+
+  </StyledStep>
+
+  <StyledStep title="Identify the orchestrator wallet address">
+
+    On first start, go-livepeer creates an Ethereum account and prompts for a passphrase:
+
+    ```bash icon="terminal" filename="first-start-logs"
+    docker compose logs 2>&1 | grep -i "account\|address\|passphrase"
+    ```
+
+    The address appears in the startup logs. Record it - this is the address that will receive ETH fees and hold staked LPT.
+
+    <Warning>
+      The private key for this account is stored at `~/.lpData/arbitrum-one-mainnet/keystore`. Back it up to offline storage immediately. Loss of the keystore means permanent loss of access to the orchestrator account and all bonded LPT.
+    </Warning>
+
+    Alternatively, check the current account via `livepeer_cli`:
+
+    ```bash icon="terminal" filename="check-account"
+    docker exec -it livepeer-orchestrator livepeer_cli
+    # Select: "Get node status" to view ETH account and balances
+    ```
+
+    {/* REVIEW: Confirm "Get node status" is the correct livepeer_cli option for viewing account address and balances in current release. Rick to verify. */}
+
+  </StyledStep>
+
+  <StyledStep title="Fund the wallet with arbETH">
+
+    The orchestrator wallet needs ETH on Arbitrum One for gas. All on-chain transactions (activation, reward calls, ticket redemption) consume ETH.
+
+    **Recommended minimum:** 0.05 ETH for initial setup and ongoing gas costs.
+
+    **How to get arbETH:**
+    - Buy ETH directly on an exchange that supports Arbitrum One withdrawals (Binance, Coinbase, Kraken)
+    - Bridge ETH from Ethereum L1 at [bridge.arbitrum.io](https://bridge.arbitrum.io) (bridge confirmation: 10-15 minutes)
+
+    Verify the balance on [arbiscan.io](https://arbiscan.io) by searching the orchestrator address before proceeding.
+
+  </StyledStep>
+
+  <StyledStep title="Acquire and stake LPT">
+
+    LPT must be bonded to the orchestrator address to enter the active set for video transcoding. The active set is the top 100 orchestrators by total stake (self-bonded + delegated LPT).
+
+    <Note>
+      Check the current active set threshold on [Livepeer Explorer](https://explorer.livepeer.org/orchestrators) before acquiring LPT. The threshold fluctuates with network participation. AI-only operators need minimal LPT - just enough to activate on-chain.
+    </Note>
+
+    **Where to get LPT on Arbitrum:**
+    - Uniswap on Arbitrum (LPT/ETH pool)
+    - Bridge LPT from Ethereum L1 via [bridge.arbitrum.io](https://bridge.arbitrum.io)
+    - See the Arbitrum Exchanges resource page for current options
+
+    **LPT acquisition may take hours to days.** This is the expected waiting step in the setup process.
+
+    Once LPT is in the wallet, bond it via `livepeer_cli`. Open the CLI:
+
+    ```bash icon="terminal" filename="open-cli"
+    docker exec -it livepeer-orchestrator livepeer_cli
+    ```
+
+    Select the bond/stake option and enter the amount to stake. Two transactions are submitted: `approve` (authorises the staking contract) and `bond` (stakes the LPT). Wait for both to confirm on Arbitrum before proceeding.
+
+    {/* REVIEW: Confirm exact livepeer_cli menu option for bonding/staking LPT in current release. Rick to verify option name and number. */}
+
+  </StyledStep>
+
+  <StyledStep title="Activate on-chain">
+
+    Activation registers the orchestrator on the Livepeer protocol and sets commission rates.
+
+    In `livepeer_cli`, select **"Invoke multi-step 'become an orchestrator'"** and follow the prompts:
+
+    <StyledTable variant="bordered">
+      <thead>
+        <TableRow header>
+          <TableCell header>Prompt</TableCell>
+          <TableCell header>Recommended value</TableCell>
+          <TableCell header>Notes</TableCell>
+        </TableRow>
+      </thead>
+      <tbody>
+        <TableRow>
+          <TableCell>Reward cut</TableCell>
+          <TableCell>`10`</TableCell>
+          <TableCell>Percentage of LPT inflation the orchestrator keeps. 10% means delegators receive 90%.</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Fee cut</TableCell>
+          <TableCell>`95`</TableCell>
+          <TableCell>Percentage of ETH job fees the orchestrator keeps. 95% means delegators receive 5%.</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Service address</TableCell>
+          <TableCell>`YOUR_PUBLIC_IP:8935`</TableCell>
+          <TableCell>Must match `-serviceAddr` exactly. Test reachability from an external machine before registering.</TableCell>
+        </TableRow>
+      </tbody>
+    </StyledTable>
+
+    The activation transaction costs gas (arbETH). Confirmation takes 1-3 minutes on Arbitrum.
+
+    {/* REVIEW: Confirm "Invoke multi-step 'become an orchestrator'" is the exact current livepeer_cli option text. Rick to verify. */}
+
+    <Note>
+      The node joins the active set at the start of the **next round** after activation, not immediately. Rounds are approximately 22 hours on Arbitrum. A newly activated node may wait up to 22 hours before appearing Active on Explorer.
+    </Note>
+
+  </StyledStep>
+
+  <StyledStep title="Register AI capabilities (AI and dual mode only)">
+
+    For AI-enabled nodes, capabilities from `aiModels.json` must be registered on the AI Service Registry. The `-aiServiceRegistry` flag enables this automatically at startup.
+
+    Verify the node appears in the AI capability registry:
+
+    ```bash icon="terminal" filename="check-ai-registry"
+    curl http://localhost:7935/getNetworkCapabilities | python3 -m json.tool
+    ```
+
+    Expected: a JSON response with a `pipelines` array listing the configured AI pipelines.
+
+    Also verify externally at [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities). Search by the orchestrator address - the configured pipelines should appear within 2-5 minutes of startup.
+
+    {/* REVIEW: Confirm -aiServiceRegistry flag is required explicitly or whether it is automatically enabled when -aiWorker is set. Rick / j0sh to clarify whether this is a separate flag or handled automatically. */}
+
+  </StyledStep>
+
+  <StyledStep title="Verify on Livepeer Explorer">
+
+    Open [explorer.livepeer.org/orchestrators](https://explorer.livepeer.org/orchestrators) and search for the orchestrator's Ethereum address.
+
+    Confirm:
+    - **Status** shows Active (may show Registered until the next round completes)
+    - **Service URI** matches the configured `-serviceAddr`
+    - **Stake** reflects the bonded LPT amount
+    - **Reward cut** and **fee cut** match the activation settings
+
+    If the Service URI is incorrect or the node is not reachable, update it via `livepeer_cli` before gateways start routing work:
+
+    ```bash icon="terminal" filename="update-service-uri"
+    docker exec -it livepeer-orchestrator livepeer_cli
+    # Select: Set orchestrator config → update service URI
+    ```
+
+  </StyledStep>
+
+  <StyledStep title="Enable reward calling">
+
+    go-livepeer calls `Reward()` automatically each round by default. Confirm this is not disabled:
+
+    ```bash icon="terminal" filename="check-reward-flag"
+    docker compose logs 2>&1 | grep -i "reward"
+    ```
+
+    Confirm `-reward=false` is **not** in the startup command. If it is, remove it and restart.
+
+    **Reward calling economics:** for orchestrators with very low stake, the ETH gas cost of calling reward may exceed the LPT value received. In that case, disable automatic calling with `-reward=false` and call manually via `livepeer_cli` once per round until stake grows. See <LinkArrow href="/v2/orchestrators/guides/config-and-optimisation/reward-call-tuning" label="Reward Call Tuning" newline={false} /> for the profitability calculation.
+
+    A missed round forfeits that round's LPT allocation permanently. There is no catch-up mechanism.
+
+  </StyledStep>
+
+</StyledSteps>
+
+<CustomDivider middleText="Troubleshooting" />
+
+## Troubleshooting connection issues
+
+<AccordionGroup>
+  <Accordion title="RPC connection failing" icon="link-slash">
+    Verify the `-ethUrl` endpoint responds to `eth_chainId` (see Step 1). Check that the API key is active and the Arbitrum network is enabled in the provider dashboard. Switch to the Alchemy public endpoint temporarily to isolate whether the issue is the endpoint or the key.
+  </Accordion>
+  <Accordion title="Service URI not reachable" icon="globe">
+    Test from an external machine: `curl -k https://YOUR_PUBLIC_IP:8935/status`. If this times out, port 8935 is blocked by a firewall or the address is wrong. Check NAT rules, security group settings (AWS/GCP/Azure), and that the `-serviceAddr` matches the machine's public IP. A domain name is more resilient than a bare IP.
+  </Accordion>
+  <Accordion title="Not in active set after activation" icon="users">
+    Check stake vs current threshold on [Explorer](https://explorer.livepeer.org/orchestrators). The active set is the top 100 by total stake. Nodes below the threshold are registered but not active - gateways do not route video transcoding to them. Wait up to one full round (22 hours) for the status to update after increasing stake.
+  </Accordion>
+  <Accordion title="Transactions failing with gas errors" icon="gas-pump">
+    Check the ETH balance on Arbitrum. Reward calls use 350,000-450,000 gas; activation uses similar amounts. At typical Arbitrum gas prices, each transaction costs $0.01-$0.05 USD. Keep at least 0.01 ETH on Arbitrum at all times to prevent failed transactions.
+  </Accordion>
+</AccordionGroup>
 
 <CustomDivider />
 
-## Related
+## Next step
 
-- [Connect and Activate](/v2/orchestrators/setup/connect-and-activate) — register on-chain and join the active set
-- [Frequently Asked Questions](/v2/orchestrators/resources/faq) — Arbitrum RPC error reference {/* REVIEW: confirm path */}
-{/* REVIEW: Deleted setting-up-an-orchestrator/connect-to-arbitrum.mdx had: "Use a stable RPC; flaky endpoints can cause missed reward calls." Not present in new draft. Human to decide whether to include. */}
-
-{/*
-  PURPOSE:
-  Connect to Arbitrum and activate on-chain - merged flow covering
-  ETH/LPT funding, Arbitrum network connection, and on-chain activation
-  to join the orchestrator set.
-
-  NOTE: Merged from separate connect and activate pages.
-
-  SECTION HOME: Setup
-  JOURNEY POSITION: 5 of 7 in Setup
-  CROSS-REFS:
-  - Resources > Arbitrum RPC - RPC endpoint selection
-  - Resources > Arbitrum Exchanges - acquiring ETH/LPT
-  - Staking & Rewards > Rewards and Fees - post-activation reward calling
-*/}
+<CardGroup cols={1}>
+  <Card title="Verify your setup" icon="circle-check" href="/v2/orchestrators/setup/test" arrow horizontal>
+    Confirm the node is on-chain, transcoding correctly, running AI inference, and exposing monitoring metrics.
+  </Card>
+</CardGroup>

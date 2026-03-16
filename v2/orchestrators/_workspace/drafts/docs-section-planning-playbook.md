@@ -12,6 +12,15 @@ This playbook has 3 phases and 13 steps. Phases 1-2 are the core planning and co
 
 **Human involvement**: Required at every decision point. AI proposes, human decides. No structural changes without human approval.
 
+## Carry-Forward From Tranche Planning
+
+When converting section review reports into an execution plan, use the raw machine outputs as the source of truth, not only the human-readable markdown summaries.
+
+- For authoring/style planning, inspect `authoring-style-findings.json` alongside `02-authoring-style.md`.
+- If the markdown summary collapses or omits page-level detail, derive tasks from the raw JSON and then deduplicate them into page-level action families.
+- Do not turn repeated lint warnings into line-by-line task lists. Collapse them into one actionable task per page and fix family.
+- Apply the same rule to future tranches so style work is not under-scoped when the summary report is incomplete.
+
 ---
 
 ## Prerequisites
