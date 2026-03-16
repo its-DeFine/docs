@@ -22,6 +22,7 @@
 - Staged WCAG accessibility audit with conservative autofix (`tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious ...`)
 - Staged strict V2 link audit (`tests/integration/v2-link-audit.js --staged --strict ...`)
 - Staged domain audit (`tests/integration/domain-pages-audit.js --staged ...`)
+- Staged selection will eventually exclude governed V2 non-publishable lanes through `.mintignore`; legacy buckets such as `_contextData`, `_plans-and-research`, `x-resources`, and nested `review.md` remain in inventory until move waves complete.
 
 **Speed:** Fast (~10-30 seconds) for most commits, depends on staged scope
 

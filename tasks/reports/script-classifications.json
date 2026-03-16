@@ -253,6 +253,16 @@
     "pipeline": "manual (not yet in pipeline)"
   },
   {
+    "path": "tests/unit/check-agent-docs-freshness.test.js",
+    "script": "check-agent-docs-freshness.test",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tests/unit, tools/scripts/validators/governance/check-agent-docs-freshness.js, AGENTS.md, .github/copilot-instructions.md, .claude, .cursor, .windsurf, docs-guide/policies, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Tests check-agent-docs-freshness.js — validates stale instruction-file detection across governed assistant-doc surfaces.",
+    "pipeline": "manual — not yet in pipeline"
+  },
+  {
     "path": "tests/unit/codex-commit.test.js",
     "script": "codex-commit.test",
     "category": "validator",
@@ -378,6 +388,16 @@
     "purpose_statement": "Validates docs-guide source-of-truth coverage, README pointers, and generated index freshness",
     "pipeline": "P1, P3",
     "dualmode": "dual-mode (document flags)"
+  },
+  {
+    "path": "tests/unit/v2-folder-governance-cleanup-matrix.test.js",
+    "script": "v2-folder-governance-cleanup-matrix.test",
+    "category": "validator",
+    "purpose": "governance:repo-health",
+    "scope": "tests/unit, tools/scripts/generate-v2-folder-governance-cleanup-matrix.js",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Unit tests for the v2 folder governance cleanup matrix generator and its targeting, scope, and age-bucket rules.",
+    "pipeline": "manual — planning artifact validator"
   },
   {
     "path": "tests/unit/docs-navigation.test.js",
@@ -626,6 +646,16 @@
     "purpose_statement": "Tests repo-audit-orchestrator.js pipeline — validates mode/scope combinations and report output",
     "pipeline": "manual — not yet in pipeline",
     "dualmode": "dual-mode (document flags)"
+  },
+  {
+    "path": "tests/unit/root-allowlist-format.test.js",
+    "script": "root-allowlist-format.test",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tests/unit, .allowlist",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Validates root allowlist formatting, sorting, and duplicate prevention rules for governed root entries.",
+    "pipeline": "manual — not yet in pipeline"
   },
   {
     "path": "tests/unit/script-docs.test.js",
@@ -1686,6 +1716,16 @@
     "pipeline": "manual — not yet in pipeline"
   },
   {
+    "path": "tools/scripts/generate-ai-skills-indexes.js",
+    "script": "generate-ai-skills-indexes",
+    "category": "generator",
+    "purpose": "governance:agent-governance",
+    "scope": "tools/scripts, ai-tools/ai-skills, docs-guide/catalog, tasks/reports",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Generates AI-skill inventory and source-content indexes so assistant guidance surfaces stay synchronized with governed source files.",
+    "pipeline": "manual — developer maintenance"
+  },
+  {
     "path": "tools/scripts/generate-docs-guide-components-index.js",
     "script": "generate-docs-guide-components-index",
     "category": "generator",
@@ -1759,6 +1799,16 @@
     "needs": "R-R16, R-R17",
     "purpose_statement": "Generates the UI template catalog, template preview routes, and VS Code snippets from canonical template/component sources",
     "pipeline": "manual — interactive developer tool, not suited for automated pipelines"
+  },
+  {
+    "path": "tools/scripts/generate-v2-folder-governance-cleanup-matrix.js",
+    "script": "generate-v2-folder-governance-cleanup-matrix",
+    "category": "generator",
+    "purpose": "governance:repo-health",
+    "scope": "tools/scripts, tasks/reports/repo-ops, v2, docs.json, tests/unit/v2-folder-governance-cleanup-matrix.test.js",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Generates the v2 folder governance cleanup matrix used to review legacy workspace buckets before move waves are executed.",
+    "pipeline": "manual — planning artifact generator"
   },
   {
     "path": "tools/scripts/i18n/generate-localized-docs-json.js",

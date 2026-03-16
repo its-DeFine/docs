@@ -92,3 +92,13 @@ When adding new content surfaces:
 2. Add or update navigation in `docs.json` where appropriate.
 3. Add automation hooks/index generation only when repeatability is clear.
 4. Update docs-guide maps so maintainers can discover and govern the feature.
+
+## Publishable vs Workspace Material
+
+V2 sections now have an explicit distinction between publishable page trees and maintainer-only workspace material:
+
+- Publishable docs live in normal section trees and are intended for `docs.json` routing.
+- Planning, research, handoff, and review material belongs in governed non-publishable lanes.
+- The canonical path contract lives in `docs-guide/policies/v2-folder-governance.mdx`.
+
+Use the folder governance policy when deciding whether a file belongs in the live IA or in a section workspace lane.

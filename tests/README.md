@@ -40,6 +40,7 @@ Explicitly refreshes:
 - `node tests/unit/docs-guide-sot.test.js`
 - `node tools/scripts/generate-pages-index.js`
 - `node tools/scripts/enforce-generated-file-banners.js --check`
+- `.mintignore` and shared file-selection helpers should exclude governed non-publishable lanes such as `_workspace/`, `x-deprecated/`, and `v2/x-archived/` once enforcement lands.
 
 ### Integration Suites
 - `node tests/integration/browser.test.js`
@@ -51,6 +52,7 @@ Domain load audit against deployed docs URLs.
 - `node tests/integration/v2-link-audit.js`
 Comprehensive static link/import audit for all `v2/pages` MDX files and recursively imported MDX dependencies.
 Excludes any `x-*` path segments under `v2/`.
+Also respects `.mintignore` by default, so governed non-publishable lanes can be excluded from routine publishability checks without muting routed pages.
 Generates:
   - `tasks/reports/navigation-links/LINK_TEST_REPORT.md`
   - `tasks/reports/navigation-links/LINK_TEST_REPORT.json`
@@ -59,6 +61,7 @@ Generates:
 - `node tests/integration/v2-wcag-audit.js`
 Hybrid v2 accessibility audit for filesystem docs pages under `v2/` (excluding any `x-*` directories).
 Runs conservative static checks/autofix on all selected files and browser-rendered WCAG checks (axe-core) on routable pages.
+Also respects `.mintignore` by default, which is how governed non-publishable lanes are excluded from routine page audits.
 Generates deterministic reports (overwritten each run) at:
   - `tasks/reports/quality-accessibility/v2-wcag-audit-report.md`
   - `tasks/reports/quality-accessibility/v2-wcag-audit-report.json`
