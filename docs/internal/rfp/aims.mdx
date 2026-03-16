@@ -88,7 +88,7 @@ import { PdfEmbed } from "/snippets/components/data/embed.jsx";
 
         - **SEO/AEO Automation** - generate-seo.js automates metadata enforcement. Glossary scripts (generate-glossary.js, terminology-search.js, glossary-terms.json) provide LLM-parseable terminology assets.
 
-        - **Repository AI Guidance** - .github/AGENTS.md and .cursorrules ensure AI coding tools operate within repository conventions.
+        - **Repository AI Guidance** - `AGENTS.md` plus the native adapters under `.github/`, `.claude/`, `.cursor/`, and `.windsurf/` ensure AI coding tools operate within repository conventions.
 
         - **Machine-Readable Architecture Maps** - docs-guide/features/feature-map.mdx and docs-guide/features/architecture-map.mdx provide Mermaid diagrams for AI understanding of system structure.
 
@@ -106,7 +106,7 @@ import { PdfEmbed } from "/snippets/components/data/embed.jsx";
 
         - **[AI]** llms.txt file at the documentation root provides the emerging standard entry point for LLM agent discovery - analogous to robots.txt for search engines. Structured at tools/ai-rules/llms.txt.information.md, this file directs AI systems to the most important content surfaces, canonical URL patterns, and any consumption guidance specific to Livepeer documentation.
 
-        - **[Technical]** Repository AI guidance files (AGENTS.md, .cursorrules) make the documentation repository itself legible to AI coding assistants - enabling developers using AI tools to query and navigate the docs repo without human instruction.
+        - **[Technical]** Repository AI guidance files (`AGENTS.md` plus the native adapter paths) make the documentation repository itself legible to AI coding assistants - enabling developers using AI tools to query and navigate the docs repo without human instruction.
 
         ## Readability - Clear Journeys & Implementation Items for AI Consumers
         Beyond discoverability, AI-first documentation provides structured, actionable journeys explicitly designed for AI agent execution. v2 introduces several novel documentation patterns in this category.
@@ -116,7 +116,7 @@ import { PdfEmbed } from "/snippets/components/data/embed.jsx";
 
         - **Mintlify AI Assistant Context** - Trained on full v2 documentation with consistent semantic structure (H1/H2/H3 hierarchies, frontmatter descriptions, component-driven MDX). High-quality, well-scoped chunks enable precise assistant retrieval. Test surface at v2/pages/00_home/test.mdx validates response quality.
 
-        - **AGENTS.md & .cursorrules** - System-level context for AI coding tools. Provides repository structure, naming conventions, and governance rules automatically-improving AI consumer accuracy without human onboarding.
+        - **AGENTS.md & native adapters** - System-level context for AI coding tools. Provides repository structure, naming conventions, and governance rules automatically-improving AI consumer accuracy without human onboarding.
 
         ## Roadmap
         AI summary pages and structured FAQ: dedicated per-section AI summary pages (dot-point format, machine-optimised) and a structured Q&A FAQ surface are designed and in the documentation roadmap.

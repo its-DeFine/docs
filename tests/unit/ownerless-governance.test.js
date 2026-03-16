@@ -3,7 +3,7 @@
  * @script            ownerless-governance.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, tests/utils, tests/WHEN-TESTS-RUN.md, docs-guide, tools/config/ownerless-governance-surfaces.json, .github, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md
+ * @scope             tests/unit, tests/utils, tests/WHEN-TESTS-RUN.md, docs-guide, tools/config/ownerless-governance-surfaces.json, AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md
  * @owner             docs
  * @needs             R-R14, R-R29
  * @purpose-statement Validates the ownerless governance manifest, primary gate-layer contract, and forbidden human-owner dependency in governed policy and GitHub surfaces.
@@ -45,7 +45,12 @@ const REQUIRED_POLICY_SNIPPETS = [
 ];
 const GOVERNED_TEXT_FILES = [
   'README.md',
-  '.github/AGENTS.md',
+  'AGENTS.md',
+  '.allowlist',
+  '.github/copilot-instructions.md',
+  '.claude/CLAUDE.md',
+  '.cursor/rules/repo-governance.mdc',
+  '.windsurf/rules/repo-governance.md',
   'contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md',
   '.github/workflows/issue-auto-label.yml',
   '.github/workflows/discord-issue-intake.yml',

@@ -98,7 +98,12 @@
   {
     "id": "github-contributor-governance",
     "surface_globs": [
-      ".github/AGENTS.md",
+      "AGENTS.md",
+      ".github/copilot-instructions.md",
+      ".claude/CLAUDE.md",
+      ".cursor/rules/*.mdc",
+      ".windsurf/rules/*.md",
+      ".allowlist",
       ".github/ISSUE_TEMPLATE/*.yml",
       ".github/pull_request_template.md",
       ".github/workflows/issue-auto-label.yml",

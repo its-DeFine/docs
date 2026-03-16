@@ -39,6 +39,8 @@ const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const skillDocsTests = require('./unit/skill-docs.test');
 const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
+const checkAgentDocsFreshnessTests = require('./unit/check-agent-docs-freshness.test');
+const rootAllowlistFormatTests = require('./unit/root-allowlist-format.test');
 const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
 const docsGuideSotTests = require('./unit/docs-guide-sot.test');
 const uiTemplateGeneratorTests = require('./unit/ui-template-generator.test');
@@ -248,8 +250,16 @@ function partitionFiles(changedFiles) {
     file === OWNERLESS_MANIFEST_PATH ||
     file === OWNERLESS_POLICY_PATH ||
     file === 'tests/unit/ownerless-governance.test.js' ||
+    file === 'tests/unit/check-agent-docs-freshness.test.js' ||
+    file === 'tests/unit/root-allowlist-format.test.js' ||
     file === 'tools/scripts/repair-ownerless-language.js' ||
-    file === '.github/AGENTS.md' ||
+    file === 'tools/scripts/validators/governance/check-agent-docs-freshness.js' ||
+    file === '.allowlist' ||
+    file === 'AGENTS.md' ||
+    file === '.github/copilot-instructions.md' ||
+    file === '.claude/CLAUDE.md' ||
+    file === '.cursor/rules/repo-governance.mdc' ||
+    file === '.windsurf/rules/repo-governance.md' ||
     file === 'README.md' ||
     file === 'contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md' ||
     file === '.github/workflows/docs-v2-issue-indexer.yml' ||
@@ -389,6 +399,36 @@ function runOwnerlessGovernanceCheck(files) {
   const result = ownerlessGovernanceTests.runTests({ files });
   return {
     label: 'Ownerless Governance',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
+function runAgentDocsFreshnessCheck(files) {
+  if (!files.length) {
+    return { label: 'Agent Docs Freshness', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = checkAgentDocsFreshnessTests.runTests();
+  return {
+    label: 'Agent Docs Freshness',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
+function runRootAllowlistFormatCheck(files) {
+  if (!files.length) {
+    return { label: 'Root Allowlist Format', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = rootAllowlistFormatTests.runTests();
+  return {
+    label: 'Root Allowlist Format',
     status: result.passed ? 'passed' : 'failed',
     files: files.length,
     errors: Array.isArray(result.errors) ? result.errors.length : 0,
@@ -721,6 +761,8 @@ async function main() {
   checks.push(runScriptDocsCheck(groups.scriptFiles));
   checks.push(runSkillDocsCheck(groups.skillDocsFiles));
   checks.push(runOwnerlessGovernanceCheck(groups.ownerlessGovernanceFiles));
+  checks.push(runAgentDocsFreshnessCheck(groups.ownerlessGovernanceFiles));
+  checks.push(runRootAllowlistFormatCheck(groups.ownerlessGovernanceFiles));
   checks.push(await runAsyncGlobalCheck('Portable Skill Export', groups.portableSkillFiles, exportPortableSkillsTests.runTests));
   checks.push(runDocsGuideSotCheck(groups.docsGuideSotFiles));
   checks.push(runUiTemplateGeneratorCheck(groups.uiTemplateFiles));

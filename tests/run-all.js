@@ -31,6 +31,8 @@ const docsPathSyncTests = require('./unit/docs-path-sync.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const skillDocsTests = require('./unit/skill-docs.test');
 const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
+const checkAgentDocsFreshnessTests = require('./unit/check-agent-docs-freshness.test');
+const rootAllowlistFormatTests = require('./unit/root-allowlist-format.test');
 const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
 const docsGuideSotTests = require('./unit/docs-guide-sot.test');
 const uiTemplateGeneratorTests = require('./unit/ui-template-generator.test');
@@ -249,6 +251,20 @@ async function runAllTests() {
   totalErrors += ownerlessGovernanceResult.errors.length;
   totalWarnings += ownerlessGovernanceResult.warnings.length;
   console.log(`   ${ownerlessGovernanceResult.errors.length} errors, ${ownerlessGovernanceResult.warnings.length} warnings`);
+
+  // Agent Docs Freshness
+  console.log('\n🤖 Running Agent Docs Freshness Checks...');
+  const agentDocsFreshnessResult = normalizeSuiteResult(checkAgentDocsFreshnessTests.runTests());
+  totalErrors += agentDocsFreshnessResult.errors.length;
+  totalWarnings += agentDocsFreshnessResult.warnings.length;
+  console.log(`   ${agentDocsFreshnessResult.errors.length} errors, ${agentDocsFreshnessResult.warnings.length} warnings`);
+
+  // Root Allowlist Format
+  console.log('\n🧱 Running Root Allowlist Format Checks...');
+  const rootAllowlistFormatResult = normalizeSuiteResult(rootAllowlistFormatTests.runTests());
+  totalErrors += rootAllowlistFormatResult.errors.length;
+  totalWarnings += rootAllowlistFormatResult.warnings.length;
+  console.log(`   ${rootAllowlistFormatResult.errors.length} errors, ${rootAllowlistFormatResult.warnings.length} warnings`);
 
   // Portable Skill Export
   console.log('\n📦 Running Portable Skill Export Checks...');

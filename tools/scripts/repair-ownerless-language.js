@@ -3,7 +3,7 @@
  * @script            repair-ownerless-language
  * @category          remediator
  * @purpose           governance:agent-governance
- * @scope             .github, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md, docs-guide
+ * @scope             AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md, docs-guide
  * @owner             docs
  * @needs             R-R14, R-R29
  * @purpose-statement Applies deterministic wording repairs that remove human-owner dependency from governed GitHub and contributor surfaces.
@@ -18,7 +18,12 @@ const path = require('path');
 const REPO_ROOT = path.resolve(__dirname, '../..');
 const DEFAULT_FILES = [
   'README.md',
-  '.github/AGENTS.md',
+  'AGENTS.md',
+  '.allowlist',
+  '.github/copilot-instructions.md',
+  '.claude/CLAUDE.md',
+  '.cursor/rules/repo-governance.mdc',
+  '.windsurf/rules/repo-governance.md',
   'contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md',
   '.github/ISSUE_TEMPLATE/01_bug_report.yml',
   '.github/ISSUE_TEMPLATE/02_docs_page_issue.yml',
