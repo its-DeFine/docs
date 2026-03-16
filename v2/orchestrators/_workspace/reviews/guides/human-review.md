@@ -40,6 +40,8 @@ Patterns from human review to feed back into authoring skills.
 
 | # | Issue | Context | Human decision | Type |
 |---|-------|---------|---------------|------|
+| 24 | Too many tables on one page | draft1 has 6 StyledTables. Page is almost entirely tabular with almost zero prose. | Max 1-2 tables per page. Tables should support prose, not replace it. | Layout |
+| 25 | No prose, all tables | Page reads like a spreadsheet, not documentation. Tables are data, not explanation. | Pages need prose to explain WHY and WHAT. Tables are supporting evidence, not the content itself. | Content |
 | 21 | Proposed rewrite leads with definitions | AI proposed "Ground zero: Definitions" as the first section - defining axes before presenting options | Definitions ARE the options. Don't define axes then present options separately. Combine. | Structure |
 | 22 | "What are my options?" is a lazy framing of the reader's question | AI framed the page purpose as answering "what are my options for running an orchestrator?" | The reader is past "should I?" - they're here because they're ready to set up. The real question is "which setup path matches my situation?" | Content |
 | 23 | Preamble before the answer | Multiple proposed structures put context, definitions, or framing before the actual options | Answer the reader's question IMMEDIATELY. First thing on the page. No preamble. | Structure |
@@ -63,7 +65,8 @@ Patterns from human review to feed back into authoring skills.
 | **Preamble before the answer** - pages put context/definitions/framing before the thing the reader came for | setup-options | Authoring skill: answer the reader's question FIRST. Context supports the answer, it doesn't precede it. |
 | **Lazy question framing** - AI identifies the reader's question as generic ("what are my options?") instead of specific | setup-options | Authoring skill: identify the SPECIFIC question the reader has at this point in their journey, not a generic version. The reader's journey position determines the question. |
 | **Single value prop anchoring** - AI latches onto one reason per option and repeats it across every response | setup-options (pool node = "no LPT" every time) | Authoring skill: minimum 5 distinct value props per option across different dimensions (financial, operational, risk, time, complexity, flexibility). Challenge own anchoring. |
-| **Consecutive tables** - stacking StyledTable after StyledTable creates a wall of tabular data with no visual relief | setup-options (draft1 has 6 consecutive tables) | Authoring skill: never stack tables. Use tabs, accordions, cards, bordered boxes, or prose between tables. 100+ components exist - use them. |
+| **Consecutive tables** - stacking StyledTable after StyledTable creates a wall of tabular data with no visual relief | setup-options (draft1 has 6 tables) | Authoring skill: never stack tables. Max 1-2 tables per page. Use tabs, accordions, cards, bordered boxes, or prose between tables. |
+| **Tables replacing prose** - page is almost entirely tabular with no explanatory text | setup-options (draft1) | Authoring skill: tables support prose, they don't replace it. A page with no prose is a spreadsheet, not documentation. |
 
 ---
 
