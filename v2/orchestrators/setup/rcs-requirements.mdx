@@ -28,7 +28,7 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { BorderedBox } from '/snippets/components/layout/containers.jsx'
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider />
 
 Confirm every item on this checklist before proceeding to <LinkArrow href="/v2/orchestrators/setup/rs-install" label="Install go-livepeer" newline={false} />. Issues found after installation are harder to diagnose.
 
@@ -38,7 +38,7 @@ Confirm every item on this checklist before proceeding to <LinkArrow href="/v2/o
 Requirements differ by node mode. Items marked with a badge apply only to that mode. Unmarked items apply to all modes.
 </BorderedBox>
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider />
 
 ## Hardware
 
@@ -82,7 +82,7 @@ Requirements differ by node mode. Items marked with a badge apply only to that m
     </StyledTable>
 
     <Note>
-    CPU-only transcoding is possible (omit the `-nvidia` flag) but significantly slower. Not recommended for production.
+    CPU-only transcoding works for testing and basic validation. Production video nodes need GPU acceleration for reliable throughput.
     </Note>
   </Tab>
 
@@ -125,7 +125,7 @@ Requirements differ by node mode. Items marked with a badge apply only to that m
     </StyledTable>
 
     <Tip>
-    VRAM determines which AI pipelines the orchestrator can serve. 8 GB runs quantised LLMs only. 24 GB+ unlocks diffusion, audio, vision, and real-time AI. See <LinkArrow href="/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference" label="Model and Demand Reference" newline={false} /> for per-model VRAM requirements.
+    VRAM determines which AI pipelines the orchestrator can serve. 8 GB runs quantised LLMs only. 24 GB+ unlocks diffusion, audio, vision, and Cascade AI. See <LinkArrow href="/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference" label="Model and Demand Reference" newline={false} /> for per-model VRAM requirements.
     </Tip>
   </Tab>
 
@@ -168,12 +168,12 @@ Requirements differ by node mode. Items marked with a badge apply only to that m
     </StyledTable>
 
     <Note>
-    NVENC/NVDEC (video) use dedicated silicon that does not compete with CUDA cores (AI). Both workloads share VRAM. With 24 GB, the orchestrator can run video transcoding and one warm AI model simultaneously. See <LinkArrow href="/v2/orchestrators/guides/deployment-details/dual-mode-configuration" label="Dual Mode Configuration" newline={false} /> for VRAM coexistence details.
+    NVENC/NVDEC (video) use dedicated silicon separate from CUDA cores (AI). Both workloads share VRAM. A 24 GB GPU supports video transcoding alongside one warm AI model. See <LinkArrow href="/v2/orchestrators/guides/deployment-details/dual-mode-configuration" label="Dual Mode Configuration" newline={false} /> for VRAM coexistence details.
     </Note>
   </Tab>
 </Tabs>
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider />
 
 ## Software
 
@@ -209,7 +209,7 @@ Requirements differ by node mode. Items marked with a badge apply only to that m
   </tbody>
 </StyledTable>
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider />
 
 ## Network
 
@@ -240,7 +240,7 @@ Requirements differ by node mode. Items marked with a badge apply only to that m
   </tbody>
 </StyledTable>
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider />
 
 ## Wallet and Tokens
 
@@ -276,13 +276,13 @@ Requirements differ by node mode. Items marked with a badge apply only to that m
   </tbody>
 </StyledTable>
 
-{/* REVIEW: confirm current active set threshold. Historically top-100. Check Explorer for current minimum stake. */}
+{/* TODO: Confirm the current active-set threshold on Explorer before publishing a fixed number. */}
 
 <Warning>
-Acquiring LPT may take hours to days depending on exchange availability and bridging from Ethereum L1. Plan this step in advance.
+Plan for hours to days when acquiring LPT, depending on exchange availability and bridging from Ethereum L1.
 </Warning>
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider />
 
 ## Quick Verification
 
@@ -302,7 +302,7 @@ docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi
 curl -k https://YOUR_PUBLIC_IP:8935/status
 ```
 
-<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider />
 
 ## Ready
 

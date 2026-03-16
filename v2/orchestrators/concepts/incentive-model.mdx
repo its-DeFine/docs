@@ -40,23 +40,23 @@ Verify:
 - Headers are concise and technical (aim for max 3 words)
 - CustomDivider uses approved margin patterns
 - Placeholders for Media and Video Resources are in comments with a TODO for a human.
-- REVIEW flags are in JSX flags for a human.
+- Fact-check flags are kept in JSX comments for a human.
 Human
 - Find Media (Livepeer Explorer earnings charts would work well here)
-- Review REVIEW items
+- Review fact-check items
 */}
 
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
-import { CenteredContainer, BorderedBox } from '/snippets/components/layout/containers.jsx'
+import { CenteredContainer } from '/snippets/components/layout/containers.jsx'
 
-<CenteredContainer style={{ width: '90%' }}>
+<CenteredContainer maxWidth="900px">
   <Tip>Orchestrators earn from two independent sources: ETH service fees for processing jobs, and LPT inflation rewards for protocol participation. Both require active set membership. Earnings from fees depend on workload volume; earnings from rewards depend on total stake and the reward cut configuration.</Tip>
 </CenteredContainer>
 
-<CustomDivider middleText="Revenue Streams" style={{margin: "0 0 -1rem 0"}} />
+<CustomDivider middleText="Revenue Streams" />
 
 ## Two Revenue Streams
 
@@ -109,7 +109,7 @@ flowchart LR
   </tbody>
 </StyledTable>
 
-<CustomDivider middleText="Service Fees" style={{margin: "0 0 -1rem 0"}} />
+<CustomDivider middleText="Service Fees" />
 
 ## Service Fees (ETH)
 
@@ -145,7 +145,7 @@ Fee income per job is determined by the price the Orchestrator charges and the v
       <TableCell>`-pricePerCapability` (per pipeline and model)</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell>**Real-time AI (Cascade)**</TableCell>
+      <TableCell>**Live AI (Cascade)**</TableCell>
       <TableCell>Interval-based during stream duration</TableCell>
       <TableCell>`-livePaymentInterval`</TableCell>
     </TableRow>
@@ -161,16 +161,16 @@ market price - use `livepeer_cli` to survey current rates before setting your ow
 The Orchestrator's **fee cut** determines what share of collected fees goes to the Orchestrator versus
 the shared fee pool distributed to Delegators.
 
-```
+```text icon="code" title="Fee cut split"
 Total fee ticket value = Orchestrator fee cut + Delegator fee pool
 ```
 
 For example, at a fee cut of 5%: the Orchestrator keeps 5% of ticket value; 95% goes to the fee pool
 distributed proportionally among Delegators.
 
-{/* REVIEW: Confirm fee cut mechanics - does 5% go to Orchestrator and 95% to delegator pool, or is it expressed as percentage Delegators receive? Check BondingManager contract */}
+{/* TODO: Confirm how BondingManager defines fee cut distribution in the current contract docs. */}
 
-<CustomDivider middleText="Inflation Rewards" style={{margin: "0 0 -1rem 0"}} />
+<CustomDivider middleText="Inflation Rewards" />
 
 ## Inflation Rewards (LPT)
 
@@ -181,9 +181,9 @@ active set earn a share of this inflation proportional to their total bonded sta
 
 To claim LPT rewards for a round, the Orchestrator (or an automated process) must call the reward
 function on the BondingManager contract **once per round**. Missing a reward call means forgoing that
-round's LPT rewards entirely - this is not recoverable.
+round's LPT rewards entirely. Skipping a round permanently forfeits that round's reward.
 
-Most production Orchestrators automate reward calling. The go-livepeer node can be configured to do
+Most production Orchestrators automate reward calling. The go-livepeer node supports
 this automatically. See <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards/reward-mechanics" label="Reward Mechanics" newline={false} /> for configuration details.
 
 ### Reward distribution
@@ -191,7 +191,7 @@ this automatically. See <LinkArrow href="/v2/orchestrators/guides/staking-and-re
 The Orchestrator's **reward cut** determines what share of the round's LPT goes to the Orchestrator
 versus Delegators:
 
-```
+```text icon="code" title="Reward cut split"
 Total round reward = Orchestrator reward cut + Delegator reward pool
 ```
 
@@ -238,7 +238,7 @@ Gateway jobs. Stake below the threshold for active set membership means no earni
 The active set threshold varies with network participation. Monitor your rank on the
 [Livepeer Explorer](https://explorer.livepeer.org) to ensure you remain in the active set.
 
-<CustomDivider middleText="Cost Structure" style={{margin: "0 0 -1rem 0"}} />
+<CustomDivider middleText="Cost Structure" />
 
 ## Orchestrator Costs
 
@@ -271,14 +271,14 @@ Earnings must be weighed against operational costs. Orchestrator costs fall into
   </tbody>
 </StyledTable>
 
-{/* REVIEW: Add gas cost for reward calls once confirmed - reward calls on Arbitrum are cheap but not zero */}
+{/* TODO: Add reward-call gas cost guidance once confirmed. */}
 
 <Note>
-Unlike Gateways, Orchestrators do not pay for the jobs they process - they are paid. The cost structure
-is infrastructure and staking, not service fees.
+Gateways fund the jobs; Orchestrators earn the service fees. The operator cost structure is infrastructure
+and staking.
 </Note>
 
-<CustomDivider middleText="Full Payment Flow" style={{margin: "0 0 -1rem 0"}} />
+<CustomDivider middleText="Full Payment Flow" />
 
 ## Payment Flow End-to-End
 
@@ -298,7 +298,7 @@ flowchart LR
     classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
 ```
 
-<CustomDivider middleText="Why Operate?" style={{margin: "0 0 -1rem 0"}} />
+<CustomDivider middleText="Why Operate?" />
 
 ## Operator Models
 
@@ -306,8 +306,8 @@ Orchestrators operate for different reasons. The earnings model looks different 
 
 <AccordionGroup>
   <Accordion title="GPU miner (earning from idle hardware)" icon="microchip">
-    If you have GPU hardware already running - mining, rendering, or sitting idle - adding Livepeer
-    Orchestrator workloads converts spare capacity into ETH service fees and LPT rewards.
+    Existing GPU hardware can turn spare capacity into ETH service fees and LPT rewards through Livepeer
+    Orchestrator workloads.
 
     The incremental cost is electricity and a small slice of GPU time. The marginal earnings are
     service fees (proportional to workload volume) plus LPT rewards (proportional to stake).
@@ -320,11 +320,11 @@ Orchestrators operate for different reasons. The earnings model looks different 
     Commercial Orchestrators serving application workloads (Daydream, Livepeer Studio, custom AI
     products) operate differently from solo GPU miners.
 
-    Revenue is primarily from service fees rather than inflation rewards. The key metrics are
+    Revenue comes primarily from service fees. The key metrics are
     throughput, latency, and reliability - not stake size. Pricing strategy matters more, and
     direct relationships with high-volume Gateways are common.
 
-    {/* REVIEW: Link to commercial-orchestrators.mdx once written */}
+    {/* TODO: Link to the commercial orchestrator page once it exists. */}
     This model requires understanding Gateway selection mechanics in depth. See
     <LinkArrow href="/v2/orchestrators/concepts/capabilities" label="Gateway Selection" newline={false} /> for
     the factors Gateways weigh.
@@ -341,7 +341,7 @@ Orchestrators operate for different reasons. The earnings model looks different 
   </Accordion>
   <Accordion title="Delegator-focused (earning rewards without compute)" icon="coins">
     An Orchestrator that holds substantial self-stake but operates at low capacity or joins a pool
-    earns primarily from inflation rewards rather than service fees.
+    earns primarily from inflation rewards, with service fees staying secondary.
 
     High reward cut retains more LPT per round. Low reward cut attracts more delegated stake, which
     increases the Orchestrator's share of the total round reward.
@@ -351,7 +351,7 @@ Orchestrators operate for different reasons. The earnings model looks different 
   </Accordion>
 </AccordionGroup>
 
-<CustomDivider middleText="Pricing Configuration" style={{margin: "0 0 -1rem 0"}} />
+<CustomDivider middleText="Pricing Configuration" />
 
 ## Configuring Prices
 
@@ -359,7 +359,7 @@ Orchestrators set three categories of pricing parameter at startup or via `livep
 
 ### Base price
 
-```bash
+```bash icon="terminal" title="Base pricing flags"
 # Price per pixel per second for video transcoding
 -pricePerUnit=1000
 
@@ -369,14 +369,14 @@ Orchestrators set three categories of pricing parameter at startup or via `livep
 
 ### AI capability pricing
 
-```bash
+```bash icon="terminal" title="AI capability pricing flag"
 # Per-pipeline, per-model AI pricing (JSON file path)
 -pricePerCapability=/path/to/ai-prices.json
 ```
 
 Example `ai-prices.json`:
 
-```json
+```json icon="code" title="Example ai-prices.json"
 {
   "capabilities_prices": [
     {
@@ -397,7 +397,7 @@ Example `ai-prices.json`:
 
 ### Per-Gateway pricing
 
-```bash
+```bash icon="terminal" title="Per-Gateway pricing"
 # Set a different price for a specific Gateway address
 -pricePerGateway='{"0xGatewayAddress": 800}'
 ```
@@ -407,7 +407,7 @@ independently of the base network price.
 
 See <LinkArrow href="/v2/orchestrators/guides/config-and-optimisation/pricing-strategy" label="Pricing Strategy" newline={false} /> for competitive pricing guidance and current network rate benchmarks.
 
-<CustomDivider middleText="Delegator Relationship" style={{margin: "0 0 -1rem 0"}} />
+<CustomDivider middleText="Delegator Relationship" />
 
 ## Attracting Delegators
 
@@ -427,7 +427,7 @@ recent reward-calling history. Delegators use this to compare options.
 
 See <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards/delegate-operations" label="Delegate Operations" newline={false} /> for operator strategies.
 
-<CustomDivider style={{margin: "0 0 -1rem 0"}} />
+<CustomDivider />
 
 ## Related Pages
 

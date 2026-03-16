@@ -28,10 +28,10 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/ta
 import { BorderedBox } from '/snippets/components/layout/containers.jsx'
 
 <Tip>
-  Choose the tab that matches the intended workload. All three modes use the same binary - the difference is which flags are set. Do not mix on-chain flags into this configuration step: `connect-and-activate` covers Arbitrum connection and staking.
+  Choose the tab that matches the intended workload. All three modes use the same binary and differ only by flags. Keep Arbitrum connection and staking flags for the `connect-and-activate` step.
 </Tip>
 
-Configuration sets the node's operational mode before connecting to Arbitrum. The three modes are video transcoding, AI inference, and dual mode (both). Pick one tab and build the docker-compose file that will run through the rest of setup.
+Build the docker-compose file that will carry the node through the rest of setup. Pick one operating mode: video transcoding, AI inference, or dual mode.
 
 <CustomDivider middleText="Node Mode Configuration" />
 
@@ -138,9 +138,9 @@ Replace:
       <TableCell>Enables Prometheus metrics at `localhost:7935/metrics`.</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell>`-v 6`</TableCell>
+      <TableCell>`-v=6`</TableCell>
       <TableCell>Initial setup only</TableCell>
-      <TableCell>Verbose logging. Remove or reduce once the node is stable.</TableCell>
+      <TableCell>Verbose logging for setup. Reduce the level after startup issues are resolved.</TableCell>
     </TableRow>
   </tbody>
 </StyledTable>
@@ -214,7 +214,7 @@ Check current demand and pricing at [tools.livepeer.cloud/ai/network-capabilitie
   <tbody>
     <TableRow>
       <TableCell>`-aiWorker`</TableCell>
-      <TableCell>Enables the AI inference worker. Without this, all AI configuration is ignored.</TableCell>
+      <TableCell>Enables the AI inference worker. go-livepeer ignores AI configuration when this flag is absent.</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>`-aiModels`</TableCell>
@@ -228,10 +228,10 @@ Check current demand and pricing at [tools.livepeer.cloud/ai/network-capabilitie
 </StyledTable>
 
 <Warning>
-  The Docker socket mount (`/var/run/docker.sock:/var/run/docker.sock`) is required. go-livepeer uses Docker-out-of-Docker to spawn and manage AI runner containers. Without this mount, AI pipelines will not start.
+  The Docker socket mount (`/var/run/docker.sock:/var/run/docker.sock`) is required. go-livepeer uses Docker-out-of-Docker to spawn and manage AI runner containers. Missing this mount prevents AI pipeline startup.
 </Warning>
 
-**First start downloads model weights** from HuggingFace. A 6 GB model like SDXL-Lightning takes 5-30 minutes depending on connection speed. The AI runner will not serve requests until the download completes.
+**First start downloads model weights** from HuggingFace. A 6 GB model like SDXL-Lightning takes 5-30 minutes depending on connection speed. The AI runner starts serving requests after the download completes.
 
 **For the LLM pipeline (8-16 GB VRAM):** the `llm` pipeline uses the Ollama runner instead of `livepeer/ai-runner`. See <LinkArrow href="/v2/orchestrators/guides/ai-and-job-workloads/llm-pipeline-setup" label="LLM Pipeline Setup" newline={false} /> for the full Ollama docker-compose setup.
 
@@ -241,7 +241,7 @@ Check current demand and pricing at [tools.livepeer.cloud/ai/network-capabilitie
 
 ## Dual mode configuration (video + AI)
 
-Dual mode serves both video transcoding and AI inference from one go-livepeer process. Video uses NVENC/NVDEC (dedicated hardware silicon). AI uses CUDA compute cores. The two workloads do not compete for the same hardware resources.
+Dual mode serves both video transcoding and AI inference from one go-livepeer process. Video uses NVENC/NVDEC dedicated hardware. AI uses CUDA compute cores. VRAM is the shared capacity limit.
 
 **docker-compose template:**
 
@@ -280,7 +280,7 @@ services:
 
 **Create `~/.lpData/aiModels.json`** with at least one pipeline entry before starting. Same format as the AI tab above.
 
-**VRAM planning:** NVENC/NVDEC use dedicated silicon - they consume negligible VRAM. The VRAM constraint is set entirely by AI model weights. On a 24 GB GPU, one warm SDXL-Lightning model (~12-18 GB) leaves room for video sessions alongside it.
+**VRAM planning:** NVENC/NVDEC use dedicated silicon and consume negligible VRAM. AI model weights set the practical limit. A 24 GB GPU leaves room for video sessions alongside one warm SDXL-Lightning model (~12-18 GB).
 
 <StyledTable variant="bordered">
   <thead>
@@ -307,7 +307,7 @@ services:
 
 For full VRAM budgeting and the warm model strategy, see <LinkArrow href="/v2/orchestrators/guides/config-and-optimisation/capacity-planning" label="Capacity Planning" newline={false} />.
 
-{/* REVIEW: Validate VRAM figures against model-demand-reference.mdx when that page merges. Rick to confirm per-pipeline VRAM floors. */}
+{/* TODO: Recheck the VRAM figures against model-demand-reference.mdx during the next AI capacity review. */}
 
   </Tab>
 </Tabs>
@@ -346,7 +346,7 @@ nvidia-smi -L
 ```
 
 This lists GPU device IDs:
-```
+```text icon="terminal" filename="expected-gpu-list"
 GPU 0: NVIDIA GeForce RTX 4090 (UUID: GPU-...)
 GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-...)
 ```
@@ -387,7 +387,7 @@ volumes:
   - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-The `aiModelsDir` must be a **host path** that Docker can mount into AI runner containers.
+The `aiModelsDir` must be a **host path**. Docker mounts that path into AI runner containers.
 
 <CustomDivider middleText="Verify Configuration" />
 
@@ -406,18 +406,18 @@ docker compose logs -f 2>&1 | grep -iE "gpu|transcode|ai-runner|error|FATAL" | h
 ```
 
 Expected for video mode:
-```
+```text icon="terminal" filename="expected-video-startup"
 Transcoding on Nvidia GPU 0
 Listening for RPC on :8935
 ```
 
 Expected for AI mode (after model download):
-```
+```text icon="terminal" filename="expected-ai-startup"
 Starting AI worker
 Warm model loaded: ByteDance/SDXL-Lightning
 ```
 
-If `FATAL` or repeated error lines appear, resolve them before connecting on-chain.
+Resolve `FATAL` or repeated error lines before connecting on-chain.
 
 <CustomDivider />
 

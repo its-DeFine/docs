@@ -20,6 +20,7 @@ When converting section review reports into an execution plan, use the raw machi
 - If the markdown summary collapses or omits page-level detail, derive tasks from the raw JSON and then deduplicate them into page-level action families.
 - Do not turn repeated lint warnings into line-by-line task lists. Collapse them into one actionable task per page and fix family.
 - Apply the same rule to future tranches so style work is not under-scoped when the summary report is incomplete.
+- Add a repo git-hook or pre-commit run as the final execution step after targeted checks pass, so the handoff includes the same last-mile guard the branch will enforce.
 
 ---
 
@@ -384,6 +385,7 @@ This is the "lock the IA" step. After this, structural decisions are fixed and o
 - Verify all REVIEW flags are addressed or explicitly deferred with rationale
 - Apply information verification framework (when available)
 - Apply copywriting framework for prose quality
+- Run the repo git-hook or pre-commit flow after the targeted checks pass and treat that as the final validation gate for the tranche
 
 ### Step 14: Cross-Tab Verification
 

@@ -34,7 +34,7 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 Two smoke tests on this page: **video transcoding** (20-30 min) and **AI inference** (35-65 min). Both run with Docker only. Complete the video test first - it shares the Docker prerequisites with the AI test.
 
 <Note>
-  This page verifies hardware. For production setup with on-chain activation and earning, continue to the <LinkArrow href="/v2/orchestrators/setup/guide" label="Setup Guide" newline={false} /> after completing these tests.
+  Use this page to verify hardware. Continue to the <LinkArrow href="/v2/orchestrators/setup/guide" label="Setup Guide" newline={false} /> after these tests when you are ready for on-chain activation and earning.
 </Note>
 
 <CustomDivider middleText="Prerequisites" />
@@ -65,7 +65,7 @@ Confirm each item before starting:
     <TableRow>
       <TableCell>NVIDIA Container Toolkit</TableCell>
       <TableCell>`docker run --rm --gpus all nvidia/cuda:12.0.0-base-ubuntu22.04 nvidia-smi`</TableCell>
-      <TableCell>If this fails, install the toolkit before continuing.</TableCell>
+      <TableCell>Install the toolkit before continuing when this check fails.</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>ffmpeg (video test only)</TableCell>
@@ -129,7 +129,7 @@ Confirm each item before starting:
     ```
 
     Expected:
-    ```
+    ```text icon="code" title="Expected GPU detection log"
     Transcoding on Nvidia GPU 0
     ```
 
@@ -164,7 +164,7 @@ Confirm each item before starting:
 
   <StyledStep title="Send a test stream">
 
-    Send a synthetic test pattern as an RTMP stream. This simulates real video from OBS or a camera:
+    Send a synthetic test pattern as an RTMP stream. This simulates a source stream from OBS or a camera:
 
     ```bash icon="terminal" filename="send-stream"
     ffmpeg -re \
@@ -197,7 +197,7 @@ Confirm each item before starting:
     ```
 
     Expected:
-    ```
+    ```text icon="code" title="Expected transcoding log"
     Got segment for stream test_stream
     Transcode result OK
     ```
@@ -215,7 +215,7 @@ Confirm each item before starting:
 
 </StyledSteps>
 
-### What just happened
+### Video flow summary
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
@@ -227,7 +227,7 @@ flowchart LR
   GW -->|"HLS :8935"| OUT["ffprobe\n(verify)"]
 ```
 
-The gateway received the RTMP stream, split it into segments, routed them to the orchestrator, the orchestrator transcoded each segment on the GPU, and the gateway reassembled the output as an HLS stream. No Arbitrum, no ETH, no LPT - the `-network offchain` flag bypassed all blockchain interaction.
+The gateway received the RTMP stream, split it into segments, routed them to the orchestrator, the orchestrator transcoded each segment on the GPU, and the gateway reassembled the output as an HLS stream. The `-network offchain` flag kept the test local and bypassed blockchain interaction.
 
 **GPU transcoding works on this machine.** Continue to the AI test, or skip to the <LinkArrow href="/v2/orchestrators/setup/guide" label="Setup Guide" newline={false} /> for production configuration.
 
@@ -312,7 +312,7 @@ The gateway received the RTMP stream, split it into segments, routed them to the
     ```
 
     The first start downloads model weights from HuggingFace (~6 GB). Expected progression:
-    ```
+    ```text icon="code" title="Expected warm model log"
     Starting AI worker
     Downloading ByteDance/SDXL-Lightning...
     Pipeline text-to-image started
@@ -349,7 +349,7 @@ The gateway received the RTMP stream, split it into segments, routed them to the
       --max-time 30
     ```
 
-    {/* REVIEW: Confirm exact local inference endpoint path. j0sh / Rick to verify /text-to-image is the correct direct orchestrator endpoint in current go-livepeer. */}
+    {/* TODO: Confirm the current direct local inference endpoint path for go-livepeer. */}
 
     Verify:
 
@@ -373,6 +373,8 @@ The gateway received the RTMP stream, split it into segments, routed them to the
   </StyledStep>
 
 </StyledSteps>
+
+Use `http://llm_runner:8000` as the `url` value in `aiModels.json` when you switch to the Ollama-based LLM path.
 
 <AccordionGroup>
   <Accordion title="LLM alternative for 8-16 GB VRAM GPUs" icon="microchip">
@@ -416,7 +418,7 @@ The gateway received the RTMP stream, split it into segments, routed them to the
   </Accordion>
 </AccordionGroup>
 
-### What just happened
+### AI flow summary
 
 The orchestrator started in off-chain mode with the AI worker enabled. On first start, `livepeer/ai-runner` was spawned as a child Docker container via Docker-out-of-Docker, downloaded model weights from HuggingFace, and loaded them into GPU VRAM. The test inference request travelled from curl to the orchestrator, through the AI runner container, and returned a generated PNG.
 

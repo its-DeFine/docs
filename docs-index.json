@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-16T10:38:02.496Z",
+  "generated": "2026-03-16T13:20:10.165Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -7967,7 +7967,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 927,
-      "lastVerified": "2026-03-15T18:00:25+11:00",
+      "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
           "level": 2,
@@ -8031,7 +8031,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 969,
-      "lastVerified": "2026-03-15T18:00:25+11:00",
+      "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
           "level": 2,
@@ -8127,7 +8127,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 763,
-      "lastVerified": "2026-03-15T18:00:25+11:00",
+      "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
           "level": 2,
@@ -8254,7 +8254,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1310,
-      "lastVerified": "2026-03-15T18:00:25+11:00",
+      "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
           "level": 2,
@@ -13284,7 +13284,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 842,
+      "wordCount": 797,
       "lastVerified": "2026-03-15",
       "headings": [
         {
@@ -13324,7 +13324,7 @@
         "video-transcoding",
         "ai-inference",
         "batch-ai",
-        "real-time-ai",
+        "live-ai",
         "cascade",
         "byoc",
         "job-types",
@@ -13336,7 +13336,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 821,
+      "wordCount": 796,
       "lastVerified": "2026-03-15",
       "headings": [
         {
@@ -13476,15 +13476,14 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/guide",
       "title": "Orchestrator Quickstart",
-      "description": "Choose your quickstart path — video transcoding, AI inference, or join a pool — and get your first orchestrator node running.",
+      "description": "Verify Livepeer works on your hardware - off-chain video and AI smoke tests that run in under an hour with no financial commitment.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
         "orchestrator",
         "quickstart",
-        "transcoding",
-        "ai",
-        "go-livepeer",
+        "smoke-test",
+        "verify",
         "gpu",
         "orchestrators",
         "guide"
@@ -13494,20 +13493,16 @@
       ],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 257,
-      "lastVerified": "2026-03-15T20:39:57+11:00",
+      "wordCount": 273,
+      "lastVerified": "2026-03-16",
       "headings": [
         {
           "level": 2,
-          "text": "Choose your path"
+          "text": "Choose your test"
         },
         {
           "level": 2,
-          "text": "What you will need"
-        },
-        {
-          "level": 2,
-          "text": "Quickstart vs Setup guide"
+          "text": "What you need"
         },
         {
           "level": 2,
@@ -13518,20 +13513,19 @@
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/video-transcoding",
-      "title": "Video Transcoding Quickstart",
-      "description": "Run a Livepeer transcoding orchestrator with Docker — from install to first job in under 30 minutes.",
+      "title": "Quickstart: Verify Your Hardware",
+      "description": "Run off-chain video transcoding and AI inference tests to verify Livepeer works on your GPU - no staking, no ETH, no Arbitrum required.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
         "orchestrator",
         "quickstart",
-        "transcoding",
-        "go-livepeer",
+        "smoke-test",
+        "video-transcoding",
+        "ai-inference",
+        "off-chain",
         "docker",
-        "gpu",
-        "nvidia",
-        "orchestrators",
-        "video-transcoding"
+        "orchestrators"
       ],
       "entities": [
         "orchestrator",
@@ -13539,8 +13533,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 558,
-      "lastVerified": "2026-03-15T20:39:57+11:00",
+      "wordCount": 753,
+      "lastVerified": "2026-03-16",
       "headings": [
         {
           "level": 2,
@@ -13548,31 +13542,19 @@
         },
         {
           "level": 2,
-          "text": "Step 1 — Pull the Docker image"
+          "text": "Video transcoding test"
+        },
+        {
+          "level": 3,
+          "text": "Video flow summary"
         },
         {
           "level": 2,
-          "text": "Step 2 — Create your data directory"
+          "text": "AI inference test"
         },
         {
-          "level": 2,
-          "text": "Step 3 — Start the node"
-        },
-        {
-          "level": 2,
-          "text": "Step 4 — Verify the connection"
-        },
-        {
-          "level": 2,
-          "text": "Step 5 — Activate on the network"
-        },
-        {
-          "level": 2,
-          "text": "Step 6 — Verify activation"
-        },
-        {
-          "level": 2,
-          "text": "What you just set up"
+          "level": 3,
+          "text": "AI flow summary"
         },
         {
           "level": 2,
@@ -13581,33 +13563,31 @@
       ],
       "codeLanguages": [
         "bash",
-        "mermaid"
+        "text",
+        "mermaid",
+        "json"
       ]
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/guide",
       "title": "Run an Orchestrator",
-      "description": "End-to-end setup path for Livepeer orchestrators running go-livepeer — from hardware prerequisites through activation and first jobs.",
+      "description": "Complete setup guide for running a Livepeer orchestrator - from installation to on-chain activation and verification.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
         "orchestrator",
         "setup",
-        "go-livepeer",
-        "activation",
-        "gpu",
-        "install",
-        "configure",
-        "orchestrators",
-        "guide"
+        "guide",
+        "production",
+        "orchestrators"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 301,
-      "lastVerified": "2026-03-15T20:39:57+11:00",
+      "wordCount": 405,
+      "lastVerified": "2026-03-16",
       "headings": [
         {
           "level": 2,
@@ -13622,9 +13602,7 @@
           "text": "After setup"
         }
       ],
-      "codeLanguages": [
-        "mermaid"
-      ]
+      "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/rcs-requirements",
@@ -13649,7 +13627,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 532,
+      "wordCount": 525,
       "lastVerified": "2026-03-16",
       "headings": [
         {
@@ -13684,18 +13662,16 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/rs-install",
       "title": "Install go-livepeer",
-      "description": "Install the go-livepeer binary on Linux, macOS, or via Docker. Covers prerequisites, GPU driver requirements, installation steps, and verification.",
+      "description": "Install go-livepeer via Docker (recommended) or pre-built binary - Linux, Windows, and macOS with GPU support.",
       "section": "orchestrators",
       "tags": [
-        "go-livepeer",
-        "install",
+        "livepeer",
         "orchestrator",
+        "install",
+        "docker",
+        "go-livepeer",
         "gpu",
         "nvidia",
-        "docker",
-        "binary",
-        "cuda",
-        "linux",
         "orchestrators",
         "setup",
         "rs-install"
@@ -13705,63 +13681,33 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 569,
-      "lastVerified": "2026-03-15",
+      "wordCount": 377,
+      "lastVerified": "2026-03-16",
       "headings": [
         {
           "level": 2,
-          "text": "Prerequisites"
-        },
-        {
-          "level": 2,
-          "text": "Install go-livepeer"
-        },
-        {
-          "level": 1,
-          "text": "CPU build (arm64)"
-        },
-        {
-          "level": 1,
-          "text": "NVIDIA GPU build (amd64)"
-        },
-        {
-          "level": 1,
-          "text": "NVIDIA GPU build (arm64)"
-        },
-        {
-          "level": 1,
-          "text": "Release checksums"
-        },
-        {
-          "level": 1,
-          "text": "Intel (amd64)"
-        },
-        {
-          "level": 2,
-          "text": "Verify your installation"
-        },
-        {
-          "level": 2,
-          "text": "Next steps"
+          "text": "Next step"
         }
       ],
-      "codeLanguages": []
+      "codeLanguages": [
+        "bash",
+        "text",
+        "powershell"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/test",
       "title": "Verify Your Setup",
-      "description": "Pre-activation and post-activation checks to confirm your orchestrator is configured correctly, reachable, and receiving jobs.",
+      "description": "Verify the orchestrator is on-chain, processing jobs, and healthy - video transcoding test, AI inference test, Explorer check, and basic monitoring confirmation.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
         "orchestrator",
         "verify",
         "test",
-        "smoke-test",
-        "port-check",
-        "serviceaddr",
-        "active-set",
-        "troubleshooting",
+        "health-check",
+        "monitoring",
+        "prometheus",
         "orchestrators",
         "setup"
       ],
@@ -13770,68 +13716,25 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 709,
-      "lastVerified": "2026-03-15T20:39:57+11:00",
+      "wordCount": 999,
+      "lastVerified": "2026-03-16",
       "headings": [
-        {
-          "level": 2,
-          "text": "Pre-activation checks"
-        },
-        {
-          "level": 3,
-          "text": "1. GPU detection"
-        },
-        {
-          "level": 3,
-          "text": "2. RPC connectivity"
-        },
-        {
-          "level": 3,
-          "text": "3. Port reachability"
-        },
-        {
-          "level": 3,
-          "text": "4. Wallet and funds"
-        },
-        {
-          "level": 2,
-          "text": "Post-activation checks"
-        },
-        {
-          "level": 3,
-          "text": "5. Explorer status"
-        },
-        {
-          "level": 3,
-          "text": "6. Service address match"
-        },
-        {
-          "level": 3,
-          "text": "7. First job verification"
-        },
-        {
-          "level": 3,
-          "text": "8. Reward call"
-        },
-        {
-          "level": 3,
-          "text": "9. AI pipeline health (if configured)"
-        },
         {
           "level": 2,
           "text": "Quick-reference checklist"
         },
         {
           "level": 2,
-          "text": "Not receiving jobs?"
+          "text": "Common issues"
         },
         {
           "level": 2,
-          "text": "See also"
+          "text": "Setup complete"
         }
       ],
       "codeLanguages": [
-        "bash"
+        "bash",
+        "text"
       ]
     },
     {
@@ -13859,7 +13762,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 380,
-      "lastVerified": "2026-03-15T20:39:57+11:00",
+      "lastVerified": "2026-03-16T18:59:00+11:00",
       "headings": [
         {
           "level": 2,
@@ -13892,545 +13795,8 @@
       ],
       "codeLanguages": [
         "bash",
+        "text",
         "yaml"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/orchestrators/guides/staking-and-rewards/earnings",
-      "title": "Earnings Explained",
-      "description": "How orchestrators earn on Livepeer — ETH service fees, LPT inflationary rewards, commission parameters, what wins jobs, and how AI changes the fee landscape.",
-      "section": "orchestrators",
-      "tags": [
-        "livepeer",
-        "orchestrator-earnings",
-        "lpt-rewards",
-        "eth-fees",
-        "reward-cut",
-        "fee-share",
-        "transcoding-fees",
-        "ai-inference-fees",
-        "orchestrator-income",
-        "commission",
-        "orchestrators",
-        "guides"
-      ],
-      "entities": [
-        "orchestrator"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 1000,
-      "lastVerified": "2026-03-16T14:07:56+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "The two revenue streams"
-        },
-        {
-          "level": 2,
-          "text": "ETH service fees"
-        },
-        {
-          "level": 3,
-          "text": "What determines how much work you win"
-        },
-        {
-          "level": 2,
-          "text": "LPT inflationary rewards"
-        },
-        {
-          "level": 2,
-          "text": "Commission parameters"
-        },
-        {
-          "level": 3,
-          "text": "Reward cut"
-        },
-        {
-          "level": 3,
-          "text": "Fee share"
-        },
-        {
-          "level": 2,
-          "text": "Transcoding vs AI fees in practice"
-        },
-        {
-          "level": 2,
-          "text": "Payment flow summary"
-        },
-        {
-          "level": 2,
-          "text": "Monitoring your earnings"
-        },
-        {
-          "level": 2,
-          "text": "Watch: Orchestrator economics overview"
-        },
-        {
-          "level": 2,
-          "text": "Continue in this section"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees",
-      "title": "Rewards and Fees",
-      "description": "Protocol reward mechanics for Livepeer orchestrators — how LPT inflation flows, calling Reward() automatically and manually, gas thresholds on Arbitrum, fee redemption, setting commission, and monitoring for missed rounds.",
-      "section": "orchestrators",
-      "tags": [
-        "livepeer",
-        "orchestrator",
-        "reward-calling",
-        "lpt-inflation",
-        "reward-cut",
-        "fee-share",
-        "arbitrum-gas",
-        "livepeer-cli",
-        "ticket-redemption",
-        "missed-rounds",
-        "orchestrators",
-        "guides"
-      ],
-      "entities": [
-        "orchestrator"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 1068,
-      "lastVerified": "2026-03-16T14:07:56+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "How LPT rewards flow"
-        },
-        {
-          "level": 3,
-          "text": "The inflation rate"
-        },
-        {
-          "level": 2,
-          "text": "Calling Reward() — your options"
-        },
-        {
-          "level": 3,
-          "text": "Option 1: Automatic (default, recommended)"
-        },
-        {
-          "level": 3,
-          "text": "Option 2: Disable automatic, call manually"
-        },
-        {
-          "level": 2,
-          "text": "Gas costs on Arbitrum"
-        },
-        {
-          "level": 2,
-          "text": "Setting your commission"
-        },
-        {
-          "level": 3,
-          "text": "Via livepeer_cli"
-        },
-        {
-          "level": 3,
-          "text": "Commission rate strategy"
-        },
-        {
-          "level": 2,
-          "text": "How ETH fees flow"
-        },
-        {
-          "level": 2,
-          "text": "Monitoring for missed rounds"
-        },
-        {
-          "level": 3,
-          "text": "Automated alerting"
-        },
-        {
-          "level": 2,
-          "text": "Reward vs fee economics: a worked example"
-        },
-        {
-          "level": 2,
-          "text": "Watch: Reward calling and orchestrator setup"
-        },
-        {
-          "level": 2,
-          "text": "Related"
-        }
-      ],
-      "codeLanguages": [
-        "bash",
-        "yaml"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/orchestrators/guides/staking-and-rewards/attracting-delegates",
-      "title": "Getting Delegates",
-      "description": "How to attract and retain LPT delegators as a Livepeer orchestrator — what delegators evaluate, the Explorer ROI formulas explained, commission strategy, reputation, and the compounding stake flywheel.",
-      "section": "orchestrators",
-      "tags": [
-        "livepeer",
-        "orchestrator",
-        "delegators",
-        "lpt-delegation",
-        "stake",
-        "reward-cut",
-        "fee-share",
-        "orchestrator-reputation",
-        "yield-calculation",
-        "roi",
-        "orchestrators",
-        "guides"
-      ],
-      "entities": [
-        "orchestrator"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 1477,
-      "lastVerified": "2026-03-16T14:07:56+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Why delegators matter"
-        },
-        {
-          "level": 2,
-          "text": "What delegators actually evaluate"
-        },
-        {
-          "level": 3,
-          "text": "The Explorer ROI calculation"
-        },
-        {
-          "level": 4,
-          "text": "ETH (fee) yield"
-        },
-        {
-          "level": 4,
-          "text": "LPT (inflation) yield"
-        },
-        {
-          "level": 4,
-          "text": "Combined yield"
-        },
-        {
-          "level": 2,
-          "text": "The four things delegators look at"
-        },
-        {
-          "level": 3,
-          "text": "1. Reward call ratio"
-        },
-        {
-          "level": 3,
-          "text": "2. Fee share and reward share"
-        },
-        {
-          "level": 3,
-          "text": "3. Daily fee volume (v_daily)"
-        },
-        {
-          "level": 3,
-          "text": "4. Active stake dilution"
-        },
-        {
-          "level": 2,
-          "text": "Building reputation"
-        },
-        {
-          "level": 3,
-          "text": "Transparency"
-        },
-        {
-          "level": 3,
-          "text": "Commission stability"
-        },
-        {
-          "level": 3,
-          "text": "Running AI capabilities"
-        },
-        {
-          "level": 2,
-          "text": "The delegation mechanics (what delegators actually do)"
-        },
-        {
-          "level": 2,
-          "text": "Common pitfalls for delegators (and what they mean for you)"
-        },
-        {
-          "level": 3,
-          "text": "Variable commission rates"
-        },
-        {
-          "level": 3,
-          "text": "Inflation rate changes"
-        },
-        {
-          "level": 3,
-          "text": "Missed reward rounds"
-        },
-        {
-          "level": 2,
-          "text": "Resources for delegators you can share"
-        },
-        {
-          "level": 2,
-          "text": "Related"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/orchestrators/guides/staking-and-rewards/governance",
-      "title": "Governance and Voting",
-      "description": "How Livepeer protocol governance works and how orchestrators vote on Livepeer Improvement Proposals (LIPs) — finding polls, voting via livepeer_cli, verifying your vote on Explorer, and where to follow active proposals.",
-      "section": "orchestrators",
-      "tags": [
-        "livepeer",
-        "governance",
-        "lip",
-        "livepeer-improvement-proposal",
-        "voting",
-        "livepeer-cli",
-        "orchestrator-vote",
-        "lpt-governance",
-        "protocol-parameters",
-        "orchestrators",
-        "guides",
-        "staking-and-rewards"
-      ],
-      "entities": [
-        "orchestrator"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 1006,
-      "lastVerified": "2026-03-16T14:07:56+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "How Livepeer governance works"
-        },
-        {
-          "level": 3,
-          "text": "Recent LIPs affecting orchestrators"
-        },
-        {
-          "level": 2,
-          "text": "Where to follow governance"
-        },
-        {
-          "level": 2,
-          "text": "How to vote"
-        },
-        {
-          "level": 2,
-          "text": "Voting with a remote key"
-        },
-        {
-          "level": 2,
-          "text": "Governance weight and your delegators"
-        },
-        {
-          "level": 2,
-          "text": "Gas costs for voting"
-        },
-        {
-          "level": 2,
-          "text": "Summary"
-        },
-        {
-          "level": 2,
-          "text": "Related"
-        }
-      ],
-      "codeLanguages": [
-        "bash"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/orchestrators/guides/advanced-operations/run-a-pool",
-      "title": "Run a Pool",
-      "description": "How to operate a Livepeer GPU pool — accept external worker connections, manage job routing across multiple GPUs, handle off-chain fee distribution, and maintain operational transparency.",
-      "section": "orchestrators",
-      "tags": [
-        "livepeer",
-        "orchestrator",
-        "pool",
-        "run-a-pool",
-        "gpu-pool",
-        "orchsecret",
-        "worker",
-        "fee-distribution",
-        "transcoder-pool",
-        "titan-node",
-        "orchestrators",
-        "guides"
-      ],
-      "entities": [
-        "orchestrator"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "advanced",
-      "wordCount": 1454,
-      "lastVerified": "2026-03-16T14:07:56+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "How a pool works"
-        },
-        {
-          "level": 2,
-          "text": "Worker connection models"
-        },
-        {
-          "level": 2,
-          "text": "Accepting workers"
-        },
-        {
-          "level": 2,
-          "text": "Fee distribution"
-        },
-        {
-          "level": 2,
-          "text": "On-chain identity and transparency"
-        },
-        {
-          "level": 2,
-          "text": "Ongoing operational responsibilities"
-        },
-        {
-          "level": 2,
-          "text": "Key facts to remember"
-        }
-      ],
-      "codeLanguages": [
-        "mermaid",
-        "bash"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/orchestrators/guides/advanced-operations/gateways-orchestrators",
-      "title": "Gateway Relationships",
-      "description": "How gateways discover and select your orchestrator — the discovery mechanisms, multi-factor selection algorithm, what you can do to receive more work, and how to use the gateway Loki API to understand routing decisions.",
-      "section": "orchestrators",
-      "tags": [
-        "livepeer",
-        "orchestrator",
-        "gateway",
-        "discovery",
-        "selection",
-        "routing",
-        "capabilities",
-        "pricing",
-        "loki",
-        "gateway-introspection",
-        "stake-weight",
-        "performance-score"
-      ],
-      "entities": [
-        "gateway",
-        "orchestrator"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "advanced",
-      "wordCount": 965,
-      "lastVerified": "2026-03-16T14:07:56+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "How gateways find you"
-        },
-        {
-          "level": 2,
-          "text": "What you advertise to gateways"
-        },
-        {
-          "level": 2,
-          "text": "How gateways select you"
-        },
-        {
-          "level": 2,
-          "text": "What you can control to get more work"
-        },
-        {
-          "level": 2,
-          "text": "Gateway Loki API — understanding why you are (or are not) being selected"
-        },
-        {
-          "level": 2,
-          "text": "Debugging: not receiving work"
-        }
-      ],
-      "codeLanguages": [
-        "protobuf",
-        "mermaid",
-        "bash"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/orchestrators/guides/advanced-operations/large-scale-operations",
-      "title": "Fleet Operations",
-      "description": "Architectural patterns for running multiple Livepeer orchestrator nodes at data-centre scale — multi-orchestrator setup, capacity management, rolling updates, fleet-wide monitoring, and enterprise onboarding.",
-      "section": "orchestrators",
-      "tags": [
-        "livepeer",
-        "orchestrator",
-        "fleet",
-        "multi-orchestrator",
-        "data-centre",
-        "enterprise",
-        "scale",
-        "multi-o",
-        "load-balancing",
-        "rolling-update",
-        "orchestrators",
-        "guides"
-      ],
-      "entities": [
-        "orchestrator"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "advanced",
-      "wordCount": 900,
-      "lastVerified": "2026-03-16T14:07:56+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "When you need fleet operations"
-        },
-        {
-          "level": 2,
-          "text": "Multi-orchestrator architecture"
-        },
-        {
-          "level": 2,
-          "text": "Scaling GPU workers"
-        },
-        {
-          "level": 2,
-          "text": "Capacity management at fleet scale"
-        },
-        {
-          "level": 2,
-          "text": "Rolling updates"
-        },
-        {
-          "level": 2,
-          "text": "Network and key management at scale"
-        },
-        {
-          "level": 2,
-          "text": "Enterprise and data-centre onboarding"
-        }
-      ],
-      "codeLanguages": [
-        "mermaid",
-        "bash"
       ]
     },
     {
@@ -14519,7 +13885,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 395,
-      "lastVerified": "2026-03-15T20:39:57+11:00",
+      "lastVerified": "2026-03-16T18:59:00+11:00",
       "headings": [
         {
           "level": 2,
@@ -14580,7 +13946,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 67,
-      "lastVerified": "2026-03-16T02:54:10+11:00",
+      "lastVerified": "2026-03-16T18:59:00+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -14674,7 +14040,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 637,
-      "lastVerified": "2026-03-15T20:39:57+11:00",
+      "lastVerified": "2026-03-16T18:59:00+11:00",
       "headings": [
         {
           "level": 2,
@@ -14793,7 +14159,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 301,
-      "lastVerified": "2026-03-15T20:39:57+11:00",
+      "lastVerified": "2026-03-16T18:59:00+11:00",
       "headings": [
         {
           "level": 2,
@@ -14895,7 +14261,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 67,
-      "lastVerified": "2026-03-15T07:38:37+11:00",
+      "lastVerified": "2026-03-16T18:59:00+11:00",
       "headings": [
         {
           "level": 2,
@@ -17242,7 +16608,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 830,
-      "lastVerified": "2026-03-11T08:31:49+11:00",
+      "lastVerified": "2026-03-16T14:36:09+11:00",
       "headings": [
         {
           "level": 2,
@@ -17334,7 +16700,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1157,
-      "lastVerified": "2026-03-11T08:31:49+11:00",
+      "lastVerified": "2026-03-16T14:36:09+11:00",
       "headings": [
         {
           "level": 2,
@@ -17478,7 +16844,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3360,
-      "lastVerified": "2026-03-11T08:31:49+11:00",
+      "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
           "level": 1,
@@ -17838,7 +17204,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 807,
-      "lastVerified": "2026-03-12T15:51:52+11:00",
+      "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
           "level": 2,
@@ -18244,7 +17610,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 469,
-      "lastVerified": "2026-03-16T03:54:13.210Z",
+      "lastVerified": "2026-03-16T14:36:09+11:00",
       "headings": [
         {
           "level": 2,
@@ -18580,7 +17946,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 165,
-      "lastVerified": "2026-03-12T15:26:20+11:00",
+      "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
           "level": 2,
@@ -18615,7 +17981,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 193,
-      "lastVerified": "2026-03-11T08:31:49+11:00",
+      "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
           "level": 2,
@@ -18646,8 +18012,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1408,
-      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "wordCount": 1402,
+      "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
           "level": 2,
@@ -18804,8 +18170,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1633,
-      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "wordCount": 1634,
+      "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
           "level": 2,
@@ -18966,8 +18332,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1293,
-      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "wordCount": 1249,
+      "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
           "level": 2,
@@ -19101,7 +18467,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 955,
-      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
           "level": 2,
@@ -19206,8 +18572,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1372,
-      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "wordCount": 1408,
+      "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
           "level": 2,
@@ -19284,6 +18650,10 @@
         {
           "level": 3,
           "text": "LogoHeroContainer"
+        },
+        {
+          "level": 3,
+          "text": "MermaidColours"
         },
         {
           "level": 3,
@@ -19894,7 +19264,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 933,
-      "lastVerified": "2026-03-11T08:31:49+11:00",
+      "lastVerified": "2026-03-16T18:05:17+11:00",
       "headings": [
         {
           "level": 2,
@@ -20140,7 +19510,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3683,
-      "lastVerified": "2026-03-12T15:26:20+11:00",
+      "lastVerified": "2026-03-16T18:05:17+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -20233,7 +19603,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 475,
-      "lastVerified": "2026-03-11T08:31:49+11:00",
+      "lastVerified": "2026-03-16T18:05:17+11:00",
       "headings": [
         {
           "level": 1,

@@ -26,20 +26,20 @@ import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 
 <Tip>
-  Docker is the recommended install path. It matches the quickstart environment, handles GPU passthrough via the NVIDIA Container Toolkit, and simplifies upgrades. Use the binary path only when Docker is not available.
+  Docker is the recommended install path. It matches the quickstart environment, handles GPU passthrough via the NVIDIA Container Toolkit, and simplifies upgrades. Use the binary path when Docker is unavailable.
 </Tip>
 
 <CustomDivider middleText="Install" />
 
 <View title="Docker" icon="docker" iconType="solid">
 
-Docker is supported on Linux, Windows (WSL2), and macOS. The official Docker image includes CUDA 12.0 - no separate CUDA installation required.
+Docker is supported on Linux, Windows (WSL2), and macOS. The official Docker image includes CUDA 12.0, so no separate CUDA installation is required.
 
 <Steps>
 
 <Step title="Install Docker and NVIDIA Container Toolkit">
 
-If Docker is not already installed, follow the [Docker install guide](https://docs.docker.com/engine/install/).
+Install Docker first on hosts missing it. Follow the [Docker install guide](https://docs.docker.com/engine/install/).
 
 For GPU passthrough, the NVIDIA Container Toolkit is required on Linux:
 
@@ -64,7 +64,7 @@ docker run --rm --gpus all nvidia/cuda:12.0.0-base-ubuntu22.04 nvidia-smi
 ```
 
 Expected output shows your GPU with driver and CUDA version:
-```
+```text icon="terminal" filename="expected-gpu-output"
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI ...    Driver Version: 525.60.13    CUDA Version: 12.0           |
 |===============================+======================+======================|
@@ -73,7 +73,7 @@ Expected output shows your GPU with driver and CUDA version:
 +-----------------------------------------------------------------------------+
 ```
 
-If `nvidia-smi` fails inside Docker, the NVIDIA Container Toolkit is not configured correctly. Resolve this before continuing.
+A failed `nvidia-smi` run inside Docker means the NVIDIA Container Toolkit still needs configuration. Resolve that before continuing.
 
 </Step>
 
@@ -91,11 +91,11 @@ docker pull livepeer/go-livepeer:v0.8.9
 
 Check [github.com/livepeer/go-livepeer/releases](https://github.com/livepeer/go-livepeer/releases) for the latest release tag.
 
-{/* REVIEW: Confirm v0.8.9 is still the latest stable tag, or update to current. Rick to advise. */}
+{/* TODO: Replace v0.8.9 with the current stable tag during the next version refresh. */}
 
 </Step>
 
-<Step title="Pull the AI runner image (if running AI or dual mode)">
+<Step title="Pull the AI runner image for AI and dual mode">
 
 For AI inference or dual mode, also pull the AI runner:
 
@@ -114,7 +114,7 @@ docker run --rm livepeer/go-livepeer:stable livepeer -version
 ```
 
 Expected:
-```
+```text icon="terminal" filename="expected-version-output"
 Livepeer Node Version: v0.8.9
 Golang runtime version: go1.25.0
 ```
@@ -127,7 +127,7 @@ Golang runtime version: go1.25.0
 
 <View title="Linux" icon="linux" iconType="solid">
 
-Use the Linux binary when Docker is not available or when running as a systemd service directly.
+Use the Linux binary when Docker is unavailable or when the node runs directly under systemd.
 
 <Steps>
 
@@ -149,7 +149,7 @@ curl -L -O https://github.com/livepeer/go-livepeer/releases/download/v0.8.9/live
 curl -L -O https://github.com/livepeer/go-livepeer/releases/download/v0.8.9/v0.8.9_checksums.txt
 ```
 
-Use the `livepeer-linux-gpu-*` archive only when the host has an NVIDIA GPU and matching CUDA 12 libraries installed. The CPU build runs everywhere but without GPU acceleration.
+Use the `livepeer-linux-gpu-*` archive when the host has an NVIDIA GPU and matching CUDA 12 libraries installed. The CPU build works everywhere and skips GPU acceleration.
 
 </Step>
 
@@ -189,14 +189,14 @@ Expected: `Livepeer Node Version: v0.8.9`
 </Steps>
 
 <Note>
-  For production Linux deployments, pin the version. A community-maintained upgrade helper is available at the [Livepeer forum](https://forum.livepeer.org/t/bash-script-to-update-livepeer/1513).
+  Production Linux deployments should pin the version. A community-maintained upgrade helper is available at the [Livepeer forum](https://forum.livepeer.org/t/bash-script-to-update-livepeer/1513).
 </Note>
 
 </View>
 
 <View title="Windows" icon="windows" iconType="solid">
 
-Windows supports video transcoding via Docker (WSL2) or the native Windows binary. The AI runner container requires Linux and does not run natively on Windows.
+Windows supports video transcoding through Docker (WSL2) or the native Windows binary. The AI runner requires Linux, so Windows AI workloads run through Docker Desktop with WSL2.
 
 <Steps>
 
@@ -224,14 +224,14 @@ Expected: `Livepeer Node Version: v0.8.x`
 </Steps>
 
 <Warning>
-  The AI runner container requires Linux. On Windows, AI workloads require Docker Desktop with WSL2. For a production AI node, Linux is strongly recommended. Windows is suitable for video-only transcoding.
+  The AI runner requires Linux. Use Docker Desktop with WSL2 for Windows AI workloads. Linux remains the recommended production host for AI nodes, while Windows suits video-only transcoding.
 </Warning>
 
 </View>
 
 <View title="macOS" icon="apple" iconType="solid">
 
-macOS binaries are useful for local development and CLI access. Production transcoding and AI workloads require Linux.
+macOS binaries are useful for local development and CLI access. Linux is the supported host for production transcoding and AI workloads.
 
 <Steps>
 
@@ -269,7 +269,7 @@ livepeer --version
 </Steps>
 
 <Note>
-  macOS GPU transcoding uses the NVIDIA CUDA path, which requires an NVIDIA GPU. Most modern Macs use Apple Silicon (M-series) which is not supported for NVIDIA CUDA transcoding. macOS installs are primarily for running `livepeer_cli` to manage a remote node.
+  macOS GPU transcoding uses the NVIDIA CUDA path and an NVIDIA GPU. Most modern Macs use Apple Silicon, so macOS installs primarily support `livepeer_cli` and local development against a remote node.
 </Note>
 
 </View>

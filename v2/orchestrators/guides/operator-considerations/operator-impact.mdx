@@ -36,9 +36,8 @@ Verify:
 - No em-dashes
 - UK spelling throughout
 - Headers concise and technical
-- REVIEW flags below for SME verification
 Human:
-- REVIEW flags - particularly on historical governance examples
+- Recheck the factual TODO comments, especially historical governance examples
 - Check governance mechanics against current LivepeerGovernor contract state
 - Verify poll creation cost (100 LPT) is still current
 */}
@@ -49,10 +48,9 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 import { CenteredContainer, BorderedBox } from '/snippets/components/layout/containers.jsx'
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider />
 
-If `operator-rationale` answers whether running an Orchestrator can pay, this page answers the next
-question: why the role matters even when the financial case is only part of the story.
+Governance weight is the part of the Orchestrator role that starts after the earnings model makes sense. Bonded stake determines how much influence you carry over protocol rules, treasury direction, and the case for open compute infrastructure.
 
 Orchestrators hold **governance weight** proportional to their total bonded stake. Every LPT staked
 to an Orchestrator - whether self-staked or delegated - becomes voting influence over the protocol
@@ -60,7 +58,7 @@ that shapes operator economics, network priorities, and the infrastructure Livep
 
 For the mechanics of staking and delegation, see <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards/network-participation" label="Governance Guide" newline={false} />. For delegator voting rights, see <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards/delegate-operations" label="Attracting Delegators" newline={false} />.
 
-<CustomDivider middleText="Governance Mechanics" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Governance Mechanics" />
 
 ## How Votes Work
 
@@ -88,13 +86,13 @@ Key mechanics:
 - **Delegator override** - Delegators can vote independently, overriding their Orchestrator's position on a specific LIP
 - **Poll creation cost** - 100 LPT to create an on-chain poll, preventing low-effort or spam proposals
 
-{/* REVIEW: Confirm 100 LPT poll creation cost is still current on the live contract. This was established in LIP-19 but may have been adjusted via governance since. */}
+{/* TODO: Confirm the current poll-creation cost on the live governance contract. */}
 
 This design gives Orchestrators with large bonded stake substantial influence, while preserving
 Delegator autonomy. An Orchestrator cannot vote on behalf of Delegators who choose to exercise
 their own governance rights.
 
-<CustomDivider middleText="What Gets Voted On" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="What Gets Voted On" />
 
 ## Scope of Governance
 
@@ -148,7 +146,7 @@ and the [livepeer/LIPs GitHub repository](https://github.com/livepeer/LIPs). Fol
 a practical prerequisite for informed governance participation.
 </Note>
 
-<CustomDivider middleText="Influence and Stake" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Influence and Stake" />
 
 ## Stake as Governance Capital
 
@@ -182,7 +180,7 @@ Gateways that depend on the network for their products, and the broader Livepeer
 Delegators do not vote independently; their stake defaults to their Orchestrator's position.
 </Warning>
 
-<CustomDivider middleText="The Sovereign Compute Case" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="The Sovereign Compute Case" />
 
 ## Beyond Earnings: Sovereign Compute
 
@@ -245,13 +243,13 @@ the entire market.
     jurisdictions where centralised services are blocked.
 
     The developer community building on Livepeer depends on Orchestrators to make this infrastructure
-    real. An Orchestrator is not just an earner - it is a node in the substrate that makes these
+    available. An Orchestrator is more than an earning node - it is part of the substrate that makes these
     applications possible.
 
   </Accordion>
 </AccordionGroup>
 
-<CustomDivider middleText="Participation in Practice" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Participation in Practice" />
 
 ## Practical Governance Participation
 
@@ -266,12 +264,12 @@ requirements for new workload types, impact on earnings - provide signal that pr
 the broader community need.
 
 **Vote on LIPs.** Voting can be done via the [Livepeer Explorer](https://explorer.livepeer.org/voting).
-Orchestrators that hold significant stake but consistently abstain reduce the effective quorum
+Orchestrators that hold large stake but consistently abstain reduce the effective quorum
 available for passing beneficial proposals and signal low engagement to their Delegators.
 
 **Communicate governance positions to Delegators.** Since Delegators default to their Orchestrator's
 vote unless they vote independently, Orchestrators with large delegated stake have an obligation to
-communicate how they intend to vote on significant proposals. Transparent governance communication is
+communicate how they intend to vote on major proposals. Transparent governance communication is
 a quality signal that influences delegation decisions.
 
 **Engage with SPE proposals.** The Strategic Priority Enabler (SPE) framework allocates treasury
@@ -279,9 +277,9 @@ resources to specific ecosystem initiatives. SPE proposals affect what infrastru
 growth programmes get funded. Orchestrators who benefit from or are affected by specific SPE programmes
 have direct interest in these votes.
 
-{/* REVIEW: Add links to active SPE governance discussions when available - check forum.livepeer.org for current SPE-related threads */}
+{/* TODO: Add links to active SPE governance discussions when they are available. */}
 
-<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider />
 
 ## Related Pages
 

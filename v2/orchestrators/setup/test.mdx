@@ -30,7 +30,7 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
   Run every check that applies to the configured node mode. A node passes verification when all applicable checks produce expected output. Proceed to Guides only after this page is complete.
 </Tip>
 
-This is the final setup step. It confirms the node is on-chain, processing jobs correctly, and exposing the minimum monitoring signals. Full monitoring setup (Grafana, alerting, DCGM exporter) is in <LinkArrow href="/v2/orchestrators/guides/monitoring-and-tooling/metrics-and-alerting" label="Guides > Monitoring and Tools" newline={false} />.
+Finish setup by confirming the node is on-chain, processing jobs, and exposing the minimum monitoring signals. Full monitoring setup (Grafana, alerting, DCGM exporter) is in <LinkArrow href="/v2/orchestrators/guides/monitoring-and-tooling/metrics-and-alerting" label="Metrics and Alerting" newline={false} />.
 
 <CustomDivider middleText="Verification Checks" />
 
@@ -135,7 +135,7 @@ This is the final setup step. It confirms the node is on-chain, processing jobs 
     ```
 
     Expected:
-    ```
+    ```text icon="terminal" filename="expected-transcode-output"
     Got segment for stream test_stream
     Transcode result OK
     ```
@@ -172,7 +172,7 @@ This is the final setup step. It confirms the node is on-chain, processing jobs 
       --max-time 30
     ```
 
-    {/* REVIEW: Confirm /text-to-image is the correct direct orchestrator endpoint for AI inference in current go-livepeer. j0sh to verify. */}
+    {/* TODO: Confirm the current direct orchestrator endpoint for text-to-image inference. */}
 
     Verify the output:
 
@@ -205,7 +205,7 @@ This is the final setup step. It confirms the node is on-chain, processing jobs 
     docker compose config | grep -i "reward"
     ```
 
-    Confirm `-reward=false` is **not** present. Its absence means automatic calling is enabled.
+    The startup command should omit `-reward=false`. Its absence means automatic calling is enabled.
 
     After the first full round completes, verify on Arbiscan that a `reward()` transaction appeared from the orchestrator address. Also check [Livepeer Explorer](https://explorer.livepeer.org) - the Rewards section on the orchestrator page updates after each successful call.
 
@@ -215,9 +215,9 @@ This is the final setup step. It confirms the node is on-chain, processing jobs 
     docker compose logs 2>&1 | grep -i "calling reward\|reward call" | tail -5
     ```
 
-    {/* REVIEW: Confirm the exact log message string for a successful reward call in current go-livepeer. Rick to verify "Calling reward" or similar. */}
+    {/* TODO: Confirm the current success log line for a reward call in go-livepeer. */}
 
-    If reward calls are missing after a round: confirm the node was online and connected during round initialisation, that the Arbitrum ETH balance is sufficient for gas, and that `-reward=false` is not in the startup command.
+    Missing reward calls after a round usually mean the node was offline during round initialisation, the Arbitrum ETH balance is too low for gas, or the startup command includes `-reward=false`.
 
   </StyledStep>
 
@@ -371,13 +371,13 @@ This is the final setup step. It confirms the node is on-chain, processing jobs 
   <Accordion title="AI inference request returns error" icon="microchip">
     Check the AI runner container is running (`docker ps`). Check its logs for model loading errors (`docker logs <container>`). Confirm `aiModels.json` is valid JSON with correct field names. Ensure the model_id matches exactly (case-sensitive, including the org prefix). Confirm `/var/run/docker.sock` is mounted in the orchestrator container.
   </Accordion>
-  <Accordion title="Not appearing on Explorer" icon="magnifying-glass">
-    Confirm the activation transaction succeeded on Arbiscan. Check the service URI is set and reachable. Verify the stake bonding transactions (both `approve` and `bond`) confirmed. If recently activated, wait for the next round - the active set updates once per round (~22 hours).
+  <Accordion title="Explorer listing delay" icon="magnifying-glass">
+    Confirm the activation transaction succeeded on Arbiscan. Check the service URI is set and reachable. Verify the stake bonding transactions (both `approve` and `bond`) confirmed. Recent activations appear on Explorer after the next round, because the active set updates once per round (~22 hours).
   </Accordion>
-  <Accordion title="Reward calls not appearing" icon="gift">
-    Confirm `-reward=false` is not in the startup command. Check the Arbitrum ETH balance - reward calls require gas. Confirm the node was online during round initialisation. Check logs for reward call errors. See <LinkArrow href="/v2/orchestrators/guides/config-and-optimisation/reward-call-tuning" label="Reward Call Tuning" newline={false} /> for low-stake profitability analysis.
+  <Accordion title="Reward-call visibility" icon="gift">
+    Confirm the startup command omits `-reward=false`. Check the Arbitrum ETH balance, because reward calls require gas. Confirm the node was online during round initialisation. Check logs for reward call errors. See <LinkArrow href="/v2/orchestrators/guides/config-and-optimisation/reward-call-tuning" label="Reward Call Tuning" newline={false} /> for low-stake profitability analysis.
   </Accordion>
-  <Accordion title="Not receiving jobs after 48 hours" icon="clock">
+  <Accordion title="No jobs after 48 hours" icon="clock">
     The #1 cause is port 8935 not reachable from the internet. Re-test from an external machine. The second cause is price above gateway caps - check current rates on tools.livepeer.cloud and compare. Third: not in the active set (for video jobs) - check rank on Explorer. AI jobs route by capability, not stake, so ensure capabilities appear on tools.livepeer.cloud.
   </Accordion>
 </AccordionGroup>
@@ -387,7 +387,7 @@ This is the final setup step. It confirms the node is on-chain, processing jobs 
 ## Setup complete
 
 <Note>
-  The node is now on-chain, processing jobs, and verified. The setup section is complete. Earning from the node - pricing optimisation, delegation strategy, workload selection, and monitoring - is covered in the Guides section.
+  The node is now on-chain, processing jobs, and verified. The setup section is complete. Pricing optimisation, delegation strategy, workload selection, and long-term monitoring are covered in the Guides section.
 </Note>
 
 <CardGroup cols={2}>

@@ -1,5 +1,93 @@
 [
   {
+    "name": "Concepts",
+    "dir": "09-concepts",
+    "copy": {
+      "blocking": 16,
+      "warnings": 67
+    },
+    "authoring": {
+      "blocking": 4,
+      "warnings": 65
+    },
+    "research": {
+      "conflicted": 7,
+      "timeSensitive": 4,
+      "unverified": 0
+    },
+    "actions": [
+      "Triage blocking copy-framework failures before any rewrite plan is approved.",
+      "Keep authoring/style fixes separate from the copy rewrite plan but queue them alongside the same pages.",
+      "Downgrade, verify, or propagate risky factual claims before final copy changes are treated as done."
+    ]
+  },
+  {
+    "name": "Quickstart",
+    "dir": "10-quickstart",
+    "copy": {
+      "blocking": 16,
+      "warnings": 31
+    },
+    "authoring": {
+      "blocking": 0,
+      "warnings": 33
+    },
+    "research": {
+      "conflicted": 5,
+      "timeSensitive": 3,
+      "unverified": 0
+    },
+    "actions": [
+      "Triage blocking copy-framework failures before any rewrite plan is approved.",
+      "Keep authoring/style fixes separate from the copy rewrite plan but queue them alongside the same pages.",
+      "Downgrade, verify, or propagate risky factual claims before final copy changes are treated as done."
+    ]
+  },
+  {
+    "name": "Setup",
+    "dir": "11-setup",
+    "copy": {
+      "blocking": 12,
+      "warnings": 95
+    },
+    "authoring": {
+      "blocking": 0,
+      "warnings": 43
+    },
+    "research": {
+      "conflicted": 7,
+      "timeSensitive": 5,
+      "unverified": 0
+    },
+    "actions": [
+      "Triage blocking copy-framework failures before any rewrite plan is approved.",
+      "Keep authoring/style fixes separate from the copy rewrite plan but queue them alongside the same pages.",
+      "Downgrade, verify, or propagate risky factual claims before final copy changes are treated as done."
+    ]
+  },
+  {
+    "name": "Operator Considerations",
+    "dir": "12-operator-considerations",
+    "copy": {
+      "blocking": 45,
+      "warnings": 155
+    },
+    "authoring": {
+      "blocking": 0,
+      "warnings": 55
+    },
+    "research": {
+      "conflicted": 7,
+      "timeSensitive": 6,
+      "unverified": 0
+    },
+    "actions": [
+      "Triage blocking copy-framework failures before any rewrite plan is approved.",
+      "Keep authoring/style fixes separate from the copy rewrite plan but queue them alongside the same pages.",
+      "Downgrade, verify, or propagate risky factual claims before final copy changes are treated as done."
+    ]
+  },
+  {
     "name": "Deployment Details",
     "dir": "01-deployment-details",
     "copy": {

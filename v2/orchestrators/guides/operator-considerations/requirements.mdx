@@ -37,12 +37,11 @@ Verify:
 - Tables use StyledTable with thead/tbody
 - No em-dashes
 - UK spelling throughout
-- REVIEW flags below for SME
 Human:
-- REVIEW: NVENC consumer card session cap (2-3 for RTX 40xx) - Ada Lovelace generation may have changed. Rick to confirm.
-- REVIEW: CUDA minimum version (12.0) - verify against current AI runner container base image
-- REVIEW: test stream URL (storage.googleapis.com) - verify still live before publishing. Rick to test.
-- REVIEW: 0.8 ratio threshold is a community convention, not a go-livepeer hard limit. Confirm with Discord #orchestrators.
+- Confirm the NVENC consumer-card session cap for RTX 40xx hardware
+- Verify the CUDA minimum version against the current AI runner image
+- Verify the test-stream URL before publishing
+- Recheck the 0.8 ratio threshold with current operator guidance
 - Confirm port numbers (8935 orchestrator RPC, 7935 CLI) are still current go-livepeer defaults
 */}
 
@@ -51,17 +50,17 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider />
 
 Use this page as a readiness filter before investing more time in setup. It is here to answer a
 simple question: does your machine, network, and system stack actually support the workload path you
 want to run on Livepeer?
 
-<CustomDivider middleText="GPU Support" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="GPU Support" />
 
 ## GPU Vendor Support
 
-NVIDIA is not just the preferred vendor for go-livepeer. It is the supported line. AMD and Intel
+NVIDIA is the supported vendor line for go-livepeer. AMD and Intel
 GPUs are not supported for hardware-accelerated transcoding or AI inference, and NVIDIA CUDA is
 required for both NVENC video transcoding and AI pipelines.
 
@@ -69,7 +68,7 @@ required for both NVENC video transcoding and AI pipelines.
 
 Start here, because every other requirement is irrelevant if the GPU is not visible to the host:
 
-```bash icon="terminal"
+```bash icon="terminal" filename="check-gpu"
 nvidia-smi
 # Output shows: driver version, CUDA version, GPU name, memory
 # e.g. NVIDIA-SMI 550.54.14    Driver Version: 550.54.14    CUDA Version: 12.4
@@ -80,9 +79,9 @@ go-livepeer cannot use the GPU without working NVIDIA drivers.
 
 **Minimum CUDA version:** 12.0. Earlier versions are not supported by the AI runner containers.
 
-{/* REVIEW: Confirm CUDA 12.0 minimum against current AI runner base image. This was accurate in March 2026 but may change with AI runner updates. */}
+{/* TODO: Confirm the CUDA 12.0 minimum against the current AI runner base image. */}
 
-<CustomDivider middleText="Session Limits" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Session Limits" />
 
 ## NVENC/NVDEC Session Limits
 
@@ -103,7 +102,7 @@ Check the official NVIDIA matrix for exact limits per generation:
 
 **[developer.nvidia.com/video-encode-decode-gpu-support-matrix](https://developer.nvidia.com/video-encode-decode-gpu-support-matrix)**
 
-{/* REVIEW: Consumer card session cap may have changed for Ada Lovelace (RTX 40xx series). Rick to verify current RTX 4090/4080 NVENC session cap. */}
+{/* TODO: Recheck the consumer-card session cap for Ada Lovelace GPUs. */}
 
 <StyledTable variant="bordered">
   <thead>
@@ -146,7 +145,7 @@ Exact session counts can vary by GPU generation and NVIDIA policy. Treat the NVI
 source of truth and the table below as a planning shortcut. For most consumer-card operators, this
 cap is the binding limit until benchmarking proves otherwise.
 
-<CustomDivider middleText="Hardware Tiers" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Hardware Tiers" />
 
 ## Hardware Tiers by Workload
 
@@ -219,9 +218,9 @@ Full pipeline-by-pipeline VRAM figures are in
   </tbody>
 </StyledTable>
 
-### Real-time AI inference (Cascade)
+### Cascade AI inference
 
-Real-time video AI is a latency problem before it is a raw-throughput problem, so the hardware
+Cascade video AI is a latency problem before it is a raw-throughput problem, so the hardware
 requirements are stricter than they are for batch AI:
 
 - **Minimum VRAM:** 12-16 GB (StreamDiffusion with SD 1.5)
@@ -229,10 +228,10 @@ requirements are stricter than they are for batch AI:
 - **Frame buffer overhead:** add 1-2 GB on top of the model's base VRAM footprint
 - **Additional requirements:** fast PCIe bandwidth; low-latency memory
 
-Real-time pipelines require models warm at all times. A cold start during an active stream causes
+Cascade pipelines require models warm at all times. A cold start during an active stream causes
 visible interruption. See <LinkArrow href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup" label="Realtime AI Setup" newline={false} /> for full runtime requirements.
 
-<CustomDivider middleText="System Stack" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="System Stack" />
 
 ## System Requirements
 
@@ -294,9 +293,9 @@ served simultaneously.
 
 **Network note:** Latency to Gateways matters more than raw throughput for AI jobs. A 100 Mbps
 connection with sub-20ms latency to major regions outperforms a 1 Gbps connection with high
-latency for real-time AI workloads.
+latency for Cascade AI workloads.
 
-<CustomDivider middleText="Testing Capacity" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Testing Capacity" />
 
 ## Testing Your Capacity
 
@@ -305,18 +304,18 @@ actual concurrent transcoding ceiling after hardware is confirmed and before act
 
 `livepeer_bench` ships with go-livepeer. Verify it is on PATH:
 
-```bash icon="terminal"
+```bash icon="terminal" filename="livepeer-bench-help"
 livepeer_bench -help
 ```
 
 **Step 1 - Download the test stream:**
 
-```bash icon="terminal"
+```bash icon="terminal" filename="download-test-stream"
 wget -c https://storage.googleapis.com/lp_testharness_assets/bbb_1080p_30fps_1min_2sec_hls.tar.gz
 tar -xvf bbb_1080p_30fps_1min_2sec_hls.tar.gz
 ```
 
-{/* REVIEW: Verify this URL is still live before publishing. Rick to test. */}
+{/* TODO: Verify this test-stream URL before publishing. */}
 
 **Step 2 - Run the scaling test:**
 
@@ -335,7 +334,7 @@ if the ratio is still below 1.0 at 20 sessions.
 
 **Step 3 - Read the result:**
 
-The **Real-Time Duration Ratio** is total transcoding time divided by total source duration.
+The **Duration Ratio** is total transcoding time divided by total source duration.
 
 <StyledTable variant="bordered">
   <thead>
@@ -347,15 +346,15 @@ The **Real-Time Duration Ratio** is total transcoding time divided by total sour
   <tbody>
     <TableRow>
       <TableCell>**&lt; 1.0**</TableCell>
-      <TableCell>Transcoding faster than real time - headroom available</TableCell>
+      <TableCell>Transcoding faster than source duration - headroom available</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>**= 1.0**</TableCell>
-      <TableCell>Exactly real time - no headroom; any spike causes lag</TableCell>
+      <TableCell>Matches source duration - no headroom; any spike causes lag</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>**&gt; 1.0**</TableCell>
-      <TableCell>Slower than real time - overloaded at this session count</TableCell>
+      <TableCell>Slower than source duration - overloaded at this session count</TableCell>
     </TableRow>
   </tbody>
 </StyledTable>
@@ -363,22 +362,21 @@ The **Real-Time Duration Ratio** is total transcoding time divided by total sour
 The last concurrent session count at which ratio ≤ 0.8 is the practical **hardware limit** many
 operators use. That threshold keeps some headroom for upload/download overhead and short spikes.
 
-{/* REVIEW: 0.8 is a community convention, not a go-livepeer hard limit. Confirm with Discord #orchestrators. */}
+{/* TODO: Recheck the 0.8 ratio threshold with current operator guidance. */}
 
 Take this number to <LinkArrow href="/v2/orchestrators/setup/configure" label="Configure" newline={false} /> and set it as the input for the `-maxSessions` calculation.
 
-<CustomDivider middleText="Pre-launch Checklist" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Pre-launch Checklist" />
 
 ## Checklist Before Going Live
 
-Do not activate just because the node boots. Use the checklist below to confirm the basics that most
-often fail first.
+Activate only after the checklist below passes. It covers the basics that fail first most often.
 
 <StyledSteps>
 
   <StyledStep title="Verify GPU is visible">
 
-    ```bash icon="terminal"
+    ```bash icon="terminal" filename="verify-nvidia-smi"
     nvidia-smi
     # Should output: GPU name, driver version, CUDA version, memory used/total
     # If this fails: drivers are not installed correctly
@@ -388,7 +386,7 @@ often fail first.
 
   <StyledStep title="Verify Docker can access the GPU">
 
-    ```bash icon="terminal"
+    ```bash icon="terminal" filename="verify-docker-gpu"
     docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi
     # Should output the same as nvidia-smi above
     # If this fails: NVIDIA Container Toolkit is not installed or configured
@@ -398,7 +396,7 @@ often fail first.
 
   <StyledStep title="Install NVIDIA Container Toolkit if needed">
 
-    ```bash icon="terminal"
+    ```bash icon="terminal" filename="install-nvidia-container-toolkit"
     # Ubuntu 22.04 / 24.04
     curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | \
       sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
@@ -416,7 +414,7 @@ often fail first.
 
   <StyledStep title="Confirm required ports are open">
 
-    ```bash icon="terminal"
+    ```bash icon="terminal" filename="check-firewall"
     # 8935 - Orchestrator RPC (must be reachable from the internet)
     # 7935 - CLI HTTP interface (localhost only)
     sudo ufw status
@@ -428,14 +426,14 @@ often fail first.
 
   <StyledStep title="Confirm Arbitrum RPC access">
 
-    ```bash icon="terminal"
+    ```bash icon="terminal" filename="check-arbitrum-rpc"
     curl -s https://arb1.arbitrum.io/rpc \
       -H "Content-Type: application/json" \
       -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' | python3 -m json.tool
     ```
 
-    For production, use a dedicated RPC endpoint via Alchemy, Infura, or QuickNode rather than the
-    public endpoint.
+    For production, use a dedicated RPC endpoint via Alchemy, Infura, or QuickNode. Treat the
+    public endpoint as a quick validation target.
 
   </StyledStep>
 
@@ -463,7 +461,7 @@ often fail first.
 
 </StyledSteps>
 
-<CustomDivider style={{margin: "0 0 -2rem 0"}} />
+<CustomDivider />
 
 ## Related Pages
 

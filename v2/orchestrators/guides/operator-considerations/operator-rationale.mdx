@@ -38,12 +38,11 @@ Verify:
 - UK spelling throughout
 - Headers concise and technical
 - CustomDivider margins correct per skill patterns
-- REVIEW flags below are for human SME review
 - Media placeholder: TODO tags used for any screenshots/video
 Human:
-- Confirm active set size (REVIEW below)
-- Confirm ABR ladder bandwidth figures (REVIEW below)
-- Review REVIEW flags throughout
+- Confirm the active-set size where this page references Explorer
+- Confirm the ABR ladder bandwidth figures
+- Recheck factual TODO comments before publishing
 */}
 
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
@@ -52,16 +51,11 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 import { CenteredContainer, BorderedBox } from '/snippets/components/layout/containers.jsx'
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider />
 
-Running a Livepeer Orchestrator is only worth it when your hardware, stake access, and operating
-tolerance line up with a realistic way to earn. For some readers that means keeping the commitment
-low and joining a pool. For others it means committing to solo video, AI-first operation, or a more
-commercial path.
+Run a Livepeer Orchestrator when the earning path matches your hardware, stake access, and operating tolerance. The right answer is sometimes a pool worker, sometimes an AI-first node, and sometimes a full solo Orchestrator.
 
-This page is the evaluation layer for that decision. It breaks the choice into costs, revenue
-sources, and a small set of viability checks so you can decide whether to stop, start small, or
-commit to a full Orchestrator path.
+Use this page to choose that path. It breaks the decision into costs, revenue streams, viability checks, and workload trade-offs so you can stop early, start with a lower-commitment path, or commit to a full Orchestrator.
 
 For the mechanics of how earnings work, see <LinkArrow href="/v2/orchestrators/concepts/incentive-model" label="Incentive Model" newline={false} />. To skip evaluation and proceed directly to setup, see the <LinkArrow href="/v2/orchestrators/navigator" label="Navigator" newline={false} />
 
@@ -133,19 +127,16 @@ whether the path fits your hardware, stake, and time commitment.
   </tbody>
 </StyledTable>
 
-Neither stream pays out simply because the software is running. ETH fees depend on Gateways deciding
-to send work. LPT rewards depend on stake, activation, and a node that calls `Reward()` reliably.
+Running the software alone does not create either revenue stream. ETH fees depend on Gateways sending work. LPT rewards depend on stake, activation, and a node that calls `Reward()` reliably.
 
 For most new operators, LPT inflation is the more predictable starting point. Service fees can grow
 faster, but only after the node proves it can stay available, price sensibly, and handle work well.
 
-<CustomDivider middleText="Real Costs" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Cost Categories" />
 
 ## Cost Categories
 
-Revenue projections are only useful when the cost baseline is honest. The real question is not just
-whether a node can earn, but whether the earning path fits what you already own and what you are
-willing to keep paying for.
+Revenue projections are only useful when the cost baseline is honest. The practical question is whether the earning path fits what you already own and what you are willing to keep paying for.
 
 <AccordionGroup>
   <Accordion title="Hardware" icon="microchip">
@@ -156,7 +147,7 @@ willing to keep paying for.
       3080) are common. CPU transcoding is possible at significantly lower throughput.
     - **Batch AI inference:** 8-24 GB VRAM depending on pipelines. An RTX 3090 (24 GB) is the practical
       minimum for competitive diffusion pipelines.
-    - **Real-time AI (Cascade):** 24 GB VRAM minimum. Real-time pipelines are substantially more demanding
+    - **Cascade AI:** 24 GB VRAM minimum. These pipelines are substantially more demanding
       than batch inference.
 
     Hardware already owned has zero ongoing capital cost. Hardware purchased specifically to run Livepeer
@@ -171,7 +162,7 @@ willing to keep paying for.
     To receive video transcoding jobs as a solo Orchestrator, the node must be in the **active set** -
     the top Orchestrators by total bonded stake eligible to receive work each round.
 
-    {/* REVIEW: Confirm current active set size. Historically top-100 per gpu-nodes-tab-audit.md. Ask Rick or Mehrdad. */}
+    {/* TODO: Confirm the current active-set size on Explorer before publishing a fixed number. */}
 
     LPT must be acquired and bonded to the Orchestrator address. Borrowing LPT is not supported by
     the protocol. Acquiring enough LPT to compete in the active set is the primary entry barrier for
@@ -195,9 +186,9 @@ willing to keep paying for.
       $0.01-0.05 per redemption batch.
     - **Activation transaction** - one-time setup cost.
 
-    {/* REVIEW: Confirm current Arbitrum gas cost ranges - these figures are from v1 docs and may have drifted. */}
+    {/* TODO: Confirm the current Arbitrum gas ranges before publishing these example figures. */}
 
-    Gas on Arbitrum L2 is low but not zero. Budget approximately $5-15/month in ETH for a mid-volume
+    Gas on Arbitrum L2 stays relatively low, but operators still need an ETH budget. Budget approximately $5-15/month in ETH for a mid-volume
     node. A depleted ETH wallet causes missed reward rounds (LPT permanently foregone) and unredeemed
     winning tickets (ETH fees permanently lost).
 
@@ -209,7 +200,7 @@ willing to keep paying for.
     - **~6 Mbps download** (source stream ingestion)
     - **~5.6 Mbps upload** (output renditions: 240p, 360p, 480p, 720p)
 
-    {/* REVIEW: ABR ladder bandwidth figure (5.6 Mbps) derived from transcodingOptions.json 4-profile set (240p 250k, 360p 800k, 480p 1600k, 720p 3000k = 5650 kbps). Confirm this is still the common rendition set on the current network. Rick to advise. */}
+    {/* TODO: Confirm the ABR ladder bandwidth figure against the current rendition set. */}
 
     A 1 Gbps symmetric connection supports approximately 100+ concurrent streams on bandwidth alone.
     For home operators with 100-500 Mbps connections, bandwidth often constrains session count before
@@ -253,7 +244,7 @@ willing to keep paying for.
     An RTX 4090 running 24/7 at full load costs approximately £30-60/month at UK residential electricity
     rates, or $35-70/month at US average rates. Factor this into any break-even calculation.
 
-    {/* REVIEW: Electricity cost figures are illustrative estimates. Flag as such if keeping in the page. */}
+    {/* TODO: Recheck the illustrative electricity-cost figures before publishing. */}
 
   </Accordion>
   <Accordion title="Ongoing Time" icon="clock">
@@ -272,12 +263,12 @@ willing to keep paying for.
   </Accordion>
 </AccordionGroup>
 
-<CustomDivider middleText="Viability Check" style={{margin: "0 0 -2rem 0"}} />
+<CustomDivider middleText="Viability Check" />
 
 ## Three Viability Questions
 
 These three questions are the fastest way to rule a path in or out before you spend more time on
-setup. If one of them clearly fails, the wrong operating model usually becomes obvious.
+setup. A clear failure in one question usually identifies the wrong operating model immediately.
 
 ### 1. Is reward calling profitable?
 
@@ -308,18 +299,13 @@ Missing reward rounds results in permanent LPT loss - that round's rewards are n
 Receiving jobs that cannot be completed damages performance reputation with Gateways and reduces
 future job flow.
 
-Both outcomes require reliable operation. Not necessarily production-grade infrastructure, but
-consistently online and monitored. Home setups with unreliable internet, frequent power cuts, or
-machines shared with other workloads carry real viability risk. If sustained ~95%+ uptime is not
-realistic, the pool worker path is more appropriate than solo Orchestrator operation.
+Both outcomes require reliable operation. Production-grade infrastructure is optional at this stage, but consistent uptime and monitoring are required. Home setups with unreliable internet, frequent power cuts, or machines shared with other workloads carry material viability risk. When sustained ~95%+ uptime is unrealistic, the pool worker path is more appropriate than solo Orchestrator operation.
 
-<CustomDivider middleText="Path Decision" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Path Decision" />
 
 ## Decision Matrix
 
-Use the matrix below as a path filter, not a promise of profitability. It helps you decide which
-model is realistic for your hardware, stake access, and operating capacity under current network
-conditions.
+Use the matrix below as a path filter. Profitability still depends on current network conditions, but the matrix shows which model fits your hardware, stake access, and operating capacity.
 
 <ScrollableDiagram title="Operator Path Decision" maxHeight="420px">
 
@@ -364,7 +350,7 @@ flowchart TD
     <TableRow>
       <TableCell>**Solo video Orchestrator**</TableCell>
       <TableCell>NVIDIA GPU + reliable 100 Mbps+</TableCell>
-      <TableCell>Active set threshold {/* REVIEW: confirm threshold */}</TableCell>
+      <TableCell>Current active-set threshold (check Explorer)</TableCell>
       <TableCell>High (8-16 hours)</TableCell>
       <TableCell>Operators who can acquire LPT and want full control plus LPT inflation rewards.</TableCell>
     </TableRow>
@@ -389,7 +375,7 @@ The pool worker path has a significantly lower barrier than solo Orchestrator op
 new to Livepeer with a GPU but limited LPT, starting as a pool worker builds network familiarity
 without on-chain complexity. Migration to solo operation is possible once stake is acquired.
 
-<CustomDivider middleText="Video vs AI" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Video vs AI" />
 
 ## Video vs AI: Starting Workload
 
@@ -439,14 +425,12 @@ revenue patterns, and different operating burdens.
   </tbody>
 </StyledTable>
 
-AI inference lowers the stake barrier, not the operating burden. Demand shifts between pipelines,
-cold models waste time and money, and weak VRAM planning can erase the advantage of getting started
-without active-set stake.
+AI inference lowers the stake barrier and keeps the operating burden high. Demand shifts between pipelines, cold models waste time and money, and weak VRAM planning can erase the advantage of starting without active-set stake.
 
 Check [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities)
 to see which pipelines and models are currently routed by the network before deciding which to load.
 
-<CustomDivider middleText="Before You Commit" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Before You Commit" />
 
 ## Research Tools
 
@@ -462,7 +446,7 @@ Check the live market before committing to setup:
 - **[Livepeer Forum](https://forum.livepeer.org)** - Governance proposals, operator discussion
   threads, and SPE announcements relevant to network economics.
 
-<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider />
 
 ## Related Pages
 

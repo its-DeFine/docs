@@ -28,11 +28,11 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/ta
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 
 <Tip>
-  This step connects the orchestrator to Arbitrum One and registers it on the Livepeer protocol. It requires arbETH for gas and LPT for staking. Acquiring these assets may take hours to days depending on exchange availability and bridge confirmation times.
+  This step connects the orchestrator to Arbitrum One and registers it on the Livepeer protocol. It requires arbETH for gas and LPT for staking. Asset acquisition often takes hours to days because of exchange availability and bridge confirmation times.
 </Tip>
 
 <Warning>
-  Do not start this step until arbETH and LPT are already in the orchestrator wallet on Arbitrum One. Acquiring LPT on Arbitrum involves exchanges and bridging that can take hours. Factor this into scheduling.
+  Start this step after arbETH and LPT are already in the orchestrator wallet on Arbitrum One. LPT acquisition on Arbitrum often includes exchange settlement and bridging time, so plan for that lead time.
 </Warning>
 
 <CustomDivider middleText="Connection Steps" />
@@ -70,7 +70,7 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
       </tbody>
     </StyledTable>
 
-    For production nodes, use a hosted provider. Public endpoints have no uptime guarantees and will drop sessions if they become unavailable - a missed connection during round initialisation forfeits that round's LPT reward permanently.
+    Production nodes need a hosted provider. Public endpoints offer no uptime guarantee and can drop sessions during round initialisation, which forfeits that round's LPT reward.
 
     **Alchemy setup:**
     1. Create an account at [alchemy.com](https://www.alchemy.com)
@@ -86,7 +86,7 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
       YOUR_RPC_URL
     ```
 
-    Expected: `"result":"0xa4b1"` - this is Arbitrum One (chain ID 42161). If you see `0x1`, the endpoint is connected to Ethereum mainnet, not Arbitrum.
+    Expected: `"result":"0xa4b1"` - this is Arbitrum One (chain ID 42161). A `0x1` result means the endpoint is on Ethereum mainnet. Switch to an Arbitrum endpoint before continuing.
 
   </StyledStep>
 
@@ -111,7 +111,7 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
     # Select: "Get node status" to view ETH account and balances
     ```
 
-    {/* REVIEW: Confirm "Get node status" is the correct livepeer_cli option for viewing account address and balances in current release. Rick to verify. */}
+    {/* TODO: Confirm the current livepeer_cli menu label for viewing the account address and balances. */}
 
   </StyledStep>
 
@@ -134,7 +134,7 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
     LPT must be bonded to the orchestrator address to enter the active set for video transcoding. The active set is the top 100 orchestrators by total stake (self-bonded + delegated LPT).
 
     <Note>
-      Check the current active set threshold on [Livepeer Explorer](https://explorer.livepeer.org/orchestrators) before acquiring LPT. The threshold fluctuates with network participation. AI-only operators need minimal LPT - just enough to activate on-chain.
+      Check the current active set threshold on [Livepeer Explorer](https://explorer.livepeer.org/orchestrators) before acquiring LPT. The threshold fluctuates with network participation. AI-only operators need enough LPT to activate on-chain. Video operators need enough stake for active-set membership.
     </Note>
 
     **Where to get LPT on Arbitrum:**
@@ -152,7 +152,7 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 
     Select the bond/stake option and enter the amount to stake. Two transactions are submitted: `approve` (authorises the staking contract) and `bond` (stakes the LPT). Wait for both to confirm on Arbitrum before proceeding.
 
-    {/* REVIEW: Confirm exact livepeer_cli menu option for bonding/staking LPT in current release. Rick to verify option name and number. */}
+    {/* TODO: Confirm the current livepeer_cli menu label for bonding and staking LPT. */}
 
   </StyledStep>
 
@@ -191,10 +191,10 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 
     The activation transaction costs gas (arbETH). Confirmation takes 1-3 minutes on Arbitrum.
 
-    {/* REVIEW: Confirm "Invoke multi-step 'become an orchestrator'" is the exact current livepeer_cli option text. Rick to verify. */}
+    {/* TODO: Confirm the exact current livepeer_cli text for the multi-step orchestrator activation flow. */}
 
     <Note>
-      The node joins the active set at the start of the **next round** after activation, not immediately. Rounds are approximately 22 hours on Arbitrum. A newly activated node may wait up to 22 hours before appearing Active on Explorer.
+      The node joins the active set at the start of the **next round** after activation. Rounds are approximately 22 hours on Arbitrum, so Explorer can show Registered until the next round begins.
     </Note>
 
   </StyledStep>
@@ -213,7 +213,7 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 
     Also verify externally at [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities). Search by the orchestrator address - the configured pipelines should appear within 2-5 minutes of startup.
 
-    {/* REVIEW: Confirm -aiServiceRegistry flag is required explicitly or whether it is automatically enabled when -aiWorker is set. Rick / j0sh to clarify whether this is a separate flag or handled automatically. */}
+    {/* TODO: Confirm whether -aiServiceRegistry still needs explicit configuration or is enabled automatically with -aiWorker. */}
 
   </StyledStep>
 
@@ -227,7 +227,7 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
     - **Stake** reflects the bonded LPT amount
     - **Reward cut** and **fee cut** match the activation settings
 
-    If the Service URI is incorrect or the node is not reachable, update it via `livepeer_cli` before gateways start routing work:
+    Update the Service URI through `livepeer_cli` whenever Explorer shows the wrong address or external reachability checks fail:
 
     ```bash icon="terminal" filename="update-service-uri"
     docker exec -it livepeer-orchestrator livepeer_cli
@@ -244,9 +244,9 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
     docker compose logs 2>&1 | grep -i "reward"
     ```
 
-    Confirm `-reward=false` is **not** in the startup command. If it is, remove it and restart.
+    The startup command should omit `-reward=false`. Remove that flag and restart when it appears.
 
-    **Reward calling economics:** for orchestrators with very low stake, the ETH gas cost of calling reward may exceed the LPT value received. In that case, disable automatic calling with `-reward=false` and call manually via `livepeer_cli` once per round until stake grows. See <LinkArrow href="/v2/orchestrators/guides/config-and-optimisation/reward-call-tuning" label="Reward Call Tuning" newline={false} /> for the profitability calculation.
+    **Reward calling economics:** very low-stake orchestrators can spend more on gas than they receive in LPT. Disable automatic calling with `-reward=false` in that case and call manually via `livepeer_cli` once per round until stake grows. See <LinkArrow href="/v2/orchestrators/guides/config-and-optimisation/reward-call-tuning" label="Reward Call Tuning" newline={false} /> for the profitability calculation.
 
     A missed round forfeits that round's LPT allocation permanently. There is no catch-up mechanism.
 
@@ -258,14 +258,16 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 
 ## Troubleshooting connection issues
 
+Use `curl -k https://YOUR_PUBLIC_IP:8935/status` as the main external reachability check while working through these issues.
+
 <AccordionGroup>
   <Accordion title="RPC connection failing" icon="link-slash">
     Verify the `-ethUrl` endpoint responds to `eth_chainId` (see Step 1). Check that the API key is active and the Arbitrum network is enabled in the provider dashboard. Switch to the Alchemy public endpoint temporarily to isolate whether the issue is the endpoint or the key.
   </Accordion>
-  <Accordion title="Service URI not reachable" icon="globe">
+  <Accordion title="Service URI reachability" icon="globe">
     Test from an external machine: `curl -k https://YOUR_PUBLIC_IP:8935/status`. If this times out, port 8935 is blocked by a firewall or the address is wrong. Check NAT rules, security group settings (AWS/GCP/Azure), and that the `-serviceAddr` matches the machine's public IP. A domain name is more resilient than a bare IP.
   </Accordion>
-  <Accordion title="Not in active set after activation" icon="users">
+  <Accordion title="Active-set eligibility after activation" icon="users">
     Check stake vs current threshold on [Explorer](https://explorer.livepeer.org/orchestrators). The active set is the top 100 by total stake. Nodes below the threshold are registered but not active - gateways do not route video transcoding to them. Wait up to one full round (22 hours) for the status to update after increasing stake.
   </Accordion>
   <Accordion title="Transactions failing with gas errors" icon="gas-pump">

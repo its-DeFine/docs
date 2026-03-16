@@ -2,7 +2,7 @@
 title: 'Business Case'
 sidebarTitle: 'Business Case'
 description: >-
-  How commercial Orchestrators operate - earning from service fees rather than inflation,
+  How commercial Orchestrators operate - earning from service fees instead of inflation,
   building Gateway relationships, and positioning for application workloads.
 keywords:
   - livepeer
@@ -37,9 +37,8 @@ Verify:
 - No em-dashes
 - UK spelling throughout
 - Headers concise and technical
-- REVIEW flags below for SME verification
 Human:
-- REVIEW flags - particularly on commercial operator names and revenue figures
+- Recheck the factual TODO comments, especially operator names and revenue framing
 - Review page layout for Persona D/C journey fit
 */}
 
@@ -49,25 +48,20 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 import { CenteredContainer, BorderedBox } from '/snippets/components/layout/containers.jsx'
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider />
 
-Commercial Orchestrator operation is not just the same node with better uptime. It is a different
-economic model: Gateways send work because the node is fast, predictable, and worth paying for at
-production standards.
+Commercial Orchestrator operation turns the node into paid infrastructure for Gateways and applications. The business case shifts from inflation-first participation to fee-driven service delivery.
 
-This page is for operators deciding whether to make that step. It explains how fee-driven operation
-differs from inflation-first participation, what Gateways actually care about, and what has to
-change when the goal is recurring service revenue rather than opportunistic earnings.
+Use this page to decide whether that step fits your operation. It explains how fee-driven operation differs from inflation-first participation, what Gateways care about, and what changes when the goal is recurring service revenue instead of opportunistic earnings.
 
 For the mechanics of how both revenue streams work, see <LinkArrow href="/v2/orchestrators/concepts/incentive-model" label="Incentive Model" newline={false} />. For pricing configuration, see <LinkArrow href="/v2/orchestrators/guides/config-and-optimisation/pricing-strategy" label="Pricing Strategy" newline={false} />.
 
-<CustomDivider middleText="Two Operating Models" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Two Operating Models" />
 
 ## Hobbyist vs Commercial
 
 The Livepeer Orchestrator ecosystem supports both models, but they reward different behaviour. One
-is optimised for lower-risk participation and base rewards. The other is optimised for being chosen,
-trusted, and paid for by Gateways running real products.
+is optimised for lower-risk participation and base rewards. The other is optimised for being chosen, trusted, and paid for by Gateways running user-facing products.
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
@@ -145,15 +139,13 @@ flowchart LR
 Neither model is inherently better. They serve different operator goals. Many of the strongest nodes
 eventually run a hybrid, using inflation as the base layer and service fees as the part that scales.
 
-<CustomDivider middleText="Service Fee Economics" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Service Fee Economics" />
 
 ## Why Service Fees Scale
 
-For commercial operators, ETH service fees matter more because they scale with traffic rather than
-with stake alone. That is the core shift in the business case: the upside comes from being part of
-an application's serving path, not just from holding more bonded LPT.
+Commercial operators care most about ETH service fees because traffic, pricing, and uptime drive them directly. That is the core shift in the business case: the upside comes from being part of an application's serving path instead of relying on larger bonded LPT alone.
 
-An Orchestrator with significant staked LPT earns a fixed percentage of the round's inflation
+A large-stake Orchestrator earns a fixed percentage of the round's inflation
 regardless of how many jobs it processes. An Orchestrator serving high-volume AI inference workloads
 earns ETH proportional to every pixel processed and every model inference returned.
 
@@ -173,18 +165,16 @@ flowchart LR
 ```
 
 For an Orchestrator actively serving a high-volume Gateway - a streaming platform, an AI product,
-or a real-time video application - monthly ETH fee income from job processing can exceed LPT
+or a live video application - monthly ETH fee income from job processing can exceed LPT
 inflation income by a substantial margin.
 
-{/* REVIEW: Do not add specific revenue numbers here without verified data from active commercial operators. Keep this framing general until SME input is available. */}
+{/* TODO: Keep this framing general until verified commercial operator revenue data is available. */}
 
 <Note>
-Commercial fee income is variable - it depends on Gateway demand, job mix, and market pricing
-conditions. Inflation rewards are predictable by stake. Most commercial operators treat inflation as
-a base and fees as the variable upside.
+Commercial fee income is variable and depends on Gateway demand, job mix, and market pricing conditions. Inflation rewards are predictable by stake. Most commercial operators treat inflation as the base layer and fees as the upside.
 </Note>
 
-<CustomDivider middleText="Operational Standards" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Operational Standards" />
 
 ## What Commercial Operation Requires
 
@@ -214,11 +204,11 @@ introduce latency that breaks user-facing SLAs. Commercial AI Orchestrators pre-
 models at startup and keep them warm.
 
 The practical implication: the VRAM requirements for commercial AI operation are determined by the
-sum of all models that must be simultaneously loaded, not just the largest single model.
+sum of all models that must be simultaneously loaded, not only the largest single model.
 
 ### Latency targets
 
-Gateways rank Orchestrators by response latency among other factors. Consistently slow responses
+Gateways rank Orchestrators by response latency, uptime history, and job success rate. Consistently slow responses
 - even within acceptable job completion time - affect long-term selection probability.
 
 Commercial Orchestrators optimise for:
@@ -228,7 +218,7 @@ Commercial Orchestrators optimise for:
 
 {/* TODO: Add screenshot of Livepeer Explorer showing orchestrator response time metrics when available */}
 
-<CustomDivider middleText="Gateway Relationships" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Gateway Relationships" />
 
 ## Working with Gateways
 
@@ -266,7 +256,7 @@ Practical discipline for commercial capability management:
 
 ### Building Gateway relationships
 
-{/* REVIEW: The following is general guidance; specific Gateway operator names or contacts should be verified and updated by the operator community before publishing. */}
+{/* TODO: Keep Gateway relationship guidance general until specific operator names or contacts are verified. */}
 
 Active commercial relationships with Gateways typically develop through:
 
@@ -276,16 +266,17 @@ Active commercial relationships with Gateways typically develop through:
 - Demonstrated capability support for pipelines that specific Gateways need
 
 Gateways serving AI products actively look for Orchestrators with specific capability profiles.
-An Orchestrator running a pipeline that a Gateway cannot currently source from the network has
-real negotiating leverage.
+An Orchestrator running a pipeline that a Gateway cannot currently source from the network can justify stronger pricing in those conversations.
 
-<CustomDivider middleText="Positioning for Work" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Positioning for Work" />
 
 ## How to Position for Commercial Workloads
 
 The shift from passive inflation earner to active commercial operator usually means narrowing focus,
 not broadening it. The goal is to become reliably good at the workloads and service levels that a
 Gateway actually wants to buy.
+
+Use [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities) to check current routed pipelines and prices before narrowing your capability set.
 
 <AccordionGroup>
   <Accordion title="Capability selection" icon="microchip">
@@ -298,7 +289,7 @@ Gateway actually wants to buy.
     Prioritise:
     - Pipelines with few available Orchestrators and active demand
     - High-VRAM models that exclude commodity GPU competition
-    - Cascade (real-time AI) pipelines if hardware supports it - higher per-job value
+    - Cascade AI pipelines if hardware supports it - higher per-job value
 
   </Accordion>
   <Accordion title="Pricing discipline" icon="tag">
@@ -344,7 +335,7 @@ Gateway actually wants to buy.
   </Accordion>
 </AccordionGroup>
 
-<CustomDivider middleText="Who Operates Commercially" style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider middleText="Who Operates Commercially" />
 
 ## The Commercial Operator Landscape
 
@@ -354,10 +345,10 @@ is sourced.
 
 **Pool operators** manage the Orchestrator registration, on-chain staking, and reward calling for a
 fleet of GPU workers. Workers register under the pool's Orchestrator address; the pool earns
-a margin on their job income. Pool operators are effectively GPU infrastructure businesses,
+a margin on their job income. Pool operators function as GPU infrastructure businesses,
 combining the service fee model with a managed-Orchestrator offering.
 
-{/* REVIEW: Add named pool operators here once confirmed with community - Titan-Node is known but confirm active commercial status and whether they want to be named in docs. */}
+{/* TODO: Add named pool operators here once their active commercial status is confirmed. */}
 
 **Enterprise GPU operators** run dedicated fleets serving specific AI application workloads. These
 operators serve Gateways that power user-facing AI products and require SLA-level commitments.
@@ -368,12 +359,11 @@ earning fees from both streams. This is the natural next step for video Orchestr
 high-VRAM GPUs.
 
 <Note>
-The commercial orchestrator landscape is evolving. The [Livepeer Forum](https://forum.livepeer.org)
-and the `#orchestrators` Discord channel contain the most current information on who is operating
-commercially and what workloads are available.
+The [Livepeer Forum](https://forum.livepeer.org) and the `#orchestrators` Discord channel are the
+best current sources for tracking active commercial operators and the workloads they are serving.
 </Note>
 
-<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
+<CustomDivider />
 
 ## Related Pages
 
