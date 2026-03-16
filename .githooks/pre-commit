@@ -1522,13 +1522,13 @@ if [ "$RUN_PRECOMMIT_EXPENSIVE_SUITE" = "1" ]; then
                   tools/scripts/remediators/content/sync-docs-paths.js --write --staged --stage
             fi
 
-            run_all_args=(tests/run-all.js --staged --skip-browser)
+            run_all_args=(tests/run-all.js --staged --skip-browser --precommit-basic)
             if [ "$SKIP_VERIFICATION" != "1" ]; then
                 run_all_args+=(--skip-mdx-safe-markdown-check --skip-pages-index --skip-script-docs)
             fi
             run_node_check \
-              "Running core staged test suite..." \
-              "❌ Core staged test suite failed - see output above" \
+              "Running basic staged test suite..." \
+              "❌ Basic staged test suite failed - see output above" \
               "${run_all_args[@]}"
 
             if [ -n "$STAGED_DOCS_PAGES" ]; then

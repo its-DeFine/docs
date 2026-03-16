@@ -189,6 +189,7 @@ npm --prefix tests run test:pages-index
 npm --prefix tests run test:pages-index:write
 npm --prefix tests run test:pages-index:rebuild
 npm --prefix tests run test:generated-banners
+npm --prefix tests run test:precommit
 npm --prefix tests run test:precommit-cache
 npm --prefix tests run test:browser
 npm --prefix tests run test:openapi:audit
@@ -240,7 +241,7 @@ Use those pages for workflow scope, commands, readiness, outputs, and source-of-
 - Full matrix: `tests/PR-CI-TESTS-AND-SCRIPT-RUN-MATRIX.md`
 
 ## Pre-commit Interaction
-- Pre-commit runs `tests/run-all.js --staged --skip-browser --skip-mdx-safe-markdown-check --skip-pages-index --skip-script-docs` in fast mode after those checks already ran earlier in the hook.
+- Pre-commit runs `tests/run-all.js --staged --skip-browser --precommit-basic --skip-mdx-safe-markdown-check --skip-pages-index --skip-script-docs` in fast mode after those checks already ran earlier in the hook.
 - Docs navigation checks in this flow are check-only and do not rewrite `tasks/reports/navigation-links/navigation-report.*`.
 - Pre-commit runs staged WCAG accessibility audit (conservative autofix enabled by default, blocks on remaining `serious`/`critical` issues):
   `node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json`
@@ -252,6 +253,7 @@ Use those pages for workflow scope, commands, readiness, outputs, and source-of-
 - Pre-commit also synchronizes `v2/pages` index files:
   `node tools/scripts/generate-pages-index.js --staged --write --stage`
   This regenerates top-level section `index.mdx` files, updates root `v2/pages/index.mdx`, marks missing `docs.json` pages with `⚠️`, and removes nested `index.mdx`/`index.md` files.
+- The hook lane intentionally stops at staged syntax/style/content basics. Repo-wide governance/unit suites stay in full `node tests/run-all.js` runs and CI.
 - Pre-commit fails fast on cheap blockers and skips the expensive staged suite until those are fixed.
 - After the expensive staged suite passes once, repeat commits with unchanged staged content reuse a cache marker. Set `DISABLE_PRECOMMIT_STAGED_CACHE=1` to force a rerun.
 

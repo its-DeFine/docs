@@ -55,6 +55,7 @@ const skipBrowser = args.includes('--skip-browser');
 const watch = args.includes('--watch');
 const runWcag = args.includes('--wcag');
 const wcagNoFix = args.includes('--wcag-no-fix');
+const precommitBasic = args.includes('--precommit-basic');
 const skipMdxSafeMarkdownCheck = args.includes('--skip-mdx-safe-markdown-check');
 const skipPagesIndex = args.includes('--skip-pages-index');
 const skipScriptDocs = args.includes('--skip-script-docs');
@@ -136,6 +137,10 @@ function hasStagedUiTemplateChanges() {
   );
 }
 
+function logPrecommitBasicSkip(summary) {
+  console.log(`   skipped in --precommit-basic lane (${summary})`);
+}
+
 /**
  * Run all tests
  */
@@ -213,40 +218,45 @@ async function runAllTests() {
     console.log(`   ${mdxSafeMarkdownResult.errors.length} errors, ${mdxSafeMarkdownResult.warnings.length} warnings`);
   }
 
-  // MDX Guardrails
-  console.log('\n🛡️  Running MDX Guardrail Tests...');
-  const mdxGuardsResult = normalizeSuiteResult(mdxGuardsTests.runTests());
-  totalErrors += mdxGuardsResult.errors.length;
-  totalWarnings += mdxGuardsResult.warnings.length;
-  console.log(`   ${mdxGuardsResult.errors.length} errors, ${mdxGuardsResult.warnings.length} warnings`);
+  if (precommitBasic) {
+    console.log('\n🧪 Running Repo-wide Governance Unit Suites...');
+    logPrecommitBasicSkip('hook lane is limited to staged syntax/style/content basics');
+  } else {
+    // MDX Guardrails
+    console.log('\n🛡️  Running MDX Guardrail Tests...');
+    const mdxGuardsResult = normalizeSuiteResult(mdxGuardsTests.runTests());
+    totalErrors += mdxGuardsResult.errors.length;
+    totalWarnings += mdxGuardsResult.warnings.length;
+    console.log(`   ${mdxGuardsResult.errors.length} errors, ${mdxGuardsResult.warnings.length} warnings`);
 
-  // MDX-safe Markdown Unit Tests
-  console.log('\n🧪 Running MDX-safe Markdown Unit Tests...');
-  const mdxSafeMarkdownUnitResult = normalizeSuiteResult(mdxSafeMarkdownUnitTests.runTests());
-  totalErrors += mdxSafeMarkdownUnitResult.errors.length;
-  totalWarnings += mdxSafeMarkdownUnitResult.warnings.length;
-  console.log(`   ${mdxSafeMarkdownUnitResult.errors.length} errors, ${mdxSafeMarkdownUnitResult.warnings.length} warnings`);
+    // MDX-safe Markdown Unit Tests
+    console.log('\n🧪 Running MDX-safe Markdown Unit Tests...');
+    const mdxSafeMarkdownUnitResult = normalizeSuiteResult(mdxSafeMarkdownUnitTests.runTests());
+    totalErrors += mdxSafeMarkdownUnitResult.errors.length;
+    totalWarnings += mdxSafeMarkdownUnitResult.warnings.length;
+    console.log(`   ${mdxSafeMarkdownUnitResult.errors.length} errors, ${mdxSafeMarkdownUnitResult.warnings.length} warnings`);
 
-  // Docs Page Scope Tests
-  console.log('\n🗂️  Running Docs Page Scope Tests...');
-  const docsPageScopeResult = normalizeSuiteResult(docsPageScopeTests.runTests());
-  totalErrors += docsPageScopeResult.errors.length;
-  totalWarnings += docsPageScopeResult.warnings.length;
-  console.log(`   ${docsPageScopeResult.errors.length} errors, ${docsPageScopeResult.warnings.length} warnings`);
+    // Docs Page Scope Tests
+    console.log('\n🗂️  Running Docs Page Scope Tests...');
+    const docsPageScopeResult = normalizeSuiteResult(docsPageScopeTests.runTests());
+    totalErrors += docsPageScopeResult.errors.length;
+    totalWarnings += docsPageScopeResult.warnings.length;
+    console.log(`   ${docsPageScopeResult.errors.length} errors, ${docsPageScopeResult.warnings.length} warnings`);
 
-  // Docs Authoring Rules Tests
-  console.log('\n🧭 Running Docs Authoring Rules Tests...');
-  const docsAuthoringRulesResult = normalizeSuiteResult(docsAuthoringRulesTests.runTests());
-  totalErrors += docsAuthoringRulesResult.errors.length;
-  totalWarnings += docsAuthoringRulesResult.warnings.length;
-  console.log(`   ${docsAuthoringRulesResult.errors.length} errors, ${docsAuthoringRulesResult.warnings.length} warnings`);
+    // Docs Authoring Rules Tests
+    console.log('\n🧭 Running Docs Authoring Rules Tests...');
+    const docsAuthoringRulesResult = normalizeSuiteResult(docsAuthoringRulesTests.runTests());
+    totalErrors += docsAuthoringRulesResult.errors.length;
+    totalWarnings += docsAuthoringRulesResult.warnings.length;
+    console.log(`   ${docsAuthoringRulesResult.errors.length} errors, ${docsAuthoringRulesResult.warnings.length} warnings`);
 
-  // Frontmatter Taxonomy Tests
-  console.log('\n🧾 Running Frontmatter Taxonomy Tests...');
-  const frontmatterTaxonomyResult = normalizeSuiteResult(frontmatterTaxonomyTests.runTests());
-  totalErrors += frontmatterTaxonomyResult.errors.length;
-  totalWarnings += frontmatterTaxonomyResult.warnings.length;
-  console.log(`   ${frontmatterTaxonomyResult.errors.length} errors, ${frontmatterTaxonomyResult.warnings.length} warnings`);
+    // Frontmatter Taxonomy Tests
+    console.log('\n🧾 Running Frontmatter Taxonomy Tests...');
+    const frontmatterTaxonomyResult = normalizeSuiteResult(frontmatterTaxonomyTests.runTests());
+    totalErrors += frontmatterTaxonomyResult.errors.length;
+    totalWarnings += frontmatterTaxonomyResult.warnings.length;
+    console.log(`   ${frontmatterTaxonomyResult.errors.length} errors, ${frontmatterTaxonomyResult.warnings.length} warnings`);
+  }
   
   // Spelling Tests
   console.log('\n🔤 Running Spelling Tests...');
@@ -269,153 +279,158 @@ async function runAllTests() {
   totalWarnings += linksResult.warnings.length;
   console.log(`   ${linksResult.errors.length} errors, ${linksResult.warnings.length} warnings`);
 
-  // Docs Navigation Validation
-  console.log('\n🧭 Running Docs Navigation Validation...');
-  const docsNavigationResult = normalizeSuiteResult(docsNavigationTests.runTests({ writeReport: false }));
-  totalErrors += docsNavigationResult.errors.length;
-  totalWarnings += docsNavigationResult.warnings.length;
-  console.log(`   ${docsNavigationResult.errors.length} errors, ${docsNavigationResult.warnings.length} warnings`);
-
-  // Docs Path Sync Validation
-  console.log('\n🛤️  Running Docs Path Sync Validation...');
-  const docsPathSyncResult = normalizeSuiteResult(docsPathSyncTests.runTests());
-  totalErrors += docsPathSyncResult.errors.length;
-  totalWarnings += docsPathSyncResult.warnings.length;
-  console.log(`   ${docsPathSyncResult.errors.length} errors, ${docsPathSyncResult.warnings.length} warnings`);
-
-  // Script Docs Enforcement
-  console.log('\n🧾 Running Script Documentation Enforcement...');
-  if (skipScriptDocs) {
-    console.log('   skipped (handled earlier in pre-commit)');
+  if (precommitBasic) {
+    console.log('\n🧭 Running Extended Governance and Repo-wide Suites...');
+    logPrecommitBasicSkip('run full test lane or CI for repo-wide governance and unit coverage');
   } else {
-    const scriptDocsResult = normalizeSuiteResult(scriptDocsTests.runTests({ stagedOnly }));
-    totalErrors += scriptDocsResult.errors.length;
-    totalWarnings += scriptDocsResult.warnings.length;
-    console.log(`   ${scriptDocsResult.errors.length} errors, ${scriptDocsResult.warnings.length} warnings`);
-  }
+    // Docs Navigation Validation
+    console.log('\n🧭 Running Docs Navigation Validation...');
+    const docsNavigationResult = normalizeSuiteResult(docsNavigationTests.runTests({ writeReport: false }));
+    totalErrors += docsNavigationResult.errors.length;
+    totalWarnings += docsNavigationResult.warnings.length;
+    console.log(`   ${docsNavigationResult.errors.length} errors, ${docsNavigationResult.warnings.length} warnings`);
 
-  // Skill Docs Enforcement
-  console.log('\n📘 Running Skill Documentation Enforcement...');
-  const skillDocsResult = normalizeSuiteResult(skillDocsTests.runTests({ stagedOnly }));
-  totalErrors += skillDocsResult.errors.length;
-  totalWarnings += skillDocsResult.warnings.length;
-  console.log(`   ${skillDocsResult.errors.length} errors, ${skillDocsResult.warnings.length} warnings`);
+    // Docs Path Sync Validation
+    console.log('\n🛤️  Running Docs Path Sync Validation...');
+    const docsPathSyncResult = normalizeSuiteResult(docsPathSyncTests.runTests());
+    totalErrors += docsPathSyncResult.errors.length;
+    totalWarnings += docsPathSyncResult.warnings.length;
+    console.log(`   ${docsPathSyncResult.errors.length} errors, ${docsPathSyncResult.warnings.length} warnings`);
 
-  // AI-tools Registry Governance
-  console.log('\n🗂️  Running AI-tools Registry Checks...');
-  const aiToolsRegistryResult = normalizeSuiteResult(aiToolsRegistryTests.runTests({ stagedOnly }));
-  totalErrors += aiToolsRegistryResult.errors.length;
-  totalWarnings += aiToolsRegistryResult.warnings.length;
-  if (aiToolsRegistryResult.skipped) {
-    console.log('   skipped (no staged AI-tools governance changes)');
-  } else {
+    // Script Docs Enforcement
+    console.log('\n🧾 Running Script Documentation Enforcement...');
+    if (skipScriptDocs) {
+      console.log('   skipped (handled earlier in pre-commit)');
+    } else {
+      const scriptDocsResult = normalizeSuiteResult(scriptDocsTests.runTests({ stagedOnly }));
+      totalErrors += scriptDocsResult.errors.length;
+      totalWarnings += scriptDocsResult.warnings.length;
+      console.log(`   ${scriptDocsResult.errors.length} errors, ${scriptDocsResult.warnings.length} warnings`);
+    }
+
+    // Skill Docs Enforcement
+    console.log('\n📘 Running Skill Documentation Enforcement...');
+    const skillDocsResult = normalizeSuiteResult(skillDocsTests.runTests({ stagedOnly }));
+    totalErrors += skillDocsResult.errors.length;
+    totalWarnings += skillDocsResult.warnings.length;
+    console.log(`   ${skillDocsResult.errors.length} errors, ${skillDocsResult.warnings.length} warnings`);
+
+    // AI-tools Registry Governance
+    console.log('\n🗂️  Running AI-tools Registry Checks...');
+    const aiToolsRegistryResult = normalizeSuiteResult(aiToolsRegistryTests.runTests({ stagedOnly }));
+    totalErrors += aiToolsRegistryResult.errors.length;
+    totalWarnings += aiToolsRegistryResult.warnings.length;
+    if (aiToolsRegistryResult.skipped) {
+      console.log('   skipped (no staged AI-tools governance changes)');
+    } else {
+      console.log(
+        `   ${aiToolsRegistryResult.errors.length} errors, ${aiToolsRegistryResult.warnings.length} warnings`
+      );
+    }
+
+    // Ownerless Governance
+    console.log('\n🧭 Running Ownerless Governance Checks...');
+    const ownerlessGovernanceResult = normalizeSuiteResult(ownerlessGovernanceTests.runTests({ stagedOnly }));
+    totalErrors += ownerlessGovernanceResult.errors.length;
+    totalWarnings += ownerlessGovernanceResult.warnings.length;
+    console.log(`   ${ownerlessGovernanceResult.errors.length} errors, ${ownerlessGovernanceResult.warnings.length} warnings`);
+
+    // Agent Docs Freshness
+    console.log('\n🤖 Running Agent Docs Freshness Checks...');
+    const agentDocsFreshnessResult = normalizeSuiteResult(checkAgentDocsFreshnessTests.runTests());
+    totalErrors += agentDocsFreshnessResult.errors.length;
+    totalWarnings += agentDocsFreshnessResult.warnings.length;
+    console.log(`   ${agentDocsFreshnessResult.errors.length} errors, ${agentDocsFreshnessResult.warnings.length} warnings`);
+
+    // Root Allowlist Format
+    console.log('\n🧱 Running Root Allowlist Format Checks...');
+    const rootAllowlistFormatResult = normalizeSuiteResult(rootAllowlistFormatTests.runTests());
+    totalErrors += rootAllowlistFormatResult.errors.length;
+    totalWarnings += rootAllowlistFormatResult.warnings.length;
+    console.log(`   ${rootAllowlistFormatResult.errors.length} errors, ${rootAllowlistFormatResult.warnings.length} warnings`);
+
+    // Portable Skill Export
+    console.log('\n📦 Running Portable Skill Export Checks...');
+    const exportPortableSkillsResult = normalizeSuiteResult(await exportPortableSkillsTests.runTests());
+    totalErrors += exportPortableSkillsResult.errors.length;
+    totalWarnings += exportPortableSkillsResult.warnings.length;
+    console.log(`   ${exportPortableSkillsResult.errors.length} errors, ${exportPortableSkillsResult.warnings.length} warnings`);
+
+    // Docs-guide Source of Truth
+    console.log('\n📚 Running Docs-guide Source-of-Truth Checks...');
+    if (hasStagedDocsGuideSotChanges()) {
+      const docsGuideSotResult = normalizeSuiteResult(docsGuideSotTests.runTests({ stagedOnly }));
+      totalErrors += docsGuideSotResult.errors.length;
+      totalWarnings += docsGuideSotResult.warnings.length;
+      console.log(`   ${docsGuideSotResult.errors.length} errors, ${docsGuideSotResult.warnings.length} warnings`);
+    } else {
+      console.log('   skipped (no staged docs-guide source-of-truth changes)');
+    }
+
+    // Pre-commit Cache Unit Tests
+    console.log('\n🧮 Running Pre-commit Cache Unit Tests...');
+    const precommitStagedCacheResult = normalizeSuiteResult(await precommitStagedCacheTests.runTests());
+    totalErrors += precommitStagedCacheResult.errors.length;
+    totalWarnings += precommitStagedCacheResult.warnings.length;
     console.log(
-      `   ${aiToolsRegistryResult.errors.length} errors, ${aiToolsRegistryResult.warnings.length} warnings`
+      `   ${precommitStagedCacheResult.errors.length} errors, ${precommitStagedCacheResult.warnings.length} warnings`
     );
-  }
 
-  // Ownerless Governance
-  console.log('\n🧭 Running Ownerless Governance Checks...');
-  const ownerlessGovernanceResult = normalizeSuiteResult(ownerlessGovernanceTests.runTests({ stagedOnly }));
-  totalErrors += ownerlessGovernanceResult.errors.length;
-  totalWarnings += ownerlessGovernanceResult.warnings.length;
-  console.log(`   ${ownerlessGovernanceResult.errors.length} errors, ${ownerlessGovernanceResult.warnings.length} warnings`);
+    // UI Template Generator
+    console.log('\n🧱 Running UI Template Generator Checks...');
+    if (hasStagedUiTemplateChanges()) {
+      const uiTemplateGeneratorResult = normalizeSuiteResult(uiTemplateGeneratorTests.runTests());
+      totalErrors += uiTemplateGeneratorResult.errors.length;
+      totalWarnings += uiTemplateGeneratorResult.warnings.length;
+      console.log(`   ${uiTemplateGeneratorResult.errors.length} errors, ${uiTemplateGeneratorResult.warnings.length} warnings`);
+    } else {
+      console.log('   skipped (no staged UI template changes)');
+    }
 
-  // Agent Docs Freshness
-  console.log('\n🤖 Running Agent Docs Freshness Checks...');
-  const agentDocsFreshnessResult = normalizeSuiteResult(checkAgentDocsFreshnessTests.runTests());
-  totalErrors += agentDocsFreshnessResult.errors.length;
-  totalWarnings += agentDocsFreshnessResult.warnings.length;
-  console.log(`   ${agentDocsFreshnessResult.errors.length} errors, ${agentDocsFreshnessResult.warnings.length} warnings`);
-
-  // Root Allowlist Format
-  console.log('\n🧱 Running Root Allowlist Format Checks...');
-  const rootAllowlistFormatResult = normalizeSuiteResult(rootAllowlistFormatTests.runTests());
-  totalErrors += rootAllowlistFormatResult.errors.length;
-  totalWarnings += rootAllowlistFormatResult.warnings.length;
-  console.log(`   ${rootAllowlistFormatResult.errors.length} errors, ${rootAllowlistFormatResult.warnings.length} warnings`);
-
-  // Portable Skill Export
-  console.log('\n📦 Running Portable Skill Export Checks...');
-  const exportPortableSkillsResult = normalizeSuiteResult(await exportPortableSkillsTests.runTests());
-  totalErrors += exportPortableSkillsResult.errors.length;
-  totalWarnings += exportPortableSkillsResult.warnings.length;
-  console.log(`   ${exportPortableSkillsResult.errors.length} errors, ${exportPortableSkillsResult.warnings.length} warnings`);
-
-  // Docs-guide Source of Truth
-  console.log('\n📚 Running Docs-guide Source-of-Truth Checks...');
-  if (hasStagedDocsGuideSotChanges()) {
-    const docsGuideSotResult = normalizeSuiteResult(docsGuideSotTests.runTests({ stagedOnly }));
-    totalErrors += docsGuideSotResult.errors.length;
-    totalWarnings += docsGuideSotResult.warnings.length;
-    console.log(`   ${docsGuideSotResult.errors.length} errors, ${docsGuideSotResult.warnings.length} warnings`);
-  } else {
-    console.log('   skipped (no staged docs-guide source-of-truth changes)');
-  }
-
-  // Pre-commit Cache Unit Tests
-  console.log('\n🧮 Running Pre-commit Cache Unit Tests...');
-  const precommitStagedCacheResult = normalizeSuiteResult(await precommitStagedCacheTests.runTests());
-  totalErrors += precommitStagedCacheResult.errors.length;
-  totalWarnings += precommitStagedCacheResult.warnings.length;
-  console.log(
-    `   ${precommitStagedCacheResult.errors.length} errors, ${precommitStagedCacheResult.warnings.length} warnings`
-  );
-
-  // UI Template Generator
-  console.log('\n🧱 Running UI Template Generator Checks...');
-  if (hasStagedUiTemplateChanges()) {
-    const uiTemplateGeneratorResult = normalizeSuiteResult(uiTemplateGeneratorTests.runTests());
-    totalErrors += uiTemplateGeneratorResult.errors.length;
-    totalWarnings += uiTemplateGeneratorResult.warnings.length;
-    console.log(`   ${uiTemplateGeneratorResult.errors.length} errors, ${uiTemplateGeneratorResult.warnings.length} warnings`);
-  } else {
-    console.log('   skipped (no staged UI template changes)');
-  }
-
-  // Component Governance Utility Tests
-  console.log('\n🧩 Running Component Governance Utility Tests...');
-  const componentGovernanceUtilsResult = normalizeSuiteResult(componentGovernanceUtilsTests.runTests());
-  totalErrors += componentGovernanceUtilsResult.errors.length;
-  totalWarnings += componentGovernanceUtilsResult.warnings.length;
-  console.log(
-    `   ${componentGovernanceUtilsResult.errors.length} errors, ${componentGovernanceUtilsResult.warnings.length} warnings`
-  );
-
-  // Component Governance Generator Tests
-  console.log('\n🗂️  Running Component Governance Generator Tests...');
-  if (hasStagedComponentGovernanceChanges()) {
-    const componentGovernanceGeneratorResult = normalizeSuiteResult(componentGovernanceGeneratorTests.runTests());
-    totalErrors += componentGovernanceGeneratorResult.errors.length;
-    totalWarnings += componentGovernanceGeneratorResult.warnings.length;
+    // Component Governance Utility Tests
+    console.log('\n🧩 Running Component Governance Utility Tests...');
+    const componentGovernanceUtilsResult = normalizeSuiteResult(componentGovernanceUtilsTests.runTests());
+    totalErrors += componentGovernanceUtilsResult.errors.length;
+    totalWarnings += componentGovernanceUtilsResult.warnings.length;
     console.log(
-      `   ${componentGovernanceGeneratorResult.errors.length} errors, ${componentGovernanceGeneratorResult.warnings.length} warnings`
+      `   ${componentGovernanceUtilsResult.errors.length} errors, ${componentGovernanceUtilsResult.warnings.length} warnings`
     );
-  } else {
-    console.log('   skipped (no staged component governance changes)');
+
+    // Component Governance Generator Tests
+    console.log('\n🗂️  Running Component Governance Generator Tests...');
+    if (hasStagedComponentGovernanceChanges()) {
+      const componentGovernanceGeneratorResult = normalizeSuiteResult(componentGovernanceGeneratorTests.runTests());
+      totalErrors += componentGovernanceGeneratorResult.errors.length;
+      totalWarnings += componentGovernanceGeneratorResult.warnings.length;
+      console.log(
+        `   ${componentGovernanceGeneratorResult.errors.length} errors, ${componentGovernanceGeneratorResult.warnings.length} warnings`
+      );
+    } else {
+      console.log('   skipped (no staged component governance changes)');
+    }
+
+    // Usefulness Unit Tests
+    console.log('\n📈 Running Usefulness Unit Tests...');
+    const usefulnessRubricCheck = spawnSync(
+      'node',
+      ['tests/unit/usefulness-rubric.test.js'],
+      { cwd: REPO_ROOT, encoding: 'utf8' }
+    );
+    if (usefulnessRubricCheck.stdout) process.stdout.write(usefulnessRubricCheck.stdout);
+    if (usefulnessRubricCheck.stderr) process.stderr.write(usefulnessRubricCheck.stderr);
+    if (usefulnessRubricCheck.status !== 0) totalErrors += 1;
+
+    const usefulnessJourneyCheck = spawnSync(
+      'node',
+      ['tests/unit/usefulness-journey.test.js'],
+      { cwd: REPO_ROOT, encoding: 'utf8' }
+    );
+    if (usefulnessJourneyCheck.stdout) process.stdout.write(usefulnessJourneyCheck.stdout);
+    if (usefulnessJourneyCheck.stderr) process.stderr.write(usefulnessJourneyCheck.stderr);
+    if (usefulnessJourneyCheck.status !== 0) totalErrors += 1;
+    const usefulnessFailures = (usefulnessRubricCheck.status === 0 ? 0 : 1) + (usefulnessJourneyCheck.status === 0 ? 0 : 1);
+    console.log(`   ${usefulnessFailures} errors, 0 warnings`);
   }
-
-  // Usefulness Unit Tests
-  console.log('\n📈 Running Usefulness Unit Tests...');
-  const usefulnessRubricCheck = spawnSync(
-    'node',
-    ['tests/unit/usefulness-rubric.test.js'],
-    { cwd: REPO_ROOT, encoding: 'utf8' }
-  );
-  if (usefulnessRubricCheck.stdout) process.stdout.write(usefulnessRubricCheck.stdout);
-  if (usefulnessRubricCheck.stderr) process.stderr.write(usefulnessRubricCheck.stderr);
-  if (usefulnessRubricCheck.status !== 0) totalErrors += 1;
-
-  const usefulnessJourneyCheck = spawnSync(
-    'node',
-    ['tests/unit/usefulness-journey.test.js'],
-    { cwd: REPO_ROOT, encoding: 'utf8' }
-  );
-  if (usefulnessJourneyCheck.stdout) process.stdout.write(usefulnessJourneyCheck.stdout);
-  if (usefulnessJourneyCheck.stderr) process.stderr.write(usefulnessJourneyCheck.stderr);
-  if (usefulnessJourneyCheck.status !== 0) totalErrors += 1;
-  const usefulnessFailures = (usefulnessRubricCheck.status === 0 ? 0 : 1) + (usefulnessJourneyCheck.status === 0 ? 0 : 1);
-  console.log(`   ${usefulnessFailures} errors, 0 warnings`);
 
   // Pages Index Sync Validation
   console.log('\n🗂️  Running Pages Index Sync Validation...');
