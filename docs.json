@@ -2096,10 +2096,7 @@
                       {
                         "group": "Home",
                         "icon": "house-heart",
-                        "pages": [
-                          "v2/home/mission-control",
-                          "v2/home/primer"
-                        ]
+                        "pages": ["v2/home/mission-control", "v2/home/primer"]
                       },
                       {
                         "group": "Livepeer",
@@ -2126,16 +2123,12 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": [
-                      "v2/resources/redirect"
-                    ]
+                    "pages": ["v2/resources/redirect"]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [
-                      " "
-                    ]
+                    "pages": [" "]
                   }
                 ]
               },
@@ -2197,16 +2190,12 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": [
-                      "v2/resources/redirect"
-                    ]
+                    "pages": ["v2/resources/redirect"]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [
-                      " "
-                    ]
+                    "pages": [" "]
                   }
                 ]
               },
@@ -2230,16 +2219,12 @@
                       {
                         "group": "Daydream",
                         "icon": "camera-movie",
-                        "pages": [
-                          "v2/solutions/daydream/overview"
-                        ]
+                        "pages": ["v2/solutions/daydream/overview"]
                       },
                       {
                         "group": "Livepeer Studio",
                         "icon": "film-canister",
-                        "pages": [
-                          "v2/solutions/livepeer-studio/overview"
-                        ]
+                        "pages": ["v2/solutions/livepeer-studio/overview"]
                       },
                       {
                         "group": "Stream.place",
@@ -2261,16 +2246,12 @@
                       {
                         "group": "Embody Avatars",
                         "icon": "user-robot",
-                        "pages": [
-                          "v2/solutions/embody/overview"
-                        ]
+                        "pages": ["v2/solutions/embody/overview"]
                       },
                       {
                         "group": "Frameworks",
                         "icon": "clapperboard-play",
-                        "pages": [
-                          "v2/solutions/frameworks/overview"
-                        ]
+                        "pages": ["v2/solutions/frameworks/overview"]
                       }
                     ]
                   },
@@ -2330,9 +2311,7 @@
                       },
                       {
                         "group": "Player & embed",
-                        "pages": [
-                          "v2/solutions/livepeer-studio/player"
-                        ]
+                        "pages": ["v2/solutions/livepeer-studio/player"]
                       },
                       {
                         "group": "Reference",
@@ -2471,16 +2450,12 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": [
-                      "v2/resources/redirect"
-                    ]
+                    "pages": ["v2/resources/redirect"]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [
-                      " "
-                    ]
+                    "pages": [" "]
                   }
                 ]
               },
@@ -2570,16 +2545,12 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": [
-                      "v2/resources/redirect"
-                    ]
+                    "pages": ["v2/resources/redirect"]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [
-                      " "
-                    ]
+                    "pages": [" "]
                   }
                 ]
               },
@@ -2588,7 +2559,7 @@
                 "icon": "torii-gate",
                 "anchors": [
                   {
-                    "anchor": "Gateways",
+                    "anchor": "Gateways NEW",
                     "icon": "torii-gate",
                     "groups": [
                       {
@@ -2703,7 +2674,7 @@
                             ]
                           },
                           {
-                            "group": "AI & Job Pipelines",
+                            "group": "AI and Job Pipelines",
                             "pages": [
                               "v2/gateways/guides/node-pipelines/guide",
                               "v2/gateways/guides/node-pipelines/video-pipelines",
@@ -2713,7 +2684,7 @@
                             ]
                           },
                           {
-                            "group": "Payments & Pricing",
+                            "group": "Payments and Pricing",
                             "pages": [
                               "v2/gateways/guides/payments-and-pricing/payment-guide",
                               "v2/gateways/guides/payments-and-pricing/funding-guide",
@@ -2837,178 +2808,170 @@
                         ]
                       }
                     ]
-                  },
-                  {
-                    "anchor": "Resource HUB",
-                    "icon": "books",
-                    "pages": [
-                      "v2/resources/redirect"
-                    ]
-                  },
-                  {
-                    "anchor": " ",
-                    "icon": "horizontal-rule",
-                    "pages": [
-                      " "
-                    ]
                   }
                 ]
               },
               {
                 "tab": "Orchestrators",
                 "icon": "microchip",
-                "anchors": [
+                "groups": [
                   {
-                    "anchor": "Orchestrators",
+                    "group": "Start Here",
                     "icon": "microchip",
-                    "groups": [
+                    "pages": [
+                      "v2/orchestrators/portal",
+                      "v2/orchestrators/navigator"
+                    ]
+                  },
+                  {
+                    "group": "Concepts",
+                    "icon": "book-open",
+                    "pages": [
+                      "v2/orchestrators/concepts/role",
+                      "v2/orchestrators/concepts/capabilities",
+                      "v2/orchestrators/concepts/architecture",
+                      "v2/orchestrators/concepts/incentive-model"
+                    ]
+                  },
+                  {
+                    "group": "Quickstart",
+                    "icon": "bolt",
+                    "pages": [
+                      "v2/orchestrators/quickstart/guide",
+                      "v2/orchestrators/quickstart/video-transcoding",
+                      "v2/orchestrators/quickstart/tutorial",
+                      "v2/orchestrators/quickstart/ai-prompt-start"
+                    ]
+                  },
+                  {
+                    "group": "Setup",
+                    "icon": "gear",
+                    "pages": [
+                      "v2/orchestrators/setup/guide",
+                      "v2/orchestrators/setup/rcs-requirements",
+                      "v2/orchestrators/setup/rs-install",
+                      "v2/orchestrators/setup/configure",
+                      "v2/orchestrators/setup/connect-and-activate",
+                      "v2/orchestrators/setup/test",
+                      "v2/orchestrators/setup/r-monitor"
+                    ]
+                  },
+                  {
+                    "group": "Guides",
+                    "icon": "chart-line",
+                    "pages": [
                       {
-                        "group": "Start Here",
-                        "icon": "microchip",
+                        "group": "Operator Considerations",
                         "pages": [
-                          "v2/orchestrators/portal",
-                          "v2/orchestrators/navigator"
+                          "v2/orchestrators/guides/operator-considerations/operator-rationale",
+                          "v2/orchestrators/guides/operator-considerations/business-case",
+                          "v2/orchestrators/guides/operator-considerations/operator-impact",
+                          "v2/orchestrators/guides/operator-considerations/requirements"
                         ]
                       },
                       {
-                        "group": "Concepts",
-                        "icon": "book-open",
+                        "group": "Deployment Details",
                         "pages": [
-                          "v2/orchestrators/concepts/role",
-                          "v2/orchestrators/concepts/capabilities",
-                          "v2/orchestrators/concepts/architecture",
-                          "v2/orchestrators/concepts/incentive-model"
+                          "v2/orchestrators/guides/deployment-details/setup-options",
+                          "v2/orchestrators/guides/deployment-details/draft1-setup-options",
+                          "v2/orchestrators/guides/deployment-details/x-deprecated/dep-3-setup-options",
+                          "v2/orchestrators/guides/deployment-details/siphon-setup",
+                          "v2/orchestrators/guides/deployment-details/dual-mode-configuration",
+                          "v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup",
+                          "v2/orchestrators/guides/deployment-details/join-a-pool",
+                          "v2/orchestrators/guides/deployment-details/new-join-a-pool"
                         ]
                       },
                       {
-                        "group": "Quickstart",
-                        "icon": "bolt",
+                        "group": "Workloads and AI",
                         "pages": [
-                          "v2/orchestrators/quickstart/guide",
-                          "v2/orchestrators/quickstart/video-transcoding"
+                          "v2/orchestrators/guides/ai-and-job-workloads/workload-options",
+                          "v2/orchestrators/guides/ai-and-job-workloads/video-transcoding-operations",
+                          "v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations",
+                          "v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup",
+                          "v2/orchestrators/guides/ai-and-job-workloads/llm-pipeline-setup",
+                          "v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup",
+                          "v2/orchestrators/guides/ai-and-job-workloads/audio-and-vision-pipelines",
+                          "v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference",
+                          "v2/orchestrators/guides/ai-and-job-workloads/model-hosting"
                         ]
                       },
                       {
-                        "group": "Setup",
-                        "icon": "gear",
+                        "group": "Staking and Earning",
                         "pages": [
-                          "v2/orchestrators/setup/guide",
-                          "v2/orchestrators/setup/rcs-requirements",
-                          "v2/orchestrators/setup/rs-install",
-                          "v2/orchestrators/setup/r-configure",
-                          "v2/orchestrators/setup/sc-connect",
-                          "v2/orchestrators/setup/activate",
-                          "v2/orchestrators/setup/test",
-                          "v2/orchestrators/setup/r-monitor"
+                          "v2/orchestrators/guides/staking-and-rewards/earning-model",
+                          "v2/orchestrators/guides/staking-and-rewards/reward-mechanics",
+                          "v2/orchestrators/guides/payments-and-pricing/payment-receipts",
+                          "v2/orchestrators/guides/payments-and-pricing/payments",
+                          "v2/orchestrators/guides/staking-and-rewards/delegate-operations",
+                          "v2/orchestrators/guides/staking-and-rewards/network-participation"
                         ]
                       },
                       {
-                        "group": "Guides",
-                        "icon": "chart-line",
+                        "group": "Config and Optimisation",
                         "pages": [
-                          {
-                            "group": "Feasibility & Hardware",
-                            "pages": [
-                              "v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics",
-                              "v2/orchestrators/guides/feasibility-and-hardware/hardware-reference",
-                              "v2/orchestrators/guides/feasibility-and-hardware/benchmarking",
-                              "v2/orchestrators/guides/feasibility-and-hardware/session-limits"
-                            ]
-                          },
-                          {
-                            "group": "Setup Paths",
-                            "pages": [
-                              "v2/orchestrators/guides/setup-paths/setup-navigator",
-                              "v2/orchestrators/guides/setup-paths/find-your-path",
-                              "v2/orchestrators/guides/setup-paths/join-a-pool",
-                              "v2/orchestrators/guides/setup-paths/siphon-setup"
-                            ]
-                          },
-                          {
-                            "group": "Staking & Rewards",
-                            "pages": [
-                              "v2/orchestrators/guides/staking-and-rewards/earnings",
-                              "v2/orchestrators/guides/staking-and-rewards/rewards-and-fees",
-                              "v2/orchestrators/guides/staking-and-rewards/attracting-delegates",
-                              "v2/orchestrators/guides/staking-and-rewards/payments",
-                              "v2/orchestrators/guides/staking-and-rewards/governance"
-                            ]
-                          },
-                          {
-                            "group": "Workloads & AI",
-                            "pages": [
-                              "v2/orchestrators/guides/workloads-and-ai/job-types",
-                              "v2/orchestrators/guides/workloads-and-ai/video-transcoding",
-                              "v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide",
-                              "v2/orchestrators/guides/workloads-and-ai/batch-ai-setup",
-                              "v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup",
-                              "v2/orchestrators/guides/workloads-and-ai/model-vram-reference"
-                            ]
-                          },
-                          {
-                            "group": "Monitoring & Troubleshooting",
-                            "pages": [
-                              "v2/orchestrators/guides/monitoring-and-troubleshooting/tools",
-                              "v2/orchestrators/guides/monitoring-and-troubleshooting/explorer-guide",
-                              "v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring",
-                              "v2/orchestrators/guides/monitoring-and-troubleshooting/troubleshooting"
-                            ]
-                          },
-                          {
-                            "group": "Advanced Operations",
-                            "pages": [
-                              "v2/orchestrators/guides/advanced-operations/run-a-pool",
-                              "v2/orchestrators/guides/advanced-operations/gateways-orchestrators",
-                              "v2/orchestrators/guides/advanced-operations/large-scale-operations",
-                              "v2/orchestrators/guides/advanced-operations/orchestrator-transcoder-setup"
-                            ]
-                          }
+                          "v2/orchestrators/guides/config-and-optimisation/pricing-strategy",
+                          "v2/orchestrators/guides/config-and-optimisation/capacity-planning",
+                          "v2/orchestrators/guides/config-and-optimisation/ai-model-management",
+                          "v2/orchestrators/guides/config-and-optimisation/reward-call-tuning"
                         ]
                       },
                       {
-                        "group": "Resources",
-                        "icon": "books",
+                        "group": "Monitoring and Tools",
                         "pages": [
-                          "v2/orchestrators/resources/faq",
-                          "v2/orchestrators/resources/community-guides",
-                          "v2/orchestrators/resources/community-pools",
-                          {
-                            "group": "Technical Reference",
-                            "pages": [
-                              "v2/orchestrators/resources/technical/cli-flags",
-                              "v2/orchestrators/resources/technical/x-contract-addresses",
-                              "v2/orchestrators/resources/gpu-support",
-                              "v2/orchestrators/resources/arbitrum-rpc",
-                              "v2/orchestrators/resources/arbitrum-exchanges",
-                              "v2/orchestrators/resources/technical/x-troubleshooting",
-                              "v2/orchestrators/resources/technical/x-changelog",
-                              "v2/orchestrators/resources/technical/x-support-status"
-                            ]
-                          },
-                          {
-                            "group": "Guides Index [Review]",
-                            "pages": [
-                              "v2/orchestrators/resources/x-guides",
-                              "v2/orchestrators/resources/x-help",
-                              "v2/orchestrators/resources/x-payments"
-                            ]
-                          }
+                          "v2/orchestrators/guides/monitoring-and-tooling/operator-toolbox",
+                          "v2/orchestrators/guides/monitoring-and-tooling/explorer-operations",
+                          "v2/orchestrators/guides/monitoring-and-tooling/metrics-and-alerting",
+                          "v2/orchestrators/guides/monitoring-and-tooling/troubleshooting"
+                        ]
+                      },
+                      {
+                        "group": "Advanced Operations",
+                        "pages": [
+                          "v2/orchestrators/guides/advanced-operations/gateway-relationships",
+                          "v2/orchestrators/guides/advanced-operations/gateway-orchestrator-interface",
+                          "v2/orchestrators/guides/advanced-operations/pool-operators",
+                          "v2/orchestrators/guides/advanced-operations/scale-operations"
+                        ]
+                      },
+                      {
+                        "group": "Roadmap and Funding",
+                        "pages": [
+                          "v2/orchestrators/guides/roadmap-and-funding/funding-and-support",
+                          "v2/orchestrators/guides/roadmap-and-funding/orchestrator-profiles"
+                        ]
+                      },
+                      {
+                        "group": "Tutorials",
+                        "pages": [
+                          "v2/orchestrators/guides/tutorials/byoc-cpu-smoke-test",
+                          "v2/orchestrators/guides/tutorials/zero-to-first-reward",
+                          "v2/orchestrators/guides/tutorials/ai-earning-quickstart",
+                          "v2/orchestrators/guides/tutorials/add-ai-to-video-node",
+                          "v2/orchestrators/guides/tutorials/full-ai-pipeline-tutorial",
+                          "v2/orchestrators/guides/tutorials/realtime-ai-tutorial"
                         ]
                       }
                     ]
                   },
                   {
-                    "anchor": "Resource HUB",
+                    "group": "Resources",
                     "icon": "books",
                     "pages": [
-                      "v2/resources/redirect"
-                    ]
-                  },
-                  {
-                    "anchor": " ",
-                    "icon": "horizontal-rule",
-                    "pages": [
-                      " "
+                      "v2/orchestrators/resources/faq",
+                      "v2/orchestrators/resources/glossary",
+                      "v2/orchestrators/resources/community-guides",
+                      "v2/orchestrators/resources/community-pools",
+                      {
+                        "group": "Technical Reference",
+                        "pages": [
+                          "v2/orchestrators/resources/technical/cli-flags",
+                          "v2/orchestrators/resources/technical/x-contract-addresses",
+                          "v2/orchestrators/resources/gpu-support",
+                          "v2/orchestrators/resources/arbitrum-rpc",
+                          "v2/orchestrators/resources/arbitrum-exchanges"
+                        ]
+                      }
                     ]
                   }
                 ]
@@ -3074,16 +3037,12 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": [
-                      "v2/resources/redirect"
-                    ]
+                    "pages": ["v2/resources/redirect"]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [
-                      " "
-                    ]
+                    "pages": [" "]
                   }
                 ]
               },
@@ -3137,25 +3096,19 @@
                       {
                         "group": "Help Center",
                         "icon": "comments-question-check",
-                        "pages": [
-                          "v2/community/faq"
-                        ]
+                        "pages": ["v2/community/faq"]
                       }
                     ]
                   },
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": [
-                      "v2/resources/redirect"
-                    ]
+                    "pages": ["v2/resources/redirect"]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [
-                      " "
-                    ]
+                    "pages": [" "]
                   }
                 ]
               },
@@ -3172,7 +3125,6 @@
                         "group": "Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/resources/redirect",
                           "v2/resources/resources-portal",
                           "contribute/CONTRIBUTING"
                         ]
@@ -3216,9 +3168,7 @@
                       {
                         "group": "Developer References",
                         "icon": "book",
-                        "pages": [
-                          "v2/resources/livepeer-glossary"
-                        ]
+                        "pages": ["v2/resources/livepeer-glossary"]
                       },
                       {
                         "group": "Gateway References",
@@ -3230,37 +3180,27 @@
                       {
                         "group": "Orchestrator References",
                         "icon": "microchip",
-                        "pages": [
-                          "v2/resources/livepeer-glossary"
-                        ]
+                        "pages": ["v2/resources/livepeer-glossary"]
                       },
                       {
                         "group": "LPT & Delegator References",
                         "icon": "hand-holding-dollar",
-                        "pages": [
-                          "v2/resources/livepeer-glossary"
-                        ]
+                        "pages": ["v2/resources/livepeer-glossary"]
                       },
                       {
                         "group": "Community Resources",
                         "icon": "",
-                        "pages": [
-                          "v2/resources/livepeer-glossary"
-                        ]
+                        "pages": ["v2/resources/livepeer-glossary"]
                       },
                       {
                         "group": "Partner Resources",
                         "icon": "handshake",
-                        "pages": [
-                          "v2/resources/livepeer-glossary"
-                        ]
+                        "pages": ["v2/resources/livepeer-glossary"]
                       },
                       {
                         "group": "Help Center",
                         "icon": "comments-question-check",
-                        "pages": [
-                          "v2/resources/livepeer-glossary"
-                        ]
+                        "pages": ["v2/resources/livepeer-glossary"]
                       },
                       {
                         "group": "Technical References",
@@ -3268,9 +3208,7 @@
                         "pages": [
                           {
                             "group": "Protocol References",
-                            "pages": [
-                              " "
-                            ]
+                            "pages": [" "]
                           }
                         ]
                       },
@@ -3287,9 +3225,7 @@
                   {
                     "anchor": "Help Center",
                     "icon": "comments-question-check",
-                    "pages": [
-                      "v2/resources/redirect"
-                    ]
+                    "pages": ["v2/resources/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -3448,6 +3384,192 @@
                               "v2/internal/reports/page-audits/domain-pages-audit"
                             ]
                           }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "language": "es",
+            "tabs": [
+              {
+                "tab": "About",
+                "icon": "camera-movie",
+                "anchors": [
+                  {
+                    "anchor": "About Livepeer",
+                    "icon": "play",
+                    "groups": [
+                      {
+                        "group": "About Livepeer",
+                        "icon": "graduation-cap",
+                        "pages": [
+                          "v2/es/about/portal",
+                          "v2/es/about/livepeer-overview",
+                          "v2/es/about/core-concepts",
+                          "v2/es/about/mental-model"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Protocol",
+                        "icon": "cube",
+                        "pages": [
+                          "v2/es/about/livepeer-protocol/overview",
+                          "v2/es/about/livepeer-protocol/core-mechanisms",
+                          "v2/es/about/livepeer-protocol/livepeer-token",
+                          "v2/es/about/livepeer-protocol/governance-model",
+                          "v2/es/about/livepeer-protocol/treasury",
+                          "v2/es/about/livepeer-protocol/economics",
+                          "v2/es/about/livepeer-protocol/technical-architecture"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Network",
+                        "icon": "circle-nodes",
+                        "pages": [
+                          "v2/es/about/livepeer-network/overview",
+                          "v2/es/about/livepeer-network/actors",
+                          "v2/es/about/livepeer-network/job-lifecycle",
+                          "v2/es/about/livepeer-network/marketplace",
+                          "v2/es/about/livepeer-network/technical-architecture",
+                          "v2/es/about/livepeer-network/interfaces"
+                        ]
+                      },
+                      {
+                        "group": "Resources",
+                        "icon": "books",
+                        "pages": [
+                          "v2/es/about/resources/livepeer-whitepaper",
+                          "v2/es/about/resources/livepeer-glossary",
+                          "v2/es/about/resources/blockchain-contracts",
+                          "v2/es/about/resources/technical-roadmap"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "language": "fr",
+            "tabs": [
+              {
+                "tab": "About",
+                "icon": "camera-movie",
+                "anchors": [
+                  {
+                    "anchor": "About Livepeer",
+                    "icon": "play",
+                    "groups": [
+                      {
+                        "group": "About Livepeer",
+                        "icon": "graduation-cap",
+                        "pages": [
+                          "v2/fr/about/portal",
+                          "v2/fr/about/livepeer-overview",
+                          "v2/fr/about/core-concepts",
+                          "v2/fr/about/mental-model"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Protocol",
+                        "icon": "cube",
+                        "pages": [
+                          "v2/fr/about/livepeer-protocol/overview",
+                          "v2/fr/about/livepeer-protocol/core-mechanisms",
+                          "v2/fr/about/livepeer-protocol/livepeer-token",
+                          "v2/fr/about/livepeer-protocol/governance-model",
+                          "v2/fr/about/livepeer-protocol/treasury",
+                          "v2/fr/about/livepeer-protocol/economics",
+                          "v2/fr/about/livepeer-protocol/technical-architecture"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Network",
+                        "icon": "circle-nodes",
+                        "pages": [
+                          "v2/fr/about/livepeer-network/overview",
+                          "v2/fr/about/livepeer-network/actors",
+                          "v2/fr/about/livepeer-network/job-lifecycle",
+                          "v2/fr/about/livepeer-network/marketplace",
+                          "v2/fr/about/livepeer-network/technical-architecture",
+                          "v2/fr/about/livepeer-network/interfaces"
+                        ]
+                      },
+                      {
+                        "group": "Resources",
+                        "icon": "books",
+                        "pages": [
+                          "v2/fr/about/resources/livepeer-whitepaper",
+                          "v2/fr/about/resources/livepeer-glossary",
+                          "v2/fr/about/resources/blockchain-contracts",
+                          "v2/fr/about/resources/technical-roadmap"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "language": "cn",
+            "tabs": [
+              {
+                "tab": "About",
+                "icon": "camera-movie",
+                "anchors": [
+                  {
+                    "anchor": "About Livepeer",
+                    "icon": "play",
+                    "groups": [
+                      {
+                        "group": "About Livepeer",
+                        "icon": "graduation-cap",
+                        "pages": [
+                          "v2/cn/about/portal",
+                          "v2/cn/about/livepeer-overview",
+                          "v2/cn/about/core-concepts",
+                          "v2/cn/about/mental-model"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Protocol",
+                        "icon": "cube",
+                        "pages": [
+                          "v2/cn/about/livepeer-protocol/overview",
+                          "v2/cn/about/livepeer-protocol/core-mechanisms",
+                          "v2/cn/about/livepeer-protocol/livepeer-token",
+                          "v2/cn/about/livepeer-protocol/governance-model",
+                          "v2/cn/about/livepeer-protocol/treasury",
+                          "v2/cn/about/livepeer-protocol/economics",
+                          "v2/cn/about/livepeer-protocol/technical-architecture"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Network",
+                        "icon": "circle-nodes",
+                        "pages": [
+                          "v2/cn/about/livepeer-network/overview",
+                          "v2/cn/about/livepeer-network/actors",
+                          "v2/cn/about/livepeer-network/job-lifecycle",
+                          "v2/cn/about/livepeer-network/marketplace",
+                          "v2/cn/about/livepeer-network/technical-architecture",
+                          "v2/cn/about/livepeer-network/interfaces"
+                        ]
+                      },
+                      {
+                        "group": "Resources",
+                        "icon": "books",
+                        "pages": [
+                          "v2/cn/about/resources/livepeer-whitepaper",
+                          "v2/cn/about/resources/livepeer-glossary",
+                          "v2/cn/about/resources/blockchain-contracts",
+                          "v2/cn/about/resources/technical-roadmap"
                         ]
                       }
                     ]
