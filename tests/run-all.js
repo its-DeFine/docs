@@ -31,6 +31,7 @@ const docsNavigationTests = require('./unit/docs-navigation.test');
 const docsPathSyncTests = require('./unit/docs-path-sync.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const skillDocsTests = require('./unit/skill-docs.test');
+const aiToolsRegistryTests = require('./unit/ai-tools-registry.test');
 const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
 const checkAgentDocsFreshnessTests = require('./unit/check-agent-docs-freshness.test');
 const rootAllowlistFormatTests = require('./unit/root-allowlist-format.test');
@@ -287,6 +288,19 @@ async function runAllTests() {
   totalErrors += skillDocsResult.errors.length;
   totalWarnings += skillDocsResult.warnings.length;
   console.log(`   ${skillDocsResult.errors.length} errors, ${skillDocsResult.warnings.length} warnings`);
+
+  // AI-tools Registry Governance
+  console.log('\n🗂️  Running AI-tools Registry Checks...');
+  const aiToolsRegistryResult = normalizeSuiteResult(aiToolsRegistryTests.runTests({ stagedOnly }));
+  totalErrors += aiToolsRegistryResult.errors.length;
+  totalWarnings += aiToolsRegistryResult.warnings.length;
+  if (aiToolsRegistryResult.skipped) {
+    console.log('   skipped (no staged AI-tools governance changes)');
+  } else {
+    console.log(
+      `   ${aiToolsRegistryResult.errors.length} errors, ${aiToolsRegistryResult.warnings.length} warnings`
+    );
+  }
 
   // Ownerless Governance
   console.log('\n🧭 Running Ownerless Governance Checks...');

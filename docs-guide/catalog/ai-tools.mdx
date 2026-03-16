@@ -1,7 +1,6 @@
----
-title: AI Tools and Skills Index
+title: AI Tools Governance Index
 sidebarTitle: AI Tools
-description: 'Index of docs-audit skills, orchestration assets and cross-agent pack outputs.'
+description: 'Current governance entrypoint for the AI-tools registry, lane contract, audit-pipeline catalog, and generated pack outputs.'
 keywords:
   - livepeer
   - ai tools
@@ -16,24 +15,52 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
-## Skill Catalogue
+## Wave 1 Canonical Registry
+
+- Canonical inventory + lifecycle + lane source: `ai-tools/registry/ai-tools-registry.json`
+- Registry schema: `ai-tools/registry/ai-tools-registry.schema.json`
+- Generated inventory report: `ai-tools/registry/ai-tools-inventory.md`
+- Validator CLI: `tools/scripts/validate-ai-tools-registry.js`
+
+Primary commands:
+
+```bash icon="terminal"
+node tools/scripts/validate-ai-tools-registry.js --check --coverage
+node tools/scripts/validate-ai-tools-registry.js --check --lanes
+node tools/scripts/validate-ai-tools-registry.js --write-report
+```
+
+The registry is now the canonical source for what exists under `ai-tools/**`, how each artifact is classified, and which lane it belongs to.
+
+## Current Lane Model
+
+| Lane | What it governs now | Notes |
+| --- | --- | --- |
+| `templates` | `ai-tools/ai-skills/templates/**` | Canonical portable skill templates and companion bundles |
+| `local` | repo-local `SKILL.md` roots under `ai-tools/ai-skills/*/SKILL.md` | Includes both legacy local-only skills and template-synced local roots |
+| `workspace` | research, packages, and source snapshots under `ai-tools/ai-skills/` | Non-canonical material kept out of template/export lanes |
+| `exports` | `ai-tools/agent-packs/**` | Generated agent-pack outputs and portable skill exports |
+| `rules` | `ai-tools/ai-rules/**` | Legacy/internal rule surfaces pending later normalization |
+| `manual-doc` | registry, setup guides, pipeline catalog docs, and framework/support docs | Human-readable governance/support material |
+| `retired` | reserved for future retired AI-tools material | Not active in Wave 1 |
+
+## Subsystem-Scoped Audit Pipeline Catalog
+
+These files remain active and unchanged in role for the repo-audit pipeline, but they are not the full AI-tools registry:
 
 - Catalogue schema: `ai-tools/ai-skills/catalog/skill-catalog.schema.json`
 - Catalogue data: `ai-tools/ai-skills/catalog/skill-catalog.json`
 - Execution manifest: `ai-tools/ai-skills/catalog/execution-manifest.json`
 
-## Executable Skills
+Use these files only for:
 
-- `repo-audit-orchestrator`
-- `script-footprint-and-usage-audit`
-- `docs-quality-and-freshness-audit`
-- `style-and-language-homogenizer-en-gb`
-- `component-layout-governance`
-- `cleanup-quarantine-manager`
-- `cross-agent-packager`
-- `rubric-static-review`
+- repo-audit orchestrator run order and stage metadata
+- cross-agent packager manifest inputs
+- audit-pipeline policy docs that describe that subsystem specifically
+
+The generated aggregate AI-tools catalog is deferred to Wave 2. Until then, use the registry and generated inventory report as the complete inventory surface.
 
 ## Codex Planning Entry Point
 
@@ -63,6 +90,12 @@ Produced assets:
 - Windsurf: `ai-tools/agent-packs/windsurf/rules.md`
 
 These are generated reference packs and onboarding aids, not the canonical source of repo governance policy.
+
+## Portable Skill Content Ownership
+
+- Canonical source: `ai-tools/ai-skills/templates/*.template.md`
+- Canonical template companions: `ai-tools/ai-skills/templates/*.references/**`
+- Local repo skill roots are either `legacy-active` or `local-synced` in the registry; they are not the global source of truth for portable skill content.
 
 ## Canonical Governance
 

@@ -1,7 +1,7 @@
 ---
 title: Skill Pipeline Map
 sidebarTitle: Skill Pipeline
-description: 'Run order, purpose, inputs and outputs for the docs audit skill pipeline.'
+description: 'Run order, purpose, and contract files for the docs audit skill pipeline subsystem.'
 keywords:
   - livepeer
   - skills
@@ -26,9 +26,16 @@ keywords:
 
 ## Pipeline Contract Files
 
+These files are canonical only for the docs audit pipeline subsystem. They are not the full AI-tools inventory or lane registry.
+
 - `ai-tools/ai-skills/catalog/skill-catalog.schema.json`
 - `ai-tools/ai-skills/catalog/skill-catalog.json`
 - `ai-tools/ai-skills/catalog/execution-manifest.json`
+
+Global AI-tools inventory, lifecycle, and lane assignment now live in:
+
+- `ai-tools/registry/ai-tools-registry.json`
+- `ai-tools/registry/ai-tools-inventory.md`
 
 ## Stage Behaviour
 
@@ -43,7 +50,7 @@ keywords:
 
 ## Orchestrator CLI
 
-```bash
+```bash icon="terminal"
 node tools/scripts/repo-audit-orchestrator.js \
   --mode static \
   --scope full \

@@ -39,6 +39,7 @@ const linksImportsTests = require('./unit/links-imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const skillDocsTests = require('./unit/skill-docs.test');
+const aiToolsRegistryTests = require('./unit/ai-tools-registry.test');
 const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
 const checkAgentDocsFreshnessTests = require('./unit/check-agent-docs-freshness.test');
 const rootAllowlistFormatTests = require('./unit/root-allowlist-format.test');
@@ -46,6 +47,7 @@ const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
 const docsGuideSotTests = require('./unit/docs-guide-sot.test');
 const uiTemplateGeneratorTests = require('./unit/ui-template-generator.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
+const { isAiToolsRegistryRelevantPath } = require('../tools/lib/ai-tools-registry');
 
 const REPO_ROOT = getRepoRoot();
 const SCRIPT_EXTENSIONS = new Set(GOVERNED_SCRIPT_EXTENSIONS);
@@ -266,6 +268,7 @@ function partitionFiles(changedFiles) {
     file === '.github/workflows/docs-v2-issue-indexer.yml' ||
     file.startsWith('.github/ISSUE_TEMPLATE/')
   );
+  const aiToolsRegistryFiles = existingChangedFiles.filter((file) => isAiToolsRegistryRelevantPath(file));
 
   return {
     docsMdx,
@@ -278,6 +281,7 @@ function partitionFiles(changedFiles) {
     scriptFiles: dedupe(scriptFiles),
     skillDocsFiles: dedupe(skillDocsFiles),
     portableSkillFiles: dedupe(portableSkillFiles),
+    aiToolsRegistryFiles: dedupe(aiToolsRegistryFiles),
     docsGuideSotFiles: dedupe(docsGuideSotFiles),
     uiTemplateFiles: dedupe(uiTemplateFiles),
     ownerlessGovernanceFiles: dedupe(ownerlessGovernanceFiles),
@@ -385,6 +389,21 @@ function runSkillDocsCheck(files) {
   const result = skillDocsTests.runTests({ files });
   return {
     label: 'Skill Docs',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
+function runAiToolsRegistryCheck(files) {
+  if (!files.length) {
+    return { label: 'AI-tools Registry', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = aiToolsRegistryTests.runTests({ files });
+  return {
+    label: 'AI-tools Registry',
     status: result.passed ? 'passed' : 'failed',
     files: files.length,
     errors: Array.isArray(result.errors) ? result.errors.length : 0,
@@ -797,6 +816,7 @@ async function main() {
   console.log(`Changed scripts: ${groups.scriptFiles.length}`);
   console.log(`Changed skill docs: ${groups.skillDocsFiles.length}`);
   console.log(`Changed portable-skill files: ${groups.portableSkillFiles.length}`);
+  console.log(`Changed AI-tools registry files: ${groups.aiToolsRegistryFiles.length}`);
   console.log(`Changed docs-guide SoT files: ${groups.docsGuideSotFiles.length}`);
   console.log(`Changed UI-template files: ${groups.uiTemplateFiles.length}`);
   console.log(`Changed ownerless-governance files: ${groups.ownerlessGovernanceFiles.length}`);
@@ -824,6 +844,7 @@ async function main() {
   checks.push(runScriptGovernanceCheck(groups.governanceScriptFiles));
   checks.push(runScriptDocsCheck(groups.scriptFiles));
   checks.push(runSkillDocsCheck(groups.skillDocsFiles));
+  checks.push(runAiToolsRegistryCheck(groups.aiToolsRegistryFiles));
   checks.push(runOwnerlessGovernanceCheck(groups.ownerlessGovernanceFiles));
   checks.push(runAgentDocsFreshnessCheck(groups.ownerlessGovernanceFiles));
   checks.push(runRootAllowlistFormatCheck(groups.ownerlessGovernanceFiles));

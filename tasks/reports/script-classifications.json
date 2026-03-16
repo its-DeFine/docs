@@ -243,6 +243,16 @@
     "pipeline": "P2, P3"
   },
   {
+    "path": "tests/unit/ai-tools-registry.test.js",
+    "script": "ai-tools-registry.test",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tests/unit, ai-tools/registry, tools/lib/ai-tools-registry.js, tools/scripts/validate-ai-tools-registry.js, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx, tools/config/ownerless-governance-surfaces.json",
+    "needs": "R-R14, R-R29",
+    "purpose_statement": "Validates the AI-tools registry contract, full tracked ai-tools coverage, and the Wave 1 inventory source-of-truth boundary.",
+    "pipeline": "P1, P3"
+  },
+  {
     "path": "tests/unit/audit-script-inventory-repair-rules.test.js",
     "script": "audit-script-inventory-repair-rules.test",
     "category": "validator",
@@ -881,6 +891,16 @@
     "needs": "E-C6, F-C1",
     "purpose_statement": "Configuration data — list of internal report page paths for publish-v2-internal-reports.js",
     "pipeline": "manual — not yet in pipeline"
+  },
+  {
+    "path": "tools/lib/ai-tools-registry.js",
+    "script": "ai-tools-registry",
+    "category": "utility",
+    "purpose": "governance:agent-governance",
+    "scope": "tools/lib, ai-tools/registry, tools/scripts/validate-ai-tools-registry.js, tests/unit/ai-tools-registry.test.js, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx, tools/config/ownerless-governance-surfaces.json",
+    "needs": "R-R14, R-R29",
+    "purpose_statement": "Shared loader, validator, coverage checker, and report renderer for the AI-tools registry contract and generated inventory report.",
+    "pipeline": "indirect -- library module used by validator and test surfaces"
   },
   {
     "path": "tools/lib/codex-skill-templates.js",
@@ -2465,6 +2485,16 @@
     "needs": "E-C6, F-C1",
     "purpose_statement": "V2 page tester — validates v2 pages via Puppeteer browser rendering",
     "pipeline": "P2, P3"
+  },
+  {
+    "path": "tools/scripts/validate-ai-tools-registry.js",
+    "script": "validate-ai-tools-registry",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tools/scripts, tools/lib/ai-tools-registry.js, ai-tools/registry, tests/unit/ai-tools-registry.test.js, tools/config/ownerless-governance-surfaces.json, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx",
+    "needs": "R-R14, R-R29",
+    "purpose_statement": "AI-tools registry validator and report writer for source-of-truth coverage, lifecycle, lane alignment, and generated inventory output.",
+    "pipeline": "manual -- bounded validator CLI"
   },
   {
     "path": "tools/scripts/validate-codex-task-contract.js",
