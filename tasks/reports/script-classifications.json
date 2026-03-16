@@ -390,16 +390,6 @@
     "dualmode": "dual-mode (document flags)"
   },
   {
-    "path": "tests/unit/v2-folder-governance-cleanup-matrix.test.js",
-    "script": "v2-folder-governance-cleanup-matrix.test",
-    "category": "validator",
-    "purpose": "governance:repo-health",
-    "scope": "tests/unit, tools/scripts/generate-v2-folder-governance-cleanup-matrix.js",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Unit tests for the v2 folder governance cleanup matrix generator and its targeting, scope, and age-bucket rules.",
-    "pipeline": "manual — planning artifact validator"
-  },
-  {
     "path": "tests/unit/docs-navigation.test.js",
     "script": "docs-navigation.test",
     "category": "validator",
@@ -727,6 +717,16 @@
     "needs": "E-R1, R-R11",
     "purpose_statement": "Usefulness rubric tests — validate rubric loading, evaluator coverage, route precedence, and score divergence behaviour",
     "pipeline": "P3"
+  },
+  {
+    "path": "tests/unit/v2-folder-governance-cleanup-matrix.test.js",
+    "script": "v2-folder-governance-cleanup-matrix.test",
+    "category": "validator",
+    "purpose": "governance:repo-health",
+    "scope": "tests/unit, tools/scripts/generate-v2-folder-governance-cleanup-matrix.js",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Unit tests for the v2 folder governance cleanup matrix generator and its targeting, scope, and age-bucket rules.",
+    "pipeline": "manual — planning artifact validator"
   },
   {
     "path": "tests/unit/v2-link-audit.test.js",
@@ -1666,6 +1666,16 @@
     "dualmode": "--check (enforcer) | --write (generator)"
   },
   {
+    "path": "tools/scripts/generate-ai-skills-indexes.js",
+    "script": "generate-ai-skills-indexes",
+    "category": "generator",
+    "purpose": "governance:agent-governance",
+    "scope": "tools/scripts, ai-tools/ai-skills, docs-guide/catalog, tasks/reports",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Generates AI-skill inventory and source-content indexes so assistant guidance surfaces stay synchronized with governed source files.",
+    "pipeline": "manual — developer maintenance"
+  },
+  {
     "path": "tools/scripts/generate-component-docs.js",
     "script": "generate-component-docs",
     "category": "generator",
@@ -1714,16 +1724,6 @@
     "needs": "R-R16, R-R17",
     "purpose_statement": "Content-gap reconciliation generator — compares blueprint coverage against v2 MDX and writes reconciliation artefacts",
     "pipeline": "manual — not yet in pipeline"
-  },
-  {
-    "path": "tools/scripts/generate-ai-skills-indexes.js",
-    "script": "generate-ai-skills-indexes",
-    "category": "generator",
-    "purpose": "governance:agent-governance",
-    "scope": "tools/scripts, ai-tools/ai-skills, docs-guide/catalog, tasks/reports",
-    "needs": "R-R27, R-R30",
-    "purpose_statement": "Generates AI-skill inventory and source-content indexes so assistant guidance surfaces stay synchronized with governed source files.",
-    "pipeline": "manual — developer maintenance"
   },
   {
     "path": "tools/scripts/generate-docs-guide-components-index.js",
@@ -2042,6 +2042,36 @@
     "pipeline": "indirect -- library module"
   },
   {
+    "path": "tools/scripts/lint-copy.js",
+    "script": "lint-copy",
+    "category": "enforcer",
+    "purpose": "qa:content-quality",
+    "scope": "staged, changed, v2-content, single-file",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Enforce banned word and phrase rules on MDX content files.",
+    "pipeline": "P1, P2, P3"
+  },
+  {
+    "path": "tools/scripts/lint-patterns.js",
+    "script": "lint-patterns",
+    "category": "enforcer",
+    "purpose": "qa:content-quality",
+    "scope": "staged, changed, v2-content, single-file",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Enforce Tier 2 copy pattern rules on MDX content files.",
+    "pipeline": "indirect, manual"
+  },
+  {
+    "path": "tools/scripts/lint-structure.js",
+    "script": "lint-structure",
+    "category": "enforcer",
+    "purpose": "qa:content-quality",
+    "scope": "staged, changed, v2-content, single-file",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Enforce structural rules on MDX content files.",
+    "pipeline": "P2, P3"
+  },
+  {
     "path": "tools/scripts/mint-dev.sh",
     "script": "mint-dev",
     "category": "utility",
@@ -2071,6 +2101,16 @@
     "purpose_statement": "Chains audit, safe repair, verification, and reporting into a single self-healing governance pipeline.",
     "pipeline": "P5 (scheduled, weekly), P6 (on-demand), manual",
     "dualmode": "--report-only | --dry-run | default fix mode"
+  },
+  {
+    "path": "tools/scripts/pattern-observer.js",
+    "script": "pattern-observer",
+    "category": "generator",
+    "purpose": "tooling:dev-tools",
+    "scope": "single-domain, v2-content, generated-output",
+    "needs": "R-R14, R-R18",
+    "purpose_statement": "Aggregate copy pattern violations across a tab or full v2 tree and emit a diagnostic report.",
+    "pipeline": "P3"
   },
   {
     "path": "tools/scripts/publish-v2-internal-reports.js",
@@ -2126,16 +2166,6 @@
     "dualmode": "--dry-run (validator: show corrections) | --write (remediator: apply corrections)"
   },
   {
-    "path": "tools/scripts/repair-ownerless-language.js",
-    "script": "repair-ownerless-language",
-    "category": "remediator",
-    "purpose": "governance:agent-governance",
-    "scope": ".github, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md, docs-guide",
-    "needs": "R-R14, R-R29",
-    "purpose_statement": "Applies deterministic wording repairs that remove human-owner dependency from governed GitHub and contributor surfaces.",
-    "pipeline": "manual"
-  },
-  {
     "path": "tools/scripts/remediators/content/sync-docs-paths.js",
     "script": "sync-docs-paths",
     "category": "remediator",
@@ -2145,6 +2175,16 @@
     "purpose_statement": "Docs path sync remediator — applies deterministic docs.json and governed reference rewrites for moved docs pages.",
     "pipeline": "P1, P6",
     "dualmode": "--dry-run (validator) | --write (remediator)"
+  },
+  {
+    "path": "tools/scripts/repair-ownerless-language.js",
+    "script": "repair-ownerless-language",
+    "category": "remediator",
+    "purpose": "governance:agent-governance",
+    "scope": ".github, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md, docs-guide",
+    "needs": "R-R14, R-R29",
+    "purpose_statement": "Applies deterministic wording repairs that remove human-owner dependency from governed GitHub and contributor surfaces.",
+    "pipeline": "manual"
   },
   {
     "path": "tools/scripts/repo-audit-orchestrator.js",
