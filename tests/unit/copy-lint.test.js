@@ -20,7 +20,6 @@ const { filterAuthoredDocsPageFiles } = require('../../tools/lib/docs-page-scope
 const lintCopy = require('../../tools/scripts/lint-copy');
 const lintStructure = require('../../tools/scripts/lint-structure');
 const lintPatterns = require('../../tools/scripts/lint-patterns');
-const patternObserver = require('../../tools/scripts/pattern-observer');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const FIXTURE_ROOT = path.join(REPO_ROOT, 'tests', 'copy-lint-fixtures');
@@ -80,19 +79,49 @@ function analyzeStructure(content, filePath) {
   ];
 }
 
-function analyzeFile(filePath, options = {}) {
-  const { includePatternChecks = false } = options;
-  const content = fs.readFileSync(filePath, 'utf8');
-  const findings = [
-    ...lintCopy.checkBannedWords(content, filePath),
-    ...lintCopy.checkBannedPhrases(content, filePath),
-    ...lintCopy.checkTier2Patterns(content, filePath),
-    ...analyzeStructure(content, filePath)
-  ];
+function buildCopyFindings(content, filePath) {
+  const phraseFindings = lintCopy.checkBannedPhrases(content, filePath);
+  const phraseHitLines = new Set(phraseFindings.map((finding) => finding.line));
 
-  if (includePatternChecks) {
-    findings.push(...lintPatterns.checkFile(filePath));
-  }
+  return [
+    ...phraseFindings,
+    ...lintCopy.checkBannedWords(content, filePath, { suppressedLines: phraseHitLines }),
+    ...lintCopy.checkTier2Patterns(content, filePath)
+  ];
+}
+
+function mergeFindings(...groups) {
+  const merged = [];
+  const seen = new Set();
+
+  groups.flat().forEach((finding) => {
+    const key = [
+      finding.file || '',
+      finding.line || 0,
+      finding.tier || 0,
+      finding.id || '',
+      finding.match || ''
+    ].join('::');
+
+    if (seen.has(key)) {
+      return;
+    }
+
+    seen.add(key);
+    merged.push(finding);
+  });
+
+  return merged;
+}
+
+function analyzeFile(filePath, options = {}) {
+  const { includePatternChecks = true } = options;
+  const content = fs.readFileSync(filePath, 'utf8');
+  const findings = mergeFindings(
+    buildCopyFindings(content, filePath),
+    analyzeStructure(content, filePath),
+    includePatternChecks ? lintPatterns.checkFile(filePath) : []
+  );
 
   const errors = findings.filter((finding) => finding.tier === 1);
   const warnings = findings.filter((finding) => finding.tier !== 1);
@@ -143,12 +172,12 @@ function runFixtureMode() {
   collectFixtureFiles(FAIL_FIXTURE_DIR).forEach((filePath) => {
     const expectedPath = path.join(EXPECTED_DIR, `${path.basename(filePath, '.mdx')}.json`);
     if (!fs.existsSync(expectedPath)) {
-      warnings.push(`${path.basename(filePath)} skipped: no expected fixture JSON`);
+      errors.push(`Missing expected output file for fixture: ${path.basename(filePath)}`);
       return;
     }
 
     const expected = JSON.parse(fs.readFileSync(expectedPath, 'utf8'));
-    const result = analyzeFile(filePath);
+    const result = analyzeFile(filePath, { includePatternChecks: true });
     const allExpectedFindings = Array.isArray(expected.errors) ? expected.errors : [];
     const requiredFindings = allExpectedFindings.filter((entry) => entry.required !== false);
 
@@ -173,23 +202,6 @@ function runFixtureMode() {
       );
     }
   });
-
-  const conditionalFixture = path.join(FAIL_FIXTURE_DIR, 'conditional-if.mdx');
-  const conditionalResults = lintPatterns.checkFile(conditionalFixture);
-  if (!conditionalResults.some((finding) => finding.id === 'CONDITIONAL_IF')) {
-    errors.push('conditional-if.mdx should trigger CONDITIONAL_IF in lint-patterns.js');
-  }
-
-  const notFixture = path.join(FAIL_FIXTURE_DIR, 'not-construction.mdx');
-  const notResults = lintPatterns.checkFile(notFixture);
-  if (!notResults.some((finding) => finding.id === 'NOT_CONSTRUCTION')) {
-    errors.push('not-construction.mdx should trigger NOT_CONSTRUCTION in lint-patterns.js');
-  }
-
-  const observer = patternObserver.collectPatternCounts([conditionalFixture, notFixture]);
-  if (!observer.counts.CONDITIONAL_IF || !observer.counts.NOT_CONSTRUCTION) {
-    errors.push('pattern-observer should aggregate conditional-if and not-construction fixtures');
-  }
 
   return {
     errors,

@@ -125,6 +125,16 @@ function getLines(content) {
   return content.split('\n');
 }
 
+function inFrontmatter(lines, index) {
+  let frontmatterMarkerCount = 0;
+  for (let i = 0; i < index; i += 1) {
+    if (lines[i].trim() === '---') {
+      frontmatterMarkerCount += 1;
+    }
+  }
+  return frontmatterMarkerCount < 2;
+}
+
 function escapeRegExp(value) {
   return String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -143,12 +153,19 @@ function buildPhraseRegex(phrase) {
   return new RegExp(tokens.join('\\s+'), 'i');
 }
 
-function checkBannedWords(content, filePath) {
+function checkBannedWords(content, filePath, options = {}) {
+  const suppressedLines = options.suppressedLines instanceof Set ? options.suppressedLines : new Set();
   const errors = [];
   const lines = getLines(content);
   const stripped = getLines(stripCodeAndComments(content));
 
   lines.forEach((line, index) => {
+    if (inFrontmatter(lines, index)) {
+      return;
+    }
+    if (suppressedLines.has(index + 1)) {
+      return;
+    }
     const cleanLine = stripped[index];
     BANNED_WORDS.forEach((word) => {
       const regex = new RegExp(`\\b${word}\\b`, 'i');
@@ -175,6 +192,9 @@ function checkBannedPhrases(content, filePath) {
   const stripped = getLines(stripCodeAndComments(content));
 
   lines.forEach((line, index) => {
+    if (inFrontmatter(lines, index)) {
+      return;
+    }
     const cleanLine = stripped[index];
     BANNED_PHRASES.forEach((phrase) => {
       const regex = buildPhraseRegex(phrase);
@@ -207,6 +227,9 @@ function checkTier2Patterns(content, filePath) {
     const cleanLines = getLines(cleanContent);
 
     cleanLines.forEach((line, index) => {
+      if (inFrontmatter(lines, index)) {
+        return;
+      }
       if (pattern.regex.test(line)) {
         warnings.push({
           tier: pattern.tier1 ? 1 : 2,
@@ -240,10 +263,12 @@ function run() {
 
   files.forEach((filePath) => {
     const content = fs.readFileSync(filePath, 'utf8');
+    const phraseErrors = checkBannedPhrases(content, filePath);
+    const phraseHitLines = new Set(phraseErrors.map((finding) => finding.line));
 
     const tier1Errors = [
-      ...checkBannedWords(content, filePath),
-      ...checkBannedPhrases(content, filePath)
+      ...phraseErrors,
+      ...checkBannedWords(content, filePath, { suppressedLines: phraseHitLines })
     ];
 
     const tier2Warnings = tier1Only ? [] : checkTier2Patterns(content, filePath);
