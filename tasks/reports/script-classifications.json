@@ -348,6 +348,16 @@
     "pipeline": "manual"
   },
   {
+    "path": "tests/unit/copy-lint.test.js",
+    "script": "copy-lint.test",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tests/unit, tests/copy-lint-fixtures, tools/scripts",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Copy lint unit suite — validates fixture-driven copy-governance checks and runs changed-file scoped lint aggregation for authored docs pages.",
+    "pipeline": "P1, P3"
+  },
+  {
     "path": "tests/unit/create-codex-pr.test.js",
     "script": "create-codex-pr.test",
     "category": "generator",

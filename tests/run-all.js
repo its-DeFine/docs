@@ -17,6 +17,7 @@ const { spawnSync } = require('child_process');
 const path = require('path');
 
 const styleGuideTests = require('./unit/style-guide.test');
+const copyLintTests = require('./unit/copy-lint.test');
 const mdxTests = require('./unit/mdx.test');
 const mdxGuardsTests = require('./unit/mdx-guards.test');
 const mdxSafeMarkdownUnitTests = require('./unit/mdx-safe-markdown.test');
@@ -107,6 +108,12 @@ async function runAllTests() {
   totalErrors += styleResult.errors.length;
   totalWarnings += styleResult.warnings.length;
   console.log(`   ${styleResult.errors.length} errors, ${styleResult.warnings.length} warnings`);
+
+  console.log('\n✍️  Running Copy Lint Tests...');
+  const copyLintResult = normalizeSuiteResult(copyLintTests.runTests({ stagedOnly }));
+  totalErrors += copyLintResult.errors.length;
+  totalWarnings += copyLintResult.warnings.length;
+  console.log(`   ${copyLintResult.errors.length} errors, ${copyLintResult.warnings.length} warnings`);
 
   // Component Naming
   console.log('\n🧩 Running Component Naming Checks...');

@@ -30,6 +30,7 @@ const {
 const { extractLeadingScriptHeader, getTagValue } = require('../tools/lib/script-header-utils');
 
 const styleGuideTests = require('./unit/style-guide.test');
+const copyLintTests = require('./unit/copy-lint.test');
 const mdxTests = require('./unit/mdx.test');
 const mdxGuardsTests = require('./unit/mdx-guards.test');
 const spellingTests = require('./unit/spelling.test');
@@ -742,6 +743,7 @@ async function main() {
   const checks = [];
   checks.push(runComponentNamingCheck(groups.componentJsx));
   checks.push(await runUnitCheck('Style Guide', groups.styleFiles, styleGuideTests.runTests));
+  checks.push(await runUnitCheck('Copy Lint', groups.docsMdxAbs, copyLintTests.runTests));
   checks.push(await runUnitCheck('MDX Validation', groups.docsMdxAbs, mdxTests.runTests));
   checks.push(
     mdxSafeMarkdownValidator
