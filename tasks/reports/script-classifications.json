@@ -376,7 +376,7 @@
     "scope": "tests, docs-guide, README.md, tools/scripts/generate-docs-guide-indexes.js, tools/scripts/generate-docs-guide-pages-index.js, tools/scripts/generate-docs-guide-components-index.js",
     "needs": "E-C1, R-R14",
     "purpose_statement": "Validates docs-guide source-of-truth coverage, README pointers, and generated index freshness",
-    "pipeline": "manual — not yet in pipeline",
+    "pipeline": "P1, P3",
     "dualmode": "dual-mode (document flags)"
   },
   {

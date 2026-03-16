@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             E-C1, R-R14
  * @purpose-statement Validates docs-guide source-of-truth coverage, README pointers, and generated index freshness
- * @pipeline          manual
+ * @pipeline          P1, P3
  * @dualmode          dual-mode (document flags)
  * @usage             node tests/unit/docs-guide-sot.test.js [flags]
  */
