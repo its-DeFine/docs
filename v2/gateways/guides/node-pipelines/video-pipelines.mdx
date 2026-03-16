@@ -142,12 +142,12 @@ The gateway accepts incoming video through two protocols. Which one you use depe
 
     To accept external connections, bind to all interfaces:
 
-    ```bash
+    ```bash icon="terminal"
     -rtmpAddr 0.0.0.0:1935
     ```
 
     The ingest URL format is:
-    ```
+    ``` icon="terminal"
     rtmp://<gateway-host>:1935/<stream-key>
     ```
 
@@ -160,7 +160,7 @@ The gateway accepts incoming video through two protocols. Which one you use depe
 
     To accept external connections:
 
-    ```bash
+    ```bash icon="terminal"
     -httpAddr 0.0.0.0:8935
     ```
 
@@ -174,7 +174,7 @@ The gateway accepts incoming video through two protocols. Which one you use depe
 
 ## Orchestrator Selection
 
-Once the stream is ingested, the `BroadcastSessionsManager` selects which orchestrators will transcode each segment. Selection is not random - the manager evaluates orchestrators against several criteria simultaneously.
+Once the stream is ingested, the `BroadcastSessionsManager` selects which orchestrators will transcode each segment. Selection is not random - the manager evaluates orchestrators against multiple criteria simultaneously.
 
 <AccordionGroup>
   <Accordion title="Price ceiling" icon="tag">
@@ -197,7 +197,7 @@ Once the stream is ingested, the `BroadcastSessionsManager` selects which orches
 
     **Webhook:** use `-orchWebhookUrl` for dynamic orchestrator lists from an external service.
 
-    ```bash
+    ```bash icon="terminal"
     # On-chain: registry discovery (set network and ETH credentials)
     -network arbitrum-one-mainnet
 
@@ -217,13 +217,13 @@ Each segment is sent to the selected orchestrator along with a payment ticket. T
 
 The gateway verifies each returned segment before assembling the output using pixel count and signature verification (`-localVerify=true`, enabled by default for on-chain gateways). If a segment fails verification (wrong duration, corrupt data, wrong resolution), the manager retries with a different orchestrator up to `-maxAttempts` times (default: 3).
 
-{/* REVIEW: Confirm whether -localVerify defaults to false for off-chain mode as indicated in CLI reference. */}
+[//]: # (REVIEW: Confirm whether -localVerify defaults to false for off-chain mode.)
 
 ### Built-in rendition presets
 
 If you do not specify a custom transcoding profile, the gateway uses a comma-separated list of named presets:
 
-```bash
+```bash icon="terminal"
 -transcodingOptions P240p30fps16x9,P360p30fps16x9
 ```
 
@@ -233,7 +233,7 @@ Available built-in presets follow the pattern `P<height>p<fps>fps<aspect>`. Comm
 
 For production deployments, a custom `transcodingOptions.json` file gives you precise control over the encoding ladder. The full JSON format and per-platform setup are in the Pipeline Configuration page.
 
-```json
+```json icon="terminal"
 [
   {
     "name": "720p",
@@ -258,7 +258,7 @@ For production deployments, a custom `transcodingOptions.json` file gives you pr
 
 Reference this file at startup:
 
-```bash
+```bash icon="terminal"
 -transcodingOptions /path/to/transcodingOptions.json
 ```
 
@@ -283,7 +283,7 @@ The per-segment cost depends on two factors:
 
 A 720p segment (1280 × 720 pixels) transcoded to three renditions (720p, 480p, 240p) at 1000 wei/pixel:
 
-```
+``` icon="terminal"
 Total pixels per segment = (1280×720) + (854×480) + (426×240)
                          = 921,600 + 409,920 + 102,240
                          = 1,433,760 pixels
@@ -291,11 +291,11 @@ Total pixels per segment = (1280×720) + (854×480) + (426×240)
 Cost per segment = 1,433,760 × 1000 wei = 1.43376 × 10⁹ wei = ~0.0000014 ETH
 ```
 
-{/* REVIEW: Confirm default segment duration. This example assumes 2-second segments - verify whether this is configurable or derived from GOP size. */}
+[//]: # (REVIEW: Confirm the default segment duration and whether operators can configure it directly.)
 
 For a 1-hour stream with 2-second segments (1800 segments):
 
-```
+``` icon="terminal"
 1800 × 1.43376 × 10⁹ wei ≈ 2.58 × 10¹² wei ≈ 0.00258 ETH
 ```
 
@@ -315,7 +315,7 @@ The gateway assembles transcoded segments into an HLS manifest (`.m3u8`) with on
 
 For persistent storage, the `-objectStore` flag pushes segments and manifests to an S3-compatible bucket or IPFS, so streams survive a gateway restart.
 
-{/* REVIEW: Confirm LL-HLS configuration details - is it automatic or does it require specific flags? Also confirm whether DASH output is supported. */}
+[//]: # (REVIEW: Confirm LL-HLS configuration details and whether DASH output is supported.)
 
 {/* ============================================================
     7. KEY METRICS
@@ -417,7 +417,7 @@ For Prometheus setup and alert YAML, see Monitoring Setup.
   <Card title="Monitoring Setup" icon="chart-line" href="../monitoring-and-tooling/monitoring-setup">
     Prometheus metrics, Grafana dashboards, and alert configuration for video workloads.
   </Card>
-  <Card title="AI Inference Pipeline" icon="brain" href="./ai-inference">
+  <Card title="AI Inference Pipeline" icon="brain" href="./ai-pipelines">
     How AI inference requests are routed - orchestrator discovery, model matching, pipeline types, and platform limits.
   </Card>
   <Card title="BYOC" icon="cube" href="../../../developers/build/byoc">

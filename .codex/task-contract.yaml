@@ -1,62 +1,31 @@
-task_id: 20260316
-branch: codex/20260316-docs-guide-governance-alignment
+task_id: 20260317
+branch: codex/20260317-merge-readiness-phase3
 base_branch: docs-v2-dev
 scope_in:
-  - .codex/task-contract.yaml
-  - docs-guide/**
+  - .codex/
+  - .githooks/pre-commit
   - docs.json
-  - tests/unit/docs-guide-sot.test.js
-  - tools/config/scoped-navigation/docs-gate-orch.json
-  - tools/scripts/generate-ui-templates.js
-  - v2/resources/documentation-guide/component-library/**
-  - v2/cn/docs-guide/**
-  - v2/es/docs-guide/**
-  - v2/fr/docs-guide/**
-scope_out:
-  - docs-guide/component-registry-schema.json
-  - docs-guide/component-registry.json
-  - docs-guide/component-usage-map.json
+  - snippets/pages/08_SHARED/
+  - tests/run-pr-checks.js
+  - tests/unit/links-imports.test.js
+  - tools/config/scoped-navigation/
+  - tools/scripts/lint-copy.js
+  - tools/scripts/lint-patterns.js
+  - tools/scripts/remediators/content/repair-mdx-safe-markdown.js
+  - v2/developers/
+  - v2/gateways/
+  - v2/home/mission-control.mdx
+  - v2/index.mdx
+  - v2/orchestrators/index.mdx
+  - v2/resources/documentation-guide/documentation-overview.mdx
+  - v2/solutions/livepeer-studio/overview.mdx
+  - docs-index.json
+  - .codex/task-contract.yaml
+scope_out: []
 allowed_generated:
   - .codex/pr-body.generated.md
-  - docs-guide/catalog/templates-catalog.mdx
-  - docs-guide/catalog/workflows-catalog.mdx
-  - docs-guide/catalog/pages-catalog.mdx
-  - docs-guide/catalog/scripts-catalog.mdx
-  - docs-guide/catalog/ui-templates.mdx
-  - .vscode/templates.code-snippets
-  - .vscode/components.code-snippets
-  - docs-index.json
-  - tasks/reports/script-classifications.json
-  - tests/script-index.md
-  - v2/about/index.mdx
-  - v2/community/index.mdx
-  - v2/index.mdx
-  - v2/cn/index.mdx
-  - v2/es/index.mdx
-  - v2/fr/index.mdx
-  - v2/gateways/index.mdx
-  - v2/orchestrators/index.mdx
-  - v2/solutions/index.mdx
-  - v2/templates/pages/**
-  - v2/resources/documentation-guide/component-library/content.mdx
-  - v2/resources/documentation-guide/component-library/data.mdx
-  - v2/resources/documentation-guide/component-library/layout.mdx
-  - v2/resources/documentation-guide/component-library/page-structure.mdx
-  - v2/resources/documentation-guide/component-library/primitives.mdx
 acceptance_checks:
-  - node tools/scripts/generate-pages-index.js --write --rebuild-indexes
-  - node tools/scripts/generate-docs-index.js --write
-  - node tools/scripts/generate-docs-guide-indexes.js --check
-  - node tools/scripts/generate-docs-guide-pages-index.js --check
-  - node tools/scripts/generate-docs-guide-components-index.js --check
-  - node tools/scripts/generate-component-docs.js --check --template-only
-  - node tests/unit/docs-guide-sot.test.js
-  - node tests/unit/docs-navigation.test.js
-  - node tests/unit/script-docs.test.js --check-indexes
-  - node tools/scripts/enforce-generated-file-banners.js --check
-  - node tools/scripts/validate-codex-task-contract.js --branch codex/20260316-docs-guide-governance-alignment
-  - node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md
+  - node tests/run-pr-checks.js --base-ref docs-v2-dev
 risk_flags:
-  - docs-guide-route-contract
-  - localized-compatibility-cleanup
+  - workflow-governance
 follow_up_issues: []

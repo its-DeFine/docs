@@ -4,6 +4,9 @@ sidebarTitle: 'Guides'
 description: 'Curated how-to guides, walkthroughs, and tutorials for running Livepeer gateways — covering off-chain AI setup, remote signers, BYOC, video transcoding, payments, and production operations.'
 keywords: ["livepeer", "gateway", "guides", "tutorials", "off-chain", "remote signer", "BYOC", "AI gateway", "go-livepeer"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+pageType: landing
+audience: gateway-operator
+lastVerified: '2026-03-17'
 ---
 {/* TODO:
 Terminology Validation:
@@ -16,10 +19,10 @@ Verify:
 A curated index of every how-to guide, walkthrough, and tutorial for running a Livepeer gateway. Covers off-chain AI gateways, remote signers, BYOC pipelines, video transcoding, payment mechanics, and production operations.
 
 <Note>
-This index covers operator-side setup. If you are a developer looking to **use** a gateway via the API or SDK, see the [Developers tab](/v2/developers/quick-start).
+This index covers operator-side setup. If you are a developer looking to **use** a gateway via the API or SDK, see the [Developers tab](/v2/developers/portal).
 </Note>
 
----
+<CustomDivider />
 
 ## Getting started
 
@@ -38,7 +41,7 @@ This index covers operator-side setup. If you are a developer looking to **use**
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Off-chain AI gateway setup
 
@@ -69,14 +72,14 @@ Off-chain mode removes all Ethereum dependencies from the gateway. No ETH, no Ar
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## BYOC — Bring Your Own Container
 
 BYOC lets you attach any Docker container as a compute pipeline on the Livepeer network. It is the primary path for running custom AI workloads — including CPU-only pipelines — without a GPU.
 
 <CardGroup cols={2}>
-  <Card title="BYOC Smoke-Test Tutorial: CPU Gateway + Orchestrator (Off-chain)" href="/v2/gateways/guides-and-tools/byoc-cpu-tutorial" icon="cpu">
+  <Card title="BYOC Smoke-Test Tutorial: CPU Gateway + Orchestrator (Off-chain)" href="/v2/gateways/guides/tutorials/byoc-cpu-tutorial" icon="cpu">
     Step-by-step: run a gateway and orchestrator on one machine using a CPU Docker container, test end-to-end with off-chain payments via the community remote signer, then take it to production on-chain.
   </Card>
   <Card title="Creating a Custom Live Pipeline (ai-runner)" href="https://github.com/livepeer/ai-runner/blob/main/docs/custom-pipeline.md" icon="puzzle-piece">
@@ -96,7 +99,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Video gateway (on-chain transcoding)
 
@@ -121,7 +124,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Dual gateway (video and AI on the same node)
 
@@ -134,7 +137,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Payments and economics
 
@@ -156,7 +159,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Orchestrator discovery
 
@@ -175,7 +178,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Monitoring and operations
 
@@ -197,7 +200,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Community SDKs and alternative gateway implementations
 
@@ -216,7 +219,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Gateway-as-a-Service (Provider persona)
 
@@ -235,7 +238,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Blog posts and deep dives
 
@@ -260,7 +263,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Video walkthroughs
 
@@ -276,7 +279,7 @@ BYOC lets you attach any Docker container as a compute pipeline on the Livepeer 
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 <Note>
 Missing a guide? Open an issue at [github.com/livepeer/docs/issues](https://github.com/livepeer/docs/issues) or post in [#lounge on Discord](https://discord.gg/livepeer).

@@ -126,7 +126,7 @@ This is the second of five monitoring guides. Four tools form the Gateway operat
   </TableRow>
 </StyledTable>
 
-{/* REVIEW: SPE leads (DeFine / Titan-Node) - confirm correct URL for Livepeer Tools is tools.livepeer.cloud not livepeer.tools/gateways */}
+[//]: # (REVIEW: Confirm the canonical Livepeer Tools URL and keep this page aligned with it.)
 
 <CustomDivider style={{marginBottom: "-2rem"}} />
 ## Tools and Dashboards Detail
@@ -151,7 +151,7 @@ This is the second of five monitoring guides. Four tools form the Gateway operat
 
             <LinkArrow label="Experimental Gateway Explorer Preview" href="https://explorer-arbitrum-one-git-feat-add-g-10dba1-livepeer-foundation.vercel.app/" />
 
-            <iframe src="https://explorer-arbitrum-one-git-feat-add-g-10dba1-livepeer-foundation.vercel.app/gateways" height="600px" width="100%" style={{marginTop: "1rem"}} />
+            <iframe src="https://explorer-arbitrum-one-git-feat-add-g-10dba1-livepeer-foundation.vercel.app/gateways" height="600px" width="100%" style={{marginTop: "1rem"}} title="Embedded content from explorer-arbitrum-one-git-feat-add-g-10dba1-livepeer-foundation.vercel.app" />
 
             <br/>
             <GotoCard
@@ -175,7 +175,7 @@ This is the second of five monitoring guides. Four tools form the Gateway operat
 
             A community-built dashboard providing a network-wide view of Gateway and Orchestrator performance metrics.
 
-            {/* REVIEW: DeFine / Titan-Node - confirm what data Livepeer Tools currently exposes for gateway operators, and whether it covers AI metrics specifically */}
+            [//]: # (REVIEW: Confirm what Livepeer Tools currently exposes for gateway operators, especially AI metrics.)
 
             - **Network-wide AI view:** See which AI Orchestrators are active, what pipelines they support, and approximate load. Useful for choosing Orchestrators to add to `-orchAddr`.
 
@@ -183,7 +183,7 @@ This is the second of five monitoring guides. Four tools form the Gateway operat
 
             - **Historical metrics:** Unlike livepeer_cli which shows current state only, Livepeer Tools provides time-series charts for trend analysis.
 
-            <iframe src="https://tools.livepeer.cloud/gateways" height="600px" width="100%"/>
+            <iframe src="https://tools.livepeer.cloud/gateways" height="600px" width="100%" title="Embedded content from tools.livepeer.cloud" />
             <br/>
             <GotoCard
             relativePath="https://tools.livepeer.cloud"
@@ -209,7 +209,7 @@ This is the second of five monitoring guides. Four tools form the Gateway operat
             docker exec -it <container_name> livepeer_cli -host <container_hostname> -http 5935
             ```
 
-            {/* REVIEW: Rick - confirm CLI port default is 5935 in current builds and that -host flag is still required */}
+            [//]: # (REVIEW: Confirm the current livepeer_cli default port and whether the -host flag remains required.)
 
             ### Key Options
 
@@ -221,7 +221,7 @@ This is the second of five monitoring guides. Four tools form the Gateway operat
 
             - **Set broadcast config** - adjusts `-maxPricePerUnit` and transcoding profiles without restarting the node.
 
-            {/* REVIEW: Rick - confirm Option 1, 11, 16 and "Set broadcast config" are still correct in current builds */}
+            [//]: # (REVIEW: Confirm that the documented livepeer_cli options still match current builds.)
 
             ### Docker usage
 
@@ -267,7 +267,7 @@ This is the second of five monitoring guides. Four tools form the Gateway operat
             <br/>
             Contract Addresses:
             - TicketBroker (Target): 0xea1b0F6c8D158328a6e3D3F924B86A759F41465c
-            - All Contract Adresses <LinkArrow href="../../resources/technical/contract-addresses.mdx" label="Livepeer Contract Addresses" />
+            - All Contract Adresses <LinkArrow href="/v2/gateways/resources/technical/contract-addresses" label="Livepeer Contract Addresses" />
 
             <br/>
             For detailed on-chain monitoring workflows, see <LinkArrow href="/v2/gateways/guides/monitoring-and-tooling/on-chain-metrics" label="On-Chain Metrics" newline={false} />.

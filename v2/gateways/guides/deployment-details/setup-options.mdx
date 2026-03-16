@@ -141,7 +141,7 @@ _**Node type:**_ What workloads your gateway routes.
       <Card title="Quickstart" icon="bolt" href="/v2/gateways/quickstart/gateway-setup" arrow>
         From zero to a running gateway with a test request.
       </Card>
-      <Card title="Requirements" icon="clipboard-check" href="/v2/gateways/guides/operator-considerations/operator-requirements" arrow>
+      <Card title="Requirements" icon="clipboard-check" href="/v2/gateways/guides/deployment-details/setup-requirements" arrow>
         Hardware, OS, network, and operational mode requirements.
       </Card>
     </CardGroup>
@@ -162,13 +162,13 @@ _**Node type:**_ What workloads your gateway routes.
       **Tradeoffs:** Full control over routing logic and language choice. No Go dependency. Operational mode is always off-chain (remote signer). Video transcoding is not supported.
     </BorderedBox>
 
-    {/* REVIEW: Confirm whether batch AI remote signer support has shipped. Check go-livepeer PRs #3791 and #3822. */}
+    [//]: # (REVIEW: Confirm whether batch AI remote signer support shipped in go-livepeer PRs #3791 and #3822.)
 
     <CardGroup cols={2}>
       <Card title="Remote Signers" icon="key" href="/v2/gateways/guides/payments-and-pricing/remote-signers" arrow>
         How the remote signing protocol works.
       </Card>
-      <Card title="Requirements" icon="clipboard-check" href="/v2/gateways/guides/operator-considerations/operator-requirements" arrow>
+      <Card title="Requirements" icon="clipboard-check" href="/v2/gateways/guides/deployment-details/setup-requirements" arrow>
         Hardware and off-chain requirements.
       </Card>
     </CardGroup>
@@ -223,7 +223,7 @@ _**Node type:**_ What workloads your gateway routes.
       **Tradeoffs:** No infrastructure to manage. No ETH or crypto knowledge required. You pay the operator's service margin on every request. No control over orchestrator selection or routing.
     </BorderedBox>
 
-    <Card title="Gateway Providers" icon="merge" href="/v2/developers/navigator" arrow horizontal>
+    <Card title="Gateway Providers" icon="merge" href="/v2/gateways/guides/operator-considerations/production-gateways" arrow horizontal>
       Compare hosted gateway providers and their capabilities.
     </Card>
   </Tab>
@@ -234,17 +234,9 @@ _**Node type:**_ What workloads your gateway routes.
 {/* <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} middleText="Video Resources" /> */}
 {/* ## Video Resources */}
 
-{/* REVIEW: Titan Node YouTube (@TitanNode) has gateway/broadcaster setup tutorials. Search for:
-- "livepeer gateway setup"
-- "livepeer broadcaster tutorial"
-- "how to run livepeer gateway"
-The most recent relevant video (2024 onward preferred) should be embedded here.
-Known channel: https://www.youtube.com/@TitanNode
-Assign this to Foundation content team to locate and embed a current video. */}
+[//]: # (REVIEW: Find a current Titan Node YouTube tutorial for gateway setup and embed it here.)
 
-{/* REVIEW: Livepeer Foundation YouTube channel - check for gateway overview or setup walkthroughs (2024 onward).
-Known channel: https://www.youtube.com/@Livepeer
-Relevant search terms: "livepeer gateway", "livepeer AI gateway", "livepeer broadcaster" */}
+[//]: # (REVIEW: Check the Livepeer Foundation YouTube channel for a current gateway overview or setup walkthrough to embed here.)
 
 {/* <Note>
   Video tutorials for gateway setup are available from community contributors. Check the `#local-gateways` Discord channel for the most current links, as URLs change when new versions are released.
@@ -255,7 +247,7 @@ Relevant search terms: "livepeer gateway", "livepeer AI gateway", "livepeer broa
 ## Next Steps
 
 <CardGroup cols={3}>
-  <Card title="Requirements" icon="clipboard-check" href="/v2/gateways/guides/operator-considerations/operator-requirements" arrow>
+  <Card title="Requirements" icon="clipboard-check" href="/v2/gateways/guides/deployment-details/setup-requirements" arrow>
     Hardware, OS, network, and operational mode requirements for all gateway types.
   </Card>
   <Card title="Install" icon="download" href="/v2/gateways/setup/install/install-overview" arrow>

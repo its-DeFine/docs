@@ -230,7 +230,7 @@ As a gateway operator, you set pricing at two levels:
 
 You control your maximum cost per job using CLI flags:
 
-```bash
+```bash icon="terminal"
 # Maximum you'll pay per pixel for transcoding
 -maxPricePerUnit=1000
 
@@ -248,7 +248,7 @@ Your fees to end users are set entirely at the application layer, outside the Li
 2. **Usage-based pricing** - charge per minute of video or per AI generation
 3. **Subscription models** - monthly fees for access to your gateway services
 
-```go
+```go icon="terminal"
 // Your application code (not in Livepeer protocol)
 func calculateUserPrice(requestType string, pixels int64) float64 {
     basePrice := getYourBusinessPrice(requestType)
@@ -263,7 +263,7 @@ func calculateUserPrice(requestType string, pixels int64) float64 {
 
 Use the CLI to discover current orchestrator market rates:
 
-```bash
+```bash icon="terminal"
 livepeer_cli
 # Select "Set broadcast config" to see current market rates
 # Then set your max prices accordingly
@@ -295,7 +295,7 @@ Both demonstrate the arbitrage model: the gateway sits between application deman
   <Card title="Payment System" icon="credit-card" href="/v2/gateways/guides/payments-and-pricing/payment-guide" arrow horizontal>
     How probabilistic micropayments work.
   </Card>
-  <Card title="Orchestrator Incentives" icon="coins" href="/v2/orchestrators/concepts/rcs-incentives" arrow horizontal>
+  <Card title="Orchestrator Incentives" icon="coins" href="/v2/orchestrators/concepts/incentive-model" arrow horizontal>
     How the supply side (orchestrators) earns - for comparison.
   </Card>
 </CardGroup>

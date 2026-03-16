@@ -112,7 +112,7 @@ function isCode(line) {
 }
 
 function isComment(line) {
-  return /^\s*(\{\/\*|\/\/|<!--)/.test(line);
+  return /^\s*(\{\/\*|\/\/|<!--|\[\/\/\]:\s*#)/.test(line);
 }
 
 function isYaml(line) {

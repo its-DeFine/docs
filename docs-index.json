@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-16T13:59:01.898Z",
+  "generated": "2026-03-16T14:56:12.343Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -21,7 +21,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 21,
-      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "lastVerified": "2026-03-17",
       "headings": [],
       "codeLanguages": []
     },
@@ -2085,8 +2085,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 287,
-      "lastVerified": "2026-03-11T08:31:49+11:00",
+      "wordCount": 288,
+      "lastVerified": "2026-03-17",
       "headings": [
         {
           "level": 2,
@@ -6098,8 +6098,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1057,
-      "lastVerified": "2026-03-15T17:38:29+11:00",
+      "wordCount": 1051,
+      "lastVerified": "2026-03-17",
       "headings": [
         {
           "level": 2,
@@ -6160,8 +6160,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1292,
-      "lastVerified": "2026-03-10T08:44:32+11:00",
+      "wordCount": 1285,
+      "lastVerified": "2026-03-17",
       "headings": [
         {
           "level": 2,
@@ -6303,8 +6303,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 750,
-      "lastVerified": "2026-03-10T08:44:32+11:00",
+      "wordCount": 746,
+      "lastVerified": "2026-03-17",
       "headings": [
         {
           "level": 2,
@@ -6934,8 +6934,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 675,
-      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "wordCount": 672,
+      "lastVerified": "2026-03-17",
       "headings": [
         {
           "level": 2,
@@ -7764,7 +7764,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 157,
-      "lastVerified": "2026-03-14T21:48:55+11:00",
+      "lastVerified": "2026-03-17",
       "headings": [],
       "codeLanguages": []
     },
@@ -7790,7 +7790,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 877,
+      "wordCount": 876,
       "lastVerified": "2026-03-13",
       "headings": [
         {
@@ -8202,7 +8202,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 318,
-      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "lastVerified": "2026-03-17",
       "headings": [
         {
           "level": 1,
@@ -9267,7 +9267,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 2022,
+      "wordCount": 2033,
       "lastVerified": "2026-03-15",
       "headings": [
         {
@@ -9628,7 +9628,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1987,
+      "wordCount": 2028,
       "lastVerified": "2026-03-14",
       "headings": [
         {
@@ -9712,7 +9712,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1121,
+      "wordCount": 1291,
       "lastVerified": "2026-03-14",
       "headings": [
         {
@@ -9811,7 +9811,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 716,
+      "wordCount": 770,
       "lastVerified": "2026-03-14",
       "headings": [
         {
@@ -9912,7 +9912,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1065,
+      "wordCount": 1095,
       "lastVerified": "2026-03-13",
       "headings": [
         {
@@ -10005,7 +10005,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1235,
+      "wordCount": 1275,
       "lastVerified": "2026-03-13",
       "headings": [
         {
@@ -10789,7 +10789,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 682,
+      "wordCount": 742,
       "lastVerified": "2026-03-15",
       "headings": [
         {
@@ -10837,7 +10837,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 633,
+      "wordCount": 688,
       "lastVerified": "2026-03-15",
       "headings": [
         {
@@ -11498,7 +11498,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 995,
+      "wordCount": 1115,
       "lastVerified": "2026-03-15",
       "headings": [
         {
@@ -11596,7 +11596,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1146,
+      "wordCount": 1195,
       "lastVerified": "2026-03",
       "headings": [
         {
@@ -12839,7 +12839,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 149,
-      "lastVerified": "2026-03-15T14:08:30+11:00",
+      "lastVerified": "2026-03-17",
       "headings": [
         {
           "level": 2,
@@ -12953,7 +12953,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 825,
-      "lastVerified": "2026-03-15T14:08:30+11:00",
+      "lastVerified": "2026-03-17",
       "headings": [
         {
           "level": 2,
@@ -13006,8 +13006,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1266,
-      "lastVerified": "2026-03-15T18:25:25+11:00",
+      "wordCount": 1253,
+      "lastVerified": "2026-03-17",
       "headings": [
         {
           "level": 2,
@@ -13471,6 +13471,109 @@
       "codeLanguages": [
         "mermaid",
         "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/concepts/incentive-model",
+      "title": "Orchestrator Incentive Model",
+      "description": "How Orchestrators earn - the two revenue streams, cost structure, payment flow, pricing configuration, and what the earnings case looks like in practice.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "orchestrator-earnings",
+        "lpt-rewards",
+        "eth-fees",
+        "reward-cut",
+        "fee-cut",
+        "priceperunit",
+        "probabilistic-micropayments",
+        "staking",
+        "inflation-rewards",
+        "delegator"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1224,
+      "lastVerified": "2026-03-15",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Two Revenue Streams"
+        },
+        {
+          "level": 2,
+          "text": "Service Fees (ETH)"
+        },
+        {
+          "level": 3,
+          "text": "Pricing units"
+        },
+        {
+          "level": 3,
+          "text": "Fee distribution"
+        },
+        {
+          "level": 2,
+          "text": "Inflation Rewards (LPT)"
+        },
+        {
+          "level": 3,
+          "text": "The reward call"
+        },
+        {
+          "level": 3,
+          "text": "Reward distribution"
+        },
+        {
+          "level": 3,
+          "text": "Active set requirement"
+        },
+        {
+          "level": 2,
+          "text": "Orchestrator Costs"
+        },
+        {
+          "level": 2,
+          "text": "Payment Flow End-to-End"
+        },
+        {
+          "level": 2,
+          "text": "Operator Models"
+        },
+        {
+          "level": 2,
+          "text": "Configuring Prices"
+        },
+        {
+          "level": 3,
+          "text": "Base price"
+        },
+        {
+          "level": 3,
+          "text": "AI capability pricing"
+        },
+        {
+          "level": 3,
+          "text": "Per-Gateway pricing"
+        },
+        {
+          "level": 2,
+          "text": "Attracting Delegators"
+        },
+        {
+          "level": 2,
+          "text": "Related Pages"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid",
+        "text",
+        "bash",
+        "json"
       ]
     },
     {
@@ -16569,8 +16672,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 429,
-      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "wordCount": 421,
+      "lastVerified": "2026-03-17",
       "headings": [
         {
           "level": 2,
@@ -19643,7 +19746,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 433,
-      "lastVerified": "2026-03-16T18:09:19+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 1,
@@ -20433,7 +20536,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 327,
-      "lastVerified": "2026-03-16T18:09:19+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 2,
@@ -20843,7 +20946,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 535,
-      "lastVerified": "2026-03-16T18:18:38+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 1,
@@ -20902,7 +21005,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 635,
-      "lastVerified": "2026-03-16T18:09:19+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 1,
@@ -21324,7 +21427,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1239,
-      "lastVerified": "2026-03-16T16:28:32+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 1,
@@ -21425,7 +21528,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 956,
-      "lastVerified": "2026-03-16T16:28:32+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 1,
@@ -21584,7 +21687,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 478,
-      "lastVerified": "2026-03-16T13:46:40+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 2,
@@ -21704,7 +21807,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 5160,
-      "lastVerified": "2026-03-16T19:21:37+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [
         {
           "level": 2,
@@ -21764,7 +21867,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 837,
-      "lastVerified": "2026-03-12T15:26:20+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -21786,7 +21889,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 243,
-      "lastVerified": "2026-03-16T12:38:23+11:00",
+      "lastVerified": "2026-03-17T01:02:34+11:00",
       "headings": [],
       "codeLanguages": []
     },

@@ -135,7 +135,7 @@ function parseArgs(argv) {
 function stageFiles(files) {
   if (!files.length) return;
   const relFiles = files.map((filePath) => normalizeRepoPath(path.relative(REPO_ROOT, filePath)));
-  const result = spawnSync('git', ['add', '--', ...relFiles], {
+  const result = spawnSync('git', ['add', '-f', '--', ...relFiles], {
     cwd: REPO_ROOT,
     encoding: 'utf8'
   });

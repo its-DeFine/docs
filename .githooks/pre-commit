@@ -470,20 +470,116 @@ fi
 #   - pages listed in intentionalPatterns.redirectRoutes.paths
 NAVIGATION_EXCLUSIONS_CONFIG="tools/config/navigation-exclusions.json"
 
-# Check for docs.json /redirect route changes (BLOCKED)
+# Check for docs.json /redirect route changes (BLOCKED unless staged docs.json stays aligned with source-of-truth)
 DOCS_JSON_REDIRECT_DIFF=$(git diff --cached --unified=0 -- docs.json | grep -E '^[+-][^+-].*/redirect' || true)
 if [ -n "$DOCS_JSON_REDIRECT_DIFF" ]; then
-    VIOLATIONS=$((VIOLATIONS + 1))
-    echo -e "${RED}╔═══════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${RED}║  docs.json /redirect CHANGES BLOCKED                         ║${NC}"
-    echo -e "${RED}╚═══════════════════════════════════════════════════════════════╝${NC}"
-    echo ""
-    echo -e "${RED}The staged docs.json diff includes '/redirect' entries:${NC}"
-    echo "$DOCS_JSON_REDIRECT_DIFF" | sed 's/^/  ❌ /'
-    echo ""
-    echo -e "${YELLOW}Remove '/redirect' lines from docs.json changes before committing.${NC}"
-    echo ""
-    WARNINGS+=("❌ docs.json includes blocked '/redirect' diff lines")
+    DOCS_JSON_REDIRECT_STATUS=$(node - <<'NODE'
+const { spawnSync } = require('child_process');
+
+function runGit(args) {
+  const result = spawnSync('git', args, { encoding: 'utf8' });
+  if (result.status !== 0) {
+    return '';
+  }
+  return String(result.stdout || '');
+}
+
+function collectDocsJsonRedirectEntries(raw) {
+  if (!raw) return [];
+  const docsJson = JSON.parse(raw);
+  const entries = [];
+  const normalizeTabName = (tabName) => (tabName === 'GPU Nodes' ? 'Orchestrators' : tabName || '');
+  const v2Version = Array.isArray(docsJson?.navigation?.versions)
+    ? docsJson.navigation.versions.find((entry) => entry && entry.version === 'v2')
+    : null;
+  const english = Array.isArray(v2Version?.languages)
+    ? v2Version.languages.find((entry) => entry && entry.language === 'en')
+    : null;
+
+  function visitPages(node, context = { tab: null, anchor: null, group: null }) {
+    if (Array.isArray(node)) {
+      node.forEach((item) => visitPages(item, context));
+      return;
+    }
+    if (!node || typeof node !== 'object') return;
+
+    const nextContext = { ...context };
+    if (typeof node.tab === 'string') nextContext.tab = node.tab;
+    if (typeof node.anchor === 'string') nextContext.anchor = node.anchor;
+    if (typeof node.group === 'string') nextContext.group = node.group;
+
+    if (Array.isArray(node.pages)) {
+      node.pages.forEach((page) => {
+        if (typeof page === 'string' && page.includes('/redirect')) {
+          entries.push(
+            `page|tab=${normalizeTabName(nextContext.tab)}|anchor=${nextContext.anchor || ''}|group=${nextContext.group || ''}|value=${page}`
+          );
+        } else {
+          visitPages(page, nextContext);
+        }
+      });
+    }
+
+    if (Array.isArray(node.anchors)) visitPages(node.anchors, nextContext);
+    if (Array.isArray(node.groups)) visitPages(node.groups, nextContext);
+  }
+
+  if (english) {
+    visitPages(english.tabs);
+  }
+
+  (docsJson.redirects || []).forEach((entry) => {
+    if (!entry || typeof entry !== 'object') return;
+    if (typeof entry.source === 'string' && entry.source.includes('/redirect')) {
+      entries.push(`redirect|source=${entry.source}|destination=${entry.destination || ''}`);
+    }
+    if (typeof entry.destination === 'string' && entry.destination.includes('/redirect')) {
+      entries.push(`redirect-destination|source=${entry.source || ''}|destination=${entry.destination}`);
+    }
+  });
+
+  return entries.sort();
+}
+
+const headDocs = runGit(['show', 'HEAD:docs.json']);
+const stagedDocs = runGit(['show', ':docs.json']);
+const stagedScopedDocs =
+  runGit(['show', ':tools/config/scoped-navigation/docs-gate-orch.json']) ||
+  runGit(['show', 'HEAD:tools/config/scoped-navigation/docs-gate-orch.json']);
+
+const headEntries = collectDocsJsonRedirectEntries(headDocs);
+const stagedEntries = collectDocsJsonRedirectEntries(stagedDocs);
+const scopedEntries = collectDocsJsonRedirectEntries(stagedScopedDocs);
+
+const sameAsHead = JSON.stringify(stagedEntries) === JSON.stringify(headEntries);
+const sameAsScoped = stagedScopedDocs && JSON.stringify(stagedEntries) === JSON.stringify(scopedEntries);
+
+if (sameAsHead || sameAsScoped) {
+  process.stdout.write('ALLOW');
+  process.exit(0);
+}
+
+const headSet = new Set(headEntries);
+const stagedSet = new Set(stagedEntries);
+const removed = headEntries.filter((entry) => !stagedSet.has(entry));
+const added = stagedEntries.filter((entry) => !headSet.has(entry));
+process.stdout.write(JSON.stringify({ removed, added }, null, 2));
+process.exit(1);
+NODE
+)
+    if [ "$?" -ne 0 ]; then
+        VIOLATIONS=$((VIOLATIONS + 1))
+        echo -e "${RED}╔═══════════════════════════════════════════════════════════════╗${NC}"
+        echo -e "${RED}║  docs.json /redirect CHANGES BLOCKED                         ║${NC}"
+        echo -e "${RED}╚═══════════════════════════════════════════════════════════════╝${NC}"
+        echo ""
+        echo -e "${RED}The staged docs.json redirect surface no longer matches HEAD or the staged scoped-navigation source-of-truth:${NC}"
+        echo "$DOCS_JSON_REDIRECT_STATUS" | sed 's/^/  ❌ /'
+        echo ""
+        echo -e "${YELLOW}Keep docs.json redirect surfaces aligned with tools/config/scoped-navigation/docs-gate-orch.json, or avoid redirect-surface edits in this commit.${NC}"
+        echo ""
+        WARNINGS+=("❌ docs.json includes blocked semantic '/redirect' changes")
+    fi
 fi
 
 # Check root directory structure against allowlist

@@ -6,9 +6,10 @@ keywords: ["livepeer", "developer", "studio", "daydream", "AI gateway", "comfyst
 pageType: 'concept'
 audience: 'developer'
 status: 'draft'
+lastVerified: '2026-03-17'
 ---
 
-Livepeer is a decentralised compute network for video and AI — not a single product or API. As a developer, you can access it at several layers, from a fully managed hosted API to running your own gateway node to contributing to the protocol directly. Choosing the right layer before you write any code will save you significant time. This page explains each layer so you can make that choice.
+Livepeer is a decentralised compute network for video and AI — not a single product or API. As a developer, you can access it at multiple layers, from a fully managed hosted API to running your own gateway node to contributing to the protocol directly. Choosing the right layer before you write any code will save time and rework. This page explains each layer so you can make that choice.
 
 <Note>
 Studio and Daydream are separate products built **on top of** the Livepeer network. Using Studio or Daydream does not mean you are building on Livepeer directly — you are using hosted services that run on it. This distinction matters when you start thinking about cost, control, and customisation.
@@ -24,7 +25,7 @@ Studio and Daydream are separate products built **on top of** the Livepeer netwo
 | ComfyStream | Open-source ComfyUI plugin for real-time AI video pipelines | Custom AI workflows, VTubing, generative effects, BYOC deployments | [ComfyStream quickstart](/v2/developers/get-started/comfystream-quickstart) |
 | Protocol layer | go-livepeer, Solidity contracts, ai-worker | Contributing to the network, running nodes, custom pipeline types | [OSS stack](/v2/developers/concepts/oss-stack) |
 
----
+<CustomDivider />
 
 ## Studio
 
@@ -32,14 +33,14 @@ Studio is a full-featured, hosted video platform for developers operated by Live
 
 Studio is the right choice if your goal is to add video streaming or transcoding to an application and you want a managed service with standard API-key auth, dashboard access, and predictable pricing.
 
-What you give up: you have no control over which orchestrators process your video, cannot deploy custom AI inference workflows through Studio, and are bound to Studio's feature set rather than the full protocol surface. Costs are lower than traditional cloud providers (up to 80–90% savings) but higher than running your own gateway at scale.
+What you give up: you have no control over which orchestrators process your video, cannot deploy custom AI inference workflows through Studio, and are bound to Studio's feature set instead of the full protocol surface. Costs are lower than traditional cloud providers (up to 80–90% savings) but higher than running your own gateway at scale.
 
 **SDKs:** TypeScript/JavaScript (`@livepeer/sdk`), Go, Python, and others — [Studio SDK docs](https://docs.livepeer.studio)  
 **Auth:** API key from the [Studio dashboard](https://livepeer.studio)
 
 [//]: # (REVIEW: Confirm whether Studio exposes any AI endpoints (e.g. content moderation, clip generation\) — if so, the above description needs qualification)
 
----
+<CustomDivider />
 
 ## Daydream
 
@@ -54,7 +55,7 @@ Daydream is the right choice if you want to build real-time AI video application
 
 [//]: # (REVIEW: Confirm whether the "Daydream API" requires a separate account/key from the Studio Gateway, or whether it shares Studio auth. Clarify with Peter or Joseph.)
 
----
+<CustomDivider />
 
 ## AI Gateway API
 
@@ -68,17 +69,17 @@ Daydream is one product built on the AI Gateway API. If you are using the Daydre
 
 As your usage scales, the natural next step is running your own gateway — reducing per-inference costs and gaining full control over orchestrator selection. This is the graduation path described in the [Nov 2025 Network Vision](https://blog.livepeer.org/a-real-time-update-to-the-livepeer-network-vision/): just as companies move from Heroku to AWS to their own infrastructure as they scale, developers move from hosted gateway access to self-hosted gateways as their usage and requirements grow.
 
-**API reference:** [docs.livepeer.org/ai/api-reference](/ai/api-reference/overview)  
-**Available gateways:** [docs.livepeer.org/ai/builders/gateways](/ai/builders/gateways)
+**API reference:** [docs.livepeer.org/ai/api-reference](/v2/gateways/resources/technical/api-reference/AI-API/ai)  
+**Available gateways:** [docs.livepeer.org/ai/builders/gateways](/v2/gateways/guides/operator-considerations/production-gateways)
 
 [//]: # (REVIEW: Confirm exact endpoint URL for the hosted Studio Gateway AI API (separate from Studio video API\). Clarify with Rick or Mehrdad.)
 [//]: # (REVIEW: Confirm whether "AI Jobs API" is deprecated terminology — current evidence says yes but needs go-livepeer README confirmation.)
 
----
+<CustomDivider />
 
 ## ComfyStream
 
-ComfyStream is an open-source ComfyUI plugin (maintained at `github.com/livepeer/comfystream`) that enables real-time video and audio workflows in ComfyUI. It turns ComfyUI — the most widely used open-source AI workflow tool — into a real-time inference engine for live video, rather than a batch image generator.
+ComfyStream is an open-source ComfyUI plugin (maintained at `github.com/livepeer/comfystream`) that enables real-time video and audio workflows in ComfyUI. It turns ComfyUI — the most widely used open-source AI workflow tool — into a real-time inference engine for live video instead of a batch image generator.
 
 Daydream itself is built on ComfyStream. When you build with ComfyStream directly, you are working at the same layer that Daydream operates at, with full access to ComfyUI's node graph, custom model loading, and workflow composition — but managing your own infrastructure.
 
@@ -88,7 +89,7 @@ ComfyStream is the right choice if you need custom AI video workflows that go be
 **Docs:** [docs.comfystream.org](https://docs.comfystream.org) / [pipelines.livepeer.org](https://pipelines.livepeer.org)  
 **Repo:** [github.com/livepeer/comfystream](https://github.com/livepeer/comfystream)
 
----
+<CustomDivider />
 
 ## Protocol Layer
 
@@ -100,7 +101,7 @@ Building at the protocol layer means running and operating network infrastructur
 
 [//]: # (REVIEW: Verify go-livepeer README developer-facing API surface description — not directly checked in this research session due to domain restrictions.)
 
----
+<CustomDivider />
 
 ## Choosing Your Layer
 
@@ -113,7 +114,7 @@ Building at the protocol layer means running and operating network infrastructur
 | Reduce inference costs by self-hosting a gateway | Self-hosted gateway | [When to run your own gateway](/v2/developers/concepts/running-a-gateway) |
 | Contribute to the network, run nodes, or build new pipeline types | Protocol layer | [OSS stack](/v2/developers/concepts/oss-stack) |
 
----
+<CustomDivider />
 
 ## Next Steps
 

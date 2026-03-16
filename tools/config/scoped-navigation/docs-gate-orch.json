@@ -2122,6 +2122,20 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": [
+                      "v2/resources/redirect"
+                    ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2178,6 +2192,20 @@
                           "v2/about/resources/technical-roadmap"
                         ]
                       }
+                    ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": [
+                      "v2/resources/redirect"
+                    ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [
+                      " "
                     ]
                   }
                 ]
@@ -2439,6 +2467,20 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": [
+                      "v2/resources/redirect"
+                    ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2523,6 +2565,20 @@
                           "v2/developers/resources/deepwiki"
                         ]
                       }
+                    ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": [
+                      "v2/resources/redirect"
+                    ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [
+                      " "
                     ]
                   }
                 ]
@@ -2781,6 +2837,20 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": [
+                      "v2/resources/redirect"
+                    ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2807,7 +2877,7 @@
                           "v2/orchestrators/concepts/role",
                           "v2/orchestrators/concepts/capabilities",
                           "v2/orchestrators/concepts/architecture",
-                          "v2/orchestrators/concepts/rcs-incentives"
+                          "v2/orchestrators/concepts/incentive-model"
                         ]
                       },
                       {
@@ -2926,6 +2996,20 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": [
+                      "v2/resources/redirect"
+                    ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2986,6 +3070,20 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": [
+                      "v2/resources/redirect"
+                    ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -3043,6 +3141,20 @@
                           "v2/community/faq"
                         ]
                       }
+                    ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": [
+                      "v2/resources/redirect"
+                    ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [
+                      " "
                     ]
                   }
                 ]
@@ -3170,6 +3282,18 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": "Help Center",
+                    "icon": "comments-question-check",
+                    "pages": [
+                      "v2/resources/redirect"
+                    ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "href": " "
                   }
                 ]
               },
@@ -4184,7 +4308,7 @@
     },
     {
       "source": "/v2/orchestrators/concepts/economics",
-      "destination": "/v2/orchestrators/concepts/rcs-incentives"
+      "destination": "/v2/orchestrators/concepts/incentive-model"
     },
     {
       "source": "/v2/orchestrators/concepts/job-types",
