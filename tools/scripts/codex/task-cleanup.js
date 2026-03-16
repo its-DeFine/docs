@@ -4,7 +4,7 @@
  * @category          utility
  * @purpose           governance:agent-governance
  * @scope             tools/scripts/codex, .codex/locks-local, .codex/task-contract.yaml
- * @owner             docs
+ * @domain            docs
  * @needs             R-R27, R-R30
  * @purpose-statement Codex task cleanup utility — reports and prunes merged clean worktrees plus stale local codex branches after merge
  * @pipeline          manual — interactive developer tool, not suited for automated pipelines
@@ -16,7 +16,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 const yaml = require('../../lib/load-js-yaml');
 
-const DEFAULT_BASE_REF = 'docs-v2';
+const DEFAULT_BASE_REF = 'docs-v2-dev';
 const DEFAULT_CONTRACT = '.codex/task-contract.yaml';
 const LOCK_DIR_REL = '.codex/locks-local';
 const CODEX_BRANCH_RE = /^codex\/[a-z0-9][a-z0-9-]*(?:\/[a-z0-9][a-z0-9-]*)*$/i;

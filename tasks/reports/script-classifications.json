@@ -1471,7 +1471,7 @@
     "scope": "tools/scripts/codex, .codex/locks-local, .codex/task-contract.yaml",
     "needs": "R-R27, R-R30",
     "purpose_statement": "Codex lock release utility — releases stale codex lock files",
-    "pipeline": "manual — developer tool"
+    "pipeline": "manual — interactive developer tool, not suited for automated pipelines"
   },
   {
     "path": "tools/scripts/codex/task-cleanup.js",
@@ -1491,7 +1491,7 @@
     "scope": "tools/scripts/codex, tools/scripts/validate-codex-task-contract.js, tools/scripts/verify-pay-orc-gate-finalize.sh",
     "needs": "R-R27, R-R30",
     "purpose_statement": "Codex task finaliser — enforces task completion requirements before closing",
-    "pipeline": "manual — not yet in pipeline"
+    "pipeline": "manual — interactive developer tool, not suited for automated pipelines"
   },
   {
     "path": "tools/scripts/codex/task-preflight.js",
@@ -1501,7 +1501,7 @@
     "scope": "tools/scripts/codex, .codex/task-contract.yaml, .codex/locks-local",
     "needs": "R-R27, R-R30",
     "purpose_statement": "Codex task preflight — generates task setup files and validates preconditions",
-    "pipeline": "manual — not yet in pipeline"
+    "pipeline": "manual — codex setup tool referenced by .githooks/pre-commit guidance, not auto-executed"
   },
   {
     "path": "tools/scripts/codex/validate-locks.js",

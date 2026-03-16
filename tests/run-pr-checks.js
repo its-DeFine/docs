@@ -1043,6 +1043,7 @@ function runCodexTaskContractCheck(branch, changedFiles, baseRef) {
   if (changedFiles.length > 0) {
     args.push('--files', changedFiles.join(','));
   }
+  args.push('--require-pr-ready');
   if (process.env.GITHUB_EVENT_PATH || process.env.PULL_REQUEST_BODY) {
     args.push('--require-pr-body');
   }
