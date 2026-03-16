@@ -316,6 +316,43 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
     assert.strictEqual(selected[0].claim_id, 'orch-dual-revenue-model');
   });
 
+  await runCase('Inference finds current sibling pages without explicit dependent mapping', async () => {
+    const root = mkTmpDir('docs-page-research-infer-');
+    const repoDir = path.join(root, 'repo');
+    writeFile(
+      path.join(repoDir, 'v2/gateways/guides/payments-and-pricing/payment-guide.mdx'),
+      'Off-chain gateways still pay orchestrators through PM tickets.'
+    );
+    writeFile(
+      path.join(repoDir, 'v2/gateways/guides/payments-and-pricing/funding-guide.mdx'),
+      'Funding guide for on-chain gateways.'
+    );
+    writeFile(
+      path.join(repoDir, 'v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx'),
+      'A clearinghouse delegates PM signing and ETH custody.'
+    );
+
+    const previousCwd = process.cwd();
+    process.chdir(repoDir);
+    try {
+      const inferred = research.inferFamilyPages(
+        {
+          claim_id: 'gw-offchain-payment-obligation',
+          claim_family: 'off-chain-payment-obligation',
+          domain: 'gateways',
+          canonical_owner: 'v2/gateways/guides/payments-and-pricing/payment-guide.mdx',
+          dependent_pages: [],
+          match_terms: ['pm tickets', 'off-chain', 'ETH custody']
+        },
+        ['v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx']
+      );
+      assert.ok(inferred.includes('v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx'));
+      assert.ok(!inferred.includes('v2/gateways/guides/payments-and-pricing/funding-guide.mdx'));
+    } finally {
+      process.chdir(previousCwd);
+    }
+  });
+
   await runCase('Family selection does not bleed across domains via path affinity', async () => {
     const families = [
       {
@@ -334,6 +371,41 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
     };
     const selected = research.selectFamilies(families, files, contents);
     assert.strictEqual(selected.length, 0);
+  });
+
+  await runCase('Family selection survives renamed current pages when canonical path is stale', async () => {
+    const root = mkTmpDir('docs-page-research-renamed-');
+    const repoDir = path.join(root, 'repo');
+    writeFile(
+      path.join(repoDir, 'v2/orchestrators/guides/operator-considerations/operator-rationale.mdx'),
+      'Running a Livepeer Orchestrator costs real money and time. ETH job fees and LPT inflation rewards behave differently.'
+    );
+
+    const previousCwd = process.cwd();
+    process.chdir(repoDir);
+    try {
+      const selected = research.selectFamilies(
+        [
+          {
+            claim_id: 'orch-dual-revenue-model',
+            claim_family: 'operator-revenue-model',
+            domain: 'orchestrators',
+            canonical_owner: 'v2/orchestrators/guides/operator-considerations/feasibility-economics.mdx',
+            dependent_pages: [],
+            match_terms: ['ETH job fees', 'LPT inflation rewards', 'costs real money and time']
+          }
+        ],
+        ['v2/orchestrators/guides/operator-considerations/operator-rationale.mdx'],
+        {
+          'v2/orchestrators/guides/operator-considerations/operator-rationale.mdx':
+            'Running a Livepeer Orchestrator costs real money and time. ETH job fees and LPT inflation rewards behave differently.'
+        }
+      );
+      assert.strictEqual(selected.length, 1);
+      assert.strictEqual(selected[0].claim_id, 'orch-dual-revenue-model');
+    } finally {
+      process.chdir(previousCwd);
+    }
   });
 
   await runCase('Research runner reports contradictions on real value drift', async () => {
@@ -472,9 +544,85 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
     }
   });
 
+  await runCase('Runner falls back to inferred target pages when canonical owner is missing', async () => {
+    const root = mkTmpDir('docs-page-research-fallback-');
+    const repoDir = path.join(root, 'repo');
+    const registryDir = path.join(repoDir, 'tasks/research/claims');
+    const livePage = 'v2/gateways/guides/payments-and-pricing/remote-signers.mdx';
+    writeFile(
+      path.join(repoDir, livePage),
+      'Remote signing is not supported for video transcoding and is currently used for Live AI workloads.'
+    );
+    writeFile(
+      path.join(repoDir, 'v2/gateways/guides/payments-and-pricing/payment-guide.mdx'),
+      'Video transcoding requires the on-chain self-managed path.'
+    );
+    writeFile(
+      path.join(registryDir, 'gateways.json'),
+      `${JSON.stringify(
+        {
+          version: 1,
+          domain: 'gateways',
+          claim_families: [
+            {
+              claim_id: 'gw-remote-signer-current-scope',
+              claim_family: 'remote-signer-current-scope',
+              entity: 'gateway',
+              claim_summary: 'Remote signer support is current for Live AI and not supported for video transcoding.',
+              canonical_owner: 'v2/gateways/guides/payments-and-pricing/old-remote-signers.mdx',
+              source_type: 'repo-doc-reference',
+              source_ref: livePage,
+              evidence_date: '2026-03-16',
+              status: 'time-sensitive',
+              freshness_class: 'review-on-change',
+              dependent_pages: [],
+              related_claims: [],
+              last_reviewed_by: 'codex',
+              notes: 'test',
+              match_terms: ['Live AI workloads', 'not supported for video transcoding', 'remote signing'],
+              comparison_patterns: ['\\bnot supported for video transcoding\\b'],
+              evidence_refs: [
+                {
+                  type: 'repo-file',
+                  ref: livePage,
+                  match_any: ['not supported for video transcoding']
+                }
+              ]
+            }
+          ]
+        },
+        null,
+        2
+      )}\n`
+    );
+
+    const previousCwd = process.cwd();
+    process.chdir(repoDir);
+    try {
+      const reportPath = path.join(root, 'report.json');
+      await research.run({
+        registry: 'tasks/research/claims',
+        page: livePage,
+        files: [],
+        reportMd: '',
+        reportJson: reportPath,
+        quiet: true
+      });
+      const parsed = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+      assert.strictEqual(parsed.time_sensitive_claims.length, 1);
+      assert.ok(
+        parsed.propagation_queue.some(
+          (entry) => entry.file === livePage && entry.role === 'inferred-page'
+        )
+      );
+    } finally {
+      process.chdir(previousCwd);
+    }
+  });
+
   return {
     passed: errors.length === 0,
-    total: 14,
+    total: 17,
     errors
   };
 }

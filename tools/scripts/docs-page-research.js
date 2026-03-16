@@ -28,8 +28,15 @@ const GENERIC_PATH_TOKENS = new Set([
   'concept',
   'quickstart',
   'payments',
+  'payment',
+  'pricing',
+  'funding',
+  'roadmap',
   'pricing',
   'details',
+  'deployment',
+  'monitoring',
+  'tooling',
   'operator',
   'operators',
   'gateway',
@@ -40,6 +47,7 @@ const GENERIC_PATH_TOKENS = new Set([
   'page',
   'docs'
 ]);
+const INFERENCE_EXCLUDED_BASENAMES = new Set(['review', 'to', 'sources', 'source', 'index', 'funding']);
 const EVIDENCE_TYPE_PRIORITY = {
   'official-page': 100,
   'repo-file': 90,
@@ -289,16 +297,128 @@ function pathTokens(file) {
   )];
 }
 
+function fileDir(relPath) {
+  return toPosix(path.dirname(toPosix(relPath)));
+}
+
+function basenameTokens(relPath) {
+  return significantTokens(path.basename(toPosix(relPath), path.extname(toPosix(relPath))).replace(/[-_]/g, ' '));
+}
+
+function sameDir(left, right) {
+  return fileDir(left) === fileDir(right);
+}
+
+function sectionPath(relPath) {
+  const parts = toPosix(relPath).split('/');
+  return parts.slice(0, 5).join('/');
+}
+
+function inferenceEligibleFile(relPath) {
+  const normalized = toPosix(relPath);
+  const base = path.basename(normalized, path.extname(normalized));
+  if (!normalized.endsWith('.mdx')) return false;
+  if (normalized.includes('/x-')) return false;
+  if (normalized.includes('/x_')) return false;
+  if (base.startsWith('dep-')) return false;
+  if (base.startsWith('funding')) return false;
+  if (INFERENCE_EXCLUDED_BASENAMES.has(base)) return false;
+  return true;
+}
+
+function listSiblingDocFiles(relDir) {
+  const absDir = path.resolve(repoRoot(), relDir);
+  if (!fs.existsSync(absDir)) return [];
+  if (!fs.statSync(absDir).isDirectory()) return [];
+  return fs
+    .readdirSync(absDir)
+    .filter((entry) => entry.endsWith('.mdx'))
+    .map((entry) => toPosix(path.join(relDir, entry)))
+    .filter(inferenceEligibleFile)
+    .sort();
+}
+
+function familySeedFiles(family, targetFiles) {
+  const domainPrefix = family.domain ? `v2/${family.domain}/` : null;
+  return [...new Set([family.canonical_owner, ...(family.dependent_pages || []), ...(targetFiles || [])])]
+    .filter(Boolean)
+    .filter((file) => !domainPrefix || toPosix(file).startsWith(domainPrefix));
+}
+
+function inferFamilyPages(family, targetFiles = []) {
+  if ((family.dependent_pages || []).length >= 2 && fileExists(family.canonical_owner)) {
+    return [];
+  }
+  const explicit = new Set([family.canonical_owner, ...(family.dependent_pages || [])].map(toPosix));
+  const seeds = familySeedFiles(family, targetFiles);
+  const seedDirs = [...new Set(seeds.map(fileDir))];
+  const seedTokens = uniqueTerms([
+    ...seeds.flatMap((file) => pathTokens(file)),
+    ...(family.match_terms || []),
+    family.claim_family.replace(/-/g, ' '),
+    path.basename(family.canonical_owner || '', path.extname(family.canonical_owner || '')).replace(/[-_]/g, ' ')
+  ]).flatMap((value) => significantTokens(value));
+  const seedDirSet = new Set(seedDirs);
+  const domainPrefix = family.domain ? `v2/${family.domain}/` : null;
+
+  return [...new Set(seedDirs.flatMap((dir) => listSiblingDocFiles(dir)))]
+    .filter((candidate) => (!domainPrefix ? true : candidate.startsWith(domainPrefix)))
+    .filter((candidate) => !explicit.has(candidate))
+    .map((candidate) => {
+      const candidateTokens = basenameTokens(candidate);
+      let score = 0;
+      let overlap = 0;
+      let contentSignal = false;
+      if (seedDirSet.has(fileDir(candidate))) score += 2;
+      if (sectionPath(candidate) === sectionPath(family.canonical_owner)) score += 1;
+      overlap = sharedCount(seedTokens, candidateTokens);
+      if (overlap >= 3) score += 3;
+      else if (overlap >= 2) score += 2;
+      else if (overlap >= 1) score += 1;
+      if (targetFiles.some((file) => sameDir(file, candidate))) score += 1;
+      const absCandidate = path.resolve(repoRoot(), candidate);
+      if (fs.existsSync(absCandidate)) {
+        const inferenceTerms = (family.match_terms || [])
+          .slice(0, 8)
+          .filter((term) => significantTokens(term).length >= 2);
+        contentSignal = matchedTerms(readFile(absCandidate), inferenceTerms).length > 0;
+        if (contentSignal) score += 2;
+      }
+      return { candidate, score, overlap, contentSignal };
+    })
+    .filter((entry) => entry.score >= 3 && (entry.overlap >= 1 || entry.contentSignal))
+    .sort((left, right) => {
+      if (right.score !== left.score) return right.score - left.score;
+      return left.candidate.localeCompare(right.candidate);
+    })
+    .map((entry) => entry.candidate)
+    .slice(0, 8);
+}
+
+function familyRelatedFiles(family, targetFiles = [], options = {}) {
+  const includeInferred = options.includeInferred !== false;
+  const existingOnly = options.existingOnly === true;
+  const files = [
+    family.canonical_owner,
+    ...(family.dependent_pages || []),
+    ...(includeInferred ? inferFamilyPages(family, targetFiles) : [])
+  ]
+    .filter(Boolean)
+    .map(toPosix);
+  const unique = [...new Set(files)];
+  return existingOnly ? unique.filter(fileExists) : unique;
+}
+
 function sharedCount(left, right) {
   const leftSet = new Set(left);
   return right.filter((entry) => leftSet.has(entry)).length;
 }
 
-function familyPathAffinity(file, family) {
+function familyPathAffinity(file, family, targetFiles = []) {
   const target = toPosix(file);
   const targetTokens = pathTokens(target);
   const targetBase = path.basename(target, path.extname(target));
-  const relatedFiles = [family.canonical_owner, ...family.dependent_pages];
+  const relatedFiles = familyRelatedFiles(family, targetFiles, { includeInferred: true, existingOnly: false });
   let score = 0;
 
   relatedFiles.forEach((related) => {
@@ -336,7 +456,7 @@ function scoreFamilyForTargets(family, targetFiles, fileContents) {
     if (domainPrefix && !file.startsWith(domainPrefix)) {
       return;
     }
-    score += familyPathAffinity(file, family);
+    score += familyPathAffinity(file, family, targetFiles);
     const text = stripMdx(fileContents[file] || '').toLowerCase();
     lowerTerms.forEach((term) => {
       if (term && text.includes(term)) score += 1;
@@ -759,14 +879,20 @@ function pageClass(file) {
   return 'other';
 }
 
-function buildPropagationQueue(family, classification) {
-  const files = [family.canonical_owner, ...family.dependent_pages];
+function familyRole(file, family) {
+  if (file === family.canonical_owner) return 'canonical-owner';
+  if ((family.dependent_pages || []).includes(file)) return 'dependent-page';
+  return 'inferred-page';
+}
+
+function buildPropagationQueue(family, classification, targetFiles = []) {
+  const files = familyRelatedFiles(family, targetFiles, { includeInferred: true, existingOnly: true });
   return [...new Set(files)]
     .sort()
     .map((file) => ({
       file,
       page_class: pageClass(file),
-      role: file === family.canonical_owner ? 'canonical-owner' : 'dependent-page',
+      role: familyRole(file, family),
       action: actionForStatus(classification.status),
       claim_id: family.claim_id
     }));
@@ -791,8 +917,16 @@ function buildContradictions(family, classification, pageObservations) {
   ];
 }
 
-async function buildFamilyReport(family, fileContents) {
-  const pages = [family.canonical_owner, ...family.dependent_pages].filter(fileExists);
+async function buildFamilyReport(family, fileContents, targetFiles = []) {
+  const targetPageSet = new Set((targetFiles || []).map(toPosix));
+  const pages = familyRelatedFiles(family, targetFiles, { includeInferred: true, existingOnly: true }).filter(
+    (file) =>
+      fileExists(file) &&
+      (file === family.canonical_owner ||
+        (family.dependent_pages || []).includes(file) ||
+        targetPageSet.has(file) ||
+        sameDir(file, family.canonical_owner))
+  );
   const pageObservations = pages.map((file) => {
     const content = fileContents[file] || readFile(path.resolve(repoRoot(), file));
     const snippets = extractObservationSnippets(content, family.match_terms);
@@ -818,7 +952,7 @@ async function buildFamilyReport(family, fileContents) {
     summary: family.claim_summary,
     evidence,
     page_observations: pageObservations,
-    propagation_queue: buildPropagationQueue(family, classification),
+    propagation_queue: buildPropagationQueue(family, classification, targetFiles),
     contradictions: buildContradictions(family, classification, pageObservations),
     notes: family.notes
   };
@@ -982,7 +1116,7 @@ async function run(args) {
 
   const familyReports = [];
   for (const family of selectedFamilies) {
-    familyReports.push(await buildFamilyReport(family, fileContents));
+    familyReports.push(await buildFamilyReport(family, fileContents, targetFiles));
   }
 
   const report = {
@@ -1063,6 +1197,8 @@ module.exports = {
   parseArgs,
   run,
   selectFamilies,
+  inferFamilyPages,
+  familyRelatedFiles,
   splitSentences,
   stripMdx
 };
