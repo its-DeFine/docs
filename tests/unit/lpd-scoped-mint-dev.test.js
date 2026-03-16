@@ -4,7 +4,7 @@
  * @category          utility
  * @purpose           tooling:dev-tools
  * @scope             tests/unit, lpd, tools/scripts/mint-dev.sh, tools/scripts/dev/generate-mint-dev-scope.js
- * @owner             docs
+ * @domain            docs
  * @needs             E-C6, F-C1
  * @purpose-statement Tests lpd scoped mint-dev functionality — validates dev server scope filtering
  * @pipeline          manual — developer tool
@@ -811,6 +811,93 @@ async function runTests() {
     assert.ok(!fs.existsSync(rootIndexFile), 'out-of-scope generated indexes should be excluded from scoped workspace');
     assert.ok(!fs.existsSync(legacyWorkspaceMetadataFile), 'controller metadata should stay outside the Mint workspace');
     assert.ok(fs.existsSync(controlManifestFile), 'control manifest should be written outside the Mint workspace');
+  });
+
+  cases.push(async () => {
+    const repoRoot = mkTmpDir('lpd-scope-string-ref-');
+    const workspaceBase = mkTmpDir('lpd-scope-string-ref-out-');
+    const docs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'String Reference Fixture',
+      navigation: {
+        tabs: [
+          {
+            tab: 'Developers',
+            groups: [
+              {
+                group: 'Dev',
+                pages: ['v2/dev/get-started']
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    writeFile(path.join(repoRoot, 'docs.json'), `${JSON.stringify(docs, null, 2)}\n`);
+    writeFile(path.join(repoRoot, '.mintignore'), '# fixture\n');
+    writeFile(
+      path.join(repoRoot, 'v2/dev/get-started.mdx'),
+      [
+        '---',
+        "title: String Reference Fixture",
+        "'og:image': /snippets/assets/social/demo.png",
+        '---',
+        '',
+        'import map from "/snippets/data/reference-map.js";',
+        '',
+        '<img src={map.icon} alt={map.label} />',
+        ''
+      ].join('\n')
+    );
+    writeFile(
+      path.join(repoRoot, 'snippets/data/reference-map.js'),
+      [
+        'const map = {',
+        '  label: "Demo",',
+        '  icon: "/snippets/assets/icons/demo.svg",',
+        '  supportingDoc: "docs-guide/tooling/reference-maps/icon-map.mdx"',
+        '};',
+        '',
+        'export default map;',
+        ''
+      ].join('\n')
+    );
+    writeFile(path.join(repoRoot, 'snippets/assets/icons/demo.svg'), '<svg />\n');
+    writeFile(path.join(repoRoot, 'snippets/assets/social/demo.png'), 'PNG\n');
+    writeFile(path.join(repoRoot, 'docs-guide/tooling/reference-maps/icon-map.mdx'), '# Icon Map\n');
+
+    const result = await createScopedProfile({
+      repoRoot,
+      workspaceBase,
+      scopeFile: '',
+      versions: [],
+      languages: [],
+      tabs: [],
+      prefixes: ['v2/dev'],
+      interactive: false,
+      disableOpenApi: false,
+      printOnly: false,
+      help: false
+    });
+
+    assert.ok(
+      fs.lstatSync(path.join(result.workspaceDir, 'snippets/data/reference-map.js')).isSymbolicLink(),
+      'imported data modules should remain in the scoped workspace'
+    );
+    assert.ok(
+      fs.lstatSync(path.join(result.workspaceDir, 'snippets/assets/icons/demo.svg')).isSymbolicLink(),
+      'quoted local asset references inside data modules should be projected'
+    );
+    assert.ok(
+      fs.lstatSync(path.join(result.workspaceDir, 'snippets/assets/social/demo.png')).isSymbolicLink(),
+      'frontmatter file references should be projected'
+    );
+    assert.ok(
+      fs.lstatSync(path.join(result.workspaceDir, 'docs-guide/tooling/reference-maps/icon-map.mdx')).isSymbolicLink(),
+      'quoted docs-guide file references inside data modules should be projected'
+    );
   });
 
   cases.push(async () => {

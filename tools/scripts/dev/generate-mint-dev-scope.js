@@ -22,7 +22,7 @@ const STRUCTURAL_ARRAY_KEYS = ['versions', 'languages', 'tabs', 'anchors', 'grou
 const SCOPED_ROOT_RUNTIME_FILES = ['mint.json', 'style.css'];
 const SCOPED_NAVIGATION_CONFIG_DIR = 'tools/config/scoped-navigation';
 const SCOPED_CONTROL_DIRNAME = '.lpd-control';
-const REPO_ROOT_IMPORT_PREFIX_REGEX = /^(?:v1|v2|snippets|docs-guide|tools|tests)\//;
+const REPO_ROOT_IMPORT_PREFIX_REGEX = /^(?:v1|v2|snippets|docs-guide|tools|tests|images|api)\//;
 
 function printUsage() {
   console.log(
@@ -751,10 +751,10 @@ function resolveRepoFileReference(repoRoot, importerRelPath, reference, options 
   } else if (sanitized.startsWith('.')) {
     if (!importerRelPath) return '';
     basePath = path.resolve(repoRoot, path.dirname(importerRelPath), sanitized);
-  } else if ((String(options.kind || 'import') === 'route' || String(options.kind || 'import') === 'asset') && importerRelPath) {
-    basePath = path.resolve(repoRoot, path.dirname(importerRelPath), sanitized);
   } else if (isLikelyRepoRootReference(sanitized)) {
     basePath = path.resolve(repoRoot, sanitized);
+  } else if ((String(options.kind || 'import') === 'route' || String(options.kind || 'import') === 'asset') && importerRelPath) {
+    basePath = path.resolve(repoRoot, path.dirname(importerRelPath), sanitized);
   } else {
     return '';
   }
@@ -808,6 +808,42 @@ function extractAssetReferences(content, extension) {
   while ((match = markdownImageRegex.exec(source)) !== null) refs.add(match[1]);
   while ((match = jsxAssetRegex.exec(source)) !== null) refs.add(match[1]);
   while ((match = jsxLiteralAssetRegex.exec(source)) !== null) refs.add(match[1]);
+  return [...refs];
+}
+
+function extractQuotedLocalFileReferences(content) {
+  const source = String(content || '');
+  const refs = new Set();
+  const quotedLocalFileRegex =
+    /['"]((?:\/(?:v1|v2|snippets|docs-guide|tools|tests|images|api)\/|(?:\.{1,2}\/)|(?:v1|v2|snippets|docs-guide|tools|tests|images|api)\/)[^'"\r\n]+?)['"]/g;
+
+  let match;
+  while ((match = quotedLocalFileRegex.exec(source)) !== null) {
+    const value = sanitizeLocalReference(match[1]);
+    if (!value) continue;
+    if (!/\.[A-Za-z0-9]+(?:[?#].*)?$/.test(value)) continue;
+    refs.add(value);
+  }
+
+  return [...refs];
+}
+
+function extractFrontmatterFileReferences(content) {
+  const source = String(content || '');
+  const frontmatterMatch = source.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
+  if (!frontmatterMatch) return [];
+
+  const refs = new Set();
+  const localFileTokenRegex =
+    /(?:^|[\s,[\]{}])((?:\/(?:v1|v2|snippets|docs-guide|tools|tests|images|api)\/|(?:\.{1,2}\/)|(?:v1|v2|snippets|docs-guide|tools|tests|images|api)\/)[^\s'"`,]+?\.[A-Za-z0-9]+(?:[?#][^\s'"`,]+)?)/gm;
+  let match;
+
+  while ((match = localFileTokenRegex.exec(frontmatterMatch[1])) !== null) {
+    const value = sanitizeLocalReference(match[1]);
+    if (!value) continue;
+    refs.add(value);
+  }
+
   return [...refs];
 }
 
@@ -931,6 +967,15 @@ function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
     throw new Error(`Could not resolve local ${kind} reference "${reference}" from ${importerLabel}`);
   };
 
+  const enqueueBestEffortReference = (importerRelPath, reference, options = {}) => {
+    const kind = String(options.kind || 'asset');
+    const resolved = resolveRepoFileReference(repoRoot, importerRelPath, reference, { kind });
+    if (resolved) {
+      enqueue(resolved);
+    }
+    return resolved;
+  };
+
   for (const reference of collectDocsConfigFileReferences(scopedDocs)) {
     ensureResolvedReference('', reference, { kind: 'asset' });
   }
@@ -964,6 +1009,22 @@ function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
         enqueue(resolved);
       }
     });
+
+    extractQuotedLocalFileReferences(content).forEach((reference) => {
+      const resolved = enqueueBestEffortReference(fileRelPath, reference, { kind: 'asset' });
+      if (resolved && !/\.(md|mdx)$/i.test(resolved)) {
+        enqueue(resolved);
+      }
+    });
+
+    if (extension === '.md' || extension === '.mdx') {
+      extractFrontmatterFileReferences(content).forEach((reference) => {
+        const resolved = enqueueBestEffortReference(fileRelPath, reference, { kind: 'asset' });
+        if (resolved && !/\.(md|mdx)$/i.test(resolved)) {
+          enqueue(resolved);
+        }
+      });
+    }
   }
 
   const entries = new Map();

@@ -472,6 +472,16 @@
     "pipeline": "manual — experimental research system"
   },
   {
+    "path": "tests/unit/docs-research-packet.test.js",
+    "script": "docs-research-packet.test",
+    "category": "generator",
+    "purpose": "tooling:dev-tools",
+    "scope": "tests/unit, tools/scripts/docs-research-packet.js, tools/config/scoped-navigation/docs-gate-work.json",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Tests docs-research-packet.js — validates nav, manifest, and path tranche derivation plus packet-summary rollups for the generic research packet engine.",
+    "pipeline": "manual — packet generator validation"
+  },
+  {
     "path": "tests/unit/docs-route-scope.test.js",
     "script": "docs-route-scope.test",
     "category": "validator",
@@ -634,16 +644,6 @@
     "needs": "F-R17",
     "purpose_statement": "Tests OpenAPI rolling issue tracker — validates issue creation and dedup logic",
     "pipeline": "manual — not yet in pipeline"
-  },
-  {
-    "path": "tests/unit/docs-research-packet.test.js",
-    "script": "docs-research-packet.test",
-    "category": "generator",
-    "purpose": "tooling:dev-tools",
-    "scope": "tests/unit, tools/scripts/docs-research-packet.js, tools/config/scoped-navigation/docs-gate-work.json",
-    "needs": "R-R27, R-R30",
-    "purpose_statement": "Tests docs-research-packet.js — validates nav, manifest, and path tranche derivation plus packet-summary rollups for the generic research packet engine.",
-    "pipeline": "manual — packet generator validation"
   },
   {
     "path": "tests/unit/orchestrator-guides-research-review.test.js",
@@ -1601,7 +1601,7 @@
     "scope": "tools/scripts/dev, docs.json, .mintignore",
     "needs": "E-C6, F-C1",
     "purpose_statement": "Mint dev scope generator — creates a scoped docs.json for running mint dev on a subset of pages",
-    "pipeline": "manual — developer tool"
+    "pipeline": "manual — interactive developer tool, not suited for automated pipelines"
   },
   {
     "path": "tools/scripts/dev/lib/resolve-scoped-docs-config.js",
