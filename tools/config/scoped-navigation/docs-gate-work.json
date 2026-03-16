@@ -324,7 +324,7 @@
                       "v2/orchestrators/setup/guide",
                       "v2/orchestrators/setup/rcs-requirements",
                       "v2/orchestrators/setup/rs-install",
-                      "v2/orchestrators/setup/r-configure",
+                      "v2/orchestrators/setup/configure",
                       "v2/orchestrators/setup/connect-and-activate",
                       "v2/orchestrators/setup/test",
                       "v2/orchestrators/setup/r-monitor"

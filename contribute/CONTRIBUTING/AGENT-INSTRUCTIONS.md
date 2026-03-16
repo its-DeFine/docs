@@ -2,6 +2,11 @@
 
 This document provides specific instructions for AI agents working on this repository.
 
+Canonical policy sources:
+
+- `docs-guide/policies/root-allowlist-governance.mdx`
+- `docs-guide/policies/agent-governance-framework.mdx`
+
 ## MANDATORY: Install Git Hooks
 
 Before making any changes, agents MUST ensure git hooks are installed:
@@ -186,6 +191,10 @@ If a human explicitly needs to edit `.allowlist`, they must commit with:
 ```bash
 git commit -m "Update .allowlist" --trailer "allowlist-edit=true"
 ```
+
+For root-entry decisions, parser behavior, and the current keep/move criteria,
+use the canonical policy in `docs-guide/policies/root-allowlist-governance.mdx`
+instead of encoding decisions directly in `.allowlist`.
 
 If a human explicitly needs to allow file deletions, they must commit with:
 
