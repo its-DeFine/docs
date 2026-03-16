@@ -626,6 +626,16 @@
     "pipeline": "manual — not yet in pipeline"
   },
   {
+    "path": "tests/unit/orchestrator-guides-research-review.test.js",
+    "script": "orchestrator-guides-research-review.test",
+    "category": "generator",
+    "purpose": "tooling:dev-tools",
+    "scope": "tests/unit, tools/scripts/orchestrator-guides-research-review.js, tools/config/scoped-navigation/docs-gate-work.json",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Tests orchestrator-guides-research-review.js — validates live Orchestrators Guides tranche extraction, report summary helpers, and registry-drift detection for the research packet generator.",
+    "pipeline": "manual — packet generator validation"
+  },
+  {
     "path": "tests/unit/ownerless-governance.test.js",
     "script": "ownerless-governance.test",
     "category": "validator",
@@ -2160,6 +2170,16 @@
     "needs": "E-C1, R-R14",
     "purpose_statement": "Script scaffolder — creates a new script file prefilled with the required docs header template",
     "pipeline": "manual — not yet in pipeline"
+  },
+  {
+    "path": "tools/scripts/orchestrator-guides-research-review.js",
+    "script": "orchestrator-guides-research-review",
+    "category": "generator",
+    "purpose": "tooling:dev-tools",
+    "scope": "tools/scripts, tasks/reports/orchestrator-guides-review, tools/config/scoped-navigation/docs-gate-work.json, tasks/research, tests/unit/orchestrator-guides-research-review.test.js",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Orchestrator guides research review packet generator — reads the live Orchestrators Guides navigation, runs the research skill tranche-by-tranche, and writes reproducible review packets and a master rollup.",
+    "pipeline": "manual — packet generator for guided docs review tranches"
   },
   {
     "path": "tools/scripts/orchestrators/repair-governance.js",
