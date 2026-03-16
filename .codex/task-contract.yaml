@@ -4,6 +4,7 @@ base_branch: docs-v2-dev
 scope_in:
   - .codex/task-contract.yaml
   - .codex/locks-local
+  - .allowlist
   - docs-guide/frameworks/research-skill-workflow.mdx
   - tasks/reports/repo-ops
   - tasks/reports/script-classifications.json
