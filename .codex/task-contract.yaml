@@ -1,5 +1,5 @@
 task_id: 20260316
-branch: codex/20260316-research-skill-improvements
+branch: codex/20260316-research-skill-hardening
 base_branch: docs-v2-dev
 scope_in:
   - .codex/task-contract.yaml

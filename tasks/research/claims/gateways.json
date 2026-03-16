@@ -302,6 +302,118 @@
           ]
         }
       ]
+    },
+    {
+      "claim_id": "gw-offchain-payment-obligation",
+      "claim_family": "off-chain-payment-obligation",
+      "entity": "gateway",
+      "claim_summary": "Payment-path docs should keep the off-chain model precise: the gateway process may hold no ETH and no key, but off-chain still pays orchestrators through PM tickets delegated to a remote signer or clearinghouse.",
+      "canonical_owner": "v2/gateways/guides/payments-and-pricing/payment-guide.mdx",
+      "source_type": "repo-doc-reference",
+      "source_ref": "v2/gateways/guides/payments-and-pricing/payment-guide.mdx",
+      "evidence_date": "2026-03-16",
+      "status": "verified",
+      "freshness_class": "review-on-change",
+      "dependent_pages": [
+        "v2/gateways/guides/payments-and-pricing/remote-signers.mdx",
+        "v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx"
+      ],
+      "related_claims": [
+        "gw-community-signer-testing-surface",
+        "gw-clearinghouse-public-readiness"
+      ],
+      "last_reviewed_by": "codex",
+      "notes": "This family exists to stop docs from collapsing 'off-chain' into 'no payment flow'. It is factual, not stylistic.",
+      "match_terms": [
+        "off-chain does not mean free",
+        "PM tickets",
+        "holds no ETH",
+        "remote signer",
+        "clearinghouse"
+      ],
+      "comparison_patterns": [],
+      "evidence_refs": [
+        {
+          "type": "repo-file",
+          "ref": "v2/gateways/guides/payments-and-pricing/payment-guide.mdx",
+          "match_any": [
+            "Off-chain does not mean free",
+            "PM tickets",
+            "holds no ETH"
+          ]
+        },
+        {
+          "type": "repo-file",
+          "ref": "v2/gateways/guides/payments-and-pricing/remote-signers.mdx",
+          "match_any": [
+            "managing PM session state",
+            "holds no Ethereum private key",
+            "signing payment tickets"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "gw-remote-signer-current-scope",
+      "claim_family": "remote-signer-current-scope",
+      "entity": "gateway",
+      "claim_summary": "Remote-signer docs should keep the current support boundary explicit: remote signing is a current payment path for Live AI / real-time AI workloads, and it is not supported for video transcoding.",
+      "canonical_owner": "v2/gateways/guides/payments-and-pricing/remote-signers.mdx",
+      "source_type": "github-pr",
+      "source_ref": "https://github.com/livepeer/go-livepeer/pull/3822",
+      "evidence_date": "2026-03-16",
+      "status": "time-sensitive",
+      "freshness_class": "review-on-change",
+      "dependent_pages": [
+        "v2/gateways/guides/payments-and-pricing/payment-guide.mdx"
+      ],
+      "related_claims": [
+        "gw-offchain-payment-obligation",
+        "gw-clearinghouse-public-readiness"
+      ],
+      "last_reviewed_by": "codex",
+      "notes": "This family is likely to change as remote signer support evolves, so it should stay review-on-change even when the current docs agree.",
+      "match_terms": [
+        "Current scope",
+        "Realtime AI Video",
+        "live-video-to-video",
+        "not supported for video transcoding",
+        "remote signer"
+      ],
+      "comparison_patterns": [
+        "\\bCurrent scope\\b",
+        "\\blive-video-to-video\\b",
+        "\\bnot supported for video transcoding\\b"
+      ],
+      "evidence_refs": [
+        {
+          "type": "github-pr",
+          "ref": "https://github.com/livepeer/go-livepeer/pull/3822",
+          "match_any": [
+            "remote signer",
+            "gateway",
+            "signer"
+          ]
+        },
+        {
+          "type": "repo-file",
+          "ref": "v2/gateways/guides/payments-and-pricing/remote-signers.mdx",
+          "match_any": [
+            "Current scope",
+            "Realtime AI Video",
+            "not supported for video transcoding"
+          ]
+        },
+        {
+          "type": "repo-file",
+          "ref": "v2/gateways/guides/payments-and-pricing/payment-guide.mdx",
+          "match_any": [
+            "remote signer",
+            "video transcoding requires the on-chain self-managed path",
+            "off-chain AI gateway"
+          ]
+        }
+      ]
     }
   ]
 }

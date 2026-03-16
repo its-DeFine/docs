@@ -198,6 +198,75 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
     });
   });
 
+  await runCase('Collect evidence inherits family-level match terms when refs are too literal', async () => {
+    await withMockedFetch(async () => ({
+      ok: true,
+      status: 200,
+      async text() {
+        return JSON.stringify({
+          title: 'Gateway payments',
+          cooked: 'Off-chain does not mean free. PM tickets are still used, but ETH custody is delegated to a signer.'
+        });
+      }
+    }), async () => {
+      const evidence = await research.collectEvidence({
+        claim_family: 'off-chain-payment-obligation',
+        claim_summary: 'Off-chain gateways still pay through PM tickets even when the gateway process holds no ETH key.',
+        canonical_owner: 'v2/gateways/guides/payments-and-pricing/payment-guide.mdx',
+        match_terms: ['off-chain does not mean free', 'PM tickets', 'no ETH in gateway'],
+        evidence_refs: [
+          {
+            type: 'forum-topic',
+            ref: 'https://forum.livepeer.org/t/gateway-payments/9996',
+            match_any: ['delegated custody']
+          }
+        ]
+      });
+      assert.strictEqual(evidence[0].ok, true);
+      assert.strictEqual(evidence[0].matched, true);
+    });
+  });
+
+  await runCase('Family selection uses path affinity for current IA siblings', async () => {
+    const families = [
+      {
+        claim_id: 'gw-offchain-payment-obligation',
+        claim_family: 'off-chain-payment-obligation',
+        canonical_owner: 'v2/gateways/guides/payments-and-pricing/payment-guide.mdx',
+        dependent_pages: ['v2/gateways/guides/payments-and-pricing/remote-signers.mdx'],
+        match_terms: ['pm tickets', 'off-chain']
+      }
+    ];
+    const files = ['v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx'];
+    const contents = {
+      'v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx':
+        'A clearinghouse handles PM signing and ETH custody for off-chain gateway operators.'
+    };
+    const selected = research.selectFamilies(families, files, contents);
+    assert.strictEqual(selected.length, 1);
+    assert.strictEqual(selected[0].claim_id, 'gw-offchain-payment-obligation');
+  });
+
+  await runCase('Family selection does not bleed across domains via path affinity', async () => {
+    const families = [
+      {
+        claim_id: 'orch-pool-worker-offchain-payouts',
+        claim_family: 'pool-worker-payout-model',
+        domain: 'orchestrators',
+        canonical_owner: 'v2/orchestrators/guides/deployment-details/setup-options.mdx',
+        dependent_pages: ['v2/orchestrators/guides/deployment-details/join-a-pool.mdx'],
+        match_terms: ['pool worker', 'off-chain payouts']
+      }
+    ];
+    const files = ['v2/gateways/guides/payments-and-pricing/payment-guide.mdx'];
+    const contents = {
+      'v2/gateways/guides/payments-and-pricing/payment-guide.mdx':
+        'Off-chain gateways still use PM tickets, but they do not hold ETH in the gateway process.'
+    };
+    const selected = research.selectFamilies(families, files, contents);
+    assert.strictEqual(selected.length, 0);
+  });
+
   await runCase('Research runner reports contradictions on real value drift', async () => {
     const root = mkTmpDir('docs-page-research-runner-');
     const repoDir = path.join(root, 'repo');
@@ -336,7 +405,7 @@ Batch AI requires 24 GB VRAM for competitive diffusion pipelines.
 
   return {
     passed: errors.length === 0,
-    total: 9,
+    total: 12,
     errors
   };
 }

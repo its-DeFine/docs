@@ -17,6 +17,29 @@ const { spawnSync } = require('child_process');
 const { loadRegistry, flattenClaimFamilies } = require('./docs-fact-registry');
 
 const DEFAULT_REGISTRY = 'tasks/research/claims';
+const GENERIC_PATH_TOKENS = new Set([
+  'v2',
+  'guides',
+  'guide',
+  'setup',
+  'resources',
+  'resource',
+  'concepts',
+  'concept',
+  'quickstart',
+  'payments',
+  'pricing',
+  'details',
+  'operator',
+  'operators',
+  'gateway',
+  'gateways',
+  'orchestrator',
+  'orchestrators',
+  'current',
+  'page',
+  'docs'
+]);
 
 function toPosix(value) {
   return String(value || '').split(path.sep).join('/');
@@ -223,20 +246,72 @@ function extractPatternValues(snippets, patterns) {
   return [...new Set(values)].sort();
 }
 
+function pathTokens(file) {
+  return [...new Set(
+    toPosix(file)
+      .split(/[/. _-]+/)
+      .map((entry) => normalizeForMatch(entry))
+      .flatMap((entry) => entry.split(' '))
+      .map((entry) => entry.trim())
+      .filter((entry) => entry.length >= 3)
+      .filter((entry) => !GENERIC_PATH_TOKENS.has(entry))
+  )];
+}
+
+function sharedCount(left, right) {
+  const leftSet = new Set(left);
+  return right.filter((entry) => leftSet.has(entry)).length;
+}
+
+function familyPathAffinity(file, family) {
+  const target = toPosix(file);
+  const targetTokens = pathTokens(target);
+  const targetBase = path.basename(target, path.extname(target));
+  const relatedFiles = [family.canonical_owner, ...family.dependent_pages];
+  let score = 0;
+
+  relatedFiles.forEach((related) => {
+    const relatedPath = toPosix(related);
+    const relatedBase = path.basename(relatedPath, path.extname(relatedPath));
+    if (target === relatedPath) {
+      score = Math.max(score, 4);
+      return;
+    }
+    if (targetBase === relatedBase) {
+      score = Math.max(score, 3);
+    }
+    const overlap = sharedCount(targetTokens, pathTokens(relatedPath));
+    if (overlap >= 3) {
+      score = Math.max(score, 3);
+    } else if (overlap >= 2) {
+      score = Math.max(score, 2);
+    } else if (overlap >= 1) {
+      score = Math.max(score, 1);
+    }
+  });
+
+  return score;
+}
+
 function scoreFamilyForTargets(family, targetFiles, fileContents) {
   let score = 0;
   const lowerTerms = family.match_terms.map((entry) => entry.toLowerCase());
+  const summaryTerms = [
+    family.claim_family.replace(/-/g, ' '),
+    path.basename(family.canonical_owner, path.extname(family.canonical_owner)).replace(/[-_]/g, ' ')
+  ];
   const domainPrefix = family.domain ? `v2/${family.domain}/` : null;
   targetFiles.forEach((file) => {
-    if (file === family.canonical_owner || family.dependent_pages.includes(file)) {
-      score += 3;
-    }
     if (domainPrefix && !file.startsWith(domainPrefix)) {
       return;
     }
+    score += familyPathAffinity(file, family);
     const text = stripMdx(fileContents[file] || '').toLowerCase();
     lowerTerms.forEach((term) => {
       if (term && text.includes(term)) score += 1;
+    });
+    summaryTerms.forEach((term) => {
+      if (term && text.includes(term.toLowerCase())) score += 1;
     });
   });
   return score;
@@ -341,6 +416,31 @@ function matchAnySignal(text, terms) {
   return terms.some((term) => signalMatches(text, term));
 }
 
+function uniqueTerms(terms, limit = 16) {
+  const seen = new Set();
+  const out = [];
+  terms
+    .map((entry) => String(entry || '').trim())
+    .filter(Boolean)
+    .forEach((entry) => {
+      const key = normalizeForMatch(entry);
+      if (!key || seen.has(key)) return;
+      seen.add(key);
+      out.push(entry);
+    });
+  return out.slice(0, limit);
+}
+
+function expandedEvidenceTerms(family, ref) {
+  return uniqueTerms([
+    ...(ref.match_any || []),
+    ...(family.match_terms || []),
+    family.claim_family.replace(/-/g, ' '),
+    family.claim_summary,
+    path.basename(family.canonical_owner || '', path.extname(family.canonical_owner || '')).replace(/[-_]/g, ' ')
+  ]);
+}
+
 function parseGithubUrl(ref) {
   const url = new URL(ref);
   const parts = url.pathname.split('/').filter(Boolean);
@@ -367,15 +467,16 @@ async function fetchText(url, headers = {}) {
   };
 }
 
-async function fetchEvidenceRef(ref) {
+async function fetchEvidenceRef(ref, termsOverride = null) {
   const checked_on = localIsoDate();
+  const matchTerms = termsOverride || ref.match_any || [];
   if (ref.type === 'repo-file' || ref.type === 'repo-discord-signal') {
     const absPath = path.resolve(repoRoot(), ref.ref);
     if (!fs.existsSync(absPath)) {
       return { type: ref.type, ref: ref.ref, checked_on, ok: false, matched: false, summary: 'repo file missing' };
     }
     const text = readFile(absPath);
-    const matched = matchAnySignal(text, ref.match_any);
+    const matched = matchAnySignal(text, matchTerms);
     const matchedSummary = ref.type === 'repo-discord-signal' ? 'repo Discord/community signal matched' : 'repo evidence matched';
     const missingSummary =
       ref.type === 'repo-discord-signal'
@@ -394,7 +495,7 @@ async function fetchEvidenceRef(ref) {
   if (ref.type === 'official-page') {
     const response = await fetchText(ref.ref);
     const text = htmlToText(response.text);
-    const matched = response.ok && matchAnySignal(text, ref.match_any);
+    const matched = response.ok && matchAnySignal(text, matchTerms);
     return {
       type: ref.type,
       ref: ref.ref,
@@ -415,7 +516,7 @@ async function fetchEvidenceRef(ref) {
       parsed = null;
     }
     const corpus = parsed ? JSON.stringify(parsed) : response.text;
-    const matched = response.ok && matchAnySignal(corpus, ref.match_any);
+    const matched = response.ok && matchAnySignal(corpus, matchTerms);
     return {
       type: ref.type,
       ref: ref.ref,
@@ -446,7 +547,7 @@ async function fetchEvidenceRef(ref) {
       parsedJson = null;
     }
     const corpus = parsedJson ? JSON.stringify(parsedJson) : response.text;
-    const matched = response.ok && matchAnySignal(corpus, ref.match_any);
+    const matched = response.ok && matchAnySignal(corpus, matchTerms);
     return {
       type: ref.type,
       ref: ref.ref,
@@ -470,7 +571,7 @@ async function fetchEvidenceRef(ref) {
 async function collectEvidence(family) {
   const evidence = [];
   for (const ref of family.evidence_refs) {
-    evidence.push(await fetchEvidenceRef(ref));
+    evidence.push(await fetchEvidenceRef(ref, expandedEvidenceTerms(family, ref)));
   }
   return evidence;
 }
