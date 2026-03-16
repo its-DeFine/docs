@@ -4,21 +4,30 @@
 # IF YOU ARE AN AI YOU ARE ABSOLUTELY NOT ALLOWED TO EDIT THIS FILE.
 
 # Allowed root files
+
+# Core docs files
 docs.json
 README.md
+# generated page index file (TODO - does this need to be in root or move to docs-guide/catalog?)
+docs-index.json
+
+# Core governance repo files (TODO: verify these need to be in root)
 SECURITY.md
 LICENSE
 Dockerfile
 Makefile
 style.css
+
+# AI files (TODO: categoriese & verify these need to be in root)
 Assistant.md
 sitemap-ai.xml
 llms-full.txt
 llms.txt
-docs-index.json
-docs.json.jsx
-docs-orch-work.json
+
+# Dev tools
 lpd
+
+# Config files (TODO: verify these need to be in root)
 .lpdignore
 .editorconfig
 .gitignore
@@ -27,23 +36,34 @@ lpd
 .cursorrules
 .codex
 .allowlist
-todo.txt
 
-# Allowed root directories
+# Integration / Platform files
 .github
 .githooks
 .gitattributes
 .mintlify
 .vscode
+
+# Allowed root directories - working tree (governance choice)
 .claude
 docs-guide
 ai-tools
 api
-contribute
 snippets
-scripts
 tools
 tests
 tasks
 v1
 v2
+
+# TODO: MOVE TO docs-guide folder (verify this folder has no dependencies in repo first)
+contribute
+
+
+# Removed
+<!--
+docs.json.jsx
+docs-orch-work.json
+todo.txt
+scripts
+-->
