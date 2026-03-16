@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-16T07:05:22.476Z",
+  "generated": "2026-03-16T10:30:42.052Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -13210,8 +13210,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 175,
-      "lastVerified": "2026-03-16T02:54:10+11:00",
+      "wordCount": 160,
+      "lastVerified": "2026-03-16T18:59:00+11:00",
       "headings": [
         {
           "level": 2,
@@ -13222,18 +13222,19 @@
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/navigator",
-      "title": "Should You Run a Livepeer Orchestrator?",
-      "description": "Decide whether to join a pool, run solo, add AI workloads, or operate at fleet scale on Livepeer.",
+      "title": "Find Your Path",
+      "description": "Choose the right orchestrator path based on your situation - hardware, stake, workload goals, and operational model.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
         "orchestrator",
         "navigator",
-        "should-i-run-one",
+        "path",
         "pool",
         "solo",
         "ai",
-        "enterprise",
+        "video",
+        "dual-mode",
         "orchestrators"
       ],
       "entities": [
@@ -13241,32 +13242,20 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 379,
-      "lastVerified": "2026-03-15T20:39:57+11:00",
+      "wordCount": 513,
+      "lastVerified": "2026-03-16",
       "headings": [
         {
           "level": 2,
-          "text": "1. Should you run an orchestrator?"
+          "text": "Choose Your Starting Point"
         },
         {
           "level": 2,
-          "text": "2. Pool vs Solo"
+          "text": "Quick Reference"
         },
         {
           "level": 2,
-          "text": "3. Workload types"
-        },
-        {
-          "level": 2,
-          "text": "4. Costs, stake, and viability"
-        },
-        {
-          "level": 2,
-          "text": "5. Delegates and running pools"
-        },
-        {
-          "level": 2,
-          "text": "Path Matrix"
+          "text": "All Sections"
         }
       ],
       "codeLanguages": []
@@ -13640,7 +13629,7 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/rcs-requirements",
       "title": "Setup Checklist",
-      "description": "Pre-flight checklist for orchestrator setup — confirm hardware, software, network, wallet, and tokens before installing go-livepeer.",
+      "description": "Pre-flight checklist for orchestrator setup - hardware, software, network, wallet, and tokens by node mode before installing go-livepeer.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
@@ -13660,8 +13649,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 359,
-      "lastVerified": "2026-03-15T20:39:57+11:00",
+      "wordCount": 532,
+      "lastVerified": "2026-03-16",
       "headings": [
         {
           "level": 2,
@@ -13677,19 +13666,15 @@
         },
         {
           "level": 2,
-          "text": "Wallet and tokens"
+          "text": "Wallet and Tokens"
         },
         {
           "level": 2,
-          "text": "Arbitrum RPC"
+          "text": "Quick Verification"
         },
         {
           "level": 2,
-          "text": "Quick verification commands"
-        },
-        {
-          "level": 2,
-          "text": "Ready?"
+          "text": "Ready"
         }
       ],
       "codeLanguages": [

@@ -357,13 +357,13 @@ Standard diffusion pipelines require 24 GB VRAM and server-class GPUs. The Ollam
 <StyledSteps>
 
 <StyledStep title="Create a Docker volume for model persistence">
-```bash icon="terminal"
+```bash icon="terminal" title="Create the Ollama model volume"
 docker volume create ollama
 ```
 </StyledStep>
 
 <StyledStep title="Create docker-compose.yml">
-```yaml icon="terminal"
+```yaml icon="terminal" title="docker-compose.yml"
 services:
   ollama-ai-runner:
     image: tztcloud/livepeer-ollama-runner:0.1.1
@@ -403,13 +403,13 @@ volumes:
 </StyledStep>
 
 <StyledStep title="Start the stack">
-```bash icon="terminal"
+```bash icon="terminal" title="Start the Ollama stack"
 docker compose up -d
 ```
 </StyledStep>
 
 <StyledStep title="Pull your LLM model">
-```bash icon="terminal"
+```bash icon="terminal" title="Pull the first Ollama model"
 docker exec -it ollama ollama pull llama3.1:8b
 ```
 
@@ -472,8 +472,6 @@ After restarting your AI worker, check [tools.livepeer.cloud/ai/network-capabili
     <TableCell>~10 GB</TableCell>
   </TableRow>
 </StyledTable>
-
-{/* REVIEW: Confirm current model support list with Cloud SPE / j0sh — table above is based on Ollama public model library, not Livepeer-specific compatibility list */}
 
 <CustomDivider />
 
@@ -652,7 +650,7 @@ Common uses:
 - K8s clusters or GPU farms behind a load balancer
 - Auto-scaling stacks (Docker Swarm, Nomad, Podman)
 
-For building and registering custom containers, see [Hosting Models (BYOC)](/v2/orchestrators/guides/advanced-operations/scale-operations). {/* REVIEW: confirm path */}
+For building and registering custom containers, see [Hosting Models (BYOC)](/v2/orchestrators/guides/advanced-operations/scale-operations).
 
 <CustomDivider />
 
@@ -787,7 +785,7 @@ Visit [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.clou
 **Most common causes:**
 
 1. **Wrong image tag** — verify the `livepeer/ai-runner` image tag exists on Docker Hub. The `-aiRunnerImage` flag is deprecated; use `-aiRunnerImageOverrides` instead.
-2. **VRAM OOM** — if `warm: true` is set and the model exceeds available VRAM, the container starts but crashes immediately after loading. Check `docker logs <container_name>` for OOM messages.
+2. **VRAM OOM** — the container starts, then crashes immediately after loading because `warm: true` exceeds available VRAM. Check `docker logs <container_name>` for OOM messages.
 3. **NVIDIA Container Toolkit not installed** — run `docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi`. If this fails, NVIDIA Container Toolkit is not configured. Follow the [NVIDIA Container Toolkit install guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html).
 </Accordion>
 
@@ -798,7 +796,7 @@ Visit [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.clou
 - Missing the organisation prefix (`RealVisXL_V4.0_Lightning` instead of `SG161222/RealVisXL_V4.0_Lightning`)
 - Using an Ollama tag (`llama3.1:8b`) directly as `model_id` instead of the HuggingFace ID
 
-For external containers, the model must be downloaded inside the container before the AI worker starts. The AI worker polls `/health` at startup — if the model isn't ready yet, the health check fails and the entry is skipped.
+For external containers, download the model inside the container before the AI worker starts. The AI worker polls `/health` at startup. A model that is still downloading fails the health check and the entry is skipped.
 </Accordion>
 
 <Accordion  title="Pipeline receiving no jobs" icon="circle-question">
@@ -852,7 +850,7 @@ This is expected behaviour. SFAST compiles the model graph on the first inferenc
 
 When configuring `aiModels.json`, two external references are authoritative:
 
-**For supported models and pipeline compatibility:** The [AI Model Support](/v2/developers/concepts/ai-on-livepeer) page in the Developers section lists every pipeline type, supported model architectures, minimum VRAM, and current network status. This is the single source of truth for "will this model work on the network?" — use it rather than experimenting with untested model IDs.
+**For supported models and pipeline compatibility:** The [AI Model Support](/v2/developers/concepts/ai-on-livepeer) page in the Developers section lists every pipeline type, supported model architectures, minimum VRAM, and current network status. This is the single source of truth for "will this model work on the network?" Use it before experimenting with untested model IDs.
 
 **For understanding how gateways select your node:** The [Orchestrator Offerings reference](/v2/gateways/resources/technical/orchestrator-offerings) documents the capability discovery protocol — specifically the `capabilities_prices` field structure and how gateways evaluate your node against their `-maxPricePerCapability` configuration. Before setting prices, confirm your prices fall within ranges that major gateways will accept.
 
@@ -884,6 +882,10 @@ When configuring `aiModels.json`, two external references are authoritative:
 </CardGroup>
 
 {/*
+  REVIEW:
+  - Confirm current Ollama support list with Cloud SPE or j0sh. The table above is based on the Ollama public model library.
+  - Confirm the BYOC path for custom-container registration.
+
   PURPOSE:
   "How do I set up diffusion AI pipelines?" Step-by-step for core diffusion
   pipelines (text-to-image, image-to-image, upscale, image-to-video). Docker-compose

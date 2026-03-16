@@ -108,8 +108,6 @@ Each pipeline has a different VRAM footprint and a different pricing unit. The e
 
 `price_per_unit` here is in wei per millisecond of audio. `12882811` wei is approximately $0.0000014 per second of audio at late-2025 ETH/USD rates.
 
-{/* REVIEW: Verify the per-millisecond pricing unit for audio-to-text is correctly implemented in go-livepeer — confirm it is milliseconds and not another audio time unit. j0sh to verify. */}
-
 ### Testing
 
 After restarting the AI worker, check container health:
@@ -136,8 +134,6 @@ Verify registration:
 **VRAM:** Varies by model  
 **Pricing unit:** Per character, or per millisecond of output audio (model-dependent)  
 **Model:** `suno/bark` is the documented baseline model for this pipeline.
-
-{/* REVIEW: Confirm current network-preferred TTS model and whether the pricing unit is per character or per ms — the source docs show "per character or per ms of output audio" which suggests it varies. j0sh to clarify the actual go-livepeer implementation. */}
 
 ### aiModels.json entry
 
@@ -208,8 +204,6 @@ Check [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.clou
 
 `segment-anything-2` can be left cold (no `"warm": true`) unless demand justifies the VRAM cost. The model loads on first request.
 
-{/* REVIEW: Confirm SAM2 model_id format — source shows "facebook/sam2-hiera-large" but the original Meta repository uses "facebookresearch/segment-anything-2". Verify the correct HuggingFace path. Rick / ai-runner team to confirm. */}
-
 ### Testing
 
 After the AI worker starts, verify the pipeline container is running:
@@ -255,11 +249,17 @@ In this configuration, `text-to-image` and `audio-to-text` are warm (both fit wi
   During the Beta phase, only one warm model per GPU is supported. If `text-to-image` and `audio-to-text` are on the same physical GPU, only one can be warm. Assign them to separate GPUs, or keep one cold. Check logs for `Error loading warm model` at startup.
 </Warning>
 
-{/* REVIEW: Confirm whether the one-warm-model-per-GPU Beta constraint applies per-GPU or per-container. If audio-to-text runs in its own container on its own GPU, this constraint may not apply cross-pipeline. Rick / ai-runner team to clarify. */}
-
 <CustomDivider />
 
 ## Related pages
+
+{/*
+  REVIEW:
+  - Verify the audio-to-text pricing unit implementation.
+  - Confirm the preferred text-to-speech model and its pricing unit.
+  - Confirm the SAM2 HuggingFace model ID format.
+  - Confirm whether the one-warm-model-per-GPU constraint applies per GPU or per container.
+*/}
 
 <CardGroup cols={2}>
   <Card title="LLM Pipeline Setup" icon="message-bot" href="/v2/orchestrators/guides/ai-and-job-workloads/llm-pipeline-setup" arrow horizontal>

@@ -33,35 +33,13 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
-{/* TODO:
-Terminology Validation:
-- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
-- Voice converted to entity-led
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
-Verify:
-- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
-- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
-- Tables use StyledTable component
-- Tabs should be surrounded by BorderedBox variant="accent"
-- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
-- All tabs and accordions should have icons
-- No em-dashes are used (instead use standard -)
-- UK spelling is used
-- Headers are concise and technical
-- CustomDivider is used
-- Placeholders for Media and Video Resources are in comments with a TODO for a human
-- REVIEW flags are in JSX comments for a human
-- Accuracy is verified across repo as much as possible
-Human:
-- REVIEW flags
-- Review Page Layout
-*/}
+{/* Draft note: keep copy direct, UK spelling, and route unresolved factual checks to JSX comments only. */}
 
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
-This guide covers the operator-side configuration for video transcoding — how to set your price, how to calculate a safe session limit, how NVENC hardware caps affect concurrency, and what the standard output rendition profiles look like. For hardware benchmarking, see the dedicated [Benchmarking Guide](/v2/orchestrators/guides/config-and-optimisation/capacity-planning).
+Video transcoding configuration turns on three operator decisions: price, safe concurrency, and output profile coverage. For hardware benchmarking, see the dedicated [Benchmarking Guide](/v2/orchestrators/guides/config-and-optimisation/capacity-planning).
 
 <CustomDivider />
 
@@ -69,7 +47,7 @@ This guide covers the operator-side configuration for video transcoding — how 
 
 When a broadcaster sends a live stream to a Livepeer gateway, the gateway segments the stream into roughly 2-second chunks and routes each segment to an orchestrator. Your node receives the raw segment, decodes it with NVDEC, re-encodes it to multiple output renditions using NVENC, and returns the results. The session persists for the duration of the stream — potentially hours. Your node processes dozens or hundreds of segments per session continuously.
 
-```mermaid
+```mermaid title="Video transcoding flow"
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
 sequenceDiagram
     participant GW as Gateway
@@ -84,8 +62,6 @@ sequenceDiagram
 ```
 
 **GPU vs CPU:** NVIDIA GPU-accelerated transcoding via NVENC/NVDEC is strongly recommended. CPU transcoding is possible but rarely competitive on the open market — GPU nodes are faster and cheaper per pixel, which means CPU-only nodes typically price themselves into no-work territory or operate at a loss on electricity.
-
-{/* REVIEW: Confirm minimum NVIDIA driver version for current go-livepeer release. From gpu.md: tested with CUDA 10.0–11.x; note that 450.xx drivers have a known stuck-session issue. Rick to confirm current minimum recommendation. */}
 
 <CustomDivider />
 
@@ -189,18 +165,18 @@ By default, go-livepeer automatically adjusts your advertised price upward to ac
 
 This mechanism keeps your effective earnings stable when Arbitrum gas spikes. **Auto-adjustment is on by default.** To advertise a constant price and manage overhead yourself:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Disable automatic price adjustment"
 -autoAdjustPrice=false
 ```
 
 ### Updating price via livepeer_cli
 
-You can update your price without restarting the node:
+Update your price without restarting the node:
 
 <StyledSteps>
 
 <StyledStep title="Run livepeer_cli">
-```bash icon="terminal"
+```bash icon="terminal" title="Run livepeer_cli"
 livepeer_cli
 ```
 </StyledStep>
@@ -233,13 +209,11 @@ Check your node logs — the updated price appears in the startup or config log 
 
 Gateways set a maximum price they will pay via `-maxPricePerUnit`. Any orchestrator with a price above that maximum receives zero work from that gateway. This threshold is a hard binary — above it you are invisible to that gateway, below it you are in the pool.
 
-Within the pool, lower prices increase your selection probability (gateways weight price among other factors). Being the cheapest does not guarantee the most work, but being above the ceiling guarantees none.
+Within the pool, gateways weigh price, stake, and performance score. Lower prices increase your selection probability. Being above the ceiling guarantees no work.
 
 **Checking current market rates:**
 
 Compare your price to active orchestrators on [Livepeer Explorer](https://explorer.livepeer.org/orchestrators). Filter by active set members and look at advertised price. The median active price is a reasonable starting anchor — price competitively but do not price below your cost.
-
-{/* REVIEW: livepeer.tools was referenced in v1 docs as a market rate tool but the domain is down. tools.livepeer.cloud is the current community equivalent. Confirm with community before publication. */}
 
 <CustomDivider />
 
@@ -335,7 +309,7 @@ In practice, not all sessions peak simultaneously, so you may extend the limit b
 maxSessions = min(hardware_capacity, bandwidth_capacity)
 ```
 
-This is a starting point, not a permanent answer. Monitor your Real-Time Duration Ratio in production (via Prometheus metrics) and back off if it consistently exceeds 0.8 under load.
+This is the starting point. Monitor your Duration Ratio in production (via Prometheus metrics) and back off once it exceeds 0.8 under load.
 
 <Note>
   **CPU transcoding caveat:** If you are transcoding without GPU acceleration, the hardware capacity is much lower — approximately 3–5 sessions on modern CPU hardware. CPU transcoding is not competitive on the network at scale.
@@ -376,8 +350,6 @@ Look up your specific card on the [NVIDIA Video Encode and Decode GPU Support Ma
 
 The NVENC session cap is enforced in the NVIDIA driver, not the GPU hardware. An open-source patch removes it. Titan Node documents this approach for their pool workers. The patch modifies the driver binary and is not officially supported by NVIDIA — operators should read the relevant terms before applying it.
 
-{/* REVIEW: Ada Lovelace (RTX 40xx) generation — confirm whether the NVENC session cap applies or was removed. Rick to verify before publication. */}
-
 **Practical recommendation:** Account for the NVENC cap when calculating your hardware session limit. If your GPU is capped at 3 concurrent NVENC sessions, your hardware limit for the benchmark methodology above is 3, regardless of what the Duration Ratio benchmarks suggest at higher concurrency.
 
 <CustomDivider />
@@ -414,10 +386,8 @@ The standard ABR (Adaptive Bitrate) ladder on the Livepeer network assumes a 108
   </TableRow>
 </StyledTable>
 
-{/* REVIEW: Confirm whether 1080p has been removed from the default transcodingOptions.json or whether it varies per gateway. Rick confirmed 1080p removed from transcodingOptions.json in session 3 — but gateways may still request it in source passthrough. Confirm before publication. */}
-
 The default `-transcodingOptions` flag string is:
-``` icon="terminal"
+``` icon="terminal" title="Default transcodingOptions flag"
 P240p30fps16x9,P360p30fps16x9,P720p30fps16x9
 ```
 
@@ -443,12 +413,12 @@ https://github.com/livepeer/go-livepeer/blob/master/cmd/livepeer_bench/transcodi
 CPU transcoding is not competitive on the Livepeer market. Even a mid-range NVIDIA card (RTX 3060) will outperform a modern CPU on transcoding throughput per watt and per dollar. If you are running without `-nvidia`, you are leaving performance and earnings on the table. The only exception is brief testing scenarios.
 </Accordion>
 
-<Accordion  title="Derive maxSessions from benchmarks, not guesses" icon="triangle-exclamation">
+<Accordion  title="Derive maxSessions from benchmarks" icon="triangle-exclamation">
 The default of 10 is arbitrary. On an RTX 4090, the correct value may be 30+. On an RTX 3060, it may be 8. Always benchmark with `livepeer_bench` on your specific hardware with the standard `transcodingOptions.json` before setting a production value. Wrong values in either direction cost you money.
 </Accordion>
 
-<Accordion  title="Monitor Real-Time Duration Ratio in production" icon="gear">
-Set up Prometheus metrics (`-monitor` flag) and watch the Duration Ratio under real load. If it climbs above 0.8 consistently during peak periods, lower `-maxSessions`. The benchmark is an approximation — real-world stream properties vary and the production value may differ.
+<Accordion  title="Monitor Duration Ratio in production" icon="gear">
+Set up Prometheus metrics (`-monitor` flag) and watch the Duration Ratio under production load. Lower `-maxSessions` once it climbs above 0.8 during peak periods. The benchmark is an approximation — production stream properties vary and the final value may differ.
 </Accordion>
 
 <Accordion  title="Use a domain name for serviceAddr, not a bare IP" icon="microchip">
@@ -483,6 +453,12 @@ The auto-adjustment mechanism is there precisely for Arbitrum gas spikes. Disabl
 </CardGroup>
 
 {/*
+  REVIEW:
+  - Confirm minimum NVIDIA driver recommendation for the current go-livepeer release.
+  - Confirm whether tools.livepeer.cloud is the current community market-rate reference.
+  - Confirm RTX 40xx NVENC session-cap behaviour before publication.
+  - Confirm whether 1080p is removed from the default transcodingOptions.json or varies by gateway.
+
   PURPOSE:
   "How does video transcoding work from my node's perspective?" Segment-based
   pipeline: gateway sends 2-second segments, node decodes (NVDEC), re-encodes to

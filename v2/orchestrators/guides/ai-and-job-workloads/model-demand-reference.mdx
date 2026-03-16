@@ -29,42 +29,20 @@ purpose: reference
 status: published
 lastVerified: 2026-03-13
 ---
-{/* TODO:
-Terminology Validation:
-- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
-- Voice converted to entity-led
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
-Verify:
-- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
-- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
-- Tables use StyledTable component
-- Tabs should be surrounded by BorderedBox variant="accent"
-- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
-- All tabs and accordions should have icons
-- No em-dashes are used (instead use standard -)
-- UK spelling is used
-- Headers are concise and technical
-- CustomDivider is used
-- Placeholders for Media and Video Resources are in comments with a TODO for a human
-- REVIEW flags are in JSX comments for a human
-- Accuracy is verified across repo as much as possible
-Human:
-- REVIEW flags
-- Review Page Layout
-*/}
+{/* Draft note: keep copy direct, UK spelling, and route unresolved factual checks to JSX comments only. */}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
-GPU memory (VRAM) is the primary constraint for AI inference operators on Livepeer. The models you can run, how many pipelines you can warm simultaneously, and how competitive you are on latency all depend on how you allocate VRAM across your workloads.
+GPU memory (VRAM) is the primary constraint for AI inference operators on Livepeer. The models you run, the number of pipelines you keep warm simultaneously, and your latency profile all follow from that VRAM budget.
 
-This page is a practical operator reference: VRAM figures per pipeline, warm model strategy, multi-GPU patterns, and complete `aiModels.json` field documentation.
+Use this reference for pipeline-level VRAM figures, warm model strategy, multi-GPU patterns, and complete `aiModels.json` field documentation.
 
 <CustomDivider />
 
 ## Demand signals
 
-VRAM alone does not determine earnings. The better question is: **which pipeline-model combinations are currently being routed by gateways, and can your hardware keep one of them warm at a competitive price?**
+VRAM alone does not determine earnings. Start with a better question: **which pipeline-model combinations are currently being routed by gateways, and does your hardware keep one of them warm at a competitive price?**
 
 Use these two signals together before loading a model:
 
@@ -77,12 +55,12 @@ Use these two signals together before loading a model:
   <TableRow>
     <TableCell>[tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities)</TableCell>
     <TableCell>Which models and pipelines are currently visible on the network, and whether competitors are advertising them warm or cold</TableCell>
-    <TableCell>Choose a model that gateways are actually requesting, not just one that fits in VRAM</TableCell>
+    <TableCell>Choose a model that gateways are actually requesting and that fits in VRAM</TableCell>
   </TableRow>
   <TableRow>
     <TableCell>[Livepeer Explorer](https://explorer.livepeer.org/orchestrators)</TableCell>
     <TableCell>Which operators are earning fees and whether their pricing is materially above or below your planned rate</TableCell>
-    <TableCell>Set price and warm-model strategy from current routing conditions rather than static rules of thumb</TableCell>
+    <TableCell>Set price and warm-model strategy from current routing conditions and current price distribution</TableCell>
   </TableRow>
 </StyledTable>
 
@@ -194,8 +172,6 @@ These figures are production estimates based on operator deployments and communi
   </TableRow>
 </StyledTable>
 
-{/* REVIEW: These VRAM figures are synthesised from community reports, HuggingFace model cards, and operator Discord data. Rick should validate against go-livepeer AI runner container actual measurements. */}
-
 <CustomDivider />
 
 ## GPU reference by persona
@@ -210,7 +186,7 @@ RTX 2060 (6 GB), RTX 3060 12 GB, RTX 2060 Super (8 GB), RTX 3060 Ti (8 GB)
 - `audio-to-text` — Whisper large-v3 (~3 GB) ✅ fits on 8 GB cards
 - `segment-anything-2` — SAM2 base model (~4–6 GB)
 
-**Not viable:** `text-to-image`, `image-to-image`, `image-to-video`, `live-video-to-video`
+**Leave off this tier:** `text-to-image`, `image-to-image`, `image-to-video`, `live-video-to-video`
 
 **Strategy for this tier:** Run `audio-to-text` and `image-to-text` warm simultaneously — both fit easily in 8 GB and together give you two income streams. Add `llm` on a separate GPU if available.
 
@@ -238,8 +214,8 @@ RTX 4090 (24 GB), A100 40/80 GB, H100 80 GB
 
 **Full pipeline access.** With multiple GPUs:
 - RTX 4090 × 2: warm SDXL on GPU0, warm Whisper + LLM on GPU1
-- A100 80 GB: can warm multiple diffusion models + run `live-video-to-video` simultaneously
-- H100: full fleet for multi-stream real-time AI at production scale
+- A100 80 GB: warms multiple diffusion models and runs `live-video-to-video` simultaneously
+- H100: full fleet for multi-stream live-video AI at production scale
 
 <CustomDivider />
 
@@ -248,14 +224,14 @@ RTX 4090 (24 GB), A100 40/80 GB, H100 80 GB
 ### Pipelines where warm is competitively critical
 
 - **`text-to-image`** — cold load on SDXL takes 30–90 seconds. Gateways will route to warm competitors first. Running cold is essentially not participating.
-- **`live-video-to-video`** — cold loading mid-stream causes noticeable interruption. Always warm for real-time pipelines.
+- **`live-video-to-video`** — cold loading mid-stream causes noticeable interruption. Keep this pipeline warm.
 - **`image-to-image`** — competitive warm advantage, though less severe than text-to-image.
 
 ### Pipelines where cold loading is acceptable
 
 - **`audio-to-text`** — Whisper loads in ~3–5 seconds. First-request latency is tolerable for transcription use cases.
 - **`image-to-text`** — BLIP is very fast to load. Cold loading is acceptable.
-- **`segment-anything-2`** — depends on use case; applications requiring real-time segmentation need warm.
+- **`segment-anything-2`** — keep it warm for segmentation workloads that need uninterrupted response.
 
 ### The Beta warm model constraint
 
@@ -567,7 +543,7 @@ Use the Explorer AI leaderboard to compare your earnings against similar nodes. 
     <TableCell>`meta-llama/Meta-Llama-3.1-8B-Instruct` via Ollama</TableCell>
   </TableRow>
   <TableRow>
-    <TableCell>Real-time AI premium jobs</TableCell>
+    <TableCell>Live-video AI premium jobs</TableCell>
     <TableCell>StreamDiffusion via ComfyStream</TableCell>
   </TableRow>
   <TableRow>
@@ -623,11 +599,9 @@ These figures are approximate and shift with ETH/USD rates and network competiti
   </TableRow>
 </StyledTable>
 
-{/* REVIEW: Pricing figures are illustrative and community-sourced. Alison/Rick to verify against current Explorer data before publishing. */}
-
 ### GPU economics at scale
 
-A fully utilised RTX 4090 running `text-to-image` at competitive pricing and warm load can generate meaningful fee revenue, but actual earnings depend heavily on: network demand at the time, your position in the active set, and gateway routing preferences.
+A fully utilised RTX 4090 running `text-to-image` at competitive pricing and warm load earns strong fee revenue when demand, active-set position, and gateway routing align.
 
 For an economics illustration with current network utilisation figures, see [Orchestrator Economics](/v2/orchestrators/concepts/incentive-model).
 
@@ -635,10 +609,10 @@ For an economics illustration with current network utilisation figures, see [Orc
 
 ## Hosting custom models (BYOC)
 
-The `url` field in `aiModels.json` allows any inference server to serve a pipeline — not just the standard `livepeer/ai-runner` containers. This is the BYOC (Bring Your Own Container) path.
+The `url` field in `aiModels.json` allows any inference server to serve a pipeline, including the standard `livepeer/ai-runner` containers. This is the BYOC (Bring Your Own Container) path.
 
 BYOC use cases:
-- Running models not available on HuggingFace
+- Running models outside the HuggingFace catalogue
 - Fine-tuned proprietary models
 - Custom inference architectures (TensorRT, ONNX, OpenVINO)
 - Models hosted in K8s or a GPU farm behind a load balancer
@@ -653,7 +627,7 @@ The only requirement is the `/health` endpoint contract and matching the AI work
   <Card title="Batch AI Setup" icon="gears" href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup">
     Complete aiModels.json setup guide, Ollama LLM runner deployment, and pipeline configuration.
   </Card>
-  <Card title="Real-time AI Setup" icon="bolt" href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup">
+  <Card title="Cascade Setup" icon="bolt" href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup">
     Cascade architecture, ComfyStream, and live-video-to-video pipeline deployment.
   </Card>
   <Card title="Hardware Requirements" icon="server" href="/v2/orchestrators/setup/rcs-requirements">
@@ -665,6 +639,10 @@ The only requirement is the `/health` endpoint contract and matching the AI work
 </CardGroup>
 
 {/*
+  REVIEW:
+  - Validate VRAM figures against current go-livepeer AI runner container measurements.
+  - Validate illustrative pricing figures against current Explorer data before publication.
+
   PURPOSE:
   "Which models fit my GPU AND are actually being requested?" Two-part reference:
   (1) VRAM requirements by model family mapped to GPU tiers (8/12/16/24/48/80 GB).

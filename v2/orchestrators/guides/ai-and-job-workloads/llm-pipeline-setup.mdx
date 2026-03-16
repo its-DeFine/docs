@@ -125,8 +125,6 @@ go-livepeer connects to the `livepeer-ollama-runner` via the `url` field. The ru
 
     The `livepeer-ai` network must be the same network your go-livepeer container is on. The runner uses the Docker service name `llm_runner` as the hostname — go-livepeer resolves this via the shared network.
 
-    {/* REVIEW: Confirm the runner image tag tztcloud/livepeer-ollama-runner:0.1.1 is current. Cloud SPE to advise latest stable tag. */}
-
   </StyledStep>
 
   <StyledStep title="Start the stack">
@@ -218,8 +216,6 @@ Quantised models reduce precision (typically from float32 to 4-bit integer) to f
   </tbody>
 </StyledTable>
 
-{/* REVIEW: Confirm current Livepeer-compatible model list with Cloud SPE / j0sh. The table above reflects the Ollama public model library, not a Livepeer-specific compatibility list. Some models may require registration on the Livepeer verified model list. */}
-
 For 8 GB VRAM GPUs, use `llama3.1:8b` or `mistral:7b`. The Gemma 2 9B requires approximately 10 GB and may not fit on a single 8 GB card.
 
 ### Model ID mapping
@@ -248,8 +244,6 @@ LLM pricing differs from pixel-based pipelines. Use USD notation with `pixels_pe
 
 This example sets a rate of $0.18 per million tokens (equivalent to $0.18/1M tokens, a competitive rate for 8B parameter models as of early 2026). Adjust based on your GPU's inference throughput and current market rates.
 
-{/* REVIEW: Confirm the LLM pricing unit semantics — whether pixels_per_unit maps to tokens in the go-livepeer LLM implementation, and whether the per-million-tokens framing is accurate. j0sh to verify. */}
-
 Check [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities) for current LLM pipeline pricing from other orchestrators before setting your rate.
 
 <CustomDivider middleText="Testing" />
@@ -268,8 +262,6 @@ curl -X POST http://localhost:8000/llm \
   -d '{"model": "llama3.1:8b", "prompt": "Hello"}'
 ```
 
-{/* REVIEW: Confirm the test endpoint path and request body format for the livepeer-ollama-runner. Cloud SPE to verify current runner API contract. */}
-
 Verify the runner health endpoint is responding:
 
 ```bash icon="terminal"
@@ -280,6 +272,14 @@ curl http://localhost:8000/health
 <CustomDivider />
 
 ## Related pages
+
+{/*
+  REVIEW:
+  - Confirm the current stable `tztcloud/livepeer-ollama-runner` image tag.
+  - Confirm the current Livepeer-compatible Ollama model list.
+  - Confirm LLM pricing semantics for `pixels_per_unit` and token-based pricing.
+  - Confirm the current runner test endpoint path and request body.
+*/}
 
 <CardGroup cols={2}>
   <Card title="AI Inference Operations" icon="microchip" href="/v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations" arrow horizontal>
