@@ -49,6 +49,7 @@ Canonical sources:
 - PR advisory runner: `tools/scripts/docs-page-research-pr-report.js`
 - packet runner: `tools/scripts/docs-research-packet.js`
 - adjudication workflow: `tools/scripts/docs-research-adjudication.js`
+- research-to-plan template: `docs-guide/tooling/research-to-implementation-plan-template.md`
 - local/manual PR prep integration: `tools/scripts/create-codex-pr.js --advisory-research`
 - packet planning template: `docs-guide/tooling/research-review-packet-plan-template.md`
 - forward plan: `tasks/plan/future/page-content-research-trust-roadmap.md`
@@ -234,6 +235,14 @@ Use a single page or cluster run when:
 - a packet root would add more operational overhead than value
 - the next action is immediate page editing rather than section-wide reporting
 
+Use the research-to-plan handoff when:
+
+- the research output is complete but the fixes span content, registry, and runner behavior
+- another agent needs a decision-complete implementation plan before execution
+- the next task is sequencing, not more source verification
+
+The dedicated follow-on skill is `docs-research-to-implementation-plan`. It consumes page reports, PR advisory reports, or research packets and turns them into a planning-only implementation artifact.
+
 ## Expected Outputs
 
 Every substantive run should surface some combination of:
@@ -252,6 +261,16 @@ Operators should prefer conservative interpretation:
 - if evidence is weak, treat the claim as unresolved
 - if wording is stronger than the evidence, downgrade the wording
 - if the same claim appears elsewhere, queue propagation work instead of fixing one page in isolation
+
+## Discovery Boundaries
+
+The runner can now discover supporting evidence beyond explicit `evidence_refs`, but the ranking stays strict:
+
+- active repo files and official pages remain the highest default sources for current-state claims
+- `v1/**` is a historical lineage lane, not a silent current-state override
+- `_contextData/**`, `_plans-and-research/**`, `_workspace/research/**`, and `v2/x-archived/**` are context lanes only
+- GitHub discovery is strongest for implementation-status and support-status families
+- DeepWiki is corroboration only and should not become primary evidence for current product truth
 
 ## Trust Summary
 

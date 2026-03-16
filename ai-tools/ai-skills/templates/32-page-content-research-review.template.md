@@ -47,7 +47,8 @@ Workflow
 4. If a claim family changes or remains conflicted, run `$docs-impact-propagation` to identify every dependent page that should be reviewed.
 5. Run `$docs-change-review` only for factual contradiction severity, overstatement, and claim-presentation quality.
 6. Save outputs in the standard report contract so evidence, contradictions, and propagation queues can be reused.
-7. If the reviewed claim family is reusable beyond the current page, update the repo-native fact registry in `tasks/research/claims/`.
+7. If the request is to plan fixes rather than apply them immediately, hand off the artifact to `$docs-research-to-implementation-plan`.
+8. If the reviewed claim family is reusable beyond the current page, update the repo-native fact registry in `tasks/research/claims/`.
 
 Deliverable Format
 - Short scope statement naming the page or diff reviewed.

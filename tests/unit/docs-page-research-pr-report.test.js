@@ -27,7 +27,12 @@ function mkTmpDir(prefix) {
 function runScript(args) {
   return spawnSync('node', [SCRIPT_PATH, ...args], {
     cwd: REPO_ROOT,
-    encoding: 'utf8'
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      DOCS_RESEARCH_DISABLE_DISCOVERY: '1',
+      DOCS_RESEARCH_DISABLE_REMOTE_DISCOVERY: '1'
+    }
   });
 }
 

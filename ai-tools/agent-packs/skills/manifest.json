@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-16T15:53:55.873Z",
+  "generated_at": "2026-03-16T18:07:31.688Z",
   "source_dir": "ai-tools/ai-skills/templates",
   "skills": [
     {
@@ -463,6 +463,18 @@
       "description": "Generate report-only research packets from live nav scope, manifests, or explicit files and folders so section-level fact-check findings can be produced consistently without bespoke one-off runners.",
       "source_template": "ai-tools/ai-skills/templates/37-docs-research-packet-generation.template.md",
       "pack_path": "ai-tools/agent-packs/skills/docs-research-packet-generation/SKILL.md",
+      "supported_agents": [
+        "codex",
+        "cursor",
+        "claude",
+        "windsurf"
+      ]
+    },
+    {
+      "name": "docs-research-to-implementation-plan",
+      "description": "Turn docs research outputs into a decision-complete implementation plan so factual findings become ordered repo work without re-deciding scope, risks, or validation gates.",
+      "source_template": "ai-tools/ai-skills/templates/38-docs-research-to-implementation-plan.template.md",
+      "pack_path": "ai-tools/agent-packs/skills/docs-research-to-implementation-plan/SKILL.md",
       "supported_agents": [
         "codex",
         "cursor",

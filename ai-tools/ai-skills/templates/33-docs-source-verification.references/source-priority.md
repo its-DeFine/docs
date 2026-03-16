@@ -9,7 +9,24 @@ Use the highest-ranked source available for each claim.
 3. Official release notes, changelogs, and status pages
 4. Upstream GitHub issues, PRs, discussions, and tags that directly define behavior
 5. Official governance proposals, forum decisions, milestone reports, or foundation announcements
-6. Secondary summaries only when primary evidence is unavailable
+6. Historical repo lineage in `v1/**` when the claim is explicitly historical
+7. Approved repo context lanes such as `_contextData/**`, `_plans-and-research/**`, `_workspace/research/**`, and `v2/x-archived/**` as supporting context only
+8. DeepWiki and other secondary summaries only when primary evidence is unavailable and the output keeps them as corroboration
+
+## Truth Modes
+
+- `repo_behavior`
+  - prefer active repo files, code, tests, and current docs
+  - do not let open issues outrank current shipped behavior
+- `implementation_status`
+  - prefer releases and merged PRs, then issues, then forum or context
+  - use issues as status evidence, not as a substitute for shipped behavior
+- `support_status`
+  - prefer official pages and current forum or milestone signals
+  - GitHub can support status, but it should not silently outrank current public support surfaces
+- `historical_lineage`
+  - prefer `v1/**` and archived repo material ahead of context-only notes
+  - keep historical evidence clearly separate from present-tense claims
 
 ## Acceptance Rules
 
@@ -29,3 +46,4 @@ Record:
 - the outcome
 - any confidence caveat
 - whether GitHub or forum were checked when the claim family requires them
+- whether the winning evidence was explicit or discovered

@@ -358,11 +358,12 @@ function uniqueOrdered(values) {
 }
 
 function normalizeTranchePages(rawPages, title) {
-  const pages = rawPages.map((page, pageIndex) => {
+  const pages = rawPages.flatMap((page, pageIndex) => {
     if (typeof page !== 'string' || !page.trim()) {
       throw new Error(`${title} page entry at index ${pageIndex} must be a non-empty string route.`);
     }
-    return normalizeRoute(page);
+    const normalized = normalizeRoute(page);
+    return isExcludedRepoPath(normalized) ? [] : [normalized];
   });
   return uniqueOrdered(pages);
 }
@@ -394,7 +395,7 @@ function buildNavTranches(nav, options) {
           title: navTitleForSection(entry, `${options.group} ${index + 1}`),
           slug: `${String(index + 1).padStart(2, '0')}-${slugify(navTitleForSection(entry, `${options.group} ${index + 1}`))}`,
           pages: normalizeTranchePages(entry.pages, navTitleForSection(entry, `${options.group} ${index + 1}`))
-        }))
+        })).filter((tranche) => tranche.pages.length > 0)
       : [
           {
             index: 1,
@@ -442,6 +443,7 @@ function isDefaultExcludedRepoPath(repoPath) {
   if (!(base.endsWith('.md') || base.endsWith('.mdx'))) return true;
   if (normalized.includes('/x-deprecated/')) return true;
   if (base.startsWith('dep-')) return true;
+  if (/^draft\d*-/.test(base)) return true;
   return DEFAULT_EXCLUDED_BASENAMES.has(base);
 }
 

@@ -30,6 +30,8 @@ Constraints
 - Keep exact evidence notes for what was verified, rewritten conservatively, or removed.
 - If a claim cannot be verified, do not preserve it in confident language.
 - Distinguish current terminology from historical terminology when a concept or page name has changed.
+- Treat `v1/**` as historical lineage evidence and `_contextData/**`, `_plans-and-research/**`, `_workspace/research/**`, and `v2/x-archived/**` as lower-ranked context lanes, not silent current-state truth.
+- Treat DeepWiki as corroboration only; it can help with terminology and architecture orientation but should not outrank current code, docs, releases, or authoritative status sources.
 
 Canonical docs-guide source
 - `docs-guide/policies/source-of-truth-policy.mdx`
@@ -42,10 +44,11 @@ When to load references
 Workflow
 1. Extract factual claims from the target page or diff, especially dated numbers, product behavior, workflows, support statements, and pricing or limit language.
 2. Rank candidate sources using the source hierarchy, preferring primary sources first.
-3. Verify each claim and record the result in the repo-native fact registry with source, date checked, and outcome.
-4. When relevant, check GitHub and forum directly instead of relying on repo wording alone.
-5. Rewrite unverifiable claims conservatively or remove them if the page would otherwise mislead readers.
-6. Return the verified set, conflicted set, time-sensitive set, and unresolved set with exact follow-up needs.
+3. When the claim family warrants it, let the runner discover supporting evidence from `v1/**`, approved repo context lanes, GitHub `livepeer/*` issues or PRs, and public DeepWiki pages.
+4. Verify each claim and record the result in the repo-native fact registry with source, date checked, and outcome.
+5. When relevant, check GitHub and forum directly instead of relying on repo wording alone.
+6. Rewrite unverifiable claims conservatively or remove them if the page would otherwise mislead readers.
+7. Return the verified set, conflicted set, time-sensitive set, and unresolved set with exact follow-up needs.
 
 Deliverable Format
 - Claim-family ledger summarizing each material claim and its status.
