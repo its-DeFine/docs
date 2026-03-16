@@ -1,21 +1,17 @@
 ---
-title: 'Alternate Deployment Options and Setup Paths'
-sidebarTitle: 'Deployment Options'
-description: >-
-  The three alternatives to running go-livepeer as a single-process deployment -
-  pool worker, O-T split, and Siphon. What each solves and how to choose.
+title: 'Setup Options'
+sidebarTitle: 'Setup Options'
+description: 'Choose the right deployment path for running a Livepeer orchestrator - solo, pool node, O-T split, siphon, and dual mode workload configuration.'
 keywords:
   - livepeer
   - orchestrator
-  - pool worker
-  - o-t split
-  - orchestrator transcoder
-  - siphon
-  - OrchestratorSiphon
+  - setup options
   - deployment
-  - alternate setup
-  - split setup
-  - two machine
+  - pool node
+  - solo
+  - o-t split
+  - siphon
+  - dual mode
 'og:image': /snippets/assets/site/og-image/en/orchestrators.png
 'og:image:alt': Livepeer Docs social preview image for Orchestrators
 'og:image:type': image/png
@@ -25,257 +21,432 @@ pageType: guide
 audience: orchestrator
 purpose: orientation
 status: current
-lastVerified: '2026-03-15'
+lastVerified: '2026-03-17'
 ---
 
-{/* TODO:
-Verify:
-- Mermaid diagrams use theme colours
-- Tables use StyledTable with thead and tbody
-- UK spelling throughout
-*/}
-
-import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+import { LinkArrow } from '/snippets/components/primitives/links.jsx'
+import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 
 <CustomDivider />
 
-The default [`go-livepeer`](https://github.com/livepeer/go-livepeer) installation runs Orchestrator and Transcoder as a single-process deployment
-on one machine. Use an alternate deployment when the node needs a different operational split:
-worker-only earnings, separated protocol and GPU roles, or keystore isolation. The standard path is
-documented in the <LinkArrow href="/v2/orchestrators/setup/guide" label="Setup Guide" newline={false} />.
+There are five ways to deploy a Livepeer orchestrator. The right choice depends on LPT access, operational tolerance, and how many machines are involved. This page covers all five, then addresses the separate question of workload type (video, AI, or dual mode).
 
-## At a Glance
+<Note>
+Two independent decisions determine an orchestrator deployment:
+1. **Deployment type** (this section) - how the infrastructure is organised
+2. **Workload mode** (bottom of this page) - what jobs the node processes
+
+Any deployment type can run any workload mode.
+</Note>
+
+<CustomDivider middleText="Find Your Path" />
+
+## Three Questions
+
+<AccordionGroup>
+  <Accordion title="1. Do you want direct control over your node?" icon="server">
+    **Yes** - Solo orchestrator, O-T split, or siphon. The operator registers on-chain, holds stake, sets prices, and earns directly.
+
+    **No** - Pool node. The pool operator handles all protocol operations. The worker contributes GPU compute and receives off-chain payouts from the pool operator.
+
+    <LinkArrow href="/v2/orchestrators/guides/deployment-details/join-a-pool" label="Join a Pool" />
+  </Accordion>
+
+  <Accordion title="2. Do you have LPT to stake?" icon="coins">
+    Solo orchestrators must activate on-chain by staking LPT. The active set (top orchestrators by total bonded stake) determines video job eligibility. The current threshold varies - check [Livepeer Explorer](https://explorer.livepeer.org/orchestrators) for current rankings.
+
+    {/* REVIEW: confirm current active set size with Rick/Mehrdad */}
+
+    Without LPT, **joining a pool** is the practical entry point. AI-only operators need minimal LPT (enough to activate, not enough for active set) since AI routing is capability-based, not stake-based.
+  </Accordion>
+
+  <Accordion title="3. How many machines are involved?" icon="network-wired">
+    **One machine** - Solo orchestrator (standard go-livepeer). Everything runs in one process.
+
+    **Two machines** - O-T split or siphon. The protocol/keystore runs on a secure machine, the GPU work runs on a separate machine.
+
+    **Many machines** - O-T split with multiple transcoders, or a pool operator accepting external workers.
+
+    <LinkArrow href="/v2/orchestrators/guides/advanced-operations/scale-operations" label="Scale Operations" />
+  </Accordion>
+</AccordionGroup>
+
+<CustomDivider middleText="All Deployment Types" />
+
+## Deployment Types
 
 <StyledTable variant="bordered">
   <thead>
     <TableRow header>
-      <TableCell header>Alternative</TableCell>
-      <TableCell header>What it solves</TableCell>
-      <TableCell header>What it requires</TableCell>
+      <TableCell header>Deployment type</TableCell>
+      <TableCell header>What it is</TableCell>
+      <TableCell header>LPT required</TableCell>
+      <TableCell header>Machines</TableCell>
+      <TableCell header>Complexity</TableCell>
       <TableCell header>Guide</TableCell>
     </TableRow>
   </thead>
   <tbody>
     <TableRow>
-      <TableCell>**Pool worker**</TableCell>
-      <TableCell>Earn from GPU compute through a pool worker path with the operator handling stake and protocol operations</TableCell>
-      <TableCell>GPU; a pool to join; zero stake</TableCell>
-      <TableCell>[Join a Pool](/v2/orchestrators/guides/deployment-details/join-a-pool)</TableCell>
+      <TableCell>**Solo orchestrator**</TableCell>
+      <TableCell>Single go-livepeer process handles protocol, routing, and GPU work. Full control, full earnings.</TableCell>
+      <TableCell>Active set threshold (video) or minimal (AI-only)</TableCell>
+      <TableCell>1</TableCell>
+      <TableCell>Medium</TableCell>
+      <TableCell><LinkArrow href="/v2/orchestrators/setup/guide" label="Setup Guide" newline={false} /></TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Pool node**</TableCell>
+      <TableCell>GPU-only process connecting to a pool operator's orchestrator. No staking, no protocol management. Earnings via off-chain pool payouts.</TableCell>
+      <TableCell>None</TableCell>
+      <TableCell>1</TableCell>
+      <TableCell>Low</TableCell>
+      <TableCell><LinkArrow href="/v2/orchestrators/guides/deployment-details/join-a-pool" label="Join a Pool" newline={false} /></TableCell>
     </TableRow>
     <TableRow>
       <TableCell>**O-T split**</TableCell>
-      <TableCell>Separate protocol management from GPU workload processing; scale Transcoder machines independently</TableCell>
-      <TableCell>Dedicated Orchestrator and Transcoder hosts; staked LPT; shared `-orchSecret`</TableCell>
-      <TableCell>[O-T Split](/v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup)</TableCell>
+      <TableCell>Orchestrator and transcoder as separate processes on separate machines. The orchestrator handles protocol and routing (no GPU). The transcoder handles GPU work. Connected by shared secret.</TableCell>
+      <TableCell>Active set threshold</TableCell>
+      <TableCell>2+</TableCell>
+      <TableCell>Medium-High</TableCell>
+      <TableCell><LinkArrow href="/v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup" label="O-T Split" newline={false} /></TableCell>
     </TableRow>
     <TableRow>
       <TableCell>**Siphon**</TableCell>
-      <TableCell>Keep the keystore on an isolated machine; GPU restarts leave LPT rewards uninterrupted</TableCell>
-      <TableCell>Two machines; staked LPT; Python on secure machine</TableCell>
-      <TableCell>[Siphon Setup](/v2/orchestrators/guides/deployment-details/siphon-setup)</TableCell>
+      <TableCell>Secure machine runs OrchestratorSiphon (Python) for keystore, reward calling, and on-chain operations. GPU machine runs go-livepeer transcoder. Reward calling continues even when GPU machine is down.</TableCell>
+      <TableCell>Active set threshold</TableCell>
+      <TableCell>2</TableCell>
+      <TableCell>Medium</TableCell>
+      <TableCell><LinkArrow href="/v2/orchestrators/guides/deployment-details/siphon-setup" label="Siphon Setup" newline={false} /></TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Pool operator**</TableCell>
+      <TableCell>An orchestrator that accepts external GPU workers. Manages on-chain operations and distributes earnings to workers off-chain. Extension of the O-T split pattern.</TableCell>
+      <TableCell>Active set threshold + buffer</TableCell>
+      <TableCell>2+</TableCell>
+      <TableCell>High</TableCell>
+      <TableCell><LinkArrow href="/v2/orchestrators/guides/advanced-operations/pool-operators" label="Pool Operators" newline={false} /></TableCell>
     </TableRow>
   </tbody>
 </StyledTable>
 
-<CustomDivider middleText="Pool Worker" />
+<Warning>
+**A pool node is not a pool operator.** A pool node joins someone else's pool and contributes GPU compute. A pool operator runs the orchestrator that accepts external workers. These are different deployment types with different requirements.
+</Warning>
 
-## Pool Worker
+<CustomDivider middleText="Type Details" />
 
-A pool worker runs `go-livepeer -transcoder` against an existing pool operator's Orchestrator
-address. The pool operator handles staking, reward calling, pricing, and Gateway relationships.
-The worker contributes GPU compute and receives off-chain payouts.
+## Deployment Type Details
 
-**Use this when:** LPT is unavailable, or protocol management stays with the pool operator. It is
-the lowest-barrier path from GPU hardware to earnings.
+<Tabs>
+  <Tab title="Solo" icon="server">
+    The standard path. A single go-livepeer process on one machine handles protocol operations, job routing, and GPU work.
 
-**What changes from the single-process deployment:**
+    **The operator controls:** pricing, stake, workloads, reward calling, uptime - everything.
 
-- Use the `-transcoder` flag only; the process handles GPU work and never routes jobs
-- Keep the Ethereum keystore on the pool operator side
-- Let the pool operator handle registration and activation
-- Receive payouts directly from the pool operator
+    <StyledTable variant="bordered">
+      <thead>
+        <TableRow header>
+          <TableCell header>Aspect</TableCell>
+          <TableCell header>Detail</TableCell>
+        </TableRow>
+      </thead>
+      <tbody>
+        <TableRow>
+          <TableCell>**LPT**</TableCell>
+          <TableCell>Active set threshold for video. Minimal for AI-only.</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>**Machines**</TableCell>
+          <TableCell>1</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>**Key flags**</TableCell>
+          <TableCell>`-orchestrator -transcoder -nvidia`</TableCell>
+        </TableRow>
+      </tbody>
+    </StyledTable>
 
-```bash icon="terminal" title="Pool worker command"
-# Pool worker - transcoder mode only
-livepeer \
-    -transcoder \
-    -orchAddr <pool-orchestrator-address>:8935 \
-    -nvidia 0 \
-    -maxSessions 10
-```
+    <BorderedBox variant="accent" padding="16px">
+      **Tradeoff:** Full margins and direct payouts. But if the machine goes down mid-round, that round's LPT inflation reward is permanently lost.
+    </BorderedBox>
 
-See <LinkArrow href="/v2/orchestrators/guides/deployment-details/join-a-pool" label="Join a Pool" newline={false} /> for how to evaluate pools and connect.
+    <Card title="Setup Guide" icon="gear" href="/v2/orchestrators/setup/guide" arrow>
+      Install, configure, connect, and verify.
+    </Card>
+  </Tab>
 
-<CustomDivider middleText="O-T Split" />
+  <Tab title="Pool Node" icon="users">
+    A GPU-only process connecting to a pool operator's orchestrator. No staking, no on-chain registration, no protocol management.
 
-## O-T Split
+    **The operator controls:** which pool to join, GPU hardware, when to switch.
 
-The O-T split separates what the single-process deployment runs together. The Orchestrator process
-handles protocol operations, routing, reward calling, and keystore access on one machine. The
-Transcoder process handles GPU work on one or more other machines. The two connect over the network
-using a shared secret (`-orchSecret`).
+    **The pool controls:** registration, staking, pricing, reward calling, payout schedules.
 
-**Use this when:** running multiple GPU machines under one Orchestrator identity, or when
-optimising each machine for its specific role: a stable lightweight server for the Orchestrator and
-dedicated GPU hardware for transcoding.
+    <StyledTable variant="bordered">
+      <thead>
+        <TableRow header>
+          <TableCell header>Aspect</TableCell>
+          <TableCell header>Detail</TableCell>
+        </TableRow>
+      </thead>
+      <tbody>
+        <TableRow>
+          <TableCell>**LPT**</TableCell>
+          <TableCell>None</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>**Machines**</TableCell>
+          <TableCell>1</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>**Key flags**</TableCell>
+          <TableCell>`-transcoder -orchAddr <pool> -orchSecret <secret>`</TableCell>
+        </TableRow>
+      </tbody>
+    </StyledTable>
 
-```mermaid title="O-T split topology"
+    <BorderedBox variant="accent" padding="16px">
+      **Tradeoff:** Lowest barrier to GPU earnings. But dependent on the pool operator for payouts - no on-chain record of individual worker contributions.
+    </BorderedBox>
+
+    <Card title="Join a Pool" icon="users" href="/v2/orchestrators/guides/deployment-details/join-a-pool" arrow>
+      Evaluate pools, connect as a worker, start earning.
+    </Card>
+  </Tab>
+
+  <Tab title="O-T Split" icon="diagram-project">
+    Orchestrator and transcoder as separate processes on separate machines. The orchestrator handles protocol (no GPU). The transcoder handles GPU work. Connected by a shared secret.
+
+    **The operator controls:** everything, but responsibilities are split across machines.
+
+    <StyledTable variant="bordered">
+      <thead>
+        <TableRow header>
+          <TableCell header>Aspect</TableCell>
+          <TableCell header>Detail</TableCell>
+        </TableRow>
+      </thead>
+      <tbody>
+        <TableRow>
+          <TableCell>**LPT**</TableCell>
+          <TableCell>Active set threshold (on orchestrator)</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>**Machines**</TableCell>
+          <TableCell>2+ (1 orchestrator + N transcoders)</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>**Key flags**</TableCell>
+          <TableCell>Orchestrator: `-orchestrator -orchSecret`. Transcoder: `-transcoder -orchAddr -orchSecret -nvidia`</TableCell>
+        </TableRow>
+      </tbody>
+    </StyledTable>
+
+    <BorderedBox variant="accent" padding="16px">
+      **Tradeoff:** Security isolation and independent GPU scaling. But more infrastructure to manage. Also the architectural foundation for running a pool.
+    </BorderedBox>
+
+    <Card title="O-T Split Setup" icon="diagram-project" href="/v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup" arrow>
+      Separate protocol from GPU work. Connect multiple GPU machines.
+    </Card>
+  </Tab>
+
+  <Tab title="Siphon" icon="shield-halved">
+    A secure machine runs OrchestratorSiphon (Python) for keystore, reward calling, and on-chain operations. A GPU machine runs go-livepeer in transcoder mode. Reward calling continues even when the GPU machine is down.
+
+    **The operator controls:** everything, via OrchestratorSiphon on the secure machine.
+
+    <StyledTable variant="bordered">
+      <thead>
+        <TableRow header>
+          <TableCell header>Aspect</TableCell>
+          <TableCell header>Detail</TableCell>
+        </TableRow>
+      </thead>
+      <tbody>
+        <TableRow>
+          <TableCell>**LPT**</TableCell>
+          <TableCell>Active set threshold</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>**Machines**</TableCell>
+          <TableCell>2 (secure + GPU)</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>**Key tool**</TableCell>
+          <TableCell>OrchestratorSiphon (Python, `config.ini`)</TableCell>
+        </TableRow>
+      </tbody>
+    </StyledTable>
+
+    <BorderedBox variant="accent" padding="16px">
+      **Tradeoff:** Reward calling is independent of GPU machine state - GPU restarts do not affect LPT earnings. But requires managing two machines and a Python tool.
+    </BorderedBox>
+
+    <Card title="Siphon Setup" icon="shield-halved" href="/v2/orchestrators/guides/deployment-details/siphon-setup" arrow>
+      Keystore isolation and reward safety.
+    </Card>
+  </Tab>
+
+  <Tab title="Pool Operator" icon="network-wired">
+    An orchestrator that accepts external GPU workers. Manages on-chain operations and distributes earnings to workers off-chain. Extension of the O-T split pattern.
+
+    **The operator controls:** on-chain identity, pricing, worker acceptance, fee distribution.
+
+    <StyledTable variant="bordered">
+      <thead>
+        <TableRow header>
+          <TableCell header>Aspect</TableCell>
+          <TableCell header>Detail</TableCell>
+        </TableRow>
+      </thead>
+      <tbody>
+        <TableRow>
+          <TableCell>**LPT**</TableCell>
+          <TableCell>Active set threshold + buffer for reliability</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>**Machines**</TableCell>
+          <TableCell>2+ (orchestrator + external workers)</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>**Key difference**</TableCell>
+          <TableCell>Accepts external `-transcoder` connections via `-orchSecret`</TableCell>
+        </TableRow>
+      </tbody>
+    </StyledTable>
+
+    <BorderedBox variant="accent" padding="16px">
+      **Tradeoff:** Earn from other operators' GPU capacity. But highest operational complexity - off-chain fee distribution requires trust, process, and communication with workers.
+    </BorderedBox>
+
+    <Card title="Pool Operators" icon="network-wired" href="/v2/orchestrators/guides/advanced-operations/pool-operators" arrow>
+      Worker management, fee distribution, and pool economics.
+    </Card>
+  </Tab>
+</Tabs>
+
+<CustomDivider middleText="Decision Tree" />
+
+## Decision Tree
+
+<ScrollableDiagram title="Deployment Decision" maxHeight="420px">
+
+```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
-flowchart LR
-    GW["Gateway"] -->|"port 8935"| O["Orchestrator machine\nKeystore, reward calling,\njob routing. No GPU needed."]
-    O -->|"orchSecret"| T1["Transcoder 1\nGPU machine"]
-    O -->|"orchSecret"| T2["Transcoder 2\nGPU machine"]
+flowchart TD
+    classDef default stroke-width:2px
+    classDef outcome fill:#1a1a1a,color:#fff,stroke:#18794E,stroke-width:2px
 
-    classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
+    Q1["Want direct control\nover pricing and operations?"] -->|No| POOL["Pool node"]
+    Q1 -->|Yes| Q2["Have LPT to stake?"]
+
+    Q2 -->|"No / not yet"| POOL
+    Q2 -->|Yes| Q3["How many machines?"]
+
+    Q3 -->|"One machine"| SOLO["Solo orchestrator"]
+    Q3 -->|"Two machines\n(key isolation)"| Q4["Priority?"]
+    Q3 -->|"Many machines\nor accept workers"| OT["O-T split / Pool operator"]
+
+    Q4 -->|"Reward safety"| SIPHON["Siphon"]
+    Q4 -->|"GPU scaling"| OT
+
+    SOLO --> WORK["Choose workload mode ↓"]
+    SIPHON --> WORK
+    OT --> WORK
+    POOL --> DONE["Follow pool\noperator instructions"]
+
+    class POOL,SOLO,SIPHON,OT,DONE outcome
 ```
 
-**What changes from the single-process deployment:**
+</ScrollableDiagram>
 
-- Orchestrator machine runs `livepeer -orchestrator` with no `-transcoder` flag and no GPU
-- Each GPU machine runs `livepeer -transcoder` with no keystore and no Arbitrum RPC
-- `-orchSecret` authenticates the Orchestrator-to-Transcoder connection
-- Total session capacity is the sum of all connected Transcoder `-maxSessions` values
+<CustomDivider middleText="Workload Mode" />
 
-The O-T split is also the architectural basis for running a pool. A pool extends this pattern to
-accept connections from external workers.
+## Workload Mode
 
-See <LinkArrow href="/v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup" label="O-T Split Setup" newline={false} /> for setup steps, flag reference, and multi-Transcoder setup.
-
-<CustomDivider middleText="Siphon" />
-
-## Siphon
-
-The Siphon setup also uses a secure machine and a GPU machine, but the secure side runs
-**OrchestratorSiphon**. This lightweight Python tool handles on-chain operations only: reward
-calling, fee withdrawal, governance voting, and service URI updates.
-
-The GPU machine runs `livepeer -transcoder` identically to the O-T split.
-
-**Use this when:** the GPU machine's uptime cannot be trusted to protect LPT rewards, when the
-keystore must be kept completely separate from the machine processing untrusted media data, or when
-inflation rewards are needed before GPU infrastructure is ready.
-
-```mermaid title="Siphon topology"
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
-flowchart LR
-    subgraph S["Secure machine (no GPU)"]
-        SIP["OrchestratorSiphon\nKeystore, reward calling,\nfee withdrawal, governance"]
-    end
-    subgraph G["GPU machine"]
-        T["go-livepeer -transcoder\nVideo segments, AI inference"]
-    end
-    SIP -->|"reward() each round"| CHAIN["Arbitrum One"]
-    CHAIN -.->|"routes work via\nservice URI"| T
-
-    classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
-    style S fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
-    style G fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
-```
-
-**The critical difference from O-T split:** in the O-T split, reward calls stop when the
-Orchestrator machine goes down. With Siphon, the secure machine calls rewards independently of the
-GPU machine state. GPU maintenance, replacement, and temporary downtime leave LPT inflation rewards unchanged.
-
-**Other differences from the single-process deployment:**
-
-- Secure machine runs OrchestratorSiphon (Python, `config.ini`)
-- GPU machine runs `livepeer -transcoder` with workload processing only
-- Secure machine needs outbound access to Arbitrum RPC and keeps port 8935 closed
-
-<Tip>
-Siphon runs on the secure machine alone to keep claiming LPT inflation rewards while GPU
-infrastructure is being set up. When ready, deploy the GPU machine in transcoder
-mode and update the service URI. No changes to the keystore or on-chain registration are needed.
-</Tip>
-
-See <LinkArrow href="/v2/orchestrators/guides/deployment-details/siphon-setup" label="Siphon Setup" newline={false} /> for installation, setup details, and production operation.
-
-<CustomDivider middleText="Choosing" />
-
-## Choosing the Right Alternative
+Deployment type and workload mode are independent decisions. Any deployment type above can run any workload mode below.
 
 <StyledTable variant="bordered">
   <thead>
     <TableRow header>
-      <TableCell header>Situation</TableCell>
-      <TableCell header>Right path</TableCell>
+      <TableCell header>Mode</TableCell>
+      <TableCell header>Workloads</TableCell>
+      <TableCell header>Min VRAM</TableCell>
+      <TableCell header>Pricing</TableCell>
+      <TableCell header>Gateway selection</TableCell>
     </TableRow>
   </thead>
   <tbody>
     <TableRow>
-      <TableCell>No LPT, just a GPU</TableCell>
-      <TableCell>**Pool worker** - worker-only earnings path</TableCell>
+      <TableCell><Badge color="blue">Video</Badge></TableCell>
+      <TableCell>RTMP transcoding to HLS via NVENC/NVDEC</TableCell>
+      <TableCell>4 GB (any NVENC GPU)</TableCell>
+      <TableCell>`-pricePerUnit` (wei per pixel)</TableCell>
+      <TableCell>Stake + price + performance</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell>One machine, comfortable with the single-process deployment</TableCell>
-      <TableCell>**Standard single-process deployment** - see the Setup Guide for the default architecture</TableCell>
+      <TableCell><Badge color="purple">AI</Badge></TableCell>
+      <TableCell>Inference: text-to-image, LLM, audio, vision, and more</TableCell>
+      <TableCell>8 GB (LLM via Ollama) to 24 GB+ (diffusion)</TableCell>
+      <TableCell>`aiModels.json` per pipeline</TableCell>
+      <TableCell>Capability match + price</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell>Multiple GPU machines under one Orchestrator identity</TableCell>
-      <TableCell>**O-T split** - scale Transcoder machines behind a single Orchestrator</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>GPU machine uptime is uncertain; LPT rewards must be protected</TableCell>
-      <TableCell>**Siphon** - reward calling is independent of GPU machine state</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>Keystore must be isolated from the media-processing machine</TableCell>
-      <TableCell>**Siphon** - GPU machine never holds the keystore</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>Earn inflation rewards before GPU hardware is ready</TableCell>
-      <TableCell>**Siphon** (secure machine only) - add GPU machine later without re-registration</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>Running a pool for external workers</TableCell>
-      <TableCell>**O-T split** as the foundation - then see <LinkArrow href="/v2/orchestrators/guides/advanced-operations/pool-operators" label="Run a Pool" newline={false} /></TableCell>
+      <TableCell><Badge color="green">Dual</Badge></TableCell>
+      <TableCell>Both video transcoding and AI inference from one process</TableCell>
+      <TableCell>16-24 GB (video + one warm AI model)</TableCell>
+      <TableCell>Both `-pricePerUnit` and `aiModels.json`</TableCell>
+      <TableCell>Both selection methods independently</TableCell>
     </TableRow>
   </tbody>
 </StyledTable>
 
+<Badge color="green">Dual</Badge> mode is the most common production configuration. NVENC/NVDEC (video) use dedicated silicon that does not compete with CUDA cores (AI). Both workloads share VRAM. A 24 GB GPU supports video transcoding alongside one warm AI model.
+
+For full dual mode setup instructions, see <LinkArrow href="/v2/orchestrators/guides/deployment-details/dual-mode-configuration" label="Dual Mode Configuration" />.
+
+For a detailed breakdown of all AI pipeline types, VRAM requirements, and demand data, see <LinkArrow href="/v2/orchestrators/guides/ai-and-job-workloads/workload-options" label="Workload Options" />.
+
 <CustomDivider />
 
-## Related Pages
+## Next Steps
 
 <CardGroup cols={2}>
-  <Card title="Join a Pool" icon="users" href="/v2/orchestrators/guides/deployment-details/join-a-pool" arrow horizontal>
-    Contribute GPU compute through an operator-managed pool path with no staking or on-chain
-    operations.
+  <Card title="Requirements" icon="clipboard-check" href="/v2/orchestrators/guides/operator-considerations/requirements" arrow horizontal>
+    Hardware, software, network, and token prerequisites by node mode.
   </Card>
-  <Card title="O-T Split Setup" icon="diagram-project" href="/v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup" arrow horizontal>
-    Run Orchestrator and Transcoder as separate processes; connect multiple GPU machines.
+  <Card title="Setup Guide" icon="gear" href="/v2/orchestrators/setup/guide" arrow horizontal>
+    The standard solo orchestrator setup. Install, configure, connect, verify.
   </Card>
-  <Card title="Siphon Setup" icon="shield-halved" href="/v2/orchestrators/guides/deployment-details/siphon-setup" arrow horizontal>
-    Install OrchestratorSiphon; keep keystore isolated; earn rewards independent of GPU uptime.
+  <Card title="Dual Mode" icon="layer-group" href="/v2/orchestrators/guides/deployment-details/dual-mode-configuration" arrow horizontal>
+    Configure video and AI on the same node.
   </Card>
-  <Card title="Setup Guide" icon="server" href="/v2/orchestrators/setup/guide" arrow horizontal>
-    The standard single-machine combined go-livepeer installation.
+  <Card title="Operator Rationale" icon="scale-balanced" href="/v2/orchestrators/guides/operator-considerations/operator-rationale" arrow horizontal>
+    Not sure yet? Review costs, revenue, and break-even analysis.
   </Card>
 </CardGroup>
 
 {/*
   PURPOSE:
-  "Solo, pool, or split?" The deployment type decision framework.
-  Solo operator (full control, full earnings). Pool worker (zero LPT, shared
-  earnings). Pool operator (manage others' GPUs). O-T split (separate orchestrator
-  and transcoder for scaling/security). Siphon (residential GPU routing).
-  Comparison table: complexity, LPT required, earnings share, hardware minimum.
-  Workload mix belongs in Config.
+  "Which deployment path is right for me?" Lists ALL five deployment types
+  (solo, pool node, O-T split, siphon, pool operator) as equal options, not
+  as "alternatives to the default." Covers the workload mode decision (video,
+  AI, dual) as a separate orthogonal choice. Decision tree routes by situation.
 
-  PLAN TARGET: setup-options (keep + update)
-  Terminology note: use **dual mode** for the workload mix (video + AI) and **single-process deployment** for the one-node architecture.
-
-  SECTION: Deployment Details → "What do I need and which path?"
+  SECTION: Deployment Details
   JOB STORIES: J1 (path selection)
 
   CROSS-REFS:
-  - Deployment Details > Join a Pool - pool worker path
-  - Deployment Details > O-T Setup - split architecture detail
-  - Operator Considerations > Operator Rationale - economics per path
-  - Config & Optimisation > Dual Mode Configuration - workload combination
+  - Setup > Guide - solo orchestrator setup
+  - Deployment Details > Join a Pool - pool node path
+  - Deployment Details > O-T Split - split architecture
+  - Deployment Details > Siphon Setup - keystore isolation
+  - Deployment Details > Dual Mode Configuration - workload combination
+  - Advanced Operations > Pool Operators - pool operator guide
+  - Operator Considerations > Requirements - hardware prerequisites
+  - Workloads and AI > Workload Options - detailed workload breakdown
 */}
-
-
-[def]: github.com/livepeer/go-livepeer

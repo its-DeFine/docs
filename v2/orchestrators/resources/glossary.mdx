@@ -62,7 +62,7 @@ A **deployment** is the complete configuration of a Livepeer orchestrator, defin
     </TableRow>
     <TableRow>
       <TableCell>**Deployment type**</TableCell>
-      <TableCell>Solo / Pool worker / Pool operator / O-T split / Siphon</TableCell>
+      <TableCell>Solo / Pool node / Pool operator / O-T split / Siphon</TableCell>
       <TableCell>How the infrastructure is organised and who manages what</TableCell>
     </TableRow>
     <TableRow>
@@ -148,8 +148,8 @@ The deployment type determines how the orchestrator infrastructure is organised.
       <TableCell>Active set threshold for video jobs. Minimal for AI-only.</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell>**Pool worker**</TableCell>
-      <TableCell>A transcoder process connected to an existing pool operator's orchestrator. The pool operator handles on-chain operations (staking, reward calling, ticket redemption). The worker provides GPU compute.</TableCell>
+      <TableCell>**Pool node**</TableCell>
+      <TableCell>A go-livepeer node running in transcoder mode, connected to an existing pool operator's orchestrator. The pool operator handles on-chain operations (staking, reward calling, ticket redemption). The pool node provides GPU compute and receives off-chain payouts.</TableCell>
       <TableCell>None - the pool operator stakes.</TableCell>
     </TableRow>
     <TableRow>
@@ -299,6 +299,9 @@ Deployment type is independent of node mode. A solo operator can run in <Badge c
   </Accordion>
   <Accordion title="Hybrid (informal - use Dual Mode)" icon="triangle-exclamation">
     Community shorthand for running both video and AI workloads. The canonical term is **dual mode** (matching the gateway glossary's <Badge color="green">Dual</Badge> badge). "Hybrid" may appear in community discussions, Discord, and planning documents.
+  </Accordion>
+  <Accordion title="Pool worker (renamed - use Pool Node)" icon="triangle-exclamation">
+    Earlier v2 documentation used "pool worker" for a node running in transcoder mode within a pool. The canonical term is now **pool node**. Community terms include "worker", "miner" (Titan Node), "GPU contributor", and "transcoder". The go-livepeer flag is `-transcoder` in all cases.
   </Accordion>
 </AccordionGroup>
 
