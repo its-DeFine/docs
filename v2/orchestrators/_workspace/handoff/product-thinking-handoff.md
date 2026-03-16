@@ -14,9 +14,9 @@ Internal-only handoff artifact created from the in-flight review and current `do
 - `docs-guide/policies/source-of-truth-policy.mdx`
 - `v2/orchestrators/IA.mdx`
 - `v2/orchestrators/personas-and-pages.mdx`
-- `v2/orchestrators/guides/RESTRUCTURE-PLAN.md`
+- `v2/orchestrators/_workspace/plans/guides/RESTRUCTURE-PLAN.md`
 - `v2/orchestrators/L0-hybrid-operator-product-exercise.md`
-- `v2/orchestrators/_contextData/dual-mode-orchestrator-planning.md`
+- `v2/orchestrators/_workspace/research/dual-mode-orchestrator-planning.md`
 - `v2/orchestrators/navigator.mdx`
 - `v2/orchestrators/guides/operator-considerations/operator-rationale.mdx`
 - `v2/orchestrators/guides/deployment-details/setup-options.mdx`
@@ -103,7 +103,7 @@ Use the branch reality below as the canonical routing map for later implementati
 | Clarity | Hybrid, evaluation, and alternate-deployment logic are spread across `navigator`, `setup-options`, `operator-rationale`, and AI pages. | Consolidate the product framing here, then distribute it into existing public pages by job-to-page mapping. | Avoid creating a new public page that duplicates the same decision logic. |
 | Trust / evidence | Active set thresholds, VRAM coexistence floors, and market pricing remain partially unverified or time-sensitive. | Keep these as explicit evidence gaps; do not turn them into new public claims until source verification is done. | Prevent inaccurate economic or hardware guidance from being promoted as canonical. |
 | Actionability | The in-flight review identifies many gaps but leaves merge / split / add decisions open. | Lock routing decisions here: keep batch and real-time setup pages separate, use `dual-workload-setup.mdx` as the dual-mode execution page, and keep `setup-options.mdx` focused on non-standard deployments. | Prevent a later implementer from redesigning the guide set while drafting. |
-| Maintainability | The working review lives under `guides/`, which implies a public outcome and duplicates planning already present in `_contextData` and the L0 exercise. | Treat the in-flight review as source material, not the canonical handoff output. | Keep public docs in `v2/**` and planning artifacts in `_contextData/`. |
+| Maintainability | The working review lives under `guides/`, which implies a public outcome and duplicates planning already present in `_workspace/` and the L0 exercise. | Treat the in-flight review as source material, not the canonical handoff output. | Keep public docs in `v2/**` and planning artifacts in `_workspace/`. |
 | Scope boundaries | The repo also has pre-existing script-docs debt and broader IA churn. | Exclude repo hygiene, commit / PR work, and unrelated content cleanup from this handoff. | Keep the workstream focused on orchestrator content-shaping only. |
 
 ## This handoff is

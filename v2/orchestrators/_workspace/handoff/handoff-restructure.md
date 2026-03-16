@@ -4,8 +4,8 @@
 
 - **Branch**: `docs-v2-dev`
 - **Repo**: `/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev`
-- **Plan reference**: `v2/orchestrators/plan.md`
-- **Execution plan**: `v2/orchestrators/execution-plan.md`
+- **Plan reference**: `v2/orchestrators/_workspace/plans/plan.md`
+- **Execution plan**: `v2/orchestrators/_workspace/plans/execution-plan.md`
 - **Glossary**: `v2/orchestrators/resources/glossary.mdx`
 - **Authoring skill**: `ai-tools/ai-skills/page-authoring/SKILL.md`
 

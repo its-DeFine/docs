@@ -203,10 +203,10 @@ Review against PURPOSE + acceptance criteria.
 
 | File | Role |
 |------|------|
-| `v2/orchestrators/plan.md` | Consolidated plan - source of truth |
-| `v2/orchestrators/execution-plan.md` | This file - execution tracking |
+| `v2/orchestrators/_workspace/plans/plan.md` | Consolidated plan - source of truth |
+| `v2/orchestrators/_workspace/plans/execution-plan.md` | This file - execution tracking |
 | `tools/config/scoped-navigation/docs-gate-work.json` | Nav config |
 | `ai-tools/ai-skills/page-authoring/SKILL.md` | Page authoring standards |
 | `ai-tools/ai-skills/product-thinking/SKILL.md` | Product thinking framework |
 | `v2/orchestrators/resources/glossary.mdx` | Terminology reference |
-| `v2/orchestrators/_contextData/product-thinking-handoff.md` | Handoff brief |
+| `v2/orchestrators/_workspace/handoff/product-thinking-handoff.md` | Handoff brief |
