@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-16T05:31:05.797Z",
+  "generated_at": "2026-03-16T15:53:55.873Z",
   "source_dir": "ai-tools/ai-skills/templates",
   "skills": [
     {
@@ -451,6 +451,18 @@
       "description": "Route documentation copy planning, rewriting, review, and claim-sensitive updates through the correct Livepeer Docs skills so wording changes stay accurate, scoped, and ready for handoff.",
       "source_template": "ai-tools/ai-skills/templates/36-docs-copy.template.md",
       "pack_path": "ai-tools/agent-packs/skills/docs-copy/SKILL.md",
+      "supported_agents": [
+        "codex",
+        "cursor",
+        "claude",
+        "windsurf"
+      ]
+    },
+    {
+      "name": "docs-research-packet-generation",
+      "description": "Generate report-only research packets from live nav scope, manifests, or explicit files and folders so section-level fact-check findings can be produced consistently without bespoke one-off runners.",
+      "source_template": "ai-tools/ai-skills/templates/37-docs-research-packet-generation.template.md",
+      "pack_path": "ai-tools/agent-packs/skills/docs-research-packet-generation/SKILL.md",
       "supported_agents": [
         "codex",
         "cursor",

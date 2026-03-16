@@ -21,7 +21,7 @@ audience: internal
 pageType: how_to
 purpose: how_to
 status: current
-lastVerified: 2026-03-16
+lastVerified: 2026-03-17
 ---
 
 # Research Skill Workflow
@@ -47,8 +47,10 @@ Canonical sources:
 - registry validation: `tools/scripts/docs-fact-registry.js`
 - manual fact runner: `tools/scripts/docs-page-research.js`
 - PR advisory runner: `tools/scripts/docs-page-research-pr-report.js`
+- packet runner: `tools/scripts/docs-research-packet.js`
 - adjudication workflow: `tools/scripts/docs-research-adjudication.js`
 - local/manual PR prep integration: `tools/scripts/create-codex-pr.js --advisory-research`
+- packet planning template: `docs-guide/tooling/research-review-packet-plan-template.md`
 - forward plan: `tasks/plan/future/page-content-research-trust-roadmap.md`
 
 Generated or derived:
@@ -125,6 +127,36 @@ node tools/scripts/docs-page-research.js \
   --report-json /tmp/docs-page-research-cluster.json
 ```
 
+Run a nav-based research packet:
+
+```bash icon="terminal"
+node tools/scripts/docs-research-packet.js \
+  --nav tools/config/scoped-navigation/docs-gate-work.json \
+  --version v2 \
+  --language en \
+  --tab Orchestrators \
+  --group Guides \
+  --out tasks/reports/orchestrator-guides-review/research-guides-review
+```
+
+Run a files and folders packet:
+
+```bash icon="terminal"
+node tools/scripts/docs-research-packet.js \
+  --folders v2/gateways/guides/payments-and-pricing,v2/gateways/guides/monitoring-and-tooling \
+  --files v2/gateways/guides/support-and-operations/funding-and-support.mdx \
+  --split-by dir \
+  --out tasks/reports/gateway-guides-review/research-guides-review
+```
+
+Run a manifest-defined packet:
+
+```bash icon="terminal"
+node tools/scripts/docs-research-packet.js \
+  --manifest tasks/reports/repo-ops/research-packet-manifest.json \
+  --out tasks/reports/repo-ops/research-packet
+```
+
 Run the PR advisory helper:
 
 ```bash icon="terminal"
@@ -189,6 +221,18 @@ node tools/scripts/docs-research-adjudication.js \
   --report-md /tmp/page-content-research-adjudication.md \
   --report-out-json /tmp/page-content-research-adjudication.json
 ```
+
+Use packet mode when:
+
+- the request covers a full nav section or several logical tranches
+- the findings need reusable packet artifacts for later fix execution
+- you want page-run and PR-run views preserved together across a larger scope
+
+Use a single page or cluster run when:
+
+- the request is limited to one page or one tight claim family
+- a packet root would add more operational overhead than value
+- the next action is immediate page editing rather than section-wide reporting
 
 ## Expected Outputs
 

@@ -626,6 +626,16 @@
     "pipeline": "manual — not yet in pipeline"
   },
   {
+    "path": "tests/unit/docs-research-packet.test.js",
+    "script": "docs-research-packet.test",
+    "category": "generator",
+    "purpose": "tooling:dev-tools",
+    "scope": "tests/unit, tools/scripts/docs-research-packet.js, tools/config/scoped-navigation/docs-gate-work.json",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Tests docs-research-packet.js — validates nav, manifest, and path tranche derivation plus packet-summary rollups for the generic research packet engine.",
+    "pipeline": "manual — packet generator validation"
+  },
+  {
     "path": "tests/unit/orchestrator-guides-research-review.test.js",
     "script": "orchestrator-guides-research-review.test",
     "category": "generator",
@@ -1692,6 +1702,16 @@
     "needs": "R-R27, R-R30",
     "purpose_statement": "Docs research adjudication ledger — validates, records, and summarizes measured review outcomes for the page-content research workflow so trust decisions are based on real usage rather than intuition.",
     "pipeline": "manual — experimental research system"
+  },
+  {
+    "path": "tools/scripts/docs-research-packet.js",
+    "script": "docs-research-packet",
+    "category": "generator",
+    "purpose": "tooling:dev-tools",
+    "scope": "tools/scripts, tasks/reports, tools/config/scoped-navigation, tasks/research, tests/unit/docs-research-packet.test.js, tests/unit/orchestrator-guides-research-review.test.js",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Docs research packet generator — derives nav, manifest, or explicit path scope; runs the research stack tranche-by-tranche; and writes reusable packet reports plus a master rollup.",
+    "pipeline": "manual — packet generator for research review tranches"
   },
   {
     "path": "tools/scripts/enforce-generated-file-banners.js",

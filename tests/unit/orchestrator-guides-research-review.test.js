@@ -18,6 +18,7 @@ const path = require('path');
 const REPO_ROOT = process.cwd();
 const NAV_PATH = path.join(REPO_ROOT, 'tools/config/scoped-navigation/docs-gate-work.json');
 const helpers = require('../../tools/scripts/orchestrator-guides-research-review.js');
+const genericHelpers = require('../../tools/scripts/docs-research-packet.js');
 
 async function runTests() {
   const failures = [];
@@ -26,6 +27,12 @@ async function runTests() {
   cases.push(async () => {
     const nav = JSON.parse(fs.readFileSync(NAV_PATH, 'utf8'));
     const tranches = helpers.findOrchestratorGuidesGroups(nav);
+    const genericTranches = genericHelpers.buildNavTranches(nav, {
+      version: 'v2',
+      language: 'en',
+      tab: 'Orchestrators',
+      group: 'Guides'
+    });
     const totalPages = tranches.reduce((count, tranche) => count + tranche.pages.length, 0);
 
     assert.strictEqual(tranches.length, 9, 'expected 9 live guide tranches');
@@ -33,6 +40,7 @@ async function runTests() {
     assert.strictEqual(tranches[0].slug, '01-operator-considerations');
     assert.strictEqual(tranches[8].slug, '09-tutorials');
     assert.ok(tranches.every((tranche) => tranche.pages.every((page) => page.endsWith('.mdx'))), 'all live pages should resolve to mdx paths');
+    assert.deepStrictEqual(tranches, genericTranches, 'wrapper should delegate to the same nav tranche resolution as the generic packet engine');
   });
 
   cases.push(async () => {
