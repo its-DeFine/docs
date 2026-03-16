@@ -184,17 +184,40 @@ function renderDeprecatedSection(components) {
   return ['## Deprecated Components', '', rows.join('\n')].join('\n');
 }
 
+function getRegistryLookupKeys(component) {
+  const keys = [];
+  if (component?.name && component?.file && component?.category) {
+    keys.push(`${component.name}::${component.file}::${component.category}`);
+  }
+  if (component?.name && component?.file) {
+    keys.push(`${component.name}::${component.file}`);
+  }
+  if (component?.name) {
+    keys.push(component.name);
+  }
+  return keys;
+}
+
 function renderOrphanedSection(usageMap, registry) {
   if (!Array.isArray(usageMap.orphaned) || usageMap.orphaned.length === 0) return '';
 
-  const componentLookup = new Map(registry.components.map((component) => [component.name, component]));
+  const componentLookup = new Map();
+  registry.components.forEach((component) => {
+    getRegistryLookupKeys(component).forEach((key) => {
+      if (!componentLookup.has(key)) {
+        componentLookup.set(key, component);
+      }
+    });
+  });
   const rows = [
     '| Component | Category | File | Status | Description |',
     '| --- | --- | --- | --- | --- |'
   ];
 
   usageMap.orphaned.forEach((entry) => {
-    const component = componentLookup.get(entry.name);
+    const component = getRegistryLookupKeys(entry)
+      .map((key) => componentLookup.get(key))
+      .find(Boolean);
     rows.push(
       `| ${mdEscape(entry.name)} | \`${mdEscape(entry.category)}\` | \`/${mdEscape(entry.file)}\` | \`${mdEscape(component?.status || 'unknown')}\` | ${mdEscape(component?.description || '')} |`
     );
@@ -244,8 +267,8 @@ function buildOutput(registry, usageMap) {
       renderSummaryTable(registry),
       '',
       ...sections.flatMap((section, index) => (index === 0 ? [section] : ['', section])),
-      deprecatedSection ? ['', deprecatedSection] : [],
-      orphanedSection ? ['', orphanedSection] : []
+      ...(deprecatedSection ? ['', deprecatedSection] : []),
+      ...(orphanedSection ? ['', orphanedSection] : [])
     ].join('\n')
   );
 }

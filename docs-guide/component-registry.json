@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "generated": "2026-03-14T01:51:38.499Z",
+    "generated": "2026-03-16T10:48:12.820Z",
     "generator": "tools/scripts/generate-component-registry.js",
-    "componentCount": 126
+    "componentCount": 127
   },
   "categories": {
     "primitives": {
@@ -22,7 +22,7 @@
       "purpose": "Data-bound feed renderers"
     },
     "page-structure": {
-      "count": 24,
+      "count": 25,
       "purpose": "Frame-mode and portal scaffolding"
     }
   },
@@ -450,17 +450,15 @@
     },
     {
       "name": "CustomResponseField",
-      "file": "snippets/components/content/response-field.jsx",
+      "file": "snippets/components/content/responseField.jsx",
       "category": "content",
       "tier": "composite",
       "status": "stable",
-      "description": "ResponseField wrapper that removes the default divider for tighter grouped layouts.",
+      "description": "Renders the custom response field component",
       "contentAffinity": [
-        "tutorial",
-        "concept",
-        "reference"
+        "how_to"
       ],
-      "owner": "docs",
+      "owner": "@livepeer/docs-team",
       "dependencies": [
         "ResponseFieldAccordion",
         "ResponseFieldExpandable",
@@ -475,27 +473,27 @@
       "decision": "KEEP",
       "dataSource": "none",
       "duplicates": [],
-      "lastMeaningfulChange": "2026-03-10",
+      "lastMeaningfulChange": "2026-03-08",
       "deprecated": "",
       "see": "",
       "params": [
         {
           "name": "description",
-          "type": "any",
+          "type": "React.ReactNode",
           "required": true,
           "defaultValue": "",
-          "description": "description prop."
+          "description": "Primary content rendered by the component."
         },
         {
           "name": "props",
-          "type": "any",
-          "required": true,
+          "type": "object",
+          "required": false,
           "defaultValue": "",
-          "description": "props prop."
+          "description": "Additional props forwarded to ResponseField."
         }
       ],
       "examples": [
-        "<CustomResponseField description=\"example\" props=\"example\" />"
+        "<CustomResponseField description=\"Example\" />"
       ]
     },
     {
@@ -860,17 +858,15 @@
     },
     {
       "name": "ResponseFieldAccordion",
-      "file": "snippets/components/content/response-field.jsx",
+      "file": "snippets/components/content/responseField.jsx",
       "category": "content",
       "tier": "composite",
       "status": "stable",
-      "description": "Accordion wrapper that renders a collection of response fields inside Mintlify Accordion.",
+      "description": "Renders the response field accordion component",
       "contentAffinity": [
-        "tutorial",
-        "concept",
-        "reference"
+        "universal"
       ],
-      "owner": "docs",
+      "owner": "@livepeer/docs-team",
       "dependencies": [
         "CustomResponseField",
         "ResponseFieldExpandable",
@@ -884,7 +880,7 @@
       "decision": "KEEP",
       "dataSource": "none",
       "duplicates": [],
-      "lastMeaningfulChange": "2026-03-10",
+      "lastMeaningfulChange": "2026-03-08",
       "deprecated": "",
       "see": "",
       "params": [
@@ -893,33 +889,31 @@
           "type": "object",
           "required": false,
           "defaultValue": "{}",
-          "description": "fields prop."
+          "description": "Fields used by the component."
         },
         {
           "name": "props",
-          "type": "any",
-          "required": true,
+          "type": "object",
+          "required": false,
           "defaultValue": "",
-          "description": "props prop."
+          "description": "Additional props forwarded to Accordion."
         }
       ],
       "examples": [
-        "<ResponseFieldAccordion props=\"example\" />"
+        "<ResponseFieldAccordion />"
       ]
     },
     {
       "name": "ResponseFieldExpandable",
-      "file": "snippets/components/content/response-field.jsx",
+      "file": "snippets/components/content/responseField.jsx",
       "category": "content",
       "tier": "composite",
       "status": "stable",
-      "description": "Expandable wrapper that renders a collection of response fields inside Mintlify Expandable.",
+      "description": "Renders the response field expandable component",
       "contentAffinity": [
-        "tutorial",
-        "concept",
-        "reference"
+        "how_to"
       ],
-      "owner": "docs",
+      "owner": "@livepeer/docs-team",
       "dependencies": [
         "CustomResponseField",
         "ResponseFieldAccordion",
@@ -933,7 +927,7 @@
       "decision": "KEEP",
       "dataSource": "none",
       "duplicates": [],
-      "lastMeaningfulChange": "2026-03-10",
+      "lastMeaningfulChange": "2026-03-08",
       "deprecated": "",
       "see": "",
       "params": [
@@ -942,33 +936,31 @@
           "type": "object",
           "required": false,
           "defaultValue": "{}",
-          "description": "fields prop."
+          "description": "Fields used by the component."
         },
         {
           "name": "props",
-          "type": "any",
-          "required": true,
+          "type": "object",
+          "required": false,
           "defaultValue": "",
-          "description": "props prop."
+          "description": "Additional props forwarded to Expandable."
         }
       ],
       "examples": [
-        "<ResponseFieldExpandable props=\"example\" />"
+        "<ResponseFieldExpandable />"
       ]
     },
     {
       "name": "ResponseFieldGroup",
-      "file": "snippets/components/content/response-field.jsx",
+      "file": "snippets/components/content/responseField.jsx",
       "category": "content",
       "tier": "composite",
       "status": "stable",
-      "description": "Runtime wrapper that switches between accordion and expandable response field groupings.",
+      "description": "Renders the response field group component",
       "contentAffinity": [
-        "tutorial",
-        "concept",
-        "reference"
+        "universal"
       ],
-      "owner": "docs",
+      "owner": "@livepeer/docs-team",
       "dependencies": [
         "CustomResponseField",
         "ResponseFieldAccordion",
@@ -980,7 +972,7 @@
       "decision": "KEEP",
       "dataSource": "none",
       "duplicates": [],
-      "lastMeaningfulChange": "2026-03-10",
+      "lastMeaningfulChange": "2026-03-08",
       "deprecated": "",
       "see": "",
       "params": [
@@ -989,40 +981,38 @@
           "type": "string",
           "required": false,
           "defaultValue": "\"accordion\"",
-          "description": "component prop."
+          "description": "Component used by the component."
         },
         {
           "name": "fields",
           "type": "object",
           "required": false,
           "defaultValue": "{}",
-          "description": "fields prop."
+          "description": "Fields used by the component."
         },
         {
           "name": "props",
-          "type": "any",
-          "required": true,
+          "type": "object",
+          "required": false,
           "defaultValue": "",
-          "description": "props prop."
+          "description": "Additional props forwarded to the selected wrapper component."
         }
       ],
       "examples": [
-        "<ResponseFieldGroup props=\"example\" />"
+        "<ResponseFieldGroup />"
       ]
     },
     {
       "name": "ScrollableDiagram",
-      "file": "snippets/components/content/zoomable-diagram.jsx",
+      "file": "snippets/components/content/zoomableDiagram.jsx",
       "category": "content",
       "tier": "composite",
       "status": "stable",
-      "description": "Scrollable Diagram content component for rendering reader-facing documentation content.",
+      "description": "──────────────────────────────────────────────────────────────",
       "contentAffinity": [
-        "tutorial",
-        "concept",
-        "reference"
+        "universal"
       ],
-      "owner": "docs",
+      "owner": "@livepeer/docs-team",
       "dependencies": [],
       "usedIn": [
         "v2/about/livepeer-protocol/livepeer-token.mdx",
@@ -1042,48 +1032,48 @@
       "decision": "KEEP",
       "dataSource": "none",
       "duplicates": [],
-      "lastMeaningfulChange": "2026-03-10",
+      "lastMeaningfulChange": "2026-03-08",
       "deprecated": "",
       "see": "",
       "params": [
         {
           "name": "children",
-          "type": "any",
+          "type": "React.ReactNode",
           "required": true,
           "defaultValue": "",
-          "description": "children prop."
+          "description": "Content rendered inside the component."
         },
         {
           "name": "title",
           "type": "string",
           "required": false,
           "defaultValue": "\"\"",
-          "description": "title prop."
+          "description": "Title text rendered by the component."
         },
         {
           "name": "maxHeight",
           "type": "string",
           "required": false,
           "defaultValue": "\"500px\"",
-          "description": "max Height prop."
+          "description": "Max height used by the component."
         },
         {
           "name": "minWidth",
           "type": "string",
           "required": false,
           "defaultValue": "\"100%\"",
-          "description": "min Width prop."
+          "description": "Min width used by the component."
         },
         {
           "name": "showControls",
           "type": "boolean",
           "required": false,
           "defaultValue": "false",
-          "description": "show Controls prop."
+          "description": "Boolean flag that controls component behaviour."
         }
       ],
       "examples": [
-        "<ScrollableDiagram>Example content</ScrollableDiagram>"
+        "<ScrollableDiagram>Example</ScrollableDiagram>"
       ]
     },
     {
@@ -1257,17 +1247,15 @@
     },
     {
       "name": "ValueResponseField",
-      "file": "snippets/components/content/response-field.jsx",
+      "file": "snippets/components/content/responseField.jsx",
       "category": "content",
       "tier": "composite",
       "status": "stable",
-      "description": "ResponseField wrapper that renders a labelled post value alongside descriptive content.",
+      "description": "CustomResponseField - ResponseField wrapper that hides the bottom divider",
       "contentAffinity": [
-        "tutorial",
-        "concept",
-        "reference"
+        "concept"
       ],
-      "owner": "docs",
+      "owner": "@livepeer/docs-team",
       "dependencies": [
         "CustomResponseField",
         "ResponseFieldAccordion",
@@ -1282,55 +1270,55 @@
       "decision": "KEEP",
       "dataSource": "none",
       "duplicates": [],
-      "lastMeaningfulChange": "2026-03-10",
+      "lastMeaningfulChange": "2026-03-08",
       "deprecated": "",
       "see": "",
       "params": [
         {
           "name": "description",
-          "type": "any",
+          "type": "React.ReactNode",
           "required": true,
           "defaultValue": "",
-          "description": "description prop."
+          "description": "Primary content rendered by the component."
         },
         {
           "name": "post",
-          "type": "any",
+          "type": "string",
           "required": false,
           "defaultValue": "null",
-          "description": "post prop."
+          "description": "Post used by the component."
         },
         {
           "name": "label",
           "type": "string",
           "required": false,
           "defaultValue": "\"value\"",
-          "description": "label prop."
+          "description": "Label text rendered by the component."
         },
         {
           "name": "line",
           "type": "boolean",
           "required": false,
           "defaultValue": "true",
-          "description": "line prop."
+          "description": "Boolean flag that controls component behaviour."
         },
         {
           "name": "children",
-          "type": "any",
+          "type": "React.ReactNode",
           "required": true,
           "defaultValue": "",
-          "description": "children prop."
+          "description": "Content rendered inside the component."
         },
         {
           "name": "props",
-          "type": "any",
-          "required": true,
+          "type": "object",
+          "required": false,
           "defaultValue": "",
-          "description": "props prop."
+          "description": "Additional props forwarded to ResponseField."
         }
       ],
       "examples": [
-        "<ValueResponseField description=\"example\" props=\"example\">Example content</ValueResponseField>"
+        "<ValueResponseField description=\"Example\" />"
       ]
     },
     {
@@ -4598,7 +4586,7 @@
     },
     {
       "name": "CustomCardTitle",
-      "file": "snippets/components/page-structure/custom-cards.jsx",
+      "file": "snippets/components/page-structure/customCards.jsx",
       "category": "page-structure",
       "tier": "pattern",
       "status": "stable",
@@ -4650,7 +4638,7 @@
     },
     {
       "name": "DisplayCard",
-      "file": "snippets/components/page-structure/custom-cards.jsx",
+      "file": "snippets/components/page-structure/customCards.jsx",
       "category": "page-structure",
       "tier": "pattern",
       "status": "stable",
@@ -4723,7 +4711,7 @@
     },
     {
       "name": "Divider",
-      "file": "snippets/components/page-structure/frame-mode.jsx",
+      "file": "snippets/components/page-structure/frameMode.jsx",
       "category": "page-structure",
       "tier": "pattern",
       "status": "stable",
@@ -4780,7 +4768,7 @@
     },
     {
       "name": "H1",
-      "file": "snippets/components/page-structure/frame-mode.jsx",
+      "file": "snippets/components/page-structure/frameMode.jsx",
       "category": "page-structure",
       "tier": "pattern",
       "status": "stable",
@@ -4868,7 +4856,7 @@
     },
     {
       "name": "H2",
-      "file": "snippets/components/page-structure/frame-mode.jsx",
+      "file": "snippets/components/page-structure/frameMode.jsx",
       "category": "page-structure",
       "tier": "pattern",
       "status": "stable",
@@ -4956,7 +4944,7 @@
     },
     {
       "name": "H3",
-      "file": "snippets/components/page-structure/frame-mode.jsx",
+      "file": "snippets/components/page-structure/frameMode.jsx",
       "category": "page-structure",
       "tier": "pattern",
       "status": "stable",
@@ -5036,7 +5024,7 @@
     },
     {
       "name": "H4",
-      "file": "snippets/components/page-structure/frame-mode.jsx",
+      "file": "snippets/components/page-structure/frameMode.jsx",
       "category": "page-structure",
       "tier": "pattern",
       "status": "stable",
@@ -5114,7 +5102,7 @@
     },
     {
       "name": "H5",
-      "file": "snippets/components/page-structure/frame-mode.jsx",
+      "file": "snippets/components/page-structure/frameMode.jsx",
       "category": "page-structure",
       "tier": "pattern",
       "status": "stable",
@@ -5201,7 +5189,7 @@
     },
     {
       "name": "H6",
-      "file": "snippets/components/page-structure/frame-mode.jsx",
+      "file": "snippets/components/page-structure/frameMode.jsx",
       "category": "page-structure",
       "tier": "pattern",
       "status": "stable",
@@ -5495,7 +5483,7 @@
     },
     {
       "name": "InlineImageCard",
-      "file": "snippets/components/page-structure/custom-cards.jsx",
+      "file": "snippets/components/page-structure/customCards.jsx",
       "category": "page-structure",
       "tier": "pattern",
       "status": "stable",
@@ -5662,8 +5650,43 @@
       ]
     },
     {
+      "name": "MermaidColours",
+      "file": "snippets/components/page-structure/mermaidColours.jsx",
+      "category": "page-structure",
+      "tier": "pattern",
+      "status": "stable",
+      "description": "Centralised colour definitions for Mermaid diagrams. Mermaid requires literal colour values and does not support CSS custom properties.",
+      "contentAffinity": [
+        "concept",
+        "reference"
+      ],
+      "owner": "docs",
+      "dependencies": [],
+      "usedIn": [
+        "v2/gateways/concepts/architecture.mdx",
+        "v2/gateways/concepts/business-model.mdx",
+        "v2/gateways/concepts/capabilities.mdx",
+        "v2/gateways/concepts/role.mdx",
+        "v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy.mdx",
+        "v2/orchestrators/concepts/role.mdx",
+        "v2/orchestrators/guides/operator-considerations/business-case.mdx",
+        "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx"
+      ],
+      "breakingChangeRisk": "medium",
+      "decision": "KEEP",
+      "dataSource": "none",
+      "duplicates": [],
+      "lastMeaningfulChange": "2026-03-16",
+      "deprecated": "",
+      "see": "",
+      "params": [],
+      "examples": [
+        "MermaidColours.mermaid.light.primaryColor"
+      ]
+    },
+    {
       "name": "P",
-      "file": "snippets/components/page-structure/frame-mode.jsx",
+      "file": "snippets/components/page-structure/frameMode.jsx",
       "category": "page-structure",
       "tier": "pattern",
       "status": "stable",
@@ -5751,7 +5774,7 @@
     },
     {
       "name": "PageHeader",
-      "file": "snippets/components/page-structure/frame-mode.jsx",
+      "file": "snippets/components/page-structure/frameMode.jsx",
       "category": "page-structure",
       "tier": "pattern",
       "status": "stable",
@@ -6190,16 +6213,15 @@
     },
     {
       "name": "Starfield",
-      "file": "snippets/components/page-structure/hero-gif.jsx",
+      "file": "snippets/components/page-structure/heroGif.jsx",
       "category": "page-structure",
       "tier": "pattern",
       "status": "stable",
-      "description": "Animated Livepeer logo starfield background for frame-mode hero sections.",
+      "description": "Renders the starfield component",
       "contentAffinity": [
-        "landing",
-        "overview"
+        "universal"
       ],
-      "owner": "docs",
+      "owner": "@livepeer/docs-team",
       "dependencies": [],
       "usedIn": [
         "v2/about/portal.mdx",
@@ -6208,16 +6230,14 @@
         "v2/gateways/gateways-portal.mdx",
         "v2/home/mission-control.mdx",
         "v2/lpt/token-portal.mdx",
-        "v2/orchestrators/old/orchestrators-portal.mdx",
-        "v2/orchestrators/portal.mdx",
-        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
+        "v2/orchestrators/orchestrators-portal.mdx",
         "v2/solutions/portal.mdx"
       ],
-      "breakingChangeRisk": "medium",
+      "breakingChangeRisk": "low",
       "decision": "KEEP",
       "dataSource": "none",
       "duplicates": [],
-      "lastMeaningfulChange": "2026-03-10",
+      "lastMeaningfulChange": "2026-03-08",
       "deprecated": "",
       "see": "",
       "params": [
@@ -6226,7 +6246,7 @@
           "type": "number",
           "required": false,
           "defaultValue": "1.1",
-          "description": "density prop."
+          "description": "Density used by the component."
         }
       ],
       "examples": [
@@ -6235,7 +6255,7 @@
     },
     {
       "name": "WidthCard",
-      "file": "snippets/components/page-structure/custom-cards.jsx",
+      "file": "snippets/components/page-structure/customCards.jsx",
       "category": "page-structure",
       "tier": "pattern",
       "status": "stable",
@@ -6516,15 +6536,15 @@
     },
     {
       "name": "ComingSoonCallout",
-      "file": "snippets/components/primitives/preview-callouts.jsx",
+      "file": "snippets/components/primitives/previewCallouts.jsx",
       "category": "primitives",
       "tier": "primitive",
       "status": "stable",
-      "description": "Callout announcing work-in-progress content and contribution links.",
+      "description": "Renders the coming soon callout component",
       "contentAffinity": [
-        "universal"
+        "changelog"
       ],
-      "owner": "docs",
+      "owner": "@livepeer/docs-team",
       "dependencies": [
         "PreviewCallout",
         "ReviewCallout"
@@ -6536,7 +6556,7 @@
       "decision": "KEEP",
       "dataSource": "none",
       "duplicates": [],
-      "lastMeaningfulChange": "2026-03-10",
+      "lastMeaningfulChange": "2026-03-09",
       "deprecated": "",
       "see": "",
       "params": [
@@ -6545,7 +6565,7 @@
           "type": "string",
           "required": false,
           "defaultValue": "\"page\"",
-          "description": "type prop."
+          "description": "Type used by the component."
         }
       ],
       "examples": [
@@ -7706,25 +7726,25 @@
     },
     {
       "name": "PreviewCallout",
-      "file": "snippets/components/primitives/preview-callouts.jsx",
+      "file": "snippets/components/primitives/previewCallouts.jsx",
       "category": "primitives",
       "tier": "primitive",
       "status": "stable",
-      "description": "Callout highlighting preview-state content and feedback channels.",
+      "description": "Renders the preview callout component",
       "contentAffinity": [
         "universal"
       ],
-      "owner": "docs",
+      "owner": "@livepeer/docs-team",
       "dependencies": [
         "ComingSoonCallout",
         "ReviewCallout"
       ],
       "usedIn": [
-        "v2/developers/_archive/ai-inference-overview-old.mdx",
-        "v2/developers/_archive/ai-inference-workload-fit-old.mdx",
-        "v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx",
-        "v2/developers/_archive/quickstart-video-101.mdx",
-        "v2/orchestrators/old/setting-up-an-orchestrator/publish-offerings.mdx",
+        "v2/developers/ai-inference-on-livepeer/overview.mdx",
+        "v2/developers/ai-inference-on-livepeer/workload-fit.mdx",
+        "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx",
+        "v2/developers/quickstart/video/video-streaming-101.mdx",
+        "v2/orchestrators/setup/publish-offerings.mdx",
         "v2/resources/concepts/brief-history-of-video.mdx",
         "v2/resources/references/contract-addresses.mdx"
       ],
@@ -7732,7 +7752,7 @@
       "decision": "KEEP",
       "dataSource": "none",
       "duplicates": [],
-      "lastMeaningfulChange": "2026-03-10",
+      "lastMeaningfulChange": "2026-03-09",
       "deprecated": "",
       "see": "",
       "params": [],
@@ -7742,15 +7762,15 @@
     },
     {
       "name": "ReviewCallout",
-      "file": "snippets/components/primitives/preview-callouts.jsx",
+      "file": "snippets/components/primitives/previewCallouts.jsx",
       "category": "primitives",
       "tier": "primitive",
       "status": "stable",
-      "description": "Callout requesting technical review support on incomplete content.",
+      "description": "Renders the review callout component",
       "contentAffinity": [
         "universal"
       ],
-      "owner": "docs",
+      "owner": "@livepeer/docs-team",
       "dependencies": [
         "ComingSoonCallout",
         "PreviewCallout"
@@ -7760,7 +7780,7 @@
       "decision": "KEEP",
       "dataSource": "none",
       "duplicates": [],
-      "lastMeaningfulChange": "2026-03-10",
+      "lastMeaningfulChange": "2026-03-09",
       "deprecated": "",
       "see": "",
       "params": [],

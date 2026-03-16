@@ -1,14 +1,21 @@
 /**
  * @component MermaidColours
- * @description Centralised colour definitions for Mermaid diagrams. Mermaid requires literal colour values and does not support CSS custom properties.
  * @category page-structure
+ * @tier pattern
+ * @status stable
+ * @description Centralised colour definitions for Mermaid diagrams. Mermaid requires literal colour values and does not support CSS custom properties.
+ * @contentAffinity concept, reference
+ * @owner docs
+ * @dependencies none
+ * @usedIn v2/gateways/concepts/architecture.mdx, v2/gateways/concepts/business-model.mdx, v2/gateways/concepts/capabilities.mdx, v2/gateways/concepts/role.mdx, v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy.mdx, v2/orchestrators/concepts/role.mdx, v2/orchestrators/guides/operator-considerations/business-case.mdx, v2/orchestrators/guides/operator-considerations/operator-rationale.mdx
+ * @breakingChangeRisk medium
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-16
+ * @example
+ * MermaidColours.mermaid.light.primaryColor
  */
-// NOTE: DO NOT USE OUTSIDE MERMAID - use style.css colours
-// This file is used to centralize the color definitions for Mermaid diagrams in the documentation.
-// This is necessary because Mermaid diagrams require literal color values and do not support CSS custom properties (var(--...)) for theme colors.
-// It defines a set of colors for both light and dark themes, as well as specific color settings for Mermaid diagrams.
-// The colors are organized into categories such as font, light theme, dark theme, and Mermaid-specific colors.
-// This allows for consistent styling across all Mermaid diagrams in the documentation and makes it easier to update colors in one place if needed.
 export const MermaidColours = {
   font: {
     inter: "Inter, 'Inter Fallback', -apple-system, system-ui",
@@ -77,6 +84,10 @@ export const MermaidColours = {
       ':root { --theme-button-text: #ffffff; } .dark { --theme-button-text: #ffffff; }',
   },
 }
+
+// NOTE: DO NOT USE OUTSIDE MERMAID - use style.css colours.
+// This file centralizes literal theme colors for Mermaid diagrams because Mermaid
+// does not support CSS custom properties such as var(--...).
 
 /* Colors Used In this repo
 3CB540 - Jade Green

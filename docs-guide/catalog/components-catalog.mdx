@@ -21,7 +21,7 @@ Run command: node tools/scripts/generate-docs-guide-components-index.js --fix
 **Important**: Do not manually edit this file; run `node tools/scripts/generate-docs-guide-components-index.js --fix`. <br/>
 </Note>
 
-The governed component library currently exposes **126** named export(s).
+The governed component library currently exposes **127** named export(s).
 
 ## Summary
 
@@ -31,8 +31,8 @@ The governed component library currently exposes **126** named export(s).
 | [Layout](#layout) | 31 | 31 | 0 | 0 | 0 | 0 |
 | [Content](#content) | 24 | 23 | 0 | 1 | 0 | 0 |
 | [Data](#data) | 17 | 16 | 1 | 0 | 0 | 0 |
-| [Page Structure](#page-structure) | 24 | 24 | 0 | 0 | 0 | 0 |
-| **Total** | **126** | **123** | **1** | **2** | **0** | **0** |
+| [Page Structure](#page-structure) | 25 | 25 | 0 | 0 | 0 | 0 |
+| **Total** | **127** | **124** | **1** | **2** | **0** | **0** |
 
 ## primitives
 
@@ -43,7 +43,7 @@ The governed component library currently exposes **126** named export(s).
 | BlinkingIcon | `/snippets/components/primitives/links.jsx` | `primitive` | `stable` | Displays an icon with a smooth blinking animation (fades between full and 30% opacity). | `/snippets/components/primitives/links.jsx` |
 | BlinkingTerminal | `/snippets/components/primitives/links.jsx` | `primitive` | `deprecated` | Blinking Terminal primitive used in authored documentation and component-library examples. | `/snippets/components/primitives/links.jsx` |
 | CardTitleTextWithArrow | `/snippets/components/primitives/text.jsx` | `primitive` | `stable` | Card Title Text With Arrow primitive used in authored documentation and component-library examples. | `/snippets/components/primitives/text.jsx` |
-| ComingSoonCallout | `/snippets/components/primitives/preview-callouts.jsx` | `primitive` | `stable` | Callout announcing work-in-progress content and contribution links. | `/snippets/components/primitives/preview-callouts.jsx` |
+| ComingSoonCallout | `/snippets/components/primitives/previewCallouts.jsx` | `primitive` | `stable` | Renders the coming soon callout component | `/snippets/components/primitives/previewCallouts.jsx` |
 | CopyText | `/snippets/components/primitives/text.jsx` | `primitive` | `stable` | Copy Text primitive used in authored documentation and component-library examples. | `/snippets/components/primitives/text.jsx` |
 | CustomCallout | `/snippets/components/primitives/links.jsx` | `primitive` | `stable` | Displays a styled callout box with an icon and custom colors. | `/snippets/components/primitives/links.jsx` |
 | CustomCardTitle | `/snippets/components/primitives/customCardTitle.jsx` | `primitive` | `stable` | Renders the custom card title component | `/snippets/components/primitives/customCardTitle.jsx` |
@@ -62,8 +62,8 @@ The governed component library currently exposes **126** named export(s).
 | LivepeerSVG | `/snippets/components/primitives/icons.jsx` | `primitive` | `stable` | Livepeer SVG primitive used in authored documentation and component-library examples. | `/snippets/components/primitives/icons.jsx` |
 | MathBlock | `/snippets/components/primitives/math.jsx` | `primitive` | `stable` | Math Block primitive used in authored documentation and component-library examples. | `/snippets/components/primitives/math.jsx` |
 | MathInline | `/snippets/components/primitives/math.jsx` | `primitive` | `stable` | Math Inline primitive used in authored documentation and component-library examples. | `/snippets/components/primitives/math.jsx` |
-| PreviewCallout | `/snippets/components/primitives/preview-callouts.jsx` | `primitive` | `stable` | Callout highlighting preview-state content and feedback channels. | `/snippets/components/primitives/preview-callouts.jsx` |
-| ReviewCallout | `/snippets/components/primitives/preview-callouts.jsx` | `primitive` | `stable` | Callout requesting technical review support on incomplete content. | `/snippets/components/primitives/preview-callouts.jsx` |
+| PreviewCallout | `/snippets/components/primitives/previewCallouts.jsx` | `primitive` | `stable` | Renders the preview callout component | `/snippets/components/primitives/previewCallouts.jsx` |
+| ReviewCallout | `/snippets/components/primitives/previewCallouts.jsx` | `primitive` | `stable` | Renders the review callout component | `/snippets/components/primitives/previewCallouts.jsx` |
 | SocialLinks | `/snippets/components/primitives/socialLinks.jsx` | `primitive` | `stable` | Renders the social links component | `/snippets/components/primitives/socialLinks.jsx` |
 | Spacer | `/snippets/components/primitives/spacer.jsx` | `primitive` | `stable` | Provides consistent spacing without requiring inline styles or empty divs in MDX files | `/snippets/components/primitives/spacer.jsx` |
 | Subtitle | `/snippets/components/primitives/text.jsx` | `primitive` | `stable` | Subtitle primitive used in authored documentation and component-library examples. | `/snippets/components/primitives/text.jsx` |
@@ -114,21 +114,21 @@ The governed component library currently exposes **126** named export(s).
 | CodeSection | `/snippets/components/content/code.jsx` | `composite` | `stable` | Thin wrapper that maps a `fields` object into the complex code block renderer. | `/snippets/components/content/code.jsx` |
 | ComplexCodeBlock | `/snippets/components/content/code.jsx` | `composite` | `stable` | Complex Code Block content component for rendering reader-facing documentation content. | `/snippets/components/content/code.jsx` |
 | CustomCodeBlock | `/snippets/components/content/code.jsx` | `composite` | `stable` | Custom Code Block content component for rendering reader-facing documentation content. | `/snippets/components/content/code.jsx` |
-| CustomResponseField | `/snippets/components/content/response-field.jsx` | `composite` | `stable` | ResponseField wrapper that removes the default divider for tighter grouped layouts. | `/snippets/components/content/response-field.jsx` |
+| CustomResponseField | `/snippets/components/content/responseField.jsx` | `composite` | `stable` | Renders the custom response field component | `/snippets/components/content/responseField.jsx` |
 | EmbedMarkdown | `/snippets/components/content/embed.jsx` | `composite` | `stable` | Embed Markdown content component for rendering reader-facing documentation content. | `/snippets/components/content/embed.jsx` |
 | ExternalContent | `/snippets/components/content/external-content.jsx` | `composite` | `stable` | External Content content component for rendering reader-facing documentation content. | `/snippets/components/content/external-content.jsx` |
 | FrameQuote | `/snippets/components/content/quote.jsx` | `composite` | `stable` | Frame Quote content component for rendering reader-facing documentation content. | `/snippets/components/content/quote.jsx` |
 | LinkedInEmbed | `/snippets/components/content/video.jsx` | `composite` | `stable` | Linked In Embed content component for rendering reader-facing documentation content. | `/snippets/components/content/video.jsx` |
 | MarkdownEmbed | `/snippets/components/content/embed.jsx` | `composite` | `stable` | Markdown Embed content component for rendering reader-facing documentation content. | `/snippets/components/content/embed.jsx` |
 | Quote | `/snippets/components/content/quote.jsx` | `composite` | `stable` | Quote content component for rendering reader-facing documentation content. | `/snippets/components/content/quote.jsx` |
-| ResponseFieldAccordion | `/snippets/components/content/response-field.jsx` | `composite` | `stable` | Accordion wrapper that renders a collection of response fields inside Mintlify Accordion. | `/snippets/components/content/response-field.jsx` |
-| ResponseFieldExpandable | `/snippets/components/content/response-field.jsx` | `composite` | `stable` | Expandable wrapper that renders a collection of response fields inside Mintlify Expandable. | `/snippets/components/content/response-field.jsx` |
-| ResponseFieldGroup | `/snippets/components/content/response-field.jsx` | `composite` | `stable` | Runtime wrapper that switches between accordion and expandable response field groupings. | `/snippets/components/content/response-field.jsx` |
-| ScrollableDiagram | `/snippets/components/content/zoomable-diagram.jsx` | `composite` | `stable` | Scrollable Diagram content component for rendering reader-facing documentation content. | `/snippets/components/content/zoomable-diagram.jsx` |
+| ResponseFieldAccordion | `/snippets/components/content/responseField.jsx` | `composite` | `stable` | Renders the response field accordion component | `/snippets/components/content/responseField.jsx` |
+| ResponseFieldExpandable | `/snippets/components/content/responseField.jsx` | `composite` | `stable` | Renders the response field expandable component | `/snippets/components/content/responseField.jsx` |
+| ResponseFieldGroup | `/snippets/components/content/responseField.jsx` | `composite` | `stable` | Renders the response field group component | `/snippets/components/content/responseField.jsx` |
+| ScrollableDiagram | `/snippets/components/content/zoomableDiagram.jsx` | `composite` | `stable` | ────────────────────────────────────────────────────────────── | `/snippets/components/content/zoomableDiagram.jsx` |
 | ShowcaseVideo | `/snippets/components/content/video.jsx` | `composite` | `stable` | Showcase Video content component for rendering reader-facing documentation content. | `/snippets/components/content/video.jsx` |
 | TitledVideo | `/snippets/components/content/video.jsx` | `composite` | `stable` | Titled Video content component for rendering reader-facing documentation content. | `/snippets/components/content/video.jsx` |
 | TwitterTimeline | `/snippets/components/content/embed.jsx` | `composite` | `stable` | Twitter Timeline content component for rendering reader-facing documentation content. | `/snippets/components/content/embed.jsx` |
-| ValueResponseField | `/snippets/components/content/response-field.jsx` | `composite` | `stable` | ResponseField wrapper that renders a labelled post value alongside descriptive content. | `/snippets/components/content/response-field.jsx` |
+| ValueResponseField | `/snippets/components/content/responseField.jsx` | `composite` | `stable` | CustomResponseField - ResponseField wrapper that hides the bottom divider | `/snippets/components/content/responseField.jsx` |
 | Video | `/snippets/components/content/video.jsx` | `composite` | `stable` | Video content component for rendering reader-facing documentation content. | `/snippets/components/content/video.jsx` |
 | YouTubeVideo | `/snippets/components/content/video.jsx` | `composite` | `stable` | You Tube Video content component for rendering reader-facing documentation content. | `/snippets/components/content/video.jsx` |
 | YouTubeVideoData | `/snippets/components/content/video.jsx` | `composite` | `stable` | You Tube Video Data content component for rendering reader-facing documentation content. | `/snippets/components/content/video.jsx` |
@@ -160,44 +160,47 @@ The governed component library currently exposes **126** named export(s).
 
 | Component | File | Tier | Status | Description | Import path |
 | --- | --- | --- | --- | --- | --- |
-| CustomCardTitle | `/snippets/components/page-structure/custom-cards.jsx` | `pattern` | `stable` | Custom Card Title page-structure component for frame-mode and portal layout scaffolding. | `/snippets/components/page-structure/custom-cards.jsx` |
-| DisplayCard | `/snippets/components/page-structure/custom-cards.jsx` | `pattern` | `stable` | Display Card page-structure component for frame-mode and portal layout scaffolding. | `/snippets/components/page-structure/custom-cards.jsx` |
-| Divider | `/snippets/components/page-structure/frame-mode.jsx` | `pattern` | `stable` | Renders a horizontal rule (---) with proper styling for frame mode. | `/snippets/components/page-structure/frame-mode.jsx` |
-| H1 | `/snippets/components/page-structure/frame-mode.jsx` | `pattern` | `stable` | H1 page-structure component for frame-mode and portal layout scaffolding. | `/snippets/components/page-structure/frame-mode.jsx` |
-| H2 | `/snippets/components/page-structure/frame-mode.jsx` | `pattern` | `stable` | H2 - Custom H2 heading component for frame mode | `/snippets/components/page-structure/frame-mode.jsx` |
-| H3 | `/snippets/components/page-structure/frame-mode.jsx` | `pattern` | `stable` | H3 - Custom H3 heading component for frame mode | `/snippets/components/page-structure/frame-mode.jsx` |
-| H4 | `/snippets/components/page-structure/frame-mode.jsx` | `pattern` | `stable` | H4 - Custom H4 heading component for frame mode | `/snippets/components/page-structure/frame-mode.jsx` |
-| H5 | `/snippets/components/page-structure/frame-mode.jsx` | `pattern` | `stable` | H5 - Custom H5 heading component for frame mode | `/snippets/components/page-structure/frame-mode.jsx` |
-| H6 | `/snippets/components/page-structure/frame-mode.jsx` | `pattern` | `stable` | H6 - Custom H6 heading component for frame mode | `/snippets/components/page-structure/frame-mode.jsx` |
+| CustomCardTitle | `/snippets/components/page-structure/customCards.jsx` | `pattern` | `stable` | Custom Card Title page-structure component for frame-mode and portal layout scaffolding. | `/snippets/components/page-structure/customCards.jsx` |
+| DisplayCard | `/snippets/components/page-structure/customCards.jsx` | `pattern` | `stable` | Display Card page-structure component for frame-mode and portal layout scaffolding. | `/snippets/components/page-structure/customCards.jsx` |
+| Divider | `/snippets/components/page-structure/frameMode.jsx` | `pattern` | `stable` | Renders a horizontal rule (---) with proper styling for frame mode. | `/snippets/components/page-structure/frameMode.jsx` |
+| H1 | `/snippets/components/page-structure/frameMode.jsx` | `pattern` | `stable` | H1 page-structure component for frame-mode and portal layout scaffolding. | `/snippets/components/page-structure/frameMode.jsx` |
+| H2 | `/snippets/components/page-structure/frameMode.jsx` | `pattern` | `stable` | H2 - Custom H2 heading component for frame mode | `/snippets/components/page-structure/frameMode.jsx` |
+| H3 | `/snippets/components/page-structure/frameMode.jsx` | `pattern` | `stable` | H3 - Custom H3 heading component for frame mode | `/snippets/components/page-structure/frameMode.jsx` |
+| H4 | `/snippets/components/page-structure/frameMode.jsx` | `pattern` | `stable` | H4 - Custom H4 heading component for frame mode | `/snippets/components/page-structure/frameMode.jsx` |
+| H5 | `/snippets/components/page-structure/frameMode.jsx` | `pattern` | `stable` | H5 - Custom H5 heading component for frame mode | `/snippets/components/page-structure/frameMode.jsx` |
+| H6 | `/snippets/components/page-structure/frameMode.jsx` | `pattern` | `stable` | H6 - Custom H6 heading component for frame mode | `/snippets/components/page-structure/frameMode.jsx` |
 | HeroContentContainer | `/snippets/components/page-structure/portals.jsx` | `pattern` | `stable` | Centered frame-mode container for hero content stacked over hero backgrounds. | `/snippets/components/page-structure/portals.jsx` |
 | HeroImageBackgroundComponent | `/snippets/components/page-structure/portals.jsx` | `pattern` | `stable` | Absolute-positioned hero background wrapper used behind portal hero content. | `/snippets/components/page-structure/portals.jsx` |
 | HeroOverviewContent | `/snippets/components/page-structure/portals.jsx` | `pattern` | `stable` | Centered hero overview wrapper for introductory portal copy blocks. | `/snippets/components/page-structure/portals.jsx` |
 | HeroSectionContainer | `/snippets/components/page-structure/portals.jsx` | `pattern` | `stable` | Outer frame-mode hero section wrapper for portal layouts. | `/snippets/components/page-structure/portals.jsx` |
-| InlineImageCard | `/snippets/components/page-structure/custom-cards.jsx` | `pattern` | `stable` | Inline Image Card page-structure component for frame-mode and portal layout scaffolding. | `/snippets/components/page-structure/custom-cards.jsx` |
+| InlineImageCard | `/snippets/components/page-structure/customCards.jsx` | `pattern` | `stable` | Inline Image Card page-structure component for frame-mode and portal layout scaffolding. | `/snippets/components/page-structure/customCards.jsx` |
 | LogoHeroContainer | `/snippets/components/page-structure/portals.jsx` | `pattern` | `stable` | Portal hero logo wrapper that centers a themed brand asset above hero content. | `/snippets/components/page-structure/portals.jsx` |
-| P | `/snippets/components/page-structure/frame-mode.jsx` | `pattern` | `stable` | P - Custom paragraph component for frame mode | `/snippets/components/page-structure/frame-mode.jsx` |
-| PageHeader | `/snippets/components/page-structure/frame-mode.jsx` | `pattern` | `stable` | H1 - Custom H1 heading component for frame mode | `/snippets/components/page-structure/frame-mode.jsx` |
+| MermaidColours | `/snippets/components/page-structure/mermaidColours.jsx` | `pattern` | `stable` | Centralised colour definitions for Mermaid diagrams. Mermaid requires literal colour values and does not support CSS custom properties. | `/snippets/components/page-structure/mermaidColours.jsx` |
+| P | `/snippets/components/page-structure/frameMode.jsx` | `pattern` | `stable` | P - Custom paragraph component for frame mode | `/snippets/components/page-structure/frameMode.jsx` |
+| PageHeader | `/snippets/components/page-structure/frameMode.jsx` | `pattern` | `stable` | H1 - Custom H1 heading component for frame mode | `/snippets/components/page-structure/frameMode.jsx` |
 | PortalCardsHeader | `/snippets/components/page-structure/portals.jsx` | `pattern` | `stable` | Header wrapper for portal card groups and section intros. | `/snippets/components/page-structure/portals.jsx` |
 | PortalContentContainer | `/snippets/components/page-structure/portals.jsx` | `pattern` | `stable` | Frame-mode content wrapper for portal body sections. | `/snippets/components/page-structure/portals.jsx` |
 | PortalHeroContent | `/snippets/components/page-structure/portals.jsx` | `pattern` | `stable` | Hero scaffold for portal landing pages with title, subtitle, supporting content, and optional callouts. | `/snippets/components/page-structure/portals.jsx` |
 | PortalSectionHeader | `/snippets/components/page-structure/portals.jsx` | `pattern` | `stable` | Section heading wrapper for portal subsections with optional icon treatment. | `/snippets/components/page-structure/portals.jsx` |
 | RefCardContainer | `/snippets/components/page-structure/portals.jsx` | `pattern` | `stable` | Container for portal reference cards and related CTA blocks. | `/snippets/components/page-structure/portals.jsx` |
-| Starfield | `/snippets/components/page-structure/hero-gif.jsx` | `pattern` | `stable` | Animated Livepeer logo starfield background for frame-mode hero sections. | `/snippets/components/page-structure/hero-gif.jsx` |
-| WidthCard | `/snippets/components/page-structure/custom-cards.jsx` | `pattern` | `stable` | Width Card page-structure component for frame-mode and portal layout scaffolding. | `/snippets/components/page-structure/custom-cards.jsx` |
-,## Deprecated Components
+| Starfield | `/snippets/components/page-structure/heroGif.jsx` | `pattern` | `stable` | Renders the starfield component | `/snippets/components/page-structure/heroGif.jsx` |
+| WidthCard | `/snippets/components/page-structure/customCards.jsx` | `pattern` | `stable` | Width Card page-structure component for frame-mode and portal layout scaffolding. | `/snippets/components/page-structure/customCards.jsx` |
+
+## Deprecated Components
 
 | Component | File | Replacement | Deprecation note |
 | --- | --- | --- | --- |
 | YouTubeVideoDownload | `/snippets/components/content/video.jsx` | `YouTubeVideo` | YouTubeVideoDownload is deprecated and should not be used for new content. |
 | BlinkingTerminal | `/snippets/components/primitives/links.jsx` | `BlinkingIcon` | BlinkingTerminal is deprecated and should not be used for new content. |
-,## Orphaned Components
+
+## Orphaned Components
 
 | Component | Category | File | Status | Description |
 | --- | --- | --- | --- | --- |
 | EmbedMarkdown | `content` | `/snippets/components/content/embed.jsx` | `stable` | Embed Markdown content component for rendering reader-facing documentation content. |
 | LinkedInEmbed | `content` | `/snippets/components/content/video.jsx` | `stable` | Linked In Embed content component for rendering reader-facing documentation content. |
-| MarkdownEmbed | `content` | `/snippets/components/content/embed.jsx` | `stable` | Dynamically fetches markdown content from a remote URL and renders it. Uses React hooks to manage the fetch lifecycle |
-| ResponseFieldGroup | `content` | `/snippets/components/content/response-field.jsx` | `stable` | Runtime wrapper that switches between accordion and expandable response field groupings. |
+| MarkdownEmbed | `content` | `/snippets/components/content/embed.jsx` | `stable` | Markdown Embed content component for rendering reader-facing documentation content. |
+| ResponseFieldGroup | `content` | `/snippets/components/content/responseField.jsx` | `stable` | Renders the response field group component |
 | BlogDataLayout | `data` | `/snippets/components/data/data.jsx` | `stable` | Blog Data Layout data-driven component for rendering automated or API-backed documentation content. |
 | CardInCardLayout | `data` | `/snippets/components/data/data.jsx` | `stable` | Card In Card Layout data-driven component for rendering automated or API-backed documentation content. |
 | MarkdownEmbed | `data` | `/snippets/components/data/embed.jsx` | `stable` | Dynamically fetches markdown content from a remote URL and renders it. Uses React hooks to manage the fetch lifecycle |
@@ -208,12 +211,13 @@ The governed component library currently exposes **126** named export(s).
 | InteractiveCard | `layout` | `/snippets/components/layout/showcase-cards.jsx` | `stable` | Interactive Card layout component for arranging documentation content without MDX inline styles. |
 | InteractiveCards | `layout` | `/snippets/components/layout/showcase-cards.jsx` | `stable` | Interactive Cards layout component for arranging documentation content without MDX inline styles. |
 | ListSteps | `layout` | `/snippets/components/layout/list-steps.jsx` | `stable` | List Steps layout component for arranging documentation content without MDX inline styles. |
-| Spacer | `layout` | `/snippets/components/layout/layout.jsx` | `stable` | Provides consistent spacing without requiring inline styles or empty divs in MDX files |
-| Divider | `page-structure` | `/snippets/components/page-structure/frame-mode.jsx` | `stable` | Renders a horizontal rule (---) with proper styling for frame mode. |
-| H4 | `page-structure` | `/snippets/components/page-structure/frame-mode.jsx` | `stable` | H4 - Custom H4 heading component for frame mode |
-| H6 | `page-structure` | `/snippets/components/page-structure/frame-mode.jsx` | `stable` | H6 - Custom H6 heading component for frame mode |
+| Spacer | `layout` | `/snippets/components/layout/layout.jsx` | `stable` | Spacer layout component for arranging documentation content without MDX inline styles. |
+| Divider | `page-structure` | `/snippets/components/page-structure/frameMode.jsx` | `stable` | Renders a horizontal rule (---) with proper styling for frame mode. |
+| H4 | `page-structure` | `/snippets/components/page-structure/frameMode.jsx` | `stable` | H4 - Custom H4 heading component for frame mode |
+| H6 | `page-structure` | `/snippets/components/page-structure/frameMode.jsx` | `stable` | H6 - Custom H6 heading component for frame mode |
 | HeroOverviewContent | `page-structure` | `/snippets/components/page-structure/portals.jsx` | `stable` | Centered hero overview wrapper for introductory portal copy blocks. |
-| PageHeader | `page-structure` | `/snippets/components/page-structure/frame-mode.jsx` | `stable` | H1 - Custom H1 heading component for frame mode |
+| MermaidColours | `page-structure` | `/snippets/components/page-structure/mermaidColours.jsx` | `stable` | Centralised colour definitions for Mermaid diagrams. Mermaid requires literal colour values and does not support CSS custom properties. |
+| PageHeader | `page-structure` | `/snippets/components/page-structure/frameMode.jsx` | `stable` | H1 - Custom H1 heading component for frame mode |
 | RefCardContainer | `page-structure` | `/snippets/components/page-structure/portals.jsx` | `stable` | Container for portal reference cards and related CTA blocks. |
 | BasicBtn | `primitives` | `/snippets/components/primitives/buttons.jsx` | `stable` | Basic Btn primitive used in authored documentation and component-library examples. |
 | BlinkingTerminal | `primitives` | `/snippets/components/primitives/links.jsx` | `deprecated` | Blinking Terminal primitive used in authored documentation and component-library examples. |
@@ -221,6 +225,6 @@ The governed component library currently exposes **126** named export(s).
 | LivepeerIconFlipped | `primitives` | `/snippets/components/primitives/icons.jsx` | `stable` | Livepeer Icon Flipped primitive used in authored documentation and component-library examples. |
 | LivepeerIconOld | `primitives` | `/snippets/components/primitives/icons.jsx` | `stable` | Livepeer Icon Old primitive used in authored documentation and component-library examples. |
 | LivepeerSVG | `primitives` | `/snippets/components/primitives/icons.jsx` | `stable` | Livepeer SVG primitive used in authored documentation and component-library examples. |
-| ReviewCallout | `primitives` | `/snippets/components/primitives/preview-callouts.jsx` | `stable` | Callout requesting technical review support on incomplete content. |
+| ReviewCallout | `primitives` | `/snippets/components/primitives/previewCallouts.jsx` | `stable` | Renders the review callout component |
 | SocialLinks | `primitives` | `/snippets/components/primitives/socialLinks.jsx` | `stable` | Renders the social links component |
 | Spacer | `primitives` | `/snippets/components/primitives/spacer.jsx` | `stable` | Provides consistent spacing without requiring inline styles or empty divs in MDX files |

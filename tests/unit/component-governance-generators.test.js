@@ -17,6 +17,7 @@ const fs = require('fs');
 const path = require('path');
 const { buildRegistry } = require('../../tools/scripts/generate-component-registry');
 const { buildUsageMap } = require('../../tools/scripts/scan-component-imports');
+const { getComponentLibraryAuditFiles } = require('../../tools/scripts/audit-component-usage');
 const { parseArgs: parseDocsArgs } = require('../../tools/scripts/generate-component-docs');
 const { parseArgs: parseRepairArgs } = require('../../tools/scripts/remediators/components/repair-component-metadata');
 
@@ -94,12 +95,43 @@ function runTests() {
     assert(!fs.existsSync(path.join(REPO_ROOT, 'v2/resources/documentation-guide/component-library/display.mdx')));
     assert(!fs.existsSync(path.join(REPO_ROOT, 'v2/resources/documentation-guide/component-library/domain.mdx')));
     assert(!fs.existsSync(path.join(REPO_ROOT, 'v2/resources/documentation-guide/component-library/integrations.mdx')));
+    assert.deepEqual(getComponentLibraryAuditFiles(), englishFiles);
 
     const landingContent = readFile('v2/resources/documentation-guide/component-library/component-library.mdx');
     assert(landingContent.includes('./data'));
     assert(landingContent.includes('./page-structure'));
   } catch (error) {
     errors.push(`generated docs output validation failed: ${error.message}`);
+  }
+
+  try {
+    const catalog = readFile('docs-guide/catalog/components-catalog.mdx');
+    assert(!catalog.includes(',## Deprecated Components'));
+    assert(!catalog.includes(',## Orphaned Components'));
+    assert(
+      catalog.includes(
+        '| MermaidColours | `page-structure` | `/snippets/components/page-structure/mermaidColours.jsx` | `stable` | Centralised colour definitions for Mermaid diagrams. Mermaid requires literal colour values and does not support CSS custom properties. |'
+      )
+    );
+  } catch (error) {
+    errors.push(`components catalog output validation failed: ${error.message}`);
+  }
+
+  try {
+    [
+      'v2/resources/documentation-guide/snippets-inventory.mdx',
+      'v2/resources/documentation-guide/style-guide.mdx',
+      'v2/es/resources/documentation-guide/snippets-inventory.mdx',
+      'v2/es/resources/documentation-guide/style-guide.mdx',
+      'v2/fr/resources/documentation-guide/snippets-inventory.mdx',
+      'v2/fr/resources/documentation-guide/style-guide.mdx',
+      'v2/cn/resources/documentation-guide/snippets-inventory.mdx',
+      'v2/cn/resources/documentation-guide/style-guide.mdx'
+    ].forEach((filePath) => {
+      assert(!readFile(filePath).includes('`frame-mode.jsx`'));
+    });
+  } catch (error) {
+    errors.push(`governance surface filename validation failed: ${error.message}`);
   }
 
   try {

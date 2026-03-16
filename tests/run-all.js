@@ -83,9 +83,11 @@ function hasStagedComponentGovernanceChanges() {
     'docs-guide/component-registry.json',
     'docs-guide/component-usage-map.json',
     'tools/lib/component-governance-utils.js',
+    'tools/scripts/audit-component-usage.js',
     'tools/scripts/generate-component-registry.js',
     'tools/scripts/scan-component-imports.js',
     'tools/scripts/generate-component-docs.js',
+    'tools/scripts/generate-docs-guide-components-index.js',
     'tools/scripts/remediators/components/repair-component-metadata.js',
     'tests/unit/component-governance-generators.test.js'
   ]);

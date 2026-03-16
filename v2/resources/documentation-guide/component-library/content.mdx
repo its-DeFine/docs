@@ -47,21 +47,21 @@ This category currently contains **24** governed export(s).
 | CodeSection | `composite` | `stable` | `/snippets/components/content/code.jsx` | Thin wrapper that maps a `fields` object into the complex code block renderer. |
 | ComplexCodeBlock | `composite` | `stable` | `/snippets/components/content/code.jsx` | Complex Code Block content component for rendering reader-facing documentation content. |
 | CustomCodeBlock | `composite` | `stable` | `/snippets/components/content/code.jsx` | Custom Code Block content component for rendering reader-facing documentation content. |
-| CustomResponseField | `composite` | `stable` | `/snippets/components/content/response-field.jsx` | ResponseField wrapper that removes the default divider for tighter grouped layouts. |
+| CustomResponseField | `composite` | `stable` | `/snippets/components/content/responseField.jsx` | Renders the custom response field component |
 | EmbedMarkdown | `composite` | `stable` | `/snippets/components/content/embed.jsx` | Embed Markdown content component for rendering reader-facing documentation content. |
 | ExternalContent | `composite` | `stable` | `/snippets/components/content/external-content.jsx` | External Content content component for rendering reader-facing documentation content. |
 | FrameQuote | `composite` | `stable` | `/snippets/components/content/quote.jsx` | Frame Quote content component for rendering reader-facing documentation content. |
 | LinkedInEmbed | `composite` | `stable` | `/snippets/components/content/video.jsx` | Linked In Embed content component for rendering reader-facing documentation content. |
 | MarkdownEmbed | `composite` | `stable` | `/snippets/components/content/embed.jsx` | Markdown Embed content component for rendering reader-facing documentation content. |
 | Quote | `composite` | `stable` | `/snippets/components/content/quote.jsx` | Quote content component for rendering reader-facing documentation content. |
-| ResponseFieldAccordion | `composite` | `stable` | `/snippets/components/content/response-field.jsx` | Accordion wrapper that renders a collection of response fields inside Mintlify Accordion. |
-| ResponseFieldExpandable | `composite` | `stable` | `/snippets/components/content/response-field.jsx` | Expandable wrapper that renders a collection of response fields inside Mintlify Expandable. |
-| ResponseFieldGroup | `composite` | `stable` | `/snippets/components/content/response-field.jsx` | Runtime wrapper that switches between accordion and expandable response field groupings. |
-| ScrollableDiagram | `composite` | `stable` | `/snippets/components/content/zoomable-diagram.jsx` | Scrollable Diagram content component for rendering reader-facing documentation content. |
+| ResponseFieldAccordion | `composite` | `stable` | `/snippets/components/content/responseField.jsx` | Renders the response field accordion component |
+| ResponseFieldExpandable | `composite` | `stable` | `/snippets/components/content/responseField.jsx` | Renders the response field expandable component |
+| ResponseFieldGroup | `composite` | `stable` | `/snippets/components/content/responseField.jsx` | Renders the response field group component |
+| ScrollableDiagram | `composite` | `stable` | `/snippets/components/content/zoomableDiagram.jsx` | ────────────────────────────────────────────────────────────── |
 | ShowcaseVideo | `composite` | `stable` | `/snippets/components/content/video.jsx` | Showcase Video content component for rendering reader-facing documentation content. |
 | TitledVideo | `composite` | `stable` | `/snippets/components/content/video.jsx` | Titled Video content component for rendering reader-facing documentation content. |
 | TwitterTimeline | `composite` | `stable` | `/snippets/components/content/embed.jsx` | Twitter Timeline content component for rendering reader-facing documentation content. |
-| ValueResponseField | `composite` | `stable` | `/snippets/components/content/response-field.jsx` | ResponseField wrapper that renders a labelled post value alongside descriptive content. |
+| ValueResponseField | `composite` | `stable` | `/snippets/components/content/responseField.jsx` | CustomResponseField - ResponseField wrapper that hides the bottom divider |
 | Video | `composite` | `stable` | `/snippets/components/content/video.jsx` | Video content component for rendering reader-facing documentation content. |
 | YouTubeVideo | `composite` | `stable` | `/snippets/components/content/video.jsx` | You Tube Video content component for rendering reader-facing documentation content. |
 | YouTubeVideoData | `composite` | `stable` | `/snippets/components/content/video.jsx` | You Tube Video Data content component for rendering reader-facing documentation content. |
@@ -100,7 +100,7 @@ import { CardVideo } from '/snippets/components/content/video.jsx'
 <CardVideo embedUrl="example" title="example" />
 ```
 
-<CustomDivider />
+---
 
 ### CodeComponent
 Use **CodeComponent** when you need code Component content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -139,7 +139,7 @@ import { CodeComponent } from '/snippets/components/content/code.jsx'
 <CodeComponent />
 ```
 
-<CustomDivider />
+---
 
 ### CodeSection
 Use **CodeSection** when you need thin wrapper that maps a `fields` object into the complex code block renderer.. Best suited for tutorial, concept, reference page types.
@@ -170,7 +170,7 @@ import { CodeSection } from '/snippets/components/content/code.jsx'
 <CodeSection />
 ```
 
-<CustomDivider />
+---
 
 ### ComplexCodeBlock
 Use **ComplexCodeBlock** when you need complex Code Block content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -210,7 +210,7 @@ import { ComplexCodeBlock } from '/snippets/components/content/code.jsx'
 <ComplexCodeBlock filename="example" icon="example" />
 ```
 
-<CustomDivider />
+---
 
 ### CustomCodeBlock
 Use **CustomCodeBlock** when you need custom Code Block content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -251,22 +251,22 @@ import { CustomCodeBlock } from '/snippets/components/content/code.jsx'
 <CustomCodeBlock filename="example" icon="example" />
 ```
 
-<CustomDivider />
+---
 
 ### CustomResponseField
-Use **CustomResponseField** when you need responseField wrapper that removes the default divider for tighter grouped layouts.. Best suited for tutorial, concept, reference page types.
-Source description: ResponseField wrapper that removes the default divider for tighter grouped layouts.
+Use **CustomResponseField** when you need renders the custom response field component. Best suited for how_to page types.
+Source description: Renders the custom response field component
 **Import path**
 ```jsx
-import { CustomResponseField } from '/snippets/components/content/response-field.jsx'
+import { CustomResponseField } from '/snippets/components/content/responseField.jsx'
 ```
 **Metadata**
-- Content affinity: `tutorial`, `concept`, `reference`
+- Content affinity: `how_to`
 - Dependencies: `ResponseFieldAccordion`, `ResponseFieldExpandable`, `ResponseFieldGroup`, `ValueResponseField`
 - Data source: `none`
-- Last meaningful change: `2026-03-10`
+- Last meaningful change: `2026-03-08`
 - Breaking change risk: `low`
-- Owner: `docs`
+- Owner: `@livepeer/docs-team`
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
@@ -274,16 +274,16 @@ import { CustomResponseField } from '/snippets/components/content/response-field
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
-| `description` | `any` | `` | Yes | description prop. |
-| `props` | `any` | `` | Yes | props prop. |
+| `description` | `React.ReactNode` | `` | Yes | Primary content rendered by the component. |
+| `props` | `object` | `` | No | Additional props forwarded to ResponseField. |
 
 **Code example**
 
 ```jsx
-<CustomResponseField description="example" props="example" />
+<CustomResponseField description="Example" />
 ```
 
-<CustomDivider />
+---
 
 ### EmbedMarkdown
 Use **EmbedMarkdown** when you need embed Markdown content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -314,7 +314,7 @@ import { EmbedMarkdown } from '/snippets/components/content/embed.jsx'
 <EmbedMarkdown url="example" />
 ```
 
-<CustomDivider />
+---
 
 ### ExternalContent
 Use **ExternalContent** when you need external Content content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -349,7 +349,7 @@ import { ExternalContent } from '/snippets/components/content/external-content.j
 <ExternalContent repoName="example" githubUrl="example">Example content</ExternalContent>
 ```
 
-<CustomDivider />
+---
 
 ### FrameQuote
 Use **FrameQuote** when you need frame Quote content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -389,7 +389,7 @@ import { FrameQuote } from '/snippets/components/content/quote.jsx'
 <FrameQuote author="example" source="example">Example content</FrameQuote>
 ```
 
-<CustomDivider />
+---
 
 ### LinkedInEmbed
 Use **LinkedInEmbed** when you need linked In Embed content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -424,7 +424,7 @@ import { LinkedInEmbed } from '/snippets/components/content/video.jsx'
 <LinkedInEmbed embedUrl="example" caption="example" />
 ```
 
-<CustomDivider />
+---
 
 ### MarkdownEmbed
 Use **MarkdownEmbed** when you need markdown Embed content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -455,7 +455,7 @@ import { MarkdownEmbed } from '/snippets/components/content/embed.jsx'
 <MarkdownEmbed url="example" />
 ```
 
-<CustomDivider />
+---
 
 ### Quote
 Use **Quote** when you need content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -486,22 +486,22 @@ import { Quote } from '/snippets/components/content/quote.jsx'
 <Quote>Example content</Quote>
 ```
 
-<CustomDivider />
+---
 
 ### ResponseFieldAccordion
-Use **ResponseFieldAccordion** when you need accordion wrapper that renders a collection of response fields inside Mintlify Accordion.. Best suited for tutorial, concept, reference page types.
-Source description: Accordion wrapper that renders a collection of response fields inside Mintlify Accordion.
+Use **ResponseFieldAccordion** when you need renders the response field accordion component. Best suited for universal page types.
+Source description: Renders the response field accordion component
 **Import path**
 ```jsx
-import { ResponseFieldAccordion } from '/snippets/components/content/response-field.jsx'
+import { ResponseFieldAccordion } from '/snippets/components/content/responseField.jsx'
 ```
 **Metadata**
-- Content affinity: `tutorial`, `concept`, `reference`
+- Content affinity: `universal`
 - Dependencies: `CustomResponseField`, `ResponseFieldExpandable`, `ResponseFieldGroup`, `ValueResponseField`
 - Data source: `none`
-- Last meaningful change: `2026-03-10`
+- Last meaningful change: `2026-03-08`
 - Breaking change risk: `low`
-- Owner: `docs`
+- Owner: `@livepeer/docs-team`
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
@@ -509,31 +509,31 @@ import { ResponseFieldAccordion } from '/snippets/components/content/response-fi
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
-| `fields` | `object` | `{}` | No | fields prop. |
-| `props` | `any` | `` | Yes | props prop. |
+| `fields` | `object` | `{}` | No | Fields used by the component. |
+| `props` | `object` | `` | No | Additional props forwarded to Accordion. |
 
 **Code example**
 
 ```jsx
-<ResponseFieldAccordion props="example" />
+<ResponseFieldAccordion />
 ```
 
-<CustomDivider />
+---
 
 ### ResponseFieldExpandable
-Use **ResponseFieldExpandable** when you need expandable wrapper that renders a collection of response fields inside Mintlify Expandable.. Best suited for tutorial, concept, reference page types.
-Source description: Expandable wrapper that renders a collection of response fields inside Mintlify Expandable.
+Use **ResponseFieldExpandable** when you need renders the response field expandable component. Best suited for how_to page types.
+Source description: Renders the response field expandable component
 **Import path**
 ```jsx
-import { ResponseFieldExpandable } from '/snippets/components/content/response-field.jsx'
+import { ResponseFieldExpandable } from '/snippets/components/content/responseField.jsx'
 ```
 **Metadata**
-- Content affinity: `tutorial`, `concept`, `reference`
+- Content affinity: `how_to`
 - Dependencies: `CustomResponseField`, `ResponseFieldAccordion`, `ResponseFieldGroup`, `ValueResponseField`
 - Data source: `none`
-- Last meaningful change: `2026-03-10`
+- Last meaningful change: `2026-03-08`
 - Breaking change risk: `low`
-- Owner: `docs`
+- Owner: `@livepeer/docs-team`
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
@@ -541,31 +541,31 @@ import { ResponseFieldExpandable } from '/snippets/components/content/response-f
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
-| `fields` | `object` | `{}` | No | fields prop. |
-| `props` | `any` | `` | Yes | props prop. |
+| `fields` | `object` | `{}` | No | Fields used by the component. |
+| `props` | `object` | `` | No | Additional props forwarded to Expandable. |
 
 **Code example**
 
 ```jsx
-<ResponseFieldExpandable props="example" />
+<ResponseFieldExpandable />
 ```
 
-<CustomDivider />
+---
 
 ### ResponseFieldGroup
-Use **ResponseFieldGroup** when you need runtime wrapper that switches between accordion and expandable response field groupings.. Best suited for tutorial, concept, reference page types.
-Source description: Runtime wrapper that switches between accordion and expandable response field groupings.
+Use **ResponseFieldGroup** when you need renders the response field group component. Best suited for universal page types.
+Source description: Renders the response field group component
 **Import path**
 ```jsx
-import { ResponseFieldGroup } from '/snippets/components/content/response-field.jsx'
+import { ResponseFieldGroup } from '/snippets/components/content/responseField.jsx'
 ```
 **Metadata**
-- Content affinity: `tutorial`, `concept`, `reference`
+- Content affinity: `universal`
 - Dependencies: `CustomResponseField`, `ResponseFieldAccordion`, `ResponseFieldExpandable`, `ValueResponseField`
 - Data source: `none`
-- Last meaningful change: `2026-03-10`
+- Last meaningful change: `2026-03-08`
 - Breaking change risk: `low`
-- Owner: `docs`
+- Owner: `@livepeer/docs-team`
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
@@ -573,32 +573,32 @@ import { ResponseFieldGroup } from '/snippets/components/content/response-field.
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
-| `component` | `string` | `"accordion"` | No | component prop. |
-| `fields` | `object` | `{}` | No | fields prop. |
-| `props` | `any` | `` | Yes | props prop. |
+| `component` | `string` | `"accordion"` | No | Component used by the component. |
+| `fields` | `object` | `{}` | No | Fields used by the component. |
+| `props` | `object` | `` | No | Additional props forwarded to the selected wrapper component. |
 
 **Code example**
 
 ```jsx
-<ResponseFieldGroup props="example" />
+<ResponseFieldGroup />
 ```
 
-<CustomDivider />
+---
 
 ### ScrollableDiagram
-Use **ScrollableDiagram** when you need scrollable Diagram content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
-Source description: Scrollable Diagram content component for rendering reader-facing documentation content.
+Use **ScrollableDiagram** when you need ──────────────────────────────────────────────────────────────. Best suited for universal page types.
+Source description: ──────────────────────────────────────────────────────────────
 **Import path**
 ```jsx
-import { ScrollableDiagram } from '/snippets/components/content/zoomable-diagram.jsx'
+import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 ```
 **Metadata**
-- Content affinity: `tutorial`, `concept`, `reference`
+- Content affinity: `universal`
 - Dependencies: `none`
 - Data source: `none`
-- Last meaningful change: `2026-03-10`
+- Last meaningful change: `2026-03-08`
 - Breaking change risk: `medium`
-- Owner: `docs`
+- Owner: `@livepeer/docs-team`
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
@@ -606,19 +606,19 @@ import { ScrollableDiagram } from '/snippets/components/content/zoomable-diagram
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
-| `children` | `any` | `` | Yes | children prop. |
-| `title` | `string` | `""` | No | title prop. |
-| `maxHeight` | `string` | `"500px"` | No | max Height prop. |
-| `minWidth` | `string` | `"100%"` | No | min Width prop. |
-| `showControls` | `boolean` | `false` | No | show Controls prop. |
+| `children` | `React.ReactNode` | `` | Yes | Content rendered inside the component. |
+| `title` | `string` | `""` | No | Title text rendered by the component. |
+| `maxHeight` | `string` | `"500px"` | No | Max height used by the component. |
+| `minWidth` | `string` | `"100%"` | No | Min width used by the component. |
+| `showControls` | `boolean` | `false` | No | Boolean flag that controls component behaviour. |
 
 **Code example**
 
 ```jsx
-<ScrollableDiagram>Example content</ScrollableDiagram>
+<ScrollableDiagram>Example</ScrollableDiagram>
 ```
 
-<CustomDivider />
+---
 
 ### ShowcaseVideo
 Use **ShowcaseVideo** when you need showcase Video content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -651,7 +651,7 @@ import { ShowcaseVideo } from '/snippets/components/content/video.jsx'
 <ShowcaseVideo src="example" title="example" />
 ```
 
-<CustomDivider />
+---
 
 ### TitledVideo
 Use **TitledVideo** when you need titled Video content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -687,7 +687,7 @@ import { TitledVideo } from '/snippets/components/content/video.jsx'
 <TitledVideo src="example" title="example" />
 ```
 
-<CustomDivider />
+---
 
 ### TwitterTimeline
 Use **TwitterTimeline** when you need twitter Timeline content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -716,22 +716,22 @@ No documented props.
 <TwitterTimeline />
 ```
 
-<CustomDivider />
+---
 
 ### ValueResponseField
-Use **ValueResponseField** when you need responseField wrapper that renders a labelled post value alongside descriptive content.. Best suited for tutorial, concept, reference page types.
-Source description: ResponseField wrapper that renders a labelled post value alongside descriptive content.
+Use **ValueResponseField** when you need customResponseField - ResponseField wrapper that hides the bottom divider. Best suited for concept page types.
+Source description: CustomResponseField - ResponseField wrapper that hides the bottom divider
 **Import path**
 ```jsx
-import { ValueResponseField } from '/snippets/components/content/response-field.jsx'
+import { ValueResponseField } from '/snippets/components/content/responseField.jsx'
 ```
 **Metadata**
-- Content affinity: `tutorial`, `concept`, `reference`
+- Content affinity: `concept`
 - Dependencies: `CustomResponseField`, `ResponseFieldAccordion`, `ResponseFieldExpandable`, `ResponseFieldGroup`
 - Data source: `none`
-- Last meaningful change: `2026-03-10`
+- Last meaningful change: `2026-03-08`
 - Breaking change risk: `low`
-- Owner: `docs`
+- Owner: `@livepeer/docs-team`
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
@@ -739,20 +739,20 @@ import { ValueResponseField } from '/snippets/components/content/response-field.
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
-| `description` | `any` | `` | Yes | description prop. |
-| `post` | `any` | `null` | No | post prop. |
-| `label` | `string` | `"value"` | No | label prop. |
-| `line` | `boolean` | `true` | No | line prop. |
-| `children` | `any` | `` | Yes | children prop. |
-| `props` | `any` | `` | Yes | props prop. |
+| `description` | `React.ReactNode` | `` | Yes | Primary content rendered by the component. |
+| `post` | `string` | `null` | No | Post used by the component. |
+| `label` | `string` | `"value"` | No | Label text rendered by the component. |
+| `line` | `boolean` | `true` | No | Boolean flag that controls component behaviour. |
+| `children` | `React.ReactNode` | `` | Yes | Content rendered inside the component. |
+| `props` | `object` | `` | No | Additional props forwarded to ResponseField. |
 
 **Code example**
 
 ```jsx
-<ValueResponseField description="example" props="example">Example content</ValueResponseField>
+<ValueResponseField description="Example" />
 ```
 
-<CustomDivider />
+---
 
 ### Video
 Use **Video** when you need content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -792,7 +792,7 @@ import { Video } from '/snippets/components/content/video.jsx'
 <Video src="example" caption="example">Example content</Video>
 ```
 
-<CustomDivider />
+---
 
 ### YouTubeVideo
 Use **YouTubeVideo** when you need you Tube Video content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -827,7 +827,7 @@ import { YouTubeVideo } from '/snippets/components/content/video.jsx'
 <YouTubeVideo embedUrl="example" caption="example" />
 ```
 
-<CustomDivider />
+---
 
 ### YouTubeVideoData
 Use **YouTubeVideoData** when you need you Tube Video Data content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.
@@ -860,7 +860,7 @@ import { YouTubeVideoData } from '/snippets/components/content/video.jsx'
 <YouTubeVideoData limit={1} />
 ```
 
-<CustomDivider />
+---
 
 ### YouTubeVideoDownload
 Use **YouTubeVideoDownload** when you need you Tube Video Download content component for rendering reader-facing documentation content.. Best suited for tutorial, concept, reference page types.

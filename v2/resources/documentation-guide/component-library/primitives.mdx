@@ -47,7 +47,7 @@ This category currently contains **30** governed export(s).
 | BlinkingIcon | `primitive` | `stable` | `/snippets/components/primitives/links.jsx` | Displays an icon with a smooth blinking animation (fades between full and 30% opacity). |
 | BlinkingTerminal | `primitive` | `deprecated` | `/snippets/components/primitives/links.jsx` | Blinking Terminal primitive used in authored documentation and component-library examples. |
 | CardTitleTextWithArrow | `primitive` | `stable` | `/snippets/components/primitives/text.jsx` | Card Title Text With Arrow primitive used in authored documentation and component-library examples. |
-| ComingSoonCallout | `primitive` | `stable` | `/snippets/components/primitives/preview-callouts.jsx` | Callout announcing work-in-progress content and contribution links. |
+| ComingSoonCallout | `primitive` | `stable` | `/snippets/components/primitives/previewCallouts.jsx` | Renders the coming soon callout component |
 | CopyText | `primitive` | `stable` | `/snippets/components/primitives/text.jsx` | Copy Text primitive used in authored documentation and component-library examples. |
 | CustomCallout | `primitive` | `stable` | `/snippets/components/primitives/links.jsx` | Displays a styled callout box with an icon and custom colors. |
 | CustomCardTitle | `primitive` | `stable` | `/snippets/components/primitives/customCardTitle.jsx` | Renders the custom card title component |
@@ -66,8 +66,8 @@ This category currently contains **30** governed export(s).
 | LivepeerSVG | `primitive` | `stable` | `/snippets/components/primitives/icons.jsx` | Livepeer SVG primitive used in authored documentation and component-library examples. |
 | MathBlock | `primitive` | `stable` | `/snippets/components/primitives/math.jsx` | Math Block primitive used in authored documentation and component-library examples. |
 | MathInline | `primitive` | `stable` | `/snippets/components/primitives/math.jsx` | Math Inline primitive used in authored documentation and component-library examples. |
-| PreviewCallout | `primitive` | `stable` | `/snippets/components/primitives/preview-callouts.jsx` | Callout highlighting preview-state content and feedback channels. |
-| ReviewCallout | `primitive` | `stable` | `/snippets/components/primitives/preview-callouts.jsx` | Callout requesting technical review support on incomplete content. |
+| PreviewCallout | `primitive` | `stable` | `/snippets/components/primitives/previewCallouts.jsx` | Renders the preview callout component |
+| ReviewCallout | `primitive` | `stable` | `/snippets/components/primitives/previewCallouts.jsx` | Renders the review callout component |
 | SocialLinks | `primitive` | `stable` | `/snippets/components/primitives/socialLinks.jsx` | Renders the social links component |
 | Spacer | `primitive` | `stable` | `/snippets/components/primitives/spacer.jsx` | Provides consistent spacing without requiring inline styles or empty divs in MDX files |
 | Subtitle | `primitive` | `stable` | `/snippets/components/primitives/text.jsx` | Subtitle primitive used in authored documentation and component-library examples. |
@@ -106,7 +106,7 @@ import { AccordionTitleWithArrow } from '/snippets/components/primitives/text.js
 <AccordionTitleWithArrow text="example">Example content</AccordionTitleWithArrow>
 ```
 
-<CustomDivider />
+---
 
 ### BasicBtn
 Use **BasicBtn** when you need basic Btn primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -135,7 +135,7 @@ No documented props.
 <BasicBtn />
 ```
 
-<CustomDivider />
+---
 
 ### BlinkingIcon
 Use **BlinkingIcon** when you need displays an icon with a smooth blinking animation (fades between full and 30% opacity).. Best suited for universal page types.
@@ -168,7 +168,7 @@ import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
 <BlinkingIcon color="example" />
 ```
 
-<CustomDivider />
+---
 
 ### BlinkingTerminal
 Use **BlinkingTerminal** when you need blinking Terminal primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -199,7 +199,7 @@ No documented props.
 <BlinkingTerminal />
 ```
 
-<CustomDivider />
+---
 
 ### CardTitleTextWithArrow
 Use **CardTitleTextWithArrow** when you need card Title Text With Arrow primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -231,22 +231,22 @@ import { CardTitleTextWithArrow } from '/snippets/components/primitives/text.jsx
 <CardTitleTextWithArrow cardProps="example">Example content</CardTitleTextWithArrow>
 ```
 
-<CustomDivider />
+---
 
 ### ComingSoonCallout
-Use **ComingSoonCallout** when you need callout announcing work-in-progress content and contribution links.. Best suited for universal page types.
-Source description: Callout announcing work-in-progress content and contribution links.
+Use **ComingSoonCallout** when you need renders the coming soon callout component. Best suited for changelog page types.
+Source description: Renders the coming soon callout component
 **Import path**
 ```jsx
-import { ComingSoonCallout } from '/snippets/components/primitives/preview-callouts.jsx'
+import { ComingSoonCallout } from '/snippets/components/primitives/previewCallouts.jsx'
 ```
 **Metadata**
-- Content affinity: `universal`
+- Content affinity: `changelog`
 - Dependencies: `PreviewCallout`, `ReviewCallout`
 - Data source: `none`
-- Last meaningful change: `2026-03-10`
+- Last meaningful change: `2026-03-09`
 - Breaking change risk: `low`
-- Owner: `docs`
+- Owner: `@livepeer/docs-team`
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `primitive`
@@ -254,7 +254,7 @@ import { ComingSoonCallout } from '/snippets/components/primitives/preview-callo
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
-| `type` | `string` | `"page"` | No | type prop. |
+| `type` | `string` | `"page"` | No | Type used by the component. |
 
 **Code example**
 
@@ -262,7 +262,7 @@ import { ComingSoonCallout } from '/snippets/components/primitives/preview-callo
 <ComingSoonCallout />
 ```
 
-<CustomDivider />
+---
 
 ### CopyText
 Use **CopyText** when you need copy Text primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -294,7 +294,7 @@ import { CopyText } from '/snippets/components/primitives/text.jsx'
 <CopyText text="example" label="example" />
 ```
 
-<CustomDivider />
+---
 
 ### CustomCallout
 Use **CustomCallout** when you need displays a styled callout box with an icon and custom colors.. Best suited for universal page types.
@@ -330,7 +330,7 @@ import { CustomCallout } from '/snippets/components/primitives/links.jsx'
 <CustomCallout color="example" textColor="example">Example content</CustomCallout>
 ```
 
-<CustomDivider />
+---
 
 ### CustomCardTitle
 Use **CustomCardTitle** when you need renders the custom card title component. Best suited for landing page types.
@@ -363,7 +363,7 @@ import { CustomCardTitle } from '/snippets/components/primitives/customCardTitle
 <CustomCardTitle icon="sparkles" title="Example" style={{}} />
 ```
 
-<CustomDivider />
+---
 
 ### CustomDivider
 Use **CustomDivider** when you need custom Divider primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -396,7 +396,7 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 <CustomDivider />
 ```
 
-<CustomDivider />
+---
 
 ### DoubleIconLink
 Use **DoubleIconLink** when you need displays a link with an icon on the left and right, plus optional text prefix.. Best suited for universal page types.
@@ -431,7 +431,7 @@ import { DoubleIconLink } from '/snippets/components/primitives/links.jsx'
 <DoubleIconLink />
 ```
 
-<CustomDivider />
+---
 
 ### DownloadButton
 Use **DownloadButton** when you need download Button primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -466,7 +466,7 @@ import { DownloadButton } from '/snippets/components/primitives/buttons.jsx'
 <DownloadButton downloadLink="example" />
 ```
 
-<CustomDivider />
+---
 
 ### FocusableScrollRegions
 Use **FocusableScrollRegions** when you need focusable Scroll Regions primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -497,7 +497,7 @@ import { FocusableScrollRegions } from '/snippets/components/primitives/a11y.jsx
 <FocusableScrollRegions selectors="example" />
 ```
 
-<CustomDivider />
+---
 
 ### GotoCard
 Use **GotoCard** when you need wraps content in a Card component with a link, icon, and optional CTA.. Best suited for universal page types.
@@ -533,7 +533,7 @@ import { GotoCard } from '/snippets/components/primitives/links.jsx'
 <GotoCard label="example" relativePath="example" />
 ```
 
-<CustomDivider />
+---
 
 ### GotoLink
 Use **GotoLink** when you need displays a link with an icon, typically used for internal navigation.. Best suited for universal page types.
@@ -567,7 +567,7 @@ import { GotoLink } from '/snippets/components/primitives/links.jsx'
 <GotoLink label="example" relativePath="example" />
 ```
 
-<CustomDivider />
+---
 
 ### Image
 Use **Image** when you need primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -603,7 +603,7 @@ import { Image } from '/snippets/components/primitives/image.jsx'
 <Image src="example" alt="example" />
 ```
 
-<CustomDivider />
+---
 
 ### LinkArrow
 Use **LinkArrow** when you need link Arrow primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -638,7 +638,7 @@ import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 <LinkArrow href="example" label="example" />
 ```
 
-<CustomDivider />
+---
 
 ### LinkImage
 Use **LinkImage** when you need link Image primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -674,7 +674,7 @@ import { LinkImage } from '/snippets/components/primitives/image.jsx'
 <LinkImage src="example" alt="example" />
 ```
 
-<CustomDivider />
+---
 
 ### LivepeerIcon
 Use **LivepeerIcon** when you need livepeer Icon primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -707,7 +707,7 @@ import { LivepeerIcon } from '/snippets/components/primitives/icons.jsx'
 <LivepeerIcon color="example" props="example" />
 ```
 
-<CustomDivider />
+---
 
 ### LivepeerIconFlipped
 Use **LivepeerIconFlipped** when you need livepeer Icon Flipped primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -738,7 +738,7 @@ import { LivepeerIconFlipped } from '/snippets/components/primitives/icons.jsx'
 <LivepeerIconFlipped props="example" />
 ```
 
-<CustomDivider />
+---
 
 ### LivepeerIconOld
 Use **LivepeerIconOld** when you need livepeer Icon Old primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -769,7 +769,7 @@ import { LivepeerIconOld } from '/snippets/components/primitives/icons.jsx'
 <LivepeerIconOld props="example" />
 ```
 
-<CustomDivider />
+---
 
 ### LivepeerSVG
 Use **LivepeerSVG** when you need livepeer SVG primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -801,7 +801,7 @@ import { LivepeerSVG } from '/snippets/components/primitives/icons.jsx'
 <LivepeerSVG props="example" />
 ```
 
-<CustomDivider />
+---
 
 ### MathBlock
 Use **MathBlock** when you need math Block primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -834,7 +834,7 @@ import { MathBlock } from '/snippets/components/primitives/math.jsx'
 <MathBlock latex="example" ariaLabel="example" />
 ```
 
-<CustomDivider />
+---
 
 ### MathInline
 Use **MathInline** when you need math Inline primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -867,26 +867,26 @@ import { MathInline } from '/snippets/components/primitives/math.jsx'
 <MathInline latex="example" ariaLabel="example" />
 ```
 
-<CustomDivider />
+---
 
 ### PreviewCallout
-Use **PreviewCallout** when you need callout highlighting preview-state content and feedback channels.. Best suited for universal page types.
-Source description: Callout highlighting preview-state content and feedback channels.
+Use **PreviewCallout** when you need renders the preview callout component. Best suited for universal page types.
+Source description: Renders the preview callout component
 **Import path**
 ```jsx
-import { PreviewCallout } from '/snippets/components/primitives/preview-callouts.jsx'
+import { PreviewCallout } from '/snippets/components/primitives/previewCallouts.jsx'
 ```
 **Metadata**
 - Content affinity: `universal`
 - Dependencies: `ComingSoonCallout`, `ReviewCallout`
 - Data source: `none`
-- Last meaningful change: `2026-03-10`
+- Last meaningful change: `2026-03-09`
 - Breaking change risk: `low`
-- Owner: `docs`
+- Owner: `@livepeer/docs-team`
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `primitive`
-- `@usedIn`: `v2/developers/_archive/ai-inference-overview-old.mdx`, `v2/developers/_archive/ai-inference-workload-fit-old.mdx`, `v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx`, `v2/developers/_archive/quickstart-video-101.mdx`, `v2/orchestrators/old/setting-up-an-orchestrator/publish-offerings.mdx`, `v2/resources/concepts/brief-history-of-video.mdx`, and 1 more page(s)
+- `@usedIn`: `v2/developers/ai-inference-on-livepeer/overview.mdx`, `v2/developers/ai-inference-on-livepeer/workload-fit.mdx`, `v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx`, `v2/developers/quickstart/video/video-streaming-101.mdx`, `v2/orchestrators/setup/publish-offerings.mdx`, `v2/resources/concepts/brief-history-of-video.mdx`, and 1 more page(s)
 **Props**
 No documented props.
 
@@ -896,22 +896,22 @@ No documented props.
 <PreviewCallout />
 ```
 
-<CustomDivider />
+---
 
 ### ReviewCallout
-Use **ReviewCallout** when you need callout requesting technical review support on incomplete content.. Best suited for universal page types.
-Source description: Callout requesting technical review support on incomplete content.
+Use **ReviewCallout** when you need renders the review callout component. Best suited for universal page types.
+Source description: Renders the review callout component
 **Import path**
 ```jsx
-import { ReviewCallout } from '/snippets/components/primitives/preview-callouts.jsx'
+import { ReviewCallout } from '/snippets/components/primitives/previewCallouts.jsx'
 ```
 **Metadata**
 - Content affinity: `universal`
 - Dependencies: `ComingSoonCallout`, `PreviewCallout`
 - Data source: `none`
-- Last meaningful change: `2026-03-10`
+- Last meaningful change: `2026-03-09`
 - Breaking change risk: `low`
-- Owner: `docs`
+- Owner: `@livepeer/docs-team`
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `primitive`
@@ -925,7 +925,7 @@ No documented props.
 <ReviewCallout />
 ```
 
-<CustomDivider />
+---
 
 ### SocialLinks
 Use **SocialLinks** when you need renders the social links component. Best suited for universal page types.
@@ -959,7 +959,7 @@ import { SocialLinks } from '/snippets/components/primitives/socialLinks.jsx'
 <SocialLinks color="value" />
 ```
 
-<CustomDivider />
+---
 
 ### Spacer
 Use **Spacer** when you need provides consistent spacing without requiring inline styles or empty divs in MDX files. Best suited for universal page types.
@@ -991,7 +991,7 @@ import { Spacer } from '/snippets/components/primitives/spacer.jsx'
 <Spacer />
 ```
 
-<CustomDivider />
+---
 
 ### Subtitle
 Use **Subtitle** when you need primitive used in authored documentation and component-library examples.. Best suited for universal page types.
@@ -1024,7 +1024,7 @@ import { Subtitle } from '/snippets/components/primitives/text.jsx'
 <Subtitle text="example">Example content</Subtitle>
 ```
 
-<CustomDivider />
+---
 
 ### TipWithArrow
 Use **TipWithArrow** when you need similar to CustomCallout but includes an arrow icon in the top-right corner.. Best suited for universal page types.
