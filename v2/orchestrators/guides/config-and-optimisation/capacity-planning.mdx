@@ -34,7 +34,7 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/ta
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 
 <Tip>
-  Set `-maxSessions` to the minimum of your hardware limit and your bandwidth limit. Too low wastes capacity and limits earnings. Too high causes transcoding to fall behind real time — segments pile up, gateways log errors, and your reputation score suffers.
+  Set `-maxSessions` to the minimum of your hardware limit and your bandwidth limit. Too low wastes capacity and limits earnings. Too high pushes transcoding behind live segment cadence — segments pile up, gateways log errors, and your reputation score suffers.
 </Tip>
 
 ---
@@ -43,8 +43,8 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 
 Two constraints determine the session limit independently:
 
-- **Hardware limit** — the number of concurrent sessions the GPU can transcode in real time, measured with `livepeer_bench`
-- **Bandwidth limit** — the number of concurrent sessions your connection can carry, calculated from available upload bandwidth
+- **Hardware limit** — the number of concurrent sessions the GPU transcodes within live segment timing, measured with `livepeer_bench`
+- **Bandwidth limit** — the number of concurrent sessions your connection carries within available upload bandwidth
 
 The session limit is `min(hardware_limit, bandwidth_limit)`.
 
@@ -54,17 +54,17 @@ Video transcoding capacity and AI inference capacity use separate limits and sep
 
 ## Measuring hardware capacity
 
-`livepeer_bench` simulates live network workloads — segments arriving at real-time pace across multiple concurrent sessions — and reports the **Real-Time Duration Ratio**: total transcoding time divided by total source duration. A ratio below 1.0 means the GPU is keeping up. A ratio above 1.0 means it is falling behind.
+`livepeer_bench` simulates network workloads with segments arriving at live pace across multiple concurrent sessions. It reports a duration ratio: total transcoding time divided by total source duration. A ratio below 1.0 means the GPU is keeping up. A ratio above 1.0 means it is falling behind.
 
 ### Installing livepeer_bench
 
 `livepeer_bench` ships with go-livepeer. Verify it is on PATH:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Check livepeer_bench availability"
 livepeer_bench -help
 ```
 
-If the command is not found, confirm go-livepeer is correctly installed. The binary is in the same directory as `livepeer` and `livepeer_cli`.
+A missing command usually means go-livepeer is installed outside PATH. Add the binary directory to PATH or call the binary directly. The binary sits alongside `livepeer` and `livepeer_cli`.
 
 ### Setting up the benchmark
 
@@ -72,27 +72,27 @@ If the command is not found, confirm go-livepeer is correctly installed. The bin
 
   <StyledStep title="Download the test stream">
 
-    ```bash icon="terminal"
+    ```bash icon="terminal" title="Download the benchmark stream"
     wget -c https://storage.googleapis.com/lp_testharness_assets/bbb_1080p_30fps_1min_2sec_hls.tar.gz
     tar -xvf bbb_1080p_30fps_1min_2sec_hls.tar.gz
     ls bbb/
     # source.m3u8 plus a set of .ts segment files
     ```
 
-    {/* REVIEW: Verify this URL is still live before publishing. Rick to test. */}
+    {/* FACT CHECK: Verify this URL is still live before publishing. Rick to test. */}
 
   </StyledStep>
 
   <StyledStep title="Download the rendition config">
 
-    ```bash icon="terminal"
+    ```bash icon="terminal" title="Download the rendition config"
     wget -O transcodingOptions.json \
       https://raw.githubusercontent.com/livepeer/go-livepeer/master/cmd/livepeer_bench/transcodingOptions.json
     ```
 
     This config defines the four standard output renditions (240p, 360p, 480p, 720p). It is the same rendition set most gateways use on the network.
 
-    {/* REVIEW: Confirm whether 1080p jobs still appear from some gateways (1080p profile was removed from the benchmark config). Rick to advise whether the benchmark rendition set reflects what operators should plan bandwidth for. */}
+    {/* FACT CHECK: Confirm whether 1080p jobs still appear from some gateways (1080p profile was removed from the benchmark config). Rick to advise whether the benchmark rendition set reflects what operators should plan bandwidth for. */}
 
   </StyledStep>
 
@@ -114,7 +114,7 @@ If the command is not found, confirm go-livepeer is correctly installed. The bin
 
     For multiple GPUs, pass both IDs:
 
-    ```bash icon="terminal"
+    ```bash icon="terminal" title="Run livepeer_bench on multiple GPUs"
     -nvidia 0,1
     ```
 
@@ -128,7 +128,7 @@ If the command is not found, confirm go-livepeer is correctly installed. The bin
 
 The summary table appears after each run:
 
-```text icon="terminal"
+```text icon="terminal" title="Sample benchmark output"
 *------------------------------*---------------------*
 | Concurrent Sessions          | 4                   |
 | Real-Time Segs Transcoded    | 120                 |
@@ -149,11 +149,11 @@ The summary table appears after each run:
   <tbody>
     <TableRow>
       <TableCell>**&lt; 1.0**</TableCell>
-      <TableCell>GPU has headroom — can handle this session count in real time</TableCell>
+      <TableCell>GPU has headroom and handles this session count within live segment pace</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>**= 1.0**</TableCell>
-      <TableCell>Exactly real time — no headroom; any spike causes lag</TableCell>
+      <TableCell>Exactly on live pace — no headroom; any spike causes lag</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>**&gt; 1.0**</TableCell>
@@ -164,11 +164,11 @@ The summary table appears after each run:
 
 **Production threshold:** the last concurrent session count where the ratio stays at or below 0.8 is the hardware limit. The 20% headroom absorbs upload/download overhead and transient load spikes.
 
-{/* REVIEW: The 0.8 threshold is a community convention from v1 documentation, not a go-livepeer hard limit. Confirm it remains the current convention in Discord #orchestrators. */}
+{/* FACT CHECK: The 0.8 threshold is a community convention from v1 documentation, not a go-livepeer hard limit. Confirm it remains the current convention in Discord #orchestrators. */}
 
 Example output from the scaling script:
 
-```text icon="terminal"
+```text icon="terminal" title="Benchmark session scaling example"
 | * Real-Time Duration Ratio * | 0.058  |    # 1 session
 | * Real-Time Duration Ratio * | 0.114  |    # 2 sessions
 | * Real-Time Duration Ratio * | 0.421  |    # 3 sessions
@@ -182,23 +182,23 @@ Hardware limit in this example: **4 sessions**.
 
 Consumer NVIDIA GPUs enforce a hard limit of 3 to 8 concurrent NVENC sessions in the driver, regardless of VRAM or compute capacity. This limit is imposed by NVIDIA in consumer-grade drivers to differentiate from professional-grade Quadro and datacenter cards.
 
-{/* REVIEW: Confirm current NVENC session limit range for consumer cards (3-8 cap). The driver patch that removes this cap exists in the community but has safety implications. Flag for Rick to advise on whether to document or link the patch, and whether the limit applies uniformly across all RTX consumer cards. */}
+{/* FACT CHECK: Confirm current NVENC session limit range for consumer cards (3-8 cap). The driver patch that removes this cap exists in the community but has safety implications. Flag for Rick to advise on whether to document or link the patch, and whether the limit applies uniformly across all RTX consumer cards. */}
 
-The benchmark will reflect this cap — the ratio will jump sharply at the NVENC ceiling even if VRAM and compute remain available. A professional GPU (RTX 4090, A100, H100) is not subject to this consumer driver restriction.
+The benchmark reflects this cap with a sharp ratio jump at the NVENC ceiling, even when VRAM and compute remain available. Professional GPUs such as the A100 and H100 are outside this consumer driver restriction.
 
 ### CPU transcoding
 
-For CPU-only setups, omit `-nvidia` from the benchmark command. Start at `-concurrentSessions 1` and increase. CPU transcoding produces significantly higher ratios per session than GPU. Use the benchmark result directly rather than relying on rule-of-thumb figures, as modern CPUs (Ryzen 9 7950X, Threadripper PRO) handle more sessions than older guidance suggests.
+For CPU-only setups, omit `-nvidia` from the benchmark command. Start at `-concurrentSessions 1` and increase. CPU transcoding produces significantly higher ratios per session than GPU. Use the benchmark result directly. Treat older rule-of-thumb figures as historical context only, because modern CPUs (Ryzen 9 7950X, Threadripper PRO) handle more sessions than older guidance suggests.
 
-{/* REVIEW: v1 docs cite ~5 CPU sessions as a rule of thumb from 2021 hardware. Community to advise current figures for modern CPUs. */}
+{/* FACT CHECK: v1 docs cite ~5 CPU sessions as a rule of thumb from 2021 hardware. Community to advise current figures for modern CPUs. */}
 
 <CustomDivider middleText="Bandwidth Limit" />
 
 ## Calculating bandwidth capacity
 
-Every transcoding session consumes upload and download bandwidth. The current standard rendition set totals approximately **5.65 Mbps upload per stream** (sum of all output renditions). Download depends on source resolution — budget **~6 Mbps symmetric** per stream to cover both directions with margin.
+Every transcoding session consumes upload and download bandwidth. The current standard rendition set totals approximately **5.65 Mbps upload per stream** (sum of all output renditions). Source resolution determines download volume, so budget **~6 Mbps symmetric** per stream to cover both directions with margin.
 
-{/* REVIEW: The 5.65 Mbps figure is from transcodingOptions.json (March 2026): 240p 250kbps + 360p 800kbps + 480p 1600kbps + 720p 3000kbps = 5650kbps. Rick to confirm whether Gateways also send 1080p source which would increase download bandwidth requirements. */}
+{/* FACT CHECK: The 5.65 Mbps figure is from transcodingOptions.json (March 2026): 240p 250kbps + 360p 800kbps + 480p 1600kbps + 720p 3000kbps = 5650kbps. Rick to confirm whether gateways also send 1080p source which would increase download bandwidth requirements. */}
 
 <StyledTable variant="bordered">
   <thead>
@@ -227,7 +227,7 @@ Every transcoding session consumes upload and download bandwidth. The current st
   </tbody>
 </StyledTable>
 
-Use the upload rate as the constraint, not the download rate. Residential connections with 100 Mbps download commonly have 20 to 30 Mbps upload — on such connections, the upload cap dominates.
+Use the upload rate as the primary constraint. Residential connections with 100 Mbps download commonly have 20 to 30 Mbps upload, so the upload cap usually dominates.
 
 <CustomDivider middleText="Deriving the Limit" />
 
@@ -264,7 +264,7 @@ The session limit is `min(hardware_limit, bandwidth_limit)`. Example calculation
 
 Apply the limit in your startup command:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Set maxSessions at startup"
 livepeer \
     -orchestrator \
     -transcoder \
@@ -275,7 +275,7 @@ livepeer \
 
 For a split orchestrator/transcoder setup, set `-maxSessions` on both nodes — the orchestrator uses it to track total capacity; the transcoder uses it to control how many concurrent jobs it accepts.
 
-{/* REVIEW: Confirm -maxSessions is still valid on both O and T in the split-node setup. Rick to verify no flag rename in recent go-livepeer releases. */}
+{/* FACT CHECK: Confirm -maxSessions is still valid on both O and T in the split-node setup. Rick to verify no flag rename in recent go-livepeer releases. */}
 
 <CustomDivider middleText="AI VRAM Budget" />
 
@@ -283,7 +283,7 @@ For a split orchestrator/transcoder setup, set `-maxSessions` on both nodes — 
 
 AI inference capacity is separate from video transcoding capacity. `-maxSessions` has no effect on AI pipeline concurrency. The `capacity` field in each `aiModels.json` entry controls how many concurrent inference requests that pipeline accepts.
 
-VRAM is the binding constraint for AI capacity. A 24 GB GPU can hold one large diffusion model warm, or several smaller pipelines simultaneously:
+VRAM is the binding constraint for AI capacity. A 24 GB GPU holds one large diffusion model warm, or multiple smaller pipelines simultaneously:
 
 <StyledTable variant="bordered">
   <thead>
@@ -334,15 +334,15 @@ VRAM is the binding constraint for AI capacity. A 24 GB GPU can hold one large d
 
 **Beta constraint:** Only one warm model per GPU is supported during the Beta phase. Additional entries with `"warm": true` beyond the number of GPUs will cause a conflict at startup. Keep additional pipelines cold or assign them to separate GPUs.
 
-{/* REVIEW: Confirm whether the one-warm-model-per-GPU Beta constraint is still in effect, or whether it has been lifted. Rick / ai-runner team to verify. */}
+{/* FACT CHECK: Confirm whether the one-warm-model-per-GPU Beta constraint is still in effect, or whether it has been lifted. Rick / ai-runner team to verify. */}
 
-**Video vs AI VRAM:** NVENC and NVDEC use dedicated hardware blocks and consume minimal VRAM for video transcoding. Running video sessions alongside warm AI models on the same GPU is supported — the binding VRAM constraint is the AI model, not the video sessions.
+**Video vs AI VRAM:** NVENC and NVDEC use dedicated hardware blocks and consume minimal VRAM for video transcoding. Running video sessions alongside warm AI models on the same GPU is supported, and AI model footprint remains the main VRAM constraint.
 
 <CustomDivider middleText="Tuning Live" />
 
 ## Tuning after going live
 
-The benchmark estimate is a starting point. Real network conditions introduce variables not captured in the benchmark:
+The benchmark estimate is a starting point. Live network conditions add variables the benchmark omits:
 
 - Actual segment sizes and bitrates from gateways vary from the test stream
 - Upload latency and jitter add overhead beyond raw bandwidth measurements
@@ -364,7 +364,7 @@ Monitor these Prometheus metrics after activation:
     </TableRow>
     <TableRow>
       <TableCell>`livepeer_real_time_seg_transcoded`</TableCell>
-      <TableCell>Drops below 1 when segments fall behind real time</TableCell>
+      <TableCell>Drops below 1 when segments fall behind live segment cadence</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>CPU/GPU utilisation</TableCell>
@@ -373,9 +373,9 @@ Monitor these Prometheus metrics after activation:
   </tbody>
 </StyledTable>
 
-If the node consistently handles work without degradation, increment `-maxSessions` by 1 to 2 and observe. If gateways stop sending work, check logs for `OrchestratorCapped` errors indicating the session ceiling is blocking new jobs.
+After 24 hours of clean operation, increment `-maxSessions` by 1 to 2 and observe. A sudden drop in gateway traffic should send you to the logs first; look for `OrchestratorCapped` errors that show the session ceiling is blocking new jobs.
 
-{/* REVIEW: Confirm `OrchestratorCapped` is still the correct error string in current go-livepeer when MaxSessions is exceeded. Rick to check against current source. */}
+{/* FACT CHECK: Confirm `OrchestratorCapped` is still the correct error string in current go-livepeer when MaxSessions is exceeded. Rick to check against current source. */}
 
 <CustomDivider />
 

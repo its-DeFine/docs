@@ -1,6 +1,6 @@
 ---
-title: 'Alternate Deployment Options'
-sidebarTitle: 'Alternate Deployments'
+title: 'Alternate Deployment Options and Setup Paths'
+sidebarTitle: 'Deployment Options'
 description: >-
   The three alternatives to running go-livepeer as a single-process deployment -
   pool worker, O-T split, and Siphon. What each solves and how to choose.
@@ -41,12 +41,10 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 <CustomDivider />
 
-The default go-livepeer installation runs Orchestrator and Transcoder as a single-process deployment
+The default [`go-livepeer`](https://github.com/livepeer/go-livepeer) installation runs Orchestrator and Transcoder as a single-process deployment
 on one machine. Use an alternate deployment when the node needs a different operational split:
 worker-only earnings, separated protocol and GPU roles, or keystore isolation. The standard path is
 documented in the <LinkArrow href="/v2/orchestrators/setup/guide" label="Setup Guide" newline={false} />.
-
-<CustomDivider middleText="Three Alternatives" />
 
 ## At a Glance
 
@@ -278,3 +276,6 @@ See <LinkArrow href="/v2/orchestrators/guides/deployment-details/siphon-setup" l
   - Operator Considerations > Operator Rationale - economics per path
   - Config & Optimisation > Dual Mode Configuration - workload combination
 */}
+
+
+[def]: github.com/livepeer/go-livepeer

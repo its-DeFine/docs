@@ -36,7 +36,7 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 
 ---
 
-This tutorial sets up a working `live-video-to-video` pipeline using the Cascade architecture and ComfyStream. By the end, a live video stream enters the orchestrator, StreamDiffusion transforms each frame in real time, and the output stream is viewable. Estimated time: **3 hours** (most of this is model download time).
+This tutorial sets up a working `live-video-to-video` pipeline using the Cascade architecture and ComfyStream. By the end, a live video stream enters the orchestrator, StreamDiffusion transforms each frame in a continuous low-latency pipeline, and the output stream is viewable. Estimated time: **3 hours** (most of this is model download time).
 
 **What you will verify:**
 - The `livepeer/ai-runner:live-base` container starts cleanly with GPU access
@@ -112,7 +112,7 @@ At 30 fps, the frame budget is 33 ms. The pipeline must receive, process, and em
     </TableRow>
     <TableRow>
       <TableCell>go-livepeer running with `-aiWorker`</TableCell>
-      <TableCell>The orchestrator must already be running. Start from AI Earning Quickstart if needed.</TableCell>
+      <TableCell>Use AI Earning Quickstart for the base AI node setup, then return here for the live pipeline.</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>30 GB free disk space</TableCell>
@@ -130,7 +130,7 @@ At 30 fps, the frame budget is 33 ms. The pipeline must receive, process, and em
 </StyledTable>
 
 <Warning>
-  GPUs below 24 GB VRAM (RTX 3080 10 GB, RTX 3060 12 GB) are typically insufficient for real-time inference at acceptable frame rates. StreamDiffusion's stream batch buffers, model weights, and ControlNet adapters combined exhaust available VRAM on these cards.
+  GPUs below 24 GB VRAM (RTX 3080 10 GB, RTX 3060 12 GB) are typically insufficient for live-video inference at acceptable frame rates. StreamDiffusion's stream batch buffers, model weights, and ControlNet adapters combined exhaust available VRAM on these cards.
 </Warning>
 
 <CustomDivider middleText="Step 1: Verify GPU" />
@@ -143,13 +143,13 @@ nvidia-smi
 
 Note the GPU name, VRAM total, and driver version. Driver must be `525.60.13` or newer.
 
-Verify Docker can access the GPU:
+Confirm Docker GPU access:
 
 ```bash icon="terminal" filename="verify-docker-gpu"
 docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi
 ```
 
-The GPU table should appear inside the container output. If it does not, re-install the NVIDIA Container Toolkit before proceeding.
+The GPU table should appear inside the container output. Re-install the NVIDIA Container Toolkit until this command succeeds.
 
 <CustomDivider middleText="Step 2: Pull Live Runner" />
 
@@ -161,7 +161,7 @@ The `live-base` image is separate from the standard `livepeer/ai-runner` used fo
 docker pull livepeer/ai-runner:live-base
 ```
 
-{/* REVIEW: Confirm the `live-base` tag is current and stable in the livepeer/ai-runner Docker Hub repository. Rick to verify the correct tag name for production use. */}
+{/* FACT CHECK: Confirm the `live-base` tag is current and stable in the livepeer/ai-runner Docker Hub repository. Rick to verify the correct production tag. */}
 
 Verify the image is available:
 
@@ -196,7 +196,7 @@ Download StreamDiffusion and base models:
 python scripts/download_models.py
 ```
 
-{/* REVIEW: Confirm the ComfyStream download script name and path are current in the livepeer/comfystream repository. Rick to verify the download script invocation. */}
+{/* FACT CHECK: Confirm the ComfyStream download script name and path in the livepeer/comfystream repository. Rick to verify the download command. */}
 
 This downloads approximately 15 to 20 GB. Wait for completion. Models are downloaded to the directory that will be mounted into the AI runner container via `-aiModelsDir`.
 
@@ -210,7 +210,7 @@ ls -lh ~/.lpData/models/ | head -20
 
 ## Step 4: Configure aiModels.json for live pipeline
 
-The `model_id` for the live pipeline refers to the ComfyUI workflow or pipeline name, not a HuggingFace model ID in the standard batch sense. The models themselves are loaded inside the ComfyStream container.
+For the live pipeline, `model_id` names the ComfyUI workflow or pipeline. The underlying models load inside the ComfyStream container.
 
 ```bash icon="terminal" filename="write-aimodels"
 cat > ~/.lpData/aiModels.json << 'EOF'
@@ -225,15 +225,15 @@ cat > ~/.lpData/aiModels.json << 'EOF'
 EOF
 ```
 
-{/* REVIEW: Confirm `model_id: "streamdiffusion"` is the correct value for the live-video-to-video pipeline in current go-livepeer. Rick / j0sh to verify exact model_id format. */}
+{/* FACT CHECK: Confirm `model_id: "streamdiffusion"` is the correct value for the live-video-to-video pipeline in the current go-livepeer release. Rick and j0sh to verify the exact format. */}
 
-`price_per_unit` for the live pipeline is charged per frame (unlike batch pipelines which charge per pixel or per millisecond). Set a value that is at or below what gateways have configured in their `-maxPricePerCapability` for `live-video-to-video`. Check current rates at [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities).
+`price_per_unit` for the live pipeline is charged per frame, unlike batch pipelines that charge per pixel or per millisecond. Set a value at or below the current gateway caps in `-maxPricePerCapability` for `live-video-to-video`. Check current rates at [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities).
 
 <CustomDivider middleText="Step 5: Start the Orchestrator" />
 
 ## Step 5: Start go-livepeer with live AI flags
 
-If the orchestrator is already running with `-aiWorker` from a previous setup, stop it and restart with the updated `aiModels.json`. If starting fresh:
+Existing AI nodes should stop and restart with the updated `aiModels.json`. Fresh setups should use:
 
 ```bash icon="terminal" filename="start-orchestrator"
 docker run -d \
@@ -262,8 +262,8 @@ Wait for the live runner container to start and the pipeline to warm. This takes
 docker logs -f livepeer-orchestrator 2>&1 | grep -i "live\|cascade\|pipeline\|warm\|error"
 ```
 
-Expected (may take 5 to 10 minutes):
-```
+Expected after a typical 5 to 10 minute warm-up:
+```text icon="terminal" title="Expected live-runner startup log"
 Starting AI worker
 Starting live-video-to-video pipeline: streamdiffusion
 ComfyStream container started
@@ -282,7 +282,7 @@ Two containers should be running: `livepeer-orchestrator` and the AI runner cont
 
 ## Step 6: Set up the gateway for live routing
 
-Start a gateway that can route `live-video-to-video` jobs to the orchestrator. For a local test, use off-chain mode:
+Start an off-chain gateway that routes `live-video-to-video` jobs to the orchestrator for this local test:
 
 ```bash icon="terminal" filename="start-gateway"
 docker run -d \
@@ -307,13 +307,13 @@ docker logs livepeer-gateway-live 2>&1 | grep -i "started\|gateway\|rtmp\|http" 
 ```
 
 Expected:
-```
+```text icon="terminal" title="Expected gateway startup log"
 Gateway started on :8936
 RTMP server listening on :1935
 ```
 
 <Note>
-  For a production gateway routing live AI jobs on-chain, configure `-maxPricePerCapability` with a cap for `live-video-to-video`. The gateway will not route to orchestrators priced above this cap, regardless of hardware capability.
+  For a production gateway routing live AI jobs on-chain, configure `-maxPricePerCapability` with a cap for `live-video-to-video`. The gateway routes only to orchestrators priced at or below this cap, regardless of hardware capability.
 </Note>
 
 <CustomDivider middleText="Step 7: Send a Live Stream" />
@@ -346,7 +346,7 @@ docker logs -f livepeer-orchestrator 2>&1 | grep -i "frame\|stream\|cascade\|inf
 ```
 
 Expected:
-```
+```text icon="terminal" title="Expected frame-processing log"
 Received live stream: test-stream-key
 Dispatching to live-video-to-video pipeline
 Processing frame 0
@@ -365,7 +365,7 @@ Retrieve the processed output stream from the gateway:
 curl -o output-manifest.m3u8 http://localhost:8936/hls/test-stream-key/index.m3u8
 ```
 
-If the manifest is returned (non-empty file), the live pipeline is processing frames and delivering output.
+A non-empty manifest confirms the live pipeline is processing frames and delivering output.
 
 To view the output stream in VLC or another player:
 
@@ -373,7 +373,7 @@ To view the output stream in VLC or another player:
 ffplay http://localhost:8936/hls/test-stream-key/index.m3u8
 ```
 
-{/* REVIEW: Confirm gateway output HLS endpoint path for live-video-to-video jobs. j0sh to verify the correct URL pattern for the output manifest in current go-livepeer. */}
+{/* FACT CHECK: Confirm the gateway output HLS endpoint path for live-video-to-video jobs. j0sh to verify the correct manifest URL pattern in the current go-livepeer release. */}
 
 Check the network registration:
 
@@ -381,7 +381,7 @@ Open [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud
 
 **Latency check:**
 
-Monitor frame processing times in the orchestrator logs. At 30 fps, each frame should be processed in under 33 ms. If frame times exceed this consistently, the pipeline is not keeping pace with the incoming stream:
+Monitor frame processing times in the orchestrator logs. At 30 fps, each frame should be processed in under 33 ms. Repeated frame times above 33 ms show the pipeline is falling behind the incoming stream:
 
 ```bash icon="terminal" filename="check-latency"
 docker logs livepeer-orchestrator 2>&1 | grep -i "frame.*ms\|latency\|processing time" | tail -20
@@ -392,11 +392,11 @@ docker logs livepeer-orchestrator 2>&1 | grep -i "frame.*ms\|latency\|processing
 ## Troubleshooting
 
 **Frames dropping or high latency:**
-- The model may be too slow for the target fps. StreamDiffusion at 2 steps is the minimum viable configuration for 30 fps on an RTX 4090. Try reducing output resolution.
+- The model is running too slowly for the target fps. StreamDiffusion at 2 steps is the minimum viable configuration for 30 fps on an RTX 4090. Try reducing output resolution.
 - VRAM OOM: reduce `stream_batch_size` in the StreamDiffusion config.
 - CPU bottleneck: WebRTC frame encode/decode is CPU-bound. Monitor CPU with `htop`.
 
-**Pipeline not receiving jobs:**
+**Pipeline job registration check:**
 - Confirm `live-video-to-video` appears at [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities).
 - Verify the live runner container is running: `docker ps --filter name=livepeer`.
 - Check the container started cleanly: `docker logs <live-runner-container-name>`.
@@ -408,11 +408,11 @@ docker run --gpus all --rm livepeer/ai-runner:live-base \
   python -c "import torch; print(torch.cuda.is_available())"
 ```
 
-If this returns `False`, CUDA is not accessible inside the container. Re-install the NVIDIA Container Toolkit.
+This command should return `True`. Any other result means CUDA is unavailable inside the container, so re-install the NVIDIA Container Toolkit.
 
 <CustomDivider middleText="What Just Happened" />
 
-## What just happened
+## What happened
 
 The Cascade architecture processed a live stream end-to-end:
 
@@ -423,7 +423,7 @@ The Cascade architecture processed a live stream end-to-end:
 5. **The orchestrator** collected processed frames and returned the output stream through the gateway.
 6. **The HLS output** was available at the gateway's `/hls/` endpoint.
 
-Payment for live streams uses an interval-based model rather than per-frame: the gateway sends periodic PM tickets at a configurable interval (`-livePaymentInterval`, default 5 seconds) rather than one ticket per frame. This reduces payment overhead for continuous streams.
+Payment for live streams uses an interval-based model instead of per-frame settlement: the gateway sends periodic PM tickets at a configurable interval (`-livePaymentInterval`, default 5 seconds) instead of one ticket per frame. This reduces payment overhead for continuous streams.
 
 <CustomDivider />
 

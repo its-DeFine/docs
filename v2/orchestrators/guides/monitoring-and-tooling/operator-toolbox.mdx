@@ -27,29 +27,7 @@ purpose: reference
 status: published
 lastVerified: 2026-03-13
 ---
-{/* TODO:
-Terminology Validation:
-- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
-- Voice converted to entity-led
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
-Verify:
-- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
-- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
-- Tables use StyledTable component
-- Tabs should be surrounded by BorderedBox variant="accent"
-- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
-- All tabs and accordions should have icons
-- No em-dashes are used (instead use standard -)
-- UK spelling is used
-- Headers are concise and technical
-- CustomDivider is used
-- Placeholders for Media and Video Resources are in comments with a TODO for a human
-- REVIEW flags are in JSX comments for a human
-- Accuracy is verified across repo as much as possible
-Human:
-- REVIEW flags
-- Review Page Layout
-*/}
+{/* Draft note: keep tool guidance operator-facing, route unresolved fact checks to internal comments only, and avoid duplicating deeper tool setup pages. */}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -62,10 +40,10 @@ Your node is running. These are the tools you reach for when you want to verify 
 
 **URL:** [explorer.livepeer.org](https://explorer.livepeer.org)
 
-The Explorer is the authoritative on-chain dashboard for the Livepeer protocol. It reads directly from the Arbitrum subgraph — everything you see here is real on-chain state, not cached or estimated.
+The Explorer is the authoritative on-chain dashboard for the Livepeer protocol. It reads directly from the Arbitrum subgraph, so everything you see here reflects current on-chain state.
 
 **Your orchestrator profile lives at:**
-``` icon="terminal"
+```text icon="terminal" title="Explorer orchestrator profile URL"
 https://explorer.livepeer.org/accounts/<your-address>/orchestrating
 ```
 
@@ -94,21 +72,21 @@ https://explorer.livepeer.org/accounts/<your-address>/orchestrating
 - Your delegator list, with individual stake amounts and unbonding status
 - Rounds active (your seniority on the network)
 
-{/* REVIEW: AI performance leaderboard — verify this feature is live and functional in the current Explorer post-RaidGuild maintenance engagement (late 2025). If live, add a dedicated section with the metrics it exposes per pipeline. Rick to confirm. */}
+{/* FACT CHECK: AI performance leaderboard — verify this feature is live and functional in the current Explorer post-RaidGuild maintenance engagement (late 2025). If live, add a dedicated section with the metrics it exposes per pipeline. Rick to confirm. */}
 
 <Note>
-  The Explorer shows on-chain data only. Worker-level data for pool contributors is not visible here, and off-chain pool payouts do not appear. For AI model warm status, use [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities).
+  The Explorer shows on-chain data only. Worker-level data for pool contributors lives outside Explorer, and off-chain pool payouts do not appear there. For AI model warm status, use [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities).
 </Note>
 
 <CustomDivider />
 
 ## Node Metrics (Prometheus)
 
-go-livepeer exposes a standard Prometheus metrics endpoint you can scrape with any monitoring stack.
+go-livepeer exposes a standard Prometheus metrics endpoint. Scrape it with any monitoring stack.
 
 **Enable metrics with the `-monitor` flag:**
 
-```bash icon="terminal"
+```bash icon="terminal" title="Enable Prometheus metrics"
 livepeer \
   -orchestrator \
   -transcoder \
@@ -153,7 +131,7 @@ For the full metric reference, see the [Prometheus Metrics Reference](/v2/orches
 
 Livepeer maintains a Docker image that bundles Prometheus and Grafana with starter dashboard templates:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Docker monitoring stack for a single node"
 # Single node
 docker run --net=host \
   --env LP_MODE=standalone \
@@ -161,7 +139,7 @@ docker run --net=host \
   livepeer/monitoring:latest
 ```
 
-```bash icon="terminal"
+```bash icon="terminal" title="Docker monitoring stack for multiple nodes"
 # Multi-node
 docker run --net=host \
   --env LP_MODE=standalone \
@@ -204,7 +182,7 @@ For Kubernetes, pods with the `prometheus.io/scrape` label are discovered automa
 
 Add this to your `prometheus.yml` to scrape go-livepeer directly:
 
-```yaml icon="terminal"
+```yaml icon="terminal" title="Prometheus scrape config"
 scrape_configs:
   - job_name: 'livepeer'
     static_configs:
@@ -212,7 +190,7 @@ scrape_configs:
     scrape_interval: 15s
 ```
 
-{/* REVIEW: The community monitoring guide at forum.livepeer.org/t/guide-transcoder-monitoring-with-prometheus-grafana/1225 was referenced in v1 docs. Verify this URL is still accessible before publication — the forum appeared offline during verification (March 2026). Rick/community to confirm an alternative if the forum is down. */}
+{/* FACT CHECK: The community monitoring guide at forum.livepeer.org/t/guide-transcoder-monitoring-with-prometheus-grafana/1225 was referenced in v1 docs. Verify this URL is still accessible before publication — the forum appeared offline during verification (March 2026). Rick/community to confirm an alternative if the forum is down. */}
 
 <CustomDivider />
 
@@ -229,7 +207,7 @@ A community-built suite of orchestrator and network monitoring tools, maintained
 - **Orchestrator view** — per-orchestrator statistics including pricing and job activity
 
 <Warning>
-  This is community infrastructure, not operated by the Livepeer Foundation. It has experienced intermittent availability. Do not rely on it as your sole monitoring source.
+  This is community infrastructure maintained outside the Livepeer Foundation. It has experienced intermittent availability, so keep Explorer and Prometheus in the loop as primary sources.
 </Warning>
 
 <CustomDivider />
@@ -257,15 +235,15 @@ For protocol-level macro data — inflation, staking participation, fee volumes,
   </TableRow>
 </StyledTable>
 
-{/* REVIEW: Verify all three Dune dashboard URLs are still public and current before publication. */}
+{/* FACT CHECK: Verify all three Dune dashboard URLs are still public and current before publication. */}
 
-These are for understanding network trends, not per-node operational monitoring.
+Use these dashboards for network trends. Use Explorer and Prometheus for per-node operations.
 
 <CustomDivider />
 
 ## Capability Testing
 
-Tools for verifying your node is correctly serving jobs end-to-end, rather than inferring from logs.
+Tools for verifying your node is correctly serving jobs end-to-end. Use them to confirm behaviour from the outside instead of inferring everything from logs.
 
 <CardGroup cols={2}>
 
@@ -279,7 +257,7 @@ Tools for verifying your node is correctly serving jobs end-to-end, rather than 
 
 </CardGroup>
 
-{/* REVIEW: Confirm livepeer-ai-job-tester repo (mikezupper/livepeer-ai-job-tester) is still maintained and compatible with current AI subnet. Cloud SPE to confirm. */}
+{/* FACT CHECK: Confirm livepeer-ai-job-tester repo (mikezupper/livepeer-ai-job-tester) is still maintained and compatible with the current AI subnet. Cloud SPE to confirm. */}
 
 <CustomDivider />
 
@@ -329,20 +307,4 @@ Tools for verifying your node is correctly serving jobs end-to-end, rather than 
   </Card>
 </CardGroup>
 
-{/*
-  PURPOSE:
-  "What tools exist for managing my orchestrator?" Livepeer Explorer (live stake,
-  rank, sessions, fees). tools.livepeer.cloud (AI capabilities, pipeline demand,
-  pricing benchmarks). livepeer_cli (local management). Community tools: Speedy
-  Bird monitoring stack, Titan Node pool client, Orchestrator Watcher bots.
-  Diagnostic endpoints: /status, /getOrchestrator, /getNetworkCapabilities, /metrics.
-
-  PLAN TARGET: operator-toolbox (consider rename)
-  SECTION: Monitoring & Tools → "How do I keep it running?"
-  JOB STORIES: J7 (tool discovery)
-
-  CROSS-REFS:
-  - Monitoring & Tools > Explorer Operations - detailed Explorer usage
-  - Monitoring & Tools > Metrics and Alerting - Prometheus setup
-  - Resources > Community Guides - community-built tools
-*/}
+{/* Draft note: toolbox page stays at discovery level; keep deeper operational steps in Explorer Operations and Metrics & Alerting. */}

@@ -27,35 +27,13 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
-{/* TODO:
-Terminology Validation:
-- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
-- Voice converted to entity-led
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
-Verify:
-- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
-- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
-- Tables use StyledTable component
-- Tabs should be surrounded by BorderedBox variant="accent"
-- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
-- All tabs and accordions should have icons
-- No em-dashes are used (instead use standard -)
-- UK spelling is used
-- Headers are concise and technical
-- CustomDivider is used
-- Placeholders for Media and Video Resources are in comments with a TODO for a human
-- REVIEW flags are in JSX comments for a human
-- Accuracy is verified across repo as much as possible
-Human:
-- REVIEW flags
-- Review Page Layout
-*/}
+{/* Draft note: keep delegation economics concrete, route unresolved factual checks to internal comments only, and keep the page focused on operator-side decisions. */}
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { MathInline, MathBlock } from '/snippets/components/primitives/math.jsx'
 
-Delegated LPT is the mechanism by which third-party token holders increase your orchestrator's total stake. More stake means a larger share of protocol inflation, stronger positioning in the transcoding queue, and greater credibility in the network. This page covers why delegation matters, what delegators actually evaluate when they choose an orchestrator, the maths behind the Explorer's yield calculation, and what you can do to attract and keep them.
+Delegated LPT lets third-party token holders increase your orchestrator's total stake. More stake means a larger share of protocol inflation, stronger positioning in the transcoding queue, and greater credibility in the network. Use this page to understand why delegation matters, what delegators evaluate, how the Explorer yield calculation works, and what persuades delegators to stay.
 
 <CustomDivider />
 
@@ -75,9 +53,9 @@ More total stake
         Even more attractive to delegators (compounding)
 ```
 
-The compounding dynamic is real. The orchestrators near the top of the active set by stake captured disproportionately more of both inflation rewards and job volume in every historical reporting period.
+The compounding dynamic is visible in every historical reporting period. The orchestrators near the top of the active set by stake captured disproportionately more of both inflation rewards and job volume.
 
-Delegators contribute their LPT in exchange for a share of the orchestrator's earnings. They take a risk on you: they're trusting you not to change commission rates, to call reward every round, and to keep your node performant. In return, they expect a return that is competitive with other orchestrators they could delegate to instead.
+Delegators contribute their LPT in exchange for a share of the orchestrator's earnings. They trust you to keep commission stable, call reward every round, and keep the node performant. In return, they expect a return that is competitive with the other orchestrators on the table.
 
 <CustomDivider />
 
@@ -117,12 +95,12 @@ Where:
 
 <MathBlock latex={String.raw`yield_{total} = yield_{LPT} + yield_{ETH} \times price_{LPT/ETH}`} />
 
-The ETH fee yield is converted into LPT terms using the live <MathInline latex={String.raw`price_{LPT/ETH}`} /> Uniswap price. Total yield is expressed in LPT terms so delegators can compare it directly to the LPT they're bonding.
+The ETH fee yield is converted into LPT terms using the current <MathInline latex={String.raw`price_{LPT/ETH}`} /> Uniswap price. Total yield is expressed in LPT terms so delegators compare it directly to the LPT they're bonding.
 
 The implementation of this calculation lives in the [Explorer's roi.ts](https://github.com/livepeer/explorer/blob/main/lib/roi.ts).
 
 <Note>
-  This formula is a **projection, not a guarantee**. It assumes current inflation rate, fee volume, and commission settings remain constant for a full year. All three can and do change. Delegators who understand the formula know this — which is why stability and consistency matter as much as the headline rate.
+  This formula is a projection built from the current inflation rate, fee volume, and commission settings. Treat the headline rate as directional and use stability over time as the stronger trust signal.
 </Note>
 
 <CustomDivider />
@@ -168,16 +146,16 @@ New orchestrators building their initial delegation base should be at the compet
 
 ### 3. Daily fee volume (v_daily)
 
-Your 90-day average daily fee volume in ETH shows delegators how much real work your orchestrator is winning. A high <MathInline latex={String.raw`v_{daily}`} /> means more ETH flowing through the fee share calculation, raising the ETH yield component significantly.
+Your 90-day average daily fee volume in ETH shows delegators how much fee-producing work your orchestrator is winning. A high <MathInline latex={String.raw`v_{daily}`} /> means more ETH flowing through the fee share calculation, raising the ETH yield component significantly.
 
-<MathInline latex={String.raw`v_{daily}`} /> is the one parameter in the yield formula that you can't set directly — it's an outcome of performance. But you can influence it:
+Gateway demand and node performance determine <MathInline latex={String.raw`v_{daily}`} />. Improve it by:
 - Keep your transcoding session limits competitive
 - Run popular AI models warm at competitive prices
 - Maintain high uptime and low latency to stay preferred by gateways
 
 ### 4. Active stake dilution
 
-When a delegator adds new stake <MathInline latex={String.raw`p`} /> to your orchestrator, their yield is diluted by the total stake they're joining: <MathInline latex={String.raw`\frac{p}{p + l_{orch}}`} />. Smaller orchestrators offer higher yield per unit of delegated stake because the denominator is smaller. This is why new and mid-tier orchestrators can offer competitive yields despite lower absolute fee volumes.
+When a delegator adds new stake <MathInline latex={String.raw`p`} /> to your orchestrator, their yield is diluted by the total stake they're joining: <MathInline latex={String.raw`\frac{p}{p + l_{orch}}`} />. Smaller orchestrators offer higher yield per unit of delegated stake because the denominator is smaller. This is why new and mid-tier orchestrators still offer competitive yields despite lower absolute fee volumes.
 
 <CustomDivider />
 
@@ -196,7 +174,7 @@ Delegators on the forum and Discord actively discuss which orchestrators they tr
 
 ### Commission stability
 
-The most common delegator complaint (visible throughout the Livepeer Forum history) is orchestrators who set attractive rates to attract initial delegation and then change them. This is not prohibited by the protocol, but it's reputationally damaging. Delegators who experience this switch orchestrators immediately.
+The most common delegator complaint (visible throughout the Livepeer Forum history) is orchestrators who set attractive rates to attract initial delegation and then change them. The protocol permits this, but it is reputationally damaging. Delegators who experience this switch orchestrators immediately.
 
 The Explorer shows your commission change history. Delegators check this.
 
@@ -225,11 +203,11 @@ Clicking through to an orchestrator's profile shows: stake history, daily fee vo
 </StyledStep>
 
 <StyledStep title="Bond LPT">
-Delegating requires holding LPT on Arbitrum and approving the bonding transaction. The LPT is not transferred — it remains under the delegator's control — but it is bonded to the orchestrator's stake until the delegator unbonds.
+Delegating requires holding LPT on Arbitrum and approving the bonding transaction. The LPT stays in the delegator's wallet while bonding to the orchestrator's stake until unbonding.
 </StyledStep>
 
 <StyledStep title="Unbonding period">
-If a delegator chooses to leave, there is an unbonding period of approximately 7 days before their LPT is liquid again. This creates some natural stickiness in the delegation relationship.
+Delegators who leave enter an unbonding period of approximately 7 days before their LPT is liquid again. This creates some natural stickiness in the delegation relationship.
 </StyledStep>
 
 </StyledSteps>
@@ -242,15 +220,15 @@ These are documented in the yield-calculation source material and are known to t
 
 ### Variable commission rates
 
-**The risk:** Orchestrators can change `feeShare` and `rewardCut` at any time. The Explorer yield projection uses your current rates and assumes they stay constant. If you raise `rewardCut` after attracting delegation, the actual yield falls below the projection delegators saw.
+**The risk:** Orchestrators change `feeShare` and `rewardCut` on-chain at any time. The Explorer yield projection uses your current rates and assumes they stay constant. Raising `rewardCut` after attracting delegation pulls realised yield below the projection delegators saw.
 
 **Your response:** Treat commission rates as a public commitment. Announce any changes in advance, with clear reasons. A small planned increase communicated honestly is far less damaging than an unannounced change.
 
 ### Inflation rate changes
 
-The yield formula assumes a constant inflation rate. If bonded participation increases above 50%, the inflation rate decreases, reducing LPT yield for all delegators. This is outside your control, but delegators may interpret reduced yields as your fault.
+The yield formula assumes a constant inflation rate. Bonded participation above 50% decreases the inflation rate and reduces LPT yield for all delegators. This is outside your control, but some delegators interpret reduced yields as your fault.
 
-**Your response:** Be transparent about protocol-level factors. The Explorer shows current inflation rate — link informed delegators to that data rather than letting them assume you changed something.
+**Your response:** Be transparent about protocol-level factors. The Explorer shows the current inflation rate, so link informed delegators directly to that data and show the protocol-level cause.
 
 ### Missed reward rounds
 
@@ -260,7 +238,7 @@ Every missed round reduces <MathInline latex={String.raw`r_{rewards}`} />, which
 
 <CustomDivider />
 
-## Resources for delegators you can share
+## Resources to share
 
 Pointing incoming delegators to good educational resources reduces confusion and builds trust:
 

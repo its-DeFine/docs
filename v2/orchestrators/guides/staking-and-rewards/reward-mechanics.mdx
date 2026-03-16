@@ -33,7 +33,7 @@ lastVerified: 2026-03-13
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
-Reward calling determines whether your node actually receives the LPT inflation it has earned. This guide covers the reward flow, automatic and manual calls, Arbitrum gas costs, commission updates, and the fee path from job to wallet. It assumes you have read [Earnings Explained](/v2/orchestrators/guides/staking-and-rewards/earning-model) and have an active orchestrator node.
+Reward calling determines whether your node actually receives the LPT inflation it has earned. Read this page to tune automatic and manual calls, Arbitrum gas costs, commission updates, and the fee path from job to wallet. It assumes you have read [Earnings Explained](/v2/orchestrators/guides/staking-and-rewards/earning-model) and have an active orchestrator node.
 
 <CustomDivider />
 
@@ -300,7 +300,7 @@ The Explorer also tracks your **reward call ratio** (`rewardCalls / n` over up t
 
 Illustrative scenario for context only. Actual figures depend on LPT price, ETH price, inflation rate, and network demand.
 
-**Node:** 10,000 LPT total stake (3,000 self-bonded + 7,000 delegated), active set, `rewardCut` = 15%, `feeShare` = 40%
+Example node profile for the table below: 10,000 LPT total stake (3,000 self-bonded + 7,000 delegated), active set, `rewardCut` = 15%, `feeShare` = 40%.
 
 <StyledTable variant="bordered">
   <TableRow header>

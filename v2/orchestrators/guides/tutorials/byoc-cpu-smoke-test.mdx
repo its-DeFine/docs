@@ -190,7 +190,7 @@ The pipeline is a CPU-only Python passthrough: frames in, frames out unchanged. 
     ```
 
     Expected output ends with:
-    ```
+    ```text icon="terminal" title="Expected image build output"
     Successfully tagged byoc-cpu-passthrough:latest
     ```
 
@@ -211,7 +211,9 @@ The pipeline is a CPU-only Python passthrough: frames in, frames out unchanged. 
 
 <StyledSteps>
 
-  <StyledStep title="Install go-livepeer (if not already installed)">
+  <StyledStep title="Install go-livepeer">
+
+    Use the existing binary if it is already on the machine.
 
     ```bash icon="terminal" filename="install"
     # Replace vX.Y.Z with the latest release tag
@@ -221,7 +223,7 @@ The pipeline is a CPU-only Python passthrough: frames in, frames out unchanged. 
     chmod +x livepeer livepeer_cli
     ```
 
-    {/* REVIEW: Confirm latest release version tag and correct archive filename. Rick to verify the download URL pattern is stable across releases. */}
+    {/* FACT CHECK: Confirm the latest release tag and archive filename. Rick to verify that the download URL pattern remains stable across releases. */}
 
   </StyledStep>
 
@@ -244,7 +246,7 @@ The pipeline is a CPU-only Python passthrough: frames in, frames out unchanged. 
     ```
 
     Expected output:
-    ```
+    ```text icon="terminal" title="Expected BYOC container log"
     PassthroughPipeline: initialized (CPU, no model loading)
     ```
 
@@ -268,14 +270,14 @@ The pipeline is a CPU-only Python passthrough: frames in, frames out unchanged. 
     ```
 
     Expected log output:
-    ```
+    ```text icon="terminal" title="Expected orchestrator log"
     Orchestrator registered with service address 0.0.0.0:8935
     BYOC capability registered: passthrough-cpu
     ```
 
     Keep this terminal open.
 
-    {/* REVIEW: Confirm -byoc, -byocContainerURL, -byocModelID flags are stable in current go-livepeer release. Rick to verify exact flag names. */}
+    {/* FACT CHECK: Confirm `-byoc`, `-byocContainerURL`, and `-byocModelID` are still the correct flag names in the current go-livepeer release. Rick to verify. */}
 
   </StyledStep>
 
@@ -303,7 +305,7 @@ The pipeline is a CPU-only Python passthrough: frames in, frames out unchanged. 
     ```
 
     Expected log output:
-    ```
+    ```text icon="terminal" title="Expected gateway startup log"
     Gateway started on :8936
     Connected to remote signer at https://signer.eliteencoder.net
     Registered orchestrator: localhost:8935
@@ -391,7 +393,7 @@ The pipeline is a CPU-only Python passthrough: frames in, frames out unchanged. 
 
 <CustomDivider middleText="What Just Happened" />
 
-## What just happened
+## What happened
 
 Three processes ran on your machine and handled a complete job lifecycle:
 

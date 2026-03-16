@@ -27,29 +27,7 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
-{/* TODO:
-Terminology Validation:
-- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
-- Voice converted to entity-led
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
-Verify:
-- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
-- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
-- Tables use StyledTable component
-- Tabs should be surrounded by BorderedBox variant="accent"
-- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
-- All tabs and accordions should have icons
-- No em-dashes are used (instead use standard -)
-- UK spelling is used
-- Headers are concise and technical
-- CustomDivider is used
-- Placeholders for Media and Video Resources are in comments with a TODO for a human
-- REVIEW flags are in JSX comments for a human
-- Accuracy is verified across repo as much as possible
-Human:
-- REVIEW flags
-- Review Page Layout
-*/}
+{/* Draft note: keep this page focused on pool architecture, worker management, and off-chain payout responsibility; route unresolved fact checks to internal comments only. */}
 
 import { BorderedBox } from '/snippets/components/layout/containers.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
@@ -57,7 +35,7 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 A Livepeer pool is a single orchestrator node that routes jobs to multiple external GPU workers. You hold the on-chain identity and LPT stake; workers contribute GPU compute and earn payouts managed off-chain by you, the operator. This page is for experienced orchestrators who want to expand beyond their own hardware by accepting external worker connections.
 
-If you are looking to **join** an existing pool as a worker, see [Join a Pool](/v2/orchestrators/guides/deployment-details/join-a-pool) instead.
+Workers joining an existing pool should start with [Join a Pool](/v2/orchestrators/guides/deployment-details/join-a-pool).
 
 <CustomDivider />
 
@@ -76,7 +54,7 @@ graph LR
   O --> W3["Worker 3\nGPU"]
 ```
 
-Workers have no on-chain presence. They are not visible to delegators or on Livepeer Explorer. All stake, all protocol reputation, and all on-chain fees flow to and through your orchestrator address.
+Workers have no on-chain presence. Delegators and Explorer see only your orchestrator identity, and all stake, protocol reputation, and on-chain fees flow through that address.
 
 <CustomDivider />
 
@@ -92,7 +70,7 @@ Workers have no on-chain presence. They are not visible to delegators or on Live
     **Worker provides:** A machine with an NVIDIA GPU, NVIDIA drivers, and network connectivity to your orchestrator on port 8935.
 
     **Worker runs:**
-    ```bash icon="terminal"
+    ```bash icon="terminal" title="Start a worker in transcoder mode"
     livepeer \
       -transcoder \
       -orchAddr <YOUR_ORCHESTRATOR_HOST>:8935 \
@@ -113,10 +91,10 @@ Workers have no on-chain presence. They are not visible to delegators or on Live
 
     **Worker provides:** GPU machine, NVIDIA driver, their Ethereum address for payout tracking, and sufficient upload bandwidth (100 Mbps+ recommended).
 
-    **You build or provide:** A custom pool client is operator-built tooling — not a Livepeer Foundation product. You are responsible for building or adapting client software, maintaining a payout dashboard, and tracking worker contributions by ETH address.
+    **You build or provide:** A custom pool client is operator-built tooling. You are responsible for building or adapting client software, maintaining a payout dashboard, and tracking worker contributions by ETH address.
 
     <Note>
-      Building and maintaining a custom pool client is a significant engineering investment. Titan Node built and maintains their own pool binary. If you are starting out, the BYO Container model requires far less custom tooling.
+      Building and maintaining a custom pool client is a large engineering investment. Titan Node built and maintains their own pool binary. Operators starting out should usually begin with the BYO Container model because it requires far less custom tooling.
     </Note>
   </Tab>
 
@@ -140,7 +118,7 @@ Workers have no on-chain presence. They are not visible to delegators or on Live
 
 To configure your orchestrator to accept remote worker connections, run **without** `-transcoder` but **with** `-orchSecret`:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Accept remote workers on the orchestrator"
 livepeer \
   -network arbitrum-one-mainnet \
   -ethUrl <RPC_URL> \
@@ -162,7 +140,7 @@ livepeer \
 
 The secret can be passed as plaintext or from a file (recommended):
 
-```bash icon="terminal"
+```bash icon="terminal" title="Load the shared secret from a file"
 -orchSecret /path/to/secret.txt
 ```
 
@@ -209,7 +187,7 @@ The `capacity` field is the worker's `-maxSessions` value — how many concurren
   </TableRow>
 </StyledTable>
 
-There is no standardised payout protocol. Existing pools have each implemented their own approach. If you are building a public-facing pool, be explicit with workers about payout frequency, minimum thresholds, and how contributions are measured.
+Payout protocols remain operator-specific. Existing pools have each implemented their own approach. Public-facing pools should be explicit with workers about payout frequency, minimum thresholds, and how contributions are measured.
 
 <CustomDivider />
 
@@ -218,7 +196,7 @@ There is no standardised payout protocol. Existing pools have each implemented t
 Your pool is represented entirely by your orchestrator's Ethereum address. On [Livepeer Explorer](https://explorer.livepeer.org):
 
 - **Delegators** see your total stake, reward cut, fee cut, and historical performance
-- **Workers are invisible** — Explorer has no concept of remote transcoders. Worker-level data is only in your off-chain systems.
+- **Explorer shows only the orchestrator** — worker-level data stays in your off-chain systems.
 - **Pool performance** (sessions, fees) reflects aggregate work done by all connected workers combined
 
 If you are running a public pool, building delegator trust requires transparency work beyond go-livepeer configuration. Titan Node does this via a public website, regular Livepeer Forum campaign posts, and a public payout dashboard. Consider documenting your pool's architecture, hardware footprint, uptime history, and payout record.
@@ -238,7 +216,7 @@ Workers reconnect automatically on restart. You will see a new `Got a RegisterTr
 <Accordion  title="NVENC session caps on consumer GPUs" icon="server">
 Consumer NVIDIA GPUs (GTX/RTX series) have a hardware-enforced limit on concurrent NVENC encoding sessions — typically 3–8 per card depending on the model. Workers hitting this limit will reject new segments.
 
-Titan Node patches the NVIDIA driver on worker machines to remove this cap. If you are operating a pool and want workers to achieve higher concurrency, either communicate this limitation clearly or provide driver-patching instructions.
+Titan Node patches the NVIDIA driver on worker machines to remove this cap. Operators who want higher worker concurrency should either communicate this limitation early or provide driver-patching instructions.
 </Accordion>
 
 <Accordion  title="Session routing and load balancing" icon="circle-question">

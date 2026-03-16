@@ -48,11 +48,11 @@ Model sourcing and downloading is covered separately in <LinkArrow href="/v2/orc
 
 **Warm** means the model weights are loaded into GPU VRAM at container startup. Job requests are served immediately with no loading latency.
 
-**Cold** means the container exists but the weights are not in VRAM. The first request triggers a model load — typically 10 to 60 seconds depending on model size and NVMe storage speed — before inference begins.
+**Cold** keeps the container available while leaving the weights out of VRAM. The first request triggers a model load — typically 10 to 60 seconds depending on model size and NVMe storage speed — before inference begins.
 
 ### Impact on job routing
 
-Gateways track first-response latency per orchestrator. Nodes with consistently fast response times win more jobs. For latency-sensitive pipelines — particularly `text-to-image` and `image-to-image` — cold loading creates a competitive disadvantage on the first request of each session.
+Gateways track first-response latency per orchestrator. Nodes with fast first responses win more jobs. For latency-sensitive pipelines — particularly `text-to-image` and `image-to-image` — cold loading creates a competitive disadvantage on the first request of each session.
 
 The practical rule: warm your primary revenue pipeline. Keep secondary pipelines cold until VRAM capacity allows warming them.
 
@@ -60,11 +60,11 @@ The practical rule: warm your primary revenue pipeline. Keep secondary pipelines
 
 During the Beta phase, only one warm model per GPU is supported. Setting `"warm": true` on more entries than you have GPUs causes the AI worker to log a conflict at startup and skip the excess entries.
 
-{/* REVIEW: Confirm whether the one-warm-model-per-GPU Beta constraint is still in effect. Rick / ai-runner team to verify — this may have been lifted in a recent release. */}
+{/* FACT CHECK: Confirm whether the one-warm-model-per-GPU Beta constraint is still in effect. Rick / ai-runner team to verify — this may have been lifted in a recent release. */}
 
 Check logs on startup for:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Check warm model startup logs"
 docker logs <ai-runner-container> 2>&1 | grep -i "warm\|conflict\|error"
 ```
 
@@ -124,13 +124,13 @@ The `Error loading warm model` message indicates a warm model conflict. Reduce `
   </tbody>
 </StyledTable>
 
-A 24 GB GPU can hold one large diffusion model warm, with a small pipeline (Whisper or BLIP) warm on the same card if using a multi-GPU system. Do not attempt to warm multiple large diffusion models on a single 24 GB GPU — the Beta constraint prevents this, and VRAM would be insufficient.
+A 24 GB GPU holds one large diffusion model warm, with a small pipeline (Whisper or BLIP) warm on the same card when using a multi-GPU system. Keep multiple large diffusion models off a single 24 GB GPU — the Beta constraint blocks it, and VRAM is insufficient anyway.
 
 <CustomDivider middleText="Model Rotation" />
 
 ## Model rotation by demand
 
-Demand on the Livepeer AI network shifts over time. A model in high demand one week may see reduced traffic the next as new models are listed or gateway preferences change. Warm model selection should track demand, not personal preference.
+Demand on the Livepeer AI network shifts over time. A model leading one week often falls back the next as new models are listed or gateway preferences change. Warm model selection should track demand and revenue opportunity.
 
 ### Checking current demand
 
@@ -161,13 +161,13 @@ To swap which model is warm, update `aiModels.json` and restart the AI worker:
 
 The model with `"warm": true` loads at startup. The cold entry is available but will incur first-request latency. After restarting the AI worker container, verify the new warm model appears with **Warm** status at [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities).
 
-Restart only the AI worker container — not the full go-livepeer process — to minimise downtime:
+Restart the AI worker container and leave the full go-livepeer process running to minimise downtime:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Restart the AI worker"
 docker restart <ai-runner-container-name>
 ```
 
-{/* REVIEW: Confirm that restarting only the AI runner container (not go-livepeer) correctly picks up aiModels.json changes. Rick to verify. */}
+{/* FACT CHECK: Confirm that restarting only the AI runner container while leaving go-livepeer running correctly picks up aiModels.json changes. Rick to verify. */}
 
 <CustomDivider middleText="Optimisation Flags" />
 
@@ -199,7 +199,7 @@ Both flags are experimental. Apply one at a time and verify output quality befor
     <Tab title="DEEPCACHE" icon="database">
       **DEEPCACHE** caches intermediate diffusion steps to reduce redundant recomputation across inference calls. Delivers up to 50% faster inference with minor quality reduction (slight reduction in fine detail at high step counts).
 
-      Quality degradation is more visible at low step counts. Do not use with Lightning or Turbo model variants — these are already step-optimised for 1 to 4 inference steps, and DEEPCACHE degrades their output with no speed benefit.
+      Quality degradation is more visible at low step counts. Reserve DEEPCACHE for standard-step models. Lightning and Turbo variants are already step-optimised for 1 to 4 inference steps, and DEEPCACHE degrades their output without adding speed.
 
       ```json icon="code" title="Enabling DEEPCACHE"
       {
@@ -219,7 +219,7 @@ Both flags are experimental. Apply one at a time and verify output quality befor
 **SFAST and DEEPCACHE cannot be combined.** Set only one, or neither, in `optimization_flags`.
 
 <Warning>
-  Do not apply DEEPCACHE to Lightning or Turbo models (e.g. `ByteDance/SDXL-Lightning`, `SG161222/RealVisXL_V4.0_Lightning`). These models operate at 1 to 4 inference steps. DEEPCACHE's caching mechanism is designed for 20+ step models — applying it to low-step models degrades output quality without producing meaningful speed gains.
+  Reserve DEEPCACHE for standard-step models. Lightning and Turbo variants (for example `ByteDance/SDXL-Lightning` and `SG161222/RealVisXL_V4.0_Lightning`) operate at 1 to 4 inference steps, so DEEPCACHE degrades output quality without adding speed.
 </Warning>
 
 <CustomDivider middleText="Monitoring" />
@@ -228,7 +228,7 @@ Both flags are experimental. Apply one at a time and verify output quality befor
 
 Verify model state after startup by checking the AI runner container logs:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Check model loading logs"
 docker logs <ai-runner-container> 2>&1 | grep -E "warm|loaded|error" | tail -30
 ```
 
@@ -236,10 +236,10 @@ Then confirm via the network registry. Your orchestrator should appear under the
 
 [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities)
 
-If a warm model does not appear registered after 5 minutes, check for:
+A warm model missing from the registry after 5 minutes usually indicates one of these causes:
 - `Error loading warm model` — warm model conflict (too many `"warm": true` entries for available GPUs)
 - Container restart loops — check `docker ps` for restart counts
-- Model download still in progress — warm models must be fully downloaded before the container can load them
+- Model download still in progress — warm models must finish downloading before the container loads them
 
 <CustomDivider />
 

@@ -30,29 +30,7 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
-{/* TODO:
-Terminology Validation:
-- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
-- Voice converted to entity-led
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
-Verify:
-- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
-- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
-- Tables use StyledTable component
-- Tabs should be surrounded by BorderedBox variant="accent"
-- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
-- All tabs and accordions should have icons
-- No em-dashes are used (instead use standard -)
-- UK spelling is used
-- Headers are concise and technical
-- CustomDivider is used
-- Placeholders for Media and Video Resources are in comments with a TODO for a human
-- REVIEW flags are in JSX comments for a human
-- Accuracy is verified across repo as much as possible
-Human:
-- REVIEW flags
-- Review Page Layout
-*/}
+{/* Draft note: keep symptom-first diagnostics, route unresolved fact checks to internal comments only, and leave deeper setup detail in the linked guides. */}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -72,6 +50,15 @@ Errors are grouped by category. Use the index below to jump straight to what you
   - [General diagnostics](#general-diagnostics)
 </BorderedBox>
 
+Common external checks used throughout this page:
+- H.264 levels reference: <https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels>
+- NVIDIA GPU support matrix: <https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new>
+- Arbiscan: <https://arbiscan.io>
+- Explorer orchestrator list: <https://explorer.livepeer.org/orchestrators>
+- Cloud SPE AI registry: <https://tools.livepeer.cloud>
+- Ollama version endpoint: `http://localhost:11434/api/version`
+- Example local and public service URIs: `https://127.0.0.1:4433`, `https://121.5.10.8:8935`, `https://121.5.10.8:8935;`, `https://<your-service-uri>:8935/status`, `https://orch.yourdomain.com:8935`
+
 <CustomDivider />
 
 ## Transcoding errors
@@ -86,12 +73,12 @@ Errors are grouped by category. Use the index below to jump straight to what you
 **How to fix it:**
 
 1. Check your current session count against your configured limit:
-   ```bash icon="terminal"
+   ```bash icon="terminal" title="Check current session limit"
    curl http://localhost:7935/status | jq '.SessionLimit'
    ```
 2. If you have spare GPU capacity, increase `-maxSessions` in your launch command
 3. If you are already at GPU VRAM limits, you cannot safely increase sessions — you need to reduce the model size, reduce output dimensions, or add GPU capacity
-4. If you are running a split setup, verify the transcoder machine (not just the orchestrator) has capacity headroom
+4. In a split setup, verify both the transcoder machine and the orchestrator have capacity headroom
 
 See [Session Limits](/v2/orchestrators/guides/config-and-optimisation/capacity-planning) for the full calculation methodology.
 </Accordion>
@@ -105,7 +92,7 @@ See [Session Limits](/v2/orchestrators/guides/config-and-optimisation/capacity-p
 <Accordion  title="MB rate > Level limit warning" icon="circle-question">
 **What it means:** The source video segment being transcoded has a bitrate that exceeds the H.264 level limit for its resolution. See the [H.264 levels reference](https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels) for technical detail.
 
-**In practice:** This warning usually does not prevent transcoding from completing. As long as transcoding finishes and results are returned to the gateway, your node is operating normally. If you are seeing a high rate of these warnings combined with transcoding failures, check the source segment properties — but this is a gateway or broadcaster issue, not an orchestrator issue.
+**In practice:** Transcoding usually completes and returns results to the gateway despite this warning. When these warnings rise alongside failed transcodes, inspect the source segment properties. The fault sits with the gateway or broadcaster input, not with your orchestrator.
 </Accordion>
 
 <Accordion  title="Unable to transcode errors" icon="video">
@@ -140,7 +127,7 @@ See [Session Limits](/v2/orchestrators/guides/config-and-optimisation/capacity-p
 
 **Reference:** The [NVIDIA Video Encode and Decode GPU Support Matrix](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) shows session limits by GPU model.
 
-{/* REVIEW: Confirm whether the Ada Lovelace (RTX 40xx) generation removed the NVENC session cap, or whether patching is still required. Rick to verify current driver state. */}
+{/* FACT CHECK: Confirm whether the Ada Lovelace (RTX 40xx) generation removed the NVENC session cap, or whether patching is still required. Rick to verify current driver state. */}
 </Accordion>
 
 <Accordion  title="CUDA out of memory (AI inference)" icon="microchip">
@@ -195,7 +182,7 @@ Arbitrum gas is very cheap — reward calls cost approximately $0.01–$0.12 eac
 1. Audit all running `livepeer` processes: `ps aux | grep livepeer`
 2. Add `-reward=false` to every launch command
 3. As an extra precaution, remove the `-ethUrl` option from any transcoder process that shares the same wallet. Without an ETH URL, the transcoder cannot submit on-chain transactions at all.
-4. If using a `.conf` file for configuration, the command-line flag overrides the file — always pass `-reward=false` explicitly at launch, not just in the config file.
+4. When using a `.conf` file for configuration, the command-line flag overrides the file. Always pass `-reward=false` explicitly at launch.
 </Accordion>
 
 <Accordion  title="Missing reward rounds despite -reward=true" icon="coins">
@@ -203,8 +190,8 @@ Arbitrum gas is very cheap — reward calls cost approximately $0.01–$0.12 eac
 
 **Diagnose in order:**
 1. **ETH balance** — low balance causes reward calls to fail silently. Check `http://localhost:7935/status` for ETH balance or look at Arbiscan.
-2. **Node was offline** — if your node was down at the round boundary (~every 22 hours on Arbitrum), the call was not made. Check your systemd/service uptime logs.
-3. **Multiple processes competing** — if you have two go-livepeer processes with the same wallet, one may be submitting a failing duplicate.
+2. **Node was offline** — a node down at the round boundary (~every 22 hours on Arbitrum) misses the call. Check your systemd or service uptime logs.
+3. **Multiple processes competing** — two go-livepeer processes sharing the same wallet can submit a failing duplicate.
 
 For persistent missed rounds, consider the [Siphon split setup](/v2/orchestrators/guides/deployment-details/siphon-setup) which runs reward calling on a dedicated stable machine independently of your GPU workload.
 </Accordion>
@@ -258,7 +245,7 @@ For persistent missed rounds, consider the [Siphon split setup](/v2/orchestrator
 </Accordion>
 
 <Accordion  title="Wrong model ID — model fails to load" icon="microchip">
-**What it means:** The model ID in your `aiModels.json` does not resolve to a real model.
+**What it means:** The model ID in your `aiModels.json` does not resolve to a valid model.
 
 Model IDs are **case-sensitive** and must include the organisation prefix. For example:
 - ✓ `stabilityai/stable-diffusion-xl-base-1.0`
@@ -271,9 +258,9 @@ Ollama-based LLM models use a different format — do not use Ollama model tags 
 <Accordion  title="AI pipeline registered but receiving no jobs" icon="microchip">
 **Diagnose in order:**
 
-1. **Not in active set** — check [Livepeer Explorer](https://explorer.livepeer.org/orchestrators). If you are not in the top 100 by stake, you receive no transcoding or AI jobs.
+1. **Outside the active set** — check [Livepeer Explorer](https://explorer.livepeer.org/orchestrators). Nodes outside the top 100 by stake receive no transcoding or AI jobs.
 2. **Price too high** — your per-capability price exceeds the gateway's `-maxPricePerCapability` limit. Check market rates on [tools.livepeer.cloud](https://tools.livepeer.cloud) and compare with other operators.
-3. **Model is cold** — if the warm model is not loaded in VRAM, jobs may time out before the model loads (cold start can take 30 seconds to several minutes). Make sure your intended warm model is listed in the `warm` section of `aiModels.json`.
+3. **Model is cold** — the warm model is not loaded in VRAM. Jobs may time out before the model loads, and cold starts often take 30 to 120 seconds. Make sure your intended warm model is listed in the `warm` section of `aiModels.json`.
 4. **Capability not registered** — query your node's registered capabilities: `curl http://localhost:7935/getNetworkCapabilities | jq`. If the pipeline is missing, check your `aiModels.json` configuration and that the AI runner started successfully.
 </Accordion>
 
@@ -285,23 +272,23 @@ Ollama-based LLM models use a different format — do not use Ollama model tags 
 2. Reduce `maxSessions` for AI inference specifically
 3. If the OOM happens for large output requests but not small ones, consider whether you need to restrict accepted request dimensions at the gateway level
 
-{/* REVIEW: Confirm whether go-livepeer/ai-runner supports per-pipeline dimension limits, and whether orchestrators can reject oversize requests. Rick / Peter to confirm. */}
+{/* FACT CHECK: Confirm whether go-livepeer or ai-runner supports per-pipeline dimension limits, and whether orchestrators can reject oversize requests. Rick / Peter to confirm. */}
 </Accordion>
 
-<Accordion  title="ComfyStream container failing (real-time AI)" icon="microchip">
+<Accordion  title="ComfyStream container failing (live-video AI)" icon="microchip">
 **Checklist:**
 1. Model weights are downloaded and accessible at the path configured in your ComfyStream setup
 2. CUDA toolkit version matches what the container expects — check `nvidia-smi` for your driver version and confirm container CUDA compatibility
-3. The container has sufficient VRAM for the workflow — real-time streaming requires the model to remain resident during the stream
+3. The container has sufficient VRAM for the workflow — live-video streaming requires the model to remain resident during the stream
 4. Check container logs for the specific Python exception: `docker logs -f <comfystream-container>`
 
-See [Real-Time AI Setup](/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup#troubleshooting) for ComfyStream-specific troubleshooting.
+See [Live-Video AI Setup](/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup#troubleshooting) for ComfyStream-specific troubleshooting.
 </Accordion>
 
 <Accordion  title="LLM pipeline (Ollama) not receiving jobs" icon="microchip">
 **Checklist:**
 1. Verify Ollama container is running and accessible: `curl http://localhost:11434/api/version`
-2. Confirm go-livepeer can reach the Ollama endpoint (Docker networking — if both are in containers, they may need to be on the same Docker network)
+2. Confirm go-livepeer can reach the Ollama endpoint. Containerised deployments usually need both services on the same Docker network.
 3. Re-register the LLM capability: restart go-livepeer to force capability re-advertisement
 4. Check that the model ID in `aiModels.json` matches an installed Ollama model: `ollama list`
 </Accordion>
@@ -316,7 +303,7 @@ See [Real-Time AI Setup](/v2/orchestrators/guides/ai-and-job-workloads/realtime-
 
 <Accordion  title="Service address mismatch warning at startup" icon="link">
 **Error:**
-``` icon="terminal"
+```text icon="terminal" title="Service address mismatch warning"
 Service address https://127.0.0.1:4433 did not match discovered address https://121.5.10.8:8935;
 set the correct address in livepeer_cli or use -serviceAddr
 ```
@@ -332,7 +319,7 @@ set the correct address in livepeer_cli or use -serviceAddr
 <Accordion  title="Node not receiving any jobs despite being in active set" icon="server">
 **Full diagnostic checklist:**
 
-```bash icon="terminal"
+```bash icon="terminal" title="Job receipt diagnostic checklist"
 # 1. Check your service URI is reachable from outside
 curl -v https://<your-service-uri>:8935/status
 
@@ -357,7 +344,7 @@ If step 1 times out or refuses connection: port 8935 is not reachable from the i
 - **DMZ** — place your node in the router's DMZ to receive all unsolicited inbound traffic. Less secure but simpler.
 - **Hairpinning (if needed)** — some networks require iptables rules to handle internal-to-external traffic loops:
 
-  ```bash icon="terminal"
+  ```bash icon="terminal" title="Example hairpinning rule"
   # Allow internal traffic to reach the node via the external IP
   iptables -t nat -A POSTROUTING -p tcp -s 10.0.0.10 -d 10.0.0.10 -j SNAT --to-source <EXTERNAL_IP>
   ```
@@ -413,7 +400,7 @@ For Arbitrum mainnet: `~/.lpData/arbitrum-one-mainnet/keystore/`
 
 ### How to confirm your node is receiving work
 
-```bash icon="terminal"
+```bash icon="terminal" title="General diagnostic commands"
 # Check current session count
 curl http://localhost:7935/status | jq
 
@@ -428,7 +415,7 @@ tail -f /var/log/livepeer/livepeer.log
 
 ### How to capture logs to a file
 
-```bash icon="terminal"
+```bash icon="terminal" title="Capture logs with tee"
 livepeer \
   -orchestrator \
   -transcoder \
@@ -440,7 +427,7 @@ This pipes both stdout and stderr to both the terminal and the log file simultan
 
 ### Checking node status via CLI port
 
-```bash icon="terminal"
+```bash icon="terminal" title="Check node status and metrics"
 # Node status
 curl http://localhost:7935/status | jq
 
@@ -453,7 +440,7 @@ curl http://localhost:7935/metrics
 
 <CustomDivider />
 
-## Not finding your error here?
+## Escalation paths
 
 <CardGroup cols={2}>
   <Card title="Livepeer Discord" icon="discord" href="https://discord.gg/livepeer">
@@ -470,22 +457,4 @@ curl http://localhost:7935/metrics
   </Card>
 </CardGroup>
 
-{/*
-  PURPOSE:
-  "Something broke - how do I fix it?" Symptom-based guide indexed by what the
-  operator observes. Not receiving video jobs (7 checks). Not receiving AI jobs
-  (5 checks). OrchestratorCapped (session limit). GPU OOM. Missed reward calls.
-  NVENC session limit. Networking unreachable. Price not updated on-chain. AI model
-  download failures. Diagnostic command reference. Escalation: Discord, Forum, GitHub.
-
-  PLAN TARGET: troubleshooting (keep)
-  UPDATE NEEDED: Add symptom quick-nav index at top.
-
-  SECTION: Monitoring & Tools → "How do I keep it running?"
-  JOB STORIES: J7 (incident response)
-
-  CROSS-REFS:
-  - Resources > FAQ - quick answers to common questions
-  - Monitoring & Tools > Metrics and Alerting - diagnosing via metrics
-  - Setup > Verify - verification steps that may help diagnose
-*/}
+{/* Draft note: troubleshooting page stays symptom-first and command-heavy; keep deeper setup remediation in the linked guides. */}

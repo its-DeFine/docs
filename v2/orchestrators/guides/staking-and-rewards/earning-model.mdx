@@ -72,7 +72,7 @@ Fees exist for two workload types:
     <TableCell>Video transcoding</TableCell>
     <TableCell>Per segment (~2s of video)</TableCell>
     <TableCell>Low (commoditised)</TableCell>
-    <TableCell>Recommended, not required</TableCell>
+    <TableCell>Recommended for throughput</TableCell>
   </TableRow>
   <TableRow>
     <TableCell>AI inference</TableCell>
@@ -86,7 +86,7 @@ AI inference commands higher fees per job because the work is more GPU-intensive
 
 ### What determines how much work you win
 
-Gateways don't route jobs randomly. Selection is competitive across several factors simultaneously:
+Gateways route jobs through a competitive filter across multiple factors at once:
 
 ``` icon="terminal"
 Stake weight         → higher stake = larger active set position = more segments
@@ -115,14 +115,14 @@ Three things must be true for you to receive that round's rewards:
 **Treasury allocation:** As of LIP-89 (March 2026), 10% of each round's newly minted LPT goes to the [Livepeer Treasury](https://explorer.livepeer.org/treasury) before distribution to orchestrators. The remaining 90% is distributed as before.
 
 <Warning>
-  Missing a round's `Reward()` call means that round's inflation allocation is permanently lost. For a well-staked orchestrator, a single missed round can forfeit a noticeable amount of LPT. Automate this.
+  Missing a round's `Reward()` call means that round's inflation allocation is permanently lost. For a well-staked orchestrator, a single missed round forfeits a noticeable amount of LPT. Automate this.
 </Warning>
 
 <CustomDivider />
 
 ## Commission parameters
 
-When you register as an orchestrator, you set two commission parameters that determine how you split earnings with delegators. Both can be changed at any time, though frequent changes damage delegator trust.
+When you register as an orchestrator, you set two commission parameters that determine how you split earnings with delegators. Both update on-chain immediately, and frequent changes damage delegator trust.
 
 ### Reward cut
 
@@ -200,7 +200,7 @@ The fee landscape is shifting. AI inference jobs now represent a growing share o
 
 A key distinction: for video transcoding, stake weight directly determines your position in the routing queue. For AI inference, the gateway first filters by capability and price — your stake matters less than having the right pipeline running at a competitive price.
 
-This creates two strategies that can coexist on a single node:
+This supports two parallel strategies on a single node:
 - **Transcoding income:** grow stake to capture more segments
 - **AI inference income:** run popular models warm at competitive prices
 

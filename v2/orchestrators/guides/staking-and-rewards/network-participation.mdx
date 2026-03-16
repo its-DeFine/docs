@@ -26,29 +26,7 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
-{/* TODO:
-Terminology Validation:
-- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
-- Voice converted to entity-led
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
-Verify:
-- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
-- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
-- Tables use StyledTable component
-- Tabs should be surrounded by BorderedBox variant="accent"
-- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
-- All tabs and accordions should have icons
-- No em-dashes are used (instead use standard -)
-- UK spelling is used
-- Headers are concise and technical
-- CustomDivider is used
-- Placeholders for Media and Video Resources are in comments with a TODO for a human
-- REVIEW flags are in JSX comments for a human
-- Accuracy is verified across repo as much as possible
-Human:
-- REVIEW flags
-- Review Page Layout
-*/}
+{/* Draft note: keep governance mechanics practical, route unresolved factual checks to internal comments only, and keep the page operator-facing. */}
 
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
@@ -56,13 +34,13 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 Livepeer is a protocol governed by its token holders. As an orchestrator, your vote carries weight proportional to your total stake — including the delegated LPT entrusted to you by your delegators. When you vote on a proposal, you are voting on their behalf as well as your own.
 
-This page covers how governance works at the protocol level, where to find and follow active proposals, and the exact steps to cast your vote via `livepeer_cli`.
+Use this page to follow active proposals, cast a vote with `livepeer_cli`, and verify the result on Explorer.
 
 <CustomDivider />
 
 ## How Livepeer governance works
 
-Protocol changes are proposed through **Livepeer Improvement Proposals (LIPs)**. A LIP can change anything from protocol parameters (inflation floor, treasury allocation) to entirely new features (remote signers, AI pipeline support, clearinghouse architecture).
+Protocol changes are proposed through **Livepeer Improvement Proposals (LIPs)**. A LIP changes protocol parameters such as inflation floors or treasury allocation, and it introduces features such as remote signers, AI pipeline support, or clearinghouse architecture.
 
 The process follows a defined path:
 
@@ -80,7 +58,7 @@ Outcome determined by stake-weighted vote count
 Accepted LIPs are implemented in go-livepeer and protocol contracts
 ```
 
-Governance is **stake-weighted**. A vote from an orchestrator with 100,000 LPT total stake counts for far more than one with 1,000 LPT. Delegators who choose not to vote independently are represented by their orchestrator's vote — this is one reason delegators care about an orchestrator's governance participation.
+Governance is **stake-weighted**. A vote from an orchestrator with 100,000 LPT total stake carries far more weight than one with 1,000 LPT. Delegators represented by their orchestrator's vote care about governance participation for the same reason.
 
 ### Recent LIPs affecting orchestrators
 
@@ -131,7 +109,7 @@ The **#governance** channel on the [Livepeer Discord](https://discord.gg/livepee
 
 ## How to vote
 
-Voting requires your orchestrator node to be running. You do not need to export keys or expose your private key — `livepeer_cli` handles the signing through your local node.
+Voting requires your orchestrator node to be running. `livepeer_cli` signs through your local node, so private keys stay on the node.
 
 <StyledSteps>
 
@@ -158,7 +136,7 @@ Voting requires your orchestrator node to be running. You do not need to export 
 <StyledStep title="Make sure livepeer is running">
   `livepeer_cli` connects to your running node to sign the transaction. Your orchestrator must be active before running the CLI.
 
-  ```bash icon="terminal"
+  ```bash icon="terminal" title="Confirm the node is running"
   # Confirm your node is running (example — adjust for your setup)
   docker ps | grep livepeer
   # or
@@ -167,13 +145,13 @@ Voting requires your orchestrator node to be running. You do not need to export 
 </StyledStep>
 
 <StyledStep title="Run livepeer_cli">
-  ```bash icon="terminal"
+  ```bash icon="terminal" title="Open livepeer_cli"
   livepeer_cli
   ```
 
-  If your node is running on a non-standard port, specify it:
+  Nodes running on a non-standard port use:
 
-  ```bash icon="terminal"
+  ```bash icon="terminal" title="Open livepeer_cli on a custom port"
   livepeer_cli -http 127.0.0.1:7935
   ```
 </StyledStep>
@@ -183,7 +161,7 @@ Voting requires your orchestrator node to be running. You do not need to export 
 </StyledStep>
 
 <StyledStep title="Enter the poll contract address">
-  ``` icon="terminal"
+  ```text icon="terminal" title="Poll contract prompt"
   Enter the contract address for the poll you want to vote on ->
   ```
 
@@ -191,9 +169,9 @@ Voting requires your orchestrator node to be running. You do not need to export 
 </StyledStep>
 
 <StyledStep title="Choose your vote">
-  You will see:
+  The CLI shows:
 
-  ``` icon="terminal"
+  ```text icon="terminal" title="Voting options"
   Identifier  Voting Options
   0           Yes
   1           No
@@ -201,7 +179,7 @@ Voting requires your orchestrator node to be running. You do not need to export 
 
   Enter `0` for Yes or `1` for No, then confirm:
 
-  ``` icon="terminal"
+  ```text icon="terminal" title="Vote confirmation prompt"
   Enter the ID of the option you want to vote for -> 0
   Are you sure you want to vote "Yes"? (y/n) -> y
 
@@ -212,7 +190,7 @@ Voting requires your orchestrator node to be running. You do not need to export 
 <StyledStep title="Wait for transaction confirmation">
   Your node submits the vote transaction on-chain. You will see the transaction hash in the logs:
 
-  ``` icon="terminal"
+  ```text icon="terminal" title="Successful vote transaction log"
   ******************************Eth Transaction******************************
 
   Invoking transaction: "vote". Inputs: "_choiceID: 0"
@@ -234,13 +212,13 @@ Voting requires your orchestrator node to be running. You do not need to export 
 
 ## Voting with a remote key
 
-If your orchestrator uses a remote signer or keystore on a separate machine (for security), `livepeer_cli` can connect remotely:
+Nodes using a remote signer or keystore on a separate machine point `livepeer_cli` at the remote HTTP address:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Vote through a remote node"
 livepeer_cli -http <orchestrator-ip>:7935
 ```
 
-The CLI does not require you to copy or export your private key. It connects to the node over HTTP and the node signs the transaction locally using its loaded keystore.
+The CLI connects to the node over HTTP and the node signs the transaction locally using its loaded keystore. Private keys stay on the node.
 
 <CustomDivider />
 
@@ -251,10 +229,10 @@ Your vote weight is your **total stake** — self-bonded LPT plus all delegated 
 This is part of the implicit trust relationship with delegators:
 
 - Delegators choose you based partly on your governance participation and positions
-- Voting consistently and publicly builds reputation with stake-focused delegators
+- Voting publicly on major proposals builds reputation with stake-focused delegators
 - Some orchestrators announce their voting intentions on the Forum or Discord before casting, inviting delegator feedback
 
-There is no penalty for not voting. But abstaining removes your stake weight from governance decisions that affect the protocol you operate — including parameters that directly affect your earnings.
+Abstaining carries no protocol penalty. It removes your stake weight from governance decisions that affect the protocol you operate, including parameters that directly affect your earnings.
 
 <CustomDivider />
 
@@ -297,17 +275,17 @@ Ensure your orchestrator wallet has ETH on Arbitrum before voting. The same ETH 
 
 </Accordion>
 
-<Accordion  title="What if I miss a vote?" icon="circle-question">
+<Accordion  title="Missed votes" icon="circle-question">
 
-There is no penalty for not voting on a proposal. Abstaining simply means your stake is not counted in either direction. For proposals that are close, high-stake orchestrator abstention can determine the outcome.
+Missing a vote carries no protocol penalty. Your stake is excluded from both sides of the tally. For close proposals, high-stake orchestrator abstention often determines the outcome.
 
 You cannot vote after the poll's voting window closes. Check the open/close dates on Explorer for each poll.
 
 </Accordion>
 
-<Accordion  title="Can delegators override my vote?" icon="circle-question">
+<Accordion  title="Delegator override" icon="circle-question">
 
-No — in the current governance model, delegators who have bonded to you are represented by your vote. If a delegator wants to vote independently, they must either bond to their own orchestrator address or unbond and vote using a different mechanism.
+Delegators bonded to you are represented by your vote in the current governance model. Independent voting requires bonding to their own orchestrator address or unbonding first.
 
 This is by design: delegating LPT to an orchestrator is a delegation of governance participation as well as stake. Choosing an orchestrator whose governance positions align with your own is part of due diligence for delegators.
 

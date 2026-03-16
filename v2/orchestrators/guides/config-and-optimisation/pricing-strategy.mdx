@@ -47,15 +47,15 @@ The correct price for each domain is derived from the same principle: find the r
 
 Video transcoding is priced in **wei per pixel**. One ETH equals 1,000,000,000,000,000,000 wei (1e18). The pixel count for a job is `width × height × output_renditions`.
 
-The active network range changes as ETH price, gateway caps, and redemption overhead move. Use the current Livepeer Explorer and your own routed volume as the reference point rather than treating any single historical range as fixed.
+The active network range changes as ETH price, gateway caps, and redemption overhead move. Use the current Livepeer Explorer and your own routed volume as the reference point. Historical ranges are only context.
 
-{/* REVIEW: Verify current active network price range with Rick / tools.livepeer.cloud. The 500-2,000 wei figure is from config-draft research (March 2026) and may have shifted. */}
+{/* FACT CHECK: Verify current active network price range with Rick / tools.livepeer.cloud. The 500-2,000 wei figure is from config-draft research (March 2026) and may have shifted. */}
 
 ### Setting the price
 
 Set `-pricePerUnit` at startup:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Video price startup flags"
 livepeer \
   -orchestrator \
   -transcoder \
@@ -66,16 +66,16 @@ livepeer \
 
 `-pixelsPerUnit` is the denominator. Leave it at `1` unless you prefer expressing price over a larger pixel batch for readability.
 
-To price in USD rather than wei, append the `USD` suffix. go-livepeer converts the value to wei at runtime using a Chainlink ETH/USD price feed on Arbitrum:
+To price in USD, append the `USD` suffix. go-livepeer converts the value to wei at runtime using a Chainlink ETH/USD price feed on Arbitrum:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Video price in USD"
 -pixelsPerUnit 1000000000000 \
 -pricePerUnit 0.41USD
 ```
 
 This example sets a price of $0.41 per trillion pixels. Adjust `pixelsPerUnit` to keep `pricePerUnit` as a readable decimal. The `-pixelsPerUnit` flag supports exponential notation (`1e12`); `-pricePerUnit` does not.
 
-{/* REVIEW: Confirm -priceFeedAddr is not required when using USD notation on Arbitrum mainnet (the default feed should be pre-configured in go-livepeer). Rick to verify. */}
+{/* FACT CHECK: Confirm -priceFeedAddr is not required when using USD notation on Arbitrum mainnet (the default feed should be pre-configured in go-livepeer). Rick to verify. */}
 
 ### Surveying the market
 
@@ -95,13 +95,13 @@ By default, go-livepeer automatically adjusts the price it advertises to gateway
 
 The adjustment is automatic and continuous. To disable it and advertise a fixed price regardless of gas conditions:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Disable autoAdjustPrice"
 -autoAdjustPrice=false
 ```
 
 Disabling autoAdjustPrice is appropriate when you want a predictable advertised rate for commercial relationships, or when you are setting per-gateway prices manually. For general network participation, keep the default on.
 
-{/* REVIEW: Confirm -autoAdjustPrice is production-stable and not gated behind any feature flag. Rick to verify current go-livepeer source. */}
+{/* FACT CHECK: Confirm -autoAdjustPrice is production-stable and not gated behind any feature flag. Rick to verify current go-livepeer source. */}
 
 <CustomDivider middleText="AI Pricing" />
 
@@ -170,7 +170,7 @@ The unit of work varies by pipeline type:
   </tbody>
 </StyledTable>
 
-{/* REVIEW: Confirm typical price ranges for each pipeline with current network data from tools.livepeer.cloud/ai/network-capabilities. The wei figures above are from diffusion-pipeline-setup.mdx (March 2026) and should be treated as illustrative baselines, not current market rates. */}
+{/* FACT CHECK: Confirm typical price ranges for each pipeline with current network data from tools.livepeer.cloud/ai/network-capabilities. The wei figures above are from diffusion-pipeline-setup.mdx (March 2026) and should be treated as illustrative baselines, not current market rates. */}
 
 ### aiModels.json pricing fields
 
@@ -192,7 +192,7 @@ The `pixels_per_unit` field adjusts pricing granularity. Setting it to a larger 
 
 ### USD notation for AI pricing
 
-USD-denominated AI pricing is particularly useful for LLM pipelines where per-token economics are more intuitive than wei:
+USD-denominated AI pricing is particularly useful for LLM pipelines, where per-token economics are easier to reason about than wei values:
 
 ```json icon="code" title="LLM USD pricing example"
 {

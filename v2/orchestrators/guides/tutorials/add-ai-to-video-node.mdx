@@ -38,13 +38,13 @@ import { BorderedBox } from '/snippets/components/layout/containers.jsx'
 
 This tutorial adds AI inference capability to an existing go-livepeer video orchestrator. Estimated time: **1 hour** plus model download time (6 to 10 GB depending on the model chosen).
 
-**Prerequisites:** A working video orchestrator already running on Arbitrum One mainnet. If the node is not yet set up, start with <LinkArrow href="/v2/orchestrators/guides/tutorials/zero-to-first-reward" label="Zero to First Reward" newline={false} />.
+**Prerequisites:** A working video orchestrator already running on Arbitrum One mainnet. Fresh nodes should start with <LinkArrow href="/v2/orchestrators/guides/tutorials/zero-to-first-reward" label="Zero to First Reward" newline={false} />.
 
 <CustomDivider middleText="What Changes" />
 
-## What changes and what does not
+## What changes and what stays the same
 
-Video transcoding uses NVENC and NVDEC - the fixed-function hardware blocks built into NVIDIA GPUs. AI inference uses CUDA compute cores. These are separate hardware resources on the same die. Adding AI workloads does not displace video transcoding capacity or interfere with NVENC sessions.
+Video transcoding uses NVENC and NVDEC, the fixed-function hardware blocks built into NVIDIA GPUs. AI inference uses CUDA compute cores. These are separate hardware resources on the same die. Adding AI workloads leaves video transcoding capacity intact and preserves available NVENC sessions.
 
 <StyledTable variant="bordered">
   <thead>
@@ -96,7 +96,7 @@ Video transcoding uses NVENC and NVDEC - the fixed-function hardware blocks buil
     </TableRow>
     <TableRow>
       <TableCell>Docker socket mount</TableCell>
-      <TableCell>**NEW if not present** - required for AI runner containers</TableCell>
+      <TableCell>**NEW on many video-only nodes** - required for AI runner containers</TableCell>
     </TableRow>
   </tbody>
 </StyledTable>
@@ -109,13 +109,13 @@ AI models require VRAM. Video transcoding uses NVENC/NVDEC silicon and consumes 
 
 Check current VRAM state while the video node is running:
 
-```bash icon="terminal" filename="check-vram"
-nvidia-smi --query-gpu=name,memory.total,memory.free,memory.used \
-  --format=csv,noheader,nounits
-```
+    ```bash icon="terminal" filename="check-vram"
+    nvidia-smi --query-gpu=name,memory.total,memory.free,memory.used \
+      --format=csv,noheader,nounits
+    ```
 
 Example output:
-```
+```text icon="terminal" title="Example VRAM output"
 NVIDIA GeForce RTX 4090, 24564, 22100, 2464
 ```
 
@@ -150,7 +150,7 @@ Choose a model that fits within the free VRAM, with at least 2 GB headroom:
   </tbody>
 </StyledTable>
 
-{/* REVIEW: Validate VRAM figures against model-demand-reference.mdx when that page merges. Rick to confirm per-pipeline VRAM floors. */}
+{/* FACT CHECK: Validate these VRAM figures against `model-demand-reference.mdx` when that page is final. Rick to confirm per-pipeline VRAM floors. */}
 
 <CustomDivider middleText="Step 1: Download Model" />
 
@@ -168,7 +168,7 @@ docker run --rm \
 
 Replace `text-to-image` and `ByteDance/SDXL-Lightning` with your chosen pipeline and model. See the VRAM table above and check [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities) for current demand before choosing.
 
-{/* REVIEW: Confirm dl_checkpoints.sh script invocation pattern is current. Rick / ai-runner team to verify. */}
+{/* FACT CHECK: Confirm the `dl_checkpoints.sh` invocation pattern is current. Rick and the ai-runner team to verify. */}
 
 Download is approximately 6 GB for SDXL-Lightning. Verify:
 
@@ -193,7 +193,7 @@ cat > ~/.lpData/aiModels.json << 'EOF'
 EOF
 ```
 
-Set `price_per_unit` based on current market rates at [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities). Gateways will not route AI jobs to the node if the price exceeds their configured cap.
+Set `price_per_unit` from current market rates at [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities). Keep it at or below current gateway caps so the node remains routable.
 
 <CustomDivider middleText="Step 3: Add AI Flags" />
 
@@ -229,10 +229,10 @@ docker run -d \
   -aiModelsDir /root/.lpData/models
 ```
 
-The `-v /var/run/docker.sock:/var/run/docker.sock` mount is required for Docker-out-of-Docker - go-livepeer uses the Docker daemon to start AI runner containers. Add it if it was not already present in the video-only startup command.
+The restart command includes the `-v /var/run/docker.sock:/var/run/docker.sock` mount required for Docker-out-of-Docker. go-livepeer uses the Docker daemon to start AI runner containers through this socket.
 
 <Warning>
-  `-aiModelsDir` must be the host path (`~/.lpData/models`), not a container path. Docker mounts this directory into each AI runner container it creates.
+  Use the host path for `-aiModelsDir` (`~/.lpData/models`). Docker mounts that directory into each AI runner container it creates.
 </Warning>
 
 <CustomDivider middleText="Step 4: Verify Both Workloads" />
@@ -248,7 +248,7 @@ The `-v /var/run/docker.sock:/var/run/docker.sock` mount is required for Docker-
     ```
 
     Expected lines:
-    ```
+    ```text icon="terminal" title="Expected dual-workload startup log"
     Transcoding on Nvidia GPU 0
     Starting AI worker
     Pipeline text-to-image started
@@ -311,7 +311,7 @@ The `-v /var/run/docker.sock:/var/run/docker.sock` mount is required for Docker-
 
     Expected: `test-ai.png: PNG image data` with a non-zero file size.
 
-    {/* REVIEW: Confirm local inference endpoint path and request format for current go-livepeer release. Rick / j0sh to verify. */}
+    {/* FACT CHECK: Confirm the local inference endpoint path and request format for the current go-livepeer release. Rick and j0sh to verify. */}
 
   </StyledStep>
 
@@ -319,17 +319,17 @@ The `-v /var/run/docker.sock:/var/run/docker.sock` mount is required for Docker-
 
 <CustomDivider middleText="What Just Happened" />
 
-## What just happened
+## What happened
 
 The node now operates in **dual-workload configuration**: video transcoding and AI inference run simultaneously on the same go-livepeer process.
 
-Video transcoding routes through NVENC/NVDEC (dedicated silicon - no CUDA usage, negligible VRAM). AI inference routes through CUDA compute cores with model weights loaded in VRAM. The two workloads do not contend for the same hardware resources.
+Video transcoding routes through NVENC/NVDEC, dedicated silicon with negligible VRAM demand. AI inference routes through CUDA compute cores with model weights loaded in VRAM. The two workloads use separate hardware paths.
 
 **Income now flows from two sources:**
 - **ETH from video transcoding** - probabilistic micropayment tickets per transcoded segment
 - **ETH from AI inference** - probabilistic micropayment tickets per completed inference job
 
-Both streams use the same wallet, the same `Reward()` call for LPT inflation, and the same on-chain registration. No separate accounts or registrations are needed for the AI income stream.
+Both streams use the same wallet, the same `Reward()` call for LPT inflation, and the same on-chain registration. The AI income stream uses the existing operator identity.
 
 <CustomDivider />
 

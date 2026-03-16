@@ -30,12 +30,12 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/ta
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 
 <Tip>
-  This tutorial covers one complete path: video transcoding to first LPT reward. Nothing else is included. AI pipelines, dual mode, and pool joining are separate paths documented elsewhere. Complete this tutorial first, then add to it.
+  Follow this path when the goal is straightforward: start a production video orchestrator, enter the active set, and claim a first LPT reward. AI pipelines, dual mode, and pool joining build on this baseline.
 </Tip>
 
 ---
 
-At the end of this tutorial the orchestrator node is running on Arbitrum One mainnet, processing video transcoding jobs, and has successfully called `Reward()` to claim its first LPT inflation allocation. Estimated time: **4 to 8 hours** — the range is wide because acquiring LPT on Arbitrum may take hours depending on exchange availability and bridge confirmation times.
+By the end, the orchestrator node is running on Arbitrum One mainnet, processing video transcoding jobs, and has successfully called `Reward()` to claim its first LPT inflation allocation. Plan for **4 to 8 hours**. LPT acquisition and bridge confirmation usually take the longest.
 
 **Success criteria:**
 - The node appears on [Livepeer Explorer](https://explorer.livepeer.org/orchestrators) in the active set
@@ -55,7 +55,7 @@ At the end of this tutorial the orchestrator node is running on Arbitrum One mai
   <tbody>
     <TableRow>
       <TableCell>Linux server (Ubuntu 22.04 or 24.04 recommended)</TableCell>
-      <TableCell>Production GPU transcoding is Linux-first. macOS can run the binary for CLI access only.</TableCell>
+      <TableCell>Production GPU transcoding runs on Linux. Use macOS for CLI reference only.</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>NVIDIA GPU with CUDA 12.0+ drivers</TableCell>
@@ -71,7 +71,7 @@ At the end of this tutorial the orchestrator node is running on Arbitrum One mai
     </TableRow>
     <TableRow>
       <TableCell>Arbitrum One RPC endpoint</TableCell>
-      <TableCell>Free tier at Alchemy (`arb-mainnet.g.alchemy.com`) or Infura. Must be Arbitrum One, not Ethereum L1.</TableCell>
+      <TableCell>Use an Arbitrum One endpoint from Alchemy (`arb-mainnet.g.alchemy.com`) or Infura.</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>ETH on Arbitrum One</TableCell>
@@ -79,13 +79,13 @@ At the end of this tutorial the orchestrator node is running on Arbitrum One mai
     </TableRow>
     <TableRow>
       <TableCell>LPT on Arbitrum One</TableCell>
-      <TableCell>Enough to stake. The active set is the top 100 orchestrators by total stake. Check the current threshold at [Livepeer Explorer](https://explorer.livepeer.org/orchestrators). Acquiring LPT may take hours - plan for this before starting.</TableCell>
+      <TableCell>Enough to stake. The active set is the top 100 orchestrators by total stake. Check the current threshold at [Livepeer Explorer](https://explorer.livepeer.org/orchestrators). Plan for a multi-hour acquisition window before starting.</TableCell>
     </TableRow>
   </tbody>
 </StyledTable>
 
 <Warning>
-  Acquiring LPT on Arbitrum One can take hours depending on exchange availability and bridge confirmation times. Do not start this tutorial unless LPT is already in your Arbitrum wallet, or budget the waiting time explicitly.
+  Acquiring LPT on Arbitrum One usually takes hours because exchange support and bridge confirmation timing vary. Start once LPT is already in the wallet, or reserve that waiting time up front.
 </Warning>
 
 <CustomDivider middleText="Step 1: Install" />
@@ -135,7 +135,7 @@ At the end of this tutorial the orchestrator node is running on Arbitrum One mai
     ```
 
     Expected output:
-    ```
+    ```text icon="terminal" title="Example GPU output"
     GPU 0: NVIDIA GeForce RTX 4090 (UUID: GPU-...)
     ```
 
@@ -205,7 +205,7 @@ At the end of this tutorial the orchestrator node is running on Arbitrum One mai
 2. **LPT** - for staking. The active set is the top 100 orchestrators by total stake. Check the current threshold at [Livepeer Explorer](https://explorer.livepeer.org/orchestrators) before acquiring.
 
 <Note>
-  This is the waiting step. Bridge ETH from Ethereum L1 at [bridge.arbitrum.io](https://bridge.arbitrum.io) (confirmation: 10-15 minutes) or buy directly from a centralised exchange with Arbitrum One withdrawal support. LPT acquisition depends on your exchange options and may take hours.
+  This is the waiting step. Bridge ETH from Ethereum L1 at [bridge.arbitrum.io](https://bridge.arbitrum.io) with a typical 10 to 15 minute confirmation, or buy directly from a centralised exchange with Arbitrum One withdrawal support. LPT acquisition follows the timeline of the exchange path you choose and usually takes longer.
 </Note>
 
 Verify balances are available:
@@ -215,7 +215,7 @@ docker exec livepeer-orchestrator livepeer_cli
 # Select: "Get node status" to view ETH and LPT balances
 ```
 
-{/* REVIEW: Confirm the exact livepeer_cli menu option for viewing account balances in the current release. Rick to verify option name/number. */}
+{/* FACT CHECK: Confirm the exact `livepeer_cli` menu option for viewing account balances in the current release. Rick to verify the option name or number. */}
 
 <CustomDivider middleText="Step 4: Activate" />
 
@@ -245,7 +245,7 @@ Activation registers the orchestrator on-chain, sets commission rates, and makes
 
     Confirm each prompt. The activation transaction submits to Arbitrum. Confirmation takes 1-3 minutes.
 
-    {/* REVIEW: Confirm exact livepeer_cli menu item name for activation in current release. Rick to verify "Invoke multi-step become an orchestrator" is current wording. */}
+    {/* FACT CHECK: Confirm the exact `livepeer_cli` menu item name for activation in the current release. Rick to verify whether "Invoke multi-step become an orchestrator" is still the current wording. */}
 
   </StyledStep>
 
@@ -256,7 +256,7 @@ Activation registers the orchestrator on-chain, sets commission rates, and makes
     ```
 
     Expected:
-    ```
+    ```text icon="terminal" title="Expected activation log"
     Registered orchestrator on chain
     Transcoding on Nvidia GPU 0
     Listening for RPC on :8935
@@ -277,12 +277,12 @@ Open [explorer.livepeer.org/orchestrators](https://explorer.livepeer.org/orchest
 
 Confirm:
 - The node appears in the orchestrator list
-- **Status** shows as Active (may take up to one full round to appear — approximately 22 hours)
+- **Status** shows as Active after the next round begins, roughly 22 hours after activation
 - **Service URI** matches the address you set in `-serviceAddr`
 - **Price per pixel** reflects your `-pricePerUnit` setting (after conversion from wei)
 
 <Note>
-  Entry into the active set is not immediate after activation. The node must be in the top 100 by total stake at the start of the next round. If total stake is below the 100th orchestrator's stake, the node is registered but not active. Monitor your position on Explorer and acquire more delegated LPT if needed.
+  Active-set entry starts at the next round boundary. The node becomes active when its total stake is already above the current 100th orchestrator at that boundary. Use Explorer to watch your ranking and add more delegated LPT whenever the node stays below the cutoff.
 </Note>
 
 Also verify the port is reachable from outside the network. Test from a machine different from your server:
@@ -315,21 +315,21 @@ docker logs livepeer-orchestrator 2>&1 | grep -i "reward" | tail -5
 ```
 
 Expected:
-```
-Called Reward() for round XXXXX
-```
+    ```text icon="terminal" title="Expected reward log"
+    Called Reward() for round XXXXX
+    ```
 
 **Verify on Explorer:**
 
 On your orchestrator page on Explorer, the **Rewards** section updates after a successful call, showing the LPT received for the round.
 
 <Note>
-  A node that was not in the active set at the start of a round receives no reward for that round. If the first reward shows zero, confirm active set membership on Explorer and wait for the next round.
+  Rewards accrue only in rounds where the node entered the active set before the round started. A zero first round usually means the node crossed the threshold after round initialisation. Confirm active-set membership on Explorer and check again next round.
 </Note>
 
 <CustomDivider middleText="What Just Happened" />
 
-## What just happened
+## What happened
 
 The node completed the full video orchestrator lifecycle:
 
@@ -341,11 +341,11 @@ The node completed the full video orchestrator lifecycle:
 6. **Earned** the first LPT inflation reward by calling `Reward()` at round initialisation
 
 **Reward income formula:**
-```text
+```text icon="terminal" title="Reward income formula"
 LPT earned per round = (your total stake / network active stake) × round_issuance × 0.90 × your_reward_cut
 ```
 
-ETH fee income is separate and arrives as gateways route transcoding jobs to the node. Fee income scales with job volume, not just stake.
+ETH fee income is separate and arrives as gateways route transcoding jobs to the node. Fee income scales with job volume, while reward size scales with stake.
 
 <CustomDivider />
 

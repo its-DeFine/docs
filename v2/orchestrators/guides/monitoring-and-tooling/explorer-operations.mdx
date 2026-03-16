@@ -26,43 +26,21 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
-{/* TODO:
-Terminology Validation:
-- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
-- Voice converted to entity-led
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
-Verify:
-- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
-- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
-- Tables use StyledTable component
-- Tabs should be surrounded by BorderedBox variant="accent"
-- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
-- All tabs and accordions should have icons
-- No em-dashes are used (instead use standard -)
-- UK spelling is used
-- Headers are concise and technical
-- CustomDivider is used
-- Placeholders for Media and Video Resources are in comments with a TODO for a human
-- REVIEW flags are in JSX comments for a human
-- Accuracy is verified across repo as much as possible
-Human:
-- REVIEW flags
-- Review Page Layout
-*/}
+{/* Draft note: keep Explorer guidance practical, route unresolved fact checks to internal comments only, and keep cross-links in the supporting pages. */}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
-The Livepeer Explorer reads directly from the Arbitrum subgraph. Every number here reflects on-chain state. This guide walks through your orchestrator profile page metric by metric — what it shows, what healthy looks like, and what to do when it does not.
+Use the Livepeer Explorer to read the public state of your orchestrator: stake, cuts, reward calls, fee earnings, and service URI. Every number here comes from on-chain data indexed from Arbitrum, so the page is best used to confirm protocol state, compare your settings with peers, and spot drift between what you intended and what the network sees.
 
 **Your orchestrator profile:**
-``` icon="terminal"
+```text icon="terminal" title="Explorer orchestrator profile URL"
 https://explorer.livepeer.org/accounts/<your-address>/orchestrating
 ```
 
 <CustomDivider />
 
-## What the Explorer does and does not show
+## Explorer scope
 
 Before diving into metrics, understanding the Explorer's scope avoids confusion.
 
@@ -71,8 +49,8 @@ Before diving into metrics, understanding the Explorer's scope avoids confusion.
 - Protocol-level data: your registered service URI, your active/inactive status
 - Your delegators and their individual stake amounts
 
-**What it does not show:**
-- Real-time node health or uptime (use Prometheus for this)
+**What it leaves out:**
+- Live node health or uptime (use Prometheus for this)
 - Off-chain pool worker contributions (pool workers are invisible to the protocol)
 - AI model warm status or per-pipeline job counts (use [tools.livepeer.cloud](https://tools.livepeer.cloud/ai/network-capabilities))
 - Which gateways are currently routing work to you (use the Loki gateway API)
@@ -90,11 +68,11 @@ Before diving into metrics, understanding the Explorer's scope avoids confusion.
 - Whether you are currently active or inactive
 - Your trend over the past 30 days
 
-**If you are not in the active set:**
+**Outside the active set:**
 
 Your stake (self-stake plus delegated stake) is insufficient to rank in the top 100. The gap between your stake and the 100th-place orchestrator is the amount you need to close. Your options are to increase your self-stake directly, or to attract more delegators.
 
-{/* REVIEW: Confirm "top 100" is still the current active set size. Appears consistently in project files but verify against current protocol parameter. Mehrdad/Rick to confirm. */}
+{/* FACT CHECK: Confirm "top 100" is still the current active set size. Appears consistently in project files but verify against the current protocol parameter. Mehrdad/Rick to confirm. */}
 
 <CustomDivider />
 
@@ -107,7 +85,7 @@ This is the sum of your self-stake and all delegated stake. It is the single mos
 <Accordion  title="Self-stake vs delegated stake" icon="coins">
 Your self-stake is the LPT you bonded to yourself. Delegated stake comes from LPT holders who chose to delegate to you.
 
-You can increase your self-stake directly by bonding more LPT. Attracting delegators requires competitive reward cut and fee share settings and a strong performance track record — see [Getting Delegates](/v2/orchestrators/guides/staking-and-rewards/delegate-operations).
+Increase your self-stake directly by bonding more LPT. Attracting delegators requires competitive reward cut and fee share settings plus a strong performance track record — see [Getting Delegates](/v2/orchestrators/guides/staking-and-rewards/delegate-operations).
 </Accordion>
 
 <Accordion  title="How stake affects job routing" icon="coins">
@@ -151,7 +129,7 @@ Check the top 20 active orchestrators on the Explorer and compare your settings.
 **Changing these parameters** requires an on-chain transaction and takes effect at the next round boundary. You can update them via `livepeer_cli` or directly in the Explorer interface if your wallet is connected.
 
 <Warning>
-  Changes to reward cut and fee share are publicly visible to delegators and affect their yield. Frequent large changes can reduce delegator confidence. Communicate changes in advance if you have a significant delegating base.
+  Changes to reward cut and fee share are publicly visible to delegators and affect their yield. Frequent large changes can reduce delegator confidence. Communicate changes in advance if your delegator base is large.
 </Warning>
 
 <CustomDivider />
@@ -179,16 +157,16 @@ When you miss a round, that round's LPT inflation that would have been minted to
 
 <AccordionGroup>
 
-<Accordion  title="Check if -reward=false is set accidentally" icon="coins">
-If you disabled reward calling intentionally, `-reward=false` is the flag. If you are using a split setup where the orchestrator and transcoder run as separate processes, ensure `-reward=false` (or the absence of this flag, letting it default to true) is consistent across all launch commands. A common mistake is setting `-reward=false` on the orchestrator but a separate process still running the wallet.
+<Accordion  title="Reward calling disabled" icon="coins">
+`-reward=false` disables reward calling. In split setups where the orchestrator and transcoder run as separate processes, keep the flag state consistent across every launch command. A common mistake is disabling reward on the orchestrator while a second process still owns the wallet.
 </Accordion>
 
 <Accordion  title="Check your ETH balance for gas" icon="circle-question">
-Reward calls require ETH on Arbitrum for gas. If your wallet runs dry, reward calls will fail silently. Check your orchestrator address ETH balance on Arbiscan. Keep at least 0.02–0.05 ETH in the wallet as a buffer.
+Reward calls require ETH on Arbitrum for gas. A dry wallet causes reward calls to fail silently. Check your orchestrator address ETH balance on Arbiscan and keep at least 0.02–0.05 ETH in the wallet as a buffer.
 </Accordion>
 
 <Accordion  title="Check node uptime at round boundaries" icon="server">
-If your node was offline at the round boundary, the reward call was not made. The Arbitrum round length is approximately 22 hours. If your node has any regular maintenance windows, check whether these coincide with round boundaries.
+A node offline at the round boundary misses the reward call. The Arbitrum round length is approximately 22 hours. Compare regular maintenance windows against round boundaries before you dismiss the gap as random.
 </Accordion>
 
 <Accordion  title="Using OrchestratorSiphon" icon="circle-question">
@@ -222,7 +200,7 @@ Your delegators are LPT holders who have staked to your orchestrator. Their stak
 **What to watch:**
 - Delegators with unbonding status — they are in the process of leaving. This reduces your stake at the next round.
 - New delegations — incoming stake increasing your rank.
-- Large single-delegator dependence — if one delegator accounts for most of your stake, their departure would significantly affect your active set position.
+- Large single-delegator dependence can destabilise your active set position. One delegator holding most of your stake can move you sharply when they leave.
 
 **Why delegators leave:**
 
@@ -293,7 +271,7 @@ A simple counter of how long your orchestrator has been registered. This is a so
 
 <CardGroup cols={2}>
   <Card title="Metrics and Monitoring" icon="gauge" href="/v2/orchestrators/guides/monitoring-and-tooling/metrics-and-alerting">
-    Set up Prometheus and Grafana for real-time node health monitoring.
+    Set up Prometheus and Grafana for live node health monitoring.
   </Card>
   <Card title="Getting Delegates" icon="users" href="/v2/orchestrators/guides/staking-and-rewards/delegate-operations">
     How to attract LPT delegators and grow your stake.
@@ -306,19 +284,4 @@ A simple counter of how long your orchestrator has been registered. This is a so
   </Card>
 </CardGroup>
 
-{/*
-  PURPOSE:
-  "How do I use Explorer to manage my node day-to-day?" Profile page walkthrough.
-  Setting reward/fee cuts. Viewing delegator list and stake distribution. Performance
-  metrics and scoring. Round history: identifying missed reward calls. Comparing with
-  competitors: price, stake, performance, session count. Explorer as the external
-  mirror of node state.
-
-  PLAN TARGET: explorer-operations (consider rename)
-  SECTION: Monitoring & Tools → "How do I keep it running?"
-  JOB STORIES: J3 (Explorer management), J7 (diagnostic tool)
-
-  CROSS-REFS:
-  - Staking & Earning > Growing Delegation - Explorer as reputation tool
-  - Staking & Earning > Reward Mechanics - reward history on Explorer
-*/}
+{/* Draft note: Explorer page stays focused on reading and acting on profile signals; deeper staking and troubleshooting mechanics live in the linked guides. */}

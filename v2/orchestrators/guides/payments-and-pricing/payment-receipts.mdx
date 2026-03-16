@@ -31,7 +31,7 @@ import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 
 <Tip>
-  ETH earnings arrive in discrete redemption steps whenever a winning ticket is redeemed on-chain. A node that processed thousands of jobs may have zero ETH balance changes for hours, then receive a larger deposit. This is expected behaviour and part of the PM design.
+  ETH earnings arrive in discrete redemption steps whenever a winning ticket is redeemed on-chain. A node that processed thousands of jobs often shows zero ETH balance changes for hours, then receives a larger deposit. This is expected behaviour and part of the PM design.
 </Tip>
 
 ---
@@ -75,7 +75,7 @@ Each ticket contains the fields the Arbitrum contract uses to verify and pay:
   <tbody>
     <TableRow>
       <TableCell>**Face value**</TableCell>
-      <TableCell>ETH amount payable if this ticket wins</TableCell>
+      <TableCell>ETH amount payable on a winning ticket</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>**Win probability**</TableCell>
@@ -120,7 +120,7 @@ face value      = 1000 × per-job fee
 expected value  = 1/1000 × 1000 × fee = fee per job
 ```
 
-Over a large number of tickets, the ETH received converges to the amount you would have been paid if every job had its own transaction. At low job volumes, the variance is high — a node processing 10 jobs per day might see zero redemptions some days and two on others. Variance decreases as volume increases.
+Over a large number of tickets, the ETH received converges to the equivalent per-job total. At low job volumes, the variance is high — a node processing 10 jobs per day might see zero redemptions some days and two on others. Variance decreases as volume increases.
 
 <CustomDivider middleText="The Redeemer" />
 
@@ -164,7 +164,7 @@ The Redeemer batches pending winners when possible. A busy orchestrator usually 
 Your orchestrator wallet on Arbitrum must hold ETH to pay redemption gas. **Maintain a minimum of 0.01 ETH on Arbitrum.** A depleted wallet means winning tickets expire unsubmitted — that ETH is permanently lost.
 
 <Warning>
-  Winning tickets carry an expiry block number. If your wallet runs out of ETH before submission, expired tickets cannot be retroactively redeemed. The gateway's deposit is unaffected; the loss falls entirely on your side.
+  Winning tickets carry an expiry block number. A wallet that runs out of ETH before submission loses expired tickets permanently. The gateway's deposit is unaffected; the loss falls entirely on your side.
 </Warning>
 
 Replenish when your balance falls below 0.005 ETH on Arbitrum. Bridge ETH from Ethereum L1 using the [Arbitrum Bridge](https://bridge.arbitrum.io/) or a centralised exchange withdrawal.
@@ -206,7 +206,7 @@ Key log messages:
   <tbody>
     <TableRow>
       <TableCell>`Winning ticket`</TableCell>
-      <TableCell>A ticket passed the win condition; queued for Redeemer</TableCell>
+      <TableCell>Ticket passed the win condition and entered the Redeemer queue</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>`Redeemed ticket`</TableCell>
@@ -218,7 +218,7 @@ Key log messages:
     </TableRow>
     <TableRow>
       <TableCell>`Ticket expired`</TableCell>
-      <TableCell>Winning ticket not submitted before expiry block; ETH permanently lost</TableCell>
+      <TableCell>Winning ticket reached expiry before submission; ETH permanently lost</TableCell>
     </TableRow>
   </tbody>
 </StyledTable>
@@ -230,8 +230,8 @@ Key log messages:
 Possible causes:
 
 - **Low job volume** — at fewer than ~20 jobs per day, zero-win rounds are statistically common.
-- **ETH balance depleted** — winning tickets fail to redeem silently if gas cannot be paid.
-- **RPC connectivity issue** — check your `-ethUrl` endpoint is reachable and not rate-limited.
+- **ETH balance depleted** — winning tickets fail to redeem silently when gas cannot be paid.
+- **RPC connectivity issue** — check your `-ethUrl` endpoint is reachable and within provider limits.
 - **Node offline during job routing** — verify your node is connected and registered in the active set.
 - **Price above gateway caps** — confirm your `-pricePerUnit` is within range of active gateways. See <LinkArrow href="/v2/orchestrators/guides/config-and-optimisation/pricing-strategy" label="Pricing Strategy" newline={false} />.
 

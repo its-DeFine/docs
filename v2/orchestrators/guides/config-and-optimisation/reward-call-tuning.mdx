@@ -35,9 +35,9 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/ta
 
 ---
 
-Every round (approximately 22 hours on Arbitrum), an active orchestrator calls `Reward()` on-chain to claim its proportional share of newly minted LPT. The call is a gas transaction on Arbitrum One. For orchestrators with small stake, the gas cost of the call can exceed the LPT value received — at which point calling reward destroys value rather than creating it.
+Every round (approximately 22 hours on Arbitrum), an active orchestrator calls `Reward()` on-chain to claim its proportional share of newly minted LPT. The call is a gas transaction on Arbitrum One. Small-stake operators reach a break-even threshold where gas overtakes the LPT value received, and calling reward starts destroying value instead of creating it.
 
-This page covers: the profitability calculation, the `-reward` flag for enabling or disabling automatic calling, manual calling via `livepeer_cli`, timing considerations, and when to skip rounds intentionally.
+Use this page to calculate profitability, configure the `-reward` flag, choose between automatic and manual calling, and decide when skipping rounds is justified.
 
 <CustomDivider middleText="Profitability Threshold" />
 
@@ -47,7 +47,7 @@ Reward calling is profitable when the LPT received (expressed in ETH) exceeds th
 
 **Gas cost per reward call:**
 
-```text icon="terminal"
+```text icon="terminal" title="Reward call gas cost estimate"
 gas cost (ETH) = gas_used × gas_price_in_ETH
 
 Typical gas used:       350,000 – 450,000 gas
@@ -57,7 +57,7 @@ Approximate ETH cost:   0.0000035 – 0.000045 ETH
 
 **LPT value per round:**
 
-```text icon="terminal"
+```text icon="terminal" title="Round issuance formula"
 LPT earned = (your total stake / total active stake) × round_issuance × 0.90
 
 0.90 = 90% remaining after the 10% LIP-89 Treasury allocation
@@ -67,11 +67,11 @@ Round issuance varies with the current inflation rate. The Explorer shows curren
 
 **Break-even stake (illustrative):**
 
-At a typical Arbitrum gas cost of ~0.00002 ETH and LPT price of ~$4 USD, the minimum stake for profitable calling is approximately several thousand LPT. The exact threshold moves with ETH/LPT price ratio and gas conditions.
+At a typical Arbitrum gas cost of ~0.00002 ETH and LPT price of ~$4 USD, the minimum stake for profitable calling is approximately a few thousand LPT. The exact threshold moves with ETH/LPT price ratio and gas conditions.
 
-{/* REVIEW: Provide a worked numerical example once current inflation rate and LPT/ETH price are confirmed. The illustrative break-even figure (several thousand LPT) is directionally correct but should be updated with current figures. Mehrdad / Livepeer protocol data to advise. */}
+{/* FACT CHECK: Provide a worked numerical example once current inflation rate and LPT/ETH price are confirmed. The illustrative break-even figure (a few thousand LPT) is directionally correct but should be updated with current figures. Mehrdad / Livepeer protocol data to advise. */}
 
-Use the Explorer's "Estimated Reward This Round" figure on your orchestrator page to read the expected LPT directly rather than calculating from first principles.
+Use the Explorer's "Estimated Reward This Round" figure on your orchestrator page as the quickest operational reference.
 
 <CustomDivider middleText="Automatic vs Manual" />
 
@@ -81,7 +81,7 @@ Use the Explorer's "Estimated Reward This Round" figure on your orchestrator pag
 
 By default, go-livepeer calls `Reward()` automatically at the start of each new round. No action required after initial activation.
 
-```bash icon="terminal"
+```bash icon="terminal" title="Default automatic reward configuration"
 # Automatic reward is ON by default.
 # Confirm no -reward=false in your startup flags.
 livepeer \
@@ -96,14 +96,14 @@ Requirements for successful automatic calling:
 - Orchestrator must be in the active set that round
 
 <Warning>
-  If your node is offline at round initialisation, that round's reward is permanently missed. Use a systemd service or Docker restart policy (`restart: unless-stopped`) to keep the node running continuously.
+  A node offline at round initialisation misses that round's reward permanently. Use a systemd service or Docker restart policy (`restart: unless-stopped`) to keep the node running continuously.
 </Warning>
 
 ### Manual calling
 
 Disable automatic reward calls with `-reward=false` and call manually to evaluate profitability before committing:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Disable automatic reward calls"
 livepeer \
     -network arbitrum-one-mainnet \
     -reward=false \
@@ -117,28 +117,28 @@ Manual call via `livepeer_cli`:
 3. Select the `Invoke "reward"` option
 4. Wait for the transaction to confirm — confirmation appears in node logs
 
-```bash icon="terminal"
+```bash icon="terminal" title="Monitor reward call logs"
 # Monitor logs for reward confirmation
 journalctl -u livepeer -f | grep -i "reward"
 ```
 
-{/* REVIEW: Confirm the exact livepeer_cli option name/number for manual reward calling in the current release. Rick to verify against current livepeer_cli menu. */}
+{/* FACT CHECK: Confirm the exact livepeer_cli option name or number for manual reward calling in the current release. Rick to verify against the current livepeer_cli menu. */}
 
 <CustomDivider middleText="Timing Strategies" />
 
 ## Timing considerations
 
-Arbitrum gas prices fluctuate. Calling early in a round (within the first minutes of initialisation) guarantees the call succeeds for that round but may coincide with elevated gas if multiple orchestrators call simultaneously. Calling later in the round carries the risk of node downtime before the deadline.
+Arbitrum gas prices fluctuate. Calling early in a round (within the first minutes of initialisation) guarantees the call succeeds for that round, but it sometimes coincides with elevated gas during clustered orchestrator activity. Calling later in the round reduces that gas spike exposure while increasing downtime risk before the deadline.
 
 **For most operators:** leave automatic calling enabled. The gas savings from optimal timing are negligible on Arbitrum compared to the risk of a missed round from manual management.
 
-**For low-stake operators evaluating profitability:** run with `-reward=false` for 3 to 5 rounds. Check Arbiscan for current gas costs and use the Explorer to read the LPT value for those rounds. If the gas cost exceeds the LPT value at current prices, continue without calling and accumulate stake from delegation before enabling automatic calling.
+**For low-stake operators evaluating profitability:** run with `-reward=false` for 3 to 5 rounds. Check Arbiscan for current gas costs and use the Explorer to read the LPT value for those rounds. Continue without calling until delegation or price changes move the round value above gas cost.
 
 ### When to skip calling intentionally
 
 Skip calling only when the profitability calculation is definitively negative. At Arbitrum gas prices, the break-even point is much lower than it was historically on Ethereum L1. Most operators with more than a few thousand LPT delegated will find automatic calling profitable.
 
-Accumulating without calling does not compound — unclaimed LPT does not accrue additional inflation. The LPT you would have received each round is lost, not deferred.
+Only claimed LPT compounds. Unclaimed LPT stops accruing immediately, and the round allocation is lost instead of deferred.
 
 <CustomDivider middleText="Monitoring" />
 
@@ -146,9 +146,9 @@ Accumulating without calling does not compound — unclaimed LPT does not accrue
 
 ### Alert for missed rounds
 
-Set a Prometheus alert on the `livepeer_round_last_claim` metric. A value that does not advance each round indicates a missed call.
+Set a Prometheus alert on the `livepeer_round_last_claim` metric. A value that stays fixed across rounds indicates a missed call.
 
-{/* REVIEW: Confirm exact Prometheus metric name for last successful reward call / round tracking. Rick to verify against current go-livepeer metrics export. */}
+{/* FACT CHECK: Confirm the exact Prometheus metric name for last successful reward call or round tracking. Rick to verify against the current go-livepeer metrics export. */}
 
 ### Check call history
 

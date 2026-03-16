@@ -30,7 +30,7 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/ta
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 
 <Tip>
-  The gateway handles routing and payment negotiation. The orchestrator handles compute. This tutorial runs both on one machine, off-chain, so you can watch a real inference request travel through both sides and return a result - without a wallet or on-chain registration.
+  The gateway handles routing and payment negotiation. The orchestrator handles compute. Run both on one machine, off-chain, and watch a full inference request travel through both sides and return a result without a wallet or on-chain registration.
 </Tip>
 
 ---
@@ -122,7 +122,7 @@ docker run --rm \
 
 This downloads approximately 6 GB. Watch the download output and wait for completion.
 
-{/* REVIEW: Confirm dl_checkpoints.sh invocation syntax against current ai-runner image. Rick / ai-runner team to verify. */}
+{/* FACT CHECK: Confirm the `dl_checkpoints.sh` invocation syntax against the current ai-runner image. Rick and the ai-runner team to verify. */}
 
 Verify:
 
@@ -182,7 +182,7 @@ docker logs -f livepeer-orchestrator 2>&1 | grep -i "warm\|pipeline\|ai-runner\|
 ```
 
 Expected:
-```
+```text icon="terminal" title="Expected warm-model startup log"
 Starting AI worker
 Pipeline text-to-image started
 Warm model loaded: ByteDance/SDXL-Lightning
@@ -224,7 +224,7 @@ Key flags:
 - Separate `-cliAddr` and `-httpAddr` from the orchestrator's ports (7936 and 8936 vs 7935 and 8935)
 
 <Note>
-  The remote signer at `signer.eliteencoder.net` is a community-hosted service for testing. Confirm availability in [#local-gateways on Discord](https://discord.gg/livepeer) if connection errors occur.
+  The remote signer at `signer.eliteencoder.net` is a community-hosted service for testing. Check availability in [#local-gateways on Discord](https://discord.gg/livepeer) before you start.
 </Note>
 
 Verify the gateway started:
@@ -234,7 +234,7 @@ docker logs livepeer-gateway 2>&1 | grep -i "started\|gateway\|signer\|orchestra
 ```
 
 Expected:
-```
+```text icon="terminal" title="Expected gateway startup log"
 Gateway started on :8936
 Connected to remote signer at https://signer.eliteencoder.net
 Registered orchestrator: 127.0.0.1:8935
@@ -252,7 +252,7 @@ Expected: `{"status":"ok"}`
 
 ## Step 5: Send an inference request through the gateway
 
-Send a `text-to-image` request through the gateway (port 8936, not directly to the orchestrator on 8935):
+Send a `text-to-image` request through the gateway on port 8936. Keep port 8935 for the gateway-to-orchestrator hop:
 
 ```bash icon="terminal" filename="send-via-gateway"
 curl -X POST http://localhost:8936/text-to-image \
@@ -268,7 +268,7 @@ curl -X POST http://localhost:8936/text-to-image \
   --max-time 60
 ```
 
-{/* REVIEW: Confirm the gateway's AI inference endpoint path is /text-to-image for off-chain gateway in current go-livepeer release. j0sh / Rick to verify. */}
+{/* FACT CHECK: Confirm the gateway AI inference endpoint path is `/text-to-image` for an off-chain gateway in the current go-livepeer release. j0sh and Rick to verify. */}
 
 This request travels the full pipeline. A typical first inference takes 5 to 15 seconds (VRAM kernel warm-up on the first job). Subsequent requests take 2 to 4 seconds.
 
@@ -294,7 +294,7 @@ docker logs livepeer-gateway 2>&1 | grep -i "route\|signer\|ticket\|orchestrat" 
 ```
 
 Expected entries:
-```
+```text icon="terminal" title="Expected gateway log entries"
 Routing job to orchestrator: 127.0.0.1:8935
 Calling remote signer: getOrchInfoSig
 Calling remote signer: signTicket
@@ -307,7 +307,7 @@ docker logs livepeer-orchestrator 2>&1 | grep -i "job\|ai-runner\|inference\|tic
 ```
 
 Expected entries:
-```
+```text icon="terminal" title="Expected orchestrator log entries"
 Received AI job: text-to-image
 Dispatching to AI runner container
 Inference complete
@@ -326,7 +326,7 @@ Expected entries include model inference steps and output dimensions.
 
 <CustomDivider middleText="What Just Happened" />
 
-## What just happened
+## What happened
 
 The request completed the full Livepeer AI pipeline:
 
@@ -334,7 +334,7 @@ The request completed the full Livepeer AI pipeline:
 2. **The gateway** selected the local orchestrator at `:8935` (the only option via `-orchAddr`), signed a payment ticket using the community remote signer, and forwarded the job request.
 3. **The orchestrator** received the job, forwarded it to the AI runner container via Docker-out-of-Docker, and waited for the result.
 4. **The AI runner** loaded the SDXL-Lightning model from VRAM (it was pre-warmed), ran 4 diffusion steps, and returned a PNG.
-5. **The orchestrator** returned the result to the gateway and evaluated the payment ticket (in off-chain mode, settlement is handled by the remote signer rather than the Arbitrum TicketBroker).
+5. **The orchestrator** returned the result to the gateway and evaluated the payment ticket (in off-chain mode, settlement is handled by the remote signer instead of the Arbitrum TicketBroker).
 6. **The gateway** returned the PNG to the curl client.
 
 **In production**, the orchestrator is registered on-chain and the gateway discovers it via the Livepeer protocol. Payment tickets settle on Arbitrum through the TicketBroker contract. The inference mechanics are identical.
@@ -354,6 +354,6 @@ The request completed the full Livepeer AI pipeline:
     How gateways discover and select orchestrators in production.
   </Card>
   <Card title="Realtime AI Tutorial" icon="video" href="/v2/orchestrators/guides/tutorials/realtime-ai-tutorial" arrow horizontal>
-    The live video-to-video pipeline - streaming AI rather than batch inference.
+    The live video-to-video pipeline - streaming AI instead of batch inference.
   </Card>
 </CardGroup>

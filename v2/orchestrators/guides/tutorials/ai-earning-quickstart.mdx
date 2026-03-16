@@ -30,7 +30,7 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/ta
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 
 <Tip>
-  AI inference routing is capability-based, not stake-based. A node with a 24 GB GPU and a warm model can receive AI jobs immediately after registration - no active set membership, no minimum LPT stake required.
+  AI inference routing follows capability and price. A node with a 24 GB GPU and a warm model enters the routing pool as soon as registration propagates, without waiting for active-set entry or a large LPT bond.
 </Tip>
 
 ---
@@ -114,7 +114,7 @@ This tutorial gets an orchestrator earning from AI inference in under two hours.
 
   </StyledStep>
 
-  <StyledStep title="Verify the AI runner can access the GPU">
+  <StyledStep title="Verify GPU access for the AI runner">
 
     go-livepeer uses Docker-out-of-Docker to manage AI runner containers. Verify the container runtime can see the GPU:
 
@@ -122,7 +122,7 @@ This tutorial gets an orchestrator earning from AI inference in under two hours.
     docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi
     ```
 
-    Expected: the `nvidia-smi` table showing your GPU, driver version, and VRAM. If this fails, re-install the NVIDIA Container Toolkit.
+    Expected: the `nvidia-smi` table showing your GPU, driver version, and VRAM. Re-install the NVIDIA Container Toolkit until this command succeeds.
 
   </StyledStep>
 
@@ -196,7 +196,7 @@ docker run --rm \
 
 This downloads approximately 6 GB. On a 100 Mbps connection, expect 8 to 12 minutes. Watch for the download progress output.
 
-{/* REVIEW: Confirm dl_checkpoints.sh script name and invocation pattern is current in the latest ai-runner image. Rick / ai-runner team to verify. */}
+{/* FACT CHECK: Confirm the `dl_checkpoints.sh` script name and invocation pattern in the latest ai-runner image. Rick and the ai-runner team to verify. */}
 
 Verify the model files are present:
 
@@ -252,14 +252,14 @@ A non-empty directory confirms the download completed.
     ```
 
     Expected lines (may take 2 to 5 minutes while the model loads into VRAM):
-    ```
+    ```text icon="terminal" title="Expected startup lines"
     Starting AI worker
     Pulling livepeer/ai-runner container
     Pipeline text-to-image started
     Warm model loaded: ByteDance/SDXL-Lightning
     ```
 
-    If `Warm model loaded` does not appear within 10 minutes, check for errors:
+    A missing `Warm model loaded` line after 10 minutes points to a startup problem. Check for errors:
 
     ```bash icon="terminal" filename="check-errors"
     docker logs livepeer-ai-orchestrator 2>&1 | grep -i "error\|fail\|oom" | tail -20
@@ -275,9 +275,9 @@ A non-empty directory confirms the download completed.
 
 <StyledSteps>
 
-  <StyledStep title="Activate on-chain (if not already an orchestrator)">
+  <StyledStep title="Activate on-chain for a new node">
 
-    If this is a new node (not an existing video orchestrator), run `livepeer_cli` to register:
+    Existing video orchestrators can keep their current on-chain registration. New AI-only nodes should run `livepeer_cli` to register:
 
     ```bash icon="terminal" filename="activate"
     docker exec -it livepeer-ai-orchestrator livepeer_cli
@@ -285,7 +285,7 @@ A non-empty directory confirms the download completed.
 
     Select **"Invoke multi-step become an orchestrator"**. Minimal LPT self-delegation is sufficient for AI-only operation - the active set threshold applies to video transcoding routing, not AI routing.
 
-    {/* REVIEW: Confirm the exact livepeer_cli activation option name in current release. Rick to verify. */}
+    {/* FACT CHECK: Confirm the exact `livepeer_cli` activation option name in the current release. Rick to verify. */}
 
   </StyledStep>
 
@@ -305,7 +305,7 @@ A non-empty directory confirms the download completed.
 
     Search by your Ethereum address or service URI. Your node should appear under `text-to-image` with status **Warm** within 2 to 5 minutes of the AI worker reporting the model loaded.
 
-    If the node does not appear after 10 minutes, inspect container status:
+    A missing entry after 10 minutes points to a registration or container problem. Inspect container status:
 
     ```bash icon="terminal" filename="check-containers"
     docker ps --filter name=livepeer
@@ -336,7 +336,7 @@ curl -X POST http://localhost:8935/text-to-image \
   -o test-output.png
 ```
 
-{/* REVIEW: Confirm exact local test endpoint path and request body format for the orchestrator's direct AI HTTP API. Rick / j0sh to verify current endpoint. */}
+{/* FACT CHECK: Confirm the exact local test endpoint path and request body format for the orchestrator's direct AI HTTP API. Rick and j0sh to verify the current endpoint. */}
 
 Verify the response:
 
@@ -348,12 +348,12 @@ ls -lh test-output.png
 Expected: `test-output.png: PNG image data` with a non-zero file size. The PNG is the generated image.
 
 <Note>
-  The first inference after startup may be slower than subsequent ones as the CUDA kernels warm up. This is normal. From the second request onward, inference should complete in under 5 seconds for SDXL-Lightning at 512×512.
+  The first inference after startup is slower than later requests because the CUDA kernels warm up. That is normal. From the second request onward, SDXL-Lightning at 512×512 should complete in under 5 seconds.
 </Note>
 
 <CustomDivider middleText="What Just Happened" />
 
-## What just happened
+## What happened
 
 The node completed the AI inference path:
 
@@ -362,7 +362,7 @@ The node completed the AI inference path:
 3. **The test inference** travelled from the local HTTP call to the AI worker, to the AI runner container, through SDXL-Lightning's inference pipeline, and back as a PNG. In production, this same path is triggered by a gateway routing an inference request.
 4. **Earning begins** when a gateway routes a job to this node. Each completed job sends a PM ticket worth approximately `price_per_unit × pixels_in_output` wei. See <LinkArrow href="/v2/orchestrators/guides/payments-and-pricing/payment-receipts" label="Payment Receipts" newline={false} /> for how winning tickets translate to ETH.
 
-**No active set membership was required.** AI inference routing checks capability advertisement and price, not stake rank. A new node with a warm model and a competitive price can receive AI jobs on the same day it registers.
+**AI routing ignores active-set rank.** It checks capability advertisement and price instead. A new node with a warm model and a competitive price starts receiving AI jobs on the same day it registers.
 
 <CustomDivider />
 
