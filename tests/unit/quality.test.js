@@ -193,6 +193,31 @@ function checkFrontmatter(files) {
       }
     }
 
+    if (!data.purpose) {
+      report('advisory', file, 'Missing purpose field (recommended for journey and review routing)');
+    } else {
+      const purposeResult = taxonomy.normalizePurpose(data.purpose);
+      if (!purposeResult.valid) {
+        report('warning', file, `Invalid purpose: "${data.purpose}". Valid: ${taxonomy.describeCanonicalPurposes()}`);
+      } else {
+        if (purposeResult.deprecatedAlias) {
+          report('advisory', file, taxonomy.getPurposeAdvisory(data.purpose));
+        }
+
+        const pageTypeResult = taxonomy.normalizePageType(data.pageType);
+        if (
+          pageTypeResult.valid &&
+          !taxonomy.isAllowedPageTypePurpose(data.pageType, data.purpose)
+        ) {
+          report(
+            'warning',
+            file,
+            `Disallowed pageType + purpose combination: "${pageTypeResult.canonical}" + "${purposeResult.canonical}". Allowed: ${taxonomy.describeAllowedPurposesForPageType(data.pageType)}`
+          );
+        }
+      }
+    }
+
     if (!data.audience) {
       report('advisory', file, 'Missing audience field (recommended for audit framework)');
     } else {
