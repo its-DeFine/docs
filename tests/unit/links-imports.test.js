@@ -139,11 +139,17 @@ function fileExists(filePath) {
  */
 function linkToFilePath(linkPath, currentFile) {
   const rootDir = process.cwd();
-  const normalizedLinkPath = linkPath
+  let normalizedLinkPath = linkPath
     .split('#')[0]
     .split('?')[0]
     .trim()
     .replace(/^['"]+|['"]+$/g, '');
+
+  try {
+    normalizedLinkPath = decodeURI(normalizedLinkPath);
+  } catch (_error) {
+    // Leave malformed encodings untouched so the validator can report them.
+  }
   
   // Skip external links
   if (normalizedLinkPath.startsWith('http://') ||

@@ -4,6 +4,7 @@ sidebarTitle: ComfyStream
 description: >-
   Get a ComfyStream instance running and connected to the Livepeer network in a
   single session — covering Docker, RunPod, and local install paths.
+purpose: tutorial
 keywords:
   - comfystream
   - livepeer
@@ -22,9 +23,9 @@ keywords:
 'og:image:height': 630
 pageType: tutorial
 audience: developer
+lastVerified: 2026-03-17
 status: draft
 ---
-
 [//]: # (REVIEW: OQ-D1 unresolved. This draft treats ComfyStream as primarily a standalone tool (no Livepeer account required for the core tutorial\). The Livepeer connection is covered in a separate section as the next step. Confirm with Peter/Rick before publishing whether this framing is correct, or whether a specific Livepeer network onboarding flow should be mandatory.)
 
 By the end of this quickstart, you will have a ComfyStream instance running with a real-time AI effect applied to a live video feed. Once you have a working pipeline, the final section shows how to connect it to the Livepeer network.
@@ -48,7 +49,7 @@ ComfyStream requires an NVIDIA GPU. Windows and macOS are not supported for the 
 - NVIDIA GPU with sufficient VRAM [//]: # (REVIEW: Verify minimum VRAM from docs.comfystream.org hardware section. Likely 12–16 GB for StreamDiffusion; 24 GB recommended for real-time performance.)
 - A modern browser (Chrome or Firefox) for the ComfyStream UI
 
----
+<CustomDivider />
 
 ## Set Up ComfyStream
 
@@ -85,14 +86,14 @@ ComfyStream requires an NVIDIA GPU. Windows and macOS are not supported for the 
 
     <Steps>
       <Step title="Pull the Docker image">
-        ```bash
+        ```bash icon="terminal"
         docker pull livepeer/comfystream
         ```
         [//]: # (REVIEW: Verify the current tag recommendation. If there is a pinned release tag, use that rather than latest.)
       </Step>
 
       <Step title="Run the container">
-        ```bash
+        ```bash icon="terminal"
         docker run --gpus all \
           -p 8188:8188 \
           -p 8889:8889 \
@@ -119,14 +120,14 @@ ComfyStream requires an NVIDIA GPU. Windows and macOS are not supported for the 
 
     <Steps>
       <Step title="Create a Conda environment">
-        ```bash
+        ```bash icon="terminal"
         conda create -n comfystream python=3.12
         conda activate comfystream
         ```
       </Step>
 
       <Step title="Install ComfyStream">
-        ```bash
+        ```bash icon="terminal"
         pip install git+https://github.com/livepeer/comfystream.git
         ```
       </Step>
@@ -137,13 +138,13 @@ ComfyStream requires an NVIDIA GPU. Windows and macOS are not supported for the 
 
       <Step title="Download models">
         [//]: # (REVIEW: Confirm the recommended starter model and download command from the repo's scripts/README.md. The repo has a `setup_models.py` script that handles model downloads.)
-        ```bash
+        ```bash icon="terminal"
         python src/comfystream/scripts/setup_models.py --workspace /path/to/ComfyUI
         ```
       </Step>
 
       <Step title="Start the server">
-        ```bash
+        ```bash icon="terminal"
         python server/app.py --workspace /path/to/ComfyUI
         ```
 
@@ -154,11 +155,11 @@ ComfyStream requires an NVIDIA GPU. Windows and macOS are not supported for the 
   </Tab>
 </Tabs>
 
----
+<CustomDivider />
 
 ## Load a Workflow
 
-ComfyStream uses ComfyUI workflow JSON files. The repository includes several starter workflows under the `workflows/` directory.
+ComfyStream uses ComfyUI workflow JSON files. The repository includes multiple starter workflows under the `workflows/` directory.
 
 <Steps>
   <Step title="Open the workflow panel">
@@ -179,7 +180,7 @@ ComfyStream uses ComfyUI workflow JSON files. The repository includes several st
   </Step>
 </Steps>
 
----
+<CustomDivider />
 
 ## Verify the Pipeline is Running
 
@@ -196,7 +197,7 @@ If you see only the raw webcam feed without transformation, check:
 Want to see what a running pipeline looks like before setting up? The [Building Real-Time AI Video Effects with ComfyStream](https://blog.livepeer.org/building-real-time-ai-video-effects-with-comfystream/) post includes a 5-minute demo video.
 </Note>
 
----
+<CustomDivider />
 
 ## Connect to the Livepeer Network
 
@@ -213,7 +214,7 @@ For the BYOC path, the integration layer is [PyTrickle](https://github.com/livep
 
 [//]: # (REVIEW: OQ-D1 — confirm whether this two-path framing is correct with Peter/Rick. Also confirm whether the Livepeer community gateway (free endpoint\) can serve as a simple test target for new developers before going full BYOC. If so, add a step here showing that connection.)
 
----
+<CustomDivider />
 
 ## What You Can Build
 
@@ -225,7 +226,7 @@ ComfyStream supports the following pipeline types in production (Phase 4, Januar
 - **AudioTranscription + SRT** — real-time captions embedded in video output
 - **Text data-channel output** — structured text output (e.g. transcription) alongside video
 
----
+<CustomDivider />
 
 ## Next Steps
 

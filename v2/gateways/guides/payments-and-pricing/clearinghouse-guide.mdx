@@ -7,7 +7,7 @@ keywords: ["livepeer", "gateway", "clearinghouse", "remote signer", "NaaP", "pay
 og:image: /snippets/assets/site/og-image/fallback.png
 pageType: 'guide'
 audience: 'gateway-operator'
-purpose: 'concept-and-operational'
+purpose: operations
 status: 'current'
 lastVerified: '2026-03-15'
 sourceOfTruth: 'https://github.com/livepeer/go-livepeer/pull/3822'
@@ -42,7 +42,7 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/ta
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { CenteredContainer, BorderedBox } from "/snippets/components/layout/containers.jsx"
 
-<CenteredContainer style={{width: "80%", minWidth: "fit-content"}}>
+<CenteredContainer preset="readable80">
     <Tip>
         #### **Protocol status:** <br/>
         The clearinghouse protocol was implemented in [PR #3791](https://github.com/livepeer/go-livepeer/pull/3791) and [PR #3822](https://github.com/livepeer/go-livepeer/pull/3822) and is operational.
@@ -71,7 +71,7 @@ A Payment Clearinghouse is an abstraction implementation of a <LinkArrow href="/
 A clearinghouse sits between application developers and the Livepeer network. From the developer's perspective it looks like a traditional API provider.
 From the network's perspective it looks like a Gateway using remote signers.
 
-```
+``` icon="terminal"
 Application / Developer
         |  API Key  <-  traditional auth
         v
@@ -159,7 +159,7 @@ The intended developer experience is designed to abstract pain points:
   <StyledStep title="Configure the gateway or SDK">
     Point the `go-livepeer` gateway at the clearinghouse signer address:
 
-    ```bash
+    ```bash icon="terminal"
     livepeer \
       -gateway \
       -signerAddr <CLEARINGHOUSE_SIGNER_ENDPOINT>:7936 \
@@ -170,14 +170,12 @@ The intended developer experience is designed to abstract pain points:
 
     Or, if the clearinghouse provides a full gateway-as-service endpoint, configure the Livepeer SDK with the API key directly:
 
-    ```python
+    ```python icon="terminal"
     # Livepeer Python SDK example (conceptual)
     client = LivepeerClient(api_key="clearinghouse-api-key")
     result = client.live_video_to_video(stream_url="...", pipeline="...")
     ```
-
-    {/* REVIEW: Confirm exact SDK configuration pattern for clearinghouse API key. j0sh to verify the Python SDK integration path once a clearinghouse reaches GA. */}
-  </StyledStep>
+</StyledStep>
 
   <StyledStep title="Route jobs and monitor usage">
     Submit jobs through the gateway as normal. The clearinghouse handles all PM mechanics. Usage reports come from the clearinghouse, billed in its chosen currency: fiat, stablecoins, or internal credits.
@@ -237,20 +235,14 @@ For the NaaP <Badge color="surface-destructive">Design Stage Only!</Badge> (Netw
 While a fully productionised public clearinghouse matures, the following access points exist:
 
 **Community remote signer (testing):** `https://signer.eliteencoder.net/` - hosted by Elite Encoder, free ETH for testing. Uses SIWE auth and per-user JWT tokens. Not for production without understanding custody implications.
-
-{/* REVIEW: Confirm the exact URL is signer.eliteencoder.net. Verify with John at Elite Encoder. */}
-
 **Livepeer Tools:** [tools.livepeer.cloud](https://tools.livepeer.cloud) - the current community tool suite for network monitoring and Gateway observability. Not a clearinghouse, but a useful surface for understanding network state.
-
-{/* REVIEW: Confirm tools.livepeer.cloud is the correct active URL and that livepeer.tools is confirmed down (nginx default page as of March 2026). */}
-
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Operator Choice Matrix
 
 Reference to help guide Gateway Operator decisions on using a Clearinghouse.
 
-<CenteredContainer style={{width: "90%", minWidth: "fit-content"}}>
+<CenteredContainer preset="readable90" minWidth="fit-content">
     <AccordionGroup>
     <Accordion title="Operator Benefits" icon="circle-check">
         Elimination of all Ethereum complexity: no ETH to acquire, no keys to secure, no PM internals to understand, no balance monitoring. Onboarding reduces to an API key sign-up. ETH price volatility becomes the clearinghouse's concern.

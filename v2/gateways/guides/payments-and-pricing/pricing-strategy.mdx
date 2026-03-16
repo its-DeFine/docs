@@ -6,7 +6,7 @@ keywords: ["livepeer", "gateway", "pricing", "maxPricePerUnit", "maxPricePerCapa
 og:image: /snippets/assets/site/og-image/fallback.png
 pageType: 'guide'
 audience: 'gateway-operator'
-purpose: 'configuration'
+purpose: operations
 status: 'current'
 lastVerified: '2026-03-15'
 ---
@@ -45,7 +45,6 @@ import { BorderedBox } from "/snippets/components/layout/containers.jsx"
 Gateways set **price caps** that control the maximum amount paid to Orchestrators per job.
 These caps apply regardless of operational mode - both on-chain and off-chain gateways configure the same pricing flags.
 The Operational mode determines context: on-chain gateways filter Orchestrators from an open marketplace, while off-chain gateways set safety ceilings for known Orchestrators specified via `-orchAddr`.
-
 
 ## Pricing Mechanics
 
@@ -111,7 +110,7 @@ Any Orchestrator above the cap is skipped for that job. If no Orchestrator is wi
 
         Most operators leave `pixelsPerUnit` at the default of `1` and adjust only `-maxPricePerUnit`.
 
-        ```bash
+        ```bash icon="terminal"
         livepeer \
         -gateway \
         -maxPricePerUnit 1000 \
@@ -121,17 +120,14 @@ Any Orchestrator above the cap is skipped for that job. If no Orchestrator is wi
 
         #### USD pricing
 
-        To configure caps in USD rather than wei, pass a USD value:
+ To configure caps in USD instead of wei, pass a USD value:
 
-        ```bash
+        ```bash icon="terminal"
         -maxPricePerUnit 0.02USD
         ```
 
         This requires a **Chainlink ETH/USD price feed** configured via `-priceFeedAddr`. The gateway converts the USD cap to wei at runtime using the oracle price.
-
-        {/* REVIEW: Confirm that -priceFeedAddr is required when using USD notation in -maxPricePerUnit. Rick to verify and provide the Chainlink contract address for Arbitrum One. */}
-
-        <Warning>
+<Warning>
         A gateway configured with a fixed wei cap pays more or less in USD terms as ETH price moves. USD-denominated pricing with a Chainlink feed stabilises the effective cost but requires the oracle to be reachable and accurate.
         </Warning>
 
@@ -176,7 +172,7 @@ Any Orchestrator above the cap is skipped for that job. If no Orchestrator is wi
 
         **Example `maxPrices.json`:**
 
-        ```json
+        ```json icon="terminal"
         {
         "capabilities_prices": [
             {
@@ -215,7 +211,7 @@ Any Orchestrator above the cap is skipped for that job. If no Orchestrator is wi
 
         Pass it at startup:
 
-        ```bash
+        ```bash icon="terminal"
         -maxPricePerCapability /etc/livepeer/maxPrices.json
         ```
 
@@ -227,14 +223,14 @@ Any Orchestrator above the cap is skipped for that job. If no Orchestrator is wi
 
         - **Image and video pipelines** (text-to-image, image-to-image, image-to-video): price is per pixel (`width x height x outputs`).
         - **Audio pipelines** (audio-to-text): price is per millisecond of audio.
-        - **LLM pipelines**: price is per token where supported. {/* REVIEW: Confirm LLM per-token pricing is implemented in go-livepeer. j0sh to verify. */}
-        - **Live video (live-video-to-video)**: interval-based; see below.
+        - **LLM pipelines**: price is per token where supported.
+- **Live video (live-video-to-video)**: interval-based; see below.
 
         ### Live AI intervals
 
-        For the `live-video-to-video` pipeline, the gateway sends periodic payments rather than per-frame or per-request. The interval is configured with:
+ For the `live-video-to-video` pipeline, the gateway sends periodic payments instead of per-frame or per-request. The interval is configured with:
 
-        ```bash
+        ```bash icon="terminal"
         -livePaymentInterval 5s
         ```
 
@@ -293,9 +289,6 @@ All pricing flags at a glance:
     <TableCell>Chainlink oracle address for ETH/USD conversion</TableCell>
   </TableRow>
 </StyledTable>
-
-{/* REVIEW: Confirm -maxPricePerUnit acts as an AI fallback when -maxPricePerCapability is not set. j0sh to verify. */}
-
 <CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
 ## Pricing Cap Guidance
@@ -305,10 +298,7 @@ All pricing flags at a glance:
     **Discover current rates:**
 
     Query [Livepeer Explorer](https://explorer.livepeer.org) for the cheapest Orchestrators currently active on the required pipeline. Alternatively, use `livepeer_cli` to view connected Orchestrator pricing.
-
-    {/* REVIEW: Confirm whether livepeer_cli has a specific option for querying orchestrator pricing, and which option number it is. Rick / j0sh to verify. */}
-
-    **Set the cap with headroom:**
+**Set the cap with headroom:**
 
     1. Find the cheapest active Orchestrators on the required pipeline.
     2. Set the cap 20 to 30 percent above their current rate. This provides headroom during gas spikes without overpaying.
@@ -324,7 +314,7 @@ All pricing flags at a glance:
 
     1. Confirm the pricing terms with the known Orchestrators.
     2. Set the cap at or slightly above the agreed rate.
-    3. The cap prevents cost spikes if an Orchestrator raises prices unexpectedly. Jobs fail rather than overpaying.
+ 3. The cap prevents cost spikes if an Orchestrator raises prices unexpectedly. Jobs fail instead of overpaying.
 
     **Using the community signer:**
 
@@ -342,7 +332,7 @@ Pricing can be set at startup, in a config file, or updated at runtime without r
   <Tab title="CLI flags" icon="terminal">
     Pass flags directly in the startup command:
 
-    ```bash
+    ```bash icon="terminal"
     livepeer \
       -gateway \
       -maxPricePerUnit 5000000 \
@@ -356,14 +346,14 @@ Pricing can be set at startup, in a config file, or updated at runtime without r
   <Tab title="Config file" icon="file">
     Create a config file in key-value format and pass it with `-config`:
 
-    ```
+    ``` icon="terminal"
     maxPricePerUnit 5000000
     pixelsPerUnit 1
     maxPricePerCapability /etc/livepeer/maxPrices.json
     livePaymentInterval 5s
     ```
 
-    ```bash
+    ```bash icon="terminal"
     livepeer -gateway -config /etc/livepeer/gateway.conf
     ```
   </Tab>
@@ -371,7 +361,7 @@ Pricing can be set at startup, in a config file, or updated at runtime without r
   <Tab title="HTTP API" icon="globe">
     Adjust pricing without restarting the gateway via the internal HTTP API:
 
-    ```bash
+    ```bash icon="terminal"
     # Set video pricing
     curl -X POST http://127.0.0.1:5935/setBroadcastConfig \
       -d "maxPricePerUnit=5000000&pixelsPerUnit=1"
@@ -380,15 +370,11 @@ Pricing can be set at startup, in a config file, or updated at runtime without r
     curl -X POST http://127.0.0.1:5935/setMaxPriceForCapability \
       -d '{"pipeline":"text-to-image","model_id":"default","price_per_unit":4768371,"pixels_per_unit":1}'
     ```
-
-    {/* REVIEW: Confirm exact HTTP endpoint paths and request body format for /setBroadcastConfig and /setMaxPriceForCapability. Rick / j0sh to verify current endpoint behaviour. */}
-  </Tab>
+</Tab>
 
   <Tab title="livepeer_cli" icon="rectangle-terminal">
     Use the interactive CLI tool and select **Option 16: Set broadcast config** to update video pricing interactively.
-
-    {/* REVIEW: Confirm Option 16 is the correct option number for set broadcast config in the current livepeer_cli. Rick to verify. */}
-  </Tab>
+</Tab>
 </Tabs>
 
 <CustomDivider style={{margin: "0 0 -2rem 0"}} />

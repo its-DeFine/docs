@@ -17,9 +17,9 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
-pageType: how-to
+pageType: guide
 audience: gateway-operator
-purpose: operational
+purpose: operations
 status: current
 lastVerified: '2026-03-15'
 ---
@@ -115,11 +115,11 @@ Prometheus-format output with `livepeer_` prefixed metric names confirms the end
     <Tabs>
         <Tab title="Prometheus" icon="chart-simple">
             ### Configuration
-            <LinkArrow label="Prometheus Metrics Reference" href="../../resources/go-livepeer/prometheus-metrics.mdx" newline={false} />
+            <LinkArrow label="Prometheus Metrics Reference" href="/v2/gateways/resources/technical/go-livepeer/prometheus-metrics" newline={false} />
 
             Create or update `prometheus.yml` to scrape the Gateway:
 
-            ```yaml
+            ```yaml icon="terminal"
             global:
             scrape_interval: 15s
             evaluation_interval: 15s
@@ -147,9 +147,9 @@ Prometheus-format output with `livepeer_` prefixed metric names confirms the end
 
             The `livepeer/livepeer-monitoring` repository bundles Prometheus, Grafana, and starter dashboard templates in a single Docker deployment.
 
-            {/* REVIEW: Rick - confirm livepeer/livepeer-monitoring repo is current and maintained */}
+            [//]: # (REVIEW: Confirm that the livepeer-monitoring repository is current and maintained.)
 
-            ```bash
+            ```bash icon="terminal"
             # Clone the monitoring repository
             git clone https://github.com/livepeer/livepeer-monitoring
             cd livepeer-monitoring
@@ -212,7 +212,7 @@ Prometheus-format output with `livepeer_` prefixed metric names confirms the end
             </TableRow>
             </StyledTable>
 
-            {/* REVIEW: Confirm livepeer_success_rate exists as a direct gauge, or whether it must be calculated from livepeer_segment_transcoded_total / livepeer_segment_source_appeared_total. j0sh to verify. */}
+            [//]: # (REVIEW: Confirm whether livepeer_success_rate exists directly or must be derived from segment counters.)
 
             ### Payments
 
@@ -255,7 +255,7 @@ Prometheus-format output with `livepeer_` prefixed metric names confirms the end
 
             ### Useful Queries
 
-            ```promql
+            ```promql icon="terminal"
             # Success rate over last 5 minutes
             rate(livepeer_segment_transcoded_total[5m]) /
             rate(livepeer_segment_source_appeared_total[5m])
@@ -306,12 +306,12 @@ Prometheus-format output with `livepeer_` prefixed metric names confirms the end
             <Note>
             AI-specific inference latency (per-pipeline, per-model) is not currently exposed via `/metrics`. For AI inference latency monitoring, use <LinkArrow href="/v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards" label="Livepeer Tools" newline={false} /> or instrument the application layer.
 
-            {/* REVIEW: j0sh / Peter - confirm whether inference latency will be added to Prometheus metrics in upcoming releases */}
+            [//]: # (REVIEW: Confirm whether Prometheus will expose inference latency in an upcoming release.)
             </Note>
 
             ### Useful Queries
 
-            ```promql
+            ```promql icon="terminal"
             # Sessions approaching capacity
             livepeer_current_sessions_total / livepeer_max_sessions_total
 
@@ -327,7 +327,7 @@ Prometheus-format output with `livepeer_` prefixed metric names confirms the end
 
             **GPU monitoring via HTTP API:**
 
-            ```bash
+            ```bash icon="terminal"
             # Poll hardware stats every 30 seconds
             watch -n 30 'curl -s http://localhost:8935/hardware/stats | python3 -m json.tool'
             ```
@@ -374,7 +374,7 @@ Access Grafana at `http://localhost:3000` (default credentials `admin / admin`).
 - Session count vs `-maxSessions` limit as a percentage gauge
 - AI discovery error rate overlaid with session count (correlation check)
 
-{/* REVIEW: Rick - confirm whether the livepeer-monitoring repo dashboards cover AI metrics or are video-only. If video-only, note that AI dashboards must be created manually. */}
+[//]: # (REVIEW: Confirm whether the livepeer-monitoring dashboards cover AI metrics or remain video-only.)
 
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 

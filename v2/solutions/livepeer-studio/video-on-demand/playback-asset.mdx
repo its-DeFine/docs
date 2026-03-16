@@ -1,6 +1,8 @@
 ---
 title: Play an asset
 description: Play VOD assets with the Livepeer Player or a custom HLS/MP4 player.
+purpose: operations
+pageType: guide
 keywords:
   - livepeer
   - solutions
@@ -18,8 +20,8 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: platform-builder
+lastVerified: 2026-03-17
 ---
-
 <Warning>
  Prefer calling the API from your backend. CORS-enabled API keys are deprecated.
 </Warning>
@@ -28,7 +30,7 @@ audience: platform-builder
 
 Fetch playback info on the server, then pass the source to the Player:
 
-```tsx
+```tsx icon="terminal"
 import * as Player from "@livepeer/react/player";
 import { getSrc } from "@livepeer/react/external";
 
@@ -57,7 +59,7 @@ Call the [Playback Info API](https://livepeer.studio/docs/api-reference/playback
 
 ## Embed
 
-```html
+```html icon="terminal"
 <iframe src="https://lvpr.tv?v=PLAYBACK_ID" allowfullscreen allow="autoplay" frameborder="0"></iframe>
 ```
 

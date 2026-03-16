@@ -6,7 +6,7 @@ keywords: ['livepeer', 'gateway', 'publishing', 'discoverability', 'serviceAddr'
 og:image: '/snippets/assets/site/og-image/fallback.png'
 pageType: 'guide'
 audience: 'gateway-operator'
-purpose: 'guides'
+purpose: operations
 status: 'current'
 lastVerified: '2026-03-15'
 ---
@@ -64,12 +64,11 @@ This guide covers how to make a Gateway reachable and findable, so that other de
         -gatewayHost gateway.example.com
         ```
         <CustomDivider style={{margin: "-2.5rem auto -2rem auto", width: "50%"}} />
-        {/* REVIEW: Confirm the interaction between `-serviceAddr` and `-gatewayHost` in current go-livepeer - when does each take effect and which one determines what is advertised - Rick to verify */}
-    </StyledStep>
+</StyledStep>
     <StyledStep icon="signature">
         ### DNS setup
 
-        Point a dedicated subdomain at the Gateway server's public IP. A dedicated subdomain (rather than an IP address) allows changing servers without updating customer integrations.
+ Point a dedicated subdomain at the Gateway server's public IP. A dedicated subdomain (instead of an IP address) allows changing servers without updating customer integrations.
 
         ```txt icon="wrench" DNS Setup
         ai-gateway.yourdomain.com.   A   <server-ip>
@@ -107,12 +106,12 @@ Developers choosing a Gateway need to know what it supports. There is no standar
     ```
   </Accordion>
   <Accordion title="Pricing" icon="tag">
-    Publish customer-facing pricing clearly. The Gateway has two pricing layers:
+ Publish customer-facing pricing. The Gateway has two pricing layers:
 
     - What it pays Orchestrators (`-maxPricePerCapability`, `-maxPricePerUnit`) - the cost floor
     - What it charges customers - the business decision
 
-    These do not need to match. Most public Gateways add a margin and present pricing in human-readable units (per image, per minute of video) rather than in wei per pixel.
+ These do not need to match. Most public Gateways add a margin and present pricing in human-readable units (per image, per minute of video) instead of in wei per pixel.
   </Accordion>
   <Accordion title="Authentication" icon="key">
     Describe how developers authenticate: API key, OAuth, or open access. If registration is required, link to the signup page.
@@ -142,9 +141,7 @@ These are the mechanisms developers use today to find public Gateways.
     </Tab>
     <Tab title="Livepeer Tools" icon="gauge-high">
         [tools.livepeer.cloud](https://tools.livepeer.cloud) is a community-maintained dashboard that tracks active network participants. Contact the maintainers to have the Gateway listed.
-
-        {/* REVIEW: Confirm whether tools.livepeer.cloud lists gateways (not just orchestrators) and how to request a listing - community verification needed */}
-    </Tab>
+</Tab>
     <Tab title="Providers directory" icon="list">
         The Foundation maintains a list of known public Gateways in the Gateway Providers page. Contact the Foundation to have the Gateway added.
 
@@ -168,14 +165,11 @@ The Livepeer Marketplace is a programmatic interface for Orchestrators to advert
 
 As a Gateway operator, the relationship to the marketplace is as a **broker**: the Gateway queries it to find Orchestrators, not to list itself for applications to find. The marketplace is upstream of the Gateway, not downstream.
 
-```
+``` icon="terminal"
 Applications -> [Gateway] -> Marketplace -> Orchestrators
 ```
 
 There is currently no Gateway layer in the marketplace. On-chain Gateway registration (equivalent to how Orchestrators register via ServiceRegistry) is on the roadmap but not yet available.
-
-{/* REVIEW: Confirm current roadmap status of on-chain gateway registry - Foundation to verify */}
-
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Video Gateways
@@ -222,12 +216,10 @@ RTMP ingest (port 1935) is separate from the service address and is what video s
 
             ### When to use it
 
-            Use `-aiServiceRegistry` when the Gateway should discover AI Orchestrators from the open network rather than relying on a manually curated `-orchAddr` list. This is the on-chain equivalent of off-chain manual discovery.
+ Use `-aiServiceRegistry` when the Gateway should discover AI Orchestrators from the open network instead of relying on a manually curated `-orchAddr` list. This is the on-chain equivalent of off-chain manual discovery.
 
             Without this flag, the Gateway operates off-chain and requires explicit Orchestrator addresses via `-orchAddr`.
-
-            {/* REVIEW: Rick / Mehrdad - the AIServiceRegistry contract is noted as "detached from controller" in the contract addresses page. Confirm whether this is intentional architecture or a migration gap. */}
-        </Tab>
+</Tab>
 
         <Tab title="Video Registry" icon="video">
             <Badge color="yellow">Planned</Badge> &nbsp; <Badge color="blue">Video</Badge>
@@ -235,9 +227,7 @@ RTMP ingest (port 1935) is separate from the service address and is what video s
             There is no equivalent of the Orchestrator `ServiceRegistry` for transcoding Gateways. Orchestrators register on-chain via `ServiceRegistry` and appear in the Livepeer Explorer automatically, but transcoding Gateways cannot register in the same way.
 
             On-chain Gateway registration for the transcoding network is on the roadmap but not yet available. Until it ships, Video and Dual Gateways rely on the community channels and manual listing methods described in the Discovery Methods section above.
-
-            {/* REVIEW: Confirm current roadmap status of on-chain transcoding gateway registry - Foundation to verify */}
-        </Tab>
+</Tab>
     </Tabs>
 </BorderedBox>
 

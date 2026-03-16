@@ -5,6 +5,7 @@ description: >-
   Reference tables for all AI pipeline types supported on the Livepeer network,
   with supported model architectures, minimum GPU VRAM requirements, and current
   status.
+purpose: reference
 keywords:
   - livepeer
   - AI
@@ -25,16 +26,16 @@ keywords:
 'og:image:height': 630
 pageType: reference
 audience: developer
+lastVerified: 2026-03-17
 status: draft
 ---
-
 This page lists all AI pipeline types supported on the Livepeer network, the model architectures they accept, and the minimum GPU VRAM required to run them. Use it to confirm that your model type is supported before building.
 
-The [Cascade / live-video-to-video](#real-time-ai) pipeline and [BYOC](#byoc) support any ComfyUI-compatible model or custom Python model respectively — model support for those paths is effectively unlimited by the network, and bounded only by the GPU capacity of the orchestrator running your workload.
+The [Cascade / live-video-to-video](#real-time-ai) pipeline and [BYOC](#byoc) support any ComfyUI-compatible model or custom Python model respectively — model support for those paths is not constrained by the network, and bounded only by the GPU capacity of the orchestrator running your workload.
 
 Status reflects the state of the network as published. For the latest pipeline additions and deprecations, see the [ai-runner releases](https://github.com/livepeer/ai-runner/releases).
 
----
+<CustomDivider />
 
 ## Batch AI Pipelines
 
@@ -53,7 +54,7 @@ These pipelines accept a request, process it, and return a result. They use the 
 | **LLM** | `POST /llm` | Any Ollama-compatible model (Llama, Mistral, Gemma, Qwen, …) | `meta-llama/Meta-Llama-3.1-8B-Instruct` | 8 GB | <Badge>Beta</Badge> |
 
 <Note>
-**On warm models:** During the Beta phase, orchestrators are asked to keep one model per pipeline in GPU memory at all times. A warm model processes your request immediately. Cold models incur a load time of 30 seconds to several minutes depending on model size and GPU. See [Model warm-up and cold start](#model-warm-up-and-cold-start) for details.
+**On warm models:** During the Beta phase, orchestrators are asked to keep one model per pipeline in GPU memory at all times. A warm model processes your request immediately. Cold models incur a load time of 30 seconds to multiple minutes depending on model size and GPU. See [Model warm-up and cold start](#model-warm-up-and-cold-start) for details.
 </Note>
 
 ### Notes per pipeline
@@ -72,11 +73,11 @@ These pipelines accept a request, process it, and return a result. They use the 
 
 **LLM** — Ollama-based. Exposes an OpenAI-compatible chat completions API. Designed for GPUs as small as 8 GB — the entry point for orchestrators with legacy transcoding hardware. The Cloud SPE runner image (`tztcloud/livepeer-ollama-runner`) is the current reference implementation. Request body follows OpenAI `/v1/chat/completions` format.
 
----
+<CustomDivider />
 
 ## Real-Time AI Pipelines
 
-These pipelines process live video streams frame-by-frame. They use the trickle streaming protocol rather than the REST AI Jobs API.
+These pipelines process live video streams frame-by-frame. They use the trickle streaming protocol instead of the REST AI Jobs API.
 
 | Pipeline | Transport | Supported models | Min VRAM | Status |
 |----------|-----------|-----------------|----------|--------|
@@ -86,7 +87,7 @@ The live-video-to-video pipeline is served by [ComfyStream](/v2/developers/build
 
 For a full list of supported ComfyStream nodes, pipeline modes, and performance tuning, see [Build with ComfyStream](/v2/developers/build/comfystream).
 
----
+<CustomDivider />
 
 ## BYOC
 
@@ -100,13 +101,13 @@ With BYOC, model support is bounded by your container, not by the network. You i
 
 See [Bring Your Own Container](/v2/developers/build/byoc) for the full implementation guide.
 
----
+<CustomDivider />
 
 ## Model Warm-Up and Cold Start
 
 **Warm model** — A model already loaded into GPU VRAM. Requests are processed immediately (no load delay).
 
-**Cold model** — A model not currently in VRAM. The orchestrator must download and load it before processing. Load times range from 30 seconds (small models on fast storage) to several minutes (large diffusion models on slower disks).
+**Cold model** — A model not currently in VRAM. The orchestrator must download and load it before processing. Load times range from 30 seconds (small models on fast storage) to multiple minutes (large diffusion models on slower disks).
 
 **How to minimise cold-start latency:**
 
@@ -114,17 +115,17 @@ See [Bring Your Own Container](/v2/developers/build/byoc) for the full implement
 - Request a specific model via `model_id` and coordinate with your orchestrator to keep it warm
 - For production workloads requiring consistent latency, run your own gateway and orchestrator with your target model pre-loaded
 
-**Warm model signalling:** Orchestrators advertise their warm models to the gateway. When you request a specific `model_id`, the gateway routes your job to an orchestrator that has that model warm — if one exists. If none does, the request is held until a cold-start load completes or times out.
+**Warm model signalling:** Orchestrators advertise their warm models to the gateway. When you request a specific `model_id`, the gateway routes your job to an orchestrator that has that model warm. If none does, the request is held until a cold-start load completes or times out.
 
 [//]: # (REVIEW: Confirm the timeout behaviour — does the gateway return an error immediately if no warm orchestrator exists, or does it wait? Verify from go-livepeer gateway source or Rick.)
 
----
+<CustomDivider />
 
 ## Requesting a Specific Model
 
 All batch AI pipelines accept a `model_id` parameter in the request body. This value is the Hugging Face model repository path.
 
-```bash
+```bash icon="terminal"
 curl -X POST "https://<GATEWAY_URL>/text-to-image" \
   -H "Content-Type: application/json" \
   -d '{
@@ -139,7 +140,7 @@ If `model_id` is omitted, the gateway uses whatever warm model the selected orch
 
 For the LLM pipeline, the `model_id` uses the Hugging Face model path (e.g. `meta-llama/Meta-Llama-3.1-8B-Instruct`). The Ollama runner internally maps this to the corresponding Ollama model name (e.g. `llama3.1:8b`) — this mapping is handled by the runner, not the developer.
 
----
+<CustomDivider />
 
 ## Related
 

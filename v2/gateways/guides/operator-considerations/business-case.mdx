@@ -20,7 +20,7 @@ keywords:
 'og:image:height': 630
 pageType: guide
 audience: gateway-operator
-purpose: guides
+purpose: operations
 status: current
 lastVerified: '2026-03-14'
 ---
@@ -43,30 +43,30 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/ta
 import { BorderedBox, CenteredContainer } from '/snippets/components/layout/containers.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
-<CenteredContainer style={{ width: "80%", minWidth: "fit-content"}}>
+<CenteredContainer preset="readable80">
     <Tip> Gateways are Application Layers built on the Livepeer Protocol. They provide access to services for downstream developers and users. </Tip>
 </CenteredContainer>
 A Livepeer gateway is the access point between your application and the Livepeer compute network. It receives jobs, selects an orchestrator (a GPU operator), handles payment, and returns results. The gateway holds no GPU - all compute happens on orchestrators.
 
 Running your own gateway is not a technical requirement for using Livepeer. You can point at a hosted gateway and start building in minutes. The question is whether the control, cost savings, and capabilities of owning that layer are worth it for your situation.
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider spacing="overlap" />
 
 ## Hosted vs Self-Hosted
 
 <BorderedBox>
     <Tabs>
         <Tab title="Use a hosted gateway" icon="clapperboard-play">
-            <CenteredContainer style={{width: "70%", minWidth: "fit-content"}}>
+            <CenteredContainer preset="readable70">
                 <Tip>
                     **Best for**: developers looking to integrate services.
-                    <CenteredContainer style={{width: "90%", minWidth: "fit-content", marginRight: "2rem"}}>
-                        <Card horizontal arrow title="Gateway Providers" icon="merge" href="../../../developers/navigator" />
+                    <CenteredContainer preset="readable90" minWidth="fit-content" marginRight="2rem">
+                        <Card horizontal arrow title="Gateway Providers" icon="merge" href="/v2/gateways/guides/operator-considerations/production-gateways" />
                     </CenteredContainer>
                 </Tip>
             </CenteredContainer>
 
-            A hosted gateway like [Daydream API]("../../../solutions/daydream/), [Livepeer Studio]("../../../../../developers/") or [Livepeer Cloud]("") handles all infrastructure for you and provdide an application layer for service integrations.
+            A hosted gateway like [Daydream API](/v2/solutions/daydream/overview), [Livepeer Studio](/v2/solutions/livepeer-studio/overview), or [Livepeer Cloud](https://livepeer.cloud) handles all infrastructure for you and provides an application layer for service integrations.
             You send requests; they handle routing, payment, and uptime.
 
             **Best when:**
@@ -82,14 +82,14 @@ Running your own gateway is not a technical requirement for using Livepeer. You 
             - You have no visibility into orchestrator selection or failure patterns
         </Tab>
         <Tab title="Run your own gateway" icon="torii-gate">
-            <CenteredContainer style={{width: "70%", minWidth: "fit-content"}}>
+            <CenteredContainer preset="readable70">
                 <Tip>**Best for**: application developers or businesses providing their own services.</Tip>
             </CenteredContainer>
 
             Running your own gateway gives you direct access to the Livepeer compute network. You set your own policies, connect directly to orchestrators, and capture the margin between what you charge customers and what you pay for compute.
 
             **Best when:**
-            - You are processing significant volume and want to reduce per-request costs
+            - You are processing high volume and want to reduce per-request costs
             - You need custom routing, SLA policies, or geographic preferences
             - You want to build a product or service layer on top of Livepeer
             - You are embedding AI or video capabilities directly in your infrastructure
@@ -102,7 +102,7 @@ Running your own gateway is not a technical requirement for using Livepeer. You 
     </Tabs>
 </BorderedBox>
 
-<CustomDivider style={{margin: "0 0 -1rem 0"}} />
+<CustomDivider spacing="tight" />
 
 ## Business Model
 
@@ -120,7 +120,7 @@ flowchart LR
 For AI gateways running in off-chain operational mode, your gateway node itself holds no ETH. A remote signer handles all on-chain payment operations. Your gateway operator costs are whatever you pay the signer - which can be zero if using a community-hosted signer.
 </Note>
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider spacing="overlap" />
 
 ## Actor Earnings
 
@@ -156,7 +156,7 @@ For AI gateways running in off-chain operational mode, your gateway node itself 
   </tbody>
 </StyledTable>
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider spacing="overlap" />
 
 ## Operator Models
 
@@ -209,11 +209,11 @@ For AI gateways running in off-chain operational mode, your gateway node itself 
 
     **Status:** NaaP is in active development. The demo is operational; production API is not yet stable.
 
-    {/* REVIEW: Confirm NaaP dashboard public URL and production timeline with Qiang Han. */}
+    [//]: # (REVIEW: Confirm the NaaP dashboard URL and production timeline.)
   </Tab>
 </Tabs>
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider spacing="overlap" />
 
 ## Mode Economics
 
@@ -256,9 +256,9 @@ The economic model differs between the two operational modes.
   </tbody>
 </StyledTable>
 
-{/* REVIEW: Confirm current ETH deposit/reserve amounts with Mehrdad/Rick. ~0.065 + 0.03 from fund-gateway.mdx. Issue open to reduce reserve: github.com/livepeer/go-livepeer/issues/3744 */}
+[//]: # (REVIEW: Confirm the current ETH deposit and reserve amounts for on-chain gateways.)
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider spacing="overlap" />
 
 ## Profit Margins
 
@@ -303,7 +303,7 @@ Your pricing to customers is entirely at the application layer - the Livepeer pr
 
 Your revenue is the difference between what customers pay you and what you pay orchestrators. Pricing discovery - understanding what orchestrators charge on the current network - is available through `livepeer_cli` and the [Livepeer Explorer](https://explorer.livepeer.org).
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider spacing="overlap" />
 
 ## Core Reasons
 
@@ -315,12 +315,12 @@ Your revenue is the difference between what customers pay you and what you pay o
 
     For video transcoding, community estimates suggest Livepeer can be 10-50x cheaper than cloud providers like Mux or AWS MediaLive at comparable volumes. The exact saving depends on your transcoding profiles and orchestrator selection.
 
-    {/* REVIEW: Verified cost comparison figures needed. Check Livepeer blog/Mirror for published benchmarks. Source: community claim, not independently verified against current network rates. */}
+    [//]: # (REVIEW: Replace this cost comparison with a published benchmark or remove it.)
   </Accordion>
   <Accordion title="Free to start with off-chain operational mode">
     AI gateways in off-chain operational mode require no ETH deposit and no Arbitrum wallet. You point at a community-hosted remote signer (which handles the payment layer for you), connect to orchestrators, and start routing inference requests immediately with no upfront crypto cost.
 
-    This is a meaningful contrast to on-chain operational mode, which requires bridging ETH to Arbitrum before you can process a single job.
+    This is a clear contrast to on-chain operational mode, which requires bridging ETH to Arbitrum before you can process a single job.
   </Accordion>
 </AccordionGroup>
 
@@ -330,7 +330,7 @@ Your revenue is the difference between what customers pay you and what you pay o
   <Accordion title="Own your routing and SLA policy">
     A hosted gateway selects orchestrators on your behalf, using its own policy. You have no visibility into that selection and no ability to change it.
 
-    Running your own gateway means you control which orchestrators receive your jobs, at what price caps, with what retry behaviour, and with what failover logic. For production workloads where quality and latency matter, this is significant.
+    Running your own gateway means you control which orchestrators receive your jobs, at what price caps, with what retry behaviour, and with what failover logic. For production workloads where quality and latency matter, this control is material.
   </Accordion>
   <Accordion title="Geographic request steering">
     You can configure your gateway to prefer orchestrators in specific regions. This reduces latency for your users and can improve transcoding or inference quality by keeping traffic local.
@@ -354,13 +354,13 @@ Your revenue is the difference between what customers pay you and what you pay o
     The NaaP (Network as a Platform) project is developing a reference implementation for exactly this.
   </Accordion>
   <Accordion title="Embed gateway functionality in your product">
-    Some operators embed gateway logic directly in their application rather than running it as a separate service. This is the use case for the remote signer architecture: your application can route Livepeer jobs natively, delegating the payment complexity to a sidecar remote signer process.
+    Some operators embed gateway logic directly in their application instead of running it as a separate service. This is the use case for the remote signer architecture: your application can route Livepeer jobs natively, delegating the payment complexity to a sidecar remote signer process.
 
     The Python gateway SDK (`livepeer-python-gateway`) is the primary reference for this pattern.
   </Accordion>
 </AccordionGroup>
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider spacing="overlap" />
 
 ## Gateway Primitives
 
@@ -381,7 +381,7 @@ Beyond routing your own workloads, the go-livepeer gateway is a platform primiti
   </Accordion>
 </AccordionGroup>
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider spacing="overlap" />
 
 ## Decision Tree
 
@@ -422,18 +422,18 @@ Beyond routing your own workloads, the go-livepeer gateway is a platform primiti
 
 If most of your answers align with self-hosting, continue to requirements and setup.
 
-<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+<CustomDivider spacing="overlap" />
 
 ## Related Pages
 
 <CardGroup cols={3}>
-  <Card title="Gateways in Practice" icon="building" href="/v2/gateways/guides/operator-considerations/gateway-showcase">
-    Real products and community projects built on Livepeer gateways.
+  <Card title="Gateways in Practice" icon="building" href="/v2/gateways/guides/roadmap-and-funding/gateway-showcase">
+    Production products and community projects built on Livepeer gateways.
   </Card>
-  <Card title="Requirements" icon="clipboard-check" href="/v2/gateways/guides/operator-considerations/operator-requirements">
+  <Card title="Requirements" icon="clipboard-check" href="/v2/gateways/guides/deployment-details/setup-requirements">
     Hardware, OS, network, and operational mode requirements.
   </Card>
-  <Card title="Deployment Options" icon="arrow-right" href="/v2/gateways/guides/setup-options/deployment-options">
+  <Card title="Deployment Options" icon="arrow-right" href="/v2/gateways/guides/deployment-details/setup-options">
     Choose your setup type and node type.
   </Card>
 </CardGroup>

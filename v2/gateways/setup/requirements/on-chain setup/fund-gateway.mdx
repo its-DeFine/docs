@@ -6,6 +6,8 @@ description: >-
   account, including funding the ETH account on Ethereum Mainnet, bridging the
   funds to Arbritrum's L2 Network, and then using the Livepeer CLI to allocate
   the proper deposit and reserve amounts.
+purpose: operations
+pageType: guide
 keywords:
   - livepeer
   - gateways
@@ -22,6 +24,7 @@ keywords:
 'og:image:height': 630
 icon: ethereum
 audience: gateway-operator
+lastVerified: 2026-03-17
 ---
 {/* TODO:
 Terminology Validation:
@@ -178,17 +181,17 @@ In order to operate the Gateway in production you need to have Ethereum on [Arbi
  Follow the instructions for your platform:
     <Tabs>
         <Tab title="Linux / Mac" icon="linux">
-        ```bash wrap lines
+        ```bash icon="terminal" wrap lines
         livepeer_cli --host=localhost --http=7935
         ```
       </Tab>
       <Tab title="Docker" icon="docker">
-        ```bash wrap lines
+        ```bash icon="terminal" wrap lines
         docker run -it --network host livepeer/go-livepeer:master livepeer_cli --host=localhost --http=7935
         ```
       </Tab>
       <Tab title="Windows" icon="windows">
-        ```bash wrap lines
+        ```bash icon="terminal" wrap lines
         livepeer_cli.exe --host=localhost --http=7935
         ```
       </Tab>

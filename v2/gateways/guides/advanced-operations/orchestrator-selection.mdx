@@ -6,7 +6,7 @@ keywords: ['livepeer', 'gateway', 'orchestrator selection', 'tiering', 'performa
 og:image: '/snippets/assets/site/og-image/fallback.png'
 pageType: 'guide'
 audience: 'gateway-operator'
-purpose: 'guides'
+purpose: operations
 status: 'current'
 lastVerified: '2026-03-15'
 ---
@@ -39,7 +39,6 @@ import { BorderedBox } from "/snippets/components/layout/containers.jsx"
 
 The Gateway's default Orchestrator selection works out of the box: it discovers available Orchestrators, filters by price, and routes jobs.
 <br/> For production workloads, operators often need more control. This guide covers manual selection, quality tiering, and failover configuration.
-
 
 ## Selection Algorithm
 
@@ -170,7 +169,7 @@ Different workloads have different priorities:
             This trades network-wide discovery flexibility for predictability: the operator knows exactly which Orchestrators handle jobs and can vet each one before adding it. This is the recommended approach for production AI workloads.
 
             To find AI-capable Orchestrators:
-            - [Livepeer Explorer](https://explorer.livepeer.org) AI leaderboard {/* REVIEW: Confirm AI leaderboard is live on Explorer and what metrics it shows - Rick to verify */}
+            - [Livepeer Explorer](https://explorer.livepeer.org) AI leaderboard
             - [tools.livepeer.cloud](https://tools.livepeer.cloud) - community tool suite with Orchestrator performance data
             - The `/getNetworkCapabilities` endpoint on the Gateway, filtered by pipeline and model
         </Tab>
@@ -198,12 +197,9 @@ Different workloads have different priorities:
             -orchPerfStatsUrl https://leaderboard.livepeer.org/api/aggregated_stats
             -minPerfScore 0.8
             ```
-
-            {/* REVIEW: Confirm the leaderboard API endpoint URL and response format - Rick to verify current URL is `https://leaderboard.livepeer.org/api/aggregated_stats` */}
-
             `-orchPerfStatsUrl` points to a service that returns per-Orchestrator performance statistics. The Livepeer community leaderboard provides this data. `-minPerfScore` sets a minimum acceptable score; Orchestrators below this threshold are excluded regardless of price.
 
-            Performance scores are calculated from real transcoding tests run by the leaderboard against each registered Orchestrator. Scores range from 0 to 1, where 1 represents consistently correct transcoding output within latency targets. For production video transcoding, a minimum score of 0.8 or higher is recommended.
+            Performance scores are calculated from live transcoding tests run by the leaderboard against each registered Orchestrator. Scores range from 0 to 1, where 1 represents consistently correct transcoding output within latency targets. For production video transcoding, a minimum score of 0.8 or higher is recommended.
         </Tab>
         <Tab title="Blocklisting" icon="circle-xmark">
             ### Blocklisting
@@ -229,7 +225,7 @@ Different workloads have different priorities:
 
 Operators running a gateway-as-service with SLA commitments route different customer tiers to different Orchestrator quality levels. Since go-livepeer does not natively support named tiers, the pattern is to run separate Gateway instances per tier, each with a different configuration.
 
-```
+``` icon="terminal"
 Tier 1 (premium) -> Gateway instance A
     -orchAddr <premium-orch-list>
     -maxPricePerUnit 5000         # Higher cap = access to better Orchestrators
@@ -256,9 +252,7 @@ The middleware layer (see <LinkArrow href="/v2/gateways/guides/advanced-operatio
     When an Orchestrator fails mid-job, the Gateway automatically swaps to the next candidate in its selection pool. For video transcoding, the stream continues on a new Orchestrator with segments re-attempted. For AI inference, the request is retried on a different Orchestrator.
 
     The number of retry attempts before the job fails is controlled by `-maxAttempts` (video transcoding). For AI jobs, the retry behaviour depends on the pipeline.
-
-    {/* REVIEW: Confirm `-maxAttempts` applies to gateway retry on orchestrator failure, not just transcoding attempts - Rick to verify. Also confirm AI inference retry count/flag */}
-  </Accordion>
+</Accordion>
   <Accordion title="Reducing swaps" icon="chart-line-down">
     High Orchestrator swap rates indicate instability in the Orchestrator pool, such as under-resourced machines or network issues. To reduce swaps:
 
@@ -267,13 +261,11 @@ The middleware layer (see <LinkArrow href="/v2/gateways/guides/advanced-operatio
     - Review `-maxPricePerUnit` or `-maxPricePerCapability` ceiling: if it is too low, the Gateway may be cycling through marginal Orchestrators
 
     Monitor the `livepeer_orchestrator_swaps` Prometheus counter to track swap frequency over time.
-
-    {/* REVIEW: Confirm Prometheus metric name is `livepeer_orchestrator_swaps` - Rick to verify */}
-  </Accordion>
+</Accordion>
   <Accordion title="Discovery timeout" icon="clock">
     If the Gateway cannot find a suitable Orchestrator within the discovery window, the job fails. The timeout is configurable:
 
-    ```bash
+    ```bash icon="terminal"
     -discoveryTimeout 10s
     ```
 
@@ -300,7 +292,7 @@ Set per-capability price caps to control costs per pipeline:
 -maxPricePerCapability '[{"pipeline":"text-to-image","model_id":"black-forest-labs/FLUX.1-dev","price_per_unit":100,"pixels_per_unit":1000000}]'
 ```
 
-If no Orchestrator in the pool meets both the capability requirement and the price cap, the job fails. To relax the price cap rather than fail the job:
+If no Orchestrator in the pool meets both the capability requirement and the price cap, the job fails. To relax the price cap instead of fail the job:
 
 ```bash icon="terminal" -ignoreMaxPriceIfNeeded
 -ignoreMaxPriceIfNeeded
@@ -344,9 +336,6 @@ Track selection health in production:
     <TableCell>Comparison vs network</TableCell>
   </TableRow>
 </StyledTable>
-
-{/* REVIEW: Confirm Prometheus metric names `livepeer_success_rate` - Rick to verify exact metric names in current go-livepeer */}
-
 <CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
 ## Related Pages

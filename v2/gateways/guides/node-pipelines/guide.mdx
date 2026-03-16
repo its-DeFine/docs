@@ -14,7 +14,7 @@ keywords:
   - overview
 og:image: /snippets/assets/site/og-image/fallback.png
 pageType: overview
-audience: gateway
+audience: gateway-operator
 purpose: orientation
 status: current
 lastVerified: '2026-03-13'
@@ -56,7 +56,7 @@ Each pipeline is the control-plane path between an application request and orche
 ## Gateway Role
 
 <Note>
-  This section covers how pipelines work from the gateway operator's perspective. For orchestrator-side configuration (running AI workers, hosting models), see the Orchestrators section.
+  This explains how pipelines work from the gateway operator's perspective. For orchestrator-side configuration (running AI workers, hosting models), see the Orchestrators section.
 </Note>
 
 <CardGroup cols={2}>
@@ -120,11 +120,11 @@ Real-time AI processes live video streams frame-by-frame through AI models with 
 
 The primary framework is **ComfyStream**, an open-source ComfyUI plugin that enables developers to build real-time AI video workflows (style transfer, avatars, live effects, real-time agents). **Daydream** is the hosted reference implementation - developers can use it without running their own gateway.
 
-Real-time AI runs on <Badge color="purple">AI</Badge> or <Badge color="green">Dual</Badge> nodes. It uses the `live-video-to-video` pipeline type and the trickle streaming protocol (not the REST AI Jobs API). Billing is per-second rather than per-pixel.
+Real-time AI runs on <Badge color="purple">AI</Badge> or <Badge color="green">Dual</Badge> nodes. It uses the `live-video-to-video` pipeline type and the trickle streaming protocol instead of the REST AI Jobs API. Billing is per-second, not per-pixel.
 
 **Port:** HTTP API on `:8935` (set via `-httpAddr`, enabled by `-httpIngest`).
 
-{/* REVIEW: Real-time AI accounts for ~72% of current network fees - confirm this figure is still current. */}
+[//]: # (REVIEW: Confirm whether real-time AI still accounts for roughly 72 percent of current network fees.)
 
 <CardGroup cols={2}>
   <Card title="ComfyStream" icon="wand-magic-sparkles" href="/v2/developers/build/comfystream">
@@ -137,7 +137,7 @@ Real-time AI runs on <Badge color="purple">AI</Badge> or <Badge color="green">Du
 
 ### BYOC Pipelines
 
-BYOC (Bring Your Own Container) allows any workload that can be containerised to run on Livepeer orchestrators. The gateway routes by capability descriptor (`image-to-image`, `depth`, `segmentation`) rather than by model name.
+BYOC (Bring Your Own Container) allows any workload that can be containerised to run on Livepeer orchestrators. The gateway routes by capability descriptor (`image-to-image`, `depth`, `segmentation`) instead of by model name.
 
 BYOC supports **both GPU and CPU** containers. GPU workloads (diffusion models, vision models, video-to-video) are the primary use case, but CPU-only deployments are also supported - see the BYOC CPU tutorial for a passthrough pipeline example.
 
@@ -205,7 +205,7 @@ Not all pipeline types are available on every node type. Use this table to confi
   </tbody>
 </StyledTable>
 
-{/* REVIEW: confirm on-chain payment applies to real-time AI when run via dual gateway with Rick/j0sh. */}
+[//]: # (REVIEW: Confirm whether dual gateways use on-chain payment for real-time AI workloads.)
 
 <Tip>
   Running both video and AI workloads from a single node is possible with a <Badge color="green">Dual</Badge> gateway. The gateway itself does not need a GPU - orchestrators provide the compute. However, dual nodes manage two independent session managers simultaneously, which increases operational complexity.
@@ -219,7 +219,7 @@ Not all pipeline types are available on every node type. Use this table to confi
 
 ## Orchestrator Discovery
 
-How your gateway finds orchestrators depends on your operational mode and business model. There is no single discovery pattern - most production gateways use direct relationships rather than automatic pooled discovery.
+How your gateway finds orchestrators depends on your operational mode and business model. There is no single discovery pattern - most production gateways use direct relationships instead of automatic pooled discovery.
 
 <AccordionGroup>
   <Accordion title="On-chain discovery (automatic)" icon="link">
@@ -256,10 +256,10 @@ How your gateway finds orchestrators depends on your operational mode and busine
 ## Related Resources
 
 <CardGroup cols={2}>
-  <Card title="Video Transcoding Pipeline" icon="film" href="./video-transcoding">
+  <Card title="Video Transcoding Pipeline" icon="film" href="./video-pipelines">
     How video jobs flow through your gateway - ingest, segmentation, orchestrator selection, and payment.
   </Card>
-  <Card title="AI Inference Pipeline" icon="brain" href="./ai-inference">
+  <Card title="AI Inference Pipeline" icon="brain" href="./ai-pipelines">
     How AI inference requests are routed - orchestrator discovery, model matching, pipeline types, and platform limits.
   </Card>
   <Card title="BYOC Pipelines" icon="box" href="./byoc-pipelines">

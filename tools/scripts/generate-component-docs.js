@@ -433,7 +433,7 @@ async function renderCategoryPage(category, components, args, cache, warnings) {
       '',
       '## Component Reference',
       '',
-      sections.join('\n\n---\n\n'),
+      sections.join('\n\n<CustomDivider />\n\n'),
       ''
     ].join('\n')
   );

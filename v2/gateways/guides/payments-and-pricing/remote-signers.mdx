@@ -6,7 +6,7 @@ keywords: ["livepeer", "gateway", "remote signer", "signing", "ETH", "key isolat
 og:image: /snippets/assets/site/og-image/fallback.png
 pageType: 'guide'
 audience: 'gateway-operator'
-purpose: 'operational'
+purpose: operations
 status: 'current'
 lastVerified: '2026-03-15'
 sourceOfTruth: 'https://github.com/livepeer/go-livepeer/pull/3822'
@@ -51,9 +51,6 @@ import { StyledSteps, StyledStep } from "/snippets/components/layout/steps.jsx"
 A **remote signer** is a standalone `go-livepeer` mode that takes over all Ethereum-related responsibilities from the Gateway: signing payment tickets, managing PM session state, and providing the authentication signature for Orchestrator info requests. The Gateway communicates with the signer over the network and holds no Ethereum private key.
 
 Remote signers were introduced in [PR #3791](https://github.com/livepeer/go-livepeer/pull/3791) and [PR #3822](https://github.com/livepeer/go-livepeer/pull/3822), in January 2026.
-
-{/* REVIEW: Confirm the minimum go-livepeer version that includes PR #3791 and #3822. Rick to verify the release tag. PRs merged January 2026. */}
-
 ## Benefits
 
 ### Key Isolation
@@ -83,7 +80,7 @@ A remote signer separates these concerns. The signer runs as a hardened service 
 
 ### Platform Flexibility
 
-The PM system is complex enough that `go-livepeer` was historically the only Gateway implementation. Remote signers remove this barrier. A Python, browser, or mobile application can integrate with the Livepeer network by using a remote signer for all PM mechanics and interacting with a simple HTTP signing API rather than raw Arbitrum contracts. This is the foundation for the Livepeer SDK's Gateway capabilities.
+The PM system is complex enough that `go-livepeer` was historically the only Gateway implementation. Remote signers remove this barrier. A Python, browser, or mobile application can integrate with the Livepeer network by using a remote signer for all PM mechanics and interacting with a simple HTTP signing API instead of raw Arbitrum contracts. This is the foundation for the Livepeer SDK's Gateway capabilities.
 
 Remote signers are also the technical primitive that <LinkArrow href="/v2/gateways/guides/payments-and-pricing/clearinghouse-guide" label="Clearinghouses" newline={false} /> build on.
 
@@ -171,10 +168,7 @@ This design enables running multiple signer instances behind a load balancer wit
       -ethPassword <KEYSTORE_PASSWORD> \
       -httpAddr 0.0.0.0:7936
     ```
-
-    {/* REVIEW: Confirm the exact flag for signer mode. Source: v2-payments--remote-signers.mdx uses "-signer". Rick / j0sh to confirm this is the current flag name. Check with "livepeer -help | grep signer". */}
-
-    The signer service binds to port 7936 by default. This port must be reachable from the Gateway host. The signer holds the ETH key and Arbitrum connection; the Gateway needs neither.
+The signer service binds to port 7936 by default. This port must be reachable from the Gateway host. The signer holds the ETH key and Arbitrum connection; the Gateway needs neither.
 
     <Warning>
       Flag names for remote signer mode are subject to change as the feature matures. Verify with `livepeer -help | grep -i signer` on the installed version before deploying.
@@ -194,20 +188,12 @@ This design enables running multiple signer instances behind a load balancer wit
       -httpIngest \
       ...
     ```
-
-    {/* REVIEW: Confirm -signerAddr is the correct flag name for pointing the gateway at a remote signer. Rick to verify against current livepeer -help output. */}
-
-    The Gateway uses `-signerAddr` for all PM signing. `-ethKeystorePath` and a local ETH account are not needed on the Gateway host.
-
-    {/* REVIEW: Confirm whether -ethUrl is still required on the gateway when -signerAddr is set, or whether the gateway can run with no Arbitrum connection at all. Rick to verify. */}
-  </StyledStep>
+The Gateway uses `-signerAddr` for all PM signing. `-ethKeystorePath` and a local ETH account are not needed on the Gateway host.
+</StyledStep>
 
   <StyledStep title="Verify the signer is active">
     Check the Gateway startup logs for a line confirming the remote signer is connected.
-
-    {/* REVIEW: Rick / j0sh to provide the exact log message that confirms remote signer is active at startup. */}
-
-    Submit a Live AI job and confirm it processes successfully. Check that payments are flowing via `livepeer_cli`:
+Submit a Live AI job and confirm it processes successfully. Check that payments are flowing via `livepeer_cli`:
 
     ```bash icon="terminal" CLI command
     livepeer_cli -host 127.0.0.1 -http 5935
@@ -272,9 +258,6 @@ What a remote signer does **not** protect against:
 A community-operated remote signer is available for testing and early development:
 
 **Elite Encoder Remote Signer:** `https://signer.eliteencoder.net/`
-
-{/* REVIEW: Confirm the exact URL is signer.eliteencoder.net (Discord referenced signer.eiteencoder.net as a typo). Verify with John at Elite Encoder. */}
-
 This instance provides free ETH for testing. It uses SIWE (ERC-4361 Sign-In with Ethereum) for authentication and issues per-user JWT tokens.
 
 <Warning>

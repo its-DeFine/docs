@@ -33,7 +33,7 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { CenteredContainer } from '/snippets/components/layout/containers.jsx'
 
 <CenteredContainer maxWidth="960px">
-  <Tip>Gateways route work to orchestrators. Orchestrators run the GPU compute and return the result, while the gateway selects the route, enforces the price ceiling, and manages the session.</Tip>
+  <Tip>Gateways route work to orchestrators; they do not perform the compute themselves. Orchestrators run the GPU workload, while the gateway selects the route, enforces the price ceiling, and manages the session.</Tip>
 </CenteredContainer>
 
 <CustomDivider middleText="Core Functions" />
@@ -106,7 +106,7 @@ Video transcoding uses RTMP ingest and on-chain payment. Route video transcoding
 
 ### BYOC (Bring Your Own Container)
 
-BYOC pipelines allow applications to define custom container-based workloads that orchestrators execute. The gateway routes BYOC requests through the HTTP API, and the orchestrator runs the application-defined container alongside standard AI pipelines.
+BYOC pipelines allow applications to define custom container-based workloads that orchestrators execute. The gateway routes BYOC requests through the same HTTP API it uses for AI inference, and the orchestrator runs an application-defined container instead of a standard AI model.
 
 BYOC enables use cases like custom ML workflows, enterprise-specific processing, and novel applications (e.g. <LinkArrow href="/v2/solutions/embody" label="Embody AI avatars" newline={false} />).
 

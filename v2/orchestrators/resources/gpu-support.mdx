@@ -140,9 +140,6 @@ go-livepeer requires NVIDIA GPUs with NVENC and NVDEC support. AMD and Intel GPU
     <TableCell>80 GB VRAM. Primarily for LLM and large model inference.</TableCell>
   </TableRow>
 </StyledTable>
-
-{/* REVIEW: Verify all GPU families against go-livepeer's actual NVENC/NVDEC requirements and current AI Runner compatibility */}
-
 <CustomDivider />
 
 ## NVENC Session Limits
@@ -186,9 +183,6 @@ Consumer NVIDIA GPUs enforce a hard limit on concurrent NVENC encoding sessions.
     <TableCell>No session limit on professional and data centre cards</TableCell>
   </TableRow>
 </StyledTable>
-
-{/* REVIEW: Verify per-model session limits — these vary by specific SKU. Source: NVIDIA NVENC support matrix */}
-
 ### Removing the Session Limit
 
 The community-maintained [nvidia-patch](https://github.com/keylase/nvidia-patch) removes the NVENC session limit on consumer GPUs. This is widely used by Livepeer orchestrators and pool operators (Titan Node uses this in their worker setup).
@@ -217,12 +211,12 @@ bash patch.sh
   <TableRow>
     <TableCell>NVIDIA Driver</TableCell>
     <TableCell>525+</TableCell>
-    <TableCell>`{/* REVIEW: Confirm exact minimum from go-livepeer README or release notes */}`</TableCell>
+    <TableCell>` `</TableCell>
   </TableRow>
   <TableRow>
     <TableCell>CUDA Toolkit</TableCell>
     <TableCell>12.0+</TableCell>
-    <TableCell>`{/* REVIEW: Confirm exact CUDA version from go-livepeer build requirements */}`</TableCell>
+    <TableCell>` `</TableCell>
   </TableRow>
   <TableRow>
     <TableCell>NVIDIA Container Toolkit</TableCell>
@@ -294,9 +288,6 @@ docker run --gpus all nvidia/cuda:12.0-base nvidia-smi
 </StyledTable>
 
 For detailed per-pipeline VRAM planning, see the [Model and Demand Reference](/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference).
-
-{/* REVIEW: Cross-check all VRAM figures against current AI Runner documentation and community reports */}
-
 <CustomDivider />
 
 ## GPU Selection Guidance

@@ -22,7 +22,7 @@ keywords:
 'og:image:height': 630
 pageType: troubleshooting
 audience: gateway-operator
-purpose: operational
+purpose: troubleshooting
 status: current
 lastVerified: '2026-03-15'
 ---
@@ -58,7 +58,6 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/ta
 
 This page covers errors operators encounter. For "how does X work?" questions, see the <LinkArrow href="/v2/gateways/resources/faq" label="FAQ" newline={false} />.
 
-
 ## Video Issues
 
 <AccordionGroup>
@@ -70,7 +69,7 @@ This page covers errors operators encounter. For "how does X work?" questions, s
 
     When the deposit reaches zero, the Gateway silently stops routing - no error is surfaced to the stream sender. Check immediately:
 
-    ```bash
+    ```bash icon="terminal"
     livepeer_cli -host 127.0.0.1 -http 5935
     # Select Option 1: Get node status
     # Check: Deposit and Reserve under BROADCASTER STATS
@@ -83,7 +82,7 @@ This page covers errors operators encounter. For "how does X work?" questions, s
     `-maxPricePerUnit` is the maximum wei per pixel the Gateway pays Orchestrators. If Orchestrators on the network charge more than the cap, none accept jobs.
 
     Community standard for testing:
-    ```bash
+    ```bash icon="terminal"
     -maxPricePerUnit 300 -pixelsPerUnit 1
     ```
 
@@ -102,7 +101,7 @@ This page covers errors operators encounter. For "how does X work?" questions, s
     An Arbitrum RPC URL is required for all on-chain Gateway operations.
 
     **Test the RPC endpoint:**
-    ```bash
+    ```bash icon="terminal"
     curl -X POST <YOUR_ETH_URL> \
       -H "Content-Type: application/json" \
       -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
@@ -141,7 +140,7 @@ This page covers errors operators encounter. For "how does X work?" questions, s
     - Self-hosted: [Arbitrum full node guide](https://docs.arbitrum.io/node-running/how-tos/running-a-full-node)
 
     Update the startup command:
-    ```bash
+    ```bash icon="terminal"
     -ethUrl https://<new-rpc-endpoint>
     ```
   </Accordion>
@@ -149,7 +148,7 @@ This page covers errors operators encounter. For "how does X work?" questions, s
   <Accordion title="ETH deposit shows zero after bridging" icon="coins">
     Bridging ETH from Ethereum mainnet to Arbitrum One transfers ETH to the wallet address on Arbitrum, but does **not** automatically allocate it as a Gateway deposit. Deposit and reserve must be set explicitly via `livepeer_cli` after the bridge confirms.
 
-    ```bash
+    ```bash icon="terminal"
     livepeer_cli -host 127.0.0.1 -http 5935
     # Select Option 11: Deposit broadcasting funds
     # Enter deposit amount (e.g. 0.07 ETH)
@@ -162,7 +161,7 @@ This page covers errors operators encounter. For "how does X work?" questions, s
   </Accordion>
 
   <Accordion title="TicketParams expired errors in logs" icon="clock">
-    ```
+    ``` icon="terminal"
     TicketParams expired
     ```
 
@@ -179,7 +178,7 @@ This page covers errors operators encounter. For "how does X work?" questions, s
 
   <Accordion title="Transcode session timed out or job lost" icon="hourglass-end">
     Log patterns:
-    ```
+    ``` icon="terminal"
     Transcode loop timed out
     Segment loop timed out
     ```
@@ -193,7 +192,7 @@ This page covers errors operators encounter. For "how does X work?" questions, s
     3. **If CUDA errors appear in logs** (`CUDA_ERROR_UNKNOWN`, `Cannot allocate memory`) these originate on the Orchestrator side. The Gateway retries with a different Orchestrator automatically.
 
     Enable verbose logging for session-level detail:
-    ```bash
+    ```bash icon="terminal"
     -v 6
     ```
   </Accordion>
@@ -201,7 +200,7 @@ This page covers errors operators encounter. For "how does X work?" questions, s
   <Accordion title="Gateway calling reward function unexpectedly" icon="gas-pump">
     If the Gateway is unexpectedly calling the reward function and spending gas, ensure `-reward=false` is set in the launch command even when using a config file. Config file values can be overridden by command-line flags; always set `reward=false` explicitly on the command line.
 
-    ```bash
+    ```bash icon="terminal"
     livepeer -gateway -reward=false [other flags...]
     ```
   </Accordion>
@@ -216,12 +215,9 @@ This page covers errors operators encounter. For "how does X work?" questions, s
 
   <Accordion title="AI binary not available on Windows or macOS" icon="desktop">
     The Livepeer AI Gateway binary is **not currently available for Windows or macOS (Intel)**. The AI inference stack depends on a GPU/CUDA toolchain tested only on Linux.
+**Workaround: Docker on Linux.**
 
-    {/* REVIEW: Rick - confirm whether Windows AI binary is on the roadmap and expected timeline */}
-
-    **Workaround: Docker on Linux.**
-
-    ```bash
+    ```bash icon="terminal"
     docker run \
       --name livepeer_ai_gateway \
       -v ~/.lpData2/:/root/.lpData2 \
@@ -246,14 +242,11 @@ This page covers errors operators encounter. For "how does X work?" questions, s
 
     **Check the `-orchAddr` list (off-chain):**
 
-    ```bash
+    ```bash icon="terminal"
     # Verify the Orchestrator is reachable
     curl https://<orchestrator-address>:<port>/getOrchestratorInfo
     ```
-
-    {/* REVIEW: Rick / j0sh / Peter - confirm /getOrchestratorInfo is the correct endpoint for AI capability queries */}
-
-    If the Orchestrator responds with its capability list and does not include the requested pipeline, it will not accept jobs regardless of connectivity.
+If the Orchestrator responds with its capability list and does not include the requested pipeline, it will not accept jobs regardless of connectivity.
 
     **Finding AI-capable Orchestrators:**
 
@@ -270,23 +263,17 @@ This page covers errors operators encounter. For "how does X work?" questions, s
     1. **The pipeline is not supported** by the connected Orchestrators - they may support `text-to-image` but not `image-to-video`.
     2. **The model is not loaded** - the Orchestrator supports the pipeline but the specific model variant (e.g. `ByteDance/SDXL-Lightning`) is not warm. Some Orchestrators support cold loading (slower first request).
     3. **Model ID mismatch** - the model ID string in the request must exactly match what the Orchestrator has. Case and formatting matter.
-
-    {/* REVIEW: Peter (AI SPE) - confirm most reliable pipeline/model combination for onboarding diagnostics */}
-
-    **Diagnostic approach:** Start with `text-to-image` using a common model against a known-good Orchestrator before testing less common pipelines.
+**Diagnostic approach:** Start with `text-to-image` using a common model against a known-good Orchestrator before testing less common pipelines.
   </Accordion>
 
   <Accordion title="Cannot discover available AI models or pipelines" icon="magnifying-glass">
     There is currently no unified registry or discovery endpoint listing all AI capabilities network-wide.
 
     Per-Orchestrator capability query:
-    ```bash
+    ```bash icon="terminal"
     curl https://<orchestrator-address>:<port>/getOrchestratorInfo
     ```
-
-    {/* REVIEW: Rick / j0sh - confirm whether a network-wide AI capability registry is on the roadmap */}
-
-    Community discussion on a unified discovery mechanism is active in [Discord #local-gateways](https://discord.gg/livepeer) and the [Livepeer Forum](https://forum.livepeer.org).
+Community discussion on a unified discovery mechanism is active in [Discord #local-gateways](https://discord.gg/livepeer) and the [Livepeer Forum](https://forum.livepeer.org).
   </Accordion>
 
 </AccordionGroup>
@@ -305,7 +292,7 @@ This page covers errors operators encounter. For "how does X work?" questions, s
     - GPU memory at or near 100% in `/hardware/stats`
 
     **Diagnose:**
-    ```bash
+    ```bash icon="terminal"
     # Watch GPU stats every 10 seconds
     watch -n 10 'curl -s http://localhost:8935/hardware/stats'
     ```
@@ -345,12 +332,12 @@ This page covers errors operators encounter. For "how does X work?" questions, s
     </StyledTable>
 
     If the default port is occupied, check for lingering processes:
-    ```bash
+    ```bash icon="terminal"
     lsof -i :8935
     ```
 
     Override the port:
-    ```bash
+    ```bash icon="terminal"
     -httpAddr 0.0.0.0:9000
     ```
   </Accordion>
@@ -367,20 +354,20 @@ This page covers errors operators encounter. For "how does X work?" questions, s
     Another process is already occupying the port.
 
     **Find and resolve (Linux/macOS):**
-    ```bash
+    ```bash icon="terminal"
     lsof -i :8935
     # Note the PID in the output
     kill -9 <PID>
     ```
 
     **Find and resolve (Windows):**
-    ```cmd
+    ```cmd icon="terminal"
     netstat -ano | findstr :8935
     taskkill /PID <PID> /F
     ```
 
     **Change the port instead:**
-    ```bash
+    ```bash icon="terminal"
     -httpAddr 0.0.0.0:9000
     ```
 
@@ -391,12 +378,12 @@ This page covers errors operators encounter. For "how does X work?" questions, s
     The GPU-accelerated binary (`livepeer-linux-gpu-amd64`) was downloaded but CUDA Toolkit v12 is not installed, or is installed at a non-standard path.
 
     **Fix 1 - Use the non-GPU binary** (most Gateway operators do not need local GPU transcoding):
-    ```bash
+    ```bash icon="terminal"
     wget https://github.com/livepeer/go-livepeer/releases/download/<VERSION>/livepeer-linux-amd64.tar.gz
     ```
 
     **Fix 2 - Point to CUDA libraries:**
-    ```bash
+    ```bash icon="terminal"
     export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
     ./livepeer -gateway ...
     ```
@@ -407,7 +394,7 @@ This page covers errors operators encounter. For "how does X work?" questions, s
   <Accordion title="Could not connect to Ethereum node" icon="plug-circle-xmark">
     The Gateway cannot reach its Arbitrum RPC.
 
-    ```bash
+    ```bash icon="terminal"
     curl -X POST <YOUR_ETH_URL> \
       -H "Content-Type: application/json" \
       -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
@@ -420,24 +407,24 @@ This page covers errors operators encounter. For "how does X work?" questions, s
     The Gateway cannot find or unlock the keystore file.
 
     **Check the keystore path:**
-    ```bash
+    ```bash icon="terminal"
     ls ~/.lpData/<network>/keystore/
     ```
     The keystore directory should contain a file with a name matching the ETH account address.
 
     **Check the password file for trailing newlines:**
-    ```bash
+    ```bash icon="terminal"
     cat -A /path/to/eth-password.txt
     # A trailing $ followed by nothing is fine; a trailing ^J means a newline that may cause issues
     ```
 
     **Recreate the password file safely:**
-    ```bash
+    ```bash icon="terminal"
     echo -n "your-password" > /path/to/eth-password.txt
     ```
 
     If a different `datadir` or `network` was used in the past, copy the keystore file to the expected location:
-    ```bash
+    ```bash icon="terminal"
     cp ~/.lpData/<old-network>/keystore/* ~/.lpData/<new-network>/keystore/
     ```
 
@@ -449,7 +436,7 @@ This page covers errors operators encounter. For "how does X work?" questions, s
   <Accordion title="Docker container exits immediately" icon="docker">
     The container is crashing on startup. Always check logs first:
 
-    ```bash
+    ```bash icon="terminal"
     docker logs <container_name> --tail 50
     ```
 
@@ -457,14 +444,14 @@ This page covers errors operators encounter. For "how does X work?" questions, s
 
     1. **ETH password file not mounted or wrong path inside container:**
        The volume mount must include the password file, and the path in `-ethPassword` must be the path *inside the container*, not on the host.
-       ```yaml
+       ```yaml icon="terminal"
        volumes:
          - /host/path/to/password.txt:/run/secrets/eth-password.txt
        command: "-gateway -ethPassword /run/secrets/eth-password.txt ..."
        ```
 
     2. **`-cliAddr` using `localhost` instead of the container hostname:**
-       ```yaml
+       ```yaml icon="terminal"
        command: "-cliAddr gateway:5935 ..."
        ```
 
@@ -498,13 +485,13 @@ This page covers errors operators encounter. For "how does X work?" questions, s
 
 Enable verbose logging when diagnosing issues:
 
-```bash
+```bash icon="terminal"
 -v 6
 ```
 
 Save logs to file while also displaying in terminal:
 
-```bash
+```bash icon="terminal"
 ./livepeer -gateway [flags] 2>&1 | tee livepeer.log
 ```
 

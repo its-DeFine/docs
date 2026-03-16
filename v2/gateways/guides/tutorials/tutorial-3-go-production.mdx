@@ -74,7 +74,7 @@ If you are running an AI gateway (BYOC, LV2V, inference workloads), **Upgrade 1 
 ### What this gives you
 
 On-chain registration connects your gateway to the Livepeer protocol's payment system on Arbitrum One:
-- Your gateway can send real ETH probabilistic micropayment (PM) tickets to orchestrators
+- Your gateway can send ETH probabilistic micropayment (PM) tickets to orchestrators
 - Orchestrators outside your explicit `-orchAddr` list can discover and serve your gateway
 - For video gateways: required for any production transcoding
 - For AI gateways: optional when using a remote signer, but enables full on-chain custody
@@ -108,7 +108,7 @@ The cheapest path for most people is to buy ETH on a CEX that supports Arbitrum 
 
 **Never use a personal wallet for gateway operations.** Create a dedicated keystore:
 
-```bash
+```bash icon="terminal"
 ./livepeer \
   -network arbitrum-one-mainnet \
   -datadir ~/.lpData-gw-prod \
@@ -118,20 +118,20 @@ The cheapest path for most people is to buy ETH on a CEX that supports Arbitrum 
 Note your gateway's Ethereum address. You will send ETH to this address in the next step.
 
 Alternatively, use `cast` (from Foundry) for a clean key generation:
-```bash
+```bash icon="terminal"
 cast wallet new
 # Save the private key and address securely - treat this like a server key
 ```
 
 <Warning>
-This wallet will hold ETH for gateway operations. Use a hardware wallet or a dedicated key management solution for any significant amount. Never put the keystore file in a public repository.
+This wallet will hold ETH for gateway operations. Use a hardware wallet or a dedicated key management solution for any material amount. Never put the keystore file in a public repository.
 </Warning>
 
 ### 1.3 - Deposit PM funds on-chain
 
 Send ETH to your gateway address, then deposit using `livepeer_cli`:
 
-```bash
+```bash icon="terminal"
 ./livepeer_cli \
   -network arbitrum-one-mainnet \
   -ethUrl YOUR_ARBITRUM_RPC_URL \
@@ -147,7 +147,7 @@ From the interactive menu:
    Enter approximately `0.03` - this is the reserve orchestrators can claim from if your deposit runs out
 
 After depositing, confirm your balance:
-```bash
+```bash icon="terminal"
 # In the livepeer_cli menu, select:
 # "Get node status"
 # Look for: "PM Deposit" and "PM Reserve" values
@@ -161,7 +161,7 @@ You can also fund your gateway using `cast send` directly to the Livepeer `Ticke
 
 Replace `-network offchain` with your Arbitrum RPC:
 
-```bash
+```bash icon="terminal"
 ./livepeer \
   -gateway \
   -network arbitrum-one-mainnet \
@@ -179,7 +179,7 @@ For an Arbitrum RPC endpoint, use [Infura](https://infura.io) (`https://arbitrum
 **Verifying on-chain registration:**
 
 Check your gateway is visible on the network:
-```bash
+```bash icon="terminal"
 curl http://localhost:5935/status
 # Look for: "ethAddress" and "pmInfo" sections
 ```
@@ -213,14 +213,14 @@ As the gateway operator, **you do not need a GPU** unless you are also running y
 | Video transcoding (NVENC) | Any CUDA | - |
 
 <Warning>
-GPU VRAM requirements are per active pipeline. Running multiple concurrent pipeline types on a single GPU requires enough VRAM for the largest model loaded. Check the [hardware requirements reference](/v2/gateways/resources/technical/hardware-requirements) for the current model matrix before purchasing hardware.
+GPU VRAM requirements are per active pipeline. Running multiple concurrent pipeline types on a single GPU requires enough VRAM for the largest model loaded. Check the [hardware requirements reference](/v2/gateways/resources/technical/go-livepeer/hardware-requirements) for the current model matrix before purchasing hardware.
 </Warning>
 
 ### 2.2 - Enable GPU on the orchestrator
 
 Add `-nvidia` to your orchestrator startup command:
 
-```bash
+```bash icon="terminal"
 ./livepeer \
   -orchestrator \
   -network offchain \          # or arbitrum-one for production
@@ -230,13 +230,13 @@ Add `-nvidia` to your orchestrator startup command:
 ```
 
 For multiple GPUs:
-```bash
+```bash icon="terminal"
   -nvidia 0,1,2    # Use GPUs 0, 1, and 2
   -nvidia all      # Use all available NVIDIA GPUs
 ```
 
 **Verify GPU is detected:**
-```bash
+```bash icon="terminal"
 # In livepeer_cli, select "Get node status"
 # Look for: "GPU: NVIDIA GeForce RTX XXXX" entries
 ```
@@ -245,7 +245,7 @@ For multiple GPUs:
 
 If you built a BYOC container in Tutorial 2, swap the base image to use CUDA:
 
-```dockerfile
+```dockerfile icon="terminal"
 # GPU-enabled BYOC base
 FROM nvidia/cuda:12.1-runtime-ubuntu22.04
 
@@ -265,7 +265,7 @@ ENTRYPOINT ["python3", "processor.py"]
 ```
 
 Start the container with GPU access:
-```bash
+```bash icon="terminal"
 docker run -d \
   --name byoc-gpu \
   --network host \
@@ -293,7 +293,7 @@ Removing `-orchAddr localhost` and switching to network discovery means your gat
 
 If you completed Upgrade 1, network discovery works automatically. Remove `-orchAddr` entirely:
 
-```bash
+```bash icon="terminal"
 ./livepeer \
   -gateway \
   -network arbitrum-one-mainnet \
@@ -316,7 +316,7 @@ The gateway queries the Arbitrum registry for registered orchestrators and selec
 Off-chain gateways cannot use the Arbitrum registry. You have three options:
 
 **Option A - Explicit orchestrator list (simplest):**
-```bash
+```bash icon="terminal"
 ./livepeer \
   -gateway \
   -network offchain \
@@ -331,7 +331,7 @@ Find available AI orchestrators in the [Livepeer Explorer](https://explorer.live
 **Option B - Discovery endpoint:**
 
 Some orchestrators publish a webhook-format discovery endpoint. Point your gateway at it:
-```bash
+```bash icon="terminal"
   -orchAddr https://discovery.livepeer.cloud/orchestrators
 ```
 
@@ -341,7 +341,7 @@ The gateway polls this endpoint for fresh orchestrator lists on the same schedul
 
 The community remote signer at `signer.eliteencoder.net` provides a `GetOrchestrators` endpoint that returns on-chain orchestrator data, parameterised by capability and model ID. This removes the need to manually manage orchestrator lists:
 
-```bash
+```bash icon="terminal"
 ./livepeer \
   -gateway \
   -network offchain \
@@ -360,7 +360,7 @@ The community remote signer at `signer.eliteencoder.net` is operated by John (El
 Before routing to public orchestrators, set your max price to avoid over-paying:
 
 **For video transcoding:**
-```bash
+```bash icon="terminal"
 ./livepeer_cli -network arbitrum-one-mainnet -ethUrl YOUR_RPC -datadir ~/.lpData-gw-prod
 # Select: "Set max price for transcoding"
 # Enter: e.g. 0.01USD (auto-converts to wei using Chainlink ETH/USD feed)
@@ -369,7 +369,7 @@ Before routing to public orchestrators, set your max price to avoid over-paying:
 **For AI pipelines, use per-capability pricing:**
 
 Create `ai-pricing.json`:
-```json
+```json icon="terminal"
 {
   "capabilities_prices": [
     {
@@ -389,7 +389,7 @@ Create `ai-pricing.json`:
 ```
 
 Pass to the gateway:
-```bash
+```bash icon="terminal"
   -maxPricePerCapability /path/to/ai-pricing.json
 ```
 
@@ -401,7 +401,7 @@ Pass to the gateway:
 
 Once connected to the network, verify jobs are routing to public orchestrators:
 
-```bash
+```bash icon="terminal"
 # In livepeer_cli, select "Get node status"
 # Look for: "Connected Orchestrators" - should show public IP addresses, not localhost
 ```
@@ -416,7 +416,7 @@ Use `tools.livepeer.cloud` for a richer view of orchestrator performance, pricin
 
 Here is a complete production gateway command incorporating all three upgrades (on-chain, GPU orchestrator nearby, public network):
 
-```bash
+```bash icon="terminal"
 ./livepeer \
   -gateway \
   -network arbitrum-one-mainnet \
@@ -432,7 +432,7 @@ Here is a complete production gateway command incorporating all three upgrades (
 
 For a production deployment, run this under systemd or your preferred process manager. A minimal systemd unit:
 
-```ini
+```ini icon="terminal"
 [Unit]
 Description=Livepeer Gateway
 After=network.target
@@ -467,7 +467,7 @@ Run your gateway behind a TLS-terminating reverse proxy (nginx, Caddy) before ex
 
 Once live, set up monitoring before you need it:
 
-```bash
+```bash icon="terminal"
 # Check PM deposit balance (alerts you before it runs dry)
 ./livepeer_cli -network arbitrum-one-mainnet -ethUrl YOUR_RPC -datadir ~/.lpData-gw-prod
 # Select: "Get node status" → check "PM Deposit" value
@@ -482,7 +482,7 @@ curl -G 'https://loki.livepeer.report/loki/api/v1/query_range' \
 ```
 
 <Tip>
-Set up an alert on your gateway's PM deposit balance. If the deposit runs to zero, orchestrators will stop serving your jobs immediately - they check the deposit before accepting work. A deposit of 0.065 ETH will last weeks to months depending on your job volume, but top it up before it reaches zero rather than scrambling during an incident.
+Set up an alert on your gateway's PM deposit balance. If the deposit runs to zero, orchestrators will stop serving your jobs immediately - they check the deposit before accepting work. A deposit of 0.065 ETH will last weeks to months depending on your job volume, but top it up before it reaches zero to avoid scrambling during an incident.
 </Tip>
 
 The [Monitor and Optimise](/v2/gateways/guides/monitoring-and-tooling/monitoring-setup) page covers the full production monitoring stack: Prometheus metrics exporter, Grafana dashboards, Loki log queries, and ETH balance alerting.
@@ -495,7 +495,7 @@ The [Monitor and Optimise](/v2/gateways/guides/monitoring-and-tooling/monitoring
   <Accordion title="Cannot find Orchestrators after removing -orchAddr" icon="magnifying-glass">
     On-chain mode: confirm the Arbitrum RPC is working (`curl -X POST YOUR_RPC -d '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}'`) and the Gateway has a funded PM deposit. Orchestrators only respond to Gateways with valid deposits.
 
-    {/* REVIEW: `-remoteSignerAddr` may be `-signerAddr` in current builds. Rick to confirm. */}
+    [//]: # (REVIEW: Confirm whether the current flag is -remoteSignerAddr or -signerAddr.)
     Off-chain mode: an `-orchAddr` or `-remoteSignerAddr` with discovery support must be provided. There is no automatic discovery in off-chain mode.
   </Accordion>
 

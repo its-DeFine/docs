@@ -6,6 +6,8 @@ description: >-
   matrix, gateway vs orchestrator responsibilities, and anti-patterns.
 audience: developer
 purpose: concept
+pageType: concept
+lastVerified: '2026-03-17'
 keywords:
   - livepeer
   - ai workload
@@ -29,7 +31,7 @@ import { FlexContainer } from '/snippets/components/layout/layout.jsx'
 
 Livepeer is optimised for **streaming, GPU-bound, low-latency inference**. It is not a general-purpose batch compute or file-processing network. Use this page to determine whether your workload is a good fit before you start building.
 
-```text
+```text icon="terminal"
 Start
  │
  ├── Is the workload STREAMING (frames / chunks / segments)?
@@ -104,7 +106,7 @@ Understanding the split between gateway and orchestrator helps you know where to
 
 **Orchestrator** handles: lightweight LLMs or classifiers, prompt routing and control logic, real-time response generation.
 
----
+<CustomDivider />
 
 ## ASR pipeline examples
 
@@ -112,7 +114,7 @@ These are some of the best-fit workloads on Livepeer today.
 
 ### Live captions for video streams
 
-```text
+```text icon="terminal"
 Mic / Video Audio
       ↓
 Gateway (WebRTC audio chunks)
@@ -128,7 +130,7 @@ Gateway → captions / overlays / APIs
 
 ### Multilingual live translation
 
-```text
+```text icon="terminal"
 Live Audio
       ↓
 ASR
@@ -142,7 +144,7 @@ Translated captions (real-time)
 
 ### Voice-driven avatars or agents
 
-```text
+```text icon="terminal"
 Live Audio
       ↓
 ASR
@@ -156,7 +158,7 @@ Video or avatar pipeline conditioning
 
 ### Live moderation and safety
 
-```text
+```text icon="terminal"
 Live Audio
       ↓
 ASR
@@ -168,7 +170,7 @@ Flags, triggers, overlays
 
 **Why it fits:** streaming classification, immediate downstream actions.
 
----
+<CustomDivider />
 
 ## What about batch and file-based workloads?
 
@@ -206,7 +208,7 @@ Start thinking: "batch execution vs stream execution."
 | Video → audio | ✗ weak | ✗ still weak |
 | ASR | ⚠ okay | ✓ excellent |
 
-**The real constraint:**
+**The key constraint:**
 
 Livepeer's bottleneck is GPU opportunity cost, not capability. If a job occupies a GPU for a long time without benefiting from low latency, it will lose out to workloads that do. This is by design - gateways will naturally route away from poor-fit workloads.
 
@@ -216,18 +218,18 @@ Many batch and file-based AI workloads are technically runnable on Livepeer. How
 
 </Accordion>
 
----
+<CustomDivider />
 
 ## Next steps
 
 <CardGroup cols={3}>
-  <Card title="AI Pipelines" icon="diagram-project" href="../ai-pipelines/overview">
+  <Card title="AI Pipelines" icon="diagram-project" href="../concepts/ai-on-livepeer">
  ComfyStream and BYOC - how to build and deploy inference pipelines.
   </Card>
-  <Card title="BYOC" icon="box" href="../ai-pipelines/byoc">
+  <Card title="BYOC" icon="box" href="./byoc">
  Bring your own container: run custom models on the network.
   </Card>
-  <Card title="Model support" icon="microchip-ai" href="../ai-pipelines/model-support">
+  <Card title="Model support" icon="microchip-ai" href="./model-support">
  Full compatibility matrix - which model families run on Livepeer.
   </Card>
 </CardGroup>

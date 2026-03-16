@@ -1,6 +1,7 @@
 ---
 title: 'SPE Grant Model for Gateway Operators'
 description: 'How Gateway operators access Livepeer treasury funding through the Special Purpose Entity (SPE) grant model - what SPEs are, what has been funded, and how to propose one.'
+purpose: operations
 sidebarTitle: 'SPE & Grant Models'
 keywords:
   - livepeer
@@ -125,7 +126,7 @@ SPE grants are not grants to individual developers. They fund organisations with
 Running a gateway as an SPE differs from commercial gateway operation in one key way: your revenue comes from the treasury, not from customers. This makes it viable to:
 
 - Run **public gateways at no cost to developers**  - lowering the barrier for new builders to try Livepeer
-- Operate **specialised gateways** (LLM-only, BYOC, specific model sets) that serve an ecosystem gap rather than a mass market
+- Operate **specialised gateways** (LLM-only, BYOC, specific model sets) that serve an ecosystem gap instead of a mass market
 - **Build gateway infrastructure** (tooling, dashboards, clearinghouse components) that the whole ecosystem benefits from, where a commercial return is indirect or long-term
 
 In exchange, the SPE is accountable to token holders via milestone reporting and periodic renewal proposals.
@@ -137,7 +138,7 @@ In exchange, the SPE is accountable to token holders via milestone reporting and
 Successful SPE proposals in the gateway space share a few characteristics:
 
 <AccordionGroup>
-  <Accordion title="Clear public benefit, not just business benefit">
+ <Accordion title="Clear public benefit, beyond business benefit">
     The treasury funds work that benefits the network as a whole. A proposal to run a private gateway for your own product will not receive funding. A proposal to run a free public gateway that lowers barriers for ecosystem adoption  - like Cloud SPE  - is fundable.
 
     The question to answer in a proposal: "If this SPE did not exist, what would the Livepeer ecosystem lose?"
@@ -181,9 +182,7 @@ Successful SPE proposals in the gateway space share a few characteristics:
   </Step>
   <Step title="On-chain governance vote">
     Once the Forum discussion has reached rough consensus, the proposal moves to an on-chain vote through the Livepeer governance contract on Arbitrum. LPT holders (and their delegates) vote. Threshold and quorum requirements apply.
-
-    {/* REVIEW: Confirm current quorum and approval threshold for treasury proposals with Mehrdad (Protocol/Arbitrum). These may have changed with recent governance updates. */}
-  </Step>
+</Step>
   <Step title="Execute and report">
     Approved SPEs receive funding and begin execution. Most proposals include a reporting cadence  - typically monthly or quarterly updates posted to the Forum. Renewal proposals are submitted at the end of the initial period based on milestone completion.
   </Step>
@@ -202,9 +201,6 @@ These are two different things serving different purposes:
 | **Accountability** | On-chain governance + milestone reporting | Foundation programme management |
 | **Timeline** | Multi-month proposals with defined terms | Programme cohort |
 | **Suitable for** | Public gateways, ecosystem tooling, clearinghouse infrastructure | App development, using (not necessarily running) Livepeer |
-
-{/* REVIEW: Confirm AI Video Startup Programme details, current cohort timing, and application URL with Foundation BD team. */}
-
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Further reading
@@ -223,7 +219,7 @@ These are two different things serving different purposes:
     Commercial business models for gateway operators who do not need treasury funding.
   </Card>
   <Card title="Community & Ecosystem" icon="globe" href="/v2/gateways/guides/roadmap-and-funding/gateway-showcase">
-    Real projects and tools built by SPE-funded and independent gateway operators.
+    Production projects and tools built by SPE-funded and independent gateway operators.
   </Card>
   <Card title="NaaP & Multi-Tenancy" icon="users" href="/v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy">
     The NaaP SPE reference implementation  - multi-tenant gateway with auth and billing.

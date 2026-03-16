@@ -7,18 +7,20 @@
  * @contentAffinity overview, tutorial, reference
  * @owner docs
  * @dependencies GridContainer, Spacer
- * @usedIn v2/community/livepeer-community/community-guidelines.mdx, v2/developers/_archive/ai-inference-overview-old.mdx, v2/developers/_archive/ai-inference-workload-fit-old.mdx, v2/developers/build/workload-fit.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/run-a-gateway/run-a-gateway.mdx
+ * @usedIn v2/community/livepeer-community/community-guidelines.mdx, v2/developers/build/workload-fit.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/setup/run-a-gateway.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-10
+ * @lastMeaningfulChange 2026-03-11
  * @param {any} children - children prop.
  * @param {string} [direction="row"] - direction prop.
  * @param {string} [gap="1rem"] - gap prop.
  * @param {string} [align="flex-start"] - align prop.
  * @param {string} [justify="flex-start"] - justify prop.
  * @param {boolean} [wrap=false] - wrap prop.
+ * @param {string} [marginTop=""] - Optional top margin override.
+ * @param {string} [marginBottom=""] - Optional bottom margin override.
  * @param {object} [style={}] - style prop.
  * @example
  * <FlexContainer>Example content</FlexContainer>
@@ -30,6 +32,8 @@ export const FlexContainer = ({
   align = "flex-start",
   justify = "flex-start",
   wrap = false,
+  marginTop = "",
+  marginBottom = "",
   style = {},
 }) => {
   return (
@@ -41,6 +45,8 @@ export const FlexContainer = ({
         alignItems: align,
         justifyContent: justify,
         flexWrap: wrap ? "wrap" : "nowrap",
+        ...(marginTop ? { marginTop } : {}),
+        ...(marginBottom ? { marginBottom } : {}),
         ...style,
       }}
     >
@@ -63,7 +69,7 @@ export const FlexContainer = ({
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-10
+ * @lastMeaningfulChange 2026-03-11
  * @param {any} children - children prop.
  * @param {any} columns - columns prop.
  * @param {string} [gap="1rem"] - gap prop.
@@ -111,7 +117,7 @@ export const GridContainer = ({
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-10
+ * @lastMeaningfulChange 2026-03-11
  * @param {string} [size="1rem"] - size prop.
  * @param {string} [direction="vertical"] - direction prop.
  * @example

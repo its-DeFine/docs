@@ -171,7 +171,7 @@ import { CenteredContainer } from '/snippets/components/layout/containers.jsx'
 </CenteredContainer>
 
 <CenteredContainer maxWidth="960px">
-  <Tip>Gateways sit between applications and orchestrators. Application developers connect through the gateway layer for video, AI inference, and real-time AI workloads.</Tip>
+  <Tip>Gateways sit between applications and orchestrators. They are the demand side of the network, and application developers connect through the gateway layer for video, AI inference, and real-time AI workloads.</Tip>
 </CenteredContainer>
 
 <CustomDivider middleText="Role Evolution" />
@@ -180,6 +180,7 @@ In the early days of Livepeer, gateways (then called **broadcasters**) had a sin
 Today, with the off-chain gateway operational mode shipped in Q4 2025, the role has expanded dramatically. Gateways now route AI inference, live video AI, LLM requests, and custom BYOC workloads - often with **zero ETH required**. The gateway is where business logic, customer relationships, and service margins live.
 
 <ScrollableDiagram title="Gateway Role Evolution" maxHeight="420px">
+{/* Note: Mermaid cannot use color variables. */}
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
 timeline
@@ -285,7 +286,7 @@ On-chain and off-chain describe your gateway's **operational mode**: how it hand
 </Tabs>
 
 <Note>
-Dual-workload configuration runs video and AI from a single on-chain gateway node. See <LinkArrow href="/v2/gateways/setup/configure/dual-configuration" label="Dual gateway configuration" newline={false} /> for setup details.
+An on-chain gateway can run video, AI, or both workloads. Dual-workload configuration runs both from a single on-chain gateway node; it is not a third operational mode. See <LinkArrow href="/v2/gateways/setup/configure/dual-configuration" label="Dual gateway configuration" newline={false} /> for setup details.
 </Note>
 
 <StyledTable variant="bordered">

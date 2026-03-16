@@ -6,7 +6,7 @@ keywords: ['livepeer', 'gateway', 'scaling', 'session limits', 'maxSessions', 'G
 og:image: '/snippets/assets/site/og-image/fallback.png'
 pageType: 'guide'
 audience: 'gateway-operator'
-purpose: 'guides'
+purpose: operations
 status: 'current'
 lastVerified: '2026-03-15'
 ---
@@ -38,7 +38,7 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/ta
 import { CenteredContainer } from "/snippets/components/layout/containers.jsx"
 import { StyledSteps, StyledStep } from "/snippets/components/layout/steps.jsx"
 
-<CenteredContainer style={{width: "90%", minWidth: "fit-content"}}>
+<CenteredContainer preset="readable90" minWidth="fit-content">
     <Note>
         Session limits and GPU management apply primarily to Orchestrators running compute locally.
         <br/> A pure routing Gateway (off-chain AI, no local GPU) is limited mainly by network throughput and horizontal instance count.
@@ -48,7 +48,7 @@ import { StyledSteps, StyledStep } from "/snippets/components/layout/steps.jsx"
 
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-A Gateway routes jobs to Orchestrators rather than processing them locally, but it still has resource limits: session capacity, network throughput, and (for Dual Gateways) the GPU resources shared between video and AI workloads.
+A Gateway routes jobs to Orchestrators instead of processing them locally, but it still has resource limits: session capacity, network throughput, and (for Dual Gateways) the GPU resources shared between video and AI workloads.
 <br/> This guide covers how to measure those limits, decide when they have been reached, and scale in the right direction.
 
 ## Scaling Signals
@@ -59,23 +59,19 @@ Before adjusting anything, confirm there is actually a capacity problem. These a
   <Accordion title="Session limit reached" icon="gauge-high">
     The Prometheus metric `livepeer_current_sessions_total` approaching `livepeer_max_sessions_total` means the Gateway is at capacity and will start rejecting new sessions. This is the clearest signal.
 
-    ```bash
+    ```bash icon="terminal"
     curl http://localhost:8935/metrics | grep livepeer_current_sessions
     ```
-
-    {/* REVIEW: Confirm exact Prometheus metric names `livepeer_current_sessions_total` and `livepeer_max_sessions_total` - Rick to verify */}
-  </Accordion>
+</Accordion>
   <Accordion title="GPU memory pressure" icon="microchip">
     For Dual Gateways, the `/hardware/stats` endpoint reports GPU utilisation and memory:
 
-    ```bash
+    ```bash icon="terminal"
     curl http://localhost:8935/hardware/stats
     ```
 
     If VRAM usage is consistently above 85%, the Gateway is at risk of OOM failures on new model loads (AI) or performance degradation on concurrent transcoding segments (video).
-
-    {/* REVIEW: Confirm `/hardware/stats` is exposed on gateway HTTP port in current go-livepeer - Rick to verify */}
-  </Accordion>
+</Accordion>
   <Accordion title="Increasing latency under load" icon="clock">
     Rising transcoding latency or AI inference latency under load, combined with high Orchestrator swap rates, suggests the Orchestrators being routed to are also under pressure. This is an Orchestrator-side scaling problem. See <LinkArrow href="/v2/gateways/guides/advanced-operations/orchestrator-selection" label="Orchestrator Selection" newline={false} /> for expanding the Orchestrator pool.
   </Accordion>
@@ -147,10 +143,7 @@ Before adjusting anything, confirm there is actually a capacity problem. These a
         # Live GPU utilisation, memory, temperature
         curl http://localhost:8935/hardware/stats
         ```
-
-        {/* REVIEW: Confirm `/hardware/info` and `/hardware/stats` endpoint paths are correct in current go-livepeer and whether they are exposed on the gateway HTTP port or a separate port - Rick to verify */}
-
-        VRAM allocation between video transcoding and AI inference is managed by the Orchestrator, not the Gateway. Video transcoding (NVENC/NVDEC) uses dedicated hardware encoder/decoder blocks on NVIDIA GPUs, which do not compete directly with CUDA cores used for AI inference. However, VRAM is shared, and large AI models can exhaust available memory.
+VRAM allocation between video transcoding and AI inference is managed by the Orchestrator, not the Gateway. Video transcoding (NVENC/NVDEC) uses dedicated hardware encoder/decoder blocks on NVIDIA GPUs, which do not compete directly with CUDA cores used for AI inference. However, VRAM is shared, and large AI models can exhaust available memory.
 
         As a rule of thumb:
         - Reserve at least 8 GB VRAM per concurrent AI inference model

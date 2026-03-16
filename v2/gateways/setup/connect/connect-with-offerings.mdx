@@ -4,6 +4,8 @@ sidebarTitle: Discover & Connect Services
 description: >-
   This page explains how to find and broker Orchestrator AI & Video Offerings
   via your Gateway for Livepeer Application consumption.
+purpose: operations
+pageType: guide
 keywords:
   - livepeer
   - gateways
@@ -21,6 +23,7 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: gateway-operator
+lastVerified: 2026-03-17
 ---
 {/* TODO:
 Terminology Validation:
@@ -55,7 +58,7 @@ Gateways discover orchestrators through the orchestrator pool in `discovery/disc
 The `/getNetworkCapabilities` endpoint in [server/handlers.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/server/handlers.go#L275-L295)
 exposes all available orchestrator offerings
 
-```go
+```go icon="terminal"
 func (s *LivepeerServer) getNetworkCapabilitiesHandler() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
         // Returns orchestrators with their capabilities, pricing, and hardware
@@ -67,7 +70,7 @@ func (s *LivepeerServer) getNetworkCapabilitiesHandler() http.Handler {
 
 The response uses NetworkCapabilities structure from `common/types.go` [types.go:166-176](https://github.com/livepeer/go-livepeer/blob/5691cb48/common/types.go#L166-L176)
 
-```go
+```go icon="terminal"
 type NetworkCapabilities struct {
     Orchestrators []*OrchNetworkCapabilities `json:"orchestrators"`
 }

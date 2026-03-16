@@ -5,6 +5,7 @@ description: >-
   Reference for ComfyStream pipeline modes, custom nodes, workflow format,
   data-channel output, and performance tuning for developers building real-time
   AI video applications on Livepeer.
+purpose: operations
 keywords:
   - comfystream
   - livepeer
@@ -23,16 +24,16 @@ keywords:
 'og:image:height': 630
 pageType: guide
 audience: developer
+lastVerified: 2026-03-17
 status: draft
 ---
-
 [//]: # (SCOPE: This is a guide page for developers who have completed the ComfyStream quickstart and are deepening their usage. It does not repeat installation or first-run steps.)
 
 This page covers all available ComfyStream pipeline modes, the node ecosystem, how to build and load custom workflows, and how to configure output types including video, audio, and data-channel.
 
 If you have not yet run ComfyStream, start with the [ComfyStream quickstart](/v2/developers/get-started/comfystream-quickstart).
 
----
+<CustomDivider />
 
 ## Pipeline Modes
 
@@ -50,7 +51,7 @@ ComfyStream can serve multiple pipelines in a single container (Phase 4 BYOC add
 [//]: # (REVIEW: Confirm "multiple pipelines in single container" framing from docs.comfystream.org or Phase 4 BYOC implementation details. Phase 4 retrospective says "hosting multiple models and disparate workflow/pipelines on one orchestrator in a single container.")
 </Note>
 
----
+<CustomDivider />
 
 ## Node Ecosystem
 
@@ -111,7 +112,7 @@ Whisper-based real-time speech transcription. Two output modes:
 
 [//]: # (REVIEW: Confirm node names from muxionlabs/comfystream. Phase 4 confirms these were shipped as "AudioTranscription + SRT" node set.)
 
----
+<CustomDivider />
 
 ## Custom Workflows
 
@@ -155,7 +156,7 @@ Workflows saved from ComfyUI in the default format (with UI layout data) will no
 
 If your workflow uses custom nodes beyond the core ComfyStream nodes, install those nodes' dependencies inside the ComfyStream conda environment (or Docker container) before starting the server:
 
-```bash
+```bash icon="terminal"
 # Inside the comfystream conda env
 cd ComfyUI/custom_nodes/<your-custom-node>
 pip install -r requirements.txt
@@ -164,7 +165,7 @@ pip install -r requirements.txt
 For ComfyStream Docker deployments, Phase 4 added a config-based method to specify which custom node subsets are included in the container build:
 [//]: # (REVIEW: Confirm the exact config mechanism from docs.comfystream.org. Phase 4 retrospective says "a simple, config based method to allow for developing and deploying workflows using custom nodes which have different underlying python package requirements.")
 
----
+<CustomDivider />
 
 ## Data-Channel Output
 
@@ -183,7 +184,7 @@ To receive data-channel output from the client side, use `@muxionlabs/byoc-sdk`,
 
 [//]: # (REVIEW: Confirm the exact data-output node name and wiring pattern from muxionlabs/comfystream or Rick. The Phase 4 retrospective confirms the capability but does not name the exact node or API.)
 
----
+<CustomDivider />
 
 ## Performance Tuning
 
@@ -220,7 +221,7 @@ ComfyStream now supports dynamic warm-up, allowing new workflows to load mid-str
 | `--media-ports` | CLI flag | Comma-delimited UDP port range for WebRTC | 1024–65535 |
 | Port | `docker run -p` or `--port` | Server port | [//]: # (REVIEW: Confirm default port) |
 
----
+<CustomDivider />
 
 ## Next Steps
 

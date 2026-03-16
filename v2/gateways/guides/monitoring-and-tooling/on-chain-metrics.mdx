@@ -21,7 +21,7 @@ keywords:
 'og:image:height': 630
 pageType: guide
 audience: gateway-operator
-purpose: operational
+purpose: operations
 status: current
 lastVerified: '2026-03-15'
 ---
@@ -87,7 +87,7 @@ The Gateway's ETH address is shown in `livepeer_cli` **Option 1 (Get node status
 
 Navigate to:
 
-```
+``` icon="terminal"
 https://arbiscan.io/address/<GATEWAY_ETH_ADDRESS>
 ```
 
@@ -115,9 +115,6 @@ Key Arbiscan tabs:
 ### Contract Events
 
 The `TicketBroker` contract emits events for every deposit, reserve, and redemption action:
-
-{/* REVIEW: Mehrdad (Protocol) - confirm exact event names on current TicketBroker contract on Arbitrum One */}
-
 <StyledTable>
   <TableRow header>
     <TableCell header>Event</TableCell>
@@ -152,9 +149,6 @@ The `TicketBroker` contract emits events for every deposit, reserve, and redempt
 </StyledTable>
 
 To find redemptions against a Gateway: filter Arbiscan events by the TicketBroker contract address, then filter by `RedeemWinningTicket` events where the `sender` field matches the Gateway address.
-
-{/* REVIEW: Rick / Mehrdad - verify current TicketBroker contract address on Arbitrum One mainnet */}
-
 For the current TicketBroker address, see <LinkArrow href="/v2/gateways/resources/technical/contract-addresses" label="Contract Addresses" newline={false} />.
 
 ### Watchlist Alerts
@@ -188,9 +182,6 @@ The CLI uses the legacy term "Broadcaster" for Gateway.
 ### Status: Arbitrum RPC
 
 Query the [TicketBroker]("https://arbiscan.io/address/0xea1b0F6c8D158328a6e3D3F924B86A759F41465c") contract directly via **JSON-RPC** to get deposit and reserve independently of the running node:
-
-{/* REVIEW: Mehrdad - confirm getSenderInfo function signature and encoding for TicketBroker on Arbitrum */}
-
 ```bash icon="terminal" CLI: Get Node Status
 # Encode call to getSenderInfo(<gateway_address>)
 # Function selector: first 4 bytes of keccak256("getSenderInfo(address)")
@@ -263,7 +254,7 @@ Understanding how fast the deposit depletes helps plan top-ups before service in
 
 ### From Prometheus
 
-```promql
+```promql icon="terminal"
 # Deposit depletion rate (wei per second, negative = spending)
 deriv(livepeer_gateway_deposit[1h])
 

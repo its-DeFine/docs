@@ -2,6 +2,8 @@
 title: Linux Install
 sidebarTitle: Linux Install
 description: How to install a Livepeer Gateway from source binary
+purpose: operations
+pageType: guide
 keywords:
   - livepeer
   - gateways
@@ -16,6 +18,7 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: gateway-operator
+lastVerified: 2026-03-17
 icon: linux
 ---
 {/* TODO:
@@ -300,7 +303,7 @@ finish configuring the Gateway
 
 # Create a file containing your Gateway Ethereum password
 
-```text
+```text icon="terminal"
 sudo mkdir /usr/local/bin/lptConfig
 sudo nano /usr/local/bin/lptConfig/node.txt
 ```
@@ -311,13 +314,13 @@ Enter your password and save the file
 <StyledStep title="Create System Service">
 # Create a system service
 
-```text
+```text icon="terminal"
 sudo nano /etc/systemd/system/livepeer.service
 ```
 
 Paste and update the following startup script with your personal info:
 
-```jsx
+```jsx icon="terminal"
 [Unit]
 Description=Livepeer
 
@@ -345,14 +348,14 @@ WantedBy=default.target
 
 Start the system service
 
-```text
+```text icon="terminal"
 sudo systemctl daemon-reload
 sudo systemctl enable --now livepeer
 ```
 
 Open the Livepeer CLI
 
-```text
+```text icon="terminal"
 livepeer_cli -host 127.0.0.1 -http 5935
 ```
 

@@ -574,6 +574,62 @@ function runDocsNavigationCheck() {
   };
 }
 
+function collectDocsJsonRedirectEntries(docsJson) {
+  const entries = [];
+  const normalizeTabName = (tabName) => (tabName === 'GPU Nodes' ? 'Orchestrators' : tabName || '');
+  const v2Version = Array.isArray(docsJson?.navigation?.versions)
+    ? docsJson.navigation.versions.find((entry) => entry && entry.version === 'v2')
+    : null;
+  const english = Array.isArray(v2Version?.languages)
+    ? v2Version.languages.find((entry) => entry && entry.language === 'en')
+    : null;
+
+  function visitPages(node, context = { tab: null, anchor: null, group: null }) {
+    if (Array.isArray(node)) {
+      node.forEach((item) => visitPages(item, context));
+      return;
+    }
+
+    if (!node || typeof node !== 'object') return;
+
+    const nextContext = { ...context };
+    if (typeof node.tab === 'string') nextContext.tab = node.tab;
+    if (typeof node.anchor === 'string') nextContext.anchor = node.anchor;
+    if (typeof node.group === 'string') nextContext.group = node.group;
+
+    if (Array.isArray(node.pages)) {
+      node.pages.forEach((page) => {
+        if (typeof page === 'string' && page.includes('/redirect')) {
+          entries.push(
+            `page|tab=${normalizeTabName(nextContext.tab)}|anchor=${nextContext.anchor || ''}|group=${nextContext.group || ''}|value=${page}`
+          );
+        } else {
+          visitPages(page, nextContext);
+        }
+      });
+    }
+
+    if (Array.isArray(node.anchors)) visitPages(node.anchors, nextContext);
+    if (Array.isArray(node.groups)) visitPages(node.groups, nextContext);
+  }
+
+  if (english) {
+    visitPages(english.tabs);
+  }
+
+  (docsJson.redirects || []).forEach((entry) => {
+    if (!entry || typeof entry !== 'object') return;
+    if (typeof entry.source === 'string' && entry.source.includes('/redirect')) {
+      entries.push(`redirect|source=${entry.source}|destination=${entry.destination || ''}`);
+    }
+    if (typeof entry.destination === 'string' && entry.destination.includes('/redirect')) {
+      entries.push(`redirect-destination|source=${entry.source || ''}|destination=${entry.destination}`);
+    }
+  });
+
+  return entries.sort();
+}
+
 function runDocsJsonRedirectGuard(baseRef, changedFiles) {
   if (!changedFiles.includes('docs.json')) {
     return { label: 'docs.json /redirect Guard', status: 'skipped', files: 0, errors: 0, warnings: 0 };
@@ -581,14 +637,20 @@ function runDocsJsonRedirectGuard(baseRef, changedFiles) {
 
   try {
     const mergeBase = runGit(`merge-base origin/${baseRef} HEAD`);
-    const diff = runGit(`diff --unified=0 ${mergeBase}..HEAD -- docs.json`);
-    const violations = diff
-      .split('\n')
-      .map((line) => line.trimEnd())
-      .filter((line) => /^[+-](?![+-])/.test(line) && line.includes('/redirect'));
+    const baseDocsJson = JSON.parse(runGit(`show ${mergeBase}:docs.json`));
+    const currentDocsJson = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'docs.json'), 'utf8'));
+    const baseEntries = collectDocsJsonRedirectEntries(baseDocsJson);
+    const currentEntries = collectDocsJsonRedirectEntries(currentDocsJson);
+    const baseSet = new Set(baseEntries);
+    const currentSet = new Set(currentEntries);
+    const removed = baseEntries.filter((entry) => !currentSet.has(entry));
+    const added = currentEntries.filter((entry) => !baseSet.has(entry));
+    const violations = removed
+      .map((entry) => `- ${entry}`)
+      .concat(added.map((entry) => `+ ${entry}`));
 
     if (violations.length > 0) {
-      console.error('\n❌ docs.json /redirect guard failed. Remove /redirect lines from docs.json changes.');
+      console.error('\n❌ docs.json /redirect guard failed. Redirect surfaces changed relative to base.');
       violations.forEach((line) => console.error(`  ${line}`));
       return {
         label: 'docs.json /redirect Guard',

@@ -2,6 +2,7 @@
 title: Docker Install
 sidebarTitle: Docker Install
 description: Install and run a Livepeer transcoding gateway using Docker
+pageType: guide
 keywords:
   - livepeer
   - gateways
@@ -18,7 +19,8 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: gateway-operator
-purpose: concept
+lastVerified: 2026-03-17
+purpose: operations
 icon: docker
 ---
 {/* TODO:
@@ -53,7 +55,7 @@ Docker Engine 20.10 or later is required. If Docker is not installed or needs up
 
 Verify your installed version:
 
-```bash
+```bash icon="terminal"
 docker --version
 ```
 
@@ -61,7 +63,7 @@ docker --version
 
 Fetch the latest <DoubleIconLink label="Livepeer Docker image" href="https://hub.docker.com/r/livepeer/go-livepeer" iconLeft="docker" /> from Docker Hub:
 
-```bash
+```bash icon="terminal"
 docker pull livepeer/go-livepeer:master
 ```
 
@@ -76,7 +78,7 @@ Create a working directory and a `docker-compose.yml` file. Choose the configura
  See [On-Chain Setup Requirements](/v2/gateways/setup/requirements/on-chain setup/on-chain)
  for prerequisites.
 
-    ```yaml docker-compose.yml
+    ```yaml icon="terminal" docker-compose.yml
     services:
       gateway:
         image: livepeer/go-livepeer:master
@@ -120,7 +122,7 @@ Create a working directory and a `docker-compose.yml` file. Choose the configura
  your own orchestrator or point to a known development node.
     </Warning>
 
-    ```yaml docker-compose.yml
+    ```yaml icon="terminal" docker-compose.yml
     services:
       gateway:
         image: livepeer/go-livepeer:master
@@ -163,7 +165,7 @@ Run the gateway interactively once to generate one:
   <StyledStep title="Generate the ETH account">
  Create the data directory, then start the container interactively:
 
-    ```bash
+    ```bash icon="terminal"
     mkdir -p ./data/gateway
     docker compose run -it gateway
     ```
@@ -181,7 +183,7 @@ Run the gateway interactively once to generate one:
   <StyledStep title="Create the password file">
  Write your password to the file that the gateway reads on startup:
 
-    ```bash
+    ```bash icon="terminal"
     echo "your_password" > ./data/gateway/eth-secret.txt
     ```
 
@@ -200,13 +202,13 @@ Run the gateway interactively once to generate one:
 
 Start the gateway container in the background:
 
-```bash
+```bash icon="terminal"
 docker compose up -d
 ```
 
 Verify the gateway is running:
 
-```bash
+```bash icon="terminal"
 docker logs gateway
 ```
 
@@ -229,7 +231,7 @@ available on port `8935` at `/stream/<manifest-id>.m3u8`.
   <Tab title="FFmpeg">
  Push a file or live source to the gateway using FFmpeg:
 
-    ```bash
+    ```bash icon="terminal"
     ffmpeg -re -i input.mp4 -c:v libx264 -c:a aac -f flv rtmp://localhost:1935/live/stream
     ```
 
@@ -239,7 +241,7 @@ available on port `8935` at `/stream/<manifest-id>.m3u8`.
 
  The transcoded HLS output will be available at:
 
-    ```text
+    ```text icon="terminal"
     http://localhost:8935/stream/stream.m3u8
     ```
   </Tab>
@@ -257,7 +259,7 @@ available on port `8935` at `/stream/<manifest-id>.m3u8`.
 
  The transcoded HLS output will be available at:
 
-    ```text
+    ```text icon="terminal"
     http://localhost:8935/stream/stream.m3u8
     ```
   </Tab>
@@ -277,7 +279,7 @@ endpoint you control.
 When an incoming stream arrives, the gateway sends a `POST` request to the
 webhook URL with the stream URL as a JSON payload:
 
-```json
+```json icon="terminal"
 {
   "url": "rtmp://localhost:1935/live/stream"
 }
@@ -288,7 +290,7 @@ code to reject it.
 
 Add the flag to your `docker-compose.yml` command block:
 
-```yaml
+```yaml icon="terminal"
 - "-authWebhookUrl=https://your-auth-server.com/auth"
 ```
 

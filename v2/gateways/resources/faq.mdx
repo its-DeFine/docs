@@ -33,11 +33,11 @@ Verify:
 */}
 
 
-This page answers "how does X work?" questions. If something is broken, see [Troubleshooting](/v2/gateways/guides/monitoring-troubleshooting/troubleshooting) instead.
+This page answers "how does X work?" questions. If something is broken, see [Troubleshooting](/v2/gateways/guides/monitoring-and-tooling/troubleshooting) instead.
 
 Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](#ai-gateway)
 
----
+<CustomDivider />
 
 ## General
 
@@ -46,7 +46,7 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
   <Accordion title="I see commands using -broadcaster but my docs say -gateway. Which is correct?">
     Use `-gateway`. The Livepeer Gateway was previously called the Livepeer Broadcaster, and the old flag name appears throughout community guides, forum threads, and Docker Compose examples written before the rename.
 
-    ```bash
+    ```bash icon="terminal"
     # Legacy — may still be accepted but not canonical
     ./livepeer -broadcaster -network arbitrum-one-mainnet ...
 
@@ -56,7 +56,7 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
 
     The `livepeer_cli` tool and some log output still display "Broadcaster" in places that have not been updated. This is cosmetic — the underlying behaviour is unchanged.
 
-    {/* REVIEW: Rick (@rickstaa) — confirm whether -broadcaster is still accepted as an alias in current builds or is fully deprecated */}
+    [//]: # (REVIEW: Confirm whether -broadcaster remains accepted as an alias in current builds.)
   </Accordion>
 
   <Accordion title="Do I need ETH or LPT to run a gateway?">
@@ -77,13 +77,13 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
   <Accordion title="How do I keep a record of my node's logs?">
     By default, `livepeer` sends logs only to stdout. Pipe to both stdout and a file using `tee`:
 
-    ```bash
+    ```bash icon="terminal"
     ./livepeer -gateway [flags] 2>&1 | tee livepeer.log
     ```
 
     For Docker deployments, logs are captured automatically by Docker:
 
-    ```bash
+    ```bash icon="terminal"
     docker logs <container_name> --tail 200 --follow
     ```
 
@@ -108,7 +108,7 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## Video Gateway
 
@@ -126,7 +126,7 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
 
     If you set this too high, you overpay orchestrators. If you set it too low, no orchestrators accept your jobs. The community standard starting point is `300` with `-pixelsPerUnit 1`.
 
-    The price you charge *your* customers (if running a commercial gateway service) is entirely separate and managed by your own application layer. See [Pricing Strategy](/v2/gateways/guides/payments-pricing/pricing-strategy).
+    The price you charge *your* customers (if running a commercial gateway service) is entirely separate and managed by your own application layer. See [Pricing Strategy](/v2/gateways/guides/payments-and-pricing/pricing-strategy).
   </Accordion>
 
   <Accordion title="What ports does the video gateway use?">
@@ -140,7 +140,7 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
   </Accordion>
 
   <Accordion title="How do I check my ETH deposit and reserve balance?">
-    ```bash
+    ```bash icon="terminal"
     # Binary
     livepeer_cli -host 127.0.0.1 -http 5935
 
@@ -152,13 +152,13 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
 
     Community-recommended minimum for testing: **0.1 ETH total** (approximately 0.07 ETH deposit + 0.03 ETH reserve).
 
-    {/* REVIEW: Rick / Mehrdad — confirm current recommended minimum deposit/reserve amounts */}
+    [//]: # (REVIEW: Confirm the current recommended minimum deposit and reserve amounts.)
   </Accordion>
 
   <Accordion title="I bridged ETH to Arbitrum but my balance shows zero.">
     Bridging ETH to Arbitrum One transfers it to your wallet address on Arbitrum — but it does not automatically allocate it as a gateway deposit. You must explicitly deposit and reserve via `livepeer_cli` after the bridge confirms.
 
-    ```bash
+    ```bash icon="terminal"
     livepeer_cli -host 127.0.0.1 -http 5935
     # Select: "Deposit broadcasting funds"
     # Enter deposit amount and reserve amount
@@ -177,7 +177,7 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## AI Gateway
 
@@ -188,7 +188,7 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
 
     **Workaround:** Use Docker on Linux (or WSL2 on Windows).
 
-    ```bash
+    ```bash icon="terminal"
     docker run \
       --name livepeer_ai_gateway \
       -v ~/.lpData2/:/root/.lpData2 \
@@ -205,7 +205,7 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
 
     The standard video gateway binary for Windows remains available and unchanged.
 
-    {/* REVIEW: Rick — confirm if Windows AI binary is on the roadmap */}
+    [//]: # (REVIEW: Confirm whether a Windows AI binary is on the roadmap.)
   </Accordion>
 
   <Accordion title="Do I need ETH or LPT to run an AI gateway?">
@@ -233,11 +233,11 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
     There is currently no unified registry or discovery endpoint listing all AI capabilities across the network.
 
     Per-orchestrator query:
-    ```bash
+    ```bash icon="terminal"
     curl https://<orchestrator-address>:<port>/getOrchestratorInfo
     ```
 
-    {/* REVIEW: Rick / j0sh / Peter — confirm /getOrchestratorInfo is the correct and stable endpoint for capability discovery */}
+    [//]: # (REVIEW: Confirm whether /getOrchestratorInfo is the correct stable endpoint for capability discovery.)
 
     For finding AI-capable orchestrators to query: ask in [Discord #local-gateways](https://discord.gg/livepeer) — community operators share their endpoints there. Community discussion on a unified discovery mechanism is ongoing.
   </Accordion>
@@ -252,7 +252,7 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## External Resources
 
@@ -268,10 +268,10 @@ The following external resources are useful reference points for pricing, networ
 | Livepeer Pricing Tool | [GitHub](https://github.com/buidl-labs/livepeer-pricing-tool) | Community tool for observing network pricing |
 
 <CardGroup cols={3}>
-  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/gateways/guides/monitoring-troubleshooting/troubleshooting">
+  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/gateways/guides/monitoring-and-tooling/troubleshooting">
     Something is broken — fix it by symptom
   </Card>
-  <Card title="Pricing Strategy" icon="circle-dollar-sign" href="/v2/gateways/guides/payments-pricing/pricing-strategy">
+  <Card title="Pricing Strategy" icon="circle-dollar-sign" href="/v2/gateways/guides/payments-and-pricing/pricing-strategy">
     Configure maxPricePerUnit and AI pricing
   </Card>
   <Card title="Discord #local-gateways" icon="discord" href="https://discord.gg/livepeer">

@@ -2,6 +2,7 @@
 title: Pricing Configuration
 sidebarTitle: Pricing Configuration
 description: Configure Pricing for Livepeer Gateway Services
+pageType: guide
 keywords:
   - livepeer
   - gateways
@@ -16,7 +17,8 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: gateway-operator
-purpose: concept
+lastVerified: 2026-03-17
+purpose: operations
 icon: hand-holding-dollar
 ---
 {/* TODO:
@@ -157,7 +159,7 @@ Gateways set maximum prices they're willing to pay through configuration flags i
 the `transcodingConfig.json` or directly in the CLI.
 
 1. **Command-line** flags
-   ```bash
+   ```bash icon="terminal"
      -maxPricePerUnit=1000 \
      -pixelsPerUnit=1
    ```
@@ -181,7 +183,7 @@ A reference for Gateway Operators on how Orchestrators configure pricing and fee
 Orchestrators can set specific prices for individual gateways using
 `-pricePerGateway` [<Icon icon="github" /> starter.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/cmd/livepeer/starter.go)
 
-```json
+```json icon="terminal"
 {
   "gateways": [
     {
@@ -207,7 +209,7 @@ The actual price calculation happens in the orchestrator's `priceInfo` function 
 
 Orchestrators can enable automatic price adjustments based on transaction costs - which is why it's important to set maxPricing flags -> [<Icon icon="github" /> orchestrator.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/orchestrator.go)
 
-```go
+```go icon="terminal"
 if !orch.node.AutoAdjustPrice {
     return basePrice, nil
 }

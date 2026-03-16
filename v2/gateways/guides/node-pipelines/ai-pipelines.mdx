@@ -17,7 +17,7 @@ keywords:
   - ai gateway
 og:image: /snippets/assets/site/og-image/fallback.png
 pageType: guide
-audience: gateway
+audience: gateway-operator
 purpose: concept
 status: current
 lastVerified: '2026-03-13'
@@ -50,7 +50,7 @@ No ETH deposit is required for standard off-chain AI operation.
 
 The pipeline differs fundamentally from video transcoding:
 - requests are discrete HTTP calls, not streaming segments, and
-- routing and pricing is by pipeline and model capability rather than by pixel throughput.
+- routing and pricing is by pipeline and model capability instead of by pixel throughput.
 
 <Note>
   This page covers how AI jobs flow through your gateway. For initial setup and startup commands, see Setup → AI Gateway Quickstart. For custom container workloads, see BYOC Pipelines.
@@ -219,12 +219,9 @@ Pre-built, well-defined inference endpoints. Each pipeline has a fixed URL path 
   </tbody>
 </StyledTable>
 
-{/* REVIEW: confirm pricing unit for text-to-speech with j0sh/Peter. */}
-{/* REVIEW: confirm per-token vs per-request pricing for LLM with j0sh. */}
-
 Example request:
 
-```bash
+```bash icon="terminal"
 curl -X POST http://localhost:8935/text-to-image \
   -H "Content-Type: application/json" \
   -d '{
@@ -245,7 +242,7 @@ curl -X POST http://localhost:8935/text-to-image \
 
 Use `-maxPricePerCapability` to set per-pipeline, per-model price caps. Pass a path to a JSON file or a JSON string directly.
 
-```bash
+```bash icon="terminal"
 livepeer \
   -gateway \
   -orchAddr https://orch1.example.com:8935 \
@@ -254,7 +251,7 @@ livepeer \
 
 The JSON uses the `capabilities_prices` array format:
 
-```json
+```json icon="terminal"
 {
   "capabilities_prices": [
     {
@@ -297,7 +294,7 @@ How your AI gateway finds orchestrators depends on your operational mode.
   <Accordion title="Direct configuration (-orchAddr)" icon="server">
     The standard method for off-chain AI gateways. Specify orchestrator addresses directly:
 
-    ```bash
+    ```bash icon="terminal"
     -orchAddr https://orch1.example.com:8935,https://orch2.example.com:8935
     ```
 
@@ -308,7 +305,7 @@ How your AI gateway finds orchestrators depends on your operational mode.
   <Accordion title="Webhook discovery (-orchWebhookUrl)" icon="webhook">
     Gateways can call an external service to receive a dynamic orchestrator list:
 
-    ```bash
+    ```bash icon="terminal"
     -orchWebhookUrl https://your-service.example.com/orchestrators
     ```
 
@@ -317,7 +314,7 @@ How your AI gateway finds orchestrators depends on your operational mode.
   <Accordion title="On-chain discovery (-aiServiceRegistry)" icon="link">
     On-chain AI Gateways use the AI service registry for automatic Orchestrator discovery:
 
-    ```bash
+    ```bash icon="terminal"
     -aiServiceRegistry
     ```
 
@@ -349,8 +346,7 @@ If no orchestrator matches both criteria, the request fails with an error. If mu
 
 Orchestrators load models into GPU memory. A model loaded and ready to serve immediately is "warm". A model that must be downloaded or loaded from disk before it can serve is "cold". Cold starts add seconds to minutes of latency for the first request. Warm models respond in milliseconds.
 
-During the current beta phase, orchestrators support one warm model per GPU. {/* REVIEW: confirm whether warm-per-GPU limit has changed since beta - check v1--models-config.mdx for current status */}
-
+During the current beta phase, orchestrators support one warm model per GPU.
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 {/* ============================================================
     6. GATEWAY COMPONENTS (AI-SPECIFIC)
@@ -366,7 +362,7 @@ During the current beta phase, orchestrators support one warm model per GPU. {/*
   arrow
 />
 
-The AI pipeline uses several components that do not exist in the video pipeline:
+The AI pipeline uses multiple components that do not exist in the video pipeline:
 
 <AccordionGroup>
   <Accordion title="AISessionManager" icon="gear">
@@ -376,7 +372,7 @@ The AI pipeline uses several components that do not exist in the video pipeline:
     Handles media streaming for real-time AI pipelines (ComfyStream and live-video-to-video). MediaMTX manages the stream lifecycle and frame routing between the gateway and the AI worker.
   </Accordion>
   <Accordion title="Trickle protocol" icon="droplet">
-    Enables efficient low-latency streaming for real-time AI video pipelines. The Trickle protocol incrementally delivers video frames to the AI worker rather than buffering full segments, keeping end-to-end latency low for live AI effects.
+ Enables efficient low-latency streaming for real-time AI video pipelines. The Trickle protocol incrementally delivers video frames to the AI worker instead of buffering full segments, keeping end-to-end latency low for live AI effects.
   </Accordion>
   <Accordion title="ai_process.go workflow" icon="diagram-project">
     The `server/ai_process.go` file defines the core AI job workflow: authenticate the request, select a capable orchestrator, process the payment (off-chain for standard AI), and manage the live AI pipeline session. This is where per-pixel pricing calculations happen for image pipelines.
@@ -394,7 +390,7 @@ If an orchestrator fails to return a result (timeout, model not loaded, GPU erro
 
 The retry timeout is controlled by:
 
-```bash
+```bash icon="terminal"
 -aiProcessingRetryTimeout 30s
 ```
 
@@ -415,12 +411,9 @@ The value accepts Go duration format: `30s`, `1m`, `2m30s`. For pipelines that u
 
     - **Remote signer with PM tickets (primary):** The gateway uses the Livepeer probabilistic micropayment system with an off-chain remote signer. This is the standard production path for SPE operators.
     - **Direct billing (alternative):** Payment is handled entirely outside the Livepeer PM system - typically via a direct billing arrangement with orchestrator operators, or by running your own orchestrator.
+Start command (minimum flags for direct billing):
 
-    {/* REVIEW: confirm remote signer PM path details for off-chain AI with Rick/j0sh - does it use -remoteSigner flag? */}
-
-    Start command (minimum flags for direct billing):
-
-    ```bash
+    ```bash icon="terminal"
     livepeer \
       -gateway \
       -orchAddr https://orch1.example.com:8935 \
@@ -434,17 +427,14 @@ The value accepts Go duration format: `30s`, `1m`, `2m30s`. For pipelines that u
 
     Additional flags required for on-chain AI:
 
-    ```bash
+    ```bash icon="terminal"
     -network arbitrum-one-mainnet
     -ethUrl https://arb1.arbitrum.io/rpc    # replace with your own RPC
     -ethKeystorePath /root/.lpData/arbitrum-one-mainnet/keystore
     -ethAcctAddr <YOUR_ETH_ADDRESS>
     -ethPassword /root/.lpData/.eth_secret
     ```
-
-    {/* REVIEW: confirm whether -aiServiceRegistry flag is still required for on-chain AI - check with Rick */}
-
-    See Dual Gateway Configuration for the complete on-chain AI setup guide.
+See Dual Gateway Configuration for the complete on-chain AI setup guide.
   </Tab>
 </Tabs>
 
@@ -494,7 +484,7 @@ The AI inference stack requires a CUDA/GPU toolchain that is only available on L
 
 **Workaround for Windows/macOS testing:** Run the `ai-runner` Docker container on a Linux machine or cloud instance. Docker on Linux is the standard production deployment method.
 
-```bash
+```bash icon="terminal"
 # Docker on Linux - standard AI gateway deployment
 docker run \
   --name livepeer_ai_gateway \
@@ -545,9 +535,6 @@ There is no single registry that lets operators query all available models and p
     </TableRow>
   </tbody>
 </StyledTable>
-
-{/* REVIEW: confirm /getNetworkCapabilities endpoint path and response format with Rick/j0sh. */}
-
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Related Pages
@@ -572,7 +559,6 @@ There is no single registry that lets operators query all available models and p
     Full endpoint reference for all AI pipelines.
   </Card>
 </CardGroup>
-
 
 {/* ---
 title: 'AI Inference Pipeline'

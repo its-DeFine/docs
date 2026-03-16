@@ -4,6 +4,7 @@ sidebarTitle: Proposals
 description: >-
   Formal structure and execution semantics of treasury proposals as
   governance-authorized on-chain actions.
+pageType: concept
 keywords:
   - livepeer
   - lpt
@@ -18,7 +19,8 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: delegator
-purpose: how_to
+lastVerified: 2026-03-17
+purpose: concept
 ---
 import { MathInline, MathBlock } from '/snippets/components/content/math.jsx'
 
@@ -49,7 +51,7 @@ This page defines the structure of treasury proposal payloads, their execution s
   </Step>
 </Steps>
 
----
+<CustomDivider />
 
 ## 1. Formal Definition
 
@@ -69,7 +71,7 @@ Where:
 
 The proposal passes through governance and executes after timelock.
 
----
+<CustomDivider />
 
 ## 2. Governance Authorization
 
@@ -135,7 +137,7 @@ Recipient balance increases by <MathInline latex={String.raw`A`} /> under the as
 
 ## 6. Failure Modes
 
-Treasury proposal execution can fail for several reasons.
+Treasury proposal execution can fail for multiple reasons.
 
 ### 6.1 Calldata Error
 
@@ -191,7 +193,7 @@ flowchart TD
     Execute -->|revert| Failed
 ```
 
----
+<CustomDivider />
 
 ## 9. Protocol vs Network Separation
 
@@ -208,7 +210,7 @@ flowchart TD
 
 Treasury proposals are enforced by protocol logic; outcomes require off-chain delivery.
 
----
+<CustomDivider />
 
 ## References
 

@@ -20,7 +20,7 @@ keywords:
 'og:image:height': 630
 pageType: 'overview'
 audience: 'gateway-operator'
-purpose: 'navigation'
+purpose: overview
 status: 'current'
 lastVerified: '2026-03-13'
 ---
@@ -38,11 +38,11 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { CenteredContainer, BorderedBox } from '/snippets/components/layout/containers.jsx'
 
-<CenteredContainer style={{ width: '90%' }}>
+<CenteredContainer preset="readable90">
   <Tip>This page helps you navigate the gateway documentation. Whether you're evaluating, building, or scaling  - start here to find the shortest path to what you need.</Tip>
 </CenteredContainer>
 
----
+<CustomDivider />
 
 ## What's your goal?
 
@@ -53,7 +53,7 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
     **Your path:**
     1. <LinkArrow href="/v2/gateways/concepts/role" label="Understand the gateway role" newline={false} />  - what gateways do and don't do
     2. <LinkArrow href="/v2/gateways/quickstart/gateway-setup" label="Quickstart" newline={false} />  - gateway running in minutes via Docker
-    3. <LinkArrow href="/v2/gateways/guides/job-pipelines/ai-inference" label="AI inference pipelines" newline={false} />  - supported models, request formats, capabilities
+    3. <LinkArrow href="/v2/gateways/guides/node-pipelines/ai-pipelines" label="AI inference pipelines" newline={false} />  - supported models, request formats, capabilities
     4. <LinkArrow href="/v2/gateways/guides/roadmap-and-funding/operator-support" label="Operator opportunities" newline={false} />  - business models for AI gateway operators
 
     <Note>Off-chain gateways use a remote signer for payments - zero crypto knowledge needed at the gateway layer.</Note>
@@ -147,7 +147,7 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
   </tbody>
 </StyledTable>
 
-<Note>Running both video and AI workloads from a single node ("dual configuration") is a workload setup choice, not an operational mode. An on-chain gateway supports all workload types. See <LinkArrow href="/v2/gateways/guides/setup-options/path-requirements#dual-ai-video" label="Dual gateway configuration" newline={false} /> for details.</Note>
+<Note>Running both video and AI workloads from a single node ("dual configuration") is a workload setup choice, not an operational mode. An on-chain gateway supports all workload types. See <LinkArrow href="/v2/gateways/setup/configure/dual-configuration" label="Dual gateway configuration" newline={false} /> for details.</Note>
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
@@ -200,7 +200,7 @@ The gateway documentation follows a six-section structure. Each section builds o
 
     Eight subsections covering setup paths, job pipelines, payments, monitoring, advanced operations, opportunities, and tutorials. Dip into whichever topic you need  - see the deep-dive section below.
 
-    <LinkArrow href="/v2/gateways/guides/setup-options/setup-paths" label="Explore guides →" newline={false} />
+    <LinkArrow href="/v2/gateways/guides/deployment-details/setup-options" label="Explore guides →" newline={false} />
   </StyledStep>
 
   <StyledStep title="Opportunities" icon="rocket">
@@ -230,20 +230,20 @@ Each guides subsection covers a specific operational area. Expand any topic to s
   <Accordion title="Setup Paths" icon="route">
     Compare on-chain vs off-chain, SDK alternatives, and dual-gateway configuration. Helps you pick the right setup approach before starting installation.
 
-    - <LinkArrow href="/v2/gateways/guides/setup-options/setup-paths" label="Gateway setup paths overview" newline={false} />
-    - <LinkArrow href="/v2/gateways/guides/setup-options/setup-paths#on-chain-vs-off-chain-the-key-split" label="On-chain vs off-chain comparison" newline={false} />
-    - <LinkArrow href="/v2/gateways/guides/setup-options/path-requirements#sdk-alternative" label="SDK & alternative gateways" newline={false} />
-    - <LinkArrow href="/v2/gateways/guides/setup-options/path-requirements#dual-ai-video" label="Dual gateway configuration" newline={false} />
+    - <LinkArrow href="/v2/gateways/guides/deployment-details/setup-options" label="Gateway setup paths overview" newline={false} />
+    - <LinkArrow href="/v2/gateways/guides/deployment-details/setup-options" label="On-chain vs off-chain comparison" newline={false} />
+    - <LinkArrow href="/v2/gateways/guides/deployment-details/setup-options" label="SDK & alternative gateways" newline={false} />
+    - <LinkArrow href="/v2/gateways/setup/configure/dual-configuration" label="Dual gateway configuration" newline={false} />
   </Accordion>
 
   <Accordion title="AI & Job Pipelines" icon="microchip">
     Understand every workload type gateways can route  - video transcoding, AI inference, BYOC custom pipelines, and pipeline configuration.
 
-    - <LinkArrow href="/v2/gateways/guides/job-pipelines/overview" label="Pipeline overview" newline={false} />
-    - <LinkArrow href="/v2/gateways/guides/job-pipelines/video-transcoding" label="Video transcoding pipelines" newline={false} />
-    - <LinkArrow href="/v2/gateways/guides/job-pipelines/ai-inference" label="AI inference pipelines" newline={false} />
-    - <LinkArrow href="/v2/gateways/guides/job-pipelines/byoc-pipelines" label="BYOC custom pipelines" newline={false} />
-    - <LinkArrow href="/v2/gateways/guides/job-pipelines/pipeline-configuration" label="Pipeline configuration" newline={false} />
+    - <LinkArrow href="/v2/gateways/guides/node-pipelines/guide" label="Pipeline overview" newline={false} />
+    - <LinkArrow href="/v2/gateways/guides/node-pipelines/video-pipelines" label="Video transcoding pipelines" newline={false} />
+    - <LinkArrow href="/v2/gateways/guides/node-pipelines/ai-pipelines" label="AI inference pipelines" newline={false} />
+    - <LinkArrow href="/v2/gateways/guides/node-pipelines/byoc-pipelines" label="BYOC custom pipelines" newline={false} />
+    - <LinkArrow href="/v2/gateways/guides/node-pipelines/pipeline-configuration" label="Pipeline configuration" newline={false} />
   </Accordion>
 
   <Accordion title="Payments & Pricing" icon="credit-card">
@@ -297,7 +297,7 @@ Each guides subsection covers a specific operational area. Expand any topic to s
 
 | Persona | Start here | Continue with | Reference when needed |
 |---|---|---|---|
-| **AI app developer** | [Quickstart](/v2/gateways/quickstart/gateway-setup) | [AI pipelines](/v2/gateways/guides/job-pipelines/ai-inference) | [Pricing strategy](/v2/gateways/guides/payments-and-pricing/pricing-strategy) |
+| **AI app developer** | [Quickstart](/v2/gateways/quickstart/gateway-setup) | [AI pipelines](/v2/gateways/guides/node-pipelines/ai-pipelines) | [Pricing strategy](/v2/gateways/guides/payments-and-pricing/pricing-strategy) |
 | **Video platform** | [Requirements](/v2/gateways/setup/requirements/setup) | [Video config](/v2/gateways/setup/configure/video-configuration) | [Troubleshooting](/v2/gateways/guides/monitoring-and-tooling/troubleshooting) |
 | **Platform builder** | [Business model](/v2/gateways/concepts/business-model) | [NaaP guide](/v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy) | [Middleware](/v2/gateways/guides/advanced-operations/gateway-middleware) |
 | **Evaluating** | [Gateway role](/v2/gateways/concepts/role) | [Capabilities](/v2/gateways/concepts/capabilities) | [Ecosystem](/v2/gateways/guides/roadmap-and-funding/gateway-showcase) |
@@ -318,7 +318,7 @@ Each guides subsection covers a specific operational area. Expand any topic to s
   <Card title="Business Model" icon="chart-line" href="/v2/gateways/concepts/business-model" arrow>
     How operators earn revenue.
   </Card>
-  <Card title="AI Pipelines" icon="microchip" href="/v2/gateways/guides/job-pipelines/ai-inference" arrow>
+  <Card title="AI Pipelines" icon="microchip" href="/v2/gateways/guides/node-pipelines/ai-pipelines" arrow>
     Supported models and request formats.
   </Card>
   <Card title="Payments" icon="credit-card" href="/v2/gateways/guides/payments-and-pricing/payment-guide" arrow>

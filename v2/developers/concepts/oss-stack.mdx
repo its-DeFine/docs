@@ -5,6 +5,7 @@ description: >-
   Maps the main Livepeer open-source repositories — go-livepeer,
   livepeer-protocol, ai-worker, comfystream, and livepeer.js — and explains how
   they connect, for developers wanting to contribute.
+purpose: concept
 keywords:
   - livepeer
   - open source
@@ -22,14 +23,14 @@ keywords:
 'og:image:height': 630
 pageType: concept
 audience: developer
+lastVerified: 2026-03-17
 status: draft
 ---
-
 The Livepeer network is built entirely in the open. Every component — from the Go node implementation to the Solidity staking contracts to the AI inference runtime — lives in public repositories on GitHub under the `livepeer` organisation.
 
 This page maps the main repos, explains how they connect, and points you to the right starting point for the kind of contribution you want to make.
 
----
+<CustomDivider />
 
 ## Repo map
 
@@ -45,7 +46,7 @@ This page maps the main repos, explains how they connect, and points you to the 
 
 [//]: # (REVIEW: Confirm whether livepeer.js has fully moved to livepeer/ui-kit or if both repos remain active. Verify with Rick. Also confirm livepeer/pipelines repo purpose — it appears to be a newer product repo separate from go-livepeer.)
 
----
+<CustomDivider />
 
 ## How the repos connect
 
@@ -57,7 +58,7 @@ This page maps the main repos, explains how they connect, and points you to the 
 
 `livepeer.js` / `ui-kit` is independent of the above. It is the application SDK for developers building Studio-integrated video apps — stream playback, upload, asset management. It does not interact with `go-livepeer` directly.
 
----
+<CustomDivider />
 
 ## Where to start contributing
 
@@ -72,7 +73,7 @@ This page maps the main repos, explains how they connect, and points you to the 
 
 All repositories accept pull requests. The `go-livepeer` README links directly to a contributing guide. For `ai-worker` and `comfystream`, open issues are the best starting point — ask in the relevant Discord channel (`#comfystream`, `#developers`, `#protocol-development`) before starting work on anything substantial.
 
----
+<CustomDivider />
 
 ## Contributing pathways
 
@@ -80,11 +81,11 @@ Most contributions start informally — a bug fix, a PR on an issue you ran into
 
 The Livepeer ecosystem funds independent development through **Special Purpose Entities (SPEs)** — focused teams that propose specific work to the community treasury, receive a LPT grant on approval, and are accountable to the community for delivery. Active SPEs cover AI infrastructure (Cloud SPE, MuxionLabs/AI SPE), protocol security (Sidestream), network-as-a-platform tooling (Cloud SPE / NaaP), governance (GovWorks), and video infrastructure (Streamplace).
 
-The path from contributor to SPE grantee is not formal — it runs through the Forum. A team builds a track record, drafts a pre-proposal, collects community feedback, then submits a full treasury proposal for a governance vote. SPE funding is ongoing (monthly or milestone-based) rather than a one-time grant.
+The path from contributor to SPE grantee is not formal — it runs through the Forum. A team builds a track record, drafts a pre-proposal, collects community feedback, then submits a full treasury proposal for a governance vote. SPE funding is ongoing (monthly or milestone-based) instead of a one-time grant.
 
 For the full picture on current opportunities, open roles within SPEs, and how to get involved, see [OSS Opportunities](/v2/developers/opportunities/oss-contributions).
 
----
+<CustomDivider />
 
 ## Next steps
 

@@ -5,6 +5,7 @@ description: >-
   Explains the three AI pipeline categories on the Livepeer network — batch
   inference, real-time AI (live-video-to-video), and LLM — so you can choose the
   right path for your workload.
+purpose: concept
 keywords:
   - livepeer
   - AI
@@ -23,10 +24,10 @@ keywords:
 'og:image:height': 630
 pageType: concept
 audience: developer
+lastVerified: 2026-03-17
 status: draft
 ---
-
-The Livepeer network supports three distinct categories of AI pipeline. Each one works differently at the protocol level — different connection models, different billing, different GPU requirements — and each one suits a different class of workload. Understanding which category fits your use case before you start building will save you significant time.
+The Livepeer network supports three distinct categories of AI pipeline. Each one works differently at the protocol level — different connection models, different billing, different GPU requirements — and each one suits a different class of workload. Understanding which category fits your use case before you start building will save you time and rework.
 
 ## Pipeline Categories at a Glance
 
@@ -36,7 +37,7 @@ The Livepeer network supports three distinct categories of AI pipeline. Each one
 | Real-time AI | Persistent stream → continuous frame-by-frame output | Live video transformation, VTuber avatars, generative overlays | ComfyStream |
 | LLM | Text in → text out (OpenAI-compatible) | Chatbots, agents, copilots, text inference | LLM API (Ollama-based) |
 
----
+<CustomDivider />
 
 ## Batch AI Pipelines
 
@@ -63,7 +64,7 @@ Batch pipelines are accessed through the AI Gateway API. Multiple gateway provid
 
 **Where to start:** [AI Quickstart](/v2/developers/get-started/ai-quickstart)
 
----
+<CustomDivider />
 
 ## Real-Time AI
 
@@ -93,11 +94,11 @@ Use cases enabled by real-time AI on Livepeer:
 
 **Where to start:** [ComfyStream Quickstart](/v2/developers/get-started/comfystream-quickstart)
 
----
+<CustomDivider />
 
 ## LLM Pipeline
 
-The LLM pipeline brings text inference to the Livepeer network using an Ollama-based runner with an OpenAI-compatible API. From a developer's perspective, it works like any other OpenAI-compatible chat completions endpoint — the difference is that your requests are routed to decentralised GPU operators rather than a centralised cloud provider.
+The LLM pipeline brings text inference to the Livepeer network using an Ollama-based runner with an OpenAI-compatible API. From a developer's perspective, it works like any other OpenAI-compatible chat completions endpoint — the difference is that your requests are routed to decentralised GPU operators instead of a centralised cloud provider.
 
 The LLM pipeline runs on a wider range of GPU hardware than diffusion-based batch pipelines — an orchestrator needs as little as 8 GB of VRAM to serve LLM workloads, making it accessible to a larger pool of network participants.
 
@@ -113,7 +114,7 @@ The LLM pipeline is suited for applications that need:
 
 [//]: # (REVIEW: Confirm whether a separate LLM-specific quickstart exists or is planned. If yes, update link.)
 
----
+<CustomDivider />
 
 ## Choose Your Path
 
@@ -130,7 +131,7 @@ The LLM pipeline is suited for applications that need:
 If you are unsure whether your workload is batch or real-time, ask: does your application need to transform a live stream continuously, or does it process one piece of media at a time? Continuous live transformation → real-time AI. One-at-a-time processing → batch AI.
 </Note>
 
----
+<CustomDivider />
 
 ## Next Steps
 

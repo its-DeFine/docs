@@ -13,7 +13,7 @@ keywords:
   - operator
 og:image: /snippets/assets/site/og-image/fallback.png
 pageType: guide
-audience: gateway
+audience: gateway-operator
 purpose: concept
 status: current
 lastVerified: '2026-03-13'
@@ -101,7 +101,7 @@ BYOC routing treats capabilities as stable API contracts, not model names. Orche
 
 This means orchestrators can update models without breaking your routing, multiple orchestrators can compete to serve the same capability, and performance-based routing automatically favours faster or cheaper implementations.
 
-<Note> **Anti-pattern:** Coupling your routing to model names. If you are making routing decisions based on `SG161222/RealVisXL_V4.0_Lightning` rather than `image-to-image`, you are working against the architecture. </Note>
+<Note> **Anti-pattern:** Coupling your routing to model names. If you are making routing decisions based on `SG161222/RealVisXL_V4.0_Lightning` instead of `image-to-image`, you are working against the architecture. </Note>
 
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
@@ -164,7 +164,7 @@ These constraints apply to BYOC containers on the network. Gateway operators enf
 
 ## Health Tracking
 
-BYOC routing requires per-capability health tracking rather than per-orchestrator tracking. An orchestrator may serve `image-to-image` perfectly while its `depth` capability is degraded. Track them independently.
+BYOC routing requires per-capability health tracking instead of per-orchestrator tracking. An orchestrator may serve `image-to-image` perfectly while its `depth` capability is degraded. Track them independently.
 
 BYOC containers may have longer cold-start times than standard `ai-runner` pipelines. See <LinkArrow href="./pipeline-configuration" label="Pipeline Configuration" newline={false} /> for retry timeout settings (`-aiProcessingRetryTimeout`).
 

@@ -49,7 +49,7 @@ This tutorial builds a custom AI pipeline using PyTrickle, packages it as a Dock
 
 ## Architecture
 
-```
+``` icon="terminal"
 HTTP client (test job)
      |
      v
@@ -88,9 +88,6 @@ The trickle protocol is a simple HTTP-based streaming convention:
 1. The Orchestrator calls the container's `PUT /live/{job_id}/source` - the **input stream** (frames, audio, or arbitrary bytes)
 2. The container processes the data and writes results to `GET /live/{job_id}/output` - the **output stream** the Orchestrator pulls
 3. PyTrickle abstracts both sides: implement a `FrameProcessor` that receives data and returns data
-
-{/* REVIEW: Verify FrameProcessor is the current class name in pytrickle. The repo may use process_video_async() instead. */}
-
 ```python icon="code" Pattern
 async def process(self, frame: bytes) -> bytes:
     # Transform frame and return result
@@ -150,7 +147,6 @@ New for this tutorial:
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
 
-
     class GreenTintProcessor(FrameProcessor):
         """
         Applies a simple green channel boost to every frame.
@@ -174,7 +170,6 @@ New for this tutorial:
         async def shutdown(self):
             """Called when the job ends."""
             logger.info("GreenTintProcessor: shutdown")
-
 
     if __name__ == "__main__":
         asyncio.run(run_processor(GreenTintProcessor(), port=8000))
@@ -243,10 +238,7 @@ New for this tutorial:
 
   <StyledStep title="Test in isolation" icon="flask-vial">
     Before connecting to the Orchestrator, verify the container works standalone.
-
-    {/* REVIEW: The http-trickle package (j0sh/http-trickle) is a Go project, NOT pip-installable. This testing step needs verification. The container may need to be tested via direct HTTP calls instead. */}
-
-    ### Run the container
+### Run the container
 
     ```bash icon="terminal" Run Container
     docker run -d \
@@ -395,7 +387,7 @@ New for this tutorial:
   </StyledStep>
 
   <StyledStep title="Optional: Whisper-tiny inference" icon="microphone">
-    Once the green-tint passthrough works, swap the processor for a real AI model. Whisper-tiny (79M parameters) runs on CPU.
+    Once the green-tint passthrough works, swap the processor for a full AI model. Whisper-tiny (79M parameters) runs on CPU.
 
     <Note>
     Whisper-tiny on CPU is approximately 10x slower than real-time on a modern laptop. It is a functional proof - the same code runs at real-time with GPU acceleration (Tutorial 3).
@@ -424,7 +416,6 @@ New for this tutorial:
 
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
-
 
     class WhisperProcessor:
         async def initialize(self):
@@ -488,7 +479,7 @@ New for this tutorial:
 
 A complete custom AI pipeline was built and deployed on the Livepeer network without a GPU:
 
-```
+``` icon="terminal"
 test_byoc_job.py
   +-> POST to Gateway:8935 (model_id=green-tint-cpu)
         +-> Gateway routes to Orchestrator:8936 (BYOC HTTP, not gRPC)

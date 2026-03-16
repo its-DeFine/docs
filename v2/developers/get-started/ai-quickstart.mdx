@@ -17,11 +17,9 @@ keywords:
 'og:image:height': 630
 pageType: quickstart
 audience: developer
+lastVerified: 2026-03-17
 purpose: concept
 ---
-
-# AI Jobs Quickstart
-
 Submit your first AI inference job through a Livepeer gateway, verify the response shape, and then branch into more advanced pipelines.
 
 ## AI-ready summary (for humans and assistants)
@@ -53,7 +51,7 @@ As of 02-March-2026, Studio-managed AI requests use this beta base URL.
 
 Minimal connectivity check:
 
-```bash
+```bash icon="terminal"
 curl -sS \
   -H "Authorization: Bearer $LIVEPEER_STUDIO_API_KEY" \
   https://livepeer.studio/api/beta/generate/health
@@ -69,7 +67,7 @@ If auth and routing are working, you should receive a JSON response from the hea
 
 `model_id` is required by the spec. Use a stakeholder-approved model ID for production docs.
 
-```json
+```json icon="terminal"
 {
   "model_id": "<MODEL_ID>",
   "prompt": "A cinematic still of a lighthouse on a rocky coast at sunrise",
@@ -81,7 +79,7 @@ If auth and routing are working, you should receive a JSON response from the hea
 
 ### Example curl request
 
-```bash
+```bash icon="terminal"
 curl -sS \
   -X POST "https://livepeer.studio/api/beta/generate/text-to-image" \
   -H "Authorization: Bearer $LIVEPEER_STUDIO_API_KEY" \
@@ -105,7 +103,7 @@ The AI gateway spec defines `ImageResponse` as an object with an `images` array.
 
 Example response shape (trimmed to the fields defined in the spec):
 
-```json
+```json icon="terminal"
 {
   "images": [
     {

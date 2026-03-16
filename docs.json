@@ -2807,7 +2807,7 @@
                           "v2/orchestrators/concepts/role",
                           "v2/orchestrators/concepts/capabilities",
                           "v2/orchestrators/concepts/architecture",
-                          "v2/orchestrators/concepts/rcs-incentives"
+                          "v2/orchestrators/concepts/incentive-model"
                         ]
                       },
                       {
@@ -4195,7 +4195,7 @@
     },
     {
       "source": "/v2/orchestrators/concepts/economics",
-      "destination": "/v2/orchestrators/concepts/rcs-incentives"
+      "destination": "/v2/orchestrators/concepts/incentive-model"
     },
     {
       "source": "/v2/orchestrators/concepts/job-types",

@@ -6,6 +6,8 @@ description: >-
   engagement and demonstrates how the RFP's three overarching themes for
   **stakeholder-focused**, **AI-first**, and **future-proofed** documentation,
   were delivered across every layer of the system.
+purpose: operations
+pageType: guide
 keywords:
   - livepeer
   - internal
@@ -19,8 +21,8 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: internal
+lastVerified: 2026-03-17
 ---
-
 import { Quote } from "/snippets/components/content/quote.jsx";
 import { TabsContainer } from "/snippets/components/layout/containers.jsx";
 import { YouTubeVideo } from "/snippets/components/content/video.jsx";
@@ -50,7 +52,7 @@ import { PdfEmbed } from "/snippets/components/data/embed.jsx";
         reliability as humans. Semantic structure, consistent metadata, and
         machine-readable formats are first-class requirements.
 
-        - **Executability** - Docs can be acted on by AI agents, not just read.
+ - **Executability** - Docs can be acted on by AI agents, beyond read.
         Instructions are structured as explicit, verifiable steps an agent can
         follow to completion.
 
@@ -102,14 +104,14 @@ import { PdfEmbed } from "/snippets/components/data/embed.jsx";
 
         - **[Scripts]** Pages index generator (tools/scripts/generate-pages-index.js) produces and validates section-level index.mdx files for all v2/pages/ folders plus a root aggregate index. This index is machine-readable and provides AI systems with a flat, navigable inventory of all documentation surfaces without requiring a site crawl.
 
-        - **[Scripts]** generate-seo.js produces structured metadata (title, description, keywords, og:image) across all pages in a consistent schema - making frontmatter reliably parseable as structured data. AI systems extracting page-level metadata receive a consistent, complete signal rather than ad-hoc per-page variations.
+ - **[Scripts]** generate-seo.js produces structured metadata (title, description, keywords, og:image) across all pages in a consistent schema - making frontmatter reliably parseable as structured data. AI systems extracting page-level metadata receive a consistent, complete signal instead of ad-hoc per-page variations.
 
         - **[AI]** llms.txt file at the documentation root provides the emerging standard entry point for LLM agent discovery - analogous to robots.txt for search engines. Structured at tools/ai-rules/llms.txt.information.md, this file directs AI systems to the most important content surfaces, canonical URL patterns, and any consumption guidance specific to Livepeer documentation.
 
         - **[Technical]** Repository AI guidance files (`AGENTS.md` plus the native adapter paths) make the documentation repository itself legible to AI coding assistants - enabling developers using AI tools to query and navigate the docs repo without human instruction.
 
         ## Readability - Clear Journeys & Implementation Items for AI Consumers
-        Beyond discoverability, AI-first documentation provides structured, actionable journeys explicitly designed for AI agent execution. v2 introduces several novel documentation patterns in this category.
+ Beyond discoverability, AI-first documentation provides structured, actionable journeys explicitly designed for AI agent execution. v2 introduces multiple novel documentation patterns in this category.
         - **"Get AI to Set Up the Gateway"** - Dedicated quickstart (v2/pages/04_gateways/quickstart/AI-prompt.mdx) written as a structured prompt for AI agent consumption. Developers copy and paste the prompt into their AI assistant to set up a Livepeer gateway. Establishes a "copy to AI" quickstart pattern extendable across the library.
 
         - **Agent-oriented Structure** - All quickstart and how-to pages follow Diátaxis typing for reliable agent task decomposition. Tutorials provide explicit preconditions, step sequences, verification criteria, and failure modes-critical for AI agent execution reliability.
@@ -134,7 +136,7 @@ import { PdfEmbed } from "/snippets/components/data/embed.jsx";
         ## Constraints
         Full AEO (Answer Engine Optimization) beyond semantic structure has not been explicitly audited. Structured data markup (JSON-LD) has not been verified across all pages.
         Analytics tracking at anchor level was not implemented, meaning there is no feedback signal yet for which sections LLMs are retrieving most frequently.
-        These represent the next-generation AEO layer rather than a failure of the current implementation.
+ These represent the next-generation AEO layer instead of a failure of the current implementation.
 
     </Tab>
     <Tab title="Future-proofed" icon="space-station-moon-construction">
@@ -167,9 +169,9 @@ import { PdfEmbed } from "/snippets/components/data/embed.jsx";
         - The infrastructure is platform-independent where possible, avoiding lock-in to any single vendor */}
 
         ### Designing for Longevity
-        Three platform IA options were evaluated for long-term maintainability, not just initial delivery speed. Diátaxis was adopted as the content framework specifically because its four-type categorisation (tutorials, how-to guides, explanations, references) is technology-agnostic and widely understood - any contributor, AI tool, or future maintainer can apply it without bespoke training.
+ Three platform IA options were evaluated for long-term maintainability, beyond initial delivery speed. Diátaxis was adopted as the content framework specifically because its four-type categorisation (tutorials, how-to guides, explanations, references) is technology-agnostic and widely understood - any contributor, AI tool, or future maintainer can apply it without bespoke training.
 
-        The contribution model was designed from the outset to support open-source contribution via GitHub PRs, not just internal authorship. Issue templates, PR templates, CODEOWNERS, and a Discord issue intake workflow make external contribution low-friction. The governance.mdx and source-of-truth-policy.md documents define canonical ownership boundaries so contributors know exactly where content authority lives.
+ The contribution model was designed from the outset to support open-source contribution via GitHub PRs, beyond internal authorship. Issue templates, PR templates, CODEOWNERS, and a Discord issue intake workflow make external contribution low-friction. The governance.mdx and source-of-truth-policy.md documents define canonical ownership boundaries so contributors know exactly where content authority lives.
 
         ### Implementation: How v2 Delivers Future-Proofing
         - **[Technical]** 58-script test and maintenance suite: MDX validity tests, import correctness, style compliance, browser validation, script self-documentation enforcement, pages catalog synchronisation, and automated quality gates. New scripts cannot enter the codebase without self-documenting headers. New pages must pass structural validation before merge.
@@ -202,7 +204,7 @@ import { PdfEmbed } from "/snippets/components/data/embed.jsx";
 
         - **[Scripts]** audit-scripts.js audits the full repository for executable scripts, categorises usage and overlap, and overwrites SCRIPT_AUDIT reports. Auto-fixes where possible (e.g. regenerating stale indexes, patching missing headers). The system finds and reports its own gaps.
 
-        - **[Technical]** Pre-commit auto-fix behaviour: the pre-commit hook system not only blocks invalid commits but, where possible, auto-corrects fixable issues (stale page indexes, missing script headers via autofill flag) before the author even sees a failure. Quality improvement is built into the commit workflow rather than deferred to code review.
+        - **[Technical]** Pre-commit auto-fix behaviour: the pre-commit hook system not only blocks invalid commits but, where possible, auto-corrects fixable issues (stale page indexes, missing script headers via autofill flag) before the author even sees a failure. Quality improvement is built into the commit workflow instead of deferred to code review.
 
         ### Auto-Documenting Infrastructure
         A documentation system that requires humans to manually document its own components will inevitably fall out of sync. v2 eliminates this category of drift by making the infrastructure self-documenting.
@@ -222,7 +224,7 @@ import { PdfEmbed } from "/snippets/components/data/embed.jsx";
         Constraint - full pipeline activation: the translation pipeline architecture is in place, but no translated content has been published. Activation requires a decision on target languages (prioritised by ecosystem geography), a translation vendor or workflow, and Foundation resourcing for ongoing translation maintenance. This is a resourcing and prioritisation decision, not a technical gap.
 
         ### Constraints
-        The canonical changelog remains the most significant unresolved future-proofing gap. Without a single source of truth for version history, content drift between releases and documentation is inevitable.
+        The canonical changelog remains the largest unresolved future-proofing gap. Without a single source of truth for version history, content drift between releases and documentation is inevitable.
 
         This requires upstream coordination: each product team (Studio, AI worker, network contracts, gateway) must adopt a shared release note format and a consolidation pipeline.
         The tooling to automate this exists; the governance model does not yet.
@@ -274,7 +276,7 @@ import { PdfEmbed } from "/snippets/components/data/embed.jsx";
         - **[UX]** Three IA options were evaluated before selection: persona-first with Diátaxis structure, job-type-first navigation, and System Map + Reference Bible. Persona-first was selected based on stakeholder interview evidence that users identify with their role, not their task type.
         - **[Copy/Product Positioning]** "Open AI-Infrastructure for Real-Time Interactive Video" positioning established as primary headline, with secondary value propositions tailored per persona. Developers see API-first messaging; Orchestrators see earnings and operational focus; Delegators see participation and governance framing.
         - **[Content]** Content inventory of all v1 pages with deprecation/migration matrix mapping each to: keep, rewrite, move, merge, or deprecate. Recommendations were persona-coded so each stakeholder's section received targeted treatment.
-        - **[DX]** Developer portal with AI Jobs and Transcoding Jobs separated into distinct, labelled paths. Cross-cutting SDK, API, and CLI references consolidated into single canonical hubs rather than duplicated across sections.
+        - **[DX]** Developer portal with AI Jobs and Transcoding Jobs separated into distinct, labelled paths. Cross-cutting SDK, API, and CLI references consolidated into single canonical hubs instead of duplicated across sections.
         - **[Technical]** 14-platform evaluation across 11 criteria - OSS vs SaaS, AI compatibility, contribution model, i18n, versioning, analytics, SEO, cost, speed - selected Mintlify for its componentised MDX system and built-in AI assistant. A working GitBook draft was produced to validate IA assumptions before platform finalisation.
         - **[Internal docs]** docs-guide/frameworks/content-system.mdx codifies the IA model, content layers, and copy principles so any future maintainer can understand the stakeholder-driven design rationale.
         - **[Automations]** Ecosystem project showcase automation (project-showcase-sync.yml) surfaces community projects, making the documentation itself a stakeholder engagement surface. Forum and YouTube automation integrations keep community content current.
@@ -287,7 +289,7 @@ import { PdfEmbed } from "/snippets/components/data/embed.jsx";
         - **Technical** - Resource HUB (v2/pages/07_resources/) consolidates style guide, component library, automations documentation, and documentation guide in a single discoverable section - making the documentation system itself navigable by external contributors without requiring repository access.
 
         ### Clear Definitions - Product Glossary & Terminology System
-        A fundamental requirement for stakeholder-focused documentation is that every reader arrives at a shared understanding of terminology. Livepeer has a complex vocabulary with several terms that require disambiguation: "Gateway" (a protocol-level node) vs. "Studio" (a hosted gateway product); "Orchestrator" vs. the deprecated "Broadcaster"; "Developer" (application builder) vs. "Gateway Operator" (self-hosted network participant). v1 used these terms inconsistently, contributing directly to onboarding confusion.
+ A fundamental requirement for stakeholder-focused documentation is that every reader arrives at a shared understanding of terminology. Livepeer has a complex vocabulary with multiple terms that require disambiguation: "Gateway" (a protocol-level node) vs. "Studio" (a hosted gateway product); "Orchestrator" vs. the deprecated "Broadcaster"; "Developer" (application builder) vs. "Gateway Operator" (self-hosted network participant). v1 used these terms inconsistently, contributing directly to onboarding confusion.
         - **[Content]** Livepeer Glossary (v2/about/resources/livepeer-glossary.mdx) provides a comprehensive, categorised reference covering: Core Terms (Protocol, Network, Developer Platform), Actors & Network Roles (Gateway, Orchestrator, Transcoder, Delegator, Developer, Broadcaster → deprecated), Core Network Concepts (Job, Segment, Ticket, Rounds, Slashing, Inflation, Reputation), Web3 Terms (DePIN, LPT, ETH), Video Terms (Transcoding, Ingest, Delivery, Streaming), and AI Terms (Inference, Model, Pipeline, World Model, Agent).
         - **[Content]** Deprecated term handling is explicit and visible: "Broadcaster" is marked with a deprecation badge (→ See Gateways) directly in the glossary. This prevents new users from following outdated terminology into dead ends.
         - **[Scripts/AI]** Automated terminology pipeline: generate-glossary.js (extraction), terminology-search.js (discovery and cross-page search), glossary-terms.json (machine-readable term data). The pipeline supports optional LLM-assisted classification, enabling the terminology system to scale as new products and concepts enter the Livepeer ecosystem. Both humans and AI assistants querying the docs get consistent term definitions.

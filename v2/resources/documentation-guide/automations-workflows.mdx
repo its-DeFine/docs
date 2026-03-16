@@ -4,6 +4,7 @@ sidebarTitle: Automations & Workflows
 description: >-
   Complete guide to all automation scripts, GitHub Actions workflows, n8n
   automations, and pre-commit hooks in the Livepeer documentation repository
+pageType: concept
 keywords:
   - livepeer
   - resources
@@ -21,9 +22,9 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: everyone
+lastVerified: 2026-03-17
 purpose: concept
 ---
-
 ## Overview
 
 The documentation repository uses multiple automation systems to keep content up-to-date, validate quality, and streamline workflows:
@@ -63,7 +64,7 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 
 **Policy:** ⚠️ Advisory-only while legacy link cleanup is in progress (`continue-on-error: true`)
 
----
+<CustomDivider />
 
 #### Docs CI - Content Quality Suite
 
@@ -92,7 +93,7 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 
 **Exception:** For integration PR `docs-v2 -> main`, changed-file static failures are treated as advisory; browser failures still block.
 
----
+<CustomDivider />
 
 #### SDK Generation
 
@@ -117,7 +118,7 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 **Required secrets:**
 - `SPEAKEASY_API_KEY` - Speakeasy API key for SDK generation
 
----
+<CustomDivider />
 
 #### Docs CI - V2 Browser Sweep
 
@@ -143,7 +144,7 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 - PR comments with test results
 - Artifact: `v2-page-test-report.json`
 
----
+<CustomDivider />
 
 #### Update Livepeer Release Version
 
@@ -171,7 +172,7 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 
 **Audit note:** The March 9, 2026 freshness audit found version drift (`v0.7.7` in `globals.mdx` vs `v0.8.9` upstream) and a path mismatch inside this workflow. Treat the workflow as needing maintainer review before assuming it is healthy.
 
----
+<CustomDivider />
 
 #### Pipeline Freshness Monitor
 
@@ -192,7 +193,7 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 
 **Output:** GitHub Actions step summary only
 
----
+<CustomDivider />
 
 #### Discord Issue Intake (Phase 1)
 
@@ -233,7 +234,7 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 - `snippets/assets/scripts/n8n/README-discord-issue-intake-workflow.md`
 - `.github/workflows/issue-auto-label.yml`
 
----
+<CustomDivider />
 
 #### Issue Auto Label
 
@@ -264,7 +265,7 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 3. Change classification in the issue body and confirm the old `classification:*` label is removed
 4. Confirm the docs-v2 index issue is not auto-labeled with `status: needs-triage`
 
----
+<CustomDivider />
 
 #### Docs v2 Issue Indexer
 
@@ -303,7 +304,7 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 - Unexpected "unclassified" open issues:
   - These are usually legacy issues (pre-classification) or issues created from older Discord intake schema `1.0.0`
 
----
+<CustomDivider />
 
 ### Data Fetching Workflows (GitHub Actions Canonical)
 
@@ -332,7 +333,7 @@ The GitHub Actions implementation is the canonical in-repo path for Ghost, Forum
 
 **Deprecated copy:** `tasks/staging/deprecated-n8n/Forum-To-Mintlify-Latest-Topics.json`
 
----
+<CustomDivider />
 
 #### Update Ghost Blog Data
 
@@ -356,7 +357,7 @@ The GitHub Actions implementation is the canonical in-repo path for Ghost, Forum
 
 **Deprecated copy:** `tasks/staging/deprecated-n8n/Ghost-to-Mintlify.json`
 
----
+<CustomDivider />
 
 #### Update YouTube Data
 
@@ -381,7 +382,7 @@ The GitHub Actions implementation is the canonical in-repo path for Ghost, Forum
 
 **Deprecated copy:** `tasks/staging/deprecated-n8n/YouTube-To-Mintlify.json`
 
----
+<CustomDivider />
 
 ## n8n Automation Workflows
 
@@ -448,7 +449,7 @@ The repository does not prove where the external n8n instance is hosted or which
 - GitHub API token with write access
 - Luma calendar ID: `cal-X93qV3PuUH0wq0f`
 
----
+<CustomDivider />
 
 #### Showcase Overlap (Needs Human Review)
 
@@ -459,7 +460,7 @@ The repository currently contains both `.github/workflows/project-showcase-sync.
 
 Treat these as overlapping automation surfaces until Alison or Rick confirms which external pipeline is still authoritative. A third showcase JSON (`Showcase_To_Mintlify_Pipeline.json`) remains in the repo and appears to be an older prototype with placeholder paths, but it was intentionally left unchanged in this commit.
 
----
+<CustomDivider />
 
 #### Discord Issue Intake (Phase 1)
 
@@ -496,7 +497,7 @@ Treat these as overlapping automation surfaces until Alison or Rick confirms whi
 - `GITHUB_POLL_ATTEMPTS`
 - `GITHUB_POLL_DELAY_MS`
 
----
+<CustomDivider />
 
 ### Archived Superseded n8n Workflows
 
@@ -510,7 +511,7 @@ The following repo-tracked n8n definitions now have copies in `tasks/staging/dep
 **Repository Configuration:** Some n8n workflows may be configured to write to `DeveloperAlly/livepeer-automations` instead of `livepeer/docs`. Before activating, verify the GitHub node is configured to write to the correct repository (`livepeer/docs`) and branch (`docs-v2`).
 </Warning>
 
----
+<CustomDivider />
 
 ### Utility Workflows
 
@@ -544,11 +545,11 @@ The following repo-tracked n8n definitions now have copies in `tasks/staging/dep
 - `optimize` (default: true) - Use palette optimisation
 - `output_path` (optional) - Output file path
 
----
+<CustomDivider />
 
 ## Scripts
 
-Scripts are organized into several directories based on their purpose. All scripts use git-based repo root detection with fallback to `paths.config.json`.
+Scripts are organized into multiple directories based on their purpose. All scripts use git-based repo root detection with fallback to `paths.config.json`.
 
 ### Content Generation Scripts
 
@@ -559,7 +560,7 @@ Scripts are organized into several directories based on their purpose. All scrip
 **Purpose:** Automatically generates and updates SEO metadata for MDX documentation pages
 
 **Usage:**
-```bash
+```bash icon="terminal"
 # Generate the site-level PNG assets and manifest first
 node tools/scripts/snippets/generate-og-images.js
 
@@ -592,7 +593,7 @@ node tools/scripts/snippets/generate-seo.js --file=v2/home/mission-control.mdx
 - After changing OG branding or localized tab labels
 - Before deploying to re-normalize canonical OG metadata
 
----
+<CustomDivider />
 
 #### Generate API Documentation
 
@@ -601,12 +602,12 @@ node tools/scripts/snippets/generate-seo.js --file=v2/home/mission-control.mdx
 **Purpose:** Generates Mintlify API documentation from an OpenAPI specification file
 
 **Usage:**
-```bash
+```bash icon="terminal"
 ./tools/scripts/snippets/generate-api-docs.sh <openapi-spec> <output-dir> <api-name> [github-repo-url]
 ```
 
 **Example:**
-```bash
+```bash icon="terminal"
 ./tools/scripts/snippets/generate-api-docs.sh \
   ai/worker/api/openapi.yaml \
   v2/gateways/references/api-reference/AI-API \
@@ -621,7 +622,7 @@ node tools/scripts/snippets/generate-seo.js --file=v2/home/mission-control.mdx
 4. Outputs a **docs.json navigation snippet** ready to copy-paste
 
 **Output structure:**
-```text
+```text icon="terminal"
 output-dir/
 ├── ai-api.mdx           # Landing page with Base URLs + CardGroups
 ├── text-to-image.mdx    # openapi: post /text-to-image
@@ -631,7 +632,7 @@ output-dir/
 
 **After running:** Copy the outputted JSON snippet into your `docs.json` navigation.
 
----
+<CustomDivider />
 
 #### Update Component Library
 
@@ -640,7 +641,7 @@ output-dir/
 **Purpose:** Generates the published component-library pages from governed component metadata
 
 **Usage:**
-```bash
+```bash icon="terminal"
 npm --prefix tools run components:docs
 ```
 
@@ -657,7 +658,7 @@ npm --prefix tools run components:docs
 - After adding, moving, or removing governed components
 - When localized component-library scaffolds need refreshing
 
----
+<CustomDivider />
 
 ### Data Fetching Scripts
 
@@ -668,7 +669,7 @@ npm --prefix tools run components:docs
 **Purpose:** Fetches OpenAPI specification files from the livepeer/ai-runner repository
 
 **Usage:**
-```bash
+```bash icon="terminal"
 ./tools/scripts/snippets/fetch-openapi-specs.sh
 ```
 
@@ -680,7 +681,7 @@ npm --prefix tools run components:docs
 - `openapi.yaml` - AI Runner API spec
 - `gateway.openapi.yaml` - AI Gateway API spec
 
----
+<CustomDivider />
 
 #### Fetch External Documentation
 
@@ -689,7 +690,7 @@ npm --prefix tools run components:docs
 **Purpose:** Fetches external documentation files from other Livepeer repositories and sanitizes them for MDX compatibility
 
 **Usage:**
-```bash
+```bash icon="terminal"
 ./tools/scripts/snippets/fetch-external-docs.sh
 ```
 
@@ -710,7 +711,7 @@ npm --prefix tools run components:docs
 - Removing HTML comments
 - Converting HTML tags to Markdown equivalents
 
----
+<CustomDivider />
 
 #### Fetch LPT Exchanges
 
@@ -719,7 +720,7 @@ npm --prefix tools run components:docs
 **Purpose:** Fetches LPT exchange listings from CoinGecko API and updates the exchanges page
 
 **Usage:**
-```bash
+```bash icon="terminal"
 ./tools/scripts/snippets/fetch-lpt-exchanges.sh
 ```
 
@@ -733,7 +734,7 @@ npm --prefix tools run components:docs
 - Periodically to update exchange listings
 - Before major releases to ensure current data
 
----
+<CustomDivider />
 
 ### Testing Scripts
 
@@ -744,7 +745,7 @@ npm --prefix tools run components:docs
 **Purpose:** Tests all v2 pages for console errors and rendering issues
 
 **Usage:**
-```bash
+```bash icon="terminal"
 cd tools && npm run test:v2-pages
 # or
 node tools/scripts/test-v2-pages.js
@@ -768,7 +769,7 @@ node tools/scripts/test-v2-pages.js
 **Environment variables:**
 - `MINT_BASE_URL` - Base URL for Mintlify dev server (default: `http://localhost:3000`)
 
----
+<CustomDivider />
 
 ### GitHub Scripts (Used by Workflows)
 
@@ -778,7 +779,7 @@ These scripts are used by GitHub Actions workflows and typically shouldn't be ru
 - **`.github/scripts/fetch-ghost-blog-data.js`** - Fetches Ghost blog data (used by `update-ghost-blog-data.yml`)
 - **`.github/scripts/fetch-youtube-data.js`** - Fetches YouTube data (used by `update-youtube-data.yml`)
 
----
+<CustomDivider />
 
 ## Pre-commit Hooks
 
@@ -788,12 +789,12 @@ Pre-commit hooks automatically run when you attempt to commit code. They enforce
 
 **MANDATORY:** You must install the hooks before making any commits:
 
-```bash
+```bash icon="terminal"
 ./.githooks/install.sh
 ```
 
 Or manually:
-```bash
+```bash icon="terminal"
 cp .githooks/pre-commit .git/hooks/pre-commit
 chmod +x .git/hooks/pre-commit
 ```
@@ -847,7 +848,7 @@ The hooks include headless browser validation that tests MDX files actually rend
 
 For intentional `.allowlist` edits by a human, use:
 
-```bash
+```bash icon="terminal"
 git commit -m "Update .allowlist" --trailer "allowlist-edit=true"
 ```
 
@@ -855,13 +856,13 @@ This keeps all other pre-commit checks enabled.
 
 For intentional file deletions by a human, use:
 
-```bash
+```bash icon="terminal"
 git commit -m "Remove obsolete files" --trailer "allow-deletions=true"
 ```
 
 This also keeps all other pre-commit checks enabled.
 
-```bash
+```bash icon="terminal"
 # Bypass pre-commit hook
 git commit --no-verify -m "message"
 ```
@@ -874,7 +875,7 @@ git commit --no-verify -m "message"
 
 For full details on the hooks, see the [Git Hooks Documentation](/contribute/CONTRIBUTING/GIT-HOOKS.md).
 
----
+<CustomDivider />
 
 ## Running Automations
 
@@ -892,7 +893,7 @@ For full details on the hooks, see the [Git Hooks Documentation](/contribute/CON
 
 Most scripts can be run directly from the command line:
 
-```bash
+```bash icon="terminal"
 # From repository root
 node tools/scripts/snippets/generate-seo.js
 ./tools/scripts/snippets/fetch-lpt-exchanges.sh
@@ -917,7 +918,7 @@ npm run test:v2-pages
 - **n8n** - Check n8n dashboard for execution history
 - **Scripts** - Check console output and generated files
 
----
+<CustomDivider />
 
 ## Troubleshooting
 
@@ -973,7 +974,7 @@ npm run test:v2-pages
 3. Verify secret names match workflow file exactly
 4. For n8n, configure credentials in n8n dashboard
 
----
+<CustomDivider />
 
 ## Best Practices
 
@@ -1016,7 +1017,7 @@ npm run test:v2-pages
 - **Limit token permissions** - Use least-privilege access for API tokens
 - **Audit regularly** - Review automation access and permissions periodically
 
----
+<CustomDivider />
 
 ## Related Documentation
 
@@ -1026,7 +1027,7 @@ npm run test:v2-pages
 - [Scripts README](/tools/scripts/snippets/README.mdx) - Detailed scripts documentation
 - [Automations README](/snippets/automations/README.mdx) - Automation overview
 
----
+<CustomDivider />
 
 ## Getting Help
 
