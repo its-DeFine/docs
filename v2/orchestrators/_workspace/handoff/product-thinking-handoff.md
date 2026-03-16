@@ -3,26 +3,26 @@
 Internal-only handoff artifact created from the in-flight review and current `docs-v2-dev` sources of truth.
 
 - This file is the safe output for the product-thinking pass.
-- It exists to avoid editing `v2/orchestrators/guides/product-thinking-review.md` while that document is in flight.
+- It exists to avoid editing `v2/orchestrators/_workspace/plans/product-thinking-review.md` while that document is in flight.
 - Do not add this file to `docs.json`.
 - If the working review remains valuable later, merge or archive it intentionally; do not treat it as the canonical handoff by default.
 
 ## Source inputs
 
-- `v2/orchestrators/guides/product-thinking-review.md` from the active `Docs-v2-dev` worktree as input only
+- `v2/orchestrators/_workspace/plans/product-thinking-review.md` from the active `Docs-v2-dev` worktree as input only
 - `docs-guide/frameworks/content-system.mdx`
 - `docs-guide/policies/source-of-truth-policy.mdx`
-- `v2/orchestrators/IA.mdx`
-- `v2/orchestrators/personas-and-pages.mdx`
+- `v2/orchestrators/_workspace/plans/dep-IA.mdx`
+- `v2/orchestrators/_workspace/plans/dep-personas-and-pages.mdx`
 - `v2/orchestrators/_workspace/plans/guides/RESTRUCTURE-PLAN.md`
-- `v2/orchestrators/L0-hybrid-operator-product-exercise.md`
+- `v2/orchestrators/_workspace/research/L0-hybrid-operator-product-exercise.md`
 - `v2/orchestrators/_workspace/research/dual-mode-orchestrator-planning.md`
 - `v2/orchestrators/navigator.mdx`
 - `v2/orchestrators/guides/operator-considerations/operator-rationale.mdx`
 - `v2/orchestrators/guides/deployment-details/setup-options.mdx`
-- `v2/orchestrators/guides/deployment-details/dual-workload-setup.mdx`
-- `v2/orchestrators/guides/ai-and-job-workloads/ai-workloads-guide.mdx`
-- `v2/orchestrators/guides/advanced-operations/gateways-orchestrators.mdx`
+- `v2/orchestrators/guides/deployment-details/dual-mode-configuration.mdx`
+- `v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations.mdx`
+- `v2/orchestrators/guides/advanced-operations/gateway-relationships.mdx`
 - `v2/orchestrators/resources/x-guides.mdx`
 
 ## Audience
@@ -76,11 +76,11 @@ The public outcome is distributed across existing pages:
   - `v2/orchestrators/guides/operator-considerations/operator-rationale.mdx`
 - Layer 2: Operational How-to
   - `v2/orchestrators/guides/deployment-details/setup-options.mdx`
-  - `v2/orchestrators/guides/deployment-details/dual-workload-setup.mdx`
-  - `v2/orchestrators/guides/ai-and-job-workloads/ai-workloads-guide.mdx`
+  - `v2/orchestrators/guides/deployment-details/dual-mode-configuration.mdx`
+  - `v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations.mdx`
 - Layer 3: Deep Reference
-  - `v2/orchestrators/guides/advanced-operations/gateways-orchestrators.mdx`
-  - `v2/orchestrators/guides/ai-and-job-workloads/model-vram-reference.mdx`
+  - `v2/orchestrators/guides/advanced-operations/gateway-relationships.mdx`
+  - `v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference.mdx`
   - pricing and payment references when those pages are implementation-ready
 
 Decision: do not create a standalone public product-thinking page.
@@ -102,7 +102,7 @@ Use the branch reality below as the canonical routing map for later implementati
 |---|---|---|---|
 | Clarity | Hybrid, evaluation, and alternate-deployment logic are spread across `navigator`, `setup-options`, `operator-rationale`, and AI pages. | Consolidate the product framing here, then distribute it into existing public pages by job-to-page mapping. | Avoid creating a new public page that duplicates the same decision logic. |
 | Trust / evidence | Active set thresholds, VRAM coexistence floors, and market pricing remain partially unverified or time-sensitive. | Keep these as explicit evidence gaps; do not turn them into new public claims until source verification is done. | Prevent inaccurate economic or hardware guidance from being promoted as canonical. |
-| Actionability | The in-flight review identifies many gaps but leaves merge / split / add decisions open. | Lock routing decisions here: keep batch and real-time setup pages separate, use `dual-workload-setup.mdx` as the dual-mode execution page, and keep `setup-options.mdx` focused on non-standard deployments. | Prevent a later implementer from redesigning the guide set while drafting. |
+| Actionability | The in-flight review identifies many gaps but leaves merge / split / add decisions open. | Lock routing decisions here: keep batch and real-time setup pages separate, use `dual-mode-configuration.mdx` as the dual-mode execution page, and keep `setup-options.mdx` focused on non-standard deployments. | Prevent a later implementer from redesigning the guide set while drafting. |
 | Maintainability | The working review lives under `guides/`, which implies a public outcome and duplicates planning already present in `_workspace/` and the L0 exercise. | Treat the in-flight review as source material, not the canonical handoff output. | Keep public docs in `v2/**` and planning artifacts in `_workspace/`. |
 | Scope boundaries | The repo also has pre-existing script-docs debt and broader IA churn. | Exclude repo hygiene, commit / PR work, and unrelated content cleanup from this handoff. | Keep the workstream focused on orchestrator content-shaping only. |
 
@@ -137,9 +137,9 @@ Use the branch reality below as the canonical routing map for later implementati
 | `v2/orchestrators/navigator.mdx` | primary orientation and path-selection surface |
 | `v2/orchestrators/guides/operator-considerations/operator-rationale.mdx` | worth-it, hardware, stake, and ROI evaluation surface |
 | `v2/orchestrators/guides/deployment-details/setup-options.mdx` | alternate-deployment guide for pool worker, O-T split, Siphon, and fleet paths |
-| `v2/orchestrators/guides/deployment-details/dual-workload-setup.mdx` | task page for serving video and AI from one node |
-| `v2/orchestrators/guides/ai-and-job-workloads/ai-workloads-guide.mdx` | concept bridge for AI routing, low-LPT AI entry, and already-running-video framing |
-| `v2/orchestrators/guides/advanced-operations/gateways-orchestrators.mdx` | explanation of discovery, pricing, capability advertisement, and selection |
+| `v2/orchestrators/guides/deployment-details/dual-mode-configuration.mdx` | task page for serving video and AI from one node |
+| `v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations.mdx` | concept bridge for AI routing, low-LPT AI entry, and already-running-video framing |
+| `v2/orchestrators/guides/advanced-operations/gateway-relationships.mdx` | explanation of discovery, pricing, capability advertisement, and selection |
 | `v2/orchestrators/resources/x-guides.mdx` | high-level guides index because `guides/guide.mdx` does not exist on this branch |
 
 ### Evidence gaps
@@ -162,12 +162,12 @@ Use the branch reality below as the canonical routing map for later implementati
    - add the scannable evaluation summary here, not in deployment pages
 3. Deployment execution
    - `setup-options.mdx` remains the guide to non-standard deployment patterns
-   - `dual-workload-setup.mdx` remains the hybrid execution page
+   - `dual-mode-configuration.mdx` remains the hybrid execution page
 4. AI and workload bridge
-   - `ai-workloads-guide.mdx` explains why AI matters, how routing works, and what changes for existing video operators
+   - `ai-inference-operations.mdx` explains why AI matters, how routing works, and what changes for existing video operators
    - keep task execution details in `batch-ai-setup.mdx` and `realtime-ai-setup.mdx`
 5. Gateway and earning mechanics
-   - `gateways-orchestrators.mdx` explains selection and why-am-I-not-getting-jobs
+   - `gateway-relationships.mdx` explains selection and why-am-I-not-getting-jobs
    - pricing and payment depth stays in the pricing and payments surfaces when those pages are implementation-ready
 
 ## Page-mapping table
@@ -177,10 +177,10 @@ Use the branch reality below as the canonical routing map for later implementati
 | Decide whether Livepeer is worth the GPU, time, and LPT commitment | `v2/orchestrators/guides/operator-considerations/operator-rationale.mdx` | update existing page |
 | Decide whether to join a pool, run solo, operate dual-workload, or go fleet-scale | `v2/orchestrators/navigator.mdx` | update existing page |
 | Decide what to do when the standard single-machine combined path is not the right fit | `v2/orchestrators/guides/deployment-details/setup-options.mdx` | update existing page |
-| Set up one node for both video transcoding and AI inference | `v2/orchestrators/guides/deployment-details/dual-workload-setup.mdx` | update existing page |
-| Add AI to an already-running video node without re-learning the whole docs set | `v2/orchestrators/guides/ai-and-job-workloads/ai-workloads-guide.mdx` and `v2/orchestrators/guides/deployment-details/dual-workload-setup.mdx` | split across pages |
-| Understand whether low-stake operators can still earn from AI work | `v2/orchestrators/guides/ai-and-job-workloads/ai-workloads-guide.mdx` | update existing page |
-| Understand how gateways discover, filter, and select the node | `v2/orchestrators/guides/advanced-operations/gateways-orchestrators.mdx` | update existing page |
+| Set up one node for both video transcoding and AI inference | `v2/orchestrators/guides/deployment-details/dual-mode-configuration.mdx` | update existing page |
+| Add AI to an already-running video node without re-learning the whole docs set | `v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations.mdx` and `v2/orchestrators/guides/deployment-details/dual-mode-configuration.mdx` | split across pages |
+| Understand whether low-stake operators can still earn from AI work | `v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations.mdx` | update existing page |
+| Understand how gateways discover, filter, and select the node | `v2/orchestrators/guides/advanced-operations/gateway-relationships.mdx` | update existing page |
 | Find the right official guide index once already inside the tab | `v2/orchestrators/resources/x-guides.mdx` | update existing page |
 | Create a new public product-thinking guide | none; keep this handoff internal | justify new page |
 
@@ -188,9 +188,9 @@ Decision on the last row: not justified on `docs-v2-dev`. Existing pages already
 
 ## Route recommendation
 
-- Keep `v2/orchestrators/guides/product-thinking-review.md` as the in-flight review and source input only.
+- Keep `v2/orchestrators/_workspace/plans/product-thinking-review.md` as the in-flight review and source input only.
 - Use this file as the safe implementation handoff.
-- Do not retain a public `guides/product-thinking-review.md` route as the end state.
+- Do not retain a public `product-thinking-review` route as the end state.
 - Do not create a matching entry in `docs.json`.
 - Because `v2/orchestrators/guides/guide.mdx` does not exist on `docs-v2-dev`, place any high-level guide-entry framing in `v2/orchestrators/resources/x-guides.mdx` rather than inventing a new section landing page in this workstream.
 
@@ -200,8 +200,8 @@ Decision on the last row: not justified on `docs-v2-dev`. Existing pages already
 
 - Treat this file as the routing source of truth for the later PR.
 - Keep public changes inside the existing page set listed above.
-- Do not move or overwrite the in-flight `guides/product-thinking-review.md` during drafting unless a human explicitly decides to consolidate it.
-- Do not create a new public page unless a later reader job appears that cannot be served by `navigator`, `operator-rationale`, `setup-options`, `dual-workload-setup`, `ai-workloads-guide`, or `gateways-orchestrators`.
+- Do not move or overwrite the in-flight `_workspace/plans/product-thinking-review.md` during drafting unless a human explicitly decides to consolidate it.
+- Do not create a new public page unless a later reader job appears that cannot be served by `navigator`, `operator-rationale`, `setup-options`, `dual-mode-configuration`, `ai-inference-operations`, or `gateway-relationships`.
 
 ### `mintlify-authoring-style-compliance`
 
