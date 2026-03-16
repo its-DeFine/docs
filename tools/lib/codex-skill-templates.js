@@ -18,6 +18,23 @@ const TEMPLATE_SUFFIX = '.template.md';
 const TEMPLATE_FILE_RE = /^\d{2}-[a-z0-9-]+\.template\.md$/;
 const SKILL_NAME_RE = /^[a-z0-9][a-z0-9-]*$/;
 const VERSION_RE = /^[0-9]+\.[0-9]+(?:\.[0-9]+)?$/;
+const RESOURCE_BUNDLES = [
+  {
+    key: 'references',
+    sourceSuffix: '.references',
+    destDir: 'references'
+  },
+  {
+    key: 'scripts',
+    sourceSuffix: '.scripts',
+    destDir: 'scripts'
+  },
+  {
+    key: 'assets',
+    sourceSuffix: '.assets',
+    destDir: 'assets'
+  }
+];
 
 const REQUIRED_FRONTMATTER_KEYS = [
   'name',
@@ -82,6 +99,82 @@ function assertArrayCount(value, minCount, field, filePath) {
   if (value.length < minCount) {
     throw new Error(`${toPosix(filePath)}: frontmatter "${field}" must have at least ${minCount} entries`);
   }
+}
+
+function listFilesRecursive(dirAbs, relativePrefix = '') {
+  const entries = fs.readdirSync(dirAbs, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name));
+  const files = [];
+
+  entries.forEach((entry) => {
+    const entryAbs = path.join(dirAbs, entry.name);
+    const entryRel = relativePrefix ? path.posix.join(relativePrefix, entry.name) : entry.name;
+    if (entry.isDirectory()) {
+      files.push(...listFilesRecursive(entryAbs, entryRel));
+      return;
+    }
+    if (!entry.isFile()) {
+      throw new Error(`${toPosix(entryAbs)}: unsupported resource entry type`);
+    }
+    files.push(entryRel);
+  });
+
+  return files;
+}
+
+function collectReferenceFiles(sourceDirAbs) {
+  const entries = fs.readdirSync(sourceDirAbs, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name));
+  const files = [];
+
+  entries.forEach((entry) => {
+    const entryAbs = path.join(sourceDirAbs, entry.name);
+    if (entry.isDirectory()) {
+      throw new Error(`${toPosix(entryAbs)}: references bundle must be flat; nested directories are not allowed`);
+    }
+    if (!entry.isFile()) {
+      throw new Error(`${toPosix(entryAbs)}: unsupported reference bundle entry type`);
+    }
+    if (!entry.name.endsWith('.md')) {
+      throw new Error(`${toPosix(entryAbs)}: references bundle files must use .md`);
+    }
+    files.push(entry.name);
+  });
+
+  if (files.length === 0) {
+    throw new Error(`${toPosix(sourceDirAbs)}: references bundle must contain at least one markdown file`);
+  }
+
+  return files;
+}
+
+function collectResourceEntries(template) {
+  const templateDir = path.dirname(template.templatePathAbs);
+  const resourceEntries = [];
+
+  RESOURCE_BUNDLES.forEach((bundle) => {
+    const sourceDir = path.join(templateDir, `${template.templateStem}${bundle.sourceSuffix}`);
+    if (!fs.existsSync(sourceDir)) return;
+    if (!fs.statSync(sourceDir).isDirectory()) {
+      throw new Error(`${toPosix(sourceDir)}: resource bundle must be a directory`);
+    }
+
+    const relativeFiles =
+      bundle.key === 'references' ? collectReferenceFiles(sourceDir) : listFilesRecursive(sourceDir);
+
+    if (relativeFiles.length === 0) {
+      throw new Error(`${toPosix(sourceDir)}: resource bundle must contain at least one file`);
+    }
+
+    relativeFiles.forEach((relativeFile) => {
+      const relPath = toPosix(path.posix.join(bundle.destDir, toPosix(relativeFile)));
+      resourceEntries.push({
+        relPath,
+        absPath: path.join(sourceDir, relativeFile),
+        expected: fs.readFileSync(path.join(sourceDir, relativeFile))
+      });
+    });
+  });
+
+  return resourceEntries.sort((a, b) => a.relPath.localeCompare(b.relPath));
 }
 
 function parseTemplateFile(filePathAbs, options = {}) {
@@ -174,12 +267,14 @@ function selectTemplates(templates, selectedNames) {
 }
 
 module.exports = {
+  RESOURCE_BUNDLES,
   REQUIRED_FRONTMATTER_KEYS,
   REQUIRED_SECTIONS,
   SKILL_NAME_RE,
   VERSION_RE,
   TEMPLATE_FILE_RE,
   TEMPLATE_SUFFIX,
+  collectResourceEntries,
   discoverTemplates,
   parseSkillsList,
   parseTemplateFile,

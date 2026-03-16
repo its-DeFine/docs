@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-16T00:54:47.333Z",
+  "generated_at": "2026-03-16T05:31:05.797Z",
   "source_dir": "ai-tools/ai-skills/templates",
   "skills": [
     {
@@ -387,10 +387,70 @@
       ]
     },
     {
+      "name": "page-content-research-review",
+      "description": "Route high-rigor Livepeer Docs fact-checking across claim extraction, source verification, contradiction analysis, claim-family propagation, and final research reporting workflows consistently.",
+      "source_template": "ai-tools/ai-skills/templates/32-page-content-research-review.template.md",
+      "pack_path": "ai-tools/agent-packs/skills/page-content-research-review/SKILL.md",
+      "supported_agents": [
+        "codex",
+        "cursor",
+        "claude",
+        "windsurf"
+      ]
+    },
+    {
+      "name": "docs-source-verification",
+      "description": "Verify Livepeer Docs claims against ranked primary sources, record evidence, assess freshness risk, classify contradictions, and downgrade unsupported content before publication.",
+      "source_template": "ai-tools/ai-skills/templates/33-docs-source-verification.template.md",
+      "pack_path": "ai-tools/agent-packs/skills/docs-source-verification/SKILL.md",
+      "supported_agents": [
+        "codex",
+        "cursor",
+        "claude",
+        "windsurf"
+      ]
+    },
+    {
       "name": "skill-docs",
       "description": "Govern governed skill documentation structure, central contract alignment, and validator readiness so new or edited skills pass enforcement on the first commit.",
       "source_template": "ai-tools/ai-skills/templates/33-skill-docs.template.md",
       "pack_path": "ai-tools/agent-packs/skills/skill-docs/SKILL.md",
+      "supported_agents": [
+        "codex",
+        "cursor",
+        "claude",
+        "windsurf"
+      ]
+    },
+    {
+      "name": "docs-change-review",
+      "description": "Review Livepeer Docs pages or diffs for factual contradictions, overstatement, ownership overlap, historical drift, unresolved evidence gaps, and reader-facing claim quality.",
+      "source_template": "ai-tools/ai-skills/templates/34-docs-change-review.template.md",
+      "pack_path": "ai-tools/agent-packs/skills/docs-change-review/SKILL.md",
+      "supported_agents": [
+        "codex",
+        "cursor",
+        "claude",
+        "windsurf"
+      ]
+    },
+    {
+      "name": "docs-impact-propagation",
+      "description": "Map changed claim families to every dependent page, glossary, example, comparison, and reference surface that should be verified or updated.",
+      "source_template": "ai-tools/ai-skills/templates/35-docs-impact-propagation.template.md",
+      "pack_path": "ai-tools/agent-packs/skills/docs-impact-propagation/SKILL.md",
+      "supported_agents": [
+        "codex",
+        "cursor",
+        "claude",
+        "windsurf"
+      ]
+    },
+    {
+      "name": "docs-copy",
+      "description": "Route documentation copy planning, rewriting, review, and claim-sensitive updates through the correct Livepeer Docs skills so wording changes stay accurate, scoped, and ready for handoff.",
+      "source_template": "ai-tools/ai-skills/templates/36-docs-copy.template.md",
+      "pack_path": "ai-tools/agent-packs/skills/docs-copy/SKILL.md",
       "supported_agents": [
         "codex",
         "cursor",

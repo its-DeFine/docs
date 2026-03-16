@@ -87,6 +87,14 @@ function createTemplate(sourceDir, number, name, description) {
   return { absPath, content };
 }
 
+function createBundle(sourceDir, templateStem, bundleName, files) {
+  const bundleRoot = path.join(sourceDir, `${templateStem}.${bundleName}`);
+  Object.entries(files).forEach(([relativePath, content]) => {
+    writeFile(path.join(bundleRoot, relativePath), content);
+  });
+  return bundleRoot;
+}
+
 function readUtf8(absPath) {
   return fs.readFileSync(absPath, 'utf8');
 }
@@ -113,16 +121,32 @@ async function runTests() {
     const outputDir = path.join(root, 'packs');
 
     const t1 = createTemplate(sourceDir, 1, 'alpha-skill', 'Alpha skill export workflow.');
+    createBundle(sourceDir, '01-alpha-skill', 'references', {
+      'workflow.md': '# Workflow\n'
+    });
+    createBundle(sourceDir, '01-alpha-skill', 'scripts', {
+      'report.sh': '#!/bin/sh\necho report\n'
+    });
+    createBundle(sourceDir, '01-alpha-skill', 'assets', {
+      'notes/example.txt': 'asset example\n'
+    });
     createTemplate(sourceDir, 2, 'beta-skill', 'Beta skill export workflow.');
 
     const result = runNode(['--source-dir', sourceDir, '--output-dir', outputDir, '--write']);
     assert.strictEqual(result.status, 0, `export exited non-zero: ${result.stderr || result.stdout}`);
 
     const skillPath = path.join(outputDir, 'alpha-skill', 'SKILL.md');
+    const referencePath = path.join(outputDir, 'alpha-skill', 'references', 'workflow.md');
+    const scriptPath = path.join(outputDir, 'alpha-skill', 'scripts', 'report.sh');
+    const assetPath = path.join(outputDir, 'alpha-skill', 'assets', 'notes', 'example.txt');
     const manifestPath = path.join(outputDir, 'manifest.json');
     assert.ok(fs.existsSync(skillPath), 'alpha SKILL.md should exist');
+    assert.ok(fs.existsSync(referencePath), 'reference bundle should exist');
+    assert.ok(fs.existsSync(scriptPath), 'script bundle should exist');
+    assert.ok(fs.existsSync(assetPath), 'asset bundle should exist');
     assert.ok(fs.existsSync(manifestPath), 'manifest.json should exist');
     assert.strictEqual(readUtf8(skillPath), t1.content, 'exported SKILL.md should match template exactly');
+    assert.strictEqual(readUtf8(referencePath), '# Workflow\n', 'reference content should match source');
 
     const manifest = JSON.parse(readUtf8(manifestPath));
     assert.ok(manifest.generated_at, 'manifest should include generated_at');
@@ -138,16 +162,19 @@ async function runTests() {
     );
   });
 
-  await runCase('Check mode fails on drift', async () => {
+  await runCase('Check mode fails on managed bundle drift', async () => {
     const root = mkTmpDir('portable-skill-export-check-');
     const sourceDir = path.join(root, 'source');
     const outputDir = path.join(root, 'packs');
 
     createTemplate(sourceDir, 1, 'drift-skill', 'Detect drift in export check mode.');
+    createBundle(sourceDir, '01-drift-skill', 'references', {
+      'claims.md': '# Claims\n'
+    });
     const exportResult = runNode(['--source-dir', sourceDir, '--output-dir', outputDir, '--write']);
     assert.strictEqual(exportResult.status, 0, `initial export failed: ${exportResult.stderr || exportResult.stdout}`);
 
-    writeFile(path.join(outputDir, 'drift-skill', 'SKILL.md'), 'tampered');
+    writeFile(path.join(outputDir, 'drift-skill', 'references', 'claims.md'), '# Tampered\n');
     const checkResult = runNode(['--source-dir', sourceDir, '--output-dir', outputDir, '--check']);
     assert.strictEqual(checkResult.status, 1, 'check mode should fail on drift');
     assert.ok((checkResult.stdout + checkResult.stderr).includes('drift'), 'check output should include drift signal');
@@ -182,9 +209,39 @@ async function runTests() {
     );
   });
 
+  await runCase('Export prunes stale managed bundle files', async () => {
+    const root = mkTmpDir('portable-skill-export-prune-');
+    const sourceDir = path.join(root, 'source');
+    const outputDir = path.join(root, 'packs');
+
+    createTemplate(sourceDir, 1, 'prune-skill', 'Prune stale managed bundle files.');
+    const referencesRoot = createBundle(sourceDir, '01-prune-skill', 'references', {
+      'old.md': '# Old\n'
+    });
+
+    let result = runNode(['--source-dir', sourceDir, '--output-dir', outputDir, '--write']);
+    assert.strictEqual(result.status, 0, `initial export failed: ${result.stderr || result.stdout}`);
+
+    fs.rmSync(referencesRoot, { recursive: true, force: true });
+    createBundle(sourceDir, '01-prune-skill', 'references', {
+      'new.md': '# New\n'
+    });
+
+    result = runNode(['--source-dir', sourceDir, '--output-dir', outputDir, '--write']);
+    assert.strictEqual(result.status, 0, `resync failed: ${result.stderr || result.stdout}`);
+    assert.ok(
+      !fs.existsSync(path.join(outputDir, 'prune-skill', 'references', 'old.md')),
+      'stale managed reference should be removed'
+    );
+    assert.ok(
+      fs.existsSync(path.join(outputDir, 'prune-skill', 'references', 'new.md')),
+      'new reference should exist'
+    );
+  });
+
   return {
     passed: errors.length === 0,
-    total: 3,
+    total: 4,
     errors
   };
 }

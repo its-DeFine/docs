@@ -15,6 +15,8 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const {
+  RESOURCE_BUNDLES,
+  collectResourceEntries,
   discoverTemplates,
   parseSkillsList,
   selectTemplates,
@@ -24,24 +26,6 @@ const {
 const REPO_ROOT = process.cwd();
 const DEFAULT_SOURCE_DIR = 'ai-tools/ai-skills/templates';
 const MANIFEST_FILE = '.codex-sync-manifest.json';
-
-const RESOURCE_BUNDLES = [
-  {
-    key: 'references',
-    sourceSuffix: '.references',
-    destDir: 'references'
-  },
-  {
-    key: 'scripts',
-    sourceSuffix: '.scripts',
-    destDir: 'scripts'
-  },
-  {
-    key: 'assets',
-    sourceSuffix: '.assets',
-    destDir: 'assets'
-  }
-];
 
 const ACRONYMS = new Set([
   'GH',
@@ -86,9 +70,10 @@ function usage() {
     '  --help                  Show this message',
     '',
     'Optional companion bundle directories:',
-    '  <template-stem>.references/  -> sync to skill references/',
-    '  <template-stem>.scripts/     -> sync to skill scripts/',
-    '  <template-stem>.assets/      -> sync to skill assets/'
+    ...RESOURCE_BUNDLES.map((bundle) => {
+      const source = `<template-stem>${bundle.sourceSuffix}/`;
+      return `  ${source.padEnd(28, ' ')} -> sync to skill ${bundle.destDir}/`;
+    })
   ];
   console.log(msg.join('\n'));
 }
@@ -248,82 +233,6 @@ function formatPlannedFile(relPath, op) {
   if (op === 'create') return `create ${relPath}`;
   if (op === 'update') return `update ${relPath}`;
   return `keep   ${relPath}`;
-}
-
-function listFilesRecursive(dirAbs, relativePrefix = '') {
-  const entries = fs.readdirSync(dirAbs, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name));
-  const files = [];
-
-  entries.forEach((entry) => {
-    const entryAbs = path.join(dirAbs, entry.name);
-    const entryRel = relativePrefix ? path.posix.join(relativePrefix, entry.name) : entry.name;
-    if (entry.isDirectory()) {
-      files.push(...listFilesRecursive(entryAbs, entryRel));
-      return;
-    }
-    if (!entry.isFile()) {
-      throw new Error(`${toPosix(entryAbs)}: unsupported resource entry type`);
-    }
-    files.push(entryRel);
-  });
-
-  return files;
-}
-
-function collectReferenceFiles(sourceDirAbs) {
-  const entries = fs.readdirSync(sourceDirAbs, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name));
-  const files = [];
-
-  entries.forEach((entry) => {
-    const entryAbs = path.join(sourceDirAbs, entry.name);
-    if (entry.isDirectory()) {
-      throw new Error(`${toPosix(entryAbs)}: references bundle must be flat; nested directories are not allowed`);
-    }
-    if (!entry.isFile()) {
-      throw new Error(`${toPosix(entryAbs)}: unsupported reference bundle entry type`);
-    }
-    if (!entry.name.endsWith('.md')) {
-      throw new Error(`${toPosix(entryAbs)}: references bundle files must use .md`);
-    }
-    files.push(entry.name);
-  });
-
-  if (files.length === 0) {
-    throw new Error(`${toPosix(sourceDirAbs)}: references bundle must contain at least one markdown file`);
-  }
-
-  return files;
-}
-
-function collectResourceEntries(template) {
-  const templateDir = path.dirname(template.templatePathAbs);
-  const resourceEntries = [];
-
-  RESOURCE_BUNDLES.forEach((bundle) => {
-    const sourceDir = path.join(templateDir, `${template.templateStem}${bundle.sourceSuffix}`);
-    if (!fs.existsSync(sourceDir)) return;
-    if (!fs.statSync(sourceDir).isDirectory()) {
-      throw new Error(`${toPosix(sourceDir)}: resource bundle must be a directory`);
-    }
-
-    const relativeFiles =
-      bundle.key === 'references' ? collectReferenceFiles(sourceDir) : listFilesRecursive(sourceDir);
-
-    if (relativeFiles.length === 0) {
-      throw new Error(`${toPosix(sourceDir)}: resource bundle must contain at least one file`);
-    }
-
-    relativeFiles.forEach((relativeFile) => {
-      const relPath = toPosix(path.posix.join(bundle.destDir, toPosix(relativeFile)));
-      resourceEntries.push({
-        relPath,
-        absPath: path.join(sourceDir, relativeFile),
-        expected: fs.readFileSync(path.join(sourceDir, relativeFile))
-      });
-    });
-  });
-
-  return resourceEntries.sort((a, b) => a.relPath.localeCompare(b.relPath));
 }
 
 function loadManifest(skillDir) {

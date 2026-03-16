@@ -15,6 +15,8 @@
 const fs = require('fs');
 const path = require('path');
 const {
+  RESOURCE_BUNDLES,
+  collectResourceEntries,
   discoverTemplates,
   parseSkillsList,
   selectTemplates,
@@ -36,7 +38,13 @@ function usage() {
     '  --skills <a,b,c>        Optional subset by template frontmatter name',
     '  --write                 Write/update pack outputs',
     '  --check                 Validation-only mode (no writes; fails on drift)',
-    '  --help                  Show this message'
+    '  --help                  Show this message',
+    '',
+    'Optional companion bundle directories:',
+    ...RESOURCE_BUNDLES.map((bundle) => {
+      const source = `<template-stem>${bundle.sourceSuffix}/`;
+      return `  ${source.padEnd(28, ' ')} -> export to pack ${bundle.destDir}/`;
+    })
   ];
   console.log(msg.join('\n'));
 }
@@ -110,12 +118,13 @@ function parseArgs(argv) {
 
 function readExisting(filePathAbs) {
   if (!fs.existsSync(filePathAbs)) return null;
-  return fs.readFileSync(filePathAbs, 'utf8');
+  return fs.readFileSync(filePathAbs);
 }
 
 function computeFileOp(expected, existing) {
+  const expectedBuffer = Buffer.isBuffer(expected) ? expected : Buffer.from(String(expected), 'utf8');
   if (existing === null) return 'create';
-  if (existing !== expected) return 'update';
+  if (!expectedBuffer.equals(existing)) return 'update';
   return 'unchanged';
 }
 
@@ -131,6 +140,47 @@ function formatPlannedFile(relPath, op) {
   if (op === 'create') return `create ${relPath}`;
   if (op === 'update') return `update ${relPath}`;
   return `keep   ${relPath}`;
+}
+
+function listOutputFiles(dirAbs, relativePrefix = '') {
+  if (!fs.existsSync(dirAbs) || !fs.statSync(dirAbs).isDirectory()) return [];
+
+  const entries = fs.readdirSync(dirAbs, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name));
+  const files = [];
+
+  entries.forEach((entry) => {
+    const entryAbs = path.join(dirAbs, entry.name);
+    const entryRel = relativePrefix ? path.posix.join(relativePrefix, entry.name) : entry.name;
+    if (entry.isDirectory()) {
+      files.push(...listOutputFiles(entryAbs, entryRel));
+      return;
+    }
+    if (!entry.isFile()) {
+      throw new Error(`${repoOrAbs(entryAbs)}: unsupported portable-skill output entry type`);
+    }
+    files.push(toPosix(entryRel));
+  });
+
+  return files;
+}
+
+function removeFileAndEmptyParents(filePathAbs, skillDir) {
+  if (fs.existsSync(filePathAbs)) {
+    fs.rmSync(filePathAbs, { force: true });
+  }
+
+  let currentDir = path.dirname(filePathAbs);
+  const root = path.resolve(skillDir);
+
+  while (currentDir.startsWith(root) && currentDir !== root) {
+    if (!fs.existsSync(currentDir)) {
+      currentDir = path.dirname(currentDir);
+      continue;
+    }
+    if (fs.readdirSync(currentDir).length > 0) break;
+    fs.rmdirSync(currentDir);
+    currentDir = path.dirname(currentDir);
+  }
 }
 
 function buildManifestEntries(templates, options) {
@@ -192,16 +242,44 @@ function buildManifestContent(templates, options, existingRaw) {
   };
 }
 
-function planSkillFiles(templates, options) {
+function planSkillOutputs(templates, options) {
   return templates.map((template) => {
-    const skillPath = path.join(options.outputDir, template.name, 'SKILL.md');
-    const existing = readExisting(skillPath);
+    const skillDir = path.join(options.outputDir, template.name);
+    const expectedFiles = [
+      {
+        relPath: 'SKILL.md',
+        expected: template.content
+      },
+      ...collectResourceEntries(template).map((entry) => ({
+        relPath: entry.relPath,
+        expected: entry.expected
+      }))
+    ];
+
+    const fileOps = expectedFiles.map((entry) => {
+      const absPath = path.join(skillDir, entry.relPath);
+      const existing = readExisting(absPath);
+      return {
+        relPath: entry.relPath,
+        absPath,
+        expected: entry.expected,
+        op: computeFileOp(entry.expected, existing)
+      };
+    });
+
+    const expectedSet = new Set(expectedFiles.map((entry) => entry.relPath));
+    const staleFiles = listOutputFiles(skillDir).filter((relPath) => !expectedSet.has(relPath)).sort();
+    const drift = fileOps.some((entry) => entry.op !== 'unchanged') || staleFiles.length > 0;
+    const created = fileOps.some((entry) => entry.relPath === 'SKILL.md' && entry.op === 'create');
+
     return {
       name: template.name,
-      path: skillPath,
-      relPath: repoOrAbs(skillPath),
-      expected: template.content,
-      op: computeFileOp(template.content, existing)
+      dirPath: skillDir,
+      relDirPath: repoOrAbs(skillDir),
+      status: created ? 'created' : drift ? 'updated' : 'unchanged',
+      drift,
+      fileOps,
+      staleFiles
     };
   });
 }
@@ -232,9 +310,14 @@ function printConfig(options, templates, selected) {
 
 function printResultLines(skillPlans, manifestPlan, staleDirs, options) {
   skillPlans.forEach((plan) => {
-    const label = options.check ? (plan.op === 'unchanged' ? 'ok' : 'drift') : 'write';
+    const label = options.check ? (plan.drift ? 'drift' : 'ok') : 'write';
     console.log(`${label}: ${plan.name}`);
-    console.log(`  ${formatPlannedFile(plan.relPath, plan.op)}`);
+    plan.fileOps.forEach((entry) => {
+      console.log(`  ${formatPlannedFile(toPosix(path.posix.join(plan.name, entry.relPath)), entry.op)}`);
+    });
+    plan.staleFiles.forEach((relPath) => {
+      console.log(`  remove ${toPosix(path.posix.join(plan.name, relPath))}`);
+    });
   });
 
   const manifestLabel = options.check ? (manifestPlan.op === 'unchanged' ? 'ok' : 'drift') : 'write';
@@ -257,15 +340,17 @@ function summarize(skillPlans, manifestPlan, staleDirs, options) {
     drift: 0
   };
 
-  [...skillPlans, manifestPlan].forEach((plan) => {
-    if (plan.op === 'create') summary.created += 1;
-    if (plan.op === 'update') summary.updated += 1;
-    if (plan.op === 'unchanged') summary.unchanged += 1;
+  skillPlans.forEach((plan) => {
+    summary[plan.status] += 1;
   });
+
+  if (manifestPlan.op === 'create') summary.created += 1;
+  if (manifestPlan.op === 'update') summary.updated += 1;
+  if (manifestPlan.op === 'unchanged') summary.unchanged += 1;
 
   if (options.check) {
     summary.drift =
-      skillPlans.filter((plan) => plan.op !== 'unchanged').length +
+      skillPlans.filter((plan) => plan.drift).length +
       (manifestPlan.op !== 'unchanged' ? 1 : 0) +
       staleDirs.length;
   }
@@ -286,9 +371,15 @@ function writeOutputs(skillPlans, manifestPlan, staleDirs) {
   fs.mkdirSync(path.dirname(manifestPlan.path), { recursive: true });
 
   skillPlans.forEach((plan) => {
-    if (plan.op === 'unchanged') return;
-    fs.mkdirSync(path.dirname(plan.path), { recursive: true });
-    fs.writeFileSync(plan.path, plan.expected, 'utf8');
+    fs.mkdirSync(plan.dirPath, { recursive: true });
+    plan.fileOps.forEach((entry) => {
+      if (entry.op === 'unchanged') return;
+      fs.mkdirSync(path.dirname(entry.absPath), { recursive: true });
+      fs.writeFileSync(entry.absPath, entry.expected);
+    });
+    plan.staleFiles.forEach((relPath) => {
+      removeFileAndEmptyParents(path.join(plan.dirPath, relPath), plan.dirPath);
+    });
   });
 
   if (manifestPlan.op !== 'unchanged') {
@@ -305,7 +396,7 @@ function run(options) {
   const selected = selectTemplates(templates, options.skills);
   const selectedNames = new Set(selected.map((template) => template.name));
 
-  const skillPlans = planSkillFiles(selected, options);
+  const skillPlans = planSkillOutputs(selected, options);
   const staleDirs = listStaleSkillDirs(options, selectedNames);
   const manifestPath = path.join(options.outputDir, 'manifest.json');
   const existingManifest = readExisting(manifestPath);
