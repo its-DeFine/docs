@@ -46,6 +46,7 @@ If any of those are missing, the surface is not ownerless-ready and must remain 
 | Rollout state | The current posture of a surface: advisory, autofix, blocking, or migrating. |
 | Domain | Taxonomy metadata that classifies a governed artifact by repo concern. It is not a reviewer, person, team, or approval authority. |
 | Lock holder | The current actor holding a local execution lock for codex isolation. This is task state, not repository authority. |
+| Legacy review map | A historical repository file that may be archived for context. It is never a canonical source, gate layer, or approval authority. |
 
 ## Gate Ownership Rules
 
@@ -68,6 +69,7 @@ Secondary checks may exist, but the manifest must name only one primary layer.
   - the repair command
 - Repair commands must be repo-backed commands that an OSS contributor or AI agent can run directly.
 - If repair is not deterministic, the surface stays advisory until deterministic repair exists.
+- Historical review-map files may remain archived for context, but they cannot act as an active routing or approval contract.
 
 ## Rollout State Rules
 

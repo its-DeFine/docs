@@ -3,7 +3,7 @@
  * @script            ownerless-governance.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, docs-guide/policies/ownerless-governance.mdx, tools/config/ownerless-governance-surfaces.json, .github, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md
+ * @scope             tests/unit, tests/utils, tests/WHEN-TESTS-RUN.md, docs-guide, tools/config/ownerless-governance-surfaces.json, .github, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md
  * @owner             docs
  * @needs             R-R14, R-R29
  * @purpose-statement Validates the ownerless governance manifest, primary gate-layer contract, and forbidden human-owner dependency in governed policy and GitHub surfaces.
@@ -47,6 +47,9 @@ const GOVERNED_TEXT_FILES = [
   'README.md',
   '.github/AGENTS.md',
   'contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md',
+  '.github/workflows/issue-auto-label.yml',
+  '.github/workflows/discord-issue-intake.yml',
+  '.github/workflows/openapi-reference-validation.yml',
   '.github/workflows/docs-v2-issue-indexer.yml',
   '.github/ISSUE_TEMPLATE/01_bug_report.yml',
   '.github/ISSUE_TEMPLATE/02_docs_page_issue.yml',
@@ -55,13 +58,21 @@ const GOVERNED_TEXT_FILES = [
   '.github/ISSUE_TEMPLATE/05_tooling_ci_issue.yml',
   '.github/ISSUE_TEMPLATE/06_question_clarification.yml',
   '.github/ISSUE_TEMPLATE/config.yml',
-  '.github/ISSUE_TEMPLATE/feature_internal.yml'
+  '.github/ISSUE_TEMPLATE/feature_internal.yml',
+  'docs-guide/catalog/templates-catalog.mdx',
+  'docs-guide/features/automations.mdx',
+  'docs-guide/frameworks/component-framework.mdx',
+  'docs-guide/frameworks/component-governance.mdx',
+  'tests/WHEN-TESTS-RUN.md',
+  'tests/utils/openapi-rolling-issue.js',
+  'tests/unit/openapi-rolling-issue.test.js'
 ];
 const FORBIDDEN_PATTERNS = [
   ['Action requested from maintainers', 'Use "Requested repository outcome" instead of maintainer-request wording.'],
   ['maintainer scheduling priority', 'Use "queue priority" instead of maintainer scheduling wording.'],
   ['status: needs-triage', 'Use "status: needs-routing" instead of "status: needs-triage".'],
   ['maintainer triage', 'Use routing language instead of maintainer triage wording.'],
+  ['CODEOWNERS', 'Do not rely on the legacy GitHub review mapping file in active governance text.'],
   ['code-owner review', 'Do not require code-owner review in repo-tracked governance text.'],
   ['lock ownership', 'Use "lock holder" or "execution lock" wording instead of ownership wording.']
 ];

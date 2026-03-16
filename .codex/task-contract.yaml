@@ -9,13 +9,18 @@ scope_in:
   - ai-tools/agent-packs/skills/
   - contribute/CONTRIBUTING/
   - docs-guide/catalog/scripts-catalog.mdx
+  - docs-guide/catalog/
+  - docs-guide/features/
+  - docs-guide/frameworks/
   - docs-guide/policies/
   - lpd
   - tasks/reports/script-classifications.json
   - tests/script-index.md
   - tests/run-all.js
   - tests/run-pr-checks.js
+  - tests/WHEN-TESTS-RUN.md
   - tests/unit/
+  - tests/utils/
   - tools/config/
   - tools/lib/script-index.md
   - tools/lib/

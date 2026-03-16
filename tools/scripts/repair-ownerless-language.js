@@ -28,10 +28,18 @@ const DEFAULT_FILES = [
   '.github/ISSUE_TEMPLATE/06_question_clarification.yml',
   '.github/ISSUE_TEMPLATE/feature_internal.yml',
   '.github/ISSUE_TEMPLATE/config.yml',
+  '.github/workflows/issue-auto-label.yml',
+  '.github/workflows/discord-issue-intake.yml',
+  '.github/workflows/openapi-reference-validation.yml',
   '.github/workflows/docs-v2-issue-indexer.yml',
+  'docs-guide/catalog/templates-catalog.mdx',
+  'docs-guide/features/automations.mdx',
   'docs-guide/policies/source-of-truth-policy.mdx',
   'docs-guide/policies/infrastructure-principles.mdx',
-  'docs-guide/policies/ownerless-governance.mdx'
+  'docs-guide/policies/ownerless-governance.mdx',
+  'tests/WHEN-TESTS-RUN.md',
+  'tests/utils/openapi-rolling-issue.js',
+  'tests/unit/openapi-rolling-issue.test.js'
 ];
 
 const REPLACEMENTS = [
@@ -40,6 +48,8 @@ const REPLACEMENTS = [
   ['Select maintainer scheduling priority (separate from classification severity/impact).', 'Select queue priority (separate from classification severity/impact).'],
   ['Select issue severity/impact. This is separate from priority (maintainer scheduling).', 'Select issue severity/impact. This is separate from queue priority.'],
   ['status: needs-triage', 'status: needs-routing'],
+  ['Needs initial maintainer triage', 'Needs initial repository routing'],
+  ['Awaiting maintainer triage', 'Awaiting repository routing'],
   ['Ask a tracked question that needs maintainer clarification.', 'Ask a tracked question that needs repository clarification.'],
   ['Get real-time support from the community and maintainers.', 'Get real-time support from the community.'],
   ['maintainer CLI', 'repo CLI'],

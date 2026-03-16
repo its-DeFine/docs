@@ -32,7 +32,7 @@
 ./.githooks/install.sh
 ```
 
----
+<CustomDivider />
 
 ## 2. CI/CD Workflows (GitHub Actions - Automatic)
 
@@ -136,7 +136,7 @@
 - Single marker issue: `[//]: # (openapi-reference-audit)`
 - Opens/updates when unresolved failures remain
 - Closes with resolution comment when a run is clean
-- Labels ensured idempotently: `docs-v2`, `help wanted`, `status: needs-triage`, `type: bug`, `area: ci-cd`
+- Labels ensured idempotently: `docs-v2`, `help wanted`, `status: needs-routing`, `type: bug`, `area: ci-cd`
 
 **Output:**
 - Artifacts:
@@ -150,7 +150,7 @@
 
 **Blocks PR:** YES when unresolved findings remain
 
----
+<CustomDivider />
 
 ## 3. Manual Execution (On-Demand)
 
@@ -193,7 +193,7 @@ node tests/integration/openapi-reference-audit.js --files v2/solutions/livepeer-
 4. If endpoint is intentionally removed, retire page + locale variants and remove navigation references in `docs.json`.
 5. Re-run strict audit until findings are zero.
 
----
+<CustomDivider />
 
 ## Execution Flow (PR)
 
@@ -215,7 +215,7 @@ Step summary updated
 ✅ PR can merge OR ❌ PR blocked
 ```
 
----
+<CustomDivider />
 
 ## Future Graduation to Full-Repo Blocking
 
@@ -226,7 +226,7 @@ Graduate to full-repo blocking only after agreed criteria are met, for example:
 - The team agrees the remaining debt is not expected to cause widespread PR failures
 - CI timing and developer experience remain acceptable after widening scope
 
----
+<CustomDivider />
 
 ## Detailed Matrix
 
