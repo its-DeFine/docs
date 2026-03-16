@@ -507,9 +507,13 @@ function runGeneratedBannerCheck(changedFiles) {
     };
   }
 
-  const cmd = spawnSync('node', ['tools/scripts/enforce-generated-file-banners.js', '--check'], {
+  const cmd = spawnSync('node', ['tools/scripts/enforce-generated-file-banners.js', '--check', '--staged'], {
     cwd: REPO_ROOT,
-    encoding: 'utf8'
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      LPD_STAGED_FILES_SNAPSHOT: changedFiles.join('\n')
+    }
   });
   if (cmd.stdout) process.stdout.write(cmd.stdout);
   if (cmd.stderr) process.stderr.write(cmd.stderr);
