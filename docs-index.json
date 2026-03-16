@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-16T02:18:25.739Z",
+  "generated": "2026-03-16T02:20:44.481Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/portal",
@@ -1887,7 +1887,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 312,
-      "lastVerified": "2026-03-12T15:26:20+11:00",
+      "lastVerified": "2026-03-15T02:24:20+11:00",
       "headings": [
         {
           "level": 1,
@@ -2007,7 +2007,7 @@
     {
       "url": "https://docs.livepeer.org/docs-guide/features/feature-map",
       "title": "Feature Map",
-      "description": "This map captures repository capabilities as an internal maintainer index.",
+      "description": "This map captures repository capabilities as an internal map.",
       "section": "docs-guide",
       "tags": [
         "livepeer",
@@ -2022,7 +2022,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 323,
+      "wordCount": 334,
       "lastVerified": "2026-03-12T15:26:20+11:00",
       "headings": [
         {
@@ -3579,8 +3579,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 4457,
-      "lastVerified": "2026-03-12T15:26:20+11:00",
+      "wordCount": 4622,
+      "lastVerified": "2026-03-16T12:30:14+11:00",
       "headings": [
         {
           "level": 2,

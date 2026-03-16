@@ -59,6 +59,7 @@
 | `tools/scripts/generate-docs-index.js` | Docs index generator — produces docs-index.json from v2 frontmatter and docs.json. Dual-mode: --check (enforcer) / --write (generator). Most-called script in the repo. | `node tools/scripts/generate-docs-index.js [flags]` | docs |
 | `tools/scripts/generate-llms-files.js` | LLMs file generator — produces llms.txt and llms-full.txt for AI consumption. Dual-mode: --check / --write. | `node tools/scripts/generate-llms-files.js [flags]` | docs |
 | `tools/scripts/generate-pages-index.js` | Pages index generator — generates and verifies section-style index.mdx files for v2 docs folders plus root aggregate index | `node tools/scripts/generate-pages-index.js [flags]` | docs |
+| `tools/scripts/generate-ui-templates.js` | Generates the UI template catalog, template preview routes, and VS Code snippets from canonical template/component sources | `node tools/scripts/generate-ui-templates.js [flags]` | docs |
 | `tools/scripts/i18n/generate-localized-docs-json.js` | Locale docs.json generator — produces localised docs.json variants from route-map and source docs.json | `node tools/scripts/i18n/generate-localized-docs-json.js [flags]` | docs |
 | `tools/scripts/i18n/lib/common.js` | i18n shared utilities — common helper functions for translation pipeline | `node tools/scripts/i18n/lib/common.js [flags]` | docs |
 | `tools/scripts/i18n/lib/config.js` | i18n configuration — language codes, locale paths, translation settings | `node tools/scripts/i18n/lib/config.js [flags]` | docs |

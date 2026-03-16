@@ -181,30 +181,41 @@ async function runTests() {
     }
   });
 
-  await runCase('Docs.json tab scope resolves live orchestrator files without stale guides paths', async () => {
+  await runCase('Docs.json tab scope resolves current orchestrator quickstart files', async () => {
     const result = await audit.runAudit({
       argv: [
-        '--tab', 'GPU Nodes',
-        '--anchor', 'GPU Nodes',
-        '--group', 'Tools and Guides',
+        '--tab', 'Orchestrators',
+        '--anchor', 'Orchestrators',
+        '--group', 'Quickstart',
         '--no-write-links',
-        '--report', '/tmp/v2-link-audit-unit-gpu-nodes.md',
-        '--report-json', '/tmp/v2-link-audit-unit-gpu-nodes.json'
+        '--report', '/tmp/v2-link-audit-unit-orchestrators.md',
+        '--report-json', '/tmp/v2-link-audit-unit-orchestrators.json'
       ]
     });
 
     assert.strictEqual(result.fileCount, 2);
     const analyzedFiles = (result.jsonReport?.files || []).map((file) => file.file || file.filePath || '');
-    assert(analyzedFiles.some((file) => file.endsWith('v2/orchestrators/resources/x-guides.mdx')));
-    assert(analyzedFiles.some((file) => file.endsWith('v2/orchestrators/guides/monitoring-and-troubleshooting/tools.mdx')));
+    assert(analyzedFiles.some((file) => file.endsWith('v2/orchestrators/quickstart/guide.mdx')));
+    assert(analyzedFiles.some((file) => file.endsWith('v2/orchestrators/quickstart/video-transcoding.mdx')));
     assert(analyzedFiles.every((file) => !file.includes('v2/orchestrators/guides/')));
+  });
+
+  await runCase('Resolves rooted hidden v2 routes outside docs.json navigation', async () => {
+    const root = getRepoRoot();
+    const currentFile = path.join(root, 'snippets', 'templates', 'pages', 'landing-and-navigation', 'navigation-page.mdx');
+    const resolved = audit.resolveInternalPath('/templates/pages/overview-page-template', currentFile);
+
+    assert.strictEqual(
+      path.relative(root, resolved).split(path.sep).join('/'),
+      'v2/templates/pages/overview-page-template'
+    );
   });
 
   return {
     errors,
     warnings,
     passed: errors.length === 0,
-    total: 9
+    total: 10
   };
 }
 

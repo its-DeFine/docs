@@ -117,7 +117,9 @@ Recovery:
 | Automation pipelines map | [`docs-guide/features/automations.mdx`](docs-guide/features/automations.mdx) |
 | Content system and IA model | [`docs-guide/frameworks/content-system.mdx`](docs-guide/frameworks/content-system.mdx) |
 | APIs and data integrations | [`docs-guide/features/data-integrations.mdx`](docs-guide/features/data-integrations.mdx) |
+| UI authoring system | [`docs-guide/features/ui-system.mdx`](docs-guide/features/ui-system.mdx) |
 | AI tools catalog | [`docs-guide/catalog/ai-tools.mdx`](docs-guide/catalog/ai-tools.mdx) |
+| Generated UI template inventory | [`docs-guide/catalog/ui-templates.mdx`](docs-guide/catalog/ui-templates.mdx) |
 | Generated pages tree inventory | [`docs-guide/catalog/pages-catalog.mdx`](docs-guide/catalog/pages-catalog.mdx) |
 | Generated components inventory | [`docs-guide/catalog/components-catalog.mdx`](docs-guide/catalog/components-catalog.mdx) |
 | Generated script inventory | [`docs-guide/catalog/scripts-catalog.mdx`](docs-guide/catalog/scripts-catalog.mdx) |

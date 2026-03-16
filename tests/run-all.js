@@ -32,6 +32,8 @@ const scriptDocsTests = require('./unit/script-docs.test');
 const skillDocsTests = require('./unit/skill-docs.test');
 const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
 const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
+const docsGuideSotTests = require('./unit/docs-guide-sot.test');
+const uiTemplateGeneratorTests = require('./unit/ui-template-generator.test');
 const componentGovernanceUtilsTests = require('./unit/component-governance-utils.test');
 const componentGovernanceGeneratorTests = require('./unit/component-governance-generators.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
@@ -254,6 +256,20 @@ async function runAllTests() {
   totalErrors += exportPortableSkillsResult.errors.length;
   totalWarnings += exportPortableSkillsResult.warnings.length;
   console.log(`   ${exportPortableSkillsResult.errors.length} errors, ${exportPortableSkillsResult.warnings.length} warnings`);
+
+  // Docs-guide Source of Truth
+  console.log('\n📚 Running Docs-guide Source-of-Truth Checks...');
+  const docsGuideSotResult = normalizeSuiteResult(docsGuideSotTests.runTests({ stagedOnly }));
+  totalErrors += docsGuideSotResult.errors.length;
+  totalWarnings += docsGuideSotResult.warnings.length;
+  console.log(`   ${docsGuideSotResult.errors.length} errors, ${docsGuideSotResult.warnings.length} warnings`);
+
+  // UI Template Generator
+  console.log('\n🧱 Running UI Template Generator Checks...');
+  const uiTemplateGeneratorResult = normalizeSuiteResult(uiTemplateGeneratorTests.runTests());
+  totalErrors += uiTemplateGeneratorResult.errors.length;
+  totalWarnings += uiTemplateGeneratorResult.warnings.length;
+  console.log(`   ${uiTemplateGeneratorResult.errors.length} errors, ${uiTemplateGeneratorResult.warnings.length} warnings`);
 
   // Component Governance Utility Tests
   console.log('\n🧩 Running Component Governance Utility Tests...');

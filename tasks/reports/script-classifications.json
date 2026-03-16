@@ -669,6 +669,16 @@
     "pipeline": "P1, P3"
   },
   {
+    "path": "tests/unit/ui-template-generator.test.js",
+    "script": "ui-template-generator.test",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tests, tools/scripts/generate-ui-templates.js, .vscode, snippets/templates, docs-guide/component-registry.json",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Validates UI template generator snippet outputs are valid JSON, deterministic, and safe for after-< component insertion",
+    "pipeline": "P1, P3"
+  },
+  {
     "path": "tests/unit/usefulness-journey.test.js",
     "script": "usefulness-journey.test",
     "category": "validator",
@@ -1739,6 +1749,16 @@
     "purpose_statement": "Pages index generator — generates and verifies section-style index.mdx files for v2 docs folders plus root aggregate index",
     "pipeline": "P1",
     "dualmode": "--check (enforcer) | --write (generator)"
+  },
+  {
+    "path": "tools/scripts/generate-ui-templates.js",
+    "script": "generate-ui-templates",
+    "category": "generator",
+    "purpose": "governance:index-management",
+    "scope": "tools/scripts, docs-guide/catalog, docs-guide/features, snippets/templates, v2/templates, .vscode",
+    "needs": "R-R16, R-R17",
+    "purpose_statement": "Generates the UI template catalog, template preview routes, and VS Code snippets from canonical template/component sources",
+    "pipeline": "manual — interactive developer tool, not suited for automated pipelines"
   },
   {
     "path": "tools/scripts/i18n/generate-localized-docs-json.js",

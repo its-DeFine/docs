@@ -1,51 +1,41 @@
 ---
-title: 'UI System'
-sidebarTitle: 'UI System'
-description: 'Internal map of the UI authoring system: components, templates, and generated snippets.'
-audience: developer
-pageType: overview
-purpose: overview
-status: current
-lastVerified: 2026-03-12
+title: 'UI Templates'
+sidebarTitle: 'UI Templates'
+description: 'Generated catalog of canonical UI page and block templates, preview routes, and authoring snippets.'
 keywords:
-  - livepeer
-  - ui system
-  - templates
-  - components
-  - snippets
-'og:image': /snippets/assets/site/og-image/fallback.png
-'og:image:alt': Livepeer Docs social preview image
-'og:image:type': image/png
-'og:image:width': 1200
-'og:image:height': 630
+  [
+    'livepeer',
+    'ui templates',
+    'templates',
+    'authoring',
+    'snippets',
+    'catalog',
+  ]
 ---
 
-# UI System
+{/*
+generated-file-banner: generated-file-banner:v1
+Generation Script: tools/scripts/generate-ui-templates.js
+Purpose: UI template catalog, preview routes, and snippet inventory derived from canonical template sources.
+Run when: Page/block templates or component registry examples change.
+Run command: node tools/scripts/generate-ui-templates.js --write
+*/}
 
-This page tracks the internal UI authoring system for contributors and agents. It covers the governed component inventory, canonical template sources, and the generated VS Code snippets used to assemble new documentation pages.
-
-## Components
-
-- Governed JSX components live in `snippets/components/`.
-- The generated component inventory lives in `docs-guide/catalog/components-catalog.mdx`.
-- Component snippets are generated from `docs-guide/component-registry.json`.
-
-## Templates
-
-The section below is generated from the canonical `snippets/templates/**` source tree.
-
-[//]: # (AUTO-GENERATED:UI-TEMPLATES:START)
 <Note>
-**Generated section**: This section is synchronized by `tools/scripts/generate-ui-templates.js`. Do not edit the generated block by hand. <br/>
+**Generation Script**: This file is generated from script(s): `tools/scripts/generate-ui-templates.js`. <br/>
+**Purpose**: UI template catalog, preview routes, and snippet inventory derived from canonical template sources. <br/>
+**Run when**: Page/block templates or component registry examples change. <br/>
+**Important**: Do not manually edit this file; run `node tools/scripts/generate-ui-templates.js --write`. <br/>
 </Note>
 
-### Overview
+## Source of Truth
 
-- Canonical page templates live in `snippets/templates/pages/**` and generate one direct preview route each.
-- Canonical block templates live in `snippets/templates/blocks/**` and render together on `/templates/blocks/block-examples`.
-- Generated authoring snippets live in `.vscode/templates.code-snippets` and `.vscode/components.code-snippets`.
+- Canonical page templates live in `snippets/templates/pages/**`.
+- Canonical block templates live in `snippets/templates/blocks/**`.
+- Generated VS Code snippets live in `.vscode/templates.code-snippets` and `.vscode/components.code-snippets`.
+- Direct preview routes live under `v2/templates/**` and are intentionally excluded from `docs.json` navigation.
 
-### Source Tree
+## Source Tree
 
 <Tree>
   <Tree.Folder name="snippets/templates" defaultOpen>
@@ -77,7 +67,7 @@ The section below is generated from the canonical `snippets/templates/**` source
   </Tree.Folder>
 </Tree>
 
-### Page Templates
+## Page Templates
 
 | Template | Source | Preview | Snippet Prefix | Description |
 | --- | --- | --- | --- | --- |
@@ -93,7 +83,7 @@ The section below is generated from the canonical `snippets/templates/**` source
 | Troubleshooting Page Template | `snippets/templates/pages/troubleshooting-page.mdx` | [view](/templates/pages/troubleshooting-page-template) | `template-troubleshooting-page` | Copy-ready troubleshooting page scaffold with Symptom, Cause, Fix, and Verify sections. |
 | Tutorial Page Template | `snippets/templates/pages/tutorial-page.mdx` | [view](/templates/pages/tutorial-page-template) | `lp-tutorial` | End-to-end tutorial scaffold with goals, prerequisites, steps, and follow-up links. |
 
-### Block Templates
+## Block Templates
 
 | Template | Source | Preview | Snippet Prefix | Description |
 | --- | --- | --- | --- | --- |
@@ -101,10 +91,11 @@ The section below is generated from the canonical `snippets/templates/**` source
 | Comparison Table Block | `snippets/templates/blocks/comparison-table.mdx` | [block examples](/templates/blocks/block-examples) | `template-comparison-table` | Reusable comparison table block for choosing between options, workflows, or deployment paths. |
 | Related Pages Cards Block | `snippets/templates/blocks/related-pages-cards.mdx` | [block examples](/templates/blocks/block-examples) | `template-related-pages` | Reusable related-pages card group for end-of-page CTA sections. |
 | Related Pages CTA Template | `snippets/templates/blocks/related-pages-cta.mdx` | [block examples](/templates/blocks/block-examples) | `template-related-pages-cta` | Reusable related-pages block template for routing readers to the next two pages. |
-[//]: # (AUTO-GENERATED:UI-TEMPLATES:END)
 
-## Snippets
+## Generated Outputs
 
-- Generic MDX helpers remain in `.vscode/mdx.code-snippets`.
-- Page/block template snippets are generated into `.vscode/templates.code-snippets`.
-- Component tag snippets are generated into `.vscode/components.code-snippets`.
+- `docs-guide/catalog/ui-templates.mdx`
+- `v2/templates/pages/**/<name>-template.mdx`
+- `v2/templates/blocks/block-examples.mdx`
+- `.vscode/templates.code-snippets`
+- `.vscode/components.code-snippets`

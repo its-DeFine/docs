@@ -56,6 +56,7 @@
 | `tests/unit/skill-docs.test.js` | Validates governed skill documentation frontmatter, references, and contract integrity for canonical templates and local skill files. | `node tests/unit/skill-docs.test.js [--staged] [--files path[,path]]` | docs |
 | `tests/unit/spelling.test.js` | Spelling check — validates content against custom dictionary with en-GB rules | `node tests/unit/spelling.test.js [flags]` | docs |
 | `tests/unit/style-guide.test.js` | Style guide compliance — checks en-GB conventions, heading case, formatting rules | `node tests/unit/style-guide.test.js [flags]` | docs |
+| `tests/unit/ui-template-generator.test.js` | Validates UI template generator snippet outputs are valid JSON, deterministic, and safe for after-< component insertion | `node tests/unit/ui-template-generator.test.js [flags]` | docs |
 | `tests/unit/usefulness-journey.test.js` | Tests journey-check evaluation logic against fixture pages. | `node tests/unit/usefulness-journey.test.js` | docs |
 | `tests/unit/usefulness-rubric.test.js` | Tests rubric-based scoring logic against fixture pages. | `node tests/unit/usefulness-rubric.test.js` | docs |
 | `tests/unit/v2-link-audit.test.js` | Unit tests for v2-link-audit.js — tests individual link checking rules | `node tests/unit/v2-link-audit.test.js [flags]` | docs |

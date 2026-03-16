@@ -40,6 +40,8 @@ const scriptDocsTests = require('./unit/script-docs.test');
 const skillDocsTests = require('./unit/skill-docs.test');
 const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
 const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
+const docsGuideSotTests = require('./unit/docs-guide-sot.test');
+const uiTemplateGeneratorTests = require('./unit/ui-template-generator.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
 
 const REPO_ROOT = getRepoRoot();
@@ -224,6 +226,24 @@ function partitionFiles(changedFiles) {
     file === 'tests/unit/export-portable-skills.test.js' ||
     file === 'tests/unit/codex-skill-sync.test.js'
   );
+  const docsGuideSotFiles = existingChangedFiles.filter((file) =>
+    file === 'README.md' ||
+    file.startsWith('docs-guide/') ||
+    file === 'tests/unit/docs-guide-sot.test.js' ||
+    file.startsWith('tools/scripts/generate-docs-guide-') ||
+    file === 'tools/scripts/generate-ui-templates.js' ||
+    file === 'tests/unit/script-docs.test.js'
+  );
+  const uiTemplateFiles = existingChangedFiles.filter((file) =>
+    file.startsWith('snippets/templates/') ||
+    file.startsWith('v2/templates/') ||
+    file.startsWith('.vscode/') ||
+    file === 'docs-guide/catalog/ui-templates.mdx' ||
+    file === 'docs-guide/features/ui-system.mdx' ||
+    file === 'docs-guide/component-registry.json' ||
+    file === 'tools/scripts/generate-ui-templates.js' ||
+    file === 'tests/unit/ui-template-generator.test.js'
+  );
   const ownerlessGovernanceFiles = existingChangedFiles.filter((file) =>
     file === OWNERLESS_MANIFEST_PATH ||
     file === OWNERLESS_POLICY_PATH ||
@@ -247,6 +267,8 @@ function partitionFiles(changedFiles) {
     scriptFiles: dedupe(scriptFiles),
     skillDocsFiles: dedupe(skillDocsFiles),
     portableSkillFiles: dedupe(portableSkillFiles),
+    docsGuideSotFiles: dedupe(docsGuideSotFiles),
+    uiTemplateFiles: dedupe(uiTemplateFiles),
     ownerlessGovernanceFiles: dedupe(ownerlessGovernanceFiles),
     usefulnessFiles: dedupe(usefulnessFiles)
   };
@@ -367,6 +389,36 @@ function runOwnerlessGovernanceCheck(files) {
   const result = ownerlessGovernanceTests.runTests({ files });
   return {
     label: 'Ownerless Governance',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
+function runDocsGuideSotCheck(files) {
+  if (!files.length) {
+    return { label: 'Docs-guide SoT', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = docsGuideSotTests.runTests();
+  return {
+    label: 'Docs-guide SoT',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
+function runUiTemplateGeneratorCheck(files) {
+  if (!files.length) {
+    return { label: 'UI Template Generator', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = uiTemplateGeneratorTests.runTests();
+  return {
+    label: 'UI Template Generator',
     status: result.passed ? 'passed' : 'failed',
     files: files.length,
     errors: Array.isArray(result.errors) ? result.errors.length : 0,
@@ -642,6 +694,8 @@ async function main() {
   console.log(`Changed scripts: ${groups.scriptFiles.length}`);
   console.log(`Changed skill docs: ${groups.skillDocsFiles.length}`);
   console.log(`Changed portable-skill files: ${groups.portableSkillFiles.length}`);
+  console.log(`Changed docs-guide SoT files: ${groups.docsGuideSotFiles.length}`);
+  console.log(`Changed UI-template files: ${groups.uiTemplateFiles.length}`);
   console.log(`Changed ownerless-governance files: ${groups.ownerlessGovernanceFiles.length}`);
   console.log(`Changed usefulness files: ${groups.usefulnessFiles.length}`);
 
@@ -668,6 +722,8 @@ async function main() {
   checks.push(runSkillDocsCheck(groups.skillDocsFiles));
   checks.push(runOwnerlessGovernanceCheck(groups.ownerlessGovernanceFiles));
   checks.push(await runAsyncGlobalCheck('Portable Skill Export', groups.portableSkillFiles, exportPortableSkillsTests.runTests));
+  checks.push(runDocsGuideSotCheck(groups.docsGuideSotFiles));
+  checks.push(runUiTemplateGeneratorCheck(groups.uiTemplateFiles));
   checks.push(runUsefulnessChecks(groups.usefulnessFiles));
   checks.push(runLinkAuditCheck(groups.docsMdx));
 
