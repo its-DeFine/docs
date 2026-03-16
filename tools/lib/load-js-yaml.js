@@ -39,39 +39,91 @@ function parseScalar(raw) {
   return value;
 }
 
+function stripKeyQuotes(value) {
+  const key = String(value || '').trim();
+  if (
+    (key.startsWith('"') && key.endsWith('"'))
+    || (key.startsWith('\'') && key.endsWith('\''))
+  ) {
+    return key.slice(1, -1);
+  }
+  return key;
+}
+
+function getIndent(line) {
+  const match = String(line || '').match(/^(\s*)/);
+  return match ? match[1].length : 0;
+}
+
 function loadSimpleYaml(source) {
   const result = {};
   let currentArrayKey = '';
 
-  String(source || '')
-    .split(/\r?\n/)
-    .forEach((line) => {
-      if (!line.trim() || line.trim().startsWith('#')) return;
+  const lines = String(source || '').split(/\r?\n/);
 
-      const arrayMatch = line.match(/^\s*-\s+(.*)$/);
-      if (arrayMatch) {
-        if (!currentArrayKey || !Array.isArray(result[currentArrayKey])) {
-          throw new Error(`Unsupported YAML list item without parent key: ${line}`);
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    if (!line.trim() || line.trim().startsWith('#')) continue;
+
+    const arrayMatch = line.match(/^\s*-\s+(.*)$/);
+    if (arrayMatch) {
+      if (!currentArrayKey || !Array.isArray(result[currentArrayKey])) {
+        throw new Error(`Unsupported YAML list item without parent key: ${line}`);
+      }
+      result[currentArrayKey].push(parseScalar(arrayMatch[1]));
+      continue;
+    }
+
+    const keyMatch = line.match(/^(['"]?[A-Za-z0-9:_-]+['"]?):\s*(.*)$/);
+    if (!keyMatch) {
+      throw new Error(`Unsupported YAML syntax without js-yaml installed: ${line}`);
+    }
+
+    const [, rawKey, rawValue] = keyMatch;
+    const key = stripKeyQuotes(rawKey);
+    const trimmedValue = String(rawValue || '').trim();
+    const currentIndent = getIndent(line);
+
+    if (!trimmedValue) {
+      result[key] = [];
+      currentArrayKey = key;
+      continue;
+    }
+
+    if (/^[>|][+-]?$/.test(trimmedValue)) {
+      const blockStyle = trimmedValue[0];
+      const blockLines = [];
+      let blockIndent = null;
+      let cursor = index + 1;
+
+      while (cursor < lines.length) {
+        const nextLine = lines[cursor];
+        if (!nextLine.trim()) {
+          blockLines.push('');
+          cursor += 1;
+          continue;
         }
-        result[currentArrayKey].push(parseScalar(arrayMatch[1]));
-        return;
+
+        const nextIndent = getIndent(nextLine);
+        if (nextIndent <= currentIndent) break;
+        if (blockIndent === null) blockIndent = nextIndent;
+        blockLines.push(nextLine.slice(blockIndent));
+        cursor += 1;
       }
 
-      const keyMatch = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
-      if (!keyMatch) {
-        throw new Error(`Unsupported YAML syntax without js-yaml installed: ${line}`);
-      }
+      index = cursor - 1;
+      const normalized = blockStyle === '|'
+        ? blockLines.map((entry) => entry.trimEnd()).join('\n').trim()
+        : blockLines.join(' ').replace(/\s+/g, ' ').trim();
 
-      const [, key, rawValue] = keyMatch;
-      if (!rawValue) {
-        result[key] = [];
-        currentArrayKey = key;
-        return;
-      }
+      result[key] = normalized;
+      currentArrayKey = '';
+      continue;
+    }
 
-      result[key] = parseScalar(rawValue);
-      currentArrayKey = Array.isArray(result[key]) ? key : '';
-    });
+    result[key] = parseScalar(trimmedValue);
+    currentArrayKey = Array.isArray(result[key]) ? key : '';
+  }
 
   return result;
 }

@@ -3,10 +3,10 @@
  * @script            check-agent-docs-freshness
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tools/scripts/validators/governance, .github, ai-tools/ai-skills, contribute
+ * @scope             tools/scripts/validators/governance, AGENTS.md, .github, .claude, .cursor, .windsurf, docs-guide/policies, ai-tools/ai-skills, contribute
  * @owner             docs
  * @needs             R-R14, R-R18
- * @purpose-statement Validates that required agent governance docs exist and have been touched within a freshness threshold
+ * @purpose-statement Validates that canonical agent governance docs and native adapters exist and have been touched within a freshness threshold
  * @pipeline          manual, ci
  * @usage             node tools/scripts/validators/governance/check-agent-docs-freshness.js [--threshold <days>] [--json]
  */
@@ -17,6 +17,16 @@ const { spawnSync } = require('child_process');
 
 const DEFAULT_THRESHOLD_DAYS = 90;
 const REPO_ROOT = getRepoRoot();
+const REQUIRED_BASE_ENTRIES = [
+  { label: 'AGENTS', path: 'AGENTS.md' },
+  { label: 'COPILOT-ADAPTER', path: '.github/copilot-instructions.md' },
+  { label: 'CLAUDE-ADAPTER', path: '.claude/CLAUDE.md' },
+  { label: 'CURSOR-ADAPTER', path: '.cursor/rules/repo-governance.mdc' },
+  { label: 'WINDSURF-ADAPTER', path: '.windsurf/rules/repo-governance.md' },
+  { label: 'AGENT-GOVERNANCE-POLICY', path: 'docs-guide/policies/agent-governance-framework.mdx' },
+  { label: 'ROOT-ALLOWLIST-GOVERNANCE-POLICY', path: 'docs-guide/policies/root-allowlist-governance.mdx' },
+  { label: 'CONTRIBUTOR-AGENT-INSTRUCTIONS', path: 'contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md' }
+];
 
 function getRepoRoot() {
   const result = spawnSync('git', ['rev-parse', '--show-toplevel'], { encoding: 'utf8' });
@@ -91,15 +101,6 @@ function getGitTimestamp(repoPath) {
   return Number.isFinite(timestamp) ? timestamp : null;
 }
 
-function resolveFirstExisting(candidates) {
-  for (const candidate of candidates) {
-    if (fs.existsSync(path.join(REPO_ROOT, candidate))) {
-      return candidate;
-    }
-  }
-  return '';
-}
-
 function getSkillDocs() {
   const skillsDir = path.join(REPO_ROOT, 'ai-tools', 'ai-skills');
   if (!fs.existsSync(skillsDir)) return [];
@@ -112,25 +113,10 @@ function getSkillDocs() {
 }
 
 function buildRequiredEntries() {
-  const required = [
-    {
-      label: 'AGENTS',
-      candidates: ['AGENTS.md', 'ai-tools/ai-rules/AGENTS.md', '.github/AGENTS.md']
-    },
-    {
-      label: 'ASSISTANT',
-      candidates: ['ASSISTANT.md']
-    },
-    {
-      label: 'AGENT-INSTRUCTIONS',
-      candidates: ['AGENT-INSTRUCTIONS.md', 'contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md']
-    }
-  ];
-
-  const records = required.map((entry) => ({
+  const records = REQUIRED_BASE_ENTRIES.map((entry) => ({
     label: entry.label,
-    candidates: entry.candidates,
-    resolvedPath: resolveFirstExisting(entry.candidates)
+    candidates: [entry.path],
+    resolvedPath: fs.existsSync(path.join(REPO_ROOT, entry.path)) ? entry.path : ''
   }));
 
   const skillDocs = getSkillDocs();
@@ -198,6 +184,22 @@ function buildRecord(entry, thresholdDays) {
   };
 }
 
+function run(options = {}) {
+  const thresholdDays = Number.isFinite(options.thresholdDays)
+    ? options.thresholdDays
+    : DEFAULT_THRESHOLD_DAYS;
+
+  const records = buildRequiredEntries().map((entry) => buildRecord(entry, thresholdDays));
+  const summary = summarize(records);
+  summary.thresholdDays = thresholdDays;
+
+  return {
+    passed: summary.errors === 0,
+    summary,
+    records
+  };
+}
+
 function summarize(records) {
   const summary = {
     info: 0,
@@ -246,23 +248,15 @@ function main() {
       process.exit(0);
     }
 
-    const records = buildRequiredEntries().map((entry) => buildRecord(entry, args.thresholdDays));
-    const summary = summarize(records);
-    summary.thresholdDays = args.thresholdDays;
-
-    const payload = {
-      passed: summary.errors === 0,
-      summary,
-      records
-    };
+    const payload = run({ thresholdDays: args.thresholdDays });
 
     if (args.json) {
       process.stdout.write(`${JSON.stringify(payload, null, 2)}\n`);
     } else {
-      writeHumanReport(records, summary);
+      writeHumanReport(payload.records, payload.summary);
     }
 
-    process.exit(summary.errors > 0 ? 1 : 0);
+    process.exit(payload.summary.errors > 0 ? 1 : 0);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     console.error(`check-agent-docs-freshness failed: ${message}`);
@@ -270,4 +264,18 @@ function main() {
   }
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  DEFAULT_THRESHOLD_DAYS,
+  REQUIRED_BASE_ENTRIES,
+  REPO_ROOT,
+  parseArgs,
+  getSkillDocs,
+  buildRequiredEntries,
+  buildRecord,
+  summarize,
+  run
+};

@@ -41,6 +41,7 @@ Responsibilities:
 - staged unit/static checks (`tests/run-all.js --staged --skip-browser`)
 - staged generated-artifact sync checks
 - runtime budget enforcement (`<= 60s` default)
+- staged selection should respect governed non-publishable V2 lanes once they are encoded in `.mintignore` and shared file-selection helpers
 
 Out of scope:
 
@@ -107,3 +108,8 @@ Responsibilities:
 - `.github/workflows/test-v2-pages.yml`
 - `.github/workflows/openapi-reference-validation.yml`
 - `docs-guide/policies/infrastructure-principles.mdx`
+- `docs-guide/policies/v2-folder-governance.mdx`
+
+## V2 Lane Contract
+
+Mint, tests, and audits should treat `_workspace/`, `x-deprecated/`, and `v2/x-archived/` as non-publishable lanes unless a tool is explicitly operating in maintainer inventory mode. Transitional legacy buckets such as `_contextData`, `_plans-and-research`, `x-resources`, and section-level `review.md` remain inventoried until move waves normalize them into the canonical lanes.

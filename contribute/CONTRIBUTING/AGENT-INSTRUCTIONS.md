@@ -2,6 +2,12 @@
 
 This document provides specific instructions for AI agents working on this repository.
 
+Canonical policy sources:
+
+- `AGENTS.md`
+- `docs-guide/policies/root-allowlist-governance.mdx`
+- `docs-guide/policies/agent-governance-framework.mdx`
+
 ## MANDATORY: Install Git Hooks
 
 Before making any changes, agents MUST ensure git hooks are installed:
@@ -21,7 +27,7 @@ For implementation work on agent branches, use:
 Enforcement behavior:
 
 - `pre-commit` validates contract presence/schema on `codex/*`.
-- `pre-commit` and `pre-push` validate local lock ownership on `codex/*`.
+- `pre-commit` and `pre-push` validate local execution lock state on `codex/*`.
 - `pre-push` validates contract scope and blocks non-fast-forward pushes by default on `codex/*`.
 - CI (`tests/run-pr-checks.js`) validates contract and required PR body sections on `codex/*`.
 
@@ -194,6 +200,10 @@ If a human explicitly needs to edit `.allowlist`, they must commit with:
 git commit -m "Update .allowlist" --trailer "allowlist-edit=true"
 ```
 
+For root-entry decisions, parser behavior, and the current keep/move criteria,
+use the canonical policy in `docs-guide/policies/root-allowlist-governance.mdx`
+instead of encoding decisions directly in `.allowlist`.
+
 If a human explicitly needs to allow file deletions, they must commit with:
 
 ```bash
@@ -270,4 +280,5 @@ When working on a fork:
 - [Full Git Hooks Documentation](./GIT-HOOKS.md)
 - [Style Guide](../../v2/resources/documentation-guide/style-guide.mdx)
 - [Agent Prerequisites](../../PLAN/AGENT-PREREQUISITES.md)
-- [Augment Instructions](../../.github/augment-instructions.md)
+- [Agent Governance Framework](../../docs-guide/policies/agent-governance-framework.mdx)
+- [Root Allowlist Governance](../../docs-guide/policies/root-allowlist-governance.mdx)

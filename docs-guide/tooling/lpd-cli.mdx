@@ -16,7 +16,7 @@ audience: internal
 pageType: reference
 purpose: reference
 status: draft
-lastVerified: 2026-03-12T00:00:00.000Z
+lastVerified: 2026-03-16T00:00:00.000Z
 'og:image': /snippets/assets/site/og-image/fallback.png
 'og:image:alt': Livepeer Docs social preview image
 'og:image:type': image/png
@@ -39,6 +39,7 @@ Use `bash lpd ...` until you have run `bash lpd setup --yes` and confirmed `lpd`
 `lpd` standardizes the main contributor workflows for this repo:
 
 - bootstrap local dependencies
+- sync the repo planning skill into the local Codex skills directory
 - verify your environment
 - run Mint locally
 - launch scoped docs previews for large navs
@@ -52,33 +53,35 @@ Use `bash lpd ...` until you have run `bash lpd setup --yes` and confirmed `lpd`
 
 ### Start local docs
 
-```bash
+```bash icon="terminal"
 bash lpd setup --yes
 lpd dev -- --port 3333
 ```
 
+`bash lpd setup --yes` installs tools/tests dependencies, refreshes hooks, optionally installs `lpd` on PATH, and syncs `agentic-project-management-orchestrator` into `$CODEX_HOME/skills` (fallback: `~/.codex/skills`).
+
 ### Start a scoped Mint session
 
-```bash
+```bash icon="terminal"
 bash lpd dev --scoped --scope-version v2 --scope-language en --scope-prefix v2/orchestrators
 ```
 
 ### Load an alternate docs config
 
-```bash
+```bash icon="terminal"
 bash tools/scripts/dev/mint-custom-loader.sh docs-orch-work.json
 bash tools/scripts/dev/mint-custom-loader.sh docs-gate-work.json
 ```
 
 ### Use the custom Mint loader helper
 
-```bash
+```bash icon="terminal"
 bash tools/scripts/dev/mint-custom-loader.sh docs-orch-work.json
 ```
 
 ### Run pre-PR checks
 
-```bash
+```bash icon="terminal"
 lpd doctor --strict
 lpd test --staged
 lpd ci --skip-browser
@@ -86,7 +89,7 @@ lpd ci --skip-browser
 
 ### Move a page with governed rewrites
 
-```bash
+```bash icon="terminal"
 bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/new.mdx --check
 ```
 
@@ -98,7 +101,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     { Command: "lpd help", Purpose: "Show the root command summary and examples.", "Key flags": "none" },
     { Command: "lpd info", Purpose: "Show command groups and common workflows.", "Key flags": "--help" },
     { Command: "lpd version", Purpose: "Print the CLI version.", "Key flags": "--json (global form supported)" },
-    { Command: "lpd setup", Purpose: "Bootstrap tools/tests dependencies, hooks, and optional PATH install.", "Key flags": "--yes, --no-tools, --no-tests, --no-hooks, --with-mintlify, --no-cli, --json" },
+    { Command: "lpd setup", Purpose: "Bootstrap tools/tests dependencies, hooks, optional PATH install, and Codex planner-skill sync.", "Key flags": "--yes, --no-tools, --no-tests, --no-hooks, --with-mintlify, --no-cli, --no-codex-skills, --json" },
     { Command: "lpd doctor", Purpose: "Check repo readiness, dependencies, Mint, and hook state.", "Key flags": "--strict, --json" },
     { Command: "lpd dev", Purpose: "Run local Mint development, optionally scoped by version, language, tab, or route prefix.", "Key flags": "--test, --test-mode, --scoped, --scope-file, --scope-version, --scope-language, --scope-tab, --scope-prefix, --disable-openapi, --" },
     { Command: "lpd mint dev", Purpose: "Compatibility alias to `lpd dev`.", "Key flags": "same as `lpd dev`" },
@@ -123,8 +126,8 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Bootstrap the local repo environment.
 
     **Usage**
-    ```bash
-    bash lpd setup [--yes] [--no-tools] [--no-tests] [--no-hooks] [--with-mintlify] [--no-cli] [--json]
+    ```bash icon="terminal"
+    bash lpd setup [--yes] [--no-tools] [--no-tests] [--no-hooks] [--with-mintlify] [--no-cli] [--no-codex-skills] [--json]
     ```
 
     **What it does**
@@ -133,11 +136,13 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     - installs or refreshes git hooks
     - optionally installs Mintlify globally
     - optionally installs `lpd` on your PATH
+    - syncs `agentic-project-management-orchestrator` into `$CODEX_HOME/skills` (fallback: `~/.codex/skills`)
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     bash lpd setup --yes
     bash lpd setup --no-tests --no-cli
+    bash lpd setup --yes --no-codex-skills
     bash lpd setup --with-mintlify
     ```
 
@@ -160,6 +165,9 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     <ResponseField name="--no-cli" type="boolean" default="false">
       Skip PATH installation for `lpd`.
     </ResponseField>
+    <ResponseField name="--no-codex-skills" type="boolean" default="false">
+      Skip syncing `agentic-project-management-orchestrator` into the local Codex skills directory.
+    </ResponseField>
     <ResponseField name="--json" type="boolean" default="false">
       Emit the standard JSON status envelope.
     </ResponseField>
@@ -169,7 +177,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Check whether your repo and local environment are ready.
 
     **Usage**
-    ```bash
+    ```bash icon="terminal"
     lpd doctor [--strict] [--json]
     ```
 
@@ -182,7 +190,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     - hook sync state
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     lpd doctor
     lpd doctor --strict
     lpd --json doctor
@@ -201,7 +209,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Use these as the fast discovery commands.
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     lpd help
     lpd info
     lpd version
@@ -217,15 +225,15 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Run the local docs dev launcher.
 
     **Usage**
-    ```bash
-    lpd dev [--test] [--test-mode fast|staged|full] [--script <path>] [--dry-run] [--scoped] [--docs-config <path>] [--scope-interactive] [--scope-file <path>] [--scope-version <csv>] [--scope-language <csv>] [--scope-tab <csv>] [--scope-prefix <csv>] [--skip-external-fetch] [--disable-openapi] [-- ...mint args]
+    ```bash icon="terminal"
+    lpd dev [--test] [--test-mode fast|staged|full] [--script [path]] [--dry-run] [--scoped] [--docs-config [path]] [--scope-interactive] [--scope-file [path]] [--scope-version [csv]] [--scope-language [csv]] [--scope-tab [csv]] [--scope-prefix [csv]] [--skip-external-fetch] [--disable-openapi] [-- ...mint args]
     ```
 
     **What `--scoped` does**
     Generates a reduced dev-only Mint profile so large docs nav trees start faster and route changes are lighter when you are filtering the main docs navigation.
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     lpd dev
     lpd dev -- --port 3333
     lpd dev --test --test-mode staged
@@ -239,10 +247,10 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Use `lpd dev --scoped` for filtered previews of the main docs navigation. For alternate docs config files such as `docs-orch-work.json` or `docs-gate-work.json`, use the custom loader helper below.
 
     **Advanced distinction**
-    <ResponseField name="--docs-config <path>" type="string" default="">
+    <ResponseField name="--docs-config [path]" type="string" default="">
       Alternate docs-config input passed through to the scoped Mint launcher. This page does not recommend it as the primary contributor workflow.
     </ResponseField>
-    <ResponseField name="--scope-file <path>" type="string" default="">
+    <ResponseField name="--scope-file [path]" type="string" default="">
       Load scoped selection settings from JSON. This is for filters such as `versions`, `languages`, `tabs`, `prefixes`, and optional `disableOpenapi`. It is not the normal way to switch to another docs navigation file.
     </ResponseField>
 
@@ -253,7 +261,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     <ResponseField name="--test-mode fast|staged|full" type="enum" default="fast">
       Choose which advisory test mode to run with `--test`.
     </ResponseField>
-    <ResponseField name="--script <path>" type="string" default="tools/scripts/mint-dev.sh">
+    <ResponseField name="--script [path]" type="string" default="tools/scripts/mint-dev.sh">
       Override the launcher script path.
     </ResponseField>
     <ResponseField name="--dry-run" type="boolean" default="false">
@@ -265,16 +273,16 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     <ResponseField name="--scope-interactive" type="boolean" default="false">
       Prompt for scoped filters interactively.
     </ResponseField>
-    <ResponseField name="--scope-version <csv>" type="string" default="all">
+    <ResponseField name="--scope-version [csv]" type="string" default="all">
       Limit included versions.
     </ResponseField>
-    <ResponseField name="--scope-language <csv>" type="string" default="all">
+    <ResponseField name="--scope-language [csv]" type="string" default="all">
       Limit included languages.
     </ResponseField>
-    <ResponseField name="--scope-tab <csv>" type="string" default="all">
+    <ResponseField name="--scope-tab [csv]" type="string" default="all">
       Limit included tabs.
     </ResponseField>
-    <ResponseField name="--scope-prefix <csv>" type="string" default="all">
+    <ResponseField name="--scope-prefix [csv]" type="string" default="all">
       Limit included routes by prefix such as `v2/orchestrators`.
     </ResponseField>
     <ResponseField name="--skip-external-fetch" type="boolean" default="false">
@@ -292,12 +300,12 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Compatibility alias to `lpd dev`.
 
     **Usage**
-    ```bash
+    ```bash icon="terminal"
     lpd mint dev [--scoped] [--scope-...] [-- ...mint args]
     ```
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     lpd mint dev
     lpd mint dev -- --port 3333
     lpd mint dev --scoped --scope-prefix v2/orchestrators
@@ -308,12 +316,12 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Primary workflow for alternate docs configs.
 
     **Usage**
-    ```bash
+    ```bash icon="terminal"
     bash tools/scripts/dev/mint-custom-loader.sh <custom-docs-json> [-- ...mint args]
     ```
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     bash tools/scripts/dev/mint-custom-loader.sh docs-orch-work.json
     bash tools/scripts/dev/mint-custom-loader.sh docs-gate-work.json -- --port 3333
     ```
@@ -332,12 +340,12 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Run the main test suite with optional integration checks.
 
     **Usage**
-    ```bash
+    ```bash icon="terminal"
     lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--wcag] [--wcag-no-fix] [--link-audit-external] [--base-url URL] [--json]
     ```
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     lpd test --staged
     lpd test --staged --wcag
     lpd test --full --link-audit-external
@@ -350,12 +358,12 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Run the local CI-like validation flow.
 
     **Usage**
-    ```bash
+    ```bash icon="terminal"
     lpd ci [--skip-browser] [--base-url URL] [--json]
     ```
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     lpd ci
     lpd ci --skip-browser
     lpd ci --base-url http://localhost:3000
@@ -366,12 +374,12 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Generate or validate `sitemap-ai.xml`.
 
     **Usage**
-    ```bash
+    ```bash icon="terminal"
     lpd ai-sitemap [--write|--check] [--json]
     ```
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     lpd ai-sitemap --check
     lpd ai-sitemap --write
     lpd --json ai-sitemap --check
@@ -386,7 +394,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Move a docs page with governed rewrites.
 
     **Usage**
-    ```bash
+    ```bash icon="terminal"
     bash lpd move-page <old> <new> [--yes] [--check] [--no-stage] [--json]
     ```
 
@@ -396,7 +404,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     - stages related rewrites unless you opt out
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/new.mdx --check
     bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/new.mdx --yes
     ```
@@ -424,12 +432,12 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Manage hooks or run `.githooks` scripts.
 
     **Usage**
-    ```bash
+    ```bash icon="terminal"
     lpd hooks <install|status|verify|info|<hook-script tokens...>> [-- script args]
     ```
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     lpd hooks install
     lpd hooks status
     lpd hooks verify
@@ -459,12 +467,12 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     List managed scripts across `tools`, `tasks`, `tests`, `v2`, and `hooks`.
 
     **Usage**
-    ```bash
+    ```bash icon="terminal"
     lpd scripts list [--group tools|tasks|tests|v2|hooks] [--show-ignored] [--json]
     ```
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     lpd scripts list
     lpd scripts list --group tools
     lpd scripts list --group hooks --show-ignored
@@ -476,12 +484,12 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Resolve and run a managed script.
 
     **Usage**
-    ```bash
+    ```bash icon="terminal"
     lpd scripts run <group> <script-path tokens...> [--dry-run] [--yes] [--json] [-- script args]
     ```
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     lpd scripts run tools dev test-add-callouts -- --help
     lpd scripts run tasks run-audit --dry-run
     lpd scripts run tasks run-audit --yes
@@ -515,7 +523,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Group shorthand alias for `lpd scripts run <group> ...`.
 
     **Usage**
-    ```bash
+    ```bash icon="terminal"
     lpd tools <script-path tokens...> [-- script args]
     lpd tasks <script-path tokens...> [-- script args]
     lpd tests <script-path tokens...> [-- script args]
@@ -523,7 +531,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     ```
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     lpd tools dev test-add-callouts -- --help
     lpd tests unit lpd-scoped-mint-dev.test -- --help
     lpd v2 wcag-repair-common -- --staged --stage
@@ -534,14 +542,14 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Scripts are assigned risk by group and may require confirmation.
 
     **Usage**
-    ```bash
+    ```bash icon="terminal"
     low: tests
     medium: tools, hooks
     high: tasks, v2
     ```
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     lpd scripts run tasks run-audit
     lpd scripts run tasks run-audit --yes
     ```
@@ -562,7 +570,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
   <ResponseField name="`lpd` not found" type="troubleshooting">
     Run:
 
-    ```bash
+    ```bash icon="terminal"
     bash lpd setup --yes
     ```
 
@@ -572,7 +580,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
   <ResponseField name="Hook mismatch" type="troubleshooting">
     Run:
 
-    ```bash
+    ```bash icon="terminal"
     lpd hooks status
     lpd hooks install
     lpd hooks verify
@@ -582,13 +590,13 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
   <ResponseField name="Slow Mint startup on large navs" type="troubleshooting">
     Prefer scoped mode:
 
-    ```bash
+    ```bash icon="terminal"
     lpd dev --scoped --scope-prefix v2/orchestrators
     ```
 
     For alternate docs configs, use the helper:
 
-    ```bash
+    ```bash icon="terminal"
     bash tools/scripts/dev/mint-custom-loader.sh docs-orch-work.json
     bash tools/scripts/dev/mint-custom-loader.sh docs-gate-work.json
     ```
@@ -598,7 +606,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Many commands support the standard finish-envelope JSON output.
 
     **Examples**
-    ```bash
+    ```bash icon="terminal"
     lpd --json version
     lpd doctor --json
     lpd ci --json
@@ -617,7 +625,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
 
 ## Script Catalog
   <Note>
-  For generated full script metadata (script path, summary, usage, owner), see [`scripts-catalog`](../catalog/scripts-catalog.mdx).
+  For generated full script metadata (script path, summary, usage, domain), see [`scripts-catalog`](../catalog/scripts-catalog.mdx).
   </Note>
 
 <TabsContainer>
@@ -727,7 +735,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
 
 Use the repo-local fallback and verify setup:
 
-```bash
+```bash icon="terminal"
 bash lpd setup --yes
 bash lpd version
 ```
@@ -738,7 +746,7 @@ If needed, reload your shell rc file (`source ~/.zshrc` or equivalent).
 
 Check and reinstall hooks:
 
-```bash
+```bash icon="terminal"
 lpd hooks status
 lpd hooks install
 lpd hooks verify
@@ -754,7 +762,7 @@ Some commands also accept local `--json`.
 
 Pass a port through the launcher:
 
-```bash
+```bash icon="terminal"
 lpd dev -- --port 3334
 ```
 
@@ -762,13 +770,13 @@ lpd dev -- --port 3334
 
 Use scoped dev mode so Mint loads only the version, language, tab, or prefix you are actively editing:
 
-```bash
+```bash icon="terminal"
 lpd dev --scoped --scope-version v2 --scope-language en --scope-tab Developers
 ```
 
 Interactive picker:
 
-```bash
+```bash icon="terminal"
 lpd dev --scoped --scope-interactive
 ```
 
@@ -799,7 +807,7 @@ When JSON mode is active on finish-based commands, output uses this status envel
 
   Example:
 
-  ```json
+  ```json icon="terminal"
   {
     "ok": true,
     "command": "version",

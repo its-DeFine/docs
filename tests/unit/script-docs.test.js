@@ -4,7 +4,7 @@
  * @category          validator
  * @purpose           qa:repo-health
  * @scope             .githooks, .github/scripts, tests, tools/scripts, tasks/scripts, docs-guide/catalog/scripts-catalog.mdx
- * @owner             docs
+ * @domain            docs
  * @needs             E-C1, R-R14
  * @purpose-statement Enforces script header schema, keeps group script indexes in sync, and builds aggregate script catalog
  * @pipeline          P1, P3
@@ -63,7 +63,7 @@ const FRAMEWORK_REQUIRED_TAGS = [
   '@category',
   '@purpose',
   '@scope',
-  '@owner',
+  '@domain',
   '@needs',
   '@purpose-statement',
   '@pipeline',
@@ -334,7 +334,12 @@ function validateTemplate(repoPath) {
   const requiredTags = mode === 'framework' ? FRAMEWORK_REQUIRED_TAGS : LEGACY_REQUIRED_TAGS;
   const inlineTags = mode === 'framework' ? FRAMEWORK_INLINE_REQUIRED_TAGS : LEGACY_INLINE_REQUIRED_TAGS;
   const blockTags = mode === 'framework' ? [] : LEGACY_BLOCK_REQUIRED_TAGS;
-  const missing = requiredTags.filter((tag) => !header.includes(tag));
+  const missing = requiredTags.filter((tag) => {
+    if (mode === 'framework') {
+      return !getTagValue(header, tag);
+    }
+    return !header.includes(tag);
+  });
   const empty = [];
 
   for (const tag of inlineTags) {
@@ -368,7 +373,7 @@ function validateTemplate(repoPath) {
     empty,
     script: getTagValue(header, '@script') || path.basename(repoPath),
     summary,
-    owner: getTagValue(header, '@owner') || '',
+    domain: getTagValue(header, '@domain') || '',
     usage
   };
 }
@@ -402,13 +407,13 @@ function buildTemplateValues(repoPath, placeholderMode) {
   const scriptName = path.basename(repoPath, path.extname(repoPath));
   const usageDefault = buildUsageDefault(repoPath);
   const group = GROUP_INDEX_MAP.find((g) => repoPath === g.root || repoPath.startsWith(`${g.root}/`));
-  const ownerValue = 'docs';
+  const domainValue = 'docs';
 
   if (placeholderMode) {
     return {
       script: scriptName,
       summary: 'TODO: one-line purpose',
-      owner: ownerValue,
+      domain: domainValue,
       scope: group ? group.root : path.dirname(repoPath),
       usage: usageDefault,
       inputs: 'TODO: --flag <description> (default: ...)',
@@ -422,7 +427,7 @@ function buildTemplateValues(repoPath, placeholderMode) {
   return {
     script: scriptName,
     summary: `Utility script for ${repoPath}.`,
-    owner: ownerValue,
+    domain: domainValue,
     scope: group ? group.root : path.dirname(repoPath),
     usage: usageDefault,
     inputs: 'No required CLI flags; optional flags are documented inline.',
@@ -441,7 +446,7 @@ function buildTemplateBlock(repoPath, placeholderMode) {
     return [
       `# @script ${values.script}`,
       `# @summary ${values.summary}`,
-      `# @owner ${values.owner}`,
+      `# @domain ${values.domain}`,
       `# @scope ${values.scope}`,
       '#',
       '# @usage',
@@ -470,7 +475,7 @@ function buildTemplateBlock(repoPath, placeholderMode) {
     '/**',
     ` * @script ${values.script}`,
     ` * @summary ${values.summary}`,
-    ` * @owner ${values.owner}`,
+    ` * @domain ${values.domain}`,
     ` * @scope ${values.scope}`,
     ' *',
     ' * @usage',
@@ -559,7 +564,7 @@ function buildGroupRows(root) {
       script: entry.file,
       summary: entry.summary || '',
       usage: entry.usage || '',
-      owner: entry.owner || ''
+      domain: entry.domain || ''
     }));
 }
 
@@ -597,12 +602,12 @@ function buildGroupIndexMarkdown(root) {
     return ['## Script Index', '', '_No scripts indexed yet._'].join('\n');
   }
 
-  const lines = ['## Script Index', '', '| Script | Summary | Usage | Owner |', '|---|---|---|---|'];
+  const lines = ['## Script Index', '', '| Script | Summary | Usage | Domain |', '|---|---|---|---|'];
   rows.forEach((row) => {
     const summary = escapeMarkdownTableCell(row.summary);
     const usage = escapeMarkdownTableCell(row.usage);
-    const owner = escapeMarkdownTableCell(row.owner);
-    lines.push(`| \`${row.script}\` | ${summary} | \`${usage}\` | ${owner} |`);
+    const domain = escapeMarkdownTableCell(row.domain);
+    lines.push(`| \`${row.script}\` | ${summary} | \`${usage}\` | ${domain} |`);
   });
   return lines.join('\n');
 }
@@ -651,11 +656,11 @@ function buildAggregateMarkdown() {
       lines.push('');
       continue;
     }
-    lines.push('| Script | Summary | Usage | Owner |');
+    lines.push('| Script | Summary | Usage | Domain |');
     lines.push('|---|---|---|---|');
     rows.forEach((row) => {
       lines.push(
-        `| ${renderMdxCodeCell(row.script)} | ${escapeMdxTableCell(row.summary)} | ${renderMdxCodeCell(row.usage)} | ${escapeMdxTableCell(row.owner)} |`
+        `| ${renderMdxCodeCell(row.script)} | ${escapeMdxTableCell(row.summary)} | ${renderMdxCodeCell(row.usage)} | ${escapeMdxTableCell(row.domain)} |`
       );
     });
     lines.push('');

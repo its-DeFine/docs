@@ -219,3 +219,14 @@ A Payment Clearinghouse is an abstraction implementation of a <LinkArrow href="/
 - API key authentication,
 - Usage accounting, and
 - Billing in fiat, stablecoins, or credits.
+
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+
+## Operational Mode Asymmetry: Gateways vs Orchestrators
+
+Gateways and orchestrators share go-livepeer but differ fundamentally in how operational modes apply:
+
+- **Gateways have a genuine on-chain/off-chain fork.** Off-chain gateways use a remote signer for payment operations and are a sustainable production configuration. On-chain gateways manage their own wallet. This fork affects the entire setup, payment, and monitoring journey.
+- **Orchestrators do not have this fork.** Off-chain orchestrators (`-network offchain`) cannot be discovered by the protocol, cannot earn inflation rewards, and cannot join the active set. Off-chain is a testing/development configuration for orchestrators, not a production choice. Orchestrator documentation treats on-chain as the default.
+
+This asymmetry is why the gateway documentation requires on-chain/off-chain branching throughout while the orchestrator documentation does not.

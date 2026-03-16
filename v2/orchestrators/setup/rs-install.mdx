@@ -6,8 +6,32 @@ keywords: ["go-livepeer", "install", "orchestrator", "GPU", "NVIDIA", "Docker", 
 pageType: 'tutorial'
 audience: 'orchestrator'
 status: 'current'
+lastVerified: '2026-03-15'
 og:image: '/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg'
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { CustomCodeBlock } from '/snippets/components/content/code.jsx'
 
@@ -269,7 +293,7 @@ sudo systemctl restart docker`}
 docker exec -it go-livepeer-node livepeer_cli`}
       />
 
-      Use [Configure your orchestrator](/v2/orchestrators/setup/r-configure) for the full flag breakdown before you run the node in production.
+      Use [Configure your orchestrator](/v2/orchestrators/setup/configure) for the full flag breakdown before you run the node in production.
     </Step>
   </Steps>
 </View>
@@ -455,10 +479,19 @@ Do not move on to configuration until the version check succeeds and your GPU ch
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Configure your orchestrator" icon="sliders" href="/v2/orchestrators/setup/r-configure" arrow>
+  <Card title="Configure your orchestrator" icon="sliders" href="/v2/orchestrators/setup/configure" arrow>
     Set the flags your node needs to connect, price jobs, and accept work.
   </Card>
   <Card title="Transcoding quickstart" icon="rocket" href="/v2/orchestrators/quickstart/guide" arrow>
     Continue with the end-to-end orchestrator flow after the binary and GPU checks pass.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Install go-livepeer - step-by-step installation instructions
+  for Docker, Linux binary, and building from source.
+
+  SECTION HOME: Setup
+  JOURNEY POSITION: 3 of 7 in Setup
+*/}

@@ -21,7 +21,34 @@ keywords:
   - livepeer orchestrator portal
   - livepeer orchestrators portal
 'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
+'og:image:alt': Livepeer Docs social preview image for Orchestrators
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 {/* TEST: Barrel export from index.jsx */}
 import { PortalHeroContent, HeroImageBackgroundComponent, LogoHeroContainer, HeroContentContainer, HeroSectionContainer, PortalCardsHeader, PortalContentContainer } from '/snippets/components/page-structure/portals.jsx'
@@ -112,13 +139,13 @@ Whether you want to add a single GPU to the network for passive income in idle t
 Developer Level Up
 </Badge>
 </Card>
-<Card title="Advanced Orchestrator Information" icon="circle-play" href="/v2/orchestrators/guides/staking-and-rewards/earnings" arrow>
+<Card title="Advanced Orchestrator Information" icon="circle-play" href="/v2/orchestrators/guides/staking-and-rewards/earning-model" arrow>
 Find out how to set pricing, become a delegator, vote in governance, earn rewards, and run AI pipelines.
 </Card>
 <Card
         title="Running AI Pipelines on your Orchestrator"
         icon="tools"
-        href="/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide"
+        href="/v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations"
         arrow
       >
 Learn how to run AI pipelines on your orchestrator, add models, set pricing, and more.
@@ -152,3 +179,12 @@ Jump to
 - [Run a Gateway](#run-a-gateway)
 - [Gateway Tools & Dashboards](#gateway-tools--dashboards)
 - [Gateway Guides & Resources](#gateway-guides--resources)  */}
+
+{/*
+  PURPOSE:
+  Landing page for the Orchestrators tab. Hero section with value proposition,
+  quick-start paths by persona, and navigation to key sections.
+
+  SECTION HOME: Start Here
+  JOURNEY POSITION: Entry point for all orchestrator personas
+*/}

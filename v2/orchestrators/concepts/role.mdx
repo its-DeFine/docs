@@ -1,245 +1,329 @@
 ---
-title: The Orchestrator Role in the Livepeer Network
-sidebarTitle: Role
+title: 'The Orchestrator Role in the Livepeer Network'
+sidebarTitle: 'Role'
 description: >-
-  Learn what orchestrators are, how they earn, their dual role as compute
-  providers and economic actors, and which setup path fits your GPU resources.
+  What orchestrators are, how they fit into the Livepeer compute network, and how the role
+  has evolved from video transcoding to AI inference.
 keywords:
   - livepeer
-  - orchestrators
-  - about orchestrators
+  - orchestrator
   - orchestrator role
-  - overview
-  - GPU compute
-  - staking
-  - delegation
-  - governance
-  - DePIN
-'og:image': /snippets/assets/site/og-image/en/orchestrators.png
+  - GPU node
+  - video transcoding
+  - AI inference
+  - LPT staking
+  - active set
+  - pool operator
+  - node operator
+'og:image': /snippets/assets/site/og-image/fallback.png
 'og:image:alt': Livepeer Docs social preview image for Orchestrators
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
-pageType: overview
-audience: orchestrator
-purpose: overview
-status: current
-lastVerified: 2026-03-13
+pageType: 'overview'
+audience: 'orchestrator'
+purpose: 'overview'
+status: 'current'
+lastVerified: '2026-03-15'
 ---
 
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical (aim for max 3 words)
+- CustomDivider uses approved margin patterns from the page-authoring skill
+- Placeholders for Media and Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+Human
+- Find Media
+- Review REVIEW items
+*/}
+
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
-import { Image } from '/snippets/components/primitives/image.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
-import { CenteredContainer, BorderedBox } from '/snippets/components/layout/containers.jsx'
+import { CenteredContainer } from '/snippets/components/layout/containers.jsx'
 
-import OrchestratorRoleDiagram from './composable/orchestratorRole.mdx'
+<CenteredContainer style={{ width: 'fit-content', minWidth: 'fit-content' }}>
+  <AccordionGroup>
+    <Accordion title="From a Cloud Background?" icon="cloud">
+      Running an Orchestrator is similar to operating a managed GPU instance in a cloud environment - except the
+      "cloud" is decentralised and the workloads are assigned by a permissionless marketplace.
 
-<CenteredContainer style={{ width: '90%' }}>
-  <Tip>Anyone with a GPU can monetise their compute resources on the Livepeer Network - whether you want passive income in idle times, or you want to run a full-fledged infrastructure business.</Tip>
+      Instead of AWS allocating compute capacity, Livepeer Gateways select your node based on price, capability,
+      and stake weight. You advertise what you can run and at what price; the network sends you jobs.
+
+      <ScrollableDiagram title="Orchestrator as Managed GPU Node">
+
+      ```mermaid
+      %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+      flowchart LR
+          subgraph Cloud["Cloud Analogy"]
+              A["Cloud Provider<br/>• Allocates compute<br/>• Sets capacity<br/>• Charges per job"]
+          end
+
+          subgraph Livepeer["Livepeer Network"]
+              B["Orchestrator Node<br/>• Advertises GPU capacity<br/>• Sets own price<br/>• Earns ETH per job"]
+          end
+
+          subgraph WorkSrc["Work Sources"]
+              C["Gateways<br/>• Route jobs by price + capability<br/>• Pay per segment or pixel"]
+          end
+
+          WorkSrc -->|Job + payment ticket| Livepeer
+          Livepeer -->|Result| WorkSrc
+
+          classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
+          style Cloud fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+          style Livepeer fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+          style WorkSrc fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+      ```
+
+      </ScrollableDiagram>
+    </Accordion>
+    <Accordion title="From an Ethereum Background?" icon="coin">
+      Running an Orchestrator is closer to being a validator on a proof-of-stake chain than to running a simple
+      Ethereum node - but the work is compute rather than consensus.
+
+      You stake LPT to signal commitment and earn the right to enter the **active set** (the top 100 eligible
+      Orchestrators by total stake). From there, you earn ETH service fees for every job you process, plus LPT
+      inflation rewards for calling rewards each round. Slash risk exists for poor performance, not double-signing.
+
+      <ScrollableDiagram title="Orchestrator vs Ethereum Validator">
+
+      ```mermaid
+      %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+      flowchart LR
+          subgraph ETH["Ethereum Validator"]
+              A["Stake ETH<br/>→ Participate in consensus<br/>→ Earn block rewards"]
+          end
+          subgraph LP["Livepeer Orchestrator"]
+              B["Stake LPT<br/>→ Enter active set<br/>→ Process compute jobs<br/>→ Earn ETH fees + LPT rewards"]
+          end
+
+          classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
+          style ETH fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+          style LP fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+      ```
+
+      </ScrollableDiagram>
+    </Accordion>
+    <Accordion title="Neither? Here's the clearest mental model." icon="microchip">
+      Think of an Orchestrator as a **GPU-for-hire on a decentralised marketplace**.
+
+      You connect your GPU to the network, tell it what jobs you can run and at what price, and the network sends
+      you work from applications that need video transcoded or AI models run. You earn ETH for each completed job
+      and LPT rewards for participating in the protocol each round.
+
+      <ScrollableDiagram title="Orchestrator as GPU Marketplace Node">
+
+      ```mermaid
+      %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+      flowchart LR
+          subgraph You["You (Operator)"]
+              A["GPU Hardware<br/>• Advertise capabilities<br/>• Set price<br/>• Stay online"]
+          end
+          subgraph Net["The Network"]
+              B["Livepeer Protocol<br/>• Matches jobs to nodes<br/>• Processes payments<br/>• Distributes rewards"]
+          end
+          subgraph Earn["You Earn"]
+              C["ETH fees (per job)<br/>+ LPT rewards (per round)"]
+          end
+
+          You -->|Stake LPT + register| Net
+          Net -->|Jobs + ETH tickets| You
+          You -->|Completed work| Net
+          Net --> Earn
+
+          classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
+          style You fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+          style Net fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+          style Earn fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+      ```
+
+      </ScrollableDiagram>
+    </Accordion>
+  </AccordionGroup>
 </CenteredContainer>
 
-<CustomDivider />
-
-In the early days of Livepeer, orchestrators were solely responsible for transcoding video.
-
-Today, the role has expanded dramatically. Orchestrators are both **general-purpose GPU compute providers** (transcoding, AI inference, real-time AI, LLM, BYOC) and **economic actors** that stake LPT, earn rewards, attract delegation, and vote in governance. This dual role makes them critical to Livepeer's vision as a unified compute layer for real-time AI workloads.
+<CenteredContainer style={{ width: '80%' }}>
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2b9a66', 'primaryTextColor': '#E0E4E0', 'primaryBorderColor': '#18794E', 'lineColor': '#2b9a66', 'secondaryColor': '#1a1a1a', 'tertiaryColor': '#3CB540', 'background': '#0d0d0d', 'fontFamily': "Inter, 'Inter Fallback', -apple-system, system-ui" }}}%%
 timeline
-    title Orchestrator Role Evolution
-    2017-2023 : Transcoding era
+    2017-2020 : Transcoder era
                : Video-only workloads
-               : Earn LPT rewards + ETH fees
-    Q3 2024   : AI Subnet launches
-               : 9 AI inference pipelines
-               : BYOC containers
-    Q4 2024   : Cascade (real-time AI)
-               : ComfyStream integration
-               : LLM pipeline (Ollama)
-    Today     : Unified compute provider
-               : Video + AI + LLM + BYOC
-               : Governance influence
-               : Platform partnerships
+               : RTMP + HLS pipeline
+               : LPT staking model launched
+    2021-2023 : Orchestrator model
+               : O-T split introduced
+               : Delegator ecosystem grows
+               : Active set of top-100 established
+    Q3 2024   : AI subnet launches
+               : Batch inference pipelines
+               : AIServiceRegistry contract
+               : GPU demand diversifies
+    Today     : Unified Orchestrator role
+               : Video + AI + Cascade
+               : BYOC container support
+               : Dual-workload operation
 ```
 
-<OrchestratorRoleDiagram />
-_Read more:_ <LinkArrow label="Orchestrator-Delegate Dual Role" href="https://github.com/shtukaresearch/livepeer-data-geography/blob/651a56e8c8290b30855f1393543ee9e0961c071c/roles/orchestrator-delegate.md" newline={false} />
+</CenteredContainer>
 
-<CustomDivider middleText="Four Roles" />
+<CustomDivider middleText="Role Functions" style={{margin: "0 0 -1rem 0"}} />
 
 ## Technical Role
 
-An orchestrator is a **supply-side compute operator** that contributes GPU resources to the network. Gateways route jobs to your node; your node performs the work (transcoding, inference, generation) and returns results. You get compensated via probabilistic micropayment tickets (ETH) per job.
+An Orchestrator is the **compute supply layer** of the Livepeer network. It accepts jobs from Gateways,
+routes them to GPU workers, executes the work, and returns results. Orchestrators perform the actual
+processing - transcoding video frames, running AI inference pipelines, executing BYOC containers.
 
 Core responsibilities:
-- **Receive work** - accept jobs from gateways over HTTP
-- **Execute compute** - run transcoding, AI inference, LLM generation, or BYOC containers on your GPU
-- **Return results** - deliver processed output back to the gateway
-- **Manage workers** - in split configurations, coordinate between the orchestrator controller and remote transcoder/AI runner nodes
 
-See <LinkArrow href="/v2/orchestrators/concepts/capabilities" label="Capabilities" newline={false} /> for the full set of workloads orchestrators run.
+- **Job execution** - receive segments or inference requests from Gateways and route them to GPU workers
+- **Capability advertisement** - broadcast supported pipelines, models, GPU types, and price per unit
+- **Payment receipt** - collect probabilistic micropayment tickets per segment or pixel from Gateways
+- **Reward calling** - trigger the protocol reward mechanism each round to claim LPT inflation rewards
+- **Worker management** - coordinate transcoder workers (video) and AI runners (inference)
 
-<CustomDivider />
+See <LinkArrow href="/v2/orchestrators/concepts/capabilities" label="Orchestrator Capabilities" newline={false} /> for the full set of workloads Orchestrators can execute.
 
-## Economic Role
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-Orchestrators stake LPT to register on the network and earn protocol rewards. Your total stake (self-stake + delegated LPT) determines your position in the active set and your selection probability for jobs.
+## Network Role
 
-- **LPT protocol rewards** - mint new LPT every round (~24 hours) by calling `reward()`
-- **ETH service fees** - earn per job from gateway payment tickets
-- **Delegation economics** - configure reward cut and fee cut to attract delegators and share earnings
+Orchestrators are the **supply side** of the Livepeer marketplace. Where Gateways aggregate application
+demand, Orchestrators provide the GPU compute that fulfils it.
 
-See <LinkArrow href="/v2/orchestrators/concepts/rcs-incentives" label="Incentives" newline={false} /> for the full economics breakdown.
+- **Active set participation** - only the top 100 Orchestrators by total bonded stake are eligible to receive
+  work in any given round
+- **Staking and security** - LPT staked to an Orchestrator signals economic commitment; Delegators extend
+  this stake in exchange for a share of earnings
+- **Governance** - Orchestrators participate in protocol governance via LPT voting weight
+- **Capability discovery** - Orchestrators register capabilities and prices on-chain so Gateways can find them
+  via the ServiceRegistry contract on Arbitrum
 
-<CustomDivider />
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+flowchart LR
+    A["Delegators"] -->|"Bond LPT<br/>(earn cut of rewards)"| B["Orchestrator"]
+    B -->|"Process jobs"| C["Gateways"]
+    C -->|"ETH payment tickets"| B
+    B -->|"Call rewards"| D["Protocol<br/>(LPT rewards)"]
 
-## Governance Role
+    classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
+```
 
-Orchestrators are not passive compute providers. They vote on **Livepeer Improvement Proposals (LIPs)** that change protocol parameters, add features, or allocate treasury funds. Your voting weight is proportional to your total stake - making high-stake orchestrators influential governance actors.
+<Note>
+Orchestrators interact with the **BondingManager**, **RoundsManager**, **TicketBroker**, and
+**ServiceRegistry** contracts on Arbitrum. Gateways interact only with TicketBroker and ServiceRegistry.
+This protocol depth is what distinguishes the Orchestrator role from the Gateway role.
+</Note>
 
-See <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards/governance" label="Delegates and Voting" newline={false} /> for governance participation.
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-<CustomDivider />
+## Deployment Types
 
-## Business Role
+Orchestrators can be deployed in several configurations. The right setup depends on hardware scale,
+workload type, and operational preference.
 
-Orchestrators are key partners for developers building on Livepeer. By providing reliable, performant compute, you enable applications like <LinkArrow href="/v2/solutions/daydream" label="Daydream" newline={false} /> (real-time AI video), <LinkArrow href="/v2/solutions/embody" label="Embody" newline={false} /> (AI avatars), and streaming platforms to deliver their services.
+<StyledTable variant="bordered">
+  <thead>
+    <TableRow header>
+      <TableCell header>Setup type</TableCell>
+      <TableCell header>What it means</TableCell>
+      <TableCell header>Best for</TableCell>
+    </TableRow>
+  </thead>
+  <tbody>
+    <TableRow>
+      <TableCell>**Solo operator**</TableCell>
+      <TableCell>One Orchestrator process on one machine; handles both routing and GPU work</TableCell>
+      <TableCell>Single GPU operators getting started</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**O-T split**</TableCell>
+      <TableCell>Orchestrator and Transcoder run as separate processes, optionally on separate machines</TableCell>
+      <TableCell>Multi-GPU operators optimising for throughput</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Pool worker**</TableCell>
+      <TableCell>GPU hardware registered under a pool Orchestrator; the pool handles staking and on-chain management</TableCell>
+      <TableCell>Operators who want to earn without managing LPT staking</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Pool operator**</TableCell>
+      <TableCell>Operates the Orchestrator node; accepts registered workers who contribute GPUs under the pool's stake</TableCell>
+      <TableCell>Operators building multi-node infrastructure businesses</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Siphon setup**</TableCell>
+      <TableCell>A lightweight Orchestrator that routes jobs to an upstream Orchestrator while maintaining a separate on-chain identity</TableCell>
+      <TableCell>Advanced operators with existing infrastructure or managed services</TableCell>
+    </TableRow>
+  </tbody>
+</StyledTable>
 
-Running an orchestrator and building relationships with gateway operators and application developers opens revenue streams beyond protocol rewards - direct partnerships, SLA-based pricing, and preferred orchestrator status.
+See the <LinkArrow href="/v2/orchestrators/navigator" label="Navigator" newline={false} /> to find the right setup path for your goals and hardware.
 
-<Image src="/snippets/assets/media/images/gpu-callout.png" alt="Livepeer Orchestrators Hero" />
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-<CustomDivider middleText="Mental Models" />
+## Who Should Operate One
 
-## Understanding orchestrators by analogy
+Orchestrators are infrastructure operators, not application builders. The role requires sustained uptime,
+GPU hardware investment, and protocol participation (LPT staking or pool membership).
 
 <AccordionGroup>
-  <Accordion title="From a Cloud Background?" icon="cloud">
-    Running an orchestrator is like operating a **GPU compute fleet** behind a managed service. You provide the hardware and keep it running; the network (via gateways) handles job scheduling and customer relationships. Think AWS EC2 GPU instances, but instead of Amazon selling your compute, Livepeer's protocol matches you with demand automatically.
+  <Accordion title="The Miner - Can I earn from my GPU?" icon="microchip">
+    If you already have GPU hardware running - mining, rendering, or sitting idle - Livepeer lets you
+    direct that capacity at video transcoding or AI inference and earn ETH for the work.
 
-    <ScrollableDiagram title="Orchestrator as Cloud GPU Fleet" maxHeight="400px">
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
-flowchart LR
-    subgraph Demand["Demand Side"]
-        A["Gateways<br/>(= Cloud control plane)"]
-    end
-
-    subgraph Supply["Your Orchestrator"]
-        B["GPU Fleet<br/>(= EC2 GPU instances)<br/><br/>Transcoding<br/>AI Inference<br/>LLM<br/>BYOC"]
-    end
-
-    subgraph Protocol["Protocol Layer"]
-        C["Livepeer Protocol<br/>(= AWS billing)<br/><br/>Staking<br/>Payments<br/>Discovery"]
-    end
-
-    A -->|Route jobs| B
-    B -->|Return results| A
-    B -->|Earn ETH fees| C
-    C -->|LPT rewards| B
-
-    classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
-    style Demand fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
-    style Supply fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
-    style Protocol fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
-```
-
-    </ScrollableDiagram>
+    Start with the <LinkArrow href="/v2/orchestrators/concepts/incentive-model" label="Incentive Model" newline={false} /> to understand what earnings look like for your hardware tier.
   </Accordion>
-  <Accordion title="From an Ethereum Background?" icon="coin">
-    An orchestrator is closest to a **validator** in a Proof-of-Stake network, but instead of validating transactions, you perform GPU compute. Like a validator, you stake tokens to participate, attract delegation to increase your weight, earn protocol rewards each epoch (round), and vote in governance.
+  <Accordion title="The Easy Earner - Simplest path?" icon="bolt">
+    If you want to participate without managing LPT staking or on-chain activation, joining an existing
+    pool is the fastest path. Bring GPU hardware; the pool handles the rest.
 
-    The key difference: validators earn from block production regardless of external demand. Orchestrators earn protocol rewards from staking *and* service fees from actual compute work - making revenue a function of both stake and performance.
-
-    <ScrollableDiagram title="Orchestrator as PoS Validator" maxHeight="400px">
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
-flowchart LR
-    subgraph Shared["Shared with PoS Validators"]
-        S1["Stake tokens to participate"]
-        S2["Attract delegation"]
-        S3["Earn protocol rewards per round"]
-        S4["Vote in governance"]
-    end
-
-    subgraph Unique["Unique to Orchestrators"]
-        U1["Provide GPU compute"]
-        U2["Earn ETH per job (service fees)"]
-        U3["Run AI models + transcoding"]
-        U4["Revenue scales with demand"]
-    end
-
-    classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
-    style Shared fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
-    style Unique fill:#0d0d0d,stroke:#a855f7,stroke-width:1px
-```
-
-    </ScrollableDiagram>
+    See <LinkArrow href="/v2/orchestrators/guides/deployment-details/join-a-pool" label="Join a Pool" newline={false} /> for options.
   </Accordion>
-  <Accordion title="Neither? Think of it as a contractor" icon="wrench">
-    An orchestrator is like a **skilled contractor** who gets hired through a job marketplace. You bring the tools (GPUs), register your capabilities and rates, and jobs come to you through the platform (gateways). You get paid per job, build a reputation over time, and can vote on how the marketplace rules work.
+  <Accordion title="The Pro Operator - Adding AI to an existing setup?" icon="server">
+    If you already run video transcoding and want to add AI inference workloads, the Orchestrator model
+    supports dual-workload operation from a single node. New capabilities are advertised automatically
+    once configured.
 
-    The better your equipment, the more reliable your work, and the more reputation (stake) you build, the more jobs you attract and the more you earn.
+    See <LinkArrow href="/v2/orchestrators/concepts/capabilities" label="Orchestrator Capabilities" newline={false} /> for the workload overview.
+  </Accordion>
+  <Accordion title="The Business - Building at scale?" icon="building">
+    Commercial Orchestrators serving application workloads (Daydream, Livepeer Studio, other products)
+    operate differently from solo GPU miners. The incentives, pricing strategy, and operational
+    requirements differ significantly.
 
-    <ScrollableDiagram title="Orchestrator as Contractor" maxHeight="400px">
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
-flowchart TB
-    subgraph You["You (Orchestrator)"]
-        Tools["Your GPUs = Your Tools"]
-        Skills["Your Capabilities<br/>Transcoding, AI, LLM"]
-        Rate["Your Price Per Job"]
-    end
-
-    subgraph Platform["The Platform (Livepeer)"]
-        Register["Register + stake deposit"]
-        Match["Job matching via gateways"]
-        Pay["Payment per job (ETH)"]
-        Rewards["Bonus rewards (LPT per round)"]
-    end
-
-    subgraph Reputation["Reputation = Stake"]
-        Rep["More stake = more jobs<br/>Better performance = more delegation<br/>Delegation = more stake"]
-    end
-
-    You --> Register
-    Match --> You
-    You --> Pay
-    Rewards --> You
-    Pay --> Reputation
-    Reputation --> Match
-
-    classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
-    style You fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
-    style Platform fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
-    style Reputation fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
-```
-
-    </ScrollableDiagram>
+    {/* REVIEW: Link to commercial-orchestrators.mdx once written */}
+    See <LinkArrow href="/v2/orchestrators/concepts/incentive-model" label="Incentive Model" newline={false} /> for the revenue model breakdown.
   </Accordion>
 </AccordionGroup>
 
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
 ## Related Pages
 
 <CardGroup cols={2}>
   <Card title="Orchestrator Capabilities" icon="gears" href="/v2/orchestrators/concepts/capabilities" arrow horizontal>
-    Workload types, protocol responsibilities, and what orchestrators can run.
+    Workload types, job execution, and what Orchestrators can and cannot do.
   </Card>
   <Card title="Orchestrator Architecture" icon="diagram-project" href="/v2/orchestrators/concepts/architecture" arrow horizontal>
-    How orchestrators connect to gateways, GPUs, and the protocol layer.
+    How Orchestrators connect to Gateways, the protocol layer, and GPU workers.
   </Card>
-  <Card title="Orchestrator Incentives" icon="coins" href="/v2/orchestrators/concepts/rcs-incentives" arrow horizontal>
-    Revenue streams, cost structure, and the stake-for-access model.
+  <Card title="Incentive Model" icon="coins" href="/v2/orchestrators/concepts/incentive-model" arrow horizontal>
+    Revenue streams, cost structure, and why operating an Orchestrator earns.
   </Card>
-  <Card title="Job Types" icon="cubes" href="/v2/orchestrators/concepts/rs-workloads" arrow horizontal>
-    Detailed per-workload breakdown: hardware, pricing, configuration.
+  <Card title="Navigator" icon="compass" href="/v2/orchestrators/navigator" arrow horizontal>
+    Find the right setup path for your hardware, goals, and experience level.
   </Card>
 </CardGroup>

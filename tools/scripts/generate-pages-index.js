@@ -4,7 +4,7 @@
  * @category          generator
  * @purpose           governance:index-management
  * @scope             tools/scripts, v2
- * @owner             docs
+ * @domain            docs
  * @needs             R-R16, R-R17
  * @purpose-statement Pages index generator — generates and verifies section-style index.mdx files for v2 docs folders plus root aggregate index
  * @pipeline          P1
@@ -15,6 +15,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync, spawnSync } = require('child_process');
+const { isExcludedV2ExperimentalPath } = require('../lib/docs-publishability');
 const {
   buildGeneratedFrontmatterLines,
   buildGeneratedHiddenBannerLines,
@@ -139,10 +140,8 @@ function isIndexFile(fileName) {
   return lower === INDEX_FILENAME || lower === LEGACY_INDEX_FILENAME;
 }
 
-function isContextDataPath(relPath) {
-  return normalizeRel(relPath)
-    .split('/')
-    .some((segment) => /^_contextdata_?$/i.test(segment));
+function isMaintainerOnlyIndexPath(relPath) {
+  return isExcludedV2ExperimentalPath(normalizeRel(relPath));
 }
 
 function sortAlpha(values) {
@@ -163,6 +162,7 @@ function listTrackedPathsUnder(repoDirRel) {
       .map((line) => normalizeRel(line.trim()))
       .filter(Boolean)
       .filter((relPath) => relPath === scope || relPath.startsWith(`${scope}/`))
+      .filter((relPath) => !isMaintainerOnlyIndexPath(relPath))
       .filter((relPath) => fs.existsSync(path.join(REPO_ROOT, relPath)));
   } catch (_err) {
     return [];
@@ -174,7 +174,10 @@ function getDirectSubdirs(absDir) {
   const repoDirRel = normalizeRel(path.relative(REPO_ROOT, absDir));
   const trackedPaths = listTrackedPathsUnder(repoDirRel);
   const fsEntries = fs.readdirSync(absDir, { withFileTypes: true });
-  const fsSubdirs = fsEntries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
+  const fsSubdirs = fsEntries
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .filter((name) => !isMaintainerOnlyIndexPath(path.posix.join(repoDirRel, name)));
 
   if (trackedPaths.length === 0) {
     return sortAlpha(fsSubdirs);
@@ -202,7 +205,8 @@ function getDirectMarkdownFiles(absDir) {
   const fsMarkdownFiles = fsEntries
     .filter((entry) => entry.isFile())
     .map((entry) => entry.name)
-    .filter((name) => isMarkdownFile(name) && !isIndexFile(name));
+    .filter((name) => isMarkdownFile(name) && !isIndexFile(name))
+    .filter((name) => !isMaintainerOnlyIndexPath(path.posix.join(repoDirRel, name)));
 
   if (trackedPaths.length === 0) {
     return sortAlpha(fsMarkdownFiles);
@@ -702,7 +706,7 @@ function findNestedIndexFiles(topLevelDirRel, docsRouteKeys = new Set()) {
           continue;
         }
         const relPath = normalizeRel(path.relative(REPO_ROOT, fullPath));
-        if (isContextDataPath(relPath)) {
+        if (isMaintainerOnlyIndexPath(relPath)) {
           continue;
         }
         const routeKey = normalizeDocsRouteKey(relPath);
@@ -722,7 +726,7 @@ function findNestedIndexFiles(topLevelDirRel, docsRouteKeys = new Set()) {
     if (!isIndexFile(path.basename(relPath))) {
       return;
     }
-    if (isContextDataPath(relPath)) {
+    if (isMaintainerOnlyIndexPath(relPath)) {
       return;
     }
     const routeKey = normalizeDocsRouteKey(relPath);

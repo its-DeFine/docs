@@ -16,7 +16,7 @@ If you only have a few minutes, this is the model:
 
 1. `v2/` + `snippets/` are the primary docs content system.
 2. `docs.json` controls navigation/routes.
-3. `lpd` is the maintainer CLI for setup/dev/test/hooks/scripts.
+3. `lpd` is the repo CLI for setup/dev/test/hooks/scripts.
 4. `.githooks/`, `tests/`, and CI workflows enforce quality gates.
 5. `docs-guide/` is the internal source of truth for navigating all repo capabilities.
 
@@ -37,6 +37,8 @@ npm i -g mintlify
 bash lpd setup --yes
 lpd dev
 ```
+
+`bash lpd setup --yes` also syncs the canonical Codex planning skill to `$CODEX_HOME/skills` (fallback: `~/.codex/skills`). For ambiguous repo-change planning, use `skill-plan` after setup. The canonical runbook lives in [`docs-guide/catalog/ai-tools.mdx`](docs-guide/catalog/ai-tools.mdx).
 
 If `lpd` is not on PATH yet:
 
@@ -105,6 +107,8 @@ Recovery:
 |---|---|
 | Start here + update rules | [`docs-guide/overview.mdx`](docs-guide/overview.mdx) |
 | Source-of-truth boundaries | [`docs-guide/policies/source-of-truth-policy.mdx`](docs-guide/policies/source-of-truth-policy.mdx) |
+| V2 publishability and workspace lanes | [`docs-guide/policies/v2-folder-governance.mdx`](docs-guide/policies/v2-folder-governance.mdx) |
+| Ownerless governance contract | [`docs-guide/policies/ownerless-governance.mdx`](docs-guide/policies/ownerless-governance.mdx) |
 | Full feature inventory | [`docs-guide/features/feature-map.mdx`](docs-guide/features/feature-map.mdx) |
 | System/data/control flow | [`docs-guide/features/architecture-map.mdx`](docs-guide/features/architecture-map.mdx) |
 | CLI commands and runbooks | [`docs-guide/tooling/lpd-cli.mdx`](docs-guide/tooling/lpd-cli.mdx) |
@@ -116,7 +120,9 @@ Recovery:
 | Automation pipelines map | [`docs-guide/features/automations.mdx`](docs-guide/features/automations.mdx) |
 | Content system and IA model | [`docs-guide/frameworks/content-system.mdx`](docs-guide/frameworks/content-system.mdx) |
 | APIs and data integrations | [`docs-guide/features/data-integrations.mdx`](docs-guide/features/data-integrations.mdx) |
+| UI authoring system | [`docs-guide/features/ui-system.mdx`](docs-guide/features/ui-system.mdx) |
 | AI tools catalog | [`docs-guide/catalog/ai-tools.mdx`](docs-guide/catalog/ai-tools.mdx) |
+| Generated UI template inventory | [`docs-guide/catalog/ui-templates.mdx`](docs-guide/catalog/ui-templates.mdx) |
 | Generated pages tree inventory | [`docs-guide/catalog/pages-catalog.mdx`](docs-guide/catalog/pages-catalog.mdx) |
 | Generated components inventory | [`docs-guide/catalog/components-catalog.mdx`](docs-guide/catalog/components-catalog.mdx) |
 | Generated script inventory | [`docs-guide/catalog/scripts-catalog.mdx`](docs-guide/catalog/scripts-catalog.mdx) |
@@ -211,10 +217,12 @@ Automation deep docs:
 - [`docs-guide/features/automations.mdx`](docs-guide/features/automations.mdx)
 - [`v2/resources/documentation-guide/automations-workflows.mdx`](v2/resources/documentation-guide/automations-workflows.mdx)
 
-## AI and Maintainer Guidance
+## AI and Repo Guidance
 
 - AI assistant rules and safety: `tools/ai-rules/`
-- repository AI guidance files: `.github/AGENTS.md`, `.cursorrules`
+- canonical repo baseline: `AGENTS.md`
+- native adapters: `.github/copilot-instructions.md`, `.claude/CLAUDE.md`, `.cursor/rules/repo-governance.mdc`, `.windsurf/rules/repo-governance.md`
+- governance policy docs: `docs-guide/policies/agent-governance-framework.mdx`, `docs-guide/policies/root-allowlist-governance.mdx`
 
 ## Source-of-Truth Contract (Short Form)
 

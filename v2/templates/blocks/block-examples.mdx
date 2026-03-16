@@ -1,36 +1,61 @@
 ---
-title: Template Block Examples
-sidebarTitle: Block Examples
-description: Viewable gallery of the reusable MDX block templates stored in snippets/templates/blocks.
-keywords:
-  - livepeer
-  - templates
-  - blocks
-  - authoring
-audience: internal
-pageType: reference
-purpose: reference
-status: current
-'og:image': /snippets/assets/site/og-image/fallback.png
-'og:image:alt': Livepeer Docs social preview image
-'og:image:type': image/png
-'og:image:width': 1200
-'og:image:height': 630
+title: 'Block Examples'
+sidebarTitle: 'Block Examples'
+description: 'Direct-route preview page that renders every canonical block template from snippets/templates/blocks.'
+pageType: overview
+keywords: ['livepeer', 'block templates', 'template preview', 'blocks']
 ---
 
-import ComparisonMatrixTemplate from '/snippets/templates/blocks/comparison-matrix.mdx'
-import RelatedPagesCtaTemplate from '/snippets/templates/blocks/related-pages-cta.mdx'
+{/*
+generated-file-banner: generated-file-banner:v1
+Generation Script: tools/scripts/generate-ui-templates.js
+Purpose: Aggregate preview page for canonical block templates.
+Run when: Page/block templates change.
+Run command: node tools/scripts/generate-ui-templates.js --write
+*/}
 
-This page renders the source block templates exactly as stored in `/snippets/templates/blocks`.
+<Note>
+**Generation Script**: This file is generated from script(s): `tools/scripts/generate-ui-templates.js`. <br/>
+**Purpose**: Aggregate preview page for canonical block templates. <br/>
+**Run when**: Page/block templates change. <br/>
+**Important**: Do not manually edit this file; run `node tools/scripts/generate-ui-templates.js --write`. <br/>
+</Note>
 
-## Comparison Matrix
+import ComparisonMatrixBlockTemplate from '/snippets/templates/blocks/comparison-matrix.mdx'
+import ComparisonTableBlockTemplate from '/snippets/templates/blocks/comparison-table.mdx'
+import RelatedPagesCardsBlockTemplate from '/snippets/templates/blocks/related-pages-cards.mdx'
+import RelatedPagesCtaBlockTemplate from '/snippets/templates/blocks/related-pages-cta.mdx'
 
-Use this block when readers need to compare options, tradeoffs, or default recommendations in one place.
+## Preview Surface
 
-<ComparisonMatrixTemplate />
+### Comparison Matrix Template
 
-## Related Pages CTA
+Source template: `snippets/templates/blocks/comparison-matrix.mdx`
 
-Use this block near the end of a page when you want to route readers to the next two relevant destinations.
+Snippet prefix: `template-comparison-matrix`
 
-<RelatedPagesCtaTemplate />
+<ComparisonMatrixBlockTemplate />
+
+### Comparison Table Block
+
+Source template: `snippets/templates/blocks/comparison-table.mdx`
+
+Snippet prefix: `template-comparison-table`
+
+<ComparisonTableBlockTemplate />
+
+### Related Pages Cards Block
+
+Source template: `snippets/templates/blocks/related-pages-cards.mdx`
+
+Snippet prefix: `template-related-pages`
+
+<RelatedPagesCardsBlockTemplate />
+
+### Related Pages CTA Template
+
+Source template: `snippets/templates/blocks/related-pages-cta.mdx`
+
+Snippet prefix: `template-related-pages-cta`
+
+<RelatedPagesCtaBlockTemplate />

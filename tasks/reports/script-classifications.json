@@ -199,7 +199,7 @@
     "scope": "tests/integration",
     "needs": "E-R12, E-R14",
     "purpose_statement": "Self-test suite for v2-link-audit.js — validates audit logic against known fixtures",
-    "pipeline": "P2, P3",
+    "pipeline": "manual — not yet in pipeline",
     "dualmode": "--full (validator) | --write-links (remediator)"
   },
   {
@@ -251,6 +251,16 @@
     "needs": "E-C1, R-R14",
     "purpose_statement": "Tests audit-script-inventory repair hardening rules for judgement-field backfill and pipeline safety.",
     "pipeline": "manual (not yet in pipeline)"
+  },
+  {
+    "path": "tests/unit/check-agent-docs-freshness.test.js",
+    "script": "check-agent-docs-freshness.test",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tests/unit, tools/scripts/validators/governance/check-agent-docs-freshness.js, AGENTS.md, .github/copilot-instructions.md, .claude, .cursor, .windsurf, docs-guide/policies, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Tests check-agent-docs-freshness.js — validates stale instruction-file detection across governed assistant-doc surfaces.",
+    "pipeline": "manual — not yet in pipeline"
   },
   {
     "path": "tests/unit/codex-commit.test.js",
@@ -338,6 +348,16 @@
     "pipeline": "manual"
   },
   {
+    "path": "tests/unit/copy-lint.test.js",
+    "script": "copy-lint.test",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tests/unit, tests/copy-lint-fixtures, tools/scripts",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Copy lint unit suite — validates fixture-driven copy-governance checks and runs changed-file scoped lint aggregation for authored docs pages.",
+    "pipeline": "P1, P3"
+  },
+  {
     "path": "tests/unit/create-codex-pr.test.js",
     "script": "create-codex-pr.test",
     "category": "generator",
@@ -359,6 +379,26 @@
     "pipeline": "P1 (commit, via run-all)"
   },
   {
+    "path": "tests/unit/docs-fact-registry.test.js",
+    "script": "docs-fact-registry.test",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tests/unit, tools/scripts/docs-fact-registry.js, tasks/research/claims",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Tests docs-fact-registry.js — validates claim-family registry schema checks and normalized loading by domain.",
+    "pipeline": "manual — experimental research system"
+  },
+  {
+    "path": "tests/unit/docs-research-adjudication.test.js",
+    "script": "docs-research-adjudication.test",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tests/unit, tools/scripts/docs-research-adjudication.js, tasks/research/adjudication, tasks/reports/repo-ops",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Tests docs-research-adjudication.js — validates adjudication-ledger schema, report-aware outcome recording, and trust-tier summary rules for measured research-skill review outcomes.",
+    "pipeline": "manual — experimental research system"
+  },
+  {
     "path": "tests/unit/docs-guide-sot.test.js",
     "script": "docs-guide-sot.test",
     "category": "validator",
@@ -366,7 +406,7 @@
     "scope": "tests, docs-guide, README.md, tools/scripts/generate-docs-guide-indexes.js, tools/scripts/generate-docs-guide-pages-index.js, tools/scripts/generate-docs-guide-components-index.js",
     "needs": "E-C1, R-R14",
     "purpose_statement": "Validates docs-guide source-of-truth coverage, README pointers, and generated index freshness",
-    "pipeline": "manual — not yet in pipeline",
+    "pipeline": "P1, P3",
     "dualmode": "dual-mode (document flags)"
   },
   {
@@ -379,6 +419,26 @@
     "purpose_statement": "Validates docs.json page-entry syntax, reports missing routes, suggests remaps, and optionally applies approved remaps",
     "pipeline": "P1, P3, P6",
     "dualmode": "dual-mode (document flags)"
+  },
+  {
+    "path": "tests/unit/docs-page-research-pr-report.test.js",
+    "script": "docs-page-research-pr-report.test",
+    "category": "orchestrator",
+    "purpose": "governance:agent-governance",
+    "scope": "tests/unit, tools/scripts/docs-page-research-pr-report.js, tools/scripts/docs-page-research.js, tasks/research/claims",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Tests docs-page-research-pr-report.js — validates changed-file advisory reporting for the fact-check research runner.",
+    "pipeline": "manual — experimental advisory PR integration, non-blocking"
+  },
+  {
+    "path": "tests/unit/docs-page-research.test.js",
+    "script": "docs-page-research.test",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tests/unit, tools/scripts/docs-page-research.js, tools/scripts/docs-fact-registry.js, tasks/research/claims",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Tests docs-page-research.js — validates claim extraction, contradiction detection, and evidence-source adapters for the experimental research runner.",
+    "pipeline": "manual — experimental research system"
   },
   {
     "path": "tests/unit/docs-page-scope.test.js",
@@ -412,6 +472,16 @@
     "pipeline": "P1 (commit, via run-all)"
   },
   {
+    "path": "tests/unit/export-portable-skills.test.js",
+    "script": "export-portable-skills.test",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tests/unit, tools/scripts/export-portable-skills.js, tools/lib/codex-skill-templates.js, ai-tools/agent-packs/skills",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Tests export-portable-skills.js — validates portable skill export packs from canonical templates.",
+    "pipeline": "P1, P3"
+  },
+  {
     "path": "tests/unit/frontmatter-taxonomy.test.js",
     "script": "frontmatter-taxonomy.test",
     "category": "validator",
@@ -420,26 +490,6 @@
     "needs": "E-R1, R-R11",
     "purpose_statement": "Verifies shared docs frontmatter taxonomy normalization and purpose mapping.",
     "pipeline": "P1 (commit, via run-all)"
-  },
-  {
-    "path": "tests/unit/generated-artifacts-policy.test.js",
-    "script": "generated-artifacts-policy.test",
-    "category": "validator",
-    "purpose": "qa:repo-health",
-    "scope": "tests/unit, tools/lib/generated-artifacts.js, tools/config/generated-artifacts.json",
-    "needs": "R-R16, R-R17",
-    "purpose_statement": "Tests generated artifact governance manifest — validates enums, path matching, and hook-policy expectations",
-    "pipeline": "manual — targeted governance test"
-  },
-  {
-    "path": "tests/unit/legacy-root-v1-redirects.test.js",
-    "script": "legacy-root-v1-redirects.test",
-    "category": "validator",
-    "purpose": "qa:repo-health",
-    "scope": "tests/unit, tools/scripts/redirects, tools/data/redirects, docs.json",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Validates legacy root-to-v1 redirect integrity, docs.json sync, root catch-all fallbacks, and legacy fallback-page cleanup behavior.",
-    "pipeline": "manual — targeted redirect migration coverage"
   },
   {
     "path": "tests/unit/links-imports.test.js",
@@ -556,6 +606,16 @@
     "pipeline": "manual — not yet in pipeline"
   },
   {
+    "path": "tests/unit/ownerless-governance.test.js",
+    "script": "ownerless-governance.test",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tests/unit, docs-guide/policies/ownerless-governance.mdx, tools/config/ownerless-governance-surfaces.json, .github, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md",
+    "needs": "R-R14, R-R29",
+    "purpose_statement": "Validates the ownerless governance manifest, primary gate-layer contract, and forbidden human-owner dependency in governed policy and GitHub surfaces.",
+    "pipeline": "P1, P3"
+  },
+  {
     "path": "tests/unit/quality.test.js",
     "script": "quality.test",
     "category": "validator",
@@ -598,6 +658,16 @@
     "dualmode": "dual-mode (document flags)"
   },
   {
+    "path": "tests/unit/root-allowlist-format.test.js",
+    "script": "root-allowlist-format.test",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tests/unit, .allowlist",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Validates root allowlist formatting, sorting, and duplicate prevention rules for governed root entries.",
+    "pipeline": "manual — not yet in pipeline"
+  },
+  {
     "path": "tests/unit/script-docs.test.js",
     "script": "script-docs-test",
     "category": "validator",
@@ -607,6 +677,16 @@
     "purpose_statement": "Enforces script header schema, keeps group script indexes in sync, and builds aggregate script index",
     "pipeline": "P1, P3",
     "dualmode": "--check (validator) | --write --rebuild-indexes (generator)"
+  },
+  {
+    "path": "tests/unit/skill-docs.test.js",
+    "script": "skill-docs.test",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tests/unit, ai-tools/ai-skills, tools/lib/codex-skill-templates.js",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Validates governed skill documentation frontmatter, references, and contract integrity for canonical templates and local skill files.",
+    "pipeline": "P1, P3"
   },
   {
     "path": "tests/unit/spelling.test.js",
@@ -629,6 +709,16 @@
     "pipeline": "P1, P3"
   },
   {
+    "path": "tests/unit/ui-template-generator.test.js",
+    "script": "ui-template-generator.test",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tests, tools/scripts/generate-ui-templates.js, .vscode, snippets/templates, docs-guide/component-registry.json",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Validates UI template generator snippet outputs are valid JSON, deterministic, and safe for after-< component insertion",
+    "pipeline": "P1, P3"
+  },
+  {
     "path": "tests/unit/usefulness-journey.test.js",
     "script": "usefulness-journey.test",
     "category": "validator",
@@ -647,6 +737,16 @@
     "needs": "E-R1, R-R11",
     "purpose_statement": "Usefulness rubric tests — validate rubric loading, evaluator coverage, route precedence, and score divergence behaviour",
     "pipeline": "P3"
+  },
+  {
+    "path": "tests/unit/v2-folder-governance-cleanup-matrix.test.js",
+    "script": "v2-folder-governance-cleanup-matrix.test",
+    "category": "validator",
+    "purpose": "governance:repo-health",
+    "scope": "tests/unit, tools/scripts/generate-v2-folder-governance-cleanup-matrix.js",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Unit tests for the v2 folder governance cleanup matrix generator and its targeting, scope, and age-bucket rules.",
+    "pipeline": "manual — planning artifact validator"
   },
   {
     "path": "tests/unit/v2-link-audit.test.js",
@@ -741,6 +841,16 @@
     "needs": "E-C6, F-C1",
     "purpose_statement": "Configuration data — list of internal report page paths for publish-v2-internal-reports.js",
     "pipeline": "manual — not yet in pipeline"
+  },
+  {
+    "path": "tools/lib/codex-skill-templates.js",
+    "script": "codex-skill-templates",
+    "category": "utility",
+    "purpose": "governance:agent-governance",
+    "scope": "tools/lib, ai-tools/ai-skills/templates, tools/scripts/sync-codex-skills.js, tools/scripts/export-portable-skills.js",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Shared helper for validating, selecting, and loading canonical Codex skill templates.",
+    "pipeline": "indirect -- library module"
   },
   {
     "path": "tools/lib/component-governance-utils.js",
@@ -981,16 +1091,6 @@
     "needs": "E-R1, R-R11",
     "purpose_statement": "Shared frontmatter taxonomy utilities for routable docs pages.",
     "pipeline": "indirect -- library module"
-  },
-  {
-    "path": "tools/lib/generated-artifacts.js",
-    "script": "generated-artifacts",
-    "category": "utility",
-    "purpose": "governance:index-management",
-    "scope": "tools/lib, tools/config, .githooks, tests/unit",
-    "needs": "R-R16, R-R17",
-    "purpose_statement": "Generated artifact governance helpers — load the manifest, validate enums, and match staged files to managed artifacts",
-    "pipeline": "indirect — library module"
   },
   {
     "path": "tools/lib/generated-file-banners.js",
@@ -1424,16 +1524,6 @@
     "pipeline": "manual — developer tool"
   },
   {
-    "path": "tools/scripts/dev/lib/resolve-scoped-docs-config.js",
-    "script": "resolve-scoped-docs-config",
-    "category": "utility",
-    "purpose": "tooling:dev-tools",
-    "scope": "tools/scripts/dev/lib, tools/config/scoped-navigation",
-    "needs": "E-C6, F-C1",
-    "purpose_statement": "Scoped docs config resolver — resolves named scoped navigation configs and explicit docs config paths for mint-dev tooling",
-    "pipeline": "indirect -- library module"
-  },
-  {
     "path": "tools/scripts/dev/mint-custom-loader.sh",
     "script": "mint-custom-loader",
     "category": "utility",
@@ -1504,6 +1594,46 @@
     "pipeline": "manual — developer tool"
   },
   {
+    "path": "tools/scripts/docs-fact-registry.js",
+    "script": "docs-fact-registry",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tools/scripts, tasks/research/claims, tests/unit/docs-fact-registry.test.js",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Docs fact registry validator — validates repo-native research claim registries and provides normalized claim-family data for the manual research runner.",
+    "pipeline": "manual — experimental research system"
+  },
+  {
+    "path": "tools/scripts/docs-research-adjudication.js",
+    "script": "docs-research-adjudication",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tools/scripts, tasks/research/adjudication, tasks/reports/repo-ops, tests/unit/docs-research-adjudication.test.js",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Docs research adjudication ledger — validates, records, and summarizes measured review outcomes for the page-content research workflow so trust decisions are based on real usage rather than intuition.",
+    "pipeline": "manual — experimental research system"
+  },
+  {
+    "path": "tools/scripts/docs-page-research-pr-report.js",
+    "script": "docs-page-research-pr-report",
+    "category": "orchestrator",
+    "purpose": "governance:agent-governance",
+    "scope": "tools/scripts, tasks/research/claims, tasks/reports/repo-ops, tests/unit/docs-page-research-pr-report.test.js",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Docs page research PR report — runs the fact-check research runner on changed docs pages and emits an advisory PR artifact summarizing claim families, contradictions, unresolved factual risk, and propagation follow-up.",
+    "pipeline": "manual — experimental advisory PR integration, non-blocking"
+  },
+  {
+    "path": "tools/scripts/docs-page-research.js",
+    "script": "docs-page-research",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tools/scripts, tasks/research/claims, tests/unit/docs-page-research.test.js, tasks/reports/repo-ops",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Docs page research runner — extracts factual claims from docs pages, checks evidence sources, detects contradictions across related pages, and emits manual-first research reports.",
+    "pipeline": "manual — experimental research system"
+  },
+  {
     "path": "tools/scripts/docs-quality-and-freshness-audit.js",
     "script": "docs-quality-and-freshness-audit",
     "category": "validator",
@@ -1545,6 +1675,16 @@
     "pipeline": "ci"
   },
   {
+    "path": "tools/scripts/export-portable-skills.js",
+    "script": "export-portable-skills",
+    "category": "generator",
+    "purpose": "governance:agent-governance",
+    "scope": "tools/scripts, ai-tools/ai-skills/templates, ai-tools/agent-packs, tools/lib/codex-skill-templates.js, tests/unit/export-portable-skills.test.js",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Portable skills exporter — copies canonical template skills into cross-agent pack folders and validates drift.",
+    "pipeline": "manual — not yet in pipeline"
+  },
+  {
     "path": "tools/scripts/generate-ai-sitemap.js",
     "script": "generate-ai-sitemap",
     "category": "generator",
@@ -1554,6 +1694,16 @@
     "purpose_statement": "AI sitemap generator — produces AI-optimised sitemap files. Dual-mode: --check (enforcer) / --write (generator).",
     "pipeline": "P2, P3, P6",
     "dualmode": "--check (enforcer) | --write (generator)"
+  },
+  {
+    "path": "tools/scripts/generate-ai-skills-indexes.js",
+    "script": "generate-ai-skills-indexes",
+    "category": "generator",
+    "purpose": "governance:agent-governance",
+    "scope": "tools/scripts, ai-tools/ai-skills, docs-guide/catalog, tasks/reports",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Generates AI-skill inventory and source-content indexes so assistant guidance surfaces stay synchronized with governed source files.",
+    "pipeline": "manual — developer maintenance"
   },
   {
     "path": "tools/scripts/generate-component-docs.js",
@@ -1669,6 +1819,26 @@
     "purpose_statement": "Pages index generator — generates and verifies section-style index.mdx files for v2 docs folders plus root aggregate index",
     "pipeline": "P1",
     "dualmode": "--check (enforcer) | --write (generator)"
+  },
+  {
+    "path": "tools/scripts/generate-ui-templates.js",
+    "script": "generate-ui-templates",
+    "category": "generator",
+    "purpose": "governance:index-management",
+    "scope": "tools/scripts, docs-guide/catalog, docs-guide/features, snippets/templates, v2/templates, .vscode",
+    "needs": "R-R16, R-R17",
+    "purpose_statement": "Generates the UI template catalog, template preview routes, and VS Code snippets from canonical template/component sources",
+    "pipeline": "manual — interactive developer tool, not suited for automated pipelines"
+  },
+  {
+    "path": "tools/scripts/generate-v2-folder-governance-cleanup-matrix.js",
+    "script": "generate-v2-folder-governance-cleanup-matrix",
+    "category": "generator",
+    "purpose": "governance:repo-health",
+    "scope": "tools/scripts, tasks/reports/repo-ops, v2, docs.json, tests/unit/v2-folder-governance-cleanup-matrix.test.js",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Generates the v2 folder governance cleanup matrix used to review legacy workspace buckets before move waves are executed.",
+    "pipeline": "manual — planning artifact generator"
   },
   {
     "path": "tools/scripts/i18n/generate-localized-docs-json.js",
@@ -1902,6 +2072,36 @@
     "pipeline": "indirect -- library module"
   },
   {
+    "path": "tools/scripts/lint-copy.js",
+    "script": "lint-copy",
+    "category": "enforcer",
+    "purpose": "qa:content-quality",
+    "scope": "staged, changed, v2-content, single-file",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Enforce banned word and phrase rules on MDX content files.",
+    "pipeline": "P1, P2, P3"
+  },
+  {
+    "path": "tools/scripts/lint-patterns.js",
+    "script": "lint-patterns",
+    "category": "enforcer",
+    "purpose": "qa:content-quality",
+    "scope": "staged, changed, v2-content, single-file",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Enforce Tier 2 copy pattern rules on MDX content files.",
+    "pipeline": "indirect, manual"
+  },
+  {
+    "path": "tools/scripts/lint-structure.js",
+    "script": "lint-structure",
+    "category": "enforcer",
+    "purpose": "qa:content-quality",
+    "scope": "staged, changed, v2-content, single-file",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Enforce structural rules on MDX content files.",
+    "pipeline": "P2, P3"
+  },
+  {
     "path": "tools/scripts/mint-dev.sh",
     "script": "mint-dev",
     "category": "utility",
@@ -1933,6 +2133,16 @@
     "dualmode": "--report-only | --dry-run | default fix mode"
   },
   {
+    "path": "tools/scripts/pattern-observer.js",
+    "script": "pattern-observer",
+    "category": "generator",
+    "purpose": "tooling:dev-tools",
+    "scope": "single-domain, v2-content, generated-output",
+    "needs": "R-R14, R-R18",
+    "purpose_statement": "Aggregate copy pattern violations across a tab or full v2 tree and emit a diagnostic report.",
+    "pipeline": "P3"
+  },
+  {
     "path": "tools/scripts/publish-v2-internal-reports.js",
     "script": "publish-v2-internal-reports",
     "category": "automation",
@@ -1941,16 +2151,6 @@
     "needs": "E-C1, R-R14",
     "purpose_statement": "Report publisher — publishes v2 internal audit reports to configured output locations",
     "pipeline": "manual — not yet in pipeline"
-  },
-  {
-    "path": "tools/scripts/redirects/sync-legacy-root-v1.js",
-    "script": "sync-legacy-root-v1",
-    "category": "generator",
-    "purpose": "governance:index-management",
-    "scope": "full-repo",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Legacy root redirect synchronizer — bootstraps root-level legacy-to-v1 mappings, rewrites managed docs.json redirects, installs root catch-all fallbacks, and removes legacy generated fallback pages",
-    "pipeline": "manual — on-demand maintainer sync tool"
   },
   {
     "path": "tools/scripts/remediators/assets/migrate-assets-to-branch.js",
@@ -2005,6 +2205,16 @@
     "purpose_statement": "Docs path sync remediator — applies deterministic docs.json and governed reference rewrites for moved docs pages.",
     "pipeline": "P1, P6",
     "dualmode": "--dry-run (validator) | --write (remediator)"
+  },
+  {
+    "path": "tools/scripts/repair-ownerless-language.js",
+    "script": "repair-ownerless-language",
+    "category": "remediator",
+    "purpose": "governance:agent-governance",
+    "scope": ".github, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md, docs-guide",
+    "needs": "R-R14, R-R29",
+    "purpose_statement": "Applies deterministic wording repairs that remove human-owner dependency from governed GitHub and contributor surfaces.",
+    "pipeline": "manual"
   },
   {
     "path": "tools/scripts/repo-audit-orchestrator.js",

@@ -521,6 +521,15 @@ function resolveInternalPath(raw, currentFileAbs) {
     if (rooted.startsWith('v2/') || rooted.startsWith('v1/') || rooted.startsWith('snippets/') || rooted.startsWith('tests/') || rooted.startsWith('tasks/')) {
       return path.join(REPO_ROOT, rooted);
     }
+    const asModernV2 = path.join(REPO_ROOT, 'v2', rooted);
+    if (
+      fs.existsSync(asModernV2) ||
+      fs.existsSync(`${asModernV2}.mdx`) ||
+      fs.existsSync(`${asModernV2}.md`) ||
+      INDEX_CANDIDATES.some((indexName) => fs.existsSync(path.join(asModernV2, indexName)))
+    ) {
+      return asModernV2;
+    }
     const first = rooted.split('/')[0];
     if (MIGRATED_V2_DOMAIN_DIRS.has(first)) {
       return path.join(REPO_ROOT, 'v2', rooted);
@@ -1983,6 +1992,7 @@ module.exports = {
   normalizeExternalUrl,
   shouldValidateExternalRef,
   classifyExternalStatus,
+  resolveInternalPath,
   requestExternalUrlWithRetries,
   validateExternalUrls,
   runAudit

@@ -140,7 +140,7 @@
                             ]
                           },
                           {
-                            "group": "AI & Job Pipelines",
+                            "group": "AI and Job Pipelines",
                             "pages": [
                               "v2/gateways/guides/node-pipelines/guide",
                               "v2/gateways/guides/node-pipelines/video-pipelines",
@@ -150,7 +150,7 @@
                             ]
                           },
                           {
-                            "group": "Payments & Pricing",
+                            "group": "Payments and Pricing",
                             "pages": [
                               "v2/gateways/guides/payments-and-pricing/payment-guide",
                               "v2/gateways/guides/payments-and-pricing/funding-guide",
@@ -296,7 +296,7 @@
                       "v2/orchestrators/concepts/role",
                       "v2/orchestrators/concepts/capabilities",
                       "v2/orchestrators/concepts/architecture",
-                      "v2/orchestrators/concepts/rcs-incentives"
+                      "v2/orchestrators/concepts/incentive-model"
                     ]
                   },
                   {
@@ -304,7 +304,9 @@
                     "icon": "bolt",
                     "pages": [
                       "v2/orchestrators/quickstart/guide",
-                      "v2/orchestrators/quickstart/video-transcoding"
+                      "v2/orchestrators/quickstart/video-transcoding",
+                      "v2/orchestrators/quickstart/tutorial",
+                      "v2/orchestrators/quickstart/ai-prompt-start"
                     ]
                   },
                   {
@@ -314,9 +316,8 @@
                       "v2/orchestrators/setup/guide",
                       "v2/orchestrators/setup/rcs-requirements",
                       "v2/orchestrators/setup/rs-install",
-                      "v2/orchestrators/setup/r-configure",
-                      "v2/orchestrators/setup/sc-connect",
-                      "v2/orchestrators/setup/activate",
+                      "v2/orchestrators/setup/configure",
+                      "v2/orchestrators/setup/connect-and-activate",
                       "v2/orchestrators/setup/test",
                       "v2/orchestrators/setup/r-monitor"
                     ]
@@ -326,60 +327,93 @@
                     "icon": "chart-line",
                     "pages": [
                       {
-                        "group": "Feasibility & Hardware",
+                        "group": "Operator Considerations",
                         "pages": [
-                          "v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics",
-                          "v2/orchestrators/guides/feasibility-and-hardware/hardware-reference",
-                          "v2/orchestrators/guides/feasibility-and-hardware/benchmarking",
-                          "v2/orchestrators/guides/feasibility-and-hardware/session-limits"
+                          "v2/orchestrators/guides/operator-considerations/operator-rationale",
+                          "v2/orchestrators/guides/operator-considerations/business-case",
+                          "v2/orchestrators/guides/operator-considerations/operator-impact",
+                          "v2/orchestrators/guides/operator-considerations/requirements"
                         ]
                       },
                       {
-                        "group": "Setup Paths",
+                        "group": "Deployment Details",
                         "pages": [
-                          "v2/orchestrators/guides/setup-paths/setup-navigator",
-                          "v2/orchestrators/guides/setup-paths/find-your-path",
-                          "v2/orchestrators/guides/setup-paths/join-a-pool",
-                          "v2/orchestrators/guides/setup-paths/siphon-setup"
+                          "v2/orchestrators/guides/deployment-details/setup-options",
+                          "v2/orchestrators/guides/deployment-details/siphon-setup",
+                          "v2/orchestrators/guides/deployment-details/dual-mode-configuration",
+                          "v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup",
+                          "v2/orchestrators/guides/deployment-details/join-a-pool",
+                          "v2/orchestrators/guides/deployment-details/new-join-a-pool"
                         ]
                       },
                       {
-                        "group": "Staking & Rewards",
+                        "group": "Workloads and AI",
                         "pages": [
-                          "v2/orchestrators/guides/staking-and-rewards/earnings",
-                          "v2/orchestrators/guides/staking-and-rewards/rewards-and-fees",
-                          "v2/orchestrators/guides/staking-and-rewards/attracting-delegates",
-                          "v2/orchestrators/guides/staking-and-rewards/payments",
-                          "v2/orchestrators/guides/staking-and-rewards/governance"
+                          "v2/orchestrators/guides/ai-and-job-workloads/workload-options",
+                          "v2/orchestrators/guides/ai-and-job-workloads/video-transcoding-operations",
+                          "v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations",
+                          "v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup",
+                          "v2/orchestrators/guides/ai-and-job-workloads/llm-pipeline-setup",
+                          "v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup",
+                          "v2/orchestrators/guides/ai-and-job-workloads/audio-and-vision-pipelines",
+                          "v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference",
+                          "v2/orchestrators/guides/ai-and-job-workloads/model-hosting"
                         ]
                       },
                       {
-                        "group": "Workloads & AI",
+                        "group": "Staking and Earning",
                         "pages": [
-                          "v2/orchestrators/guides/workloads-and-ai/job-types",
-                          "v2/orchestrators/guides/workloads-and-ai/video-transcoding",
-                          "v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide",
-                          "v2/orchestrators/guides/workloads-and-ai/batch-ai-setup",
-                          "v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup",
-                          "v2/orchestrators/guides/workloads-and-ai/model-vram-reference"
+                          "v2/orchestrators/guides/staking-and-rewards/earning-model",
+                          "v2/orchestrators/guides/staking-and-rewards/reward-mechanics",
+                          "v2/orchestrators/guides/payments-and-pricing/payment-receipts",
+                          "v2/orchestrators/guides/payments-and-pricing/payments",
+                          "v2/orchestrators/guides/staking-and-rewards/delegate-operations",
+                          "v2/orchestrators/guides/staking-and-rewards/network-participation"
                         ]
                       },
                       {
-                        "group": "Monitoring & Troubleshooting",
+                        "group": "Config and Optimisation",
                         "pages": [
-                          "v2/orchestrators/guides/monitoring-and-troubleshooting/tools",
-                          "v2/orchestrators/guides/monitoring-and-troubleshooting/explorer-guide",
-                          "v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring",
-                          "v2/orchestrators/guides/monitoring-and-troubleshooting/troubleshooting"
+                          "v2/orchestrators/guides/config-and-optimisation/pricing-strategy",
+                          "v2/orchestrators/guides/config-and-optimisation/capacity-planning",
+                          "v2/orchestrators/guides/config-and-optimisation/ai-model-management",
+                          "v2/orchestrators/guides/config-and-optimisation/reward-call-tuning"
+                        ]
+                      },
+                      {
+                        "group": "Monitoring and Tools",
+                        "pages": [
+                          "v2/orchestrators/guides/monitoring-and-tooling/operator-toolbox",
+                          "v2/orchestrators/guides/monitoring-and-tooling/explorer-operations",
+                          "v2/orchestrators/guides/monitoring-and-tooling/metrics-and-alerting",
+                          "v2/orchestrators/guides/monitoring-and-tooling/troubleshooting"
                         ]
                       },
                       {
                         "group": "Advanced Operations",
                         "pages": [
-                          "v2/orchestrators/guides/advanced-operations/run-a-pool",
-                          "v2/orchestrators/guides/advanced-operations/gateways-orchestrators",
-                          "v2/orchestrators/guides/advanced-operations/large-scale-operations",
-                          "v2/orchestrators/guides/advanced-operations/orchestrator-transcoder-setup"
+                          "v2/orchestrators/guides/advanced-operations/gateway-relationships",
+                          "v2/orchestrators/guides/advanced-operations/gateway-orchestrator-interface",
+                          "v2/orchestrators/guides/advanced-operations/pool-operators",
+                          "v2/orchestrators/guides/advanced-operations/scale-operations"
+                        ]
+                      },
+                      {
+                        "group": "Roadmap and Funding",
+                        "pages": [
+                          "v2/orchestrators/guides/roadmap-and-funding/funding-and-support",
+                          "v2/orchestrators/guides/roadmap-and-funding/orchestrator-profiles"
+                        ]
+                      },
+                      {
+                        "group": "Tutorials",
+                        "pages": [
+                          "v2/orchestrators/guides/tutorials/byoc-cpu-smoke-test",
+                          "v2/orchestrators/guides/tutorials/zero-to-first-reward",
+                          "v2/orchestrators/guides/tutorials/ai-earning-quickstart",
+                          "v2/orchestrators/guides/tutorials/add-ai-to-video-node",
+                          "v2/orchestrators/guides/tutorials/full-ai-pipeline-tutorial",
+                          "v2/orchestrators/guides/tutorials/realtime-ai-tutorial"
                         ]
                       }
                     ]
@@ -389,6 +423,7 @@
                     "icon": "books",
                     "pages": [
                       "v2/orchestrators/resources/faq",
+                      "v2/orchestrators/resources/glossary",
                       "v2/orchestrators/resources/community-guides",
                       "v2/orchestrators/resources/community-pools",
                       {
@@ -398,18 +433,67 @@
                           "v2/orchestrators/resources/technical/x-contract-addresses",
                           "v2/orchestrators/resources/gpu-support",
                           "v2/orchestrators/resources/arbitrum-rpc",
-                          "v2/orchestrators/resources/arbitrum-exchanges",
-                          "v2/orchestrators/resources/technical/x-troubleshooting",
-                          "v2/orchestrators/resources/technical/x-changelog",
-                          "v2/orchestrators/resources/technical/x-support-status"
+                          "v2/orchestrators/resources/arbitrum-exchanges"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tab": "Delegators & LPT",
+                "icon": "hand-holding-dollar",
+                "anchors": [
+                  {
+                    "anchor": "Delegators & LPT",
+                    "icon": "hand-holding-dollar",
+                    "groups": [
+                      {
+                        "group": "About LPT",
+                        "icon": "graduation-cap",
+                        "pages": [
+                          "v2/lpt/token-portal",
+                          "v2/lpt/about/overview",
+                          "v2/lpt/about/purpose",
+                          "v2/lpt/about/tokenomics",
+                          "v2/lpt/about/mechanics"
                         ]
                       },
                       {
-                        "group": "Guides Index [Review]",
+                        "group": "Delegating LPT",
+                        "icon": "money-bill-transfer",
                         "pages": [
-                          "v2/orchestrators/resources/x-guides",
-                          "v2/orchestrators/resources/x-help",
-                          "v2/orchestrators/resources/x-payments"
+                          "v2/lpt/delegation/getting-started",
+                          "v2/lpt/delegation/overview",
+                          "v2/lpt/delegation/delegation-economics",
+                          "v2/lpt/delegation/about-delegators",
+                          "v2/lpt/delegation/delegation-guide"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Governance",
+                        "icon": "box-ballot",
+                        "pages": [
+                          "v2/lpt/governance/overview",
+                          "v2/lpt/governance/model",
+                          "v2/lpt/governance/processes"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Treasury",
+                        "pages": [
+                          "v2/lpt/treasury/overview",
+                          "v2/lpt/treasury/proposals",
+                          "v2/lpt/treasury/allocations"
+                        ]
+                      },
+                      {
+                        "group": "Guides & Resources",
+                        "icon": "books",
+                        "pages": [
+                          "v2/lpt/resources/delegator-videos-and-blogs",
+                          "v2/lpt/resources/exchanges",
+                          "v2/lpt/resources/lpt-eth-usage"
                         ]
                       }
                     ]

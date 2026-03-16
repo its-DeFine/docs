@@ -25,6 +25,29 @@ purpose: reference
 status: review
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -270,7 +293,7 @@ docker run --gpus all nvidia/cuda:12.0-base nvidia-smi
   </TableRow>
 </StyledTable>
 
-For detailed per-pipeline VRAM planning, see the [Models & VRAM Reference](/v2/orchestrators/guides/workloads-and-ai/model-vram-reference).
+For detailed per-pipeline VRAM planning, see the [Model and Demand Reference](/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference).
 
 {/* REVIEW: Cross-check all VRAM figures against current AI Runner documentation and community reports */}
 
@@ -304,6 +327,18 @@ For detailed per-pipeline VRAM planning, see the [Models & VRAM Reference](/v2/o
 
 <CardGroup cols={3}>
   <Card title="Hardware Requirements" href="/v2/orchestrators/setup/rcs-requirements" icon="microchip" />
-  <Card title="Models & VRAM Reference" href="/v2/orchestrators/guides/workloads-and-ai/model-vram-reference" icon="memory" />
-  <Card title="Benchmarking" href="/v2/orchestrators/guides/feasibility-and-hardware/benchmarking" icon="gauge-high" />
+  <Card title="Model and Demand Reference" href="/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference" icon="memory" />
+  <Card title="Capacity Planning" href="/v2/orchestrators/guides/config-and-optimisation/capacity-planning" icon="gauge-high" />
 </CardGroup>
+
+{/*
+  PURPOSE:
+  Supported GPU hardware reference - which GPUs work with go-livepeer
+  for video transcoding and AI inference.
+
+  SECTION HOME: Resources > Technical Reference
+  CROSS-REFS:
+  - Deployment Details > Requirements - GPU in context of full requirements
+  - Workloads & AI > Model VRAM Reference - VRAM needs per model
+  - Operator Considerations > Benchmarking - testing GPU performance
+*/}

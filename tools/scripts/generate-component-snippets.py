@@ -19,25 +19,32 @@ seen = set()
 
 SNIPPET_OVERRIDES = {
     'AccordionGroupList': {
-        'body': ['<AccordionGroupList num={${1|1,2,3,4,5,6,7,8,9,10|}} />'],
+        'body': ['AccordionGroupList num={${1|1,2,3,4,5,6,7,8,9,10|}} />'],
         'description': '[layout] Renders N empty Accordions inside an AccordionGroup'
     },
     'CodeComponent': {
-        'body': ['<CodeComponent filename="${1:example.sh}" icon="terminal" language="${2:bash}" codeString={"${3:echo hello}"} />']
+        'body': ['CodeComponent filename="${1:example.sh}" icon="terminal" language="${2:bash}" codeString={"${3:echo hello}"} />']
     },
     'ComplexCodeBlock': {
-        'body': ['<ComplexCodeBlock filename="${1:example.sh}" icon="${2:terminal}" language="${3:bash}" highlight="${4}" />']
+        'body': ['ComplexCodeBlock filename="${1:example.sh}" icon="${2:terminal}" language="${3:bash}" highlight="${4}" />']
     },
     'CustomCodeBlock': {
-        'body': ['<CustomCodeBlock filename="${1:example.sh}" icon="${2:terminal}" language="${3:bash}" highlight="${4}" />']
+        'body': ['CustomCodeBlock filename="${1:example.sh}" icon="${2:terminal}" language="${3:bash}" highlight="${4}" />']
     }
 }
 
 
 def build_prefixes(name):
     lc = name[0].lower() + name[1:]
-    prefixes = [lc, name, '<' + lc, '<' + name]
+    prefixes = [lc, name]
     return list(dict.fromkeys(prefixes))
+
+
+def strip_leading_angle_bracket(line):
+    text = str(line or '')
+    if text.startswith('</'):
+        return text
+    return text[1:] if text.startswith('<') else text
 
 for c in data['components']:
     name = c['name']
@@ -77,18 +84,19 @@ for c in data['components']:
 
     if has_children:
         body = [
-            '<' + name + attr_str + '>',
+            name + attr_str + '>',
             '  ${' + str(tab_idx) + ':content}',
             '</' + name + '>'
         ]
     else:
-        body = ['<' + name + attr_str + ' />']
+        body = [name + attr_str + ' />']
 
     override = SNIPPET_OVERRIDES.get(name, {})
+    body = [strip_leading_angle_bracket(line) for line in override.get('body', body)]
     snippets[cat + ': ' + name] = {
         'scope': 'mdx,markdown',
         'prefix': build_prefixes(name),
-        'body': override.get('body', body),
+        'body': body,
         'description': override.get('description', '[' + cat + '] ' + desc)
     }
 

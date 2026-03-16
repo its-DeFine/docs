@@ -4,6 +4,8 @@ Canonical policy source:
 
 - `docs-guide/policies/infrastructure-principles.mdx`
 - `docs-guide/policies/quality-gates.mdx`
+- `docs-guide/policies/root-allowlist-governance.mdx`
+- `docs-guide/policies/agent-governance-framework.mdx`
 
 This contributor page describes how to run hooks, not policy ownership details.
 

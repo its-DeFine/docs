@@ -17,6 +17,7 @@ const { spawnSync } = require('child_process');
 const path = require('path');
 
 const styleGuideTests = require('./unit/style-guide.test');
+const copyLintTests = require('./unit/copy-lint.test');
 const mdxTests = require('./unit/mdx.test');
 const mdxGuardsTests = require('./unit/mdx-guards.test');
 const mdxSafeMarkdownUnitTests = require('./unit/mdx-safe-markdown.test');
@@ -29,6 +30,13 @@ const linksImportsTests = require('./unit/links-imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
 const docsPathSyncTests = require('./unit/docs-path-sync.test');
 const scriptDocsTests = require('./unit/script-docs.test');
+const skillDocsTests = require('./unit/skill-docs.test');
+const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
+const checkAgentDocsFreshnessTests = require('./unit/check-agent-docs-freshness.test');
+const rootAllowlistFormatTests = require('./unit/root-allowlist-format.test');
+const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
+const docsGuideSotTests = require('./unit/docs-guide-sot.test');
+const uiTemplateGeneratorTests = require('./unit/ui-template-generator.test');
 const componentGovernanceUtilsTests = require('./unit/component-governance-utils.test');
 const componentGovernanceGeneratorTests = require('./unit/component-governance-generators.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
@@ -100,6 +108,12 @@ async function runAllTests() {
   totalErrors += styleResult.errors.length;
   totalWarnings += styleResult.warnings.length;
   console.log(`   ${styleResult.errors.length} errors, ${styleResult.warnings.length} warnings`);
+
+  console.log('\n✍️  Running Copy Lint Tests...');
+  const copyLintResult = normalizeSuiteResult(copyLintTests.runTests({ stagedOnly }));
+  totalErrors += copyLintResult.errors.length;
+  totalWarnings += copyLintResult.warnings.length;
+  console.log(`   ${copyLintResult.errors.length} errors, ${copyLintResult.warnings.length} warnings`);
 
   // Component Naming
   console.log('\n🧩 Running Component Naming Checks...');
@@ -230,6 +244,55 @@ async function runAllTests() {
   totalErrors += scriptDocsResult.errors.length;
   totalWarnings += scriptDocsResult.warnings.length;
   console.log(`   ${scriptDocsResult.errors.length} errors, ${scriptDocsResult.warnings.length} warnings`);
+
+  // Skill Docs Enforcement
+  console.log('\n📘 Running Skill Documentation Enforcement...');
+  const skillDocsResult = normalizeSuiteResult(skillDocsTests.runTests({ stagedOnly }));
+  totalErrors += skillDocsResult.errors.length;
+  totalWarnings += skillDocsResult.warnings.length;
+  console.log(`   ${skillDocsResult.errors.length} errors, ${skillDocsResult.warnings.length} warnings`);
+
+  // Ownerless Governance
+  console.log('\n🧭 Running Ownerless Governance Checks...');
+  const ownerlessGovernanceResult = normalizeSuiteResult(ownerlessGovernanceTests.runTests({ stagedOnly }));
+  totalErrors += ownerlessGovernanceResult.errors.length;
+  totalWarnings += ownerlessGovernanceResult.warnings.length;
+  console.log(`   ${ownerlessGovernanceResult.errors.length} errors, ${ownerlessGovernanceResult.warnings.length} warnings`);
+
+  // Agent Docs Freshness
+  console.log('\n🤖 Running Agent Docs Freshness Checks...');
+  const agentDocsFreshnessResult = normalizeSuiteResult(checkAgentDocsFreshnessTests.runTests());
+  totalErrors += agentDocsFreshnessResult.errors.length;
+  totalWarnings += agentDocsFreshnessResult.warnings.length;
+  console.log(`   ${agentDocsFreshnessResult.errors.length} errors, ${agentDocsFreshnessResult.warnings.length} warnings`);
+
+  // Root Allowlist Format
+  console.log('\n🧱 Running Root Allowlist Format Checks...');
+  const rootAllowlistFormatResult = normalizeSuiteResult(rootAllowlistFormatTests.runTests());
+  totalErrors += rootAllowlistFormatResult.errors.length;
+  totalWarnings += rootAllowlistFormatResult.warnings.length;
+  console.log(`   ${rootAllowlistFormatResult.errors.length} errors, ${rootAllowlistFormatResult.warnings.length} warnings`);
+
+  // Portable Skill Export
+  console.log('\n📦 Running Portable Skill Export Checks...');
+  const exportPortableSkillsResult = normalizeSuiteResult(await exportPortableSkillsTests.runTests());
+  totalErrors += exportPortableSkillsResult.errors.length;
+  totalWarnings += exportPortableSkillsResult.warnings.length;
+  console.log(`   ${exportPortableSkillsResult.errors.length} errors, ${exportPortableSkillsResult.warnings.length} warnings`);
+
+  // Docs-guide Source of Truth
+  console.log('\n📚 Running Docs-guide Source-of-Truth Checks...');
+  const docsGuideSotResult = normalizeSuiteResult(docsGuideSotTests.runTests({ stagedOnly }));
+  totalErrors += docsGuideSotResult.errors.length;
+  totalWarnings += docsGuideSotResult.warnings.length;
+  console.log(`   ${docsGuideSotResult.errors.length} errors, ${docsGuideSotResult.warnings.length} warnings`);
+
+  // UI Template Generator
+  console.log('\n🧱 Running UI Template Generator Checks...');
+  const uiTemplateGeneratorResult = normalizeSuiteResult(uiTemplateGeneratorTests.runTests());
+  totalErrors += uiTemplateGeneratorResult.errors.length;
+  totalWarnings += uiTemplateGeneratorResult.warnings.length;
+  console.log(`   ${uiTemplateGeneratorResult.errors.length} errors, ${uiTemplateGeneratorResult.warnings.length} warnings`);
 
   // Component Governance Utility Tests
   console.log('\n🧩 Running Component Governance Utility Tests...');

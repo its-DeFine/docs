@@ -22,6 +22,29 @@ purpose: orientation
 status: draft
 lastVerified: 2026-03-12
 ---
+{/* TODO:
+Terminology Validation:
+- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
+- Voice converted to entity-led
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+Verify:
+- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
+- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
+- Tables use StyledTable component
+- Tabs should be surrounded by BorderedBox variant="accent"
+- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
+- All tabs and accordions should have icons
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical
+- CustomDivider is used
+- Placeholders for Media and Video Resources are in comments with a TODO for a human
+- REVIEW flags are in JSX comments for a human
+- Accuracy is verified across repo as much as possible
+Human:
+- REVIEW flags
+- Review Page Layout
+*/}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 
@@ -38,7 +61,7 @@ You are likely a fit if all of the following are true:
 You are likely better off joining a pool if you want GPU earnings without staking, protocol operations, or public service management.
 
 <CardGroup cols={2}>
-  <Card title="Join a pool instead" icon="users" href="/v2/orchestrators/guides/setup-paths/join-a-pool" arrow>
+  <Card title="Join a pool instead" icon="users" href="/v2/orchestrators/guides/deployment-details/join-a-pool" arrow>
     Use an existing operator if you want lower setup overhead and no direct protocol management.
   </Card>
   <Card title="Run your own node" icon="microchip" href="/v2/orchestrators/setup/guide" arrow>
@@ -72,13 +95,13 @@ You are likely better off joining a pool if you want GPU earnings without stakin
 </StyledTable>
 
 <CardGroup cols={3}>
-  <Card title="Pool joiner path" icon="swimming-pool" href="/v2/orchestrators/guides/setup-paths/join-a-pool" arrow>
+  <Card title="Pool joiner path" icon="swimming-pool" href="/v2/orchestrators/guides/deployment-details/join-a-pool" arrow>
     Start here if you want the simplest way to contribute GPU capacity.
   </Card>
   <Card title="Solo operator path" icon="server" href="/v2/orchestrators/setup/guide" arrow>
     Start here if you want the default go-livepeer setup path.
   </Card>
-  <Card title="Enterprise callout" icon="building" href="/v2/orchestrators/guides/advanced-operations/large-scale-operations" arrow>
+  <Card title="Scale operations" icon="building" href="/v2/orchestrators/guides/advanced-operations/scale-operations" arrow>
     Use the fleet path for data-centre, managed, or multi-region operations.
   </Card>
 </CardGroup>
@@ -91,7 +114,7 @@ Choose the workload path before you optimize hardware, pricing, or runtime choic
   <Card title="Video operator path" icon="film" href="/v2/orchestrators/setup/guide" arrow>
     Use the default GPU setup and video-first quickstart path for transcoding-focused operations.
   </Card>
-  <Card title="AI operator path" icon="microchip-ai" href="/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide" arrow>
+  <Card title="AI operator path" icon="microchip-ai" href="/v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations" arrow>
     Use AI Pipelines if you plan to run inference, model-serving, or workflow-specific GPU workloads.
   </Card>
 </CardGroup>
@@ -101,16 +124,16 @@ Choose the workload path before you optimize hardware, pricing, or runtime choic
 This is the feasibility layer for deciding whether the operator path is worth pursuing.
 
 <CardGroup cols={2}>
-  <Card title="Feasibility" icon="scale-balanced" href="/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics" arrow>
+  <Card title="Operator rationale" icon="scale-balanced" href="/v2/orchestrators/guides/operator-considerations/operator-rationale" arrow>
     Review worth-it, competitiveness, and capacity before you commit hardware or stake.
   </Card>
-  <Card title="Earnings" icon="coins" href="/v2/orchestrators/guides/staking-and-rewards/earnings" arrow>
+  <Card title="Earning model" icon="coins" href="/v2/orchestrators/guides/staking-and-rewards/earning-model" arrow>
     Understand the difference between fee revenue and inflation rewards.
   </Card>
-  <Card title="Staking and delegation" icon="diagram-project" href="/v2/orchestrators/guides/staking-and-rewards/attracting-delegates" arrow>
+  <Card title="Delegate operations" icon="diagram-project" href="/v2/orchestrators/guides/staking-and-rewards/delegate-operations" arrow>
     Review self-stake, delegated stake, and what changes video work eligibility.
   </Card>
-  <Card title="Rewards and fees" icon="wallet" href="/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees" arrow>
+  <Card title="Reward mechanics" icon="wallet" href="/v2/orchestrators/guides/staking-and-rewards/reward-mechanics" arrow>
     Understand commission settings, fee share, and operator economics.
   </Card>
 </CardGroup>
@@ -120,10 +143,10 @@ This is the feasibility layer for deciding whether the operator path is worth pu
 If you plan to attract stake, manage external workers, or run a pool, use these pages before you optimize scaling.
 
 <CardGroup cols={2}>
-  <Card title="Delegates and rewards" icon="users" href="/v2/orchestrators/guides/staking-and-rewards/attracting-delegates" arrow>
+  <Card title="Delegate operations" icon="users" href="/v2/orchestrators/guides/staking-and-rewards/delegate-operations" arrow>
     Review delegation mechanics, reward exposure, and delegator expectations.
   </Card>
-  <Card title="Running a pool" icon="network-wired" href="/v2/orchestrators/guides/advanced-operations/run-a-pool" arrow>
+  <Card title="Pool operators" icon="network-wired" href="/v2/orchestrators/guides/advanced-operations/pool-operators" arrow>
     Review worker architecture, operator responsibilities, and payout realities.
   </Card>
 </CardGroup>
@@ -157,3 +180,14 @@ If you plan to attract stake, manage external workers, or run a pool, use these 
     <TableCell>`/operations/guide`</TableCell>
   </TableRow>
 </StyledTable>
+
+{/*
+  PURPOSE:
+  Decision tree navigator helping operators find their path based on:
+  setup type (pool/solo/enterprise), workload type (video/AI/dual),
+  and primary goal (earn rewards, serve applications, experiment).
+  Should include an "how do I earn?" section - the crucial question for ALL personas.
+
+  SECTION HOME: Start Here
+  JOURNEY POSITION: Second entry point, routes to all sections
+*/}

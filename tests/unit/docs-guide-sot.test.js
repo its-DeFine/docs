@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             E-C1, R-R14
  * @purpose-statement Validates docs-guide source-of-truth coverage, README pointers, and generated index freshness
- * @pipeline          P2, P3
+ * @pipeline          P1, P3
  * @dualmode          dual-mode (document flags)
  * @usage             node tests/unit/docs-guide-sot.test.js [flags]
  */
@@ -36,10 +36,12 @@ const REQUIRED_MANUAL_FILES = [
   'docs-guide/overview.mdx',
   'docs-guide/policies/source-of-truth-policy.mdx',
   'docs-guide/policies/generated-artifact-and-hook-governance.mdx',
+  'docs-guide/policies/v2-folder-governance.mdx',
   'docs-guide/features/feature-map.mdx',
   'docs-guide/features/architecture-map.mdx',
   'docs-guide/tooling/lpd-cli.mdx',
   'docs-guide/policies/quality-gates.mdx',
+  'docs-guide/policies/ownerless-governance.mdx',
   'docs-guide/policies/audit-system-overview.mdx',
   'docs-guide/policies/skill-pipeline-map.mdx',
   'docs-guide/policies/cleanup-quarantine-policy.mdx',
@@ -47,6 +49,7 @@ const REQUIRED_MANUAL_FILES = [
   'docs-guide/features/automations.mdx',
   'docs-guide/frameworks/content-system.mdx',
   'docs-guide/features/data-integrations.mdx',
+  'docs-guide/features/ui-system.mdx',
   'docs-guide/frameworks/component-framework.mdx',
   'docs-guide/catalog/ai-tools.mdx'
 ];
@@ -56,7 +59,8 @@ const REQUIRED_GENERATED_FILES = [
   'docs-guide/catalog/workflows-catalog.mdx',
   'docs-guide/catalog/templates-catalog.mdx',
   'docs-guide/catalog/pages-catalog.mdx',
-  'docs-guide/catalog/components-catalog.mdx'
+  'docs-guide/catalog/components-catalog.mdx',
+  'docs-guide/catalog/ui-templates.mdx'
 ];
 
 const REQUIRED_README_REFERENCES = [
@@ -64,14 +68,18 @@ const REQUIRED_README_REFERENCES = [
   'docs-guide/features/feature-map.mdx',
   'docs-guide/policies/source-of-truth-policy.mdx',
   'docs-guide/policies/generated-artifact-and-hook-governance.mdx',
+  'docs-guide/policies/v2-folder-governance.mdx',
   'docs-guide/tooling/lpd-cli.mdx',
   'docs-guide/policies/quality-gates.mdx',
+  'docs-guide/policies/ownerless-governance.mdx',
   'docs-guide/policies/audit-system-overview.mdx',
   'docs-guide/policies/skill-pipeline-map.mdx',
   'docs-guide/policies/cleanup-quarantine-policy.mdx',
   'docs-guide/policies/component-layout-decisions.mdx',
   'docs-guide/features/automations.mdx',
+  'docs-guide/features/ui-system.mdx',
   'docs-guide/catalog/ai-tools.mdx',
+  'docs-guide/catalog/ui-templates.mdx',
   'docs-guide/catalog/pages-catalog.mdx',
   'docs-guide/catalog/components-catalog.mdx',
   'docs-guide/catalog/scripts-catalog.mdx',
@@ -157,6 +165,11 @@ function checkGeneratedIndexFreshness(errors) {
       args: ['tools/scripts/generate-docs-guide-components-index.js', '--check'],
       file: 'docs-guide/catalog/components-catalog.mdx',
       message: 'Generated docs-guide components catalog is out of date. Run components catalog generator script.'
+    },
+    {
+      args: ['tools/scripts/generate-ui-templates.js', '--check'],
+      file: 'docs-guide/catalog/ui-templates.mdx',
+      message: 'Generated UI template artifacts are out of date. Run the UI template generator script.'
     },
     {
       args: null,
