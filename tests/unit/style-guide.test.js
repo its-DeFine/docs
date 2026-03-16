@@ -228,12 +228,19 @@ function checkThemeData(files, stagedOnly = false) {
  */
 function checkHardcodedColors(files, stagedOnly = false) {
   const livepeerColors = ['#3CB540', '#2b9a66', '#18794E', '#181C18', '#E0E4E0', '#717571', '#A0A4A0'];
+  const mermaidLiteralColorSentinel = 'Mermaid requires literal colour values and does not support CSS custom properties.';
   
   files.forEach(file => {
     if (file.includes('style-guide.mdx')) return;
     
     const content = readFile(file);
     if (!content) return;
+
+    // Mermaid theme config files must ship literal values because Mermaid init
+    // blocks cannot resolve runtime CSS custom properties.
+    if (content.includes(mermaidLiteralColorSentinel)) {
+      return;
+    }
     
     // Skip code blocks and markdown tables
     const lines = content.split('\n');

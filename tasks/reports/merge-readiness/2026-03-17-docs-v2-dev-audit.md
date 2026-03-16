@@ -12,6 +12,12 @@ This branch cleared the two remaining compare-scoped content blockers that were 
 - `Style Guide`: compare-scoped errors reduced to `0`
 - `Copy Lint`: compare-scoped errors reduced to `0`
 
+The final style-guide blocker was a policy mismatch, not residual content debt:
+
+- `snippets/components/page-structure/mermaidColours.jsx` is the documented literal-palette source for Mermaid diagrams
+- Mermaid init blocks cannot consume runtime CSS custom properties
+- `tests/unit/style-guide.test.js` now treats files carrying that explicit Mermaid-literal-colour contract as a valid exception instead of reporting them as hardcoded-color violations
+
 The route/static validations that had already been repaired in the earlier navigation phase still hold in this branch:
 
 - `Links & Imports`: passed
@@ -52,31 +58,38 @@ The route/static validations that had already been repaired in the earlier navig
 ### Compare-scoped blocker checks
 
 - `node tests/unit/style-guide.test.js` via exported `runTests({ files, baseRef: 'docs-v2' })`
-  - result: `0` errors, `922` warnings, `348` files checked
+  - result: `0` errors, `723` warnings, `383` files checked (`356` routed docs + `27` changed components)
 - `node tests/unit/copy-lint.test.js` via exported `runTests({ files })`
-  - result: `0` errors, `2462` warnings, `349` files checked
-- `node tests/unit/mdx.test.js --files "$(paste -sd, /tmp/merge-readiness-routed-docs.txt)"`
-  - result: passed, `358` files checked
-- `node tests/unit/quality.test.js --files "$(paste -sd, /tmp/merge-readiness-routed-docs.txt)"`
-  - result: passed with warnings only, `349` files checked
+  - result: `0` errors, `2460` warnings, `356` routed docs checked
+- `node tests/unit/mdx.test.js` via exported `runTests({ files })`
+  - result: passed, `356` routed docs checked
+- `node tests/unit/quality.test.js` via exported `runTests({ files })`
+  - result: passed with warnings only, `356` routed docs checked, `345` warnings
 
 ### Route/static checks
 
-- `node tests/unit/links-imports.test.js --files "$(paste -sd, /tmp/merge-readiness-routed-docs.txt)"`
-  - result: passed, `357` files checked
-- `node tests/integration/v2-link-audit.js --files "$(paste -sd, /tmp/merge-readiness-routed-docs.txt)" --strict --report /tmp/livepeer-link-audit-merge-readiness-final.md`
+- `node tests/unit/links-imports.test.js` via exported `runTests({ files })`
+  - result: passed, `356` routed docs checked
+- `node tests/integration/v2-link-audit.js --files "$(paste -sd, /tmp/merge-readiness-pr-docs-matrix.txt)" --strict --report /tmp/livepeer-link-audit-merge-readiness-post-commit.md`
   - result: passed
   - files analyzed: `370`
   - total refs: `3207`
   - missing refs: `0`
+- `node tests/unit/spelling.test.js` via exported `runTests({ files })`
+  - result: passed, `356` routed docs checked
 - `node tests/unit/docs-navigation.test.js`
-  - result: passed with warnings only
+  - result: passed with warnings only, `187` warnings
 
 ### Full PR runner attempt
 
 - Attempted: `node tests/run-pr-checks.js --lane branch-health --base-ref docs-v2`
-- Result: runner did not progress beyond the startup inventory summary before manual termination
-- Captured log: `/tmp/merge-readiness-branch-health.log`
+- Result: runner still stalls after the startup inventory summary and does not emit per-lane results in a reasonable interval
+- Startup summary captured:
+  - changed files: `2832`
+  - changed docs pages: `356`
+  - changed repo markdown files: `2315`
+  - changed components: `27`
+- Captured log: terminal session output plus `/tmp/livepeer-link-audit-merge-readiness-post-commit.md` for the direct strict link-audit evidence
 - Action taken: used the direct compare-scoped matrix above as the authoritative validation evidence for this branch
 
 ## Non-Blocking Follow-Up Issues Found
@@ -85,12 +98,11 @@ These did not fail the compare-scoped blocker gates, but they remain visible in 
 
 - `Quality` warnings remain widespread for missing `status`, legacy multi-audience strings, pageType/purpose mismatches, and relative-link advisories
 - `Docs Navigation` warnings remain concentrated in the orchestrators IA and in files that exist on disk but are not represented in `docs.json`
-- A raw file-list `Style Guide` CLI run still reports substantial warning-level or non-diff debt outside the base-ref-filtered error set, including:
-  - deprecated `ThemeData`
-  - hardcoded Mermaid theme colors
-  - inline-style debt in additional routed pages
+- `Style Guide` still emits warning-level debt outside the blocker set, including:
+  - deprecated `ThemeData` in `v2/resources/documentation-guide/automations-workflows.mdx`
+  - advisory `CustomDivider` inline-style usage in gateway/orchestrator concept pages
   - code-block metadata gaps
-  - filename casing debt
+  - filename casing debt such as `v2/gateways/quickstart/AI-prompt.mdx`
 
 ## Readiness Call
 

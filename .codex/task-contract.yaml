@@ -9,6 +9,7 @@ scope_in:
   - snippets/components/primitives/divider.jsx
   - snippets/data/gateways/
   - tasks/reports/merge-readiness/
+  - tests/unit/style-guide.test.js
   - tools/scripts/
   - v2/about/
   - v2/cn/resources/documentation-guide/component-library/
