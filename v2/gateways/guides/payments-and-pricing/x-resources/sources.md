@@ -5,7 +5,7 @@
 **Date:** 13 March 2026
 **Engagement:** Wonderland × Livepeer Foundation
 
----
+<CustomDivider />
 
 ## Source inventory
 
@@ -60,7 +60,7 @@
 | Messari — Livepeer Q4 2024 Brief | https://messari.io/report/livepeer-q4-2024-brief | AI SDK launch Q4 2024, Cascade pipeline |
 | Streamflow PM blog post — Livepeer Medium | https://medium.com/livepeer-blog/streamflow-probabilistic-micropayments-f3a647672462 | PM system mechanics, deposit/reserve model explanation |
 
----
+<CustomDivider />
 
 ## Outstanding REVIEW flags
 
@@ -89,7 +89,7 @@ These items are flagged inline in the MDX files with `{/* REVIEW: ... */}` comme
 | tools.livepeer.cloud URL | payment-clearinghouse-guide.mdx | Confirm tools.livepeer.cloud is the active URL (livepeer.tools confirmed down). | Alison / community |
 | livepeer_cli Option 11 option number | fund-your-gateway.mdx | Confirm Option 11 is still the correct option for `deposit broadcasting funds` in current builds. | Rick |
 
----
+<CustomDivider />
 
 ## Journey evaluation scores
 
@@ -101,13 +101,13 @@ These items are flagged inline in the MDX files with `{/* REVIEW: ... */}` comme
 | remote-signers.mdx | 8/10 | Exact flag names, startup log line, minimum version need verification | Ready for SME review |
 | payment-clearinghouse-guide.mdx | 9/10 | SDK integration pattern needs GA clearinghouse to verify; NaaP status current | Ready for SME review |
 
----
+<CustomDivider />
 
 ## Editorial checklist
 
 - [x] UK English throughout, -ise spellings
 - [x] No em dashes used (colons or restructured sentences used instead)
-- [x] JSX comments only `{/* */}` — no HTML `<!-- -->` comments
+- [x] JSX comments only `{/* */}` — no HTML `[//]: # ()` comments
 - [x] Full frontmatter on every page (title, sidebarTitle, description, keywords, og:image, pageType, audience, purpose, status, lastVerified)
 - [x] Mintlify components used: CardGroup, Card, Steps, Step, AccordionGroup, Accordion, Note, Tip, Warning, Info, Tabs, Tab, Mermaid, tables
 - [x] Unverified claims flagged with `{/* REVIEW: */}` inline
@@ -118,7 +118,7 @@ These items are flagged inline in the MDX files with `{/* REVIEW: ... */}` comme
 - [ ] SME review items resolved before publication
 - [ ] Video content: no embeddable tutorial video found for payment setup specifically. Search recommended: Titan Node YouTube, Livepeer Foundation YouTube channel, #local-gateways Discord for any recorded demos.
 
----
+<CustomDivider />
 
 ## Recommended follow-up
 

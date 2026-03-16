@@ -55,6 +55,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tests/integration/v2-wcag-audit.selftest.js` | Self-test suite for v2-wcag-audit.js — validates WCAG audit logic against known fixtures | `node tests/integration/v2-wcag-audit.selftest.js [flags]` | docs |
 | `tests/run-all.js` | Test orchestrator — dispatches all unit test suites. Called by pre-commit hook and npm test. | `node tests/run-all.js [flags]` | docs |
 | `tests/run-pr-checks.js` | PR orchestrator — runs changed-file scoped validation checks for pull request CI. Dispatches per-file validators based on PR diff. | `node tests/run-pr-checks.js [flags]` | docs |
+| `tests/unit/ai-tools-registry.test.js` | Validates the AI-tools registry contract, full tracked ai-tools coverage, and the Wave 1 inventory source-of-truth boundary. | `node tests/unit/ai-tools-registry.test.js [--staged&#124;--files path[,path]]` | docs |
 | `tests/unit/audit-script-inventory-repair-rules.test.js` | Tests audit-script-inventory repair hardening rules for judgement-field backfill and pipeline safety. | `node tests/unit/audit-script-inventory-repair-rules.test.js` | docs |
 | `tests/unit/check-agent-docs-freshness.test.js` | Tests the agent governance freshness validator against the canonical runtime file set. | `node tests/unit/check-agent-docs-freshness.test.js` | docs |
 | `tests/unit/codex-commit.test.js` | Tests codex-commit.js — validates commit message generation and contract compliance | `node tests/unit/codex-commit.test.js [flags]` | docs |
@@ -100,6 +101,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tests/unit/repair-spelling.test.js` | Unit tests for repair-spelling.js — validates deterministic spelling fixes and exclusion ranges | `node tests/unit/repair-spelling.test.js [flags]` | docs |
 | `tests/unit/repo-audit-pipeline.test.js` | Tests repo-audit-orchestrator.js pipeline — validates mode/scope combinations and report output | `node tests/unit/repo-audit-pipeline.test.js [flags]` | docs |
 | `tests/unit/root-allowlist-format.test.js` | Validates that .allowlist stays machine-readable, root-only, and aligned with the canonical agent root layout. | `node tests/unit/root-allowlist-format.test.js` | docs |
+| `tests/unit/run-pr-checks.test.js` | Tests run-pr-checks lane parsing, branch-health registry coverage, and incremental summary/progress behavior. | `node tests/unit/run-pr-checks.test.js` | docs |
 | `tests/unit/script-docs.test.js` | Enforces script header schema, keeps group script indexes in sync, and builds aggregate script catalog | `node tests/unit/script-docs.test.js [flags]` | docs |
 | `tests/unit/skill-docs.test.js` | Validates governed skill documentation frontmatter, references, and contract integrity for canonical templates and local skill files. | `node tests/unit/skill-docs.test.js [--staged] [--files path[,path]]` | docs |
 | `tests/unit/spelling.test.js` | Spelling check — validates content against custom dictionary with en-GB rules | `node tests/unit/spelling.test.js [flags]` | docs |
@@ -236,6 +238,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/scripts/style-and-language-homogenizer-en-gb.js` | EN-GB style homogeniser — finds and fixes American English spellings, style guide violations, and formatting inconsistencies across v2 content | `node tools/scripts/style-and-language-homogenizer-en-gb.js [flags]` | docs |
 | `tools/scripts/sync-codex-skills.js` | Codex skills sync — synchronises skill definition files and managed companion resources between canonical templates and local Codex installs. Supports --check mode. | `node tools/scripts/sync-codex-skills.js [flags]` | docs |
 | `tools/scripts/test-v2-pages.js` | V2 page tester — validates v2 pages via Puppeteer browser rendering | `node tools/scripts/test-v2-pages.js [flags]` | docs |
+| `tools/scripts/validate-ai-tools-registry.js` | AI-tools registry validator and report writer for source-of-truth coverage, lifecycle, lane alignment, and generated inventory output. | `node tools/scripts/validate-ai-tools-registry.js [--check] [--coverage] [--lanes] [--write-report]` | docs |
 | `tools/scripts/validate-codex-task-contract.js` | Codex task contract enforcer — validates branch naming, task files, PR body, and issue state for codex branches | `node tools/scripts/validate-codex-task-contract.js [flags]` | docs |
 | `tools/scripts/validators/components/check-component-css.js` | Validates component files against component governance styling rules. | `node tools/scripts/validators/components/check-component-css.js [--path snippets/components] [--staged] [--fix] [--help]` | docs |
 | `tools/scripts/validators/components/check-component-docs.js` | Validates component JSDoc coverage, prop documentation, docs-entry coverage, and governance metadata. | `node tools/scripts/validators/components/check-component-docs.js [--path snippets/components] [--base-ref docs-v2] [--staged] [--strict-governance] [--help]` | docs |
@@ -261,6 +264,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 
 | Script | Summary | Usage | Domain |
 |---|---|---|---|
+| `tools/lib/ai-tools-registry.js` | Shared loader, validator, coverage checker, and report renderer for the AI-tools registry contract and generated inventory report. | `const registry = require('../lib/ai-tools-registry');` | docs |
 | `tools/lib/codex-skill-templates.js` | Shared helper for validating, selecting, and loading canonical Codex skill templates. | `const &#123; discoverTemplates &#125; = require('../lib/codex-skill-templates');` | docs |
 | `tools/lib/component-governance-utils.js` | Shared parsing and validation utilities for component governance scripts. | `const utils = require('../lib/component-governance-utils');` | docs |
 | `tools/lib/docs-authoring-rules.js` | Shared warning-level authoring rules for guide layouts and code-block metadata, plus deterministic code-block icon repair. | `const &#123; analyzeGuideLayoutWarnings, repairCodeBlockMetadata &#125; = require('../lib/docs-authoring-rules');` | docs |

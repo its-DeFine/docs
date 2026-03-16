@@ -21,7 +21,7 @@ That means:
 
 Do you want me to rewrite `setup-options` with that framing - focused on the alternatives rather than the navigation decision?
 
----
+<CustomDivider />
 
 Analysis Report
 Journey Analysis
@@ -39,15 +39,31 @@ Persona E (AI Native): requirements VRAM tiers, session-limits AI capacity field
 
 
 Systematic Fixes Applied Across All Five Pages
-IssueFiles affectedFixStyledTable missing <thead><tbody>All fiveAdded throughoutCard in CardGroup missing arrow horizontalAll fiveAdded to every card"Related" heading → "Related Pages"requirements, benchmarking, session-limitsRenamedOld section paths (setup-paths/, feasibility-and-hardware/, monitoring-and-troubleshooting/)All fiveUpdated to new deployment-details/, operator-considerations/, monitoring-and-tools/circle-question accordion iconssetup-options, join-a-poolReplaced with sliders, coins, gauge, calculator, calendar, list-check, clock-rotate-left, link, server, chart-lineSecond-person voice ("You have a GPU")setup-optionsRewritten as entity-ledsidebarTitle: Navigator conflictsetup-optionsChanged to Setup OptionsOrphan single <Card> outside <CardGroup>setup-optionsAbsorbed into the CardGroupMissing LinkArrow importsetup-options, requirements, benchmarking, session-limits, join-a-poolAddedMissing ScrollableDiagram importsetup-optionsAddedScript code block using icon="terminal"benchmarkingChanged to icon="code" for bash scriptsJSON code block using icon="terminal"session-limitsChanged to icon="code" for JSONstatus: published (premature for several pages)setup-options, requirements, benchmarking, session-limits, join-a-poolAll changed to currentIntro "This page covers..." self-descriptionbenchmarkingRewritten to narrative openingCardGroup cols={3} on Cards without enough contentjoin-a-pool (pool choice section)Changed to cols={2} with proper arrowsIntro text of benchmarking was second-person ("you")benchmarkingEntity-led rewrite
 
----
+- `StyledTable` missing `<thead><tbody>`: all five pages; added throughout.
+- `Card` in `CardGroup` missing `arrow="horizontal"`: all five pages; added to every card.
+- `"Related"` heading -> `"Related Pages"`: `requirements`, `benchmarking`, `session-limits`; renamed.
+- Old section paths `setup-paths/`, `feasibility-and-hardware/`, and `monitoring-and-troubleshooting/`: all five pages; updated to `deployment-details/`, `operator-considerations/`, and `monitoring-and-tools/`.
+- `circle-question` accordion icons: `setup-options`, `join-a-pool`; replaced with `sliders`, `coins`, `gauge`, `calculator`, `calendar`, `list-check`, `clock-rotate-left`, `link`, `server`, and `chart-line`.
+- Second-person voice (`"You have a GPU"`): `setup-options`; rewritten as entity-led.
+- `sidebarTitle: Navigator` conflict: `setup-options`; changed to `Setup Options`.
+- Orphan single `<Card>` outside `<CardGroup>`: `setup-options`; absorbed into the card group.
+- Missing `LinkArrow` import: `setup-options`, `requirements`, `benchmarking`, `session-limits`, and `join-a-pool`; added.
+- Missing `ScrollableDiagram` import: `setup-options`; added.
+- Script code block using `icon="terminal"`: `benchmarking`; changed to `icon="code"` for bash scripts.
+- JSON code block using `icon="terminal"`: `session-limits`; changed to `icon="code"` for JSON.
+- `status: published` used prematurely: `setup-options`, `requirements`, `benchmarking`, `session-limits`, and `join-a-pool`; all changed to `current`.
+- Intro `"This page covers..."` self-description: `benchmarking`; rewritten to a narrative opening.
+- `CardGroup cols={3}` on cards without enough content: `join-a-pool`; changed to `cols={2}` with proper arrows.
+- Intro text of `benchmarking` was second-person (`"you"`): rewritten as entity-led.
+
+<CustomDivider />
 
 Short answer: no, they don't really belong there either - they've been in the wrong place from the start.
 
 Here's the honest diagnosis:
 
----
+<CustomDivider />
 
 ## Where Benchmarking and Session Limits Actually Belong
 
@@ -74,7 +90,7 @@ If it must stay standalone (the content is genuinely substantial), it belongs un
 
 `-maxSessions` is a flag. Setting it correctly is a configuration step. The calculation logic (min of hardware limit vs bandwidth limit) is genuinely useful, but it belongs inside the configuration page alongside `-pricePerUnit` and `-nvidia`, not as a standalone guide. The AI `capacity` field in `aiModels.json` similarly belongs in the AI configuration guide.
 
----
+<CustomDivider />
 
 ### Revised Deployment Details
 
@@ -89,7 +105,7 @@ Deployment Details (3-4 pages)
 
 Siphon setup stays in **Advanced Operations > `orchestrator-transcoder-setup`** as planned - it's an advanced architectural pattern, not a standard deployment path.
 
----
+<CustomDivider />
 
 ### What to do with the files produced
 
@@ -101,7 +117,7 @@ The benchmarking and session-limits files I produced are correct content - they 
 
 Want me to produce the merged `requirements.mdx` with benchmarking absorbed, and flag the session-limits content for the configure page?
 
----
+<CustomDivider />
 
 
 

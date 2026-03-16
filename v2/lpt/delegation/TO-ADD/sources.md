@@ -4,7 +4,7 @@ Research log for the delegation section rewrite.
 Pages produced: `overview.mdx`, `delegation-economics.mdx`, `choose-an-orchestrator.mdx`, `manage-your-delegation.mdx`.
 Session: March 2026.
 
----
+<CustomDivider />
 
 ## Source files (uploaded by user — treated as structural reference)
 
@@ -17,7 +17,7 @@ Session: March 2026.
 | `delegation-economics.mdx` | Stub only        | Replaced entirely                                                                                      |
 | `join-a-pool.mdx`          | UX reference     | Step structure, comparison table pattern, accordion pattern, FAQ pattern                               |
 
----
+<CustomDivider />
 
 ## Accuracy correction applied to source files
 
@@ -34,7 +34,7 @@ The Explorer displays `feeShare` as "Fee Share" not "Fee Cut". The delegation-gu
 
 The new pages use the technically correct interpretation and include a Warning component to prevent reader confusion.
 
----
+<CustomDivider />
 
 ## Project files used as research sources
 
@@ -44,7 +44,7 @@ The new pages use the technically correct interpretation and include a Warning c
 | `/mnt/project/gpu-nodes-ia-planning.md`   | Active set = top 100 by stake (flagged REVIEW), reward call importance framing, delegator persona intelligence                                                                                           |
 | `/mnt/project/gateways-ia-planning.md`    | PM ticket mechanics context, probabilistic micropayment architecture                                                                                                                                     |
 
----
+<CustomDivider />
 
 ## GitHub repositories
 
@@ -55,7 +55,7 @@ The new pages use the technically correct interpretation and include a Warning c
 | `livepeer/go-livepeer` | Reward calling mechanics, Arbitrum network target                                                 |
 | `livepeer/LIPs`        | LIP-89 (10% treasury allocation), LIP-73 (treasury governance)                                    |
 
----
+<CustomDivider />
 
 ## External tools and links
 
@@ -68,7 +68,7 @@ The new pages use the technically correct interpretation and include a Warning c
 | Livepeer Discord #orchestrators | https://discord.gg/livepeer                  | Community intelligence on orchestrator behaviour, commission changes    |
 | Livepeer Forum orchestrators    | https://forum.livepeer.org/c/orchestrators/8 | Community intelligence source                                           |
 
----
+<CustomDivider />
 
 ## Video placeholder
 
@@ -85,7 +85,7 @@ Recommended content for this video:
 7. Sign Bond transaction
 8. Navigate to account page to confirm delegation
 
----
+<CustomDivider />
 
 ## Verified facts
 
@@ -99,10 +99,10 @@ Recommended content for this video:
 | Redelegation does not require unbonding                   | Protocol mechanics                                | Confirmed                                |
 | Partial unbonding is supported                            | Protocol mechanics                                | Confirmed                                |
 | Active set = top 100 by bonded stake                      | `gpu-nodes-ia-planning.md`                        | Confirmed — REVIEW before publish        |
-| rewardCut = % orchestrator keeps of LPT inflation         | Protocol definition                               | Confirmed                                |
-| feeShare = % of ETH fees distributed to delegators        | Protocol definition                               | Confirmed (corrects getting-started.mdx) |
+| `rewardCut = % orchestrator keeps of LPT inflation`         | Protocol definition                               | Confirmed                                |
+| `feeShare = % of ETH fees distributed to delegators`        | Protocol definition                               | Confirmed (corrects getting-started.mdx) |
 
----
+<CustomDivider />
 
 ## Items requiring SME review before publishing
 
@@ -115,7 +115,7 @@ Recommended content for this video:
 | YouTube video embed ID                                     | `choose-an-orchestrator.mdx`                               | Livepeer Foundation marketing / Joseph — provide screen recording  |
 | `claimEarnings` automated bots (orchestrator-run)          | `manage-your-delegation.mdx`                               | Community / orchestrator SPEs — confirm this practice still exists |
 
----
+<CustomDivider />
 
 ## Pages deprecated by this rewrite
 

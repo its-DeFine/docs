@@ -4,7 +4,7 @@
 **Section position in IA:** Pos 5b (Guides) — motivational and feasibility content, not operational how-to
 **Personas served:** All five (A Graduate, B Provider, C Builder, D Broadcaster, E Platform Builder)
 
----
+<CustomDivider />
 
 ## Page-by-Page Scores
 
@@ -28,7 +28,7 @@
 
 **Verdict:** Rewrite. Core structure usable but must add AI section, concrete cost comparisons, Foundation support, and speak to all personas.
 
----
+<CustomDivider />
 
 ### 2. `operator-opportunities.mdx` — **6 / 10**
 
@@ -50,7 +50,7 @@
 
 **Verdict:** Rewrite. Consolidate with `why-run-a-gateway.mdx` motivations or draw a clearer line. Add AI-era opportunities.
 
----
+<CustomDivider />
 
 ### 3. `hardware-requirements.mdx` — **1 / 10**
 
@@ -63,7 +63,7 @@
 
 **Verdict:** Do not salvage. Replace entirely with `gateway-requirements.mdx` covering: hardware (no GPU, CPU+RAM+network), OS compatibility matrix, network requirements, skills, and on-chain vs off-chain software requirements.
 
----
+<CustomDivider />
 
 ### 4. `economics.mdx` — **5 / 10**
 
@@ -86,7 +86,7 @@
 
 **Verdict:** Rewrite. Keep concepts, replace all inline styles with Mintlify tables, fix `-broadcaster` references, add AI inference costs, add off-chain economics.
 
----
+<CustomDivider />
 
 ### 5. `community-projects.mdx` — **0 / 10**
 
@@ -96,7 +96,7 @@
 
 **Verdict:** Create from scratch as `ecosystem-projects.mdx`. Content should cover: real applications built on gateways (Studio, Daydream, Owncast, Embody), community tools, Foundation programmes (AI Video Startup Programme, SPE grants), NaaP.
 
----
+<CustomDivider />
 
 ## Structural Gaps in This Section
 
@@ -149,7 +149,7 @@ Both pages cover motivations to run a gateway with overlapping content. The dist
 
 No embedded tutorials or video walkthroughs. The Titan Node YouTube channel and Livepeer Foundation YouTube channel likely have relevant content. No confirmed URLs were found in research — REVIEW flags added throughout.
 
----
+<CustomDivider />
 
 ## Page Structure After Rewrite
 
@@ -169,7 +169,7 @@ No embedded tutorials or video walkthroughs. The Titan Node YouTube channel and 
 **Pages produced:** why-run-a-gateway.mdx, operator-opportunities.mdx, gateway-requirements.mdx, gateway-economics.mdx, ecosystem-projects.mdx
 **Repo:** livepeer/docs, branch docs-v2
 
----
+<CustomDivider />
 
 ## Sources Used
 
@@ -221,7 +221,7 @@ No embedded tutorials or video walkthroughs. The Titan Node YouTube channel and 
 | Arbitrum bridge issue   | `github.com/livepeer/go-livepeer/issues/3744` | Reserve requirement reduction in progress         | ✅ Issue confirmed referenced in fund-gateway.mdx |
 | Owncast                 | `owncast.online`                              | Owncast + Livepeer integration context            | ✅ Referenced                                     |
 
----
+<CustomDivider />
 
 ## Technical Claims and Their Sources
 
@@ -235,13 +235,13 @@ No embedded tutorials or video walkthroughs. The Titan Node YouTube channel and 
 | `-gateway` flag replaces `-broadcaster`                         | Research report + go-livepeer source             | ✅ Verified                                  |
 | `-maxPricePerCapability` for AI pipeline pricing                | research report, economics.mdx                   | ✅ Verified                                  |
 | `-livePaymentInterval=5s` for LV2V                              | Remote Signers design doc context                | ⚠️ REVIEW — confirm exact default with Peter |
-| LV2V = interval-based payments, not per-pixel                   | Remote Signers design doc                        | ✅ Verified                                  |
+| `LV2V = interval-based payments, not per-pixel`                   | Remote Signers design doc                        | ✅ Verified                                  |
 | Batch AI = per-pixel (width × height × outputs)                 | research report                                  | ✅ Verified                                  |
 | tools.livepeer.cloud is the active tool, livepeer.tools is down | research report community note                   | ✅ Verified                                  |
-| NaaP = JWT auth + Developer API Keys                            | Discord + NaaP repo                              | ✅ Confirmed (alpha status)                  |
+| `NaaP = JWT auth + Developer API Keys`                            | Discord + NaaP repo                              | ✅ Confirmed (alpha status)                  |
 | Daydream uses Livepeer gateway for AI inference                 | personas.md, operator-opportunities.mdx original | ✅ Confirmed                                 |
 
----
+<CustomDivider />
 
 ## Outstanding REVIEW Flags
 
@@ -262,7 +262,7 @@ These must be resolved with SMEs before the affected pages merge.
 | Livepeer Foundation YouTube — any gateway/AI operator content   | why-run-a-gateway.mdx                                                     | Foundation                              | 🟢 Low                                   |
 | Reserve requirement issue (#3744) — has this been resolved?     | gateway-requirements.mdx                                                  | Rick                                    | 🟢 Low                                   |
 
----
+<CustomDivider />
 
 ## Video Content Research
 
@@ -278,7 +278,7 @@ These must be resolved with SMEs before the affected pages merge.
 - Titan Node channel: `@TitanNode` — likely has broadcaster/gateway content from 2022–2024
 - Livepeer Foundation channel: `@LivepeerVideo` — look for AI webinars, startup programme recordings
 
----
+<CustomDivider />
 
 ## Recommendations for This Section
 
@@ -306,7 +306,7 @@ These must be resolved with SMEs before the affected pages merge.
 
 9. **Cross-link from gateway-path.mdx**: Once `gateway-path.mdx` is created, it should link to `gateway-requirements.mdx` for each path variant (AI off-chain, video on-chain, etc.) so operators checking requirements can access the correct requirements table without reading the full general requirements page.
 
----
+<CustomDivider />
 
 ## Files Produced
 

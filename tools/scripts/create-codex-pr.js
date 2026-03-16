@@ -4,7 +4,7 @@
  * @category          generator
  * @purpose           governance:agent-governance
  * @scope             tools/scripts, .codex/task-contract.yaml
- * @owner             docs
+ * @domain            docs
  * @needs             R-R27, R-R30
  * @purpose-statement Codex PR creator — generates codex PR with correct branch naming, labels, and body template
  * @pipeline          manual — not yet in pipeline
@@ -20,7 +20,7 @@ const DEFAULT_CONTRACT_PATH = '.codex/task-contract.yaml';
 const DEFAULT_OUTPUT_PATH = '.codex/pr-body.generated.md';
 const DEFAULT_RESEARCH_MD_PATH = '.codex/pr-research.generated.md';
 const DEFAULT_RESEARCH_JSON_PATH = '.codex/pr-research.generated.json';
-const DEFAULT_BASE_BRANCH = 'docs-v2';
+const DEFAULT_BASE_BRANCH = 'docs-v2-dev';
 const CODEX_BRANCH_RE = /^codex\/(\d+)-([a-z0-9][a-z0-9-]*)$/;
 const PR_GENERATOR_MARKER_PREFIX = 'codex-pr-body-generated';
 const RESEARCH_SCRIPT_REL = 'tools/scripts/docs-page-research-pr-report.js';

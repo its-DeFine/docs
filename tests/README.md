@@ -168,6 +168,7 @@ bash lpd test --full --link-audit-external
 bash lpd test --full --wcag --wcag-no-fix
 bash lpd tools wcag-repair-common -- --staged --stage
 node tests/run-pr-checks.js --base-ref main
+node tests/run-pr-checks.js --base-ref main --lane branch-health
 node tools/scripts/create-codex-pr.js --advisory-research --changed-files v2/orchestrators/guides/deployment-details/setup-options.mdx,v2/orchestrators/setup/rcs-requirements.mdx,v2/orchestrators/guides/operator-considerations/business-case.mdx
 node tools/scripts/docs-page-research-pr-report.js --files v2/orchestrators/guides/deployment-details/setup-options.mdx,v2/orchestrators/setup/rcs-requirements.mdx,v2/orchestrators/guides/operator-considerations/business-case.mdx --report-md /tmp/page-content-research-pr.md --report-json /tmp/page-content-research-pr.json
 ```
@@ -209,7 +210,9 @@ npm --prefix tests run test:wcag:selftest
 
 ## PR CI Behavior (Changed-File Blocking)
 - `.github/workflows/test-suite.yml` runs changed-file scoped blocking checks on pull requests:
-  - style guide, MDX, spelling, quality, links/imports
+- `tests/run-pr-checks.js` defaults to the `branch-health` lane when `--lane` is omitted.
+- `node tests/run-pr-checks.js --base-ref <branch> --lane branch-health` is the explicit local form when you want the supported lane spelled out.
+- style guide, MDX, spelling, quality, links/imports
   - script docs enforcement on changed scripts (`tests/unit/script-docs.test.js --files ...`)
   - strict V2 link audit on changed docs pages (`tests/integration/v2-link-audit.js --files ... --strict`)
 - Advisory research pass for tracked claim families is available locally via:
@@ -308,7 +311,7 @@ node tools/scripts/new-script.js --path tasks/scripts/my-script.sh --domain docs
 | Script | Summary | Usage |
 |---|---|---|
 | `tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. | `node tests/integration/domain-pages-audit.js --version both` |
-| `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. | `node tests/run-pr-checks.js --base-ref main` |
+| `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. Defaults to the `branch-health` lane. | `node tests/run-pr-checks.js --base-ref main --lane branch-health` |
 | `tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit with internal strict checks and optional external URL validation. | `node tests/integration/v2-link-audit.js --full --write-links --strict` |
 | `tests/unit/v2-link-audit.test.js` | Unit tests for v2 link audit args, external validation helpers, and x-* scope exclusion behavior. | `node tests/unit/v2-link-audit.test.js` |
 | `tests/integration/v2-link-audit.selftest.js` | Script-level self-tests for v2 link audit external validation using a local HTTP fixture and temporary MDX file. | `node tests/integration/v2-link-audit.selftest.js` |

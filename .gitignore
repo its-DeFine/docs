@@ -102,6 +102,7 @@ tasks/plan/*
 
 # Codex local lock state (operational, non-tracked)
 .codex/locks-local/
+.codex/pr-body.generated.md
 
 # --------------------------------------------------
 # Generated data files — produced by scripts at runtime

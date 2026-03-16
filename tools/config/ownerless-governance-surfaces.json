@@ -1,5 +1,36 @@
 [
   {
+    "id": "ai-tools-registry",
+    "surface_globs": [
+      "ai-tools/registry/**",
+      "docs-guide/catalog/ai-tools.mdx",
+      "docs-guide/policies/source-of-truth-policy.mdx",
+      "docs-guide/policies/audit-system-overview.mdx",
+      "docs-guide/policies/skill-pipeline-map.mdx",
+      "tools/scripts/validate-ai-tools-registry.js",
+      "tests/unit/ai-tools-registry.test.js"
+    ],
+    "canonical_sources": [
+      "ai-tools/registry/ai-tools-registry.schema.json",
+      "ai-tools/registry/ai-tools-registry.json",
+      "docs-guide/policies/source-of-truth-policy.mdx"
+    ],
+    "derived_outputs": [
+      "ai-tools/registry/ai-tools-inventory.md"
+    ],
+    "validators": [
+      "tests/unit/ai-tools-registry.test.js"
+    ],
+    "repair_commands": [
+      "node tools/scripts/validate-ai-tools-registry.js --check --coverage",
+      "node tools/scripts/validate-ai-tools-registry.js --write-report"
+    ],
+    "gate_layer": "pr-changed",
+    "rollout_state": "migrating",
+    "network_dependent": false,
+    "ownerless_ready": false
+  },
+  {
     "id": "portable-skills",
     "surface_globs": [
       "ai-tools/ai-skills/templates/*.template.md",

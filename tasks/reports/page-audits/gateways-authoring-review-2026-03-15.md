@@ -22,11 +22,11 @@ Generated: 2026-03-14T16:23:28.155Z
 | Issue | Count |
 | --- | ---: |
 | Uses raw markdown divider; use CustomDivider. | 306 |
-| CustomDivider inline styles are advisory only - prefer plain <CustomDivider /> unless spacing context requires a margin override | 113 |
-| <Accordion> is missing an icon prop. | 109 |
+| `CustomDivider` inline styles are advisory only - prefer plain `<CustomDivider />` unless spacing context requires a margin override | 113 |
+| `<Accordion>` is missing an icon prop. | 109 |
 | Uses a raw Markdown table instead of StyledTable. | 57 |
 | Invalid status: "current". Valid: draft, published, review, deprecated | 35 |
-| <Tab> is missing an icon prop. | 31 |
+| `<Tab>` is missing an icon prop. | 31 |
 | Missing a Related Pages section. | 25 |
 | First rendered body element after imports is not the opening CustomDivider. | 22 |
 | Invalid audience: "gateway-operator". Valid: developer, orchestrator, gateway, delegator, community, all | 21 |

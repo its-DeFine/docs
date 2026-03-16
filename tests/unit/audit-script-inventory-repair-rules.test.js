@@ -127,6 +127,55 @@ function main() {
     assert.strictEqual(pipelineDecision.needs_human, false);
   });
 
+  runCase('updates stale classification pipeline when header pipeline is already verified', () => {
+    const report = {
+      classification_rows: [
+        {
+          path: 'tests/unit/run-pr-checks.test.js',
+          script: 'run-pr-checks.test',
+          category: 'validator',
+          purpose: 'qa:repo-health',
+          scope: 'tests/unit, tests/run-pr-checks.js',
+          needs: 'R-R14, R-R29',
+          purpose_statement: 'Tests run-pr-checks lane parsing.',
+          pipeline: 'P1, P3'
+        }
+      ],
+      scripts: [
+        {
+          path: 'tests/unit/run-pr-checks.test.js',
+          script: 'run-pr-checks.test',
+          category: 'validator',
+          purpose: 'qa:repo-health',
+          scope: 'tests/unit, tests/run-pr-checks.js',
+          domain: 'docs',
+          needs: 'R-R14, R-R29',
+          purpose_statement: 'Tests run-pr-checks lane parsing.',
+          pipeline_declared: 'manual',
+          dualmode: '',
+          usage: 'node tests/unit/run-pr-checks.test.js',
+          category_valid: true,
+          purpose_valid: true,
+          scope_valid: true,
+          pipeline_verified: 'MATCH',
+          actual_pipeline_set: new Set(['manual']),
+          triggers: [{ type: 'manual', caller: 'none', pipeline: 'manual' }]
+        }
+      ]
+    };
+
+    const plan = buildRepairPlan(report, {
+      scopedMode: true,
+      scopedPaths: ['tests/unit/run-pr-checks.test.js']
+    });
+
+    const row = plan.classification_rows.find((entry) => entry.path === 'tests/unit/run-pr-checks.test.js');
+    assert.ok(row);
+    assert.strictEqual(row.pipeline, 'manual');
+    assert.strictEqual(plan.fixes.json_entries_updated, 1);
+    assert.ok(plan.planned_files.includes('tasks/reports/script-classifications.json'));
+  });
+
   runCase('accepts path-scoped governance values as valid scope', () => {
     const needsHuman = buildNeedsHumanEntry(
       'tests/unit/docs-route-scope.test.js',

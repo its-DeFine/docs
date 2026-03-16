@@ -2,7 +2,7 @@
 
 Research log for `ai-workloads-overview.mdx`, `batch-ai-setup.mdx`, `realtime-ai-setup.mdx`, and `model-vram-reference.mdx`.
 
----
+<CustomDivider />
 
 ## GitHub Repositories
 
@@ -63,7 +63,7 @@ Research log for `ai-workloads-overview.mdx`, `batch-ai-setup.mdx`, `realtime-ai
 17. **NVIDIA-AI-IOT/torch2trt** — TensorRT compilation for PyTorch models. Referenced in the real-time AI performance tuning section as the tool for TensorRT engine compilation.
     https://github.com/NVIDIA-AI-IOT/torch2trt
 
----
+<CustomDivider />
 
 ## HuggingFace Model Cards
 
@@ -103,7 +103,7 @@ Research log for `ai-workloads-overview.mdx`, `batch-ai-setup.mdx`, `realtime-ai
 29. **suno/bark** — Text-to-speech model referenced in `text-to-speech` pipeline configuration example.
     https://huggingface.co/suno/bark
 
----
+<CustomDivider />
 
 ## Docker Hub
 
@@ -122,7 +122,7 @@ Research log for `ai-workloads-overview.mdx`, `batch-ai-setup.mdx`, `realtime-ai
 34. **nvidia/cuda** — NVIDIA CUDA base images. Referenced in the Docker GPU test command (`docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi`).
     https://hub.docker.com/r/nvidia/cuda
 
----
+<CustomDivider />
 
 ## Academic Papers
 
@@ -132,7 +132,7 @@ Research log for `ai-workloads-overview.mdx`, `batch-ai-setup.mdx`, `realtime-ai
 36. **Adding Conditional Control to Text-to-Image Diffusion Models (ControlNet)** — Zhang et al., February 2023. Source for ControlNet description in real-time model types section.
     https://arxiv.org/abs/2302.05543
 
----
+<CustomDivider />
 
 ## Livepeer Community and Ecosystem
 
@@ -156,7 +156,7 @@ Research log for `ai-workloads-overview.mdx`, `batch-ai-setup.mdx`, `realtime-ai
 43. **Ollama public model library** — Source for Ollama model tag formats (`llama3.1:8b`, `mistral:7b`, `gemma2:9b`) and quantisation levels used in the LLM pipeline models table. Note: carries a REVIEW flag as Livepeer-specific compatibility has not been independently confirmed for all entries.
     https://ollama.com/library
 
----
+<CustomDivider />
 
 ## Products and Applications
 
@@ -167,14 +167,14 @@ Research log for `ai-workloads-overview.mdx`, `batch-ai-setup.mdx`, `realtime-ai
 
 46. **OBS AI plugins** — Live AI effects for OBS streaming via Livepeer orchestrators. Referenced as a consumer application of the real-time AI pipeline.
 
----
+<CustomDivider />
 
 ## External Documentation
 
 47. **NVIDIA Container Toolkit install guide** — Referenced in troubleshooting section for operators who encounter GPU access failures in Docker.
     https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
 
----
+<CustomDivider />
 
 ## Videos and Media
 
@@ -190,17 +190,17 @@ Research log for `ai-workloads-overview.mdx`, `batch-ai-setup.mdx`, `realtime-ai
     Batch AI pipeline setup walkthrough. Embedded in `batch-ai-setup.mdx`.
     https://www.youtube.com/watch?v=Kf3fV00XFRU
 
----
+<CustomDivider />
 
 ## Project Files (Internal)
 
 51. **`/mnt/project/ai-runner.md`** — Custom pipeline creation guide (Wonderland internal). Primary source for: Pipeline interface implementation pattern, `PipelineSpec`, `prepare_models()`, Dockerfile structure extending `livepeer/ai-runner:live-base`, `dl_checkpoints.sh` integration pattern, `livePipelineToImage` registration requirement, uv package manager configuration, and scope-runner reference. Also source for the key limitation note: pipeline registry is not fully dynamic and requires manual changes to both `ai-runner` and `go-livepeer` repos.
 
-52. **`/mnt/project/gpu-nodes-ia-planning.md`** — GPU Nodes tab IA planning document (Wonderland internal). Primary source for: all five operator personas (Solo Miner, Pool Worker, Pro Operator, Enterprise, AI Native), confirmed persona pain points from forum and community sources, hardware profiles per persona, journey gap analysis at each of the 6 positions, AI subnet launch date (Q3 2024), Cascade fee growth figure (>131% QoQ in Q3 2025), LLM pipeline launch date (November 2025, Cloud SPE).
+52. **`/mnt/project/gpu-nodes-ia-planning.md`** — GPU Nodes tab IA planning document (Wonderland internal). Primary source for: all five operator personas (Solo Miner, Pool Worker, Pro Operator, Enterprise, AI Native), confirmed persona pain points from forum and community sources, hardware profiles per persona, journey gap analysis at each of the 6 positions, AI subnet launch date (Q3 2024), Cascade fee growth figure (&gt;131% QoQ in Q3 2025), LLM pipeline launch date (November 2025, Cloud SPE).
 
 53. **`/mnt/project/gpu-nodes-tab-audit.md`** — GPU Nodes tab content audit (Wonderland internal). Source for existing page status assessment (stub vs weak vs outdated), phase-based agent instruction scope, and the specific gaps that the new pages must close that the old pages did not cover. Also source for the job-types.mdx gap analysis citing Cascade, LLM pipeline, and batch vs real-time distinction as missing from pre-AI docs.
 
----
+<CustomDivider />
 
 ## Uploaded Source Files (Replaced by New Pages)
 
@@ -215,7 +215,7 @@ The following eight files were provided as the existing content to be consolidat
 60. `p-models-and-vram.mdx` — Models and VRAM placeholder (planned scope extracted)
 61. `p-realtime-vs-batch.mdx` — Realtime vs Batch placeholder (planned scope extracted)
 
----
+<CustomDivider />
 
 ## Notes on Verification Status
 
@@ -231,6 +231,6 @@ All items marked `{/* REVIEW: */}` in the output MDX files correspond to facts t
 | Confirm path for `AI-prompt-start` | Multiple pages | Rick (docs.json) |
 | Confirm path for `Hosting Models (BYOC)` | `batch-ai-setup.mdx`, `model-vram-reference.mdx` | Rick (docs.json) |
 
----
+<CustomDivider />
 
 *Total sources: 61 (including 8 uploaded source files). Research date: 13 March 2026.*

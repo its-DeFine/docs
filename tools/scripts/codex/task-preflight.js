@@ -4,7 +4,7 @@
  * @category          generator
  * @purpose           governance:agent-governance
  * @scope             tools/scripts/codex, .codex/task-contract.yaml, .codex/locks-local
- * @owner             docs
+ * @domain            docs
  * @needs             R-R27, R-R30
  * @purpose-statement Codex task preflight — generates task setup files and validates preconditions
  * @pipeline          manual — codex setup tool referenced by .githooks/pre-commit guidance, not auto-executed
@@ -16,7 +16,7 @@ const path = require('path');
 const os = require('os');
 const { spawnSync } = require('child_process');
 
-const DEFAULT_BASE = 'docs-v2';
+const DEFAULT_BASE = 'docs-v2-dev';
 const DEFAULT_CONTRACT = '.codex/task-contract.yaml';
 const LOCK_DIR_REL = '.codex/locks-local';
 const DEFAULT_WORKTREE_ROOT = 'codex-worktrees';
@@ -188,7 +188,7 @@ function parseArgs(argv) {
 }
 
 function usage() {
-  console.log('Usage: node tools/scripts/codex/task-preflight.js --task <id> --slug <slug> (--scope <a,b,c> | --scope-file <path>) [--base docs-v2] [--worktree <path> | --in-place] [--dry-run]');
+  console.log('Usage: node tools/scripts/codex/task-preflight.js --task <id> --slug <slug> (--scope <a,b,c> | --scope-file <path>) [--base docs-v2-dev] [--worktree <path> | --in-place] [--dry-run]');
 }
 
 function readScopeFromFile(scopeFile) {
@@ -213,8 +213,7 @@ function writeYamlContract(contractAbs, data) {
     'scope_in:',
     ...data.scope.map((entry) => `  - ${entry}`),
     'scope_out: []',
-    'allowed_generated:',
-    '  - .codex/pr-body.generated.md',
+    'allowed_generated: []',
     'acceptance_checks:',
     `  - node tests/run-pr-checks.js --base-ref ${data.base}`,
     'risk_flags:',

@@ -4,7 +4,7 @@
 **Pages produced:** overview.mdx, video-transcoding.mdx, ai-inference.mdx, byoc-pipelines.mdx, pipeline-configuration.mdx
 **Previous session research:** /mnt/transcripts/2026-03-13-10-04-59-livepeer-monitoring-troubleshooting-docs.txt
 
----
+<CustomDivider />
 
 ## Source files read (from all-resources.zip)
 
@@ -32,7 +32,7 @@
 | `v1--benchmarking.mdx` | Reference | Not used | Not read — out of scope |
 | `ctx-new--transcoding.mdx` | PRIMARY: Planned transcoding guide structure confirmation | video-transcoding (structure) | Low — placeholder |
 
----
+<CustomDivider />
 
 ## Prior session research applied
 
@@ -52,7 +52,7 @@ The following verified facts from previous monitoring/troubleshooting and paymen
 - **Pricing units:** Per-pixel for image pipelines; per-millisecond for audio-to-text and text-to-speech; interval-based for live-video-to-video.
 - **Lightning model parameters:** 4–8 inference steps, guidance scale 1.0–2.0. Standard SDXL: 20–50 steps, guidance 7.0–9.0.
 
----
+<CustomDivider />
 
 ## External sources referenced
 
@@ -66,7 +66,7 @@ The following verified facts from previous monitoring/troubleshooting and paymen
 | [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities) | Community tool | Warm model discovery | Confirmed active (per previous session) |
 | [go-livepeer/box/box.md](https://github.com/livepeer/go-livepeer/blob/master/box/box.md) | GitHub source | Realtime AI setup complexity warning | Yes — file exists |
 
----
+<CustomDivider />
 
 ## Outstanding REVIEW flags (21 total across 5 pages)
 
@@ -99,9 +99,9 @@ The following verified facts from previous monitoring/troubleshooting and paymen
 | 18 | pipeline-configuration.mdx: aiPricing.json format | Confirm exact JSON schema for per-capability pricing — nested by pipeline then model_id | Rick / j0sh |
 | 19 | pipeline-configuration.mdx: DEEPCACHE not suitable for Lightning | Confirmed in source (v1--models-config) and developer docs — but flag as risk in case optimizer changes | Rick |
 | 20 | ai-inference.mdx: port 8937 as AI-only default | Confirm 8937 is the consistent AI gateway port across all deployment configurations | Rick |
-| 21 | byoc-pipelines.mdx: cold start threshold | Source states >10s triggers deprioritisation — confirm this threshold is documented or approximate | Rick / j0sh |
+| 21 | byoc-pipelines.mdx: cold start threshold | Source states &gt;10s triggers deprioritisation — confirm this threshold is documented or approximate | Rick / j0sh |
 
----
+<CustomDivider />
 
 ## Journey evaluation: gaps and scores
 
@@ -126,7 +126,7 @@ Community video resources worth checking:
 - [Livepeer Foundation YouTube](https://www.youtube.com/@livepeer) — general network introductions; no operator tutorials found
 - Recommend reaching out to DeFine or Titan-Node SPE leads to commission or link gateway operator walkthroughs
 
----
+<CustomDivider />
 
 ## Recommendations for future work
 

@@ -8,17 +8,17 @@
 
 **Livepeer Docs Copy Framework — Supporting Evidence** **Version 1.0 — March 2026**
 
----
+<CustomDivider />
 
 ## **Purpose**
 
 This document records the external frameworks and standards that informed the Livepeer Docs Copy Framework. For each source, the primary takeaway — the specific principle extracted and applied — is noted. References back to framework layers are included.
 
----
+<CustomDivider />
 
 ## **Primary Frameworks**
 
----
+<CustomDivider />
 
 ### **1\. Diátaxis — Information Architecture and Page Type Discipline**
 
@@ -43,7 +43,7 @@ Diátaxis separates documentation into four types, each with a distinct purpose 
 
 **If the content may be stale, update it — do not apologise for it inline.** Inline disclaimers about accuracy undermine the reader's trust at the point they most need it. Temporal metadata belongs in version fields. → *Applied in L4 (banned: inline disclaimers) and L5 (gate item: no hedge at end of section).*
 
----
+<CustomDivider />
 
 ### **2\. Google Technical Writing Courses**
 
@@ -63,7 +63,7 @@ Google's official technical writing courses teach clear documentation through: a
 
 **Short sentences over compound sentences.** Every conjunction is a potential split. Compound sentences that contain both a value claim and a condition should be split. → *Applied in L4: `[value] — if [condition]` is banned. Split into two sentences.*
 
----
+<CustomDivider />
 
 ### **3\. Microsoft Writing Style Guide**
 
@@ -83,7 +83,7 @@ Microsoft's style guide governs product documentation tone, UI language, procedu
 
 **One idea per sentence in procedures.** Compound procedural sentences create ambiguity about what is required and what is optional. → *Applied in L3: one paragraph, one job.*
 
----
+<CustomDivider />
 
 ### **4\. Red Hat Modular Documentation**
 
@@ -101,7 +101,7 @@ Red Hat's modular documentation standard defines three module types — concept,
 
 **Prerequisites are stated explicitly at module opening.** A module that assumes knowledge must declare that assumption. A module that re-explains that knowledge instead is structurally wrong. → *Applied in L2 (prerequisites stated, not restated) and L4 (banned: re-delivery of content from a linked page).*
 
----
+<CustomDivider />
 
 ### **5\. DITA (Darwin Information Typing Architecture)**
 
@@ -117,7 +117,7 @@ DITA is a structured content standard for large-scale technical documentation. I
 
 **Taxonomy built around real use cases, not product structure.** DITA's task topics are defined by what the user does, not by how the product is organised. Documentation that mirrors the product's internal architecture instead of the user's workflow fails the user. → *Applied in L7 (pattern observer: if majority path is buried, the IA was built around edge cases or product structure, not operator reality).*
 
----
+<CustomDivider />
 
 ### **6\. Public SKILL.md Standards**
 
@@ -138,7 +138,7 @@ DITA is a structured content standard for large-scale technical documentation. I
 
 **Separate skill files for separate concerns.** A single monolithic SKILL.md that attempts to govern everything produces agent confusion. Separate skills for copy rules, structural rules, and audit rules are independently invokable and composable. → *Applied in Document 4 (implementation design: separate skill files per layer).*
 
----
+<CustomDivider />
 
 ## **Applied Rules Traceability**
 
@@ -164,13 +164,13 @@ DITA is a structured content standard for large-scale technical documentation. I
 
 **Livepeer Docs Copy Framework — Document 3** **Version 1.0 — March 2026**
 
----
+<CustomDivider />
 
 ## **Part A — Concrete Issue Examples**
 
 Each issue is named, located, mapped to a framework layer, and referenced to the research source that identifies it as a failure mode.
 
----
+<CustomDivider />
 
 ### **CATEGORY 1: THROAT-CLEARING & META-COMMENTARY**
 
@@ -183,7 +183,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Google Technical Writing — "no announcements of what the page will do"  
 * **Rule:** Delete. Start with the content.
 
----
+<CustomDivider />
 
 **Issue 1.2 — Instructive Preamble**
 
@@ -194,7 +194,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Google Technical Writing — throat-clearing self-editing rule  
 * **Rule:** Delete. The bridge IS the content. State the asymmetry directly.
 
----
+<CustomDivider />
 
 **Issue 1.3 — Filler Transition**
 
@@ -205,7 +205,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Google Technical Writing  
 * **Rule:** Delete the clause. Begin with the fact.
 
----
+<CustomDivider />
 
 **Issue 1.4 — Empty Qualifier After Number**
 
@@ -216,7 +216,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Google Technical Writing — replace vague qualifiers with numbers  
 * **Rule:** Delete. The dollar range already carries the meaning.
 
----
+<CustomDivider />
 
 ### **CATEGORY 2: CONTENT DUPLICATION WITHOUT VALUE**
 
@@ -229,7 +229,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Red Hat Modular Docs — single-source principle  
 * **Rule:** Diagram becomes a decision-path flowchart. Table retains the comparison data.
 
----
+<CustomDivider />
 
 **Issue 2.2 — Sub-Minimal Diagram**
 
@@ -240,7 +240,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Red Hat Modular Docs — single-source principle  
 * **Rule:** Delete diagram. Replace with a concrete numerical example in prose.
 
----
+<CustomDivider />
 
 **Issue 2.3 — Prerequisite Re-delivery**
 
@@ -251,7 +251,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Red Hat Modular Docs — modules assume declared prerequisites  
 * **Rule:** Delete. Open at the next layer of knowledge. Trust the linked page to do its job.
 
----
+<CustomDivider />
 
 ### **CATEGORY 3: FAILS TO ANSWER THE READER'S ACTUAL QUESTION**
 
@@ -264,7 +264,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Google Technical Writing — precision; if unknown, declare it unknown explicitly  
 * **Rule:** Verify and publish the number, or block the section from merge.
 
----
+<CustomDivider />
 
 **Issue 3.2 — Dangling Claim**
 
@@ -275,7 +275,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Google Technical Writing — precision; Microsoft Style Guide — goal before procedure  
 * **Rule:** Show the analysis. If not on this page, link to the page that does.
 
----
+<CustomDivider />
 
 **Issue 3.3 — Link Dump Without Decision Support**
 
@@ -286,7 +286,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Diátaxis — every page has an onward path; Microsoft Style Guide — goal before procedure  
 * **Rule:** For each link, state the decision it enables and the threshold that makes it meaningful.
 
----
+<CustomDivider />
 
 **Issue 3.4 — Strawman Rebuttal**
 
@@ -297,7 +297,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Google Technical Writing — direct assertion; no contrast-by-diminishment  
 * **Rule:** Delete. The table's "Variable — demand-dependent" cell already handles this.
 
----
+<CustomDivider />
 
 ### **CATEGORY 4: NOT PERSONA-FIRST / AUDIENCE MISMATCH**
 
@@ -310,7 +310,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Red Hat Modular Docs — write to specific user story; Microsoft Style Guide — second person  
 * **Rule:** Address the reader. State what they are here for. Trust them to self-locate.
 
----
+<CustomDivider />
 
 **Issue 4.2 — Excludes Part of Target Audience**
 
@@ -321,7 +321,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Red Hat Modular Docs — user story at module opening  
 * **Rule:** Rewrite so both hardware-owning operators and hardware-evaluating operators are addressed.
 
----
+<CustomDivider />
 
 **Issue 4.3 — Third-Person Section Header on Operator-Facing Page**
 
@@ -332,7 +332,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Microsoft Style Guide — second-person headers in procedure sections  
 * **Rule:** Reframe header as the reader's question or as a direct routing prompt.
 
----
+<CustomDivider />
 
 **Issue 4.4 — UK Currency for International Audience**
 
@@ -343,7 +343,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Microsoft Style Guide — localisation standards  
 * **Rule:** USD throughout. If region-specific pricing is needed, state the scope once.
 
----
+<CustomDivider />
 
 **Issue 4.5 — Diplomatic Non-Statement**
 
@@ -354,7 +354,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Google Technical Writing — every sentence must carry information  
 * **Rule:** Delete. The table makes the comparison. Add a routing sentence if needed.
 
----
+<CustomDivider />
 
 ### **CATEGORY 5: NO CLEAR USER JOURNEY / MISSING NEXT STEP**
 
@@ -367,7 +367,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Diátaxis — every page has an onward path; Microsoft Style Guide — goal before procedure  
 * **Rule:** Follow every consequence statement with the specific prevention action and a link.
 
----
+<CustomDivider />
 
 **Issue 5.2 — Leverage Claim Without Operationalisation**
 
@@ -378,7 +378,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Diátaxis — onward path; Microsoft Style Guide — goal then procedure  
 * **Rule:** Follow with: where to make contact, what to offer, what to reference.
 
----
+<CustomDivider />
 
 **Issue 5.3 — Third Path Introduced, Not Routed**
 
@@ -389,7 +389,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** DITA — IA built around real use cases; Diátaxis — onward path  
 * **Rule:** The hybrid model is the featured path. It requires its own page. A footnote is not sufficient.
 
----
+<CustomDivider />
 
 ### **CATEGORY 6: VALUE PROPOSITION NOT FIRST**
 
@@ -402,7 +402,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Microsoft Style Guide — goal before procedure  
 * **Rule:** Lead with the outcome. Delete `rather than`.
 
----
+<CustomDivider />
 
 **Issue 6.2 — Cost Before Value on Evaluation Page**
 
@@ -413,7 +413,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Microsoft Style Guide — goal before procedure; Diátaxis — page type discipline  
 * **Rule:** Establish the opportunity before the cost structure.
 
----
+<CustomDivider />
 
 ### **CATEGORY 7: VAGUE / IMPRECISE LANGUAGE**
 
@@ -426,7 +426,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Google Technical Writing — precision; replace qualifiers with numbers  
 * **Rule:** Define "acceptable", define the latency target as a number, define "long-term" as a timeframe.
 
----
+<CustomDivider />
 
 **Issue 7.2 — Incomplete Factor List**
 
@@ -437,7 +437,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Google Technical Writing — precision  
 * **Rule:** Name all ranking factors, or delete the clause.
 
----
+<CustomDivider />
 
 **Issue 7.3 — Unquantified Standard**
 
@@ -448,7 +448,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Google Technical Writing — precision  
 * **Rule:** State the uptime percentage. Delete `not necessarily production-grade`.
 
----
+<CustomDivider />
 
 **Issue 7.4 — Category Description as Analogy**
 
@@ -459,7 +459,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Google Technical Writing — direct assertion  
 * **Rule:** Define the role in Livepeer-specific operational terms.
 
----
+<CustomDivider />
 
 ### **CATEGORY 8: AUTHOR-PROTECTIVE HEDGING**
 
@@ -472,7 +472,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Diátaxis — stale content is updated, not apologised for  
 * **Rule:** Remove from rendered content. Update `lastVerified` in frontmatter. Add a clean forward-pointer to the Discord channel.
 
----
+<CustomDivider />
 
 **Issue 8.2 — Temporal Hedge on Decision Aid**
 
@@ -483,7 +483,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Diátaxis — temporal context belongs in metadata  
 * **Rule:** Delete from body. Frontmatter `lastVerified` field carries temporal context.
 
----
+<CustomDivider />
 
 **Issue 8.3 — Unresolved Placeholder in Published Decision Aid**
 
@@ -494,7 +494,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Google Technical Writing — precision; if unknown, declare it  
 * **Rule:** Block from merge. Resolve with Rick/Mehrdad. Publish only when verified.
 
----
+<CustomDivider />
 
 ### **CATEGORY 9: STRUCTURAL / HIERARCHY FAILURES**
 
@@ -507,7 +507,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Microsoft Style Guide — most important information first  
 * **Rule:** Surface URL in section body before accordion. Accordion contains strategic depth, not the URL itself.
 
----
+<CustomDivider />
 
 **Issue 9.2 — Formula Restatement**
 
@@ -518,7 +518,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Google Technical Writing — every sentence carries information  
 * **Rule:** Delete. Replace with a concrete example using numbers if elaboration is needed.
 
----
+<CustomDivider />
 
 ### **CATEGORY 10: MISSING PERSONA ROUTING**
 
@@ -530,7 +530,7 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** Red Hat Modular Docs — user story at module opening; DITA — task topics by user  
 * **Rule:** Add functional routing at the top of each page using hardware, LPT, and goal as identifiers.
 
----
+<CustomDivider />
 
 **Issue 10.2 — Hybrid Path Has No Page**
 
@@ -540,13 +540,13 @@ Each issue is named, located, mapped to a framework layer, and referenced to the
 * **Research ref:** DITA — IA built around real use cases, not edge cases  
 * **Rule:** Hybrid model requires its own page with a staged action sequence. This is an L0 failure — it must be resolved before further operator-facing content is drafted.
 
----
+<CustomDivider />
 
 ## **Part B — Complete Banned Pattern Audit**
 
 For use in script enforcement (Document 4). Every item here is a machine-detectable pattern.
 
----
+<CustomDivider />
 
 ### **B1 — Banned Words (unconditional)**
 
@@ -567,7 +567,7 @@ These words are banned in all body prose without exception:
 | obviously | Condescension |
 | clearly | Condescension |
 
----
+<CustomDivider />
 
 ### **B2 — Banned Phrases (exact match)**
 
@@ -594,7 +594,7 @@ These words are banned in all body prose without exception:
 | it should be noted | Throat-clearing |
 | Note that (standalone) | Throat-clearing |
 
----
+<CustomDivider />
 
 ### **B3 — Banned Patterns (regex-detectable)**
 
@@ -607,11 +607,11 @@ These words are banned in all body prose without exception:
 | This page \[verb\] | Page announcement | ^This (page|section|guide)\\s+\\w+ |
 | consistently without adjacent number | Unquantified standard | \\bconsistently\\b not followed by \\d within 10 words |
 | Currency symbol other than $ in non-region-scoped content | Currency rule violation | \[£€¥\] outside regional scope declaration |
-| {/\* REVIEW: in rendered MDX | Unresolved flag in published content | {\\/\\\*\\s\*REVIEW: |
+| `{/* REVIEW:` in rendered MDX | Unresolved flag in published content | ``{\/\*\s*REVIEW:`` |
 | among other | Incomplete factor list | \\bamong other\\b |
 | not just | Contrast-by-diminishment | \\bnot just\\b |
 
----
+<CustomDivider />
 
 ### **B4 — Banned Structural Patterns (human-reviewed, not script-detectable)**
 
@@ -632,7 +632,7 @@ These words are banned in all body prose without exception:
 
 **Livepeer Docs Copy Framework — Document 4** **Version 1.0 — March 2026**
 
----
+<CustomDivider />
 
 ## **Purpose**
 
@@ -644,7 +644,7 @@ The implementation has three enforcement layers that work in combination:
 2. **Script enforcement** — automated lint passes run in CI  
 3. **Human review gate** — L5 checklist applied before merge
 
----
+<CustomDivider />
 
 ## **Design Principles for Implementation**
 
@@ -668,7 +668,7 @@ The implementation has three enforcement layers that work in combination:
 | L7 | Pattern Observer SKILL.md — cross-session analysis |
 | L8 | Brief template — repair routing section |
 
----
+<CustomDivider />
 
 ## **Component 1: SKILL.md Architecture**
 
@@ -692,7 +692,7 @@ ai-tools/ai-skills/docs-copy/
     └── banned-patterns.txt           # Regex patterns for script enforcement
 ```
 
----
+<CustomDivider />
 
 ### **SKILL.md Index (root file)**
 
@@ -721,7 +721,7 @@ skills:
 ---
 ```
 
----
+<CustomDivider />
 
 ### **copy-rules.md (L4 — Banned List)**
 
@@ -772,7 +772,7 @@ or conditions?
 If no: rewrite or delete.
 ```
 
----
+<CustomDivider />
 
 ### **value-prop-check.md (L0 — Pre-Brief)**
 
@@ -809,7 +809,7 @@ If L0 cannot be completed: this is a product clarity problem.
 Escalate to product owner. Do not draft.
 ```
 
----
+<CustomDivider />
 
 ## **Component 2: Script Enforcement**
 
@@ -826,7 +826,7 @@ tools/scripts/
     └── banned-patterns.js    # Regex pattern list
 ```
 
----
+<CustomDivider />
 
 ### **lint-copy.js — What it checks**
 
@@ -869,7 +869,7 @@ const BANNED_PHRASES = require('./lib/banned-phrases');
 // Output: [line 145] PATTERN: "consistently" without adjacent number — add threshold
 ```
 
----
+<CustomDivider />
 
 ### **lint-structure.js — What it checks**
 
@@ -891,7 +891,7 @@ const BANNED_PHRASES = require('./lib/banned-phrases');
 // Heuristic: if a URL appears only inside <Accordion> tags, flag for human review
 ```
 
----
+<CustomDivider />
 
 ### **CI Integration**
 
@@ -915,7 +915,7 @@ jobs:
 
 **Tier 1 failures (exact banned matches, unresolved REVIEW flags):** Block merge. **Tier 2 failures (pattern matches):** Warn; require human reviewer sign-off on each flagged item.
 
----
+<CustomDivider />
 
 ## **Component 3: Brief Template Integration**
 
@@ -975,7 +975,7 @@ Q4 Required belief:
 [ ] No section ends on hedge or disclaimer
 ```
 
----
+<CustomDivider />
 
 ## **Design Considerations for Scale**
 
@@ -998,13 +998,13 @@ Q4 Required belief:
 
 **Livepeer Docs Copy Framework — Document 5** **Version 1.0 — March 2026**
 
----
+<CustomDivider />
 
 ## Purpose
 
 This document defines how the framework is validated — both as a system (does it work?) and against existing content (does existing content pass?). It also defines the human review cycle: who reviews, what they review, how many passes, and what constitutes done.
 
----
+<CustomDivider />
 
 ## Test Categories
 
@@ -1016,7 +1016,7 @@ This document defines how the framework is validated — both as a system (does 
 | T4: Agent compliance | Does the SKILL.md produce compliant drafts? | Agent output audit |
 | T5: Iteration loop | Does L6/L7 route correctly when fixes fail? | Scenario testing |
 
----
+<CustomDivider />
 
 ## T1: Retrospective Audit — Existing Pages
 
@@ -1044,7 +1044,7 @@ Validate that L0 answers exist and are correct for pages already drafted. Confir
 
 **This test answers:** Would our framework have caught the hybrid path problem before drafting began?
 
----
+<CustomDivider />
 
 ### Test 1b — GPU Nodes tab (pre-brief)
 
@@ -1058,7 +1058,7 @@ Validate that L0 answers exist and are correct for pages already drafted. Confir
 
 **This test answers:** Does L0 function as an actual gate, or does drafting proceed around it?
 
----
+<CustomDivider />
 
 ## T2: Gap Detection — Controlled Failure Test
 
@@ -1080,7 +1080,7 @@ Verify that the framework identifies known structural problems — specifically 
 
 **Pass criteria:** The framework routes this as a product clarity problem (L0), not a copy problem (L4). If it routes to L4, the L7 interpreter needs adjustment.
 
----
+<CustomDivider />
 
 ### Test 2b — Recurrence detection
 
@@ -1095,7 +1095,7 @@ Verify that the framework identifies known structural problems — specifically 
 
 **Pass criteria:** Framework distinguishes between a writer internalisation problem and a value prop problem for the same construction.
 
----
+<CustomDivider />
 
 ## T3: Script Enforcement Tests
 
@@ -1120,13 +1120,13 @@ tests/copy-lint/
 | Banned word: effectively | Pool operators are effectively... | Line number \+ BANNED WORD flag | Exact match |
 | Banned phrase: This page covers | This page covers what... | Line number \+ BANNED PHRASE flag | Exact match |
 | Currency: £ | at £800 for an RTX | Line number \+ CURRENCY flag | Exact match |
-| REVIEW flag in body | {/\* REVIEW: confirm \*/} in TableCell | REVIEW FLAG \+ block merge | Merge blocked |
+| REVIEW flag in body | `{/\* REVIEW: confirm \*/} in TableCell` | REVIEW FLAG \+ block merge | Merge blocked |
 | if in body prose | if the cost base is understood | PATTERN flag \+ line number | Flag produced |
 | not \[X\] construction | not just earn staking rewards | PATTERN flag \+ line number | Flag produced |
 | consistently without number | consistently online and monitored | PATTERN flag \+ line number | Flag produced |
 | Clean file | All rules passing | Zero errors | Zero output |
 
----
+<CustomDivider />
 
 ## T4: Agent Compliance Test
 
@@ -1158,7 +1158,7 @@ Verify that SKILL.md files produce compliant drafts when used with Codex.
 
 **This test answers:** What is the measurable value of the SKILL.md files?
 
----
+<CustomDivider />
 
 ## T5: Iteration Loop Tests
 
@@ -1175,7 +1175,7 @@ Verify that SKILL.md files produce compliant drafts when used with Codex.
 
 **Pass criteria:** After two sentence-level passes, the loop routes to L2, not back to L4 for a third pass.
 
----
+<CustomDivider />
 
 ## Human Review Cycles
 
@@ -1212,7 +1212,7 @@ Reviewer runs lint-copy.js and lint-structure.js. Reviews all Tier 2 pattern fla
 - Same error class appears in 3+ pages: L7 pattern observer  
 - L7 routes to product clarity: schedule product owner session before any further drafting on affected pages
 
----
+<CustomDivider />
 
 ## Test Schedule
 
@@ -1226,7 +1226,7 @@ Reviewer runs lint-copy.js and lint-structure.js. Reviews all Tier 2 pattern fla
 | T4 (agent compliance) | Before first SKILL.md-guided Codex run | Once; then per skill update |
 | T5 (iteration loop) | After first real L6 escalation occurs | As needed |
 
----
+<CustomDivider />
 
 ## Known Test Outcomes (Pre-Run Predictions)
 
@@ -1258,7 +1258,7 @@ If T2a routes the hybrid gap to L4 instead of L0, the L7 observer logic needs ad
 
 **Version 1.0 — March 2026** **Classification: Internal working standard**
 
----
+<CustomDivider />
 
 ## Purpose
 
@@ -1268,7 +1268,7 @@ Its function is not stylistic. It is a quality gate — a structured set of cons
 
 The framework has eight layers. Layers 0–1 run before drafting. Layers 2–4 govern the writing itself. Layers 5–8 govern review, iteration, and repair.
 
----
+<CustomDivider />
 
 ## Summary of Layers
 
@@ -1284,7 +1284,7 @@ The framework has eight layers. Layers 0–1 run before drafting. Layers 2–4 g
 | L7 | Pattern Observer | After second failed gate or pattern recurrence |
 | L8 | Repair Routing | Output of L7 |
 
----
+<CustomDivider />
 
 ## Layer 0 — Value Proposition Definition
 
@@ -1292,7 +1292,7 @@ The framework has eight layers. Layers 0–1 run before drafting. Layers 2–4 g
 
 Before a single word of copy is drafted, four questions must be answered in writing. These answers are not published. They constrain every layer below.
 
----
+<CustomDivider />
 
 ### The Four Questions
 
@@ -1312,7 +1312,7 @@ Example: `Centralised GPU clouds (Vast.ai, RunPod) with margin extraction and no
 
 Example: `Their specific hardware can earn at a rate that clears their cost base, and the path to first earnings is achievable without expert-level knowledge.`
 
----
+<CustomDivider />
 
 ### L0 Failure Conditions
 
@@ -1325,7 +1325,7 @@ L0 is incomplete if any of the following are true:
 
 If L0 cannot be completed, no drafting begins. The gap is a product clarity problem, not a writing problem.
 
----
+<CustomDivider />
 
 ## Layer 1 — Persona Path Mapping
 
@@ -1348,7 +1348,7 @@ Map the page to operator reality — hardware, stake position, goal — using fu
 - Operator profiles use hardware, LPT position, and goal as identifiers. Named personas (A, B, C) are planning tools only — they never appear in published copy or routing language.  
 - If the page cannot serve all mapped profiles, the page scope is wrong. Split or restructure before drafting.
 
----
+<CustomDivider />
 
 ## Layer 2 — Content Sequence Rules
 
@@ -1372,7 +1372,7 @@ Map the page to operator reality — hardware, stake position, goal — using fu
 - Decision aid with missing data, placeholder text, or unresolved review flags  
 - Any section that introduces a path without routing it
 
----
+<CustomDivider />
 
 ## Layer 3 — Paragraph Rules
 
@@ -1386,7 +1386,7 @@ Map the page to operator reality — hardware, stake position, goal — using fu
 - High-value URLs and commands appear in body copy. Accordions contain depth, not primary actions.  
 - Diagram and table combinations: each must show something the other cannot. If they carry identical information, remove one.
 
----
+<CustomDivider />
 
 ## Layer 4 — Sentence Banned List
 
@@ -1422,7 +1422,7 @@ All monetary examples use USD by default. If content is explicitly region-scoped
 
 `{/* REVIEW: */}` flags are internal signals. They must never appear in rendered content. A page with an unresolved REVIEW flag in a decision-critical position (table cell, decision matrix, numbered step) is blocked from publish until the flag is resolved.
 
----
+<CustomDivider />
 
 ## Layer 5 — Publish Gate
 
@@ -1441,7 +1441,7 @@ A page fails the gate if any of the following are true:
 - [ ] Any diagram and table combination carry identical information  
 - [ ] Any section ends on a hedge, disclaimer, or restatement
 
----
+<CustomDivider />
 
 ## Layer 6 — Iteration Diagnostic Loop
 
@@ -1485,7 +1485,7 @@ L5 FAILURE
 
 Two failed fix passes on the same section triggers L7. The writer does not attempt a third sentence-level fix. The failure is diagnosed at the layer above.
 
----
+<CustomDivider />
 
 ## Layer 7 — Pattern Observer
 
@@ -1533,7 +1533,7 @@ The observer produces one of three escalation calls:
 - **Architecture problem** → route to L1/L2. Page scope or IA needs restructuring.  
 - **Product clarity problem** → route to L0. Value proposition must be redefined before any copy work continues.
 
----
+<CustomDivider />
 
 ## Layer 8 — Repair Routing
 
@@ -1627,7 +1627,7 @@ PRODUCT CLARITY PROBLEM
     → re-enter at L2
 ```
 
----
+<CustomDivider />
 
 —-
 
@@ -1641,7 +1641,7 @@ PRODUCT CLARITY PROBLEM
 
 The current L6 is a **routing tree** — it classifies failures and sends them upstream. That's reactive and linear. A pattern observer is fundamentally different: it watches *across* sessions, *across* pages, *across* fix cycles and asks what the recurrence *means*, not just where to send it.
 
----
+<CustomDivider />
 
 ### **What a Pattern Observer Actually Does**
 
@@ -1661,7 +1661,7 @@ Examples of what lateral interpretation looks like in practice:
 | Cost/warning language keeps appearing before value | Sequence error | The product's own economics are ambiguous to the writer — they don't actually believe the value prop they're being asked to write |
 | Hybrid path keeps being buried or treated as an aside | Path priority error | The IA itself is wrong — the taxonomy was built around edge cases, not the majority operator reality |
 
----
+<CustomDivider />
 
 ### **The Additional Layer**
 
@@ -1706,7 +1706,7 @@ Triggers after: any pattern appears in 3+ pages, or any single error class survi
 * **Architecture problem** → route to L1/L2, page scope or IA needs restructuring  
 * **Product clarity problem** → route to L0, value proposition needs to be redefined before any copy work continues
 
----
+<CustomDivider />
 
 The key addition is question 3: **what is the pattern protecting?** Recurring banned constructions are almost always a writer unconsciously signalling that the thing they've been asked to assert doesn't feel solid to them. That's not a copyediting problem. That's a brief problem, or a product problem. The pattern observer is the mechanism that sees that distinction before it wastes another fix cycle.
 
@@ -1714,7 +1714,7 @@ The key addition is question 3: **what is the pattern protecting?** Recurring ba
 
 The premise: if the same error class recurs after a fix, the fix was treating a symptom. The framework needs to route the reviewer upstream to find the cause.
 
----
+<CustomDivider />
 
 ### **THE LOOP STRUCTURE**
 
@@ -1727,7 +1727,7 @@ PASS? → Ship
 FAIL? → Classify the failure type (Decision Tree below)
 ```
 
----
+<CustomDivider />
 
 ### **DECISION TREE: CLASSIFY THE FAILURE**
 
@@ -1765,7 +1765,7 @@ Is the same error class appearing in a different sentence?
                           └── YES → Go to VP Check
 ```
 
----
+<CustomDivider />
 
 ### **PERSONA CHECK**
 
@@ -1778,7 +1778,7 @@ Is the same error class appearing in a different sentence?
 | *Does the operator profile this section serves actually exist in the validated persona map?* | *—* | *Kill the section. It's serving an imagined reader.* |
 | *Is the primary question this section answers written in the brief?* | *—* | *Stop. Write the question. Redraft the section as its answer.* |
 
----
+<CustomDivider />
 
 ### **VALUE PROP CHECK**
 
@@ -1791,7 +1791,7 @@ Is the same error class appearing in a different sentence?
 | *Does the majority path in this section match the real-world majority operator?* | *Continue* | *The content is modelling the wrong default. Restructure around the actual majority.* |
 | *Would an operator reading this section know what to do next without visiting Discord?* | *Continue* | *The section is incomplete. Add the staged action path.* |
 
----
+<CustomDivider />
 
 ### **ESCALATION RULE**
 
@@ -1804,7 +1804,7 @@ If a section fails Layer 5 twice, the author should not attempt a third fix. Ins
 3. If that question cannot be answered in one sentence: **delete the section and route the content need to a new brief**  
 4. If it can be answered: **rewrite the section from that sentence as the opening line**, apply all layers fresh
 
----
+<CustomDivider />
 
 ### **WHERE THIS LAYER SITS**
 
@@ -1826,7 +1826,7 @@ The loop means no section iterates more than twice at sentence level before bein
 
 ### **LIVEPEER DOCS COPY FRAMEWORK v2**
 
----
+<CustomDivider />
 
 #### **LAYER 0 — PRODUCT VALUE PROPOSITION (runs once per section/tab, gates all content below it)**
 
@@ -1850,7 +1850,7 @@ Before any page is drafted, answer these four questions in writing. The answers 
 
 These four answers are written in the brief before a single MDX line is drafted. Every section is tested against them.
 
----
+<CustomDivider />
 
 #### **LAYER 1 — PERSONA PATH MAPPING (runs once per page)**
 
@@ -1867,7 +1867,7 @@ Map the page to the operator reality — hardware, stake position, goal — not 
 
 This table is in the brief. If the page doesn't serve every row, either the page scope is wrong or a linked page covers the gap.
 
----
+<CustomDivider />
 
 #### **LAYER 2 — CONTENT SEQUENCE RULES (page structure)**
 
@@ -1888,7 +1888,7 @@ This table is in the brief. If the page doesn't serve every row, either the page
 * Variant paths before the primary path  
 * Decision aid with missing data
 
----
+<CustomDivider />
 
 #### **LAYER 3 — PARAGRAPH RULES**
 
@@ -1899,7 +1899,7 @@ This table is in the brief. If the page doesn't serve every row, either the page
 * Every introduced path is either developed on the page or linked to a page that does. No abandoned paths.  
 * High-value URLs and commands are in body copy. Accordions contain depth, not primary actions.
 
----
+<CustomDivider />
 
 #### **LAYER 4 — SENTENCE-LEVEL BANNED LIST**
 
@@ -1920,7 +1920,7 @@ This table is in the brief. If the page doesn't serve every row, either the page
 | low but not zero | Give the number. Delete the qualifier. |
 | The X path does not | State what X does. Drop the comparative negative. |
 
----
+<CustomDivider />
 
 #### **LAYER 5 — PUBLISH GATE**
 
@@ -1935,7 +1935,7 @@ Page fails if:
 * Any monetary figure uses non-USD currency without explicit regional scope  
 * The page opens with cost, warning, or conditional before value
 
----
+<CustomDivider />
 
 **The test for any sentence before it ships:**
 
@@ -1962,7 +1962,7 @@ If no: rewrite or delete.
 
 The problem is that fixes are being made in isolation. Without a standing set of rules applied *holistically* to every sentence, the same errors recur in different clothing. Here is a concrete prose and copy framework.
 
----
+<CustomDivider />
 
 ### **LIVEPEER DOCS COPY FRAMEWORK**
 
@@ -1979,9 +1979,9 @@ The problem is that fixes are being made in isolation. Without a standing set of
 | No instruction-barks | Don't tell a peer-technical audience to act | "Use it:", "Check this before...", "Make sure..." |
 | No parenthetical action notes | In-body action instructions belong as inline links or a dedicated step, not parentheses | "(depending on region)", "(verify at \[url\])" |
 | Currency: USD default | All monetary examples use USD unless content is explicitly region-scoped | £, €, region-hedged ranges |
-| No REVIEW flags in publishable prose | All REVIEW content is either resolved or the section is blocked from publish | {/\* REVIEW: confirm \*/} inside table cells |
+| No REVIEW flags in publishable prose | All REVIEW content is either resolved or the section is blocked from publish | `{/\* REVIEW: confirm \*/} inside table cells` |
 
----
+<CustomDivider />
 
 #### **LAYER 2 — PARAGRAPH-LEVEL RULES**
 
@@ -1993,7 +1993,7 @@ The problem is that fixes are being made in isolation. Without a standing set of
 
 **No paragraph should end on a hedge.** The last sentence of a paragraph sets the register for the next one. Hedges signal uncertainty; operators calibrate trust against them.
 
----
+<CustomDivider />
 
 #### **LAYER 3 — PAGE-LEVEL RULES**
 
@@ -2009,7 +2009,7 @@ The problem is that fixes are being made in isolation. Without a standing set of
 
 **High-value actions must be in body copy.** Any URL, command, or step that answers a reader's primary question must be visible without interaction (not collapsed in an accordion, not in a Note, not in a Related Pages card).
 
----
+<CustomDivider />
 
 #### **LAYER 4 — STRUCTURAL RULES (apply at IA level)**
 
@@ -2019,7 +2019,7 @@ The problem is that fixes are being made in isolation. Without a standing set of
 
 **The commercial/AI AI operator path requires a stage map.** The zero-to-hero sequence for AI Orchestrators is: hardware verification → model loading → capability declaration → first job received → pricing tuning → Gateway outreach → per-Gateway agreements → pool/relationship formalisation. Content that belongs to stage 4+ must not appear without stages 1–3 being addressed first or linked.
 
----
+<CustomDivider />
 
 #### **LAYER 5 — REVIEW GATE (before any page merges)**
 
@@ -2061,7 +2061,7 @@ Task 1: Answers
 
 ##   **CLAUDE Fixes for All 32 Identified Errors**
 
----
+<CustomDivider />
 
 ### **THROAT-CLEARING & META-COMMENTARY**
 
@@ -2069,25 +2069,25 @@ Task 1: Answers
 
 ❌ `This page covers what professional-grade Orchestrator operation looks like in practice.` ✅ Delete entirely. The paragraph already explains the distinction between hobbyist and commercial models. The sentence adds nothing.
 
----
+<CustomDivider />
 
 **2\. Instructive preamble** *Principle:* Be the bridge, don't announce it.
 
 ❌ `Understanding both is essential before modelling any return on investment.` ✅ `Both streams have different scaling characteristics — which one dominates your return depends on your hardware, stake position, and operational capacity.`
 
----
+<CustomDivider />
 
 **3\. Throat-clearing filler** *Principle:* Remove words that exist to soften a sentence, not to inform it.
 
 ❌ `The reason is straightforward: fee income scales with workload volume, while inflation rewards scale with stake.` ✅ `Fee income scales with workload volume. Inflation rewards scale with stake. For operators who can win work, fees compound; rewards do not.`
 
----
+<CustomDivider />
 
 **4\. Empty qualifier** *Principle:* Numbers already carry the meaning. Don't restate them in words.
 
 ❌ `Gas on Arbitrum L2 is low but not zero. Budget approximately $5-15/month in ETH for a mid-volume node.` ✅ `Budget $5–15/month in ETH for a mid-volume node.` (First sentence deleted.)
 
----
+<CustomDivider />
 
 ### **CONTENT DUPLICATION WITHOUT ADDITIVE VALUE**
 
@@ -2095,19 +2095,19 @@ Task 1: Answers
 
 ❌ Mermaid flowchart with seven `TB` nodes showing same rows as table below it. ✅ Replace the diagram with a decision-path flowchart: `Do you want to earn primarily from stake? → Hobbyist path. Do you want to earn primarily from job volume? → Commercial path.` The table stays. The diagram earns its place by adding a decision dimension, not a visual copy of the table.
 
----
+<CustomDivider />
 
 **6\. Sub-minimal diagram** *Principle:* A diagram that restates prose should be cut.
 
 ❌ Two-box mermaid: `Jobs × price → ETH earnings` / `Stake × rate → LPT earnings` ✅ Delete the diagram. Replace with a single concrete example: `An Orchestrator processing 10,000 inference jobs at 900 wei/pixel earns ETH proportional to throughput. An Orchestrator with 50,000 LPT bonded earns a fixed share of round inflation regardless of jobs processed. The fee path scales; the reward path does not.`
 
----
+<CustomDivider />
 
 **7\. Re-delivering knowledge from a linked page** *Principle:* Assume the prerequisite reading has been done; build on it.
 
 ❌ Paragraph re-explaining how inflation rewards work (already covered on Incentive Model page, already linked at page top). ✅ `Inflation rewards set a floor. Service fees set the ceiling. This page covers how to raise the ceiling.` Then proceed to the commercial-specific content without re-explaining the mechanic.
 
----
+<CustomDivider />
 
 ### **FAILS TO ANSWER THE READER'S ACTUAL QUESTION**
 
@@ -2115,13 +2115,13 @@ Task 1: Answers
 
 ❌ `Acquiring enough LPT to compete in the active set is the primary entry barrier for solo video Orchestrators.` \[REVIEW: confirm threshold\] ✅ Either: verify with Rick/Mehrdad and publish: `Competing in the active set requires approximately X LPT as of early 2026. Check [explorer.livepeer.org/orchestrators] for the current bottom of the active set.` Or, if unverifiable at publish time, remove the LPT Stake section header and fold this into a "pool worker is the low-barrier alternative" framing without creating the expectation of a number you won't provide.
 
----
+<CustomDivider />
 
 **9\. Dangling claim** *Principle:* Every "this is different" claim must show the difference.
 
 ❌ `Hardware investment for commercial operation should be planned against projected service fee income, not against inflation rewards alone. The break-even analysis is different.` ✅ `Model hardware investment against projected fee income, not inflation rewards. A node earning £30/month in rewards breaks even on an £800 GPU in 27 months — before electricity. A node processing 50,000 inference jobs/month at competitive rates can reach the same break-even in 6–9 months. The two models require different capital commitment decisions.` \[Link to Operator Rationale cost calculator or earnings page if available.\]
 
----
+<CustomDivider />
 
 **10\. Link dump without decision support** *Principle:* Tell the reader what conclusion to draw from each tool, not just that the tool exists.
 
@@ -2139,13 +2139,13 @@ Before committing hardware or LPT, verify the following:
 - **[Livepeer Forum](...)** — Read the most recent State of the Network thread before modelling earnings.
 ```
 
----
+<CustomDivider />
 
 **11\. Arguing against a claim nobody made** *Principle:* Don't introduce a strawman to knock down.
 
 ❌ `AI inference is not a guaranteed shortcut to earnings.` ✅ Delete. The table already shows "Variable \- demand-dependent by pipeline" under revenue stability. That handles it. If the risk needs explicit calling out: `AI job volume is pipeline-specific and demand-dependent. Before loading models, verify which pipelines are actively routed at [tools.livepeer.cloud/ai/network-capabilities].`
 
----
+<CustomDivider />
 
 ### **NOT PERSONA-FIRST / AUDIENCE MISMATCH**
 
@@ -2153,7 +2153,7 @@ Before committing hardware or LPT, verify the following:
 
 ❌ `Most Orchestrator operators start by thinking about LPT inflation rewards. Commercial operators think primarily about ETH service fees.` ✅ `If you are here to build a sustainable revenue stream — not just earn staking rewards — you are in commercial operator territory. That means ETH service fees, Gateway relationships, and infrastructure investment planned against real job volume.`
 
----
+<CustomDivider />
 
 **13\. Excludes part of the target audience** *Principle:* The opening must be legible to every persona the page serves.
 
@@ -2161,7 +2161,7 @@ Before committing hardware or LPT, verify the following:
 
 (Now works for Persona A who owns hardware and Persona D who is evaluating whether to acquire it.)
 
----
+<CustomDivider />
 
 **14\. Third person section header on a page addressed to operators** *Principle:* Section headers should reflect the reader's question, not describe the content from outside.
 
@@ -2169,19 +2169,19 @@ Before committing hardware or LPT, verify the following:
 
 Then rewrite each paragraph to open with "If you are a \[type\]..." rather than "\[Type\] operators do X."
 
----
+<CustomDivider />
 
 **15\. UK currency for international audience** *Principle:* Use USD as the default for international technical documentation, or make the example currency-agnostic.
 
 ❌ `at £800 for an RTX 4090 and £30/month earnings, the hardware break-even alone is over two years` ✅ `At $900–1,100 for an RTX 4090 (depending on region) and $30/month in inflation rewards, the hardware break-even alone exceeds two years — before electricity costs.`
 
----
+<CustomDivider />
 
 **16\. Diplomatic non-statement** *Principle:* Don't editorially manage the reader's feelings about their choice. They are technical operators.
 
 ❌ `Neither model is superior - they reflect different operator goals and capabilities.` ✅ Delete. The table makes the comparison. Operators will reach their own conclusions. If a bridge sentence is needed: `Your hardware profile and LPT access determine which model is viable — not preference.`
 
----
+<CustomDivider />
 
 ### **NO CLEAR USER JOURNEY / MISSING NEXT STEP**
 
@@ -2189,19 +2189,19 @@ Then rewrite each paragraph to open with "If you are a \[type\]..." rather than 
 
 ❌ `A depleted ETH wallet causes missed reward rounds (LPT permanently foregone) and unredeemed winning tickets (ETH fees permanently lost).` ✅ `A depleted ETH wallet causes missed reward rounds (LPT permanently foregone) and unredeemed winning tickets (ETH fees permanently lost). Set a balance alert at your monitoring layer or use a scheduled top-up cadence. See [Metrics and Monitoring] for Prometheus alert configuration.`
 
----
+<CustomDivider />
 
 **18\. Claim without operationalisation** *Principle:* "You have leverage" must be followed by "here is how to use it."
 
 ❌ `An Orchestrator running a pipeline that a Gateway cannot currently source from the network has real negotiating leverage.` ✅ `An Orchestrator running a pipeline that a Gateway cannot currently source has real negotiating leverage. Use it: reach out directly via the` \#orchestrators`Discord channel, reference your pipeline capability and uptime history, and propose a`pricePerGateway `arrangement. Gateway operators actively look for capability coverage they cannot source from the open market.`
 
----
+<CustomDivider />
 
 **19\. Third path introduced but not routed** *Principle:* If you surface a path, take the reader somewhere on it.
 
 ❌ `Many operators run a hybrid: inflation rewards provide a base, service fees from well-served application workloads provide the upside.` ✅ `Many operators run a hybrid model: inflation rewards cover baseline costs; service fees from AI and video workloads provide the upside. If this is your target operating model, start with the solo video or pool worker path to establish your stake position, then add AI capability once the node is stable. See [Video vs AI: Starting Workload] below for the entry requirements of each.`
 
----
+<CustomDivider />
 
 ### **VALUE PROPOSITION NOT FIRST**
 
@@ -2211,7 +2211,7 @@ Then rewrite each paragraph to open with "If you are a \[type\]..." rather than 
 
 (Also removes the em-dash style violation.)
 
----
+<CustomDivider />
 
 **21\. Costs before value** *Principle:* For an evaluation page, establish the opportunity before the cost structure.
 
@@ -2221,7 +2221,7 @@ Then rewrite each paragraph to open with "If you are a \[type\]..." rather than 
 
 Then introduce the profit formula as a tool, not a warning.
 
----
+<CustomDivider />
 
 ### **VAGUE / IMPRECISE LANGUAGE**
 
@@ -2229,25 +2229,25 @@ Then introduce the profit formula as a tool, not a warning.
 
 ❌ `Consistently slow responses - even within acceptable job completion time - affect long-term selection probability.` ✅ `Gateways track response latency per Orchestrator across sessions. Responses consistently above the network median reduce your selection probability over time, even if individual jobs complete within the timeout. Target sub-200ms initial response latency for AI pipelines; sub-50ms for video session setup.` \[REVIEW: confirm latency targets with Rick/j0sh\]
 
----
+<CustomDivider />
 
 **23\. "Among other factors"** *Principle:* Name the factors or don't mention them.
 
 ❌ `Gateways rank Orchestrators by response latency among other factors.` ✅ `Gateways rank Orchestrators by: price relative to declared` maxPricePerUnit`, response latency, capability match for the requested pipeline, and historical session reliability. Optimising all four is required for consistent selection.`
 
----
+<CustomDivider />
 
 **24\. "Consistently online" without a number** *Principle:* Every operational standard must be quantified.
 
 ❌ `Not necessarily production-grade infrastructure, but consistently online and monitored.` ✅ `Aim for 95%+ uptime. Below that threshold, reward call failures and missed sessions compound into meaningful LPT and ETH losses. Home setups with unreliable power or shared hardware typically fall below this target; if that is your situation, the pool worker path is lower-risk.`
 
----
+<CustomDivider />
 
 **25\. "Effectively GPU infrastructure businesses"** *Principle:* Define the role in Livepeer-specific terms, not analogies.
 
 ❌ `Pool operators are effectively GPU infrastructure businesses, combining the service fee model with a managed-Orchestrator offering.` ✅ `Pool operators hold the on-chain Orchestrator registration and handle reward calling, stake management, and Gateway relationships. Worker nodes join the pool and contribute GPU compute without managing on-chain operations. The pool takes a margin; workers receive the remainder of job fees. This is the operating model closest to a managed GPU cloud, run on Livepeer's protocol layer.`
 
----
+<CustomDivider />
 
 ### **AUTHOR-PROTECTIVE HEDGING**
 
@@ -2255,13 +2255,13 @@ Then introduce the profit formula as a tool, not a warning.
 
 ❌ `Note: The commercial orchestrator landscape is evolving. The Livepeer Forum and #orchestrators Discord contain the most current information on who is operating commercially.` ✅ Remove the Note. Add a `lastVerified` update to the frontmatter and a `{/* REVIEW: confirm operator list with community before publish */}` inline flag for the human reviewer — keep it out of the published page. If the section is genuinely too stale to publish, cut the named types to only what is verified.
 
----
+<CustomDivider />
 
 **27\. Hedging the decision tool** *Principle:* Temporal context belongs in metadata, not in the narrative framing of a decision aid.
 
 ❌ `Current network conditions as of early 2026 inform this matrix - stake requirements and fee levels shift over time.` ✅ Delete from body copy. The frontmatter already has `lastVerified: '2026-03-15'`. If the matrix needs a volatility warning, add a compact callout after it: `Stake thresholds and fee rates shift with network conditions. Verify current figures at [explorer.livepeer.org] before committing.`
 
----
+<CustomDivider />
 
 **28\. Unresolved placeholder in a published decision aid** *Principle:* An empty table cell in a decision matrix is a broken product, not a draft status.
 
@@ -2270,7 +2270,7 @@ Then introduce the profit formula as a tool, not a warning.
 - **Verify and publish**: Replace with `≈ top 100 by bonded stake (verify at [explorer.livepeer.org/orchestrators])` once confirmed with Rick/Mehrdad.  
 - **Block publish**: Add a CI check or pre-publish review gate that fails on unresolved `REVIEW` flags in decision-critical table cells. This should not merge until resolved.
 
----
+<CustomDivider />
 
 ### **STRUCTURAL / INFORMATION HIERARCHY FAILURES**
 
@@ -2282,13 +2282,13 @@ Then introduce the profit formula as a tool, not a warning.
 
 The accordion can then expand on the strategy; the URL is no longer gated.
 
----
+<CustomDivider />
 
 **30\. Prose that restates a formula** *Principle:* Don't explain arithmetic to engineers.
 
 ❌ `If that line does not remain positive at the workload volume, price level, and uptime the node can realistically sustain, solo operation does not clear its cost base.` ✅ Delete entirely. The formula `profit = ETH fees + LPT rewards - [costs]` is self-explanatory. If a sentence must follow, it should add a specific scenario: `A node processing zero AI jobs and earning only inflation rewards on 10,000 LPT covers hardware costs in approximately [X] months under current network conditions — before electricity.` \[REVIEW: confirm figure\]
 
----
+<CustomDivider />
 
 ### **MISSING PERSONA ROUTING**
 
@@ -2309,7 +2309,7 @@ The accordion can then expand on the strategy; the URL is no longer gated.
 </Tabs>
 ```
 
----
+<CustomDivider />
 
 **32\. Hybrid path introduced but never developed** *Principle:* If the research shows the hybrid is the most common real-world profile, it needs a page, not a sentence.
 
@@ -2324,7 +2324,7 @@ The accordion can then expand on the strategy; the URL is no longer gated.
 
 Here are 32 concrete content copy failures across both files, organised by error type. Each is named, located, and cited.
 
----
+<CustomDivider />
 
 ## **THROAT-CLEARING & META-COMMENTARY**
 
@@ -2338,7 +2338,7 @@ Here are 32 concrete content copy failures across both files, organised by error
 
 **4\. "Gas on Arbitrum L2 is low but not zero."** `operator-rationale.mdx`, ETH for Gas accordion. **Error: Empty qualifier.** The previous sentence already gives dollar ranges ($0.01–0.12). "Low but not zero" restates what the numbers already show. Dead copy.
 
----
+<CustomDivider />
 
 ## **CONTENT DUPLICATION WITHOUT ADDITIVE VALUE**
 
@@ -2350,7 +2350,7 @@ Here are 32 concrete content copy failures across both files, organised by error
 
 **7\. The explanation of how LPT inflation rewards work.** `business-case.mdx`, Why Service Fees Scale section. **Error: Duplicated from the Incentive Model page already linked at the top of the page.** The page is titled "The Commercial Case" — it should assume that knowledge, not re-deliver it.
 
----
+<CustomDivider />
 
 ## **FAILS TO ANSWER THE READER'S ACTUAL QUESTION**
 
@@ -2364,7 +2364,7 @@ Here are 32 concrete content copy failures across both files, organised by error
 
 **11\. "AI inference is not a guaranteed shortcut to earnings."** `operator-rationale.mdx`, Video vs AI section. **Error: Managing expectations that were never set.** No preceding copy promised AI was a shortcut. This sentence argues against a claim nobody made. It is pure defensive hedge that adds friction for Persona E who is genuinely evaluating this path.
 
----
+<CustomDivider />
 
 ## **NOT PERSONA-FIRST / AUDIENCE MISMATCH**
 
@@ -2380,7 +2380,7 @@ Here are 32 concrete content copy failures across both files, organised by error
 
 **16\. "Neither model is superior \- they reflect different operator goals and capabilities."** `business-case.mdx`, after the comparison table. **Error: Unnecessary diplomacy for a technical audience.** Persona C and D are not worried about being judged for their choice. This sentence exists to avoid seeming biased, not to inform the reader. It is copy written to protect the author, not serve the audience.
 
----
+<CustomDivider />
 
 ## **NO CLEAR USER JOURNEY / MISSING NEXT STEP**
 
@@ -2392,7 +2392,7 @@ Here are 32 concrete content copy failures across both files, organised by error
 
 **19\. "Many operators run a hybrid: inflation rewards provide a base, service fees from well-served application workloads provide the upside."** `business-case.mdx`, after the comparison table. **Error: Introduces a third path without routing.** This is actually useful information for many operators, but it is dropped as an aside. There is no "if this sounds like you, here is how to approach it." No link. No further development. It raises an option and then abandons the reader.
 
----
+<CustomDivider />
 
 ## **VALUE PROPOSITION NOT FIRST**
 
@@ -2402,7 +2402,7 @@ Here are 32 concrete content copy failures across both files, organised by error
 
 **21\. The Operator Rationale page opens with the cost problem, not the value proposition.** `operator-rationale.mdx`, opening paragraph. **Error: Stakes before opportunity.** For an evaluation page targeting Persona A (who asks "is it worth my time?") and Persona D (who asks "what's the business model?"), leading with "owning a GPU is not enough to be profitable" is negative framing before any value has been established. Revenue potential first, cost reality second.
 
----
+<CustomDivider />
 
 ## **VAGUE / IMPRECISE LANGUAGE THAT FAILS TECHNICAL READERS**
 
@@ -2416,7 +2416,7 @@ Here are 32 concrete content copy failures across both files, organised by error
 
 **25\. "Pool operators are effectively GPU infrastructure businesses."** `business-case.mdx`, Commercial Operator Landscape. **Error: Imprecise category for the precise reader.** Persona D is an actual GPU infrastructure business evaluating whether to join Livepeer. Telling them that pool operators are "effectively" what they already are, without precision, wastes the sentence. It should describe what distinguishes pool operators in Livepeer's specific context.
 
----
+<CustomDivider />
 
 ## **CONTENT THAT EXISTS TO MANAGE THE AUTHOR'S UNCERTAINTY, NOT TO SERVE THE READER**
 
@@ -2426,7 +2426,7 @@ Here are 32 concrete content copy failures across both files, organised by error
 
 **28\. The REVIEW flag left visible in the Decision Matrix table cell.** `operator-rationale.mdx`, Solo video Orchestrator row: "Active set threshold {/\* REVIEW: confirm threshold \*/}" **Error: Unresolved placeholder in a navigational decision aid.** This is the most important quantitative input for the solo video path. Publishing a table where the key variable reads "TBC" tells Persona A that the docs cannot answer their most critical question. This should block publish, not be merged with the flag intact.
 
----
+<CustomDivider />
 
 ## **STRUCTURAL / INFORMATION HIERARCHY FAILURES**
 
@@ -2436,7 +2436,7 @@ Here are 32 concrete content copy failures across both files, organised by error
 
 **30\. "If that line does not remain positive at the workload volume, price level, and uptime the node can realistically sustain, solo operation does not clear its cost base."** `operator-rationale.mdx`, after the profit formula. **Error: Restates the obvious.** The profit formula already encodes this logic. The sentence below it explaining that negative \= bad adds zero information for the technical audience this page targets. It reads as padding to explain a formula to a reader who presumably understands basic arithmetic.
 
----
+<CustomDivider />
 
 ## **MISSING PERSONA ROUTING**
 
@@ -2444,7 +2444,7 @@ Here are 32 concrete content copy failures across both files, organised by error
 
 **32\. "Many operators run a hybrid" — introduced but never developed as a viable path.** `business-case.mdx`. **Error: Incomplete persona coverage.** The persona research shows that many real operators are hybrid (Persona A deepening into AI, Persona C with mixed workloads). This path is mentioned once and then dropped. There is no brief for it, no link, no next step. This is a gap in the journey for likely the most common real-world operator type.
 
----
+<CustomDivider />
 
 **Summary by category:**
 
@@ -2591,7 +2591,7 @@ Below I’m judging both pages against the standards in the proposed writing ski
 
 These are **prose/editorial failures**, not necessarily factual failures.
 
----
+<CustomDivider />
 
 # **1\) `business-case.mdx`**
 
@@ -2611,7 +2611,7 @@ It repeatedly slips into:
 * explanation before payoff  
 * “this page covers” style openings
 
----
+<CustomDivider />
 
 ## **5 major examples where the prose misses the skill standard**
 
@@ -2650,7 +2650,7 @@ It would force the opening to state:
 
 Run a commercial orchestrator when you want to earn recurring ETH fees from real gateway demand rather than rely mainly on inflation rewards. This model fits operators who can deliver reliable uptime, stable model availability, and competitive pricing. If your goal is mostly passive reward capture from bonded stake, the hobbyist path is a better fit.
 
----
+<CustomDivider />
 
 ### **Example 2 — “Hobbyist vs Commercial” explains taxonomy instead of making the decision sharper**
 
@@ -2679,7 +2679,7 @@ It would convert the section into a direct decision frame.
 
 Choose the hobbyist model when your main goal is to earn inflation rewards from stake and spare capacity. Choose the commercial model when you intend to win recurring gateway traffic and operate against uptime, latency, and pricing expectations.
 
----
+<CustomDivider />
 
 ### **Example 3 — “Why Service Fees Scale” is technically fine but commercially weak**
 
@@ -2708,7 +2708,7 @@ It would rewrite toward explicit commercial consequence.
 
 Commercial upside comes from throughput, not stake. LPT rewards grow with bonded stake, but ETH fee revenue grows with the number of jobs your node actually serves. If you can win recurring gateway traffic, service fees can outgrow inflation rewards.
 
----
+<CustomDivider />
 
 ### **Example 4 — “What Commercial Operation Requires” buries the central trade-off**
 
@@ -2737,7 +2737,7 @@ It would make the operational bar and the non-fit case explicit.
 
 Commercial operation means supplying infrastructure to somebody else’s product. That changes the bar: you are judged on uptime, recovery speed, model readiness, and response latency. If you cannot operate to those standards, commercial fee revenue is not a realistic starting model.
 
----
+<CustomDivider />
 
 ### **Example 5 — “Working with Gateways” is correct but too system-descriptive**
 
@@ -2767,7 +2767,7 @@ It would lead with the operating reality, then explain the mechanism.
 
 Commercial orchestration is not just about being discoverable in the registry. It is about winning repeat traffic from specific gateways. The main lever is per-gateway pricing paired with reliable capability delivery.
 
----
+<CustomDivider />
 
 ## **10+ “DON’Ts” from `business-case.mdx`**
 
@@ -2796,7 +2796,7 @@ Commercial orchestration is not just about being discoverable in the registry. I
 12. **Don’t leave the reader to infer the non-fit case.**  
     The page should explicitly say when **not** to pursue commercial operation.
 
----
+<CustomDivider />
 
 # **2\) `operator-rationale.mdx`**
 
@@ -2821,7 +2821,7 @@ Its biggest prose problems are:
 * generic section leads  
 * path decision comes later than it should
 
----
+<CustomDivider />
 
 ## **5 major examples where the prose misses the skill standard**
 
@@ -2854,7 +2854,7 @@ It would force a qualified answer, then place the formula underneath as support.
 
 Run a Livepeer Orchestrator when your hardware can turn real network demand into revenue above stake, power, bandwidth, and operating costs. This page helps you choose between four outcomes: pool worker, solo video orchestrator, solo AI orchestrator, or not running a node yet.
 
----
+<CustomDivider />
 
 ### **Example 2 — The formula appears before the page has established the payoff**
 
@@ -2882,7 +2882,7 @@ It would keep the formula, but anchor it with a plain-English summary first.
 
 The commercial test is simple: solo operation only works when fee income and rewards clear your total operating cost. Use the formula below as the simplified model.
 
----
+<CustomDivider />
 
 ### **Example 3 — “What Orchestrators Earn” section lead is generic and passive**
 
@@ -2910,7 +2910,7 @@ It would sharpen the section into a viability statement.
 
 Solo operation only works if at least one revenue stream is realistically available to you. ETH job fees require real gateway traffic; LPT rewards require enough bonded stake and reliable reward calls.
 
----
+<CustomDivider />
 
 ### **Example 4 — “Cost Categories” lead wastes the first sentence**
 
@@ -2938,7 +2938,7 @@ It would replace the generic setup with a concrete checklist.
 
 Model five costs before you buy hardware or bond LPT: GPU, stake, gas, bandwidth, and operating time. These are the costs that decide whether solo operation can clear a margin.
 
----
+<CustomDivider />
 
 ### **Example 5 — The page buries its real decision structure too far down**
 
@@ -2967,7 +2967,7 @@ It would either move the matrix earlier or give it a far stronger decision lead.
 
 Choose the path that matches your actual constraints, not your ideal setup. Limited LPT pushes most first-time operators toward pool work or AI-only operation; stake access and reliable infrastructure open the solo video path.
 
----
+<CustomDivider />
 
 ## **10+ “DON’Ts” from `operator-rationale.mdx`**
 
@@ -2996,7 +2996,7 @@ Choose the path that matches your actual constraints, not your ideal setup. Limi
 12. **Don’t make the page sound like the reader is already committed to solo operation.**  
     A good decision page must validate **not running a node yet** as an explicit outcome.
 
----
+<CustomDivider />
 
 # **Best one-line diagnosis of each file**
 
@@ -3008,7 +3008,7 @@ Choose the path that matches your actual constraints, not your ideal setup. Limi
 
 **Problem:** It contains real decision logic, but it is still framed too much like an **analyst memo** instead of a **clear operator fit page**.
 
----
+<CustomDivider />
 
 # **What the skills would do to both files overall**
 
@@ -3644,13 +3644,13 @@ The report package should therefore combine:
 
 **Livepeer Docs Copy Framework — Document 6** **Version 1.0 — March 2026**
 
----
+<CustomDivider />
 
 ## **Purpose**
 
 This document defines the sequenced implementation plan for the framework. It is ordered by dependency — each phase unblocks the next. No content work proceeds until the relevant phase gate is passed.
 
----
+<CustomDivider />
 
 ## **Phase 0 — Product Clarity Gate**
 
@@ -3668,7 +3668,7 @@ This document defines the sequenced implementation plan for the framework. It is
 
 **Gate:** Phase 1 does not start until L0 is signed off for hybrid path, GPU Nodes, and the tab hierarchy.
 
----
+<CustomDivider />
 
 ## **Phase 1 — Script Infrastructure**
 
@@ -3693,7 +3693,7 @@ This document defines the sequenced implementation plan for the framework. It is
 
 **Gate:** All T3 tests green. Scripts run clean on a known-passing page and correctly flag all fixture failures.
 
----
+<CustomDivider />
 
 ## **Phase 2 — SKILL.md Build**
 
@@ -3722,7 +3722,7 @@ This document defines the sequenced implementation plan for the framework. It is
 
 **Gate:** T4a passes (zero Tier 1 violations in skill-guided draft). T4b establishes baseline.
 
----
+<CustomDivider />
 
 ## **Phase 3 — Retrospective Audit**
 
@@ -3749,7 +3749,7 @@ This document defines the sequenced implementation plan for the framework. It is
 
 **Gate:** Audit reports complete. Repair routing confirmed for each failed page.
 
----
+<CustomDivider />
 
 ## **Phase 4 — Brief Template Integration**
 
@@ -3772,7 +3772,7 @@ This document defines the sequenced implementation plan for the framework. It is
 
 **Gate:** First brief produced under new template passes L0/L1 review.
 
----
+<CustomDivider />
 
 ## **Phase 5 — Full Tab Implementation**
 
@@ -3786,7 +3786,7 @@ This document defines the sequenced implementation plan for the framework. It is
 
 3. **Pattern observer — first scheduled run:** After 10+ pages merged under framework. Output: cross-tab pattern report. If recurrence detected, L7 diagnostic before next batch of content.
 
----
+<CustomDivider />
 
 ## **Dependency Map**
 
@@ -3805,7 +3805,7 @@ Phase 2 (SKILL.md Build) [parallel]
   └── feeds Phase 5 (ongoing agent compliance)
 ```
 
----
+<CustomDivider />
 
 ## **What Does Not Proceed Until Phase 0 Completes**
 
@@ -3813,7 +3813,7 @@ Phase 2 (SKILL.md Build) [parallel]
 * No revisions to operator-rationale.mdx or business-case.mdx (audit output defines what to fix, not ad-hoc edits)  
 * No hybrid operator path content of any kind (it does not exist without L0 answers)
 
----
+<CustomDivider />
 
 ## **Risk Register**
 
@@ -3823,4 +3823,3 @@ Phase 2 (SKILL.md Build) [parallel]
 | Lint scripts produce false positives on technical MDX | Medium | Reviewer fatigue, ignored flags | Tune patterns against fixture set before CI integration; exclude code blocks from all pattern checks |
 | SKILL.md files produce compliant but thin drafts | Medium | Content lacks depth | T4 measures this; depth is a separate concern from compliance — address in SKILL.md v2 |
 | Phase 0 deferred, content work continues without it | High | Framework bypassed from the start | Phase 0 completion is a hard gate enforced by the documentation lead; not a suggestion |
-

@@ -2,7 +2,7 @@
 
 Applying the docs-section-planning-playbook to the Gateways tab. This is a delta review - the gateway guides were already reviewed page-by-page in this conversation. This plan consolidates those reviews and identifies remaining work.
 
----
+<CustomDivider />
 
 ## Part 1: Consolidated Learnings
 
@@ -80,7 +80,7 @@ Applying the docs-section-planning-playbook to the Gateways tab. This is a delta
 - Current community remote signer uptime/reliability
 - NaaP architecture current status (design stage vs implementation)
 
----
+<CustomDivider />
 
 ## Part 2: Current State Assessment
 
@@ -108,7 +108,7 @@ Applying the docs-section-planning-playbook to the Gateways tab. This is a delta
 |-------|--------|----------|
 | "Run A Gateway" section overlaps with Setup | Nested groups in "Run A Gateway" duplicate setup content | ⚠️ HUMAN REVIEW |
 | Quickstart is actually Setup | `gateway-setup.mdx` (10KB) with View components is a full setup flow, not a quickstart | ⚠️ HUMAN REVIEW |
-| No genuine quickstart exists | The quickstart should be <1 hour, no financial commitment. Current "quickstart" requires on-chain configuration. | ⚠️ HUMAN REVIEW |
+| No genuine quickstart exists | The quickstart should be &lt;1 hour, no financial commitment. Current "quickstart" requires on-chain configuration. | ⚠️ HUMAN REVIEW |
 | Tutorials section has tutorials-resources.mdx (458 lines) | This is a reference page in a tutorials section | ⚠️ HUMAN REVIEW |
 | byoc-cpu-tutorial.mdx exists alongside zero-to-hero tutorials | Two tutorial systems coexist | ⚠️ HUMAN REVIEW |
 
@@ -119,7 +119,7 @@ Applying the docs-section-planning-playbook to the Gateways tab. This is a delta
 | to-include.md items not yet absorbed | 9 items identified during payments review, some resolved, some pending | P1 |
 | Quickstart/Setup separation not implemented | Product-thinking-review identified this as a structural issue | P2 |
 
----
+<CustomDivider />
 
 ## Part 3: Section-by-Section IA
 
@@ -194,7 +194,7 @@ Guides
 | production-gateways | ??? | ⚠️ HUMAN REVIEW: What is this page's purpose? Name unclear. |
 | gateway-discoverability | publishing | Already partially renamed in earlier reviews |
 
----
+<CustomDivider />
 
 ## Part 4: Priority Actions
 
@@ -226,7 +226,7 @@ Guides
 - [ ] Run page-authoring skill compliance on all pages
 - [ ] Apply copywriting framework
 
----
+<CustomDivider />
 
 ## Part 5: Comparison with Orchestrator Tab
 
@@ -253,7 +253,7 @@ Guides
 
 The gateway tab legitimately has fewer sections because gateways have a simpler operational model (no staking, no reward calling, no model management, no GPU capacity planning).
 
----
+<CustomDivider />
 
 ## Flags for Human Review
 

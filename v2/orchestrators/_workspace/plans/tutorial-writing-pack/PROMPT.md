@@ -61,7 +61,7 @@ Every tutorial follows this pattern:
 4. **What Just Happened** (brief explanation mapping steps to concepts)
 5. **Related Pages** (CardGroup linking to relevant guide pages)
 
----
+<CustomDivider />
 
 ## Tutorial Briefs
 
@@ -85,7 +85,7 @@ Every tutorial follows this pattern:
 
 **Cross-refs**: Setup Guide (for full production setup), Workload Options (for what to run next)
 
----
+<CustomDivider />
 
 ### 2. zero-to-first-reward.mdx
 
@@ -112,7 +112,7 @@ Every tutorial follows this pattern:
 
 **Cross-refs**: AI Earning Quickstart (for adding AI next), Dual Mode Configuration (for adding AI to this setup), Earning Model (for understanding what you just earned)
 
----
+<CustomDivider />
 
 ### 3. ai-earning-quickstart.mdx
 
@@ -137,7 +137,7 @@ Every tutorial follows this pattern:
 
 **Cross-refs**: Add AI to Video (for existing video operators), Model Demand Reference (for choosing models), Pricing Strategy (for setting AI prices)
 
----
+<CustomDivider />
 
 ### 4. add-ai-to-video-node.mdx
 
@@ -164,7 +164,7 @@ Every tutorial follows this pattern:
 
 **Cross-refs**: Capacity Planning (for VRAM budgeting), AI Model Management (for ongoing model operations), Dual Mode Configuration (for the full reference)
 
----
+<CustomDivider />
 
 ### 5. full-ai-pipeline-tutorial.mdx
 
@@ -190,7 +190,7 @@ Every tutorial follows this pattern:
 
 **Cross-refs**: Gateway-Orchestrator Interface (for production combined setup), Gateway Relationships (for how gateways select orchestrators), AI Inference Operations (for the concepts behind what just happened)
 
----
+<CustomDivider />
 
 ### 6. realtime-ai-tutorial.mdx
 
@@ -209,7 +209,7 @@ Every tutorial follows this pattern:
 7. Set up gateway for live AI routing
 8. Send a live stream (RTMP via ffmpeg or WebRTC)
 9. View the transformed output stream
-10. Monitor latency (target: <100ms per frame)
+10. Monitor latency (target: &lt;100ms per frame)
 
 **Critical**: This tutorial is the most technically demanding. The source page (realtime-ai-setup.mdx) has extensive content on ComfyStream, workflows, latency optimisation, and VRAM management. Extract the SETUP steps, not the tuning guidance.
 
@@ -219,7 +219,7 @@ Every tutorial follows this pattern:
 
 **Cross-refs**: Realtime AI Setup (for the full reference and tuning), Capacity Planning (for VRAM requirements), Full AI Pipeline Tutorial (for batch comparison)
 
----
+<CustomDivider />
 
 ## General Notes
 
