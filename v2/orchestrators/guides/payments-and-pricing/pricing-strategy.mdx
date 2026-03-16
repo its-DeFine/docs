@@ -34,29 +34,20 @@ Human:
 
 {/*
   PURPOSE:
-  Journey step: "How do I set competitive prices?"
-  Guide for orchestrator pricing configuration: video per-pixel pricing,
-  AI per-capability pricing, automatic price adjustment, and market positioning.
+  "How do I set prices that attract work without leaving money on the table?"
+  Video: -pricePerUnit in wei per pixel, typical ranges, surveying competitors.
+  AI: per-pipeline per-model pricing in aiModels.json, wei vs USD notation.
+  Per-gateway: -pricePerGateway for commercial relationships. Dynamic:
+  -autoAdjustPrice. Competitive positioning methodology: check Explorer, find
+  25th-75th percentile, position within. "Too high = no jobs, too low = unprofitable."
 
-  CONTENT SHOULD INCLUDE:
-  - -pricePerUnit: video per-pixel pricing (sell side)
-  - -pricePerGateway: per-gateway pricing overrides
-  - Per-capability AI pricing (orchestrator aiModels.json pricing fields)
-  - -autoAdjustPrice: dynamic price adjustment
-  - Market positioning: querying competitor prices
-  - Price too high = no jobs, price too low = unprofitable
-  - Gateway perspective: how gateways evaluate your price (-maxPricePerUnit)
-
-  SECTION HOME: Guides > Payments & Pricing
-
-  JOURNEY POSITION:
-  1. Payment Flow - "How do payments flow?"
-  2. Pricing Strategy (this page) - "How do I set prices?"
-  3. Payments - "Payment operations and management"
+  PLAN TARGET: pricing-strategy (move to Config & Optimisation)
+  STATUS: STUB - needs structured outline and content. P0 priority.
+  TARGET SECTION: Config & Optimisation → "How do I tune?"
+  JOB STORIES: J3 (competitive pricing), J4 (commercial pricing)
 
   CROSS-REFS:
-  - Gateway Tab > Payments & Pricing > Pricing Strategy - buy-side mirror
-  - Staking & Rewards > Earnings - how pricing affects earnings
-  - Advanced Operations > Working with Gateways - how gateways select on price
-  - Resources > CLI Flags - pricing-related flags
+  - Gateway Tab > Payments > Pricing Strategy - buy-side mirror
+  - Staking & Earning > Earning Model - pricing affects fee earnings
+  - Advanced Operations > Gateway Relationships - how gateways evaluate price
 */}

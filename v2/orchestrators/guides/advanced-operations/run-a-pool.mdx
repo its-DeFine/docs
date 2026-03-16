@@ -308,30 +308,18 @@ There is no zero-downtime rotation mechanism. Communicate the new secret to all 
 
 {/*
   PURPOSE:
-  Journey step: "How do I run an orchestrator pool?"
-  Guide for operators who want to run a pool: accepting external transcoders,
-  managing workers, distributing fees, and pool economics.
+  "How do I run an orchestrator pool?" Pool architecture: orchestrator accepts
+  remote transcoder workers via -orchSecret. Worker management: onboarding,
+  performance monitoring, disconnection handling. Fee distribution: entirely
+  off-chain and custom. Pool economics: operator take vs worker share. Worker
+  reliability management. Communication and transparency with pool members.
 
-  CONTENT SHOULD INCLUDE:
-  - Pool operator responsibilities
-  - Configuration for accepting pool workers
-  - Fee distribution to pool workers
-  - Pool economics: operator take vs worker share
-  - Managing worker reliability and performance
-  - Communication with pool members
-  - Comparison with solo operation
-
-  SECTION HOME: Guides > Advanced Operations
-
-  JOURNEY POSITION:
-  1. O-T Setup - "How do I split O and T?"
-  2. Run a Pool (this page) - "How do I run a pool?"
-  3. Working with Gateways - "How do gateways interact with me?"
-  4. Large-Scale Operations - "How do I run at scale?"
+  PLAN TARGET: running-a-pool (keep)
+  SECTION: Advanced Operations → "How do I scale?"
+  JOB STORIES: J4 (pool operation)
 
   CROSS-REFS:
   - Deployment Details > Join a Pool - worker perspective
-  - Resources > Community Pools - existing pools
-  - Staking & Rewards > Earnings - pool earnings distribution
-  - Advanced Operations > O-T Setup - pool with split architecture
+  - Resources > Community Pools - pool directory
+  - Staking & Earning > Earning Model - pool earnings distribution
 */}

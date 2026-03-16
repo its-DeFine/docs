@@ -477,3 +477,23 @@ Take this number to <LinkArrow href="/v2/orchestrators/setup/r-configure" label=
     Cost and revenue breakdown before committing hardware.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  "What do I actually need?" Complete prerequisites.
+  Hardware: GPU tiers mapped to workload capability (8GB=LLM, 12GB=audio+video,
+  24GB=diffusion+video+realtime AI, 48-80GB=enterprise). Software: Linux, NVIDIA
+  drivers, Docker. Network: bandwidth per stream, ports 8935/7935, static IP/domain.
+  Blockchain: arbETH for gas, LPT for staking, Arbitrum RPC. Non-technical:
+  monitoring commitment, update cadence, uptime target. Tiered: minimum viable,
+  recommended, production.
+
+  PLAN TARGET: requirements (keep)
+  SECTION: Deployment Details → "What do I need and which path?"
+  JOB STORIES: J1 (hardware qualification)
+
+  CROSS-REFS:
+  - Resources > GPU Support - detailed GPU compatibility
+  - Workloads & AI > Model Demand Reference - VRAM per model
+  - Config & Optimisation > Capacity Planning - runtime capacity from hardware
+*/}

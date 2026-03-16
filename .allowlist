@@ -1,69 +1,187 @@
+# AIM OF THIS FILE - KEEP REPO CLEAN AND MAINTAINABLE
 # IF YOU ARE AN AI YOU ARE ABSOLUTELY NOT ALLOWED TO EDIT THIS FILE.
 # IF YOU ARE TRYING TO EDIT IT YOU ARE VIOLATING THE REPO RULES AND INCORRECTLY MODIFYING FILES
-# DO NOT DELETE FILES TO ATTEMPT TO GET AROUND THE RULES -> READ THE /README & MOVE THEM CORRECTLY UPDATING ALL PATHS/IMPORTS/REFERENCES ETC. APPROPRIATELY. BE THOROUGH
+# DO NOT DELETE FILES TO ATTEMPT TO GET AROUND THE RULES -> READ THE DOCS-GUIDE POLICIES/FRAMEWORKS/ README & MOVE THEM CORRECTLY UPDATING ALL PATHS/IMPORTS/REFERENCES ETC. APPROPRIATELY. BE THOROUGH
 # IF YOU ARE AN AI YOU ARE ABSOLUTELY NOT ALLOWED TO EDIT THIS FILE.
 
-# Allowed root files
+# Current Directory of allowed root files
 
-# Core docs files
-docs.json
+# ================================== #
+# Essential Root Files
+# Do not move
+# ================================== #
+
+# Essential Repo files
+<!-- DO NOT REMOVE -->
+.gitignore
+.allowlist
 README.md
-# generated page index file (TODO - does this need to be in root or move to docs-guide/catalog?)
-docs-index.json
-
-# Core governance repo files (TODO: verify these need to be in root)
-SECURITY.md
 LICENSE
-Dockerfile
-Makefile
-style.css
 
-# AI files (TODO: categoriese & verify these need to be in root)
-Assistant.md
+# Integration / CI Pipelines / Platform files
+<!-- DO NOT REMOVE  -->
+<!-- Issue & PR templates -->
+.github
+<!-- CI Flows, Governance Enforcement, Automations -->
+.githooks
+.gitattributes
+
+# Core Mintlify files
+<!-- DO NOT REMOVE  -->
+<!-- Root Mintlify Navigation Map -->
+docs.json
+<!-- Root Mintlify Styles -->
+style.css
+<!-- Config: What files/folders to ignore at runtime. TODO: Needs cleanup -->
+.mintignore
+
+# Core Mintlify Docs Pages root directories - working tree
+<!-- DO NOT REMOVE  -->
+<!-- Essential mintlify directory - TODO: Needs governance on contents: -->
+snippets
+<!-- Technically can move / name can change -->
+v1
+v2
+
+# ================================== #
+# KEEP IN ROOT
+# Non-Essential Root Files or
+# Governance Root Location Policy
+# ================================== #
+
+# IDE Config files
+<!-- KEEP IN ROOT -->
+<!-- IDE Settings specific to this repo -->
+.vscode
+.editorconfig
+.prettierrc
+
+# Dev tools that build on Mintlify (& docs governance)
+<!-- KEEP IN ROOT -->
+<!-- LPD-CLI and ignore config. -->
+lpd
+.lpdignore
+
+# Core Repo governance directories
+<!-- DO NOT DELETE OR RENAME: Has many many dependencies and flow on effects -->
+<!-- All scripts here: TODO: Cleanup & Ensure Governance in place -->
+tools
+
+<!-- DO NOT DELETE OR RENAME: Has Dependencies -->
+<!-- Keep ME! Main Docs Guide & Catalog -->
+docs-guide
+
+<!-- KEEP ME/DO NOT MOVE: Has Dependencies -->
+<!-- Used for planning & script outpur reports. Autocleans -->
+<!-- AI agents also directed to write files here instead of creating repo mess -->
+tasks
+
+# ================================== #
+# Needs Triage
+# ================================== #
+
+# Other Mintlify Docs Files
+<!-- TODO: Decision: Should this be merged to snippets? -->
+<!-- HAS DEPENDENCIES -->
+<!-- API Specs used in pages -->
+api
+
+
+# Repo files
+<!-- Unsure -->
+Dockerfile
+<!-- Unsure -->
+Makefile
+
+
+# AI-first Discoverability files
+<!-- # TODO: categoriese & verify these need to be in root -->
 sitemap-ai.xml
 llms-full.txt
 llms.txt
 
-# Dev tools
-lpd
+# AI Agent configs
+<!-- (TODO: verify - are these essentially needed in root?) -->
+<!-- KEEP -->
+<!-- CLAUDE.md: Move to: .claude/CLAUDE.md -->
+.claude/
 
-# Config files (TODO: verify these need to be in root)
-.lpdignore
-.editorconfig
-.gitignore
-.mintignore
-.prettierrc
+<!-- CHANGE TO .cursor and move rules to .cursor/rules -->
 .cursorrules
+.cursor/
+
+<!-- Needs: .windsurf/rules/*.md and/or AGENTS.md -->
+<!-- USE AGENTS.md -->
+.windsurf/
+
+<!-- AGENTS.md, plus nested AGENTS.md /AGENTS.override.md -->
+<!-- CHANGE TO AGENTS.md -->
 .codex
-.allowlist
 
-# Integration / Platform files
-.github
-.githooks
-.gitattributes
-.mintlify
-.vscode
+# ========== #
+# DECISION
+# ========== #
+<!-- USE:
+AGENTS.md
+.github/copilot-instructions.md
+.claude/CLAUDE.md
+.cursor/rules/
+.windsurf/rules/
+ -->
 
-# Allowed root directories - working tree (governance choice)
-.claude
-docs-guide
-ai-tools
-api
-snippets
-tools
+# ================================== #
+# CAN Move - Needs Governance Decision
+# Verify dependency tree
+# ================================== #
+<!-- TODO: Decide if this should merge into tools. (Has Dependencies) -->
+<!-- DO NOT DELETE OR RENAME: Testing Suite / Scripts for Repo -->
 tests
-tasks
-v1
-v2
+<!-- TODO: Decide if this should merge into tools. (Has Dependencies) -->
+<!-- AI Skills, Rules Folder -->
+ai-tools
 
-# TODO: MOVE TO docs-guide folder (verify this folder has no dependencies in repo first)
+# ================================== #
+# TO CHANGE/MERGE: RE-VERIFY FIRSY
+# ================================== #
+<!-- CHANGE (TO RE-VERIFY): allow .mintlify, move ASSISTANT.md to .mintlify/assistant.md -->
+<!-- Notes: Current root file is repo-local AI governance; Mintlify assistant wants .mintlify/ASSISTANT.md -->
+.mintlify
+Assistant.md
+
+# ================================== #
+# To Move:
+# Review Dependencies
+# Map Migration carefully
+# ================================== #
+
+# generated page index file for translation pipeline
+<!-- TODO: MOVE & migrate/fix dependency paths -->
+<!-- Move to: /tools/scoped-navigation with other docs navigation files -->
+docs-index.json
+
+<!-- TODO: MOVE & migrate/fix dependency paths -->
+<!-- Move or merge with:  /docs-guide/contributing directory pages -->
 contribute
 
+<!-- Move to docs-guide/policies -->
+SECURITY.md
 
-# Removed
+# ================================== #
+# Removed 16 Mar 2026
+# ================================== #
 <!--
 docs.json.jsx
 docs-orch-work.json
 todo.txt
 scripts
 -->
+
+# ================================== #
+# Report 16 Mar 2026
+# ================================== #
+
+<!-- **Direct Answers**
+1. `docs-index.json`: yes, that path can change. It is an internal artifact, not a Mintlify contract. But moving it is not “just one script”; it currently fans out through [generate-docs-index.js](/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/tools/scripts/generate-docs-index.js#L45), workflows, docs, and cleanup scripts.
+2. No, not everything in the staged allowlist is actually needed at root.
+3. Yes, the real root file `ASSISTANT.md` could move. Mintlify’s current assistant docs expect `.mintlify/Assistant.md` or `.mintlify/ASSISTANT.md`, not a bare root file: [Assistant](https://www.mintlify.com/docs/guides/assistant).
+4. Correct: `contribute/` can move. Right now it is wired into routing and tooling via [docs.json](/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/docs.json#L3065), [docs-index-utils.js](/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/tools/lib/docs-index-utils.js#L217), and [translate-docs.js](/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/tools/scripts/i18n/translate-docs.js#L532), so it is a real migration, not an impossible one.

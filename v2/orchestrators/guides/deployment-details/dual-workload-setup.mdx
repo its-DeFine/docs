@@ -408,3 +408,23 @@ once pricing data from Explorer is confirmed. Rick / Alison to provide current d
     Common errors and fixes: AI runner startup failures, VRAM out-of-memory, and capability registration issues.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  "How do I run both video and AI on the same node?" The dual mode execution page.
+  For new operators: unified docker-compose with all flags. For existing video
+  operators: the exact configuration delta (add -aiWorker, -aiModels, AI runner
+  container). VRAM coexistence: NVENC uses dedicated silicon (does not compete with
+  CUDA for AI), but CUDA cores and VRAM are shared. Warm model strategy for dual
+  nodes. When to split to O-T instead of running dual on one card.
+
+  PLAN TARGET: dual-mode-configuration (move to Config & Optimisation)
+  SECTION: Currently Deployment Details, target is Config & Optimisation → "How do I tune?"
+  JOB STORIES: J2 (add AI to video)
+
+  CROSS-REFS:
+  - Workloads & AI > AI Inference Operations - AI architecture concepts
+  - Config & Optimisation > Capacity Planning - VRAM budgeting
+  - Config & Optimisation > AI Model Management - warm/cold strategy
+  - Deployment Details > O-T Setup - when to split instead of dual
+*/}

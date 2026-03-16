@@ -391,10 +391,10 @@
                         "group": "Configuration and Optimisation",
                         "pages": [
                               "v2/orchestrators/guides/deployment-details/dual-workload-setup",
-                              "v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup",
+                              "v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup"
                         ]
 
-                      }
+                      },
                       {
                         "group": "Workloads & AI",
                         "pages": [

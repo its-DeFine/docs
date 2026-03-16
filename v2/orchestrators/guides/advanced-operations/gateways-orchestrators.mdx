@@ -305,30 +305,18 @@ flowchart TD
 
 {/*
   PURPOSE:
-  Journey step: "How do gateways discover and interact with my orchestrator?"
-  Guide explaining the gateway-orchestrator relationship from the orchestrator
-  perspective: how to be discovered, selected, and serve work effectively.
+  "How do gateways find me and how do I get selected for more work?" Discovery:
+  on-chain ServiceRegistry, direct -orchAddr, webhook, AI service registry.
+  Selection criteria gateways use: price, latency, reliability, capabilities.
+  Optimising for selection: competitive pricing, uptime, warm models, fast response.
+  Commercial relationships: per-gateway pricing, SLAs. Capability advertisement.
 
-  CONTENT SHOULD INCLUDE:
-  - How gateways discover orchestrators (on-chain registry, -orchAddr)
-  - Selection criteria: price, latency, reliability, capabilities
-  - Optimising for gateway selection (competitive pricing, uptime)
-  - AI service registry and capability advertisement
-  - Working with specific gateways (direct relationships)
-  - Commercial orchestrator relationships (Livepeer Studio, etc.)
-  - Price negotiation and the PM ticket flow
-
-  SECTION HOME: Guides > Advanced Operations
-
-  JOURNEY POSITION:
-  1. O-T Setup - "How do I split O and T?"
-  2. Run a Pool - "How do I run a pool?"
-  3. Working with Gateways (this page) - "How do gateways interact with me?"
-  4. Large-Scale Operations - "How do I run at scale?"
+  PLAN TARGET: gateway-relationships (rename for clarity)
+  SECTION: Advanced Operations → "How do I scale?"
+  JOB STORIES: J4 (gateway relationships)
 
   CROSS-REFS:
+  - Config & Optimisation > Pricing Strategy - pricing affects selection
   - Gateway Tab > Advanced Operations > Orchestrator Selection - gateway side
-  - Payments & Pricing - pricing that affects selection
-  - Concepts > Capabilities - what you advertise
-  - Gateway Tab > Node Pipelines > AI Pipelines - AI routing from gateway side
+  - Workloads & AI > AI Inference Operations - capability advertisement
 */}

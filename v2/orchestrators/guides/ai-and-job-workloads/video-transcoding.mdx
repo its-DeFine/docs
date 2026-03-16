@@ -484,29 +484,19 @@ The auto-adjustment mechanism is there precisely for Arbitrum gas spikes. Disabl
 
 {/*
   PURPOSE:
-  Journey step: "How does video transcoding work on my orchestrator?"
-  Guide covering video transcoding workloads from the orchestrator perspective:
-  how segments arrive, processing, and output.
+  "How does video transcoding work from my node's perspective?" Segment-based
+  pipeline: gateway sends 2-second segments, node decodes (NVDEC), re-encodes to
+  requested profiles (NVENC), returns renditions. Codec support (H.264, VP8/VP9).
+  NVENC hardware session limits (consumer GPUs 3-8 sessions, the driver patch).
+  Per-pixel pricing from the sell side. Quality verification. Performance:
+  segments/second, real-time duration ratio.
 
-  CONTENT SHOULD INCLUDE:
-  - Segment-based transcoding pipeline
-  - Codec and profile support (H.264, VP8/VP9)
-  - GPU vs CPU transcoding and when each applies
-  - Session management for video streams
-  - Quality verification (pixel count, PSNR)
-  - Pricing: per-pixel model and how to set prices
-  - Performance optimisation (concurrent sessions, GPU utilisation)
-
-  SECTION HOME: Guides > Workloads & AI
-
-  JOURNEY POSITION:
-  1. Job Types - "What work is available?"
-  2. Video Transcoding (this page) - "How does video work?"
-  3-6. AI pages...
+  PLAN TARGET: video-transcoding-operations (consider rename)
+  SECTION: Workloads & AI → "What jobs do I run?"
+  JOB STORIES: J1 (video workload understanding)
 
   CROSS-REFS:
-  - Gateway Tab > Node Pipelines > Video Pipelines - gateway side of video
-  - Payments & Pricing > Pricing Strategy - setting video prices
-  - Monitoring & Tools > Metrics - video transcoding metrics
-  - Operator Considerations > Benchmarking - video performance testing
+  - Config & Optimisation > Capacity Planning - NVENC limits, session tuning
+  - Config & Optimisation > Pricing Strategy - video pricing (sell side)
+  - Gateway Tab > Node Pipelines > Video Pipelines - gateway perspective
 */}

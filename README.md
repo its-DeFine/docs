@@ -38,6 +38,8 @@ bash lpd setup --yes
 lpd dev
 ```
 
+`bash lpd setup --yes` also syncs the canonical Codex planning skill to `$CODEX_HOME/skills` (fallback: `~/.codex/skills`). For ambiguous repo-change planning, use `skill-plan` after setup. The canonical runbook lives in [`docs-guide/catalog/ai-tools.mdx`](docs-guide/catalog/ai-tools.mdx).
+
 If `lpd` is not on PATH yet:
 
 ```bash

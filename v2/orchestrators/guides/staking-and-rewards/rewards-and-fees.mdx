@@ -406,30 +406,18 @@ Illustrative scenario for context only. Actual figures depend on LPT price, ETH 
 
 {/*
   PURPOSE:
-  Journey step: "How do reward calling and fee distribution work?"
-  Guide covering the mechanics of calling rewards, fee distribution,
-  and optimising reward calling frequency.
+  "How do rounds, reward calls, and fee distribution work?" Round-based system
+  (~22 hours). Calling Reward() once per round to claim minted LPT. Gas cost on
+  Arbitrum. Missed rounds = permanently forfeited LPT. Auto vs manual calling.
+  Fee distribution: reward cut (% LPT kept) and fee cut (% ETH kept). Setting
+  competitive cuts. Relationship between cuts and delegation attraction.
 
-  CONTENT SHOULD INCLUDE:
-  - Round-based reward calling: when, how, gas costs
-  - Reward calling configuration (-rewardAddr, -reward)
-  - Automatic vs manual reward calling
-  - Fee distribution: reward cut and fee cut parameters
-  - Setting competitive cut rates
-  - Gas optimisation for reward calling on Arbitrum
-  - Monitoring reward calling success (missed rounds)
-
-  SECTION HOME: Guides > Staking & Rewards
-
-  JOURNEY POSITION:
-  1. Earnings - "How do I earn?"
-  2. Rewards and Fees (this page) - "How do rewards and fees work?"
-  3. Attracting Delegates - "How do I grow my stake?"
-  4. Governance - "How do I participate in governance?"
+  PLAN TARGET: reward-mechanics (consider rename)
+  TARGET SECTION: Staking & Earning → "How do I earn?" (merged section)
+  JOB STORIES: J3 (reward mechanics)
 
   CROSS-REFS:
-  - Staking & Rewards > Earnings - earnings overview
-  - Setup > Connect and Activate - initial reward calling setup
-  - Monitoring & Tools > Metrics - reward calling metrics
-  - Resources > Arbitrum RPC - RPC for reward transactions
+  - Config & Optimisation > Reward Call Tuning - gas optimisation
+  - Staking & Earning > Growing Delegation - cuts affect delegation
+  - Staking & Earning > Earning Model - rewards in full earnings context
 */}

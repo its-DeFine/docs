@@ -469,31 +469,20 @@ curl http://localhost:7935/metrics
 
 {/*
   PURPOSE:
-  Journey step: "How do I debug orchestrator issues?"
-  Symptom-based troubleshooting guide for common orchestrator problems:
-  no jobs, failed transcoding, reward calling failures, AI errors.
+  "Something broke - how do I fix it?" Symptom-based guide indexed by what the
+  operator observes. Not receiving video jobs (7 checks). Not receiving AI jobs
+  (5 checks). OrchestratorCapped (session limit). GPU OOM. Missed reward calls.
+  NVENC session limit. Networking unreachable. Price not updated on-chain. AI model
+  download failures. Diagnostic command reference. Escalation: Discord, Forum, GitHub.
 
-  CONTENT SHOULD INCLUDE:
-  - No incoming jobs (selection, connectivity, pricing)
-  - Video transcoding failures (GPU errors, codec issues)
-  - AI inference failures (model loading, VRAM, container issues)
-  - Reward calling failures (gas, timing, ETH balance)
-  - Ticket redemption failures
-  - Connectivity issues (ports, firewall, NAT)
-  - Log interpretation guide
-  - Escalation: Discord, Forum, GitHub issues
+  PLAN TARGET: troubleshooting (keep)
+  UPDATE NEEDED: Add symptom quick-nav index at top.
 
-  SECTION HOME: Guides > Monitoring & Tools
-
-  JOURNEY POSITION:
-  1. Tools - "What tools exist?"
-  2. Explorer Guide - "How do I use the Explorer?"
-  3. Metrics Monitoring - "How do I set up monitoring?"
-  4. Troubleshooting (this page) - "How do I debug issues?"
+  SECTION: Monitoring & Tools → "How do I keep it running?"
+  JOB STORIES: J7 (incident response)
 
   CROSS-REFS:
-  - Resources > FAQ - common questions
-  - Monitoring & Tools > Metrics - diagnosing via metrics
-  - Setup > Test - verification steps
-  - Gateway Tab > Monitoring > Troubleshooting - shared troubleshooting patterns
+  - Resources > FAQ - quick answers to common questions
+  - Monitoring & Tools > Metrics and Alerting - diagnosing via metrics
+  - Setup > Verify - verification steps that may help diagnose
 */}

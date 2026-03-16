@@ -35,6 +35,12 @@ keywords:
 - `cross-agent-packager`
 - `rubric-static-review`
 
+## Codex Planning Entry Point
+
+- Skill: `agentic-project-management-orchestrator`
+- Triggers: `skill-plan`, `plan this repo change`, `full plan for this`
+- Use this as the first step for ambiguous repo-change planning, especially when the work may touch docs content, navigation, scripts, generated indexes, or governance surfaces.
+
 ## One-Command Audit
 
 ```bash
@@ -68,10 +74,13 @@ Produced assets:
 - Canonical source: `ai-tools/ai-skills/templates/*.template.md`
 - Local install target: `$CODEX_HOME/skills` (fallback: `~/.codex/skills`)
 - Sync behavior: safe upsert only (creates/updates managed skills; no deletion)
+- Preferred bootstrap path: `bash lpd setup --yes` syncs the planning skill automatically during repo setup
 
 Runbook:
 
 ```bash
+bash lpd setup --yes
+node tools/scripts/sync-codex-skills.js --skills agentic-project-management-orchestrator
 node tools/scripts/sync-codex-skills.js --check
 node tools/scripts/sync-codex-skills.js
 node tools/scripts/sync-codex-skills.js --skills lpd-bootstrap-and-doctor,staged-test-suite-runner --dry-run

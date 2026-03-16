@@ -432,30 +432,19 @@ groups:
 
 {/*
   PURPOSE:
-  Journey step: "How do I set up monitoring for my orchestrator?"
-  Guide for configuring Prometheus metrics collection, Grafana dashboards,
-  and alerting for orchestrator operations.
+  "How do I set up monitoring that tells me when something is wrong?" Prometheus:
+  -monitor flag, endpoint at localhost:7935/metrics, -metricsPerStream. Key metrics:
+  transcoding_success_rate, session_count, session_max_limit, ai_job_success_rate,
+  go_memstats_heap_bytes. Grafana dashboard config. Alert rules: missed reward calls,
+  session saturation >80%, high error rate, OOM approaching, zero sessions >1 hour.
+  Docker monitoring for AI runner containers.
 
-  CONTENT SHOULD INCLUDE:
-  - Enabling metrics (-monitor flag)
-  - Key Prometheus metrics for orchestrators
-  - Video transcoding metrics (segments, latency, errors)
-  - AI inference metrics (requests, latency, model loading)
-  - Staking metrics (reward calls, stake changes)
-  - Payment metrics (tickets received, redeemed, value)
-  - Grafana dashboard setup
-  - Alert configuration (missed rewards, high error rates)
-
-  SECTION HOME: Guides > Monitoring & Tools
-
-  JOURNEY POSITION:
-  1. Tools - "What tools exist?"
-  2. Explorer Guide - "How do I use the Explorer?"
-  3. Metrics Monitoring (this page) - "How do I set up monitoring?"
-  4. Troubleshooting - "How do I debug issues?"
+  PLAN TARGET: metrics-and-alerting (consider rename)
+  SECTION: Monitoring & Tools → "How do I keep it running?"
+  JOB STORIES: J7 (proactive monitoring)
 
   CROSS-REFS:
-  - Setup > Monitor - basic monitoring from setup flow
+  - Config & Optimisation > Capacity Planning - metrics that indicate capacity issues
+  - Setup > Initial Monitoring - basic setup-time monitoring
   - Gateway Tab > Monitoring > Monitoring Setup - shared Prometheus patterns
-  - Resources > Technical > CLI Flags - monitoring-related flags
 */}

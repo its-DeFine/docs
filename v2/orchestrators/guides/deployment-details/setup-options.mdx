@@ -263,3 +263,25 @@ See <LinkArrow href="/v2/orchestrators/guides/deployment-details/siphon-setup" l
     The standard single-machine combined go-livepeer installation.
   </Card>
 </CardGroup>
+
+{/*
+  PURPOSE:
+  "Solo, pool, or split?" The deployment type decision framework.
+  Solo operator (full control, full earnings). Pool worker (zero LPT, shared
+  earnings). Pool operator (manage others' GPUs). O-T split (separate orchestrator
+  and transcoder for scaling/security). Siphon (residential GPU routing).
+  Comparison table: complexity, LPT required, earnings share, hardware minimum.
+  NOT about node mode (video/AI/dual) - that is a workload decision in Config.
+
+  PLAN TARGET: setup-options (keep + update)
+  UPDATE NEEDED: Replace "combined mode" with "dual mode" terminology. Reframe with dual as default.
+
+  SECTION: Deployment Details → "What do I need and which path?"
+  JOB STORIES: J1 (path selection)
+
+  CROSS-REFS:
+  - Deployment Details > Join a Pool - pool worker path
+  - Deployment Details > O-T Setup - split architecture detail
+  - Operator Considerations > Operator Rationale - economics per path
+  - Config & Optimisation > Dual Mode Configuration - workload combination
+*/}

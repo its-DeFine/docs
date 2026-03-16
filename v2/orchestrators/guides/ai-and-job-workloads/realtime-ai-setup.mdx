@@ -561,29 +561,19 @@ This confirms CUDA is accessible inside the container.
 
 {/*
   PURPOSE:
-  Journey step: "Set up realtime AI video processing"
-  Guide for configuring live video-to-video AI pipelines (realtime inference
-  on video streams, e.g. style transfer, object detection overlays).
+  "How do I run live video-to-video AI?" Fundamentally different from batch:
+  continuous frame-by-frame transformation of live video streams, not
+  request/response. WebRTC input/output. ComfyStream workflow engine. VRAM: 24GB
+  recommended. -livePaymentInterval for ongoing payment during stream. Latency
+  requirements (<100ms per frame). Testing with live streams. Highest-value
+  compute on the network per GPU-second.
 
-  CONTENT SHOULD INCLUDE:
-  - What realtime AI is vs batch (latency requirements, session model)
-  - Prerequisites: GPU with sufficient VRAM, low-latency network
-  - Configuration for live AI pipelines
-  - Model selection for realtime (must be fast: Lightning, LCM)
-  - -livePaymentInterval configuration
-  - Testing with live video streams
-  - Performance requirements and monitoring
-
-  SECTION HOME: Guides > Workloads & AI
-
-  JOURNEY POSITION:
-  1-4. Previous pages...
-  5. Realtime AI Setup (this page) - "Set up realtime AI"
-  6. Model VRAM Reference - "Which models fit my GPU?"
+  PLAN TARGET: realtime-ai-setup (keep)
+  SECTION: Workloads & AI → "What jobs do I run?"
+  JOB STORIES: J2 (realtime AI workload)
 
   CROSS-REFS:
-  - Batch AI Setup (this section) - non-realtime alternative
-  - AI Workloads Guide (this section) - conceptual overview
-  - Gateway Tab > Node Pipelines > AI Pipelines - gateway routing for live AI
-  - Payments & Pricing - live AI payment intervals
+  - Workloads & AI > AI Inference Operations - AI architecture concepts
+  - Config & Optimisation > Capacity Planning - realtime VRAM requirements
+  - Tutorials > Realtime AI Tutorial - end-to-end walkthrough
 */}

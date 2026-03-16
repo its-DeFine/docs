@@ -451,32 +451,24 @@ The network capabilities tool shows all registered orchestrators and their adver
 
 {/*
   PURPOSE:
-  Journey step: "How does AI inference work on my orchestrator?"
-  Comprehensive guide to running AI workloads: pipeline types, model management,
-  the AI worker/runner architecture, and operational considerations.
+  "How does AI inference work from my node's perspective?" AI worker/runner
+  architecture: go-livepeer orchestrates, separate AI runner containers execute.
+  Two runner types: livepeer/ai-runner (diffusion, vision, audio) and Ollama (LLM).
+  aiModels.json overview. Model lifecycle: download, load, warm/cold, serve. On-chain
+  capability registration (-aiServiceRegistry). 10 pipeline types and their profiles.
 
-  CONTENT SHOULD INCLUDE:
-  - AI worker architecture (go-livepeer + AI runner container)
-  - Supported pipelines (text-to-image, image-to-image, LLM, audio, etc.)
-  - Model management: downloading, loading, warm vs cold
-  - aiModels.json configuration format
-  - GPU memory management and model swapping
-  - On-chain capability registration (-aiServiceRegistry)
-  - AI-specific pricing (-pricePerCapability on orchestrator side)
+  MUST INCLUDE: "Already running video? Here is what to add" bridge section for J2.
+  MUST INCLUDE: "No active set needed for AI" callout for J6 low-LPT operators.
 
-  SECTION HOME: Guides > Workloads & AI
+  PLAN TARGET: ai-inference-operations (consider rename)
+  UPDATE NEEDED: Add J2 bridge accordion. Add J6 low-LPT value prop callout.
 
-  JOURNEY POSITION:
-  1. Job Types - "What work is available?"
-  2. Video Transcoding - "How does video work?"
-  3. AI Workloads Guide (this page) - "How does AI work?"
-  4. Batch AI Setup - "Set up batch AI"
-  5. Realtime AI Setup - "Set up realtime AI"
-  6. Model VRAM Reference - "Which models fit my GPU?"
+  SECTION: Workloads & AI → "What jobs do I run?"
+  JOB STORIES: J2 (add AI to video), J6 (AI-first entry)
 
   CROSS-REFS:
-  - Gateway Tab > Node Pipelines > AI Pipelines - gateway side of AI routing
-  - Workloads & AI > Model VRAM Reference - GPU requirements per model
-  - Workloads & AI > Batch AI Setup - practical setup steps
-  - Payments & Pricing > Pricing Strategy - setting AI prices
+  - Config & Optimisation > Dual Mode Configuration - add AI to existing video
+  - Config & Optimisation > AI Model Management - operational model management
+  - Workloads & AI > Diffusion Pipeline Setup - specific pipeline setup
+  - Gateway Tab > Node Pipelines > AI Pipelines - gateway routing perspective
 */}

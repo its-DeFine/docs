@@ -46,8 +46,8 @@ Usage:
   lpd version
     - info: Print CLI version.
 
-  lpd setup [--yes] [--no-tools] [--no-tests] [--no-hooks] [--with-mintlify] [--no-cli] [--json]
-    - flags: control dependency installs, hook install, Mintlify install, and CLI PATH wiring.
+  lpd setup [--yes] [--no-tools] [--no-tests] [--no-hooks] [--with-mintlify] [--no-cli] [--no-codex-skills] [--json]
+    - flags: control dependency installs, hook install, Mintlify install, CLI PATH wiring, and Codex skill sync.
     - info: Bootstrap local environment for docs development.
 
   lpd doctor [--strict] [--json]
@@ -119,6 +119,7 @@ Examples:
     - Previews the exact task-script command without executing.
 
 Notes:
+  - `lpd setup` syncs the repo planning skill to `$CODEX_HOME/skills` (fallback: `~/.codex/skills`) unless `--no-codex-skills` is used.
   - `lpd dev` auto-installs/updates pre-commit hooks via tools/scripts/mint-dev.sh.
   - Human `.allowlist` edits require: `git commit -m "msg" --trailer "allowlist-edit=true"`.
   - Human deletions require: `git commit -m "msg" --trailer "allow-deletions=true"`.
@@ -150,7 +151,7 @@ It standardizes setup, local preview, test runs, hooks, and curated script execu
 
 Command Groups:
   core
-    lpd setup [--yes] [--no-tools] [--no-tests] [--no-hooks] [--with-mintlify] [--no-cli]
+    lpd setup [--yes] [--no-tools] [--no-tests] [--no-hooks] [--with-mintlify] [--no-cli] [--no-codex-skills]
     lpd doctor [--strict] [--json]
     lpd dev [--test] [--test-mode fast|staged|full] [--scoped] [--docs-config <path>] [--scope-...] [-- ...mint args]
     lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--wcag] [--wcag-no-fix] [--link-audit-external] [--base-url URL]
@@ -184,11 +185,38 @@ Common Workflows:
     lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/new.mdx
 
 Notes:
+  - `lpd setup` syncs the repo planning skill to `$CODEX_HOME/skills` (fallback: `~/.codex/skills`) unless `--no-codex-skills` is used.
   - lpd uses .lpdignore (if present) to hide/block scripts from discovery and execution.
   - Human `.allowlist` edits require: `git commit -m "msg" --trailer "allowlist-edit=true"`.
   - Human deletions require: `git commit -m "msg" --trailer "allow-deletions=true"`.
   - High-risk script groups require confirmation unless --yes is supplied.
 EOF
+}
+
+codex_skills_target_dir() {
+    if [ -n "${CODEX_HOME:-}" ]; then
+        printf '%s\n' "$CODEX_HOME/skills"
+        return 0
+    fi
+    printf '%s\n' "$HOME/.codex/skills"
+}
+
+sync_codex_planner_skill() {
+    local target_dir
+    target_dir="$(codex_skills_target_dir)"
+
+    if ! command -v node >/dev/null 2>&1; then
+        echo "Node is required to sync Codex skills." >&2
+        return 1
+    fi
+
+    if [ ! -f "$REPO_ROOT/tools/scripts/sync-codex-skills.js" ]; then
+        echo "sync-codex-skills.js not found at $REPO_ROOT/tools/scripts/sync-codex-skills.js" >&2
+        return 1
+    fi
+
+    echo "Syncing Codex planner skill to $target_dir..."
+    node tools/scripts/sync-codex-skills.js --skills agentic-project-management-orchestrator
 }
 
 emit_json() {
@@ -803,6 +831,7 @@ cmd_setup() {
     local install_hooks=1
     local install_mint=0
     local install_cli=1
+    local install_codex_skills=1
 
     while [ "$#" -gt 0 ]; do
         case "$1" in
@@ -824,12 +853,15 @@ cmd_setup() {
             --no-cli)
                 install_cli=0
                 ;;
+            --no-codex-skills)
+                install_codex_skills=0
+                ;;
             --json)
                 GLOBAL_JSON=1
                 ;;
             --help|-h)
                 cat <<'EOF'
-Usage: lpd setup [--yes] [--no-tools] [--no-tests] [--no-hooks] [--with-mintlify] [--no-cli] [--json]
+Usage: lpd setup [--yes] [--no-tools] [--no-tests] [--no-hooks] [--with-mintlify] [--no-cli] [--no-codex-skills] [--json]
 EOF
                 return 0
                 ;;
@@ -877,6 +909,13 @@ EOF
             n|N|no|NO) install_cli=0 ;;
             *) install_cli=1 ;;
         esac
+
+        printf "Sync the Codex planning skill to %s? [Y/n]: " "$(codex_skills_target_dir)"
+        read -r answer || true
+        case "$answer" in
+            n|N|no|NO) install_codex_skills=0 ;;
+            *) install_codex_skills=1 ;;
+        esac
     fi
 
     local failures=0
@@ -902,6 +941,11 @@ EOF
     fi
     if [ "$install_cli" = "1" ]; then
         if ! install_cli_link; then
+            failures=$((failures + 1))
+        fi
+    fi
+    if [ "$install_codex_skills" = "1" ]; then
+        if ! sync_codex_planner_skill; then
             failures=$((failures + 1))
         fi
     fi

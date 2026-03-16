@@ -636,27 +636,20 @@ The only requirement is the `/health` endpoint contract and matching the AI work
 
 {/*
   PURPOSE:
-  Journey step: "Which AI models fit my GPU?"
-  Reference table mapping AI models to VRAM requirements, helping operators
-  choose which models to advertise based on their hardware.
+  "Which models fit my GPU AND are actually being requested?" Two-part reference:
+  (1) VRAM requirements by model family mapped to GPU tiers (8/12/16/24/48/80 GB).
+  (2) Current demand data: which pipelines and models are actively requested by
+  gateways, at what prices, with what frequency. Links to tools.livepeer.cloud for
+  live data. Warm vs cold trade-offs. Community-tested configurations.
 
-  CONTENT SHOULD INCLUDE:
-  - VRAM requirements by model family (SD 1.5, SDXL, Lightning, LLM)
-  - Models per pipeline (text-to-image, image-to-image, LLM, audio)
-  - Multi-model GPU sharing considerations
-  - Recommended models by GPU tier (8GB, 16GB, 24GB, 48GB+)
-  - Warm vs cold model trade-offs
-  - Community-tested model configurations
+  PLAN TARGET: model-demand-reference (rename)
+  UPDATE NEEDED: Add demand/earnings context alongside VRAM data.
 
-  SECTION HOME: Guides > Workloads & AI
-
-  JOURNEY POSITION:
-  1-5. Previous pages...
-  6. Model VRAM Reference (this page) - "Which models fit my GPU?"
+  SECTION: Workloads & AI → "What jobs do I run?"
+  JOB STORIES: J6 (model selection)
 
   CROSS-REFS:
-  - Resources > GPU Support - supported GPU hardware list
-  - AI Workloads Guide (this section) - model management concepts
-  - Operator Considerations > Benchmarking - testing model performance
-  - Batch AI Setup (this section) - configuring chosen models
+  - Config & Optimisation > AI Model Management - operational model decisions
+  - Workloads & AI > Diffusion Pipeline Setup - configuring chosen models
+  - Resources > GPU Support - hardware compatibility
 */}

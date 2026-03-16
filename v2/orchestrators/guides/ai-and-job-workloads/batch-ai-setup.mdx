@@ -885,30 +885,22 @@ When configuring `aiModels.json`, two external references are authoritative:
 
 {/*
   PURPOSE:
-  Journey step: "Set up batch AI inference on my orchestrator"
-  Step-by-step guide for configuring batch (non-realtime) AI pipelines:
-  text-to-image, image-to-image, upscale, LLM, audio, etc.
+  "How do I set up diffusion AI pipelines?" Step-by-step for core diffusion
+  pipelines (text-to-image, image-to-image, upscale, image-to-video). Docker-compose
+  with livepeer/ai-runner. aiModels.json entries per pipeline. Model selection by
+  VRAM tier (Lightning/Turbo for speed, SDXL for quality). Warm model config.
+  Optimisation flags (SFAST, DEEPCACHE). Testing locally. Registering on-chain.
 
-  CONTENT SHOULD INCLUDE:
-  - Prerequisites: GPU, Docker, AI runner container
-  - aiModels.json configuration for batch pipelines
-  - Docker compose setup with AI runner
-  - Model download and warm-up configuration
-  - Testing inference locally before going live
-  - Registering capabilities on-chain
-  - Monitoring AI job performance
+  PLAN TARGET: diffusion-pipeline-setup (rename from batch-ai-setup)
+  NOTE: LLM content should be extracted to llm-pipeline-setup. Audio/vision
+  content should be extracted to audio-and-vision-pipelines. This page should
+  focus on diffusion pipelines only.
 
-  SECTION HOME: Guides > Workloads & AI
-
-  JOURNEY POSITION:
-  1-3. Overview pages...
-  4. Batch AI Setup (this page) - "Set up batch AI"
-  5. Realtime AI Setup - "Set up realtime AI"
-  6. Model VRAM Reference - "Which models fit my GPU?"
+  SECTION: Workloads & AI → "What jobs do I run?"
+  JOB STORIES: J6 (set up AI inference)
 
   CROSS-REFS:
-  - AI Workloads Guide (this section) - conceptual overview first
-  - Model VRAM Reference (this section) - choosing models for your GPU
-  - Setup > Configure - base node configuration
-  - Gateway Tab > Node Pipelines > AI Pipelines - how gateways route to you
+  - Workloads & AI > AI Inference Operations - conceptual overview
+  - Workloads & AI > Model Demand Reference - which models to choose
+  - Config & Optimisation > AI Model Management - ongoing model operations
 */}
