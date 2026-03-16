@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-16T15:13:49.160Z",
+  "generated": "2026-03-16T18:02:34.963Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -7893,7 +7893,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/concepts/role",
       "title": "The Gateway Role in the Livepeer Network",
-      "description": "Learn what gateways are, how they connect applications to the Livepeer compute network, and how the role has evolved from video broadcasting to AI inference routing.",
+      "description": "Learn how gateways connect applications to Livepeer, route video and AI workloads, and define the demand side of the network.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -7914,7 +7914,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 926,
+      "wordCount": 800,
       "lastVerified": "2026-03-13",
       "headings": [
         {
@@ -7966,7 +7966,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 927,
+      "wordCount": 858,
       "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
@@ -8030,7 +8030,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "advanced",
-      "wordCount": 969,
+      "wordCount": 942,
       "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
@@ -8126,7 +8126,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 763,
+      "wordCount": 740,
       "lastVerified": "2026-03-16T22:32:19+11:00",
       "headings": [
         {
@@ -19643,7 +19643,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 434,
-      "lastVerified": "2026-03-17T01:02:34+11:00",
+      "lastVerified": "2026-03-17T02:19:19+11:00",
       "headings": [
         {
           "level": 1,
@@ -21681,7 +21681,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 41,
-      "lastVerified": "2026-03-16T18:09:19+11:00",
+      "lastVerified": "2026-03-17T02:19:19+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -21818,7 +21818,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 986,
-      "lastVerified": "2026-03-17T01:02:34+11:00",
+      "lastVerified": "2026-03-17T02:29:44+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -21840,7 +21840,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 301,
-      "lastVerified": "2026-03-17T01:02:34+11:00",
+      "lastVerified": "2026-03-17T02:29:44+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -21894,7 +21894,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1318,
-      "lastVerified": "2026-03-12T13:51:34+11:00",
+      "lastVerified": "2026-03-17T02:19:19+11:00",
       "headings": [
         {
           "level": 1,
@@ -21955,7 +21955,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 266,
-      "lastVerified": "2026-03-09T02:51:06+11:00",
+      "lastVerified": "2026-03-17T02:19:19+11:00",
       "headings": [
         {
           "level": 1,
@@ -22010,7 +22010,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 266,
-      "lastVerified": "2026-03-09T02:51:06+11:00",
+      "lastVerified": "2026-03-17T02:19:19+11:00",
       "headings": [
         {
           "level": 1,
@@ -22279,7 +22279,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 522,
-      "lastVerified": "2026-03-09T17:16:19+11:00",
+      "lastVerified": "2026-03-17T02:19:19+11:00",
       "headings": [
         {
           "level": 1,

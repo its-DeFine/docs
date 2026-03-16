@@ -1,7 +1,7 @@
 ---
 title: 'The Gateway Role in the Livepeer Network'
 sidebarTitle: 'Role'
-description: 'Learn how gateways connect applications to Livepeer, route video and AI workloads, and define the demand side of the network.'
+description: 'Learn what gateways are, how they connect applications to the Livepeer compute network, and how the role has evolved from video broadcasting to AI inference routing.'
 keywords:
   - livepeer
   - gateways
@@ -26,17 +26,39 @@ purpose: 'overview'
 status: 'current'
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+~~Terminology Validation:~~
+~~- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology~~
+~~Verify:~~
+~~- Terminology is consistent with resources/glossary~~
+~~Verify:~~
+~~- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaidColours.jsx)~~
+~~- Fontawesome icons are used on accordions and tabs~~
+~~- Tables use StyledTable component~~
+~~- No em-dashes are used (instead use standard -)~~
+~~- UK spelling is used~~
+~~- Headers are concise and technical - no long headers or questions (aim for max 3 words)~~
+~~- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks~~
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+Human
+- Find Media
+- Review REVIEW items
+*/}
+
+
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 import { CenteredContainer } from '/snippets/components/layout/containers.jsx'
 
-<CenteredContainer maxWidth="1100px">
+<CenteredContainer style={{ width: 'fit-content', minWidth: 'fit-content' }}>
     <AccordionGroup>
         <Accordion title="From a Cloud Background?" icon="cloud">
-            A gateway fills the same role as a cloud API gateway or L7 load balancer.
-            It ingests traffic, routes workloads to backend GPU nodes, and manages
-            session flow while orchestrators perform the compute.
+            Running a Gateway is similar to operating an API Gateway or Load Balancer in cloud computing  -
+            it ingests traffic, routes workloads to backend GPU nodes, and manages session flow
+            without doing the heavy compute itself.
 
             <ScrollableDiagram title="Gateway as Cloud Infrastructure">
 
@@ -75,9 +97,10 @@ import { CenteredContainer } from '/snippets/components/layout/containers.jsx'
             </ScrollableDiagram>
         </Accordion>
         <Accordion title="From an Ethereum Background?" icon="coin">
-            A gateway plays the workload-routing role in the network.
-            The closest Ethereum analogue is an L2 sequencer: it ingests requests,
-            orders execution, selects orchestrators, and forwards jobs into the compute layer.
+            Running a Gateway is **not** like running a validator on Ethereum.
+            Validators secure consensus whereas Gateways route workloads. It's more akin to a Sequencer on a Layer 2.
+            Just as a Sequencer ingests user transactions, orders them, and routes them into the rollup execution layer,
+            a Livepeer Gateway performs the same function for the Livepeer compute network.
 
             <ScrollableDiagram title="Gateways as L2 Sequencers">
 
@@ -116,9 +139,9 @@ import { CenteredContainer } from '/snippets/components/layout/containers.jsx'
             </ScrollableDiagram>
         </Accordion>
         <Accordion title="Neither? You can still run a gateway!" icon="film">
-            A gateway operator plays the producer role for a compute job.
-            The gateway takes the request, selects the specialists, manages constraints,
-            and delivers the result on time.
+            For the rest of us, running a Gateway is like being a film producer.
+            You take a request, assemble the right specialists, manage constraints,
+            and ensure the final result is delivered reliably  - without doing every task yourself.
 
             <ScrollableDiagram title="Gateway as Film Producer">
 
@@ -170,16 +193,20 @@ import { CenteredContainer } from '/snippets/components/layout/containers.jsx'
     </AccordionGroup>
 </CenteredContainer>
 
-<CenteredContainer maxWidth="960px">
-  <Tip>Gateways sit between applications and orchestrators. Application developers connect through the gateway layer for video, AI inference, and real-time AI workloads.</Tip>
+<CenteredContainer style={{ width: '90%' }}>
+  <Tip>Gateways are the essential layer for application developers. They are the demand side of the Livepeer network. Anyone building applications on Livepeer - video streaming, AI inference, real-time AI video - connects through a gateway.</Tip>
 </CenteredContainer>
 
-<CustomDivider middleText="Role Evolution" />
+<CustomDivider middleText="Role Evolution" style={{margin: "0 0 -1rem 0"}} />
 In the early days of Livepeer, gateways (then called **broadcasters**) had a single job: send video streams to orchestrators for transcoding.
 
 Today, with the off-chain gateway operational mode shipped in Q4 2025, the role has expanded dramatically. Gateways now route AI inference, live video AI, LLM requests, and custom BYOC workloads - often with **zero ETH required**. The gateway is where business logic, customer relationships, and service margins live.
 
-<ScrollableDiagram title="Gateway Role Evolution" maxHeight="420px">
+<CenteredContainer maxWidth="900px" style={{ marginBottom: '-1rem' }}>
+  <p style={{ textAlign: 'center', fontSize: '1.2rem', fontWeight: 700, margin: '0', color: "var(--theme-hero-text)" }}>
+    Gateway Role Evolution
+  </p>
+{/* Note: Mermaid cannot use color variables. */}
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
 timeline
@@ -196,13 +223,13 @@ timeline
                : Platform business layer
                : NaaP multi-tenancy
 ```
-</ScrollableDiagram>
+</CenteredContainer>
 
-<CustomDivider middleText="Role Functions" />
+<CustomDivider middleText="Role Functions" style={{margin: "0 0 -1rem 0"}}/>
 
 ## Technical Role
 
-A gateway is a **demand aggregation and routing layer**. It accepts workloads from applications, selects the best orchestrator for each job, handles payment, and returns results while orchestrators perform GPU compute.
+A gateway is a **demand aggregation and routing layer**. It accepts workloads from applications, selects the best orchestrator for each job, handles payment, and returns results. The gateway performs no GPU compute itself  - all processing happens on orchestrators.
 
 Core responsibilities:
 - **Job intake**  - receive video streams (RTMP) or AI inference requests (HTTP API)
@@ -210,13 +237,13 @@ Core responsibilities:
 - **Payment handling**  - generate probabilistic micropayment tickets (or delegate to a remote signer)
 - **Result delivery**  - return transcoded video (HLS) or inference results to the application
 
-See <LinkArrow href="/v2/gateways/concepts/capabilities" label="Gateway Capabilities" newline={false} /> for the workload matrix and routing details.
+See <LinkArrow href="/v2/gateways/concepts/capabilities" label="Gateway Capabilities" newline={false} /> for the full set of workloads gateways can route.
 
-<CustomDivider />
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Business Role
 
-Gateways earn at the **business layer**. The gateway operator sets customer pricing, the protocol constrains orchestrator payments, and the difference becomes the operator's margin.
+Unlike orchestrators (who earn protocol fees), gateways earn at the **business layer**. The gateway operator sets what they charge customers; the protocol only controls what they pay orchestrators. The difference is the operator's margin.
 
 This makes gateways uniquely positioned as the product layer of the Livepeer network:
 
@@ -237,7 +264,7 @@ flowchart LR
 
 See <LinkArrow href="/v2/gateways/concepts/business-model" label="Gateway Business Model" newline={false} /> for revenue models, cost structures, and the four operator models.
 
-<CustomDivider />
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Network Role
 
@@ -249,17 +276,17 @@ Gateways are the **demand side** of the Livepeer marketplace. Where orchestrator
 - **Ecosystem growth**  - every new gateway adds demand capacity to the network
 
 <Note>
-Gateways participate in the network as demand-side actors. Orchestrators handle staking, protocol rewards, and governance.
+Gateways do not stake LPT, do not earn protocol rewards, and do not vote in governance. These are orchestrator responsibilities. Gateways participate in the network purely as demand-side actors.
 </Note>
 
 See <LinkArrow href="/v2/gateways/concepts/architecture" label="Gateway Architecture" newline={false} /> for how gateways connect to the protocol and orchestrator network.
 
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -1rem 0"}}/>
 
 
 ## Operational Mode
 
-On-chain and off-chain describe your gateway's **operational mode**: how it handles payment operations and orchestrator discovery. All workloads run on orchestrator GPU hardware. The distinction is between local ticket signing and delegated remote signing.
+"On-chain" and "off-chain" describe your gateway's **operational mode** - how it integrates with the Livepeer protocol to orchestrators, not where compute happens. All workloads (video and AI) run off-chain on orchestrator GPU hardware. The distinction is whether your gateway node holds ETH and signs payment tickets directly, or delegates that to a remote signer.
 
 <Tabs>
   <Tab title="On-chain gateway" icon="link">
@@ -285,7 +312,7 @@ On-chain and off-chain describe your gateway's **operational mode**: how it hand
 </Tabs>
 
 <Note>
-Dual-workload configuration runs video and AI from a single on-chain gateway node. See <LinkArrow href="/v2/gateways/setup/configure/dual-configuration" label="Dual gateway configuration" newline={false} /> for setup details.
+An on-chain gateway can run video, AI, or both workloads - "dual" refers to running both workload types from a single node, not a third operational mode. See <LinkArrow href="/v2/gateways/setup/configure/dual-configuration" label="Dual gateway configuration" newline={false} /> for setup details.
 </Note>
 
 <StyledTable variant="bordered">

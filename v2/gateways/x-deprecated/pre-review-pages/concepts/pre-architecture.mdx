@@ -29,16 +29,38 @@ purpose: concept
 status: current
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- ~~Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology~~
+Verify:
+- ~~Terminology is consistent with resources/glossary~~
+Verify:
+- ~~Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaidColours.jsx)~~
+- ~~Fontawesome icons are used on accordions and tabs~~ (N/A - no accordions or tabs in this file)
+- ~~Tables use StyledTable component~~
+- ~~No em-dashes are used (instead use standard -)~~
+- ~~UK spelling is used~~
+- ~~Headers are concise and technical - no long headers or questions (aim for max 3 words)~~
+- ~~CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks~~
+- ~~Placeholders for Media & Video Resources are in comments with a TODO for a human.~~ (N/A - no media placeholders)
+- ~~REVIEW flags are in JSX flags for a human.~~ (N/A - no REVIEW flags)
+Human
+- Find Media
+- Review REVIEW items
+*/}
+
+
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
+import { CenteredContainer, BorderedBox } from '/snippets/components/layout/containers.jsx'
 
-Gateways sit at the application layer of Livepeer. They accept requests from apps, route them to orchestrators, and coordinate payment and failover across the compute and protocol layers.
+This page explains where gateways sit in the Livepeer stack, how they interact with other network participants, how a request flows through the system, and the key internal components.
 
 For what gateways *do*, see [Capabilities](/v2/gateways/concepts/capabilities). For why you would run one, see [Business Model](/v2/gateways/concepts/business-model).
 
-<CustomDivider />
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Gateway Layer Context
 
@@ -111,16 +133,16 @@ Applications are the gateway's customers. They send workloads and receive result
 - AI applications send HTTP requests (port 8935, enabled via `-httpIngest`) and receive JSON/binary inference results
 - BYOC applications send custom payloads via HTTP and receive container output
 
-The gateway abstracts orchestration and protocol details for applications. Applications send workloads and receive results through gateway interfaces.
+The gateway abstracts the Livepeer network entirely - applications do not need to know about orchestrators, payment tickets, or the protocol layer.
 
 ### Orchestrators
 
 Orchestrators are the supply side. The gateway selects, negotiates with, and dispatches work to them.
 
 - **Discovery** - on-chain gateways query the ServiceRegistry contract on Arbitrum; off-chain gateways receive orchestrator lists from the remote signer
-- **Negotiation** - the gateway requests an orchestrator's capabilities and price, then establishes a session with an acceptable orchestrator
+- **Negotiation** - the gateway requests an orchestrator's capabilities and price, then establishes a session if the terms are acceptable
 - **Dispatch** - video segments or AI requests are sent to the orchestrator with an attached payment ticket
-- **Failover** - on failure, the gateway retries with the next-best option from its ranked list
+- **Failover** - if an orchestrator fails, the gateway retries with the next-best option from its ranked list
 
 ### Remote Signer
 
@@ -153,7 +175,7 @@ In the **on-chain operational mode**, the gateway interacts directly with Arbitr
 </StyledTable>
 
 <Note>
-Gateways interact with TicketBroker and ServiceRegistry. Orchestrators handle BondingManager, RoundsManager, and Governance interactions.
+Unlike orchestrators, gateways do **not** interact with the BondingManager (staking), RoundsManager (reward calls), or Governance contracts. Gateways do not stake LPT, earn protocol rewards, or vote.
 </Note>
 
 <CustomDivider middleText="Internal Architecture" />
@@ -327,7 +349,7 @@ A command-line tool that connects to a running go-livepeer node. Used for:
 
 ### Remote Signer (off-chain)
 
-A separate service that handles ETH custody and payment ticket signing for off-chain gateways. It runs as a sidecar or external service alongside go-livepeer.
+A separate service that handles ETH custody and payment ticket signing on behalf of off-chain gateways. Not part of go-livepeer itself - it runs as a sidecar or external service.
 
 See <LinkArrow href="/v2/gateways/guides/payments-and-pricing/remote-signers" label="Remote Signers" newline={false} /> for architecture and configuration.
 

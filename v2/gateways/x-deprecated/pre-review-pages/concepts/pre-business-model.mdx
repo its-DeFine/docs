@@ -27,16 +27,38 @@ purpose: concept
 status: current
 lastVerified: 2026-03-13
 ---
+{/* TODO:
+Terminology Validation:
+- ~~Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology~~
+Verify:
+- ~~Terminology is consistent with resources/glossary~~
+Verify:
+- ~~Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaidColours.jsx)~~
+- ~~Fontawesome icons are used on accordions and tabs~~
+- ~~Tables use StyledTable component~~
+- ~~No em-dashes are used (instead use standard -)~~
+- ~~UK spelling is used~~
+- ~~Headers are concise and technical - no long headers or questions (aim for max 3 words)~~
+- ~~CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks~~
+- ~~Placeholders for Media & Video Resources are in comments with a TODO for a human.~~ N/A - no media placeholders needed
+- ~~REVIEW flags are in JSX flags for a human.~~ N/A - no REVIEW flags present
+Human
+- Find Media
+- Review REVIEW items
+*/}
+
+
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
-import { CenteredContainer } from '/snippets/components/layout/containers.jsx'
+import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
+import { CenteredContainer, BorderedBox } from '/snippets/components/layout/containers.jsx'
 
-<CenteredContainer maxWidth="960px">
-  <Tip>Gateways earn at the business layer. You control customer pricing while the protocol sets the network-side cost of routed work.</Tip>
+<CenteredContainer style={{ width: '90%' }}>
+  <Tip>Gateways are application service routers which earn at the business layer. The protocol controls what you pay orchestrators; you control what you charge customers. </Tip>
 </CenteredContainer>
 
-<CustomDivider middleText="Payment Flow" />
+<CustomDivider middleText="Payment Flow" style={{margin: "0 0 -1rem 0"}}/>
 
 ## Payments Flow
 
@@ -57,16 +79,16 @@ flowchart LR
 
 The payment chain:
 
-1. **End users pay the gateway** at the operator's application-layer rate
+1. **End users pay the gateway** at whatever rate the operator sets (business layer - not in the protocol)
 2. **The gateway pays orchestrators** via probabilistic micropayment tickets (ETH on Arbitrum)
 3. **Orchestrators pay their workers** (transcoders, AI runners) and redeem winning tickets on-chain
 4. **The gateway keeps the difference** between what customers pay and what orchestrators charge
 
-<CustomDivider middleText="Who Earns What" />
+<CustomDivider middleText="Who Earns What" style={{margin: "0 0 -1rem 0"}} />
 
 ## Gateway Earnings
 
-Gateway earnings come from business-layer margins. Gateways buy network services instead of earning protocol rewards.
+Gateways do not earn protocol rewards. They pay for services.
 
 <StyledTable variant="bordered">
   <thead>
@@ -100,7 +122,7 @@ Gateway earnings come from business-layer margins. Gateways buy network services
   </tbody>
 </StyledTable>
 
-<CustomDivider middleText="Gateway Costs" />
+<CustomDivider middleText="Gateway Costs" style={{margin: "0 0 -1rem 0"}} />
 
 ## Gateway Costs
 
@@ -135,7 +157,7 @@ Gateway costs are determined by the work you route and the orchestrator prices o
 
 ### Currency
 
-Gateways pay orchestrators in **ETH** on Arbitrum. LPT remains the staking, governance, and reward token for orchestrators and delegators.
+Gateways pay in **ETH** (on Arbitrum), not LPT. LPT is used for staking and governance by orchestrators - gateways never need LPT.
 
 <StyledTable variant="bordered">
   <thead>
@@ -161,19 +183,19 @@ Gateways pay orchestrators in **ETH** on Arbitrum. LPT remains the staking, gove
 
 ETH handles service payments while LPT handles protocol governance and staking. This keeps service costs denominated in a stable currency while LPT serves its governance function.
 
-<CustomDivider middleText="Why Run a Gateway" />
+<CustomDivider middleText="Why Run a Gateway" style={{margin: "0 0 -1rem 0"}}/>
 
 ## Gateway Operator Models
 
-Four operator models show how gateways earn at the **business layer**:
+Gateways earn at the **business layer**, not the protocol layer. Four operator models demonstrate why:
 
 <AccordionGroup>
   <Accordion title="Self-hosted gateway (cost savings)" icon="server">
-    Running your own gateway removes a third-party routing fee. If you are already building an application on Livepeer, self-hosting keeps that margin inside your stack.
+    Running your own gateway means you do not pay a fee to route through another party's gateway. If you are already building an application on Livepeer, self-hosting eliminates the middleman markup.
 
     **Who:** App developers scaling past hosted APIs (Daydream, Livepeer.Cloud)
 
-    **Revenue model:** Cost reduction. You keep the margin that a third-party gateway would otherwise charge.
+    **Revenue model:** Cost reduction, not direct revenue. You save the margin that a third-party gateway would charge.
   </Accordion>
   <Accordion title="Service provider (arbitrage)" icon="store">
     Charge end users more than you pay orchestrators. The difference is your margin. This is the classic gateway business model.
@@ -194,11 +216,11 @@ Four operator models show how gateways earn at the **business layer**:
 
     **Who:** Streaming platforms, media companies, live event producers
 
-    **Revenue model:** The gateway supports the core business through stronger SLA control and workload routing.
+    **Revenue model:** The gateway is a cost centre that enables the core business (streaming, content delivery).
   </Accordion>
 </AccordionGroup>
 
-<CustomDivider middleText="Fee Structure" />
+<CustomDivider middleText="Fee Structure" style={{margin: "0 0 -1rem 0"}}/>
 
 ## Pricing and Fees
 
@@ -208,7 +230,7 @@ As a gateway operator, you set pricing at two levels:
 
 You control your maximum cost per job using CLI flags:
 
-```bash icon="terminal" title="gateway cost limits"
+```bash icon="terminal"
 # Maximum you'll pay per pixel for transcoding
 -maxPricePerUnit=1000
 
@@ -226,7 +248,7 @@ Your fees to end users are set entirely at the application layer, outside the Li
 2. **Usage-based pricing** - charge per minute of video or per AI generation
 3. **Subscription models** - monthly fees for access to your gateway services
 
-```go icon="terminal" title="application pricing example"
+```go icon="terminal"
 // Your application code (not in Livepeer protocol)
 func calculateUserPrice(requestType string, pixels int64) float64 {
     basePrice := getYourBusinessPrice(requestType)
@@ -241,7 +263,7 @@ func calculateUserPrice(requestType string, pixels int64) float64 {
 
 Use the CLI to discover current orchestrator market rates:
 
-```bash icon="terminal" title="livepeer_cli price discovery"
+```bash icon="terminal"
 livepeer_cli
 # Select "Set broadcast config" to see current market rates
 # Then set your max prices accordingly
@@ -249,7 +271,7 @@ livepeer_cli
 
 Your margin = what customers pay you - what you pay orchestrators.
 
-<CustomDivider middleText="Case Studies" />
+<CustomDivider middleText="Case Studies" style={{margin: "0 0 -1rem 0"}}/>
 
 ## Production Gateways
 
@@ -259,7 +281,7 @@ Your margin = what customers pay you - what you pay orchestrators.
 
 Both demonstrate the arbitrage model: the gateway sits between application demand and network supply, adding value through routing quality, developer experience, and service reliability.
 
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
 ## Related Pages
 

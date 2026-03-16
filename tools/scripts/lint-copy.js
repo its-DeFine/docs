@@ -126,11 +126,23 @@ function getFiles() {
   return [];
 }
 
+function replacePreservingNewlines(content, regex, token) {
+  return String(content || '').replace(regex, (match) => {
+    const newlineCount = (match.match(/\n/g) || []).length;
+    return token + '\n'.repeat(newlineCount);
+  });
+}
+
 function stripCodeAndComments(content) {
-  return content
-    .replace(/```[\s\S]*?```/g, '[CODE_BLOCK]')
-    .replace(/`[^`]+`/g, '[INLINE_CODE]')
-    .replace(/\{\/\*[\s\S]*?\*\/\}/g, '[JSX_COMMENT]');
+  const withoutCodeBlocks = replacePreservingNewlines(content, /```[\s\S]*?```/g, '[CODE_BLOCK]');
+  const withoutInlineCode = withoutCodeBlocks.replace(/`[^`]+`/g, '[INLINE_CODE]');
+  const withoutJsxComments = replacePreservingNewlines(withoutInlineCode, /\{\/\*[\s\S]*?\*\/\}/g, '[JSX_COMMENT]');
+  const withoutMarkdownComments = replacePreservingNewlines(
+    withoutJsxComments,
+    /\[\/\/\]:\s*#\s*\([\s\S]*?\)/g,
+    '[MD_COMMENT]'
+  );
+  return replacePreservingNewlines(withoutMarkdownComments, /<!--[\s\S]*?-->/g, '[HTML_COMMENT]');
 }
 
 function getLines(content) {
@@ -180,7 +192,7 @@ function checkBannedWords(content, filePath, options = {}) {
     }
     const cleanLine = stripped[index];
     BANNED_WORDS.forEach((word) => {
-      const regex = new RegExp(`\\b${word}\\b`, 'i');
+      const regex = new RegExp(`(?<!-)\\b${word}\\b(?!-)`, 'i');
       if (regex.test(cleanLine)) {
         errors.push({
           tier: 1,

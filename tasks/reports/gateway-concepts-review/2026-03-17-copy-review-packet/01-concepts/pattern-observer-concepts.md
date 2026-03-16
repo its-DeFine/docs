@@ -3,7 +3,7 @@
 **Date:** 2026-03-16
 **Files scanned:** 4
 
----
+<CustomDivider />
 
 ## Pattern Frequency
 
@@ -16,7 +16,7 @@
 | THIS_PAGE_VERB | 1 | 1 | 3 | None |
 | RATHER_THAN | 1 | 1 | 4 | None |
 
----
+<CustomDivider />
 
 ## L7 Diagnostic Output
 
@@ -31,7 +31,7 @@
 **Triggering patterns:**
 - **CONDITIONAL_IF** (7 occurrences): Conditionals cluster around sections serving multiple undefined personas simultaneously.
 
----
+<CustomDivider />
 
 ## Affected Files by Pattern
 
