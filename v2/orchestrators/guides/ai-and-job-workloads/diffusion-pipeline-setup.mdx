@@ -1,6 +1,6 @@
 ---
-title: Batch AI Setup
-sidebarTitle: Batch AI Setup
+title: Diffusion Pipeline Setup
+sidebarTitle: Diffusion Setup
 description: >-
   Complete operator guide for running batch AI inference pipelines on a Livepeer
   orchestrator — aiModels.json configuration, all supported pipeline types,
@@ -533,7 +533,7 @@ Gateways track orchestrator latency. Nodes with consistently fast first-response
   </TableRow>
 </StyledTable>
 
-A 24 GB GPU can hold one large diffusion model warm, or a combination of smaller pipelines simultaneously. See [Model Hosting and VRAM Planning](/v2/orchestrators/guides/workloads-and-ai/model-vram-reference) for multi-model patterns.
+A 24 GB GPU can hold one large diffusion model warm, or a combination of smaller pipelines simultaneously. See [Model Hosting and VRAM Planning](/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference) for multi-model patterns.
 
 <CustomDivider />
 
@@ -652,7 +652,7 @@ Common uses:
 - K8s clusters or GPU farms behind a load balancer
 - Auto-scaling stacks (Docker Swarm, Nomad, Podman)
 
-For building and registering custom containers, see [Hosting Models (BYOC)](/v2/orchestrators/guides/advanced-operations/large-scale-operations). {/* REVIEW: confirm path */}
+For building and registering custom containers, see [Hosting Models (BYOC)](/v2/orchestrators/guides/advanced-operations/scale-operations). {/* REVIEW: confirm path */}
 
 <CustomDivider />
 
@@ -872,13 +872,13 @@ When configuring `aiModels.json`, two external references are authoritative:
   <Card title="Orchestrator Offerings Reference" icon="tower-broadcast" href="/v2/gateways/resources/technical/orchestrator-offerings">
     How gateways discover orchestrators and evaluate capability/pricing — the selection algorithm that determines whether your node receives jobs.
   </Card>
-  <Card title="Model Hosting and VRAM Planning" icon="microchip" href="/v2/orchestrators/guides/workloads-and-ai/model-vram-reference">
+  <Card title="Model Hosting and VRAM Planning" icon="microchip" href="/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference">
     VRAM table by pipeline, warm model strategy, and multi-GPU configuration.
   </Card>
-  <Card title="Real-time AI Setup" icon="bolt" href="/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup">
+  <Card title="Real-time AI Setup" icon="bolt" href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup">
     Deploy live-video-to-video pipelines for real-time streaming AI effects.
   </Card>
-  <Card title="AI Workloads Overview" icon="diagram-project" href="/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide">
+  <Card title="AI Workloads Overview" icon="diagram-project" href="/v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations">
     Pipeline types, batch vs real-time, and how jobs flow to your node.
   </Card>
 </CardGroup>

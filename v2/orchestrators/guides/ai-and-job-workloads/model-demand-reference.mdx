@@ -1,6 +1,6 @@
 ---
-title: Models and VRAM Planning
-sidebarTitle: Models and VRAM
+title: Model and Demand Reference
+sidebarTitle: Model Reference
 description: >-
   Operator reference for GPU memory planning on Livepeer — VRAM requirements by
   pipeline, warm model strategy, multi-GPU configuration, aiModels.json complete
@@ -599,7 +599,7 @@ These figures are approximate and shift with ETH/USD rates and network competiti
 
 A fully utilised RTX 4090 running `text-to-image` at competitive pricing and warm load can generate meaningful fee revenue, but actual earnings depend heavily on: network demand at the time, your position in the active set, and gateway routing preferences.
 
-For an economics illustration with current network utilisation figures, see [Orchestrator Economics](/v2/orchestrators/concepts/rcs-incentives).
+For an economics illustration with current network utilisation figures, see [Orchestrator Economics](/v2/orchestrators/concepts/incentive-model).
 
 <CustomDivider />
 
@@ -613,23 +613,23 @@ BYOC use cases:
 - Custom inference architectures (TensorRT, ONNX, OpenVINO)
 - Models hosted in K8s or a GPU farm behind a load balancer
 
-The only requirement is the `/health` endpoint contract and matching the AI worker's request format. See [Hosting Models (BYOC)](/v2/orchestrators/guides/advanced-operations/large-scale-operations) for the full BYOC guide.
+The only requirement is the `/health` endpoint contract and matching the AI worker's request format. See [Hosting Models (BYOC)](/v2/orchestrators/guides/advanced-operations/scale-operations) for the full BYOC guide.
 
 <CustomDivider />
 
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Batch AI Setup" icon="gears" href="/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup">
+  <Card title="Batch AI Setup" icon="gears" href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup">
     Complete aiModels.json setup guide, Ollama LLM runner deployment, and pipeline configuration.
   </Card>
-  <Card title="Real-time AI Setup" icon="bolt" href="/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup">
+  <Card title="Real-time AI Setup" icon="bolt" href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup">
     Cascade architecture, ComfyStream, and live-video-to-video pipeline deployment.
   </Card>
   <Card title="Hardware Requirements" icon="server" href="/v2/orchestrators/setup/rcs-requirements">
     Full hardware requirements for transcoding and AI workloads.
   </Card>
-  <Card title="Hosting Models (BYOC)" icon="box" href="/v2/orchestrators/guides/advanced-operations/large-scale-operations">
+  <Card title="Hosting Models (BYOC)" icon="box" href="/v2/orchestrators/guides/advanced-operations/scale-operations">
     Custom model hosting and external container integration.
   </Card>
 </CardGroup>

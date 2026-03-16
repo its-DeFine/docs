@@ -1,6 +1,6 @@
 ---
-title: Fleet Operations
-sidebarTitle: Fleet Operations
+title: Scale Operations
+sidebarTitle: Scale Operations
 description: >-
   Architectural patterns for running multiple Livepeer orchestrator nodes at
   data-centre scale — multi-orchestrator setup, capacity management, rolling
@@ -119,7 +119,7 @@ graph TD
   </TableRow>
 </StyledTable>
 
-This pattern is architecturally similar to the [Siphon split setup](/v2/orchestrators/guides/setup-paths/siphon-setup) — the principle of separating reward calling from workload processing is the same, but implemented entirely within go-livepeer rather than using OrchestratorSiphon.
+This pattern is architecturally similar to the [Siphon split setup](/v2/orchestrators/guides/deployment-details/siphon-setup) — the principle of separating reward calling from workload processing is the same, but implemented entirely within go-livepeer rather than using OrchestratorSiphon.
 
 <Card title="doc/multi-o.md — go-livepeer" icon="github" href="https://github.com/livepeer/go-livepeer/blob/master/doc/multi-o.md">
   The canonical multi-orchestrator architecture documentation in the go-livepeer repository.
@@ -238,16 +238,16 @@ The SPE (Special Purpose Entity) programme is the primary pathway for profession
 <CustomDivider />
 
 <CardGroup cols={2}>
-  <Card title="Run a Pool" icon="server" href="/v2/orchestrators/guides/advanced-operations/run-a-pool">
+  <Card title="Run a Pool" icon="server" href="/v2/orchestrators/guides/advanced-operations/pool-operators">
     Pool operations — accepting worker connections and managing off-chain payouts.
   </Card>
-  <Card title="Split O-T Setup" icon="plug" href="/v2/orchestrators/guides/setup-paths/siphon-setup">
+  <Card title="Split O-T Setup" icon="plug" href="/v2/orchestrators/guides/deployment-details/siphon-setup">
     The foundational split between orchestrator and transcoder processes.
   </Card>
-  <Card title="Siphon Setup" icon="shield-check" href="/v2/orchestrators/guides/setup-paths/siphon-setup">
+  <Card title="Siphon Setup" icon="shield-check" href="/v2/orchestrators/guides/deployment-details/siphon-setup">
     The reward-safe split setup using OrchestratorSiphon.
   </Card>
-  <Card title="Metrics and Monitoring" icon="gauge" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring">
+  <Card title="Metrics and Monitoring" icon="gauge" href="/v2/orchestrators/guides/monitoring-and-tooling/metrics-and-alerting">
     Scaling Prometheus monitoring to a multi-node fleet.
   </Card>
 </CardGroup>

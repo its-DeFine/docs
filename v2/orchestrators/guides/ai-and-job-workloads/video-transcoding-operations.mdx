@@ -1,5 +1,5 @@
 ---
-title: Video Transcoding
+title: Video Transcoding Operations
 sidebarTitle: Video Transcoding
 description: >-
   Configure video transcoding on your Livepeer orchestrator — wei and
@@ -61,7 +61,7 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
-This guide covers the operator-side configuration for video transcoding — how to set your price, how to calculate a safe session limit, how NVENC hardware caps affect concurrency, and what the standard output rendition profiles look like. For hardware benchmarking, see the dedicated [Benchmarking Guide](/v2/orchestrators/guides/feasibility-and-hardware/benchmarking).
+This guide covers the operator-side configuration for video transcoding — how to set your price, how to calculate a safe session limit, how NVENC hardware caps affect concurrency, and what the standard output rendition profiles look like. For hardware benchmarking, see the dedicated [Benchmarking Guide](/v2/orchestrators/guides/config-and-optimisation/capacity-planning).
 
 <CustomDivider />
 
@@ -289,7 +289,7 @@ In this example, your hardware limit is 4 sessions for this GPU.
 
 **Multi-GPU:** Benchmark one GPU, then multiply by the number of identical GPUs. For different GPU models, benchmark each separately.
 
-For the full benchmarking walkthrough including test stream download and CSV output analysis, see [Benchmarking](/v2/orchestrators/guides/feasibility-and-hardware/benchmarking).
+For the full benchmarking walkthrough including test stream download and CSV output analysis, see [Benchmarking](/v2/orchestrators/guides/config-and-optimisation/capacity-planning).
 
 ### Calculating bandwidth capacity
 
@@ -468,16 +468,16 @@ The auto-adjustment mechanism is there precisely for Arbitrum gas spikes. Disabl
 <CustomDivider />
 
 <CardGroup cols={2}>
-  <Card title="Benchmarking Guide" icon="gauge-high" href="/v2/orchestrators/guides/feasibility-and-hardware/benchmarking">
+  <Card title="Benchmarking Guide" icon="gauge-high" href="/v2/orchestrators/guides/config-and-optimisation/capacity-planning">
     Full livepeer_bench walkthrough — test stream download, concurrent session sweep, CSV output analysis.
   </Card>
-  <Card title="Session Limits" icon="sliders" href="/v2/orchestrators/guides/feasibility-and-hardware/session-limits">
+  <Card title="Session Limits" icon="sliders" href="/v2/orchestrators/guides/config-and-optimisation/capacity-planning">
     Detailed bandwidth and hardware capacity methodology with worked examples.
   </Card>
-  <Card title="Job Types Overview" icon="list" href="/v2/orchestrators/guides/workloads-and-ai/job-types">
+  <Card title="Job Types Overview" icon="list" href="/v2/orchestrators/guides/ai-and-job-workloads/workload-options">
     How transcoding routing compares to AI workload routing.
   </Card>
-  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/troubleshooting">
+  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/orchestrators/guides/monitoring-and-tooling/troubleshooting">
     OrchestratorCapped, NVENC memory errors, and pricing-related diagnostics.
   </Card>
 </CardGroup>

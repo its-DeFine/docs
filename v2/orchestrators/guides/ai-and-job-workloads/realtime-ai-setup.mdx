@@ -545,16 +545,16 @@ This confirms CUDA is accessible inside the container.
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Batch AI Setup" icon="gears" href="/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup">
+  <Card title="Batch AI Setup" icon="gears" href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup">
     Configure text-to-image, audio-to-text, LLM, and other batch pipelines.
   </Card>
-  <Card title="Model Hosting and VRAM" icon="microchip" href="/v2/orchestrators/guides/workloads-and-ai/model-vram-reference">
+  <Card title="Model Hosting and VRAM" icon="microchip" href="/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference">
     VRAM planning, warm model strategy, and aiModels.json reference.
   </Card>
   <Card title="ComfyStream on GitHub" icon="github" href="https://github.com/livepeer/comfystream">
     Source repository for ComfyStream, including setup scripts, example workflows, and community contributions.
   </Card>
-  <Card title="AI Workloads Overview" icon="diagram-project" href="/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide">
+  <Card title="AI Workloads Overview" icon="diagram-project" href="/v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations">
     Batch vs real-time, pipeline types, and network routing.
   </Card>
 </CardGroup>
@@ -565,7 +565,7 @@ This confirms CUDA is accessible inside the container.
   continuous frame-by-frame transformation of live video streams, not
   request/response. WebRTC input/output. ComfyStream workflow engine. VRAM: 24GB
   recommended. -livePaymentInterval for ongoing payment during stream. Latency
-  requirements (<100ms per frame). Testing with live streams. Highest-value
+  requirements (&lt;100ms per frame). Testing with live streams. Highest-value
   compute on the network per GPU-second.
 
   PLAN TARGET: realtime-ai-setup (keep)

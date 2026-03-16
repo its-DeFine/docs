@@ -90,7 +90,7 @@ Errors are grouped by category. Use the index below to jump straight to what you
 3. If you are already at GPU VRAM limits, you cannot safely increase sessions — you need to reduce the model size, reduce output dimensions, or add GPU capacity
 4. If you are running a split setup, verify the transcoder machine (not just the orchestrator) has capacity headroom
 
-See [Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-limits) for the full calculation methodology.
+See [Session Limits](/v2/orchestrators/guides/config-and-optimisation/capacity-planning) for the full calculation methodology.
 </Accordion>
 
 <Accordion  title="Transcode loop timed out / Segment loop timed out" icon="video">
@@ -149,7 +149,7 @@ See [Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-l
 3. If you have multiple warm models loaded, consider making some cold (remove from warm list) to free VRAM for others
 4. Check whether you have set dimensions in your inference requests that exceed what your VRAM can handle
 
-See [Model VRAM Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference#batch-ai-inference) for per-pipeline minimums.
+See [Model VRAM Reference](/v2/orchestrators/guides/operator-considerations/requirements#batch-ai-inference) for per-pipeline minimums.
 </Accordion>
 
 <Accordion  title="Node not using GPU for transcoding despite -nvidia flag" icon="server">
@@ -203,7 +203,7 @@ Arbitrum gas is very cheap — reward calls cost approximately $0.01–$0.12 eac
 2. **Node was offline** — if your node was down at the round boundary (~every 22 hours on Arbitrum), the call was not made. Check your systemd/service uptime logs.
 3. **Multiple processes competing** — if you have two go-livepeer processes with the same wallet, one may be submitting a failing duplicate.
 
-For persistent missed rounds, consider the [Siphon split setup](/v2/orchestrators/guides/setup-paths/siphon-setup) which runs reward calling on a dedicated stable machine independently of your GPU workload.
+For persistent missed rounds, consider the [Siphon split setup](/v2/orchestrators/guides/deployment-details/siphon-setup) which runs reward calling on a dedicated stable machine independently of your GPU workload.
 </Accordion>
 
 <Accordion  title="TicketParams expired" icon="circle-question">
@@ -244,7 +244,7 @@ For persistent missed rounds, consider the [Siphon split setup](/v2/orchestrator
   <TableRow>
     <TableCell>NVIDIA Container Toolkit missing</TableCell>
     <TableCell>`docker run --gpus all nvidia/cuda:11.0-base nvidia-smi` fails</TableCell>
-    <TableCell>Install `nvidia-container-toolkit` — see [Hardware Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference#driver-requirements)</TableCell>
+    <TableCell>Install `nvidia-container-toolkit` — see [Hardware Reference](/v2/orchestrators/guides/operator-considerations/requirements#driver-requirements)</TableCell>
   </TableRow>
   <TableRow>
     <TableCell>Docker not in GPU mode</TableCell>
@@ -292,7 +292,7 @@ Ollama-based LLM models use a different format — do not use Ollama model tags 
 3. The container has sufficient VRAM for the workflow — real-time streaming requires the model to remain resident during the stream
 4. Check container logs for the specific Python exception: `docker logs -f <comfystream-container>`
 
-See [Real-Time AI Setup](/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup#troubleshooting) for ComfyStream-specific troubleshooting.
+See [Real-Time AI Setup](/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup#troubleshooting) for ComfyStream-specific troubleshooting.
 </Accordion>
 
 <Accordion  title="LLM pipeline (Ollama) not receiving jobs" icon="microchip">
@@ -459,10 +459,10 @@ curl http://localhost:7935/metrics
   <Card title="go-livepeer GitHub Issues" icon="github" href="https://github.com/livepeer/go-livepeer/issues">
     Search open and closed issues for your error message. Many edge cases are documented here.
   </Card>
-  <Card title="Metrics and Monitoring" icon="gauge" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring">
+  <Card title="Metrics and Monitoring" icon="gauge" href="/v2/orchestrators/guides/monitoring-and-tooling/metrics-and-alerting">
     Set up Prometheus to see what is happening inside your node before errors surface.
   </Card>
-  <Card title="Explorer Guide" icon="compass" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/explorer-guide">
+  <Card title="Explorer Guide" icon="compass" href="/v2/orchestrators/guides/monitoring-and-tooling/explorer-operations">
     Read your on-chain state — stake, reward calls, earnings — to spot issues from the outside.
   </Card>
 </CardGroup>

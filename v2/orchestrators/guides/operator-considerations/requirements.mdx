@@ -189,7 +189,7 @@ Not competitive at scale.
 ### Batch AI inference
 
 AI inference requires VRAM. Full pipeline-by-pipeline VRAM figures are in
-<LinkArrow href="/v2/orchestrators/guides/workloads-and-ai/model-vram-reference" label="Models and VRAM Reference" newline={false} />.
+<LinkArrow href="/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference" label="Models and VRAM Reference" newline={false} />.
 
 <StyledTable variant="bordered">
   <thead>
@@ -228,7 +228,7 @@ Real-time video AI has stricter requirements than batch AI:
 - **Additional requirements:** fast PCIe bandwidth; low-latency memory
 
 Real-time pipelines require models warm at all times. A cold start during an active stream causes
-visible interruption. See <LinkArrow href="/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup" label="Realtime AI Setup" newline={false} /> for full runtime requirements.
+visible interruption. See <LinkArrow href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup" label="Realtime AI Setup" newline={false} /> for full runtime requirements.
 
 <CustomDivider middleText="System Stack" style={{margin: "-1rem 0 -2rem 0"}} />
 
@@ -364,7 +364,7 @@ threshold leaves 20% headroom for upload/download overhead and transient spikes.
 
 {/* REVIEW: 0.8 is a community convention, not a go-livepeer hard limit. Confirm with Discord #orchestrators. */}
 
-Take this number to <LinkArrow href="/v2/orchestrators/setup/r-configure" label="Configure" newline={false} /> and set it as the input for the `-maxSessions` calculation.
+Take this number to <LinkArrow href="/v2/orchestrators/setup/configure" label="Configure" newline={false} /> and set it as the input for the `-maxSessions` calculation.
 
 <CustomDivider middleText="Pre-launch Checklist" style={{margin: "-1rem 0 -2rem 0"}} />
 
@@ -453,7 +453,7 @@ Take this number to <LinkArrow href="/v2/orchestrators/setup/r-configure" label=
 
     The Orchestrator wallet needs ETH on Arbitrum One before activation. Budget at least 0.01 ETH
     for the activation transaction and initial reward calls. See
-    <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards/payments" label="Payments" newline={false} /> for ongoing ETH requirements.
+    <LinkArrow href="/v2/orchestrators/guides/payments-and-pricing/payment-receipts" label="Payments" newline={false} /> for ongoing ETH requirements.
 
   </StyledStep>
 
@@ -464,10 +464,10 @@ Take this number to <LinkArrow href="/v2/orchestrators/setup/r-configure" label=
 ## Related Pages
 
 <CardGroup cols={2}>
-  <Card title="Configure" icon="sliders" href="/v2/orchestrators/setup/r-configure" arrow horizontal>
+  <Card title="Configure" icon="sliders" href="/v2/orchestrators/setup/configure" arrow horizontal>
     Set `-maxSessions`, `-pricePerUnit`, `-nvidia`, and all other go-livepeer flags before activation.
   </Card>
-  <Card title="Models and VRAM Reference" icon="memory" href="/v2/orchestrators/guides/workloads-and-ai/model-vram-reference" arrow horizontal>
+  <Card title="Models and VRAM Reference" icon="memory" href="/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference" arrow horizontal>
     Full VRAM table by AI pipeline and model, warm strategy, and multi-GPU configuration.
   </Card>
   <Card title="Alternate Deployments" icon="diagram-project" href="/v2/orchestrators/guides/deployment-details/setup-options" arrow horizontal>

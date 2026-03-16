@@ -1,5 +1,5 @@
 ---
-title: 'Dual Mode Orchestrator Setup'
+title: 'Dual Mode Configuration'
 sidebarTitle: 'Dual Mode'
 description: >-
   Configure your orchestrator node to serve both video transcoding and AI
@@ -123,11 +123,11 @@ A video-only orchestrator and a Dual Mode orchestrator run the same go-livepeer 
 
 Confirm these prerequisites before starting:
 
-- **Hardware:** NVIDIA GPU with 16 GB VRAM or more. 8 GB is sufficient for LLM pipelines via the Ollama runner. Most diffusion model pipelines require 16 GB or more. See <LinkArrow href="/v2/orchestrators/setup/hardware-requirements" label="Hardware Requirements" /> for per-GPU capability guidance.
+- **Hardware:** NVIDIA GPU with 16 GB VRAM or more. 8 GB is sufficient for LLM pipelines via the Ollama runner. Most diffusion model pipelines require 16 GB or more. See <LinkArrow href="/v2/orchestrators/guides/operator-considerations/requirements" label="Hardware Requirements" /> for per-GPU capability guidance.
 - **OS:** Linux. The AI Runner container will not start on Windows or macOS.
 - **Docker and NVIDIA Container Toolkit:** Docker installed and the NVIDIA Container Toolkit configured so that `nvidia-smi` runs successfully inside a container.
 - **For video transcoding:** Your Arbitrum wallet is funded with ETH for gas, your node is activated via `livepeer_cli`, and you are staked with enough LPT to be eligible for the active set.
-- **AI model weights:** Model weights downloaded to your host machine before starting the AI Runner. See <LinkArrow href="/v2/orchestrators/advanced/ai-pipelines" label="AI Pipelines" /> for download instructions.
+- **AI model weights:** Model weights downloaded to your host machine before starting the AI Runner. See <LinkArrow href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup" label="AI Pipelines" /> for download instructions.
 
 <CustomDivider style={{margin: "0 0 -2rem 0"}} middleText="Setup" />
 
@@ -147,7 +147,7 @@ Select the path that matches your current state.
 
         Model weights must be present on the host machine before go-livepeer starts the AI Runner containers. Use the download script from the official AI runner image to pull your chosen model.
 
-        ```bash Terminal
+        ```bash icon="terminal" Terminal
         docker run --rm \
           -v ~/.lpData/models:/models \
           --gpus all \
@@ -155,7 +155,7 @@ Select the path that matches your current state.
           bash -c "PIPELINE=text-to-image MODEL_ID=ByteDance/SDXL-Lightning bash /app/dl_checkpoints.sh"
         ```
 
-        Replace `PIPELINE` and `MODEL_ID` with your chosen values. For all supported pipelines, model IDs, and VRAM requirements, see <LinkArrow href="/v2/orchestrators/advanced/ai-pipelines" label="AI Pipelines" />.
+        Replace `PIPELINE` and `MODEL_ID` with your chosen values. For all supported pipelines, model IDs, and VRAM requirements, see <LinkArrow href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup" label="AI Pipelines" />.
 
         {/* REVIEW: Confirm dl_checkpoints.sh command syntax is current against ai-runner latest release. j0sh / Rick to verify. */}
 
@@ -165,7 +165,7 @@ Select the path that matches your current state.
 
         Create `~/.lpData/aiModels.json` with at least one pipeline entry. Each entry declares a pipeline, model, price, and whether the model stays warm in VRAM between jobs.
 
-        ```json aiModels.json
+        ```json icon="terminal" aiModels.json
         [
           {
             "pipeline": "text-to-image",
@@ -178,7 +178,7 @@ Select the path that matches your current state.
 
         `price_per_unit` is denominated in wei. The value above is illustrative — check current per-pipeline market rates on <LinkArrow href="https://tools.livepeer.cloud/ai/network-capabilities" label="tools.livepeer.cloud" /> before setting your own.
 
-        To run multiple AI pipelines, add one entry per pipeline. To assign different pipelines to different GPUs, add separate entries referencing each GPU ID. The full `aiModels.json` schema is documented in <LinkArrow href="/v2/orchestrators/advanced/ai-pipelines" label="AI Pipelines" />.
+        To run multiple AI pipelines, add one entry per pipeline. To assign different pipelines to different GPUs, add separate entries referencing each GPU ID. The full `aiModels.json` schema is documented in <LinkArrow href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup" label="AI Pipelines" />.
 
         {/* REVIEW: Confirm that price_per_unit in wei is the correct denomination for text-to-image in the current release.
         LLM pipelines use a different format (USD + pixels_per_unit). Clarify in a pipeline-specific note once
@@ -190,7 +190,7 @@ Select the path that matches your current state.
 
         The command below starts a Dual Mode orchestrator. It combines the standard video transcoding flags with the three AI-specific additions.
 
-        ```bash Docker (recommended)
+        ```bash icon="terminal" Docker (recommended)
         docker run \
           --name livepeer_dual_orchestrator \
           -v ~/.lpData/:/root/.lpData/ \
@@ -230,7 +230,7 @@ Select the path that matches your current state.
 
         Run `livepeer_cli` to register as an orchestrator, set your reward cut and fee cut, and stake LPT. This step is required to receive video transcoding jobs. AI inference jobs route via capability advertisement only and do not require active-set membership.
 
-        ```bash Terminal
+        ```bash icon="terminal" Terminal
         livepeer_cli
         ```
 
@@ -252,7 +252,7 @@ Select the path that matches your current state.
 
         Pull model weights to your host machine before restarting the node. The AI Runner containers mount this directory at startup — weights must already be present.
 
-        ```bash Terminal
+        ```bash icon="terminal" Terminal
         docker run --rm \
           -v ~/.lpData/models:/models \
           --gpus all \
@@ -260,7 +260,7 @@ Select the path that matches your current state.
           bash -c "PIPELINE=text-to-image MODEL_ID=ByteDance/SDXL-Lightning bash /app/dl_checkpoints.sh"
         ```
 
-        Replace `PIPELINE` and `MODEL_ID` with your chosen values. Supported pipelines and model IDs are listed in <LinkArrow href="/v2/orchestrators/advanced/ai-pipelines" label="AI Pipelines" />.
+        Replace `PIPELINE` and `MODEL_ID` with your chosen values. Supported pipelines and model IDs are listed in <LinkArrow href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup" label="AI Pipelines" />.
 
       </StyledStep>
 
@@ -268,7 +268,7 @@ Select the path that matches your current state.
 
         Create `~/.lpData/aiModels.json` with your pipeline configuration. The same format applies whether you are running one pipeline or several.
 
-        ```json aiModels.json
+        ```json icon="terminal" aiModels.json
         [
           {
             "pipeline": "text-to-image",
@@ -287,7 +287,7 @@ Select the path that matches your current state.
 
         Add the three AI flags to your existing go-livepeer command. No other changes to your existing flags are required.
 
-        ```bash Docker
+        ```bash icon="terminal" Docker
         # Add to your existing start command:
           -aiWorker \
           -aiModels /root/.lpData/aiModels.json \
@@ -296,7 +296,7 @@ Select the path that matches your current state.
 
         Also mount the Docker socket if it is not already mounted — go-livepeer uses Docker-out-of-Docker to manage AI Runner containers:
 
-        ```bash Docker
+        ```bash icon="terminal" Docker
         # Add this volume mount if not already present:
           -v /var/run/docker.sock:/var/run/docker.sock \
         ```
@@ -319,7 +319,7 @@ After starting your node, confirm that both workload types are advertised to the
 
 **Check local capability registration:**
 
-```bash Terminal
+```bash icon="terminal" Terminal
 curl http://localhost:7935/getNetworkCapabilities | jq
 ```
 
@@ -331,7 +331,7 @@ Your node's capabilities — including which models are warm — are visible ext
 
 If AI pipelines do not appear externally within two to three minutes of startup, inspect the container logs:
 
-```bash Terminal
+```bash icon="terminal" Terminal
 docker logs livepeer_dual_orchestrator 2>&1 | grep -i "ai-runner\|container\|pipeline\|error"
 ```
 
@@ -395,13 +395,13 @@ once pricing data from Explorer is confirmed. Rick / Alison to provide current d
 ## Related Pages
 
 <CardGroup cols={2}>
-  <Card title="AI Pipelines" icon="robot" href="/v2/orchestrators/advanced/ai-pipelines" arrow horizontal>
+  <Card title="AI Pipelines" icon="robot" href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup" arrow horizontal>
     Full `aiModels.json` schema, per-pipeline VRAM requirements, model download commands, and warm model management.
   </Card>
-  <Card title="Gateway Relationships" icon="diagram-project" href="/v2/orchestrators/concepts/gateway-relationships" arrow horizontal>
+  <Card title="Gateway Relationships" icon="diagram-project" href="/v2/orchestrators/guides/advanced-operations/gateway-relationships" arrow horizontal>
     How gateways discover your capabilities and select your node for both video and AI jobs.
   </Card>
-  <Card title="Earnings and Pricing" icon="coins" href="/v2/orchestrators/advanced/earnings" arrow horizontal>
+  <Card title="Earnings and Pricing" icon="coins" href="/v2/orchestrators/guides/staking-and-rewards/earning-model" arrow horizontal>
     Setting competitive prices for video transcoding and AI inference to maximise job volume from both revenue streams.
   </Card>
   <Card title="Orchestrator FAQ" icon="circle-question" href="/v2/orchestrators/resources/faq" arrow horizontal>

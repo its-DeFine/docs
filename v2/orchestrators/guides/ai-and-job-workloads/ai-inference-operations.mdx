@@ -1,6 +1,6 @@
 ---
-title: AI Workloads on Livepeer
-sidebarTitle: AI Workloads
+title: AI Inference Operations
+sidebarTitle: AI Inference
 description: >-
   How AI inference works on the Livepeer network — pipeline types, the batch vs
   real-time distinction, hardware requirements, and how jobs flow from application
@@ -59,7 +59,7 @@ Livepeer's AI subnet launched in Q3 2024 and has grown to become the primary sou
 This page explains the fundamentals: what AI workloads are, how they reach your node, the key distinction between batch and real-time inference, and what hardware you need to participate.
 
 <Note>
-  **Already running a transcoding orchestrator?** AI pipelines run alongside your existing node using dedicated AI Runner containers. Your transcoding setup does not need to change. See [Batch AI Setup](/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup) for the operator path.
+  **Already running a transcoding orchestrator?** AI pipelines run alongside your existing node using dedicated AI Runner containers. Your transcoding setup does not need to change. See [Batch AI Setup](/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup) for the operator path.
 </Note>
 
 <CustomDivider />
@@ -118,7 +118,7 @@ Gateways discover orchestrators through the `OrchestratorInfo` structure, which 
 
 **The price filter is a hard gate.** Gateways configure a maximum price they will pay per capability using the `-maxPricePerCapability` JSON flag. If your advertised price for a pipeline exceeds the gateway's maximum, you will not receive jobs from that gateway for that pipeline, regardless of how capable your hardware is.
 
-Before setting prices in `aiModels.json`, check what prices the major gateways are using. See [Models and VRAM Reference](/v2/orchestrators/guides/workloads-and-ai/model-vram-reference) for a pricing reference table and [Gateway Orchestrator Offerings](/v2/gateways/resources/technical/orchestrator-offerings) for the full capability discovery protocol documentation.
+Before setting prices in `aiModels.json`, check what prices the major gateways are using. See [Models and VRAM Reference](/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference) for a pricing reference table and [Gateway Orchestrator Offerings](/v2/gateways/resources/technical/orchestrator-offerings) for the full capability discovery protocol documentation.
 
 For the complete list of supported pipelines and their model architectures, see [AI Model Support](/v2/developers/concepts/ai-on-livepeer) in the Developers section.
 
@@ -129,10 +129,10 @@ For the complete list of supported pipelines and their model architectures, see 
 The most important distinction for operators is between **batch AI** and **real-time AI**. These are different job types with different hardware profiles, different runtime architectures, and different operational characteristics.
 
 <CardGroup cols={2}>
-  <Card title="Batch AI" icon="layer-group" href="/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup">
+  <Card title="Batch AI" icon="layer-group" href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup">
     Request-response inference. An application sends a prompt or media file, your node processes it and returns the result. Includes text-to-image, audio-to-text, image-to-video, LLM completions, and more.
   </Card>
-  <Card title="Real-time AI (Cascade)" icon="video" href="/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup">
+  <Card title="Real-time AI (Cascade)" icon="video" href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup">
     Continuous frame-by-frame video transformation. Live video streams in, processed video streams out with sub-100ms latency. Used for live AI effects, generative video overlays, and streaming AI agents.
   </Card>
 </CardGroup>
@@ -273,7 +273,7 @@ OpenAI-compatible text completion endpoint backed by an Ollama-based runner. Run
 **Recommended model:** `meta-llama/Meta-Llama-3.1-8B-Instruct` (via Ollama)
 **Typical hardware:** GTX 1070 Ti, GTX 1080, RTX 2060
 
-The LLM pipeline uses a separate runner architecture from the standard `livepeer/ai-runner` image. See [Batch AI Setup](/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup) for the Ollama deployment guide.
+The LLM pipeline uses a separate runner architecture from the standard `livepeer/ai-runner` image. See [Batch AI Setup](/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup) for the Ollama deployment guide.
 
 **Source:** [Cloud SPE Ollama runner blog post](https://www.livepeer.cloud/self-hosting-livepeers-llm-pipeline-deploying-an-ollama-based-gpu-runner-for-ai-orchestrators/)
 </Accordion>
@@ -364,7 +364,7 @@ This pipeline powers the **Cascade** architecture — Livepeer's real-time AI vi
   </TableRow>
 </StyledTable>
 
-For detailed VRAM planning, warm model strategy, and multi-pipeline configuration, see [Model Hosting and VRAM Planning](/v2/orchestrators/guides/workloads-and-ai/model-vram-reference).
+For detailed VRAM planning, warm model strategy, and multi-pipeline configuration, see [Model Hosting and VRAM Planning](/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference).
 
 <CustomDivider />
 
@@ -435,16 +435,16 @@ The network capabilities tool shows all registered orchestrators and their adver
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Batch AI Setup" icon="gears" href="/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup">
+  <Card title="Batch AI Setup" icon="gears" href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup">
     Configure pipelines, aiModels.json, the Ollama LLM runner, and BYOC external containers.
   </Card>
-  <Card title="Real-time AI Setup" icon="bolt" href="/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup">
+  <Card title="Real-time AI Setup" icon="bolt" href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup">
     Deploy the live-video-to-video pipeline with ComfyStream for real-time AI effects.
   </Card>
-  <Card title="Model Hosting and VRAM" icon="microchip" href="/v2/orchestrators/guides/workloads-and-ai/model-vram-reference">
+  <Card title="Model Hosting and VRAM" icon="microchip" href="/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference">
     VRAM planning, warm model strategy, pricing, and aiModels.json reference.
   </Card>
-  <Card title="Batch AI Setup" icon="rocket" href="/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup">
+  <Card title="Batch AI Setup" icon="rocket" href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup">
     Upgrade path for existing transcoding orchestrators adding AI pipelines.
   </Card>
 </CardGroup>

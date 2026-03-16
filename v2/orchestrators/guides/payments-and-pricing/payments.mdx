@@ -231,7 +231,7 @@ AI inference is paid per inference job — one ticket per job request.
 - **Selection factor:** capability first, price second; stake weight is a secondary factor
 - **Typical fee level:** higher per-job than transcoding (GPU-intensive work)
 
-AI fees are configured in `aiModels.json` via the `price_per_unit` field. The pricing unit varies by pipeline — see [Model and VRAM Reference](/v2/orchestrators/guides/workloads-and-ai/model-vram-reference) for per-pipeline pricing units.
+AI fees are configured in `aiModels.json` via the `price_per_unit` field. The pricing unit varies by pipeline — see [Model and VRAM Reference](/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference) for per-pipeline pricing units.
 
 </Accordion>
 
@@ -315,7 +315,7 @@ If you hold ETH on Ethereum mainnet and need to move it to Arbitrum One:
 </StyledStep>
 
 <StyledStep title="Set up balance monitoring">
-  Add your orchestrator wallet address to a balance monitoring tool. Alert when balance drops below your threshold. Most operators use Prometheus + Grafana for this — see [Metrics and Monitoring](/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring).
+  Add your orchestrator wallet address to a balance monitoring tool. Alert when balance drops below your threshold. Most operators use Prometheus + Grafana for this — see [Metrics and Monitoring](/v2/orchestrators/guides/monitoring-and-tooling/metrics-and-alerting).
 </StyledStep>
 
 </StyledSteps>
@@ -353,17 +353,17 @@ The go-livepeer node exposes Prometheus metrics for payment activity. Key ones t
 
 A healthy node has `tickets_redeemed` tracking closely behind `tickets_received`, and zero sustained `redemption_errors`. Persistent errors with `redemption_errors > 0` usually indicate a depleted ETH balance or a connectivity issue with your Arbitrum RPC endpoint.
 
-For the complete Prometheus metric reference, see [Metrics and Monitoring](/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring).
+For the complete Prometheus metric reference, see [Metrics and Monitoring](/v2/orchestrators/guides/monitoring-and-tooling/metrics-and-alerting).
 
 <CustomDivider />
 
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Earnings Explained" icon="chart-line" href="/v2/orchestrators/guides/staking-and-rewards/earnings">
+  <Card title="Earnings Explained" icon="chart-line" href="/v2/orchestrators/guides/staking-and-rewards/earning-model">
     The full picture: both revenue streams, commission parameters, and what determines job wins.
   </Card>
-  <Card title="Rewards and Fees" icon="hand-holding-dollar" href="/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees">
+  <Card title="Rewards and Fees" icon="hand-holding-dollar" href="/v2/orchestrators/guides/staking-and-rewards/reward-mechanics">
     LPT reward calling, gas thresholds, and setting commission via livepeer_cli.
   </Card>
   <Card title="Payment Clearinghouses" icon="building-columns" href="/v2/gateways/guides/payments-and-pricing/clearinghouse-guide">

@@ -121,7 +121,7 @@ on hardware ownership, electricity cost, and time availability.
     needs an explicit amortisation model: at £800 for an RTX 4090 and £30/month earnings, the hardware
     break-even alone is over two years before electricity.
 
-    See <LinkArrow href="/v2/orchestrators/guides/deployment-details/requirements" label="Hardware Requirements" newline={false} /> for GPU tier specifications.
+    See <LinkArrow href="/v2/orchestrators/guides/operator-considerations/requirements" label="Hardware Requirements" newline={false} /> for GPU tier specifications.
 
   </Accordion>
   <Accordion title="LPT Stake" icon="coins">
@@ -246,7 +246,7 @@ Orchestrator's "Estimated Reward This Round." If that LPT value (converted to ET
 is less than approximately 0.00005 ETH, the gas cost exceeds the reward at typical Arbitrum rates.
 In that case, start with manual reward calling until stake grows.
 
-This threshold shifts with LPT price, ETH price, and inflation rate. See <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees" label="Rewards and Fees" newline={false} /> for the detailed calculation methodology.
+This threshold shifts with LPT price, ETH price, and inflation rate. See <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards/reward-mechanics" label="Rewards and Fees" newline={false} /> for the detailed calculation methodology.
 
 ### 2. Can the node compete on pricing and capability?
 
@@ -423,13 +423,13 @@ Check these before setting up a node:
 ## Related Pages
 
 <CardGroup cols={2}>
-  <Card title="Hardware Requirements" icon="microchip" href="/v2/orchestrators/guides/deployment-details/requirements" arrow horizontal>
+  <Card title="Hardware Requirements" icon="microchip" href="/v2/orchestrators/guides/operator-considerations/requirements" arrow horizontal>
     GPU tiers, NVENC session limits, VRAM requirements per AI pipeline, and production hardware checklist.
   </Card>
   <Card title="The Commercial Case" icon="building" href="/v2/orchestrators/guides/operator-considerations/business-case" arrow horizontal>
     What commercial Orchestrator operation looks like - service fees, SLAs, and serving application workloads.
   </Card>
-  <Card title="Earnings Explained" icon="chart-line" href="/v2/orchestrators/guides/staking-and-rewards/earnings" arrow horizontal>
+  <Card title="Earnings Explained" icon="chart-line" href="/v2/orchestrators/guides/staking-and-rewards/earning-model" arrow horizontal>
     Full mechanics of how ETH fees and LPT rewards flow, including reward call thresholds.
   </Card>
   <Card title="Navigator" icon="compass" href="/v2/orchestrators/navigator" arrow horizontal>

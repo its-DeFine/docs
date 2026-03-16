@@ -1,6 +1,6 @@
 ---
-title: Job Types Overview
-sidebarTitle: Job Types
+title: Workload Options
+sidebarTitle: Workload Options
 description: >-
   The four job types an orchestrator can process — transcoding, batch AI
   inference, real-time AI (Cascade), and LLM inference — with hardware
@@ -139,7 +139,7 @@ Transcoding has been the Livepeer network's core workload since 2017. When a bro
 
 Sessions can run for hours. Your node processes dozens or hundreds of segments per active stream. GPU-accelerated transcoding via NVIDIA hardware is strongly recommended — CPU transcoding is viable but rarely cost-competitive at current network prices.
 
-<Card title="Video Transcoding Guide" icon="film" href="/v2/orchestrators/guides/workloads-and-ai/video-transcoding">
+<Card title="Video Transcoding Guide" icon="film" href="/v2/orchestrators/guides/ai-and-job-workloads/video-transcoding-operations">
   Pricing configuration (wei and USD), session limits, NVENC caps, output rendition profiles, and benchmarking your setup.
 </Card>
 
@@ -204,13 +204,13 @@ The AI Subnet launched in Q3 2024, adding single-request inference as a job cate
   </TableRow>
 </StyledTable>
 
-For warm model recommendations and per-pipeline pricing guidance, see [AI Pipelines](/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide) and the [Model and VRAM Reference](/v2/orchestrators/guides/workloads-and-ai/model-vram-reference).
+For warm model recommendations and per-pipeline pricing guidance, see [AI Pipelines](/v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations) and the [Model and VRAM Reference](/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference).
 
 <CardGroup cols={2}>
-  <Card title="Batch AI Setup" icon="robot" href="/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup">
+  <Card title="Batch AI Setup" icon="robot" href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup">
     Install and configure the ai-runner container, aiModels.json, warm models, and pipeline pricing.
   </Card>
-  <Card title="Model and VRAM Reference" icon="table" href="/v2/orchestrators/guides/workloads-and-ai/model-vram-reference">
+  <Card title="Model and VRAM Reference" icon="table" href="/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference">
     Per-pipeline VRAM requirements, recommended models, and pricing benchmarks.
   </Card>
 </CardGroup>
@@ -227,7 +227,7 @@ The latency constraint is what separates this from batch inference: a 30 fps vid
 
 Current use cases on the network include live avatar generation, style transfer overlays, real-time video agents, and AI-enhanced scene analysis.
 
-<Card title="Real-time AI Setup" icon="video" href="/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup">
+<Card title="Real-time AI Setup" icon="video" href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup">
   ComfyStream setup, workflow configuration, latency requirements, and troubleshooting.
 </Card>
 
@@ -281,7 +281,7 @@ You can run the full suite:
 - **Real-time AI (Cascade)** — most ComfyStream workflows fit; latency-optimised workloads are feasible
 - **LLM inference** — 13B quantised models comfortably; 70B quantised models require multiple cards
 
-Strategy: warm your highest-fee pipeline (`text-to-image` is typically the most sought-after), cold the rest. See [Model and VRAM Reference](/v2/orchestrators/guides/workloads-and-ai/model-vram-reference) for per-pipeline earnings guidance.
+Strategy: warm your highest-fee pipeline (`text-to-image` is typically the most sought-after), cold the rest. See [Model and VRAM Reference](/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference) for per-pipeline earnings guidance.
 </Accordion>
 
 <Accordion  title="Multiple GPUs or data-centre class" icon="server">
@@ -290,7 +290,7 @@ Strategy: warm your highest-fee pipeline (`text-to-image` is typically the most 
 - Fleet operations for multi-machine deployments
 - Cascade becomes highly competitive with dedicated GPU per stream
 
-See [Run a Pool](/v2/orchestrators/guides/advanced-operations/run-a-pool) and [Fleet Operations](/v2/orchestrators/guides/advanced-operations/large-scale-operations).
+See [Run a Pool](/v2/orchestrators/guides/advanced-operations/pool-operators) and [Fleet Operations](/v2/orchestrators/guides/advanced-operations/scale-operations).
 </Accordion>
 
 </AccordionGroup>
@@ -300,16 +300,16 @@ See [Run a Pool](/v2/orchestrators/guides/advanced-operations/run-a-pool) and [F
 ## Setup guides
 
 <CardGroup cols={2}>
-  <Card title="Video Transcoding" icon="film" href="/v2/orchestrators/guides/workloads-and-ai/video-transcoding">
+  <Card title="Video Transcoding" icon="film" href="/v2/orchestrators/guides/ai-and-job-workloads/video-transcoding-operations">
     Configure pricing, session limits, and NVENC settings for transcoding.
   </Card>
-  <Card title="AI Workloads Overview" icon="robot" href="/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide">
+  <Card title="AI Workloads Overview" icon="robot" href="/v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations">
     Pipeline overview, aiModels.json, warm model strategy.
   </Card>
-  <Card title="Batch AI Setup" icon="layer-group" href="/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup">
+  <Card title="Batch AI Setup" icon="layer-group" href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup">
     Install the ai-runner and configure your first AI pipeline.
   </Card>
-  <Card title="Real-time AI Setup" icon="video" href="/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup">
+  <Card title="Real-time AI Setup" icon="video" href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup">
     ComfyStream setup for live video AI workloads.
   </Card>
 </CardGroup>

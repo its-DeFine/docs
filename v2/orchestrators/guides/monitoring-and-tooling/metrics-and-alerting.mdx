@@ -1,6 +1,6 @@
 ---
-title: Metrics and Monitoring
-sidebarTitle: Metrics
+title: Metrics and Alerting
+sidebarTitle: Metrics & Alerting
 description: >-
   How to set up Prometheus, Grafana, and the Docker monitoring stack for your
   Livepeer orchestrator. Covers the -monitor flag, key metrics, AI runner
@@ -105,7 +105,7 @@ This is on the same port as the go-livepeer CLI (`7935` by default). The `-monit
 
 ## What metrics are exposed
 
-go-livepeer exposes metrics across several categories. The full reference is at [Prometheus Metrics Reference](/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring).
+go-livepeer exposes metrics across several categories. The full reference is at [Prometheus Metrics Reference](/v2/orchestrators/guides/monitoring-and-tooling/metrics-and-alerting).
 
 **The metrics you will actually act on:**
 
@@ -387,7 +387,7 @@ groups:
     rules:
 
       - alert: OrchestratorAtCapacity
-        expr: livepeer_current_sessions_total >= livepeer_max_sessions
+        expr: "livepeer_current_sessions_total >= livepeer_max_sessions"
         for: 5m
         labels:
           severity: warning
@@ -395,7 +395,7 @@ groups:
           summary: "Orchestrator at session capacity for 5+ minutes"
 
       - alert: LowETHBalance
-        expr: livepeer_eth_balance < 0.02
+        expr: "livepeer_eth_balance < 0.02"
         for: 1m
         labels:
           severity: critical
@@ -403,7 +403,7 @@ groups:
           summary: "ETH balance below 0.02 — reward calls may fail"
 
       - alert: TranscodeFailureRate
-        expr: rate(livepeer_transcode_failed_total[10m]) > 0.1
+        expr: "rate(livepeer_transcode_failed_total[10m]) > 0.1"
         for: 10m
         labels:
           severity: warning
@@ -416,16 +416,16 @@ groups:
 <CustomDivider />
 
 <CardGroup cols={2}>
-  <Card title="Prometheus Metrics Reference" icon="table" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring">
+  <Card title="Prometheus Metrics Reference" icon="table" href="/v2/orchestrators/guides/monitoring-and-tooling/metrics-and-alerting">
     Full list of every metric exported by go-livepeer.
   </Card>
-  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/troubleshooting">
+  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/orchestrators/guides/monitoring-and-tooling/troubleshooting">
     When metrics reveal a problem — how to diagnose and fix it.
   </Card>
-  <Card title="AI Configuration" icon="robot" href="/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide">
+  <Card title="AI Configuration" icon="robot" href="/v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations">
     Setting up aiModels.json and the AI runner container.
   </Card>
-  <Card title="Session Limits" icon="gauge" href="/v2/orchestrators/guides/feasibility-and-hardware/session-limits">
+  <Card title="Session Limits" icon="gauge" href="/v2/orchestrators/guides/config-and-optimisation/capacity-planning">
     Configuring -maxSessions to match your hardware capacity.
   </Card>
 </CardGroup>
@@ -436,7 +436,7 @@ groups:
   -monitor flag, endpoint at localhost:7935/metrics, -metricsPerStream. Key metrics:
   transcoding_success_rate, session_count, session_max_limit, ai_job_success_rate,
   go_memstats_heap_bytes. Grafana dashboard config. Alert rules: missed reward calls,
-  session saturation >80%, high error rate, OOM approaching, zero sessions >1 hour.
+  session saturation above 80%, high error rate, OOM approaching, zero sessions for more than 1 hour.
   Docker monitoring for AI runner containers.
 
   PLAN TARGET: metrics-and-alerting (consider rename)

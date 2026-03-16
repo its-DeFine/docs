@@ -1,6 +1,6 @@
 ---
-title: Earnings Explained
-sidebarTitle: Earnings Explained
+title: Earning Model
+sidebarTitle: Earning Model
 description: >-
   How orchestrators earn on Livepeer — ETH service fees, LPT inflationary
   rewards, commission parameters, what wins jobs, and how AI changes the
@@ -57,7 +57,7 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 Running a Livepeer orchestrator gives you two distinct revenue streams that operate on completely different mechanics. Understanding both is essential before you decide how to configure your node or grow your stake.
 
 <Note>
-  **New here?** This page explains the mechanics. For what those mechanics mean in practice for your specific hardware and situation, see [Feasibility and Economics](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics). For the step-by-step operations of reward calling and commission setting, continue to [Rewards and Fees](/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees).
+  **New here?** This page explains the mechanics. For what those mechanics mean in practice for your specific hardware and situation, see [Feasibility and Economics](/v2/orchestrators/guides/operator-considerations/operator-rationale). For the step-by-step operations of reward calling and commission setting, continue to [Rewards and Fees](/v2/orchestrators/guides/staking-and-rewards/reward-mechanics).
 </Note>
 
 <CustomDivider />
@@ -173,7 +173,7 @@ Your ETH = Job fees × (1 − feeShare)
 - Delegators split: 0.05 ETH
 
 <Note>
-  Commission rates directly affect delegator yield calculations on the [Livepeer Explorer](https://explorer.livepeer.org). Delegators compare orchestrators by ROI. Setting competitive rates attracts more stake, which increases your inflation share and job routing weight — a compounding dynamic. See [Getting Delegates](/v2/orchestrators/guides/staking-and-rewards/attracting-delegates) for the full strategy.
+  Commission rates directly affect delegator yield calculations on the [Livepeer Explorer](https://explorer.livepeer.org). Delegators compare orchestrators by ROI. Setting competitive rates attracts more stake, which increases your inflation share and job routing weight — a compounding dynamic. See [Getting Delegates](/v2/orchestrators/guides/staking-and-rewards/delegate-operations) for the full strategy.
 </Note>
 
 <CustomDivider />
@@ -242,7 +242,7 @@ Redeemer submits winning tickets on-chain (Arbitrum)
 ETH arrives in your orchestrator wallet
 ```
 
-For the full mechanics of how probabilistic micropayments work, ticket face values, and on-chain redemption, see [Payments](/v2/orchestrators/guides/staking-and-rewards/payments).
+For the full mechanics of how probabilistic micropayments work, ticket face values, and on-chain redemption, see [Payments](/v2/orchestrators/guides/payments-and-pricing/payment-receipts).
 
 <CustomDivider />
 
@@ -267,7 +267,7 @@ For the full mechanics of how probabilistic micropayments work, ticket face valu
   </TableRow>
 </StyledTable>
 
-Check your reward call history on Explorer regularly. A gap in the reward history means missed rounds and lost LPT. For monitoring setup, see [Metrics and Monitoring](/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring).
+Check your reward call history on Explorer regularly. A gap in the reward history means missed rounds and lost LPT. For monitoring setup, see [Metrics and Monitoring](/v2/orchestrators/guides/monitoring-and-tooling/metrics-and-alerting).
 
 <CustomDivider />
 
@@ -290,16 +290,16 @@ Check your reward call history on Explorer regularly. A gap in the reward histor
 ## Continue in this section
 
 <CardGroup cols={2}>
-  <Card title="Rewards and Fees" icon="hand-holding-dollar" href="/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees">
+  <Card title="Rewards and Fees" icon="hand-holding-dollar" href="/v2/orchestrators/guides/staking-and-rewards/reward-mechanics">
     Reward call mechanics, automation, gas thresholds, and fee redemption operations.
   </Card>
-  <Card title="Getting Delegates" icon="people-group" href="/v2/orchestrators/guides/staking-and-rewards/attracting-delegates">
+  <Card title="Getting Delegates" icon="people-group" href="/v2/orchestrators/guides/staking-and-rewards/delegate-operations">
     How to attract delegators, what the Explorer ROI calculation shows them, and how to build reputation.
   </Card>
-  <Card title="Payments" icon="receipt" href="/v2/orchestrators/guides/staking-and-rewards/payments">
+  <Card title="Payments" icon="receipt" href="/v2/orchestrators/guides/payments-and-pricing/payment-receipts">
     How ETH moves from gateway to your wallet — probabilistic micropayments, ticket redemption, and the Redeemer.
   </Card>
-  <Card title="Governance and Voting" icon="check-to-slot" href="/v2/orchestrators/guides/staking-and-rewards/governance">
+  <Card title="Governance and Voting" icon="check-to-slot" href="/v2/orchestrators/guides/staking-and-rewards/network-participation">
     Voting on Livepeer Improvement Proposals using livepeer_cli.
   </Card>
 </CardGroup>

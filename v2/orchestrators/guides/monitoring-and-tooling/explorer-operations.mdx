@@ -1,5 +1,5 @@
 ---
-title: Reading the Livepeer Explorer
+title: Explorer Operations
 sidebarTitle: Explorer Guide
 description: >-
   A walkthrough of every metric on your Livepeer Explorer orchestrator page —
@@ -107,7 +107,7 @@ This is the sum of your self-stake and all delegated stake. It is the single mos
 <Accordion  title="Self-stake vs delegated stake" icon="coins">
 Your self-stake is the LPT you bonded to yourself. Delegated stake comes from LPT holders who chose to delegate to you.
 
-You can increase your self-stake directly by bonding more LPT. Attracting delegators requires competitive reward cut and fee share settings and a strong performance track record — see [Getting Delegates](/v2/orchestrators/guides/staking-and-rewards/attracting-delegates).
+You can increase your self-stake directly by bonding more LPT. Attracting delegators requires competitive reward cut and fee share settings and a strong performance track record — see [Getting Delegates](/v2/orchestrators/guides/staking-and-rewards/delegate-operations).
 </Accordion>
 
 <Accordion  title="How stake affects job routing" icon="coins">
@@ -192,7 +192,7 @@ If your node was offline at the round boundary, the reward call was not made. Th
 </Accordion>
 
 <Accordion  title="Using OrchestratorSiphon" icon="circle-question">
-If missed rewards are a recurrent problem, consider the [split setup](/v2/orchestrators/guides/setup-paths/siphon-setup). OrchestratorSiphon runs reward calling on a separate, stable machine independently of your GPU workload machine.
+If missed rewards are a recurrent problem, consider the [split setup](/v2/orchestrators/guides/deployment-details/siphon-setup). OrchestratorSiphon runs reward calling on a separate, stable machine independently of your GPU workload machine.
 </Accordion>
 
 </AccordionGroup>
@@ -292,16 +292,16 @@ A simple counter of how long your orchestrator has been registered. This is a so
 <CustomDivider />
 
 <CardGroup cols={2}>
-  <Card title="Metrics and Monitoring" icon="gauge" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring">
+  <Card title="Metrics and Monitoring" icon="gauge" href="/v2/orchestrators/guides/monitoring-and-tooling/metrics-and-alerting">
     Set up Prometheus and Grafana for real-time node health monitoring.
   </Card>
-  <Card title="Getting Delegates" icon="users" href="/v2/orchestrators/guides/staking-and-rewards/attracting-delegates">
+  <Card title="Getting Delegates" icon="users" href="/v2/orchestrators/guides/staking-and-rewards/delegate-operations">
     How to attract LPT delegators and grow your stake.
   </Card>
-  <Card title="Reward Calling Guide" icon="clock" href="/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees">
+  <Card title="Reward Calling Guide" icon="clock" href="/v2/orchestrators/guides/staking-and-rewards/reward-mechanics">
     Reward calling mechanics, gas costs, and automation.
   </Card>
-  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/troubleshooting">
+  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/orchestrators/guides/monitoring-and-tooling/troubleshooting">
     Common errors and how to resolve them.
   </Card>
 </CardGroup>
