@@ -23,24 +23,13 @@ const {
   removeGeneratedNotes,
   hasFrontmatterKey
 } = require('../lib/generated-file-banners');
+const {
+  readManifest,
+  pathMatches
+} = require('../lib/generated-artifacts');
 
 const REPO_ROOT = process.cwd();
 const STAGED_SNAPSHOT_ENV = 'LPD_STAGED_FILES_SNAPSHOT';
-
-const NON_I18N_GENERATED_STATIC = [
-  'docs-guide/catalog/components-catalog.mdx',
-  'docs-guide/catalog/pages-catalog.mdx',
-  'docs-guide/catalog/scripts-catalog.mdx',
-  'docs-guide/catalog/templates-catalog.mdx',
-  'docs-guide/catalog/workflows-catalog.mdx',
-  'v2/resources/documentation-guide/component-library/overview.mdx',
-  'v2/resources/documentation-guide/component-library/component-library.mdx',
-  'v2/resources/documentation-guide/component-library/primitives.mdx',
-  'v2/resources/documentation-guide/component-library/layout.mdx',
-  'v2/resources/documentation-guide/component-library/content.mdx',
-  'v2/resources/documentation-guide/component-library/data.mdx',
-  'v2/resources/documentation-guide/component-library/page-structure.mdx'
-];
 
 const CHECK_COMMANDS = [
   ['tools/scripts/generate-docs-guide-indexes.js', '--check'],
@@ -86,8 +75,36 @@ function listGeneratedV2IndexFiles() {
   return [...new Set(out)].sort();
 }
 
+function walkFiles(absRoot, out = []) {
+  if (!fs.existsSync(absRoot)) return out;
+  const entries = fs.readdirSync(absRoot, { withFileTypes: true });
+  entries.forEach((entry) => {
+    const abs = path.join(absRoot, entry.name);
+    if (entry.isDirectory()) {
+      walkFiles(abs, out);
+      return;
+    }
+    out.push(normalizeRepoPath(path.relative(REPO_ROOT, abs)));
+  });
+  return out;
+}
+
+function getManifestManagedGeneratedFiles() {
+  const manifest = readManifest(REPO_ROOT);
+  const allRepoFiles = walkFiles(REPO_ROOT, []);
+  return manifest.artifacts
+    .filter((artifact) =>
+      artifact.class !== 'ephemeral_local' &&
+      artifact.path.endsWith('.mdx') &&
+      artifact.path !== 'v2/index.mdx' &&
+      artifact.path !== 'v2/*/index.mdx'
+    )
+    .flatMap((artifact) => allRepoFiles.filter((repoPath) => pathMatches(artifact.path, repoPath)))
+    .filter((repoPath) => repoPath.endsWith('.mdx'));
+}
+
 function getExpectedNonI18nGeneratedFiles() {
-  return [...new Set([...NON_I18N_GENERATED_STATIC, ...listGeneratedV2IndexFiles()])].sort();
+  return [...new Set([...getManifestManagedGeneratedFiles(), ...listGeneratedV2IndexFiles()])].sort();
 }
 
 function runNodeCommand(args) {

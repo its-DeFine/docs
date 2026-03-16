@@ -10,52 +10,25 @@
  * @usage             node tools/scripts/verify-all-pages.js
  */
 const puppeteer = require('puppeteer');
+const { getEnglishComponentLibraryRoutes } = require('../lib/component-governance-utils');
 
 const BASE_URL = 'http://localhost:3333';
-const PAGES = [
-  {
-    paths: [
-      '/v2/resources/documentation-guide/component-library/component-library',
-      '/v2/resources/documentation-guide/component-library/overview'
-    ],
-    name: 'Component Library'
-  },
-  {
-    paths: [
-      '/v2/resources/documentation-guide/component-library/primitives',
-      '/v2/resources/documentation-guide/component-library/primitives'
-    ],
-    name: 'Primitives'
-  },
-  {
-    paths: [
-      '/v2/resources/documentation-guide/component-library/content',
-      '/v2/resources/documentation-guide/component-library/content'
-    ],
-    name: 'Content'
-  },
-  {
-    paths: [
-      '/v2/resources/documentation-guide/component-library/layout',
-      '/v2/resources/documentation-guide/component-library/layout'
-    ],
-    name: 'Layout'
-  },
-  {
-    paths: [
-      '/v2/resources/documentation-guide/component-library/data',
-      '/v2/resources/documentation-guide/component-library/data'
-    ],
-    name: 'Data'
-  },
-  {
-    paths: [
-      '/v2/resources/documentation-guide/component-library/page-structure',
-      '/v2/resources/documentation-guide/component-library/page-structure'
-    ],
-    name: 'Page Structure'
-  },
-];
+const ROUTE_LABELS = {
+  'component-library': 'Component Library',
+  overview: 'Component Library Overview',
+  primitives: 'Primitives',
+  content: 'Content',
+  layout: 'Layout',
+  data: 'Data',
+  'page-structure': 'Page Structure'
+};
+const PAGES = getEnglishComponentLibraryRoutes().map((routePath) => {
+  const slug = routePath.split('/').pop();
+  return {
+    paths: [routePath],
+    name: ROUTE_LABELS[slug] || slug
+  };
+});
 
 async function verifyPage(paths, name) {
   const browser = await puppeteer.launch({

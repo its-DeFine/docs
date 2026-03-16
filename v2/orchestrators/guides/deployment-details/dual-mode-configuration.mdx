@@ -28,10 +28,24 @@ lastVerified: '2026-03-16'
 'og:image:height': 630
 ---
 {/* TODO:
+Terminology Validation:
+- Confirm "Dual Mode" badge (color="green") is consistent with glossary usage
+- Confirm "dual-workload configuration" in prose aligns with SKILL.md terminology rules
+
 Verify:
-- FontAwesome icons used on Tabs and Steps
+- Mermaid diagrams use hardcoded theme colours from /snippets/components/page-structure/mermaidColours.jsx
+- FontAwesome icons used on all Tabs and Steps
 - UK spelling throughout
-- Headers stay concise and technical
+- No em-dashes anywhere in the file
+- Headers are concise and Technical (guide target: 3 words or less)
+- Media placeholders added as TODO comments where screenshots would help
+
+SME review required before merge:
+- REVIEW: Confirm complete dual-mode flag set with Rick (@rickstaa) — specifically whether
+  -serviceAddr port for a combined node is 8935, 8936, or configurable.
+- REVIEW: Confirm dl_checkpoints.sh model download command syntax against current ai-runner release.
+- REVIEW: Validate VRAM figures in resource table against model-vram-reference.mdx when that page merges.
+- REVIEW: Earnings estimates section — add illustrative figures once Explorer pricing data confirmed.
 */}
 
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'

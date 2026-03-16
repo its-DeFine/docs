@@ -3,7 +3,7 @@
  * @script            check-anchor-usage
  * @category          validator
  * @purpose           qa:content-quality
- * @scope             tools/scripts/validators/content, v2
+ * @scope             v2-content
  * @owner             docs
  * @needs             R-R14, R-C6
  * @purpose-statement Validates same-page anchor links in maintained v2 MDX files against heading IDs on the same page

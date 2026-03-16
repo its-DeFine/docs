@@ -10,6 +10,28 @@
  * @pipeline          indirect
  * @usage             const { filterAuthoredDocsPageFiles } = require('../lib/docs-page-scope');
  */
+/**
+ * @script            docs-page-scope
+ * @category          utility
+ * @purpose           qa:content-quality
+ * @scope             tools/lib, tests, tools/scripts
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Shared authored-page scope helpers that distinguish generated docs pages from authored docs pages for warning-only validators and reports.
+ * @pipeline          indirect
+ * @usage             const { filterAuthoredDocsPageFiles } = require('../lib/docs-page-scope');
+ */
+/**
+ * @script            docs-page-scope
+ * @category          utility
+ * @purpose           qa:content-quality
+ * @scope             tools/lib, tests, tools/scripts
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Shared authored-page scope helpers that distinguish generated docs pages from authored docs pages for warning-only validators and reports.
+ * @pipeline          indirect
+ * @usage             const { filterAuthoredDocsPageFiles } = require('../lib/docs-page-scope');
+ */
 
 const fs = require('fs');
 const path = require('path');

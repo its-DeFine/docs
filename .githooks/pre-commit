@@ -63,6 +63,69 @@ get_staged_docs_pages() {
 }
 
 STAGED_DOCS_PAGES=$(get_staged_docs_pages)
+
+get_forbidden_staged_generated_outputs() {
+    if ! command -v node &>/dev/null || [ ! -f "tools/lib/generated-artifacts.js" ]; then
+        return 0
+    fi
+
+    node - <<'NODE'
+const { getForbiddenEphemeralFiles } = require('./tools/lib/generated-artifacts');
+const files = String(process.env.LPD_STAGED_FILES_SNAPSHOT || '')
+  .split(/\r?\n/)
+  .map((entry) => entry.trim())
+  .filter(Boolean);
+process.stdout.write(getForbiddenEphemeralFiles(files).join('\n'));
+NODE
+}
+
+format_generated_artifact_message() {
+    local artifact_path="$1"
+    local mode="${2:-summary}"
+
+    if ! command -v node &>/dev/null || [ ! -f "tools/lib/generated-artifacts.js" ]; then
+        return 0
+    fi
+
+    GENERATED_ARTIFACT_PATH="$artifact_path" GENERATED_ARTIFACT_MODE="$mode" node - <<'NODE'
+const { getFirstArtifactByPath } = require('./tools/lib/generated-artifacts');
+const target = String(process.env.GENERATED_ARTIFACT_PATH || '').trim();
+const mode = String(process.env.GENERATED_ARTIFACT_MODE || 'summary').trim();
+const artifact = getFirstArtifactByPath(target);
+if (!artifact) {
+  process.exit(0);
+}
+if (mode === 'generator') {
+  process.stdout.write(artifact.generator);
+  process.exit(0);
+}
+const detail = `${artifact.path} (${artifact.class}, hook_policy=${artifact.hook_policy}, delta_strategy=${artifact.delta_strategy})`;
+process.stdout.write(detail);
+NODE
+}
+
+should_check_generated_artifact() {
+    local artifact_path="$1"
+
+    if ! command -v node &>/dev/null || [ ! -f "tools/lib/generated-artifacts.js" ]; then
+        return 1
+    fi
+
+    GENERATED_ARTIFACT_PATH="$artifact_path" LPD_STAGED_FILES_SNAPSHOT_ALL="$STAGED_FILES_SNAPSHOT_ALL" node - <<'NODE'
+const { getFirstArtifactByPath, isArtifactAffectedByFiles } = require('./tools/lib/generated-artifacts');
+const target = String(process.env.GENERATED_ARTIFACT_PATH || '').trim();
+const files = String(process.env.LPD_STAGED_FILES_SNAPSHOT_ALL || '')
+  .split(/\r?\n/)
+  .map((entry) => entry.trim())
+  .filter(Boolean);
+const artifact = getFirstArtifactByPath(target);
+if (!artifact) {
+  process.exit(1);
+}
+process.exit(isArtifactAffectedByFiles(artifact, files) ? 0 : 1);
+NODE
+}
+
 # pre-commit hooks do not receive commit args directly. Detect trailer usage
 # from the parent git commit command.
 PARENT_GIT_CMD=$(ps -o command= -p "$PPID" 2>/dev/null || true)
@@ -672,6 +735,18 @@ else
     echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo -e "${YELLOW}Skipping legacy verify.sh in pre-commit (staged-only fast mode).${NC}"
     echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    FORBIDDEN_GENERATED_OUTPUTS=$(get_forbidden_staged_generated_outputs)
+    if [ -n "$FORBIDDEN_GENERATED_OUTPUTS" ]; then
+        echo -e "${RED}Forbidden staged ephemeral generated outputs detected:${NC}"
+        while IFS= read -r path; do
+            [ -z "$path" ] && continue
+            echo "  - $path"
+            WARNINGS+=("❌ Forbidden staged ephemeral generated output: $path")
+            VIOLATIONS=$((VIOLATIONS + 1))
+        done <<< "$FORBIDDEN_GENERATED_OUTPUTS"
+        echo "Move local-only reports to an ignored scratch path instead of committing them."
+        exit 1
+    fi
     echo "Checking generated file banners..."
     if node tools/scripts/enforce-generated-file-banners.js --check --staged; then
         echo -e "${GREEN}✓ Generated file banner check passed${NC}"
@@ -1232,27 +1307,26 @@ else
         fi
 
         if [ -f "tools/scripts/generate-docs-index.js" ]; then
-            if echo "$STAGED_FILES_SNAPSHOT_ALL" | grep -Eq '^(docs\.json|v1/|v2/|snippets/)'; then
-                echo -e "${YELLOW}Checking docs-index sync...${NC}"
+            if should_check_generated_artifact "docs-index.json"; then
+                echo -e "${YELLOW}Checking generated artifact freshness...${NC}"
+                GENERATED_ARTIFACT_SUMMARY=$(format_generated_artifact_message "docs-index.json" "summary")
                 DOCS_INDEX_ARGS="--staged"
                 if echo "$STAGED_FILES_SNAPSHOT_ALL" | grep -Eq '^docs\.json$'; then
                     DOCS_INDEX_ARGS=""
                 fi
                 if node tools/scripts/generate-docs-index.js --check $DOCS_INDEX_ARGS >/dev/null 2>&1; then
-                    echo -e "${GREEN}✓ docs-index.json is up to date${NC}"
+                    echo -e "${GREEN}✓ ${GENERATED_ARTIFACT_SUMMARY} is up to date${NC}"
                 else
-                    echo -e "${YELLOW}docs-index.json out of date, regenerating...${NC}"
-                    if node tools/scripts/generate-docs-index.js --write $DOCS_INDEX_ARGS 2>&1; then
-                        git add docs-index.json
-                        echo -e "${GREEN}✓ docs-index.json regenerated and staged${NC}"
-                    else
-                        VIOLATIONS=$((VIOLATIONS + 1))
-                        WARNINGS+=("❌ docs-index generation failed - run node tools/scripts/generate-docs-index.js --write")
-                        echo -e "${RED}❌ docs-index generation failed${NC}"
-                    fi
+                    VIOLATIONS=$((VIOLATIONS + 1))
+                    GENERATED_ARTIFACT_GENERATOR=$(format_generated_artifact_message "docs-index.json" "generator")
+                    WARNINGS+=("❌ Generated artifact freshness issue: docs-index.json is stale. Run: ${GENERATED_ARTIFACT_GENERATOR}")
+                    echo -e "${RED}❌ ${GENERATED_ARTIFACT_SUMMARY} is stale${NC}"
+                    echo "   Source files changed within its declared manifest scope."
+                    echo "   Remediation: ${GENERATED_ARTIFACT_GENERATOR}"
+                    exit 1
                 fi
             else
-                echo -e "${GREEN}✓ No docs/nav changes staged, skipping docs-index sync${NC}"
+                echo -e "${GREEN}✓ No manifest-declared docs-index sources staged, skipping docs-index freshness check${NC}"
             fi
         fi
 

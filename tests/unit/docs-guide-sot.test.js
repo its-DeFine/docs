@@ -14,7 +14,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { spawnSync } = require('child_process');
+const { execSync, spawnSync } = require('child_process');
 const {
   hasFrontmatterKey,
   hasGeneratedNote,
@@ -22,11 +22,20 @@ const {
 } = require('../../tools/lib/generated-file-banners');
 const { checkAggregateIndex } = require('./script-docs.test.js');
 
-const REPO_ROOT = process.cwd();
+function getRepoRoot() {
+  try {
+    return execSync('git rev-parse --show-toplevel', { encoding: 'utf8' }).trim();
+  } catch (_error) {
+    return process.cwd();
+  }
+}
+
+const REPO_ROOT = getRepoRoot();
 
 const REQUIRED_MANUAL_FILES = [
   'docs-guide/overview.mdx',
   'docs-guide/policies/source-of-truth-policy.mdx',
+  'docs-guide/policies/generated-artifact-and-hook-governance.mdx',
   'docs-guide/policies/v2-folder-governance.mdx',
   'docs-guide/features/feature-map.mdx',
   'docs-guide/features/architecture-map.mdx',
@@ -58,6 +67,7 @@ const REQUIRED_README_REFERENCES = [
   'docs-guide/overview.mdx',
   'docs-guide/features/feature-map.mdx',
   'docs-guide/policies/source-of-truth-policy.mdx',
+  'docs-guide/policies/generated-artifact-and-hook-governance.mdx',
   'docs-guide/policies/v2-folder-governance.mdx',
   'docs-guide/tooling/lpd-cli.mdx',
   'docs-guide/policies/quality-gates.mdx',

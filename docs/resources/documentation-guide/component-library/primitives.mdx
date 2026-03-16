@@ -63,7 +63,7 @@ This category currently contains **30** governed export(s).
 | BlinkingIcon | `primitive` | `stable` | `/snippets/components/primitives/links.jsx` | Displays an icon with a smooth blinking animation (fades between full and 30% opacity). |
 | BlinkingTerminal | `primitive` | `deprecated` | `/snippets/components/primitives/links.jsx` | Blinking Terminal primitive used in authored documentation and component-library examples. |
 | CardTitleTextWithArrow | `primitive` | `stable` | `/snippets/components/primitives/text.jsx` | Card Title Text With Arrow primitive used in authored documentation and component-library examples. |
-| ComingSoonCallout | `primitive` | `stable` | `/snippets/components/primitives/preview-callouts.jsx` | Callout announcing work-in-progress content and contribution links. |
+| ComingSoonCallout | `primitive` | `stable` | `/snippets/components/primitives/previewCallouts.jsx` | Callout announcing work-in-progress content and contribution links. |
 | CopyText | `primitive` | `stable` | `/snippets/components/primitives/text.jsx` | Copy Text primitive used in authored documentation and component-library examples. |
 | CustomCallout | `primitive` | `stable` | `/snippets/components/primitives/links.jsx` | Displays a styled callout box with an icon and custom colors. |
 | CustomCardTitle | `primitive` | `stable` | `/snippets/components/primitives/customCardTitle.jsx` | Renders the custom card title component |
@@ -82,8 +82,8 @@ This category currently contains **30** governed export(s).
 | LivepeerSVG | `primitive` | `stable` | `/snippets/components/primitives/icons.jsx` | Livepeer SVG primitive used in authored documentation and component-library examples. |
 | MathBlock | `primitive` | `stable` | `/snippets/components/primitives/math.jsx` | Math Block primitive used in authored documentation and component-library examples. |
 | MathInline | `primitive` | `stable` | `/snippets/components/primitives/math.jsx` | Math Inline primitive used in authored documentation and component-library examples. |
-| PreviewCallout | `primitive` | `stable` | `/snippets/components/primitives/preview-callouts.jsx` | Callout highlighting preview-state content and feedback channels. |
-| ReviewCallout | `primitive` | `stable` | `/snippets/components/primitives/preview-callouts.jsx` | Callout requesting technical review support on incomplete content. |
+| PreviewCallout | `primitive` | `stable` | `/snippets/components/primitives/previewCallouts.jsx` | Callout highlighting preview-state content and feedback channels. |
+| ReviewCallout | `primitive` | `stable` | `/snippets/components/primitives/previewCallouts.jsx` | Callout requesting technical review support on incomplete content. |
 | SocialLinks | `primitive` | `stable` | `/snippets/components/primitives/socialLinks.jsx` | Renders the social links component |
 | Spacer | `primitive` | `stable` | `/snippets/components/primitives/spacer.jsx` | Provides consistent spacing without requiring inline styles or empty divs in MDX files |
 | Subtitle | `primitive` | `stable` | `/snippets/components/primitives/text.jsx` | Subtitle primitive used in authored documentation and component-library examples. |
@@ -254,7 +254,7 @@ Use **ComingSoonCallout** when you need callout announcing work-in-progress cont
 Source description: Callout announcing work-in-progress content and contribution links.
 **Import path**
 ```jsx
-import { ComingSoonCallout } from '/snippets/components/primitives/preview-callouts.jsx'
+import { ComingSoonCallout } from '/snippets/components/primitives/previewCallouts.jsx'
 ```
 **Metadata**
 - Content affinity: `universal`
@@ -890,7 +890,7 @@ Use **PreviewCallout** when you need callout highlighting preview-state content 
 Source description: Callout highlighting preview-state content and feedback channels.
 **Import path**
 ```jsx
-import { PreviewCallout } from '/snippets/components/primitives/preview-callouts.jsx'
+import { PreviewCallout } from '/snippets/components/primitives/previewCallouts.jsx'
 ```
 **Metadata**
 - Content affinity: `universal`
@@ -919,7 +919,7 @@ Use **ReviewCallout** when you need callout requesting technical review support 
 Source description: Callout requesting technical review support on incomplete content.
 **Import path**
 ```jsx
-import { ReviewCallout } from '/snippets/components/primitives/preview-callouts.jsx'
+import { ReviewCallout } from '/snippets/components/primitives/previewCallouts.jsx'
 ```
 **Metadata**
 - Content affinity: `universal`

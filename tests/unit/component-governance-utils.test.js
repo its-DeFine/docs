@@ -19,6 +19,8 @@ const {
   collectGovernedExportCodeSegments,
   extractExports,
   getEnglishCanonicalPages,
+  getEnglishComponentLibraryDocPaths,
+  getEnglishComponentLibraryRoutes,
   getComponentFiles,
   parseJSDocBlock,
   scanMDXImports,
@@ -61,7 +63,7 @@ function runTests() {
   }
 
   try {
-    const exportsList = extractExports('snippets/components/content/response-field.jsx');
+    const exportsList = extractExports('snippets/components/content/responseField.jsx');
     const responseFieldGroup = exportsList.find((entry) => entry.name === 'ResponseFieldGroup');
     assert(responseFieldGroup, 'ResponseFieldGroup export should be discovered');
     assert(responseFieldGroup.jsDocBlock, 'ResponseFieldGroup should have an attached JSDoc block');
@@ -109,11 +111,34 @@ function runTests() {
     const componentFiles = getComponentFiles();
     assert(componentFiles.length > 0, 'component file discovery should find governed files');
     assert(componentFiles.every((file) => !file.displayPath.includes('/_archive/')));
-    assert(componentFiles.every((file) => !/responseField\.jsx$/.test(file.displayPath)));
+    assert(componentFiles.every((file) => !/response-field\.jsx$/.test(file.displayPath)));
     assert(componentFiles.every((file) => !/content\/math\.jsx$/.test(file.displayPath)));
     assert(componentFiles.every((file) => !/content\/release\.jsx$/.test(file.displayPath)));
   } catch (error) {
     errors.push(`getComponentFiles failed: ${error.message}`);
+  }
+
+  try {
+    assert.deepEqual(getEnglishComponentLibraryDocPaths(), [
+      'v2/resources/documentation-guide/component-library/component-library.mdx',
+      'v2/resources/documentation-guide/component-library/overview.mdx',
+      'v2/resources/documentation-guide/component-library/primitives.mdx',
+      'v2/resources/documentation-guide/component-library/layout.mdx',
+      'v2/resources/documentation-guide/component-library/content.mdx',
+      'v2/resources/documentation-guide/component-library/data.mdx',
+      'v2/resources/documentation-guide/component-library/page-structure.mdx'
+    ]);
+    assert.deepEqual(getEnglishComponentLibraryRoutes(), [
+      '/v2/resources/documentation-guide/component-library/component-library',
+      '/v2/resources/documentation-guide/component-library/overview',
+      '/v2/resources/documentation-guide/component-library/primitives',
+      '/v2/resources/documentation-guide/component-library/layout',
+      '/v2/resources/documentation-guide/component-library/content',
+      '/v2/resources/documentation-guide/component-library/data',
+      '/v2/resources/documentation-guide/component-library/page-structure'
+    ]);
+  } catch (error) {
+    errors.push(`component-library discovery helpers failed: ${error.message}`);
   }
 
   try {

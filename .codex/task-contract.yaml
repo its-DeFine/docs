@@ -1,32 +1,26 @@
-task_id: 20260316
-branch: codex/20260316-research-skill-adjudication
+task_id: 20260315-merge-docs-v2-into-docs-v2-dev-validation
+branch: tmp/merge-docs-v2-into-docs-v2-dev-validation-20260315
 base_branch: docs-v2-dev
 scope_in:
   - .codex/task-contract.yaml
-  - .codex/locks-local
-  - .allowlist
-  - docs-guide/frameworks/research-skill-workflow.mdx
-  - tasks/reports/repo-ops
-  - tasks/reports/script-classifications.json
-  - tasks/research
-  - tasks/research/claims
-  - tests/script-index.md
-  - tests/unit/docs-research-adjudication.test.js
-  - tests/unit/docs-fact-registry.test.js
-  - tests/unit/docs-page-research-pr-report.test.js
-  - tests/unit/docs-page-research.test.js
-  - tools/script-index.md
-  - tools/scripts/docs-research-adjudication.js
-  - tools/scripts/docs-fact-registry.js
-  - tools/scripts/docs-page-research-pr-report.js
-  - tools/scripts/docs-page-research.js
-  - docs-guide/catalog/scripts-catalog.mdx
-scope_out: []
-allowed_generated:
-  - .codex/pr-body.generated.md
+  - .vscode/settings.json
+  - docs-guide/**
+  - docs-index.json
+  - docs.json
+  - tasks/plan/active/merge-docs-v2-into-docs-v2-dev-root-cause-review.md
+  - tests/**
+  - tools/**
+  - v2/**
+scope_out:
+  - v1/**
+allowed_generated: []
 acceptance_checks:
-  - node tests/run-all.js --staged --skip-browser
-  - node tests/run-pr-checks.js --base-ref docs-v2-dev
+  - node tests/run-pr-checks.js --base-ref docs-v2
+  - npm --prefix tests run test:docs-guide
+  - node tests/integration/openapi-reference-audit.js --full --strict --report /tmp/openapi-audit-final.md --report-json /tmp/openapi-audit-final.json
+  - MINT_BASE_URL=http://localhost:3000 npm --prefix tools run test:browser
+  - MINT_BASE_URL=http://localhost:3000 npm --prefix tools run test:v2-pages
 risk_flags:
-  - experimental-research
+  - merge-validation
+  - no-pr
 follow_up_issues: []

@@ -20,6 +20,8 @@ const VALID_STATUSES = ['stable', 'experimental', 'deprecated', 'broken', 'place
 const VALID_TIERS = ['primitive', 'composite', 'pattern'];
 const VALID_RISKS = ['low', 'medium', 'high'];
 const VALID_DECISIONS = ['KEEP', 'MOVE', 'SPLIT', 'MERGE', 'REMOVE'];
+const COMPONENT_LIBRARY_BASE_DIR = 'v2/resources/documentation-guide/component-library';
+const COMPONENT_LIBRARY_LANDING_SLUGS = ['component-library', 'overview'];
 const VALID_CONTENT_AFFINITY = [
   'landing',
   'overview',
@@ -140,6 +142,22 @@ function getCategoryFromPath(filePath) {
   if (index === -1) return '';
   const candidate = parts[index + 1] || '';
   return VALID_CATEGORIES.includes(candidate) ? candidate : '';
+}
+
+function getEnglishComponentLibrarySlugs() {
+  return [...COMPONENT_LIBRARY_LANDING_SLUGS, ...VALID_CATEGORIES];
+}
+
+function getEnglishComponentLibraryDocPaths() {
+  return getEnglishComponentLibrarySlugs().map(
+    (slug) => `${COMPONENT_LIBRARY_BASE_DIR}/${slug}.mdx`
+  );
+}
+
+function getEnglishComponentLibraryRoutes() {
+  return getEnglishComponentLibrarySlugs().map(
+    (slug) => `/${COMPONENT_LIBRARY_BASE_DIR}/${slug}`
+  );
 }
 
 function walkFiles(targetPath, predicate, files = []) {
@@ -1130,10 +1148,13 @@ module.exports = {
   VALID_TIERS,
   VALID_RISKS,
   VALID_DECISIONS,
+  COMPONENT_LIBRARY_BASE_DIR,
   sortStrings,
   normalizeCsvField,
   serializeCsvField,
   getEnglishCanonicalPages,
+  getEnglishComponentLibraryDocPaths,
+  getEnglishComponentLibraryRoutes,
   deriveBreakingChangeRisk,
   getLastMeaningfulChange,
   buildComponentUsageSummary,

@@ -3,7 +3,7 @@
  * @script            openapi-reference-audit
  * @category          validator
  * @purpose           tooling:api-spec
- * @scope             tests/integration, v2, api, .github/workflows
+ * @scope             full-repo
  * @owner             docs
  * @needs             F-R17
  * @purpose-statement Comprehensive OpenAPI spec validation — checks references, schemas, examples. Supports --strict (validate), --fix (repair), and report modes.
@@ -214,13 +214,70 @@ function getFrontmatterOpenapiLine(frontmatter) {
   return frontmatter.lineOffset + openapiIndex + 2;
 }
 
+function maskNonNewlineChars(value) {
+  return String(value || '').replace(/[^\n]/g, ' ');
+}
+
+function maskInlineCode(line) {
+  let masked = '';
+  let index = 0;
+
+  while (index < line.length) {
+    if (line[index] !== '`') {
+      masked += line[index];
+      index += 1;
+      continue;
+    }
+
+    let tickCount = 1;
+    while (line[index + tickCount] === '`') tickCount += 1;
+    const marker = '`'.repeat(tickCount);
+    const closingIndex = line.indexOf(marker, index + tickCount);
+    if (closingIndex === -1) {
+      masked += line.slice(index);
+      break;
+    }
+
+    masked += ' '.repeat(tickCount);
+    masked += maskNonNewlineChars(line.slice(index + tickCount, closingIndex));
+    masked += ' '.repeat(tickCount);
+    index = closingIndex + tickCount;
+  }
+
+  return masked;
+}
+
+function maskCodeLiterals(content) {
+  const lines = String(content || '').split('\n');
+  let openFence = null;
+
+  return lines.map((line) => {
+    const trimmed = line.trimStart();
+    if (openFence) {
+      const masked = maskNonNewlineChars(line);
+      if (trimmed.startsWith(openFence)) {
+        openFence = null;
+      }
+      return masked;
+    }
+
+    if (trimmed.startsWith('```') || trimmed.startsWith('~~~')) {
+      openFence = trimmed.startsWith('```') ? '```' : '~~~';
+      return maskNonNewlineChars(line);
+    }
+
+    return maskInlineCode(line);
+  }).join('\n');
+}
+
 function extractOpenApiTags(content) {
   const tags = [];
+  const searchableContent = maskCodeLiterals(content);
   const regex = /<OpenAPI\b[^>]*>/g;
   let match;
-  while ((match = regex.exec(content)) !== null) {
+  while ((match = regex.exec(searchableContent)) !== null) {
     tags.push({
-      tag: match[0],
+      tag: content.slice(match.index, match.index + match[0].length),
       startIndex: match.index,
       line: content.slice(0, match.index).split('\n').length
     });
@@ -297,23 +354,42 @@ function resolveSpecForFile(relPath) {
     return SPEC_BY_KEY.studio;
   }
 
-  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/references\/api-reference\/AI-API\//.test(file)) {
+  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference)\/AI-API\//.test(file)) {
     return SPEC_BY_KEY.ai;
   }
 
-  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/references\/api-reference\/AI-Worker\//.test(file)) {
+  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference)\/AI-Worker\//.test(file)) {
     return SPEC_BY_KEY.ai;
   }
 
-  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/references\/api-reference\/CLI-HTTP\//.test(file)) {
+  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference)\/CLI-HTTP\//.test(file)) {
     return SPEC_BY_KEY.cliHttp;
   }
 
-  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/references\/api-reference\/(?:ai-worker-api|health|hardware-info|hardware-stats)\.mdx$/.test(file)) {
+  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference)\/(?:ai-worker-api|health|hardware-info|hardware-stats)\.mdx$/.test(file)) {
     return SPEC_BY_KEY.ai;
   }
 
+  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference)\/status\.mdx$/.test(file)) {
+    return SPEC_BY_KEY.cliHttp;
+  }
+
   return null;
+}
+
+function inferSpecForEndpoint(endpoint, specCache) {
+  const endpointKey = typeof endpoint === 'string' ? endpoint : endpoint && endpoint.key;
+  if (!endpointKey) return null;
+
+  const matches = Object.entries(specCache)
+    .filter(([_specPath, state]) => state && !state.error && state.endpoints.has(endpointKey))
+    .map(([specPath]) => specPath);
+
+  return matches.length === 1 ? matches[0] : null;
+}
+
+function resolveSpecForReference(relPath, endpoint, specCache) {
+  return resolveSpecForFile(relPath) || inferSpecForEndpoint(endpoint, specCache);
 }
 
 function buildEndpointSetFromSpec(specPath) {
@@ -647,8 +723,8 @@ function runValidationForRefs(fileAnalyses, specCache) {
   const findings = [];
 
   fileAnalyses.forEach((analysis) => {
-    const resolvedSpec = resolveSpecForFile(analysis.relPath);
     analysis.validRefs.forEach((ref) => {
+      const resolvedSpec = resolveSpecForReference(analysis.relPath, ref.endpoint, specCache);
       if (!resolvedSpec) {
         findings.push(createFinding({
           type: FINDING_TYPES.MISSING_SPEC_MAPPING,
@@ -711,11 +787,7 @@ async function runAudit(options = {}) {
     });
   }
 
-  const specPaths = new Set();
-  analyses.forEach((analysis) => {
-    const resolvedSpec = resolveSpecForFile(analysis.relPath);
-    if (resolvedSpec) specPaths.add(resolvedSpec);
-  });
+  const specPaths = new Set(Object.values(SPEC_BY_KEY));
 
   const specCache = {};
   specPaths.forEach((specPath) => {
@@ -804,6 +876,8 @@ module.exports = {
   isIgnoredFrontmatterOpenapiValue,
   parseOpenApiTagReference,
   resolveSpecForFile,
+  resolveSpecForReference,
+  inferSpecForEndpoint,
   extractOpenApiTags,
   runAudit
 };

@@ -10,6 +10,28 @@
  * @pipeline          indirect -- library module
  * @usage             const taxonomy = require('../lib/frontmatter-taxonomy');
  */
+/**
+ * @script            frontmatter-taxonomy
+ * @category          utility
+ * @purpose           qa:content-quality
+ * @scope             tools/lib, tests
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Shared frontmatter taxonomy utilities for routable docs pages.
+ * @pipeline          indirect -- library module
+ * @usage             const taxonomy = require('../lib/frontmatter-taxonomy');
+ */
+/**
+ * @script            frontmatter-taxonomy
+ * @category          utility
+ * @purpose           qa:content-quality
+ * @scope             tools/lib, tests
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Shared frontmatter taxonomy utilities for routable docs pages.
+ * @pipeline          indirect -- library module
+ * @usage             const taxonomy = require('../lib/frontmatter-taxonomy');
+ */
 
 const CANONICAL_PAGE_TYPES = Object.freeze([
   'landing',

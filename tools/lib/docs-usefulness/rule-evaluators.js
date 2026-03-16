@@ -32,6 +32,28 @@
  * @pipeline          indirect -- library module
  * @usage             const { evaluateRule } = require('../lib/docs-usefulness/rule-evaluators');
  */
+/**
+ * @script            rule-evaluators
+ * @category          utility
+ * @purpose           qa:repo-health
+ * @scope             single-domain
+ * @owner             docs
+ * @needs             R-R14
+ * @purpose-statement Evaluates individual rubric rules against page content.
+ * @pipeline          indirect -- library module
+ * @usage             const { evaluateRule } = require('../lib/docs-usefulness/rule-evaluators');
+ */
+/**
+ * @script            rule-evaluators
+ * @category          utility
+ * @purpose           qa:repo-health
+ * @scope             single-domain
+ * @owner             docs
+ * @needs             R-R14
+ * @purpose-statement Evaluates individual rubric rules against page content.
+ * @pipeline          indirect -- library module
+ * @usage             const { evaluateRule } = require('../lib/docs-usefulness/rule-evaluators');
+ */
 
 function toText(value) {
   return String(value || '').toLowerCase();

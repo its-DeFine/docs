@@ -18,12 +18,23 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
+
+function getRepoRoot() {
+  try {
+    return execSync('git rev-parse --show-toplevel', { encoding: 'utf8' }).trim();
+  } catch (_error) {
+    return process.cwd();
+  }
+}
+
+const REPO_ROOT = getRepoRoot();
 
 let puppeteer;
 try {
   puppeteer = require('puppeteer');
 } catch (_error) {
-  puppeteer = require(path.join(process.cwd(), 'tools', 'node_modules', 'puppeteer'));
+  puppeteer = require(path.join(REPO_ROOT, 'tools', 'node_modules', 'puppeteer'));
 }
 
 const { getMdxFiles, getStagedDocsPageFiles } = require('../utils/file-walker');

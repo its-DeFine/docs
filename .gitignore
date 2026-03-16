@@ -110,3 +110,6 @@ docs-index.json
 llms-full.txt
 tools/scripts/snippets/generate-data/data/discovered-terms.json
 tools/scripts/snippets/generate-data/data/glossary-terms.json
+
+# Local-only generated report scratch space
+tasks/reports/_local/
