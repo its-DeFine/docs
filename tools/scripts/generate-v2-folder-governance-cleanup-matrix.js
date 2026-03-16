@@ -5,7 +5,6 @@
  * @purpose           governance:repo-health
  * @scope             tools/scripts, tools/lib, tasks/reports/repo-ops, v2, docs.json, tests/unit/v2-folder-governance-cleanup-matrix.test.js
  * @domain            docs
- * @owner             docs
  * @needs             E-C1, R-R14
  * @purpose-statement V2 folder governance cleanup matrix generator — inventories non-publishable and legacy v2 artifacts and emits human-review markdown/json recommendations before any moves are applied.
  * @pipeline          manual
