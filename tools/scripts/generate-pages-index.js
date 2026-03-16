@@ -4,7 +4,7 @@
  * @category          generator
  * @purpose           governance:index-management
  * @scope             tools/scripts, v2
- * @owner             docs
+ * @domain            docs
  * @needs             R-R16, R-R17
  * @purpose-statement Pages index generator — generates and verifies section-style index.mdx files for v2 docs folders plus root aggregate index
  * @pipeline          P1
@@ -15,6 +15,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync, spawnSync } = require('child_process');
+const { isExcludedV2ExperimentalPath } = require('../lib/docs-publishability');
 const {
   buildGeneratedFrontmatterLines,
   buildGeneratedHiddenBannerLines,
@@ -139,31 +140,8 @@ function isIndexFile(fileName) {
   return lower === INDEX_FILENAME || lower === LEGACY_INDEX_FILENAME;
 }
 
-function isContextDataPath(relPath) {
-  return normalizeRel(relPath)
-    .split('/')
-    .some((segment) => /^_contextdata_?$/i.test(segment));
-}
-
 function isMaintainerOnlyIndexPath(relPath) {
-  const normalized = normalizeRel(relPath);
-  const segments = normalized.split('/').map((segment) => segment.toLowerCase());
-  const maintainerOnlySegments = new Set([
-    '_workspace',
-    '_plans-and-research',
-    '_contextdata',
-    '_contextdata_',
-    '_context_data_',
-    'x-resources',
-    'to-add',
-    '_archive'
-  ]);
-
-  if (segments.some((segment) => maintainerOnlySegments.has(segment))) {
-    return true;
-  }
-
-  return path.basename(normalized).toLowerCase() === 'review.md';
+  return isExcludedV2ExperimentalPath(normalizeRel(relPath));
 }
 
 function sortAlpha(values) {
@@ -728,7 +706,7 @@ function findNestedIndexFiles(topLevelDirRel, docsRouteKeys = new Set()) {
           continue;
         }
         const relPath = normalizeRel(path.relative(REPO_ROOT, fullPath));
-        if (isContextDataPath(relPath) || isMaintainerOnlyIndexPath(relPath)) {
+        if (isMaintainerOnlyIndexPath(relPath)) {
           continue;
         }
         const routeKey = normalizeDocsRouteKey(relPath);
@@ -748,7 +726,7 @@ function findNestedIndexFiles(topLevelDirRel, docsRouteKeys = new Set()) {
     if (!isIndexFile(path.basename(relPath))) {
       return;
     }
-    if (isContextDataPath(relPath) || isMaintainerOnlyIndexPath(relPath)) {
+    if (isMaintainerOnlyIndexPath(relPath)) {
       return;
     }
     const routeKey = normalizeDocsRouteKey(relPath);

@@ -55,10 +55,17 @@ tmp_*
 /v2/**/x-notes/**
 /v2/**/x-pages/**
 /v2/**/x-unstaged/**
+/v2/**/_workspace/**
+/v2/**/_contextData/**
 /v2/**/_contextData_/**
 /v2/**/_context_data_/**
+/v2/**/_plans-and-research/**
+/v2/**/x-resources/**
+/v2/**/TO-ADD/**
+/v2/**/_archive/**
 /v2/**/_tests-to-delete/**
 /v2/**/_move_me/**
+/v2/**/review.md
 # Composition fragments — views and groups are consumed by parent pages, not standalone
 /v2/**/views/**
 /v2/**/groups/**

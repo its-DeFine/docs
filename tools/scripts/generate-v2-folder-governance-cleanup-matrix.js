@@ -266,29 +266,35 @@ function classifyArtifactClass(relPath) {
   return 'research';
 }
 
+function isSectionSegment(segment) {
+  return Boolean(segment) && path.posix.extname(segment) === '';
+}
+
 function getScopeInfo(relPath) {
   const segments = normalizeRel(relPath).split('/').filter(Boolean);
 
   if (segments[1] === 'x-archived') {
     if (LOCALE_CODES.has(segments[2])) {
       const localeCode = segments[2];
-      const section = segments[3] || '';
+      const sectionSegment = segments[3] || '';
+      const hasSection = isSectionSegment(sectionSegment);
       return {
         localeScope: 'archive',
         localeCode,
-        section: `${localeCode}/${section}`,
-        sectionRoot: normalizeRel(path.posix.join('v2', 'x-archived', localeCode, section)),
-        sectionIndex: 3
+        section: hasSection ? `${localeCode}/${sectionSegment}` : localeCode,
+        sectionRoot: normalizeRel(path.posix.join('v2', 'x-archived', localeCode, ...(hasSection ? [sectionSegment] : []))),
+        sectionIndex: hasSection ? 3 : 2
       };
     }
 
-    const section = segments[2] || '';
+    const sectionSegment = segments[2] || '';
+    const hasSection = isSectionSegment(sectionSegment);
     return {
       localeScope: 'archive',
       localeCode: '',
-      section,
-      sectionRoot: normalizeRel(path.posix.join('v2', 'x-archived', section)),
-      sectionIndex: 2
+      section: hasSection ? sectionSegment : 'x-archived',
+      sectionRoot: normalizeRel(path.posix.join('v2', 'x-archived', ...(hasSection ? [sectionSegment] : []))),
+      sectionIndex: hasSection ? 2 : 1
     };
   }
 
@@ -304,23 +310,25 @@ function getScopeInfo(relPath) {
 
   if (LOCALE_CODES.has(segments[1])) {
     const localeCode = segments[1];
-    const section = segments[2] || '';
+    const sectionSegment = segments[2] || '';
+    const hasSection = isSectionSegment(sectionSegment);
     return {
       localeScope: 'locale',
       localeCode,
-      section,
-      sectionRoot: normalizeRel(path.posix.join('v2', localeCode, section)),
-      sectionIndex: 2
+      section: hasSection ? sectionSegment : localeCode,
+      sectionRoot: normalizeRel(path.posix.join('v2', localeCode, ...(hasSection ? [sectionSegment] : []))),
+      sectionIndex: hasSection ? 2 : 1
     };
   }
 
-  const section = segments[1] || '';
+  const sectionSegment = segments[1] || '';
+  const hasSection = isSectionSegment(sectionSegment);
   return {
     localeScope: 'core',
     localeCode: '',
-    section,
-    sectionRoot: normalizeRel(path.posix.join('v2', section)),
-    sectionIndex: 1
+    section: hasSection ? sectionSegment : 'v2',
+    sectionRoot: normalizeRel(path.posix.join('v2', ...(hasSection ? [sectionSegment] : []))),
+    sectionIndex: hasSection ? 1 : 0
   };
 }
 

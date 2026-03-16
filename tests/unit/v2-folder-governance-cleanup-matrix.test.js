@@ -5,10 +5,9 @@
  * @purpose           governance:repo-health
  * @scope             tests/unit, tools/scripts/generate-v2-folder-governance-cleanup-matrix.js
  * @domain            docs
- * @owner             docs
  * @needs             E-C1, R-R14
  * @purpose-statement Unit tests for the v2 folder governance cleanup matrix generator — verifies core classification, targeting, and age-bucket rules.
- * @pipeline          manual
+ * @pipeline          manual — planning artifact validator
  * @usage             node tests/unit/v2-folder-governance-cleanup-matrix.test.js
  */
 
@@ -77,6 +76,20 @@ function runTests() {
       sectionRoot: 'v2/x-archived/orchestrators',
       sectionIndex: 2
     });
+    assert.deepStrictEqual(matrix.getScopeInfo('v2/cn/README.md'), {
+      localeScope: 'locale',
+      localeCode: 'cn',
+      section: 'cn',
+      sectionRoot: 'v2/cn',
+      sectionIndex: 1
+    });
+    assert.deepStrictEqual(matrix.getScopeInfo('v2/x-archived/index.mdx'), {
+      localeScope: 'archive',
+      localeCode: '',
+      section: 'x-archived',
+      sectionRoot: 'v2/x-archived',
+      sectionIndex: 1
+    });
   });
 
   runCase('Computes recommended workspace, deprecated, and archive target paths', () => {
@@ -122,6 +135,17 @@ function runTests() {
         matrix.computeRecommendedLane('archive')
       ),
       'v2/x-archived/developers/research-documents/brief-01-research-report.md'
+    );
+
+    const localeRootScope = matrix.getScopeInfo('v2/cn/README.md');
+    assert.strictEqual(
+      matrix.computeRecommendedTargetPath(
+        'v2/cn/README.md',
+        localeRootScope,
+        'research',
+        matrix.computeRecommendedLane('research')
+      ),
+      'v2/cn/_workspace/research/README.md'
     );
   });
 

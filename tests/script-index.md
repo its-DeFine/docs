@@ -61,6 +61,7 @@
 | `tests/unit/ui-template-generator.test.js` | Validates UI template generator snippet outputs are valid JSON, deterministic, and safe for after-< component insertion | `node tests/unit/ui-template-generator.test.js [flags]` | docs |
 | `tests/unit/usefulness-journey.test.js` | Tests journey-check evaluation logic against fixture pages. | `node tests/unit/usefulness-journey.test.js` | docs |
 | `tests/unit/usefulness-rubric.test.js` | Tests rubric-based scoring logic against fixture pages. | `node tests/unit/usefulness-rubric.test.js` | docs |
+| `tests/unit/v2-folder-governance-cleanup-matrix.test.js` | Unit tests for the v2 folder governance cleanup matrix generator — verifies core classification, targeting, and age-bucket rules. | `node tests/unit/v2-folder-governance-cleanup-matrix.test.js` | docs |
 | `tests/unit/v2-link-audit.test.js` | Unit tests for v2-link-audit.js — tests individual link checking rules | `node tests/unit/v2-link-audit.test.js [flags]` | docs |
 | `tests/unit/v2-wcag-audit.test.js` | Unit tests for v2-wcag-audit.js — tests individual WCAG rules | `node tests/unit/v2-wcag-audit.test.js [flags]` | docs |
 | `tests/unit/validate-codex-task-contract.test.js` | Tests validate-codex-task-contract.js — validates contract checking logic | `node tests/unit/validate-codex-task-contract.test.js [flags]` | docs |
