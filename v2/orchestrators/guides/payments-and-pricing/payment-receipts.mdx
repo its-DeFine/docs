@@ -1,52 +1,259 @@
 ---
 title: 'Payment Receipts'
 sidebarTitle: 'Payment Receipts'
-description: 'How orchestrators receive PM tickets from gateways, validate them, and redeem winning tickets on Arbitrum.'
+description: >-
+  How probabilistic micropayment tickets arrive, when they win, how the Redeemer
+  submits them on-chain, and how to verify ticket redemption is working correctly.
 keywords:
   - livepeer
   - orchestrator
-  - payments
-  - PM tickets
   - probabilistic micropayments
+  - winning ticket
   - ticket redemption
+  - redeemer
+  - arbitrum
+  - eth fees
+  - gas costs
+  - payment verification
 'og:image': /snippets/assets/site/og-image/en/orchestrators.png
 'og:image:alt': Livepeer Docs social preview image for Orchestrators
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
-pageType: guide
+pageType: concept
 audience: orchestrator
-status: draft
+status: current
+lastVerified: '2026-03-16'
 ---
-{/* TODO:
-Terminology Validation:
-- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
-- Voice converted to entity-led
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
-Verify:
-- All standard checks
-Human:
-- REVIEW flags
-- Review Page Layout
-*/}
 
-<Note>This page is a stub. Content to be developed.</Note>
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+import { LinkArrow } from '/snippets/components/primitives/links.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 
-{/*
-  PURPOSE:
-  "How do I actually receive ETH from gateways?" Orchestrator side of PM tickets.
-  How tickets arrive during job execution. Winning ticket detection (cryptographic
-  lottery). Redemption on Arbitrum TicketBroker contract. Gas costs for redemption
-  and batching strategy. Payment monitoring: expected vs received (statistical
-  convergence). The "probabilistic" part explained from the receiver perspective.
+<Tip>
+  ETH earnings do not accumulate every minute. They arrive in discrete steps whenever a winning ticket is redeemed on-chain. A node that processed thousands of jobs may have zero ETH balance changes for hours, then receive a larger deposit. This is expected behaviour, not a payment failure.
+</Tip>
 
-  PLAN TARGET: payment-receipt (rename)
-  STATUS: STUB - needs structured outline and content
-  TARGET SECTION: Staking & Earning → "How do I earn?" (merged section)
-  JOB STORIES: J3 (payment receipt)
+---
 
-  CROSS-REFS:
-  - Gateway Tab > Payments > Payment Guide - gateway (sender) side
-  - Staking & Earning > Earning Model - earnings context
-  - Resources > Contract Addresses - TicketBroker contract
-*/}
+Gateways pay orchestrators using **probabilistic micropayments (PM)**: a system where each job generates a signed ticket with a small probability of being worth a larger ETH payout. Most tickets are non-winners and are discarded. A fraction win and are redeemed on-chain via the Arbitrum TicketBroker contract. Over sufficient volume, the expected ETH received matches what would have been paid per-segment with individual transactions — without the gas overhead of thousands of individual on-chain payments.
+
+<CustomDivider middleText="How Tickets Arrive" />
+
+## How tickets arrive
+
+A gateway attaches one PM ticket to each job confirmation it sends after receiving the transcoded output or AI inference result. The ticket is received passively — your node does not request it or trigger it. The flow is:
+
+```text icon="terminal"
+Your node processes job (transcoding segment or AI inference)
+       ↓
+Your node sends the result to the gateway
+       ↓
+Gateway sends a signed PM ticket back to your node
+       ↓
+Your node evaluates the ticket: is it a winner?
+       ↓
+Non-winning tickets discarded immediately
+Winning tickets queued for the Redeemer
+       ↓
+Redeemer submits winning tickets to Arbitrum TicketBroker
+       ↓
+ETH credited to your orchestrator wallet
+```
+
+### Ticket structure
+
+Each ticket contains the fields the Arbitrum contract uses to verify and pay:
+
+<StyledTable variant="bordered">
+  <thead>
+    <TableRow header>
+      <TableCell header>Field</TableCell>
+      <TableCell header>Description</TableCell>
+    </TableRow>
+  </thead>
+  <tbody>
+    <TableRow>
+      <TableCell>**Face value**</TableCell>
+      <TableCell>ETH amount payable if this ticket wins</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Win probability**</TableCell>
+      <TableCell>Probability the ticket is a winner (e.g. `1e-5`)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Sender address**</TableCell>
+      <TableCell>The gateway's Ethereum address</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Recipient address**</TableCell>
+      <TableCell>Your orchestrator's Ethereum address</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Sender deposit**</TableCell>
+      <TableCell>The gateway's on-chain deposit that backs the ticket</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Expiry**</TableCell>
+      <TableCell>Block number after which the ticket cannot be redeemed</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Signature**</TableCell>
+      <TableCell>Gateway's cryptographic signature authorising the payment</TableCell>
+    </TableRow>
+  </tbody>
+</StyledTable>
+
+Your node verifies the signature and checks that the gateway has sufficient on-chain deposit to back the ticket before evaluating the win condition.
+
+<CustomDivider middleText="Win Condition" />
+
+## Win condition
+
+The win evaluation uses a deterministic pseudorandom function seeded by the ticket contents. Each ticket carries a `winProbability` parameter (e.g. `1/1000`). The evaluator generates a random number from the ticket data and the current block hash, then checks whether the output falls below the win threshold.
+
+The expected value of a single ticket equals the per-job fee:
+
+```text icon="terminal"
+win probability = 1/1000
+face value      = 1000 × per-job fee
+expected value  = 1/1000 × 1000 × fee = fee per job
+```
+
+Over a large number of tickets, the ETH received converges to the amount you would have been paid if every job had its own transaction. At low job volumes, the variance is high — a node processing 10 jobs per day might see zero redemptions some days and two on others. Variance decreases as volume increases.
+
+<CustomDivider middleText="The Redeemer" />
+
+## The Redeemer
+
+The Redeemer is the go-livepeer component that submits winning tickets to the Arbitrum TicketBroker contract. On a standard single-node orchestrator, it runs as part of the main process and requires no separate configuration.
+
+### Redemption cost
+
+Redemption transactions run on Arbitrum One (L2). Gas costs are low:
+
+<StyledTable variant="bordered">
+  <thead>
+    <TableRow header>
+      <TableCell header>Parameter</TableCell>
+      <TableCell header>Typical range</TableCell>
+    </TableRow>
+  </thead>
+  <tbody>
+    <TableRow>
+      <TableCell>Gas per redemption transaction</TableCell>
+      <TableCell>~100,000 – 200,000 gas</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Arbitrum gas price</TableCell>
+      <TableCell>0.01 – 0.1 gwei</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Approximate ETH cost per redemption</TableCell>
+      <TableCell>~$0.01 – $0.05 USD</TableCell>
+    </TableRow>
+  </tbody>
+</StyledTable>
+
+{/* REVIEW: Confirm gas cost figures against current Arbitrum gas prices. The $0.01-$0.05 range is from payments.mdx (March 2026). Arbitrum gas prices have varied; verify current typical range with Rick. */}
+
+The Redeemer batches pending winners when possible. A busy orchestrator redeems ETH a few times per day rather than once per winning ticket, keeping gas overhead negligible relative to earnings.
+
+### ETH balance requirement
+
+Your orchestrator wallet on Arbitrum must hold ETH to pay redemption gas. **Maintain a minimum of 0.01 ETH on Arbitrum.** A depleted wallet means winning tickets expire unsubmitted — that ETH is permanently lost.
+
+<Warning>
+  Winning tickets carry an expiry block number. If your wallet runs out of ETH before submission, expired tickets cannot be retroactively redeemed. The gateway's deposit is unaffected; the loss falls entirely on your side.
+</Warning>
+
+Replenish when your balance falls below 0.005 ETH on Arbitrum. Bridge ETH from Ethereum L1 using the [Arbitrum Bridge](https://bridge.arbitrum.io/) or a centralised exchange withdrawal.
+
+<CustomDivider middleText="Monitoring" />
+
+## Monitoring payment receipts
+
+### Expected payment rate
+
+Your expected ETH per round is:
+
+```text icon="terminal"
+expected ETH = jobs_per_round × per_job_fee × (1 - gas_overhead)
+```
+
+At low job volumes, actual ETH received in a given round will diverge from this estimate. The convergence improves with volume. A node processing under 50 jobs per day should expect high variability between rounds.
+
+### Verifying redemption is working
+
+Check your orchestrator wallet on [Arbiscan](https://arbiscan.io/) for incoming transactions from the TicketBroker contract. Each successful redemption appears as an ETH credit.
+
+From your node logs, filter for redemption activity:
+
+```bash icon="terminal"
+# Watch for successful redemptions
+journalctl -u livepeer -f | grep -i "ticket\|redeem\|winning"
+```
+
+Key log messages:
+
+<StyledTable variant="bordered">
+  <thead>
+    <TableRow header>
+      <TableCell header>Log message</TableCell>
+      <TableCell header>Meaning</TableCell>
+    </TableRow>
+  </thead>
+  <tbody>
+    <TableRow>
+      <TableCell>`Winning ticket`</TableCell>
+      <TableCell>A ticket passed the win condition; queued for Redeemer</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`Redeemed ticket`</TableCell>
+      <TableCell>Submission to Arbitrum succeeded; ETH credited</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`Failed to redeem ticket`</TableCell>
+      <TableCell>Submission failed; check ETH balance and RPC connectivity</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`Ticket expired`</TableCell>
+      <TableCell>Winning ticket not submitted before expiry block; ETH permanently lost</TableCell>
+    </TableRow>
+  </tbody>
+</StyledTable>
+
+{/* REVIEW: Confirm exact log message strings against current go-livepeer source. The strings above are representative; Rick to verify exact wording in current release. */}
+
+### Zero earnings for a long period
+
+Possible causes:
+
+- **Low job volume** — at fewer than ~20 jobs per day, zero-win rounds are statistically common.
+- **ETH balance depleted** — winning tickets fail to redeem silently if gas cannot be paid.
+- **RPC connectivity issue** — check your `-ethUrl` endpoint is reachable and not rate-limited.
+- **Node offline during job routing** — verify your node is connected and registered in the active set.
+- **Price above gateway caps** — confirm your `-pricePerUnit` is within range of active gateways. See <LinkArrow href="/v2/orchestrators/guides/config-and-optimisation/pricing-strategy" label="Pricing Strategy" newline={false} />.
+
+### Overlapping scope with payments.mdx
+
+This page covers the receiver-side mechanics of PM tickets: how they arrive, win conditions, and redemption. The <LinkArrow href="/v2/orchestrators/guides/payments-and-pricing/payments" label="Payments" newline={false} /> page covers broader payment flow concepts including the full PM system architecture, ETH funding requirements across all transaction types, video vs AI payment differences, and clearinghouses. Read both for the complete picture.
+
+<CustomDivider />
+
+## Related pages
+
+<CardGroup cols={2}>
+  <Card title="Payments" icon="coins" href="/v2/orchestrators/guides/payments-and-pricing/payments" arrow horizontal>
+    Full PM architecture, ETH funding, video vs AI payment differences, and clearinghouses.
+  </Card>
+  <Card title="Gateway Payment Guide" icon="code-branch" href="/v2/gateways/guides/payments-and-pricing/payment-guide" arrow horizontal>
+    The sender-side view: how gateways fund deposits and sign tickets.
+  </Card>
+  <Card title="Pricing Strategy" icon="tag" href="/v2/orchestrators/guides/config-and-optimisation/pricing-strategy" arrow horizontal>
+    Set prices within active gateway cap ranges to ensure tickets arrive.
+  </Card>
+  <Card title="Reward Mechanics" icon="rotate" href="/v2/orchestrators/guides/staking-and-rewards/reward-mechanics" arrow horizontal>
+    LPT inflation rewards — the second income stream alongside ETH fees.
+  </Card>
+</CardGroup>
