@@ -613,32 +613,32 @@ run_cli_step() {
 }
 
 hook_status_check() {
-    local source_hook="$REPO_ROOT/.githooks/pre-commit"
-    # Support both regular repos and worktrees
-    local git_common_dir
-    git_common_dir=$(cd "$REPO_ROOT" && git rev-parse --git-common-dir 2>/dev/null)
-    if [ -z "$git_common_dir" ] || [ "$git_common_dir" = "--git-common-dir" ]; then
-        git_common_dir="$REPO_ROOT/.git"
-    fi
-    local target_hook="$git_common_dir/hooks/pre-commit"
+    local source_dir="$REPO_ROOT/.githooks"
+    local source_hook="$source_dir/pre-commit"
+    local source_pre_push="$source_dir/pre-push"
+    local hooks_path
 
     if [ ! -f "$source_hook" ]; then
         echo "missing-source"
         return 1
     fi
 
-    if [ ! -f "$target_hook" ]; then
+    hooks_path="$(cd "$REPO_ROOT" && git config --path --get core.hooksPath 2>/dev/null || true)"
+    if [ -z "$hooks_path" ]; then
         echo "not-installed"
         return 1
     fi
+    if [[ "$hooks_path" != /* ]]; then
+        hooks_path="$REPO_ROOT/$hooks_path"
+    fi
 
-    if [ ! -x "$target_hook" ]; then
-        echo "not-executable"
+    if [ "$hooks_path" != "$source_dir" ]; then
+        echo "wrong-path:$hooks_path"
         return 1
     fi
 
-    if ! cmp -s "$source_hook" "$target_hook"; then
-        echo "out-of-date"
+    if [ ! -x "$source_hook" ] || [ ! -x "$source_pre_push" ]; then
+        echo "not-executable"
         return 1
     fi
 
@@ -667,16 +667,16 @@ cmd_hooks() {
             status="$(hook_status_check)" || true
             case "$status" in
                 installed)
-                    finish 0 "hooks status" "Hooks are installed and up to date."
+                    finish 0 "hooks status" "Hooks are installed via worktree-local core.hooksPath."
                     ;;
                 not-installed)
                     finish 1 "hooks status" "Hooks are not installed."
                     ;;
-                out-of-date)
-                    finish 1 "hooks status" "Installed hooks are out of date."
+                wrong-path:*)
+                    finish 1 "hooks status" "Hooks are routed to the wrong path: ${status#wrong-path:}"
                     ;;
                 not-executable)
-                    finish 1 "hooks status" "Hook exists but is not executable."
+                    finish 1 "hooks status" "Hook entrypoints exist but are not executable."
                     ;;
                 *)
                     finish 1 "hooks status" "Hook status check failed: $status"
@@ -696,10 +696,10 @@ cmd_hooks() {
 
 Usage:
   lpd hooks install
-    - info: Install/update `.git/hooks/pre-commit` from `.githooks/pre-commit`.
+    - info: Configure this worktree to execute hooks directly from `.githooks/`.
 
   lpd hooks status
-    - info: Check whether the installed pre-commit hook exists, is executable, and matches source.
+    - info: Check whether this worktree routes hooks to `.githooks/` and whether entrypoints are executable.
 
   lpd hooks verify
     - info: Run hook verification checks from `.githooks/verify.sh`.
@@ -720,6 +720,7 @@ Bypass Flags (pre-commit; use sparingly):
   - `SKIP_STYLE_CHECK=1`      : skip style-guide compliance checks.
   - `SKIP_VERIFICATION=1`     : skip verification script checks.
   - `SKIP_TESTS=1`            : skip staged test suite checks.
+  - `DISABLE_PRECOMMIT_STAGED_CACHE=1` : rerun the expensive staged suite even if the staged snapshot already passed.
   - `SKIP_ALL=1`              : skip all pre-commit checks.
 
 Human-Only Overrides:

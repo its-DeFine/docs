@@ -5,7 +5,7 @@
 
 | Script | Summary | Usage | Domain |
 |---|---|---|---|
-| `.githooks/install.sh` | Installs git hooks by setting core.hooksPath to .githooks/ | `bash .githooks/install.sh [flags]` | docs |
+| `.githooks/install.sh` | Installs git hooks by routing this worktree to .githooks via worktree-local core.hooksPath | `bash .githooks/install.sh [flags]` | docs |
 | `.githooks/pre-commit` | Pre-commit hook orchestrator — runs structural checks, unit tests, codex validation, and docs-index freshness check before allowing commit | `bash .githooks/pre-commit [flags]` | docs |
 | `.githooks/pre-commit-no-deletions` | Variant pre-commit hook that blocks file deletions (safety net for content preservation) | `bash .githooks/pre-commit-no-deletions [flags]` | docs |
 | `.githooks/pre-push` | Pre-push hook — blocks push if AI stash files present, codex locks stale, or task contract invalid | `bash .githooks/pre-push [flags]` | docs |
