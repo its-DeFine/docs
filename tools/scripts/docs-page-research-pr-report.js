@@ -4,7 +4,7 @@
  * @category          orchestrator
  * @purpose           governance:agent-governance
  * @scope             tools/scripts, tasks/research/claims, tasks/reports/repo-ops, tests/unit/docs-page-research-pr-report.test.js
- * @owner             docs
+ * @domain            docs
  * @needs             R-R27, R-R30
  * @purpose-statement Docs page research PR report — runs the fact-check research runner on changed docs pages and emits an advisory PR artifact summarizing claim families, contradictions, unresolved factual risk, and propagation follow-up.
  * @pipeline          manual — experimental advisory PR integration, non-blocking
@@ -14,6 +14,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync, execSync } = require('child_process');
+const crypto = require('crypto');
 
 const DEFAULT_REGISTRY = 'tasks/research/claims';
 
@@ -200,6 +201,8 @@ function buildSummary(report, changedFiles, targetFiles, reportMd, reportJson) {
     ...report.unverified_or_historical_claims
   ];
   return {
+    report_kind: 'pr-advisory',
+    report_id: report.report_id || buildReportId('pr-advisory', targetFiles, report.generated_at),
     generated_at: report.generated_at,
     changed_files: changedFiles,
     target_files: targetFiles,
@@ -232,10 +235,26 @@ function buildSummary(report, changedFiles, targetFiles, reportMd, reportJson) {
     })),
     propagation_queue: report.propagation_queue,
     evidence_sources: report.evidence_sources,
+    trust_summary: report.trust_summary || {
+      unresolved_claims: unresolvedItems.length,
+      contradiction_groups: report.cross_page_contradictions.length,
+      evidence_sources: report.evidence_sources.length,
+      explicit_page_targets: 0,
+      inferred_page_targets: 0
+    },
     notes: [],
     markdown_artifact: reportMd ? toPosix(reportMd) : '',
     json_artifact: reportJson ? toPosix(reportJson) : ''
   };
+}
+
+function buildReportId(kind, targetFiles, generatedAt) {
+  const hash = crypto
+    .createHash('sha1')
+    .update([kind, generatedAt, ...targetFiles].join('|'))
+    .digest('hex')
+    .slice(0, 12);
+  return `page-content-research-${String(generatedAt || '').slice(0, 10)}-${hash}`;
 }
 
 function buildMarkdown(summary) {
@@ -364,6 +383,8 @@ function main() {
     let summary;
     if (targetFiles.length === 0) {
       summary = {
+        report_kind: 'pr-advisory',
+        report_id: buildReportId('pr-advisory', changedFiles, new Date().toISOString()),
         generated_at: new Date().toISOString(),
         changed_files: changedFiles,
         target_files: [],
@@ -382,6 +403,13 @@ function main() {
         unresolved_items: [],
         propagation_queue: [],
         evidence_sources: [],
+        trust_summary: {
+          unresolved_claims: 0,
+          contradiction_groups: 0,
+          evidence_sources: 0,
+          explicit_page_targets: 0,
+          inferred_page_targets: 0
+        },
         notes: ['No tracked docs pages were present in the changed-file set.'],
         markdown_artifact: toPosix(reportMd),
         json_artifact: toPosix(reportJson)

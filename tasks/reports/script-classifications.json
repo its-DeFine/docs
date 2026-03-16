@@ -379,6 +379,16 @@
     "pipeline": "manual — experimental research system"
   },
   {
+    "path": "tests/unit/docs-research-adjudication.test.js",
+    "script": "docs-research-adjudication.test",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tests/unit, tools/scripts/docs-research-adjudication.js, tasks/research/adjudication, tasks/reports/repo-ops",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Tests docs-research-adjudication.js — validates adjudication-ledger schema, report-aware outcome recording, and trust-tier summary rules for measured research-skill review outcomes.",
+    "pipeline": "manual — experimental research system"
+  },
+  {
     "path": "tests/unit/docs-guide-sot.test.js",
     "script": "docs-guide-sot.test",
     "category": "validator",
@@ -1581,6 +1591,16 @@
     "scope": "tools/scripts, tasks/research/claims, tests/unit/docs-fact-registry.test.js",
     "needs": "R-R27, R-R30",
     "purpose_statement": "Docs fact registry validator — validates repo-native research claim registries and provides normalized claim-family data for the manual research runner.",
+    "pipeline": "manual — experimental research system"
+  },
+  {
+    "path": "tools/scripts/docs-research-adjudication.js",
+    "script": "docs-research-adjudication",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tools/scripts, tasks/research/adjudication, tasks/reports/repo-ops, tests/unit/docs-research-adjudication.test.js",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Docs research adjudication ledger — validates, records, and summarizes measured review outcomes for the page-content research workflow so trust decisions are based on real usage rather than intuition.",
     "pipeline": "manual — experimental research system"
   },
   {

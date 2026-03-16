@@ -1,18 +1,25 @@
 task_id: 20260316
-branch: codex/20260316-research-skill-trust-hardening
+branch: codex/20260316-research-skill-adjudication
 base_branch: docs-v2-dev
 scope_in:
   - .codex/task-contract.yaml
   - .codex/locks-local
   - docs-guide/frameworks/research-skill-workflow.mdx
   - tasks/reports/repo-ops
+  - tasks/reports/script-classifications.json
+  - tasks/research
   - tasks/research/claims
+  - tests/script-index.md
+  - tests/unit/docs-research-adjudication.test.js
   - tests/unit/docs-fact-registry.test.js
   - tests/unit/docs-page-research-pr-report.test.js
   - tests/unit/docs-page-research.test.js
+  - tools/script-index.md
+  - tools/scripts/docs-research-adjudication.js
   - tools/scripts/docs-fact-registry.js
   - tools/scripts/docs-page-research-pr-report.js
   - tools/scripts/docs-page-research.js
+  - docs-guide/catalog/scripts-catalog.mdx
 scope_out: []
 allowed_generated:
   - .codex/pr-body.generated.md

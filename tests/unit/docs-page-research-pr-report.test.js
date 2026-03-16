@@ -4,7 +4,7 @@
  * @category          orchestrator
  * @purpose           governance:agent-governance
  * @scope             tests/unit, tools/scripts/docs-page-research-pr-report.js, tools/scripts/docs-page-research.js, tasks/research/claims
- * @owner             docs
+ * @domain            docs
  * @needs             R-R27, R-R30
  * @purpose-statement Tests docs-page-research-pr-report.js — validates changed-file advisory reporting for the fact-check research runner.
  * @pipeline          manual — experimental advisory PR integration, non-blocking
@@ -53,9 +53,12 @@ async function runTests() {
     const md = fs.readFileSync(reportMd, 'utf8');
     const json = JSON.parse(fs.readFileSync(reportJson, 'utf8'));
     assert.match(md, /^# Advisory Research PR Report/m, 'report markdown should include title');
+    assert.ok(json.report_id, 'summary should include report id');
+    assert.strictEqual(json.report_kind, 'pr-advisory');
     assert.ok(json.summary.matched_claim_families > 0, 'summary should contain matched claim families');
     assert.ok(Array.isArray(json.target_files) && json.target_files.length === 3, 'target files should match docs pages');
     assert.ok(Array.isArray(json.unresolved_items), 'summary should include unresolved items');
+    assert.ok(json.trust_summary, 'summary should include trust summary');
   });
 
   cases.push(async () => {
@@ -74,9 +77,11 @@ async function runTests() {
 
     assert.strictEqual(run.status, 0, `empty advisory script failed: ${run.stderr || run.stdout}`);
     const json = JSON.parse(fs.readFileSync(reportJson, 'utf8'));
+    assert.ok(json.report_id);
     assert.strictEqual(json.summary.matched_claim_families, 0);
     assert.strictEqual(json.target_files.length, 0);
     assert.ok(Array.isArray(json.notes) && json.notes[0].includes('No tracked docs pages'));
+    assert.strictEqual(json.trust_summary.unresolved_claims, 0);
   });
 
   for (let index = 0; index < cases.length; index += 1) {
