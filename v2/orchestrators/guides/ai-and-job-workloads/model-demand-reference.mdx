@@ -62,6 +62,36 @@ This page is a practical operator reference: VRAM figures per pipeline, warm mod
 
 <CustomDivider />
 
+## Demand signals
+
+VRAM alone does not determine earnings. The better question is: **which pipeline-model combinations are currently being routed by gateways, and can your hardware keep one of them warm at a competitive price?**
+
+Use these two signals together before loading a model:
+
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Signal</TableCell>
+    <TableCell header>What to look for</TableCell>
+    <TableCell header>Operator action</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities)</TableCell>
+    <TableCell>Which models and pipelines are currently visible on the network, and whether competitors are advertising them warm or cold</TableCell>
+    <TableCell>Choose a model that gateways are actually requesting, not just one that fits in VRAM</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Livepeer Explorer](https://explorer.livepeer.org/orchestrators)</TableCell>
+    <TableCell>Which operators are earning fees and whether their pricing is materially above or below your planned rate</TableCell>
+    <TableCell>Set price and warm-model strategy from current routing conditions rather than static rules of thumb</TableCell>
+  </TableRow>
+</StyledTable>
+
+<Tip>
+  A lightweight pipeline with visible demand usually beats an impressive model that gateways are not routing. Start from demand, then validate that the warm VRAM footprint fits your GPU with headroom.
+</Tip>
+
+<CustomDivider />
+
 ## VRAM by pipeline
 
 These figures are production estimates based on operator deployments and community benchmarks. Actual usage varies with model variant, batch size, and resolution.

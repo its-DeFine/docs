@@ -22,7 +22,7 @@ keywords:
 'og:image:height': 630
 pageType: how_to
 audience: orchestrator
-status: current
+status: draft
 lastVerified: '2026-03-16'
 ---
 
@@ -47,7 +47,7 @@ The correct price for each domain is derived from the same principle: find the r
 
 Video transcoding is priced in **wei per pixel**. One ETH equals 1,000,000,000,000,000,000 wei (1e18). The pixel count for a job is `width × height × output_renditions`.
 
-The active network range at time of writing is roughly **500 to 2,000 wei per pixel**. Prices below 500 wei per pixel are typically below cost. Prices above 2,000 wei per pixel are above most gateway caps and receive no work.
+The active network range changes as ETH price, gateway caps, and redemption overhead move. Use the current Livepeer Explorer and your own routed volume as the reference point rather than treating any single historical range as fixed.
 
 {/* REVIEW: Verify current active network price range with Rick / tools.livepeer.cloud. The 500-2,000 wei figure is from config-draft research (March 2026) and may have shifted. */}
 
@@ -79,7 +79,7 @@ This example sets a price of $0.41 per trillion pixels. Adjust `pixelsPerUnit` t
 
 ### Surveying the market
 
-Check [Livepeer Explorer](https://explorer.livepeer.org/orchestrators) for the current price distribution across the active set. Active orchestrators are listed with their advertised price. Position in the **25th to 75th percentile** of the active set to attract work without racing to the bottom.
+Check [Livepeer Explorer](https://explorer.livepeer.org/orchestrators) for the current price distribution across the active set. Active orchestrators are listed with their advertised price. A practical starting point is the lower half of currently active prices, then adjust upward only after you confirm that job volume still holds.
 
 Use `livepeer_cli` to inspect connected orchestrators and their current prices from your node's perspective.
 
@@ -230,7 +230,24 @@ Visit [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.clou
 
 The `-pricePerGateway` flag sets a custom price for a specific gateway address, overriding your global `-pricePerUnit` for jobs from that gateway. This is the mechanism for commercial relationships where you negotiate a custom rate with a gateway operator.
 
-{/* REVIEW: Confirm exact flag syntax for -pricePerGateway (format: flag value as JSON map, or address:price pair, or separate flag per gateway). Rick to verify current go-livepeer CLI interface for this flag. The flag name is confirmed in gateway-relationships.mdx source but the input format is not documented in available source files. */}
+The current CLI reference documents the value as either a JSON payload or a path to a JSON file:
+
+```json icon="code" title="pricePerGateway JSON"
+{
+  "gateways": [
+    {
+      "ethaddress": "0xGatewayAddress1",
+      "priceperunit": 1000,
+      "pixelsperunit": 1
+    },
+    {
+      "ethaddress": "0xGatewayAddress2",
+      "priceperunit": 1200,
+      "pixelsperunit": 1
+    }
+  ]
+}
+```
 
 Use `-pricePerGateway` when:
 - A gateway operator negotiates a dedicated rate in exchange for consistent job volume

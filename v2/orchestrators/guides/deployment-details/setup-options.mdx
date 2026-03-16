@@ -2,7 +2,7 @@
 title: 'Alternate Deployment Options'
 sidebarTitle: 'Alternate Deployments'
 description: >-
-  The three alternatives to running go-livepeer as a single combined process -
+  The three alternatives to running go-livepeer as a single-process deployment -
   pool worker, O-T split, and Siphon. What each solves and how to choose.
 keywords:
   - livepeer
@@ -45,7 +45,7 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-The default go-livepeer installation runs Orchestrator and Transcoder as a single combined process
+The default go-livepeer installation runs Orchestrator and Transcoder as a single-process deployment
 on one machine. That standard path is documented in the
 <LinkArrow href="/v2/orchestrators/setup/guide" label="Setup Guide" newline={false} />.
 
@@ -99,7 +99,7 @@ receives off-chain payouts.
 **Use this when:** no LPT is available, or on-chain protocol management is not wanted. It is the
 lowest-barrier path from GPU hardware to earnings.
 
-**What changes from combined mode:**
+**What changes from the single-process deployment:**
 
 - No `-orchestrator` flag - the process only transcodes, never routes
 - No Ethereum keystore on the worker machine
@@ -121,7 +121,7 @@ See <LinkArrow href="/v2/orchestrators/guides/deployment-details/join-a-pool" la
 
 ## O-T Split
 
-The O-T split separates what combined mode runs together. The Orchestrator process - protocol,
+The O-T split separates what the single-process deployment runs together. The Orchestrator process - protocol,
 routing, reward calling, keystore - runs on one machine. The Transcoder process - GPU work - runs
 on one or more other machines. The two connect over the network using a shared secret (`-orchSecret`).
 
@@ -139,7 +139,7 @@ flowchart LR
     classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
 ```
 
-**What changes from combined mode:**
+**What changes from the single-process deployment:**
 
 - Orchestrator machine runs `livepeer -orchestrator` with no `-transcoder` flag and no GPU
 - Each GPU machine runs `livepeer -transcoder` with no keystore and no Arbitrum RPC
@@ -188,7 +188,7 @@ reward calls - if the Orchestrator machine goes down, rewards stop. With Siphon,
 calls rewards independently of whether the GPU machine is running. The GPU machine can restart,
 be replaced, or go offline without affecting LPT inflation rewards.
 
-**Other differences from combined mode:**
+**Other differences from the single-process deployment:**
 
 - Secure machine runs OrchestratorSiphon (Python, `config.ini`) - not go-livepeer
 - GPU machine runs `livepeer -transcoder` - no keystore, no Arbitrum RPC
@@ -219,8 +219,8 @@ See <LinkArrow href="/v2/orchestrators/guides/deployment-details/siphon-setup" l
       <TableCell>**Pool worker** - not an Orchestrator at all</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell>One machine, comfortable with combined setup</TableCell>
-      <TableCell>**Standard combined mode** - see the Setup Guide, not this page</TableCell>
+      <TableCell>One machine, comfortable with the single-process deployment</TableCell>
+      <TableCell>**Standard single-process deployment** - see the Setup Guide, not this page</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>Multiple GPU machines under one Orchestrator identity</TableCell>
@@ -274,7 +274,7 @@ See <LinkArrow href="/v2/orchestrators/guides/deployment-details/siphon-setup" l
   NOT about node mode (video/AI/dual) - that is a workload decision in Config.
 
   PLAN TARGET: setup-options (keep + update)
-  UPDATE NEEDED: Replace "combined mode" with "dual mode" terminology. Reframe with dual as default.
+  Terminology note: use **dual mode** for the workload mix (video + AI) and **single-process deployment** for the one-node architecture.
 
   SECTION: Deployment Details → "What do I need and which path?"
   JOB STORIES: J1 (path selection)

@@ -51,8 +51,8 @@ startup command is ready and each flag is understood.
 
 **Prerequisites:**
 - go-livepeer installed and GPU detected. See <LinkArrow href="/v2/orchestrators/setup/rs-install" label="Install go-livepeer" newline={false} />.
-- Arbitrum wallet with ETH for gas. See <LinkArrow href="/v2/orchestrators/setup/sc-connect" label="Connect to Arbitrum" newline={false} />.
-- The hardware session limit number from the `livepeer_bench` test in <LinkArrow href="/v2/orchestrators/guides/deployment-details/requirements" label="Requirements" newline={false} />.
+- Arbitrum wallet with ETH for gas. See <LinkArrow href="/v2/orchestrators/setup/connect-and-activate" label="Connect and Activate" newline={false} />.
+- The hardware session limit number from the `livepeer_bench` test in <LinkArrow href="/v2/orchestrators/guides/operator-considerations/requirements" label="Requirements" newline={false} />.
 
 <CustomDivider middleText="Essential Flags" style={{margin: "-1rem 0 -2rem 0"}} />
 
@@ -93,7 +93,7 @@ registration, reward calls, ticket redemption.
 ```
 
 This must be an **Arbitrum One** endpoint, not an Ethereum L1 endpoint. See
-<LinkArrow href="/v2/orchestrators/setup/sc-connect" label="Connect to Arbitrum" newline={false} /> for how to set up a reliable RPC.
+<LinkArrow href="/v2/orchestrators/setup/connect-and-activate" label="Connect and Activate" newline={false} /> for how to set up a reliable RPC.
 
 </Step>
 
@@ -199,7 +199,7 @@ Sets the maximum concurrent transcoding sessions the node accepts. The default i
 to the **minimum of the hardware limit and the bandwidth limit**.
 
 **Hardware limit:** the last session count from the `livepeer_bench` test in
-<LinkArrow href="/v2/orchestrators/guides/deployment-details/requirements" label="Requirements" newline={false} /> where Real-Time Duration Ratio was ≤ 0.8.
+<LinkArrow href="/v2/orchestrators/guides/operator-considerations/requirements" label="Requirements" newline={false} /> where Real-Time Duration Ratio was ≤ 0.8.
 
 **Bandwidth limit:** available symmetric bandwidth (Mbps) ÷ 6 Mbps per stream × 0.8 margin.
 
@@ -370,7 +370,7 @@ inside the container. Docker uses this path to mount model files into AI runner 
 </Warning>
 
 For the full guide to configuring `aiModels.json` and receiving the first AI job, see
-<LinkArrow href="/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup" label="Batch AI Setup" newline={false} />.
+<LinkArrow href="/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup" label="Diffusion Pipeline Setup" newline={false} />.
 
 </Accordion>
 
@@ -479,10 +479,10 @@ binary directly - systemd does not perform shell expansion in `ExecStart`.
 ## Next Steps
 
 <CardGroup cols={3}>
-  <Card title="Connect to Arbitrum" icon="link" href="/v2/orchestrators/setup/sc-connect" arrow horizontal>
+  <Card title="Connect and Activate" icon="link" href="/v2/orchestrators/setup/connect-and-activate" arrow horizontal>
     Set up the Arbitrum RPC endpoint and fund the wallet with ETH for gas.
   </Card>
-  <Card title="Activate on the network" icon="circle-check" href="/v2/orchestrators/setup/activate" arrow horizontal>
+  <Card title="Activate on the network" icon="circle-check" href="/v2/orchestrators/setup/connect-and-activate" arrow horizontal>
     Register the Orchestrator on-chain and enter the active set via `livepeer_cli`.
   </Card>
   <Card title="CLI reference" icon="terminal" href="/v2/orchestrators/resources/technical/cli-flags" arrow horizontal>

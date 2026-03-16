@@ -23,7 +23,7 @@ keywords:
 'og:image:height': 630
 pageType: how_to
 audience: orchestrator
-status: current
+status: draft
 lastVerified: '2026-03-16'
 ---
 
@@ -215,9 +215,7 @@ The `token` field provides the bearer token for authenticating with HuggingFace 
 
 ## Livepeer verified model list
 
-Only models on the Livepeer verified model list can receive routed jobs from gateways. Models not on the list will not appear in the network capability advertisement, and gateways will not route work to them.
-
-The verified model list is maintained by the Livepeer Foundation and updated as new models are tested for compatibility and demand. Check the current list at [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities) — models shown there are the ones currently eligible for routing.
+In practice, gateways route the models and pipeline combinations they recognise, price against, and currently request. The visible network set is the most useful operational reference point: check [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities) to see which models are presently showing up on the network.
 
 Configuring a model not on the verified list in `aiModels.json` is permitted but produces no job traffic.
 
@@ -251,7 +249,7 @@ Verify your pipelines appear registered at [tools.livepeer.cloud/ai/network-capa
 Registration may take 2 to 5 minutes after the AI worker starts. If a pipeline does not appear after 10 minutes, check:
 - Container is running (`docker ps`)
 - Model loaded without errors (`docker logs`)
-- Your orchestrator is in the active set on [Livepeer Explorer](https://explorer.livepeer.org/orchestrators)
+- Your orchestrator is reachable and advertising the expected pipeline capability
 
 <CustomDivider />
 

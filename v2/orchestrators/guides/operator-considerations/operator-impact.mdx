@@ -51,11 +51,12 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
 
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
+If `operator-rationale` answers whether running an Orchestrator can pay, this page answers the next
+question: why the role matters even when the financial case is only part of the story.
+
 Orchestrators hold **governance weight** proportional to their total bonded stake. Every LPT staked
-to an Orchestrator - whether self-staked or delegated - translates directly into voting influence
-over the protocol that underpins their business. This page covers what that influence looks like in
-practice, why it matters, and the broader case for Orchestrators as infrastructure stewards rather
-than pure earnings participants.
+to an Orchestrator - whether self-staked or delegated - becomes voting influence over the protocol
+that shapes operator economics, network priorities, and the infrastructure Livepeer can support.
 
 For the mechanics of staking and delegation, see <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards/network-participation" label="Governance Guide" newline={false} />. For delegator voting rights, see <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards/delegate-operations" label="Attracting Delegators" newline={false} />.
 
@@ -97,8 +98,8 @@ their own governance rights.
 
 ## Scope of Governance
 
-LIPs cover the full range of protocol decisions. Orchestrators who understand governance have an
-ongoing stake - literally - in what direction these decisions take.
+Governance is not a side topic. It reaches directly into operator economics, network direction, and
+the conditions under which future workloads become viable.
 
 <StyledTable variant="bordered">
   <thead>
@@ -138,9 +139,8 @@ ongoing stake - literally - in what direction these decisions take.
 </StyledTable>
 
 The Livepeer Foundation, launched in 2025, coordinates ecosystem development and stewards the
-long-term protocol vision - but governance authority over protocol parameters remains with
-LPT holders. Orchestrators with large stake are consequential participants in every significant
-protocol decision.
+long-term protocol vision. It does not replace stake-weighted governance over protocol parameters.
+Operators with large bonded stake remain consequential participants in major protocol decisions.
 
 <Note>
 Governance proposals and active LIPs are tracked on the [Livepeer Forum](https://forum.livepeer.org/c/governance/17)
@@ -152,9 +152,8 @@ a practical prerequisite for informed governance participation.
 
 ## Stake as Governance Capital
 
-Governance weight in Livepeer is not merely about voting on individual proposals. Stake represents
-a long-term commitment to the network's direction, and large Orchestrators carry influence
-proportional to that commitment.
+For operators, stake is both economic capital and political capital inside the network. It determines
+not only reward exposure, but how much influence an operator carries when the protocol changes.
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
@@ -168,9 +167,9 @@ flowchart LR
     classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
 ```
 
-This creates an alignment between operating well and having meaningful protocol influence. Orchestrators
-who consistently deliver reliable service, maintain competitive pricing, and build trust with Delegators
-accumulate more bonded stake over time - and with it, more governance weight.
+This creates a direct link between operating well and carrying more influence. Orchestrators who
+deliver reliable service, maintain competitive pricing, and build trust with Delegators accumulate
+more bonded stake over time - and with it, more governance weight.
 
 The concentration of stake matters. Active Orchestrators represent the majority of staked LPT in
 the network. On any contested governance vote, the position taken by large Orchestrators is often
@@ -187,7 +186,7 @@ Delegators do not vote independently; their stake defaults to their Orchestrator
 
 ## Beyond Earnings: Sovereign Compute
 
-The economic case for running a Livepeer Orchestrator is covered in <LinkArrow href="/v2/orchestrators/guides/operator-considerations/operator-rationale" label="Operating Rationale" newline={false} />. The governance case is about something larger: who controls the infrastructure that processes the world's video and AI.
+The economic case for running a Livepeer Orchestrator is covered in <LinkArrow href="/v2/orchestrators/guides/operator-considerations/operator-rationale" label="Operating Rationale" newline={false} />. The non-financial case starts with a different question: who should control the infrastructure that serves video and AI workloads?
 
 The dominant alternative is centralised cloud compute. AWS, Azure, and GCP provide the GPU
 infrastructure that powers the majority of video transcoding and AI inference globally. This
@@ -201,9 +200,9 @@ concentration creates:
   away
 - **Pricing power** - without competitive alternatives, cloud providers set the terms
 
-Livepeer Orchestrators collectively operate the alternative. A decentralised network of GPU operators,
-governed by the token holders themselves, with no single entity that can suspend, censor, or price-out
-a participant.
+Livepeer Orchestrators collectively run the alternative. A decentralised network of GPU operators,
+governed by token holders themselves, leaves no single provider able to suspend, censor, or price out
+the entire market.
 
 <AccordionGroup>
   <Accordion title="For independent media" icon="video">
@@ -256,8 +255,9 @@ a participant.
 
 ## Practical Governance Participation
 
-Governance participation for Orchestrators means more than occasionally voting on LIPs. The most
-consequential participation happens before a vote.
+If the motivation case is clear, the practical question becomes what an operator actually does with
+that influence. Governance participation means more than showing up on voting day. The most
+consequential work happens before a proposal reaches an on-chain poll.
 
 **Follow active proposals.** The [Livepeer Forum governance category](https://forum.livepeer.org/c/governance/17)
 is where proposals develop before reaching an on-chain vote. Early discussion shapes what ends up

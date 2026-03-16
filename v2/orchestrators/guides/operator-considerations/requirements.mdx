@@ -53,21 +53,21 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-Hardware is the primary constraint for every workload type on Livepeer. This page covers GPU
-support policy, session limits by card tier, VRAM requirements by AI pipeline, the minimum
-system stack, capacity testing, and the checklist to run before activating on the network.
+Use this page as a readiness filter before investing more time in setup. It is here to answer a
+simple question: does your machine, network, and system stack actually support the workload path you
+want to run on Livepeer?
 
 <CustomDivider middleText="GPU Support" style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## GPU Vendor Support
 
-NVIDIA is the supported GPU vendor for go-livepeer. AMD and Intel GPUs are not supported for
-hardware-accelerated transcoding or AI inference. NVIDIA CUDA is required for both NVENC video
-transcoding and all AI inference pipelines.
+NVIDIA is not just the preferred vendor for go-livepeer. It is the supported line. AMD and Intel
+GPUs are not supported for hardware-accelerated transcoding or AI inference, and NVIDIA CUDA is
+required for both NVENC video transcoding and AI pipelines.
 
 ### Driver requirements
 
-Verify NVIDIA drivers are installed and current before anything else:
+Start here, because every other requirement is irrelevant if the GPU is not visible to the host:
 
 ```bash icon="terminal"
 nvidia-smi
@@ -87,8 +87,8 @@ go-livepeer cannot use the GPU without working NVIDIA drivers.
 ## NVENC/NVDEC Session Limits
 
 NVIDIA consumer GPUs enforce **concurrent encoding session limits** via NVENC (hardware video
-encoder) and NVDEC (hardware video decoder). These limits directly constrain how many simultaneous
-transcoding streams a card can handle in hardware mode.
+encoder) and NVDEC (hardware video decoder). For many video-first operators, this is the first hard
+capacity ceiling that matters.
 
 <Warning>
 Consumer NVIDIA cards (GeForce RTX series) are capped at a small number of concurrent NVENC sessions
@@ -142,9 +142,9 @@ Check the official NVIDIA matrix for exact limits per generation:
   </tbody>
 </StyledTable>
 
-Exact session counts can vary by GPU generation and NVIDIA policy. Verify the specific card in the
-matrix. The NVENC cap is the binding constraint for consumer card operators - the capacity test
-below will confirm this.
+Exact session counts can vary by GPU generation and NVIDIA policy. Treat the NVIDIA matrix as the
+source of truth and the table below as a planning shortcut. For most consumer-card operators, this
+cap is the binding limit until benchmarking proves otherwise.
 
 <CustomDivider middleText="Hardware Tiers" style={{margin: "-1rem 0 -2rem 0"}} />
 
@@ -152,8 +152,8 @@ below will confirm this.
 
 ### Video transcoding
 
-Video transcoding is NVENC/NVDEC throughput and memory bandwidth. Large VRAM is not required -
-model loading is not involved.
+Video transcoding is primarily a throughput problem. You care about encoder sessions, sustained
+throughput, and stability far more than you care about large VRAM pools.
 
 <StyledTable variant="bordered">
   <thead>
@@ -188,7 +188,8 @@ Not competitive at scale.
 
 ### Batch AI inference
 
-AI inference requires VRAM. Full pipeline-by-pipeline VRAM figures are in
+AI inference flips the constraint. The first question is whether the model fits in memory at all.
+Full pipeline-by-pipeline VRAM figures are in
 <LinkArrow href="/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference" label="Models and VRAM Reference" newline={false} />.
 
 <StyledTable variant="bordered">
@@ -220,7 +221,8 @@ AI inference requires VRAM. Full pipeline-by-pipeline VRAM figures are in
 
 ### Real-time AI inference (Cascade)
 
-Real-time video AI has stricter requirements than batch AI:
+Real-time video AI is a latency problem before it is a raw-throughput problem, so the hardware
+requirements are stricter than they are for batch AI:
 
 - **Minimum VRAM:** 12-16 GB (StreamDiffusion with SD 1.5)
 - **Competitive VRAM:** 24 GB (StreamDiffusion with SDXL)
@@ -298,9 +300,8 @@ latency for real-time AI workloads.
 
 ## Testing Your Capacity
 
-Before setting `-maxSessions` and going live, run `livepeer_bench` to find the GPU's actual
-concurrent transcoding ceiling. This is a one-time test - run it after hardware is confirmed
-but before activation.
+Do not set `-maxSessions` from guesswork or marketing specs. Run `livepeer_bench` to find the GPU's
+actual concurrent transcoding ceiling after hardware is confirmed and before activation.
 
 `livepeer_bench` ships with go-livepeer. Verify it is on PATH:
 
@@ -359,8 +360,8 @@ The **Real-Time Duration Ratio** is total transcoding time divided by total sour
   </tbody>
 </StyledTable>
 
-The last concurrent session count at which ratio ≤ 0.8 is the **hardware limit**. The 0.8
-threshold leaves 20% headroom for upload/download overhead and transient spikes.
+The last concurrent session count at which ratio ≤ 0.8 is the practical **hardware limit** many
+operators use. That threshold keeps some headroom for upload/download overhead and short spikes.
 
 {/* REVIEW: 0.8 is a community convention, not a go-livepeer hard limit. Confirm with Discord #orchestrators. */}
 
@@ -369,6 +370,9 @@ Take this number to <LinkArrow href="/v2/orchestrators/setup/configure" label="C
 <CustomDivider middleText="Pre-launch Checklist" style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Checklist Before Going Live
+
+Do not activate just because the node boots. Use the checklist below to confirm the basics that most
+often fail first.
 
 <StyledSteps>
 

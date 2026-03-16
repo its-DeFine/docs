@@ -53,13 +53,29 @@ Human:
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+import { BorderedBox } from '/snippets/components/layout/containers.jsx'
 
 Livepeer's AI subnet launched in Q3 2024 and has grown to become the primary source of new fee revenue for orchestrators. It turns GPU nodes into open, composable inference infrastructure — serving everything from image generation to real-time video effects to large language model completions.
 
 This page explains the fundamentals: what AI workloads are, how they reach your node, the key distinction between batch and real-time inference, and what hardware you need to participate.
 
+<BorderedBox variant="accent">
+  <AccordionGroup>
+    <Accordion title="Already running video?" icon="clapperboard">
+      AI pipelines sit beside an existing video orchestrator rather than replacing it. The usual delta is:
+
+      - keep the existing go-livepeer service and video pricing flags
+      - add the AI worker and `aiModels.json`
+      - budget VRAM for the models you want warm
+      - expose only the pipelines you can actually keep healthy under load
+
+      See [Dual Mode Configuration](/v2/orchestrators/guides/deployment-details/dual-mode-configuration) for the exact operational delta and [Diffusion Pipeline Setup](/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup) for the first AI worker path.
+    </Accordion>
+  </AccordionGroup>
+</BorderedBox>
+
 <Note>
-  **Already running a transcoding orchestrator?** AI pipelines run alongside your existing node using dedicated AI Runner containers. Your transcoding setup does not need to change. See [Batch AI Setup](/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup) for the operator path.
+  **Low-LPT entry path:** AI inference can be a better starting point than solo video orchestration when stake is limited. Capability, pricing, and latency matter more than active-set position for many AI jobs.
 </Note>
 
 <CustomDivider />
