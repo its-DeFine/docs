@@ -36,10 +36,10 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 Batch AI inference is the most accessible entry point to the Livepeer AI network. An application sends a request — a text prompt, an image, an audio file — your node processes it and returns the result. You earn per-unit fees for every successful job.
 
-This guide covers everything needed to run batch AI pipelines: configuring `aiModels.json`, choosing and loading models, running the Ollama LLM runner, connecting BYOC external containers, setting pricing, and diagnosing problems.
+Run batch AI by configuring `aiModels.json`, choosing and loading models, connecting external runners where needed, setting prices, and checking health and routing once the worker is live.
 
 <Note>
-  This guide assumes your orchestrator node is already running and connected to the network. If you haven't set up go-livepeer yet, start with [Run an Orchestrator](/v2/orchestrators/setup/guide).
+  Use this guide once your orchestrator node is already running and connected to the network. Nodes still in initial setup should start with [Run an Orchestrator](/v2/orchestrators/setup/guide).
 </Note>
 
 <CustomDivider />
@@ -50,7 +50,7 @@ Before configuring AI pipelines, ensure:
 
 - **go-livepeer** is running with the `-aiWorker` flag enabled
 - **NVIDIA Container Toolkit** is installed and working (`docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi`)
-- **Docker** is running and can access your GPUs
+- **Docker** is running with GPU access
 - You have a `~/.lpData/aiModels.json` file or know where you want to create one
 
 <CustomDivider />
@@ -83,7 +83,7 @@ The standard container image is `livepeer/ai-runner`. Except for the `llm` pipel
 
 ### Minimal working example
 
-```json icon="terminal"
+```json icon="terminal" title="Minimal aiModels.json example"
 [
   {
     "pipeline": "text-to-image",
@@ -179,7 +179,7 @@ This single entry is enough to start earning from the `text-to-image` pipeline w
 
 Generate images from text prompts. The highest-demand pipeline on the network.
 
-```json icon="terminal"
+```json icon="terminal" title="text-to-image aiModels.json entry"
 {
   "pipeline": "text-to-image",
   "model_id": "SG161222/RealVisXL_V4.0_Lightning",
@@ -204,7 +204,7 @@ Alternative models:
 
 Apply diffusion-based transformations, style transfer, or enhancement to an input image.
 
-```json icon="terminal"
+```json icon="terminal" title="image-to-image aiModels.json entry"
 {
   "pipeline": "image-to-image",
   "model_id": "ByteDance/SDXL-Lightning",
@@ -214,7 +214,7 @@ Apply diffusion-based transformations, style transfer, or enhancement to an inpu
 
 **VRAM requirement:** 24 GB
 **Pricing unit:** Per output pixel
-**Note:** Can run on the same 24 GB GPU as `text-to-image` if cold-loading is acceptable.
+**Note:** This fits on the same 24 GB GPU as `text-to-image` when cold-loading is acceptable.
 
 <CustomDivider />
 
@@ -222,7 +222,7 @@ Apply diffusion-based transformations, style transfer, or enhancement to an inpu
 
 Animate a still image into a short video clip. Compute-intensive — expect longer per-job times.
 
-```json icon="terminal"
+```json icon="terminal" title="image-to-video aiModels.json entry"
 {
   "pipeline": "image-to-video",
   "model_id": "stabilityai/stable-video-diffusion-img2vid-xt-1-1",
@@ -239,7 +239,7 @@ Animate a still image into a short video clip. Compute-intensive — expect long
 
 Generate text descriptions of images. Accessible to operators with older or lower-end GPUs.
 
-```json icon="terminal"
+```json icon="terminal" title="image-to-text aiModels.json entry"
 {
   "pipeline": "image-to-text",
   "model_id": "Salesforce/blip-image-captioning-large",
@@ -250,7 +250,7 @@ Generate text descriptions of images. Accessible to operators with older or lowe
 
 **VRAM requirement:** 4 GB
 **Pricing unit:** Per input pixel
-**Why this matters:** If you have a GPU with 8–12 GB VRAM that's too small for diffusion, `image-to-text` and `audio-to-text` let you contribute to the network.
+**Why this matters:** Operators with 8–12 GB VRAM GPUs still contribute to the network through `image-to-text` and `audio-to-text`.
 
 **Source:** [Salesforce/blip-image-captioning-large](https://huggingface.co/Salesforce/blip-image-captioning-large)
 
@@ -260,7 +260,7 @@ Generate text descriptions of images. Accessible to operators with older or lowe
 
 Speech recognition and transcription with timestamps. Backed by Whisper-large-v3.
 
-```json icon="terminal"
+```json icon="terminal" title="audio-to-text aiModels.json entry"
 {
   "pipeline": "audio-to-text",
   "model_id": "openai/whisper-large-v3",
@@ -282,7 +282,7 @@ Speech recognition and transcription with timestamps. Backed by Whisper-large-v3
 
 Promptable segmentation — returns pixel masks for objects or regions in an image or video frame.
 
-```json icon="terminal"
+```json icon="terminal" title="segment-anything-2 aiModels.json entry"
 {
   "pipeline": "segment-anything-2",
   "model_id": "facebook/sam2-hiera-large",
@@ -301,7 +301,7 @@ Promptable segmentation — returns pixel masks for objects or regions in an ima
 
 Upscale low-resolution images to high resolution using diffusion-based super-resolution.
 
-```json icon="terminal"
+```json icon="terminal" title="upscale aiModels.json entry"
 {
   "pipeline": "upscale",
   "model_id": "stabilityai/stable-diffusion-x4-upscaler",
@@ -322,7 +322,7 @@ Upscale low-resolution images to high resolution using diffusion-based super-res
 
 Text-to-natural-speech synthesis. Growing use case for AI video narration.
 
-```json icon="terminal"
+```json icon="terminal" title="text-to-speech aiModels.json entry"
 {
   "pipeline": "text-to-speech",
   "model_id": "suno/bark",
@@ -417,7 +417,7 @@ The Ollama model tag (`llama3.1:8b`) and the Livepeer `model_id` (`meta-llama/Me
 </StyledStep>
 
 <StyledStep title="Add the LLM entry to aiModels.json">
-```json icon="terminal"
+```json icon="terminal" title="LLM aiModels.json entry"
 {
   "pipeline": "llm",
   "model_id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
@@ -479,16 +479,16 @@ After restarting your AI worker, check [tools.livepeer.cloud/ai/network-capabili
 
 **Warm:** The model is preloaded into GPU VRAM at container startup. Any job request is served immediately — no model loading latency.
 
-**Cold:** The model is loaded on first request. The container exists but the weights are not in VRAM. First request triggers a model load (typically 10–60 seconds depending on model size and NVMe speed) before inference begins.
+**Cold:** The model is loaded on first request. The container exists while the weights stay on disk until the first request triggers a model load, typically 10–60 seconds depending on model size and NVMe speed.
 
 ### Impact on job assignment
 
-Gateways track orchestrator latency. Nodes with consistently fast first-response times win more jobs. For latency-sensitive pipelines — especially `text-to-image` and `image-to-image` — running cold puts you at a significant competitive disadvantage.
+Gateways track orchestrator latency. Nodes with fast first-response times win more jobs. For latency-sensitive pipelines — especially `text-to-image` and `image-to-image` — running cold puts you at a clear competitive disadvantage.
 
 **Rule of thumb:** Warm your primary revenue pipeline. Cold the rest.
 
 <Warning>
-  **Beta constraint:** Only one warm model per GPU is supported during the Beta phase. If you set `warm: true` on more entries than you have GPUs, the AI worker will log a conflict error at startup and skip the excess entries. Check logs for `Error loading warm model` to identify conflicts.
+  **Beta constraint:** Only one warm model per GPU is supported during the Beta phase. Setting `warm: true` on more entries than you have GPUs makes the AI worker log a conflict error at startup and skip the excess entries. Check logs for `Error loading warm model` to identify conflicts.
 </Warning>
 
 ### VRAM planning for warm models
@@ -531,13 +531,13 @@ Gateways track orchestrator latency. Nodes with consistently fast first-response
   </TableRow>
 </StyledTable>
 
-A 24 GB GPU can hold one large diffusion model warm, or a combination of smaller pipelines simultaneously. See [Model Hosting and VRAM Planning](/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference) for multi-model patterns.
+A 24 GB GPU supports one large diffusion model warm, or a combination of smaller pipelines simultaneously. See [Model Hosting and VRAM Planning](/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference) for multi-model patterns.
 
 <CustomDivider />
 
 ## Optimisation flags
 
-`optimization_flags` apply only to `warm: true` diffusion models (text-to-image, image-to-image, upscale). Both flags are experimental.
+`optimization_flags` apply only to `warm: true` diffusion models (`text-to-image`, `image-to-image`, `upscale`). Both flags are experimental. Primary references: [Stable Fast](https://github.com/chengzeyi/stable-fast) and [DeepCache](https://github.com/horseee/DeepCache).
 
 <AccordionGroup>
 
@@ -548,7 +548,7 @@ Enables the [Stable Fast](https://github.com/chengzeyi/stable-fast) optimisation
 - **Quality impact:** None
 - **Tradeoff:** First inference is slower (compilation overhead). Subsequent runs are faster.
 
-```json icon="terminal"
+```json icon="terminal" title="SFAST optimization flag"
 "optimization_flags": { "SFAST": true }
 ```
 
@@ -564,11 +564,11 @@ Caches intermediate diffusion steps to reduce redundant recomputation across inf
 - **Quality impact:** Minor (slight reduction in fine detail at high step counts)
 - **Tradeoff:** Quality degradation is more noticeable at low step counts.
 
-```json icon="terminal"
+```json icon="terminal" title="DEEPCACHE optimization flag"
 "optimization_flags": { "DEEPCACHE": true }
 ```
 
-**Do not use with Lightning or Turbo models.** These models are already step-optimised for 1–4 inference steps. Applying DEEPCACHE to them degrades output quality without meaningful speed benefit.
+**Skip Lightning and Turbo models here.** These models are already step-optimised for 1–4 inference steps. Applying DEEPCACHE to them degrades output quality without a clear speed benefit.
 
 **Source:** [DeepCache paper and implementation](https://github.com/horseee/DeepCache)
 </Accordion>
@@ -583,7 +583,7 @@ Caches intermediate diffusion steps to reduce redundant recomputation across inf
 
 A complete multi-pipeline `aiModels.json` for a node with one RTX 4090 (24 GB) and one RTX 2060 (8 GB):
 
-```json icon="terminal"
+```json icon="terminal" title="Multi-pipeline aiModels.json example"
 [
   {
     "pipeline": "text-to-image",
@@ -627,7 +627,7 @@ In this example:
 
 The `url` field in any `aiModels.json` entry points to an external container that handles inference for that pipeline. The AI worker passes jobs through and polls the container's `/health` endpoint at startup.
 
-```json icon="terminal"
+```json icon="terminal" title="BYOC audio-to-text aiModels.json entry"
 {
   "pipeline": "audio-to-text",
   "model_id": "openai/whisper-large-v3",
@@ -638,7 +638,7 @@ The `url` field in any `aiModels.json` entry points to an external container tha
 }
 ```
 
-**`capacity`** controls how many concurrent jobs the external container can handle. Set this based on your container's actual concurrency support. Default is `1`.
+**`capacity`** sets how many concurrent jobs the external container handles. Set it from the container's actual concurrency support. Default is `1`.
 
 External containers must:
 1. Expose a `/health` endpoint that returns HTTP 200
@@ -704,13 +704,13 @@ AI inference pricing on Livepeer is set by operators and advertised on-chain. Ga
   <TableRow>
     <TableCell>`live-video-to-video`</TableCell>
     <TableCell>Per frame</TableCell>
-    <TableCell>Real-time pipeline</TableCell>
+    <TableCell>Live-video pipeline</TableCell>
   </TableRow>
 </StyledTable>
 
 ### Setting competitive prices
 
-```json icon="terminal"
+```json icon="terminal" title="Wei AI pricing example"
 {
   "pipeline": "text-to-image",
   "model_id": "SG161222/RealVisXL_V4.0_Lightning",
@@ -720,25 +720,25 @@ AI inference pricing on Livepeer is set by operators and advertised on-chain. Ga
 
 `4768371` Wei is approximately `0.0005 USD` per megapixel at ETH/USD rates from late 2025. To express prices directly in USD:
 
-```json icon="terminal"
+```json icon="terminal" title="USD AI pricing example"
 "price_per_unit": "0.5e-3USD",
 "currency": "USD"
 ```
 
-Check current competitive pricing on the [Livepeer Explorer AI Leaderboard](https://explorer.livepeer.org) — per-orchestrator earnings data shows which price tiers are earning the most jobs. Prices that are too high simply receive no jobs.
+Check current competitive pricing on the [Livepeer Explorer AI Leaderboard](https://explorer.livepeer.org) — per-orchestrator earnings data shows which price tiers are earning the most jobs. Prices above the active gateway ceiling receive no jobs.
 
 <CustomDivider />
 
 ## Monitoring your pipelines
 
 **Check container health:**
-```bash icon="terminal"
+```bash icon="terminal" title="List AI runner containers"
 docker ps --filter name=livepeer-ai-runner
 ```
 
-All AI runner containers should show `Up` status. If a container is repeatedly restarting, check its logs:
+All AI runner containers should show `Up` status. Containers in a restart loop need an immediate log check:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Inspect AI runner logs"
 docker logs <container_name> --tail 100
 ```
 
@@ -779,17 +779,19 @@ Visit [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.clou
 
 ## Troubleshooting
 
+Primary NVIDIA toolkit reference for this section: [NVIDIA Container Toolkit install guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html).
+
 <AccordionGroup>
 
-<Accordion  title="AI runner container not starting" icon="microchip">
+<Accordion  title="Start the AI runner container" icon="microchip">
 **Most common causes:**
 
 1. **Wrong image tag** — verify the `livepeer/ai-runner` image tag exists on Docker Hub. The `-aiRunnerImage` flag is deprecated; use `-aiRunnerImageOverrides` instead.
 2. **VRAM OOM** — the container starts, then crashes immediately after loading because `warm: true` exceeds available VRAM. Check `docker logs <container_name>` for OOM messages.
-3. **NVIDIA Container Toolkit not installed** — run `docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi`. If this fails, NVIDIA Container Toolkit is not configured. Follow the [NVIDIA Container Toolkit install guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html).
+3. **NVIDIA Container Toolkit missing or misconfigured** — run `docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi`. A passing result confirms the toolkit path. The installation guide is here as a primary reference: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
 </Accordion>
 
-<Accordion  title="Model not loading — wrong model ID" icon="microchip">
+<Accordion  title="Fix model ID loading errors" icon="microchip">
 `model_id` must match the HuggingFace model ID exactly, including capitalisation and the `/` separator. Common mistakes:
 
 - Lowercase when the actual ID is mixed case
@@ -800,13 +802,13 @@ For external containers, download the model inside the container before the AI w
 </Accordion>
 
 <Accordion  title="Pipeline receiving no jobs" icon="circle-question">
-1. **Not registered** — confirm your capabilities appear on [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities). If they don't appear, your orchestrator may need to re-register capabilities after updating `aiModels.json`.
+1. **Registration missing** — confirm your capabilities appear on [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities). Missing entries usually mean the orchestrator needs to re-register capabilities after updating `aiModels.json`.
 2. **Price too high** — gateways don't route to orchestrators above their `maxPricePerUnit`. Compare your price against active competitors on Livepeer Explorer.
 3. **Model is cold** — for competitive pipelines like `text-to-image`, set `warm: true`.
-4. **Not in active set** — check your stake status on [explorer.livepeer.org](https://explorer.livepeer.org). AI pipeline jobs require the orchestrator to be in the active set.
+4. **Active-set gap** — check your stake status on [explorer.livepeer.org](https://explorer.livepeer.org). AI pipeline jobs require the orchestrator to be in the active set.
 </Accordion>
 
-<Accordion  title="OOM during inference (not at startup)" icon="microchip">
+<Accordion  title="OOM during inference" icon="microchip">
 The model loaded successfully but a specific request causes an out-of-memory error mid-run. Happens when a request asks for unusually large output dimensions (e.g. `text-to-image` at 2048×2048 on a 24 GB GPU).
 
 Mitigations:
@@ -815,7 +817,7 @@ Mitigations:
 - Consider DEEPCACHE or SFAST to reduce peak VRAM usage (diffusion pipelines only)
 </Accordion>
 
-<Accordion  title="Ollama runner: not receiving LLM jobs" icon="microchip">
+<Accordion  title="Restore Ollama LLM job flow" icon="microchip">
 1. Verify container reachability: from the host running your orchestrator, run `curl http://llm_runner:8000/health` — should return HTTP 200
 2. Check Docker network: the orchestrator and `llm_runner` container must share a Docker network for the hostname to resolve
 3. Re-register capabilities with the network after updating `aiModels.json`
@@ -823,7 +825,7 @@ Mitigations:
 </Accordion>
 
 <Accordion  title="SFAST causing first-request latency" icon="circle-question">
-This is expected behaviour. SFAST compiles the model graph on the first inference call, which takes longer than normal. Subsequent calls benefit from the compiled graph. If the first-request latency is causing job failures, disable SFAST and rely on native diffusion speed.
+This is expected behaviour. SFAST compiles the model graph on the first inference call, which takes longer than normal. Subsequent calls benefit from the compiled graph. First-request job failures call for disabling SFAST and relying on native diffusion speed.
 </Accordion>
 
 </AccordionGroup>
@@ -854,7 +856,7 @@ When configuring `aiModels.json`, two external references are authoritative:
 
 **For understanding how gateways select your node:** The [Orchestrator Offerings reference](/v2/gateways/resources/technical/orchestrator-offerings) documents the capability discovery protocol — specifically the `capabilities_prices` field structure and how gateways evaluate your node against their `-maxPricePerCapability` configuration. Before setting prices, confirm your prices fall within ranges that major gateways will accept.
 
-**For custom models not in the standard pipeline list:** [Bring Your Own Container (BYOC)](/v2/developers/build/byoc) covers building a custom Docker container with PyTrickle integration to run any model on the network. BYOC is the path for proprietary models, fine-tuned checkpoints, or models with non-standard inference architectures.
+**For custom models outside the standard pipeline list:** [Bring Your Own Container (BYOC)](/v2/developers/build/byoc) covers building a custom Docker container with PyTrickle integration to run any model on the network. BYOC is the path for proprietary models, fine-tuned checkpoints, or models with non-standard inference architectures.
 
 <CustomDivider />
 
@@ -873,11 +875,11 @@ When configuring `aiModels.json`, two external references are authoritative:
   <Card title="Model Hosting and VRAM Planning" icon="microchip" href="/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference">
     VRAM table by pipeline, warm model strategy, and multi-GPU configuration.
   </Card>
-  <Card title="Real-time AI Setup" icon="bolt" href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup">
-    Deploy live-video-to-video pipelines for real-time streaming AI effects.
+  <Card title="Cascade Setup" icon="bolt" href="/v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup">
+    Deploy live-video-to-video pipelines for live streaming AI effects.
   </Card>
   <Card title="AI Workloads Overview" icon="diagram-project" href="/v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations">
-    Pipeline types, batch vs real-time, and how jobs flow to your node.
+    Pipeline types, batch vs live-video AI, and how jobs flow to your node.
   </Card>
 </CardGroup>
 

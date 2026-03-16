@@ -45,7 +45,7 @@ AI workloads reach your node through gateway routing, capability advertisement, 
       - keep the existing go-livepeer service and video pricing flags
       - add the AI worker and `aiModels.json`
       - budget VRAM for the models you want warm
-      - expose only the pipelines you can actually keep healthy under load
+      - expose only the pipelines you keep healthy under load
 
       See [Dual Mode Configuration](/v2/orchestrators/guides/deployment-details/dual-mode-configuration) for the exact operational delta and [Diffusion Pipeline Setup](/v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup) for the first AI worker path.
     </Accordion>
@@ -354,7 +354,7 @@ This pipeline powers the **Cascade** architecture — Livepeer's live-video AI s
     <TableCell>`live-video-to-video`</TableCell>
     <TableCell>24 GB</TableCell>
     <TableCell>RTX 4090, A100</TableCell>
-    <TableCell>Real-time latency requirement</TableCell>
+    <TableCell>Live-video latency requirement</TableCell>
   </TableRow>
 </StyledTable>
 

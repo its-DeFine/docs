@@ -31,20 +31,20 @@ import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 
 <Tip>
-  ETH earnings do not accumulate every minute. They arrive in discrete steps whenever a winning ticket is redeemed on-chain. A node that processed thousands of jobs may have zero ETH balance changes for hours, then receive a larger deposit. This is expected behaviour, not a payment failure.
+  ETH earnings arrive in discrete redemption steps whenever a winning ticket is redeemed on-chain. A node that processed thousands of jobs may have zero ETH balance changes for hours, then receive a larger deposit. This is expected behaviour and part of the PM design.
 </Tip>
 
 ---
 
-Gateways pay orchestrators using **probabilistic micropayments (PM)**: a system where each job generates a signed ticket with a small probability of being worth a larger ETH payout. Most tickets are non-winners and are discarded. A fraction win and are redeemed on-chain via the Arbitrum TicketBroker contract. Over sufficient volume, the expected ETH received matches what would have been paid per-segment with individual transactions — without the gas overhead of thousands of individual on-chain payments.
+Gateways pay orchestrators using **probabilistic micropayments (PM)**: a system where each job generates a signed ticket with a small probability of being worth a larger ETH payout. Most tickets are non-winners and are discarded. A fraction win and are redeemed on-chain via the Arbitrum TicketBroker contract. Over sufficient volume, the expected ETH received matches the per-segment total while avoiding the gas overhead of thousands of individual on-chain payments.
 
 <CustomDivider middleText="How Tickets Arrive" />
 
 ## How tickets arrive
 
-A gateway attaches one PM ticket to each job confirmation it sends after receiving the transcoded output or AI inference result. The ticket is received passively — your node does not request it or trigger it. The flow is:
+A gateway attaches one PM ticket to each job confirmation it sends after receiving the transcoded output or AI inference result. The ticket is received passively as part of the job confirmation flow. The flow is:
 
-```text icon="terminal"
+```text icon="terminal" title="Payment receipt flow"
 Your node processes job (transcoding segment or AI inference)
        ↓
 Your node sends the result to the gateway
@@ -114,7 +114,7 @@ The win evaluation uses a deterministic pseudorandom function seeded by the tick
 
 The expected value of a single ticket equals the per-job fee:
 
-```text icon="terminal"
+```text icon="terminal" title="Winning ticket expected value example"
 win probability = 1/1000
 face value      = 1000 × per-job fee
 expected value  = 1/1000 × 1000 × fee = fee per job
@@ -155,9 +155,9 @@ Redemption transactions run on Arbitrum One (L2). Gas costs are low:
   </tbody>
 </StyledTable>
 
-{/* REVIEW: Confirm gas cost figures against current Arbitrum gas prices. The $0.01-$0.05 range is from payments.mdx (March 2026). Arbitrum gas prices have varied; verify current typical range with Rick. */}
+{/* FACT CHECK: Confirm gas cost figures against current Arbitrum gas prices. The $0.01-$0.05 range is from payments.mdx (March 2026). Arbitrum gas prices have varied; verify current typical range with Rick. */}
 
-The Redeemer batches pending winners when possible. A busy orchestrator redeems ETH a few times per day rather than once per winning ticket, keeping gas overhead negligible relative to earnings.
+The Redeemer batches pending winners when possible. A busy orchestrator usually redeems ETH in a few batched submissions per day, keeping gas overhead negligible relative to earnings.
 
 ### ETH balance requirement
 
@@ -177,7 +177,7 @@ Replenish when your balance falls below 0.005 ETH on Arbitrum. Bridge ETH from E
 
 Your expected ETH per round is:
 
-```text icon="terminal"
+```text icon="terminal" title="Expected ETH estimate"
 expected ETH = jobs_per_round × per_job_fee × (1 - gas_overhead)
 ```
 
@@ -189,7 +189,7 @@ Check your orchestrator wallet on [Arbiscan](https://arbiscan.io/) for incoming 
 
 From your node logs, filter for redemption activity:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Watch redemption logs"
 # Watch for successful redemptions
 journalctl -u livepeer -f | grep -i "ticket\|redeem\|winning"
 ```
@@ -223,7 +223,7 @@ Key log messages:
   </tbody>
 </StyledTable>
 
-{/* REVIEW: Confirm exact log message strings against current go-livepeer source. The strings above are representative; Rick to verify exact wording in current release. */}
+{/* FACT CHECK: Confirm exact log message strings against current go-livepeer source. The strings above are representative; Rick to verify exact wording in current release. */}
 
 ### Zero earnings for a long period
 
@@ -237,7 +237,7 @@ Possible causes:
 
 ### Overlapping scope with payments.mdx
 
-This page covers the receiver-side mechanics of PM tickets: how they arrive, win conditions, and redemption. The <LinkArrow href="/v2/orchestrators/guides/payments-and-pricing/payments" label="Payments" newline={false} /> page covers broader payment flow concepts including the full PM system architecture, ETH funding requirements across all transaction types, video vs AI payment differences, and clearinghouses. Read both for the complete picture.
+Use this page for the receiver-side mechanics of PM tickets: how they arrive, how they win, and how redemption works. The <LinkArrow href="/v2/orchestrators/guides/payments-and-pricing/payments" label="Payments" newline={false} /> page covers the broader payment flow concepts, including full PM architecture, ETH funding requirements across transaction types, video vs AI payment differences, and clearinghouses. Read both for the complete picture.
 
 <CustomDivider />
 

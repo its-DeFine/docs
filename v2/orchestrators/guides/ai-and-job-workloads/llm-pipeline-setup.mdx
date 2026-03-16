@@ -42,15 +42,15 @@ The `llm` pipeline uses a different architecture from all other Livepeer AI pipe
 
 The pipeline flow is:
 
-```text icon="terminal"
+```text icon="terminal" title="LLM pipeline flow"
 go-livepeer → livepeer-ollama-runner → ollama container → quantised model
 ```
 
-go-livepeer does not manage the LLM model weights directly. The Ollama runner and Ollama container run as separate Docker services, and go-livepeer connects to them via the `url` field in `aiModels.json`.
+go-livepeer reaches the LLM stack over HTTP instead of managing model weights directly. The Ollama runner and Ollama container run as separate Docker services, and go-livepeer connects to them via the `url` field in `aiModels.json`.
 
 <CustomDivider middleText="Architecture Difference" />
 
-## Why the LLM pipeline is different
+## Architecture split
 
 All other batch AI pipelines (text-to-image, audio-to-text, segment-anything-2, text-to-speech) use the `livepeer/ai-runner` container. go-livepeer spawns that container automatically based on `aiModels.json` and manages its lifecycle.
 
@@ -75,7 +75,7 @@ go-livepeer connects to the `livepeer-ollama-runner` via the `url` field. The ru
 
   <StyledStep title="Create a Docker volume for model persistence">
 
-    ```bash icon="terminal"
+    ```bash icon="terminal" title="Create the Ollama volume"
     docker volume create ollama
     ```
 
@@ -129,7 +129,7 @@ go-livepeer connects to the `livepeer-ollama-runner` via the `url` field. The ru
 
   <StyledStep title="Start the stack">
 
-    ```bash icon="terminal"
+    ```bash icon="terminal" title="Start the Ollama stack"
     docker compose up -d
     ```
 
@@ -137,7 +137,7 @@ go-livepeer connects to the `livepeer-ollama-runner` via the `url` field. The ru
 
   <StyledStep title="Pull your LLM model">
 
-    ```bash icon="terminal"
+    ```bash icon="terminal" title="Pull the first Ollama model"
     docker exec -it ollama ollama pull llama3.1:8b
     ```
 
@@ -165,7 +165,7 @@ go-livepeer connects to the `livepeer-ollama-runner` via the `url` field. The ru
 
   <StyledStep title="Restart the AI worker and verify">
 
-    Restart your go-livepeer process (or just the AI worker component) to load the new `aiModels.json` entry.
+    Restart your go-livepeer process, or restart the AI worker component, to load the new `aiModels.json` entry.
 
     After 2 to 3 minutes, check [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities) and search for your orchestrator address. The `llm` pipeline should appear with **Warm** status.
 
@@ -216,7 +216,7 @@ Quantised models reduce precision (typically from float32 to 4-bit integer) to f
   </tbody>
 </StyledTable>
 
-For 8 GB VRAM GPUs, use `llama3.1:8b` or `mistral:7b`. The Gemma 2 9B requires approximately 10 GB and may not fit on a single 8 GB card.
+For 8 GB VRAM GPUs, use `llama3.1:8b` or `mistral:7b`. The Gemma 2 9B typically requires closer to 10 GB, so single 8 GB cards should stay on the 7B to 8B class.
 
 ### Model ID mapping
 
@@ -252,7 +252,7 @@ Check [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.clou
 
 After the stack is running, test the Ollama runner directly before routing live traffic:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Test LLM inference locally"
 # Check Ollama is running and the model is loaded
 docker exec -it ollama ollama list
 
@@ -264,7 +264,7 @@ curl -X POST http://localhost:8000/llm \
 
 Verify the runner health endpoint is responding:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Check the runner health endpoint"
 curl http://localhost:8000/health
 # Expected: HTTP 200
 ```

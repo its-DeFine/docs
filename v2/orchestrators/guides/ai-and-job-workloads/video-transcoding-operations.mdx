@@ -73,7 +73,7 @@ Transcoding is priced in **wei per pixel**. A "pixel" here is one pixel of outpu
 
 The simplest and most explicit approach — you set a fixed wei amount and it stays fixed until you change it.
 
-```bash icon="terminal"
+```bash icon="terminal" title="Start transcoding with a fixed wei price"
 livepeer \
   -orchestrator \
   -transcoder \
@@ -84,7 +84,7 @@ livepeer \
 
 This charges 500 wei per output pixel. To work with more human-friendly numbers, use `-pixelsPerUnit` as a denominator:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Set wei pricing per million pixels"
 # Charge 500 wei per million pixels (0.0000005 wei per pixel)
 -pricePerUnit 500 \
 -pixelsPerUnit 1000000
@@ -96,11 +96,11 @@ This charges 500 wei per output pixel. To work with more human-friendly numbers,
 
 ### Option B: USD pricing (go-livepeer 0.8.0+)
 
-USD pricing pegs your transcoding fee to a dollar amount and automatically converts to wei via a [Chainlink ETH/USD price feed](https://docs.chain.link/data-feeds/price-feeds). As ETH price moves, your advertised wei price adjusts automatically to maintain your target USD rate. This is useful for operators who think in dollar terms and want consistent real-world revenue regardless of ETH price fluctuations.
+USD pricing pegs your transcoding fee to a dollar amount and automatically converts to wei via a [Chainlink ETH/USD price feed](https://docs.chain.link/data-feeds/price-feeds). As ETH price moves, your advertised wei price adjusts automatically to maintain your target USD rate. This is useful for operators who think in dollar terms and want consistent dollar-denominated revenue regardless of ETH price fluctuations.
 
 Add `USD` as a suffix to `-pricePerUnit`:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Set USD pricing with 1e12 pixels per unit"
 # $4.10 × 10⁻¹³ per pixel
 livepeer \
   -orchestrator \
@@ -110,7 +110,7 @@ livepeer \
   # ...
 ```
 
-```bash icon="terminal"
+```bash icon="terminal" title="Set a lower USD pricing example"
 # $6.65 × 10⁻¹⁴ per pixel
 -pixelsPerUnit 1e12 \
 -pricePerUnit 0.0665USD
@@ -124,9 +124,9 @@ livepeer \
 
 **Custom currency or non-Arbitrum networks:**
 
-The Chainlink feed can be overridden with `-priceFeedAddr`. Examples:
+Override the Chainlink feed with `-priceFeedAddr` when you need a different quote source. Examples:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Override the Chainlink price feed"
 # USD on Ethereum mainnet
 -priceFeedAddr 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419 \
 -pricePerUnit 1USD
@@ -182,7 +182,7 @@ livepeer_cli
 </StyledStep>
 
 <StyledStep title="Select Set orchestrator config">
-Enter the number corresponding to `Set orchestrator config`. You can press Enter to keep existing values for fields you do not want to change.
+Enter the number corresponding to `Set orchestrator config`. Press Enter to keep the current value for any field you are leaving unchanged.
 </StyledStep>
 
 <StyledStep title="Set pixelsPerUnit">
@@ -213,7 +213,7 @@ Within the pool, gateways weigh price, stake, and performance score. Lower price
 
 **Checking current market rates:**
 
-Compare your price to active orchestrators on [Livepeer Explorer](https://explorer.livepeer.org/orchestrators). Filter by active set members and look at advertised price. The median active price is a reasonable starting anchor — price competitively but do not price below your cost.
+Compare your price to active orchestrators on [Livepeer Explorer](https://explorer.livepeer.org/orchestrators). Filter by active set members and look at advertised price. The median active price is a reasonable starting anchor — price competitively while staying above your cost floor.
 
 <CustomDivider />
 
@@ -223,7 +223,7 @@ Your session limit is the maximum number of concurrent transcoding sessions your
 
 Set it via `-maxSessions`:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Set maxSessions on startup"
 livepeer \
   -orchestrator \
   -transcoder \
@@ -235,9 +235,9 @@ The right value is the **minimum of your hardware capacity and your bandwidth ca
 
 ### Calculating hardware capacity
 
-The benchmark-derived approach: run `livepeer_bench` at increasing concurrency levels and find the highest session count where the Real-Time Duration Ratio stays at or below **0.8**. The 0.8 threshold leaves a ~20% buffer for network overhead.
+The benchmark-derived approach: run `livepeer_bench` at increasing concurrency levels and find the highest session count where the Duration Ratio stays at or below **0.8**. The 0.8 threshold leaves a ~20% buffer for network overhead.
 
-```bash icon="terminal"
+```bash icon="terminal" title="Benchmark concurrent sessions with livepeer_bench"
 #!/bin/bash
 for i in {1..20}
 do
@@ -252,11 +252,11 @@ done
 Read the output:
 
 ``` icon="terminal"
-| * Real-Time Duration Ratio * | 0.21  |   # 1 session
-| * Real-Time Duration Ratio * | 0.38  |   # 2 sessions
-| * Real-Time Duration Ratio * | 0.56  |   # 3 sessions
-| * Real-Time Duration Ratio * | 0.74  |   # 4 sessions  ← last ≤ 0.8
-| * Real-Time Duration Ratio * | 0.89  |   # 5 sessions  ← over threshold
+| * Duration Ratio * | 0.21  |   # 1 session
+| * Duration Ratio * | 0.38  |   # 2 sessions
+| * Duration Ratio * | 0.56  |   # 3 sessions
+| * Duration Ratio * | 0.74  |   # 4 sessions  ← last ≤ 0.8
+| * Duration Ratio * | 0.89  |   # 5 sessions  ← over threshold
 ```
 
 In this example, your hardware limit is 4 sessions for this GPU.
@@ -301,7 +301,7 @@ Upload limit:   100 ÷ 5.6 ≈ 17 sessions
 Bandwidth limit: 16 sessions
 ```
 
-In practice, not all sessions peak simultaneously, so you may extend the limit by roughly 20%. The v1 guidance (still a reasonable approximation): a 100 Mbps connection can reliably serve ~16 sessions, with room to extend cautiously toward ~19.
+In practice, session peaks usually stagger, so a node often sustains roughly 20% more than the straight-line formula suggests. The v1 guidance is still a reasonable approximation: a 100 Mbps connection reliably serves ~16 sessions, with cautious headroom toward ~19.
 
 ### Deriving your limit
 
@@ -312,7 +312,7 @@ maxSessions = min(hardware_capacity, bandwidth_capacity)
 This is the starting point. Monitor your Duration Ratio in production (via Prometheus metrics) and back off once it exceeds 0.8 under load.
 
 <Note>
-  **CPU transcoding caveat:** If you are transcoding without GPU acceleration, the hardware capacity is much lower — approximately 3–5 sessions on modern CPU hardware. CPU transcoding is not competitive on the network at scale.
+  **CPU transcoding caveat:** CPU-only transcoding has a much lower hardware ceiling — approximately 3–5 sessions on modern CPU hardware. GPU-backed nodes set the network pace, so CPU transcoding fits testing and edge cases while GPU-backed nodes handle sustained production volume.
 </Note>
 
 <CustomDivider />
@@ -340,7 +340,7 @@ Consumer NVIDIA GPUs (GTX/RTX series) have a hardware-enforced cap on the number
   </TableRow>
 </StyledTable>
 
-**What happens when you hit the cap:** On startup, go-livepeer runs a GPU test encode. If the NVENC session cap is already reached by other processes, the test fails and the node exits with `Cannot allocate memory`. At runtime, the sessions are hard-capped — new sessions beyond the limit are rejected.
+**What happens when you hit the cap:** On startup, go-livepeer runs a GPU test encode. A saturated NVENC session cap from other processes makes that test fail and exits the node with `Cannot allocate memory`. At runtime, the cap stays hard-enforced and rejects sessions beyond the limit.
 
 **How to check your GPU's cap:**
 
@@ -348,9 +348,9 @@ Look up your specific card on the [NVIDIA Video Encode and Decode GPU Support Ma
 
 **Workaround — driver patching:**
 
-The NVENC session cap is enforced in the NVIDIA driver, not the GPU hardware. An open-source patch removes it. Titan Node documents this approach for their pool workers. The patch modifies the driver binary and is not officially supported by NVIDIA — operators should read the relevant terms before applying it.
+The NVIDIA driver enforces the NVENC session cap. An open-source patch removes that limit. Titan Node documents this approach for their pool workers. The patch modifies the driver binary and remains outside NVIDIA support, so operators should read the relevant terms before applying it.
 
-**Practical recommendation:** Account for the NVENC cap when calculating your hardware session limit. If your GPU is capped at 3 concurrent NVENC sessions, your hardware limit for the benchmark methodology above is 3, regardless of what the Duration Ratio benchmarks suggest at higher concurrency.
+**Practical recommendation:** Account for the NVENC cap when calculating your hardware session limit. A GPU capped at 3 concurrent NVENC sessions has a hardware limit of 3, regardless of what the Duration Ratio benchmarks suggest at higher concurrency.
 
 <CustomDivider />
 
@@ -393,11 +393,11 @@ P240p30fps16x9,P360p30fps16x9,P720p30fps16x9
 
 **How profiles affect GPU load:**
 
-More output renditions = more NVENC encode passes per segment. The standard 4-rendition ladder is roughly 4× the GPU load of encoding a single output. If you are operating near GPU capacity, reducing the output ladder in `transcodingOptions.json` reduces load — but also reduces your coverage of what gateways request, which may lower your selection rate.
+More output renditions = more NVENC encode passes per segment. The standard 4-rendition ladder is roughly 4× the GPU load of encoding a single output. Nodes operating near GPU capacity lower that load by reducing the output ladder in `transcodingOptions.json`, at the cost of covering fewer gateway requests.
 
 **Custom profiles:**
 
-You can define a custom `transcodingOptions.json` for unusual gateway requirements. The file is a JSON array of profile objects specifying resolution, bitrate, fps, and profile string. The default configuration file is at:
+Define a custom `transcodingOptions.json` for unusual gateway requirements. The file is a JSON array of profile objects specifying resolution, bitrate, fps, and profile string. The default configuration file is at:
 
 ``` icon="terminal"
 https://github.com/livepeer/go-livepeer/blob/master/cmd/livepeer_bench/transcodingOptions.json
@@ -410,27 +410,27 @@ https://github.com/livepeer/go-livepeer/blob/master/cmd/livepeer_bench/transcodi
 <AccordionGroup>
 
 <Accordion  title="Always use GPU transcoding" icon="server">
-CPU transcoding is not competitive on the Livepeer market. Even a mid-range NVIDIA card (RTX 3060) will outperform a modern CPU on transcoding throughput per watt and per dollar. If you are running without `-nvidia`, you are leaving performance and earnings on the table. The only exception is brief testing scenarios.
+GPU transcoding sets the competitive baseline on the Livepeer market. Even a mid-range NVIDIA card (RTX 3060) outperforms a modern CPU on transcoding throughput per watt and per dollar. Nodes running without `-nvidia` fit short test scenarios, while GPU-backed nodes carry production earnings.
 </Accordion>
 
 <Accordion  title="Derive maxSessions from benchmarks" icon="triangle-exclamation">
-The default of 10 is arbitrary. On an RTX 4090, the correct value may be 30+. On an RTX 3060, it may be 8. Always benchmark with `livepeer_bench` on your specific hardware with the standard `transcodingOptions.json` before setting a production value. Wrong values in either direction cost you money.
+The default of 10 is arbitrary. On an RTX 4090, the correct value often lands above 30. On an RTX 3060, it often lands closer to 8. Always benchmark with `livepeer_bench` on your specific hardware and the standard `transcodingOptions.json` before setting a production value. Wrong values in either direction cost you money.
 </Accordion>
 
 <Accordion  title="Monitor Duration Ratio in production" icon="gear">
-Set up Prometheus metrics (`-monitor` flag) and watch the Duration Ratio under production load. Lower `-maxSessions` once it climbs above 0.8 during peak periods. The benchmark is an approximation — production stream properties vary and the final value may differ.
+Set up Prometheus metrics (`-monitor` flag) and watch the Duration Ratio under production load. Lower `-maxSessions` once it climbs above 0.8 during peak periods. The benchmark is an approximation — production stream properties vary, so the final tuned value usually differs from the lab result.
 </Accordion>
 
-<Accordion  title="Use a domain name for serviceAddr, not a bare IP" icon="microchip">
-Your service URI is stored on-chain. If you use a bare IP and your IP changes, you need an on-chain update transaction. A DNS name lets you redirect to a new IP without touching the chain. Use a stable subdomain you control.
+<Accordion  title="Use a domain name for serviceAddr" icon="microchip">
+Your service URI is stored on-chain. Bare IP changes require an on-chain update transaction. A DNS name lets you redirect to a new IP without touching the chain. Use a stable subdomain you control.
 </Accordion>
 
 <Accordion  title="USD pricing for long-term stability" icon="circle-question">
-If you plan to operate for months or years, USD pricing removes ETH volatility from your revenue calculation. Your per-pixel fee in dollar terms stays constant; the wei amount adjusts via Chainlink. Wei pricing is fine for short-term operation or if you are confident in ETH price management.
+Long-running nodes benefit from USD pricing because it removes ETH volatility from revenue calculations. Your per-pixel fee stays constant in dollar terms while the wei amount adjusts via Chainlink. Wei pricing fits shorter operating windows or teams actively managing ETH exposure.
 </Accordion>
 
 <Accordion  title="Leave autoAdjustPrice on during gas price spikes" icon="circle-question">
-The auto-adjustment mechanism is there precisely for Arbitrum gas spikes. Disabling it with `-autoAdjustPrice=false` makes sense if you want strict price control, but means you absorb the overhead cost directly during high-gas periods. If you cannot monitor gas prices actively, leave it on.
+The auto-adjustment mechanism exists for Arbitrum gas spikes. Disabling it with `-autoAdjustPrice=false` gives strict price control, but it also shifts the overhead cost directly onto your node during high-gas periods. Teams without active gas monitoring are usually better served by leaving it on.
 </Accordion>
 
 </AccordionGroup>

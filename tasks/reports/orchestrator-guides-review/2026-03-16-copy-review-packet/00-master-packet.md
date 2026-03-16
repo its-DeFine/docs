@@ -68,48 +68,49 @@
 - ~~[authoring-style] add missing code block filenames/titles; remove unnecessary inline `CustomDivider` spacing overrides.~~
 
 
-## Workloads & AI
+## ~~Workloads & AI~~
 
-- Status: queued
+- ~~Status: complete~~
 - Copy-framework pressure: 148 blocking / 274 warnings
 - Authoring/style pressure: 0 blocking / 145 warnings
 - Source reports: `02-workloads-and-ai/01-copy-framework.md`, `02-workloads-and-ai/02-authoring-style.md`
+- Completion note: section checks rerun clean on structure, authoring, links/imports, MDX, quality, and supplemental authoring rules. Residual copy-lint warnings are accepted false positives on table or code-block content.
 
 ### `workload-options.mdx`
-- [copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; remove banned word and banned phrase constructions; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete; replace vague standards and dangling claims with explicit thresholds or concrete statements.
-- [authoring-style] replace templated opening language with a direct explanatory lead; trim filler or marketing phrasing flagged by the style checks.
+- ~~[copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; remove banned word and banned phrase constructions; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete; replace vague standards and dangling claims with explicit thresholds or concrete statements.~~
+- ~~[authoring-style] replace templated opening language with a direct explanatory lead; trim filler or marketing phrasing flagged by the style checks.~~
 
 ### `video-transcoding-operations.mdx`
-- [copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; remove banned word and banned phrase constructions; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete; replace vague standards and dangling claims with explicit thresholds or concrete statements.
-- [authoring-style] add missing code block filenames/titles; replace templated opening language with a direct explanatory lead; rewrite negation-first definitions as positive statements.
+- ~~[copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; remove banned word and banned phrase constructions; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete; replace vague standards and dangling claims with explicit thresholds or concrete statements.~~
+- ~~[authoring-style] add missing code block filenames/titles; replace templated opening language with a direct explanatory lead; rewrite negation-first definitions as positive statements.~~
 
 ### `ai-inference-operations.mdx`
-- [copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; remove banned word and banned phrase constructions; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims.
-- [authoring-style] no action required from the selected authoring/style checks.
+- ~~[copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; remove banned word and banned phrase constructions; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims.~~
+- ~~[authoring-style] no action required from the selected authoring/style checks.~~
 
 ### `diffusion-pipeline-setup.mdx`
-- [copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; repair incomplete decision aids and pull primary actions out of gated UI copy; remove banned word and banned phrase constructions; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete; replace vague standards and dangling claims with explicit thresholds or concrete statements.
-- [authoring-style] add missing code block filenames/titles; trim filler or marketing phrasing flagged by the style checks.
+- ~~[copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; repair incomplete decision aids and pull primary actions out of gated UI copy; remove banned word and banned phrase constructions; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete; replace vague standards and dangling claims with explicit thresholds or concrete statements.~~
+- ~~[authoring-style] add missing code block filenames/titles; trim filler or marketing phrasing flagged by the style checks.~~
 
 ### `llm-pipeline-setup.mdx`
-- [copy-framework] rewrite the opening and section leads around a direct value proposition; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete; replace vague standards and dangling claims with explicit thresholds or concrete statements.
-- [authoring-style] add missing code block filenames/titles; trim filler or marketing phrasing flagged by the style checks.
+- ~~[copy-framework] rewrite the opening and section leads around a direct value proposition; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete; replace vague standards and dangling claims with explicit thresholds or concrete statements.~~
+- ~~[authoring-style] add missing code block filenames/titles; trim filler or marketing phrasing flagged by the style checks.~~
 
 ### `realtime-ai-setup.mdx`
-- [copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; remove banned word and banned phrase constructions; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete.
-- [authoring-style] add missing code block filenames/titles.
+- ~~[copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; remove banned word and banned phrase constructions; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete.~~
+- ~~[authoring-style] add missing code block filenames/titles.~~
 
 ### `audio-and-vision-pipelines.mdx`
-- [copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete.
-- [authoring-style] add missing code block filenames/titles; add missing `Image` alt text.
+- ~~[copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete.~~
+- ~~[authoring-style] add missing code block filenames/titles; add missing `Image` alt text.~~
 
 ### `model-demand-reference.mdx`
-- [copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; remove banned word and banned phrase constructions; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete.
-- [authoring-style] add missing code block filenames/titles; trim filler or marketing phrasing flagged by the style checks.
+- ~~[copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; remove banned word and banned phrase constructions; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete.~~
+- ~~[authoring-style] add missing code block filenames/titles; trim filler or marketing phrasing flagged by the style checks.~~
 
 ### `model-hosting.mdx`
-- [copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; remove banned word and banned phrase constructions; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete.
-- [authoring-style] add missing code block filenames/titles.
+- ~~[copy-framework] rewrite the opening and section leads around a direct value proposition; tighten persona routing and replace hedge logic with explicit decision criteria; remove banned word and banned phrase constructions; replace negative, weakened, and contrast-by-diminishment phrasing with direct claims; clear rendered REVIEW flags and other copy blockers before the page can be marked complete.~~
+- ~~[authoring-style] add missing code block filenames/titles.~~
 
 
 ## Staking & Earning

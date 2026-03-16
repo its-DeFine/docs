@@ -42,7 +42,7 @@ Use this reference for pipeline-level VRAM figures, warm model strategy, multi-G
 
 ## Demand signals
 
-VRAM alone does not determine earnings. Start with a better question: **which pipeline-model combinations are currently being routed by gateways, and does your hardware keep one of them warm at a competitive price?**
+VRAM is only one part of the earning equation. Start with a better question: **which pipeline-model combinations are currently being routed by gateways, and does your hardware keep one of them warm at a competitive price?**
 
 Use these two signals together before loading a model:
 
@@ -65,7 +65,7 @@ Use these two signals together before loading a model:
 </StyledTable>
 
 <Tip>
-  A lightweight pipeline with visible demand usually beats an impressive model that gateways are not routing. Start from demand, then validate that the warm VRAM footprint fits your GPU with headroom.
+  A lightweight pipeline with visible demand usually beats an impressive model sitting outside current gateway routing. Start from demand, then validate that the warm VRAM footprint fits your GPU with headroom.
 </Tip>
 
 <CustomDivider />
@@ -75,7 +75,7 @@ Use these two signals together before loading a model:
 These figures are production estimates based on operator deployments and community benchmarks. Actual usage varies with model variant, batch size, and resolution.
 
 <Note>
-  "Warm VRAM" = memory occupied while the model is resident and idle. "Peak inference VRAM" = maximum VRAM during active inference, which may be higher than the idle footprint due to KV cache, activations, and output buffers.
+  "Warm VRAM" = memory occupied while the model is resident and idle. "Peak inference VRAM" = maximum VRAM during active inference, and it often exceeds the idle footprint because of KV cache, activations, and output buffers.
 </Note>
 
 <StyledTable variant="bordered">
@@ -188,7 +188,7 @@ RTX 2060 (6 GB), RTX 3060 12 GB, RTX 2060 Super (8 GB), RTX 3060 Ti (8 GB)
 
 **Leave off this tier:** `text-to-image`, `image-to-image`, `image-to-video`, `live-video-to-video`
 
-**Strategy for this tier:** Run `audio-to-text` and `image-to-text` warm simultaneously — both fit easily in 8 GB and together give you two income streams. Add `llm` on a separate GPU if available.
+**Strategy for this tier:** Run `audio-to-text` and `image-to-text` warm simultaneously — both fit easily in 8 GB and together give you two income streams. Add `llm` on a separate GPU when one is available.
 
 <CustomDivider />
 
@@ -223,7 +223,7 @@ RTX 4090 (24 GB), A100 40/80 GB, H100 80 GB
 
 ### Pipelines where warm is competitively critical
 
-- **`text-to-image`** — cold load on SDXL takes 30–90 seconds. Gateways will route to warm competitors first. Running cold is essentially not participating.
+- **`text-to-image`** — cold load on SDXL takes 30–90 seconds. Gateways route to warm competitors first. Running cold puts the node out of contention.
 - **`live-video-to-video`** — cold loading mid-stream causes noticeable interruption. Keep this pipeline warm.
 - **`image-to-image`** — competitive warm advantage, though less severe than text-to-image.
 
@@ -235,13 +235,13 @@ RTX 4090 (24 GB), A100 40/80 GB, H100 80 GB
 
 ### The Beta warm model constraint
 
-During the Beta phase, only **one warm model per GPU** is supported. If you set `warm: true` on more `aiModels.json` entries than you have GPUs, the AI worker logs a conflict at startup and skips excess warm entries.
+During the Beta phase, only **one warm model per GPU** is supported. Setting `warm: true` on more `aiModels.json` entries than you have GPUs causes the AI worker to log a conflict at startup and skip the excess warm entries.
 
 **Example of what works:**
 
-One RTX 4090, two entries — only one can be warm:
+One RTX 4090, two entries — one warm slot available:
 
-```json icon="terminal"
+```json icon="terminal" title="Single-GPU warm and cold example"
 [
   {
     "pipeline": "text-to-image",
@@ -259,7 +259,7 @@ One RTX 4090, two entries — only one can be warm:
 
 `text-to-image` is warm (your primary revenue pipeline). `audio-to-text` loads cold on demand.
 
-**Exception:** Whisper is small enough (3 GB) that co-warming alongside a diffusion model is sometimes possible without conflict — but this is hardware-dependent and not guaranteed. Monitor startup logs.
+**Exception:** Whisper is small enough (3 GB) that some operators co-warm it alongside a diffusion model without conflict, but that result stays hardware-dependent. Monitor startup logs.
 
 <CustomDivider />
 
@@ -267,7 +267,7 @@ One RTX 4090, two entries — only one can be warm:
 
 The AI worker assigns GPU resources based on the order of entries in `aiModels.json` and available device IDs. For explicit multi-GPU assignment, use the CUDA device environment variable approach when launching containers:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Assign workloads to specific GPUs"
 # GPU 0 handles diffusion pipelines
 docker run -d --gpus '"device=0"' --name ai-runner-gpu0 ...
 
@@ -277,7 +277,7 @@ docker run -d --gpus '"device=1"' --name ai-runner-gpu1 ...
 
 For a node with RTX 4090 (GPU0) + RTX 2060 (GPU1):
 
-```json icon="terminal"
+```json icon="terminal" title="Multi-GPU aiModels.json example"
 [
   {
     "pipeline": "text-to-image",
@@ -324,7 +324,7 @@ Every field, its type, valid values, and behaviour:
 **Description:** The pipeline identifier. Must exactly match a supported pipeline name.
 
 **Valid values:**
-``` icon="terminal"
+``` icon="terminal" title="Supported pipeline values"
 text-to-image
 image-to-image
 image-to-video
@@ -346,7 +346,7 @@ live-video-to-video
 - `"SG161222/RealVisXL_V4.0_Lightning"` ✅
 - `"RealVisXL_V4.0_Lightning"` ❌ (missing org prefix)
 - `"sg161222/realvisxl_v4.0_lightning"` ❌ (wrong case)
-- `"llama3.1:8b"` ❌ (Ollama tag, not HuggingFace ID)
+- `"llama3.1:8b"` ❌ (Ollama tag; use the HuggingFace ID here)
 
 For `llm` pipeline, use the HuggingFace ID (`meta-llama/Meta-Llama-3.1-8B-Instruct`) even though the Ollama runner uses its own internal tag format.
 </Accordion>
@@ -356,12 +356,12 @@ For `llm` pipeline, use the HuggingFace ID (`meta-llama/Meta-Llama-3.1-8B-Instru
 **Description:** Price per unit of work.
 
 **Integer format** — value in Wei:
-```json icon="terminal"
+```json icon="terminal" title="Wei price_per_unit example"
 "price_per_unit": 4768371
 ```
 
 **USD string format** — scientific notation with USD suffix:
-```json icon="terminal"
+```json icon="terminal" title="USD price_per_unit example"
 "price_per_unit": "0.5e-3USD",
 "currency": "USD"
 ```
@@ -417,7 +417,7 @@ When using USD notation, also set `"currency": "USD"`.
 
 Setting `warm: true` eliminates cold-start latency. One warm model per GPU during Beta.
 
-If the model is too large for available VRAM and `warm` is true, the container will fail at model load time. Check `docker logs` for OOM messages.
+Models larger than the available VRAM fail at model load time when `warm` is true. Check `docker logs` for OOM messages.
 </Accordion>
 
 <Accordion  title="pixels_per_unit (optional)" icon="layer-group">
@@ -425,12 +425,12 @@ If the model is too large for available VRAM and `warm` is true, the container w
 **Description:** Units of work per pricing unit. Adjusts the effective per-unit cost granularity.
 
 Used primarily with `audio-to-text` to set per-millisecond pricing:
-```json icon="terminal"
+```json icon="terminal" title="audio-to-text pixels_per_unit example"
 "pixels_per_unit": 1
 ```
 
 For `llm`, sets the token count per pricing unit:
-```json icon="terminal"
+```json icon="terminal" title="LLM pixels_per_unit example"
 "pixels_per_unit": 1000000
 ```
 (1 pricing unit = 1 million tokens)
@@ -440,7 +440,7 @@ For `llm`, sets the token count per pricing unit:
 **Type:** string
 **Description:** Currency for `price_per_unit`. Required when using USD notation.
 
-```json icon="terminal"
+```json icon="terminal" title="currency field example"
 "currency": "USD"
 ```
 </Accordion>
@@ -454,7 +454,7 @@ Use this for:
 - Custom inference servers
 - K8s clusters or GPU farms
 
-```json icon="terminal"
+```json icon="terminal" title="url field example"
 "url": "http://llm_runner:8000"
 ```
 
@@ -467,7 +467,7 @@ The container at this URL must:
 **Type:** string
 **Description:** Bearer token for authenticating with the external container.
 
-```json icon="terminal"
+```json icon="terminal" title="token field example"
 "token": "my-secret-token"
 ```
 </Accordion>
@@ -477,11 +477,11 @@ The container at this URL must:
 **Default:** 1
 **Description:** Maximum concurrent inference tasks from this container. Set based on the container's actual concurrency support.
 
-```json icon="terminal"
+```json icon="terminal" title="capacity field example"
 "capacity": 2
 ```
 
-For Ollama with multiple loaded models or hardware that supports parallel inference, increasing capacity can improve throughput.
+For Ollama with multiple loaded models or hardware built for parallel inference, increasing capacity improves throughput.
 </Accordion>
 
 <Accordion  title="optimization_flags (optional)" icon="layer-group">
@@ -489,16 +489,16 @@ For Ollama with multiple loaded models or hardware that supports parallel infere
 **Description:** Performance optimisations for warm diffusion models. Applies to `text-to-image`, `image-to-image`, and `upscale` pipelines with `warm: true`.
 
 **SFAST** (Stable Fast, up to 25% speedup, no quality loss):
-```json icon="terminal"
+```json icon="terminal" title="SFAST flag example"
 "optimization_flags": { "SFAST": true }
 ```
 
 **DEEPCACHE** (up to 50% speedup, minor quality impact):
-```json icon="terminal"
+```json icon="terminal" title="DEEPCACHE flag example"
 "optimization_flags": { "DEEPCACHE": true }
 ```
 
-**Do not combine.** Do not use DEEPCACHE with Lightning or Turbo models (they are already step-optimised).
+**Choose one flag only.** Skip DEEPCACHE on Lightning and Turbo models because those models are already step-optimised.
 
 **Sources:** [Stable Fast](https://github.com/chengzeyi/stable-fast) · [DeepCache](https://github.com/horseee/DeepCache)
 </Accordion>
@@ -509,7 +509,7 @@ For Ollama with multiple loaded models or hardware that supports parallel infere
 
 ## Model selection and earnings
 
-Not all models earn equally. Earnings depend on:
+Model earnings diverge for four clear reasons:
 
 1. **Pipeline demand** — some pipelines receive more jobs from gateways
 2. **Model match** — gateways often request specific model IDs; running the requested model gets you the job
@@ -518,7 +518,7 @@ Not all models earn equally. Earnings depend on:
 
 ### Tracking performance
 
-- **[tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities)** — real-time capability visibility across all orchestrators
+- **[tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities)** — current capability visibility across all orchestrators
 - **[explorer.livepeer.org](https://explorer.livepeer.org)** — per-orchestrator fee earnings and job count
 
 Use the Explorer AI leaderboard to compare your earnings against similar nodes. Nodes with identical hardware but different warm model selections often show significantly different earnings — the warm pipeline choice matters more than raw GPU performance.
@@ -558,7 +558,7 @@ Use the Explorer AI leaderboard to compare your earnings against similar nodes. 
 
 ### Understanding the market
 
-Prices are set by operators and enforced at the gateway layer. If your `price_per_unit` is higher than a gateway's `maxPricePerUnit`, you receive no jobs from that gateway — regardless of how performant your node is.
+Prices are set by operators and enforced at the gateway layer. A `price_per_unit` above a gateway's `maxPricePerUnit` removes your node from that gateway's job set, regardless of performance.
 
 The network is price-competitive. Setting prices too high means no jobs. Setting prices too low reduces earnings unnecessarily.
 

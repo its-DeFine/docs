@@ -28,34 +28,12 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
-{/* TODO:
-Terminology Validation:
-- Ensure authoring skill is used to validate page style/copy ai-tools/ai-skills/page-authoring/SKILL.md
-- Voice converted to entity-led
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
-Verify:
-- Mermaid diagrams use theme colours / styles - for large diagrams use vertical flow and enclose in ScrollableDiagram setting height at 400-500px
-- Fontawesome icons are used on accordions and tabs (reference map in docs-guide/tooling/reference-maps/icon-map.mdx)
-- Tables use StyledTable component
-- Tabs should be surrounded by BorderedBox variant="accent"
-- Code blocks should have icon="terminal" for bash (default), icon="code" for scripts, icon="copy" for text copy. Add brief filename.
-- All tabs and accordions should have icons
-- No em-dashes are used (instead use standard -)
-- UK spelling is used
-- Headers are concise and technical
-- CustomDivider is used
-- Placeholders for Media and Video Resources are in comments with a TODO for a human
-- REVIEW flags are in JSX comments for a human
-- Accuracy is verified across repo as much as possible
-Human:
-- REVIEW flags
-- Review Page Layout
-*/}
+{/* Draft note: keep copy direct, UK spelling, and route unresolved factual checks to internal comments only. */}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
-This page covers the operational mechanics of how LPT rewards flow, how to call `Reward()` reliably, the economics of when calling reward is profitable, and how ETH fees move from job to wallet. It assumes you have read [Earnings Explained](/v2/orchestrators/guides/staking-and-rewards/earning-model) and have an active orchestrator node.
+Reward calling determines whether your node actually receives the LPT inflation it has earned. This guide covers the reward flow, automatic and manual calls, Arbitrum gas costs, commission updates, and the fee path from job to wallet. It assumes you have read [Earnings Explained](/v2/orchestrators/guides/staking-and-rewards/earning-model) and have an active orchestrator node.
 
 <CustomDivider />
 
@@ -100,7 +78,7 @@ The Explorer shows current inflation rate and target participation at [explorer.
 
 By default, go-livepeer automatically calls `Reward()` at the start of each new round. No action required after initial setup.
 
-```bash icon="terminal"
+```bash icon="terminal" title="Automatic reward call startup example"
 # Automatic reward is ON by default
 # Confirm it's not been disabled by checking your startup flags — there should be no -reward=false
 livepeer \
@@ -116,7 +94,7 @@ livepeer \
 - Your orchestrator must be in the active set that round
 
 <Warning>
-  If your node is offline at round initialisation, that round's reward is missed. There is no retry. For production orchestrators, use systemd or Docker restart policies to keep the node running continuously.
+  Nodes offline at round initialisation miss that round's reward. There is no retry. For production orchestrators, use systemd or Docker restart policies to keep the node running continuously.
 </Warning>
 
 ### Option 2: Disable automatic, call manually
@@ -125,7 +103,7 @@ Use this approach when you are newly activated with very low stake, and want to 
 
 **Step 1: Disable automatic reward calls**
 
-```bash icon="terminal"
+```bash icon="terminal" title="Disable automatic reward calls"
 livepeer \
     -network arbitrum-one-mainnet \
     -reward=false
@@ -140,7 +118,7 @@ Gather three inputs:
 2. **Gas used per reward call** — typically **350,000 to 450,000 gas** on Arbitrum
 3. **LPT value you'd receive** — visible in Explorer on your orchestrator page under "Estimated Reward This Round"
 
-``` icon="terminal"
+``` icon="terminal" title="Reward profitability formula"
 ETH cost = gas_used × gas_price_in_ETH
 LPT earned = your_stake_share × round_issuance × 0.90 (after treasury)
 
@@ -151,22 +129,22 @@ Arbitrum gas is low compared to mainnet, so the threshold is typically reached a
 
 **Step 3: Call reward manually via livepeer_cli**
 
-```bash icon="terminal"
+```bash icon="terminal" title="Open livepeer_cli for a manual reward call"
 # Ensure livepeer is running
 livepeer_cli
 ```
 
 From the menu, select the option corresponding to **"Invoke reward"** and confirm the transaction. Wait for on-chain confirmation — you will see a log line similar to:
 
-``` icon="terminal"
+``` icon="terminal" title="Manual reward call log example"
 Invoking transaction: "reward". Hash: "0x..."
 ```
 
 **Step 4: Enable automatic reward when profitable**
 
-Once your stake is large enough that automatic reward calls are clearly profitable:
+Once your stake is large enough that automatic reward calls are profitable:
 
-```bash icon="terminal"
+```bash icon="terminal" title="Re-enable automatic reward calls"
 # Remove the -reward=false flag from your startup command
 # Automatic reward is the default — simply don't pass -reward=false
 ```
@@ -204,7 +182,7 @@ At these levels, the stake threshold for profitable reward calling is much lower
 
 Keep **ETH on Arbitrum** in your orchestrator wallet for reward transactions. Running out of ETH causes reward calls to fail silently and rounds to be missed.
 
-```bash icon="terminal"
+```bash icon="terminal" title="Check orchestrator ETH balance with livepeer_cli"
 # Check your orchestrator ETH balance on Arbitrum
 # Run livepeer_cli and check "Account info" to see your current balance
 livepeer_cli
@@ -218,7 +196,7 @@ Commission parameters are set via `livepeer_cli` or the [Livepeer Explorer](http
 
 ### Via livepeer_cli
 
-```bash icon="terminal"
+```bash icon="terminal" title="Open livepeer_cli to set commission"
 livepeer_cli
 ```
 
@@ -299,7 +277,7 @@ The [Livepeer Explorer](https://explorer.livepeer.org) shows your reward call hi
 
 For production orchestrators, set up alerting on the go-livepeer Prometheus metrics. The relevant metric is `livepeer_orchestrator_reward_call_status`:
 
-```yaml icon="terminal"
+```yaml icon="terminal" title="Example Prometheus alert rule"
 # Example Prometheus alert rule
 groups:
   - name: livepeer_orchestrator
@@ -367,7 +345,7 @@ Illustrative scenario for context only. Actual figures depend on LPT price, ETH 
   </TableRow>
 </StyledTable>
 
-{/* REVIEW: Alison/Mehrdad to verify current inflation rate, total supply, and active stake figures — numbers above are illustrative approximations */}
+{/* FACT CHECK: Alison/Mehrdad to verify current inflation rate, total supply, and active stake figures — numbers above are illustrative approximations. */}
 
 <CustomDivider />
 

@@ -4,6 +4,67 @@ Priority: Finalise orchestrator tab - locked IA and content added.
 
 ---
 
+## Current Status (as of 2026-03-16)
+
+### Phase 1: IA Finalisation and Handoff - ✅ COMPLETE
+
+| Step | Status | Output |
+|------|--------|--------|
+| 1. Finalise IA | ✅ | Locked in this file (9 guide sections + quickstart + setup) |
+| 2. Write plan with exact paths | ✅ | `handoff-restructure.md` |
+| 3. Restructuring handoff | ✅ | Executed by agent. Files renamed, stubs created, nav updated. |
+| 4. Gap page identification | ✅ | `handoff-content-writing.md` |
+| 5. Writing handoff prompts | ✅ | `content-reference-pack/`, `tutorial-writing-pack/`, `quickstart-setup-writing-pack/` |
+
+### Phase 2: Content Integration - 🔄 IN PROGRESS
+
+| Step | Status | Detail |
+|------|--------|--------|
+| 7-8. Section-by-section review | 🔄 | Section 1 initial sweep done. Sections 2-9 not started. Paused for content deliveries. |
+| 9. Navigator.mdx | ✅ | Rewritten as job-story router. Committed. |
+| 10. Integrate new pages | ✅ | 9 guide pages + 6 tutorials + 7 quickstart/setup pages wired in. |
+
+### Content Delivery Status
+
+| Deliverable | Pages | Status |
+|------------|-------|--------|
+| P0-P2 guide pages (from completed-pages-pack) | 9 | ✅ Integrated |
+| Tutorials (from tutorial-files.zip) | 6 | ✅ Integrated |
+| Quickstart pages (from quickstart-setup-completed-pages.zip) | 2 | ✅ Integrated |
+| Setup pages (from quickstart-setup-completed-pages.zip) | 5 | ✅ Integrated |
+| Setup prerequisites (rcs-requirements.mdx) | 1 | ✅ Written directly, committed |
+| Roadmap stubs (funding-and-support, orchestrator-profiles) | 2 | ❌ Content deferred (write when source material available) |
+
+### Additional Work Done (beyond original plan)
+
+| Item | Status |
+|------|--------|
+| Quickstart section designed and written | ✅ |
+| Setup section designed and written | ✅ |
+| Portal cards updated and committed | ✅ |
+| Concepts section reviewed (4 pages, no critical issues) | ✅ |
+| Navigator.mdx rewritten and committed | ✅ |
+| Gateway plan.md written | ✅ |
+| Product-thinking skill expanded (9 steps) | ✅ |
+| Docs-section-planning-playbook written | ✅ |
+| Glossary operational mode asymmetry added | ✅ |
+| Section names standardised ("and" not "&") | ✅ |
+
+### Remaining Work
+
+| Item | Priority | Detail |
+|------|----------|--------|
+| Section-by-section human review (Sections 1-9) | P1 | Initial sweeps needed, then page-by-page human review |
+| 5 page updates (U1-U5) | P1 | operator-rationale (summary), setup-options (terminology), ai-inference-operations (bridge+J6), model-demand-reference (demand data), troubleshooting (quick-nav) |
+| Nav Dep/New cleanup | P1 | Remove all Dep/New migration subgroups from docs-gate-work.json |
+| Concepts PURPOSE comments | P2 | 4 concept pages missing PURPOSE |
+| 2 roadmap stubs | P3 | Write when SPE/operator profile data available |
+| Phase 3: Standards testing | P3 | Page-authoring compliance, copy lint, REVIEW flag resolution |
+| Phase 3: Gateway re-review | P3 | Delta check using orchestrator process as template |
+| Phase 3: Cleanup | P3 | Move x-deprecated files, clean empty dirs (LAST) |
+
+---
+
 ## Task Allocation
 
 ### Handoff Tasks (delegated to agents/worktrees)
