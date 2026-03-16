@@ -78,6 +78,10 @@ Usage:
     - flags: optionally skip browser checks and set domain audit base URL.
     - info: Run CI-like validation flow locally.
 
+  lpd repair --surface <id> [--staged|--files <path[,path...]>|--full] [--write] [--stage]
+    - flags: choose the governed surface, optional scope, write mode, and optional staging of repaired outputs.
+    - info: Run ownerless-governance repair flows through one deterministic entrypoint.
+
   lpd hooks <install|status|verify|info|<hook-script tokens...>>
     - flags: subcommands define the hook action.
     - info: Manage hooks or run hook scripts.
@@ -108,6 +112,9 @@ Examples:
 
   lpd ai-sitemap --write
     - Generates sitemap-ai.xml at repo root.
+
+  lpd repair --surface portable-skills --write
+    - Repairs portable skill export drift and re-runs the validator.
 
   lpd scripts list --group tools
     - Lists available scripts in the tools group.
@@ -157,6 +164,7 @@ Command Groups:
     lpd move-page <old> <new> [--yes] [--check] [--no-stage]
     lpd ai-sitemap [--write|--check] [--json]
     lpd ci [--skip-browser] [--base-url URL]
+    lpd repair --surface <id> [--staged|--files <path[,path...]>|--full] [--write] [--stage]
 
   hooks
     lpd hooks install
@@ -180,6 +188,8 @@ Common Workflows:
     lpd tools dev test-add-callouts -- --help
   regenerate AI sitemap
     lpd ai-sitemap --write
+  repair a governed surface
+    lpd repair --surface component-governance --write
   move a docs page and sync docs.json
     lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/new.mdx
 
@@ -565,6 +575,13 @@ run_step() {
     fi
     echo "✗ $label" >&2
     return 1
+}
+
+run_cli_step() {
+    printf '→'
+    printf ' %q' "$@"
+    printf '\n'
+    "$@"
 }
 
 hook_status_check() {
@@ -1450,6 +1467,264 @@ EOF
     finish 0 "ci" "CI simulation completed successfully."
 }
 
+cmd_repair() {
+    local surface=""
+    local scope_mode="staged"
+    local files_csv=""
+    local scope_count=0
+    local mode="check"
+    local stage_outputs=0
+
+    while [ "$#" -gt 0 ]; do
+        case "$1" in
+            --surface)
+                if [ "$#" -lt 2 ]; then
+                    finish 1 "repair" "--surface requires a value."
+                    return 1
+                fi
+                surface="$2"
+                shift
+                ;;
+            --surface=*)
+                surface="${1#--surface=}"
+                ;;
+            --staged)
+                scope_mode="staged"
+                scope_count=$((scope_count + 1))
+                ;;
+            --files)
+                if [ "$#" -lt 2 ]; then
+                    finish 1 "repair" "--files requires a comma-separated value."
+                    return 1
+                fi
+                files_csv="$2"
+                scope_mode="files"
+                scope_count=$((scope_count + 1))
+                shift
+                ;;
+            --files=*)
+                files_csv="${1#--files=}"
+                scope_mode="files"
+                scope_count=$((scope_count + 1))
+                ;;
+            --full)
+                scope_mode="full"
+                scope_count=$((scope_count + 1))
+                ;;
+            --write)
+                mode="write"
+                ;;
+            --check)
+                mode="check"
+                ;;
+            --stage)
+                stage_outputs=1
+                mode="write"
+                ;;
+            --json)
+                GLOBAL_JSON=1
+                ;;
+            --help|-h)
+                cat <<'EOF'
+Usage: lpd repair --surface <id> [--staged|--files <path[,path...]>|--full] [--write] [--stage]
+
+Surfaces:
+  portable-skills
+  docs-guide-generated
+  ui-templates
+  script-governance
+  component-governance
+  frontmatter-contract
+
+Notes:
+  - Default mode is --check.
+  - --stage implies --write.
+  - frontmatter-contract is check-only because there is no deterministic writer.
+EOF
+                return 0
+                ;;
+            *)
+                finish 1 "repair" "Unknown option: $1"
+                return 1
+                ;;
+        esac
+        shift
+    done
+
+    if [ -z "$surface" ]; then
+      finish 1 "repair" "Missing required --surface value."
+      return 1
+    fi
+
+    if [ "$scope_count" -gt 1 ]; then
+      finish 1 "repair" "Choose only one scope flag: --staged, --files, or --full."
+      return 1
+    fi
+
+    local -a quality_scope
+    quality_scope=()
+    if [ "$scope_mode" = "staged" ]; then
+      quality_scope+=(--staged)
+    elif [ "$scope_mode" = "files" ]; then
+      quality_scope+=(--files "$files_csv")
+    fi
+
+    case "$surface" in
+      portable-skills)
+        if [ "$mode" = "write" ]; then
+          run_cli_step node tools/scripts/export-portable-skills.js --write || {
+            finish 1 "repair" "Portable skills export failed."
+            return 1
+          }
+          if [ "$stage_outputs" = "1" ]; then
+            git add ai-tools/ai-skills/templates ai-tools/agent-packs/skills || true
+          fi
+        fi
+        run_cli_step node tests/unit/export-portable-skills.test.js || {
+          finish 1 "repair" "Portable skills validation failed."
+          return 1
+        }
+        run_cli_step node tests/unit/codex-skill-sync.test.js || {
+          finish 1 "repair" "Codex skill sync validation failed."
+          return 1
+        }
+        ;;
+      docs-guide-generated)
+        if [ "$mode" = "write" ]; then
+          run_cli_step node tools/scripts/generate-docs-guide-indexes.js --write || {
+            finish 1 "repair" "Docs-guide index generation failed."
+            return 1
+          }
+          run_cli_step node tools/scripts/generate-docs-guide-pages-index.js --write || {
+            finish 1 "repair" "Docs-guide pages index generation failed."
+            return 1
+          }
+          run_cli_step node tools/scripts/generate-docs-guide-components-index.js --write || {
+            finish 1 "repair" "Docs-guide components index generation failed."
+            return 1
+          }
+          run_cli_step node tests/unit/script-docs.test.js --write --rebuild-indexes || {
+            finish 1 "repair" "Script catalog regeneration failed."
+            return 1
+          }
+          if [ "$stage_outputs" = "1" ]; then
+            git add docs-guide/catalog tests/script-index.md tools/script-index.md tools/lib/script-index.md tasks/reports/script-classifications.json || true
+          fi
+        fi
+        run_cli_step node tests/unit/docs-guide-sot.test.js || {
+          finish 1 "repair" "Docs-guide source-of-truth validation failed."
+          return 1
+        }
+        ;;
+      ui-templates)
+        if [ ! -f "$REPO_ROOT/tools/scripts/generate-ui-templates.js" ] || [ ! -f "$REPO_ROOT/tests/unit/ui-template-generator.test.js" ]; then
+          finish 1 "repair" "ui-templates surface is not available on this branch yet."
+          return 1
+        fi
+        if [ "$mode" = "write" ]; then
+          run_cli_step node tools/scripts/generate-ui-templates.js --write || {
+            finish 1 "repair" "UI template generation failed."
+            return 1
+          }
+          if [ "$stage_outputs" = "1" ]; then
+            git add snippets/templates v2/templates .vscode/templates.code-snippets .vscode/components.code-snippets docs-guide/catalog/ui-templates.mdx || true
+          fi
+        fi
+        run_cli_step node tests/unit/ui-template-generator.test.js || {
+          finish 1 "repair" "UI template validation failed."
+          return 1
+        }
+        ;;
+      script-governance)
+        if [ "$mode" = "write" ]; then
+          if [ "$scope_mode" = "full" ]; then
+            run_cli_step node tools/scripts/orchestrators/repair-governance.js || {
+              finish 1 "repair" "Script governance repair failed."
+              return 1
+            }
+          else
+            local -a script_cmd
+            script_cmd=(node tests/unit/script-docs.test.js "${quality_scope[@]}" --write --rebuild-indexes --autofill)
+            if [ "$stage_outputs" = "1" ]; then
+              script_cmd+=(--stage)
+            fi
+            run_cli_step "${script_cmd[@]}" || {
+              finish 1 "repair" "Script governance repair failed."
+              return 1
+            }
+          fi
+        else
+          run_cli_step node tests/unit/script-docs.test.js "${quality_scope[@]}" || {
+            finish 1 "repair" "Script governance validation failed."
+            return 1
+          }
+        fi
+        ;;
+      component-governance)
+        local -a component_cmd
+        component_cmd=(node tools/scripts/remediators/components/repair-component-metadata.js)
+        if [ "$mode" = "write" ]; then
+          component_cmd+=(--fix)
+        else
+          component_cmd+=(--dry-run)
+        fi
+        if [ "$scope_mode" = "staged" ]; then
+          component_cmd+=(--staged)
+        fi
+        run_cli_step "${component_cmd[@]}" || {
+          finish 1 "repair" "Component metadata repair failed."
+          return 1
+        }
+        if [ "$mode" = "write" ]; then
+          run_cli_step node tools/scripts/generate-component-registry.js || {
+            finish 1 "repair" "Component registry generation failed."
+            return 1
+          }
+          run_cli_step node tools/scripts/generate-component-docs.js --fix --template-only || {
+            finish 1 "repair" "Component docs generation failed."
+            return 1
+          }
+          if [ "$stage_outputs" = "1" ]; then
+            git add snippets/components docs-guide/component-registry.json docs-guide/component-registry-schema.json v2/resources/documentation-guide/component-library || true
+          fi
+        else
+          run_cli_step node tools/scripts/generate-component-registry.js --validate-only || {
+            finish 1 "repair" "Component registry validation failed."
+            return 1
+          }
+          run_cli_step node tools/scripts/generate-component-docs.js --check --template-only || {
+            finish 1 "repair" "Component docs validation failed."
+            return 1
+          }
+        fi
+        run_cli_step node tests/unit/component-governance-generators.test.js || {
+          finish 1 "repair" "Component governance validation failed."
+          return 1
+        }
+        ;;
+      frontmatter-contract)
+        if [ "$mode" = "write" ] || [ "$stage_outputs" = "1" ]; then
+          finish 1 "repair" "frontmatter-contract is check-only because there is no deterministic writer."
+          return 1
+        fi
+        run_cli_step node tests/unit/quality.test.js "${quality_scope[@]}" || {
+          finish 1 "repair" "Frontmatter contract validation failed."
+          return 1
+        }
+        run_cli_step node tests/unit/frontmatter-taxonomy.test.js || {
+          finish 1 "repair" "Frontmatter taxonomy validation failed."
+          return 1
+        }
+        ;;
+      *)
+        finish 1 "repair" "Unknown surface: $surface"
+        return 1
+        ;;
+    esac
+
+    finish 0 "repair" "Repair flow completed for $surface ($mode)."
+}
+
 cmd_ai_sitemap() {
     local mode="check"
 
@@ -1803,6 +2078,9 @@ case "$COMMAND" in
         ;;
     ci)
         cmd_ci "$@"
+        ;;
+    repair)
+        cmd_repair "$@"
         ;;
     hooks)
         cmd_hooks "$@"

@@ -19,7 +19,7 @@ keywords:
 
 # Source of Truth Policy
 
-This document defines canonical ownership boundaries to prevent drift across README, docs-guide, tests docs, and Mintlify pages.
+This document defines canonical source boundaries to prevent drift across README, docs-guide, tests docs, and Mintlify pages.
 
 ## Canonical Boundaries
 
@@ -27,7 +27,7 @@ This document defines canonical ownership boundaries to prevent drift across REA
 | ------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------- |
 | Script/runtime behavior         | Code + tests                                          | Behavioral truth always lives in executable code and validation tests. |
 | Script metadata and inventory   | Script headers + generated indexes                    | Script headers feed script index generation.                           |
-| Repo feature navigation map     | `docs-guide/*.mdx` (manual canonical files)           | Internal maintainer source of truth.                                   |
+| Repo feature navigation map     | `docs-guide/*.mdx` (manual canonical files)           | Canonical internal navigation map.                                   |
 | Codex skill portability         | `ai-tools/ai-skills/templates/*.template.md`          | Local installs are synced from templates via `sync-codex-skills.js`.  |
 | Public user-facing docs content | `v2/**`                                               | Mintlify docs in `docs.json` navigation.                               |
 | CI/test execution behavior      | Workflow files + test runner scripts                  | Narrative summaries must link to these files.                          |
@@ -58,7 +58,7 @@ The following files are generated and should not be edited directly:
 
 Regenerate with:
 
-```bash
+```bash icon="terminal"
 node tools/scripts/generate-docs-guide-indexes.js --write
 node tools/scripts/generate-docs-guide-pages-index.js --write
 node tools/scripts/generate-docs-guide-components-index.js --write
@@ -83,7 +83,7 @@ Guidelines:
 
 Use the generated banner enforcer utility:
 
-```bash
+```bash icon="terminal"
 node tools/scripts/enforce-generated-file-banners.js --write
 node tools/scripts/enforce-generated-file-banners.js --check
 ```

@@ -30,6 +30,7 @@ const docsNavigationTests = require('./unit/docs-navigation.test');
 const docsPathSyncTests = require('./unit/docs-path-sync.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const skillDocsTests = require('./unit/skill-docs.test');
+const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
 const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
 const componentGovernanceUtilsTests = require('./unit/component-governance-utils.test');
 const componentGovernanceGeneratorTests = require('./unit/component-governance-generators.test');
@@ -239,6 +240,13 @@ async function runAllTests() {
   totalErrors += skillDocsResult.errors.length;
   totalWarnings += skillDocsResult.warnings.length;
   console.log(`   ${skillDocsResult.errors.length} errors, ${skillDocsResult.warnings.length} warnings`);
+
+  // Ownerless Governance
+  console.log('\n🧭 Running Ownerless Governance Checks...');
+  const ownerlessGovernanceResult = normalizeSuiteResult(ownerlessGovernanceTests.runTests({ stagedOnly }));
+  totalErrors += ownerlessGovernanceResult.errors.length;
+  totalWarnings += ownerlessGovernanceResult.warnings.length;
+  console.log(`   ${ownerlessGovernanceResult.errors.length} errors, ${ownerlessGovernanceResult.warnings.length} warnings`);
 
   // Portable Skill Export
   console.log('\n📦 Running Portable Skill Export Checks...');

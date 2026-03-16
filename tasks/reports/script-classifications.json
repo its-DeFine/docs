@@ -546,6 +546,16 @@
     "pipeline": "manual — not yet in pipeline"
   },
   {
+    "path": "tests/unit/ownerless-governance.test.js",
+    "script": "ownerless-governance.test",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tests/unit, docs-guide/policies/ownerless-governance.mdx, tools/config/ownerless-governance-surfaces.json, .github, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md",
+    "needs": "R-R14, R-R29",
+    "purpose_statement": "Validates the ownerless governance manifest, primary gate-layer contract, and forbidden human-owner dependency in governed policy and GitHub surfaces.",
+    "pipeline": "P1, P3"
+  },
+  {
     "path": "tests/unit/quality.test.js",
     "script": "quality.test",
     "category": "validator",
@@ -1995,6 +2005,16 @@
     "purpose_statement": "Docs path sync remediator — applies deterministic docs.json and governed reference rewrites for moved docs pages.",
     "pipeline": "P1, P6",
     "dualmode": "--dry-run (validator) | --write (remediator)"
+  },
+  {
+    "path": "tools/scripts/repair-ownerless-language.js",
+    "script": "repair-ownerless-language",
+    "category": "remediator",
+    "purpose": "governance:agent-governance",
+    "scope": ".github, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md, docs-guide",
+    "needs": "R-R14, R-R29",
+    "purpose_statement": "Applies deterministic wording repairs that remove human-owner dependency from governed GitHub and contributor surfaces.",
+    "pipeline": "manual"
   },
   {
     "path": "tools/scripts/repo-audit-orchestrator.js",

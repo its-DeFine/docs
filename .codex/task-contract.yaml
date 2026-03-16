@@ -3,14 +3,20 @@ branch: codex/20260316-ownerless-rollout
 base_branch: docs-v2-dev
 scope_in:
   - .codex/task-contract.yaml
+  - .github/
+  - README.md
   - ai-tools/ai-skills/
   - ai-tools/agent-packs/skills/
+  - contribute/CONTRIBUTING/
   - docs-guide/catalog/scripts-catalog.mdx
+  - docs-guide/policies/
+  - lpd
   - tasks/reports/script-classifications.json
   - tests/script-index.md
   - tests/run-all.js
   - tests/run-pr-checks.js
   - tests/unit/
+  - tools/config/
   - tools/lib/script-index.md
   - tools/lib/
   - tools/script-index.md

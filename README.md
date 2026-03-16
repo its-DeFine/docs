@@ -16,7 +16,7 @@ If you only have a few minutes, this is the model:
 
 1. `v2/` + `snippets/` are the primary docs content system.
 2. `docs.json` controls navigation/routes.
-3. `lpd` is the maintainer CLI for setup/dev/test/hooks/scripts.
+3. `lpd` is the repo CLI for setup/dev/test/hooks/scripts.
 4. `.githooks/`, `tests/`, and CI workflows enforce quality gates.
 5. `docs-guide/` is the internal source of truth for navigating all repo capabilities.
 
@@ -105,6 +105,7 @@ Recovery:
 |---|---|
 | Start here + update rules | [`docs-guide/overview.mdx`](docs-guide/overview.mdx) |
 | Source-of-truth boundaries | [`docs-guide/policies/source-of-truth-policy.mdx`](docs-guide/policies/source-of-truth-policy.mdx) |
+| Ownerless governance contract | [`docs-guide/policies/ownerless-governance.mdx`](docs-guide/policies/ownerless-governance.mdx) |
 | Full feature inventory | [`docs-guide/features/feature-map.mdx`](docs-guide/features/feature-map.mdx) |
 | System/data/control flow | [`docs-guide/features/architecture-map.mdx`](docs-guide/features/architecture-map.mdx) |
 | CLI commands and runbooks | [`docs-guide/tooling/lpd-cli.mdx`](docs-guide/tooling/lpd-cli.mdx) |
@@ -211,7 +212,7 @@ Automation deep docs:
 - [`docs-guide/features/automations.mdx`](docs-guide/features/automations.mdx)
 - [`v2/resources/documentation-guide/automations-workflows.mdx`](v2/resources/documentation-guide/automations-workflows.mdx)
 
-## AI and Maintainer Guidance
+## AI and Repo Guidance
 
 - AI assistant rules and safety: `tools/ai-rules/`
 - repository AI guidance files: `.github/AGENTS.md`, `.cursorrules`
