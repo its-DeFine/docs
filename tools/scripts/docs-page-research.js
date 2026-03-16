@@ -28,8 +28,15 @@ const GENERIC_PATH_TOKENS = new Set([
   'concept',
   'quickstart',
   'payments',
+  'payment',
+  'pricing',
+  'funding',
+  'roadmap',
   'pricing',
   'details',
+  'deployment',
+  'monitoring',
+  'tooling',
   'operator',
   'operators',
   'gateway',
@@ -40,6 +47,7 @@ const GENERIC_PATH_TOKENS = new Set([
   'page',
   'docs'
 ]);
+const INFERENCE_EXCLUDED_BASENAMES = new Set(['review', 'to', 'sources', 'source', 'index', 'funding']);
 const EVIDENCE_TYPE_PRIORITY = {
   'official-page': 100,
   'repo-file': 90,
@@ -71,6 +79,31 @@ const HISTORICAL_LANGUAGE_PATTERNS = [
   /\bin development\b/gi,
   /\bearly 20\d{2}\b/gi
 ];
+const FORUM_STATUS_PATTERNS = [
+  /\bprogram(?:me)?\b/gi,
+  /\bfunding\b/gi,
+  /\bgrant\b/gi,
+  /\bcohort\b/gi,
+  /\bmilestone\b/gi,
+  /\bgovernance\b/gi,
+  /\bspe\b/gi,
+  /\bstartup\b/gi,
+  /\boperator support\b/gi,
+  /\bsupport status\b/gi,
+  /\bprogramme status\b/gi
+];
+const IMPLEMENTATION_STATUS_PATTERNS = [
+  /\bgithub\b/gi,
+  /\bprotocol\b/gi,
+  /\bremote signer\b/gi,
+  /\bclearinghouse\b/gi,
+  /\brelease\b/gi,
+  /\bpr\b/gi,
+  /\bissue\b/gi,
+  /\bsupport boundary\b/gi,
+  /\bcurrent scope\b/gi
+];
+const MAX_DISCORD_SELECTION_SCORE = 59;
 
 function toPosix(value) {
   return String(value || '').split(path.sep).join('/');
@@ -289,16 +322,128 @@ function pathTokens(file) {
   )];
 }
 
+function fileDir(relPath) {
+  return toPosix(path.dirname(toPosix(relPath)));
+}
+
+function basenameTokens(relPath) {
+  return significantTokens(path.basename(toPosix(relPath), path.extname(toPosix(relPath))).replace(/[-_]/g, ' '));
+}
+
+function sameDir(left, right) {
+  return fileDir(left) === fileDir(right);
+}
+
+function sectionPath(relPath) {
+  const parts = toPosix(relPath).split('/');
+  return parts.slice(0, 5).join('/');
+}
+
+function inferenceEligibleFile(relPath) {
+  const normalized = toPosix(relPath);
+  const base = path.basename(normalized, path.extname(normalized));
+  if (!normalized.endsWith('.mdx')) return false;
+  if (normalized.includes('/x-')) return false;
+  if (normalized.includes('/x_')) return false;
+  if (base.startsWith('dep-')) return false;
+  if (base.startsWith('funding')) return false;
+  if (INFERENCE_EXCLUDED_BASENAMES.has(base)) return false;
+  return true;
+}
+
+function listSiblingDocFiles(relDir) {
+  const absDir = path.resolve(repoRoot(), relDir);
+  if (!fs.existsSync(absDir)) return [];
+  if (!fs.statSync(absDir).isDirectory()) return [];
+  return fs
+    .readdirSync(absDir)
+    .filter((entry) => entry.endsWith('.mdx'))
+    .map((entry) => toPosix(path.join(relDir, entry)))
+    .filter(inferenceEligibleFile)
+    .sort();
+}
+
+function familySeedFiles(family, targetFiles) {
+  const domainPrefix = family.domain ? `v2/${family.domain}/` : null;
+  return [...new Set([family.canonical_owner, ...(family.dependent_pages || []), ...(targetFiles || [])])]
+    .filter(Boolean)
+    .filter((file) => !domainPrefix || toPosix(file).startsWith(domainPrefix));
+}
+
+function inferFamilyPages(family, targetFiles = []) {
+  if ((family.dependent_pages || []).length >= 2 && fileExists(family.canonical_owner)) {
+    return [];
+  }
+  const explicit = new Set([family.canonical_owner, ...(family.dependent_pages || [])].map(toPosix));
+  const seeds = familySeedFiles(family, targetFiles);
+  const seedDirs = [...new Set(seeds.map(fileDir))];
+  const seedTokens = uniqueTerms([
+    ...seeds.flatMap((file) => pathTokens(file)),
+    ...(family.match_terms || []),
+    family.claim_family.replace(/-/g, ' '),
+    path.basename(family.canonical_owner || '', path.extname(family.canonical_owner || '')).replace(/[-_]/g, ' ')
+  ]).flatMap((value) => significantTokens(value));
+  const seedDirSet = new Set(seedDirs);
+  const domainPrefix = family.domain ? `v2/${family.domain}/` : null;
+
+  return [...new Set(seedDirs.flatMap((dir) => listSiblingDocFiles(dir)))]
+    .filter((candidate) => (!domainPrefix ? true : candidate.startsWith(domainPrefix)))
+    .filter((candidate) => !explicit.has(candidate))
+    .map((candidate) => {
+      const candidateTokens = basenameTokens(candidate);
+      let score = 0;
+      let overlap = 0;
+      let contentSignal = false;
+      if (seedDirSet.has(fileDir(candidate))) score += 2;
+      if (sectionPath(candidate) === sectionPath(family.canonical_owner)) score += 1;
+      overlap = sharedCount(seedTokens, candidateTokens);
+      if (overlap >= 3) score += 3;
+      else if (overlap >= 2) score += 2;
+      else if (overlap >= 1) score += 1;
+      if (targetFiles.some((file) => sameDir(file, candidate))) score += 1;
+      const absCandidate = path.resolve(repoRoot(), candidate);
+      if (fs.existsSync(absCandidate)) {
+        const inferenceTerms = (family.match_terms || [])
+          .slice(0, 8)
+          .filter((term) => significantTokens(term).length >= 2);
+        contentSignal = matchedTerms(readFile(absCandidate), inferenceTerms).length > 0;
+        if (contentSignal) score += 2;
+      }
+      return { candidate, score, overlap, contentSignal };
+    })
+    .filter((entry) => entry.score >= 3 && (entry.overlap >= 1 || entry.contentSignal))
+    .sort((left, right) => {
+      if (right.score !== left.score) return right.score - left.score;
+      return left.candidate.localeCompare(right.candidate);
+    })
+    .map((entry) => entry.candidate)
+    .slice(0, 8);
+}
+
+function familyRelatedFiles(family, targetFiles = [], options = {}) {
+  const includeInferred = options.includeInferred !== false;
+  const existingOnly = options.existingOnly === true;
+  const files = [
+    family.canonical_owner,
+    ...(family.dependent_pages || []),
+    ...(includeInferred ? inferFamilyPages(family, targetFiles) : [])
+  ]
+    .filter(Boolean)
+    .map(toPosix);
+  const unique = [...new Set(files)];
+  return existingOnly ? unique.filter(fileExists) : unique;
+}
+
 function sharedCount(left, right) {
   const leftSet = new Set(left);
   return right.filter((entry) => leftSet.has(entry)).length;
 }
 
-function familyPathAffinity(file, family) {
+function familyPathAffinity(file, family, targetFiles = []) {
   const target = toPosix(file);
   const targetTokens = pathTokens(target);
   const targetBase = path.basename(target, path.extname(target));
-  const relatedFiles = [family.canonical_owner, ...family.dependent_pages];
+  const relatedFiles = familyRelatedFiles(family, targetFiles, { includeInferred: true, existingOnly: false });
   let score = 0;
 
   relatedFiles.forEach((related) => {
@@ -336,7 +481,7 @@ function scoreFamilyForTargets(family, targetFiles, fileContents) {
     if (domainPrefix && !file.startsWith(domainPrefix)) {
       return;
     }
-    score += familyPathAffinity(file, family);
+    score += familyPathAffinity(file, family, targetFiles);
     const text = stripMdx(fileContents[file] || '').toLowerCase();
     lowerTerms.forEach((term) => {
       if (term && text.includes(term)) score += 1;
@@ -489,6 +634,19 @@ function countPatternHits(text, patterns) {
   }, 0);
 }
 
+function parseIsoDate(value) {
+  const normalized = String(value || '').trim();
+  if (!normalized) return null;
+  const parsed = Date.parse(normalized);
+  return Number.isNaN(parsed) ? null : new Date(parsed);
+}
+
+function ageInDays(value) {
+  const parsed = parseIsoDate(value);
+  if (!parsed) return null;
+  return Math.max(0, Math.floor((Date.now() - parsed.getTime()) / 86400000));
+}
+
 function sourcePriority(type) {
   return EVIDENCE_TYPE_PRIORITY[type] || 10;
 }
@@ -498,16 +656,130 @@ function familyNeedsCurrentness(family) {
   return countPatternHits(corpus, CURRENT_LANGUAGE_PATTERNS) > 0;
 }
 
-function evidenceRanking(type, corpus, terms, family) {
+function familyCorpus(family) {
+  if (!family) return '';
+  return [family.claim_family, family.claim_summary, family.notes, family.source_type, ...(family.match_terms || [])].join(' ');
+}
+
+function familyPrefersForum(family) {
+  if (!family) return false;
+  const corpus = familyCorpus(family);
+  return countPatternHits(corpus, FORUM_STATUS_PATTERNS) > 0 || /forum-/i.test(family.source_type || '');
+}
+
+function familyPrefersGithub(family) {
+  if (!family) return false;
+  const corpus = familyCorpus(family);
+  return countPatternHits(corpus, IMPLEMENTATION_STATUS_PATTERNS) > 0 || /^github-/.test(family.source_type || '');
+}
+
+function extractEvidenceMeta(type, parsedJson, responseText) {
+  if (type === 'forum-topic') {
+    return {
+      date:
+        parsedJson?.last_posted_at ||
+        parsedJson?.created_at ||
+        parsedJson?.post_stream?.posts?.[0]?.created_at ||
+        '',
+      state: parsedJson?.archived ? 'archived' : 'open'
+    };
+  }
+  if (type === 'github-pr') {
+    return {
+      date: parsedJson?.merged_at || parsedJson?.updated_at || parsedJson?.created_at || '',
+      state: parsedJson?.merged_at ? 'merged' : parsedJson?.state || ''
+    };
+  }
+  if (type === 'github-issue') {
+    return {
+      date: parsedJson?.updated_at || parsedJson?.created_at || '',
+      state: parsedJson?.state || ''
+    };
+  }
+  if (type === 'github-release') {
+    return {
+      date: parsedJson?.published_at || parsedJson?.created_at || '',
+      state: parsedJson?.draft ? 'draft' : 'published'
+    };
+  }
+  if (type === 'github-repo') {
+    return {
+      date: parsedJson?.pushed_at || parsedJson?.updated_at || parsedJson?.created_at || '',
+      state: parsedJson?.archived ? 'archived' : 'active'
+    };
+  }
+  if (type === 'official-page') {
+    return { date: '', state: responseText ? 'reachable' : '' };
+  }
+  return { date: '', state: '' };
+}
+
+function recencyScoreForEvidence(type, meta, family) {
+  const age = ageInDays(meta?.date);
+  if (age == null) return { score: 0, reason: '' };
+  const freshness = family?.freshness_class || 'review-periodic';
+  let score = 0;
+
+  if (freshness === 'volatile') {
+    if (age <= 14) score += 18;
+    else if (age <= 45) score += 10;
+    else if (age <= 120) score += 3;
+    else score -= 10;
+  } else if (freshness === 'review-on-change') {
+    if (age <= 30) score += 12;
+    else if (age <= 120) score += 6;
+    else if (age > 365) score -= 6;
+  } else if (freshness === 'review-periodic') {
+    if (age <= 90) score += 8;
+    else if (age <= 365) score += 3;
+    else score -= 4;
+  }
+
+  if (type === 'github-release') {
+    score += 10;
+  } else if (type === 'github-pr' && meta?.state === 'merged') {
+    score += 6;
+  } else if (type === 'github-issue' && meta?.state === 'open') {
+    score += 2;
+  }
+
+  return {
+    score,
+    reason: `recency ${age}d${meta?.state ? `; state ${meta.state}` : ''}`
+  };
+}
+
+function sourcePreferenceScore(type, family) {
+  const prefersForum = familyPrefersForum(family);
+  const prefersGithub = familyPrefersGithub(family);
+  let score = 0;
+  if (prefersForum && type === 'forum-topic') score += 14;
+  if (prefersForum && !prefersGithub && type.startsWith('github-')) score -= 2;
+  if (prefersGithub && type === 'github-release') score += 14;
+  else if (prefersGithub && type === 'github-pr') score += 12;
+  else if (prefersGithub && type === 'github-issue') score += 8;
+  if (prefersGithub && !prefersForum && type === 'forum-topic') score -= 2;
+  return score;
+}
+
+function evidenceRanking(type, corpus, terms, family, meta = {}) {
   const matched = matchedTerms(corpus, terms);
   const needsCurrentness = family ? familyNeedsCurrentness(family) : false;
   const currentHits = countPatternHits(corpus, CURRENT_LANGUAGE_PATTERNS);
   const historicalHits = countPatternHits(corpus, HISTORICAL_LANGUAGE_PATTERNS);
-  let score = sourcePriority(type) + matched.length * 10;
+  const recency = recencyScoreForEvidence(type, meta, family);
+  const preference = sourcePreferenceScore(type, family);
+  let score = sourcePriority(type) + matched.length * 10 + recency.score + preference;
   const reasons = [`source priority ${sourcePriority(type)}`];
 
   if (matched.length > 0) {
     reasons.push(`${matched.length} matched term${matched.length === 1 ? '' : 's'}`);
+  }
+  if (preference !== 0) {
+    reasons.push(`claim-family source preference ${preference}`);
+  }
+  if (recency.reason) {
+    reasons.push(recency.reason);
   }
   if (needsCurrentness && currentHits > 0) {
     score += 8;
@@ -517,11 +789,19 @@ function evidenceRanking(type, corpus, terms, family) {
     score -= Math.min(12, historicalHits * 3);
     reasons.push(`historical-language penalty ${historicalHits}`);
   }
+  if (type === 'repo-discord-signal') {
+    score = Math.min(score, MAX_DISCORD_SELECTION_SCORE);
+    reasons.push(`discord cap ${MAX_DISCORD_SELECTION_SCORE}`);
+  }
 
   return {
     matched_terms: matched,
     matched_terms_count: matched.length,
     source_rank: sourcePriority(type),
+    preference_score: preference,
+    recency_score: recency.score,
+    evidence_date: meta?.date || '',
+    evidence_state: meta?.state || '',
     current_language_hits: currentHits,
     historical_language_hits: historicalHits,
     selection_score: score,
@@ -580,7 +860,7 @@ async function fetchEvidenceRef(ref, options = null) {
     }
     const text = readFile(absPath);
     const matched = matchAnySignal(text, matchTerms);
-    const ranking = evidenceRanking(ref.type, text, matchTerms, family);
+    const ranking = evidenceRanking(ref.type, text, matchTerms, family, { date: '', state: 'repo-current' });
     const matchedSummary = ref.type === 'repo-discord-signal' ? 'repo Discord/community signal matched' : 'repo evidence matched';
     const missingSummary =
       ref.type === 'repo-discord-signal'
@@ -601,7 +881,7 @@ async function fetchEvidenceRef(ref, options = null) {
     const response = await fetchText(ref.ref);
     const text = htmlToText(response.text);
     const matched = response.ok && matchAnySignal(text, matchTerms);
-    const ranking = evidenceRanking(ref.type, text, matchTerms, family);
+    const ranking = evidenceRanking(ref.type, text, matchTerms, family, extractEvidenceMeta(ref.type, null, response.text));
     return {
       type: ref.type,
       ref: ref.ref,
@@ -624,7 +904,7 @@ async function fetchEvidenceRef(ref, options = null) {
     }
     const corpus = parsed ? JSON.stringify(parsed) : response.text;
     const matched = response.ok && matchAnySignal(corpus, matchTerms);
-    const ranking = evidenceRanking(ref.type, corpus, matchTerms, family);
+    const ranking = evidenceRanking(ref.type, corpus, matchTerms, family, extractEvidenceMeta(ref.type, parsed, response.text));
     return {
       type: ref.type,
       ref: ref.ref,
@@ -644,7 +924,7 @@ async function fetchEvidenceRef(ref, options = null) {
     } else if (ref.type === 'github-pr') {
       apiUrl += `/pulls/${parsed.value || parsed.kind}`;
     } else if (ref.type === 'github-release') {
-      apiUrl += parsed.value ? `/releases/tags/${parsed.value}` : '/releases/latest';
+      apiUrl += parsed.value && parsed.value !== 'latest' ? `/releases/tags/${parsed.value}` : '/releases/latest';
     }
     const response = await fetchText(apiUrl, {
       accept: 'application/vnd.github+json'
@@ -657,7 +937,7 @@ async function fetchEvidenceRef(ref, options = null) {
     }
     const corpus = parsedJson ? JSON.stringify(parsedJson) : response.text;
     const matched = response.ok && matchAnySignal(corpus, matchTerms);
-    const ranking = evidenceRanking(ref.type, corpus, matchTerms, family);
+    const ranking = evidenceRanking(ref.type, corpus, matchTerms, family, extractEvidenceMeta(ref.type, parsedJson, response.text));
     return {
       type: ref.type,
       ref: ref.ref,
@@ -721,6 +1001,45 @@ function confidenceLabel(status, evidence) {
   return matchedCount > 0 ? 'medium' : 'low';
 }
 
+function annotateEvidenceCompetition(evidence) {
+  const primary =
+    evidence.find((entry) => entry.ok && entry.matched) ||
+    evidence.find((entry) => entry.ok) ||
+    evidence[0] ||
+    null;
+  if (!primary) return [];
+
+  return evidence.map((entry) => {
+    let selection_role = 'supporting';
+    let comparison_reason = 'supporting evidence';
+    if (entry === primary) {
+      selection_role = 'primary';
+      comparison_reason = 'highest ranked matched source';
+    } else if (!entry.ok) {
+      selection_role = 'weaker';
+      comparison_reason = 'fetch failed or unsupported evidence type';
+    } else if (!entry.matched) {
+      selection_role = 'weaker';
+      comparison_reason = 'signal missing from fetched source';
+    } else if ((entry.source_rank || 0) < (primary.source_rank || 0)) {
+      selection_role = 'weaker';
+      comparison_reason = 'lower source priority than primary evidence';
+    } else if ((entry.recency_score || 0) < (primary.recency_score || 0)) {
+      selection_role = 'weaker';
+      comparison_reason = 'older or less current than primary evidence';
+    } else if ((entry.matched_terms_count || 0) < (primary.matched_terms_count || 0)) {
+      selection_role = 'weaker';
+      comparison_reason = 'fewer matched signals than primary evidence';
+    }
+    return {
+      ...entry,
+      selection_role,
+      comparison_reason,
+      primary_ref: primary.ref
+    };
+  });
+}
+
 function classifyFamily(family, evidence, pageObservations) {
   const extractedValues = pageObservations.flatMap((entry) => entry.values);
   const distinctValues = [...new Set(extractedValues)].sort();
@@ -759,14 +1078,20 @@ function pageClass(file) {
   return 'other';
 }
 
-function buildPropagationQueue(family, classification) {
-  const files = [family.canonical_owner, ...family.dependent_pages];
+function familyRole(file, family) {
+  if (file === family.canonical_owner) return 'canonical-owner';
+  if ((family.dependent_pages || []).includes(file)) return 'dependent-page';
+  return 'inferred-page';
+}
+
+function buildPropagationQueue(family, classification, targetFiles = []) {
+  const files = familyRelatedFiles(family, targetFiles, { includeInferred: true, existingOnly: true });
   return [...new Set(files)]
     .sort()
     .map((file) => ({
       file,
       page_class: pageClass(file),
-      role: file === family.canonical_owner ? 'canonical-owner' : 'dependent-page',
+      role: familyRole(file, family),
       action: actionForStatus(classification.status),
       claim_id: family.claim_id
     }));
@@ -791,8 +1116,16 @@ function buildContradictions(family, classification, pageObservations) {
   ];
 }
 
-async function buildFamilyReport(family, fileContents) {
-  const pages = [family.canonical_owner, ...family.dependent_pages].filter(fileExists);
+async function buildFamilyReport(family, fileContents, targetFiles = []) {
+  const targetPageSet = new Set((targetFiles || []).map(toPosix));
+  const pages = familyRelatedFiles(family, targetFiles, { includeInferred: true, existingOnly: true }).filter(
+    (file) =>
+      fileExists(file) &&
+      (file === family.canonical_owner ||
+        (family.dependent_pages || []).includes(file) ||
+        targetPageSet.has(file) ||
+        sameDir(file, family.canonical_owner))
+  );
   const pageObservations = pages.map((file) => {
     const content = fileContents[file] || readFile(path.resolve(repoRoot(), file));
     const snippets = extractObservationSnippets(content, family.match_terms);
@@ -804,8 +1137,9 @@ async function buildFamilyReport(family, fileContents) {
     };
   });
 
-  const evidence = await collectEvidence(family);
+  const evidence = annotateEvidenceCompetition(await collectEvidence(family));
   const classification = classifyFamily(family, evidence, pageObservations);
+  const primaryEvidence = evidence.find((entry) => entry.selection_role === 'primary') || null;
   return {
     claim_id: family.claim_id,
     claim_family: family.claim_family,
@@ -816,9 +1150,18 @@ async function buildFamilyReport(family, fileContents) {
     freshness_class: family.freshness_class,
     confidence: classification.confidence,
     summary: family.claim_summary,
+    primary_evidence: primaryEvidence
+      ? {
+          type: primaryEvidence.type,
+          ref: primaryEvidence.ref,
+          summary: primaryEvidence.summary,
+          selection_score: primaryEvidence.selection_score,
+          ranking_reason: primaryEvidence.ranking_reason
+        }
+      : null,
     evidence,
     page_observations: pageObservations,
-    propagation_queue: buildPropagationQueue(family, classification),
+    propagation_queue: buildPropagationQueue(family, classification, targetFiles),
     contradictions: buildContradictions(family, classification, pageObservations),
     notes: family.notes
   };
@@ -850,9 +1193,16 @@ function buildEvidenceSources(familyReports) {
       matched: evidence.matched,
       summary: evidence.summary,
       source_rank: evidence.source_rank,
+      preference_score: evidence.preference_score || 0,
+      recency_score: evidence.recency_score || 0,
+      evidence_date: evidence.evidence_date || '',
+      evidence_state: evidence.evidence_state || '',
       matched_terms: evidence.matched_terms || [],
       selection_score: evidence.selection_score || 0,
-      ranking_reason: evidence.ranking_reason || ''
+      ranking_reason: evidence.ranking_reason || '',
+      selection_role: evidence.selection_role || 'supporting',
+      comparison_reason: evidence.comparison_reason || '',
+      primary_ref: evidence.primary_ref || ''
     }))
   );
 }
@@ -867,6 +1217,28 @@ function buildValidation(report) {
     ).size,
     contradictions: report.cross_page_contradictions.length,
     evidence_sources: report.evidence_sources.length
+  };
+}
+
+function buildTrustSummary(report) {
+  const explicitTargets = new Set();
+  const inferredTargets = new Set();
+
+  report.propagation_queue.forEach((entry) => {
+    if (!entry?.file) return;
+    if (entry.role === 'inferred-page') {
+      inferredTargets.add(entry.file);
+    } else {
+      explicitTargets.add(entry.file);
+    }
+  });
+
+  return {
+    unresolved_claims: report.unverified_or_historical_claims.length,
+    contradiction_groups: report.cross_page_contradictions.length,
+    evidence_sources: report.evidence_sources.length,
+    explicit_page_targets: explicitTargets.size,
+    inferred_page_targets: inferredTargets.size
   };
 }
 
@@ -908,6 +1280,10 @@ function buildMarkdown(report) {
         lines.push(`- \`${entry.claim_id}\` (${entry.status}, ${entry.confidence})`);
         lines.push(`  - owner: \`${entry.canonical_owner}\``);
         lines.push(`  - summary: ${mdxSafe(entry.summary)}`);
+        if (entry.primary_evidence) {
+          lines.push(`  - primary evidence: ${mdxSafe(`${entry.primary_evidence.type} → ${entry.primary_evidence.ref}`)}`);
+          lines.push(`  - evidence why: ${mdxSafe(entry.primary_evidence.ranking_reason)}`);
+        }
       });
     }
     lines.push('');
@@ -942,17 +1318,31 @@ function buildMarkdown(report) {
   } else {
     report.evidence_sources.forEach((entry) => {
       lines.push(`- \`${entry.claim_id}\` → ${entry.type}: ${mdxSafe(entry.ref)}`);
+      lines.push(`  - role: ${entry.selection_role}`);
       lines.push(`  - checked: ${entry.checked_on}`);
       lines.push(`  - result: ${mdxSafe(entry.summary)}`);
       lines.push(`  - rank: ${entry.source_rank}; score: ${entry.selection_score}`);
+      if (entry.evidence_date || entry.evidence_state) {
+        lines.push(`  - source metadata: ${mdxSafe([entry.evidence_date, entry.evidence_state].filter(Boolean).join(' | '))}`);
+      }
       if (entry.matched_terms.length) {
         lines.push(`  - matched terms: ${mdxSafe(entry.matched_terms.join(', '))}`);
       }
       if (entry.ranking_reason) {
         lines.push(`  - why selected: ${mdxSafe(entry.ranking_reason)}`);
       }
+      if (entry.comparison_reason) {
+        lines.push(`  - why not primary: ${mdxSafe(entry.comparison_reason)}`);
+      }
     });
   }
+  lines.push('');
+
+  lines.push('## Trust Summary');
+  lines.push('');
+  Object.entries(report.trust_summary).forEach(([key, value]) => {
+    lines.push(`- ${key}: ${value}`);
+  });
   lines.push('');
 
   lines.push('## Validation');
@@ -982,7 +1372,7 @@ async function run(args) {
 
   const familyReports = [];
   for (const family of selectedFamilies) {
-    familyReports.push(await buildFamilyReport(family, fileContents));
+    familyReports.push(await buildFamilyReport(family, fileContents, targetFiles));
   }
 
   const report = {
@@ -1003,8 +1393,10 @@ async function run(args) {
       return a.claim_id.localeCompare(b.claim_id);
     }),
     evidence_sources: buildEvidenceSources(familyReports),
+    trust_summary: {},
     validation: {}
   };
+  report.trust_summary = buildTrustSummary(report);
   report.validation = buildValidation(report);
 
   if (args.reportJson) {
@@ -1063,6 +1455,9 @@ module.exports = {
   parseArgs,
   run,
   selectFamilies,
+  inferFamilyPages,
+  familyRelatedFiles,
+  buildTrustSummary,
   splitSentences,
   stripMdx
 };

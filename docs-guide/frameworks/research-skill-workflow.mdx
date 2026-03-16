@@ -151,12 +151,30 @@ Every substantive run should surface some combination of:
 - cross-page contradictions
 - propagation queue items
 - explicit evidence sources
+- trust summary counts
 
 Operators should prefer conservative interpretation:
 
 - if evidence is weak, treat the claim as unresolved
 - if wording is stronger than the evidence, downgrade the wording
 - if the same claim appears elsewhere, queue propagation work instead of fixing one page in isolation
+
+## Trust Summary
+
+Each report now includes a compact trust summary with:
+
+- `unresolved_claims`: how many tracked claims still lack strong enough evidence
+- `contradiction_groups`: how many factual collisions the run found across reviewed pages
+- `evidence_sources`: how many evidence records were actually checked
+- `explicit_page_targets`: how many propagation targets came from explicit registry ownership or dependencies
+- `inferred_page_targets`: how many propagation targets came from IA/path inference
+
+Interpretation:
+
+- higher `contradiction_groups` usually means a real review problem, not report noise
+- higher `unresolved_claims` means the registry or evidence adapters still need work before trusting wording changes
+- higher `inferred_page_targets` is acceptable when path inference is covering current siblings, but it should not dominate stable high-confidence families
+- low `evidence_sources` on a broad review usually means claim-family coverage or source mapping is still too thin
 
 ## Source-of-Truth Boundaries
 
@@ -184,6 +202,27 @@ When improving the research skill:
 3. validate on real orchestrator and gateway page clusters
 4. run PR advisory on tracked factual docs pages
 5. update this runbook when the operator contract changes
+
+## Operator Review Rubric
+
+Use this rubric when deciding whether a run was useful enough to trust:
+
+- useful:
+  - primary evidence is current and from the right source class
+  - contradiction groups are concrete and explainable
+  - propagation queue points at pages that really repeat or depend on the claim
+- noisy:
+  - weak sources outrank stronger official or GitHub evidence
+  - contradiction groups collapse unrelated wording into one family
+  - propagation is mostly speculative sibling fan-out
+- expand a claim family when:
+  - the same fact keeps recurring across active pages
+  - reviewers repeatedly need to verify the same current-state claim manually
+  - source classes and canonical ownership are clear enough to defend
+- narrow a claim family when:
+  - wording overlap keeps producing false contradictions
+  - the claim is really style guidance, not factual truth
+  - evidence quality is too weak to classify reliably
 
 Do not:
 
