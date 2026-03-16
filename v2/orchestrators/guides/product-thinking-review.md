@@ -617,6 +617,111 @@ Complete end-to-end walkthroughs. Not reference, not concepts - one specific out
 
 <CustomDivider />
 
+## 9b. Gaps Identified After Setup/Quickstart Clarification
+
+### Missing operational "running X" guides
+
+The first-principles breakdown covers what workloads exist and how to set them up, but misses the ongoing operational reality of RUNNING specific services. An operator who has set up their node still needs:
+
+**"Running the AI Service" - NOT COVERED ANYWHERE**
+- What happens after AIServiceRegistry registration? How does ongoing AI service operation differ from initial setup?
+- Model rotation in production (not just "how to configure" but "when to rotate based on demand shifts")
+- AI runner container lifecycle: updates, health monitoring, restart strategies
+- Handling cold-start requests gracefully (what does the gateway see when your model is cold?)
+- AI-specific log patterns and what they mean operationally
+- **Where it belongs**: Config & Optimisation > ai-model-management covers some of this, but the "running the service day-to-day" framing is missing
+
+**"Running the Transcoder" - NOT COVERED ANYWHERE**
+- What does day-to-day video transcoding operation look like?
+- NVENC session monitoring and the driver patch maintenance
+- Segment processing metrics: what's normal, what indicates problems
+- Transcoding quality verification in production
+- Video-specific log patterns
+- **Where it belongs**: Could be a section in video-transcoding-operations, but the current page is about "how video works" not "how to operate video day-to-day"
+
+**Recommendation**: Add an "Operations" subsection to BOTH video-transcoding-operations and ai-inference-operations that covers day-to-day running. Alternatively, create a dedicated "Day-to-Day Operations" page in Monitoring & Tools that covers the operational rhythms of both workload types.
+
+### Missing cross-role guide
+
+**"Gateway + Orchestrator: Running Both" - CRITICAL GAP**
+
+Many operators run both a gateway AND an orchestrator. This is especially common for:
+- AI operators who want to test their own inference end-to-end
+- Commercial operators serving their own products (gateway routes to their own orchestrator)
+- Operators who want to offer a complete service (accept requests AND process them)
+
+No guide covers this combined deployment. The tutorials (full-ai-pipeline-tutorial, realtime-ai-tutorial) will show the end-to-end flow, but there's no **operational guide** for running both roles in production.
+
+**What this guide needs:**
+- Architecture: single machine vs separate machines for gateway and orchestrator
+- Port allocation: gateway on 8935, orchestrator on 8936 (or same machine with different ports)
+- The self-routing question: can/should a gateway route to its own orchestrator? What are the implications?
+- Monitoring both roles: which metrics for each, combined dashboard
+- Pricing alignment: your gateway's -maxPricePerUnit should be >= your orchestrator's -pricePerUnit
+- The off-chain gateway + on-chain orchestrator pattern (most common combined deployment)
+
+**Where it belongs**: Advanced Operations (it's not basic setup - it's an advanced deployment pattern). Or a new "Cross-Role Operations" section. The tutorials cover "how to set it up once"; this guide covers "how to run it ongoing."
+
+### Missing AI config guides
+
+**aiModels.json deep reference - PARTIALLY COVERED but fragmented**
+
+aiModels.json is THE configuration file for AI orchestrators. It's referenced in:
+- ai-workloads-guide (overview of the format)
+- batch-ai-setup (per-pipeline entries)
+- realtime-ai-setup (Cascade-specific entries)
+- model-vram-reference (model IDs and VRAM)
+
+But there's no single authoritative reference for ALL aiModels.json fields:
+- `pipeline` (required)
+- `model_id` (required - HuggingFace ID, must match Livepeer-verified list)
+- `price_per_unit` (required)
+- `warm` (boolean - preload into VRAM)
+- `pixels_per_unit` (pricing denominator)
+- `currency` (WEI or USD string)
+- `url` (external container endpoint for BYOC)
+- `token` (HuggingFace auth token for gated models)
+- `capacity` (concurrent request limit per container)
+- `optimization_flags` (SFAST, DEEPCACHE)
+
+**Recommendation**: Add an aiModels.json field reference to ai-inference-operations or create it as a standalone reference page in Resources > Technical Reference. Currently operators piece together the format from 4 different pages.
+
+**NVIDIA driver patch guide - REFERENCED but not documented**
+
+Multiple pages reference "the NVIDIA driver patch" to remove the NVENC concurrent session limit on consumer GPUs (3-8 sessions). No page actually documents:
+- What the patch is (nvidia-patch / keylase/nvidia-patch)
+- How to apply it per driver version
+- Risks (warranty void, update breaks patch)
+- Verification (how to confirm sessions are uncapped)
+
+**Where it belongs**: Deployment Details > Requirements (as an accordion or linked sub-page) or Resources > Technical Reference.
+
+### Updated page count
+
+| Section | Pages needed (from 9) | Additional gaps | Revised total |
+|---------|----------------------|----------------|---------------|
+| 1. Operator Considerations | 3 | 0 | **3** |
+| 2. Deployment Details | 5 | 0 | **5** |
+| 3. Workloads & AI | 8 | +1 (aiModels.json reference, or fold into existing) | **8-9** |
+| 4. Staking & Earning | 5 | 0 | **5** |
+| 5. Config & Optimisation | 5 | 0 (ai-model-management covers operational AI) | **5** |
+| 6. Monitoring & Tools | 4 | 0 (day-to-day ops fold into existing workload pages) | **4** |
+| 7. Advanced Operations | 3 | +1 (gateway-orchestrator combined operations) | **4** |
+| 8. Roadmap & Funding | 2 | 0 | **2** |
+| 9. Tutorials | 6 | 0 | **6** |
+| **Resources (technical)** | - | +1 (NVIDIA driver patch) | **+1** |
+| **Total** | | | **43-44** |
+
+### Priority of new gaps
+
+| Priority | Gap | Location | Rationale |
+|----------|-----|----------|-----------|
+| **P0** | Gateway + Orchestrator combined operations guide | Advanced Operations | Many operators run both. No guide exists. The tutorials show setup but not ongoing operation. |
+| **P1** | aiModels.json field reference | Workloads or Resources | THE config file for AI operators. Currently fragmented across 4 pages. |
+| **P1** | Day-to-day operations content for AI service | ai-inference-operations or ai-model-management | "Set it up" is covered; "run it day-to-day" is not. |
+| **P2** | NVIDIA driver patch guide | Resources > Technical | Referenced in multiple pages, documented nowhere. |
+| **P2** | Day-to-day operations content for video transcoding | video-transcoding-operations | Same gap as AI but less acute (video is simpler operationally). |
+
 ## 10. Quickstart and Setup Paths (First Principles)
 
 ### The Question
