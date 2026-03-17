@@ -3639,50 +3639,414 @@
     }
   },
   "redirects": [
-    {
-      "source": "/v2/resources/redirect",
-      "destination": "/v2/resources/resources-portal"
-    },
-    {
-      "source": "/v2/pages/08_help/redirect",
-      "destination": "/v2/pages/08_help/README"
-    },
-    {
-      "source": "/v2/orchestrators/setting-up-an-orchestrator/overview",
-      "destination": "/v2/orchestrators/setup/guide"
-    },
-    {
-      "source": "/v2/orchestrators/setting-up-an-orchestrator/hardware-requirements",
-      "destination": "/v2/orchestrators/setup/rcs-requirements"
-    },
-    {
-      "source": "/v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer",
-      "destination": "/v2/orchestrators/setup/rs-install"
-    },
-    {
-      "source": "/v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats",
-      "destination": "/v2/orchestrators/setup/r-monitor"
-    },
-    {
-      "source": "/v2/orchestrators/setting-up-an-orchestrator/data-centre-setup",
-      "destination": "/v2/orchestrators/guides/advanced-operations/large-scale-operations"
-    },
-    {
-      "source": "/v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
-      "destination": "/v2/orchestrators/guides/advanced-operations/large-scale-operations"
-    },
-    {
-      "source": "/v2/orchestrators/setting-up-an-orchestrator/enterprise-and-data-centres",
-      "destination": "/v2/orchestrators/guides/advanced-operations/large-scale-operations"
-    },
-    {
-      "source": "/v2/orchestrators/setting-up-an-orchestrator/publish-offerings",
-      "destination": "/v2/orchestrators/setup/activate"
-    },
-    {
-      "source": "/v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
-      "destination": "/v2/orchestrators/setup/r-configure"
-    },
+      {
+        "source": "/ai/:slug*",
+        "destination": "/v1/ai/:slug*"
+      },
+      {
+        "source": "/api-reference/:slug*",
+        "destination": "/v1/api-reference/:slug*"
+      },
+      {
+        "source": "/delegators/:slug*",
+        "destination": "/v1/delegators/:slug*"
+      },
+      {
+        "source": "/developers/:slug*",
+        "destination": "/v1/developers/:slug*"
+      },
+      {
+        "source": "/gateways/:slug*",
+        "destination": "/v1/gateways/:slug*"
+      },
+      {
+        "source": "/orchestrators/:slug*",
+        "destination": "/v1/orchestrators/:slug*"
+      },
+      {
+        "source": "/references/:slug*",
+        "destination": "/v1/references/:slug*"
+      },
+      {
+        "source": "/sdks/:slug*",
+        "destination": "/v1/sdks/:slug*"
+      },
+      {
+        "source": "/self-hosting/:slug*",
+        "destination": "/v1/self-hosting/:slug*"
+      },
+
+
+
+      {
+  "source": "/ai/:slug*",
+  "destination": "/v1/ai/:slug*"
+},
+{
+  "source": "/api-reference/:slug*",
+  "destination": "/v1/api-reference/:slug*"
+},
+{
+  "source": "/delegators/:slug*",
+  "destination": "/v1/delegators/:slug*"
+},
+{
+  "source": "/developers/:slug*",
+  "destination": "/v1/developers/:slug*"
+},
+{
+  "source": "/gateways/:slug*",
+  "destination": "/v1/gateways/:slug*"
+},
+{
+  "source": "/orchestrators/:slug*",
+  "destination": "/v1/orchestrators/:slug*"
+},
+{
+  "source": "/references/:slug*",
+  "destination": "/v1/references/:slug*"
+},
+{
+  "source": "/sdks/:slug*",
+  "destination": "/v1/sdks/:slug*"
+},
+{
+  "source": "/self-hosting/:slug*",
+  "destination": "/v1/self-hosting/:slug*"
+},
+
+
+
+
+
+    { "source": "/ai/api-reference/audio-to-text", "destination": "/v1/ai/api-reference/audio-to-text" },
+{ "source": "/ai/api-reference/image-to-image", "destination": "/v1/ai/api-reference/image-to-image" },
+{ "source": "/ai/api-reference/image-to-text", "destination": "/v1/ai/api-reference/image-to-text" },
+{ "source": "/ai/api-reference/image-to-video", "destination": "/v1/ai/api-reference/image-to-video" },
+{ "source": "/ai/api-reference/llm", "destination": "/v1/ai/api-reference/llm" },
+{ "source": "/ai/api-reference/overview", "destination": "/v1/ai/api-reference/overview" },
+{ "source": "/ai/api-reference/segment-anything-2", "destination": "/v1/ai/api-reference/segment-anything-2" },
+{ "source": "/ai/api-reference/text-to-image", "destination": "/v1/ai/api-reference/text-to-image" },
+{ "source": "/ai/api-reference/text-to-speech", "destination": "/v1/ai/api-reference/text-to-speech" },
+{ "source": "/ai/api-reference/upscale", "destination": "/v1/ai/api-reference/upscale" },
+
+{ "source": "/ai/builders/gateways", "destination": "/v1/ai/builders/gateways" },
+{ "source": "/ai/builders/get-started", "destination": "/v1/ai/builders/get-started" },
+{ "source": "/ai/builders/showcase", "destination": "/v1/ai/builders/showcase" },
+
+{ "source": "/ai/contributors/coming-soon", "destination": "/v1/ai/contributors/coming-soon" },
+{ "source": "/ai/contributors/developers", "destination": "/v1/ai/contributors/developers" },
+{ "source": "/ai/contributors/get-started", "destination": "/v1/ai/contributors/get-started" },
+{ "source": "/ai/contributors/guides", "destination": "/v1/ai/contributors/guides" },
+
+{ "source": "/ai/gateways/get-started", "destination": "/v1/ai/gateways/get-started" },
+{ "source": "/ai/gateways/onchain", "destination": "/v1/ai/gateways/onchain" },
+{ "source": "/ai/gateways/start-gateway", "destination": "/v1/ai/gateways/start-gateway" },
+
+{ "source": "/ai/orchestrators/ai-worker", "destination": "/v1/ai/orchestrators/ai-worker" },
+{ "source": "/ai/orchestrators/benchmarking", "destination": "/v1/ai/orchestrators/benchmarking" },
+{ "source": "/ai/orchestrators/get-started", "destination": "/v1/ai/orchestrators/get-started" },
+{ "source": "/ai/orchestrators/models-config", "destination": "/v1/ai/orchestrators/models-config" },
+{ "source": "/ai/orchestrators/models-download", "destination": "/v1/ai/orchestrators/models-download" },
+{ "source": "/ai/orchestrators/onchain", "destination": "/v1/ai/orchestrators/onchain" },
+{ "source": "/ai/orchestrators/start-orchestrator", "destination": "/v1/ai/orchestrators/start-orchestrator" },
+
+{ "source": "/ai/pipelines/audio-to-text", "destination": "/v1/ai/pipelines/audio-to-text" },
+{ "source": "/ai/pipelines/image-to-image", "destination": "/v1/ai/pipelines/image-to-image" },
+{ "source": "/ai/pipelines/image-to-text", "destination": "/v1/ai/pipelines/image-to-text" },
+{ "source": "/ai/pipelines/image-to-video", "destination": "/v1/ai/pipelines/image-to-video" },
+{ "source": "/ai/pipelines/llm", "destination": "/v1/ai/pipelines/llm" },
+{ "source": "/ai/pipelines/overview", "destination": "/v1/ai/pipelines/overview" },
+{ "source": "/ai/pipelines/segment-anything-2", "destination": "/v1/ai/pipelines/segment-anything-2" },
+{ "source": "/ai/pipelines/text-to-image", "destination": "/v1/ai/pipelines/text-to-image" },
+{ "source": "/ai/pipelines/text-to-speech", "destination": "/v1/ai/pipelines/text-to-speech" },
+{ "source": "/ai/pipelines/upscale", "destination": "/v1/ai/pipelines/upscale" },
+
+{ "source": "/ai/sdks/go", "destination": "/v1/ai/sdks/go" },
+{ "source": "/ai/sdks/javascript", "destination": "/v1/ai/sdks/javascript" },
+{ "source": "/ai/sdks/overview", "destination": "/v1/ai/sdks/overview" },
+{ "source": "/ai/sdks/python", "destination": "/v1/ai/sdks/python" },
+
+{ "source": "/api-reference/asset/delete", "destination": "/v1/api-reference/asset/delete" },
+{ "source": "/api-reference/asset/get-all", "destination": "/v1/api-reference/asset/get-all" },
+{ "source": "/api-reference/asset/get", "destination": "/v1/api-reference/asset/get" },
+{ "source": "/api-reference/asset/overview", "destination": "/v1/api-reference/asset/overview" },
+{ "source": "/api-reference/asset/update", "destination": "/v1/api-reference/asset/update" },
+{ "source": "/api-reference/asset/upload-via-url", "destination": "/v1/api-reference/asset/upload-via-url" },
+{ "source": "/api-reference/asset/upload", "destination": "/v1/api-reference/asset/upload" },
+
+{ "source": "/api-reference/generate/audio-to-text", "destination": "/v1/api-reference/generate/audio-to-text" },
+{ "source": "/api-reference/generate/image-to-image", "destination": "/v1/api-reference/generate/image-to-image" },
+{ "source": "/api-reference/generate/image-to-text", "destination": "/v1/api-reference/generate/image-to-text" },
+{ "source": "/api-reference/generate/image-to-video", "destination": "/v1/api-reference/generate/image-to-video" },
+{ "source": "/api-reference/generate/llm", "destination": "/v1/api-reference/generate/llm" },
+{ "source": "/api-reference/generate/overview", "destination": "/v1/api-reference/generate/overview" },
+{ "source": "/api-reference/generate/segment-anything-2", "destination": "/v1/api-reference/generate/segment-anything-2" },
+{ "source": "/api-reference/generate/text-to-image", "destination": "/v1/api-reference/generate/text-to-image" },
+{ "source": "/api-reference/generate/text-to-speech", "destination": "/v1/api-reference/generate/text-to-speech" },
+{ "source": "/api-reference/generate/upscale", "destination": "/v1/api-reference/generate/upscale" },
+
+{ "source": "/api-reference/multistream/create", "destination": "/v1/api-reference/multistream/create" },
+{ "source": "/api-reference/multistream/delete", "destination": "/v1/api-reference/multistream/delete" },
+{ "source": "/api-reference/multistream/get-all", "destination": "/v1/api-reference/multistream/get-all" },
+{ "source": "/api-reference/multistream/get", "destination": "/v1/api-reference/multistream/get" },
+{ "source": "/api-reference/multistream/overview", "destination": "/v1/api-reference/multistream/overview" },
+{ "source": "/api-reference/multistream/update", "destination": "/v1/api-reference/multistream/update" },
+
+{ "source": "/api-reference/overview/authentication", "destination": "/v1/api-reference/overview/authentication" },
+{ "source": "/api-reference/overview/introduction", "destination": "/v1/api-reference/overview/introduction" },
+
+{ "source": "/api-reference/playback/get", "destination": "/v1/api-reference/playback/get" },
+{ "source": "/api-reference/playback/overview", "destination": "/v1/api-reference/playback/overview" },
+
+{ "source": "/api-reference/room/create-user", "destination": "/v1/api-reference/room/create-user" },
+{ "source": "/api-reference/room/create", "destination": "/v1/api-reference/room/create" },
+{ "source": "/api-reference/room/delete", "destination": "/v1/api-reference/room/delete" },
+{ "source": "/api-reference/room/get-user", "destination": "/v1/api-reference/room/get-user" },
+{ "source": "/api-reference/room/get", "destination": "/v1/api-reference/room/get" },
+{ "source": "/api-reference/room/remove-user", "destination": "/v1/api-reference/room/remove-user" },
+{ "source": "/api-reference/room/start-egress", "destination": "/v1/api-reference/room/start-egress" },
+{ "source": "/api-reference/room/stop-egress", "destination": "/v1/api-reference/room/stop-egress" },
+{ "source": "/api-reference/room/update-user", "destination": "/v1/api-reference/room/update-user" },
+{ "source": "/api-reference/room/update", "destination": "/v1/api-reference/room/update" },
+
+{ "source": "/api-reference/session/get-all", "destination": "/v1/api-reference/session/get-all" },
+{ "source": "/api-reference/session/get-clip", "destination": "/v1/api-reference/session/get-clip" },
+{ "source": "/api-reference/session/get-recording", "destination": "/v1/api-reference/session/get-recording" },
+{ "source": "/api-reference/session/get", "destination": "/v1/api-reference/session/get" },
+{ "source": "/api-reference/session/overview", "destination": "/v1/api-reference/session/overview" },
+
+{ "source": "/api-reference/signing-key/create", "destination": "/v1/api-reference/signing-key/create" },
+{ "source": "/api-reference/signing-key/delete", "destination": "/v1/api-reference/signing-key/delete" },
+{ "source": "/api-reference/signing-key/get-all", "destination": "/v1/api-reference/signing-key/get-all" },
+{ "source": "/api-reference/signing-key/get", "destination": "/v1/api-reference/signing-key/get" },
+{ "source": "/api-reference/signing-key/overview", "destination": "/v1/api-reference/signing-key/overview" },
+{ "source": "/api-reference/signing-key/update", "destination": "/v1/api-reference/signing-key/update" },
+
+{ "source": "/api-reference/stream/add-multistream-target", "destination": "/v1/api-reference/stream/add-multistream-target" },
+{ "source": "/api-reference/stream/create-clip", "destination": "/v1/api-reference/stream/create-clip" },
+{ "source": "/api-reference/stream/create", "destination": "/v1/api-reference/stream/create" },
+{ "source": "/api-reference/stream/delete-multistream-target", "destination": "/v1/api-reference/stream/delete-multistream-target" },
+{ "source": "/api-reference/stream/delete", "destination": "/v1/api-reference/stream/delete" },
+{ "source": "/api-reference/stream/get-all", "destination": "/v1/api-reference/stream/get-all" },
+{ "source": "/api-reference/stream/get-clip", "destination": "/v1/api-reference/stream/get-clip" },
+{ "source": "/api-reference/stream/get", "destination": "/v1/api-reference/stream/get" },
+{ "source": "/api-reference/stream/overview", "destination": "/v1/api-reference/stream/overview" },
+{ "source": "/api-reference/stream/terminate", "destination": "/v1/api-reference/stream/terminate" },
+{ "source": "/api-reference/stream/update", "destination": "/v1/api-reference/stream/update" },
+
+{ "source": "/api-reference/task/get-all", "destination": "/v1/api-reference/task/get-all" },
+{ "source": "/api-reference/task/get", "destination": "/v1/api-reference/task/get" },
+{ "source": "/api-reference/task/overview", "destination": "/v1/api-reference/task/overview" },
+
+{ "source": "/api-reference/transcode/create", "destination": "/v1/api-reference/transcode/create" },
+{ "source": "/api-reference/transcode/overview", "destination": "/v1/api-reference/transcode/overview" },
+
+{ "source": "/api-reference/viewership/get-creators-metrics", "destination": "/v1/api-reference/viewership/get-creators-metrics" },
+{ "source": "/api-reference/viewership/get-public-total-views", "destination": "/v1/api-reference/viewership/get-public-total-views" },
+{ "source": "/api-reference/viewership/get-realtime-viewership", "destination": "/v1/api-reference/viewership/get-realtime-viewership" },
+{ "source": "/api-reference/viewership/get-usage-metrics", "destination": "/v1/api-reference/viewership/get-usage-metrics" },
+{ "source": "/api-reference/viewership/get-viewership-metrics", "destination": "/v1/api-reference/viewership/get-viewership-metrics" },
+
+{ "source": "/api-reference/webhook/create", "destination": "/v1/api-reference/webhook/create" },
+{ "source": "/api-reference/webhook/delete", "destination": "/v1/api-reference/webhook/delete" },
+{ "source": "/api-reference/webhook/get-all", "destination": "/v1/api-reference/webhook/get-all" },
+{ "source": "/api-reference/webhook/get", "destination": "/v1/api-reference/webhook/get" },
+{ "source": "/api-reference/webhook/overview", "destination": "/v1/api-reference/webhook/overview" },
+{ "source": "/api-reference/webhook/update", "destination": "/v1/api-reference/webhook/update" },
+
+{ "source": "/delegators/guides/bridge-lpt-to-arbitrum", "destination": "/v1/delegators/guides/bridge-lpt-to-arbitrum" },
+{ "source": "/delegators/guides/migrate-stake-to-arbitrum", "destination": "/v1/delegators/guides/migrate-stake-to-arbitrum" },
+{ "source": "/delegators/guides/yield-calculation", "destination": "/v1/delegators/guides/yield-calculation" },
+
+{ "source": "/developers/core-concepts/core-api", "destination": "/v1/developers/core-concepts/core-api" },
+{ "source": "/developers/core-concepts/livepeer-network", "destination": "/v1/developers/core-concepts/livepeer-network" },
+{ "source": "/developers/core-concepts/player", "destination": "/v1/developers/core-concepts/player" },
+{ "source": "/developers/core-concepts/studio", "destination": "/v1/developers/core-concepts/studio" },
+
+{ "source": "/developers/guides/access-control-jwt", "destination": "/v1/developers/guides/access-control-jwt" },
+{ "source": "/developers/guides/access-control-webhooks", "destination": "/v1/developers/guides/access-control-webhooks" },
+{ "source": "/developers/guides/clip-a-livestream", "destination": "/v1/developers/guides/clip-a-livestream" },
+{ "source": "/developers/guides/create-livestream", "destination": "/v1/developers/guides/create-livestream" },
+{ "source": "/developers/guides/encrypted-asset", "destination": "/v1/developers/guides/encrypted-asset" },
+{ "source": "/developers/guides/get-engagement-analytics-via-api", "destination": "/v1/developers/guides/get-engagement-analytics-via-api" },
+{ "source": "/developers/guides/get-engagement-analytics-via-grafana", "destination": "/v1/developers/guides/get-engagement-analytics-via-grafana" },
+{ "source": "/developers/guides/get-engagement-analytics-via-timeplus", "destination": "/v1/developers/guides/get-engagement-analytics-via-timeplus" },
+{ "source": "/developers/guides/listen-to-asset-events", "destination": "/v1/developers/guides/listen-to-asset-events" },
+{ "source": "/developers/guides/listen-to-stream-events", "destination": "/v1/developers/guides/listen-to-stream-events" },
+{ "source": "/developers/guides/livestream-from-browser", "destination": "/v1/developers/guides/livestream-from-browser" },
+{ "source": "/developers/guides/managing-projects", "destination": "/v1/developers/guides/managing-projects" },
+{ "source": "/developers/guides/monitor-stream-health", "destination": "/v1/developers/guides/monitor-stream-health" },
+{ "source": "/developers/guides/multistream", "destination": "/v1/developers/guides/multistream" },
+{ "source": "/developers/guides/optimize-latency-of-a-livestream", "destination": "/v1/developers/guides/optimize-latency-of-a-livestream" },
+{ "source": "/developers/guides/overview", "destination": "/v1/developers/guides/overview" },
+{ "source": "/developers/guides/playback-a-livestream", "destination": "/v1/developers/guides/playback-a-livestream" },
+{ "source": "/developers/guides/playback-an-asset", "destination": "/v1/developers/guides/playback-an-asset" },
+{ "source": "/developers/guides/setup-and-listen-to-webhooks", "destination": "/v1/developers/guides/setup-and-listen-to-webhooks" },
+{ "source": "/developers/guides/stream-via-obs", "destination": "/v1/developers/guides/stream-via-obs" },
+{ "source": "/developers/guides/thumbnails-live", "destination": "/v1/developers/guides/thumbnails-live" },
+{ "source": "/developers/guides/thumbnails-vod", "destination": "/v1/developers/guides/thumbnails-vod" },
+{ "source": "/developers/guides/transcode-video-storj", "destination": "/v1/developers/guides/transcode-video-storj" },
+{ "source": "/developers/guides/transcode-video-w3s", "destination": "/v1/developers/guides/transcode-video-w3s" },
+{ "source": "/developers/guides/upload-video-asset", "destination": "/v1/developers/guides/upload-video-asset" },
+
+{ "source": "/developers/tutorials/decentralized-app-with-fvm", "destination": "/v1/developers/tutorials/decentralized-app-with-fvm" },
+{ "source": "/developers/tutorials/token-gate-videos-with-lit", "destination": "/v1/developers/tutorials/token-gate-videos-with-lit" },
+{ "source": "/developers/tutorials/upload-playback-videos-4everland", "destination": "/v1/developers/tutorials/upload-playback-videos-4everland" },
+{ "source": "/developers/tutorials/upload-playback-videos-on-arweave", "destination": "/v1/developers/tutorials/upload-playback-videos-on-arweave" },
+{ "source": "/developers/tutorials/upload-playback-videos-on-ipfs", "destination": "/v1/developers/tutorials/upload-playback-videos-on-ipfs" },
+
+{ "source": "/gateways/guides/docker-install", "destination": "/v1/gateways/guides/docker-install" },
+{ "source": "/gateways/guides/fund-gateway", "destination": "/v1/gateways/guides/fund-gateway" },
+{ "source": "/gateways/guides/gateway-overview", "destination": "/v1/gateways/guides/gateway-overview" },
+{ "source": "/gateways/guides/linux-install", "destination": "/v1/gateways/guides/linux-install" },
+{ "source": "/gateways/guides/playback-content", "destination": "/v1/gateways/guides/playback-content" },
+{ "source": "/gateways/guides/publish-content", "destination": "/v1/gateways/guides/publish-content" },
+{ "source": "/gateways/guides/transcoding-options", "destination": "/v1/gateways/guides/transcoding-options" },
+{ "source": "/gateways/guides/windows-install", "destination": "/v1/gateways/guides/windows-install" },
+
+{ "source": "/orchestrators/guides/assess-capabilities", "destination": "/v1/orchestrators/guides/assess-capabilities" },
+{ "source": "/orchestrators/guides/benchmark-transcoding", "destination": "/v1/orchestrators/guides/benchmark-transcoding" },
+{ "source": "/orchestrators/guides/configure-reward-calling", "destination": "/v1/orchestrators/guides/configure-reward-calling" },
+{ "source": "/orchestrators/guides/connect-to-arbitrum", "destination": "/v1/orchestrators/guides/connect-to-arbitrum" },
+{ "source": "/orchestrators/guides/dual-mine", "destination": "/v1/orchestrators/guides/dual-mine" },
+{ "source": "/orchestrators/guides/gateway-introspection", "destination": "/v1/orchestrators/guides/gateway-introspection" },
+{ "source": "/orchestrators/guides/get-started", "destination": "/v1/orchestrators/guides/get-started" },
+{ "source": "/orchestrators/guides/install-go-livepeer", "destination": "/v1/orchestrators/guides/install-go-livepeer" },
+{ "source": "/orchestrators/guides/migrate-from-contract-wallet", "destination": "/v1/orchestrators/guides/migrate-from-contract-wallet" },
+{ "source": "/orchestrators/guides/migrate-to-arbitrum", "destination": "/v1/orchestrators/guides/migrate-to-arbitrum" },
+{ "source": "/orchestrators/guides/monitor-metrics", "destination": "/v1/orchestrators/guides/monitor-metrics" },
+{ "source": "/orchestrators/guides/o-t-split", "destination": "/v1/orchestrators/guides/o-t-split" },
+{ "source": "/orchestrators/guides/set-pricing", "destination": "/v1/orchestrators/guides/set-pricing" },
+{ "source": "/orchestrators/guides/set-session-limits", "destination": "/v1/orchestrators/guides/set-session-limits" },
+{ "source": "/orchestrators/guides/troubleshoot", "destination": "/v1/orchestrators/guides/troubleshoot" },
+{ "source": "/orchestrators/guides/vote", "destination": "/v1/orchestrators/guides/vote" },
+
+{ "source": "/references/go-livepeer/bandwidth-requirements", "destination": "/v1/references/go-livepeer/bandwidth-requirements" },
+{ "source": "/references/go-livepeer/cli-reference", "destination": "/v1/references/go-livepeer/cli-reference" },
+{ "source": "/references/go-livepeer/gpu-support", "destination": "/v1/references/go-livepeer/gpu-support" },
+{ "source": "/references/go-livepeer/hardware-requirements", "destination": "/v1/references/go-livepeer/hardware-requirements" },
+{ "source": "/references/go-livepeer/prometheus-metrics", "destination": "/v1/references/go-livepeer/prometheus-metrics" },
+
+{ "source": "/references/knowledge-base/livestream", "destination": "/v1/references/knowledge-base/livestream" },
+{ "source": "/references/knowledge-base/playback", "destination": "/v1/references/knowledge-base/playback" },
+{ "source": "/references/knowledge-base/vod", "destination": "/v1/references/knowledge-base/vod" },
+
+{ "source": "/sdks/react/Broadcast", "destination": "/v1/sdks/react/Broadcast" },
+{ "source": "/sdks/react/Player", "destination": "/v1/sdks/react/Player" },
+{ "source": "/sdks/react/broadcast", "destination": "/v1/sdks/react/broadcast" },
+{ "source": "/sdks/react/getting-started", "destination": "/v1/sdks/react/getting-started" },
+{ "source": "/sdks/react/migration", "destination": "/v1/sdks/react/migration" },
+{ "source": "/sdks/react/player", "destination": "/v1/sdks/react/player" },
+
+
+
+
+
+    { "source": "/ai/contributors/guides/add-model", "destination": "/v1/ai/contributors/guides/add-model" },
+{ "source": "/ai/contributors/guides/add-pipeline", "destination": "/v1/ai/contributors/guides/add-pipeline" },
+
+{ "source": "/developers/core-concepts/core-api/access-control", "destination": "/v1/developers/core-concepts/core-api/access-control" },
+{ "source": "/developers/core-concepts/core-api/asset", "destination": "/v1/developers/core-concepts/core-api/asset" },
+{ "source": "/developers/core-concepts/core-api/multistream", "destination": "/v1/developers/core-concepts/core-api/multistream" },
+{ "source": "/developers/core-concepts/core-api/stream", "destination": "/v1/developers/core-concepts/core-api/stream" },
+
+{ "source": "/developers/core-concepts/livepeer-network/delegators", "destination": "/v1/developers/core-concepts/livepeer-network/delegators" },
+{ "source": "/developers/core-concepts/livepeer-network/gateways", "destination": "/v1/developers/core-concepts/livepeer-network/gateways" },
+{ "source": "/developers/core-concepts/livepeer-network/orchestrators", "destination": "/v1/developers/core-concepts/livepeer-network/orchestrators" },
+
+{ "source": "/developers/core-concepts/player/overview", "destination": "/v1/developers/core-concepts/player/overview" },
+
+{ "source": "/developers/core-concepts/studio/in-browser-broadcast", "destination": "/v1/developers/core-concepts/studio/in-browser-broadcast" },
+{ "source": "/developers/core-concepts/studio/stream-health", "destination": "/v1/developers/core-concepts/studio/stream-health" },
+{ "source": "/developers/core-concepts/studio/webhooks", "destination": "/v1/developers/core-concepts/studio/webhooks" },
+
+{ "source": "/sdks/react/broadcast/Audio", "destination": "/v1/sdks/react/broadcast/Audio" },
+{ "source": "/sdks/react/broadcast/Camera", "destination": "/v1/sdks/react/broadcast/Camera" },
+{ "source": "/sdks/react/broadcast/Container", "destination": "/v1/sdks/react/broadcast/Container" },
+{ "source": "/sdks/react/broadcast/Controls", "destination": "/v1/sdks/react/broadcast/Controls" },
+{ "source": "/sdks/react/broadcast/Enabled", "destination": "/v1/sdks/react/broadcast/Enabled" },
+{ "source": "/sdks/react/broadcast/Error", "destination": "/v1/sdks/react/broadcast/Error" },
+{ "source": "/sdks/react/broadcast/Fullscreen", "destination": "/v1/sdks/react/broadcast/Fullscreen" },
+{ "source": "/sdks/react/broadcast/Loading", "destination": "/v1/sdks/react/broadcast/Loading" },
+{ "source": "/sdks/react/broadcast/PictureInPicture", "destination": "/v1/sdks/react/broadcast/PictureInPicture" },
+{ "source": "/sdks/react/broadcast/Portal", "destination": "/v1/sdks/react/broadcast/Portal" },
+{ "source": "/sdks/react/broadcast/Root", "destination": "/v1/sdks/react/broadcast/Root" },
+{ "source": "/sdks/react/broadcast/Screenshare", "destination": "/v1/sdks/react/broadcast/Screenshare" },
+{ "source": "/sdks/react/broadcast/Source", "destination": "/v1/sdks/react/broadcast/Source" },
+{ "source": "/sdks/react/broadcast/Status", "destination": "/v1/sdks/react/broadcast/Status" },
+{ "source": "/sdks/react/broadcast/Video", "destination": "v1/sdks/react/broadcast/useBroadcastContext" },
+{ "source": "/sdks/react/broadcast/Video", "destination": "/v1/sdks/react/broadcast/Video" },
+{ "source": "/sdks/react/broadcast/get-ingest", "destination": "/v1/sdks/react/broadcast/get-ingest" },
+{ "source": "/sdks/react/broadcast/useBroadcastContext", "destination": "/v1/sdks/react/broadcast/useBroadcastContext" },
+
+{ "source": "/sdks/react/migration/migration-4.x", "destination": "/v1/sdks/react/migration/migration-4.x" },
+{ "source": "/sdks/react/migration/3.x", "destination": "/v1/sdks/react/migration/3.x" },
+
+{ "source": "/sdks/react/player/Clip", "destination": "/v1/sdks/react/player/Clip" },
+{ "source": "/sdks/react/player/Container", "destination": "/v1/sdks/react/player/Container" },
+{ "source": "/sdks/react/player/Controls", "destination": "/v1/sdks/react/player/Controls" },
+{ "source": "/sdks/react/player/Error", "destination": "/v1/sdks/react/player/Error" },
+{ "source": "/sdks/react/player/Fullscreen", "destination": "/v1/sdks/react/player/Fullscreen" },
+{ "source": "/sdks/react/player/Live", "destination": "/v1/sdks/react/player/Live" },
+{ "source": "/sdks/react/player/Loading", "destination": "/v1/sdks/react/player/Loading" },
+{ "source": "/sdks/react/player/PictureInPicture", "destination": "/v1/sdks/react/player/PictureInPicture" },
+{ "source": "/sdks/react/player/Play", "destination": "/v1/sdks/react/player/Play" },
+{ "source": "/sdks/react/player/Portal", "destination": "/v1/sdks/react/player/Portal" },
+{ "source": "/sdks/react/player/Poster", "destination": "/v1/sdks/react/player/Poster" },
+{ "source": "/sdks/react/player/RateSelect", "destination": "/v1/sdks/react/player/RateSelect" },
+{ "source": "/sdks/react/player/Root", "destination": "/v1/sdks/react/player/Root" },
+{ "source": "/sdks/react/player/Seek", "destination": "/v1/sdks/react/player/Seek" },
+{ "source": "/sdks/react/player/Time", "destination": "/v1/sdks/react/player/Time" },
+{ "source": "/sdks/react/player/Video", "destination": "/v1/sdks/react/player/Video" },
+{ "source": "/sdks/react/player/VideoQualitySelect", "destination": "/v1/sdks/react/player/VideoQualitySelect" },
+{ "source": "/sdks/react/player/Volume", "destination": "/v1/sdks/react/player/Volume" },
+{ "source": "/sdks/react/player/get-src", "destination": "/v1/sdks/react/player/get-src" },
+{ "source": "/sdks/react/player/useMediaContext", "destination": "/v1/sdks/react/player/useMediaContext" },
+
+
+    { "source": "/sdks/react/migration/3.x/Broadcast", "destination": "/v1/sdks/react/migration/3.x/Broadcast" },
+{ "source": "/sdks/react/migration/3.x/LivepeerConfig", "destination": "/v1/sdks/react/migration/3.x/LivepeerConfig" },
+{ "source": "/sdks/react/migration/3.x/Player", "destination": "/v1/sdks/react/migration/3.x/Player" },
+{ "source": "/sdks/react/migration/3.x/asset", "destination": "/v1/sdks/react/migration/3.x/asset" },
+{ "source": "/sdks/react/migration/3.x/client", "destination": "/v1/sdks/react/migration/3.x/client" },
+{ "source": "/sdks/react/migration/3.x/constants", "destination": "/v1/sdks/react/migration/3.x/constants" },
+{ "source": "/sdks/react/migration/3.x/getting-started", "destination": "/v1/sdks/react/migration/3.x/getting-started" },
+{ "source": "/sdks/react/migration/3.x/playback", "destination": "/v1/sdks/react/migration/3.x/playback" },
+{ "source": "/sdks/react/migration/3.x/providers", "destination": "/v1/sdks/react/migration/3.x/providers" },
+{ "source": "/sdks/react/migration/3.x/stream", "destination": "/v1/sdks/react/migration/3.x/stream" },
+
+
+    { "source": "/sdks/react/migration/3.x/asset/useAsset", "destination": "/v1/sdks/react/migration/3.x/asset/useAsset" },
+{ "source": "/sdks/react/migration/3.x/asset/useAssetMetrics", "destination": "/v1/sdks/react/migration/3.x/asset/useAssetMetrics" },
+{ "source": "/sdks/react/migration/3.x/asset/useCreateAsset", "destination": "/v1/sdks/react/migration/3.x/asset/useCreateAsset" },
+{ "source": "/sdks/react/migration/3.x/asset/useUpdateAsset", "destination": "/v1/sdks/react/migration/3.x/asset/useUpdateAsset" },
+
+{ "source": "/sdks/react/migration/3.x/constants/abis", "destination": "/v1/sdks/react/migration/3.x/constants/abis" },
+{ "source": "/sdks/react/migration/3.x/constants/contract-addresses", "destination": "/v1/sdks/react/migration/3.x/constants/contract-addresses" },
+
+{ "source": "/sdks/react/migration/3.x/playback/usePlaybackInfo", "destination": "/v1/sdks/react/migration/3.x/playback/usePlaybackInfo" },
+
+{ "source": "/sdks/react/migration/3.x/providers/studio", "destination": "/v1/sdks/react/migration/3.x/providers/studio" },
+
+{ "source": "/sdks/react/migration/3.x/stream/useCreateStream", "destination": "/v1/sdks/react/migration/3.x/stream/useCreateStream" },
+{ "source": "/sdks/react/migration/3.x/stream/useStream", "destination": "/v1/sdks/react/migration/3.x/stream/useStream" },
+{ "source": "/sdks/react/migration/3.x/stream/useStreamSession", "destination": "/v1/sdks/react/migration/3.x/stream/useStreamSession" },
+{ "source": "/sdks/react/migration/3.x/stream/useStreamSessions", "destination": "/v1/sdks/react/migration/3.x/stream/useStreamSessions" },
+{ "source": "/sdks/react/migration/3.x/stream/useUpdateStream", "destination": "/v1/sdks/react/migration/3.x/stream/useUpdateStream" },
+
+
+
+
+
+
+
+
+
+
+
+
+
     {
       "source": "/v1/guides/developing/quickstart",
       "destination": "/v1/developers/quick-start"
@@ -3762,26 +4126,6 @@
     {
       "source": "/v1/tutorials/developing/optimize-latency",
       "destination": "/v1/developers/guides/optimize-latency-of-a-livestream"
-    },
-    {
-      "source": "/v2/orchestrators/quickstart/overview",
-      "destination": "/v2/orchestrators/guides/setup-paths/setup-navigator"
-    },
-    {
-      "source": "/v2/orchestrators/quickstart/join-a-pool",
-      "destination": "/v2/orchestrators/guides/setup-paths/join-a-pool"
-    },
-    {
-      "source": "/v2/orchestrators/quickstart/orchestrator-setup",
-      "destination": "/v2/orchestrators/quickstart/guide"
-    },
-    {
-      "source": "/v2/orchestrators/quickstart/realtime-ai-quickstart",
-      "destination": "/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup"
-    },
-    {
-      "source": "/v2/orchestrators/quickstart/batch-ai-quickstart",
-      "destination": "/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup"
     },
     {
       "source": "/v1/tutorials/developing/analyze-engagement-timeplus",
@@ -4006,610 +4350,6 @@
     {
       "source": "/v1/reference/react/constants/contract-addresses",
       "destination": "/v1/sdks/react/migration/3.x/constants/contract-addresses"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/comfyui",
-      "destination": "/v2/developers/ai-pipelines/model-support"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/byoc",
-      "destination": "/v2/developers/ai-pipelines/byoc"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/comfystream",
-      "destination": "/v2/developers/ai-pipelines/comfystream"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/api-reference",
-      "destination": "/v2/gateways/references/api-reference/AI-API/ai"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/README",
-      "destination": "/v2/developers/technical-references/apis"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/*",
-      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/README",
-      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/ai-101",
-      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/custom-ai-pipelines",
-      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/daydream-generative-ai-video-platform",
-      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory",
-      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer",
-      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/realtime-ai",
-      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/using-ai-on-livepeer",
-      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
-    },
-    {
-      "source": "/v2/ai-runner",
-      "destination": "/v2/developers/ai-pipelines/overview"
-    },
-    {
-      "source": "/v2/developers/developer-path",
-      "destination": "/v2/developers/developer-journey"
-    },
-    {
-      "source": "/v2/developers/developer-guide",
-      "destination": "/v2/developers/developer-journey"
-    },
-    {
-      "source": "/v2/developers/journey-mapping",
-      "destination": "/v2/developers/developer-journey"
-    },
-    {
-      "source": "/v2/developers/quickstart/ai/ai-pipelines",
-      "destination": "/v2/developers/get-started/ai-quickstart"
-    },
-    {
-      "source": "/v2/developers/quickstart/ai/ai-jobs",
-      "destination": "/v2/developers/get-started/ai-quickstart"
-    },
-    {
-      "source": "/v2/developers/quickstart/video/video-streaming",
-      "destination": "/v2/developers/get-started/video-quickstart"
-    },
-    {
-      "source": "/v2/developers/quickstart/video/transcoding-jobs",
-      "destination": "/v2/developers/get-started/transcoding-quickstart"
-    },
-    {
-      "source": "/v2/developers/ai-pipelines/overview",
-      "destination": "/v2/developers/concepts/ai-on-livepeer"
-    },
-    {
-      "source": "/v2/developers/ai-pipelines/comfystream",
-      "destination": "/v2/developers/build/comfystream"
-    },
-    {
-      "source": "/v2/developers/ai-pipelines/byoc",
-      "destination": "/v2/developers/build/byoc"
-    },
-    {
-      "source": "/v2/developers/ai-pipelines/workload-fit",
-      "destination": "/v2/developers/build/workload-fit"
-    },
-    {
-      "source": "/v2/developers/ai-pipelines/model-support",
-      "destination": "/v2/developers/build/model-support"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/overview",
-      "destination": "/v2/developers/concepts/ai-on-livepeer"
-    },
-    {
-      "source": "/v2/developers/ai-inference-on-livepeer/workload-fit",
-      "destination": "/v2/developers/build/workload-fit"
-    },
-    {
-      "source": "/v2/developers/guides-and-tools/developer-guides",
-      "destination": "/v2/developers/guides/developer-guides"
-    },
-    {
-      "source": "/v2/developers/guides-and-tools/resources",
-      "destination": "/v2/developers/guides/resources"
-    },
-    {
-      "source": "/v2/developers/guides-and-tools/developer-help",
-      "destination": "/v2/developers/guides/developer-help"
-    },
-    {
-      "source": "/v2/developers/guides-and-tools/contribution-guide",
-      "destination": "/v2/developers/guides/contribution-guide"
-    },
-    {
-      "source": "/v2/developers/guides-and-resources/contribution-guide",
-      "destination": "/v2/developers/guides/contribution-guide"
-    },
-    {
-      "source": "/v2/developers/builder-opportunities/overview",
-      "destination": "/v2/developers/opportunities/overview"
-    },
-    {
-      "source": "/v2/developers/builder-opportunities/grants-and-programmes",
-      "destination": "/v2/developers/opportunities/grants-and-programmes"
-    },
-    {
-      "source": "/v2/developers/builder-opportunities/rfps-and-proposals",
-      "destination": "/v2/developers/opportunities/rfps-and-proposals"
-    },
-    {
-      "source": "/v2/developers/builder-opportunities/oss-contributions",
-      "destination": "/v2/developers/opportunities/oss-contributions"
-    },
-    {
-      "source": "/v2/developers/builder-opportunities/bug-bounties",
-      "destination": "/v2/developers/opportunities/bug-bounties"
-    },
-    {
-      "source": "/v2/developers/builder-opportunities/livepeer-rfps",
-      "destination": "/v2/developers/opportunities/rfps-and-proposals"
-    },
-    {
-      "source": "/v2/developers/technical-references/sdks",
-      "destination": "/v2/developers/resources/sdks"
-    },
-    {
-      "source": "/v2/developers/technical-references/apis",
-      "destination": "/v2/developers/resources/apis"
-    },
-    {
-      "source": "/v2/developers/technical-references/awesome-livepeer",
-      "destination": "/v2/developers/resources/awesome-livepeer"
-    },
-    {
-      "source": "/v2/developers/technical-references/wiki",
-      "destination": "/v2/developers/resources/wiki"
-    },
-    {
-      "source": "/v2/developers/technical-references/deepwiki",
-      "destination": "/v2/developers/resources/deepwiki"
-    },
-    {
-      "source": "/v2/gateways/gateways-portal",
-      "destination": "/v2/gateways/portal"
-    },
-    {
-      "source": "/v2/gateways/about/explainer",
-      "destination": "/v2/gateways/concepts/role"
-    },
-    {
-      "source": "/v2/gateways/about/functions",
-      "destination": "/v2/gateways/concepts/capabilities"
-    },
-    {
-      "source": "/v2/gateways/about/architecture",
-      "destination": "/v2/gateways/concepts/architecture"
-    },
-    {
-      "source": "/v2/gateways/about/economics",
-      "destination": "/v2/gateways/concepts/business-model"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/why-run-a-gateway",
-      "destination": "/v2/gateways/guides/operator-considerations/business-case"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/gateway-operator-opportunities",
-      "destination": "/v2/gateways/guides/roadmap-and-funding/operator-support"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/run-a-gateway",
-      "destination": "/v2/gateways/setup/run-a-gateway"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/transcoding",
-      "destination": "/v2/gateways/setup/transcoding"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/requirements/setup",
-      "destination": "/v2/gateways/setup/requirements/setup"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
-      "destination": "/v2/gateways/setup/requirements/on-chain setup/on-chain"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway",
-      "destination": "/v2/gateways/setup/requirements/on-chain setup/fund-gateway"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum",
-      "destination": "/v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/install/install-overview",
-      "destination": "/v2/gateways/setup/install/install-overview"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/install/docker-install",
-      "destination": "/v2/gateways/setup/install/docker-install"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/install/linux-install",
-      "destination": "/v2/gateways/setup/install/linux-install"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/install/windows-install",
-      "destination": "/v2/gateways/setup/install/windows-install"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/install/community-projects",
-      "destination": "/v2/gateways/setup/install/community-projects"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/configure/configuration-overview",
-      "destination": "/v2/gateways/setup/configure/configuration-overview"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/configure/video-configuration",
-      "destination": "/v2/gateways/setup/configure/video-configuration"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/configure/ai-configuration",
-      "destination": "/v2/gateways/setup/configure/ai-configuration"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/configure/dual-configuration",
-      "destination": "/v2/gateways/setup/configure/dual-configuration"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/configure/pricing-configuration",
-      "destination": "/v2/gateways/setup/configure/pricing-configuration"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/connect/lp-marketplace",
-      "destination": "/v2/gateways/setup/connect/lp-marketplace"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/connect/discover-offerings",
-      "destination": "/v2/gateways/setup/connect/discover-offerings"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/connect/connect-with-offerings",
-      "destination": "/v2/gateways/setup/connect/connect-with-offerings"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/publish/connect-with-offerings",
-      "destination": "/v2/gateways/setup/connect/connect-with-offerings"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/monitor/monitor-and-optimise",
-      "destination": "/v2/gateways/setup/monitor/monitor-and-optimise"
-    },
-    {
-      "source": "/v2/gateways/references/technical-architecture",
-      "destination": "/v2/gateways/resources/technical/technical-architecture"
-    },
-    {
-      "source": "/v2/gateways/references/configuration-flags",
-      "destination": "/v2/gateways/resources/technical/configuration-flags"
-    },
-    {
-      "source": "/v2/gateways/references/cli-commands",
-      "destination": "/v2/gateways/resources/technical/cli-commands"
-    },
-    {
-      "source": "/v2/gateways/references/livepeer-exchanges",
-      "destination": "/v2/gateways/resources/technical/livepeer-exchanges"
-    },
-    {
-      "source": "/v2/gateways/references/arbitrum-exchanges",
-      "destination": "/v2/gateways/resources/technical/arbitrum-exchanges"
-    },
-    {
-      "source": "/v2/gateways/references/arbitrum-rpc",
-      "destination": "/v2/gateways/resources/technical/arbitrum-rpc"
-    },
-    {
-      "source": "/v2/gateways/references/contract-addresses",
-      "destination": "/v2/gateways/resources/technical/contract-addresses"
-    },
-    {
-      "source": "/v2/gateways/references/orchestrator-offerings",
-      "destination": "/v2/gateways/resources/technical/orchestrator-offerings"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/AI-API/ai",
-      "destination": "/v2/gateways/resources/technical/api-reference/AI-API/ai"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/AI-API/text-to-image",
-      "destination": "/v2/gateways/resources/technical/api-reference/AI-API/text-to-image"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/AI-API/image-to-image",
-      "destination": "/v2/gateways/resources/technical/api-reference/AI-API/image-to-image"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/AI-API/image-to-video",
-      "destination": "/v2/gateways/resources/technical/api-reference/AI-API/image-to-video"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/AI-API/upscale",
-      "destination": "/v2/gateways/resources/technical/api-reference/AI-API/upscale"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/AI-API/audio-to-text",
-      "destination": "/v2/gateways/resources/technical/api-reference/AI-API/audio-to-text"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/AI-API/segment-anything-2",
-      "destination": "/v2/gateways/resources/technical/api-reference/AI-API/segment-anything-2"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/AI-API/llm",
-      "destination": "/v2/gateways/resources/technical/api-reference/AI-API/llm"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/AI-API/image-to-text",
-      "destination": "/v2/gateways/resources/technical/api-reference/AI-API/image-to-text"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/AI-API/live-video-to-video",
-      "destination": "/v2/gateways/resources/technical/api-reference/AI-API/live-video-to-video"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/AI-API/text-to-speech",
-      "destination": "/v2/gateways/resources/technical/api-reference/AI-API/text-to-speech"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/AI-API/health",
-      "destination": "/v2/gateways/resources/technical/api-reference/AI-API/health"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/AI-API/hardware-info",
-      "destination": "/v2/gateways/resources/technical/api-reference/AI-API/hardware-info"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/AI-API/hardware-stats",
-      "destination": "/v2/gateways/resources/technical/api-reference/AI-API/hardware-stats"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/CLI-HTTP/cli-http-api",
-      "destination": "/v2/gateways/resources/technical/api-reference/CLI-HTTP/cli-http-api"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/CLI-HTTP/unbond",
-      "destination": "/v2/gateways/resources/technical/api-reference/CLI-HTTP/unbond"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/CLI-HTTP/rebond",
-      "destination": "/v2/gateways/resources/technical/api-reference/CLI-HTTP/rebond"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator",
-      "destination": "/v2/gateways/resources/technical/api-reference/CLI-HTTP/activateorchestrator"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
-      "destination": "/v2/gateways/resources/technical/api-reference/CLI-HTTP/setbroadcastconfig"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
-      "destination": "/v2/gateways/resources/technical/api-reference/CLI-HTTP/setmaxpriceforcapability"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/CLI-HTTP/reward",
-      "destination": "/v2/gateways/resources/technical/api-reference/CLI-HTTP/reward"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/CLI-HTTP/transfertokens",
-      "destination": "/v2/gateways/resources/technical/api-reference/CLI-HTTP/transfertokens"
-    },
-    {
-      "source": "/v2/gateways/references/api-reference/CLI-HTTP/signmessage",
-      "destination": "/v2/gateways/resources/technical/api-reference/CLI-HTTP/signmessage"
-    },
-    {
-      "source": "/v2/orchestrators/orchestrators-portal",
-      "destination": "/v2/orchestrators/portal"
-    },
-    {
-      "source": "/v2/orchestrators/orchestrator-journey",
-      "destination": "/v2/orchestrators/navigator"
-    },
-    {
-      "source": "/v2/orchestrators/concepts/overview",
-      "destination": "/v2/orchestrators/concepts/role"
-    },
-    {
-      "source": "/v2/orchestrators/concepts/functions",
-      "destination": "/v2/orchestrators/concepts/capabilities"
-    },
-    {
-      "source": "/v2/orchestrators/concepts/economics",
-      "destination": "/v2/orchestrators/concepts/incentive-model"
-    },
-    {
-      "source": "/v2/orchestrators/concepts/job-types",
-      "destination": "/v2/orchestrators/guides/workloads-and-ai/job-types"
-    },
-    {
-      "source": "/v2/orchestrators/get-started/setup-paths",
-      "destination": "/v2/orchestrators/guides/setup-paths/setup-navigator"
-    },
-    {
-      "source": "/v2/orchestrators/get-started/quickstart",
-      "destination": "/v2/orchestrators/quickstart/guide"
-    },
-    {
-      "source": "/v2/orchestrators/get-started/join-a-pool",
-      "destination": "/v2/orchestrators/guides/setup-paths/join-a-pool"
-    },
-    {
-      "source": "/v2/orchestrators/get-started/realtime-ai-quickstart",
-      "destination": "/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup"
-    },
-    {
-      "source": "/v2/orchestrators/get-started/batch-ai-quickstart",
-      "destination": "/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup"
-    },
-    {
-      "source": "/v2/orchestrators/setup/overview",
-      "destination": "/v2/orchestrators/setup/guide"
-    },
-    {
-      "source": "/v2/orchestrators/setup/hardware-requirements",
-      "destination": "/v2/orchestrators/setup/rcs-requirements"
-    },
-    {
-      "source": "/v2/orchestrators/setup/install-go-livepeer",
-      "destination": "/v2/orchestrators/setup/rs-install"
-    },
-    {
-      "source": "/v2/orchestrators/setup/orch-config",
-      "destination": "/v2/orchestrators/setup/r-configure"
-    },
-    {
-      "source": "/v2/orchestrators/setup/connect-to-arbitrum",
-      "destination": "/v2/orchestrators/setup/sc-connect"
-    },
-    {
-      "source": "/v2/orchestrators/setup/orchestrator-stats",
-      "destination": "/v2/orchestrators/setup/r-monitor"
-    },
-    {
-      "source": "/v2/orchestrators/setup/publish-offerings",
-      "destination": "/v2/orchestrators/setup/activate"
-    },
-    {
-      "source": "/v2/orchestrators/advanced/earnings",
-      "destination": "/v2/orchestrators/guides/staking-and-rewards/earnings"
-    },
-    {
-      "source": "/v2/orchestrators/advanced/staking-LPT",
-      "destination": "/v2/orchestrators/guides/staking-and-rewards/earnings"
-    },
-    {
-      "source": "/v2/orchestrators/advanced/rewards-and-fees",
-      "destination": "/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees"
-    },
-    {
-      "source": "/v2/orchestrators/advanced/delegation",
-      "destination": "/v2/orchestrators/guides/staking-and-rewards/attracting-delegates"
-    },
-    {
-      "source": "/v2/orchestrators/advanced/payments",
-      "destination": "/v2/orchestrators/guides/staking-and-rewards/payments"
-    },
-    {
-      "source": "/v2/orchestrators/advanced/ai-pipelines",
-      "destination": "/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide"
-    },
-    {
-      "source": "/v2/orchestrators/advanced/hosting-models",
-      "destination": "/v2/orchestrators/guides/advanced-operations/large-scale-operations"
-    },
-    {
-      "source": "/v2/orchestrators/advanced/run-a-pool",
-      "destination": "/v2/orchestrators/guides/advanced-operations/run-a-pool"
-    },
-    {
-      "source": "/v2/orchestrators/tools-and-guides/guides",
-      "destination": "/v2/orchestrators/resources/x-guides"
-    },
-    {
-      "source": "/v2/orchestrators/tools-and-guides/tooling",
-      "destination": "/v2/orchestrators/guides/monitoring-and-troubleshooting/tools"
-    },
-    {
-      "source": "/v2/orchestrators/resources/cli-flags",
-      "destination": "/v2/orchestrators/resources/technical/cli-flags"
-    },
-    {
-      "source": "/v2/gateways/guides/opportunities/overview",
-      "destination": "/v2/gateways/guides/roadmap-and-funding/operator-support"
-    },
-    {
-      "source": "/v2/gateways/guides/opportunities/naap-multi-tenancy",
-      "destination": "/v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy"
-    },
-    {
-      "source": "/v2/gateways/guides/opportunities/spe-grant-model",
-      "destination": "/v2/gateways/guides/roadmap-and-funding/spe-grant-model"
-    },
-    {
-      "source": "/v2/gateways/guides/opportunities/community-ecosystem",
-      "destination": "/v2/gateways/guides/roadmap-and-funding/gateway-showcase"
-    },
-    {
-      "source": "/v2/gateways/guides/monitoring-and-tooling/gateway-health-checks",
-      "destination": "/v2/gateways/guides/monitoring-and-tooling/health-checks"
-    },
-    {
-      "source": "/v2/gateways/guides/monitoring-and-tooling/on-chain-debugging",
-      "destination": "/v2/gateways/guides/monitoring-and-tooling/on-chain-metrics"
-    },
-    {
-      "source": "/v2/gateways/guides/advanced-operations/production-hardening",
-      "destination": "/v2/gateways/guides/advanced-operations/orchestrator-selection"
-    },
-    {
-      "source": "/v2/gateways/guides/advanced-operations/publishing",
-      "destination": "/v2/gateways/guides/advanced-operations/gateway-discoverability"
-    },
-    {
-      "source": "/v2/gateways/tutorials/tutorial-offchain-transcoding-test",
-      "destination": "/v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test"
-    },
-    {
-      "source": "/v2/gateways/tutorials/tutorial-byoc-cpu-pipeline",
-      "destination": "/v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline"
-    },
-    {
-      "source": "/v2/gateways/tutorials/tutorial-go-production",
-      "destination": "/v2/gateways/guides/tutorials/tutorial-3-go-production"
-    },
-    {
-      "source": "/v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-1-offchain-transcoding-test",
-      "destination": "/v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test"
-    },
-    {
-      "source": "/v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-2-byoc-cpu-pipeline",
-      "destination": "/v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline"
-    },
-    {
-      "source": "/v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/tutorial-3-go-production",
-      "destination": "/v2/gateways/guides/tutorials/tutorial-3-go-production"
-    },
-    {
-      "source": "/v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/verify-notes",
-      "destination": "/v2/gateways/guides/tutorials/verify-notes"
-    },
-    {
-      "source": "/v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/stubs/tutorial-offchain-transcoding-test",
-      "destination": "/v2/gateways/guides/tutorials/stubs/tutorial-offchain-transcoding-test"
-    },
-    {
-      "source": "/v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/stubs/tutorial-byoc-cpu-pipeline",
-      "destination": "/v2/gateways/guides/tutorials/stubs/tutorial-byoc-cpu-pipeline"
-    },
-    {
-      "source": "/v2/gateways/guides/tutorials/gateway-orchestrator-full-tutorial/stubs/tutorial-go-production",
-      "destination": "/v2/gateways/guides/tutorials/stubs/tutorial-go-production"
     }
   ],
   "styling": {
