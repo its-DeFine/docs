@@ -1,6 +1,6 @@
 ---
 title: Monitor stream health
-description: "Monitor active stream health, transcoding status, multistream targets, and ingest rate via the API and dashboard."
+description: Learn how to monitor stream metrics on Livepeer
 ---
 
 This guide provides instructions and information about using stream metrics to:
@@ -55,7 +55,7 @@ or
     )
 
 
-    # Replace <value> with the stream ID you want to retrieve
+    // Replan <value> with the stream ID you want to retrieve
     res = client.stream.get(id='<value>')
 
     if res.stream is not None:
@@ -76,7 +76,7 @@ or
     )
 
     func main() {
-     # Initialize the Livepeer client with your API key
+        // Initialize the Livepeer client with your API key
         client := livepeergo.New(
             livepeergo.WithSecurity("<YOUR_BEARER_TOKEN_HERE>"),
         )
