@@ -339,8 +339,6 @@
                         "group": "Deployment Details",
                         "pages": [
                           "v2/orchestrators/guides/deployment-details/setup-options",
-                          "v2/orchestrators/guides/deployment-details/draft1-setup-options",
-                          "v2/orchestrators/guides/deployment-details/x-deprecated/dep-3-setup-options",
                           "v2/orchestrators/guides/deployment-details/siphon-setup",
                           "v2/orchestrators/guides/deployment-details/dual-mode-configuration",
                           "v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup",

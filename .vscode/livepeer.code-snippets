@@ -1,5 +1,5 @@
 {
-  "AccordionGroupList": {
+  "lpAccordionGroupList": {
     "scope": "mdx,markdown",
     "prefix": [
       "AccordionGroupList",
@@ -10,7 +10,7 @@
     ],
     "description": "Renders a configurable number of empty accordion sections for scaffold examples."
   },
-  "AccordionLayout": {
+  "lpAccordionLayout": {
     "scope": "mdx,markdown",
     "prefix": [
       "AccordionLayout",
@@ -21,7 +21,7 @@
     ],
     "description": "Accordion Layout layout component for arranging documentation content without MDX inline styles."
   },
-  "AccordionTitleWithArrow": {
+  "lpAccordionTitleWithArrow": {
     "scope": "mdx,markdown",
     "prefix": [
       "AccordionTitleWithArrow",
@@ -32,7 +32,7 @@
     ],
     "description": "Accordion Title With Arrow primitive used in authored documentation and component-library examples."
   },
-  "BasicBtn": {
+  "lpBasicBtn": {
     "scope": "mdx,markdown",
     "prefix": [
       "BasicBtn",
@@ -43,7 +43,7 @@
     ],
     "description": "Basic Btn primitive used in authored documentation and component-library examples."
   },
-  "BasicList": {
+  "lpBasicList": {
     "scope": "mdx,markdown",
     "prefix": [
       "BasicList",
@@ -54,7 +54,7 @@
     ],
     "description": "Basic List layout component for arranging documentation content without MDX inline styles."
   },
-  "BlinkingIcon": {
+  "lpBlinkingIcon": {
     "scope": "mdx,markdown",
     "prefix": [
       "BlinkingIcon",
@@ -65,7 +65,7 @@
     ],
     "description": "Displays an icon with a smooth blinking animation (fades between full and 30% opacity)."
   },
-  "BlogCard": {
+  "lpBlogCard": {
     "scope": "mdx,markdown",
     "prefix": [
       "BlogCard",
@@ -76,7 +76,7 @@
     ],
     "description": "Blog Card data-driven component for rendering automated or API-backed documentation content."
   },
-  "BlogDataLayout": {
+  "lpBlogDataLayout": {
     "scope": "mdx,markdown",
     "prefix": [
       "BlogDataLayout",
@@ -87,7 +87,7 @@
     ],
     "description": "Blog Data Layout data-driven component for rendering automated or API-backed documentation content."
   },
-  "BorderedBox": {
+  "lpBorderedBox": {
     "scope": "mdx,markdown",
     "prefix": [
       "BorderedBox",
@@ -98,7 +98,7 @@
     ],
     "description": "Bordered Box layout component for arranging documentation content without MDX inline styles."
   },
-  "CardBlogDataLayout": {
+  "lpCardBlogDataLayout": {
     "scope": "mdx,markdown",
     "prefix": [
       "CardBlogDataLayout",
@@ -109,7 +109,7 @@
     ],
     "description": "Card Blog Data Layout data-driven component for rendering automated or API-backed documentation content."
   },
-  "CardCarousel": {
+  "lpCardCarousel": {
     "scope": "mdx,markdown",
     "prefix": [
       "CardCarousel",
@@ -120,7 +120,7 @@
     ],
     "description": "Card Carousel layout component for arranging documentation content without MDX inline styles."
   },
-  "CardColumnsPostLayout": {
+  "lpCardColumnsPostLayout": {
     "scope": "mdx,markdown",
     "prefix": [
       "CardColumnsPostLayout",
@@ -131,7 +131,7 @@
     ],
     "description": "Card Columns Post Layout data-driven component for rendering automated or API-backed documentation content."
   },
-  "CardInCardLayout": {
+  "lpCardInCardLayout": {
     "scope": "mdx,markdown",
     "prefix": [
       "CardInCardLayout",
@@ -142,7 +142,7 @@
     ],
     "description": "Card In Card Layout data-driven component for rendering automated or API-backed documentation content."
   },
-  "CardTitleTextWithArrow": {
+  "lpCardTitleTextWithArrow": {
     "scope": "mdx,markdown",
     "prefix": [
       "CardTitleTextWithArrow",
@@ -153,7 +153,7 @@
     ],
     "description": "Card Title Text With Arrow primitive used in authored documentation and component-library examples."
   },
-  "CardVideo": {
+  "lpCardVideo": {
     "scope": "mdx,markdown",
     "prefix": [
       "CardVideo",
@@ -164,7 +164,7 @@
     ],
     "description": "Card Video content component for rendering reader-facing documentation content."
   },
-  "CenteredContainer": {
+  "lpCenteredContainer": {
     "scope": "mdx,markdown",
     "prefix": [
       "CenteredContainer",
@@ -175,7 +175,7 @@
     ],
     "description": "Centered Container layout component for arranging documentation content without MDX inline styles."
   },
-  "CodeComponent": {
+  "lpCodeComponent": {
     "scope": "mdx,markdown",
     "prefix": [
       "CodeComponent",
@@ -186,7 +186,7 @@
     ],
     "description": "Code Component content component for rendering reader-facing documentation content."
   },
-  "CodeSection": {
+  "lpCodeSection": {
     "scope": "mdx,markdown",
     "prefix": [
       "CodeSection",
@@ -197,7 +197,7 @@
     ],
     "description": "Thin wrapper that maps a `fields` object into the complex code block renderer."
   },
-  "CoinGeckoExchanges": {
+  "lpCoinGeckoExchanges": {
     "scope": "mdx,markdown",
     "prefix": [
       "CoinGeckoExchanges",
@@ -208,7 +208,7 @@
     ],
     "description": "Fetches and displays exchange availability for a token from the CoinGecko API."
   },
-  "ColumnsBlogCardLayout": {
+  "lpColumnsBlogCardLayout": {
     "scope": "mdx,markdown",
     "prefix": [
       "ColumnsBlogCardLayout",
@@ -219,7 +219,7 @@
     ],
     "description": "Columns Blog Card Layout data-driven component for rendering automated or API-backed documentation content."
   },
-  "ComingSoonCallout": {
+  "lpComingSoonCallout": {
     "scope": "mdx,markdown",
     "prefix": [
       "ComingSoonCallout",
@@ -230,7 +230,7 @@
     ],
     "description": "Renders the coming soon callout component"
   },
-  "ComplexCodeBlock": {
+  "lpComplexCodeBlock": {
     "scope": "mdx,markdown",
     "prefix": [
       "ComplexCodeBlock",
@@ -241,7 +241,7 @@
     ],
     "description": "Complex Code Block content component for rendering reader-facing documentation content."
   },
-  "CopyText": {
+  "lpCopyText": {
     "scope": "mdx,markdown",
     "prefix": [
       "CopyText",
@@ -252,7 +252,7 @@
     ],
     "description": "Copy Text primitive used in authored documentation and component-library examples."
   },
-  "CustomCallout": {
+  "lpCustomCallout": {
     "scope": "mdx,markdown",
     "prefix": [
       "CustomCallout",
@@ -263,7 +263,7 @@
     ],
     "description": "Displays a styled callout box with an icon and custom colors."
   },
-  "CustomCardTitle": {
+  "lpCustomCardTitle": {
     "scope": "mdx,markdown",
     "prefix": [
       "CustomCardTitle",
@@ -274,7 +274,7 @@
     ],
     "description": "Renders the custom card title component"
   },
-  "CustomCodeBlock": {
+  "lpCustomCodeBlock": {
     "scope": "mdx,markdown",
     "prefix": [
       "CustomCodeBlock",
@@ -285,7 +285,7 @@
     ],
     "description": "Custom Code Block content component for rendering reader-facing documentation content."
   },
-  "CustomDivider": {
+  "lpCustomDivider": {
     "scope": "mdx,markdown",
     "prefix": [
       "CustomDivider",
@@ -296,7 +296,7 @@
     ],
     "description": "Custom Divider primitive used in authored documentation and component-library examples."
   },
-  "CustomResponseField": {
+  "lpCustomResponseField": {
     "scope": "mdx,markdown",
     "prefix": [
       "CustomResponseField",
@@ -307,7 +307,7 @@
     ],
     "description": "Renders the custom response field component"
   },
-  "DiscordAnnouncements": {
+  "lpDiscordAnnouncements": {
     "scope": "mdx,markdown",
     "prefix": [
       "DiscordAnnouncements",
@@ -318,7 +318,7 @@
     ],
     "description": "Discord Announcements data-driven component for rendering automated or API-backed documentation content."
   },
-  "DisplayCard": {
+  "lpDisplayCard": {
     "scope": "mdx,markdown",
     "prefix": [
       "DisplayCard",
@@ -329,7 +329,7 @@
     ],
     "description": "Display Card page-structure component for frame-mode and portal layout scaffolding."
   },
-  "Divider": {
+  "lpDivider": {
     "scope": "mdx,markdown",
     "prefix": [
       "Divider",
@@ -340,7 +340,7 @@
     ],
     "description": "Renders a horizontal rule (---) with proper styling for frame mode."
   },
-  "DoubleIconLink": {
+  "lpDoubleIconLink": {
     "scope": "mdx,markdown",
     "prefix": [
       "DoubleIconLink",
@@ -351,7 +351,7 @@
     ],
     "description": "Displays a link with an icon on the left and right, plus optional text prefix."
   },
-  "DownloadButton": {
+  "lpDownloadButton": {
     "scope": "mdx,markdown",
     "prefix": [
       "DownloadButton",
@@ -362,7 +362,7 @@
     ],
     "description": "Download Button primitive used in authored documentation and component-library examples."
   },
-  "DynamicTable": {
+  "lpDynamicTable": {
     "scope": "mdx,markdown",
     "prefix": [
       "DynamicTable",
@@ -373,7 +373,7 @@
     ],
     "description": "Dynamic Table layout component for arranging documentation content without MDX inline styles."
   },
-  "EmbedMarkdown": {
+  "lpEmbedMarkdown": {
     "scope": "mdx,markdown",
     "prefix": [
       "EmbedMarkdown",
@@ -384,7 +384,7 @@
     ],
     "description": "Embed Markdown content component for rendering reader-facing documentation content."
   },
-  "ExternalContent": {
+  "lpExternalContent": {
     "scope": "mdx,markdown",
     "prefix": [
       "ExternalContent",
@@ -395,7 +395,7 @@
     ],
     "description": "External Content content component for rendering reader-facing documentation content."
   },
-  "FlexContainer": {
+  "lpFlexContainer": {
     "scope": "mdx,markdown",
     "prefix": [
       "FlexContainer",
@@ -406,7 +406,7 @@
     ],
     "description": "Flex Container layout component for arranging documentation content without MDX inline styles."
   },
-  "FocusableScrollRegions": {
+  "lpFocusableScrollRegions": {
     "scope": "mdx,markdown",
     "prefix": [
       "FocusableScrollRegions",
@@ -417,7 +417,7 @@
     ],
     "description": "Focusable Scroll Regions primitive used in authored documentation and component-library examples."
   },
-  "ForumLatestLayout": {
+  "lpForumLatestLayout": {
     "scope": "mdx,markdown",
     "prefix": [
       "ForumLatestLayout",
@@ -428,7 +428,7 @@
     ],
     "description": "Forum Latest Layout data-driven component for rendering automated or API-backed documentation content."
   },
-  "FrameQuote": {
+  "lpFrameQuote": {
     "scope": "mdx,markdown",
     "prefix": [
       "FrameQuote",
@@ -439,7 +439,7 @@
     ],
     "description": "Frame Quote content component for rendering reader-facing documentation content."
   },
-  "FullWidthContainer": {
+  "lpFullWidthContainer": {
     "scope": "mdx,markdown",
     "prefix": [
       "FullWidthContainer",
@@ -450,7 +450,7 @@
     ],
     "description": "Full Width Container layout component for arranging documentation content without MDX inline styles."
   },
-  "GotoCard": {
+  "lpGotoCard": {
     "scope": "mdx,markdown",
     "prefix": [
       "GotoCard",
@@ -461,7 +461,7 @@
     ],
     "description": "Wraps content in a Card component with a link, icon, and optional CTA."
   },
-  "GotoLink": {
+  "lpGotoLink": {
     "scope": "mdx,markdown",
     "prefix": [
       "GotoLink",
@@ -472,7 +472,7 @@
     ],
     "description": "Displays a link with an icon, typically used for internal navigation."
   },
-  "GridContainer": {
+  "lpGridContainer": {
     "scope": "mdx,markdown",
     "prefix": [
       "GridContainer",
@@ -483,7 +483,7 @@
     ],
     "description": "Grid Container layout component for arranging documentation content without MDX inline styles."
   },
-  "H1": {
+  "lpH1": {
     "scope": "mdx,markdown",
     "prefix": [
       "H1",
@@ -494,7 +494,7 @@
     ],
     "description": "H1 page-structure component for frame-mode and portal layout scaffolding."
   },
-  "H2": {
+  "lpH2": {
     "scope": "mdx,markdown",
     "prefix": [
       "H2",
@@ -505,7 +505,7 @@
     ],
     "description": "H2 - Custom H2 heading component for frame mode"
   },
-  "H3": {
+  "lpH3": {
     "scope": "mdx,markdown",
     "prefix": [
       "H3",
@@ -516,7 +516,7 @@
     ],
     "description": "H3 - Custom H3 heading component for frame mode"
   },
-  "H4": {
+  "lpH4": {
     "scope": "mdx,markdown",
     "prefix": [
       "H4",
@@ -527,7 +527,7 @@
     ],
     "description": "H4 - Custom H4 heading component for frame mode"
   },
-  "H5": {
+  "lpH5": {
     "scope": "mdx,markdown",
     "prefix": [
       "H5",
@@ -538,7 +538,7 @@
     ],
     "description": "H5 - Custom H5 heading component for frame mode"
   },
-  "H6": {
+  "lpH6": {
     "scope": "mdx,markdown",
     "prefix": [
       "H6",
@@ -549,7 +549,7 @@
     ],
     "description": "H6 - Custom H6 heading component for frame mode"
   },
-  "HeroContentContainer": {
+  "lpHeroContentContainer": {
     "scope": "mdx,markdown",
     "prefix": [
       "HeroContentContainer",
@@ -560,7 +560,7 @@
     ],
     "description": "Centered frame-mode container for hero content stacked over hero backgrounds."
   },
-  "HeroImageBackgroundComponent": {
+  "lpHeroImageBackgroundComponent": {
     "scope": "mdx,markdown",
     "prefix": [
       "HeroImageBackgroundComponent",
@@ -571,7 +571,7 @@
     ],
     "description": "Absolute-positioned hero background wrapper used behind portal hero content."
   },
-  "HeroOverviewContent": {
+  "lpHeroOverviewContent": {
     "scope": "mdx,markdown",
     "prefix": [
       "HeroOverviewContent",
@@ -582,7 +582,7 @@
     ],
     "description": "Centered hero overview wrapper for introductory portal copy blocks."
   },
-  "HeroSectionContainer": {
+  "lpHeroSectionContainer": {
     "scope": "mdx,markdown",
     "prefix": [
       "HeroSectionContainer",
@@ -593,7 +593,7 @@
     ],
     "description": "Outer frame-mode hero section wrapper for portal layouts."
   },
-  "IconList": {
+  "lpIconList": {
     "scope": "mdx,markdown",
     "prefix": [
       "IconList",
@@ -604,7 +604,7 @@
     ],
     "description": "Icon List layout component for arranging documentation content without MDX inline styles."
   },
-  "Image": {
+  "lpImage": {
     "scope": "mdx,markdown",
     "prefix": [
       "Image",
@@ -615,7 +615,7 @@
     ],
     "description": "Image primitive used in authored documentation and component-library examples."
   },
-  "InlineImageCard": {
+  "lpInlineImageCard": {
     "scope": "mdx,markdown",
     "prefix": [
       "InlineImageCard",
@@ -626,7 +626,7 @@
     ],
     "description": "Inline Image Card page-structure component for frame-mode and portal layout scaffolding."
   },
-  "InteractiveCard": {
+  "lpInteractiveCard": {
     "scope": "mdx,markdown",
     "prefix": [
       "InteractiveCard",
@@ -637,7 +637,7 @@
     ],
     "description": "Interactive Card layout component for arranging documentation content without MDX inline styles."
   },
-  "InteractiveCards": {
+  "lpInteractiveCards": {
     "scope": "mdx,markdown",
     "prefix": [
       "InteractiveCards",
@@ -648,7 +648,7 @@
     ],
     "description": "Interactive Cards layout component for arranging documentation content without MDX inline styles."
   },
-  "LatestVersion": {
+  "lpLatestVersion": {
     "scope": "mdx,markdown",
     "prefix": [
       "LatestVersion",
@@ -659,7 +659,7 @@
     ],
     "description": "Displays the latest release version value supplied by the release-version workflow."
   },
-  "LinkArrow": {
+  "lpLinkArrow": {
     "scope": "mdx,markdown",
     "prefix": [
       "LinkArrow",
@@ -670,7 +670,7 @@
     ],
     "description": "Link Arrow primitive used in authored documentation and component-library examples."
   },
-  "LinkedInEmbed": {
+  "lpLinkedInEmbed": {
     "scope": "mdx,markdown",
     "prefix": [
       "LinkedInEmbed",
@@ -681,7 +681,7 @@
     ],
     "description": "Linked In Embed content component for rendering reader-facing documentation content."
   },
-  "LinkImage": {
+  "lpLinkImage": {
     "scope": "mdx,markdown",
     "prefix": [
       "LinkImage",
@@ -692,7 +692,7 @@
     ],
     "description": "Link Image primitive used in authored documentation and component-library examples."
   },
-  "ListSteps": {
+  "lpListSteps": {
     "scope": "mdx,markdown",
     "prefix": [
       "ListSteps",
@@ -703,7 +703,7 @@
     ],
     "description": "List Steps layout component for arranging documentation content without MDX inline styles."
   },
-  "LivepeerIcon": {
+  "lpLivepeerIcon": {
     "scope": "mdx,markdown",
     "prefix": [
       "LivepeerIcon",
@@ -714,7 +714,7 @@
     ],
     "description": "Livepeer Icon primitive used in authored documentation and component-library examples."
   },
-  "LivepeerIconFlipped": {
+  "lpLivepeerIconFlipped": {
     "scope": "mdx,markdown",
     "prefix": [
       "LivepeerIconFlipped",
@@ -725,7 +725,7 @@
     ],
     "description": "Livepeer Icon Flipped primitive used in authored documentation and component-library examples."
   },
-  "LivepeerIconOld": {
+  "lpLivepeerIconOld": {
     "scope": "mdx,markdown",
     "prefix": [
       "LivepeerIconOld",
@@ -736,7 +736,7 @@
     ],
     "description": "Livepeer Icon Old primitive used in authored documentation and component-library examples."
   },
-  "LivepeerSVG": {
+  "lpLivepeerSVG": {
     "scope": "mdx,markdown",
     "prefix": [
       "LivepeerSVG",
@@ -747,7 +747,7 @@
     ],
     "description": "Livepeer SVG primitive used in authored documentation and component-library examples."
   },
-  "LogoHeroContainer": {
+  "lpLogoHeroContainer": {
     "scope": "mdx,markdown",
     "prefix": [
       "LogoHeroContainer",
@@ -758,7 +758,7 @@
     ],
     "description": "Portal hero logo wrapper that centers a themed brand asset above hero content."
   },
-  "LumaEvents": {
+  "lpLumaEvents": {
     "scope": "mdx,markdown",
     "prefix": [
       "LumaEvents",
@@ -769,7 +769,7 @@
     ],
     "description": "Luma Events data-driven component for rendering automated or API-backed documentation content."
   },
-  "MarkdownEmbed": {
+  "lpMarkdownEmbed": {
     "scope": "mdx,markdown",
     "prefix": [
       "MarkdownEmbed",
@@ -780,7 +780,7 @@
     ],
     "description": "Dynamically fetches markdown content from a remote URL and renders it. Uses React hooks to manage the fetch lifecycle"
   },
-  "MathBlock": {
+  "lpMathBlock": {
     "scope": "mdx,markdown",
     "prefix": [
       "MathBlock",
@@ -791,7 +791,7 @@
     ],
     "description": "Math Block primitive used in authored documentation and component-library examples."
   },
-  "MathInline": {
+  "lpMathInline": {
     "scope": "mdx,markdown",
     "prefix": [
       "MathInline",
@@ -802,7 +802,7 @@
     ],
     "description": "Math Inline primitive used in authored documentation and component-library examples."
   },
-  "MermaidColours": {
+  "lpMermaidColours": {
     "scope": "mdx,markdown",
     "prefix": [
       "MermaidColours",
@@ -813,7 +813,7 @@
     ],
     "description": "Centralised colour definitions for Mermaid diagrams. Mermaid requires literal colour values and does not support CSS custom properties."
   },
-  "P": {
+  "lpP": {
     "scope": "mdx,markdown",
     "prefix": [
       "P",
@@ -824,7 +824,7 @@
     ],
     "description": "P - Custom paragraph component for frame mode"
   },
-  "PageHeader": {
+  "lpPageHeader": {
     "scope": "mdx,markdown",
     "prefix": [
       "PageHeader",
@@ -835,7 +835,7 @@
     ],
     "description": "H1 - Custom H1 heading component for frame mode"
   },
-  "PdfEmbed": {
+  "lpPdfEmbed": {
     "scope": "mdx,markdown",
     "prefix": [
       "PdfEmbed",
@@ -846,7 +846,7 @@
     ],
     "description": "Wraps an iframe in a Mintlify Frame so long-form external documents can be embedded with a caption and responsive width"
   },
-  "PortalCardsHeader": {
+  "lpPortalCardsHeader": {
     "scope": "mdx,markdown",
     "prefix": [
       "PortalCardsHeader",
@@ -857,7 +857,7 @@
     ],
     "description": "Header wrapper for portal card groups and section intros."
   },
-  "PortalContentContainer": {
+  "lpPortalContentContainer": {
     "scope": "mdx,markdown",
     "prefix": [
       "PortalContentContainer",
@@ -868,7 +868,7 @@
     ],
     "description": "Frame-mode content wrapper for portal body sections."
   },
-  "PortalHeroContent": {
+  "lpPortalHeroContent": {
     "scope": "mdx,markdown",
     "prefix": [
       "PortalHeroContent",
@@ -879,7 +879,7 @@
     ],
     "description": "Hero scaffold for portal landing pages with title, subtitle, supporting content, and optional callouts."
   },
-  "PortalSectionHeader": {
+  "lpPortalSectionHeader": {
     "scope": "mdx,markdown",
     "prefix": [
       "PortalSectionHeader",
@@ -890,7 +890,7 @@
     ],
     "description": "Section heading wrapper for portal subsections with optional icon treatment."
   },
-  "PostCard": {
+  "lpPostCard": {
     "scope": "mdx,markdown",
     "prefix": [
       "PostCard",
@@ -901,7 +901,7 @@
     ],
     "description": "Post Card data-driven component for rendering automated or API-backed documentation content."
   },
-  "PreviewCallout": {
+  "lpPreviewCallout": {
     "scope": "mdx,markdown",
     "prefix": [
       "PreviewCallout",
@@ -912,7 +912,7 @@
     ],
     "description": "Renders the preview callout component"
   },
-  "QuadGrid": {
+  "lpQuadGrid": {
     "scope": "mdx,markdown",
     "prefix": [
       "QuadGrid",
@@ -923,7 +923,7 @@
     ],
     "description": "Quad Grid layout component for arranging documentation content without MDX inline styles."
   },
-  "Quote": {
+  "lpQuote": {
     "scope": "mdx,markdown",
     "prefix": [
       "Quote",
@@ -934,7 +934,7 @@
     ],
     "description": "Quote content component for rendering reader-facing documentation content."
   },
-  "RefCardContainer": {
+  "lpRefCardContainer": {
     "scope": "mdx,markdown",
     "prefix": [
       "RefCardContainer",
@@ -945,7 +945,7 @@
     ],
     "description": "Container for portal reference cards and related CTA blocks."
   },
-  "ResponseFieldAccordion": {
+  "lpResponseFieldAccordion": {
     "scope": "mdx,markdown",
     "prefix": [
       "ResponseFieldAccordion",
@@ -956,7 +956,7 @@
     ],
     "description": "Renders the response field accordion component"
   },
-  "ResponseFieldExpandable": {
+  "lpResponseFieldExpandable": {
     "scope": "mdx,markdown",
     "prefix": [
       "ResponseFieldExpandable",
@@ -967,7 +967,7 @@
     ],
     "description": "Renders the response field expandable component"
   },
-  "ResponseFieldGroup": {
+  "lpResponseFieldGroup": {
     "scope": "mdx,markdown",
     "prefix": [
       "ResponseFieldGroup",
@@ -978,7 +978,7 @@
     ],
     "description": "Renders the response field group component"
   },
-  "ReviewCallout": {
+  "lpReviewCallout": {
     "scope": "mdx,markdown",
     "prefix": [
       "ReviewCallout",
@@ -989,7 +989,7 @@
     ],
     "description": "Renders the review callout component"
   },
-  "ScrollableDiagram": {
+  "lpScrollableDiagram": {
     "scope": "mdx,markdown",
     "prefix": [
       "ScrollableDiagram",
@@ -1000,7 +1000,7 @@
     ],
     "description": "──────────────────────────────────────────────────────────────"
   },
-  "ScrollBox": {
+  "lpScrollBox": {
     "scope": "mdx,markdown",
     "prefix": [
       "ScrollBox",
@@ -1011,7 +1011,7 @@
     ],
     "description": "Scroll Box layout component for arranging documentation content without MDX inline styles."
   },
-  "SearchTable": {
+  "lpSearchTable": {
     "scope": "mdx,markdown",
     "prefix": [
       "SearchTable",
@@ -1022,7 +1022,7 @@
     ],
     "description": "Search Table layout component for arranging documentation content without MDX inline styles."
   },
-  "ShowcaseCards": {
+  "lpShowcaseCards": {
     "scope": "mdx,markdown",
     "prefix": [
       "ShowcaseCards",
@@ -1033,7 +1033,7 @@
     ],
     "description": "Showcase Cards layout component for arranging documentation content without MDX inline styles."
   },
-  "ShowcaseVideo": {
+  "lpShowcaseVideo": {
     "scope": "mdx,markdown",
     "prefix": [
       "ShowcaseVideo",
@@ -1044,7 +1044,7 @@
     ],
     "description": "Showcase Video content component for rendering reader-facing documentation content."
   },
-  "SocialLinks": {
+  "lpSocialLinks": {
     "scope": "mdx,markdown",
     "prefix": [
       "SocialLinks",
@@ -1055,7 +1055,7 @@
     ],
     "description": "Renders the social links component"
   },
-  "Spacer": {
+  "lpSpacer": {
     "scope": "mdx,markdown",
     "prefix": [
       "Spacer",
@@ -1066,7 +1066,7 @@
     ],
     "description": "Provides consistent spacing without requiring inline styles or empty divs in MDX files"
   },
-  "Starfield": {
+  "lpStarfield": {
     "scope": "mdx,markdown",
     "prefix": [
       "Starfield",
@@ -1077,7 +1077,7 @@
     ],
     "description": "Renders the starfield component"
   },
-  "StepLinkList": {
+  "lpStepLinkList": {
     "scope": "mdx,markdown",
     "prefix": [
       "StepLinkList",
@@ -1088,7 +1088,7 @@
     ],
     "description": "Step Link List layout component for arranging documentation content without MDX inline styles."
   },
-  "StepList": {
+  "lpStepList": {
     "scope": "mdx,markdown",
     "prefix": [
       "StepList",
@@ -1099,7 +1099,7 @@
     ],
     "description": "Step List layout component for arranging documentation content without MDX inline styles."
   },
-  "StyledStep": {
+  "lpStyledStep": {
     "scope": "mdx,markdown",
     "prefix": [
       "StyledStep",
@@ -1110,7 +1110,7 @@
     ],
     "description": "Styled Step layout component for arranging documentation content without MDX inline styles."
   },
-  "StyledSteps": {
+  "lpStyledSteps": {
     "scope": "mdx,markdown",
     "prefix": [
       "StyledSteps",
@@ -1121,7 +1121,7 @@
     ],
     "description": "Styled Steps layout component for arranging documentation content without MDX inline styles."
   },
-  "StyledTable": {
+  "lpStyledTable": {
     "scope": "mdx,markdown",
     "prefix": [
       "StyledTable",
@@ -1132,7 +1132,7 @@
     ],
     "description": "Styled Table layout component for arranging documentation content without MDX inline styles."
   },
-  "Subtitle": {
+  "lpSubtitle": {
     "scope": "mdx,markdown",
     "prefix": [
       "Subtitle",
@@ -1143,7 +1143,7 @@
     ],
     "description": "Subtitle primitive used in authored documentation and component-library examples."
   },
-  "TableCell": {
+  "lpTableCell": {
     "scope": "mdx,markdown",
     "prefix": [
       "TableCell",
@@ -1154,7 +1154,7 @@
     ],
     "description": "Table Cell layout component for arranging documentation content without MDX inline styles."
   },
-  "TableRow": {
+  "lpTableRow": {
     "scope": "mdx,markdown",
     "prefix": [
       "TableRow",
@@ -1165,7 +1165,7 @@
     ],
     "description": "Table Row layout component for arranging documentation content without MDX inline styles."
   },
-  "TipWithArrow": {
+  "lpTipWithArrow": {
     "scope": "mdx,markdown",
     "prefix": [
       "TipWithArrow",
@@ -1176,7 +1176,7 @@
     ],
     "description": "Similar to CustomCallout but includes an arrow icon in the top-right corner."
   },
-  "TitledVideo": {
+  "lpTitledVideo": {
     "scope": "mdx,markdown",
     "prefix": [
       "TitledVideo",
@@ -1187,7 +1187,7 @@
     ],
     "description": "Titled Video content component for rendering reader-facing documentation content."
   },
-  "TwitterTimeline": {
+  "lpTwitterTimeline": {
     "scope": "mdx,markdown",
     "prefix": [
       "TwitterTimeline",
@@ -1198,7 +1198,7 @@
     ],
     "description": "Renders the twitter timeline component"
   },
-  "UpdateLinkList": {
+  "lpUpdateLinkList": {
     "scope": "mdx,markdown",
     "prefix": [
       "UpdateLinkList",
@@ -1209,7 +1209,7 @@
     ],
     "description": "Update Link List layout component for arranging documentation content without MDX inline styles."
   },
-  "UpdateList": {
+  "lpUpdateList": {
     "scope": "mdx,markdown",
     "prefix": [
       "UpdateList",
@@ -1220,7 +1220,7 @@
     ],
     "description": "Update List layout component for arranging documentation content without MDX inline styles."
   },
-  "ValueResponseField": {
+  "lpValueResponseField": {
     "scope": "mdx,markdown",
     "prefix": [
       "ValueResponseField",
@@ -1231,7 +1231,7 @@
     ],
     "description": "CustomResponseField - ResponseField wrapper that hides the bottom divider"
   },
-  "Video": {
+  "lpVideo": {
     "scope": "mdx,markdown",
     "prefix": [
       "Video",
@@ -1242,7 +1242,7 @@
     ],
     "description": "Video content component for rendering reader-facing documentation content."
   },
-  "WidthCard": {
+  "lpWidthCard": {
     "scope": "mdx,markdown",
     "prefix": [
       "WidthCard",
@@ -1253,7 +1253,7 @@
     ],
     "description": "Width Card page-structure component for frame-mode and portal layout scaffolding."
   },
-  "YouTubeVideo": {
+  "lpYouTubeVideo": {
     "scope": "mdx,markdown",
     "prefix": [
       "YouTubeVideo",
@@ -1264,7 +1264,7 @@
     ],
     "description": "You Tube Video content component for rendering reader-facing documentation content."
   },
-  "YouTubeVideoData": {
+  "lpYouTubeVideoData": {
     "scope": "mdx,markdown",
     "prefix": [
       "YouTubeVideoData",

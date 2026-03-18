@@ -10,7 +10,7 @@
     "body": [
       "<Card title=\"${1:Title}\" icon=\"${2:icon}\" href=\"${3:link}\">",
       "  ${4:Description}",
-      "</Card>"
+      "</Card"
     ],
     "description": "[Mintlify] Card with title, icon, and optional link"
   },
@@ -30,7 +30,7 @@
       "  <Card title=\"${5:Title}\" icon=\"${6:icon}\">",
       "    ${7:Description}",
       "  </Card>",
-      "</CardGroup>"
+      "</CardGroup"
     ],
     "description": "[Mintlify] CardGroup container with 2 starter cards"
   },
@@ -50,7 +50,7 @@
       "  <Tab title=\"${3:Tab 2}\">",
       "    ${4:Content}",
       "  </Tab>",
-      "</Tabs>"
+      "</Tabs"
     ],
     "description": "[Mintlify] Tabs container with 2 starter tabs"
   },
@@ -65,7 +65,7 @@
     "body": [
       "<Tab title=\"${1:Title}\">",
       "  $0",
-      "</Tab>"
+      "</Tab"
     ],
     "description": "[Mintlify] Single Tab"
   },
@@ -85,7 +85,7 @@
       "  <Step title=\"${3:Step 2}\">",
       "    ${4:Content}",
       "  </Step>",
-      "</Steps>"
+      "</Steps"
     ],
     "description": "[Mintlify] Steps container with 2 starter steps"
   },
@@ -100,7 +100,7 @@
     "body": [
       "<Step title=\"${1:Title}\">",
       "  $0",
-      "</Step>"
+      "</Step"
     ],
     "description": "[Mintlify] Single Step"
   },
@@ -115,7 +115,7 @@
     "body": [
       "<Accordion title=\"${1:Title}\">",
       "  $0",
-      "</Accordion>"
+      "</Accordion"
     ],
     "description": "[Mintlify] Expandable accordion section"
   },
@@ -135,7 +135,7 @@
       "  <Accordion title=\"${3:Title 2}\">",
       "    ${4:Content}",
       "  </Accordion>",
-      "</AccordionGroup>"
+      "</AccordionGroup"
     ],
     "description": "[Mintlify] AccordionGroup with 2 starter accordions"
   },
@@ -158,7 +158,7 @@
       "${6:code}",
       "```",
       "",
-      "</CodeGroup>"
+      "</CodeGroup"
     ],
     "description": "[Mintlify] CodeGroup with 2 code blocks"
   },
@@ -173,7 +173,7 @@
     "body": [
       "<Note>",
       "  $0",
-      "</Note>"
+      "</Note"
     ],
     "description": "[Mintlify] Note callout"
   },
@@ -188,7 +188,7 @@
     "body": [
       "<Warning>",
       "  $0",
-      "</Warning>"
+      "</Warning"
     ],
     "description": "[Mintlify] Warning callout"
   },
@@ -203,7 +203,7 @@
     "body": [
       "<Info>",
       "  $0",
-      "</Info>"
+      "</Info"
     ],
     "description": "[Mintlify] Info callout"
   },
@@ -218,7 +218,7 @@
     "body": [
       "<Tip>",
       "  $0",
-      "</Tip>"
+      "</Tip"
     ],
     "description": "[Mintlify] Tip callout"
   },
@@ -233,7 +233,7 @@
     "body": [
       "<Check>",
       "  $0",
-      "</Check>"
+      "</Check"
     ],
     "description": "[Mintlify] Check/success callout"
   },
@@ -248,7 +248,7 @@
     "body": [
       "<Frame>",
       "  $0",
-      "</Frame>"
+      "</Frame"
     ],
     "description": "[Mintlify] Frame container for images/content"
   },
@@ -263,7 +263,7 @@
     "body": [
       "<Frame caption=\"${1:Caption text}\">",
       "  $0",
-      "</Frame>"
+      "</Frame"
     ],
     "description": "[Mintlify] Frame with caption"
   },
@@ -276,7 +276,7 @@
       "<tooltip"
     ],
     "body": [
-      "<Tooltip tip=\"${1:Tooltip text}\">${2:Hover text}</Tooltip>"
+      "<Tooltip tip=\"${1:Tooltip text}\">${2:Hover text}</Tooltip"
     ],
     "description": "[Mintlify] Inline tooltip"
   },
@@ -291,7 +291,7 @@
     "body": [
       "<ResponseField name=\"${1:field}\" type=\"${2:string}\" required>",
       "  ${3:Description}",
-      "</ResponseField>"
+      "</ResponseField"
     ],
     "description": "[Mintlify] API response field documentation"
   },
@@ -308,7 +308,7 @@
       "  <ResponseField name=\"${2:field}\" type=\"${3:string}\">",
       "    ${4:Description}",
       "  </ResponseField>",
-      "</Expandable>"
+      "</Expandable"
     ],
     "description": "[Mintlify] Expandable section for nested response fields"
   },
@@ -323,7 +323,7 @@
     "body": [
       "<ParamField ${1|path,query,body,header|}=\"${2:name}\" type=\"${3:string}\" required>",
       "  ${4:Description}",
-      "</ParamField>"
+      "</ParamField"
     ],
     "description": "[Mintlify] API parameter field documentation"
   },
@@ -336,7 +336,7 @@
       "<snippet"
     ],
     "body": [
-      "<Snippet file=\"${1:path}.mdx\" />"
+      "<Snippet file=\"${1:path}.mdx\" /"
     ],
     "description": "[Mintlify] Include a reusable snippet file"
   },
@@ -349,7 +349,7 @@
       "<icon"
     ],
     "body": [
-      "<Icon icon=\"${1:icon-name}\" size={${2|16,20,24,32|}} />"
+      "<Icon icon=\"${1:icon-name}\" size={${2|16,20,24,32|}} /"
     ],
     "description": "[Mintlify] Font Awesome icon"
   },
@@ -369,7 +369,7 @@
       "  <Column>",
       "    ${2:Right content}",
       "  </Column>",
-      "</Columns>"
+      "</Columns"
     ],
     "description": "[Mintlify] Two-column layout"
   },
@@ -384,7 +384,7 @@
     "body": [
       "<Column>",
       "  $0",
-      "</Column>"
+      "</Column"
     ],
     "description": "[Mintlify] Single column within Columns"
   },
@@ -397,7 +397,7 @@
       "<update"
     ],
     "body": [
-      "<Update label=\"${1:v1.0.0}\" description=\"${2:Release notes}\">"
+      "<Update label=\"${1:v1.0.0}\" description=\"${2:Release notes}\""
     ],
     "description": "[Mintlify] Changelog update entry"
   }
