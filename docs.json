@@ -2119,6 +2119,16 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": ["v2/resources/redirect"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [" "]
                   }
                 ]
               },
@@ -2176,6 +2186,16 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": ["v2/resources/redirect"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [" "]
                   }
                 ]
               },
@@ -2788,13 +2808,27 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": ["v2/resources/redirect"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [" "]
                   }
                 ]
               },
               {
                 "tab": "Orchestrators",
                 "icon": "microchip",
-                "groups": [
+                "anchors": [
+                  {
+                    "anchor": "Orchestrators",
+                    "icon": "microchip",
+                    "groups": [
                   {
                     "group": "Start Here",
                     "icon": "microchip",
@@ -2951,6 +2985,18 @@
                         ]
                       }
                     ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": ["v2/resources/redirect"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [" "]
                   }
                 ]
               },
@@ -3011,6 +3057,16 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": ["v2/resources/redirect"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [" "]
                   }
                 ]
               },
@@ -3067,6 +3123,16 @@
                         "pages": ["v2/community/faq"]
                       }
                     ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": ["v2/resources/redirect"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [" "]
                   }
                 ]
               },
@@ -3083,6 +3149,7 @@
                         "group": "Resources",
                         "icon": "books",
                         "pages": [
+                          "v2/resources/redirect",
                           "v2/resources/resources-portal",
                           "contribute/CONTRIBUTING"
                         ]
@@ -3180,6 +3247,16 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": "Help Center",
+                    "icon": "comments-question-check",
+                    "pages": ["v2/resources/redirect"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "href": " "
                   }
                 ]
               },
@@ -3588,11 +3665,19 @@
     }
   },
   "redirects": [
-  {
-    "source": "/ai/:slug*",
-    "destination": "/v1/ai/:slug*"
-  },
-  {
+    {
+      "source": "/v2/resources/redirect",
+      "destination": "/v2/resources/resources-portal"
+    },
+    {
+      "source": "/v2/pages/08_help/redirect",
+      "destination": "/v2/pages/08_help/README"
+    },
+    {
+      "source": "/ai/:slug*",
+      "destination": "/v1/ai/:slug*"
+    },
+    {
     "source": "/api-reference/:slug*",
     "destination": "/v1/api-reference/:slug*"
   },
