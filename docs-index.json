@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-19T06:48:26.593Z",
+  "generated": "2026-03-19T06:53:21.459Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -22387,7 +22387,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 541,
-      "lastVerified": "2026-03-18T18:00:11+11:00",
+      "lastVerified": "2026-03-19T17:52:08+11:00",
       "headings": [
         {
           "level": 3,
