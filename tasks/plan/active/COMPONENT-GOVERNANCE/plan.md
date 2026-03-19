@@ -65,21 +65,29 @@ snippets/components/
 
 ## Finalised Taxonomy (approved)
 
-### Target Structure
+> Full folder tree with all sub-niches and per-component file listing: **[structure.md](./structure.md)**
+
+### Target Structure (summary)
 ```
 snippets/
 ├── components/
 │   ├── elements/        # Smallest visual atoms — no children, no fetching, no arrangement
+│   │   └── (10 sub-niches: a11y, buttons, callouts, icons, images, links, math, social, spacing, text)
 │   ├── wrappers/        # Holds, groups, or spatially arranges other components
+│   │   └── (7 sub-niches: accordions, cards, containers, grids, lists, steps, tables)
 │   ├── displays/        # Renders authored content into a specific visual format
+│   │   └── (5 sub-niches: code, diagrams, quotes, response-fields, video)
 │   ├── scaffolding/     # One-per-page structural skeleton — heroes, portals, frame-mode
+│   │   └── (4 sub-niches: frame-mode, heroes, page-containers, portals)
 │   ├── integrators/     # Fetches, embeds, or binds to external/third-party data
+│   │   └── (4 sub-niches: blog, embeds, feeds, video-data)
 │   ├── config/          # Non-component config objects (e.g. MermaidColours)
-│   └── _archive/        # Retired/superseded components
+│   ├── x-archive/       # Staging area for superseded files (cleared in Task 13)
+│   └── _archive/        # Existing legacy archive (untouched until cleanup)
 └── composables/         # Future home for MDX-defined composable snippets (TBD)
 ```
 
-**Removed**: `display/`, `domain/`, `integrations/`, `content/`, `data/`, `primitives/`, `layout/`, `page-structure/`
+**Superseded folders** (emptied during Task 3, removed during Task 13): `primitives/`, `layout/`, `content/`, `data/`, `display/`, `page-structure/`, `domain/`, `integrations/`
 
 ### Decision Rules
 
@@ -471,6 +479,7 @@ snippets/
 
 ## Reference
 
+- **Target folder structure**: [structure.md](./structure.md) — canonical reference for all categories, sub-niches, and per-component file layout
 - **Old governance doc**: https://docs.google.com/document/d/1t3eR8Ehm8H6HaUOZFMO7c5Vgka9VechosCgS06FNZ2A/edit?usp=sharing
 - **Component registry script**: `tools/scripts/generate-component-registry.js`
 - **Import scanner**: `tools/scripts/scan-component-imports.js`

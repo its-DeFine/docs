@@ -2,13 +2,13 @@
 
 > **Status**: Active
 > **Created**: 2026-03-19
-> **Source of truth**: This file. Completed tasks get ~~strikethrough~~.
+> **Source of truth**: This file for tasks. [`structure.md`](structure.md) for folder taxonomy and script assignments.
 > **Branch**: `docs-v2-dev-scripts` (branched off `docs-v2-dev`)
 > **Worktree**: `Docs-v2-dev-scripts`
 > **Merge policy**: Merge back to `docs-v2-dev` after each completed task when safe. Sync any new `docs-v2-dev` changes into worktree before starting next task.
 > **Deletion policy**: No deletions ever. All superseded files go to `x-archive/` via `git mv`. Only archive one script at a time, after its replacement is fully working, tested, and all downstream dependants have updated paths.
 
-<CustomDivider />
+---
 
 ## Workflow
 
@@ -22,7 +22,7 @@ Every task follows this cycle:
 
 No task proceeds without human approval at the checkpoint.
 
-<CustomDivider />
+---
 
 ## Problem statement
 
@@ -44,16 +44,16 @@ where, when, or why.
 **Total scripts across repo: 179** (158 in tools/scripts/, 4 in .githooks/,
 4 in .github/scripts/, 1 in tasks/scripts/, 8 in snippets/automations/, 4 config/data files)
 
-<CustomDivider />
+---
 
 ## Parallel work — not in scope but noted
 
 - **Component restructure** is happening separately. Should not affect this plan.
 - **`/tools` folder restructure** happens AFTER all script work is complete.
 - **`/api` folder** — only moves if it doesn't break Mintlify. May belong in `/tools` not scripts. Deferred.
-- **`/ai-tools`** — skills aren't scripts. Stays out of scope. May belong in `/tools`.
+- **`/ai-tools`** — skills aren't scripts. Stays out of scope. May belong in `/tools`. The `ai/` concern in scripts may later house some of these or move there.
 
-<CustomDivider />
+---
 
 ## Future work — flagged for later plans
 
@@ -61,72 +61,47 @@ where, when, or why.
 - **`ai-tools/` scripts** — organise any operational scripts inside `ai-tools/` using the same model.
 - **Full unused-script sweep** — after restructure is done, run a comprehensive usage audit to find scripts that are never called from any hook, workflow, package.json, or other script.
 
-<CustomDivider />
+---
 
 ## Folder taxonomy
 
 Three-tier model: `<type> / <concern> / <concern-niche>`
 
-Content and governance **always** have niche sub-folders. Components stays flat
-unless volume warrants splitting. Concern-niche definitions need interactive
-refinement — flagged in Task 1.
+All concerns are **homogeneous** — every type folder has the same four concern
+folders. Content and governance **always** have niche sub-folders. Components has
+two enforced niches (`documentation/`, `library/`). AI has niches where populated.
 
-### Layer 1 — type (what the script *does*)
+Full taxonomy index, folder structure, and script assignments are in
+[`structure.md`](structure.md).
 
-| Folder | Purpose | Status |
-|---|---|---|
-| `audits/` | Read-only scan, measure, report | **APPROVED** |
-| `generators/` | Produce files from source-of-truth data | **APPROVED** |
-| `validators/` | Enforce rules, pass/fail gate | **APPROVED** |
-| `remediators/` | Bulk fix/repair | **APPROVED** |
-| `dispatch/` | Dispatch work to agents — codex/AI task lifecycle, cross-agent packaging, pipeline chaining | **APPROVED** |
-| `automations/` | Automated pipelines — translation, external data fetch, feed conversion | **APPROVED** |
-| `config/` | Shared configuration, policy files, and shared utility libraries | **APPROVED** |
-| `x-archive/` | Displaced scripts awaiting final cleanup — nothing is deleted until Task 12 | **APPROVED** |
+### Types (Layer 1)
 
-### Layer 2 — concern (what the script is *about*)
+| Folder | Purpose |
+|---|---|
+| `audits/` | Read-only scan, measure, report |
+| `generators/` | Produce files from source-of-truth data |
+| `validators/` | Enforce rules, pass/fail gate |
+| `remediators/` | Bulk fix/repair |
+| `dispatch/` | Dispatch work to agents, pipeline chaining |
+| `automations/` | Automated pipelines — translation, data fetching, transforms |
 
-Three concerns, used across types:
+### Concerns (Layer 2 — homogeneous across all types)
 
 | Concern | What it covers |
 |---|---|
-| `content/` | Docs pages, copy, SEO, fact-checking, quality, reconciliation |
-| `components/` | Component library, registry, CSS, naming, imports |
+| `content/` | Docs pages, copy, SEO, veracity, quality, reference, reconciliation |
+| `components/` | Component library, registry, CSS, naming, documentation |
 | `governance/` | Scripts about scripts, repo structure, agent docs, manifests, catalogs |
+| `ai/` | AI-adjacent operations — LLM files, agent packaging, skills sync |
 
-### Layer 3 — concern-niche (always for content and governance, where needed for components)
+### Non-type folders
 
-**Content niches** — PENDING interactive refinement in Task 1. Current proposals:
+| Folder | Purpose |
+|---|---|
+| `config/` | Shared configuration, policy files, shared utility libraries |
+| `x-archive/` | All superseded files via `git mv` — no deletions ever |
 
-| Niche | Used in | Scripts |
-|---|---|---|
-| `fact-checking/` | audits | claim validation, evidence, research packets |
-| `quality/` | audits | freshness, usefulness, media assets |
-| `seo/` | generators | sitemap, og-images, seo metadata |
-| `reconciliation/` | generators | content-gap reconciliation |
-| `copy/` | validators | banned words, patterns (lint-copy, lint-patterns) |
-| `structure/` | validators | MDX-safe, double-headers, page-endings, anchors, descriptions, banners |
-| `grammar/` | validators | en-gb grammar, proper-nouns |
-| `style/` | remediators | ownerless-language, homogenizer, wcag |
-| `classification/` | remediators | framework-headers, pagetype, purpose-metadata |
-| `repair/` | remediators | mdx-safe-markdown, spelling, docs-paths, quarantine, migrate-assets |
-
-**Governance niches** — PENDING interactive refinement in Task 1. Current proposals:
-
-| Niche | Used in | Scripts |
-|---|---|---|
-| `scripts/` | audits | script auditing, footprint analysis |
-| `repo/` | audits | tasks-folders, audit orchestrator |
-| `catalogs/` | generators | docs-guide indexes, skills indexes, component indexes |
-| `reports/` | generators | cleanup-matrix, governance-remediation-reports |
-| `compliance/` | validators | ai-tools-registry, codex-task-contract, agent-docs-freshness |
-| `pr/` | validators | component-immutability, pr-template |
-
-### Full target structure
-
-See "2. Folder structure" section at end of plan for the complete tree with tagged scripts.
-
-<CustomDivider />
+---
 
 ## Task 1 — Agree on folder taxonomy (interactive)
 
@@ -136,28 +111,27 @@ No code changes. Just naming decisions.
 ### Tasks
 
 - [ ] **1.1** Review and approve Layer 1 type folders
-- [ ] **1.2** Review and approve Layer 2 concern folders
-- [ ] **1.3** Review and approve content niche folders across all types (see proposals above)
-- [ ] **1.4** Review and approve governance niche folders across all types (see proposals above)
-- [ ] **1.5** Lock the taxonomy — mark all items as APPROVED in this plan
+- [ ] **1.2** Review and approve Layer 2 concern folders (content, components, governance, ai)
+- [ ] **1.3** Review and approve niche folders per type × concern (see [`structure.md`](structure.md))
+- [ ] **1.4** Lock the taxonomy — mark all items as APPROVED in structure.md
 
-<CustomDivider />
+---
 
 ## Task 2 — Set up worktree and move dead code to x-archive
 
-**Goal**: Create the working worktree. Move confirmed dead scripts to `x-archive/` (no deletions).
+**Goal**: Create the working worktree. Move confirmed dead scripts to `x-archive/` via `git mv`.
 
 ### Tasks
 
 - [ ] **2.1** Create worktree: `git worktree add ../Docs-v2-dev-scripts -b docs-v2-dev-scripts docs-v2-dev`
 - [ ] **2.2** Create `tools/scripts/x-archive/` folder
-- [ ] **2.3** Move the 7 confirmed dead scripts to `x-archive/` (not delete)
-- [ ] **2.4** Update any import paths or references that would break with the moved scripts (point them to the replacement scripts or remove dead references)
+- [ ] **2.3** `git mv` the 8 confirmed dead scripts to `x-archive/`
+- [ ] **2.4** Update any import paths or references that would break (point to replacements or remove dead references)
 - [ ] **2.5** **CHECKPOINT** — show diff to human for approval
 - [ ] **2.6** Commit + merge back to `docs-v2-dev`
 - [ ] **2.7** Strikethrough completed tasks in this plan
 
-### Confirmed dead scripts (move to x-archive)
+### Confirmed dead scripts (git mv to x-archive)
 
 | Script | Reason |
 |---|---|
@@ -168,16 +142,15 @@ No code changes. Just naming decisions.
 | `dev/replace-og-image.py` | Deprecated — header says use canonical workflow |
 | `codex-safe-merge-with-stash.js` | Compatibility shim — directs to task-finalize |
 | `verify/.verify-large-change.sh` | No-op placeholder |
+| `redirects/sync-legacy-root-v1.js` | Not needed |
 
-<CustomDivider />
+---
 
 ## Task 3 — Gut the pre-commit hook
 
-**Goal**: Reduce pre-commit to &lt; 5 seconds. Move everything else to GitHub Actions
-workflows that run on pull requests (`test-suite.yml`, `codex-governance.yml`, etc.)
+**Goal**: Reduce pre-commit to < 5 seconds. Move everything else to GitHub Actions
+workflows triggered on `pull_request` events (`test-suite.yml`, `codex-governance.yml`, etc.)
 or to scheduled cron workflows that self-heal.
-
-"PR CI" = GitHub Actions CI workflows triggered on `pull_request` events.
 
 ### Hard gates (KEEP in pre-commit)
 
@@ -202,38 +175,39 @@ or to scheduled cron workflows that self-heal.
 - [ ] **3.9** Move generated artifact freshness checks to PR workflows (workflow can regen + commit)
 - [ ] **3.10** Move component registry freshness to PR workflows (workflow can regen + commit)
 - [ ] **3.11** **CHECKPOINT** — show new pre-commit + workflow changes to human
-- [ ] **3.12** Verify the slimmed pre-commit runs in &lt; 5 seconds on a typical commit
-- [ ] **3.13** Move old pre-commit to `x-archive/pre-commit-v1`
+- [ ] **3.12** Verify the slimmed pre-commit runs in < 5 seconds on a typical commit
+- [ ] **3.13** `git mv` old pre-commit to `x-archive/pre-commit-v1`
 - [ ] **3.14** Update `.githooks/README.md` and `BYPASS.md` to reflect new scope
 - [ ] **3.15** Commit + merge back to `docs-v2-dev`
 - [ ] **3.16** Strikethrough completed tasks in this plan
 
-<CustomDivider />
+---
 
 ## Task 4 — Restructure scripts into approved folders
 
-**Goal**: Move every script into its approved `<type>/<concern>/<concern-niche>` home.
+**Goal**: Move every script into its approved `<type>/<concern>/<concern-niche>` home
+per [`structure.md`](structure.md).
 
 **Safety rule**: Move one script (or one tight group) at a time. After each move:
 1. Update all downstream paths (package.json, workflows, hooks, imports)
 2. Verify the moved script still works
-3. Only then move the original to `x-archive/`
+3. Only then `git mv` the original to `x-archive/`
 
 ### Tasks
 
 - [ ] **4.1** Sync worktree with latest `docs-v2-dev`
-- [ ] **4.2** Create all approved folders (types, concerns, niches)
-- [ ] **4.3** Move audit scripts — one group at a time, verify, x-archive originals
-- [ ] **4.4** Move generator scripts — one group at a time, verify, x-archive originals
-- [ ] **4.5** Promote existing validators — move root-level validators in, verify, x-archive
-- [ ] **4.6** Promote existing remediators — move root-level remediators in, verify, x-archive
-- [ ] **4.7** Create `dispatch/` — absorb `codex/`, `orchestrators/`, root dispatch scripts, verify, x-archive
-- [ ] **4.8** Create `automations/` — absorb `snippets/` fetch scripts, `i18n/` → `translation/`, redirects, rss, verify, x-archive
-- [ ] **4.9** Move `enforcers/` content into `validators/governance/`, verify, x-archive
-- [ ] **4.10** Move `dev/` contents to `/tools/dev/`, verify, x-archive
-- [ ] **4.11** Move shared config/policy files to `config/`
-- [ ] **4.12** Move `tasks/scripts/audit-python.py` to `audits/governance/`
-- [ ] **4.13** **CHECKPOINT** — show full tree to human for approval
+- [ ] **4.2** Create all approved folders (types, concerns incl. `ai/`, niches)
+- [ ] **4.3** Move audit scripts — `content/quality/`, `content/veracity/`, `components/documentation/`, `governance/scripts/`, `governance/repo/`
+- [ ] **4.4** Move generator scripts — `content/catalogs/`, `content/seo/`, `content/reconciliation/`, `content/reference/`, `components/documentation/`, `components/library/`, `governance/catalogs/`, `governance/reports/`, `governance/scaffold/`, `ai/llm/`
+- [ ] **4.5** Promote existing validators — `content/copy/`, `content/structure/`, `content/grammar/`, `components/documentation/`, `components/library/`, `governance/compliance/`, `governance/pr/`
+- [ ] **4.6** Promote existing remediators — `content/repair/`, `content/style/`, `content/classification/`, `components/library/`
+- [ ] **4.7** Create `dispatch/` — `governance/codex/`, `governance/pipelines/`, `ai/agents/`
+- [ ] **4.8** Create `automations/` — `content/language-translation/` (preserve lib/ and test/ sub-structure), `content/data/fetching/`, `content/data/transforms/`
+- [ ] **4.9** Move `enforcers/` content into `validators/governance/pr/`
+- [ ] **4.10** Move `dev/` contents to `/tools/dev/`
+- [ ] **4.11** Create `config/` — move shared config/policy/library files
+- [ ] **4.12** Move `tasks/scripts/audit-python.py` to `audits/governance/repo/`
+- [ ] **4.13** **CHECKPOINT** — show full tree to human, verify against [`structure.md`](structure.md)
 - [ ] **4.14** Update `tools/package.json` script paths
 - [ ] **4.15** Update `tests/package.json` script paths
 - [ ] **4.16** Update all `.github/workflows/` referencing moved scripts
@@ -244,7 +218,7 @@ or to scheduled cron workflows that self-heal.
 - [ ] **4.21** Commit + merge back to `docs-v2-dev`
 - [ ] **4.22** Strikethrough completed tasks in this plan
 
-<CustomDivider />
+---
 
 ## Task 5 — Review script naming and single-purpose (interactive)
 
@@ -261,12 +235,12 @@ or to scheduled cron workflows that self-heal.
 - [ ] **5.3** Human approves rename list and split list
 - [ ] **5.4** Execute approved renames
 - [ ] **5.5** Execute approved splits (create new scripts, update callers)
-- [ ] **5.6** Move originals of split scripts to `x-archive/`
+- [ ] **5.6** `git mv` originals of split scripts to `x-archive/`
 - [ ] **5.7** **CHECKPOINT** — show results to human
 - [ ] **5.8** Commit + merge back to `docs-v2-dev`
 - [ ] **5.9** Strikethrough completed tasks in this plan
 
-<CustomDivider />
+---
 
 ## Task 6 — Consolidate overlapping scripts (interactive)
 
@@ -292,19 +266,18 @@ purposes just because they touch similar areas.
 - [ ] **6.3** Human approves consolidation list
 - [ ] **6.4** Execute approved consolidations
 - [ ] **6.5** Update all callers (package.json, workflows, orchestrator)
-- [ ] **6.6** Move originals to `x-archive/` with note pointing to replacement
+- [ ] **6.6** `git mv` originals to `x-archive/` with note pointing to replacement
 - [ ] **6.7** **CHECKPOINT** — show results to human
 - [ ] **6.8** Commit + merge back to `docs-v2-dev`
 - [ ] **6.9** Strikethrough completed tasks in this plan
 
-<CustomDivider />
+---
 
 ## Task 7 — Audit x-archive and legacy scripts (interactive)
 
-**Goal**: Understand what's in x-archive and legacy. No deletions yet — just classification.
+**Goal**: Understand what's in x-archive and legacy. No deletions — just classification.
 
-> **CHECKPOINT**: Interactive review. Present findings, human decides what stays
-> and what gets flagged for deletion in the cleanup phase.
+> **CHECKPOINT**: Interactive review. Present findings, human decides classification.
 
 ### Tasks
 
@@ -313,11 +286,12 @@ purposes just because they touch similar areas.
 - [ ] **7.3** **INTERACTIVE** — audit `archive/legacy/` (14 scripts) — flag unique logic vs pure duplicates
 - [ ] **7.4** **INTERACTIVE** — audit `archive/deprecated/` (2 scripts) and `archive/fixtures/` (2 files)
 - [ ] **7.5** Human approves classification
-- [ ] **7.6** Update `x-archive/` with README documenting classification and deletion schedule
-- [ ] **7.7** Commit + merge back to `docs-v2-dev`
-- [ ] **7.8** Strikethrough completed tasks in this plan
+- [ ] **7.6** `git mv` any remaining `archive/` contents into `x-archive/`
+- [ ] **7.7** Update `x-archive/` with README documenting classification
+- [ ] **7.8** Commit + merge back to `docs-v2-dev`
+- [ ] **7.9** Strikethrough completed tasks in this plan
 
-<CustomDivider />
+---
 
 ## Task 8 — Performance and optimisation
 
@@ -334,7 +308,7 @@ error handling. Script-by-script review.
 - [ ] **8.6** Commit + merge back to `docs-v2-dev`
 - [ ] **8.7** Strikethrough completed tasks in this plan
 
-<CustomDivider />
+---
 
 ## Task 9 — Define governance tiers + documentation
 
@@ -379,7 +353,7 @@ One source of truth for script documentation and auto-generation.
 - [ ] **9.15** Commit + merge back to `docs-v2-dev`
 - [ ] **9.16** Strikethrough completed tasks in this plan
 
-<CustomDivider />
+---
 
 ## Task 10 — Full testing
 
@@ -398,7 +372,7 @@ One source of truth for script documentation and auto-generation.
 - [ ] **10.9** Commit + merge back to `docs-v2-dev`
 - [ ] **10.10** Strikethrough completed tasks in this plan
 
-<CustomDivider />
+---
 
 ## Task 11 — Root restructure: create `/operations`
 
@@ -429,14 +403,14 @@ This task runs after all internal script restructuring is complete and tested.
 
 - [ ] **11.1** Sync worktree with latest `docs-v2-dev`
 - [ ] **11.2** Create `/operations` root directory
-- [ ] **11.3** Move `tools/scripts/` to `/operations/scripts/`
-- [ ] **11.4** Move `tests/` to `/operations/tests/`
+- [ ] **11.3** `git mv` `tools/scripts/` to `/operations/scripts/`
+- [ ] **11.4** `git mv` `tests/` to `/operations/tests/`
 - [ ] **11.5** Update all path references (package.json, workflows, hooks, imports, docs)
 - [ ] **11.6** **CHECKPOINT** — show full tree + test results to human
 - [ ] **11.7** Commit + merge back to `docs-v2-dev`
 - [ ] **11.8** Strikethrough completed tasks in this plan
 
-<CustomDivider />
+---
 
 ## Task 12 — Full cleanup
 
@@ -447,14 +421,14 @@ files stay in `x-archive/` via `git mv` to preserve history.
 
 - [ ] **12.1** Sync worktree with latest `docs-v2-dev`
 - [ ] **12.2** Review `x-archive/` contents — confirm each item has a working replacement and no remaining live references
-- [ ] **12.3** Verify `archive/legacy/` and `archive/deprecated/` are reconciled per Task 7 decisions (move to `x-archive/` if not already)
+- [ ] **12.3** Verify all old `archive/` contents are reconciled into `x-archive/`
 - [ ] **12.4** Add README to `x-archive/` documenting what's in there and why
 - [ ] **12.5** Final grep for any orphaned references to old paths
 - [ ] **12.6** **CHECKPOINT** — show clean state to human
 - [ ] **12.7** Commit + merge back to `docs-v2-dev`
 - [ ] **12.8** Strikethrough completed tasks in this plan
 
-<CustomDivider />
+---
 
 ## Task 13 — Final merge to docs-v2-dev
 
@@ -468,7 +442,7 @@ files stay in `x-archive/` via `git mv` to preserve history.
 - [ ] **13.4** **CHECKPOINT** — confirm with human
 - [ ] **13.5** Strikethrough completed tasks in this plan
 
-<CustomDivider />
+---
 
 ## Task 14 — Close out
 
@@ -482,7 +456,7 @@ files stay in `x-archive/` via `git mv` to preserve history.
 - [ ] **14.4** Move this plan to `tasks/plan/completed/`
 - [ ] **14.5** Strikethrough all remaining tasks
 
-<CustomDivider />
+---
 
 ## Execution summary
 
@@ -499,11 +473,11 @@ files stay in `x-archive/` via `git mv` to preserve history.
 | **9** | Governance tiers + documentation | Before tier assignments |
 | **10** | Full testing | Before merge |
 | **11** | Root restructure to `/operations` | Before merge |
-| **12** | Full cleanup (x-archive emptying) | Before deletions |
+| **12** | Full cleanup (x-archive reconciliation) | Before merge |
 | **13** | Final merge to docs-v2-dev | Before merge |
 | **14** | Close out | Final review |
 
-<CustomDivider />
+---
 
 ## Notes
 
