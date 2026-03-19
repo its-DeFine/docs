@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-18T08:14:20.719Z",
+  "generated": "2026-03-19T06:48:26.593Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -1796,8 +1796,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 169,
-      "lastVerified": "2026-03-17T06:36:42+11:00",
+      "wordCount": 2507,
+      "lastVerified": "2026-03-19T16:50:13+11:00",
       "headings": [
         {
           "level": 2,
@@ -1809,47 +1809,31 @@
         },
         {
           "level": 4,
-          "text": "**Controller**: <Subtitle text=\"Contract Registry\" />"
+          "text": "**Controller** <Subtitle text=\"Contract Registry\" />"
         },
         {
           "level": 4,
-          "text": "**BondingManager**: <Subtitle text=\"Staking & Delegation\" />"
+          "text": "**BondingManager** <Subtitle text=\"Staking and Delegation\" />"
         },
         {
           "level": 4,
-          "text": "**TicketBroker**: <Subtitle text=\"Probabilistic Micropayments\" />"
+          "text": "**RoundsManager** <Subtitle text=\"Protocol Time Management\" />"
         },
         {
           "level": 4,
-          "text": "**RoundsManager**: <Subtitle text=\"Protocol Time Management\" />"
-        },
-        {
-          "level": 4,
-          "text": "**Minter**: <Subtitle text=\"Token Inflation\" />"
-        },
-        {
-          "level": 4,
-          "text": "**ServiceRegistry**: <Subtitle text=\"Orchestrator Discovery\" />"
-        },
-        {
-          "level": 4,
-          "text": "**MerkleSnapshot**"
+          "text": "**AIServiceRegistry** <Subtitle text=\"AI Capability Registration\" />"
         },
         {
           "level": 2,
-          "text": "Token & Utility Contracts"
+          "text": "Token and Utility Contracts"
         },
         {
           "level": 4,
-          "text": "**LivepeerToken (LPT)**: <Subtitle text=\"ERC20 Token\" />"
+          "text": "**LivepeerToken (LPT)** <Subtitle text=\"ERC-20 Token\" />"
         },
         {
           "level": 4,
-          "text": "**BridgeMinter**: <Subtitle text=\"Token Bridge\" />"
-        },
-        {
-          "level": 4,
-          "text": "**LivepeerTokenFaucet**: <Subtitle text=\"Test Token Distribution\" />"
+          "text": "**LivepeerTokenFaucet** <Subtitle text=\"Test Token Distribution\" />"
         },
         {
           "level": 2,
@@ -1857,20 +1841,19 @@
         },
         {
           "level": 4,
-          "text": "**Governor**: <Subtitle text=\"Contract Upgrades\" />"
+          "text": "**BondingVotes** <Subtitle text=\"Voting Power Checkpointing\" />"
         },
         {
           "level": 4,
-          "text": "**LivepeerGovernor**: <Subtitle text=\" Protocol Governance\" />"
+          "text": "**Treasury** <Subtitle text=\"Protocol Treasury\" />"
         },
         {
-          "level": 4,
-          "text": "**Treasury**: <Subtitle text=\"On-chain Treasury Management\" />"
+          "level": 2,
+          "text": "Full Address Reference"
         }
       ],
       "codeLanguages": [
-        "`mermaid",
-        "text"
+        "mermaid"
       ]
     },
     {
@@ -11473,7 +11456,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/technical/contract-addresses",
       "title": "Contract Addresses",
-      "description": "Look up current Livepeer protocol contract addresses across supported networks and deployed versions — Arbitrum Mainnet (active) and Ethereum Mainnet (legacy).",
+      "description": "Look up current Livepeer protocol contract addresses across supported networks and deployed versions — Arbitrum One (active) and Ethereum Mainnet (legacy).",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -11492,8 +11475,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 338,
-      "lastVerified": "2026-03-17T06:36:42+11:00",
+      "wordCount": 342,
+      "lastVerified": "2026-03-19T16:50:13+11:00",
       "headings": [
         {
           "level": 2,
@@ -11501,7 +11484,7 @@
         },
         {
           "level": 3,
-          "text": "Arbitrum Mainnet"
+          "text": "Arbitrum One"
         },
         {
           "level": 3,
@@ -11509,11 +11492,11 @@
         },
         {
           "level": 2,
-          "text": "Historical (DEPRECATED - FOR REFERENCE ONLY)"
+          "text": "Historical (DEPRECATED — FOR REFERENCE ONLY)"
         },
         {
           "level": 3,
-          "text": "Arbitrum Mainnet"
+          "text": "Arbitrum One"
         },
         {
           "level": 4,
@@ -13758,30 +13741,22 @@
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/guides/operator-considerations/operator-rationale",
-      "title": "Operating Rationale",
-      "description": "Cost categories, revenue sources, viability thresholds, and a decision matrix for evaluating whether running a Livepeer Orchestrator makes sense for your situation.",
+      "title": "Operator Rationale",
+      "description": "",
       "section": "orchestrators",
       "tags": [
-        "livepeer",
-        "orchestrator",
-        "feasibility",
-        "worth-it",
-        "economics",
-        "lpt-stake",
-        "cost-analysis",
-        "earnings-potential",
-        "pool-worker",
-        "solo-orchestrator",
-        "ai-inference",
-        "operating-rationale"
+        "orchestrators",
+        "guides",
+        "operator-considerations",
+        "operator-rationale"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1777,
-      "lastVerified": "2026-03-15",
+      "wordCount": 1870,
+      "lastVerified": "2026-03-19T16:50:13+11:00",
       "headings": [
         {
           "level": 2,
@@ -22394,6 +22369,58 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/resources/changelog/go-livepeer",
+      "title": "go-livepeer changelog",
+      "description": "Notable releases and improvements to the Livepeer node software (go-livepeer). Covers new features, updates, and bug fixes that affect gateway operators, orchestrators, and developers.",
+      "section": "resources",
+      "tags": [
+        "livepeer",
+        "go-livepeer",
+        "changelog",
+        "releases",
+        "node",
+        "gateway",
+        "orchestrator",
+        "resources"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 541,
+      "lastVerified": "2026-03-18T18:00:11+11:00",
+      "headings": [
+        {
+          "level": 3,
+          "text": "New features"
+        },
+        {
+          "level": 3,
+          "text": "Updates"
+        },
+        {
+          "level": 3,
+          "text": "Bug fixes"
+        },
+        {
+          "level": 3,
+          "text": "New features"
+        },
+        {
+          "level": 3,
+          "text": "Updates"
+        },
+        {
+          "level": 3,
+          "text": "Bug fixes"
+        },
+        {
+          "level": 2,
+          "text": "Related resources"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
       "url": "https://docs.livepeer.org/v2/resources/changelog/migration-guide",
       "title": "Migration Guide",
       "description": "",
@@ -23504,8 +23531,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "advanced",
-      "wordCount": 2104,
-      "lastVerified": "2026-03-17T06:29:40+11:00",
+      "wordCount": 2116,
+      "lastVerified": "2026-03-19T16:50:13+11:00",
       "headings": [
         {
           "level": 2,
@@ -24760,8 +24787,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 956,
-      "lastVerified": "2026-03-17T01:02:34+11:00",
+      "wordCount": 981,
+      "lastVerified": "2026-03-19T16:50:13+11:00",
       "headings": [
         {
           "level": 1,
@@ -24851,8 +24878,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 652,
-      "lastVerified": "2026-03-17T06:29:05+11:00",
+      "wordCount": 683,
+      "lastVerified": "2026-03-19T16:50:13+11:00",
       "headings": [
         {
           "level": 2,
