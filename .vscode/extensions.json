@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "esbenp.prettier-vscode",
+    "livepeer.livepeer-authoring-tools",
     "unifiedjs.vscode-mdx",
     "dbaeumer.vscode-eslint",
     "webben.browserslist",

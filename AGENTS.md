@@ -31,6 +31,7 @@ Call out conflicts explicitly instead of guessing.
 - Install hooks before substantial work: `./.githooks/install.sh`
 - Do not use `--no-verify` by default.
 - If a human explicitly authorizes a bypass, follow `ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md`.
+- Never use port `3000` for local Mintlify, preview, or browser-validation sessions in this repository; choose a non-3000 port explicitly.
 - Do not use `git reset --hard`, `git stash`, or `git push --force` unless a human explicitly directs it.
 - Do not delete tracked files casually. File deletions require a human-owned commit with `--trailer "allow-deletions=true"`.
 - Do not make the final `.allowlist` commit yourself. A human must commit `.allowlist` edits with `--trailer "allowlist-edit=true"`.

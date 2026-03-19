@@ -63,6 +63,7 @@ These rules must live in the canonical cross-agent baseline and must not drift b
 
 - destructive git safety
 - hook and validation policy
+- local preview port policy (`3000` forbidden for agent-run Mintlify/preview sessions)
 - root allowlist policy
 - source-of-truth order
 - `v1` freeze / legacy content boundary
@@ -101,6 +102,7 @@ Every supported agent must be grounded in the same repo knowledge set:
 | Internal governance and architecture map | `docs-guide/**` |
 | Current user-facing docs | `v2/**` |
 | Hook and structure enforcement | `.githooks/pre-commit`, `.githooks/pre-push` |
+| Local preview port policy | `AGENTS.md`, native adapter files, contributor agent instructions |
 | Root governance | `docs-guide/policies/root-allowlist-governance.mdx` |
 | Agent governance | `docs-guide/policies/agent-governance-framework.mdx` |
 | Validator enforcement | `tools/scripts/validators/governance/*` |

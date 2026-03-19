@@ -9,6 +9,7 @@
 - **NEVER** run `git reset` (soft/hard/mixed) without explicit user permission
 - **DEFAULT:** do not use `--no-verify` to bypass hooks
 - **EXCEPTION:** only when explicitly instructed by a human in-thread, `git commit --no-verify` is allowed with audit metadata per `ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md`
+- **NEVER** use port `3000` for local Mintlify, preview, or browser-validation sessions; choose a non-3000 port explicitly
 - **NEVER** modify git history or remote state
 - **ALWAYS** ask before ANY git operation that could lose work
 
@@ -139,7 +140,7 @@
 
 ```bash
 npm i -g mintlify
-mint dev
+mint dev --port 3001
 ```
 
 ### Docker Build

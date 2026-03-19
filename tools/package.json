@@ -25,8 +25,13 @@
     "unified": "^11.0.5"
   },
   "scripts": {
+    "codex:chat:list": "node scripts/dev/rename-vscode-codex-chat.js --list",
+    "codex:chat:rename": "node scripts/dev/rename-vscode-codex-chat.js",
+    "vscode:authoring-tools:install": "node scripts/install-authoring-tools-extension.js",
+    "vscode:authoring-tools:package": "cd vscode/authoring-tools && ../../node_modules/.bin/vsce package -o livepeer-authoring-tools.vsix",
     "vscode:markdown-list:package": "cd vscode/markdown-list && ../../node_modules/.bin/vsce package -o livepeer-markdown-list-tools.vsix",
-    "format-mdx": "node convert-jsx-comments-to-markdown.js '**/*.mdx' && prettier --write '**/*.mdx'",
+    "format-mdx": "node scripts/format-mdx.js --write",
+    "format-mdx:check": "node scripts/format-mdx.js --check",
     "audit:scripts": "node scripts/audit-scripts.js",
     "audit:repo": "node scripts/repo-audit-orchestrator.js --mode static --scope full",
     "audit:repo:changed": "node scripts/repo-audit-orchestrator.js --mode static --scope changed",

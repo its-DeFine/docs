@@ -8,6 +8,7 @@
 - **EXCEPTION:** A human may explicitly authorize `--no-verify` in-thread; if so,
   follow [`ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md`](../ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md)
   (requires `ALLOW_HUMAN_NO_VERIFY=1` and commit trailers).
+- **NEVER** use port `3000` for local Mintlify, preview, or browser-validation sessions; choose a non-3000 port explicitly.
 - **NEVER** perform a `git reset --hard` or `git push --force` without an
   explicit, multi-turn plan confirmed by the user.
 - **NEVER** use `git stash` for AI task isolation in this repository.
@@ -82,7 +83,7 @@ Before asking for a commit, you should ideally run these to ensure code quality:
 
 ```bash
 # Verify build
-mint dev
+mint dev --port 3001
 ```
 
 # Run local test suite

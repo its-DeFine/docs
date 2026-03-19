@@ -19,6 +19,7 @@ const path = require('path');
 const styleGuideTests = require('./unit/style-guide.test');
 const copyLintTests = require('./unit/copy-lint.test');
 const mdxTests = require('./unit/mdx.test');
+const authoringToolsTests = require('./unit/authoring-tools.test');
 const mdxGuardsTests = require('./unit/mdx-guards.test');
 const mdxSafeMarkdownUnitTests = require('./unit/mdx-safe-markdown.test');
 const docsPageScopeTests = require('./unit/docs-page-scope.test');
@@ -182,6 +183,12 @@ async function runAllTests() {
   totalErrors += mdxResult.errors.length;
   totalWarnings += mdxResult.warnings.length;
   console.log(`   ${mdxResult.errors.length} errors, ${mdxResult.warnings.length} warnings`);
+
+  console.log('\n🛠️  Running Authoring Tools Unit Tests...');
+  const authoringToolsResult = normalizeSuiteResult(authoringToolsTests.runTests());
+  totalErrors += authoringToolsResult.errors.length;
+  totalWarnings += authoringToolsResult.warnings.length;
+  console.log(`   ${authoringToolsResult.errors.length} errors, ${authoringToolsResult.warnings.length} warnings`);
 
   // Duplicate Header Validation
   console.log('\n🪞 Running Duplicate Header Validation...');

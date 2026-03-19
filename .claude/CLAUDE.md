@@ -8,3 +8,4 @@ policy in:
 - `AGENTS.md`
 - `docs-guide/policies/agent-governance-framework.mdx`
 - `docs-guide/policies/root-allowlist-governance.mdx`
+- Do not use port `3000` for local Mintlify or preview sessions; choose a non-3000 port explicitly.

@@ -108,7 +108,7 @@ Applying the docs-section-planning-playbook to the Gateways tab. This is a delta
 |-------|--------|----------|
 | "Run A Gateway" section overlaps with Setup | Nested groups in "Run A Gateway" duplicate setup content | ⚠️ HUMAN REVIEW |
 | Quickstart is actually Setup | `gateway-setup.mdx` (10KB) with View components is a full setup flow, not a quickstart | ⚠️ HUMAN REVIEW |
-| No genuine quickstart exists | The quickstart should be &lt;1 hour, no financial commitment. Current "quickstart" requires on-chain configuration. | ⚠️ HUMAN REVIEW |
+| No genuine quickstart exists | The quickstart should take under 1 hour with no financial commitment. Current "quickstart" requires on-chain configuration. | ⚠️ HUMAN REVIEW |
 | Tutorials section has tutorials-resources.mdx (458 lines) | This is a reference page in a tutorials section | ⚠️ HUMAN REVIEW |
 | byoc-cpu-tutorial.mdx exists alongside zero-to-hero tutorials | Two tutorial systems coexist | ⚠️ HUMAN REVIEW |
 

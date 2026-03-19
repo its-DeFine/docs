@@ -23,6 +23,54 @@ SCOPE_TABS="${LPD_MINT_SCOPE_TABS:-}"
 SCOPE_PREFIXES="${LPD_MINT_SCOPE_PREFIXES:-}"
 DISABLE_OPENAPI="${LPD_MINT_DISABLE_OPENAPI:-0}"
 MINT_LOCK_FILE=""
+DEFAULT_MINT_PORT="${LPD_MINT_DEFAULT_PORT:-3333}"
+
+has_explicit_port=0
+explicit_port_value=""
+
+parse_port_args() {
+    local expect_value=0
+    local arg
+
+    has_explicit_port=0
+    explicit_port_value=""
+
+    for arg in "$@"; do
+        if [ "$expect_value" = "1" ]; then
+            has_explicit_port=1
+            explicit_port_value="$arg"
+            expect_value=0
+            continue
+        fi
+
+        case "$arg" in
+            --port)
+                expect_value=1
+                ;;
+            --port=*)
+                has_explicit_port=1
+                explicit_port_value="${arg#--port=}"
+                ;;
+            -p)
+                expect_value=1
+                ;;
+            -p*)
+                if [ "$arg" != "-p" ]; then
+                    has_explicit_port=1
+                    explicit_port_value="${arg#-p}"
+                fi
+                ;;
+        esac
+    done
+}
+
+enforce_safe_port() {
+    if [ "$has_explicit_port" = "1" ] && [ "$explicit_port_value" = "3000" ]; then
+        echo "Error: port 3000 is reserved and must not be used for local Mintlify sessions in this repository." >&2
+        echo "Use a non-3000 port such as: lpd dev -- --port 3333" >&2
+        exit 1
+    fi
+}
 
 # chokidar treats glob metacharacters in watch paths as patterns. If the repo
 # path includes brackets (common in worktree names), change events can be lost.
@@ -165,6 +213,14 @@ fi
 
 echo "Fetching external snippets..."
 bash tools/scripts/snippets/fetch-external-docs.sh
+
+parse_port_args "$@"
+enforce_safe_port
+
+if [ "$has_explicit_port" != "1" ]; then
+    echo "No explicit Mint port provided. Defaulting to port $DEFAULT_MINT_PORT."
+    set -- "$@" --port "$DEFAULT_MINT_PORT"
+fi
 
 if [ "$SCOPED_MODE" != "1" ] && [ "$DISABLE_OPENAPI" = "1" ]; then
     echo "Warning: --disable-openapi has no effect without --scoped."

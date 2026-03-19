@@ -16,6 +16,10 @@ Before making any changes, agents MUST ensure git hooks are installed:
 ./.githooks/install.sh
 ```
 
+## MANDATORY: Local Preview Port Rule
+
+Agents must not use port `3000` for local Mintlify, preview, or browser-validation sessions in this repository. Choose a non-3000 port explicitly.
+
 ## Codex Task Isolation Standard (Implementation Tasks)
 
 For implementation work on agent branches, use:
@@ -237,7 +241,7 @@ git reset HEAD test-violation.jsx
 
 ```bash
 # Start mint dev in one terminal
-mint dev
+mint dev --port 3001
 
 # In another terminal, create a test MDX file
 echo '---\ntitle: Test\n---\n# Test' > v2/pages/test.mdx

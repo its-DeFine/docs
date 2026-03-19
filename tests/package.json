@@ -6,6 +6,7 @@
     "test": "node run-all.js",
     "test:style": "node unit/style-guide.test.js",
     "test:mdx": "node unit/mdx.test.js",
+    "test:authoring-tools": "node unit/authoring-tools.test.js",
     "test:mdx:guards": "node unit/mdx-guards.test.js",
     "test:mdx:safe": "node ../tools/scripts/validators/content/check-mdx-safe-markdown.js",
     "test:mdx:safe:unit": "node unit/mdx-safe-markdown.test.js",

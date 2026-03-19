@@ -22,12 +22,6 @@
     "Formatters",
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:livepeer.formatSelectionAsBulletedList",
-    "onCommand:livepeer.formatSelectionAsNumberedList",
-    "onCommand:livepeer.formatSelectionAsList",
-    "onCommand:livepeer.formatSelectionAsCsv"
-  ],
   "main": "./extension.js",
   "contributes": {
     "configuration": {

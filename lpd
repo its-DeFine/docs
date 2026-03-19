@@ -96,7 +96,7 @@ Usage:
 
 Examples:
   lpd dev
-    - Starts local docs development server with default options.
+    - Starts local docs development server on the default non-3000 port (3333 unless overridden).
 
   lpd dev --test --test-mode staged -- --port 3333
     - Runs staged checks, then launches docs server on port 3333.
@@ -128,6 +128,7 @@ Examples:
 Notes:
   - `lpd setup` syncs the repo planning skill to `$CODEX_HOME/skills` (fallback: `~/.codex/skills`) unless `--no-codex-skills` is used.
   - `lpd dev` auto-installs/updates pre-commit hooks via tools/scripts/mint-dev.sh.
+  - `lpd dev` defaults to port 3333 when no port is provided and rejects port 3000.
   - Human `.allowlist` edits require: `git commit -m "msg" --trailer "allowlist-edit=true"`.
   - Human deletions require: `git commit -m "msg" --trailer "allow-deletions=true"`.
   - Script discovery supports `.lpdignore` (gitignore-style patterns) if present in repo root.
@@ -196,6 +197,7 @@ Common Workflows:
 
 Notes:
   - `lpd setup` syncs the repo planning skill to `$CODEX_HOME/skills` (fallback: `~/.codex/skills`) unless `--no-codex-skills` is used.
+  - `lpd dev` defaults to port 3333 when no port is provided and rejects port 3000.
   - lpd uses .lpdignore (if present) to hide/block scripts from discovery and execution.
   - Human `.allowlist` edits require: `git commit -m "msg" --trailer "allowlist-edit=true"`.
   - Human deletions require: `git commit -m "msg" --trailer "allow-deletions=true"`.

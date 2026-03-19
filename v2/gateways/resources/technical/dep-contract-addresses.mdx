@@ -1,7 +1,7 @@
 ---
 title: Contract Addresses
 sidebarTitle: Contract Addresses
-description: 'Look up current Livepeer protocol contract addresses across supported networks and deployed versions — Arbitrum One (active) and Ethereum Mainnet (legacy).'
+description: 'Look up current Livepeer protocol contract addresses across supported networks and deployed versions — Arbitrum Mainnet (active) and Ethereum Mainnet (legacy).'
 purpose: reference
 keywords:
   - livepeer
@@ -14,28 +14,44 @@ keywords:
   - ticketbroker
 pageType: 'reference'
 audience: gateway-operator
-lastVerified: 2026-03-18
+lastVerified: 2026-03-17
 'og:image': /snippets/assets/site/og-image/fallback.png
 'og:image:alt': Livepeer Docs social preview image
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
 ---
+{/*
+  SOURCE: Ported from v2/resources/references/contract-addresses.mdx (docs-v2 branch)
+  Also informed by v2/about/resources/blockchain-contracts.mdx (architecture context)
+
+  Gateway-relevant contracts highlighted:
+  - TicketBroker (Proxy): deposit/reserve management, ticket redemptions
+  - ServiceRegistry: video orchestrator service URI registration
+  - AIServiceRegistry: AI orchestrator capability registration
+  - BondingManager: staking, orchestrator selection
+  - RoundsManager: protocol round management
+
+  CROSS-REFS:
+  - Guides → Monitoring & Troubleshooting → Tools & Dashboards (Arbiscan section)
+  - Guides → Monitoring & Troubleshooting → Monitoring Setup (On-Chain Monitoring section)
+  - Guides → Payments & Pricing → Fund Your Gateway (deposit/reserve via TicketBroker)
+*/}
 
 Addresses of deployed contracts of the Livepeer protocol on multiple networks.
 
 ## Current
 
-### Arbitrum One
+### Arbitrum Mainnet
 
-All contracts on Arbitrum One implement the Delta version of the protocol.
+All contracts on Arbitrum Mainnet implement the Delta version of the protocol.
 
 - **Governor**: [`0xD9dEd6f9959176F0A04dcf88a0d2306178A736a6`](https://arbiscan.io/address/0xD9dEd6f9959176F0A04dcf88a0d2306178A736a6)
 - **Controller**: [`0xD8E8328501E9645d16Cf49539efC04f734606ee4`](https://arbiscan.io/address/0xD8E8328501E9645d16Cf49539efC04f734606ee4)
 - **LivepeerToken**: [`0x289ba1701C2F088cf0faf8B3705246331cB8A839`](https://arbiscan.io/address/0x289ba1701C2F088cf0faf8B3705246331cB8A839)
 - **Minter**: [`0xc20DE37170B45774e6CD3d2304017fc962f27252`](https://arbiscan.io/address/0xc20DE37170B45774e6CD3d2304017fc962f27252)
 - **BondingManager (Proxy)**: [`0x35Bcf3c30594191d53231E4FF333E8A770453e40`](https://arbiscan.io/address/0x35Bcf3c30594191d53231E4FF333E8A770453e40)
-- **BondingManager (Target)**: [`0x4bA7E7531Ab56bC8d78dB4FDc88D21F621f34BB4`](https://arbiscan.io/address/0x4bA7E7531Ab56bC8d78dB4FDc88D21F621f34BB4)
+- **BondingManager (Target)**: [`0xF62C30242fccd3a46721f155d4d367De3fD5B3b3`](https://arbiscan.io/address/0xF62C30242fccd3a46721f155d4d367De3fD5B3b3)
 - **TicketBroker (Proxy)**: [`0xa8bB618B1520E284046F3dFc448851A1Ff26e41B`](https://arbiscan.io/address/0xa8bB618B1520E284046F3dFc448851A1Ff26e41B)
 - **TicketBroker (Target)**: [`0xea1b0F6c8D158328a6e3D3F924B86A759F41465c`](https://arbiscan.io/address/0xea1b0F6c8D158328a6e3D3F924B86A759F41465c)
 - **RoundsManager (Proxy)**: [`0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f`](https://arbiscan.io/address/0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f)
@@ -69,7 +85,7 @@ The following contracts on Ethereum Mainnet implement the Delta version of the p
 - L1Migrator
 - BridgeMinter
 
-Since the Confluence upgrade, the protocol has been deployed to Arbitrum One and all contracts on Ethereum Mainnet besides the above are paused.
+Since the Confluence upgrade, the protocol has been deployed to Arbitrum Mainnet and all contracts on Ethereum Mainnet besides the above are paused.
 
 - **Governor**: [`0xFC3CBed6A3476F7616CC70f078397700136eEBFd`](https://etherscan.io/address/0xFC3CBed6A3476F7616CC70f078397700136eEBFd)
 - **Controller**: [`0xf96d54e490317c557a967abfa5d6e33006be69b3`](https://etherscan.io/address/0xf96d54e490317c557a967abfa5d6e33006be69b3)
@@ -96,9 +112,9 @@ Since the Confluence upgrade, the protocol has been deployed to Arbitrum One and
 - **L1Migrator**: [`0x21146B872D3A95d2cF9afeD03eE5a783DaE9A89A`](https://etherscan.io/address/0x21146B872D3A95d2cF9afeD03eE5a783DaE9A89A)
 - **BridgeMinter**: [`0x8dDDB96CF36AC8860f1DE5C7c4698fd499FAB405`](https://etherscan.io/address/0x8dDDB96CF36AC8860f1DE5C7c4698fd499FAB405)
 
-## Historical (DEPRECATED — FOR REFERENCE ONLY)
+## Historical (DEPRECATED - FOR REFERENCE ONLY)
 
-### Arbitrum One
+### Arbitrum Mainnet
 
 #### BondingManager (Target)
 
@@ -112,7 +128,6 @@ Since the Confluence upgrade, the protocol has been deployed to Arbitrum One and
 - **V8**: [`0x557093B1Ab53412166beAd939f34244170b6525B`](https://arbiscan.io/address/0x557093B1Ab53412166beAd939f34244170b6525B)
 - **V9**: [`0x6b397f20DC227B4E23fEc20BBDBe166d0DFFC452`](https://arbiscan.io/address/0x6b397f20DC227B4E23fEc20BBDBe166d0DFFC452)
 - **V10**: [`0xd1C1F5d44D8F83ca2A05Baf40461e550cFDDecA2`](https://arbiscan.io/address/0xd1C1F5d44D8F83ca2A05Baf40461e550cFDDecA2)
-- **V11 (current)**: [`0x4bA7E7531Ab56bC8d78dB4FDc88D21F621f34BB4`](https://arbiscan.io/address/0x4bA7E7531Ab56bC8d78dB4FDc88D21F621f34BB4)
 
 #### BondingVotes (Target)
 
@@ -121,7 +136,7 @@ Since the Confluence upgrade, the protocol has been deployed to Arbitrum One and
 #### TicketBroker (Target)
 
 - **V1**: [`0x7Beb84c52ce96DFd90431FAA97378994a8baa6df`](https://arbiscan.io/address/0x7Beb84c52ce96DFd90431FAA97378994a8baa6df)
-- **V2 (current)**: [`0xea1b0F6c8D158328a6e3D3F924B86A759F41465c`](https://arbiscan.io/address/0xea1b0F6c8D158328a6e3D3F924B86A759F41465c)
+- **V2**: [`0xD906D192e2503Aafd1BC5F5fc4163E842D5B1d6e`](https://arbiscan.io/address/0xD906D192e2503Aafd1BC5F5fc4163E842D5B1d6e)
 
 #### Minter
 

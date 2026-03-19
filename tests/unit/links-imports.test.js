@@ -20,6 +20,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 const { getMdxFiles, getStagedDocsPageFiles, readFile } = require('../utils/file-walker');
 const { extractImports } = require('../utils/mdx-parser');
+const { validateSnippetImports } = require('../../tools/vscode/authoring-tools/lib/authoring-core');
 
 let errors = [];
 let warnings = [];
@@ -396,6 +397,15 @@ function checkBrokenImports(files) {
   files.forEach(file => {
     const content = readFile(file);
     if (!content) return;
+
+    validateSnippetImports(content, file).forEach((finding) => {
+      errors.push({
+        file,
+        rule: finding.rule,
+        message: finding.message,
+        import: finding.importValue
+      });
+    });
     
     const imports = extractImports(content);
     
