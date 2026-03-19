@@ -6,7 +6,7 @@
 > **Working worktree**: `/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev-components` (branch: `docs-v2-dev-components`)
 > **Last updated**: 2026-03-19
 
----
+<CustomDivider />
 
 ## Workflow Protocol
 
@@ -34,7 +34,7 @@ Every task below requires **explicit human approval** before proceeding to the n
 - No task auto-advances without sign-off.
 - Completed tasks are marked with ~~strikethrough~~ in this file.
 
----
+<CustomDivider />
 
 ## Current State Summary
 
@@ -61,7 +61,7 @@ snippets/components/
 6. **Naming convention inconsistency** (mixed kebab-case and camelCase filenames)
 7. **MDX-defined components** (`ApiBaseUrlsTable`) mixed with JSX — belongs in a future `snippets/composables/` directory
 
----
+<CustomDivider />
 
 ## Finalised Taxonomy (approved)
 
@@ -248,7 +248,7 @@ snippets/
 |---|---|---|
 | `ApiBaseUrlsTable` | layout/api-base-urls-table.mdx | MDX-defined — does not belong in components/ |
 
----
+<CustomDivider />
 
 ## Duplicate Resolution Summary
 
@@ -268,128 +268,206 @@ snippets/
 | `MarkdownEmbed` / `EmbedMarkdown` | `integrators/` | content/embed.jsx (keep both names for now) |
 | `PdfEmbed` | `integrators/` | display/embed.mdx |
 
----
+<CustomDivider />
 
 ## Tasks
 
-### ~~Task 1: Finalise Category Taxonomy (Interactive)~~
-- [x] **Human checkpoint: COMPLETED**
-- Presented 4 alternative taxonomy models for review
-- Walked through all ~117 components and confirmed target categories
-- Resolved ambiguous cases (ShowcaseCards → wrappers, LinkedInEmbed → integrators, etc.)
-- Agreed on folder names: `elements/`, `wrappers/`, `displays/`, `scaffolding/`, `integrators/`, `config/`
-- Agreed on future `snippets/composables/` for MDX-defined components
-- Agreed to keep existing multi-component files for now (one-file-per-component deferred to later)
-- Agreed to keep both `MarkdownEmbed` and `EmbedMarkdown` names for now
-- **Deliverable**: Signed-off taxonomy and full component mapping (this document)
+### ~~Task 1 — Agree on folder taxonomy (interactive)~~
+- [x] **COMPLETED**
+- 1.1 Review and approve Layer 1 category folders (elements, wrappers, displays, scaffolding, integrators, config)
+- 1.2 Review and approve Layer 2 sub-niche folders within each category
+- 1.3 Map all ~117 components to their target category + sub-niche
+- 1.4 Resolve ambiguous placements interactively
+- 1.5 Lock the taxonomy
 
-### Task 2: Create Branch, Worktree & Folder Skeleton
-- [ ] **Human checkpoint: review setup before proceeding**
-- Create branch `docs-v2-dev-components` from `docs-v2-dev`
-- Create worktree at `/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev-components`
-- User attaches worktree to VSCode workspace
-- Create new folder skeleton inside `snippets/components/`:
-  - `elements/` (sub-niches: `buttons/`, `icons/`, `images/`, `links/`, `text/`, `math/`, `callouts/`, `spacing/`, `social/`, `a11y/`)
-  - `wrappers/` (sub-niches: `containers/`, `cards/`, `lists/`, `steps/`, `accordions/`, `tables/`, `grids/`)
-  - `displays/` (sub-niches: `code/`, `video/`, `quotes/`, `diagrams/`, `response-fields/`)
-  - `scaffolding/` (sub-niches: `frame-mode/`, `heroes/`, `portals/`, `page-containers/`)
-  - `integrators/` (sub-niches: `feeds/`, `blog/`, `embeds/`, `video-data/`)
-  - `config/`
-  - `x-archive/` (staging area for superseded files — nothing deleted)
-- Old folders (`primitives/`, `layout/`, `content/`, `data/`, `display/`, `page-structure/`, `domain/`, `integrations/`) left untouched until files are moved
-- **Deliverable**: Empty folder skeleton ready for file moves; worktree attached to VSCode
-- **Gate**: Human confirms skeleton is correct before Task 3
+### Task 2 — Set up branch, worktree & folder skeleton
+- 2.1 Create branch `docs-v2-dev-components` from `docs-v2-dev`
+- 2.2 Create worktree at `/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev-components`
+- 2.3 User attaches worktree to VSCode workspace
+- 2.4 Create new category folders: `elements/`, `wrappers/`, `displays/`, `scaffolding/`, `integrators/`, `config/`, `x-archive/`
+- 2.5 Create sub-niche folders within each category:
+  - `elements/`: buttons, icons, images, links, text, math, callouts, spacing, social, a11y
+  - `wrappers/`: containers, cards, lists, steps, accordions, tables, grids
+  - `displays/`: code, video, quotes, diagrams, response-fields
+  - `scaffolding/`: frame-mode, heroes, portals, page-containers
+  - `integrators/`: feeds, blog, embeds, video-data
+- 2.6 Old folders left completely untouched
+- 2.7 CHECKPOINT — show tree, human confirms skeleton
+- 2.8 Commit
+- 2.9 ~~Strikethrough~~
 
-### Task 3: Move Files & Update All Imports (per-file, incremental)
-- [ ] **Human checkpoint: review move plan before applying**
-- For EACH file being moved, follow this exact sequence:
-  1. Run `scan-component-imports.js` to get current `component-usage-map.json`
-  2. Copy the file to its new location in the target category/sub-niche folder
-  3. Find every MDX/JSX page that imports from the old path (from the usage map)
-  4. Update all import paths in those consuming pages to point to the new location
-  5. Grep entire repo for the old import path — confirm zero remaining references
-  6. `git mv` the old file to `components/x-archive/` (preserved, not deleted)
-  7. Commit the move + import updates as a single atomic commit
-- Process files one category at a time: elements → wrappers → displays → scaffolding → integrators → config
-- Present a summary after each category for human review
-- **Deliverable**: All files in new locations; all imports updated; old files in `x-archive/`
-- **Gate**: Human confirms each category's moves before proceeding to the next
+### Task 3 — Move files & update all imports (incremental, per-category)
+- 3.1 Sync worktree with latest `docs-v2-dev`
+- 3.2 Run `scan-component-imports.js` to produce baseline `component-usage-map.json`
+- 3.3 **Move elements/** — for each file:
+  - 3.3.1 Copy file to new location in target sub-niche
+  - 3.3.2 Find all MDX/JSX pages importing from old path (from usage map)
+  - 3.3.3 Update all import paths in consuming pages
+  - 3.3.4 Grep entire repo for old import path — confirm zero remaining references
+  - 3.3.5 `git mv` old file to `components/x-archive/`
+  - 3.3.6 Atomic commit (move + import updates)
+- 3.4 CHECKPOINT — human reviews elements/ moves
+- 3.5 **Move wrappers/** — same sequence as 3.3.1–3.3.6 per file
+- 3.6 CHECKPOINT — human reviews wrappers/ moves
+- 3.7 **Move displays/** — same sequence per file
+- 3.8 CHECKPOINT — human reviews displays/ moves
+- 3.9 **Move scaffolding/** — same sequence per file
+- 3.10 CHECKPOINT — human reviews scaffolding/ moves
+- 3.11 **Move integrators/** — same sequence per file
+- 3.12 CHECKPOINT — human reviews integrators/ moves
+- 3.13 **Move config/** — move `MermaidColours` + update imports
+- 3.14 CHECKPOINT — human reviews config/ move
+- 3.15 Run full repo grep for any remaining old folder import paths (`primitives/`, `layout/`, `content/`, `data/`, `display/`, `page-structure/`)
+- 3.16 CHECKPOINT — show grep results, human confirms clean
+- 3.17 Commit + merge back to `docs-v2-dev`
+- 3.18 ~~Strikethrough~~
 
-### Task 4: Deduplicate Files
-- [ ] **Human checkpoint: review dedup report before applying**
-- Run `scan-component-imports.js` to get ground truth on which duplicate is actually imported
-- For each duplicate pair (see Duplicate Resolution Summary), identify which file has real imports vs zero imports
-- Generate a dedup report: canonical file (kept), duplicate file (to archive), import count for each
-- With approval: update any imports pointing to the duplicate → point to canonical, then `git mv` duplicate to `x-archive/`
-- **Deliverable**: Dedup report + no duplicate pairs; all imports point to canonical locations
-- **Gate**: Human confirms dedup results before Task 5
+### Task 4 — Deduplicate same-name file pairs
+- 4.1 Sync worktree with latest `docs-v2-dev`
+- 4.2 Run `scan-component-imports.js` for current ground truth
+- 4.3 For each duplicate pair:
+  - 4.3.1 Check import counts for both files
+  - 4.3.2 Identify canonical (has imports) vs duplicate (zero imports)
+  - 4.3.3 If duplicate has imports too: repoint those imports to canonical
+  - 4.3.4 Grep to confirm zero references to duplicate path
+  - 4.3.5 `git mv` duplicate to `x-archive/`
+  - 4.3.6 Atomic commit
+- 4.4 CHECKPOINT — present dedup report, human reviews
+- 4.5 Pairs to process: `cardCarousel`/`card-carousel`, `quadGrid`/`quad-grid`, `listSteps`/`list-steps`, `searchTable`/`search-table`, `showcase-cards`/`showcaseCards`, `externalContent`/`external-content`
+- 4.6 Commit + merge back to `docs-v2-dev`
+- 4.7 ~~Strikethrough~~
 
-### Task 5: Resolve Cross-Category Duplicates
-- [ ] **Human checkpoint: review consolidation plan before applying**
-- For each cross-category duplicate (see Duplicate Resolution Summary above):
-  1. Confirm canonical location from the approved mapping
-  2. Find all pages importing from the non-canonical location
-  3. Update those import paths to the canonical location
-  4. Grep to confirm zero references to the non-canonical path
-  5. `git mv` the non-canonical file to `x-archive/`
-- **Deliverable**: Each component exists in exactly one location; all imports updated
-- **Gate**: Human confirms all import rewrites are correct before Task 6
+### Task 5 — Resolve cross-category duplicates
+- 5.1 Sync worktree with latest `docs-v2-dev`
+- 5.2 For each cross-category duplicate (per Duplicate Resolution Summary):
+  - 5.2.1 Confirm canonical location from approved mapping
+  - 5.2.2 Find all pages importing from non-canonical location
+  - 5.2.3 Repoint imports to canonical location
+  - 5.2.4 Grep to confirm zero references to non-canonical path
+  - 5.2.5 `git mv` non-canonical file to `x-archive/`
+  - 5.2.6 Atomic commit
+- 5.3 CHECKPOINT — human reviews each resolution
+- 5.4 Cross-category dupes: `CustomCardTitle`, `DisplayCard`/`WidthCard`/`InlineImageCard`, `Spacer`, `ShowcaseCards`/`InteractiveCard(s)`, `PageHeader`/`H1-H6`/`P`/`Divider`, `MarkdownEmbed`/`EmbedMarkdown`, `PdfEmbed`, `ExternalContent`, `LinkedInEmbed`, `AccordionLayout`
+- 5.5 Run full `scan-component-imports.js` — verify zero broken imports
+- 5.6 CHECKPOINT — human confirms all clean
+- 5.7 Commit + merge back to `docs-v2-dev`
+- 5.8 ~~Strikethrough~~
 
-### Task 6: Enforce Naming Convention
-- [ ] **Human checkpoint: review rename list before applying**
-- Standardise all JSX filenames to agreed convention
-- For each rename: update all import paths in consuming pages, grep to verify, then rename
-- Add a lint rule to `lint-structure.js` that flags non-conforming filenames
-- **Deliverable**: Consistent filenames + lint guard
-- **Gate**: Human confirms renames before Task 7
+### Task 6 — Component-by-component audit (interactive)
+- 6.1 Sync worktree with latest `docs-v2-dev`
+- 6.2 Interactive chat: review each component for:
+  - Is it in the right category/sub-niche?
+  - Does it have one clear purpose?
+  - Is its name descriptive of its purpose/function?
+  - Should it be split (multi-purpose component)?
+  - Should it be consolidated with a near-duplicate?
+- 6.3 CHECKPOINT — agree on rename/split/consolidate list
+- 6.4 Execute agreed renames (update file + all import paths + grep verify)
+- 6.5 Execute agreed splits (create new files + update imports + grep verify + `git mv` old to `x-archive/`)
+- 6.6 Execute agreed consolidations (merge into one + update imports + grep verify + `git mv` old to `x-archive/`)
+- 6.7 CHECKPOINT — human reviews all changes
+- 6.8 Commit + merge back to `docs-v2-dev`
+- 6.9 ~~Strikethrough~~
 
-### Task 7: Add JSDoc `@label` Enforcement
-- [ ] **Human checkpoint: review JSDoc requirements before applying**
-- Define the required `@label` field (must match one of the 5 categories)
-- Add `@label` to all existing component exports
-- Extend `generate-component-registry.js` with `--strict` mode (exits non-zero on missing `@label`)
-- Update `VALID_CATEGORIES` in `component-governance-utils.js` to new category names
-- **Deliverable**: Every exported component has a `@label`; CI-ready validation
-- **Gate**: Human confirms JSDoc additions before Task 8
+### Task 7 — Enforce naming convention
+- 7.1 Sync worktree with latest `docs-v2-dev`
+- 7.2 Agree on filename convention (camelCase vs kebab-case vs PascalCase)
+- 7.3 Generate rename list for all non-conforming files
+- 7.4 CHECKPOINT — human reviews rename list
+- 7.5 For each rename: update all import paths, grep verify, then rename
+- 7.6 Add lint rule to `lint-structure.js` for filename convention
+- 7.7 CHECKPOINT — human confirms
+- 7.8 Commit + merge back to `docs-v2-dev`
+- 7.9 ~~Strikethrough~~
 
-### Task 8: Script Consolidation & Performance
-- [ ] **Human checkpoint: review script changes before applying**
-- Add `--since <commit>` incremental mode to `scan-component-imports.js`
-- Add `--since <commit>` incremental mode to `audit-component-usage.js`
-- Extract shared file-list caching into `component-governance-utils.js`
-- Fold `generate-component-governance-remediation-reports.js` into registry script's `--validate-only`
-- Add filename-convention fast-path to `lint-structure.js` (glob only, no file reads)
-- `git mv` superseded scripts to appropriate archive location
-- **Deliverable**: Faster scripts, fewer redundant tools
-- **Gate**: Human confirms script changes before Task 9
+### Task 8 — Add JSDoc `@label` enforcement
+- 8.1 Sync worktree with latest `docs-v2-dev`
+- 8.2 Define required JSDoc fields: `@label` (category), `@subniche`, `@purpose`
+- 8.3 CHECKPOINT — human approves JSDoc field requirements
+- 8.4 Add JSDoc fields to all component exports
+- 8.5 Extend `generate-component-registry.js` with `--strict` mode
+- 8.6 Update `VALID_CATEGORIES` in `component-governance-utils.js` to new names
+- 8.7 CHECKPOINT — run `--strict`, human reviews results
+- 8.8 Commit + merge back to `docs-v2-dev`
+- 8.9 ~~Strikethrough~~
 
-### Task 9: Update Documentation & README
-- [ ] **Human checkpoint: review docs before merging**
-- Update `snippets/components/README.md` with final structure and component reference tables
-- Update `component-registry.json` to reflect all changes
-- Verify all example MDX files still render (spot-check via `mintlify dev`)
-- `git mv` `catalog.md` scratchpad to `x-archive/`
-- **Deliverable**: Accurate documentation matching actual state
-- **Gate**: Human confirms documentation accuracy
+### Task 9 — Performance & optimisation (per-script)
+- 9.1 Sync worktree with latest `docs-v2-dev`
+- 9.2 Audit each component governance script for:
+  - Efficiency (unnecessary full-repo scans, redundant I/O)
+  - Hardcoded paths or values
+  - Missing incremental mode (`--since`)
+  - Correct documentation in script header
+- 9.3 CHECKPOINT — present findings, human reviews
+- 9.4 Add `--since <commit>` incremental mode to `scan-component-imports.js`
+- 9.5 Add `--since <commit>` incremental mode to `audit-component-usage.js`
+- 9.6 Extract shared file-list caching into `component-governance-utils.js`
+- 9.7 Add filename-convention fast-path to `lint-structure.js` (glob only, no file reads)
+- 9.8 Fold `generate-component-governance-remediation-reports.js` into registry script's `--validate-only`
+- 9.9 `git mv` superseded scripts to `x-archive/`
+- 9.10 CHECKPOINT — human confirms
+- 9.11 Commit + merge back to `docs-v2-dev`
+- 9.12 ~~Strikethrough~~
 
-### Task 10: Trim Governance Overhead
-- [ ] **Human checkpoint: review governance simplification proposal**
-- Identify which governance scripts/checks are actively used in CI vs unused
-- Propose removal or simplification of unused governance tooling
-- Present "keep / simplify / archive" recommendation for each governance artifact
-- **Deliverable**: Leaner governance that doesn't slow down workflows
-- **Gate**: Human confirms governance changes
+### Task 10 — Documentation & single source of truth
+- 10.1 Sync worktree with latest `docs-v2-dev`
+- 10.2 Audit where component docs currently live (README.md, catalog.md, docs-guide pages, registry JSON, script-generated docs)
+- 10.3 CHECKPOINT — interactive chat to agree on single source of truth strategy
+- 10.4 Update `snippets/components/README.md` with final structure and component reference tables
+- 10.5 Update `component-registry.json` to reflect all changes
+- 10.6 Create/update component governance documentation in `docs-guide/`
+- 10.7 Ensure auto-generation scripts produce correct output and point to correct paths
+- 10.8 `git mv` `catalog.md` to `x-archive/`
+- 10.9 Remove/consolidate any redundant documentation surfaces
+- 10.10 CHECKPOINT — human reviews all docs
+- 10.11 Commit + merge back to `docs-v2-dev`
+- 10.12 ~~Strikethrough~~
 
-### Task 11: Final Verification & Merge
-- [ ] **Human checkpoint: full review before merge to docs-v2-dev**
-- Run full `scan-component-imports.js` — verify zero broken imports
-- Run `generate-component-registry.js --strict` — verify all labels present
-- Grep for any remaining references to old folder paths (`primitives/`, `layout/`, `content/`, `data/`, `display/`, `page-structure/`)
-- Spot-check `mintlify dev` on a non-3000 port to confirm pages render
-- With approval: merge `docs-v2-dev-components` back into `docs-v2-dev`
-- **Deliverable**: Clean, verified merge; component restructuring complete
+### Task 11 — Trim governance overhead
+- 11.1 Sync worktree with latest `docs-v2-dev`
+- 11.2 Identify which governance scripts/checks are actively used in CI vs unused
+- 11.3 CHECKPOINT — interactive chat: present "keep / simplify / archive" recommendation per artifact
+- 11.4 Execute agreed simplifications
+- 11.5 `git mv` agreed scripts to `x-archive/`
+- 11.6 CHECKPOINT — human confirms
+- 11.7 Commit + merge back to `docs-v2-dev`
+- 11.8 ~~Strikethrough~~
 
----
+### Task 12 — Testing
+- 12.1 Sync worktree with latest `docs-v2-dev`
+- 12.2 Run `scan-component-imports.js` — verify zero broken imports
+- 12.3 Run `generate-component-registry.js --strict` — verify all labels present
+- 12.4 Run `audit-component-usage.js` — verify all components accounted for
+- 12.5 Grep for any remaining references to old folder paths
+- 12.6 Grep for any references to `x-archive/` in import statements (should be none)
+- 12.7 Spot-check `mintlify dev` on a non-3000 port — confirm pages render
+- 12.8 Run existing test suite (`tests/run-all.js`)
+- 12.9 CHECKPOINT — human reviews full test results
+- 12.10 Fix any issues found
+- 12.11 CHECKPOINT — human confirms all green
+- 12.12 Commit + merge back to `docs-v2-dev`
+- 12.13 ~~Strikethrough~~
+
+### Task 13 — Cleanup
+- 13.1 Sync worktree with latest `docs-v2-dev`
+- 13.2 Interactive chat: review everything in `x-archive/` — confirm each file is safe to remove
+- 13.3 CHECKPOINT — human approves removal list
+- 13.4 Delete approved files from `x-archive/`
+- 13.5 Remove `x-archive/` folder if empty
+- 13.6 Remove old empty folders (`primitives/`, `layout/`, `content/`, `data/`, `display/`, `page-structure/`, `domain/`, `integrations/`)
+- 13.7 CHECKPOINT — show final tree, human confirms
+- 13.8 Commit + merge back to `docs-v2-dev`
+- 13.9 ~~Strikethrough~~
+
+### Task 14 — Final merge & close out
+- 14.1 Final full test pass (repeat 12.2–12.8)
+- 14.2 CHECKPOINT — human gives final approval
+- 14.3 Merge `docs-v2-dev-components` into `docs-v2-dev`
+- 14.4 Remove worktree
+- 14.5 Move plan to `tasks/plan/completed/`
+- 14.6 ~~Strikethrough all~~
+
+<CustomDivider />
 
 ## Reference
 
