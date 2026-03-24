@@ -290,7 +290,7 @@ Do not re-decide anything in this table. If a locked decision looks wrong, flag 
 
 ## Session log
 
-<!-- Append-only. Most recent at top. -->
+{/* Append-only. Most recent at top. */}
 
 ---
 

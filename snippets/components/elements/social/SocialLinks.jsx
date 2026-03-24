@@ -47,6 +47,8 @@ export const SocialLinks = ({
     forum: color ? color : "var(--lp-color-brand-forum)",
     website: color ? color : "var(--accent)",
     blog: color ? color : "var(--accent)",
+    globe: color ? color : "var(--lp-color-brand-globe)",
+    twitch: color ? color : "var(--lp-color-brand-twitch)",
   };
 
   const iconColorMap = {
@@ -56,8 +58,9 @@ export const SocialLinks = ({
     "comment-pen": "forum",
     "pen-line": "blog",
     "pencil-line": "blog",
-    globe: "website",
+    globe: "globe",
     "book-open": "website",
+    twitch: "twitch",
   };
 
   const defaultLinks = [

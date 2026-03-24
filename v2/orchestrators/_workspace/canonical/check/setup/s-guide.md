@@ -353,7 +353,7 @@ All links in s-guide.mdx are relative paths. None resolve to files that exist in
 | 40 | Staking LPT | `../advanced/staking-LPT` | `v2/orchestrators/advanced/staking-LPT.mdx` | NO — no `advanced/` directory in orchestrators section |
 | 40 | Rewards and fees | `../advanced/rewards-and-fees` | `v2/orchestrators/advanced/rewards-and-fees.mdx` | NO — no `advanced/` directory in orchestrators section |
 
-**Summary**: 10 confirmed broken links (setup step pages and cards). 4 additional links in `## See also` likely broken (paths reference `get-started/` and `advanced/` directories that do not exist in the current `v2/orchestrators/` structure). These are old-schema path references from a prior IA structure.
+**Summary**: 16 broken link instances across 10 distinct broken targets. Setup step links (6 in numbered list + 6 in cards) all fail — files do not exist in `v2/orchestrators/setup/`. All 4 See also links fail — `concepts/overview.mdx` confirmed absent; `get-started/` and `advanced/` directories confirmed absent from `v2/orchestrators/`. Verified against file system and docs.json.
 - Severity: CRITICAL — page is effectively non-functional.
 
 **8.2 — All external links live**: PASS
@@ -529,7 +529,7 @@ All fixes below are conditional on Blocking Decision 1 resolving to RETAIN. If D
 | F7 | HIGH | Cat 1.1, 1.7 | Add `lifecycleStage: setup`. |
 | F8 | HIGH | Cat 1.8, 6.6 | Add `veracityStatus: unverified`. |
 | F9 | HIGH | Cat 3.2 | Replace `## See also` with `## Related Paths` (conditional on F5 being replaced rather than removed). If section is removed per F5, F9 is moot. |
-| F10 | MEDIUM | Cat 2.5, 2.6 | Rewrite opening sentence to lead with value: `A go-livepeer orchestrator node earns protocol rewards (LPT) and job fees (ETH) by providing GPU compute — video transcoding and AI inference — to the Livepeer network.` |
+| F10 | MEDIUM | Cat 2.5, 2.6 | Rewrite opening sentence to lead with value: `A go-livepeer orchestrator node earns protocol rewards (LPT) and job fees (ETH) by providing GPU compute (video transcoding and AI inference) to the Livepeer network.` |
 | F11 | MEDIUM | Cat 1.11 | Rewrite description: `{/* REVIEW: description — rewrite as subject-first outcome; verify against canonical description pattern before inserting */}` |
 | F12 | MEDIUM | Cat 1.13 | Replace keywords: `livepeer, orchestrators, setup, checklist` → `livepeer orchestrator setup checklist`, `run go-livepeer orchestrator node`, `orchestrator setup requirements`, `go-livepeer first-time setup`. |
 | F13 | MEDIUM | Cat 3.6 | Change `title: Setting up an Orchestrator` → `title: Orchestrator Setup`. Change `sidebarTitle: Guide` → `sidebarTitle: Orchestrator Setup`. |
@@ -538,4 +538,30 @@ All fixes below are conditional on Blocking Decision 1 resolving to RETAIN. If D
 
 ---
 
-*Report generated: 2026-03-24. Reviewed against checks.mdx §1–9, Frameworks.mdx §1–4, CLAUDE.md voice rules, docs.json lines 2856–2867.*
+## Summary
+
+| Category | Verdict | Critical | High | Medium | Info |
+|----------|---------|----------|------|--------|------|
+| 1 — Frontmatter | FAIL | 2 | 3 | 2 | 0 |
+| 2 — Voice & Copy | FAIL | 0 | 0 | 3 | 0 |
+| 3 — Headings | FAIL | 0 | 1 | 2 | 0 |
+| 4 — Structure | FAIL | 3 | 2 | 1 | 1 |
+| 5 — Layout | FAIL | 0 | 0 | 2 | 0 |
+| 6 — Veracity | FAIL | 0 | 0 | 2 | 1 |
+| 7 — Navigation | FAIL | 2 | 1 | 0 | 1 |
+| 8 — Links | FAIL | 1 | 0 | 0 | 0 |
+| 9 — Process | FAIL | 0 | 2 | 0 | 0 |
+| **TOTAL** | | **8** | **9** | **12** | **3** |
+
+**Verdict: NEEDS WORK** (conditional on Blocking Decision 1)
+
+The prose quality is acceptable — the two-sentence opening is well-formed and on-register for the orchestrator audience. Voice checks pass (banned words, banned phrases, banned constructions: all clean). The page fails on structural and navigation grounds:
+
+- Eight CRITICALs: two deprecated frontmatter values, page absent from docs.json, page is a structural orphan, 16 broken link instances across all internal links, dual-scope structure, and orphaned navigation sequence.
+- Nine HIGHs: three missing required frontmatter fields, one Banned-tier heading, dual-scope purpose failure (two checks), file-lane issue, two governance sign-off failures.
+
+The most important finding is Blocking Decision 1: this page is not in docs.json, appears to be an older version of `guide.mdx` (which IS in docs.json and serves the same role), and all its links reference a prior IA structure. The recommended resolution is Option A (deprecate to `x-deprecated/`) — no content work should proceed until Alison decides.
+
+---
+
+*Report generated: 2026-03-24. Reviewed against checks.mdx §1–9, Frameworks.mdx §1–4, CLAUDE.md voice rules, docs.json lines 2856–2867, learnings.md P1–P40.*
