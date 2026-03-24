@@ -154,3 +154,22 @@ Rules:
 - If a workflow is genuinely superseded, document: what supersedes it, what files the replacement writes to, that those file paths are identical, and that the replacement is confirmed working — then mark it retired with that full explanation, not just disabled.
 
 "It's broken so I turned it off" is not a fix. It is deferred work with hidden risk.
+
+---
+
+## Validate Every Action With a Canonical Quote
+
+Before executing any action — spawning an agent, writing a file, making a recommendation, or proposing a next step — state which canonical file authorises it and quote the exact text that justifies it.
+
+Format:
+```
+ACTION: [what you are about to do]
+AUTHORITY: [canonical file path]
+QUOTE: "[exact text from that file that authorises this action]"
+```
+
+Canonical files for this purpose: `plan-canonical.md` · `PROJECT-MANAGEMENT-CANONICAL.md` · `design-canonical.mdx` · `decision-registry.md` · `ai-rules-guides.md` · `Frameworks/` files · phase `pack-guide.md` files.
+
+If no canonical file authorises the action, do not take it. State: "No canonical authority found for this action" and stop.
+
+This rule applies to: Claude Code in the main thread AND all spawned agents. No exceptions.

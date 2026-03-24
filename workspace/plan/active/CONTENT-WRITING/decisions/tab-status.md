@@ -8,13 +8,13 @@ Agents may not proceed past a locked gate without explicit human authorisation r
 
 ## Status Table
 
-| Tab | IA Approved | Terminology Locked | Content Scan Done | Structure Approved | Content Pass Open | Veracity Done | Layout Done |
-|---|---|---|---|---|---|---|---|
-| Gateways | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
-| Orchestrators | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
-| Delegators | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
-| About | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
-| Developers | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+| Tab | IA Approved | Terminology Locked | Content Scan Done | Structure Approved | Content Pass Open | Veracity Done | Layout Done | Notes |
+|---|---|---|---|---|---|---|---|---|
+| Gateways | ⬜ | ⬜ | ✅ | ⬜ | ⬜ | ⬜ | ⬜ | IA: draft exists, Check B approved — human review + lock pending. Content scan: gateways-content-scan.md exists. |
+| Orchestrators | ⬜ | ⬜ | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | IA: draft exists, Check B approved — human review + lock pending. Content scan: in flight — agent running. |
+| Developers | ⬜ | ⬜ | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | IA: draft exists — Check B not yet run; S6 split decision blocking Phase 3. Content scan: in flight — agent running. |
+| About | ⬜ | ⬜ | ✅ | ⬜ | ⬜ | ⬜ | ⬜ | IA: draft exists — Check B not yet run; multi-audience model decision pending. Content scan: about-content-scan.md exists. |
+| Delegators | ⬜ | ⬜ | ✅ | ⬜ | ⬜ | ⬜ | ⬜ | IA: draft exists — Check B not yet run; rewards placement decision blocking Phase 3. Content scan: delegators-content-scan.md exists. |
 
 ---
 
@@ -53,3 +53,10 @@ When updating this table:
 3. If a gate moves to ❌, log the blocking item in `blocking-items.md`.
 
 Do not update gate status based on agent self-reporting. Only human review opens or blocks a gate.
+
+---
+
+## Notes
+
+- **Delegators/LPT v2 path confirmed:** The canonical v2 path for the Delegators/LPT tab is `v2/lpt/`. Paths `v2/delegators/` and `v2/lp-token/` are not used.
+- **Content scans in flight (2026-03-23):** Content scans for the Orchestrators and Developers tabs are currently in progress — agents are running. Neither scan is complete; gates remain 🔄 until human review of the completed artefacts.
