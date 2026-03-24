@@ -54,6 +54,7 @@ export const SolutionCard = ({
     width: 'auto',
     maxWidth: '100%',
     objectFit: 'contain',
+    marginTop: '0.25rem',
   }
   const subtitleStyle = {
     fontWeight: 700,

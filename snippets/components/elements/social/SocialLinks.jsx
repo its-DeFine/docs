@@ -49,6 +49,8 @@ export const SocialLinks = ({
     blog: color ? color : "var(--accent)",
     globe: color ? color : "var(--lp-color-brand-globe)",
     twitch: color ? color : "var(--lp-color-brand-twitch)",
+    youtube: color ? color : "var(--lp-color-brand-youtube)",
+    instagram: color ? color : "var(--lp-color-brand-instagram)",
   };
 
   const iconColorMap = {
@@ -61,6 +63,8 @@ export const SocialLinks = ({
     globe: "globe",
     "book-open": "website",
     twitch: "twitch",
+    youtube: "youtube",
+    instagram: "instagram",
   };
 
   const defaultLinks = [

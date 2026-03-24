@@ -25,22 +25,21 @@ lastVerified: 2026-03-17
 purpose: overview
 ---
 import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { CenteredContainer } from "/snippets/components/wrappers/containers/Containers.jsx";
+import { CustomCardTitle } from "/snippets/components/elements/text/CustomCardTitle.jsx";
+import { SocialLinks } from "/snippets/components/elements/social/SocialLinks.jsx";
+import daydreamSocials from "./data.jsx/socials.jsx"
+
+<CenteredContainer style={{ width: "60%", minWidth: "fit-contents"}}>
+    <Card title={<CustomCardTitle icon="hat-wizard" title="Visit Daydream"/> } horizontal href="https://daydream.live">
+        <SocialLinks justify="center" links={daydreamSocials} />
+    </Card>
+</CenteredContainer>
+
+<CustomDivider/>
 
 Daydream is an **open-source toolkit for world models and real-time AI video**. It provides the tools to build with open world models and real-time AI, and the community where creatives, builders, and researchers advance the field together. Daydream runs on the Livepeer network for decentralized, low-latency AI inference.
-
-## Videos
-
-From the **Realtime Video AI Summit 2025** (Daydream, San Francisco):
-
-<YouTubeVideo
-  embedUrl="https://www.youtube.com/embed/uLXtpFVrtP4"
-  title="Jeff Liang - StreamV2V & Recent Advancements (Realtime Video AI Summit 2025 by Daydream)"
-/>
-
-<YouTubeVideo
-  embedUrl="https://www.youtube.com/embed/yeoGzSWdNGM"
-  title="Yondon Fu - Real-Time AI Video as a Creative Medium (Realtime Video AI Summit 2025 by Daydream)"
-/>
 
 ## Overview
 
@@ -48,13 +47,19 @@ From the **Realtime Video AI Summit 2025** (Daydream, San Francisco):
  What Daydream does, how it fits with Livepeer, and where to find full documentation.
 </Card>
 
+<YouTubeVideo
+  embedUrl="https://www.youtube.com/embed/uLXtpFVrtP4"
+  title="Jeff Liang - StreamV2V & Recent Advancements (Realtime Video AI Summit 2025 by Daydream)"
+  caption="**Realtime Video AI Summit 2025** (Daydream, San Francisco)"
+/>
+
 ## Quickstarts
 
 <CardGroup cols={2}>
   <Card title="Quickstart" icon="bolt-lightning" href="/solutions/daydream/quickstart">
  Try the Daydream app or connect to the API in minutes.
   </Card>
-  <Card title="Daydream docs" icon="book" href="https://docs.daydream.live/" arrow>
+  <Card title="Daydream docs" icon="newspaper" href="https://docs.daydream.live/" arrow>
  Official Daydream documentation-setup, API reference, and guides.
   </Card>
 </CardGroup>

@@ -20,7 +20,7 @@ const crypto = require('crypto');
 const readline = require('readline');
 const { spawn } = require('child_process');
 
-const STRUCTURAL_ARRAY_KEYS = ['versions', 'languages', 'tabs', 'anchors', 'groups', 'pages'];
+const STRUCTURAL_ARRAY_KEYS = ['versions', 'languages', 'tabs', 'dropdowns', 'anchors', 'groups', 'pages'];
 const SCOPED_ROOT_RUNTIME_FILES = ['mint.json', 'style.css'];
 const SCOPED_NAVIGATION_CONFIG_DIR = 'tools/config/scoped-navigation';
 const SCOPED_CONTROL_DIRNAME = '.lpd-control';
@@ -168,6 +168,7 @@ function visitNavigationNode(node, outSet) {
   if (Array.isArray(node.groups)) node.groups.forEach((group) => visitNavigationNode(group, outSet));
   if (Array.isArray(node.anchors)) node.anchors.forEach((anchor) => visitNavigationNode(anchor, outSet));
   if (Array.isArray(node.tabs)) node.tabs.forEach((tab) => visitNavigationNode(tab, outSet));
+  if (Array.isArray(node.dropdowns)) node.dropdowns.forEach((dropdown) => visitNavigationNode(dropdown, outSet));
   if (Array.isArray(node.languages)) node.languages.forEach((language) => visitNavigationNode(language, outSet));
   if (Array.isArray(node.versions)) node.versions.forEach((version) => visitNavigationNode(version, outSet));
 }
@@ -367,6 +368,7 @@ function collectOptionsFromNavigation(navigation) {
       languagesByVersion.get(versionKey).add(languageName);
 
       const tabs = Array.isArray(languageEntry.tabs) ? languageEntry.tabs : [];
+      const dropdowns = Array.isArray(languageEntry.dropdowns) ? languageEntry.dropdowns : [];
       const tabMapKey = `${versionKey}::${normalizeForCompare(languageName)}`;
       if (!tabsByVersionLanguage.has(tabMapKey)) tabsByVersionLanguage.set(tabMapKey, new Set());
 
@@ -374,6 +376,11 @@ function collectOptionsFromNavigation(navigation) {
         const tabName = String(tabEntry && tabEntry.tab ? tabEntry.tab : '').trim();
         if (!tabName) continue;
         tabsByVersionLanguage.get(tabMapKey).add(tabName);
+      }
+      for (const dropdownEntry of dropdowns) {
+        const dropdownName = String(dropdownEntry && dropdownEntry.dropdown ? dropdownEntry.dropdown : '').trim();
+        if (!dropdownName) continue;
+        tabsByVersionLanguage.get(tabMapKey).add(dropdownName);
       }
     }
   }
@@ -444,6 +451,13 @@ function pruneNavigationNode(node, context) {
   if (Array.isArray(node.tabs)) {
     out.tabs = node.tabs
       .filter((entry) => matchesSelection(entry && entry.tab, context.tabSet))
+      .map((entry) => pruneNavigationNode(entry, context))
+      .filter(Boolean);
+  }
+
+  if (Array.isArray(node.dropdowns)) {
+    out.dropdowns = node.dropdowns
+      .filter((entry) => matchesSelection(entry && entry.dropdown, context.tabSet))
       .map((entry) => pruneNavigationNode(entry, context))
       .filter(Boolean);
   }
@@ -978,7 +992,10 @@ function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
     return resolved;
   };
 
-  for (const reference of collectDocsConfigFileReferences(scopedDocs)) {
+  // Collect asset references from the docs config, excluding redirect entries
+  // (redirect source/destination values are URL routes, not local file paths).
+  const { redirects: _ignored, ...docsWithoutRedirects } = scopedDocs;
+  for (const reference of collectDocsConfigFileReferences(docsWithoutRedirects)) {
     ensureResolvedReference('', reference, { kind: 'asset' });
   }
 

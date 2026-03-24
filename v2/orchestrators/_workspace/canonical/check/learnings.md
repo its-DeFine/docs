@@ -617,3 +617,34 @@ What works, what doesn't, and how to adjust prompting across batches.
 | P107 | When check 1.2 identifies a type-confusion error (`pageType: overview`, or any other `pageType` value that is not in the canonical 7-type schema AND not in the deprecated-alias migration table): (1) the check 1.2 row must state "TYPE-CONFUSION — `[value]` is a `pageVariant` value placed in the wrong field. No migration table entry exists. Correct `pageType` requires human decision." Do NOT list migration candidates in the check 1.2 row — migration options belong in a dedicated Blocking Decision entry only. (2) Check 1.3 (pageVariant co-fix, P42) must be marked N/A for type-confusion findings, because the correct `pageVariant` cannot be determined until the correct `pageType` is decided | `x-payments` check report listed migration candidates inside check 1.2 and marked check 1.3 FAIL — both are P87 violations |
 
 - Batch 26 prompt: incorporates P1-P107 above
+
+## Batch 27 — Findings from Resources Section Rollup
+
+### What broke
+
+1. **Two same-scope pages in different subsections with no defined scope boundary.** `resources/glossary.mdx` (root subsection) and `resources/compendium/glossary.mdx` (compendium subsection) both appear to be glossaries but neither page's check report nor their respective subsection summaries defined or challenged the scope relationship between them. Individual page checks and subsection summaries cannot see across subsection boundaries — the rollup is the first level where this is visible.
+
+### Prompting Changes for Batch 27
+
+| # | Change | Rationale |
+|---|--------|-----------|
+| P108 | When a rollup agent (subsection rollup or section rollup) reads multiple lower-level summaries, scan for pages with the same or similar names, titles, or declared purposes across different subsections. If two or more pages appear to cover similar scope (e.g., two glossaries, two FAQ pages, two troubleshooting pages), raise this as a Blocking Decision in the rollup: the scope boundary between the two pages must be explicitly defined before either can be considered for publication. P95 covers content overlap within a single subsection; P108 covers cross-subsection scope boundary gaps that only the rollup level can identify | `resources/glossary.mdx` and `resources/compendium/glossary.mdx` both exist as glossaries with no defined scope boundary — neither subsection summary flagged this because each could only see its own subsection |
+
+- Batch 27 prompt: incorporates P1-P108 above
+
+## Batch 28 — Findings from Full Orchestrators Section Rollup (guides + resources)
+
+### What broke
+
+1. **Same batch operation recommended independently per section with inconsistent scope.** The frontmatter taxonomy fix (add `complexity`, `lifecycleStage`, `veracityStatus`, `industry`, `niche`) was recommended separately in the guides rollup and the resources rollup with slightly different scoping notes. At the tab-level rollup, the same fix applies to all 66 pages — a single definition is more precise and less likely to produce inconsistent application across sections.
+
+2. **Cross-tab link breakage scope not determinable from per-page findings.** Broken links to `/v2/gateways/resources/technical/orchestrator-offerings` were found on 2 guides pages. The resources rollup did not conduct a systematic cross-tab link audit. The full scope of cross-tab link breakage across all 66 pages is unknown until a section-wide search runs.
+
+### Prompting Changes for Batch 28
+
+| # | Change | Rationale |
+|---|--------|-----------|
+| P109 | At rollup level, when writing remediation recommendations (Section 4 or equivalent), identify batch operations that apply across all pages in the rollup scope and define each as ONE rollup-level work package with a single fix specification and a total page count. Do not list the same batch operation separately in each section's recommendations — this creates redundancy and risks inconsistent parameter application (e.g., different proposed `industry` values across sections). One definition; one scope; one parameter set | Frontmatter taxonomy fix was recommended independently in guides and resources rollups; the final rollup should unify these into a single cross-section operation |
+| P110 | At rollup level (the final output across all sections), run a systematic cross-tab link audit before writing Section 3 (cross-section patterns) or Section 5 (outstanding decisions). Search all source files in scope for cross-tab link patterns (e.g., `/v2/gateways/`, `/v2/about/`, `/v2/lpt/`, `/v2/developers/`). Check each unique cross-tab link target against docs.json. Log any broken links not already identified in subsection or section summaries. This is the only level where the full scope of cross-tab link breakage is visible | Cross-tab link breakage scope was unknown at final rollup completion — per-page checks found 2 broken links but the full scope across 66 pages was not audited |
+
+- Batch 28 prompt: incorporates P1-P110 above
