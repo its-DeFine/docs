@@ -2200,7 +2200,6 @@
                         "icon": "play",
                         "pages": [
                           "v2/solutions/portal",
-                          "v2/solutions/product-hub",
                           "v2/solutions/solution-providers"
                         ]
                       },

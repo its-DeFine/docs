@@ -54,6 +54,20 @@ const CANONICAL_PAGE_STATUSES = Object.freeze([
   'verified_2026'
 ]);
 
+// Canonical 7-token audience set. Locked 2026-03-24.
+// Source of truth for all audience validation across the toolchain.
+// rubric-loader.js AUDIENCE_ENUM and lint-structure.js CANONICAL_AUDIENCE_TOKENS
+// should derive from this — do not maintain separate copies.
+const CANONICAL_AUDIENCES = Object.freeze([
+  'founder',
+  'builder',
+  'developer',
+  'gateway',
+  'orchestrator',
+  'delegator',
+  'community'
+]);
+
 const LAST_VERIFIED_REQUIRED_STATUSES = Object.freeze([
   'current',
   'published',
@@ -251,6 +265,10 @@ function isValidPurpose(value, options = {}) {
   return allowDeprecatedAliases || !result.deprecatedAlias;
 }
 
+function isValidAudience(value) {
+  return CANONICAL_AUDIENCES.includes(String(value == null ? '' : value).trim().toLowerCase());
+}
+
 function isValidStatus(value) {
   return normalizeStatus(value).valid;
 }
@@ -341,6 +359,10 @@ function describeCanonicalPurposes() {
   return CANONICAL_PURPOSES.join(', ');
 }
 
+function describeCanonicalAudiences() {
+  return CANONICAL_AUDIENCES.join(', ');
+}
+
 function describeAllowedPurposesForPageType(value) {
   const result = normalizePageType(value);
   if (!result.valid) return '';
@@ -359,6 +381,7 @@ module.exports = {
   CANONICAL_PAGE_TYPES,
   CANONICAL_PURPOSES,
   CANONICAL_PAGE_STATUSES,
+  CANONICAL_AUDIENCES,
   LAST_VERIFIED_REQUIRED_STATUSES,
   DEPRECATED_PAGE_TYPE_ALIASES,
   DEPRECATED_PURPOSE_ALIASES: DEPRECATED_PURPOSE_ALIASES_FINAL,
@@ -369,6 +392,7 @@ module.exports = {
   normalizeStatus,
   isValidPageType,
   isValidPurpose,
+  isValidAudience,
   isValidStatus,
   getPageTypeAdvisory,
   getPurposeAdvisory,
@@ -378,6 +402,7 @@ module.exports = {
   statusRequiresLastVerified,
   describeCanonicalPageTypes,
   describeCanonicalPurposes,
+  describeCanonicalAudiences,
   describeAllowedPurposesForPageType,
   describeCanonicalPageStatuses,
   describeLastVerifiedRequiredStatuses

@@ -18,8 +18,8 @@ Sources: `plan-canonical.md`, `content-pipeline-canonical.md`, `design-canonical
 | # | Check | Pass criteria |
 |---|-------|---------------|
 | 1.1 | All **10 required frontmatter fields** present | `title`, `sidebarTitle`, `description`, `pageType`, `audience`, `purpose`, `complexity`, `lifecycleStage`, `keywords`, OG image block — none missing, none empty |
-| 1.2 | `pageType` uses **7-type canonical schema** | One of: `concept`, `tutorial`, `guide`, `instruction`, `navigation`, `reference`, `resource`. No deprecated 12-type values (`landing`, `overview`, `how_to`, `quickstart`, `faq`, `troubleshooting`, `changelog`, `glossary`) |
-| 1.3 | `pageVariant` valid if present | One of: `overview`, `specification`, `compendium`, `changelog`, `knowledge-hub`, `quickstart`, `troubleshooting`. `overview` is a variant, never a pageType |
+| 1.2 | `pageType` uses **7-type canonical schema** | One of: `concept`, `tutorial`, `guide`, `instruction`, `navigation`, `reference`, `resource`. No deprecated 12-type values (`landing`, `overview`, `how_to`, `quickstart`, `faq`, `troubleshooting`, `changelog`, `glossary`). When migrating a deprecated value, also set `pageVariant` per the §1.1 migration table in Frameworks.mdx (e.g. `quickstart` → `pageType: instruction` + `pageVariant: quickstart`; `faq` → `pageType: reference` + `pageVariant: compendium`; `glossary` → `pageType: reference` + `pageVariant: compendium`; `troubleshooting` → `pageType: instruction` + `pageVariant: troubleshooting`; `changelog` → `pageType: reference` + `pageVariant: changelog`) |
+| 1.3 | `pageVariant` valid if present | One of: `overview`, `specification`, `compendium`, `changelog`, `knowledge-hub`, `quickstart`, `troubleshooting`. `overview` is a variant, never a pageType. Several of these values correspond to deprecated-type migrations (see check 1.2 and the §1.1 migration table in Frameworks.mdx) |
 | 1.4 | `purpose` uses **15-value canonical set** | One of: `orient`, `explain`, `learn`, `choose`, `evaluate`, `start`, `build`, `configure`, `operate`, `troubleshoot`, `verify`, `integrate`, `optimise`, `reference`, `update`. No deprecated aliases (`orientation`, `concept`, `decision`, `setup`, `optimization`, `comparison`) |
 | 1.5 | `audience` uses **7-token set** | One of: `founder`, `builder`, `developer`, `gateway`, `orchestrator`, `delegator`, `community`. Not old values like `general`, `everyone`, `internal`, `platform-builder`, `gateway-operator` |
 | 1.6 | `complexity` single canonical value | One of: `beginner`, `intermediate`, `advanced` |
@@ -29,6 +29,7 @@ Sources: `plan-canonical.md`, `content-pipeline-canonical.md`, `design-canonical
 | 1.10 | `niche` array valid if present | From: `web3`, `protocol`, `tokenomics`, `AI`, `video`, `streaming`, `hardware`, `infrastructure` |
 | 1.11 | `description` well-formed | Subject-first, ≤160 chars, no self-reference ("this page"), UK English |
 | 1.12 | OG image block complete | All 5 OG fields present with correct fallback path |
+| 1.13 | `keywords` field quality | Keywords are specific, relevant, and searcher-intent-aligned. Not generic. Not synonyms of the title. Each keyword must be a term a target reader would actually search for. Bad: `"livepeer", "orchestrator"`. Good: `"run livepeer orchestrator node", "GPU transcoding setup", "AI inference pipeline livepeer"`. Cross-reference `v2/resources/glossary.mdx` — terms defined there are candidates for strong keywords |
 
 ### What success looks like
 
@@ -91,8 +92,8 @@ Read any paragraph aloud and it sounds like a specific expert wrote it for a spe
 
 | # | Check | Pass criteria |
 |---|-------|---------------|
-| 3.1 | Every heading scores **≥20/25** on the naming rubric | 5 dimensions × 5 points: Precision, Depth, Stability, Clarity, Conciseness |
-| 3.2 | No generic descriptors as headings | No standalone: `Types`, `Profiles`, `Modes`, `Overview`, `Basics`, `Details`, `Information`, `Getting Started` |
+| 3.1 | Every heading scores **≥20/25** on the naming rubric | 5 dimensions × 5 points: Precision, Depth, Stability, Clarity, Conciseness. **EXEMPT: `Related Pages` heading — do not score, do not include in the Heading Score Table, do not reference in check 3.2 or 3.7. It is an approved structural element. Treat as invisible to all heading checks.** |
+| 3.2 | No banned or weak standalone heading terms | Three tiers per Frameworks.mdx §4.1: **Banned** (never): `Basics`, `Notes`, `How It Works`, `See Also`, `Conclusion`, `What's Next`. **Avoid** (flag, suggest stronger): `Overview`, `Details`, `Information`, `Introduction`, `Summary`, `Options`, `Background`, `Next Steps`, `Further Reading`. **OK**: `Types`, `Modes`, `Profiles`, `Prerequisites`, `Configuration`, `Setup`, `Resources`, `Related`, etc. Banned terms also apply to heading **rename suggestions** — do not propose a fix that introduces a banned term. **EXEMPT: `Related Pages` — approved structural element, not subject to this check.** |
 | 3.3 | No literal contrast labels | No `X vs Y` headings — name the governing concept instead |
 | 3.4 | Domain-anchor rule applied | Heading includes the domain noun when needed to be interpretable in isolation (out of page context) |
 | 3.5 | Heading names the concept, not examples | "Hardware Architecture Tiers" not "NVIDIA vs AMD vs Intel" |
@@ -358,11 +359,11 @@ Based on `docs-review-prompt-tiers.md` Tier 3 (Single Page):
 
 ### Pre-flight (before touching the page)
 1. **Check for `generated-file-banner`** — if present, read the generation script before logging any findings. Script bugs are root causes; page-level symptoms are not actionable.
-2. Read the page's frontmatter — classify against canonical enums
-3. Identify the page's audience, purpose, and pageType
+2. Read the page's frontmatter — classify against canonical enums. **Read each field value directly from the file. Do not infer `purpose` from `pageType`. Do not infer `audience` from the file path.**
+3. Identify the page's audience, purpose, and pageType — from the actual field values, not from context
 4. Load the relevant voice rules for that audience
-5. Load the component matrix for that pageType
-6. Note the page's position in the journey (what comes before/after)
+5. Load the component matrix for that pageType — read `docs-guide/policies/component-layout-decisions.mdx` if you need to verify component approval status
+6. Note the page's position in the journey (what comes before/after) — read `docs.json` to confirm the navigation sequence, do not infer from memory
 
 ### Review pass order
 1. **Frontmatter** (Category 1) — all fields present, all values canonical
@@ -409,12 +410,18 @@ Every numbered check must appear. If not applicable, state why: `N/A — [reason
 
 ### Banned Construction Scan
 
-List every sentence containing "can", "may", "could", "might", "should":
+**Scope:** all visible text including body prose, headings, frontmatter `description`, Tips, Notes, Warnings, table cells, card descriptions, **CustomDivider `middleText` props**, **AccordionGroup `title` props**, **Tabs `title` props**, and any other visible component prop.
 
-| Line | Sentence | Word | Classification | Flag? |
-|------|----------|------|----------------|-------|
+**No exemptions beyond those in checks.mdx or CLAUDE.md.** If a construction matches the pattern but its intent is unclear, flag as BORDERLINE and request human review. Do not invent exemption categories (e.g., "boundary-setter", "page-edge context").
 
-Classification: `value-claim` (flag) / `procedural` (ok) / `conditional caveat` (ok) / `rhetorical` (ok).
+List every sentence containing "can", "may", "could", "might", "should", plus every `if [condition]` construction and every `not [X]` statement:
+
+| Line | Sentence | Word/Pattern | Classification | Flag? |
+|------|----------|--------------|----------------|-------|
+
+Classification: `value-claim` (flag) / `procedural` (ok) / `conditional caveat` (ok) / `rhetorical` (ok) / `BORDERLINE` (flag for human review).
+
+**Show the work:** list every candidate match considered, even when the result is PASS. A PASS with no candidates listed is not verifiable.
 
 ### Heading Score Table
 
@@ -461,13 +468,45 @@ If B: [fixes that apply]
 
 **Fixes must be executable.** No "add appropriate X". No "or as appropriate". Specify the exact value, line, or action. Another agent must be able to execute the fix with zero additional context.
 
+**Definition strings in fixes must be REVIEW placeholders.** Any definition or explanatory text proposed as a fix must use this format: `{/* REVIEW: [term] — verify definition against [source] before inserting */}`. Do not write a definition string as if it is verified content.
+
+**Schema rules must be cited.** Any finding that asserts a schema constraint (field X requires field Y, value A requires value B) must cite the specific checks.mdx section. If no section can be cited, downgrade to INFO: "inferred policy — source required before actioning."
+
+**Read fields directly.** State the actual frontmatter field value — read it, do not infer it. Never infer `purpose` from `pageType`. Never infer `audience` from the page's file path alone.
+
+**Characterise the error correctly.** When a frontmatter value fails, state which failure type applies: (a) deprecated alias — value was valid in old schema; (b) wrong field — value is valid but placed in the wrong field (e.g. a pageType value in the purpose field); (c) invalid value — not in either schema. These are different problems with different fixes.
+
+**Evaluate the current state only.** All findings evaluate the page as it currently exists. Do not evaluate a check against a proposed post-fix state. If a check's result depends on a value you are also recommending be changed, note the dependency and evaluate the current value.
+
+**Result column must match the detail conclusion.** If the check detail says PASS, write PASS in the result column. If FAIL, write FAIL. Before finalising the report, scan every check row for result/detail contradictions and fix them.
+
 **Veracity findings: TESTED or NOT-TESTED.** Every code block, command, or factual claim must be labelled:
 - `TESTED:` — executed, produced stated output
 - `NOT-TESTED:` — not executed. State why and the risk.
 
 "REVIEW — verify this" is not a finding format.
 
-**Link verification.** Use `operations/scripts/validators/content/structure/check-docs-path-sync.js`. For pages with many links, verify at minimum 20% and list them in a table.
+**Component approval: NOT-TESTED unless the catalog was read.** The canonical component list is `docs-guide/catalog/components-catalog.mdx`. If this file was not actually read, the component check result is NOT-TESTED. Do not mark FAIL without reading it. Layout-per-pageType rules are in `docs-guide/policies/component-layout-decisions.mdx`.
+
+**Verify every cited occurrence.** Before reporting a banned word/term, scan the file and count instances. Quote the content at the cited line. Do not report a line number without quoting the text there. Do not count from memory. Terms that appear only in the `keywords` frontmatter field are not undefined at first use in body prose — only scan body prose and visible component props for first-use violations.
+
+**Link verification.** Use `operations/scripts/validators/content/structure/check-docs-path-sync.js`. For pages with many links, verify at minimum 20% and list them in a table. A link target present in `docs.json` is not broken — verify before flagging. State the docs.json line where you confirmed presence or absence.
+
+**Navigation sequence.** Check 4.3 (PREV_PAGE/NEXT_PAGE adjacency) requires reading `docs.json` to confirm the sequence. State the specific docs.json lines consulted. Never state a navigation order from memory.
+
+**Self-consistency corrections are only complete when ALL instances are updated.** Before closing the report, verify: (1) check table result column matches the detail conclusion, (2) verdict count matches the number of FAIL entries in the check table, (3) cross-category connections do not reference retracted findings, (4) fix list does not include withdrawn fixes, (5) scores cited in verdict/narrative match the score table.
+
+**Findings must appear in all applicable sections.** A finding in the check category section must also appear in the scan table (if it's a banned construction) and the fix list (if it has a fix). If intentionally excluded, write: "Not in fix list — [reason]." No orphaned findings.
+
+**Severity levels.** Use only: CRITICAL / HIGH / MEDIUM / INFO. "LOW" is not valid — use INFO.
+
+**Em-dash prohibition applies to all visible text.** CLAUDE.md prohibits em dashes in headings, frontmatter `description`, and body prose. Not restricted to body prose only.
+
+**Heading rename suggestions** must not introduce BANNED heading terms (Frameworks.mdx §4.1), and must be checked against other existing headings on the same page. If a rename would create near-identical overlap with an existing heading, propose a disambiguated version.
+
+**veracityStatus fix must be internally consistent.** `status: current` requires `veracityStatus: verified` per check 1.8. Valid fixes: change `status` to `draft`, OR add `veracityStatus: verified` (only when content is actually verified). Never recommend `status: current` + `veracityStatus: unverified` together.
+
+**First use in Mermaid/diagram labels counts as first use.** When a term appears first in a Mermaid block or code block, the fix requires two parts: (1) a Note immediately after the diagram block, (2) an inline definition at the first prose occurrence.
 
 **Dead imports.** Do not flag. Not a content quality issue for this run.
 

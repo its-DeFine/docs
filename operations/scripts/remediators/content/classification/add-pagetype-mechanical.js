@@ -23,7 +23,10 @@ const { CANONICAL_PAGE_TYPES, normalizePageType } = require('../../../../../tool
 const REPO_ROOT = process.cwd();
 const V2_ROOT = path.join(REPO_ROOT, 'v2');
 const EXCLUDED_SEGMENTS = new Set(['cn', 'es', 'fr', 'views', 'groups']);
-const SUMMARY_TYPES = ['reference', 'landing', 'quickstart', 'glossary', 'overview', 'faq', 'troubleshooting'];
+// Canonical types that can be emitted by this script's classification rules.
+// 'overview' removed — it is not a canonical pageType and is no longer assigned.
+// 'navigation' and 'concept' added to cover index.mdx and overview.mdx outputs.
+const SUMMARY_TYPES = ['reference', 'navigation', 'concept', 'landing', 'quickstart', 'glossary', 'faq', 'troubleshooting'];
 
 function toPosix(filePath) {
   return String(filePath || '').split(path.sep).join('/');
@@ -123,21 +126,32 @@ function classifyFile(relPath, frontmatterRaw) {
     return { type: 'landing', rule: 3 };
   }
   if (normalized.includes('/quickstart/') || fileName === 'quickstart.mdx') {
-    return { type: 'quickstart', rule: 4 };
+    return { type: 'quickstart', pageVariant: 'quickstart', rule: 4 };
   }
-  if (fileName.includes('glossary')) return { type: 'glossary', rule: 5 };
-  if (fileName.includes('faq')) return { type: 'faq', rule: 6 };
+  if (fileName.includes('glossary')) return { type: 'glossary', pageVariant: 'compendium', rule: 5 };
+  if (fileName.includes('faq')) return { type: 'faq', pageVariant: 'compendium', rule: 6 };
   if (fileName.includes('troubleshoot') || normalized.includes('/troubleshoot')) {
-    return { type: 'troubleshooting', rule: 7 };
+    return { type: 'troubleshooting', pageVariant: 'troubleshooting', rule: 7 };
   }
   if (normalized.includes('/api-reference/') && fileName === 'overview.mdx') {
-    return { type: 'overview', rule: 8 };
+    // overview is not a canonical pageType and is not aliased — api-reference entry pages
+    // are concept pages with a pageVariant to distinguish them from generic concepts.
+    return { type: 'concept', pageVariant: 'overview', rule: 8 };
   }
   if (normalized.includes('/api-reference/') && !hasField(frontmatterRaw, 'openapi') && fileName !== 'overview.mdx') {
     return { type: 'reference', rule: 9 };
   }
-  if (fileName === 'overview.mdx' || fileName === 'index.mdx') {
-    return { type: 'overview', rule: 10 };
+  // FIX (rule 10): 'overview' was previously assigned here but it is not a canonical pageType
+  // and has no alias in frontmatter-taxonomy.js — normalizePageType() returns valid:false and
+  // the guard at the call-site throws.  Correct assignments per taxonomy:
+  //   index.mdx   → pageType: navigation  (tab / section entry points)
+  //   overview.mdx → pageType: concept, pageVariant: overview  (conceptual overview pages)
+  //   portal.mdx  → pageType: navigation  (already covered by rule 3 via fileName.includes('portal'))
+  if (fileName === 'index.mdx') {
+    return { type: 'navigation', rule: 10 };
+  }
+  if (fileName === 'overview.mdx') {
+    return { type: 'concept', pageVariant: 'overview', rule: 10 };
   }
 
   return { type: '', rule: 11 };
@@ -196,15 +210,32 @@ function getInsertionIndex(lines, keyIndex) {
   return cursor + 1;
 }
 
-function buildUpdatedContent(content, pageType) {
+function buildUpdatedContent(content, pageType, pageVariant) {
   const newline = detectNewline(content);
   const frontmatter = extractFrontmatterBlock(content);
   if (!frontmatter.exists) {
     return '';
   }
 
-  const nextFrontmatter = insertPageType(frontmatter.raw, pageType, newline);
+  // Insert pageType first, then pageVariant immediately after if provided.
+  // pageVariant is used for concept/overview.mdx pages (rule 8, rule 10) to preserve
+  // the semantic distinction without using the invalid 'overview' pageType value.
+  let nextFrontmatter = insertPageType(frontmatter.raw, pageType, newline);
+  if (pageVariant) {
+    nextFrontmatter = insertFieldAfterPageType(nextFrontmatter, 'pageVariant', pageVariant, newline);
+  }
   return `---${newline}${nextFrontmatter}${newline}---${newline}${frontmatter.body}`;
+}
+
+function insertFieldAfterPageType(frontmatterRaw, fieldName, fieldValue, newline) {
+  const lines = String(frontmatterRaw || '').split(/\r?\n/);
+  if (lines.some((line) => new RegExp(`^${fieldName}\\s*:`).test(line))) {
+    return frontmatterRaw;
+  }
+  const pageTypeIndex = lines.findIndex((line) => /^pageType\s*:/.test(line));
+  const insertAt = pageTypeIndex === -1 ? lines.length : pageTypeIndex + 1;
+  lines.splice(insertAt, 0, `${fieldName}: ${fieldValue}`);
+  return lines.join(newline);
 }
 
 function validateUpdatedFrontmatter(content, relPath) {
@@ -224,10 +255,11 @@ function writeOperations(operations) {
 function printSummary(summary) {
   console.log('Phase 1 classification complete:');
   console.log(`  reference: ${summary.reference}`);
+  console.log(`  navigation: ${summary.navigation}`);
+  console.log(`  concept (overview variant): ${summary.concept}`);
   console.log(`  landing: ${summary.landing}`);
   console.log(`  quickstart: ${summary.quickstart}`);
   console.log(`  glossary: ${summary.glossary}`);
-  console.log(`  overview: ${summary.overview}`);
   console.log(`  faq: ${summary.faq}`);
   console.log(`  troubleshooting: ${summary.troubleshooting}`);
   console.log(`  Already typed (skipped): ${summary.skipped}`);
@@ -240,10 +272,11 @@ function main() {
   const files = walkMdxFiles(V2_ROOT).sort((left, right) => left.localeCompare(right));
   const summary = {
     reference: 0,
+    navigation: 0,
+    concept: 0,
     landing: 0,
     quickstart: 0,
     glossary: 0,
-    overview: 0,
     faq: 0,
     troubleshooting: 0,
     skipped: 0,
@@ -281,9 +314,15 @@ function main() {
       throw new Error(`Internal classification error: "${classification.type}" is not a canonical pageType`);
     }
 
-    const updatedContent = buildUpdatedContent(content, normalizedType.canonical);
+    const updatedContent = buildUpdatedContent(content, normalizedType.canonical, classification.pageVariant || '');
     validateUpdatedFrontmatter(updatedContent, relPath);
 
+    // NOTE (pre-existing issue — do not fix here): summary keys use the deprecated type names
+    // (quickstart, glossary, faq, troubleshooting) but this line increments by the canonical
+    // resolved type (e.g. 'instruction' for quickstart files). 'instruction' is not a key in
+    // the summary object, so those counts silently accumulate on `undefined` rather than the
+    // named bucket. The summary output for those types will always show 0 even when files were
+    // classified. Fix in a separate PR that aligns summary keys with canonical type names.
     summary[normalizedType.canonical] += 1;
     logs.push(
       `CLASSIFIED: ${relPath} -> ${normalizedType.canonical} (rule ${classification.rule}${args.dryRun ? ', dry-run' : ''})`

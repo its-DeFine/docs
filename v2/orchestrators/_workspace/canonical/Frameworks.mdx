@@ -64,16 +64,16 @@ Locked definitions governing every page in the documentation. When a page is cla
 
 **Deprecated aliases** (old 12-type → new 7-type):
 
-| Old | New |
-|---|---|
-| `landing` | `navigation` |
-| `overview` | Migrate explicitly to correct new type |
-| `how_to` | `instruction` |
-| `quickstart` | `instruction` (quickstart variant) |
-| `faq` | `reference` (compendium variant) |
-| `troubleshooting` | `instruction` (troubleshooting variant) |
-| `changelog` | `reference` (changelog variant) |
-| `glossary` | `reference` (compendium/glossary variant) |
+| Old pageType | New pageType | pageVariant to set |
+|---|---|---|
+| `landing` | `navigation` | — |
+| `overview` | Migrate explicitly to correct new type | — |
+| `how_to` | `instruction` | — |
+| `quickstart` | `instruction` | `quickstart` |
+| `faq` | `reference` | `compendium` |
+| `troubleshooting` | `instruction` | `troubleshooting` |
+| `changelog` | `reference` | `changelog` |
+| `glossary` | `reference` | `compendium` |
 
 ---
 
@@ -717,8 +717,21 @@ Architectural frameworks governing page structure, naming, and the content pipel
 
 **Pass**: total >= 20/25
 
-### Weak-label penalties
-`types` (unless genuinely classifying) | `profiles` (unless genuinely describing stable groupings) | `modes` (unless genuinely describing distinct operational ways) | `models` (unless genuinely describing frameworks) | `overview` (unless no stronger descriptor exists) | `guide` (unless actually about guidance) | `basics`, `essentials`, `foundations` (unless explicitly introductory)
+### Standalone heading term registry
+
+Three tiers, verified 2026-03-24:
+
+| Tier | Meaning | Terms |
+|---|---|---|
+| **Banned** | Never use as a standalone H2/H3 | `Basics`, `Notes`, `How It Works`, `See Also`, `Conclusion`, `What's Next` |
+| **Avoid** | Use only when no stronger descriptor exists | `Overview`, `Details`, `Information`, `Introduction`, `Summary`, `Options`, `Background`, `Next Steps`, `Further Reading` |
+| **OK** | Acceptable standalone when content warrants | `Types`, `Modes`, `Profiles`, `Getting Started`, `Features`, `Examples`, `Benefits`, `Prerequisites`, `Requirements`, `Related`, `Configuration`, `Setup`, `Resources`, `Appendix` |
+
+**Banned** = the word communicates nothing about the specific content and has no domain anchor. Replace with the governing concept.
+
+**Avoid** = structurally weak — acceptable when the section is genuinely introductory, genuinely a summary, etc. A domain-anchored version is always stronger (`Pricing Overview` beats `Overview`).
+
+**OK** = these terms are specific enough in context. `Prerequisites` is a clear structural contract. `Types` in `Deployment Types` is fine. `Related` as a section marker for link clusters is fine.
 
 ### Winner filter (all must be yes)
 1. Does this name the real governing concept — not just the examples?

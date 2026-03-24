@@ -16,9 +16,27 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 const { execSync } = require('child_process');
 
-const REQUIRED_FRONTMATTER = ['title', 'pageType', 'audience', 'lastVerified'];
+const taxonomy = require(path.resolve(__dirname, '../../../../../tools/lib/frontmatter-taxonomy'));
+const { isValidPageType, isValidPurpose, isValidAudience, CANONICAL_AUDIENCES } = taxonomy;
+
+// Valid veracityStatus values — source: v2/orchestrators/_workspace/canonical/checks.mdx §1.8
+const CANONICAL_VERACITY_STATUSES = Object.freeze(['verified', 'unverified', 'stale']);
+
+// Valid pageVariant values — source: checks.mdx §1.3
+const CANONICAL_PAGE_VARIANTS = Object.freeze([
+  'overview',
+  'specification',
+  'compendium',
+  'changelog',
+  'knowledge-hub',
+  'quickstart',
+  'troubleshooting'
+]);
+
+const REQUIRED_FRONTMATTER = ['title', 'pageType', 'audience', 'purpose', 'lastVerified'];
 const STALE_DAYS = 90;
 
 const HEDGE_NOTE_PHRASES = [
@@ -125,6 +143,82 @@ function checkFrontmatter(content, filePath) {
         fix: 'Update lastVerified after content review or SME confirmation.'
       });
     }
+  }
+
+  // Fix 1: Value validation — WARNING (tier 2), does not block CI
+  // Checks pageType, audience, and purpose against canonical enum lists from frontmatter-taxonomy.js.
+  if (frontmatter.pageType && !isValidPageType(frontmatter.pageType, { allowDeprecatedAliases: false })) {
+    results.push({
+      tier: 2,
+      file: filePath,
+      line: 1,
+      id: 'INVALID_PAGE_TYPE',
+      label: `pageType "${frontmatter.pageType}" is not a canonical value`,
+      fix: `"${frontmatter.pageType}" is deprecated. Migrate to one of: ${taxonomy.describeCanonicalPageTypes()}. Check Frameworks.mdx §1.1 for the pageType + pageVariant required.`,
+      match: frontmatter.pageType
+    });
+  }
+
+  if (frontmatter.audience && !isValidAudience(frontmatter.audience)) {
+    results.push({
+      tier: 2,
+      file: filePath,
+      line: 1,
+      id: 'INVALID_AUDIENCE',
+      label: `audience "${frontmatter.audience}" is not a canonical token`,
+      fix: `Use one of: ${taxonomy.describeCanonicalAudiences()}.`,
+      match: frontmatter.audience
+    });
+  }
+
+  if (frontmatter.purpose && !isValidPurpose(frontmatter.purpose, { allowDeprecatedAliases: false })) {
+    results.push({
+      tier: 2,
+      file: filePath,
+      line: 1,
+      id: 'INVALID_PURPOSE',
+      label: `purpose "${frontmatter.purpose}" is not a canonical value`,
+      fix: `"${frontmatter.purpose}" is deprecated. Migrate to one of: ${taxonomy.describeCanonicalPurposes()}.`,
+      match: frontmatter.purpose
+    });
+  }
+
+  if (frontmatter.pageVariant && !CANONICAL_PAGE_VARIANTS.includes(frontmatter.pageVariant.toLowerCase())) {
+    results.push({
+      tier: 2,
+      file: filePath,
+      line: 1,
+      id: 'INVALID_PAGE_VARIANT',
+      label: `pageVariant "${frontmatter.pageVariant}" is not a canonical value`,
+      fix: `Use one of: ${CANONICAL_PAGE_VARIANTS.join(', ')}.`,
+      match: frontmatter.pageVariant
+    });
+  }
+
+  // Fix 3: veracityStatus validation — INFO (tier 3), never blocks CI
+  // Rule: "status: current" requires "veracityStatus: verified" per checks.mdx §1.8
+  if (frontmatter.veracityStatus && !CANONICAL_VERACITY_STATUSES.includes(frontmatter.veracityStatus.toLowerCase())) {
+    results.push({
+      tier: 3,
+      file: filePath,
+      line: 1,
+      id: 'INVALID_VERACITY_STATUS',
+      label: `veracityStatus "${frontmatter.veracityStatus}" is not a valid value`,
+      fix: `Use one of: ${CANONICAL_VERACITY_STATUSES.join(', ')}.`,
+      match: frontmatter.veracityStatus
+    });
+  }
+
+  if (frontmatter.status === 'current' && !frontmatter.veracityStatus) {
+    // "status: current" requires "veracityStatus: verified" per checks.mdx §1.8
+    results.push({
+      tier: 3,
+      file: filePath,
+      line: 1,
+      id: 'MISSING_VERACITY_STATUS',
+      label: 'status is "current" but veracityStatus is not set',
+      fix: 'Add veracityStatus: verified (or unverified/stale) to frontmatter. See checks.mdx §1.8.'
+    });
   }
 
   return results;
@@ -271,6 +365,7 @@ function run() {
 
   let tier1Count = 0;
   let tier2Count = 0;
+  let tier3Count = 0;
 
   files.forEach((filePath) => {
     const content = fs.readFileSync(filePath, 'utf8');
@@ -287,9 +382,11 @@ function run() {
 
     const tier1 = allResults.filter((result) => result.tier === 1);
     const tier2 = allResults.filter((result) => result.tier === 2);
+    const tier3 = allResults.filter((result) => result.tier === 3);
 
     tier1Count += tier1.length;
     tier2Count += tier2.length;
+    tier3Count += tier3.length;
 
     if (tier1.length > 0) {
       console.error(`\n❌  ${filePath} — ${tier1.length} BLOCKING structural error(s):\n`);
@@ -308,10 +405,20 @@ function run() {
         if (result.text) console.warn(`        → "${result.text}"`);
       });
     }
+
+    // Tier 3 = INFO — informational only, never affects exit code
+    if (tier3.length > 0) {
+      console.log(`\nℹ️   ${filePath} — ${tier3.length} info notice(s):\n`);
+      tier3.forEach((result) => {
+        console.log(`  [L${result.line}] ${result.id}: ${result.label}`);
+        console.log(`        Fix: ${result.fix}`);
+        if (result.text) console.log(`        → "${result.text}"`);
+      });
+    }
   });
 
   console.log(
-    `\nlint-structure: ${tier1Count} blocking, ${tier2Count} warnings across ${files.length} file(s).`
+    `\nlint-structure: ${tier1Count} blocking, ${tier2Count} warnings, ${tier3Count} info across ${files.length} file(s).`
   );
 
   if (tier1Count > 0 && !warnOnly) {
@@ -330,6 +437,9 @@ module.exports = {
   REQUIRED_FRONTMATTER,
   STALE_DAYS,
   HEDGE_NOTE_PHRASES,
+  CANONICAL_AUDIENCES,
+  CANONICAL_PAGE_VARIANTS,
+  CANONICAL_VERACITY_STATUSES,
   checkAccordionUrls,
   checkEmptyTableCells,
   checkFrontmatter,

@@ -28,9 +28,13 @@ const {
   audienceTokensFromRaw,
   loadAudienceNormalization,
   loadLlmTiers,
-  AUDIENCE_ENUM,
-  PURPOSE_ENUM
+  AUDIENCE_ENUM
 } = require('../../../../../tools/lib/docs-usefulness/rubric-loader');
+// CANONICAL_PURPOSES is the authoritative 15-value purpose set (Decision 2, 2026-03-20).
+// Previously this script used PURPOSE_ENUM from rubric-loader, which contains rubric-internal
+// labels (landing, overview, how_to, faq, etc.) — not valid frontmatter values. Fixed to use
+// CANONICAL_PURPOSES so written frontmatter always contains canonical values only.
+const { CANONICAL_PURPOSES } = require('../../../../../tools/lib/frontmatter-taxonomy');
 const { analyzeMdxPage } = require('../../../../../tools/lib/docs-usefulness/scoring');
 const prompts = require('../../../../../tools/lib/docs-usefulness/prompts');
 const { loadAndValidateUsefulnessConfig } = require('../../../../../tools/lib/docs-usefulness/config-validator');
@@ -120,20 +124,22 @@ function isPilotFile(relPath) {
   );
 }
 
+// PURPOSE_RULES maps filename/directory patterns to canonical purpose values.
+// All purpose values here must be members of CANONICAL_PURPOSES (tools/lib/frontmatter-taxonomy.js).
 const PURPOSE_RULES = [
-  { test: (p) => /portal/i.test(path.basename(p)), purpose: 'landing', source: 'filename' },
-  { test: (p) => /mission-control/i.test(path.basename(p)), purpose: 'landing', source: 'filename' },
-  { test: (p) => path.basename(p) === 'index.mdx', purpose: 'landing', source: 'filename' },
-  { test: (p) => /quickstart/i.test(path.basename(p)), purpose: 'tutorial', source: 'filename' },
-  { test: (p) => /get-started/i.test(path.basename(p)), purpose: 'tutorial', source: 'filename' },
-  { test: (p) => /primer/i.test(path.basename(p)), purpose: 'tutorial', source: 'filename' },
-  { test: (p) => /^first-/i.test(path.basename(p)), purpose: 'tutorial', source: 'filename' },
-  { test: (p) => /^faq/i.test(path.basename(p)), purpose: 'faq', source: 'filename' },
-  { test: (p) => /troubleshoot/i.test(path.basename(p)), purpose: 'troubleshooting', source: 'filename' },
-  { test: (p) => /glossary/i.test(path.basename(p)), purpose: 'glossary', source: 'filename' },
-  { test: (p) => /changelog|release-notes/i.test(path.basename(p)), purpose: 'changelog', source: 'filename' },
+  { test: (p) => /portal/i.test(path.basename(p)), purpose: 'orient', source: 'filename' },
+  { test: (p) => /mission-control/i.test(path.basename(p)), purpose: 'orient', source: 'filename' },
+  { test: (p) => path.basename(p) === 'index.mdx', purpose: 'orient', source: 'filename' },
+  { test: (p) => /quickstart/i.test(path.basename(p)), purpose: 'start', source: 'filename' },
+  { test: (p) => /get-started/i.test(path.basename(p)), purpose: 'start', source: 'filename' },
+  { test: (p) => /primer/i.test(path.basename(p)), purpose: 'learn', source: 'filename' },
+  { test: (p) => /^first-/i.test(path.basename(p)), purpose: 'learn', source: 'filename' },
+  { test: (p) => /^faq/i.test(path.basename(p)), purpose: 'reference', source: 'filename' },
+  { test: (p) => /troubleshoot/i.test(path.basename(p)), purpose: 'troubleshoot', source: 'filename' },
+  { test: (p) => /glossary/i.test(path.basename(p)), purpose: 'reference', source: 'filename' },
+  { test: (p) => /changelog|release-notes/i.test(path.basename(p)), purpose: 'update', source: 'filename' },
   { test: (p) => /api-reference|config-flags/i.test(path.basename(p)), purpose: 'reference', source: 'filename' },
-  { test: (p) => /overview/i.test(path.basename(p)), purpose: 'overview', source: 'filename' },
+  { test: (p) => /overview/i.test(path.basename(p)), purpose: 'orient', source: 'filename' },
   { test: (p) => /\/references?\//i.test(p), purpose: 'reference', source: 'directory' }
 ];
 
@@ -148,16 +154,16 @@ function inferPurposeByRules(relPath, content) {
   const accordionCount = (String(page.content || '').match(/<Accordion(?:Group)?[\s>]/g) || []).length;
 
   if ((page.components || []).includes('Steps')) {
-    return { purpose: 'how_to', source: 'content' };
+    return { purpose: 'build', source: 'content' };
   }
   if (accordionCount >= 5) {
-    return { purpose: 'faq', source: 'content' };
+    return { purpose: 'reference', source: 'content' };
   }
   if ((page.wordCount || 0) < 150 && (page.components || []).some((component) => ['Card', 'CardGroup', 'GotoCard', 'DisplayCard'].includes(component))) {
-    return { purpose: 'landing', source: 'content' };
+    return { purpose: 'orient', source: 'content' };
   }
   if ((page.wordCount || 0) > 300 && (page.headings || []).length >= 3 && !(page.components || []).includes('Steps')) {
-    return { purpose: 'concept', source: 'content' };
+    return { purpose: 'explain', source: 'content' };
   }
 
   return { purpose: 'unclassified', source: 'none' };
@@ -201,7 +207,8 @@ async function classifyPurposeWithLlm({ apiKey, tier, relPath, title, content })
   const models = tierConfig.models || [];
   if (!models.length) return null;
 
-  const prompt = `Given this documentation page, what is its primary purpose?\nRespond with exactly one of: landing, overview, concept, how_to, tutorial, reference, faq, glossary, changelog, troubleshooting\n\nDefinitions:\n- landing: Routes users (portal, index, navigation pages)\n- overview: Orients ("what is this and why care")\n- concept: Explains one idea/mechanism in depth\n- how_to: Task completion guide (assumes context)\n- tutorial: Zero-to-result walkthrough (assumes nothing)\n- reference: Lookup-oriented technical details\n- faq: Common questions answered\n- glossary: Term definitions\n- changelog: Version history\n- troubleshooting: Fix problems (symptom->cause->fix)\n\nPage title: ${title || ''}\nPage path: ${relPath}\nFirst 1500 words: ${String(content || '').split(/\s+/).slice(0, 1500).join(' ')}\n\nRespond with ONLY the purpose type, nothing else.`;
+  // Prompt uses canonical purpose values (CANONICAL_PURPOSES from frontmatter-taxonomy.js).
+  const prompt = `Given this documentation page, what is its primary purpose?\nRespond with exactly one of: orient, explain, learn, choose, evaluate, start, build, configure, operate, troubleshoot, verify, integrate, optimise, reference, update\n\nDefinitions:\n- orient: Routes or orients users (portals, indexes, navigation pages, "what is this")\n- explain: Explains one idea or mechanism in depth\n- learn: Zero-to-result walkthrough (assumes nothing)\n- choose: Helps users decide between options\n- evaluate: Helps users assess fit or readiness\n- start: Gets users running quickly (quickstart)\n- build: Task completion guide — step-by-step (assumes context)\n- configure: Setting up or adjusting configuration\n- operate: Day-to-day operational procedures\n- troubleshoot: Fix problems (symptom->cause->fix)\n- verify: Confirm something is working correctly\n- integrate: Connect with external systems or APIs\n- optimise: Improve performance or efficiency\n- reference: Lookup-oriented technical details, FAQs, glossaries\n- update: Version history or changelogs\n\nPage title: ${title || ''}\nPage path: ${relPath}\nFirst 1500 words: ${String(content || '').split(/\s+/).slice(0, 1500).join(' ')}\n\nRespond with ONLY the purpose type, nothing else.`;
 
   for (const model of models) {
     const response = await fetch(OPENROUTER_URL, {
@@ -233,7 +240,7 @@ async function classifyPurposeWithLlm({ apiKey, tier, relPath, title, content })
     const payload = await response.json();
     const raw = String(payload?.choices?.[0]?.message?.content || '').trim().toLowerCase();
     const candidate = raw.replace(/[`"'\s]/g, '').replace(/[^a-z_]/g, '');
-    if (PURPOSE_ENUM.includes(candidate)) {
+    if (CANONICAL_PURPOSES.includes(candidate)) {
       return { purpose: candidate, source: `llm:${model}` };
     }
   }
@@ -330,7 +337,7 @@ async function main() {
     let nextData = { ...parsed.data };
     let changed = false;
 
-    if (!existingPurpose && PURPOSE_ENUM.includes(purposeInfo.purpose)) {
+    if (!existingPurpose && CANONICAL_PURPOSES.includes(purposeInfo.purpose)) {
       nextData = upsertFrontmatterOrder(nextData, 'purpose', purposeInfo.purpose);
       changed = true;
     }

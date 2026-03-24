@@ -1,0 +1,71 @@
+---
+title: OSS-OWNERLESS-REPO-GOVERNANCE — Master Status
+lastAudited: 2026-03-24
+---
+
+## Purpose
+
+Convert the Livepeer Docs repo from human-owner governance to ownerless governance — where every governed surface has one canonical source, one deterministic validator, one repair path, and one primary gate layer. No repo-tracked contract requires a named person to validate, route, repair, or merge. Six phases: foundation and baseline, bounded deterministic drift surfaces, contributor/GitHub governance, script governance schema migration, component governance schema migration, and graduation to ownerless-ready surfaces.
+
+## Verified Done
+
+Confirmed by `Ownerless Repo Plan.md` "Implemented Foundations" section and surface inventory table:
+
+**Phase 0 — Foundation (implemented):**
+- `docs-guide/policies/ownerless-governance.mdx` — canonical policy doc.
+- `tools/config/ownerless-governance-surfaces.json` — machine-readable manifest.
+- `tests/unit/ownerless-governance.test.js` — validator.
+- `lpd repair --surface <id>` — repair wrapper.
+- `tools/scripts/repair-ownerless-language.js` — deterministic wording repair.
+
+**Phase 1 — Bounded drift surfaces (implemented):**
+- Portable skills: canonical source, validator, repair path — all implemented.
+- Docs-guide generated catalogs: implemented.
+- UI templates: implemented (confirmed by SNIPPETS plan completion).
+
+**Phase 2 — Contributor and GitHub governance:** Status listed as "Migrating" in the surface inventory. Not fully confirmed as complete.
+
+**Phase 3 — Script governance schema migration:** Status "Migrating" in surface inventory. SCRIPT-GOVERNANCE plan covers the `@owner` → `@domain` migration.
+
+**Phase 4 — Component governance schema migration:** Status "Migrating" in surface inventory. COMPONENT-GOVERNANCE plan covers this.
+
+**Phase 5 — Frontmatter contract:** Status "Advisory" in surface inventory. Not fully implemented as blocking.
+
+The all-plans-audit-2026-03-24.md rates this plan as "85% / Phases 0–1 complete. Phase 2 label migration partially done."
+
+## Claimed Done — Unverified or Incomplete
+
+- "Phase 2 label migration partially done" — the plan document describes the label changes (`needs-triage` → `needs-routing`, etc.) but it is not confirmed from file inspection whether these were applied.
+- Phases 3, 4, 5 are dependent on SCRIPT-GOVERNANCE and COMPONENT-GOVERNANCE completing their respective schema migrations — neither is fully complete.
+- The `Ownerless Repo Plan.md` is the sole file in this folder. There is no tracker, completion log, or phase-by-phase status — only the plan document and the inline surface inventory table.
+
+## In Progress
+
+Phase 2 label migration — partially complete per all-plans-audit. State unknown from plan file alone.
+
+## Not Started / Still To Do
+
+- Complete Phase 2 label migration (if partial).
+- Phase 3 graduation: wait for SCRIPT-GOVERNANCE `@owner` → `@domain` migration completion, then validate and promote surface.
+- Phase 4 graduation: wait for COMPONENT-GOVERNANCE schema migration completion.
+- Phase 5: frontmatter contract — currently advisory, needs promotion criteria evaluation.
+- Phase 6: graduation to `ownerless_ready=true` for all surfaces that meet the checklist.
+
+## Blockers
+
+- **SCRIPT-GOVERNANCE schema migration** (Phase 3) — depends on SCRIPT-GOVERNANCE Task 15 or later completing the `@owner` → `@domain` migration.
+- **COMPONENT-GOVERNANCE schema migration** (Phase 4) — depends on COMPONENT-GOVERNANCE completing the `@owner` → `@domain` migration for components.
+- Phase 2 — if label migration creates split automation behaviour, issue indexers and rolling-issue helpers need updating simultaneously.
+
+## File Inventory Flags
+
+- Only one file in this folder (`Ownerless Repo Plan.md`). No tracker, no decision log, no completion reports.
+- The plan has no task-level checklist — it describes phases at a concept level but does not track individual execution items. This makes it hard to assess progress without cross-referencing SCRIPT-GOVERNANCE and COMPONENT-GOVERNANCE.
+- File name contains a space ("Ownerless Repo Plan.md") — minor, but note for tooling that glob-matches.
+
+## Audit Notes
+
+- The plan document is well-designed and comprehensive: 6 phases, surface inventory table with 7 surfaces, repair command matrix, success metrics, and implementation risks per phase.
+- The all-plans-audit "85% / PARK or finish quickly" assessment may be slightly optimistic. Phases 3 and 4 are labelled "Migrating" and depend on other plans. Phase 5 is "Advisory" and the path to blocking is unclear.
+- The core foundation (Phase 0) and the primary drift surfaces (Phase 1) are genuinely implemented. The remaining work is schema migration coordination, not new infrastructure.
+- No evidence of a decision log. Architectural decisions made during execution (e.g., which surfaces to promote, boundary of Phase 2 label scope) are not recorded in this folder.

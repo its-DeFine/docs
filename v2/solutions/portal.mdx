@@ -34,6 +34,9 @@ import { PortalHeroContent, HeroImageBackgroundComponent, LogoHeroContainer, Her
 import { H1, H2, H5, P } from '/snippets/components/scaffolding/frame-mode/FrameMode.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { BlinkingIcon } from '/snippets/components/elements/links/Links.jsx'
+import { SocialLinks } from '/snippets/components/elements/social/SocialLinks.jsx'
+import { CustomCardTitle } from '/snippets/components/elements/text/CustomCardTitle.jsx'
+import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
 import { Starfield } from "/snippets/components/scaffolding/heroes/HeroGif.jsx";
 
 import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
@@ -86,65 +89,146 @@ import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
     <BlinkingIcon icon="circle-play" size={20}  />
   </PortalCardsHeader>
 
-  <Columns cols={2}>
+  <CardGroup cols={2}>
     <Card
-      title="Daydream"
-      icon="building-columns"
+      title={<CustomCardTitle icon="hat-wizard" title="Daydream" />}
       href="./daydream/overview"
       arrow
+      cta="Learn More About Daydream"
     >
- Daydream is a real-time AI video platform that allows you to create, edit, and share AI video content.
+      <span><Badge color="blue">Video</Badge> <Badge color="purple">AI</Badge> <Badge color="green">Realtime AI</Badge></span>
+      <img src="/snippets/assets/logos/products/daydream-logo-dark.svg" alt="Daydream Logo" style={{ height: '60px', width: 'auto', maxWidth: '100%' }}/>
 
- It provides the tools to build with open world models and real-time AI, in a community where creatives, builders, and researchers advance the field together.
+**Open-Source Toolkit For World Models and Real-time AI Video**
+
+<div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', margin: '0.25rem 0 0.5rem' }}>
+  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem' }}><Icon icon="torii-gate" size={12} color="var(--accent)" /> gateway</span>
+  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem' }}><Icon icon="server" size={12} color="var(--accent)" /> self-hosted</span>
+  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem' }}><Icon icon="toolbox" size={12} color="var(--accent)" /> sdk</span>
+</div>
+
+<ScrollBox maxHeight={100}> Open-source engine for real-time AI video generation. Compose node-based workflows that combine generative video, audio, and computer vision - runs locally or in the cloud. Native integrations with OSC, MIDI, Syphon, Spout, and NDI connect it directly into professional creative toolchains (Ableton, TouchDesigner, OBS, Resolume). Powered by Livepeer's decentralised GPU compute network.</ScrollBox>
+      <SocialLinks justify="center" style={{ marginTop: '0.5rem' }} links={[
+        { icon: "globe", href: "https://daydream.live/", label: "Daydream Website" },
+        { icon: "discord", href: "https://discord.gg/pF2Akym5bV", label: "Daydream Discord" },
+        { icon: "book-open", href: "https://docs.daydream.live/", label: "Daydream Docs" },
+      ]} />
+
     </Card>
     <Card
-      title="Livepeer Studio"
-      icon="cube"
+      title={<CustomCardTitle icon="tv" title="Livepeer Studio" />}
       href="./livepeer-studio/overview"
       arrow
+      cta="Learn More About Livepeer Studio"
     >
- Livepeer Studio is a developer-friendly gateway and toolkit for the Livepeer decentralized video infrastructure.
+      <span><Badge color="blue">Video</Badge></span>
+      <img src="/snippets/assets/logos/products/livepeer-studio-logo.svg" alt="Livepeer Studio Logo" style={{ height: '60px', width: 'auto', maxWidth: '100%' }} />
 
- Livepeer Studio offers easy-to-use APIs and dashboards for builders to add scalable, cost-efficient, and censorship-resistant live streaming and video-on-demand (VOD) features to applications.
+**An Open Video Stack Designed For Quality, Cost-Effective Video Streaming**
+
+<div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', margin: '0.25rem 0 0.5rem' }}>
+  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem' }}><Icon icon="plug" size={12} color="var(--accent)" /> api</span>
+  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem' }}><Icon icon="cloud" size={12} color="var(--accent)" /> saas</span>
+  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem' }}><Icon icon="torii-gate" size={12} color="var(--accent)" /> gateway</span>
+</div>
+
+<ScrollBox maxHeight={100}> Managed gateway and API platform for Livepeer's decentralised video infrastructure. REST APIs and a dashboard cover live streaming ingest, video-on-demand transcoding, and delivery - with no infrastructure to operate. Usage-based pricing routes jobs to the open orchestrator network, giving applications cost and scale properties unavailable from centralised providers.</ScrollBox>
+
+      <SocialLinks justify="center" style={{ marginTop: '0.5rem' }} links={[
+        { icon: "globe", href: "https://livepeer.studio", label: "Livepeer Studio Website" },
+        { icon: "discord", href: "https://discord.gg/livepeer", label: "Livepeer Studio Discord" },
+        { icon: "book-open", href: "https://docs.livepeer.org", label: "Livepeer Studio Docs" },
+      ]} />
+
     </Card>
     <Card
-      title="Frameworks"
-      icon="circle-nodes"
+      title={<CustomCardTitle icon="video" title="Frameworks" />}
       href="./frameworks/overview"
       arrow
+      cta="Learn More About Frameworks"
     >
- Frameworks offers a full-stack video streaming platform that combines full self-hosting capabilities with hosted processing and features to 10x your ideas.
+      <span><Badge color="blue">Video</Badge></span>
+      <img src="https://frameworks.network/frameworks-dark-horizontal-lockup-transparent.svg" alt="Frameworks Logo" style={{ height: '60px', width: 'auto', maxWidth: '100%' }} />
 
- The MistServer team is on a mission to democratize video infrastructure by leveraging decentralized protocols and open source technology -> creating a streaming infrastructure that doesn't lock you in.
+**Full-Stack Video Infrastructure - Open stack · Live video processing · Flexible deployments**
+
+<div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', margin: '0.25rem 0 0.5rem' }}>
+  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem' }}><Icon icon="server" size={12} color="var(--accent)" /> self-hosted</span>
+  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem' }}><Icon icon="cloud" size={12} color="var(--accent)" /> saas</span>
+  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem' }}><Icon icon="torii-gate" size={12} color="var(--accent)" /> gateway</span>
+</div>
+
+<ScrollBox maxHeight={100}> Full-stack video streaming platform built by the MistServer team, combining a self-hosted open-source core with optional hosted processing. Deploy the full stack on your own infrastructure, use Frameworks' hosted tier, or run a hybrid. No vendor lock-in: the infrastructure stack travels with you. Built on Livepeer's decentralised protocol and subsidised by the Livepeer treasury.</ScrollBox>
+
+      <SocialLinks justify="center" style={{ marginTop: '0.5rem' }} links={[
+        { icon: "globe", href: "https://frameworks.network/", label: "Frameworks Website" },
+        { icon: "book-open", href: "https://docs.frameworks.network/", label: "Frameworks Docs" },
+      ]} />
 
     </Card>
     <Card
-      title="Stream.place"
-      icon="book"
+      title={<CustomCardTitle icon="cubes" title="Streamplace" />}
       href="./streamplace/overview"
       arrow
+      cta="Learn More About Streamplace"
     >
- Streamplace is an open-source video infrastructure layer for social networks, livestreaming platforms and web3-native apps.
+      <span><Badge color="blue">Video</Badge></span>
+      <img
+        src="/snippets/assets/logos/products/streamplace-logo.svg"
+        alt="Streamplace Logo"
+        style={{ height: '60px', width: 'auto', maxWidth: '100%' }}
+      />
 
- It provides identity, distribution, monetisation and sovreignty primitives to bring high-quality video experiences while preserving content authenticity.
-    </Card>
- {/* <Card
-      title="Embody"
-      icon="book"
-      href="./embody/overview"
-      arrow
-    >
- A comprehensive glossary of terms used in the Livepeer Real-time Video AI Network.
+**The Video Layer For Decentralized Social Networks**
+
+<div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', margin: '0.25rem 0 0.5rem' }}>
+  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem' }}><Icon icon="toolbox" size={12} color="var(--accent)" /> sdk</span>
+</div>
+
+<ScrollBox maxHeight={100}> Open-source video infrastructure layer for AT Protocol-native applications. Provides identity, distribution, monetisation, and content-authenticity primitives as composable building blocks for social networks, livestreaming platforms, and web3 applications. Preserves user sovereignty and content provenance at the protocol level.</ScrollBox>
+
+      <SocialLinks justify="center" style={{ marginTop: '0.5rem' }} links={[
+        { icon: "globe", href: "https://stream.place", label: "Stream.place Website" },
+        { icon: "discord", href: "https://discord.com/invite/EdtZv4UTMU", label: "Stream.place Discord" },
+        { icon: "book-open", href: "https://stream.place/docs", label: "Stream.place Docs" },
+      ]} />
+
     </Card>
     <Card
-      title="More Ecosystem Apps"
-      icon="book"
-      href="./product-hub"
+      title={<CustomCardTitle icon="person-rays" title="Embody" />}
+      href="./embody/overview"
       arrow
+      cta="Learn More About Embody"
     >
- A comprehensive glossary of terms used in the Livepeer Real-time Video AI Network.
- </Card> */}
-  </Columns>
+      <span><Badge color="purple">AI</Badge> <Badge color="green">Realtime AI</Badge> <Badge color="red">Agents</Badge></span>
+      {/* TODO: No Embody logo in repo — add to snippets/assets/logos/products/ when available */}
+
+**Enterprise-Grade AI Avatars for Real-Time Telepresence**
+
+<div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', margin: '0.25rem 0 0.5rem' }}>
+  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem' }}><Icon icon="plug" size={12} color="var(--accent)" /> api</span>
+  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem' }}><Icon icon="cloud" size={12} color="var(--accent)" /> saas</span>
+</div>
+
+<ScrollBox maxHeight={100}> Enterprise AI avatar platform for real-time telepresence and on-demand branded content. Integrates into learning platforms, communication tools, and content pipelines to deliver embodied AI presence at scale - covering tutoring, enterprise telepresence, and branded video without live camera requirements.</ScrollBox>
+
+      <SocialLinks justify="center" style={{ marginTop: '0.5rem' }} links={[
+        { icon: "globe", href: "https://embody.zone/", label: "Embody Website" },
+        { icon: "github", href: "https://github.com/its-DeFine", label: "Embody GitHub" },
+        { icon: "twitch", href: "https://www.twitch.tv/livi_embody", label: "Embody on Twitch" },
+      ]} />
+
+    </Card>
+    <Card
+      title="More Ecosystem Products"
+      icon="webhook"
+      href="./solution-providers"
+      arrow
+      cta="Go to All Platforms"
+    >
+ See all platforms available to builders in the Livepeer Ecosystem
+    </Card>
+  </CardGroup>
 
   <br/>
 </PortalContentContainer>
