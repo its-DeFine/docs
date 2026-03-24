@@ -162,6 +162,63 @@ What works, what doesn't, and how to adjust prompting across batches.
 | P39 | veracityStatus fix must be internally consistent with checks.mdx §1.8: `status: current` requires `veracityStatus: verified`. The valid fixes are: change `status` to `draft`, OR add `veracityStatus: verified` only when the content is actually verified. Never recommend `status: current` + `veracityStatus: unverified`. | Self-contradictory fix in operator-impact |
 | P40 | Terms that appear only in the frontmatter `keywords` field are not undefined at first use in body prose. Only scan body prose and visible component props for first-use violations. | BYOC false positive on realtime-ai-setup |
 
+## Batch 5 — Findings from Critical Review (setup/guide, setup/connect-and-activate, setup/rcs-requirements, quickstart/guide, quickstart/AI-prompt-start, concepts/incentive-model, quickstart/video-transcoding, quickstart/tutorial)
+
+### What worked
+- P15 (read purpose directly) held across all reports
+- P25 (docs.json for nav sequence) held with explicit line citations
+- P33 (verify links before flagging) partially improved — some false positives still occurred
+- P39 (veracityStatus consistency) being caught by critical reviewers when violated
+- Blocking decisions correctly escalated across all setup/quickstart reports
+- Veracity findings specific and sourced in setup pages
+
+### What broke (systematic problems across Batch 5 reports)
+
+1. **`industry`/`niche` still marked INFO or N/A.** Appears in 4+ reports this batch. Learnings.md Batch 1 item 1 explicitly states the user confirmed these are required fields. Checking as optional is a recurring regression despite P1 correction.
+
+2. **`pageVariant` absence treated as independent finding.** Check 1.3 (pageVariant) only fires when a deprecated pageType is being migrated. Flagging it as a separate HIGH finding inflates failure count. It is a co-fix dependency, not an independent violation.
+
+3. **Fix proposals introduce banned constructions.** At least 2 reports this batch proposed replacement text containing em-dashes (—) as fixes for other issues. A fix that introduces a banned construction is worse than no fix.
+
+4. **Finding IDs not unique.** incentive-model check had F-11 used twice. Any executing agent following the fix list gets ambiguous instructions. Finding IDs must be sequential and unique within a report.
+
+5. **Conflicting canonical fixes.** rcs-requirements had two different fix proposals for the same `not [X]` construction — one in check 2.4 and a different one in the Banned Construction Scan table. One canonical fix per finding, referenced in both places.
+
+6. **`not [X]` flagged under check 2.2 (banned words).** `not [X] as primary statement` is a banned construction, not a banned word. Belongs exclusively in check 2.4 and the Banned Construction Scan table. check 2.2 result must not be FAIL for this.
+
+7. **Link substring matching.** AI-prompt-start-review caught a false PASS: link contained `workloads-and-ai` folder prefix; docs.json uses `ai-and-job-workloads`. Substring match on the page slug alone is insufficient — full path must match.
+
+8. **Em-dashes in step title headings missed.** "Step 1 — Pull the AI runner image" style headings go uncaught despite P30. Step title props are visible H-level text; P30 covers all visible text including step headings.
+
+9. **Category verdict count conflates field-level and check-level.** AI-prompt-start check reported "5 PASS, 6 FAIL" for Category 1 when there were 1 PASS and 8 FAIL actual check IDs. The field-level frontmatter table rows were being counted as checks.
+
+10. **`pageType: guide` flagged as check 1.2 FAIL.** `guide` is a valid canonical pageType per the 7-type schema. If a checker recommends changing a valid pageType, it belongs in an INFO note, not a check 1.2 FAIL. Schema validation ≠ editorial recommendation.
+
+11. **Proposed frontmatter values presented as definitive.** Inferred correct values (purpose, complexity, lifecycleStage) stated as fixes without flagging they require human sign-off. Correct format: "Proposed: `purpose: start` — confirm before applying."
+
+12. **Pre-emptive bias in INFO rows for unresolved blocking decisions.** guide.mdx (quickstart) INFO row said "Once `pageType` is corrected to `instruction`..." when Blocking Decision 1 had two equal options (navigation or instruction). INFO rows must not prejudge unresolved decisions.
+
+13. **T4 VRAM error hedged when primary source is unambiguous.** "appears to be incorrect" is wrong framing when NVIDIA's T4 datasheet clearly states 16GB. Unambiguous factual errors (verifiable from primary source) are stated as facts with the fix, not hedged as possibilities.
+
+14. **Verdict Summary counts categories, not individual check IDs.** incentive-model check stated "9 FAIL checks" when there were 28 individual FAIL check IDs. P26 was added for this — it continues to fail. Verdict summary must list the count of individual FAIL check IDs, not the count of categories that contain failures.
+
+### Prompting Changes for Batch 6
+
+| # | Change | Rationale |
+|---|--------|-----------|
+| P41 | `industry` and `niche` are REQUIRED fields (user-confirmed, Batch 1). Flag both as FAIL with concrete proposed values when absent. Never write N/A or INFO for these two fields | Persistent regression across 4+ reports this batch |
+| P42 | Check 1.3 (pageVariant) is a co-fix dependency of check 1.2. When pageType is deprecated, set `pageVariant` as part of the same root cause fix. Do not log check 1.3 as an independent HIGH finding | Creates inflated failure counts and confusing remediation instructions |
+| P43 | Before finalising a report, verify all finding IDs are unique and sequential (F-01, F-02… with no repeats). A duplicate ID makes the fix list unexecutable | F-11 used twice in incentive-model report |
+| P44 | Proposed fix text must be self-checked against the report's own banned word and construction rules before including. If a proposed replacement contains an em-dash, `can [verb]`, banned word, or self-referential opener, rewrite the fix | Multiple reports proposed fixes that introduced new violations |
+| P45 | Each finding has exactly one canonical fix. If the same finding appears in two sections (check table and Banned Construction Scan), both sections must state the identical fix text. Do not propose different replacements in different sections for the same occurrence | Conflicting fixes in rcs-requirements |
+| P46 | `not [X] as primary statement` is a banned construction (check 2.4). It is not a banned word (check 2.2). Check 2.2 result must be PASS when the only violation is a `not [X]` construction | Miscategorisation in rcs-requirements check |
+| P47 | Link verification must confirm the full path in docs.json, not just the page slug. Before declaring a link valid, verify the complete href (including folder prefix) appears in docs.json | Substring match passed `workloads-and-ai` when docs.json uses `ai-and-job-workloads` |
+| P48 | Step title headings (e.g. StyledStep `title` props) are within P30 scope for em-dash prohibition. When listing step titles in the heading scan section, include them in the em-dash scan | "Step N — [action]" pattern missed in AI-prompt-start |
+| P49 | Verdict Summary must count individual check IDs that FAIL, not the number of categories containing failures. State: "X checks fail: 1.1, 1.2, 1.3..." | P26 continues to fail — stronger instruction needed |
+| P50 | `pageType: guide` (and any other value from the 7-type canonical schema) is a check 1.2 PASS. Editorial recommendations to change a valid pageType belong in a separate INFO note with clear framing: "Schema-valid but editorial recommendation: consider [alternative]" | guide.mdx check incorrectly failed check 1.2 for valid value |
+| P51 | When proposing corrected frontmatter values for missing fields (purpose, complexity, lifecycleStage), format as: "Proposed: `[field]: [value]` — confirm before applying." Do not present inferred values as definitive without human sign-off | Inferred values presented as instructions in AI-prompt-start check |
+| P52 | When a blocking decision has two or more equal options, any INFO rows or co-fix notes that depend on the outcome must frame both options neutrally: "If [Option A]: [value]. If [Option B]: [value]." Do not default to one option in a pre-fix note | Quickstart guide INFO row prejudged Option A |
+
 ## Prompting Notes
 
 - Batch 1 prompt: full checks.mdx categories 1-9, review execution guide, severity definitions
@@ -169,3 +226,4 @@ What works, what doesn't, and how to adjust prompting across batches.
 - Batch 2 prompt: incorporates P1-P14 changes above
 - Batch 3 prompt: incorporates P1-P27 changes above
 - Batch 4 prompt: incorporates P1-P40 changes above
+- Batch 5 prompt: incorporates P1-P52 changes above
