@@ -342,9 +342,9 @@ export const ColumnsBlogCardLayout = ({
  * @type integrators
  * @subniche blog
  * @status stable
- * @description Blog card for RSS feed data. Renders plain text excerpt — no HTML content. Use for non-Ghost blog sources (Daydream, Streamplace, etc.).
+ * @description Blog card for RSS feed data. Matches BlogCard visual quality with icon title, metadata row, scrollable plain text excerpt, and scroll hint. Use for non-Ghost blog sources (Daydream, Streamplace, etc.).
  * @dataSource automation/rss
- * @accepts {string} title, {string} href, {string} author, {string} excerpt, {string} datePosted, {string} img, {string} className, {object} style, ...rest
+ * @accepts {string} title, {string} href, {string} author, {string} excerpt, {string} datePosted, {string} img, {string} icon, {string} cta, {string} className, {object} style, ...rest
  * @aiDiscoverability none
  */
 export const RssBlogCard = ({
@@ -353,56 +353,103 @@ export const RssBlogCard = ({
   author = '',
   excerpt = '',
   datePosted = null,
+  readingTime = null,
   img = null,
+  icon = 'book-open',
+  cta = 'Read More',
   className = '',
   style = {},
   ...rest
 }) => {
+  const showScrollHint = excerpt && excerpt.length > 300;
+
   return (
     <Card
       className={className}
       style={style}
-      title={title}
+      title={
+        <span style={{
+          alignItems: 'center',
+          color: 'var(--accent)',
+          fontSize: '1.25rem',
+          marginLeft: '-2px',
+          marginBottom: '0.5rem',
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+        }}>
+          <span style={{ alignSelf: 'top' }}>
+            <Icon icon={icon} size={20} color="var(--accent)" />
+          </span>
+          <span style={{ marginLeft: '0.5rem' }}>{title}</span>
+        </span>
+      }
       href={href}
+      cta={cta}
       img={img || undefined}
       arrow
       {...rest}
     >
-      {datePosted && (
-        <div
-          style={{
+      <div style={{ flex: 1 }}>
+        {datePosted && (
+          <div style={{
             display: 'flex',
             alignItems: 'center',
             fontSize: 12,
             color: 'var(--hero-text)',
             gap: 6,
-            marginBottom: '0.5rem',
-          }}
-        >
-          <Icon icon="calendar" size={14} />
-          <span>{datePosted}</span>
-          {author && (
-            <>
-              <span style={{ color: 'var(--text)' }}>•</span>
-              <span>{author}</span>
-            </>
-          )}
+          }}>
+            <span><Icon icon="calendar" size={14} /></span>
+            <span>{datePosted}</span>
+          </div>
+        )}
+        {readingTime && (
+          <div style={{
+            display: 'flex',
+            marginTop: 0,
+            alignItems: 'center',
+            fontSize: 12,
+            color: 'var(--hero-text)',
+            gap: 6,
+          }}>
+            <span><Icon icon="clock" size={14} /></span>
+            <span>Read Time: {readingTime} minutes</span>
+          </div>
+        )}
+      </div>
+      <div style={{ height: 1, backgroundColor: 'var(--border)', margin: '12px 0' }} />
+      <div
+        style={{
+          maxHeight: 200,
+          overflowY: 'auto',
+          fontSize: '0.875rem',
+          color: 'var(--text-secondary)',
+          lineHeight: '1.5',
+        }}
+        role="region"
+        tabIndex={0}
+        aria-label={title ? `Scrollable content for ${title}` : 'Scrollable content'}
+        onScroll={(e) => {
+          const el = e.target;
+          const atBottom = el.scrollHeight - el.scrollTop <= el.clientHeight + 10;
+          const hint = el.nextSibling;
+          if (hint) hint.style.display = atBottom ? 'none' : 'block';
+        }}
+      >
+        {excerpt}
+      </div>
+      {showScrollHint && (
+        <div style={{
+          fontSize: 11,
+          color: 'var(--muted-text)',
+          textAlign: 'center',
+          marginTop: 10,
+          marginBottom: 0,
+        }}>
+          Scroll for more ↓
         </div>
-      )}
-      {excerpt && (
-        <p
-          style={{
-            fontSize: '0.875rem',
-            color: 'var(--text-secondary)',
-            margin: 0,
-            display: '-webkit-box',
-            WebkitLineClamp: 3,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-          }}
-        >
-          {excerpt}
-        </p>
       )}
     </Card>
   )

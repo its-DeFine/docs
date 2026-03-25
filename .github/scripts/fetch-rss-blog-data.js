@@ -113,19 +113,36 @@ function extractAttr(xml, tag, attr) {
   return m ? m[1] : "";
 }
 
+function extractFirstImage(xml, contentHtml) {
+  // Priority: media:content > enclosure > first <img> in content HTML
+  const mediaContent = xml.match(/<media:content[^>]*url="([^"]*)"/i);
+  if (mediaContent) return mediaContent[1];
+  const enclosure = extractEnclosureUrl(xml);
+  if (enclosure) return enclosure;
+  const imgInContent = contentHtml.match(/<img[^>]*src="([^"]*)"/i);
+  if (imgInContent) return imgInContent[1];
+  return "";
+}
+
+function estimateReadingTime(text) {
+  const words = text.split(/\s+/).filter(w => w.length > 0).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
 function parseRSSItem(xml) {
+  const contentHtml = extractTag(xml, "content:encoded") || extractTag(xml, "description") || "";
+  const plainText = stripHTML(contentHtml);
   return {
     title: extractTag(xml, "title"),
     href: extractTag(xml, "link"),
     author: extractTag(xml, "dc:creator") || extractTag(xml, "author") || "",
-    contentHtml: extractTag(xml, "content:encoded") || extractTag(xml, "description") || "",
-    content: stripHTML(
-      extractTag(xml, "content:encoded") || extractTag(xml, "description") || ""
-    ).substring(0, 500),
+    content: contentHtml,
+    excerpt: plainText.substring(0, 500),
     datePosted: formatDate(
       extractTag(xml, "pubDate") || extractTag(xml, "dc:date") || ""
     ),
-    img: extractEnclosureUrl(xml) || "",
+    img: extractFirstImage(xml, contentHtml),
+    readingTime: estimateReadingTime(plainText),
   };
 }
 
@@ -185,18 +202,21 @@ async function main() {
         continue;
       }
 
-      // Generate JSX export — RSS data shape (plain text, no HTML)
+      // Generate JSX export — Ghost-compatible shape (HTML content, backtick literals)
       const exportName = `${productKey.replace(/-/g, "")}BlogData`;
+      const escapeBacktick = (s) => (s || "").replace(/\\/g, "\\\\").replace(/`/g, "\\`").replace(/\$/g, "\\$");
       let jsx = `export const ${exportName} = [\n`;
       items.forEach((item, idx) => {
-        jsx += `  {\n`;
-        jsx += `    title: "${escapeForJSX(item.title)}",\n`;
-        jsx += `    href: "${escapeForJSX(item.href)}",\n`;
-        jsx += `    author: "${escapeForJSX(item.author ? `By ${item.author}` : "")}",\n`;
-        jsx += `    excerpt: "${escapeForJSX(item.content)}",\n`;
-        jsx += `    datePosted: "${item.datePosted}",\n`;
-        jsx += `    img: "${escapeForJSX(item.img)}"\n`;
-        jsx += `  }${idx < items.length - 1 ? "," : ""}\n`;
+        jsx += `{\n`;
+        jsx += `  title: \`${escapeBacktick(item.title)}\`,\n`;
+        jsx += `  href: \`${escapeBacktick(item.href)}\`,\n`;
+        jsx += `  author: \`By ${escapeBacktick(item.author)}\`,\n`;
+        jsx += `  content: \`${escapeBacktick(item.content)}\`,\n`;
+        jsx += `  datePosted: \`${item.datePosted}\`,\n`;
+        jsx += `  img: \`${escapeBacktick(item.img)}\`,\n`;
+        jsx += `  excerpt: \`${escapeBacktick(item.excerpt)}\`,\n`;
+        jsx += `  readingTime: ${item.readingTime}\n`;
+        jsx += `}${idx < items.length - 1 ? "," : ""}\n`;
       });
       jsx += `];\n`;
 
