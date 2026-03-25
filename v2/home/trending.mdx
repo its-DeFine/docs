@@ -30,6 +30,7 @@ import { TwitterTimeline } from '/snippets/components/integrators/embeds/DataEmb
 import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
 import { YouTubeVideoData } from '/snippets/components/integrators/video-data/VideoData.jsx';
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
+import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
 import { forumData } from '/snippets/automations/forum/forumData.jsx'
 import { ghostData } from '/snippets/automations/blog/ghostBlogData.jsx'
 import { youtubeData } from '/snippets/automations/youtube/youtubeData.jsx'
@@ -51,7 +52,7 @@ Contribute to trending <LinkArrow label="Forum Discussions" href="https://forum.
 
 ## <Icon icon="discord" size={24} /> Discord
 Add your voice to the latest <LinkArrow label="Discord Discussions" href="https://discord.livepeer.org/" newline={false} />
-<DiscordAnnouncements items={discordAnnouncementsData} limit={2} />
+<DiscordAnnouncements serverName="Livepeer" items={discordAnnouncementsData} limit={2} ScrollBox={ScrollBox} scrollMaxHeight={300} />
 
 ## <Icon icon="twitter" size={24} /> X Posts
 Follow, Like, Comment & Share on the latest <LinkArrow label="Livepeer X posts" href="https://x.com/Livepeer" newline={false} />
