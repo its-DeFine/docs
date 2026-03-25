@@ -6,19 +6,9 @@ const daydreamSocials = [
     label: 'Daydream GitHub',
   },
   {
-    icon: 'x-twitter',
-    href: 'https://x.com/daydreamlive',
-    label: 'Daydream X',
-  },
-  {
-    icon: 'linkedin',
-    href: 'https://www.linkedin.com/company/daydreamlive',
-    label: 'Daydream LinkedIn',
-  },
-  {
-    icon: 'discord',
-    href: 'https://discord.gg/pF2Akym5bV',
-    label: 'Daydream Discord',
+    icon: 'file-code',
+    href: 'https://docs.daydream.live/',
+    label: 'Daydream Docs',
   },
   {
     icon: 'youtube',
@@ -26,14 +16,24 @@ const daydreamSocials = [
     label: 'Daydream YouTube',
   },
   {
+    icon: 'x-twitter',
+    href: 'https://x.com/daydreamlive',
+    label: 'Daydream X',
+  },
+  {
+    icon: 'discord',
+    href: 'https://discord.gg/pF2Akym5bV',
+    label: 'Daydream Discord',
+  },
+  {
     icon: 'instagram',
     href: 'https://www.instagram.com/daydreamlive_/',
     label: 'Daydream Instagram',
   },
   {
-    icon: 'file-code',
-    href: 'https://docs.daydream.live/',
-    label: 'Daydream Docs',
+    icon: 'linkedin',
+    href: 'https://www.linkedin.com/company/daydreamlive',
+    label: 'Daydream LinkedIn',
   },
 ]
 

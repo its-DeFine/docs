@@ -294,6 +294,38 @@ Do not re-decide anything in this table. If a locked decision looks wrong, flag 
 
 ---
 
+### 2026-03-24 — Orchestrators full quality check sweep: guides + resources (66 pages)
+
+**Done:**
+- Ran per-page quality checks (9 categories, ~40 check IDs) across all 10 guides subfolders (50 pages) + all 3 resources subsections (16 pages) = 66 pages total
+- Pipeline: Check → Critical Review → Subfolder/Subsection Summary → Section Rollup → Full Orchestrators Rollup
+- Output: 10 subfolder check reports + 10 critical reviews + 10 subfolder summaries + guides section rollup + 3 resource subsection check reports + 3 critical reviews + 3 subsection summaries + resources section rollup + ORCHESTRATORS-ROLLUP.md
+- learnings.md grew from P89 → P110 (21 new systematic checker error patterns)
+- Final output: `v2/orchestrators/_workspace/canonical/check/ORCHESTRATORS-ROLLUP.md`
+
+**Findings:**
+- 0/66 pages publishable; median ~21-22 fails per page
+- Universal patterns: taxonomy gap (all pages), `## See Also` Banned-tier (most pages), `{/* FACT CHECK: */}` non-canonical format (~50+ instances across 8 subfolders), P39 atomic split-fix violation (template-level defect in tutorial stubs)
+- CRITICAL: `x-contract-addresses.mdx` is empty stub in active docs.json nav — dead end immediately after cli-flags
+- CRITICAL: broken cross-tab link to `/v2/gateways/resources/technical/orchestrator-offerings` in 2 pages (ai-inference-operations, diffusion-pipeline-setup)
+- `byoc-cpu-tutorial.mdx` confirmed navigation orphan — in gateways tab nav only, not orchestrators
+
+**Decisions needed (8 tab-level BDs blocking remediation):**
+1. VRAM values — SME resolution required (SAM2, audio-to-text, RTX 2060 inconsistencies across 5 pages)
+2. Livepeer Forum URL — canonical URL needed for 6+ pages linking to placeholder
+3. Status batch demotion — approve `status: current → draft` for all pages with `veracityStatus: unverified`
+4. byoc-cpu-tutorial tab assignment — stays in gateways only, or added to orchestrators nav?
+5. Tutorial stubs disposition — 3 gateway-equivalent stubs (byoc-cpu-pipeline, offchain-transcoding-test, go-production) — keep, drop, or redirect?
+6. join-a-pool deprecation — add formal registry entry for old `join-a-pool.mdx` (2/10)
+7. x-contract-addresses.mdx — remove from docs.json nav or fill content
+8. Two-glossary scope gap — `resources/glossary.mdx` vs `resources/compendium/glossary.mdx` — define scope boundary
+
+**Blocked on:** All 8 BDs above require Alison decision before remediation packages can run
+
+**Next session picks up:** Alison directs — either (A) begin veracity pass on S01-S12 per CLAUDE.md active priority, or (B) begin remediation Package 0 (taxonomy gap batch + See Also batch) which can run immediately without BD resolution
+
+---
+
 ### 2026-03-24 — Orchestrators content pass: 70-page assessment + fixes
 
 **Done:**

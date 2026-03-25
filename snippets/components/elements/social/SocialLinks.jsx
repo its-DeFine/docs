@@ -4,13 +4,14 @@
  * @subniche social
  * @status stable
  * @description Row of icon-only social media links with tooltips and aria-labels. Pass a `links` array to customise per product; omit for Livepeer defaults.
- * @accepts links, size, gap, justify, color, style, className, ...rest
+ * @accepts links, size, gap, justify, iconColor, color, style, className, ...rest
  * @aiDiscoverability none
  * @param {Array} [links] - Array of {icon, href, label} objects. Falls back to Livepeer defaults if omitted.
  * @param {number} [size=20] - Size used by the component.
  * @param {string} [gap="0.75rem"] - Gap used by the component.
  * @param {string} [justify="center"] - Justify used by the component.
- * @param {string} color - Color used by the component.
+ * @param {string} [iconColor] - Override all icons to a single colour. If omitted, brand colours are used per icon.
+ * @param {string} [color] - Alias for iconColor (backwards compat).
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  *
@@ -33,7 +34,7 @@ export const SocialLinks = ({
   style = {},
   ...rest
 }) => {
-  const override = iconColor || color;
+  const resolvedIconColor = iconColor || color;
   const linkStyle = {
     border: "none",
     borderBottom: "none",
@@ -41,19 +42,19 @@ export const SocialLinks = ({
     display: "inline-flex",
   };
 
-  // Brand colors
+  // Brand colors — resolvedIconColor overrides all when iconColor prop is passed
   const colors = {
-    discord: override || "var(--lp-color-brand-discord)",
-    twitter: override || "var(--hero-text)",
-    github: override || "var(--lp-color-brand-github)",
-    forum: override || "var(--lp-color-brand-forum)",
-    website: override || "var(--accent)",
-    blog: override || "var(--accent)",
-    globe: override || "var(--lp-color-brand-globe)",
-    twitch: override || "var(--lp-color-brand-twitch)",
-    youtube: override || "var(--lp-color-brand-youtube)",
-    instagram: override || "var(--lp-color-brand-instagram)",
-    linkedin: override || "var(--lp-color-brand-linkedin)",
+    discord: resolvedIconColor || "var(--lp-color-brand-discord)",
+    twitter: resolvedIconColor || "var(--hero-text)",
+    github: resolvedIconColor || "var(--lp-color-brand-github)",
+    forum: resolvedIconColor || "var(--lp-color-brand-forum)",
+    website: resolvedIconColor || "var(--accent)",
+    blog: resolvedIconColor || "var(--accent)",
+    globe: resolvedIconColor || "var(--lp-color-brand-globe)",
+    twitch: resolvedIconColor || "var(--lp-color-brand-twitch)",
+    youtube: resolvedIconColor || "var(--lp-color-brand-youtube)",
+    instagram: resolvedIconColor || "var(--lp-color-brand-instagram)",
+    linkedin: resolvedIconColor || "var(--lp-color-brand-linkedin)",
   };
 
   const iconColorMap = {

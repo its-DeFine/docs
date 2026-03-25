@@ -8,6 +8,27 @@
             "command": "node operations/scripts/dispatch/governance/session-state.js"
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -n \"$(git status --porcelain 2>/dev/null)\" ]; then git stash push -m \"auto-stash-before-claude-session-$(date +%Y%m%d-%H%M%S)\" 2>&1 && echo '{\"systemMessage\":\"Auto-stashed uncommitted changes. Use git stash pop to restore.\"}'; else echo '{\"systemMessage\":\"No uncommitted changes to stash.\"}'; fi",
+            "statusMessage": "Checking for uncommitted changes..."
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.command' | grep -qE 'git (checkout|clean|reset --hard|push --force|push -f|branch -D)' && echo '{\"decision\":\"block\",\"reason\":\"BLOCKED: Destructive git command. Run manually if needed.\"}' && exit 2 || true",
+            "statusMessage": "Checking for destructive git commands..."
+          }
+        ]
       }
     ]
   }
