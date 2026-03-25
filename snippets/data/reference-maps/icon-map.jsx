@@ -207,7 +207,7 @@ export const iconMapSections = [
           'Avoid where the focus is a specific workload type (use `film` for transcoding pipelines) or creator-facing app (use `video-camera`).',
         components: ['Card', 'Tab', 'Accordion'],
         examples: [
-          'v2/solutions/livepeer-studio/reference/overview.mdx',
+          'v2/solutions/livepeer-studio/docs/reference/overview.mdx',
           'v2/about/livepeer-overview.mdx',
         ],
       },

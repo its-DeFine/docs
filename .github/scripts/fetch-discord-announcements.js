@@ -58,17 +58,52 @@ function escapeForJSX(str) {
     .replace(/\$/g, "\\$")
     .replace(/\u2018|\u2019/g, "'")
     .replace(/\u201C|\u201D/g, '\\"')
-    .replace(/\u2014/g, "-")
+    .replace(/\u2014/g, " - ")
     .replace(/\u2013/g, "-")
-    .replace(/\u2022/g, "-")
-    .replace(/\u2192/g, "->")
     .replace(/[\u00A0]/g, " ")
-    .replace(/&[#\w]+;/g, "")
-    .replace(/[\u{10000}-\u{10FFFF}]/gu, "")
-    .replace(/[\uD800-\uDFFF]/g, "")
-    .replace(/[^\x20-\x7E\u00A0-\u00FF<>]/g, "")
-    .replace(/\n/g, "<br />")
     .replace(/\r/g, "");
+}
+
+/**
+ * Convert Discord markdown to HTML before JSX escaping.
+ * Handles: bold, italic, underline, strikethrough, links, mentions, code blocks, line breaks.
+ */
+function discordMarkdownToHTML(text) {
+  if (!text) return "";
+  let result = text
+    // Strip @everyone / @here mentions
+    .replace(/@(everyone|here)/g, "")
+    // Code blocks (```lang\n...\n```)
+    .replace(/```\w*\n?([\s\S]*?)```/g, "<pre><code>$1</code></pre>")
+    // Inline code
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    // Bold + italic (***text***)
+    .replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>")
+    // Bold (**text**)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    // Italic (*text*)
+    .replace(/\*(.+?)\*/g, "<em>$1</em>")
+    // Underline (__text__)
+    .replace(/__(.+?)__/g, "<u>$1</u>")
+    // Strikethrough (~~text~~)
+    .replace(/~~(.+?)~~/g, "<s>$1</s>")
+    // Links [text](url)
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+    // Bare URLs (not already in an href)
+    .replace(/(?<!href="|>)(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')
+    // Discord list items (- item or • item) — must run BEFORE \n → <br />
+    .replace(/^[-•]\s+(.+)$/gm, "<li>$1</li>");
+
+  // Wrap consecutive <li> in <ul> — strip \n between list items
+  result = result.replace(/(<li>[\s\S]*?<\/li>[\n]*)+/g, (match) => {
+    const cleaned = match.replace(/\n/g, "");
+    return "<ul>" + cleaned + "</ul>";
+  });
+
+  // Now convert remaining \n to <br /> (not inside lists)
+  result = result.replace(/\n/g, "<br />");
+
+  return result;
 }
 
 function formatTimestamp(isoStr) {
@@ -99,23 +134,63 @@ async function fetchForProduct(productKey, discordConfig) {
   }
 
   return messages.map((msg) => {
-    // Build content: prefer message content, fall back to embeds for forwarded messages
-    let content = msg.content || "";
-    if (!content && msg.embeds && msg.embeds.length > 0) {
-      const parts = [];
-      for (const embed of msg.embeds) {
-        if (embed.title) parts.push(`**${embed.title}**`);
-        if (embed.description) parts.push(embed.description);
-      }
-      content = parts.join("\n\n");
+    // Build content: prefer message content, then message_snapshots (forwarded messages), then embeds
+    let rawContent = msg.content || "";
+    let snapshotEmbeds = [];
+    let snapshotAttachments = [];
+    // Forwarded messages (flags 16384) have content in message_snapshots
+    if (!rawContent && msg.message_snapshots && msg.message_snapshots.length > 0) {
+      const snapshot = msg.message_snapshots[0].message;
+      rawContent = snapshot?.content || "";
+      snapshotEmbeds = snapshot?.embeds || [];
+      snapshotAttachments = snapshot?.attachments || [];
+    }
+    // Fall back to message-level embeds
+    if (!rawContent && msg.embeds && msg.embeds.length > 0) {
+      snapshotEmbeds = msg.embeds;
     }
     // Fall back to attachment filenames if still empty
-    if (!content && msg.attachments && msg.attachments.length > 0) {
-      content = msg.attachments.map((a) => `[${a.filename}](${a.url})`).join(", ");
+    if (!rawContent && !snapshotEmbeds.length && msg.attachments && msg.attachments.length > 0) {
+      rawContent = msg.attachments.map((a) => `[${a.filename}](${a.url})`).join(", ");
     }
+
+    // Convert Discord markdown to HTML
+    let htmlContent = discordMarkdownToHTML(rawContent);
+
+    // Append embed cards (title + description + image)
+    for (const embed of snapshotEmbeds) {
+      const parts = [];
+      if (embed.title && embed.url) {
+        parts.push(`<a href="${embed.url}" target="_blank" rel="noopener noreferrer"><strong>${embed.title}</strong></a>`);
+      } else if (embed.title) {
+        parts.push(`<strong>${embed.title}</strong>`);
+      }
+      if (embed.description) {
+        parts.push(`<p>${discordMarkdownToHTML(embed.description)}</p>`);
+      }
+      if (embed.image?.url) {
+        parts.push(`<img src="${embed.image.url}" alt="${embed.title || ''}" style="max-width:100%;border-radius:8px;margin-top:8px" />`);
+      } else if (embed.thumbnail?.url) {
+        parts.push(`<img src="${embed.thumbnail.url}" alt="${embed.title || ''}" style="max-width:300px;border-radius:8px;margin-top:8px" />`);
+      }
+      if (parts.length) {
+        htmlContent += '<div style="border-left:3px solid var(--accent);padding:8px 12px;margin-top:12px;border-radius:4px">' + parts.join("") + "</div>";
+      }
+    }
+
+    // Append attachments (images and videos from snapshot)
+    for (const att of snapshotAttachments) {
+      const ext = (att.filename || "").split(".").pop().toLowerCase();
+      if (["mp4", "webm", "mov"].includes(ext)) {
+        htmlContent += `<video src="${att.url}" controls width="100%" height="auto" style="border-radius:8px;margin-top:12px"></video>`;
+      } else if (["png", "jpg", "jpeg", "gif", "webp"].includes(ext)) {
+        htmlContent += `<img src="${att.url}" alt="${att.filename}" width="100%" height="auto" style="border-radius:8px;margin-top:12px" />`;
+      }
+    }
+
     return {
       id: msg.id,
-      content: escapeForJSX(content),
+      content: escapeForJSX(htmlContent),
       author: msg.author?.username || "Unknown",
       timestamp: formatTimestamp(msg.timestamp),
       url: `https://discord.com/channels/${serverId}/${announcementsChannelId}/${msg.id}`,

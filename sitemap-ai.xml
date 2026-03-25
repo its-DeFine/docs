@@ -1521,49 +1521,49 @@
     <ai:lastVerified>2026-03-09T20:43:37+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/access-control/jwt</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/access-control/jwt</loc>
     <lastmod>2026-03-09T01:25:13+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>159</ai:wordCount>
     <ai:lastVerified>2026-03-09T01:25:13+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/access-control/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/access-control/overview</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>89</ai:wordCount>
     <ai:lastVerified>2026-03-09T15:06:41+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/access-control/webhooks</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/access-control/webhooks</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>154</ai:wordCount>
     <ai:lastVerified>2026-03-09T20:43:37+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/analytics/listen-to-events</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/analytics/listen-to-events</loc>
     <lastmod>2026-03-09T01:25:13+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>245</ai:wordCount>
     <ai:lastVerified>2026-03-09T01:25:13+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/analytics/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/analytics/overview</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>171</ai:wordCount>
     <ai:lastVerified>2026-03-09T15:06:41+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/analytics/webhooks</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/analytics/webhooks</loc>
     <lastmod>2026-03-09T01:25:13+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>210</ai:wordCount>
     <ai:lastVerified>2026-03-09T01:25:13+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/assets/delete</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/assets/delete</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -1571,7 +1571,7 @@
     <ai:tags>livepeer, studio, api, assets</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/assets/get</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/assets/get</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1579,7 +1579,7 @@
     <ai:tags>livepeer, studio, api, assets</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/assets/get-all</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/assets/get-all</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1587,7 +1587,7 @@
     <ai:tags>livepeer, studio, api, assets</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/assets/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/assets/overview</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>180</ai:wordCount>
@@ -1595,7 +1595,7 @@
     <ai:tags>livepeer, studio, api, assets, vod</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/assets/update</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/assets/update</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -1603,7 +1603,7 @@
     <ai:tags>livepeer, studio, api, assets</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/assets/upload</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/assets/upload</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1611,7 +1611,7 @@
     <ai:tags>livepeer, studio, api, assets, upload</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/assets/upload-via-url</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/assets/upload-via-url</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>5</ai:wordCount>
@@ -1619,7 +1619,7 @@
     <ai:tags>livepeer, studio, api, assets, upload</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/multistream/create</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/multistream/create</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1627,7 +1627,7 @@
     <ai:tags>livepeer, studio, api, multistream</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/multistream/delete</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/multistream/delete</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1635,7 +1635,7 @@
     <ai:tags>livepeer, studio, api, multistream</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/multistream/get</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/multistream/get</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1643,7 +1643,7 @@
     <ai:tags>livepeer, studio, api, multistream</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/multistream/get-all</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/multistream/get-all</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>5</ai:wordCount>
@@ -1651,7 +1651,7 @@
     <ai:tags>livepeer, studio, api, multistream</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/multistream/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/multistream/overview</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>12</ai:wordCount>
@@ -1659,7 +1659,7 @@
     <ai:tags>livepeer, studio, api, multistream</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/multistream/update</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/multistream/update</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1667,7 +1667,7 @@
     <ai:tags>livepeer, studio, api, multistream</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/playback/get</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/playback/get</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1675,7 +1675,7 @@
     <ai:tags>livepeer, studio, api, playback</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/playback/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/playback/overview</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>84</ai:wordCount>
@@ -1683,7 +1683,7 @@
     <ai:tags>livepeer, studio, api, playback</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/create</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/create</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -1691,7 +1691,7 @@
     <ai:tags>livepeer, studio, api, rooms</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/create-user</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/create-user</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1699,7 +1699,7 @@
     <ai:tags>livepeer, studio, api, rooms</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/delete</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/delete</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -1707,7 +1707,7 @@
     <ai:tags>livepeer, studio, api, rooms</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/get</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/get</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -1715,7 +1715,7 @@
     <ai:tags>livepeer, studio, api, rooms</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/get-user</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/get-user</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1723,7 +1723,7 @@
     <ai:tags>livepeer, studio, api, rooms</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/overview</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>12</ai:wordCount>
@@ -1731,7 +1731,7 @@
     <ai:tags>livepeer, studio, api, rooms</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/remove-user</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/remove-user</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1739,7 +1739,7 @@
     <ai:tags>livepeer, studio, api, rooms</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/start-egress</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/start-egress</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1747,7 +1747,7 @@
     <ai:tags>livepeer, studio, api, rooms</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/stop-egress</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/stop-egress</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1755,7 +1755,7 @@
     <ai:tags>livepeer, studio, api, rooms</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/update-user</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/update-user</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1763,7 +1763,7 @@
     <ai:tags>livepeer, studio, api, rooms</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/sessions/get</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/sessions/get</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -1771,7 +1771,7 @@
     <ai:tags>livepeer, studio, api, sessions</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/sessions/get-all</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/sessions/get-all</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1779,7 +1779,7 @@
     <ai:tags>livepeer, studio, api, sessions</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/sessions/get-clip</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/sessions/get-clip</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1787,7 +1787,7 @@
     <ai:tags>livepeer, studio, api, sessions</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/sessions/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/sessions/overview</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>12</ai:wordCount>
@@ -1795,7 +1795,7 @@
     <ai:tags>livepeer, studio, api, sessions</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/signing-keys/create</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/create</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1803,7 +1803,7 @@
     <ai:tags>livepeer, studio, api, signing-keys</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/signing-keys/delete</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/delete</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1811,7 +1811,7 @@
     <ai:tags>livepeer, studio, api, signing-keys</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/signing-keys/get</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/get</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1819,7 +1819,7 @@
     <ai:tags>livepeer, studio, api, signing-keys</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/signing-keys/get-all</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/get-all</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>5</ai:wordCount>
@@ -1827,7 +1827,7 @@
     <ai:tags>livepeer, studio, api, signing-keys</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/signing-keys/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/overview</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>17</ai:wordCount>
@@ -1835,7 +1835,7 @@
     <ai:tags>livepeer, studio, api, signing-keys</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/signing-keys/update</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/update</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1843,7 +1843,7 @@
     <ai:tags>livepeer, studio, api, signing-keys</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/add-multistream-target</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/add-multistream-target</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1851,7 +1851,7 @@
     <ai:tags>livepeer, studio, api, streams, multistream</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/create</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/create</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1859,7 +1859,7 @@
     <ai:tags>livepeer, studio, api, streams, create</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/create-clip</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/create-clip</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -1867,7 +1867,7 @@
     <ai:tags>livepeer, studio, api, streams, clip</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/delete</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/delete</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -1875,7 +1875,7 @@
     <ai:tags>livepeer, studio, api, streams</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/delete-multistream-target</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/delete-multistream-target</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1883,7 +1883,7 @@
     <ai:tags>livepeer, studio, api, streams, multistream</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/get</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/get</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1891,7 +1891,7 @@
     <ai:tags>livepeer, studio, api, streams, get</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/get-all</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/get-all</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1899,7 +1899,7 @@
     <ai:tags>livepeer, studio, api, streams</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/get-clip</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/get-clip</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -1907,7 +1907,7 @@
     <ai:tags>livepeer, studio, api, streams, clip</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/overview</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>207</ai:wordCount>
@@ -1915,7 +1915,7 @@
     <ai:tags>livepeer, studio, api, streams, livestream</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/terminate</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/terminate</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -1923,7 +1923,7 @@
     <ai:tags>livepeer, studio, api, streams</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/update</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/update</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -1931,7 +1931,7 @@
     <ai:tags>livepeer, studio, api, streams</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/tasks/get</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/tasks/get</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -1939,7 +1939,7 @@
     <ai:tags>livepeer, studio, api, tasks</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/tasks/get-all</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/tasks/get-all</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1947,7 +1947,7 @@
     <ai:tags>livepeer, studio, api, tasks</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/tasks/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/tasks/overview</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>12</ai:wordCount>
@@ -1955,7 +1955,7 @@
     <ai:tags>livepeer, studio, api, tasks</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/transcode/create</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/transcode/create</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1963,7 +1963,7 @@
     <ai:tags>livepeer, studio, api, transcode</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/transcode/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/transcode/overview</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>12</ai:wordCount>
@@ -1971,7 +1971,7 @@
     <ai:tags>livepeer, studio, api, transcode</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/viewership/get-creators-metrics</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-creators-metrics</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1979,7 +1979,7 @@
     <ai:tags>livepeer, studio, api, viewership</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/viewership/get-public-total-views</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-public-total-views</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>5</ai:wordCount>
@@ -1987,7 +1987,7 @@
     <ai:tags>livepeer, studio, api, viewership</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/viewership/get-realtime-viewership</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-realtime-viewership</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -1995,7 +1995,7 @@
     <ai:tags>livepeer, studio, api, viewership</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/viewership/get-usage-metrics</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-usage-metrics</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -2003,7 +2003,7 @@
     <ai:tags>livepeer, studio, api, viewership</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/viewership/get-viewership-metrics</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-viewership-metrics</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -2011,7 +2011,7 @@
     <ai:tags>livepeer, studio, api, viewership</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/viewership/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/viewership/overview</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>10</ai:wordCount>
@@ -2019,7 +2019,7 @@
     <ai:tags>livepeer, studio, api, viewership</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/webhooks/create</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/webhooks/create</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -2027,7 +2027,7 @@
     <ai:tags>livepeer, studio, api, webhooks</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/webhooks/delete</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/webhooks/delete</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -2035,7 +2035,7 @@
     <ai:tags>livepeer, studio, api, webhooks</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/webhooks/get</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/webhooks/get</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -2043,7 +2043,7 @@
     <ai:tags>livepeer, studio, api, webhooks</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/webhooks/get-all</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/webhooks/get-all</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>4</ai:wordCount>
@@ -2051,7 +2051,7 @@
     <ai:tags>livepeer, studio, api, webhooks</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/webhooks/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/webhooks/overview</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>12</ai:wordCount>
@@ -2059,7 +2059,7 @@
     <ai:tags>livepeer, studio, api, webhooks</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/webhooks/update</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/webhooks/update</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>3</ai:wordCount>
@@ -2067,7 +2067,7 @@
     <ai:tags>livepeer, studio, api, webhooks</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/get-started/authentication</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/get-started/authentication</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>365</ai:wordCount>
@@ -2075,7 +2075,7 @@
     <ai:tags>livepeer, studio, authentication, api key, cors</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/get-started/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/get-started/overview</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>114</ai:wordCount>
@@ -2083,70 +2083,70 @@
     <ai:tags>livepeer, studio, getting started, quickstart, setup</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/get-started/studio-cli</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/get-started/studio-cli</loc>
     <lastmod>2026-03-09T01:25:13+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>100</ai:wordCount>
     <ai:lastVerified>2026-03-09T01:25:13+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/clip-livestream</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/clip-livestream</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>316</ai:wordCount>
     <ai:lastVerified>2026-03-09T20:43:37+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/create-livestream</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/create-livestream</loc>
     <lastmod>2026-03-09T01:25:13+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>140</ai:wordCount>
     <ai:lastVerified>2026-03-09T01:25:13+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/livestream-from-browser</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/livestream-from-browser</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>176</ai:wordCount>
     <ai:lastVerified>2026-03-09T20:43:37+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/multistream</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/multistream</loc>
     <lastmod>2026-03-09T01:25:13+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>154</ai:wordCount>
     <ai:lastVerified>2026-03-09T01:25:13+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/optimize-latency</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/optimize-latency</loc>
     <lastmod>2026-03-09T22:26:04+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>347</ai:wordCount>
     <ai:lastVerified>2026-03-09T22:26:04+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/overview</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>355</ai:wordCount>
     <ai:lastVerified>2026-03-09T20:43:37+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/playback-livestream</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/playback-livestream</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>216</ai:wordCount>
     <ai:lastVerified>2026-03-09T20:43:37+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/stream-health</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/stream-health</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>345</ai:wordCount>
     <ai:lastVerified>2026-03-09T20:43:37+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/stream-via-obs</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/stream-via-obs</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>158</ai:wordCount>
@@ -2174,21 +2174,21 @@
     <ai:lastVerified>2026-03-09T20:43:37+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/reference/api</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/reference/api</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>133</ai:wordCount>
     <ai:lastVerified>2026-03-09T20:43:37+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/reference/managing-projects</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/reference/managing-projects</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>159</ai:wordCount>
     <ai:lastVerified>2026-03-09T20:43:37+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/reference/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/reference/overview</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>198</ai:wordCount>
@@ -2196,49 +2196,49 @@
     <ai:tags>livepeer, studio, api, reference, endpoints</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/reference/sdks</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/reference/sdks</loc>
     <lastmod>2026-03-09T01:25:13+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>140</ai:wordCount>
     <ai:lastVerified>2026-03-09T01:25:13+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/video-on-demand/encrypted-assets</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/video-on-demand/encrypted-assets</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>121</ai:wordCount>
     <ai:lastVerified>2026-03-09T20:43:37+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/video-on-demand/overview</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/video-on-demand/overview</loc>
     <lastmod>2026-03-09T15:06:41+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>162</ai:wordCount>
     <ai:lastVerified>2026-03-09T15:06:41+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/video-on-demand/playback-asset</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/video-on-demand/playback-asset</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>75</ai:wordCount>
     <ai:lastVerified>2026-03-09T20:43:37+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/video-on-demand/thumbnails-vod</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/video-on-demand/thumbnails-vod</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>200</ai:wordCount>
     <ai:lastVerified>2026-03-09T20:43:37+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/video-on-demand/transcode-video</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/video-on-demand/transcode-video</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>220</ai:wordCount>
     <ai:lastVerified>2026-03-09T20:43:37+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/video-on-demand/upload-asset</loc>
+    <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/video-on-demand/upload-asset</loc>
     <lastmod>2026-03-09T20:43:37+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>83</ai:wordCount>

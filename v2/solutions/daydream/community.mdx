@@ -1,7 +1,7 @@
 ---
 mode: wide
 title: Daydream Recent Announcements
-sidebarTitle: Daydream Live 📡
+sidebarTitle: Latest Updates
 description: 'Latest videos, socials, and community activity for Daydream.'
 purpose: orient
 pageType: resource
@@ -55,7 +55,7 @@ Watch the latest on the <LinkArrow label="Daydream YouTube Channel" href="https:
 
 <YouTubeVideoData items={youtubeData} limit={4} />
 
-<CustomDivider />
+<CustomDivider style={{margin: "0.5rem 0 -2.5rem 0"}}/>
 
 ## <Icon icon="pencil-line" size={24} /> Blog
 
@@ -63,7 +63,7 @@ Read recent posts from the <LinkArrow label="Daydream Blog" href="https://blog.d
 
 <RssBlogCardLayout items={daydreamBlogData} limit={2} />
 
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
 ## <Icon icon="discord" size={24} /> Discord Announcements
 
@@ -71,7 +71,7 @@ Latest from the <LinkArrow label="Daydream Discord" href="https://discord.gg/pF2
 
 <DiscordAnnouncements serverName="Daydream" items={daydreamDiscordData} limit={4} />
 
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 {/*
 
 ## <Icon icon="github" size={24} /> GitHub

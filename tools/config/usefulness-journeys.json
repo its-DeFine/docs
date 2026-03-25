@@ -25,7 +25,7 @@
       { "position": 3, "purpose": "tutorial", "path_patterns": ["v2/developers/*quickstart*", "v2/developers/*get-started*", "v2/developers/livepeer-real-time-video/*quickstart*"] },
       { "position": 4, "purpose": "how_to", "path_patterns": ["v2/developers/livepeer-real-time-video/**", "v2/developers/building-on-livepeer/**"] },
       { "position": 5, "purpose": "concept", "path_patterns": ["v2/developers/**", "v2/about/**"] },
-      { "position": 6, "purpose": "reference", "path_patterns": ["v2/developers/*reference*", "api/**", "v2/solutions/livepeer-studio/api-reference/**"] },
+      { "position": 6, "purpose": "reference", "path_patterns": ["v2/developers/*reference*", "api/**", "v2/solutions/livepeer-studio/docs/api-reference/**"] },
       { "position": 7, "purpose": "how_to", "path_patterns": ["v2/developers/*migration*", "v2/solutions/livepeer-studio/**"] },
       { "position": 8, "purpose": ["faq", "troubleshooting"], "path_patterns": ["v2/developers/*faq*", "v2/developers/*troubleshoot*"] }
     ]

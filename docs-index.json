@@ -2587,7 +2587,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/get-started/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/get-started/overview",
       "title": "Getting Started with Livepeer Studio",
       "description": "Learn how to get started with Livepeer Studio",
       "section": "solutions",
@@ -2678,7 +2678,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/get-started/authentication",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/get-started/authentication",
       "title": "Authentication",
       "description": "Learn how to authenticate requests to the Livepeer Studio API",
       "section": "solutions",
@@ -2718,7 +2718,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/get-started/studio-cli",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/get-started/studio-cli",
       "title": "Studio CLI",
       "description": "Scaffold a new Livepeer app with the Livepeer Studio CLI.",
       "section": "solutions",
@@ -2759,7 +2759,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/overview",
       "title": "Livestream overview",
       "description": "Concepts for livestreams in Livepeer Studio: streams, sessions, ingest, playback, and health.",
       "section": "solutions",
@@ -2815,7 +2815,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/create-livestream",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/create-livestream",
       "title": "Create a livestream",
       "description": "Create a livestream with the Livepeer Studio API and get a stream key and playback ID.",
       "section": "solutions",
@@ -2859,7 +2859,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/playback-livestream",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/playback-livestream",
       "title": "Play a livestream",
       "description": "Play livestreams in your app with the Livepeer Player or a custom HLS/WebRTC player.",
       "section": "solutions",
@@ -2902,7 +2902,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/stream-via-obs",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/stream-via-obs",
       "title": "Stream via OBS",
       "description": "Configure OBS Studio to stream into Livepeer Studio using RTMP and the stream key.",
       "section": "solutions",
@@ -2946,7 +2946,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/livestream-from-browser",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/livestream-from-browser",
       "title": "Livestream from browser",
       "description": "Broadcast live from the browser using WebRTC and the Livepeer Broadcast component or custom WHIP.",
       "section": "solutions",
@@ -2993,7 +2993,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/multistream",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/multistream",
       "title": "Multistream",
       "description": "Send one livestream to multiple RTMP/RTMPS destinations (e.g. Twitch, YouTube).",
       "section": "solutions",
@@ -3037,7 +3037,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/clip-livestream",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/clip-livestream",
       "title": "Clip a livestream",
       "description": "Create short clips from active livestreams using the Create Clip API.",
       "section": "solutions",
@@ -3091,7 +3091,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/stream-health",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/stream-health",
       "title": "Stream health",
       "description": "Monitor livestream health: transcoding, real-time status, multistream targets, ingest rate, and logs.",
       "section": "solutions",
@@ -3143,7 +3143,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/livestream/optimize-latency",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/livestream/optimize-latency",
       "title": "Optimize latency",
       "description": "Achieve low or ultra-low latency with WebRTC and HLS and tune OBS and in-browser broadcast settings.",
       "section": "solutions",
@@ -3191,7 +3191,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/video-on-demand/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/video-on-demand/overview",
       "title": "Video on demand overview",
       "description": "Concepts for VOD in Livepeer Studio: assets, playback, recordings, clips, and encrypted assets.",
       "section": "solutions",
@@ -3236,7 +3236,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/video-on-demand/upload-asset",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/video-on-demand/upload-asset",
       "title": "Upload an asset",
       "description": "Upload video files to Livepeer Studio with TUS resumable uploads or PUT.",
       "section": "solutions",
@@ -3275,7 +3275,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/video-on-demand/playback-asset",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/video-on-demand/playback-asset",
       "title": "Play an asset",
       "description": "Play VOD assets with the Livepeer Player or a custom HLS/MP4 player.",
       "section": "solutions",
@@ -3319,7 +3319,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/video-on-demand/encrypted-assets",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/video-on-demand/encrypted-assets",
       "title": "Encrypted assets",
       "description": "Upload and play encrypted video with Livepeer Studio and control access.",
       "section": "solutions",
@@ -3352,7 +3352,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/video-on-demand/thumbnails-vod",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/video-on-demand/thumbnails-vod",
       "title": "Thumbnails (VOD)",
       "description": "Get thumbnails for video assets from the playback info API (WebVTT and keyframe images).",
       "section": "solutions",
@@ -3400,7 +3400,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/video-on-demand/transcode-video",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/video-on-demand/transcode-video",
       "title": "Transcode video",
       "description": "Use the Transcode API to transcode video from and to S3-compatible storage (e.g. Storj, W3S).",
       "section": "solutions",
@@ -3441,7 +3441,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/access-control/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/access-control/overview",
       "title": "Access control overview",
       "description": "Restrict playback for streams and assets with webhooks or JWTs.",
       "section": "solutions",
@@ -3477,7 +3477,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/access-control/webhooks",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/access-control/webhooks",
       "title": "Access control with webhooks",
       "description": "Gate playback using a webhook that validates the viewer and returns allow or deny.",
       "section": "solutions",
@@ -3524,7 +3524,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/access-control/jwt",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/access-control/jwt",
       "title": "Access control with JWTs",
       "description": "Gate playback using signed JWTs so only viewers with a valid token can watch.",
       "section": "solutions",
@@ -3571,7 +3571,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/analytics/webhooks",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/analytics/webhooks",
       "title": "Webhooks",
       "description": "Receive real-time events from Livepeer Studio (stream, asset, recording, multistream, task, access control).",
       "section": "solutions",
@@ -3611,7 +3611,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/analytics/listen-to-events",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/analytics/listen-to-events",
       "title": "Listen to events",
       "description": "Use webhooks to react to stream and asset events (started, ready, failed, etc.).",
       "section": "solutions",
@@ -3651,7 +3651,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/analytics/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/analytics/overview",
       "title": "Analytics",
       "description": "Viewership and engagement metrics via the Livepeer API, Grafana, and Timeplus.",
       "section": "solutions",
@@ -3737,7 +3737,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/reference/api",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/reference/api",
       "title": "API overview",
       "description": "Livepeer Studio REST API: authentication and basic usage.",
       "section": "solutions",
@@ -3779,7 +3779,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/reference/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/reference/overview",
       "title": "API Reference",
       "description": "Complete API reference for Livepeer Studio endpoints",
       "section": "solutions",
@@ -3831,7 +3831,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/reference/sdks",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/reference/sdks",
       "title": "SDKs overview",
       "description": "Server and client SDKs for the Livepeer Studio API: TypeScript, Go, Python, and React.",
       "section": "solutions",
@@ -3873,7 +3873,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/reference/managing-projects",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/reference/managing-projects",
       "title": "Managing projects",
       "description": "Organize streams, assets, and API keys with Livepeer Studio projects (staging, production, multiple apps).",
       "section": "solutions",
@@ -3921,7 +3921,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/assets/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/assets/overview",
       "title": "Assets API",
       "description": "The Assets API is used to create, retrieve, update, delete assets object from pipeline",
       "section": "solutions",
@@ -3956,7 +3956,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/assets/upload",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/assets/upload",
       "title": "Upload an asset",
       "description": "Upload a video or audio asset",
       "section": "solutions",
@@ -3984,7 +3984,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/assets/upload-via-url",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/assets/upload-via-url",
       "title": "Upload Asset via URL",
       "description": "Upload an asset by providing a URL",
       "section": "solutions",
@@ -4013,7 +4013,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/assets/get",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/assets/get",
       "title": "Retrieve an asset",
       "description": "Get details about a specific asset",
       "section": "solutions",
@@ -4041,7 +4041,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/assets/update",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/assets/update",
       "title": "Update Asset",
       "description": "Update an asset",
       "section": "solutions",
@@ -4069,7 +4069,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/assets/delete",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/assets/delete",
       "title": "Delete Asset",
       "description": "Delete an asset",
       "section": "solutions",
@@ -4097,7 +4097,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/assets/get-all",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/assets/get-all",
       "title": "Get All Assets",
       "description": "Retrieve all assets",
       "section": "solutions",
@@ -4125,7 +4125,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/overview",
       "title": "Streams API",
       "description": "The Livestream API is used to create, retrieve, update, delete stream object from pipeline",
       "section": "solutions",
@@ -4160,7 +4160,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/create",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/create",
       "title": "Create a livestream",
       "description": "Create a new livestream",
       "section": "solutions",
@@ -4188,7 +4188,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/get",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/get",
       "title": "Retrieve a livestream",
       "description": "Get details about a specific livestream",
       "section": "solutions",
@@ -4216,7 +4216,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/get-all",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/get-all",
       "title": "Get All Streams",
       "description": "Retrieve all livestreams",
       "section": "solutions",
@@ -4244,7 +4244,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/update",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/update",
       "title": "Update Stream",
       "description": "Update a livestream",
       "section": "solutions",
@@ -4272,7 +4272,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/terminate",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/terminate",
       "title": "Terminate Stream",
       "description": "Terminate an active livestream",
       "section": "solutions",
@@ -4300,7 +4300,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/create-clip",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/create-clip",
       "title": "Create Clip",
       "description": "Create a clip from a livestream",
       "section": "solutions",
@@ -4329,7 +4329,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/get-clip",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/get-clip",
       "title": "Get Clip",
       "description": "Retrieve a clip from a livestream",
       "section": "solutions",
@@ -4358,7 +4358,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/add-multistream-target",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/add-multistream-target",
       "title": "Add Multistream Target",
       "description": "Add a multistreaming target to a livestream",
       "section": "solutions",
@@ -4387,7 +4387,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/delete-multistream-target",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/delete-multistream-target",
       "title": "Delete Multistream Target",
       "description": "Remove a multistreaming target from a livestream",
       "section": "solutions",
@@ -4416,7 +4416,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/streams/delete",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/streams/delete",
       "title": "Delete Stream",
       "description": "Delete a livestream",
       "section": "solutions",
@@ -4444,7 +4444,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/multistream/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/multistream/overview",
       "title": "Multistream API",
       "description": "The Multistream API is used to manage multistreaming targets",
       "section": "solutions",
@@ -4469,7 +4469,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/multistream/create",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/multistream/create",
       "title": "Create Multistream Target",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -4497,7 +4497,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/multistream/get",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/multistream/get",
       "title": "Get Multistream Target",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -4525,7 +4525,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/multistream/get-all",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/multistream/get-all",
       "title": "Get All Multistream Targets",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -4553,7 +4553,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/multistream/update",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/multistream/update",
       "title": "Update Multistream Target",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -4581,7 +4581,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/multistream/delete",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/multistream/delete",
       "title": "Delete Multistream Target",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -4609,7 +4609,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/playback/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/playback/overview",
       "title": "Playback API",
       "description": "The Playback API is used to retrieve playback object from pipeline",
       "section": "solutions",
@@ -4643,7 +4643,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/playback/get",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/playback/get",
       "title": "Retrieve Playback Info",
       "description": "Get playback information for a stream or asset",
       "section": "solutions",
@@ -4671,7 +4671,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/sessions/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/sessions/overview",
       "title": "Sessions API",
       "description": "The Sessions API is used to retrieve session information",
       "section": "solutions",
@@ -4696,7 +4696,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/sessions/get",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/sessions/get",
       "title": "Get Session",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -4724,7 +4724,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/sessions/get-all",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/sessions/get-all",
       "title": "Get All Sessions",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -4752,7 +4752,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/sessions/get-clip",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/sessions/get-clip",
       "title": "Get Session Clip",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -4780,7 +4780,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/tasks/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/tasks/overview",
       "title": "Tasks API",
       "description": "The Tasks API is used to monitor task status",
       "section": "solutions",
@@ -4805,7 +4805,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/tasks/get",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/tasks/get",
       "title": "Get Task",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -4833,7 +4833,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/tasks/get-all",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/tasks/get-all",
       "title": "Get All Tasks",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -4861,7 +4861,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/transcode/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/transcode/overview",
       "title": "Transcode API",
       "description": "The Transcode API is used for on-demand video transcoding",
       "section": "solutions",
@@ -4886,7 +4886,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/transcode/create",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/transcode/create",
       "title": "Create Transcode Job",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -4914,7 +4914,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/signing-keys/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/overview",
       "title": "Signing Keys API",
       "description": "The Signing Keys API is used to manage signing keys for secure playback",
       "section": "solutions",
@@ -4939,7 +4939,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/signing-keys/create",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/create",
       "title": "Create Signing Key",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -4967,7 +4967,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/signing-keys/get",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/get",
       "title": "Get Signing Key",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -4995,7 +4995,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/signing-keys/get-all",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/get-all",
       "title": "Get All Signing Keys",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5023,7 +5023,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/signing-keys/update",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/update",
       "title": "Update Signing Key",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5051,7 +5051,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/signing-keys/delete",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/delete",
       "title": "Delete Signing Key",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5079,7 +5079,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/webhooks/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/webhooks/overview",
       "title": "Webhooks API",
       "description": "The Webhooks API is used to manage webhook configurations",
       "section": "solutions",
@@ -5104,7 +5104,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/webhooks/create",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/webhooks/create",
       "title": "Create Webhook",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5132,7 +5132,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/webhooks/get",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/webhooks/get",
       "title": "Get Webhook",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5160,7 +5160,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/webhooks/get-all",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/webhooks/get-all",
       "title": "Get All Webhooks",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5188,7 +5188,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/webhooks/update",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/webhooks/update",
       "title": "Update Webhook",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5216,7 +5216,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/webhooks/delete",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/webhooks/delete",
       "title": "Delete Webhook",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5244,7 +5244,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/overview",
       "title": "Rooms API",
       "description": "The Rooms API is used to manage WebRTC rooms",
       "section": "solutions",
@@ -5269,7 +5269,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/create",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/create",
       "title": "Create Room",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5297,7 +5297,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/get",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/get",
       "title": "Get Room",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5325,7 +5325,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/delete",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/delete",
       "title": "Delete Room",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5353,7 +5353,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/create-user",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/create-user",
       "title": "Create Room User",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5381,7 +5381,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/get-user",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/get-user",
       "title": "Get Room User",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5409,7 +5409,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/update-user",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/update-user",
       "title": "Update Room User",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5437,7 +5437,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/remove-user",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/remove-user",
       "title": "Remove Room User",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5465,7 +5465,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/start-egress",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/start-egress",
       "title": "Start Room Egress",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5493,7 +5493,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/rooms/stop-egress",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/rooms/stop-egress",
       "title": "Stop Room Egress",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5521,7 +5521,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/viewership/overview",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/viewership/overview",
       "title": "Viewership API",
       "description": "The Viewership API provides analytics and metrics",
       "section": "solutions",
@@ -5546,7 +5546,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/viewership/get-usage-metrics",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-usage-metrics",
       "title": "Get Usage Metrics",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5574,7 +5574,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/viewership/get-viewership-metrics",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-viewership-metrics",
       "title": "Get Viewership Metrics",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5602,7 +5602,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/viewership/get-creators-metrics",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-creators-metrics",
       "title": "Get Creators Metrics",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5630,7 +5630,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/viewership/get-public-total-views",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-public-total-views",
       "title": "Get Public Total Views",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
@@ -5658,7 +5658,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/api-reference/viewership/get-realtime-viewership",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-realtime-viewership",
       "title": "Get Realtime Viewership",
       "description": "Livepeer Studio API endpoint",
       "section": "solutions",
