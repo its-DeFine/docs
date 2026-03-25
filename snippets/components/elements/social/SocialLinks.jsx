@@ -27,11 +27,13 @@ export const SocialLinks = ({
   size = 20,
   gap = "0.75rem",
   justify = "center",
+  iconColor,
   color,
   className = "",
   style = {},
   ...rest
 }) => {
+  const override = iconColor || color;
   const linkStyle = {
     border: "none",
     borderBottom: "none",
@@ -41,16 +43,17 @@ export const SocialLinks = ({
 
   // Brand colors
   const colors = {
-    discord: color ? color : "var(--lp-color-brand-discord)",
-    twitter: color ? color : "var(--hero-text)",
-    github: color ? color : "var(--lp-color-brand-github)",
-    forum: color ? color : "var(--lp-color-brand-forum)",
-    website: color ? color : "var(--accent)",
-    blog: color ? color : "var(--accent)",
-    globe: color ? color : "var(--lp-color-brand-globe)",
-    twitch: color ? color : "var(--lp-color-brand-twitch)",
-    youtube: color ? color : "var(--lp-color-brand-youtube)",
-    instagram: color ? color : "var(--lp-color-brand-instagram)",
+    discord: override || "var(--lp-color-brand-discord)",
+    twitter: override || "var(--hero-text)",
+    github: override || "var(--lp-color-brand-github)",
+    forum: override || "var(--lp-color-brand-forum)",
+    website: override || "var(--accent)",
+    blog: override || "var(--accent)",
+    globe: override || "var(--lp-color-brand-globe)",
+    twitch: override || "var(--lp-color-brand-twitch)",
+    youtube: override || "var(--lp-color-brand-youtube)",
+    instagram: override || "var(--lp-color-brand-instagram)",
+    linkedin: override || "var(--lp-color-brand-linkedin)",
   };
 
   const iconColorMap = {
@@ -65,6 +68,7 @@ export const SocialLinks = ({
     twitch: "twitch",
     youtube: "youtube",
     instagram: "instagram",
+    linkedin: "linkedin",
   };
 
   const defaultLinks = [
