@@ -1,17 +1,16 @@
 ---
-title: Embody Avatars
-sidebarTitle: Embody Avatars
+title: Embody
 description: >-
-  Embody Avatars is a Livepeer-powered platform for creating and sharing 3D
-  avatars and virtual worlds.
+  Real-time interactive 3D avatars for education, training, and communication, powered by Livepeer.
 keywords:
   - livepeer
-  - developers
-  - developer platforms
+  - solutions
   - embody
-  - embody avatars
   - overview
-  - exists
+  - 3d avatars
+  - real-time
+  - ai
+  - education
 'og:image': /snippets/assets/site/og-image/fallback.png
 'og:image:alt': Livepeer Docs social preview image
 'og:image:type': image/png
@@ -19,36 +18,101 @@ keywords:
 'og:image:height': 630
 pageType: overview
 audience: platform-builder
-lastVerified: 2026-03-17
+lastVerified: 2026-03-25
 purpose: overview
 ---
-import { Video } from '/snippets/components/displays/video/Video.jsx';
 
-Embody Enables real-time interactive 3D avatars for education, training, and communication.
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { CustomCardTitle } from "/snippets/components/elements/text/CustomCardTitle.jsx";
+import { SocialLinks } from "/snippets/components/elements/social/SocialLinks.jsx";
+import { BorderedBox } from "/snippets/components/wrappers/containers/Containers.jsx";
+import { CenteredContainer } from "/snippets/components/wrappers/containers/Containers.jsx";
+import { YouTubeVideo, Video } from "/snippets/components/displays/video/Video.jsx";
+import { BadgeWrapper, IconBadgeWrapper } from '/snippets/components/wrappers/badges/Badges.jsx'
+import { embodyBadges } from "./data/badges.jsx"
+import { embodyInfra } from "./data/infra.jsx"
+import { embodySocials } from "./data/socials.jsx"
+
+<IconBadgeWrapper style={{ margin: "-1rem 0 1rem 0" }} iconColor="var(--accent)" size={16} items={embodyInfra} />
+<BadgeWrapper style={{margin: "0 0 2rem 0"}} badges={embodyBadges} />
+
+<Info>
+  For help and support, visit [embody.zone](https://embody.zone/). This page is maintained by the Embody team.
+</Info>
 
 <Video
   src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/domain/10_PRODUCTS/Embody/Videos/arealiensreal.mp4"
+  alt="Embody Avatars"
   author="Embody Media"
-  caption="Video Prompt: What is the closest evidence we have that aliens exist? 👽"
+  caption="Video Prompt: What is the closest evidence we have that aliens exist?"
   href="https://embody.zone/"
 />
 
-{/* Any more recent? */}
-{/* <YouTubeVideo embedUrl="https://youtu.be/_MAM5ZPsTdM?si=ebEvU9xDEoaI55z9"> */}
-<iframe
-  src="https://embody.zone/"
-  width="100%"
-  height="1000px"
-  frameborder="0"
-  allowfullscreen
-  marginheight="0"
-  marginwidth="0" title="Embedded content from embody.zone" />
+{/* explains the product */}
+Embody builds **real-time interactive 3D avatars** for education, training, and communication. Avatars are AI-driven and respond to prompts and questions live, enabling interactive video experiences at scale.
 
-{/* ## Embody Avatars */}
+{/* explains connection to Livepeer */}
+Embody runs on the Livepeer network, using decentralised GPU infrastructure for real-time AI inference and video delivery.
+
+{/* socials links */}
+<CenteredContainer maxWidth="fit-content">
+  <BorderedBox style={{margin: 0, padding: "0.5rem 1rem 1rem 1rem"}} variant="accent">
+    <SocialLinks iconColor="var(--text)" links={embodySocials} />
+  </BorderedBox>
+</CenteredContainer>
+
+<CustomDivider style={{margin: "-0.5rem 0 -2.5rem 0"}} />
+
+### Key Features
+
+- **Interactive 3D avatars** - AI-driven avatars that respond to text prompts and questions in real time.
+- **Live video streaming** - Powered by Livepeer for low-latency, decentralised video delivery.
+- **Education and training** - Purpose-built for interactive learning, onboarding, and communication use cases.
+- **Unreal Engine integration** - Avatar rendering via Unreal Engine for high-fidelity, real-time 3D output.
+
+<YouTubeVideo
+  embedUrl="https://www.youtube.com/embed/_MAM5ZPsTdM"
+  title="Embody — real-time interactive 3D avatars"
+/>
+
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
+
+### Try Embody
 {/*
-FORUM POST embedding Not currently allowed. (asked)
-<iframe src="https://forum.livepeer.org/t/embody-unreal-engine-updates/3186"
-  className="w-full h-96 rounded-xl"
-  title="Embody Unreal Engine Updates"
-  allowFullScreen
-/> */}
+  Link to actual try-me / use-me / dev references — NOT links already in socials.
+  Use 2 cards if only 2 available.
+  Use 3 cards with the first card full-width if only 3 available.
+  Use 4 cards (cols=2) when 4 are available.
+*/}
+
+<Card title={<CustomCardTitle icon="wand-magic-sparkles" title="Try Embody" />} href="https://embody.zone/" arrow>
+  Interact with a live AI avatar — ask it anything in real time.
+</Card>
+
+<CardGroup cols={2}>
+  <Card title={<CustomCardTitle icon="comment-dots" title="Livepeer Forum" />} href="https://forum.livepeer.org/t/embody-unreal-engine-updates/3186" arrow>
+    Embody Unreal Engine updates and community discussion.
+  </Card>
+  <Card title={<CustomCardTitle icon="pencil-line" title="Livepeer Onchain Builders" />} href="https://blog.livepeer.org/" arrow>
+    Livepeer ecosystem news and SPE updates.
+  </Card>
+</CardGroup>
+
+<CustomDivider style={{margin: "-0.5rem 0 -2.5rem 0"}} />
+
+## Embody Resources
+{/*
+  At least 2 dev items (docs, GitHub, website) + main comms/support channel (Discord) + one other dev-focused item.
+  Use 2 cards if only 2 available.
+  Use 3 cards with the first card full-width if only 3 available.
+  Use 4 cards (cols=2) when 4 are available.
+*/}
+
+<CardGroup cols={2}>
+  <Card title={<CustomCardTitle title="Embody" icon="globe"/>} href="https://embody.zone/" arrow>
+    Website, product, and live avatar demos.
+  </Card>
+  <Card title={<CustomCardTitle title="Livepeer Forum" icon="comment-dots"/>} href="https://forum.livepeer.org/t/embody-unreal-engine-updates/3186" arrow>
+    Technical updates, Unreal Engine integration, and community posts.
+  </Card>
+</CardGroup>

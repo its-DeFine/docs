@@ -66,7 +66,7 @@ export const BadgeWrapper = ({
 export const IconBadgeWrapper = ({
   items = [],
   iconColor,
-  size = 12,
+  size = 14,
   gap = "0.75rem",
   style = {},
   className = "",
@@ -84,7 +84,8 @@ export const IconBadgeWrapper = ({
     display: "inline-flex",
     alignItems: "center",
     gap: "0.25rem",
-    fontSize: "0.75rem",
+    fontSize: `${size}px`,
+    color: "var(--hero-text)",
   };
 
   return (

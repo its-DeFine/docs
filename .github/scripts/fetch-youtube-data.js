@@ -153,12 +153,26 @@ async function fetchChannel(channelId, outputPath) {
 
   console.log(`Filtered to ${videos.length} non-Short videos`);
 
+  // Step 3b: Deduplicate by title (keep most recent — list is already date-sorted)
+  const seenTitles = new Set();
+  const deduped = [];
+  for (const v of videos) {
+    const normTitle = v.title.toLowerCase().trim();
+    if (!seenTitles.has(normTitle)) {
+      seenTitles.add(normTitle);
+      deduped.push(v);
+    }
+  }
+  if (deduped.length < videos.length) {
+    console.log(`Deduplicated: ${videos.length} → ${deduped.length} (removed ${videos.length - deduped.length} title duplicates)`);
+  }
+
   // Step 4: Generate JSX content
   const exportName = outputPath.includes("/")
     ? path.basename(outputPath, ".jsx")
     : "youtubeData";
   const jsxContent = `export const ${exportName} = [
-${videos
+${deduped
   .map(
     (v) => `  {
     title: '${escapeForJSX(v.title)}',

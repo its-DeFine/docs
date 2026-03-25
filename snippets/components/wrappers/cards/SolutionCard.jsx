@@ -3,32 +3,37 @@
  * @type wrappers
  * @subniche cards
  * @status stable
- * @description Card body for Solutions Portal product cards. Renders badges, logo, bold subtitle, infra tags, scrollable blurb, and social links as a single composable unit.
- * @accepts badges, logoSrc, logoAlt, subtitle, infraTags, blurb, socialLinks, scrollHeight
+ * @description Card body for Solutions Portal product cards. Accepts pre-rendered JSX slots for badges,
+ *              infra tags, and social links. ScrollBox is passed as a component prop for blurb rendering.
+ * @accepts badges, logoSrc, logoAlt, subtitle, infraTags, blurb, ScrollBox, socialLinks
  * @aiDiscoverability high
- * @note Sub-components (ScrollBox, SocialLinks, P) must also be imported on the MDX page using this component.
- * @note Icon is a Mintlify global — no import needed.
- * @param {React.ReactNode} badges - Badge elements rendered above the logo.
- * @param {string} [logoSrc] - Path to the product logo image.
- * @param {string} [logoAlt] - Alt text for the logo image.
- * @param {string} [subtitle] - Bold one-line product subtitle.
- * @param {Array} [infraTags] - Array of {icon, label} objects for infra tag row.
- * @param {string} [blurb] - Product description text rendered in a scroll box.
- * @param {number} [scrollHeight=100] - Max height in px for the scroll box.
- * @param {Array} [socialLinks] - Array of {icon, href, label} objects passed to SocialLinks.
+ * @note badges, infraTags, socialLinks accept pre-rendered JSX (ReactNode) — instantiated in the parent MDX page.
+ *       ScrollBox is passed as a component reference and called internally to wrap blurb text.
+ *       Mintlify does not resolve cross-JSX imports — all sub-components are sourced from the parent MDX page.
+ *
+ * @param {ReactNode}  [badges]      - Pre-rendered <BadgeWrapper badges={...} />
+ * @param {string}     [logoSrc]     - Path to the product logo image.
+ * @param {string}     [logoAlt]     - Alt text for the logo image.
+ * @param {string}     [subtitle]    - Bold italic one-line product subtitle.
+ * @param {ReactNode}  [infraTags]   - Pre-rendered <IconBadgeWrapper items={...} iconColor="var(--accent)" size={12} />
+ * @param {string}     [blurb]       - Product description text. Rendered inside ScrollBox.
+ * @param {Component}  [ScrollBox]   - ScrollBox component reference, passed from parent MDX.
+ * @param {ReactNode}  [socialLinks] - Pre-rendered <SocialLinks links={...} />
  *
  * @example
- * import { ScrollBox } from "/snippets/components/wrappers/containers/ScrollBox.jsx";
- * import { SocialLinks } from "/snippets/components/elements/social/SocialLinks.jsx";
+ * import { BadgeWrapper, IconBadgeWrapper } from '/snippets/components/wrappers/badges/Badges.jsx'
+ * import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
+ * import { SocialLinks } from '/snippets/components/elements/social/SocialLinks.jsx'
  *
  * <SolutionCard
- *   badges={<><Badge color="blue">Video</Badge></>}
- *   logoSrc="/snippets/assets/logos/products/example-logo.svg"
- *   logoAlt="Example Logo"
- *   subtitle="One-line product subtitle"
- *   infraTags={[{ icon: "plug", label: "api" }, { icon: "cloud", label: "saas" }]}
- *   blurb="Product description text here."
- *   socialLinks={[{ icon: "globe", href: "https://example.com", label: "Website" }]}
+ *   badges={<BadgeWrapper badges={daydreamBadges} />}
+ *   logoSrc="/snippets/assets/logos/products/daydream-logo-dark.svg"
+ *   logoAlt="Daydream Logo"
+ *   subtitle="Open-Source Toolkit For World Models and Real-time AI Video"
+ *   infraTags={<IconBadgeWrapper items={daydreamInfra} iconColor="var(--accent)" size={12} />}
+ *   blurb="Description here."
+ *   ScrollBox={ScrollBox}
+ *   socialLinks={<SocialLinks links={daydreamSocials} justify="center" style={{ marginTop: '1rem', marginBottom: '-1rem' }} />}
  * />
  */
 
@@ -37,87 +42,45 @@ export const SolutionCard = ({
   logoSrc,
   logoAlt,
   subtitle,
-  infraTags = [],
+  infraTags,
   blurb,
-  scrollHeight = 100,
+  ScrollBox,
   socialLinks,
 }) => {
-  // STYLE CONSTS HERE NOT INLINE
-  const logoContainerStyle = {
-    height: '60px',
-    display: 'flex',
-    alignItems: 'center',
-    margin: '0.25rem 0',
-  }
-  const logoStyle = {
-    height: '100%',
-    width: 'auto',
-    maxWidth: '100%',
-    objectFit: 'contain',
-    marginTop: '0.25rem',
-  }
-  const subtitleStyle = {
-    fontWeight: 700,
-    fontSize: '1rem',
-  }
-  const infraRowStyle = {
-    display: 'flex',
-    gap: '0.75rem',
-    flexWrap: 'wrap',
-    margin: '0.25rem 0 0.5rem',
-  }
-  const infraTagStyle = {
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '0.25rem',
-    fontSize: '0.75rem',
-    color: 'var(--hero-text)',
-  }
-  const socialStyle = { marginTop: '1rem', marginBottom: '-1rem' }
-
   return (
-    <div style={{ margin: '0 0 -1.5rem 0' }}>
-      {badges && <span>{badges}</span>}
+    <div style={{ margin: '0 0 1rem 0' }}>
+
+      {badges}
 
       {logoSrc && (
-        <div style={logoContainerStyle}>
+        <div style={{ height: '60px', display: 'flex', alignItems: 'center', margin: '0.25rem 0' }}>
           <img
             src={logoSrc}
             alt={logoAlt || 'solution provider logo'}
-            style={logoStyle}
+            style={{ height: '100%', width: 'auto', maxWidth: '100%', objectFit: 'contain', marginTop: '0.25rem' }}
           />
         </div>
       )}
 
       {subtitle && (
         <>
-          <style>{`.solution-card-subtitle { color: white !important; }`}</style>
-          <div className="solution-card-subtitle" style={subtitleStyle}>
+          <style>{`.solution-card-subtitle { color: white !important; font-style: italic }`}</style>
+          <div className="solution-card-subtitle" style={{ fontWeight: 700, fontSize: '1rem' }}>
             {subtitle}
           </div>
         </>
       )}
 
-      {infraTags.length > 0 && (
-        <div style={infraRowStyle}>
-          {infraTags.map((tag, i) => (
-            <span key={i} style={infraTagStyle}>
-              <Icon icon={tag.icon} size={12} color="var(--accent)" />
-              {tag.label}
-            </span>
-          ))}
-        </div>
-      )}
+      {infraTags}
 
-      {blurb && (
-        <ScrollBox maxHeight={scrollHeight} style={{ fontSize: '0.75rem' }}>
+      {blurb && ScrollBox && (
+        <ScrollBox maxHeight={100} style={{ fontSize: '0.85rem', lineHeight: '1.1rem' }}>
           {blurb}
         </ScrollBox>
       )}
 
-      {socialLinks && (
-        <SocialLinks justify="center" style={socialStyle} links={socialLinks} />
-      )}
+      {socialLinks}
+
     </div>
   )
 }

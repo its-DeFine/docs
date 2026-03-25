@@ -12,15 +12,48 @@
  * @param {object} [style={}] - Inline style overrides.
  */
 export const MarkdownEmbed = ({ url, className = "", style = {}, ...rest }) => {
-  const [content, setContent] = useState('')
+  const [html, setHtml] = useState('')
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.text())
-      .then(setContent)
+      .then((md) => {
+        // Basic markdown-to-HTML conversion (no external deps)
+        const converted = md
+          // Code blocks (```lang ... ```)
+          .replace(/```(\w*)\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>')
+          // Inline code
+          .replace(/`([^`]+)`/g, '<code>$1</code>')
+          // Images
+          .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img alt="$1" src="$2" style="max-width:100%" />')
+          // Links
+          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+          // Headings
+          .replace(/^######\s+(.+)$/gm, '<h6>$1</h6>')
+          .replace(/^#####\s+(.+)$/gm, '<h5>$1</h5>')
+          .replace(/^####\s+(.+)$/gm, '<h4>$1</h4>')
+          .replace(/^###\s+(.+)$/gm, '<h3>$1</h3>')
+          .replace(/^##\s+(.+)$/gm, '<h2>$1</h2>')
+          .replace(/^#\s+(.+)$/gm, '<h1>$1</h1>')
+          // Bold + italic
+          .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.+?)\*/g, '<em>$1</em>')
+          // Horizontal rules
+          .replace(/^---$/gm, '<hr />')
+          // Unordered lists
+          .replace(/^[-*]\s+(.+)$/gm, '<li>$1</li>')
+          // Paragraphs (double newline)
+          .replace(/\n\n/g, '</p><p>')
+          // Single newlines to <br>
+          .replace(/\n/g, '<br />');
+        setHtml('<p>' + converted + '</p>');
+      })
   }, [url])
 
-  return <div className={className} style={style} {...rest}><Markdown>{content}</Markdown></div>
+  if (!html) return <div className={className} style={style} {...rest}><p style={{ color: 'var(--text-secondary)' }}>Loading...</p></div>;
+
+  return <div className={className} style={style} {...rest} dangerouslySetInnerHTML={{ __html: html }} />
 }
 
 /**

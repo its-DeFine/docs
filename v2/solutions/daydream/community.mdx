@@ -21,6 +21,7 @@ audience: builder
 lastVerified: 2026-03-23
 ---
 
+{/* COMPONENTS */}
 import { SocialLinks } from '/snippets/components/elements/social/SocialLinks.jsx'
 import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
 import { YouTubeVideoData } from '/snippets/components/integrators/video-data/VideoData.jsx';
@@ -28,6 +29,8 @@ import { RssBlogCard, RssBlogCardLayout, DiscordAnnouncements } from '/snippets/
 import { MarkdownEmbed } from '/snippets/components/integrators/embeds/DataEmbed.jsx'
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+
+{/* DATA */}
 import { youtubeData } from '/snippets/automations/solutions/daydream/youtubeData.jsx'
 import { daydreamBlogData } from '/snippets/automations/solutions/daydream/blogData.jsx'
 import { daydreamDiscordData } from '/snippets/automations/solutions/daydream/discordData.jsx'
@@ -66,7 +69,7 @@ Read recent posts from the <LinkArrow label="Daydream Blog" href="https://blog.d
 
 Latest from the <LinkArrow label="Daydream Discord" href="https://discord.gg/pF2Akym5bV" newline={false} />
 
-<DiscordAnnouncements items={discordAnnouncementsData} limit={2} />
+<DiscordAnnouncements serverName="Daydream" items={daydreamDiscordData} limit={4} />
 
 <CustomDivider />
 {/*

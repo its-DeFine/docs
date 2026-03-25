@@ -98,13 +98,29 @@ async function fetchForProduct(productKey, discordConfig) {
     return [];
   }
 
-  return messages.map((msg) => ({
-    id: msg.id,
-    content: escapeForJSX(msg.content),
-    author: msg.author?.username || "Unknown",
-    timestamp: formatTimestamp(msg.timestamp),
-    url: `https://discord.com/channels/${serverId}/${announcementsChannelId}/${msg.id}`,
-  }));
+  return messages.map((msg) => {
+    // Build content: prefer message content, fall back to embeds for forwarded messages
+    let content = msg.content || "";
+    if (!content && msg.embeds && msg.embeds.length > 0) {
+      const parts = [];
+      for (const embed of msg.embeds) {
+        if (embed.title) parts.push(`**${embed.title}**`);
+        if (embed.description) parts.push(embed.description);
+      }
+      content = parts.join("\n\n");
+    }
+    // Fall back to attachment filenames if still empty
+    if (!content && msg.attachments && msg.attachments.length > 0) {
+      content = msg.attachments.map((a) => `[${a.filename}](${a.url})`).join(", ");
+    }
+    return {
+      id: msg.id,
+      content: escapeForJSX(content),
+      author: msg.author?.username || "Unknown",
+      timestamp: formatTimestamp(msg.timestamp),
+      url: `https://discord.com/channels/${serverId}/${announcementsChannelId}/${msg.id}`,
+    };
+  }).filter((msg) => msg.content.length > 0);
 }
 
 function writeJSX(exportName, announcements, outPath) {

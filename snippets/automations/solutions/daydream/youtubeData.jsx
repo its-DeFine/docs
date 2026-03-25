@@ -9,15 +9,6 @@ export const youtubeData = [
     thumbnailUrl: 'https://i.ytimg.com/vi/lz0CXdiYCe8/hqdefault_live.jpg'
   },
   {
-    title: 'Scope workshop',
-    href: 'https://www.youtube.com/watch?v=ggA2N4tInD0',
-    author: 'By Daydream AI',
-    content: '...',
-    publishedDate: 'Mar 20, 2026',
-    duration: 'PT49M32S',
-    thumbnailUrl: 'https://i.ytimg.com/vi/ggA2N4tInD0/hqdefault.jpg'
-  },
-  {
     title: 'Interactive AI Video Program: Demo Day',
     href: 'https://www.youtube.com/watch?v=U0U9fDezxFQ',
     author: 'By Daydream AI',
@@ -25,24 +16,6 @@ export const youtubeData = [
     publishedDate: 'Mar 19, 2026',
     duration: 'P0D',
     thumbnailUrl: 'https://i.ytimg.com/vi/U0U9fDezxFQ/hqdefault_live.jpg'
-  },
-  {
-    title: 'Scope Workshop',
-    href: 'https://www.youtube.com/watch?v=cpmbmVxiwsk',
-    author: 'By Daydream AI',
-    content: '...',
-    publishedDate: 'Mar 14, 2026',
-    duration: 'PT1H2M47S',
-    thumbnailUrl: 'https://i.ytimg.com/vi/cpmbmVxiwsk/hqdefault.jpg'
-  },
-  {
-    title: 'Scope Workshop',
-    href: 'https://www.youtube.com/watch?v=crltN1Jth54',
-    author: 'By Daydream AI',
-    content: '...',
-    publishedDate: 'Mar 6, 2026',
-    duration: 'PT46M27S',
-    thumbnailUrl: 'https://i.ytimg.com/vi/crltN1Jth54/hqdefault.jpg'
   },
   {
     title: 'Encuentros de Tecnólogos Creativos de Madrid Daydream x MappingOn',
@@ -70,15 +43,6 @@ export const youtubeData = [
     publishedDate: 'Feb 26, 2026',
     duration: 'PT34M43S',
     thumbnailUrl: 'https://i.ytimg.com/vi/Um1g1TB2d4A/hqdefault.jpg'
-  },
-  {
-    title: 'Scope Workshop',
-    href: 'https://www.youtube.com/watch?v=Z216YS3m9fU',
-    author: 'By Daydream AI',
-    content: '...',
-    publishedDate: 'Feb 20, 2026',
-    duration: 'PT48M38S',
-    thumbnailUrl: 'https://i.ytimg.com/vi/Z216YS3m9fU/hqdefault.jpg'
   },
   {
     title: 'Daydream Scope Workshop',
@@ -117,15 +81,6 @@ export const youtubeData = [
     thumbnailUrl: 'https://i.ytimg.com/vi/rZjRahfJHiY/hqdefault.jpg'
   },
   {
-    title: 'Scope Workshop',
-    href: 'https://www.youtube.com/watch?v=COpYCHmQRfo',
-    author: 'By Daydream AI',
-    content: '...',
-    publishedDate: 'Feb 6, 2026',
-    duration: 'PT56M50S',
-    thumbnailUrl: 'https://i.ytimg.com/vi/COpYCHmQRfo/hqdefault.jpg'
-  },
-  {
     title: 'Hear what our participants said about participating in the Interactive AI Video Program.',
     href: 'https://www.youtube.com/watch?v=hClCDb9NmGE',
     author: 'By Daydream AI',
@@ -133,15 +88,6 @@ export const youtubeData = [
     publishedDate: 'Feb 4, 2026',
     duration: 'PT1M10S',
     thumbnailUrl: 'https://i.ytimg.com/vi/hClCDb9NmGE/hqdefault.jpg'
-  },
-  {
-    title: 'Scope Workshop',
-    href: 'https://www.youtube.com/watch?v=Hwm5aIHevdc',
-    author: 'By Daydream AI',
-    content: '...',
-    publishedDate: 'Jan 30, 2026',
-    duration: 'PT56M57S',
-    thumbnailUrl: 'https://i.ytimg.com/vi/Hwm5aIHevdc/hqdefault.jpg'
   },
   {
     title: 'Realtime Creator Lounge #2',
@@ -268,24 +214,6 @@ export const youtubeData = [
     publishedDate: 'Dec 19, 2025',
     duration: 'PT1H3M39S',
     thumbnailUrl: 'https://i.ytimg.com/vi/D-iUKOhPpPo/hqdefault.jpg'
-  },
-  {
-    title: 'Daydream Scope Workshop',
-    href: 'https://www.youtube.com/watch?v=MM3k8LGvfxo',
-    author: 'By Daydream AI',
-    content: 'This Scope Workshop will cover the latest updates to Scope, including new LoRA support, upcoming improvements, creative user scenarios, and how Scope connects with tools like Unity and Unreal.    Learn more about Daydream:   X: @daydreamLiveAI  Website: https://daydream.live/  Discord: https://discord.com/invite/mnfGR4Fjhp...',
-    publishedDate: 'Dec 16, 2025',
-    duration: 'PT52M12S',
-    thumbnailUrl: 'https://i.ytimg.com/vi/MM3k8LGvfxo/hqdefault.jpg'
-  },
-  {
-    title: 'Scope Workshop',
-    href: 'https://www.youtube.com/watch?v=H6k7pwyrV1E',
-    author: 'By Daydream AI',
-    content: '...',
-    publishedDate: 'Dec 12, 2025',
-    duration: 'PT56M46S',
-    thumbnailUrl: 'https://i.ytimg.com/vi/H6k7pwyrV1E/hqdefault.jpg'
   },
   {
     title: 'MotionStream Workshop with Joonghuk',

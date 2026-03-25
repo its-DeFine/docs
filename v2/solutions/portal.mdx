@@ -30,16 +30,24 @@ lastVerified: 2026-03-17
 purpose: landing
 tag: Start Here
 ---
+
+{/* COMPONENT IMPORTS */}
 import { PortalHeroContent, HeroImageBackgroundComponent, LogoHeroContainer, HeroContentContainer, HeroSectionContainer, PortalCardsHeader, PortalContentContainer } from '/snippets/components/scaffolding/portals/Portals.jsx'
 import { H1, H2, H5, P } from '/snippets/components/scaffolding/frame-mode/FrameMode.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { BlinkingIcon } from '/snippets/components/elements/links/Links.jsx'
 import { CustomCardTitle } from '/snippets/components/elements/text/CustomCardTitle.jsx'
 import { SolutionCard } from '/snippets/components/wrappers/cards/SolutionCard.jsx'
+import { BadgeWrapper, IconBadgeWrapper } from '/snippets/components/wrappers/badges/Badges.jsx'
+import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
+import { SocialLinks } from '/snippets/components/elements/social/SocialLinks.jsx'
 import { Starfield } from "/snippets/components/scaffolding/heroes/HeroGif.jsx";
-import { ScrollBox } from "/snippets/components/wrappers/containers/ScrollBox.jsx";
-import { SocialLinks } from "/snippets/components/elements/social/SocialLinks.jsx";
 import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
+
+{/* DATA INPORTS */}
+import { daydreamBadges, studioBadges, frameworksBadges, streamplaceBadges, embodyBadges } from './data/badges.jsx'
+import { daydreamInfra, studioInfra, frameworksInfra, streamplaceInfra, embodyInfra } from './data/infra.jsx'
+import { daydreamSocials, studioSocials, frameworksSocials, streamplaceSocials, embodySocials } from './data/socials.jsx'
 
 <HeroSectionContainer>
 
@@ -97,26 +105,14 @@ import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
       cta="Learn More About Daydream"
     >
       <SolutionCard
-        badges={<><Badge color="blue">Video</Badge> <Badge color="purple">AI</Badge> <Badge color="green">Realtime AI</Badge></>}
+        badges={<BadgeWrapper badges={daydreamBadges} />}
         logoSrc="/snippets/assets/logos/products/daydream-logo-dark.svg"
         logoAlt="Daydream Logo"
         subtitle="Open-Source Toolkit For World Models and Real-time AI Video"
-        infraTags={[
-          { icon: "torii-gate", label: "gateway" },
-          { icon: "server", label: "self-hosted" },
-          { icon: "toolbox", label: "sdk" },
-        ]}
+        infraTags={<IconBadgeWrapper items={daydreamInfra} iconColor="var(--accent)" size={12} />}
         blurb="Open-source engine for real-time AI video generation. Compose node-based workflows that combine generative video, audio, and computer vision - runs locally or in the cloud. Native integrations with OSC, MIDI, Syphon, Spout, and NDI connect it directly into professional creative toolchains (Ableton, TouchDesigner, OBS, Resolume). Powered by Livepeer's decentralised GPU compute network."
-        socialLinks={[
-          { icon: "globe", href: "https://daydream.live/", label: "Daydream Website" },
-          { icon: "github", href: "https://github.com/daydreamlive/scope", label: "Daydream GitHub" },
-          { icon: "x-twitter", href: "https://x.com/daydreamlive", label: "Daydream X" },
-          { icon: "linkedin", href: "https://www.linkedin.com/company/daydreamlive", label: "Daydream LinkedIn" },
-          { icon: "discord", href: "https://discord.gg/pF2Akym5bV", label: "Daydream Discord" },
-          { icon: "youtube", href: "https://www.youtube.com/channel/UCviyh_-8H2vkYq9ROHMBffQ", label: "Daydream YouTube" },
-          { icon: "instagram", href: "https://www.instagram.com/daydreamlive_/", label: "Daydream Instagram" },
-          { icon: "book-open", href: "https://docs.daydream.live/", label: "Daydream Docs" },
-        ]}
+        ScrollBox={ScrollBox}
+        socialLinks={<SocialLinks links={daydreamSocials} justify="center" style={{ marginTop: '1rem', marginBottom: '-1rem' }} />}
       />
     </Card>
     <Card
@@ -126,21 +122,14 @@ import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
       cta="Learn More About Livepeer Studio"
     >
       <SolutionCard
-        badges={<><Badge color="blue">Video</Badge></>}
+        badges={<BadgeWrapper badges={studioBadges} />}
         logoSrc="/snippets/assets/logos/products/livepeer-studio-logo.svg"
         logoAlt="Livepeer Studio Logo"
-        subtitle="An Open Performanct Video Streaming Stack"
-        infraTags={[
-          { icon: "plug", label: "api" },
-          { icon: "cloud", label: "saas" },
-          { icon: "torii-gate", label: "gateway" },
-        ]}
+        subtitle="An Open Performant Video Streaming Stack"
+        infraTags={<IconBadgeWrapper items={studioInfra} iconColor="var(--accent)" size={12} />}
         blurb="Managed gateway and API platform for Livepeer's decentralised video infrastructure. REST APIs and a dashboard cover live streaming ingest, video-on-demand transcoding, and delivery - with no infrastructure to operate. Usage-based pricing routes jobs to the open orchestrator network, giving applications cost and scale properties unavailable from centralised providers."
-        socialLinks={[
-          { icon: "globe", href: "https://livepeer.studio", label: "Livepeer Studio Website" },
-          { icon: "discord", href: "https://discord.gg/livepeer", label: "Livepeer Studio Discord" },
-          { icon: "book-open", href: "https://docs.livepeer.org", label: "Livepeer Studio Docs" },
-        ]}
+        ScrollBox={ScrollBox}
+        socialLinks={<SocialLinks links={studioSocials} justify="center" style={{ marginTop: '1rem', marginBottom: '-1rem' }} />}
       />
     </Card>
     <Card
@@ -150,20 +139,14 @@ import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
       cta="Learn More About Frameworks"
     >
       <SolutionCard
-        badges={<><Badge color="blue">Video</Badge></>}
+        badges={<BadgeWrapper badges={frameworksBadges} />}
         logoSrc="https://frameworks.network/frameworks-dark-horizontal-lockup-transparent.svg"
         logoAlt="Frameworks Logo"
         subtitle="Full-Stack Live Video Infrastructure"
-        infraTags={[
-          { icon: "server", label: "self-hosted" },
-          { icon: "cloud", label: "saas" },
-          { icon: "torii-gate", label: "gateway" },
-        ]}
+        infraTags={<IconBadgeWrapper items={frameworksInfra} iconColor="var(--accent)" size={12} />}
         blurb="Full-stack video streaming platform built by the MistServer team, combining a self-hosted open-source core with optional hosted processing. Deploy the full stack on your own infrastructure, use Frameworks' hosted tier, or run a hybrid. No vendor lock-in: the infrastructure stack travels with you. Built on Livepeer's decentralised protocol and subsidised by the Livepeer treasury."
-        socialLinks={[
-          { icon: "globe", href: "https://frameworks.network/", label: "Frameworks Website" },
-          { icon: "book-open", href: "https://docs.frameworks.network/", label: "Frameworks Docs" },
-        ]}
+        ScrollBox={ScrollBox}
+        socialLinks={<SocialLinks links={frameworksSocials} justify="center" style={{ marginTop: '1rem', marginBottom: '-1rem' }} />}
       />
     </Card>
     <Card
@@ -173,19 +156,14 @@ import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
       cta="Learn More About Streamplace"
     >
       <SolutionCard
-        badges={<><Badge color="blue">Video</Badge></>}
+        badges={<BadgeWrapper badges={streamplaceBadges} />}
         logoSrc="/snippets/assets/logos/products/streamplace-logo.svg"
         logoAlt="Streamplace Logo"
-        subtitle="The Video Layer For Decentralized Social Networks"
-        infraTags={[
-          { icon: "toolbox", label: "sdk" },
-        ]}
+        subtitle="The Video Layer For Decentralised Social Networks"
+        infraTags={<IconBadgeWrapper items={streamplaceInfra} iconColor="var(--accent)" size={12} />}
         blurb="Open-source video infrastructure layer for AT Protocol-native applications. Provides identity, distribution, monetisation, and content-authenticity primitives as composable building blocks for social networks, livestreaming platforms, and web3 applications. Preserves user sovereignty and content provenance at the protocol level."
-        socialLinks={[
-          { icon: "globe", href: "https://stream.place", label: "Stream.place Website" },
-          { icon: "discord", href: "https://discord.com/invite/EdtZv4UTMU", label: "Stream.place Discord" },
-          { icon: "book-open", href: "https://stream.place/docs", label: "Stream.place Docs" },
-        ]}
+        ScrollBox={ScrollBox}
+        socialLinks={<SocialLinks links={streamplaceSocials} justify="center" style={{ marginTop: '1rem', marginBottom: '-1rem' }} />}
       />
     </Card>
     <Card
@@ -195,18 +173,12 @@ import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
       cta="Learn More About Embody"
     >
       <SolutionCard
-        badges={<><Badge color="purple">AI</Badge> <Badge color="green">Realtime AI</Badge> <Badge color="red">Agents</Badge></>}
+        badges={<BadgeWrapper badges={embodyBadges} />}
         subtitle="Enterprise-Grade AI Avatars for Real-Time Telepresence"
-        infraTags={[
-          { icon: "plug", label: "api" },
-          { icon: "cloud", label: "saas" },
-        ]}
+        infraTags={<IconBadgeWrapper items={embodyInfra} iconColor="var(--accent)" size={12} />}
         blurb="Enterprise AI avatar platform for real-time telepresence and on-demand branded content. Integrates into learning platforms, communication tools, and content pipelines to deliver embodied AI presence at scale - covering tutoring, enterprise telepresence, and branded video without live camera requirements."
-        socialLinks={[
-          { icon: "globe", href: "https://embody.zone/", label: "Embody Website" },
-          { icon: "github", href: "https://github.com/its-DeFine", label: "Embody GitHub" },
-          { icon: "twitch", href: "https://www.twitch.tv/livi_embody", label: "Embody on Twitch" },
-        ]}
+        ScrollBox={ScrollBox}
+        socialLinks={<SocialLinks links={embodySocials} justify="center" style={{ marginTop: '1rem', marginBottom: '-1rem' }} />}
       />
     </Card>
     <Card

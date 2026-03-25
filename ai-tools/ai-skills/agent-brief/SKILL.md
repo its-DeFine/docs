@@ -63,10 +63,28 @@ If this task produces a file, write to:
   Convention: workspace/thread-outputs/{skill}/{topic}-{type}.md
 Do NOT write files to repo root. Propose location with reasoning if no path is specified.
 
-## Platform constraints
+## Platform and style constraints
 If this task involves MDX or JSX: read `workspace/thread-outputs/research/mintlify-constraints-reference.md` first.
 If this task involves component or script files: read `workspace/thread-outputs/research/component-script-placement-reference.md` first.
+If this task involves writing or editing prose content: follow these rules from CLAUDE.md:
+  - UK English: -ise, -our, -re endings
+  - No em dashes — rewrite or use hyphens
+  - No questions in headings or body
+  - Banned words: effectively, essentially, basically, meaningful, significant, various, several, simply, obviously, clearly, just
+  - Headings: name the thing, no questions, 3-6 words
+  - Define domain terms at first use (pool worker, active set, probabilistic micropayments, etc.)
+  - Full voice rules: `workspace/plan/active/CONTENT-WRITING/Prompts/voice-rules.md`
+  - Full review standards and frontmatter requirements: `ai-tools/ai-skills/page-authoring/SKILL.md`
 Do NOT suggest imports, patterns, or file placements that violate these references.
+
+## Verification (if task modifies MDX or JSX)
+After completing the task, verify changes render:
+```bash
+node operations/tests/integration/mdx-component-runtime-smoke.js --routes /v2/path/to/changed-page
+```
+If verification fails, include the error in your return. Do NOT report success without verifying.
+For visual checks, start a scoped dev server in its OWN background process — never hijack an existing session:
+`lpd dev --scoped --scope-prefix v2/relevant-path`
 
 ## Failure protocol
 If any of these are true, STOP and return immediately with what's wrong:

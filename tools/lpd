@@ -1247,6 +1247,9 @@ EOF
             if [ -n "$scope_tabs" ]; then
                 echo "  scope_tabs: $scope_tabs"
             fi
+            if [ -n "$scope_anchors" ]; then
+                echo "  scope_anchors: $scope_anchors"
+            fi
             if [ -n "$scope_prefixes" ]; then
                 echo "  scope_prefixes: $scope_prefixes"
             fi

@@ -107,6 +107,29 @@ Always recommend. Never leave it as "here are the findings, what do you want to 
 
 ---
 
+## Step 4b: Render verification for MDX/JSX changes
+
+If the work being reviewed involved MDX or JSX changes, verify rendering as part of the review:
+
+```bash
+# Smoke test changed routes
+node operations/tests/integration/mdx-component-runtime-smoke.js --routes /v2/path/to/page
+
+# Or scoped dev for visual check — start in its OWN background process, never hijack existing sessions
+lpd dev --scoped --scope-prefix v2/relevant-path
+```
+
+A review that doesn't verify rendering for MDX/JSX changes is incomplete. Add to the review report:
+
+```
+Render verification:
+  Route(s): [paths]
+  Result: PASS / FAIL
+  Errors: [none / list]
+```
+
+---
+
 ## Step 5: After fixes — re-review
 
 If fixes were applied, re-review the affected criteria. Do not assume the fix worked.

@@ -45,6 +45,7 @@ These skills encode HOW we work. Use them.
 | `/pm` | Session start, planning, coordination | Proactive project management; priorities, bottlenecks, risks, repo hygiene |
 | `/dispatch` | Parallel batch work | Parallel agent coordinator; batch audits, multi-directory scans |
 | `/agent-brief` | Every agent spawn | Standard instruction template; quality contract, return format, failure protocol |
+| `/diagnose` | Something is broken or a fix has failed twice | Systematic debugging: reproduce, gather facts, hypothesise from evidence, test one at a time, fix root cause |
 
 **The workflow:** `/thread` → `/pm` → `/research` → `/design` → `/build` → `/iterate` → loop as needed.
 
@@ -192,10 +193,11 @@ Content-specific skills. **Validate before use at scale** — run on a known-goo
 
 ```bash
 node operations/tests/run-all.js
-npx mintlify dev
+lpd dev --scoped --scope-prefix v2/orchestrators   # scoped dev server (fast, subset of docs.json)
+node operations/tests/integration/mdx-component-runtime-smoke.js --routes /v2/path  # smoke test
 ```
 
-Do NOT use `lpd` — deprecated.
+**After any MDX/JSX change:** verify it renders before declaring done. Use the smoke test or scoped dev.
 
 ---
 
@@ -413,7 +415,9 @@ Follow `/thread` Step 5: produce a finalisation report (template in `workspace/p
 | `ai-tools/agent-packs/claude/CLAUDE.md`                                                           | Claude Code audit pipeline (auto-generated — do not edit) |
 | `docs.json`                                                                                       | Mintlify navigation and routing config                    |
 | `operations/tests/run-all.js`                                                                     | Test runner                                               |
+| `workspace/thread-outputs/research/component-script-placement-reference.md`                       | Component/script folder placement rules — read before writing any component or script |
+| `workspace/thread-outputs/research/mintlify-constraints-reference.md`                             | Mintlify platform constraints — read before writing any MDX or JSX |
 
 ---
 
-_Owner: Alison Haire (Wonderland) . Updated: 2026-03-24_
+_Owner: Alison Haire (Wonderland) . Updated: 2026-03-25_

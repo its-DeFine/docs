@@ -79,6 +79,14 @@ If a claim involves a parameter value (e.g. unbonding period, reward cut, active
 
 ---
 
+## External Technical References
+
+| What you want to verify | Source | Tier | Staleness risk |
+|---|---|---|---|
+| AI/ML glossary terms (world models, diffusion, inference, LLM, GPU architecture, etc.) | [NVIDIA Glossary](https://www.nvidia.com/en-us/glossary/world-models/) | primary | low — especially reliable for glossary, AI, and hardware items |
+
+---
+
 ## Information Type Quick-Reference
 
 Use these types when classifying claims:

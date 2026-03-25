@@ -30,7 +30,7 @@ const {
 } = require('../../../tools/dev/generate-mint-dev-scope');
 
 const REPO_ROOT = process.cwd();
-const LPD_PATH = path.join(REPO_ROOT, 'lpd');
+const LPD_PATH = path.join(REPO_ROOT, 'tools/lpd');
 const SCOPE_SCRIPT_PATH = path.join(REPO_ROOT, 'tools/dev/generate-mint-dev-scope.js');
 
 const SAMPLE_NAVIGATION = {
@@ -349,7 +349,7 @@ async function runTests() {
     assert.match(run.stdout, /scope_languages:\s*en/);
     assert.match(run.stdout, /scope_tabs:\s*Developers/);
     assert.match(run.stdout, /OpenAPI docs scope: disabled/);
-    assert.match(run.stdout, /tools\/scripts\/mint-dev\.sh/);
+    assert.match(run.stdout, /tools\/dev\/mint-dev\.sh/);
   });
 
   cases.push(async () => {
@@ -701,24 +701,23 @@ async function runTests() {
     writeFile(path.join(repoRoot, '.mintignore'), '# fixture\n');
     writeFile(path.join(repoRoot, 'v2/dev/get-started.mdx'), 'import Demo from "./missing-demo.jsx";\n<Demo />\n');
 
-    await assert.rejects(
-      () =>
-        createScopedProfile({
-          repoRoot,
-          workspaceBase,
-          scopeFile: '',
-          versions: [],
-          languages: [],
-          tabs: [],
-          prefixes: ['v2/dev'],
-          interactive: false,
-          disableOpenapi: false,
-          printOnly: false,
-          help: false
-        }),
-      /Could not resolve local import reference "\.\/missing-demo\.jsx"/,
-      'scoped projection should fail closed on missing local dependencies'
-    );
+    // Missing page-level imports produce warnings, not errors — the scoped
+    // session should still start so the developer can fix the import.
+    const profile = await createScopedProfile({
+      repoRoot,
+      workspaceBase,
+      scopeFile: '',
+      versions: [],
+      languages: [],
+      tabs: [],
+      anchors: [],
+      prefixes: ['v2/dev'],
+      interactive: false,
+      disableOpenapi: false,
+      printOnly: false,
+      help: false
+    });
+    assert.ok(profile, 'scoped projection should succeed with warnings for missing page-level imports');
   });
 
   cases.push(async () => {

@@ -244,8 +244,9 @@ export const Video = ({
   };
 
   const captionContent = buildCaption();
+  const showArrow = !!href || arrow;
 
-  return (
+  const frameEl = (
     <Frame className={className} style={style} {...(captionContent ? { caption: captionContent } : {})} {...rest}>
       <video
         controls={controls}
@@ -259,6 +260,34 @@ export const Video = ({
       />
       {children}
     </Frame>
+  );
+
+  if (!showArrow && !href) return frameEl;
+
+  return (
+    <div style={{ position: "relative", display: "block" }}>
+      {href && (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={title || author || "Video link"}
+          style={{ position: "absolute", inset: "0", zIndex: "1", display: "block", textDecoration: "none", border: "none", outline: "none", boxShadow: "none" }}
+        />
+      )}
+      {showArrow && (
+        <div style={{
+          position: "absolute",
+          top: "0.5rem",
+          right: "0.5rem",
+          zIndex: "2",
+          pointerEvents: "none",
+        }}>
+          <Icon icon="arrow-up-right" size={14} color="var(--lp-color-on-accent)" />
+        </div>
+      )}
+      {frameEl}
+    </div>
   );
 };
 

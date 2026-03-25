@@ -1393,16 +1393,8 @@ async function terminateChildProcess(child, options = {}) {
   const clearTimeoutFn = options.clearTimeoutFn || clearTimeout;
   const exitPromise = waitForChildExit(child);
 
-  // Kill the entire process group (negative PID) when the child was spawned
-  // with detached: true, so that child processes (e.g. mint's dev server)
-  // are also terminated and don't orphan on the port.
-  const killTarget = child.pid ? -child.pid : undefined;
   const tryKill = (signal) => {
     try {
-      if (killTarget) {
-        process.kill(killTarget, signal);
-        return true;
-      }
       return child.kill(signal);
     } catch (_error) {
       return false;
@@ -1669,8 +1661,7 @@ class ScopedMintSessionSupervisor {
 
     return this.spawnProcess('mint', ['dev', ...this.mintArgs], {
       cwd: this.profile.workspaceDir,
-      stdio: 'inherit',
-      detached: true
+      stdio: 'inherit'
     });
   }
 
