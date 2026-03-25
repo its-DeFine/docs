@@ -27,6 +27,9 @@ pnpm-lock.yaml
 # Google OAuth secrets
 **/client_secret*.json
 
+# Chat reconstruction files (may contain secrets)
+workspace/plan/future/BACKLOG/recovery/chat-reconstructions/
+
 # ------------------------------------
 # Logs
 # ------------------------------------
