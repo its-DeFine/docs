@@ -772,6 +772,8 @@ export const DiscordAnnouncements = ({
   serverName = 'Livepeer',
   items = [],
   limit,
+  ScrollBox,
+  scrollMaxHeight = 300,
   className = '',
   style = {},
   ...rest
@@ -880,16 +882,17 @@ export const DiscordAnnouncements = ({
               <Icon icon="arrow-up-right" size={12} color="var(--accent)" />
             </span>
           </div>
-          <div
-            style={{
-              color: 'var(--text)',
-              fontSize: 'small',
-              marginTop: '-0.5rem',
-            }}
-            dangerouslySetInnerHTML={{
-              __html: sanitiseHTML(parseContent(announcement.content)),
-            }}
-          />
+          <ScrollBox maxHeight={scrollMaxHeight} ariaLabel={`Announcement from ${serverName}`}>
+            <div
+              style={{
+                color: 'var(--text)',
+                fontSize: 'small',
+              }}
+              dangerouslySetInnerHTML={{
+                __html: sanitiseHTML(parseContent(announcement.content)),
+              }}
+            />
+          </ScrollBox>
           {index < displayItems.length - 1 && (
             <div style={{ marginTop: '0.75rem' }}>
               <hr
@@ -1024,7 +1027,6 @@ export const LumaEvents = ({
               }}
               href={event.url}
               target="_blank"
-              rel="noopener noreferrer"
               rel="noopener noreferrer"
             >
               View Event →

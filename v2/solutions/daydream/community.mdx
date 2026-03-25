@@ -29,6 +29,7 @@ import { RssBlogCard, RssBlogCardLayout, DiscordAnnouncements } from '/snippets/
 import { MarkdownEmbed } from '/snippets/components/integrators/embeds/DataEmbed.jsx'
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
 
 {/* DATA */}
 import { youtubeData } from '/snippets/automations/solutions/daydream/youtubeData.jsx'
@@ -69,7 +70,7 @@ Read recent posts from the <LinkArrow label="Daydream Blog" href="https://blog.d
 
 Latest from the <LinkArrow label="Daydream Discord" href="https://discord.gg/pF2Akym5bV" newline={false} />
 
-<DiscordAnnouncements serverName="Daydream" items={daydreamDiscordData} limit={4} />
+<DiscordAnnouncements serverName="Daydream" items={daydreamDiscordData} limit={4} ScrollBox={ScrollBox} scrollMaxHeight={200} />
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 {/*

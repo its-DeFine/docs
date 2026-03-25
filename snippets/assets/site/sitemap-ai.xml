@@ -2847,14 +2847,14 @@
     <ai:category>platforms</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/player</loc>
+    <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/docs/player</loc>
     <lastmod>2026-02-24T02:38:32+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>193</ai:wordCount>
     <ai:category>platforms</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/quickstart</loc>
+    <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/docs/quickstart</loc>
     <lastmod>2026-02-24T02:38:32+11:00</lastmod>
     <ai:contentType>quickstart</ai:contentType>
     <ai:wordCount>277</ai:wordCount>
@@ -4268,14 +4268,14 @@
     <ai:category>platforms</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/x-pages/010_products/livepeer-studio/player</loc>
+    <loc>https://docs.livepeer.org/v2/x-pages/010_products/livepeer-studio/docs/player</loc>
     <lastmod>2026-02-24T02:38:32+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>193</ai:wordCount>
     <ai:category>platforms</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/x-pages/010_products/livepeer-studio/quickstart</loc>
+    <loc>https://docs.livepeer.org/v2/x-pages/010_products/livepeer-studio/docs/quickstart</loc>
     <lastmod>2026-02-24T02:38:32+11:00</lastmod>
     <ai:contentType>quickstart</ai:contentType>
     <ai:wordCount>277</ai:wordCount>

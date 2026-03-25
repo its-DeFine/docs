@@ -2622,7 +2622,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/quickstart",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/quickstart",
       "title": "Quickstart",
       "description": "Create an account, get an API key, and add live or on-demand video in under 5 minutes.",
       "section": "solutions",
@@ -3691,7 +3691,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/player",
+      "url": "https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/player",
       "title": "Player and embed",
       "description": "Use the Livepeer Player component and the lvpr.tv embeddable player for playback.",
       "section": "solutions",

@@ -103,7 +103,7 @@
 ### Livepeer Studio Docs / Get started
 
 - [Getting Started with Livepeer Studio](https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/get-started/overview): Learn how to get started with Livepeer Studio
-- [Quickstart](https://docs.livepeer.org/v2/solutions/livepeer-studio/quickstart): Create an account, get an API key, and add live or on-demand video in under 5 minutes.
+- [Quickstart](https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/quickstart): Create an account, get an API key, and add live or on-demand video in under 5 minutes.
 - [Authentication](https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/get-started/authentication): Learn how to authenticate requests to the Livepeer Studio API
 - [Studio CLI](https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/get-started/studio-cli): Scaffold a new Livepeer app with the Livepeer Studio CLI.
 
@@ -142,7 +142,7 @@
 
 ### Livepeer Studio Docs / Player & embed
 
-- [Player and embed](https://docs.livepeer.org/v2/solutions/livepeer-studio/player): Use the Livepeer Player component and the lvpr.tv embeddable player for playback.
+- [Player and embed](https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/player): Use the Livepeer Player component and the lvpr.tv embeddable player for playback.
 
 ### Livepeer Studio Docs / Reference
 

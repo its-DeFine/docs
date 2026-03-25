@@ -2282,7 +2282,7 @@
                         "group": "Get started",
                         "pages": [
                           "v2/solutions/livepeer-studio/docs/get-started/overview",
-                          "v2/solutions/livepeer-studio/quickstart",
+                          "v2/solutions/livepeer-studio/docs/quickstart",
                           "v2/solutions/livepeer-studio/docs/get-started/authentication",
                           "v2/solutions/livepeer-studio/docs/get-started/studio-cli"
                         ]
@@ -2331,7 +2331,7 @@
                       {
                         "group": "Player & embed",
                         "pages": [
-                          "v2/solutions/livepeer-studio/player"
+                          "v2/solutions/livepeer-studio/docs/player"
                         ]
                       },
                       {

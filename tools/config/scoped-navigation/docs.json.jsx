@@ -152,7 +152,7 @@ const docsJsonFr = {
                   group: 'Get started',
                   pages: [
                     'v2/fr/solutions/livepeer-studio/docs/get-started/overview',
-                    'v2/fr/solutions/livepeer-studio/quickstart',
+                    'v2/fr/solutions/livepeer-studio/docs/quickstart',
                     'v2/fr/solutions/livepeer-studio/docs/get-started/authentication',
                     'v2/fr/solutions/livepeer-studio/docs/get-started/studio-cli',
                   ],
@@ -200,7 +200,7 @@ const docsJsonFr = {
                 },
                 {
                   group: 'Player & embed',
-                  pages: ['v2/fr/solutions/livepeer-studio/player'],
+                  pages: ['v2/fr/solutions/livepeer-studio/docs/player'],
                 },
                 {
                   group: 'Reference',
@@ -1326,7 +1326,7 @@ const docsJsonCn = {
               group: 'Get started',
               pages: [
                 'v2/cn/solutions/livepeer-studio/docs/get-started/overview',
-                'v2/cn/solutions/livepeer-studio/quickstart',
+                'v2/cn/solutions/livepeer-studio/docs/quickstart',
                 'v2/cn/solutions/livepeer-studio/docs/get-started/authentication',
                 'v2/cn/solutions/livepeer-studio/docs/get-started/studio-cli',
               ],
@@ -1374,7 +1374,7 @@ const docsJsonCn = {
             },
             {
               group: 'Player & embed',
-              pages: ['v2/cn/solutions/livepeer-studio/player'],
+              pages: ['v2/cn/solutions/livepeer-studio/docs/player'],
             },
             {
               group: 'Reference',

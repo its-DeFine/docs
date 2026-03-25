@@ -809,7 +809,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../player",
-      "resolvedPath": "v2/solutions/livepeer-studio/player.mdx",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/player.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1124,7 +1124,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../quickstart",
-      "resolvedPath": "v2/solutions/livepeer-studio/quickstart.mdx",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1151,7 +1151,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../quickstart",
-      "resolvedPath": "v2/solutions/livepeer-studio/quickstart.mdx",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1256,7 +1256,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../player",
-      "resolvedPath": "v2/solutions/livepeer-studio/player.mdx",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/player.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1294,7 +1294,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../player",
-      "resolvedPath": "v2/solutions/livepeer-studio/player.mdx",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/player.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1350,7 +1350,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../player",
-      "resolvedPath": "v2/solutions/livepeer-studio/player.mdx",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/player.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1444,7 +1444,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../player",
-      "resolvedPath": "v2/solutions/livepeer-studio/player.mdx",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/player.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1535,8 +1535,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/solutions/livepeer-studio/player",
-      "resolvedPath": "v2/solutions/livepeer-studio/player.mdx",
+      "rawPath": "/solutions/livepeer-studio/docs/player",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/player.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1673,7 +1673,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../player",
-      "resolvedPath": "v2/solutions/livepeer-studio/player.mdx",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/player.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1903,8 +1903,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/solutions/livepeer-studio/quickstart",
-      "resolvedPath": "v2/solutions/livepeer-studio/quickstart.mdx",
+      "rawPath": "/solutions/livepeer-studio/docs/quickstart",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1955,7 +1955,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/solutions/livepeer-studio/player.mdx": [
+  "v2/solutions/livepeer-studio/docs/player.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2011,7 +2011,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/solutions/livepeer-studio/quickstart.mdx": [
+  "v2/solutions/livepeer-studio/docs/quickstart.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2156,7 +2156,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../quickstart",
-      "resolvedPath": "v2/solutions/livepeer-studio/quickstart.mdx",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2329,7 +2329,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../player",
-      "resolvedPath": "v2/solutions/livepeer-studio/player.mdx",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/player.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2347,7 +2347,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../quickstart",
-      "resolvedPath": "v2/solutions/livepeer-studio/quickstart.mdx",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2432,7 +2432,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../player",
-      "resolvedPath": "v2/solutions/livepeer-studio/player.mdx",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/player.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2524,7 +2524,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../player",
-      "resolvedPath": "v2/solutions/livepeer-studio/player.mdx",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/player.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2571,7 +2571,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../player",
-      "resolvedPath": "v2/solutions/livepeer-studio/player.mdx",
+      "resolvedPath": "v2/solutions/livepeer-studio/docs/player.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
