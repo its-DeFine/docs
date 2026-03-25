@@ -8,6 +8,7 @@ description: >-
 metadata:
   version: "1.0"
   category: process
+  status: "draft"
 ---
 
 # SKILL: Design — First-Principles Co-Creation
@@ -170,3 +171,16 @@ This doc is the input to `/build`. It is the contract. Build must satisfy test c
 3. **No implementation in design.** File paths, code snippets, and "here's how I'd build it" belong in `/build`. Design is about what and why, not how.
 4. **Trade-offs are features, not failures.** Every design trades something. Naming the trade-off honestly is better than pretending it doesn't exist.
 5. **Test criteria are the handshake.** If design and build agree on what "done" looks like, the iterate phase has something concrete to test against. Vague criteria produce vague builds.
+
+---
+
+## Status: Draft — Testing in production
+
+Known limitations updated after each real use.
+
+### Known limitations
+- Not yet tested on a real design task
+
+### Test log
+| Date | Used on | Worked | Didn't | Changes |
+|---|---|---|---|---|

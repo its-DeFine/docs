@@ -1008,6 +1008,7 @@ cmd_dev() {
     local scope_versions=""
     local scope_languages=""
     local scope_tabs=""
+    local scope_anchors=""
     local scope_prefixes=""
     local skip_external_fetch=0
     local disable_openapi=0
@@ -1135,6 +1136,27 @@ cmd_dev() {
                     scope_tabs="$scope_tabs,${1#--scope-tab=}"
                 else
                     scope_tabs="${1#--scope-tab=}"
+                fi
+                ;;
+            --scope-anchor)
+                if [ "$#" -lt 2 ]; then
+                    finish 1 "dev" "--scope-anchor requires a value."
+                    return 1
+                fi
+                scoped_mode=1
+                if [ -n "$scope_anchors" ]; then
+                    scope_anchors="$scope_anchors,$2"
+                else
+                    scope_anchors="$2"
+                fi
+                shift
+                ;;
+            --scope-anchor=*)
+                scoped_mode=1
+                if [ -n "$scope_anchors" ]; then
+                    scope_anchors="$scope_anchors,${1#--scope-anchor=}"
+                else
+                    scope_anchors="${1#--scope-anchor=}"
                 fi
                 ;;
             --scope-prefix)
@@ -1266,6 +1288,9 @@ EOF
     fi
     if [ -n "$scope_tabs" ]; then
         env_vars+=("LPD_MINT_SCOPE_TABS=$scope_tabs")
+    fi
+    if [ -n "$scope_anchors" ]; then
+        env_vars+=("LPD_MINT_SCOPE_ANCHORS=$scope_anchors")
     fi
     if [ -n "$scope_prefixes" ]; then
         env_vars+=("LPD_MINT_SCOPE_PREFIXES=$scope_prefixes")

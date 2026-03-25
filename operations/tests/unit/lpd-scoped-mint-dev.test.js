@@ -3,7 +3,7 @@
  * @script            lpd-scoped-mint-dev.test
  * @category          utility
  * @purpose           tooling:dev-tools
- * @scope             tests/unit, lpd, operations/scripts/mint-dev.sh, operations/scripts/dev/generate-mint-dev-scope.js
+ * @scope             tests/unit, lpd, tools/dev/mint-dev.sh, tools/dev/generate-mint-dev-scope.js
  * @domain            docs
  * @needs             E-C6, F-C1
  * @purpose-statement Tests lpd scoped mint-dev functionality — validates dev server scope filtering
@@ -31,7 +31,7 @@ const {
 
 const REPO_ROOT = process.cwd();
 const LPD_PATH = path.join(REPO_ROOT, 'lpd');
-const SCOPE_SCRIPT_PATH = path.join(REPO_ROOT, 'operations/scripts/dev/generate-mint-dev-scope.js');
+const SCOPE_SCRIPT_PATH = path.join(REPO_ROOT, 'tools/dev/generate-mint-dev-scope.js');
 
 const SAMPLE_NAVIGATION = {
   versions: [

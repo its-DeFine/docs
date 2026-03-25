@@ -8,6 +8,7 @@ description: >-
 metadata:
   version: "1.0"
   category: process
+  status: "draft"
 ---
 
 # SKILL: Iterate — Review, Test, Refine
@@ -126,7 +127,7 @@ If still failing after 2 fix attempts, escalate: "This isn't converging with tar
 2. **Fix-everything-now.** Categorise first, then fix. Don't interleave finding and fixing — that's uncontrolled iteration.
 3. **Ignoring best practice.** Testing only against the spec misses design flaws. Always include a best-practice lens.
 4. **Silent acceptance.** If something is wrong, say so. Even if it's awkward. Especially if it's Claude's own prior output.
-5. **Infinite loops.** If the same thing fails twice, it's not a fix problem — it's a design problem. Escalate.
+5. **Infinite loops.** If the same thing fails twice, it's not a fix problem — it's a design problem. Escalate. Specifically: STOP, state what was tried, list the facts (error messages, file state), propose a different approach based on root-cause analysis. Never retry the same failing approach a third time.
 
 ---
 
@@ -137,3 +138,16 @@ If still failing after 2 fix attempts, escalate: "This isn't converging with tar
 3. **Categorisation drives action.** The whole point is routing to the right phase. A finding without a category is noise.
 4. **Two failures = escalate.** If a targeted fix doesn't converge, the problem is upstream. Don't brute-force.
 5. **Best practice is always in scope.** Even if the spec is satisfied, flag approaches that create future problems. Tech debt is a review finding.
+
+---
+
+## Status: Draft — Testing in production
+
+Known limitations updated after each real use.
+
+### Known limitations
+- Not yet tested on a real iterate/review task
+
+### Test log
+| Date | Used on | Worked | Didn't | Changes |
+|---|---|---|---|---|

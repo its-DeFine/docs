@@ -8,6 +8,7 @@ description: >-
 metadata:
   version: "1.0"
   category: process
+  status: "draft"
 ---
 
 # SKILL: Research — Investigate and Recommend
@@ -68,11 +69,16 @@ On approval, spawn all agents in a single message (parallel, not sequential — 
 
 Agents run in background. Main thread stays free — the user can talk, think, redirect.
 
-Each agent must:
-- Read its assigned sources completely (not skim)
-- Extract specific answers to the assigned questions
-- Flag anything unexpected or contradictory
-- Return structured findings, not raw file contents
+**Every agent receives a brief built from `/agent-brief`.** No ad-hoc prompts. Specifically:
+
+- **Context**: thread outcome + how this agent's task serves it
+- **Task**: the specific question(s) this agent answers
+- **Scope**: exact files to read, what to produce, what not to touch
+- **Quality contract**: all 6 points from the agent-brief template (verbatim, not abbreviated)
+- **Return format**: Findings Brief (from agent-brief template)
+- **Failure protocol**: stop and return immediately if dependencies are missing
+
+Use the same return format across all agents in the batch to enable synthesis in Step 3.
 
 ---
 
@@ -126,3 +132,16 @@ Never hand off without a recommendation. "Here's what I found" without "here's w
 3. **Recommend with confidence.** The user wants Claude's opinion, not a menu of options with no guidance. Recommend one approach. Explain why. Flag the trade-off.
 4. **Flag what's missing.** Good research identifies what it couldn't find as clearly as what it did find. Unknown unknowns are the biggest risk.
 5. **Main thread stays free.** The user should never wait for Claude to finish reading. Agents do the reading. Claude does the thinking.
+
+---
+
+## Status: Draft — Testing in production
+
+Known limitations updated after each real use.
+
+### Known limitations
+- Not yet tested on a real research task
+
+### Test log
+| Date | Used on | Worked | Didn't | Changes |
+|---|---|---|---|---|

@@ -183,12 +183,6 @@ a.nav-tabs-item[href="/pages/08_help/README"] {
   justify-content: flex-start;
 }
 
-/* Make the nav-tabs container full width */
-.nav-tabs {
-  width: 100%;
-  justify-content: flex-start;
-}
-
 #navbar > div.z-10.mx-auto.relative > div.hidden.lg\:flex.px-12.h-12 > div {
   column-gap: 2rem !important;
 }

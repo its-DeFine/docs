@@ -3383,19 +3383,19 @@
                               {
                                 "group": "Config",
                                 "pages": [
-                                  "docs-guide/repoOps/config/repo-config-map"
+                                  "docs-guide/repo-ops/config/repo-config-map"
                                 ]
                               },
                               {
                                 "group": "Maps",
                                 "pages": [
-                                  "docs-guide/repoOps/maps/enforcement-map"
+                                  "docs-guide/repo-ops/maps/enforcement-map"
                                 ]
                               },
                               {
                                 "group": "Secrets",
                                 "pages": [
-                                  "docs-guide/repoOps/secrets/solutions-secrets"
+                                  "docs-guide/repo-ops/secrets/solutions-secrets"
                                 ]
                               }
                             ]

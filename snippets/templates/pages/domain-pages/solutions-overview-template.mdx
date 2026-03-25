@@ -1,0 +1,123 @@
+---
+title: '[PRODUCT_NAME]'
+description: >-
+  [One-sentence description of what the product does and its relationship to
+  Livepeer.]
+keywords:
+  - livepeer
+  - solutions
+  - [product-slug]
+  - overview
+'og:image': /snippets/assets/site/og-image/fallback.png
+'og:image:alt': Livepeer Docs social preview image
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+pageType: overview
+audience: platform-builder
+lastVerified: YYYY-MM-DD
+purpose: overview
+---
+
+import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { SocialLinks } from "/snippets/components/elements/social/SocialLinks.jsx";
+import productSocials from "./data.jsx/socials.jsx"
+
+<SocialLinks iconColor="var(--text)" justify="center" links={productSocials} />
+
+{/* Hero card — horizontal card with product gif/image, social icons in title, links to product site */}
+<Card title="Daydream" img="/snippets/assets/media/images/[product-hero].gif" horizontal href="https://[product-url]" />
+
+[Paragraph / 1-2 sentences: what the product is, what it does, and how it relates to the Livepeer network.]
+
+<CustomDivider/>
+
+## Overview
+
+<Card title="What is [PRODUCT_NAME]?" icon="wand-magic-sparkles" href="/solutions/[product-slug]/">
+  [What the product does, how it fits with Livepeer, and where to find full documentation.]
+</Card>
+
+{/* FIND EITHER GIF, IMAGE OR VIDEO FOR HERE - Remove if no video available */}
+<YouTubeVideo
+  embedUrl="https://www.youtube.com/embed/[VIDEO_ID]"
+  title="[Video title]"
+  caption="[Caption text]"
+/>
+
+<CustomDivider />
+
+## Solution Features
+{/* What product provides / does */}
+
+{/*
+eg: Livepeer Studio is a developer-friendly gateway that provides:
+REST APIs for video streaming and on-demand content
+SDKs for JavaScript, Python, Go, and React
+Dashboard for managing streams, assets, and API keys
+Built on Livepeer Network - decentralized, cost-efficient infrastructure
+
+eg.
+It provides:
+A livestream ingest + VOD pipeline
+C2PA + Ethereum-based provenance for every video segment
+A metadata schema for rights, content warnings, and distribution policies
+A node + SDK for easy integration into decentralized apps
+A bridge into Livepeer’s decentralized GPU network
+
+*/}
+
+{/*
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="bolt-lightning" href="/solutions/[product-slug]/quickstart">
+    [One line: what the reader can do in minutes.]
+  </Card>
+  <Card title="[PRODUCT_NAME] docs" icon="newspaper" href="https://docs.[product-url]/" arrow>
+    Official [PRODUCT_NAME] documentation — setup, API reference, and guides.
+  </Card>
+</CardGroup>
+*/}
+
+<CustomDivider />
+
+## Getting Started
+{/* CardGroup getting started links */}
+{/*
+<CardGroup cols={2}>
+  <Card title="[Post title]" icon="pencil-line" href="https://blog.livepeer.org/[post-slug]/" arrow>
+    [One-line description.]
+  </Card>
+  <Card title="Livepeer Blog" icon="pencil-line" href="https://blog.livepeer.org/" arrow>
+    Latest news, product updates, and ecosystem stories.
+  </Card>
+</CardGroup>
+*/}
+
+<CustomDivider />
+
+<Note>
+  This page is maintained by the [PRODUCT_NAME] team. For the help & support, visit [PRODUCT_NAME](discord) directly.
+</Note>
+
+## Related Pages
+
+<Columns cols={2}>
+{/* link to community page */}
+    <Card/>
+{/* link to product docs */}
+    <Card/>
+</Columns>
+
+{/* community page */}
+
+{/* ## Socials & community
+
+- [Discord](https://discord.gg/[invite]) — [What the community is for.]
+- [GitHub](https://github.com/[org]/[repo]) — [What lives there.]
+- [X / Twitter](https://x.com/[handle]) — [Updates and announcements.]
+
+## Resources
+
+- [[PRODUCT_NAME]](https://[product-url]/) — Website and hosted app.
+- [[PRODUCT_NAME] docs](https://docs.[product-url]/) — Full documentation. */}

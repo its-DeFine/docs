@@ -22,6 +22,7 @@ SCOPE_FILE="${LPD_MINT_SCOPE_FILE:-}"
 SCOPE_VERSIONS="${LPD_MINT_SCOPE_VERSIONS:-}"
 SCOPE_LANGUAGES="${LPD_MINT_SCOPE_LANGUAGES:-}"
 SCOPE_TABS="${LPD_MINT_SCOPE_TABS:-}"
+SCOPE_ANCHORS="${LPD_MINT_SCOPE_ANCHORS:-}"
 SCOPE_PREFIXES="${LPD_MINT_SCOPE_PREFIXES:-}"
 DISABLE_OPENAPI="${LPD_MINT_DISABLE_OPENAPI:-0}"
 MINT_LOCK_FILE=""
@@ -162,6 +163,9 @@ run_scoped_workspace_session() {
     fi
     if [ -n "$SCOPE_TABS" ]; then
         scope_cmd+=(--tabs "$SCOPE_TABS")
+    fi
+    if [ -n "$SCOPE_ANCHORS" ]; then
+        scope_cmd+=(--anchors "$SCOPE_ANCHORS")
     fi
     if [ -n "$SCOPE_PREFIXES" ]; then
         scope_cmd+=(--prefixes "$SCOPE_PREFIXES")

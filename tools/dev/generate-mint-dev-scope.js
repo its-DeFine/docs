@@ -188,6 +188,7 @@ function parseArgs(argv) {
     versions: [],
     languages: [],
     tabs: [],
+    anchors: [],
     prefixes: [],
     interactive: false,
     disableOpenapi: false,
@@ -271,6 +272,15 @@ function parseArgs(argv) {
       out.tabs.push(...splitCsv(token.split('=').slice(1).join('=')));
       continue;
     }
+    if (token === '--anchors' || token === '--scope-anchor') {
+      out.anchors.push(...splitCsv(argv[i + 1] || ''));
+      i += 1;
+      continue;
+    }
+    if (token.startsWith('--anchors=') || token.startsWith('--scope-anchor=')) {
+      out.anchors.push(...splitCsv(token.split('=').slice(1).join('=')));
+      continue;
+    }
     if (token === '--prefixes' || token === '--scope-prefix') {
       out.prefixes.push(...splitCsv(argv[i + 1] || ''));
       i += 1;
@@ -315,6 +325,7 @@ function parseArgs(argv) {
   out.versions = uniqStrings(out.versions);
   out.languages = uniqStrings(out.languages);
   out.tabs = uniqStrings(out.tabs);
+  out.anchors = uniqStrings(out.anchors);
   out.prefixes = uniqStrings(out.prefixes.map(normalizeRoute));
   return out;
 }
@@ -464,6 +475,7 @@ function pruneNavigationNode(node, context) {
 
   if (Array.isArray(node.anchors)) {
     out.anchors = node.anchors
+      .filter((entry) => matchesSelection(entry && entry.anchor, context.anchorSet))
       .map((entry) => pruneNavigationNode(entry, context))
       .filter(Boolean);
   }
@@ -506,6 +518,7 @@ function buildScopedNavigation(navigation, selection) {
     versionSet: new Set(selection.versions.map(normalizeForCompare)),
     languageSet: new Set(selection.languages.map(normalizeForCompare)),
     tabSet: new Set(selection.tabs.map(normalizeForCompare)),
+    anchorSet: new Set((selection.anchors || []).map(normalizeForCompare)),
     prefixes: selection.prefixes.map(normalizeRoute).filter(Boolean),
     disableOpenapi: Boolean(selection.disableOpenapi)
   };
@@ -868,7 +881,7 @@ function collectDocsConfigFileReferences(node, out = new Set()) {
     const value = String(node || '').trim();
     if (!value) return out;
     if (/^(?:https?:\/\/|mailto:|tel:|#)/i.test(value)) return out;
-    if ((value.startsWith('/') || /^(?:v1|v2|snippets|docs-guide|tools|tests)\//.test(value)) && /\.[A-Za-z0-9]+(?:[?#].*)?$/.test(value)) {
+    if ((value.startsWith('/') || /^(?:v1|v2|snippets|docs-guide|tools|tests)\//.test(value)) && /\.[A-Za-z0-9]{2,}(?:[?#].*)?$/.test(value)) {
       out.add(value);
     }
     return out;
@@ -969,6 +982,7 @@ function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
     enqueue(resolved);
   }
 
+  const unresolvedWarnings = [];
   const ensureResolvedReference = (importerRelPath, reference, options = {}) => {
     const kind = String(options.kind || 'import');
     const resolved = resolveRepoFileReference(repoRoot, importerRelPath, reference, { kind });
@@ -980,7 +994,14 @@ function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
       return '';
     }
     const importerLabel = importerRelPath || 'scoped docs config';
-    throw new Error(`Could not resolve local ${kind} reference "${reference}" from ${importerLabel}`);
+    // Docs config references (no importer) are fatal — the workspace can't
+    // function without them. Page-level references are warnings — a missing
+    // import in one page should not block the entire dev session.
+    if (!importerRelPath) {
+      throw new Error(`Could not resolve local ${kind} reference "${reference}" from ${importerLabel}`);
+    }
+    unresolvedWarnings.push(`Warning: unresolved ${kind} "${reference}" in ${importerLabel}`);
+    return '';
   };
 
   const enqueueBestEffortReference = (importerRelPath, reference, options = {}) => {
@@ -992,10 +1013,7 @@ function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
     return resolved;
   };
 
-  // Collect asset references from the docs config, excluding redirect entries
-  // (redirect source/destination values are URL routes, not local file paths).
-  const { redirects: _ignored, ...docsWithoutRedirects } = scopedDocs;
-  for (const reference of collectDocsConfigFileReferences(docsWithoutRedirects)) {
+  for (const reference of collectDocsConfigFileReferences(scopedDocs)) {
     ensureResolvedReference('', reference, { kind: 'asset' });
   }
 
@@ -1065,6 +1083,12 @@ function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
       source: absolutePath
     });
   });
+
+  if (unresolvedWarnings.length > 0) {
+    console.error(`\n${unresolvedWarnings.length} unresolved reference(s) in scoped workspace:`);
+    unresolvedWarnings.forEach((w) => console.error(`  ${w}`));
+    console.error('');
+  }
 
   return {
     entries,
@@ -1368,8 +1392,17 @@ async function terminateChildProcess(child, options = {}) {
   const setTimeoutFn = options.setTimeoutFn || setTimeout;
   const clearTimeoutFn = options.clearTimeoutFn || clearTimeout;
   const exitPromise = waitForChildExit(child);
+
+  // Kill the entire process group (negative PID) when the child was spawned
+  // with detached: true, so that child processes (e.g. mint's dev server)
+  // are also terminated and don't orphan on the port.
+  const killTarget = child.pid ? -child.pid : undefined;
   const tryKill = (signal) => {
     try {
+      if (killTarget) {
+        process.kill(killTarget, signal);
+        return true;
+      }
       return child.kill(signal);
     } catch (_error) {
       return false;
@@ -1401,6 +1434,7 @@ class ScopedMintSessionSupervisor {
       versions: [...(options.versions || [])],
       languages: [...(options.languages || [])],
       tabs: [...(options.tabs || [])],
+      anchors: [...(options.anchors || [])],
       prefixes: [...(options.prefixes || [])],
       interactive: Boolean(options.interactive),
       disableOpenapi: Boolean(options.disableOpenapi),
@@ -1444,6 +1478,7 @@ class ScopedMintSessionSupervisor {
     this.profileArgs.versions = [...(profile.selection && profile.selection.versions ? profile.selection.versions : [])];
     this.profileArgs.languages = [...(profile.selection && profile.selection.languages ? profile.selection.languages : [])];
     this.profileArgs.tabs = [...(profile.selection && profile.selection.tabs ? profile.selection.tabs : [])];
+    this.profileArgs.anchors = [...(profile.selection && profile.selection.anchors ? profile.selection.anchors : [])];
     this.profileArgs.prefixes = [...(profile.selection && profile.selection.prefixes ? profile.selection.prefixes : [])];
     this.profileArgs.interactive = false;
     this.profileArgs.disableOpenapi = Boolean(profile.selection && profile.selection.disableOpenapi);
@@ -1634,7 +1669,8 @@ class ScopedMintSessionSupervisor {
 
     return this.spawnProcess('mint', ['dev', ...this.mintArgs], {
       cwd: this.profile.workspaceDir,
-      stdio: 'inherit'
+      stdio: 'inherit',
+      detached: true
     });
   }
 
@@ -1791,9 +1827,17 @@ async function createScopedManifest(args) {
     versions: uniqStrings([...fromScopeFile.versions, ...args.versions]),
     languages: uniqStrings([...fromScopeFile.languages, ...args.languages]),
     tabs: uniqStrings([...fromScopeFile.tabs, ...args.tabs]),
+    anchors: uniqStrings([...(fromScopeFile.anchors || []), ...(args.anchors || [])]),
     prefixes: uniqStrings([...fromScopeFile.prefixes, ...args.prefixes].map(normalizeRoute)),
     disableOpenapi: Boolean(fromScopeFile.disableOpenapi || args.disableOpenapi)
   };
+
+  // When a tab filter is set but no version is specified, default to v2.
+  // v1 content is deprecated; scoping to a tab name should target v2 only.
+  // Use --scope-version v1 explicitly to scope to v1 content.
+  if (selection.tabs.length > 0 && selection.versions.length === 0) {
+    selection.versions = ['v2'];
+  }
 
   if (args.interactive) {
     selection = await promptForSelection(selection, optionData, allRoutes);
@@ -1806,6 +1850,38 @@ async function createScopedManifest(args) {
 
   const scopedDocs = { ...docs, navigation: scopedNavigation };
   const scopedRoutes = collectRoutesFromNavigation(scopedDocs.navigation);
+
+  // Strip redirects from scoped dev sessions. Redirects are a production
+  // concern — they slow Mintlify navigation and are irrelevant during local
+  // development on a scoped subset of pages.
+  delete scopedDocs.redirects;
+
+  // Strip OpenAPI config when explicitly disabled or when no scoped routes use
+  // the openapi: directive. Mintlify re-parses the full OpenAPI spec on every
+  // file change, which adds significant latency to hot reloads.
+  if (selection.disableOpenapi && scopedDocs.api) {
+    delete scopedDocs.api;
+    console.log('OpenAPI config stripped (--disable-openapi).');
+  } else if (scopedDocs.api && scopedDocs.api.openapi) {
+    let hasOpenapiRoute = false;
+    for (const route of scopedRoutes) {
+      const candidatePath = path.join(args.repoRoot, route + '.mdx');
+      try {
+        const content = fs.readFileSync(candidatePath, 'utf8');
+        if (/^openapi:/m.test(content)) {
+          hasOpenapiRoute = true;
+          break;
+        }
+      } catch (_error) {
+        // File may not exist or use a different extension — skip.
+      }
+    }
+    if (!hasOpenapiRoute) {
+      delete scopedDocs.api;
+      console.log('OpenAPI config auto-stripped (no scoped routes use openapi: directive).');
+    }
+  }
+
   if (scopedRoutes.length === 0) {
     throw new Error('Scoped profile resolved to zero routes. Relax version/language/tab/prefix filters.');
   }

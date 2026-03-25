@@ -13,7 +13,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "if [ -n \"$(git status --porcelain 2>/dev/null)\" ]; then git stash push -m \"auto-stash-before-claude-session-$(date +%Y%m%d-%H%M%S)\" 2>&1 && echo '{\"systemMessage\":\"Auto-stashed uncommitted changes. Use git stash pop to restore.\"}'; else echo '{\"systemMessage\":\"No uncommitted changes to stash.\"}'; fi",
+            "command": "if [ -n \"$(git status --porcelain 2>/dev/null)\" ]; then git stash push -m \"auto-stash-before-claude-session-$(date +%Y%m%d-%H%M%S)\" 2>&1 && git stash pop 2>&1 && echo '{\"systemMessage\":\"Safety snapshot created in git reflog. Working tree unchanged.\"}'; else echo '{\"systemMessage\":\"No uncommitted changes to snapshot.\"}'; fi",
             "statusMessage": "Checking for uncommitted changes..."
           }
         ]
@@ -27,6 +27,22 @@
             "type": "command",
             "command": "jq -r '.tool_input.command' | grep -qE 'git (checkout|clean|reset --hard|push --force|push -f|branch -D)' && echo '{\"decision\":\"block\",\"reason\":\"BLOCKED: Destructive git command. Run manually if needed.\"}' && exit 2 || true",
             "statusMessage": "Checking for destructive git commands..."
+          },
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.command' | grep -qiE '(gh (issue|pr) (create|comment|edit)|curl.*(api\\.github|hooks\\.slack)|echo.*>>.*\\.github)' && echo '{\"decision\":\"block\",\"reason\":\"BLOCKED: This command posts to a public service. Review content for sensitive data before running manually.\"}' && exit 2 || true",
+            "statusMessage": "Checking for public service posts..."
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "TRACKER=\"/tmp/claude-circuit-breaker-${CLAUDE_SESSION_ID:-default}\"; jq -r '.tool_name' >> \"$TRACKER\"; LINES=$(wc -l < \"$TRACKER\" | tr -d ' '); if [ \"$LINES\" -ge 3 ]; then UNIQUE=$(tail -3 \"$TRACKER\" | sort -u | wc -l | tr -d ' '); if [ \"$UNIQUE\" -eq 1 ]; then echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUseFailure\",\"additionalContext\":\"CIRCUIT BREAKER: 3 consecutive failures of the same tool. STOP retrying the same approach. Root-cause analyse: (1) state what you tried and why it failed each time, (2) list the actual error messages, (3) propose a DIFFERENT approach based on the evidence. Do not retry without approval.\"}}'; fi; fi",
+            "statusMessage": "Tracking consecutive failures..."
           }
         ]
       }
