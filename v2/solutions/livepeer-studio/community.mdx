@@ -1,7 +1,7 @@
 ---
 mode: wide
 title: Livepeer Studio Recent Announcements
-sidebarTitle: Latest Updates
+sidebarTitle: Recent Activity
 description: 'Latest videos, blog posts, and community activity for Livepeer Studio.'
 purpose: orient
 pageType: resource
@@ -30,23 +30,25 @@ import { MarkdownEmbed } from '/snippets/components/integrators/embeds/DataEmbed
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
+import { CenteredContainer, BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
 
 {/* DATA */}
 import { youtubeData } from '/snippets/automations/solutions/livepeer-studio/youtubeData.jsx'
 import { discordAnnouncementsData } from '/snippets/automations/discord/discordAnnouncementsData.jsx'
+import { studioSocials } from "./data/socials.jsx"
 
-<SocialLinks links={[
-  { icon: "globe", href: "https://livepeer.studio", label: "Livepeer Studio Website" },
-  { icon: "github", href: "https://github.com/livepeer/studio", label: "Livepeer Studio GitHub" },
-  { icon: "discord", href: "https://discord.gg/livepeer", label: "Livepeer Discord" },
-  { icon: "book-open", href: "https://docs.livepeer.org", label: "Livepeer Docs" },
-  { icon: "x-twitter", href: "https://x.com/livepeerstudio", label: "Livepeer Studio on X" },
-  { icon: "pen-line", href: "https://blog.livepeer.org", label: "Livepeer Blog" },
-]} />
+<CenteredContainer maxWidth="fit-content">
+  <BorderedBox style={{margin: 0, padding: "0.5rem 1rem 1rem 1rem"}} variant="muted">
+      <SocialLinks iconColor="var(--hero-text)" links={studioSocials} />
+  </BorderedBox>
+</CenteredContainer>
 
-<Tip>
-  Uses automations to pull in the latest YouTube videos, Discord announcements, and GitHub README for Livepeer Studio.
-</Tip>
+<br/>
+<CenteredContainer width="80%" minWidth="fit-content" >
+    <Tip>
+    Uses automations to pull in the latest YouTube videos, Discord announcements, and GitHub README for Livepeer Studio.
+    </Tip>
+</CenteredContainer>
 
 ## <Icon icon="camera-movie" size={24} /> Videos
 
@@ -66,9 +68,15 @@ Latest from the <LinkArrow label="Livepeer Discord" href="https://discord.gg/liv
 
 ## <Icon icon="github" size={24} /> GitHub
 
-<MarkdownEmbed url="https://raw.githubusercontent.com/livepeer/studio/main/README.md" />
-
-<LinkArrow label="View livepeer/studio on GitHub" href="https://github.com/livepeer/studio" newline={false} />
+<BorderedBox>
+  <ScrollBox maxHeight={600}>
+    <BorderedBox variant="accent">
+        Livepeer Studio Github
+        <LinkArrow label="View livepeer/studio on GitHub" href="https://github.com/livepeer/studio" newline={true} />
+    </BorderedBox>
+    <MarkdownEmbed url="https://raw.githubusercontent.com/livepeer/studio/main/README.md" />
+  </ScrollBox>
+</BorderedBox>
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
@@ -76,4 +84,5 @@ Latest from the <LinkArrow label="Livepeer Discord" href="https://discord.gg/liv
 
 <CardGroup cols={2}>
   <Card title="Livepeer Studio Overview" icon="book-open" href="/solutions/livepeer-studio/overview" />
+  <Card title="Livepeer Studio Changelog" icon="clock" href="/solutions/livepeer-studio/changelog" />
 </CardGroup>

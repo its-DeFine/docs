@@ -1,7 +1,7 @@
 ---
 mode: wide
 title: '{Product} Recent Announcements'
-sidebarTitle: 'Latest Updates'
+sidebarTitle: 'Recent Activity'
 description: 'Latest videos, socials, and community activity for {Product}.'
 snippetPrefix: lp-social-data
 snippetLabel: Social data page scaffold
@@ -33,29 +33,54 @@ import { MarkdownEmbed } from '/snippets/components/integrators/embeds/DataEmbed
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
+import { CenteredContainer, BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
 
 {/* DATA — swap for the product-specific data files from snippets/automations/solutions/{product}/ */}
 {/* import { youtubeData } from '/snippets/automations/solutions/{product}/youtubeData.jsx' */}
 {/* import { {product}BlogData } from '/snippets/automations/solutions/{product}/blogData.jsx' */}
 {/* import { {product}DiscordData } from '/snippets/automations/solutions/{product}/discordData.jsx' */}
+{/* import { {product}Socials } from "./data/socials.jsx" */}
 
 {/* ─── SOCIALS BAR ──────────────────────────────────────────────────────── */}
+{/* Import socials data from product's local data/socials.jsx. Remove icons that don't apply. */}
 
-<SocialLinks links={[
-  { icon: "globe", href: "{WEBSITE_URL}", label: "{Product} Website" },
-  { icon: "github", href: "https://github.com/{org}/{repo}", label: "{Product} GitHub" },
-  { icon: "discord", href: "{DISCORD_INVITE_URL}", label: "{Product} Discord" },
-  { icon: "book-open", href: "{DOCS_URL}", label: "{Product} Docs" },
-  { icon: "x-twitter", href: "https://x.com/{HANDLE}", label: "{Product} on X" },
-  { icon: "pen-line", href: "{BLOG_URL}", label: "{Product} Blog" },
-]} />
+<CenteredContainer maxWidth="fit-content">
+  <BorderedBox style={{margin: 0, padding: "0.5rem 1rem 1rem 1rem"}} variant="muted">
+      <SocialLinks iconColor="var(--hero-text)" links={{product}Socials} />
+  </BorderedBox>
+</CenteredContainer>
 
-<Tip>
-  Uses automations to pull in the latest YouTube videos, blog posts, Discord announcements, and GitHub README for {Product}.
-</Tip>
+<br/>
+<CenteredContainer width="80%" minWidth="fit-content" >
+    <Tip>
+    Uses automations to pull in the latest YouTube videos, blog posts, Discord announcements, and GitHub README for {Product}.
+    </Tip>
+</CenteredContainer>
+
+{/* ─── HERO (MANDATORY) ─────────────────────────────────────────────────── */}
+{/* REQUIRED — every product page MUST have a hero asset. Pick ONE:
+    1. YouTubeVideo embed (preferred) — use a DIFFERENT video than the Videos feed below
+    2. Product website screenshot or OG image via <Frame><img src="..." /></Frame>
+    3. GIF or static image via <Frame><img src="..." /></Frame>
+    4. Product site embed via <Frame><iframe src="..." /></Frame>
+
+    RULES:
+    - NEVER use local .mp4 files — they bloat the repo and break scoped builds.
+    - NEVER duplicate the same asset used elsewhere on this page.
+    - Source from product-social-config.json heroVideo.selected or heroVideo.candidates.
+    - If no video/image exists, use the product's OG image from their website.
+*/}
+
+{/* REPLACE THIS with the product's hero asset */}
+<Frame caption="{Product}">
+  <img src="{PRODUCT_OG_IMAGE_URL}" alt="{Product}" style={{width: "100%", borderRadius: "8px"}} />
+</Frame>
 
 {/* ─── YOUTUBE VIDEOS ──────────────────────────────────────────────────── */}
-{/* Conditional — include only if product has a YouTube channel */}
+{/* Conditional — include only if product has a YouTube channel.
+    - NEVER reuse the hero video here. This section shows the automated feed.
+    - If no YouTube channel exists, omit this entire section.
+*/}
 
 ## <Icon icon="camera-movie" size={24} /> Videos
 
@@ -92,47 +117,42 @@ Latest from the <LinkArrow label="{Product} Discord" href="{DISCORD_INVITE_URL}"
 */}
 
 {/* ─── GITHUB README ───────────────────────────────────────────────────── */}
+{/* Outer BorderedBox (default) for container. Inner BorderedBox (accent) for header with link.
+    ScrollBox limits height. MarkdownEmbed fetches README client-side. */}
 
 {/*
 ## <Icon icon="github" size={24} /> GitHub
 
-<MarkdownEmbed url="https://raw.githubusercontent.com/{org}/{repo}/{branch}/README.md" />
-
-<LinkArrow label="View {Product} on GitHub" href="https://github.com/{org}/{repo}" newline={false} />
-
-<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
-*/}
-
-{/* ─── RELEASES ─────────────────────────────────────────────────────────── */}
-{/* Conditional — include only if product has active GitHub Releases */}
-
-{/*
-## <Icon icon="tag" size={24} /> Releases
-
-<LinkArrow label="{Product} GitHub Releases" href="https://github.com/{org}/{repo}/releases" newline={false} />
+<BorderedBox>
+  <ScrollBox maxHeight={600}>
+    <BorderedBox variant="accent">
+        {Product} Github
+        <LinkArrow label="View {Product} on GitHub" href="https://github.com/{org}/{repo}" newline={true} />
+    </BorderedBox>
+    <MarkdownEmbed url="https://raw.githubusercontent.com/{org}/{repo}/{branch}/README.md" />
+  </ScrollBox>
+</BorderedBox>
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 */}
 
-{/* ─── X / TWITTER ─────────────────────────────────────────────────────── */}
-{/* Static link — no paid widget. See community/trending-topics for live feed pattern. */}
-
-{/*
-## <Icon icon="twitter" size={24} /> X / Twitter
-
-Follow {Product} for updates.
-
-<LinkArrow label="@{HANDLE} on X" href="https://x.com/{HANDLE}" newline={false} />
-
-<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
+{/* ─── X / TWITTER / BLUESKY ──────────────────────────────────────────── */}
+{/* X syndication iframe is rate-limited and unreliable. DO NOT USE.
+    Options:
+    1. Static link via SocialLinks bar (already at top of page) — preferred.
+    2. If product has X, add a LinkArrow in a standalone section.
+    3. Bluesky — no free embed available. Use static link only.
+    NEVER use mikle.com, sociablekit.com, or syndication.twitter.com widgets.
 */}
 
 {/* ─── RELATED PAGES ──────────────────────────────────────────────────── */}
+{/* Point to overview + changelog. Match style from overview page CardGroup. */}
 
 {/*
 ## Related Pages
 
 <CardGroup cols={2}>
   <Card title="{Product} Overview" icon="book-open" href="/solutions/{product}/overview" />
+  <Card title="{Product} Changelog" icon="clock" href="/solutions/{product}/changelog" />
 </CardGroup>
 */}

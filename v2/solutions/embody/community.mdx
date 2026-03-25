@@ -1,7 +1,7 @@
 ---
 mode: wide
 title: Embody Recent Announcements
-sidebarTitle: Latest Updates
+sidebarTitle: Recent Activity
 description: 'Latest community activity, Discord announcements, and GitHub updates for Embody.'
 purpose: orient
 pageType: resource
@@ -28,19 +28,24 @@ import { MarkdownEmbed } from '/snippets/components/integrators/embeds/DataEmbed
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
+import { CenteredContainer, BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
 
 {/* DATA */}
 import { embodyDiscordData } from '/snippets/automations/solutions/embody/discordData.jsx'
+import { embodySocials } from "./data/socials.jsx"
 
-<SocialLinks links={[
-  { icon: "globe", href: "https://embody.zone", label: "Embody Website" },
-  { icon: "github", href: "https://github.com/its-DeFine/Unreal_Vtuber", label: "Embody GitHub" },
-  { icon: "discord", href: "https://discord.gg/gVmDMhYm", label: "Embody Discord" },
-]} />
+<CenteredContainer maxWidth="fit-content">
+  <BorderedBox style={{margin: 0, padding: "0.5rem 1rem 1rem 1rem"}} variant="muted">
+      <SocialLinks iconColor="var(--hero-text)" links={embodySocials} />
+  </BorderedBox>
+</CenteredContainer>
 
-<Tip>
-  Uses automations to pull in the latest Discord announcements and GitHub README for Embody.
-</Tip>
+<br/>
+<CenteredContainer width="80%" minWidth="fit-content" >
+    <Tip>
+    Uses automations to pull in the latest Discord announcements and GitHub README for Embody.
+    </Tip>
+</CenteredContainer>
 
 ## <Icon icon="discord" size={24} /> Discord Announcements
 
@@ -52,9 +57,15 @@ Latest from the <LinkArrow label="Embody Discord" href="https://discord.gg/gVmDM
 
 ## <Icon icon="github" size={24} /> GitHub
 
-<MarkdownEmbed url="https://raw.githubusercontent.com/its-DeFine/Unreal_Vtuber/main/README.md" />
-
-<LinkArrow label="View Embody on GitHub" href="https://github.com/its-DeFine/Unreal_Vtuber" newline={false} />
+<BorderedBox>
+  <ScrollBox maxHeight={600}>
+    <BorderedBox variant="accent">
+        Embody Github
+        <LinkArrow label="View Embody on GitHub" href="https://github.com/its-DeFine/Unreal_Vtuber" newline={true} />
+    </BorderedBox>
+    <MarkdownEmbed url="https://raw.githubusercontent.com/its-DeFine/Unreal_Vtuber/main/README.md" />
+  </ScrollBox>
+</BorderedBox>
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
@@ -62,4 +73,5 @@ Latest from the <LinkArrow label="Embody Discord" href="https://discord.gg/gVmDM
 
 <CardGroup cols={2}>
   <Card title="Embody Overview" icon="book-open" href="/solutions/embody/overview" />
+  <Card title="Embody Changelog" icon="clock" href="/solutions/embody/changelog" />
 </CardGroup>

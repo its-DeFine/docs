@@ -1,21 +1,12 @@
 export const youtubeData = [
   {
-    title: 'Scope Workshop',
-    href: 'https://www.youtube.com/watch?v=lz0CXdiYCe8',
+    title: 'Scope workshop',
+    href: 'https://www.youtube.com/watch?v=ggA2N4tInD0',
     author: 'By Daydream AI',
     content: '...',
     publishedDate: 'Mar 20, 2026',
-    duration: 'P0D',
-    thumbnailUrl: 'https://i.ytimg.com/vi/lz0CXdiYCe8/hqdefault_live.jpg'
-  },
-  {
-    title: 'Interactive AI Video Program: Demo Day',
-    href: 'https://www.youtube.com/watch?v=U0U9fDezxFQ',
-    author: 'By Daydream AI',
-    content: '...',
-    publishedDate: 'Mar 19, 2026',
-    duration: 'P0D',
-    thumbnailUrl: 'https://i.ytimg.com/vi/U0U9fDezxFQ/hqdefault_live.jpg'
+    duration: 'PT49M32S',
+    thumbnailUrl: 'https://i.ytimg.com/vi/ggA2N4tInD0/hqdefault.jpg'
   },
   {
     title: 'Encuentros de Tecnólogos Creativos de Madrid Daydream x MappingOn',
@@ -79,15 +70,6 @@ export const youtubeData = [
     publishedDate: 'Feb 11, 2026',
     duration: 'PT13M50S',
     thumbnailUrl: 'https://i.ytimg.com/vi/rZjRahfJHiY/hqdefault.jpg'
-  },
-  {
-    title: 'Hear what our participants said about participating in the Interactive AI Video Program.',
-    href: 'https://www.youtube.com/watch?v=hClCDb9NmGE',
-    author: 'By Daydream AI',
-    content: 'Hear from participants in the AI Video Program - a hands-on cohort for developers, artists, and creative technologists building with Daydream Scope.  Apply here -> http://daydream.live/interactive-ai-video-program?utm_source=youtube&utm_medium=video&utm_campaign=aivp_testimonial  The AI Video Program is a free, two-week program where you\'ll get 1:1 support, access to real-time AI video infrastructure, and work alongside a cohort of peers pushing the boundaries of generative video. We run cohorts ...',
-    publishedDate: 'Feb 4, 2026',
-    duration: 'PT1M10S',
-    thumbnailUrl: 'https://i.ytimg.com/vi/hClCDb9NmGE/hqdefault.jpg'
   },
   {
     title: 'Realtime Creator Lounge #2',

@@ -1,3 +1,9 @@
+/* Mintlify dev server injects <style>body { padding: 24px }</style>.
+   Not present in production builds. Safe no-op in prod. */
+body {
+  padding: 0 !important;
+}
+
 /* Colors Used
 3CB540 - Jade Green
 2b9a66 - Light Green
@@ -181,6 +187,22 @@ a.nav-tabs-item[href="/pages/08_help/README"] {
 .nav-tabs {
   width: 100%;
   justify-content: flex-start;
+}
+
+/* Fix Mintlify content width and centering.
+   1. Balance container padding (lg:pl-24=96px vs px-5=20px → 2.5rem both).
+   2. Widen inner cap (max-w-5xl=64rem → 72rem) so content area gets more space.
+      At 1440px: content goes from 672px → ~704px.
+      At 1920px: content goes from 672px → ~800px.
+      Below 1280px the cap doesn't engage (inner fills all available width). */
+@media (min-width: 1024px) {
+  #content-container {
+    padding-left: 2.5rem !important;
+    padding-right: 2.5rem !important;
+  }
+  #content-container > .max-w-5xl {
+    max-width: 72rem !important;
+  }
 }
 
 #navbar > div.z-10.mx-auto.relative > div.hidden.lg\:flex.px-12.h-12 > div {

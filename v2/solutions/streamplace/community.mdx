@@ -1,7 +1,7 @@
 ---
 mode: wide
 title: Streamplace Recent Announcements
-sidebarTitle: Latest Updates
+sidebarTitle: Recent Activity
 description: 'Latest community activity, Discord announcements, and GitHub updates for Streamplace.'
 purpose: orient
 pageType: resource
@@ -28,21 +28,24 @@ import { MarkdownEmbed } from '/snippets/components/integrators/embeds/DataEmbed
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
+import { CenteredContainer, BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
 
 {/* DATA */}
 import { streamplaceDiscordData } from '/snippets/automations/solutions/streamplace/discordData.jsx'
+import { streamplaceSocials } from "./data/socials.jsx"
 
-<SocialLinks links={[
-  { icon: "globe", href: "https://stream.place", label: "Streamplace Website" },
-  { icon: "github", href: "https://github.com/streamplace/streamplace", label: "Streamplace GitHub" },
-  { icon: "discord", href: "https://discord.com/invite/EdtZv4UTMU", label: "Streamplace Discord" },
-  { icon: "x-twitter", href: "https://x.com/streamplace", label: "Streamplace on X" },
-  { icon: "pen-line", href: "https://blog.stream.place", label: "Streamplace Blog" },
-]} />
+<CenteredContainer maxWidth="fit-content">
+  <BorderedBox style={{margin: 0, padding: "0.5rem 1rem 1rem 1rem"}} variant="muted">
+      <SocialLinks iconColor="var(--hero-text)" links={streamplaceSocials} />
+  </BorderedBox>
+</CenteredContainer>
 
-<Tip>
-  Uses automations to pull in the latest Discord announcements and GitHub README for Streamplace.
-</Tip>
+<br/>
+<CenteredContainer width="80%" minWidth="fit-content" >
+    <Tip>
+    Uses automations to pull in the latest Discord announcements and GitHub README for Streamplace.
+    </Tip>
+</CenteredContainer>
 
 ## <Icon icon="discord" size={24} /> Discord Announcements
 
@@ -54,9 +57,15 @@ Latest from the <LinkArrow label="Streamplace Discord" href="https://discord.com
 
 ## <Icon icon="github" size={24} /> GitHub
 
-<MarkdownEmbed url="https://raw.githubusercontent.com/streamplace/streamplace/next/README.md" />
-
-<LinkArrow label="View Streamplace on GitHub" href="https://github.com/streamplace/streamplace" newline={false} />
+<BorderedBox>
+  <ScrollBox maxHeight={600}>
+    <BorderedBox variant="accent">
+        Streamplace Github
+        <LinkArrow label="View Streamplace on GitHub" href="https://github.com/streamplace/streamplace" newline={true} />
+    </BorderedBox>
+    <MarkdownEmbed url="https://raw.githubusercontent.com/streamplace/streamplace/next/README.md" />
+  </ScrollBox>
+</BorderedBox>
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
@@ -64,4 +73,5 @@ Latest from the <LinkArrow label="Streamplace Discord" href="https://discord.com
 
 <CardGroup cols={2}>
   <Card title="Streamplace Overview" icon="book-open" href="/solutions/streamplace/overview" />
+  <Card title="Streamplace Changelog" icon="clock" href="/solutions/streamplace/changelog" />
 </CardGroup>

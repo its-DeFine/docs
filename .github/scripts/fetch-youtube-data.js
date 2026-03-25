@@ -123,17 +123,23 @@ async function fetchChannel(channelId, outputPath) {
     const durationSeconds = parseDuration(duration);
     const snippet = video.snippet;
 
-    // Check if it's a livestream
-    const isLivestream =
+    // Skip upcoming/currently live streams — only show completed content
+    const isUpcomingOrLive =
       snippet.liveBroadcastContent === "live" ||
-      snippet.liveBroadcastContent === "upcoming" ||
+      snippet.liveBroadcastContent === "upcoming";
+
+    if (isUpcomingOrLive) continue;
+
+    // Past livestreams are fine — check if it was one (for Shorts filter exemption)
+    const isPastLivestream =
+      duration === "P0D" ||
       duration === "PT0S" ||
       snippet.title.toLowerCase().includes("watercooler") ||
       snippet.title.toLowerCase().includes("fireside");
 
-    // Filter out Shorts (≤60 seconds and not livestreams)
+    // Filter out Shorts and short clips (under 3 minutes, not past livestreams)
     const isShort =
-      durationSeconds <= 60 && durationSeconds > 0 && !isLivestream;
+      durationSeconds < 180 && durationSeconds > 0 && !isPastLivestream;
 
     if (!isShort) {
       videos.push({

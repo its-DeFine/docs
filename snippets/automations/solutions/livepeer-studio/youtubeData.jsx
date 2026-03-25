@@ -1,5 +1,14 @@
 export const youtubeData = [
   {
+    title: 'Watercooler Chat | March 23 2026',
+    href: 'https://www.youtube.com/watch?v=9CohiDl-qSc',
+    author: 'By Livepeer',
+    content: '...',
+    publishedDate: 'Mar 24, 2026',
+    duration: 'PT1H22M16S',
+    thumbnailUrl: 'https://i.ytimg.com/vi/9CohiDl-qSc/hqdefault.jpg'
+  },
+  {
     title: 'Watercooler Chat | March 16 2026',
     href: 'https://www.youtube.com/watch?v=4LzWGumv47g',
     author: 'By Livepeer',
@@ -52,24 +61,6 @@ export const youtubeData = [
     publishedDate: 'Dec 2, 2025',
     duration: 'PT40M4S',
     thumbnailUrl: 'https://i.ytimg.com/vi/LmZNEaOOb9I/hqdefault.jpg'
-  },
-  {
-    title: 'Livepeer Fireside 📱',
-    href: 'https://www.youtube.com/watch?v=hz9oorf8g-A',
-    author: 'By Livepeer',
-    content: '--- Connect with Livepeer on Socials: Twitter: https://twitter.com/Livepeer Discord: https://discord.gg/uaPhtyrWsF Telegram: https://t.me/livepeerorg Reddit: https://www.reddit.com/r/livepeer/ Blog: https://medium.com/livepeer-blog Forum: https://forum.livepeer.org/...',
-    publishedDate: 'Nov 27, 2025',
-    duration: 'PT58M29S',
-    thumbnailUrl: 'https://i.ytimg.com/vi/hz9oorf8g-A/hqdefault.jpg'
-  },
-  {
-    title: 'Livepeer Fireside',
-    href: 'https://www.youtube.com/watch?v=qiy1GFAgs2E',
-    author: 'By Livepeer',
-    content: '--- Connect with Livepeer on Socials: Twitter: https://twitter.com/Livepeer Discord: https://discord.gg/uaPhtyrWsF Telegram: https://t.me/livepeerorg Reddit: https://www.reddit.com/r/livepeer/ Blog: https://medium.com/livepeer-blog Forum: https://forum.livepeer.org/...',
-    publishedDate: 'Nov 27, 2025',
-    duration: 'PT58M31S',
-    thumbnailUrl: 'https://i.ytimg.com/vi/qiy1GFAgs2E/hqdefault.jpg'
   },
   {
     title: 'Livepeer Fireside | November 26 2025',
@@ -133,14 +124,5 @@ export const youtubeData = [
     publishedDate: 'Nov 10, 2025',
     duration: 'PT15M54S',
     thumbnailUrl: 'https://i.ytimg.com/vi/s1dhZTofuCM/hqdefault.jpg'
-  },
-  {
-    title: 'Peter Schroedl | Live in Lisbon Summit 2025',
-    href: 'https://www.youtube.com/watch?v=q6MP7OgfBzg',
-    author: 'By Livepeer',
-    content: '(BYOC) Bring your own container, and the shift to real-time AI container. --- Connect with Livepeer on Socials: Website: https://www.livepeer.org/ Twitter:   / livepeer   Discord:   / discord   Telegram: https://t.me/livepeerorg Blog:   / livepeer   Forum: https://forum.livepeer.org/...',
-    publishedDate: 'Nov 10, 2025',
-    duration: 'PT14M48S',
-    thumbnailUrl: 'https://i.ytimg.com/vi/q6MP7OgfBzg/hqdefault.jpg'
   }
 ];

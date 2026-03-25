@@ -24,27 +24,28 @@ lastVerified: 2026-03-25
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { LinkArrow, DoubleIconLink } from '/snippets/components/elements/links/Links.jsx'
 
-<Info>
-  This page is updated automatically via GitHub Action. For help and support contact the [Embody](https://discord.gg/gVmDMhYm) team directly.
-</Info>
+<Tip>
+  This page is an automated workflow.
+  <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--hero-text)", marginTop: "0.25rem"}}>Subscribe to this changelog's <LinkArrow label="RSS Feed" href="/v2/solutions/embody/changelog/rss.xml" newline={false} /></div>
+</Tip>
+
+<CustomDivider style={{margin: "-0.5rem 0 -1.5rem 0"}} />
 
 Track releases for <LinkArrow label="Embody" href="https://github.com/its-DeFine/Unreal_Vtuber/releases" newline={false} /> on GitHub.
-
-<CustomDivider />
 
 {/* ──────────────────────────────────────────────
   AUTOMATION ZONE — entries below are populated by workflow.
   ────────────────────────────────────────────── */}
 
-<Update label="v2026.3.1-alpha.1 — March 2026" description="Alpha release in date-based format. Includes merged updates through PR #236 (security hardening: remove hardcoded pay..." tags={["Features"]} rss={{ title: "Embody v2026.3.1-alpha.1", description: "Alpha release in date-based format. Includes merged updates through PR #236 (security hardening: remove hardcoded pay..." }}>
+<Update label="v2026.3.1-alpha.1" tags={["Features"]} rss={{ title: "Embody v2026.3.1-alpha.1", description: "Alpha release in date-based format. Includes merged updates through PR #236 (security hardening: remove hardcoded pay..." }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>March 2026</div>}>
   ## v2026.3.1-alpha.1
 
   Alpha release in date-based format. Includes merged updates through PR #236 (security hardening: remove hardcoded payments defaults, add allowlist diagnostics) plus prior mainline changes.
 
-  [View release on GitHub](https://github.com/its-DeFine/Unreal_Vtuber/releases/tag/v2026.3.1-alpha.1)
+  <DoubleIconLink label="View release on GitHub" href="https://github.com/its-DeFine/Unreal_Vtuber/releases/tag/v2026.3.1-alpha.1" iconLeft="github" />
 </Update>
 
-<Update label="v1.3.6 — February 2026" description="- PixelStreaming2 stability: force H.264 + LowLatency + periodic keyframes across UE5 builds (including `config=Game`..." tags={["Features", "Fixes"]} rss={{ title: "Embody v1.3.6", description: "- PixelStreaming2 stability: force H.264 + LowLatency + periodic keyframes across UE5 builds (including `config=Game`..." }}>
+<Update label="v1.3.6" tags={["Features", "Fixes"]} rss={{ title: "Embody v1.3.6", description: "- PixelStreaming2 stability: force H.264 + LowLatency + periodic keyframes across UE5 builds (including `config=Game`..." }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>February 2026</div>}>
   ## v1.3.6
 
   - PixelStreaming2 stability: force H.264 + LowLatency + periodic keyframes across UE5 builds (including `config=Game` PluginSettings).
@@ -60,47 +61,47 @@ Track releases for <LinkArrow label="Embody" href="https://github.com/its-DeFine
   - #208 feat(orchestrator): runner bearer-token auth + rotator-managed tokens
   - #209 fix(pixel-streaming): PS2 PluginSettings (H264 + keyframes) via Game.ini
 
-  [View release on GitHub](https://github.com/its-DeFine/Unreal_Vtuber/releases/tag/v1.3.6)
+  <DoubleIconLink label="View release on GitHub" href="https://github.com/its-DeFine/Unreal_Vtuber/releases/tag/v1.3.6" iconLeft="github" />
 </Update>
 
-<Update label="v1.3.5 — January 2026" description="- EXPERIMENTAL_REMOTE_CLUSTER_CONTROL now defaults to true" tags={["Release"]} rss={{ title: "Embody v1.3.5", description: "- EXPERIMENTAL_REMOTE_CLUSTER_CONTROL now defaults to true" }}>
+<Update label="v1.3.5" tags={["Release"]} rss={{ title: "Embody v1.3.5", description: "- EXPERIMENTAL_REMOTE_CLUSTER_CONTROL now defaults to true" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>January 2026</div>}>
   ## v1.3.5
 
   - EXPERIMENTAL_REMOTE_CLUSTER_CONTROL now defaults to true
   - Removes onboarding friction for multi-avatar cluster mode
   - Cluster endpoints still protected by IP allowlist
 
-  [View release on GitHub](https://github.com/its-DeFine/Unreal_Vtuber/releases/tag/v1.3.5)
+  <DoubleIconLink label="View release on GitHub" href="https://github.com/its-DeFine/Unreal_Vtuber/releases/tag/v1.3.5" iconLeft="github" />
 </Update>
 
-<Update label="v1.3.4 — January 2026" description="- CLI: `start_vtuber_unreal.sh test` now checks that Payments is allowlisted (fix: `./scripts/embody_cli.sh allowlist..." tags={["Fixes"]} rss={{ title: "Embody v1.3.4", description: "- CLI: `start_vtuber_unreal.sh test` now checks that Payments is allowlisted (fix: `./scripts/embody_cli.sh allowlist..." }}>
+<Update label="v1.3.4" tags={["Fixes"]} rss={{ title: "Embody v1.3.4", description: "- CLI: `start_vtuber_unreal.sh test` now checks that Payments is allowlisted (fix: `./scripts/embody_cli.sh allowlist..." }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>January 2026</div>}>
   ## v1.3.4
 
   - CLI: `start_vtuber_unreal.sh test` now checks that Payments is allowlisted (fix: `./scripts/embody_cli.sh allowlists fix`)
 
-  [View release on GitHub](https://github.com/its-DeFine/Unreal_Vtuber/releases/tag/v1.3.4)
+  <DoubleIconLink label="View release on GitHub" href="https://github.com/its-DeFine/Unreal_Vtuber/releases/tag/v1.3.4" iconLeft="github" />
 </Update>
 
-<Update label="v1.3.3 — January 2026" description="- Add allowlisted `GET /meta/gpu` endpoint in orchestrator-health" tags={["Features"]} rss={{ title: "Embody v1.3.3", description: "- Add allowlisted `GET /meta/gpu` endpoint in orchestrator-health" }}>
+<Update label="v1.3.3" tags={["Features"]} rss={{ title: "Embody v1.3.3", description: "- Add allowlisted `GET /meta/gpu` endpoint in orchestrator-health" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>January 2026</div>}>
   ## v1.3.3
 
   - Add allowlisted `GET /meta/gpu` endpoint in orchestrator-health
   - Returns NVIDIA GPU inventory via `nvidia-smi` (works even when game is stopped)
 
-  [View release on GitHub](https://github.com/its-DeFine/Unreal_Vtuber/releases/tag/v1.3.3)
+  <DoubleIconLink label="View release on GitHub" href="https://github.com/its-DeFine/Unreal_Vtuber/releases/tag/v1.3.3" iconLeft="github" />
 </Update>
 
-<Update label="v1.3.2 — January 2026" description="* Docs: explain what v1.3.1 enables by @its-DeFine in https://github.com/its-DeFine/Unreal_Vtuber/pull/180" tags={["Release"]} rss={{ title: "Embody v1.3.2", description: "* Docs: explain what v1.3.1 enables by @its-DeFine in https://github.com/its-DeFine/Unreal_Vtuber/pull/180" }}>
+<Update label="v1.3.2" tags={["Release"]} rss={{ title: "Embody v1.3.2", description: "* Docs: explain what v1.3.1 enables by @its-DeFine in https://github.com/its-DeFine/Unreal_Vtuber/pull/180" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>January 2026</div>}>
   ## v1.3.2
 
   ## What's Changed
   * Docs: explain what v1.3.1 enables
   * Enable remote cluster control by default
 
-  [View release on GitHub](https://github.com/its-DeFine/Unreal_Vtuber/releases/tag/v1.3.2)
+  <DoubleIconLink label="View release on GitHub" href="https://github.com/its-DeFine/Unreal_Vtuber/releases/tag/v1.3.2" iconLeft="github" />
 </Update>
 
-<Update label="v1.3.1 — January 2026" description="Changelog:" tags={["Features", "Fixes"]} rss={{ title: "Embody v1.3.1", description: "Changelog:" }}>
+<Update label="v1.3.1" tags={["Features", "Fixes"]} rss={{ title: "Embody v1.3.1", description: "Changelog:" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>January 2026</div>}>
   ## v1.3.1
 
   - Remote ops parity: richer `/meta`, config push, and `upgrade/rollout` support.
@@ -155,6 +156,6 @@ Track releases for <LinkArrow label="Embody" href="https://github.com/its-DeFine
   - #172 Issue #171: fix docs for orchestrator-health recreate https://github.com/its-DeFine/Unreal_Vtuber/pull/172
   - #176 Remote ops: pin git ref + service image tag https://github.com/its-DeFine/Unreal_Vtuber/pull/176
 
-  [View release on GitHub](https://github.com/its-DeFine/Unreal_Vtuber/releases/tag/v1.3.1)
+  <DoubleIconLink label="View release on GitHub" href="https://github.com/its-DeFine/Unreal_Vtuber/releases/tag/v1.3.1" iconLeft="github" />
 </Update>
 

@@ -425,7 +425,7 @@ function buildUpdateBlock(tag, date, tags, content, releaseUrl, rssSummary, prod
   const heading = repoLabel ? `${repoLabel}: ${tag}` : tag;
 
   let block = "";
-  block += `<Update label="${heading}" description="${date}" tags={[${tagsStr}]} rss={{ title: "${esc(rssTitle)}", description: "${esc(rssDesc)}" }}>\n`;
+  block += `<Update label="${heading}" tags={[${tagsStr}]} rss={{ title: "${esc(rssTitle)}", description: "${esc(rssDesc)}" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>${date}</div>}>\n`;
   block += `  ## ${heading}\n\n`;
 
   if (content) {
