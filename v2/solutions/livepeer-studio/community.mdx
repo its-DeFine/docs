@@ -1,7 +1,8 @@
 ---
-title: Livepeer Studio — Community & Updates
-sidebarTitle: Community & Updates
-description: 'Latest videos, blog posts, forum discussions, and community activity for Livepeer Studio.'
+mode: wide
+title: Livepeer Studio Recent Announcements
+sidebarTitle: Latest Updates
+description: 'Latest videos, blog posts, and community activity for Livepeer Studio.'
 purpose: orient
 pageType: resource
 pageVariant: overview
@@ -10,38 +11,58 @@ keywords:
   - livepeer
   - community
   - updates
+  - video API
 'og:image': /snippets/assets/site/og-image/fallback.png
 'og:image:alt': Livepeer Studio Docs social preview image
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
 audience: builder
-lastVerified: 2026-03-21
+lastVerified: 2026-03-25
 ---
 
-import { PostCard, BlogCard, CardBlogDataLayout, CardColumnsPostLayout, ColumnsBlogCardLayout, ForumLatestLayout, DiscordAnnouncements } from '/snippets/components/integrators/blog/Data.jsx'
+{/* COMPONENTS */}
+import { SocialLinks } from '/snippets/components/elements/social/SocialLinks.jsx'
+import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx'
 import { YouTubeVideoData } from '/snippets/components/integrators/video-data/VideoData.jsx'
+import { RssBlogCard, RssBlogCardLayout, DiscordAnnouncements } from '/snippets/components/integrators/blog/Data.jsx'
 import { MarkdownEmbed } from '/snippets/components/integrators/embeds/DataEmbed.jsx'
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
-import { youtubeData } from '/snippets/automations/youtube/youtubeData.jsx'
-import { ghostData } from '/snippets/automations/blog/ghostBlogData.jsx'
-import { forumData } from '/snippets/automations/forum/forumData.jsx'
+
+{/* DATA */}
+import { youtubeData } from '/snippets/automations/solutions/livepeer-studio/youtubeData.jsx'
 import { discordAnnouncementsData } from '/snippets/automations/discord/discordAnnouncementsData.jsx'
 
+<SocialLinks links={[
+  { icon: "globe", href: "https://livepeer.studio", label: "Livepeer Studio Website" },
+  { icon: "github", href: "https://github.com/livepeer/studio", label: "Livepeer Studio GitHub" },
+  { icon: "discord", href: "https://discord.gg/livepeer", label: "Livepeer Discord" },
+  { icon: "book-open", href: "https://docs.livepeer.org", label: "Livepeer Docs" },
+  { icon: "x-twitter", href: "https://x.com/livepeerstudio", label: "Livepeer Studio on X" },
+  { icon: "pen-line", href: "https://blog.livepeer.org", label: "Livepeer Blog" },
+]} />
+
 <Tip>
-  Livepeer Studio is the developer-friendly hosted gateway for the Livepeer network.
-  This page pulls in the latest videos, blog posts, forum discussions, and Discord announcements.
+  Uses automations to pull in the latest YouTube videos, Discord announcements, and GitHub README for Livepeer Studio.
 </Tip>
 
 ## <Icon icon="camera-movie" size={24} /> Videos
 
 Watch the latest on the <LinkArrow label="Livepeer YouTube Channel" href="https://www.youtube.com/@livepeer" newline={false} />
 
-<YouTubeVideoData items={youtubeData} limit={2} />
+<YouTubeVideoData items={youtubeData} limit={4} />
 
-<CustomDivider />
+<CustomDivider style={{margin: "0.5rem 0 -2.5rem 0"}}/>
+
+## <Icon icon="discord" size={24} /> Discord Announcements
+
+Latest from the <LinkArrow label="Livepeer Discord" href="https://discord.gg/livepeer" newline={false} />
+
+<DiscordAnnouncements serverName="Livepeer" items={discordAnnouncementsData} limit={4} ScrollBox={ScrollBox} scrollMaxHeight={200} />
+
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
 ## <Icon icon="github" size={24} /> GitHub
 
@@ -49,43 +70,10 @@ Watch the latest on the <LinkArrow label="Livepeer YouTube Channel" href="https:
 
 <LinkArrow label="View livepeer/studio on GitHub" href="https://github.com/livepeer/studio" newline={false} />
 
-<CustomDivider />
-
-## <Icon icon="discord" size={24} /> Discord
-
-Latest announcements from the <LinkArrow label="Livepeer Discord" href="https://discord.gg/livepeer" newline={false} />
-
-<DiscordAnnouncements serverName="Livepeer" items={discordAnnouncementsData} limit={2} ScrollBox={ScrollBox} scrollMaxHeight={200} />
-
-<CustomDivider />
-
-## <Icon icon="twitter" size={24} /> X / Twitter
-
-Follow Livepeer Studio for product updates.
-
-<LinkArrow label="@LivepeerStudio on X" href="https://x.com/livepeerstudio" newline={false} />
-
-<CustomDivider />
-
-## <Icon icon="pencil-line" size={24} /> Blog
-
-Read recent news from the <LinkArrow label="Livepeer Blog" href="https://blog.livepeer.org" newline={false} />
-
-<ColumnsBlogCardLayout items={ghostData} limit={2} />
-
-<CustomDivider />
-
-## <Icon icon="messages" size={24} /> Forum
-
-Contribute to trending <LinkArrow label="Forum Discussions" href="https://forum.livepeer.org" newline={false} />
-
-<ForumLatestLayout items={forumData} limit={2} />
-
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
 ## Related Pages
 
 <CardGroup cols={2}>
-  <Card title="Studio Overview" icon="book-open" href="/solutions/livepeer-studio/overview" />
-  <Card title="Quickstart" icon="rocket" href="/solutions/livepeer-studio/docs/quickstart" />
+  <Card title="Livepeer Studio Overview" icon="book-open" href="/solutions/livepeer-studio/overview" />
 </CardGroup>

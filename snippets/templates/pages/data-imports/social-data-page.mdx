@@ -1,6 +1,7 @@
 ---
-title: '{Product} — Community & Updates'
-sidebarTitle: 'Community & Updates'
+mode: wide
+title: '{Product} Recent Announcements'
+sidebarTitle: 'Latest Updates'
 description: 'Latest videos, socials, and community activity for {Product}.'
 snippetPrefix: lp-social-data
 snippetLabel: Social data page scaffold
@@ -23,130 +24,115 @@ status: draft
 lastVerified: YYYY-MM-DD
 ---
 
-{/* ─── IMPORTS ─────────────────────────────────────────────────────────── */}
-{/* Component imports — uncomment the sections you need */}
-
+{/* COMPONENTS */}
+import { SocialLinks } from '/snippets/components/elements/social/SocialLinks.jsx'
 import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx'
 import { YouTubeVideoData } from '/snippets/components/integrators/video-data/VideoData.jsx'
-import { PostCard, BlogCard, CardBlogDataLayout, CardColumnsPostLayout, ColumnsBlogCardLayout, ForumLatestLayout, DiscordAnnouncements } from '/snippets/components/integrators/blog/Data.jsx'
+import { RssBlogCard, RssBlogCardLayout, DiscordAnnouncements } from '/snippets/components/integrators/blog/Data.jsx'
 import { MarkdownEmbed } from '/snippets/components/integrators/embeds/DataEmbed.jsx'
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
 
-{/* ─── DATA IMPORTS ────────────────────────────────────────────────────── */}
-{/* Swap these for the product-specific data files from snippets/automations/{product}/ */}
+{/* DATA — swap for the product-specific data files from snippets/automations/solutions/{product}/ */}
+{/* import { youtubeData } from '/snippets/automations/solutions/{product}/youtubeData.jsx' */}
+{/* import { {product}BlogData } from '/snippets/automations/solutions/{product}/blogData.jsx' */}
+{/* import { {product}DiscordData } from '/snippets/automations/solutions/{product}/discordData.jsx' */}
 
-{/* import { youtubeData } from '/snippets/automations/{product}/youtubeData.jsx' */}
-{/* import { {product}BlogData } from '/snippets/automations/{product}/blogData.jsx' */}
-{/* import { {product}DiscordData } from '/snippets/automations/{product}/discordData.jsx' */}
-{/* import { {product}DiscussionsData } from '/snippets/automations/{product}/githubDiscussionsData.jsx' */}
-{/* import { {product}ReleasesData } from '/snippets/automations/{product}/githubReleasesData.jsx' */}
+{/* ─── SOCIALS BAR ──────────────────────────────────────────────────────── */}
+
+<SocialLinks links={[
+  { icon: "globe", href: "{WEBSITE_URL}", label: "{Product} Website" },
+  { icon: "github", href: "https://github.com/{org}/{repo}", label: "{Product} GitHub" },
+  { icon: "discord", href: "{DISCORD_INVITE_URL}", label: "{Product} Discord" },
+  { icon: "book-open", href: "{DOCS_URL}", label: "{Product} Docs" },
+  { icon: "x-twitter", href: "https://x.com/{HANDLE}", label: "{Product} on X" },
+  { icon: "pen-line", href: "{BLOG_URL}", label: "{Product} Blog" },
+]} />
 
 <Tip>
-  Uses automations to pull in the latest YouTube videos, GitHub activity, blog posts, and community updates for {Product}.
+  Uses automations to pull in the latest YouTube videos, blog posts, Discord announcements, and GitHub README for {Product}.
 </Tip>
 
-{/* ─── HERO VIDEO ──────────────────────────────────────────────────────── */}
-{/* Replace with the product's hero/intro video. Priority: YouTube embed > self-hosted MP4 */}
-
-<YouTubeVideo
-  embedUrl="https://www.youtube.com/embed/{VIDEO_ID}"
-  caption="{Product} — an introduction to the project and its mission."
-/>
-
-<CustomDivider />
-
 {/* ─── YOUTUBE VIDEOS ──────────────────────────────────────────────────── */}
+{/* Conditional — include only if product has a YouTube channel */}
 
 ## <Icon icon="camera-movie" size={24} /> Videos
 
-Watch the latest videos on the <LinkArrow label="{Product} YouTube Channel" href="https://www.youtube.com/channel/{CHANNEL_ID}" newline={false} />
+Watch the latest on the <LinkArrow label="{Product} YouTube Channel" href="https://www.youtube.com/channel/{CHANNEL_ID}" newline={false} />
 
-{/* <YouTubeVideoData items={youtubeData} limit={2} /> */}
+{/* <YouTubeVideoData items={youtubeData} limit={4} /> */}
 
-<CustomDivider />
+<CustomDivider style={{margin: "0.5rem 0 -2.5rem 0"}}/>
+
+{/* ─── BLOG ────────────────────────────────────────────────────────────── */}
+{/* Conditional — include only if product has a blog with public RSS */}
+
+{/*
+## <Icon icon="pencil-line" size={24} /> Blog
+
+Read recent posts from the <LinkArrow label="{Product} Blog" href="{BLOG_URL}" newline={false} />
+
+<RssBlogCardLayout items={{product}BlogData} limit={2} />
+
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
+*/}
+
+{/* ─── DISCORD ANNOUNCEMENTS ──────────────────────────────────────────── */}
+{/* Conditional — include only if product has a Discord announcements forwarding channel */}
+
+{/*
+## <Icon icon="discord" size={24} /> Discord Announcements
+
+Latest from the <LinkArrow label="{Product} Discord" href="{DISCORD_INVITE_URL}" newline={false} />
+
+<DiscordAnnouncements serverName="{Product}" items={{product}DiscordData} limit={4} ScrollBox={ScrollBox} scrollMaxHeight={200} />
+
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
+*/}
 
 {/* ─── GITHUB README ───────────────────────────────────────────────────── */}
 
+{/*
 ## <Icon icon="github" size={24} /> GitHub
 
 <MarkdownEmbed url="https://raw.githubusercontent.com/{org}/{repo}/{branch}/README.md" />
 
-<LinkArrow label="View on GitHub" href="https://github.com/{org}/{repo}" newline={false} />
+<LinkArrow label="View {Product} on GitHub" href="https://github.com/{org}/{repo}" newline={false} />
 
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
+*/}
 
-{/* ─── GITHUB RELEASES / CHANGELOG ─────────────────────────────────────── */}
+{/* ─── RELEASES ─────────────────────────────────────────────────────────── */}
 {/* Conditional — include only if product has active GitHub Releases */}
 
 {/*
 ## <Icon icon="tag" size={24} /> Releases
 
-See the latest changes on the <LinkArrow label="{Product} GitHub Releases" href="https://github.com/{org}/{repo}/releases" newline={false} />
+<LinkArrow label="{Product} GitHub Releases" href="https://github.com/{org}/{repo}/releases" newline={false} />
 
-Display releases data component here — e.g. a card list from {product}ReleasesData
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 */}
-
-{/* ─── DISCORD ANNOUNCEMENTS ──────────────────────────────────────────── */}
-{/* Conditional — include only if product has a Discord with announcements channel */}
-
-{/*
-## <Icon icon="discord" size={24} /> Discord
-
-Add your voice to the latest <LinkArrow label="{Product} Discord" href="{DISCORD_INVITE_URL}" newline={false} />
-
-<DiscordAnnouncements items={{product}DiscordData} limit={2} />
-*/}
-
-<CustomDivider />
 
 {/* ─── X / TWITTER ─────────────────────────────────────────────────────── */}
-{/* Static approach — link to product X profile. No paid widget. */}
+{/* Static link — no paid widget. See community/trending-topics for live feed pattern. */}
 
+{/*
 ## <Icon icon="twitter" size={24} /> X / Twitter
 
-Follow, Like, Comment & Share on <LinkArrow label="{Product} on X" href="https://x.com/{HANDLE}" newline={false} />
+Follow {Product} for updates.
 
-{/*
-NOTE FOR IMPLEMENTERS:
-The community trending-topics page uses a paid mikle.com live-feed widget (ID 176804).
-If this product wants a live X feed, they must create and fund their own mikle.com or
-sociablekit.com widget and pass the widgetId prop to TwitterTimeline.
-Otherwise, use a static link or embed a pinned tweet via oEmbed.
+<LinkArrow label="@{HANDLE} on X" href="https://x.com/{HANDLE}" newline={false} />
+
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 */}
-
-<CustomDivider />
-
-{/* ─── BLOG ────────────────────────────────────────────────────────────── */}
-{/* Conditional — include only if product has a blog with public API/RSS */}
-
-{/*
-## <Icon icon="pencil-line" size={24} /> Blog
-
-Read recent news from the <LinkArrow label="{Product} Blog" href="{BLOG_URL}" newline={false} />
-
-<ColumnsBlogCardLayout items={{product}BlogData} limit={2} />
-*/}
-
-{/* ─── FORUM / GITHUB DISCUSSIONS ──────────────────────────────────────── */}
-{/* Conditional — Discourse forum OR GitHub Discussions, not both */}
-
-{/*
-## <Icon icon="messages" size={24} /> Discussions
-
-Contribute to the latest <LinkArrow label="{Product} Discussions" href="{FORUM_OR_DISCUSSIONS_URL}" newline={false} />
-
-If Discourse: <ForumLatestLayout items={{product}ForumData} limit={2} />
-If GitHub Discussions: display from {product}DiscussionsData
-*/}
-
-<CustomDivider />
 
 {/* ─── RELATED PAGES ──────────────────────────────────────────────────── */}
 
+{/*
 ## Related Pages
 
 <CardGroup cols={2}>
   <Card title="{Product} Overview" icon="book-open" href="/solutions/{product}/overview" />
-  <Card title="{Product} Quickstart" icon="rocket" href="/solutions/{product}/quickstart" />
 </CardGroup>
+*/}

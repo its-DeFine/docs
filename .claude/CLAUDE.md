@@ -415,6 +415,7 @@ Follow `/thread` Step 5: produce a finalisation report (template in `workspace/p
 | `ai-tools/agent-packs/claude/CLAUDE.md`                                                           | Claude Code audit pipeline (auto-generated — do not edit) |
 | `docs.json`                                                                                       | Mintlify navigation and routing config                    |
 | `operations/tests/run-all.js`                                                                     | Test runner                                               |
+| `docs-guide/policies/governance-index.mdx`                                                        | Canonical governance index — all governed surfaces, decision rules, what to read before writing anything |
 | `workspace/thread-outputs/research/component-script-placement-reference.md`                       | Component/script folder placement rules — read before writing any component or script |
 | `workspace/thread-outputs/research/mintlify-constraints-reference.md`                             | Mintlify platform constraints — read before writing any MDX or JSX |
 

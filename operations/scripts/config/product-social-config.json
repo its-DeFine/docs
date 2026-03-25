@@ -30,7 +30,15 @@
         "repoUrl": "https://github.com/daydreamlive/scope",
         "readmeRawUrl": "https://raw.githubusercontent.com/daydreamlive/scope/main/README.md",
         "discussionsEnabled": true,
-        "releasesActive": true
+        "releasesActive": true,
+        "changelogRepos": [
+          { "repo": "scope", "label": "Scope" },
+          { "repo": "daydream-browser", "label": "Browser" },
+          { "repo": "daydream-touchdesigner", "label": "TouchDesigner" },
+          { "repo": "microscope", "label": "Microscope" },
+          { "repo": "daydream-obs", "label": "OBS Plugin" },
+          { "repo": "daydream-typescript", "label": "TypeScript SDK" }
+        ]
       },
       "blog": {
         "url": "https://blog.daydream.live",

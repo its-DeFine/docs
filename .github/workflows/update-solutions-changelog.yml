@@ -1,0 +1,103 @@
+name: Update Solutions Changelogs
+
+# Weekly on Mondays at 00:00 UTC (11:00 AM AEDT).
+# Processes all solution products with releasesActive: true in product-social-config.json.
+# Manual trigger available with product filter, dry-run, and branch options.
+
+on:
+  schedule:
+    - cron: "0 0 * * 1" # Weekly Monday 00:00 UTC
+
+  repository_dispatch:
+    types: [solution-release]
+
+  workflow_dispatch:
+    inputs:
+      product_key:
+        description: "Product key (e.g. daydream). Leave blank to run all."
+        required: false
+      dry_run:
+        description: "Dry run — show what would change without writing"
+        type: boolean
+        default: false
+      use_test_branch:
+        description: "Write to TEST_BRANCH (docs-v2-dev) instead of DEPLOY_BRANCH"
+        type: boolean
+        default: false
+      enhance:
+        description: "Use LLM to summarise release notes (falls back to raw on failure)"
+        type: boolean
+        default: true
+      llm_provider:
+        description: "LLM provider: openrouter or copilot"
+        type: choice
+        options:
+          - openrouter
+          - copilot
+        default: openrouter
+
+jobs:
+  update-changelogs:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout docs repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.use_test_branch == 'true' && vars.TEST_BRANCH || vars.DEPLOY_BRANCH }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate changelog entries (enhanced)
+        id: enhanced
+        if: inputs.enhance != 'false'
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PRODUCT_KEY: ${{ inputs.product_key || '' }}
+          LLM_PROVIDER: ${{ inputs.llm_provider || 'openrouter' }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          COPILOT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LIMIT: "10"
+        run: |
+          FLAGS="--enhance"
+          if [[ "${{ inputs.dry_run }}" == "true" ]]; then
+            FLAGS="$FLAGS --dry-run"
+          fi
+          node .github/scripts/generate-solutions-changelog.js $FLAGS
+
+      - name: Generate changelog entries (fallback)
+        if: inputs.enhance == 'false' || steps.enhanced.outcome == 'failure'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PRODUCT_KEY: ${{ inputs.product_key || '' }}
+          LIMIT: "10"
+        run: |
+          FLAGS=""
+          if [[ "${{ inputs.dry_run }}" == "true" ]]; then
+            FLAGS="--dry-run"
+          fi
+          echo "Running without LLM enhancement (Option B fallback)"
+          node .github/scripts/generate-solutions-changelog.js $FLAGS
+
+      - name: Check for changes
+        if: inputs.dry_run != 'true'
+        id: git-check
+        run: |
+          git diff --exit-code v2/solutions/ || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changed
+        if: steps.git-check.outputs.changed == 'true' && inputs.dry_run != 'true'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add v2/solutions/*/changelog.mdx
+          git commit -m "chore: update solutions changelogs with new releases [skip ci]"
+          git push

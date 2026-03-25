@@ -1,7 +1,8 @@
 ---
-title: Embody — Community & Updates
-sidebarTitle: Community & Updates
-description: 'Latest activity, forum discussions, and GitHub updates for Embody.'
+mode: wide
+title: Embody Recent Announcements
+sidebarTitle: Latest Updates
+description: 'Latest community activity, Discord announcements, and GitHub updates for Embody.'
 purpose: orient
 pageType: resource
 pageVariant: overview
@@ -9,59 +10,56 @@ keywords:
   - embody
   - livepeer
   - community
-  - avatars
   - updates
+  - avatars
 'og:image': /snippets/assets/site/og-image/fallback.png
 'og:image:alt': Embody Docs social preview image
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
 audience: builder
-lastVerified: 2026-03-21
+lastVerified: 2026-03-25
 ---
 
-import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx'
+{/* COMPONENTS */}
+import { SocialLinks } from '/snippets/components/elements/social/SocialLinks.jsx'
+import { DiscordAnnouncements } from '/snippets/components/integrators/blog/Data.jsx'
 import { MarkdownEmbed } from '/snippets/components/integrators/embeds/DataEmbed.jsx'
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
+
+{/* DATA */}
+import { embodyDiscordData } from '/snippets/automations/solutions/embody/discordData.jsx'
+
+<SocialLinks links={[
+  { icon: "globe", href: "https://embody.zone", label: "Embody Website" },
+  { icon: "github", href: "https://github.com/its-DeFine/Unreal_Vtuber", label: "Embody GitHub" },
+  { icon: "discord", href: "https://discord.gg/gVmDMhYm", label: "Embody Discord" },
+]} />
 
 <Tip>
-  Embody builds real-time embodied AI interfaces combining voice and avatar technology on Livepeer.
-  The team is highly active on the Livepeer Forum.
+  Uses automations to pull in the latest Discord announcements and GitHub README for Embody.
 </Tip>
 
-## <Icon icon="camera-movie" size={24} /> Featured Video
+## <Icon icon="discord" size={24} /> Discord Announcements
 
-<YouTubeVideo
-  embedUrl="https://www.youtube.com/embed/_MAM5ZPsTdM"
-  caption="Embody — Unreal VTuber Demo"
-/>
+Latest from the <LinkArrow label="Embody Discord" href="https://discord.gg/gVmDMhYm" newline={false} />
 
-<CustomDivider />
+<DiscordAnnouncements serverName="Embody" items={embodyDiscordData} limit={4} ScrollBox={ScrollBox} scrollMaxHeight={200} />
+
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
 ## <Icon icon="github" size={24} /> GitHub
 
 <MarkdownEmbed url="https://raw.githubusercontent.com/its-DeFine/Unreal_Vtuber/main/README.md" />
 
-<LinkArrow label="View Unreal_Vtuber on GitHub" href="https://github.com/its-DeFine/Unreal_Vtuber" newline={false} />
+<LinkArrow label="View Embody on GitHub" href="https://github.com/its-DeFine/Unreal_Vtuber" newline={false} />
 
-<CustomDivider />
-
-## <Icon icon="messages" size={24} /> Forum
-
-Embody is one of the most active SPE teams on the Livepeer Forum. Key threads:
-
-- [WEAVE v5 Pre-Proposal](https://forum.livepeer.org/t/3220) — Intelligent Public Pipelines
-- [Embody Retrospective](https://forum.livepeer.org/t/3215) — Team retrospective
-- [Unreal Engine Updates](https://forum.livepeer.org/t/3186) — Technical progress
-
-<LinkArrow label="Livepeer Forum" href="https://forum.livepeer.org" newline={false} />
-
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
 ## Related Pages
 
 <CardGroup cols={2}>
   <Card title="Embody Overview" icon="book-open" href="/solutions/embody/overview" />
-  <Card title="Livepeer Forum" icon="messages" href="https://forum.livepeer.org" />
 </CardGroup>

@@ -1,0 +1,98 @@
+---
+sidebarTitle: Changelog
+title: "{PRODUCT_NAME} Changelog"
+description: >-
+  Release history for {PRODUCT_NAME} — {PRODUCT_DESCRIPTION}.
+keywords:
+  - {PRODUCT_KEY}
+  - livepeer
+  - changelog
+  - releases
+  - {KEYWORDS}
+'og:image': /snippets/assets/site/og-image/fallback.png
+'og:image:alt': "{PRODUCT_NAME} Docs social preview image"
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+pageType: changelog
+purpose: changelog
+audience: builder
+lastVerified: YYYY-MM-DD
+---
+
+{/*
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │  CHANGELOG TEMPLATE — Solutions Products                               │
+  │                                                                        │
+  │  Purpose:  Automated changelog page for any solution product that      │
+  │            publishes GitHub releases. Populated by the                  │
+  │            update-{product}-changelog.yml GitHub Action.               │
+  │                                                                        │
+  │  Usage:                                                                │
+  │  1. Copy this file to v2/solutions/{product}/changelog.mdx             │
+  │  2. Replace all {PLACEHOLDERS} with product-specific values            │
+  │  3. Add the page to docs.json under the product's nav group            │
+  │  4. Create a matching workflow + script (see setup instructions below) │
+  │                                                                        │
+  │  Placeholders:                                                         │
+  │    {PRODUCT_NAME}        — Display name (e.g. "Daydream")              │
+  │    {PRODUCT_KEY}         — kebab-case key (e.g. "daydream")            │
+  │    {PRODUCT_DESCRIPTION} — One-line product description                │
+  │    {GITHUB_ORG}          — GitHub org (e.g. "daydreamlive")            │
+  │    {GITHUB_REPO}         — Main repo (e.g. "scope")                    │
+  │    {DISCORD_URL}         — Product Discord invite URL                  │
+  │    {KEYWORDS}            — Comma-separated keywords for SEO            │
+  │                                                                        │
+  │  GitHub Action setup:                                                  │
+  │  1. Ensure product is in product-social-config.json with               │
+  │     releasesActive: true (single repo) or changelogRepos[] (multi)     │
+  │  2. Create this changelog.mdx page and add to docs.json                │
+  │  3. The shared workflow update-solutions-changelog.yml handles the     │
+  │     rest — no per-product script or workflow needed                    │
+  │  4. (Optional) Add OPENROUTER_API_KEY secret for LLM enhancement       │
+  │                                                                        │
+  │  The script supports two modes:                                        │
+  │    - Default:    Extracts highlights from GitHub release notes          │
+  │    - --enhance:  Uses LLM (OpenRouter/Copilot) to summarise, with      │
+  │                  per-release fallback to default on failure             │
+  │                                                                        │
+  │  Reference implementation: v2/solutions/daydream/changelog.mdx         │
+  └─────────────────────────────────────────────────────────────────────────┘
+*/}
+
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { LinkArrow, DoubleIconLink } from '/snippets/components/elements/links/Links.jsx'
+
+<Info>
+  This page is not maintained by Livepeer. For help and support contact the [{PRODUCT_NAME}]({DISCORD_URL}) team directly.
+</Info>
+
+<CustomDivider style={{margin: "-0.5rem 0 -1.5rem 0"}} />
+
+Track releases for <LinkArrow label="{PRODUCT_NAME}" href="https://github.com/{GITHUB_ORG}/{GITHUB_REPO}/releases" newline={false} /> on GitHub.
+
+<CustomDivider />
+
+{/* ──────────────────────────────────────────────
+  AUTOMATION ZONE — entries below are populated by workflow.
+  Each release uses a Mintlify <Update> block:
+
+  <Update label="vX.Y.Z — Month YYYY" description="One sentence summary" tags={["tag1", "tag2"]} rss={{ title: "{PRODUCT_NAME} vX.Y.Z", description: "One sentence summary for feed readers" }}>
+    ## vX.Y.Z
+
+    ### New features
+
+    - **Feature name** — Description of what shipped and what it means for users.
+
+    ### Updates
+
+    - **Update name** — Description of improvement.
+
+    ### Bug fixes
+
+    - **Fixed issue** — What was broken and how it was resolved.
+
+    [View release on GitHub](https://github.com/{GITHUB_ORG}/{GITHUB_REPO}/releases/tag/vX.Y.Z)
+  </Update>
+
+  ────────────────────────────────────────────── */}

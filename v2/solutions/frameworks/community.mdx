@@ -1,7 +1,8 @@
 ---
-title: Frameworks — Community & Updates
-sidebarTitle: Community & Updates
-description: 'Latest releases, community, and updates for Frameworks.'
+mode: wide
+title: Frameworks Recent Announcements
+sidebarTitle: Latest Updates
+description: 'Latest community activity, Discord announcements, and GitHub updates for Frameworks.'
 purpose: orient
 pageType: resource
 pageVariant: overview
@@ -10,33 +11,45 @@ keywords:
   - livepeer
   - community
   - updates
-  - mistserver
+  - video infrastructure
 'og:image': /snippets/assets/site/og-image/fallback.png
 'og:image:alt': Frameworks Docs social preview image
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
 audience: builder
-lastVerified: 2026-03-21
+lastVerified: 2026-03-25
 ---
 
-import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx'
+{/* COMPONENTS */}
+import { SocialLinks } from '/snippets/components/elements/social/SocialLinks.jsx'
+import { DiscordAnnouncements } from '/snippets/components/integrators/blog/Data.jsx'
 import { MarkdownEmbed } from '/snippets/components/integrators/embeds/DataEmbed.jsx'
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
+
+{/* DATA */}
+import { frameworksDiscordData } from '/snippets/automations/solutions/frameworks/discordData.jsx'
+
+<SocialLinks links={[
+  { icon: "globe", href: "https://frameworks.network", label: "Frameworks Website" },
+  { icon: "github", href: "https://github.com/livepeer-frameworks/monorepo", label: "Frameworks GitHub" },
+  { icon: "discord", href: "https://discord.gg/9J6haUjdAq", label: "Frameworks Discord" },
+  { icon: "x-twitter", href: "https://x.com/GetFrames", label: "Frameworks on X" },
+]} />
 
 <Tip>
-  Frameworks is a sovereign, no-cloud streaming platform powered by MistServer and Livepeer.
+  Uses automations to pull in the latest Discord announcements and GitHub README for Frameworks.
 </Tip>
 
-## <Icon icon="camera-movie" size={24} /> Featured Video
+## <Icon icon="discord" size={24} /> Discord Announcements
 
-<YouTubeVideo
-  embedUrl="https://www.youtube.com/embed/DKBRp0U-RKw"
-  caption="Frameworks — Sovereign Video Infrastructure"
-/>
+Latest from the <LinkArrow label="Frameworks Discord" href="https://discord.gg/9J6haUjdAq" newline={false} />
 
-<CustomDivider />
+<DiscordAnnouncements serverName="Frameworks" items={frameworksDiscordData} limit={4} ScrollBox={ScrollBox} scrollMaxHeight={200} />
+
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
 ## <Icon icon="github" size={24} /> GitHub
 
@@ -44,32 +57,10 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 <LinkArrow label="View Frameworks on GitHub" href="https://github.com/livepeer-frameworks/monorepo" newline={false} />
 
-<CustomDivider />
-
-## <Icon icon="twitter" size={24} /> X / Twitter
-
-<LinkArrow label="@GetFrames on X" href="https://x.com/GetFrames" newline={false} />
-
-<CustomDivider />
-
-## <Icon icon="discord" size={24} /> Discord
-
-Join the dedicated Frameworks community server.
-
-<LinkArrow label="Frameworks Discord" href="https://discord.gg/9J6haUjdAq" newline={false} />
-
-<CustomDivider />
-
-## <Icon icon="messages" size={24} /> Forum
-
-- [SPE Pilot Phase Proposal](https://forum.livepeer.org/t/pre-proposal-livepeer-frameworks-spe-pilot-phase/2773) — The original Frameworks proposal on the Livepeer Forum.
-- [Frameworks Forum](https://forum.frameworks.network) — Dedicated Discourse instance (early stage).
-
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
 ## Related Pages
 
 <CardGroup cols={2}>
   <Card title="Frameworks Overview" icon="book-open" href="/solutions/frameworks/overview" />
-  <Card title="Frameworks Website" icon="globe" href="https://frameworks.network" />
 </CardGroup>

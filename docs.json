@@ -2208,7 +2208,8 @@
                         "icon": "camera-movie",
                         "pages": [
                           "v2/solutions/daydream/overview",
-                          "v2/solutions/daydream/community"
+                          "v2/solutions/daydream/community",
+                          "v2/solutions/daydream/changelog"
                         ]
                       },
                       {
@@ -2216,7 +2217,8 @@
                         "icon": "film-canister",
                         "pages": [
                           "v2/solutions/livepeer-studio/overview",
-                          "v2/solutions/livepeer-studio/community"
+                          "v2/solutions/livepeer-studio/community",
+                          "v2/solutions/livepeer-studio/changelog"
                         ]
                       },
                       {
@@ -2242,7 +2244,8 @@
                         "icon": "user-robot",
                         "pages": [
                           "v2/solutions/embody/overview",
-                          "v2/solutions/embody/community"
+                          "v2/solutions/embody/community",
+                          "v2/solutions/embody/changelog"
                         ]
                       },
                       {
@@ -2250,7 +2253,8 @@
                         "icon": "clapperboard-play",
                         "pages": [
                           "v2/solutions/frameworks/overview",
-                          "v2/solutions/frameworks/community"
+                          "v2/solutions/frameworks/community",
+                          "v2/solutions/frameworks/changelog"
                         ]
                       },
                       {
