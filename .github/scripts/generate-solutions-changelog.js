@@ -431,9 +431,11 @@ function buildUpdateBlock(tag, date, tags, content, releaseUrl, rssSummary, prod
   if (content) {
     const indented = content
       .split("\n")
-      .map((line) => (line ? `  ${line}` : ""))
+      .map((line) => (line ? `    ${line}` : ""))
       .join("\n");
-    block += `${indented}\n\n`;
+    block += `  <ScrollBox maxHeight="250px" showHint={true}>\n`;
+    block += `${indented}\n`;
+    block += `  </ScrollBox>\n\n`;
   }
 
   block += `  <DoubleIconLink label="View release on GitHub" href="${releaseUrl}" iconLeft="github" />\n`;
