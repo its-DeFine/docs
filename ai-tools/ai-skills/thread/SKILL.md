@@ -51,6 +51,15 @@ The outcome must be:
 
 Write it to the task tracker.
 
+### Register in CLAUDE.md work streams table
+
+After defining the outcome, update the "Active work streams" table in `.claude/CLAUDE.md`:
+- **New work stream:** add a row (stream name, status, key files)
+- **Continuing existing stream:** update the status column
+- **Stream completed this session:** mark done or remove the row
+
+This is how parallel threads coordinate. Every `/thread` invocation keeps the table current — at start (registering) and at end (finalising).
+
 ### Bad outcomes
 - "Work on orchestrators docs" — not testable
 - "Make progress on the content pipeline" — not concrete

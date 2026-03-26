@@ -62,7 +62,7 @@ All sub-tasks were found already complete from prior sessions, with one gap disc
 |---|---|---|
 | 4.1: `category` field on all SKILL.md files | Pre-complete | All 19 local SKILL.md files already had `category:` |
 | 4.2: `validateFolderStructure()` in test suite | Pre-complete | Three checks (loose-file guard, prefix uniqueness, template/pack parity) already in `operations/tests/unit/skill-docs.test.js:636-697` |
-| 4.3: skill-docs/SKILL.md governance rules | Pre-complete | Version 1.2 with category constraint, retirement workflow, sequential prefix rule, `invoke_when` additions |
+| 4.3: skill-docs/SKILL.md governance rules | Pre-complete | Version 1.2 with category constraint, retirement workflow, sequential prefix rule. Note: `invoke_when` was subsequently removed during agentskills.io alignment; replaced by `metadata:` block |
 | 4.4: Regenerate agent-pack exports | Complete | `cross-agent-packager.js --agent-pack all` — 5 files regenerated |
 
 **Gap found and fixed:** Three content-pipeline skills (`content-pipeline-pass-a`, `content-pipeline-pass-b`, `content-pipeline-tab-map`) had `category: content-pipeline` which was not in the 5-value enum. This caused 3 test failures. Fixed by adding `content-pipeline` as a 6th valid category in `skill-spec-contract.md` and `skill-docs.test.js`. The category was intentionally assigned — these skills implement a distinct multi-pass page writing pipeline.
@@ -224,9 +224,9 @@ A focused rewrite of `.github/AGENTS.md` would complete the agent instruction cl
 
 ---
 
-### R4 — Add `content-pipeline` to `skill-docs/SKILL.md` invoke_when
+### R4 — ~~Add `content-pipeline` to `skill-docs/SKILL.md` invoke_when~~ RESOLVED
 
-The `skill-docs` SKILL.md currently lists `invoke_when` triggers for creating, editing, and categorising skills. Now that `content-pipeline` is a recognised category, add it to the category enumeration in the Constraints section of that skill. Minor update, one line.
+> **Resolved 2026-03-26.** The `invoke_when` field was removed during the agentskills.io alignment migration. All 61 governed skill files were migrated to the `metadata:` block standard; `invoke_when` no longer exists. The `content-pipeline` category is already present in `skill-docs/SKILL.md` v1.4 Constraints section. No action needed.
 
 ---
 

@@ -1,8 +1,8 @@
 # Active Plans Index
 
 > **Purpose**: Single entry point for all active governance, framework, and policy work in this repo.
-> **Updated**: 2026-03-20
-> **Scope**: This index covers all `tasks/plan/active/` plans, published `docs-guide/policies/`,
+> **Updated**: 2026-03-26
+> **Scope**: This index covers all `workspace/plan/active/` plans, published `docs-guide/policies/`,
 > and published `docs-guide/frameworks/` documents.
 
 Each section contains a summary and links to the full files.
@@ -41,7 +41,7 @@ Restructures ~179 scripts from a flat/inconsistent layout into a three-tier `<ty
 **Folder**: [`COMPONENT-GOVERNANCE/`](COMPONENT-GOVERNANCE/)
 **Branch**: `docs-v2-dev-components` | **Status**: Tasks 1–8 complete (JSDoc migration done); Task 10 pending
 
-Restructures the `snippets/components/` library from legacy taxonomy (primitives/layout/content/data/page-structure) into a new taxonomy (elements/wrappers/displays/scaffolding/integrators/config). Enforces a 7-field JSDoc standard on all 118 components. Regenerates the JSON component registry and all downstream generated pages. Establishes a spec/catalog split: `component-governance.mdx` (spec) vs `components-catalog.mdx` (generated catalog).
+Restructures the `snippets/components/` library from legacy taxonomy (primitives/layout/content/data/page-structure) into a new taxonomy (elements/wrappers/displays/scaffolding/integrators/config). Enforces a 7-field JSDoc standard on all 45 components. Regenerates the JSON component registry and all downstream generated pages. Establishes a spec/catalog split: `component-governance.mdx` (spec) vs `components-catalog.mdx` (generated catalog).
 
 | File | Purpose |
 |------|---------|
@@ -108,6 +108,22 @@ Defines the principle that this repo has no human owner — governance is determ
 | [`Ownerless Repo Plan.md`](<OSS-OWNERLESS-REPO-GOVERNANCE/Ownerless Repo Plan.md>) | Core governance rollout plan and surface inventory |
 
 **Published**: [`docs-guide/policies/ownerless-governance.mdx`](../../docs-guide/policies/ownerless-governance.mdx)
+
+---
+
+### Documentation Governance
+**Folder**: [`DOCUMENTATION/`](DOCUMENTATION/)
+**Branch**: `docs-v2-dev` | **Status**: Research and design complete; implementation pending
+
+Governs the internal documentation system (`docs-guide/`). Covers framework documents, policy documents, catalogs, and contributor guides. Includes audits of existing documentation surfaces, design recommendations, and a canonical design specification.
+
+| File | Purpose |
+|------|---------|
+| [`plan.md`](DOCUMENTATION/plan.md) | Master execution plan |
+| [`design-canonical.mdx`](DOCUMENTATION/design-canonical.mdx) | Canonical design specification |
+| [`audit.md`](DOCUMENTATION/audit.md) | Documentation surface audit |
+| [`research.md`](DOCUMENTATION/research.md) | Research inputs |
+| [`master-status.mdx`](DOCUMENTATION/master-status.mdx) | Status dashboard |
 
 ---
 
@@ -262,3 +278,15 @@ Defines the usefulness scoring system for doc pages. Entrypoint: `tools/scripts/
 **Status**: Draft
 
 Workflow documentation for visual explainer content (diagrams, animations, interactive elements).
+
+---
+
+## Cross-Plan Dependencies
+
+| Upstream Plan | Downstream Plan | Dependency | Status |
+|---|---|---|---|
+| SCRIPT-GOVERNANCE (Task 15c) | AUTOMATIONS-RESTRUCTURE | Automations restructure blocked until script governance task 15c completes | Blocked |
+| SCRIPT-GOVERNANCE | COMPONENT-GOVERNANCE | Shared JSDoc standard (11-tag scripts, 7-tag components) - aligned on `@type`, `@description`, removed tags | Aligned |
+| SCRIPT-GOVERNANCE (Task 14) | AI-TOOLS-GOVERNANCE (Phase 1) | AI-tools path fixes depend on script root path migration (`tools/scripts/` to `operations/scripts/`) being complete | Complete |
+| COMPONENT-GOVERNANCE | AI-TOOLS-GOVERNANCE | Client-side component audit (`client-side-component-audit.md`) sits in AI-TOOLS-GOVERNANCE but covers component concerns - placement decision pending | Pending |
+| CONTENT-WRITING | DOCUMENTATION | Documentation frameworks depend on content writing framework decisions (page types, frontmatter schema) | Active |

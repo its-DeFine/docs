@@ -1,155 +1,187 @@
 ---
 title: Governance Index
 sidebarTitle: Governance Index
-description: Canonical index of all governed surfaces, framework documents, decision rules, and cross-plan dependencies. Read this before writing any component, script, page, or structural change.
+description: Canonical single entry point for all governed surfaces in this repo. Defines what is governed, where the rules live, and what to read before writing anything.
 owner: "@livepeer/docs-team"
 status: active
-version: "1.0"
+version: "2.0"
 created: 2026-03-25
-lastUpdated: 2026-03-25
+lastUpdated: 2026-03-26
 ---
 
 # Governance Index
 
-> Single entry point for all governance in this repo. Maps what is governed, where the rules live, and what to read before making changes.
+> Single entry point for all governed surfaces. Every framework, placement rule, and constraint reference lives here. Read this before creating or moving any file.
 
 ---
 
-## Governed surfaces
+## Governed Surfaces
 
-| Surface | What it covers | Canonical framework | Policy doc | Plan folder | Staleness |
-|---|---|---|---|---|---|
-| **Components** | `snippets/components/` — 6 categories, sub-niches, JSDoc headers, placement | `plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md` | `docs-guide/policies/component-layout-decisions.mdx` | `plan/active/COMPONENT-GOVERNANCE/` | Partially stale — counts aspirational, `badges/` undocumented |
-| **Scripts** | `operations/scripts/` — 6 types, 4 concerns, 11-tag JSDoc, placement | `plan/active/SCRIPT-GOVERNANCE/script-framework.md` | `docs-guide/policies/script-governance.mdx` | `plan/active/SCRIPT-GOVERNANCE/` | Partially stale — 15 refs to old `tools/scripts/` path, 4 undocumented niches |
-| **Automations** | `operations/scripts/automations/` + `snippets/automations/` restructure | `plan/active/AUTOMATIONS-RESTRUCTURE/plan.md` | — | `plan/active/AUTOMATIONS-RESTRUCTURE/` | Current but blocked on SCRIPT-GOVERNANCE Task 15c |
-| **AI tools/skills** | `ai-tools/ai-skills/` — skill categories, tiers, lifecycle, SKILL.md standard | `plan/active/AI-TOOLS-GOVERNANCE/structure.md` | `docs-guide/policies/agent-governance-framework.mdx` | `plan/active/AI-TOOLS-GOVERNANCE/` | Current — 95% complete |
-| **Repo structure** | Root folder layout, per-folder governance | `plan/active/REPO-STRUCTURE-GOV/folder-structure.md` (LOCKED) | `docs-guide/policies/root-allowlist-governance.mdx` | `plan/active/REPO-STRUCTURE-GOV/` | Current — actively maintained |
-| **Internal docs** | docs-guide/, repo documentation model | `plan/active/DOCUMENTATION/Frameworks/doc-item-model.md` (FROZEN) | `docs-guide/policies/docs-guide-structure-policy.mdx` | `plan/active/DOCUMENTATION/` | Current — execution blocked on human review |
-| **Content pages** | `v2/` pages — taxonomy, frontmatter, voice, pipeline phases | `v2/orchestrators/_workspace/canonical/Frameworks.mdx` | — | `plan/active/CONTENT-WRITING/` | Current — pipeline active |
-| **v2 folder** | `v2/` publishable vs working lanes | — | `docs-guide/policies/v2-folder-governance.mdx` | `plan/active/REPO-STRUCTURE-GOV/` | Current |
-| **Snippets assets** | `snippets/` asset management | — | `docs-guide/policies/snippets-assets-policy.mdx` | — | Current |
-| **Generated artefacts** | Build artefacts, git hooks | — | `docs-guide/policies/generated-artifact-and-hook-governance.mdx` | — | Current |
-| **Quality gates** | Audit system, quality definitions | — | `docs-guide/policies/quality-gates.mdx` + `audit-system-overview.mdx` | — | Current |
-| **Workspace lifecycle** | `_workspace/` folders across repo | — | `docs-guide/policies/workspace-lifecycle-policy.mdx` | — | Current |
-| **Cleanup/quarantine** | Orphan detection, file lifecycle | — | `docs-guide/policies/cleanup-quarantine-policy.mdx` | — | Current |
-| **Tooling (lpd)** | lpd CLI, dev tools | `plan/active/TOOLING/lpd-audit.md` | — | `plan/active/TOOLING/` | Current |
+Nine areas of this repo are governed. Each has a canonical framework document, a root path, and a staleness status.
+
+| # | Area | Root path | Framework | Status |
+|---|------|-----------|-----------|--------|
+| 1 | Components | `snippets/components/` | `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md` | Partially stale |
+| 2 | Scripts | `operations/scripts/` | `workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md` | Partially stale |
+| 3 | AI Tools and Skills | `ai-tools/ai-skills/` | `workspace/plan/active/AI-TOOLS-GOVERNANCE/structure.md` | Current |
+| 4 | Repo Structure | Root folders | `workspace/plan/active/REPO-STRUCTURE-GOV/folder-structure.md` | Current (LOCKED) |
+| 5 | Content Writing | `v2/` | `workspace/plan/active/CONTENT-WRITING/plan-canonical.md` | Active |
+| 6 | Documentation | `docs-guide/` | `workspace/plan/active/DOCUMENTATION/Frameworks/doc-item-model.md` | Frozen |
+| 7 | Automations | `snippets/automations/` | `workspace/plan/active/AUTOMATIONS-RESTRUCTURE/plan.md` | Not started |
+| 8 | Mintlify Platform Constraints | Platform-wide | Reference files (see below) | Current |
+| 9 | File Placement | Cross-cutting | Reference file (see below) | Current |
 
 ---
 
-## Before writing anything — what to read
+## 1. Components
 
-| If you're writing... | Read first |
-|---|---|
-| A **component** (JSX) | Component framework: `plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md` |
-| | Placement reference: `workspace/thread-outputs/research/component-script-placement-reference.md` |
-| | Mintlify constraints: `workspace/thread-outputs/research/mintlify-constraints-reference.md` |
-| A **script** (JS) | Script framework: `plan/active/SCRIPT-GOVERNANCE/script-framework.md` |
-| | Placement reference: `workspace/thread-outputs/research/component-script-placement-reference.md` |
-| An **MDX page** | Mintlify constraints: `workspace/thread-outputs/research/mintlify-constraints-reference.md` |
-| | Page authoring skill: `ai-tools/ai-skills/page-authoring/SKILL.md` |
-| | Voice rules: `plan/active/CONTENT-WRITING/Prompts/voice-rules.md` |
-| A **skill** (SKILL.md) | AI tools structure: `plan/active/AI-TOOLS-GOVERNANCE/structure.md` |
-| | Skill spec contract: `ai-tools/ai-skills/skill-spec-contract.md` |
-| A **docs-guide** file | Structure policy: `docs-guide/policies/docs-guide-structure-policy.mdx` |
-| Files in **root** | Root allowlist: `docs-guide/policies/root-allowlist-governance.mdx` |
-| Files in **`_workspace/`** | Workspace lifecycle: `docs-guide/policies/workspace-lifecycle-policy.mdx` |
+**Root path:** `snippets/components/`
+
+**Framework:** `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md`
+
+Six categories organise all components: elements, wrappers, displays, scaffolding, integrators, config. Every component file requires a 7-tag JSDoc header.
+
+**Status:** Partially stale. The badges sub-niche is undocumented. Component counts in the framework are aspirational, not actual. Validate against the filesystem before relying on counts.
 
 ---
 
-## Component placement — decision questions
+## 2. Scripts
 
-Ask in order. First "yes" determines the category.
+**Root path:** `operations/scripts/`
 
-| Question | Category | Folder |
-|---|---|---|
-| Single visual atom — no children, no fetching, no arrangement? | element | `snippets/components/elements/` |
-| Holds, groups, or arranges other components? | wrapper | `snippets/components/wrappers/` |
-| Takes content and presents it in a formatted way? | display | `snippets/components/displays/` |
-| Part of the page's outer structure, typically used once? | scaffolding | `snippets/components/scaffolding/` |
-| Fetches, embeds, or binds to external/third-party data? | integrator | `snippets/components/integrators/` |
+**Framework:** `workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md`
 
-Component path: `snippets/components/<category>/<subniche>/ComponentName.jsx`
+The taxonomy covers 6 types, 4 concerns, and approximately 25 niches. Every script file requires an 11-tag JSDoc header.
 
-Required JSDoc: `@component`, `@type`, `@subniche`, `@status`, `@description`, `@accepts`, `@dataSource` (if integrator)
+**Status:** Partially stale. 15 references to the old `tools/scripts/` path remain in the framework. Some niches are undocumented. Cross-reference against `operations/scripts/` for the actual inventory.
 
 ---
 
-## Script placement — decision questions
+## 3. AI Tools and Skills
 
-### Type (Layer 1)
+**Root path:** `ai-tools/ai-skills/`
 
-| Question | Type | Folder |
-|---|---|---|
-| Read-only scan, measure, report? | audit | `operations/scripts/audits/` |
-| Produces new files from source data? | generator | `operations/scripts/generators/` |
-| Enforces rules with pass/fail gate? | validator | `operations/scripts/validators/` |
-| Bulk fixes or repairs existing files? | remediator | `operations/scripts/remediators/` |
-| Dispatches work to other scripts or agents? | dispatch | `operations/scripts/dispatch/` |
-| End-to-end automated pipeline? | automation | `operations/scripts/automations/` |
+**Framework:** `workspace/plan/active/AI-TOOLS-GOVERNANCE/structure.md`
 
-### Concern (Layer 2)
+Six skill categories across 2 tiers. Each skill folder contains a `SKILL.md` file conforming to the standard template.
 
-| Concern | Folder | Covers |
-|---|---|---|
-| content | `content/` | Docs pages, copy, SEO, veracity, quality |
-| components | `components/` | Component library, registry, CSS, naming |
-| governance | `governance/` | Scripts about scripts, repo structure, agent docs |
-| ai | `ai/` | LLM files, agent packaging, skills sync |
-
-Script path: `operations/scripts/<type>/<concern>/<niche>/<script-name>.js`
-
-Required JSDoc: 11 tags in order — `@script`, `@type`, `@concern`, `@niche`, `@purpose`, `@description`, `@mode`, `@pipeline`, `@scope`, `@usage`, `@policy`
+**Status:** Current. 95% complete, in maintenance mode.
 
 ---
 
-## Cross-plan dependencies
+## 4. Repo Structure
 
-| Dependency | Upstream plan | Downstream plan | Status |
-|---|---|---|---|
-| Script path migration (`tools/` → `operations/`) | SCRIPT-GOVERNANCE Task 14 | REPO-STRUCTURE-GOV Phase 1 | Complete (merged) |
-| Script framework path refs update | SCRIPT-GOVERNANCE | Script framework doc | Pending — 15 stale `tools/scripts/` refs |
-| Automations restructure | SCRIPT-GOVERNANCE Task 15c | AUTOMATIONS-RESTRUCTURE | Blocked — Task 15c not complete |
-| docs-guide restructure | REPO-STRUCTURE-GOV Phase 2A | DOCUMENTATION Phase 1 | Phase 2A complete |
-| Component JSDoc migration | COMPONENT-GOVERNANCE Tasks 1-8 | AI-TOOLS-GOVERNANCE (discoverability) | JSDoc done; CDA-3/4 pending |
-| Skill consolidation | AI-TOOLS-GOVERNANCE Gate 3.2 | — | Pending human decision |
-| Content pipeline gates | CONTENT-WRITING (per-tab) | All downstream content phases | Blocked — all 5 tabs awaiting IA lock |
+**Root path:** All root folders.
+
+**Framework:** `workspace/plan/active/REPO-STRUCTURE-GOV/folder-structure.md` (LOCKED)
+
+This framework is locked. No structural changes to root-level folders without a policy update.
+
+**Status:** Current. Phase 0 complete. Phases 1 and 2 heavily executed.
 
 ---
 
-## Locked decisions (cross-plan)
+## 5. Content Writing
 
-| ID | Decision | Plan | Date |
-|---|---|---|---|
-| D-NAV-01 | `pageType: navigation` is a cross-tab pattern | CONTENT-WRITING | 2026-03-23 |
-| D1 (scripts) | Three-tier `<type>/<concern>/<niche>` taxonomy | SCRIPT-GOVERNANCE | 2026-03-21 |
-| D2 (scripts) | No deletions — all superseded scripts to `x-archive/` via `git mv` | SCRIPT-GOVERNANCE | 2026-03-21 |
-| D4 (scripts) | Index/catalog scripts never in pre-commit | SCRIPT-GOVERNANCE | 2026-03-21 |
-| — | `folder-structure.md` is LOCKED | REPO-STRUCTURE-GOV | 2026-03-21 |
-| — | `doc-item-model.md` is FROZEN | DOCUMENTATION | 2026-03-23 |
+**Root path:** `v2/`
 
-Full per-plan registries: `plan/active/CONTENT-WRITING/decisions/decision-registry.md`, `plan/active/SCRIPT-GOVERNANCE/decision-log.md`
+**Framework:** `workspace/plan/active/CONTENT-WRITING/plan-canonical.md`
 
----
+Governs page taxonomy (7 pageTypes, 15 pagePurposes, 7 audience tokens), voice rules, and the content pipeline (10+ phases from audience design through layout pass).
 
-## Known staleness — flagged for remediation
+**Supporting files:**
+- Voice rules: `workspace/plan/active/CONTENT-WRITING/Prompts/voice-rules.md`
+- Page taxonomy: `v2/orchestrators/_workspace/canonical/Frameworks.mdx`
+- Content pass prompt: `workspace/plan/active/CONTENT-WRITING/Prompts/Prompts-By-Phase/3-content-pass/content-pass.md`
+- Veracity pass prompt: `workspace/plan/active/CONTENT-WRITING/Prompts/Prompts-By-Phase/7-veracity-pass/veracity-pass.md`
 
-| Item | Framework | What's stale | Impact |
-|---|---|---|---|
-| Script paths | Script framework | 15 refs to `tools/scripts/` — should be `operations/scripts/` | Low — scripts work, doc is misleading |
-| Component counts | Component framework | Spec says 118 components, actual is 45 | Medium — spec is aspirational not descriptive |
-| `badges/` sub-niche | Component framework | Exists in `wrappers/badges/` but not documented in framework | Low — components work, taxonomy gap |
-| `examples/` folders | Component framework | Exist in 5 categories but not documented | Low — MDX docs, not components |
-| Undocumented script niches | Script framework | 4 folder niches exist but aren't in framework spec | Low — scripts work, doc gap |
-| `workspace/plan/active/index.md` | Plan index | Uses old `tasks/` paths, missing DOCUMENTATION plan | Medium — stale navigation |
+**Status:** Active. Five tabs in the pipeline. Orchestrators is priority 1.
 
 ---
 
-## Maintenance
+## 6. Documentation
 
-This index is the canonical governance map. Update it when:
-- A new governed surface is added
-- A framework is created, locked, or deprecated
-- A cross-plan dependency changes
-- A staleness issue is resolved or discovered
+**Root path:** `docs-guide/`
 
-Owner: `@livepeer/docs-team`
+**Framework:** `workspace/plan/active/DOCUMENTATION/Frameworks/doc-item-model.md` (FROZEN)
+
+The doc-item model is locked. Execution is blocked on human review.
+
+**Status:** Model locked. No new doc-item types without explicit approval.
+
+---
+
+## 7. Automations
+
+**Root path:** `snippets/automations/`
+
+**Framework:** `workspace/plan/active/AUTOMATIONS-RESTRUCTURE/plan.md`
+
+**Status:** Not started. Blocked on SCRIPT-GOVERNANCE Task 15c completion.
+
+---
+
+## 8. Mintlify Platform Constraints
+
+**References:**
+- `workspace/thread-outputs/research/mintlify-constraints-reference.md`
+- `snippets/snippetsWiki/mintlify-behaviour.mdx`
+
+These files document platform-level constraints that affect all MDX authoring, component design, and file placement. They are not frameworks but binding constraints. Read both before writing any MDX or JSX.
+
+---
+
+## 9. File Placement
+
+**Reference:** `workspace/thread-outputs/research/component-script-placement-reference.md`
+
+Cross-cutting placement rules for components and scripts. Defines which folders accept which file types and the naming conventions for each.
+
+---
+
+## Decision Rules
+
+Before writing or moving any governed file, read the required documents listed below.
+
+### Before Writing a Component
+
+1. `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md` - category taxonomy, JSDoc header requirements
+2. `workspace/thread-outputs/research/mintlify-constraints-reference.md` - platform constraints affecting JSX
+3. `workspace/thread-outputs/research/component-script-placement-reference.md` - folder placement rules
+
+### Before Writing a Script
+
+1. `workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md` - type/concern/niche taxonomy, JSDoc header requirements
+2. `workspace/thread-outputs/research/component-script-placement-reference.md` - folder placement rules
+
+### Before Writing a Docs Page
+
+1. `workspace/plan/active/CONTENT-WRITING/plan-canonical.md` - pipeline phases, page taxonomy, gate definitions
+2. `ai-tools/ai-skills/page-authoring/SKILL.md` - page authoring skill
+3. `workspace/plan/active/CONTENT-WRITING/Prompts/voice-rules.md` - per-audience voice rules
+
+### Before Moving Files
+
+1. `workspace/plan/active/REPO-STRUCTURE-GOV/folder-structure.md` - root folder structure (LOCKED)
+2. `workspace/thread-outputs/research/component-script-placement-reference.md` - component and script placement
+3. `docs-guide/policies/docs-guide-structure-policy.mdx` - docs-guide folder rules
+
+---
+
+## Staleness Protocol
+
+Frameworks marked "Partially stale" or "Frozen" are still binding for their non-stale sections. When a stale section is encountered:
+
+1. Note the specific stale claim (count mismatch, missing niche, old path).
+2. Cross-reference against the filesystem for the actual state.
+3. Do not update the framework without explicit approval.
+4. Flag the discrepancy in session output.
+
+---
+
+## Related
+
+- [Docs Guide Structure Policy](docs-guide-structure-policy)
+- [V2 Folder Governance](v2-folder-governance)
+- [Root Allowlist Governance](root-allowlist-governance)
+- [Generated Artifact and Hook Governance](generated-artifact-and-hook-governance)

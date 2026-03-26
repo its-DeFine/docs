@@ -70,15 +70,26 @@ These skills encode HOW we work. Use them.
 
 1. Read `workspace/plan/active/_Project-Management_/project-state.md`
 2. Read `workspace/plan/active/CONTENT-WRITING/decisions/decision-registry.md`
-3. Read `workspace/plan/active/CONTENT-WRITING/decisions/tab-status.md`
-4. For content-writing pipeline sessions, also read: `workspace/plan/active/CONTENT-WRITING/READ-EVERY-TIME/PROJECT-MANAGEMENT-CANONICAL.md`
-5. State in one sentence: what the task is, which gates are open, and what done looks like.
+3. Read `workspace/plan/active/CONTENT-WRITING/decisions/blocking-items.md`
+4. Read `workspace/plan/active/CONTENT-WRITING/decisions/tab-status.md`
+5. For content-writing pipeline sessions, also read: `workspace/plan/active/CONTENT-WRITING/READ-EVERY-TIME/PROJECT-MANAGEMENT-CANONICAL.md`
+6. **Context-match this session.** If the user's first message or the resumed chat history indicates a specific work stream, anchor to THAT stream — not the default priority. Multiple work streams run in parallel. Use `/thread` to anchor — it handles registering in the work streams table automatically.
 
 ---
 
 ## Current project state
 
-> **Active priority:** Orchestrators veracity pass on S01–S12. Phases 1–6 complete (12 MDX section pages written). Phase 7 is the current work. This runs independently of the main pipeline gate sequence below.
+> **Multiple work streams run in parallel.** Match the session to the right stream based on user intent or chat history. Do not assume every session is about the default priority.
+
+**Active work streams:**
+
+| Stream | Status | Key files |
+| --- | --- | --- |
+| Orchestrators veracity pass (S01-S12) | Phase 7 active | `workspace/plan/active/CONTENTI-PIPLEINE/00-TRACKER.md` |
+| Co-work skills and governance | 9 skills built, draft status, testing on real work pending | `ai-tools/ai-skills/*/SKILL.md`, `docs-guide/policies/governance-index.mdx` |
+| Solutions tab content | In progress | `v2/solutions/` |
+| Governance framework staleness fixes | Agent running | `workspace/thread-outputs/research/staleness-remediation-handoff.md` |
+| Content pipeline (5-tab gate sequence) | Blocked on human IA review | `workspace/plan/active/CONTENT-WRITING/decisions/tab-status.md` |
 
 **Gate source of truth:** `workspace/plan/active/CONTENT-WRITING/decisions/tab-status.md`
 
@@ -421,4 +432,4 @@ Follow `/thread` Step 5: produce a finalisation report (template in `workspace/p
 
 ---
 
-_Owner: Alison Haire (Wonderland) . Updated: 2026-03-25_
+_Owner: Alison Haire (Wonderland) . Updated: 2026-03-26_

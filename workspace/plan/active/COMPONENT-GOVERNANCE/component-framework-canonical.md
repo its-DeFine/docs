@@ -1,5 +1,7 @@
 # Component Governance — Structure & Standards
 
+> **State accuracy**: Updated 2026-03-26 to reflect actual repo contents. Component count and folder structure verified against live repo. The folder tree below reflects the target structure; individual component entries within each sub-niche are aspirational and may not match current file names. The component counts table and category-level structure are verified accurate.
+
 > **Source of truth** for folder taxonomy and JSDoc standards. Referenced by [plan.md](./plan.md).
 > **Published at**: `docs-guide/frameworks/component-framework-canonical.mdx` — plan-phase section ("Alignment with script governance") excluded from published version.
 
@@ -47,11 +49,14 @@ snippets/
 │   │       ├── CardTitleTextWithArrow.jsx
 │   │       ├── AccordionTitleWithArrow.jsx
 │   │       └── CustomCardTitle.jsx
+│   │   └── examples/                    # MDX usage examples for elements sub-niches
 │   │
 │   ├── wrappers/                        # Holds, groups, or spatially arranges other components
 │   │   ├── accordions/                  # Collapsible content groups
 │   │   │   ├── AccordionGroupList.jsx
 │   │   │   └── AccordionLayout.jsx
+│   │   ├── badges/                      # Badge display components
+│   │   │   └── Badges.jsx
 │   │   ├── cards/                       # Card-based layouts
 │   │   │   ├── DisplayCard.jsx
 │   │   │   ├── WidthCard.jsx
@@ -80,12 +85,13 @@ snippets/
 │   │   ├── steps/                       # Step-flow layouts
 │   │   │   ├── StyledSteps.jsx
 │   │   │   └── StyledStep.jsx
-│   │   └── tables/                      # Table layouts
+│   │   ├── tables/                      # Table layouts
 │   │       ├── DynamicTable.jsx
 │   │       ├── SearchTable.jsx
 │   │       ├── StyledTable.jsx
 │   │       ├── TableCell.jsx
 │   │       └── TableRow.jsx
+│   │   └── examples/                    # MDX usage examples for wrappers sub-niches
 │   │
 │   ├── displays/                        # Renders authored content into a specific visual format
 │   │   ├── code/                        # Code block renderers
@@ -104,13 +110,14 @@ snippets/
 │   │   │   ├── ResponseFieldExpandable.jsx
 │   │   │   ├── ResponseFieldAccordion.jsx
 │   │   │   └── ResponseFieldGroup.jsx
-│   │   └── video/                       # Video and media renderers
+│   │   ├── video/                       # Video and media renderers
 │   │       ├── Video.jsx
 │   │       ├── TitledVideo.jsx
 │   │       ├── ShowcaseVideo.jsx
 │   │       ├── CardVideo.jsx
 │   │       ├── YouTubeVideo.jsx
 │   │       └── YouTubeVideoDownload.jsx
+│   │   └── examples/                    # MDX usage examples for displays sub-niches
 │   │
 │   ├── scaffolding/                     # One-per-page structural skeleton
 │   │   ├── frame-mode/                  # Frame-mode heading overrides
@@ -129,14 +136,14 @@ snippets/
 │   │   │   ├── HeroSectionContainer.jsx
 │   │   │   ├── HeroOverviewContent.jsx
 │   │   │   └── Starfield.jsx
-│   │   ├── page-containers/             # Page-level containers
-│   │   │   └── RefCardContainer.jsx
-│   │   └── portals/                     # Portal page layouts
+│   │   ├── page-containers/             # Page-level containers (empty - placeholder)
+│   │   ├── portals/                     # Portal page layouts
 │   │       ├── PortalContentContainer.jsx
 │   │       ├── PortalHeroContent.jsx
 │   │       ├── PortalCardsHeader.jsx
 │   │       ├── PortalSectionHeader.jsx
 │   │       └── LogoHeroContainer.jsx
+│   │   └── examples/                    # MDX usage examples for scaffolding sub-niches
 │   │
 │   ├── integrators/                     # Fetches, embeds, or binds to external/third-party data
 │   │   ├── blog/                        # Blog feed renderers
@@ -160,8 +167,9 @@ snippets/
 │   │   │   ├── ForumLatestLayout.jsx
 │   │   │   ├── LumaEvents.jsx
 │   │   │   └── LatestVersion.jsx
-│   │   └── video-data/                  # Video data from APIs
+│   │   ├── video-data/                  # Video data from APIs
 │   │       └── YouTubeVideoData.jsx
+│   │   └── examples/                    # MDX usage examples for integrators sub-niches
 │   │
 │   ├── config/                          # Non-component config objects
 │   │   └── MermaidColours.jsx
@@ -215,13 +223,13 @@ snippets/
 
 | Category | Components | Sub-niches |
 |---|---|---|
-| elements | 30 | 10 |
-| wrappers | 30 | 7 |
-| displays | 17 | 5 |
-| scaffolding | 20 | 4 |
-| integrators | 20 | 4 |
-| config | 1 | — |
-| **Total** | **118** | **30** |
+| elements | 12 | 11 |
+| wrappers | 17 | 9 |
+| displays | 5 | 6 |
+| scaffolding | 3 | 5 |
+| integrators | 7 | 5 |
+| config | 1 | - |
+| **Total** | **45** | **36** |
 
 <CustomDivider />
 
@@ -239,7 +247,7 @@ No other governance tags should be used — removed tags (`@owner`, `@category`,
 |---|---|---|---|
 | `@component` | Yes | Component identity | Export name (PascalCase) |
 | `@type` | Yes | Layer 1 — what kind of component | `elements`, `wrappers`, `displays`, `scaffolding`, `integrators`, `config` |
-| `@subniche` | Yes | Layer 2 — specific sub-concern | Matches folder name: `buttons`, `icons`, `images`, `links`, `text`, `math`, `callouts`, `spacing`, `social`, `a11y`, `containers`, `cards`, `lists`, `steps`, `accordions`, `tables`, `grids`, `code`, `video`, `quotes`, `diagrams`, `response-fields`, `frame-mode`, `heroes`, `portals`, `page-containers`, `feeds`, `blog`, `embeds`, `video-data` |
+| `@subniche` | Yes | Layer 2 — specific sub-concern | Matches folder name: `a11y`, `accordions`, `badges`, `blog`, `buttons`, `callouts`, `cards`, `code`, `containers`, `diagrams`, `embeds`, `feeds`, `frame-mode`, `grids`, `heroes`, `icons`, `images`, `links`, `lists`, `math`, `page-containers`, `portals`, `quotes`, `response-fields`, `social`, `spacing`, `steps`, `tables`, `text`, `video`, `video-data` |
 | `@status` | Yes | Lifecycle state | `stable`, `experimental`, `deprecated`, `broken` |
 | `@description` | Yes | One-line human-readable description | Plain English sentence — what it renders and when to use it |
 | `@dataSource` | If integrator | Where external data comes from | `none`, `prop`, `CoinGecko API`, `fetch(url)`, `automation/blog`, etc. |

@@ -25,11 +25,19 @@
 
 ## 📦 GIT WORKFLOW & CHECKPOINTS
 
+{/* STALENESS NOTE (2026-03-26): The automatic checkpoint branch system described
+    below (checkpoint/YYYY-MM-DD_HHMMSS) is aspirational and not yet implemented.
+    No git hooks in this repo create checkpoint branches automatically. The HitL
+    verification, isolation, finish, and closure rules remain valid guidance.
+    The checkpoint branch naming convention and auto-creation mechanism should be
+    treated as a planned feature, not current behaviour. */}
+
 This project enforces a "Human-in-the-Loop" (HitL) verification for all
 destructive or history-altering actions.
 
 - **Automatic Checkpoints:** Every `commit`, `push`, and `rebase` triggers a
   safety hook that creates a branch named `checkpoint/YYYY-MM-DD_HHMMSS`.
+  *(Not yet implemented - aspirational. No hook currently creates checkpoint branches.)*
 - **Isolation Rule:** Use branch-scoped WIP commits for checkpoints. Do not use
   stash as a checkpoint or isolation mechanism.
 - **Finish Rule:** A Codex task is not complete until its task commit is present
@@ -43,6 +51,7 @@ destructive or history-altering actions.
   switch to your terminal to type 'yes' when prompted."_
 - **Recovery:** If a command fails, the latest pre-failure state is stored in
   the most recent `checkpoint/` branch.
+  *(Note: checkpoint branches are not auto-created - see staleness note above.)*
 
 ## 📁 REPOSITORY STRUCTURE RULES
 

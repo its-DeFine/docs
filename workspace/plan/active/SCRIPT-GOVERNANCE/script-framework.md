@@ -9,7 +9,7 @@
 
 ## 1. Overview — GUIDE
 
-The script library lives at `tools/scripts/` and contains ~120 operational scripts that audit, generate, validate, remediate, dispatch, and automate work across the Livepeer documentation repository.
+The script library lives at `operations/scripts/` and contains ~120 operational scripts that audit, generate, validate, remediate, dispatch, and automate work across the Livepeer documentation repository.
 
 Scripts are organised using a **three-tier taxonomy**: `<type>/<concern>/<niche>`. Every script has a standardised JSDoc header (11 tags), follows a consistent file layout, and is designed to be composable into pipelines.
 
@@ -18,7 +18,8 @@ Two non-type folders sit alongside the six type folders:
 | Folder | Purpose |
 |---|---|
 | `config/` | Shared configuration, policy files, shared utility libraries |
-| `x-archive/` | All superseded files via `git mv` — no deletions ever |
+| `x-archive/` | All superseded files via `git mv` - no deletions ever |
+| `archive/` | Legacy archive (contains `deprecated/`, `fixtures/`, `legacy/` sub-folders). Decision D2 calls for consolidation with `x-archive/` into a single archive pattern - not yet executed |
 
 The library is governed by three enforcement tiers:
 
@@ -37,7 +38,7 @@ The library is governed by three enforcement tiers:
 Every script path follows this pattern:
 
 ```
-tools/scripts/<type>/<concern>/<niche>/script-name.js
+operations/scripts/<type>/<concern>/<niche>/script-name.js
 ```
 
 - **Type** (Layer 1) — what the script does
@@ -74,7 +75,7 @@ Every type folder contains the same four concern sub-folders.
 
 | Concern | Niches |
 |---|---|
-| `content/` | `quality/`, `veracity/`, `style/`, `reference/`, `reconciliation/` |
+| `content/` | `data/`, `quality/`, `reconciliation/`, `reference/`, `style/`, `veracity/` |
 | `components/` | `documentation/`, `library/` |
 | `governance/` | `scripts/`, `repo/`, `reports/` |
 | `ai/` | (empty — reserved) |
@@ -83,7 +84,7 @@ Every type folder contains the same four concern sub-folders.
 
 | Concern | Niches |
 |---|---|
-| `content/` | `catalogs/`, `seo/`, `reconciliation/`, `reference/` |
+| `content/` | `catalogs/`, `data/`, `seo/`, `reference/` |
 | `components/` | `documentation/`, `library/` |
 | `governance/` | `catalogs/`, `reports/`, `scaffold/` |
 | `ai/` | `llm/` |
@@ -94,7 +95,7 @@ Every type folder contains the same four concern sub-folders.
 |---|---|
 | `content/` | `copy/`, `structure/`, `grammar/`, `language-translation/`, `veracity/` |
 | `components/` | `documentation/`, `library/` |
-| `governance/` | `compliance/`, `pr/` |
+| `governance/` | `ai/`, `compliance/`, `pr/`, `repo/` |
 | `ai/` | `codex/` |
 
 #### remediators/
@@ -103,7 +104,7 @@ Every type folder contains the same four concern sub-folders.
 |---|---|
 | `content/` | `repair/`, `style/`, `classification/`, `seo/` |
 | `components/` | `library/` |
-| `governance/` | `scaffold/` |
+| `governance/` | `scaffold/`, `scripts/` |
 | `ai/` | (empty — reserved) |
 
 #### dispatch/
@@ -178,7 +179,7 @@ Every script MUST include a JSDoc header block (or hash-comment equivalent for `
 | 7 | `@mode` | Yes | How the script affects the system | `read-only`, `write`, `edit`, `generate`, `execute` |
 | 8 | `@pipeline` | Yes | Flow declaration — trigger, inputs, outputs, dependants | Arrow notation: `trigger → inputs → outputs [→ dependants]` |
 | 9 | `@scope` | Yes | What files/directories it operates on | Comma-separated paths, patterns, or keywords (`staged`, `changed`, `full-repo`, `v2-content`, `single-file`) |
-| 10 | `@usage` | Yes | CLI invocation example | Full command with flags. Example: `node tools/scripts/validators/content/copy/lint-copy.js [file or glob] [flags]` |
+| 10 | `@usage` | Yes | CLI invocation example | Full command with flags. Example: `node operations/scripts/validators/content/copy/lint-copy.js [file or glob] [flags]` |
 | 11 | `@policy` | If applicable | Governance/requirement traceability | Requirement IDs. Example: `E-R1, R-R11` |
 
 ### @mode values
@@ -240,7 +241,7 @@ Components:
  * @mode        read-only
  * @pipeline    pr-workflow → staged .mdx files → exit-code, stdout:violations
  * @scope       staged, changed, v2-content, single-file
- * @usage       node tools/scripts/validators/content/copy/lint-copy.js [file or glob] [flags]
+ * @usage       node operations/scripts/validators/content/copy/lint-copy.js [file or glob] [flags]
  * @policy      E-R1, R-R11
  */
 ```
@@ -559,6 +560,7 @@ Index and catalog regeneration scripts (`generate-docs-index`, `generate-pages-i
 - **No deletions ever.** All superseded files go to `x-archive/` via `git mv`.
 - Archive one script at a time, only after its replacement is fully working, tested, and all downstream dependants have updated paths.
 - `x-archive/` preserves git history through `git mv`.
+- **Note:** A separate `archive/` folder also exists at the scripts root containing `deprecated/`, `fixtures/`, and `legacy/` sub-folders. Decision D2 calls for consolidation into a single archive pattern. Until D2 is executed, both `archive/` and `x-archive/` coexist. New archiving should use `x-archive/`.
 
 ### Branch discipline — ENFORCED
 
@@ -701,7 +703,7 @@ docs-fact-registry.js (validator)
  * @mode        read-only
  * @pipeline    {trigger} → {inputs} → {outputs}
  * @scope       {file-scope}
- * @usage       node tools/scripts/validators/{concern}/{niche}/{script-name}.js [flags]
+ * @usage       node operations/scripts/validators/{concern}/{niche}/{script-name}.js [flags]
  * @policy      {requirement-ids}
  */
 
@@ -810,7 +812,7 @@ main();
  * @mode        generate
  * @pipeline    {trigger} → {inputs} → {outputs} [→ {dependants}]
  * @scope       {file-scope}
- * @usage       node tools/scripts/generators/{concern}/{niche}/{script-name}.js [flags]
+ * @usage       node operations/scripts/generators/{concern}/{niche}/{script-name}.js [flags]
  * @policy      {requirement-ids}
  */
 
@@ -901,7 +903,7 @@ main();
  * @mode        edit
  * @pipeline    {trigger} → {inputs} → {outputs}
  * @scope       {file-scope}
- * @usage       node tools/scripts/remediators/{concern}/{niche}/{script-name}.js [flags]
+ * @usage       node operations/scripts/remediators/{concern}/{niche}/{script-name}.js [flags]
  * @policy      {requirement-ids}
  */
 
@@ -995,7 +997,7 @@ main();
  * @mode        read-only
  * @pipeline    {trigger} → {inputs} → {outputs}
  * @scope       {file-scope}
- * @usage       node tools/scripts/audits/{concern}/{niche}/{script-name}.js [flags]
+ * @usage       node operations/scripts/audits/{concern}/{niche}/{script-name}.js [flags]
  * @policy      {requirement-ids}
  */
 
@@ -1077,7 +1079,7 @@ main();
  * @mode        execute
  * @pipeline    {trigger} → {inputs} → {outputs}
  * @scope       {file-scope}
- * @usage       node tools/scripts/dispatch/{concern}/{niche}/{script-name}.js [flags]
+ * @usage       node operations/scripts/dispatch/{concern}/{niche}/{script-name}.js [flags]
  * @policy      {requirement-ids}
  */
 
@@ -1092,9 +1094,9 @@ const { spawnSync } = require('child_process');
 const REPO_ROOT = process.cwd();
 
 // Paths to child scripts (all relative to REPO_ROOT)
-const STAGE_1_SCRIPT = 'tools/scripts/{type}/{concern}/{niche}/{audit-script}.js';
-const STAGE_2_SCRIPT = 'tools/scripts/{type}/{concern}/{niche}/{repair-script}.js';
-const STAGE_3_SCRIPT = 'tools/scripts/{type}/{concern}/{niche}/{verify-script}.js';
+const STAGE_1_SCRIPT = 'operations/scripts/{type}/{concern}/{niche}/{audit-script}.js';
+const STAGE_2_SCRIPT = 'operations/scripts/{type}/{concern}/{niche}/{repair-script}.js';
+const STAGE_3_SCRIPT = 'operations/scripts/{type}/{concern}/{niche}/{verify-script}.js';
 
 const REPORT_PATH = path.join(REPO_ROOT, 'tasks', 'reports', '{report-subdirectory}', '{report-file}');
 
@@ -1192,7 +1194,7 @@ main();
  * @mode        write
  * @pipeline    {trigger} → {inputs} → {outputs}
  * @scope       {file-scope}
- * @usage       node tools/scripts/automations/{concern}/{niche}/{script-name}.js [flags]
+ * @usage       node operations/scripts/automations/{concern}/{niche}/{script-name}.js [flags]
  * @policy      {requirement-ids}
  */
 
@@ -1269,7 +1271,7 @@ main().catch(err => {
 # @mode              {read-only|write|edit|generate|execute}
 # @pipeline          {trigger} → {inputs} → {outputs}
 # @scope             {file-scope}
-# @usage             bash tools/scripts/{type}/{concern}/{niche}/{script-name}.sh [flags]
+# @usage             bash operations/scripts/{type}/{concern}/{niche}/{script-name}.sh [flags]
 # @policy            {requirement-ids}
 
 set -euo pipefail
@@ -1344,7 +1346,7 @@ These assignments define where each check runs. Pre-commit hard gates are ENFORC
 ## Appendix B — Quick reference card
 
 ```
-TAXONOMY:    tools/scripts/<type>/<concern>/<niche>/script-name.js
+TAXONOMY:    operations/scripts/<type>/<concern>/<niche>/script-name.js
 TYPES:       audits | generators | validators | remediators | dispatch | automations
 CONCERNS:    content | components | governance | ai
 REPO_ROOT:   process.cwd()     (never __dirname traversal)

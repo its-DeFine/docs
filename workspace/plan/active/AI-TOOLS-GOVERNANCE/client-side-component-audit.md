@@ -4,6 +4,8 @@ purpose: Identify components with AI discoverability gaps
 generated: 2026-03-21
 ---
 
+> **Placement note**: This audit covers component-level concerns (hook usage, companion file gaps, render behaviour). It may belong in `COMPONENT-GOVERNANCE/` rather than `AI-TOOLS-GOVERNANCE/`. Flagged for Alison to decide placement.
+
 # Client-Side Component Audit
 
 > Components using React hooks render client-side only — their content is NOT in the initial HTML served to crawlers or AI agents. This audit identifies which components carry discoverability risk and whether companion JSON files are needed.
