@@ -85,6 +85,8 @@ These skills encode HOW we work. Use them.
 
 | Stream | Status | Key files |
 | --- | --- | --- |
+| Documentation system execution (Phases 0-8) | Phase 0-2 complete, Phase 3 next | `ethereal-giggling-bear.md` (plan), `workspace/plan/active/DOCUMENTATION/` |
+| Workflow branch standardisation (Phase 3.5) | Audit complete, remediation pending | `workspace/thread-outputs/research/workflow-branch-audit.md` |
 | Orchestrators veracity pass (S01-S12) | Phase 7 active | `workspace/plan/active/CONTENTI-PIPLEINE/00-TRACKER.md` |
 | Co-work skills and governance | 9 skills built, draft status, testing on real work pending | `ai-tools/ai-skills/*/SKILL.md`, `docs-guide/policies/governance-index.mdx` |
 | Solutions tab content | In progress | `v2/solutions/` |
