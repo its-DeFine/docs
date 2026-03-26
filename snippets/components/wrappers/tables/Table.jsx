@@ -19,6 +19,7 @@ export const DynamicTable = ({
   headerList = [],
   itemsList = [],
   monospaceColumns = [],
+  showSeparators = true,
   margin,
   className = "",
   style = {},
@@ -73,7 +74,7 @@ export const DynamicTable = ({
             </tr>
           </thead>
           <tbody>
-            {itemsList.map((item, rowIndex) => (
+            {itemsList.filter((item) => showSeparators || !item?.__separator).map((item, rowIndex) => (
               item?.__separator ? (
                 <tr
                   key={rowIndex}

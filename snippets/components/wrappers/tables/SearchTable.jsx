@@ -128,6 +128,7 @@ export const SearchTable = ({
           itemsList={withSeparators}
           monospaceColumns={safeMonospaceColumns}
           margin={margin}
+          {...rest}
         />
       ) : (
         <Warning>SearchTable requires a `TableComponent` prop.</Warning>

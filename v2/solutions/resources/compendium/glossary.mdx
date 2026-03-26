@@ -32,6 +32,7 @@ lastVerified: '2026-03'
 */}
 
 import { SearchTable } from '/snippets/components/wrappers/tables/SearchTable.jsx'
+import { DynamicTable } from '/snippets/components/wrappers/tables/Table.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 
 {/* ==========================SECTION: SEARCH TIP========================= */}
@@ -54,6 +55,8 @@ Terms used across Livepeer Solutions — covering video infrastructure, Studio p
 
 {/* ==========================SECTION: SEARCHABLE TABLE========================= */}
 <SearchTable
+  TableComponent={DynamicTable}
+  showSeparators={false}
   headerList={["Term", "Category", "Definition"]}
   searchColumns={[0, 2]}
   itemsList={[

@@ -2226,17 +2226,7 @@
                         "icon": "projector",
                         "pages": [
                           "v2/solutions/streamplace/overview",
-                          "v2/solutions/streamplace/community",
-                          {
-                            "group": "Stream.place",
-                            "pages": [
-                              "v2/solutions/streamplace/introduction/streamplace-guide",
-                              "v2/solutions/streamplace/introduction/streamplace-architecture",
-                              "v2/solutions/streamplace/introduction/streamplace-integration",
-                              "v2/solutions/streamplace/introduction/streamplace-provenance",
-                              "v2/solutions/streamplace/introduction/streamplace-funding-model"
-                            ]
-                          }
+                          "v2/solutions/streamplace/community"
                         ]
                       },
                       {
