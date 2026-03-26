@@ -27,7 +27,9 @@ Use these sources in this order when they apply:
 2. `v2/**` for current user-facing docs.
 3. `README.md` and `contribute/**` for workflow, hooks, testing, and contributor process.
 4. `docs-guide/**` for internal capability maps, governance policy, and generator ownership.
-5. `v1/**` only for legacy reference or when the user explicitly asks for legacy behavior.
+5. `v2/orchestrators/_workspace/canonical/Frameworks.mdx` for locked content taxonomy: `pageType`, `pagePurpose`, `audience` enums, and voice rules. All content pages must use values from this file.
+6. `workspace/plan/active/CONTENT-WRITING/Prompts/voice-rules.md` for per-audience voice and tone rules.
+7. `v1/**` only for legacy reference or when the user explicitly asks for legacy behavior.
 
 Call out conflicts explicitly instead of guessing.
 
