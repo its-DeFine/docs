@@ -34,6 +34,7 @@ lastVerified: '2026-03'
 import { SearchTable } from '/snippets/components/wrappers/tables/SearchTable.jsx'
 import { DynamicTable } from '/snippets/components/wrappers/tables/Table.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
 
 {/* ==========================SECTION: SEARCH TIP========================= */}
 <Tip>
@@ -54,6 +55,7 @@ Terms used across gateway deployment, payment configuration, orchestrator routin
 <CustomDivider />
 
 {/* ==========================SECTION: SEARCHABLE TABLE========================= */}
+<LazyLoad height="600px">
 <SearchTable
   TableComponent={DynamicTable}
   showSeparators={false}
@@ -138,6 +140,7 @@ Terms used across gateway deployment, payment configuration, orchestrator routin
     { Term: "Wei", Category: "web3:token", Definition: "The smallest denomination of Ether, where 1 ETH equals 10^18 Wei; used in on-chain price calculations and payment ticket values." },
   ]}
 />
+</LazyLoad>
 
 <CustomDivider />
 

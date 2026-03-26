@@ -37,6 +37,7 @@ lastVerified: '2026-03'
 import { SearchTable } from '/snippets/components/wrappers/tables/SearchTable.jsx'
 import { DynamicTable } from '/snippets/components/wrappers/tables/Table.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
 
 {/* ==========================SECTION: SEARCH TIP========================= */}
 <Tip>
@@ -56,6 +57,7 @@ Definitions for LPT token holders and stakers — covering staking, delegation, 
 <CustomDivider />
 
 {/* ==========================SECTION: SEARCHABLE TABLE========================= */}
+<LazyLoad height="600px">
 <SearchTable
   TableComponent={DynamicTable}
   showSeparators={false}
@@ -163,6 +165,7 @@ Definitions for LPT token holders and stakers — covering staking, delegation, 
     { Term: "Yield", Category: "economic:reward", Definition: "The annualized return on staked LPT expressed as a percentage, combining inflationary LPT rewards and any ETH fee share earned through the bonded orchestrator." },
   ]}
 />
+</LazyLoad>
 
 <CustomDivider />
 

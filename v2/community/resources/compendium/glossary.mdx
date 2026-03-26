@@ -34,6 +34,7 @@ lastVerified: '2026-03'
 import { SearchTable } from '/snippets/components/wrappers/tables/SearchTable.jsx'
 import { DynamicTable } from '/snippets/components/wrappers/tables/Table.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
 
 {/* ==========================SECTION: SEARCH TIP========================= */}
 <Tip>
@@ -53,6 +54,7 @@ Terms covering Livepeer governance, treasury, staking, delegation, community pro
 <CustomDivider />
 
 {/* ==========================SECTION: SEARCHABLE TABLE========================= */}
+<LazyLoad height="600px">
 <SearchTable
   TableComponent={DynamicTable}
   showSeparators={false}
@@ -163,6 +165,7 @@ Terms covering Livepeer governance, treasury, staking, delegation, community pro
     { Term: "Workstreams", Category: "livepeer:entity", Definition: "Focused execution teams organized around specific domains, translating Advisory Board recommendations into phased initiatives." },
   ]}
 />
+</LazyLoad>
 
 <CustomDivider />
 

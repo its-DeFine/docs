@@ -34,6 +34,7 @@ lastVerified: '2026-03'
 import { SearchTable } from '/snippets/components/wrappers/tables/SearchTable.jsx'
 import { DynamicTable } from '/snippets/components/wrappers/tables/Table.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
 
 {/* ==========================SECTION: SEARCH TIP========================= */}
 <Tip>
@@ -54,6 +55,7 @@ Core vocabulary for understanding Livepeer's protocol architecture, network role
 <CustomDivider />
 
 {/* ==========================SECTION: SEARCHABLE TABLE========================= */}
+<LazyLoad height="600px">
 <SearchTable
   TableComponent={DynamicTable}
   showSeparators={false}
@@ -128,6 +130,7 @@ Core vocabulary for understanding Livepeer's protocol architecture, network role
     { Term: "Winning Ticket", Category: "economic:payment", Definition: "A probabilistic payment ticket whose random outcome meets the configured win probability threshold, entitling the orchestrator to redeem it on-chain for its ETH face value." },
   ]}
 />
+</LazyLoad>
 
 <CustomDivider />
 

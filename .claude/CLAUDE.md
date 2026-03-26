@@ -329,6 +329,27 @@ Follow `/thread` Step 5: produce a finalisation report (template in `workspace/p
 
 ---
 
+### 2026-03-26 — Full-site style diagnostic and fix (3 issues)
+
+**Done:**
+- Diagnosed and fixed 3 site-wide CSS issues on docs-v2-dev using Playwright automated testing across 600-1920px viewports
+- Issue 1: `mint dev` body padding injection (24px) — fixed with `body { padding: 0 !important }` (no-op in production)
+- Issue 2: Heading underlines from Mintlify parsing `.md` files as MDX — fixed via `.mintignore` patterns (`**/*.md`, `*.md`)
+- Issue 3: Content area too narrow (672px in 1440px viewport, 47% utilisation) — fixed by balancing container padding (96px→2.5rem both sides) and widening inner cap (`max-w-5xl` 64rem→72rem)
+- All overrides scoped with `:not([data-page-mode='frame'])` to skip portal pages
+- Mintlify CLI updated 4.2.416→4.2.446
+
+**Decisions made:**
+- CSS `!important` overrides are the only mechanism (no Mintlify config alternative)
+- 72rem inner cap balances width gain against readability
+- `.mintignore` preferred over renaming hundreds of `.md` files
+
+**Blocked on:** Nothing
+
+**Next session picks up:** Visual QA after merge to docs-v2 to confirm width changes render correctly in production
+
+---
+
 ### 2026-03-24 — Orchestrators full quality check sweep: guides + resources (66 pages)
 
 **Done:**
