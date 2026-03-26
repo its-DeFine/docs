@@ -196,11 +196,11 @@ a.nav-tabs-item[href="/pages/08_help/README"] {
       At 1920px: content goes from 672px → ~800px.
       Below 1280px the cap doesn't engage (inner fills all available width). */
 @media (min-width: 1024px) {
-  #content-container {
+  :not([data-page-mode='frame']) > #content-container {
     padding-left: 2.5rem !important;
     padding-right: 2.5rem !important;
   }
-  #content-container > .max-w-5xl {
+  :not([data-page-mode='frame']) > #content-container > .max-w-5xl {
     max-width: 72rem !important;
   }
 }

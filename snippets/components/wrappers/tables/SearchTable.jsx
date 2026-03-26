@@ -15,6 +15,7 @@
  * @param {string} [searchPlaceholder='Search...'] - Search placeholder used by the component.
  * @param {Array} [searchColumns=[]] - Collection data rendered by the component.
  * @param {string} [categoryColumn='Category'] - Category column used by the component.
+ * @param {boolean} [categoryGroupByPrefix=false] - When true, splits 'category:niche' into two dropdowns (category and niche).
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  */
@@ -28,12 +29,14 @@ export const SearchTable = ({
   searchPlaceholder = 'Search...',
   searchColumns = [],
   categoryColumn = 'Category',
+  categoryGroupByPrefix = false,
   className = "",
   style = {},
   ...rest
 }) => {
   const [query, setQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedNiche, setSelectedNiche] = useState('All');
   const safeHeaderList = Array.isArray(headerList) ? headerList : [];
   const safeItemsList = Array.isArray(itemsList) ? itemsList : [];
   const safeMonospaceColumns = Array.isArray(monospaceColumns)
@@ -43,13 +46,41 @@ export const SearchTable = ({
   const activeColumns = safeSearchColumns.length ? safeSearchColumns : safeHeaderList;
   const normalizedQuery = query.trim().toLowerCase();
 
-  const categories = [...new Set(safeItemsList.map((item) => String(item?.[categoryColumn] || '')).filter(Boolean))]
-    .sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
+  const getPrefix = (item) => {
+    const raw = String(item?.[categoryColumn] || '');
+    return raw.includes(':') ? raw.split(':')[0] : raw;
+  };
+
+  const getNiche = (item) => {
+    const raw = String(item?.[categoryColumn] || '');
+    return raw.includes(':') ? raw.split(':').slice(1).join(':') : '';
+  };
+
+  const categories = categoryGroupByPrefix
+    ? [...new Set(safeItemsList.map((item) => getPrefix(item)).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }))
+    : [...new Set(safeItemsList.map((item) => String(item?.[categoryColumn] || '')).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
+
+  const niches = categoryGroupByPrefix && selectedCategory !== 'All'
+    ? [...new Set(
+        safeItemsList
+          .filter((item) => getPrefix(item) === selectedCategory)
+          .map((item) => getNiche(item))
+          .filter(Boolean)
+      )].sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }))
+    : [];
 
   const categoryFilteredItems =
     selectedCategory === 'All'
       ? safeItemsList
-      : safeItemsList.filter((item) => String(item?.[categoryColumn] || '') === selectedCategory);
+      : categoryGroupByPrefix
+        ? safeItemsList.filter((item) => {
+            const prefixMatch = getPrefix(item) === selectedCategory;
+            const nicheMatch = selectedNiche === 'All' || getNiche(item) === selectedNiche;
+            return prefixMatch && nicheMatch;
+          })
+        : safeItemsList.filter((item) => String(item?.[categoryColumn] || '') === selectedCategory);
 
   const searchedItems = !normalizedQuery
     ? categoryFilteredItems
@@ -70,6 +101,15 @@ export const SearchTable = ({
     }
     withSeparators.push(item);
   });
+
+  const selectStyle = {
+    minWidth: '150px',
+    padding: '8px 12px',
+    borderRadius: '8px',
+    border: '1px solid var(--border)',
+    background: 'var(--background)',
+    color: 'var(--text)'
+  };
 
   return (
     <div className={className} style={style} {...rest}>
@@ -101,16 +141,12 @@ export const SearchTable = ({
 
         <select
           value={selectedCategory}
-          onChange={(event) => setSelectedCategory(event.target.value)}
-          aria-label="Filter by category"
-          style={{
-            minWidth: '200px',
-            padding: '8px 12px',
-            borderRadius: '8px',
-            border: '1px solid var(--border)',
-            background: 'var(--background)',
-            color: 'var(--text)'
+          onChange={(event) => {
+            setSelectedCategory(event.target.value);
+            setSelectedNiche('All');
           }}
+          aria-label="Filter by category"
+          style={selectStyle}
         >
           <option value="All">All categories</option>
           {categories.map((category) => (
@@ -119,6 +155,22 @@ export const SearchTable = ({
             </option>
           ))}
         </select>
+
+        {categoryGroupByPrefix && niches.length > 0 && (
+          <select
+            value={selectedNiche}
+            onChange={(event) => setSelectedNiche(event.target.value)}
+            aria-label="Filter by niche"
+            style={selectStyle}
+          >
+            <option value="All">All {selectedCategory}</option>
+            {niches.map((niche) => (
+              <option key={niche} value={niche}>
+                {niche}
+              </option>
+            ))}
+          </select>
+        )}
       </div>
 
       {typeof TableComponent === 'function' ? (

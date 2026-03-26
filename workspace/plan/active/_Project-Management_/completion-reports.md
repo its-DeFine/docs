@@ -81,6 +81,162 @@ Numbered. Concrete next steps or improvements.
 
 ---
 
+## Solutions Tab — Full Page Build and Standardisation — 2026-03-26
+
+**Plans**: `v2/solutions/_workspace/canonical/pageStatus.md`, `workspace/plan/active/SOLUTIONS-SOCIAL-DATA/`
+**Scope**: Built, standardised, and completed all Solutions tab pages across 5 products (Daydream, Livepeer Studio, Frameworks, Streamplace, Embody), portal, solution-providers, community pages, and glossary.
+
+### Summary
+
+Multi-session initiative that took the Solutions tab from scattered drafts to a fully complete page set. Central data architecture established (`v2/solutions/data/`) for socials, badges, infra tags, and brand colours. All 5 overview pages standardised to canonical layout (badges, socials, Info box, Key Features, Get Started with StyledSteps, Try cards, Resources with social links). Hero images generated for all products (20 images + 5 backgrounds) via two new Puppeteer-based scripts. YouTube video data fixed across all community pages. Solution Providers overview page created. Glossary expanded with 3 new terms. All pages in docs.json nav marked complete in pageStatus.md.
+
+---
+
+### Completed
+
+**Central data architecture**
+- `v2/solutions/data/socials.jsx` — single source of truth for all 5 product social links
+- `v2/solutions/data/badges.jsx` — central badge data for all products
+- `v2/solutions/data/infra.jsx` — central infrastructure tag data for all products
+- `v2/solutions/data/colors.jsx` — brand colours and tryHeroData for all products
+- Per-product `data/` folders (`socials.jsx`, `badges.jsx`, `infra.jsx`) import from central or hold product-specific data
+
+**Overview page standardisation (5 pages)**
+- Canonical layout applied to all: IconBadgeWrapper → BadgeWrapper → SocialLinks → Info → content → Key Features → Get Started (StyledSteps) → Try [Product] → [Product] Resources
+- `##` headers (not `###`) across all overview pages
+- Consistent CustomDivider styles across all sections
+- Info box pattern standardised: "This page is maintained by the [Team] Team. Help & support available via the [link]."
+- Social links added under Resources heading on all pages
+- StyledSteps Get Started sections added to Daydream, Livepeer Studio, Frameworks
+
+**Hero image generation**
+- `operations/scripts/generators/media/generate-hero-background.js` — Puppeteer radial gradient generator with preset/colours-file support
+- `operations/scripts/generators/media/generate-hero-image.js` — Puppeteer overlay generator with inline SVG icons, white border frame, Inter Bold text
+- 5 background images generated from brand colours
+- 20 hero images generated (4 per product: Quickstart, Try App/Dashboard, Docs, Proposal/Architecture/Community)
+
+**Community pages (4 pages)**
+- YouTube static data export names fixed across all products (youtubeData → youtubeDataStatic)
+- youtu.be short URLs converted to youtube.com/watch?v= format (fixes YouTubeVideoData rendering)
+- LazyLoad wrapper added to all community page sections
+- Twitter/X embed URLs and titles fixed on Studio, Embody, Frameworks community pages
+- GitHub MarkdownEmbed branch reference fixed (main → master) on Studio community page
+
+**New pages**
+- `v2/solutions/solution-providers.mdx` — SPE overview, active solutions cards, comparison table, governance process
+
+**Portal page**
+- Imports consolidated to use central data files
+- SolutionCard JSX prop pattern: pre-rendered JSX passed as props
+
+**Template**
+- `snippets/templates/pages/domain-pages/solutions-overview-template.mdx` updated to match all layout changes
+- StyledSteps import and optional Get Started section added
+- Social links under Resources added
+- Duplicate socials block removed
+
+**Glossary**
+- "Realtime AI Video" added to AI Terms
+- "World Model" definition updated with NVIDIA source
+- "Livestreaming" added with IBM/Cloudflare sources
+- "Real-time Interactive 3D Avatar" added with NVIDIA source
+
+**YouTube video additions**
+- Livepeer Studio overview: YouTubeVideo embed added (Q4xIbubnqRI)
+- Livepeer Studio socials: YouTube channel added
+
+**Page status**
+- All pages in docs.json nav marked complete in `v2/solutions/_workspace/canonical/pageStatus.md`
+
+---
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Central data in `v2/solutions/data/` not `snippets/` | Product-specific data co-located with product pages; only reusable components live in snippets |
+| JSX-as-props pattern for SolutionCard | Mintlify constraint: JSX files cannot import other JSX files; parent MDX must instantiate sub-components and pass as props |
+| Inline SVG icons in hero generator (no FA CDN) | External Font Awesome CSS failed to load reliably in Puppeteer; inline SVGs have zero external dependency |
+| White icon + text on background with border frame | User preference over circled icons; 90px icon, 48px text, 6px white border at 5% radius |
+| youtu.be URLs replaced everywhere | YouTubeVideoData getEmbedUrl() only parses `?v=` format; short URLs break rendering |
+| Removed broken YouTubeVideo from Frameworks overview | Malformed JSX tag; correct version with proper embedUrl/title props added |
+
+---
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Frameworks quickstart page | Medium | Referenced in overview cards but not yet built | Frameworks team input |
+| Embody quickstart page | Medium | Referenced in overview cards but not yet built | Embody team input |
+| Streamplace changelog page | Low | Placeholder exists | Streamplace team updates |
+| Studio docs sub-pages content review | Medium | Marked complete for layout but inherited from v1 — content not rewritten | Content pipeline Phase 6 |
+
+---
+
+### Dependencies & Downstream Effects
+
+- **`v2/solutions/data/` is now canonical** — any new product social links, badges, or infra tags must be added here. Per-product `data/` folders import from central.
+- **Hero image scripts** are reusable for any future product additions — run `generate-hero-background.js` then `generate-hero-image.js`.
+- **Template updated** — new solution provider pages should follow `snippets/templates/pages/domain-pages/solutions-overview-template.mdx`.
+- **Community pages depend on static data files** in `snippets/automations/solutions/*/` — export names must match imports exactly.
+
+---
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| All overview pages render | Verified via local dev server | All 5 products + portal + solution-providers |
+| Community pages YouTube rendering | Fixed | Export name + URL format issues resolved |
+| Community pages Twitter/X embeds | Fixed | Correct tweet IDs and titles |
+| Hero images generated | All 20 complete | Verified file existence in assets folders |
+| Glossary accordion rendering | Verified | 4 new terms render correctly |
+
+---
+
+### Recommendations
+
+1. **Run content review on inherited Studio docs sub-pages** — marked complete for layout/structure but content is v1 legacy. Needs Phase 6 content pass when Studio tab opens.
+2. **Build Frameworks and Embody quickstart pages** — overview cards link to them; currently 404 or placeholder.
+3. **Automate YouTube data refresh** — static data files will go stale. Consider a scheduled script to pull latest from YouTube API.
+4. **Add Streamplace changelog content** — page exists but is minimal.
+
+---
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `v2/solutions/data/socials.jsx` | new | Central social links for all 5 products |
+| `v2/solutions/data/colors.jsx` | new | Brand colours and hero data for all products |
+| `v2/solutions/data/badges.jsx` | modified | Central badge data |
+| `v2/solutions/data/infra.jsx` | modified | Central infra tag data |
+| `v2/solutions/solution-providers.mdx` | new | SPE overview page with comparison table |
+| `v2/solutions/daydream/overview.mdx` | modified | Canonical layout, StyledSteps, hero images |
+| `v2/solutions/livepeer-studio/overview.mdx` | modified | Canonical layout, StyledSteps, YouTube video |
+| `v2/solutions/frameworks/overview.mdx` | modified | Canonical layout, StyledSteps, YouTubeVideo fix |
+| `v2/solutions/streamplace/overview.mdx` | modified | Canonical layout applied |
+| `v2/solutions/embody/overview.mdx` | modified | Canonical layout, import path fix |
+| `v2/solutions/daydream/community.mdx` | modified | LazyLoad, Twitter/X fix |
+| `v2/solutions/livepeer-studio/community.mdx` | modified | LazyLoad, Twitter/X fix, GitHub branch fix |
+| `v2/solutions/frameworks/community.mdx` | modified | LazyLoad, Twitter/X fix |
+| `v2/solutions/streamplace/community.mdx` | modified | LazyLoad added |
+| `v2/solutions/embody/community.mdx` | modified | LazyLoad, Twitter/X fix |
+| `v2/solutions/portal.mdx` | modified | Central data imports, SolutionCard JSX props |
+| `v2/solutions/resources/compendium/glossary.mdx` | modified | 4 new terms added |
+| `snippets/templates/pages/domain-pages/solutions-overview-template.mdx` | modified | Canonical layout template |
+| `snippets/automations/solutions/*/youtubeDataStatic.jsx` | modified | Export names and URL formats fixed (4 files) |
+| `snippets/automations/solutions/embody/youtubeData.jsx` | modified | URL format fix |
+| `snippets/components/wrappers/cards/SolutionCard.jsx` | modified | JSX-as-props pattern |
+| `snippets/components/wrappers/containers/LazyLoad.jsx` | new | Viewport-based lazy loading wrapper |
+| `operations/scripts/generators/media/generate-hero-background.js` | new | Puppeteer radial gradient background generator |
+| `operations/scripts/generators/media/generate-hero-image.js` | new | Puppeteer hero image overlay generator |
+| `snippets/assets/media/heros/solutions/*/` | new | 20 hero images + 5 backgrounds across all products |
+| `v2/solutions/_workspace/canonical/pageStatus.md` | modified | All pages marked complete |
+
+---
+
 ## Orchestrators Full Quality Check Sweep — 2026-03-24
 
 **Plans**: `workspace/plan/active/CONTENTI-PIPLEINE/00-TRACKER.md`, `workspace/plan/active/ORCHS/01-CORE-NEEDS-AND-STANDARDS.md`
