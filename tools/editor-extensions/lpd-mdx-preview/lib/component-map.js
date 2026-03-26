@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs');
+const nodePath = require('path');
 const mintlify = require('./mintlify-components');
 
 function iconBadge(name) {
@@ -409,13 +411,468 @@ const livepeerComponents = {
     const href = props.href || '#';
     const label = props.label || 'Download';
     return `<a href="${escapeHtml(href)}" style="display: inline-flex; align-items: center; gap: 6px; color: var(--accent);">[⬇] ${escapeHtml(label)}</a>`;
+  },
+
+  // ─── Links ─── //
+
+  DoubleIconLink(props) {
+    const label = props.label || '';
+    const href = props.href || '#';
+    const text = props.text || '';
+    const iconLeft = props.iconLeft || 'github';
+    const iconRight = props.iconRight || 'arrow-up-right';
+    return `<a href="${escapeHtml(href)}" style="display: inline-flex; align-items: center; gap: 6px; color: var(--accent); text-decoration: none; font-weight: 500;">
+      <i class="fa-solid fa-${escapeHtml(iconLeft)}"></i>
+      ${escapeHtml(text || label)}
+      <i class="fa-solid fa-${escapeHtml(iconRight)}" style="font-size: 0.75em;"></i>
+    </a>`;
+  },
+
+  BlinkingTerminal(props) {
+    return '<span class="icon-badge" style="animation: pulse 1.5s ease-in-out infinite;">[terminal]</span>';
+  },
+
+  // ─── Portal / Hero Components ─── //
+
+  HeroImageBackgroundComponent(props, children) {
+    return `<div style="position: relative; min-height: 120px; margin: -1em 0 1em 0; padding: 1.5rem; border-radius: 8px; background: linear-gradient(135deg, #0d0d0d 0%, #1a2a1a 100%); overflow: hidden;">
+      ${children}
+    </div>`;
+  },
+
+  Starfield(props) {
+    const density = props.density || '1.1';
+    return `<div style="position: absolute; inset: 0; opacity: 0.3; background: radial-gradient(1px 1px at 20% 30%, rgba(60,181,64,0.6), transparent), radial-gradient(1px 1px at 60% 70%, rgba(60,181,64,0.4), transparent), radial-gradient(1px 1px at 80% 20%, rgba(60,181,64,0.5), transparent); z-index: 0;">
+      <div style="font-size: 0.7em; color: var(--muted-text); padding: 4px;">✨ Starfield (density: ${escapeHtml(density)})</div>
+    </div>`;
+  },
+
+  PortalCardsHeader(props, children) {
+    const title = props.title || '';
+    return `<div style="margin: 1.5rem 0 0.75rem 0;">
+      <div style="font-style: italic; color: var(--muted-text); font-size: 0.85em; margin-bottom: 0.25rem;">
+        <i class="fa-solid fa-signs-post" style="margin-right: 4px;"></i> Choose Your Mission:
+      </div>
+      ${title ? `<div style="font-weight: 600;">${escapeHtml(title)}</div>` : ''}
+      ${children}
+    </div>`;
+  },
+
+  LogoHeroContainer(props, children) {
+    const src = props.src || '';
+    const alt = props.alt || '';
+    const imgHeight = props.imgHeight || '20px';
+    return `<div style="display: flex; flex-direction: column; align-items: center; margin: 1rem auto 0 auto;">
+      ${src ? `<img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" style="height: ${escapeHtml(imgHeight)}; object-fit: contain;" />` : ''}
+      ${children}
+    </div>`;
+  },
+
+  PortalSectionHeader(props, children) {
+    const title = props.title || '';
+    const icon = props.icon || '';
+    return `<div style="margin: 1.5rem 0 0.5rem 0;">
+      <h3>${icon ? `<i class="fa-solid fa-${escapeHtml(icon)}" style="color: var(--accent); margin-right: 6px;"></i>` : ''}${escapeHtml(title)}</h3>
+      ${children}
+    </div>`;
+  },
+
+  RefCardContainer(props, children) {
+    return `<div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">${children}</div>`;
+  },
+
+  HeroOverviewContent(props, children) {
+    return `<div style="position: relative; z-index: 1; padding: 1rem 0;">${children}</div>`;
+  },
+
+  // ─── Data / Embed Components (static placeholders for live data) ─── //
+
+  TwitterTimeline(props) {
+    return `<div class="lpd-embed-placeholder">
+      <i class="fa-brands fa-x-twitter" style="font-size: 1.5em; margin-bottom: 4px;"></i>
+      <div>Twitter/X Timeline</div>
+      <div style="font-size: 0.75em; color: var(--muted-text);">Live embed — renders on Mintlify</div>
+    </div>`;
+  },
+
+  CoinGeckoExchanges(props) {
+    const coinId = props.coinId || 'arbitrum';
+    return `<div class="lpd-embed-placeholder">
+      <div style="font-weight: 600; margin-bottom: 4px;">CoinGecko Exchanges</div>
+      <div style="font-size: 0.85em;">Sortable exchange table for <code>${escapeHtml(coinId)}</code></div>
+      <div style="font-size: 0.75em; color: var(--muted-text);">Live API data — renders on Mintlify</div>
+    </div>`;
+  },
+
+  YouTubeVideoData(props) {
+    const cols = props.cols || '2';
+    return `<div class="lpd-embed-placeholder">
+      <div style="font-weight: 600; margin-bottom: 4px;">YouTube Video Grid</div>
+      <div style="font-size: 0.85em;">${escapeHtml(cols)}-column video embed grid from data</div>
+      <div style="font-size: 0.75em; color: var(--muted-text);">Live embed — renders on Mintlify</div>
+    </div>`;
+  },
+
+  DiscordAnnouncements(props) {
+    const serverName = props.serverName || 'Livepeer';
+    return `<div class="lpd-embed-placeholder">
+      <i class="fa-brands fa-discord" style="font-size: 1.5em; margin-bottom: 4px;"></i>
+      <div>Discord Announcements — ${escapeHtml(serverName)}</div>
+      <div style="font-size: 0.75em; color: var(--muted-text);">Live data — renders on Mintlify</div>
+    </div>`;
+  },
+
+  ChainlistRPCs(props) {
+    const chainId = props.chainId || '42161';
+    return `<div class="lpd-embed-placeholder">
+      <div style="font-weight: 600; margin-bottom: 4px;">Chainlist RPCs</div>
+      <div style="font-size: 0.85em;">Public RPC endpoints for chain <code>${escapeHtml(chainId)}</code></div>
+      <div style="font-size: 0.75em; color: var(--muted-text);">Live API data — renders on Mintlify</div>
+    </div>`;
+  },
+
+  ForumLatestLayout(props) {
+    return `<div class="lpd-embed-placeholder">
+      <i class="fa-solid fa-comments" style="font-size: 1.5em; margin-bottom: 4px;"></i>
+      <div>Forum Latest Posts</div>
+      <div style="font-size: 0.75em; color: var(--muted-text);">Live forum data — renders on Mintlify</div>
+    </div>`;
+  },
+
+  ColumnsBlogCardLayout(props) {
+    const cols = props.cols || '2';
+    return `<div class="lpd-embed-placeholder">
+      <div style="font-weight: 600; margin-bottom: 4px;">Blog Cards</div>
+      <div style="font-size: 0.85em;">${escapeHtml(cols)}-column blog card layout from data</div>
+      <div style="font-size: 0.75em; color: var(--muted-text);">Live data — renders on Mintlify</div>
+    </div>`;
+  },
+
+  StreamplacePlayer(props) {
+    return `<div class="lpd-embed-placeholder">
+      <i class="fa-solid fa-play" style="font-size: 1.5em; margin-bottom: 4px;"></i>
+      <div>Streamplace Player</div>
+      <div style="font-size: 0.75em; color: var(--muted-text);">Live player — renders on Mintlify</div>
+    </div>`;
+  },
+
+  LumaEvents(props) {
+    return `<div class="lpd-embed-placeholder">
+      <i class="fa-solid fa-calendar" style="font-size: 1.5em; margin-bottom: 4px;"></i>
+      <div>Luma Events</div>
+      <div style="font-size: 0.75em; color: var(--muted-text);">Live event data — renders on Mintlify</div>
+    </div>`;
+  },
+
+  RssBlogCardLayout(props) {
+    return `<div class="lpd-embed-placeholder">
+      <i class="fa-solid fa-rss" style="font-size: 1.2em; margin-bottom: 4px;"></i>
+      <div>RSS Blog Cards</div>
+      <div style="font-size: 0.75em; color: var(--muted-text);">Live RSS feed — renders on Mintlify</div>
+    </div>`;
+  },
+
+  // ─── Content Components ─── //
+
+  CustomCardTitle(props) {
+    const icon = props.icon || '';
+    const title = props.title || '';
+    return `<div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
+      ${icon ? `<i class="fa-solid fa-${escapeHtml(icon)}" style="color: var(--accent);"></i>` : ''}
+      <span>${escapeHtml(title)}</span>
+    </div>`;
+  },
+
+  LazyLoad(props, children) {
+    return `<div>${children}</div>`;
+  },
+
+  ShowcaseCards(props) {
+    return `<div class="lpd-embed-placeholder">
+      <div style="font-weight: 600; margin-bottom: 4px;">Showcase Cards</div>
+      <div style="font-size: 0.85em;">Paginated searchable card grid from data</div>
+      <div style="font-size: 0.75em; color: var(--muted-text);">Interactive — renders on Mintlify</div>
+    </div>`;
+  },
+
+  PdfEmbed(props) {
+    const title = props.title || 'PDF Document';
+    const src = props.src || '';
+    return `<div class="lpd-embed-placeholder">
+      <i class="fa-solid fa-file-pdf" style="font-size: 1.5em; margin-bottom: 4px;"></i>
+      <div>${escapeHtml(title)}</div>
+      ${src ? `<div style="font-size: 0.75em; color: var(--muted-text);">${escapeHtml(src)}</div>` : ''}
+    </div>`;
+  },
+
+  Video(props, children) {
+    const title = props.title || '';
+    const src = props.src || '';
+    const caption = props.caption || '';
+    return `<div class="lpd-frame" style="text-align: center;">
+      <div style="padding: 2rem; background: var(--card-bg); border-radius: 6px;">
+        <i class="fa-solid fa-play" style="font-size: 2em; color: var(--accent); margin-bottom: 8px;"></i>
+        ${title ? `<div style="font-weight: 600;">${escapeHtml(title)}</div>` : ''}
+        ${src ? `<div style="font-size: 0.75em; color: var(--muted-text);">${escapeHtml(src)}</div>` : ''}
+      </div>
+      ${caption ? `<div style="font-size: 0.85em; color: var(--muted-text); margin-top: 4px;">${escapeHtml(caption)}</div>` : ''}
+      ${children}
+    </div>`;
+  },
+
+  UpdateLinkList(props) {
+    return `<div style="margin: 1em 0; padding-left: 16px; border-left: 2px solid var(--accent);">
+      <div style="font-size: 0.85em; color: var(--muted-text);">Update link list from data</div>
+    </div>`;
+  },
+
+  IconBadgeWrapper(props, children) {
+    const gap = props.gap || '0.75rem';
+    return `<div style="display: flex; flex-wrap: wrap; gap: ${escapeHtml(gap)}; align-items: center;">${children}</div>`;
+  },
+
+  BadgeWrapper(props, children) {
+    const gap = props.gap || '0.4rem';
+    return `<div style="display: flex; flex-wrap: wrap; gap: ${escapeHtml(gap)}; align-items: center;">${children}</div>`;
+  },
+
+  FocusableScrollRegions() {
+    return ''; // side-effect only — no visible output
+  },
+
+  TabsContainer(props, children) {
+    return `<div class="lpd-tabs">${children}</div>`;
+  },
+
+  // ─── Orchestrator/Gateway tab-specific ─── //
+
+  WindowsOnChainTab(props, children) { return `<div class="lpd-tab-section" data-tab-title="Windows (On-Chain)"><div class="lpd-tab-panel-content">${children}</div></div>`; },
+  WindowsOffChainTab(props, children) { return `<div class="lpd-tab-section" data-tab-title="Windows (Off-Chain)"><div class="lpd-tab-panel-content">${children}</div></div>`; },
+  LinuxOnChainTab(props, children) { return `<div class="lpd-tab-section" data-tab-title="Linux (On-Chain)"><div class="lpd-tab-panel-content">${children}</div></div>`; },
+  LinuxOffChainTab(props, children) { return `<div class="lpd-tab-section" data-tab-title="Linux (Off-Chain)"><div class="lpd-tab-panel-content">${children}</div></div>`; },
+  DockerOnChainTab(props, children) { return `<div class="lpd-tab-section" data-tab-title="Docker (On-Chain)"><div class="lpd-tab-panel-content">${children}</div></div>`; },
+  DockerOffChainTab(props, children) { return `<div class="lpd-tab-section" data-tab-title="Docker (Off-Chain)"><div class="lpd-tab-panel-content">${children}</div></div>`; },
+  MacSupport(props, children) { return `<div class="lpd-callout info"><span class="lpd-callout-icon">🍎</span><div class="lpd-callout-body">${children}</div></div>`; },
+  LinuxSupport(props, children) { return `<div class="lpd-callout info"><span class="lpd-callout-icon">🐧</span><div class="lpd-callout-body">${children}</div></div>`; },
+  DockerSupport(props, children) { return `<div class="lpd-callout info"><span class="lpd-callout-icon">🐳</span><div class="lpd-callout-body">${children}</div></div>`; },
+  GatewayOnChainWarning(props, children) { return `<div class="lpd-callout warning"><span class="lpd-callout-icon">⚠️</span><div class="lpd-callout-body">${children}</div></div>`; },
+  GatewayOffChainWarning(props, children) { return `<div class="lpd-callout warning"><span class="lpd-callout-icon">⚠️</span><div class="lpd-callout-body">${children}</div></div>`; },
+  EthAccountSetup(props, children) { return `<div class="lpd-callout note"><span class="lpd-callout-icon">🔑</span><div class="lpd-callout-body">${children}</div></div>`; },
+
+  // ─── Misc low-use ─── //
+
+  PlayIcon() { return '<i class="fa-solid fa-play" style="color: var(--accent);"></i>'; },
+  PauseIcon() { return '<i class="fa-solid fa-pause" style="color: var(--accent);"></i>'; },
+  LivepeerIconOld() { return '<span class="icon-badge">[Livepeer]</span>'; },
+  LivepeerIconFlipped() { return '<span class="icon-badge">[Livepeer]</span>'; },
+  LivepeerSVG() { return '<span class="icon-badge">[Livepeer]</span>'; },
+
+  DocsPhilosophy(props, children) { return `<div class="lpd-callout note"><span class="lpd-callout-icon">📖</span><div class="lpd-callout-body">${children}</div></div>`; },
+
+  OrchestratorRoleDiagram(props, children) { return `<div style="margin: 1em 0; padding: 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg);">${children || '<div style="color: var(--muted-text);">Orchestrator role diagram</div>'}</div>`; },
+
+  TestVideoDownload(props) {
+    const href = props.href || '#';
+    return `<a href="${escapeHtml(href)}" style="display: inline-flex; align-items: center; gap: 6px; color: var(--accent);">[⬇] Test Video Download</a>`;
+  },
+
+  ValueResponseField(props, children) {
+    const name = props.name || '';
+    const type = props.type || '';
+    return `<div style="margin: 0.5em 0; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px;">
+      <code style="color: var(--accent);">${escapeHtml(name)}</code>
+      ${type ? `<span style="color: var(--muted-text); margin-left: 8px; font-size: 0.85em;">${escapeHtml(type)}</span>` : ''}
+      <div style="margin-top: 4px;">${children}</div>
+    </div>`;
+  },
+
+  ResponseMetaField(props, children) {
+    const name = props.name || '';
+    return `<div style="margin: 0.5em 0; padding: 6px 12px; border-left: 2px solid var(--border);">
+      <code style="font-size: 0.85em; color: var(--muted-text);">${escapeHtml(name)}</code>
+      <div style="margin-top: 2px;">${children}</div>
+    </div>`;
+  },
+
+  CustomCodeBlock(props, children) {
+    const lang = props.language || props.lang || '';
+    return `<pre><code class="language-${escapeHtml(lang)}">${children}</code></pre>`;
+  },
+
+  View(props, children) { return `<div>${children}</div>`; },
+  ChildView(props, children) { return `<div>${children}</div>`; },
+  Snippet(props, children) { return `<div>${children}</div>`; },
+  Panel(props, children) { return `<div style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; margin: 1em 0;">${children}</div>`; },
+  BoxConfig(props, children) { return `<div style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; margin: 1em 0; background: var(--card-bg);">${children}</div>`; },
+
+  Color(props) {
+    const value = props.value || props.hex || '#3CB540';
+    return `<span style="display: inline-block; width: 14px; height: 14px; border-radius: 3px; background: ${escapeHtml(value)}; vertical-align: middle; margin-right: 4px; border: 1px solid var(--border);"></span>`;
+  },
+
+  LatestVersion(props) {
+    return `<span style="font-size: 0.85em; color: var(--accent);">[latest version]</span>`;
+  },
+
+  OrchAddrNote(props, children) {
+    return `<div class="lpd-callout note"><span class="lpd-callout-icon">📋</span><div class="lpd-callout-body">${children}</div></div>`;
+  }
+};
+
+
+// ─── Data-driven components (context-aware, receive workspaceRoot) ─── //
+
+/**
+ * Known data identifiers → file paths (relative to workspace root).
+ * When a component prop contains a JSX expression like {contractAddresses},
+ * the parser strips braces and delivers the identifier string. This map
+ * tells the renderer where to load the actual data from disk.
+ */
+const DATA_SOURCES = {
+  contractAddresses: 'snippets/automations/globals/contractAddressesData.jsx'
+};
+
+/** Cache parsed data files within a single render pass */
+const _dataCache = new Map();
+
+function loadDataFromFile(identifier, workspaceRoot) {
+  if (!workspaceRoot || !DATA_SOURCES[identifier]) return null;
+
+  const cacheKey = `${workspaceRoot}:${identifier}`;
+  if (_dataCache.has(cacheKey)) return _dataCache.get(cacheKey);
+
+  try {
+    const filePath = nodePath.join(workspaceRoot, DATA_SOURCES[identifier]);
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    // Extract the object literal from  `export const <name> = { ... };`
+    const match = raw.match(/export\s+const\s+\w+\s*=\s*(\{[\s\S]*\});?\s*$/);
+    if (!match) return null;
+    const data = JSON.parse(match[1]);
+    _dataCache.set(cacheKey, data);
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+function clearDataCache() {
+  _dataCache.clear();
+}
+
+/**
+ * Context-aware component renderers.
+ * Signature: (props, childrenHtml, context) where context = { workspaceRoot }.
+ */
+const contextComponents = {
+
+  ContractAddressDisplay(props, _children, context) {
+    const dataId = props.data || 'contractAddresses';
+    const data = loadDataFromFile(dataId, context && context.workspaceRoot);
+
+    if (!data || !data.arbitrumOne) {
+      return `<div class="lpd-placeholder">
+        <span class="lpd-placeholder-tag">&lt;ContractAddressDisplay&gt;</span>
+        <div style="padding: 8px; color: var(--text-secondary);">
+          Data file not found. Run the contract address fetch script to generate data.
+        </div>
+      </div>`;
+    }
+
+    const explorerUrls = (data.meta && data.meta.explorerUrls) || {};
+    const arbUrl = explorerUrls.arbiscan || 'https://arbiscan.io/address/';
+    const ethUrl = explorerUrls.etherscan || 'https://etherscan.io/address/';
+
+    function addr(address, baseUrl, label) {
+      return `<span style="display: inline-flex; align-items: center; gap: 0.25rem; flex-wrap: wrap;">
+        <code class="lpd-contract-addr">${escapeHtml(address)}</code>
+        <a href="${escapeHtml(baseUrl)}${escapeHtml(address)}" style="font-size: 0.75rem; color: var(--accent); text-decoration: none;">${escapeHtml(label)} ↗</a>
+      </span>`;
+    }
+
+    function networkTable(title, entries, baseUrl, explorerLabel) {
+      const rows = (entries || []).map(e =>
+        `<tr style="border-bottom: 1px solid var(--border);">
+          <td style="padding: 0.4rem 0.5rem; white-space: nowrap; font-weight: 600;">${escapeHtml(e.name)}${e.version ? ` (${escapeHtml(e.version)})` : ''}</td>
+          <td style="padding: 0.4rem 0.5rem;">${addr(e.address, baseUrl, explorerLabel)}</td>
+          <td style="padding: 0.4rem 0.5rem; font-size: 0.8rem; color: var(--text-secondary);">${escapeHtml(e.type || '')}</td>
+        </tr>`
+      ).join('');
+
+      return `<div style="margin-bottom: 1.5rem;">
+        <h3 style="margin-bottom: 0.5rem;">${escapeHtml(title)}</h3>
+        <div class="lpd-interactive-badge">⚡ interactive — static in preview</div>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border);">
+                <th style="text-align: left; padding: 0.5rem;">Contract</th>
+                <th style="text-align: left; padding: 0.5rem;">Address</th>
+                <th style="text-align: left; padding: 0.5rem;">Type</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">
+          ${(entries || []).length} contracts
+        </div>
+      </div>`;
+    }
+
+    function historicalSection(title, historical, baseUrl, explorerLabel) {
+      const groups = Object.entries(historical || {});
+      if (groups.length === 0) return '';
+
+      const groupsHtml = groups.map(([group, gData]) => {
+        const items = (gData.entries || []).map(e =>
+          `<li style="padding: 0.2rem 0;">
+            <strong style="min-width: 3rem; display: inline-block;">${escapeHtml(e.version || '')}</strong>
+            ${addr(e.address, baseUrl, explorerLabel)}
+          </li>`
+        ).join('');
+        return `<div style="margin-bottom: 0.75rem;">
+          <h4 style="font-size: 0.9rem; margin-bottom: 0.25rem;">${escapeHtml(group)}</h4>
+          <ul style="list-style: none; padding: 0; margin: 0;">${items}</ul>
+        </div>`;
+      }).join('');
+
+      return `<details style="margin-bottom: 1rem;">
+        <summary style="cursor: pointer; font-weight: 600; padding: 0.5rem 0;">${escapeHtml(title)}</summary>
+        <div style="padding-left: 0.5rem;">${groupsHtml}</div>
+      </details>`;
+    }
+
+    // Meta badge
+    const meta = data.meta || {};
+    const lastVerified = meta.lastVerified
+      ? new Date(meta.lastVerified).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+      : 'Pending';
+    const metaBadge = `<div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem; padding: 6px 10px; border-radius: 6px; background: var(--card-background); border: 1px solid var(--border);">
+      Verified: ${escapeHtml(lastVerified)}${meta.verificationSummary ? ` — ${escapeHtml(meta.verificationSummary)}` : ''}${meta.sourceCommit ? ` — commit ${escapeHtml(meta.sourceCommit)}` : ''}
+    </div>`;
+
+    // Show historical unless explicitly disabled
+    const showHistorical = props.showHistorical !== 'false' && props.showHistorical !== false;
+
+    let html = metaBadge;
+    html += networkTable('Arbitrum One', data.arbitrumOne.current, arbUrl, 'Arbiscan');
+    html += networkTable('Ethereum Mainnet', (data.ethereumMainnet && data.ethereumMainnet.current) || [], ethUrl, 'Etherscan');
+
+    if (showHistorical) {
+      html += `<h2 style="margin-top: 1.5rem;">Deprecated Contract Addresses</h2>`;
+      html += `<p style="font-size: 0.9rem; color: var(--text-secondary);">Historical implementations replaced through governance upgrades.</p>`;
+      html += historicalSection('Arbitrum One — Historical', data.arbitrumOne.historical, arbUrl, 'Arbiscan');
+      html += historicalSection('Ethereum Mainnet — Historical', (data.ethereumMainnet && data.ethereumMainnet.historical) || {}, ethUrl, 'Etherscan');
+    }
+
+    return html;
   }
 };
 
 
 // ─── Unified Component Map ─── //
 
-const COMPONENT_MAP = Object.assign({}, mintlify, livepeerComponents);
+const COMPONENT_MAP = Object.assign({}, mintlify, livepeerComponents, contextComponents);
 
 
 // ─── Tier 3: Generic Placeholder ─── //
@@ -436,7 +893,8 @@ function renderPlaceholder(tag, props, childrenHtml) {
 
 // ─── Segment Renderer ─── //
 
-function renderSegments(segments) {
+function renderSegments(segments, context) {
+  clearDataCache();
   const parts = [];
   let hasMermaid = false;
 
@@ -467,7 +925,7 @@ function renderSegments(segments) {
       }
 
       case 'jsx':
-        parts.push(renderJsx(seg));
+        parts.push(renderJsx(seg, context));
         break;
 
       case 'jsx-expression': {
@@ -492,14 +950,14 @@ function renderSegments(segments) {
   return { html: parts.join('\n'), hasMermaid };
 }
 
-function renderJsx(seg) {
+function renderJsx(seg, context) {
   const childrenHtml = seg.children && seg.children.length > 0
-    ? renderSegments(seg.children).html
+    ? renderSegments(seg.children, context).html
     : '';
 
   const renderer = COMPONENT_MAP[seg.tag];
   if (renderer) {
-    return renderer(seg.props || {}, childrenHtml);
+    return renderer(seg.props || {}, childrenHtml, context || {});
   }
 
   return renderPlaceholder(seg.tag, seg.props || {}, childrenHtml);

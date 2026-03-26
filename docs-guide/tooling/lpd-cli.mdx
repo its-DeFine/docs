@@ -16,7 +16,7 @@ audience: internal
 pageType: reference
 purpose: reference
 status: current
-lastVerified: 2026-03-22T00:00:00.000Z
+lastVerified: 2026-03-27T00:00:00.000Z
 'og:image': /snippets/assets/site/og-image/fallback.png
 'og:image:alt': Livepeer Docs social preview image
 'og:image:type': image/png
@@ -107,7 +107,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     { Command: "lpd version", Purpose: "Print the CLI version.", "Key flags": "--json (global form supported)" },
     { Command: "lpd setup", Purpose: "Bootstrap tools/tests dependencies, hooks, optional PATH install, and Codex planner-skill sync.", "Key flags": "--yes, --no-tools, --no-tests, --no-hooks, --with-mintlify, --no-cli, --no-codex-skills, --json" },
     { Command: "lpd doctor", Purpose: "Check repo readiness, dependencies, Mint, and hook state.", "Key flags": "--strict, --json" },
-    { Command: "lpd dev", Purpose: "Run local Mint development, optionally scoped by version, language, tab, or route prefix.", "Key flags": "--test, --test-mode, --scoped, --scope-file, --scope-version, --scope-language, --scope-tab, --scope-prefix, --disable-openapi, --" },
+    { Command: "lpd dev", Purpose: "Run local Mint development, optionally scoped by version, language, tab, or route prefix.", "Key flags": "--test, --test-mode, --scoped, --scope-file, --scope-version, --scope-language, --scope-tab, --scope-prefix, --scope-list, --scope-interactive, --disable-openapi, --" },
     { Command: "lpd mint dev", Purpose: "Compatibility alias to `lpd dev`.", "Key flags": "same as `lpd dev`" },
     { Command: "lpd test", Purpose: "Run staged/full tests with optional browser, domain, WCAG, and external-link audits.", "Key flags": "--staged, --full, --browser, --domain, --wcag, --wcag-no-fix, --link-audit-external, --base-url, --json" },
     { Command: "lpd ci", Purpose: "Run CI-like local validation.", "Key flags": "--skip-browser, --base-url, --json" },
@@ -230,11 +230,20 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
 
     **Usage**
     ```bash icon="terminal"
-    lpd dev [--test] [--test-mode fast|staged|full] [--script [path]] [--dry-run] [--scoped] [--docs-config [path]] [--scope-interactive] [--scope-file [path]] [--scope-version [csv]] [--scope-language [csv]] [--scope-tab [csv]] [--scope-prefix [csv]] [--skip-external-fetch] [--disable-openapi] [-- ...mint args]
+    lpd dev [--test] [--test-mode fast|staged|full] [--script [path]] [--dry-run] [--scoped] [--docs-config [path]] [--scope-interactive] [--scope-list] [--scope-file [path]] [--scope-version [csv]] [--scope-language [csv]] [--scope-tab [csv]] [--scope-prefix [csv]] [--skip-external-fetch] [--disable-openapi] [-- ...mint args]
     ```
 
     **What `--scoped` does**
-    Generates a reduced dev-only Mint profile so large docs nav trees start faster and route changes are lighter when you are filtering the main docs navigation.
+    Generates a reduced dev-only Mint profile so large docs nav trees start faster and route changes are lighter when you are filtering the main docs navigation. Scope inputs are validated before any setup work runs (hooks, patches, fetches) so bad tab names fail immediately.
+
+    **Tab name matching**
+    Tab names are case-insensitive and support fuzzy matching. You do not need to quote multi-word tab names. The matcher resolves partial names using prefix, substring, and stem matching:
+    - `Resources` resolves to `Resource HUB`
+    - `Orch` resolves to `Orchestrators`
+    - `LP` resolves to `LP Token`
+    - `Internal` resolves to `Internal Hub`
+
+    If a partial name matches more than one tab, the command fails with a list of ambiguous matches.
 
     **Examples**
     ```bash icon="terminal"
@@ -242,8 +251,12 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     lpd dev -- --port 3333
     lpd dev --test --test-mode staged
     lpd dev --scoped --scope-version v2 --scope-language en --scope-tab Developers
+    lpd dev --scoped --scope-tab Resources
+    lpd dev --scoped --scope-tab About, Solutions
+    lpd dev --scoped --scope-tab About --scope-tab Solutions
     lpd dev --scoped --scope-prefix v2/orchestrators
     lpd dev --scoped --scope-interactive
+    lpd dev --scoped --scope-list
     lpd dev --dry-run --scoped --scope-prefix v2/orchestrators
     ```
 
@@ -277,6 +290,9 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     <ResponseField name="--scope-interactive" type="boolean" default="false">
       Prompt for scoped filters interactively.
     </ResponseField>
+    <ResponseField name="--scope-list" type="boolean" default="false">
+      Print available versions, languages, and tab names from `docs.json`, then exit. Use this to discover valid scope values before running a scoped session.
+    </ResponseField>
     <ResponseField name="--scope-version [csv]" type="string" default="all">
       Limit included versions.
     </ResponseField>
@@ -284,7 +300,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
       Limit included languages.
     </ResponseField>
     <ResponseField name="--scope-tab [csv]" type="string" default="all">
-      Limit included tabs.
+      Limit included tabs. Supports fuzzy matching: partial names, prefix matches, and stem matches resolve automatically. Multi-word tab names do not require quotes. Multiple tabs can be comma-separated or passed as repeated flags.
     </ResponseField>
     <ResponseField name="--scope-prefix [csv]" type="string" default="all">
       Limit included routes by prefix such as `v2/orchestrators`.

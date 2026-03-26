@@ -1062,6 +1062,10 @@ cmd_dev() {
                 scoped_mode=1
                 scope_interactive=1
                 ;;
+            --scope-list)
+                node "$REPO_ROOT/tools/dev/generate-mint-dev-scope.js" --list
+                return 0
+                ;;
             --scope-file)
                 if [ "$#" -lt 2 ]; then
                     finish 1 "dev" "--scope-file requires a path."
@@ -1123,12 +1127,20 @@ cmd_dev() {
                     return 1
                 fi
                 scoped_mode=1
-                if [ -n "$scope_tabs" ]; then
-                    scope_tabs="$scope_tabs,$2"
-                else
-                    scope_tabs="$2"
-                fi
+                # Consume the next arg plus any trailing non-flag args
+                # so that `--scope-tab About, Solutions` and
+                # `--scope-tab Resource HUB` work without quotes.
+                local _tab_val="$2"
                 shift
+                while [ "$#" -gt 1 ] && case "$2" in --*) false;; *) true;; esac; do
+                    _tab_val="$_tab_val $2"
+                    shift
+                done
+                if [ -n "$scope_tabs" ]; then
+                    scope_tabs="$scope_tabs,$_tab_val"
+                else
+                    scope_tabs="$_tab_val"
+                fi
                 ;;
             --scope-tab=*)
                 scoped_mode=1
@@ -1195,7 +1207,7 @@ cmd_dev() {
                 ;;
             --help|-h)
                 cat <<'EOF'
-Usage: lpd dev [--test] [--test-mode fast|staged|full] [--script <path>] [--dry-run] [--scoped] [--docs-config <path>] [--scope-interactive] [--scope-file <path>] [--scope-version <csv>] [--scope-language <csv>] [--scope-tab <csv>] [--scope-prefix <csv>] [--skip-external-fetch] [--disable-openapi] [-- ...mint args]
+Usage: lpd dev [--test] [--test-mode fast|staged|full] [--script <path>] [--dry-run] [--scoped] [--docs-config <path>] [--scope-interactive] [--scope-list] [--scope-file <path>] [--scope-version <csv>] [--scope-language <csv>] [--scope-tab <csv>] [--scope-prefix <csv>] [--skip-external-fetch] [--disable-openapi] [-- ...mint args]
 EOF
                 return 0
                 ;;

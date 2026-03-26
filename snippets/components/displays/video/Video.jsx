@@ -1,3 +1,31 @@
+/* Internal helper — icon button that opens an external link without wrapping content in <a> */
+const ExternalLinkButtonInline = ({ href, ariaLabel = "Open external link", size = 14, style = {} }) => {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <button
+      onClick={(e) => { e.stopPropagation(); window.open(href, "_blank", "noopener,noreferrer"); }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      aria-label={ariaLabel}
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "6px",
+        background: hovered ? "var(--accent)" : "transparent",
+        border: `1.5px solid ${hovered ? "var(--accent)" : "var(--hero-text)"}`,
+        borderRadius: "6px",
+        cursor: "pointer",
+        transition: "all 0.15s ease",
+        lineHeight: 0,
+        ...style,
+      }}
+    >
+      <Icon icon="arrow-up-right" size={size} color={hovered ? "var(--hero-bg)" : "var(--hero-text)"} />
+    </button>
+  );
+};
+
 /**
  * @component TitledVideo
  * @type displays
@@ -244,49 +272,34 @@ export const Video = ({
   };
 
   const captionContent = buildCaption();
-  const showArrow = !!href || arrow;
-
-  const frameEl = (
-    <Frame className={className} style={style} {...(captionContent ? { caption: captionContent } : {})} {...rest}>
-      <video
-        controls={controls}
-        autoPlay={autoPlay}
-        loop={loop}
-        muted={muted}
-        playsInline
-        className="w-full aspect-video rounded-xl"
-        src={src}
-        title={title || author || "Video"}
-      />
-      {children}
-    </Frame>
-  );
-
-  if (!showArrow && !href) return frameEl;
 
   return (
     <div style={{ position: "relative", display: "block" }}>
       {href && (
-        <a
+        <ExternalLinkButtonInline
           href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={title || author || "Video link"}
-          style={{ position: "absolute", inset: "0", zIndex: "1", display: "block", textDecoration: "none", border: "none", outline: "none", boxShadow: "none" }}
+          ariaLabel={title || author || "Open external link"}
+          style={{
+            position: "absolute",
+            top: "0.5rem",
+            right: "0.75rem",
+            zIndex: "2",
+          }}
         />
       )}
-      {showArrow && (
-        <div style={{
-          position: "absolute",
-          top: "0.5rem",
-          right: "0.5rem",
-          zIndex: "2",
-          pointerEvents: "none",
-        }}>
-          <Icon icon="arrow-up-right" size={14} color="var(--lp-color-on-accent)" />
-        </div>
-      )}
-      {frameEl}
+      <Frame className={className} style={style} {...(captionContent ? { caption: captionContent } : {})} {...rest}>
+        <video
+          controls={controls}
+          autoPlay={autoPlay}
+          loop={loop}
+          muted={muted}
+          playsInline
+          className="w-full aspect-video rounded-xl"
+          src={src}
+          title={title || author || "Video"}
+        />
+        {children}
+      </Frame>
     </div>
   );
 };

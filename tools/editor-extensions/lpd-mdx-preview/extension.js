@@ -64,7 +64,8 @@ function updatePreview(panel, document) {
   const text = document.getText();
   const segments = parse(text);
   const dark = isDarkTheme();
-  const { html: bodyHtml, hasMermaid } = renderSegments(segments);
+  const workspaceRoot = getWorkspaceRoot(document);
+  const { html: bodyHtml, hasMermaid } = renderSegments(segments, { workspaceRoot });
 
   const mediaPath = path.join(__dirname, 'media');
   const cssUri = panel.webview.asWebviewUri(
@@ -79,8 +80,6 @@ function updatePreview(panel, document) {
   const mermaidUri = panel.webview.asWebviewUri(
     vscode.Uri.file(path.join(mediaPath, 'mermaid.min.js'))
   );
-
-  const workspaceRoot = getWorkspaceRoot(document);
 
   panel.webview.html = buildWebviewHtml({
     bodyHtml,

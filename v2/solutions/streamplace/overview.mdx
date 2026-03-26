@@ -49,7 +49,9 @@ import { streamplaceSocials } from "./data/socials.jsx"
   This page is maintained by the Streamplace Team. Help & support available via the [Streamplace Discord]('https://discord.com/invite/EdtZv4UTMU').
 </Info>
 
-<iframe src="https://stream.place" width="100%" height="600px" frameBorder="0" allowFullScreen title="Streamplace — live streams" />
+<Frame>
+    <iframe src="https://stream.place" width="100%" height="700px" frameBorder="0" allowFullScreen title="Streamplace — live streams" />
+</Frame>
 
 {/* explains the product */}
 Streamplace is a **public-goods, open-source decentralised video layer** for social networks, livestreaming platforms, and Web3-native apps. It is a Livepeer Special Purpose Entity (SPE).
@@ -70,6 +72,31 @@ Streamplace routes video ingest and processing through Livepeer's decentralised 
 <YouTubeVideo embedUrl="https://www.youtube.com/embed/-xjd_iaULT0?start=63" title="Streamplace: Eli Mallon, founder"/>
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
+
+## Try Streamplace
+{/*
+  Link to actual try-me / use-me / dev references — NOT links already in socials.
+  Use 2 cards if only 2 available.
+  Use 3 cards with the first card full-width if only 3 available.
+  Use 4 cards (cols=2) when 4 are available.
+*/}
+
+<CardGroup cols={2}>
+  <Card title={<CustomCardTitle icon="download" title="Download the node" />} href="https://stream.place/download" img="/snippets/assets/media/heros/solutions/streamplace/Streamplace_Hero_Run-Node.png">
+    Run a Streamplace node for self-hosted video infrastructure.
+  </Card>
+  <Card title={<CustomCardTitle icon="tower-broadcast" title="Live dashboard" />} href="https://stream.place/live" img="/snippets/assets/media/heros/solutions/streamplace/Streamplace_Hero_Dashboard.png">
+    Browse live streams running on the Streamplace network.
+  </Card>
+  <Card title={<CustomCardTitle icon="book-open" title="Developer docs" />} href="https://stream.place/docs/" img="/snippets/assets/media/heros/solutions/streamplace/Streamplace_Hero_Docs.png">
+    Integration guides, API reference, and node setup.
+  </Card>
+  <Card title={<CustomCardTitle icon="diagram-project" title="Integration guide" />} href="/solutions/streamplace/introduction/streamplace-integration" img="/snippets/assets/media/heros/solutions/streamplace/Streamplace_Hero_Integrate.png">
+    How to embed Streamplace into decentralised social apps and Web3 platforms.
+  </Card>
+</CardGroup>
+
+<CustomDivider style={{margin: "-0.5rem 0 -2.5rem 0"}} />
 
 ## Get Started
 Get started with [Stream.place](https://stream.place) by visiting the website and starting a live stream!
@@ -136,31 +163,6 @@ Get started with [Stream.place](https://stream.place) by visiting the website an
 
 <CustomDivider style={{margin: "-0.5rem 0 -2.5rem 0"}} />
 
-## Try Streamplace
-{/*
-  Link to actual try-me / use-me / dev references — NOT links already in socials.
-  Use 2 cards if only 2 available.
-  Use 3 cards with the first card full-width if only 3 available.
-  Use 4 cards (cols=2) when 4 are available.
-*/}
-
-<CardGroup cols={2}>
-  <Card title={<CustomCardTitle icon="download" title="Download the node" />} href="https://stream.place/download" img="/snippets/assets/media/heros/solutions/streamplace/Streamplace_Hero_Run-Node.png">
-    Run a Streamplace node for self-hosted video infrastructure.
-  </Card>
-  <Card title={<CustomCardTitle icon="tower-broadcast" title="Live dashboard" />} href="https://stream.place/live" img="/snippets/assets/media/heros/solutions/streamplace/Streamplace_Hero_Dashboard.png">
-    Browse live streams running on the Streamplace network.
-  </Card>
-  <Card title={<CustomCardTitle icon="book-open" title="Developer docs" />} href="https://stream.place/docs/" img="/snippets/assets/media/heros/solutions/streamplace/Streamplace_Hero_Docs.png">
-    Integration guides, API reference, and node setup.
-  </Card>
-  <Card title={<CustomCardTitle icon="diagram-project" title="Integration guide" />} href="/solutions/streamplace/introduction/streamplace-integration" img="/snippets/assets/media/heros/solutions/streamplace/Streamplace_Hero_Integrate.png">
-    How to embed Streamplace into decentralised social apps and Web3 platforms.
-  </Card>
-</CardGroup>
-
-<CustomDivider style={{margin: "-0.5rem 0 -2.5rem 0"}} />
-
 ## Streamplace Resources
 <CenteredContainer maxWidth="fit-content">
   <BorderedBox style={{margin: "0 0 1rem 0", padding: "0.5rem 1rem 1rem 1rem"}} variant="accent">
@@ -178,8 +180,11 @@ Get started with [Stream.place](https://stream.place) by visiting the website an
   <Card title={<CustomCardTitle title="Streamplace docs" icon="newspaper"/>} href="https://stream.place/docs/" arrow>
     Full documentation: node setup, API, and integration guides.
   </Card>
+  <Card title={<CustomCardTitle title="GitLab" icon="gitlab"/>} href="https://git.stream.place/streamplace/streamplace" arrow>
+    Primary source: open-source Streamplace node and SDK.
+  </Card>
   <Card title={<CustomCardTitle title="GitHub" icon="github"/>} href="https://github.com/streamplace/streamplace" arrow>
-    Open-source Streamplace node and SDK.
+    GitHub mirror of the Streamplace repository.
   </Card>
   <Card title={<CustomCardTitle title="Architecture" icon="sitemap"/>} href="/solutions/streamplace/introduction/streamplace-architecture" arrow>
     How Streamplace's decentralised video stack is structured.

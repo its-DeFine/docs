@@ -52,12 +52,41 @@ stdin.on('end', () => {
       }
     }
 
-    // --- WRITE/EDIT TO MDX/JSX: remind to verify ---
+    // --- WRITE/EDIT: context-specific verification reminders ---
     if ((toolName === 'Write' || toolName === 'Edit') && toolInput.file_path) {
       const fp = toolInput.file_path;
+
+      // MDX/JSX: verify rendering
       if (/\.(mdx|jsx)$/.test(fp)) {
         console.log(JSON.stringify({
-          systemMessage: 'MDX/JSX file modified. After completing edits, verify rendering with: node operations/tests/integration/mdx-component-runtime-smoke.js --routes /v2/relevant-path'
+          systemMessage: 'MDX/JSX file modified. Verify rendering before declaring done: node operations/tests/integration/mdx-component-runtime-smoke.js --routes /v2/relevant-path'
+        }));
+      }
+
+      // Scripts: run the script
+      if (/operations\/scripts\/.*\.js$/.test(fp)) {
+        console.log(JSON.stringify({
+          systemMessage: 'Script modified. Run this script and confirm it executes without errors before declaring done.'
+        }));
+      }
+
+      // Template vs page check
+      if (/snippets\/templates\//.test(fp)) {
+        console.log(JSON.stringify({
+          systemMessage: 'This is a TEMPLATE file. Confirm you intend to edit the template, not an individual page.'
+        }));
+      }
+      if (/v2\/.*\.(mdx|md)$/.test(fp) && !/templates\//.test(fp)) {
+        // Could be a page when they meant a template — light reminder
+      }
+    }
+
+    // --- BASH: file move/rename stale reference reminder ---
+    if (toolName === 'Bash') {
+      const cmd = toolInput.command || '';
+      if (/git\s+mv|mv\s+/.test(cmd) || /rename/i.test(cmd)) {
+        console.log(JSON.stringify({
+          systemMessage: 'File move detected. After completing moves, scan ALL file types for stale references: .mdx, .jsx, .json, .txt, sitemap, llms.txt, docs.json. Do not declare done until residual scan is clean.'
         }));
       }
     }

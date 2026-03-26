@@ -4,12 +4,13 @@
  * @concern           content
  * @niche             data/changelog
  * @purpose           infrastructure:data-feeds
- * @description       Fetches GitHub releases for a solutions product, generates Mintlify <Update> blocks,
+ * @description       Fetches GitHub and/or GitLab releases for a solutions product, generates Mintlify <Update> blocks,
  *                    and appends new entries to the product's changelog MDX file. Config-driven via
  *                    product-social-config.json. With --enhance, uses an LLM to summarise release notes.
- *                    Falls back to raw extraction on LLM failure.
+ *                    Falls back to raw extraction on LLM failure. Supports dual-source (GitHub + GitLab)
+ *                    with deduplication by tag_name.
  * @mode              generate
- * @pipeline          config → GitHub REST API → [LLM optional] → v2/solutions/{product}/changelog.mdx
+ * @pipeline          config → GitHub/GitLab REST API → [LLM optional] → v2/solutions/{product}/changelog.mdx
  * @scope             .github/scripts, v2/solutions/
  * @usage             PRODUCT_KEY=daydream node .github/scripts/generate-solutions-changelog.js [--dry-run] [--enhance]
  * @policy            Public repos only. GITHUB_TOKEN optional (rate limits). No secrets in output.
@@ -25,11 +26,19 @@ const CONFIG_PATH =
   process.env.CONFIG_PATH || path.join(REPO_ROOT, "operations/scripts/config/product-social-config.json");
 const PRODUCT_KEY = process.env.PRODUCT_KEY || "";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
+const GITLAB_TOKEN = process.env.GITLAB_TOKEN || "";
 const LIMIT = parseInt(process.env.LIMIT || "10", 10);
 const DRY_RUN = process.argv.includes("--dry-run");
 const ENHANCE = process.argv.includes("--enhance");
 
 // Resolve product config
+function hasActiveReleases(product) {
+  return (
+    (product.github && product.github.releasesActive) ||
+    (product.gitlab && product.gitlab.releasesActive)
+  );
+}
+
 function loadProductConfig(key) {
   const config = JSON.parse(fs.readFileSync(CONFIG_PATH, "utf8"));
   const products = config.products || {};
@@ -40,7 +49,7 @@ function loadProductConfig(key) {
       console.error(`Product "${key}" not found in config.`);
       process.exit(1);
     }
-    if (!product.github || !product.github.releasesActive) {
+    if (!hasActiveReleases(product)) {
       console.log(`${key}: releases not active, skipping.`);
       process.exit(0);
     }
@@ -49,7 +58,7 @@ function loadProductConfig(key) {
 
   // No key specified — run for all products with active releases
   return Object.entries(products)
-    .filter(([, p]) => p.github && p.github.releasesActive)
+    .filter(([, p]) => hasActiveReleases(p))
     .map(([k, p]) => ({ key: k, ...p }));
 }
 
@@ -57,7 +66,7 @@ function loadProductConfig(key) {
 const LLM_PROVIDER = process.env.LLM_PROVIDER || "openrouter"; // "openrouter" | "copilot"
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || "";
 const OPENROUTER_MODEL =
-  process.env.OPENROUTER_MODEL || "google/gemini-2.5-pro-exp-03-25:free";
+  process.env.OPENROUTER_MODEL || "openrouter/free";
 const COPILOT_TOKEN = process.env.COPILOT_TOKEN || GITHUB_TOKEN;
 const COPILOT_MODEL = process.env.COPILOT_MODEL || "gpt-4o";
 const LLM_TIMEOUT_MS = 30000;
@@ -94,6 +103,133 @@ function githubGet(endpoint) {
     req.on("error", reject);
     req.end();
   });
+}
+
+// ── GitLab API ────────────────────────────────────────────────────────────
+function gitlabGet(instanceUrl, endpoint) {
+  return new Promise((resolve, reject) => {
+    const url = new URL(instanceUrl);
+    const headers = {
+      "User-Agent": "livepeer-docs-bot",
+      Accept: "application/json",
+    };
+    if (GITLAB_TOKEN) {
+      headers["PRIVATE-TOKEN"] = GITLAB_TOKEN;
+    }
+
+    const options = {
+      hostname: url.hostname,
+      port: url.port || (url.protocol === "https:" ? 443 : 80),
+      path: `/api/v4${endpoint}`,
+      method: "GET",
+      headers,
+    };
+
+    const transport = url.protocol === "https:" ? https : require("http");
+    const req = transport.request(options, (res) => {
+      let data = "";
+      res.on("data", (chunk) => (data += chunk));
+      res.on("end", () => {
+        try {
+          resolve(JSON.parse(data));
+        } catch (e) {
+          reject(new Error(`GitLab parse error: ${data.substring(0, 200)}`));
+        }
+      });
+    });
+    req.on("error", reject);
+    req.end();
+  });
+}
+
+/**
+ * Fetch releases from a GitLab project and normalise to GitHub-like shape.
+ */
+async function fetchGitLabRepoReleases(instanceUrl, projectId, repoLabel) {
+  try {
+    const releases = await gitlabGet(
+      instanceUrl,
+      `/projects/${projectId}/releases?per_page=${LIMIT}`
+    );
+
+    if (!Array.isArray(releases) || releases.length === 0) {
+      return [];
+    }
+
+    // Filter: skip upcoming (GitLab's equivalent of prerelease)
+    const versioned = releases.filter(
+      (r) => !r.upcoming_release && r.tag_name !== "preview"
+    );
+
+    // Normalise to GitHub-like shape
+    return versioned.map((r) => ({
+      tag_name: r.tag_name,
+      name: r.name || r.tag_name,
+      body: r.description || "",
+      published_at: r.released_at || r.created_at,
+      created_at: r.created_at,
+      html_url: (r._links && r._links.self) || `${instanceUrl}/${repoLabel ? "" : ""}streamplace/streamplace/-/releases/${r.tag_name}`,
+      prerelease: r.upcoming_release || false,
+      draft: false,
+      _repo: String(projectId),
+      _repoLabel: repoLabel,
+      _source: "gitlab",
+    }));
+  } catch (err) {
+    console.log(`  Error fetching GitLab project ${projectId}: ${err.message}`);
+    return [];
+  }
+}
+
+/**
+ * Fetch commit titles between two tags from GitLab for LLM context.
+ */
+async function fetchGitLabCommitsBetweenTags(instanceUrl, projectId, prevTag, currentTag) {
+  try {
+    const compare = await gitlabGet(
+      instanceUrl,
+      `/projects/${projectId}/repository/compare?from=${encodeURIComponent(prevTag)}&to=${encodeURIComponent(currentTag)}`
+    );
+
+    if (!compare.commits || !Array.isArray(compare.commits)) {
+      return [];
+    }
+
+    return compare.commits
+      .map((c) => c.title || (c.message && c.message.split("\n")[0]) || "")
+      .filter(
+        (msg) =>
+          !msg.startsWith("Merge branch") &&
+          msg !== currentTag &&
+          msg.length > 5
+      )
+      .slice(0, 25);
+  } catch (err) {
+    console.log(`  Could not fetch GitLab commits: ${err.message}`);
+    return [];
+  }
+}
+
+/**
+ * Merge releases from GitHub and GitLab, deduplicating by tag_name.
+ * When both sources have the same tag, the primary source wins.
+ */
+function mergeReleases(githubReleases, gitlabReleases, gitlabIsPrimary) {
+  const byTag = new Map();
+
+  // Add the non-primary source first
+  const first = gitlabIsPrimary ? githubReleases : gitlabReleases;
+  const second = gitlabIsPrimary ? gitlabReleases : githubReleases;
+
+  for (const r of first) {
+    byTag.set(r.tag_name, r);
+  }
+  // Primary source overwrites duplicates
+  for (const r of second) {
+    byTag.set(r.tag_name, r);
+  }
+
+  return Array.from(byTag.values());
 }
 
 // ── LLM providers ───────────────────────────────────────────────────────────
@@ -217,7 +353,10 @@ async function callCopilot(prompt) {
 /**
  * Route to the configured LLM provider.
  */
-async function callLLM(prompt) {
+const LLM_MAX_RETRIES = parseInt(process.env.LLM_MAX_RETRIES || "3", 10);
+const LLM_RETRY_DELAY_MS = 2000;
+
+async function callLLMOnce(prompt) {
   switch (LLM_PROVIDER) {
     case "openrouter":
       return callOpenRouter(prompt);
@@ -228,39 +367,77 @@ async function callLLM(prompt) {
   }
 }
 
+/**
+ * Call LLM with retries. Retries on empty content or transient errors.
+ * Backs off with increasing delay between attempts.
+ */
+async function callLLM(prompt) {
+  let lastError;
+  for (let attempt = 1; attempt <= LLM_MAX_RETRIES; attempt++) {
+    try {
+      const result = await callLLMOnce(prompt);
+      if (result && result.length >= 10) {
+        return result;
+      }
+      lastError = new Error(`LLM returned empty or too-short content (attempt ${attempt}/${LLM_MAX_RETRIES})`);
+    } catch (err) {
+      lastError = err;
+    }
+
+    if (attempt < LLM_MAX_RETRIES) {
+      const delay = LLM_RETRY_DELAY_MS * attempt;
+      console.log(`    Retry ${attempt}/${LLM_MAX_RETRIES} in ${delay}ms...`);
+      await new Promise((r) => setTimeout(r, delay));
+    }
+  }
+  throw lastError;
+}
+
 // ── Prompt ───────────────────────────────────────────────────────────────────
 
+function isPlaceholderBody(body) {
+  if (!body) return true;
+  const trimmed = body.trim();
+  return trimmed.length < 30 || trimmed.includes("didn't work") || trimmed.includes("didn't work");
+}
+
 function buildPrompt(release, prTitles, productName) {
-  const prSection =
+  const hasPlaceholder = isPlaceholderBody(release.body);
+  const commitSection =
     prTitles.length > 0
-      ? `\nMerged PRs in this release:\n${prTitles.map((t) => `- ${t}`).join("\n")}\n`
+      ? `\nCommit log for this release:\n${prTitles.map((t) => `- ${t}`).join("\n")}\n`
       : "";
 
-  return `You are writing a changelog entry for ${productName}.
+  const releaseNotesSection = hasPlaceholder
+    ? "(No release notes provided. Use the commit log as the primary source.)"
+    : `Release notes from the maintainer:\n${release.body}`;
+
+  return `You are a technical changelog writer for ${productName}, an open-source software product.
+
+Task: Summarise a software release into 3-6 concise, structured markdown bullets that describe what shipped. The audience is developers and operators who use this product. The output will be published on a documentation site.
 
 Release: ${release.tag_name} (${formatDate(release.published_at || release.created_at)})
 
-Release notes from GitHub:
-${release.body || "(no release notes)"}
-${prSection}
-Write a concise changelog post about what shipped in this release. Rules:
-- Product changes only. No internal implementation details.
-- No private file paths, directory structures, code snippets, or function names.
-- Organise into sections: ### New features, ### Updates, ### Bug fixes. Omit empty sections.
-- Use markdown bullet points (- **Name** — Description) under each section heading.
-- Each bullet should be one sentence. Be terse.
-- Do not include PR numbers, author names, or GitHub links.
-- Maximum 6 bullets total. Skip trivial changes.
-- If the release is a patch with only fixes, use a single ### Bug fixes section.
+${releaseNotesSection}
+${commitSection}
+Rules:
+- Product-facing changes only. No internal implementation details, private file paths, directory structures, code snippets, or function names.
+- Organise under headings: ### New features, ### Updates, ### Bug fixes. Omit empty sections.
+- Format: \`- **Short name** — One-sentence description.\` under each heading.
+- Be polite and terse. The changelog must be skimmable and quick to read.
+- Do not include PR/MR numbers, author names, commit hashes, or repository links.
+- Maximum 6 bullets total. Skip trivial changes (typos, version bumps, CI config).
+- If only fixes shipped, use a single ### Bug fixes section.
+- Output ONLY the markdown sections. No preamble, no summary sentence, no sign-off.
 
-Example format:
+Example output:
 ### New features
 
-- **Audio output** — Pipelines can now return audio alongside video, streamed over WebRTC.
+- **Pinned messages** — Messages in chat can now be pinned by moderators.
 
 ### Bug fixes
 
-- **Fixed VACE regression** — Resolved tempo sync modulation interfering with VACE noise scale.`;
+- **Stream reconnection** — Fixed an issue where streams would not reconnect after a brief network drop.`;
 }
 
 /**
@@ -415,7 +592,7 @@ function extractRssSummary(body) {
 
 // ── Update block generation ─────────────────────────────────────────────────
 
-function buildUpdateBlock(tag, date, tags, content, releaseUrl, rssSummary, productName, repoLabel) {
+function buildUpdateBlock(tag, date, tags, content, rawNotes, releaseUrl, rssSummary, productName, repoLabel, source) {
   const tagsStr = tags.map((t) => `"${t}"`).join(", ");
   const rssTitle = `${productName} ${tag}`;
   const rssDesc = rssSummary || `${tag} release`;
@@ -428,17 +605,32 @@ function buildUpdateBlock(tag, date, tags, content, releaseUrl, rssSummary, prod
   block += `<Update label="${heading}" tags={[${tagsStr}]} rss={{ title: "${esc(rssTitle)}", description: "${esc(rssDesc)}" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>${date}</div>}>\n`;
   block += `  ## ${heading}\n\n`;
 
+  // LLM summary in BorderedBox variant="muted"
   if (content) {
     const indented = content
+      .split("\n")
+      .map((line) => (line ? `      ${line}` : ""))
+      .join("\n");
+    block += `  <BorderedBox variant="muted">\n`;
+    block += `    ### AI Summary\n\n`;
+    block += `${indented}\n`;
+    block += `  </BorderedBox>\n\n`;
+  }
+
+  // Full release notes from the maintainer in ScrollBox (when they exist and aren't placeholder)
+  if (rawNotes) {
+    const rawIndented = rawNotes
       .split("\n")
       .map((line) => (line ? `    ${line}` : ""))
       .join("\n");
     block += `  <ScrollBox maxHeight="250px" showHint={true}>\n`;
-    block += `${indented}\n`;
+    block += `${rawIndented}\n`;
     block += `  </ScrollBox>\n\n`;
   }
 
-  block += `  <DoubleIconLink label="View release on GitHub" href="${releaseUrl}" iconLeft="github" />\n`;
+  const icon = source === "gitlab" ? "gitlab" : "github";
+  const platform = source === "gitlab" ? "GitLab" : "GitHub";
+  block += `  <DoubleIconLink label="View release on ${platform}" href="${releaseUrl}" iconLeft="${icon}" />\n`;
   block += `</Update>\n`;
 
   return block;
@@ -452,29 +644,41 @@ function generateUpdateBlockRaw(release, productName, repoLabel) {
   const date = formatDateLabel(release.published_at || release.created_at);
   const tags = classifyTags(release.body);
   if (repoLabel) tags.push(repoLabel);
-  const highlights = cleanForMdx(extractHighlights(release.body || ""));
-  const rssSummary = extractRssSummary(release.body || "");
-  return buildUpdateBlock(tag, date, tags, highlights, release.html_url, rssSummary, productName, repoLabel);
+  const placeholder = isPlaceholderBody(release.body);
+  const highlights = placeholder ? "" : cleanForMdx(extractHighlights(release.body || ""));
+  const rssSummary = placeholder ? `${tag} release` : extractRssSummary(release.body || "");
+  // Raw mode: highlights go in primary content, no separate raw notes (they'd be the same)
+  return buildUpdateBlock(tag, date, tags, highlights, null, release.html_url, rssSummary, productName, repoLabel, release._source);
 }
 
 /**
  * Generate an Update block using LLM enhancement (Option A).
  * Falls back to raw extraction on any LLM failure.
  */
-async function generateUpdateBlockEnhanced(release, prevTag, owner, repo, productName, repoLabel) {
+async function generateUpdateBlockEnhanced(release, prevTag, owner, repo, productName, repoLabel, gitlabConfig) {
   const tag = release.tag_name;
   const date = formatDateLabel(release.published_at || release.created_at);
   const tags = classifyTags(release.body);
   if (repoLabel) tags.push(repoLabel);
 
   try {
-    // Fetch PR titles for richer context
-    const prTitles = prevTag
-      ? await fetchPRTitlesBetweenTags(owner, repo, prevTag, tag)
-      : [];
+    // Fetch PR/commit titles for richer context — use correct provider
+    let prTitles = [];
+    if (prevTag) {
+      if (release._source === "gitlab" && gitlabConfig) {
+        prTitles = await fetchGitLabCommitsBetweenTags(
+          gitlabConfig.instanceUrl,
+          gitlabConfig.projectId,
+          prevTag,
+          tag
+        );
+      } else {
+        prTitles = await fetchPRTitlesBetweenTags(owner, repo, prevTag, tag);
+      }
+    }
 
     console.log(
-      `  Enhancing ${tag} with LLM (${prTitles.length} PRs for context)...`
+      `  Enhancing ${tag} with LLM (${prTitles.length} commits/PRs for context)...`
     );
 
     const prompt = buildPrompt(release, prTitles, productName);
@@ -486,8 +690,11 @@ async function generateUpdateBlockEnhanced(release, prevTag, owner, repo, produc
     }
 
     console.log(`  ✓ LLM returned ${llmContent.length} chars`);
-    const rssSummary = extractRssSummary(release.body || "");
-    return buildUpdateBlock(tag, date, tags, llmContent, release.html_url, rssSummary, productName, repoLabel);
+    const placeholder = isPlaceholderBody(release.body);
+    const rssSummary = placeholder ? `${tag} release` : extractRssSummary(release.body || "");
+    // Include raw release notes in accordion when they exist and aren't placeholder
+    const rawNotes = placeholder ? null : cleanForMdx(release.body || "");
+    return buildUpdateBlock(tag, date, tags, llmContent, rawNotes, release.html_url, rssSummary, productName, repoLabel, release._source);
   } catch (err) {
     console.log(`  ✗ LLM failed for ${tag}: ${err.message}`);
     console.log(`  → Falling back to raw extraction`);
@@ -520,6 +727,7 @@ async function fetchRepoReleases(owner, repoName, repoLabel) {
       ...r,
       _repo: repoName,
       _repoLabel: repoLabel,
+      _source: "github",
     }));
   } catch (err) {
     console.log(`  Error fetching ${owner}/${repoName}: ${err.message}`);
@@ -528,36 +736,69 @@ async function fetchRepoReleases(owner, repoName, repoLabel) {
 }
 
 async function processProduct(product) {
-  const owner = product.github.org;
   const productName = product.displayName;
   const changelogPath = path.join(
     REPO_ROOT,
     `v2/solutions/${product.key}/changelog.mdx`
   );
 
-  // Determine repos to process
-  const changelogRepos = product.github.changelogRepos || [
-    { repo: product.github.mainRepo, label: product.github.mainRepo },
-  ];
+  const hasGitHub = product.github && product.github.releasesActive;
+  const hasGitLab = product.gitlab && product.gitlab.releasesActive;
+  const gitlabIsPrimary = hasGitLab && product.gitlab.primary;
 
-  const repoNames = changelogRepos.map((r) => r.repo).join(", ");
-  console.log(`\n═══ ${productName} (${owner}: ${repoNames}) ═══`);
+  // Build source description for logging
+  const sources = [];
+  if (hasGitHub) sources.push(`GitHub: ${product.github.org}/${product.github.mainRepo}`);
+  if (hasGitLab) sources.push(`GitLab: ${product.gitlab.projectPath}`);
+  console.log(`\n═══ ${productName} (${sources.join(" + ")}) ═══`);
 
   if (!fs.existsSync(changelogPath)) {
     console.log(`  Changelog file not found: ${changelogPath} — skipping.`);
     return;
   }
 
-  // Fetch releases from all repos
-  const allReleases = [];
-  for (const { repo, label } of changelogRepos) {
-    const releases = await fetchRepoReleases(owner, repo, label);
-    console.log(`  ${repo}: ${releases.length} versioned release(s)`);
-    allReleases.push(...releases);
+  // Fetch releases from GitHub
+  let githubReleases = [];
+  if (hasGitHub) {
+    const owner = product.github.org;
+    const changelogRepos = product.github.changelogRepos || [
+      { repo: product.github.mainRepo, label: product.github.mainRepo },
+    ];
+    for (const { repo, label } of changelogRepos) {
+      const releases = await fetchRepoReleases(owner, repo, label);
+      console.log(`  GitHub ${repo}: ${releases.length} versioned release(s)`);
+      githubReleases.push(...releases);
+    }
+  }
+
+  // Fetch releases from GitLab
+  let gitlabReleases = [];
+  if (hasGitLab) {
+    const changelogRepos = product.gitlab.changelogRepos || [
+      { projectId: product.gitlab.projectId, projectPath: product.gitlab.projectPath, label: productName },
+    ];
+    for (const { projectId, label } of changelogRepos) {
+      const releases = await fetchGitLabRepoReleases(
+        product.gitlab.instanceUrl,
+        projectId,
+        label
+      );
+      console.log(`  GitLab ${projectId}: ${releases.length} versioned release(s)`);
+      gitlabReleases.push(...releases);
+    }
+  }
+
+  // Merge and deduplicate if both sources active
+  let allReleases;
+  if (hasGitHub && hasGitLab) {
+    allReleases = mergeReleases(githubReleases, gitlabReleases, gitlabIsPrimary);
+    console.log(`  Merged: ${allReleases.length} unique release(s) (${githubReleases.length} GitHub + ${gitlabReleases.length} GitLab, deduplicated)`);
+  } else {
+    allReleases = [...githubReleases, ...gitlabReleases];
   }
 
   if (allReleases.length === 0) {
-    console.log("  No releases found across any repo.");
+    console.log("  No releases found across any source.");
     return;
   }
 
@@ -569,12 +810,10 @@ async function processProduct(product) {
   );
 
   // Read existing changelog — use repo:tag as unique key to avoid collisions
-  // across repos (e.g. both scope and microscope could have v0.1.1)
   const existing = fs.readFileSync(changelogPath, "utf8");
   const newReleases = allReleases.filter((r) => {
     const uniqueHeading = `## ${r._repoLabel}: ${r.tag_name}`;
     const legacyHeading = `## ${r.tag_name}`;
-    // Check both formats — legacy (single-repo) and new (multi-repo)
     return !existing.includes(uniqueHeading) && !existing.includes(legacyHeading);
   });
 
@@ -585,27 +824,33 @@ async function processProduct(product) {
 
   console.log(`  ${newReleases.length} new release(s) to add.`);
 
-  // Determine if this is a multi-repo product
-  const isMultiRepo = changelogRepos.length > 1;
+  // Determine if this is a multi-repo product (GitHub side)
+  const githubChangelogRepos = (hasGitHub && product.github.changelogRepos) || [];
+  const isMultiRepo = githubChangelogRepos.length > 1;
+  const owner = hasGitHub ? product.github.org : "";
 
   // Generate Update blocks
   const blocks = [];
   for (const release of newReleases) {
     const repo = release._repo;
     const repoLabel = release._repoLabel;
-    // For multi-repo: prefix heading with repo label, add repo to tags
     const displayName = isMultiRepo
       ? `${productName} ${repoLabel}`
       : productName;
     const labelForBlock = isMultiRepo ? repoLabel : null;
 
-    // Find previous tag within the same repo for PR comparison
-    const sameRepoReleases = allReleases.filter((r) => r._repo === repo);
-    const currentIdx = sameRepoReleases.indexOf(release);
+    // Find previous tag within the same source for commit comparison
+    const sameSourceReleases = allReleases.filter(
+      (r) => r._source === release._source && r._repo === repo
+    );
+    const currentIdx = sameSourceReleases.indexOf(release);
     const prevTag =
-      currentIdx < sameRepoReleases.length - 1
-        ? sameRepoReleases[currentIdx + 1].tag_name
+      currentIdx < sameSourceReleases.length - 1
+        ? sameSourceReleases[currentIdx + 1].tag_name
         : null;
+
+    // Pass GitLab config for commit fetching when source is GitLab
+    const gitlabConfig = release._source === "gitlab" ? product.gitlab : null;
 
     if (ENHANCE) {
       blocks.push(
@@ -615,7 +860,8 @@ async function processProduct(product) {
           owner,
           repo,
           displayName,
-          labelForBlock
+          labelForBlock,
+          gitlabConfig
         )
       );
     } else {

@@ -213,13 +213,70 @@ function TableCell(props, children) {
     : `<td>${children}</td>`;
 }
 
+// ─── Danger (Mintlify callout variant) ─── //
+
+function Danger(props, children) {
+  return `<div class="lpd-callout danger">
+    <span class="lpd-callout-icon">🚨</span>
+    <div class="lpd-callout-body">${children}</div>
+  </div>`;
+}
+
+// ─── Badge ─── //
+
+function Badge(props, children) {
+  const color = props.color || 'var(--accent)';
+  return `<span style="display: inline-block; font-size: 0.75em; font-weight: 600; padding: 2px 8px; border-radius: 9999px; background: ${escapeHtml(color)}22; color: ${escapeHtml(color)}; border: 1px solid ${escapeHtml(color)}44;">${children || escapeHtml(props.text || '')}</span>`;
+}
+
+// ─── CodeGroup ─── //
+
+function CodeGroup(props, children) {
+  return `<div class="lpd-code-group">${children}</div>`;
+}
+
+// ─── Tree ─── //
+
+function Tree(props, children) {
+  return `<div style="font-family: 'SF Mono', Monaco, Consolas, monospace; font-size: 0.85em; margin: 1em 0; padding: 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--card-bg);">${children}</div>`;
+}
+
+// ─── ParamField ─── //
+
+function ParamField(props, children) {
+  const name = props.path || props.query || props.body || props.header || '';
+  const type = props.type || '';
+  const required = props.required !== undefined;
+  return `<div style="margin: 0.5em 0; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px;">
+    <code style="color: var(--accent);">${escapeHtml(name)}</code>
+    ${type ? `<span style="color: var(--muted-text); margin-left: 8px; font-size: 0.85em;">${escapeHtml(type)}</span>` : ''}
+    ${required ? '<span style="color: #e53e3e; margin-left: 6px; font-size: 0.75em;">required</span>' : ''}
+    <div style="margin-top: 4px;">${children}</div>
+  </div>`;
+}
+
+// ─── OpenAPI (descriptive placeholder — cannot replicate API rendering) ─── //
+
+function OpenAPI(props) {
+  const method = props.method || '';
+  const path = props.path || props.openapi || '';
+  return `<div class="lpd-openapi-placeholder">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+      ${method ? `<span class="lpd-openapi-method">${escapeHtml(method.toUpperCase())}</span>` : ''}
+      ${path ? `<code style="font-size: 0.85em;">${escapeHtml(path)}</code>` : ''}
+    </div>
+    <div style="font-size: 0.8em; color: var(--muted-text);">API reference — renders interactively on Mintlify</div>
+  </div>`;
+}
+
 module.exports = {
-  Note, Tip, Warning, Info, Callout,
+  Note, Tip, Warning, Info, Callout, Danger,
   Card, CardGroup,
   Tabs, Tab,
   Accordion, AccordionGroup,
   Steps, Step,
   Frame, Columns, Expandable,
-  CodeBlock, Icon, Update, ResponseField,
-  StyledTable, TableRow, TableCell
+  CodeBlock, CodeGroup, Icon, Update, ResponseField, ParamField,
+  StyledTable, TableRow, TableCell,
+  Badge, Tree, OpenAPI
 };

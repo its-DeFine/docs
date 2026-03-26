@@ -19,7 +19,7 @@ export const DynamicTable = ({
   headerList = [],
   itemsList = [],
   monospaceColumns = [],
-  showSeparators = true,
+  showSeparators = false,
   margin,
   className = "",
   style = {},

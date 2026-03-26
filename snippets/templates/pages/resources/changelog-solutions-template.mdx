@@ -77,24 +77,52 @@ Track releases for <LinkArrow label="{PRODUCT_NAME}" href="https://github.com/{G
 
 {/* ──────────────────────────────────────────────
   AUTOMATION ZONE — entries below are populated by workflow.
-  Each release uses a Mintlify <Update> block:
 
-  <Update label="vX.Y.Z — Month YYYY" description="One sentence summary" tags={["tag1", "tag2"]} rss={{ title: "{PRODUCT_NAME} vX.Y.Z", description: "One sentence summary for feed readers" }}>
+  Each release uses a Mintlify <Update> block. Two content modes:
+
+  ── MODE A: Enhanced (--enhance flag, LLM summary + raw notes) ──
+
+  <Update label="vX.Y.Z" tags={["Features", "Fixes"]}
+    rss={{ title: "{PRODUCT_NAME} vX.Y.Z", description: "One sentence for feed readers" }}
+    description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>Month YYYY</div>}>
     ## vX.Y.Z
 
-    ### New features
+    <BorderedBox variant="muted">
+      ### AI Summary
 
-    - **Feature name** — Description of what shipped and what it means for users.
+      - **Feature name** — One sentence. Terse. Product-facing only.
+      - **Fixed issue** — What was broken and how it was resolved.
+    </BorderedBox>
 
-    ### Updates
+    <ScrollBox maxHeight="250px" showHint={true}>
+      Full release notes from the maintainer (raw, unedited).
+      These are the engineer's original notes preserved for detail.
+    </ScrollBox>
 
-    - **Update name** — Description of improvement.
-
-    ### Bug fixes
-
-    - **Fixed issue** — What was broken and how it was resolved.
-
-    [View release on GitHub](https://github.com/{GITHUB_ORG}/{GITHUB_REPO}/releases/tag/vX.Y.Z)
+    <DoubleIconLink label="View release on GitHub" href="https://github.com/{GITHUB_ORG}/{GITHUB_REPO}/releases/tag/vX.Y.Z" iconLeft="github" />
   </Update>
+
+  ── MODE B: Raw extraction (no LLM, default) ──
+
+  <Update label="vX.Y.Z" tags={["Release"]}
+    rss={{ title: "{PRODUCT_NAME} vX.Y.Z", description: "One sentence" }}
+    description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>Month YYYY</div>}>
+    ## vX.Y.Z
+
+    <ScrollBox maxHeight="250px" showHint={true}>
+      Extracted highlights from the release notes.
+    </ScrollBox>
+
+    <DoubleIconLink label="View release on GitHub" href="https://github.com/{GITHUB_ORG}/{GITHUB_REPO}/releases/tag/vX.Y.Z" iconLeft="github" />
+  </Update>
+
+  ── RULES ──
+  - label: version only (e.g. "v0.1.9" or "Scope: v0.1.9" for multi-repo)
+  - description: date in styled div (Month YYYY)
+  - tags: Features, Fixes, Performance, Breaking, Release, {RepoLabel}
+  - LLM summary: in BorderedBox variant="muted" with ### AI Summary heading
+  - Raw notes: in ScrollBox maxHeight="250px" — scrollable detail
+  - Link: DoubleIconLink with github or gitlab icon
+  - For GitLab sources: iconLeft="gitlab", label="View release on GitLab"
 
   ────────────────────────────────────────────── */}

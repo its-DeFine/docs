@@ -2174,6 +2174,7 @@
                           "v2/about/resources/livepeer-whitepaper",
                           "v2/about/resources/livepeer-glossary",
                           "v2/about/resources/blockchain-contracts",
+                          "v2/about/resources/contract-addresses",
                           "v2/about/resources/technical-roadmap",
                           {
                             "group": "Compendium",
@@ -2226,7 +2227,8 @@
                         "icon": "projector",
                         "pages": [
                           "v2/solutions/streamplace/overview",
-                          "v2/solutions/streamplace/community"
+                          "v2/solutions/streamplace/community",
+                          "v2/solutions/streamplace/changelog"
                         ]
                       },
                       {

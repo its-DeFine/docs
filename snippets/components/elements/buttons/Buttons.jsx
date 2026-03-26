@@ -1,4 +1,66 @@
 /**
+ * @component ExternalLinkButton
+ * @type elements
+ * @subniche buttons
+ * @status stable
+ * @description Icon button that opens an external link in a new tab. Bordered with rounded corners, hover colour transition.
+ * @accepts style, className, ...rest
+ * @aiDiscoverability none
+ * @param {string} href - URL to open on click.
+ * @param {string} [icon='arrow-up-right'] - Icon name to display.
+ * @param {number} [size=14] - Icon size in pixels.
+ * @param {string} [ariaLabel='Open external link'] - Accessible label.
+ * @param {string} [className=''] - Optional CSS class override.
+ * @param {object} [style={}] - Optional inline style override.
+ * @example
+ * <ExternalLinkButton href="https://example.com" />
+ */
+export const ExternalLinkButton = ({
+  href,
+  icon = "arrow-up-right",
+  size = 14,
+  ariaLabel = "Open external link",
+  className = "",
+  style = {},
+  ...rest
+}) => {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <button
+      className={className}
+      onClick={(e) => {
+        e.stopPropagation();
+        window.open(href, "_blank", "noopener,noreferrer");
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      aria-label={ariaLabel}
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "6px",
+        background: hovered ? "var(--accent)" : "transparent",
+        border: `1.5px solid ${hovered ? "var(--accent)" : "var(--hero-text)"}`,
+        borderRadius: "6px",
+        cursor: "pointer",
+        transition: "all 0.15s ease",
+        lineHeight: 0,
+        ...style,
+      }}
+      {...rest}
+    >
+      <Icon
+        icon={icon}
+        size={size}
+        color={hovered ? "var(--hero-bg)" : "var(--hero-text)"}
+      />
+    </button>
+  );
+};
+
+/**
  * @component DownloadButton
  * @type elements
  * @subniche buttons

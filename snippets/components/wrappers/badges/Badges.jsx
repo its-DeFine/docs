@@ -22,27 +22,31 @@
 export const BadgeWrapper = ({
   badges,
   children,
-  gap = "0.4rem",
+  gap = '0.4rem',
   style = {},
-  className = "",
+  className = '',
   ...rest
 }) => {
   const defaultStyle = {
-    display: "flex",
-    flexWrap: "wrap",
-    alignItems: "center",
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignItems: 'center',
     gap,
-    margin: "0.5rem 0",
-  };
+    margin: '0.5rem 0 1.5rem 0',
+  }
 
   return (
     <div className={className} style={{ ...defaultStyle, ...style }} {...rest}>
       {badges
-        ? badges.map((b, i) => <Badge key={i} color={b.color}>{b.label}</Badge>)
+        ? badges.map((b, i) => (
+            <Badge key={i} color={b.color}>
+              {b.label}
+            </Badge>
+          ))
         : children}
     </div>
-  );
-};
+  )
+}
 
 /**
  * @component IconBadgeWrapper
@@ -67,35 +71,39 @@ export const IconBadgeWrapper = ({
   items = [],
   iconColor,
   size = 14,
-  gap = "0.75rem",
+  gap = '0.75rem',
   style = {},
-  className = "",
+  className = '',
   ...rest
 }) => {
   const wrapperStyle = {
-    display: "flex",
-    flexWrap: "wrap",
-    alignItems: "center",
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignItems: 'center',
     gap,
-    margin: "0.25rem 0 0.5rem",
-  };
+    margin: '0.25rem 0 0.5rem',
+  }
 
   const tagStyle = {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "0.25rem",
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '0.25rem',
     fontSize: `${size}px`,
-    color: "var(--hero-text)",
-  };
+    color: 'var(--hero-text)',
+  }
 
   return (
     <div className={className} style={{ ...wrapperStyle, ...style }} {...rest}>
       {items.map((item, i) => (
         <span key={i} style={tagStyle}>
-          <Icon icon={item.icon} size={size} color={iconColor || "currentColor"} />
+          <Icon
+            icon={item.icon}
+            size={size}
+            color={iconColor || 'currentColor'}
+          />
           {item.label}
         </span>
       ))}
     </div>
-  );
-};
+  )
+}

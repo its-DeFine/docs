@@ -44,9 +44,42 @@ function printUsage() {
       '  --disable-openapi',
       '  --workspace-id <value>    (internal)',
       '  --print-only',
+      '  --list                    Show available versions, tabs, and prefixes',
       '  --help'
     ].join('\n')
   );
+}
+
+function formatAvailableScopes(optionData) {
+  const lines = ['', 'Available scope options:'];
+
+  const versions = optionData.versions;
+  lines.push(`  Versions:  ${versions.length > 0 ? versions.join(', ') : '(none)'}`);
+
+  for (const version of versions) {
+    const versionKey = normalizeForCompare(version);
+    const langSet = optionData.languagesByVersion.get(versionKey);
+    const languages = langSet ? [...langSet].sort() : [];
+    if (languages.length > 0) {
+      lines.push(`  Languages (${version}): ${languages.join(', ')}`);
+    }
+
+    for (const lang of languages.length > 0 ? languages : ['en']) {
+      const tabMapKey = `${versionKey}::${normalizeForCompare(lang)}`;
+      const tabSet = optionData.tabsByVersionLanguage.get(tabMapKey);
+      const tabs = tabSet ? [...tabSet].sort() : [];
+      if (tabs.length > 0) {
+        const label = languages.length > 1 ? ` (${version}/${lang})` : ` (${version})`;
+        lines.push(`  Tabs${label}:    ${tabs.join('  |  ')}`);
+      }
+    }
+  }
+
+  lines.push('');
+  lines.push('Tip: tab names are case-insensitive. Quote names with spaces:');
+  lines.push('  lpd dev --scoped --scope-tab "Solutions,Resource HUB"');
+  lines.push('');
+  return lines.join('\n');
 }
 
 function splitCsv(value) {
@@ -191,6 +224,7 @@ function parseArgs(argv) {
     anchors: [],
     prefixes: [],
     interactive: false,
+    list: false,
     disableOpenapi: false,
     workspaceId: '',
     runScopedSession: false,
@@ -292,6 +326,10 @@ function parseArgs(argv) {
     }
     if (token === '--interactive') {
       out.interactive = true;
+      continue;
+    }
+    if (token === '--list') {
+      out.list = true;
       continue;
     }
     if (token === '--disable-openapi') {
@@ -429,6 +467,70 @@ function resolveSelectionInput(rawInput, options) {
     throw new Error(`Invalid selection token: ${token}`);
   }
   return uniqStrings(out);
+}
+
+function resolveTabsWithFuzzyMatch(inputTabs, optionData) {
+  if (inputTabs.length === 0) return inputTabs;
+
+  // Collect all known tab names across all version/language combos.
+  const allTabs = new Set();
+  for (const tabSet of optionData.tabsByVersionLanguage.values()) {
+    for (const tab of tabSet) allTabs.add(tab);
+  }
+  const knownTabs = [...allTabs];
+  const byExact = new Map(knownTabs.map((t) => [normalizeForCompare(t), t]));
+
+  const resolved = [];
+  for (const input of inputTabs) {
+    const norm = normalizeForCompare(input);
+
+    // 1. Exact match (case-insensitive).
+    if (byExact.has(norm)) {
+      resolved.push(byExact.get(norm));
+      continue;
+    }
+
+    // 2. Prefix match: input is a prefix of a known tab name (or first word matches).
+    const prefixMatches = knownTabs.filter((t) => {
+      const tn = normalizeForCompare(t);
+      return tn.startsWith(norm) || tn.split(/\s+/)[0] === norm;
+    });
+    if (prefixMatches.length === 1) {
+      console.log(`Scope tab resolved: "${input}" → "${prefixMatches[0]}" (prefix match)`);
+      resolved.push(prefixMatches[0]);
+      continue;
+    }
+
+    // 3. Substring match: input appears anywhere in a known tab name.
+    const substringMatches = knownTabs.filter((t) => normalizeForCompare(t).includes(norm));
+    if (substringMatches.length === 1) {
+      console.log(`Scope tab resolved: "${input}" → "${substringMatches[0]}" (substring match)`);
+      resolved.push(substringMatches[0]);
+      continue;
+    }
+
+    // 4. Word-stem match: input without trailing 's' matches a word in a tab name.
+    const stem = norm.endsWith('s') ? norm.slice(0, -1) : null;
+    if (stem) {
+      const stemMatches = knownTabs.filter((t) => {
+        const words = normalizeForCompare(t).split(/\s+/);
+        return words.some((w) => w === stem || w.startsWith(stem));
+      });
+      if (stemMatches.length === 1) {
+        console.log(`Scope tab resolved: "${input}" → "${stemMatches[0]}" (stem match)`);
+        resolved.push(stemMatches[0]);
+        continue;
+      }
+    }
+
+    // 4. No unique match — keep the original (will fail downstream with a clear error).
+    if (prefixMatches.length > 1 || substringMatches.length > 1) {
+      const candidates = uniqStrings([...prefixMatches, ...substringMatches]);
+      throw new Error(`Ambiguous scope tab "${input}" — matches: ${candidates.join(', ')}. Be more specific.`);
+    }
+    throw new Error(`Unknown scope tab "${input}".` + formatAvailableScopes(optionData));
+  }
+  return uniqStrings(resolved);
 }
 
 function matchesSelection(value, selectedSet) {
@@ -1814,10 +1916,13 @@ async function createScopedManifest(args) {
   const optionData = collectOptionsFromNavigation(docs.navigation);
   const allRoutes = collectRoutesFromNavigation(docs.navigation);
 
+  const rawTabs = uniqStrings([...fromScopeFile.tabs, ...args.tabs]);
+  const resolvedTabs = resolveTabsWithFuzzyMatch(rawTabs, optionData);
+
   let selection = {
     versions: uniqStrings([...fromScopeFile.versions, ...args.versions]),
     languages: uniqStrings([...fromScopeFile.languages, ...args.languages]),
-    tabs: uniqStrings([...fromScopeFile.tabs, ...args.tabs]),
+    tabs: resolvedTabs,
     anchors: uniqStrings([...(fromScopeFile.anchors || []), ...(args.anchors || [])]),
     prefixes: uniqStrings([...fromScopeFile.prefixes, ...args.prefixes].map(normalizeRoute)),
     disableOpenapi: Boolean(fromScopeFile.disableOpenapi || args.disableOpenapi)
@@ -1836,7 +1941,7 @@ async function createScopedManifest(args) {
 
   const scopedNavigation = buildScopedNavigation(docs.navigation, selection);
   if (!scopedNavigation) {
-    throw new Error('Scoped profile removed all navigation nodes. Relax version/language/tab/prefix filters.');
+    throw new Error('Scoped profile removed all navigation nodes. Relax version/language/tab/prefix filters.' + formatAvailableScopes(optionData));
   }
 
   const scopedDocs = { ...docs, navigation: scopedNavigation };
@@ -1874,7 +1979,7 @@ async function createScopedManifest(args) {
   }
 
   if (scopedRoutes.length === 0) {
-    throw new Error('Scoped profile resolved to zero routes. Relax version/language/tab/prefix filters.');
+    throw new Error('Scoped profile resolved to zero routes. Relax version/language/tab/prefix filters.' + formatAvailableScopes(optionData));
   }
 
   const mintignoreBase = fs.existsSync(mintignorePath) ? fs.readFileSync(mintignorePath, 'utf8') : '';
@@ -1952,6 +2057,15 @@ async function main() {
     printUsage();
     return;
   }
+  if (args.list) {
+    const docsPath = resolveRepoConfigPath(args.repoRoot, args.docsConfig || path.join(args.repoRoot, 'docs.json'));
+    if (!fs.existsSync(docsPath)) { console.error(`docs.json not found at ${docsPath}`); process.exit(1); }
+    const docs = JSON.parse(fs.readFileSync(docsPath, 'utf8'));
+    if (!docs || typeof docs !== 'object' || !docs.navigation) { console.error('docs.json is missing required "navigation" object'); process.exit(1); }
+    const optionData = collectOptionsFromNavigation(docs.navigation);
+    console.log(formatAvailableScopes(optionData));
+    return;
+  }
   if (args.runScopedSession) {
     const exitCode = await runScopedMintSession(args);
     if (Number.isInteger(exitCode)) {
@@ -1976,6 +2090,7 @@ module.exports = {
   loadScopeFile,
   collectRoutesFromNavigation,
   collectOptionsFromNavigation,
+  resolveTabsWithFuzzyMatch,
   deriveSectionPrefix,
   buildScopedNavigation,
   buildScopedMintignore,

@@ -49,15 +49,27 @@ export const SolutionCard = ({
 }) => {
   return (
     <div style={{ margin: '0 0 1rem 0' }}>
-
       {badges}
 
       {logoSrc && (
-        <div style={{ height: '60px', display: 'flex', alignItems: 'center', margin: '0.25rem 0' }}>
+        <div
+          style={{
+            height: '60px',
+            display: 'flex',
+            alignItems: 'center',
+            margin: '0.5rem 0',
+          }}
+        >
           <img
             src={logoSrc}
             alt={logoAlt || 'solution provider logo'}
-            style={{ height: '100%', width: 'auto', maxWidth: '100%', objectFit: 'contain', marginTop: '0.25rem' }}
+            style={{
+              height: '100%',
+              width: 'auto',
+              maxWidth: '100%',
+              objectFit: 'contain',
+              marginTop: '0.25rem',
+            }}
           />
         </div>
       )}
@@ -65,7 +77,10 @@ export const SolutionCard = ({
       {subtitle && (
         <>
           <style>{`.solution-card-subtitle { color: white !important; font-style: italic }`}</style>
-          <div className="solution-card-subtitle" style={{ fontWeight: 700, fontSize: '1rem' }}>
+          <div
+            className="solution-card-subtitle"
+            style={{ fontWeight: 700, fontSize: '1rem' }}
+          >
             {subtitle}
           </div>
         </>
@@ -74,13 +89,15 @@ export const SolutionCard = ({
       {infraTags}
 
       {blurb && ScrollBox && (
-        <ScrollBox maxHeight={100} style={{ fontSize: '0.85rem', lineHeight: '1.1rem' }}>
+        <ScrollBox
+          maxHeight={100}
+          style={{ fontSize: '0.85rem', lineHeight: '1.1rem' }}
+        >
           {blurb}
         </ScrollBox>
       )}
 
       {socialLinks}
-
     </div>
   )
 }

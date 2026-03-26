@@ -297,8 +297,25 @@
         "repoUrl": "https://github.com/streamplace/streamplace",
         "readmeRawUrl": "https://raw.githubusercontent.com/streamplace/streamplace/next/README.md",
         "discussionsEnabled": true,
-        "releasesActive": false,
-        "_note": "207 stars. No formal releases (tags v0.10.2-v0.10.6 exist). Default branch: next. WARNING: github.com/streamplace/overview does NOT exist (404) — existing docs reference wrong URL."
+        "releasesActive": true,
+        "changelogRepos": [
+          { "repo": "streamplace", "label": "Streamplace" }
+        ],
+        "_note": "207 stars. Mirror/secondary. Tags v0.10.2-v0.10.6. Default branch: next."
+      },
+      "gitlab": {
+        "instanceUrl": "https://git.stream.place",
+        "projectPath": "streamplace/streamplace",
+        "projectId": 1,
+        "defaultBranch": "next",
+        "repoUrl": "https://git.stream.place/streamplace/streamplace",
+        "readmeRawUrl": "https://git.stream.place/streamplace/streamplace/-/raw/next/README.md",
+        "releasesActive": true,
+        "primary": true,
+        "changelogRepos": [
+          { "projectId": 1, "projectPath": "streamplace/streamplace", "label": "Streamplace" }
+        ],
+        "_note": "Self-hosted GitLab. Public, no token required. 131+ releases. Descriptions are placeholder — LLM enhancement from commits required."
       },
       "blog": {
         "url": "https://blog.stream.place",

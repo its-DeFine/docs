@@ -44,6 +44,10 @@ lpd dev -- --port 3333
 lpd dev --test --test-mode staged
 lpd dev --scoped --scope-prefix v2/orchestrators
 lpd dev --scoped --scope-tab Developers
+lpd dev --scoped --scope-tab Resources              # fuzzy: resolves to "Resource HUB"
+lpd dev --scoped --scope-tab About, Solutions        # multi-tab, no quotes needed
+lpd dev --scoped --scope-tab About --scope-tab Solutions  # repeated flag form
+lpd dev --scoped --scope-list                        # show available versions/tabs
 lpd dev --scoped --docs-config docs-gate-work.json
 lpd dev --dry-run --scoped --scope-prefix v2/gateways
 Flag Effect
@@ -55,12 +59,15 @@ Flag Effect
 --scope-file `<path>`Load scope filters from JSON
 --scope-version `<csv>`Limit to specific versions
 --scope-language `<csv>`Limit to specific languages
---scope-tab `<csv>`Limit to specific tabs
+--scope-tab `<csv>`Limit to specific tabs. Fuzzy matching: partial names resolve automatically (prefix, substring, stem). Multi-word names do not require quotes. Multiple tabs via comma-separation or repeated flags.
 --scope-prefix `<csv>`Limit by route prefix
 --scope-interactive Choose scope filters interactively
+--scope-list Print available versions, languages, and tab names from docs.json, then exit
 --skip-external-fetch Set MINT_SKIP_EXTERNAL_FETCH=1
 --disable-openapi Exclude OpenAPI routes from scoped profile
 -- `<args>`Pass remaining args directly to Mint
+
+Scope validation: When `--scoped` is active, scope inputs are validated before hooks, patches, or fetches run. Invalid tab names fail immediately with available options listed.
 lpd mint dev — Alias for lpd dev. Same flags.
 
 Testing & CI

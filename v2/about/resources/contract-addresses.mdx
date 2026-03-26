@@ -1,0 +1,71 @@
+---
+sidebarTitle: NEW CONTRACTS
+title: Contract Addresses
+description: >-
+  Current and historical Livepeer protocol contract addresses across Arbitrum
+  One and Ethereum Mainnet. Verified on-chain.
+keywords:
+  - livepeer
+  - contract addresses
+  - arbitrum
+  - ethereum
+  - blockchain
+  - smart contracts
+'og:image': /snippets/assets/site/og-image/fallback.png
+'og:image:alt': Livepeer Docs social preview image
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+pageType: reference
+purpose: reference
+audience: general
+lastVerified: 2026-03-26
+---
+
+{/* COMPONENT IMPORTS */}
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
+import { ContractAddressDisplay } from '/snippets/components/displays/tables/ContractAddressDisplay.jsx'
+
+{/* DATA IMPORTS */}
+import { contractAddresses } from '/snippets/automations/globals/contractAddressesData.jsx'
+
+{/* BODY */}
+
+<Tip>
+  This page is an automated workflow. Data sourced from <LinkArrow label="governor-scripts" href="https://github.com/livepeer/governor-scripts" newline={false} /> and verified on-chain.
+</Tip>
+
+<Columns cols={2}>
+  <Card
+    href="https://github.com/livepeer/governor-scripts/blob/master/updates/addresses.js"
+    icon="github"
+    title="Livepeer Contracts: GitHub"
+    horizontal
+  />
+  <Card
+    href="https://arbiscan.io/accounts/label/livepeer"
+    icon="cubes"
+    title="Livepeer Contracts: Arbiscan"
+    horizontal
+  />
+</Columns>
+
+Livepeer protocol contracts are deployed on **Arbitrum One** (active) and **Ethereum Mainnet** (legacy bridge and governance). Proxy addresses are stable across upgrades; target addresses change when a new implementation is deployed via governance.
+
+<CustomDivider />
+
+<ContractAddressDisplay data={contractAddresses} />
+
+<CustomDivider />
+
+## Contract Changelog
+
+<CardGroup cols={2}>
+  <Card title="Contract Changelog" icon="clock-rotate-left" href="/v2/about/resources/contract-changelog" arrow>
+    Track governance upgrades and contract deployments.
+  </Card>
+  <Card title="Blockchain Contracts" icon="file-contract" href="/v2/about/resources/blockchain-contracts" arrow>
+    Architecture overview and contract descriptions.
+  </Card>
+</CardGroup>

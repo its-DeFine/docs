@@ -183,6 +183,37 @@ run_scoped_workspace_session() {
 
 cd "$REPO_ROOT"
 
+# Fail fast: validate scoped profile inputs before any setup work.
+# This prevents hook installs, patch checks, and fetches from running
+# only to fail at scope resolution at the very end.
+if [ "$SCOPED_MODE" = "1" ]; then
+    if ! command -v node >/dev/null 2>&1; then
+        echo "Error: node is required for --scoped dev profile generation." >&2
+        exit 1
+    fi
+    if [ ! -f "$SCOPE_GENERATOR" ]; then
+        echo "Error: scoped profile generator not found: $SCOPE_GENERATOR" >&2
+        exit 1
+    fi
+
+    local -a validate_cmd 2>/dev/null || declare -a validate_cmd
+    validate_cmd=(node "$SCOPE_GENERATOR" --repo-root "$REPO_ROOT" --print-only)
+    [ -n "$DOCS_CONFIG" ] && validate_cmd+=(--docs-config "$DOCS_CONFIG")
+    [ -n "$SCOPE_FILE" ] && validate_cmd+=(--scope-file "$SCOPE_FILE")
+    [ -n "$SCOPE_VERSIONS" ] && validate_cmd+=(--versions "$SCOPE_VERSIONS")
+    [ -n "$SCOPE_LANGUAGES" ] && validate_cmd+=(--languages "$SCOPE_LANGUAGES")
+    [ -n "$SCOPE_TABS" ] && validate_cmd+=(--tabs "$SCOPE_TABS")
+    [ -n "$SCOPE_ANCHORS" ] && validate_cmd+=(--anchors "$SCOPE_ANCHORS")
+    [ -n "$SCOPE_PREFIXES" ] && validate_cmd+=(--prefixes "$SCOPE_PREFIXES")
+    [ "$DISABLE_OPENAPI" = "1" ] && validate_cmd+=(--disable-openapi)
+
+    if ! "${validate_cmd[@]}" >/dev/null 2>&1; then
+        echo "Scope validation failed:" >&2
+        "${validate_cmd[@]}" >/dev/null
+        exit 1
+    fi
+fi
+
 # Support both regular repos and worktrees
 GIT_COMMON_DIR=$(git rev-parse --git-common-dir 2>/dev/null)
 if [ -z "$GIT_COMMON_DIR" ] || [ "$GIT_COMMON_DIR" = "--git-common-dir" ]; then

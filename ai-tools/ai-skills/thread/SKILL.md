@@ -70,6 +70,14 @@ This is how parallel threads coordinate. Every `/thread` invocation keeps the ta
 - "Co-design the veracity pass architecture and write the architecture doc"
 - "Build and test the /pm skill against the current orchestrators thread"
 
+### Explore before executing
+
+The first actions in any session should be Read/Grep/Glob — understand the problem before touching files. No Write/Edit until you know what you're changing and why. The worst sessions happen when Claude jumps straight to editing.
+
+### Test-driven when fixing bugs
+
+When the outcome involves fixing something broken, write a failing test first (see `/diagnose` Step 3b). The fix is done when the test passes, not when you think it works.
+
 ---
 
 ## Step 2: Trace every action

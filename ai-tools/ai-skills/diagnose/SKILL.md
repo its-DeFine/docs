@@ -91,9 +91,50 @@ Rules:
 
 ---
 
+## Step 3b: Write a failing test first (TDD)
+
+Before fixing anything, write a test that reproduces the failure. This is the single most effective way to prevent false confidence — the test either passes or it doesn't. No "I think it works."
+
+```
+Test: [what the test checks]
+Expected: [FAIL — because the bug exists]
+Actual: [confirm it fails]
+```
+
+The test can be:
+- A smoke test command (`node operations/tests/integration/mdx-component-runtime-smoke.js --routes /v2/path`)
+- A grep that should find zero results (`grep -r "stale-reference" .`)
+- A script execution that should succeed but currently errors
+- A manual render check via `lpd dev --scoped`
+
+The fix is only done when this test passes. Not before.
+
+---
+
+## Step 3c: Parallel fix exploration (for complex bugs)
+
+When the root cause is unclear or multiple approaches are viable, spawn parallel agents to explore different fix strategies simultaneously:
+
+```
+Agent 1: Fix hypothesis — [approach A]
+Agent 2: Fix hypothesis — [approach B]
+Agent 3: Fix hypothesis — [approach C]
+```
+
+Each agent:
+- Gets the failing test from Step 3b
+- Uses `/agent-brief` template (quality contract, scope, return format)
+- Makes only targeted edits (never full file rewrites)
+- Runs the test after each change
+- Reports back: test passes or fails, with evidence
+
+Pick the winning approach. Discard the others. This replaces the serial 5-7 retry loop that wastes time.
+
+---
+
 ## Step 4: Test one hypothesis at a time
 
-Pick the most likely hypothesis. Design the smallest possible test that confirms or eliminates it.
+If not using parallel exploration (Step 3c), test sequentially. Pick the most likely hypothesis. Design the smallest possible test that confirms or eliminates it.
 
 ```
 Testing hypothesis 1: [statement]
