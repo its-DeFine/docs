@@ -129,8 +129,20 @@ function estimateReadingTime(text) {
   return Math.max(1, Math.round(words / 200));
 }
 
+function stripFirstImage(html, imgUrl) {
+  if (!imgUrl || !html) return html;
+  // Remove the first <img> (or <figure> wrapping it) that matches the extracted hero image
+  const escaped = imgUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  // Try removing <figure> containing the image first
+  const figureRemoved = html.replace(new RegExp(`<figure[^>]*>\\s*<img[^>]*src="${escaped}"[^>]*/?>\\s*(?:<figcaption[\\s\\S]*?</figcaption>)?\\s*</figure>`, "i"), "");
+  if (figureRemoved !== html) return figureRemoved;
+  // Fall back to removing the bare <img> tag
+  return html.replace(new RegExp(`<img[^>]*src="${escaped}"[^>]*/?>`, "i"), "");
+}
+
 function parseRSSItem(xml) {
   const contentHtml = extractTag(xml, "content:encoded") || extractTag(xml, "description") || "";
+  const img = extractFirstImage(xml, contentHtml);
   const plainText = stripHTML(contentHtml);
   return {
     title: extractTag(xml, "title"),
@@ -141,7 +153,7 @@ function parseRSSItem(xml) {
     datePosted: formatDate(
       extractTag(xml, "pubDate") || extractTag(xml, "dc:date") || ""
     ),
-    img: extractFirstImage(xml, contentHtml),
+    img: img,
     readingTime: estimateReadingTime(plainText),
   };
 }
@@ -200,6 +212,13 @@ async function main() {
       if (items.length === 0) {
         console.log(`  No items found in RSS feed`);
         continue;
+      }
+
+      // Strip hero image from content if configured (avoids duplicate with card header)
+      if (blog.stripHeroFromContent) {
+        items.forEach((item) => {
+          if (item.img) item.content = stripFirstImage(item.content, item.img);
+        });
       }
 
       // Generate JSX export — Ghost-compatible shape (HTML content, backtick literals)

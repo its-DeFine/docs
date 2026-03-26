@@ -38,7 +38,7 @@ import { discordAnnouncementsData } from '/snippets/automations/discord/discordA
 import { studioSocials } from "./data/socials.jsx"
 
 <CenteredContainer maxWidth="fit-content">
-  <BorderedBox style={{margin: 0, padding: "0.5rem 1rem 1rem 1rem"}} variant="muted">
+  <BorderedBox variant="muted" padding="0.5rem 1rem 1rem 1rem">
       <SocialLinks iconColor="var(--hero-text)" links={studioSocials} />
   </BorderedBox>
 </CenteredContainer>
@@ -79,6 +79,19 @@ Latest from the <LinkArrow label="Livepeer Discord" href="https://discord.gg/liv
 </BorderedBox>
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
+
+## <Icon icon="x-twitter" size={24} /> Featured X Post
+{ /* <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Use <a href="https://twitter.com/Livepeer?ref_src=twsrc%5Etfw">@Livepeer</a> for it 👀 Check out <a href="https://t.co/OSiBmRq60G">https://t.co/OSiBmRq60G</a></p>&mdash; madamcultleader.eth (@cult_leader_en) <a href="https://twitter.com/cult_leader_en/status/1937914268646797643?ref_src=twsrc%5Etfw">June 25, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://x.com/cult_leader_en/status/1937914268646797643?s=20
+*/}
+
+<iframe
+    src="https://platform.twitter.com/embed/Tweet.html?id=1937914268646797643&theme=dark"
+    style={{display: "flex", justifyContent: "left !important",  border: "none", borderRadius: "2.5%", width: "70%", maxWidth: "550px", overflowX: "hidden", height: "650px", backgroundColor: "var(--text)"}}
+    title="Studio on X"
+/>
+
+<CustomDivider />
 
 ## Related Pages
 

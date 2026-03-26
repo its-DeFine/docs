@@ -349,6 +349,7 @@ export const ColumnsBlogCardLayout = ({
  */
 export const RssBlogCard = ({
   title,
+  content,
   href,
   author = '',
   excerpt = '',
@@ -361,7 +362,22 @@ export const RssBlogCard = ({
   style = {},
   ...rest
 }) => {
-  const showScrollHint = excerpt && excerpt.length > 300;
+  const sanitiseHTML = (html) => {
+    if (!html || typeof html !== 'string') return ''
+    return html
+      .replace(/<script[\s\S]*?<\/script>/gi, '')
+      .replace(/<iframe[\s\S]*?<\/iframe>/gi, '')
+      .replace(/<object[\s\S]*?<\/object>/gi, '')
+      .replace(/<embed[\s\S]*?>/gi, '')
+      .replace(/<form[\s\S]*?<\/form>/gi, '')
+      .replace(/<style[\s\S]*?<\/style>/gi, '')
+      .replace(/<link[\s\S]*?>/gi, '')
+      .replace(/\bon\w+\s*=\s*(['"])[^'"]*\1/gi, '')
+      .replace(/\bon\w+\s*=\s*[^\s>]*/gi, '')
+      .replace(/javascript\s*:/gi, '')
+  }
+  const displayContent = content || excerpt;
+  const showScrollHint = displayContent && displayContent.length > 500;
 
   return (
     <Card
@@ -437,9 +453,8 @@ export const RssBlogCard = ({
           const hint = el.nextSibling;
           if (hint) hint.style.display = atBottom ? 'none' : 'block';
         }}
-      >
-        {excerpt}
-      </div>
+        dangerouslySetInnerHTML={{ __html: sanitiseHTML(displayContent) }}
+      />
       {showScrollHint && (
         <div style={{
           fontSize: 11,

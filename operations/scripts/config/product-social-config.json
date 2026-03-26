@@ -45,7 +45,8 @@
         "platform": "ghost",
         "rssUrl": "https://blog.daydream.live/rss/",
         "apiKeyRequired": true,
-        "fetchMethod": "rss"
+        "fetchMethod": "rss",
+        "stripHeroFromContent": true
       },
       "forum": null,
       "heroVideo": {

@@ -8,6 +8,15 @@
             "command": "node operations/scripts/dispatch/governance/session-state.js"
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "mkdir -p workspace/thread-outputs/sessions && echo \"Session started: $(date '+%Y-%m-%d %H:%M:%S')\" >> workspace/thread-outputs/sessions/session-log.txt && echo '{\"systemMessage\":\"MANDATORY SESSION RULES — Read .claude/CLAUDE.md NOW if not already loaded. NEVER destroy uncommitted work. NEVER run destructive git commands. Skills: /thread /pm /research /design /build /iterate /dispatch /agent-brief /diagnose — full instructions in ai-tools/ai-skills/*/SKILL.md. Workflow: thread > pm > research > design > build > iterate. Think freely, gate on execution. Findings before fixes. UK English. No em dashes. After 2 failures STOP and root-cause analyse. Write session notes to workspace/thread-outputs/sessions/ so work survives if chat disappears. Offer to commit after completing work.\"}'",
+            "statusMessage": "Loading session rules..."
+          }
+        ]
       }
     ],
     "PreToolUse": [
