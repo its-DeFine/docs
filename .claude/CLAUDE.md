@@ -329,6 +329,25 @@ Follow `/thread` Step 5: produce a finalisation report (template in `workspace/p
 
 ---
 
+### 2026-03-26 — Solutions pages: component fixes, StyledSteps, LazyLoad
+
+**Done:**
+- Fixed 4 broken component issues: Embody StyledSteps wrong import path, Streamplace StyledSteps missing import, Studio `youtubeDataStatic` missing export, Frameworks smart quotes causing parser error
+- Wrapped Get Started steps in StyledSteps on Studio overview (5 steps) and Frameworks overview (3 steps) to match Daydream pattern
+- Built new `LazyLoad` component (`snippets/components/wrappers/containers/LazyLoad.jsx`) — IntersectionObserver, fires once, disconnects, Mintlify-compatible
+- Deployed LazyLoad across all 5 community pages (Embody, Daydream, Studio, Streamplace, Frameworks) wrapping YouTube, Discord, GitHub README, Blog, and X iframe sections
+- 11 files modified, 1 new component created
+
+**Decisions made:**
+- IntersectionObserver chosen over React.lazy (Mintlify doesn't support dynamic imports)
+- 200px rootMargin pre-trigger offset to avoid visible pop-in
+- youtubeDataStatic added as alias export rather than changing consumer imports
+
+**Blocked on:** Nothing
+**Next session picks up:** Verify LazyLoad rendering on dev server; check separate `youtubeDataStatic.jsx` files for Streamplace/Frameworks; consider LazyLoad for trending/home pages
+
+---
+
 ### 2026-03-26 — Full-site style diagnostic and fix (3 issues)
 
 **Done:**

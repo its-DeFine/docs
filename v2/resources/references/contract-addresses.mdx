@@ -25,8 +25,7 @@ lastVerified: 2026-03-26
 {/* COMPONENT IMPORTS */}
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
-import { SearchTable } from '/snippets/components/wrappers/tables/SearchTable.jsx'
-import { CopyText } from '/snippets/components/elements/text/Text.jsx'
+import { ContractAddressDisplay } from '/snippets/components/displays/tables/ContractAddressDisplay.jsx'
 
 {/* DATA IMPORTS */}
 import { contractAddresses } from '/snippets/automations/globals/contractAddressesData.jsx'
@@ -59,88 +58,7 @@ Livepeer protocol contracts are deployed on **Arbitrum One** (active) and **Ethe
 
 <CustomDivider />
 
-{/*
-  ── RECENTLY UPDATED ──
-  TODO: Implement recent-changes detection in fetch script.
-*/}
-
-<Warning>
-  <div style={{ fontWeight: 700 }}>Recently updated addresses:</div>
-  <br/>
-  BondingManager (Target): <CopyText text="0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74" label="V13" /> (Arbitrum One)
-</Warning>
-
-## Active Contract Addresses
-
-<SearchTable
-  tableTitle="Arbitrum One"
-  headerList={["Contract", "Address", "Type", "Category"]}
-  monospaceColumns={["Address"]}
-  searchPlaceholder="Search by contract name or address..."
-  searchColumns={["Contract", "Address", "Category"]}
-  categoryColumn="Category"
-  itemsList={contractAddresses.arbitrumOne.current.map(c => ({
-    Contract: c.version ? `${c.name} (${c.version})` : c.name,
-    Address: c.address,
-    Type: c.type,
-    Category: c.category,
-  }))}
-/>
-
-<CustomDivider />
-
-<SearchTable
-  tableTitle="Ethereum Mainnet"
-  headerList={["Contract", "Address", "Type", "Category"]}
-  monospaceColumns={["Address"]}
-  searchPlaceholder="Search by contract name or address..."
-  searchColumns={["Contract", "Address", "Category"]}
-  categoryColumn="Category"
-  itemsList={contractAddresses.ethereumMainnet.current.map(c => ({
-    Contract: c.version ? `${c.name} (${c.version})` : c.name,
-    Address: c.address,
-    Type: c.type,
-    Category: c.category,
-  }))}
-/>
-
-<CustomDivider />
-
-## Deprecated Contract Addresses
-
-Historical contract implementations replaced through governance upgrades. Listed for reference and audit purposes.
-
-<Accordion title="Arbitrum One — Historical">
-  {Object.entries(contractAddresses.arbitrumOne.historical || {}).map(([group, data]) => (
-    <div key={group}>
-      <h4>{group}</h4>
-      <ul>
-        {(data.entries || []).map(entry => (
-          <li key={entry.address}>
-            <CopyText text={entry.address} label={entry.version} />{" "}
-            <LinkArrow label="Arbiscan" href={`${contractAddresses.meta.explorerUrls.arbiscan}${entry.address}`} newline={false} />
-          </li>
-        ))}
-      </ul>
-    </div>
-  ))}
-</Accordion>
-
-<Accordion title="Ethereum Mainnet — Historical">
-  {Object.entries(contractAddresses.ethereumMainnet.historical || {}).map(([group, data]) => (
-    <div key={group}>
-      <h4>{group}</h4>
-      <ul>
-        {(data.entries || []).map(entry => (
-          <li key={entry.address}>
-            <CopyText text={entry.address} label={entry.version} />{" "}
-            <LinkArrow label="Etherscan" href={`${contractAddresses.meta.explorerUrls.etherscan}${entry.address}`} newline={false} />
-          </li>
-        ))}
-      </ul>
-    </div>
-  ))}
-</Accordion>
+<ContractAddressDisplay data={contractAddresses} />
 
 <CustomDivider />
 
