@@ -81,6 +81,90 @@ Numbered. Concrete next steps or improvements.
 
 ---
 
+## Full-Site Style Diagnostic and Fix — 2026-03-26
+
+**Plans**: None (ad-hoc diagnostic session)
+**Scope**: Diagnosed and fixed three full-site CSS issues on `docs-v2-dev` branch caused by Mintlify dev server injection and platform layout defaults.
+
+### Summary
+
+Three site-wide style issues were diagnosed using Playwright automated testing across multiple viewports (600-1920px), branch diffs, and DOM element chain analysis. All fixes applied to `style.css` with `!important` overrides scoped to avoid frame-mode portal pages. The `.mintignore` was updated to prevent Mintlify from parsing plain `.md` files as MDX (which injected rogue `<hr>` elements rendering as heading underlines). Mintlify CLI updated from 4.2.416 to 4.2.446.
+
+---
+
+### Completed
+
+**Issue 1: Body padding on all pages**
+- Root cause: `mint dev` injects `<style>body { padding: 24px }</style>` via inline style tag — not present in production builds
+- Fix: `body { padding: 0 !important; }` in `style.css` line 1-5 — safe no-op in production
+
+**Issue 2: Heading underlines on all pages**
+- Root cause: Mintlify parsed plain `.md` files (e.g. `workspace/`, `ai-tools/`, `docs-guide/_workspace/`) as MDX pages, injecting their content into the build — `---` frontmatter delimiters rendered as `<hr>` elements appearing as underlines under headings
+- Fix: Added `**/*.md` and `*.md` patterns to `.mintignore` to exclude all plain markdown from the Mintlify build pipeline
+
+**Issue 3: Content area too narrow / poorly centred at desktop widths**
+- Root cause: Two Mintlify layout constraints compound — `lg:pl-24` (96px left padding vs 20px right) creates asymmetry, and `max-w-5xl` (64rem/1024px) caps the inner flex container, limiting content to 672px in a 1440px viewport (47% utilisation)
+- Fix: Balanced padding to 2.5rem both sides + widened inner cap to 72rem. At 1440px content goes from 672→704px; at 1920px from 672→800px. Both overrides scoped with `:not([data-page-mode='frame'])` to skip portal/frame-mode pages
+
+---
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Override Mintlify classes with `!important` in `style.css` | No config-level alternative exists — Mintlify hardcodes these classes in their build output. CSS overrides are the only mechanism. |
+| Exclude frame-mode pages from width/padding overrides | Frame-mode pages (portals) have their own full-width layout that the overrides would break |
+| Use `.mintignore` for `.md` exclusion rather than renaming files | Hundreds of `.md` files across workspace/ai-tools/docs-guide — renaming would be destructive and unnecessary |
+| 72rem inner cap (not larger) | Balances wider content at 1920px (~800px) against readability — wider would degrade reading comfort |
+
+---
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Production site has same narrow content layout | Low | Same Mintlify defaults, but this branch merges up soon — fix propagates | None |
+| `mint update` did not fix dev padding injection | Info | CLI updated 4.2.416→4.2.446, body padding still injected — CSS override still needed | None |
+
+---
+
+### Dependencies & Downstream Effects
+
+- **All pages on docs-v2-dev**: Content area is now wider and better centred at desktop widths. Visual review recommended after merge to `docs-v2`.
+- **Frame-mode pages**: Explicitly excluded — no change to portal layout.
+- **Production builds**: `body { padding: 0 }` is a no-op (production already has `padding: 0`). The `max-w-5xl` and padding overrides WILL take effect in production after merge.
+
+---
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| Playwright DOM chain analysis (5 pages, 600-1920px) | ✅ | Confirmed fix targets correct elements at all breakpoints |
+| Body padding override | ✅ | Verified in dev, confirmed no-op in production |
+| .mintignore .md exclusion | ✅ | Heading underlines eliminated after adding patterns |
+| Frame-mode exclusion | ✅ | User confirmed portal pages unaffected |
+| mint dev clean build | ✅ | No build errors after all changes |
+
+---
+
+### Recommendations
+
+1. **Visual QA after merge to docs-v2** — The `max-w-5xl` → 72rem change will widen content on production. Spot-check a few pages at 1440px and 1920px.
+2. **Monitor Mintlify CLI updates** — The body padding injection may be fixed in a future CLI version, making the `body { padding: 0 }` rule unnecessary.
+
+---
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `style.css` (lines 1-5) | modified | Body padding override for dev server injection |
+| `style.css` (lines 192-206) | modified | Content width/centering fix scoped to non-frame pages |
+| `.mintignore` | modified | Added `**/*.md` and `*.md` patterns to exclude plain markdown |
+
+---
+
 ## Solutions Tab — Full Page Build and Standardisation — 2026-03-26
 
 **Plans**: `v2/solutions/_workspace/canonical/pageStatus.md`, `workspace/plan/active/SOLUTIONS-SOCIAL-DATA/`
