@@ -26,6 +26,7 @@ import { BorderedBox } from "/snippets/components/wrappers/containers/Containers
 import { CenteredContainer } from "/snippets/components/wrappers/containers/Containers.jsx";
 import { YouTubeVideo, Video } from "/snippets/components/displays/video/Video.jsx";
 import { BadgeWrapper, IconBadgeWrapper } from '/snippets/components/wrappers/badges/Badges.jsx'
+import { StyledSteps, StyledStep } from '/snippets/components/wrappers/steps/Steps.jsx'
 import { productBadges } from "./data/badges.jsx"
 import { productInfra } from "./data/infra.jsx"
 import { productSocials } from "./data/socials.jsx"
@@ -36,10 +37,17 @@ import { productSocials } from "./data/socials.jsx"
 */}
 
 <IconBadgeWrapper style={{ margin: "-1rem 0 1rem 0" }} iconColor="var(--accent)" size={16} items={productInfra} />
-<BadgeWrapper style={{margin: "0 0 2rem 0"}} badges={productBadges} />
+<BadgeWrapper style={{margin: "0 0 1rem 0"}} badges={productBadges} />
+
+{/* socials links */}
+<CenteredContainer maxWidth="fit-content">
+  <BorderedBox style={{margin: 0, padding: "0.5rem 1rem 1rem 1rem"}} variant="accent">
+    <SocialLinks iconColor="var(--text)" links={productSocials} />
+  </BorderedBox>
+</CenteredContainer>
 
 <Info>
-  For help & support contact the [PRODUCT_NAME]([DISCORD_URL]) team directly.
+  This page is maintained by the [PRODUCT_NAME] Team. Help & support available via the [PRODUCT_NAME Discord]('[DISCORD_URL]').
 </Info>
 
 {/*
@@ -89,17 +97,10 @@ import { productSocials } from "./data/socials.jsx"
 {/* explains connection to Livepeer */}
 [PRODUCT_NAME] runs on Livepeer's decentralised GPU network. It uses the [[X] gateway]([GATEWAY_URL]) to route [job type] to the network.
 
-{/* socials links */}
-<CenteredContainer maxWidth="fit-content">
-  <BorderedBox style={{margin: 0, padding: "0.5rem 1rem 1rem 1rem"}} variant="accent">
-    <SocialLinks iconColor="var(--text)" links={productSocials} />
-  </BorderedBox>
-</CenteredContainer>
-
 <CustomDivider style={{margin: "-0.5rem 0 -2.5rem 0"}} />
 
 {/* product features — preferably with a video, embedded content, or blog post */}
-### Key Features
+## Key Features
 - **[Feature 1]** - [One-line description.]
 - **[Feature 2]** - [One-line description.]
 - **[Feature 3]** - [One-line description.]
@@ -114,7 +115,44 @@ import { productSocials } from "./data/socials.jsx"
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
-### Try [PRODUCT_NAME]
+{/*
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  GET STARTED — OPTIONAL. Include if the product has clear
+  onboarding steps (try the app, use the API, run infra).
+  Use StyledSteps/StyledStep. Reference: daydream/overview.mdx
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+*/}
+
+## Get Started
+
+<StyledSteps>
+  <StyledStep title="[Try the app / Use the product]" icon="wand-magic-sparkles">
+    1. [Go to product URL.]
+    2. [First action.]
+    3. [Second action.]
+    4. [See the result.]
+
+    [One sentence: how this connects to Livepeer's network.]
+  </StyledStep>
+
+  <StyledStep title="Build with the [PRODUCT_NAME] API" icon="code">
+    1. Read the [[PRODUCT_NAME] docs]([DOCS_URL]) for setup and authentication.
+    2. Get the required API keys or credentials.
+    3. Use the API or SDK to [do the core thing].
+
+    <Info>
+      Exact endpoints, SDK usage, and pipeline options are documented in the [[PRODUCT_NAME] documentation]([DOCS_URL]).
+    </Info>
+  </StyledStep>
+
+  <StyledStep title="[Run infrastructure / Connect a gateway]" icon="server">
+    [One paragraph: how to operate infrastructure for this product on the Livepeer network, with link to relevant gateway or operator docs.]
+  </StyledStep>
+</StyledSteps>
+
+<CustomDivider style={{margin: "-0.5rem 0 -2.5rem 0"}} />
+
+## Try [PRODUCT_NAME]
 {/*
   Link to actual try-me / use-me / dev references — NOT links already in socials.
   Use 2 cards if only 2 available.
@@ -140,6 +178,11 @@ import { productSocials } from "./data/socials.jsx"
 <CustomDivider style={{margin: "-0.5rem 0 -2.5rem 0"}} />
 
 ## [PRODUCT_NAME] Resources
+<CenteredContainer maxWidth="fit-content">
+  <BorderedBox style={{margin: "0 0 1rem 0", padding: "0.5rem 1rem 1rem 1rem"}} variant="accent">
+      <SocialLinks iconColor="var(--text)" links={productSocials} />
+  </BorderedBox>
+</CenteredContainer>
 {/*
   At least 2 dev items (docs, GitHub, website) + main comms/support channel (Discord) + one other dev-focused item.
   Use 2 cards if only 2 available.

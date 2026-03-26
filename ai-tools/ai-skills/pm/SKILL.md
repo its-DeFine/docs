@@ -66,6 +66,7 @@ Blocked items. For each:
 - How long it's been blocked (use dates, not "a while")
 - What it's costing — what downstream work can't start because of this
 - Who can unblock it
+- If a blocker is technical (build broke, config failed, test fails): recommend `/diagnose` to root-cause before re-attempting
 
 ### What I'd prioritise
 Based on the dependency graph, what unblocks the most downstream work? Rank the top 3 actions by impact.

@@ -126,3 +126,5 @@ export const youtubeData = [
     thumbnailUrl: 'https://i.ytimg.com/vi/s1dhZTofuCM/hqdefault.jpg'
   }
 ];
+
+export const youtubeDataStatic = youtubeData;

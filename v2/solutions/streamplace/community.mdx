@@ -29,8 +29,12 @@ import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
 import { CenteredContainer, BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
+import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
+import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx'
+import { YouTubeVideoData } from '/snippets/components/integrators/video-data/VideoData.jsx'
 
 {/* DATA */}
+import { youtubeDataStatic } from '/snippets/automations/solutions/streamplace/youtubeDataStatic.jsx'
 import { streamplaceDiscordData } from '/snippets/automations/solutions/streamplace/discordData.jsx'
 import { streamplaceSocials } from "./data/socials.jsx"
 
@@ -47,38 +51,58 @@ import { streamplaceSocials } from "./data/socials.jsx"
     </Tip>
 </CenteredContainer>
 
+## <Icon icon="camera-movie" size={24} /> Videos
+
+Watch the latest on the <LinkArrow label="Livepeer YouTube Channel" href="https://www.youtube.com/@livepeer" newline={false} />
+
+<LazyLoad height="400px">
+  <YouTubeVideoData items={youtubeDataStatic} limit={2} />
+</LazyLoad>
+
+<CustomDivider style={{margin: "0.5rem 0 -2.5rem 0"}}/>
+
 ## <Icon icon="discord" size={24} /> Discord Announcements
 
 Latest from the <LinkArrow label="Streamplace Discord" href="https://discord.com/invite/EdtZv4UTMU" newline={false} />
 
-<DiscordAnnouncements serverName="Streamplace" items={streamplaceDiscordData} limit={4} ScrollBox={ScrollBox} scrollMaxHeight={200} />
+<LazyLoad height="300px">
+  <DiscordAnnouncements serverName="Streamplace" items={streamplaceDiscordData} limit={4} ScrollBox={ScrollBox} scrollMaxHeight={200} />
+</LazyLoad>
+
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
+
+## Featured X Post <Icon icon="x-twitter" size={24} />
+{ /* <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Use <a href="https://twitter.com/Livepeer?ref_src=twsrc%5Etfw">@Livepeer</a> for it 👀 Check out <a href="https://t.co/OSiBmRq60G">https://t.co/OSiBmRq60G</a></p>&mdash; madamcultleader.eth (@cult_leader_en) <a href="https://twitter.com/cult_leader_en/status/1937914268646797643?ref_src=twsrc%5Etfw">June 25, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://x.com/cult_leader_en/status/1937914268646797643?s=20
+*/}
+<br/>
+<br/>
+
+<LazyLoad height="650px">
+  <iframe
+      src="https://platform.twitter.com/embed/Tweet.html?id=1937914268646797643&theme=dark"
+      style={{display: "flex", justifyContent: "left !important",  border: "none", borderRadius: "2.5%", width: "70%", maxWidth: "550px", overflowX: "hidden", height: "650px", backgroundColor: "var(--text)"}}
+      title="Studio on X"
+  />
+</LazyLoad>
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
 ## <Icon icon="github" size={24} /> GitHub
 
-<BorderedBox>
-  <ScrollBox maxHeight={600}>
-    <BorderedBox variant="accent">
-        Streamplace Github
-        <LinkArrow label="View Streamplace on GitHub" href="https://github.com/streamplace/streamplace" newline={true} />
-    </BorderedBox>
-    <MarkdownEmbed url="https://raw.githubusercontent.com/streamplace/streamplace/next/README.md" />
-  </ScrollBox>
-</BorderedBox>
+<LazyLoad height="600px">
+  <BorderedBox>
+    <ScrollBox maxHeight={600}>
+      <BorderedBox variant="accent">
+          Streamplace Github
+          <LinkArrow label="View Streamplace on GitHub" href="https://github.com/streamplace/streamplace" newline={true} />
+      </BorderedBox>
+      <MarkdownEmbed url="https://raw.githubusercontent.com/streamplace/streamplace/next/README.md" />
+    </ScrollBox>
+  </BorderedBox>
+</LazyLoad>
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
-
-## X
-{ /* <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Use <a href="https://twitter.com/Livepeer?ref_src=twsrc%5Etfw">@Livepeer</a> for it 👀 Check out <a href="https://t.co/OSiBmRq60G">https://t.co/OSiBmRq60G</a></p>&mdash; madamcultleader.eth (@cult_leader_en) <a href="https://twitter.com/cult_leader_en/status/1937914268646797643?ref_src=twsrc%5Etfw">June 25, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-https://x.com/cult_leader_en/status/1937914268646797643?s=20
-*/}
-
-<iframe
-    src="https://platform.twitter.com/embed/Tweet.html?id=1937914268646797643&theme=dark"
-    style={{display: "flex", justifyContent: "left !important",  border: "none", borderRadius: "2.5%", width: "70%", maxWidth: "550px", overflowX: "hidden", height: "650px", backgroundColor: "var(--text)"}}
-    title="Studio on X"
-/>
 
 ## Related Pages
 

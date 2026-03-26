@@ -81,6 +81,113 @@ Numbered. Concrete next steps or improvements.
 
 ---
 
+## Orchestrators Full Quality Check Sweep — 2026-03-24
+
+**Plans**: `workspace/plan/active/CONTENTI-PIPLEINE/00-TRACKER.md`, `workspace/plan/active/ORCHS/01-CORE-NEEDS-AND-STANDARDS.md`
+**Scope**: Per-page quality check (9 categories, ~40 check IDs) across all Orchestrators guides (10 subfolders, 50 pages) and resources (3 subsections, 16 pages) — 66 pages total.
+
+### Summary
+
+Ran the full 5-step check pipeline (Check, Critical Review, Subfolder/Subsection Summary, Section Rollup, Full Rollup) across all 66 pages in `v2/orchestrators/guides/` and `v2/orchestrators/resources/`. Zero pages are publishable; median ~21-22 fails per page. Universal patterns: taxonomy gap (66/66 pages), `## See Also` Banned-tier (most pages), `{/* FACT CHECK: */}` non-canonical format (~50+ instances across 8 subfolders), P39 atomic split-fix violation (template-level defect in tutorial stubs). Eight tab-level blocking decisions require human resolution before remediation packages can execute. A 10-package remediation roadmap was produced; Package 0 can run immediately without any blocking decision resolution.
+
+---
+
+### Completed
+
+**Check pipeline — guides (10 subfolders, 50 pages)**
+- 10 subfolder check reports produced (one per subfolder)
+- 10 critical review reports produced (corrected fail counts authoritative)
+- 10 subfolder summary reports produced
+- 1 guides section rollup produced (`v2/orchestrators/_workspace/canonical/check/guides/summary.md`)
+- 9 cross-subfolder patterns identified; 8 critical blocking decisions logged
+
+**Check pipeline — resources (3 subsections, 16 pages)**
+- 3 subsection check reports produced (root 10 pages, technical 5 pages, compendium 1 page)
+- 3 critical review reports produced
+- 3 subsection summary reports produced
+- 1 resources section rollup produced (`v2/orchestrators/_workspace/canonical/check/resources/summary.md`)
+- 9 cross-subsection patterns identified; 12 blocking decisions logged
+
+**Full Orchestrators rollup**
+- ORCHESTRATORS-ROLLUP.md produced covering all 66 pages
+- 8 tab-level blocking decisions (BD-TAB-01 through BD-TAB-08) consolidated from section rollups
+- 6 cross-section patterns (XP-1 through XP-6) identified
+- 10-package remediation roadmap sequenced with dependency graph
+
+**Learnings accumulation**
+- learnings.md grew from P89 to P110 (21 new systematic checker error patterns)
+- Key new patterns: P90 (status:published is wrong-enum only, not coherence failure), P97 (BORDERLINE invalid for absolute prohibitions), P104 (navigation orphan vs dead nav entry distinction), P107 (type-confusion handling for check 1.2/1.3), P108 (cross-subsection scope boundary detection)
+
+---
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Critical review corrected count is authoritative over check report count | Check agents regress on counting rules; critical review agents correct systematically. Summary agents use corrected counts only. |
+| P39 fix must be atomic (status + veracityStatus in one edit) | Split fixes create transient incoherent state where status: draft exists without veracityStatus — violates the same rule being fixed |
+| BORDERLINE is invalid for absolute prohibitions (P97) | Em-dash ban (P30) is binary PASS/FAIL; BORDERLINE inflated false negatives across 5+ batches |
+
+---
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Concepts, setup, quickstart, root-level pages not checked | High | Out of scope for this sweep — 66-page scope was guides + resources only | Same pipeline process needed |
+| Cross-tab link audit across all 66 pages | High | Per-section rollups caught some broken links but no systematic sweep ran | Pre-Package 5 precondition (P112) |
+| Livepeer Forum URL section-wide search | Medium | BD-TAB-02 scope unknown until `forum.livepeer.org` search runs across all 66 pages | BD-TAB-02 decision |
+| FACT CHECK comment total count | Medium | Estimated 50+ in guides; resources count unknown | Section-wide search needed before Package 6 |
+
+---
+
+### Dependencies & Downstream Effects
+
+- **Remediation Package 0** can run immediately: corrupt bytes fix, RTX 2060 VRAM fix, RTMP port fix, join-a-pool registry entry, purpose:evaluation typo fixes, See Also heading renames, description separator fixes
+- **Packages 1-9** are blocked on 8 tab-level blocking decisions (BD-TAB-01 through BD-TAB-08) plus 14 additional per-section BDs
+- **Veracity pass (Phase 7)** on S01-S12 runs independently of this remediation — different page set, different pipeline
+- **Unchecked sections** (concepts, setup, quickstart, root pages) will produce additional findings and potentially new blocking decisions
+
+---
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| Check pipeline completion | All 66 pages checked | 10 guides subfolders + 3 resources subsections |
+| Critical review reconciliation | All corrected counts reconcile with summaries | Verified across all 13 check-review pairs |
+| Learnings deduplication | P89-P110, 0 duplicates | Each new pattern verified against full P1-Pn list |
+| ORCHESTRATORS-ROLLUP.md cross-references | Section rollup findings consolidated | 8 tab-level BDs, 6 cross-section patterns |
+
+---
+
+### Recommendations
+
+1. **Resolve BD-TAB-03 (batch status demotion) first** — unlocks Package 2 across 35+ pages; lowest decision complexity of the 8 tab-level BDs. Recommendation: approve Option A (demote all to draft + unverified now).
+2. **Run Package 0 immediately** — no decisions needed; fixes 3 factual errors, 1 render-risk corruption, and ~15 pages of mechanical heading/separator fixes.
+3. **Produce purpose field decision table (BD-TAB-04)** — 18+ pages across both sections need one batch sign-off. Can be produced as a single table for review.
+4. **Resolve x-contract-addresses dead nav entry (BD-RES-01)** — empty stub in active docs.json creates dead end for readers. Lowest-friction fix: remove from nav.
+5. **Register join-a-pool deprecation (BD-TAB-08)** — decision already made in session log; write to decision-registry.md. Zero editorial effort.
+6. **Run section-wide searches before Packages 5-6** — `forum.livepeer.org` scope and cross-tab link inventory are both unknown. Two grep commands close these gaps.
+
+---
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `v2/orchestrators/_workspace/canonical/check/ORCHESTRATORS-ROLLUP.md` | new | Full quality check rollup — 66 pages, 8 tab-level BDs, 10-package remediation roadmap |
+| `v2/orchestrators/_workspace/canonical/check/guides/summary.md` | new | Guides section rollup — 10 subfolders, 50 pages, 9 cross-subfolder patterns |
+| `v2/orchestrators/_workspace/canonical/check/resources/summary.md` | new | Resources section rollup — 3 subsections, 16 pages, 9 cross-subsection patterns |
+| `v2/orchestrators/_workspace/canonical/check/resources/root/summary.md` | new | Root resources subsection summary — 10 pages |
+| `v2/orchestrators/_workspace/canonical/check/resources/technical/summary.md` | new | Technical resources subsection summary — 5 pages |
+| `v2/orchestrators/_workspace/canonical/check/resources/compendium/summary.md` | new | Compendium resources subsection summary — 1 page |
+| `v2/orchestrators/_workspace/canonical/check/guides/*/summary.md` | new | 10 subfolder summaries (one per guides subfolder) |
+| `v2/orchestrators/_workspace/canonical/check/learnings.md` | modified | P89 to P110 — 21 new systematic checker error patterns |
+| `.claude/CLAUDE.md` | modified | Session log entry appended |
+
+---
+
 ## Template Cleanup + Icon Map Framework — 2026-03-21
 
 **Plans**: `workspace/plan/active/SNIPPETS/template-audit.md`, `workspace/plan/active/SNIPPETS/template-plan.md`

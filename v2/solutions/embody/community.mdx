@@ -31,6 +31,7 @@ import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
 import { CenteredContainer, BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
+import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
 
 {/* DATA */}
 import { youtubeData } from '/snippets/automations/solutions/embody/youtubeData.jsx'
@@ -54,7 +55,9 @@ import { embodySocials } from "./data/socials.jsx"
 
 Watch the latest on the <LinkArrow label="Embody Media YouTube Channel" href="https://www.youtube.com/@Embody-Media" newline={false} />
 
-<YouTubeVideoData items={youtubeData} limit={4} />
+<LazyLoad height="400px">
+  <YouTubeVideoData items={youtubeData} limit={4} />
+</LazyLoad>
 
 <CustomDivider style={{margin: "0.5rem 0 -2.5rem 0"}}/>
 
@@ -62,21 +65,39 @@ Watch the latest on the <LinkArrow label="Embody Media YouTube Channel" href="ht
 
 Latest from the <LinkArrow label="Embody Discord" href="https://discord.gg/gVmDMhYm" newline={false} />
 
-<DiscordAnnouncements serverName="Embody" items={embodyDiscordData} limit={4} ScrollBox={ScrollBox} scrollMaxHeight={200} />
+<LazyLoad height="300px">
+  <DiscordAnnouncements serverName="Embody" items={embodyDiscordData} limit={4} ScrollBox={ScrollBox} scrollMaxHeight={200} />
+</LazyLoad>
+
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
+
+## Featured X Post <Icon icon="x-twitter" size={24} />
+
+{/* https://x.com/Livepeer/status/2011549141886022107?s=20 */}
+
+<LazyLoad height="650px">
+  <iframe
+      src="https://platform.twitter.com/embed/Tweet.html?id=2011549141886022107&theme=dark"
+      style={{display: "flex", justifyContent: "left !important",  border: "none", borderRadius: "2.5%", width: "70%", maxWidth: "550px", overflowX: "hidden", height: "650px", backgroundColor: "var(--text)"}}
+      title="Embody on X"
+  />
+</LazyLoad>
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
 ## <Icon icon="github" size={24} /> GitHub
 
-<BorderedBox>
-  <ScrollBox maxHeight={600}>
-    <BorderedBox variant="accent">
-        Embody Github
-        <LinkArrow label="View Embody on GitHub" href="https://github.com/its-DeFine/Unreal_Vtuber" newline={true} />
-    </BorderedBox>
-    <MarkdownEmbed url="https://raw.githubusercontent.com/its-DeFine/Unreal_Vtuber/main/README.md" />
-  </ScrollBox>
-</BorderedBox>
+<LazyLoad height="600px">
+  <BorderedBox>
+    <ScrollBox maxHeight={600}>
+      <BorderedBox variant="accent">
+          Embody Github
+          <LinkArrow label="View Embody on GitHub" href="https://github.com/its-DeFine/Unreal_Vtuber" newline={true} />
+      </BorderedBox>
+      <MarkdownEmbed url="https://raw.githubusercontent.com/its-DeFine/Unreal_Vtuber/main/README.md" />
+    </ScrollBox>
+  </BorderedBox>
+</LazyLoad>
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 

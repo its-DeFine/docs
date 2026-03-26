@@ -25,13 +25,18 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '.tool_input.command' | grep -qE 'git (checkout|clean|reset --hard|push --force|push -f|branch -D)' && echo '{\"decision\":\"block\",\"reason\":\"BLOCKED: Destructive git command. Run manually if needed.\"}' && exit 2 || true",
-            "statusMessage": "Checking for destructive git commands..."
-          },
+            "command": "node operations/scripts/dispatch/governance/pre-tool-guard.js",
+            "statusMessage": "Checking command safety..."
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
           {
             "type": "command",
-            "command": "jq -r '.tool_input.command' | grep -qiE '(gh (issue|pr) (create|comment|edit)|curl.*(api\\.github|hooks\\.slack)|echo.*>>.*\\.github)' && echo '{\"decision\":\"block\",\"reason\":\"BLOCKED: This command posts to a public service. Review content for sensitive data before running manually.\"}' && exit 2 || true",
-            "statusMessage": "Checking for public service posts..."
+            "command": "node operations/scripts/dispatch/governance/pre-tool-guard.js",
+            "statusMessage": "Checking file write..."
           }
         ]
       }
@@ -41,7 +46,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "TRACKER=\"/tmp/claude-circuit-breaker-${CLAUDE_SESSION_ID:-default}\"; jq -r '.tool_name' >> \"$TRACKER\"; LINES=$(wc -l < \"$TRACKER\" | tr -d ' '); if [ \"$LINES\" -ge 3 ]; then UNIQUE=$(tail -3 \"$TRACKER\" | sort -u | wc -l | tr -d ' '); if [ \"$UNIQUE\" -eq 1 ]; then echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUseFailure\",\"additionalContext\":\"CIRCUIT BREAKER: 3 consecutive failures of the same tool. STOP retrying the same approach. Root-cause analyse: (1) state what you tried and why it failed each time, (2) list the actual error messages, (3) propose a DIFFERENT approach based on the evidence. Do not retry without approval.\"}}'; fi; fi",
+            "command": "node operations/scripts/dispatch/governance/post-tool-verify.js",
             "statusMessage": "Tracking consecutive failures..."
           }
         ]

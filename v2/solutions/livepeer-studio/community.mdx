@@ -31,9 +31,11 @@ import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
 import { CenteredContainer, BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
+import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
 
 {/* DATA */}
 import { youtubeData } from '/snippets/automations/solutions/livepeer-studio/youtubeData.jsx'
+import { youtubeDataStatic } from '/snippets/automations/solutions/livepeer-studio/youtubeDataStatic.jsx'
 import { discordAnnouncementsData } from '/snippets/automations/discord/discordAnnouncementsData.jsx'
 import { studioSocials } from "./data/socials.jsx"
 
@@ -54,7 +56,9 @@ import { studioSocials } from "./data/socials.jsx"
 
 Watch the latest on the <LinkArrow label="Livepeer YouTube Channel" href="https://www.youtube.com/@livepeer" newline={false} />
 
-<YouTubeVideoData items={youtubeData} limit={4} />
+<LazyLoad height="400px">
+  <YouTubeVideoData items={youtubeDataStatic} limit={4} />
+</LazyLoad>
 
 <CustomDivider style={{margin: "0.5rem 0 -2.5rem 0"}}/>
 
@@ -62,34 +66,40 @@ Watch the latest on the <LinkArrow label="Livepeer YouTube Channel" href="https:
 
 Latest from the <LinkArrow label="Livepeer Discord" href="https://discord.gg/livepeer" newline={false} />
 
-<DiscordAnnouncements serverName="Livepeer" items={discordAnnouncementsData} limit={4} ScrollBox={ScrollBox} scrollMaxHeight={200} />
+<LazyLoad height="300px">
+  <DiscordAnnouncements serverName="Livepeer" items={discordAnnouncementsData} limit={4} ScrollBox={ScrollBox} scrollMaxHeight={200} />
+</LazyLoad>
+
+<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
+
+## Featured X Post <Icon icon="x-twitter" size={24} />
+
+<br/>
+{/* https://x.com/elliot_braem/status/1977819660897640875?s=20 */}
+
+<LazyLoad height="650px">
+  <iframe
+      src="https://platform.twitter.com/embed/Tweet.html?id=1977819660897640875&theme=dark"
+      style={{display: "flex", justifyContent: "left !important",  border: "none", borderRadius: "2.5%", width: "70%", maxWidth: "550px", overflowX: "hidden", height: "650px", backgroundColor: "var(--text)"}}
+      title="Studio on X"
+  />
+</LazyLoad>
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
 ## <Icon icon="github" size={24} /> GitHub
 
-<BorderedBox>
-  <ScrollBox maxHeight={600}>
-    <BorderedBox variant="accent">
-        Livepeer Studio Github
-        <LinkArrow label="View livepeer/studio on GitHub" href="https://github.com/livepeer/studio" newline={true} />
-    </BorderedBox>
-    <MarkdownEmbed url="https://raw.githubusercontent.com/livepeer/studio/main/README.md" />
-  </ScrollBox>
-</BorderedBox>
-
-<CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
-
-## <Icon icon="x-twitter" size={24} /> Featured X Post
-{ /* <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Use <a href="https://twitter.com/Livepeer?ref_src=twsrc%5Etfw">@Livepeer</a> for it 👀 Check out <a href="https://t.co/OSiBmRq60G">https://t.co/OSiBmRq60G</a></p>&mdash; madamcultleader.eth (@cult_leader_en) <a href="https://twitter.com/cult_leader_en/status/1937914268646797643?ref_src=twsrc%5Etfw">June 25, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-https://x.com/cult_leader_en/status/1937914268646797643?s=20
-*/}
-
-<iframe
-    src="https://platform.twitter.com/embed/Tweet.html?id=1937914268646797643&theme=dark"
-    style={{display: "flex", justifyContent: "left !important",  border: "none", borderRadius: "2.5%", width: "70%", maxWidth: "550px", overflowX: "hidden", height: "650px", backgroundColor: "var(--text)"}}
-    title="Studio on X"
-/>
+<LazyLoad height="600px">
+  <BorderedBox>
+    <ScrollBox maxHeight={600}>
+      <BorderedBox variant="accent">
+          Livepeer Studio Github
+          <LinkArrow label="View livepeer/studio on GitHub" href="https://github.com/livepeer/studio" newline={true} />
+      </BorderedBox>
+      <MarkdownEmbed url="https://raw.githubusercontent.com/livepeer/studio/master/README.md" />
+    </ScrollBox>
+  </BorderedBox>
+</LazyLoad>
 
 <CustomDivider />
 

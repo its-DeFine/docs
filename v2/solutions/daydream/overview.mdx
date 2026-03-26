@@ -32,18 +32,24 @@ import { BorderedBox } from "/snippets/components/wrappers/containers/Containers
 import { CenteredContainer } from "/snippets/components/wrappers/containers/Containers.jsx";
 import { YouTubeVideo, Video, TitledVideo } from "/snippets/components/displays/video/Video.jsx";
 import { BadgeWrapper, IconBadgeWrapper } from '/snippets/components/wrappers/badges/Badges.jsx'
+import { StyledSteps, StyledStep } from '/snippets/components/wrappers/steps/Steps.jsx'
 import { daydreamBadges } from "./data/badges.jsx"
 import { daydreamInfra } from "./data/infra.jsx"
 import { daydreamSocials } from "./data/socials.jsx"
 
 <IconBadgeWrapper style={{ margin: "-1rem 0 1rem 0" }} iconColor="var(--accent)" size={16} items={daydreamInfra} />
-<BadgeWrapper style={{margin: "0 0 2rem 0"}} badges={daydreamBadges} />
+<BadgeWrapper style={{margin: "0 0 1rem 0"}} badges={daydreamBadges} />
 
-{/* <CenteredContainer style={{ marginTop: "-1rem", marginBottom: "1rem", width:"80%", minWidth:"fit-contents" }}> */}
+{/* socials links */}
+<CenteredContainer maxWidth="fit-content">
+  <BorderedBox style={{margin: 0, padding: "0.5rem 1rem 1rem 1rem"}} variant="accent">
+      <SocialLinks iconColor="var(--text)" links={daydreamSocials} />
+  </BorderedBox>
+</CenteredContainer>
+
 <Info>
-  This page is not maintained by Livepeer. For help & support contact the [Daydream]('https://discord.gg/pF2Akym5bV') team directly.
+  This page is maintained by the Daydream Team. Help & support available via the [Daydream Discord]('https://discord.gg/pF2Akym5bV').
 </Info>
-{/* </CenteredContainer> */}
 
 <Video src="/snippets/assets/media/videos/daydream-hero-demo.mp4" alt="Daydream Hero Video" href="https://daydream.live"/>
 {/* ALT: IMAGE component with gif or image if no gif. */}
@@ -54,17 +60,10 @@ Daydream is an **open-source toolkit** for [world models](https://www.nvidia.com
 {/* explains connection to Livepeer */}
 Daydream runs on Livepeer’s decentralised GPU network. It uses the [Daydream gateway](../../developers/) to route real-time AI inference jobs (e.g. Style transfer, image-to-video) to the network.
 
-{/* socials links */}
-<CenteredContainer maxWidth="fit-content">
-  <BorderedBox style={{margin: 0, padding: "0.5rem 1rem 1rem 1rem"}} variant="accent">
-      <SocialLinks iconColor="var(--text)" links={daydreamSocials} />
-  </BorderedBox>
-</CenteredContainer>
-
 <CustomDivider style={{margin: "-0.5rem 0 -2.5rem 0"}} />
 
 {/* product features preferably with another video or embedding the website / a blog / forum post etc */}
-### Key Features
+## Key Features
 - **Real-time AI video** - Transform livestreams and video with text prompts and style transfer (e.g. turn a face into animated art in real time).
 - **World models** - Build and experiment with open world models for generative and interactive video.
 - **Creative workflows** - Use StreamDiffusion-style pipelines and low-latency inference for live remixing and effects.
@@ -78,7 +77,36 @@ Daydream runs on Livepeer’s decentralised GPU network. It uses the [Daydream g
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
-### Try Daydream
+## Get Started
+
+<StyledSteps>
+  <StyledStep title="Try the app" icon="wand-magic-sparkles">
+    1. Go to [daydream.live](https://daydream.live).
+    2. Allow camera access when prompted.
+    3. Enter a text prompt to transform your video in real time (e.g. style or character descriptions).
+    4. Use the controls to adjust strength and see the result stream.
+
+    This uses Livepeer’s network via the Daydream gateway for real-time AI inference.
+  </StyledStep>
+
+  <StyledStep title="Build with the Daydream API" icon="code">
+    1. Read the [Daydream docs](https://docs.daydream.live/) for setup and authentication.
+    2. Get the required API keys or gateway credentials from the Daydream dashboard or docs.
+    3. Use the Daydream API or SDK (as documented at [docs.daydream.live](https://docs.daydream.live/)) to send video frames and receive AI-processed output.
+
+    <Info>
+      Exact endpoints, SDK usage, and pipeline options are documented in the [Daydream documentation](https://docs.daydream.live/). Use that as the source for API reference and code samples.
+    </Info>
+  </StyledStep>
+
+  <StyledStep title="Run or connect a gateway" icon="server">
+    If you are operating infrastructure that serves Daydream-style jobs (e.g. running a gateway that routes to the Livepeer network), see [Using the Daydream Gateway](/v2/gateways/portal) for gateway provider details.
+  </StyledStep>
+</StyledSteps>
+
+<CustomDivider style={{margin: "-0.5rem 0 -2.5rem 0"}} />
+
+## Try Daydream
 {/*
  need 4 sources with actual use me / get started /  actual tutorials / dev videos here.
 MUST LINK TO ACTUAL TRY ME OR USE ME OR DEV REFERENCES THAT ARE NOT IN SOCIALS ALREADY
@@ -87,16 +115,16 @@ update
 */}
 
 <CardGroup cols={2}>
-  <Card title={<CustomCardTitle icon="book-open" title="Get Started Guide" />} href="https://blog.livepeer.org/getting-started-with-daydream-transform-your-videos-with-ai-magic/" arrow>
+  <Card title={<CustomCardTitle icon="book-open" title="Get Started Guide" />} href="https://blog.livepeer.org/getting-started-with-daydream-transform-your-videos-with-ai-magic/" img="/snippets/assets/media/heros/solutions/daydream/Daydream_Hero_Get-Started.png">
     Transform videos with AI: prompts and practical tips.
   </Card>
-  <Card title={<CustomCardTitle icon="bolt-lightning" title="Quickstart" />} href="https://docs.daydream.live/" arrow>
+  <Card title={<CustomCardTitle icon="bolt-lightning" title="Quickstart" />} href="https://docs.daydream.live/" img="/snippets/assets/media/heros/solutions/daydream/Daydream_Hero_Quickstart.png">
     Get the Daydream API running in minutes.
   </Card>
-  <Card title={<CustomCardTitle icon="wand-magic-sparkles" title="Try the App" />} href="https://app.daydream.live/" arrow>
+  <Card title={<CustomCardTitle icon="wand-magic-sparkles" title="Try the App" />} href="https://app.daydream.live/" img="/snippets/assets/media/heros/solutions/daydream/Daydream_Hero_Try-App.png">
     Open the Daydream app and try real-time AI video transformation.
   </Card>
-  <Card title={<CustomCardTitle icon="diagram-project" title="Explore Workflows" />} href="https://app.daydream.live/explore?tab=workflows" arrow>
+  <Card title={<CustomCardTitle icon="diagram-project" title="Explore Workflows" />} href="https://app.daydream.live/explore?tab=workflows" img="/snippets/assets/media/heros/solutions/daydream/Daydream_Hero_Workflows.png">
     Browse community-built composable AI workflows.
   </Card>
 </CardGroup>
@@ -104,12 +132,17 @@ update
 <CustomDivider style={{margin: "-0.5rem 0 -2.5rem 0"}} />
 
 ## Daydream Resources
+<CenteredContainer maxWidth="fit-content">
+  <BorderedBox style={{margin: "0 0 1rem 0", padding: "0.5rem 1rem 1rem 1rem"}} variant="accent">
+      <SocialLinks iconColor="var(--text)" links={daydreamSocials} />
+  </BorderedBox>
+</CenteredContainer>
 {/* want at least 2 dev items (docs, github, website otherwise) and their main comms support channel (discord probably) and one other more dev focussed thing) -> if only 2 available use 2. if 3 -> have the first card be full width (main item) and the other 2 be columns. */}
 <CardGroup cols={2}>
   <Card title={<CustomCardTitle title="Daydream docs" icon="newspaper"/>} href="https://docs.daydream.live/" arrow>
     Full documentation: setup, API reference, and pipeline guides.
   </Card>
-  <Card title={<CustomCardTitle title="GitHub" icon="github"/>} href="https://github.com/daydreamlive/scope" arrow>
+  <Card title={<CustomCardTitle title="GitHub" icon="github"/>} href="https://github.com/daydreamlive/" arrow>
     Scope: open-source real-time AI video tooling from Daydream.
   </Card>
   <Card title={<CustomCardTitle title="Discord" icon="discord"/>} href="https://discord.gg/pF2Akym5bV" arrow>

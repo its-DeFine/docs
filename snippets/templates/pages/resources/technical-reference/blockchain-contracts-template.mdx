@@ -1,0 +1,207 @@
+---
+sidebarTitle: Contract Addresses
+title: Contract Addresses
+description: >-
+  Current and historical Livepeer protocol contract addresses across Arbitrum
+  One and Ethereum Mainnet. Verified on-chain.
+keywords:
+  - livepeer
+  - contract addresses
+  - arbitrum
+  - ethereum
+  - blockchain
+  - smart contracts
+'og:image': /snippets/assets/site/og-image/fallback.png
+'og:image:alt': Livepeer Docs social preview image
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+pageType: reference
+purpose: reference
+audience: "{AUDIENCE}"
+lastVerified: YYYY-MM-DD
+---
+
+{/*
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │  CONTRACT ADDRESSES TEMPLATE — Technical Reference                     │
+  │                                                                        │
+  │  Purpose:  Automated reference page for Livepeer protocol contract     │
+  │            addresses. Data is fetched from livepeer/governor-scripts,   │
+  │            merged with a static supplement, verified against            │
+  │            Arbiscan/Etherscan, and rendered via a shared composable.    │
+  │                                                                        │
+  │  Usage:                                                                │
+  │  1. Copy this file to the target location                              │
+  │  2. Replace {AUDIENCE} with the tab audience                           │
+  │     (e.g. "gateway-operator", "orchestrator", "general")               │
+  │  3. Adjust frontmatter lastVerified date                               │
+  │  4. Add the page to docs.json under the tab's nav group                │
+  │  5. No per-page script or workflow needed — the shared                 │
+  │     update-contract-addresses.yml workflow handles data updates         │
+  │                                                                        │
+  │  Data pipeline:                                                        │
+  │    livepeer/governor-scripts (addresses.js)                            │
+  │    + contract-addresses-supplement.json (static)                       │
+  │    → fetch-contract-addresses.js (fetch + Arbiscan verify)             │
+  │    → snippets/automations/globals/contractAddressesData.jsx            │
+  │    → this composable renders the data                                  │
+  │                                                                        │
+  │  Composable:                                                           │
+  │    snippets/composables/pages/shared/contract-addresses-section.mdx    │
+  │    Imports the data file. Renders current + historical addresses        │
+  │    with verification timestamps and explorer links.                    │
+  │                                                                        │
+  │  Config:                                                               │
+  │    operations/scripts/config/contract-addresses-supplement.json         │
+  │    — contracts not tracked by governor-scripts                         │
+  │                                                                        │
+  │  Workflow:                                                             │
+  │    .github/workflows/update-contract-addresses.yml                     │
+  │    — weekly cron + manual dispatch + repository_dispatch               │
+  │    — fetches, verifies, writes data file, optionally scans v2/         │
+  │      for stale hardcoded addresses (--scan-fix)                        │
+  │                                                                        │
+  │  Reference implementation:                                             │
+  │    v2/gateways/resources/technical/contract-addresses.mdx              │
+  └─────────────────────────────────────────────────────────────────────────┘
+*/}
+
+{/* COMPONENT IMPORTS */}
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
+import { SearchTable } from '/snippets/components/wrappers/tables/SearchTable.jsx'
+import { CopyText } from '/snippets/components/elements/text/Text.jsx'
+
+{/* DATA IMPORTS */}
+import { contractAddresses } from '/snippets/automations/globals/contractAddressesData.jsx'
+
+{/* MDX COMPOSABLE IMPORTS */}
+{/* import ContractAddresses from '/snippets/composables/pages/shared/contract-addresses-section.mdx' */}
+
+{/* BODY */}
+
+<Tip>
+  This page is an automated workflow. Data sourced from <LinkArrow label="governor-scripts" href="https://github.com/livepeer/governor-scripts" newline={false} /> and verified on-chain.
+  <div style={{ fontSize: "0.85rem", marginTop: "0.25rem"}}>
+    Last verified: {contractAddresses.meta.lastVerified ? new Date(contractAddresses.meta.lastVerified).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "Pending"} — {contractAddresses.meta.verificationSummary}
+  </div>
+</Tip>
+
+<Columns cols={2}>
+  <Card
+    href="https://github.com/livepeer/governor-scripts/blob/master/updates/addresses.js"
+    icon="github"
+    title="Livepeer Contracts: GitHub"
+    horizontal
+  />
+  <Card
+    href="https://arbiscan.io/accounts/label/livepeer"
+    icon="cubes"
+    title="Livepeer Contracts: Arbiscan"
+    horizontal
+  />
+</Columns>
+
+Livepeer protocol contracts are deployed on **Arbitrum One** (active) and **Ethereum Mainnet** (legacy bridge and governance). Proxy addresses are stable across upgrades; target addresses change when a new implementation is deployed via governance.
+
+<CustomDivider />
+
+{/*
+  ── RECENTLY UPDATED ──
+  Show contracts updated in the last 30 days.
+  This section is populated by comparing the current data file against the
+  previous .bak version. If no recent changes, this section is hidden.
+  TODO: Implement recent-changes detection in fetch script.
+*/}
+
+<Warning>
+  <div style={{ fontWeight: 700 }}>Recently updated addresses:</div>
+  <br/>
+  BondingManager (Target): <CopyText text="0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74" label="V13" /> (Arbitrum One)
+</Warning>
+
+## Active Contract Addresses
+
+<SearchTable
+  tableTitle="Arbitrum One"
+  headerList={["Contract", "Address", "Type", "Category"]}
+  monospaceColumns={["Address"]}
+  searchPlaceholder="Search by contract name or address..."
+  searchColumns={["Contract", "Address", "Category"]}
+  categoryColumn="Category"
+  itemsList={contractAddresses.arbitrumOne.current.map(c => ({
+    Contract: c.version ? `${c.name} (${c.version})` : c.name,
+    Address: c.address,
+    Type: c.type,
+    Category: c.category,
+  }))}
+/>
+
+<CustomDivider />
+
+<SearchTable
+  tableTitle="Ethereum Mainnet"
+  headerList={["Contract", "Address", "Type", "Category"]}
+  monospaceColumns={["Address"]}
+  searchPlaceholder="Search by contract name or address..."
+  searchColumns={["Contract", "Address", "Category"]}
+  categoryColumn="Category"
+  itemsList={contractAddresses.ethereumMainnet.current.map(c => ({
+    Contract: c.version ? `${c.name} (${c.version})` : c.name,
+    Address: c.address,
+    Type: c.type,
+    Category: c.category,
+  }))}
+/>
+
+<CustomDivider />
+
+## Deprecated Contract Addresses
+
+Historical contract implementations replaced through governance upgrades. Listed for reference and audit purposes.
+
+<Accordion title="Arbitrum One — Historical">
+  {Object.entries(contractAddresses.arbitrumOne.historical || {}).map(([group, data]) => (
+    <div key={group}>
+      <h4>{group}</h4>
+      <ul>
+        {(data.entries || []).map(entry => (
+          <li key={entry.address}>
+            <CopyText text={entry.address} label={entry.version} />{" "}
+            <LinkArrow label="Arbiscan" href={`${contractAddresses.meta.explorerUrls.arbiscan}${entry.address}`} newline={false} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</Accordion>
+
+<Accordion title="Ethereum Mainnet — Historical">
+  {Object.entries(contractAddresses.ethereumMainnet.historical || {}).map(([group, data]) => (
+    <div key={group}>
+      <h4>{group}</h4>
+      <ul>
+        {(data.entries || []).map(entry => (
+          <li key={entry.address}>
+            <CopyText text={entry.address} label={entry.version} />{" "}
+            <LinkArrow label="Etherscan" href={`${contractAddresses.meta.explorerUrls.etherscan}${entry.address}`} newline={false} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</Accordion>
+
+<CustomDivider />
+
+## Contract Changelog
+
+<CardGroup cols={2}>
+  <Card title="Contract Changelog" icon="clock-rotate-left" href="/v2/about/resources/contract-changelog" arrow>
+    Track governance upgrades and contract deployments.
+  </Card>
+  <Card title="Blockchain Contracts" icon="file-contract" href="/v2/about/resources/blockchain-contracts" arrow>
+    Architecture overview and contract descriptions.
+  </Card>
+</CardGroup>

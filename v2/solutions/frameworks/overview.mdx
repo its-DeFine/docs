@@ -1,5 +1,6 @@
 ---
-title: Frameworks
+title: About Frameworks
+sidebarTitle: About Frameworks
 description: >-
   Full-stack video infrastructure: self-hosted or hosted, built on MistServer and Livepeer.
 keywords:
@@ -29,20 +30,24 @@ import { BorderedBox } from "/snippets/components/wrappers/containers/Containers
 import { CenteredContainer } from "/snippets/components/wrappers/containers/Containers.jsx";
 import { YouTubeVideo, Video } from "/snippets/components/displays/video/Video.jsx";
 import { BadgeWrapper, IconBadgeWrapper } from '/snippets/components/wrappers/badges/Badges.jsx'
+import { StyledSteps, StyledStep } from '/snippets/components/wrappers/steps/Steps.jsx'
 import { frameworksBadges } from "./data/badges.jsx"
 import { frameworksInfra } from "./data/infra.jsx"
 import { frameworksSocials } from "./data/socials.jsx"
 
 <IconBadgeWrapper style={{ margin: "-1rem 0 1rem 0" }} iconColor="var(--accent)" size={16} items={frameworksInfra} />
-<BadgeWrapper style={{margin: "0 0 2rem 0"}} badges={frameworksBadges} />
+<BadgeWrapper style={{margin: "0 0 1rem 0"}} badges={frameworksBadges} />
+
+{/* socials links */}
+<CenteredContainer maxWidth="fit-content">
+  <BorderedBox style={{ margin: 0, padding: "0.5rem 1rem 1rem 1rem"}} variant="accent">
+    <SocialLinks iconColor="var(--text)" links={frameworksSocials} />
+  </BorderedBox>
+</CenteredContainer>
 
 <Info>
-  For help and support, contact the Frameworks team at [frameworks.network/contact](https://frameworks.network/contact). This page is maintained by the Frameworks team.
+  This page is maintained by the Frameworks Team. Help & support available via the [Frameworks Contact](https://frameworks.network/contact).
 </Info>
-
-<Frame caption="Frameworks - sovereign video infrastructure">
-  <img src="https://raw.githubusercontent.com/livepeer-frameworks/monorepo/master/docs/static/img/og-image.png" alt="Frameworks" style={{width: "100%", borderRadius: "8px"}} />
-</Frame>
 
 {/* explains the product */}
 Frameworks is **full-stack video infrastructure** from a Livepeer Special Purpose Entity (SPE). It combines full self-hosting with optional hosted processing, powered by MistServer: run the stack yourself, use Frameworks' hosted services, or mix both.
@@ -50,16 +55,9 @@ Frameworks is **full-stack video infrastructure** from a Livepeer Special Purpos
 {/* explains connection to Livepeer */}
 Frameworks connects to Livepeer's decentralised GPU network for AI and transcoding workloads, giving operators a sovereign, unclouded alternative to managed video platforms.
 
-{/* socials links */}
-<CenteredContainer maxWidth="fit-content">
-  <BorderedBox style={{margin: 0, padding: "0.5rem 1rem 1rem 1rem"}} variant="accent">
-    <SocialLinks iconColor="var(--text)" links={frameworksSocials} />
-  </BorderedBox>
-</CenteredContainer>
-
 <CustomDivider style={{margin: "-0.5rem 0 -2.5rem 0"}} />
 
-### Key Features
+## Key Features
 
 - **Full self-hosting** - Run the complete video stack on your own infrastructure with no vendor lock-in.
 - **Hosted processing** - Use Frameworks' hosted ingest and transcoding services where self-hosting is not practical.
@@ -75,7 +73,44 @@ Frameworks connects to Livepeer's decentralised GPU network for AI and transcodi
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 
-### Try Frameworks
+## Get Started
+
+Get started with Frameworks by using the hosted app or by following the official setup in the [Frameworks documentation](https://docs.frameworks.network/). Full API reference, playback, and self-hosting details are there.
+
+<StyledSteps>
+  <StyledStep title="Start from the app" icon="browser">
+    1. Go to [app.frameworks.network](https://app.frameworks.network/) and sign up (free tier available).
+    2. Create a stream in the dashboard (e.g. "Product Demo").
+    3. Go live with **StreamCrafter** in the browser or connect an external encoder (e.g. OBS) using the shown RTMP server and stream key.
+    4. Use the dashboard for recordings, clips, and analytics.
+
+    Free tier includes self-hosting and access to the shared bandwidth pool with Livepeer-backed compute.
+  </StyledStep>
+
+  <StyledStep title="Use the SDK" icon="code">
+    To add playback or broadcast to your own app:
+
+    1. Read the [Frameworks docs](https://docs.frameworks.network/) for the Player and StreamCrafter SDKs.
+    2. Install the packages (e.g. `@livepeer-frameworks/player-react`) and configure your stream/playback URLs.
+    3. Use the GraphQL API or MCP for streams, diagnostics, and billing when you need automation.
+
+    <Info>
+     Endpoints, SDK usage, and self-hosted deployment are documented in the [Frameworks documentation](https://docs.frameworks.network/). Use it as the source for API reference and code samples.
+    </Info>
+  </StyledStep>
+
+  <StyledStep title="Self-host the stack" icon="server">
+    To run the full stack yourself (sovereign deployment):
+
+    1. Follow the [Frameworks docs](https://docs.frameworks.network/) for self-hosting and deployment.
+    2. Optionally use hybrid mode: self-host the edge and use Frameworks’ hosted services for burst or GPU workloads.
+    3. For agent integration, use [SKILL.md](https://frameworks.network/SKILL.md) and MCP to discover, authenticate, and operate the platform.
+  </StyledStep>
+</StyledSteps>
+
+<CustomDivider style={{margin: "-0.5rem 0 -2.5rem 0"}} />
+
+## Try Frameworks
 {/*
   Link to actual try-me / use-me / dev references — NOT links already in socials.
   Use 2 cards if only 2 available.
@@ -84,16 +119,16 @@ Frameworks connects to Livepeer's decentralised GPU network for AI and transcodi
 */}
 
 <CardGroup cols={2}>
-  <Card title={<CustomCardTitle icon="bolt-lightning" title="Quickstart" />} href="/solutions/frameworks/quickstart" arrow>
+  <Card title={<CustomCardTitle icon="bolt-lightning" title="Quickstart" />} href="/solutions/frameworks/quickstart" img="/snippets/assets/media/heros/solutions/frameworks/Frameworks_Hero_Quickstart.png">
     Go live in minutes from the app or with the SDK.
   </Card>
-  <Card title={<CustomCardTitle icon="grid" title="Frameworks app" />} href="https://app.frameworks.network/" arrow>
+  <Card title={<CustomCardTitle icon="grid" title="Frameworks app" />} href="https://app.frameworks.network/" img="/snippets/assets/media/heros/solutions/frameworks/Frameworks_Hero_Try-App.png">
     Dashboard, StreamCrafter, and Skipper.
   </Card>
-  <Card title={<CustomCardTitle icon="book-open" title="Documentation" />} href="https://docs.frameworks.network/" arrow>
+  <Card title={<CustomCardTitle icon="book-open" title="Documentation" />} href="https://docs.frameworks.network/" img="/snippets/assets/media/heros/solutions/frameworks/Frameworks_Hero_Docs.png">
     Setup, API reference, playback, and StreamCrafter guides.
   </Card>
-  <Card title={<CustomCardTitle icon="comment-question" title="SPE pilot proposal" />} href="https://forum.livepeer.org/t/pre-proposal-livepeer-frameworks-spe-pilot-phase/2773" arrow>
+  <Card title={<CustomCardTitle icon="comment-question" title="SPE pilot proposal" />} href="https://forum.livepeer.org/t/pre-proposal-livepeer-frameworks-spe-pilot-phase/2773" img="/snippets/assets/media/heros/solutions/frameworks/Frameworks_Hero_Proposal.png">
     Community treasury proposal and Frameworks' role in the Livepeer ecosystem.
   </Card>
 </CardGroup>
@@ -101,6 +136,11 @@ Frameworks connects to Livepeer's decentralised GPU network for AI and transcodi
 <CustomDivider style={{margin: "-0.5rem 0 -2.5rem 0"}} />
 
 ## Frameworks Resources
+<CenteredContainer maxWidth="fit-content">
+  <BorderedBox style={{margin: "0 0 1rem 0", padding: "0.5rem 1rem 1rem 1rem"}} variant="accent">
+      <SocialLinks iconColor="var(--text)" links={frameworksSocials} />
+  </BorderedBox>
+</CenteredContainer>
 {/*
   At least 2 dev items (docs, GitHub, website) + main comms/support channel (Discord) + one other dev-focused item.
   Use 2 cards if only 2 available.
