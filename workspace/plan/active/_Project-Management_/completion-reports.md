@@ -1112,3 +1112,152 @@ Added "Real-time Interactive 3D Avatar" to the Solutions glossary. Marked all So
 | `tools/notion/data/backup-2026-03-26T10-13-33.json` | new | Full Notion table backup before modifications |
 | `tools/notion/node_modules/` | new | npm dependencies installed for Notion scripts |
 | `/Users/alisonhaire/.claude/plans/fancy-floating-metcalfe.md` | new | Plan file for Notion sync |
+
+---
+
+## Solutions Changelog Pipeline + GitLab Support + Component Fixes - 2026-03-27
+
+**Plans**: `/Users/alisonhaire/.claude/plans/parallel-sniffing-bunny.md`
+**Scope**: Built GitLab changelog support for Streamplace, redesigned the LLM-enhanced changelog pipeline, fixed broken components across solution pages, deployed LazyLoad across community pages.
+
+### Summary
+
+Extended the changelog generation script to support dual-source (GitHub + GitLab) fetching with deduplication, built a new Streamplace changelog from 131 GitLab releases, redesigned the enhanced changelog entry format (AI Summary with icon label + divider + Release Notes with icon label in ScrollBox), switched to `openrouter/free` for zero-maintenance model selection, added retry logic, `--regenerate` flag, and MDX-safety fixes. Separately fixed broken StyledSteps/LazyLoad/YouTubeVideoData components across solution pages. All work on `docs-v2-dev`, uncommitted.
+
+---
+
+### Completed
+
+**Changelog Pipeline - GitLab Support**
+- Dual-source changelog generation: GitHub + GitLab fetching with deduplication by `tag_name`, primary source configurable via `gitlab.primary: true`
+- GitLab API functions: `gitlabGet()`, `fetchGitLabRepoReleases()`, `fetchGitLabCommitsBetweenTags()`, `mergeReleases()`
+- Streamplace config: both `github.releasesActive` and `gitlab.releasesActive` enabled in `product-social-config.json`
+- Streamplace changelog page created and populated with 10 LLM-enhanced entries from GitLab
+- Streamplace UI updated: GitLab added to socials, community page, overview page alongside GitHub
+
+**Changelog Pipeline - Enhanced Format**
+- LLM summary labelled with `<Icon icon="user-robot" size={14} /> _AI Summary_` in aligned inline-flex span, followed by divider line
+- Raw release notes labelled with `<Icon icon="pen-to-square" size={14} /> _Release Notes_` in aligned inline-flex span with 1.5rem margin, in ScrollBox
+- h4 headings (####) instead of h3 for smaller visual weight, Title Case on all headings
+- UK English and no em dashes enforced in LLM prompt
+- Angle-bracketed URLs (`<https://...>`) stripped in `cleanForMdx()` to prevent MDX parse errors
+- All entries wrapped in `<LazyLoad height="600px">` for deferred rendering
+- `BorderedBox` and `LazyLoad` imports added to all 5 changelog pages + template
+
+**Changelog Pipeline - Infrastructure**
+- Default model switched to `openrouter/free` (auto-routes to best available free model, no stale IDs)
+- Retry logic: 3 attempts with exponential backoff (2s, 4s) before falling back to raw extraction
+- `--regenerate` flag: wipes existing entries and regenerates all from scratch
+- `GITLAB_TOKEN` env var added to workflow YAML (optional, for private GitLab instances)
+- Placeholder body detection (`isPlaceholderBody()`) for GitLab releases with empty descriptions
+- Refined LLM prompt: task-first description, source-agnostic, terse output rules
+
+**Changelog Pipeline - Template**
+- `changelog-solutions-template.mdx` updated with Mode A (enhanced) and Mode B (raw) entry examples, rules section, all imports
+
+**Component Fixes**
+- Embody overview: fixed StyledSteps import path (`layout/steps.jsx` to `wrappers/steps/Steps.jsx`)
+- Streamplace overview: added missing StyledSteps import
+- Studio community: added missing `youtubeDataStatic` export alias
+- Frameworks overview: fixed smart/curly quotes causing MDX parse error
+- Studio overview: wrapped 5 Get Started steps in StyledSteps
+- Frameworks overview: wrapped 3 Get Started steps in StyledSteps
+
+**LazyLoad Component**
+- Built `snippets/components/wrappers/containers/LazyLoad.jsx` using IntersectionObserver, fires once, disconnects
+- Two-phase render with CSS fade-in (400ms) to prevent layout flash
+- Deployed across all 5 community pages wrapping YouTube, Discord, GitHub, Blog, X iframe sections
+
+**Overview Page Reorder**
+- Try sections moved above Get Started on all 5 solution overview pages (Daydream, Studio, Embody, Frameworks, Streamplace)
+
+**Daydream Changelog**
+- Full regeneration with all latest format changes (37 entries, 37/37 LLM-enhanced)
+
+---
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| `openrouter/free` as default model | Auto-routes to best available free model. No hardcoded IDs that go stale. Override via `OPENROUTER_MODEL` env var when needed. |
+| Dual-source (GitHub + GitLab) not either/or | Streamplace has code in both. Dedup by tag_name, primary source wins on duplicates. |
+| AI Summary in italic with robot icon, not heading or box | User iterated through ### heading, BorderedBox, then settled on icon + italic label + divider span. Visually distinct without being heavy. |
+| Release Notes with pen-to-square icon | Matches AI Summary style. Labels the ScrollBox so readers know what the raw content is. |
+| h4 not h3 for feature/fix headings | h3 was too large inside Update blocks. h4 is skimmable without dominating. |
+| LazyLoad wraps entire automation zone, not individual entries | One wrapper for all entries is simpler than per-entry wrappers. Script emits the wrapper. |
+| `--regenerate` flag | Manual wipe-and-rerun was error-prone. Flag automates truncation to template header before repopulating. |
+
+---
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Regenerate Embody, Studio, Frameworks changelogs with new format | High | Only Daydream and Streamplace have been regenerated | Run `--regenerate --enhance` for each |
+| Test `openrouter/free` with retry logic at scale | Medium | Used explicit model for all real runs; free router was flaky | Run in CI where rate limits may differ |
+| CORS test for GitLab raw file access | Low | Community page still uses GitHub README embed | Test from browser console on docs.livepeer.org |
+| Process log to skill conversion | Low | Process log has 12 patterns after 5 runs | After 2-3 more runs |
+
+---
+
+### Dependencies & Downstream Effects
+
+- **All changelog pages**: Now depend on `LazyLoad.jsx` and `BorderedBox` imports. If either component is moved or renamed, all 5 pages break.
+- **Weekly GitHub Actions workflow**: Will use the new dual-source + enhanced format automatically. `GITLAB_TOKEN` secret is optional (Streamplace GitLab is public).
+- **`openrouter/free` model**: If OpenRouter changes the free router behaviour, fallback to raw extraction handles it gracefully. Override with `OPENROUTER_MODEL` env var.
+- **Template**: `changelog-solutions-template.mdx` is now the canonical reference for the entry format. Script output matches the template's documented modes.
+
+---
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| Script syntax | ✅ Clean | `node --check` passes |
+| Daydream regeneration (37 entries) | ✅ 37/37 enhanced | Zero failures, one retry on v0.1.9 |
+| Streamplace generation (10 entries) | ✅ 10/10 enhanced | GitLab source, all placeholder bodies, LLM from commits |
+| Append/dedup test (Daydream) | ✅ Pass | Deleted 3 newest entries, script detected and re-added exactly 3 |
+| MDX parse error (angle brackets) | ✅ Fixed | `<https://...>` stripped by `cleanForMdx()` |
+| Embody, Studio, Frameworks changelogs | ⚠️ Not regenerated | Still have old format entries; need `--regenerate --enhance` |
+
+---
+
+### Recommendations
+
+1. **Regenerate remaining 3 changelogs** - Run `--regenerate --enhance` for Embody, Studio, Frameworks to get the new format across all products.
+2. **Set `OPENROUTER_API_KEY` in `.env`** - Uncomment and add the key so local runs don't need inline env vars.
+3. **Update the dead model default in CI** - The GitHub Actions secret `OPENROUTER_MODEL` should be unset (let it fall through to `openrouter/free`) or set to a known-good model.
+4. **Convert process log to skill** - `workspace/thread-outputs/build/changelog-process-log.md` has 12 patterns from 5 runs. After the remaining regenerations, it's ready to become a `/changelog-ops` skill.
+
+---
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `.github/scripts/generate-solutions-changelog.js` | modified | GitLab provider, dual-source merge, retry logic, --regenerate flag, refined prompt, LazyLoad wrapper, AI Summary/Release Notes labels |
+| `.github/workflows/update-solutions-changelog.yml` | modified | Added GITLAB_TOKEN env var |
+| `operations/scripts/config/product-social-config.json` | modified | Streamplace: enabled GitHub releases + added gitlab section |
+| `snippets/templates/pages/resources/changelog-solutions-template.mdx` | modified | Mode A/B examples, BorderedBox + LazyLoad imports, rules section |
+| `v2/solutions/streamplace/changelog.mdx` | new | Streamplace changelog with 10 LLM-enhanced GitLab entries |
+| `v2/solutions/daydream/changelog.mdx` | modified | Full regeneration, 37 entries in new format |
+| `v2/solutions/embody/changelog.mdx` | modified | Added BorderedBox + LazyLoad imports (entries not yet regenerated) |
+| `v2/solutions/livepeer-studio/changelog.mdx` | modified | Added BorderedBox + LazyLoad imports (entries not yet regenerated) |
+| `v2/solutions/frameworks/changelog.mdx` | modified | Added BorderedBox + LazyLoad imports (entries not yet regenerated) |
+| `docs.json` | modified | Added Streamplace changelog to navigation |
+| `snippets/components/wrappers/containers/LazyLoad.jsx` | new | IntersectionObserver lazy-load with fade-in |
+| `snippets/automations/solutions/livepeer-studio/youtubeData.jsx` | modified | Added youtubeDataStatic alias export |
+| `v2/solutions/livepeer-studio/overview.mdx` | modified | StyledSteps wrapping, Try section moved above Get Started |
+| `v2/solutions/frameworks/overview.mdx` | modified | StyledSteps wrapping, smart quote fix, Try section moved above Get Started |
+| `v2/solutions/embody/overview.mdx` | modified | Fixed StyledSteps import path, Try section moved above Get Started |
+| `v2/solutions/streamplace/overview.mdx` | modified | Added StyledSteps import, GitLab card, Try section moved above Get Started |
+| `v2/solutions/daydream/overview.mdx` | modified | Try section moved above Get Started |
+| `v2/solutions/streamplace/data/socials.jsx` | modified | Added GitLab entry |
+| `v2/solutions/streamplace/community.mdx` | modified | GitLab section alongside GitHub, LazyLoad wrapping |
+| `v2/solutions/embody/community.mdx` | modified | LazyLoad wrapping all heavy sections |
+| `v2/solutions/daydream/community.mdx` | modified | LazyLoad wrapping all heavy sections |
+| `v2/solutions/livepeer-studio/community.mdx` | modified | LazyLoad wrapping all heavy sections |
+| `v2/solutions/frameworks/community.mdx` | modified | LazyLoad wrapping all heavy sections |
+| `workspace/thread-outputs/build/changelog-process-log.md` | new | Process log with 12 patterns from 5 runs |
+| `/Users/alisonhaire/.claude/plans/parallel-sniffing-bunny.md` | new | GitLab changelog plan |

@@ -13,24 +13,18 @@
  * @param {Array} [monospaceColumns=[]] - Column indices to render in monospace.
  * @param {string} margin - Margin passed to TableComponent.
  * @param {string} [searchPlaceholder='Search...'] - Placeholder text for the search input.
- * @param {Array} [searchColumns=[]] - Column names/indices to search against. Defaults to all headers.
+ * @param {Array} [searchColumns=[]] - Column names to search against. Defaults to all headers.
  * @param {string} [categoryColumn='Category'] - Field name the first dropdown filters on.
- * @param {string} [nicheColumn=null] - Field name for a second dropdown filter. When set, shows a second dropdown.
+ * @param {Array} [filterColumns=[]] - Additional column names that get dropdown filters. Each scoped by selections above it.
  * @param {object} [columnWidths={}] - Column width overrides keyed by header name. Passed to TableComponent.
  * @param {object} [columnVariant={}] - Column display variants keyed by header name. Supported: "bold", "badge".
  * @param {Array} [categoryBadges=[]] - Array of {color, label} for "badge" variant rendering. Matched by label (case-insensitive).
  * @param {boolean} [showSeparators=false] - When true, inserts category separator rows. Labels are uppercased.
  * @param {string} [separatorColumn=null] - Override which column drives separators. Default: categoryColumn.
- * @param {boolean} [boldFirstColumn=true] - Auto-wraps first column in <strong> if value is a plain string. Overridden by columnVariant if set.
+ * @param {boolean} [boldFirstColumn=true] - Auto-wraps first column in <strong> if value is a plain string.
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  */
-
-const badgeColors = {
-  blue: '#3b82f6', purple: '#8b5cf6', green: '#22c55e',
-  yellow: '#eab308', red: '#ef4444', orange: '#f97316',
-};
-
 export const SearchTable = ({
   TableComponent = null,
   tableTitle = null,
@@ -41,7 +35,7 @@ export const SearchTable = ({
   searchPlaceholder = 'Search...',
   searchColumns = [],
   categoryColumn = 'Category',
-  nicheColumn = null,
+  filterColumns = [],
   columnWidths = {},
   columnVariant = {},
   categoryBadges = [],
@@ -50,11 +44,17 @@ export const SearchTable = ({
   boldFirstColumn = true,
   className = "",
   style = {},
-  ...rest
 }) => {
+  // All filter columns: categoryColumn first, then any extras
+  const allFilterCols = [categoryColumn, ...filterColumns];
+
+  // State: one selection per filter column
   const [query, setQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedNiche, setSelectedNiche] = useState('All');
+  const [selections, setSelections] = useState(() => {
+    const init = {};
+    allFilterCols.forEach((col) => { init[col] = 'All'; });
+    return init;
+  });
 
   const safeHeaderList = Array.isArray(headerList) ? headerList : [];
   const safeItemsList = Array.isArray(itemsList) ? itemsList : [];
@@ -67,40 +67,45 @@ export const SearchTable = ({
   const badgeColorMap = {};
   categoryBadges.forEach((b) => { badgeColorMap[b.label.toLowerCase()] = b.color; });
 
-  // --- Dropdown options ---
-  const categories = [...new Set(safeItemsList.map((item) => String(item?.[categoryColumn] || '')).filter(Boolean))]
-    .sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
-
-  const nicheSource = selectedCategory === 'All'
-    ? safeItemsList
-    : safeItemsList.filter((item) => String(item?.[categoryColumn] || '') === selectedCategory);
-
-  const niches = nicheColumn
-    ? [...new Set(nicheSource.map((item) => String(item?.[nicheColumn] || '')).filter(Boolean))]
-        .sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }))
-    : [];
+  // --- Dropdown options for each filter column ---
+  const getOptionsForColumn = (colName, colIndex) => {
+    // Scope options by selections of all columns before this one
+    let scoped = safeItemsList;
+    for (let i = 0; i < colIndex; i++) {
+      const prevCol = allFilterCols[i];
+      const prevSel = selections[prevCol];
+      if (prevSel !== 'All') {
+        scoped = scoped.filter((item) => String(item?.[prevCol] || '') === prevSel);
+      }
+    }
+    return [...new Set(scoped.map((item) => String(item?.[colName] || '')).filter(Boolean))]
+      .sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
+  };
 
   // --- Filtering ---
-  const categoryFilteredItems = safeItemsList.filter((item) => {
-    const catMatch = selectedCategory === 'All' || String(item?.[categoryColumn] || '') === selectedCategory;
-    const nicheMatch = !nicheColumn || selectedNiche === 'All' || String(item?.[nicheColumn] || '') === selectedNiche;
-    return catMatch && nicheMatch;
-  });
+  const filteredItems = safeItemsList.filter((item) =>
+    allFilterCols.every((col) => {
+      const sel = selections[col];
+      return sel === 'All' || String(item?.[col] || '') === sel;
+    })
+  );
 
   const searchedItems = !normalizedQuery
-    ? categoryFilteredItems
-    : categoryFilteredItems.filter((item) =>
+    ? filteredItems
+    : filteredItems.filter((item) =>
         activeColumns.some((column) => {
           const value = item?.[column] ?? item?.[String(column).toLowerCase()] ?? '';
           return String(value).toLowerCase().includes(normalizedQuery);
         })
       );
 
-  // --- Sort by category then niche ---
+  // --- Sort by filter columns in order ---
   const sortedItems = [...searchedItems].sort((a, b) => {
-    const catCmp = String(a[categoryColumn] || '').localeCompare(String(b[categoryColumn] || ''), 'en', { sensitivity: 'base' });
-    if (catCmp !== 0 || !nicheColumn) return catCmp;
-    return String(a[nicheColumn] || '').localeCompare(String(b[nicheColumn] || ''), 'en', { sensitivity: 'base' });
+    for (const col of allFilterCols) {
+      const cmp = String(a[col] || '').localeCompare(String(b[col] || ''), 'en', { sensitivity: 'base' });
+      if (cmp !== 0) return cmp;
+    }
+    return 0;
   });
 
   // --- Apply column variants ---
@@ -112,15 +117,8 @@ export const SearchTable = ({
     }
     if (variant === 'badge' && typeof value === 'string') {
       const colorName = badgeColorMap[value.toLowerCase()];
-      const bg = badgeColors[colorName];
-      if (bg) {
-        return (
-          <span style={{
-            display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
-            fontSize: '0.75rem', fontWeight: 600, color: '#fff', backgroundColor: bg,
-            whiteSpace: 'nowrap',
-          }}>{value}</span>
-        );
+      if (colorName) {
+        return <Badge color={colorName}>{value}</Badge>;
       }
     }
     return value;
@@ -133,7 +131,6 @@ export const SearchTable = ({
         out[header] = renderVariant(out[header], columnVariant[header]);
       }
     }
-    // Bold first column by default if no explicit variant set
     if (boldFirstColumn && firstColumnName && !columnVariant[firstColumnName] && typeof out[firstColumnName] === 'string') {
       out[firstColumnName] = <strong>{out[firstColumnName]}</strong>;
     }
@@ -152,6 +149,7 @@ export const SearchTable = ({
     withSeparators.push(item);
   });
 
+  // --- Render ---
   const selectStyle = {
     minWidth: '150px',
     padding: '8px 12px',
@@ -159,6 +157,15 @@ export const SearchTable = ({
     border: '1px solid var(--border)',
     background: 'var(--background)',
     color: 'var(--text)',
+  };
+
+  const updateSelection = (col, colIndex, value) => {
+    const next = { ...selections, [col]: value };
+    // Reset all downstream filter selections
+    for (let i = colIndex + 1; i < allFilterCols.length; i++) {
+      next[allFilterCols[i]] = 'All';
+    }
+    setSelections(next);
   };
 
   return (
@@ -172,26 +179,25 @@ export const SearchTable = ({
           aria-label="Filter table rows"
           style={{ width: '100%', maxWidth: '420px', padding: '8px 12px', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--background)', color: 'var(--text)' }}
         />
-        <select
-          value={selectedCategory}
-          onChange={(e) => { setSelectedCategory(e.target.value); setSelectedNiche('All'); }}
-          aria-label="Filter by category"
-          style={selectStyle}
-        >
-          <option value="All">All categories</option>
-          {categories.map((c) => <option key={c} value={c}>{c}</option>)}
-        </select>
-        {nicheColumn && niches.length > 0 && (
-          <select
-            value={selectedNiche}
-            onChange={(e) => setSelectedNiche(e.target.value)}
-            aria-label="Filter by niche"
-            style={selectStyle}
-          >
-            <option value="All">All {selectedCategory === 'All' ? 'niches' : selectedCategory}</option>
-            {niches.map((n) => <option key={n} value={n}>{n}</option>)}
-          </select>
-        )}
+        {allFilterCols.map((col, colIndex) => {
+          const options = getOptionsForColumn(col, colIndex);
+          if (options.length === 0) return null;
+          const parentLabel = colIndex > 0 && selections[allFilterCols[colIndex - 1]] !== 'All'
+            ? selections[allFilterCols[colIndex - 1]]
+            : col.toLowerCase() + 's';
+          return (
+            <select
+              key={col}
+              value={selections[col]}
+              onChange={(e) => updateSelection(col, colIndex, e.target.value)}
+              aria-label={`Filter by ${col}`}
+              style={selectStyle}
+            >
+              <option value="All">All {parentLabel}</option>
+              {options.map((o) => <option key={o} value={o}>{o}</option>)}
+            </select>
+          );
+        })}
       </div>
 
       {typeof TableComponent === 'function' ? (
@@ -203,7 +209,6 @@ export const SearchTable = ({
           columnWidths={columnWidths}
           showSeparators={showSeparators}
           margin={margin}
-          {...rest}
         />
       ) : (
         <Warning>SearchTable requires a `TableComponent` prop.</Warning>

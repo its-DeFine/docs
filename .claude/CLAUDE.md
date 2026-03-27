@@ -13,6 +13,18 @@ Alison Haire (Wonderland). Documentation lead. Decision authority. Not a babysit
 
 ---
 
+## Engineering standards
+
+**This is production infrastructure for a multi-million dollar protocol.** Every change is seen by hundreds of engineers and affects millions of dollars of downstream product pipeline. Every change must meet the highest engineering standards for the full context of the change.
+
+- **No bandaids.** Do not patch symptoms. Understand the root cause, design the correct fix, and implement it properly.
+- **Composable and scalable.** Every change must work as part of the larger system. Ask: does this compose with existing patterns? Will it scale when applied to 50 more pages/components/scripts?
+- **Full repo integration.** Every change must follow repo standards: JSDoc tags, governance frameworks, naming conventions, Mintlify constraints, folder placement rules. Read the relevant governance docs before writing.
+- **Think before writing.** Read the surrounding code. Understand the design intent. Check how similar problems are solved elsewhere in the repo. Only then propose a change.
+- **No isolated fixes.** A change to a template must account for all instances. A change to a component must account for all consumers. A change to a script must account for all callers and the pipeline it feeds.
+
+---
+
 ## How we work together
 
 **Think freely. Gate on execution.** Recommend, challenge, propose with reasoning. The approval gate is on doing things, not on having opinions.
@@ -144,6 +156,22 @@ UK English (-ise, -our, -re). No em dashes. No questions in headings. Lead with 
 Full session history: `workspace/thread-outputs/sessions/session-log.txt`
 
 Recent entries in CLAUDE.md for quick context:
+
+---
+
+### 2026-03-27 — Changelog pipeline: GitLab support, LLM enhancement, component fixes
+
+**Done:**
+- Built dual-source (GitHub + GitLab) changelog pipeline for Streamplace (10 entries from 131 GitLab releases)
+- Redesigned enhanced entry format: AI Summary (icon + italic label + divider) + Release Notes (icon + label + ScrollBox) + LazyLoad wrapper
+- Switched to `openrouter/free` (auto-routes to best free model, no stale IDs) + 3-retry with backoff
+- Added `--regenerate` flag, angle-bracket URL fix, UK English + no em dashes in prompt, h4 headings
+- Regenerated Daydream changelog (37 entries, all enhanced)
+- Fixed StyledSteps/LazyLoad/YouTubeVideoData across 5 solution overview + 5 community pages
+- Moved Try sections above Get Started on all overview pages
+- Process log: `workspace/thread-outputs/build/changelog-process-log.md` (12 patterns, 5 runs)
+
+**Next:** Regenerate Embody, Studio, Frameworks changelogs with `--regenerate --enhance`. Convert process log to skill after 2-3 more runs.
 
 ---
 

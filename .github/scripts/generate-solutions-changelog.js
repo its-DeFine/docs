@@ -627,7 +627,7 @@ function buildUpdateBlock(tag, date, tags, content, rawNotes, releaseUrl, rssSum
       .split("\n")
       .map((line) => (line ? `    ${line}` : ""))
       .join("\n");
-    block += `  <span style={{display: "inline-flex", alignItems: "center", gap: "0.35rem", marginBottom: "0.5rem"}}><Icon icon="file-lines" size={14} /> _Release Notes_</span>\n\n`;
+    block += `  <span style={{display: "inline-flex", alignItems: "center", gap: "0.35rem", marginBottom: "1.5rem"}}><Icon icon="pen-to-square" size={14} /> _Release Notes_</span>\n\n`;
     block += `  <ScrollBox maxHeight="250px" showHint={true}>\n`;
     block += `${rawIndented}\n`;
     block += `  </ScrollBox>\n\n`;

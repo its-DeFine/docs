@@ -1,3 +1,7 @@
+Session: 2026-03-27 — Changelog pipeline: GitLab support, LLM enhancement, component fixes
+Outcome: Dual-source changelog pipeline (GitHub + GitLab), Streamplace changelog built from GitLab, redesigned enhanced entry format (AI Summary + Release Notes labels), openrouter/free, --regenerate flag, LazyLoad on changelogs + community pages, StyledSteps fixes. Daydream fully regenerated. Process log at workspace/thread-outputs/build/changelog-process-log.md.
+Next: Regenerate Embody/Studio/Frameworks changelogs. Convert process log to skill.
+---
 Session started: 2026-03-26 13:31:14
 Session started: 2026-03-26 14:21:26
 Session started: 2026-03-26 14:21:31
@@ -60,3 +64,4 @@ Session started: 2026-03-27 10:42:26
 Session started: 2026-03-27 10:43:07
 Session started: 2026-03-27 12:44:19
 Session started: 2026-03-27 13:12:57
+Session started: 2026-03-27 14:52:33
