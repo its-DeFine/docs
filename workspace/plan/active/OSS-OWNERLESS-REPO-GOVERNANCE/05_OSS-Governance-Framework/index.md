@@ -1,0 +1,1 @@
+Defines OSS Contribution Pipelines, Maintenance needs, ownership etc.

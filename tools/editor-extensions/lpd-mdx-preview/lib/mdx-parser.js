@@ -290,11 +290,37 @@ function parse(text) {
       }
       i++;
       const fullTag = tagLines.join('\n');
+
+      // Self-closing: <Tag ... />
       const scMatch = fullTag.match(/^\s*<([A-Z][A-Za-z0-9.]*)\b([\s\S]*?)\/>\s*$/);
       if (scMatch) {
         pushSegment({ type: 'jsx', tag: scMatch[1], props: parseProps(scMatch[2]), children: [], selfClosing: true });
         continue;
       }
+
+      // Inline open+close on same block: <Tag ...>content</Tag>
+      // Must match closing tag of the SAME component to avoid eating subsequent content.
+      const tagNameMatch = fullTag.match(/^\s*<([A-Z][A-Za-z0-9.]*)/);
+      if (tagNameMatch) {
+        const tagName = tagNameMatch[1];
+        const inlineMatch = fullTag.match(
+          new RegExp(`^\\s*<${tagName}\\b([^]*?)>([^]*)\\<\\/${tagName}>\\s*$`)
+        );
+        if (inlineMatch) {
+          const innerContent = inlineMatch[2].trim();
+          const seg = {
+            type: 'jsx',
+            tag: tagName,
+            props: parseProps(inlineMatch[1]),
+            children: innerContent ? [{ type: 'markdown', content: innerContent }] : [],
+            selfClosing: false
+          };
+          pushSegment(seg);
+          continue;
+        }
+      }
+
+      // Opening tag spanning multiple lines: <Tag\n  prop="val"\n>
       const openMatch = fullTag.match(/^\s*<([A-Z][A-Za-z0-9.]*)\b([\s\S]*?)>\s*$/);
       if (openMatch) {
         flushMd();

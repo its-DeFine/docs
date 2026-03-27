@@ -39,6 +39,10 @@
         "command": "livepeer.openMdxPreviewToSide",
         "title": "Livepeer: Open MDX Preview to the Side",
         "icon": "media/icon.png"
+      },
+      {
+        "command": "livepeer.reloadMdxPreview",
+        "title": "Livepeer: Reload MDX Preview"
       }
     ],
     "keybindings": [
@@ -55,6 +59,18 @@
           "command": "livepeer.openMdxPreviewToSide",
           "when": "editorLangId == mdx || editorLangId == markdown",
           "group": "navigation"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "livepeer.reloadMdxPreview",
+          "when": "editorLangId == mdx || editorLangId == markdown",
+          "group": "livepeer"
+        },
+        {
+          "command": "livepeer.openMdxPreviewToSide",
+          "when": "editorLangId == mdx || editorLangId == markdown",
+          "group": "livepeer"
         }
       ]
     },

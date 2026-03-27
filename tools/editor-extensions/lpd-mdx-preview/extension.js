@@ -122,6 +122,18 @@ function activate(context) {
       openPreview(editor.document, vscode.ViewColumn.Beside);
     }),
 
+    vscode.commands.registerCommand('livepeer.reloadMdxPreview', () => {
+      const editor = vscode.window.activeTextEditor;
+      if (!editor) return;
+      const uri = editor.document.uri.toString();
+      const panel = panels.get(uri);
+      if (panel) {
+        updatePreview(panel, editor.document);
+      } else {
+        openPreview(editor.document, vscode.ViewColumn.Beside);
+      }
+    }),
+
     vscode.workspace.onDidChangeTextDocument((e) => {
       scheduleUpdate(e.document);
     }),

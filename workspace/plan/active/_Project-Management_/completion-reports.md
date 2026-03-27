@@ -77,6 +77,88 @@ Numbered. Concrete next steps or improvements.
 | File | Type | Description |
 |---|---|---|
 | `path/to/file` | new / modified / deleted | One line |
+
+---
+
+## docs.json sync: docs-v2-dev → origin/docs-v2 — 2026-03-27
+
+**Plans**: `/Users/alisonhaire/.claude/plans/pure-bouncing-hare.md`
+**Scope**: Attempted to sync docs.json v2/ navigation structure from docs-v2-dev onto origin/docs-v2. Frozen — deferred due to active parallel threads on the same branches.
+
+### Summary
+
+Session was initiated to get the docs-v2-dev docs.json structure onto origin/docs-v2. Initial analysis used a stale local ref and incorrectly identified the merge as a safe fast-forward. After catching the error, a full audit revealed 780/991 commit divergence between the branches, making a direct push unsafe. A targeted sync-branch + PR approach was designed but frozen because parallel threads are actively working on the affected branches.
+
+---
+
+### Completed
+
+**Investigation**
+- Confirmed branch divergence: 991 commits in docs-v2-dev not in origin/docs-v2; 780 commits in origin/docs-v2 not in docs-v2-dev
+- Audited docs.json three-dot diff: 6,620 lines of structural changes (solutions community/changelog nav, Livepeer Studio /docs/ path restructure, Compendium resources grouping, Home section, contract-addresses page)
+- Identified 80 commits in docs-v2-dev and 45 in origin/docs-v2 that touched docs.json
+- Confirmed a full branch merge or refspec push would be destructive
+
+**Plan produced**
+- Designed targeted sync-branch approach: create branch from origin/docs-v2, apply docs-v2-dev docs.json, audit drops, PR to docs-v2
+- Documented risk controls (contract addresses, localisation entries, #845 paths)
+
+---
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Do not merge docs-v2-dev into docs-v2 directly | Branches have diverged 780/991 commits — full merge unsafe, would require resolving conflicts across 1476 files |
+| Do not push via refspec `git push origin docs-v2-dev:docs-v2` | Would overwrite 780 commits on origin/docs-v2 including contract addresses, changelogs, and PRs |
+| Targeted sync-branch + PR is the correct approach | Isolates docs.json change only, makes it reviewable, does not touch MDX/components/scripts |
+| Frozen — not executed | Parallel threads are actively working on docs-v2 and docs-v2-dev; proceed only when those threads close |
+
+---
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Execute sync-branch + PR for docs.json | High | Parallel threads on affected branches | Wait for active docs-v2 / docs-v2-dev threads to close before executing |
+
+---
+
+### Dependencies & Downstream Effects
+
+- **docs-v2-dev and docs-v2**: Both branches have active parallel threads. Any docs.json sync must wait until those threads close to avoid conflicts.
+- **Mintlify navigation**: docs-v2-dev's docs.json references Livepeer Studio paths with `/docs/` segment — verify those MDX files exist on docs-v2 before the PR merges.
+
+---
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| Test merge (local worktree) | ✅ Fast-forward (stale ref) | Was against stale local origin/docs-v2 — result invalid |
+| Post-fetch divergence count | ✅ Confirmed | 780/991 commits diverged — full merge unsafe |
+| Three-dot docs.json diff | ✅ Confirmed | 6,620 lines — structural, not cosmetic |
+| Execution | ⬜ Not run | Frozen pending parallel thread resolution |
+
+---
+
+### Recommendations
+
+1. **Wait for parallel threads to close** — Before executing, confirm no active sessions are touching docs-v2 or docs-v2-dev.
+2. **Execute plan in pure-bouncing-hare.md** — The sync-branch approach is designed and ready. Run Step 1 (fetch + reconfirm counts) first to verify state hasn't changed.
+3. **Verify Livepeer Studio /docs/ paths exist on docs-v2** before merging the PR — docs-v2-dev restructured these; origin/docs-v2 may not have the corresponding MDX files yet.
+
+---
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `/Users/alisonhaire/.claude/plans/pure-bouncing-hare.md` | new | Full execution plan for docs.json sync — ready to execute when threads close |
+
+---
+
+**Outcome: NOT MET — frozen.** Work to resume when parallel threads on docs-v2/docs-v2-dev close.
 ```
 
 ---
@@ -1261,3 +1343,187 @@ Extended the changelog generation script to support dual-source (GitHub + GitLab
 | `v2/solutions/frameworks/community.mdx` | modified | LazyLoad wrapping all heavy sections |
 | `workspace/thread-outputs/build/changelog-process-log.md` | new | Process log with 12 patterns from 5 runs |
 | `/Users/alisonhaire/.claude/plans/parallel-sniffing-bunny.md` | new | GitLab changelog plan |
+
+---
+
+## Claude Code VSCode Session Recovery — 2026-03-27
+
+**Plans**: `workspace/plan/active/FUCK_CLAUDE/`
+**Scope**: Recover crashed VSCode Claude Code chat sessions and diagnose persistent session loss.
+
+### Summary
+
+Claude Code crashed at ~02:13, wiping all chat sessions from the VSCode sidebar (3rd+ occurrence). ~120 minutes spent on recovery. 83 JSONL session files confirmed intact on disk. Multiple database-level fixes applied (state.cache injection, JSONL tail records, hiddenSessionIds clearing). Sessions restored to sidebar list but messages fail to load due to extension bugs (`deserializeWebviewPanel` passes `void 0`, 64KB buffer limit drops large sessions). Separately diagnosed 14 zombie Claude processes causing 5-10 minute response times. Full conversation text extracted for 20 sessions (11,617 messages). Zero project work completed.
+
+### Completed
+
+**Investigation and diagnosis**
+- Confirmed 83 session JSONL files intact, identified 4 root causes in extension code
+- Compiled 200+ community issue research report across all Claude Code VSCode failure categories
+- Identified and killed 14 zombie Claude processes restoring response times
+
+**Fixes applied (database and file level)**
+- Injected 79 entries into `agentSessions.state.cache`, appended title records to 78 JSONL tails, cleared `hiddenSessionIds`
+- Extracted 20 sessions to readable markdown (11,617 messages) at `workspace/thread-outputs/sessions/recovered-chats/`
+
+### Outcome: NOT MET
+
+Sessions visible in sidebar but not loadable. Extension bugs require Anthropic code changes. ~120 minutes consumed, zero project work done. Full report: `workspace/plan/active/FUCK_CLAUDE/completion-report-2026-03-27.md`
+
+---
+
+## Solutions Social Data Pipeline — 2026-03-27
+
+**Plans**: `workspace/plan/active/SOLUTIONS-SOCIAL-DATA/plan.md`
+**Scope**: Build automated social data pipelines for all 5 solution products and create community/activity pages.
+
+### Summary
+
+Built a full social data pipeline infrastructure bringing YouTube videos, blog posts, Discord announcements, GitHub READMEs/releases, and X/Twitter embeds into per-product community pages under `v2/solutions/`. Six fetch scripts (YouTube multi-channel, Discord announcements with message_snapshots support, RSS blog, GitHub discussions, GitHub releases, Ghost RSS), three GH Actions workflows, a central product config, and five community pages with verified rendering. Multiple component fixes were required to handle RSS data (new RssBlogCard), Discord forwarded messages (message_snapshots extraction), and Mintlify-specific scoping issues (inline sanitiseHTML, ScrollBox integration).
+
+---
+
+### Completed
+
+**Phase 1: Research & Config**
+- Verified social channels for all 5 products via web search (socials-research.md)
+- Created central product-social-config.json with YouTube channels, Discord servers/channels, blog RSS URLs, GitHub repos, hero video candidates
+- Sourced hero videos for Daydream (2), Embody (1), Frameworks (1); gaps flagged for Studio and Streamplace
+
+**Phase 2: Pipeline Extensions**
+- Parameterised fetch-youtube-data.js for multi-channel output (PRODUCT_KEY env, config-driven, backward-compatible, deduplication by title, upcoming/live stream filtering)
+- Built fetch-discord-announcements.js — Discord API with message_snapshots extraction for forwarded announcements, Discord markdown-to-HTML conversion, attachment rendering (video/image), per-product + global channel support
+- Built fetch-rss-blog-data.js — generic RSS parser with full HTML content output, image extraction from media:content, reading time estimation
+- Rewrote fetch-ghost-blog-data.js from Ghost Content API to public RSS (no API key needed)
+- Built fetch-github-discussions.js (GraphQL API) and fetch-github-releases.js (REST API)
+- Created 3 GH Actions workflows: update-discord-data.yml (daily), update-github-data.yml (daily), update-rss-blog-data.yml (daily)
+- Built manual runner script (run-solutions-social-fetch.js) for local pipeline testing
+
+**Phase 3: Template & Pages**
+- Created social-data-page.mdx template in snippets/templates/pages/data-imports/
+- Built 5 community pages: daydream, embody, frameworks, livepeer-studio, streamplace
+- Created per-product socials.jsx data files (v2/solutions/*/data/socials.jsx)
+- Wired all 5 pages into docs.json navigation
+- Added Product Communities CardGroup to trending-topics.mdx
+- Updated trending-topics Discord section to use ScrollBox + new pipeline data
+
+**Phase 4: Validation & Fixes**
+- Fixed YouTubeVideoData crash — smart quotes in generated data; fixed escapeForJSX in all scripts
+- Built RssBlogCard + RssBlogCardLayout — BlogCard expects Ghost HTML, RSS data is different format
+- Fixed DiscordAnnouncements — sanitiseHTML scope issue (moved inline), added ScrollBox support
+- Fixed MarkdownEmbed — replaced Markdown component (unavailable in Mintlify) with dangerouslySetInnerHTML + basic markdown-to-HTML converter
+- Added row gap spacing to YouTubeVideoData
+- Verified all components render on Mintlify dev server
+- Embedded X/Twitter tweet iframe for Daydream (platform.twitter.com/embed/Tweet.html)
+- GitHub README sections wrapped in BorderedBox + ScrollBox pattern
+
+**Bonus**
+- Created secrets handover documentation (solutions-secrets.mdx)
+- Created .env.example with full repo secrets reference
+- Fixed Streamplace overview YouTube embed URL format
+- Added Embody YouTube channel (UCtehiOEHAVEoxNkuwEmynZw) to config and pipeline
+- Discord channel IDs configured for all products from user's Livepeer server
+
+---
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| No paid Twitter widgets per product | mikle.com is paid; use static tweet embed (oEmbed iframe) or profile link instead |
+| Discord reads from user's own server, not product servers | Cannot add bot to every product server; user subscribes to product announcements via Discord Follow feature |
+| RSS for Ghost blog instead of Content API | Eliminates API key dependency; RSS is public and sufficient |
+| message_snapshots for forwarded Discord content | Discord API returns empty content for forwarded messages; actual text is in message_snapshots[].message.content |
+| New RssBlogCard component instead of adapting BlogCard | BlogCard uses dangerouslySetInnerHTML with Ghost HTML; RSS data format fundamentally different; separate component avoids breaking existing Ghost blog rendering |
+| Tip text: "This page is an automated workflow." | User-specified. Do not change without approval. |
+| sidebarTitle pattern: "Recent Activity" | User-specified. Do not change without approval. |
+| Title pattern: "{Product} Recent Announcements" | User-specified. Do not change without approval. |
+
+---
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| ~35 external livepeer.studio/docs links to convert to relative paths | Medium | Separate cleanup task | None |
+| Blog component parity with Ghost BlogCard (images, full HTML scroll) | High | RSS script now outputs full HTML but component needs update to use dangerouslySetInnerHTML like BlogCard | Script fix done; component update pending |
+| Composable reference data pages (blockchain contracts, multi-repo changelogs) | Medium | Next plan — user specified as follow-on work | SOLUTIONS-SOCIAL-DATA completion |
+| Livepeer Studio + Streamplace hero videos | Low | No suitable candidates found | Manual search |
+
+---
+
+### Dependencies & Downstream Effects
+
+- **trending-topics.mdx**: Now uses ScrollBox-enabled DiscordAnnouncements and data from new pipeline (replaces n8n)
+- **Ghost blog data**: fetch-ghost-blog-data.js rewritten to use RSS — existing ghostData.jsx output format preserved but now comes from RSS not API. Verify trending-topics blog section still renders.
+- **GH Actions secrets**: DISCORD_BOT_TOKEN, YOUTUBE_API_KEY need configuring in GitHub repo secrets before workflows run on main
+- **docs.json**: 5 new nav entries added to Solutions groups
+
+---
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| Daydream community page renders | ✅ Verified on Mintlify dev | All sections: SocialLinks, YouTubeVideoData, RssBlogCardLayout, DiscordAnnouncements, MarkdownEmbed, X tweet embed |
+| YouTubeVideoData with pipeline data | ✅ | After escapeForJSX fix for smart quotes |
+| RssBlogCardLayout with RSS data | ✅ | New component; BlogCard crashes with RSS data |
+| DiscordAnnouncements with forwarded messages | ✅ | After message_snapshots extraction + inline sanitiseHTML fix |
+| MarkdownEmbed GitHub README | ✅ | After dangerouslySetInnerHTML rewrite |
+| docs.json valid JSON | ✅ | All 5 pages wired |
+| All fetch scripts execute locally | ✅ | Via run-solutions-social-fetch.js |
+| Other 4 community pages | ⚠️ Not individually render-tested | Structure matches Daydream; components verified |
+| trending-topics Discord section | ✅ | ScrollBox + new pipeline data |
+
+---
+
+### Recommendations
+
+1. **Render-test remaining 4 community pages** — Embody, Frameworks, Livepeer Studio, Streamplace were not individually previewed on Mintlify. Same components as Daydream but product-specific data may have edge cases.
+2. **Configure GH Actions secrets** — DISCORD_BOT_TOKEN and YOUTUBE_API_KEY need adding to GitHub repo secrets for workflows to run on main.
+3. **Update RssBlogCard to render full HTML content** — Script now outputs full HTML but component still shows excerpt. Update to use dangerouslySetInnerHTML like BlogCard for image-rich, scrollable blog content.
+4. **Find and embed X tweets for remaining products** — Only Daydream has a tweet embed. Other products need a pinned/featured tweet ID.
+5. **Plan next initiative: Composable Reference Data Pages** — User specified blockchain contracts and multi-repo changelogs as follow-on work using same fetch→data→template→composable pattern.
+
+---
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `workspace/plan/active/SOLUTIONS-SOCIAL-DATA/plan.md` | modified | Master plan with as-built artefact inventory |
+| `workspace/plan/active/SOLUTIONS-SOCIAL-DATA/socials-research.md` | new | Verified social channels for all 5 products |
+| `.github/scripts/fetch-youtube-data.js` | modified | Multi-channel support, dedup, upcoming filter |
+| `.github/scripts/fetch-discord-announcements.js` | new | Discord API with message_snapshots, markdown-to-HTML |
+| `.github/scripts/fetch-rss-blog-data.js` | new | Generic RSS parser, full HTML content |
+| `.github/scripts/fetch-ghost-blog-data.js` | modified | Rewritten to use public RSS instead of Ghost API |
+| `.github/scripts/fetch-github-discussions.js` | new | GitHub GraphQL API, config-driven |
+| `.github/scripts/fetch-github-releases.js` | new | GitHub REST API, config-driven |
+| `.github/workflows/update-discord-data.yml` | new | Daily Discord fetch cron |
+| `.github/workflows/update-github-data.yml` | new | Daily GitHub discussions + releases cron |
+| `.github/workflows/update-rss-blog-data.yml` | new | Daily RSS blog fetch cron |
+| `operations/scripts/config/product-social-config.json` | new | Central product social config |
+| `operations/scripts/dispatch/content/data/run-solutions-social-fetch.js` | new | Manual pipeline runner |
+| `snippets/templates/pages/data-imports/social-data-page.mdx` | new | Community page template |
+| `snippets/components/integrators/blog/Data.jsx` | modified | RssBlogCard, RssBlogCardLayout, DiscordAnnouncements ScrollBox |
+| `snippets/components/integrators/embeds/DataEmbed.jsx` | modified | MarkdownEmbed dangerouslySetInnerHTML rewrite |
+| `snippets/components/integrators/video-data/VideoData.jsx` | modified | Row gap spacing |
+| `v2/solutions/daydream/community.mdx` | new | Daydream community page |
+| `v2/solutions/daydream/data/socials.jsx` | new | Daydream social links data |
+| `v2/solutions/embody/community.mdx` | new | Embody community page |
+| `v2/solutions/embody/data/socials.jsx` | new | Embody social links data |
+| `v2/solutions/frameworks/community.mdx` | new | Frameworks community page |
+| `v2/solutions/frameworks/data/socials.jsx` | new | Frameworks social links data |
+| `v2/solutions/livepeer-studio/community.mdx` | new | Livepeer Studio community page |
+| `v2/solutions/livepeer-studio/data/socials.jsx` | new | Livepeer Studio social links data |
+| `v2/solutions/streamplace/community.mdx` | new | Streamplace community page |
+| `v2/solutions/streamplace/data/socials.jsx` | new | Streamplace social links data |
+| `v2/community/livepeer-community/trending-topics.mdx` | modified | ScrollBox Discord, Product Communities CardGroup |
+| `docs.json` | modified | 5 community pages added to Solutions nav |
+| `docs-guide/repo-ops/secrets/solutions-secrets.mdx` | new | Pipeline secrets documentation |
+| `docs-guide/repo-ops/config/.env.example` | new | Full repo env var reference |
+| `snippets/components/elements/social/SocialLinks.jsx` | modified | iconColor prop, brand color map expansion |
+
+### Outcome: MET
+
+All planned deliverables exist on disk. Five community pages with social data feeds, six fetch scripts, three GH Actions workflows, central config, template, secrets documentation. Daydream page render-verified. Remaining 4 pages need individual render testing (recommendation 1).

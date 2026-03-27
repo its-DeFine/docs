@@ -1,13 +1,13 @@
 ---
 name: thread
 description: >-
-  Session anchor skill. Defines the session outcome, tracks it throughout, and prevents drift.
-  Use at the start of any working session. Stays active underneath all other skills.
-  Restates outcome before phase transitions. Flags when work diverges from the goal.
+  Session anchor skill. Two modes: (1) START — defines outcome and creates task list at session start.
+  (2) STATUS — when invoked mid-session or with no arguments, outputs current status snapshot and stops.
+  Orient, don't execute. Never re-anchor or restart tasks when a thread is already active.
 metadata:
-  version: "1.0"
+  version: "1.1"
   category: process
-  status: "draft"
+  status: "active"
 ---
 
 # SKILL: Thread — Session Anchor
@@ -22,10 +22,52 @@ Every session has one outcome. This skill makes it visible, keeps it visible, an
 - When the conversation has drifted from its original goal
 - When switching between tasks within a session
 - When a new skill is invoked — thread runs underneath
+- Mid-session to check status — `/thread` with no arguments always gives status first
 
 ## When NOT to use
 
 - Quick one-off questions that don't need session tracking
+
+---
+
+## Step 0: Mode detection — run this first, every time
+
+**Before doing anything else, detect which mode to enter.**
+
+**STATUS mode** — if ANY of the following are true:
+- `/thread` was invoked with no arguments
+- The user says "status", "where are we", "what's happening", "context", "what have we done", or anything that reads as a check-in rather than a new objective
+- A thread outcome was already defined earlier in this conversation
+
+In STATUS mode, output a status snapshot immediately. Do not re-anchor. Do not redefine the outcome. Do not create a new TodoWrite list:
+
+```
+Thread status
+─────────────────────────────
+What this session is: [1-2 plain-English sentences describing the purpose of this session —
+what problem we're solving, what we're building, why it matters.
+Enough that someone who forgot could instantly reorient.]
+
+Outcome: [the specific deliverable or decision this session is working toward]
+
+Progress:
+  ✅ [completed task — outcome phrasing, not action]
+  ✅ [completed task]
+  🔄 [in-progress task — where it's at]
+  ⬜ [pending task]
+
+Last action: [the most recent thing that was done, in one line]
+Next: [the next concrete action, or what's blocking]
+Backlog: [any deferred items, or "none"]
+```
+
+After outputting status, **stop**. Wait for the user to respond. Do not proceed into execution.
+
+**START mode** — only if ALL of the following are true:
+- This is the first `/thread` invocation in the conversation
+- The user has stated a new session objective with the invocation
+
+In START mode: proceed to Step 1.
 
 ---
 
@@ -49,7 +91,7 @@ The outcome must be:
 - **Testable** — you can verify at the end whether it happened
 - **Scoped** — one session's worth of work, not a project milestone
 
-Write it to the task tracker.
+**Immediately after defining the outcome, create a TodoWrite task list.** This is mandatory — not optional. The task list must include the session outcome as the first item and break down the known tasks below it. Mark the first task `in_progress`. Update task status in real time as work proceeds. At session close, the TodoWrite list is the source of truth for what was attempted.
 
 ### Register in CLAUDE.md work streams table
 

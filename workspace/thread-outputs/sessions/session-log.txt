@@ -1,3 +1,15 @@
+Session: 2026-03-27 — SOLUTIONS-SOCIAL-DATA completion verification & close-out
+Outcome: MET. All deliverables verified on disk: 5 community pages, 6 fetch scripts, 3 GH Actions workflows, central config, template, 21 data files, 5 socials.jsx files, secrets docs, manual runner. Component fixes: RssBlogCard (new), DiscordAnnouncements (ScrollBox + inline sanitiseHTML + message_snapshots), MarkdownEmbed (dangerouslySetInnerHTML rewrite), YouTubeVideoData (row gap). Daydream page render-verified. Completion report written.
+Next: Render-test remaining 4 community pages. Configure GH Actions secrets. Update RssBlogCard to render full HTML. Plan next initiative (composable reference data pages).
+---
+Session: 2026-03-27 — Claude Code VSCode session recovery (FAILED)
+Outcome: NOT MET. Crash at 02:13 wiped sidebar sessions. 83 JSONL files intact. Database fixes applied (state.cache, JSONL tails, hiddenSessionIds). Sessions visible in sidebar but messages won't load (deserializeWebviewPanel bug, 64KB buffer limit). 14 zombie processes killed. 20 sessions extracted to markdown (11,617 messages). ~120 min spent, zero project work done.
+Next: Start fresh session for generate-solutions-changelog.js and solution-providers.mdx edits. Do not attempt session recovery again.
+---
+Session: 2026-03-27 — docs.json sync: docs-v2-dev → origin/docs-v2 (FROZEN)
+Outcome: NOT MET — frozen. Branches are 780/991 commits diverged. Direct push/merge unsafe. Targeted sync-branch + PR approach designed and ready. Execution blocked by parallel threads on affected branches.
+Next: When parallel threads on docs-v2 / docs-v2-dev close, execute plan at /Users/alisonhaire/.claude/plans/pure-bouncing-hare.md. Verify Livepeer Studio /docs/ paths exist on docs-v2 before PR merge.
+---
 Session: 2026-03-27 — Changelog pipeline: GitLab support, LLM enhancement, component fixes
 Outcome: Dual-source changelog pipeline (GitHub + GitLab), Streamplace changelog built from GitLab, redesigned enhanced entry format (AI Summary + Release Notes labels), openrouter/free, --regenerate flag, LazyLoad on changelogs + community pages, StyledSteps fixes. Daydream fully regenerated. Process log at workspace/thread-outputs/build/changelog-process-log.md.
 Next: Regenerate Embody/Studio/Frameworks changelogs. Convert process log to skill.
@@ -65,3 +77,23 @@ Session started: 2026-03-27 10:43:07
 Session started: 2026-03-27 12:44:19
 Session started: 2026-03-27 13:12:57
 Session started: 2026-03-27 14:52:33
+Session started: 2026-03-27 14:57:13
+Session started: 2026-03-27 14:57:21
+Session started: 2026-03-27 14:57:42
+Session started: 2026-03-27 14:57:54
+Session started: 2026-03-27 15:19:18
+Session started: 2026-03-27 15:50:28
+Session started: 2026-03-27 15:50:36
+Session started: 2026-03-27 15:55:57
+Session started: 2026-03-27 15:56:06
+Session started: 2026-03-27 15:56:15
+Session started: 2026-03-27 15:56:24
+Session started: 2026-03-27 15:56:35
+Session started: 2026-03-27 15:56:51
+Session started: 2026-03-27 15:57:06
+Session started: 2026-03-27 15:57:09
+Session started: 2026-03-27 15:57:16
+Session started: 2026-03-27 15:57:18
+Session started: 2026-03-27 15:58:04
+Session started: 2026-03-27 15:59:00
+Session started: 2026-03-27 16:00:28

@@ -349,6 +349,106 @@
     }
   },
 
+  "changelogs": {
+    "_meta": {
+      "description": "Registry of all changelog targets. Each entry maps to an MDX page and a source (releases or commits). Solutions entries use productRef to inherit config from products{}. Resources entries define github inline. managed:false means registered but excluded from automated runs.",
+      "modes": ["releases", "commits"],
+      "templates": ["solutions", "resources"]
+    },
+
+    "daydream": {
+      "productRef": "daydream",
+      "mode": "releases",
+      "outputPath": "v2/solutions/daydream/changelog.mdx",
+      "template": "solutions",
+      "category": "solutions"
+    },
+    "embody": {
+      "productRef": "embody",
+      "mode": "releases",
+      "outputPath": "v2/solutions/embody/changelog.mdx",
+      "template": "solutions",
+      "category": "solutions"
+    },
+    "frameworks": {
+      "productRef": "frameworks",
+      "mode": "releases",
+      "outputPath": "v2/solutions/frameworks/changelog.mdx",
+      "template": "solutions",
+      "category": "solutions"
+    },
+    "livepeer-studio": {
+      "productRef": "livepeer-studio",
+      "mode": "releases",
+      "outputPath": "v2/solutions/livepeer-studio/changelog.mdx",
+      "template": "solutions",
+      "category": "solutions"
+    },
+    "streamplace": {
+      "productRef": "streamplace",
+      "mode": "releases",
+      "outputPath": "v2/solutions/streamplace/changelog.mdx",
+      "template": "solutions",
+      "category": "solutions"
+    },
+
+    "contracts": {
+      "displayName": "Protocol Contracts",
+      "mode": "commits",
+      "outputPath": "v2/resources/changelog/contracts.mdx",
+      "template": "resources",
+      "category": "resources",
+      "contract": true,
+      "github": {
+        "org": "livepeer",
+        "repo": "governor-scripts",
+        "branch": "master",
+        "trackedPaths": ["updates/addresses.js"]
+      },
+      "verify": {
+        "arbiscanEndpoint": "https://api.arbiscan.io",
+        "etherscanEndpoint": "https://api.etherscan.io"
+      }
+    },
+
+    "go-livepeer": {
+      "displayName": "go-livepeer",
+      "mode": "releases",
+      "outputPath": "v2/resources/changelog/go-livepeer.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "go-livepeer", "releasesActive": true }
+    },
+    "docs": {
+      "displayName": "Documentation",
+      "mode": "commits",
+      "outputPath": "v2/resources/changelog/changelog.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "docs", "branch": "docs-v2" }
+    },
+    "explorer": {
+      "displayName": "Livepeer Explorer",
+      "mode": "releases",
+      "outputPath": "v2/resources/changelog/explorer.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "explorer" }
+    },
+    "lips": {
+      "displayName": "LIPs",
+      "mode": "commits",
+      "outputPath": "v2/resources/changelog/lips.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "LIPs", "branch": "master" }
+    }
+  },
+
   "globals": {
     "discord": [
       {

@@ -41,6 +41,18 @@
         ]
       }
     ],
+    "PostToolUse": [
+      {
+        "matcher": "Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/grep-loop-guard.js",
+            "statusMessage": "Checking for search loops..."
+          }
+        ]
+      }
+    ],
     "PostToolUseFailure": [
       {
         "hooks": [

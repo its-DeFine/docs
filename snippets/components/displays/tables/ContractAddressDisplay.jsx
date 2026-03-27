@@ -15,6 +15,8 @@
  * @param {object} [style={}] - Inline style overrides
  */
 
+import { useState } from 'react';
+
 const CopyButton = ({ text }) => {
   const [copied, setCopied] = useState(false);
 

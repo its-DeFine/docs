@@ -77,7 +77,9 @@ stdin.on('end', () => {
         }));
       }
       if (/v2\/.*\.(mdx|md)$/.test(fp) && !/templates\//.test(fp)) {
-        // Could be a page when they meant a template — light reminder
+        console.log(JSON.stringify({
+          systemMessage: 'This is a PAGE file in v2/. Confirm you intend to edit this page directly, not a template in snippets/templates/. If unsure, check snippets/templates/ for a matching template before proceeding.'
+        }));
       }
     }
 

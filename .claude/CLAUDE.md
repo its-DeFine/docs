@@ -50,6 +50,7 @@ Alison Haire (Wonderland). Documentation lead. Decision authority. Not a babysit
 | `/dispatch` | Parallel batch work | Parallel agent coordinator; batch audits, multi-directory scans |
 | `/agent-brief` | Every agent spawn | Standard instruction template; quality contract, return format, failure protocol |
 | `/diagnose` | Something is broken or a fix has failed twice | Systematic debugging: reproduce, gather facts, hypothesise from evidence, test one at a time, fix root cause |
+| `/close` | End of any session | Verify tasks against repo, write completion report, update session log and work streams table |
 
 **The workflow:** `/thread` → `/pm` → `/research` → `/design` → `/build` → `/iterate` → loop as needed.
 
@@ -68,6 +69,7 @@ Alison Haire (Wonderland). Documentation lead. Decision authority. Not a babysit
 - Decisions made in chat that are not written to the decision registry do not exist.
 - After 2 failed attempts at the same approach: STOP. Root-cause analyse. Propose a different approach. Do not retry.
 - Ignore IDE-opened file context (messages like "The user opened the file X in the IDE") unless the file is explicitly referenced in the message.
+- Use TodoWrite to track session tasks. Create the task list immediately after defining the session outcome in `/thread`. Update status in real time. At `/close`, the task list is the source of truth for what was attempted.
 
 ---
 
