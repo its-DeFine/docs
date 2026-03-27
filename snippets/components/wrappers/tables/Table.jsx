@@ -19,6 +19,7 @@ export const DynamicTable = ({
   headerList = [],
   itemsList = [],
   monospaceColumns = [],
+  columnWidths = {},
   showSeparators = false,
   margin,
   className = "",
@@ -48,6 +49,7 @@ export const DynamicTable = ({
             borderCollapse: "collapse",
             fontSize: "0.9rem",
             marginTop: 0,
+            ...(Object.keys(columnWidths).length > 0 ? { tableLayout: "fixed" } : {}),
           }}
         >
           <thead>
@@ -55,17 +57,18 @@ export const DynamicTable = ({
               style={{
                 backgroundColor: "var(--accent)",
                 color: "var(--lp-color-on-accent)",
+                borderBottom: "1px solid var(--border)",
               }}
             >
               {headerList.map((header, index) => (
                 <th
                   key={index}
                   style={{
-                    padding: "12px 16px",
+                    padding: "10px 8px",
                     textAlign: "left",
                     fontWeight: "600",
-                    borderBottom: "2px solid var(--accent)",
                     color: "var(--lp-color-on-accent)",
+                    ...(columnWidths[header] ? { width: columnWidths[header], minWidth: columnWidths[header] } : {}),
                   }}
                 >
                   {header}
@@ -87,7 +90,7 @@ export const DynamicTable = ({
                   <td
                     colSpan={headerList.length}
                   style={{
-                    padding: "8px 16px",
+                    padding: "6px 8px",
                     fontWeight: "700",
                       color: "var(--lp-color-on-accent)",
                       letterSpacing: "0.01em",
@@ -110,8 +113,10 @@ export const DynamicTable = ({
                       <td
                         key={colIndex}
                         style={{
-                          padding: "10px 16px",
+                          padding: "8px 8px",
                           fontFamily: isMonospace ? "monospace" : "inherit",
+                          wordWrap: "break-word",
+                          overflowWrap: "break-word",
                         }}
                       >
                         {isMonospace ? <code>{value}</code> : value}

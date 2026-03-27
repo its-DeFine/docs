@@ -5,39 +5,39 @@ body {
 }
 
 /* Colors Used
-3CB540 - Jade Green
-2b9a66 - Light Green
-18794E - Dark Green
+#3CB540 - Jade Green
+#2b9a66 - Light Green
+#18794E - Dark Green
 
 Complementary Greens
 See https://coolors.co/004225-1a794e-08a045-3cb540-62ba4f
-004225 - Deep Forrest
-1A794E - Turf Green
-08A045 - Medium Jungle
-3CB540 - Jade Green
-6BBF59 - Moss Green
+#004225 - Deep Forrest
+#1A794E - Turf Green
+#08A045 - Medium Jungle
+#3CB540 - Jade Green
+#6BBF59 - Moss Green
 
 See https://coolors.co/0c0c0c-073b3a-1a794e-08a045-6bbf59
-0C0C0C - Onyx Black
-073B3A - Dark Teal
-1A794E - Turf Green
-08A045 - Medium Jungle
-6BBF59 - Moss Green
+#0C0C0C - Onyx Black
+#073B3A - Dark Teal
+#1A794E - Turf Green
+#08A045 - Medium Jungle
+#6BBF59 - Moss Green
 
 See https://coolors.co/fffffa-073b3a-1a794e-08a045-6bbf59
-FFFFFA - Porcelain
-073B3A - Dark Teal
-1A794E - Turf Green
-08A045 - Medium Jungle
-6BBF59 - Moss Green
+#FFFFFA - Porcelain
+#073B3A - Dark Teal
+#1A794E - Turf Green
+#08A045 - Medium Jungle
+#6BBF59 - Moss Green
 
 Pink Offset Colour
 See https://coolors.co/073b3a-1a794e-f61067-08a045-6bbf59
-F61067 - Razzmatazz Pink
-073B3A - Dark Teal
-1A794E - Turf Green
-08A045 - Medium Jungle
-6BBF59 - Moss Green
+#F61067 - Razzmatazz Pink
+#073B3A - Dark Teal
+#1A794E - Turf Green
+#08A045 - Medium Jungle
+#6BBF59 - Moss Green
 */
 
 /* ============================================
@@ -85,8 +85,8 @@ F61067 - Razzmatazz Pink
   --lp-spacing-4: 1rem;
   --lp-spacing-6: 1.5rem;
   --lp-spacing-8: 2rem;
-  --lp-font-sans: "Inter", "Segoe UI", sans-serif;
-  --lp-font-mono: "SFMono-Regular", "SF Mono", "Menlo", monospace;
+  --lp-font-sans: 'Inter', 'Segoe UI', sans-serif;
+  --lp-font-mono: 'SFMono-Regular', 'SF Mono', 'Menlo', monospace;
   --lp-radius-sm: 0.25rem;
   --lp-radius-md: 0.5rem;
   --lp-radius-lg: 0.75rem;
@@ -189,17 +189,32 @@ a.nav-tabs-item[href="/pages/08_help/README"] {
   justify-content: flex-start;
 }
 
-/* Fix Mintlify content width and centering on REGULAR pages only.
-   Portal/frame pages use .frame-mode-hero-full — excluded via :has().
-   1. Balance container padding (lg:pl-24=96px vs px-5=20px → 3rem both).
-   2. Widen inner cap (max-w-5xl=64rem → 72rem) so content area gets more space. */
+/* Fix Mintlify content width and centering.
+   Regular pages: balance padding + widen inner cap.
+   Portal/frame pages: balance padding (smaller) + widen inner cap for full-width hero. */
 @media (min-width: 1024px) {
-  #content-container:not(:has(.frame-mode-hero-full)):not(:has(.frame-mode-container)) {
+  /* Regular pages */
+  #content-container:not(:has(.frame-mode-hero-full)):not(
+      :has(.frame-mode-container)
+    ) {
     padding-left: 3rem !important;
     padding-right: 3rem !important;
   }
-  #content-container:not(:has(.frame-mode-hero-full)):not(:has(.frame-mode-container)) > .max-w-5xl {
+  #content-container:not(:has(.frame-mode-hero-full)):not(
+      :has(.frame-mode-container)
+    )
+    > .max-w-5xl {
     max-width: 72rem !important;
+  }
+  /* Portal/frame pages — tighter balanced padding, wider inner cap */
+  #content-container:has(.frame-mode-hero-full),
+  #content-container:has(.frame-mode-container) {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+  #content-container:has(.frame-mode-hero-full) > .max-w-5xl,
+  #content-container:has(.frame-mode-container) > .max-w-5xl {
+    max-width: 80rem !important;
   }
 }
 

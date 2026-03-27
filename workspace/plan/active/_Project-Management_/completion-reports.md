@@ -183,14 +183,14 @@ Replaced the entire v2/solutions section on the `docs-v2` branch with the finish
 
 ---
 
-## Full-Site Style Diagnostic and Fix — 2026-03-26
+## Full-Site Style Diagnostic and Fix — 2026-03-26/27
 
-**Plans**: None (ad-hoc diagnostic session)
-**Scope**: Diagnosed and fixed three full-site CSS issues on `docs-v2-dev` branch caused by Mintlify dev server injection and platform layout defaults.
+**Plans**: None (ad-hoc diagnostic session across two days)
+**Scope**: Diagnosed and fixed full-site CSS issues on `docs-v2-dev` branch caused by Mintlify dev server injection and platform layout defaults. Separately fixed portal page margins, restored Daydream hero GIF from git history, and tuned Starfield component.
 
 ### Summary
 
-Three site-wide style issues were diagnosed using Playwright automated testing across multiple viewports (600-1920px), branch diffs, and DOM element chain analysis. All fixes applied to `style.css` with `!important` overrides scoped to avoid frame-mode portal pages. The `.mintignore` was updated to prevent Mintlify from parsing plain `.md` files as MDX (which injected rogue `<hr>` elements rendering as heading underlines). Mintlify CLI updated from 4.2.416 to 4.2.446.
+Site-wide style issues were diagnosed using Playwright automated testing across multiple viewports (600-1920px), branch diffs, and DOM element chain analysis. All CSS fixes applied to `style.css` with `!important` overrides, using `:has()` selectors to scope regular pages vs portal/frame-mode pages differently. The `.mintignore` was updated to prevent Mintlify from parsing plain `.md` files as MDX. Portal pages received separate balanced padding (2rem) and wider inner cap (80rem). The Daydream hero GIF was restored from git history (original 92MB, re-compressed to 30MB at 540px/128 colours). The Starfield canvas component size distribution was adjusted for more visible larger stars. Mintlify CLI updated from 4.2.416 to 4.2.446.
 
 ---
 
@@ -204,9 +204,22 @@ Three site-wide style issues were diagnosed using Playwright automated testing a
 - Root cause: Mintlify parsed plain `.md` files (e.g. `workspace/`, `ai-tools/`, `docs-guide/_workspace/`) as MDX pages, injecting their content into the build — `---` frontmatter delimiters rendered as `<hr>` elements appearing as underlines under headings
 - Fix: Added `**/*.md` and `*.md` patterns to `.mintignore` to exclude all plain markdown from the Mintlify build pipeline
 
-**Issue 3: Content area too narrow / poorly centred at desktop widths**
+**Issue 3: Content area too narrow / poorly centred at desktop widths (regular pages)**
 - Root cause: Two Mintlify layout constraints compound — `lg:pl-24` (96px left padding vs 20px right) creates asymmetry, and `max-w-5xl` (64rem/1024px) caps the inner flex container, limiting content to 672px in a 1440px viewport (47% utilisation)
-- Fix: Balanced padding to 2.5rem both sides + widened inner cap to 72rem. At 1440px content goes from 672→704px; at 1920px from 672→800px. Both overrides scoped with `:not([data-page-mode='frame'])` to skip portal/frame-mode pages
+- Fix: Balanced padding to 3rem both sides + widened inner cap to 72rem. Scoped to regular pages only via `#content-container:not(:has(.frame-mode-hero-full)):not(:has(.frame-mode-container))`
+- Note: Initial attempt used `:not([data-page-mode='frame'])` which failed because ALL pages have `data-page-mode="none"` — the `frame` value is never set by Mintlify. Corrected to use `:has()` with frame-mode component classes.
+
+**Issue 4: Portal/frame-mode page margins too wide**
+- Root cause: Mintlify default `lg:pl-24` (96px left) vs `px-5` (20px right) creates heavy asymmetry on portal pages. `max-w-5xl` (1024px) also unnecessarily constrains the hero section width.
+- Fix: Separate CSS rule for portal pages — balanced 2rem padding both sides + 80rem inner cap. Uses `#content-container:has(.frame-mode-hero-full)` selector.
+
+**Issue 5: Daydream hero GIF degraded**
+- Root cause: Original 92MB GIF (`snippets/assets/media/gifs/daydream.gif`, 800×711, 17fps, 16.5s) was deleted in `d07c374d6` ("remove migrated GIF sources", 2026-03-09). Replaced with a different, lower-quality 12MB capture (480×270, 10fps, 40.7s).
+- Fix: Extracted original from git history, re-compressed with ffmpeg (540×480, 128 colours, bayer dither) to 30MB. Preserves original animation content at 17fps.
+
+**Issue 6: Starfield component — not enough visible stars**
+- Root cause: Size bucket distribution heavily weighted toward tiny stars (65% at 0.3 scale, only 5% large+extra large)
+- Fix: Adjusted weights — tiny 65%→50%, medium 10%→15%, large 4%→10%, extra large 1%→5%. About portal bumped to `density={1.8}` (from default 1.1).
 
 ---
 
@@ -215,9 +228,11 @@ Three site-wide style issues were diagnosed using Playwright automated testing a
 | Decision | Rationale |
 |---|---|
 | Override Mintlify classes with `!important` in `style.css` | No config-level alternative exists — Mintlify hardcodes these classes in their build output. CSS overrides are the only mechanism. |
-| Exclude frame-mode pages from width/padding overrides | Frame-mode pages (portals) have their own full-width layout that the overrides would break |
+| Use `:has()` selectors to differentiate portal vs regular pages | `data-page-mode` attribute is always `"none"` on all pages — Mintlify never sets it to `"frame"`. The `.frame-mode-hero-full` / `.frame-mode-container` classes inside content are the only reliable portal indicators. |
 | Use `.mintignore` for `.md` exclusion rather than renaming files | Hundreds of `.md` files across workspace/ai-tools/docs-guide — renaming would be destructive and unnecessary |
-| 72rem inner cap (not larger) | Balances wider content at 1920px (~800px) against readability — wider would degrade reading comfort |
+| 72rem inner cap for regular pages, 80rem for portals | Regular pages need readable content width (~800px max at 1920px). Portal pages need wider hero sections. |
+| Re-compress Daydream GIF at 540px/128 colours (30MB) | Best balance of quality and file size. 92MB original too large; 12MB replacement was a different, lower-quality recording. |
+| Starfield size weights user-directed | User tested multiple distributions and chose final values. |
 
 ---
 
@@ -225,16 +240,18 @@ Three site-wide style issues were diagnosed using Playwright automated testing a
 
 | Item | Priority | Reason | Dependency |
 |---|---|---|---|
-| Production site has same narrow content layout | Low | Same Mintlify defaults, but this branch merges up soon — fix propagates | None |
+| Apply `density={1.8}` to other portal pages if desired | Low | Only About portal was bumped — user can decide per-portal | None |
 | `mint update` did not fix dev padding injection | Info | CLI updated 4.2.416→4.2.446, body padding still injected — CSS override still needed | None |
+| Starfield colour palette could use brighter existing vars | Low | User noted stars could be greener. Existing vars `--lp-color-accent-bright` (#5DD662) and `--lp-color-accent-brightest` (#A0F0A5) available but not yet used in palette. | None |
 
 ---
 
 ### Dependencies & Downstream Effects
 
-- **All pages on docs-v2-dev**: Content area is now wider and better centred at desktop widths. Visual review recommended after merge to `docs-v2`.
-- **Frame-mode pages**: Explicitly excluded — no change to portal layout.
-- **Production builds**: `body { padding: 0 }` is a no-op (production already has `padding: 0`). The `max-w-5xl` and padding overrides WILL take effect in production after merge.
+- **All regular pages on docs-v2-dev**: Content area is now wider and better centred at desktop widths. Visual review recommended after merge to `docs-v2`.
+- **Portal/frame-mode pages**: Separate CSS with tighter padding and wider cap. Hero sections fill more of the available width.
+- **Production builds**: `body { padding: 0 }` is a no-op (production already has `padding: 0`). All other overrides WILL take effect in production after merge.
+- **Starfield component**: Size distribution change affects ALL portal pages site-wide (About, Solutions, Orchestrators, Gateways, Developers, etc.).
 
 ---
 
@@ -245,15 +262,19 @@ Three site-wide style issues were diagnosed using Playwright automated testing a
 | Playwright DOM chain analysis (5 pages, 600-1920px) | ✅ | Confirmed fix targets correct elements at all breakpoints |
 | Body padding override | ✅ | Verified in dev, confirmed no-op in production |
 | .mintignore .md exclusion | ✅ | Heading underlines eliminated after adding patterns |
-| Frame-mode exclusion | ✅ | User confirmed portal pages unaffected |
+| Portal `:has()` exclusion | ✅ | Playwright verified portal pages get pl=2rem/pr=2rem, regular get 3rem/3rem |
+| `data-page-mode` audit | ✅ | Confirmed ALL pages return `"none"` — `"frame"` never used |
+| Daydream hero GIF | ✅ | 30MB re-compressed version preserves original 17fps animation |
+| Starfield size distribution | ✅ | User visually confirmed density and size balance |
 | mint dev clean build | ✅ | No build errors after all changes |
 
 ---
 
 ### Recommendations
 
-1. **Visual QA after merge to docs-v2** — The `max-w-5xl` → 72rem change will widen content on production. Spot-check a few pages at 1440px and 1920px.
+1. **Visual QA after merge to docs-v2** — The width/padding changes affect all pages. Spot-check at 1440px and 1920px.
 2. **Monitor Mintlify CLI updates** — The body padding injection may be fixed in a future CLI version, making the `body { padding: 0 }` rule unnecessary.
+3. **Consider bumping Starfield density on other portals** — About portal is now at 1.8; others still at default 1.1.
 
 ---
 
@@ -262,8 +283,11 @@ Three site-wide style issues were diagnosed using Playwright automated testing a
 | File | Type | Description |
 |---|---|---|
 | `style.css` (lines 1-5) | modified | Body padding override for dev server injection |
-| `style.css` (lines 192-206) | modified | Content width/centering fix scoped to non-frame pages |
+| `style.css` (lines 192-220) | modified | Content width/centering: regular pages (3rem/72rem) + portal pages (2rem/80rem) |
 | `.mintignore` | modified | Added `**/*.md` and `*.md` patterns to exclude plain markdown |
+| `snippets/assets/media/images/daydream-hero-demo.gif` | modified | Replaced 12MB low-quality with 30MB re-compressed original |
+| `snippets/components/scaffolding/heroes/HeroGif.jsx` | modified | Starfield size bucket weights adjusted for more larger stars |
+| `v2/about/portal.mdx` | modified | Starfield density bumped to 1.8 |
 
 ---
 

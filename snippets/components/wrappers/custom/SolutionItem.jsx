@@ -21,35 +21,42 @@
  * />
  */
 export const SolutionItem = ({
-  link,
+  title,
   iconWrapper = null,
   description = null,
   divider = true,
-  className = "",
+  className = '',
   style = {},
   ...rest
 }) => {
+  const containerStyle = {
+    paddingBottom: divider ? '0.75rem' : '0.25rem',
+    ...style,
+  }
+  const spanStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    gap: '0.5rem',
+  }
+  const descriptionStyle = {
+    fontSize: '0.9rem',
+    color: 'var(--text-secondary)',
+    marginTop: '0.25rem',
+  }
+  const dividerStyle = {
+    marginTop: '0.75rem',
+    borderBottom: '1px solid var(--border)',
+  }
+
   return (
-    <div
-      className={className}
-      style={{
-        paddingBottom: divider ? "0.75rem" : "0.25rem",
-        ...style,
-      }}
-      {...rest}
-    >
-      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
-        {link}
+    <div style={containerStyle} {...rest}>
+      <div>
+        <span style={spanStyle}>{title}</span>
         {iconWrapper}
       </div>
-      {description && (
-        <div style={{ fontSize: "0.9rem", color: "var(--text-secondary)", marginTop: "0.25rem" }}>
-          {description}
-        </div>
-      )}
-      {divider && (
-        <div style={{ marginTop: "0.75rem", borderBottom: "1px solid var(--border)" }} />
-      )}
+      {description && <div style={descriptionStyle}>{description}</div>}
+      {divider && <div style={dividerStyle} />}
     </div>
-  );
-};
+  )
+}

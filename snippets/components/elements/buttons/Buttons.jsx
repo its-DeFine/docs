@@ -41,7 +41,7 @@ export const ExternalLinkButton = ({
         alignItems: "center",
         justifyContent: "center",
         padding: "6px",
-        background: hovered ? "var(--accent)" : "transparent",
+        background: hovered ? "var(--border)" : "transparent",
         border: `1.5px solid ${hovered ? "var(--accent)" : "var(--hero-text)"}`,
         borderRadius: "6px",
         cursor: "pointer",
@@ -54,7 +54,7 @@ export const ExternalLinkButton = ({
       <Icon
         icon={icon}
         size={size}
-        color={hovered ? "var(--hero-bg)" : "var(--hero-text)"}
+        color={hovered ? "var(--accent)" : "var(--hero-text)"}
       />
     </button>
   );

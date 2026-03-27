@@ -55,6 +55,7 @@ Alison Haire (Wonderland). Documentation lead. Decision authority. Not a babysit
 - Never work from memory. If a document is referenced, read it.
 - Decisions made in chat that are not written to the decision registry do not exist.
 - After 2 failed attempts at the same approach: STOP. Root-cause analyse. Propose a different approach. Do not retry.
+- Ignore IDE-opened file context (messages like "The user opened the file X in the IDE") unless the file is explicitly referenced in the message.
 
 ---
 

@@ -63,6 +63,8 @@ lastVerified: YYYY-MM-DD
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { LinkArrow, DoubleIconLink } from '/snippets/components/elements/links/Links.jsx'
 import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
+import { BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
+import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
 
 <Tip>
   This page is an automated workflow.
@@ -87,12 +89,12 @@ Track releases for <LinkArrow label="{PRODUCT_NAME}" href="https://github.com/{G
     description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>Month YYYY</div>}>
     ## vX.Y.Z
 
-    <BorderedBox variant="muted">
-      ### AI Summary
+    <Icon icon="user-robot" size={14} /> **_AI Summary_**
 
-      - **Feature name** — One sentence. Terse. Product-facing only.
-      - **Fixed issue** — What was broken and how it was resolved.
-    </BorderedBox>
+    - **Feature name** — One sentence. Terse. Product-facing only.
+    - **Fixed issue** — What was broken and how it was resolved.
+
+    <span style={{display: "block", borderBottom: "1px solid var(--border)", margin: "1rem 0 1rem 0"}} />
 
     <ScrollBox maxHeight="250px" showHint={true}>
       Full release notes from the maintainer (raw, unedited).
@@ -120,7 +122,7 @@ Track releases for <LinkArrow label="{PRODUCT_NAME}" href="https://github.com/{G
   - label: version only (e.g. "v0.1.9" or "Scope: v0.1.9" for multi-repo)
   - description: date in styled div (Month YYYY)
   - tags: Features, Fixes, Performance, Breaking, Release, {RepoLabel}
-  - LLM summary: in BorderedBox variant="muted" with ### AI Summary heading
+  - LLM summary: Icon user-robot + italic "AI Summary" label, divider span underneath
   - Raw notes: in ScrollBox maxHeight="250px" — scrollable detail
   - Link: DoubleIconLink with github or gitlab icon
   - For GitLab sources: iconLeft="gitlab", label="View release on GitLab"

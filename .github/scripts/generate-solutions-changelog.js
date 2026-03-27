@@ -30,6 +30,7 @@ const GITLAB_TOKEN = process.env.GITLAB_TOKEN || "";
 const LIMIT = parseInt(process.env.LIMIT || "10", 10);
 const DRY_RUN = process.argv.includes("--dry-run");
 const ENHANCE = process.argv.includes("--enhance");
+const REGENERATE = process.argv.includes("--regenerate");
 
 // Resolve product config
 function hasActiveReleases(product) {
@@ -422,22 +423,24 @@ ${releaseNotesSection}
 ${commitSection}
 Rules:
 - Product-facing changes only. No internal implementation details, private file paths, directory structures, code snippets, or function names.
-- Organise under headings: ### New features, ### Updates, ### Bug fixes. Omit empty sections.
-- Format: \`- **Short name** — One-sentence description.\` under each heading.
+- Organise under headings: #### New Features, #### Updates, #### Bug Fixes. Omit empty sections. Use #### (h4) not ### (h3). Capitalise Every Word In The Heading.
+- Format: \`- **Short name** - One-sentence description.\` under each heading.
+- Use UK English throughout (e.g. "organised" not "organized", "colour" not "color", "behaviour" not "behavior").
+- Never use em dashes. Use a hyphen (-) instead.
 - Be polite and terse. The changelog must be skimmable and quick to read.
 - Do not include PR/MR numbers, author names, commit hashes, or repository links.
 - Maximum 6 bullets total. Skip trivial changes (typos, version bumps, CI config).
-- If only fixes shipped, use a single ### Bug fixes section.
+- If only fixes shipped, use a single #### Bug Fixes section.
 - Output ONLY the markdown sections. No preamble, no summary sentence, no sign-off.
 
 Example output:
-### New features
+#### New Features
 
-- **Pinned messages** — Messages in chat can now be pinned by moderators.
+- **Pinned messages** - Messages in chat can now be pinned by moderators.
 
-### Bug fixes
+#### Bug Fixes
 
-- **Stream reconnection** — Fixed an issue where streams would not reconnect after a brief network drop.`;
+- **Stream reconnection** - Fixed an issue where streams would not reconnect after a brief network drop.`;
 }
 
 /**
@@ -523,6 +526,8 @@ function cleanForMdx(text) {
         /\s+by\s+@[\w-]+(?:,\s*@[\w-]+)*(?:,?\s*and\s+@[\w-]+)?\s+in\s+https?:\/\/\S+/g,
         ""
       )
+      // Convert angle-bracketed URLs to plain URLs (MDX parses <url> as JSX tags)
+      .replace(/<(https?:\/\/[^>]+)>/g, "$1")
       // Clean trailing whitespace per line
       .replace(/[ \t]+$/gm, "")
       // Collapse multiple blank lines
@@ -605,16 +610,15 @@ function buildUpdateBlock(tag, date, tags, content, rawNotes, releaseUrl, rssSum
   block += `<Update label="${heading}" tags={[${tagsStr}]} rss={{ title: "${esc(rssTitle)}", description: "${esc(rssDesc)}" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>${date}</div>}>\n`;
   block += `  ## ${heading}\n\n`;
 
-  // LLM summary in BorderedBox variant="muted"
+  // LLM summary with icon label + divider line underneath
   if (content) {
     const indented = content
       .split("\n")
-      .map((line) => (line ? `      ${line}` : ""))
+      .map((line) => (line ? `  ${line}` : ""))
       .join("\n");
-    block += `  <BorderedBox variant="muted">\n`;
-    block += `    ### AI Summary\n\n`;
-    block += `${indented}\n`;
-    block += `  </BorderedBox>\n\n`;
+    block += `  <span style={{display: "inline-flex", alignItems: "center", gap: "0.35rem"}}><Icon icon="user-robot" size={14} /> _AI Summary_</span>\n\n`;
+    block += `${indented}\n\n`;
+    block += `  <span style={{display: "block", borderBottom: "1px solid var(--border)", margin: "1rem 0 1rem 0"}} />\n\n`;
   }
 
   // Full release notes from the maintainer in ScrollBox (when they exist and aren't placeholder)
@@ -623,6 +627,7 @@ function buildUpdateBlock(tag, date, tags, content, rawNotes, releaseUrl, rssSum
       .split("\n")
       .map((line) => (line ? `    ${line}` : ""))
       .join("\n");
+    block += `  <span style={{display: "inline-flex", alignItems: "center", gap: "0.35rem", marginBottom: "0.5rem"}}><Icon icon="file-lines" size={14} /> _Release Notes_</span>\n\n`;
     block += `  <ScrollBox maxHeight="250px" showHint={true}>\n`;
     block += `${rawIndented}\n`;
     block += `  </ScrollBox>\n\n`;
@@ -757,6 +762,22 @@ async function processProduct(product) {
     return;
   }
 
+  // --regenerate: wipe all entries, keep the template header up to the automation zone marker
+  if (REGENERATE) {
+    const marker = "────────────────────────────────────────────── */}";
+    const content = fs.readFileSync(changelogPath, "utf8");
+    const markerIdx = content.indexOf(marker);
+    if (markerIdx !== -1) {
+      const truncated = content.slice(0, markerIdx + marker.length) + "\n";
+      if (!DRY_RUN) {
+        fs.writeFileSync(changelogPath, truncated);
+        console.log(`  --regenerate: wiped existing entries, kept template header.`);
+      } else {
+        console.log(`  --regenerate (dry-run): would wipe existing entries.`);
+      }
+    }
+  }
+
   // Fetch releases from GitHub
   let githubReleases = [];
   if (hasGitHub) {
@@ -883,8 +904,10 @@ async function processProduct(product) {
   }
 
   const insertAt = markerIdx + marker.length;
+  // Wrap all entries in LazyLoad for deferred rendering on long changelogs
+  const wrappedOutput = `<LazyLoad height="600px">\n\n${output}\n</LazyLoad>\n`;
   const updated =
-    existing.slice(0, insertAt) + "\n\n" + output + existing.slice(insertAt);
+    existing.slice(0, insertAt) + "\n\n" + wrappedOutput + existing.slice(insertAt);
 
   if (DRY_RUN) {
     console.log(`\n  ── DRY RUN ── Would write to ${changelogPath}:\n`);

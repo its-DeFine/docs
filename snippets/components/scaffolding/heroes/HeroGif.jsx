@@ -72,11 +72,11 @@ export const Starfield = ({ density = 1.1, className = "", style = {}, ...rest }
   };
 
   const SIZE_BUCKETS = [
-    { scale: 0.3, weight: 0.65 },
-    { scale: 0.5, weight: 0.2 },
-    { scale: 0.9, weight: 0.1 },
-    { scale: 1.3, weight: 0.04 },
-    { scale: 1.8, weight: 0.01 },
+    { scale: 0.3, weight: 0.50 },
+    { scale: 0.5, weight: 0.20 },
+    { scale: 0.9, weight: 0.15 },
+    { scale: 1.3, weight: 0.10 },
+    { scale: 1.8, weight: 0.05 },
   ];
 
   const pickScale = () => {
