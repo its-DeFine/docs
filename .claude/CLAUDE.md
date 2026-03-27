@@ -161,6 +161,21 @@ Recent entries in CLAUDE.md for quick context:
 
 ---
 
+### 2026-03-28 — Full repo cleanup + docs-v2 branch cleanup + reconciliation prep
+
+**Done:**
+- Cleaned docs-v2-dev: 36 folders audited, 2,486 files removed from tracking (`_dep-docs/`, `**/_workspace/`, i18n stubs), backlog B001–B018 logged
+- Cleaned docs-v2: new worktree `cleanup/docs-v2`, 2,180 files removed (`docs/`, `tasks/`, `v2/cn/es/fr/`), pushed to origin
+- `_workspace/` intentionally NOT gitignored on docs-v2 (post-merge consolidated review)
+- Fixed 11 broken links in `v2/solutions/livepeer-studio/` + `v2/developers/` on both branches (root cause: missing `docs/` segment from solutions migration PR #845)
+- Divergence re-audit: 384 truly modified files is the actual reconciliation workload (not 7,040)
+- Reconciliation strategy confirmed: "ours-first cherry-pick", docs-v2-dev structure wins
+- Handoff doc: `workspace/plan/active/FULL-CLEANUP/reconciliation-handoff.md`
+
+**Next:** Phase 0 — create `reconcile/docs-v2` worktree, record baseline SHAs, run baseline tests, then begin cherry-pick batches from `cleanup/docs-v2` into `docs-v2-dev`
+
+---
+
 ### 2026-03-27 — Changelog pipeline: GitLab support, LLM enhancement, component fixes
 
 **Done:**

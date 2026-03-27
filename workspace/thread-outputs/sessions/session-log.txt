@@ -1,3 +1,7 @@
+Session: 2026-03-27 — Unified changelog pipeline + contract changelog
+Outcome: MET. Fixed ContractAddressDisplay.jsx render bug (useState missing). Unified changelog infrastructure built across 6 phases: changelogs{} registry in product-social-config.json (10 targets), generate-changelog.js (renamed + refactored with loadChangelogTargets, fetchCommitEntries, verifyContractChanges, processTarget with mode branching), update-changelogs.yml (new workflow with CHANGELOG_KEY/CATEGORY, ARBISCAN/ETHERSCAN keys, contract flag), v2/resources/changelog/contracts.mdx (commits mode, automation zone), docs.json nav updated, changelog-automated-template.mdx created. Fixed both contract-addresses.mdx (sidebarTitle, dead link, 630maybe typo). Dry-run verified: daydream/solutions-category/contracts all clean.
+Next: Regenerate Embody/Studio/Frameworks with --regenerate --enhance (25 raw entries). Deprecate generate-solutions-changelog.js + update-solutions-changelog.yml. Phase 3 shared lib extraction deferred.
+---
 Session: 2026-03-27 — Chat session audit (VS Code history diagnostic)
 Outcome: PARTIALLY MET. 17 unique session IDs confirmed on disk, all in Docs-v2-dev workspace, all at latest versions. VS Code has no history browser — root cause of inaccessibility. 2 sessions user believes are missing not yet confirmed lost.
 Next: User to identify what the 2 "missing" sessions were about. Consider Claude CLI install for --resume support.
@@ -181,3 +185,4 @@ Session started: 2026-03-27 17:07:21
 Session started: 2026-03-27 17:07:32
 Session started: 2026-03-27 17:07:41
 Session started: 2026-03-27 17:12:27
+Session started: 2026-03-28 00:38:30

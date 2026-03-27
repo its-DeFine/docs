@@ -80,6 +80,99 @@ Numbered. Concrete next steps or improvements.
 
 ---
 
+## Full repo cleanup + docs-v2 cleanup + reconciliation prep — 2026-03-27/28
+
+**Plans**: `/Users/alisonhaire/.claude/plans/bright-floating-pebble.md`
+**Scope**: Full cleanup of docs-v2-dev (all 36 folders), cleanup of docs-v2 production branch, divergence analysis, reconciliation strategy design.
+
+### Summary
+
+docs-v2-dev was fully audited and 2,486 files removed from git tracking (deprecated docs/, i18n stubs, all `_workspace/` planning material). The docs-v2 production branch was cleaned in a dedicated worktree with 2,180 additional files removed from tracking. 11 broken links caused by the solutions migration were found and fixed on both branches. Divergence analysis shows 384 truly modified files (real reconciliation workload) — far more manageable than the initial 7,040-file diff suggested.
+
+---
+
+### Completed
+
+**docs-v2-dev cleanup (cleanup/full-repo branch)**
+- All 36 root folders audited and dispositioned interactively
+- 86 x-deprecated/x-archived files consolidated into `_workspace/` at parent level
+- 2,486 files removed from tracking: `_dep-docs/` (525), `**/_workspace/` (1,937), i18n stubs (24)
+- docs.json audited: 421 OK, 17 broken (B017), 270 orphans (B018), 0 stale
+- Backlog B001–B018 logged in `workspace/plan/active/FULL-CLEANUP/backlog.md` (cleanup worktree)
+
+**docs-v2 cleanup (cleanup/docs-v2 branch, pushed to origin)**
+- 2,180 files removed from tracking: `docs/` (525), `tasks/` (588), `v2/cn/es/fr/` (1,067)
+- `_workspace/` intentionally NOT gitignored — preserved for post-merge review
+- Tests pass: `test:docs-nav` (1,336 entries clean), `test:links` (0 broken)
+- Pushed: `origin/cleanup/docs-v2`
+
+**Broken links fix**
+- 11 broken links in `v2/solutions/livepeer-studio/` found and fixed (root cause: missing `docs/` path segment after solutions migration PR #845)
+- Fixed on both cleanup/docs-v2 (4c5330935) and docs-v2-dev (a12cd8897)
+
+**Reconciliation design**
+- Divergence re-audited post-cleanup: 384 truly modified files is the real workload
+- "Ours-first cherry-pick" strategy confirmed
+- Full handoff doc written: `workspace/plan/active/FULL-CLEANUP/reconciliation-handoff.md`
+
+---
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| `_workspace/` NOT gitignored on docs-v2 | Preserve visibility for post-merge consolidated review |
+| Skip x-deprecated → _workspace consolidation on docs-v2 | No gitignore benefit without `**/_workspace/`; deferred to post-merge cleanup |
+| `tests/` kept tracked on docs-v2 | Active test suite (Playwright, Puppeteer, unit) belongs in repo |
+| `--no-verify` pre-approved for cleanup commits | Deletion detection hook fires on `git rm --cached`; Alison approved bypass for this work stream |
+
+---
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| B010 — v1 still default in docs.json | P1 | Out of scope | None |
+| B012 — gateways 277 deprecated files | P1 | Post-merge cleanup | Reconciliation complete |
+| B017 — 17 broken docs.json entries in v2/internal/reports/ | P1 | Out of scope this session | None |
+| B018 — 270 orphan MDX files | P2 | Post-merge cleanup | Reconciliation complete |
+| x-deprecated consolidation on docs-v2 | P2 | No gitignore benefit without `**/_workspace/` | Post-merge |
+| Phase 0–4 reconciliation execution | P0 | Next work stream | This phase complete |
+
+---
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| `test:docs-nav` on cleanup/docs-v2 | ✅ Pass | 1,336 entries scanned |
+| `test:links` on cleanup/docs-v2 | ✅ Pass | 0 broken (11 fixed this session) |
+| docs-v2-dev `test:links` | ✅ Pass | 2 of 11 needed fixing; applied |
+
+---
+
+### Recommendations
+
+1. **Merge cleanup/docs-v2 into docs-v2** — open a PR from `cleanup/docs-v2` → `docs-v2`, squash-merge or fast-forward. This lands the gitignore cleanup on the production branch before reconciliation begins.
+2. **Begin Phase 0** — create `reconcile/docs-v2` worktree from docs-v2-dev, record baseline SHAs, run baseline test suite.
+3. **Address B017** — 17 broken docs.json entries in `v2/internal/reports/` are P1 and can be fixed independently of reconciliation.
+
+---
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `workspace/plan/active/FULL-CLEANUP/reconciliation-handoff.md` | new | Full reconciliation context, strategy, phase plan |
+| `/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev-docs-v2-cleanup/.gitignore` | modified | Added docs/, tasks/, v2/cn/, v2/es/, v2/fr/ |
+| `v2/developers/get-started/transcoding-quickstart.mdx` | modified (cleanup branch) | 6 broken links fixed |
+| `v2/developers/resources/apis.mdx` | modified (both branches) | 2 broken links fixed |
+| `v2/developers/resources/sdks.mdx` | modified (both branches) | 1 broken link fixed |
+| `v2/solutions/livepeer-studio/docs/get-started/overview.mdx` | modified (both branches) | Relative link depth fixed |
+| `v2/solutions/livepeer-studio/docs/livestream/overview.mdx` | modified (both branches) | Broken player link fixed |
+
+---
+
 ## docs.json sync: docs-v2-dev → origin/docs-v2 — 2026-03-27
 
 **Plans**: `/Users/alisonhaire/.claude/plans/pure-bouncing-hare.md`
@@ -1748,3 +1841,59 @@ User could not access past conversations from the VS Code sidebar. Audited all `
 | Install Claude CLI for --resume support | Low | Would enable resuming past sessions from terminal | User preference (no global npm install yet) |
 | Report VS Code history browser as missing feature | Low | Platform limitation, not repo issue | Anthropic product feedback |
 | `workspace/thread-outputs/build/staleness-remediation-report.md` | new | Agent completion report — 4 frameworks fixed |
+
+---
+
+## lpd dev --scoped: DX improvements — 2026-03-27
+
+**Plans**: `workspace/plan/active/TOOLING/lpd-audit.md`
+**Scope**: Improved developer experience for `lpd dev --scoped`: scope discovery, fuzzy tab matching, multi-word tab names without quotes, and fail-fast validation before setup work runs.
+
+### Summary
+
+Four UX problems with `lpd dev --scoped` were identified and fixed: no way to discover available tab names, zero-routes error appearing after hook installs and fetches ran, `Resource HUB` requiring quoted multi-word input, and multi-tab comma-space syntax (`About, Solutions`) incorrectly splitting into a Mint passthrough arg. All fixes landed in `tools/dev/generate-mint-dev-scope.js` and `tools/lpd` (shell). All 24 existing unit tests continue to pass. Both documentation files updated.
+
+### Completed
+
+- **Scope discovery** — `--scope-list` flag added to both shell and JS; prints available versions, languages, and tab names from `docs.json` then exits
+- **Fuzzy tab matching** — `resolveTabsWithFuzzyMatch()` added; resolves partial names via exact → prefix (first word) → substring → stem (strip trailing `s`) match chain; unknown and ambiguous names fail with clear error + available options
+- **Multi-word tab names without quotes** — shell `--scope-tab` handler now consumes all trailing non-flag args and joins them, so `Resource HUB` works without quotes
+- **Multi-tab comma-space** — `About, Solutions` now parsed correctly; trailing comma stripped by `splitCsv` + `uniqStrings` trim
+- **Fail-fast validation** — `mint-dev.sh` runs `--print-only` scope validation before hook install, watcher patch, snippet fetch, or port defaulting; invalid scopes fail immediately
+- **Error messages** — zero-route and removed-all-nodes errors now append `formatAvailableScopes()` output inline
+- **Docs updated** — `docs-guide/tooling/lpd-cli.mdx` and `workspace/plan/active/TOOLING/lpd-command-reference.md` updated with all new flags and behaviours; `lastVerified` bumped to 2026-03-27
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Fuzzy match rather than alias table | More general — handles any tab name, not just current ones. Stem/prefix logic handles future renames without code changes. |
+| Fail-fast via `--print-only` pre-run | Avoids running any setup work against invalid inputs. Reuses existing flag, no new code path in the session supervisor. |
+| Tab names stay in docs.json as-is (`Resource HUB`) | User confirmed: do not change docs.json; fix the tool to accommodate the name. |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Component diagnostic pass (Solutions tab) | High | `DoubleIconLink` rendering as raw source in Mint dev server | Next session |
+| Two-tab live test (`About, Solutions`) | Done | Confirmed working by user at session close | — |
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| `lpd-scoped-mint-dev.test.js` (24 cases) | ✅ Pass | Run after every change |
+| `--scope-list` manual smoke test | ✅ Pass | Outputs correct tab list |
+| Fuzzy match smoke test (`Resources`, `Internal`, `LP`, `Orch`) | ✅ Pass | All resolve to correct canonical names |
+| Single-tab live test (`Resources`) | ✅ Confirmed by user | |
+| Two-tab live test (`About, Solutions`) | ✅ Confirmed by user | |
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `tools/dev/generate-mint-dev-scope.js` | Modified | `resolveTabsWithFuzzyMatch()`, `formatAvailableScopes()`, `--list` flag, fail-fast validation hook |
+| `tools/lpd` | Modified | `--scope-list` passthrough, multi-word tab arg consumption, updated help text |
+| `tools/dev/mint-dev.sh` | Modified | Fail-fast scope validation block before setup steps |
+| `docs-guide/tooling/lpd-cli.mdx` | Modified | New flags, fuzzy matching docs, updated examples, lastVerified 2026-03-27 |
+| `workspace/plan/active/TOOLING/lpd-command-reference.md` | Modified | All new flags and scope validation note |
