@@ -46,3 +46,13 @@ jobs:
 
       - name: Verify pages catalog is current
         run: node operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js --check
+
+      - name: Check frontmatter taxonomy on changed docs pages
+        if: github.event_name == 'pull_request'
+        run: |
+          CHANGED=$(git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -E '^(v2|docs-guide)/.*\.mdx$' | tr '\n' ',' | sed 's/,$//')
+          if [ -n "$CHANGED" ]; then
+            node operations/tests/unit/quality.test.js --files "$CHANGED"
+          else
+            echo "No routable docs pages changed — skipping frontmatter check."
+          fi

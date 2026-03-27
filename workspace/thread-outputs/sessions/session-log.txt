@@ -1,3 +1,7 @@
+Session: 2026-03-27 — Chat session audit (VS Code history diagnostic)
+Outcome: PARTIALLY MET. 17 unique session IDs confirmed on disk, all in Docs-v2-dev workspace, all at latest versions. VS Code has no history browser — root cause of inaccessibility. 2 sessions user believes are missing not yet confirmed lost.
+Next: User to identify what the 2 "missing" sessions were about. Consider Claude CLI install for --resume support.
+---
 Session: 2026-03-27 — SOLUTIONS-SOCIAL-DATA completion verification & close-out
 Outcome: MET. All deliverables verified on disk: 5 community pages, 6 fetch scripts, 3 GH Actions workflows, central config, template, 21 data files, 5 socials.jsx files, secrets docs, manual runner. Component fixes: RssBlogCard (new), DiscordAnnouncements (ScrollBox + inline sanitiseHTML + message_snapshots), MarkdownEmbed (dangerouslySetInnerHTML rewrite), YouTubeVideoData (row gap). Daydream page render-verified. Completion report written.
 Next: Render-test remaining 4 community pages. Configure GH Actions secrets. Update RssBlogCard to render full HTML. Plan next initiative (composable reference data pages).
@@ -97,3 +101,83 @@ Session started: 2026-03-27 15:57:18
 Session started: 2026-03-27 15:58:04
 Session started: 2026-03-27 15:59:00
 Session started: 2026-03-27 16:00:28
+Session started: 2026-03-27 16:17:53
+Session started: 2026-03-27 16:19:56
+Session started: 2026-03-27 16:20:35
+Session started: 2026-03-27 16:21:11
+Session started: 2026-03-27 16:21:48
+Session started: 2026-03-27 16:22:09
+Session started: 2026-03-27 16:23:00
+Session started: 2026-03-27 16:24:36
+Session started: 2026-03-27 16:25:14
+Session started: 2026-03-27 16:25:25
+Session started: 2026-03-27 16:25:37
+Session started: 2026-03-27 16:26:21
+Session started: 2026-03-27 16:26:34
+Session started: 2026-03-27 16:26:53
+Session started: 2026-03-27 16:30:37
+Session started: 2026-03-27 16:32:24
+Session started: 2026-03-27 16:32:48
+Session started: 2026-03-27 16:33:13
+Session started: 2026-03-27 16:33:45
+Session started: 2026-03-27 16:33:59
+Session started: 2026-03-27 16:34:23
+Session started: 2026-03-27 16:34:49
+Session started: 2026-03-27 16:35:03
+Session started: 2026-03-27 16:35:25
+Session started: 2026-03-27 16:36:37
+Session started: 2026-03-27 16:38:48
+Session started: 2026-03-27 16:39:00
+Session started: 2026-03-27 16:39:35
+Session started: 2026-03-27 16:39:47
+Session started: 2026-03-27 16:42:21
+Session started: 2026-03-27 16:44:10
+
+=== 2026-03-27 ===
+Stream: Claude Code VS Code session loss recovery (emergency)
+Outcome: Partially met
+Done:
+- hiddenSessionIds filter permanently removed from extension.js — sessions no longer filtered by deletion list
+- Buffer increased 64KB → 512KB in extension.js — large sessions should now be extractable
+- Technical diagnosis documented across 3 reports in workspace/plan/active/FUCK_CLAUDE/
+Next: Reload extension (Developer: Reload Window) to activate 512KB buffer patch — verify Solutions and Changelog sessions appear. Re-apply patches after any extension auto-update.
+Session started: 2026-03-27 16:47:29
+Session started: 2026-03-27 16:47:38
+Session started: 2026-03-27 16:48:19
+Session started: 2026-03-27 16:48:49
+Session started: 2026-03-27 16:49:30
+Session started: 2026-03-27 16:49:33
+Session started: 2026-03-27 16:49:40
+Session started: 2026-03-27 16:49:54
+Session started: 2026-03-27 16:50:16
+Session started: 2026-03-27 16:50:33
+Session started: 2026-03-27 16:50:58
+Session started: 2026-03-27 16:51:30
+Session started: 2026-03-27 16:51:50
+Session started: 2026-03-27 16:51:58
+Session started: 2026-03-27 16:52:04
+Session started: 2026-03-27 16:52:24
+Session started: 2026-03-27 16:52:39
+Session started: 2026-03-27 16:52:47
+Session started: 2026-03-27 16:53:14
+Session started: 2026-03-27 16:53:35
+Session started: 2026-03-27 16:53:57
+Session started: 2026-03-27 16:53:59
+Session started: 2026-03-27 16:54:35
+Session started: 2026-03-27 16:55:25
+Session started: 2026-03-27 16:56:45
+Session started: 2026-03-27 16:57:50
+Session started: 2026-03-27 16:58:05
+Session started: 2026-03-27 16:58:30
+Session started: 2026-03-27 16:59:43
+Session started: 2026-03-27 16:59:58
+Session started: 2026-03-27 17:00:36
+Session started: 2026-03-27 17:01:00
+Session started: 2026-03-27 17:04:33
+Session started: 2026-03-27 17:05:02
+Session started: 2026-03-27 17:06:42
+Session started: 2026-03-27 17:06:56
+Session started: 2026-03-27 17:07:21
+Session started: 2026-03-27 17:07:32
+Session started: 2026-03-27 17:07:41
+Session started: 2026-03-27 17:12:27

@@ -451,6 +451,12 @@ img[alt="US"][src*="flags/US.svg"]::before {
   display: none;
 }
 
+/* DynamicTable: force fixed layout so columnWidths prop values take effect.
+   Mintlify's Tailwind prose resets table-layout to auto — !important required. */
+[data-docs-dynamic-table] {
+  table-layout: fixed !important;
+}
+
 /* StyledTable should sit flush inside its own border shell.
    Mint wraps rendered tables in a scroll container with vertical padding,
    which creates a false gap above/below the header row. */

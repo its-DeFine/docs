@@ -258,7 +258,7 @@
       "node tests/unit/frontmatter-taxonomy.test.js"
     ],
     "gate_layer": "pr-changed",
-    "rollout_state": "advisory",
+    "rollout_state": "pr-changed",
     "network_dependent": false,
     "ownerless_ready": false
   }

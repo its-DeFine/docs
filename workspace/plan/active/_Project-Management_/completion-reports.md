@@ -1527,3 +1527,224 @@ Built a full social data pipeline infrastructure bringing YouTube videos, blog p
 ### Outcome: MET
 
 All planned deliverables exist on disk. Five community pages with social data feeds, six fetch scripts, three GH Actions workflows, central config, template, secrets documentation. Daydream page render-verified. Remaining 4 pages need individual render testing (recommendation 1).
+
+---
+
+## Claude Code VS Code Session Loss Recovery — 2026-03-27
+
+**Plans**: `workspace/plan/active/FUCK_CLAUDE/session-loss-diagnosis-2026-03-27.md`
+**Scope**: Emergency diagnosis and patching of Claude Code VS Code extension to restore visibility of 83 missing chat sessions in the sidebar.
+**Outcome**: Partially met
+
+### Summary
+
+All 83 Claude Code chat sessions were intact on disk but invisible in the VS Code sidebar due to two root causes: a `hiddenSessionIds` filter in `listSessions()` that could not be cleared externally (extension overwrites on reload), and a 64KB head/tail buffer (`pU=65536`) that silently dropped sessions with title data beyond that range. Both were patched directly in `extension.js`. The `hiddenSessionIds` patch loaded after a forced reload; the 512KB buffer patch is on disk but needs a reload to activate. Solutions and Changelog sessions were still not visible at session close.
+
+### Completed
+
+**Diagnosis**
+- Root causes identified: hiddenSessionIds filter, 64KB buffer, isHidden workspace storage flags, duplicate workspace storage folders, silent null-drop on untitled sessions
+- 6-month history of unfixed product bugs documented across 15+ GitHub issues
+- Full incident timeline from 2026-03-23 to 2026-03-27 written to FUCK_CLAUDE workspace
+
+**Patches applied to `~/.vscode/extensions/anthropic.claude-code-2.1.84-darwin-arm64/extension.js`**
+- `hiddenSessionIds` filter replaced with empty set — sessions no longer filtered by deletion list
+- `pU` increased from `65536` → `524288` (64KB → 512KB buffer for session title extraction)
+- Backup at `~/.claude/backups/2026-03-26-session-restore/extension.js.backup`
+
+**VS Code state databases**
+- `isHidden:false` written to both workspace storages (`cdea6d37`, `24e4cccc`)
+- `hiddenSessionIds` cleared from `globalStorage/state.vscdb` (overwritten by extension; rendered moot by extension.js patch)
+
+**External actions**
+- GitHub comment posted to `anthropics/claude-code#37888` with technical findings
+- Gmail draft created at alihaire900@gmail.com — compensation request for $3,537.15 in documented losses
+
+**Workspace documentation**
+- `workspace/plan/active/FUCK_CLAUDE/session-loss-diagnosis.md` — primary diagnosis report
+- `workspace/plan/active/FUCK_CLAUDE/session-loss-diagnosis-2026-03-27.md` — session 2 report
+- `workspace/plan/active/FUCK_CLAUDE/verification-report.md` — critical verification of prior claims against evidence
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Verify Solutions (4b90ffd5) and Changelog (ab1baa21) sessions appear in sidebar | High | 512KB buffer patch not yet active — extension needs reload | Developer: Reload Window or extension disable/enable |
+| Send compensation email | Medium | Draft in Gmail — user to review and send | User action |
+| Re-apply both patches after extension auto-update | High | Auto-update will overwrite extension.js | Any extension update |
+
+### Dependencies & Downstream Effects
+
+- **extension.js patch**: Overwritten by any Claude Code extension auto-update. Both patches must be re-applied after each update until Anthropic fixes the underlying bugs.
+- **hiddenSessionIds**: Patch renders the list inert — sessions that were previously "deleted" from the sidebar are now visible again.
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| hiddenSessionIds patch active | ✅ | Loaded after forced reload — confirmed by hiddenSessionIds:[] in globalState |
+| 512KB buffer patch on disk | ✅ | Written to extension.js |
+| 512KB buffer patch active | ⚠️ Not verified | Extension needs reload to pick up the change |
+| Solutions session (4b90ffd5) visible | ⚠️ Not verified | Still missing at point of interruption — likely still dropped by old buffer |
+| Changelog session (ab1baa21) visible | ⚠️ Not verified | Same |
+| All other sessions visible | Partial | Most sessions appeared after hiddenSessionIds patch loaded |
+
+### Recommendations
+
+1. **Reload the extension immediately** — Disable and re-enable Claude Code in VS Code Extensions panel, or run Developer: Reload Window. The 512KB buffer patch needs this to activate. Solutions and Changelog sessions should then appear.
+2. **Do not update the Claude Code extension** until both patches are verified active and you have a plan to re-apply them after update.
+3. **Consider a PreToolUse hook** blocking Claude from writing to any `.vscdb` file or running sqlite3 on VS Code databases — repeated incidents show this pattern causes damage.
+4. **Send compensation email** from Gmail drafts (alihaire900@gmail.com).
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `~/.vscode/extensions/anthropic.claude-code-2.1.84-darwin-arm64/extension.js` | patched | hiddenSessionIds bypass + 512KB buffer |
+| `~/.claude/backups/2026-03-26-session-restore/extension.js.backup` | backup | Original unpatched extension.js |
+| `workspace/plan/active/FUCK_CLAUDE/session-loss-diagnosis.md` | new | Session 1 diagnosis report |
+| `workspace/plan/active/FUCK_CLAUDE/session-loss-diagnosis-2026-03-27.md` | new | Session 2 technical report |
+| `workspace/plan/active/FUCK_CLAUDE/verification-report.md` | new | Critical claim verification against local evidence |
+
+---
+
+## Co-work Process Infrastructure — 2026-03-27
+
+**Plans**: none (built from /insights analysis)
+**Scope**: Build co-work behavioural infrastructure — hooks, skills, governance — to reduce babysitting overhead and make Claude follow project standards without constant correction.
+**Outcome**: Partially met
+
+### Summary
+
+Session was triggered by /insights analysis showing 130+ frustrated signals and 119 wrong-approach instances across 52 sessions. Co-work infrastructure was built: 9 skills, mechanical enforcement hooks, CLAUDE.md slimmed to rules-only, governance index, and staleness fixes across 4 frameworks. The primary stated thread outcome — "VSCode chats accessible in VSCode" — was not met; a separate emergency session partially patched the extension (hiddenSessionIds removed, buffer 64KB→512KB) but sessions still fail to load messages.
+
+### Completed
+
+**Hooks (mechanical enforcement)**
+- SessionStart hook: writes session-log.txt entry, injects mandatory rules as system message, runs session-state.js for live project state
+- PreToolUse hook (Bash + Write/Edit): blocks destructive git, blocks public posts, injects verification reminders for MDX/JSX, scripts, template vs page, file moves
+- PostToolUse hook (Grep): grep-loop-guard.js circuit breaker
+- PostToolUseFailure hook: consecutive failure tracking, triggers at 3 same-tool failures
+
+**Co-work skills (9 built)**
+- `/thread` — session anchor with outcome, drift detection, TDD note, backlog capture, finalisation report
+- `/pm` — project management with /diagnose routing for blockers
+- `/research` — agent-delegated investigation
+- `/design` — first-principles co-creation with architecture doc
+- `/build` — execution with scoped dev server and branch isolation
+- `/iterate` — review against criteria
+- `/dispatch` — parallel batch coordinator
+- `/agent-brief` — standard agent brief template
+- `/diagnose` — systematic debugging with TDD (write failing test first) and parallel fix exploration (3 agents, different strategies)
+- `/close` — session close (verifies against repo, writes report, updates logs)
+
+**Skill discovery**
+- Symlinks in .claude/skills/ don't work in VSCode extension — replaced with real pointer files
+- All 9 skills registered as real files in .claude/skills/
+
+**CLAUDE.md**
+- Slimmed from ~500 lines to ~180: removed all reference material, moved state to session-state.js hook output
+- Added work streams table, engineering standards, template vs page rule, post-migration scan rule
+- Session log now points to session-log.txt file instead of inline entries
+
+**Governance**
+- `docs-guide/policies/governance-index.mdx` — canonical governance index (9 governed areas, decision rules)
+- `workspace/thread-outputs/research/mintlify-constraints-reference.md` — top 10 Claude mistakes with Mintlify
+- Staleness fixes across 4 frameworks (script paths, component counts, undocumented niches, stale entries) — agent-executed
+
+**TDD and parallel debugging**
+- /diagnose updated: Step 3b (write failing test first), Step 3c (spawn 3 agents with different fix strategies)
+- /thread updated: exploration-first nudge (Read/Grep/Glob before Write/Edit)
+- headless-batch.sh: batch runner with --prompt, --tools, --output flags
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Hooks over skills for enforcement | Skills are advisory — Claude ignores them. Hooks are mechanical — they fire regardless. Every enforcement rule must be a hook or it doesn't exist. |
+| Real pointer files, not symlinks for skills | VSCode extension doesn't resolve symlinks in .claude/skills/ — slash menu never populated |
+| State out of CLAUDE.md, into session-state.js | CLAUDE.md state kept drifting. Hook output is generated fresh each session from live files. |
+| headless-batch.sh for batch ops | Avoids spinning up interactive sessions for routine jobs (changelog regen, stale ref scans, quality checks) |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| VSCode sessions load messages | High | Extension bug (deserializeWebviewPanel, buffer limit) — not fixable without Anthropic patch or major workaround | Extension update or alternative approach |
+| Test all 9 skills on real work threads | High | Skills built but never validated against real sessions | Next working session |
+| Pipeline skills (veracity, gate-check, content-review) | Medium | Deferred until co-work skills validated | Skills validation complete |
+| Sensitive data hook | Medium | Queued, not built | None |
+| claude-mem cross-session capture verification | Medium | Installed but not tested for actual cross-session recall | None |
+| docs.json sync: docs-v2-dev → origin/docs-v2 | High | Frozen pending parallel thread resolution | All active docs-v2/docs-v2-dev threads closed |
+
+### Dependencies & Downstream Effects
+
+- **hooks**: All four hooks now fire on every session. Pre-tool-guard.js will block any destructive git command — including any worktree branch deletion that doesn't use `-b` syntax. Be aware.
+- **session-state.js**: Source of truth for live project state. If it breaks, Claude sessions start without state context.
+- **skills**: Only effective if Alison invokes them by name. Claude will not self-invoke skills.
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| SessionStart hook fires | ✅ | session-log.txt entries confirmed |
+| PreToolUse hook fires | ✅ | Blocks confirmed on destructive git during session |
+| checkout -b exemption | ✅ | Fixed — branch creation works |
+| Skill files exist in .claude/skills/ | ✅ | 9 real pointer files confirmed |
+| Skill appears in VSCode slash menu | ⚠️ Partial | Real files load — not fully verified all 9 appear |
+| VSCode sessions visible in sidebar | ✅ Partial | hiddenSessionIds patch removed filter — sessions appear |
+| VSCode sessions load messages | ❌ Not met | Buffer patch written but not verified active; deserializeWebviewPanel bug persists |
+| Staleness fixes on 4 frameworks | ✅ | Agent completion report confirms |
+
+### Recommendations
+
+1. **Reload VSCode extension** — Disable/re-enable Claude Code in Extensions panel. 512KB buffer patch needs this to activate. Solutions and Changelog sessions may then load.
+2. **Test skills on next real thread** — Invoke /pm, /thread, /research in a content or changelog session. Track what works and what doesn't. Add to each SKILL.md test log.
+3. **Build sensitive data hook** — PreToolUse that flags file_path matching patterns like .env, credentials, secrets. Low complexity, high safety value.
+4. **Do not update Claude Code extension** until patches are verified active. Extension update overwrites both patches.
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `ai-tools/ai-skills/*/SKILL.md` | new (9 files) | Co-work skills: thread, pm, research, design, build, iterate, dispatch, agent-brief, diagnose, close |
+| `.claude/skills/*/SKILL.md` | new (9 files) | Real pointer files for VSCode slash menu discovery |
+| `.claude/CLAUDE.md` | modified | Slimmed to rules-only; work streams table; session log pointer |
+| `.claude/settings.json` | modified | 4 hooks wired: SessionStart, PreToolUse (×2), PostToolUse, PostToolUseFailure |
+| `operations/scripts/dispatch/governance/pre-tool-guard.js` | new | Destructive git block, public post block, MDX/script/template verification reminders |
+| `operations/scripts/dispatch/governance/post-tool-verify.js` | new | Consecutive failure circuit breaker |
+| `operations/scripts/dispatch/governance/session-state.js` | new | Live project state for SessionStart hook |
+| `operations/scripts/dispatch/governance/headless-batch.sh` | new | Batch runner for headless Claude operations |
+| `docs-guide/policies/governance-index.mdx` | new | Canonical governance index — 9 governed surfaces |
+| `workspace/thread-outputs/research/mintlify-constraints-reference.md` | new | Top 10 Mintlify mistakes + decision tree |
+
+---
+
+## Chat Session Audit — 2026-03-27
+
+**Plans**: none
+**Scope**: Diagnostic session — locating and verifying all VS Code Claude Code chat history for the Docs-v2-dev workspace.
+**Outcome**: Partially met
+
+### Summary
+
+User could not access past conversations from the VS Code sidebar. Audited all `.jsonl` session files across all project directories on disk. Confirmed 17 unique session IDs are present, all attached to the Docs-v2-dev workspace, all at their most recent versions. Root cause of inaccessibility: the VS Code Claude Code extension has no history browser — each session starts fresh and past sessions are write-only from the UI.
+
+### Completed
+
+- Located all `.jsonl` session logs across 6 project directories under `~/.claude/projects/`
+- Confirmed 17 unique session IDs, none missing from current workspace
+- Verified internal log timestamps vs file modification timestamps — gaps explained by backup/copy operations on Mar 19, not missing content
+- Confirmed two sessions with differing copies across directories: `72eb0761` and `7ceef5b5` — current workspace holds latest version of both
+- Identified 7 VS Code process IDs with no log files — confirmed as internal renderer/window IDs, not lost chat sessions
+- Extracted full content of session `72eb0761` (rustling-swimming-peach) — branch cleanup and personal scripts archival, Mar 8
+- Identified session `ab371606` (atomic-soaring-snowflake) as the March 14 gateway docs restructuring session (2,267 messages, 34MB)
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Confirm whether 2 "missing" sessions are truly gone | Medium | User believes sessions are missing — not yet confirmed or disproved | User to identify what the sessions were about |
+| Install Claude CLI for --resume support | Low | Would enable resuming past sessions from terminal | User preference (no global npm install yet) |
+| Report VS Code history browser as missing feature | Low | Platform limitation, not repo issue | Anthropic product feedback |
+| `workspace/thread-outputs/build/staleness-remediation-report.md` | new | Agent completion report — 4 frameworks fixed |

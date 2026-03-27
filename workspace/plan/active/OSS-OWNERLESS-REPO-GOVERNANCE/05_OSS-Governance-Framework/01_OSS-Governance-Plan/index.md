@@ -1,3 +1,9 @@
+> **STATUS: PLANNING INPUT — NOT SOURCE OF TRUTH**
+> This document was produced in a prior planning session. It contains proposals, decision flags, and recommendations that have not yet been formally reviewed or approved. Do not treat any section as a current repo policy. Superseded by: `gap-analysis.md` (current state) and `decisions/decision-log.md` (decisions).
+> Last reviewed: 2026-03-27
+
+---
+
 **LIVEPEER DOCS**
 
 **OSS Governance Plan**

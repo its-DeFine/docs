@@ -1,0 +1,84 @@
+---
+sidebarTitle: Contract Changelog
+title: Protocol Contract Changelog
+description: >-
+  Governance upgrades and contract deployments for the Livepeer protocol.
+  Tracks changes to addresses.js in the governor-scripts repository with on-chain verification.
+keywords:
+  - livepeer
+  - contracts
+  - governance
+  - changelog
+  - arbitrum
+  - ethereum
+  - smart contracts
+  - protocol
+'og:image': /snippets/assets/site/og-image/fallback.png
+'og:image:alt': Livepeer Docs social preview image
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+pageType: changelog
+purpose: changelog
+audience: everyone
+lastVerified: 2026-03-27
+---
+
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { LinkArrow, DoubleIconLink } from '/snippets/components/elements/links/Links.jsx'
+import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
+import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
+
+<Tip>
+  This page is an automated workflow.
+  <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--hero-text)", marginTop: "0.25rem" }}>Subscribe to this changelog's <LinkArrow label="RSS Feed" href="/v2/resources/changelog/contracts/rss.xml" newline={false} /></div>
+</Tip>
+
+<CustomDivider style={{margin: "-0.5rem 0 -1.5rem 0"}} />
+
+Track governance upgrades and contract deployments from <LinkArrow label="governor-scripts" href="https://github.com/livepeer/governor-scripts/commits/master/updates/addresses.js" newline={false} /> on GitHub. Addresses are verified on-chain via Arbiscan and Etherscan.
+
+<CustomDivider />
+
+<CardGroup cols={2}>
+  <Card
+    href="https://github.com/livepeer/governor-scripts/blob/master/updates/addresses.js"
+    icon="github"
+    title="governor-scripts: addresses.js"
+    horizontal
+  />
+  <Card
+    href="/v2/resources/references/contract-addresses"
+    icon="file-contract"
+    title="Current Contract Addresses"
+    horizontal
+  />
+</CardGroup>
+
+{/* ──────────────────────────────────────────────
+  AUTOMATION ZONE — entries below are populated by workflow.
+
+  Each commit uses a commit-style <Update> block:
+
+  <Update label="{shortSha}" tags={["Commit"]}
+    rss={{ title: "Protocol Contracts {shortSha}", description: "One sentence" }}
+    description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>Month YYYY</div>}>
+    ## {shortSha}
+
+    {commit message — single line or ScrollBox for multi-line}
+
+    <Icon icon="shield-check" size={14} /> _On-chain verification_
+
+    **Verified contracts:** `0x...` (arbitrum), `0x...` (ethereum)
+
+    <DoubleIconLink label="View commit on GitHub" href="https://github.com/livepeer/governor-scripts/commit/{sha}" iconLeft="github" />
+  </Update>
+
+  RULES:
+  - label: short SHA (7 chars)
+  - tags: ["Commit"] default; add ["Contract"] if addresses verified
+  - description: date in styled div (Month YYYY)
+  - On-chain verification block: only when addresses were found and verified
+  - Link: DoubleIconLink with github icon
+
+  ────────────────────────────────────────────── */}

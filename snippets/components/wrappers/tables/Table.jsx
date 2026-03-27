@@ -44,12 +44,12 @@ export const DynamicTable = ({
         aria-label={tableTitle ? `Scrollable table: ${tableTitle}` : "Scrollable table"}
       >
         <table
+          data-docs-dynamic-table
           style={{
             width: "100%",
             borderCollapse: "collapse",
             fontSize: "0.9rem",
             marginTop: 0,
-            ...(Object.keys(columnWidths).length > 0 ? { tableLayout: "fixed" } : {}),
           }}
         >
           <thead>

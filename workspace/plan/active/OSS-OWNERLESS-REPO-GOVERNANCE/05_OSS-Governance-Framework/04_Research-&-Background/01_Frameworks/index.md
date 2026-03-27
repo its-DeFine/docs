@@ -1,3 +1,9 @@
+> **STATUS: RESEARCH INPUT — valid reference**
+> Evaluation of 3 OSS governance frameworks (Sane Labels, GitHub Guides, CNCF/Kubernetes). The hybrid recommendation (F1 + F2 + selective F3) remains valid input for Phase 2 design.
+> Last reviewed: 2026-03-27
+
+---
+
 # OSS Governance Frameworks
 
 Three established frameworks for managing open source repositories on GitHub, evaluated for the livepeer/docs documentation repo.keywords: ["livepeer", "internal", "governance", "open source", "frameworks", "labels", "github", "oss", "community", "contributions"] 

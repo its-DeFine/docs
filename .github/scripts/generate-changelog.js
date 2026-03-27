@@ -1020,22 +1020,24 @@ async function fetchRepoReleases(owner, repoName, repoLabel) {
   }
 }
 
-async function processProduct(product) {
-  const productName = product.displayName;
-  const changelogPath = path.join(
-    REPO_ROOT,
-    `v2/solutions/${product.key}/changelog.mdx`
-  );
-
-  const hasGitHub = product.github && product.github.releasesActive;
-  const hasGitLab = product.gitlab && product.gitlab.releasesActive;
-  const gitlabIsPrimary = hasGitLab && product.gitlab.primary;
+/**
+ * Process a single changelog target. Branches on target.mode:
+ *   "releases" → existing GitHub/GitLab release fetching (default behaviour)
+ *   "commits"  → fetchCommitEntries() + optional verifyContractChanges()
+ *
+ * @param {object} target - Resolved changelog target from loadChangelogTargets()
+ */
+async function processTarget(target) {
+  const displayName = target.displayName || target.key;
+  // Use outputPath from config — no longer hardcoded to v2/solutions/
+  const changelogPath = path.join(REPO_ROOT, target.outputPath);
+  const mode = target.mode || "releases";
 
   // Build source description for logging
   const sources = [];
-  if (hasGitHub) sources.push(`GitHub: ${product.github.org}/${product.github.mainRepo}`);
-  if (hasGitLab) sources.push(`GitLab: ${product.gitlab.projectPath}`);
-  console.log(`\n═══ ${productName} (${sources.join(" + ")}) ═══`);
+  if (target.github) sources.push(`GitHub: ${target.github.org}/${target.github.repo || target.github.mainRepo}`);
+  if (target.gitlab) sources.push(`GitLab: ${target.gitlab.projectPath}`);
+  console.log(`\n═══ ${displayName} [${mode}] (${sources.join(" + ")}) ═══`);
 
   if (!fs.existsSync(changelogPath)) {
     console.log(`  Changelog file not found: ${changelogPath} — skipping.`);
@@ -1045,10 +1047,10 @@ async function processProduct(product) {
   // --regenerate: wipe all entries, keep the template header up to the automation zone marker
   if (REGENERATE) {
     const marker = "────────────────────────────────────────────── */}";
-    const content = fs.readFileSync(changelogPath, "utf8");
-    const markerIdx = content.indexOf(marker);
+    const existingContent = fs.readFileSync(changelogPath, "utf8");
+    const markerIdx = existingContent.indexOf(marker);
     if (markerIdx !== -1) {
-      const truncated = content.slice(0, markerIdx + marker.length) + "\n";
+      const truncated = existingContent.slice(0, markerIdx + marker.length) + "\n";
       if (!DRY_RUN) {
         fs.writeFileSync(changelogPath, truncated);
         console.log(`  --regenerate: wiped existing entries, kept template header.`);
@@ -1058,12 +1060,75 @@ async function processProduct(product) {
     }
   }
 
+  // ── Mode: commits ────────────────────────────────────────────────────────────────
+  if (mode === "commits") {
+    if (!target.github) {
+      console.error(`  ERROR: mode:commits requires github config in changelogs.${target.key}`);
+      return;
+    }
+
+    const commits = await fetchCommitEntries(target);
+    console.log(`  Fetched ${commits.length} commit(s)`);
+
+    if (commits.length === 0) {
+      console.log("  No commits found.");
+      return;
+    }
+
+    const existing = fs.readFileSync(changelogPath, "utf8");
+    const newCommits = commits.filter((c) => !existing.includes(`## ${c.tag_name}`));
+
+    if (newCommits.length === 0) {
+      console.log("  All commits already in changelog. Nothing to do.");
+      return;
+    }
+
+    console.log(`  ${newCommits.length} new commit(s) to add.`);
+
+    const blocks = [];
+    for (const commit of newCommits) {
+      let verifications = [];
+      if (target.contract || CONTRACT) {
+        verifications = await verifyContractChanges(commit, target);
+      }
+      blocks.push(buildCommitUpdateBlock(commit, verifications, target));
+    }
+
+    const output = blocks.join("\n");
+    const marker = "────────────────────────────────────────────── */}";
+    const markerIdx = existing.indexOf(marker);
+
+    if (markerIdx === -1) {
+      console.error(`  ERROR: Could not find automation zone marker in ${changelogPath}`);
+      return;
+    }
+
+    const insertAt = markerIdx + marker.length;
+    const updated = existing.slice(0, insertAt) + "\n\n" + output + "\n" + existing.slice(insertAt);
+
+    if (DRY_RUN) {
+      console.log(`\n  ── DRY RUN ── Would write to ${changelogPath}:\n`);
+      console.log(output);
+      console.log(`\n  ── ${newCommits.length} block(s) would be added.`);
+      return;
+    }
+
+    fs.writeFileSync(changelogPath, updated);
+    console.log(`  Written ${newCommits.length} new commit(s) to ${changelogPath}`);
+    return;
+  }
+
+  // ── Mode: releases (default) ─────────────────────────────────────────────────────────────────────────
+  const hasGitHub = target.github && (target.github.releasesActive || target.github.mainRepo || target.github.repo);
+  const hasGitLab = target.gitlab && target.gitlab.releasesActive;
+  const gitlabIsPrimary = hasGitLab && target.gitlab.primary;
+
   // Fetch releases from GitHub
   let githubReleases = [];
   if (hasGitHub) {
-    const owner = product.github.org;
-    const changelogRepos = product.github.changelogRepos || [
-      { repo: product.github.mainRepo, label: product.github.mainRepo },
+    const owner = target.github.org;
+    const changelogRepos = target.github.changelogRepos || [
+      { repo: target.github.mainRepo || target.github.repo, label: target.github.mainRepo || target.github.repo },
     ];
     for (const { repo, label } of changelogRepos) {
       const releases = await fetchRepoReleases(owner, repo, label);
@@ -1075,12 +1140,12 @@ async function processProduct(product) {
   // Fetch releases from GitLab
   let gitlabReleases = [];
   if (hasGitLab) {
-    const changelogRepos = product.gitlab.changelogRepos || [
-      { projectId: product.gitlab.projectId, projectPath: product.gitlab.projectPath, label: productName },
+    const changelogRepos = target.gitlab.changelogRepos || [
+      { projectId: target.gitlab.projectId, projectPath: target.gitlab.projectPath, label: displayName },
     ];
     for (const { projectId, label } of changelogRepos) {
       const releases = await fetchGitLabRepoReleases(
-        product.gitlab.instanceUrl,
+        target.gitlab.instanceUrl,
         projectId,
         label
       );
@@ -1126,18 +1191,18 @@ async function processProduct(product) {
   console.log(`  ${newReleases.length} new release(s) to add.`);
 
   // Determine if this is a multi-repo product (GitHub side)
-  const githubChangelogRepos = (hasGitHub && product.github.changelogRepos) || [];
+  const githubChangelogRepos = (hasGitHub && target.github.changelogRepos) || [];
   const isMultiRepo = githubChangelogRepos.length > 1;
-  const owner = hasGitHub ? product.github.org : "";
+  const owner = hasGitHub ? target.github.org : "";
 
   // Generate Update blocks
   const blocks = [];
   for (const release of newReleases) {
     const repo = release._repo;
     const repoLabel = release._repoLabel;
-    const displayName = isMultiRepo
-      ? `${productName} ${repoLabel}`
-      : productName;
+    const releaseDisplayName = isMultiRepo
+      ? `${displayName} ${repoLabel}`
+      : displayName;
     const labelForBlock = isMultiRepo ? repoLabel : null;
 
     // Find previous tag within the same source for commit comparison
@@ -1151,7 +1216,7 @@ async function processProduct(product) {
         : null;
 
     // Pass GitLab config for commit fetching when source is GitLab
-    const gitlabConfig = release._source === "gitlab" ? product.gitlab : null;
+    const gitlabConfig = release._source === "gitlab" ? target.gitlab : null;
 
     if (ENHANCE) {
       blocks.push(
@@ -1160,13 +1225,13 @@ async function processProduct(product) {
           prevTag,
           owner,
           repo,
-          displayName,
+          releaseDisplayName,
           labelForBlock,
           gitlabConfig
         )
       );
     } else {
-      blocks.push(generateUpdateBlockRaw(release, displayName, labelForBlock));
+      blocks.push(generateUpdateBlockRaw(release, releaseDisplayName, labelForBlock));
     }
   }
 
@@ -1202,18 +1267,22 @@ async function processProduct(product) {
   );
 }
 
+
 async function main() {
-  const products = loadProductConfig(PRODUCT_KEY);
+  const targets = loadChangelogTargets(CHANGELOG_KEY, CHANGELOG_CATEGORY);
 
   console.log(
-    `Processing ${products.length} product(s) (limit: ${LIMIT} releases each)`
+    `Processing ${targets.length} changelog target(s) (limit: ${LIMIT} entries each)`
   );
   if (ENHANCE) {
     console.log(`LLM enhancement enabled (provider: ${LLM_PROVIDER})`);
   }
+  if (CONTRACT) {
+    console.log(`Contract mode: on-chain verification enabled`);
+  }
 
-  for (const product of products) {
-    await processProduct(product);
+  for (const target of targets) {
+    await processTarget(target);
   }
 
   console.log("\nDone.");

@@ -218,3 +218,12 @@ Recent entries in CLAUDE.md for quick context:
 ---
 
 _Owner: Alison Haire (Wonderland) . Updated: 2026-03-26_
+
+---
+
+### 2026-03-27 — CLAUDE.md verification against repo state
+
+**Done:** Verified CLAUDE.md claims against live repo. Found 8 discrepancies: stale file counts, 16 untracked plan directories, wrong lpd status, stale content scan statuses. Session-state hook confirmed working and reading live files.
+**Decisions made:** None
+**Blocked on:** Nothing closed out
+**Next session picks up:** No action taken — all proposed fixes rejected. Root issue: CLAUDE.md mixed state into rules. State now served by session-state hook. Rules remain in CLAUDE.md.

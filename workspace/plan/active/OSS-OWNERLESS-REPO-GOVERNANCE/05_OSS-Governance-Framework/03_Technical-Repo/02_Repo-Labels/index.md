@@ -1,3 +1,9 @@
+> **STATUS: PLANNING INPUT — superseded by live-label-inventory.md**
+> Label taxonomy proposal from a prior planning session. The live label count (24) differs from the assumed baseline (44) in this document. Use `live-label-inventory.md` for current state and `gap-analysis.md` for the delta.
+> Last reviewed: 2026-03-27
+
+---
+
 # Label Proposal
 
 **Full target label set for the livepeer/docs repository with create, keep, rename, and remove actions for every label, plus a phased implementation sequence.**

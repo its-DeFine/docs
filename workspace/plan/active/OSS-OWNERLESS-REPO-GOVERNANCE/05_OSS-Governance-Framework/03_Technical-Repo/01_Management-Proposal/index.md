@@ -1,3 +1,9 @@
+> **STATUS: PLANNING INPUT — NOT SOURCE OF TRUTH**
+> Concrete governance recommendations from a prior planning session. Not reviewed or approved. Superseded by: `gap-analysis.md`.
+> Last reviewed: 2026-03-27
+
+---
+
 ## **title: 'Repo Management Proposal' sidebarTitle: 'Repo Proposal' description: 'Concrete governance recommendations for the livepeer/docs repository, covering label policy, contributor ladder, lifecycle management, and AI agent governance.' keywords: ["livepeer", "internal", "governance", "repo management", "proposal", "contributor ladder", "lifecycle", "labels", "open source"] og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"**
 
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx' import { DisplayCard } from '/snippets/components/display/customCards.jsx' import { BorderedBox } from '/snippets/components/primitives/containers.jsx' import { GotoCard } from '/snippets/components/primitives/links.jsx' import { FlexContainer } from '/snippets/components/primitives/layout.jsx'
