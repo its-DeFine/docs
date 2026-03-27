@@ -1,7 +1,9 @@
 ---
 title: AI Tools Governance Index
 sidebarTitle: AI Tools
-description: 'Current governance entrypoint for the AI-tools registry, lane contract, audit-pipeline catalog, and generated pack outputs.'
+description: 'Canonical governance entrypoint for the AI-tools registry, lane model, adapter inventory, skill and rule governance, and generated agent packs.'
+status: current
+lastVerified: 2026-03-27
 keywords:
   - livepeer
   - ai tools
@@ -20,110 +22,100 @@ keywords:
 
 <CustomDivider />
 
-## Wave 1 Canonical Registry
+This page is the technical governance index for AI tooling in the Livepeer docs repository. It answers: what is the AI tools governance model, where is the registry, how are tools classified, and how do you validate compliance.
 
-- Canonical inventory + lifecycle + lane source: `ai-tools/registry/ai-tools-registry.json`
-- Registry schema: `ai-tools/registry/ai-tools-registry.schema.json`
-- Generated inventory report: `ai-tools/registry/ai-tools-inventory.md`
-- Validator CLI: `operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js`
+For the human-facing guide to AI features on the docs site, see [`docs-guide/features/ai-features.mdx`](/docs-guide/features/ai-features).
 
-Primary commands:
+## Registry
+
+The AI-tools registry is the canonical source of truth for everything under `ai-tools/**`. It records what exists, how each artifact is classified, which lane it belongs to, and its lifecycle state.
+
+| Artefact | Path |
+|---|---|
+| Registry (canonical inventory) | `ai-tools/registry/ai-tools-registry.json` |
+| Registry schema | `ai-tools/registry/ai-tools-registry.schema.json` |
+| Generated inventory report | `ai-tools/registry/ai-tools-inventory.md` |
+| Validator CLI | `operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js` |
+
+### Validator commands
 
 ```bash icon="terminal"
+# Validate registry against schema and check coverage
 node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js --check --coverage
+
+# Validate lane assignments
 node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js --check --lanes
+
+# Generate the inventory report
 node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js --write-report
 ```
 
-The registry is now the canonical source for what exists under `ai-tools/**`, how each artifact is classified, and which lane it belongs to.
+### Registry schema summary
 
-## Current Lane Model
+The registry schema (`ai-tools-registry.schema.json`) requires five top-level keys:
 
-| Lane | What it governs now | Notes |
-| --- | --- | --- |
-| `templates` | `ai-tools/ai-skills/templates/**` | Canonical portable skill templates and companion bundles |
-| `local` | repo-local `SKILL.md` roots under `ai-tools/ai-skills/*/SKILL.md` | Includes both legacy local-only skills and template-synced local roots |
-| `workspace` | research, packages, and source snapshots under `ai-tools/ai-skills/` | Non-canonical material kept out of template/export lanes |
-| `exports` | `ai-tools/agent-packs/**` | Generated agent-pack outputs and portable skill exports |
-| `rules` | `ai-tools/ai-rules/**` | Legacy/internal rule surfaces pending later normalization |
-| `manual-doc` | registry, setup guides, pipeline catalog docs, and framework/support docs | Human-readable governance/support material |
-| `retired` | reserved for future retired AI-tools material | Not active in Wave 1 |
-
-## Subsystem-Scoped Audit Pipeline Catalog
-
-These files remain active and unchanged in role for the repo-audit pipeline, but they are not the full AI-tools registry:
-
-- Catalogue schema: `ai-tools/ai-skills/catalog/skill-catalog.schema.json`
-- Catalogue data: `ai-tools/ai-skills/catalog/skill-catalog.json`
-- Execution manifest: `ai-tools/ai-skills/catalog/execution-manifest.json`
-
-Use these files only for:
-
-- repo-audit orchestrator run order and stage metadata
-- cross-agent packager manifest inputs
-- audit-pipeline policy docs that describe that subsystem specifically
-
-The generated aggregate AI-tools catalog is deferred to Wave 2. Until then, use the registry and generated inventory report as the complete inventory surface.
-
-## Codex Planning Entry Point
-
-- Skill: `agentic-project-management-orchestrator`
-- Triggers: `skill-plan`, `plan this repo change`, `full plan for this`
-- Use this as the first step for ambiguous repo-change planning, especially when the work may touch docs content, navigation, scripts, generated indexes, or governance surfaces.
-
-## One-Command Audit
-
-```bash icon="terminal"
-node operations/scripts/dispatch/governance/repo/repo-audit-orchestrator.js --mode static --scope full
-```
-
-## Cross-Agent Installation Path
-
-Generate packs:
-
-```bash icon="terminal"
-node operations/scripts/automations/ai/agents/cross-agent-packager.js --agent-pack all
-```
-
-Produced assets:
-
-- Codex: `ai-tools/agent-packs/codex/skills-manifest.json`
-- Cursor: `ai-tools/agent-packs/cursor/rules.md`
-- Claude Code: `ai-tools/agent-packs/claude/CLAUDE.md`
-- Windsurf: `ai-tools/agent-packs/windsurf/rules.md`
-
-These are generated reference packs and onboarding aids, not the canonical source of repo governance policy.
-
-## Portable Skill Content Ownership
-
-- Canonical source: `ai-tools/ai-skills/templates/*.template.md`
-- Canonical template companions: `ai-tools/ai-skills/templates/*.references/**`
-- Local repo skill roots are either `legacy-active` or `local-synced` in the registry; they are not the global source of truth for portable skill content.
-
-## Canonical Governance
-
-Canonical policy pages:
-
-- Agent governance: `docs-guide/policies/agent-governance-framework.mdx`
-- Root and allowlist governance: `docs-guide/policies/root-allowlist-governance.mdx`
-
-## Agent Adapter Surface Map
-
-All active native adapter files and their owning tools. Each adapter should be a thin pointer back to `AGENTS.md`; policy must not drift between surfaces.
-
-| Agent family | Canonical adapter path | Notes |
+| Key | Type | Purpose |
 |---|---|---|
-| Cross-agent baseline | `AGENTS.md` | Primary source of truth for all repo-wide rules |
-| GitHub Copilot | `.github/copilot-instructions.md` | GitHub-native path |
-| Claude Code | `.claude/CLAUDE.md` | Claude Code native path |
-| Cursor (modern) | `.cursor/rules/repo-governance.mdc` + `.cursor/rules/no-deletions.mdc` | Active; replaces `.cursorrules` |
-| Cursor (legacy) | `.cursorrules` | Backward-compat stub pointing to `.cursor/rules/` |
-| Windsurf | `.windsurf/rules/repo-governance.md` | Windsurf native path |
-| Augment Code | `.augment/rules/repo-governance.md` + `.augment/rules/git-safety.md` + `.augment/rules/no-deletions.md` | Added Phase 9 |
-| Mintlify Assistant | `.mintlify/Assistant.md` | Chat widget context for the docs site |
-| Codex (task layer) | `.github/AGENTS.md` | Codex-specific HitL + checkpoint rules on top of root `AGENTS.md` |
+| `version` | integer | Schema version (currently `1`) |
+| `discovery_roots` | string[] | Root directories the registry covers (currently `["ai-tools"]`) |
+| `exclusions` | string[] | Paths excluded from discovery |
+| `lanes` | lane[] | Classification lanes with path patterns |
+| `lifecycle_states` | lifecycleState[] | Allowed lifecycle states for artifacts |
+| `artifacts` | artifact[] | Every registered artifact with full metadata |
 
-Supplemental cross-agent packs (generated, not canonical):
+Each artifact entry records: `id`, `path`, `artifact_type`, `category`, `lifecycle_state`, `current_lane`, `target_lane`, `canonical_source`, `derived_outputs`, `runtime_targets`, `validators`, `repair_commands`, `catalog_group`, `status`, `migration_wave`, and `notes`.
+
+## Lane model
+
+The registry organises all AI-tools artefacts into seven lanes. Lane assignment is enforced by path pattern matching in the registry schema.
+
+| Lane | What it governs | Path patterns | Advisory only |
+|---|---|---|---|
+| `templates` | Canonical portable-skill templates and companion bundles | `ai-tools/ai-skills/templates/**` | No |
+| `local` | Repo-local `SKILL.md` roots consumed in-place | `ai-tools/ai-skills/*/SKILL.md` | No |
+| `workspace` | Research, packages, and source snapshots (non-canonical) | `ai-tools/ai-skills/source-content/**`, `*research*.md`, `*package*.md` | Yes |
+| `exports` | Generated agent-pack manifests and portable skill exports | `ai-tools/agent-packs/**` | No |
+| `rules` | Legacy or imported AI rule material pending normalisation | `ai-tools/ai-rules/**` | Yes |
+| `manual-doc` | Registry artefacts, subsystem-scoped governance/support docs | `ai-tools/*.mdx`, `ai-tools/registry/**`, `ai-tools/ai-skills/catalog/**`, and others | No |
+| `retired` | Historical material retained for reference only | `ai-tools/retired/**` | Yes |
+
+### Lifecycle states
+
+Every artifact in the registry carries one of these lifecycle states:
+
+| State | Meaning |
+|---|---|
+| `canonical-template` | Canonical editable source for portable skills and companion template bundles |
+| `local-synced` | Repo-local skill roots derived from canonical portable templates |
+| `portable-export` | Generated export artefacts derived from canonical AI-tools sources |
+| `manual-doc` | Human-readable canonical docs, registry artefacts, or subsystem-scoped governance documents |
+| `workspace-draft` | Non-canonical research, drafts, or handoff material excluded from active generated catalogs |
+| `legacy-active` | Active legacy surfaces still in use but requiring later normalisation or retirement |
+| `retired` | Historical material retained only as reference |
+
+## Adapter inventory
+
+All active native adapter files and their owning tools. Each adapter is a thin pointer back to `AGENTS.md`; policy must not drift between surfaces. Canonical governance policy: [`docs-guide/policies/agent-governance-framework.mdx`](/docs-guide/policies/agent-governance-framework).
+
+### Canonical adapter files
+
+Every file listed below has been verified on disk.
+
+| Agent family | Canonical adapter path | Files on disk | Notes |
+|---|---|---|---|
+| Cross-agent baseline | `AGENTS.md` | `AGENTS.md` | Primary source of truth for all repo-wide rules |
+| GitHub Copilot | `.github/copilot-instructions.md` | `copilot-instructions.md` | GitHub-native path; thin adapter |
+| Claude Code | `.claude/CLAUDE.md` | `CLAUDE.md` | Claude Code native path |
+| Cursor (modern) | `.cursor/rules/*.mdc` | `repo-governance.mdc`, `no-deletions.mdc` | Active; replaces legacy `.cursorrules` |
+| Cursor (legacy) | `.cursorrules` | `.cursorrules` | Backward-compat stub pointing to `.cursor/rules/` |
+| Windsurf | `.windsurf/rules/*.md` | `repo-governance.md` | Windsurf native path |
+| Augment Code | `.augment/rules/*.md` | `repo-governance.md`, `git-safety.md`, `no-deletions.md` | Added Phase 9 |
+| Mintlify Assistant | `.mintlify/Assistant.md` | `Assistant.md` | Chat widget context for the docs site (not an AI coding adapter) |
+| Codex (task layer) | `.github/AGENTS.md` | `AGENTS.md` | Codex-specific HitL and checkpoint rules; extends root `AGENTS.md` via directory-walk |
+
+Legacy stubs retained on disk: `ASSISTANT.md` (redirect stub pointing to `.mintlify/Assistant.md`).
+
+### Supplemental cross-agent packs (generated, not canonical)
 
 | Output | Path | Generator |
 |---|---|---|
@@ -131,56 +123,158 @@ Supplemental cross-agent packs (generated, not canonical):
 | Cursor rules pack | `ai-tools/agent-packs/cursor/rules.md` | same |
 | Claude Code pack | `ai-tools/agent-packs/claude/CLAUDE.md` | same |
 | Windsurf rules pack | `ai-tools/agent-packs/windsurf/rules.md` | same |
+| Portable skills pack | `ai-tools/agent-packs/skills/` | same |
+| Pack README | `ai-tools/agent-packs/README.md` | same |
 
-Shared local-preview rule across all active agent-governance surfaces:
+### Shared adapter rules
 
-- agents must not use port `3000` for local Mintlify, preview, or browser-validation sessions
-- choose a non-3000 port explicitly when running local preview commands
+All active agent-governance surfaces enforce:
 
-## Agent Onboarding Path
+- Agents must not use port `3000` for local Mintlify, preview, or browser-validation sessions.
+- Choose a non-3000 port explicitly when running local preview commands.
 
-1. Read `docs-guide/policies/agent-governance-framework.mdx` and `docs-guide/policies/root-allowlist-governance.mdx` first.
-2. Use the approved runtime target for the chosen agent family.
-3. Optionally run `node operations/scripts/automations/ai/agents/cross-agent-packager.js --agent-pack all` to generate supplemental reference packs under `ai-tools/agent-packs/`.
-4. Run `node operations/scripts/dispatch/governance/repo/repo-audit-orchestrator.js --mode static --scope full` as the first verification run.
+## Skills governance
 
-## Codex Skill Portability
+Portable skills are the primary unit of reusable AI capability in this repository. They follow a template-based authoring model with deterministic sync to local and external targets.
 
-- Canonical source: `ai-tools/ai-skills/templates/*.template.md`
-- Local install target: `$CODEX_HOME/skills` (fallback: `~/.codex/skills`)
-- Sync behavior: safe upsert only (creates/updates managed skills; no deletion)
-- Preferred bootstrap path: `bash lpd setup --yes` syncs the planning skill automatically during repo setup
+### Template source
+
+Canonical source: `ai-tools/ai-skills/templates/*.template.md`
+
+The templates directory currently contains 42 template files (numbered `01` through `42`) covering bootstrap, authoring, auditing, validation, generation, and research workflows. Several templates include companion reference bundles stored in sibling directories named `<template-stem>.references/`.
+
+### Skill lifecycle
+
+1. **Author** a template in `ai-tools/ai-skills/templates/` following the naming convention `NN-skill-name.template.md`.
+2. **Register** the new artifact in `ai-tools/registry/ai-tools-registry.json` with correct lane (`templates`), lifecycle state (`canonical-template`), and metadata.
+3. **Sync** to local skill roots via the sync mechanism (see below).
+4. **Export** to agent packs via the cross-agent packager.
+5. **Validate** with the registry validator to confirm coverage and lane alignment.
+
+### Sync mechanism
+
+The `sync-codex-skills.js` script handles safe upsert of templates into Codex-compatible skill directories.
+
+| Property | Value |
+|---|---|
+| Script | `operations/scripts/automations/ai/agents/sync-codex-skills.js` |
+| Install target | `$CODEX_HOME/skills` (fallback: `~/.codex/skills`) |
+| Sync behaviour | Safe upsert only (creates/updates managed skills; no deletion) |
+| Bootstrap path | `bash lpd setup --yes` syncs the planning skill automatically |
 
 Runbook:
 
 ```bash icon="terminal"
+# Full bootstrap (includes skill sync)
 bash lpd setup --yes
+
+# Sync a specific skill
 node operations/scripts/automations/ai/agents/sync-codex-skills.js --skills agentic-project-management-orchestrator
+
+# Check sync status
 node operations/scripts/automations/ai/agents/sync-codex-skills.js --check
+
+# Sync all managed skills
 node operations/scripts/automations/ai/agents/sync-codex-skills.js
+
+# Dry-run for specific skills
 node operations/scripts/automations/ai/agents/sync-codex-skills.js --skills lpd-bootstrap-and-doctor,staged-test-suite-runner --dry-run
 ```
 
-Generated metadata:
+Generated metadata per synced skill:
 
-- `agents/openai.yaml` is generated deterministically for each synced skill.
+- `agents/openai.yaml` is generated deterministically.
 - Optional companion bundles are sourced from directories beside the template file:
   - `<template-stem>.references/` syncs to `references/`
   - `<template-stem>.scripts/` syncs to `scripts/`
   - `<template-stem>.assets/` syncs to `assets/`
-- Sync is managed, not destructive:
-  - managed files inside an installed skill are created or updated from the canonical template bundle
-  - stale managed bundle files are pruned on resync
-  - unmanaged skills and unmanaged files inside a skill folder are preserved
+- Sync is managed, not destructive: managed files are created or updated from the canonical template bundle; stale managed bundle files are pruned on resync; unmanaged skills and unmanaged files inside a skill folder are preserved.
 
-## Fact-Check Research Workflow
+### Subsystem-scoped audit pipeline catalog
+
+These files remain active for the repo-audit pipeline but are not the full AI-tools registry:
+
+| Artefact | Path |
+|---|---|
+| Catalogue schema | `ai-tools/ai-skills/catalog/skill-catalog.schema.json` |
+| Catalogue data | `ai-tools/ai-skills/catalog/skill-catalog.json` |
+| Execution manifest | `ai-tools/ai-skills/catalog/execution-manifest.json` |
+
+Use these files only for repo-audit orchestrator run order, cross-agent packager manifest inputs, and audit-pipeline policy docs that describe that subsystem specifically.
+
+## Rules governance
+
+The `ai-tools/ai-rules/` directory contains legacy and imported AI rule material. This lane is classified as `advisory_only` in the registry and is pending later normalisation.
+
+### Current contents
+
+| Path | Purpose |
+|---|---|
+| `ai-tools/ai-rules/best-practices.md` | Active best-practices reference |
+| `ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md` | Human override policy for AI agent actions |
+| `ai-tools/ai-rules/ROLLBACK-GUIDE.md` | Rollback procedures for AI-initiated changes |
+| `ai-tools/ai-rules/rules/git-safety.md` | Git safety rules (active) |
+| `ai-tools/ai-rules/.augment/` | Augment-specific imported rules (legacy; canonical path is `.augment/rules/`) |
+| `ai-tools/ai-rules/_retired/` | Retired rules preserved for reference only |
+
+### Retired rules
+
+The `_retired/` subdirectory contains six retired files: `.augment-guidelines`, `.AI-SAFEGUARDS.md`, `REVIEW_TABLE.md`, `AI_GUIDELINES.md`, `tasks-directory-structure.mdc`, `UNIVERSAL-AI-PROTOCOL.md`, and `imported-copilot-instructions.md`. These are not active governance sources.
+
+### Relationship to adapter files
+
+Active rules in `ai-tools/ai-rules/` are reference material. Canonical enforcement happens through the adapter files listed in the Adapter Inventory section above. The `rules` lane exists to hold imported or legacy rule surfaces until they are normalised into the adapter model or retired.
+
+## Agent packs
+
+The `ai-tools/agent-packs/` directory contains generated outputs from the cross-agent packager. These are reference packs and onboarding aids, never canonical sources of repo governance policy.
+
+### Generation
+
+```bash icon="terminal"
+node operations/scripts/automations/ai/agents/cross-agent-packager.js --agent-pack all
+```
+
+### Pack structure
+
+| Directory | Contents |
+|---|---|
+| `ai-tools/agent-packs/codex/` | `skills-manifest.json` for Codex skill discovery |
+| `ai-tools/agent-packs/claude/` | `CLAUDE.md` reference pack for Claude Code |
+| `ai-tools/agent-packs/cursor/` | `rules.md` reference pack for Cursor |
+| `ai-tools/agent-packs/windsurf/` | `rules.md` reference pack for Windsurf |
+| `ai-tools/agent-packs/skills/` | Portable skill exports with `SKILL.md` files and companion reference bundles; includes `manifest.json` |
+| `ai-tools/agent-packs/README.md` | Pack documentation |
+
+The `skills/` subdirectory contains exported copies of all managed skills (currently 42 skills) with their `SKILL.md` files and, where applicable, `references/` companion bundles.
+
+## One-command audit
+
+```bash icon="terminal"
+node operations/scripts/dispatch/governance/repo/repo-audit-orchestrator.js --mode static --scope full
+```
+
+## Agent onboarding path
+
+1. Read `docs-guide/policies/agent-governance-framework.mdx` and `docs-guide/policies/root-allowlist-governance.mdx`.
+2. Use the approved runtime target for the chosen agent family (see Adapter Inventory above).
+3. Optionally run `node operations/scripts/automations/ai/agents/cross-agent-packager.js --agent-pack all` to generate supplemental reference packs under `ai-tools/agent-packs/`.
+4. Run `node operations/scripts/dispatch/governance/repo/repo-audit-orchestrator.js --mode static --scope full` as the first verification run.
+
+## Codex planning entry point
+
+- Skill: `agentic-project-management-orchestrator`
+- Triggers: `skill-plan`, `plan this repo change`, `full plan for this`
+- Use this as the first step for ambiguous repo-change planning, especially when the work may touch docs content, navigation, scripts, generated indexes, or governance surfaces.
+
+## Fact-check research workflow
 
 The page-content research workflow is the active docs fact-checking skill family.
 
 Canonical operator references:
 
-- Internal runbook: `/docs-guide/frameworks/research-skill-workflow`
-- Public contributor page: `/v2/resources/documentation-guide/research-and-fact-checking`
+- Internal runbook: [`docs-guide/frameworks/research-skill-workflow`](/docs-guide/frameworks/research-skill-workflow)
+- Public contributor page: [`v2/resources/documentation-guide/research-and-fact-checking`](/v2/resources/documentation-guide/research-and-fact-checking)
 - Research-to-plan template: `docs-guide/tooling/research-to-implementation-plan-template.md`
 
 Primary entrypoints:
@@ -195,3 +289,14 @@ node operations/scripts/dispatch/content/veracity/docs-research-packet.js --nav 
 The workflow is experimental and advisory-first. Use it for factual verification, contradiction review, claim-family propagation, and research packets, not generic MDX or link hygiene.
 
 When research findings need phased execution planning rather than direct fixes, use the `docs-research-to-implementation-plan` follow-on skill.
+
+## Cross-references
+
+| Resource | Path | Purpose |
+|---|---|---|
+| AI features guide (human-facing) | [`docs-guide/features/ai-features.mdx`](/docs-guide/features/ai-features) | User-facing guide to AI features on the docs site |
+| Agent governance framework | [`docs-guide/policies/agent-governance-framework.mdx`](/docs-guide/policies/agent-governance-framework) | Canonical adapter governance policy |
+| Root allowlist governance | [`docs-guide/policies/root-allowlist-governance.mdx`](/docs-guide/policies/root-allowlist-governance) | Root-level file governance |
+| Governance index | [`docs-guide/policies/governance-index.mdx`](/docs-guide/policies/governance-index) | Master index of all governed surfaces |
+| Skill pipeline map | [`docs-guide/policies/skill-pipeline-map.mdx`](/docs-guide/policies/skill-pipeline-map) | Skill build and deployment pipeline |
+
