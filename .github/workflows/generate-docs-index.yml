@@ -1,12 +1,15 @@
-# NOTE: THIS GITHUB ACTION WILL ONLY RUN ON MAIN BRANCH.
-
 name: Generate Docs Index
 
 on:
   push:
     branches:
-      - main
+      - docs-v2
   workflow_dispatch:
+    inputs:
+      use_test_branch:
+        description: "Write to TEST_BRANCH (docs-v2-dev) instead of DEPLOY_BRANCH"
+        type: boolean
+        default: false
 
 jobs:
   generate-docs-index:
@@ -18,6 +21,15 @@ jobs:
         with:
           ref: ${{ inputs.use_test_branch == 'true' && vars.TEST_BRANCH || vars.DEPLOY_BRANCH }}
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Resolve target branch
+        id: branch
+        run: |
+          if [ "${{ inputs.use_test_branch }}" = "true" ]; then
+            echo "name=${{ vars.TEST_BRANCH }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "name=${{ vars.DEPLOY_BRANCH }}" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -42,4 +54,4 @@ jobs:
           git config user.email "actions@github.com"
           git add docs-index.json
           git commit -m "Update docs index - $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-          git push
+          git push origin HEAD:${{ steps.branch.outputs.name }}

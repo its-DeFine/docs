@@ -3,10 +3,11 @@ name: Verify AI Sitemap
 on:
   push:
     branches:
-      - main
+      - docs-v2
   pull_request:
     branches:
-      - main
+      - docs-v2
+  workflow_dispatch:
 
 jobs:
   verify-ai-sitemap:

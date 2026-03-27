@@ -3,11 +3,11 @@ name: Docs CI - V2 Browser Sweep
 on:
   push:
     branches:
-      - main
+      - docs-v2
   pull_request:
     branches:
-      - main
       - docs-v2
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
