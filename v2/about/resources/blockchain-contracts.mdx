@@ -616,224 +616,6 @@ A standalone ServiceRegistry for AI subnet orchestrators. Detached from the Cont
 - Same interface as ServiceRegistry (`setServiceURI`, `getServiceURI`)
 </Accordion>
 
-<CustomDivider />
-
-## Governance Contracts
-
-The Delta upgrade ([LIP-89](https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-89.md), [LIP-91](https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-91.md) - October 2023) introduced full on-chain governance alongside the [Livepeer Treasury](/v2/about/livepeer-protocol/treasury). The governance system consists of four contracts working together: BondingVotes checkpoints voting power, LivepeerGovernor manages proposal voting, Treasury holds protocol funds, and Governor executes approved upgrades.
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#18794E', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3CB540', 'lineColor': '#3CB540', 'mainBkg': '#18794E', 'nodeBorder': '#3CB540', 'clusterBkg': 'transparent', 'clusterBorder': '#3CB540', 'titleColor': '#3CB540', 'edgeLabelBackground': 'transparent', 'textColor': '#3CB540', 'nodeTextColor': '#fff'}}}%%
-graph LR
-    BM[BondingManager] -->|"checkpoint"| BV[BondingVotes]
-    D[Delegator] -->|"castVote()"| LG[LivepeerGovernor]
-    BV -->|"voting power"| LG
-    LG -->|"queue"| T[Treasury / Timelock]
-    T -->|"execute"| GOV[Governor]
-    GOV -->|"update contracts"| C[Controller]
-    MINT[Minter] -.->|"trustedTransferTokens()"| T
-```
-
----
-
-#### **BondingVotes** <Subtitle text="Voting Power Checkpointing" />
-<Badge color="blue">
-  Arbitrum One
-</Badge>
-BondingVotes implements the ERC-5805 votes interface, storing per-round stake checkpoints for every delegator and orchestrator. The LivepeerGovernor queries it to determine voting power at proposal creation time. Checkpoints are written automatically by BondingManager on every bond, unbond, reward, and earnings claim.
-
-<Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="BondingVotes" />}>
-  **Address (Arbitrum One)**:
-  <AddressLinks address={bondingVotesProxy} blockchainHref={`${arb}${bondingVotesProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingVotes.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active_
-
-**Purpose**:
-
-- Stores per-round stake checkpoints for every participant
-- Implements ERC-5805 (`getPastVotes`, `getPastTotalSupply`) used by LivepeerGovernor
-- Checkpoints are written by BondingManager – not called directly by users
-- Supports delegator vote overrides: a delegator can override their orchestrator's vote
-
-**Key functions** (from `BondingVotes.sol`, `delta` branch):
-
-<FunctionField name="checkpointBondingState" params={["address _owner", "uint256 _startRound", "uint256 _bondedAmount", "address _delegateAddress", "uint256 _delegatedAmount", "uint256 _lastClaimRound", "uint256 _lastRewardRound"]}>
-  Called by BondingManager to checkpoint stake state; not callable directly by users
-</FunctionField>
-<FunctionField name="checkpointTotalActiveStake" params={["uint256 _totalStake", "uint256 _round"]}>
-  Checkpoint total active stake; called by BondingManager
-</FunctionField>
-<FunctionField name="getPastVotes" returns="uint256" params={["address _account", "uint256 _round"]}>
-  Returns voting power for an account at the start of a given round
-</FunctionField>
-<FunctionField name="getPastTotalSupply" returns="uint256" params={["uint256 _round"]}>
-  Returns total voting power (active stake) at a given round
-</FunctionField>
-<FunctionField name="hasCheckpoint" returns="bool" params={["address _account"]}>
-  Returns whether an account has any checkpointed stake
-</FunctionField>
-
-**Contract**
-
-<SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/bonding/BondingVotes.sol"
-  title={<DoubleIconLink label="BondingVotes.sol"/>}
-  filename="BondingVotes.sol"
-/>
-
-</Accordion>
-
-#### **Governor** <Subtitle text="Protocol Upgrade Executor" />
-<Badge color="blue">
-  Arbitrum One
-</Badge>
-The original upgrade execution contract. Holds the owner role on the Controller. Executes protocol upgrades (contract address updates, parameter changes) via a staged update queue with a configurable block delay.
-
-<Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Governor" />}>
-  **Address (Arbitrum One)**:
-  <AddressLinks address={governor} blockchainHref={`${arb}${governor}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/governance/Governor.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active · Deployed by Livepeer Deployer_
-
-**Purpose**:
-
-- Owns the Controller contract – only address that can call `setContractInfo()`
-- Executes protocol upgrade transactions after governance approval
-- Enforces a staged execution queue with a mandatory block-number delay
-
-**Key functions** (from `Governor.sol`):
-
-<FunctionField name="stage" params={["Update memory _update", "uint256 _delay"]}>
-  Queue a batch of upgrade transactions with a delay in blocks; callable by owner only; emits `UpdateStaged`
-</FunctionField>
-<FunctionField name="execute" params={["Update memory _update"]}>
-  Execute a queued update after its block delay has elapsed; emits `UpdateExecuted`
-</FunctionField>
-<FunctionField name="cancel" params={["Update memory _update"]}>
-  Cancel a staged update; callable by owner only; emits `UpdateCancelled`
-</FunctionField>
-
-The `Update` struct contains: `address[] target`, `uint256[] value`, `bytes[] data`, `uint256 nonce`.
-
-`owner` is a public state variable (not a function) returning the current owner address.
-
-**Contract**
-
-<SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/governance/Governor.sol"
-  title={<DoubleIconLink label="Governor.sol"/>}
-  filename="Governor.sol"
-/>
-
-</Accordion>
-
-#### **LivepeerGovernor** <Subtitle text="On-Chain Voting" />
-<Badge color="blue">
-  Arbitrum One
-</Badge>
-Implements [OpenZeppelin](https://docs.openzeppelin.com/contracts/5.x/api/governance)'s upgradeable Governor framework adapted for Livepeer's stake-weighted voting. Voting power equals bonded LPT as recorded by BondingVotes at proposal creation time. Supports GovernorCountingOverridable – delegators can override their orchestrator's vote on any proposal.
-
-<Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="LivepeerGovernor" />}>
-  **Address (Arbitrum One)**:
-  <AddressLinks address={livepeerGovernorProxy} blockchainHref={`${arb}${livepeerGovernorProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/treasury/LivepeerGovernor.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active_
-
-**Purpose**:
-
-- On-chain voting for protocol proposals, weighted by bonded LPT stake
-- Delegators can override their orchestrator's vote (GovernorCountingOverridable)
-- Passed proposals execute through the Treasury timelock, then through the Governor to the Controller
-- `bumpGovernorVotesTokenAddress()` must be called if BondingVotes address ever changes
-
-**Key functions** (from `LivepeerGovernor.sol`, `delta` branch):
-
-<FunctionField name="initialize" params={["uint256 _initialVotingDelay", "uint256 _initialVotingPeriod", "uint256 _initialProposalThreshold", "uint256 _initialQuorumNumerator", "TimelockControllerUpgradeable _timelock", "address _controller"]}>
-  One-time initialisation via proxy
-</FunctionField>
-<FunctionField name="propose" returns="uint256" params={["address[] memory targets", "uint256[] memory values", "bytes[] memory calldatas", "string memory description"]}>
-  Submit a new governance proposal; returns proposalId
-</FunctionField>
-<FunctionField name="castVote" returns="uint256" params={["uint256 proposalId", "uint8 support"]}>
-  Cast a vote (0=Against, 1=For, 2=Abstain)
-</FunctionField>
-<FunctionField name="castVoteWithReason" returns="uint256" params={["uint256 proposalId", "uint8 support", "string calldata reason"]}>
-  Vote with explanation
-</FunctionField>
-<FunctionField name="queue" returns="uint256" params={["address[] memory targets", "uint256[] memory values", "bytes[] memory calldatas", "bytes32 descriptionHash"]}>
-  Queue a passed proposal into the timelock
-</FunctionField>
-<FunctionField name="execute" returns="uint256" params={["address[] memory targets", "uint256[] memory values", "bytes[] memory calldatas", "bytes32 descriptionHash"]}>
-  Execute a queued proposal after timelock delay
-</FunctionField>
-<FunctionField name="quorumDenominator" returns="uint256">
-  Returns `MathUtils.PERC_DIVISOR` (the quorum denominator)
-</FunctionField>
-<FunctionField name="bumpGovernorVotesTokenAddress">
-  Update the internal BondingVotes reference if its address has changed
-</FunctionField>
-
-**Contract**
-
-<SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/treasury/LivepeerGovernor.sol"
-  title={<DoubleIconLink label="LivepeerGovernor.sol"/>}
-  filename="LivepeerGovernor.sol"
-/>
-
-</Accordion>
-
-#### **Treasury** <Subtitle text="Protocol Treasury" />
-<Badge color="blue">
-  Arbitrum One
-</Badge>
-An [OpenZeppelin](https://docs.openzeppelin.com/contracts/5.x/api/governance#TimelockController) TimelockControllerUpgradeable that holds the protocol's on-chain treasury. A configurable percentage of each round's inflationary LPT rewards is directed here by the Minter. All disbursements require a passed LivepeerGovernor proposal. Automatic contributions halt when the treasury balance exceeds `treasuryBalanceCeiling` (configured in BondingManager).
-
-<Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Treasury" />}>
-  **Address (Arbitrum One)**:
-  <AddressLinks address={treasury} blockchainHref={`${arb}${treasury}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/treasury/Treasury.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active_
-
-**Purpose**:
-
-- Receives a fraction of each round's inflationary LPT rewards (rate set by `treasuryRewardCutRate` in BondingManager)
-- Governed entirely by LivepeerGovernor – all disbursements require a passed proposal
-- Implements TimelockController – all operations have a mandatory delay between queue and execution
-- Contributions automatically halt when LPT balance exceeds `treasuryBalanceCeiling`
-- Funds Special Purpose Entities (SPEs) and ecosystem grants via governance proposals
-
-**Key functions** ([OpenZeppelin](https://docs.openzeppelin.com/contracts/5.x/api/governance#TimelockController)) TimelockControllerUpgradeable):
-
-<FunctionField name="schedule" params={["address target", "uint256 value", "bytes calldata data", "bytes32 predecessor", "bytes32 salt", "uint256 delay"]}>
-  Schedule an operation; callable by proposer role (LivepeerGovernor)
-</FunctionField>
-<FunctionField name="execute" params={["address target", "uint256 value", "bytes calldata payload", "bytes32 predecessor", "bytes32 salt"]}>
-  Execute a ready operation; callable by executor role
-</FunctionField>
-<FunctionField name="cancel" params={["bytes32 id"]}>
-  Cancel a pending operation; callable by canceller role
-</FunctionField>
-<FunctionField name="isOperation" returns="bool" params={["bytes32 id"]}>
-  Check if an operation exists
-</FunctionField>
-<FunctionField name="isOperationReady" returns="bool" params={["bytes32 id"]}>
-  Check if an operation is past its delay and ready to execute
-</FunctionField>
-<FunctionField name="getMinDelay" returns="uint256">
-  Returns the minimum delay for all operations
-</FunctionField>
-
-**Contract**
-
-<SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/treasury/Treasury.sol"
-  title={<DoubleIconLink label="Treasury.sol"/>}
-  filename="Treasury.sol"
-/>
-
-</Accordion>
-
 <CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
 ## Token and Utility Contracts
@@ -1048,6 +830,224 @@ It deploys automatically via [`deploy_contracts.ts`](https://github.com/livepeer
   url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/token/LivepeerTokenFaucet.sol"
   title={<DoubleIconLink label="LivepeerTokenFaucet.sol"/>}
   filename="LivepeerTokenFaucet.sol"
+/>
+
+</Accordion>
+
+<CustomDivider />
+
+## Governance Contracts
+
+The Delta upgrade ([LIP-89](https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-89.md), [LIP-91](https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-91.md) - October 2023) introduced full on-chain governance alongside the [Livepeer Treasury](/v2/about/livepeer-protocol/treasury). The governance system consists of four contracts working together: BondingVotes checkpoints voting power, LivepeerGovernor manages proposal voting, Treasury holds protocol funds, and Governor executes approved upgrades.
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#18794E', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3CB540', 'lineColor': '#3CB540', 'mainBkg': '#18794E', 'nodeBorder': '#3CB540', 'clusterBkg': 'transparent', 'clusterBorder': '#3CB540', 'titleColor': '#3CB540', 'edgeLabelBackground': 'transparent', 'textColor': '#3CB540', 'nodeTextColor': '#fff'}}}%%
+graph LR
+    BM[BondingManager] -->|"checkpoint"| BV[BondingVotes]
+    D[Delegator] -->|"castVote()"| LG[LivepeerGovernor]
+    BV -->|"voting power"| LG
+    LG -->|"queue"| T[Treasury / Timelock]
+    T -->|"execute"| GOV[Governor]
+    GOV -->|"update contracts"| C[Controller]
+    MINT[Minter] -.->|"trustedTransferTokens()"| T
+```
+
+---
+
+#### **BondingVotes** <Subtitle text="Voting Power Checkpointing" />
+<Badge color="blue">
+  Arbitrum One
+</Badge>
+BondingVotes implements the ERC-5805 votes interface, storing per-round stake checkpoints for every delegator and orchestrator. The LivepeerGovernor queries it to determine voting power at proposal creation time. Checkpoints are written automatically by BondingManager on every bond, unbond, reward, and earnings claim.
+
+<Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="BondingVotes" />}>
+  **Address (Arbitrum One)**:
+  <AddressLinks address={bondingVotesProxy} blockchainHref={`${arb}${bondingVotesProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingVotes.sol" />
+  {/* CHANGELOG PIPELINE UPDATE */}
+<Icon icon="check" color="var(--text)"/> _Verified · Active_
+
+**Purpose**:
+
+- Stores per-round stake checkpoints for every participant
+- Implements ERC-5805 (`getPastVotes`, `getPastTotalSupply`) used by LivepeerGovernor
+- Checkpoints are written by BondingManager – not called directly by users
+- Supports delegator vote overrides: a delegator can override their orchestrator's vote
+
+**Key functions** (from `BondingVotes.sol`, `delta` branch):
+
+<FunctionField name="checkpointBondingState" params={["address _owner", "uint256 _startRound", "uint256 _bondedAmount", "address _delegateAddress", "uint256 _delegatedAmount", "uint256 _lastClaimRound", "uint256 _lastRewardRound"]}>
+  Called by BondingManager to checkpoint stake state; not callable directly by users
+</FunctionField>
+<FunctionField name="checkpointTotalActiveStake" params={["uint256 _totalStake", "uint256 _round"]}>
+  Checkpoint total active stake; called by BondingManager
+</FunctionField>
+<FunctionField name="getPastVotes" returns="uint256" params={["address _account", "uint256 _round"]}>
+  Returns voting power for an account at the start of a given round
+</FunctionField>
+<FunctionField name="getPastTotalSupply" returns="uint256" params={["uint256 _round"]}>
+  Returns total voting power (active stake) at a given round
+</FunctionField>
+<FunctionField name="hasCheckpoint" returns="bool" params={["address _account"]}>
+  Returns whether an account has any checkpointed stake
+</FunctionField>
+
+**Contract**
+
+<SolidityEmbed
+  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/bonding/BondingVotes.sol"
+  title={<DoubleIconLink label="BondingVotes.sol"/>}
+  filename="BondingVotes.sol"
+/>
+
+</Accordion>
+
+#### **Governor** <Subtitle text="Protocol Upgrade Executor" />
+<Badge color="blue">
+  Arbitrum One
+</Badge>
+The original upgrade execution contract. Holds the owner role on the Controller. Executes protocol upgrades (contract address updates, parameter changes) via a staged update queue with a configurable block delay.
+
+<Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Governor" />}>
+  **Address (Arbitrum One)**:
+  <AddressLinks address={governor} blockchainHref={`${arb}${governor}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/governance/Governor.sol" />
+  {/* CHANGELOG PIPELINE UPDATE */}
+<Icon icon="check" color="var(--text)"/> _Verified · Active · Deployed by Livepeer Deployer_
+
+**Purpose**:
+
+- Owns the Controller contract – only address that can call `setContractInfo()`
+- Executes protocol upgrade transactions after governance approval
+- Enforces a staged execution queue with a mandatory block-number delay
+
+**Key functions** (from `Governor.sol`):
+
+<FunctionField name="stage" params={["Update memory _update", "uint256 _delay"]}>
+  Queue a batch of upgrade transactions with a delay in blocks; callable by owner only; emits `UpdateStaged`
+</FunctionField>
+<FunctionField name="execute" params={["Update memory _update"]}>
+  Execute a queued update after its block delay has elapsed; emits `UpdateExecuted`
+</FunctionField>
+<FunctionField name="cancel" params={["Update memory _update"]}>
+  Cancel a staged update; callable by owner only; emits `UpdateCancelled`
+</FunctionField>
+
+The `Update` struct contains: `address[] target`, `uint256[] value`, `bytes[] data`, `uint256 nonce`.
+
+`owner` is a public state variable (not a function) returning the current owner address.
+
+**Contract**
+
+<SolidityEmbed
+  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/governance/Governor.sol"
+  title={<DoubleIconLink label="Governor.sol"/>}
+  filename="Governor.sol"
+/>
+
+</Accordion>
+
+#### **LivepeerGovernor** <Subtitle text="On-Chain Voting" />
+<Badge color="blue">
+  Arbitrum One
+</Badge>
+Implements [OpenZeppelin](https://docs.openzeppelin.com/contracts/5.x/api/governance)'s upgradeable Governor framework adapted for Livepeer's stake-weighted voting. Voting power equals bonded LPT as recorded by BondingVotes at proposal creation time. Supports GovernorCountingOverridable – delegators can override their orchestrator's vote on any proposal.
+
+<Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="LivepeerGovernor" />}>
+  **Address (Arbitrum One)**:
+  <AddressLinks address={livepeerGovernorProxy} blockchainHref={`${arb}${livepeerGovernorProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/treasury/LivepeerGovernor.sol" />
+  {/* CHANGELOG PIPELINE UPDATE */}
+<Icon icon="check" color="var(--text)"/> _Verified · Active_
+
+**Purpose**:
+
+- On-chain voting for protocol proposals, weighted by bonded LPT stake
+- Delegators can override their orchestrator's vote (GovernorCountingOverridable)
+- Passed proposals execute through the Treasury timelock, then through the Governor to the Controller
+- `bumpGovernorVotesTokenAddress()` must be called if BondingVotes address ever changes
+
+**Key functions** (from `LivepeerGovernor.sol`, `delta` branch):
+
+<FunctionField name="initialize" params={["uint256 _initialVotingDelay", "uint256 _initialVotingPeriod", "uint256 _initialProposalThreshold", "uint256 _initialQuorumNumerator", "TimelockControllerUpgradeable _timelock", "address _controller"]}>
+  One-time initialisation via proxy
+</FunctionField>
+<FunctionField name="propose" returns="uint256" params={["address[] memory targets", "uint256[] memory values", "bytes[] memory calldatas", "string memory description"]}>
+  Submit a new governance proposal; returns proposalId
+</FunctionField>
+<FunctionField name="castVote" returns="uint256" params={["uint256 proposalId", "uint8 support"]}>
+  Cast a vote (0=Against, 1=For, 2=Abstain)
+</FunctionField>
+<FunctionField name="castVoteWithReason" returns="uint256" params={["uint256 proposalId", "uint8 support", "string calldata reason"]}>
+  Vote with explanation
+</FunctionField>
+<FunctionField name="queue" returns="uint256" params={["address[] memory targets", "uint256[] memory values", "bytes[] memory calldatas", "bytes32 descriptionHash"]}>
+  Queue a passed proposal into the timelock
+</FunctionField>
+<FunctionField name="execute" returns="uint256" params={["address[] memory targets", "uint256[] memory values", "bytes[] memory calldatas", "bytes32 descriptionHash"]}>
+  Execute a queued proposal after timelock delay
+</FunctionField>
+<FunctionField name="quorumDenominator" returns="uint256">
+  Returns `MathUtils.PERC_DIVISOR` (the quorum denominator)
+</FunctionField>
+<FunctionField name="bumpGovernorVotesTokenAddress">
+  Update the internal BondingVotes reference if its address has changed
+</FunctionField>
+
+**Contract**
+
+<SolidityEmbed
+  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/treasury/LivepeerGovernor.sol"
+  title={<DoubleIconLink label="LivepeerGovernor.sol"/>}
+  filename="LivepeerGovernor.sol"
+/>
+
+</Accordion>
+
+#### **Treasury** <Subtitle text="Protocol Treasury" />
+<Badge color="blue">
+  Arbitrum One
+</Badge>
+An [OpenZeppelin](https://docs.openzeppelin.com/contracts/5.x/api/governance#TimelockController) TimelockControllerUpgradeable that holds the protocol's on-chain treasury. A configurable percentage of each round's inflationary LPT rewards is directed here by the Minter. All disbursements require a passed LivepeerGovernor proposal. Automatic contributions halt when the treasury balance exceeds `treasuryBalanceCeiling` (configured in BondingManager).
+
+<Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Treasury" />}>
+  **Address (Arbitrum One)**:
+  <AddressLinks address={treasury} blockchainHref={`${arb}${treasury}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/treasury/Treasury.sol" />
+  {/* CHANGELOG PIPELINE UPDATE */}
+<Icon icon="check" color="var(--text)"/> _Verified · Active_
+
+**Purpose**:
+
+- Receives a fraction of each round's inflationary LPT rewards (rate set by `treasuryRewardCutRate` in BondingManager)
+- Governed entirely by LivepeerGovernor – all disbursements require a passed proposal
+- Implements TimelockController – all operations have a mandatory delay between queue and execution
+- Contributions automatically halt when LPT balance exceeds `treasuryBalanceCeiling`
+- Funds Special Purpose Entities (SPEs) and ecosystem grants via governance proposals
+
+**Key functions** ([OpenZeppelin](https://docs.openzeppelin.com/contracts/5.x/api/governance#TimelockController)) TimelockControllerUpgradeable):
+
+<FunctionField name="schedule" params={["address target", "uint256 value", "bytes calldata data", "bytes32 predecessor", "bytes32 salt", "uint256 delay"]}>
+  Schedule an operation; callable by proposer role (LivepeerGovernor)
+</FunctionField>
+<FunctionField name="execute" params={["address target", "uint256 value", "bytes calldata payload", "bytes32 predecessor", "bytes32 salt"]}>
+  Execute a ready operation; callable by executor role
+</FunctionField>
+<FunctionField name="cancel" params={["bytes32 id"]}>
+  Cancel a pending operation; callable by canceller role
+</FunctionField>
+<FunctionField name="isOperation" returns="bool" params={["bytes32 id"]}>
+  Check if an operation exists
+</FunctionField>
+<FunctionField name="isOperationReady" returns="bool" params={["bytes32 id"]}>
+  Check if an operation is past its delay and ready to execute
+</FunctionField>
+<FunctionField name="getMinDelay" returns="uint256">
+  Returns the minimum delay for all operations
+</FunctionField>
+
+**Contract**
+
+<SolidityEmbed
+  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/treasury/Treasury.sol"
+  title={<DoubleIconLink label="Treasury.sol"/>}
+  filename="Treasury.sol"
 />
 
 </Accordion>
