@@ -297,7 +297,9 @@ async function verifyAddresses(entries, network) {
 // ── Write JSX data file ─────────────────────────────────────────────────────
 
 function writeDataFile(data, sha) {
-  const now = new Date().toISOString();
+  const _now = new Date();
+  const now = _now.toISOString();
+  const nowFormatted = _now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
   const arbCount = data.arbitrumOne.current.length;
   const ethCount = data.ethereumMainnet.current.length;
 
@@ -321,7 +323,7 @@ function writeDataFile(data, sha) {
     ethereumMainnet: data.ethereumMainnet,
     meta: {
       lastUpdated: now,
-      lastVerified: skipVerify ? null : now,
+      lastVerified: skipVerify ? null : nowFormatted,
       sourceRepo: GOVERNOR_REPO,
       sourceCommit: sha,
       verificationSummary: verifySummary,

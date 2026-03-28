@@ -95,7 +95,7 @@ export const lastVerifiedDate = contractAddresses.meta.lastVerified || "Pending"
 <Tip>
   Addresses on this page are automatically updated via a Github Action workflow. <br/>
   <span style={{display: "flex", alignItems: "center", marginTop: "0.2rem"}}> Data is sourced from the canonical <DoubleIconLink label="governor-scripts" href="https://github.com/livepeer/governor-scripts" iconRightColor="var(--hero-text)"/> and verified on-chain. </span> <br/>
-  <span style={{color: "var(--text)", marginTop: "0.5rem"}}> Last verified: {contractAddresses.meta.lastVerified ? new Date(contractAddresses.meta.lastVerified).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "Pending"} </span>
+  <span style={{color: "var(--text)", marginTop: "0.5rem"}}> Last verified: {lastVerifiedDate} </span>
 </Tip>
 
 <Columns cols={2}>
@@ -1134,7 +1134,7 @@ Stores Merkle roots used to verify stake snapshots taken at the time of the Conf
 
 For the complete list of all current and historical contract addresses across Arbitrum One and Ethereum Mainnet, including all historical target/implementation versions, see the [Contract Addresses](/v2/about/resources/contract-addresses) reference page.
 
-<Icon icon="check" color="var(--text)"/> <span style={{fontStyle: "italic", color: "var(--text)"}}>Last Verified {new Date(contractAddresses.meta.lastVerified).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
+<Icon icon="check" color="var(--text)"/> <span style={{fontStyle: "italic", color: "var(--text)"}}>Last Verified {lastVerifiedDate}</span>
 
 <Card
     href="/v2/about/resources/contract-addresses"
