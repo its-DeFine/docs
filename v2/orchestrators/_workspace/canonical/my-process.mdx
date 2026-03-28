@@ -233,12 +233,19 @@ Stage 6.b specifies "[claude web]" for writing missing content — implying a pr
 
 ---
 
-### Gap 7 — LIVE BUG: rubric-loader.js schema drift affects Stage 7 scores
-`tools/lib/docs-usefulness/rubric-loader.js` maintains a hardcoded 9-token AUDIENCE_ENUM instead of importing from `frontmatter-taxonomy.js` (canonical 7 tokens). `tools/config/usefulness-audience-normalization.json` also contains stale pre-canonical tokens. This means `audit-v2-usefulness.js` quality scores are currently wrong for any page using canonical audience values. This affects Stage 7 quality gate reliability.
+### ~~Gap 7~~ — RESOLVED: rubric-loader.js schema drift was already fixed
+**CORRECTION (verified 2026-03-28):** `tools/lib/docs-usefulness/rubric-loader.js` correctly imports `CANONICAL_AUDIENCES` from `frontmatter-taxonomy.js` — it does NOT hardcode a separate enum. The fix is already in production.
 
-**Pre-flight required before any rubric fix:** Run `grep -r "audience:" v2/ | grep -v "orchestrator\|gateway\|developer\|delegator\|builder\|founder\|community"` — confirm no deprecated tokens in live frontmatter before updating rubric-loader.js.
+Evidence from file (lines 35–37):
+```javascript
+// Derived from frontmatter-taxonomy.js CANONICAL_AUDIENCES — the single source of truth.
+// Do not hardcode here. If the canonical set changes, update frontmatter-taxonomy.js only.
+const AUDIENCE_ENUM = CANONICAL_AUDIENCES;
+```
 
-**Recommendation:** Fix rubric-loader.js + usefulness-audience-normalization.json (script-plan Priority 1) before running quality audits at scale. Per script-plan risk table: HIGH risk change, requires pre-flight audit.
+`rubric-static-review` scores are not affected by this bug. Stage 7 quality gate is not compromised by this specific issue. The original gap entry described a past issue that has been resolved.
+
+**Still open (separate concern):** `tools/config/usefulness-audience-normalization.json` contains pre-canonical synonym tokens — superseded by `CANONICAL_AUDIENCES`, but safe to leave until confirmed no unique mappings exist. Defer to script-plan implementation order.
 
 ---
 

@@ -282,6 +282,14 @@ The process of moving tokens between (eg Ethereum Layer 1 and Arbitrum L2)
 
 One of the methods by which transactions on layer 2 blockchains are tallied and confirmed on the main chain.
 
+### Optimistic Rollup
+
+A type of Layer 2 scaling solution that processes transactions off-chain and posts only a compressed summary to Ethereum Mainnet. It assumes transactions are valid by default ("optimistic") and allows a challenge window — typically 7 days — during which anyone can dispute a fraudulent transaction. Arbitrum One uses this design. The 7-day challenge period on LPT bridge withdrawals from Arbitrum to Ethereum is a direct consequence of this security model.
+
+### Retryable Ticket
+
+An Arbitrum mechanism for cross-chain messages that originate on Ethereum and need to execute on Arbitrum. When a deposit is submitted via the Arbitrum bridge, a retryable ticket is created on Arbitrum to carry out the corresponding L2 action (e.g. crediting tokens). If the L2 execution fails — typically due to insufficient gas — the ticket can be resubmitted manually via the Arbitrum retryable dashboard. Tickets expire after 7 days if not redeemed.
+
 <CustomDivider />
 
 # Video Engineering Terms

@@ -2175,6 +2175,8 @@
                           "v2/about/resources/livepeer-glossary",
                           "v2/about/resources/blockchain-contracts",
                           "v2/about/resources/contract-addresses",
+                          "v2/about/resources/testnet-contract-deployment",
+                          "v2/about/resources/local-testnet-deployment",
                           "v2/about/resources/bridge-lpt-to-arbitrum",
                           "v2/about/resources/technical-roadmap",
                           {

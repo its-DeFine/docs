@@ -197,7 +197,8 @@ UK English throughout. Full correction table at the end of this file.
 
 **What NOT to do:**
 
-- Do not use code blocks or CLI commands — not their interface
+- Do not use CLI commands or shell syntax — not their interface
+- Code blocks for contract addresses or copyable data values are acceptable on pages requiring on-chain interaction (e.g. bridging, contract approval steps)
 - Do not assume knowledge of DeFi mechanics (impermanent loss, AMMs) without defining them
 - Do not use node-operator hardware terminology (VRAM, GPU pipeline) — not relevant to this audience
 - Do not write delegation or governance as "set and forget" — these change over time
