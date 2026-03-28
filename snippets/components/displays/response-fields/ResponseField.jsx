@@ -197,10 +197,66 @@ const ResponseFieldGroup = ({
   );
 };
 
+/**
+ * @component FunctionField
+ * @type displays
+ * @subniche response-fields
+ * @status stable
+ * @description Solidity function signature field with typed parameter pairs and optional return type.
+ * @accepts children, className, style, ...rest
+ * @aiDiscoverability none
+ * @param {string} name - Function name.
+ * @param {string[]} [params=[]] - Parameter strings in "type name" format (e.g. "bytes32 _id").
+ * @param {string} [returns] - Return type (e.g. "address", "uint256").
+ * @param {React.ReactNode} children - Description of the function.
+ * @param {boolean} [line=true] - Show bottom border.
+ * @param {object} [style={}] - Inline style overrides.
+ * @param {string} [className=""] - CSS class name.
+ */
+const FunctionField = ({
+  name,
+  params = [],
+  returns,
+  children,
+  line = true,
+  style = {},
+  className = '',
+  ...rest
+}) => {
+  const paramsFormatted = params.length > 0
+    ? params.map(p => {
+        const parts = p.split(/\s+/)
+        const type = parts[0]
+        const pName = parts.slice(1).join(' ')
+        return pName ? `${pName}: ${type}` : type
+      }).join(', ')
+    : ''
+
+  const returnType = returns ? `returns: ${returns}` : 'returns: void'
+
+  const post = params.length > 0
+    ? [
+        <span>
+          <span style={{ color: "white" }}>params: </span>
+          <span style={{ color: "var(--lp-color-arbitrum, #3ea6f8)" }}>({paramsFormatted})</span>
+        </span>,
+      ]
+    : null
+
+  return (
+    <div className={className} style={style} {...rest}>
+      <ResponseField name={name} type={returnType} post={post}>
+        {children}
+      </ResponseField>
+    </div>
+  )
+}
+
 export {
   ValueResponseField,
   CustomResponseField,
   ResponseFieldExpandable,
   ResponseFieldAccordion,
   ResponseFieldGroup,
+  FunctionField,
 };

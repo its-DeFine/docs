@@ -18,32 +18,69 @@ keywords:
 'og:image:height': 630
 audience: general
 purpose: concept
-lastVerified: 2026-03-28
+lastVerified: 2026-03-18
 ---
 
 {/*
-VERIFICATION LOG — 28 March 2026
-Sources: Blockscout MCP (Arbitrum One chain 42161), GitHub livepeer/protocol delta branch, livepeer/governor-scripts
+NOTES
 
-Errors corrected from previous version:
-1. Governor functions: Transaction[] → Update memory (correct Solidity type from Governor.sol source)
-2. Governor: added cancel(Update memory _update) — exists in source, was missing
-3. Governor: removed stale "Last active Aug 2025" — Governor executed on 19 March 2026 (BondingManager V11 upgrade)
-4. BondingManager: added public checkpointBondingState(address _account) — external function in source
-5. BondingManager: added transferBond() — public function used in practice, was missing
-6. BondingManager: claimEarnings — added note that _endRound is unused; earnings always claimed to current round
-7. TicketBroker: WinningTicketRedeemed is correct but WinningTicketTransfer is also emitted (ETH movement) — both documented
-8. TicketBroker: getSender() → getSenderInfo() — correct function name from source
-9. TicketBroker: getReserve() → getReserveInfo() — correct function name from source
-10. TicketBroker: added fundDepositAndReserveFor() — separate public function exists in source
-11. L1 Gateway Badge: "gren" → "green" (typo fix)
-12. Controller: removed static "20 transactions" count — Controller is actively used in every round
-13. BondingManager V11 target note: added unverified source note
+Good question. Let me clarify the relationship:
 
-Enhancements added:
-- Slashing note in BondingManager (disabled via governance)
-- Both TicketBroker events documented
-- BondingManager _endRound clarification
+livepeer/protocol (delta branch) is the source code that the deployed Arbitrum contracts were compiled from. The verified bytecode on Arbiscan was produced from this repo. They are the same code at the point of deployment.
+
+livepeer/arbitrum-lpt-bridge is a separate repo for the bridge-specific contracts (L1LPTGateway, L2LPTGateway, L1Escrow). These are also deployed on-chain but live in a different repo because they span two chains and have different dependencies.
+
+The risk with GitHub raw URLs: the delta branch can move forward after deployment. If someone pushes new commits, the GitHub source no longer matches what's actually deployed. The page already pins to commit e8b6243c for some contracts, which is the safe approach.
+
+So the lightweight version would be:
+
+MarkdownEmbed + pinned commit raw URLs (e.g. raw.githubusercontent.com/livepeer/protocol/e8b6243c/contracts/Controller.sol)
+ExternalContent wrapper for scroll + "View on GitHub" link
+No API calls, no JSON parsing, just a raw text fetch
+The trade-off is no Solidity syntax highlighting (MarkdownEmbed renders <pre> only). But it's a single HTTP fetch per contract, same weight as the README embeds already on the solutions community pages.
+
+Want me to prototype this on one accordion (say Controller) so you can see how it looks before committing to all 14?
+
+## Full Contract Registry
+
+### Core Protocol (Arbitrum One, chain 42161)
+
+| #   | Contract                      | Address          | GitHub .sol                | Arbiscan  | Verified? | Same? |
+| --- | ----------------------------- | ---------------- | -------------------------- | --------- | --------- | ----- |
+| 1   | Controller                    | 0xD8E8...ee4     | Controller.sol             | Arbiscan  | YES       | YES – paths match, compiler 0.8.9, optimizer 200 |
+| 2a  | BondingManager (proxy)        | 0x35Bc...e40     | ManagerProxy.sol           | Arbiscan  | YES       | YES – generic ManagerProxy |
+| 2b  | BondingManager (target V11)   | 0x4bA7...BB4     | BondingManager.sol         | Arbiscan  | NO        | UNKNOWN – not verified on Blockscout |
+| 3a  | TicketBroker (proxy)          | 0xa8bB...41B     | ManagerProxy.sol           | Arbiscan  | YES       | YES – generic ManagerProxy |
+| 3b  | TicketBroker (target)         | 0xea1b...65c     | TicketBroker.sol           | Arbiscan  | YES       | YES – contracts/pm/TicketBroker.sol matches |
+| 4a  | RoundsManager (proxy)         | 0xdd6f...c39f    | ManagerProxy.sol           | Arbiscan  | YES       | YES – generic ManagerProxy |
+| 4b  | RoundsManager (target)        | 0x92d8...e841    | RoundsManager.sol          | Arbiscan  | YES       | YES – contracts/rounds/RoundsManager.sol matches |
+| 5   | Minter                        | 0xc20D...7252    | Minter.sol                 | Arbiscan  | YES       | YES – contracts/token/Minter.sol matches |
+| 6a  | ServiceRegistry (proxy)       | 0xC92d...7431    | ManagerProxy.sol           | Arbiscan  | YES       | YES – generic ManagerProxy |
+| 6b  | ServiceRegistry (target)      | 0x3809...0a7     | ServiceRegistry.sol        | Arbiscan  | YES       | YES – contracts/ServiceRegistry.sol matches |
+| 7   | AIServiceRegistry             | 0x04C0...34C5    | ServiceRegistry.sol        | Arbiscan  | YES       | YES – same ServiceRegistry.sol code, different deployer |
+
+### Token and Bridge
+
+| #   | Contract             | Chain | Address          | GitHub .sol            | Explorer  | Verified?      | Same? |
+| --- | -------------------- | ----- | ---------------- | ---------------------- | --------- | -------------- | ----- |
+| 8   | LivepeerToken (L2)   | Arb   | 0x289b...a839    | LivepeerToken.sol      | Arbiscan  | YES            | YES – contracts/L2/token/LivepeerToken.sol matches, compiler 0.8.9 |
+| 9   | LivepeerToken (L1)   | ETH   | 0x58b6...b239    | LivepeerToken.sol      | Etherscan | YES (partial)  | DIFFERENT – L1 is Solidity 0.4.18, completely different codebase from L2 version |
+| 10  | BridgeMinter         | ETH   | 0x8dDD...Ab05    | BridgeMinter.sol       | Etherscan | YES            | YES – contracts/token/BridgeMinter.sol matches, but imports from contracts/solc-0.8.9/ (L1-specific build) |
+| 11  | L1LPTGateway         | ETH   | 0x6142...0676    | L1LPTGateway.sol       | Etherscan | YES            | YES – paths match |
+| 12  | L2LPTGateway         | Arb   | 0x6D24...D318    | L2LPTGateway.sol       | Arbiscan  | YES            | YES – paths match |
+| 13  | L1Escrow             | ETH   | 0x6A23...210A    | L1Escrow.sol           | Etherscan | YES            | YES – paths match |
+
+### Governance (Arbitrum One)
+
+| #   | Contract                      | Address          | GitHub .sol                | Arbiscan  | Verified? | Same? |
+| --- | ----------------------------- | ---------------- | -------------------------- | --------- | --------- | ----- |
+| 14a | BondingVotes (proxy)          | 0x0B9C...69A     | ManagerProxy.sol           | Arbiscan  | YES       | YES – generic ManagerProxy |
+| 14b | BondingVotes (target)         | 0x68AF...8119    | BondingVotes.sol           | Arbiscan  | YES       | YES – contracts/bonding/BondingVotes.sol matches |
+| 15  | Governor                      | 0xD9dE...36a6    | Governor.sol               | Arbiscan  | YES       | YES – contracts/governance/Governor.sol matches |
+| 16a | LivepeerGovernor (proxy)      | 0xcFE4...8C4     | ManagerProxy.sol           | Arbiscan  | YES       | YES – generic ManagerProxy |
+| 16b | LivepeerGovernor (target)     | 0xd2Ce...0634    | LivepeerGovernor.sol       | Arbiscan  | YES       | YES – contracts/treasury/LivepeerGovernor.sol matches |
+| 17  | Treasury                      | 0xf82C...8C4     | Treasury.sol               | Arbiscan  | YES       | YES – contracts/treasury/Treasury.sol matches |
+
 */}
 
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
@@ -76,8 +113,6 @@ export const serviceRegistryTarget = contractAddresses.arbitrumOne.current.find(
 export const aiServiceRegistry = contractAddresses.arbitrumOne.current.find(c => c.name === 'AIServiceRegistry')?.address
 export const lptArb = contractAddresses.arbitrumOne.current.find(c => c.name === 'LivepeerToken')?.address
 export const lptEth = contractAddresses.ethereumMainnet.current.find(c => c.name === 'LivepeerToken')?.address
-
-{/* NOTE Bridgeminter is at https://github.com/livepeer/protocol/blob/streamflow/contracts/token/BridgeMinter.sol*/}
 export const bridgeMinter = contractAddresses.ethereumMainnet.current.find(c => c.name === 'BridgeMinter')?.address
 export const l2Gateway = contractAddresses.arbitrumOne.current.find(c => c.name === 'L2LPTGateway')?.address
 export const l1Gateway = contractAddresses.ethereumMainnet.current.find(c => c.name === 'L1LPTGateway')?.address
@@ -112,7 +147,7 @@ export const treasury = contractAddresses.arbitrumOne.current.find(c => c.name =
   <Card title="Solidity LPT Bridge Contracts" icon="github" href="https://github.com/livepeer/arbitrum-lpt-bridge/tree/main/contracts" horizontal />
 </Columns>
 
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
 Livepeer uses a system of Ethereum smart contracts to permissionlessly govern its decentralised network.
 
@@ -124,13 +159,13 @@ The [Livepeer Protocol](https://github.com/livepeer/protocol/tree/delta) <Livepe
 - Time-based progression of the protocol through rounds
 - Payment processing through a probabilistic micropayment system
 
-## Livepeer Contracts
-
 There are three categories of contracts in the Livepeer Protocol:
 
 1. **[Core Protocol Contracts](#core-protocol-contracts)** – staking, payments, round progression, and service discovery
 2. **[Token and Utility Contracts](#token-and-utility-contracts)** – the LPT token and bridge infrastructure
 3. **[Governance Contracts](#governance-contracts)** – on-chain voting, proposal execution, and treasury management
+
+## Contract Interaction Architecture
 
 <LazyLoad>
 <ScrollableDiagram title="Contract Interaction Architecture" maxHeight="1000px" maxWidth="100%" showControls={true}>
@@ -192,11 +227,11 @@ graph TB
     Orchestrator -->|"reward()"| BondingManager
     BondingManager -->|"createReward()"| Minter
     Minter -->|"mint() new LPT"| LPT
-    Minter -->|"trustedTransferTokens()"| Treasury
+    Minter -->|"mint() treasury cut"| Treasury
 
     Gateway -->|"fundDepositAndReserve()"| TicketBroker
     Orchestrator -->|"redeemWinningTicket()"| TicketBroker
-    TicketBroker -->|"winningTicketTransfer()"| LPT
+    TicketBroker -->|"transfer() to orchestrator"| LPT
 
     RoundsManager -->|"currentRound()"| BondingManager
     RoundsManager -->|"blockHashForRound()"| TicketBroker
@@ -209,7 +244,7 @@ graph TB
 </ScrollableDiagram>
 </LazyLoad>
 
-<CustomDivider style={{marginBottom: "-2rem"}} />
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
 ## Core Protocol Contracts
 
@@ -236,16 +271,17 @@ graph LR
 <Badge color="blue">
   Arbitrum One
 </Badge>
-The Controller is the central registry for all protocol contracts. Every other contract resolves peer contract addresses by calling `getContract(keccak256("<n>"))` on the Controller. Upgrades are applied by registering a new implementation address under the same name hash – the proxy addresses never change.
+The Controller is the central registry for all protocol contracts. Every other contract resolves peer contract addresses by calling `getContract(keccak256("<name>"))` on the Controller. Upgrades are applied by registering a new implementation address under the same name hash – the proxy addresses never change.
 
+{/* {<CustomCardTitle variant="accordion" icon={<ArbitrumSVG size={18} />} title= */}
 <Accordion  title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Controller"/>} >
   <AddressLinks
   address={controller}
   blockchainHref={`${arb}${controller}`}
   githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/Controller.sol"
 />
-{/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active · Deployed by Livepeer Deployer_
+    {/* <LinkArrow label="View on Arbiscan" href={`${arb}${controller}`} /> */}
+   <Icon icon="check" color="var(--text)"/> _Verified · Deployed by Livepeer Deployer · 20 transactions_
 
 **Purpose**:
 
@@ -296,12 +332,7 @@ The BondingManager is the most critical economic contract in the protocol. It ma
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="BondingManager" />}>
   **Address (Arbitrum One)**:
   <AddressLinks address={bondingManagerProxy} blockchainHref={`${arb}${bondingManagerProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingManager.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active_
-
-  {/* Current target (V11, deployed 16 Feb 2026): 0x4bA7E7531Ab56bC8d78dB4FDc88D21F621f34BB4
-      Confirmed via Controller.getContract(keccak256("BondingManagerTarget")) on-chain 18 Mar 2026.
-      Source code not yet verified on Blockscout — SolidityEmbed below shows delta branch source which should match. */}
+  <Icon icon="check" color="var(--text)"/> _Verified · 198,341 transactions · Active_
 
 **Purpose**:
 
@@ -311,11 +342,7 @@ The BondingManager is the most critical economic contract in the protocol. It ma
 - Manages the unbonding period – delegators must wait `unbondingPeriod` rounds before withdrawing
 - Tracks per-round earnings pools for each orchestrator
 - Calls `checkpointBondingState()` on BondingVotes on every state change for governance weight
-- Since Delta upgrade: sends `treasuryRewardCutRate` fraction of each reward to Treasury; contributions halt automatically when treasury balance exceeds `treasuryBalanceCeiling`
-
-<Info>
-  **Slashing:** `slashTranscoder()` exists in the contract but is currently inoperative: the Verifier role is set to the null address (`0x000...`). Slashing could be re-enabled via governance by configuring the Verifier role and making necessary compatibility updates. It is out of scope for current audits.
-</Info>
+- Since Delta upgrade: sends `treasuryRewardCutRate` fraction of each reward to Treasury
 
 **Key functions** (from `BondingManager.sol`, `delta` branch):
 
@@ -326,7 +353,7 @@ The BondingManager is the most critical economic contract in the protocol. It ma
   Begin withdrawal; creates an unbonding lock, starts the unbonding period
 </FunctionField>
 <FunctionField name="rebond" params={["uint256 _unbondingLockId"]}>
-  Cancel unbonding and re-bond stake to current delegate
+  Cancel unbonding and re-bond stake
 </FunctionField>
 <FunctionField name="rebondFromUnbonded" params={["address _to", "uint256 _unbondingLockId"]}>
   Re-bond to a new orchestrator from unbonded state
@@ -335,7 +362,7 @@ The BondingManager is the most critical economic contract in the protocol. It ma
   Complete withdrawal after unbonding period expires
 </FunctionField>
 <FunctionField name="withdrawFees" params={["address payable _recipient", "uint256 _amount"]}>
-  Withdraw accumulated ETH fees to a recipient address
+  Withdraw accumulated ETH fees
 </FunctionField>
 <FunctionField name="transcoder" params={["uint256 _rewardCut", "uint256 _feeShare"]}>
   Register as an orchestrator or update parameters; `_rewardCut` is % of reward kept by orchestrator; `_feeShare` is % of fees passed to delegators
@@ -344,25 +371,19 @@ The BondingManager is the most critical economic contract in the protocol. It ma
   Called by active orchestrators each round to mint inflationary LPT and distribute to earnings pool
 </FunctionField>
 <FunctionField name="claimEarnings" params={["uint256 _endRound"]}>
-  Claim accumulated rewards and fees. Note: `_endRound` is unused; earnings are always claimed through the current round regardless of the value passed.
-</FunctionField>
-<FunctionField name="checkpointBondingState" params={["address _account"]}>
-  Publicly callable function to fix a stale voting power checkpoint for any account. Useful for operators after an inconsistent state.
-</FunctionField>
-<FunctionField name="transferBond" params={["address _delegator", "uint256 _amount", "address _oldDelegateNewPosPrev", "address _oldDelegateNewPosNext", "address _newDelegateNewPosPrev", "address _newDelegateNewPosNext"]}>
-  Transfer ownership of a bond (or portion) to a new delegator. Used for stake migrations between wallets.
+  Checkpoint and claim accumulated rewards and fees through a given round
 </FunctionField>
 <FunctionField name="pendingStake" returns="uint256" params={["address _addr", "uint256 _endRound"]}>
-  Returns unclaimed pending stake for a delegator through the current round
+  Returns unclaimed pending stake for a delegator
 </FunctionField>
 <FunctionField name="pendingFees" returns="uint256" params={["address _addr", "uint256 _endRound"]}>
-  Returns unclaimed pending ETH fees for a delegator through the current round
+  Returns unclaimed pending ETH fees for a delegator
 </FunctionField>
 <FunctionField name="getTranscoder" params={["address _transcoder"]}>
-  Returns orchestrator state: lastRewardRound, rewardCut, feeShare, activationRound, deactivationRound, cumulativeRewards, cumulativeFees, lastFeeRound
+  Returns orchestrator state (rewardCut, feeShare, active status, etc.)
 </FunctionField>
 <FunctionField name="getDelegator" params={["address _delegator"]}>
-  Returns delegator state: bondedAmount, fees, delegateAddress, delegatedAmount, startRound, lastClaimRound, nextUnbondingLockId
+  Returns delegator state (bondedAmount, delegate, lastClaimRound, etc.)
 </FunctionField>
 
 **Contract**
@@ -384,8 +405,7 @@ The TicketBroker implements Livepeer's off-chain probabilistic micropayment (PM)
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="TicketBroker" />}>
   **Address (Arbitrum One)**:
   <AddressLinks address={ticketBrokerProxy} blockchainHref={`${arb}${ticketBrokerProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/pm/TicketBroker.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active_
+  <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
 **Purpose**:
 
@@ -393,39 +413,36 @@ The TicketBroker implements Livepeer's off-chain probabilistic micropayment (PM)
 - Validates and settles winning probabilistic payment tickets
 - Manages the unlock period before gateways can withdraw funds
 - Tracks claimed reserves per orchestrator per round to prevent over-redemption
-- Emits `WinningTicketRedeemed` (ticket redemption attempt) and `WinningTicketTransfer` (ETH actually moved) events used for on-chain payment monitoring
+- Emits `WinningTicketRedeemed` events used for on-chain payment monitoring
 
-**Key functions** (from `MixinTicketBrokerCore.sol`):
+**Key functions** (from `TicketBroker.sol`):
 
 <FunctionField name="fundDeposit">
-  Gateway adds ETH to deposit (payable)
+  Gateway adds to ETH deposit (payable)
 </FunctionField>
 <FunctionField name="fundReserve">
-  Gateway adds ETH to reserve (payable)
+  Gateway adds to ETH reserve (payable)
 </FunctionField>
 <FunctionField name="fundDepositAndReserve" params={["uint256 _depositAmount", "uint256 _reserveAmount"]}>
-  Fund both deposit and reserve in one call (payable); msg.value must equal the sum of both amounts
+  Fund both in one call (payable)
 </FunctionField>
-<FunctionField name="fundDepositAndReserveFor" params={["address _addr", "uint256 _depositAmount", "uint256 _reserveAmount"]}>
-  Fund deposit and reserve on behalf of another address (payable)
-</FunctionField>
-<FunctionField name="redeemWinningTicket" params={["Ticket memory _ticket", "bytes memory _sig", "uint256 _recipientRand"]}>
-  Orchestrator redeems a winning ticket; transfers ETH to fee pool via BondingManager. Emits both `WinningTicketTransfer` and `WinningTicketRedeemed`.
+<FunctionField name="redeemWinningTicket" params={["Ticket calldata _ticket", "bytes calldata _sig", "uint256 _recipientRand"]}>
+  Orchestrator redeems a winning ticket; transfers ETH to fee pool via BondingManager
 </FunctionField>
 <FunctionField name="unlock">
-  Gateway initiates the withdrawal unlock period; emits `Unlock`
+  Gateway initiates the withdrawal unlock period
 </FunctionField>
 <FunctionField name="cancelUnlock">
-  Gateway cancels an in-progress unlock; emits `UnlockCancelled`
+  Gateway cancels an in-progress unlock
 </FunctionField>
 <FunctionField name="withdraw">
-  Gateway withdraws all deposit and reserve after unlock period; emits `Withdrawal`
+  Gateway withdraws deposit and reserve after unlock period
 </FunctionField>
-<FunctionField name="getSenderInfo" returns="(Sender memory sender, ReserveInfo memory reserve)" params={["address _sender"]}>
-  Returns full sender state: deposit amount, withdrawRound, and reserve info
+<FunctionField name="getReserve" returns="Reserve" params={["address _reserveHolder"]}>
+  Returns reserve state for an address
 </FunctionField>
-<FunctionField name="isUnlockInProgress" returns="bool" params={["address _sender"]}>
-  Returns whether a sender has an unlock in progress
+<FunctionField name="getSender" returns="Sender" params={["address _sender"]}>
+  Returns sender (gateway) state: deposit, reserve, unlock period
 </FunctionField>
 
 **Contract**
@@ -447,8 +464,7 @@ The RoundsManager defines the protocol's time unit. A round is a fixed number of
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="RoundsManager" />}>
   **Address (Arbitrum One)**:
   <AddressLinks address={roundsManagerProxy} blockchainHref={`${arb}${roundsManagerProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/rounds/RoundsManager.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active_
+  <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
 **Purpose**:
 
@@ -500,8 +516,7 @@ The Minter controls LPT token inflation. Each round it calculates the mintable t
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Minter" />}>
   **Address (Arbitrum One)**:
   <AddressLinks address={minter} blockchainHref={`${arb}${minter}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/token/Minter.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active_
+  <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
 **Purpose**:
 
@@ -563,8 +578,7 @@ The ServiceRegistry stores each orchestrator's publicly advertised HTTPS service
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="ServiceRegistry" />}>
   **Address (Arbitrum One)**:
   <AddressLinks address={serviceRegistryProxy} blockchainHref={`${arb}${serviceRegistryProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/ServiceRegistry.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · ~600 transactions · Last active Jan 2026_
+  <Icon icon="check" color="var(--text)"/> _Verified · ~600 transactions · Last active Jan 2026_
 
 **Purpose**:
 
@@ -600,8 +614,7 @@ A standalone ServiceRegistry for AI subnet orchestrators. Detached from the Cont
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="AIServiceRegistry" />}>
   **Address (Arbitrum One)**:
   <AddressLinks address={aiServiceRegistry} blockchainHref={`${arb}${aiServiceRegistry}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/ServiceRegistry.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Deployed Apr 2024 · Active · Deployed by AI subnet deployer (different from main Livepeer Deployer)_
+  <Icon icon="check" color="var(--text)"/> _Verified · Deployed Apr 2024 · Active · Deployed by AI subnet deployer (different from main Livepeer Deployer)_
 
 **Purpose**:
 
@@ -610,19 +623,19 @@ A standalone ServiceRegistry for AI subnet orchestrators. Detached from the Cont
 - Same interface as ServiceRegistry (`setServiceURI`, `getServiceURI`)
 </Accordion>
 
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
 ## Token and Utility Contracts
 
-The LivepeerToken contract originates on Ethereum Mainnet and is bridged to Arbitrum One via paired gateway contracts, with a BridgeMinter handling L1 mint operations.
-All active protocol operations use the Arbitrum One representation.
-LPT must be bridged before it can be staked, delegated, or used for payments.
 <Info>
 Livepeer moved from Ethereum Mainnet to Arbitrum One in 2022 (the Confluence upgrade) to increase throughput and reduce fees.
 
 On Ethereum Mainnet, only the `LivepeerToken` and `BridgeMinter` contracts remain operational. All other Ethereum Mainnet protocol contracts are paused.
-</Info>
 
+LPT must be bridged to Arbitrum One to participate in protocol operations.
+
+</Info>
+<br/>
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#18794E', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3CB540', 'lineColor': '#3CB540', 'mainBkg': '#18794E', 'nodeBorder': '#3CB540', 'clusterBkg': 'transparent', 'clusterBorder': '#3CB540', 'titleColor': '#3CB540', 'edgeLabelBackground': 'transparent', 'textColor': '#3CB540', 'nodeTextColor': '#fff'}}}%%
 graph TB
@@ -644,8 +657,6 @@ graph TB
     L1GW <-.->|"Arbitrum bridge"| L2GW
 ```
 
----
-
 #### **LivepeerToken (LPT)** <Subtitle text="ERC-20 Token" />
 <Badge color="green">
   Ethereum Mainnet (origin)
@@ -656,14 +667,12 @@ The LivepeerToken is the native protocol token. It is an ERC-20 with AccessContr
 <Accordion title={<CustomCardTitle variant="accordion" icon={<LivepeerIcon color="var(--accent)" size={13} />} title="LivepeerToken" />}>
   **Address (Arbitrum One)**:
   <AddressLinks address={lptArb} blockchainHref={`${arb}${lptArb}`} githubHref="https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/token/LivepeerToken.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · 261,217 holders · Active_
+  <Icon icon="check" color="var(--text)"/> _Verified · 261,217 holders · Active_
 
 **Address (Ethereum Mainnet)**:
 
   <AddressLinks address={lptEth} blockchainHref={`${eth}${lptEth}`} githubHref="https://github.com/livepeer/protocol/blob/master/contracts/token/LivepeerToken.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · 1.88M holders · Origin token_
+  <Icon icon="check" color="var(--text)"/> _Verified · 1.88M holders · Origin token_
 
 **Purpose**:
 
@@ -702,54 +711,16 @@ The LivepeerToken is the native protocol token. It is an ERC-20 with AccessContr
 
 Holds MINTER_ROLE on the L1 LivepeerToken. Called by the bridge when LPT is transferred from Arbitrum back to Ethereum Mainnet, minting the corresponding L1 LPT.
 
-<Info>
-  `BridgeMinter.sol` is an Ethereum Mainnet contract predating the Delta upgrade.
-  <span style={{display: "flex", alightItems: "center", marginTop: "0.5rem"}}> See <DoubleIconLink label="BridgeMinter.sol" href="https://github.com/livepeer/protocol/blob/streamflow/contracts/token/BridgeMinter.sol"/> on the `streamflow` branch of `livepeer/protocol`</span>
-</Info>
-
 <Accordion title={<CustomCardTitle variant="accordion" icon={<Icon icon="ethereum" color="var(--hero-text)"/>} title="BridgeMinter" />}>
   **Address (Ethereum Mainnet)**:
-  <AddressLinks address={bridgeMinter} blockchainHref={`${eth}${bridgeMinter}`} githubHref="https://github.com/livepeer/protocol/blob/streamflow/contracts/token/BridgeMinter.sol" />
+  <AddressLinks address={bridgeMinter} blockchainHref={`${eth}${bridgeMinter}`} />
   <Icon icon="check" color="var(--text)"/> _Verified · Active · "Livepeer: Bridge Minter" on Blockscout_
-
-**Purpose**:
-
-- Holds MINTER_ROLE on the L1 LivepeerToken contract
-- Called exclusively by L1LPTGateway when LPT is bridged from Arbitrum back to Ethereum Mainnet
-- Also callable by L1Migrator for migration operations (`withdrawETHToL1Migrator`, `withdrawLPTToL1Migrator`)
-- Registered with the Ethereum Mainnet Controller (`0xF96D54E490317c557A967ABfA5d6e33006BE69b3`)
-
-**Key functions** (from `BridgeMinter.sol`, `streamflow` branch):
-
-<FunctionField name="bridgeMint" params={["address _to", "uint256 _amount"]}>
-  Mint LPT to an address; callable by L1LPTGateway only
-</FunctionField>
-<FunctionField name="withdrawETHToL1Migrator" returns="uint256">
-  Send contract ETH balance to L1Migrator; callable by L1Migrator only
-</FunctionField>
-<FunctionField name="withdrawLPTToL1Migrator" returns="uint256">
-  Send contract LPT balance to L1Migrator; callable by L1Migrator only
-</FunctionField>
-<FunctionField name="migrateToNewMinter" params={["address _newMinterAddr"]}>
-  Transfer token ownership and balances to a new Minter; callable by Controller owner only
-</FunctionField>
-<FunctionField name="depositETH" returns="bool">
-  Accept ETH deposits; required for migration compatibility with older Minter implementations (payable)
-</FunctionField>
-
-**Contract**
-
-<SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/streamflow/contracts/token/BridgeMinter.sol"
-  title={<DoubleIconLink label="BridgeMinter.sol"/>}
-  filename="BridgeMinter.sol"
-/>
 
 </Accordion>
 
 #### **L1 LPTGateway / L2 LPTGateway** <Subtitle text="Token Bridge" />
-<Badge color="green">
-  Ethereum Mainnet
+<Badge color="gren">
+  Ethereum
 </Badge>
 <Badge color="blue">
   Arbitrum One
@@ -759,20 +730,17 @@ Paired bridge gateway contracts on Ethereum Mainnet (L1) and Arbitrum One (L2). 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Bridge Gateways" />}>
   **L2LPTGateway (Arbitrum One)**:
   <AddressLinks address={l2Gateway} blockchainHref={`${arb}${l2Gateway}`} githubHref="https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/gateway/L2LPTGateway.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active_
+  <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
 **L1LPTGateway (Ethereum Mainnet)**:
 
   <AddressLinks address={l1Gateway} blockchainHref={`${eth}${l1Gateway}`} githubHref="https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L1/gateway/L1LPTGateway.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active_
+  <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
 **L1Escrow (Ethereum Mainnet)**:
 
   <AddressLinks address={l1Escrow} blockchainHref={`${eth}${l1Escrow}`} githubHref="https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L1/escrow/L1Escrow.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active · Holds bridged LPT_
+  <Icon icon="check" color="var(--text)"/> _Verified · Active · Holds bridged LPT_
 
 **Contract**
 
@@ -785,50 +753,11 @@ Paired bridge gateway contracts on Ethereum Mainnet (L1) and Arbitrum One (L2). 
 </Accordion>
 
 #### **LivepeerTokenFaucet** <Subtitle text="Test Token Distribution" />
-<Badge color="surface">Testnet Deployments</Badge>
+<Badge color="surface">Testnets Only</Badge>
 
-<Info>
-The LivepeerTokenFaucet is a non-production deploy-time convenience contract.
-<br/> There is currently no active public testnet on Arbitrum or Ethereum.
-<br/> You can run your own testnet using the full deploy script at [deploy/deploy_contracts.ts](https://github.com/livepeer/protocol/blob/streamflow/deploy/deploy_contracts.ts)
-</Info>
+Distributes test LPT on testnets. **Does not exist on Ethereum Mainnet or Arbitrum One mainnet.**
 
-A deploy-time convenience contract that distributes test LPT in local and testnet environments.
-It deploys automatically via [`deploy_contracts.ts`](https://github.com/livepeer/protocol/blob/delta/deploy/deploy_contracts.ts) when targeting any non-production network, seeded with `genesis.crowdSupply` worth of test LPT.
-<br/> It is never deployed on `mainnet` or `arbitrumMainnet`.
-
-<Accordion title={<CustomCardTitle variant="accordion" icon={<Icon icon="dev" color="var(--text)"/>} title="LivepeerTokenFaucet" />} >
-
-**Purpose**:
-
-- Distributes test LPT to developers running a local Livepeer stack
-- Enforces a per-address rate limit via `requestWait` (in hours) between requests
-- Whitelist addresses bypass the rate limit entirely
-- Seeded at deploy time with `genesis.crowdSupply`; never exists on mainnet or Arbitrum One mainnet
-
-**Key functions** (from `LivepeerTokenFaucet.sol`):
-
-<FunctionField name="request">
-  Request test LPT; transfers `requestAmount` to caller. Requires either whitelisted status or that `requestWait` hours have elapsed since last request.
-</FunctionField>
-<FunctionField name="addToWhitelist" params={["address _addr"]}>
-  Add an address to the rate-limit bypass whitelist; callable by owner only
-</FunctionField>
-<FunctionField name="removeFromWhitelist" params={["address _addr"]}>
-  Remove an address from the whitelist; callable by owner only
-</FunctionField>
-
-**Contract**
-
-<SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/token/LivepeerTokenFaucet.sol"
-  title={<DoubleIconLink label="LivepeerTokenFaucet.sol"/>}
-  filename="LivepeerTokenFaucet.sol"
-/>
-
-</Accordion>
-
-<CustomDivider style={{margin: "-0.5rem 0 -2rem 0"}}/>
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
 ## Governance Contracts
 
@@ -843,7 +772,7 @@ graph LR
     LG -->|"queue"| T[Treasury / Timelock]
     T -->|"execute"| GOV[Governor]
     GOV -->|"update contracts"| C[Controller]
-    MINT[Minter] -.->|"trustedTransferTokens()"| T
+    MINT[Minter] -.->|"treasury cut"| T
 ```
 
 ---
@@ -857,8 +786,7 @@ BondingVotes implements the ERC-5805 votes interface, storing per-round stake ch
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="BondingVotes" />}>
   **Address (Arbitrum One)**:
   <AddressLinks address={bondingVotesProxy} blockchainHref={`${arb}${bondingVotesProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingVotes.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active_
+  <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
 **Purpose**:
 
@@ -870,7 +798,7 @@ BondingVotes implements the ERC-5805 votes interface, storing per-round stake ch
 **Key functions** (from `BondingVotes.sol`, `delta` branch):
 
 <FunctionField name="checkpointBondingState" params={["address _owner", "uint256 _startRound", "uint256 _bondedAmount", "address _delegateAddress", "uint256 _delegatedAmount", "uint256 _lastClaimRound", "uint256 _lastRewardRound"]}>
-  Called by BondingManager to checkpoint stake state; not callable directly by users
+  Called by BondingManager to checkpoint stake state; not callable directly
 </FunctionField>
 <FunctionField name="checkpointTotalActiveStake" params={["uint256 _totalStake", "uint256 _round"]}>
   Checkpoint total active stake; called by BondingManager
@@ -899,35 +827,30 @@ BondingVotes implements the ERC-5805 votes interface, storing per-round stake ch
 <Badge color="blue">
   Arbitrum One
 </Badge>
-The original upgrade execution contract. Holds the owner role on the Controller. Executes protocol upgrades (contract address updates, parameter changes) via a staged update queue with a configurable block delay.
+The original upgrade execution contract. Holds the owner role on the Controller. Executes protocol upgrades (contract address updates, parameter changes) via a staged proposal queue with a configurable delay.
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Governor" />}>
   **Address (Arbitrum One)**:
   <AddressLinks address={governor} blockchainHref={`${arb}${governor}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/governance/Governor.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active · Deployed by Livepeer Deployer_
+  <Icon icon="check" color="var(--text)"/> _Verified · 18 transactions · Last active Aug 2025 · Deployed by Livepeer Deployer_
 
 **Purpose**:
 
 - Owns the Controller contract – only address that can call `setContractInfo()`
 - Executes protocol upgrade transactions after governance approval
-- Enforces a staged execution queue with a mandatory block-number delay
+- Enforces a staged execution queue with a mandatory delay
 
 **Key functions** (from `Governor.sol`):
 
-<FunctionField name="stage" params={["Update memory _update", "uint256 _delay"]}>
-  Queue a batch of upgrade transactions with a delay in blocks; callable by owner only; emits `UpdateStaged`
+<FunctionField name="stage" params={["Transaction[] calldata _transactions", "uint256 _delay"]}>
+  Queue a batch of upgrade transactions with a delay; emits `TransactionStaged`
 </FunctionField>
-<FunctionField name="execute" params={["Update memory _update"]}>
-  Execute a queued update after its block delay has elapsed; emits `UpdateExecuted`
+<FunctionField name="execute" params={["Transaction[] calldata _transactions"]}>
+  Execute a queued batch after its delay has elapsed; emits `TransactionExecuted`
 </FunctionField>
-<FunctionField name="cancel" params={["Update memory _update"]}>
-  Cancel a staged update; callable by owner only; emits `UpdateCancelled`
+<FunctionField name="owner" returns="address">
+  Returns the owner (currently the LivepeerGovernor proxy via timelock)
 </FunctionField>
-
-The `Update` struct contains: `address[] target`, `uint256[] value`, `bytes[] data`, `uint256 nonce`.
-
-`owner` is a public state variable (not a function) returning the current owner address.
 
 **Contract**
 
@@ -948,8 +871,7 @@ Implements OpenZeppelin's upgradeable Governor framework adapted for Livepeer's 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="LivepeerGovernor" />}>
   **Address (Arbitrum One)**:
   <AddressLinks address={livepeerGovernorProxy} blockchainHref={`${arb}${livepeerGovernorProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/treasury/LivepeerGovernor.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active_
+  <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
 **Purpose**:
 
@@ -960,7 +882,7 @@ Implements OpenZeppelin's upgradeable Governor framework adapted for Livepeer's 
 
 **Key functions** (from `LivepeerGovernor.sol`, `delta` branch):
 
-<FunctionField name="initialise" params={["uint256 _initialVotingDelay", "uint256 _initialVotingPeriod", "uint256 _initialProposalThreshold", "uint256 _initialQuorumNumerator", "TimelockControllerUpgradeable _timelock", "address _controller"]}>
+<FunctionField name="initialize" params={["uint256 _initialVotingDelay", "uint256 _initialVotingPeriod", "uint256 _initialProposalThreshold", "uint256 _initialQuorumNumerator", "TimelockControllerUpgradeable _timelock", "address _controller"]}>
   One-time initialisation via proxy
 </FunctionField>
 <FunctionField name="propose" returns="uint256" params={["address[] memory targets", "uint256[] memory values", "bytes[] memory calldatas", "string memory description"]}>
@@ -1004,8 +926,7 @@ An OpenZeppelin TimelockControllerUpgradeable that holds the protocol's on-chain
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Treasury" />}>
   **Address (Arbitrum One)**:
   <AddressLinks address={treasury} blockchainHref={`${arb}${treasury}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/treasury/Treasury.sol" />
-  {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active_
+  <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
 **Purpose**:
 
@@ -1054,13 +975,6 @@ For the complete list of all current and historical contract addresses across Ar
 
 All addresses in this page were verified on 18 March 2026 by querying the Controller contract directly on-chain via `getContract(keccak256("<name>"))` (Arbitrum One) and Blockscout `get_address_info` (Ethereum Mainnet). No documentation sources were used.
 
-<Card
-    href="./contract-addresses.mdx"
-    icon="file-code"
-    title={<> Contract Address Reference Page · Livepeer Docs <br/> <Badge color="surface"> <><Icon icon="user-robot" color="var(--text)"/> Automatically Updated </></Badge></>}
-    horizontal
-    arrow
-/>
 <Columns cols={2}>
   <Card
     href="https://github.com/livepeer/governor-scripts/blob/master/updates/addresses.js"
@@ -1076,21 +990,6 @@ All addresses in this page were verified on 18 March 2026 by querying the Contro
   />
 </Columns>
 
-<CustomDivider style={{margin: "0 0 -2rem 0"}} />
+<CustomDivider />
 
 ## Related Pages
-
-<Columns cols={2}>
-  <Card title={<CustomCardTitle icon="coins" title="Livepeer Token" />} href="/v2/about/livepeer-protocol/livepeer-token" horizontal arrow>
-    LPT token mechanics, supply, minting, and the role of the token in the protocol.
-  </Card>
-  <Card title={<CustomCardTitle icon="vault" title="Treasury" />} href="/v2/about/livepeer-protocol/treasury" horizontal arrow>
-    On-chain treasury, funding proposals, SPEs, and the treasury balance ceiling.
-  </Card>
-  <Card title={<CustomCardTitle icon="landmark" title="Governance" />} href="/v2/about/livepeer-protocol/governance-model" horizontal arrow>
-    On-chain voting, proposal lifecycle, and delegator vote overrides.
-  </Card>
-  <Card title={<CustomCardTitle icon="chart-line" title="Economics" />} href="/v2/about/livepeer-protocol/economics" horizontal arrow>
-    Inflation model, bonding rate targets, reward distribution, and fee economics.
-  </Card>
-</Columns>

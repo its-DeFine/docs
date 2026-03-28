@@ -10,7 +10,7 @@
  *                    stale hardcoded addresses and auto-corrects them.
  * @mode              generate
  * @pipeline          governor-scripts + supplement → Arbiscan verify → contractAddressesData.jsx
- * @scope             .github/scripts, snippets/automations/globals/, v2/
+ * @scope             .github/scripts, snippets/data/changelogs/, v2/
  * @usage             node .github/scripts/fetch-contract-addresses.js [--dry-run] [--skip-verify] [--scan-fix]
  * @policy            Public APIs only. ARBISCAN_API_KEY/ETHERSCAN_API_KEY optional for higher rate limits.
  */
@@ -22,7 +22,7 @@ const path = require("path");
 // ── Config ──────────────────────────────────────────────────────────────────
 const REPO_ROOT = path.resolve(__dirname, "../..");
 const SUPPLEMENT_PATH = path.join(REPO_ROOT, "operations/scripts/config/contract-addresses-supplement.json");
-const OUTPUT_PATH = path.join(REPO_ROOT, "snippets/automations/globals/contractAddressesData.jsx");
+const OUTPUT_PATH = path.join(REPO_ROOT, "snippets/data/changelogs/contractAddressesData.jsx");
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 const ARBISCAN_API_KEY = process.env.ARBISCAN_API_KEY || "";

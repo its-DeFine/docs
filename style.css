@@ -51,6 +51,7 @@ See https://coolors.co/073b3a-1a794e-f61067-08a045-6bbf59
   --lp-color-accent-soft: #6bbf59;
   --lp-color-accent-bright: #5dd662;
   --lp-color-accent-brightest: #a0f0a5;
+  --lp-color-arbitrum: #3ea6f8;
   --lp-color-text-primary: #181c18;
   --lp-color-text-secondary: #717571;
   --lp-color-text-muted: #9ca3af;
@@ -108,6 +109,7 @@ See https://coolors.co/073b3a-1a794e-f61067-08a045-6bbf59
   --border: var(--lp-color-border-default);
   --button-text: var(--lp-color-on-accent);
   --page-header-description-color: var(--lp-color-text-secondary);
+  --arbitrum: var(--lp-color-arbitrum);
 }
 
 .dark {
@@ -145,6 +147,7 @@ See https://coolors.co/073b3a-1a794e-f61067-08a045-6bbf59
   --border: var(--lp-color-border-default);
   --button-text: var(--lp-color-on-accent);
   --page-header-description-color: var(--lp-color-text-secondary);
+  --arbitrum: var(--lp-color-arbitrum);
 }
 /* ============================================ */
 

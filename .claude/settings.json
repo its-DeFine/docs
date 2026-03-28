@@ -1,4 +1,13 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(node -e \":*)",
+      "Bash(npx puppeteer:*)"
+    ],
+    "additionalDirectories": [
+      "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/workspace/thread-outputs/sessions"
+    ]
+  },
   "hooks": {
     "SessionStart": [
       {
@@ -63,11 +72,6 @@
           }
         ]
       }
-    ]
-  },
-  "permissions": {
-    "additionalDirectories": [
-      "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/workspace/thread-outputs/sessions"
     ]
   }
 }

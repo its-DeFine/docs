@@ -44,7 +44,7 @@ lastVerified: YYYY-MM-DD
   │    livepeer/governor-scripts (addresses.js)                            │
   │    + contract-addresses-supplement.json (static)                       │
   │    → fetch-contract-addresses.js (fetch + Arbiscan verify)             │
-  │    → snippets/automations/globals/contractAddressesData.jsx            │
+  │    → snippets/data/changelogs/contractAddressesData.jsx            │
   │    → this composable renders the data                                  │
   │                                                                        │
   │  Composable:                                                           │
@@ -74,7 +74,7 @@ import { SearchTable } from '/snippets/components/wrappers/tables/SearchTable.js
 import { CopyText } from '/snippets/components/elements/text/Text.jsx'
 
 {/* DATA IMPORTS */}
-import { contractAddresses } from '/snippets/automations/globals/contractAddressesData.jsx'
+import { contractAddresses } from '/snippets/data/changelogs/contractAddressesData.jsx'
 
 {/* MDX COMPOSABLE IMPORTS */}
 {/* import ContractAddresses from '/snippets/composables/pages/shared/contract-addresses-section.mdx' */}

@@ -729,7 +729,7 @@ const livepeerComponents = {
  * tells the renderer where to load the actual data from disk.
  */
 const DATA_SOURCES = {
-  contractAddresses: 'snippets/automations/globals/contractAddressesData.jsx'
+  contractAddresses: 'snippets/data/changelogs/contractAddressesData.jsx'
 };
 
 /** Cache parsed data files within a single render pass */

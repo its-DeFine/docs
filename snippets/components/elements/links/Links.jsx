@@ -1,3 +1,5 @@
+import { CopyText } from '/snippets/components/elements/text/Text.jsx'
+
 /**
  * @component CustomCallout
  * @type elements
@@ -421,6 +423,81 @@ const LinkArrow = ({
   )
 }
 
+/**
+ * @component LinkIcon
+ * @type elements
+ * @subniche links
+ * @status stable
+ * @description Wraps a Mintlify Icon in an anchor tag. Strips default Mintlify link styling (border-bottom).
+ * @accepts style, className, ...rest
+ * @aiDiscoverability none
+ * @param {string} href - Link destination URL.
+ * @param {string} [icon="arrow-up-right-from-square"] - Font Awesome icon name.
+ * @param {number} [size=14] - Icon size in pixels.
+ * @param {string} [color] - Icon colour override.
+ * @param {string} [target="_blank"] - Link target.
+ * @param {string} [rel="noopener noreferrer"] - Link rel attribute.
+ * @param {object} [style={}] - Inline style overrides.
+ * @param {string} [className=""] - CSS class name.
+ */
+const LinkIcon = ({
+  href,
+  target = '_blank',
+  rel = 'noopener noreferrer',
+  style = {},
+  className = '',
+  icon = 'arrow-up-right-from-square',
+  size = 12,
+  ...iconProps
+}) => {
+  return (
+    <a
+      href={href}
+      target={target}
+      rel={rel}
+      className={className}
+      style={{ borderBottom: 'none', textDecoration: 'none', ...style }}
+    >
+      <Icon icon={icon} size={size} {...iconProps} />
+    </a>
+  )
+}
+
+/**
+ * @component AddressLinks
+ * @type elements
+ * @subniche links
+ * @status stable
+ * @description Copyable contract address with blockchain explorer and GitHub links.
+ * @accepts style, className, ...rest
+ * @aiDiscoverability none
+ * @param {string} address - Contract address to display and copy.
+ * @param {string} [blockchainHref] - Blockchain explorer URL (e.g. Arbiscan).
+ * @param {string} [githubHref] - GitHub source URL.
+ * @param {object} [style={}] - Inline style overrides.
+ * @param {string} [className=""] - CSS class name.
+ * @example
+ * <AddressLinks address={controller} blockchainHref={`${arb}${controller}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/Controller.sol" />
+ */
+const AddressLinks = ({
+  address,
+  blockchainHref,
+  githubHref,
+  style = {},
+  className = '',
+  ...rest
+}) => {
+  return (
+    <span className={className} style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', ...style }} {...rest}>
+      <CopyText text={address} />
+      <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.2rem' }}>
+        {blockchainHref && <LinkIcon color="var(--text)" href={blockchainHref} />}
+        {githubHref && <LinkIcon icon="github" size={14} color="var(--text)" href={githubHref} />}
+      </span>
+    </span>
+  )
+}
+
 export {
   CustomCallout,
   BlinkingIcon,
@@ -430,4 +507,6 @@ export {
   GotoCard,
   TipWithArrow,
   LinkArrow,
+  LinkIcon,
+  AddressLinks,
 }

@@ -353,6 +353,28 @@ export function Wrapper({ children }) {
 
 ---
 
+## JSX File Scope
+
+### Top-level Constants are Not Accessible
+
+**CRITICAL:** Mintlify's MDX processor does not support top-level `const`, `let`, or `var` declarations outside exported component functions in `.jsx` files. They throw `ReferenceError` at runtime even though they pass linting and IDE checks.
+
+```jsx
+// ❌ ReferenceError: myStyles is not defined
+const myStyles = { wrapper: { display: 'flex' } }
+export const MyComponent = () => <div style={myStyles.wrapper} />
+
+// ✅ Works — define inside the function body
+export const MyComponent = () => {
+  const myStyles = { wrapper: { display: 'flex' } }
+  return <div style={myStyles.wrapper} />
+}
+```
+
+Discovered 2026-03-28. Root cause: Mintlify evaluates each `export` in its own scope; file-level declarations are not carried into that scope.
+
+---
+
 ## Icon Component Behavior
 
 ### Custom Icons are Rendered as Images

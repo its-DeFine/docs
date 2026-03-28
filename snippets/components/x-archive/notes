@@ -1,0 +1,162 @@
+Issues Identified
+I1 — Wrong canonical reference
+The template (and CLAUDE.md) points to workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md. The ACTUAL canonical is docs-guide/frameworks/component-governance.mdx (689 lines, published, 12 sections). The workspace doc is working notes. Every pointer to the workspace path is wrong.
+
+I2 — @type tag collision with official JSDoc
+@type wrappers conflicts directly with the official JSDoc @type {string} (type annotation) tag. Any JSDoc tooling (IDE hover, TypeDoc, JSDoc generators) will misread our @type wrappers as a type declaration. Migration required: @type → @category.
+
+I3 — @subniche is non-standard
+@subniche is invented. The closest standard is @subcategory (used by TypeDoc). Migration: @subniche → @subcategory.
+
+I4 — @example incorrectly marked forbidden
+15/48 files (31%) already have @example. The governance standard marked it "forbidden" — but it IS an official JSDoc core tag and IS already in widespread use in the repo. The governance decision was wrong. It needs to be restored as required.
+
+I5 — @accepts may be redundant
+127 @accepts declarations across 48 files. The values (children, style, className, ...rest) are already covered by @param. @accepts is a machine-readable extensibility shorthand — useful for the registry generator and AI tooling — but its value needs to be explicitly justified or it should be absorbed into @param. The question: is the tooling reading it? If the registry generator uses it, keep it documented as an intentional non-standard tag. If nothing reads it, remove it.
+
+I6 — No @requires pattern for composition dependencies
+2 components have actual runtime imports of other Livepeer components (Lists.jsx → GotoLink; VideoData.jsx → YouTubeVideo). 16 components (33%) receive ReactNode/component props from the MDX page — and MDX authors have no guidance on what they need to import. @requires (official JSDoc tag) should document the runtime imports. A clear prop documentation pattern should tell MDX authors what they need to import.
+
+I7 — Inter-component import governance conflict
+docs-guide/frameworks/component-governance.mdx says components "must NOT import other .jsx component files." Lists.jsx and VideoData.jsx violate this. Either the rule is wrong and should be updated, or those two files need to be fixed. This needs a decision before the realignment.
+
+I8 — Examples infrastructure missing
+Governance doc says examples should exist in {category}/examples/{file}-examples.mdx. These don't exist (or are sparse). 33 additional component files have no @example tag at all.
+
+I9 — @deprecated has no replacement pattern
+3 components are marked @status deprecated with no @see pointing to the replacement. Authors have no guidance.
+
+Realignment Plan
+Phase 1 — Tag standard realignment (touches every file + all tooling)
+1a. Migrate @type → @category
+
+Before	After
+@type wrappers	@category wrappers
+@type elements	@category elements
+Scope: 127 declarations across 48 files + registry generator + pre-commit validator + component-governance.mdx.
+
+1b. Migrate @subniche → @subcategory
+
+Before	After
+@subniche tables	@subcategory tables
+Same scope as 1a.
+
+1c. Restore @example as required
+
+Move @example from "forbidden" to "required" in governance docs
+Minimum format: one JSX usage example showing import + basic use
+15 files already have it; 33 need it added
+Format to standardise on:
+
+
+@example
+// Basic usage:
+import { ComponentName } from "/snippets/components/category/subniche/File.jsx";
+<ComponentName prop="value" />
+1d. Decision on @accepts
+
+Two options:
+
+Keep: Annotate it explicitly as a non-standard tooling tag; update governance docs to say "intentionally non-standard — read by registry generator for AI companion manifest." Keep alongside @param.
+Remove: Absorb extensibility declaration into @param entries for style, className, and ...rest. Simpler, purer JSDoc alignment. Requires updating registry generator.
+Recommendation: Keep, but label it explicitly as a custom tooling tag in governance docs, not a JSDoc tag. The @accepts values drive the AI companion manifest — removing it would need a registry generator rewrite.
+
+1e. Add @requires for runtime imports
+
+Only 2 files currently have actual imports. Add:
+
+
+@requires snippets/components/elements/links/Links.jsx
+to Lists.jsx and VideoData.jsx.
+
+For composition slots (ReactNode props) — document in @example with the import shown. The MDX author can see what to import by reading the example. Do NOT add @requires for "what the consumer imports" — that's a misuse of the tag. The example is the right place.
+
+1f. Decide the import governance conflict
+
+Option A: Allow inter-component imports (update the "must NOT import" rule) — aligns with actual practice.
+Option B: Fix Lists.jsx and VideoData.jsx to not import — pass the sub-component as a prop instead.
+
+This is a human decision (architectural). The plan proceeds after this is resolved.
+
+Phase 2 — Examples infrastructure
+2a. @example in JSDoc (all 48 files)
+
+Add at least one @example block to every component that's missing it (33 files). Generated or hand-written per component.
+
+2b. Auto-generated examples pages
+
+Structure:
+
+
+snippets/components/
+  elements/
+    examples/
+      elements-examples.mdx   ← auto-generated
+  wrappers/
+    examples/
+      wrappers-examples.mdx   ← auto-generated
+  displays/
+    examples/
+      displays-examples.mdx
+  scaffolding/
+    examples/
+      scaffolding-examples.mdx
+  integrators/
+    examples/
+      integrators-examples.mdx
+Generator reads @example from each component's JSDoc and compiles per-category MDX pages. Pages show: component name, description, example code, import line.
+
+Alternatives considered:
+
+Per-subniche pages (e.g., wrappers/tables/examples.mdx) — more granular but 30+ files
+Per-component pages — too many files, hard to browse
+Recommendation: per-category (6 pages), with anchor links per component
+Phase 3 — Governance docs housekeeping
+3a. Update all canonical references
+
+Every file pointing to workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md must point to docs-guide/frameworks/component-governance.mdx. This includes: CLAUDE.md, template file, AGENTS.md, component-registry generator, pre-commit hook.
+
+The workspace doc becomes a working draft only — not canonical.
+
+3b. Update governance doc for new tag names
+
+docs-guide/frameworks/component-governance.mdx (689 lines) needs:
+
+@type → @category throughout
+@subniche → @subcategory throughout
+@example restored as required
+@requires added as a new tag
+@accepts: annotated as custom tooling tag (not JSDoc)
+3c. Add @deprecated replacement pattern
+
+Add to governance docs:
+
+
+@status      deprecated
+@see         ReplacementComponentName
+Update the 3 deprecated components to include @see.
+
+Phase 4 — Tooling updates
+The following scripts need updating for the tag name changes:
+
+Script	Change
+generate-component-registry.js	Read @category and @subcategory instead of @type and @subniche
+check-component-jsdoc-placement.js (planned)	Validate @category and @subcategory
+check-component-health.js	Check for @example presence (new requirement)
+generate-ui-templates.js	Update snippet generation to use new tag names
+component-registry.json field names	Rename category → stays category; subniche → subcategory
+.vscode/components.code-snippets	Regenerate from updated registry
+Build order
+Human decision first: resolve I6 (import governance conflict) and I5 (@accepts keep/remove)
+Phase 1a + 1b: migrate tag names — one pass, all 48 files + tooling update
+Phase 1c: @example enforcement — add to 33 missing files
+Phase 1d/e/f: @requires, @deprecated, @accepts finalization
+Phase 3: governance docs update (canonical reference + content changes)
+Phase 2: examples infrastructure — build generator, run for 6 categories
+Phase 4: tooling updates (registry generator, validators, snippets)
+What this does NOT touch
+Component FUNCTIONALITY — no JSX changes
+Folder structure — taxonomy is correct, only tag names change
+docs.json navigation
+@aiDiscoverability and @dataSource — these are justified custom tags, keep as-is
+@component — keep as-is (useful identity declaration, not in JSDoc standard but not conflicting)
