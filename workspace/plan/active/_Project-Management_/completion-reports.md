@@ -1897,3 +1897,69 @@ Four UX problems with `lpd dev --scoped` were identified and fixed: no way to di
 | `tools/dev/mint-dev.sh` | Modified | Fail-fast scope validation block before setup steps |
 | `docs-guide/tooling/lpd-cli.mdx` | Modified | New flags, fuzzy matching docs, updated examples, lastVerified 2026-03-27 |
 | `workspace/plan/active/TOOLING/lpd-command-reference.md` | Modified | All new flags and scope validation note |
+
+---
+
+## OSS Contributor Governance — Phase 1: State Assessment — 2026-03-28
+
+**Plans**: `workspace/plan/active/OSS-OWNERLESS-REPO-GOVERNANCE/tracker.md`
+**Scope**: Full state audit of the livepeer/docs OSS contributor governance system — labels, surfaces, decisions, and handover context.
+
+### Summary
+
+The repo is being handed over to the OSS community and a human review team with no internal owner after handover. Phase 1 produced a complete, verified picture of current state: 49 live labels (not 24 as previously estimated), 4 of 8 governance surfaces fully ownerless-ready, 8 decisions (D1–D8) all resolved, and the community-handover constraint locked as the master design principle. All planning input files from the prior session were marked with status headers to prevent confusion with canonical sources.
+
+### Completed
+
+**Wave 1 (parallel agents):**
+- `gap-analysis.md` — current vs target across labels, surfaces, docs, automation. Key finding: live label count is 49, not 24; 11 unknown tasks-retention labels discovered.
+- `live-label-inventory.md` — all 49 live labels mapped to keep/rename/delete/missing against the 55-label planning target.
+- Planning folder triage — all 8 `05_OSS-Governance-Framework/` files marked with status headers (PLANNING INPUT / NOT SOURCE OF TRUTH).
+
+**Wave 2 (co-design):**
+- `decisions/decision-log.md` — D1–D8 all resolved. Master constraint: ownerless community repo, community + human review team, no internal owner.
+
+**Wave 3 (sequential):**
+- `tracker.md` — Phase 1 complete, Phase 2/3 scoped with community-executable design constraint.
+- `master-status.mdx` — updated from 2026-03-24 to 2026-03-28, surface counts corrected, decisions recorded.
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| D1: Copilot enabled (docs repo only) | Already partially wired; formalise |
+| D2: Advisory review mode | Ownerless — no blocking AI gatekeeper |
+| D3: Open agent assignment | Any agent with scope contract can self-assign |
+| D4: Lightweight contributor ladder | No active human pool; revisit post-handover |
+| D5: 90/30 stale timing | Community-friendly for low-traffic OSS repo |
+| D6: Both instruction scopes | Agent + code review — serve different surfaces |
+| D7: Community + human review team, immediate handover | Repo is being handed over; Phase 3 must be community-executable |
+| D8: Delete 11 tasks-retention labels; add 5 solution product area labels | tasks-retention = internal leak; solution products need area routing |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Phase 2 design | High | Starts immediately | Phase 1 approved ✅ |
+| label-remove.sh execution | Medium | Hold until Phase 3 label taxonomy finalised | Phase 2 output |
+| Script/component governance surface promotion | Medium | Blocked on @owner→@domain migration | SCRIPT-GOVERNANCE, COMPONENT-GOVERNANCE plans |
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| `gh label list` live count | ✅ 49 labels fetched | Corrects prior estimate of 24 |
+| Planning folder status headers | ✅ All 8 files updated | No source content modified |
+| Decision log completeness | ✅ D1–D8 all resolved | No open decisions remaining |
+| master-status.mdx accuracy | ✅ Updated | Surface counts and decisions correct |
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `workspace/plan/active/OSS-OWNERLESS-REPO-GOVERNANCE/gap-analysis.md` | New | Current vs target state — Phase 2 input |
+| `workspace/plan/active/OSS-OWNERLESS-REPO-GOVERNANCE/live-label-inventory.md` | New | 49 live labels mapped to actions |
+| `workspace/plan/active/OSS-OWNERLESS-REPO-GOVERNANCE/decisions/decision-log.md` | New | D1–D8 decisions — Phase 2/3 source of truth |
+| `workspace/plan/active/OSS-OWNERLESS-REPO-GOVERNANCE/tracker.md` | New | Phase tracker with community-handover constraint |
+| `workspace/plan/active/OSS-OWNERLESS-REPO-GOVERNANCE/master-status.mdx` | Updated | Corrected counts, decisions, handover context |
+| `workspace/plan/active/OSS-OWNERLESS-REPO-GOVERNANCE/05_OSS-Governance-Framework/**` | Updated | Status headers added to all 8 planning input files |

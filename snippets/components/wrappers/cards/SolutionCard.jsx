@@ -18,6 +18,7 @@
  * @param {ReactNode}  [infraTags]   - Pre-rendered <IconBadgeWrapper items={...} iconColor="var(--accent)" size={12} />
  * @param {string}     [blurb]       - Product description text. Rendered inside ScrollBox.
  * @param {Component}  [ScrollBox]   - ScrollBox component reference, passed from parent MDX.
+ * @param {string}     [logoHeight]  - Override logo container height (default '60px').
  * @param {ReactNode}  [socialLinks] - Pre-rendered <SocialLinks links={...} />
  *
  * @example
@@ -41,6 +42,7 @@ export const SolutionCard = ({
   badges,
   logoSrc,
   logoAlt,
+  logoHeight = '60px',
   subtitle,
   infraTags,
   blurb,
@@ -54,7 +56,7 @@ export const SolutionCard = ({
       {logoSrc && (
         <div
           style={{
-            height: '60px',
+            height: logoHeight,
             display: 'flex',
             alignItems: 'center',
             margin: '0.5rem 0',

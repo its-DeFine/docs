@@ -92,13 +92,14 @@ Alison Haire (Wonderland). Documentation lead. Decision authority. Not a babysit
 
 | Stream | Status | Key files |
 | --- | --- | --- |
-| Documentation system execution (Phases 0-8) | Phase 0-2 complete, Phase 3 next | `ethereal-giggling-bear.md` (plan), `workspace/plan/active/DOCUMENTATION/` |
-| Workflow branch standardisation (Phase 3.5) | Audit complete, remediation pending | `workspace/thread-outputs/research/workflow-branch-audit.md` |
+| Documentation system execution (Phases 0-8) | Phases 0–3.5 complete, Phase 4 next | `ethereal-giggling-bear.md` (plan), `workspace/plan/active/DOCUMENTATION/` |
+| Workflow branch standardisation (Phase 3.5) | Complete — 21 workflows fixed (484d13c9b) | `workspace/thread-outputs/research/workflow-branch-audit.md` |
 | Orchestrators veracity pass (S01-S12) | Phase 7 active | `workspace/plan/active/CONTENTI-PIPLEINE/00-TRACKER.md` |
 | Co-work skills and governance | 9 skills built, draft, testing pending | `ai-tools/ai-skills/*/SKILL.md`, `docs-guide/policies/governance-index.mdx` |
 | Solutions tab content | In progress | `v2/solutions/` |
 | Governance framework staleness fixes | Complete | `workspace/thread-outputs/build/staleness-remediation-report.md` |
 | Content pipeline (5-tab gate sequence) | Blocked on human IA review | `workspace/plan/active/CONTENT-WRITING/decisions/tab-status.md` |
+| OSS contributor governance (community handover) | Phase 1 complete, Phase 2 design next | `workspace/plan/active/OSS-OWNERLESS-REPO-GOVERNANCE/tracker.md` |
 
 **Blocked decisions:** See `workspace/plan/active/CONTENT-WRITING/decisions/blocking-items.md`
 

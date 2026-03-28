@@ -20,11 +20,7 @@ on:
       category:
         description: "Filter by category (solutions | resources). Leave blank for all."
         required: false
-        type: choice
-        options:
-          - ""
-          - solutions
-          - resources
+        type: string
         default: ""
       dry_run:
         description: "Dry run — show what would change without writing"
@@ -81,15 +77,15 @@ jobs:
           COPILOT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LIMIT: "10"
         run: |
-          FLAGS="--enhance"
+          FLAGS=(--enhance)
           if [[ "${{ inputs.dry_run }}" == "true" ]]; then
-            FLAGS="$FLAGS --dry-run"
+            FLAGS+=(--dry-run)
           fi
           # Add --contract flag when targeting the contracts changelog
           if [[ "${{ inputs.changelog_key }}" == "contracts" ]] || [[ "${{ github.event.action }}" == "governor-scripts-update" ]]; then
-            FLAGS="$FLAGS --contract"
+            FLAGS+=(--contract)
           fi
-          node .github/scripts/generate-changelog.js $FLAGS
+          node .github/scripts/generate-changelog.js "${FLAGS[@]}"
 
       - name: Generate changelog entries (fallback — no LLM)
         if: inputs.enhance == 'false' || steps.enhanced.outcome == 'failure'
@@ -102,21 +98,21 @@ jobs:
           ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
           LIMIT: "10"
         run: |
-          FLAGS=""
+          FLAGS=()
           if [[ "${{ inputs.dry_run }}" == "true" ]]; then
-            FLAGS="--dry-run"
+            FLAGS+=(--dry-run)
           fi
           if [[ "${{ inputs.changelog_key }}" == "contracts" ]] || [[ "${{ github.event.action }}" == "governor-scripts-update" ]]; then
-            FLAGS="$FLAGS --contract"
+            FLAGS+=(--contract)
           fi
           echo "Running without LLM enhancement (fallback)"
-          node .github/scripts/generate-changelog.js $FLAGS
+          node .github/scripts/generate-changelog.js "${FLAGS[@]}"
 
       - name: Check for changes
         if: inputs.dry_run != 'true'
         id: git-check
         run: |
-          git diff --exit-code v2/solutions/ v2/resources/changelog/ || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --exit-code v2/solutions/ v2/resources/changelog/ || echo "changed=true" >> "$GITHUB_OUTPUT"
 
       - name: Commit and push if changed
         if: steps.git-check.outputs.changed == 'true' && inputs.dry_run != 'true'

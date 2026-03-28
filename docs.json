@@ -2731,80 +2731,85 @@
                         "group": "Resources",
                         "icon": "code",
                         "pages": [
-                          "v2/gateways/resources/faq",
-                          "v2/gateways/resources/glossary",
                           {
-                            "group": "Technical Reference",
+                            "group": "Reference",
                             "pages": [
-                              "v2/gateways/resources/technical/technical-architecture",
-                              "v2/gateways/resources/technical/configuration-flags",
-                              "v2/gateways/resources/technical/contract-addresses",
-                              "v2/gateways/resources/technical/cli-commands",
+                              "v2/gateways/resources/reference/faq",
+                              "v2/gateways/resources/reference/glossary",
                               {
-                                "group": "AI API",
+                                "group": "Technical Reference",
                                 "pages": [
-                                  "v2/gateways/resources/technical/api-reference/AI-API/ai",
-                                  "v2/gateways/resources/technical/api-reference/AI-API/text-to-image",
-                                  "v2/gateways/resources/technical/api-reference/AI-API/image-to-image",
-                                  "v2/gateways/resources/technical/api-reference/AI-API/image-to-video",
-                                  "v2/gateways/resources/technical/api-reference/AI-API/upscale",
-                                  "v2/gateways/resources/technical/api-reference/AI-API/audio-to-text",
-                                  "v2/gateways/resources/technical/api-reference/AI-API/segment-anything-2",
-                                  "v2/gateways/resources/technical/api-reference/AI-API/llm",
-                                  "v2/gateways/resources/technical/api-reference/AI-API/image-to-text",
-                                  "v2/gateways/resources/technical/api-reference/AI-API/live-video-to-video",
-                                  "v2/gateways/resources/technical/api-reference/AI-API/text-to-speech",
-                                  "v2/gateways/resources/technical/api-reference/AI-API/health",
-                                  "v2/gateways/resources/technical/api-reference/AI-API/hardware-info",
-                                  "v2/gateways/resources/technical/api-reference/AI-API/hardware-stats"
+                                  "v2/gateways/resources/reference/technical/technical-architecture",
+                                  "v2/gateways/resources/reference/technical/configuration-flags",
+                                  "v2/gateways/resources/reference/technical/contract-addresses",
+                                  "v2/gateways/resources/reference/technical/cli-commands",
+                                  {
+                                    "group": "AI API",
+                                    "pages": [
+                                      "v2/gateways/resources/reference/technical/api-reference/AI-API/ai",
+                                      "v2/gateways/resources/reference/technical/api-reference/AI-API/text-to-image",
+                                      "v2/gateways/resources/reference/technical/api-reference/AI-API/image-to-image",
+                                      "v2/gateways/resources/reference/technical/api-reference/AI-API/image-to-video",
+                                      "v2/gateways/resources/reference/technical/api-reference/AI-API/upscale",
+                                      "v2/gateways/resources/reference/technical/api-reference/AI-API/audio-to-text",
+                                      "v2/gateways/resources/reference/technical/api-reference/AI-API/segment-anything-2",
+                                      "v2/gateways/resources/reference/technical/api-reference/AI-API/llm",
+                                      "v2/gateways/resources/reference/technical/api-reference/AI-API/image-to-text",
+                                      "v2/gateways/resources/reference/technical/api-reference/AI-API/live-video-to-video",
+                                      "v2/gateways/resources/reference/technical/api-reference/AI-API/text-to-speech",
+                                      "v2/gateways/resources/reference/technical/api-reference/AI-API/health",
+                                      "v2/gateways/resources/reference/technical/api-reference/AI-API/hardware-info",
+                                      "v2/gateways/resources/reference/technical/api-reference/AI-API/hardware-stats"
+                                    ]
+                                  },
+                                  {
+                                    "group": "CLI HTTP API",
+                                    "pages": [
+                                      "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/cli-http-api",
+                                      "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/unbond",
+                                      "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/rebond",
+                                      "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/activateorchestrator",
+                                      "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/setbroadcastconfig",
+                                      "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/setmaxpriceforcapability",
+                                      "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/reward",
+                                      "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/transfertokens",
+                                      "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/signmessage"
+                                    ]
+                                  },
+                                  {
+                                    "group": "Exchanges & RPCs",
+                                    "pages": [
+                                      "v2/gateways/resources/reference/technical/livepeer-exchanges",
+                                      "v2/gateways/resources/reference/technical/arbitrum-exchanges",
+                                      "v2/gateways/resources/reference/technical/arbitrum-rpc"
+                                    ]
+                                  }
                                 ]
                               },
                               {
-                                "group": "CLI HTTP API",
+                                "group": "go-livepeer Reference",
                                 "pages": [
-                                  "v2/gateways/resources/technical/api-reference/CLI-HTTP/cli-http-api",
-                                  "v2/gateways/resources/technical/api-reference/CLI-HTTP/unbond",
-                                  "v2/gateways/resources/technical/api-reference/CLI-HTTP/rebond",
-                                  "v2/gateways/resources/technical/api-reference/CLI-HTTP/activateorchestrator",
-                                  "v2/gateways/resources/technical/api-reference/CLI-HTTP/setbroadcastconfig",
-                                  "v2/gateways/resources/technical/api-reference/CLI-HTTP/setmaxpriceforcapability",
-                                  "v2/gateways/resources/technical/api-reference/CLI-HTTP/reward",
-                                  "v2/gateways/resources/technical/api-reference/CLI-HTTP/transfertokens",
-                                  "v2/gateways/resources/technical/api-reference/CLI-HTTP/signmessage"
+                                  "v2/gateways/resources/reference/go-livepeer/bandwidth-requirements",
+                                  "v2/gateways/resources/reference/go-livepeer/hardware-requirements",
+                                  "v2/gateways/resources/reference/go-livepeer/gpu-support",
+                                  "v2/gateways/resources/reference/go-livepeer/cli-reference",
+                                  "v2/gateways/resources/reference/go-livepeer/prometheus-metrics"
                                 ]
                               },
                               {
-                                "group": "Exchanges & RPCs",
+                                "group": "Compendium",
                                 "pages": [
-                                  "v2/gateways/resources/technical/livepeer-exchanges",
-                                  "v2/gateways/resources/technical/arbitrum-exchanges",
-                                  "v2/gateways/resources/technical/arbitrum-rpc"
+                                  "v2/gateways/resources/reference/compendium/glossary"
                                 ]
                               }
                             ]
                           },
                           {
-                            "group": "go-livepeer Reference",
+                            "group": "Knowledge Hub",
                             "pages": [
-                              "v2/gateways/resources/go-livepeer/bandwidth-requirements",
-                              "v2/gateways/resources/go-livepeer/hardware-requirements",
-                              "v2/gateways/resources/go-livepeer/gpu-support",
-                              "v2/gateways/resources/go-livepeer/cli-reference",
-                              "v2/gateways/resources/go-livepeer/prometheus-metrics"
-                            ]
-                          },
-                          {
-                            "group": "More Resources",
-                            "pages": [
-                              "v2/gateways/resources/knowledge-base/guides",
-                              "v2/gateways/resources/knowledge-base/resources",
-                              "v2/gateways/resources/knowledge-base/help"
-                            ]
-                          },
-                          {
-                            "group": "Compendium",
-                            "pages": [
-                              "v2/gateways/resources/compendium/glossary"
+                              "v2/gateways/resources/knowledge-hub/guides",
+                              "v2/gateways/resources/knowledge-hub/resources",
+                              "v2/gateways/resources/knowledge-hub/help"
                             ]
                           }
                         ]
@@ -2962,24 +2967,34 @@
                         "group": "Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/orchestrators/resources/faq",
-                          "v2/orchestrators/resources/glossary",
-                          "v2/orchestrators/resources/community-guides",
-                          "v2/orchestrators/resources/community-pools",
                           {
-                            "group": "Technical Reference",
+                            "group": "Reference",
                             "pages": [
-                              "v2/orchestrators/resources/technical/cli-flags",
-                              "v2/orchestrators/resources/technical/x-contract-addresses",
-                              "v2/orchestrators/resources/gpu-support",
-                              "v2/orchestrators/resources/arbitrum-rpc",
-                              "v2/orchestrators/resources/arbitrum-exchanges"
+                              "v2/orchestrators/resources/reference/faq",
+                              "v2/orchestrators/resources/reference/glossary",
+                              {
+                                "group": "Technical Reference",
+                                "pages": [
+                                  "v2/orchestrators/resources/reference/technical/cli-flags",
+                                  "v2/orchestrators/resources/reference/technical/x-contract-addresses",
+                                  "v2/orchestrators/resources/reference/gpu-support",
+                                  "v2/orchestrators/resources/reference/arbitrum-rpc",
+                                  "v2/orchestrators/resources/reference/arbitrum-exchanges"
+                                ]
+                              },
+                              {
+                                "group": "Compendium",
+                                "pages": [
+                                  "v2/orchestrators/resources/reference/compendium/glossary"
+                                ]
+                              }
                             ]
                           },
                           {
-                            "group": "Compendium",
+                            "group": "Knowledge Hub",
                             "pages": [
-                              "v2/orchestrators/resources/compendium/glossary"
+                              "v2/orchestrators/resources/knowledge-hub/community-guides",
+                              "v2/orchestrators/resources/knowledge-hub/community-pools"
                             ]
                           }
                         ]
@@ -4928,6 +4943,66 @@
     {
       "source": "/v1/reference/react/constants/contract-addresses",
       "destination": "/v1/sdks/react/migration/3.x/constants/contract-addresses"
+    },
+    {
+      "source": "/gateways/resources/faq",
+      "destination": "/gateways/resources/reference/faq"
+    },
+    {
+      "source": "/gateways/resources/glossary",
+      "destination": "/gateways/resources/reference/glossary"
+    },
+    {
+      "source": "/gateways/resources/compendium/:slug*",
+      "destination": "/gateways/resources/reference/compendium/:slug*"
+    },
+    {
+      "source": "/gateways/resources/technical/:slug*",
+      "destination": "/gateways/resources/reference/technical/:slug*"
+    },
+    {
+      "source": "/gateways/resources/go-livepeer/:slug*",
+      "destination": "/gateways/resources/reference/go-livepeer/:slug*"
+    },
+    {
+      "source": "/gateways/resources/knowledge-base/:slug*",
+      "destination": "/gateways/resources/knowledge-hub/:slug*"
+    },
+    {
+      "source": "/orchestrators/resources/faq",
+      "destination": "/orchestrators/resources/reference/faq"
+    },
+    {
+      "source": "/orchestrators/resources/glossary",
+      "destination": "/orchestrators/resources/reference/glossary"
+    },
+    {
+      "source": "/orchestrators/resources/gpu-support",
+      "destination": "/orchestrators/resources/reference/gpu-support"
+    },
+    {
+      "source": "/orchestrators/resources/arbitrum-rpc",
+      "destination": "/orchestrators/resources/reference/arbitrum-rpc"
+    },
+    {
+      "source": "/orchestrators/resources/arbitrum-exchanges",
+      "destination": "/orchestrators/resources/reference/arbitrum-exchanges"
+    },
+    {
+      "source": "/orchestrators/resources/community-guides",
+      "destination": "/orchestrators/resources/knowledge-hub/community-guides"
+    },
+    {
+      "source": "/orchestrators/resources/community-pools",
+      "destination": "/orchestrators/resources/knowledge-hub/community-pools"
+    },
+    {
+      "source": "/orchestrators/resources/compendium/:slug*",
+      "destination": "/orchestrators/resources/reference/compendium/:slug*"
+    },
+    {
+      "source": "/orchestrators/resources/technical/:slug*",
+      "destination": "/orchestrators/resources/reference/technical/:slug*"
     }
   ],
   "styling": {

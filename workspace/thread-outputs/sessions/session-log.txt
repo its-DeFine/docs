@@ -1,3 +1,19 @@
+Session: 2026-03-28 — page-authoring SKILL.md updates + gateways concepts rewrites
+Outcome: PARTIALLY MET. 7 concepts pages rewritten (gateway: capabilities, architecture, business-model; orchestrator: role, capabilities, rcs-incentives). page-authoring SKILL.md created (v1.3) — 11 sections covering UK English, heading rules, CustomDivider style, JSX comment conventions, component usage, journey mapping. Skill registered in catalog + inventory. Cross-agent packager run (5 packs). concepts-restructure.md reference doc created. Commit attempted but blocked by pre-existing component registry test failure (mermaid-colours.jsx JSDoc). operator-requirements.mdx restructure approved but not yet written.
+Next: Fix registry test (locate mermaid-colours.jsx real path). Execute operator-requirements.mdx restructure (design approved — consolidate requirements-off-chain + requirements-setup into tabbed single page).
+---
+Session: 2026-03-28 — resources/ sub-section restructure (Gateways + Orchestrators)
+Outcome: MET. Created reference/ and knowledge-hub/ sub-sections in v2/gateways/resources/ and v2/orchestrators/resources/. All files moved per handoff brief (no content changes). docs.json navigation groups updated for both tabs. 15 redirect rules added for all old paths (wildcard and individual). 51 paths verified on disk. JSON valid. Cross-references in MDX pages not edited (user instruction); redirects cover all stale links. resources-master-list.mdx and research-sources.md moved to v2/gateways/_workspace/. x- files in orchestrators left in place per decision. No deletions.
+Next: mintlify dev verification (manual). IA review — Orchestrators + Gateways still highest priority blocker.
+---
+Session: 2026-03-28 — Documentation system Phase 3 + 3.5
+Outcome: MET. Phase 3 (frontmatter gate): enum values were already reconciled — wired quality.test.js to check-docs-guide-catalogs.yml as PR-only changed-files check, updated frontmatter-contract rollout_state to pr-changed, added severity graduation hand-off flag to plan. Phase 3.5 (branch var standardisation): fixed 21 workflows across 4 groups — 10 dead main triggers → docs-v2, 6 missing checkout refs → vars.DEPLOY_BRANCH, 4 dead main in multi-branch lists removed, 6 generator workflows fixed (use_test_branch input + explicit git push origin HEAD). Commit: 484d13c9b.
+Next: Phase 4 (wire ungoverned surfaces to CI) — pre-condition met (Phase 3.5 complete). governance-sync.yml and repair-governance.yml still have phantom use_test_branch logic (Group E deferred). Data update workflows (update-*) still use bare git push (working but fragile, Group E deferred).
+---
+Session: 2026-03-27 — lpd dev --scoped DX improvements
+Outcome: MET. Scope discovery (--scope-list), fuzzy tab matching (Resources→Resource HUB, Orch→Orchestrators etc.), multi-word tab names without quotes, multi-tab comma-space parsing, fail-fast validation before setup. All 24 tests pass. Both docs updated. Two-tab test confirmed working.
+Next: Component diagnostic pass — DoubleIconLink rendering as raw source on Solutions/changelog pages.
+---
 Session: 2026-03-27 — Unified changelog pipeline + contract changelog
 Outcome: MET. Fixed ContractAddressDisplay.jsx render bug (useState missing). Unified changelog infrastructure built across 6 phases: changelogs{} registry in product-social-config.json (10 targets), generate-changelog.js (renamed + refactored with loadChangelogTargets, fetchCommitEntries, verifyContractChanges, processTarget with mode branching), update-changelogs.yml (new workflow with CHANGELOG_KEY/CATEGORY, ARBISCAN/ETHERSCAN keys, contract flag), v2/resources/changelog/contracts.mdx (commits mode, automation zone), docs.json nav updated, changelog-automated-template.mdx created. Fixed both contract-addresses.mdx (sidebarTitle, dead link, 630maybe typo). Dry-run verified: daydream/solutions-category/contracts all clean.
 Next: Regenerate Embody/Studio/Frameworks with --regenerate --enhance (25 raw entries). Deprecate generate-solutions-changelog.js + update-solutions-changelog.yml. Phase 3 shared lib extraction deferred.
@@ -186,3 +202,11 @@ Session started: 2026-03-27 17:07:32
 Session started: 2026-03-27 17:07:41
 Session started: 2026-03-27 17:12:27
 Session started: 2026-03-28 00:38:30
+Session started: 2026-03-28 00:53:03
+Session started: 2026-03-28 00:53:03
+---
+Session: 2026-03-28 — OSS Contributor Governance Phase 1: State Assessment
+Outcome: MET. Full state audit complete. 3-wave parallel execution: gap analysis (49 live labels, not 24; 11 unknown tasks-retention labels), live label inventory (49 labels mapped), planning folder triage (8 files status-headed). D1–D8 all decided in co-design. Master constraint locked: ownerless community repo, handed to community + human review team, no internal owner. tracker.md, decision-log.md, gap-analysis.md, live-label-inventory.md, master-status.mdx all written/updated.
+Next: Phase 2 — design. Contributor journey, final label taxonomy, stale automation, Copilot integration, agent-ready flow, community handover package spec.
+Session started: 2026-03-28 01:31:38
+Session started: 2026-03-28 11:31:12

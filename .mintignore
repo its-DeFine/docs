@@ -37,6 +37,9 @@ operations/tests/node_modules
 /tools/**/*.js
 /tools/**/*.jsx
 /tools/**/*.css
+/operations/**/*.js
+/operations/**/*.jsx
+/.github/**/*.js
 
 # Runtime-only local assets that must never be injected into browser pages
 /snippets/automations/**/*.js

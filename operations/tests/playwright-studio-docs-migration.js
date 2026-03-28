@@ -47,10 +47,10 @@ async function testPage(browser, pagePath) {
     await sleep(2000); // hydration settle
 
     const status = response ? response.status() : 0;
-    const bodyText = await page.$eval('body', el => el.textContent);
+    const bodyText = await page.$eval('body', el => el.innerText);
     const hasContent = bodyText.length > 200;
     const has404Text = bodyText.toLowerCase().includes('page not found') ||
-                       bodyText.toLowerCase().includes('404');
+                       /\b404\b/.test(bodyText);
 
     return {
       path: pagePath,

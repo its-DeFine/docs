@@ -22,6 +22,7 @@
  */
 
 const https = require("https");
+const http = require("http");
 const fs = require("fs");
 const path = require("path");
 
@@ -203,7 +204,7 @@ function gitlabGet(instanceUrl, endpoint) {
       headers,
     };
 
-    const transport = url.protocol === "https:" ? https : require("http");
+    const transport = url.protocol === "https:" ? https : http;
     const req = transport.request(options, (res) => {
       let data = "";
       res.on("data", (chunk) => (data += chunk));
@@ -476,7 +477,7 @@ async function callLLM(prompt) {
 function isPlaceholderBody(body) {
   if (!body) return true;
   const trimmed = body.trim();
-  return trimmed.length < 30 || trimmed.includes("didn't work") || trimmed.includes("didn't work");
+  return trimmed.length < 30 || trimmed.includes("didn't work");
 }
 
 function buildPrompt(release, prTitles, productName) {
