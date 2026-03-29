@@ -2188,7 +2188,7 @@
                         "pages": [
                           "v2/about/resources/livepeer-whitepaper",
                           "v2/about/resources/livepeer-glossary",
-                          "v2/about/resources/blockchain-contracts",
+                          "v2/about/livepeer-protocol/blockchain-contracts",
                           "v2/about/resources/technical-roadmap"
                         ]
                       }

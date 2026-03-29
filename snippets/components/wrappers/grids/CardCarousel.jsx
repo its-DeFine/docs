@@ -1,10 +1,9 @@
 /**
  * @component CardCarousel
- * @type wrappers
- * @subniche grids
+ * @category wrappers
+ * @subcategory grids
  * @status stable
  * @description Paginated horizontal carousel with prev/next navigation and dot indicators.
- * @accepts children, className, ...rest
  * @aiDiscoverability none
  * @param {React.ReactNode} children - Content rendered inside the component.
  * @param {number} [visibleCount=3] - Visible count used by the component.

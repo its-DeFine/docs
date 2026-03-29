@@ -31,13 +31,13 @@ Official tags relevant to this repo: @param, @returns, @type, @example, @depreca
 
 Summary of misalignments:
 
-Our tag	Official status	Problem
-@type elements	@type exists but means JS type annotation	Spec collision — our value isn't a JS type
-@subniche	Not in spec	Custom; no standard equivalent
-@category (removed)	Not in core spec but widely adopted	Removing it wasn't aligned to industry usage
-@tier (removed)	Not in spec	Correctly removed
-@example (removed)	Core official tag	Incorrect removal — should be required
-@dependencies (removed)	Not in spec	Correctly removed; @requires is the standard
-@accepts	Not in spec	Custom
-@dataSource	Not in spec	Custom
-@aiDiscoverability	Not in spec	Custom (appropriate for repo-specific tooling)
+Our tag Official status Problem
+@type elements @type exists but means JS type annotation Spec collision — our value isn't a JS type
+@subniche Not in spec Custom; no standard equivalent
+@category (removed) Not in core spec but widely adopted Removing it wasn't aligned to industry usage
+@tier (removed) Not in spec Correctly removed
+@example (removed) Core official tag Incorrect removal — should be required
+@dependencies (removed) Not in spec Correctly removed; @requires is the standard
+@accepts Not in spec Custom
+@dataSource Not in spec Custom
+@aiDiscoverability Not in spec Custom (appropriate for repo-specific tooling)

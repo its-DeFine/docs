@@ -143,7 +143,25 @@ Only edit sections relevant to this session. Do not touch other entries.
 
 ---
 
-## Step 7: Confirm close
+## Step 7: Populate backlog
+
+Append any flags, recommendations, or out-of-scope items discovered during this session to `workspace/plan/future/BACKLOG/registry.md`.
+
+Format per item:
+```markdown
+## BL-XXX — [Title]
+**Source:** [thread name] — [date]
+**Description:** [one-line description]
+**Priority:** [P0/P1/P2/P3 or "untriaged"]
+```
+
+Increment the BL number from the last entry in the file. If there are no items to log, skip this step.
+
+Do not action backlog items — just log them.
+
+---
+
+## Step 8: Confirm close
 
 Output a single close summary:
 

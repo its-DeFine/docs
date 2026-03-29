@@ -1,10 +1,9 @@
 /**
  * @component ScrollableDiagram
- * @type displays
- * @subniche diagrams
+ * @category displays
+ * @subcategory diagrams
  * @status stable
  * @description Pannable, zoomable diagram container with zoom controls and accessible buttons.
- * @accepts children, className, style, ...rest
  * @aiDiscoverability none
  * @param {React.ReactNode} children - Content rendered inside the component.
  * @param {string} [title=""] - Title text rendered by the component.

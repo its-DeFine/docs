@@ -1,10 +1,9 @@
 /**
  * @component DynamicTable
- * @type wrappers
- * @subniche tables
+ * @category wrappers
+ * @subcategory tables
  * @status stable
  * @description Renders structured data as a scrollable table with section separators and accessible region.
- * @accepts className, style, ...rest
   * @aiDiscoverability none
  * @param {any} [tableTitle=null] - table Title prop.
  * @param {Array} [headerList=[]] - header List prop.

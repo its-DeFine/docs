@@ -1,10 +1,9 @@
 /**
  * @component SolutionItem
- * @type wrappers
- * @subniche custom
+ * @category wrappers
+ * @subcategory custom
  * @status stable
  * @description Renders a solution entry with link, icon badges, and description. Designed for solution listing pages.
- * @accepts style, className
  * @aiDiscoverability props-extracted
  * @param {React.ReactNode} link - Link element (e.g. <LinkArrow />), rendered as the heading
  * @param {React.ReactNode} [iconWrapper=null] - Icon badges element (e.g. <IconBadgeWrapper />)

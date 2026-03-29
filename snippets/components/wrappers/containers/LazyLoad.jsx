@@ -1,10 +1,9 @@
 /**
  * @component LazyLoad
- * @type wrappers
- * @subniche containers
+ * @category wrappers
+ * @subcategory containers
  * @status stable
  * @description Defers rendering of children until the element scrolls into (or near) the viewport. Uses IntersectionObserver — fires once, then disconnects. Fades content in over 400ms to prevent layout flash from async children (embeds, fetched data).
- * @accepts children, height, offset, fadeDuration, className, style, ...rest
  * @aiDiscoverability none
  * @param {React.ReactNode} children - Content to render when visible.
  * @param {string} [height="200px"] - Placeholder min-height before content loads.

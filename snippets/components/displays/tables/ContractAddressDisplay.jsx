@@ -1,13 +1,12 @@
 /**
  * @component ContractAddressDisplay
- * @type displays
- * @subniche tables
+ * @category displays
+ * @subcategory tables
  * @status stable
  * @description Renders Livepeer contract addresses from contractAddressesData.jsx.
  *              Displays current addresses in searchable tables (Arbitrum One + Ethereum Mainnet)
  *              and historical/deprecated addresses in collapsible sections.
  *              Addresses are copyable and linked to block explorers.
- * @accepts style, className
  * @aiDiscoverability props-extracted
  * @param {object} data - The contractAddresses object from contractAddressesData.jsx
  * @param {boolean} [showHistorical=true] - Whether to show deprecated contract section

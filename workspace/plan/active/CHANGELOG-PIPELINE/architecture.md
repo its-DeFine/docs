@@ -270,6 +270,26 @@ graph TB
 
 ---
 
+### D6 — Contract status enrichment (19 hardcoded status lines)
+
+**The problem:** `blockchain-contracts.mdx` has 19 `_Verified · ..._ ` status lines marked with `{/* CHANGELOG PIPELINE UPDATE */}` comments — but the pipeline writes none of them. All are hardcoded. 5 contain data that will go stale (holder counts, transaction counts, "last active" dates). 3 are missing the pipeline marker entirely (BridgeMinter, L2Migrator, MerkleSnapshot).
+
+The data file already stores `verified` and `verifiedAt` per contract but the page ignores both.
+
+**What needs to happen:**
+1. Extend `fetch-contract-addresses.js` to pull per-contract status data from Blockscout API (verified, holder count, last transaction date, deployer address)
+2. Add a static registry in the script for editorial fields that Blockscout cannot answer (`statusLabel`, `deployedBy`, `notes`)
+3. Format all volatile dates at write time (same pattern as `lastVerified`)
+4. Extend `contractAddressesData.jsx` schema with status fields per contract entry
+5. Update `blockchain-contracts.mdx` to read all 19 status lines from data — no hardcoded text
+6. Add missing `{/* CHANGELOG PIPELINE UPDATE */}` markers to BridgeMinter, L2Migrator, MerkleSnapshot
+
+**Checkpoint: CP-D2**
+> Execute: Extend `fetch-contract-addresses.js` + rebuild status lines in `blockchain-contracts.mdx`
+> Pass: Zero hardcoded `_Verified` text outside pipeline data. `--dry-run` output shows enriched per-contract status. All 19+ status lines render from data.
+
+---
+
 ## Target architecture — extensibility design
 
 ### Extension points
@@ -353,6 +373,16 @@ No script changes. No component changes.
 >
 > Pass: Running `fetch-contract-addresses.js --scan-fix --dry-run` on a branch with a known stale address in blockchain-contracts.mdx produces a correct correction output.
 
+**CP-D2: Contract status enrichment** ← D6 decision
+> Requires: D6 approved. CP-D complete (addresses connected first).
+> Execute:
+> 1. Extend `fetch-contract-addresses.js` — Blockscout API calls for holder count, last tx date, deployer; static registry for editorial fields
+> 2. Extend `contractAddressesData.jsx` schema with per-contract status fields
+> 3. Rebuild all 19 status lines in `blockchain-contracts.mdx` to read from data
+> 4. Add missing pipeline markers to BridgeMinter, L2Migrator, MerkleSnapshot
+>
+> Pass: Zero hardcoded `_Verified` text. `--dry-run` shows enriched data. All status lines render from data file.
+
 ---
 
 ### Phase 3: Contracts changelog pipeline
@@ -416,7 +446,8 @@ No script changes. No component changes.
 | `snippets/components/displays/tables/ContractAddressDisplay.jsx` | **DELETE** | CP-C |
 | `v2/about/resources/contract-addresses.mdx` | **REBUILD** — SearchTable + DynamicTable | CP-C |
 | `v2/resources/references/contract-addresses.mdx` | **DECIDE** — delete or redirect | CP-C |
-| `v2/about/resources/blockchain-contracts.mdx` | **UPDATE** — address freshness per D2 | CP-D |
+| `v2/about/resources/blockchain-contracts.mdx` | **UPDATE** — address freshness per D2, status enrichment per D6 | CP-D, CP-D2 |
+| `.github/scripts/fetch-contract-addresses.js` | **EXTEND** — Blockscout status data + static editorial registry | CP-D2 |
 | `v2/resources/changelog/changelog.mdx` | **FIX FORMAT** — Update blocks | CP-H |
 | `v2/resources/changelog/docs.mdx` | **FIX FORMAT** — Update blocks | CP-H |
 | `snippets/templates/pages/resources/changelog-automated-template.mdx` | **AUDIT** — likely delete | CP-F |

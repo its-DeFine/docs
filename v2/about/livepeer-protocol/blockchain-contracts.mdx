@@ -51,7 +51,7 @@ import { LinkArrow, DoubleIconLink, LinkIcon } from '/snippets/components/elemen
 import { Subtitle, CopyText } from '/snippets/components/elements/text/Text.jsx'
 import { CenteredContainer, BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
 import { ScrollableDiagram } from '/snippets/components/displays/diagrams/ZoomableDiagram.jsx'
-import { contractAddresses } from '/snippets/data/changelogs/contractAddressesData.jsx'
+import { contractAddresses } from '/snippets/data/contract-addresses/contractAddressesData.jsx'
 import { CustomCardTitle } from '/snippets/components/elements/text/CustomCardTitle.jsx'
 import { AddressLinks } from '/snippets/components/elements/links/Links.jsx'
 import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
@@ -116,7 +116,6 @@ export const lastVerifiedDate = contractAddresses.meta.lastVerified || "Pending"
 </Columns>
 
 <CustomDivider />
-
 Livepeer uses a system of Ethereum smart contracts to permissionlessly govern its decentralised network.
 
 The [Livepeer Protocol](https://github.com/livepeer/protocol/tree/delta) <LivepeerIcon size={12} color="var(--accent)"/> is deployed on [Arbitrum One](https://arbiscan.io/accounts/label/livepeer) <ArbitrumIcon size={14} color="var(--arbitrum)"/> and uses these contracts to govern:
@@ -129,7 +128,7 @@ The [Livepeer Protocol](https://github.com/livepeer/protocol/tree/delta) <Livepe
 
 ## Livepeer Contracts
 
-There are three categories of contracts in the Livepeer Protocol:
+There are three categories of contracts in the Livepeer Protocol as well as migration contacts:
 
 1. **[Core Protocol Contracts](#core-protocol-contracts)** – staking, payments, round progression, and service discovery
 2. **[Token and Utility Contracts](#token-and-utility-contracts)** – the LPT token and bridge infrastructure

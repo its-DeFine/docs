@@ -1,12 +1,11 @@
 
 /**
  * @component CoinGeckoExchanges
- * @type integrators
- * @subniche feeds
+ * @category integrators
+ * @subcategory feeds
  * @status stable
  * @description Sortable table of exchanges listing a token. Keyboard-accessible sort headers.
  * @dataSource CoinGecko API
- * @accepts {string} coinId, {string} className, {object} style, ...rest
  * @aiDiscoverability snapshot
  * @param {string} [coinId="arbitrum"] - coin Id prop.
   * @param {string} [className=''] - Optional CSS class override.

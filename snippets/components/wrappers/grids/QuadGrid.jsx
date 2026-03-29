@@ -2,11 +2,10 @@
 
 /**
  * @component QuadGrid
- * @type wrappers
- * @subniche grids
+ * @category wrappers
+ * @subcategory grids
  * @status stable
  * @description 2x2 grid with centred rotating icon overlay. Respects prefers-reduced-motion.
- * @accepts children, className, style, ...rest
   * @aiDiscoverability none
  * @param {React.ReactNode} children - Content rendered inside the component.
  * @param {string} [icon="arrows-spin"] - Icon configuration used by the component.

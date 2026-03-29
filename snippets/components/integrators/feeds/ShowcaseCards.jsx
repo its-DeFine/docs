@@ -2,12 +2,11 @@
 
 /**
  * @component ShowcaseCards
- * @type integrators
- * @subniche feeds
+ * @category integrators
+ * @subcategory feeds
  * @status experimental
  * @description Paginated project showcase with search, filtering, and media cards.
  * @dataSource prop (items)
- * @accepts {Array} items, {number} limit, {number} pageSize, {string} className, {object} style, ...rest
  * @aiDiscoverability props-extracted
  * @param {Array} [items=[]] - Collection data rendered by the component.
  * @param {number} [limit=null] - Limit used by the component.

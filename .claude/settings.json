@@ -11,7 +11,10 @@
       "Read(//Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/$HOME/.claude/projects/-Users-alisonhaire-Documents-Livepeer-Docs-v2-dev/**)",
       "Bash(find /Users/alisonhaire/.claude/ -name *.jsonl -newer /Users/alisonhaire/.claude/plans/misty-rolling-starfish.md)",
       "Bash(ls -la /Users/alisonhaire/.claude/plans/misty-rolling-starfish-agent-*.md)",
-      "Bash(chmod +x workspace/plan/active/FUCK_CLAUDE/scripts/fix-title-overwrite.sh)"
+      "Bash(chmod +x workspace/plan/active/FUCK_CLAUDE/scripts/fix-title-overwrite.sh)",
+      "mcp__plugin_claude-mem_mcp-search__timeline",
+      "mcp__claude_ai_Github_MCP__search_issues",
+      "mcp__claude_ai_Github_MCP__create_repository"
     ],
     "additionalDirectories": [
       "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/workspace/thread-outputs/sessions"
@@ -55,6 +58,15 @@
             "statusMessage": "Checking for MDX context..."
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/friction-logger.js",
+            "async": true
+          }
+        ]
       }
     ],
     "PreToolUse": [
@@ -75,6 +87,16 @@
             "type": "command",
             "command": "node operations/scripts/dispatch/governance/pre-tool-guard.js",
             "statusMessage": "Checking file write..."
+          }
+        ]
+      },
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/pre-tool-guard.js",
+            "statusMessage": "Checking agent spawn approval..."
           }
         ]
       }
@@ -117,6 +139,16 @@
             "type": "command",
             "command": "node operations/scripts/dispatch/governance/session-register.js",
             "async": true
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/move-detect-hook.js",
+            "statusMessage": "Checking for file moves..."
           }
         ]
       }

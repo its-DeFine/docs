@@ -1,10 +1,9 @@
 /**
  * @component CustomCardTitle
- * @type elements
- * @subniche text
+ * @category elements
+ * @subcategory text
  * @status stable
  * @description Title row with icon and text, using flexbox alignment. Accepts Font Awesome strings or React components as icon. Variant prop controls styling context.
- * @accepts style, className, ...rest
  * @aiDiscoverability none
  * @param {string|React.ReactNode} icon - Font Awesome icon name (string) or React component (e.g. ArbitrumIcon).
  * @param {React.ReactNode} title - Title text rendered by the component.

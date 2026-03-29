@@ -1,10 +1,9 @@
 /**
  * @component FlexContainer
- * @type wrappers
- * @subniche containers
+ * @category wrappers
+ * @subcategory containers
  * @status stable
  * @description Flexbox container with configurable direction, gap, and alignment.
- * @accepts children, className, ...rest
   * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {string} [direction="row"] - direction prop.
@@ -53,11 +52,10 @@ export const FlexContainer = ({
 
 /**
  * @component GridContainer
- * @type wrappers
- * @subniche containers
+ * @category wrappers
+ * @subcategory containers
  * @status stable
  * @description CSS Grid container with configurable columns and gap.
- * @accepts children, className, ...rest
   * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {any} columns - columns prop.
@@ -97,11 +95,10 @@ export const GridContainer = ({
 
 /**
  * @component Spacer
- * @type wrappers
- * @subniche containers
+ * @category wrappers
+ * @subcategory containers
  * @status stable
  * @description Spacer element with configurable size.
- * @accepts className, style, ...rest
   * @aiDiscoverability none
  * @param {string} [size="1rem"] - size prop.
  * @param {string} [direction="vertical"] - direction prop.

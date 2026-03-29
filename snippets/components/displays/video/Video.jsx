@@ -1,10 +1,9 @@
 /**
  * @component TitledVideo
- * @type displays
- * @subniche video
+ * @category displays
+ * @subcategory video
  * @status stable
  * @description Auto-playing video with title/subtitle overlay. Respects prefers-reduced-motion.
- * @accepts className, style, ...rest
   * @aiDiscoverability none
  * @param {any} src - src prop.
  * @param {any} title - title prop.
@@ -113,11 +112,10 @@ export const TitledVideo = ({
 
 /**
  * @component ShowcaseVideo
- * @type displays
- * @subniche video
+ * @category displays
+ * @subcategory video
  * @status stable
  * @description Full-width video with negative-margin breakout and rounded frame.
- * @accepts className, style, ...rest
   * @aiDiscoverability none
  * @param {any} src - src prop.
  * @param {any} title - title prop.
@@ -148,11 +146,10 @@ export const ShowcaseVideo = ({ src, title, subtitle, className = "", style = {}
 
 /**
  * @component Video
- * @type displays
- * @subniche video
+ * @category displays
+ * @subcategory video
  * @status stable
  * @description Basic framed video player with caption support.
- * @accepts children, className, style, ...rest
   * @aiDiscoverability none
  * @param {any} src - src prop.
  * @param {string} [title=""] - title prop.
@@ -296,11 +293,10 @@ export const Video = ({
 
 /**
  * @component YouTubeVideo
- * @type displays
- * @subniche video
+ * @category displays
+ * @subcategory video
  * @status stable
  * @description YouTube embed via responsive iframe with aspect-ratio preservation.
- * @accepts className, style, ...rest
   * @aiDiscoverability none
  * @param {any} embedUrl - embed Url prop.
  * @param {string} [title=""] - title prop.
@@ -382,11 +378,10 @@ export const YouTubeVideo = ({
 
 /**
  * @component YouTubeVideoData
- * @type displays
- * @subniche video
+ * @category displays
+ * @subcategory video
  * @status stable
  * @description Renders a columned grid of YouTubeVideo embeds from an items array.
- * @accepts none
   * @aiDiscoverability none
  * @param {Array} [items=[]] - items prop.
  * @param {any} limit - limit prop.
@@ -430,11 +425,10 @@ export const YouTubeVideoData = ({ items = [], limit, cols = 2 }) => {
 
 /**
  * @component LinkedInEmbed
- * @type displays
- * @subniche video
+ * @category displays
+ * @subcategory video
  * @status stable
  * @description LinkedIn post embed via responsive iframe with compact layout.
- * @accepts none
   * @aiDiscoverability none
  * @param {any} embedUrl - embed Url prop.
  * @param {string} [title="Embedded post"] - title prop.
@@ -478,11 +472,10 @@ export const LinkedInEmbed = ({
 
 /**
  * @component YouTubeVideoDownload
- * @type displays
- * @subniche video
+ * @category displays
+ * @subcategory video
  * @status stable
  * @description YouTube embed with download hint text below.
- * @accepts className, style, ...rest
   * @aiDiscoverability none
  * @param {any} embedUrl - embed Url prop.
  * @param {any} title - title prop.
@@ -540,11 +533,10 @@ export const YouTubeVideoDownload = ({
 
 /**
  * @component CardVideo
- * @type displays
- * @subniche video
+ * @category displays
+ * @subcategory video
  * @status stable
  * @description YouTube embed inside a Card wrapper with aspect-ratio iframe.
- * @accepts style, className, ...rest
   * @aiDiscoverability none
  * @param {any} embedUrl - embed Url prop.
  * @param {any} title - title prop.

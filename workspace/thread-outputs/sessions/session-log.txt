@@ -254,3 +254,40 @@ Working on CLAUDE.md restructure. Completed Phase 1 PreCompact hook. About to st
 (Context compaction occurred — no summary available from hook input)
 ---
 Session started: 2026-03-29 12:01:26
+Session started: 2026-03-29 12:20:44
+Session started: 2026-03-29 12:20:52
+Session started: 2026-03-29 12:21:33
+Session started: 2026-03-29 12:57:20
+Session started: 2026-03-29 12:57:20
+Session started: 2026-03-29 12:57:34
+Session started: 2026-03-29 12:57:37
+Session started: 2026-03-29 12:57:46
+Session started: 2026-03-29 12:59:25
+Session started: 2026-03-29 13:04:03
+Session started: 2026-03-29 13:04:38
+Session started: 2026-03-29 13:05:18
+Session started: 2026-03-29 13:21:29
+Session started: 2026-03-29 13:23:46
+Session started: 2026-03-29 16:52:30
+Session started: 2026-03-29 17:14:27
+Session started: 2026-03-29 17:16:38
+Session started: 2026-03-29 17:21:33
+Session started: 2026-03-29 18:08:21
+Session started: 2026-03-29 18:08:33
+Session started: 2026-03-29 18:08:33
+Session started: 2026-03-29 18:30:22
+Session started: 2026-03-29 18:37:50
+Session started: 2026-03-29 18:42:18
+Session started: 2026-03-29 18:48:29
+Session started: 2026-03-29 19:17:11
+Session started: 2026-03-29 20:00:06
+Session started: 2026-03-29 20:42:26
+
+=== 2026-03-29 19:30 ===
+Stream: Propagate
+Outcome: Met
+Done:
+- Built 3-layer file rename/move propagation system (hook + skill + library extensions)
+- Extended docs-path-sync.js with 5 new capabilities (docs-guide scope, llms.txt, sitemap-ai.xml, full-URL tokens, redirect creation)
+- Created /propagate skill (329 lines) and move-detect-hook.js (178 lines), all tested (19/19 pass)
+Next: Live test with a real v2/ rename; consider CI gate for human renames outside Claude

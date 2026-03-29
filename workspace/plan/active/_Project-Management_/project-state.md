@@ -100,6 +100,14 @@
 
 ---
 
+## Watcher Flags
+
+| Flag | Thread | Issue | Date |
+|---|---|---|---|
+| LIMBO | Contracts & Changelogs | Changelog migration half-done — old files deleted but unstaged, architecture.md references paths that may not exist on disk | 2026-03-29 |
+
+---
+
 ## Tab Priority Order
 
 1. Orchestrators

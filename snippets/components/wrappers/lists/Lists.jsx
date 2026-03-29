@@ -2,11 +2,10 @@ import { GotoLink } from "/snippets/components/elements/links/Links.jsx";
 
 /**
  * @component BasicList
- * @type wrappers
- * @subniche lists
+ * @category wrappers
+ * @subcategory lists
  * @status planned
  * @description Planned list component — not yet implemented.
- * @accepts none
   * @aiDiscoverability none
  * @param {any} listItems - list Items prop.
  */
@@ -16,11 +15,10 @@ export const BasicList = ({ listItems: array }) => {
 
 /**
  * @component IconList
- * @type wrappers
- * @subniche lists
+ * @category wrappers
+ * @subcategory lists
  * @status planned
  * @description Planned icon list component — not yet implemented.
- * @accepts none
   * @aiDiscoverability none
  * @param {any} listItems - list Items prop.
  */
@@ -30,11 +28,10 @@ export const IconList = ({ listItems: array }) => {
 
 /**
  * @component StepList
- * @type wrappers
- * @subniche lists
+ * @category wrappers
+ * @subcategory lists
  * @status stable
  * @description Renders listItems as Mintlify Steps with title, icon, and content.
- * @accepts className, style, ...rest
   * @aiDiscoverability none
  * @param {any} listItems - list Items prop.
   * @param {string} [className=''] - Optional CSS class override.
@@ -54,11 +51,10 @@ export const StepList = ({ listItems, className = "", style = {}, ...rest }) => 
 
 /**
  * @component StepLinkList
- * @type wrappers
- * @subniche lists
+ * @category wrappers
+ * @subcategory lists
  * @status stable
  * @description Renders listItems as Mintlify Steps with GotoLink navigation.
- * @accepts className, style, ...rest
   * @aiDiscoverability none
  * @param {any} listItems - list Items prop.
   * @param {string} [className=''] - Optional CSS class override.
@@ -78,11 +74,10 @@ export const StepLinkList = ({ listItems, className = "", style = {}, ...rest })
 
 /**
  * @component UpdateList
- * @type wrappers
- * @subniche lists
+ * @category wrappers
+ * @subcategory lists
  * @status planned
  * @description Planned update list component — not yet implemented.
- * @accepts none
   * @aiDiscoverability none
  * @param {any} listItems - list Items prop.
  */
@@ -99,11 +94,10 @@ export const UpdateList = ({ listItems: array }) => {
 
 /**
  * @component UpdateLinkList
- * @type wrappers
- * @subniche lists
+ * @category wrappers
+ * @subcategory lists
  * @status stable
  * @description Renders update items as linked entries inside Mintlify Update component.
- * @accepts none
   * @aiDiscoverability none
  * @param {any} listItems - list Items prop.
  */

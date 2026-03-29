@@ -1963,3 +1963,79 @@ The repo is being handed over to the OSS community and a human review team with 
 | `workspace/plan/active/OSS-OWNERLESS-REPO-GOVERNANCE/tracker.md` | New | Phase tracker with community-handover constraint |
 | `workspace/plan/active/OSS-OWNERLESS-REPO-GOVERNANCE/master-status.mdx` | Updated | Corrected counts, decisions, handover context |
 | `workspace/plan/active/OSS-OWNERLESS-REPO-GOVERNANCE/05_OSS-Governance-Framework/**` | Updated | Status headers added to all 8 planning input files |
+
+---
+
+## Propagate System — 2026-03-29
+
+**Plans**: `.claude/plans/merry-greeting-moth.md`
+**Scope**: Design and build automated rename/move propagation for v2/ files across all reference surfaces.
+**Outcome**: Met
+
+### Summary
+
+Built a 3-layer file rename/move propagation system to solve the problem of ~11,800 cross-file path references breaking silently when v2/ files are moved. Layer 1 is a PostToolUse hook that auto-detects mv/git mv commands and reports impact. Layer 2 is the `/propagate` skill that presents a structured dry-run report and applies changes with human approval. Layer 3 extends the existing `docs-path-sync.js` library with new surfaces (llms.txt, sitemap-ai.xml, docs-guide/), a full-URL token variant, XML value rewriting, and automatic redirect creation.
+
+### Completed
+
+**Phase 1 — Library extensions (docs-path-sync.js)**
+- Added `docs-guide/` to DOC_TEXT_SCOPES (was: v2, tests, tools, snippets)
+- Added `llms.txt` and `sitemap-ai.xml` as always-checked files
+- Added 6th token variant `full-url` for `https://docs.livepeer.org/v2/...` references
+- Added `rewriteXmlValueToken` for `<loc>URL</loc>` patterns in sitemaps
+- Added automatic redirect creation in `applyMovePairsToDocsJson`
+
+**Phase 2 — Detection hook**
+- Created `move-detect-hook.js` — PostToolUse on Bash, 11-tag JSDoc, handles git mv, mv, quoted paths, multi-file, chained commands, skips lpd move-page
+- Registered in `.claude/settings.json`
+
+**Phase 3 — /propagate skill**
+- Created full 329-line skill definition with 7 steps, anti-patterns, technical reference
+- Created registered skill stub in `.claude/skills/propagate/`
+- Skill is discoverable via `/propagate` and appears in skills list
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| Extend docs-path-sync.js rather than build parallel rewrite logic in skill | Single source of truth for all rewrite mechanics; CLI and lpd auto-benefit |
+| NOT adding workspace/ to DOC_TEXT_SCOPES | Historical research/audit snapshots are point-in-time records that must not be auto-updated |
+| Hook is informational only (PostToolUse, not PreToolUse) | Cannot block moves — can only detect and report after the fact |
+| Automatic redirect creation for moved pages | Highest-impact gap — without it, bookmarks and external links break silently |
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| Library loads, all exports present | PASS | 19 exports verified |
+| Dry-run: mission-control rename | PASS | 2 docs.json + 11 file changes, llms.txt + sitemap-ai.xml + docs-guide/ all affected |
+| Redirect creation | PASS | New redirect auto-created, dedup works |
+| Full-URL token matching | PASS | 3 full-url matches (llms.txt, sitemap-ai.xml) |
+| Hook: git mv detection | PASS | Correct systemMessage with dry-run counts |
+| Hook: mv with flags | PASS | Strips flags, extracts paths |
+| Hook: non-v2 silent skip | PASS | No output, exit 0 |
+| Hook: lpd move-page skip | PASS | No output, exit 0 |
+| Hook: quoted paths | PASS | Handles double/single quotes |
+| Hook: multi-file to directory | PASS | Creates pair per source file |
+| Hook: chained commands | PASS | Parses each sub-command independently |
+| Hook: empty command | PASS | Silent exit |
+| Hook: malformed JSON | PASS | Graceful exit 0 |
+| Session temp file accumulation | PASS | 6 moves accumulated across tests |
+| settings.json valid JSON | PASS | 6 hook event types |
+| Skill stub discoverable | PASS | Appears in /skills listing |
+| Library syntax check | PASS | node -c passes |
+| Hook syntax check | PASS | node -c passes |
+| Same source/dest no-op | PASS | 0 pairs generated |
+
+### Recommendations
+1. **Live test** — Rename a real v2/ page and run the full hook -> /propagate -> approve flow
+2. **CI gate** — Add `sync-docs-paths.js --dry-run --staged` to pre-commit hook for human renames outside Claude
+3. **CLI output** — Update sync-docs-paths.js console formatting to label new reason types (full-url, redirect-creation)
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `operations/scripts/dispatch/governance/move-detect-hook.js` | New (178 lines) | PostToolUse hook — detects mv/git mv, stores pairs, dry-run report |
+| `ai-tools/ai-skills/propagate/SKILL.md` | New (329 lines) | Full /propagate skill definition |
+| `.claude/skills/propagate/SKILL.md` | New (5 lines) | Registered skill stub |
+| `operations/scripts/config/docs-path-sync.js` | Modified | +docs-guide scope, +llms.txt/sitemap, +full-url token, +XML rewriter, +redirect creation |
+| `.claude/settings.json` | Modified | +PostToolUse Bash hook for move-detect |
+| `.claude/plans/merry-greeting-moth.md` | New | Implementation plan |

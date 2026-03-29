@@ -1,10 +1,9 @@
 /**
  * @component Image
- * @type elements
- * @subniche images
+ * @category elements
+ * @subcategory images
  * @status stable
  * @description Framed image with optional caption and full-width toggle.
- * @accepts style, className, ...rest
   * @aiDiscoverability none
  * @param {any} src - src prop.
  * @param {any} alt - alt prop.
@@ -32,11 +31,10 @@ export const Image = ({ src, alt = "", caption, icon, hint, fullwidth = true, cl
 
 /**
  * @component LinkImage
- * @type elements
- * @subniche images
+ * @category elements
+ * @subcategory images
  * @status stable
  * @description Clickable framed image that opens a URL in a new tab.
- * @accepts style, className, ...rest
   * @aiDiscoverability none
  * @param {any} src - src prop.
  * @param {any} alt - alt prop.

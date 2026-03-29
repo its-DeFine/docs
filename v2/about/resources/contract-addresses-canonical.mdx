@@ -1,0 +1,124 @@
+---
+sidebarTitle: Contract Addresses
+title: Canonical Contract Addresses
+description: >-
+  Current and historical Livepeer protocol contract addresses across Arbitrum
+  One and Ethereum Mainnet. Verified on-chain. Automatically Updated. Canonical Reference Source for the Livepeer Blockchain Contract Addresses
+keywords:
+  - livepeer
+  - livepeer contracts
+  - contract addresses
+  - arbitrum
+  - ethereum
+  - blockchain
+  - smart contracts
+  - canonical
+  - reference
+'og:image': /snippets/assets/site/og-image/fallback.png
+'og:image:alt': Livepeer Docs social preview image
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+pageType: reference
+purpose: reference
+audience: general
+lastVerified: 2026-03-26
+---
+
+{/* components */}
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { LinkArrow, DoubleIconLink } from '/snippets/components/elements/links/Links.jsx'
+import { SearchTable } from '/snippets/components/wrappers/tables/SearchTable.jsx'
+import { DynamicTable } from '/snippets/components/wrappers/tables/Table.jsx'
+import { CopyText } from '/snippets/components/elements/text/Text.jsx'
+import { StyledSteps, StyledStep } from '/snippets/components/wrappers/steps/Steps.jsx'
+import { ContractVerifier } from '/snippets/components/integrators/feeds/ContractVerifier.jsx'
+
+{/* data */}
+import { contractAddresses } from '/snippets/data/contract-addresses/contractAddressesData.jsx'
+
+export const lastVerifiedDate = contractAddresses.meta.lastVerified || "Pending"
+
+<Danger> This is the ONLY official Livepeer Contracts Canonical Reference outside of the blockchain and source github. Please be sure you are on `docs.livepeer.org/` site before using these!! </Danger>
+
+<Tip>
+  Addresses on this page are automatically updated via a Github Action workflow. <br/>
+  <span style={{display: "flex", alignItems: "center", marginTop: "0.2rem"}}> Data is sourced from the canonical <DoubleIconLink label="governor-scripts" href="https://github.com/livepeer/governor-scripts" iconRightColor="var(--hero-text)"/> and verified on-chain. </span> <br/>
+  <span style={{color: "var(--text)", marginTop: "0.5rem"}}> Last Updated: DD Month YYYY </span>
+</Tip>
+
+<br/>
+<Columns cols={2}>
+  <Card
+    href="https://github.com/livepeer/governor-scripts/blob/master/updates/addresses.js"
+    icon="github"
+    title={<>Livepeer Contract Addresses <br/>  <Badge color="green"> Canonical </Badge></>}
+    horizontal
+  />
+  <Card
+    href="https://arbiscan.io/accounts/label/livepeer"
+    icon="cubes"
+    title={<>Livepeer Contracts Arbiscan <br/>  <Badge color="green"> Canonical </Badge></>}
+    horizontal
+  />
+</Columns>
+
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
+
+## Verifier Widget
+
+Use the tool below to query the Controller directly from your browser. No CLI required.
+
+<ContractVerifier />
+
+<CustomDivider />
+
+## How To Verify An Address
+
+<Danger> ALWAYS VERIFY ADDRESSES </Danger>
+
+Every Arbitrum One contract address can be independently verified by querying the Controller on-chain. No trust in documentation is required.
+
+<StyledSteps iconColor="red" titleColor="red" lineColor="red">
+  <StyledStep title={<span>Call <code>getContract</code> on the Controller</span>} icon="terminal">
+        Query `getContract(keccak256("<ContractName>"))` on the Controller at `0xD8E8328501E9645d16Cf49539efC04f734606ee4` (Arbitrum One, chain 42161). The returned address is the current registered implementation.
+        ```bash
+        # Example: verify BondingManager proxy address
+        cast call 0xD8E8328501E9645d16Cf49539efC04f734606ee4 \
+            "getContract(bytes32)(address)" \
+            $(cast keccak "BondingManager") \
+            --rpc-url https://arb1.arbitrum.io/rpc
+        ```
+
+        A registered contract returns a non-zero 42-character address:
+        ```
+        0x35Bcf3c30594191d53231E4FF333E8A770453e40
+        ```
+        If the output is `0x0000000000000000000000000000000000000000`, the contract name is misspelled or does not exist on this chain.
+</StyledStep>
+
+  <StyledStep title={<span>Cross Check Against <code>governor-scripts</code></span>} icon="triangle-exclamation">
+    Confirm the returned address matches the entry in [`governor-scripts/updates/addresses.js`](https://github.com/livepeer/governor-scripts/blob/master/updates/addresses.js). This file is updated by Livepeer when governance approves an upgrade.
+  </StyledStep>
+    <StyledStep title="Inspect on Arbiscan" icon="triangle-exclamation" iconColor="red" titleColor="red">
+        Paste the address into [Arbiscan](https://arbiscan.io) or [Blockscout](https://arbitrum.blockscout.com) to confirm:
+
+        - **Contract label** — the header shows "Livepeer: [ContractName]" or "Livepeer: Proxy [ContractName]"
+        - **Verified source** — the Contract tab has a green checkmark
+        - **Deployer** — deployed by `0x5C83dC...` (the Livepeer Foundation deployer)
+        - **Transaction history** — at least several transactions going back to the deployment date
+
+       <Warning> An address that returns no label, unverified bytecode, zero transactions, or "This address is not a contract" is not a Livepeer protocol contract.</Warning>
+    </StyledStep>
+</StyledSteps>
+
+<CustomDivider />
+
+## Livepeer Contracts
+
+1. **[Core Protocol Contracts](#core-protocol-contracts)** – staking, payments, round progression, and service discovery
+2. **[Token and Utility Contracts](#token-and-utility-contracts)** – the LPT token and bridge infrastructure
+3. **[Governance Contracts](#governance-contracts)** – on-chain voting, proposal execution, and treasury management
+4. **[Migration Contracts](#migration-contracts)** – historical Confluence upgrade contracts, migration complete
+
+## Index List for Canonical Contract Source.

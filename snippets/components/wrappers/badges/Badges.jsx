@@ -1,10 +1,9 @@
 /**
  * @component BadgeWrapper
- * @type elements
- * @subniche badges
+ * @category elements
+ * @subcategory badges
  * @status stable
  * @description Flex row wrapper for Badge elements. Pass a `badges` array of {color, label} objects for auto-rendering, or use children for manual JSX.
- * @accepts badges, children, gap, style, className, ...rest
  * @param {Array} [badges] - Array of {color, label} objects. Rendered automatically as Badge elements.
  * @param {ReactNode} [children] - Manual Badge JSX. Used if badges prop is omitted.
  * @param {string} [gap="0.4rem"] - Gap between badges.
@@ -50,11 +49,10 @@ export const BadgeWrapper = ({
 
 /**
  * @component IconBadgeWrapper
- * @type elements
- * @subniche badges
+ * @category elements
+ * @subcategory badges
  * @status stable
  * @description Flex row wrapper for icon+label tag items. Pass an `items` array of {icon, label} objects. Icons are uncoloured by default — pass `iconColor` to override.
- * @accepts items, iconColor, size, gap, style, className, ...rest
  * @param {Array} items - Array of {icon, label} objects.
  * @param {string} [iconColor] - Colour applied to all icons. Defaults to currentColor if omitted.
  * @param {number} [size=12] - Icon size in px.

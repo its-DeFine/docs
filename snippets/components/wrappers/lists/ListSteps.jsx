@@ -1,10 +1,9 @@
 /**
  * @component ListSteps
- * @type wrappers
- * @subniche lists
+ * @category wrappers
+ * @subcategory lists
  * @status stable
  * @description Renders an array of step items inside Mintlify Steps component.
- * @accepts className, style, ...rest
   * @aiDiscoverability none
  * @param {Array} listItems - Collection data rendered by the component.
  * @param {object} [stepsConfig={}] - Steps config used by the component.

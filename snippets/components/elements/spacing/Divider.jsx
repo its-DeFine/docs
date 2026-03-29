@@ -1,11 +1,10 @@
 // FIX THIS - IT SHOULD DYNAMICALLY TAKE UP THE HEIGHT IT HAS
 /**
  * @component CustomDivider
- * @type elements
- * @subniche spacing
+ * @category elements
+ * @subcategory spacing
  * @status stable
  * @description Themed horizontal divider with optional centre text and Livepeer logo accents.
- * @accepts style, className, ...rest
   * @aiDiscoverability none
  * @param {string} [color="var(--border)"] - color prop.
  * @param {string} [middleText=""] - middle Text prop.

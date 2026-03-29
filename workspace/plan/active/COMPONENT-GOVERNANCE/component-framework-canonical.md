@@ -235,23 +235,22 @@ snippets/
 
 ## Component JSDoc header standard
 
-Every exported component must include a JSDoc header block with these 7 core tags.
+Every exported component must include a JSDoc header block with these 6 core tags.
 Hook-using components additionally require `@aiDiscoverability`.
-No other governance tags should be used — removed tags (`@owner`, `@category`,
+No other governance tags should be used — removed tags (`@owner`,
 `@tier`, `@contentAffinity`, `@decision`, `@duplicates`, `@lastMeaningfulChange`,
-`@breakingChangeRisk`, `@dependencies`, `@usedIn`) must not appear.
+`@breakingChangeRisk`, `@dependencies`, `@usedIn`, `@accepts`) must not appear.
 
 ### Tag reference
 
 | Tag | Required | What it does | Values / format |
 |---|---|---|---|
 | `@component` | Yes | Component identity | Export name (PascalCase) |
-| `@type` | Yes | Layer 1 — what kind of component | `elements`, `wrappers`, `displays`, `scaffolding`, `integrators`, `config` |
-| `@subniche` | Yes | Layer 2 — specific sub-concern | Matches folder name: `a11y`, `accordions`, `badges`, `blog`, `buttons`, `callouts`, `cards`, `code`, `containers`, `diagrams`, `embeds`, `feeds`, `frame-mode`, `grids`, `heroes`, `icons`, `images`, `links`, `lists`, `math`, `page-containers`, `portals`, `quotes`, `response-fields`, `social`, `spacing`, `steps`, `tables`, `text`, `video`, `video-data` |
+| `@category` | Yes | Layer 1 — what kind of component | `elements`, `wrappers`, `displays`, `scaffolding`, `integrators`, `config` |
+| `@subcategory` | Yes | Layer 2 — specific sub-concern | Matches folder name: `a11y`, `accordions`, `badges`, `blog`, `buttons`, `callouts`, `cards`, `code`, `containers`, `diagrams`, `embeds`, `feeds`, `frame-mode`, `grids`, `heroes`, `icons`, `images`, `links`, `lists`, `math`, `page-containers`, `portals`, `quotes`, `response-fields`, `social`, `spacing`, `steps`, `tables`, `text`, `video`, `video-data` |
 | `@status` | Yes | Lifecycle state | `stable`, `experimental`, `deprecated`, `broken` |
 | `@description` | Yes | One-line human-readable description | Plain English sentence — what it renders and when to use it |
 | `@dataSource` | If integrator | Where external data comes from | `none`, `prop`, `CoinGecko API`, `fetch(url)`, `automation/blog`, etc. |
-| `@accepts` | Yes | Extensibility declaration — what the consumer can customise | Comma-separated: `children`, `style`, `className`, `...rest` |
 | `@aiDiscoverability` | If hook-using | Companion file requirement for AI/crawler access | `snapshot`, `props-extracted`, `none` |
 
 After the header block, each prop gets a standard `@param`:
@@ -268,8 +267,8 @@ After the header block, each prop gets a standard `@param`:
 | Tag | Reason |
 |---|---|
 | `@owner` | Ownerless governance — was always `docs` for every component |
-| `@category` | Replaced by `@type` (aligned with script governance) |
-| `@tier` | primitive/composite/pattern — replaced by `@type`/`@subniche` |
+| `@tier` | primitive/composite/pattern — replaced by `@category`/`@subcategory` |
+| `@accepts` | Absorbed into `@param` — extensibility props are documented per-prop |
 | `@contentAffinity` | Not queried by anyone in practice |
 | `@decision` | All said KEEP — served its purpose during audit |
 | `@duplicates` | All resolved during restructure |
@@ -286,17 +285,6 @@ After the header block, each prop gets a standard `@param`:
 | `experimental` | Working but API may change |
 | `deprecated` | Still exported for backward compat, do not use in new pages |
 | `broken` | Non-functional (e.g. empty stubs) — flagged for removal or rewrite |
-
-### @accepts values
-
-List which extensibility props the component supports:
-
-| Value | Meaning |
-|---|---|
-| `children` | Accepts child content via React children |
-| `style` | Accepts a `style` prop that merges with internal defaults |
-| `className` | Accepts a `className` prop on the outermost element |
-| `...rest` | Spreads remaining props onto the outermost element (id, data-*, aria-*) |
 
 ### @aiDiscoverability values
 
@@ -319,11 +307,10 @@ Not required on pure/presentational components.
 ```js
 /**
  * @component   CustomDivider
- * @type        elements
- * @subniche    spacing
+ * @category    elements
+ * @subcategory spacing
  * @status      stable
  * @description Themed horizontal divider with optional centre text and Livepeer logo accents.
- * @accepts     children, style, className, ...rest
  *
  * @param {string} [color="var(--border)"] - Divider line and icon colour
  * @param {string} [middleText=""] - Optional text displayed in the centre
@@ -337,11 +324,10 @@ Not required on pure/presentational components.
 ```js
 /**
  * @component   DynamicTable
- * @type        wrappers
- * @subniche    tables
+ * @category    wrappers
+ * @subcategory tables
  * @status      stable
  * @description Renders structured data as a table with optional section separators and sortable columns.
- * @accepts     style, className, ...rest
  *
  * @param {Array} data - Array of row objects to render
  * @param {Array} columns - Column definitions [{key, label, align}]
@@ -354,12 +340,11 @@ Not required on pure/presentational components.
 ```js
 /**
  * @component   CoinGeckoExchanges
- * @type        integrators
- * @subniche    feeds
+ * @category    integrators
+ * @subcategory feeds
  * @status      stable
  * @description Fetches and renders a sortable table of exchanges listing a token from CoinGecko API.
  * @dataSource  CoinGecko API (GET /coins/{coinId}/tickers)
- * @accepts     style, className, ...rest
  * @aiDiscoverability snapshot
  *
  * @param {string} [coinId="arbitrum"] - CoinGecko coin identifier
@@ -372,11 +357,10 @@ Not required on pure/presentational components.
 ```js
 /**
  * @component   SearchTable
- * @type        wrappers
- * @subniche    tables
+ * @category    wrappers
+ * @subcategory tables
  * @status      stable
  * @description Filterable table wrapper with search input and category dropdown.
- * @accepts     className, style, ...rest
  * @aiDiscoverability props-extracted
  *
  * @param {Array} [headerList=[]] - Column header definitions
@@ -390,11 +374,10 @@ Not required on pure/presentational components.
 ```js
 /**
  * @component   Starfield
- * @type        scaffolding
- * @subniche    heroes
+ * @category    scaffolding
+ * @subcategory heroes
  * @status      stable
  * @description Animated canvas starfield background with floating Livepeer logos. Respects prefers-reduced-motion.
- * @accepts     style, className, ...rest
  *
  * @param {number} [density=1.1] - Logo density multiplier
  * @param {Object} [style={}] - Override/merge styles on canvas element
@@ -407,11 +390,11 @@ Not required on pure/presentational components.
 | Concept | Scripts | Components |
 |---|---|---|
 | Identity tag | `@script` | `@component` |
-| Layer 1 taxonomy | `@type` (audit, generator, ...) | `@type` (elements, wrappers, ...) |
-| Layer 2 taxonomy | `@concern` + `@niche` | `@subniche` |
+| Layer 1 taxonomy | `@type` (audit, generator, ...) | `@category` (elements, wrappers, ...) |
+| Layer 2 taxonomy | `@concern` + `@niche` | `@subcategory` |
 | Human description | `@description` | `@description` |
 | Status lifecycle | — | `@status` |
-| System behaviour | `@mode` (read-only, write, ...) | `@accepts` (children, style, ...) |
+| System behaviour | `@mode` (read-only, write, ...) | — (extensibility documented in `@param`) |
 | External data | — | `@dataSource` |
 | Pipeline/flow | `@pipeline` | — (components don't have pipelines) |
 | File scope | `@scope` | — (components don't operate on files) |

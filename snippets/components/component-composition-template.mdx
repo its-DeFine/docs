@@ -114,8 +114,7 @@ DEFAULT EXPORTS
 FORBIDDEN JSDOC TAGS
   The following tags were removed from the standard and must not appear:
   @owner             — was always "docs"; ownerless governance, redundant
-  @category          — replaced by @type
-  @tier              — replaced by @type / @subniche
+  @tier              — replaced by @category / @subcategory
   @contentAffinity   — not queried in practice
   @decision          — audit artefact, served its purpose
   @duplicates        — all resolved during restructure
@@ -137,7 +136,7 @@ INLINE STYLE OBJECTS IN JSX
 COMPONENT JSDOC HEADER — FULL STANDARD
 ================================================================================
 
-Every exported component requires a JSDoc block with these 7 core tags (in order).
+Every exported component requires a JSDoc block with these 6 core tags (in order).
 Integrators additionally require @dataSource. Hook-using components require @aiDiscoverability.
 
 Official JSDoc 3 specification: [jsdoc.app](https://jsdoc.app/)
@@ -150,7 +149,7 @@ TAG REFERENCE
   The export name in PascalCase. Must exactly match the export identifier.
   Example: @component   SearchTable
 
-@type        [required]
+@category        [required]
   Layer 1 taxonomy. Determines the top-level folder under snippets/components/.
   Values:
     config       Non-component config/theme objects (e.g. MermaidColours)
@@ -172,9 +171,9 @@ TAG REFERENCE
     5. Is it a non-component config/theme object? → config
     6. Default → elements
 
-@subniche    [required]
+@subcategory    [required]
   Layer 2 taxonomy. Must exactly match the immediate parent folder name.
-  Values by @type:
+  Values by @category:
 
     elements:    a11y | buttons | callouts | icons | images | links |
                  math | social | spacing | text
@@ -190,8 +189,8 @@ TAG REFERENCE
 
     config:      (none — top-level config/ folder)
 
-  File must live at: snippets/components/<type>/<subniche>/ComponentName.jsx
-  @subniche value must match the folder name exactly or pre-commit will block.
+  File must live at: snippets/components/<category>/<subcategory>/ComponentName.jsx
+  @subcategory value must match the folder name exactly or pre-commit will block.
 
 @status      [required]
   Lifecycle state of the component.
@@ -207,7 +206,7 @@ TAG REFERENCE
   Example: "Filterable table wrapper with search input and category dropdown."
   Not:     "A component that allows filtering of table data."
 
-@dataSource  [required if @type is integrators, otherwise omit]
+@dataSource  [required if @category is integrators, otherwise omit]
   Where external data comes from. Be specific.
   Values:
     none                        No external data
@@ -222,18 +221,6 @@ TAG REFERENCE
   If data comes from a JSX automation file (e.g. discordData.jsx), the MDX page
   imports that data and passes it as a prop — @dataSource should be "prop" and the
   @param for the data prop should reference the automation file.
-
-@accepts     [required]
-  Comma-separated list of extensibility props the component supports.
-  Always declare which of these the outermost element accepts — do not omit silently.
-  Values:
-    children     Accepts child content via React children prop
-    style        Accepts a style prop that merges with internal defaults
-    className    Accepts a className prop on the outermost element
-    ...rest      Spreads remaining props onto the outermost element
-                 (id, data-*, aria-*, event handlers, etc.)
-  Example: @accepts     children, style, className, ...rest
-  If the component accepts no extensibility props, write: @accepts   none
 
 @aiDiscoverability  [required if component uses React hooks; omit for pure components]
   Declares whether a companion static file is needed for AI/crawler access.
@@ -287,7 +274,7 @@ STANDARD @param FORMAT
 
 {/*
 ================================================================================
-FULL EXAMPLE HEADERS — copy the block that matches your @type and adapt it
+FULL EXAMPLE HEADERS — copy the block that matches your @category and adapt it
 NOTE: In this file, JSDoc closing markers are written as  * /  (with a space)
       to avoid ending this comment block. In your real .jsx file, remove the space.
 ================================================================================
@@ -295,11 +282,10 @@ NOTE: In this file, JSDoc closing markers are written as  * /  (with a space)
 ── Element ──
 /**
  * @component   CustomDivider
- * @type        elements
- * @subniche    spacing
+ * @category        elements
+ * @subcategory    spacing
  * @status      stable
  * @description Themed horizontal divider with optional centre text and Livepeer logo accents.
- * @accepts     children, style, className, ...rest
  *
  * @param {string} [color="var(--border)"]  - Divider line and icon colour
  * @param {string} [middleText=""]          - Optional text in the centre of the divider
@@ -311,11 +297,10 @@ NOTE: In this file, JSDoc closing markers are written as  * /  (with a space)
 ── Wrapper ──
 /**
  * @component   DynamicTable
- * @type        wrappers
- * @subniche    tables
+ * @category        wrappers
+ * @subcategory    tables
  * @status      stable
  * @description Renders structured data as a table with optional section separators and sortable columns.
- * @accepts     style, className, ...rest
  *
  * @param {Array}   data                    - Array of row objects to render
  * @param {Array}   columns                 - Column definitions. Each item: key (string), label (string), align? (left|right|center)
@@ -327,12 +312,11 @@ NOTE: In this file, JSDoc closing markers are written as  * /  (with a space)
 ── Integrator — runtime fetch (snapshot) ──
 /**
  * @component   CoinGeckoExchanges
- * @type        integrators
- * @subniche    feeds
+ * @category        integrators
+ * @subcategory    feeds
  * @status      stable
  * @description Fetches and renders a sortable table of exchanges listing a token from CoinGecko API.
  * @dataSource  CoinGecko API
- * @accepts     style, className, ...rest
  * @aiDiscoverability snapshot
  *
  * @param {string} [coinId="arbitrum"]      - CoinGecko coin identifier
@@ -343,12 +327,11 @@ NOTE: In this file, JSDoc closing markers are written as  * /  (with a space)
 ── Integrator — prop-driven data from automa:tion file ──
 /**
  * @component   DiscordAnnouncements
- * @type        integrators
- * @subniche    feeds
+ * @category        integrators
+ * @subcategory    feeds
  * @status      stable
  * @description Renders a list of Discord announcements from pre-fetched automation data.
  * @dataSource  prop — data from snippets/automations/solutions/[product]/discordData.jsx
- * @accepts     style, className, ...rest
  * @aiDiscoverability none
  *
  * ItemShape: id (string), content (string), timestamp (string), author? (string)
@@ -361,11 +344,10 @@ NOTE: In this file, JSDoc closing markers are written as  * /  (with a space)
 ── Wrapper with hooks — interactive UI (props-extracted) ──
 /**
  * @component   SearchTable
- * @type        wrappers
- * @subniche    tables
+ * @category        wrappers
+ * @subcategory    tables
  * @status      stable
  * @description Filterable table wrapper with search input and category dropdown.
- * @accepts     className, style, ...rest
  * @aiDiscoverability props-extracted
  *
  * @param {Array}  [headerList=[]]          - Column header definitions
@@ -379,11 +361,10 @@ NOTE: In this file, JSDoc closing markers are written as  * /  (with a space)
 ── Scaffolding ──
 /**
  * @component   Starfield
- * @type        scaffolding
- * @subniche    heroes
+ * @category        scaffolding
+ * @subcategory    heroes
  * @status      stable
  * @description Animated canvas starfield background with floating Livepeer logos. Respects prefers-reduced-motion.
- * @accepts     style, className, ...rest
  *
  * @param {number} [density=1.1]            - Logo density multiplier
  * @param {Object} [style={}]               - Override/merge styles on canvas element

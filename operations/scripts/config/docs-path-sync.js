@@ -18,8 +18,10 @@ const path = require('path');
 const { execSync, spawnSync } = require('child_process');
 
 const DOCS_JSON_REL = 'docs.json';
-const DOC_TEXT_SCOPES = ['v2', 'tests', 'tools', 'snippets'];
+const DOC_TEXT_SCOPES = ['v2', 'tests', 'tools', 'snippets', 'docs-guide'];
 const DOC_TEXT_EXTENSIONS = new Set(['.md', '.mdx', '.js', '.jsx', '.ts', '.tsx', '.json']);
+const ALWAYS_CHECK_FILES = ['llms.txt', 'sitemap-ai.xml'];
+const DOCS_SITE_URL = 'https://docs.livepeer.org';
 const DEFAULT_REMAP_THRESHOLD = 0.85;
 
 function getCleanGitEnv() {
@@ -376,6 +378,12 @@ function collectScopedTextFiles(repoRoot) {
   }
   DOC_TEXT_SCOPES.forEach((scope) => walk(path.join(repoRoot, scope)));
   if (!seen.has(DOCS_JSON_REL) && fs.existsSync(path.join(repoRoot, DOCS_JSON_REL))) results.push(DOCS_JSON_REL);
+  ALWAYS_CHECK_FILES.forEach((specialFile) => {
+    if (!seen.has(specialFile) && fs.existsSync(path.join(repoRoot, specialFile))) {
+      seen.add(specialFile);
+      results.push(specialFile);
+    }
+  });
   return results.sort((a, b) => a.localeCompare(b));
 }
 
@@ -407,12 +415,18 @@ function rewriteAngleToken(content, oldToken, newToken) {
   return content.replace(regex, (_match, open, suffix, close) => `${open}${newToken}${suffix}${close}`);
 }
 
+function rewriteXmlValueToken(content, oldToken, newToken) {
+  const regex = new RegExp(`(>)${escapeRegExp(oldToken)}((?:[#?][^<]*)?)(<)`, 'g');
+  return content.replace(regex, (_match, open, suffix, close) => `${open}${newToken}${suffix}${close}`);
+}
+
 function rewriteContentToken(content, oldToken, newToken) {
   if (!oldToken || oldToken === newToken) return content;
   let next = content;
   next = rewriteQuotedToken(next, oldToken, newToken);
   next = rewriteMarkdownToken(next, oldToken, newToken);
   next = rewriteAngleToken(next, oldToken, newToken);
+  next = rewriteXmlValueToken(next, oldToken, newToken);
   return next;
 }
 
@@ -425,6 +439,7 @@ function buildReplacementTokens(filePath, pair) {
     { oldToken: oldFile, newToken: newFile, reason: 'file-path' },
     { oldToken: oldRoute, newToken: newRoute, reason: 'route' },
     { oldToken: `/${oldRoute}`, newToken: `/${newRoute}`, reason: 'rooted-route' },
+    { oldToken: `${DOCS_SITE_URL}/${oldRoute}`, newToken: `${DOCS_SITE_URL}/${newRoute}`, reason: 'full-url' },
     { oldToken: buildRelativeToken(filePath, oldFile), newToken: buildRelativeToken(filePath, newFile), reason: 'relative-file' },
     { oldToken: buildRelativeToken(filePath, oldFile, { stripExtension: true }), newToken: buildRelativeToken(filePath, newFile, { stripExtension: true }), reason: 'relative-route' }
   ].filter((item) => item.oldToken && item.newToken && item.oldToken !== item.newToken);
@@ -451,6 +466,16 @@ function applyMovePairsToDocsJson(docsJson, pairs) {
       changes.push({ file: DOCS_JSON_REL, pointer: `redirects[${index}].destination`, from: previousDestination, to: `/${normalizeRoute(pair.targetRoute)}`, reason: 'redirect-destination' });
     });
   });
+  pairs.forEach((pair) => {
+    const oldSource = `/${normalizeRoute(pair.sourceRoute)}`;
+    const alreadyExists = redirects.some((r) => r && typeof r === 'object' && normalizeRoute(r.source) === normalizeRoute(pair.sourceRoute));
+    if (!alreadyExists) {
+      const newRedirect = { source: oldSource, destination: `/${normalizeRoute(pair.targetRoute)}` };
+      redirects.push(newRedirect);
+      changes.push({ file: DOCS_JSON_REL, pointer: `redirects[${redirects.length - 1}]`, from: null, to: JSON.stringify(newRedirect), reason: 'redirect-creation' });
+    }
+  });
+  if (!nextDocsJson.redirects) nextDocsJson.redirects = redirects;
   return { docsJson: nextDocsJson, changes };
 }
 

@@ -2148,6 +2148,7 @@
                         "pages": [
                           "v2/about/livepeer-protocol/overview",
                           "v2/about/livepeer-protocol/core-mechanisms",
+                          "v2/about/livepeer-protocol/blockchain-contracts",
                           "v2/about/livepeer-protocol/livepeer-token",
                           "v2/about/livepeer-protocol/governance-model",
                           "v2/about/livepeer-protocol/treasury",
@@ -2173,7 +2174,7 @@
                         "pages": [
                           "v2/about/resources/livepeer-whitepaper",
                           "v2/about/resources/livepeer-glossary",
-                          "v2/about/resources/blockchain-contracts",
+                          "v2/about/resources/contract-addresses-canonical",
                           "v2/about/resources/contract-addresses",
                           "v2/about/resources/testnet-contract-deployment",
                           "v2/about/resources/local-testnet-deployment",

@@ -2,11 +2,10 @@
 
 /**
  * @component ComingSoonCallout
- * @type elements
- * @subniche callouts
+ * @category elements
+ * @subcategory callouts
  * @status stable
  * @description Banner indicating a feature or page is coming soon, with links to related resources.
- * @accepts style, className, ...rest
   * @aiDiscoverability none
  * @param {string} [type="page"] - Type used by the component.
  * @param {string} [className=""] - CSS class name.
@@ -93,11 +92,10 @@ const ComingSoonCallout = ({ type = "page", className = "", style = {}, ...rest 
 
 /**
  * @component PreviewCallout
- * @type elements
- * @subniche callouts
+ * @category elements
+ * @subcategory callouts
  * @status stable
  * @description Banner indicating content is in preview/draft state with feedback links.
- * @accepts style, className, ...rest
   * @aiDiscoverability none
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
@@ -171,11 +169,10 @@ const PreviewCallout = ({ className = "", style = {}, ...rest }) => {
 
 /**
  * @component ReviewCallout
- * @type elements
- * @subniche callouts
+ * @category elements
+ * @subcategory callouts
  * @status stable
  * @description Banner indicating content is under review with status links.
- * @accepts style, className, ...rest
   * @aiDiscoverability none
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
@@ -195,11 +192,10 @@ const ReviewCallout = ({ className = "", style = {}, ...rest }) => {
 
 /**
  * @component CalloutWrapper
- * @type elements
- * @subniche callouts
+ * @category elements
+ * @subcategory callouts
  * @status stable
  * @description Wraps Mintlify callout types (Tip, Info, Warning, Note, Check) with a styled header and description.
- * @accepts style, className, children
  * @aiDiscoverability props-extracted
  * @param {string} [type="tip"] - Mintlify callout type: "tip", "info", "warning", "note", "check"
  * @param {string} header - Bold header text displayed at the top of the callout

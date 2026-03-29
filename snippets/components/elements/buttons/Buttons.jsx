@@ -1,10 +1,9 @@
 /**
  * @component ExternalLinkButton
- * @type elements
- * @subniche buttons
+ * @category elements
+ * @subcategory buttons
  * @status stable
  * @description Icon button that opens an external link in a new tab. Bordered with rounded corners, hover colour transition.
- * @accepts style, className, ...rest
  * @aiDiscoverability none
  * @param {string} href - URL to open on click.
  * @param {string} [icon='arrow-up-right'] - Icon name to display.
@@ -62,11 +61,10 @@ export const ExternalLinkButton = ({
 
 /**
  * @component DownloadButton
- * @type elements
- * @subniche buttons
+ * @category elements
+ * @subcategory buttons
  * @status stable
  * @description Lazy-loaded download button with icon that renders on viewport intersection.
- * @accepts style, className, ...rest
  * @aiDiscoverability none
  * @param {string} [label='Download'] - label prop.
  * @param {string} [icon='download'] - icon prop.

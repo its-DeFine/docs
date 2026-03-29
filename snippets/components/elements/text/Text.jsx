@@ -1,10 +1,9 @@
 /**
  * @component Subtitle
- * @type elements
- * @subniche text
+ * @category elements
+ * @subcategory text
  * @status stable
  * @description Styled subtitle text with configurable colour, size, and alignment.
- * @accepts children, style, className, ...rest
   * @aiDiscoverability none
  * @param {object} [style={}] - style prop.
  * @param {any} text - text prop.
@@ -34,11 +33,10 @@ export const Subtitle = ({ style = {}, text, children, className = "", ...rest }
 
 /**
  * @component CopyText
- * @type elements
- * @subniche text
+ * @category elements
+ * @subcategory text
  * @status stable
  * @description Text with a click-to-copy button that copies content to clipboard.
- * @accepts style, className, ...rest
   * @aiDiscoverability none
  * @param {any} text - text prop.
  * @param {any} label - label prop.
@@ -102,11 +100,10 @@ export const CopyText = ({ text, label, className = "", style = {}, ...rest }) =
 
 /**
  * @component CardTitleTextWithArrow
- * @type elements
- * @subniche text
+ * @category elements
+ * @subcategory text
  * @status stable
  * @description Card title with trailing arrow icon for navigation indication.
- * @accepts children, style, className, ...cardProps
   * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {any} cardProps - card Props prop.
@@ -168,11 +165,10 @@ export const CardTitleTextWithArrow = ({ children, className = "", style = {}, .
 
 /**
  * @component AccordionTitleWithArrow
- * @type elements
- * @subniche text
+ * @category elements
+ * @subcategory text
  * @status stable
  * @description Accordion header text with trailing arrow icon.
- * @accepts children, style, className, ...rest
   * @aiDiscoverability none
  * @param {any} text - text prop.
  * @param {any} children - children prop.

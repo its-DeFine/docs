@@ -2,11 +2,10 @@
 
 /**
  * @component InteractiveCard
- * @type wrappers
- * @subniche cards
+ * @category wrappers
+ * @subcategory cards
  * @status stable
  * @description Single interactive card with hover effects.
- * @accepts style, className, ...cardProps
   * @aiDiscoverability none
  * @param {string} [mediaSrc=""] - media Src prop.
  * @param {string} [logo=""] - logo prop.
@@ -104,11 +103,10 @@ export const InteractiveCard = ({
 
 /**
  * @component InteractiveCards
- * @type wrappers
- * @subniche cards
+ * @category wrappers
+ * @subcategory cards
  * @status stable
  * @description Multi-column layout of interactive cards.
- * @accepts className, style, ...rest
   * @aiDiscoverability none
  * @param {Array} [items=[]] - items prop.
  * @param {string} [className=""] - CSS class name.
@@ -145,11 +143,10 @@ export const InteractiveCards = ({ items = [], className = "", style = {}, ...re
 
 /**
  * @component ShowcaseCards
- * @type wrappers
- * @subniche cards
+ * @category wrappers
+ * @subcategory cards
  * @status stable
  * @description Paginated card layout with search, category, and product filtering.
- * @accepts className, style, ...rest
   * @aiDiscoverability none
  * @param {Array} [items=[]] - items prop.
  * @param {any} [limit=null] - limit prop.

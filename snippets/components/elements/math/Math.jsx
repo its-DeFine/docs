@@ -1,10 +1,9 @@
 /**
  * @component MathInline
- * @type elements
- * @subniche math
+ * @category elements
+ * @subcategory math
  * @status stable
  * @description Renders LaTeX as inline math using KaTeX.
- * @accepts style, className, ...rest
   * @aiDiscoverability none
  * @param {any} latex - latex prop.
  * @param {string} [className=""] - class Name prop.
@@ -26,11 +25,10 @@ export const MathInline = ({ latex, className = "", ariaLabel, style = {}, ...re
 
 /**
  * @component MathBlock
- * @type elements
- * @subniche math
+ * @category elements
+ * @subcategory math
  * @status stable
  * @description Renders LaTeX as a block-level math expression using KaTeX.
- * @accepts style, className, ...rest
   * @aiDiscoverability none
  * @param {any} latex - latex prop.
  * @param {string} [className=""] - class Name prop.

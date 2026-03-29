@@ -1,10 +1,9 @@
 /**
  * @component StyledSteps
- * @type wrappers
- * @subniche steps
+ * @category wrappers
+ * @subcategory steps
  * @status stable
  * @description Wrapper around Mintlify Steps with custom icon styling via injected CSS.
- * @accepts children, className, style, ...rest
   * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {any} iconColor - icon Color prop.
@@ -51,22 +50,38 @@ export const StyledSteps = ({
 
 /**
  * @component StyledStep
- * @type wrappers
- * @subniche steps
+ * @category wrappers
+ * @subcategory steps
  * @status stable
- * @description Single step with configurable icon, size, and colour.
- * @accepts children, className, style, ...rest
-  * @aiDiscoverability none
+ * @description Single step with configurable icon, size, and per-step colour overrides.
+ *              When iconColor or titleColor is set, injects a scoped CSS override that
+ *              takes precedence over the parent StyledSteps colours for this step only.
+ *              When neither is set, behaves identically to a plain Step pass-through.
+ * @aiDiscoverability none
  * @param {any} title - title prop.
  * @param {any} icon - icon prop.
  * @param {string} [titleSize="h3"] - title Size prop.
+ * @param {string|null} [iconColor=null] - Per-step icon background colour override.
+ * @param {string|null} [titleColor=null] - Per-step title text colour override.
  * @param {any} children - children prop.
-  * @param {string} [className=''] - Optional CSS class override.
-  * @param {object} [style={}] - Optional inline style override.
+ * @param {string} [className=''] - Optional CSS class override.
+ * @param {object} [style={}] - Optional inline style override.
  */
-export const StyledStep = ({ title, icon, titleSize = "h3", children, className = "", style = {}, ...rest }) => {
+export const StyledStep = ({ title, icon, titleSize = "h3", iconColor = null, titleColor = null, children, className = "", style = {}, ...rest }) => {
+  const styledTitle = titleColor
+    ? <span style={{ color: titleColor }}>{title}</span>
+    : title;
+
   return (
-    <Step title={title} icon={icon} titleSize={titleSize} className={className} style={style} {...rest}>
+    <Step
+      title={styledTitle}
+      icon={icon}
+      iconColor={iconColor || undefined}
+      titleSize={titleSize}
+      className={className}
+      style={style}
+      {...rest}
+    >
       {children}
     </Step>
   );

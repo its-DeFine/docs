@@ -1,10 +1,9 @@
 /**
  * @component StyledTable
- * @type wrappers
- * @subniche tables
+ * @category wrappers
+ * @subcategory tables
  * @status stable
  * @description Full-width table with header row styling and rounded container.
- * @accepts children, className, ...rest
   * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {string} [variant="default"] - variant prop.
@@ -62,11 +61,10 @@ export const StyledTable = ({ children, variant = "default", style = {}, classNa
 
 /**
  * @component TableRow
- * @type wrappers
- * @subniche tables
+ * @category wrappers
+ * @subcategory tables
  * @status stable
  * @description Table row with optional header styling and hover effect.
- * @accepts children, className, ...rest
   * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {boolean} [header=false] - header prop.
@@ -114,11 +112,10 @@ export const TableRow = ({
 
 /**
  * @component TableCell
- * @type wrappers
- * @subniche tables
+ * @category wrappers
+ * @subcategory tables
  * @status stable
  * @description Table cell that switches between th and td based on header prop.
- * @accepts children, className, ...rest
   * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {string} [align="left"] - align prop.

@@ -1,10 +1,9 @@
 /**
  * @component DisplayCard
- * @type wrappers
- * @subniche cards
+ * @category wrappers
+ * @subcategory cards
  * @status stable
  * @description Card with icon, custom title row, and body content.
- * @accepts children, className, ...rest
   * @aiDiscoverability none
  * @param {string} icon - Icon configuration used by the component.
  * @param {React.ReactNode} title - Title text rendered by the component.
@@ -70,11 +69,10 @@ export const DisplayCard = ({
 
 /**
  * @component WidthCard
- * @type wrappers
- * @subniche cards
+ * @category wrappers
+ * @subcategory cards
  * @status stable
  * @description Width-constrained card wrapper with configurable percentage width.
- * @accepts children, className, style, ...rest
   * @aiDiscoverability none
  * @param {string} [width='80%'] - Width used by the component.
  * @param {React.ReactNode} children - Content rendered inside the component.
@@ -103,11 +101,10 @@ export const WidthCard = ({ width = '80%', children, cardProps, className = "", 
 
 /**
  * @component InlineImageCard
- * @type wrappers
- * @subniche cards
+ * @category wrappers
+ * @subcategory cards
  * @status stable
  * @description Card with inline image alongside content, using negative margin breakout.
- * @accepts children, className, ...rest
   * @aiDiscoverability none
  * @param {React.ReactNode} children - Content rendered inside the component.
  * @param {object} imgProps - Img props used by the component.

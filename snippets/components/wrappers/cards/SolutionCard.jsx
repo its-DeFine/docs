@@ -1,11 +1,10 @@
 /**
  * @component SolutionCard
- * @type wrappers
- * @subniche cards
+ * @category wrappers
+ * @subcategory cards
  * @status stable
  * @description Card body for Solutions Portal product cards. Accepts pre-rendered JSX slots for badges,
  *              infra tags, and social links. ScrollBox is passed as a component prop for blurb rendering.
- * @accepts badges, logoSrc, logoAlt, subtitle, infraTags, blurb, ScrollBox, socialLinks
  * @aiDiscoverability high
  * @note badges, infraTags, socialLinks accept pre-rendered JSX (ReactNode) — instantiated in the parent MDX page.
  *       ScrollBox is passed as a component reference and called internally to wrap blurb text.

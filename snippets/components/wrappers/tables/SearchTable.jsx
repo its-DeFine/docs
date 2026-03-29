@@ -1,10 +1,9 @@
 /**
  * @component SearchTable
- * @type wrappers
- * @subniche tables
+ * @category wrappers
+ * @subcategory tables
  * @status stable
  * @description Generic filterable table wrapper with search input, category dropdown(s), and optional separators.
- * @accepts className, style, ...rest
  * @aiDiscoverability props-extracted
  * @param {Function} [TableComponent=null] - Table renderer component (e.g. DynamicTable).
  * @param {React.ReactNode} [tableTitle=null] - Table title.

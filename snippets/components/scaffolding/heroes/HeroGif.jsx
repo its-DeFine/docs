@@ -1,10 +1,9 @@
 /**
  * @component Starfield
- * @type scaffolding
- * @subniche heroes
+ * @category scaffolding
+ * @subcategory heroes
  * @status stable
  * @description Animated canvas starfield background with floating Livepeer logos. Respects prefers-reduced-motion.
- * @accepts {number} density, {string} className, {object} style, ...rest
   * @aiDiscoverability none
  * @param {number} [density=1.1] - Density used by the component.
  * @param {string} [className=""] - CSS class name.

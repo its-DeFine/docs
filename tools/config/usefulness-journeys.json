@@ -71,7 +71,7 @@
       { "position": 3, "purpose": "tutorial", "path_patterns": ["v2/lpt/*quickstart*", "v2/lpt/*get-started*", "v2/lpt/delegation/*first*", "v2/lpt/*guide*"] },
       { "position": 4, "purpose": "how_to", "path_patterns": ["v2/lpt/delegation/**", "v2/lpt/**"] },
       { "position": 5, "purpose": "concept", "path_patterns": ["v2/lpt/*concept*", "v2/about/livepeer-protocol/economics*", "v2/about/livepeer-protocol/*"] },
-      { "position": 6, "purpose": "reference", "path_patterns": ["v2/lpt/*reference*", "v2/about/resources/blockchain-contracts*"] },
+      { "position": 6, "purpose": "reference", "path_patterns": ["v2/lpt/*reference*", "v2/about/livepeer-protocol/blockchain-contracts*"] },
       { "position": 7, "purpose": ["faq", "troubleshooting"], "path_patterns": ["v2/lpt/*faq*"] }
     ]
   },

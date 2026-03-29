@@ -1,10 +1,9 @@
 /**
  * @component AccordionGroupList
- * @type wrappers
- * @subniche accordions
+ * @category wrappers
+ * @subcategory accordions
  * @status stable
  * @description Generates N numbered accordion sections inside an AccordionGroup.
- * @accepts className, style, ...rest
   * @aiDiscoverability none
  * @param {number} [num=1] - Number of placeholder accordion sections to render.
  * @param {string} [className=""] - CSS class name.

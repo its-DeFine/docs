@@ -1,11 +1,10 @@
 
 /**
  * @component CustomCodeBlock
- * @type displays
- * @subniche code
+ * @category displays
+ * @subcategory code
  * @status stable
  * @description Code block with optional pre/post notes and expandable wrapper.
- * @accepts none
   * @aiDiscoverability none
  * @param {any} filename - filename prop.
  * @param {any} icon - icon prop.
@@ -105,11 +104,10 @@ export const CustomCodeBlock = ({
 
 /**
  * @component CodeComponent
- * @type displays
- * @subniche code
+ * @category displays
+ * @subcategory code
  * @status stable
  * @description Simple code block with title and language syntax highlighting.
- * @accepts className, style, ...rest
   * @aiDiscoverability none
  * @param {string} [filename=""] - filename prop.
  * @param {string} [icon="terminal"] - icon prop.
@@ -158,11 +156,10 @@ export const CodeComponent = ({
 
 /**
  * @component ComplexCodeBlock
- * @type displays
- * @subniche code
+ * @category displays
+ * @subcategory code
  * @status stable
  * @description Code block with both pre-note and post-note sections.
- * @accepts none
   * @aiDiscoverability none
  * @param {any} filename - filename prop.
  * @param {any} icon - icon prop.
@@ -235,11 +232,10 @@ export const ComplexCodeBlock = ({
 
 /**
  * @component CodeSection
- * @type displays
- * @subniche code
+ * @category displays
+ * @subcategory code
  * @status stable
  * @description Expandable code section with title header.
- * @accepts className, style, ...rest
   * @aiDiscoverability none
  * @param {object} [fields={}] - fields prop.
   * @param {string} [className=''] - Optional CSS class override.

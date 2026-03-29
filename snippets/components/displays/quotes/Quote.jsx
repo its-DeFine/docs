@@ -1,10 +1,9 @@
 /**
  * @component Quote
- * @type displays
- * @subniche quotes
+ * @category displays
+ * @subcategory quotes
  * @status stable
  * @description Styled blockquote with accent border and centred italic text.
- * @accepts children, className, style, ...rest
   * @aiDiscoverability none
  * @param {any} children - children prop.
   * @param {string} [className=''] - Optional CSS class override.
@@ -28,11 +27,10 @@ export const Quote = ({ children, className = "", style = {}, ...rest }) => {
 
 /**
  * @component FrameQuote
- * @type displays
- * @subniche quotes
+ * @category displays
+ * @subcategory quotes
  * @status stable
  * @description Framed blockquote with optional author, source link, and image.
- * @accepts children, className, style, ...props
   * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {any} author - author prop.

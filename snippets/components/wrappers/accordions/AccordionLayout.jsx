@@ -1,10 +1,9 @@
 /**
  * @component AccordionLayout
- * @type wrappers
- * @subniche accordions
+ * @category wrappers
+ * @subcategory accordions
  * @status stable
  * @description Vertical stack layout with small gap, designed for accordion content sections.
- * @accepts children, className, style, ...rest
   * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {string} [className=""] - CSS class name.

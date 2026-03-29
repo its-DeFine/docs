@@ -1,11 +1,10 @@
 /**
  * @component ExternalContent
- * @type integrators
- * @subniche embeds
+ * @category integrators
+ * @subcategory embeds
  * @status stable
  * @description Fetches and renders external markdown with scrollable container and source link.
  * @dataSource fetch(url)
- * @accepts {string} repoName, {string} githubUrl, {string} maxHeight, {string} icon, {React.ReactNode} children, {string} className, {object} style, ...rest
   * @aiDiscoverability none
  * @param {string} repoName - Repo name used by the component.
  * @param {string} githubUrl - Github url used by the component.

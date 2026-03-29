@@ -25,6 +25,15 @@ stdin.on('end', () => {
     const toolName = data.tool_name || '';
     const toolInput = data.tool_input || {};
 
+    // --- AGENT: block all spawns without explicit approval ---
+    if (toolName === 'Agent') {
+      console.log(JSON.stringify({
+        decision: 'block',
+        reason: 'BLOCKED: Agent spawn requires explicit "go" from Alison. Present your plan, get approval, THEN ask to spawn.'
+      }));
+      process.exit(2);
+    }
+
     // --- BASH COMMANDS ---
     if (toolName === 'Bash') {
       const cmd = toolInput.command || '';
