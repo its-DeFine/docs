@@ -33,6 +33,17 @@
         ]
       }
     ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/mdx-constraints-injector.js",
+            "statusMessage": "Checking for MDX context..."
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Bash",
@@ -56,6 +67,16 @@
       }
     ],
     "PostToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/read-logger.js",
+            "async": true
+          }
+        ]
+      },
       {
         "matcher": "Grep",
         "hooks": [

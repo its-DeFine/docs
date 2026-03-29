@@ -12,6 +12,8 @@
  * @policy Governance enforcement — do not bypass
  */
 
+const fs = require('fs');
+const path = require('path');
 const { stdin } = process;
 
 let input = '';
@@ -52,9 +54,36 @@ stdin.on('end', () => {
       }
     }
 
-    // --- WRITE/EDIT: context-specific verification reminders ---
+    // --- WRITE/EDIT: context gate (read-before-write + broader context) ---
     if ((toolName === 'Write' || toolName === 'Edit') && toolInput.file_path) {
       const fp = toolInput.file_path;
+      const sessionId = process.env.CLAUDE_SESSION_ID || 'default';
+      const readLogPath = path.join('/tmp', `claude-reads-${sessionId}`);
+
+      let readFiles = [];
+      try {
+        readFiles = fs.readFileSync(readLogPath, 'utf8').trim().split('\n').filter(Boolean);
+      } catch (_) { /* no reads logged yet */ }
+
+      const targetRead = readFiles.some(f => f === fp);
+      const targetDir = path.dirname(fp);
+      const siblingReads = readFiles.filter(f => f !== fp && path.dirname(f) === targetDir);
+      const totalDistinctReads = new Set(readFiles).size;
+
+      // Hard warning: editing a file you haven't read
+      if (!targetRead && !/session-log\.txt/.test(fp) && !/\.json$/.test(fp)) {
+        console.log(JSON.stringify({
+          systemMessage: 'CONTEXT GATE: You are editing a file you have not Read in this session. Read the file first, understand its current state and purpose, then edit. Do not edit blind.'
+        }));
+      }
+
+      // Soft warning: only read the target file, nothing around it
+      if (targetRead && siblingReads.length === 0 && totalDistinctReads <= 2 &&
+          !/session-log\.txt/.test(fp) && !/settings\.json/.test(fp)) {
+        console.log(JSON.stringify({
+          systemMessage: 'CONTEXT WARNING: You have only read the target file and nothing else. Before editing, consider: who calls this? Who consumes it? Are there related files, tests, or templates that this change affects? Check broader context before proceeding.'
+        }));
+      }
 
       // MDX/JSX: verify rendering
       if (/\.(mdx|jsx)$/.test(fp)) {
