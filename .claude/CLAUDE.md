@@ -1,21 +1,48 @@
 # CLAUDE.md — Livepeer Docs v2
 
-> Project coordinator. Read this every session. No prior context needed.
+> Project coordinator. Rules only. State is injected by `session-state.js` at session start.
 
 ---
 
 ## Project identity
 
-Alison Haire (Wonderland). Documentation lead. Decision authority. Not a babysitter.
+Alison Haire (Wonderland). Documentation lead. Decision authority.
 
 **Repo:** `livepeer/docs` . Branch: `docs-v2` . Platform: Mintlify (MDX)
 **Working branch:** `docs-v2-dev`
 
 ---
 
+## Execution rules
+
+- **Do what was asked first.** Do not refactor, restyle, or work on adjacent concerns until the explicit request is completed.
+- **Verify before asserting.** Never claim a component, file, or config does not exist without searching for it. Never claim something works without running it.
+- **Reproduce before fixing.** For bugs: (1) reproduce the exact failure, (2) capture the error, (3) hypothesise from evidence, (4) test one fix at a time. Use `/diagnose` for anything beyond a trivial one-line fix.
+- **Verify first instance before bulk operations.** Apply to one file, confirm it works, then proceed to the rest.
+- **Read Mintlify constraints before editing MDX.** Reference: `workspace/thread-outputs/research/mintlify-constraints-reference.md`. No dynamic JS expressions, no SSR patterns, absolute import paths only, verify component imports exist before using them.
+
+---
+
+## Hard boundaries
+
+- Do not commit, push, or modify the repo directly without explicit approval
+- Do not write to Notion unless explicitly asked
+- Do not post to public services (GitHub issues/PRs, Slack) without human review — hook enforced
+- Do not retry a failing approach more than twice — root-cause analyse instead — hook enforced
+- For bug fixes: reproduce the failure before writing any fix — no guess-and-retry
+- Output fixed work, not to-do lists. If asked for a fixed page, output the fixed page
+- New scripts must follow 11-tag JSDoc standard and type/concern/niche taxonomy (`workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md`)
+- New components must follow 7-tag JSDoc standard and category/sub-niche taxonomy (`workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md`)
+- No destructive file operations without creating a backup or checkpoint commit first
+- Never claim something works without verifying it renders or runs — hook enforced
+- When editing docs files, confirm whether the target is a TEMPLATE or a PAGE before writing
+- After any file move or rename, scan ALL file types for stale references — including .txt, .json, sitemap, llms.txt
+
+---
+
 ## Engineering standards
 
-**This is production infrastructure for a multi-million dollar protocol.** Every change is seen by hundreds of engineers and affects millions of dollars of downstream product pipeline. Every change must meet the highest engineering standards for the full context of the change.
+**This is production infrastructure for a multi-million dollar protocol.** Every change must meet the highest engineering standards for the full context of the change.
 
 - **No bandaids.** Do not patch symptoms. Understand the root cause, design the correct fix, and implement it properly.
 - **Composable and scalable.** Every change must work as part of the larger system. Ask: does this compose with existing patterns? Will it scale when applied to 50 more pages/components/scripts?
@@ -37,29 +64,6 @@ Alison Haire (Wonderland). Documentation lead. Decision authority. Not a babysit
 
 ---
 
-## Co-work skills (`ai-tools/ai-skills/`)
-
-| Skill | When | What it does |
-| --- | --- | --- |
-| `/thread` | Every session | Anchors the session outcome, prevents drift, produces finalisation report |
-| `/research` | Before deciding or building | Agent-delegated investigation; synthesise + recommend, not just list |
-| `/design` | Before building anything non-trivial | First-principles co-creation; architecture doc with test criteria |
-| `/build` | After approved design exists | Agent-delegated execution; validates against design criteria |
-| `/iterate` | After build completes | Review against criteria + best practice; routes to correct phase |
-| `/pm` | Session start, planning, coordination | Proactive project management; priorities, bottlenecks, risks, repo hygiene |
-| `/dispatch` | Parallel batch work | Parallel agent coordinator; batch audits, multi-directory scans |
-| `/agent-brief` | Every agent spawn | Standard instruction template; quality contract, return format, failure protocol |
-| `/diagnose` | Something is broken or a fix has failed twice | Systematic debugging: reproduce, gather facts, hypothesise from evidence, test one at a time, fix root cause |
-| `/close` | End of any session | Verify tasks against repo, write completion report, update session log and work streams table |
-
-**The workflow:** `/thread` → `/pm` → `/research` → `/design` → `/build` → `/iterate` → loop as needed.
-
-**Agent spawns:** Use `/agent-brief` template for every agent. No ad-hoc prompts.
-
-**File outputs:** Write to `workspace/thread-outputs/{skill}/{topic}-{type}.md`. Never dump files in repo root.
-
----
-
 ## Co-creation principles
 
 - Recommend and suggest. Do not ask questions you can answer yourself.
@@ -70,54 +74,6 @@ Alison Haire (Wonderland). Documentation lead. Decision authority. Not a babysit
 - After 2 failed attempts at the same approach: STOP. Root-cause analyse. Propose a different approach. Do not retry.
 - Ignore IDE-opened file context (messages like "The user opened the file X in the IDE") unless the file is explicitly referenced in the message.
 - Use TodoWrite to track session tasks. Create the task list immediately after defining the session outcome in `/thread`. Update status in real time. At `/close`, the task list is the source of truth for what was attempted.
-
----
-
-## Session start — before anything else
-
-1. Read `workspace/plan/active/_Project-Management_/project-state.md`
-2. Read `workspace/plan/active/CONTENT-WRITING/decisions/decision-registry.md`
-3. Read `workspace/plan/active/CONTENT-WRITING/decisions/blocking-items.md`
-4. Read `workspace/plan/active/CONTENT-WRITING/decisions/tab-status.md`
-5. For content-writing pipeline sessions, also read: `workspace/plan/active/CONTENT-WRITING/READ-EVERY-TIME/PROJECT-MANAGEMENT-CANONICAL.md`
-6. **Context-match this session.** Multiple work streams run in parallel. Match to the right stream based on user intent or chat history. Use `/thread` to anchor — it handles registering in the work streams table automatically.
-
----
-
-## Current project state
-
-> **Multiple work streams run in parallel.** Do not assume every session is about the default priority.
-
-**Active work streams:**
-
-| Stream | Status | Key files |
-| --- | --- | --- |
-| Documentation system execution (Phases 0-8) | Phases 0–3.5 complete, Phase 4 next | `ethereal-giggling-bear.md` (plan), `workspace/plan/active/DOCUMENTATION/` |
-| Workflow branch standardisation (Phase 3.5) | Complete — 21 workflows fixed (484d13c9b) | `workspace/thread-outputs/research/workflow-branch-audit.md` |
-| Orchestrators veracity pass (S01-S12) | Phase 7 active | `workspace/plan/active/CONTENTI-PIPLEINE/00-TRACKER.md` |
-| Co-work skills and governance | 9 skills built, draft, testing pending | `ai-tools/ai-skills/*/SKILL.md`, `docs-guide/policies/governance-index.mdx` |
-| Solutions tab content | In progress | `v2/solutions/` |
-| Governance framework staleness fixes | Complete | `workspace/thread-outputs/build/staleness-remediation-report.md` |
-| Content pipeline (5-tab gate sequence) | Blocked on human IA review | `workspace/plan/active/CONTENT-WRITING/decisions/tab-status.md` |
-| OSS contributor governance (community handover) | Phase 1 complete, Phase 2 design next | `workspace/plan/active/OSS-OWNERLESS-REPO-GOVERNANCE/tracker.md` |
-
-**Blocked decisions:** See `workspace/plan/active/CONTENT-WRITING/decisions/blocking-items.md`
-
----
-
-## Hard boundaries
-
-- Do not commit, push, or modify the repo directly without explicit approval
-- Do not write to Notion unless explicitly asked
-- Do not post to public services (GitHub issues/PRs, Slack) without human review — hook enforced
-- Do not retry a failing approach more than twice — root-cause analyse instead — hook enforced
-- Output fixed work, not to-do lists. If asked for a fixed page, output the fixed page
-- New scripts must follow 11-tag JSDoc standard and type/concern/niche taxonomy (`workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md`)
-- New components must follow 7-tag JSDoc standard and category/sub-niche taxonomy (`workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md`)
-- No destructive file operations without creating a backup or checkpoint commit first
-- Never claim something works without verifying it renders or runs — hook enforced
-- When editing docs files, confirm whether the target is a TEMPLATE or a PAGE before writing
-- After any file move or rename, scan ALL file types for stale references — including .txt, .json, sitemap, llms.txt
 
 ---
 
@@ -145,72 +101,39 @@ UK English (-ise, -our, -re). No em dashes. No questions in headings. Lead with 
 
 ---
 
-## Session end — mandatory before closing
+## Skills (`ai-tools/ai-skills/`)
 
-1. Write session summary to `workspace/thread-outputs/sessions/session-log.txt` (outcome, what was done, what's next)
-2. Update work streams table above if status changed
-3. A gate never moves to Done without evidence
-4. A decision never moves to resolved without being written to the decision registry
+Run `/skills` for the full catalogue with descriptions and status.
 
----
+| Category | Skills | Invocation |
+|----------|--------|------------|
+| **Core workflow** | thread, pm, research, design, build, iterate, dispatch, agent-brief, diagnose, close | `/name` (registered) |
+| **Content pipeline** | content-pipeline-tab-map, content-pipeline-pass-a, content-pipeline-pass-b, docs-review-packet-generation, docs-review-fix-execution | Read `ai-tools/ai-skills/{name}/SKILL.md` |
+| **Audit** | docs-quality-and-freshness-audit, docs-coverage-and-route-integrity-audit, script-footprint-and-usage-audit, rubric-static-review, repo-audit-orchestrator, cleanup-quarantine-manager | Read `ai-tools/ai-skills/{name}/SKILL.md` |
+| **Governance** | component-layout-governance, style-and-language-homogenizer-en-gb, generated-mdx-banners-governance, skill-docs, cross-agent-packager | Read `ai-tools/ai-skills/{name}/SKILL.md` |
+| **Authoring** | page-authoring, docs-copy, product-thinking | Read `ai-tools/ai-skills/{name}/SKILL.md` |
 
-## Session log
+**The workflow:** `/thread` → `/pm` → `/research` → `/design` → `/build` → `/iterate` → loop as needed.
 
-Full session history: `workspace/thread-outputs/sessions/session-log.txt`
+**Agent spawns:** Use `/agent-brief` for every agent. No ad-hoc prompts.
 
-Recent entries in CLAUDE.md for quick context:
-
----
-
-### 2026-03-28 — Full repo cleanup + docs-v2 branch cleanup + reconciliation prep
-
-**Done:**
-- Cleaned docs-v2-dev: 36 folders audited, 2,486 files removed from tracking (`_dep-docs/`, `**/_workspace/`, i18n stubs), backlog B001–B018 logged
-- Cleaned docs-v2: new worktree `cleanup/docs-v2`, 2,180 files removed (`docs/`, `tasks/`, `v2/cn/es/fr/`), pushed to origin
-- `_workspace/` intentionally NOT gitignored on docs-v2 (post-merge consolidated review)
-- Fixed 11 broken links in `v2/solutions/livepeer-studio/` + `v2/developers/` on both branches (root cause: missing `docs/` segment from solutions migration PR #845)
-- Divergence re-audit: 384 truly modified files is the actual reconciliation workload (not 7,040)
-- Reconciliation strategy confirmed: "ours-first cherry-pick", docs-v2-dev structure wins
-- Handoff doc: `workspace/plan/active/FULL-CLEANUP/reconciliation-handoff.md`
-
-**Next:** Phase 0 — create `reconcile/docs-v2` worktree, record baseline SHAs, run baseline tests, then begin cherry-pick batches from `cleanup/docs-v2` into `docs-v2-dev`
+**File outputs:** Write to `workspace/thread-outputs/{skill}/{topic}-{type}.md`. Never dump files in repo root.
 
 ---
 
-### 2026-03-27 — Changelog pipeline: GitLab support, LLM enhancement, component fixes
+## VS Code Claude Code Extension Issues
 
-**Done:**
-- Built dual-source (GitHub + GitLab) changelog pipeline for Streamplace (10 entries from 131 GitLab releases)
-- Redesigned enhanced entry format: AI Summary (icon + italic label + divider) + Release Notes (icon + label + ScrollBox) + LazyLoad wrapper
-- Switched to `openrouter/free` (auto-routes to best free model, no stale IDs) + 3-retry with backoff
-- Added `--regenerate` flag, angle-bracket URL fix, UK English + no em dashes in prompt, h4 headings
-- Regenerated Daydream changelog (37 entries, all enhanced)
-- Fixed StyledSteps/LazyLoad/YouTubeVideoData across 5 solution overview + 5 community pages
-- Moved Try sections above Get Started on all overview pages
-- Process log: `workspace/thread-outputs/build/changelog-process-log.md` (12 patterns, 5 runs)
+**DO NOT rediscover these.** Read the canonical diagnostic first.
 
-**Next:** Regenerate Embody, Studio, Frameworks changelogs with `--regenerate --enhance`. Convert process log to skill after 2-3 more runs.
+- **Canonical diagnostic:** `workspace/plan/active/FUCK_CLAUDE/CANONICAL-DIAGNOSTIC.md`
+- **Fix scripts:** `workspace/plan/active/FUCK_CLAUDE/scripts/`
+- **Full repair:** `./workspace/plan/active/FUCK_CLAUDE/scripts/full-repair.sh` (close VS Code first)
+- **12 confirmed root causes** including bulk timestamp resets, 64KB buffer truncation, state.cache wipe on crash
+- **Patches die on extension update** — re-run `patch-extension.sh` after any Claude Code update
+- **Automated backup:** install `com.alison.claude-backup.plist` to launchd for 30-minute snapshots
+- **17 related GitHub issues** filed, zero engagement from Anthropic in 6+ months
 
----
-
-### 2026-03-26 — Solutions migration to docs-v2 (PR #845, merged)
-
-**Done:** Migrated full v2/solutions section (217 files) via PR #845. 19 targeted components, 12 redirects, Puppeteer tested 23/23 pages pass.
-**Next:** Part B planning (full component library migration) — DO NOT start without checking in
-
----
-
-### 2026-03-26 — Solutions pages: component fixes, StyledSteps, LazyLoad
-
-**Done:** Fixed 4 broken component issues, built LazyLoad component, deployed across 5 community pages. 11 files modified.
-**Next:** Verify LazyLoad rendering on dev server
-
----
-
-### 2026-03-26 — Full-site style diagnostic and fix (3 issues)
-
-**Done:** Fixed body padding, heading underlines (.mintignore), content width (72rem cap). Playwright tested.
-**Next:** Visual QA after merge to docs-v2
+If the sidebar is broken: run `full-repair.sh --dry-run` first, then without `--dry-run` if the report looks right.
 
 ---
 
@@ -233,13 +156,9 @@ Recent entries in CLAUDE.md for quick context:
 
 ---
 
-_Owner: Alison Haire (Wonderland) . Updated: 2026-03-26_
+## Session end — mandatory before closing
 
----
-
-### 2026-03-27 — CLAUDE.md verification against repo state
-
-**Done:** Verified CLAUDE.md claims against live repo. Found 8 discrepancies: stale file counts, 16 untracked plan directories, wrong lpd status, stale content scan statuses. Session-state hook confirmed working and reading live files.
-**Decisions made:** None
-**Blocked on:** Nothing closed out
-**Next session picks up:** No action taken — all proposed fixes rejected. Root issue: CLAUDE.md mixed state into rules. State now served by session-state hook. Rules remain in CLAUDE.md.
+1. Write session summary to `workspace/thread-outputs/sessions/session-log.txt` (outcome, what was done, what's next)
+2. Update `workspace/plan/active/_Project-Management_/project-state.md` if work stream status changed
+3. A gate never moves to Done without evidence
+4. A decision never moves to resolved without being written to the decision registry

@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(node -e \":*)",
-      "Bash(npx puppeteer:*)"
+      "Bash(npx puppeteer:*)",
+      "Bash(node tools/dev/generate-mint-dev-scope.js --tabs \"About,Delegators\" --print-only)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(find ~/.claude -name *.db -o -name *.sqlite -o -name state*)",
+      "Bash(chmod +x /Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/workspace/plan/active/FUCK_CLAUDE/scripts/*.sh)",
+      "Bash(./workspace/plan/active/FUCK_CLAUDE/scripts/patch-extension.sh --dry-run)"
     ],
     "additionalDirectories": [
       "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/workspace/thread-outputs/sessions"
@@ -22,7 +27,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "mkdir -p workspace/thread-outputs/sessions && echo \"Session started: $(date '+%Y-%m-%d %H:%M:%S')\" >> workspace/thread-outputs/sessions/session-log.txt && echo '{\"systemMessage\":\"MANDATORY SESSION RULES — Read .claude/CLAUDE.md NOW if not already loaded. NEVER destroy uncommitted work. NEVER run destructive git commands. Match this session to the correct work stream (multiple run in parallel). Skills: /thread /pm /research /design /build /iterate /dispatch /agent-brief /diagnose — full instructions in ai-tools/ai-skills/*/SKILL.md. Explore before executing — first actions in any session should be Read/Grep/Glob to understand the problem. No Write/Edit until you understand what you are changing and why. Think freely, gate on execution. Findings before fixes. UK English. No em dashes. After 2 failures STOP and root-cause analyse. Confirm TEMPLATE vs PAGE before editing docs files. After file moves scan ALL file types for stale refs (.txt .json sitemap llms.txt). New scripts: 11-tag JSDoc + type/concern/niche. New components: 7-tag JSDoc + category. No destructive ops without backup. NEVER claim done without verifying renders/runs. At session end write outcome to workspace/thread-outputs/sessions/session-log.txt. Offer to commit after completing work.\"}'",
+            "command": "mkdir -p workspace/thread-outputs/sessions && echo \"Session started: $(date '+%Y-%m-%d %H:%M:%S')\" >> workspace/thread-outputs/sessions/session-log.txt && echo '{\"systemMessage\":\"SESSION START — CLAUDE.md is the source of truth for all rules. Match this session to the correct work stream (multiple run in parallel). NEVER destroy uncommitted work. NEVER run destructive git commands. Explore before executing — Read/Grep/Glob first, Write/Edit only after understanding. UK English. No em dashes. Offer to commit after completing work.\"}'",
             "statusMessage": "Loading session rules..."
           }
         ]
@@ -58,6 +63,27 @@
             "type": "command",
             "command": "node operations/scripts/dispatch/governance/grep-loop-guard.js",
             "statusMessage": "Checking for search loops..."
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_FILE\" | grep -q '\\.mdx$'; then npx mintlify dev --check 2>&1 | tail -5; fi",
+            "statusMessage": "Checking Mintlify validity..."
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/pre-compact-checkpoint.js",
+            "statusMessage": "Writing mid-session checkpoint..."
           }
         ]
       }

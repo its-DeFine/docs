@@ -131,15 +131,15 @@ Next: [what the next session picks up, if anything]
 
 ---
 
-## Step 6: Update CLAUDE.md work streams table
+## Step 6: Update project state
 
-Read `.claude/CLAUDE.md`. Find the "Active work streams" table.
+If this session started, completed, or changed a work stream, update `workspace/plan/active/_Project-Management_/project-state.md` so `session-state.js` reflects the change at next session start.
 
-- If this session **continued** an existing stream: update the Status column to reflect current state
-- If this session **completed** a stream: mark it done or remove the row
-- If this session **started** a new stream: add a row
+- If this session **continued** an existing stream: update the status in project-state.md
+- If this session **completed** a stream: mark it done
+- If this session **started** a new stream: add it
 
-Only edit the table row(s) relevant to this session. Do not touch other rows.
+Only edit sections relevant to this session. Do not touch other entries.
 
 ---
 
