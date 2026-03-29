@@ -55,7 +55,7 @@ jobs:
           if [[ "${{ inputs.dry_run }}" == "true" ]]; then FLAGS="$FLAGS --dry-run"; fi
           if [[ "${{ inputs.skip_verify }}" == "true" ]]; then FLAGS="$FLAGS --skip-verify"; fi
           if [[ "${{ inputs.scan_fix }}" == "true" ]]; then FLAGS="$FLAGS --scan-fix"; fi
-          node .github/scripts/fetch-contract-addresses.js $FLAGS
+          node .github/scripts/fetch-contract-addresses-v2.js $FLAGS
 
       - name: Check for changes
         id: changes

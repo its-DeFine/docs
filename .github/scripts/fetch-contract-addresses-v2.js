@@ -463,19 +463,20 @@ async function enrichMetadata(entries, network) {
 // Node.js crypto doesn't support keccak256 natively (it has SHA-3, which is different).
 // Pre-computed hashes for all known contract names registered in the Controller.
 // Generated via: cast keccak "ContractName" (Foundry) or ethers.keccak256(ethers.toUtf8Bytes("ContractName"))
+// Pre-computed via web3_sha3 RPC on Arbitrum One (arb1.arbitrum.io/rpc)
 const KECCAK_HASHES = {
-  BondingManager:    "d1e3d0084e00e7e72fad7fd1e54903e7f3b2f585efe498a60c1dba37dd02a324",
-  TicketBroker:      "5c0c36b46891df0c3ece78e5b784e5f0b19de31e383a42e213e67bb2b54bdc38",
-  RoundsManager:     "76e3e2305a63306a83c618afc2ca3016db47eb5f55b5341aab2c46f22e3ae40e",
-  Minter:            "0eddd518cf8e59df0a5fcaa35fb1e6e3c95e3cc35cc3a3a2d0adfaadcac1e7bf",
-  ServiceRegistry:   "39bba2d1b2c25c6dcda1506ad756c909c31e4a6b1f24ff3da9dd97a0aac2e2a1",
-  BondingVotes:      "d3e6f2e4e1a8b5c7f9d2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4",
-  LivepeerGovernor:  "a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3",
-  Treasury:          "b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4",
-  LivepeerToken:     "c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5",
+  BondingManager:    "2517d59a36a86548e38734e8ab416f42afff4bca78706a66ad65750dae7f9e37",
+  TicketBroker:      "bd1aa3e8d2464256d7fd3dcf645c16418d5d8c51d971f1ad7d57e7b1b5eee239",
+  RoundsManager:     "e8438ea868df48e3fc21f2f087b993c9b1837dc0f6135064161ce7d7a1701fe8",
+  Minter:            "6e58ad548d72b425ea94c15f453bf26caddb061d82b2551db7fdd3cefe0e9940",
+  ServiceRegistry:   "79c5d2a4a07754f4bacb0ffba18ac516030ee589ebc89db8627680c4d4cdb230",
+  BondingVotes:      "2a1b465fbcae519904f0fb11f93e73dfbeb47ec54530ec444279610af8cf06b2",
+  LivepeerGovernor:  "aea11c65571dd8b6188d3a5cf5e5d3d4695845e6f217cad0b453b4e276c6cdcd",
+  Treasury:          "6efca2866b731ee4984990bacad4cde10f1ef764fb54a5206bdfd291695b1a9b",
+  LivepeerToken:     "3443e257065fe41dd0e4d1f5a1b73a22a62e300962b57f30cddf41d0f8273ba7",
+  L2Migrator:        "74b6d21e0d4650f622c903126d418c1a52bcc99ea7acb0db0809fc0eeae6c7c3",
+  L2LPTGateway:      "07148fd8bd26d2f980f876cc40cea159d0cca6e6456a379f06f34fb338d35be5",
 };
-// TODO: Regenerate these hashes with cast or ethers before first production run.
-// The hashes above for BondingVotes through LivepeerToken are placeholders.
 
 function keccak256Hex(name) {
   return KECCAK_HASHES[name] || null;
