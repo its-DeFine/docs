@@ -746,11 +746,16 @@ async function verifyRewrittenAssets(statusEntries, sourceContents, options, log
     }
     const content = fs.readFileSync(absPath, 'utf8');
     const hasFrontmatter = /^---\s*\n[\s\S]*?\n---/.test(content);
-    const hasUnclosedJsx = /<([A-Z][A-Za-z]*)[^>]*>[^]*$/.test(content) && !/<\/\1>/.test(content);
-    const valid = hasFrontmatter && !hasUnclosedJsx;
-    results.mdxChecks.push({ file: mdxPath, valid, hasFrontmatter, hasUnclosedJsx });
+    const hasUnmatchedBraces = (content.match(/\{/g) || []).length !== (content.match(/\}/g) || []).length;
+    const hasBrokenImport = /import\s+.*from\s+['"][^'"]*['"]\s*;?\s*$/.test(content) === false && /^import\s/m.test(content);
+    const valid = hasFrontmatter && !hasUnmatchedBraces;
+    const warnings = [];
+    if (!hasFrontmatter) warnings.push('missing frontmatter');
+    if (hasUnmatchedBraces) warnings.push('unmatched braces');
+    if (hasBrokenImport) warnings.push('suspect import (check manually)');
+    results.mdxChecks.push({ file: mdxPath, valid, hasFrontmatter, hasUnmatchedBraces, warnings });
     const status = valid ? 'OK' : 'FAIL';
-    console.log(`  [${status}] ${mdxPath}${!hasFrontmatter ? ' (missing frontmatter)' : ''}${hasUnclosedJsx ? ' (unclosed JSX)' : ''}`);
+    console.log(`  [${status}] ${mdxPath}${warnings.length ? ' (' + warnings.join(', ') + ')' : ''}`);
     if (!valid) results.passed = false;
   }
 
@@ -789,26 +794,32 @@ async function verifyRewrittenAssets(statusEntries, sourceContents, options, log
             try {
               await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
               const bodyLength = await page.$eval('body', (el) => el.textContent.length);
-              const brokenImages = await page.evaluate(() => {
+              const allBrokenImages = await page.evaluate(() => {
                 const imgs = document.querySelectorAll('img');
                 return Array.from(imgs).filter((img) => !img.complete || img.naturalWidth === 0).map((img) => img.src);
               });
-              const brokenVideos = await page.evaluate(() => {
+              const allBrokenVideos = await page.evaluate(() => {
                 const vids = document.querySelectorAll('video source, video[src]');
                 return Array.from(vids).filter((v) => v.error).map((v) => v.src || v.parentElement.src);
               });
+
+              // Only fail on broken media from docs-v2-assets (migration-caused), not external URLs
+              const migrationBrokenImages = allBrokenImages.filter((src) => src.includes('docs-v2-assets'));
+              const migrationBrokenVideos = allBrokenVideos.filter((src) => src.includes('docs-v2-assets'));
+              const externalBroken = allBrokenImages.filter((src) => !src.includes('docs-v2-assets'));
 
               const renderErrors = pageErrors.filter((e) =>
                 !e.includes('favicon') && !e.includes('rss.xml')
               );
 
-              const passed = bodyLength > 100 && brokenImages.length === 0 && renderErrors.length === 0;
-              results.renderChecks.push({ route, url, passed, bodyLength, brokenImages, brokenVideos, renderErrors });
+              const passed = bodyLength > 100 && migrationBrokenImages.length === 0 && migrationBrokenVideos.length === 0 && renderErrors.length === 0;
+              results.renderChecks.push({ route, url, passed, bodyLength, migrationBrokenImages, migrationBrokenVideos, externalBroken, renderErrors });
 
               const status = passed ? 'OK' : 'FAIL';
               console.log(`  [${status}] ${route} (${bodyLength} chars)`);
-              if (brokenImages.length > 0) console.log(`    Broken images: ${brokenImages.join(', ')}`);
-              if (brokenVideos.length > 0) console.log(`    Broken videos: ${brokenVideos.join(', ')}`);
+              if (migrationBrokenImages.length > 0) console.log(`    MIGRATION broken images: ${migrationBrokenImages.join(', ')}`);
+              if (migrationBrokenVideos.length > 0) console.log(`    MIGRATION broken videos: ${migrationBrokenVideos.join(', ')}`);
+              if (externalBroken.length > 0) console.log(`    Pre-existing broken (ignored): ${externalBroken.join(', ')}`);
               if (renderErrors.length > 0) console.log(`    Errors: ${renderErrors.join('; ')}`);
               if (!passed) results.passed = false;
             } catch (err) {

@@ -2289,3 +2289,113 @@ The single reference doc Claude reads before touching MDX/JSX had 2 wrong claims
 |---|---|---|
 | `workspace/thread-outputs/research/mintlify-constraints-reference.md` | Rewritten (530+ lines) | Canonical constraints reference — 12 mistakes, 35 globals, 16 CSS vars, AEO section, headless-verified |
 | `.claude/plans/kind-leaping-stardust.md` | Plan | Full audit plan with findings tables and execution order |
+
+---
+
+## Contracts & Changelogs — Layout Session — 2026-03-30
+
+**Plans**: `workspace/plan/active/CONTRACTS-CHANGELOG-PIPELINE/`
+**Scope**: Build the layout of the canonical contract addresses page.
+**Outcome**: Partially met
+
+### Summary
+Built the page structure for `contract-addresses-canonical.mdx` including SearchTable for active contracts, category AccordionGroup, historical contract section, widget explainer, and source code cards. Created new components (InlineDivider, AccordionTitle). Extended SearchTable with `textIcons` prop and `textIcon`/`addressWrapper` variants. Historical tables mid-conversion to StyledTable. Session had severe execution quality issues — multiple wrong approaches, not reading existing patterns, inlining instead of using components.
+
+### Completed
+- Page structure: Danger callout, Tip, canonical source cards, Verifier widget in BorderedBox, widget explainer with StyledSteps, on-chain verification steps, contract category AccordionGroup, SearchTable for active contracts, historical section with category-grouped accordions, Contract Source Code CardGroup
+- New components: `InlineDivider` (Divider.jsx), `AccordionTitle` (CustomCardTitle.jsx)
+- SearchTable extensions: `textIcons` prop, `textIcon` variant, `addressWrapper` variant, `LinkIcon` import
+- StyledSteps: diamond terminator on last step vertical line
+- CopyText: removed `<code>` wrapper, copy button inside bordered box with overflow-x scroll
+
+### Deferred Items
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Historical tables: convert remaining contracts to StyledTable | P1 | BondingManager pattern done, rest need same conversion | None |
+| Chain icons in active SearchTable | P1 | textIcons variant wired but `Icon` global not available in `export const` — needs icon map in JSX file or page-level workaround | Mintlify global scope limitation |
+| Address display in active SearchTable | P1 | addressWrapper variant built but CopyText overflow needs tuning | CopyText styling |
+| aiDiscoverability compliance | P2 | Flagged in flags.jsonl | Component governance framework |
+| Historical data: add `category` and `statusLabel` to pipeline | P2 | Manual mapping used; pipeline should provide these | fetch-contract-addresses-v2.js |
+
+### Dependencies & Downstream Effects
+- **SearchTable**: 3 new props/variants added — any page using SearchTable is unaffected (all additive, defaults preserve existing behaviour)
+- **CopyText**: Changed internal structure — all consumers should be checked visually
+- **CustomCardTitle.jsx**: AccordionTitle added — no existing consumers affected
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| Page renders on localhost | Pass | Active table, category accordions, verifier widget, historical section all render |
+| SearchTable filtering | Pass | Category, Chain, Type dropdowns work; search works on Name |
+| Address search | Untested | Full address string search may not work (needs verification) |
+| Historical StyledTable | Partial | BondingManager renders; remaining tables still markdown |
+
+### Recommendations
+1. **Fresh thread for historical table conversion** — pattern is established with BondingManager StyledTable. Remaining tables are mechanical. Address cells should be `<LinkArrow>` wrapping the full address — not CopyText, not code blocks.
+2. **Chain icon solution** — build the icon map in a `.jsx` helper file where imports are controlled, not in MDX export const. The `textIcons` variant in SearchTable is ready to consume it.
+3. **Pipeline enhancement** — add `category`, `statusLabel`, and `type` to historical entries in `contractAddressesData.jsx` so the historical section can be data-driven instead of manual markdown.
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `v2/about/resources/contract-addresses-canonical.mdx` | Page (in progress) | Canonical contract addresses page — layout built, historical section mid-conversion |
+| `snippets/components/elements/spacing/Divider.jsx` | Component (new export) | InlineDivider — lightweight hr with margin/padding/colour control |
+| `snippets/components/elements/text/CustomCardTitle.jsx` | Component (new export) | AccordionTitle — icon + title + italic description subtitle |
+| `snippets/components/wrappers/tables/SearchTable.jsx` | Component (extended) | textIcons prop, textIcon/addressWrapper variants, LinkIcon import |
+| `snippets/components/wrappers/steps/Steps.jsx` | Component (extended) | Diamond terminator on last step |
+| `snippets/components/elements/text/Text.jsx` | Component (reworked) | CopyText — no code tag, copy inside bordered box |
+
+---
+
+## Styles Governance — Gap Analysis — 2026-03-30
+
+**Plans**: `.claude/plans/warm-giggling-whisper.md`
+**Scope**: Research, audit, and gap analysis for a styles governance framework — covering styling patterns, Mintlify platform capabilities, responsiveness, WCAG, tooling, icons, badges, and visual markers.
+**Outcome**: Met
+
+### Summary
+
+The repo has a comprehensive style guide (1,123 lines) but doesn't follow its own rules. This session quantified the gap: 1,802 inline style occurrences across 114 active MDX files, 107 hardcoded mermaid init directives, 17 defined-but-unused design tokens, zero responsive breakpoints in components, multiple WCAG Level A violations, and undocumented icon/badge visual vocabularies. Mintlify platform research revealed that Tailwind v3 ships built-in (our guide bans it), `style={{}}` causes layout shift (Mintlify explicitly warns), and 14 CLI tools exist that we don't use. The gap analysis deliverable covers 10 areas with 10 blocking decisions (D1-D10) for the design phase.
+
+### Completed
+
+**Phase 0 — Mintlify Platform Research:**
+- Verified Tailwind v3 availability and Mintlify's recommendation to use it over inline styles
+- Discovered `style={{}}` layout shift warning from Mintlify docs
+- Catalogued 15 Mintlify CLI tools (we use 1: `mint dev`)
+- Identified undocumented mermaid `theme` prop and CSS multi-file loading (unverified)
+- Mapped full docs.json schema against our configuration
+
+**Phase 0B — Responsiveness & WCAG Audit:**
+- Found CRITICAL: FullWidthContainer 100vw horizontal scroll, ShowcaseCards fixed 300px height
+- Found only 2 media queries (1024px only) across entire repo
+- Identified WCAG violations: no focus indicators, `outline: "none"` on inputs, muted text contrast ~4.2:1
+- Confirmed `prefers-reduced-motion` well-implemented
+
+**Phase 1 — Gap Analysis:**
+- Quantified all style guide violations with grep evidence
+- Catalogued 8 inline style pattern categories mapped to component/Tailwind alternatives
+- Audited icon system: 2 custom icons (ArbitrumIcon, LivepeerIcon) using mask-image technique, 287/365 icons unmapped
+- Audited badge system: colour vocabulary (9 colours), on-chain/off-chain icon pairs, infrastructure tags
+- Documented 12 undocumented constraints and patterns
+
+### Decisions Made
+
+None locked — 10 decisions (D1-D10) presented for human review.
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| D1-D10 decisions | P0 | Human decisions needed | Blocks Phase 2 design |
+| Worktree tests (CSS multi-file, mermaid theme prop, Tailwind in JSX) | P1 | Unverified platform claims | Blocks accurate style guide |
+| Phase 2: Style guide framework design | P1 | Requires D1-D10 | D1-D10 |
+| Phase 3: Mermaid solution design | P2 | Requires Phase 1C worktree test | Phase 1C |
+| Phase 4: Remediator script design | P2 | Requires Phase 2 | Phase 2 |
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `workspace/thread-outputs/research/styles-gap-analysis.md` | Research deliverable | 10-section gap analysis with quantified evidence, 10 decisions |
+| `.claude/plans/warm-giggling-whisper.md` | Plan | 5-phase plan: research → audit → design → mermaid → remediation |

@@ -46,6 +46,7 @@ export const DynamicTable = ({
           data-docs-dynamic-table
           style={{
             width: "100%",
+            tableLayout: "fixed",
             borderCollapse: "collapse",
             fontSize: "0.9rem",
             marginTop: 0,
@@ -67,7 +68,7 @@ export const DynamicTable = ({
                     textAlign: "left",
                     fontWeight: "600",
                     color: "var(--lp-color-on-accent)",
-                    ...(columnWidths[header] ? { width: columnWidths[header], minWidth: columnWidths[header] } : {}),
+                    ...(columnWidths[header] ? { width: columnWidths[header] } : {}),
                   }}
                 >
                   {header}

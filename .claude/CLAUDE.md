@@ -27,10 +27,11 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 | Cleanup | Repo cleanup | Active | 2026-03-29 |
 | MASTER CLEAN | Consolidate all frameworks, tab content, tasks into one folder | Active — audit done, awaiting approval to build | 2026-03-29 |
 | Contracts & Changelogs | A1: ContractVerifier widget built + integrated into canonical page | Active | 2026-03-29 |
+| Asset Pipeline (#849) | 19 assets migrated, 3-layer verification gate, PR #851 open | Done — PR #851 awaiting merge to main | 2026-03-30 |
 | Mintlify Constraints | Canonical constraints reference — audited, headless-tested, propagated | Done | 2026-03-29 |
 | Propagate | `/propagate` skill + move-detect hook + docs-path-sync extensions | Done — awaiting live test | 2026-03-29 |
 | Watcher | Repo quality guardian — flags drift, mess, broken patterns as they happen | Watching | 2026-03-29 |
-| References | `.claude/references/` — exemplary work analysis across 11 categories | Done | 2026-03-30 |
+| References | `.claude/references/` — Phase 1 done (14 docs). Phase 2: restructure + collation + patterns | Active | 2026-03-30 |
 
 **Rule:** When you finish a task or change status, update your row in this table before closing. If the master-tasks.md file has a matching item, update that too.
 
@@ -63,6 +64,8 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 - Never claim something works without verifying it renders or runs — hook enforced
 - When editing docs files, confirm whether the target is a TEMPLATE or a PAGE before writing
 - After any file move or rename, scan ALL file types for stale references — including .txt, .json, sitemap, llms.txt
+- No hardcoded data in MDX pages. If a data file exists for the content (addresses, config, feeds), the page MUST import and render from it. Zero exceptions
+- Never inline a component's internals into MDX. Import and use the component. If it doesn't do what you need, propose a prop addition — do not bypass it
 
 ---
 

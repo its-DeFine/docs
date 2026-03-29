@@ -395,7 +395,7 @@
     "contracts": {
       "displayName": "Protocol Contracts",
       "mode": "commits",
-      "outputPath": "v2/resources/changelog/contracts.mdx",
+      "outputPath": "v2/resources/changelog/protocol/contracts.mdx",
       "template": "resources",
       "category": "resources",
       "contract": true,
@@ -414,7 +414,7 @@
     "go-livepeer": {
       "displayName": "go-livepeer",
       "mode": "releases",
-      "outputPath": "v2/resources/changelog/go-livepeer.mdx",
+      "outputPath": "v2/resources/changelog/protocol/go-livepeer.mdx",
       "template": "resources",
       "category": "resources",
       "managed": false,
@@ -432,7 +432,7 @@
     "explorer": {
       "displayName": "Livepeer Explorer",
       "mode": "releases",
-      "outputPath": "v2/resources/changelog/explorer.mdx",
+      "outputPath": "v2/resources/changelog/tooling/explorer.mdx",
       "template": "resources",
       "category": "resources",
       "managed": false,
@@ -441,7 +441,7 @@
     "lips": {
       "displayName": "LIPs",
       "mode": "commits",
-      "outputPath": "v2/resources/changelog/lips.mdx",
+      "outputPath": "v2/resources/changelog/protocol/lips.mdx",
       "template": "resources",
       "category": "resources",
       "managed": false,
@@ -451,7 +451,7 @@
     "ai-runner": {
       "displayName": "AI Runner",
       "mode": "releases",
-      "outputPath": "v2/resources/changelog/ai-runner.mdx",
+      "outputPath": "v2/resources/changelog/ai-compute/ai-runner.mdx",
       "template": "resources",
       "category": "resources",
       "managed": false,
@@ -460,7 +460,7 @@
     "pytrickle": {
       "displayName": "pytrickle",
       "mode": "releases",
-      "outputPath": "v2/resources/changelog/pytrickle.mdx",
+      "outputPath": "v2/resources/changelog/ai-compute/pytrickle.mdx",
       "template": "resources",
       "category": "resources",
       "managed": false,
@@ -469,7 +469,7 @@
     "subgraph": {
       "displayName": "Livepeer Subgraph",
       "mode": "releases",
-      "outputPath": "v2/resources/changelog/subgraph.mdx",
+      "outputPath": "v2/resources/changelog/protocol/subgraph.mdx",
       "template": "resources",
       "category": "resources",
       "managed": false,
@@ -478,25 +478,43 @@
     "livepeer-python-gateway": {
       "displayName": "Livepeer Python Gateway",
       "mode": "commits",
-      "outputPath": "v2/resources/changelog/livepeer-python-gateway.mdx",
+      "outputPath": "v2/resources/changelog/tooling/livepeer-python-gateway.mdx",
       "template": "resources",
       "category": "resources",
       "managed": false,
       "github": { "org": "livepeer", "repo": "livepeer-python-gateway", "branch": "main" }
     },
+    "livepeer-data": {
+      "displayName": "Livepeer Data",
+      "mode": "releases",
+      "outputPath": "v2/resources/changelog/tooling/livepeer-data.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "livepeer-data" }
+    },
     "website": {
       "displayName": "Livepeer.org Website",
       "mode": "commits",
-      "outputPath": "v2/resources/changelog/website.mdx",
+      "outputPath": "v2/resources/changelog/ecosystem/website.mdx",
       "template": "resources",
       "category": "resources",
       "managed": false,
       "github": { "org": "livepeer", "repo": "website", "branch": "main" }
     },
+    "awesome-livepeer": {
+      "displayName": "Awesome Livepeer",
+      "mode": "commits",
+      "outputPath": "v2/resources/changelog/ecosystem/awesome-livepeer.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "awesome-livepeer", "branch": "main" }
+    },
     "livepeer-python": {
       "displayName": "Livepeer Python SDK",
       "mode": "releases",
-      "outputPath": "v2/resources/changelog/livepeer-python.mdx",
+      "outputPath": "v2/resources/changelog/apis-sdks/livepeer-python.mdx",
       "template": "resources",
       "category": "resources",
       "managed": false,
@@ -505,25 +523,43 @@
     "livepeer-js": {
       "displayName": "Livepeer JavaScript SDK",
       "mode": "releases",
-      "outputPath": "v2/resources/changelog/livepeer-js.mdx",
+      "outputPath": "v2/resources/changelog/apis-sdks/livepeer-js.mdx",
       "template": "resources",
       "category": "resources",
       "managed": false,
       "github": { "org": "livepeer", "repo": "livepeer-js" }
     },
-    "studio": {
-      "displayName": "Livepeer Studio",
+    "livepeer-ai-js": {
+      "displayName": "Livepeer AI JavaScript SDK",
       "mode": "releases",
-      "outputPath": "v2/resources/changelog/studio.mdx",
+      "outputPath": "v2/resources/changelog/apis-sdks/livepeer-ai-js.mdx",
       "template": "resources",
       "category": "resources",
       "managed": false,
-      "github": { "org": "livepeer", "repo": "studio" }
+      "github": { "org": "livepeer", "repo": "livepeer-ai-js" }
+    },
+    "livepeer-ai-python": {
+      "displayName": "Livepeer AI Python SDK",
+      "mode": "releases",
+      "outputPath": "v2/resources/changelog/apis-sdks/livepeer-ai-python.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "livepeer-ai-python" }
+    },
+    "livepeer-ai-go": {
+      "displayName": "Livepeer AI Go SDK",
+      "mode": "releases",
+      "outputPath": "v2/resources/changelog/apis-sdks/livepeer-ai-go.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "livepeer-ai-go" }
     },
     "naap": {
       "displayName": "NaaP",
       "mode": "commits",
-      "outputPath": "v2/resources/changelog/naap.mdx",
+      "outputPath": "v2/resources/changelog/protocol/naap.mdx",
       "template": "resources",
       "category": "resources",
       "managed": false,
@@ -532,7 +568,7 @@
     "comfystream": {
       "displayName": "ComfyStream",
       "mode": "releases",
-      "outputPath": "v2/resources/changelog/comfystream.mdx",
+      "outputPath": "v2/resources/changelog/ai-compute/comfystream.mdx",
       "template": "resources",
       "category": "resources",
       "managed": false,

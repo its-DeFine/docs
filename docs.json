@@ -3150,8 +3150,7 @@
                         "group": "Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/resources/resources-portal",
-                          "docs-guide/contributing/contributing",
+                          "v2/resources/portal",
                           {
                             "group": "Compendium",
                             "pages": [
@@ -3166,13 +3165,36 @@
                         "pages": [
                           "v2/resources/documentation-guide/documentation-overview",
                           "v2/resources/documentation-guide/documentation-guide",
-                          "v2/resources/documentation-guide/docs-features-and-ai-integrations",
-                          "v2/resources/documentation-guide/ai-features",
-                          "v2/resources/documentation-guide/style-guide",
-                          "v2/resources/documentation-guide/snippets-inventory",
-                          "v2/resources/documentation-guide/contribute-to-the-docs",
-                          "v2/resources/documentation-guide/research-and-fact-checking",
-                          "v2/resources/documentation-guide/automations-workflows",
+                          {
+                            "group": "Contributing",
+                            "pages": [
+                              "docs-guide/contributing/contributing",
+                              "v2/resources/documentation-guide/contributing/contribute-to-the-docs",
+                              "v2/resources/changelog/docs"
+                            ]
+                          },
+                          {
+                            "group": "Features",
+                            "pages": [
+                              "v2/resources/documentation-guide/features/docs-features-and-ai-integrations"
+                            ]
+                          },
+                          {
+                            "group": "AI & Automations",
+                            "pages": [
+                              "v2/resources/documentation-guide/ai-automations/ai-features",
+                              "v2/resources/documentation-guide/ai-automations/automations-workflows",
+                              "v2/resources/documentation-guide/ai-automations/research-and-fact-checking"
+                            ]
+                          },
+                          {
+                            "group": "Copy & Style",
+                            "pages": [
+                              "v2/resources/documentation-guide/copy-style/style-guide",
+                              "v2/resources/documentation-guide/copy-style/authoring-guide",
+                              "v2/resources/documentation-guide/copy-style/authoring-standard"
+                            ]
+                          },
                           {
                             "group": "Component Library",
                             "icon": "puzzle-piece",
@@ -3186,109 +3208,104 @@
                               "v2/resources/documentation-guide/component-library/integrators",
                               "v2/resources/documentation-guide/component-library/config"
                             ]
+                          },
+                          {
+                            "group": "Tooling",
+                            "pages": [
+                              "v2/resources/documentation-guide/tooling/lpd-cli",
+                              "v2/resources/documentation-guide/tooling/snippets-inventory"
+                            ]
+                          },
+                          {
+                            "group": "Catalogs",
+                            "pages": [
+                              "docs-guide/catalog/pages-catalog",
+                              "docs-guide/catalog/components-catalog",
+                              "docs-guide/catalog/scripts-catalog",
+                              "docs-guide/catalog/templates-catalog",
+                              "docs-guide/catalog/workflows-catalog",
+                              "docs-guide/catalog/ui-templates"
+                            ]
                           }
-                        ]
-                      },
-                      {
-                        "group": "Livepeer Concepts",
-                        "icon": "graduation-cap",
-                        "pages": [
-                          "v2/about/core-concepts",
-                          "v2/resources/livepeer-glossary",
-                          "v2/about/livepeer-network/actors"
-                        ]
-                      },
-                      {
-                        "group": "Developer References",
-                        "icon": "book",
-                        "pages": [
-                          "v2/resources/livepeer-glossary"
-                        ]
-                      },
-                      {
-                        "group": "Gateway References",
-                        "icon": "wand-magic-sparkles",
-                        "pages": [
-                          "v2/gateways/guides/node-pipelines/guide"
-                        ]
-                      },
-                      {
-                        "group": "Orchestrator References",
-                        "icon": "microchip",
-                        "pages": [
-                          "v2/resources/livepeer-glossary"
-                        ]
-                      },
-                      {
-                        "group": "LPT & Delegator References",
-                        "icon": "hand-holding-dollar",
-                        "pages": [
-                          "v2/resources/livepeer-glossary"
-                        ]
-                      },
-                      {
-                        "group": "Community Resources",
-                        "icon": "",
-                        "pages": [
-                          "v2/resources/livepeer-glossary"
-                        ]
-                      },
-                      {
-                        "group": "Partner Resources",
-                        "icon": "handshake",
-                        "pages": [
-                          "v2/resources/livepeer-glossary"
-                        ]
-                      },
-                      {
-                        "group": "Help Center",
-                        "icon": "comments-question-check",
-                        "pages": [
-                          "v2/resources/livepeer-glossary"
                         ]
                       },
                       {
                         "group": "Technical References",
                         "icon": "code",
                         "pages": [
+                          "v2/resources/technical-references",
                           {
                             "group": "Protocol References",
                             "pages": [
-                              " "
+                              "v2/resources/technical-references"
                             ]
                           }
                         ]
                       },
                       {
-                        "group": "Changelog",
+                        "group": "Changelogs",
                         "icon": "swap",
                         "pages": [
                           "v2/resources/changelog/changelog",
-                          "v2/resources/changelog/go-livepeer",
-                          "v2/resources/changelog/contracts",
-                          "v2/resources/changelog/explorer",
-                          "v2/resources/changelog/ai-runner",
-                          "v2/resources/changelog/comfystream",
-                          "v2/resources/changelog/subgraph",
-                          "v2/resources/changelog/naap",
-                          "v2/resources/changelog/studio",
-                          "v2/resources/changelog/livepeer-python",
-                          "v2/resources/changelog/livepeer-js",
-                          "v2/resources/changelog/pytrickle",
-                          "v2/resources/changelog/livepeer-python-gateway",
-                          "v2/resources/changelog/website",
-                          "v2/resources/changelog/lips",
-                          "v2/resources/changelog/docs",
-                          "v2/resources/changelog/migration-guide"
+                          {
+                            "group": "Protocol & Network",
+                            "pages": [
+                              "v2/resources/changelog/protocol/go-livepeer",
+                              "v2/resources/changelog/protocol/contracts",
+                              "v2/resources/changelog/protocol/lips",
+                              "v2/resources/changelog/protocol/naap",
+                              "v2/resources/changelog/protocol/subgraph"
+                            ]
+                          },
+                          {
+                            "group": "AI & Compute",
+                            "pages": [
+                              "v2/resources/changelog/ai-compute/ai-runner",
+                              "v2/resources/changelog/ai-compute/comfystream",
+                              "v2/resources/changelog/ai-compute/pytrickle"
+                            ]
+                          },
+                          {
+                            "group": "Data & Tooling",
+                            "pages": [
+                              "v2/resources/changelog/tooling/explorer",
+                              "v2/resources/changelog/tooling/livepeer-data",
+                              "v2/resources/changelog/tooling/livepeer-python-gateway"
+                            ]
+                          },
+                          {
+                            "group": "APIs & SDKs",
+                            "pages": [
+                              "v2/resources/changelog/apis-sdks/livepeer-js",
+                              "v2/resources/changelog/apis-sdks/livepeer-ai-js",
+                              "v2/resources/changelog/apis-sdks/livepeer-python",
+                              "v2/resources/changelog/apis-sdks/livepeer-ai-python",
+                              "v2/resources/changelog/apis-sdks/livepeer-ai-go"
+                            ]
+                          },
+                          {
+                            "group": "Ecosystem",
+                            "pages": [
+                              "v2/resources/changelog/ecosystem/website",
+                              "v2/resources/changelog/ecosystem/awesome-livepeer"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "Help Center",
+                        "icon": "comments-question-check",
+                        "pages": [
+                          "v2/resources/help-center"
+                        ]
+                      },
+                      {
+                        "group": "Guides",
+                        "icon": "wand-magic-sparkles",
+                        "pages": [
+                          "v2/gateways/guides/node-pipelines/guide"
                         ]
                       }
-                    ]
-                  },
-                  {
-                    "anchor": "Help Center",
-                    "icon": "comments-question-check",
-                    "pages": [
-                      "v2/resources/resources-portal"
                     ]
                   },
                   {
@@ -3552,7 +3569,7 @@
   "redirects": [
     {
       "source": "/v2/resources/redirect",
-      "destination": "/v2/resources/resources-portal"
+      "destination": "/v2/resources/portal"
     },
     {
       "source": "/v2/pages/08_help/redirect",

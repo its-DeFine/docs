@@ -92,6 +92,25 @@ export const l2Migrator = contractAddresses.arbitrumOne.current.find(c => c.name
 export const merkleSnapshot = contractAddresses.arbitrumOne.current.find(c => c.name === 'MerkleSnapshot')?.address
 export const lastVerifiedDate = contractAddresses.meta.lastVerified || "Pending"
 
+{/* Status helper: builds status string from enriched meta fields */}
+export const statusOf = (name, type, chain) => {
+  const c = contractAddresses[chain || 'arbitrumOne'].current.find(e => e.name === name && (!type || e.type === type))
+  if (!c?.meta) return "Verified · Active"
+  const m = c.meta
+  const parts = []
+  if (c.verified) parts.push("Verified")
+  if (m.holderCount) parts.push(`${m.holderCount} holders`)
+  if (m.transactionCount && m.transactionCount < 1000) parts.push(`~${m.transactionCount} transactions`)
+  if (m.statusLabel) parts.push(m.statusLabel)
+  if (m.deployedAt && m.statusLabel !== 'Active') parts.push(`Deployed ${m.deployedAt}`)
+  if (m.deployedBy) parts.push(`Deployed by ${m.deployedBy}`)
+  if (m.lastActiveDate && m.statusLabel !== 'Active') parts.push(`Last active ${m.lastActiveDate}`)
+  if (m.blockscoutLabel && m.blockscoutLabel !== name) parts.push(`"${m.blockscoutLabel}" on Blockscout`)
+  if (m.notes) parts.push(m.notes)
+  if (m.registeredInController) parts.push("Registered in Controller")
+  return parts.join(" · ") || "Active"
+}
+
 <Tip>
   Addresses on this page are automatically updated via a Github Action workflow. <br/>
   <span style={{display: "flex", alignItems: "center", marginTop: "0.2rem"}}> Data is sourced from the canonical <DoubleIconLink label="governor-scripts" href="https://github.com/livepeer/governor-scripts" iconRightColor="var(--hero-text)"/> and verified on-chain. </span> <br/>
@@ -249,7 +268,7 @@ The Controller is the central registry for all protocol contracts. Every other c
   githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/Controller.sol"
 />
 {/* CHANGELOG PIPELINE UPDATE */}
-<Icon icon="check" color="var(--text)"/> _Verified · Active · Deployed by Livepeer Deployer_
+<Icon icon="check" color="var(--text)"/> _{statusOf("Controller")}_
 
 **Purpose**:
 

@@ -42,12 +42,18 @@ const GOVERNOR_FILE = "updates/addresses.js";
 // New contracts not in this registry get sensible defaults.
 
 const CONTRACT_REGISTRY = {
-  Controller:        { repoSrc: "livepeer/protocol@delta", solPath: "contracts/Controller.sol",                          meta: { statusLabel: "Active", deployedBy: "Livepeer Deployer", notes: null } },
-  BondingManager:    { repoSrc: "livepeer/protocol@delta", solPath: "contracts/bonding/BondingManager.sol",              meta: { statusLabel: "Active", deployedBy: null, notes: null } },
-  TicketBroker:      { repoSrc: "livepeer/protocol@delta", solPath: "contracts/pm/TicketBroker.sol",                     meta: { statusLabel: "Active", deployedBy: null, notes: null } },
-  RoundsManager:     { repoSrc: "livepeer/protocol@delta", solPath: "contracts/rounds/RoundsManager.sol",                meta: { statusLabel: "Active", deployedBy: null, notes: null } },
-  Minter:            { repoSrc: "livepeer/protocol@delta", solPath: "contracts/token/Minter.sol",                        meta: { statusLabel: "Active", deployedBy: null, notes: null } },
-  ServiceRegistry:   { repoSrc: "livepeer/protocol@delta", solPath: "contracts/ServiceRegistry.sol",                     meta: { statusLabel: "Active", deployedBy: null, notes: null } },
+  Controller:        { repoSrc: "livepeer/protocol@delta", solPath: "contracts/Controller.sol",                          meta: { statusLabel: "Active", deployedBy: "Livepeer Deployer", notes: null },
+                       ethOverride: { repoSrc: "livepeer/protocol@master", solPath: "contracts/Controller.sol", meta: { statusLabel: "Paused", deployedBy: "Livepeer Deployer", notes: "Paused since Confluence migration (2022)" } } },
+  BondingManager:    { repoSrc: "livepeer/protocol@delta", solPath: "contracts/bonding/BondingManager.sol",              meta: { statusLabel: "Active", deployedBy: null, notes: null },
+                       ethOverride: { repoSrc: "livepeer/protocol@master", solPath: "contracts/bonding/BondingManager.sol", meta: { statusLabel: "Paused", deployedBy: null, notes: "Paused since Confluence migration (2022)" } } },
+  TicketBroker:      { repoSrc: "livepeer/protocol@delta", solPath: "contracts/pm/TicketBroker.sol",                     meta: { statusLabel: "Active", deployedBy: null, notes: null },
+                       ethOverride: { repoSrc: "livepeer/protocol@master", solPath: "contracts/pm/TicketBroker.sol", meta: { statusLabel: "Paused", deployedBy: null, notes: "Paused since Confluence migration (2022)" } } },
+  RoundsManager:     { repoSrc: "livepeer/protocol@delta", solPath: "contracts/rounds/RoundsManager.sol",                meta: { statusLabel: "Active", deployedBy: null, notes: null },
+                       ethOverride: { repoSrc: "livepeer/protocol@master", solPath: "contracts/rounds/RoundsManager.sol", meta: { statusLabel: "Paused", deployedBy: null, notes: "Paused since Confluence migration (2022)" } } },
+  Minter:            { repoSrc: "livepeer/protocol@delta", solPath: "contracts/token/Minter.sol",                        meta: { statusLabel: "Active", deployedBy: null, notes: null },
+                       ethOverride: { repoSrc: "livepeer/protocol@master", solPath: "contracts/token/Minter.sol", meta: { statusLabel: "Paused", deployedBy: null, notes: "Paused since Confluence migration (2022)" } } },
+  ServiceRegistry:   { repoSrc: "livepeer/protocol@delta", solPath: "contracts/ServiceRegistry.sol",                     meta: { statusLabel: "Active", deployedBy: null, notes: null },
+                       ethOverride: { repoSrc: "livepeer/protocol@master", solPath: "contracts/ServiceRegistry.sol", meta: { statusLabel: "Paused", deployedBy: null, notes: "Paused since Confluence migration (2022)" } } },
   AIServiceRegistry: { repoSrc: "livepeer/protocol@delta", solPath: "contracts/AIServiceRegistry.sol",                   meta: { statusLabel: "Active", deployedBy: "AI subnet deployer", notes: "Detached from Controller" } },
   DelegatorPool:     { repoSrc: "livepeer/protocol@delta", solPath: "contracts/bonding/DelegatorPool.sol",               meta: { statusLabel: "Active", deployedBy: null, notes: null } },
   LivepeerToken:     { repoSrc: "livepeer/arbitrum-lpt-bridge@main", solPath: "contracts/L2/token/LivepeerToken.sol",     meta: { statusLabel: "Active", deployedBy: "Livepeer Deployer", notes: null },
@@ -406,7 +412,7 @@ async function checkApiHealth(blockscoutBase, etherscanV2Base) {
   return health;
 }
 
-async function enrichFromBlockscout(addr, blockscoutBase, entry) {
+async function enrichFromBlockscout(addr, blockscoutBase, entry, apiKey) {
   const meta = {};
   const fmt = (d) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
   const fmtShort = (d) => new Date(d).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
@@ -675,7 +681,7 @@ async function enrichMetadata(entries, network) {
     // Try BOTH sources — merge best from each
     if (health.blockscout) {
       try {
-        sources.blockscout = await enrichFromBlockscout(addr, blockscoutBase, entry);
+        sources.blockscout = await enrichFromBlockscout(addr, blockscoutBase, entry, apiKey);
       } catch (err) {
         console.log(`    ⚠ ${entry.name} Blockscout failed: ${err.message}`);
         warnings.push({ contract: entry.name, address: addr, source: "blockscout", error: err.message });
@@ -871,6 +877,57 @@ function writeDataFile(data, sha) {
   console.log(`  Arbitrum One: ${arbCount} current entries`);
   console.log(`  Ethereum Mainnet: ${ethCount} current entries`);
   console.log(`  Verification: ${verifySummary}`);
+
+  // Write companion JSON — static mirror for SEO/AI crawlers
+  // Crawlers can't read client-rendered JSX; this plain JSON is crawlable at
+  // docs.livepeer.org/v2/about/resources/contract-addresses-canonical-data.json
+  const companionPath = path.join(REPO_ROOT, "v2/about/resources/contract-addresses-canonical-data.json");
+  const companionData = {
+    _generated: { by: "fetch-contract-addresses.js", at: now, source: `${GOVERNOR_REPO} (${sha})` },
+    arbitrumOne: {
+      current: data.arbitrumOne.current.map(c => ({
+        name: c.name,
+        address: c.address,
+        type: c.type,
+        category: c.category,
+        chain: c.chain || "arbitrumOne",
+        verified: c.verified,
+        verifiedAt: c.verifiedAt,
+        contractCodeHref: c.contractCodeHref || null,
+        blockchainHref: c.blockchainHref || null,
+        meta: c.meta || {},
+      })),
+      historical: data.arbitrumOne.historical,
+    },
+    ethereumMainnet: {
+      current: data.ethereumMainnet.current.map(c => ({
+        name: c.name,
+        address: c.address,
+        type: c.type,
+        category: c.category,
+        chain: c.chain || "ethereumMainnet",
+        verified: c.verified,
+        verifiedAt: c.verifiedAt,
+        contractCodeHref: c.contractCodeHref || null,
+        blockchainHref: c.blockchainHref || null,
+        meta: c.meta || {},
+      })),
+      historical: data.ethereumMainnet.historical,
+    },
+    meta: {
+      lastUpdated: now,
+      lastVerified: skipVerify ? null : nowFormatted,
+      verificationSummary: verifySummary,
+      explorerUrls: {
+        arbiscan: "https://arbiscan.io",
+        etherscan: "https://etherscan.io",
+        blockscoutArbitrum: "https://arbitrum.blockscout.com",
+        blockscoutEthereum: "https://eth.blockscout.com",
+      },
+    },
+  };
+  fs.writeFileSync(companionPath, JSON.stringify(companionData, null, 2));
+  console.log(`  Companion JSON: ${companionPath}`);
 }
 
 // ── Scan-fix: find stale addresses in v2/ ───────────────────────────────────
@@ -1057,6 +1114,11 @@ async function main() {
   merged.arbitrumOne.current = await enrichMetadata(merged.arbitrumOne.current, "arbitrumOne");
   merged.ethereumMainnet.current = await enrichMetadata(merged.ethereumMainnet.current, "ethereumMainnet");
 
+  // Enrich historical entries (skip already-enriched via .bak diff)
+  console.log("\nEnriching historical entries...");
+  merged.arbitrumOne.historical = await enrichHistorical(merged.arbitrumOne.historical, "arbitrumOne");
+  merged.ethereumMainnet.historical = await enrichHistorical(merged.ethereumMainnet.historical, "ethereumMainnet");
+
   // Validate: abort if suspiciously low count
   const arbCount = merged.arbitrumOne.current.length;
   const ethCount = merged.ethereumMainnet.current.length;
@@ -1072,9 +1134,187 @@ async function main() {
   // Write data file
   writeDataFile(merged, sha);
 
+  // Post-generation health check — validate widget-critical fields and API endpoints
+  if (!DRY_RUN) {
+    await runHealthCheck(merged);
+  }
+
   // Scan-fix if requested
   if (SCAN_FIX) {
     scanAndFix(merged);
+  }
+}
+
+// ── Post-generation health check ───────────────────────────────────────────
+// Validates: Blockscout API shape, RPC eth_call, keccakHash presence,
+// registeredInController consistency. Creates GitHub issue on failure.
+
+// ── Historical entry enrichment ─────────────────────────────────────────────
+// Enriches deprecated target implementations with on-chain data.
+// Skips entries that already have enrichment data from a previous run (.bak diff).
+// Only makes Blockscout address info + creation tx calls (lightweight).
+
+async function enrichHistorical(historical, network) {
+  if (SKIP_VERIFY || !historical || Object.keys(historical).length === 0) return historical;
+
+  const isArbitrum = network === "arbitrumOne";
+  const blockscoutBase = isArbitrum ? "https://arbitrum.blockscout.com" : "https://eth.blockscout.com";
+  const explorerBase = isArbitrum ? "https://arbiscan.io/address/" : "https://etherscan.io/address/";
+  const label = isArbitrum ? "Arbitrum" : "Ethereum";
+  const fmt = (d) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+  // Load previous historical data for diff
+  const prevData = loadPreviousData();
+  const prevHistorical = prevData?.[network]?.historical || {};
+
+  let total = 0;
+  let enriched = 0;
+  let skipped = 0;
+
+  for (const [group, groupData] of Object.entries(historical)) {
+    const prevGroup = prevHistorical[group];
+
+    for (let i = 0; i < groupData.entries.length; i++) {
+      const entry = groupData.entries[i];
+      total++;
+
+      // Skip if already enriched in previous run
+      const prevEntry = prevGroup?.entries?.find(e => e.address.toLowerCase() === entry.address.toLowerCase());
+      if (prevEntry?.deployedAt && prevEntry?.verified !== undefined) {
+        // Copy previous enrichment data
+        Object.assign(entry, { ...prevEntry, address: entry.address, version: entry.version });
+        skipped++;
+        continue;
+      }
+
+      // Enrich via Blockscout
+      try {
+        const addrRes = await httpsGet(`${blockscoutBase}/api/v2/addresses/${entry.address}`);
+        if (addrRes.status === 200) {
+          const d = JSON.parse(addrRes.data);
+          entry.type = "target";
+          entry.statusLabel = "Deprecated";
+          entry.verified = d.is_verified || false;
+          entry.blockchainHref = `${explorerBase}${entry.address}`;
+          if (d.name) entry.blockscoutLabel = d.name;
+          if (d.creator_address_hash) entry.creatorAddress = d.creator_address_hash;
+
+          // Get deploy date from creation tx
+          if (d.creation_transaction_hash) {
+            try {
+              const txRes = await httpsGet(`${blockscoutBase}/api/v2/transactions/${d.creation_transaction_hash}`);
+              if (txRes.status === 200) {
+                const txData = JSON.parse(txRes.data);
+                if (txData.timestamp) entry.deployedAt = fmt(txData.timestamp);
+              }
+            } catch (_) {}
+          }
+
+          // Compute replacedBy from array position
+          if (i < groupData.entries.length - 1) {
+            entry.replacedBy = groupData.entries[i + 1].version;
+          } else {
+            entry.replacedBy = "current";
+          }
+
+          enriched++;
+        }
+      } catch (err) {
+        console.log(`    ⚠ ${group} ${entry.version}: ${err.message}`);
+      }
+      await sleep(200);
+    }
+  }
+
+  console.log(`  ${label} historical: ${enriched} enriched, ${skipped} cached, ${total} total`);
+  return historical;
+}
+
+async function runHealthCheck(data) {
+  console.log("\n── Health Check ──");
+  const checks = [];
+
+  // Known addresses for probing
+  const LPT_ARB = "0x289ba1701C2F088cf0faf8B3705246331cB8A839";
+  const BM_ARB = "0x35Bcf3c30594191d53231E4FF333E8A770453e40";
+  const CONTROLLER_ARB = "0xD8E8328501E9645d16Cf49539efC04f734606ee4";
+
+  // 1. Blockscout API shape — check required fields exist
+  try {
+    const bsRes = await httpsGet(`https://arbitrum.blockscout.com/api/v2/addresses/${LPT_ARB}`);
+    if (bsRes.status === 200) {
+      const bsData = JSON.parse(bsRes.data);
+      const required = ["is_contract", "is_verified", "name", "creator_address_hash"];
+      const missing = required.filter(f => !(f in bsData));
+      if (missing.length > 0) {
+        checks.push({ endpoint: "Blockscout /api/v2/addresses/", status: "FAIL", detail: `Missing fields: ${missing.join(", ")}`, affects: "ContractVerifier Mode 2, enrichment" });
+      } else {
+        console.log("  ✓ Blockscout API shape OK");
+      }
+    } else {
+      checks.push({ endpoint: "Blockscout /api/v2/addresses/", status: "FAIL", detail: `HTTP ${bsRes.status}`, affects: "All Blockscout enrichment" });
+    }
+  } catch (err) {
+    checks.push({ endpoint: "Blockscout /api/v2/addresses/", status: "FAIL", detail: err.message, affects: "All Blockscout enrichment" });
+  }
+
+  // 2. RPC eth_call — verify Controller responds
+  try {
+    const bmHash = keccak256Hex("BondingManager");
+    const rpcBody = JSON.stringify({ jsonrpc: "2.0", method: "eth_call", params: [{ to: CONTROLLER_ARB, data: "0xe16c7d98" + bmHash }, "latest"], id: 1 });
+    const rpcRes = await httpsPost("https://arb1.arbitrum.io/rpc", rpcBody);
+    const rpcData = JSON.parse(rpcRes.data);
+    if (rpcData.result && rpcData.result.length === 66) {
+      const returned = "0x" + rpcData.result.slice(-40);
+      if (returned.toLowerCase() === BM_ARB.toLowerCase()) {
+        console.log("  ✓ RPC eth_call OK (Controller returns correct BondingManager)");
+      } else {
+        checks.push({ endpoint: "Arbitrum RPC eth_call", status: "WARN", detail: `Controller returned ${returned}, expected ${BM_ARB}`, affects: "registeredInController may be stale" });
+      }
+    } else {
+      checks.push({ endpoint: "Arbitrum RPC eth_call", status: "FAIL", detail: `Unexpected result: ${JSON.stringify(rpcData).slice(0, 200)}`, affects: "ContractVerifier Mode 1, registeredInController" });
+    }
+  } catch (err) {
+    checks.push({ endpoint: "Arbitrum RPC eth_call", status: "FAIL", detail: err.message, affects: "ContractVerifier Mode 1, registeredInController" });
+  }
+
+  // 3. Data integrity — every entry has keccakHash
+  const missingHash = [
+    ...data.arbitrumOne.current.filter(e => !e.meta?.keccakHash),
+    ...data.ethereumMainnet.current.filter(e => !e.meta?.keccakHash),
+  ];
+  if (missingHash.length > 0) {
+    checks.push({ endpoint: "Data integrity", status: "FAIL", detail: `${missingHash.length} entries missing keccakHash: ${missingHash.map(e => e.name).join(", ")}`, affects: "ContractVerifier widget lookup" });
+  } else {
+    console.log("  ✓ All entries have keccakHash");
+  }
+
+  // 4. Data integrity — Ethereum entries have explicit false (not null) for registeredInController
+  const nullReg = data.ethereumMainnet.current.filter(e => e.meta?.registeredInController == null);
+  if (nullReg.length > 0) {
+    checks.push({ endpoint: "Data integrity", status: "WARN", detail: `${nullReg.length} ETH entries have null registeredInController: ${nullReg.map(e => e.name).join(", ")}`, affects: "ContractVerifier dropdown filtering" });
+  } else {
+    console.log("  ✓ All ETH entries have explicit registeredInController");
+  }
+
+  // Report
+  if (checks.length === 0) {
+    console.log("  ✓ All health checks passed");
+  } else {
+    const fails = checks.filter(c => c.status === "FAIL");
+    const warns = checks.filter(c => c.status === "WARN");
+    console.log(`  ${fails.length} FAIL, ${warns.length} WARN`);
+    for (const c of checks) {
+      console.log(`  ${c.status === "FAIL" ? "✗" : "⚠"} ${c.endpoint}: ${c.detail}`);
+      console.log(`    → Affects: ${c.affects}`);
+    }
+  }
+
+  // Store checks for workflow auto-issue step
+  const checksPath = path.join(path.dirname(OUTPUT_PATH), "_health-checks.json");
+  fs.writeFileSync(checksPath, JSON.stringify({ timestamp: new Date().toISOString(), checks }, null, 2));
+  if (checks.length > 0) {
+    console.log(`  Health check results written to ${checksPath}`);
   }
 }
 

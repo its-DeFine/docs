@@ -57,14 +57,15 @@ lastVerified: 2026-03-26
 
 {/* components */}
 import { CustomDivider, InlineDivider } from '/snippets/components/elements/spacing/Divider.jsx'
-import { LinkArrow, DoubleIconLink } from '/snippets/components/elements/links/Links.jsx'
+import { LinkArrow, DoubleIconLink, LinkIcon } from '/snippets/components/elements/links/Links.jsx'
+import {CopyText} from '/snippets/components/elements/text/Text.jsx';
 import { SearchTable } from '/snippets/components/wrappers/tables/SearchTable.jsx'
 import { DynamicTable } from '/snippets/components/wrappers/tables/Table.jsx'
-import { CopyText } from '/snippets/components/elements/text/Text.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/wrappers/tables/Tables.jsx'
 import { StyledSteps, StyledStep } from '/snippets/components/wrappers/steps/Steps.jsx'
 import { ContractVerifier } from '/snippets/components/integrators/feeds/ContractVerifier.jsx'
 import { CustomCardTitle, AccordionTitle } from '/snippets/components/elements/text/CustomCardTitle.jsx'
-import { ArbitrumIcon } from '/snippets/components/elements/icons/Icons.jsx'
+import { ArbitrumIcon, LivepeerIcon } from '/snippets/components/elements/icons/Icons.jsx'
 import { BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
 
 {/* data */}
@@ -269,14 +270,10 @@ export const allCurrentContracts = [
   ...(contractAddresses.ethereumMainnet?.current || []).map((c) => ({ ...c, chain: "ethereumMainnet" })),
 ]
 
-export const chainIconMap = {
-  "Arbitrum One": <span style={{display: "inline-flex", alignItems: "center", gap: "0.35rem"}}><ArbitrumIcon color="var(--arbitrum)" size={13} /> Arbitrum One</span>,
-  "Ethereum Mainnet": <span style={{display: "inline-flex", alignItems: "center", gap: "0.35rem"}}><Icon icon="ethereum" color="var(--hero-text)" size={13} /> Ethereum Mainnet</span>,
-}
-
 export const activeTableItems = allCurrentContracts.map((c) => ({
   "Name": c.name,
-  "Address": <span style={{display: "inline-flex", alignItems: "center", gap: "0.35rem"}}><a href={`${explorerBase[c.chain]}${c.address}`} target="_blank" rel="noopener noreferrer" style={{fontFamily: "monospace", fontSize: "0.8rem"}}>{c.address.slice(0, 6)}...{c.address.slice(-4)}</a></span>,
+  "Address": c.address,
+  "_addressHref": `${explorerBase[c.chain]}${c.address}`,
   "Type": c.type,
   "Category": c.category,
   "Chain": chainLabel[c.chain] || c.chain,
@@ -286,7 +283,8 @@ export const activeTableItems = allCurrentContracts.map((c) => ({
   TableComponent={DynamicTable}
   headerList={["Name", "Address", "Type", "Chain"]}
   itemsList={activeTableItems}
-  monospaceColumns={[1]}
+  columnWidths={{ Chain: '45%' }}
+  monospaceColumns={[]}
   searchPlaceholder="Search by name or address..."
   searchColumns={["Name", "Address"]}
   categoryColumn="Category"
@@ -294,20 +292,17 @@ export const activeTableItems = allCurrentContracts.map((c) => ({
   showSeparators={true}
   separatorColumn="Category"
   boldFirstColumn={true}
-  columnVariant={{ "Category": "badge", "Chain": chainIconMap }}
+  columnVariant={{ "Type": "badge", "Chain": "textIcon", "Address": "addressWrapper" }}
   categoryBadges={[
-    { label: "core", color: "blue" },
-    { label: "governance", color: "green" },
-    { label: "token", color: "yellow" },
-    { label: "bridge", color: "purple" },
-    { label: "migration", color: "surface" },
-    { label: "utility", color: "surface" },
+    { label: "target", color: "surface-destructive" },
+    { label: "standalone", color: "blue" },
+    { label: "proxy", color: "surface" },
+  ]}
+    textIcons={[
+    { label: "Arbitrum One", icon: <ArbitrumIcon color="var(--arbitrum)"/> },
+    { label: "Ethereum Mainnet", icon: <Icon icon="ethereum" color="var(--hero-text)" size={13} /> }
   ]}
 />
-
-<Tip>
-  **Address format:** addresses are truncated for readability. Click any address to view the full contract on the block explorer. To copy a full address, use the [Verifier Widget](#verifier-widget-verify-contract-address) above or the [Contract Address Display](/v2/about/resources/contract-addresses) page.
-</Tip>
 
 <CustomDivider />
 
@@ -315,37 +310,122 @@ export const activeTableItems = allCurrentContracts.map((c) => ({
 
 Historical implementations replaced through governance upgrades. These target contracts are superseded - listed for audit trail and version history only. Do not interact with deprecated targets directly.
 
+export const hp = {padding:"0.3rem 0.4rem",borderBottom:"1px solid var(--border)",backgroundColor:"transparent",color:"var(--text)",fontWeight:600,fontSize:"0.75rem"}
+export const cp = {padding:"0.3rem 0.4rem",border:"none",fontSize:"0.8rem"}
+export const ap = {padding:"0.3rem 0.4rem",border:"none",overflow:"hidden",textOverflow:"ellipsis"}
+export const ci = (icon, label) => <span style={{display:"inline-flex",alignItems:"center",gap:"0.3rem",whiteSpace:"nowrap"}}>{icon} {label}</span>
+export const addr = (a, url) => <span style={{display:"inline-flex",alignItems:"center",gap:"0.3rem",minWidth:0}}><code style={{fontFamily:"monospace",fontSize:"0.75rem",whiteSpace:"nowrap"}}>{a}</code><a href={url} target="_blank" rel="noopener noreferrer" style={{display:"inline-flex",flexShrink:0}}><Icon icon="arrow-up-right" size={12} color="var(--accent)" /></a></span>
+export const arbChain = ci(<ArbitrumIcon color="var(--arbitrum)" size={13} />, "Arbitrum One")
+export const ethChain = ci(<Icon icon="ethereum" color="var(--hero-text)" size={13} />, "Ethereum Mainnet")
+export const sPaused = ci(<Icon icon="circle" color="yellow" size={8} />, "Paused")
+export const sDeprecated = ci(<Icon icon="circle" color="red" size={8} />, "Deprecated")
+
 <AccordionGroup>
-  <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Arbitrum One - Deprecated Targets" />}>
-    {Object.entries(contractAddresses.arbitrumOne?.historical || {}).map(([group, groupData]) => (
-      <div key={group} style={{marginBottom: "1rem"}}>
-        <strong style={{fontSize: "0.9rem"}}>{group}</strong>
-        <div style={{paddingLeft: "0.5rem", marginTop: "0.25rem"}}>
-          {(groupData.entries || []).map((entry) => (
-            <div key={entry.address} style={{display: "flex", alignItems: "center", gap: "0.5rem", padding: "0.2rem 0", fontSize: "0.85rem"}}>
-              <Badge color="surface">{entry.version}</Badge>
-              <a href={`${explorerBase.arbitrumOne}${entry.address}`} target="_blank" rel="noopener noreferrer" style={{fontFamily: "monospace", fontSize: "0.8rem"}}>{entry.address}</a>
-            </div>
-          ))}
-        </div>
-      </div>
-    ))}
+  <Accordion title={<AccordionTitle icon={<Icon icon="gear" color="var(--accent)" />} title="Core" description="Historical staking, payments, round progression, and service discovery contracts" />}>
+
+    #### BondingManager
+
+    <StyledTable variant="minimal">
+      <colgroup><col style={{width:"3rem"}} /><col style={{width:"4.5rem"}} /><col style={{width:"9rem"}} /><col /><col style={{width:"6.5rem"}} /></colgroup>
+      <TableRow><TableCell header style={hp}>Version</TableCell><TableCell header style={hp}>Type</TableCell><TableCell header style={hp}>Chain</TableCell><TableCell header style={hp}>Address</TableCell><TableCell header style={hp}>Status</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V1</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{arbChain}</TableCell><TableCell style={ap}>{addr("0xe479B9fbA2Cd65f822f451fC8C145c663B995CE6", "https://arbiscan.io/address/0xe479B9fbA2Cd65f822f451fC8C145c663B995CE6")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V2</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{arbChain}</TableCell><TableCell style={ap}>{addr("0xC40df4db2f99e7e235780A93B192F1a934f0c45b", "https://arbiscan.io/address/0xC40df4db2f99e7e235780A93B192F1a934f0c45b")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V3</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{arbChain}</TableCell><TableCell style={ap}>{addr("0x3757DB506ECd9CBE643660C0F5b70db5b321202C", "https://arbiscan.io/address/0x3757DB506ECd9CBE643660C0F5b70db5b321202C")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V4</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{arbChain}</TableCell><TableCell style={ap}>{addr("0x0f9C425E7374602C20370d3fd263155B4c3bDc91", "https://arbiscan.io/address/0x0f9C425E7374602C20370d3fd263155B4c3bDc91")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V5</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{arbChain}</TableCell><TableCell style={ap}>{addr("0x3a941e1094B9E33efABB26a9047a8ABb4b257907", "https://arbiscan.io/address/0x3a941e1094B9E33efABB26a9047a8ABb4b257907")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V6</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{arbChain}</TableCell><TableCell style={ap}>{addr("0x9c9209c9ff6996513b3673d69ee7b36a6c58a8cf", "https://arbiscan.io/address/0x9c9209c9ff6996513b3673d69ee7b36a6c58a8cf")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V7</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{arbChain}</TableCell><TableCell style={ap}>{addr("0x363cdB9BaE210Ef182c60b5a496139E980330127", "https://arbiscan.io/address/0x363cdB9BaE210Ef182c60b5a496139E980330127")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V8</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{arbChain}</TableCell><TableCell style={ap}>{addr("0x557093B1Ab53412166beAd939f34244170b6525B", "https://arbiscan.io/address/0x557093B1Ab53412166beAd939f34244170b6525B")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V9</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{arbChain}</TableCell><TableCell style={ap}>{addr("0x6b397f20DC227B4E23fEc20BBDBe166d0DFFC452", "https://arbiscan.io/address/0x6b397f20DC227B4E23fEc20BBDBe166d0DFFC452")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V10</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{arbChain}</TableCell><TableCell style={ap}>{addr("0xd1C1F5d44D8F83ca2A05Baf40461e550cFDDecA2", "https://arbiscan.io/address/0xd1C1F5d44D8F83ca2A05Baf40461e550cFDDecA2")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V11</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{arbChain}</TableCell><TableCell style={ap}>{addr("0xF62C30242fccd3a46721f155d4d367De3fD5B3b3", "https://arbiscan.io/address/0xF62C30242fccd3a46721f155d4d367De3fD5B3b3")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V12</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{arbChain}</TableCell><TableCell style={ap}>{addr("0x4bA7E7531Ab56bC8d78dB4FDc88D21F621f34BB4", "https://arbiscan.io/address/0x4bA7E7531Ab56bC8d78dB4FDc88D21F621f34BB4")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V13</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{arbChain}</TableCell><TableCell style={ap}>{addr("0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74", "https://arbiscan.io/address/0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V1</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{ethChain}</TableCell><TableCell style={ap}>{addr("0x81eb0b10ff8703905904e4d91cf6aa575d59736f", "https://etherscan.io/address/0x81eb0b10ff8703905904e4d91cf6aa575d59736f")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V2</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{ethChain}</TableCell><TableCell style={ap}>{addr("0x5A9512826EAAF1FE4190f89443314E95A515fE24", "https://etherscan.io/address/0x5A9512826EAAF1FE4190f89443314E95A515fE24")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V3</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{ethChain}</TableCell><TableCell style={ap}>{addr("0x633101b3f15f93c5f415830d48e56b9b1f7ba584", "https://etherscan.io/address/0x633101b3f15f93c5f415830d48e56b9b1f7ba584")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V4</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{ethChain}</TableCell><TableCell style={ap}>{addr("0x05C03EA0039f2e828A725A82939fc1e90de38B44", "https://etherscan.io/address/0x05C03EA0039f2e828A725A82939fc1e90de38B44")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V5</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{ethChain}</TableCell><TableCell style={ap}>{addr("0xCBAa6eA4886b535FC7ABACe3F3985Ed03b3b80a0", "https://etherscan.io/address/0xCBAa6eA4886b535FC7ABACe3F3985Ed03b3b80a0")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V6</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{ethChain}</TableCell><TableCell style={ap}>{addr("0xDC6eE74A18994caD3876a078B6fa4920FD9C507d", "https://etherscan.io/address/0xDC6eE74A18994caD3876a078B6fa4920FD9C507d")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V7</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{ethChain}</TableCell><TableCell style={ap}>{addr("0x1a6007d1D0583452Bd6f45a4e1a9190B15Fbd7E3", "https://etherscan.io/address/0x1a6007d1D0583452Bd6f45a4e1a9190B15Fbd7E3")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V8</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{ethChain}</TableCell><TableCell style={ap}>{addr("0xef5E170b679ddaF5e22ADC10fD23DDdB79E3C0c5", "https://etherscan.io/address/0xef5E170b679ddaF5e22ADC10fD23DDdB79E3C0c5")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V9</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{ethChain}</TableCell><TableCell style={ap}>{addr("0xc8a695155648F18B0cfd6989498B6f8b2c4cc56A", "https://etherscan.io/address/0xc8a695155648F18B0cfd6989498B6f8b2c4cc56A")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V10</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{ethChain}</TableCell><TableCell style={ap}>{addr("0x35F99F326681FE4F38719491be48Ab4950795013", "https://etherscan.io/address/0x35F99F326681FE4F38719491be48Ab4950795013")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V11</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{ethChain}</TableCell><TableCell style={ap}>{addr("0xAC0153a8C5227e43506901a4f3f83FD000c8178f", "https://etherscan.io/address/0xAC0153a8C5227e43506901a4f3f83FD000c8178f")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V12</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{ethChain}</TableCell><TableCell style={ap}>{addr("0x246edEBae14b186a67e3d466A485321169a8bcD5", "https://etherscan.io/address/0x246edEBae14b186a67e3d466A485321169a8bcD5")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V13</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{ethChain}</TableCell><TableCell style={ap}>{addr("0x223398d0BF9cc24960b3886CC481dBf5276EdeD2", "https://etherscan.io/address/0x223398d0BF9cc24960b3886CC481dBf5276EdeD2")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+      <TableRow><TableCell style={cp}>V14</TableCell><TableCell style={cp}><Badge color="surface-destructive">Target</Badge></TableCell><TableCell style={cp}>{ethChain}</TableCell><TableCell style={ap}>{addr("0x0da7c263eCF5cD3ddba275b9A2D63320E28fD287", "https://etherscan.io/address/0x0da7c263eCF5cD3ddba275b9A2D63320E28fD287")}</TableCell><TableCell style={cp}>{sDeprecated}</TableCell></TableRow>
+    </StyledTable>
+
+    #### TicketBroker
+
+    | Version | Type | Chain | Address | Status |
+    |---|---|---|---|---|
+    | V1 | Target | Arbitrum One | [`0x7Beb84c52ce96DFd90431FAA97378994a8baa6df`](https://arbiscan.io/address/0x7Beb84c52ce96DFd90431FAA97378994a8baa6df) | |
+    | V2 | Target | Arbitrum One | [`0xD906D192e2503Aafd1BC5F5fc4163E842D5B1d6e`](https://arbiscan.io/address/0xD906D192e2503Aafd1BC5F5fc4163E842D5B1d6e) | |
+    | V3 | Target | Arbitrum One | [`0xea1b0F6c8D158328a6e3D3F924B86A759F41465c`](https://arbiscan.io/address/0xea1b0F6c8D158328a6e3D3F924B86A759F41465c) | |
+
+    #### Minter
+
+    | Version | Type | Chain | Address | Status |
+    |---|---|---|---|---|
+    | V1 | Standalone | Arbitrum One | [`0x4969dcCF5186e1c49411638fc8A2a020Fdab752E`](https://arbiscan.io/address/0x4969dcCF5186e1c49411638fc8A2a020Fdab752E) | |
+    | V1 | Standalone | Ethereum Mainnet | [`0x8573f2f5a3bd960eee3d998473e50c75cdbe6828`](https://etherscan.io/address/0x8573f2f5a3bd960eee3d998473e50c75cdbe6828) | |
+
+    #### RoundsManager
+
+    | Version | Type | Chain | Address | Status |
+    |---|---|---|---|---|
+    | V1 | Target | Ethereum Mainnet | [`0xa3aa52ce79e85a21d9ccda705c57e426b160112c`](https://etherscan.io/address/0xa3aa52ce79e85a21d9ccda705c57e426b160112c) | |
+    | V2 | Target | Ethereum Mainnet | [`0x857d4bf18a80f03d3d11f438825cd3d0aa0d9d68`](https://etherscan.io/address/0x857d4bf18a80f03d3d11f438825cd3d0aa0d9d68) | |
+
+    #### JobsManager
+
+    | Version | Type | Chain | Address | Status |
+    |---|---|---|---|---|
+    | V1 | Proxy | Ethereum Mainnet | [`0xbf07ff45f14c9ff0571b9fbdc7e2b62d29931224`](https://etherscan.io/address/0xbf07ff45f14c9ff0571b9fbdc7e2b62d29931224) | |
+    | V1 | Target | Ethereum Mainnet | [`0x68b463bca7d561118636e9f028ff0f2e8398dd6a`](https://etherscan.io/address/0x68b463bca7d561118636e9f028ff0f2e8398dd6a) | |
+    | V2 | Target | Ethereum Mainnet | [`0xB620c762dd4bC350602936d7401BB8393Ee6687c`](https://etherscan.io/address/0xB620c762dd4bC350602936d7401BB8393Ee6687c) | |
+    | V3 | Target | Ethereum Mainnet | [`0x8eade5eec609572bf53deadb88d36f862ddec517`](https://etherscan.io/address/0x8eade5eec609572bf53deadb88d36f862ddec517) | |
+
+    #### LivepeerVerifier
+
+    | Version | Type | Chain | Address | Status |
+    |---|---|---|---|---|
+    | V1 | Standalone | Ethereum Mainnet | [`0xf623811b08b45792d0223d77d9c922dae29712ec`](https://etherscan.io/address/0xf623811b08b45792d0223d77d9c922dae29712ec) | |
+    | V2 | Standalone | Ethereum Mainnet | [`0xe4be2a35dec0063f9dfccb9b740b1acb7eefefec`](https://etherscan.io/address/0xe4be2a35dec0063f9dfccb9b740b1acb7eefefec) | |
+
   </Accordion>
 
-  <Accordion title={<CustomCardTitle variant="accordion" icon={<Icon icon="ethereum" color="var(--hero-text)" />} title="Ethereum Mainnet - Deprecated Targets" />}>
-    {Object.entries(contractAddresses.ethereumMainnet?.historical || {}).map(([group, groupData]) => (
-      <div key={group} style={{marginBottom: "1rem"}}>
-        <strong style={{fontSize: "0.9rem"}}>{group}</strong>
-        <div style={{paddingLeft: "0.5rem", marginTop: "0.25rem"}}>
-          {(groupData.entries || []).map((entry) => (
-            <div key={entry.address} style={{display: "flex", alignItems: "center", gap: "0.5rem", padding: "0.2rem 0", fontSize: "0.85rem"}}>
-              <Badge color="surface">{entry.version}</Badge>
-              <a href={`${explorerBase.ethereumMainnet}${entry.address}`} target="_blank" rel="noopener noreferrer" style={{fontFamily: "monospace", fontSize: "0.8rem"}}>{entry.address}</a>
-            </div>
-          ))}
-        </div>
-      </div>
-    ))}
+  <Accordion title={<AccordionTitle icon={<Icon icon="landmark" color="var(--accent)" />} title="Governance" description="Historical voting and proposal contracts" />}>
+
+    #### BondingVotes
+
+    | Version | Type | Chain | Address | Status |
+    |---|---|---|---|---|
+    | V1 | Target | Arbitrum One | [`0x1561fC5F7Efc049476224005DFf38256dccfc509`](https://arbiscan.io/address/0x1561fC5F7Efc049476224005DFf38256dccfc509) | |
+    | V2 | Target | Arbitrum One | [`0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119`](https://arbiscan.io/address/0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119) | |
+
+  </Accordion>
+
+  <Accordion title={<AccordionTitle icon={<Icon icon="bridge" color="var(--accent)" />} title="Migration" description="Historical Confluence upgrade contracts" />}>
+
+    #### L2Migrator
+
+    | Version | Type | Chain | Address | Status |
+    |---|---|---|---|---|
+    | V1 | Target | Arbitrum One | [`0x4F59b39e2ea628fe8371BDfd51B063319339c7EE`](https://arbiscan.io/address/0x4F59b39e2ea628fe8371BDfd51B063319339c7EE) | |
+
+  </Accordion>
+
+  <Accordion title={<AccordionTitle icon={<LivepeerIcon color="var(--accent)" size={16} />} title="Genesis" description="Historical libraries and helper contracts from the 2018 launch" />}>
+
+    #### MerkleProof
+
+    | Version | Type | Chain | Address | Status |
+    |---|---|---|---|---|
+    | V1 | Standalone | Ethereum Mainnet | [`0x289ba1701c2f088cf0faf8b3705246331cb8a839`](https://etherscan.io/address/0x289ba1701c2f088cf0faf8b3705246331cb8a839) | |
+
   </Accordion>
 </AccordionGroup>
 
