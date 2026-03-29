@@ -70,6 +70,24 @@ stdin.on('end', () => {
       const siblingReads = readFiles.filter(f => f !== fp && path.dirname(f) === targetDir);
       const totalDistinctReads = new Set(readFiles).size;
 
+      // Cross-session collision check
+      const registryPath = '/tmp/claude-session-registry';
+      try {
+        const reg = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+        const otherSessions = Object.entries(reg)
+          .filter(([sid]) => sid !== sessionId)
+          .filter(([, entry]) => Date.now() - entry.lastSeen < 4 * 60 * 60 * 1000);
+        for (const [sid, entry] of otherSessions) {
+          if (entry.files && entry.files.includes(fp)) {
+            const ago = Math.round((Date.now() - entry.lastSeen) / 60000);
+            console.log(JSON.stringify({
+              systemMessage: `COLLISION WARNING: Another session (${sid.slice(0, 8)}..., active ${ago}m ago) has edited this same file. Check with the user before overwriting — your changes may conflict.`
+            }));
+            break;
+          }
+        }
+      } catch (_) { /* no registry yet */ }
+
       // Hard warning: editing a file you haven't read
       if (!targetRead && !/session-log\.txt/.test(fp) && !/\.json$/.test(fp)) {
         console.log(JSON.stringify({

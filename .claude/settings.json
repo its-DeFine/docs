@@ -27,6 +27,15 @@
         "hooks": [
           {
             "type": "command",
+            "command": "node operations/scripts/dispatch/governance/session-register.js",
+            "statusMessage": "Checking for parallel sessions..."
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
             "command": "mkdir -p workspace/thread-outputs/sessions && echo \"Session started: $(date '+%Y-%m-%d %H:%M:%S')\" >> workspace/thread-outputs/sessions/session-log.txt && echo '{\"systemMessage\":\"SESSION START — CLAUDE.md is the source of truth for all rules. Match this session to the correct work stream (multiple run in parallel). NEVER destroy uncommitted work. NEVER run destructive git commands. Explore before executing — Read/Grep/Glob first, Write/Edit only after understanding. UK English. No em dashes. Offer to commit after completing work.\"}'",
             "statusMessage": "Loading session rules..."
           }
@@ -94,6 +103,16 @@
             "type": "command",
             "command": "if echo \"$CLAUDE_FILE\" | grep -q '\\.mdx$'; then npx mintlify dev --check 2>&1 | tail -5; fi",
             "statusMessage": "Checking Mintlify validity..."
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/session-register.js",
+            "async": true
           }
         ]
       }
