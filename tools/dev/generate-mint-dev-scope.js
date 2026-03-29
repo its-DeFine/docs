@@ -1932,6 +1932,31 @@ async function createScopedManifest(args) {
   // v1 content is deprecated; scoping to a tab name should target v2 only.
   // Use --scope-version v1 explicitly to scope to v1 content.
   if (selection.tabs.length > 0 && selection.versions.length === 0) {
+    // Before defaulting to v2, check that all resolved tabs exist in v2.
+    // If a tab only exists in v1, warn and suggest the v2 equivalent.
+    const v2TabSet = new Set();
+    for (const [key, tabSet] of optionData.tabsByVersionLanguage.entries()) {
+      if (key.startsWith('v2::')) {
+        for (const t of tabSet) v2TabSet.add(normalizeForCompare(t));
+      }
+    }
+    const v1OnlyTabs = selection.tabs.filter((t) => !v2TabSet.has(normalizeForCompare(t)));
+    if (v1OnlyTabs.length > 0) {
+      const v2Tabs = [...v2TabSet].map((t) => {
+        // Find the original casing from optionData
+        for (const tabSet of optionData.tabsByVersionLanguage.values()) {
+          for (const tab of tabSet) {
+            if (normalizeForCompare(tab) === t) return tab;
+          }
+        }
+        return t;
+      });
+      const suggestions = v2Tabs.sort().join('  |  ');
+      throw new Error(
+        `Tab(s) not available in v2: ${v1OnlyTabs.join(', ')}.\n` +
+        `Available v2 tabs: ${suggestions}`
+      );
+    }
     selection.versions = ['v2'];
   }
 

@@ -16,6 +16,7 @@
 
 | Output file | Notes | Unblocks |
 |---|---|---|
+| VS Code Claude extension fix toolkit | Canonical diagnostic, 7 scripts, extension patched, cron backup, community research. `workspace/plan/active/FUCK_CLAUDE/` | Unblocks stable VS Code workflow — re-run `patch-extension.sh` after updates |
 | resources-restructure (Gateways + Orchestrators) | reference/ and knowledge-hub/ sub-sections created. All files moved. docs.json updated. 15 redirects added. No content changed. | Unblocks IA audit accuracy (folder tree now matches pipeline spec) |
 | context-packs/orchestrators-ia-prereq.md | Folder tree + nav tree + discrepancies | Human IA review (Orchestrators) |
 | context-packs/gateways-ia-prereq.md | Folder tree + nav tree + discrepancies | Human IA review (Gateways) |

@@ -7,7 +7,11 @@
       "Bash(echo \"EXIT: $?\")",
       "Bash(find ~/.claude -name *.db -o -name *.sqlite -o -name state*)",
       "Bash(chmod +x /Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/workspace/plan/active/FUCK_CLAUDE/scripts/*.sh)",
-      "Bash(./workspace/plan/active/FUCK_CLAUDE/scripts/patch-extension.sh --dry-run)"
+      "Bash(./workspace/plan/active/FUCK_CLAUDE/scripts/patch-extension.sh --dry-run)",
+      "Read(//Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/$HOME/.claude/projects/-Users-alisonhaire-Documents-Livepeer-Docs-v2-dev/**)",
+      "Bash(find /Users/alisonhaire/.claude/ -name *.jsonl -newer /Users/alisonhaire/.claude/plans/misty-rolling-starfish.md)",
+      "Bash(ls -la /Users/alisonhaire/.claude/plans/misty-rolling-starfish-agent-*.md)",
+      "Bash(chmod +x workspace/plan/active/FUCK_CLAUDE/scripts/fix-title-overwrite.sh)"
     ],
     "additionalDirectories": [
       "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/workspace/thread-outputs/sessions"
