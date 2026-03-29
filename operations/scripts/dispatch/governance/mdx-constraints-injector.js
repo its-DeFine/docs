@@ -57,7 +57,7 @@ stdin.on('end', () => {
           '2. Do NOT import Mintlify built-ins (Card, Tabs, Accordion, Steps, etc.) — they are global',
           '3. Custom component imports MUST use absolute paths from snippets/ with .jsx extension',
           '4. No dynamic JS expressions (toLocaleDateString, Date(), etc.) — MDX compiles at build time',
-          '5. No cross-JSX imports (one .jsx file cannot import from another .jsx file)',
+          '5. Cross-JSX imports are fragile and officially unsupported — import all components in parent MDX instead',
           '6. Verify every import path exists before using it (Glob or Grep first)',
           'Full reference: workspace/thread-outputs/research/mintlify-constraints-reference.md',
         ].join(' | ')

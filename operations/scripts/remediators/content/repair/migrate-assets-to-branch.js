@@ -16,6 +16,8 @@
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
+const http = require('http');
+const https = require('https');
 const { spawnSync } = require('child_process');
 
 const auditMediaAssets = require('../../../audits/content/quality/audit-media-assets');
@@ -41,6 +43,8 @@ function printHelp() {
       '  --write             Execute copy, ref rewrite, test, and delete phases.',
       '  --skip-copy         Skip copying files to docs-v2-assets.',
       '  --skip-refs         Skip MDX/JSX reference rewrites.',
+      '  --skip-verify       Skip pre-delete verification (URL check, MDX parse, render).',
+      '  --dev-server <url>  Mintlify dev server URL for render checks (default: http://localhost:3333).',
       '  --file <path>       Restrict processing to a single repo-relative asset path.',
       '  --help              Show this help output.',
       '',
@@ -58,6 +62,8 @@ function parseArgs(argv) {
     mode: 'dry-run',
     skipCopy: false,
     skipRefs: false,
+    skipVerify: false,
+    devServer: 'http://localhost:3333',
     file: '',
     help: false
   };
@@ -87,6 +93,19 @@ function parseArgs(argv) {
     }
     if (token === '--skip-refs') {
       args.skipRefs = true;
+      continue;
+    }
+    if (token === '--skip-verify') {
+      args.skipVerify = true;
+      continue;
+    }
+    if (token === '--dev-server') {
+      args.devServer = String(argv[i + 1] || '').trim();
+      i += 1;
+      continue;
+    }
+    if (token.startsWith('--dev-server=')) {
+      args.devServer = token.slice('--dev-server='.length).trim();
       continue;
     }
     if (token === '--manifest') {
@@ -652,6 +671,168 @@ function rewriteReferences(statusEntries, sourceContents, verifiedCopies, option
   };
 }
 
+function httpHead(url) {
+  return new Promise((resolve) => {
+    const mod = url.startsWith('https') ? https : http;
+    const req = mod.request(url, { method: 'HEAD', timeout: 15000 }, (res) => {
+      resolve({ url, status: res.statusCode, ok: res.statusCode >= 200 && res.statusCode < 400 });
+    });
+    req.on('error', (err) => resolve({ url, status: 0, ok: false, error: err.message }));
+    req.on('timeout', () => { req.destroy(); resolve({ url, status: 0, ok: false, error: 'timeout' }); });
+    req.end();
+  });
+}
+
+function mdxRouteFromPath(repoPath) {
+  const normalized = auditMediaAssets.normalizeRepoPath(repoPath);
+  if (!normalized.startsWith('v2/')) return null;
+  return '/' + normalized.replace(/\.mdx$/, '').replace(/\/index$/, '');
+}
+
+async function checkDevServer(baseUrl) {
+  try {
+    const result = await httpHead(baseUrl);
+    return result.ok;
+  } catch (_err) {
+    return false;
+  }
+}
+
+async function verifyRewrittenAssets(statusEntries, sourceContents, options, log) {
+  const results = { urlChecks: [], mdxChecks: [], renderChecks: [], passed: true };
+
+  // 1. Collect all canonical URLs that were rewritten
+  const urlsToCheck = new Set();
+  const mdxFilesToCheck = new Set();
+
+  statusEntries.forEach((entry) => {
+    const assetLog = logEntry(log, entry.asset.path);
+    const canonicalUrl = buildCanonicalAssetUrl(entry.asset.path);
+    urlsToCheck.add(canonicalUrl);
+
+    const rewrittenFiles = assetLog.refs.rewritten_files || [];
+    rewrittenFiles.forEach((f) => mdxFilesToCheck.add(f));
+
+    // Also check files that were already rewritten (from prior runs)
+    entry.asset.mdx_references.forEach((sourcePath) => {
+      const content = sourceContents.get(sourcePath);
+      if (content && content.includes(canonicalUrl)) {
+        mdxFilesToCheck.add(sourcePath);
+      }
+    });
+  });
+
+  // 2. HTTP HEAD check — verify each remote URL returns 200
+  console.log(`\nVerifying ${urlsToCheck.size} remote asset URL(s)...`);
+  for (const url of urlsToCheck) {
+    const result = await httpHead(url);
+    results.urlChecks.push(result);
+    const status = result.ok ? 'OK' : 'FAIL';
+    console.log(`  [${status}] ${result.status} ${url}${result.error ? ' (' + result.error + ')' : ''}`);
+    if (!result.ok) results.passed = false;
+  }
+
+  // 3. MDX parse check — verify no syntax errors in rewritten files (v2/snippets only)
+  const v2MdxFiles = [...mdxFilesToCheck].filter((f) => !f.startsWith('v1/'));
+  const skippedV1 = mdxFilesToCheck.size - v2MdxFiles.length;
+  if (skippedV1 > 0) console.log(`\nSkipping ${skippedV1} v1 file(s) (frozen, different format).`);
+  console.log(`Validating ${v2MdxFiles.length} MDX file(s)...`);
+  for (const mdxPath of v2MdxFiles) {
+    const absPath = path.join(REPO_ROOT, mdxPath);
+    if (!fs.existsSync(absPath)) {
+      results.mdxChecks.push({ file: mdxPath, valid: false, error: 'file not found' });
+      results.passed = false;
+      continue;
+    }
+    const content = fs.readFileSync(absPath, 'utf8');
+    const hasFrontmatter = /^---\s*\n[\s\S]*?\n---/.test(content);
+    const hasUnclosedJsx = /<([A-Z][A-Za-z]*)[^>]*>[^]*$/.test(content) && !/<\/\1>/.test(content);
+    const valid = hasFrontmatter && !hasUnclosedJsx;
+    results.mdxChecks.push({ file: mdxPath, valid, hasFrontmatter, hasUnclosedJsx });
+    const status = valid ? 'OK' : 'FAIL';
+    console.log(`  [${status}] ${mdxPath}${!hasFrontmatter ? ' (missing frontmatter)' : ''}${hasUnclosedJsx ? ' (unclosed JSX)' : ''}`);
+    if (!valid) results.passed = false;
+  }
+
+  // 4. Puppeteer render check — if dev server is running
+  const serverUp = await checkDevServer(options.devServer);
+  if (serverUp) {
+    const routes = new Set();
+    for (const mdxPath of v2MdxFiles) {
+      const route = mdxRouteFromPath(mdxPath);
+      if (route) routes.add(route);
+    }
+
+    if (routes.size > 0) {
+      console.log(`\nRender-checking ${routes.size} page(s) on ${options.devServer}...`);
+      let puppeteer;
+      try {
+        puppeteer = require('puppeteer');
+      } catch (_err) {
+        try {
+          puppeteer = require('/opt/homebrew/lib/node_modules/puppeteer');
+        } catch (_err2) {
+          console.log('  [SKIP] puppeteer not available — install globally or in operations/tests/');
+          results.renderChecks.push({ skipped: true, reason: 'puppeteer not installed' });
+        }
+      }
+
+      if (puppeteer) {
+        const browser = await puppeteer.launch({ headless: true });
+        try {
+          for (const route of routes) {
+            const url = `${options.devServer}${route}`;
+            const page = await browser.newPage();
+            const pageErrors = [];
+            page.on('pageerror', (err) => pageErrors.push(err.message));
+
+            try {
+              await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+              const bodyLength = await page.$eval('body', (el) => el.textContent.length);
+              const brokenImages = await page.evaluate(() => {
+                const imgs = document.querySelectorAll('img');
+                return Array.from(imgs).filter((img) => !img.complete || img.naturalWidth === 0).map((img) => img.src);
+              });
+              const brokenVideos = await page.evaluate(() => {
+                const vids = document.querySelectorAll('video source, video[src]');
+                return Array.from(vids).filter((v) => v.error).map((v) => v.src || v.parentElement.src);
+              });
+
+              const renderErrors = pageErrors.filter((e) =>
+                !e.includes('favicon') && !e.includes('rss.xml')
+              );
+
+              const passed = bodyLength > 100 && brokenImages.length === 0 && renderErrors.length === 0;
+              results.renderChecks.push({ route, url, passed, bodyLength, brokenImages, brokenVideos, renderErrors });
+
+              const status = passed ? 'OK' : 'FAIL';
+              console.log(`  [${status}] ${route} (${bodyLength} chars)`);
+              if (brokenImages.length > 0) console.log(`    Broken images: ${brokenImages.join(', ')}`);
+              if (brokenVideos.length > 0) console.log(`    Broken videos: ${brokenVideos.join(', ')}`);
+              if (renderErrors.length > 0) console.log(`    Errors: ${renderErrors.join('; ')}`);
+              if (!passed) results.passed = false;
+            } catch (err) {
+              results.renderChecks.push({ route, url, passed: false, error: err.message });
+              console.log(`  [FAIL] ${route} — ${err.message}`);
+              results.passed = false;
+            } finally {
+              await page.close();
+            }
+          }
+        } finally {
+          await browser.close();
+        }
+      }
+    }
+  } else {
+    console.log(`\n  [SKIP] No dev server at ${options.devServer} — render checks skipped.`);
+    console.log('  Start with: npx mintlify dev --port 3333');
+    results.renderChecks.push({ skipped: true, reason: `no dev server at ${options.devServer}` });
+  }
+
+  return results;
+}
+
 function deleteMigratedAssets(statusEntries, verifiedCopies, options, log) {
   const deletable = statusEntries.filter((entry) => {
     const assetLog = logEntry(log, entry.asset.path);
@@ -675,7 +856,7 @@ function deleteMigratedAssets(statusEntries, verifiedCopies, options, log) {
 
   runGit(['rm', '--', ...existingPaths]);
   if (hasCachedChanges(REPO_ROOT)) {
-    runGit(['commit', '-m', 'chore(assets): remove migrated assets from docs-v2 working tree [migrate-assets-to-branch]']);
+    runGit(['commit', '-m', 'chore(assets): remove migrated assets from docs-v2 working tree [migrate-assets-to-branch]', '--trailer', 'allow-deletions=true']);
     existingPaths.forEach((repoPath) => {
       const assetLog = logEntry(log, repoPath);
       assetLog.delete.attempted = true;
@@ -692,7 +873,7 @@ function runDryRun(options, statusEntries, logPath, log) {
   console.log(`\nWrote ${logPath}`);
 }
 
-function runWrite(options, statusEntries, sourceContents, logPath, log) {
+async function runWrite(options, statusEntries, sourceContents, logPath, log) {
   try {
     const verifiedCopies = options.skipCopy
       ? new Set(statusEntries.map((entry) => entry.asset.path))
@@ -717,6 +898,16 @@ function runWrite(options, statusEntries, sourceContents, logPath, log) {
       });
     }
 
+    if (!options.skipVerify) {
+      console.log('\n── Pre-delete verification ──────────────────────');
+      const verifyResult = await verifyRewrittenAssets(statusEntries, sourceContents, options, log);
+      log.verification = verifyResult;
+      if (!verifyResult.passed) {
+        throw new Error(`Pre-delete verification failed. Deletions skipped. See ${logPath} for details.`);
+      }
+      console.log('\n✓ All verification checks passed.');
+    }
+
     deleteMigratedAssets(statusEntries, verifiedCopies, options, log);
   } finally {
     writeJson(logPath, log);
@@ -724,7 +915,7 @@ function runWrite(options, statusEntries, sourceContents, logPath, log) {
   }
 }
 
-function main(argv = process.argv.slice(2)) {
+async function main(argv = process.argv.slice(2)) {
   const options = parseArgs(argv);
   if (options.help) {
     printHelp();
@@ -751,16 +942,14 @@ function main(argv = process.argv.slice(2)) {
     return;
   }
 
-  runWrite(options, statusEntries, sourceContents, logPath, log);
+  await runWrite(options, statusEntries, sourceContents, logPath, log);
 }
 
 if (require.main === module) {
-  try {
-    main();
-  } catch (error) {
+  main().catch((error) => {
     console.error(`migrate-assets-to-branch failed: ${error.message}`);
     process.exit(1);
-  }
+  });
 }
 
 module.exports = {

@@ -26,9 +26,11 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 | About | About tab — IA lock + content | Active | 2026-03-29 |
 | Cleanup | Repo cleanup | Active | 2026-03-29 |
 | MASTER CLEAN | Consolidate all frameworks, tab content, tasks into one folder | Active — audit done, awaiting approval to build | 2026-03-29 |
-| Contracts & Changelogs | A1: co-designing contract-addresses-canonical.mdx with Alison | Active | 2026-03-29 |
+| Contracts & Changelogs | A1: ContractVerifier widget built + integrated into canonical page | Active | 2026-03-29 |
+| Mintlify Constraints | Canonical constraints reference — audited, headless-tested, propagated | Done | 2026-03-29 |
 | Propagate | `/propagate` skill + move-detect hook + docs-path-sync extensions | Done — awaiting live test | 2026-03-29 |
 | Watcher | Repo quality guardian — flags drift, mess, broken patterns as they happen | Watching | 2026-03-29 |
+| References | `.claude/references/` — exemplary work analysis across 11 categories | Done | 2026-03-30 |
 
 **Rule:** When you finish a task or change status, update your row in this table before closing. If the master-tasks.md file has a matching item, update that too.
 
@@ -40,7 +42,7 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 - **Verify before asserting.** Never claim a component, file, or config does not exist without searching for it. Never claim something works without running it.
 - **Reproduce before fixing.** For bugs: (1) reproduce the exact failure, (2) capture the error, (3) hypothesise from evidence, (4) test one fix at a time. Use `/diagnose` for anything beyond a trivial one-line fix.
 - **Verify first instance before bulk operations.** Apply to one file, confirm it works, then proceed to the rest.
-- **Read Mintlify constraints before editing MDX.** Reference: `workspace/thread-outputs/research/mintlify-constraints-reference.md`. No dynamic JS expressions, no SSR patterns, absolute import paths only, verify component imports exist before using them.
+- **Read Mintlify constraints before editing MDX.** Reference: `workspace/thread-outputs/research/mintlify-constraints-reference.md`. No React/hook imports (globally available), no SSR patterns, prefer root-absolute import paths, include .jsx extension, no top-level constants in JSX files (define inside function bodies), arrow function syntax only, verify component imports exist before using them.
 
 ---
 
@@ -55,6 +57,9 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 - New scripts must follow 11-tag JSDoc standard and type/concern/niche taxonomy (`workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md`)
 - New components must follow 7-tag JSDoc standard and category/sub-niche taxonomy (`workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md`)
 - No destructive file operations without creating a backup or checkpoint commit first
+- Every session MUST start with `/thread`. Use `/log` after each deliverable ships. Use `/close` when the thread is done or the session ends — whichever comes first. Long threads stay open across sessions; short sessions close same-day
+- Before starting work, check flags in `workspace/thread-outputs/sessions/flags.jsonl`. If your thread is named, address the flag before doing new work
+- Plans without research gates and test/verification checkpoints do not get approved. Every plan must define: what gets researched before building, what gets verified after building, and what blocks the next phase
 - Never claim something works without verifying it renders or runs — hook enforced
 - When editing docs files, confirm whether the target is a TEMPLATE or a PAGE before writing
 - After any file move or rename, scan ALL file types for stale references — including .txt, .json, sitemap, llms.txt
@@ -79,7 +84,9 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 
 **Approval:** "Go" / "ok" / "proceed" = approval. Silence = not approval. Describing the next task is not approval.
 
-**Alison approves:** gate openings, blocking decisions, agent spawns, batch operations, merging pages, content-pass mode selection.
+**Alison approves:** gate openings, blocking decisions, batch operations, merging pages, content-pass mode selection.
+
+**Pre-approved (no "go" needed):** Any read-only work — research, planning, audits, investigation, spawning agents for these. Writing to `workspace/thread-outputs/` is fine. If the output is findings, a plan, or an audit (no repo edits), just do it.
 
 **Claude does without asking:** reading files, presenting findings, flagging out-of-scope content, updating completion reports, running tests.
 
@@ -89,6 +96,8 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 
 - Recommend and suggest. Do not ask questions you can answer yourself.
 - When intent is vague, propose what you think the user means — do not ask open-ended questions.
+- Never end with "Want me to X or Y?" If you've identified a problem, present the full solution with your recommendation. The user approves or redirects — they don't pick from a menu.
+- Always design the complete pipeline. If a task has 3 steps, design all 3 — do not ship step 1 and ask if the user wants steps 2 and 3. Think through dependencies, propagation, validation, and downstream effects before proposing anything.
 - Findings before fixes. Gather all, present structured report, get approval, then execute.
 - Never work from memory. If a document is referenced, read it.
 - Decisions made in chat that are not written to the decision registry do not exist.
@@ -110,6 +119,8 @@ These are inline. No skill files. Just do what it says.
 | `/wip` | Append current progress to `workspace/thread-outputs/sessions/session-log.txt`. No ceremony. |
 | `/fix [description]` | Reproduce the bug first. Show the error. Then propose one fix. Do not implement until approved. |
 | `/remind` | Re-read `.claude/CLAUDE.md` right now. Re-read the thread outcome. State your role, the rules you're following, and what you're working on. Then propose the next action with reasoning. |
+| `/log` | Append a timestamped entry to `workspace/thread-outputs/sessions/session-log.txt` with: thread name, what just shipped, files changed. One entry, no ceremony. Then continue working. |
+| `/flag [thread] [message]` | Append a flag to `workspace/thread-outputs/sessions/flags.jsonl` for another thread to pick up. One JSON line. Then continue working. |
 
 ---
 
@@ -189,6 +200,7 @@ If the sidebar is broken: run `full-repair.sh --dry-run` first, then without `--
 | `docs-guide/policies/governance-index.mdx` | Canonical governance index — all governed surfaces, what to read before writing |
 | `workspace/thread-outputs/research/component-script-placement-reference.md` | Component/script folder placement rules |
 | `workspace/thread-outputs/research/mintlify-constraints-reference.md` | Mintlify platform constraints |
+| `.claude/references/` | Exemplary work to emulate — read before designing, writing, or building |
 
 ---
 

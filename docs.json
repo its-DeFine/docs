@@ -3266,6 +3266,19 @@
                           "v2/resources/changelog/changelog",
                           "v2/resources/changelog/go-livepeer",
                           "v2/resources/changelog/contracts",
+                          "v2/resources/changelog/explorer",
+                          "v2/resources/changelog/ai-runner",
+                          "v2/resources/changelog/comfystream",
+                          "v2/resources/changelog/subgraph",
+                          "v2/resources/changelog/naap",
+                          "v2/resources/changelog/studio",
+                          "v2/resources/changelog/livepeer-python",
+                          "v2/resources/changelog/livepeer-js",
+                          "v2/resources/changelog/pytrickle",
+                          "v2/resources/changelog/livepeer-python-gateway",
+                          "v2/resources/changelog/website",
+                          "v2/resources/changelog/lips",
+                          "v2/resources/changelog/docs",
                           "v2/resources/changelog/migration-guide"
                         ]
                       }
@@ -3323,6 +3336,7 @@
                             "group": "Contributing",
                             "pages": [
                               "docs-guide/contributing/contributing",
+                              "docs-guide/contributing/local-preview",
                               "docs-guide/contributing/mintlify"
                             ]
                           },

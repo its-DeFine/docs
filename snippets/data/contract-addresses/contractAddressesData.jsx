@@ -49,672 +49,1941 @@
  * @property {string} meta.explorerUrls.etherscan   - Etherscan base URL
  */
 
-export const contractAddresses = {
-  arbitrumOne: {
-    current: [
-      {
-        name: 'LivepeerToken',
-        address: '0x289ba1701C2F088cf0faf8B3705246331cB8A839',
-        type: 'standalone',
-        category: 'token',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z', //must be human readable DD Month YYYY
-        contractCodeHref: '',
-        blockchainHref: '',
-        meta: {
-          // other notes needed for pages
-          //
-        },
-      },
-      {
-        name: 'BondingVotes',
-        address: '0x0B9C254837E72Ebe9Fe04960C43B69782E68169A',
-        type: 'proxy',
-        category: 'governance',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'BondingVotes',
-        address: '0x1561fC5F7Efc049476224005DFf38256dccfc509',
-        type: 'target',
-        category: 'governance',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'Governor',
-        address: '0xD9dEd6f9959176F0A04dcf88a0d2306178A736a6',
-        type: 'standalone',
-        category: 'governance',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'LivepeerGovernor',
-        address: '0xd2Ce37BCB287CaDc40647f567C2D3C4220901634',
-        type: 'target',
-        category: 'governance',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'LivepeerGovernor',
-        address: '0xcFE4E2879B786C3aa075813F0E364bb5acCb6aa0',
-        type: 'proxy',
-        category: 'governance',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'MerkleSnapshot',
-        address: '0x10736ffaCe687658F88a46D042631d182C7757f7',
-        type: 'standalone',
-        category: 'governance',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'PollCreator',
-        address: '0x8bb50806D60c492c0004DAD5D9627DAA2d9732E6',
-        type: 'standalone',
-        category: 'governance',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'Treasury',
-        address: '0xf82C1FF415F1fCf582554fDba790E27019c8E8C4',
-        type: 'standalone',
-        category: 'governance',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'L2LPTDataCache',
-        address: '0xd78b6bD09cd28A83cFb21aFa0DA95c685A6bb0B1',
-        type: 'standalone',
-        category: 'bridge',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'L2LPTGateway',
-        address: '0x6D2457a4ad276000A615295f7A80F79E48CcD318',
-        type: 'standalone',
-        category: 'bridge',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'L2Migrator',
-        address: '0x148D5b6B4df9530c7C76A810bd1Cdf69EC4c2085',
-        type: 'proxy',
-        category: 'bridge',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'L2Migrator',
-        address: '0x93BB030735747708b4D33093A98d4c804Cd6B58C',
-        type: 'target',
-        category: 'bridge',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'SortedDoublyLL',
-        address: '0xC45f6918F7Bcac7aBc8fe05302b3cDF39776cdeb',
-        type: 'standalone',
-        category: 'utility',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'AIServiceRegistry',
-        address: '0x04C0b249740175999E5BF5c9ac1dA92431EF34C5',
-        type: 'target',
-        category: 'core',
-        _note: 'Detached from controller',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'BondingManager',
-        address: '0x35Bcf3c30594191d53231E4FF333E8A770453e40',
-        type: 'proxy',
-        category: 'core',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'Controller',
-        address: '0xD8E8328501E9645d16Cf49539efC04f734606ee4',
-        type: 'standalone',
-        category: 'core',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'DelegatorPool',
-        address: '0xfdb06109032AD3671a8f14f5f2E78f4B9E81b567',
-        type: 'standalone',
-        category: 'core',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'Minter',
-        address: '0x4969dcCF5186e1c49411638fc8A2a020Fdab752E',
-        type: 'standalone',
-        category: 'core',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'Minter',
-        address: '0xc20DE37170B45774e6CD3d2304017fc962f27252',
-        type: 'standalone',
-        category: 'core',
-        version: 'V2',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'RoundsManager',
-        address: '0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f',
-        type: 'proxy',
-        category: 'core',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'RoundsManager',
-        address: '0x92d804Ed49D92438aEA6fe552BD9163aacb7E841',
-        type: 'target',
-        category: 'core',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'ServiceRegistry',
-        address: '0xC92d3A360b8f9e083bA64DE15d95Cf8180897431',
-        type: 'proxy',
-        category: 'core',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'ServiceRegistry',
-        address: '0x38093CDca43aeCd7bb474983519A246e93A3b0a7',
-        type: 'target',
-        category: 'core',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-      {
-        name: 'TicketBroker',
-        address: '0xa8bB618B1520E284046F3dFc448851A1Ff26e41B',
-        type: 'proxy',
-        category: 'core',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:03.640Z',
-      },
-    ],
-    historical: {
-      'BondingManager (Target)': {
-        entries: [
-          {
-            version: 'V1',
-            address: '0xe479B9fbA2Cd65f822f451fC8C145c663B995CE6',
-          },
-          {
-            version: 'V2',
-            address: '0xC40df4db2f99e7e235780A93B192F1a934f0c45b',
-          },
-          {
-            version: 'V3',
-            address: '0x3757DB506ECd9CBE643660C0F5b70db5b321202C',
-          },
-          {
-            version: 'V4',
-            address: '0x0f9C425E7374602C20370d3fd263155B4c3bDc91',
-          },
-          {
-            version: 'V5',
-            address: '0x3a941e1094B9E33efABB26a9047a8ABb4b257907',
-          },
-          {
-            version: 'V6',
-            address: '0x9c9209c9ff6996513b3673d69ee7b36a6c58a8cf',
-          },
-          {
-            version: 'V7',
-            address: '0x363cdB9BaE210Ef182c60b5a496139E980330127',
-          },
-          {
-            version: 'V8',
-            address: '0x557093B1Ab53412166beAd939f34244170b6525B',
-          },
-          {
-            version: 'V9',
-            address: '0x6b397f20DC227B4E23fEc20BBDBe166d0DFFC452',
-          },
-          {
-            version: 'V10',
-            address: '0xd1C1F5d44D8F83ca2A05Baf40461e550cFDDecA2',
-          },
-          {
-            version: 'V11',
-            address: '0xF62C30242fccd3a46721f155d4d367De3fD5B3b3',
-          },
-          {
-            version: 'V12',
-            address: '0x4bA7E7531Ab56bC8d78dB4FDc88D21F621f34BB4',
-          },
-          {
-            version: 'V13',
-            address: '0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74',
-          },
-        ],
-      },
-      'TicketBroker (Target)': {
-        entries: [
-          {
-            version: 'V1',
-            address: '0x7Beb84c52ce96DFd90431FAA97378994a8baa6df',
-          },
-          {
-            version: 'V2',
-            address: '0xD906D192e2503Aafd1BC5F5fc4163E842D5B1d6e',
-          },
-          {
-            version: 'V3',
-            address: '0xea1b0F6c8D158328a6e3D3F924B86A759F41465c',
-          },
-        ],
-      },
-      'BondingVotes (Target)': {
-        entries: [
-          {
-            version: 'V1',
-            address: '0x1561fC5F7Efc049476224005DFf38256dccfc509',
-          },
-          {
-            version: 'V2',
-            address: '0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119',
-          },
-        ],
-      },
-      Minter: {
-        entries: [
-          {
-            version: 'V1',
-            address: '0x4969dcCF5186e1c49411638fc8A2a020Fdab752E',
-          },
-        ],
-      },
-      'L2Migrator (Target)': {
-        entries: [
-          {
-            version: 'V1',
-            address: '0x4F59b39e2ea628fe8371BDfd51B063319339c7EE',
-          },
-        ],
-      },
-    },
+/** Human-readable definitions for field values. Used by page tooltips and table headers. */
+export const definitions = {
+  type: {
+    proxy:
+      'Stable address that delegates to a target implementation. Survives upgrades — users always interact with this address.',
+    target:
+      'Implementation contract behind a proxy. Replaced on governance upgrades. Do not interact with directly.',
+    standalone:
+      'Contract with no proxy pattern. Address changes only if redeployed (rare).',
   },
-  ethereumMainnet: {
-    current: [
-      {
-        name: 'BridgeMinter',
-        address: '0x8dDDB96CF36AC8860f1DE5C7c4698fd499FAB405',
-        type: 'standalone',
-        category: 'token',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'LivepeerToken',
-        address: '0x58b6a8a3302369daec383334672404ee733ab239',
-        type: 'standalone',
-        category: 'token',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'Governor',
-        address: '0xFC3CBed6A3476F7616CC70f078397700136eEBFd',
-        type: 'standalone',
-        category: 'governance',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'MerkleSnapshot',
-        address: '0x24ebEd82c681f435E944BEEbFAEEAaE443D08438',
-        type: 'standalone',
-        category: 'governance',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'PollCreator',
-        address: '0xBf824EDb6b94D9B52d972d5B25bCc19b4e6E3F3C',
-        type: 'standalone',
-        category: 'governance',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'L1Escrow',
-        address: '0x6A23F4940BD5BA117Da261f98aae51A8BFfa210A',
-        type: 'standalone',
-        category: 'bridge',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'L1LPTDataCache',
-        address: '0x1d24838b35A9c138Ac157A852e19e948aD6323D7',
-        type: 'standalone',
-        category: 'bridge',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'L1LPTGateway',
-        address: '0x6142f1C8bBF02E6A6bd074E8d564c9A5420a0676',
-        type: 'standalone',
-        category: 'bridge',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'L1Migrator',
-        address: '0x21146B872D3A95d2cF9afeD03eE5a783DaE9A89A',
-        type: 'standalone',
-        category: 'bridge',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'GenesisManager',
-        address: '0x3a9543d4767b2c914ea22fd0b07e17b0901aaebf',
-        type: 'standalone',
-        category: 'utility',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'MerkleMine',
-        address: '0x8e306b005773bee6ba6a6e8972bc79d766cc15c8',
-        type: 'standalone',
-        category: 'utility',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'MultiMerkleMine',
-        address: '0x182ebf4c80b28efc45ad992ecbb9f730e31e8c7f',
-        type: 'standalone',
-        category: 'utility',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'Refunder',
-        address: '0x780c98cbb0cc21d6617c05332bd5cf6f847c71c2',
-        type: 'standalone',
-        category: 'utility',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'SortedDoublyLL',
-        address: '0x1a0b2ca69ca2c7f96e2529faa6d63f881655d81a',
-        type: 'standalone',
-        category: 'utility',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'BondingManager',
-        address: '0x511bc4556d823ae99630ae8de28b9b80df90ea2e',
-        type: 'proxy',
-        category: 'core',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'BondingManager',
-        address: '0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4',
-        type: 'target',
-        category: 'core',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'Controller',
-        address: '0xf96d54e490317c557a967abfa5d6e33006be69b3',
-        type: 'standalone',
-        category: 'core',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'Minter',
-        address: '0x505F8c2ee81f1C6fa0D88e918eF0491222E05818',
-        type: 'standalone',
-        category: 'core',
-        isHistorical: false,
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'RoundsManager',
-        address: '0x3984fc4ceeef1739135476f625d36d6c35c40dc3',
-        type: 'proxy',
-        category: 'core',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'RoundsManager',
-        address: '0xC89fE48382F8fda6992dC590786A84275bCD1C57',
-        type: 'target',
-        category: 'core',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'ServiceRegistry',
-        address: '0x406a112f3218b988c66778fd72fc8467f2601366',
-        type: 'proxy',
-        category: 'core',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'ServiceRegistry',
-        address: '0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e',
-        type: 'target',
-        category: 'core',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'TicketBroker',
-        address: '0x5b1ce829384eebfa30286f12d1e7a695ca45f5d2',
-        type: 'proxy',
-        category: 'core',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-      {
-        name: 'TicketBroker',
-        address: '0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808',
-        type: 'target',
-        category: 'core',
-        verified: true,
-        verifiedAt: '2026-03-26T04:46:18.058Z',
-      },
-    ],
-    historical: {
-      LivepeerVerifier: {
-        entries: [
-          {
-            version: 'V1',
-            address: '0xf623811b08b45792d0223d77d9c922dae29712ec',
-          },
-          {
-            version: 'V2',
-            address: '0xe4be2a35dec0063f9dfccb9b740b1acb7eefefec',
-          },
-        ],
-      },
-      Minter: {
-        entries: [
-          {
-            version: 'V1',
-            address: '0x8573f2f5a3bd960eee3d998473e50c75cdbe6828',
-          },
-        ],
-      },
-      'BondingManager (Target)': {
-        entries: [
-          {
-            version: 'V1',
-            address: '0x81eb0b10ff8703905904e4d91cf6aa575d59736f',
-          },
-          {
-            version: 'V2',
-            address: '0x5A9512826EAAF1FE4190f89443314E95A515fE24',
-          },
-          {
-            version: 'V3',
-            address: '0x633101b3f15f93c5f415830d48e56b9b1f7ba584',
-          },
-          {
-            version: 'V4',
-            address: '0x05C03EA0039f2e828A725A82939fc1e90de38B44',
-          },
-          {
-            version: 'V5',
-            address: '0xCBAa6eA4886b535FC7ABACe3F3985Ed03b3b80a0',
-          },
-          {
-            version: 'V6',
-            address: '0xDC6eE74A18994caD3876a078B6fa4920FD9C507d',
-          },
-          {
-            version: 'V7',
-            address: '0x1a6007d1D0583452Bd6f45a4e1a9190B15Fbd7E3',
-          },
-          {
-            version: 'V8',
-            address: '0xef5E170b679ddaF5e22ADC10fD23DDdB79E3C0c5',
-          },
-          {
-            version: 'V9',
-            address: '0xc8a695155648F18B0cfd6989498B6f8b2c4cc56A',
-          },
-          {
-            version: 'V10',
-            address: '0x35F99F326681FE4F38719491be48Ab4950795013',
-          },
-          {
-            version: 'V11',
-            address: '0xAC0153a8C5227e43506901a4f3f83FD000c8178f',
-          },
-          {
-            version: 'V12',
-            address: '0x246edEBae14b186a67e3d466A485321169a8bcD5',
-          },
-          {
-            version: 'V13',
-            address: '0x223398d0BF9cc24960b3886CC481dBf5276EdeD2',
-          },
-          {
-            version: 'V14',
-            address: '0x0da7c263eCF5cD3ddba275b9A2D63320E28fD287',
-          },
-        ],
-      },
-      'JobsManager (Proxy)': {
-        entries: [
-          {
-            version: 'V1',
-            address: '0xbf07ff45f14c9ff0571b9fbdc7e2b62d29931224',
-          },
-        ],
-      },
-      'JobsManager (Target)': {
-        entries: [
-          {
-            version: 'V1',
-            address: '0x68b463bca7d561118636e9f028ff0f2e8398dd6a',
-          },
-          {
-            version: 'V2',
-            address: '0xB620c762dd4bC350602936d7401BB8393Ee6687c',
-          },
-          {
-            version: 'V3',
-            address: '0x8eade5eec609572bf53deadb88d36f862ddec517',
-          },
-        ],
-      },
-      'RoundsManager (Target)': {
-        entries: [
-          {
-            version: 'V1',
-            address: '0xa3aa52ce79e85a21d9ccda705c57e426b160112c',
-          },
-          {
-            version: 'V2',
-            address: '0x857d4bf18a80f03d3d11f438825cd3d0aa0d9d68',
-          },
-        ],
-      },
-      MerkleProof: {
-        entries: [
-          {
-            version: 'V1',
-            address: '0x289ba1701c2f088cf0faf8b3705246331cb8a839',
-          },
-        ],
-      },
-    },
+  category: {
+    core: 'Staking, payments, round progression, and service discovery. The operational backbone of the protocol.',
+    token:
+      'The LPT ERC-20 token and bridge infrastructure connecting Ethereum Mainnet and Arbitrum One.',
+    governance:
+      'On-chain voting, proposal execution, treasury management, and stake checkpointing.',
+    bridge:
+      'Cross-chain infrastructure for the Confluence migration from Ethereum to Arbitrum.',
+    migration:
+      'Historical contracts from the Confluence upgrade (2022). Migration is complete.',
+    utility:
+      'Libraries and helper contracts (sorting, genesis distribution, refunds).',
+  },
+  chain: {
+    arbitrumOne:
+      'Arbitrum One (chain 42161). All active protocol operations run here.',
+    ethereumMainnet:
+      'Ethereum Mainnet (chain 1). Only LivepeerToken (origin) and BridgeMinter remain operational. All other L1 contracts are paused.',
+    local: 'Local only testnet contracts',
+  },
+  verified: {
+    true: 'Contract bytecode verified on the block explorer. Source code matches deployed bytecode.',
+    false: 'Contract bytecode not yet verified on the block explorer.',
+    null: 'local testnet',
+  },
+  statusLabel: {
+    Active: 'Contract is live and processing transactions.',
+    Deprecated:
+      'Superseded by a newer implementation via governance upgrade. No longer receiving transactions. Listed for audit and historical reference.',
+    'Migration complete':
+      'Contract served the Confluence migration. No new migrations possible, but may still process pending claims.',
+    Paused: 'Contract is deployed but not currently processing transactions.',
+    'Testnet only':
+      'Deployed only on test networks. Not present on mainnet or Arbitrum One.',
+  },
+  registeredInController: {
+    true: 'Controller.getContract(keccak256(name)) returns this address. The protocol routes calls through it.',
+    false:
+      'Not registered in the Controller. Either standalone, detached, or on a different chain.',
   },
   meta: {
-    lastUpdated: '2026-03-26T04:46:31.137Z',
-    lastVerified: '2026-03-26T04:46:31.137Z',
-    sourceRepo: 'livepeer/governor-scripts',
-    sourceCommit: '2cb192a',
-    verificationSummary: '25/25 Arbitrum, 24/24 Mainnet',
-    explorerUrls: {
-      arbiscan: 'https://arbiscan.io/address/',
-      etherscan: 'https://etherscan.io/address/',
-    },
+    statusLabel:
+      'Operational status of the contract. Set editorially, not derived from on-chain data.',
+    deployedBy:
+      'The entity that deployed this contract. Derived from the creator address on the block explorer.',
+    deployedAt:
+      'Date of contract creation on-chain. Sourced from the first transaction on the block explorer.',
+    notes:
+      'Editorial context about this contract that cannot be derived from on-chain data.',
+    referencePage: 'Livpeer Docs Reference Page',
+    holderCount:
+      'Number of unique addresses holding this token. Only populated for ERC-20 token contracts.',
+    transactionCount:
+      'Total number of transactions sent to this contract address.',
+    lastActiveDate:
+      'Date of the most recent transaction involving this contract.',
+    blockscoutLabel:
+      'The human-readable name shown for this address on the Blockscout explorer.',
+    registeredInController:
+      'Whether the protocol Controller contract returns this address when queried by name.',
+    contractCodeHref: 'Link to the Solidity source code on GitHub.',
+    blockchainHref: 'Link to the contract on the block explorer.',
+    repoSrc:
+      'The GitHub repository and branch containing this contract source code.',
+    verified:
+      'Whether the deployed bytecode has been verified against source code on the block explorer.',
+    verifiedAt:
+      'Date the contract was last verified by the pipeline. Human-readable DD Mon YYYY.',
   },
 }
+
+export const contractAddresses = {
+  "arbitrumOne": {
+    "current": [
+      {
+        "name": "LivepeerToken",
+        "address": "0x289ba1701C2F088cf0faf8B3705246331cB8A839",
+        "type": "standalone",
+        "category": "token",
+        "isHistorical": false,
+        "chain": "arbitrumOne",
+        "repoSrc": "livepeer/arbitrum-lpt-bridge@main",
+        "contractCodeHref": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/token/LivepeerToken.sol",
+        "blockchainHref": "https://arbiscan.io/address/0x289ba1701C2F088cf0faf8B3705246331cB8A839",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": "Livepeer Deployer",
+          "notes": null,
+          "holderCount": "245,862",
+          "transactionCount": 127216,
+          "deployedAt": "12 Feb 2022",
+          "lastActiveDate": "29 Mar 2026",
+          "blockscoutLabel": "Livepeer",
+          "registeredInController": false,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2022-02-11T13:19:54.000Z",
+          "tokenTransferCount": 20,
+          "validationsCount": 0,
+          "totalSupply": "31697362311275482173434851",
+          "decimals": "18",
+          "symbol": "LPT",
+          "lastActiveDateISO": "2026-03-29T12:20:33.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": false,
+          "language": "solidity",
+          "sourceVerifiedAt": "8 Oct 2024",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+      },
+      {
+        "name": "BondingVotes",
+        "address": "0x0B9C254837E72Ebe9Fe04960C43B69782E68169A",
+        "type": "proxy",
+        "category": "governance",
+        "isHistorical": false,
+        "chain": "arbitrumOne",
+        "repoSrc": "livepeer/protocol@delta",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingVotes.sol",
+        "blockchainHref": "https://arbiscan.io/address/0x0B9C254837E72Ebe9Fe04960C43B69782E68169A",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 0,
+          "deployedAt": "12 Oct 2023",
+          "lastActiveDate": "12 Oct 2023",
+          "blockscoutLabel": "ManagerProxy",
+          "registeredInController": false,
+          "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2023-10-11T22:24:18.000Z",
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2023-10-11T22:24:18.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "27 Apr 2025",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+      },
+      {
+        "name": "BondingVotes",
+        "address": "0x1561fC5F7Efc049476224005DFf38256dccfc509",
+        "type": "target",
+        "category": "governance",
+        "isHistorical": false,
+        "chain": "arbitrumOne",
+        "repoSrc": "livepeer/protocol@delta",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingVotes.sol",
+        "blockchainHref": "https://arbiscan.io/address/0x1561fC5F7Efc049476224005DFf38256dccfc509",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 0,
+          "deployedAt": "12 Oct 2023",
+          "lastActiveDate": "12 Oct 2023",
+          "blockscoutLabel": "BondingVotes",
+          "registeredInController": null,
+          "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2023-10-11T22:24:12.000Z",
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2023-10-11T22:24:12.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "29 Mar 2026",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+      },
+      {
+        "name": "Governor",
+        "address": "0xD9dEd6f9959176F0A04dcf88a0d2306178A736a6",
+        "type": "standalone",
+        "category": "governance",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "meta": {
+          "blockscoutLabel": "Governor",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "12 Feb 2022",
+          "deployedAtISO": "2022-02-11T13:25:54.000Z",
+          "transactionCount": 22,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "20 Mar 2026",
+          "lastActiveDateISO": "2026-03-19T15:32:21.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "16 May 2025",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "LivepeerGovernor",
+        "address": "0xd2Ce37BCB287CaDc40647f567C2D3C4220901634",
+        "type": "target",
+        "category": "governance",
+        "isHistorical": false,
+        "chain": "arbitrumOne",
+        "repoSrc": "livepeer/protocol@delta",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/treasury/LivepeerGovernor.sol",
+        "blockchainHref": "https://arbiscan.io/address/0xd2Ce37BCB287CaDc40647f567C2D3C4220901634",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 0,
+          "deployedAt": "12 Oct 2023",
+          "lastActiveDate": "12 Oct 2023",
+          "blockscoutLabel": "LivepeerGovernor",
+          "registeredInController": null,
+          "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2023-10-11T22:24:36.000Z",
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2023-10-11T22:24:36.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "19 Jul 2024",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+      },
+      {
+        "name": "LivepeerGovernor",
+        "address": "0xcFE4E2879B786C3aa075813F0E364bb5acCb6aa0",
+        "type": "proxy",
+        "category": "governance",
+        "isHistorical": false,
+        "chain": "arbitrumOne",
+        "repoSrc": "livepeer/protocol@delta",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/treasury/LivepeerGovernor.sol",
+        "blockchainHref": "https://arbiscan.io/address/0xcFE4E2879B786C3aa075813F0E364bb5acCb6aa0",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 2932,
+          "deployedAt": "12 Oct 2023",
+          "lastActiveDate": "29 Mar 2026",
+          "blockscoutLabel": "ManagerProxy",
+          "registeredInController": false,
+          "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2023-10-11T22:24:42.000Z",
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2026-03-29T04:24:31.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "16 Dec 2024",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+      },
+      {
+        "name": "MerkleSnapshot",
+        "address": "0x10736ffaCe687658F88a46D042631d182C7757f7",
+        "type": "standalone",
+        "category": "governance",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "meta": {
+          "blockscoutLabel": "MerkleSnapshot",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "12 Feb 2022",
+          "deployedAtISO": "2022-02-11T13:25:54.000Z",
+          "transactionCount": 0,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "12 Feb 2022",
+          "lastActiveDateISO": "2022-02-11T13:25:54.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "30 Dec 2025",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "PollCreator",
+        "address": "0x8bb50806D60c492c0004DAD5D9627DAA2d9732E6",
+        "type": "standalone",
+        "category": "governance",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "meta": {
+          "blockscoutLabel": "PollCreator",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "12 Feb 2022",
+          "deployedAtISO": "2022-02-11T13:40:11.000Z",
+          "transactionCount": 6,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "26 Feb 2026",
+          "lastActiveDateISO": "2026-02-26T07:27:46.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "21 Jan 2026",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "Treasury",
+        "address": "0xf82C1FF415F1fCf582554fDba790E27019c8E8C4",
+        "type": "standalone",
+        "category": "governance",
+        "isHistorical": false,
+        "chain": "arbitrumOne",
+        "repoSrc": "livepeer/protocol@delta",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/treasury/Treasury.sol",
+        "blockchainHref": "https://arbiscan.io/address/0xf82C1FF415F1fCf582554fDba790E27019c8E8C4",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 5,
+          "deployedAt": "12 Oct 2023",
+          "lastActiveDate": "12 Oct 2023",
+          "blockscoutLabel": "Treasury",
+          "registeredInController": false,
+          "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2023-10-11T22:24:25.000Z",
+          "tokenTransferCount": 65455,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2023-10-11T22:57:19.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "21 Jan 2026",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+      },
+      {
+        "name": "L2LPTDataCache",
+        "address": "0xd78b6bD09cd28A83cFb21aFa0DA95c685A6bb0B1",
+        "type": "standalone",
+        "category": "bridge",
+        "isHistorical": false,
+        "chain": "arbitrumOne",
+        "repoSrc": "livepeer/arbitrum-lpt-bridge@main",
+        "contractCodeHref": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/L2LPTDataCache.sol",
+        "blockchainHref": "https://arbiscan.io/address/0xd78b6bD09cd28A83cFb21aFa0DA95c685A6bb0B1",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 6,
+          "deployedAt": "12 Feb 2022",
+          "lastActiveDate": "1 Dec 2022",
+          "blockscoutLabel": "L2LPTDataCache",
+          "registeredInController": null,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2022-02-11T16:10:49.000Z",
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2022-12-01T09:14:06.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": false,
+          "language": "solidity",
+          "sourceVerifiedAt": "21 Jan 2026",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+      },
+      {
+        "name": "L2LPTGateway",
+        "address": "0x6D2457a4ad276000A615295f7A80F79E48CcD318",
+        "type": "standalone",
+        "category": "bridge",
+        "isHistorical": false,
+        "chain": "arbitrumOne",
+        "repoSrc": "livepeer/arbitrum-lpt-bridge@main",
+        "contractCodeHref": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/gateway/L2LPTGateway.sol",
+        "blockchainHref": "https://arbiscan.io/address/0x6D2457a4ad276000A615295f7A80F79E48CcD318",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 5337,
+          "deployedAt": "12 Feb 2022",
+          "lastActiveDate": "28 Mar 2026",
+          "blockscoutLabel": "L2LPTGateway",
+          "registeredInController": false,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2022-02-11T16:13:02.000Z",
+          "tokenTransferCount": 3,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2026-03-27T19:35:05.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": false,
+          "language": "solidity",
+          "sourceVerifiedAt": "16 Nov 2024",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+      },
+      {
+        "name": "L2Migrator",
+        "address": "0x148D5b6B4df9530c7C76A810bd1Cdf69EC4c2085",
+        "type": "proxy",
+        "category": "bridge",
+        "isHistorical": false,
+        "chain": "arbitrumOne",
+        "repoSrc": "livepeer/protocol@delta",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/L2/L2Migrator.sol",
+        "blockchainHref": "https://arbiscan.io/address/0x148D5b6B4df9530c7C76A810bd1Cdf69EC4c2085",
+        "meta": {
+          "statusLabel": "Migration complete",
+          "deployedBy": null,
+          "notes": "Still processing pending claimStake calls",
+          "holderCount": null,
+          "transactionCount": 1754,
+          "deployedAt": "12 Feb 2022",
+          "lastActiveDate": "26 Feb 2026",
+          "blockscoutLabel": "ManagerProxy",
+          "registeredInController": false,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "6714553677304630049",
+          "deployedAtISO": "2022-02-11T16:15:34.000Z",
+          "tokenTransferCount": 325,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2026-02-25T19:51:45.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": false,
+          "language": "solidity",
+          "sourceVerifiedAt": "29 Dec 2025",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+      },
+      {
+        "name": "L2Migrator",
+        "address": "0x93BB030735747708b4D33093A98d4c804Cd6B58C",
+        "type": "target",
+        "category": "bridge",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "meta": {
+          "blockscoutLabel": "L2Migrator",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "15 Feb 2022",
+          "deployedAtISO": "2022-02-15T02:46:40.000Z",
+          "transactionCount": 0,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "15 Feb 2022",
+          "lastActiveDateISO": "2022-02-15T02:46:40.000Z",
+          "compilerVersion": "v0.8.9+commit.e5eed63a",
+          "optimizationEnabled": false,
+          "language": "solidity",
+          "sourceVerifiedAt": "29 Dec 2025",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "SortedDoublyLL",
+        "address": "0xC45f6918F7Bcac7aBc8fe05302b3cDF39776cdeb",
+        "type": "standalone",
+        "category": "utility",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "meta": {
+          "blockscoutLabel": "SortedDoublyLL",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "12 Feb 2022",
+          "deployedAtISO": "2022-02-11T13:25:10.000Z",
+          "transactionCount": 0,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "12 Feb 2022",
+          "lastActiveDateISO": "2022-02-11T13:25:10.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "5 Apr 2025",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "AIServiceRegistry",
+        "address": "0x04C0b249740175999E5BF5c9ac1dA92431EF34C5",
+        "type": "target",
+        "category": "core",
+        "_note": "Detached from controller",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "meta": {
+          "blockscoutLabel": "ServiceRegistry",
+          "creatorAddress": "0xF5282864EC36871c36BF682aFE1C3f180D4f7902",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "18 Apr 2024",
+          "deployedAtISO": "2024-04-17T15:16:57.000Z",
+          "transactionCount": 172,
+          "tokenTransferCount": 1,
+          "validationsCount": 0,
+          "lastActiveDate": "25 Feb 2026",
+          "lastActiveDateISO": "2026-02-25T12:05:58.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "23 Jul 2024",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "BondingManager",
+        "address": "0x35Bcf3c30594191d53231E4FF333E8A770453e40",
+        "type": "proxy",
+        "category": "core",
+        "isHistorical": false,
+        "chain": "arbitrumOne",
+        "repoSrc": "livepeer/protocol@delta",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingManager.sol",
+        "blockchainHref": "https://arbiscan.io/address/0x35Bcf3c30594191d53231E4FF333E8A770453e40",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 224021,
+          "deployedAt": "12 Feb 2022",
+          "lastActiveDate": "29 Mar 2026",
+          "blockscoutLabel": "ManagerProxy",
+          "registeredInController": false,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2022-02-11T13:25:10.000Z",
+          "tokenTransferCount": 7,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2026-03-29T08:38:09.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "16 Dec 2024",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+      },
+      {
+        "name": "Controller",
+        "address": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+        "type": "standalone",
+        "category": "core",
+        "isHistorical": false,
+        "chain": "arbitrumOne",
+        "repoSrc": "livepeer/protocol@delta",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/Controller.sol",
+        "blockchainHref": "https://arbiscan.io/address/0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": "Livepeer Deployer",
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 20,
+          "deployedAt": "12 Feb 2022",
+          "lastActiveDate": "26 Dec 2024",
+          "blockscoutLabel": "Controller",
+          "registeredInController": null,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2022-02-11T13:24:06.000Z",
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2024-12-25T22:08:50.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "16 May 2025",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+      },
+      {
+        "name": "DelegatorPool",
+        "address": "0xfdb06109032AD3671a8f14f5f2E78f4B9E81b567",
+        "type": "standalone",
+        "category": "core",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "meta": {
+          "blockscoutLabel": "DelegatorPool",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "12 Feb 2022",
+          "deployedAtISO": "2022-02-11T16:15:34.000Z",
+          "transactionCount": 0,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "12 Feb 2022",
+          "lastActiveDateISO": "2022-02-11T16:15:34.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": false,
+          "language": "solidity",
+          "sourceVerifiedAt": "29 Dec 2025",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "Minter",
+        "address": "0x4969dcCF5186e1c49411638fc8A2a020Fdab752E",
+        "type": "standalone",
+        "category": "core",
+        "isHistorical": false,
+        "chain": "arbitrumOne",
+        "repoSrc": "livepeer/protocol@delta",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/token/Minter.sol",
+        "blockchainHref": "https://arbiscan.io/address/0x4969dcCF5186e1c49411638fc8A2a020Fdab752E",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 0,
+          "deployedAt": "12 Feb 2022",
+          "lastActiveDate": "12 Feb 2022",
+          "blockscoutLabel": "Minter",
+          "registeredInController": false,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2022-02-11T13:24:06.000Z",
+          "tokenTransferCount": 268,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2022-02-11T13:24:06.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "29 Mar 2026",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+      },
+      {
+        "name": "Minter",
+        "address": "0xc20DE37170B45774e6CD3d2304017fc962f27252",
+        "type": "standalone",
+        "category": "core",
+        "version": "V2",
+        "isHistorical": false,
+        "chain": "arbitrumOne",
+        "repoSrc": "livepeer/protocol@delta",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/token/Minter.sol",
+        "blockchainHref": "https://arbiscan.io/address/0xc20DE37170B45774e6CD3d2304017fc962f27252",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 2,
+          "deployedAt": "18 Feb 2022",
+          "lastActiveDate": "1 Feb 2024",
+          "blockscoutLabel": "Minter",
+          "registeredInController": false,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "175104711079328030077",
+          "deployedAtISO": "2022-02-17T15:50:01.000Z",
+          "tokenTransferCount": 248035,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2024-01-31T21:28:22.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "21 Jan 2026",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+      },
+      {
+        "name": "RoundsManager",
+        "address": "0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f",
+        "type": "proxy",
+        "category": "core",
+        "isHistorical": false,
+        "chain": "arbitrumOne",
+        "repoSrc": "livepeer/protocol@delta",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/rounds/RoundsManager.sol",
+        "blockchainHref": "https://arbiscan.io/address/0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 2318,
+          "deployedAt": "12 Feb 2022",
+          "lastActiveDate": "29 Mar 2026",
+          "blockscoutLabel": "ManagerProxy",
+          "registeredInController": false,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2022-02-11T13:25:54.000Z",
+          "tokenTransferCount": 2,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2026-03-28T17:59:15.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "16 Dec 2024",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+      },
+      {
+        "name": "RoundsManager",
+        "address": "0x92d804Ed49D92438aEA6fe552BD9163aacb7E841",
+        "type": "target",
+        "category": "core",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "meta": {
+          "blockscoutLabel": "RoundsManager",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "12 Feb 2022",
+          "deployedAtISO": "2022-02-11T13:25:10.000Z",
+          "transactionCount": 0,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "12 Feb 2022",
+          "lastActiveDateISO": "2022-02-11T13:25:10.000Z",
+          "compilerVersion": "v0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "29 Dec 2025",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "ServiceRegistry",
+        "address": "0xC92d3A360b8f9e083bA64DE15d95Cf8180897431",
+        "type": "proxy",
+        "category": "core",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "meta": {
+          "blockscoutLabel": "ManagerProxy",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "12 Feb 2022",
+          "deployedAtISO": "2022-02-11T14:50:03.000Z",
+          "transactionCount": 616,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "27 Mar 2026",
+          "lastActiveDateISO": "2026-03-27T04:23:33.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "15 May 2025",
+          "registeredInController": false,
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "ServiceRegistry",
+        "address": "0x38093CDca43aeCd7bb474983519A246e93A3b0a7",
+        "type": "target",
+        "category": "core",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "meta": {
+          "blockscoutLabel": "ServiceRegistry",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "12 Feb 2022",
+          "deployedAtISO": "2022-02-11T13:25:54.000Z",
+          "transactionCount": 0,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "12 Feb 2022",
+          "lastActiveDateISO": "2022-02-11T13:25:54.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "29 Dec 2025",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "TicketBroker",
+        "address": "0xa8bB618B1520E284046F3dFc448851A1Ff26e41B",
+        "type": "proxy",
+        "category": "core",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "meta": {
+          "blockscoutLabel": "ManagerProxy",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "12 Feb 2022",
+          "deployedAtISO": "2022-02-11T13:24:06.000Z",
+          "transactionCount": 286708,
+          "tokenTransferCount": 12,
+          "validationsCount": 0,
+          "lastActiveDate": "30 Mar 2026",
+          "lastActiveDateISO": "2026-03-29T13:08:12.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "16 Dec 2024",
+          "registeredInController": false,
+          "transactionsRecent": null
+        }
+      }
+    ],
+    "historical": {
+      "BondingManager (Target)": {
+        "entries": [
+          {
+            "version": "V1",
+            "address": "0xe479B9fbA2Cd65f822f451fC8C145c663B995CE6"
+          },
+          {
+            "version": "V2",
+            "address": "0xC40df4db2f99e7e235780A93B192F1a934f0c45b"
+          },
+          {
+            "version": "V3",
+            "address": "0x3757DB506ECd9CBE643660C0F5b70db5b321202C"
+          },
+          {
+            "version": "V4",
+            "address": "0x0f9C425E7374602C20370d3fd263155B4c3bDc91"
+          },
+          {
+            "version": "V5",
+            "address": "0x3a941e1094B9E33efABB26a9047a8ABb4b257907"
+          },
+          {
+            "version": "V6",
+            "address": "0x9c9209c9ff6996513b3673d69ee7b36a6c58a8cf"
+          },
+          {
+            "version": "V7",
+            "address": "0x363cdB9BaE210Ef182c60b5a496139E980330127"
+          },
+          {
+            "version": "V8",
+            "address": "0x557093B1Ab53412166beAd939f34244170b6525B"
+          },
+          {
+            "version": "V9",
+            "address": "0x6b397f20DC227B4E23fEc20BBDBe166d0DFFC452"
+          },
+          {
+            "version": "V10",
+            "address": "0xd1C1F5d44D8F83ca2A05Baf40461e550cFDDecA2"
+          },
+          {
+            "version": "V11",
+            "address": "0xF62C30242fccd3a46721f155d4d367De3fD5B3b3"
+          },
+          {
+            "version": "V12",
+            "address": "0x4bA7E7531Ab56bC8d78dB4FDc88D21F621f34BB4"
+          },
+          {
+            "version": "V13",
+            "address": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74"
+          }
+        ]
+      },
+      "TicketBroker (Target)": {
+        "entries": [
+          {
+            "version": "V1",
+            "address": "0x7Beb84c52ce96DFd90431FAA97378994a8baa6df"
+          },
+          {
+            "version": "V2",
+            "address": "0xD906D192e2503Aafd1BC5F5fc4163E842D5B1d6e"
+          },
+          {
+            "version": "V3",
+            "address": "0xea1b0F6c8D158328a6e3D3F924B86A759F41465c"
+          }
+        ]
+      },
+      "BondingVotes (Target)": {
+        "entries": [
+          {
+            "version": "V1",
+            "address": "0x1561fC5F7Efc049476224005DFf38256dccfc509"
+          },
+          {
+            "version": "V2",
+            "address": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119"
+          }
+        ]
+      },
+      "Minter": {
+        "entries": [
+          {
+            "version": "V1",
+            "address": "0x4969dcCF5186e1c49411638fc8A2a020Fdab752E"
+          }
+        ]
+      },
+      "L2Migrator (Target)": {
+        "entries": [
+          {
+            "version": "V1",
+            "address": "0x4F59b39e2ea628fe8371BDfd51B063319339c7EE"
+          }
+        ]
+      }
+    }
+  },
+  "ethereumMainnet": {
+    "current": [
+      {
+        "name": "BridgeMinter",
+        "address": "0x8dDDB96CF36AC8860f1DE5C7c4698fd499FAB405",
+        "type": "standalone",
+        "category": "token",
+        "isHistorical": false,
+        "chain": "ethereumMainnet",
+        "repoSrc": "livepeer/protocol@streamflow",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/streamflow/contracts/token/BridgeMinter.sol",
+        "blockchainHref": "https://etherscan.io/address/0x8dDDB96CF36AC8860f1DE5C7c4698fd499FAB405",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 0,
+          "deployedAt": "12 Feb 2022",
+          "lastActiveDate": "12 Feb 2022",
+          "blockscoutLabel": "BridgeMinter",
+          "registeredInController": null,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2022-02-11T16:35:46.000Z",
+          "tokenTransferCount": 3,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2022-02-11T16:35:46.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "21 Jan 2026",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z"
+      },
+      {
+        "name": "LivepeerToken",
+        "address": "0x58b6a8a3302369daec383334672404ee733ab239",
+        "type": "standalone",
+        "category": "token",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "Livepeer",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "1 May 2018",
+          "deployedAtISO": "2018-04-30T20:03:51.000Z",
+          "transactionCount": 1010361,
+          "tokenTransferCount": 713148,
+          "validationsCount": 0,
+          "holderCount": "1,887,480",
+          "totalSupply": "24918514377941353891894504",
+          "decimals": "18",
+          "symbol": "LPT",
+          "lastActiveDate": "30 Mar 2026",
+          "lastActiveDateISO": "2026-03-29T13:05:11.000Z",
+          "compilerVersion": "v0.4.18+commit.9cf6e910",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "19 Apr 2019",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "Governor",
+        "address": "0xFC3CBed6A3476F7616CC70f078397700136eEBFd",
+        "type": "standalone",
+        "category": "governance",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "Governor",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "4 Dec 2020",
+          "deployedAtISO": "2020-12-03T20:14:47.000Z",
+          "transactionCount": 15,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "15 Feb 2022",
+          "lastActiveDateISO": "2022-02-15T00:08:04.000Z",
+          "compilerVersion": "0.5.11+commit.c082d0b4",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "29 Mar 2026",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "MerkleSnapshot",
+        "address": "0x24ebEd82c681f435E944BEEbFAEEAaE443D08438",
+        "type": "standalone",
+        "category": "governance",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "MerkleSnapshot",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "2 Oct 2020",
+          "deployedAtISO": "2020-10-01T21:30:12.000Z",
+          "transactionCount": 0,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "2 Oct 2020",
+          "lastActiveDateISO": "2020-10-01T21:30:12.000Z",
+          "compilerVersion": "0.5.11+commit.c082d0b4",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "29 Mar 2026",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "PollCreator",
+        "address": "0xBf824EDb6b94D9B52d972d5B25bCc19b4e6E3F3C",
+        "type": "standalone",
+        "category": "governance",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "PollCreator",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "11 May 2020",
+          "deployedAtISO": "2020-05-10T17:47:10.000Z",
+          "transactionCount": 6,
+          "tokenTransferCount": 5,
+          "validationsCount": 0,
+          "lastActiveDate": "2 Feb 2022",
+          "lastActiveDateISO": "2022-02-01T20:59:46.000Z",
+          "compilerVersion": "0.5.11+commit.c082d0b4",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "8 Aug 2024",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "L1Escrow",
+        "address": "0x6A23F4940BD5BA117Da261f98aae51A8BFfa210A",
+        "type": "standalone",
+        "category": "bridge",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "L1Escrow",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "14 Feb 2022",
+          "deployedAtISO": "2022-02-13T18:31:30.000Z",
+          "transactionCount": 3,
+          "tokenTransferCount": 8067,
+          "validationsCount": 0,
+          "lastActiveDate": "14 Feb 2022",
+          "lastActiveDateISO": "2022-02-13T18:59:52.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": false,
+          "language": "solidity",
+          "sourceVerifiedAt": "8 Aug 2024",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "L1LPTDataCache",
+        "address": "0x1d24838b35A9c138Ac157A852e19e948aD6323D7",
+        "type": "standalone",
+        "category": "bridge",
+        "isHistorical": false,
+        "chain": "ethereumMainnet",
+        "repoSrc": "livepeer/arbitrum-lpt-bridge@main",
+        "contractCodeHref": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L1/L1LPTDataCache.sol",
+        "blockchainHref": "https://etherscan.io/address/0x1d24838b35A9c138Ac157A852e19e948aD6323D7",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 3,
+          "deployedAt": "14 Feb 2022",
+          "lastActiveDate": "1 Dec 2022",
+          "blockscoutLabel": "L1LPTDataCache",
+          "registeredInController": null,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2022-02-13T18:38:09.000Z",
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2022-12-01T09:00:47.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": false,
+          "language": "solidity",
+          "sourceVerifiedAt": "21 Jan 2026",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z"
+      },
+      {
+        "name": "L1LPTGateway",
+        "address": "0x6142f1C8bBF02E6A6bd074E8d564c9A5420a0676",
+        "type": "standalone",
+        "category": "bridge",
+        "isHistorical": false,
+        "chain": "ethereumMainnet",
+        "repoSrc": "livepeer/arbitrum-lpt-bridge@main",
+        "contractCodeHref": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L1/gateway/L1LPTGateway.sol",
+        "blockchainHref": "https://etherscan.io/address/0x6142f1C8bBF02E6A6bd074E8d564c9A5420a0676",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 12,
+          "deployedAt": "14 Feb 2022",
+          "lastActiveDate": "6 Jul 2024",
+          "blockscoutLabel": "L1LPTGateway",
+          "registeredInController": null,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2022-02-13T18:41:42.000Z",
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2024-07-06T12:57:23.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": false,
+          "language": "solidity",
+          "sourceVerifiedAt": "20 Nov 2023",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z"
+      },
+      {
+        "name": "L1Migrator",
+        "address": "0x21146B872D3A95d2cF9afeD03eE5a783DaE9A89A",
+        "type": "standalone",
+        "category": "bridge",
+        "isHistorical": false,
+        "chain": "ethereumMainnet",
+        "repoSrc": "livepeer/protocol@delta",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/L1/L1Migrator.sol",
+        "blockchainHref": "https://etherscan.io/address/0x21146B872D3A95d2cF9afeD03eE5a783DaE9A89A",
+        "meta": {
+          "statusLabel": "Migration complete",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 146,
+          "deployedAt": "14 Feb 2022",
+          "lastActiveDate": "17 Dec 2025",
+          "blockscoutLabel": "L1Migrator",
+          "registeredInController": null,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2022-02-13T18:46:13.000Z",
+          "tokenTransferCount": 3,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2025-12-17T00:35:59.000Z",
+          "compilerVersion": "0.8.9+commit.e5eed63a",
+          "optimizationEnabled": false,
+          "language": "solidity",
+          "sourceVerifiedAt": "8 Aug 2024",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z"
+      },
+      {
+        "name": "GenesisManager",
+        "address": "0x3a9543d4767b2c914ea22fd0b07e17b0901aaebf",
+        "type": "standalone",
+        "category": "utility",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "GenesisManager",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "1 May 2018",
+          "deployedAtISO": "2018-04-30T20:52:05.000Z",
+          "transactionCount": 50,
+          "tokenTransferCount": 50,
+          "validationsCount": 0,
+          "lastActiveDate": "1 May 2018",
+          "lastActiveDateISO": "2018-04-30T21:43:57.000Z",
+          "compilerVersion": "0.4.18+commit.9cf6e910",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "27 Sept 2025",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "MerkleMine",
+        "address": "0x8e306b005773bee6ba6a6e8972bc79d766cc15c8",
+        "type": "standalone",
+        "category": "utility",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "MerkleMine",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "1 May 2018",
+          "deployedAtISO": "2018-04-30T20:47:32.000Z",
+          "transactionCount": 43215,
+          "tokenTransferCount": 5195651,
+          "validationsCount": 0,
+          "lastActiveDate": "23 Jul 2023",
+          "lastActiveDateISO": "2023-07-23T02:37:59.000Z",
+          "compilerVersion": "0.4.18+commit.9cf6e910",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "16 May 2024",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "MultiMerkleMine",
+        "address": "0x182ebf4c80b28efc45ad992ecbb9f730e31e8c7f",
+        "type": "standalone",
+        "category": "utility",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "MultiMerkleMine",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "27 Jul 2018",
+          "deployedAtISO": "2018-07-26T15:00:03.000Z",
+          "transactionCount": 184120,
+          "tokenTransferCount": 2022683,
+          "validationsCount": 0,
+          "lastActiveDate": "17 Mar 2019",
+          "lastActiveDateISO": "2019-03-17T00:51:34.000Z",
+          "compilerVersion": "0.4.24+commit.e67f0147",
+          "optimizationEnabled": false,
+          "language": "solidity",
+          "sourceVerifiedAt": "17 Aug 2024",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "Refunder",
+        "address": "0x780c98cbb0cc21d6617c05332bd5cf6f847c71c2",
+        "type": "standalone",
+        "category": "utility",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "Refunder",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "848888801326164832",
+          "deployedAt": "14 Jan 2020",
+          "deployedAtISO": "2020-01-13T18:58:50.000Z",
+          "transactionCount": 1,
+          "tokenTransferCount": 5,
+          "validationsCount": 0,
+          "lastActiveDate": "14 Jan 2020",
+          "lastActiveDateISO": "2020-01-13T20:32:36.000Z",
+          "compilerVersion": "0.5.11+commit.c082d0b4",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "29 Mar 2026",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "SortedDoublyLL",
+        "address": "0x1a0b2ca69ca2c7f96e2529faa6d63f881655d81a",
+        "type": "standalone",
+        "category": "utility",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "SortedDoublyLL",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "1 May 2018",
+          "deployedAtISO": "2018-04-30T16:10:21.000Z",
+          "transactionCount": 0,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "1 May 2018",
+          "lastActiveDateISO": "2018-04-30T16:10:21.000Z",
+          "compilerVersion": "0.4.18+commit.9cf6e910",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "5 Apr 2025",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "BondingManager",
+        "address": "0x511bc4556d823ae99630ae8de28b9b80df90ea2e",
+        "type": "proxy",
+        "category": "core",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "ManagerProxy",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "1 May 2018",
+          "deployedAtISO": "2018-04-30T20:14:49.000Z",
+          "transactionCount": 90784,
+          "tokenTransferCount": 25,
+          "validationsCount": 0,
+          "lastActiveDate": "6 Feb 2025",
+          "lastActiveDateISO": "2025-02-05T23:22:11.000Z",
+          "compilerVersion": "v0.4.18+commit.9cf6e910",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "20 Aug 2019",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "BondingManager",
+        "address": "0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4",
+        "type": "target",
+        "category": "core",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "BondingManager",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "1 Apr 2021",
+          "deployedAtISO": "2021-04-01T07:41:45.000Z",
+          "transactionCount": 0,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "1 Apr 2021",
+          "lastActiveDateISO": "2021-04-01T07:41:45.000Z",
+          "compilerVersion": "0.5.11+commit.22be8592",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "17 Jan 2026",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "Controller",
+        "address": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+        "type": "standalone",
+        "category": "core",
+        "isHistorical": false,
+        "chain": "ethereumMainnet",
+        "repoSrc": "livepeer/protocol@delta",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/Controller.sol",
+        "blockchainHref": "https://etherscan.io/address/0xf96d54e490317c557a967abfa5d6e33006be69b3",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": "Livepeer Deployer",
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 19,
+          "deployedAt": "1 May 2018",
+          "lastActiveDate": "31 Jan 2021",
+          "blockscoutLabel": "Controller",
+          "registeredInController": null,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2018-04-30T20:00:49.000Z",
+          "tokenTransferCount": 3,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2021-01-31T02:23:14.000Z",
+          "compilerVersion": "v0.4.18+commit.9cf6e910",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "25 Apr 2019",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z"
+      },
+      {
+        "name": "Minter",
+        "address": "0x505F8c2ee81f1C6fa0D88e918eF0491222E05818",
+        "type": "standalone",
+        "category": "core",
+        "isHistorical": false,
+        "chain": "ethereumMainnet",
+        "repoSrc": "livepeer/protocol@delta",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/token/Minter.sol",
+        "blockchainHref": "https://etherscan.io/address/0x505F8c2ee81f1C6fa0D88e918eF0491222E05818",
+        "meta": {
+          "statusLabel": "Active",
+          "deployedBy": null,
+          "notes": null,
+          "holderCount": null,
+          "transactionCount": 0,
+          "deployedAt": "19 Aug 2020",
+          "lastActiveDate": "19 Aug 2020",
+          "blockscoutLabel": "Minter",
+          "registeredInController": null,
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAtISO": "2020-08-18T20:22:22.000Z",
+          "tokenTransferCount": 21661,
+          "validationsCount": 0,
+          "lastActiveDateISO": "2020-08-18T20:22:22.000Z",
+          "compilerVersion": "0.5.11+commit.c082d0b4",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "29 Mar 2026",
+          "repoIsPrivate": false,
+          "transactionsRecent": null
+        },
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z"
+      },
+      {
+        "name": "RoundsManager",
+        "address": "0x3984fc4ceeef1739135476f625d36d6c35c40dc3",
+        "type": "proxy",
+        "category": "core",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "ManagerProxy",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "1 May 2018",
+          "deployedAtISO": "2018-04-30T20:22:37.000Z",
+          "transactionCount": 2232,
+          "tokenTransferCount": 2,
+          "validationsCount": 0,
+          "lastActiveDate": "14 Feb 2022",
+          "lastActiveDateISO": "2022-02-14T12:00:10.000Z",
+          "compilerVersion": "v0.4.18+commit.9cf6e910",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "20 Aug 2019",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "RoundsManager",
+        "address": "0xC89fE48382F8fda6992dC590786A84275bCD1C57",
+        "type": "target",
+        "category": "core",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "RoundsManager",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "2 Oct 2020",
+          "deployedAtISO": "2020-10-01T20:47:18.000Z",
+          "transactionCount": 0,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "2 Oct 2020",
+          "lastActiveDateISO": "2020-10-01T20:47:18.000Z",
+          "compilerVersion": "0.5.11+commit.c082d0b4",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "29 Mar 2026",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "ServiceRegistry",
+        "address": "0x406a112f3218b988c66778fd72fc8467f2601366",
+        "type": "proxy",
+        "category": "core",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "ManagerProxy",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "23 Aug 2018",
+          "deployedAtISO": "2018-08-22T19:14:22.000Z",
+          "transactionCount": 700,
+          "tokenTransferCount": 1,
+          "validationsCount": 0,
+          "lastActiveDate": "20 Oct 2022",
+          "lastActiveDateISO": "2022-10-20T04:05:23.000Z",
+          "compilerVersion": "v0.4.18+commit.9cf6e910",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "22 Apr 2019",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "ServiceRegistry",
+        "address": "0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e",
+        "type": "target",
+        "category": "core",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "ServiceRegistry",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "23 Aug 2018",
+          "deployedAtISO": "2018-08-22T19:13:55.000Z",
+          "transactionCount": 0,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "23 Aug 2018",
+          "lastActiveDateISO": "2018-08-22T19:13:55.000Z",
+          "compilerVersion": "0.4.18+commit.9cf6e910",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "18 Sept 2025",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "TicketBroker",
+        "address": "0x5b1ce829384eebfa30286f12d1e7a695ca45f5d2",
+        "type": "proxy",
+        "category": "core",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "ManagerProxy",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "14 Jan 2020",
+          "deployedAtISO": "2020-01-13T18:58:49.000Z",
+          "transactionCount": 2212,
+          "tokenTransferCount": 1,
+          "validationsCount": 0,
+          "lastActiveDate": "15 Feb 2022",
+          "lastActiveDateISO": "2022-02-14T13:27:40.000Z",
+          "compilerVersion": "0.5.11+commit.c082d0b4",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "8 Aug 2024",
+          "transactionsRecent": null
+        }
+      },
+      {
+        "name": "TicketBroker",
+        "address": "0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808",
+        "type": "target",
+        "category": "core",
+        "verified": true,
+        "verifiedAt": "30 Mar 2026",
+        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "meta": {
+          "blockscoutLabel": "TicketBroker",
+          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "bsVerified": true,
+          "isContract": true,
+          "balance": "0",
+          "deployedAt": "14 Jan 2020",
+          "deployedAtISO": "2020-01-13T18:58:36.000Z",
+          "transactionCount": 0,
+          "tokenTransferCount": 0,
+          "validationsCount": 0,
+          "lastActiveDate": "14 Jan 2020",
+          "lastActiveDateISO": "2020-01-13T18:58:36.000Z",
+          "compilerVersion": "0.5.11+commit.c082d0b4",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "29 Mar 2026",
+          "transactionsRecent": null
+        }
+      }
+    ],
+    "historical": {
+      "LivepeerVerifier": {
+        "entries": [
+          {
+            "version": "V1",
+            "address": "0xf623811b08b45792d0223d77d9c922dae29712ec"
+          },
+          {
+            "version": "V2",
+            "address": "0xe4be2a35dec0063f9dfccb9b740b1acb7eefefec"
+          }
+        ]
+      },
+      "Minter": {
+        "entries": [
+          {
+            "version": "V1",
+            "address": "0x8573f2f5a3bd960eee3d998473e50c75cdbe6828"
+          }
+        ]
+      },
+      "BondingManager (Target)": {
+        "entries": [
+          {
+            "version": "V1",
+            "address": "0x81eb0b10ff8703905904e4d91cf6aa575d59736f"
+          },
+          {
+            "version": "V2",
+            "address": "0x5A9512826EAAF1FE4190f89443314E95A515fE24"
+          },
+          {
+            "version": "V3",
+            "address": "0x633101b3f15f93c5f415830d48e56b9b1f7ba584"
+          },
+          {
+            "version": "V4",
+            "address": "0x05C03EA0039f2e828A725A82939fc1e90de38B44"
+          },
+          {
+            "version": "V5",
+            "address": "0xCBAa6eA4886b535FC7ABACe3F3985Ed03b3b80a0"
+          },
+          {
+            "version": "V6",
+            "address": "0xDC6eE74A18994caD3876a078B6fa4920FD9C507d"
+          },
+          {
+            "version": "V7",
+            "address": "0x1a6007d1D0583452Bd6f45a4e1a9190B15Fbd7E3"
+          },
+          {
+            "version": "V8",
+            "address": "0xef5E170b679ddaF5e22ADC10fD23DDdB79E3C0c5"
+          },
+          {
+            "version": "V9",
+            "address": "0xc8a695155648F18B0cfd6989498B6f8b2c4cc56A"
+          },
+          {
+            "version": "V10",
+            "address": "0x35F99F326681FE4F38719491be48Ab4950795013"
+          },
+          {
+            "version": "V11",
+            "address": "0xAC0153a8C5227e43506901a4f3f83FD000c8178f"
+          },
+          {
+            "version": "V12",
+            "address": "0x246edEBae14b186a67e3d466A485321169a8bcD5"
+          },
+          {
+            "version": "V13",
+            "address": "0x223398d0BF9cc24960b3886CC481dBf5276EdeD2"
+          },
+          {
+            "version": "V14",
+            "address": "0x0da7c263eCF5cD3ddba275b9A2D63320E28fD287"
+          }
+        ]
+      },
+      "JobsManager (Proxy)": {
+        "entries": [
+          {
+            "version": "V1",
+            "address": "0xbf07ff45f14c9ff0571b9fbdc7e2b62d29931224"
+          }
+        ]
+      },
+      "JobsManager (Target)": {
+        "entries": [
+          {
+            "version": "V1",
+            "address": "0x68b463bca7d561118636e9f028ff0f2e8398dd6a"
+          },
+          {
+            "version": "V2",
+            "address": "0xB620c762dd4bC350602936d7401BB8393Ee6687c"
+          },
+          {
+            "version": "V3",
+            "address": "0x8eade5eec609572bf53deadb88d36f862ddec517"
+          }
+        ]
+      },
+      "RoundsManager (Target)": {
+        "entries": [
+          {
+            "version": "V1",
+            "address": "0xa3aa52ce79e85a21d9ccda705c57e426b160112c"
+          },
+          {
+            "version": "V2",
+            "address": "0x857d4bf18a80f03d3d11f438825cd3d0aa0d9d68"
+          }
+        ]
+      },
+      "MerkleProof": {
+        "entries": [
+          {
+            "version": "V1",
+            "address": "0x289ba1701c2f088cf0faf8b3705246331cb8a839"
+          }
+        ]
+      }
+    }
+  },
+  "meta": {
+    "lastUpdated": "2026-03-29T13:16:59.320Z",
+    "lastVerified": "30 Mar 2026",
+    "sourceRepo": "livepeer/governor-scripts",
+    "sourceCommit": "2cb192a",
+    "verificationSummary": "25/25 Arbitrum, 24/24 Mainnet",
+    "explorerUrls": {
+      "arbiscan": "https://arbiscan.io/address/",
+      "etherscan": "https://etherscan.io/address/"
+    },
+    "_apiVersions": {
+      "blockscout": "v2",
+      "etherscan": "v2"
+    },
+    "_warnings": []
+  }
+};

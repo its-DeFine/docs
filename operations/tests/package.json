@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "axe-core": "^4.11.1",
+    "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
     "puppeteer": "^21.0.0"
   }

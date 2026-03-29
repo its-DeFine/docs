@@ -137,6 +137,26 @@
         "hooks": [
           {
             "type": "command",
+            "command": "node operations/scripts/dispatch/governance/blast-radius-scanner.js",
+            "statusMessage": "Scanning for consumers..."
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/phase-gate-hook.js",
+            "statusMessage": "Checking phase checkpoints..."
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
             "command": "node operations/scripts/dispatch/governance/session-register.js",
             "async": true
           }

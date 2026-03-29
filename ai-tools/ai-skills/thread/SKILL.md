@@ -67,7 +67,35 @@ After outputting status, **stop**. Wait for the user to respond. Do not proceed 
 - This is the first `/thread` invocation in the conversation
 - The user has stated a new session objective with the invocation
 
-In START mode: proceed to Step 1.
+In START mode: proceed to Step 0.5 (flags), then Step 1.
+
+---
+
+## Step 0.5: Check flags
+
+Read `workspace/thread-outputs/sessions/flags.jsonl`. Each line is a JSON object:
+```json
+{"thread":"About","flag":"3 pages missing meta descriptions","from":"SEO","priority":"low","date":"2026-03-30"}
+```
+
+Filter to flags matching this thread name. Present only relevant flags as quick questions:
+
+```
+Flags for [thread name]:
+  1. [flag text] (from [source], [priority]) — address now? y/n
+  2. [flag text] ...
+```
+
+If no flags match this thread: skip silently. If the user answers "n", leave the flag. If "y", add it to the task list.
+
+### How to write flags (for any thread, any session)
+
+Append a JSON line to `flags.jsonl`. No ceremony:
+```js
+{"thread":"Contracts","flag":"SearchTable monospaceColumns bug still open","from":"Cleanup","priority":"medium","date":"2026-03-30"}
+```
+
+When a flag is addressed, delete its line from flags.jsonl.
 
 ---
 

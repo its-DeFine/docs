@@ -18,6 +18,7 @@
 const https = require("https");
 const fs = require("fs");
 const path = require("path");
+const { keccak256 } = require("js-sha3");
 
 // ── Config ──────────────────────────────────────────────────────────────────
 const REPO_ROOT = path.resolve(__dirname, "../..");
@@ -27,6 +28,7 @@ const OUTPUT_PATH = path.join(REPO_ROOT, "snippets/data/contract-addresses/contr
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 const ARBISCAN_API_KEY = process.env.ARBISCAN_API_KEY || "";
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "";
+const ETHERSCAN_API_KEY_2 = process.env.ETHERSCAN_API_KEY_2 || "";
 const DRY_RUN = process.argv.includes("--dry-run");
 const SKIP_VERIFY = process.argv.includes("--skip-verify");
 const SCAN_FIX = process.argv.includes("--scan-fix");
@@ -104,6 +106,27 @@ function httpsGet(url, headers = {}) {
       res.on("end", () => resolve({ status: res.statusCode, data }));
     });
     req.on("error", reject);
+    req.end();
+  });
+}
+
+function httpsPost(url, body) {
+  return new Promise((resolve, reject) => {
+    const parsed = new URL(url);
+    const postData = typeof body === "string" ? body : JSON.stringify(body);
+    const opts = {
+      hostname: parsed.hostname,
+      path: parsed.pathname + parsed.search,
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Content-Length": Buffer.byteLength(postData) },
+    };
+    const req = https.request(opts, (res) => {
+      let data = "";
+      res.on("data", (chunk) => (data += chunk));
+      res.on("end", () => resolve({ status: res.statusCode, data }));
+    });
+    req.on("error", reject);
+    req.write(postData);
     req.end();
   });
 }
@@ -323,6 +346,7 @@ async function verifyAddresses(entries, network) {
   let failed = 0;
   const _now = new Date();
   const now = _now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  const nowISO = _now.toISOString();
 
   const results = [];
   for (const entry of entries) {
@@ -334,7 +358,7 @@ async function verifyAddresses(entries, network) {
       const data = JSON.parse(res.data);
       // eth_getCode returns "0x" for EOAs, bytecode for contracts
       const isVerified = data.result && data.result !== "0x" && data.result.length > 2;
-      results.push({ ...entry, verified: isVerified, verifiedAt: now });
+      results.push({ ...entry, verified: isVerified, verifiedAt: now, verifiedAtISO: nowISO });
       if (isVerified) verified++;
       else {
         failed++;
@@ -342,7 +366,7 @@ async function verifyAddresses(entries, network) {
       }
     } catch (err) {
       console.log(`  ⚠ ${entry.name} — ${label} check failed: ${err.message}`);
-      results.push({ ...entry, verified: false, verifiedAt: now });
+      results.push({ ...entry, verified: false, verifiedAt: now, verifiedAtISO: nowISO });
       failed++;
     }
 
@@ -354,7 +378,253 @@ async function verifyAddresses(entries, network) {
   return results;
 }
 
-// ── Enrich metadata from Arbiscan/Etherscan + Blockscout ───────────────────
+// ── Enrich metadata — Blockscout primary, Etherscan V2 fallback ────────────
+// Self-healing: if primary fails, falls back. If both fail, logs warning and
+// continues with null fields. Detects API version drift at startup.
+
+async function checkApiHealth(blockscoutBase, etherscanV2Base) {
+  const health = { blockscout: false, etherscan: false, _apiVersions: {} };
+
+  try {
+    // /api/v2/health doesn't exist on all Blockscout instances — probe with a known address instead
+    const probeAddr = "0xD8E8328501E9645d16Cf49539efC04f734606ee4"; // Arbitrum Controller
+    const bsRes = await httpsGet(`${blockscoutBase}/api/v2/addresses/${probeAddr}`);
+    if (bsRes.status === 200) {
+      health.blockscout = true;
+      health._apiVersions.blockscout = "v2";
+    }
+  } catch (_) {}
+
+  try {
+    const esRes = await httpsGet(`${etherscanV2Base}?chainid=1&module=stats&action=ethprice`);
+    if (esRes.status === 200) {
+      health.etherscan = true;
+      health._apiVersions.etherscan = "v2";
+    }
+  } catch (_) {}
+
+  return health;
+}
+
+async function enrichFromBlockscout(addr, blockscoutBase, entry) {
+  const meta = {};
+  const fmt = (d) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  const fmtShort = (d) => new Date(d).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
+
+  // ── 1. Address info (single call — name, creator, verified, creation_tx, balance, proxy, implementations)
+  const addrRes = await httpsGet(`${blockscoutBase}/api/v2/addresses/${addr}`);
+  if (addrRes.status !== 200) throw new Error(`Blockscout address ${addrRes.status}`);
+  const addrData = JSON.parse(addrRes.data);
+
+  if (addrData.name) meta.blockscoutLabel = addrData.name;
+  if (addrData.creator_address_hash) meta.creatorAddress = addrData.creator_address_hash;
+  if (addrData.is_verified !== undefined) meta.bsVerified = addrData.is_verified;
+  if (addrData.is_contract !== undefined) meta.isContract = addrData.is_contract;
+  if (addrData.coin_balance) meta.balance = addrData.coin_balance;
+  if (addrData.proxy_type) meta.isProxy = true;
+  if (addrData.implementations?.length > 0) {
+    meta.proxyTarget = addrData.implementations[0].address;
+    meta.proxyTargetName = addrData.implementations[0].name || null;
+  }
+  await sleep(150);
+
+  // ── 2. Creation tx → deployedAt (full date + short date)
+  if (addrData.creation_transaction_hash) {
+    try {
+      const txRes = await httpsGet(`${blockscoutBase}/api/v2/transactions/${addrData.creation_transaction_hash}`);
+      if (txRes.status === 200) {
+        const txData = JSON.parse(txRes.data);
+        if (txData.timestamp) {
+          meta.deployedAt = fmt(txData.timestamp);
+          meta.deployedAtISO = new Date(txData.timestamp).toISOString();
+        }
+      }
+    } catch (_) {}
+  }
+  await sleep(150);
+
+  // ── 3. Counters → tx count, token transfers count, validations count
+  try {
+    const ctrRes = await httpsGet(`${blockscoutBase}/api/v2/addresses/${addr}/counters`);
+    if (ctrRes.status === 200) {
+      const ctrData = JSON.parse(ctrRes.data);
+      if (ctrData.transactions_count) meta.transactionCount = parseInt(ctrData.transactions_count, 10);
+      if (ctrData.token_transfers_count) meta.tokenTransferCount = parseInt(ctrData.token_transfers_count, 10);
+      if (ctrData.validations_count) meta.validationsCount = parseInt(ctrData.validations_count, 10);
+    }
+  } catch (_) {}
+  await sleep(150);
+
+  // ── 4. Token info → holder count, total supply, decimals, symbol (any token contract, not just LPT)
+  try {
+    const tokRes = await httpsGet(`${blockscoutBase}/api/v2/tokens/${addr}`);
+    if (tokRes.status === 200) {
+      const tokData = JSON.parse(tokRes.data);
+      const holders = tokData.holders_count || tokData.holders;
+      if (holders) meta.holderCount = Number(holders).toLocaleString('en-GB');
+      if (tokData.total_supply) meta.totalSupply = tokData.total_supply;
+      if (tokData.decimals) meta.decimals = tokData.decimals;
+      if (tokData.symbol) meta.symbol = tokData.symbol;
+    }
+  } catch (_) {}
+  await sleep(150);
+
+  // ── 5. Last activity — most recent transaction timestamp
+  try {
+    const txsRes = await httpsGet(`${blockscoutBase}/api/v2/addresses/${addr}/transactions`);
+    if (txsRes.status === 200) {
+      const txsData = JSON.parse(txsRes.data);
+      const validTx = txsData.items?.find(item => item.timestamp);
+      if (validTx) {
+        meta.lastActiveDate = fmt(validTx.timestamp);
+        meta.lastActiveDateISO = new Date(validTx.timestamp).toISOString();
+      }
+    }
+  } catch (_) {}
+  await sleep(150);
+
+  // ── 6. Smart contract info → compiler, optimization, source
+  try {
+    const scRes = await httpsGet(`${blockscoutBase}/api/v2/smart-contracts/${addr}`);
+    if (scRes.status === 200) {
+      const scData = JSON.parse(scRes.data);
+      if (scData.compiler_version) meta.compilerVersion = scData.compiler_version;
+      if (scData.optimization_enabled !== undefined) meta.optimizationEnabled = scData.optimization_enabled;
+      if (scData.language) meta.language = scData.language;
+      if (scData.verified_at) meta.sourceVerifiedAt = fmt(scData.verified_at);
+    }
+  } catch (_) {}
+  await sleep(150);
+
+  // ── 7. Etherscan getsourcecode — proxy detection, implementation address, contract name
+  // (Blockscout doesn't detect Livepeer's Controller-based proxies, but Etherscan does)
+  if (apiKey) {
+    try {
+      const esBase = `https://api.etherscan.io/v2/api?chainid=${entry.chain === "arbitrumOne" ? 42161 : 1}`;
+      const scRes = await httpsGet(`${esBase}&module=contract&action=getsourcecode&address=${addr}&apikey=${apiKey}`);
+      if (scRes.status === 200) {
+        const scData = JSON.parse(scRes.data);
+        if (scData.status === "1" && scData.result?.[0]) {
+          const sc = scData.result[0];
+          if (sc.Proxy === "1" && sc.Implementation) meta.proxyTarget = sc.Implementation;
+          if (sc.ContractName && !meta.blockscoutLabel) meta.blockscoutLabel = sc.ContractName;
+          if (sc.CompilerVersion && !meta.compilerVersion) meta.compilerVersion = sc.CompilerVersion;
+        }
+      }
+    } catch (_) {}
+    await sleep(150);
+  }
+
+  return meta;
+}
+
+async function enrichFromEtherscan(addr, chainId, apiKey, entry) {
+  const meta = {};
+  const base = `https://api.etherscan.io/v2/api?chainid=${chainId}`;
+
+  // First tx → deployedAt
+  try {
+    let url = `${base}&module=account&action=txlist&address=${addr}&page=1&offset=1&sort=asc&startblock=0&endblock=99999999`;
+    if (apiKey) url += `&apikey=${apiKey}`;
+    const res = await httpsGet(url);
+    const data = JSON.parse(res.data);
+    if (data.status === "1" && data.result?.length > 0) {
+      const ts = parseInt(data.result[0].timeStamp, 10) * 1000;
+      meta.deployedAt = new Date(ts).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
+    }
+  } catch (_) {}
+  await sleep(apiKey ? 150 : 300);
+
+  // Last tx → lastActiveDate
+  try {
+    let url = `${base}&module=account&action=txlist&address=${addr}&page=1&offset=1&sort=desc&startblock=0&endblock=99999999`;
+    if (apiKey) url += `&apikey=${apiKey}`;
+    const res = await httpsGet(url);
+    const data = JSON.parse(res.data);
+    if (data.status === "1" && data.result?.length > 0) {
+      const ts = parseInt(data.result[0].timeStamp, 10) * 1000;
+      meta.lastActiveDate = new Date(ts).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
+    }
+  } catch (_) {}
+  await sleep(apiKey ? 150 : 300);
+
+  // Nonce → transaction count
+  try {
+    let url = `${base}&module=proxy&action=eth_getTransactionCount&address=${addr}&tag=latest`;
+    if (apiKey) url += `&apikey=${apiKey}`;
+    const res = await httpsGet(url);
+    const data = JSON.parse(res.data);
+    if (data.result) meta.transactionCount = parseInt(data.result, 16);
+  } catch (_) {}
+  await sleep(apiKey ? 150 : 300);
+
+  // Token holder count
+  if (entry.category === "token" && entry.name === "LivepeerToken") {
+    try {
+      let url = `${base}&module=token&action=tokeninfo&contractaddress=${addr}`;
+      if (apiKey) url += `&apikey=${apiKey}`;
+      const res = await httpsGet(url);
+      const data = JSON.parse(res.data);
+      if (data.status === "1" && data.result?.length > 0) {
+        const holders = data.result[0].holdersCount || data.result[0].holders;
+        if (holders) meta.holderCount = Number(holders).toLocaleString('en-GB');
+      }
+    } catch (_) {}
+    await sleep(apiKey ? 150 : 300);
+  }
+
+  // Contract source code — proxy detection, implementation, compiler
+  try {
+    let url = `${base}&module=contract&action=getsourcecode&address=${addr}`;
+    if (apiKey) url += `&apikey=${apiKey}`;
+    const res = await httpsGet(url);
+    const data = JSON.parse(res.data);
+    if (data.status === "1" && data.result?.[0]) {
+      const sc = data.result[0];
+      if (sc.Proxy === "1" && sc.Implementation) meta.proxyTarget = sc.Implementation;
+      if (sc.ContractName) meta.blockscoutLabel = sc.ContractName;
+      if (sc.CompilerVersion) meta.compilerVersion = sc.CompilerVersion;
+    }
+  } catch (_) {}
+  await sleep(apiKey ? 150 : 300);
+
+  return meta;
+}
+
+// Check if a GitHub repo is private
+const _repoVisibilityCache = {};
+async function checkRepoVisibility(repoSrc) {
+  if (!repoSrc) return null;
+  const repo = repoSrc.split("@")[0]; // "livepeer/protocol@delta" → "livepeer/protocol"
+  if (_repoVisibilityCache[repo] !== undefined) return _repoVisibilityCache[repo];
+  try {
+    const res = await githubGet(`/repos/${repo}`);
+    if (res.status === 200) {
+      const data = JSON.parse(res.data);
+      _repoVisibilityCache[repo] = data.private || false;
+      return data.private;
+    }
+    if (res.status === 404) {
+      _repoVisibilityCache[repo] = true; // 404 without auth = private
+      return true;
+    }
+  } catch (_) {}
+  _repoVisibilityCache[repo] = null;
+  return null;
+}
+
+// Load previous data file for computing transactionsRecent (diff)
+function loadPreviousData() {
+  const bakPath = OUTPUT_PATH + ".bak";
+  try {
+    if (fs.existsSync(bakPath)) {
+      const content = fs.readFileSync(bakPath, "utf8");
+      const match = content.match(/export const contractAddresses\s*=\s*(\{[\s\S]*\});?\s*$/);
+      if (match) return new Function(`return ${match[1]}`)();
+    }
+  } catch (_) {}
+  return null;
+}
 
 async function enrichMetadata(entries, network) {
   if (SKIP_VERIFY) {
@@ -362,124 +632,156 @@ async function enrichMetadata(entries, network) {
     return entries;
   }
 
-  const isArbiscan = network === "arbitrumOne";
-  const baseUrl = isArbiscan ? "https://api.arbiscan.io" : "https://api.etherscan.io";
-  const blockscoutBase = isArbiscan ? "https://arbitrum.blockscout.com" : "https://eth.blockscout.com";
-  const apiKey = isArbiscan ? ARBISCAN_API_KEY : ETHERSCAN_API_KEY;
-  const label = isArbiscan ? "Arbiscan" : "Etherscan";
-  const controllerAddress = isArbiscan
+  const isArbitrum = network === "arbitrumOne";
+  const chainId = isArbitrum ? 42161 : 1;
+  const blockscoutBase = isArbitrum ? "https://arbitrum.blockscout.com" : "https://eth.blockscout.com";
+  const etherscanV2Base = "https://api.etherscan.io/v2/api";
+  // Etherscan V2 uses single key for all chains via chainid param
+  const apiKey = ETHERSCAN_API_KEY || ETHERSCAN_API_KEY_2 || ARBISCAN_API_KEY || "";
+  const label = isArbitrum ? "Arbitrum" : "Ethereum";
+  const controllerAddress = isArbitrum
     ? "0xD8E8328501E9645d16Cf49539efC04f734606ee4"
     : "0xf96d54e490317c557a967abfa5d6e33006be69b3";
 
-  console.log(`\n  Enriching ${entries.length} ${label} entries with metadata...`);
+  // Health check — detect which APIs are responsive
+  console.log(`\n  Health check for ${label} enrichment...`);
+  const health = await checkApiHealth(blockscoutBase, etherscanV2Base);
+  console.log(`    Blockscout: ${health.blockscout ? "UP" : "DOWN"} (${health._apiVersions.blockscout || "unreachable"})`);
+  console.log(`    Etherscan V2: ${health.etherscan ? "UP" : "DOWN"} (${health._apiVersions.etherscan || "unreachable"})`);
+
+  if (!health.blockscout && !health.etherscan) {
+    console.log(`  ⚠ Both APIs down — skipping enrichment, data will have null meta fields`);
+    return entries;
+  }
+
+  const usePrimary = health.blockscout ? "blockscout" : "etherscan";
+  const useFallback = health.blockscout ? "etherscan" : "blockscout";
+  console.log(`    Primary: ${usePrimary}, Fallback: ${useFallback}`);
+  console.log(`  Enriching ${entries.length} ${label} entries...`);
+
+  // Load previous run for transactionsRecent diff
+  const prevData = loadPreviousData();
+  const prevEntries = prevData?.[network]?.current || [];
+  const prevByAddr = new Map(prevEntries.map(e => [e.address.toLowerCase(), e]));
+
   const results = [];
+  const warnings = [];
 
   for (const entry of entries) {
     const meta = { ...entry.meta };
     const addr = entry.address;
+    const sources = { blockscout: null, etherscan: null };
 
-    try {
-      // 1. Transaction count + first/last tx dates via txlist
-      let txUrl = `${baseUrl}/api?module=account&action=txlist&address=${addr}&page=1&offset=1&sort=asc`;
-      if (apiKey) txUrl += `&apikey=${apiKey}`;
-      const firstTxRes = await httpsGet(txUrl);
-      const firstTxData = JSON.parse(firstTxRes.data);
-      if (firstTxData.status === "1" && firstTxData.result?.length > 0) {
-        const ts = parseInt(firstTxData.result[0].timeStamp, 10) * 1000;
-        meta.deployedAt = new Date(ts).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
-      }
-      await sleep(apiKey ? 100 : 250);
-
-      let lastTxUrl = `${baseUrl}/api?module=account&action=txlist&address=${addr}&page=1&offset=1&sort=desc`;
-      if (apiKey) lastTxUrl += `&apikey=${apiKey}`;
-      const lastTxRes = await httpsGet(lastTxUrl);
-      const lastTxData = JSON.parse(lastTxRes.data);
-      if (lastTxData.status === "1" && lastTxData.result?.length > 0) {
-        const ts = parseInt(lastTxData.result[0].timeStamp, 10) * 1000;
-        meta.lastActiveDate = new Date(ts).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
-      }
-      await sleep(apiKey ? 100 : 250);
-
-      // 2. Transaction count via txlist count (use internal count endpoint)
-      let countUrl = `${baseUrl}/api?module=proxy&action=eth_getTransactionCount&address=${addr}&tag=latest`;
-      if (apiKey) countUrl += `&apikey=${apiKey}`;
-      const countRes = await httpsGet(countUrl);
-      const countData = JSON.parse(countRes.data);
-      if (countData.result) {
-        meta.transactionCount = parseInt(countData.result, 16);
-      }
-      await sleep(apiKey ? 100 : 250);
-
-      // 3. Holder count (tokens only — LivepeerToken)
-      if (entry.category === "token" && entry.name === "LivepeerToken") {
-        let tokenUrl = `${baseUrl}/api?module=token&action=tokeninfo&contractaddress=${addr}`;
-        if (apiKey) tokenUrl += `&apikey=${apiKey}`;
-        const tokenRes = await httpsGet(tokenUrl);
-        const tokenData = JSON.parse(tokenRes.data);
-        if (tokenData.status === "1" && tokenData.result?.length > 0) {
-          const holders = tokenData.result[0].holdersCount || tokenData.result[0].holders;
-          if (holders) meta.holderCount = Number(holders).toLocaleString('en-GB');
-        }
-        await sleep(apiKey ? 100 : 250);
-      }
-
-      // 4. Blockscout label
+    // Try BOTH sources — merge best from each
+    if (health.blockscout) {
       try {
-        const bsRes = await httpsGet(`${blockscoutBase}/api/v2/addresses/${addr}`);
-        const bsData = JSON.parse(bsRes.data);
-        if (bsData.name) meta.blockscoutLabel = bsData.name;
-      } catch (_) { /* Blockscout may not have every address */ }
-      await sleep(200);
-
-      // 5. Controller registration check (Arbitrum only, skip for Controller itself)
-      const nameHash = keccak256Hex(entry.name);
-      if (isArbiscan && entry.name !== "Controller" && entry.type !== "target" && nameHash) {
-        try {
-          // getContract(bytes32) selector = 0xbb5f747b, param = keccak256(name)
-          const keccakUrl = `${baseUrl}/api?module=proxy&action=eth_call&to=${controllerAddress}&data=0xbb5f747b${nameHash}&tag=latest`;
-          const regRes = await httpsGet(apiKey ? `${keccakUrl}&apikey=${apiKey}` : keccakUrl);
-          const regData = JSON.parse(regRes.data);
-          if (regData.result && regData.result !== "0x") {
-            const returnedAddr = "0x" + regData.result.slice(-40);
-            meta.registeredInController = returnedAddr.toLowerCase() === addr.toLowerCase();
-          }
-        } catch (_) { /* non-critical */ }
-        await sleep(apiKey ? 100 : 250);
+        sources.blockscout = await enrichFromBlockscout(addr, blockscoutBase, entry);
+      } catch (err) {
+        console.log(`    ⚠ ${entry.name} Blockscout failed: ${err.message}`);
+        warnings.push({ contract: entry.name, address: addr, source: "blockscout", error: err.message });
       }
+    }
 
-    } catch (err) {
-      console.log(`    ⚠ ${entry.name} metadata enrichment failed: ${err.message}`);
+    if (health.etherscan && apiKey) {
+      try {
+        sources.etherscan = await enrichFromEtherscan(addr, chainId, apiKey, entry);
+      } catch (err) {
+        console.log(`    ⚠ ${entry.name} Etherscan failed: ${err.message}`);
+        warnings.push({ contract: entry.name, address: addr, source: "etherscan", error: err.message });
+      }
+    }
+
+    // Merge: prefer Blockscout (richer data), fill gaps from Etherscan
+    const bsMeta = sources.blockscout || {};
+    const esMeta = sources.etherscan || {};
+    for (const [k, v] of Object.entries(bsMeta)) {
+      if (v != null) meta[k] = v;
+    }
+    for (const [k, v] of Object.entries(esMeta)) {
+      if (v != null && meta[k] == null) meta[k] = v;
+    }
+
+    if (!sources.blockscout && !sources.etherscan) {
+      warnings.push({ contract: entry.name, address: addr, source: "both", error: "Both APIs failed or unavailable" });
+    }
+
+    // keccakHash — used by ContractVerifier widget as bytes32 arg to Controller.getContract()
+    const nameHash = keccak256Hex(entry.name);
+    meta.keccakHash = "0x" + nameHash;
+
+    // Controller registration check — direct RPC call
+    // Function selector: 0xe16c7d98 = keccak256("getContract(bytes32)") — verified against Controller ABI
+    if (!isArbitrum) {
+      // Ethereum Mainnet — no Controller, always false
+      meta.registeredInController = false;
+    } else if (entry.name !== "Controller" && entry.type !== "target" && nameHash) {
+      try {
+        const rpcUrl = isArbitrum ? "https://arb1.arbitrum.io/rpc" : "https://eth.llamarpc.com";
+        const rpcBody = JSON.stringify({ jsonrpc: "2.0", method: "eth_call", params: [{ to: controllerAddress, data: "0xe16c7d98" + nameHash }, "latest"], id: 1 });
+        const regRes = await httpsPost(rpcUrl, rpcBody);
+        const regData = JSON.parse(regRes.data);
+        if (regData.result && regData.result !== "0x" && regData.result.length >= 42) {
+          const returnedAddr = "0x" + regData.result.slice(-40);
+          meta.registeredInController = returnedAddr.toLowerCase() === addr.toLowerCase();
+        }
+      } catch (_) { /* non-critical */ }
+      await sleep(apiKey ? 100 : 250);
+    }
+
+    // Repo visibility check (cached per repo)
+    if (entry.repoSrc) {
+      const isPrivate = await checkRepoVisibility(entry.repoSrc);
+      meta.repoIsPrivate = isPrivate;
+    }
+
+    // Transactions since last run (diff with .bak data)
+    const prev = prevByAddr.get(addr.toLowerCase());
+    if (prev?.meta?.transactionCount != null && meta.transactionCount != null) {
+      meta.transactionsRecent = Math.max(0, meta.transactionCount - prev.meta.transactionCount);
+    } else {
+      meta.transactionsRecent = null;
     }
 
     results.push({ ...entry, meta });
   }
 
-  const enriched = results.filter(e => e.meta.deployedAt || e.meta.lastActiveDate || e.meta.holderCount).length;
-  console.log(`  Enriched: ${enriched}/${entries.length} entries with live metadata`);
+  const enrichedCount = results.filter(e => e.meta.deployedAt || e.meta.lastActiveDate || e.meta.holderCount).length;
+  console.log(`  Enriched: ${enrichedCount}/${entries.length} entries`);
+  if (warnings.length > 0) {
+    console.log(`  ⚠ ${warnings.length} contracts had enrichment failures`);
+  }
+
+  // Fallback data preservation — keep previous run's values where current enrichment returned null
+  // This ensures an ownerless repo never loses data it already had
+  for (const result of results) {
+    const prev = prevByAddr.get(result.address.toLowerCase());
+    if (prev?.meta) {
+      for (const [key, oldVal] of Object.entries(prev.meta)) {
+        if (oldVal != null && result.meta[key] == null) {
+          result.meta[key] = oldVal;
+          result.meta._stale = result.meta._stale || [];
+          if (!result.meta._stale.includes(key)) result.meta._stale.push(key);
+        }
+      }
+    }
+  }
+
+  const staleCount = results.filter(e => e.meta._stale?.length > 0).length;
+  if (staleCount > 0) {
+    console.log(`  ℹ ${staleCount} contracts using stale data from previous run for some fields`);
+  }
+
+  // Store warnings for output
+  results._warnings = warnings;
+  results._apiVersions = health._apiVersions;
   return results;
 }
 
 // keccak256 helper for Controller.getContract(bytes32) calls.
-// Node.js crypto doesn't support keccak256 natively (it has SHA-3, which is different).
-// Pre-computed hashes for all known contract names registered in the Controller.
-// Generated via: cast keccak "ContractName" (Foundry) or ethers.keccak256(ethers.toUtf8Bytes("ContractName"))
-// Pre-computed via web3_sha3 RPC on Arbitrum One (arb1.arbitrum.io/rpc)
-const KECCAK_HASHES = {
-  BondingManager:    "2517d59a36a86548e38734e8ab416f42afff4bca78706a66ad65750dae7f9e37",
-  TicketBroker:      "bd1aa3e8d2464256d7fd3dcf645c16418d5d8c51d971f1ad7d57e7b1b5eee239",
-  RoundsManager:     "e8438ea868df48e3fc21f2f087b993c9b1837dc0f6135064161ce7d7a1701fe8",
-  Minter:            "6e58ad548d72b425ea94c15f453bf26caddb061d82b2551db7fdd3cefe0e9940",
-  ServiceRegistry:   "79c5d2a4a07754f4bacb0ffba18ac516030ee589ebc89db8627680c4d4cdb230",
-  BondingVotes:      "2a1b465fbcae519904f0fb11f93e73dfbeb47ec54530ec444279610af8cf06b2",
-  LivepeerGovernor:  "aea11c65571dd8b6188d3a5cf5e5d3d4695845e6f217cad0b453b4e276c6cdcd",
-  Treasury:          "6efca2866b731ee4984990bacad4cde10f1ef764fb54a5206bdfd291695b1a9b",
-  LivepeerToken:     "3443e257065fe41dd0e4d1f5a1b73a22a62e300962b57f30cddf41d0f8273ba7",
-  L2Migrator:        "74b6d21e0d4650f622c903126d418c1a52bcc99ea7acb0db0809fc0eeae6c7c3",
-  L2LPTGateway:      "07148fd8bd26d2f980f876cc40cea159d0cca6e6456a379f06f34fb338d35be5",
-};
-
+// keccak256 via js-sha3 — computes hash for any contract name dynamically.
+// No static lookup needed. New contracts automatically get hashes.
 function keccak256Hex(name) {
-  return KECCAK_HASHES[name] || null;
+  return keccak256(name);
 }
 
 // ── Write JSX data file ─────────────────────────────────────────────────────
@@ -499,13 +801,22 @@ function writeDataFile(data, sha) {
     ? "Verification skipped"
     : `${arbVerified}/${arbCount} Arbitrum, ${ethVerified}/${ethCount} Mainnet`;
 
-  let jsx = "";
-  jsx += `/**\n`;
-  jsx += ` * Auto-generated by fetch-contract-addresses.js\n`;
-  jsx += ` * Source: ${GOVERNOR_REPO} (commit ${sha})\n`;
-  jsx += ` * Last updated: ${now}\n`;
-  jsx += ` * DO NOT EDIT MANUALLY\n`;
-  jsx += ` */\n\n`;
+  // Preserve everything above "export const contractAddresses" in the existing file (JSDoc typedef, comments, etc.)
+  let header = "";
+  if (fs.existsSync(OUTPUT_PATH)) {
+    const existing = fs.readFileSync(OUTPUT_PATH, "utf8");
+    const exportIdx = existing.indexOf("export const contractAddresses");
+    if (exportIdx > 0) {
+      header = existing.substring(0, exportIdx);
+    }
+  }
+
+  // If no existing header, write a minimal one
+  if (!header.trim()) {
+    header = `/**\n * Auto-generated by fetch-contract-addresses.js\n * Source: ${GOVERNOR_REPO} (commit ${sha})\n * Last updated: ${now}\n * DO NOT EDIT MANUALLY\n */\n\n`;
+  }
+
+  let jsx = header;
   jsx += `export const contractAddresses = ${JSON.stringify({
     arbitrumOne: data.arbitrumOne,
     ethereumMainnet: data.ethereumMainnet,
@@ -516,9 +827,28 @@ function writeDataFile(data, sha) {
       sourceCommit: sha,
       verificationSummary: verifySummary,
       explorerUrls: {
-        arbiscan: "https://arbiscan.io/address/",
-        etherscan: "https://etherscan.io/address/",
+        arbiscan: "https://arbiscan.io",
+        etherscan: "https://etherscan.io",
+        blockscoutArbitrum: "https://arbitrum.blockscout.com",
+        blockscoutEthereum: "https://eth.blockscout.com",
       },
+      rpcUrls: {
+        arbitrumOne: [
+          "https://arb1.arbitrum.io/rpc",
+          "https://arbitrum-one-rpc.publicnode.com",
+          "https://arbitrum.drpc.org",
+        ],
+        ethereumMainnet: [
+          "https://eth.llamarpc.com",
+          "https://ethereum-rpc.publicnode.com",
+          "https://eth.drpc.org",
+        ],
+      },
+      _apiVersions: data.arbitrumOne.current._apiVersions || {},
+      _warnings: [
+        ...(data.arbitrumOne.current._warnings || []),
+        ...(data.ethereumMainnet.current._warnings || []),
+      ],
     },
   }, null, 2)};\n`;
 

@@ -4,29 +4,29 @@
  * @subcategory steps
  * @status stable
  * @description Wrapper around Mintlify Steps with custom icon styling via injected CSS.
-  * @aiDiscoverability none
+ * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {any} iconColor - icon Color prop.
  * @param {any} titleColor - title Color prop.
  * @param {any} lineColor - line Color prop.
  * @param {string} [iconSize="24px"] - icon Size prop.
-  * @param {string} [className=''] - Optional CSS class override.
-  * @param {object} [style={}] - Optional inline style override.
+ * @param {string} [className=''] - Optional CSS class override.
+ * @param {object} [style={}] - Optional inline style override.
  */
 export const StyledSteps = ({
   children,
   iconColor,
   titleColor,
   lineColor,
-  iconSize = "24px",
-  className = "",
+  iconSize = '24px',
+  className = '',
   style = {},
   ...rest
 }) => {
-  const stepsId = `styled-steps-${Math.random().toString(36).substr(2, 9)}`;
-  const resolvedIconColor = iconColor || "var(--accent-dark, #18794E)";
-  const resolvedTitleColor = titleColor || "var(--accent)";
-  const resolvedLineColor = lineColor || "var(--accent)";
+  const stepsId = `styled-steps-${Math.random().toString(36).substr(2, 9)}`
+  const resolvedIconColor = iconColor || 'var(--accent-dark, #18794E)'
+  const resolvedTitleColor = titleColor || 'var(--accent)'
+  const resolvedLineColor = lineColor || 'var(--accent)'
 
   return (
     <div className={className} style={style} {...rest}>
@@ -40,13 +40,24 @@ export const StyledSteps = ({
         #${stepsId} > div > div > div.absolute.w-px {
           background-color: ${resolvedLineColor};
         }
+        #${stepsId} .steps > div:last-child > div.absolute.w-px::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 6px;
+          height: 6px;
+          background-color: ${resolvedLineColor};
+          transform: translateX(-50%) rotate(45deg);
+        }
       `}</style>
       <div id={stepsId}>
         <Steps>{children}</Steps>
       </div>
     </div>
-  );
-};
+  )
+}
 
 /**
  * @component StyledStep
@@ -63,14 +74,30 @@ export const StyledSteps = ({
  * @param {string} [titleSize="h3"] - title Size prop.
  * @param {string|null} [iconColor=null] - Per-step icon background colour override.
  * @param {string|null} [titleColor=null] - Per-step title text colour override.
+ * @param {boolean} [divider=false] - Show a divider line after the step content.
+ * @param {string} [dividerMargin="0.5rem 0"] - Margin for the trailing divider.
  * @param {any} children - children prop.
  * @param {string} [className=''] - Optional CSS class override.
  * @param {object} [style={}] - Optional inline style override.
  */
-export const StyledStep = ({ title, icon, titleSize = "h3", iconColor = null, titleColor = null, children, className = "", style = {}, ...rest }) => {
-  const styledTitle = titleColor
-    ? <span style={{ color: titleColor }}>{title}</span>
-    : title;
+
+import { InlineDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+export const StyledStep = ({
+  title,
+  icon,
+  titleSize = 'h3',
+  iconColor = null,
+  titleColor = null,
+  children,
+  className = '',
+  style = {},
+  ...rest
+}) => {
+  const styledTitle = titleColor ? (
+    <span style={{ color: titleColor }}>{title}</span>
+  ) : (
+    title
+  )
 
   return (
     <Step
@@ -84,5 +111,5 @@ export const StyledStep = ({ title, icon, titleSize = "h3", iconColor = null, ti
     >
       {children}
     </Step>
-  );
-};
+  )
+}

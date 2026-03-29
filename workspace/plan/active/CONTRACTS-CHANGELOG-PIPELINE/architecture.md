@@ -164,10 +164,12 @@ graph TB
 - `generate-changelog.js` — Unified script, CP-1/2/3 verified, handles GitHub + GitLab, releases + commits modes, LLM enhancement, backward compat.
 - `update-changelogs.yml` — Replaces old workflow, actionlint clean (CP-2 passed), solutions backward compat verified (CP-3 passed).
 - `fetch-contract-addresses.js` — Fetches and verifies address data. Writes `contractAddressesData.jsx`.
-- `update-contract-addresses.yml` — Weekly run, stable.
+- ~~`update-contract-addresses.yml` — Weekly run, stable.~~ **UNVERIFIED — workflow only exists on docs-v2-dev, not registered with GitHub Actions. Has never run. Needs cherry-pick to docs-v2 before dispatch is possible.** (Flagged 2026-03-29)
 - `contractAddressesData.jsx` — Well-structured, has arbitrumOne + ethereumMainnet + meta + historical.
 - `daydream/changelog.mdx` — 37 enhanced entries, working, correct format.
 - `streamplace/changelog.mdx` — GitLab source working.
+
+**⚠ TRUST WARNING (2026-03-29):** Claims in this section were not independently verified. "Works" means "code exists and appears correct on inspection" — NOT "has been run and produced verified output." Treat all claims as unverified until evidence exists.
 
 ### What is broken or incomplete
 
@@ -465,7 +467,7 @@ Before any implementation, read:
 | `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md` | JSDoc 7-tag standard for any new component. Approval required before creating new components. |
 | `workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md` | JSDoc 11-tag standard for any new or modified script. |
 | `workspace/thread-outputs/research/component-script-placement-reference.md` | Folder placement rules — components go in `snippets/components/{type}/{subniche}/`. |
-| `workspace/thread-outputs/research/mintlify-constraints-reference.md` | Mintlify MDX constraints — no imports from 'react', all hooks are globals, no sub-components with capitalised names. |
+| `workspace/thread-outputs/research/mintlify-constraints-reference.md` | Mintlify MDX constraints — no React imports (hooks are globals), 35 platform globals, arrow functions only, no top-level constants, cross-JSX imports fragile. Headless-verified 2026-03-29. |
 
 **Component governance rule:** No new component without approval. The ContractAddressDisplay situation was created by bypassing this gate. SearchTable + DynamicTable are the approved table pattern — use them.
 

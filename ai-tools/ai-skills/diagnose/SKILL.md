@@ -217,7 +217,7 @@ The circuit breaker hook enforces this mechanically. This skill explains what to
 ### MDX/JSX not rendering
 1. Check imports — absolute path? File extension included? Not importing a Mintlify global?
 2. Read `workspace/thread-outputs/research/mintlify-constraints-reference.md`
-3. Check if the component file imports from another JSX file (won't work in Mintlify)
+3. Check if the component file imports data from another JSX file (won't work — import in parent MDX instead). Cross-JSX component imports are fragile and officially unsupported.
 
 ### Component in wrong location
 1. Check category — is it an element, wrapper, display, scaffolding, or integrator?

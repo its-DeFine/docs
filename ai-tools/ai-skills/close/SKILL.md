@@ -48,15 +48,37 @@ Run these in parallel:
 
 Then cross-check the task list (TodoWrite) against what the repo shows was actually done.
 
+### Debris scan
+
+Check for side effects this session left behind. Run:
+- `git status` — untracked files you created that aren't deliverables (test files, scratch MDX, temp scripts)
+- `git diff --stat HEAD` — files modified that weren't part of the thread outcome
+- Check for stale worktrees: `ls .claude/worktrees/` — any from this session's work that are done?
+- Check for empty directories left by file moves: `find v2/ snippets/ operations/ -type d -empty 2>/dev/null`
+
+Classify each item:
+- **Deliverable** — intended output, keep it
+- **Debris** — test file, scratch page, temp script, stale worktree. Flag for cleanup
+- **Side effect** — unintended change to a file outside thread scope. Flag for review
+
 Report format:
 ```
 Tasks defined: [N]
 Tasks verified in repo: [N]
 Unverified (conversation-only): [list any]
 Uncommitted work: [yes/no — list files if yes]
+
+Debris:
+  [file/dir] — [what it is, why it's debris]
+  [file/dir] — [what it is, why it's debris]
+  None found ✓
+
+Side effects:
+  [file] — [what changed, was it intentional?]
+  None found ✓
 ```
 
-If there is uncommitted work, flag it and ask whether to commit before closing.
+If debris or side effects are found, list them and propose cleanup actions. Do not auto-delete — present the list and get approval.
 
 ---
 

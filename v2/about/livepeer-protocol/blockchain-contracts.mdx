@@ -1,16 +1,35 @@
 ---
 title: Blockchain Contracts
 sidebarTitle: Blockchain Contracts
-description: An overview of the Livepeer protocol blockchain contracts.
+description: >-
+  Architecture overview of all Livepeer protocol smart contracts on Arbitrum
+  One and Ethereum Mainnet. What each contract does, how contracts interact,
+  and how upgrades work through governance.
 keywords:
   - livepeer
-  - about
   - livepeer protocol
+  - livepeer smart contracts
+  - livepeer contract architecture
   - blockchain contracts
   - blockchain
   - contracts
-  - overview
-  - protocol
+  - livepeer BondingManager
+  - livepeer TicketBroker
+  - livepeer Controller
+  - livepeer Governor
+  - livepeer RoundsManager
+  - livepeer Minter
+  - livepeer ServiceRegistry
+  - livepeer protocol contracts
+  - arbitrum contracts
+  - ethereum contracts
+  - smart contract upgrade
+  - governance upgrade
+'og:title': "Livepeer Blockchain Contracts Architecture Overview"
+'og:description': >-
+  How Livepeer protocol smart contracts work on Arbitrum One and Ethereum
+  Mainnet. Staking, payments, governance, and service discovery.
+'twitter:card': summary_large_image
 'og:image': /snippets/assets/site/og-image/fallback.png
 'og:image:alt': Livepeer Docs social preview image
 'og:image:type': image/png
@@ -94,8 +113,8 @@ export const lastVerifiedDate = contractAddresses.meta.lastVerified || "Pending"
 
 <Tip>
   Addresses on this page are automatically updated via a Github Action workflow. <br/>
-  <span style={{display: "flex", alignItems: "center", marginTop: "0.2rem"}}> Data is sourced from the canonical <DoubleIconLink label="governor-scripts" href="https://github.com/livepeer/governor-scripts" iconRightColor="var(--hero-text)"/> and verified on-chain. </span> <br/>
-  <span style={{color: "var(--text)", marginTop: "0.5rem"}}> Last verified: {lastVerifiedDate} </span>
+  <span style={{display: "flex", alignItems: "center", marginTop: "0.2rem"}}> Data is sourced from the <DoubleIconLink label="Livepeer Github" href="https://github.com/livepeer/" iconRightColor="var(--hero-text)"/> and verified on-chain. </span> <br/>
+  <span style={{color: "var(--text)", marginTop: "0.5rem"}}> Last Updated: DD Month YYYY </span>
 </Tip>
 
 <Columns cols={2}>

@@ -256,6 +256,105 @@ Session was initiated to get the docs-v2-dev docs.json structure onto origin/doc
 
 ---
 
+## References Knowledge System — Phase 1 — 2026-03-30
+
+**Plans**: `/Users/alisonhaire/.claude/plans/velvety-enchanting-snowglobe.md`
+**Scope**: Build `.claude/references/` — curated folder of exemplary work from the repo with analysis of WHY each piece is good.
+
+### Summary
+
+Scanned the repo for exemplary work across 13 categories, presented candidates to Alison for selection, then wrote 14 analysis docs with pointers + analysis. All 38 referenced files verified to exist. CLAUDE.md updated with threads table entry. The folder serves as a learning resource for future Claude sessions — read before designing, writing, laying out, or building.
+
+---
+
+### Completed
+
+**Research & Selection**
+- Scanned repo across plans, layouts, copy, components, scripts, data patterns, research, pipelines, governance, authoring, IA/naming, prompts, skills
+- Presented top 3-5 candidates per category with rationale
+- Alison selected + rejected candidates with specific feedback (copy: human-written only; layout: gateway quickstart is gold standard; contract-addresses-canonical rejected for layout)
+
+**Analysis Docs (14 files)**
+- `plans.md` — 5 entries (plan-canonical, anti-scam SEO, component gov, script gov, pipeline architecture)
+- `layout.md` — 9 entries across 5 tabs
+- `copy.md` — 4 human-written exemplars (gateway quickstart, primer, solutions, home)
+- `components.md` — 3 components + @aiDiscoverability reference
+- `scripts.md` — 1 gold standard script (fetch-contract-addresses-v2)
+- `data-patterns.md` — 4 patterns (2 mature, 2 aspirational with caveats)
+- `research.md` — 3 research outputs
+- `script-pipelines.md` — 2 pipelines + anatomy template
+- `governance-frameworks.md` — 2 framework specs
+- `authoring-standards.md` — 4 standards (component template, page framework, thread skill, page-authoring skill)
+- `ia-and-naming.md` — IA + naming rules for all surfaces (section-naming prompt, step/accordion/tab naming)
+- `prompts.md` — 3 gold standard prompts with "what makes a good prompt" patterns
+- `skills.md` — 6 exemplary skills with "what makes a good skill" patterns
+- `README.md` — master index
+
+---
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Frontmatter skipped | Covered by governance frameworks |
+| Completion reports skipped | Not a priority |
+| Data patterns include aspirational entries | Gateways/solutions data patterns flagged with caveats — direction is right, needs homogenisation |
+| Anti-scam SEO/AEO classified as plan AND research | Alison called it "gold standard plan" — appears in both categories |
+| All AI-written copy excluded from copy exemplars | Alison: "none of these are good. ai-written." |
+| Section-naming prompt surfaced prominently | Naming across all surfaces is a recurring problem |
+
+---
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Research collation (317+ files) | P1 | Phase 2 of this thread | Phase 1 complete |
+| Per-category subfolder structure | P1 | Phase 2 design | Phase 1 complete |
+| Best-practice + patterns docs | P1 | Phase 2 collation | Source mapping |
+
+---
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| All 38 referenced files exist | ✅ Pass | Verified via bash loop |
+| README index matches docs | ✅ Pass | 14 files, 13 categories |
+| CLAUDE.md updated | ✅ Pass | Threads table + key files |
+
+---
+
+### Recommendations
+
+1. **Phase 2** — Restructure flat files into category subfolders, collate research per category, extract patterns linked to repo context.
+
+---
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `.claude/references/README.md` | new | Master index |
+| `.claude/references/plans.md` | new | 5 plan exemplars |
+| `.claude/references/layout.md` | new | 9 layout exemplars |
+| `.claude/references/copy.md` | new | 4 human-written copy exemplars |
+| `.claude/references/components.md` | new | 3 component exemplars + aiDiscoverability ref |
+| `.claude/references/scripts.md` | new | 1 script exemplar |
+| `.claude/references/data-patterns.md` | new | 4 data pattern exemplars |
+| `.claude/references/research.md` | new | 3 research exemplars |
+| `.claude/references/script-pipelines.md` | new | 2 pipeline exemplars + anatomy |
+| `.claude/references/governance-frameworks.md` | new | 2 framework specs |
+| `.claude/references/authoring-standards.md` | new | 4 authoring standards |
+| `.claude/references/ia-and-naming.md` | new | IA + naming rules |
+| `.claude/references/prompts.md` | new | 3 prompt exemplars |
+| `.claude/references/skills.md` | new | 6 skill exemplars |
+| `.claude/CLAUDE.md` | modified | Threads table + key files |
+
+---
+
+**Outcome: MET.** Phase 2 continuing in same thread.
+
 ## Solutions Migration to docs-v2 — 2026-03-26
 
 **Plans**: `/Users/alisonhaire/.claude/plans/encapsulated-meandering-squid.md`
@@ -2039,3 +2138,154 @@ Built a 3-layer file rename/move propagation system to solve the problem of ~11,
 | `operations/scripts/config/docs-path-sync.js` | Modified | +docs-guide scope, +llms.txt/sitemap, +full-url token, +XML rewriter, +redirect creation |
 | `.claude/settings.json` | Modified | +PostToolUse Bash hook for move-detect |
 | `.claude/plans/merry-greeting-moth.md` | New | Implementation plan |
+
+---
+
+## Contract Address Verifier Widget — 2026-03-29
+
+**Plans**: `.claude/plans/spicy-dancing-hickey.md`
+**Scope**: Investigate feasibility of ContractVerifier widget brief, correct all errors, build the component, integrate into canonical contract addresses page.
+**Outcome**: Met
+
+### Summary
+
+The original brief for a browser-based contract address verifier widget contained 10 errors, 4 of which were showstoppers (wrong function selector, non-existent API endpoint, wrong target MDX file, top-level constants crash Mintlify). All errors were found during a systematic investigation using on-chain verification (Blockscout MCP + direct RPC calls + keccak256 computation). The corrected widget was built through 6 co-design gates and committed.
+
+### Completed
+
+**Investigation phase**
+- Verified all 13 canonical contract addresses on-chain via Blockscout read_contract
+- Verified all 13 keccak256 hashes via js-sha3 computation
+- Confirmed Controller ABI has getContract(bytes32), correct selector is 0xe16c7d98
+- Tested Blockscout eth_call proxy (broken), Arbitrum public RPC (working, CORS confirmed), Blockscout v2 address API (working, field names verified)
+- Audited component governance framework, CSS variable availability, test runner location
+
+**Build phase**
+- Created ContractVerifier.jsx at snippets/components/integrators/feeds/ (7-tag JSDoc, all constants inside function body, named export, a11y compliant)
+- Integrated into contract-addresses-canonical.mdx (1 import, placeholder replaced, StyledSteps block untouched)
+- Component governance utils tests: 0 errors. Naming conventions: 0 findings.
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Use Arbitrum public RPC instead of Blockscout proxy | Blockscout module=proxy returns "Unknown module" 400. Arbitrum arb1.arbitrum.io/rpc is CORS-enabled and verified working. |
+| Place in integrators/feeds/ not components/data/ | components/data/ doesn't exist. Governance taxonomy: fetches external data = integrators. |
+| All constants inside component function body | Mintlify top-level const outside exports throws ReferenceError at runtime (component-composition-template.mdx constraint). |
+| Use has_logs instead of transaction_count | transaction_count field does not exist in Blockscout v2 /api/v2/addresses/ response. |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Regenerate component docs after adding ContractVerifier | P2 | Stale docs expected when adding any component | Run: node operations/scripts/generators/components/documentation/generate-component-docs.js --fix --template-only |
+| Full run-all.js test suite blocked by missing gray-matter | P1 | Pre-existing dependency issue | npm install gray-matter in operations/ |
+
+### Dependencies & Downstream Effects
+
+- **Component registry**: New component added to integrators/feeds/. Registry generator will pick it up on next run.
+- **Canonical page**: Widget sits between heading and StyledSteps block. No impact on existing verification flow.
+- **Contract upgrades**: If Livepeer governance changes an address, the widget shows MISMATCH with explanatory text linking to governor-scripts.
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| Component governance utils | Pass (0 errors) | JSDoc tags, category, subcategory all correct |
+| Naming conventions | Pass (0 findings) | PascalCase file, named export |
+| On-chain address verification | Pass (4/4 match) | LivepeerToken, BondingManager, TicketBroker, Minter |
+| Keccak256 hash verification | Pass (13/13 match) | All hashes verified via js-sha3 |
+| Blockscout v2 API fields | Verified | is_contract, is_verified, name, has_logs all present |
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `snippets/components/integrators/feeds/ContractVerifier.jsx` | New (516 lines) | Interactive contract address verifier widget with two modes |
+| `v2/about/resources/contract-addresses-canonical.mdx` | Modified | Added ContractVerifier import and widget placement |
+| `.claude/plans/spicy-dancing-hickey.md` | New | Full corrected build plan with 10 error fixes, 7 risks, 6 co-design gates |
+
+---
+
+## Mintlify Constraints Reference Audit — 2026-03-29
+
+**Plans**: `.claude/plans/kind-leaping-stardust.md`
+**Scope**: Full accuracy audit of `mintlify-constraints-reference.md` against repo state, Mintlify official docs, and headless dev server tests. Gap analysis, canonical rewrite, and propagation to all referencing surfaces.
+**Outcome**: Met
+
+### Summary
+
+The single reference doc Claude reads before touching MDX/JSX had 2 wrong claims, 2 inaccuracies, and 10 missing constraints. Verified every claim across 3 layers: repo grep evidence (770+ MDX files, 50+ JSX components), Mintlify official documentation (7 pages fetched), and headless Puppeteer tests against Mintlify dev server v4.2.459 (11 claims tested). Rewrote the doc from 176 lines to 530+ lines. Propagated corrections to 6 active referencing surfaces.
+
+### Completed
+
+**Audit phase:**
+- Verified 3 canonical source files exist and match claims (mintlify-behaviour.mdx, page-authoring/SKILL.md, components/README.md)
+- Searched repo for counter-examples to every claim (cross-JSX imports, relative paths, ThemeData, CSS variables, hooks usage)
+- Fetched 7 Mintlify official doc pages and extracted platform-authoritative answers
+- Installed Mintlify CLI v4.2.459, created 7 isolated test pages, ran Puppeteer headless tests
+
+**Errors corrected (2):**
+- "Relative paths don't resolve" → they DO (Mintlify docs confirm, 20+ repo examples). We prefer absolute.
+- "Cross-JSX imports don't work" (blanket) → JSX component imports are fragile but work for existing files. Data imports fail. Officially unsupported.
+
+**Constraints added (5):**
+- Top-level constants crash at runtime (headless-confirmed)
+- Arrow function syntax only — function keyword not supported (headless-confirmed)
+- AEO decision framework — client-rendered content invisible to AI crawlers
+- MDX-in-MDX scope inheritance rules
+- Import path lookup examples
+
+**Globals list expanded:** 20 → 35 (from Mintlify official component index)
+**CSS variables expanded:** 3 → 16 (categorised: theme + --lp-* tokens)
+
+**Propagation (6 files):**
+- `.claude/CLAUDE.md` — updated inline constraint summary
+- `page-authoring/SKILL.md` — added 3 hard rules
+- `diagnose/SKILL.md` — nuanced cross-JSX guidance
+- `mdx-constraints-injector.js` — updated rule 5
+- `style-guide.mdx` — relative path guidance corrected
+- `CHANGELOG-PIPELINE/architecture.md` — updated description
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Cross-JSX component imports documented as "fragile, officially unsupported" rather than "don't work" | 4 production examples work, but new test files fail and Mintlify docs explicitly say "nested imports not supported" |
+| Relative paths documented as "work but not preferred" | Mintlify docs confirm support; repo has 20+ working examples; absolute preferred for grep/validation |
+| AEO section added to constraints reference | Contract addresses and protocol data must be AI-discoverable; client-rendered content is invisible to crawlers |
+
+### Dependencies & Downstream Effects
+
+- **All agent spawns:** `/agent-brief` references the constraints doc — agents now get the corrected version
+- **MDX constraints injector hook:** Rule 5 updated — agents see nuanced cross-JSX guidance instead of blanket ban
+- **Page authoring:** 3 new hard rules (arrow functions, top-level constants, globals count) affect all future MDX/JSX work
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| Safe constants (inside function) | PASS | Headless Puppeteer |
+| Simple arrow component | PASS | Headless Puppeteer |
+| Top-level constants crash | CONFIRMED FAIL | Headless Puppeteer |
+| Function keyword fails | CONFIRMED FAIL | Headless Puppeteer |
+| Cross-JSX data import | CONFIRMED FAIL | Headless Puppeteer |
+| Cross-JSX component (new file) | FAIL | Headless Puppeteer |
+| Cross-JSX component (production) | PASS | Headless Puppeteer |
+| MDX scope inheritance | CONFIRMED FAIL | Headless Puppeteer |
+| Relative imports (production) | PASS | Headless Puppeteer |
+| Mintlify globals render | PASS | Headless Puppeteer |
+| Stale references cleaned | PASS | Grep verification |
+
+### Recommendations
+
+1. **Install Mintlify CLI in CI** — enables automated constraint testing on pre-commit. Playwright infra exists at `operations/tests/`.
+2. **Add CardGroup deprecation note** — used in 10+ files but replaced by Columns in Mintlify docs. Migrate when doing content passes.
+3. **Audit production cross-JSX imports** — 4 files (Lists, VideoData, DataEmbed, Links) use unsupported pattern. Consider refactoring to MDX-level imports.
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `workspace/thread-outputs/research/mintlify-constraints-reference.md` | Rewritten (530+ lines) | Canonical constraints reference — 12 mistakes, 35 globals, 16 CSS vars, AEO section, headless-verified |
+| `.claude/plans/kind-leaping-stardust.md` | Plan | Full audit plan with findings tables and execution order |

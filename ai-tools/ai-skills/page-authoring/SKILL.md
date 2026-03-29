@@ -30,11 +30,13 @@ Do not treat all guidance here as a pre-commit blocker.
 
 ### Imports and MDX constraints
 
-- Use absolute snippet imports such as `/snippets/components/...`
+- Use root-absolute snippet imports such as `/snippets/components/...` (relative paths work but absolute preferred)
 - Include file extensions for local imports: `.jsx` or `.js`
-- Do not import Mintlify globals like `Card`, `Tabs`, `Accordion`, `Note`, `Steps`, or `Columns`
-- Do not import React hooks in MDX
+- Do not import Mintlify globals (35 platform components — see full list in constraints reference)
+- Do not import React or hooks — they are globally available
 - Keep JSX composition MDX-safe; pass data through MDX rather than chaining JSX-to-JSX imports
+- Use arrow function syntax only in JSX snippets (`export const Foo = () => {}` not `export function Foo`)
+- Do not define constants at file scope in JSX — define inside function bodies
 
 ### Styling constraints
 

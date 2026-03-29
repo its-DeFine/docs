@@ -160,7 +160,37 @@ Once the design is agreed, write it to a file. Structure:
 [Any decisions agreed during co-creation, with rationale]
 ```
 
-This doc is the input to `/build`. It is the contract. Build must satisfy test criteria. Iterate must test against them.
+## Research gates
+[What must be investigated before building. Each gate is a question that must be answered with evidence, not assumptions.]
+1. [Question] — answered by [method]
+
+## Skills used
+[Which skills each phase uses. Helps the user remember what's available.]
+| Phase | Skills | Why |
+|---|---|---|
+| Research | `/research` | [what it investigates] |
+| Build | `/build`, `/verify` | [what it builds and checks] |
+| Review | `/iterate` | [what it validates] |
+
+## Phase checkpoints
+[For multi-phase plans: what gets verified at the end of each phase before the next one starts. Each checkpoint is a concrete check, not "review output."]
+| Phase | Checkpoint | Verification method |
+|---|---|---|
+| Phase 1 | [what must be true] | [how to verify] |
+```
+
+This doc is the input to `/build`. It is the contract. Build must satisfy test criteria. Research gates must be answered before building starts. Phase checkpoints must pass before moving to the next phase. Iterate must test against all three.
+
+### Write checkpoints to phase-gate.jsonl
+
+After writing the architecture doc, append one JSON line per checkpoint to `workspace/thread-outputs/sessions/phase-gate.jsonl`:
+
+```json
+{"thread":"[thread name]","phase":1,"check":"[checkpoint description]","verified":false}
+{"thread":"[thread name]","phase":2,"check":"[checkpoint description]","verified":false}
+```
+
+These feed the phase-gate hook. Once written, every Edit/Write in the repo will show unverified checkpoints until Claude marks them `"verified":true`. The hook fires on every edit — it's a persistent nag, not a one-time reminder.
 
 ---
 

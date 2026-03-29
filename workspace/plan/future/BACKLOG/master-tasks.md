@@ -8,13 +8,16 @@
 
 ## Active — Changelog
 
-### 0. Finish Changelog
-**Status:** IN PROGRESS (this thread)
-- [ ] Delete legacy `update-solutions-changelog.yml` (before Monday)
-- [ ] Contracts changelog — PRIORITY 1 (on-chain verification)
+### 0a. Contract addresses page rebuild — PRIORITY
+**Status:** IN PROGRESS (Contracts & Changelogs thread)
 - [x] Contract addresses data-driven — blockchain-contracts.mdx imports done, pipeline date formatting done
 - [ ] Contract addresses reference page — A1: rebuild with SearchTable (IN PROGRESS)
 - [ ] Contract status enrichment — A4/A5: 19 hardcoded status lines need Blockscout data
+
+### 0b. Changelog pipeline (remaining repos)
+**Status:** Pending
+- [ ] Delete legacy `update-solutions-changelog.yml` (before Monday)
+- [ ] Fix resource changelog format (same template as solutions)
 - [ ] Add all repos to config + create pages in Resource Hub changelog section:
   - [ ] explorer
   - [ ] go-livepeer
@@ -30,8 +33,6 @@
   - [ ] livepeer-js (SDK, not actively maintained)
   - [ ] Studio (move/add to resources)
   - [ ] NaaP (maybe too new)
-- [ ] Contract addresses data-driven
-- [ ] Fix resource changelog format (same template as solutions)
 
 ---
 

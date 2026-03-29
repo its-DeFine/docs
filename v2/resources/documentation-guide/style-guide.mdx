@@ -607,7 +607,7 @@ export const MyComponent = () => {
 // ✅ Correct - absolute path from repo root
 import { MyComponent } from '/snippets/components/MyComponent.jsx';
 
-// ❌ Wrong - relative paths don't work
+// ⚠️ Avoid - relative paths resolve but are harder to validate and grep
 import { MyComponent } from '../components/MyComponent.jsx';
 ```
 

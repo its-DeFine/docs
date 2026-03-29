@@ -25,13 +25,21 @@ stdin.on('end', () => {
     const toolName = data.tool_name || '';
     const toolInput = data.tool_input || {};
 
-    // --- AGENT: block all spawns without explicit approval ---
+    // --- AGENT: block execution agents, allow research/audit/read-only ---
     if (toolName === 'Agent') {
-      console.log(JSON.stringify({
-        decision: 'block',
-        reason: 'BLOCKED: Agent spawn requires explicit "go" from Alison. Present your plan, get approval, THEN ask to spawn.'
-      }));
-      process.exit(2);
+      const prompt = (toolInput.prompt || '').toLowerCase();
+      const subtype = (toolInput.subagent_type || '').toLowerCase();
+      const isReadOnly = subtype === 'explore' ||
+        /\b(research|audit|investigate|analyse|analyze|scan|find|search|check|review|read|plan)\b/.test(prompt) &&
+        !/\b(edit|write|create|build|fix|implement|refactor|move|rename|delete)\b/.test(prompt);
+
+      if (!isReadOnly) {
+        console.log(JSON.stringify({
+          decision: 'block',
+          reason: 'BLOCKED: Execution agent requires explicit approval. Research/audit/read-only agents are pre-approved.'
+        }));
+        process.exit(2);
+      }
     }
 
     // --- BASH COMMANDS ---
@@ -110,6 +118,23 @@ stdin.on('end', () => {
         console.log(JSON.stringify({
           systemMessage: 'CONTEXT WARNING: You have only read the target file and nothing else. Before editing, consider: who calls this? Who consumes it? Are there related files, tests, or templates that this change affects? Check broader context before proceeding.'
         }));
+      }
+
+      // Em-dash check — block on .mdx content files, skip props/code
+      if (/\.mdx$/.test(fp)) {
+        const content = toolInput.new_string || toolInput.content || '';
+        // Strip JSX props (key="value" or key={value}) and code blocks before checking
+        const stripped = content
+          .replace(/\w+=["'{][^"'}]*["'}]/g, '')  // props
+          .replace(/`[^`]*`/g, '')                 // inline code
+          .replace(/```[\s\S]*?```/g, '');         // code blocks
+        if (stripped.includes('\u2014')) {
+          console.log(JSON.stringify({
+            decision: 'block',
+            reason: 'BLOCKED: Em-dash (\u2014) detected in MDX content. Use a comma, semicolon, colon, or rewrite the sentence. No em-dashes.'
+          }));
+          process.exit(2);
+        }
       }
 
       // MDX/JSX: verify rendering

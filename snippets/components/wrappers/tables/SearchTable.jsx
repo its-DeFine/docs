@@ -120,6 +120,9 @@ export const SearchTable = ({
         return <Badge color={colorName}>{value}</Badge>;
       }
     }
+    if (typeof variant === 'object' && variant !== null && typeof value === 'string') {
+      return variant[value] || value;
+    }
     return value;
   };
 

@@ -32,7 +32,7 @@
       "extension": "png",
       "category": "image",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -43,7 +43,7 @@
       "extension": "png",
       "category": "image",
       "reference_status": "referenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [
         "snippets/data/home/hrefs.jsx",
         "v2/cn/home/about-livepeer/evolution.mdx",
@@ -355,7 +355,7 @@
       "extension": "png",
       "category": "image",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -366,7 +366,7 @@
       "extension": "png",
       "category": "image",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -377,7 +377,7 @@
       "extension": "png",
       "category": "image",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -490,7 +490,7 @@
       "extension": "png",
       "category": "image",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -545,7 +545,7 @@
       "extension": "png",
       "category": "image",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -600,7 +600,7 @@
       "extension": "png",
       "category": "image",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -622,7 +622,7 @@
       "extension": "png",
       "category": "image",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -644,7 +644,7 @@
       "extension": "png",
       "category": "image",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -677,7 +677,7 @@
       "extension": "png",
       "category": "image",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -699,7 +699,7 @@
       "extension": "png",
       "category": "image",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -710,7 +710,7 @@
       "extension": "png",
       "category": "image",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -1049,7 +1049,7 @@
       "extension": "mp4",
       "category": "video",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -1060,7 +1060,7 @@
       "extension": "mp4",
       "category": "video",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -1071,7 +1071,7 @@
       "extension": "mp4",
       "category": "video",
       "reference_status": "referenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [
         "snippets/components/_archive/video.jsx",
         "snippets/components/displays/video/Video.jsx",
@@ -1095,7 +1095,7 @@
       "extension": "mp4",
       "category": "video",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -1106,7 +1106,7 @@
       "extension": "mp4",
       "category": "video",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -1172,7 +1172,7 @@
       "extension": "jpeg",
       "category": "image",
       "reference_status": "unreferenced",
-      "migration_target": "keep",
+      "migration_target": "migrate_r2",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false

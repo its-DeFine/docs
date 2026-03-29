@@ -1,7 +1,9 @@
 # Machine-readable repo-root allowlist.
+
 # Root entries only. Comments must use #. No nested paths.
 
 # Core repo files
+
 .gitignore
 .allowlist
 .env.example
@@ -9,6 +11,7 @@ README.md
 LICENSE
 
 # Platform and governance roots
+
 .github
 .githooks
 .gitattributes
@@ -16,6 +19,7 @@ LICENSE
 AGENTS.md
 
 # Mintlify runtime roots
+
 docs.json
 style.css
 .mintignore
@@ -25,6 +29,7 @@ v1
 v2
 
 # Tooling and workspace roots
+
 .vscode
 .editorconfig
 .prettierrc
@@ -34,9 +39,10 @@ workspace
 operations
 ai-tools
 api
-_dep-docs
+\_dep-docs
 
 # Native agent adapters
+
 .augment
 .claude
 .cursor
@@ -44,7 +50,8 @@ _dep-docs
 .windsurf
 
 # Other governed root entries
-ASSISTANT.md
+
+robots.txt
 Dockerfile
 Makefile
 sitemap-ai.xml

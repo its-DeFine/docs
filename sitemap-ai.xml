@@ -142,6 +142,15 @@
     <ai:section>about</ai:section>
     <ai:wordCount>173</ai:wordCount>
     <ai:lastVerified>2026-03-09T04:55:41+11:00</ai:lastVerified>
+    <ai:tags>livepeer, blockchain, contracts, smart contracts, protocol, architecture</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/about/resources/contract-addresses-canonical</loc>
+    <lastmod>2026-03-30T00:00:00+11:00</lastmod>
+    <ai:section>about</ai:section>
+    <ai:wordCount>800</ai:wordCount>
+    <ai:lastVerified>2026-03-30T00:00:00+11:00</ai:lastVerified>
+    <ai:tags>livepeer, contract addresses, LPT token address, official, canonical, arbitrum, ethereum, verified, 0x289ba1701C2F088cf0faf8B3705246331cB8A839, 0x58b6a8a3302369daec383334672404ee733ab239, livepeer contracts, smart contracts, BondingManager, TicketBroker, Controller, RoundsManager, Governor</ai:tags>
     <ai:tags>livepeer, about, livepeer protocol, blockchain contracts, blockchain, contracts, overview, protocol</ai:tags>
   </url>
   <url>

@@ -446,6 +446,97 @@
       "category": "resources",
       "managed": false,
       "github": { "org": "livepeer", "repo": "LIPs", "branch": "master" }
+    },
+
+    "ai-runner": {
+      "displayName": "AI Runner",
+      "mode": "releases",
+      "outputPath": "v2/resources/changelog/ai-runner.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "ai-runner" }
+    },
+    "pytrickle": {
+      "displayName": "pytrickle",
+      "mode": "releases",
+      "outputPath": "v2/resources/changelog/pytrickle.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "pytrickle" }
+    },
+    "subgraph": {
+      "displayName": "Livepeer Subgraph",
+      "mode": "releases",
+      "outputPath": "v2/resources/changelog/subgraph.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "subgraph" }
+    },
+    "livepeer-python-gateway": {
+      "displayName": "Livepeer Python Gateway",
+      "mode": "commits",
+      "outputPath": "v2/resources/changelog/livepeer-python-gateway.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "livepeer-python-gateway", "branch": "main" }
+    },
+    "website": {
+      "displayName": "Livepeer.org Website",
+      "mode": "commits",
+      "outputPath": "v2/resources/changelog/website.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "website", "branch": "main" }
+    },
+    "livepeer-python": {
+      "displayName": "Livepeer Python SDK",
+      "mode": "releases",
+      "outputPath": "v2/resources/changelog/livepeer-python.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "livepeer-python" }
+    },
+    "livepeer-js": {
+      "displayName": "Livepeer JavaScript SDK",
+      "mode": "releases",
+      "outputPath": "v2/resources/changelog/livepeer-js.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "livepeer-js" }
+    },
+    "studio": {
+      "displayName": "Livepeer Studio",
+      "mode": "releases",
+      "outputPath": "v2/resources/changelog/studio.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "studio" }
+    },
+    "naap": {
+      "displayName": "NaaP",
+      "mode": "commits",
+      "outputPath": "v2/resources/changelog/naap.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "naap", "branch": "main" }
+    },
+    "comfystream": {
+      "displayName": "ComfyStream",
+      "mode": "releases",
+      "outputPath": "v2/resources/changelog/comfystream.mdx",
+      "template": "resources",
+      "category": "resources",
+      "managed": false,
+      "github": { "org": "livepeer", "repo": "comfystream" }
     }
   },
 
