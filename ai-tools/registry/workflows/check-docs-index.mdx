@@ -8,6 +8,11 @@ trigger_mode: 'pull_request + push + workflow_dispatch'
 risk_level: 'low'
 consolidation_flag: 'review for alignment with `review-fix` while preserving current pull_request + push + workflow_dispatch trigger behavior'
 dispatcher_candidate: 'review-fix'
+workflow_family: 'docs-catalog-governance'
+cleanup_decision: 'merge'
+usage_status: 'active'
+process_fit: 'core-shipping'
+consolidation_target: 'future:docs-catalog-governance-workflow'
 last_verified: '2026-03-31'
 ---
 
@@ -59,6 +64,15 @@ Govern the `.github/workflows/check-docs-index.yml` workflow as a human-readable
 
 - No explicit workflow inputs declared.
 
+## Second Pass Assessment
+
+- Workflow family: `docs-catalog-governance`
+- Usage status: `active`
+- Cleanup decision: `merge`
+- Process fit: `core-shipping`
+- Consolidation target: `future:docs-catalog-governance-workflow`
+- Recommended engineering action: Merge this workflow with its sibling family into `future:docs-catalog-governance-workflow` so one workflow owns both check and write modes.
+
 ## Outputs
 
 - Workflow logs and job status
@@ -92,7 +106,11 @@ flowchart TD
 
 ## Consolidation Notes
 
-Dispatcher suggestion: `review-fix`. This is a governance hint for consolidation review, not a runtime rewrite instruction.
+Dispatcher suggestion: `review-fix`. Second-pass target: `future:docs-catalog-governance-workflow`. This is a governance recommendation, not an automatic rewrite instruction.
+
+## Cleanup Rationale
+
+- This family already has obvious check/generate pairings that likely want one governed workflow with mode flags.
 
 ## Handover Notes
 

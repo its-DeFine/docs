@@ -116,3 +116,18 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 **Source:** Contracts & Changelogs — 2026-03-31
 **Description:** 5 v1 files had Danger callouts + Expandable added. v1 is frozen so not tested locally. Need to verify Expandable works in v1 pages after deploy.
 **Priority:** P2
+
+## BL-023 — Cherry-pick contract workflow to docs-v2 for dispatch test
+**Source:** Contracts Production Audit — 2026-03-31
+**Description:** `update-contract-addresses.yml` exists only on `docs-v2-dev`. GitHub Actions only indexes workflows on the default branch. Must cherry-pick workflow + fetch script to `docs-v2`, then manual dispatch with `--dry-run` to verify full pipeline. Blocking production merge.
+**Priority:** P0
+
+## BL-024 — Add llms.txt and sitemap-ai.xml to /propagate audit surfaces
+**Source:** Contracts Production Audit — 2026-03-31
+**Description:** When pages are renamed, `/propagate` skill audits 10 reference surfaces but does not cover `llms.txt` or `sitemap-ai.xml`. Both had stale URLs found during contracts audit. Add as mandatory audit surfaces.
+**Priority:** P1
+
+## BL-025 — Automate generate-og-images.js in CI
+**Source:** Contracts Production Audit — 2026-03-31
+**Description:** OG image generation is manual-only. Script works (53 images generated successfully) but requires Puppeteer. Should run in CI on `snippets/assets/site/og-image/` changes or on section/page config changes in `og-image-policy.js`.
+**Priority:** P2

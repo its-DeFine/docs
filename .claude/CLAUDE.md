@@ -26,13 +26,13 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 | About | About tab — IA lock + content | Active | 2026-03-29 |
 | Cleanup | Repo cleanup | Active | 2026-03-29 |
 | MASTER CLEAN | Consolidate all frameworks, tab content, tasks into one folder | Active — audit done, awaiting approval to build | 2026-03-29 |
-| Contracts & Changelogs | Pipeline complete: dual-source enrichment, 4 pages via composable, v1 redirects. Remaining: workflow PR to main, canonical page (Alison), changelog audit (separate thread) | Active | 2026-03-31 |
+| Contracts & Changelogs | Production audit complete (30 items, 20 fixes). OG images generated. Deprecated components removed. SEO/AEO surfaces corrected. Remaining: cherry-pick workflow to docs-v2 for dispatch test (BL-023, P0) | Active — audit done | 2026-03-31 |
 | Changelog Pipeline | 24 targets registered, 19 resource pages populated, nav grouped into 5 categories, script cleanForMdx + commit labels fixed. Remaining: changelog.mdx format fix, LLM commits-mode feature, managed:true activation | Active | 2026-03-30 |
 | Asset Pipeline (#849) | 19 assets migrated, 3-layer verification gate, PR #851 open | Done — PR #851 awaiting merge to main | 2026-03-30 |
 | Mintlify Constraints | Canonical constraints reference — audited, headless-tested, propagated | Done | 2026-03-29 |
 | Propagate | `/propagate` skill + move-detect hook + docs-path-sync extensions | Done — awaiting live test | 2026-03-29 |
 | Watcher | Repo quality guardian — flags drift, mess, broken patterns as they happen | Watching | 2026-03-29 |
-| References | `.claude/references/` — Phase 1 done (14 docs). Phase 2: restructure + collation + patterns | Active | 2026-03-30 |
+| References | `.claude/references/` — 26 files, 13 categories. Exemplars + best-practice + patterns. Concern-audit methodology validated | Done | 2026-03-31 |
 | Solutions Merge | merge/solutions-to-docs-v2 branch ready, pushed to origin. PR creation blocked by hook — user runs manually | Pending PR | 2026-03-30 |
 | Workflow Alignment Skills | `/thread` v1.4: auto-derive entry (no questions), 10-phase lifecycle. PreEdit auto-gen hook shipped | Done | 2026-03-31 |
 

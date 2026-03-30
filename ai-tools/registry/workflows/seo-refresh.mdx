@@ -8,6 +8,11 @@ trigger_mode: 'workflow_dispatch'
 risk_level: 'low'
 consolidation_flag: 'review for alignment with `page-ship` while preserving current workflow_dispatch trigger behavior'
 dispatcher_candidate: 'page-ship'
+workflow_family: 'content-publication'
+cleanup_decision: 'consolidate'
+usage_status: 'active'
+process_fit: 'core-shipping'
+consolidation_target: 'dispatcher:page-ship'
 last_verified: '2026-03-31'
 ---
 
@@ -57,6 +62,15 @@ Govern the `.github/workflows/seo-refresh.yml` workflow as a human-readable, vis
 
 - workflow_dispatch:dry_run (optional)
 
+## Second Pass Assessment
+
+- Workflow family: `content-publication`
+- Usage status: `active`
+- Cleanup decision: `consolidate`
+- Process fit: `core-shipping`
+- Consolidation target: `dispatcher:page-ship`
+- Recommended engineering action: Consolidate this workflow under `dispatcher:page-ship` and keep the script or validator layer as the reusable implementation boundary.
+
 ## Outputs
 
 - Workflow logs and job status
@@ -90,7 +104,11 @@ flowchart TD
 
 ## Consolidation Notes
 
-Dispatcher suggestion: `page-ship`. This is a governance hint for consolidation review, not a runtime rewrite instruction.
+Dispatcher suggestion: `page-ship`. Second-pass target: `dispatcher:page-ship`. This is a governance recommendation, not an automatic rewrite instruction.
+
+## Cleanup Rationale
+
+- No additional cleanup rationale recorded.
 
 ## Handover Notes
 

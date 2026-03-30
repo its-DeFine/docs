@@ -1,8 +1,8 @@
 ---
 mode: wide
-title: '{Product} Recent Announcements'
+title: '[PRODUCT_NAME] Recent Announcements'
 sidebarTitle: 'Recent Activity'
-description: 'Latest videos, socials, and community activity for {Product}.'
+description: 'Latest videos, socials, and community activity for [PRODUCT_NAME].'
 snippetPrefix: lp-social-data
 snippetLabel: Social data page scaffold
 previewTitle: Social Data Page Template
@@ -10,12 +10,12 @@ purpose: orient
 pageType: resource
 pageVariant: overview
 keywords:
-  - '{product}'
+  - '__PRODUCT_SLUG__'
   - livepeer
   - community
   - updates
 'og:image': /snippets/assets/site/og-image/fallback.png
-'og:image:alt': '{Product} Docs social preview image'
+'og:image:alt': '[PRODUCT_NAME] Docs social preview image'
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
@@ -35,18 +35,25 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
 import { CenteredContainer, BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
 
-{/* DATA — swap for the product-specific data files from snippets/automations/solutions/{product}/ */}
-{/* import { youtubeData } from '/snippets/automations/solutions/{product}/youtubeData.jsx' */}
-{/* import { {product}BlogData } from '/snippets/automations/solutions/{product}/blogData.jsx' */}
-{/* import { {product}DiscordData } from '/snippets/automations/solutions/{product}/discordData.jsx' */}
-{/* import { {product}Socials } from "./data/socials.jsx" */}
+export const socialPageTemplateSocials = [
+  { icon: 'globe', href: 'https://__PRODUCT_URL__', label: '[PRODUCT_NAME] Website' },
+  { icon: 'github', href: 'https://github.com/__ORG__/__REPO__', label: '[PRODUCT_NAME] GitHub' },
+  { icon: 'youtube', href: 'https://www.youtube.com/channel/__CHANNEL_ID__', label: '[PRODUCT_NAME] YouTube' },
+  { icon: 'discord', href: '__DISCORD_INVITE_URL__', label: '[PRODUCT_NAME] Discord' },
+]
+
+{/* DATA CONTRACT — replace these stub values after copying this scaffold into a routable page.
+    Keep placeholder tokens inert at rest. Do not use placeholder syntax inside live JSX expressions.
+    If you prefer external data files, replace the stub export above with a valid import, for example:
+    import { productSocials } from './data/socials.jsx'
+*/}
 
 {/* ─── SOCIALS BAR ──────────────────────────────────────────────────────── */}
-{/* Import socials data from product's local data/socials.jsx. Remove icons that don't apply. */}
+{/* Replace the stub data above with the product's actual socials list. Remove icons that do not apply. */}
 
 <CenteredContainer maxWidth="fit-content">
   <BorderedBox style={{margin: 0, padding: "0.5rem 1rem 1rem 1rem"}} variant="muted">
-      <SocialLinks iconColor="var(--hero-text)" links={{product}Socials} />
+      <SocialLinks iconColor="var(--hero-text)" links={socialPageTemplateSocials} />
   </BorderedBox>
 </CenteredContainer>
 
@@ -73,8 +80,8 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/wrappers/co
 */}
 
 {/* REPLACE THIS with the product's hero asset */}
-<Frame caption="{Product}">
-  <img src="{PRODUCT_OG_IMAGE_URL}" alt="{Product}" style={{width: "100%", borderRadius: "8px"}} />
+<Frame caption="[PRODUCT_NAME]">
+  <img src="__PRODUCT_OG_IMAGE_URL__" alt="[PRODUCT_NAME]" style={{width: "100%", borderRadius: "8px"}} />
 </Frame>
 
 {/* ─── YOUTUBE VIDEOS ──────────────────────────────────────────────────── */}
@@ -85,7 +92,7 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/wrappers/co
 
 ## <Icon icon="camera-movie" size={24} /> Videos
 
-Watch the latest on the <LinkArrow label="{Product} YouTube Channel" href="https://www.youtube.com/channel/{CHANNEL_ID}" newline={false} />
+Watch the latest on the <LinkArrow label="[PRODUCT_NAME] YouTube Channel" href="https://www.youtube.com/channel/__CHANNEL_ID__" newline={false} />
 
 {/* <YouTubeVideoData items={youtubeData} limit={4} /> */}
 
@@ -99,7 +106,7 @@ Watch the latest on the <LinkArrow label="{Product} YouTube Channel" href="https
 
 Read recent posts from the <LinkArrow label="{Product} Blog" href="{BLOG_URL}" newline={false} />
 
-<RssBlogCardLayout items={{product}BlogData} limit={2} />
+<RssBlogCardLayout items={productBlogData} limit={2} />
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 */}
@@ -112,7 +119,7 @@ Read recent posts from the <LinkArrow label="{Product} Blog" href="{BLOG_URL}" n
 
 Latest from the <LinkArrow label="{Product} Discord" href="{DISCORD_INVITE_URL}" newline={false} />
 
-<DiscordAnnouncements serverName="{Product}" items={{product}DiscordData} limit={4} ScrollBox={ScrollBox} scrollMaxHeight={200} />
+<DiscordAnnouncements serverName="[PRODUCT_NAME]" items={productDiscordData} limit={4} ScrollBox={ScrollBox} scrollMaxHeight={200} />
 
 <CustomDivider style={{margin: "0 0 -2.5rem 0"}} />
 */}
@@ -127,10 +134,10 @@ Latest from the <LinkArrow label="{Product} Discord" href="{DISCORD_INVITE_URL}"
 <BorderedBox>
   <ScrollBox maxHeight={600}>
     <BorderedBox variant="accent">
-        {Product} Github
-        <LinkArrow label="View {Product} on GitHub" href="https://github.com/{org}/{repo}" newline={true} />
+        [PRODUCT_NAME] GitHub
+        <LinkArrow label="View [PRODUCT_NAME] on GitHub" href="https://github.com/__ORG__/__REPO__" newline={true} />
     </BorderedBox>
-    <MarkdownEmbed url="https://raw.githubusercontent.com/{org}/{repo}/{branch}/README.md" />
+    <MarkdownEmbed url="https://raw.githubusercontent.com/__ORG__/__REPO__/__BRANCH__/README.md" />
   </ScrollBox>
 </BorderedBox>
 
@@ -153,7 +160,7 @@ Latest from the <LinkArrow label="{Product} Discord" href="{DISCORD_INVITE_URL}"
 ## Related Pages
 
 <CardGroup cols={2}>
-  <Card title="{Product} Overview" icon="book-open" href="/solutions/{product}/overview" />
-  <Card title="{Product} Changelog" icon="clock" href="/solutions/{product}/changelog" />
+  <Card title="[PRODUCT_NAME] Overview" icon="book-open" href="/solutions/__PRODUCT_SLUG__/overview" />
+  <Card title="[PRODUCT_NAME] Changelog" icon="clock" href="/solutions/__PRODUCT_SLUG__/changelog" />
 </CardGroup>
 */}

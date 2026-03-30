@@ -612,20 +612,20 @@ function inferWorkflowFamily(slug, dispatcherCandidate, content) {
   const raw = `${slug} ${String(content || '')}`.toLowerCase();
   if (/not yet implemented|todo: implement/.test(raw)) return 'placeholder-backlog';
   if (/ai-companions|ai-sitemap|llms/.test(slug)) return 'ai-runtime-artifacts';
-  if (/docs-guide-catalogs|docs-index|component-registry/.test(slug)) return 'docs-catalog-governance';
-  if (/auto-assign|close-linked-issues|issue-auto-label/.test(slug)) return 'review-event-automation';
-  if (/discord-issue-intake|docs-v2-issue-indexer|project-showcase-sync/.test(slug)) return 'issue-intake-and-triage';
-  if (/test|check|verify|audit|broken-links|content-health|freshness|style-homogenise|openapi-reference-validation/.test(raw)) {
-    return 'validation-sweeps';
-  }
   if (/codex-governance|governance-sync|repair-governance|tasks-retention|sync-large-assets/.test(slug)) {
     return 'governance-maintenance';
   }
+  if (/docs-guide-catalogs|docs-index|component-registry/.test(slug)) return 'docs-catalog-governance';
+  if (/auto-assign|close-linked-issues|issue-auto-label/.test(slug)) return 'review-event-automation';
+  if (/discord-issue-intake|docs-v2-issue-indexer|project-showcase-sync/.test(slug)) return 'issue-intake-and-triage';
   if (/update-blog-data|update-discord-data|update-forum-data|update-ghost-blog-data|update-github-data|update-rss-blog-data|update-youtube-data|update-livepeer-release/.test(slug)) {
     return 'data-refresh';
   }
   if (/translate|seo-refresh|sdk_generation|generate-review-table|update-changelogs|update-contract-addresses/.test(slug)) {
     return 'content-publication';
+  }
+  if (/test|check|verify|audit|broken-links|content-health|freshness|style-homogenise|openapi-reference-validation/.test(raw)) {
+    return 'validation-sweeps';
   }
   if (dispatcherCandidate === 'page-ship') return 'content-publication';
   if (dispatcherCandidate === 'repo-cleanup-handover') return 'governance-maintenance';
@@ -1794,7 +1794,7 @@ function buildOutputs() {
     familyMapLines.push(`### ${family}`);
     familyMapLines.push('');
     familyMapLines.push(`- Count: ${familyWorkflows.length}`);
-    familyMapLines.push(`- Dominant decision: ${buildDecisionRows(familyWorkflows, 'cleanup_decision')[0][0]}`);
+    familyMapLines.push(`- Dominant decision: ${dominantValue(familyWorkflows, 'cleanup_decision')}`);
     familyMapLines.push(`- Targets: ${familyTargets.map((value) => `\`${value}\``).join(', ')}`);
     familyMapLines.push('- Members:');
     familyWorkflows.forEach((workflow) => {

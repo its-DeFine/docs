@@ -1,13 +1,22 @@
 # Workflow Audit Draft: Governance sync (post-merge)
 
 - Source path: `.github/workflows/governance-sync.yml`
+- Workflow family: `governance-maintenance`
+- Cleanup decision: `merge`
+- Usage status: `active-mutating`
+- Process fit: `handover-support`
 - Concern: `repo-ops`
 - Risk level: `high`
 - Dispatcher candidate: `repo-cleanup-handover`
+- Consolidation target: `future:governance-maintenance-workflow`
 
 ## Summary
 
 Governance sync (post-merge) runs on push and primarily produces generated or refreshed repository data.
+
+## Recommended Engineering Action
+
+Merge this workflow with its sibling family into `future:governance-maintenance-workflow` so one workflow owns both check and write modes.
 
 ## Dependencies
 
@@ -24,3 +33,7 @@ Governance sync (post-merge) runs on push and primarily produces generated or re
 ## Frailty Notes
 
 - Current heuristic risk level is `high`; no exceptional frailty markers were detected in the file scan.
+
+## Cleanup Rationale
+
+- This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow.

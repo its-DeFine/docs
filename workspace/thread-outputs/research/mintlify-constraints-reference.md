@@ -185,6 +185,26 @@ import { ThemeData } from '/snippets/styles/themeStyles.jsx'
 
 **Status:** ThemeData is banned. Pre-commit hook blocks it. Use CSS custom properties exclusively.
 
+### 13. Unquoted hex values in YAML frontmatter
+
+```yaml
+# WRONG — YAML parses 0x-prefixed values as hexadecimal integers
+# The parser converts to a JavaScript number, losing precision for large values
+# String() then produces scientific notation: 2.318303095658485e+47
+keywords:
+  - 0x289ba1701C2F088cf0faf8B3705246331cB8A839
+
+# RIGHT — quote hex values to preserve them as strings
+keywords:
+  - "0x289ba1701C2F088cf0faf8B3705246331cB8A839"
+```
+
+**Impact:** Silently corrupts contract addresses in `sitemap-ai.xml`, `llms.txt`, SEO metadata, and any script using `extractFrontmatter` from `tools/lib/docs-index-utils.js`. The 9 scripts consuming frontmatter keywords all pass through `coerceStringArray` which calls `String()` on the already-corrupted number.
+
+**Also watch for:** YAML auto-converts `yes`/`no`/`on`/`off` to booleans, and bare decimal numbers to floats. Quote any frontmatter value that looks like a number, boolean, or null but should be a string.
+
+**Source:** Discovered 2026-03-31. Root cause: YAML 1.1 spec section 10.3.2 (integer formats). Fix applied to 5 contract address pages. Defensive warning added to `coerceStringArray` in `tools/lib/docs-index-utils.js`.
+
 ---
 
 ## Import system

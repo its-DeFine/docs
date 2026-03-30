@@ -66,10 +66,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/blockchain-contracts</loc>
-    <lastmod>2026-03-31T01:47:50+11:00</lastmod>
+    <lastmod>2026-03-31T04:09:00+11:00</lastmod>
     <ai:section>about</ai:section>
     <ai:wordCount>3629</ai:wordCount>
-    <ai:lastVerified>2026-03-31T01:47:50+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T04:09:00+11:00</ai:lastVerified>
     <ai:tags>livepeer, livepeer protocol, livepeer smart contracts, livepeer contract architecture, blockchain contracts, blockchain, contracts, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer Governor, livepeer RoundsManager, livepeer Minter, livepeer ServiceRegistry, livepeer protocol contracts, arbitrum contracts, ethereum contracts, smart contract upgrade, governance upgrade</ai:tags>
   </url>
   <url>
@@ -106,10 +106,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/overview</loc>
-    <lastmod>2026-03-29T21:00:40+11:00</lastmod>
+    <lastmod>2026-03-31T04:09:00+11:00</lastmod>
     <ai:section>about</ai:section>
     <ai:wordCount>895</ai:wordCount>
-    <ai:lastVerified>2026-03-29T21:00:40+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T04:09:00+11:00</ai:lastVerified>
     <ai:tags>livepeer, about, livepeer protocol, protocol overview, protocol, overview</ai:tags>
   </url>
   <url>
@@ -162,11 +162,11 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/resources/livepeer-contract-addresses</loc>
-    <lastmod>2026-03-31T01:47:50+11:00</lastmod>
+    <lastmod>2026-03-31T04:09:00+11:00</lastmod>
     <ai:section>about</ai:section>
     <ai:wordCount>0</ai:wordCount>
-    <ai:lastVerified>2026-03-31T01:47:50+11:00</ai:lastVerified>
-    <ai:tags>livepeer, livepeer contracts, livepeer contract address, livepeer contract addresses, LPT contract address, LPT token address, livepeer token address, livepeer smart contract address, livepeer arbitrum contract address, livepeer ethereum contract address, livepeer official contract, livepeer protocol contracts, contract addresses, arbitrum, ethereum, blockchain, smart contracts, canonical, reference, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer RoundsManager, livepeer Governor, livepeer verified contracts, livepeer arbiscan, official livepeer addresses, 2.318303095658485e+47, 5.064646138526796e+47</ai:tags>
+    <ai:lastVerified>2026-03-31T04:09:00+11:00</ai:lastVerified>
+    <ai:tags>livepeer, livepeer contracts, livepeer contract address, livepeer contract addresses, LPT contract address, LPT token address, livepeer token address, livepeer smart contract address, livepeer arbitrum contract address, livepeer ethereum contract address, livepeer official contract, livepeer protocol contracts, contract addresses, arbitrum, ethereum, blockchain, smart contracts, canonical, reference, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer RoundsManager, livepeer Governor, livepeer verified contracts, livepeer arbiscan, official livepeer addresses, 0x289ba1701C2F088cf0faf8B3705246331cB8A839, 0x58b6a8a3302369daec383334672404ee733ab239</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/resources/livepeer-whitepaper</loc>
@@ -473,10 +473,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/guides/local-testnet-deployment</loc>
-    <lastmod>2026-03-31T01:47:50+11:00</lastmod>
+    <lastmod>2026-03-31T04:09:00+11:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>861</ai:wordCount>
-    <ai:lastVerified>2026-03-31T01:47:50+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T04:09:00+11:00</ai:lastVerified>
     <ai:tags>livepeer, testnet, local development, hardhat, deploy contracts, go-livepeer, developer</ai:tags>
   </url>
   <url>
@@ -489,10 +489,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/guides/testnet-contract-deployment</loc>
-    <lastmod>2026-03-31T01:47:50+11:00</lastmod>
+    <lastmod>2026-03-31T04:09:00+11:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>935</ai:wordCount>
-    <ai:lastVerified>2026-03-31T01:47:50+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T04:09:00+11:00</ai:lastVerified>
     <ai:tags>livepeer, contract addresses, arbitrum, ethereum, blockchain, smart contracts, testnet deployment, local testnet, hardhat, foundry, contract deployment guide, livepeer protocol testnet, arbitrum testnet, ethereum testnet, deploy smart contracts, developer guide, livepeer developer, protocol testing, contract verification, cast commands</ai:tags>
   </url>
   <url>
@@ -1208,7 +1208,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>0</ai:wordCount>
     <ai:lastVerified>2026-03-31T01:47:50+11:00</ai:lastVerified>
-    <ai:tags>livepeer, livepeer contracts, livepeer contract address, livepeer contract addresses, LPT contract address, LPT token address, livepeer token address, livepeer smart contract address, livepeer arbitrum contract address, livepeer ethereum contract address, livepeer official contract, livepeer protocol contracts, contract addresses, arbitrum, ethereum, blockchain, smart contracts, canonical, reference, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer RoundsManager, livepeer Governor, livepeer verified contracts, livepeer arbiscan, official livepeer addresses, 2.318303095658485e+47, 5.064646138526796e+47</ai:tags>
+    <ai:tags>livepeer, livepeer contracts, livepeer contract address, livepeer contract addresses, LPT contract address, LPT token address, livepeer token address, livepeer smart contract address, livepeer arbitrum contract address, livepeer ethereum contract address, livepeer official contract, livepeer protocol contracts, contract addresses, arbitrum, ethereum, blockchain, smart contracts, canonical, reference, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer RoundsManager, livepeer Governor, livepeer verified contracts, livepeer arbiscan, official livepeer addresses, 0x289ba1701C2F088cf0faf8B3705246331cB8A839, 0x58b6a8a3302369daec383334672404ee733ab239</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/livepeer-exchanges</loc>
@@ -1500,10 +1500,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/delegation/bridge-lpt-to-arbitrum</loc>
-    <lastmod>2026-03-31T01:47:50+11:00</lastmod>
+    <lastmod>2026-03-31T04:09:00+11:00</lastmod>
     <ai:section>lpt</ai:section>
     <ai:wordCount>2758</ai:wordCount>
-    <ai:lastVerified>2026-03-31T01:47:50+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T04:09:00+11:00</ai:lastVerified>
     <ai:tags>livepeer, LPT, bridge, arbitrum, ethereum, token transfer, L1, L2, CEX, DEX, exchange, Uniswap, Binance, OKX</ai:tags>
   </url>
   <url>
@@ -2143,7 +2143,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>0</ai:wordCount>
     <ai:lastVerified>2026-03-31T01:47:50+11:00</ai:lastVerified>
-    <ai:tags>livepeer, livepeer contracts, livepeer contract address, livepeer contract addresses, LPT contract address, LPT token address, livepeer token address, livepeer smart contract address, livepeer arbitrum contract address, livepeer ethereum contract address, livepeer official contract, livepeer protocol contracts, contract addresses, arbitrum, ethereum, blockchain, smart contracts, canonical, reference, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer RoundsManager, livepeer Governor, livepeer verified contracts, livepeer arbiscan, official livepeer addresses, 2.318303095658485e+47, 5.064646138526796e+47</ai:tags>
+    <ai:tags>livepeer, livepeer contracts, livepeer contract address, livepeer contract addresses, LPT contract address, LPT token address, livepeer token address, livepeer smart contract address, livepeer arbitrum contract address, livepeer ethereum contract address, livepeer official contract, livepeer protocol contracts, contract addresses, arbitrum, ethereum, blockchain, smart contracts, canonical, reference, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer RoundsManager, livepeer Governor, livepeer verified contracts, livepeer arbiscan, official livepeer addresses, 0x289ba1701C2F088cf0faf8B3705246331cB8A839, 0x58b6a8a3302369daec383334672404ee733ab239</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setup/configure</loc>

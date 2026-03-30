@@ -4,6 +4,8 @@ kind: 'dispatcher'
 status: 'active'
 concern: 'review'
 source_path: 'workspace/plan/active/AI-TOOLS-GOVERNANCE/architecture-audit.md'
+cleanup_decision: 'keep'
+readiness: 'phase-1-design'
 dispatches: ['docs-review-packet-generation', 'docs-review-fix-execution', 'staged-test-suite-runner', 'precommit-failure-triage']
 outputs: ['Scoped fix plan', 'Applied edits', 'Validation summary', 'Residual-risk notes']
 last_verified: '2026-03-31'
@@ -58,6 +60,12 @@ Turn reviews and failing checks into a disciplined repair workflow instead of ad
 - Relevant tests or validators rerun.
 - Unresolved issues called out explicitly.
 
+## Second Pass Assessment
+
+- Cleanup decision: `keep`
+- Readiness: `phase-1-design`
+- Next move: Absorb validation-sweep and review-repair workflows behind one governed orchestration path.
+
 ## Dependencies
 
 - skill:docs-review-packet-generation
@@ -107,6 +115,11 @@ flowchart TD
 ## Consolidation Notes
 
 Strong dispatcher candidate because the repo already couples review interpretation with validation reruns.
+
+## Cleanup Rationale
+
+- Dispatcher pages are canonical workflow design surfaces and should remain thinner than runtime adapters.
+- They exist to reduce chat-only orchestration and make repeated delivery patterns visible.
 
 ## Handover Notes
 

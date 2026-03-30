@@ -8,6 +8,11 @@ trigger_mode: 'repository_dispatch'
 risk_level: 'medium'
 consolidation_flag: 'review for alignment with `research-review-packet` while preserving current repository_dispatch trigger behavior'
 dispatcher_candidate: 'research-review-packet'
+workflow_family: 'issue-intake-and-triage'
+cleanup_decision: 'keep'
+usage_status: 'active'
+process_fit: 'supporting-infra'
+consolidation_target: 'dispatcher:research-review-packet'
 last_verified: '2026-03-31'
 ---
 
@@ -54,6 +59,15 @@ Govern the `.github/workflows/discord-issue-intake.yml` workflow as a human-read
 
 - No explicit workflow inputs declared.
 
+## Second Pass Assessment
+
+- Workflow family: `issue-intake-and-triage`
+- Usage status: `active`
+- Cleanup decision: `keep`
+- Process fit: `supporting-infra`
+- Consolidation target: `dispatcher:research-review-packet`
+- Recommended engineering action: Keep this as a standalone workflow because its trigger contract and ownership boundary are distinct enough to justify a top-level entrypoint.
+
 ## Outputs
 
 - Workflow logs and job status
@@ -85,7 +99,11 @@ flowchart TD
 
 ## Consolidation Notes
 
-Dispatcher suggestion: `research-review-packet`. This is a governance hint for consolidation review, not a runtime rewrite instruction.
+Dispatcher suggestion: `research-review-packet`. Second-pass target: `dispatcher:research-review-packet`. This is a governance recommendation, not an automatic rewrite instruction.
+
+## Cleanup Rationale
+
+- The current trigger contract looks distinct enough to justify keeping a dedicated workflow entrypoint.
 
 ## Handover Notes
 

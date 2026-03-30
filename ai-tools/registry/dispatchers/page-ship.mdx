@@ -4,6 +4,8 @@ kind: 'dispatcher'
 status: 'active'
 concern: 'authoring'
 source_path: 'workspace/plan/active/AI-TOOLS-GOVERNANCE/architecture-audit.md'
+cleanup_decision: 'keep'
+readiness: 'phase-1-design'
 dispatches: ['page-content-research-review', 'docs-copy', 'docs-ia-route-placement', 'mintlify-authoring-style-compliance', 'v2-link-audit-runbook', 'v2-browser-sweep-runbook']
 outputs: ['Ship checklist', 'Updated page set', 'Validation evidence', 'Known-risk notes']
 last_verified: '2026-03-31'
@@ -59,6 +61,12 @@ Make page shipping a first-class governed workflow that can be invoked consisten
 - Content claims reviewed.
 - Route placement confirmed.
 - Link and browser validation complete.
+
+## Second Pass Assessment
+
+- Cleanup decision: `keep`
+- Readiness: `phase-1-design`
+- Next move: Use this as the main landing zone for shipping-oriented authoring, validation, and content refresh families.
 
 ## Dependencies
 
@@ -117,6 +125,11 @@ flowchart TD
 ## Consolidation Notes
 
 Highest-value dispatcher for delivery work because it directly matches the user’s core shipping process.
+
+## Cleanup Rationale
+
+- Dispatcher pages are canonical workflow design surfaces and should remain thinner than runtime adapters.
+- They exist to reduce chat-only orchestration and make repeated delivery patterns visible.
 
 ## Handover Notes
 

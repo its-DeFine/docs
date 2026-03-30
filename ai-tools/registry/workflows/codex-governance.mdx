@@ -8,6 +8,11 @@ trigger_mode: 'pull_request'
 risk_level: 'medium'
 consolidation_flag: 'review for alignment with `handover-readiness` while preserving current pull_request trigger behavior'
 dispatcher_candidate: 'handover-readiness'
+workflow_family: 'governance-maintenance'
+cleanup_decision: 'keep'
+usage_status: 'active'
+process_fit: 'handover-support'
+consolidation_target: 'dispatcher:handover-readiness'
 last_verified: '2026-03-31'
 ---
 
@@ -59,6 +64,15 @@ Govern the `.github/workflows/codex-governance.yml` workflow as a human-readable
 
 - No explicit workflow inputs declared.
 
+## Second Pass Assessment
+
+- Workflow family: `governance-maintenance`
+- Usage status: `active`
+- Cleanup decision: `keep`
+- Process fit: `handover-support`
+- Consolidation target: `dispatcher:handover-readiness`
+- Recommended engineering action: Keep this as a standalone workflow because its trigger contract and ownership boundary are distinct enough to justify a top-level entrypoint.
+
 ## Outputs
 
 - Workflow logs and job status
@@ -94,7 +108,11 @@ flowchart TD
 
 ## Consolidation Notes
 
-Dispatcher suggestion: `handover-readiness`. This is a governance hint for consolidation review, not a runtime rewrite instruction.
+Dispatcher suggestion: `handover-readiness`. Second-pass target: `dispatcher:handover-readiness`. This is a governance recommendation, not an automatic rewrite instruction.
+
+## Cleanup Rationale
+
+- The current trigger contract looks distinct enough to justify keeping a dedicated workflow entrypoint.
 
 ## Handover Notes
 

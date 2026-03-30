@@ -8,6 +8,11 @@ trigger_mode: 'repository_dispatch + schedule + workflow_dispatch'
 risk_level: 'high'
 consolidation_flag: 'review for alignment with `page-ship` while preserving current repository_dispatch + schedule + workflow_dispatch trigger behavior'
 dispatcher_candidate: 'page-ship'
+workflow_family: 'content-publication'
+cleanup_decision: 'keep'
+usage_status: 'active-advisory'
+process_fit: 'core-shipping'
+consolidation_target: 'dispatcher:page-ship'
 last_verified: '2026-03-31'
 ---
 
@@ -66,6 +71,15 @@ Govern the `.github/workflows/update-changelogs.yml` workflow as a human-readabl
 - workflow_dispatch:llm_provider (optional)
 - workflow_dispatch:use_test_branch (optional)
 
+## Second Pass Assessment
+
+- Workflow family: `content-publication`
+- Usage status: `active-advisory`
+- Cleanup decision: `keep`
+- Process fit: `core-shipping`
+- Consolidation target: `dispatcher:page-ship`
+- Recommended engineering action: Keep this as a standalone workflow because its trigger contract and ownership boundary are distinct enough to justify a top-level entrypoint.
+
 ## Outputs
 
 - Generated or refreshed repository data
@@ -110,7 +124,12 @@ flowchart TD
 
 ## Consolidation Notes
 
-Dispatcher suggestion: `page-ship`. This is a governance hint for consolidation review, not a runtime rewrite instruction.
+Dispatcher suggestion: `page-ship`. Second-pass target: `dispatcher:page-ship`. This is a governance recommendation, not an automatic rewrite instruction.
+
+## Cleanup Rationale
+
+- The current trigger contract looks distinct enough to justify keeping a dedicated workflow entrypoint.
+- This workflow is advisory-shaped, which is useful for audits but can also hide unresolved failures.
 
 ## Handover Notes
 

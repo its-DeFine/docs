@@ -8,6 +8,11 @@ trigger_mode: 'pull_request + push + workflow_dispatch'
 risk_level: 'high'
 consolidation_flag: 'review for alignment with `review-fix` while preserving current pull_request + push + workflow_dispatch trigger behavior'
 dispatcher_candidate: 'review-fix'
+workflow_family: 'validation-sweeps'
+cleanup_decision: 'keep'
+usage_status: 'active-advisory'
+process_fit: 'core-shipping'
+consolidation_target: 'dispatcher:review-fix'
 last_verified: '2026-03-31'
 ---
 
@@ -69,6 +74,15 @@ Govern the `.github/workflows/test-v2-pages.yml` workflow as a human-readable, v
 
 - No explicit workflow inputs declared.
 
+## Second Pass Assessment
+
+- Workflow family: `validation-sweeps`
+- Usage status: `active-advisory`
+- Cleanup decision: `keep`
+- Process fit: `core-shipping`
+- Consolidation target: `dispatcher:review-fix`
+- Recommended engineering action: Keep this as a standalone workflow because its trigger contract and ownership boundary are distinct enough to justify a top-level entrypoint.
+
 ## Outputs
 
 - GitHub issue or PR metadata
@@ -107,7 +121,12 @@ flowchart TD
 
 ## Consolidation Notes
 
-Dispatcher suggestion: `review-fix`. This is a governance hint for consolidation review, not a runtime rewrite instruction.
+Dispatcher suggestion: `review-fix`. Second-pass target: `dispatcher:review-fix`. This is a governance recommendation, not an automatic rewrite instruction.
+
+## Cleanup Rationale
+
+- The current trigger contract looks distinct enough to justify keeping a dedicated workflow entrypoint.
+- This workflow is advisory-shaped, which is useful for audits but can also hide unresolved failures.
 
 ## Handover Notes
 

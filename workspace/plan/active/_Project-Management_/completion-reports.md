@@ -3268,3 +3268,92 @@ Built a complete contract address data pipeline. Script fetches from governor-sc
 | `snippets/data/contract-addresses/contractAddressesData.jsx` | data | Enriched data (99KB) |
 | `v2/about/resources/livepeer-contract-addresses-data.json` | data | Companion JSON |
 | `snippets/composables/pages/reference/livepeer-contract-addresses.mdx` | composable | 4 consumers |
+
+---
+
+## Blockchain Contracts Pipeline — Production Readiness Audit — 2026-03-31
+
+**Plans**: `.claude/plans/quirky-petting-pnueli.md`
+**Scope**: Full P0 audit of contracts pipeline: script → data → component → page → SEO/AEO → governance → self-remediation. 30 audit items across 6 concerns.
+**Outcome**: Met
+
+### Summary
+Production readiness audit of the entire blockchain contracts pipeline. Three Explore agents mapped the full system (1,544-line fetch script, 6 display pages, 3 components, GitHub Actions workflow, data files, SEO surfaces). 30 audit items checked. 20 fixes executed across data integrity, component governance, page quality, SEO/AEO, navigation, and documentation. OG image pipeline extended with page-level overrides and 53 images generated. Broken `generate-og-images.js` require path fixed (pre-existing). Deprecated `ContractAddressDisplay` fully removed (component, page, catalogs, preview handler, test references).
+
+### Completed
+
+**Data Integrity:**
+- `.bak` file added to `.gitignore`, removed from catalog trees
+- Companion JSON output path in fetch script corrected (was writing to deleted location)
+- Min entry count thresholds verified (20 Arb / 15 Eth against actual 25/24)
+- `--scan-fix` coverage confirmed for all `v2/**/*.mdx` including hardcoded addresses in blockchain-contracts.mdx
+
+**Component Governance:**
+- `DataWrap` console.log removed, 7-tag JSDoc header added
+- `ContractAddressDisplay.jsx` deleted (deprecated) — plus dep page, catalog entries, component-map preview handler, Playwright test reference
+- `ContractVerifier.jsx` `@aiDiscoverability` corrected to `props-extracted`
+- Orchestrators contract-addresses.mdx staged (was untracked)
+
+**SEO/AEO:**
+- `llms.txt` updated: 2 stale URLs fixed, duplicate entry removed
+- `sitemap-ai.xml` updated: stale `contract-addresses-canonical` URL corrected
+- Testnet deployment page keywords expanded from 8 to 22
+- `pageType: concept` added to both blockchain-contracts pages
+- OG image policy extended with `PAGE_OVERRIDES` map (3 contract pages)
+- 53 OG images generated (41 section + 12 page-level across 4 locales)
+- 3 contract pages updated from fallback OG to custom page-level images
+- `generate-og-images.js` broken require path fixed (`./lib/` → `../../../config/`)
+
+**Governance & Documentation:**
+- `architecture.md` updated: 8 entries fixed (paths, resolved D2/D3, deprecation list, trust warning)
+- Flags cleaned: 6 resolved removed, 3 new added
+- `v2/resources/references/contract-addresses.mdx` confirmed in nav (was incorrectly flagged as 404)
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| D2 resolved: Option A (scan-fix for hardcoded addresses) | Verified `scanAndFix()` regex covers all v2/ MDX. No component complexity needed |
+| D3 resolved: Keep resources/references page | Audit confirmed it IS in docs.json nav (line 3202), not 404. Serves general audience context |
+| OG images stay on working branch | All under 1MB threshold. sync-large-assets workflow handles >1MB automatically. No branch rewrite needed |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Workflow dispatch verification (A6) | P0 | Workflow exists only on docs-v2-dev, GitHub Actions only indexes default branch | Cherry-pick to docs-v2 |
+| Health check schema documentation (A2) | P2 | Low priority, code is self-documenting | None |
+| Stale field end-to-end verification (A5) | P2 | Requires API failure simulation | None |
+
+### Dependencies & Downstream Effects
+
+- **`/propagate` skill**: Needs `llms.txt` and `sitemap-ai.xml` added as audit surfaces for page renames
+- **`generate-og-images.js`**: Now requires `../../../config/og-image-policy` (path was broken, now fixed). Any future runs work correctly
+- **`og-image-policy.js`**: New `PAGE_OVERRIDES` export — any consumer of `resolveOgImageForFile()` now gets page-level images for registered routes
+- **`fetch-contract-addresses.js`**: Companion JSON now writes to `snippets/composables/pages/reference/` (was writing to deleted `v2/about/resources/` path)
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| Zero stale `contract-addresses-canonical` refs in live surfaces | PASS | Only session-log.txt (internal) |
+| Zero `ContractAddressDisplay` imports in MDX/JSX/JS | PASS | Fully removed |
+| All 5 docs.json contract nav entries resolve | PASS | Filesystem verified |
+| OG image generation | PASS | 53 assets generated, 3 pages updated |
+| No console.log in production components | PASS | DataWrap cleaned |
+| `.bak` excluded from git | PASS | .gitignore rule added |
+
+### Recommendations
+
+1. **Cherry-pick `update-contract-addresses.yml` + `fetch-contract-addresses.js` to `docs-v2`** — unblocks workflow dispatch test. P0 before production merge
+2. **Run `generate-og-images.js` after any section/locale changes** — currently manual, should be in CI (existing flag)
+3. **Add `llms.txt` and `sitemap-ai.xml` to `/propagate` audit surfaces** — prevents stale URLs on future renames
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `.claude/plans/quirky-petting-pnueli.md` | Plan | 30-item audit checklist with pass/fail criteria |
+| `workspace/thread-outputs/sessions/flags.jsonl` | Flags | 3 new flags (workflow dispatch, propagate gap, OG images) |
+| `snippets/assets/site/og-image/en/page-livepeer-contract-addresses.png` | Asset | Custom OG image for canonical contract addresses page |
+| `snippets/assets/site/og-image/en/page-blockchain-contracts.png` | Asset | Custom OG image for blockchain contracts pages |

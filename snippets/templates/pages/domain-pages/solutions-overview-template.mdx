@@ -27,13 +27,27 @@ import { CenteredContainer } from "/snippets/components/wrappers/containers/Cont
 import { YouTubeVideo, Video } from "/snippets/components/displays/video/Video.jsx";
 import { BadgeWrapper, IconBadgeWrapper } from '/snippets/components/wrappers/badges/Badges.jsx'
 import { StyledSteps, StyledStep } from '/snippets/components/wrappers/steps/Steps.jsx'
-import { productBadges } from "./data/badges.jsx"
-import { productInfra } from "./data/infra.jsx"
-import { productSocials } from "./data/socials.jsx"
+
+export const productBadges = [
+  { color: 'blue', label: '[Category Badge]' },
+  { color: 'green', label: '[Status Badge]' },
+]
+
+export const productInfra = [
+  { icon: 'server', label: '[Infra Tag]' },
+  { icon: 'sparkles', label: '[Capability Tag]' },
+]
+
+export const productSocials = [
+  { icon: 'globe', href: 'https://__PRODUCT_URL__', label: '[PRODUCT_NAME] Website' },
+  { icon: 'github', href: 'https://github.com/__ORG__/__REPO__', label: '[PRODUCT_NAME] GitHub' },
+  { icon: 'discord', href: '__DISCORD_URL__', label: '[PRODUCT_NAME] Discord' },
+]
 
 {/*
   BADGES & INFRA TAGS — DO NOT INVENT THESE.
   Copy the exact values from the SolutionCard for this product in v2/solutions/portal.mdx.
+  Replace the stub exports above after copying this template into a routable page.
 */}
 
 <IconBadgeWrapper style={{ margin: "-1rem 0 1rem 0" }} iconColor="var(--accent)" size={16} items={productInfra} />
@@ -47,7 +61,7 @@ import { productSocials } from "./data/socials.jsx"
 </CenteredContainer>
 
 <Info>
-  This page is maintained by the [PRODUCT_NAME] Team. Help & support available via the [PRODUCT_NAME Discord]('[DISCORD_URL]').
+  This page is maintained by the [PRODUCT_NAME] Team. Help & support available via the [PRODUCT_NAME Discord]([DISCORD_URL]).
 </Info>
 
 {/*

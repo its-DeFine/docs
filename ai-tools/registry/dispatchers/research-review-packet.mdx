@@ -4,6 +4,8 @@ kind: 'dispatcher'
 status: 'active'
 concern: 'research'
 source_path: 'workspace/plan/active/AI-TOOLS-GOVERNANCE/architecture-audit.md'
+cleanup_decision: 'keep'
+readiness: 'phase-1-design'
 dispatches: ['docs-source-verification', 'docs-impact-propagation', 'docs-change-review', 'docs-research-packet-generation']
 outputs: ['Evidence packet', 'Contradiction map', 'Impacted-surface list', 'Review-ready summary']
 last_verified: '2026-03-31'
@@ -58,6 +60,12 @@ Create a governed research packet that turns scattered source-checking into a re
 - Impact propagation reviewed.
 - Unsupported claims downgraded or removed.
 
+## Second Pass Assessment
+
+- Cleanup decision: `keep`
+- Readiness: `phase-1-design`
+- Next move: Map issue-intake and research-heavy workflows into one explicit dispatcher contract.
+
 ## Dependencies
 
 - skill:docs-source-verification
@@ -107,6 +115,11 @@ flowchart TD
 ## Consolidation Notes
 
 Keep as a named dispatcher because the repo already performs this work manually across multiple adjacent skills.
+
+## Cleanup Rationale
+
+- Dispatcher pages are canonical workflow design surfaces and should remain thinner than runtime adapters.
+- They exist to reduce chat-only orchestration and make repeated delivery patterns visible.
 
 ## Handover Notes
 

@@ -1,13 +1,22 @@
 # Workflow Audit Draft: Docs v2 Issue Indexer
 
 - Source path: `.github/workflows/docs-v2-issue-indexer.yml`
+- Workflow family: `issue-intake-and-triage`
+- Cleanup decision: `keep`
+- Usage status: `active`
+- Process fit: `supporting-infra`
 - Concern: `review`
 - Risk level: `medium`
 - Dispatcher candidate: `research-review-packet`
+- Consolidation target: `dispatcher:research-review-packet`
 
 ## Summary
 
 Docs v2 Issue Indexer runs on issues, schedule, workflow_dispatch and primarily produces workflow logs and job status.
+
+## Recommended Engineering Action
+
+Keep this as a standalone workflow because its trigger contract and ownership boundary are distinct enough to justify a top-level entrypoint.
 
 ## Dependencies
 
@@ -20,3 +29,7 @@ Docs v2 Issue Indexer runs on issues, schedule, workflow_dispatch and primarily 
 ## Frailty Notes
 
 - Scheduled execution can hide drift until the next cron window.
+
+## Cleanup Rationale
+
+- The current trigger contract looks distinct enough to justify keeping a dedicated workflow entrypoint.

@@ -8,6 +8,11 @@ trigger_mode: 'push'
 risk_level: 'high'
 consolidation_flag: 'review for alignment with `repo-cleanup-handover` while preserving current push trigger behavior'
 dispatcher_candidate: 'repo-cleanup-handover'
+workflow_family: 'governance-maintenance'
+cleanup_decision: 'merge'
+usage_status: 'active-mutating'
+process_fit: 'handover-support'
+consolidation_target: 'future:governance-maintenance-workflow'
 last_verified: '2026-03-31'
 ---
 
@@ -59,6 +64,15 @@ Govern the `.github/workflows/governance-sync.yml` workflow as a human-readable,
 
 - No explicit workflow inputs declared.
 
+## Second Pass Assessment
+
+- Workflow family: `governance-maintenance`
+- Usage status: `active-mutating`
+- Cleanup decision: `merge`
+- Process fit: `handover-support`
+- Consolidation target: `future:governance-maintenance-workflow`
+- Recommended engineering action: Merge this workflow with its sibling family into `future:governance-maintenance-workflow` so one workflow owns both check and write modes.
+
 ## Outputs
 
 - Generated or refreshed repository data
@@ -95,7 +109,11 @@ flowchart TD
 
 ## Consolidation Notes
 
-Dispatcher suggestion: `repo-cleanup-handover`. This is a governance hint for consolidation review, not a runtime rewrite instruction.
+Dispatcher suggestion: `repo-cleanup-handover`. Second-pass target: `future:governance-maintenance-workflow`. This is a governance recommendation, not an automatic rewrite instruction.
+
+## Cleanup Rationale
+
+- This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow.
 
 ## Handover Notes
 

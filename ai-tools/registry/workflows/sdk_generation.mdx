@@ -8,6 +8,11 @@ trigger_mode: 'schedule + workflow_dispatch'
 risk_level: 'high'
 consolidation_flag: 'review for alignment with `page-ship` while preserving current schedule + workflow_dispatch trigger behavior'
 dispatcher_candidate: 'page-ship'
+workflow_family: 'content-publication'
+cleanup_decision: 'needs-investigation'
+usage_status: 'active-mutating'
+process_fit: 'legacy-or-unclear'
+consolidation_target: 'dispatcher:page-ship'
 last_verified: '2026-03-31'
 ---
 
@@ -55,6 +60,15 @@ Govern the `.github/workflows/sdk_generation.yaml` workflow as a human-readable,
 
 - workflow_dispatch:force (optional)
 
+## Second Pass Assessment
+
+- Workflow family: `content-publication`
+- Usage status: `active-mutating`
+- Cleanup decision: `needs-investigation`
+- Process fit: `legacy-or-unclear`
+- Consolidation target: `dispatcher:page-ship`
+- Recommended engineering action: Trace actual runtime use, owner, and downstream dependencies before deciding whether to keep, merge, or retire it. Current nearest dispatcher: `page-ship`.
+
 ## Outputs
 
 - GitHub issue or PR metadata
@@ -88,7 +102,12 @@ flowchart TD
 
 ## Consolidation Notes
 
-Dispatcher suggestion: `page-ship`. This is a governance hint for consolidation review, not a runtime rewrite instruction.
+Dispatcher suggestion: `page-ship`. Second-pass target: `dispatcher:page-ship`. This is a governance recommendation, not an automatic rewrite instruction.
+
+## Cleanup Rationale
+
+- Current repo evidence is not strong enough to justify either deletion or consolidation without tracing real usage first.
+- This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow.
 
 ## Handover Notes
 

@@ -8,6 +8,11 @@ trigger_mode: 'push + workflow_dispatch'
 risk_level: 'high'
 consolidation_flag: 'review for alignment with `page-ship` while preserving current push + workflow_dispatch trigger behavior'
 dispatcher_candidate: 'page-ship'
+workflow_family: 'docs-catalog-governance'
+cleanup_decision: 'merge'
+usage_status: 'active-mutating'
+process_fit: 'core-shipping'
+consolidation_target: 'future:docs-catalog-governance-workflow'
 last_verified: '2026-03-31'
 ---
 
@@ -61,6 +66,15 @@ Govern the `.github/workflows/generate-docs-index.yml` workflow as a human-reada
 
 - workflow_dispatch:use_test_branch (optional)
 
+## Second Pass Assessment
+
+- Workflow family: `docs-catalog-governance`
+- Usage status: `active-mutating`
+- Cleanup decision: `merge`
+- Process fit: `core-shipping`
+- Consolidation target: `future:docs-catalog-governance-workflow`
+- Recommended engineering action: Merge this workflow with its sibling family into `future:docs-catalog-governance-workflow` so one workflow owns both check and write modes.
+
 ## Outputs
 
 - Generated or refreshed repository data
@@ -97,7 +111,12 @@ flowchart TD
 
 ## Consolidation Notes
 
-Dispatcher suggestion: `page-ship`. This is a governance hint for consolidation review, not a runtime rewrite instruction.
+Dispatcher suggestion: `page-ship`. Second-pass target: `future:docs-catalog-governance-workflow`. This is a governance recommendation, not an automatic rewrite instruction.
+
+## Cleanup Rationale
+
+- This family already has obvious check/generate pairings that likely want one governed workflow with mode flags.
+- This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow.
 
 ## Handover Notes
 

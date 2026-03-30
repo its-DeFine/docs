@@ -8,6 +8,11 @@ trigger_mode: 'workflow_dispatch'
 risk_level: 'low'
 consolidation_flag: 'review for alignment with `page-ship` while preserving current workflow_dispatch trigger behavior'
 dispatcher_candidate: 'page-ship'
+workflow_family: 'placeholder-backlog'
+cleanup_decision: 'retire'
+usage_status: 'placeholder'
+process_fit: 'legacy-or-unclear'
+consolidation_target: 'none'
 last_verified: '2026-03-31'
 ---
 
@@ -54,6 +59,15 @@ Govern the `.github/workflows/update-review-template.yml` workflow as a human-re
 
 - No explicit workflow inputs declared.
 
+## Second Pass Assessment
+
+- Workflow family: `placeholder-backlog`
+- Usage status: `placeholder`
+- Cleanup decision: `retire`
+- Process fit: `legacy-or-unclear`
+- Consolidation target: `none`
+- Recommended engineering action: Retire the placeholder workflow file unless a concrete review-template pipeline is actually needed.
+
 ## Outputs
 
 - Generated or refreshed repository data
@@ -85,7 +99,12 @@ flowchart TD
 
 ## Consolidation Notes
 
-Dispatcher suggestion: `page-ship`. This is a governance hint for consolidation review, not a runtime rewrite instruction.
+Dispatcher suggestion: `page-ship`. Second-pass target: `none`. This is a governance recommendation, not an automatic rewrite instruction.
+
+## Cleanup Rationale
+
+- Placeholder top-level actions should not survive handover without an owner and implementation path.
+- This workflow is explicitly marked as not yet implemented.
 
 ## Handover Notes
 

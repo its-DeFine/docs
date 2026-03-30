@@ -286,13 +286,21 @@ function partitionFiles(changedFiles) {
     file === 'operations/tests/unit/script-docs.test.js'
   );
   const uiTemplateFiles = existingChangedFiles.filter((file) =>
+    file === '.mintignore' ||
+    file === 'docs.json' ||
+    file.startsWith('v1/') ||
+    file.startsWith('v2/') ||
+    file.startsWith('snippets/') ||
     file.startsWith('snippets/templates/') ||
     file.startsWith('.vscode/') ||
     file === 'docs-guide/catalog/ui-templates.mdx' ||
     file === 'docs-guide/features/ui-system.mdx' ||
     file === 'docs-guide/config/component-registry.json' ||
     file === 'operations/scripts/generate-ui-templates.js' ||
-    file === 'operations/tests/unit/ui-template-generator.test.js'
+    file === 'operations/tests/unit/ui-template-generator.test.js' ||
+    file === 'operations/tests/utils/mdx-parser.js' ||
+    file === 'operations/tests/utils/file-walker.js' ||
+    file === 'operations/tests/utils/mintignore.js'
   );
   const ownerlessGovernanceFiles = existingChangedFiles.filter((file) =>
     file === OWNERLESS_MANIFEST_PATH ||
@@ -733,12 +741,12 @@ function runDocsGuideSotCheck(files) {
 
 function runUiTemplateGeneratorCheck(files) {
   if (!files.length) {
-    return { label: 'UI Template Generator', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+    return { label: 'UI Templates & Mint Surface', status: 'skipped', files: 0, errors: 0, warnings: 0 };
   }
 
   const result = uiTemplateGeneratorTests.runTests();
   return {
-    label: 'UI Template Generator',
+    label: 'UI Templates & Mint Surface',
     status: result.passed ? 'passed' : 'failed',
     files: files.length,
     errors: Array.isArray(result.errors) ? result.errors.length : 0,
@@ -1187,7 +1195,7 @@ function createBranchHealthRegistry(context) {
       timeoutMs: LONG_CHECK_TIMEOUT_MS
     }),
     createInlineCheck({
-      label: 'UI Template Generator',
+      label: 'UI Templates & Mint Surface',
       files: groups.uiTemplateFiles,
       run: () => runUiTemplateGeneratorCheck(groups.uiTemplateFiles)
     }),

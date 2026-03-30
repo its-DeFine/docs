@@ -127,13 +127,21 @@ function hasStagedUiTemplateChanges() {
 
   return getStagedRepoRelativeFiles().some(
     (filePath) =>
+      filePath === '.mintignore' ||
+      filePath === 'docs.json' ||
+      filePath.startsWith('v1/') ||
+      filePath.startsWith('v2/') ||
+      filePath.startsWith('snippets/') ||
       filePath.startsWith('snippets/templates/') ||
       filePath.startsWith('.vscode/') ||
       filePath === 'docs-guide/catalog/ui-templates.mdx' ||
       filePath === 'docs-guide/features/ui-system.mdx' ||
       filePath === 'docs-guide/config/component-registry.json' ||
       filePath === 'operations/scripts/generators/components/library/generate-ui-templates.js' ||
-      filePath === 'operations/tests/unit/ui-template-generator.test.js'
+      filePath === 'operations/tests/unit/ui-template-generator.test.js' ||
+      filePath === 'operations/tests/utils/mdx-parser.js' ||
+      filePath === 'operations/tests/utils/file-walker.js' ||
+      filePath === 'operations/tests/utils/mintignore.js'
   );
 }
 
@@ -382,8 +390,8 @@ async function runAllTests() {
       `   ${precommitStagedCacheResult.errors.length} errors, ${precommitStagedCacheResult.warnings.length} warnings`
     );
 
-    // UI Template Generator
-    console.log('\n🧱 Running UI Template Generator Checks...');
+    // UI Template & Mint Parse Surface
+    console.log('\n🧱 Running UI Template and Mint Parse-Surface Checks...');
     if (hasStagedUiTemplateChanges()) {
       const uiTemplateGeneratorResult = normalizeSuiteResult(uiTemplateGeneratorTests.runTests());
       totalErrors += uiTemplateGeneratorResult.errors.length;
