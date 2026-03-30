@@ -393,7 +393,7 @@
     "path": "ASSISTANT.md",
     "section": "retired-legacy",
     "status": "retired",
-    "exists": true,
+    "exists": false,
     "format": "markdown",
     "line_count": 97,
     "has_skill_frontmatter": false,

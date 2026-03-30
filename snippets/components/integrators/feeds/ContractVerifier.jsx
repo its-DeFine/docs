@@ -5,7 +5,7 @@
  * @status           experimental
  * @description      Interactive widget to verify Livepeer contract addresses on-chain. Two modes: look up by name (verifies via Controller RPC or Blockscout depending on contract), verify by pasted address. Consumes pipeline data from contractAddressesData.jsx.
  * @dataSource       prop (contractAddressesData.jsx — addresses, keccak hashes, registration status, explorer URLs, RPC URLs) + Arbitrum One RPC (eth_call) + Blockscout API v2 (/api/v2/addresses/)
- * @aiDiscoverability none
+ * @aiDiscoverability props-extracted
  *
  * // ContractAddresses: see snippets/data/contract-addresses/contractAddressesData.jsx
  * @param {ContractAddresses} data - Pipeline contract addresses data object.

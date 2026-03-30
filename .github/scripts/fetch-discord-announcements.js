@@ -17,6 +17,7 @@
 const https = require("https");
 const fs = require("fs");
 const path = require("path");
+const { escapeForJsx } = require(path.resolve(__dirname, "../../operations/scripts/config/mdx-sanitise"));
 
 const DISCORD_BOT_TOKEN = process.env.DISCORD_BOT_TOKEN;
 const CONFIG_PATH =
@@ -50,19 +51,7 @@ function discordGet(endpoint) {
   });
 }
 
-function escapeForJSX(str) {
-  return (str || "")
-    .replace(/\\/g, "\\\\")
-    .replace(/`/g, "\\`")
-    .replace(/"/g, '\\"')
-    .replace(/\$/g, "\\$")
-    .replace(/\u2018|\u2019/g, "'")
-    .replace(/\u201C|\u201D/g, '\\"')
-    .replace(/\u2014/g, " - ")
-    .replace(/\u2013/g, "-")
-    .replace(/[\u00A0]/g, " ")
-    .replace(/\r/g, "");
-}
+const escapeForJSX = (str) => escapeForJsx(str);
 
 /**
  * Convert Discord markdown to HTML before JSX escaping.

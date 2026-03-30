@@ -1,3 +1,29 @@
+=== 2026-03-31 ===
+Stream: Backlog Execution (BL-013, BL-014, BL-015)
+Outcome: Met
+Done:
+- BL-013: PreEdit hook shipped in pre-tool-guard.js — blocks Write/Edit on auto-generated files (512-byte header scan, tested 3 cases)
+- BL-014: /thread v1.4 — auto-derive entry point, no questions, reads context and proposes anchor
+- BL-015: Closed as invalid — all pipelines already automated via GitHub Actions crons
+Next: none from this thread
+---
+=== 2026-03-31 ===
+Stream: Insights Report Analysis
+Outcome: Not met (continued in Backlog Execution session above)
+Done:
+- Cross-referenced all 6 /insights CLAUDE.md recommendations — all already covered by existing rules + memory
+- Identified 3 genuinely new items: PreEdit hook enforcement, headless CI, /thread UX redesign
+Next: shipped in Backlog Execution session
+---
+=== 2026-03-31 00:00 ===
+Stream: i18n Translation Archive & Cleanup
+Outcome: Met
+Done:
+- Investigated i18n pipeline — manual dispatch only, no auto-trigger
+- Archived v2/es, v2/fr, v2/cn to v2/_workspace/locale-page-archive/
+- Confirmed docs.json has no locale paths
+Next: None. i18n infrastructure (tools/i18n/, workflow, npm scripts) remains in repo if needed later.
+---
 === 2026-03-30 ===
 Stream: lpd dev --scoped DX (continuation)
 Outcome: Partially met
@@ -696,3 +722,48 @@ Session started: 2026-03-31 00:33:37
 Session started: 2026-03-31 01:18:54
 Session started: 2026-03-31 01:19:03
 Session started: 2026-03-31 01:19:33
+Session started: 2026-03-31 01:48:12
+
+=== 2026-03-31 01:55 ===
+Stream: Workflow Alignment Skills (CANONICAL-TRUTH-GUIDES)
+Outcome: Partially met
+Done:
+- /thread v1.3: 10-phase lifecycle pipeline baked in (research → audit → design → implement → test → iterate → test → verify → document → cleanup)
+- Verify phase spec: 7 universal checks + 6 context-aware check categories + output template with future recommendations
+- Design doc: lifecycle-design.md with skill mapping, gap list, decisions
+Next: Update CLAUDE.md workflow reference, backlog 4 skill gaps, add to .claude/references/ as exemplar
+Session started: 2026-03-31 02:15:11
+Session started: 2026-03-31 02:20:11
+
+=== 2026-03-31 02:25 ===
+Stream: Zombie Process Reaper (ad-hoc, continuation)
+Outcome: Met
+Done:
+- Disabled 4 unused Python extensions (~250 MB freed)
+- Produced full VS Code memory breakdown: 2.5 GB renderers, 549 MB plugin hosts, 475 MB Claude, 85 MB Codex
+- Confirmed reaper is working — Claude processes staying at 3 (was 24)
+- System swap recovered from 26 GB to ~3 GB across session
+Next: Monitor Brave memory (10.7 GB / 42 processes observed) — main remaining hog
+Session started: 2026-03-31 02:36:26
+Session started: 2026-03-31 03:18:08
+
+=== 2026-03-31 02:30 ===
+Stream: Contracts & Changelogs
+Outcome: Partially met
+Done:
+- Contracts data pipeline complete: dual-source enrichment, 49/49 current + 44 historical, health checks, companion JSON, source validation across 5 repos
+- V1 contract pages: Danger callouts on 5 files, docs.json redirects to v2 canonical
+- 4 tab pages consuming composable (about, gateways, orchestrators, resources)
+- blockchain-contracts.mdx 19 status lines data-driven via statusOf()
+- Old data file deleted, templates deleted, temp commit reverted, broken source links fixed
+Next: Changelog final audit (separate thread). Workflow PR to main. Canonical page completion (Alison).
+
+
+=== 2026-03-31 02:10 ===
+Stream: Workflow Alignment Skills (continued)
+Outcome: Met
+Done:
+- All carry-forward items resolved: CLAUDE.md workflow ref, 4 skill gaps backlogged (BL-016-019), references exemplar updated, notes.md stub removed
+- Completion report updated from Partially met → Met
+Next: None — thread complete
+Session started: 2026-03-31 03:44:27

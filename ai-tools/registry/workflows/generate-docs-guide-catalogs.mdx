@@ -1,0 +1,112 @@
+---
+title: 'Generate Docs Guide Catalogs'
+kind: 'workflow'
+status: 'active'
+concern: 'repo-ops'
+source_path: '.github/workflows/generate-docs-guide-catalogs.yml'
+trigger_mode: 'push + workflow_dispatch'
+risk_level: 'high'
+consolidation_flag: 'review for alignment with `page-ship` while preserving current push + workflow_dispatch trigger behavior'
+dispatcher_candidate: 'page-ship'
+last_verified: '2026-03-31'
+---
+
+{/*
+generated-file-banner: ai-tools-visual-library:v1
+Generation Script: operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js
+Purpose: AI-tools canonical visual library for workflows and dispatcher actions.
+Run when: GitHub workflows, dispatcher definitions, registry coverage, or visual-library contracts change.
+Run command: node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write
+*/}
+
+<Note>
+**Generation Script**: This file is generated from script(s): `operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js`. <br/>
+**Purpose**: AI-tools canonical visual library for workflows and dispatcher actions. <br/>
+**Run when**: GitHub workflows, dispatcher definitions, registry coverage, or visual-library contracts change. <br/>
+**Important**: Do not manually edit this file; run `node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write`. <br/>
+</Note>
+
+# Generate Docs Guide Catalogs
+
+## Summary
+
+Generate Docs Guide Catalogs runs on push, workflow_dispatch and primarily produces generated or refreshed repository data.
+
+## Why It Exists
+
+Govern the `.github/workflows/generate-docs-guide-catalogs.yml` workflow as a human-readable, visually explorable source-of-truth page inside `ai-tools/registry/workflows`.
+
+## Triggers
+
+- push: branches=docs-v2; paths=.github/workflows/**, .github/ISSUE_TEMPLATE/**, .github/pull-request-template-v2.md, .github/pull_request_template.md, docs.json, v2/index.mdx
+- workflow_dispatch: configured in workflow file
+
+## Jobs
+
+| Job ID | Name | Runs On | Needs | Step Count |
+| --- | --- | --- | --- | --- |
+| `generate-docs-guide-catalogs` | generate-docs-guide-catalogs | `ubuntu-latest` | none | 10 |
+
+### generate-docs-guide-catalogs
+
+- `Checkout repository` | uses actions/checkout@v4
+- `Resolve target branch` | runs `if [ "${{ inputs.use_test_branch }}" = "true" ]; then`
+- `Setup Node.js` | uses actions/setup-node@v4
+- `Install dependencies` | runs `npm install`
+- `Generate workflows and templates catalogs` | runs `node operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js --write`
+- `Generate pages catalog` | runs `node operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js --write`
+- `Regenerate component docs pages` | runs `node operations/scripts/generators/components/documentation/generate-component-docs.js --write`
+- `Check for changes` | runs `git diff --exit-code \`
+- `Check for component docs changes` | runs `git diff --exit-code v2/ \`
+- `Commit and push if changed` | runs `git config user.name "GitHub Actions Bot"`
+
+## Inputs
+
+- workflow_dispatch:use_test_branch (optional)
+
+## Outputs
+
+- Generated or refreshed repository data
+- Repository commits or branch updates
+
+## Dependencies
+
+- action:actions/checkout@v4
+- action:actions/setup-node@v4
+- docs-guide/catalog/pages-catalog.mdx
+- docs-guide/catalog/templates-catalog.mdx
+- docs-guide/catalog/workflows-catalog.mdx
+- operations/scripts/generators/components/documentation/generate-component-docs.js
+- operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js
+- operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js
+- secret:GITHUB_TOKEN
+
+## Dependants
+
+- dispatcher:page-ship
+
+## Mermaid Pipeline
+
+```mermaid
+flowchart TD
+  trigger["Trigger: push + workflow_dispatch"]
+  workflow["Workflow: Generate Docs Guide Catalogs"]
+  trigger --> workflow
+  job1["Job: generate-docs-guide-catalogs"]
+  workflow --> job1
+  outputs["Outputs: Generated or refreshed repository data, Repository commits or branch updates"]
+  job1 --> outputs
+```
+
+## Frailty And Risk
+
+- Mutates repository state from CI, which raises coordination and safety risk.
+- Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.
+
+## Consolidation Notes
+
+Dispatcher suggestion: `page-ship`. This is a governance hint for consolidation review, not a runtime rewrite instruction.
+
+## Handover Notes
+
+Use this page as the human-facing workflow brief during audits, cleanup, and handover. Promote any missing operational knowledge back into the canonical page rather than leaving it in chat.

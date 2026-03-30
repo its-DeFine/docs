@@ -10,6 +10,8 @@ Canonical inventory for all artifacts under `ai-tools/**`. The registry is the s
 | `ai-tools-registry.schema.json` | JSON Schema for the registry file. Validator uses this to enforce structure |
 | `ai-tools-inventory.md` | Generated human-readable report — do not edit manually |
 | `llms-txt-notes.md` | Reference notes on Mintlify's `llms.txt` feature and the scripts that generate it |
+| `workflows/` | Canonical MDX-first visual library for `.github/workflows/*.{yml,yaml}` |
+| `dispatchers/` | Canonical MDX-first visual library for governed dispatcher actions |
 
 ## When to update
 
@@ -26,6 +28,12 @@ Do not delete entries. Use `lifecycle_state: retired` instead.
 ```bash
 # Validate registry structure and coverage
 node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js --check --coverage
+
+# Validate workflow + dispatcher visual library freshness
+node operations/tests/unit/ai-tools-visual-library.test.js
+
+# Regenerate workflow + dispatcher visual library and staged audit outputs
+node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write
 
 # Validate lane assignments
 node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js --check --lanes
@@ -53,3 +61,4 @@ node operations/scripts/validators/governance/compliance/validate-ai-tools-regis
 - Agent governance policy: `docs-guide/policies/agent-governance-framework.mdx`
 - Root allowlist governance: `docs-guide/policies/root-allowlist-governance.mdx`
 - AI-tools catalog page: `docs-guide/tooling/ai-tools.mdx`
+- Visual-library staging area: `workspace/plan/active/AI-TOOLS-GOVERNANCE/AI-TOOLS/`

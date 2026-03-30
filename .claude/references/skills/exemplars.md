@@ -9,20 +9,24 @@
 
 **File:** `ai-tools/ai-skills/thread/SKILL.md`
 
-**Why it's good:** The most mature skill in the repo. Mode detection (START vs STATUS) as Step 0 — determines behaviour before any work happens. Anti-loop discipline at Step 6: after 2 failed attempts, STOP and root-cause analyse. Test log at the bottom tracks real usage with honest failure notes. The principles section is tight: "The outcome is the user's, not Claude's."
+**Why it's good:** The most mature skill in the repo (v1.3). Mode detection (START vs STATUS) as Step 0 — determines behaviour before any work happens. Step 1b maps a 10-phase lifecycle pipeline with skill mappings and gates per phase — every session declares which phases apply, preventing both premature execution and skipped research. The verify phase (phase 8) is a production-readiness gate with universal and context-aware checks. Anti-loop discipline at Step 6: after 2 failed attempts, STOP and root-cause analyse. Test log tracks real usage with honest failure notes.
 
 **Key patterns:**
 - YAML frontmatter: name, description, metadata (version, category, status)
 - Mode detection as Step 0 — the first thing the skill does is decide HOW to run
 - START mode: define outcome → create TodoWrite tasks → register in CLAUDE.md
 - STATUS mode: snapshot output → stop. No re-anchoring, no redefining
-- Phase transitions: restate outcome + confirm before proceeding
+- **Lifecycle pipeline (Step 1b):** 10 phases: research → audit → design → implement → test → iterate → test → verify → document → cleanup. Each phase has: skill mapping, description, outputs, gate. Sessions declare lifecycle position showing which phases are done/active/pending
+- **Verify phase:** Universal checks (pipeline, framework alignment, self-remediation, risk, scalability, hanging threads, data integrity) + context-aware checks that adapt to what was built (MDX, scripts, components, data, actions, governance). Output template includes future recommendations
+- **Scope adaptation:** Not every session uses all phases — quick fix skips audit/design, audit-only session stops after findings, data pipeline emphasises verify
+- Phase transitions: restate outcome + gate evidence + confirm before proceeding
 - Backlog capture: log tangent, acknowledge, continue — don't chase or ignore
 - Drift detection: after 3+ actions without outcome reference, check in
 - Anti-loop discipline (Step 6): 2 failures → STOP → root-cause → different approach → wait for approval
-- Session close template: finalisation report structure with outcome evaluation (Met / Partially met / Not met)
-- Test log: date, what it was used on, what worked, what didn't, what changed
-- Known limitations documented honestly
+- Session close template: finalisation report with outcome evaluation (Met / Partially met / Not met)
+- Test log and known limitations documented honestly
+
+**Design reference:** `workspace/plan/active/CANONICAL-TRUTH-GUIDES/Workflow-Alignment-Skills/lifecycle-design.md`
 
 ---
 

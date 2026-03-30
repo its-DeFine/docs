@@ -3199,7 +3199,7 @@
                         "group": "Technical References",
                         "icon": "code",
                         "pages": [
-                          "v2/resources/references/contract-addresses"
+                          "v2/about/resources/livepeer-contract-addresses"
                         ]
                       },
                       {
@@ -3332,7 +3332,6 @@
                               "docs-guide/tooling/lpd-cli",
                               "docs-guide/tooling/dev-tools",
                               "docs-guide/tooling/lpd-mdx-preview",
-                              "docs-guide/tooling/content-brief-template",
                               "docs-guide/tooling/ai-tools",
                               "docs-guide/tooling/reference-maps/icon-map",
                               "ai-tools/claude-code",
@@ -4741,8 +4740,16 @@
       "destination": "/v1/api-reference/overview/introduction"
     },
     {
+      "source": "/v2/resources/references/contract-addresses",
+      "destination": "/v2/about/resources/livepeer-contract-addresses"
+    },
+    {
       "source": "/v1/reference/deployed-contract-addresses",
-      "destination": "/v1/references/contract-addresses"
+      "destination": "/v2/about/resources/livepeer-contract-addresses"
+    },
+    {
+      "source": "/v1/references/contract-addresses",
+      "destination": "/v2/about/resources/livepeer-contract-addresses"
     },
     {
       "source": "/v1/reference/example-applications",

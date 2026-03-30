@@ -21,6 +21,15 @@ Two non-type folders sit alongside the six type folders:
 | `x-archive/` | All superseded files via `git mv` - no deletions ever |
 | `archive/` | Legacy archive (contains `deprecated/`, `fixtures/`, `legacy/` sub-folders). Decision D2 calls for consolidation with `x-archive/` into a single archive pattern - not yet executed |
 
+### Shared libraries in `config/`
+
+| Library | Purpose | Exports | Used by |
+|---|---|---|---|
+| `docs-path-sync.js` | Detects staged page moves, plans deterministic route rewrites, applies governed docs.json/path reference updates | `runDocsPathSync()` | `/propagate` skill, move-detect hook |
+| `mdx-sanitise.js` | Sanitisation utilities for all scripts that write content consumed by MDX pages | `sanitiseForMdx`, `escapeForJsx`, `validateUrl`, `stripHtmlTags` | All `.github/scripts/fetch-*.js` and `generate-changelog.js` |
+
+**Rule:** All scripts that write content consumed by MDX pages MUST import sanitisation functions from `operations/scripts/config/mdx-sanitise.js`. Do not create inline escape/sanitise functions in individual scripts.
+
 The library is governed by three enforcement tiers:
 
 | Tier | Gate type | Runs where |

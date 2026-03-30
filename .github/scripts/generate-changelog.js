@@ -26,8 +26,11 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 
-// ── Config ──────────────────────────────────────────────────────────────────
+// ── Shared utilities ───────────────────────────────────────────────────────
 const REPO_ROOT = path.resolve(__dirname, "../..");
+const { sanitiseForMdx } = require(path.join(REPO_ROOT, "operations/scripts/config/mdx-sanitise"));
+
+// ── Config ──────────────────────────────────────────────────────────────────
 const CONFIG_PATH =
   process.env.CONFIG_PATH || path.join(REPO_ROOT, "operations/scripts/config/product-social-config.json");
 // CHANGELOG_KEY takes precedence; PRODUCT_KEY kept for backward compat
@@ -591,35 +594,8 @@ function extractHighlights(body) {
  * - Converts bold (**text**) — kept as-is (MDX supports it)
  * - Cleans up GH-specific markdown patterns
  */
-function cleanForMdx(text) {
-  return (
-    text
-      // Remove "by @user, @user, and @user in [#NNN](...)" patterns
-      .replace(
-        /\s+by\s+@[\w-]+(?:,\s*@[\w-]+)*(?:,?\s*and\s+@[\w-]+)?\s+in\s+\[#\d+\]\([^)]+\)(?:,\s*\[#\d+\]\([^)]+\))*/g,
-        ""
-      )
-      // Remove standalone "by @user in https://..." patterns
-      .replace(
-        /\s+by\s+@[\w-]+(?:,\s*@[\w-]+)*(?:,?\s*and\s+@[\w-]+)?\s+in\s+https?:\/\/\S+/g,
-        ""
-      )
-      // Convert angle-bracketed URLs to plain URLs (MDX parses <url> as JSX tags)
-      .replace(/<(https?:\/\/[^>]+)>/g, "$1")
-      // Remove "Co-authored-by:" and "Signed-off-by:" lines (contain <email> that breaks MDX)
-      .replace(/^\s*co-authored-by:.*$/gim, "")
-      .replace(/^\s*signed-off-by:.*$/gim, "")
-      // Escape angle-bracketed emails (e.g. <user@domain.com>) before general < escaping
-      .replace(/<([^>]*@[^>]+)>/g, "($1)")
-      // Escape remaining < that are not valid HTML/JSX tags
-      .replace(/<(?![a-zA-Z/!])/g, "&lt;")
-      // Clean trailing whitespace per line
-      .replace(/[ \t]+$/gm, "")
-      // Collapse multiple blank lines
-      .replace(/\n{3,}/g, "\n\n")
-      .trim()
-  );
-}
+// cleanForMdx — thin alias for shared sanitiseForMdx (backward compat for internal references)
+const cleanForMdx = sanitiseForMdx;
 
 /**
  * Classify a release into tags based on its content.

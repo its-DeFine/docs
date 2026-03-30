@@ -209,7 +209,7 @@ import { ThemeData } from '/snippets/styles/themeStyles.jsx'
 | `Expandable` | Show/hide content | `/components/expandables` |
 | `Frame` | Borders and styling for images/content | `/components/frames` |
 | `Icon` | Lucide icons and custom SVGs | `/components/icons` |
-| `Mermaid` | Flowcharts, sequence diagrams | `/components/mermaid-diagrams` |
+| `Mermaid` | Flowcharts, sequence diagrams, Gantt charts, state diagrams | `/components/mermaid-diagrams` |
 | `Panel` | Sidebar supplementary content | `/components/panel` |
 | `ParamField` | API parameter definitions | `/components/fields` |
 | `Prompt` | Copyable AI prompts | `/components/prompt` |
@@ -221,6 +221,14 @@ import { ThemeData } from '/snippets/styles/themeStyles.jsx'
 | `Tree` | File/folder hierarchy display | `/components/tree` |
 | `Update` | Changelog entries | `/components/update` |
 | `View` | Conditional content display | `/components/view` |
+
+**Mermaid diagram constraints:**
+
+- Use standard fenced code blocks with `mermaid` language identifier — no component import needed
+- Supported types: flowcharts (`graph LR/TD`), sequence diagrams, Gantt charts, state diagrams, all standard Mermaid types
+- **ELK layout engine** available for large/complex diagrams — add `%%{init: {'flowchart': {'defaultRenderer': 'elk'}}}%%` as the first line inside the code block. ELK optimises node arrangement to reduce overlapping and improve readability
+- Interactive zoom/pan controls appear automatically when diagram height exceeds 120px
+- Diagram colours should use the `--lp-*` CSS custom properties defined in `snippets/components/config/MermaidColours.jsx`
 
 **Child/variant components (used inside their parent):**
 

@@ -90,6 +90,23 @@ stdin.on('end', () => {
     // --- WRITE/EDIT: context gate (read-before-write + broader context) ---
     if ((toolName === 'Write' || toolName === 'Edit') && toolInput.file_path) {
       const fp = toolInput.file_path;
+
+      // Auto-generated file block — check first 512 bytes for markers
+      try {
+        const fd = fs.openSync(fp, 'r');
+        const buf = Buffer.alloc(512);
+        const bytesRead = fs.readSync(fd, buf, 0, 512, 0);
+        fs.closeSync(fd);
+        const header = buf.toString('utf8', 0, bytesRead);
+        if (/DO\s*NOT\s*EDIT|AUTO[- ]?GENERATED|This file is generated/i.test(header)) {
+          console.log(JSON.stringify({
+            decision: 'block',
+            reason: 'BLOCKED: Auto-generated file (header marker detected in first 512 bytes). Edit the generator script or put derived logic in a separate file.'
+          }));
+          process.exit(2);
+        }
+      } catch (_) { /* new file or unreadable — allow through */ }
+
       const sessionId = process.env.CLAUDE_SESSION_ID || 'default';
       const readLogPath = path.join('/tmp', `claude-reads-${sessionId}`);
 

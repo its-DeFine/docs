@@ -14,6 +14,8 @@
 const https = require("https");
 const http = require("http");
 const fs = require("fs");
+const path = require("path");
+const { escapeForJsx } = require(path.resolve(__dirname, "../../operations/scripts/config/mdx-sanitise"));
 
 const RSS_URL = process.env.GHOST_RSS_URL || "https://blog.livepeer.org/rss/";
 const LIMIT = parseInt(process.env.LIMIT || "4", 10);
@@ -35,24 +37,7 @@ function fetchUrl(url) {
   });
 }
 
-function escapeForJSX(str) {
-  return (str || "")
-    .replace(/\\/g, "\\\\")
-    .replace(/`/g, "\\`")
-    .replace(/"/g, '\\"')
-    .replace(/\$/g, "\\$")
-    .replace(/\u2018|\u2019/g, "'")
-    .replace(/\u201C|\u201D/g, '\\"')
-    .replace(/\u2014/g, "-")
-    .replace(/\u2013/g, "-")
-    .replace(/\u2022/g, "-")
-    .replace(/\u2192/g, "->")
-    .replace(/[\u00A0]/g, " ")
-    .replace(/&[#\w]+;/g, "")
-    .replace(/\n/g, " ")
-    .replace(/\r/g, "")
-    .replace(/\t/g, " ");
-}
+const escapeForJSX = (str) => escapeForJsx(str, { stripEntities: true }).replace(/\n/g, " ");
 
 function formatDate(dateStr) {
   try {

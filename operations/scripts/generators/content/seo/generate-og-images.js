@@ -24,7 +24,7 @@ const {
   getRepoRoot,
   toAbsoluteAssetPath,
   toPosix,
-} = require("./lib/og-image-policy");
+} = require("../../../config/og-image-policy");
 
 function parseArgs(argv) {
   const args = {
@@ -74,7 +74,9 @@ function buildMarkup(asset, logoDataUrl) {
   const eyebrow =
     asset.kind === "fallback"
       ? "Canonical fallback social preview"
-      : `Section social preview - ${escapeHtml(asset.locale.toUpperCase())}`;
+      : asset.kind === "page"
+        ? escapeHtml(asset.subtitle || "Page social preview")
+        : `Section social preview - ${escapeHtml(asset.locale.toUpperCase())}`;
 
   return `<!doctype html>
 <html lang="en">

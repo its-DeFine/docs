@@ -14,6 +14,7 @@
 const https = require("https");
 const fs = require("fs");
 const path = require("path");
+const { escapeForJsx } = require(path.resolve(__dirname, "../../operations/scripts/config/mdx-sanitise"));
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 const CONFIG_PATH =
@@ -64,23 +65,7 @@ function graphqlQuery(query, variables) {
   });
 }
 
-function escapeForJSX(str) {
-  return (str || "")
-    .replace(/\\/g, "\\\\")
-    .replace(/`/g, "\\`")
-    .replace(/"/g, '\\"')
-    .replace(/\$/g, "\\$")
-    .replace(/\u2018|\u2019/g, "'")
-    .replace(/\u201C|\u201D/g, '\\"')
-    .replace(/\u2014/g, "-")
-    .replace(/\u2013/g, "-")
-    .replace(/\u2022/g, "-")
-    .replace(/\u2192/g, "->")
-    .replace(/[\u00A0]/g, " ")
-    .replace(/&[#\w]+;/g, "")
-    .replace(/\n/g, " ")
-    .replace(/\r/g, "");
-}
+const escapeForJSX = (str) => escapeForJsx(str, { stripEntities: true }).replace(/\n/g, " ");
 
 function formatDate(iso) {
   return new Date(iso).toLocaleDateString("en-US", {

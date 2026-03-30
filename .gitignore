@@ -113,6 +113,9 @@ tasks/plan/*
 # --------------------------------------------------
 docs-index.json
 llms-full.txt
+
+# Contract data pipeline — runtime working files
+snippets/data/contract-addresses/*.bak
 tools/scripts/snippets/generate-data/data/discovered-terms.json
 tools/scripts/snippets/generate-data/data/glossary-terms.json
 

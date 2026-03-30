@@ -1,11 +1,12 @@
 ---
 name: thread
 description: >-
-  Session anchor skill. Two modes: (1) START — defines outcome and creates task list at session start.
-  (2) STATUS — when invoked mid-session or with no arguments, outputs current status snapshot and stops.
+  Session anchor with lifecycle pipeline. Two modes: (1) START — defines outcome, maps lifecycle
+  phases (research → audit → design → implement → test → iterate → test → verify → document → cleanup),
+  and creates task list. (2) STATUS — outputs current status snapshot mid-session.
   Orient, don't execute. Never re-anchor or restart tasks when a thread is already active.
 metadata:
-  version: "1.2"
+  version: "1.4"
   category: process
   status: "active"
 ---
@@ -63,11 +64,10 @@ Backlog: [any deferred items, or "none"]
 
 After outputting status, **stop**. Wait for the user to respond. Do not proceed into execution.
 
-**START mode** — only if ALL of the following are true:
-- This is the first `/thread` invocation in the conversation
-- The user has stated a new session objective with the invocation
-
-In START mode: proceed to Step 0.5 (flags), then Step 1.
+**START mode** — if this is the first `/thread` invocation in the conversation:
+- The user may provide a clear outcome, a vague topic, a BL number, or nothing beyond `/thread [topic]`
+- In all cases: proceed to Step 0.5 (flags), then Step 1 (auto-derive the outcome from context + message)
+- Do not ask clarifying questions. Propose and start. The user redirects if needed.
 
 **RECOVERY mode** — if the user's message looks like it was meant as a command but wasn't recognised (e.g. `/thead` instead of `/thread`, `/reserach` instead of `/research`):
 1. Say: "That looks like a typo for `/[correct command]`. Your full message is preserved — processing it now."
@@ -106,18 +106,42 @@ When a flag is addressed, delete its line from flags.jsonl.
 
 ## Step 1: Define the outcome
 
-If the user has stated a clear outcome, extract it. Do not ask again.
+### Auto-derive — always try this first
 
-If the message is vague, **propose what you think they mean** and refine:
+Do not ask the user to clarify. Instead, read and synthesise:
+
+1. **The user's message** — extract the topic, even if vague ("contracts", "cleanup", "BL-013")
+2. **Session state** — injected at session start by `session-state.js`. Includes active threads, tab gates, running agents, blocked decisions, backlog
+3. **Backlog registry** — `workspace/plan/future/BACKLOG/registry.md`. If the user referenced a BL number, read the entry
+4. **Recent session log** — last 5 entries from `workspace/thread-outputs/sessions/session-log.txt`. Shows what was recently done, what carried forward
+5. **Flags** — already checked in Step 0.5
+6. **CLAUDE.md active threads table** — shows what's in flight and what's blocked
+
+From these sources, **propose the full thread anchor**:
 
 ```
-I think you're asking for [X]. Specifically:
-- [concrete interpretation 1]
-- [concrete interpretation 2]
-Is that right, or should I adjust?
+Thread: [name]
+Outcome: [concrete, testable, scoped deliverable — derived from user message + context]
+
+Context I found:
+  - [relevant backlog item / prior session / flag / blocker — 1 line each]
+  - [...]
+
+Lifecycle: [which phases this session covers, with reasoning]
+
+Tasks:
+  1. [first task]
+  2. [second task]
+  ...
+
+Starting with [first task]. Adjust if this isn't what you meant.
 ```
 
-Never ask "what do you want?" Always propose a concrete interpretation. The user refines from there — that's faster than starting from blank.
+Then **immediately start working** on the first task. The user will redirect if needed — that's faster than waiting for confirmation on a well-derived anchor.
+
+If the user's message is completely unambiguous (e.g. "fix the broken link in glossary.mdx"), skip the context lookup and go straight to the outcome + tasks.
+
+### Outcome quality bar
 
 The outcome must be:
 - **Concrete** — names the deliverable or decision, not a vague direction
@@ -128,22 +152,12 @@ The outcome must be:
 
 ### Register in CLAUDE.md work streams table
 
-After defining the outcome, update the "Active work streams" table in `.claude/CLAUDE.md`:
-- **New work stream:** add a row (stream name, status, key files)
-- **Continuing existing stream:** update the status column
-- **Stream completed this session:** mark done or remove the row
+After defining the outcome, update the "Active threads" table in `.claude/CLAUDE.md`:
+- **New thread:** add a row (thread name, working on, status, date)
+- **Continuing existing thread:** update the status column
+- **Thread completed this session:** mark done
 
-This is how parallel threads coordinate. Every `/thread` invocation keeps the table current — at start (registering) and at end (finalising).
-
-### Bad outcomes
-- "Work on orchestrators docs" — not testable
-- "Make progress on the content pipeline" — not concrete
-- "Review some pages" — not scoped
-
-### Good outcomes
-- "Produce a research brief on the 8 blocking decisions with recommendations for each"
-- "Co-design the veracity pass architecture and write the architecture doc"
-- "Build and test the /pm skill against the current orchestrators thread"
+This is how parallel threads coordinate. Every `/thread` invocation keeps the table current.
 
 ### Explore before executing
 
@@ -162,20 +176,78 @@ Every non-trivial thread follows the same lifecycle. After defining the outcome,
 ### The lifecycle
 
 ```
-research → audit → design → implement → test → iterate → test → document → cleanup
+research → audit → design → implement → test → iterate → test → verify → document → cleanup
 ```
 
-| Phase | What happens | Outputs | Gate |
+| # | Phase | Skill(s) | What happens | Outputs | Gate |
+|---|---|---|---|---|---|
+| 1 | **Research** | `/research` | Understand the landscape holistically. (1) Web search: best practices, standards, documentation approaches. (2) Repo search: existing gold standards, frameworks, patterns to align to, gaps, risks, unmaintainability. Both dimensions required | Reports in `workspace/thread-outputs/research/` — one per dimension (e.g. `{topic}-best-practices-report.md`, `{topic}-repo-analysis-report.md`) | Human reviews reports |
+| 2 | **Audit** | `/dispatch` | Inventory what exists. Classify by repo taxonomy (type/concern). Trace upstream triggers and downstream dependencies/dependants. Map each item's pipeline (Mermaid). Identify: stale, legacy, broken, placeholder, duplicate. Flag consolidation candidates. Identify frail dependencies and risks | Audit report with classification table + pipeline maps (Mermaid). Working dir: relevant `_workspace/` folder | Human reviews audit |
+| 3 | **Design** | `/design` | Co-design with human. Produce: (1) framework-canonical — governance aligned to repo taxonomy, enforcement tiers, error reporting with self-remediation. (2) Template — per-item page/doc with classification, pipeline diagram, dependencies, status. (3) Catalog index — visual overview by type × concern | Framework canonical + template + catalog structure | Human co-designs and approves |
+| 4 | **Implement** | `/build` | Execute the design. Verify first instance before bulk. Follow approved template. Populate from audit data. Restructure folders per framework | Built artefacts. Folder structure matches framework | First instance verified before bulk |
+| 5 | **Test** | `/build` Step 4 | Verify it works. Render checks, completeness cross-references (every source item has corresponding output), dependency validation (no broken references) | Test report | All checks pass |
+| 6 | **Iterate** | `/iterate` | Human review cycle. Present visually (tables, trees, diagrams — not text walls). Receive feedback. Categorise: pass / fix → `/build` / redesign → `/design` / research → `/research` | Updated artefacts | Human approves |
+| 7 | **Test** | `/build` Step 4 | Re-verify after iteration. Same checks as phase 5 | Updated test report | All checks pass |
+| 8 | **Verify** | — | Production readiness. Universal checks + context-aware checks based on what was built. See **Verify phase detail** below | Verification report + future recommendations | Verify passes; issues route back to correct phase |
+| 9 | **Document** | — | (1) Add gold-standard example to `.claude/references/`. (2) Update governance indexes. (3) Build self-documenting pipeline — automation keeping outputs in sync with source. Governance enforced | Reference exemplar, governance updates, automation pipeline | Documentation complete, pipeline runs |
+| 10 | **Cleanup** | — | Archive deprecated/stale items. Remove unfinished placeholders. Execute approved consolidation merges. Streamline folder structure. Final audit: zero drift from framework | Clean repo state, no orphans, no drift | Final audit passes |
+
+### Verify phase detail
+
+Verify is not test (does it work?) or iterate (does the human approve?). Verify asks: **is this safe to ship to production and survive without a human watching it?**
+
+**Universal checks** — always apply, regardless of what was built:
+
+| Check | What it verifies |
+|---|---|
+| End-to-end pipeline | Full chain traced: trigger → script → data → output → consumer. No dead ends, no orphaned outputs |
+| Framework alignment | Follows all applicable repo governance (script framework, component framework, naming conventions, Mintlify constraints) |
+| Self-remediation | Survives ownerless operation. Error reporting exists. Failure self-heals or creates an issue. Cron/dispatch triggers work unattended. Recovery path documented |
+| Risk mitigation | Failure modes identified and handled. What breaks if an API is down, a schema changes, a dependency is removed? Edge cases covered |
+| Scalability | Works at 10x current scale. Composable, not brittle. Will it buckle at 50 more targets? |
+| Hanging threads | No TODOs, temp workarounds, unresolved deferrals, stale references, debug logs, backup files |
+| Data integrity | Source data matches rendered output. No stale values, no hardcoded overrides bypassing the pipeline |
+
+**Context-aware checks** — layer on based on what was built:
+
+| If the build produced... | Also verify... |
+|---|---|
+| MDX pages | UK English (-ise, -our, -re). No em dashes. All links resolve. Frontmatter complete. Voice matches audience. No questions in headings. Heading hierarchy valid |
+| Scripts | JSDoc 11-tag header complete. Type/concern/niche placement correct. Exit codes (0/1/2). Error handling present. `@usage` example works |
+| Components | 7-tag JSDoc. Mintlify constraints (no React imports, no hooks, no SSR). All consumers still render |
+| Data pipelines | Source → output match verified. No stale values. No hardcoded overrides. Health checks exist. Pipeline recovers from upstream failure |
+| GitHub Actions | Triggers fire. Secrets exist. Error reporting/issue creation works. Dry-run mode available. Concurrency groups set |
+| Governance docs | Enforcement tiers defined. Self-heal paths exist and work. Examples match actual repo implementations |
+
+**Output format:**
+
+```
+## Verification Report: [what was built]
+
+### Universal checks
+- [ ] End-to-end pipeline — [pass/fail + evidence]
+- [ ] Framework alignment — [pass/fail + evidence]
+- [ ] Self-remediation — [pass/fail + evidence]
+- [ ] Risk mitigation — [pass/fail + evidence]
+- [ ] Scalability — [pass/fail + evidence]
+- [ ] Hanging threads — [pass/fail + evidence]
+- [ ] Data integrity — [pass/fail + evidence]
+
+### [Context] checks
+- [ ] [check] — [pass/fail + evidence]
+...
+
+### Issues found
+| Issue | Severity | Routes to | Recommendation |
 |---|---|---|---|
-| **Research** | Understand the landscape holistically. (1) Web search: best practices, standards, documentation approaches for the domain. (2) Repo search: existing gold standards, frameworks, patterns to align to, current gaps, risks, unmaintainability. Both dimensions required — external best practice AND internal repo state | Research reports in `workspace/thread-outputs/research/` — one per dimension (e.g. `{topic}-best-practices-report.md`, `{topic}-repo-analysis-report.md`) | Human reviews reports before audit/design |
-| **Audit** | Inventory what exists. Classify by repo taxonomy (type/concern). Trace upstream triggers and downstream dependencies/dependants. Map each item's pipeline (Mermaid diagrams). Identify: stale, legacy, broken, placeholder, duplicate. Flag consolidation candidates. Identify frail dependencies and script risks | Audit report with full classification table + pipeline maps (Mermaid). Working directory: relevant `_workspace/` or `.github/workspace/` folder | Human reviews audit before design |
-| **Design** | Co-design with human. Produce: (1) framework-canonical — governance framework aligned to existing repo taxonomy (type/concern/niche), enforcement tiers (hard gate/soft gate/self-heal), error reporting with self-remediation and/or issue creation. (2) Template — per-item page/doc template with classification, pipeline diagram, dependencies, status, concerns. (3) Catalog index — visual overview grouped by type × concern with status indicators | Framework canonical + template + catalog structure | Human co-designs and approves before implement |
-| **Implement** | Build what was designed. Verify first instance renders/works before bulk generation. Follow approved template exactly. Populate from audit data. Restructure folders per framework | Built artefacts (pages, scripts, components, config). Folder structure matches framework spec | First instance verified before proceeding to bulk |
-| **Test** | Verify everything works. Render checks (MDX valid, Mermaid renders, imports resolve). Completeness cross-references (every source item has a corresponding output). Dependency validation (no broken references) | Verification report | All checks pass |
-| **Iterate** | Human review cycle. Present work visually (tables, trees, diagrams — not text walls). Receive feedback. Adjust template, framework, or individual items. Repeat until approved | Updated artefacts | Human approves |
-| **Test** | Re-verify after iteration changes. Same checks as first test phase | Updated verification report | All checks pass |
-| **Document** | (1) Add gold-standard example to `.claude/references/` as exemplar. (2) Update governance indexes. (3) Build self-documenting pipeline — automation that keeps outputs in sync with source (pre-commit hook, CI workflow, or generator script). Governance enforced | Reference exemplar, governance index updates, self-documenting automation pipeline | Documentation complete, pipeline runs correctly |
-| **Cleanup** | Archive deprecated/stale items per framework rules. Remove placeholders that were never completed. Execute approved consolidation merges. Streamline folder structure. Final audit pass to confirm zero drift from framework | Clean repo state, no orphans, no drift | Final audit passes |
+| [description] | P0/P1/P2 | [phase to revisit] | [action] |
+
+### Future recommendations
+1. [Concrete, prioritised, actionable]
+2. ...
+```
+
+**Gate:** Issues route back to the correct phase — implementation issue → `/build`, design flaw → `/design`, unknown → `/research`, needs human decision → present with recommendation. Verify must pass before document/cleanup.
 
 ### How to use
 
@@ -195,12 +267,14 @@ Each phase transition requires restating the outcome and getting confirmation (s
 
 ### Adapting to scope
 
-- **Quick fix:** research → implement → test → done (skip audit/design/iterate)
-- **New system:** all 9 phases, possibly across multiple sessions
+- **Quick fix:** research → implement → test → done (skip audit/design/iterate/verify)
+- **New system:** all 10 phases, possibly across multiple sessions
 - **Audit-only session:** research → audit → present findings → done
 - **Content work:** research → design (IA) → implement (write) → iterate (review) → test (render) → done
+- **Data pipeline:** research → audit → design → implement → test → iterate → test → verify (data integrity critical) → document → cleanup
+- **Governance/framework:** research → design → iterate → verify (self-remediation critical) → document → done
 
-The lifecycle is a scaffold, not a straitjacket. State which phases apply and why.
+The lifecycle is a scaffold, not a straitjacket. State which phases apply and skip the rest explicitly with reasoning.
 
 ---
 
@@ -225,7 +299,7 @@ This doesn't trace back to [outcome]. Is this a scope change, or should we refoc
 
 ## Step 3: Phase transitions
 
-When shifting between lifecycle phases (research → audit → design → implement → test → iterate → test → document → cleanup), restate the outcome and confirm:
+When shifting between lifecycle phases (research → audit → design → implement → test → iterate → test → verify → document → cleanup), restate the outcome and confirm:
 
 ```
 Outcome: [restate]
@@ -370,3 +444,4 @@ Known limitations updated after each real use.
 |---|---|---|---|---|
 | 2026-03-25 | This build session | Outcome definition, task tracking concept | Anti-drift not followed, jumped to follow-up before finishing tasks | Added to known limitations |
 | 2026-03-25 | This build session | — | Jumped to implementation on render verification (3 skill edits + CLAUDE.md) without confirming approach first | Confirms approval gate not being followed even by the session that wrote it |
+| 2026-03-31 | BL-014 redesign | Auto-derive replaces interview pattern | — | v1.4: Step 1 now reads context (session state, backlog, logs, flags) and proposes full anchor. No questions. User redirects if wrong |

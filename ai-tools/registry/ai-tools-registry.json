@@ -6460,6 +6460,1889 @@
       "status": "split-source",
       "migration_wave": "wave-3",
       "notes": "Local skill roots that do not participate in the current template-first portable lifecycle. They act as active source files and create split governance."
+    },
+    {
+      "id": "ai-skills-agent-brief-skill-md",
+      "path": "ai-tools/ai-skills/agent-brief/SKILL.md",
+      "artifact_type": "skill-root",
+      "category": "ai-skills-local",
+      "lifecycle_state": "legacy-active",
+      "current_lane": "local",
+      "target_lane": "local",
+      "canonical_source": [
+        "ai-tools/ai-skills/*/SKILL.md"
+      ],
+      "derived_outputs": [],
+      "runtime_targets": [
+        "repo-local skill use"
+      ],
+      "validators": [
+        "operations/tests/unit/skill-docs.test.js"
+      ],
+      "repair_commands": [],
+      "catalog_group": "ai-skills/local-skills",
+      "status": "split-source",
+      "migration_wave": "wave-3",
+      "notes": "Local skill roots that do not participate in the current template-first portable lifecycle. They act as active source files and create split governance."
+    },
+    {
+      "id": "ai-skills-close-skill-md",
+      "path": "ai-tools/ai-skills/close/SKILL.md",
+      "artifact_type": "skill-root",
+      "category": "ai-skills-local",
+      "lifecycle_state": "legacy-active",
+      "current_lane": "local",
+      "target_lane": "local",
+      "canonical_source": [
+        "ai-tools/ai-skills/*/SKILL.md"
+      ],
+      "derived_outputs": [],
+      "runtime_targets": [
+        "repo-local skill use"
+      ],
+      "validators": [
+        "operations/tests/unit/skill-docs.test.js"
+      ],
+      "repair_commands": [],
+      "catalog_group": "ai-skills/local-skills",
+      "status": "split-source",
+      "migration_wave": "wave-3",
+      "notes": "Local skill roots that do not participate in the current template-first portable lifecycle. They act as active source files and create split governance."
+    },
+    {
+      "id": "ai-skills-design-skill-md",
+      "path": "ai-tools/ai-skills/design/SKILL.md",
+      "artifact_type": "skill-root",
+      "category": "ai-skills-local",
+      "lifecycle_state": "legacy-active",
+      "current_lane": "local",
+      "target_lane": "local",
+      "canonical_source": [
+        "ai-tools/ai-skills/*/SKILL.md"
+      ],
+      "derived_outputs": [],
+      "runtime_targets": [
+        "repo-local skill use"
+      ],
+      "validators": [
+        "operations/tests/unit/skill-docs.test.js"
+      ],
+      "repair_commands": [],
+      "catalog_group": "ai-skills/local-skills",
+      "status": "split-source",
+      "migration_wave": "wave-3",
+      "notes": "Local skill roots that do not participate in the current template-first portable lifecycle. They act as active source files and create split governance."
+    },
+    {
+      "id": "ai-skills-diagnose-skill-md",
+      "path": "ai-tools/ai-skills/diagnose/SKILL.md",
+      "artifact_type": "skill-root",
+      "category": "ai-skills-local",
+      "lifecycle_state": "legacy-active",
+      "current_lane": "local",
+      "target_lane": "local",
+      "canonical_source": [
+        "ai-tools/ai-skills/*/SKILL.md"
+      ],
+      "derived_outputs": [],
+      "runtime_targets": [
+        "repo-local skill use"
+      ],
+      "validators": [
+        "operations/tests/unit/skill-docs.test.js"
+      ],
+      "repair_commands": [],
+      "catalog_group": "ai-skills/local-skills",
+      "status": "split-source",
+      "migration_wave": "wave-3",
+      "notes": "Local skill roots that do not participate in the current template-first portable lifecycle. They act as active source files and create split governance."
+    },
+    {
+      "id": "ai-skills-dispatch-skill-md",
+      "path": "ai-tools/ai-skills/dispatch/SKILL.md",
+      "artifact_type": "skill-root",
+      "category": "ai-skills-local",
+      "lifecycle_state": "legacy-active",
+      "current_lane": "local",
+      "target_lane": "local",
+      "canonical_source": [
+        "ai-tools/ai-skills/*/SKILL.md"
+      ],
+      "derived_outputs": [],
+      "runtime_targets": [
+        "repo-local skill use"
+      ],
+      "validators": [
+        "operations/tests/unit/skill-docs.test.js"
+      ],
+      "repair_commands": [],
+      "catalog_group": "ai-skills/local-skills",
+      "status": "split-source",
+      "migration_wave": "wave-3",
+      "notes": "Local skill roots that do not participate in the current template-first portable lifecycle. They act as active source files and create split governance."
+    },
+    {
+      "id": "ai-skills-iterate-skill-md",
+      "path": "ai-tools/ai-skills/iterate/SKILL.md",
+      "artifact_type": "skill-root",
+      "category": "ai-skills-local",
+      "lifecycle_state": "legacy-active",
+      "current_lane": "local",
+      "target_lane": "local",
+      "canonical_source": [
+        "ai-tools/ai-skills/*/SKILL.md"
+      ],
+      "derived_outputs": [],
+      "runtime_targets": [
+        "repo-local skill use"
+      ],
+      "validators": [
+        "operations/tests/unit/skill-docs.test.js"
+      ],
+      "repair_commands": [],
+      "catalog_group": "ai-skills/local-skills",
+      "status": "split-source",
+      "migration_wave": "wave-3",
+      "notes": "Local skill roots that do not participate in the current template-first portable lifecycle. They act as active source files and create split governance."
+    },
+    {
+      "id": "ai-skills-pm-skill-md",
+      "path": "ai-tools/ai-skills/pm/SKILL.md",
+      "artifact_type": "skill-root",
+      "category": "ai-skills-local",
+      "lifecycle_state": "legacy-active",
+      "current_lane": "local",
+      "target_lane": "local",
+      "canonical_source": [
+        "ai-tools/ai-skills/*/SKILL.md"
+      ],
+      "derived_outputs": [],
+      "runtime_targets": [
+        "repo-local skill use"
+      ],
+      "validators": [
+        "operations/tests/unit/skill-docs.test.js"
+      ],
+      "repair_commands": [],
+      "catalog_group": "ai-skills/local-skills",
+      "status": "split-source",
+      "migration_wave": "wave-3",
+      "notes": "Local skill roots that do not participate in the current template-first portable lifecycle. They act as active source files and create split governance."
+    },
+    {
+      "id": "ai-skills-propagate-skill-md",
+      "path": "ai-tools/ai-skills/propagate/SKILL.md",
+      "artifact_type": "skill-root",
+      "category": "ai-skills-local",
+      "lifecycle_state": "legacy-active",
+      "current_lane": "local",
+      "target_lane": "local",
+      "canonical_source": [
+        "ai-tools/ai-skills/*/SKILL.md"
+      ],
+      "derived_outputs": [],
+      "runtime_targets": [
+        "repo-local skill use"
+      ],
+      "validators": [
+        "operations/tests/unit/skill-docs.test.js"
+      ],
+      "repair_commands": [],
+      "catalog_group": "ai-skills/local-skills",
+      "status": "split-source",
+      "migration_wave": "wave-3",
+      "notes": "Local skill roots that do not participate in the current template-first portable lifecycle. They act as active source files and create split governance."
+    },
+    {
+      "id": "ai-skills-research-skill-md",
+      "path": "ai-tools/ai-skills/research/SKILL.md",
+      "artifact_type": "skill-root",
+      "category": "ai-skills-local",
+      "lifecycle_state": "legacy-active",
+      "current_lane": "local",
+      "target_lane": "local",
+      "canonical_source": [
+        "ai-tools/ai-skills/*/SKILL.md"
+      ],
+      "derived_outputs": [],
+      "runtime_targets": [
+        "repo-local skill use"
+      ],
+      "validators": [
+        "operations/tests/unit/skill-docs.test.js"
+      ],
+      "repair_commands": [],
+      "catalog_group": "ai-skills/local-skills",
+      "status": "split-source",
+      "migration_wave": "wave-3",
+      "notes": "Local skill roots that do not participate in the current template-first portable lifecycle. They act as active source files and create split governance."
+    },
+    {
+      "id": "ai-skills-thread-skill-md",
+      "path": "ai-tools/ai-skills/thread/SKILL.md",
+      "artifact_type": "skill-root",
+      "category": "ai-skills-local",
+      "lifecycle_state": "legacy-active",
+      "current_lane": "local",
+      "target_lane": "local",
+      "canonical_source": [
+        "ai-tools/ai-skills/*/SKILL.md"
+      ],
+      "derived_outputs": [],
+      "runtime_targets": [
+        "repo-local skill use"
+      ],
+      "validators": [
+        "operations/tests/unit/skill-docs.test.js"
+      ],
+      "repair_commands": [],
+      "catalog_group": "ai-skills/local-skills",
+      "status": "split-source",
+      "migration_wave": "wave-3",
+      "notes": "Local skill roots that do not participate in the current template-first portable lifecycle. They act as active source files and create split governance."
+    },
+    {
+      "id": "registry-workflows-index-mdx",
+      "path": "ai-tools/registry/workflows/index.mdx",
+      "artifact_type": "visual-library-catalog",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/*.{yml,yaml}",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/index.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated workflow catalog that links every canonical workflow visual-library page."
+    },
+    {
+      "id": "registry-workflow-auto-assign-docs-reviewers-mdx",
+      "path": "ai-tools/registry/workflows/auto-assign-docs-reviewers.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/auto-assign-docs-reviewers.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/auto-assign-docs-reviewers.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/auto-assign-docs-reviewers.yml."
+    },
+    {
+      "id": "registry-workflow-broken-links-mdx",
+      "path": "ai-tools/registry/workflows/broken-links.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/broken-links.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/broken-links.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/broken-links.yml."
+    },
+    {
+      "id": "registry-workflow-build-review-assets-mdx",
+      "path": "ai-tools/registry/workflows/build-review-assets.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/build-review-assets.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/build-review-assets.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/build-review-assets.yml."
+    },
+    {
+      "id": "registry-workflow-check-ai-companions-mdx",
+      "path": "ai-tools/registry/workflows/check-ai-companions.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/check-ai-companions.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/check-ai-companions.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/check-ai-companions.yml."
+    },
+    {
+      "id": "registry-workflow-check-docs-guide-catalogs-mdx",
+      "path": "ai-tools/registry/workflows/check-docs-guide-catalogs.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/check-docs-guide-catalogs.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/check-docs-guide-catalogs.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/check-docs-guide-catalogs.yml."
+    },
+    {
+      "id": "registry-workflow-check-docs-index-mdx",
+      "path": "ai-tools/registry/workflows/check-docs-index.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/check-docs-index.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/check-docs-index.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/check-docs-index.yml."
+    },
+    {
+      "id": "registry-workflow-close-linked-issues-docs-v2-mdx",
+      "path": "ai-tools/registry/workflows/close-linked-issues-docs-v2.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/close-linked-issues-docs-v2.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/close-linked-issues-docs-v2.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/close-linked-issues-docs-v2.yml."
+    },
+    {
+      "id": "registry-workflow-codex-governance-mdx",
+      "path": "ai-tools/registry/workflows/codex-governance.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/codex-governance.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/codex-governance.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/codex-governance.yml."
+    },
+    {
+      "id": "registry-workflow-content-health-mdx",
+      "path": "ai-tools/registry/workflows/content-health.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/content-health.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/content-health.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/content-health.yml."
+    },
+    {
+      "id": "registry-workflow-discord-issue-intake-mdx",
+      "path": "ai-tools/registry/workflows/discord-issue-intake.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/discord-issue-intake.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/discord-issue-intake.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/discord-issue-intake.yml."
+    },
+    {
+      "id": "registry-workflow-docs-v2-issue-indexer-mdx",
+      "path": "ai-tools/registry/workflows/docs-v2-issue-indexer.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/docs-v2-issue-indexer.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/docs-v2-issue-indexer.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/docs-v2-issue-indexer.yml."
+    },
+    {
+      "id": "registry-workflow-freshness-monitor-mdx",
+      "path": "ai-tools/registry/workflows/freshness-monitor.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/freshness-monitor.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/freshness-monitor.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/freshness-monitor.yml."
+    },
+    {
+      "id": "registry-workflow-generate-ai-companions-mdx",
+      "path": "ai-tools/registry/workflows/generate-ai-companions.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/generate-ai-companions.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/generate-ai-companions.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/generate-ai-companions.yml."
+    },
+    {
+      "id": "registry-workflow-generate-ai-sitemap-mdx",
+      "path": "ai-tools/registry/workflows/generate-ai-sitemap.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/generate-ai-sitemap.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/generate-ai-sitemap.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/generate-ai-sitemap.yml."
+    },
+    {
+      "id": "registry-workflow-generate-component-registry-mdx",
+      "path": "ai-tools/registry/workflows/generate-component-registry.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/generate-component-registry.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/generate-component-registry.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/generate-component-registry.yml."
+    },
+    {
+      "id": "registry-workflow-generate-docs-guide-catalogs-mdx",
+      "path": "ai-tools/registry/workflows/generate-docs-guide-catalogs.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/generate-docs-guide-catalogs.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/generate-docs-guide-catalogs.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/generate-docs-guide-catalogs.yml."
+    },
+    {
+      "id": "registry-workflow-generate-docs-index-mdx",
+      "path": "ai-tools/registry/workflows/generate-docs-index.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/generate-docs-index.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/generate-docs-index.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/generate-docs-index.yml."
+    },
+    {
+      "id": "registry-workflow-generate-llms-files-mdx",
+      "path": "ai-tools/registry/workflows/generate-llms-files.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/generate-llms-files.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/generate-llms-files.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/generate-llms-files.yml."
+    },
+    {
+      "id": "registry-workflow-generate-review-table-mdx",
+      "path": "ai-tools/registry/workflows/generate-review-table.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/generate-review-table.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/generate-review-table.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/generate-review-table.yml."
+    },
+    {
+      "id": "registry-workflow-governance-sync-mdx",
+      "path": "ai-tools/registry/workflows/governance-sync.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/governance-sync.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/governance-sync.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/governance-sync.yml."
+    },
+    {
+      "id": "registry-workflow-issue-auto-label-mdx",
+      "path": "ai-tools/registry/workflows/issue-auto-label.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/issue-auto-label.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/issue-auto-label.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/issue-auto-label.yml."
+    },
+    {
+      "id": "registry-workflow-openapi-reference-validation-mdx",
+      "path": "ai-tools/registry/workflows/openapi-reference-validation.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/openapi-reference-validation.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/openapi-reference-validation.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/openapi-reference-validation.yml."
+    },
+    {
+      "id": "registry-workflow-project-showcase-sync-mdx",
+      "path": "ai-tools/registry/workflows/project-showcase-sync.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/project-showcase-sync.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/project-showcase-sync.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/project-showcase-sync.yml."
+    },
+    {
+      "id": "registry-workflow-repair-governance-mdx",
+      "path": "ai-tools/registry/workflows/repair-governance.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/repair-governance.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/repair-governance.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/repair-governance.yml."
+    },
+    {
+      "id": "registry-workflow-sdk-generation-mdx",
+      "path": "ai-tools/registry/workflows/sdk_generation.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/sdk_generation.yaml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/sdk_generation.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/sdk_generation.yaml."
+    },
+    {
+      "id": "registry-workflow-seo-refresh-mdx",
+      "path": "ai-tools/registry/workflows/seo-refresh.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/seo-refresh.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/seo-refresh.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/seo-refresh.yml."
+    },
+    {
+      "id": "registry-workflow-style-homogenise-mdx",
+      "path": "ai-tools/registry/workflows/style-homogenise.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/style-homogenise.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/style-homogenise.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/style-homogenise.yml."
+    },
+    {
+      "id": "registry-workflow-sync-large-assets-mdx",
+      "path": "ai-tools/registry/workflows/sync-large-assets.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/sync-large-assets.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/sync-large-assets.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/sync-large-assets.yml."
+    },
+    {
+      "id": "registry-workflow-tasks-retention-mdx",
+      "path": "ai-tools/registry/workflows/tasks-retention.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/tasks-retention.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/tasks-retention.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/tasks-retention.yml."
+    },
+    {
+      "id": "registry-workflow-test-suite-mdx",
+      "path": "ai-tools/registry/workflows/test-suite.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/test-suite.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/test-suite.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/test-suite.yml."
+    },
+    {
+      "id": "registry-workflow-test-v2-pages-mdx",
+      "path": "ai-tools/registry/workflows/test-v2-pages.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/test-v2-pages.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/test-v2-pages.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/test-v2-pages.yml."
+    },
+    {
+      "id": "registry-workflow-translate-docs-mdx",
+      "path": "ai-tools/registry/workflows/translate-docs.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/translate-docs.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/translate-docs.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/translate-docs.yml."
+    },
+    {
+      "id": "registry-workflow-update-blog-data-mdx",
+      "path": "ai-tools/registry/workflows/update-blog-data.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/update-blog-data.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/update-blog-data.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/update-blog-data.yml."
+    },
+    {
+      "id": "registry-workflow-update-changelogs-mdx",
+      "path": "ai-tools/registry/workflows/update-changelogs.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/update-changelogs.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/update-changelogs.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/update-changelogs.yml."
+    },
+    {
+      "id": "registry-workflow-update-contract-addresses-mdx",
+      "path": "ai-tools/registry/workflows/update-contract-addresses.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/update-contract-addresses.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/update-contract-addresses.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/update-contract-addresses.yml."
+    },
+    {
+      "id": "registry-workflow-update-discord-data-mdx",
+      "path": "ai-tools/registry/workflows/update-discord-data.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/update-discord-data.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/update-discord-data.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/update-discord-data.yml."
+    },
+    {
+      "id": "registry-workflow-update-forum-data-mdx",
+      "path": "ai-tools/registry/workflows/update-forum-data.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/update-forum-data.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/update-forum-data.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/update-forum-data.yml."
+    },
+    {
+      "id": "registry-workflow-update-ghost-blog-data-mdx",
+      "path": "ai-tools/registry/workflows/update-ghost-blog-data.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/update-ghost-blog-data.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/update-ghost-blog-data.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/update-ghost-blog-data.yml."
+    },
+    {
+      "id": "registry-workflow-update-github-data-mdx",
+      "path": "ai-tools/registry/workflows/update-github-data.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/update-github-data.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/update-github-data.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/update-github-data.yml."
+    },
+    {
+      "id": "registry-workflow-update-livepeer-release-mdx",
+      "path": "ai-tools/registry/workflows/update-livepeer-release.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/update-livepeer-release.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/update-livepeer-release.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/update-livepeer-release.yml."
+    },
+    {
+      "id": "registry-workflow-update-review-template-mdx",
+      "path": "ai-tools/registry/workflows/update-review-template.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/update-review-template.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/update-review-template.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/update-review-template.yml."
+    },
+    {
+      "id": "registry-workflow-update-rss-blog-data-mdx",
+      "path": "ai-tools/registry/workflows/update-rss-blog-data.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/update-rss-blog-data.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/update-rss-blog-data.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/update-rss-blog-data.yml."
+    },
+    {
+      "id": "registry-workflow-update-youtube-data-mdx",
+      "path": "ai-tools/registry/workflows/update-youtube-data.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/update-youtube-data.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/update-youtube-data.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/update-youtube-data.yml."
+    },
+    {
+      "id": "registry-workflow-v2-external-link-audit-mdx",
+      "path": "ai-tools/registry/workflows/v2-external-link-audit.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/v2-external-link-audit.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/v2-external-link-audit.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/v2-external-link-audit.yml."
+    },
+    {
+      "id": "registry-workflow-verify-ai-sitemap-mdx",
+      "path": "ai-tools/registry/workflows/verify-ai-sitemap.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/verify-ai-sitemap.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/verify-ai-sitemap.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/verify-ai-sitemap.yml."
+    },
+    {
+      "id": "registry-workflow-verify-llms-files-mdx",
+      "path": "ai-tools/registry/workflows/verify-llms-files.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/verify-llms-files.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/verify-llms-files.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/verify-llms-files.yml."
+    },
+    {
+      "id": "registry-dispatchers-index-mdx",
+      "path": "ai-tools/registry/dispatchers/index.mdx",
+      "artifact_type": "visual-library-catalog",
+      "category": "dispatcher-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        "workspace/plan/active/AI-TOOLS-GOVERNANCE/architecture-audit.md",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/dispatchers/index.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated dispatcher catalog for the phase-1 governed dispatcher family."
+    },
+    {
+      "id": "registry-dispatcher-research-review-packet-mdx",
+      "path": "ai-tools/registry/dispatchers/research-review-packet.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "dispatcher-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        "workspace/plan/active/AI-TOOLS-GOVERNANCE/architecture-audit.md",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/dispatchers/research-review-packet.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical dispatcher detail page for research-review-packet."
+    },
+    {
+      "id": "registry-dispatcher-review-fix-mdx",
+      "path": "ai-tools/registry/dispatchers/review-fix.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "dispatcher-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        "workspace/plan/active/AI-TOOLS-GOVERNANCE/architecture-audit.md",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/dispatchers/review-fix.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical dispatcher detail page for review-fix."
+    },
+    {
+      "id": "registry-dispatcher-handover-readiness-mdx",
+      "path": "ai-tools/registry/dispatchers/handover-readiness.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "dispatcher-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        "workspace/plan/active/AI-TOOLS-GOVERNANCE/architecture-audit.md",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/dispatchers/handover-readiness.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical dispatcher detail page for handover-readiness."
+    },
+    {
+      "id": "registry-dispatcher-page-ship-mdx",
+      "path": "ai-tools/registry/dispatchers/page-ship.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "dispatcher-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        "workspace/plan/active/AI-TOOLS-GOVERNANCE/architecture-audit.md",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/dispatchers/page-ship.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical dispatcher detail page for page-ship."
+    },
+    {
+      "id": "registry-dispatcher-repo-cleanup-handover-mdx",
+      "path": "ai-tools/registry/dispatchers/repo-cleanup-handover.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "dispatcher-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        "workspace/plan/active/AI-TOOLS-GOVERNANCE/architecture-audit.md",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/dispatchers/repo-cleanup-handover.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical dispatcher detail page for repo-cleanup-handover."
     }
   ]
 }

@@ -148,9 +148,9 @@ export const contractAddresses = {
           "deployedBy": "Livepeer Deployer",
           "notes": null,
           "holderCount": "245,861",
-          "transactionCount": 127233,
+          "transactionCount": 127236,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "30 Mar 2026",
+          "lastActiveDate": "31 Mar 2026",
           "blockscoutLabel": "Livepeer",
           "registeredInController": true,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -160,21 +160,21 @@ export const contractAddresses = {
           "deployedAtISO": "2022-02-11T13:19:54.000Z",
           "tokenTransferCount": 20,
           "validationsCount": 0,
-          "totalSupply": "31728452593822505618023501",
+          "totalSupply": "31760035937375890105669644",
           "decimals": "18",
           "symbol": "LPT",
-          "lastActiveDateISO": "2026-03-29T22:52:48.000Z",
+          "lastActiveDateISO": "2026-03-30T14:14:29.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": false,
           "language": "solidity",
           "sourceVerifiedAt": "8 Oct 2024",
           "keccakHash": "0x3443e257065fe41dd0e4d1f5a1b73a22a62e300962b57f30cddf41d0f8273ba7",
           "repoIsPrivate": false,
-          "transactionsRecent": 21
+          "transactionsRecent": 3
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z"
       },
       {
         "name": "BondingVotes",
@@ -214,8 +214,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z"
       },
       {
         "name": "BondingVotes",
@@ -254,8 +254,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z"
       },
       {
         "name": "Governor",
@@ -263,8 +263,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "governance",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z",
         "meta": {
           "blockscoutLabel": "Governor",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -324,8 +324,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z"
       },
       {
         "name": "LivepeerGovernor",
@@ -342,9 +342,9 @@ export const contractAddresses = {
           "deployedBy": null,
           "notes": null,
           "holderCount": null,
-          "transactionCount": 2935,
+          "transactionCount": 2936,
           "deployedAt": "12 Oct 2023",
-          "lastActiveDate": "30 Mar 2026",
+          "lastActiveDate": "31 Mar 2026",
           "blockscoutLabel": "ManagerProxy",
           "registeredInController": true,
           "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
@@ -354,7 +354,7 @@ export const contractAddresses = {
           "deployedAtISO": "2023-10-11T22:24:42.000Z",
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "lastActiveDateISO": "2026-03-29T20:02:22.000Z",
+          "lastActiveDateISO": "2026-03-30T13:09:50.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
@@ -362,11 +362,11 @@ export const contractAddresses = {
           "proxyTarget": "0xd2ce37bcb287cadc40647f567c2d3c4220901634",
           "keccakHash": "0xaea11c65571dd8b6188d3a5cf5e5d3d4695845e6f217cad0b453b4e276c6cdcd",
           "repoIsPrivate": false,
-          "transactionsRecent": 3
+          "transactionsRecent": 1
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z"
       },
       {
         "name": "MerkleSnapshot",
@@ -374,8 +374,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "governance",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z",
         "meta": {
           "blockscoutLabel": "MerkleSnapshot",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -404,8 +404,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "governance",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z",
         "meta": {
           "blockscoutLabel": "PollCreator",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -465,8 +465,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z"
       },
       {
         "name": "L2LPTDataCache",
@@ -505,8 +505,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z"
       },
       {
         "name": "L2LPTGateway",
@@ -525,7 +525,7 @@ export const contractAddresses = {
           "holderCount": null,
           "transactionCount": 5337,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "28 Mar 2026",
+          "lastActiveDate": "30 Mar 2026",
           "blockscoutLabel": "L2LPTGateway",
           "registeredInController": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -535,7 +535,7 @@ export const contractAddresses = {
           "deployedAtISO": "2022-02-11T16:13:02.000Z",
           "tokenTransferCount": 3,
           "validationsCount": 0,
-          "lastActiveDateISO": "2026-03-27T19:35:05.000Z",
+          "lastActiveDateISO": "2026-03-30T12:00:41.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": false,
           "language": "solidity",
@@ -545,8 +545,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z"
       },
       {
         "name": "L2Migrator",
@@ -565,17 +565,17 @@ export const contractAddresses = {
           "holderCount": null,
           "transactionCount": 1754,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "26 Feb 2026",
+          "lastActiveDate": "30 Mar 2026",
           "blockscoutLabel": "ManagerProxy",
           "registeredInController": true,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
-          "balance": "6714553677304630049",
+          "balance": "6714546397396733235",
           "deployedAtISO": "2022-02-11T16:15:34.000Z",
           "tokenTransferCount": 325,
           "validationsCount": 0,
-          "lastActiveDateISO": "2026-02-25T19:51:45.000Z",
+          "lastActiveDateISO": "2026-03-30T00:08:37.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": false,
           "language": "solidity",
@@ -586,8 +586,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z"
       },
       {
         "name": "L2Migrator",
@@ -595,8 +595,8 @@ export const contractAddresses = {
         "type": "target",
         "category": "bridge",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z",
         "meta": {
           "blockscoutLabel": "L2Migrator",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -624,8 +624,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "utility",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z",
         "meta": {
           "blockscoutLabel": "SortedDoublyLL",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -655,8 +655,8 @@ export const contractAddresses = {
         "category": "core",
         "_note": "Detached from controller",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z",
         "meta": {
           "blockscoutLabel": "ServiceRegistry",
           "creatorAddress": "0xF5282864EC36871c36BF682aFE1C3f180D4f7902",
@@ -665,7 +665,7 @@ export const contractAddresses = {
           "balance": "0",
           "deployedAt": "18 Apr 2024",
           "deployedAtISO": "2024-04-17T15:16:57.000Z",
-          "transactionCount": 172,
+          "transactionCount": 173,
           "tokenTransferCount": 1,
           "validationsCount": 0,
           "lastActiveDate": "30 Mar 2026",
@@ -675,7 +675,7 @@ export const contractAddresses = {
           "language": "solidity",
           "sourceVerifiedAt": "23 Jul 2024",
           "keccakHash": "0x708d071449926f2d3af17f15cb9f54ed8b3886a1ef57c3059438aa0ca4d710d0",
-          "transactionsRecent": 0
+          "transactionsRecent": 1
         }
       },
       {
@@ -693,9 +693,9 @@ export const contractAddresses = {
           "deployedBy": null,
           "notes": null,
           "holderCount": null,
-          "transactionCount": 224127,
+          "transactionCount": 224146,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "30 Mar 2026",
+          "lastActiveDate": "31 Mar 2026",
           "blockscoutLabel": "ManagerProxy",
           "registeredInController": true,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -705,7 +705,7 @@ export const contractAddresses = {
           "deployedAtISO": "2022-02-11T13:25:10.000Z",
           "tokenTransferCount": 7,
           "validationsCount": 0,
-          "lastActiveDateISO": "2026-03-29T22:59:40.000Z",
+          "lastActiveDateISO": "2026-03-30T14:47:48.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
@@ -713,11 +713,11 @@ export const contractAddresses = {
           "proxyTarget": "0x363cdb9bae210ef182c60b5a496139e980330127",
           "keccakHash": "0x2517d59a36a86548e38734e8ab416f42afff4bca78706a66ad65750dae7f9e37",
           "repoIsPrivate": false,
-          "transactionsRecent": 106
+          "transactionsRecent": 19
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z"
       },
       {
         "name": "Controller",
@@ -756,8 +756,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z"
       },
       {
         "name": "DelegatorPool",
@@ -765,8 +765,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "core",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z",
         "meta": {
           "blockscoutLabel": "DelegatorPool",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -826,8 +826,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z"
       },
       {
         "name": "Minter",
@@ -853,9 +853,9 @@ export const contractAddresses = {
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
-          "balance": "174883115689112262423",
+          "balance": "174257564361724737063",
           "deployedAtISO": "2022-02-17T15:50:01.000Z",
-          "tokenTransferCount": 248217,
+          "tokenTransferCount": 248229,
           "validationsCount": 0,
           "lastActiveDateISO": "2024-01-31T21:28:22.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
@@ -867,8 +867,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z"
       },
       {
         "name": "RoundsManager",
@@ -897,7 +897,7 @@ export const contractAddresses = {
           "deployedAtISO": "2022-02-11T13:25:54.000Z",
           "tokenTransferCount": 2,
           "validationsCount": 0,
-          "lastActiveDateISO": "2026-03-29T15:19:45.000Z",
+          "lastActiveDateISO": "2026-03-30T12:39:54.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
@@ -905,11 +905,11 @@ export const contractAddresses = {
           "proxyTarget": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
           "keccakHash": "0xe8438ea868df48e3fc21f2f087b993c9b1837dc0f6135064161ce7d7a1701fe8",
           "repoIsPrivate": false,
-          "transactionsRecent": 2
+          "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z"
       },
       {
         "name": "RoundsManager",
@@ -917,8 +917,8 @@ export const contractAddresses = {
         "type": "target",
         "category": "core",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z",
         "meta": {
           "blockscoutLabel": "RoundsManager",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -946,8 +946,8 @@ export const contractAddresses = {
         "type": "proxy",
         "category": "core",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z",
         "meta": {
           "blockscoutLabel": "ManagerProxy",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -977,8 +977,8 @@ export const contractAddresses = {
         "type": "target",
         "category": "core",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z",
         "meta": {
           "blockscoutLabel": "ServiceRegistry",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1006,8 +1006,8 @@ export const contractAddresses = {
         "type": "proxy",
         "category": "core",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:56:53.009Z",
         "meta": {
           "blockscoutLabel": "ManagerProxy",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1016,11 +1016,11 @@ export const contractAddresses = {
           "balance": "0",
           "deployedAt": "12 Feb 2022",
           "deployedAtISO": "2022-02-11T13:24:06.000Z",
-          "transactionCount": 286881,
+          "transactionCount": 286976,
           "tokenTransferCount": 12,
           "validationsCount": 0,
-          "lastActiveDate": "30 Mar 2026",
-          "lastActiveDateISO": "2026-03-29T23:03:05.000Z",
+          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDateISO": "2026-03-30T15:04:00.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
@@ -1028,7 +1028,7 @@ export const contractAddresses = {
           "proxyTarget": "0xd906d192e2503aafd1bc5f5fc4163e842d5b1d6e",
           "keccakHash": "0xbd1aa3e8d2464256d7fd3dcf645c16418d5d8c51d971f1ad7d57e7b1b5eee239",
           "registeredInController": true,
-          "transactionsRecent": 194
+          "transactionsRecent": 95
         }
       }
     ],
@@ -1321,8 +1321,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z"
       },
       {
         "name": "LivepeerToken",
@@ -1330,8 +1330,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "token",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "Livepeer",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1340,22 +1340,22 @@ export const contractAddresses = {
           "balance": "0",
           "deployedAt": "1 May 2018",
           "deployedAtISO": "2018-04-30T20:03:51.000Z",
-          "transactionCount": 1010420,
+          "transactionCount": 1010457,
           "tokenTransferCount": 713148,
           "validationsCount": 0,
-          "holderCount": "1,887,679",
+          "holderCount": "1,887,473",
           "totalSupply": "24918514377941353891894504",
           "decimals": "18",
           "symbol": "LPT",
-          "lastActiveDate": "30 Mar 2026",
-          "lastActiveDateISO": "2026-03-29T23:03:23.000Z",
+          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDateISO": "2026-03-30T15:01:23.000Z",
           "compilerVersion": "v0.4.18+commit.9cf6e910",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "19 Apr 2019",
           "keccakHash": "0x3443e257065fe41dd0e4d1f5a1b73a22a62e300962b57f30cddf41d0f8273ba7",
           "registeredInController": false,
-          "transactionsRecent": 75
+          "transactionsRecent": 37
         }
       },
       {
@@ -1364,8 +1364,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "governance",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "Governor",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1394,8 +1394,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "governance",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "MerkleSnapshot",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1424,8 +1424,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "governance",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "PollCreator",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1454,8 +1454,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "bridge",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "L1Escrow",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1515,8 +1515,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z"
       },
       {
         "name": "L1LPTGateway",
@@ -1555,8 +1555,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z"
       },
       {
         "name": "L1Migrator",
@@ -1595,8 +1595,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z"
       },
       {
         "name": "GenesisManager",
@@ -1604,8 +1604,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "utility",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "GenesisManager",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1634,8 +1634,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "utility",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "MerkleMine",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1664,8 +1664,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "utility",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "MultiMerkleMine",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1694,8 +1694,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "utility",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "Refunder",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1724,8 +1724,8 @@ export const contractAddresses = {
         "type": "standalone",
         "category": "utility",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "SortedDoublyLL",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1754,8 +1754,8 @@ export const contractAddresses = {
         "type": "proxy",
         "category": "core",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "ManagerProxy",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1785,8 +1785,8 @@ export const contractAddresses = {
         "type": "target",
         "category": "core",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "BondingManager",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1846,8 +1846,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z"
       },
       {
         "name": "Minter",
@@ -1886,8 +1886,8 @@ export const contractAddresses = {
           "transactionsRecent": 0
         },
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z"
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z"
       },
       {
         "name": "RoundsManager",
@@ -1895,8 +1895,8 @@ export const contractAddresses = {
         "type": "proxy",
         "category": "core",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "ManagerProxy",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1926,8 +1926,8 @@ export const contractAddresses = {
         "type": "target",
         "category": "core",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "RoundsManager",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1956,8 +1956,8 @@ export const contractAddresses = {
         "type": "proxy",
         "category": "core",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "ManagerProxy",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1987,8 +1987,8 @@ export const contractAddresses = {
         "type": "target",
         "category": "core",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "ServiceRegistry",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -2017,8 +2017,8 @@ export const contractAddresses = {
         "type": "proxy",
         "category": "core",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "ManagerProxy",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -2048,8 +2048,8 @@ export const contractAddresses = {
         "type": "target",
         "category": "core",
         "verified": true,
-        "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
+        "verifiedAt": "31 Mar 2026",
+        "verifiedAtISO": "2026-03-30T14:57:18.897Z",
         "meta": {
           "blockscoutLabel": "TicketBroker",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -2384,8 +2384,8 @@ export const contractAddresses = {
     }
   },
   "meta": {
-    "lastUpdated": "2026-03-29T23:12:55.767Z",
-    "lastVerified": "30 Mar 2026",
+    "lastUpdated": "2026-03-30T15:11:00.905Z",
+    "lastVerified": "31 Mar 2026",
     "sourceRepo": "livepeer/governor-scripts",
     "sourceCommit": "2cb192a",
     "verificationSummary": "25/25 Arbitrum, 24/24 Mainnet",

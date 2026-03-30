@@ -34,6 +34,26 @@ const SUPPORTED_LOCALES = ["en", "es", "fr", "cn"];
 const RASTER_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp"]);
 const LOCAL_ASSET_ROOTS = ["/snippets/assets/"];
 
+/**
+ * Page-level OG image overrides. Routes listed here get their own OG image
+ * instead of the section-level fallback. The label is used as the hero text
+ * on the generated image. Add entries here for high-value reference pages.
+ */
+const PAGE_OVERRIDES = {
+  "v2/about/resources/livepeer-contract-addresses": {
+    label: "Livepeer Contract Addresses",
+    subtitle: "Verified On-Chain \u00b7 Automatically Updated",
+  },
+  "v2/about/resources/blockchain-contracts": {
+    label: "Blockchain Contracts",
+    subtitle: "Protocol Architecture Overview",
+  },
+  "v2/about/livepeer-protocol/blockchain-contracts": {
+    label: "Blockchain Contracts",
+    subtitle: "Architecture \u00b7 Interactions \u00b7 Governance",
+  },
+};
+
 const LOCALIZED_TAB_LABELS = {
   en: {
     home: "Home",
@@ -280,6 +300,26 @@ function buildManifestFromTabs(tabDefinitions) {
     });
   });
 
+  // Page-level override assets
+  Object.entries(PAGE_OVERRIDES).forEach(([route, override]) => {
+    const slug = slugifyLabel(override.label);
+    SUPPORTED_LOCALES.forEach((locale) => {
+      assets.push({
+        kind: "page",
+        locale,
+        sectionId: slug,
+        sourceRoute: route,
+        label: override.label,
+        subtitle: override.subtitle || "",
+        path: path.posix.join("/", OG_IMAGE_DIR, locale, `page-${slug}.png`),
+        type: OG_IMAGE_TYPE,
+        width: OG_IMAGE_WIDTH,
+        height: OG_IMAGE_HEIGHT,
+        alt: `Livepeer Docs social preview image for ${override.label}`,
+      });
+    });
+  });
+
   return {
     version: 1,
     outputDir: `/${OG_IMAGE_DIR}`,
@@ -374,10 +414,19 @@ function resolveOgImageForFile(filePath, context = createOgImagePolicyContext())
   const locale = getLocaleFromRepoPath(repoPath);
   const sourceRoute = toSourceRouteKey(repoPath);
   const tabDefinition = context.routeMap.get(sourceRoute) || null;
-  const asset =
-    tabDefinition && repoPath.startsWith("v2/")
+
+  // Page-level override takes priority over section-level
+  const pageOverride = PAGE_OVERRIDES[sourceRoute] || null;
+  const pageAsset = pageOverride
+    ? context.manifest.assets.find(
+        (a) => a.kind === "page" && a.sourceRoute === sourceRoute && a.locale === locale,
+      )
+    : null;
+
+  const asset = pageAsset
+    || (tabDefinition && repoPath.startsWith("v2/")
       ? getSectionAssetEntry(context, tabDefinition.id, locale)
-      : context.manifest.fallback;
+      : context.manifest.fallback);
 
   return {
     filePath: absolutePath,
@@ -432,6 +481,7 @@ module.exports = {
   OG_IMAGE_HEIGHT,
   OG_IMAGE_TYPE,
   OG_IMAGE_WIDTH,
+  PAGE_OVERRIDES,
   RASTER_EXTENSIONS,
   SUPPORTED_LOCALES,
   buildDocsRouteMap,

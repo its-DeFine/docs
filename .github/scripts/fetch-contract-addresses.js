@@ -39,7 +39,7 @@
  *   snippets/data/contract-addresses/contractAddressesData.jsx   Main data file (JSX export)
  *   snippets/data/contract-addresses/contractAddressesData.json  Companion JSON (SEO/AI)
  *   snippets/data/contract-addresses/_health-checks.json         Health check + source validation
- *   v2/about/resources/livepeer-contract-addresses-data.json     Public companion JSON
+ *   snippets/composables/pages/reference/livepeer-contract-addresses-data.json  Public companion JSON
  *
  * ── ENRICHMENT SOURCES ────────────────────────────────────────────────────────
  *
@@ -105,6 +105,7 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const { keccak256 } = require("js-sha3");
+const { sanitiseForMdx } = require(path.resolve(__dirname, "../../operations/scripts/config/mdx-sanitise"));
 
 // ── Config ──────────────────────────────────────────────────────────────────
 const REPO_ROOT = path.resolve(__dirname, "../..");
@@ -163,10 +164,10 @@ const CONTRACT_REGISTRY = {
   L2LPTGateway:      { repoSrc: "livepeer/arbitrum-lpt-bridge@main", solPath: "contracts/L2/gateway/L2LPTGateway.sol",   meta: { statusLabel: "Active", deployedBy: null, notes: null } },
   L1LPTGateway:      { repoSrc: "livepeer/arbitrum-lpt-bridge@main", solPath: "contracts/L1/gateway/L1LPTGateway.sol",   meta: { statusLabel: "Active", deployedBy: null, notes: null } },
   L1Escrow:          { repoSrc: "livepeer/arbitrum-lpt-bridge@main", solPath: "contracts/L1/escrow/L1Escrow.sol",         meta: { statusLabel: "Active", deployedBy: null, notes: "Holds bridged LPT" } },
-  L2Migrator:        { repoSrc: "livepeer/protocol@delta", solPath: "contracts/L2/L2Migrator.sol",                       meta: { statusLabel: "Migration complete", deployedBy: null, notes: "Still processing pending claimStake calls" } },
-  L1Migrator:        { repoSrc: "livepeer/protocol@delta", solPath: "contracts/L1/L1Migrator.sol",                       meta: { statusLabel: "Migration complete", deployedBy: null, notes: null } },
-  L2LPTDataCache:    { repoSrc: "livepeer/arbitrum-lpt-bridge@main", solPath: "contracts/L2/L2LPTDataCache.sol",          meta: { statusLabel: "Active", deployedBy: null, notes: null } },
-  L1LPTDataCache:    { repoSrc: "livepeer/arbitrum-lpt-bridge@main", solPath: "contracts/L1/L1LPTDataCache.sol",          meta: { statusLabel: "Active", deployedBy: null, notes: null } },
+  L2Migrator:        { repoSrc: null, solPath: null,                                                                     meta: { statusLabel: "Migration complete", deployedBy: null, notes: "Still processing pending claimStake calls. Source removed from repos after migration." } },
+  L1Migrator:        { repoSrc: null, solPath: null,                                                                     meta: { statusLabel: "Migration complete", deployedBy: null, notes: "Source removed from repos after migration." } },
+  L2LPTDataCache:    { repoSrc: null, solPath: null,                                                                     meta: { statusLabel: "Active", deployedBy: null, notes: "Source removed from repos. Verified on-chain only." } },
+  L1LPTDataCache:    { repoSrc: null, solPath: null,                                                                     meta: { statusLabel: "Active", deployedBy: null, notes: "Source removed from repos. Verified on-chain only." } },
   SortedDoublyLL:    { repoSrc: "livepeer/protocol@delta", solPath: "contracts/libraries/SortedDoublyLL.sol",             meta: { statusLabel: "Active", deployedBy: null, notes: "Library" } },
   GenesisManager:    { repoSrc: "livepeer/protocol@master", solPath: "contracts/GenesisManager.sol",                      meta: { statusLabel: "Active", deployedBy: null, notes: "Genesis-era" } },
   MerkleMine:        { repoSrc: "livepeer/protocol@master", solPath: "contracts/token/MerkleMine.sol",                    meta: { statusLabel: "Active", deployedBy: null, notes: "Genesis-era" } },
@@ -975,8 +976,8 @@ function writeDataFile(data, sha) {
 
   // Write companion JSON — static mirror for SEO/AI crawlers
   // Crawlers can't read client-rendered JSX; this plain JSON is crawlable at
-  // docs.livepeer.org/v2/about/resources/livepeer-contract-addresses-data.json
-  const companionPath = path.join(REPO_ROOT, "v2/about/resources/livepeer-contract-addresses-data.json");
+  // Composable imports this; wrapper pages import the composable
+  const companionPath = path.join(REPO_ROOT, "snippets/composables/pages/reference/livepeer-contract-addresses-data.json");
   const companionData = {
     _generated: { by: "fetch-contract-addresses.js", at: now, source: `${GOVERNOR_REPO} (${sha})` },
     arbitrumOne: {

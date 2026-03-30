@@ -4,7 +4,7 @@
  * @concern testing
  * @niche render/page
  * @description CP-6: Verifies both contract-addresses pages render fully — table, search input,
- *              and at least one address row. Confirms useState fix in ContractAddressDisplay.jsx.
+ *              and at least one address row. Validates composable + SearchTable pattern.
  * @usage node operations/tests/playwright-contract-addresses.js
  */
 
@@ -15,7 +15,7 @@ const BASE_URL = 'http://localhost:3333';
 const PAGES = [
   {
     name: 'contract-addresses (about)',
-    url: `${BASE_URL}/v2/about/resources/contract-addresses`,
+    url: `${BASE_URL}/v2/about/resources/livepeer-contract-addresses`,
   },
   {
     name: 'contract-addresses (references)',

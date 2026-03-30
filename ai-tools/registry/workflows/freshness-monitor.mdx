@@ -1,0 +1,103 @@
+---
+title: 'Pipeline Freshness Monitor'
+kind: 'workflow'
+status: 'active'
+concern: 'validation'
+source_path: '.github/workflows/freshness-monitor.yml'
+trigger_mode: 'schedule + workflow_dispatch'
+risk_level: 'medium'
+consolidation_flag: 'review for alignment with `review-fix` while preserving current schedule + workflow_dispatch trigger behavior'
+dispatcher_candidate: 'review-fix'
+last_verified: '2026-03-31'
+---
+
+{/*
+generated-file-banner: ai-tools-visual-library:v1
+Generation Script: operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js
+Purpose: AI-tools canonical visual library for workflows and dispatcher actions.
+Run when: GitHub workflows, dispatcher definitions, registry coverage, or visual-library contracts change.
+Run command: node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write
+*/}
+
+<Note>
+**Generation Script**: This file is generated from script(s): `operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js`. <br/>
+**Purpose**: AI-tools canonical visual library for workflows and dispatcher actions. <br/>
+**Run when**: GitHub workflows, dispatcher definitions, registry coverage, or visual-library contracts change. <br/>
+**Important**: Do not manually edit this file; run `node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write`. <br/>
+</Note>
+
+# Pipeline Freshness Monitor
+
+## Summary
+
+Pipeline Freshness Monitor runs on schedule, workflow_dispatch and primarily produces github step summary.
+
+## Why It Exists
+
+Govern the `.github/workflows/freshness-monitor.yml` workflow as a human-readable, visually explorable source-of-truth page inside `ai-tools/registry/workflows`.
+
+## Triggers
+
+- schedule: default event configuration
+- workflow_dispatch: default event configuration
+
+## Jobs
+
+| Job ID | Name | Runs On | Needs | Step Count |
+| --- | --- | --- | --- | --- |
+| `check-freshness` | check-freshness | `ubuntu-latest` | none | 3 |
+
+### check-freshness
+
+- `Checkout repository` | uses actions/checkout@v4
+- `Check pipeline freshness` | runs `echo "## Pipeline Freshness Report" >> "$GITHUB_STEP_SUMMARY"`
+- `Advisory warning for stale pipelines` | runs `echo "::warning::${{ steps.freshness.outputs.stale_count }} pipeline(s) are stale or missing. Review the workflow sum...`
+
+## Inputs
+
+- No explicit workflow inputs declared.
+
+## Outputs
+
+- GitHub step summary
+
+## Dependencies
+
+- action:actions/checkout@v4
+- snippets/automations/blog/ghostBlogData.jsx
+- snippets/automations/discord/discordAnnouncementsData.jsx
+- snippets/automations/forum/forumData.jsx
+- snippets/automations/globals/globals.mdx
+- snippets/automations/luma/lumaEventsData.jsx
+- snippets/automations/showcase/showcaseData.jsx
+- snippets/automations/youtube/youtubeData.jsx
+
+## Dependants
+
+- dispatcher:review-fix
+
+## Mermaid Pipeline
+
+```mermaid
+flowchart TD
+  trigger["Trigger: schedule + workflow_dispatch"]
+  workflow["Workflow: Pipeline Freshness Monitor"]
+  trigger --> workflow
+  job1["Job: check-freshness"]
+  workflow --> job1
+  outputs["Outputs: GitHub step summary"]
+  job1 --> outputs
+```
+
+## Frailty And Risk
+
+- Contains advisory steps with `continue-on-error`, so failures may be softened rather than fully blocking.
+- Scheduled execution can hide drift until the next cron window.
+
+## Consolidation Notes
+
+Dispatcher suggestion: `review-fix`. This is a governance hint for consolidation review, not a runtime rewrite instruction.
+
+## Handover Notes
+
+Use this page as the human-facing workflow brief during audits, cleanup, and handover. Promote any missing operational knowledge back into the canonical page rather than leaving it in chat.

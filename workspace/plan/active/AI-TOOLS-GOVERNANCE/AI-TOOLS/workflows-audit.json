@@ -1,0 +1,1195 @@
+[
+  {
+    "slug": "auto-assign-docs-reviewers",
+    "title": "Auto Assign Docs Reviewers",
+    "source_path": ".github/workflows/auto-assign-docs-reviewers.yml",
+    "concern": "review",
+    "trigger_mode": "pull_request",
+    "risk_level": "high",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [
+      "action:actions/github-script@v7"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "GitHub issue or PR metadata"
+    ],
+    "frailty_notes": [
+      "Current heuristic risk level is `high`; no exceptional frailty markers were detected in the file scan."
+    ]
+  },
+  {
+    "slug": "broken-links",
+    "title": "Check Broken Links",
+    "source_path": ".github/workflows/broken-links.yml",
+    "concern": "validation",
+    "trigger_mode": "pull_request + workflow_dispatch",
+    "risk_level": "medium",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "operations/scripts/automations/content/data/fetching/fetch-external-docs.sh"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "GitHub step summary"
+    ],
+    "frailty_notes": [
+      "Contains advisory steps with `continue-on-error`, so failures may be softened rather than fully blocking."
+    ]
+  },
+  {
+    "slug": "build-review-assets",
+    "title": "Build Review Assets",
+    "source_path": ".github/workflows/build-review-assets.yml",
+    "concern": "review",
+    "trigger_mode": "workflow_dispatch",
+    "risk_level": "low",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "Workflow logs and job status"
+    ],
+    "frailty_notes": [
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone."
+    ]
+  },
+  {
+    "slug": "check-ai-companions",
+    "title": "Check AI Companion Files",
+    "source_path": ".github/workflows/check-ai-companions.yml",
+    "concern": "agent-runtime",
+    "trigger_mode": "pull_request + push + workflow_dispatch",
+    "risk_level": "low",
+    "dispatcher_candidate": "handover-readiness",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "operations/scripts/generators/content/reference/generate-glossary-companions.js",
+      "operations/scripts/validators/governance/ai/check-companion-manifest.js"
+    ],
+    "dependants": [
+      "dispatcher:handover-readiness"
+    ],
+    "outputs": [
+      "Workflow logs and job status"
+    ],
+    "frailty_notes": [
+      "Current heuristic risk level is `low`; no exceptional frailty markers were detected in the file scan."
+    ]
+  },
+  {
+    "slug": "check-docs-guide-catalogs",
+    "title": "Check Docs Guide Catalogs",
+    "source_path": ".github/workflows/check-docs-guide-catalogs.yml",
+    "concern": "repo-ops",
+    "trigger_mode": "pull_request + push + workflow_dispatch",
+    "risk_level": "low",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "operations/scripts/generators/components/documentation/generate-component-docs.js",
+      "operations/scripts/generators/components/library/generate-component-examples.js",
+      "operations/scripts/generators/components/library/generate-component-registry.js",
+      "operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js",
+      "operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js",
+      "operations/scripts/validators/components/library/check-component-health.js",
+      "operations/tests/unit/quality.test.js"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "Workflow logs and job status"
+    ],
+    "frailty_notes": [
+      "Current heuristic risk level is `low`; no exceptional frailty markers were detected in the file scan."
+    ]
+  },
+  {
+    "slug": "check-docs-index",
+    "title": "Check Docs Index",
+    "source_path": ".github/workflows/check-docs-index.yml",
+    "concern": "repo-ops",
+    "trigger_mode": "pull_request + push + workflow_dispatch",
+    "risk_level": "low",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "operations/scripts/generators/content/catalogs/generate-docs-index.js"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "Workflow logs and job status"
+    ],
+    "frailty_notes": [
+      "Current heuristic risk level is `low`; no exceptional frailty markers were detected in the file scan."
+    ]
+  },
+  {
+    "slug": "close-linked-issues-docs-v2",
+    "title": "Close Linked Issues (docs-v2 Merge)",
+    "source_path": ".github/workflows/close-linked-issues-docs-v2.yml",
+    "concern": "review",
+    "trigger_mode": "pull_request",
+    "risk_level": "low",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [
+      "action:actions/github-script@v7"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "Workflow logs and job status"
+    ],
+    "frailty_notes": [
+      "Current heuristic risk level is `low`; no exceptional frailty markers were detected in the file scan."
+    ]
+  },
+  {
+    "slug": "codex-governance",
+    "title": "Codex Governance",
+    "source_path": ".github/workflows/codex-governance.yml",
+    "concern": "agent-runtime",
+    "trigger_mode": "pull_request",
+    "risk_level": "medium",
+    "dispatcher_candidate": "handover-readiness",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "operations/scripts/check-codex-pr-overlap.js",
+      "operations/scripts/validators/governance/compliance/validate-codex-task-contract.js",
+      "secret:GITHUB_TOKEN"
+    ],
+    "dependants": [
+      "dispatcher:handover-readiness"
+    ],
+    "outputs": [
+      "Workflow logs and job status"
+    ],
+    "frailty_notes": [
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
+    ]
+  },
+  {
+    "slug": "content-health",
+    "title": "Content Health Check",
+    "source_path": ".github/workflows/content-health.yml",
+    "concern": "validation",
+    "trigger_mode": "schedule + workflow_dispatch",
+    "risk_level": "medium",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "operations/scripts/audit-component-usage.js",
+      "operations/scripts/audits/components/library/scan-component-imports.js",
+      "operations/scripts/docs-quality-and-freshness-audit.js",
+      "operations/scripts/generators/components/library/generate-component-registry.js",
+      "operations/scripts/remediators/components/library/repair-component-metadata.js",
+      "operations/scripts/validators/components/library/component-layout-governance.js"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "Workflow logs and job status"
+    ],
+    "frailty_notes": [
+      "Contains advisory steps with `continue-on-error`, so failures may be softened rather than fully blocking.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "discord-issue-intake",
+    "title": "Discord Issue Intake",
+    "source_path": ".github/workflows/discord-issue-intake.yml",
+    "concern": "review",
+    "trigger_mode": "repository_dispatch",
+    "risk_level": "medium",
+    "dispatcher_candidate": "research-review-packet",
+    "dependencies": [
+      "action:actions/github-script@v7"
+    ],
+    "dependants": [
+      "dispatcher:research-review-packet"
+    ],
+    "outputs": [
+      "Workflow logs and job status"
+    ],
+    "frailty_notes": [
+      "Current heuristic risk level is `medium`; no exceptional frailty markers were detected in the file scan."
+    ]
+  },
+  {
+    "slug": "docs-v2-issue-indexer",
+    "title": "Docs v2 Issue Indexer",
+    "source_path": ".github/workflows/docs-v2-issue-indexer.yml",
+    "concern": "review",
+    "trigger_mode": "issues + schedule + workflow_dispatch",
+    "risk_level": "medium",
+    "dispatcher_candidate": "research-review-packet",
+    "dependencies": [
+      "action:actions/github-script@v7"
+    ],
+    "dependants": [
+      "dispatcher:research-review-packet"
+    ],
+    "outputs": [
+      "Workflow logs and job status"
+    ],
+    "frailty_notes": [
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "freshness-monitor",
+    "title": "Pipeline Freshness Monitor",
+    "source_path": ".github/workflows/freshness-monitor.yml",
+    "concern": "validation",
+    "trigger_mode": "schedule + workflow_dispatch",
+    "risk_level": "medium",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "snippets/automations/blog/ghostBlogData.jsx",
+      "snippets/automations/discord/discordAnnouncementsData.jsx",
+      "snippets/automations/forum/forumData.jsx",
+      "snippets/automations/globals/globals.mdx",
+      "snippets/automations/luma/lumaEventsData.jsx",
+      "snippets/automations/showcase/showcaseData.jsx",
+      "snippets/automations/youtube/youtubeData.jsx"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "GitHub step summary"
+    ],
+    "frailty_notes": [
+      "Contains advisory steps with `continue-on-error`, so failures may be softened rather than fully blocking.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "generate-ai-companions",
+    "title": "Generate AI Companion Files",
+    "source_path": ".github/workflows/generate-ai-companions.yml",
+    "concern": "agent-runtime",
+    "trigger_mode": "push + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "handover-readiness",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "operations/scripts/generators/content/reference/generate-glossary-companions.js",
+      "secret:GITHUB_TOKEN"
+    ],
+    "dependants": [
+      "dispatcher:handover-readiness"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
+    ]
+  },
+  {
+    "slug": "generate-ai-sitemap",
+    "title": "Generate AI Sitemap",
+    "source_path": ".github/workflows/generate-ai-sitemap.yml",
+    "concern": "agent-runtime",
+    "trigger_mode": "push + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "handover-readiness",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "operations/scripts/generate-ai-sitemap.js",
+      "secret:GITHUB_TOKEN"
+    ],
+    "dependants": [
+      "dispatcher:handover-readiness"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
+    ]
+  },
+  {
+    "slug": "generate-component-registry",
+    "title": "Generate Component Registry",
+    "source_path": ".github/workflows/generate-component-registry.yml",
+    "concern": "repo-ops",
+    "trigger_mode": "push + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "docs-guide/config/component-registry-schema.json",
+      "docs-guide/config/component-registry.json",
+      "operations/scripts/generators/components/library/generate-component-registry.js",
+      "secret:GITHUB_TOKEN"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
+    ]
+  },
+  {
+    "slug": "generate-docs-guide-catalogs",
+    "title": "Generate Docs Guide Catalogs",
+    "source_path": ".github/workflows/generate-docs-guide-catalogs.yml",
+    "concern": "repo-ops",
+    "trigger_mode": "push + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "docs-guide/catalog/pages-catalog.mdx",
+      "docs-guide/catalog/templates-catalog.mdx",
+      "docs-guide/catalog/workflows-catalog.mdx",
+      "operations/scripts/generators/components/documentation/generate-component-docs.js",
+      "operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js",
+      "operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js",
+      "secret:GITHUB_TOKEN"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
+    ]
+  },
+  {
+    "slug": "generate-docs-index",
+    "title": "Generate Docs Index",
+    "source_path": ".github/workflows/generate-docs-index.yml",
+    "concern": "repo-ops",
+    "trigger_mode": "push + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "operations/scripts/generators/content/catalogs/generate-docs-index.js",
+      "secret:GITHUB_TOKEN"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
+    ]
+  },
+  {
+    "slug": "generate-llms-files",
+    "title": "Generate llms.txt",
+    "source_path": ".github/workflows/generate-llms-files.yml",
+    "concern": "agent-runtime",
+    "trigger_mode": "push + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "handover-readiness",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "operations/scripts/generate-llms-files.js"
+    ],
+    "dependants": [
+      "dispatcher:handover-readiness"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk."
+    ]
+  },
+  {
+    "slug": "generate-review-table",
+    "title": "Generate Review Table",
+    "source_path": ".github/workflows/generate-review-table.yml",
+    "concern": "review",
+    "trigger_mode": "workflow_dispatch",
+    "risk_level": "low",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data"
+    ],
+    "frailty_notes": [
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone."
+    ]
+  },
+  {
+    "slug": "governance-sync",
+    "title": "Governance sync (post-merge)",
+    "source_path": ".github/workflows/governance-sync.yml",
+    "concern": "repo-ops",
+    "trigger_mode": "push",
+    "risk_level": "high",
+    "dispatcher_candidate": "repo-cleanup-handover",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "action:peter-evans/create-pull-request@v7",
+      "operations/scripts/dispatch/governance/pipelines/governance-pipeline.js",
+      "workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json"
+    ],
+    "dependants": [
+      "dispatcher:repo-cleanup-handover"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "GitHub issue or PR metadata"
+    ],
+    "frailty_notes": [
+      "Current heuristic risk level is `high`; no exceptional frailty markers were detected in the file scan."
+    ]
+  },
+  {
+    "slug": "issue-auto-label",
+    "title": "Issue Auto Label",
+    "source_path": ".github/workflows/issue-auto-label.yml",
+    "concern": "review",
+    "trigger_mode": "issues",
+    "risk_level": "low",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [
+      "action:actions/github-script@v7"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "Workflow logs and job status"
+    ],
+    "frailty_notes": [
+      "Current heuristic risk level is `low`; no exceptional frailty markers were detected in the file scan."
+    ]
+  },
+  {
+    "slug": "openapi-reference-validation",
+    "title": "OpenAPI Reference Validation",
+    "source_path": ".github/workflows/openapi-reference-validation.yml",
+    "concern": "repo-ops",
+    "trigger_mode": "pull_request + push + schedule + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/github-script@v7",
+      "action:actions/setup-node@v4",
+      "action:actions/upload-artifact@v4",
+      "action:peter-evans/create-pull-request@v6",
+      "operations/tests/integration/openapi-reference-audit.js"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "GitHub issue or PR metadata",
+      "GitHub step summary",
+      "Uploaded artifacts"
+    ],
+    "frailty_notes": [
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "project-showcase-sync",
+    "title": "Project Showcase Sync",
+    "source_path": ".github/workflows/project-showcase-sync.yml",
+    "concern": "review",
+    "trigger_mode": "repository_dispatch + schedule + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "research-review-packet",
+    "dependencies": [
+      ".github/scripts/project-showcase-sync.js",
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "secret:GITHUB_TOKEN",
+      "secret:SHOWCASE_DISCORD_BOT_TOKEN",
+      "secret:SHOWCASE_GOOGLE_SERVICE_ACCOUNT_JSON"
+    ],
+    "dependants": [
+      "dispatcher:research-review-packet"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data"
+    ],
+    "frailty_notes": [
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "repair-governance",
+    "title": "Governance Repair",
+    "source_path": ".github/workflows/repair-governance.yml",
+    "concern": "repo-ops",
+    "trigger_mode": "schedule + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "repo-cleanup-handover",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "action:actions/upload-artifact@v4",
+      "action:peter-evans/create-pull-request@v7",
+      "operations/scripts/dispatch/governance/pipelines/governance-pipeline.js",
+      "workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json"
+    ],
+    "dependants": [
+      "dispatcher:repo-cleanup-handover"
+    ],
+    "outputs": [
+      "GitHub issue or PR metadata",
+      "GitHub step summary",
+      "Uploaded artifacts"
+    ],
+    "frailty_notes": [
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "sdk_generation",
+    "title": "Generate",
+    "source_path": ".github/workflows/sdk_generation.yaml",
+    "concern": "authoring",
+    "trigger_mode": "schedule + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      "secret:GITHUB_TOKEN",
+      "secret:SPEAKEASY_API_KEY"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "GitHub issue or PR metadata"
+    ],
+    "frailty_notes": [
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "seo-refresh",
+    "title": "SEO Metadata Refresh",
+    "source_path": ".github/workflows/seo-refresh.yml",
+    "concern": "authoring",
+    "trigger_mode": "workflow_dispatch",
+    "risk_level": "low",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "operations/scripts/remediators/content/seo/generate-seo.js"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Workflow logs and job status"
+    ],
+    "frailty_notes": [
+      "Current heuristic risk level is `low`; no exceptional frailty markers were detected in the file scan."
+    ]
+  },
+  {
+    "slug": "style-homogenise",
+    "title": "EN-GB Style Homogenisation",
+    "source_path": ".github/workflows/style-homogenise.yml",
+    "concern": "validation",
+    "trigger_mode": "workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "action:peter-evans/create-pull-request@v7",
+      "operations/scripts/style-and-language-homogenizer-en-gb.js"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "GitHub issue or PR metadata"
+    ],
+    "frailty_notes": [
+      "Current heuristic risk level is `high`; no exceptional frailty markers were detected in the file scan."
+    ]
+  },
+  {
+    "slug": "sync-large-assets",
+    "title": "Sync Large Assets",
+    "source_path": ".github/workflows/sync-large-assets.yml",
+    "concern": "repo-ops",
+    "trigger_mode": "push + schedule + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "repo-cleanup-handover",
+    "dependencies": [
+      ".github/assets-manifest.txt",
+      ".github/README.md",
+      "action:actions/checkout@v4",
+      "snippets/assets",
+      "snippets/assets/",
+      "v2/assets",
+      "v2/assets/"
+    ],
+    "dependants": [
+      "dispatcher:repo-cleanup-handover"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "tasks-retention",
+    "title": "workspace/ retention enforcement",
+    "source_path": ".github/workflows/tasks-retention.yml",
+    "concern": "repo-ops",
+    "trigger_mode": "schedule + workflow_dispatch",
+    "risk_level": "medium",
+    "dispatcher_candidate": "repo-cleanup-handover",
+    "dependencies": [],
+    "dependants": [
+      "dispatcher:repo-cleanup-handover"
+    ],
+    "outputs": [
+      "Workflow logs and job status"
+    ],
+    "frailty_notes": [
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "test-suite",
+    "title": "Docs CI - Content Quality Suite",
+    "source_path": ".github/workflows/test-suite.yml",
+    "concern": "validation",
+    "trigger_mode": "pull_request + push + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "operations/scripts/automations/content/data/fetching/fetch-external-docs.sh",
+      "operations/scripts/generators/components/library/generate-component-registry.js",
+      "operations/scripts/validators/components/documentation/check-component-docs.js",
+      "operations/scripts/validators/components/library/check-component-css.js",
+      "operations/scripts/validators/components/library/check-mdx-component-scope.js",
+      "operations/scripts/validators/components/library/check-naming-conventions.js",
+      "operations/scripts/validators/governance/pr/check-component-immutability.js",
+      "secret:GITHUB_TOKEN"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "GitHub issue or PR metadata",
+      "GitHub step summary"
+    ],
+    "frailty_notes": [
+      "Uses `localhost:3000`, which conflicts with the repo baseline that forbids port 3000 for local Mintlify sessions.",
+      "Contains advisory steps with `continue-on-error`, so failures may be softened rather than fully blocking.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
+    ]
+  },
+  {
+    "slug": "test-v2-pages",
+    "title": "Docs CI - V2 Browser Sweep",
+    "source_path": ".github/workflows/test-v2-pages.yml",
+    "concern": "validation",
+    "trigger_mode": "pull_request + push + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/github-script@v7",
+      "action:actions/setup-node@v4",
+      "action:actions/upload-artifact@v4",
+      "operations/scripts/automations/content/data/fetching/fetch-external-docs.sh",
+      "tools/v2-page-test-report.json"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "GitHub issue or PR metadata",
+      "Uploaded artifacts"
+    ],
+    "frailty_notes": [
+      "Uses `localhost:3000`, which conflicts with the repo baseline that forbids port 3000 for local Mintlify sessions.",
+      "Contains advisory steps with `continue-on-error`, so failures may be softened rather than fully blocking."
+    ]
+  },
+  {
+    "slug": "translate-docs",
+    "title": "Docs Translation Pipeline",
+    "source_path": ".github/workflows/translate-docs.yml",
+    "concern": "authoring",
+    "trigger_mode": "workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "action:actions/upload-artifact@v4",
+      "action:peter-evans/create-pull-request@v7",
+      "operations/scripts/automations/content/language-translation/generate-localized-docs-json.js",
+      "operations/scripts/automations/content/language-translation/translate-docs.js",
+      "operations/scripts/automations/content/language-translation/validate-generated.js",
+      "operations/scripts/generators/content/catalogs/generate-docs-index.js",
+      "operations/tests/unit/docs-navigation.test.js",
+      "secret:OPENROUTER_API_KEY",
+      "tools/i18n/config.json",
+      "v2/cn",
+      "v2/es",
+      "v2/fr"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "GitHub issue or PR metadata",
+      "GitHub step summary",
+      "Uploaded artifacts"
+    ],
+    "frailty_notes": [
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
+    ]
+  },
+  {
+    "slug": "update-blog-data",
+    "title": "Update Blog and Forum Data",
+    "source_path": ".github/workflows/update-blog-data.yml",
+    "concern": "authoring",
+    "trigger_mode": "workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "secret:GITHUB_TOKEN",
+      "snippets/automations/",
+      "snippets/automations/blog/ghostBlogData.jsx",
+      "snippets/automations/forum/forumData.jsx"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Contains advisory steps with `continue-on-error`, so failures may be softened rather than fully blocking.",
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
+    ]
+  },
+  {
+    "slug": "update-changelogs",
+    "title": "Update Changelogs",
+    "source_path": ".github/workflows/update-changelogs.yml",
+    "concern": "authoring",
+    "trigger_mode": "repository_dispatch + schedule + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      ".github/scripts/generate-changelog.js",
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "secret:ARBISCAN_API_KEY",
+      "secret:ETHERSCAN_API_KEY",
+      "secret:GITHUB_TOKEN",
+      "secret:GITLAB_TOKEN",
+      "secret:OPENROUTER_API_KEY",
+      "v2/resources/changelog/",
+      "v2/solutions/"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Contains advisory steps with `continue-on-error`, so failures may be softened rather than fully blocking.",
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "update-contract-addresses",
+    "title": "Update Contract Addresses",
+    "source_path": ".github/workflows/update-contract-addresses.yml",
+    "concern": "authoring",
+    "trigger_mode": "repository_dispatch + schedule + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      ".github/scripts/fetch-contract-addresses.js",
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "secret:ARBISCAN_API_KEY",
+      "secret:ETHERSCAN_API_KEY",
+      "secret:GITHUB_TOKEN",
+      "snippets/data/contract-addresses/_health-checks.json",
+      "snippets/data/contract-addresses/contractAddressesData.jsx"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "GitHub issue or PR metadata",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "update-discord-data",
+    "title": "Update Discord Announcements Data",
+    "source_path": ".github/workflows/update-discord-data.yml",
+    "concern": "authoring",
+    "trigger_mode": "schedule + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      ".github/scripts/fetch-discord-announcements.js",
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "secret:DISCORD_BOT_TOKEN",
+      "secret:GITHUB_TOKEN",
+      "snippets/automations/"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "update-forum-data",
+    "title": "Update Forum Data",
+    "source_path": ".github/workflows/update-forum-data.yml",
+    "concern": "authoring",
+    "trigger_mode": "schedule + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      ".github/scripts/fetch-forum-data.js",
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "secret:GITHUB_TOKEN",
+      "snippets/automations/forum/forumData.jsx"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "update-ghost-blog-data",
+    "title": "Update Ghost Blog Data",
+    "source_path": ".github/workflows/update-ghost-blog-data.yml",
+    "concern": "authoring",
+    "trigger_mode": "schedule + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      ".github/scripts/fetch-ghost-blog-data.js",
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "secret:GITHUB_TOKEN",
+      "snippets/automations/blog/ghostBlogData.jsx"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "update-github-data",
+    "title": "Update GitHub Discussions & Releases Data",
+    "source_path": ".github/workflows/update-github-data.yml",
+    "concern": "authoring",
+    "trigger_mode": "schedule + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      ".github/scripts/fetch-github-discussions.js",
+      ".github/scripts/fetch-github-releases.js",
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "secret:GITHUB_TOKEN",
+      "snippets/automations/"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "update-livepeer-release",
+    "title": "Update Livepeer Release Version",
+    "source_path": ".github/workflows/update-livepeer-release.yml",
+    "concern": "release",
+    "trigger_mode": "repository_dispatch + schedule + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "secret:GITHUB_TOKEN",
+      "snippets/automations/globals/globals.jsx"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "update-review-template",
+    "title": "Update Review Template",
+    "source_path": ".github/workflows/update-review-template.yml",
+    "concern": "review",
+    "trigger_mode": "workflow_dispatch",
+    "risk_level": "low",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data"
+    ],
+    "frailty_notes": [
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone."
+    ]
+  },
+  {
+    "slug": "update-rss-blog-data",
+    "title": "Update RSS Blog Data",
+    "source_path": ".github/workflows/update-rss-blog-data.yml",
+    "concern": "authoring",
+    "trigger_mode": "schedule + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      ".github/scripts/fetch-rss-blog-data.js",
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "secret:GITHUB_TOKEN",
+      "snippets/automations/"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "update-youtube-data",
+    "title": "Update YouTube Data",
+    "source_path": ".github/workflows/update-youtube-data.yml",
+    "concern": "authoring",
+    "trigger_mode": "schedule + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "page-ship",
+    "dependencies": [
+      ".github/scripts/fetch-youtube-data.js",
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "secret:GITHUB_TOKEN",
+      "secret:YOUTUBE_API_KEY",
+      "snippets/automations/youtube/youtubeData.jsx"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "v2-external-link-audit",
+    "title": "V2 External Link Audit (Advisory)",
+    "source_path": ".github/workflows/v2-external-link-audit.yml",
+    "concern": "validation",
+    "trigger_mode": "schedule + workflow_dispatch",
+    "risk_level": "medium",
+    "dispatcher_candidate": "review-fix",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "action:actions/upload-artifact@v4",
+      "operations/tests/integration/v2-link-audit.js"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "GitHub step summary",
+      "Uploaded artifacts"
+    ],
+    "frailty_notes": [
+      "Contains advisory steps with `continue-on-error`, so failures may be softened rather than fully blocking.",
+      "Scheduled execution can hide drift until the next cron window."
+    ]
+  },
+  {
+    "slug": "verify-ai-sitemap",
+    "title": "Verify AI Sitemap",
+    "source_path": ".github/workflows/verify-ai-sitemap.yml",
+    "concern": "agent-runtime",
+    "trigger_mode": "pull_request + push + workflow_dispatch",
+    "risk_level": "low",
+    "dispatcher_candidate": "handover-readiness",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "operations/scripts/generate-ai-sitemap.js"
+    ],
+    "dependants": [
+      "dispatcher:handover-readiness"
+    ],
+    "outputs": [
+      "Workflow logs and job status"
+    ],
+    "frailty_notes": [
+      "Current heuristic risk level is `low`; no exceptional frailty markers were detected in the file scan."
+    ]
+  },
+  {
+    "slug": "verify-llms-files",
+    "title": "Verify llms.txt Files",
+    "source_path": ".github/workflows/verify-llms-files.yml",
+    "concern": "agent-runtime",
+    "trigger_mode": "pull_request + push + workflow_dispatch",
+    "risk_level": "low",
+    "dispatcher_candidate": "handover-readiness",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "operations/scripts/generate-llms-files.js"
+    ],
+    "dependants": [
+      "dispatcher:handover-readiness"
+    ],
+    "outputs": [
+      "Workflow logs and job status"
+    ],
+    "frailty_notes": [
+      "Current heuristic risk level is `low`; no exceptional frailty markers were detected in the file scan."
+    ]
+  }
+]

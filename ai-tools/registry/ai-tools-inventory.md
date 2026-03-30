@@ -9,7 +9,7 @@ This file is generated from `ai-tools/registry/ai-tools-registry.json`.
 - Version: 1
 - Discovery roots: `ai-tools`
 - Exclusions: _none_
-- Total artifacts: 227
+- Total artifacts: 290
 - Tracked AI-tools files covered: run `node operations/scripts/validate-ai-tools-registry.js --check --coverage` to confirm
 
 ### Current Lanes
@@ -17,8 +17,8 @@ This file is generated from `ai-tools/registry/ai-tools-registry.json`.
 | Value | Count | Notes |
 | --- | ---: | --- |
 | `exports` | 64 | Generated agent-pack manifests, adapters, and portable skill export bundles. |
-| `local` | 19 | Repo-local SKILL.md roots that are consumed in-place inside this repository. |
-| `manual-doc` | 49 | Authoritative manual docs, registry artifacts, and subsystem-scoped governance/support documents. |
+| `local` | 29 | Repo-local SKILL.md roots that are consumed in-place inside this repository. |
+| `manual-doc` | 102 | Authoritative manual docs, registry artifacts, and subsystem-scoped governance/support documents. |
 | `rules` | 16 | Legacy or imported AI rule material kept under ai-tools until later normalization. |
 | `templates` | 66 | Canonical portable-skill templates and companion bundles under the current ai-skills template roots. |
 | `workspace` | 13 | Research, package, and source-snapshot material that must stay out of canonical skill and export lanes. |
@@ -28,9 +28,9 @@ This file is generated from `ai-tools/registry/ai-tools-registry.json`.
 | Value | Count | Notes |
 | --- | ---: | --- |
 | `canonical-template` | 66 | Canonical editable source for portable skills and companion template bundles. |
-| `legacy-active` | 43 | Active legacy surfaces that are still in use but require later normalization or retirement. |
+| `legacy-active` | 53 | Active legacy surfaces that are still in use but require later normalization or retirement. |
 | `local-synced` | 4 | Repo-local skill roots that are derived from canonical portable templates. |
-| `manual-doc` | 42 | Human-readable canonical docs, registry artifacts, or subsystem-scoped governance documents. |
+| `manual-doc` | 95 | Human-readable canonical docs, registry artifacts, or subsystem-scoped governance documents. |
 | `portable-export` | 64 | Generated export artifacts derived from canonical AI-tools sources. |
 | `retired` | 8 | Historical material retained only as reference and not used by active generators or runtime flows. |
 
@@ -43,7 +43,7 @@ This file is generated from `ai-tools/registry/ai-tools-registry.json`.
 | `canonical-active` | 70 |  |
 | `contradictory-active` | 2 |  |
 | `duplicated-import` | 2 |  |
-| `generated-active` | 65 |  |
+| `generated-active` | 118 |  |
 | `misnamed-generated-output` | 2 |  |
 | `misplaced-research` | 3 |  |
 | `mixed-lifecycle` | 2 |  |
@@ -51,7 +51,7 @@ This file is generated from `ai-tools/registry/ai-tools-registry.json`.
 | `partial-governance` | 2 |  |
 | `retired` | 8 |  |
 | `snapshot-active` | 6 |  |
-| `split-source` | 15 |  |
+| `split-source` | 25 |  |
 | `unapproved-runtime-surface` | 3 |  |
 | `workspace-staging` | 3 |  |
 
@@ -132,25 +132,35 @@ This file is generated from `ai-tools/registry/ai-tools-registry.json`.
 
 | Path | Type | Lifecycle | Target lane | Status |
 | --- | --- | --- | --- | --- |
+| `ai-tools/ai-skills/agent-brief/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/cleanup-quarantine-manager/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
+| `ai-tools/ai-skills/close/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/component-layout-governance/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/content-pipeline-pass-a/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/content-pipeline-pass-b/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/content-pipeline-tab-map/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/cross-agent-packager/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
+| `ai-tools/ai-skills/design/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
+| `ai-tools/ai-skills/diagnose/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
+| `ai-tools/ai-skills/dispatch/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/docs-copy/SKILL.md` | `skill-root` | `local-synced` | `local` | `mixed-lifecycle` |
 | `ai-tools/ai-skills/docs-coverage-and-route-integrity-audit/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/docs-quality-and-freshness-audit/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/docs-review-fix-execution/SKILL.md` | `skill-root` | `local-synced` | `local` | `canonical-active` |
 | `ai-tools/ai-skills/docs-review-packet-generation/SKILL.md` | `skill-root` | `local-synced` | `local` | `canonical-active` |
 | `ai-tools/ai-skills/generated-mdx-banners-governance/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
+| `ai-tools/ai-skills/iterate/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/page-authoring/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
+| `ai-tools/ai-skills/pm/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/product-thinking/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
+| `ai-tools/ai-skills/propagate/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/repo-audit-orchestrator/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
+| `ai-tools/ai-skills/research/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/rubric-static-review/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/script-footprint-and-usage-audit/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 | `ai-tools/ai-skills/skill-docs/SKILL.md` | `skill-root` | `local-synced` | `local` | `mixed-lifecycle` |
 | `ai-tools/ai-skills/style-and-language-homogenizer-en-gb/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
+| `ai-tools/ai-skills/thread/SKILL.md` | `skill-root` | `legacy-active` | `local` | `split-source` |
 
 ### workspace
 
@@ -310,6 +320,59 @@ This file is generated from `ai-tools/registry/ai-tools-registry.json`.
 | `ai-tools/registry/ai-tools-inventory.md` | `generated-inventory` | `manual-doc` | `manual-doc` | `generated-active` |
 | `ai-tools/registry/ai-tools-registry.json` | `registry-data` | `manual-doc` | `manual-doc` | `canonical-active` |
 | `ai-tools/registry/ai-tools-registry.schema.json` | `registry-schema` | `manual-doc` | `manual-doc` | `canonical-active` |
+| `ai-tools/registry/dispatchers/handover-readiness.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/dispatchers/index.mdx` | `visual-library-catalog` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/dispatchers/page-ship.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/dispatchers/repo-cleanup-handover.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/dispatchers/research-review-packet.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/dispatchers/review-fix.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
 | `ai-tools/registry/llms-txt-notes.md` | `manual-doc` | `manual-doc` | `manual-doc` | `active` |
 | `ai-tools/registry/README.md` | `framework-doc` | `manual-doc` | `manual-doc` | `active` |
+| `ai-tools/registry/workflows/auto-assign-docs-reviewers.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/broken-links.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/build-review-assets.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/check-ai-companions.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/check-docs-guide-catalogs.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/check-docs-index.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/close-linked-issues-docs-v2.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/codex-governance.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/content-health.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/discord-issue-intake.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/docs-v2-issue-indexer.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/freshness-monitor.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/generate-ai-companions.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/generate-ai-sitemap.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/generate-component-registry.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/generate-docs-guide-catalogs.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/generate-docs-index.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/generate-llms-files.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/generate-review-table.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/governance-sync.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/index.mdx` | `visual-library-catalog` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/issue-auto-label.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/openapi-reference-validation.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/project-showcase-sync.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/repair-governance.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/sdk_generation.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/seo-refresh.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/style-homogenise.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/sync-large-assets.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/tasks-retention.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/test-suite.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/test-v2-pages.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/translate-docs.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/update-blog-data.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/update-changelogs.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/update-contract-addresses.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/update-discord-data.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/update-forum-data.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/update-ghost-blog-data.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/update-github-data.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/update-livepeer-release.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/update-review-template.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/update-rss-blog-data.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/update-youtube-data.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/v2-external-link-audit.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/verify-ai-sitemap.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/verify-llms-files.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
 | `ai-tools/windsurf.mdx` | `setup-guide` | `manual-doc` | `manual-doc` | `active` |

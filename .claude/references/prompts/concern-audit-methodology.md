@@ -271,3 +271,9 @@ This methodology chains existing skills:
 - **Phase 7:** Manual integration
 
 When promoted to a skill, `/audit-concern` would orchestrate this chain with the inputs block as parameters.
+
+---
+
+## Validation
+
+**Validated against:** GitHub Actions Governance thread (2026-03-30). Phases 1-3 completed, producing `actions-best-practices-report.md`, `actions-repo-analysis-report.md`, and `actions-audit.json`. See `research/exemplars.md` for analysis of the repo report as an exemplar.

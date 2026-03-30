@@ -57,3 +57,21 @@
 - Two systems (components + scripts) in one reference — reduces context-switching
 
 **Watch out:** This is a synthesis/quick-reference, not the source of truth. The canonical frameworks are `component-framework-canonical.md` and `script-framework.md`. If they diverge, the frameworks win.
+
+---
+
+### GitHub Actions Repo Analysis (Gold Standard — Concern Audit)
+
+**File:** `workspace/thread-outputs/research/actions-repo-analysis-report.md`
+**Companion:** `workspace/thread-outputs/research/actions-best-practices-report.md`
+
+**Why it's good:** Best repo analysis in the repo. Follows concern-audit methodology: inventory → tiered gold-standard identification → P0 bugs table → systematic gap analysis (7 categories) → classification by type/concern/pipeline-tag → consolidation candidates → risk matrix → framework alignment gaps → prior audit cross-reference → actionable recommendations.
+
+**Key patterns:**
+- Tiered gold-standard identification (Exemplary / Well-Structured / Adequate)
+- P0 bugs separated from analysis — immediate action items first
+- Classification mapping to existing taxonomy (type × concern × pipeline-tag)
+- Risk assessment: High / Medium / Low with affected workflows and impact
+- Framework alignment table: concept / current state / gap
+
+**Watch out:** Point-in-time analysis. Verify P0 items against current files before acting.

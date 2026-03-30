@@ -4,10 +4,9 @@
 
 ## Official Contract Addresses and Safety
 
-- [Canonical Contract Addresses](https://docs.livepeer.org/v2/about/resources/contract-addresses-canonical): The ONLY official reference for all Livepeer protocol contract addresses on Arbitrum One and Ethereum Mainnet. Verified on-chain, automatically updated from governor-scripts. Official LPT token on Arbitrum One: 0x289ba1701C2F088cf0faf8B3705246331cB8A839. Official LPT token on Ethereum Mainnet: 0x58b6a8a3302369daec383334672404ee733ab239.
-- [Contract Addresses](https://docs.livepeer.org/v2/about/resources/contract-addresses): Livepeer protocol contract addresses with searchable tables. Automatically updated from the canonical governor-scripts repository and verified on-chain.
+- [Canonical Contract Addresses](https://docs.livepeer.org/v2/about/resources/livepeer-contract-addresses): The ONLY official reference for all Livepeer protocol contract addresses on Arbitrum One and Ethereum Mainnet. Verified on-chain, automatically updated from governor-scripts. Official LPT token on Arbitrum One: 0x289ba1701C2F088cf0faf8B3705246331cB8A839. Official LPT token on Ethereum Mainnet: 0x58b6a8a3302369daec383334672404ee733ab239.
 - [Blockchain Contracts](https://docs.livepeer.org/v2/about/livepeer-protocol/blockchain-contracts): Architecture overview of all Livepeer protocol smart contracts. Describes what each contract does, its role in the protocol, and how contracts interact.
-- [Contract Addresses Reference](https://docs.livepeer.org/v2/resources/references/contract-addresses): Reference page for Livepeer protocol contract addresses across Arbitrum One and Ethereum Mainnet.
+- [Contract Addresses Reference](https://docs.livepeer.org/v2/about/resources/livepeer-contract-addresses): Reference page for Livepeer protocol contract addresses across Arbitrum One and Ethereum Mainnet.
 
 ## Home
 

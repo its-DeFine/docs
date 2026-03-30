@@ -80,6 +80,78 @@ Numbered. Concrete next steps or improvements.
 
 ---
 
+## Backlog Execution (BL-013, BL-014, BL-015) — 2026-03-31
+
+**Plans**: none (backlog items from insights analysis)
+**Scope**: Ship 3 backlog items: auto-generated file hook, /thread redesign, headless CI spec.
+**Outcome**: Met
+
+### Summary
+
+Three backlog items from the insights analysis session were resolved. BL-013 added a physical enforcement hook to pre-tool-guard.js that blocks Write/Edit on files with auto-generated markers in the first 512 bytes — turning an advisory CLAUDE.md rule into a hard gate. BL-014 redesigned `/thread` v1.4 so it auto-derives the session anchor from repo state instead of requiring the user to know the format or answer questions. BL-015 was closed as invalid after an audit confirmed all changelog and contract pipelines are already automated via GitHub Actions crons.
+
+### Completed
+
+**BL-013 — PreEdit auto-generated file block**
+- Added 512-byte header scan to pre-tool-guard.js Write/Edit section
+- Regex matches `DO NOT EDIT`, `AUTO-GENERATED`, `This file is generated`
+- Hard blocks with exit 2 and actionable message
+- Tested: auto-gen file (blocked), normal file (allowed), new file (allowed)
+
+**BL-014 — /thread v1.4 auto-derive redesign**
+- Step 1 rewritten: Claude reads session state, backlog, session log, flags, CLAUDE.md threads table
+- Proposes full anchor (thread name, outcome, context, lifecycle, tasks) and starts working
+- No questions, no interview, no format to memorise
+- START mode updated: no longer requires "user has stated a new session objective"
+- Memory updated to reinforce pattern
+
+**BL-015 — Closed as invalid**
+- Agent audit confirmed: changelogs (weekly cron), contract addresses (weekly cron), plus 7 push-triggered generators all automated
+- Insight report premise was wrong; no work needed
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| BL-013 hook blocks auto-gen file | Pass | contractAddressesData.jsx blocked, exit 2 |
+| BL-013 hook allows normal file | Pass | pre-tool-guard.js itself allowed through |
+| BL-013 hook allows new file | Pass | Nonexistent file path handled gracefully |
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `operations/scripts/dispatch/governance/pre-tool-guard.js` | modified | +17 lines: auto-gen file block |
+| `ai-tools/ai-skills/thread/SKILL.md` | modified | v1.3→v1.4: auto-derive entry point |
+| `workspace/plan/future/BACKLOG/registry.md` | modified | BL-015 closed |
+
+---
+
+## Insights Report Analysis — 2026-03-31
+
+**Plans**: none
+**Scope**: Cross-reference Claude Code /insights report recommendations against existing CLAUDE.md rules, memory, and hooks.
+**Outcome**: Not met
+
+### Summary
+
+Analysed all 6 CLAUDE.md additions suggested by the insights report. All 6 are already covered by existing rules (CLAUDE.md lines 44, 48, 66, 71, 179-191) and memory files (8 feedback memories). Identified 3 genuinely new items: (1) PreEdit hook to physically block auto-generated file edits, (2) headless-mode CI automation for pipeline runs, (3) baking "already tried / known constraints" into `/diagnose`. Implementation of item 1 was attempted but rejected before write. Items 2 and 3 discussed but not designed.
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| PreEdit hook for auto-generated files | P1 | Edit rejected — needs re-approach | None |
+| Headless-mode CI for pipeline runs | P2 | Discussed, not designed | Design session |
+| One-command `/thread` that prompts for inputs | P1 | User request — current workflow relies on remembering commands | `/thread` skill redesign |
+
+### Recommendations
+
+1. **PreEdit auto-gen block** — add `head -5` header check to pre-tool-guard.js Write/Edit section. Turns advisory rule into physical enforcement. Re-approach with smaller, cleaner diff.
+2. **Thread UX redesign** — user said "I use thread and that's about it" and "I need a full one command thread starter that prompts me for what it needs to know." This is the highest-value workflow improvement: a single `/thread` that interviews the user for outcome, scope, and constraints instead of requiring them to know the format.
+
+---
+
 ## Full repo cleanup + docs-v2 cleanup + reconciliation prep — 2026-03-27/28
 
 **Plans**: `/Users/alisonhaire/.claude/plans/bright-floating-pebble.md`
@@ -3054,3 +3126,145 @@ System was buried in swap (26.4 GB / 27.6 GB used) due to 24 orphaned `claude --
 | `workspace/plan/active/FUCK_CLAUDE/scripts/reap-zombie-claude.sh` | Script | Zombie process reaper — macOS compatible |
 | `workspace/plan/active/FUCK_CLAUDE/scripts/com.alison.claude-reaper.plist` | Config | launchd agent — 10-minute interval |
 | `~/.claude/logs/reaper.log` | Log | Runtime log for the reaper |
+
+---
+
+## Thread Lifecycle Pipeline — 2026-03-31
+
+**Plans**: `.claude/plans/cached-yawning-mist.md`
+**Scope**: Bake a reusable 10-phase lifecycle pipeline into the `/thread` skill (v1.2 → v1.3), including a new verify phase for production readiness.
+**Outcome**: Met
+
+### Summary
+Updated `/thread` SKILL.md from v1.2 to v1.3 with a properly structured 10-phase lifecycle pipeline: research → audit → design → implement → test → iterate → test → verify → document → cleanup. Added skill mapping per phase, a full verify phase specification with universal and context-aware checks, and a verification report template with future recommendations. Wrote a companion design doc. All carry-forward items completed in a follow-up pass: CLAUDE.md workflow ref updated, 4 skill gaps backlogged (BL-016 to BL-019), references exemplar updated, orphaned notes.md stub removed.
+
+### Completed
+**Research phase**
+- Read all 7 connected skills (/research, /design, /build, /iterate, /diagnose, /close, /dispatch) to understand handoffs, outputs, and gates
+- Identified 4 skill gaps (audit, verify, document, cleanup)
+
+**Design phase**
+- Wrote `lifecycle-design.md` with full spec: lifecycle pattern, skill mapping, verify phase specification, gap list, test criteria, decisions
+
+**Implement phase**
+- Updated SKILL.md frontmatter (description + v1.3)
+- Replaced 9-phase table with 10-phase table including skill mapping column
+- Added verify phase detail: 7 universal checks, 6 context-aware check categories, output template
+- Updated scope adaptation examples (6 patterns including data pipeline and governance)
+- Updated all 4 lifecycle sequence references to include verify
+
+**Test phase**
+- Verified all 9 checklist items pass (phase count, skill mapping, verify content, version, file existence)
+
+**Document phase**
+- Updated `.claude/references/skills/exemplars.md` Thread entry with lifecycle pipeline patterns
+- Updated CLAUDE.md workflow reference to full 10-phase lifecycle
+
+**Cleanup phase**
+- Backlogged 4 skill gaps as BL-016 to BL-019 in registry.md
+- Removed orphaned `CANONICAL-TRUTH-GUIDES/notes.md` stub
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| Verify is a phase in `/thread`, not a standalone skill | Needs full session context (what was built, which frameworks apply). Inline is simpler and more reliable |
+| 10 phases, not 9 | Verify fills the gap between iterate (human approved) and document (shipped). Without it, production readiness is assumed, not checked |
+| Context-aware checks are a table, not a script | Checks vary too much by domain to automate now. Table prompts Claude to apply the right checks |
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| 10 phases in correct order | Pass | 4 occurrences, all consistent |
+| Every phase names skill(s) or notes gap | Pass | Phases 1-7 have skills, 8-10 marked — |
+| Verify has universal + context-aware checks | Pass | 7 universal, 6 context rows |
+| Output template includes future recommendations | Pass | Lines 232-234 |
+| Version is 1.3 | Pass | Line 9 |
+| CLAUDE.md workflow ref updated | Pass | Line 172 |
+| Backlog entries exist | Pass | BL-016 to BL-019 in registry.md |
+| References exemplar updated | Pass | skills/exemplars.md Thread entry |
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `ai-tools/ai-skills/thread/SKILL.md` | skill | v1.3 — lifecycle pipeline with 10 phases and verify |
+| `workspace/plan/active/CANONICAL-TRUTH-GUIDES/Workflow-Alignment-Skills/lifecycle-design.md` | design doc | Lifecycle pattern spec, verify phase, skill gaps, decisions |
+| `.claude/references/skills/exemplars.md` | reference | Thread exemplar updated with lifecycle patterns |
+| `workspace/plan/future/BACKLOG/registry.md` | backlog | BL-016 to BL-019 — audit, verify, document, cleanup skills |
+
+---
+
+## i18n Translation Archive & Cleanup — 2026-03-31
+
+**Plans**: none
+**Scope**: Investigate and archive stale i18n translation folders in v2/.
+
+### Summary
+User noticed `v2/es/`, `v2/fr/`, `v2/cn/` language folders and asked what was spawning them. Investigation revealed a manual-dispatch-only i18n pipeline (`tools/i18n/config.json`, `.github/workflows/translate-docs.yml`, npm `i18n:*` scripts) — no auto-trigger. The 24 stale stub files (120K) were archived to `v2/_workspace/locale-page-archive/`. No translation paths exist in `docs.json`.
+
+### Completed
+- Traced i18n pipeline: config (`tools/i18n/config.json`), workflow (manual dispatch only), npm scripts, translation scripts in `operations/`
+- Confirmed `docs.json` has no translation-language entries or locale paths — only `"language": "en"` for v1 and v2
+- Archived `v2/es/`, `v2/fr/`, `v2/cn/` → `v2/_workspace/locale-page-archive/`
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `v2/_workspace/locale-page-archive/` | archive | Archived es/fr/cn translation stubs (24 files) |
+
+---
+
+## Contracts Pipeline — 2026-03-31
+
+**Plans**: `.claude/plans/moonlit-riding-waffle.md`
+**Scope**: Full contracts data pipeline: fetch, verify, enrich, display. Multi-session build (2026-03-29 to 2026-03-31).
+**Outcome**: Partially met
+
+### Summary
+Built a complete contract address data pipeline. Script fetches from governor-scripts, verifies on-chain, enriches from Blockscout + Etherscan V2 (dual-source, self-healing), writes enriched JSX data file consumed by 4 pages via MDX composable. 49 current contracts with 15+ fields, 44 historical entries enriched. V1 pages have Danger callouts. Canonical page and workflow registration remain in progress.
+
+### Completed
+- Pipeline script with dual-source enrichment, fallback preservation, auto-issue, source validation across 5 repos, health check, companion JSON, js-sha3 keccak, full JSDoc
+- Data file with typedef, definitions export, header preservation
+- Composable imported by 4 tab pages (about, gateways, orchestrators, resources)
+- blockchain-contracts.mdx 19 status lines replaced with statusOf() data reads
+- HistoricalContractTable enriched with deployedAt, verified, replacedBy
+- V1 Danger callouts on 5 files + docs.json redirects
+- Data move, old file deleted, templates deleted, 404 duplicate deleted, temp commit reverted
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| Dual-source enrichment | Single source fragile for ownerless repo |
+| js-sha3 dependency | Dynamic keccak vs static lookup maintenance |
+| Companion JSON | AI/SEO crawlers cannot read JSX |
+| V1 Expandable wrapper | Preserve content, warn users, redirect agents |
+
+### Deferred Items
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Workflow on main | P1 | Branch protection | PR merge access |
+| Canonical page | P0 | Alison co-design | Alison |
+| Changelog final audit | P1 | Separate thread | Next session |
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| Script dry-run | PASS | 49/49 verified + enriched |
+| Health check | PASS | All 4 checks |
+| Source validation | PASS | 4 expected nulls (source removed from repos) |
+| Companion JSON | PASS | Written at correct path |
+| Workflow dispatch | NOT TESTED | Not on main |
+
+### Recommendations
+1. Merge workflow to main via PR
+2. Run changelog final audit (separate thread)
+3. Delete ContractAddressDisplay.jsx after old page removed
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `.github/scripts/fetch-contract-addresses.js` | script | Production pipeline (1200+ lines) |
+| `.github/workflows/update-contract-addresses.yml` | workflow | Cron + dispatch |
+| `snippets/data/contract-addresses/contractAddressesData.jsx` | data | Enriched data (99KB) |
+| `v2/about/resources/livepeer-contract-addresses-data.json` | data | Companion JSON |
+| `snippets/composables/pages/reference/livepeer-contract-addresses.mdx` | composable | 4 consumers |

@@ -11,7 +11,7 @@ Favor correctness and clear boundaries over speculative answers.
 - Primary config: `docs.json`
 - Current docs: `v2/**`
 - Legacy docs: `v1/**` (frozen unless explicitly requested)
-- Contribution and process docs: `README.md`, `contribute/**`
+- Contribution and process docs: `README.md`, `docs-guide/contributing/**`
 - Internal governance: `docs-guide/**`
 
 ## Source-Of-Truth Priority
@@ -20,7 +20,7 @@ Use sources in this order:
 
 1. `docs.json` for navigation, tabs, groups, versions, and page routing.
 2. `v2/**` for current content and user-facing guidance.
-3. `README.md` and `contribute/**` for workflow, testing, and contribution rules.
+3. `README.md` and `docs-guide/contributing/**` for workflow, testing, and contribution rules.
 4. `docs-guide/**` for internal governance, capability maps, and generator ownership.
 5. `v1/**` only when a user asks for legacy behavior or no `v2` equivalent exists.
 
@@ -72,7 +72,7 @@ forcing a tab switch.
 If the user asks "where should this live?":
 1. Choose the page prefix by domain first.
 2. Use `v2/resources/**` only for shared docs standards, guides, and cross-domain references.
-3. Contributor and governance pages always go under `docs-guide/**` or `contribute/**`, not under `v2/**`.
+3. Contributor and governance pages always go under `docs-guide/**` or `docs-guide/contributing/**`, not under `v2/**`.
 
 ## Answer Contract
 

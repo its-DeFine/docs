@@ -57,6 +57,21 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 **Description:** Migrated assets are removed from working tree but still in git history (~326 MB). `git filter-repo` + force-push needed to actually reduce clone size. Coordinate with team.
 **Priority:** P3
 
+## BL-013 — PreEdit hook: block writes to auto-generated files
+**Source:** Insights analysis — 2026-03-31
+**Description:** pre-tool-guard.js Write/Edit section should check first 5 lines of target file for DO NOT EDIT / AUTO-GENERATED markers and hard-block the edit. Currently advisory only (CLAUDE.md line 71 + memory). Hook enforcement would make it physically impossible regardless of whether Claude reads the rule.
+**Priority:** P1
+
+## BL-014 — Redesign /thread as interactive prompt workflow
+**Source:** Insights analysis — 2026-03-31
+**Description:** User only uses /thread from the skill catalogue. Current version requires knowing the format. Redesign to prompt the user for outcome, scope, constraints, and related threads interactively. Single command, zero memorisation required.
+**Priority:** P1
+
+## BL-015 — CLOSED: Headless-mode CI for changelog/contract pipelines
+**Source:** Insights analysis — 2026-03-31
+**Status:** Closed — invalid. Pipelines already automated via GitHub Actions (update-changelogs.yml weekly cron, update-contract-addresses.yml weekly cron, plus 7 push-triggered generators). Insight report assumed manual; audit confirmed automated.
+**Priority:** N/A
+
 ## BL-013 — gray-matter not declared as dependency
 **Source:** Asset Pipeline (#849) — 2026-03-30
 **Description:** `operations/scripts/validators/content/copy/lint-copy.js` requires `gray-matter` but it's not in any `package.json`. Currently installed at repo root with `--no-save`. Add to appropriate package.json.
@@ -65,4 +80,39 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 ## BL-014 — Clean up fix-sync-assets worktree after PR #851 merges
 **Source:** Asset Pipeline (#849) — 2026-03-30
 **Description:** `../fix-sync-assets/` worktree and `fix/sync-large-assets-yaml` branch should be deleted after PR #851 merges to main.
+**Priority:** P2
+
+## BL-016 — Build `/audit` skill
+**Source:** Workflow Alignment Skills — 2026-03-31
+**Description:** No dedicated audit skill exists. Audit phase currently handled ad-hoc via `/dispatch` with audit-scoped agent briefs. A standalone skill would standardise: inventory, classify by type/concern, trace dependencies, Mermaid pipeline maps, flag stale/legacy/consolidation candidates. Same pattern as `/research` (scope → delegate → synthesise).
+**Priority:** P2
+
+## BL-017 — Build `/verify` skill
+**Source:** Workflow Alignment Skills — 2026-03-31
+**Description:** Verify phase spec exists in `/thread` Step 1b but has no standalone skill. Would run universal checks (pipeline, framework alignment, self-remediation, risk, scalability, hanging threads, data integrity) + context-aware checks based on what was built. Currently inline — standalone skill would enable invocation outside `/thread` lifecycle.
+**Priority:** P2
+
+## BL-018 — Build `/document` skill
+**Source:** Workflow Alignment Skills — 2026-03-31
+**Description:** Document phase has no skill. Would handle: adding gold-standard examples to `.claude/references/`, updating governance indexes, building self-documenting automation pipelines. Currently manual.
+**Priority:** P3
+
+## BL-019 — Build `/cleanup` skill
+**Source:** Workflow Alignment Skills — 2026-03-31
+**Description:** Cleanup phase has no skill. Would handle: archive deprecated items per framework rules, remove stale placeholders, execute consolidation merges, final audit for zero drift. Currently manual.
+**Priority:** P3
+
+## BL-020 — Register contract addresses workflow on main
+**Source:** Contracts & Changelogs — 2026-03-31
+**Description:** `update-contract-addresses.yml` exists on docs-v2-dev only. GitHub Actions cannot discover or dispatch it. Needs PR to main. Branch protection requires PR review.
+**Priority:** P1
+
+## BL-021 — Delete ContractAddressDisplay.jsx
+**Source:** Contracts & Changelogs — 2026-03-31
+**Description:** Marked `@status deprecated`. Still imported by old `v2/about/resources/contract-addresses.mdx`. Delete after old page is removed from nav.
+**Priority:** P2
+
+## BL-022 — Render-test v1 Danger callouts
+**Source:** Contracts & Changelogs — 2026-03-31
+**Description:** 5 v1 files had Danger callouts + Expandable added. v1 is frozen so not tested locally. Need to verify Expandable works in v1 pages after deploy.
 **Priority:** P2

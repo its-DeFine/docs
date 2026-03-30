@@ -26,7 +26,7 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 | About | About tab — IA lock + content | Active | 2026-03-29 |
 | Cleanup | Repo cleanup | Active | 2026-03-29 |
 | MASTER CLEAN | Consolidate all frameworks, tab content, tasks into one folder | Active — audit done, awaiting approval to build | 2026-03-29 |
-| Contracts & Changelogs | ContractVerifier widget: fully data-driven, dual-path verification, RPC failover. Remaining: chain auto-detect, component docs regen | Active | 2026-03-30 |
+| Contracts & Changelogs | Pipeline complete: dual-source enrichment, 4 pages via composable, v1 redirects. Remaining: workflow PR to main, canonical page (Alison), changelog audit (separate thread) | Active | 2026-03-31 |
 | Changelog Pipeline | 24 targets registered, 19 resource pages populated, nav grouped into 5 categories, script cleanForMdx + commit labels fixed. Remaining: changelog.mdx format fix, LLM commits-mode feature, managed:true activation | Active | 2026-03-30 |
 | Asset Pipeline (#849) | 19 assets migrated, 3-layer verification gate, PR #851 open | Done — PR #851 awaiting merge to main | 2026-03-30 |
 | Mintlify Constraints | Canonical constraints reference — audited, headless-tested, propagated | Done | 2026-03-29 |
@@ -34,6 +34,7 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 | Watcher | Repo quality guardian — flags drift, mess, broken patterns as they happen | Watching | 2026-03-29 |
 | References | `.claude/references/` — Phase 1 done (14 docs). Phase 2: restructure + collation + patterns | Active | 2026-03-30 |
 | Solutions Merge | merge/solutions-to-docs-v2 branch ready, pushed to origin. PR creation blocked by hook — user runs manually | Pending PR | 2026-03-30 |
+| Workflow Alignment Skills | `/thread` v1.4: auto-derive entry (no questions), 10-phase lifecycle. PreEdit auto-gen hook shipped | Done | 2026-03-31 |
 
 **Rule:** When you finish a task or change status, update your row in this table before closing. If the master-tasks.md file has a matching item, update that too.
 
@@ -168,7 +169,7 @@ Run `/skills` for the full catalogue with descriptions and status.
 | **Governance** | component-layout-governance, style-and-language-homogenizer-en-gb, generated-mdx-banners-governance, skill-docs, cross-agent-packager | Read `ai-tools/ai-skills/{name}/SKILL.md` |
 | **Authoring** | page-authoring, docs-copy, product-thinking | Read `ai-tools/ai-skills/{name}/SKILL.md` |
 
-**The workflow:** `/thread` → `/pm` → `/research` → `/design` → `/build` → `/iterate` → loop as needed.
+**The lifecycle:** `/thread` defines the session then maps to: `/research` → audit (`/dispatch`) → `/design` → `/build` → test → `/iterate` → test → verify → document → cleanup → `/close`. See `/thread` Step 1b for full phase table with gates and skill mapping. Not every session uses all phases — declare which apply.
 
 **Agent spawns:** Use `/agent-brief` for every agent. No ad-hoc prompts.
 
