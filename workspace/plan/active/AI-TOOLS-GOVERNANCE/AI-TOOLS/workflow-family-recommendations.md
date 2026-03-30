@@ -8,8 +8,8 @@
 | --- | ---: |
 | `ai-runtime-artifacts` | 6 |
 | `content-publication` | 5 |
-| `data-refresh` | 8 |
-| `docs-catalog-governance` | 5 |
+| `data-refresh` | 9 |
+| `docs-catalog-governance` | 6 |
 | `governance-maintenance` | 5 |
 | `issue-intake-and-triage` | 3 |
 | `placeholder-backlog` | 3 |
@@ -20,10 +20,10 @@
 
 | Value | Count |
 | --- | ---: |
-| `consolidate` | 12 |
-| `keep` | 11 |
-| `merge` | 13 |
-| `needs-investigation` | 8 |
+| `consolidate` | 7 |
+| `keep` | 13 |
+| `merge` | 20 |
+| `needs-investigation` | 6 |
 | `retire` | 2 |
 
 ## Families
@@ -55,27 +55,29 @@
 
 ### data-refresh
 
-- Count: 8
-- Dominant decision: consolidate
-- Targets: `future:data-refresh-dispatcher`
+- Count: 9
+- Dominant decision: merge
+- Targets: `data-refresh-governance`, `future:data-refresh-dispatcher`
 - Members:
+  - `.github/workflows/data-refresh-governance.yml` -> `keep`
   - `.github/workflows/update-blog-data.yml` -> `consolidate`
-  - `.github/workflows/update-discord-data.yml` -> `consolidate`
-  - `.github/workflows/update-forum-data.yml` -> `needs-investigation`
-  - `.github/workflows/update-ghost-blog-data.yml` -> `consolidate`
-  - `.github/workflows/update-github-data.yml` -> `consolidate`
-  - `.github/workflows/update-livepeer-release.yml` -> `consolidate`
-  - `.github/workflows/update-rss-blog-data.yml` -> `consolidate`
-  - `.github/workflows/update-youtube-data.yml` -> `needs-investigation`
+  - `.github/workflows/update-discord-data.yml` -> `merge`
+  - `.github/workflows/update-forum-data.yml` -> `merge`
+  - `.github/workflows/update-ghost-blog-data.yml` -> `merge`
+  - `.github/workflows/update-github-data.yml` -> `merge`
+  - `.github/workflows/update-livepeer-release.yml` -> `merge`
+  - `.github/workflows/update-rss-blog-data.yml` -> `merge`
+  - `.github/workflows/update-youtube-data.yml` -> `merge`
 
 ### docs-catalog-governance
 
-- Count: 5
+- Count: 6
 - Dominant decision: merge
-- Targets: `future:docs-catalog-governance-workflow`
+- Targets: `docs-catalog-governance`, `future:docs-catalog-governance-workflow`
 - Members:
   - `.github/workflows/check-docs-guide-catalogs.yml` -> `merge`
   - `.github/workflows/check-docs-index.yml` -> `merge`
+  - `.github/workflows/docs-catalog-governance.yml` -> `keep`
   - `.github/workflows/generate-component-registry.yml` -> `merge`
   - `.github/workflows/generate-docs-guide-catalogs.yml` -> `merge`
   - `.github/workflows/generate-docs-index.yml` -> `merge`

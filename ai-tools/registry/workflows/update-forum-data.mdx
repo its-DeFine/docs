@@ -5,14 +5,14 @@ status: 'active'
 concern: 'authoring'
 source_path: '.github/workflows/update-forum-data.yml'
 trigger_mode: 'schedule + workflow_dispatch'
-risk_level: 'high'
+risk_level: 'medium'
 consolidation_flag: 'review for alignment with `page-ship` while preserving current schedule + workflow_dispatch trigger behavior'
 dispatcher_candidate: 'page-ship'
 workflow_family: 'data-refresh'
-cleanup_decision: 'needs-investigation'
-usage_status: 'legacy-unclear'
+cleanup_decision: 'merge'
+usage_status: 'compatibility-wrapper'
 process_fit: 'legacy-or-unclear'
-consolidation_target: 'future:data-refresh-dispatcher'
+consolidation_target: 'data-refresh-governance'
 last_verified: '2026-03-31'
 ---
 
@@ -50,15 +50,11 @@ Govern the `.github/workflows/update-forum-data.yml` workflow as a human-readabl
 
 | Job ID | Name | Runs On | Needs | Step Count |
 | --- | --- | --- | --- | --- |
-| `update-forum-data` | update-forum-data | `ubuntu-latest` | none | 5 |
+| `update-forum-data` | update-forum-data | n/a | none | 0 |
 
 ### update-forum-data
 
-- `Checkout docs repository` | uses actions/checkout@v4
-- `Setup Node.js` | uses actions/setup-node@v4
-- `Fetch and process forum data` | runs `node .github/scripts/fetch-forum-data.js`
-- `Check for changes` | runs `git diff --exit-code snippets/automations/forum/forumData.jsx || echo "changed=true" >> $GITHUB_OUTPUT`
-- `Commit and push if changed` | runs `git config user.name 'github-actions[bot]'`
+- No steps parsed.
 
 ## Inputs
 
@@ -67,24 +63,19 @@ Govern the `.github/workflows/update-forum-data.yml` workflow as a human-readabl
 ## Second Pass Assessment
 
 - Workflow family: `data-refresh`
-- Usage status: `legacy-unclear`
-- Cleanup decision: `needs-investigation`
+- Usage status: `compatibility-wrapper`
+- Cleanup decision: `merge`
 - Process fit: `legacy-or-unclear`
-- Consolidation target: `future:data-refresh-dispatcher`
-- Recommended engineering action: Choose one owner path between GitHub Actions and n8n, then remove the duplicate path.
+- Consolidation target: `data-refresh-governance`
+- Recommended engineering action: Keep this as a thin compatibility wrapper until the Actions vs n8n ownership decision is resolved, then either retire it or keep only the canonical reusable workflow.
 
 ## Outputs
 
 - Generated or refreshed repository data
-- Repository commits or branch updates
 
 ## Dependencies
 
-- .github/scripts/fetch-forum-data.js
-- action:actions/checkout@v4
-- action:actions/setup-node@v4
-- secret:GITHUB_TOKEN
-- snippets/automations/forum/forumData.jsx
+- No direct dependencies identified in current repo scan.
 
 ## Dependants
 
@@ -99,25 +90,24 @@ flowchart TD
   trigger --> workflow
   job1["Job: update-forum-data"]
   workflow --> job1
-  outputs["Outputs: Generated or refreshed repository data, Repository commits or branch updates"]
+  outputs["Outputs: Generated or refreshed repository data"]
   job1 --> outputs
 ```
 
 ## Frailty And Risk
 
-- Mutates repository state from CI, which raises coordination and safety risk.
-- Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.
+- No local repo dependencies were detected automatically; verify whether this is truly standalone.
 - Scheduled execution can hide drift until the next cron window.
 
 ## Consolidation Notes
 
-Dispatcher suggestion: `page-ship`. Second-pass target: `future:data-refresh-dispatcher`. This is a governance recommendation, not an automatic rewrite instruction.
+Dispatcher suggestion: `page-ship`. Second-pass target: `data-refresh-governance`. This is a governance recommendation, not an automatic rewrite instruction.
 
 ## Cleanup Rationale
 
-- Current repo evidence is not strong enough to justify either deletion or consolidation without tracing real usage first.
 - Dual ownership between Actions and n8n is governance debt.
 - This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever.
+- This wrapper should not regain unique logic.
 - Workflow comments explicitly say n8n is being used as an alternative.
 
 ## Handover Notes

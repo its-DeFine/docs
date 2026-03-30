@@ -28,65 +28,9 @@ on:
 
 jobs:
   update-release:
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout docs repository
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.use_test_branch == 'true' && vars.TEST_BRANCH || vars.DEPLOY_BRANCH }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Resolve target version
-        id: version
-        run: |
-          if [[ -n "${{ github.event.client_payload.version }}" ]]; then
-            VERSION="${{ github.event.client_payload.version }}"
-            echo "source=repository_dispatch" >> $GITHUB_OUTPUT
-          elif [[ -n "${{ inputs.version }}" ]]; then
-            VERSION="${{ inputs.version }}"
-            echo "source=workflow_dispatch" >> $GITHUB_OUTPUT
-          else
-            VERSION=$(curl -sf \
-              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/livepeer/go-livepeer/releases/latest" \
-              | jq -r '.tag_name')
-            echo "source=api_fallback" >> $GITHUB_OUTPUT
-          fi
-          echo "version=${VERSION}" >> $GITHUB_OUTPUT
-          echo "Resolved version: ${VERSION}"
-
-      - name: Read current version
-        id: current
-        run: |
-          CURRENT=$(grep -oP 'latestVersion = "\K[^"]+' snippets/automations/globals/globals.jsx || echo "")
-          echo "version=${CURRENT}" >> $GITHUB_OUTPUT
-          echo "Current version: ${CURRENT}"
-
-      - name: Update globals.jsx
-        if: |
-          steps.version.outputs.version != steps.current.outputs.version &&
-          steps.version.outputs.version != 'null' &&
-          steps.version.outputs.version != ''
-        run: |
-          VERSION="${{ steps.version.outputs.version }}"
-          sed -i "s|latestVersion = \"[^\"]*\"|latestVersion = \"${VERSION}\"|" snippets/automations/globals/globals.jsx
-          sed -i "s|releases/download/[^\"]*\"|releases/download/${VERSION}\"|" snippets/automations/globals/globals.jsx
-          echo "Updated globals.jsx:"
-          cat snippets/automations/globals/globals.jsx
-
-      - name: Commit and push
-        if: |
-          steps.version.outputs.version != steps.current.outputs.version &&
-          steps.version.outputs.version != 'null' &&
-          steps.version.outputs.version != ''
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add snippets/automations/globals/globals.jsx
-          git commit -m "chore: update go-livepeer release to ${{ steps.version.outputs.version }} [skip ci]"
-          git push
+    uses: ./.github/workflows/data-refresh-governance.yml
+    with:
+      mode: livepeer-release
+      use_test_branch: ${{ github.event_name == 'workflow_dispatch' && inputs.use_test_branch || false }}
+      version: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.version || inputs.version || '' }}
+    secrets: inherit

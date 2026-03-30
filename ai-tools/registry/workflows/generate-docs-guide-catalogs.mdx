@@ -5,12 +5,12 @@ status: 'active'
 concern: 'repo-ops'
 source_path: '.github/workflows/generate-docs-guide-catalogs.yml'
 trigger_mode: 'push + workflow_dispatch'
-risk_level: 'high'
+risk_level: 'low'
 consolidation_flag: 'review for alignment with `page-ship` while preserving current push + workflow_dispatch trigger behavior'
 dispatcher_candidate: 'page-ship'
 workflow_family: 'docs-catalog-governance'
 cleanup_decision: 'merge'
-usage_status: 'active-mutating'
+usage_status: 'compatibility-wrapper'
 process_fit: 'core-shipping'
 consolidation_target: 'future:docs-catalog-governance-workflow'
 last_verified: '2026-03-31'
@@ -50,20 +50,11 @@ Govern the `.github/workflows/generate-docs-guide-catalogs.yml` workflow as a hu
 
 | Job ID | Name | Runs On | Needs | Step Count |
 | --- | --- | --- | --- | --- |
-| `generate-docs-guide-catalogs` | generate-docs-guide-catalogs | `ubuntu-latest` | none | 10 |
+| `generate-docs-guide-catalogs` | generate-docs-guide-catalogs | n/a | none | 0 |
 
 ### generate-docs-guide-catalogs
 
-- `Checkout repository` | uses actions/checkout@v4
-- `Resolve target branch` | runs `if [ "${{ inputs.use_test_branch }}" = "true" ]; then`
-- `Setup Node.js` | uses actions/setup-node@v4
-- `Install dependencies` | runs `npm install`
-- `Generate workflows and templates catalogs` | runs `node operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js --write`
-- `Generate pages catalog` | runs `node operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js --write`
-- `Regenerate component docs pages` | runs `node operations/scripts/generators/components/documentation/generate-component-docs.js --write`
-- `Check for changes` | runs `git diff --exit-code \`
-- `Check for component docs changes` | runs `git diff --exit-code v2/ \`
-- `Commit and push if changed` | runs `git config user.name "GitHub Actions Bot"`
+- No steps parsed.
 
 ## Inputs
 
@@ -72,7 +63,7 @@ Govern the `.github/workflows/generate-docs-guide-catalogs.yml` workflow as a hu
 ## Second Pass Assessment
 
 - Workflow family: `docs-catalog-governance`
-- Usage status: `active-mutating`
+- Usage status: `compatibility-wrapper`
 - Cleanup decision: `merge`
 - Process fit: `core-shipping`
 - Consolidation target: `future:docs-catalog-governance-workflow`
@@ -81,19 +72,10 @@ Govern the `.github/workflows/generate-docs-guide-catalogs.yml` workflow as a hu
 ## Outputs
 
 - Generated or refreshed repository data
-- Repository commits or branch updates
 
 ## Dependencies
 
-- action:actions/checkout@v4
-- action:actions/setup-node@v4
-- docs-guide/catalog/pages-catalog.mdx
-- docs-guide/catalog/templates-catalog.mdx
-- docs-guide/catalog/workflows-catalog.mdx
-- operations/scripts/generators/components/documentation/generate-component-docs.js
-- operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js
-- operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js
-- secret:GITHUB_TOKEN
+- No direct dependencies identified in current repo scan.
 
 ## Dependants
 
@@ -108,14 +90,13 @@ flowchart TD
   trigger --> workflow
   job1["Job: generate-docs-guide-catalogs"]
   workflow --> job1
-  outputs["Outputs: Generated or refreshed repository data, Repository commits or branch updates"]
+  outputs["Outputs: Generated or refreshed repository data"]
   job1 --> outputs
 ```
 
 ## Frailty And Risk
 
-- Mutates repository state from CI, which raises coordination and safety risk.
-- Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.
+- No local repo dependencies were detected automatically; verify whether this is truly standalone.
 
 ## Consolidation Notes
 
@@ -124,7 +105,6 @@ Dispatcher suggestion: `page-ship`. Second-pass target: `future:docs-catalog-gov
 ## Cleanup Rationale
 
 - This family already has obvious check/generate pairings that likely want one governed workflow with mode flags.
-- This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow.
 
 ## Handover Notes
 

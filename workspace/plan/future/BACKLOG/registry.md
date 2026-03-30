@@ -82,6 +82,11 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 **Description:** `../fix-sync-assets/` worktree and `fix/sync-large-assets-yaml` branch should be deleted after PR #851 merges to main.
 **Priority:** P2
 
+## BL-015 — generate-ai-sitemap.js wordCount:0 for composable pages
+**Source:** SEO/AEO thread — 2026-03-31
+**Description:** Pages using the composable pattern (body is just an import statement) report `wordCount: 0` in sitemap-ai.xml. The generator counts words in the page body but composable content lives in the imported file. Fix options: (a) teach the generator to follow imports, or (b) add a `wordCount` frontmatter override field.
+**Priority:** P2
+
 ## BL-016 — Build `/audit` skill
 **Source:** Workflow Alignment Skills — 2026-03-31
 **Description:** No dedicated audit skill exists. Audit phase currently handled ad-hoc via `/dispatch` with audit-scoped agent briefs. A standalone skill would standardise: inventory, classify by type/concern, trace dependencies, Mermaid pipeline maps, flag stale/legacy/consolidation candidates. Same pattern as `/research` (scope → delegate → synthesise).
@@ -130,4 +135,9 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 ## BL-025 — Automate generate-og-images.js in CI
 **Source:** Contracts Production Audit — 2026-03-31
 **Description:** OG image generation is manual-only. Script works (53 images generated successfully) but requires Puppeteer. Should run in CI on `snippets/assets/site/og-image/` changes or on section/page config changes in `og-image-policy.js`.
+**Priority:** P2
+
+## BL-026 — Investigate Mint preview `transformAlgorithm` TypeError
+**Source:** Mint Parse Hygiene — 2026-03-31
+**Description:** Fresh `mint dev` and `bash tools/lpd dev` boots are parse-clean and reach preview-ready, but both still print `[TypeError: controller[kState].transformAlgorithm is not a function]` after startup. Likely Mint CLI runtime or watcher patch behaviour rather than content parsing. Needs isolated diagnosis.
 **Priority:** P2

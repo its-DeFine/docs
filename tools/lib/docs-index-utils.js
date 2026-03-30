@@ -274,7 +274,12 @@ function normalizeToken(value) {
 
 function coerceStringArray(value) {
   if (!value) return [];
-  if (Array.isArray(value)) return value.map((item) => String(item));
+  if (Array.isArray(value)) return value.map((item) => {
+    if (typeof item === 'number') {
+      console.warn(`[coerceStringArray] Number detected in string array: ${item}. Likely an unquoted hex value in YAML frontmatter — quote it to prevent data loss.`);
+    }
+    return String(item);
+  });
   if (typeof value === 'string') return [value];
   return [];
 }

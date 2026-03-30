@@ -56,8 +56,21 @@ function walkFiles(dirPath, predicate, out = []) {
   return out;
 }
 
+function shouldSkipRepoPath(filePath, rootDir) {
+  const relativePath = toRelative(filePath, rootDir);
+  return (
+    relativePath.includes('/node_modules/') ||
+    relativePath.startsWith('workspace/') ||
+    relativePath.startsWith('.github/workspace/') ||
+    relativePath.includes('/_workspace/')
+  );
+}
+
 function collectMdxFiles(rootDir, relDir) {
-  return walkFiles(path.join(rootDir, relDir), (filePath) => filePath.endsWith('.mdx'));
+  return walkFiles(
+    path.join(rootDir, relDir),
+    (filePath) => filePath.endsWith('.mdx') && !shouldSkipRepoPath(filePath, rootDir)
+  );
 }
 
 function collectMarkdownFiles(rootDir, relDir) {
@@ -78,8 +91,8 @@ function stripFencedCode(content) {
 
 function checkLatestVersionAliasing(rootDir) {
   const files = [
-    ...collectMdxFiles(rootDir, 'v2/pages'),
-    ...collectMdxFiles(rootDir, 'snippets/pages')
+    ...collectMdxFiles(rootDir, 'v2'),
+    ...collectMdxFiles(rootDir, 'snippets')
   ];
   const aliasPattern = /import\s*\{[^}]*\blatestVersion\s+as\s+[A-Za-z_$][\w$]*[^}]*\}\s*from\s*['"][^'"]+['"]/g;
 
@@ -101,21 +114,21 @@ function checkLatestVersionAliasing(rootDir) {
 
 function checkGlobalsImportPath(rootDir) {
   const files = [
-    ...collectMdxFiles(rootDir, 'v2/pages'),
-    ...collectMdxFiles(rootDir, 'snippets/pages'),
+    ...collectMdxFiles(rootDir, 'v2'),
+    ...collectMdxFiles(rootDir, 'snippets'),
     ...collectMdxFiles(rootDir, 'snippets/snippetsWiki')
   ];
-  const globalsJsxPattern = /from\s*['"]\/snippets\/automations\/globals\/globals\.jsx['"]/g;
+  const globalsMdxPattern = /from\s*['"]\/snippets\/automations\/globals\/globals\.mdx['"]/g;
 
   files.forEach((filePath) => {
     const content = stripFencedCode(readFileSafe(filePath));
     let match;
-    while ((match = globalsJsxPattern.exec(content)) !== null) {
+    while ((match = globalsMdxPattern.exec(content)) !== null) {
       errors.push({
         file: toRelative(filePath, rootDir),
         rule: 'globals import path',
         line: getLineFromIndex(content, match.index),
-        message: 'Use /snippets/automations/globals/globals.mdx (not globals.jsx).'
+        message: 'Use /snippets/automations/globals/globals.jsx as the canonical data module; globals.mdx is only a thin wrapper.'
       });
     }
   });
@@ -124,7 +137,7 @@ function checkGlobalsImportPath(rootDir) {
 }
 
 function checkLptMathDelimiters(rootDir) {
-  const files = collectMdxFiles(rootDir, 'v2/pages/06_lptoken');
+  const files = collectMdxFiles(rootDir, 'v2/lpt');
   const pattern = /\\\(|\\\[/g;
 
   files.forEach((filePath) => {

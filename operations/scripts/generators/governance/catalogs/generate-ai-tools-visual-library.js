@@ -282,31 +282,57 @@ const WORKFLOW_MANUAL_OVERRIDES = {
   },
   'update-forum-data': {
     workflow_family: 'data-refresh',
-    cleanup_decision: 'needs-investigation',
-    usage_status: 'legacy-unclear',
+    cleanup_decision: 'merge',
+    usage_status: 'compatibility-wrapper',
     process_fit: 'legacy-or-unclear',
-    engineering_action: 'Choose one owner path between GitHub Actions and n8n, then remove the duplicate path.',
-    consolidation_target: 'future:data-refresh-dispatcher',
+    engineering_action: 'Keep this as a thin compatibility wrapper until the Actions vs n8n ownership decision is resolved, then either retire it or keep only the canonical reusable workflow.',
+    consolidation_target: 'data-refresh-governance',
     second_pass_notes: [
       'Workflow comments explicitly say n8n is being used as an alternative.',
-      'Dual ownership between Actions and n8n is governance debt.'
+      'Dual ownership between Actions and n8n is governance debt.',
+      'This wrapper should not regain unique logic.'
     ]
   },
   'update-youtube-data': {
     workflow_family: 'data-refresh',
-    cleanup_decision: 'needs-investigation',
-    usage_status: 'legacy-unclear',
+    cleanup_decision: 'merge',
+    usage_status: 'compatibility-wrapper',
     process_fit: 'legacy-or-unclear',
-    engineering_action: 'Choose one owner path between GitHub Actions and n8n, then remove the duplicate path.',
-    consolidation_target: 'future:data-refresh-dispatcher',
+    engineering_action: 'Keep this as a thin compatibility wrapper until the Actions vs n8n ownership decision is resolved, then either retire it or keep only the canonical reusable workflow.',
+    consolidation_target: 'data-refresh-governance',
     second_pass_notes: [
       'Workflow comments explicitly say n8n is being used as an alternative.',
-      'Dual ownership between Actions and n8n is governance debt.'
+      'Dual ownership between Actions and n8n is governance debt.',
+      'This wrapper should not regain unique logic.'
+    ]
+  },
+  'data-refresh-governance': {
+    workflow_family: 'data-refresh',
+    cleanup_decision: 'keep',
+    usage_status: 'active',
+    process_fit: 'core-shipping',
+    engineering_action: 'Keep this as the canonical reusable workflow for the data-refresh family and collapse future scripted refresh changes into this file instead of duplicating logic.',
+    consolidation_target: 'data-refresh-governance',
+    second_pass_notes: [
+      'This is the consolidated reusable source for the scripted data-refresh family.',
+      'Legacy family members should remain thin wrappers only until they can be retired safely.'
     ]
   },
   'check-ai-companions': {
     cleanup_decision: 'merge',
     consolidation_target: 'future:ai-runtime-artifacts-workflow'
+  },
+  'docs-catalog-governance': {
+    workflow_family: 'docs-catalog-governance',
+    cleanup_decision: 'keep',
+    usage_status: 'active',
+    process_fit: 'core-shipping',
+    engineering_action: 'Keep this as the canonical reusable workflow for the docs-catalog-governance family and collapse future changes into this file instead of duplicating logic.',
+    consolidation_target: 'docs-catalog-governance',
+    second_pass_notes: [
+      'This is the consolidated reusable source for the docs-catalog-governance family.',
+      'Legacy family members should remain thin wrappers only until they can be retired safely.'
+    ]
   },
   'generate-ai-companions': {
     cleanup_decision: 'merge',
@@ -389,27 +415,27 @@ const WORKFLOW_MANUAL_OVERRIDES = {
     consolidation_target: 'future:data-refresh-dispatcher'
   },
   'update-discord-data': {
-    cleanup_decision: 'consolidate',
-    consolidation_target: 'future:data-refresh-dispatcher'
+    cleanup_decision: 'merge',
+    consolidation_target: 'data-refresh-governance'
   },
   'update-ghost-blog-data': {
-    cleanup_decision: 'consolidate',
-    consolidation_target: 'future:data-refresh-dispatcher'
+    cleanup_decision: 'merge',
+    consolidation_target: 'data-refresh-governance'
   },
   'update-github-data': {
-    cleanup_decision: 'consolidate',
-    consolidation_target: 'future:data-refresh-dispatcher'
+    cleanup_decision: 'merge',
+    consolidation_target: 'data-refresh-governance'
   },
   'update-rss-blog-data': {
-    cleanup_decision: 'consolidate',
-    consolidation_target: 'future:data-refresh-dispatcher'
+    cleanup_decision: 'merge',
+    consolidation_target: 'data-refresh-governance'
   },
   'update-youtube-data': {
-    consolidation_target: 'future:data-refresh-dispatcher'
+    consolidation_target: 'data-refresh-governance'
   },
   'update-livepeer-release': {
-    cleanup_decision: 'consolidate',
-    consolidation_target: 'future:data-refresh-dispatcher'
+    cleanup_decision: 'merge',
+    consolidation_target: 'data-refresh-governance'
   },
   'generate-review-table': {
     cleanup_decision: 'consolidate'
@@ -491,7 +517,7 @@ const FAMILY_TARGETS = {
   'validation-sweeps': 'dispatcher:review-fix',
   'governance-maintenance': 'dispatcher:repo-cleanup-handover',
   'issue-intake-and-triage': 'dispatcher:research-review-packet',
-  'data-refresh': 'future:data-refresh-dispatcher',
+  'data-refresh': 'data-refresh-governance',
   'content-publication': 'dispatcher:page-ship',
   'placeholder-backlog': 'none'
 };
@@ -612,6 +638,8 @@ function inferWorkflowFamily(slug, dispatcherCandidate, content) {
   const raw = `${slug} ${String(content || '')}`.toLowerCase();
   if (/not yet implemented|todo: implement/.test(raw)) return 'placeholder-backlog';
   if (/ai-companions|ai-sitemap|llms/.test(slug)) return 'ai-runtime-artifacts';
+  if (/docs-catalog-governance/.test(slug)) return 'docs-catalog-governance';
+  if (/data-refresh-governance/.test(slug)) return 'data-refresh';
   if (/codex-governance|governance-sync|repair-governance|tasks-retention|sync-large-assets/.test(slug)) {
     return 'governance-maintenance';
   }
@@ -658,6 +686,12 @@ function inferUsageStatus(slug, content) {
   if (override.usage_status) return override.usage_status;
   const raw = String(content || '').toLowerCase();
   if (/not yet implemented|todo: implement/.test(raw)) return 'placeholder';
+  if (/uses:\s*\.\/\.github\/workflows\/docs-catalog-governance\.ya?ml/.test(raw)) {
+    return 'compatibility-wrapper';
+  }
+  if (/uses:\s*\.\/\.github\/workflows\/data-refresh-governance\.ya?ml/.test(raw)) {
+    return 'compatibility-wrapper';
+  }
   if (/n8n is being using as an alternative|this github action will only run on main branch/.test(raw)) return 'legacy-unclear';
   if (/continue-on-error:\s*true/.test(raw) || /\(advisory\)/.test(raw)) return 'active-advisory';
   if (/git\s+push/i.test(content) || /\bcontents:\s*write\b/i.test(content)) return 'active-mutating';
@@ -668,6 +702,7 @@ function inferCleanupDecision(slug, family, usageStatus) {
   const override = workflowOverride(slug);
   if (override.cleanup_decision) return override.cleanup_decision;
   if (usageStatus === 'placeholder') return 'retire';
+  if (usageStatus === 'compatibility-wrapper') return 'merge';
   if (usageStatus === 'legacy-unclear') return 'needs-investigation';
   if (family === 'ai-runtime-artifacts' || family === 'docs-catalog-governance') return 'merge';
   if (family === 'data-refresh') return 'consolidate';
@@ -924,7 +959,7 @@ function parseJobs(doc, workflowPath) {
 
       if (usesValue) {
         if (usesValue.startsWith('./')) {
-          localDependencies.push(normalizeRepoPath(path.posix.join(path.posix.dirname(workflowPath), usesValue)));
+          localDependencies.push(normalizeRepoPath(usesValue.replace(/^\.\//, '')));
         } else {
           externalDependencies.push(`action:${usesValue}`);
         }

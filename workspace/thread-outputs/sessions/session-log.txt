@@ -1,3 +1,14 @@
+=== 2026-03-31 04:45 ===
+Stream: Companion Pipeline + YAML Hex Root-Cause Fix
+Outcome: Met
+Done:
+- Contracts companion added to ai-companion-manifest.json. Validation passes
+- Phase 3 redirects executed: duplicate contract-addresses page redirected, 4 internal links updated
+- P0 YAML hex bug found and fixed: unquoted 0x values in frontmatter parsed as numbers, corrupting sitemap. Quoted in 5 files, defensive warning in coerceStringArray, documented as constraint #13
+- All 9 frontmatter-consuming scripts audited for hex vulnerability. generate-seo.js and generate-llms-files.js confirmed safe
+- YAML boolean/null type trap scan: clean
+Next: Scam protection page (pending approval). ContractVerifier registry gap. PreviewCallouts tag downgrade
+
 === 2026-03-31 ===
 Stream: Backlog Execution (BL-013, BL-014, BL-015)
 Outcome: Met
@@ -93,6 +104,15 @@ Co-working direction established:
 - Append + dedupe keywords, never overwrite (SEO generator may be in use)
 - Use `/propagate` for file moves, `--dry-run` for scripts, agents for parallel work
 - External actions (CoinGecko, GSC, social) are handover items, not in-repo work
+
+=== 2026-03-31 18:20 ===
+Stream: Mint Parse Hygiene
+Outcome: Met
+Done:
+- Fixed current Mint parser blockers in canonical docs/templates, including the malformed authoring-guide example and parser-hostile template contracts
+- Replaced routed-page reuse with a composable wrapper pattern for docs philosophy and aligned gateway release-version consumers to globals.jsx as the single source of truth
+- Added repo-side enforcement for Mint parse-surface boundaries, routed-page import bans, and stale globals.mdx import usage; verified clean Mint and lpd boots with zero parse warnings
+Next: Investigate the remaining post-startup Mint preview runtime TypeError in a separate session
 
 Files changed:
 - workspace/thread-outputs/research/anti-scam-seo-aeo-strategy.md (created — full research)

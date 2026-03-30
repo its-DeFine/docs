@@ -1,5 +1,5 @@
 # Project State — Content Writing Pipeline
-> Last updated: 2026-03-28
+> Last updated: 2026-03-31
 > This file must be read at the start of every AI session and updated after every agent batch.
 
 ---
@@ -17,6 +17,7 @@
 | Output file | Notes | Unblocks |
 |---|---|---|
 | VS Code Claude extension fix toolkit | Canonical diagnostic, 7 scripts, extension patched, cron backup, community research. `workspace/plan/active/FUCK_CLAUDE/` | Unblocks stable VS Code workflow — re-run `patch-extension.sh` after updates |
+| Mint parse hygiene remediation | Canonical templates are MDX-safe, routed/composable MDX contract enforced, globals.jsx is the single source of truth for gateway release data, and Mint boots cleanly without parse warnings | Unblocks reliable `mint dev` / `lpd dev` and prevents routed-page import regressions |
 | resources-restructure (Gateways + Orchestrators) | reference/ and knowledge-hub/ sub-sections created. All files moved. docs.json updated. 15 redirects added. No content changed. | Unblocks IA audit accuracy (folder tree now matches pipeline spec) |
 | context-packs/orchestrators-ia-prereq.md | Folder tree + nav tree + discrepancies | Human IA review (Orchestrators) |
 | context-packs/gateways-ia-prereq.md | Folder tree + nav tree + discrepancies | Human IA review (Gateways) |

@@ -7012,6 +7012,37 @@
       "notes": "Generated canonical workflow detail page for .github/workflows/content-health.yml."
     },
     {
+      "id": "registry-workflow-data-refresh-governance-mdx",
+      "path": "ai-tools/registry/workflows/data-refresh-governance.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/data-refresh-governance.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/data-refresh-governance.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/data-refresh-governance.yml."
+    },
+    {
       "id": "registry-workflow-discord-issue-intake-mdx",
       "path": "ai-tools/registry/workflows/discord-issue-intake.mdx",
       "artifact_type": "visual-library-detail",
@@ -7041,6 +7072,37 @@
       "status": "generated-active",
       "migration_wave": "wave-1",
       "notes": "Generated canonical workflow detail page for .github/workflows/discord-issue-intake.yml."
+    },
+    {
+      "id": "registry-workflow-docs-catalog-governance-mdx",
+      "path": "ai-tools/registry/workflows/docs-catalog-governance.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/docs-catalog-governance.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/docs-catalog-governance.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/docs-catalog-governance.yml."
     },
     {
       "id": "registry-workflow-docs-v2-issue-indexer-mdx",

@@ -35,6 +35,7 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 | References | `.claude/references/` — 26 files, 13 categories. Exemplars + best-practice + patterns. Concern-audit methodology validated | Done | 2026-03-31 |
 | Solutions Merge | merge/solutions-to-docs-v2 branch ready, pushed to origin. PR creation blocked by hook — user runs manually | Pending PR | 2026-03-30 |
 | Workflow Alignment Skills | `/thread` v1.4: auto-derive entry (no questions), 10-phase lifecycle. PreEdit auto-gen hook shipped | Done | 2026-03-31 |
+| GitHub Actions Governance | Framework canonical + action template + catalog index (45 workflows). Phases 1-4 complete. Remaining: per-action pages, consolidation execution, shared module extraction | Active | 2026-03-31 |
 
 **Rule:** When you finish a task or change status, update your row in this table before closing. If the master-tasks.md file has a matching item, update that too.
 

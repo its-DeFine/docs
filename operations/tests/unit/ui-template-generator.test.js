@@ -44,6 +44,7 @@ const PARSER_HOSTILE_PATTERNS = [
     message: 'Nested placeholder braces are not valid live JSX. Use inert tokens in strings/comments or a real exported variable.',
   },
 ];
+const GLOBALS_MDX_IMPORT_PATTERN = /from\s*['"]\/snippets\/automations\/globals\/globals\.mdx['"]/g;
 
 function readJson(repoPath) {
   return JSON.parse(fs.readFileSync(path.join(REPO_ROOT, repoPath), 'utf8'));
@@ -119,6 +120,25 @@ function resolveImportPath(importPath, sourceRepoPath) {
 function getTemplateFiles() {
   return walkFiles(TEMPLATE_ROOT, (filePath) => filePath.endsWith('.mdx') || filePath.endsWith('.md'))
     .map(getRepoPath)
+    .sort((left, right) => left.localeCompare(right));
+}
+
+function isCanonicalMintFacingRepoPath(repoPath) {
+  return (
+    (repoPath.startsWith('v2/') || repoPath.startsWith('snippets/')) &&
+    /\.(md|mdx)$/i.test(repoPath) &&
+    !repoPath.startsWith('workspace/') &&
+    !repoPath.startsWith('.github/workspace/') &&
+    !repoPath.includes('/_workspace/') &&
+    !repoPath.includes('/node_modules/')
+  );
+}
+
+function getCanonicalMintFacingFiles() {
+  return ['v2', 'snippets']
+    .flatMap((root) => walkFiles(path.join(REPO_ROOT, root), (filePath) => /\.(md|mdx)$/i.test(filePath)))
+    .map(getRepoPath)
+    .filter(isCanonicalMintFacingRepoPath)
     .sort((left, right) => left.localeCompare(right));
 }
 
@@ -215,6 +235,49 @@ function validateBannedParseSurface(errors) {
   return { totalBannedFiles: bannedFiles.length };
 }
 
+function validateCanonicalImportContracts(errors) {
+  const routeFileSet = new Set(
+    [...getDocsJsonRouteKeys(REPO_ROOT)]
+      .map((routeKey) => resolveDocsRouteToFile(routeKey, REPO_ROOT))
+      .filter(Boolean)
+      .map(getRepoPath)
+  );
+  const canonicalFiles = getCanonicalMintFacingFiles();
+
+  canonicalFiles.forEach((repoPath) => {
+    const content = readText(repoPath);
+    const imports = extractImports(content);
+
+    let globalsMatch;
+    while ((globalsMatch = GLOBALS_MDX_IMPORT_PATTERN.exec(content)) !== null) {
+      errors.push({
+        file: repoPath,
+        rule: 'Mint globals import contract',
+        message: 'Import latestVersion data from /snippets/automations/globals/globals.jsx. globals.mdx must stay a thin wrapper, not the canonical import path.',
+        line: getLineNumber(content, globalsMatch.index),
+      });
+    }
+    GLOBALS_MDX_IMPORT_PATTERN.lastIndex = 0;
+
+    imports.forEach((imp) => {
+      const resolvedImport = resolveImportPath(imp.path, repoPath);
+      if (!resolvedImport) return;
+
+      const importedRepoPath = getRepoPath(resolvedImport);
+      if (!routeFileSet.has(importedRepoPath)) return;
+
+      errors.push({
+        file: repoPath,
+        rule: 'Routed MDX composition contract',
+        message: `Do not import routed docs page content directly (${imp.path}). Extract reusable content to snippets/composables and keep routed pages as wrappers.`,
+        line: imp.line || 1,
+      });
+    });
+  });
+
+  return { totalCanonicalFiles: canonicalFiles.length };
+}
+
 function runTests() {
   const errors = [];
 
@@ -246,6 +309,7 @@ function runTests() {
     const templateContractResult = validateTemplateMdxContracts(errors);
     const docsRouteResult = validateDocsJsonRoutes(errors);
     const parseSurfaceResult = validateBannedParseSurface(errors);
+    const canonicalImportContractResult = validateCanonicalImportContracts(errors);
 
     return {
       passed: errors.length === 0,
@@ -256,6 +320,7 @@ function runTests() {
       totalTemplateFiles: templateContractResult.totalTemplateFiles,
       totalRoutes: docsRouteResult.totalRoutes,
       totalBannedFiles: parseSurfaceResult.totalBannedFiles,
+      totalCanonicalFiles: canonicalImportContractResult.totalCanonicalFiles,
     };
   } catch (error) {
     errors.push({

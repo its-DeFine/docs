@@ -9,7 +9,7 @@ This file is generated from `ai-tools/registry/ai-tools-registry.json`.
 - Version: 1
 - Discovery roots: `ai-tools`
 - Exclusions: _none_
-- Total artifacts: 290
+- Total artifacts: 292
 - Tracked AI-tools files covered: run `node operations/scripts/validate-ai-tools-registry.js --check --coverage` to confirm
 
 ### Current Lanes
@@ -18,7 +18,7 @@ This file is generated from `ai-tools/registry/ai-tools-registry.json`.
 | --- | ---: | --- |
 | `exports` | 64 | Generated agent-pack manifests, adapters, and portable skill export bundles. |
 | `local` | 29 | Repo-local SKILL.md roots that are consumed in-place inside this repository. |
-| `manual-doc` | 102 | Authoritative manual docs, registry artifacts, and subsystem-scoped governance/support documents. |
+| `manual-doc` | 104 | Authoritative manual docs, registry artifacts, and subsystem-scoped governance/support documents. |
 | `rules` | 16 | Legacy or imported AI rule material kept under ai-tools until later normalization. |
 | `templates` | 66 | Canonical portable-skill templates and companion bundles under the current ai-skills template roots. |
 | `workspace` | 13 | Research, package, and source-snapshot material that must stay out of canonical skill and export lanes. |
@@ -30,7 +30,7 @@ This file is generated from `ai-tools/registry/ai-tools-registry.json`.
 | `canonical-template` | 66 | Canonical editable source for portable skills and companion template bundles. |
 | `legacy-active` | 53 | Active legacy surfaces that are still in use but require later normalization or retirement. |
 | `local-synced` | 4 | Repo-local skill roots that are derived from canonical portable templates. |
-| `manual-doc` | 95 | Human-readable canonical docs, registry artifacts, or subsystem-scoped governance documents. |
+| `manual-doc` | 97 | Human-readable canonical docs, registry artifacts, or subsystem-scoped governance documents. |
 | `portable-export` | 64 | Generated export artifacts derived from canonical AI-tools sources. |
 | `retired` | 8 | Historical material retained only as reference and not used by active generators or runtime flows. |
 
@@ -43,7 +43,7 @@ This file is generated from `ai-tools/registry/ai-tools-registry.json`.
 | `canonical-active` | 70 |  |
 | `contradictory-active` | 2 |  |
 | `duplicated-import` | 2 |  |
-| `generated-active` | 118 |  |
+| `generated-active` | 120 |  |
 | `misnamed-generated-output` | 2 |  |
 | `misplaced-research` | 3 |  |
 | `mixed-lifecycle` | 2 |  |
@@ -337,7 +337,9 @@ This file is generated from `ai-tools/registry/ai-tools-registry.json`.
 | `ai-tools/registry/workflows/close-linked-issues-docs-v2.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
 | `ai-tools/registry/workflows/codex-governance.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
 | `ai-tools/registry/workflows/content-health.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/data-refresh-governance.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
 | `ai-tools/registry/workflows/discord-issue-intake.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
+| `ai-tools/registry/workflows/docs-catalog-governance.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
 | `ai-tools/registry/workflows/docs-v2-issue-indexer.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
 | `ai-tools/registry/workflows/freshness-monitor.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |
 | `ai-tools/registry/workflows/generate-ai-companions.mdx` | `visual-library-detail` | `manual-doc` | `manual-doc` | `generated-active` |

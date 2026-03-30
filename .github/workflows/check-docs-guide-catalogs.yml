@@ -11,46 +11,9 @@ on:
 
 jobs:
   check-docs-guide-catalogs:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Install tooling dependencies
-        run: npm --prefix tools ci
-
-      - name: Verify component registry is current
-        run: node operations/scripts/generators/components/library/generate-component-registry.js --validate-only
-
-      - name: Verify component docs pages are current
-        run: node operations/scripts/generators/components/documentation/generate-component-docs.js --check
-
-      - name: Check component library health (stale imports, sync, coverage)
-        run: node operations/scripts/validators/components/library/check-component-health.js --check
-
-      - name: Check component example files (stale imports in examples)
-        run: node operations/scripts/generators/components/library/generate-component-examples.js --check
-
-      - name: Verify workflows and templates catalogs are current
-        run: node operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js --check
-
-      - name: Verify pages catalog is current
-        run: node operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js --check
-
-      - name: Check frontmatter taxonomy on changed docs pages
-        if: github.event_name == 'pull_request'
-        run: |
-          CHANGED=$(git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -E '^(v2|docs-guide)/.*\.mdx$' | tr '\n' ',' | sed 's/,$//')
-          if [ -n "$CHANGED" ]; then
-            node operations/tests/unit/quality.test.js --files "$CHANGED"
-          else
-            echo "No routable docs pages changed — skipping frontmatter check."
-          fi
+    uses: ./.github/workflows/docs-catalog-governance.yml
+    with:
+      mode: check-docs-guide-catalogs
+      run_frontmatter_check: ${{ github.event_name == 'pull_request' }}
+      base_ref: ${{ github.base_ref || '' }}
+    secrets: inherit

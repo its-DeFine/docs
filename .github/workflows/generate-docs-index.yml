@@ -13,45 +13,8 @@ on:
 
 jobs:
   generate-docs-index:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.use_test_branch == 'true' && vars.TEST_BRANCH || vars.DEPLOY_BRANCH }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Resolve target branch
-        id: branch
-        run: |
-          if [ "${{ inputs.use_test_branch }}" = "true" ]; then
-            echo "name=${{ vars.TEST_BRANCH }}" >> "$GITHUB_OUTPUT"
-          else
-            echo "name=${{ vars.DEPLOY_BRANCH }}" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Install dependencies
-        run: cd tools && npm install
-
-      - name: Generate docs index
-        run: node operations/scripts/generators/content/catalogs/generate-docs-index.js --write
-
-      - name: Check for changes
-        id: git-check
-        run: |
-          git diff --exit-code docs-index.json || echo "changed=true" >> $GITHUB_OUTPUT
-
-      - name: Commit and push if changed
-        if: steps.git-check.outputs.changed == 'true'
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
-          git add docs-index.json
-          git commit -m "Update docs index - $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-          git push origin HEAD:${{ steps.branch.outputs.name }}
+    uses: ./.github/workflows/docs-catalog-governance.yml
+    with:
+      mode: generate-docs-index
+      use_test_branch: ${{ inputs.use_test_branch || false }}
+    secrets: inherit

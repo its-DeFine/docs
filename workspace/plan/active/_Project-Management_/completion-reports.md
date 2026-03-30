@@ -152,6 +152,86 @@ Analysed all 6 CLAUDE.md additions suggested by the insights report. All 6 are a
 
 ---
 
+## Mint Parse Hygiene — 2026-03-31
+
+**Plans**: none
+**Scope**: Eliminate current Mint parse blockers, fix the underlying routed-vs-composable MDX and globals import contracts, and add repo-side guards so Mint-facing templates and docs fail in tests before `mint dev`.
+**Outcome**: Met
+
+### Summary
+
+This session converted Mint parse hygiene from an ad hoc dev-server problem into an enforced repo contract. Canonical templates were made MDX-safe, the `docs-philosophy` routed-page import pattern was replaced with a composable snippet wrapper model, the gateway release-version contract was aligned to `globals.jsx` as the single source of truth, and the test suite now rejects both routed-page composition and stale `globals.mdx` import patterns before preview.
+
+Fresh validation confirmed the fix at the real entrypoints: `mint dev --port 3340` and `bash tools/lpd dev -- --port 3341` both reached preview-ready with zero parsing warnings and zero route/import warnings.
+
+### Completed
+
+**Mint parser root-cause remediation**
+- Repaired the malformed `CodeGroup` example in `v2/resources/documentation-guide/copy-style/authoring-guide.mdx` so Mint no longer treats the sample closing tag as live MDX.
+- Reworked canonical templates under `snippets/templates/**` so parser-hostile placeholder syntax and unresolved template imports are no longer required for them to exist in the Mint-facing surface.
+- Removed the routed-page import anti-pattern from `docs-philosophy` by extracting reusable content to `snippets/composables/pages/internal/docs-philosophy.mdx` and leaving `v2/internal/overview/docs-philosophy.mdx` as a thin routed wrapper.
+- Repointed current gateway consumers to `snippets/automations/globals/globals.jsx`, with `globals.mdx` reduced to a thin re-export wrapper so the repo no longer has two competing release-version sources.
+
+**Repo contract enforcement**
+- Extended `operations/tests/unit/ui-template-generator.test.js` to enforce canonical template parse safety, Mint parse-surface boundaries, `globals.jsx` import policy, and a ban on importing routed docs pages as composables.
+- Updated `operations/tests/unit/mdx-guards.test.js` to scan the current `v2/` and `snippets/` surfaces, reject `latestVersion` aliasing, and reject `globals.mdx` as a canonical import target.
+- Converted three deprecated orchestrator tutorial placeholders away from direct routed-page imports and into explicit handoff warnings to the canonical gateway tutorials.
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Reusable docs content must live under `snippets/composables/**`, not be imported from routed `v2/**` pages | Mint route resolution and import semantics break when a routed page is also treated as a snippet-like composable |
+| `snippets/automations/globals/globals.jsx` is the canonical release-version source, with `globals.mdx` only as a wrapper | The automation workflow updates `globals.jsx`; using `.mdx` as the primary import path caused contract drift and stale-resolution risk |
+| Deprecated placeholder pages should link to canonical tutorials instead of importing routed pages wholesale | It preserves discoverability without violating the routed/composable MDX contract |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Investigate post-startup Mint preview runtime `transformAlgorithm` TypeError | P2 | Preview boots cleanly and parsing is fixed, but the runtime warning remains | Separate Mint/runtime debugging session |
+
+### Dependencies & Downstream Effects
+
+- **Mint-facing MDX authoring**: Reusable content now has a stricter boundary. Future shared sections should be created under `snippets/composables/**` instead of imported from routed pages.
+- **Gateway release-version consumers**: Current pages should treat `globals.jsx` as the canonical import path. Any future `.mdx` wrapper should remain a thin re-export only.
+- **Template/governance validation**: `ui-template-generator.test.js` now acts as a Mint parse-surface gate, so routed-page imports and stale globals imports will fail in local and CI validation.
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| `node operations/tests/unit/mdx.test.js --files ...` | ✅ Clean | Targeted MDX validation passed for the repaired canonical files |
+| `node operations/tests/unit/mdx-guards.test.js` | ✅ Clean | 1818 file scans |
+| `node operations/tests/unit/ui-template-generator.test.js` | ✅ Clean | Passed with 39 canonical templates, 703 docs routes, and 4358 banned-surface markdown files checked |
+| `mint dev --port 3340` | ✅ Clean parse boot | Preview ready with zero parsing warnings |
+| `bash tools/lpd dev -- --port 3341` | ✅ Clean parse boot | Preview ready with zero parsing warnings |
+| Mint preview runtime | ⚠️ Pre-existing warning remains | `[TypeError: controller[kState].transformAlgorithm is not a function]` still prints after preview-ready |
+
+### Recommendations
+
+1. **Debug the remaining preview runtime TypeError separately** — parsing hygiene is fixed, so the remaining issue should be isolated as Mint CLI / watcher-patch runtime behaviour rather than mixed with content parsing.
+2. **Propagate the composable-page rule into docs authoring guidance** — the new validator enforces it, but the authoring docs should also teach “routed page wrapper + composable body” as the standard pattern.
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `snippets/composables/pages/internal/docs-philosophy.mdx` | new | Canonical reusable docs-philosophy content extracted from routed page |
+| `v2/internal/overview/docs-philosophy.mdx` | modified | Routed page reduced to thin wrapper over the composable content |
+| `v2/internal/rfp/report.mdx` | modified | Now imports composable docs philosophy content instead of a routed page |
+| `v2/resources/documentation-guide/documentation-overview.mdx` | modified | Now imports composable docs philosophy content instead of a routed page |
+| `snippets/automations/globals/globals.mdx` | modified | Reduced to a thin re-export wrapper over `globals.jsx` |
+| `v2/gateways/quickstart/gateway-setup.mdx` | modified | Switched to canonical `globals.jsx` import |
+| `v2/gateways/quickstart/views/linux/linuxOffChainTab.mdx` | modified | Switched to canonical `globals.jsx` import |
+| `v2/gateways/setup/install/linux-install.mdx` | modified | Switched to canonical `globals.jsx` import |
+| `v2/gateways/setup/install/windows-install.mdx` | modified | Switched to canonical `globals.jsx` import and removed aliasing |
+| `operations/tests/unit/ui-template-generator.test.js` | modified | Added Mint parse-surface and routed/composable contract enforcement |
+| `operations/tests/unit/mdx-guards.test.js` | modified | Added current-surface globals import and aliasing enforcement |
+| `v2/resources/documentation-guide/copy-style/authoring-guide.mdx` | modified | Fixed malformed fenced `CodeGroup` example |
+
+---
+
 ## Full repo cleanup + docs-v2 cleanup + reconciliation prep — 2026-03-27/28
 
 **Plans**: `/Users/alisonhaire/.claude/plans/bright-floating-pebble.md`
@@ -3357,3 +3437,62 @@ Production readiness audit of the entire blockchain contracts pipeline. Three Ex
 | `workspace/thread-outputs/sessions/flags.jsonl` | Flags | 3 new flags (workflow dispatch, propagate gap, OG images) |
 | `snippets/assets/site/og-image/en/page-livepeer-contract-addresses.png` | Asset | Custom OG image for canonical contract addresses page |
 | `snippets/assets/site/og-image/en/page-blockchain-contracts.png` | Asset | Custom OG image for blockchain contracts pages |
+
+## Companion Pipeline + YAML Hex Root-Cause Fix — 2026-03-31
+
+**Plans**: `workspace/plan/active/CONTRACTS-CHANGELOG-PIPELINE/seo-aeo-anti-scam-plan.md`
+**Scope**: Companion file governance, Phase 3 redirects, YAML hex parsing root-cause fix.
+**Outcome**: Met
+
+### Summary
+Closed the contracts companion governance gap (added to manifest). Executed Phase 3 redirect consolidation (duplicate contract-addresses page redirected to canonical, 4 internal links updated). Discovered and fixed a P0 bug: YAML frontmatter parser converts unquoted `0x`-prefixed hex values to JavaScript numbers, silently corrupting contract addresses in sitemap-ai.xml. Root cause fixed at source (quoted hex in 5 files) with defensive warning in shared utility and documentation as Mintlify constraint #13.
+
+### Completed
+**Companion pipeline:**
+- Contracts companion (`livepeer-contract-addresses-data.json`) added to `ai-companion-manifest.json`
+- Manifest validation passes for contracts entry
+- SolutionItem and PreviewCallouts investigated — low priority, flagged
+
+**Phase 3 redirects:**
+- Redirect added in docs.json: `/v2/resources/references/contract-addresses` → canonical
+- Nav entry updated to point to canonical page
+- 4 internal links updated (bridge, overview, testnet, llms.txt)
+
+**YAML hex root-cause fix:**
+- Quoted hex values in 5 MDX files
+- Defensive warning added to `coerceStringArray` in `tools/lib/docs-index-utils.js`
+- Documented as constraint #13 in Mintlify constraints reference
+- All 9 scripts consuming frontmatter audited — `generate-seo.js` and `generate-llms-files.js` confirmed safe
+- YAML boolean/null type trap scan: clean (zero found)
+- Sitemap regenerated and verified — hex addresses render correctly
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| Fix at YAML source (quote values) not in script | Precision already lost when number is created — script-level fix impossible for large hex |
+| Warning not error in coerceStringArray | Belt-and-suspenders — catches future mistakes without breaking existing pipelines |
+
+### Deferred Items
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| ContractVerifier not in component registry | P1 | Governance gap | Component governance thread |
+| PreviewCallouts tag should be `none` | P2 | Tagged `props-extracted` but content is UI banners | Component governance thread |
+| wordCount:0 for composable pages (BL-015) | P2 | Generator can't follow imports | Sitemap generator enhancement |
+| Scam protection page | P1 | Unique keyword cluster, not covered by existing content | Alison approval |
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| Sitemap hex addresses | Pass | `0x289ba...` renders as string, not scientific notation |
+| Unquoted hex scan | Pass | Zero found in v2/ and snippets/ |
+| YAML boolean/null scan | Pass | Zero found |
+| generate-seo.js audit | Safe | Always quotes array values |
+| generate-llms-files.js audit | Safe | Only reads title/description |
+| Manifest validation | Pass (with 3 pre-existing glossary path errors) | Contracts entry validated |
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `tools/lib/docs-index-utils.js` | Utility (modified) | Defensive warning for number-in-string-array |
+| `workspace/thread-outputs/research/mintlify-constraints-reference.md` | Reference (modified) | Constraint #13: YAML hex trap |
+| `workspace/plan/future/BACKLOG/registry.md` | Backlog (modified) | BL-015: wordCount:0 composable pages |

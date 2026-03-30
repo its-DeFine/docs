@@ -5,14 +5,14 @@ status: 'active'
 concern: 'authoring'
 source_path: '.github/workflows/update-github-data.yml'
 trigger_mode: 'schedule + workflow_dispatch'
-risk_level: 'high'
+risk_level: 'medium'
 consolidation_flag: 'review for alignment with `page-ship` while preserving current schedule + workflow_dispatch trigger behavior'
 dispatcher_candidate: 'page-ship'
 workflow_family: 'data-refresh'
-cleanup_decision: 'consolidate'
-usage_status: 'active-mutating'
+cleanup_decision: 'merge'
+usage_status: 'compatibility-wrapper'
 process_fit: 'core-shipping'
-consolidation_target: 'future:data-refresh-dispatcher'
+consolidation_target: 'data-refresh-governance'
 last_verified: '2026-03-31'
 ---
 
@@ -50,16 +50,11 @@ Govern the `.github/workflows/update-github-data.yml` workflow as a human-readab
 
 | Job ID | Name | Runs On | Needs | Step Count |
 | --- | --- | --- | --- | --- |
-| `update-github-data` | update-github-data | `ubuntu-latest` | none | 6 |
+| `update-github-data` | update-github-data | n/a | none | 0 |
 
 ### update-github-data
 
-- `Checkout repository` | uses actions/checkout@v4
-- `Setup Node.js` | uses actions/setup-node@v4
-- `Fetch GitHub Discussions` | runs `node .github/scripts/fetch-github-discussions.js`
-- `Fetch GitHub Releases` | runs `node .github/scripts/fetch-github-releases.js`
-- `Check for changes` | runs `git diff --exit-code snippets/automations/ || echo "changed=true" >> $GITHUB_OUTPUT`
-- `Commit and push if changed` | runs `git config --global user.name 'github-actions[bot]'`
+- No steps parsed.
 
 ## Inputs
 
@@ -68,25 +63,19 @@ Govern the `.github/workflows/update-github-data.yml` workflow as a human-readab
 ## Second Pass Assessment
 
 - Workflow family: `data-refresh`
-- Usage status: `active-mutating`
-- Cleanup decision: `consolidate`
+- Usage status: `compatibility-wrapper`
+- Cleanup decision: `merge`
 - Process fit: `core-shipping`
-- Consolidation target: `future:data-refresh-dispatcher`
-- Recommended engineering action: Consolidate this workflow under `future:data-refresh-dispatcher` and keep the script or validator layer as the reusable implementation boundary.
+- Consolidation target: `data-refresh-governance`
+- Recommended engineering action: Merge this workflow with its sibling family into `data-refresh-governance` so one workflow owns both check and write modes.
 
 ## Outputs
 
 - Generated or refreshed repository data
-- Repository commits or branch updates
 
 ## Dependencies
 
-- .github/scripts/fetch-github-discussions.js
-- .github/scripts/fetch-github-releases.js
-- action:actions/checkout@v4
-- action:actions/setup-node@v4
-- secret:GITHUB_TOKEN
-- snippets/automations/
+- No direct dependencies identified in current repo scan.
 
 ## Dependants
 
@@ -101,24 +90,22 @@ flowchart TD
   trigger --> workflow
   job1["Job: update-github-data"]
   workflow --> job1
-  outputs["Outputs: Generated or refreshed repository data, Repository commits or branch updates"]
+  outputs["Outputs: Generated or refreshed repository data"]
   job1 --> outputs
 ```
 
 ## Frailty And Risk
 
-- Mutates repository state from CI, which raises coordination and safety risk.
-- Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.
+- No local repo dependencies were detected automatically; verify whether this is truly standalone.
 - Scheduled execution can hide drift until the next cron window.
 
 ## Consolidation Notes
 
-Dispatcher suggestion: `page-ship`. Second-pass target: `future:data-refresh-dispatcher`. This is a governance recommendation, not an automatic rewrite instruction.
+Dispatcher suggestion: `page-ship`. Second-pass target: `data-refresh-governance`. This is a governance recommendation, not an automatic rewrite instruction.
 
 ## Cleanup Rationale
 
 - This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever.
-- This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow.
 
 ## Handover Notes
 

@@ -129,7 +129,7 @@
     "source_path": ".github/workflows/check-docs-guide-catalogs.yml",
     "workflow_family": "docs-catalog-governance",
     "cleanup_decision": "merge",
-    "usage_status": "active",
+    "usage_status": "compatibility-wrapper",
     "process_fit": "core-shipping",
     "concern": "repo-ops",
     "trigger_mode": "pull_request + push + workflow_dispatch",
@@ -137,17 +137,7 @@
     "dispatcher_candidate": "review-fix",
     "consolidation_target": "future:docs-catalog-governance-workflow",
     "engineering_action": "Merge this workflow with its sibling family into `future:docs-catalog-governance-workflow` so one workflow owns both check and write modes.",
-    "dependencies": [
-      "action:actions/checkout@v4",
-      "action:actions/setup-node@v4",
-      "operations/scripts/generators/components/documentation/generate-component-docs.js",
-      "operations/scripts/generators/components/library/generate-component-examples.js",
-      "operations/scripts/generators/components/library/generate-component-registry.js",
-      "operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js",
-      "operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js",
-      "operations/scripts/validators/components/library/check-component-health.js",
-      "operations/tests/unit/quality.test.js"
-    ],
+    "dependencies": [],
     "dependants": [
       "dispatcher:review-fix"
     ],
@@ -155,7 +145,7 @@
       "Workflow logs and job status"
     ],
     "frailty_notes": [
-      "Current heuristic risk level is `low`; no exceptional frailty markers were detected in the file scan."
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone."
     ],
     "second_pass_notes": [
       "This family already has obvious check/generate pairings that likely want one governed workflow with mode flags."
@@ -167,7 +157,7 @@
     "source_path": ".github/workflows/check-docs-index.yml",
     "workflow_family": "docs-catalog-governance",
     "cleanup_decision": "merge",
-    "usage_status": "active",
+    "usage_status": "compatibility-wrapper",
     "process_fit": "core-shipping",
     "concern": "repo-ops",
     "trigger_mode": "pull_request + push + workflow_dispatch",
@@ -175,11 +165,7 @@
     "dispatcher_candidate": "review-fix",
     "consolidation_target": "future:docs-catalog-governance-workflow",
     "engineering_action": "Merge this workflow with its sibling family into `future:docs-catalog-governance-workflow` so one workflow owns both check and write modes.",
-    "dependencies": [
-      "action:actions/checkout@v4",
-      "action:actions/setup-node@v4",
-      "operations/scripts/generators/content/catalogs/generate-docs-index.js"
-    ],
+    "dependencies": [],
     "dependants": [
       "dispatcher:review-fix"
     ],
@@ -187,7 +173,7 @@
       "Workflow logs and job status"
     ],
     "frailty_notes": [
-      "Current heuristic risk level is `low`; no exceptional frailty markers were detected in the file scan."
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone."
     ],
     "second_pass_notes": [
       "This family already has obvious check/generate pairings that likely want one governed workflow with mode flags."
@@ -296,6 +282,64 @@
     ]
   },
   {
+    "slug": "data-refresh-governance",
+    "title": "Data Refresh Governance",
+    "source_path": ".github/workflows/data-refresh-governance.yml",
+    "workflow_family": "data-refresh",
+    "cleanup_decision": "keep",
+    "usage_status": "active",
+    "process_fit": "core-shipping",
+    "concern": "repo-ops",
+    "trigger_mode": "workflow_call + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "review-fix",
+    "consolidation_target": "data-refresh-governance",
+    "engineering_action": "Keep this as the canonical reusable workflow for the data-refresh family and collapse future scripted refresh changes into this file instead of duplicating logic.",
+    "dependencies": [
+      ".github/scripts/fetch-discord-announcements.js",
+      ".github/scripts/fetch-forum-data.js",
+      ".github/scripts/fetch-ghost-blog-data.js",
+      ".github/scripts/fetch-github-discussions.js",
+      ".github/scripts/fetch-github-releases.js",
+      ".github/scripts/fetch-rss-blog-data.js",
+      ".github/scripts/fetch-youtube-data.js",
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "secret:DISCORD_BOT_TOKEN",
+      "secret:GITHUB_TOKEN",
+      "secret:YOUTUBE_API_KEY",
+      "snippets/automations",
+      "snippets/automations/",
+      "snippets/automations/blog/ghostBlogData.jsx",
+      "snippets/automations/forum/forumData.jsx",
+      "snippets/automations/globals/globals.jsx",
+      "snippets/automations/youtube/youtubeData.jsx"
+    ],
+    "dependants": [
+      "dispatcher:review-fix",
+      "workflow:.github/workflows/update-discord-data.yml",
+      "workflow:.github/workflows/update-forum-data.yml",
+      "workflow:.github/workflows/update-ghost-blog-data.yml",
+      "workflow:.github/workflows/update-github-data.yml",
+      "workflow:.github/workflows/update-livepeer-release.yml",
+      "workflow:.github/workflows/update-rss-blog-data.yml",
+      "workflow:.github/workflows/update-youtube-data.yml"
+    ],
+    "outputs": [
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
+    ],
+    "second_pass_notes": [
+      "Legacy family members should remain thin wrappers only until they can be retired safely.",
+      "The current trigger contract looks distinct enough to justify keeping a dedicated workflow entrypoint.",
+      "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever.",
+      "This is the consolidated reusable source for the scripted data-refresh family."
+    ]
+  },
+  {
     "slug": "discord-issue-intake",
     "title": "Discord Issue Intake",
     "source_path": ".github/workflows/discord-issue-intake.yml",
@@ -323,6 +367,60 @@
     ],
     "second_pass_notes": [
       "The current trigger contract looks distinct enough to justify keeping a dedicated workflow entrypoint."
+    ]
+  },
+  {
+    "slug": "docs-catalog-governance",
+    "title": "Docs Catalog Governance",
+    "source_path": ".github/workflows/docs-catalog-governance.yml",
+    "workflow_family": "docs-catalog-governance",
+    "cleanup_decision": "keep",
+    "usage_status": "active",
+    "process_fit": "core-shipping",
+    "concern": "repo-ops",
+    "trigger_mode": "workflow_call + workflow_dispatch",
+    "risk_level": "high",
+    "dispatcher_candidate": "review-fix",
+    "consolidation_target": "docs-catalog-governance",
+    "engineering_action": "Keep this as the canonical reusable workflow for the docs-catalog-governance family and collapse future changes into this file instead of duplicating logic.",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/setup-node@v4",
+      "docs-guide/catalog/pages-catalog.mdx",
+      "docs-guide/catalog/templates-catalog.mdx",
+      "docs-guide/catalog/workflows-catalog.mdx",
+      "docs-guide/config/component-registry-schema.json",
+      "docs-guide/config/component-registry.json",
+      "operations/scripts/generators/components/documentation/generate-component-docs.js",
+      "operations/scripts/generators/components/library/generate-component-examples.js",
+      "operations/scripts/generators/components/library/generate-component-registry.js",
+      "operations/scripts/generators/content/catalogs/generate-docs-index.js",
+      "operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js",
+      "operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js",
+      "operations/scripts/validators/components/library/check-component-health.js",
+      "operations/tests/unit/quality.test.js",
+      "secret:GITHUB_TOKEN"
+    ],
+    "dependants": [
+      "dispatcher:review-fix",
+      "workflow:.github/workflows/check-docs-guide-catalogs.yml",
+      "workflow:.github/workflows/check-docs-index.yml",
+      "workflow:.github/workflows/generate-component-registry.yml",
+      "workflow:.github/workflows/generate-docs-guide-catalogs.yml",
+      "workflow:.github/workflows/generate-docs-index.yml"
+    ],
+    "outputs": [
+      "Repository commits or branch updates"
+    ],
+    "frailty_notes": [
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
+    ],
+    "second_pass_notes": [
+      "Legacy family members should remain thin wrappers only until they can be retired safely.",
+      "The current trigger contract looks distinct enough to justify keeping a dedicated workflow entrypoint.",
+      "This family already has obvious check/generate pairings that likely want one governed workflow with mode flags.",
+      "This is the consolidated reusable source for the docs-catalog-governance family."
     ]
   },
   {
@@ -471,36 +569,26 @@
     "source_path": ".github/workflows/generate-component-registry.yml",
     "workflow_family": "docs-catalog-governance",
     "cleanup_decision": "merge",
-    "usage_status": "active-mutating",
+    "usage_status": "compatibility-wrapper",
     "process_fit": "core-shipping",
     "concern": "repo-ops",
     "trigger_mode": "push + workflow_dispatch",
-    "risk_level": "high",
+    "risk_level": "low",
     "dispatcher_candidate": "review-fix",
     "consolidation_target": "future:docs-catalog-governance-workflow",
     "engineering_action": "Merge this workflow with its sibling family into `future:docs-catalog-governance-workflow` so one workflow owns both check and write modes.",
-    "dependencies": [
-      "action:actions/checkout@v4",
-      "action:actions/setup-node@v4",
-      "docs-guide/config/component-registry-schema.json",
-      "docs-guide/config/component-registry.json",
-      "operations/scripts/generators/components/library/generate-component-registry.js",
-      "secret:GITHUB_TOKEN"
-    ],
+    "dependencies": [],
     "dependants": [
       "dispatcher:review-fix"
     ],
     "outputs": [
-      "Generated or refreshed repository data",
-      "Repository commits or branch updates"
+      "Generated or refreshed repository data"
     ],
     "frailty_notes": [
-      "Mutates repository state from CI, which raises coordination and safety risk.",
-      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone."
     ],
     "second_pass_notes": [
-      "This family already has obvious check/generate pairings that likely want one governed workflow with mode flags.",
-      "This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow."
+      "This family already has obvious check/generate pairings that likely want one governed workflow with mode flags."
     ]
   },
   {
@@ -509,39 +597,26 @@
     "source_path": ".github/workflows/generate-docs-guide-catalogs.yml",
     "workflow_family": "docs-catalog-governance",
     "cleanup_decision": "merge",
-    "usage_status": "active-mutating",
+    "usage_status": "compatibility-wrapper",
     "process_fit": "core-shipping",
     "concern": "repo-ops",
     "trigger_mode": "push + workflow_dispatch",
-    "risk_level": "high",
+    "risk_level": "low",
     "dispatcher_candidate": "page-ship",
     "consolidation_target": "future:docs-catalog-governance-workflow",
     "engineering_action": "Merge this workflow with its sibling family into `future:docs-catalog-governance-workflow` so one workflow owns both check and write modes.",
-    "dependencies": [
-      "action:actions/checkout@v4",
-      "action:actions/setup-node@v4",
-      "docs-guide/catalog/pages-catalog.mdx",
-      "docs-guide/catalog/templates-catalog.mdx",
-      "docs-guide/catalog/workflows-catalog.mdx",
-      "operations/scripts/generators/components/documentation/generate-component-docs.js",
-      "operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js",
-      "operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js",
-      "secret:GITHUB_TOKEN"
-    ],
+    "dependencies": [],
     "dependants": [
       "dispatcher:page-ship"
     ],
     "outputs": [
-      "Generated or refreshed repository data",
-      "Repository commits or branch updates"
+      "Generated or refreshed repository data"
     ],
     "frailty_notes": [
-      "Mutates repository state from CI, which raises coordination and safety risk.",
-      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone."
     ],
     "second_pass_notes": [
-      "This family already has obvious check/generate pairings that likely want one governed workflow with mode flags.",
-      "This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow."
+      "This family already has obvious check/generate pairings that likely want one governed workflow with mode flags."
     ]
   },
   {
@@ -550,34 +625,26 @@
     "source_path": ".github/workflows/generate-docs-index.yml",
     "workflow_family": "docs-catalog-governance",
     "cleanup_decision": "merge",
-    "usage_status": "active-mutating",
+    "usage_status": "compatibility-wrapper",
     "process_fit": "core-shipping",
     "concern": "repo-ops",
     "trigger_mode": "push + workflow_dispatch",
-    "risk_level": "high",
+    "risk_level": "low",
     "dispatcher_candidate": "page-ship",
     "consolidation_target": "future:docs-catalog-governance-workflow",
     "engineering_action": "Merge this workflow with its sibling family into `future:docs-catalog-governance-workflow` so one workflow owns both check and write modes.",
-    "dependencies": [
-      "action:actions/checkout@v4",
-      "action:actions/setup-node@v4",
-      "operations/scripts/generators/content/catalogs/generate-docs-index.js",
-      "secret:GITHUB_TOKEN"
-    ],
+    "dependencies": [],
     "dependants": [
       "dispatcher:page-ship"
     ],
     "outputs": [
-      "Generated or refreshed repository data",
-      "Repository commits or branch updates"
+      "Generated or refreshed repository data"
     ],
     "frailty_notes": [
-      "Mutates repository state from CI, which raises coordination and safety risk.",
-      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone."
     ],
     "second_pass_notes": [
-      "This family already has obvious check/generate pairings that likely want one governed workflow with mode flags.",
-      "This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow."
+      "This family already has obvious check/generate pairings that likely want one governed workflow with mode flags."
     ]
   },
   {
@@ -1239,38 +1306,28 @@
     "title": "Update Discord Announcements Data",
     "source_path": ".github/workflows/update-discord-data.yml",
     "workflow_family": "data-refresh",
-    "cleanup_decision": "consolidate",
-    "usage_status": "active-mutating",
+    "cleanup_decision": "merge",
+    "usage_status": "compatibility-wrapper",
     "process_fit": "core-shipping",
     "concern": "authoring",
     "trigger_mode": "schedule + workflow_dispatch",
-    "risk_level": "high",
+    "risk_level": "medium",
     "dispatcher_candidate": "page-ship",
-    "consolidation_target": "future:data-refresh-dispatcher",
-    "engineering_action": "Consolidate this workflow under `future:data-refresh-dispatcher` and keep the script or validator layer as the reusable implementation boundary.",
-    "dependencies": [
-      ".github/scripts/fetch-discord-announcements.js",
-      "action:actions/checkout@v4",
-      "action:actions/setup-node@v4",
-      "secret:DISCORD_BOT_TOKEN",
-      "secret:GITHUB_TOKEN",
-      "snippets/automations/"
-    ],
+    "consolidation_target": "data-refresh-governance",
+    "engineering_action": "Merge this workflow with its sibling family into `data-refresh-governance` so one workflow owns both check and write modes.",
+    "dependencies": [],
     "dependants": [
       "dispatcher:page-ship"
     ],
     "outputs": [
-      "Generated or refreshed repository data",
-      "Repository commits or branch updates"
+      "Generated or refreshed repository data"
     ],
     "frailty_notes": [
-      "Mutates repository state from CI, which raises coordination and safety risk.",
-      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone.",
       "Scheduled execution can hide drift until the next cron window."
     ],
     "second_pass_notes": [
-      "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever.",
-      "This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow."
+      "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever."
     ]
   },
   {
@@ -1278,38 +1335,30 @@
     "title": "Update Forum Data",
     "source_path": ".github/workflows/update-forum-data.yml",
     "workflow_family": "data-refresh",
-    "cleanup_decision": "needs-investigation",
-    "usage_status": "legacy-unclear",
+    "cleanup_decision": "merge",
+    "usage_status": "compatibility-wrapper",
     "process_fit": "legacy-or-unclear",
     "concern": "authoring",
     "trigger_mode": "schedule + workflow_dispatch",
-    "risk_level": "high",
+    "risk_level": "medium",
     "dispatcher_candidate": "page-ship",
-    "consolidation_target": "future:data-refresh-dispatcher",
-    "engineering_action": "Choose one owner path between GitHub Actions and n8n, then remove the duplicate path.",
-    "dependencies": [
-      ".github/scripts/fetch-forum-data.js",
-      "action:actions/checkout@v4",
-      "action:actions/setup-node@v4",
-      "secret:GITHUB_TOKEN",
-      "snippets/automations/forum/forumData.jsx"
-    ],
+    "consolidation_target": "data-refresh-governance",
+    "engineering_action": "Keep this as a thin compatibility wrapper until the Actions vs n8n ownership decision is resolved, then either retire it or keep only the canonical reusable workflow.",
+    "dependencies": [],
     "dependants": [
       "dispatcher:page-ship"
     ],
     "outputs": [
-      "Generated or refreshed repository data",
-      "Repository commits or branch updates"
+      "Generated or refreshed repository data"
     ],
     "frailty_notes": [
-      "Mutates repository state from CI, which raises coordination and safety risk.",
-      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone.",
       "Scheduled execution can hide drift until the next cron window."
     ],
     "second_pass_notes": [
-      "Current repo evidence is not strong enough to justify either deletion or consolidation without tracing real usage first.",
       "Dual ownership between Actions and n8n is governance debt.",
       "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever.",
+      "This wrapper should not regain unique logic.",
       "Workflow comments explicitly say n8n is being used as an alternative."
     ]
   },
@@ -1318,37 +1367,28 @@
     "title": "Update Ghost Blog Data",
     "source_path": ".github/workflows/update-ghost-blog-data.yml",
     "workflow_family": "data-refresh",
-    "cleanup_decision": "consolidate",
-    "usage_status": "active-mutating",
+    "cleanup_decision": "merge",
+    "usage_status": "compatibility-wrapper",
     "process_fit": "core-shipping",
     "concern": "authoring",
     "trigger_mode": "schedule + workflow_dispatch",
-    "risk_level": "high",
+    "risk_level": "medium",
     "dispatcher_candidate": "page-ship",
-    "consolidation_target": "future:data-refresh-dispatcher",
-    "engineering_action": "Consolidate this workflow under `future:data-refresh-dispatcher` and keep the script or validator layer as the reusable implementation boundary.",
-    "dependencies": [
-      ".github/scripts/fetch-ghost-blog-data.js",
-      "action:actions/checkout@v4",
-      "action:actions/setup-node@v4",
-      "secret:GITHUB_TOKEN",
-      "snippets/automations/blog/ghostBlogData.jsx"
-    ],
+    "consolidation_target": "data-refresh-governance",
+    "engineering_action": "Merge this workflow with its sibling family into `data-refresh-governance` so one workflow owns both check and write modes.",
+    "dependencies": [],
     "dependants": [
       "dispatcher:page-ship"
     ],
     "outputs": [
-      "Generated or refreshed repository data",
-      "Repository commits or branch updates"
+      "Generated or refreshed repository data"
     ],
     "frailty_notes": [
-      "Mutates repository state from CI, which raises coordination and safety risk.",
-      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone.",
       "Scheduled execution can hide drift until the next cron window."
     ],
     "second_pass_notes": [
-      "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever.",
-      "This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow."
+      "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever."
     ]
   },
   {
@@ -1356,38 +1396,28 @@
     "title": "Update GitHub Discussions & Releases Data",
     "source_path": ".github/workflows/update-github-data.yml",
     "workflow_family": "data-refresh",
-    "cleanup_decision": "consolidate",
-    "usage_status": "active-mutating",
+    "cleanup_decision": "merge",
+    "usage_status": "compatibility-wrapper",
     "process_fit": "core-shipping",
     "concern": "authoring",
     "trigger_mode": "schedule + workflow_dispatch",
-    "risk_level": "high",
+    "risk_level": "medium",
     "dispatcher_candidate": "page-ship",
-    "consolidation_target": "future:data-refresh-dispatcher",
-    "engineering_action": "Consolidate this workflow under `future:data-refresh-dispatcher` and keep the script or validator layer as the reusable implementation boundary.",
-    "dependencies": [
-      ".github/scripts/fetch-github-discussions.js",
-      ".github/scripts/fetch-github-releases.js",
-      "action:actions/checkout@v4",
-      "action:actions/setup-node@v4",
-      "secret:GITHUB_TOKEN",
-      "snippets/automations/"
-    ],
+    "consolidation_target": "data-refresh-governance",
+    "engineering_action": "Merge this workflow with its sibling family into `data-refresh-governance` so one workflow owns both check and write modes.",
+    "dependencies": [],
     "dependants": [
       "dispatcher:page-ship"
     ],
     "outputs": [
-      "Generated or refreshed repository data",
-      "Repository commits or branch updates"
+      "Generated or refreshed repository data"
     ],
     "frailty_notes": [
-      "Mutates repository state from CI, which raises coordination and safety risk.",
-      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone.",
       "Scheduled execution can hide drift until the next cron window."
     ],
     "second_pass_notes": [
-      "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever.",
-      "This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow."
+      "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever."
     ]
   },
   {
@@ -1395,35 +1425,28 @@
     "title": "Update Livepeer Release Version",
     "source_path": ".github/workflows/update-livepeer-release.yml",
     "workflow_family": "data-refresh",
-    "cleanup_decision": "consolidate",
-    "usage_status": "active-mutating",
+    "cleanup_decision": "merge",
+    "usage_status": "compatibility-wrapper",
     "process_fit": "core-shipping",
     "concern": "release",
     "trigger_mode": "repository_dispatch + schedule + workflow_dispatch",
-    "risk_level": "high",
+    "risk_level": "medium",
     "dispatcher_candidate": "page-ship",
-    "consolidation_target": "future:data-refresh-dispatcher",
-    "engineering_action": "Consolidate this workflow under `future:data-refresh-dispatcher` and keep the script or validator layer as the reusable implementation boundary.",
-    "dependencies": [
-      "action:actions/checkout@v4",
-      "secret:GITHUB_TOKEN",
-      "snippets/automations/globals/globals.jsx"
-    ],
+    "consolidation_target": "data-refresh-governance",
+    "engineering_action": "Merge this workflow with its sibling family into `data-refresh-governance` so one workflow owns both check and write modes.",
+    "dependencies": [],
     "dependants": [
       "dispatcher:page-ship"
     ],
     "outputs": [
-      "Generated or refreshed repository data",
-      "Repository commits or branch updates"
+      "Generated or refreshed repository data"
     ],
     "frailty_notes": [
-      "Mutates repository state from CI, which raises coordination and safety risk.",
-      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone.",
       "Scheduled execution can hide drift until the next cron window."
     ],
     "second_pass_notes": [
-      "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever.",
-      "This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow."
+      "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever."
     ]
   },
   {
@@ -1460,37 +1483,28 @@
     "title": "Update RSS Blog Data",
     "source_path": ".github/workflows/update-rss-blog-data.yml",
     "workflow_family": "data-refresh",
-    "cleanup_decision": "consolidate",
-    "usage_status": "active-mutating",
+    "cleanup_decision": "merge",
+    "usage_status": "compatibility-wrapper",
     "process_fit": "core-shipping",
     "concern": "authoring",
     "trigger_mode": "schedule + workflow_dispatch",
-    "risk_level": "high",
+    "risk_level": "medium",
     "dispatcher_candidate": "page-ship",
-    "consolidation_target": "future:data-refresh-dispatcher",
-    "engineering_action": "Consolidate this workflow under `future:data-refresh-dispatcher` and keep the script or validator layer as the reusable implementation boundary.",
-    "dependencies": [
-      ".github/scripts/fetch-rss-blog-data.js",
-      "action:actions/checkout@v4",
-      "action:actions/setup-node@v4",
-      "secret:GITHUB_TOKEN",
-      "snippets/automations/"
-    ],
+    "consolidation_target": "data-refresh-governance",
+    "engineering_action": "Merge this workflow with its sibling family into `data-refresh-governance` so one workflow owns both check and write modes.",
+    "dependencies": [],
     "dependants": [
       "dispatcher:page-ship"
     ],
     "outputs": [
-      "Generated or refreshed repository data",
-      "Repository commits or branch updates"
+      "Generated or refreshed repository data"
     ],
     "frailty_notes": [
-      "Mutates repository state from CI, which raises coordination and safety risk.",
-      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone.",
       "Scheduled execution can hide drift until the next cron window."
     ],
     "second_pass_notes": [
-      "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever.",
-      "This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow."
+      "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever."
     ]
   },
   {
@@ -1498,37 +1512,27 @@
     "title": "Update YouTube Data",
     "source_path": ".github/workflows/update-youtube-data.yml",
     "workflow_family": "data-refresh",
-    "cleanup_decision": "needs-investigation",
-    "usage_status": "legacy-unclear",
-    "process_fit": "legacy-or-unclear",
+    "cleanup_decision": "merge",
+    "usage_status": "compatibility-wrapper",
+    "process_fit": "core-shipping",
     "concern": "authoring",
     "trigger_mode": "schedule + workflow_dispatch",
-    "risk_level": "high",
+    "risk_level": "medium",
     "dispatcher_candidate": "page-ship",
-    "consolidation_target": "future:data-refresh-dispatcher",
-    "engineering_action": "Trace actual runtime use, owner, and downstream dependencies before deciding whether to keep, merge, or retire it. Current nearest dispatcher: `page-ship`.",
-    "dependencies": [
-      ".github/scripts/fetch-youtube-data.js",
-      "action:actions/checkout@v4",
-      "action:actions/setup-node@v4",
-      "secret:GITHUB_TOKEN",
-      "secret:YOUTUBE_API_KEY",
-      "snippets/automations/youtube/youtubeData.jsx"
-    ],
+    "consolidation_target": "data-refresh-governance",
+    "engineering_action": "Merge this workflow with its sibling family into `data-refresh-governance` so one workflow owns both check and write modes.",
+    "dependencies": [],
     "dependants": [
       "dispatcher:page-ship"
     ],
     "outputs": [
-      "Generated or refreshed repository data",
-      "Repository commits or branch updates"
+      "Generated or refreshed repository data"
     ],
     "frailty_notes": [
-      "Mutates repository state from CI, which raises coordination and safety risk.",
-      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "No local repo dependencies were detected automatically; verify whether this is truly standalone.",
       "Scheduled execution can hide drift until the next cron window."
     ],
     "second_pass_notes": [
-      "Current repo evidence is not strong enough to justify either deletion or consolidation without tracing real usage first.",
       "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever."
     ]
   },

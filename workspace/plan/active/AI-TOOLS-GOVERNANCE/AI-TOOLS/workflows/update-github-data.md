@@ -2,13 +2,13 @@
 
 - Source path: `.github/workflows/update-github-data.yml`
 - Workflow family: `data-refresh`
-- Cleanup decision: `consolidate`
-- Usage status: `active-mutating`
+- Cleanup decision: `merge`
+- Usage status: `compatibility-wrapper`
 - Process fit: `core-shipping`
 - Concern: `authoring`
-- Risk level: `high`
+- Risk level: `medium`
 - Dispatcher candidate: `page-ship`
-- Consolidation target: `future:data-refresh-dispatcher`
+- Consolidation target: `data-refresh-governance`
 
 ## Summary
 
@@ -16,16 +16,11 @@ Update GitHub Discussions & Releases Data runs on schedule, workflow_dispatch an
 
 ## Recommended Engineering Action
 
-Consolidate this workflow under `future:data-refresh-dispatcher` and keep the script or validator layer as the reusable implementation boundary.
+Merge this workflow with its sibling family into `data-refresh-governance` so one workflow owns both check and write modes.
 
 ## Dependencies
 
-- .github/scripts/fetch-github-discussions.js
-- .github/scripts/fetch-github-releases.js
-- action:actions/checkout@v4
-- action:actions/setup-node@v4
-- secret:GITHUB_TOKEN
-- snippets/automations/
+- No direct dependencies identified in current repo scan.
 
 ## Dependants
 
@@ -33,11 +28,9 @@ Consolidate this workflow under `future:data-refresh-dispatcher` and keep the sc
 
 ## Frailty Notes
 
-- Mutates repository state from CI, which raises coordination and safety risk.
-- Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.
+- No local repo dependencies were detected automatically; verify whether this is truly standalone.
 - Scheduled execution can hide drift until the next cron window.
 
 ## Cleanup Rationale
 
 - This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever.
-- This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow.
