@@ -746,6 +746,82 @@ img {
   border-top: none;
 }
 
+/* ─── Tree ─── */
+.lpd-tree {
+  margin: 1em 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card-bg);
+  font-family: 'SF Mono', Monaco, Consolas, monospace;
+  font-size: 0.88em;
+}
+
+.lpd-tree-folder {
+  margin: 0;
+}
+
+.lpd-tree-folder + .lpd-tree-folder,
+.lpd-tree-folder + .lpd-tree-file,
+.lpd-tree-file + .lpd-tree-folder,
+.lpd-tree-file + .lpd-tree-file {
+  margin-top: 2px;
+}
+
+.lpd-tree-folder summary {
+  list-style: none;
+}
+
+.lpd-tree-folder summary::-webkit-details-marker {
+  display: none;
+}
+
+.lpd-tree-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 24px;
+  color: var(--hero-text);
+}
+
+.lpd-tree-folder-summary {
+  cursor: pointer;
+  user-select: none;
+}
+
+.lpd-tree-caret {
+  width: 10px;
+  color: var(--muted-text);
+}
+
+.lpd-tree-folder > summary .lpd-tree-caret::before {
+  content: '▸';
+}
+
+.lpd-tree-folder[open] > summary .lpd-tree-caret::before {
+  content: '▾';
+}
+
+.lpd-tree-indent {
+  width: 10px;
+}
+
+.lpd-tree-icon {
+  width: 16px;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.lpd-tree-label {
+  overflow-wrap: anywhere;
+}
+
+.lpd-tree-children {
+  margin-left: 18px;
+  padding-left: 12px;
+  border-left: 1px solid var(--border);
+}
+
 /* ─── Embed Placeholder ─── */
 .lpd-embed-placeholder {
   display: flex;

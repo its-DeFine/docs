@@ -238,7 +238,29 @@ function CodeGroup(props, children) {
 // ─── Tree ─── //
 
 function Tree(props, children) {
-  return `<div style="font-family: 'SF Mono', Monaco, Consolas, monospace; font-size: 0.85em; margin: 1em 0; padding: 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--card-bg);">${children}</div>`;
+  return `<div class="lpd-tree">${children}</div>`;
+}
+
+function TreeFolder(props, children) {
+  const name = props.name || 'folder';
+  const openAttr = props.defaultOpen !== undefined ? ' open' : '';
+  return `<details class="lpd-tree-folder"${openAttr}>
+    <summary class="lpd-tree-row lpd-tree-folder-summary">
+      <span class="lpd-tree-caret" aria-hidden="true"></span>
+      <span class="lpd-tree-icon" aria-hidden="true">📁</span>
+      <span class="lpd-tree-label">${escapeHtml(name)}</span>
+    </summary>
+    <div class="lpd-tree-children">${children}</div>
+  </details>`;
+}
+
+function TreeFile(props) {
+  const name = props.name || 'file';
+  return `<div class="lpd-tree-row lpd-tree-file">
+    <span class="lpd-tree-indent" aria-hidden="true"></span>
+    <span class="lpd-tree-icon" aria-hidden="true">📄</span>
+    <span class="lpd-tree-label">${escapeHtml(name)}</span>
+  </div>`;
 }
 
 // ─── ParamField ─── //
@@ -278,5 +300,5 @@ module.exports = {
   Frame, Columns, Expandable,
   CodeBlock, CodeGroup, Icon, Update, ResponseField, ParamField,
   StyledTable, TableRow, TableCell,
-  Badge, Tree, OpenAPI
+  Badge, Tree, TreeFolder, TreeFile, OpenAPI
 };

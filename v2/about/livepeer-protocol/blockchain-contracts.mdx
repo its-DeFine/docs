@@ -77,6 +77,7 @@ import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
 import { ArbitrumIcon, ArbitrumSVG, LivepeerIcon, LivepeerSVG } from '/snippets/components/elements/icons/Icons.jsx'
 import { SolidityEmbed } from '/snippets/components/integrators/embeds/DataEmbed.jsx'
 import { FunctionField } from '/snippets/components/displays/response-fields/ResponseField.jsx'
+import { DataWrap } from '/snippets/components/wrappers/data/workflows.jsx'
 
 {/* ADDRESS EXTRACTIONS — sourced from contractAddressesData; no addresses hardcoded below */}
 export const arb = contractAddresses.meta.explorerUrls.arbiscan
@@ -114,7 +115,7 @@ export const lastVerifiedDate = contractAddresses.meta.lastVerified || "Pending"
 <Tip>
   Addresses on this page are automatically updated via a Github Action workflow. <br/>
   <span style={{display: "flex", alignItems: "center", marginTop: "0.2rem"}}> Data is sourced from the <DoubleIconLink label="Livepeer Github" href="https://github.com/livepeer/" iconRightColor="var(--hero-text)"/> and verified on-chain. </span> <br/>
-  <span style={{color: "var(--text)", marginTop: "0.5rem"}}> Last Updated: DD Month YYYY </span>
+  <span style={{color: "var(--text)", marginTop: "0.5rem"}}> Last Verified: <DataWrap value={contractAddresses.meta.lastVerified} /> </span>
 </Tip>
 
 <Columns cols={2}>
@@ -1152,7 +1153,7 @@ Stores Merkle roots used to verify stake snapshots taken at the time of the Conf
 
 For the complete list of all current and historical contract addresses across Arbitrum One and Ethereum Mainnet, including all historical target/implementation versions, see the [Contract Addresses](/v2/about/resources/contract-addresses) reference page.
 
-<Icon icon="check" color="var(--text)"/> <span style={{fontStyle: "italic", color: "var(--text)"}}>Last Verified {lastVerifiedDate}</span>
+<Icon icon="check" color="var(--text)"/> <span style={{fontStyle: "italic", color: "var(--text)"}}>Last Verified {<DataWrap value={contractAddresses.meta.lastVerified} />}</span>
 
 <Card
     href="/v2/about/resources/contract-addresses"

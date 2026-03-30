@@ -8,7 +8,7 @@
  * @description Applies deterministic wording repairs that remove human-owner dependency from governed GitHub and contributor surfaces.
  * @mode        edit
  * @pipeline    manual
- * @scope       AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md, docs-guide
+ * @scope       AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, docs-guide/contributing/agent-instructions.mdx, docs-guide
  * @usage       node operations/scripts/remediators/content/style/repair-ownerless-language.js [--check|--write] [--files a,b]
  * @policy      R-R14, R-R29
  */
@@ -25,7 +25,7 @@ const DEFAULT_FILES = [
   '.claude/CLAUDE.md',
   '.cursor/rules/repo-governance.mdc',
   '.windsurf/rules/repo-governance.md',
-  'contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md',
+  'docs-guide/contributing/agent-instructions.mdx',
   '.github/ISSUE_TEMPLATE/01_bug_report.yml',
   '.github/ISSUE_TEMPLATE/02_docs_page_issue.yml',
   '.github/ISSUE_TEMPLATE/03_feature_request.yml',

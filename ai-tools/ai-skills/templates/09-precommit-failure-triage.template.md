@@ -11,7 +11,7 @@ metadata:
 primary_paths:
   - ".githooks/pre-commit"
   - ".githooks/verify.sh"
-  - "contribute/CONTRIBUTING/GIT-HOOKS.md"
+  - "docs-guide/contributing/git-hooks.mdx"
   - "tests/WHEN-TESTS-RUN.md"
 primary_commands:
   - "bash .githooks/pre-commit"

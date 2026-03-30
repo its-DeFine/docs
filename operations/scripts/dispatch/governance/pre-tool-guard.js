@@ -46,6 +46,22 @@ stdin.on('end', () => {
     if (toolName === 'Bash') {
       const cmd = toolInput.command || '';
 
+      // Block ad-hoc mintlify dev — use server-manager instead
+      if (/mintlify\s+dev|npx\s+mintlify|mint\s+dev/i.test(cmd) && !/server-manager/i.test(cmd)) {
+        console.log(JSON.stringify({
+          decision: 'block',
+          reason: 'BLOCKED: Do not run mintlify dev directly. Use the server-manager (.githooks/server-manager.js) which runs on port 3145 and handles lifecycle. Ad-hoc mintlify dev leaves zombie processes on port 3333+.'
+        }));
+        process.exit(2);
+      }
+
+      // Browser test commands: warn about cleanup
+      if (/puppeteer|playwright|headless|smoke.*test|verify.*page/i.test(cmd)) {
+        console.log(JSON.stringify({
+          systemMessage: 'BROWSER TEST: If this test times out or you interrupt it, run: pkill -f "chrome.*--headless" to clean up zombie processes. Do not leave headless browsers running.'
+        }));
+      }
+
       // Allow branch creation
       if (/git\s+checkout\s+-b/.test(cmd)) {
         process.exit(0);

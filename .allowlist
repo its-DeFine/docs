@@ -57,5 +57,5 @@ Makefile
 sitemap-ai.xml
 llms.txt
 docs-index.json
-contribute
 SECURITY.md
+repo-catalog.mdx

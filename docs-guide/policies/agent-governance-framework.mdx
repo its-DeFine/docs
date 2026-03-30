@@ -105,7 +105,7 @@ Every supported agent must be grounded in the same repo knowledge set:
 | Knowledge domain | Canonical sources |
 |---|---|
 | Docs routing and navigation | `docs.json` |
-| Repo orientation and maintainer workflow | `README.md`, `contribute/**` |
+| Repo orientation and maintainer workflow | `README.md`, `docs-guide/contributing/**` |
 | Internal governance and architecture map | `docs-guide/**` |
 | Current user-facing docs | `v2/**` |
 | Hook and structure enforcement | `.githooks/pre-commit`, `.githooks/pre-push` |
@@ -131,7 +131,7 @@ Every supported agent must be grounded in the same repo knowledge set:
 | `.augment/rules/no-deletions.md` | Augment Code no-deletions rule (Phase 9) | native adapter | keep thin |
 | `.mintlify/Assistant.md` | Mintlify chat widget context (Phase 9) | chat assistant context | not an AI coding adapter |
 | `.github/AGENTS.md` | Codex task-layer HitL / checkpoint extension | Codex task layer | keep as Codex-only extension |
-| `contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md` | human-facing contributor workflow doc | recommended supplemental | keep as contributor-facing summary with links to canonical policies |
+| `docs-guide/contributing/agent-instructions.mdx` | human-facing contributor workflow doc | recommended supplemental | keep as contributor-facing summary with links to canonical policies |
 | `ai-tools/agent-packs/*` | generated cross-agent adapter outputs | recommended supplemental | keep generated; never treat as canonical source |
 | `.codex/README.md` | Codex local lock guidance | recommended supplemental | keep as operational documentation |
 | `.codex/task-contract.yaml` | Codex task contract | recommended supplemental | keep as operational contract |
@@ -162,7 +162,7 @@ Resolved in Phase 9:
 
 Remaining:
 
-- `contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md` still contains contributor-facing parts of the policy set; reduce to a link to AGENTS.md in a future pass
+- `docs-guide/contributing/agent-instructions.mdx` still contains contributor-facing parts of the policy set; reduce to a link to AGENTS.md in a future pass
 - `ai-tools/agent-packs/*` are generated from separate sources and must remain outputs, not canonical rule inputs
 
 ## Approved Migration Map
@@ -224,7 +224,7 @@ Supporting notes preserved from the prior report, updated for Phase 9:
 - `.github/augment-instructions.md`
 - `.cursorrules`
 - `ASSISTANT.md`
-- `contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md`
+- `docs-guide/contributing/agent-instructions.mdx`
 - `ai-tools/agent-packs/README.md`
 - `ai-tools/agent-packs/claude/CLAUDE.md`
 - `ai-tools/agent-packs/cursor/rules.md`

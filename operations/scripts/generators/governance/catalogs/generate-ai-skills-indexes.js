@@ -111,7 +111,7 @@ const SURFACES = [
     primary_purpose: 'Provides high-level repo orientation and links to the canonical governance surfaces.'
   },
   {
-    path: 'contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md',
+    path: 'docs-guide/contributing/agent-instructions.mdx',
     section: 'contributor-docs',
     status: 'active',
     primary_purpose: 'Provides contributor-facing agent workflow guidance and hook expectations.'

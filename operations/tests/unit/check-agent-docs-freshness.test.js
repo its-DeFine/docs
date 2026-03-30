@@ -76,7 +76,7 @@ async function runTests() {
     );
     assert.strictEqual(
       byLabel.get('CONTRIBUTOR-AGENT-INSTRUCTIONS'),
-      'contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md'
+      'docs-guide/contributing/agent-instructions.mdx'
     );
   });
 

@@ -1,48 +1,69 @@
-# Exemplary Work References
+# References Knowledge System
 
-> Curated pointers to the best work in this repo, with analysis of WHY each piece is good.
-> Read before designing, writing, laying out, or building. Emulate these patterns.
-> Not templates. Not rules. Real examples.
+> Per-category knowledge: exemplars (good work + why), best-practice (collated research), patterns (extracted rules linked to repo context).
+> Read before designing, writing, laying out, or building.
+
+---
+
+## Structure
+
+Each category folder contains up to 3 files:
+- **`exemplars.md`** — pointers to the best work in the repo with analysis of WHY it's good
+- **`best-practice.md`** — collated research from across the repo, verified against real sources
+- **`patterns.md`** — extracted rules enforced by best practice, linked to repo context (frameworks, constraints)
+
+Working docs:
+- **`SOURCE-MAP.md`** — maps where research material lives per category (used for collation)
 
 ---
 
 ## Index
 
-### Design & Planning
-- [plans.md](plans.md) — 5 exemplary plans: plan-canonical (gold standard), anti-scam SEO/AEO strategy, component governance, script governance, changelog pipeline architecture
+### [copy/](copy/) — Voice & Copy ✅ complete
+- [exemplars.md](copy/exemplars.md) — Human-written only: gateway quickstart, primer, solutions, home
+- [best-practice.md](copy/best-practice.md) — Voice principles, banned words/phrases, per-audience register, L0-L4 copy skills
+- [patterns.md](copy/patterns.md) — 7 patterns: entity-led, fact-led, positive assertions, quantify-or-remove, majority-path-first, one-paragraph-one-job, no-forward-references
 
-### Page Layout
-- [layout.md](layout.md) — 9 exemplary layouts: gateway quickstart (gold standard, complex multi-path), blockchain contracts, setup options, join a pool, orchestrator role, ecosystem, evolution timeline, mental model, glossary tables
+### [layout/](layout/) — Page Layout ✅ complete
+- [exemplars.md](layout/exemplars.md) — 9 layouts: gateway quickstart (gold standard), blockchain contracts, setup options, join a pool, role, ecosystem, evolution, mental model, glossary
+- [best-practice.md](layout/best-practice.md) — Page anatomy, page type templates, component selection, import organisation, multi-path pattern, Mintlify globals
+- [patterns.md](layout/patterns.md) — 7 patterns: data-driven, component composition, badge colours, progressive disclosure, audience entry, verification log, divider spacing
 
-### Voice & Copy
-- [copy.md](copy.md) — Human-written exemplars only: gateway quickstart, Livepeer primer, solutions overview pages, home tab pages
+### [ia-and-naming/](ia-and-naming/) — IA & Naming ✅ complete
+- [exemplars.md](ia-and-naming/exemplars.md) — Section naming methodology, naming rules for ALL surfaces, orchestrators IA, heading rubric
+- [best-practice.md](ia-and-naming/best-practice.md) — Label class taxonomy, naming methodology, conceptual layers, semantic validation, weak-label penalties, IA section flow
+- [patterns.md](ia-and-naming/patterns.md) — 6 patterns: ownership-first IA, reader journey, data-driven IA, three naming fields, section group naming, diagnosis before generation
 
-### Components
-- [components.md](components.md) — 3 exemplary components + @aiDiscoverability reference: ContractVerifier (gold standard), SearchTable, SolutionItem
+### [components/](components/) — Component Design ✅ patterns done
+- [exemplars.md](components/exemplars.md) — ContractVerifier, SearchTable, SolutionItem + @aiDiscoverability
+- [patterns.md](components/patterns.md) — 7 patterns: JSDoc header, prop signature, constants-inside-body, CSS variables, named exports, no React imports, category placement
 
-### Scripts
-- [scripts.md](scripts.md) — 1 exemplary script: fetch-contract-addresses-v2.js (full 11-tag JSDoc, config-driven, pipeline pattern)
+### [scripts/](scripts/) — Script Design ✅ patterns done
+- [exemplars.md](scripts/exemplars.md) — fetch-contract-addresses-v2.js
+- [patterns.md](scripts/patterns.md) — 5 patterns: 11-tag JSDoc, type classification, config-driven, CLI flags, three-tier placement
 
-### Data Patterns
-- [data-patterns.md](data-patterns.md) — 4 patterns: contractAddressesData (gold standard), configuration-flags, solutions product data (aspirational), gateways quickstart data (aspirational)
+### [prompts/](prompts/) — Prompt Design ✅ patterns done
+- [exemplars.md](prompts/exemplars.md) — 3 gold standard prompts + "what makes a good prompt"
+- [patterns.md](prompts/patterns.md) — 9 patterns: context block, diagnosis, multiple candidates, scoring rubric, penalties, structured output, problem statement, when-to-use, methodology
+- [concern-audit-methodology.md](prompts/concern-audit-methodology.md) — 7-phase repeatable methodology for auditing any repo concern (actions, scripts, components, data, skills). Chains research → audit → design → build → reference integration. Candidate for `/audit-concern` skill.
 
-### Research Outputs
-- [research.md](research.md) — 3 exemplary research outputs: anti-scam SEO/AEO, mintlify constraints reference, component/script placement reference
+### [plans/](plans/) — Design & Planning
+- [exemplars.md](plans/exemplars.md) — 5 plans: plan-canonical, anti-scam SEO/AEO, component gov, script gov, pipeline architecture
 
-### Script Pipelines
-- [script-pipelines.md](script-pipelines.md) — 2 gold standard pipelines: contract addresses (workflow -> script -> data -> page) + changelogs (one script, config-driven, 5 pages). Includes pipeline anatomy template.
+### [data-patterns/](data-patterns/) — Data Architecture
+- [exemplars.md](data-patterns/exemplars.md) — 4 patterns: contractAddressesData, configuration-flags, solutions data (aspirational), quickstart data (aspirational)
 
-### Governance Frameworks
-- [governance-frameworks.md](governance-frameworks.md) — The 2 framework specs: script-framework.md (11-tag JSDoc, 3-tier taxonomy) + component-framework-canonical.md (6-tag JSDoc, decision tree)
+### [research/](research/) — Research Methodology
+- [exemplars.md](research/exemplars.md) — 3 outputs: anti-scam SEO/AEO, mintlify constraints, placement reference
 
-### Authoring Standards
-- [authoring-standards.md](authoring-standards.md) — 4 standards: component composition template (recently verified), page composition framework (start of template), thread skill (best-structured skill), page authoring skill
+### [pipelines/](pipelines/) — Script Pipelines
+- [exemplars.md](pipelines/exemplars.md) — 2 pipelines + anatomy template: contract addresses, changelogs
 
-### Prompts
-- [prompts.md](prompts.md) — 3 gold standard prompts: section naming (scoring rubric methodology), page content/IA research (ownership map + 4-phase), content placement (fixed IA). Plus "what makes a good prompt" patterns.
+### [governance/](governance/) — Governance Frameworks
+- [exemplars.md](governance/exemplars.md) — script-framework.md + component-framework-canonical.md
 
-### Skills
-- [skills.md](skills.md) — 6 exemplary skills: thread (session management), diagnose (debugging), close (completion), design (thinking), dispatch (parallel coordination), propagate (deterministic automation). Plus "what makes a good skill" patterns.
+### [authoring/](authoring/) — Authoring Standards
+- [exemplars.md](authoring/exemplars.md) — component composition template, page composition framework, thread skill, page authoring skill
 
-### IA & Naming
-- [ia-and-naming.md](ia-and-naming.md) — Section naming prompt (gold standard methodology), naming rules quick reference for ALL surfaces (headings, tabs, accordions, steps, cards), orchestrators tab IA, heading naming rubric
+### [skills/](skills/) — Skill Design
+- [exemplars.md](skills/exemplars.md) — 6 skills: thread, diagnose, close, design, dispatch, propagate + "what makes a good skill"

@@ -147,12 +147,12 @@ export const contractAddresses = {
           "statusLabel": "Active",
           "deployedBy": "Livepeer Deployer",
           "notes": null,
-          "holderCount": "245,862",
-          "transactionCount": 127216,
+          "holderCount": "245,861",
+          "transactionCount": 127233,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "29 Mar 2026",
+          "lastActiveDate": "30 Mar 2026",
           "blockscoutLabel": "Livepeer",
-          "registeredInController": false,
+          "registeredInController": true,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
@@ -160,20 +160,21 @@ export const contractAddresses = {
           "deployedAtISO": "2022-02-11T13:19:54.000Z",
           "tokenTransferCount": 20,
           "validationsCount": 0,
-          "totalSupply": "31697362311275482173434851",
+          "totalSupply": "31728452593822505618023501",
           "decimals": "18",
           "symbol": "LPT",
-          "lastActiveDateISO": "2026-03-29T12:20:33.000Z",
+          "lastActiveDateISO": "2026-03-29T22:52:48.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": false,
           "language": "solidity",
           "sourceVerifiedAt": "8 Oct 2024",
+          "keccakHash": "0x3443e257065fe41dd0e4d1f5a1b73a22a62e300962b57f30cddf41d0f8273ba7",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 21
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
       },
       {
         "name": "BondingVotes",
@@ -194,7 +195,7 @@ export const contractAddresses = {
           "deployedAt": "12 Oct 2023",
           "lastActiveDate": "12 Oct 2023",
           "blockscoutLabel": "ManagerProxy",
-          "registeredInController": false,
+          "registeredInController": true,
           "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
           "bsVerified": true,
           "isContract": true,
@@ -207,12 +208,14 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "27 Apr 2025",
+          "proxyTarget": "0x68af80376bc1ca0c25a83b28e5570e8c7bdd3119",
+          "keccakHash": "0x2a1b465fbcae519904f0fb11f93e73dfbeb47ec54530ec444279610af8cf06b2",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
       },
       {
         "name": "BondingVotes",
@@ -246,12 +249,13 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "29 Mar 2026",
+          "keccakHash": "0x2a1b465fbcae519904f0fb11f93e73dfbeb47ec54530ec444279610af8cf06b2",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
       },
       {
         "name": "Governor",
@@ -260,7 +264,7 @@ export const contractAddresses = {
         "category": "governance",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
         "meta": {
           "blockscoutLabel": "Governor",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -278,7 +282,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 May 2025",
-          "transactionsRecent": null
+          "keccakHash": "0xd0990c50b6714f222e6fd1faaf5345bf1aa2867d2861fc2cc43b364e7d948647",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -313,12 +319,13 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "19 Jul 2024",
+          "keccakHash": "0xaea11c65571dd8b6188d3a5cf5e5d3d4695845e6f217cad0b453b4e276c6cdcd",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
       },
       {
         "name": "LivepeerGovernor",
@@ -335,11 +342,11 @@ export const contractAddresses = {
           "deployedBy": null,
           "notes": null,
           "holderCount": null,
-          "transactionCount": 2932,
+          "transactionCount": 2935,
           "deployedAt": "12 Oct 2023",
-          "lastActiveDate": "29 Mar 2026",
+          "lastActiveDate": "30 Mar 2026",
           "blockscoutLabel": "ManagerProxy",
-          "registeredInController": false,
+          "registeredInController": true,
           "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
           "bsVerified": true,
           "isContract": true,
@@ -347,17 +354,19 @@ export const contractAddresses = {
           "deployedAtISO": "2023-10-11T22:24:42.000Z",
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "lastActiveDateISO": "2026-03-29T04:24:31.000Z",
+          "lastActiveDateISO": "2026-03-29T20:02:22.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyTarget": "0xd2ce37bcb287cadc40647f567c2d3c4220901634",
+          "keccakHash": "0xaea11c65571dd8b6188d3a5cf5e5d3d4695845e6f217cad0b453b4e276c6cdcd",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 3
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
       },
       {
         "name": "MerkleSnapshot",
@@ -366,7 +375,7 @@ export const contractAddresses = {
         "category": "governance",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
         "meta": {
           "blockscoutLabel": "MerkleSnapshot",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -384,7 +393,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "30 Dec 2025",
-          "transactionsRecent": null
+          "keccakHash": "0xb6138afe6f306a47bdf645c5aebcb9781efe787d221a1880e62d1f76dae58b84",
+          "registeredInController": true,
+          "transactionsRecent": 0
         }
       },
       {
@@ -394,7 +405,7 @@ export const contractAddresses = {
         "category": "governance",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
         "meta": {
           "blockscoutLabel": "PollCreator",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -412,7 +423,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "21 Jan 2026",
-          "transactionsRecent": null
+          "keccakHash": "0x0343f01276c9038f8c7154dcdf7873ad6edd872ce0e719ebd989c051b4b1039b",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -434,25 +447,26 @@ export const contractAddresses = {
           "deployedAt": "12 Oct 2023",
           "lastActiveDate": "12 Oct 2023",
           "blockscoutLabel": "Treasury",
-          "registeredInController": false,
+          "registeredInController": true,
           "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
           "bsVerified": true,
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2023-10-11T22:24:25.000Z",
-          "tokenTransferCount": 65455,
+          "tokenTransferCount": 65549,
           "validationsCount": 0,
           "lastActiveDateISO": "2023-10-11T22:57:19.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "21 Jan 2026",
+          "keccakHash": "0x6efca2866b731ee4984990bacad4cde10f1ef764fb54a5206bdfd291695b1a9b",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
       },
       {
         "name": "L2LPTDataCache",
@@ -473,7 +487,7 @@ export const contractAddresses = {
           "deployedAt": "12 Feb 2022",
           "lastActiveDate": "1 Dec 2022",
           "blockscoutLabel": "L2LPTDataCache",
-          "registeredInController": null,
+          "registeredInController": true,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
@@ -486,12 +500,13 @@ export const contractAddresses = {
           "optimizationEnabled": false,
           "language": "solidity",
           "sourceVerifiedAt": "21 Jan 2026",
+          "keccakHash": "0x8ecfba413a4e4715a264d70a55d3a35bf60b2954c56759310202f39281623200",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
       },
       {
         "name": "L2LPTGateway",
@@ -525,12 +540,13 @@ export const contractAddresses = {
           "optimizationEnabled": false,
           "language": "solidity",
           "sourceVerifiedAt": "16 Nov 2024",
+          "keccakHash": "0x07148fd8bd26d2f980f876cc40cea159d0cca6e6456a379f06f34fb338d35be5",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
       },
       {
         "name": "L2Migrator",
@@ -551,7 +567,7 @@ export const contractAddresses = {
           "deployedAt": "12 Feb 2022",
           "lastActiveDate": "26 Feb 2026",
           "blockscoutLabel": "ManagerProxy",
-          "registeredInController": false,
+          "registeredInController": true,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
@@ -564,12 +580,14 @@ export const contractAddresses = {
           "optimizationEnabled": false,
           "language": "solidity",
           "sourceVerifiedAt": "29 Dec 2025",
+          "proxyTarget": "0x93bb030735747708b4d33093a98d4c804cd6b58c",
+          "keccakHash": "0x74b6d21e0d4650f622c903126d418c1a52bcc99ea7acb0db0809fc0eeae6c7c3",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
       },
       {
         "name": "L2Migrator",
@@ -578,7 +596,7 @@ export const contractAddresses = {
         "category": "bridge",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
         "meta": {
           "blockscoutLabel": "L2Migrator",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -596,7 +614,8 @@ export const contractAddresses = {
           "optimizationEnabled": false,
           "language": "solidity",
           "sourceVerifiedAt": "29 Dec 2025",
-          "transactionsRecent": null
+          "keccakHash": "0x74b6d21e0d4650f622c903126d418c1a52bcc99ea7acb0db0809fc0eeae6c7c3",
+          "transactionsRecent": 0
         }
       },
       {
@@ -606,7 +625,7 @@ export const contractAddresses = {
         "category": "utility",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
         "meta": {
           "blockscoutLabel": "SortedDoublyLL",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -624,7 +643,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "5 Apr 2025",
-          "transactionsRecent": null
+          "keccakHash": "0xf32422ac790bd816e1e02dc866df27d6d55047c1dc08def99809859734b7ab2c",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -635,7 +656,7 @@ export const contractAddresses = {
         "_note": "Detached from controller",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
         "meta": {
           "blockscoutLabel": "ServiceRegistry",
           "creatorAddress": "0xF5282864EC36871c36BF682aFE1C3f180D4f7902",
@@ -647,13 +668,14 @@ export const contractAddresses = {
           "transactionCount": 172,
           "tokenTransferCount": 1,
           "validationsCount": 0,
-          "lastActiveDate": "25 Feb 2026",
-          "lastActiveDateISO": "2026-02-25T12:05:58.000Z",
+          "lastActiveDate": "30 Mar 2026",
+          "lastActiveDateISO": "2026-03-29T18:12:52.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "23 Jul 2024",
-          "transactionsRecent": null
+          "keccakHash": "0x708d071449926f2d3af17f15cb9f54ed8b3886a1ef57c3059438aa0ca4d710d0",
+          "transactionsRecent": 0
         }
       },
       {
@@ -671,11 +693,11 @@ export const contractAddresses = {
           "deployedBy": null,
           "notes": null,
           "holderCount": null,
-          "transactionCount": 224021,
+          "transactionCount": 224127,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "29 Mar 2026",
+          "lastActiveDate": "30 Mar 2026",
           "blockscoutLabel": "ManagerProxy",
-          "registeredInController": false,
+          "registeredInController": true,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
@@ -683,17 +705,19 @@ export const contractAddresses = {
           "deployedAtISO": "2022-02-11T13:25:10.000Z",
           "tokenTransferCount": 7,
           "validationsCount": 0,
-          "lastActiveDateISO": "2026-03-29T08:38:09.000Z",
+          "lastActiveDateISO": "2026-03-29T22:59:40.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyTarget": "0x363cdb9bae210ef182c60b5a496139e980330127",
+          "keccakHash": "0x2517d59a36a86548e38734e8ab416f42afff4bca78706a66ad65750dae7f9e37",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 106
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
       },
       {
         "name": "Controller",
@@ -727,12 +751,13 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 May 2025",
+          "keccakHash": "0x7c20e2bbcd91c5aaa7898ba022ab8867ac32d84e959c236484db066900aa363a",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
       },
       {
         "name": "DelegatorPool",
@@ -741,7 +766,7 @@ export const contractAddresses = {
         "category": "core",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
         "meta": {
           "blockscoutLabel": "DelegatorPool",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -759,7 +784,9 @@ export const contractAddresses = {
           "optimizationEnabled": false,
           "language": "solidity",
           "sourceVerifiedAt": "29 Dec 2025",
-          "transactionsRecent": null
+          "keccakHash": "0x7a9ff95f60f5743cfd4d2b01f213bbd2032518d7d7b630413bff404321d96022",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -794,12 +821,13 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "29 Mar 2026",
+          "keccakHash": "0x6e58ad548d72b425ea94c15f453bf26caddb061d82b2551db7fdd3cefe0e9940",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
       },
       {
         "name": "Minter",
@@ -821,25 +849,26 @@ export const contractAddresses = {
           "deployedAt": "18 Feb 2022",
           "lastActiveDate": "1 Feb 2024",
           "blockscoutLabel": "Minter",
-          "registeredInController": false,
+          "registeredInController": true,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
-          "balance": "175104711079328030077",
+          "balance": "174883115689112262423",
           "deployedAtISO": "2022-02-17T15:50:01.000Z",
-          "tokenTransferCount": 248035,
+          "tokenTransferCount": 248217,
           "validationsCount": 0,
           "lastActiveDateISO": "2024-01-31T21:28:22.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "21 Jan 2026",
+          "keccakHash": "0x6e58ad548d72b425ea94c15f453bf26caddb061d82b2551db7fdd3cefe0e9940",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
       },
       {
         "name": "RoundsManager",
@@ -856,11 +885,11 @@ export const contractAddresses = {
           "deployedBy": null,
           "notes": null,
           "holderCount": null,
-          "transactionCount": 2318,
+          "transactionCount": 2320,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "29 Mar 2026",
+          "lastActiveDate": "30 Mar 2026",
           "blockscoutLabel": "ManagerProxy",
-          "registeredInController": false,
+          "registeredInController": true,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
@@ -868,17 +897,19 @@ export const contractAddresses = {
           "deployedAtISO": "2022-02-11T13:25:54.000Z",
           "tokenTransferCount": 2,
           "validationsCount": 0,
-          "lastActiveDateISO": "2026-03-28T17:59:15.000Z",
+          "lastActiveDateISO": "2026-03-29T15:19:45.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyTarget": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+          "keccakHash": "0xe8438ea868df48e3fc21f2f087b993c9b1837dc0f6135064161ce7d7a1701fe8",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 2
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z"
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z"
       },
       {
         "name": "RoundsManager",
@@ -887,7 +918,7 @@ export const contractAddresses = {
         "category": "core",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
         "meta": {
           "blockscoutLabel": "RoundsManager",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -905,7 +936,8 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "29 Dec 2025",
-          "transactionsRecent": null
+          "keccakHash": "0xe8438ea868df48e3fc21f2f087b993c9b1837dc0f6135064161ce7d7a1701fe8",
+          "transactionsRecent": 0
         }
       },
       {
@@ -915,7 +947,7 @@ export const contractAddresses = {
         "category": "core",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
         "meta": {
           "blockscoutLabel": "ManagerProxy",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -933,8 +965,10 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "15 May 2025",
-          "registeredInController": false,
-          "transactionsRecent": null
+          "proxyTarget": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+          "keccakHash": "0x79c5d2a4a07754f4bacb0ffba18ac516030ee589ebc89db8627680c4d4cdb230",
+          "registeredInController": true,
+          "transactionsRecent": 0
         }
       },
       {
@@ -944,7 +978,7 @@ export const contractAddresses = {
         "category": "core",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
         "meta": {
           "blockscoutLabel": "ServiceRegistry",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -962,7 +996,8 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "29 Dec 2025",
-          "transactionsRecent": null
+          "keccakHash": "0x79c5d2a4a07754f4bacb0ffba18ac516030ee589ebc89db8627680c4d4cdb230",
+          "transactionsRecent": 0
         }
       },
       {
@@ -972,7 +1007,7 @@ export const contractAddresses = {
         "category": "core",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:42.670Z",
+        "verifiedAtISO": "2026-03-29T22:57:59.531Z",
         "meta": {
           "blockscoutLabel": "ManagerProxy",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -981,17 +1016,19 @@ export const contractAddresses = {
           "balance": "0",
           "deployedAt": "12 Feb 2022",
           "deployedAtISO": "2022-02-11T13:24:06.000Z",
-          "transactionCount": 286708,
+          "transactionCount": 286881,
           "tokenTransferCount": 12,
           "validationsCount": 0,
           "lastActiveDate": "30 Mar 2026",
-          "lastActiveDateISO": "2026-03-29T13:08:12.000Z",
+          "lastActiveDateISO": "2026-03-29T23:03:05.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
-          "registeredInController": false,
-          "transactionsRecent": null
+          "proxyTarget": "0xd906d192e2503aafd1bc5f5fc4163e842d5b1d6e",
+          "keccakHash": "0xbd1aa3e8d2464256d7fd3dcf645c16418d5d8c51d971f1ad7d57e7b1b5eee239",
+          "registeredInController": true,
+          "transactionsRecent": 194
         }
       }
     ],
@@ -1000,55 +1037,148 @@ export const contractAddresses = {
         "entries": [
           {
             "version": "V1",
-            "address": "0xe479B9fbA2Cd65f822f451fC8C145c663B995CE6"
+            "address": "0xe479B9fbA2Cd65f822f451fC8C145c663B995CE6",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://arbiscan.io/address/0xe479B9fbA2Cd65f822f451fC8C145c663B995CE6",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "12 Feb 2022",
+            "replacedBy": "V2"
           },
           {
             "version": "V2",
-            "address": "0xC40df4db2f99e7e235780A93B192F1a934f0c45b"
+            "address": "0xC40df4db2f99e7e235780A93B192F1a934f0c45b",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://arbiscan.io/address/0xC40df4db2f99e7e235780A93B192F1a934f0c45b",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "24 Feb 2022",
+            "replacedBy": "V3"
           },
           {
             "version": "V3",
-            "address": "0x3757DB506ECd9CBE643660C0F5b70db5b321202C"
+            "address": "0x3757DB506ECd9CBE643660C0F5b70db5b321202C",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://arbiscan.io/address/0x3757DB506ECd9CBE643660C0F5b70db5b321202C",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "26 Feb 2022",
+            "replacedBy": "V4"
           },
           {
             "version": "V4",
-            "address": "0x0f9C425E7374602C20370d3fd263155B4c3bDc91"
+            "address": "0x0f9C425E7374602C20370d3fd263155B4c3bDc91",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://arbiscan.io/address/0x0f9C425E7374602C20370d3fd263155B4c3bDc91",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "17 Mar 2022",
+            "replacedBy": "V5"
           },
           {
             "version": "V5",
-            "address": "0x3a941e1094B9E33efABB26a9047a8ABb4b257907"
+            "address": "0x3a941e1094B9E33efABB26a9047a8ABb4b257907",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://arbiscan.io/address/0x3a941e1094B9E33efABB26a9047a8ABb4b257907",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "25 Aug 2022",
+            "replacedBy": "V6"
           },
           {
             "version": "V6",
-            "address": "0x9c9209c9ff6996513b3673d69ee7b36a6c58a8cf"
+            "address": "0x9c9209c9ff6996513b3673d69ee7b36a6c58a8cf",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://arbiscan.io/address/0x9c9209c9ff6996513b3673d69ee7b36a6c58a8cf",
+            "creatorAddress": "0xd94387c220385bFE4bf599d95E199f3823Da593F",
+            "deployedAt": "7 Jul 2023",
+            "replacedBy": "V7"
           },
           {
             "version": "V7",
-            "address": "0x363cdB9BaE210Ef182c60b5a496139E980330127"
+            "address": "0x363cdB9BaE210Ef182c60b5a496139E980330127",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://arbiscan.io/address/0x363cdB9BaE210Ef182c60b5a496139E980330127",
+            "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
+            "deployedAt": "12 Oct 2023",
+            "replacedBy": "V8"
           },
           {
             "version": "V8",
-            "address": "0x557093B1Ab53412166beAd939f34244170b6525B"
+            "address": "0x557093B1Ab53412166beAd939f34244170b6525B",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://arbiscan.io/address/0x557093B1Ab53412166beAd939f34244170b6525B",
+            "creatorAddress": "0xd94387c220385bFE4bf599d95E199f3823Da593F",
+            "deployedAt": "2 Nov 2023",
+            "replacedBy": "V9"
           },
           {
             "version": "V9",
-            "address": "0x6b397f20DC227B4E23fEc20BBDBe166d0DFFC452"
+            "address": "0x6b397f20DC227B4E23fEc20BBDBe166d0DFFC452",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://arbiscan.io/address/0x6b397f20DC227B4E23fEc20BBDBe166d0DFFC452",
+            "blockscoutLabel": "BondingManager",
+            "creatorAddress": "0xBB1D39b4997210208b41E88436e881Cce7160562",
+            "deployedAt": "26 Mar 2024",
+            "replacedBy": "V10"
           },
           {
             "version": "V10",
-            "address": "0xd1C1F5d44D8F83ca2A05Baf40461e550cFDDecA2"
+            "address": "0xd1C1F5d44D8F83ca2A05Baf40461e550cFDDecA2",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://arbiscan.io/address/0xd1C1F5d44D8F83ca2A05Baf40461e550cFDDecA2",
+            "creatorAddress": "0xeF5f4D2A90E9a6FDdeF903ce7C54A1D294431381",
+            "deployedAt": "26 Oct 2024",
+            "replacedBy": "V11"
           },
           {
             "version": "V11",
-            "address": "0xF62C30242fccd3a46721f155d4d367De3fD5B3b3"
+            "address": "0xF62C30242fccd3a46721f155d4d367De3fD5B3b3",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://arbiscan.io/address/0xF62C30242fccd3a46721f155d4d367De3fD5B3b3",
+            "creatorAddress": "0x9B4330188AeD73cE40c860469cBb7770995854A1",
+            "deployedAt": "23 Aug 2025",
+            "replacedBy": "V12"
           },
           {
             "version": "V12",
-            "address": "0x4bA7E7531Ab56bC8d78dB4FDc88D21F621f34BB4"
+            "address": "0x4bA7E7531Ab56bC8d78dB4FDc88D21F621f34BB4",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://arbiscan.io/address/0x4bA7E7531Ab56bC8d78dB4FDc88D21F621f34BB4",
+            "blockscoutLabel": "BondingManager",
+            "creatorAddress": "0x9dF71aad3d07334793C0E46DC107F2F69F2d8856",
+            "deployedAt": "17 Feb 2026",
+            "replacedBy": "V13"
           },
           {
             "version": "V13",
-            "address": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74"
+            "address": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://arbiscan.io/address/0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
+            "creatorAddress": "0xE499a4122bd93283431591A758cf59A921919D90",
+            "deployedAt": "18 Mar 2026",
+            "replacedBy": "current"
           }
         ]
       },
@@ -1056,15 +1186,38 @@ export const contractAddresses = {
         "entries": [
           {
             "version": "V1",
-            "address": "0x7Beb84c52ce96DFd90431FAA97378994a8baa6df"
+            "address": "0x7Beb84c52ce96DFd90431FAA97378994a8baa6df",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://arbiscan.io/address/0x7Beb84c52ce96DFd90431FAA97378994a8baa6df",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "12 Feb 2022",
+            "replacedBy": "V2"
           },
           {
             "version": "V2",
-            "address": "0xD906D192e2503Aafd1BC5F5fc4163E842D5B1d6e"
+            "address": "0xD906D192e2503Aafd1BC5F5fc4163E842D5B1d6e",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://arbiscan.io/address/0xD906D192e2503Aafd1BC5F5fc4163E842D5B1d6e",
+            "blockscoutLabel": "TicketBroker",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "4 Mar 2022",
+            "replacedBy": "V3"
           },
           {
             "version": "V3",
-            "address": "0xea1b0F6c8D158328a6e3D3F924B86A759F41465c"
+            "address": "0xea1b0F6c8D158328a6e3D3F924B86A759F41465c",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://arbiscan.io/address/0xea1b0F6c8D158328a6e3D3F924B86A759F41465c",
+            "blockscoutLabel": "TicketBroker",
+            "creatorAddress": "0xd94387c220385bFE4bf599d95E199f3823Da593F",
+            "deployedAt": "7 Sept 2023",
+            "replacedBy": "current"
           }
         ]
       },
@@ -1072,11 +1225,27 @@ export const contractAddresses = {
         "entries": [
           {
             "version": "V1",
-            "address": "0x1561fC5F7Efc049476224005DFf38256dccfc509"
+            "address": "0x1561fC5F7Efc049476224005DFf38256dccfc509",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://arbiscan.io/address/0x1561fC5F7Efc049476224005DFf38256dccfc509",
+            "blockscoutLabel": "BondingVotes",
+            "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
+            "deployedAt": "12 Oct 2023",
+            "replacedBy": "V2"
           },
           {
             "version": "V2",
-            "address": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119"
+            "address": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://arbiscan.io/address/0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119",
+            "blockscoutLabel": "BondingVotes",
+            "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
+            "deployedAt": "14 Oct 2023",
+            "replacedBy": "current"
           }
         ]
       },
@@ -1084,7 +1253,15 @@ export const contractAddresses = {
         "entries": [
           {
             "version": "V1",
-            "address": "0x4969dcCF5186e1c49411638fc8A2a020Fdab752E"
+            "address": "0x4969dcCF5186e1c49411638fc8A2a020Fdab752E",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://arbiscan.io/address/0x4969dcCF5186e1c49411638fc8A2a020Fdab752E",
+            "blockscoutLabel": "Minter",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "12 Feb 2022",
+            "replacedBy": "current"
           }
         ]
       },
@@ -1092,7 +1269,14 @@ export const contractAddresses = {
         "entries": [
           {
             "version": "V1",
-            "address": "0x4F59b39e2ea628fe8371BDfd51B063319339c7EE"
+            "address": "0x4F59b39e2ea628fe8371BDfd51B063319339c7EE",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://arbiscan.io/address/0x4F59b39e2ea628fe8371BDfd51B063319339c7EE",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "12 Feb 2022",
+            "replacedBy": "current"
           }
         ]
       }
@@ -1119,7 +1303,7 @@ export const contractAddresses = {
           "deployedAt": "12 Feb 2022",
           "lastActiveDate": "12 Feb 2022",
           "blockscoutLabel": "BridgeMinter",
-          "registeredInController": null,
+          "registeredInController": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
@@ -1132,12 +1316,13 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "21 Jan 2026",
+          "keccakHash": "0x2d6c985061f27c6c02785799a715099670620c5dfed3f3ecfc6ab406e3e5a343",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z"
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z"
       },
       {
         "name": "LivepeerToken",
@@ -1146,7 +1331,7 @@ export const contractAddresses = {
         "category": "token",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "Livepeer",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1155,20 +1340,22 @@ export const contractAddresses = {
           "balance": "0",
           "deployedAt": "1 May 2018",
           "deployedAtISO": "2018-04-30T20:03:51.000Z",
-          "transactionCount": 1010361,
+          "transactionCount": 1010420,
           "tokenTransferCount": 713148,
           "validationsCount": 0,
-          "holderCount": "1,887,480",
+          "holderCount": "1,887,679",
           "totalSupply": "24918514377941353891894504",
           "decimals": "18",
           "symbol": "LPT",
           "lastActiveDate": "30 Mar 2026",
-          "lastActiveDateISO": "2026-03-29T13:05:11.000Z",
+          "lastActiveDateISO": "2026-03-29T23:03:23.000Z",
           "compilerVersion": "v0.4.18+commit.9cf6e910",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "19 Apr 2019",
-          "transactionsRecent": null
+          "keccakHash": "0x3443e257065fe41dd0e4d1f5a1b73a22a62e300962b57f30cddf41d0f8273ba7",
+          "registeredInController": false,
+          "transactionsRecent": 75
         }
       },
       {
@@ -1178,7 +1365,7 @@ export const contractAddresses = {
         "category": "governance",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "Governor",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1196,7 +1383,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "29 Mar 2026",
-          "transactionsRecent": null
+          "keccakHash": "0xd0990c50b6714f222e6fd1faaf5345bf1aa2867d2861fc2cc43b364e7d948647",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1206,7 +1395,7 @@ export const contractAddresses = {
         "category": "governance",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "MerkleSnapshot",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1224,7 +1413,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "29 Mar 2026",
-          "transactionsRecent": null
+          "keccakHash": "0xb6138afe6f306a47bdf645c5aebcb9781efe787d221a1880e62d1f76dae58b84",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1234,7 +1425,7 @@ export const contractAddresses = {
         "category": "governance",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "PollCreator",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1252,7 +1443,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "8 Aug 2024",
-          "transactionsRecent": null
+          "keccakHash": "0x0343f01276c9038f8c7154dcdf7873ad6edd872ce0e719ebd989c051b4b1039b",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1262,7 +1455,7 @@ export const contractAddresses = {
         "category": "bridge",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "L1Escrow",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1280,7 +1473,9 @@ export const contractAddresses = {
           "optimizationEnabled": false,
           "language": "solidity",
           "sourceVerifiedAt": "8 Aug 2024",
-          "transactionsRecent": null
+          "keccakHash": "0xfa1544fc7670a7dc4f4cc1a370c200b4fbc8979ad91d6d6f5da57b2e1385dbe7",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1302,7 +1497,7 @@ export const contractAddresses = {
           "deployedAt": "14 Feb 2022",
           "lastActiveDate": "1 Dec 2022",
           "blockscoutLabel": "L1LPTDataCache",
-          "registeredInController": null,
+          "registeredInController": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
@@ -1315,12 +1510,13 @@ export const contractAddresses = {
           "optimizationEnabled": false,
           "language": "solidity",
           "sourceVerifiedAt": "21 Jan 2026",
+          "keccakHash": "0x49b03ce75a9e4ad81079c9677a5caac20548a2407ee6cae472e3c47548b37445",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z"
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z"
       },
       {
         "name": "L1LPTGateway",
@@ -1341,7 +1537,7 @@ export const contractAddresses = {
           "deployedAt": "14 Feb 2022",
           "lastActiveDate": "6 Jul 2024",
           "blockscoutLabel": "L1LPTGateway",
-          "registeredInController": null,
+          "registeredInController": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
@@ -1354,12 +1550,13 @@ export const contractAddresses = {
           "optimizationEnabled": false,
           "language": "solidity",
           "sourceVerifiedAt": "20 Nov 2023",
+          "keccakHash": "0x38e6db29492987f8570616a7316b6510b0ede86826613c8f4165b4586e4dad92",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z"
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z"
       },
       {
         "name": "L1Migrator",
@@ -1380,7 +1577,7 @@ export const contractAddresses = {
           "deployedAt": "14 Feb 2022",
           "lastActiveDate": "17 Dec 2025",
           "blockscoutLabel": "L1Migrator",
-          "registeredInController": null,
+          "registeredInController": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
@@ -1393,12 +1590,13 @@ export const contractAddresses = {
           "optimizationEnabled": false,
           "language": "solidity",
           "sourceVerifiedAt": "8 Aug 2024",
+          "keccakHash": "0x90edd673ce561432d8b3317a5e6cd5e3a9bcf30c121147d0ff66db9271de9877",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z"
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z"
       },
       {
         "name": "GenesisManager",
@@ -1407,7 +1605,7 @@ export const contractAddresses = {
         "category": "utility",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "GenesisManager",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1425,7 +1623,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "27 Sept 2025",
-          "transactionsRecent": null
+          "keccakHash": "0xae790d27d0e1d3e6bbd97ff692b457d4c526ea8c8fafd0cbd395567a2ebbf182",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1435,7 +1635,7 @@ export const contractAddresses = {
         "category": "utility",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "MerkleMine",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1453,7 +1653,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 May 2024",
-          "transactionsRecent": null
+          "keccakHash": "0x17b6becfe8dae798aba9441d55041b5cc410570c1d4330fd6ad71b5c21ce4f94",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1463,7 +1665,7 @@ export const contractAddresses = {
         "category": "utility",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "MultiMerkleMine",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1481,7 +1683,9 @@ export const contractAddresses = {
           "optimizationEnabled": false,
           "language": "solidity",
           "sourceVerifiedAt": "17 Aug 2024",
-          "transactionsRecent": null
+          "keccakHash": "0xeab338ace3157e6cc2478b0ca6c2bf1dd8991ff5e15bac587ae2bc250362dae9",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1491,7 +1695,7 @@ export const contractAddresses = {
         "category": "utility",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "Refunder",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1509,7 +1713,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "29 Mar 2026",
-          "transactionsRecent": null
+          "keccakHash": "0x792b8bc44b1b160cb25ea702539f6fdf7df4775be134bad718a7290c9340e510",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1519,7 +1725,7 @@ export const contractAddresses = {
         "category": "utility",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "SortedDoublyLL",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1537,7 +1743,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "5 Apr 2025",
-          "transactionsRecent": null
+          "keccakHash": "0xf32422ac790bd816e1e02dc866df27d6d55047c1dc08def99809859734b7ab2c",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1547,7 +1755,7 @@ export const contractAddresses = {
         "category": "core",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "ManagerProxy",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1556,7 +1764,7 @@ export const contractAddresses = {
           "balance": "0",
           "deployedAt": "1 May 2018",
           "deployedAtISO": "2018-04-30T20:14:49.000Z",
-          "transactionCount": 90784,
+          "transactionCount": 90783,
           "tokenTransferCount": 25,
           "validationsCount": 0,
           "lastActiveDate": "6 Feb 2025",
@@ -1565,7 +1773,10 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "20 Aug 2019",
-          "transactionsRecent": null
+          "proxyTarget": "0x5fe3565db7f1dd8d6a9e968d45bd2aee3836a1d4",
+          "keccakHash": "0x2517d59a36a86548e38734e8ab416f42afff4bca78706a66ad65750dae7f9e37",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1575,7 +1786,7 @@ export const contractAddresses = {
         "category": "core",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "BondingManager",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1593,7 +1804,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "17 Jan 2026",
-          "transactionsRecent": null
+          "keccakHash": "0x2517d59a36a86548e38734e8ab416f42afff4bca78706a66ad65750dae7f9e37",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1603,19 +1816,19 @@ export const contractAddresses = {
         "category": "core",
         "isHistorical": false,
         "chain": "ethereumMainnet",
-        "repoSrc": "livepeer/protocol@delta",
-        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/Controller.sol",
+        "repoSrc": "livepeer/protocol@master",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/master/contracts/Controller.sol",
         "blockchainHref": "https://etherscan.io/address/0xf96d54e490317c557a967abfa5d6e33006be69b3",
         "meta": {
-          "statusLabel": "Active",
+          "statusLabel": "Paused",
           "deployedBy": "Livepeer Deployer",
-          "notes": null,
+          "notes": "Paused since Confluence migration (2022)",
           "holderCount": null,
           "transactionCount": 19,
           "deployedAt": "1 May 2018",
           "lastActiveDate": "31 Jan 2021",
           "blockscoutLabel": "Controller",
-          "registeredInController": null,
+          "registeredInController": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
@@ -1628,12 +1841,13 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "25 Apr 2019",
+          "keccakHash": "0x7c20e2bbcd91c5aaa7898ba022ab8867ac32d84e959c236484db066900aa363a",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z"
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z"
       },
       {
         "name": "Minter",
@@ -1642,19 +1856,19 @@ export const contractAddresses = {
         "category": "core",
         "isHistorical": false,
         "chain": "ethereumMainnet",
-        "repoSrc": "livepeer/protocol@delta",
-        "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/token/Minter.sol",
+        "repoSrc": "livepeer/protocol@master",
+        "contractCodeHref": "https://github.com/livepeer/protocol/blob/master/contracts/token/Minter.sol",
         "blockchainHref": "https://etherscan.io/address/0x505F8c2ee81f1C6fa0D88e918eF0491222E05818",
         "meta": {
-          "statusLabel": "Active",
+          "statusLabel": "Paused",
           "deployedBy": null,
-          "notes": null,
+          "notes": "Paused since Confluence migration (2022)",
           "holderCount": null,
           "transactionCount": 0,
           "deployedAt": "19 Aug 2020",
           "lastActiveDate": "19 Aug 2020",
           "blockscoutLabel": "Minter",
-          "registeredInController": null,
+          "registeredInController": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
@@ -1667,12 +1881,13 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "29 Mar 2026",
+          "keccakHash": "0x6e58ad548d72b425ea94c15f453bf26caddb061d82b2551db7fdd3cefe0e9940",
           "repoIsPrivate": false,
-          "transactionsRecent": null
+          "transactionsRecent": 0
         },
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z"
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z"
       },
       {
         "name": "RoundsManager",
@@ -1681,7 +1896,7 @@ export const contractAddresses = {
         "category": "core",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "ManagerProxy",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1699,7 +1914,10 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "20 Aug 2019",
-          "transactionsRecent": null
+          "proxyTarget": "0xc89fe48382f8fda6992dc590786a84275bcd1c57",
+          "keccakHash": "0xe8438ea868df48e3fc21f2f087b993c9b1837dc0f6135064161ce7d7a1701fe8",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1709,7 +1927,7 @@ export const contractAddresses = {
         "category": "core",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "RoundsManager",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1727,7 +1945,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "29 Mar 2026",
-          "transactionsRecent": null
+          "keccakHash": "0xe8438ea868df48e3fc21f2f087b993c9b1837dc0f6135064161ce7d7a1701fe8",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1737,7 +1957,7 @@ export const contractAddresses = {
         "category": "core",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "ManagerProxy",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1755,7 +1975,10 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "22 Apr 2019",
-          "transactionsRecent": null
+          "proxyTarget": "0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e",
+          "keccakHash": "0x79c5d2a4a07754f4bacb0ffba18ac516030ee589ebc89db8627680c4d4cdb230",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1765,7 +1988,7 @@ export const contractAddresses = {
         "category": "core",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "ServiceRegistry",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1783,7 +2006,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "18 Sept 2025",
-          "transactionsRecent": null
+          "keccakHash": "0x79c5d2a4a07754f4bacb0ffba18ac516030ee589ebc89db8627680c4d4cdb230",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1793,7 +2018,7 @@ export const contractAddresses = {
         "category": "core",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "ManagerProxy",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1811,7 +2036,10 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "8 Aug 2024",
-          "transactionsRecent": null
+          "proxyTarget": "0x6f582e2bb19ac31d4b1e6edd0c2efeabd700f808",
+          "keccakHash": "0xbd1aa3e8d2464256d7fd3dcf645c16418d5d8c51d971f1ad7d57e7b1b5eee239",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       },
       {
@@ -1821,7 +2049,7 @@ export const contractAddresses = {
         "category": "core",
         "verified": true,
         "verifiedAt": "30 Mar 2026",
-        "verifiedAtISO": "2026-03-29T13:05:56.060Z",
+        "verifiedAtISO": "2026-03-29T22:58:16.713Z",
         "meta": {
           "blockscoutLabel": "TicketBroker",
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
@@ -1839,7 +2067,9 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "29 Mar 2026",
-          "transactionsRecent": null
+          "keccakHash": "0xbd1aa3e8d2464256d7fd3dcf645c16418d5d8c51d971f1ad7d57e7b1b5eee239",
+          "registeredInController": false,
+          "transactionsRecent": 0
         }
       }
     ],
@@ -1848,11 +2078,26 @@ export const contractAddresses = {
         "entries": [
           {
             "version": "V1",
-            "address": "0xf623811b08b45792d0223d77d9c922dae29712ec"
+            "address": "0xf623811b08b45792d0223d77d9c922dae29712ec",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0xf623811b08b45792d0223d77d9c922dae29712ec",
+            "blockscoutLabel": "LivepeerVerifier",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "1 May 2018",
+            "replacedBy": "V2"
           },
           {
             "version": "V2",
-            "address": "0xe4be2a35dec0063f9dfccb9b740b1acb7eefefec"
+            "address": "0xe4be2a35dec0063f9dfccb9b740b1acb7eefefec",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://etherscan.io/address/0xe4be2a35dec0063f9dfccb9b740b1acb7eefefec",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "23 Aug 2018",
+            "replacedBy": "current"
           }
         ]
       },
@@ -1860,7 +2105,15 @@ export const contractAddresses = {
         "entries": [
           {
             "version": "V1",
-            "address": "0x8573f2f5a3bd960eee3d998473e50c75cdbe6828"
+            "address": "0x8573f2f5a3bd960eee3d998473e50c75cdbe6828",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0x8573f2f5a3bd960eee3d998473e50c75cdbe6828",
+            "blockscoutLabel": "Minter",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "1 May 2018",
+            "replacedBy": "current"
           }
         ]
       },
@@ -1868,59 +2121,165 @@ export const contractAddresses = {
         "entries": [
           {
             "version": "V1",
-            "address": "0x81eb0b10ff8703905904e4d91cf6aa575d59736f"
+            "address": "0x81eb0b10ff8703905904e4d91cf6aa575d59736f",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0x81eb0b10ff8703905904e4d91cf6aa575d59736f",
+            "blockscoutLabel": "BondingManager",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "1 May 2018",
+            "replacedBy": "V2"
           },
           {
             "version": "V2",
-            "address": "0x5A9512826EAAF1FE4190f89443314E95A515fE24"
+            "address": "0x5A9512826EAAF1FE4190f89443314E95A515fE24",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0x5A9512826EAAF1FE4190f89443314E95A515fE24",
+            "blockscoutLabel": "BondingManager",
+            "creatorAddress": "0xb21A62cd0219F72cdee8E9ae7A53708B4DAf02b5",
+            "deployedAt": "28 May 2018",
+            "replacedBy": "V3"
           },
           {
             "version": "V3",
-            "address": "0x633101b3f15f93c5f415830d48e56b9b1f7ba584"
+            "address": "0x633101b3f15f93c5f415830d48e56b9b1f7ba584",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0x633101b3f15f93c5f415830d48e56b9b1f7ba584",
+            "blockscoutLabel": "BondingManager",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "23 Aug 2018",
+            "replacedBy": "V4"
           },
           {
             "version": "V4",
-            "address": "0x05C03EA0039f2e828A725A82939fc1e90de38B44"
+            "address": "0x05C03EA0039f2e828A725A82939fc1e90de38B44",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0x05C03EA0039f2e828A725A82939fc1e90de38B44",
+            "blockscoutLabel": "BondingManager",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "1 Sept 2018",
+            "replacedBy": "V5"
           },
           {
             "version": "V5",
-            "address": "0xCBAa6eA4886b535FC7ABACe3F3985Ed03b3b80a0"
+            "address": "0xCBAa6eA4886b535FC7ABACe3F3985Ed03b3b80a0",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0xCBAa6eA4886b535FC7ABACe3F3985Ed03b3b80a0",
+            "blockscoutLabel": "BondingManager",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "3 Oct 2018",
+            "replacedBy": "V6"
           },
           {
             "version": "V6",
-            "address": "0xDC6eE74A18994caD3876a078B6fa4920FD9C507d"
+            "address": "0xDC6eE74A18994caD3876a078B6fa4920FD9C507d",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0xDC6eE74A18994caD3876a078B6fa4920FD9C507d",
+            "blockscoutLabel": "BondingManager",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "14 Jan 2020",
+            "replacedBy": "V7"
           },
           {
             "version": "V7",
-            "address": "0x1a6007d1D0583452Bd6f45a4e1a9190B15Fbd7E3"
+            "address": "0x1a6007d1D0583452Bd6f45a4e1a9190B15Fbd7E3",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://etherscan.io/address/0x1a6007d1D0583452Bd6f45a4e1a9190B15Fbd7E3",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "25 Sept 2020",
+            "replacedBy": "V8"
           },
           {
             "version": "V8",
-            "address": "0xef5E170b679ddaF5e22ADC10fD23DDdB79E3C0c5"
+            "address": "0xef5E170b679ddaF5e22ADC10fD23DDdB79E3C0c5",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0xef5E170b679ddaF5e22ADC10fD23DDdB79E3C0c5",
+            "blockscoutLabel": "BondingManager",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "2 Oct 2020",
+            "replacedBy": "V9"
           },
           {
             "version": "V9",
-            "address": "0xc8a695155648F18B0cfd6989498B6f8b2c4cc56A"
+            "address": "0xc8a695155648F18B0cfd6989498B6f8b2c4cc56A",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0xc8a695155648F18B0cfd6989498B6f8b2c4cc56A",
+            "blockscoutLabel": "BondingManager",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "13 Oct 2020",
+            "replacedBy": "V10"
           },
           {
             "version": "V10",
-            "address": "0x35F99F326681FE4F38719491be48Ab4950795013"
+            "address": "0x35F99F326681FE4F38719491be48Ab4950795013",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://etherscan.io/address/0x35F99F326681FE4F38719491be48Ab4950795013",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "13 Jan 2021",
+            "replacedBy": "V11"
           },
           {
             "version": "V11",
-            "address": "0xAC0153a8C5227e43506901a4f3f83FD000c8178f"
+            "address": "0xAC0153a8C5227e43506901a4f3f83FD000c8178f",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://etherscan.io/address/0xAC0153a8C5227e43506901a4f3f83FD000c8178f",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "29 Jan 2021",
+            "replacedBy": "V12"
           },
           {
             "version": "V12",
-            "address": "0x246edEBae14b186a67e3d466A485321169a8bcD5"
+            "address": "0x246edEBae14b186a67e3d466A485321169a8bcD5",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://etherscan.io/address/0x246edEBae14b186a67e3d466A485321169a8bcD5",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "10 Feb 2021",
+            "replacedBy": "V13"
           },
           {
             "version": "V13",
-            "address": "0x223398d0BF9cc24960b3886CC481dBf5276EdeD2"
+            "address": "0x223398d0BF9cc24960b3886CC481dBf5276EdeD2",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://etherscan.io/address/0x223398d0BF9cc24960b3886CC481dBf5276EdeD2",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "28 Mar 2021",
+            "replacedBy": "V14"
           },
           {
             "version": "V14",
-            "address": "0x0da7c263eCF5cD3ddba275b9A2D63320E28fD287"
+            "address": "0x0da7c263eCF5cD3ddba275b9A2D63320E28fD287",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://etherscan.io/address/0x0da7c263eCF5cD3ddba275b9A2D63320E28fD287",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "28 Mar 2021",
+            "replacedBy": "current"
           }
         ]
       },
@@ -1928,7 +2287,15 @@ export const contractAddresses = {
         "entries": [
           {
             "version": "V1",
-            "address": "0xbf07ff45f14c9ff0571b9fbdc7e2b62d29931224"
+            "address": "0xbf07ff45f14c9ff0571b9fbdc7e2b62d29931224",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0xbf07ff45f14c9ff0571b9fbdc7e2b62d29931224",
+            "blockscoutLabel": "ManagerProxy",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "1 May 2018",
+            "replacedBy": "current"
           }
         ]
       },
@@ -1936,15 +2303,38 @@ export const contractAddresses = {
         "entries": [
           {
             "version": "V1",
-            "address": "0x68b463bca7d561118636e9f028ff0f2e8398dd6a"
+            "address": "0x68b463bca7d561118636e9f028ff0f2e8398dd6a",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0x68b463bca7d561118636e9f028ff0f2e8398dd6a",
+            "blockscoutLabel": "JobsManager",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "1 May 2018",
+            "replacedBy": "V2"
           },
           {
             "version": "V2",
-            "address": "0xB620c762dd4bC350602936d7401BB8393Ee6687c"
+            "address": "0xB620c762dd4bC350602936d7401BB8393Ee6687c",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0xB620c762dd4bC350602936d7401BB8393Ee6687c",
+            "blockscoutLabel": "JobsManager",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "30 Jul 2019",
+            "replacedBy": "V3"
           },
           {
             "version": "V3",
-            "address": "0x8eade5eec609572bf53deadb88d36f862ddec517"
+            "address": "0x8eade5eec609572bf53deadb88d36f862ddec517",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://etherscan.io/address/0x8eade5eec609572bf53deadb88d36f862ddec517",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "14 Jan 2020",
+            "replacedBy": "current"
           }
         ]
       },
@@ -1952,11 +2342,26 @@ export const contractAddresses = {
         "entries": [
           {
             "version": "V1",
-            "address": "0xa3aa52ce79e85a21d9ccda705c57e426b160112c"
+            "address": "0xa3aa52ce79e85a21d9ccda705c57e426b160112c",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0xa3aa52ce79e85a21d9ccda705c57e426b160112c",
+            "blockscoutLabel": "RoundsManager",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "1 May 2018",
+            "replacedBy": "V2"
           },
           {
             "version": "V2",
-            "address": "0x857d4bf18a80f03d3d11f438825cd3d0aa0d9d68"
+            "address": "0x857d4bf18a80f03d3d11f438825cd3d0aa0d9d68",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": false,
+            "blockchainHref": "https://etherscan.io/address/0x857d4bf18a80f03d3d11f438825cd3d0aa0d9d68",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "14 Jan 2020",
+            "replacedBy": "current"
           }
         ]
       },
@@ -1964,21 +2369,43 @@ export const contractAddresses = {
         "entries": [
           {
             "version": "V1",
-            "address": "0x289ba1701c2f088cf0faf8b3705246331cb8a839"
+            "address": "0x289ba1701c2f088cf0faf8b3705246331cb8a839",
+            "type": "target",
+            "statusLabel": "Deprecated",
+            "verified": true,
+            "blockchainHref": "https://etherscan.io/address/0x289ba1701c2f088cf0faf8b3705246331cb8a839",
+            "blockscoutLabel": "MerkleProof",
+            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+            "deployedAt": "1 May 2018",
+            "replacedBy": "current"
           }
         ]
       }
     }
   },
   "meta": {
-    "lastUpdated": "2026-03-29T13:16:59.320Z",
+    "lastUpdated": "2026-03-29T23:12:55.767Z",
     "lastVerified": "30 Mar 2026",
     "sourceRepo": "livepeer/governor-scripts",
     "sourceCommit": "2cb192a",
     "verificationSummary": "25/25 Arbitrum, 24/24 Mainnet",
     "explorerUrls": {
-      "arbiscan": "https://arbiscan.io/address/",
-      "etherscan": "https://etherscan.io/address/"
+      "arbiscan": "https://arbiscan.io",
+      "etherscan": "https://etherscan.io",
+      "blockscoutArbitrum": "https://arbitrum.blockscout.com",
+      "blockscoutEthereum": "https://eth.blockscout.com"
+    },
+    "rpcUrls": {
+      "arbitrumOne": [
+        "https://arb1.arbitrum.io/rpc",
+        "https://arbitrum-one-rpc.publicnode.com",
+        "https://arbitrum.drpc.org"
+      ],
+      "ethereumMainnet": [
+        "https://eth.llamarpc.com",
+        "https://ethereum-rpc.publicnode.com",
+        "https://eth.drpc.org"
+      ]
     },
     "_apiVersions": {
       "blockscout": "v2",

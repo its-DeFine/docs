@@ -33,7 +33,7 @@ const REQUIRED_BASE_ENTRIES = [
   { label: 'CODEX-TASK-LAYER', path: '.github/AGENTS.md' },
   { label: 'AGENT-GOVERNANCE-POLICY', path: 'docs-guide/policies/agent-governance-framework.mdx' },
   { label: 'ROOT-ALLOWLIST-GOVERNANCE-POLICY', path: 'docs-guide/policies/root-allowlist-governance.mdx' },
-  { label: 'CONTRIBUTOR-AGENT-INSTRUCTIONS', path: 'contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md' }
+  { label: 'CONTRIBUTOR-AGENT-INSTRUCTIONS', path: 'docs-guide/contributing/agent-instructions.mdx' }
 ];
 
 function getRepoRoot() {

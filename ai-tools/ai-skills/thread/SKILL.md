@@ -5,7 +5,7 @@ description: >-
   (2) STATUS — when invoked mid-session or with no arguments, outputs current status snapshot and stops.
   Orient, don't execute. Never re-anchor or restart tasks when a thread is already active.
 metadata:
-  version: "1.1"
+  version: "1.2"
   category: process
   status: "active"
 ---
@@ -68,6 +68,11 @@ After outputting status, **stop**. Wait for the user to respond. Do not proceed 
 - The user has stated a new session objective with the invocation
 
 In START mode: proceed to Step 0.5 (flags), then Step 1.
+
+**RECOVERY mode** — if the user's message looks like it was meant as a command but wasn't recognised (e.g. `/thead` instead of `/thread`, `/reserach` instead of `/research`):
+1. Say: "That looks like a typo for `/[correct command]`. Your full message is preserved — processing it now."
+2. Treat the rest of the message as the input to the correct command
+3. Do NOT discard the message content. The user's brief is the priority, not the command routing.
 
 ---
 
@@ -150,6 +155,55 @@ When the outcome involves fixing something broken, write a failing test first (s
 
 ---
 
+## Step 1b: Map the lifecycle phases
+
+Every non-trivial thread follows the same lifecycle. After defining the outcome, identify which phases apply and map the session's work to them. Not every session covers all phases — a session might only do research, or pick up at implement after a prior session's design was approved.
+
+### The lifecycle
+
+```
+research → audit → design → implement → test → iterate → test → document → cleanup
+```
+
+| Phase | What happens | Outputs | Gate |
+|---|---|---|---|
+| **Research** | Understand the landscape holistically. (1) Web search: best practices, standards, documentation approaches for the domain. (2) Repo search: existing gold standards, frameworks, patterns to align to, current gaps, risks, unmaintainability. Both dimensions required — external best practice AND internal repo state | Research reports in `workspace/thread-outputs/research/` — one per dimension (e.g. `{topic}-best-practices-report.md`, `{topic}-repo-analysis-report.md`) | Human reviews reports before audit/design |
+| **Audit** | Inventory what exists. Classify by repo taxonomy (type/concern). Trace upstream triggers and downstream dependencies/dependants. Map each item's pipeline (Mermaid diagrams). Identify: stale, legacy, broken, placeholder, duplicate. Flag consolidation candidates. Identify frail dependencies and script risks | Audit report with full classification table + pipeline maps (Mermaid). Working directory: relevant `_workspace/` or `.github/workspace/` folder | Human reviews audit before design |
+| **Design** | Co-design with human. Produce: (1) framework-canonical — governance framework aligned to existing repo taxonomy (type/concern/niche), enforcement tiers (hard gate/soft gate/self-heal), error reporting with self-remediation and/or issue creation. (2) Template — per-item page/doc template with classification, pipeline diagram, dependencies, status, concerns. (3) Catalog index — visual overview grouped by type × concern with status indicators | Framework canonical + template + catalog structure | Human co-designs and approves before implement |
+| **Implement** | Build what was designed. Verify first instance renders/works before bulk generation. Follow approved template exactly. Populate from audit data. Restructure folders per framework | Built artefacts (pages, scripts, components, config). Folder structure matches framework spec | First instance verified before proceeding to bulk |
+| **Test** | Verify everything works. Render checks (MDX valid, Mermaid renders, imports resolve). Completeness cross-references (every source item has a corresponding output). Dependency validation (no broken references) | Verification report | All checks pass |
+| **Iterate** | Human review cycle. Present work visually (tables, trees, diagrams — not text walls). Receive feedback. Adjust template, framework, or individual items. Repeat until approved | Updated artefacts | Human approves |
+| **Test** | Re-verify after iteration changes. Same checks as first test phase | Updated verification report | All checks pass |
+| **Document** | (1) Add gold-standard example to `.claude/references/` as exemplar. (2) Update governance indexes. (3) Build self-documenting pipeline — automation that keeps outputs in sync with source (pre-commit hook, CI workflow, or generator script). Governance enforced | Reference exemplar, governance index updates, self-documenting automation pipeline | Documentation complete, pipeline runs correctly |
+| **Cleanup** | Archive deprecated/stale items per framework rules. Remove placeholders that were never completed. Execute approved consolidation merges. Streamline folder structure. Final audit pass to confirm zero drift from framework | Clean repo state, no orphans, no drift | Final audit passes |
+
+### How to use
+
+When defining the outcome, state which phases this session covers:
+
+```
+Outcome: [specific deliverable]
+
+Lifecycle position:
+  ✅ Research — done (prior session, reports at [path])
+  ✅ Audit — done (prior session, audit at [path])
+  🔄 Design — this session
+  ⬜ Implement — after design approval
+```
+
+Each phase transition requires restating the outcome and getting confirmation (see Step 3). No phase starts without its gate being satisfied.
+
+### Adapting to scope
+
+- **Quick fix:** research → implement → test → done (skip audit/design/iterate)
+- **New system:** all 9 phases, possibly across multiple sessions
+- **Audit-only session:** research → audit → present findings → done
+- **Content work:** research → design (IA) → implement (write) → iterate (review) → test (render) → done
+
+The lifecycle is a scaffold, not a straitjacket. State which phases apply and why.
+
+---
+
 ## Step 2: Trace every action
 
 Before proposing any new action, state in one sentence how it connects to the outcome.
@@ -171,16 +225,17 @@ This doesn't trace back to [outcome]. Is this a scope change, or should we refoc
 
 ## Step 3: Phase transitions
 
-When shifting between phases (research → design → build → iterate), restate the outcome and confirm:
+When shifting between lifecycle phases (research → audit → design → implement → test → iterate → test → document → cleanup), restate the outcome and confirm:
 
 ```
 Outcome: [restate]
-Completed: [what just finished]
+Completed: [phase] — [what was produced]
+Gate satisfied: [evidence — report exists, human approved, checks passed]
 Starting: [next phase]
 This moves us toward the outcome because: [one sentence]
 ```
 
-Wait for confirmation before proceeding into the new phase.
+Wait for confirmation before proceeding into the new phase. Never skip a gate.
 
 ---
 

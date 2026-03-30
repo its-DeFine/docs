@@ -51,7 +51,7 @@ const GOVERNED_TEXT_FILES = [
   '.claude/CLAUDE.md',
   '.cursor/rules/repo-governance.mdc',
   '.windsurf/rules/repo-governance.md',
-  'contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md',
+  'docs-guide/contributing/agent-instructions.mdx',
   '.github/workflows/issue-auto-label.yml',
   '.github/workflows/discord-issue-intake.yml',
   '.github/workflows/openapi-reference-validation.yml',

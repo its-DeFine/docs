@@ -872,7 +872,15 @@ const contextComponents = {
 
 // ─── Unified Component Map ─── //
 
-const COMPONENT_MAP = Object.assign({}, mintlify, livepeerComponents, contextComponents);
+const COMPONENT_MAP = Object.assign(
+  {
+    'Tree.Folder': mintlify.TreeFolder,
+    'Tree.File': mintlify.TreeFile
+  },
+  mintlify,
+  livepeerComponents,
+  contextComponents
+);
 
 
 // ─── Tier 3: Generic Placeholder ─── //

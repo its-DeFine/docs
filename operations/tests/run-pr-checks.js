@@ -309,7 +309,7 @@ function partitionFiles(changedFiles) {
     file === '.cursor/rules/repo-governance.mdc' ||
     file === '.windsurf/rules/repo-governance.md' ||
     file === 'README.md' ||
-    file === 'contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md' ||
+    file === 'docs-guide/contributing/agent-instructions.mdx' ||
     file === '.github/workflows/docs-v2-issue-indexer.yml' ||
     file.startsWith('.github/ISSUE_TEMPLATE/')
   );

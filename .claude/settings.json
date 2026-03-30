@@ -26,6 +26,15 @@
         "hooks": [
           {
             "type": "command",
+            "command": "pkill -f 'Chromium.*--headless' 2>/dev/null; pkill -f 'chrome.*--headless' 2>/dev/null; pkill -f 'playwright.*BrowserServer' 2>/dev/null; pkill -f 'mintlify.*dev.*--port' 2>/dev/null; pkill -f '@mintlify/cli.*start.*dev' 2>/dev/null; echo '{\"systemMessage\":\"Cleaned up stale headless browsers and Mintlify dev servers.\"}'",
+            "statusMessage": "Cleaning up stale processes..."
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
             "command": "node operations/scripts/dispatch/governance/session-state.js"
           }
         ]
@@ -50,6 +59,15 @@
       }
     ],
     "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/message-backup.js",
+            "async": true
+          }
+        ]
+      },
       {
         "hooks": [
           {
@@ -127,8 +145,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "if echo \"$CLAUDE_FILE\" | grep -q '\\.mdx$'; then npx mintlify dev --check 2>&1 | tail -5; fi",
-            "statusMessage": "Checking Mintlify validity..."
+            "command": "node operations/scripts/dispatch/governance/mdx-validate-hook.js",
+            "statusMessage": "Validating MDX..."
           }
         ]
       },

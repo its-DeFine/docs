@@ -23,7 +23,12 @@ const TEMPLATE_ROOT = 'ai-tools/ai-skills/templates';
 const CONTRACT_PATH = 'ai-tools/ai-skills/skill-spec-contract.md';
 const NAME_RE = /^[a-z0-9][a-z0-9-]*$/;
 const VERSION_RE = /^[0-9]+\.[0-9]+(?:\.[0-9]+)?$/;
-const VALID_CATEGORIES = ['audit', 'authoring', 'content-pipeline', 'governance', 'review-pipeline', 'meta'];
+const VALID_CATEGORIES = ['audit', 'authoring', 'content-pipeline', 'governance', 'review-pipeline', 'meta', 'process'];
+const VALID_TYPES = ['atomic', 'dispatcher', 'adapter', 'governance', 'reference'];
+const VALID_CONCERNS = ['review', 'research', 'authoring', 'repo-ops', 'validation', 'migration', 'release', 'agent-runtime'];
+const VALID_SCOPES = ['repo', 'agent', 'platform', 'generated', 'personal-global'];
+const VALID_STATUSES = ['active', 'experimental', 'generated', 'deprecated', 'retired', 'draft'];
+const VALID_LAYERS = ['canonical', 'adapter', 'generated', 'global-platform', 'legacy'];
 const REQUIRED_CONTRACT_SECTIONS = [
   { heading: '## Purpose', rule: 'Skill contract sections' },
   { heading: '## Layer Map', rule: 'Skill contract sections' },
@@ -32,6 +37,19 @@ const REQUIRED_CONTRACT_SECTIONS = [
   { heading: '## Validation Rules', rule: 'Skill contract sections' }
 ];
 const CONTRACT_TABLE_RE = /\|\s*Layer\s*\|\s*File\s*\|\s*Purpose\s*\|/i;
+
+function validateStringArrayField(repoPath, fieldName, value, { allowString = false } = {}) {
+  if (allowString && typeof value === 'string' && String(value).trim()) return [];
+  if (!Array.isArray(value) || value.length === 0 || value.some((entry) => typeof entry !== 'string' || !String(entry).trim())) {
+    return [{
+      file: repoPath,
+      rule: 'Skill relationship fields',
+      message: `"${fieldName}" must be ${allowString ? 'a non-empty string or ' : ''}a non-empty array of non-empty strings.`,
+      line: 1
+    }];
+  }
+  return [];
+}
 
 function toPosix(value) {
   return String(value || '').split(path.sep).join('/');
@@ -265,6 +283,25 @@ function validateFrontmatter(repoPath, frontmatter, options = {}) {
         }
       }
 
+      [
+        ['type', VALID_TYPES, 'Skill type'],
+        ['concern', VALID_CONCERNS, 'Skill concern'],
+        ['scope', VALID_SCOPES, 'Skill scope'],
+        ['status', VALID_STATUSES, 'Skill status'],
+        ['layer', VALID_LAYERS, 'Skill layer']
+      ].forEach(([key, validValues, rule]) => {
+        if (!(key in metadata)) return;
+        const value = String(metadata[key] || '').trim();
+        if (!validValues.includes(value)) {
+          errors.push({
+            file: repoPath,
+            rule,
+            message: `Invalid metadata.${key} "${value}". Must be one of: ${validValues.join(', ')}.`,
+            line: 1
+          });
+        }
+      });
+
       if (isTemplate && !('tier' in metadata)) {
         errors.push({
           file: repoPath,
@@ -274,6 +311,41 @@ function validateFrontmatter(repoPath, frontmatter, options = {}) {
         });
       }
     }
+  }
+
+  if ('source_of_truth' in frontmatter) {
+    errors.push(...validateStringArrayField(repoPath, 'source_of_truth', frontmatter.source_of_truth, { allowString: true }));
+  }
+  if ('consumed_by' in frontmatter) {
+    errors.push(...validateStringArrayField(repoPath, 'consumed_by', frontmatter.consumed_by));
+  }
+  if ('dispatches' in frontmatter) {
+    errors.push(...validateStringArrayField(repoPath, 'dispatches', frontmatter.dispatches));
+  }
+  if ('aliases' in frontmatter) {
+    errors.push(...validateStringArrayField(repoPath, 'aliases', frontmatter.aliases));
+  }
+
+  const metadataType = metadata && typeof metadata === 'object' && !Array.isArray(metadata)
+    ? String(metadata.type || '').trim()
+    : '';
+
+  if (metadataType === 'dispatcher' && !('dispatches' in frontmatter)) {
+    errors.push({
+      file: repoPath,
+      rule: 'Dispatcher contract',
+      message: 'Dispatcher skills must declare a non-empty "dispatches" field.',
+      line: 1
+    });
+  }
+
+  if ('dispatches' in frontmatter && metadataType && metadataType !== 'dispatcher') {
+    warnings.push({
+      file: repoPath,
+      rule: 'Dispatcher contract',
+      message: 'dispatches is present on a skill that does not declare metadata.type: dispatcher.',
+      line: 1
+    });
   }
 
   if (isTemplate) {
@@ -598,6 +670,34 @@ function runInternalUnitChecks() {
       metadata: { version: '1.0', category: 'not-a-valid-category' }
     });
     assert(result.errors.some((entry) => entry.rule === 'Skill category'));
+  });
+
+  runCase('invalid metadata.type failure', () => {
+    const result = validateFrontmatter('tmp.md', {
+      name: 'alpha-skill',
+      description: 'This description has enough words to satisfy the validator requirement for the unit test.',
+      metadata: { version: '1.0', category: 'meta', type: 'wrong-type' }
+    });
+    assert(result.errors.some((entry) => entry.rule === 'Skill type'));
+  });
+
+  runCase('dispatcher requires dispatches', () => {
+    const result = validateFrontmatter('tmp.md', {
+      name: 'alpha-skill',
+      description: 'This description has enough words to satisfy the validator requirement for the unit test.',
+      metadata: { version: '1.0', category: 'meta', type: 'dispatcher' }
+    });
+    assert(result.errors.some((entry) => entry.rule === 'Dispatcher contract'));
+  });
+
+  runCase('invalid aliases shape failure', () => {
+    const result = validateFrontmatter('tmp.md', {
+      name: 'alpha-skill',
+      description: 'This description has enough words to satisfy the validator requirement for the unit test.',
+      metadata: { version: '1.0', category: 'meta' },
+      aliases: ['valid-alias', '']
+    });
+    assert(result.errors.some((entry) => entry.rule === 'Skill relationship fields'));
   });
 
   runCase('missing referenced file failure', () => {

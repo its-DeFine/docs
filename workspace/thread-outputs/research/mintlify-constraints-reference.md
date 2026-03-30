@@ -280,40 +280,66 @@ grep -rl "export.*GotoLink" snippets/
 
 ---
 
-## MDX-in-MDX scope inheritance
+## MDX-in-MDX imports
 
-When importing an MDX snippet into a parent MDX file, the child inherits the parent's scope with specific rules:
+### Critical constraint: navigation registration
 
-### What works
+**An MDX file that is imported by another page MUST NOT be registered in docs.json navigation.** If both the importing page and the imported file are in docs.json, the imported file 404s.
+
+File location does not matter — the imported MDX can live in `v2/`, `snippets/`, or anywhere else. The constraint is solely about docs.json navigation registration.
+
+**Verified 2026-03-30:** Created test file `v2/about/resources/iamsorandom.mdx` imported by `v2/about/livepeer-protocol/iimportsorandom.mdx`. Both served correctly when only the importer was in docs.json. When the imported file was also added to docs.json navigation, it immediately 404'd.
+
+**Repo convention:** Imported MDX lives in `snippets/composables/` because files there are never in docs.json. This is a convention for safety, not a platform requirement.
+
+### Import resolution
+
+Mintlify resolves MDX imports from any path in the repo. Both root-absolute (`/v2/about/...`, `/snippets/...`) and relative (`./views/docker/...`) paths work.
+
+**Evidence:** `docs-guide/contributing/contributing.mdx` imports from `../../contribute/CONTRIBUTING.mdx`. Gateway tabs use `./views/docker/dockerOffChainTab.mdx`. Both work.
+
+### Self-contained child (has own imports)
+
+A child MDX with its own `import` and `export const` statements is fully self-contained. Its imports, exports, and `{variable}` interpolation work within its own scope. The parent is just a thin wrapper with frontmatter.
 
 ```mdx
-{/* Parent: gateway-setup.mdx */}
+{/* Parent: v2/about/resources/livepeer-contract-addresses.mdx — in docs.json */}
+import ContractAddressesCanonical from "/snippets/composables/pages/reference/livepeer-contract-addresses.mdx"
+<ContractAddressesCanonical />
+
+{/* Child: snippets/composables/.../livepeer-contract-addresses.mdx — NOT in docs.json */}
+import { contractAddresses } from '/snippets/data/contract-addresses/contractAddressesData.jsx'
+import { SearchTable } from '/snippets/components/wrappers/tables/SearchTable.jsx'
+export const lastVerifiedDate = contractAddresses.meta.lastVerified || "Pending"
+{/* All imports, exports, and {variable} interpolation work — child's own scope */}
+```
+
+**Repo evidence:**
+- `snippets/composables/pages/reference/livepeer-contract-addresses.mdx` — self-contained canonical page, imported by two parent pages. Verified working 2026-03-30 (10 tables, 44 historical addresses, search input, no errors).
+- `contribute/CONTRIBUTING.mdx` — has own `import { DynamicTable }`, imported by `docs-guide/contributing/contributing.mdx`.
+- `v2/gateways/quickstart/views/linux/linuxOffChainTab.mdx` — has own imports, uses `{latestVersion}` in direct interpolation.
+
+### Dependent child (relies on parent scope)
+
+When a child MDX has NO imports and relies on the parent's scope:
+
+```mdx
+{/* Parent: gateway-setup.mdx — imports everything */}
 import { DOCKER_CODE } from '/snippets/data/gateways/code.jsx'
 import { CustomCodeBlock } from '/snippets/components/displays/code/Code.jsx'
-import DockerTab from '/snippets/pages/docker/dockerTab.mdx'
-
+import DockerTab from './views/docker/dockerOffChainTab.mdx'
 <DockerTab />
 
-{/* Child: dockerTab.mdx — NO imports needed for parent-scope items used as PROPS */}
+{/* Child: dockerOffChainTab.mdx — NO imports, uses parent scope */}
 <CustomCodeBlock {...DOCKER_CODE.install} />
-<CustomCodeBlock codeString={DOCKER_CODE.offChain} />
 ```
 
-### What does NOT work
-
-```mdx
-{/* Child: linuxTab.mdx — direct JSX interpolation needs re-import */}
-<Badge><span>{latestVersion}</span></Badge>
-{/* ❌ latestVersion is undefined unless re-imported in the child */}
-```
-
-### The rule
-
+**Scope rules for dependent children:**
 - Variables used as **component props** → inherited from parent scope
 - Variables used in **direct JSX text interpolation** `{variable}` → must be re-imported in child
 - **Never duplicate imports** — if parent already imports X, child must NOT also import X (causes MDX errors)
 
-**Source:** `mintlify-behaviour.mdx` lines 88-192. Status: hypothesis based on observed behaviour, needs headless verification.
+**Source:** `mintlify-behaviour.mdx` lines 88-192. Navigation constraint verified via controlled test 2026-03-30. Scope rules: hypothesis from `mintlify-behaviour.mdx`, consistent with observed behaviour.
 
 ---
 
@@ -546,6 +572,7 @@ Tested 2026-03-29 with Mintlify CLI v4.2.459, Puppeteer headless browser, dev se
 | Client-side only | Mintlify docs: "render on the client-side" | — | **Confirmed** |
 | ThemeData deprecated | Governance docs, pre-commit hook | — | **Confirmed** |
 | MDX-in-MDX scope rules | `mintlify-behaviour.mdx` hypothesis | FAIL | **Confirmed — child MDX does not inherit parent scope reliably** |
+| React error #31: Objects as children | Production (contract-addresses composable, 2026-03-30) | FAIL | **Confirmed — `{object.key}` where value is an object (not string/number) crashes with "Objects are not valid as a React child (found: object with keys {value})". Inline expressions in composable MDX that resolve to objects instead of primitives trigger this. Fix: ensure expressions resolve to strings/numbers, not objects.** |
 
 **Test methodology:** Created isolated test pages in `v2/test-*.mdx` with components in `snippets/test-constraints/` and `snippets/components/config/ConstraintTests.jsx`. Control test (SIMPLE component with no imports, no top-level const, arrow function) PASSED from the same directory, confirming failures are constraint violations not compilation issues. Production pages tested as cross-reference.
 

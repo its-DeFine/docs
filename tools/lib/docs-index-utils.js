@@ -214,9 +214,9 @@ function countWords(text) {
 
 function buildGitLastModifiedMap(repoRoot) {
   const root = repoRoot || getRepoRoot();
-  const trackedRoots = ['v2/', 'docs-guide/', 'contribute/'];
+  const trackedRoots = ['v2/', 'docs-guide/'];
   try {
-    const output = execSync('git log --name-only --format=%cI -- v2 docs-guide contribute', {
+    const output = execSync('git log --name-only --format=%cI -- v2 docs-guide', {
       cwd: root,
       encoding: 'utf8',
       maxBuffer: 1024 * 1024 * 10

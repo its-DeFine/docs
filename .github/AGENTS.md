@@ -59,7 +59,6 @@ destructive or history-altering actions.
 
 **BEFORE creating, moving, or organizing files, you MUST read:**
 
-- `contribute/STRUCTURE.md` - Complete repository structure rules (if exists)
 - `workspace/plan/migration-plan.md` - Detailed structure documentation (Section 4)
 
 ### Critical Structure Rules
@@ -77,7 +76,7 @@ destructive or history-altering actions.
    - AI guidelines → `tools/ai-rules/`
    - Public assets → `snippets/assets/` (favicon.png, logo/ in snippets/assets/ - referenced in docs.json)
    - OpenAPI specs → `api/` (consolidated)
-   - Contribution docs → `contribute/`
+   - Contribution docs → `docs-guide/contributing/`
    - Documentation → `docs/v1/` (FROZEN) or `docs/v2/pages/` (active)
 
 3. **Snippets Directory** - MUST follow Mintlify conventions:

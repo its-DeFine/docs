@@ -25,7 +25,7 @@
 | Path | Status | Exists | Format | Purpose |
 |---|---|---|---|---|
 | `README.md` | active | yes | markdown | Provides high-level repo orientation and links to the canonical governance surfaces. |
-| `contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md` | active | yes | markdown | Provides contributor-facing agent workflow guidance and hook expectations. |
+| `docs-guide/contributing/agent-instructions.mdx` | active | yes | mdx | Provides contributor-facing agent workflow guidance and hook expectations. |
 | `v2/cn/contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md` | active | yes | markdown | Localized Chinese contributor guidance for the canonical agent workflow. |
 | `v2/es/contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md` | active | yes | markdown | Localized Spanish contributor guidance for the canonical agent workflow. |
 | `v2/fr/contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md` | active | yes | markdown | Localized French contributor guidance for the canonical agent workflow. |

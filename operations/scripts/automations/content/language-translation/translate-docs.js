@@ -531,7 +531,7 @@ function deriveSourcePathFromQuarantine(localizedFile, language) {
   const prefix = `v2/${language}/group/x-orphaned/`;
   if (!normalized.startsWith(prefix)) return '';
   const remainder = normalized.slice(prefix.length);
-  if (remainder.startsWith('docs-guide/') || remainder.startsWith('contribute/')) {
+  if (remainder.startsWith('docs-guide/')) {
     return remainder;
   }
   return `v2/${remainder}`;

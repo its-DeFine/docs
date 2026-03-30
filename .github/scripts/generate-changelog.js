@@ -606,6 +606,13 @@ function cleanForMdx(text) {
       )
       // Convert angle-bracketed URLs to plain URLs (MDX parses <url> as JSX tags)
       .replace(/<(https?:\/\/[^>]+)>/g, "$1")
+      // Remove "Co-authored-by:" and "Signed-off-by:" lines (contain <email> that breaks MDX)
+      .replace(/^\s*co-authored-by:.*$/gim, "")
+      .replace(/^\s*signed-off-by:.*$/gim, "")
+      // Escape angle-bracketed emails (e.g. <user@domain.com>) before general < escaping
+      .replace(/<([^>]*@[^>]+)>/g, "($1)")
+      // Escape remaining < that are not valid HTML/JSX tags
+      .replace(/<(?![a-zA-Z/!])/g, "&lt;")
       // Clean trailing whitespace per line
       .replace(/[ \t]+$/gm, "")
       // Collapse multiple blank lines
@@ -952,13 +959,20 @@ function buildCommitUpdateBlock(commit, verifications, target) {
   const date = formatDateLabel(commit.published_at);
   const tags = commit._isCommit ? ["Commit"] : classifyTags(commit.body);
   const tagsStr = tags.map((t) => `"${t}"`).join(", ");
-  const rssTitle = `${displayName} ${shortSha}`;
   const esc = (s) => s.replace(/"/g, '\\"');
   const commitMessage = cleanForMdx(commit.body || commit.name || shortSha);
 
+  // Use first line of commit message as the label (truncate at 60 chars), SHA as fallback
+  // Strip quotes from labels — MDX JSX attributes cannot contain escaped quotes
+  const firstLine = (commit.name || commit.body || shortSha).split("\n")[0].trim();
+  const stripped = firstLine.replace(/"/g, "'");
+  const label = stripped.length > 60 ? stripped.substring(0, 57) + "..." : stripped;
+  const cleanLabel = cleanForMdx(label);
+  const rssTitle = `${displayName}: ${cleanLabel}`;
+
   let block = "";
-  block += `<Update label="${shortSha}" tags={[${tagsStr}]} rss={{ title: "${esc(rssTitle)}", description: "${esc(commit.name || shortSha)}" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>${date}</div>}>\n`;
-  block += `  ## ${shortSha}\n\n`;
+  block += `<Update label="${esc(cleanLabel)}" tags={[${tagsStr}]} rss={{ title: "${esc(rssTitle)}", description: "${esc(commit.name || shortSha)}" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>${date}</div>}>\n`;
+  block += `  ## ${cleanLabel}\n\n`;
 
   // Commit message in a ScrollBox if multi-line
   const lines = commitMessage.split("\n").filter(Boolean);

@@ -737,7 +737,7 @@ Legacy Environment Overrides:
 Notes:
   - Human `.allowlist` edits require explicit human override.
   - Human deletions outside `workspace/` require explicit human override.
-  - See `.githooks/BYPASS.md` and `contribute/CONTRIBUTING/GIT-HOOKS.md` for policy and details.
+  - See `.githooks/BYPASS.md` and `docs-guide/contributing/git-hooks` for policy and details.
 EOF
             ;;
         --help|-h)
@@ -1199,7 +1199,38 @@ cmd_dev() {
                 disable_openapi=1
                 ;;
             --scope-*)
-                finish 1 "dev" "Unknown scoped option: $1"
+                local _known="version language tab prefix interactive list file anchor"
+                local _input_stripped="${1#--scope-}"
+                local _suggestion=""
+                local _best_score=0
+                for _k in $_known; do
+                    # Length difference penalty
+                    local _len_diff=${#_input_stripped}
+                    _len_diff=$(( _len_diff - ${#_k} ))
+                    [ "$_len_diff" -lt 0 ] && _len_diff=$(( -_len_diff ))
+                    [ "$_len_diff" -gt 3 ] && continue
+                    # Count chars from input found in candidate (order-independent)
+                    local _remaining="$_k"
+                    local _hits=0 _i=0
+                    while [ "$_i" -lt "${#_input_stripped}" ]; do
+                        local _c="${_input_stripped:$_i:1}"
+                        case "$_remaining" in
+                            *"$_c"*) _hits=$((_hits + 1)); _remaining="${_remaining%%"$_c"*}${_remaining#*"$_c"}" ;;
+                        esac
+                        _i=$((_i + 1))
+                    done
+                    # Score: shared chars minus length penalty
+                    local _score=$((_hits - _len_diff))
+                    if [ "$_score" -gt "$_best_score" ] && [ "$_hits" -ge 3 ]; then
+                        _best_score=$_score
+                        _suggestion="--scope-$_k"
+                    fi
+                done
+                if [ -n "$_suggestion" ]; then
+                    finish 1 "dev" "Unknown option: $1. Did you mean: $_suggestion"
+                else
+                    finish 1 "dev" "Unknown option: $1. Run 'lpd dev --help' for available flags."
+                fi
                 return 1
                 ;;
             --json)

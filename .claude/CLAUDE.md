@@ -26,12 +26,14 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 | About | About tab — IA lock + content | Active | 2026-03-29 |
 | Cleanup | Repo cleanup | Active | 2026-03-29 |
 | MASTER CLEAN | Consolidate all frameworks, tab content, tasks into one folder | Active — audit done, awaiting approval to build | 2026-03-29 |
-| Contracts & Changelogs | A1: ContractVerifier widget built + integrated into canonical page | Active | 2026-03-29 |
+| Contracts & Changelogs | ContractVerifier widget: fully data-driven, dual-path verification, RPC failover. Remaining: chain auto-detect, component docs regen | Active | 2026-03-30 |
+| Changelog Pipeline | 24 targets registered, 19 resource pages populated, nav grouped into 5 categories, script cleanForMdx + commit labels fixed. Remaining: changelog.mdx format fix, LLM commits-mode feature, managed:true activation | Active | 2026-03-30 |
 | Asset Pipeline (#849) | 19 assets migrated, 3-layer verification gate, PR #851 open | Done — PR #851 awaiting merge to main | 2026-03-30 |
 | Mintlify Constraints | Canonical constraints reference — audited, headless-tested, propagated | Done | 2026-03-29 |
 | Propagate | `/propagate` skill + move-detect hook + docs-path-sync extensions | Done — awaiting live test | 2026-03-29 |
 | Watcher | Repo quality guardian — flags drift, mess, broken patterns as they happen | Watching | 2026-03-29 |
 | References | `.claude/references/` — Phase 1 done (14 docs). Phase 2: restructure + collation + patterns | Active | 2026-03-30 |
+| Solutions Merge | merge/solutions-to-docs-v2 branch ready, pushed to origin. PR creation blocked by hook — user runs manually | Pending PR | 2026-03-30 |
 
 **Rule:** When you finish a task or change status, update your row in this table before closing. If the master-tasks.md file has a matching item, update that too.
 
@@ -66,6 +68,7 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 - After any file move or rename, scan ALL file types for stale references — including .txt, .json, sitemap, llms.txt
 - No hardcoded data in MDX pages. If a data file exists for the content (addresses, config, feeds), the page MUST import and render from it. Zero exceptions
 - Never inline a component's internals into MDX. Import and use the component. If it doesn't do what you need, propose a prop addition — do not bypass it
+- Never edit files marked DO NOT EDIT, AUTO-GENERATED, or similar. STOP. Re-read CLAUDE.md. Read the architecture docs for the system you're working in. Research what your task actually needs. Then propose an approach
 
 ---
 
@@ -124,6 +127,8 @@ These are inline. No skill files. Just do what it says.
 | `/remind` | Re-read `.claude/CLAUDE.md` right now. Re-read the thread outcome. State your role, the rules you're following, and what you're working on. Then propose the next action with reasoning. |
 | `/log` | Append a timestamped entry to `workspace/thread-outputs/sessions/session-log.txt` with: thread name, what just shipped, files changed. One entry, no ceremony. Then continue working. |
 | `/flag [thread] [message]` | Append a flag to `workspace/thread-outputs/sessions/flags.jsonl` for another thread to pick up. One JSON line. Then continue working. |
+
+**If the user says a message was lost/eaten:** Immediately read the last 5 entries from `workspace/thread-outputs/sessions/message-backup.jsonl` and present them. Don't ask questions — just show the content.
 
 ---
 

@@ -133,7 +133,7 @@ function isLikelyRepoPath(value) {
     '.cursor/',
     '.windsurf/',
     '.codex/',
-    'contribute/'
+    'docs-guide/contributing/'
   ];
   return (
     repoPrefixes.some((prefix) => normalized.startsWith(prefix)) ||

@@ -3,8 +3,8 @@
  * @category         integrators
  * @subcategory      feeds
  * @status           experimental
- * @description      Interactive widget to verify Livepeer contract addresses on-chain via Controller lookup and Blockscout address inspection. Two modes: look up by name, verify by address. Consumes pipeline data from contractAddressesData.jsx.
- * @dataSource       prop (contractAddressesData.jsx) + Arbitrum One RPC (eth_call) + Blockscout API v2 (/api/v2/addresses/)
+ * @description      Interactive widget to verify Livepeer contract addresses on-chain. Two modes: look up by name (verifies via Controller RPC or Blockscout depending on contract), verify by pasted address. Consumes pipeline data from contractAddressesData.jsx.
+ * @dataSource       prop (contractAddressesData.jsx — addresses, keccak hashes, registration status, explorer URLs, RPC URLs) + Arbitrum One RPC (eth_call) + Blockscout API v2 (/api/v2/addresses/)
  * @aiDiscoverability none
  *
  * // ContractAddresses: see snippets/data/contract-addresses/contractAddressesData.jsx
@@ -14,58 +14,29 @@
  */
 export const ContractVerifier = ({ data, className = "", style = {}, ...rest }) => {
 
-  // ── CHAIN CONFIG ───────────────────────────────────────────────────────
+  // ── CONSTANTS ──────────────────────────────────────────────────────────
+  const ZERO_ADDR = '0x0000000000000000000000000000000000000000'
+  const SELECTOR  = '0xe16c7d98' // keccak256("getContract(bytes32)")[:4]
+
+  // ── CHAIN CONFIG (derived from pipeline data.meta) ────────────────────
+  const meta = (data && data.meta) || {}
+  const explorers = meta.explorerUrls || {}
+  const rpcUrls = meta.rpcUrls || {}
   const CHAINS = {
     arbitrumOne: {
       label: 'Arbitrum One',
-      chainId: 42161,
-      rpcUrls: [
-        'https://arb1.arbitrum.io/rpc',
-        'https://arbitrum-one-rpc.publicnode.com',
-        'https://arbitrum.drpc.org',
-      ],
-      blockscout: 'https://arbitrum.blockscout.com',
-      etherscan: 'https://arbiscan.io',
+      rpcUrls: rpcUrls.arbitrumOne || ['https://arb1.arbitrum.io/rpc'],
+      blockscout: explorers.blockscoutArbitrum || 'https://arbitrum.blockscout.com',
+      etherscan: explorers.arbiscan || 'https://arbiscan.io',
       hasController: true,
     },
     ethereumMainnet: {
       label: 'Ethereum Mainnet',
-      chainId: 1,
-      rpcUrls: [
-        'https://eth.llamarpc.com',
-        'https://ethereum-rpc.publicnode.com',
-        'https://eth.drpc.org',
-      ],
-      blockscout: 'https://eth.blockscout.com',
-      etherscan: 'https://etherscan.io',
+      rpcUrls: rpcUrls.ethereumMainnet || ['https://eth.llamarpc.com'],
+      blockscout: explorers.blockscoutEthereum || 'https://eth.blockscout.com',
+      etherscan: explorers.etherscan || 'https://etherscan.io',
       hasController: false,
     },
-  }
-  const ZERO_ADDR  = '0x0000000000000000000000000000000000000000'
-  const SELECTOR   = '0xe16c7d98' // keccak256("getContract(bytes32)")[:4]
-
-  // ── KECCAK256 HASHES (mathematical constants, stable forever) ─────────
-  // Used as bytes32 argument to Controller.getContract()
-  const KECCAK256 = {
-    AIServiceRegistry: '0x708d071449926f2d3af17f15cb9f54ed8b3886a1ef57c3059438aa0ca4d710d0',
-    BondingManager:    '0x2517d59a36a86548e38734e8ab416f42afff4bca78706a66ad65750dae7f9e37',
-    BondingVotes:      '0x2a1b465fbcae519904f0fb11f93e73dfbeb47ec54530ec444279610af8cf06b2',
-    Controller:        '0x7c20e2bbcd91c5aaa7898ba022ab8867ac32d84e959c236484db066900aa363a',
-    DelegatorPool:     '0x7a9ff95f60f5743cfd4d2b01f213bbd2032518d7d7b630413bff404321d96022',
-    Governor:          '0xd0990c50b6714f222e6fd1faaf5345bf1aa2867d2861fc2cc43b364e7d948647',
-    L2LPTDataCache:    '0x8ecfba413a4e4715a264d70a55d3a35bf60b2954c56759310202f39281623200',
-    L2LPTGateway:      '0x07148fd8bd26d2f980f876cc40cea159d0cca6e6456a379f06f34fb338d35be5',
-    L2Migrator:        '0x74b6d21e0d4650f622c903126d418c1a52bcc99ea7acb0db0809fc0eeae6c7c3',
-    LivepeerGovernor:  '0xaea11c65571dd8b6188d3a5cf5e5d3d4695845e6f217cad0b453b4e276c6cdcd',
-    LivepeerToken:     '0x3443e257065fe41dd0e4d1f5a1b73a22a62e300962b57f30cddf41d0f8273ba7',
-    MerkleSnapshot:    '0xb6138afe6f306a47bdf645c5aebcb9781efe787d221a1880e62d1f76dae58b84',
-    Minter:            '0x6e58ad548d72b425ea94c15f453bf26caddb061d82b2551db7fdd3cefe0e9940',
-    PollCreator:       '0x0343f01276c9038f8c7154dcdf7873ad6edd872ce0e719ebd989c051b4b1039b',
-    RoundsManager:     '0xe8438ea868df48e3fc21f2f087b993c9b1837dc0f6135064161ce7d7a1701fe8',
-    ServiceRegistry:   '0x79c5d2a4a07754f4bacb0ffba18ac516030ee589ebc89db8627680c4d4cdb230',
-    SortedDoublyLL:    '0xf32422ac790bd816e1e02dc866df27d6d55047c1dc08def99809859734b7ab2c',
-    TicketBroker:      '0xbd1aa3e8d2464256d7fd3dcf645c16418d5d8c51d971f1ad7d57e7b1b5eee239',
-    Treasury:          '0x6efca2866b731ee4984990bacad4cde10f1ef764fb54a5206bdfd291695b1a9b',
   }
 
   // ── DERIVE CONTRACT LISTS FROM PIPELINE DATA ──────────────────────────
@@ -102,21 +73,25 @@ export const ContractVerifier = ({ data, className = "", style = {}, ...rest }) 
     ? controllerEntry.address
     : '0xD8E8328501E9645d16Cf49539efC04f734606ee4'
 
-  // Lookup mode: derived entirely from pipeline data
-  // If meta.registeredInController is populated, use it as the filter
-  // If not yet populated (pipeline in flight), show all contracts that have a keccak hash
-  // On-chain zero result is handled gracefully in the result card, not by exclusion
-  const lookupEntries = chainConfig.hasController
-    ? Object.values(canonicalMap)
-        .filter(c => {
-          if (c.meta && typeof c.meta.registeredInController === 'boolean') {
-            return c.meta.registeredInController
-          }
-          // Pipeline field not yet populated: include if we have a keccak hash
-          return KECCAK256[c.name] !== undefined
-        })
-        .sort((a, b) => a.name.localeCompare(b.name))
-    : []
+  // Lookup mode: ALL active contracts from pipeline, grouped by category
+  // Controller-registered contracts get an RPC on-chain call
+  // Non-registered contracts get a Blockscout verify instead
+  const CATEGORY_ORDER = ['core', 'token', 'governance', 'bridge', 'migration', 'utility']
+  const lookupEntries = Object.values(canonicalMap)
+    .sort((a, b) => {
+      const catA = CATEGORY_ORDER.indexOf(a.category || '')
+      const catB = CATEGORY_ORDER.indexOf(b.category || '')
+      if (catA !== catB) return catA - catB
+      return a.name.localeCompare(b.name)
+    })
+
+  // Build grouped options for the dropdown
+  const lookupGroups = {}
+  lookupEntries.forEach(c => {
+    const cat = c.category || 'other'
+    if (!lookupGroups[cat]) lookupGroups[cat] = []
+    lookupGroups[cat].push(c.name)
+  })
   const lookupNames = lookupEntries.map(c => c.name)
 
   // ── HANDLERS ──────────────────────────────────────────────────────────
@@ -145,34 +120,91 @@ export const ContractVerifier = ({ data, className = "", style = {}, ...rest }) 
   }
 
   const lookupByName = async () => {
-    const hash = KECCAK256[selectedName]
-    if (!hash) {
-      setError(`No keccak256 hash available for "${selectedName}".`)
-      return
-    }
     setLoading(true)
     setError(null)
     setResult(null)
+    const entry = canonicalMap[selectedName]
+    const entryMeta = (entry && entry.meta) || {}
+    const hash = entryMeta.keccakHash || null
+    const isRegistered = typeof entryMeta.registeredInController === 'boolean'
+      ? entryMeta.registeredInController
+      : null
+    const canRpcLookup = chainConfig.hasController && hash && isRegistered === true
+
     try {
-      const calldata = SELECTOR + hash.slice(2)
-      const rpcResult = await rpcCall(calldata)
-      const resolved = '0x' + rpcResult.slice(-40)
-      const isZero = resolved.toLowerCase() === ZERO_ADDR
-      const expected = canonicalMap[selectedName]
-        ? canonicalMap[selectedName].address
-        : null
-      const matches = !isZero && expected
-        && resolved.toLowerCase() === expected.toLowerCase()
-      setResult({
-        mode: 'lookup',
-        resolved,
-        isZero,
-        matches,
-        name: selectedName,
-        expectedAddress: expected,
-      })
+      // Helper: verify via Blockscout
+      const blockscoutVerify = async (addr) => {
+        const res = await fetch(`${chainConfig.blockscout}/api/v2/addresses/${addr}`)
+        if (!res.ok) throw new Error(`Blockscout returned ${res.status}`)
+        return await res.json()
+      }
+
+      if (canRpcLookup) {
+        // Path A: Try Controller RPC call
+        const calldata = SELECTOR + (hash.startsWith('0x') ? hash.slice(2) : hash)
+        const rpcResult = await rpcCall(calldata)
+        const resolved = '0x' + rpcResult.slice(-40)
+        const isZero = resolved.toLowerCase() === ZERO_ADDR
+
+        if (isZero && entry) {
+          // Controller doesn't know this contract — fall through to Blockscout
+          const bsData = await blockscoutVerify(entry.address)
+          setResult({
+            mode: 'lookup',
+            resolved: entry.address,
+            isZero: false,
+            matches: null,
+            name: selectedName,
+            expectedAddress: entry.address,
+            verifiedVia: 'blockscout',
+            is_contract: bsData.is_contract,
+            is_verified: bsData.is_verified,
+            explorerName: bsData.name || null,
+            has_logs: bsData.has_logs || false,
+            category: entry.category,
+            type: entry.type,
+          })
+        } else {
+          const expected = entry ? entry.address : null
+          const matches = !isZero && expected
+            && resolved.toLowerCase() === expected.toLowerCase()
+          setResult({
+            mode: 'lookup',
+            resolved,
+            isZero: false,
+            matches,
+            name: selectedName,
+            expectedAddress: expected,
+            verifiedVia: 'controller',
+            category: entry ? entry.category : null,
+            type: entry ? entry.type : null,
+          })
+        }
+      } else if (entry) {
+        // Path B: No Controller lookup available, verify via Blockscout
+        const res = await fetch(`${chainConfig.blockscout}/api/v2/addresses/${entry.address}`)
+        if (!res.ok) throw new Error(`Blockscout returned ${res.status}`)
+        const bsData = await res.json()
+        setResult({
+          mode: 'lookup',
+          resolved: entry.address,
+          isZero: false,
+          matches: null,
+          name: selectedName,
+          expectedAddress: entry.address,
+          verifiedVia: 'blockscout',
+          is_contract: bsData.is_contract,
+          is_verified: bsData.is_verified,
+          explorerName: bsData.name || null,
+          has_logs: bsData.has_logs || false,
+          category: entry.category,
+          type: entry.type,
+        })
+      } else {
+        setError(`No data available for "${selectedName}".`)
+      }
     } catch (e) {
-      setError(e.message || 'All RPC endpoints failed')
+      setError(e.message || 'Verification failed')
     } finally {
       setLoading(false)
     }
@@ -383,55 +415,92 @@ export const ContractVerifier = ({ data, className = "", style = {}, ...rest }) 
 
   const renderLookupResult = () => {
     if (!result || result.mode !== 'lookup') return null
-    if (result.isZero) {
+
+    const addr = result.resolved || result.expectedAddress
+    const categoryLabel = result.category
+      ? result.category.charAt(0).toUpperCase() + result.category.slice(1)
+      : null
+    const typeLabel = result.type || null
+
+    // Path A: Controller RPC result (zero results now auto-fall-through to Blockscout in handler)
+    if (result.verifiedVia === 'controller') {
       return (
         <div style={styles.card}>
-          <span style={styles.badgeWarn}>NOT IN CONTROLLER</span>
-          <span style={{ fontSize: '0.9rem', fontStyle: 'italic' }}>
-            The Controller returned the zero address for "{result.name}".
-            This contract exists on Arbitrum One but is not registered in the Controller.
-            It may be standalone, detached, or part of a separate registry.
-            Use the "Verify address" tab to inspect it directly.
-          </span>
+          <div style={styles.signalRow}>
+            <span style={result.matches ? styles.badgeMatch : styles.badgeMismatch}>
+              {result.matches ? 'MATCH' : 'MISMATCH'}
+            </span>
+            <span style={{ fontWeight: 600 }}>{result.name}</span>
+            {categoryLabel && (
+              <span style={{ fontSize: '0.85rem', color: 'var(--muted-text)' }}>
+                ({categoryLabel}{typeLabel ? ', ' + typeLabel : ''})
+              </span>
+            )}
+          </div>
+          <div style={{ fontSize: '0.85rem', color: 'var(--muted-text)' }}>Verified on-chain via Controller registry</div>
+          <div style={styles.addressText}>{result.resolved}</div>
+          {!result.matches && (
+            <div style={styles.mismatchNote}>
+              MISMATCH may indicate a governance upgrade. Cross-check{' '}
+              <a
+                href="https://github.com/livepeer/governor-scripts/blob/master/updates/addresses.js"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={styles.link}
+              >governor-scripts</a>.
+            </div>
+          )}
+          <div style={styles.links}>
+            <a href={`${chainConfig.etherscan}/address/${result.resolved}`} target="_blank" rel="noopener noreferrer" style={styles.link}>View on Arbiscan</a>
+            <a href={`${chainConfig.blockscout}/address/${result.resolved}`} target="_blank" rel="noopener noreferrer" style={styles.link}>View on Blockscout</a>
+          </div>
         </div>
       )
     }
-    return (
-      <div style={styles.card}>
-        <div style={styles.signalRow}>
-          <span style={result.matches ? styles.badgeMatch : styles.badgeMismatch}>
-            {result.matches ? 'MATCH' : 'MISMATCH'}
-          </span>
-          <span style={{ fontWeight: 600 }}>{result.name}</span>
-        </div>
-        <div style={styles.addressText}>{result.resolved}</div>
-        {!result.matches && (
-          <div style={styles.mismatchNote}>
-            MISMATCH may indicate a governance upgrade. Cross-check{' '}
-            <a
-              href="https://github.com/livepeer/governor-scripts/blob/master/updates/addresses.js"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.link}
-            >governor-scripts</a>.
+
+    // Path B: Blockscout verification (not in Controller)
+    if (result.verifiedVia === 'blockscout') {
+      return (
+        <div style={styles.card}>
+          <div style={styles.signalRow}>
+            <span style={{ fontWeight: 600 }}>{result.name}</span>
+            {categoryLabel && (
+              <span style={{ fontSize: '0.85rem', color: 'var(--muted-text)' }}>
+                ({categoryLabel}{typeLabel ? ', ' + typeLabel : ''})
+              </span>
+            )}
           </div>
-        )}
-        <div style={styles.links}>
-          <a
-            href={`${chainConfig.etherscan}/address/${result.resolved}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={styles.link}
-          >View on Arbiscan</a>
-          <a
-            href={`${chainConfig.blockscout}/address/${result.resolved}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={styles.link}
-          >View on Blockscout</a>
+          <div style={{ fontSize: '0.85rem', color: 'var(--muted-text)' }}>Verified via Blockscout explorer</div>
+          <div style={styles.addressText}>{result.resolved}</div>
+          <div style={styles.signalRow}>
+            <span style={{ fontWeight: 600 }}>Contract:</span>
+            {result.is_contract
+              ? <span style={styles.badgeGood}>Yes</span>
+              : <span style={styles.badgeMismatch}>Not a contract</span>
+            }
+          </div>
+          <div style={styles.signalRow}>
+            <span style={{ fontWeight: 600 }}>Source verified:</span>
+            {result.is_verified
+              ? <span style={styles.badgeGood}>Verified</span>
+              : <span style={styles.badgeWarn}>Not verified</span>
+            }
+          </div>
+          {result.explorerName && (
+            <div style={styles.signalRow}>
+              <span style={{ fontWeight: 600 }}>Explorer name:</span>
+              <span>{result.explorerName}</span>
+            </div>
+          )}
+          <div style={styles.links}>
+            <a href={`${chainConfig.etherscan}/address/${result.resolved}`} target="_blank" rel="noopener noreferrer" style={styles.link}>View on Arbiscan</a>
+            <a href={`${chainConfig.blockscout}/address/${result.resolved}`} target="_blank" rel="noopener noreferrer" style={styles.link}>View on Blockscout</a>
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
+
+    return null
   }
 
   const renderVerifyResult = () => {
@@ -515,7 +584,7 @@ export const ContractVerifier = ({ data, className = "", style = {}, ...rest }) 
       {/* Description */}
       {tab === 'lookup' && (
         <div style={{ fontSize: '0.9rem', color: 'var(--muted-text)' }}>
-          Select a contract name and query the on-chain Controller to see its registered address.
+          Select a contract and verify its address on-chain.
         </div>
       )}
       {tab === 'verify' && (
@@ -551,8 +620,12 @@ export const ContractVerifier = ({ data, className = "", style = {}, ...rest }) 
             style={styles.select}
             aria-label="Contract name"
           >
-            {lookupNames.map((name) => (
-              <option key={name} value={name}>{name}</option>
+            {CATEGORY_ORDER.filter(cat => lookupGroups[cat]).map((cat) => (
+              <optgroup key={cat} label={cat.charAt(0).toUpperCase() + cat.slice(1)}>
+                {lookupGroups[cat].map((name) => (
+                  <option key={name} value={name}>{name}</option>
+                ))}
+              </optgroup>
             ))}
           </select>
           <button

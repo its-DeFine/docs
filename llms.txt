@@ -570,7 +570,7 @@
 ### Resources / Resources
 
 - [Resource Portal](https://docs.livepeer.org/v2/resources/resources-portal): Livepeer Resource Compendium
-- [Contributing to the Livepeer Docs](https://docs.livepeer.org/contribute/CONTRIBUTING): Canonical contributor workflow for docs content, components, tooling, quality gates, and PR process.
+- [Contributing to the Livepeer Docs](https://docs.livepeer.org/docs-guide/contributing/contributing): Canonical contributor workflow for docs content, components, tooling, quality gates, and PR process.
 
 ### Resources / Documentation Guide / Component Library
 

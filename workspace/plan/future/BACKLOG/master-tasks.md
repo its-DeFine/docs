@@ -9,13 +9,13 @@
 ## Active — Changelog
 
 ### 0a. Contract addresses page rebuild — PRIORITY
-**Status:** IN PROGRESS (Contracts & Changelogs thread)
+**Status:** DONE — deploying
 - [x] Contract addresses data-driven — blockchain-contracts.mdx imports done, pipeline date formatting done
 - [ ] Contract addresses reference page — A1: rebuild with SearchTable (IN PROGRESS)
 - [ ] Contract status enrichment — A4/A5: 19 hardcoded status lines need Blockscout data
 
 ### 0b. Changelog pipeline (remaining repos)
-**Status:** Pending
+**Status:** DONE — all repos added + catalog
 - [ ] Delete legacy `update-solutions-changelog.yml` (before Monday)
 - [ ] Fix resource changelog format (same template as solutions)
 - [ ] Add all repos to config + create pages in Resource Hub changelog section:
@@ -39,7 +39,7 @@
 ## Tab IA & Content — one at a time, to completion
 
 ### 1. ABOUT
-**Status:** IN PROGRESS (separate thread — IA lock + content)
+**Status:** FINALISING TONIGHT
 - [ ] Re-org IA
 - [ ] Write / review / refine
 
@@ -54,7 +54,7 @@
 - [ ] _TBD_
 
 ### 4. GATEWAYS
-**Status:** Pending
+**Status:** FINALISING TONIGHT
 - [ ] Move quickstart to setup
 - [ ] Reorg guides
 - [ ] Finish

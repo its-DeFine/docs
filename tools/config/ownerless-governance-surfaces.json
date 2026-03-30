@@ -140,7 +140,7 @@
       ".github/workflows/openapi-reference-validation.yml",
       ".github/workflows/docs-v2-issue-indexer.yml",
       "README.md",
-      "contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md"
+      "docs-guide/contributing/agent-instructions.mdx"
     ],
     "canonical_sources": [
       "docs-guide/policies/ownerless-governance.mdx",

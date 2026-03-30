@@ -12,7 +12,7 @@ primary_paths:
   - "operations/scripts/mint-dev.sh"
   - ".githooks/install.sh"
   - ".githooks/pre-commit"
-  - "contribute/CONTRIBUTING/GIT-HOOKS.md"
+  - "docs-guide/contributing/git-hooks.mdx"
 primary_commands:
   - "bash lpd dev"
   - "bash lpd hooks status"

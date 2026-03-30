@@ -484,5 +484,25 @@ Before any implementation, read:
 
 ---
 
-_Last updated: 2026-03-28_
-_Next action: Await decision on D1 (legacy cleanup), D2 (blockchain-contracts address strategy), D3 (duplicate reference page)_
+_Last updated: 2026-03-30_
+
+## Changelog Pipeline — Session 2 Status (2026-03-30)
+
+**CP-A: DONE.** Legacy script + workflow deleted. Unified script handles all targets.
+
+**Resources changelog pages: DONE.** 24 targets registered (5 solutions + 19 resources). Pages organised into subdirectories:
+- `protocol/`: go-livepeer, contracts, lips, naap, subgraph
+- `ai-compute/`: ai-runner, comfystream, pytrickle
+- `tooling/`: explorer, livepeer-data, livepeer-python-gateway
+- `apis-sdks/`: livepeer-js, livepeer-python, livepeer-ai-js, livepeer-ai-python, livepeer-ai-go
+- `ecosystem/`: website, awesome-livepeer
+
+**Script fixes applied:** `cleanForMdx` handles angle brackets, Co-authored-by lines, email addresses, quotes in labels. Commit labels use message first line instead of SHA.
+
+**Nav restructured:** Resource Hub has grouped changelogs, Documentation Guide with 7 subgroups, Compendium as own section, Technical References with contract addresses.
+
+**Remaining:**
+- `changelog.mdx` format fix (AccordionGroup to Update blocks) — pending decision
+- LLM enhancement for commits-mode — feature gap in script, not built
+- `managed: true` activation — per-target approval needed
+- Cron staggering for rate limits — workflow design needed

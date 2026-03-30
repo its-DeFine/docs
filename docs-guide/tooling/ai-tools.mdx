@@ -79,6 +79,60 @@ The registry organises all AI-tools artefacts into seven lanes. Lane assignment 
 | `manual-doc` | Registry artefacts, subsystem-scoped governance/support docs | `ai-tools/*.mdx`, `ai-tools/registry/**`, `ai-tools/ai-skills/catalog/**`, and others | No |
 | `retired` | Historical material retained for reference only | `ai-tools/retired/**` | Yes |
 
+## Architecture Transition
+
+The current operational root remains `ai-tools/`, but the governed model is now wider than the older `templates + local skills + exports` framing.
+
+Current implementation rule:
+
+- keep the active root and existing entrypoints working
+- consolidate logic toward one canonical source
+- keep agent-specific wrappers thin
+- treat generated outputs as derived only
+
+Target architecture:
+
+```text
+ai-tools/
+├── canonical/
+│   ├── skills/
+│   ├── references/
+│   ├── dispatchers/
+│   ├── governance/
+│   └── packaging/
+├── adapters/
+│   ├── claude/
+│   ├── codex/
+│   ├── cursor/
+│   └── windsurf/
+├── generated/
+│   ├── packs/
+│   ├── manifests/
+│   └── indexes/
+└── registry/
+```
+
+This is a target model for documentation, classification, and migration. It is not a mandate to move every file immediately.
+
+Canonical planning references:
+
+- `workspace/plan/active/AI-TOOLS-GOVERNANCE/structure.md`
+- `workspace/plan/active/AI-TOOLS-GOVERNANCE/architecture-audit.md`
+
+### Shared classification model
+
+The governed skill system now uses a script-like taxonomy plus AI-specific layers:
+
+| Field | Values |
+|---|---|
+| `type` | `atomic`, `dispatcher`, `adapter`, `governance`, `reference` |
+| `concern` | `review`, `research`, `authoring`, `repo-ops`, `validation`, `migration`, `release`, `agent-runtime` |
+| `scope` | `repo`, `agent`, `platform`, `generated`, `personal-global` |
+| `status` | `active`, `experimental`, `generated`, `deprecated`, `retired` |
+| `layer` | `canonical`, `adapter`, `generated`, `global-platform`, `legacy` |
+
+`metadata.category` remains in place as a compatibility field while the current skill/export stack still depends on it.
+
 ### Lifecycle states
 
 Every artifact in the registry carries one of these lifecycle states:
@@ -133,6 +187,26 @@ All active agent-governance surfaces enforce:
 - Agents must not use port `3000` for local Mintlify, preview, or browser-validation sessions.
 - Choose a non-3000 port explicitly when running local preview commands.
 
+### Adapter consumption model
+
+The adapter rule is now explicit:
+
+- canonical logic should exist once
+- agent wrappers may exist many times
+- generated outputs should exist zero times by hand
+
+Adapter responsibilities:
+
+- register or expose canonical repo capabilities in the native interface of the agent
+- add agent-specific invocation or runtime glue only where required
+- avoid owning unique workflow logic, policy, or taxonomy definitions
+
+Concrete implications:
+
+- `.claude/skills/*` may stay for Claude discovery, but should be thin wrappers only
+- `.github/AGENTS.md` remains a Codex runtime extension layer, not a parallel skill catalogue
+- generated packs under `ai-tools/agent-packs/**` are onboarding/reference outputs, not canonical adapter sources
+
 ## Skills governance
 
 Portable skills are the primary unit of reusable AI capability in this repository. They follow a template-based authoring model with deterministic sync to local and external targets.
@@ -142,6 +216,33 @@ Portable skills are the primary unit of reusable AI capability in this repositor
 Canonical source: `ai-tools/ai-skills/templates/*.template.md`
 
 The templates directory currently contains 42 template files (numbered `01` through `42`) covering bootstrap, authoring, auditing, validation, generation, and research workflows. Several templates include companion reference bundles stored in sibling directories named `<template-stem>.references/`.
+
+### Canonical versus adapter versus generated
+
+Use this boundary when deciding where a capability belongs:
+
+| Layer | What belongs there |
+|---|---|
+| canonical | Shared atomic skills, dispatcher definitions, references, and governance metadata |
+| adapter | Agent-specific registrations and runtime-facing wrappers |
+| generated | Exported skill copies, manifests, and reference packs |
+| global/platform | User-local skills, plugins, and system-provided capabilities outside repo governance |
+
+Repo-governed logic should not live only in generated outputs or only in a user-local install target such as `~/.codex/skills`.
+
+### Dispatcher/orchestrator model
+
+Dispatchers are first-class governed assets for repeatable delivery workflows. They orchestrate atomic skills but do not replace them.
+
+Phase 1 dispatcher family:
+
+- `research-review-packet`
+- `review-fix`
+- `handover-readiness`
+- `page-ship`
+- `repo-cleanup-handover`
+
+These dispatcher families are governed targets even where the repo still exposes the underlying work as adjacent atomic skills or workflow pairs.
 
 ### Skill lifecycle
 
@@ -189,6 +290,15 @@ Generated metadata per synced skill:
   - `<template-stem>.scripts/` syncs to `scripts/`
   - `<template-stem>.assets/` syncs to `assets/`
 - Sync is managed, not destructive: managed files are created or updated from the canonical template bundle; stale managed bundle files are pruned on resync; unmanaged skills and unmanaged files inside a skill folder are preserved.
+
+### Local Codex boundary
+
+`~/.codex/skills` must be treated as two distinct buckets:
+
+- repo-managed skills synced from this repo's canonical templates
+- global/plugin/system skills that are not part of repo governance
+
+Do not use the full local Codex install as the authoritative repo inventory.
 
 ### Subsystem-scoped audit pipeline catalog
 
@@ -299,4 +409,3 @@ When research findings need phased execution planning rather than direct fixes, 
 | Root allowlist governance | [`docs-guide/policies/root-allowlist-governance.mdx`](/docs-guide/policies/root-allowlist-governance) | Root-level file governance |
 | Governance index | [`docs-guide/policies/governance-index.mdx`](/docs-guide/policies/governance-index) | Master index of all governed surfaces |
 | Skill pipeline map | [`docs-guide/policies/skill-pipeline-map.mdx`](/docs-guide/policies/skill-pipeline-map) | Skill build and deployment pipeline |
-

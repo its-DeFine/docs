@@ -238,7 +238,7 @@ function isTargetInventoryPath(relPath) {
   if (path.basename(normalized).toLowerCase() === 'review.md') return true;
 
   const ext = path.extname(normalized).toLowerCase();
-  if (ext === '.md' && !normalized.includes('/contribute/CONTRIBUTING/')) {
+  if (ext === '.md' && !normalized.includes('/docs-guide/contributing/')) {
     return true;
   }
 

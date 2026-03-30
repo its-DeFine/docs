@@ -94,7 +94,8 @@ Move: v2/old/path.mdx -> v2/new/path.mdx
 
 SURFACE                          CHANGES
 ----------------------------------------------
-docs.json navigation entries     {N}
+docs.json nav REMOVALS (old path) {N}
+docs.json nav ADDITIONS (new path){N}
 docs.json redirect destinations  {N}
 NEW redirects to create          {N}
 MDX/JS/JSON file references      {N} across {K} files
@@ -116,6 +117,7 @@ Awaiting approval. Say "go" to apply, or "abort" to cancel.
 ```
 
 Rules for this report:
+- **docs.json navigation is a two-part operation.** A move means the old route is REMOVED from its current group AND the new route is ADDED to the destination group. Both parts are mandatory — leaving the old entry creates a dead nav link, omitting the new entry hides the page.
 - **Report "0 changes" explicitly** for surfaces with no matches. The user must see that every surface was checked.
 - **Group file changes by reason** so the user understands what types of references are being updated.
 - **List every affected file** so the user can review which files will be modified.

@@ -44,7 +44,7 @@
 
 **BEFORE making any styling, component, or documentation changes, you MUST read:**
 
-1. **Structure Rules** - `contribute/STRUCTURE.md` (if exists) or `workspace/plan/migration-plan.md` Section 4
+1. **Structure Rules** - `workspace/plan/migration-plan.md` Section 4
    - Repository structure and file organization rules
    - Directory purposes and file placement guidelines
    - Enforcement mechanisms
@@ -73,7 +73,7 @@
 **⚠️ MANDATORY: Read Structure Rules Before Creating/Moving Files**
 
 **BEFORE creating, moving, or organizing files, you MUST read:**
-- `contribute/STRUCTURE.md` - Complete repository structure rules (if exists)
+- `workspace/plan/migration-plan.md` Section 4 - Structure rules
 - `workspace/plan/migration-plan.md` - Detailed structure documentation (Section 4)
 
 ### Critical Structure Rules
@@ -91,7 +91,7 @@
    - AI guidelines → `tools/ai-rules/`
    - Public assets → `snippets/assets/` (favicon.png, logo/ in snippets/assets/ - referenced in docs.json)
    - OpenAPI specs → `api/` (consolidated)
-   - Contribution docs → `contribute/`
+   - Contribution docs → `docs-guide/contributing/`
    - Documentation → `docs/v1/` (FROZEN) or `docs/v2/pages/` (active)
 
 3. **Snippets Directory** - MUST follow Mintlify conventions:
@@ -123,7 +123,7 @@
 - `tools/config/` - Tool configurations
 - `tools/ai-rules/` - AI guidelines and rules
 - `api/` - Consolidated OpenAPI specifications
-- `contribute/` - Contribution documentation
+- `docs-guide/contributing/` - Contribution documentation
 - `favicon.png` and `logo/` - Public assets in `snippets/assets/` (referenced in docs.json)
 - `ai-tools/` - AI tool setup guides
 - `workspace/` - AI working directory (plan/, reports/, scripts/, errors/, experiments/, notes/)

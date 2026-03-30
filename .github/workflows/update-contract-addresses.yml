@@ -5,7 +5,7 @@ on:
     - cron: "0 2 * * 1" # Weekly Monday 02:00 UTC
 
   repository_dispatch:
-    types: [governor-scripts-update]
+    types: [governor-scripts-update, protocol-update, bridge-update]
 
   workflow_dispatch:
     inputs:
@@ -55,7 +55,7 @@ jobs:
           if [[ "${{ inputs.dry_run }}" == "true" ]]; then FLAGS="$FLAGS --dry-run"; fi
           if [[ "${{ inputs.skip_verify }}" == "true" ]]; then FLAGS="$FLAGS --skip-verify"; fi
           if [[ "${{ inputs.scan_fix }}" == "true" ]]; then FLAGS="$FLAGS --scan-fix"; fi
-          node .github/scripts/fetch-contract-addresses-v2.js $FLAGS
+          node .github/scripts/fetch-contract-addresses.js $FLAGS
 
       - name: Check for changes
         id: changes

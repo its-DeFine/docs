@@ -80,6 +80,21 @@ Side effects:
 
 If debris or side effects are found, list them and propose cleanup actions. Do not auto-delete — present the list and get approval.
 
+### Governance check — new components and scripts
+
+If this session created new files in `snippets/components/` or `operations/scripts/`, check:
+
+- **Components:** Does it have the 7-tag JSDoc header per `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md`? Is it registered in `docs-guide/config/component-registry.json`?
+- **Scripts:** Does it have the 11-tag JSDoc header per `workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md`? Is it registered in `tools/config/script-registry.json`?
+
+If not, flag it:
+```
+Governance gaps:
+  [file] — missing JSDoc tags / not registered in [registry]
+```
+
+Do not fix these inline — flag them so the next session or a governance thread picks them up.
+
 ---
 
 ## Step 3: Evaluate the thread outcome
