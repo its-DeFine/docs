@@ -5,7 +5,7 @@ description: >-
   hook state. Use when: start local docs server, install hooks before dev,
   mint dev not working in this repo.
 metadata:
-  version: "1.2"
+  version: "1.3"
   category: "meta"
   tier: "1"
 primary_paths:
@@ -28,9 +28,10 @@ Constraints
 - Do not modify `v1/` content; it is frozen/immutable.
 - Keep edits within requested scope and avoid protected root changes like `.allowlist` unless explicitly requested.
 - Use only repository-backed commands and paths listed in this template.
+- Any `lpd dev` or `mint dev` session started for the task must be stopped before handoff.
 
 Workflow
-1. Use `lpd dev` as the default launcher for local preview and hook sync.
+1. Use `lpd dev` as the default launcher for local preview and hook sync, and run it in a dedicated session you can stop cleanly with `Ctrl-C` when the task is done.
 2. Verify hook status and re-install hooks when out of date.
 3. Confirm local server availability before deeper troubleshooting.
 
@@ -42,13 +43,16 @@ bash lpd hooks status
 
 Deliverable Format
 - Confirmed dev server command path and hook status.
+- Confirmation that any dev server started for the task was shut down after use.
 - Troubleshooting notes with actionable command fixes.
 
 Failure Modes / Fallback
 - If PATH wiring is incomplete, use `bash lpd dev` directly.
 - If hooks are missing, run install script and re-check status.
+- If the task ends or pivots away from local preview, stop the running `lpd dev` session instead of leaving it idle.
 
 Validation Checklist
 - [ ] Dev command and hook status command are included.
 - [ ] Hook enforcement remains enabled.
+- [ ] Any dev server started for the task was stopped before finish.
 - [ ] No `v1/` edits are proposed.

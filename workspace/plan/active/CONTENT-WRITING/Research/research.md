@@ -92,7 +92,7 @@ Each layer has: **inputs**, **a skill**, **outputs**, and **acceptance criteria*
 - The page file (MDX content)
 - The context pack for the page's group (from A1)
 - `docs-guide/frameworks/page-taxonomy-framework.mdx` (12 pageTypes, 9 audiences, 15 purposes)
-- `tasks/plan/active/COPYWRITING FRAMEWORK/copy-rules-SKILL.md` (voice rules, banned words/phrases)
+- `workspace/plan/complete/dep-COPYWRITING FRAMEWORK/copy-rules-SKILL.md` (voice rules, banned words/phrases)
 - `v2/_workspace/research/content-naming.md` (section naming rubric)
 - `docs-guide/policies/component-layout-decisions.mdx` (layout contract per pageType)
 - `snippets/templates/pages/page-composition-framework.mdx` (page structure rules)
@@ -286,7 +286,7 @@ All files in the repo that relate to this pipeline, organized by which layer the
 | File | Purpose | Status |
 |---|---|---|
 | `docs-guide/frameworks/page-taxonomy-framework.mdx` | 12 pageTypes, 9 audiences, 15 purposes | Ready |
-| `tasks/plan/active/COPYWRITING FRAMEWORK/copy-rules-SKILL.md` | Voice rules, banned words/phrases | Ready |
+| `workspace/plan/complete/dep-COPYWRITING FRAMEWORK/copy-rules-SKILL.md` | Voice rules, banned words/phrases | Ready |
 | `v2/_workspace/research/content-naming.md` | Section naming rubric (22KB) | Ready (updated today) |
 | `docs-guide/policies/component-layout-decisions.mdx` | Layout contract per pageType | Ready |
 | `snippets/templates/pages/page-composition-framework.mdx` | Page structure rules | Ready (updated today) |
@@ -327,10 +327,10 @@ All files in the repo that relate to this pipeline, organized by which layer the
 ### Reports (existing review packets for reference)
 | Location | Content |
 |---|---|
-| `tasks/reports/gateway-guides-review/2026-03-17-copy-review-packet/` | Gateway guides copy + authoring review |
-| `tasks/reports/orchestrator-guides-review/2026-03-16-copy-review-packet/` | Orchestrator guides copy + authoring review |
-| `tasks/reports/copy-governance/` | Copy framework audit reports |
-| `tasks/reports/page-audits/` | Page-level audit reports |
+| `workspace/reports/gateway-guides-review/2026-03-17-copy-review-packet/` | Gateway guides copy + authoring review |
+| `workspace/reports/orchestrator-guides-review/2026-03-16-copy-review-packet/` | Orchestrator guides copy + authoring review |
+| `workspace/reports/copy-governance/` | Copy framework audit reports |
+| `workspace/reports/page-audits/` | Page-level audit reports |
 
 ---
 

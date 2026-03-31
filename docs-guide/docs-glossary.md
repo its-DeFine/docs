@@ -96,7 +96,7 @@ Source: `workspace/plan/active/COMPONENT-GOVERNANCE/structure.md`
 
 ## Script Taxonomy
 
-Source: `workspace/plan/active/SCRIPT-GOVERNANCE/structure.md`
+Source: `workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md`
 
 ### Script Types (6)
 

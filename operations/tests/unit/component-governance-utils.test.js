@@ -8,7 +8,7 @@
  * @needs             R-R10
  * @purpose-statement Verifies shared component governance utility parsing, scanning, and archive exclusion behavior.
  * @pipeline          P1 (commit, via run-all)
- * @usage             node tests/unit/component-governance-utils.test.js
+ * @usage             node operations/tests/unit/component-governance-utils.test.js
  */
 
 const assert = require('assert');

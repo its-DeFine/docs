@@ -2,7 +2,8 @@
 
 > Canonical reference for the Livepeer Docs GitHub Actions library.
 > Aligned to the script governance framework (`workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md`).
-> Status: DRAFT, co-designing with Alison.
+> Status: CONFIRMED. All taxonomy decisions locked (D-ACT-01 through D-ACT-03).
+> Decisions log: `.github/workspace/reports-audits/decisions-log.mdx`
 
 ---
 
@@ -26,61 +27,89 @@ Actions are governed using the same type/concern model as scripts, extended with
 
 | Type | Purpose | Workflow count |
 |---|---|---|
-| `automation` | End-to-end pipelines: fetch, transform, commit. Data freshness, issue management | 13 |
+| `automation` | End-to-end pipelines: fetch, transform, commit | 10 |
 | `generator` | Produce files from source-of-truth data on push/merge | 7 |
 | `validator` | Enforce rules with pass/fail gate on PR | 10 |
 | `audit` | Read-only scheduled monitoring and reporting | 3 |
 | `remediator` | Auto-fix with optional commit | 3 |
 | `dispatch` | Orchestrate multiple scripts/workflows | 1 |
-| `placeholder` | Stub, not implemented | 3 |
+| `interface` | Issue/PR event handling and triage (D-ACT-01) | 5 |
+| `placeholder` | Stub, not implemented (deprecation candidates) | 3 |
 
-**Classification test:** Same as script framework. If it only scans and reports, it is an audit. If it edits files in place, it is a remediator. If it spawns child processes, it is a dispatch.
+**Classification test:** Same as script framework. If it only scans and reports, it is an audit. If it edits files in place, it is a remediator. If it spawns child processes, it is a dispatch. If it reacts to issue/PR events for triage, labelling, or assignment, it is an interface.
 
-### Concerns (aligned to script framework)
+### Concerns (confirmed D-ACT-05)
 
-| Concern | What it covers | Workflow count |
+The concern names the part of the system the workflow operates on.
+
+| Concern | What it covers | Count |
 |---|---|---|
-| `content` | Docs pages, data feeds, SEO, changelogs, translation, quality | 26 |
-| `components` | Component registry, health, documentation | 3 |
-| `governance` | Repo structure, codex, issue/PR lifecycle, self-healing | 8 |
-| `ai` | AI companions, sitemap, LLM files | 6 |
+| `integrations` | External data feeds, APIs, structured data pipelines | 11 |
+| `copy` | Written text, data standards, spelling, grammar | 2 |
+| `maintenance` | Indexes, catalogs, documentation, registries, changelogs | 6 |
+| `health` | Site integrity, links, rendering, freshness, assets | 8 |
+| `discoverability` | SEO, AEO, AI indexing, translation | 7 |
+| `governance` | System rules, compliance, issue/PR management | 8 |
 
-### Niches (Layer 3)
-
-| Concern | Niches |
-|---|---|
-| content | data-feeds, links, catalogs, quality, seo, changelog, translation, freshness |
-| components | registry, health |
-| governance | codex, pr-lifecycle, issue-lifecycle, pipelines, compliance, review |
-| ai | companions, sitemap, llm |
+**Reserved:** `brand` (style, formatting, page structure, voice). No workflows currently.
 
 ---
 
-## 3. Pipeline Tags (Actions-specific)
+## 3. Pipeline Tags (Actions-specific, confirmed D-ACT-02)
 
 Pipeline tags classify WHEN a workflow runs and what authority it has.
 
-| Tag | Trigger | Authority | Use case |
-|---|---|---|---|
-| **P2** | `pull_request` (required status check) | Blocks merge | CI gates: test suite, codex governance |
-| **P3** | `pull_request` (non-required) | Advisory, does not block | PR checks: companion files, docs index, links |
-| **P4** | `push` to deploy branch | Post-merge automation | Generators: companions, sitemap, registry, index, LLM files |
-| **P5** | `schedule` (monitoring only) | Read-only reporting | Audits: content health, freshness, external links |
-| **P5-auto** | `schedule` + auto-commit | Writes to repo on schedule | Data feeds: discord, forum, ghost, github, youtube, contracts, changelogs |
-| **P6** | `schedule` + auto-fix | Self-healing | Repair: governance sync, script repair |
-| **manual** | `workflow_dispatch` only | Human-triggered | SEO refresh, style homogenise, translation, SDK generation |
-| **event-driven** | `repository_dispatch` | External event | Discord issue intake |
+| Tag | Trigger | Authority | Use case | Count |
+|---|---|---|---|---|
+| **P2** | `pull_request` (required status check) | Blocks merge | CI gates: test suite, codex governance | 2 |
+| **P3** | `pull_request` (non-required) | Advisory, does not block | PR checks: companion files, docs index, links | 8 |
+| **P4** | `push` to deploy branch | Post-merge automation | Generators: companions, sitemap, registry, index, LLM files | 8 |
+| **P5** | `schedule` (read-only) | Read-only reporting | Audits: content health, freshness, external links | 4 |
+| **P5-auto** | `schedule` + auto-commit | Writes to repo on schedule | Data feeds: discord, forum, ghost, github, youtube, contracts, changelogs | 12 |
+| **P6** | `schedule` + auto-fix | Self-healing | Repair: governance sync | 1 |
+| **manual** | `workflow_dispatch` only | Human-triggered | SEO refresh, style homogenise, translation | 4 |
+| **event-driven** | `repository_dispatch` / `issues` | External event | Discord issue intake, issue labelling, issue indexing | 3 |
+
+**P5 vs P5-auto:** P5 is read-only (scans and reports). P5-auto is read-write (fetches data, commits to repo). P5-auto requires concurrency control, bot identity, commit message conventions, and push error handling. P5 requires none of that.
 
 ---
 
 ## 4. Required Standards
 
-### 4.1 Workflow file standards
+### 4.1 Workflow file naming (confirmed D-ACT-04)
+
+**Pattern:** `type-concern-function-name.yml`
+
+**Example:** `automation-content-update-contract-addresses.yml`
+
+**Segments:**
+- **type** (7 values): `automation`, `audit`, `dispatch`, `generator`, `remediator`, `validator`, `interface`
+- **concern** (7 values): `integrations`, `copy`, `maintenance`, `health`, `discoverability`, `governance` (+ `brand` reserved)
+- **function** (11 verbs, closed enum):
+
+| Verb | Absorbs | Used by types |
+|---|---|---|
+| `update` | `sync` | automation |
+| `generate` | | generator |
+| `check` | `verify`, `test` | validator |
+| `scan` | `audit`, `monitor` | audit |
+| `repair` | `fix`, `refresh`, `homogenise` | remediator |
+| `dispatch` | | dispatch |
+| `label` | | interface |
+| `index` | | interface |
+| `intake` | | interface |
+| `close` | | interface |
+| `assign` | | interface |
+
+- **name**: descriptive kebab-case slug (e.g. `contract-addresses`, `companions`, `quality-suite`)
+
+### 4.2 Workflow file standards
 
 Every workflow file MUST have:
 
 | Requirement | Example |
 |---|---|
+| File name follows naming convention | `automation-content-update-contract-addresses.yml` |
 | `name:` field (human-readable) | `name: Update Contract Addresses` |
 | Named steps (every step has `name:`) | `- name: Checkout repository` |
 | `permissions:` declared explicitly | `permissions: contents: write` |
@@ -136,20 +165,31 @@ Every workflow file MUST have:
 
 ---
 
-## 6. Consolidation Plan
+## 6. Consolidation Plan (confirmed D-ACT-03)
 
 ### Merge candidates
 
-| Target | Source workflows | Rationale |
-|---|---|---|
-| Unified data-fetch dispatcher | 7 daily data-fetch workflows | Identical structure. One workflow with matrix or parameterised job |
-| Unified verify workflow | verify-ai-sitemap + verify-llms-files | Same triggers, same pattern |
+| Target | Source workflows | Rationale | Status |
+|---|---|---|---|
+| `update-data-feeds.yml` (matrix) | update-discord-data, update-forum-data, update-ghost-blog-data, update-github-data, update-rss-blog-data, update-youtube-data, update-blog-data | Identical structure. 3 have missing permissions bugs. One workflow fixes all 7 at once | Approved, Phase 6 |
+| Unified verify workflow | verify-ai-sitemap + verify-llms-files | Same triggers, same pattern | Proposed |
+
+### Stay separate (excluded from merge)
+
+| Workflow | Reason |
+|---|---|
+| `update-contract-addresses.yml` | Gold standard, complex verification, multi-source dispatch |
+| `update-changelogs.yml` | LLM integration, multi-mode generation |
+| `update-livepeer-release.yml` | Inline sed, no external script (extraction candidate instead) |
+| `project-showcase-sync.yml` | Multi-service integration, 15-min schedule |
+| `sync-large-assets.yml` | Git LFS, binary content |
+| `sdk_generation.yaml` | Speakeasy-managed, different toolchain |
 
 ### Deprecation candidates
 
 | Workflow | Reason |
 |---|---|
-| `update-blog-data.yml` | Broken (hardcoded API key placeholder), superseded |
+| `update-blog-data.yml` | Broken (hardcoded API key placeholder), superseded by data-feed merge |
 | `build-review-assets.yml` | Placeholder, never implemented |
 | `generate-review-table.yml` | Placeholder, never implemented |
 | `update-review-template.yml` | Placeholder, never implemented |

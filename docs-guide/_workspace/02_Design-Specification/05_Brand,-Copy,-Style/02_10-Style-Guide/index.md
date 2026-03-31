@@ -289,7 +289,7 @@ Before submitting:
 - [ ] Images have alt text
 - [ ] Components use CSS variables (no hardcoded colours)
 - [ ] No console errors in browser dev tools
-- [ ] `node tests/run-pr-checks.js --base-ref docs-v2` passes
+- [ ] `node operations/tests/run-pr-checks.js --base-ref docs-v2` passes
 - [ ] Frontmatter complete: title, description, pageType, audience, status, keywords
 
 ## **Reference Links**

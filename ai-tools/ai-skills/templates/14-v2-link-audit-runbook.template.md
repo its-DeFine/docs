@@ -9,13 +9,13 @@ metadata:
   category: "audit"
   tier: "1"
 primary_paths:
-  - "tests/integration/v2-link-audit.js"
+  - "operations/tests/integration/v2-link-audit.js"
   - "workspace/reports/navigation-links/LINK_TEST_REPORT.md"
   - "snippets/data"
   - "docs.json"
 primary_commands:
-  - "node tests/integration/v2-link-audit.js --full --write-links --strict"
-  - "node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md"
+  - "node operations/tests/integration/v2-link-audit.js --full --write-links --strict"
+  - "node operations/tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md"
 ---
 
 SKILL: V2 Link Audit Runbook
@@ -36,8 +36,8 @@ Workflow
 
 Command examples
 ```bash
-node tests/integration/v2-link-audit.js --full --write-links --strict
-node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md
+node operations/tests/integration/v2-link-audit.js --full --write-links --strict
+node operations/tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md
 ```
 
 Deliverable Format

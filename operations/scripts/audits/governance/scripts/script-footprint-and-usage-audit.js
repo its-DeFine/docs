@@ -277,7 +277,8 @@ function detectScriptAuditSignals(issues) {
       severity: 'low',
       path: 'workspace/reports/repo-ops/SCRIPT_AUDIT.json',
       evidence: 'Baseline script report could not be found.',
-      recommendation: 'Generate with `node operations/scripts/audit-scripts.js --format both`.'
+      recommendation:
+        'Generate with `node operations/scripts/audits/governance/scripts/audit-script-categories.js --format both`.'
     });
     return;
   }

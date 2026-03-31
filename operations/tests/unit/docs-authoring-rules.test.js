@@ -8,7 +8,7 @@
  * @needs             E-R1, R-R11
  * @purpose-statement Verifies guide-layout warning rules and deterministic code-block icon repair for authored docs pages.
  * @pipeline          P1 (commit, via run-all)
- * @usage             node tests/unit/docs-authoring-rules.test.js
+ * @usage             node operations/tests/unit/docs-authoring-rules.test.js
  */
 
 const assert = require('assert');

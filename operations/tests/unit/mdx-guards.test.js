@@ -9,7 +9,7 @@
  * @purpose-statement Enforces MDX guardrails — globals imports, math delimiters, markdown table line breaks
  * @pipeline          P1, P3
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/unit/mdx-guards.test.js [flags]
+ * @usage             node operations/tests/unit/mdx-guards.test.js [flags]
  */
 
 const fs = require('fs');

@@ -1,6 +1,5 @@
-# NOTE: THIS GITHUB ACTION WILL ONLY RUN ON MAIN BRANCH.
-# N8N IS BEING USING AS AN ALTERNATIVE UNTIL THEN.
-# N8N workflow is in /snippets/automations/n8n-workflows/forum-to-mintlify-latest-topics.json
+# Retains generated forum data under snippets/automations/forum/forumData.jsx.
+# Legacy entrypoint kept as a compatibility wrapper during workflow consolidation.
 name: Update Forum Data
 
 on:

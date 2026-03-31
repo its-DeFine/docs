@@ -8,7 +8,7 @@
  * @needs             R-R10
  * @purpose-statement Template for category-scoped component unit tests.
  * @pipeline          manual
- * @usage             node tests/unit/components/TEMPLATE.test.js
+ * @usage             node operations/tests/unit/components/TEMPLATE.test.js
  */
 
 const assert = require('assert');

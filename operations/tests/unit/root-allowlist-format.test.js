@@ -8,7 +8,7 @@
  * @needs             R-R14, R-R29
  * @purpose-statement Validates that .allowlist stays machine-readable, root-only, and aligned with the canonical agent root layout.
  * @pipeline          P1, P3
- * @usage             node tests/unit/root-allowlist-format.test.js
+ * @usage             node operations/tests/unit/root-allowlist-format.test.js
  */
 
 const fs = require('fs');

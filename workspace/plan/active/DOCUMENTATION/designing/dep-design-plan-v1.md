@@ -375,8 +375,8 @@ After each phase, run relevant tests to verify no regression:
 
 | Test                           | Command                                                                                        | Pass condition                                                                          |
 | ------------------------------ | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Frontmatter coverage           | `node tests/unit/docs-guide-sot.test.js --check`                                               | Every `docs-guide/*.mdx` has `consumer`, `maintenance`, `status` with valid enum values |
-| Script catalog currency        | `node tests/unit/script-docs.test.js --check`                                                  | All script-index.md files + scripts-catalog.mdx match current source                    |
+| Frontmatter coverage           | `node operations/tests/unit/docs-guide-sot.test.js --check`                                    | Every `docs-guide/*.mdx` has `consumer`, `maintenance`, `status` with valid enum values |
+| Script catalog currency        | `node operations/tests/unit/script-docs.test.js --check`                                       | All script-index.md files + scripts-catalog.mdx match current source                    |
 | Component registry currency    | `node operations/scripts/generators/components/library/generate-component-registry.js --check` | component-registry.json matches current JSX source                                      |
 | Ownerless surface reachability | `node tools/scripts/validators/governance/compliance/validate-ownerless-surfaces.js --check`   | Every `canonical_sources` path resolves to existing file                                |
 | Adapter parity                 | `node tools/scripts/validators/governance/compliance/validate-adapter-parity.js --check`       | All critical AGENTS.md rules exist in `.claude/CLAUDE.md` (or marked adapter-specific)  |

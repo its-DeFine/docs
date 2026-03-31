@@ -3,13 +3,13 @@
  * @script            create-codex-pr.test
  * @category          generator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, operations/scripts/create-codex-pr.js
+ * @scope             tests/unit, operations/scripts/dispatch/ai/codex/create-codex-pr.js
  * @owner             docs
  * @needs             R-R27, R-R30
  * @purpose-statement Tests create-codex-pr.js — validates PR creation logic and branch naming
  * @pipeline          manual — not yet in pipeline
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/unit/create-codex-pr.test.js [flags]
+ * @usage             node operations/tests/unit/create-codex-pr.test.js [flags]
  */
 
 const assert = require('assert');
@@ -19,7 +19,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const REPO_ROOT = process.cwd();
-const SCRIPT_PATH = path.join(REPO_ROOT, 'operations/scripts/create-codex-pr.js');
+const SCRIPT_PATH = path.join(REPO_ROOT, 'operations/scripts/dispatch/ai/codex/create-codex-pr.js');
 
 function runScript(args) {
   return spawnSync('node', [SCRIPT_PATH, ...args], {
@@ -50,8 +50,8 @@ function makeContract(absPath, taskId = 3456) {
     'allowed_generated:',
     '  - docs-index.json',
     'acceptance_checks:',
-    '  - node tests/run-pr-checks.js --base-ref docs-v2',
-    '  - node tests/integration/v2-link-audit.js --files v2/community/faq.mdx --strict',
+    '  - node operations/tests/run-pr-checks.js --base-ref docs-v2',
+    '  - node operations/tests/integration/v2-link-audit.js --files v2/community/faq.mdx --strict',
     'follow_up_issues:',
     `  - ${taskId + 1}`,
     ''

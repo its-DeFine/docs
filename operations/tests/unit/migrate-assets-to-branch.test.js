@@ -3,13 +3,13 @@
  * @script            migrate-assets-to-branch.test
  * @category          validator
  * @purpose           qa:repo-health
- * @scope             tests/unit, operations/scripts/remediators/assets, operations/scripts/audit-media-assets.js
+ * @scope             tests/unit, operations/scripts/remediators/assets, operations/scripts/audits/content/quality/audit-media-assets.js
  * @owner             docs
  * @needs             E-C1, R-R14
  * @purpose-statement Unit tests for migrate-assets-to-branch.js — validates CLI defaults, ambiguous basename detection, deterministic rewrites, and end-to-end branch migration in a temp git repo
  * @pipeline          manual — not yet in pipeline
  * @dualmode          --dry-run (validator) | --write (remediator)
- * @usage             node tests/unit/migrate-assets-to-branch.test.js
+ * @usage             node operations/tests/unit/migrate-assets-to-branch.test.js
  */
 
 const assert = require('assert');
@@ -66,7 +66,7 @@ function runCase(name, fn) {
       rule: 'migrate-assets-to-branch unit',
       message: `${name}: ${error.message}`,
       line: 1,
-      file: 'tests/unit/migrate-assets-to-branch.test.js'
+      file: 'operations/tests/unit/migrate-assets-to-branch.test.js'
     });
   }
 }
@@ -114,7 +114,7 @@ function createFixtureRepo() {
   );
   writeFile(
     repoDir,
-    'tests/package.json',
+    'operations/tests/package.json',
     `${JSON.stringify({
       name: 'fixture-tests',
       private: true,

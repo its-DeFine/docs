@@ -9,13 +9,13 @@ metadata:
   category: "governance"
   tier: "2"
 primary_paths:
-  - "tests/unit/script-docs.test.js"
+  - "operations/tests/unit/script-docs.test.js"
   - "tools/script-index.md"
-  - "tests/script-index.md"
+  - "operations/tests/script-index.md"
   - "docs-guide/catalog/scripts-catalog.mdx"
 primary_commands:
-  - "node tests/unit/script-docs.test.js --staged --write --stage --autofill"
-  - "node tests/unit/script-docs.test.js --enforce-existing --write --rebuild-indexes"
+  - "node operations/tests/unit/script-docs.test.js --staged --write --stage --autofill"
+  - "node operations/tests/unit/script-docs.test.js --enforce-existing --write --rebuild-indexes"
 ---
 
 SKILL: Script Header and Index Sync
@@ -36,8 +36,8 @@ Workflow
 
 Command examples
 ```bash
-node tests/unit/script-docs.test.js --staged --write --stage --autofill
-node tests/unit/script-docs.test.js --enforce-existing --write --rebuild-indexes
+node operations/tests/unit/script-docs.test.js --staged --write --stage --autofill
+node operations/tests/unit/script-docs.test.js --enforce-existing --write --rebuild-indexes
 ```
 
 Deliverable Format

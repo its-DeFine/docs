@@ -72,7 +72,7 @@ Concerns: content/, components/, governance/, ai/
   1. `docs-guide/frameworks/component-governance.mdx` — governance framework
   2. `docs-guide/catalog/components-catalog.mdx` — generated inventory
   3. `v2/resources/documentation-guide/component-library/` — public human guide (7 pages)
-- `docs-guide/docs-glossary.md` still references `tasks/plan/active/COMPONENT-GOVERNANCE/structure.md` (stale path)
+- `docs-guide/docs-glossary.md` still references `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md` (stale path)
 - `handoff-component-usage-map.md` was delivered to this plan 2026-03-21
 
 ---
@@ -218,7 +218,7 @@ docs-guide/
 **What exists**:
 - `docs-guide/policies/ownerless-governance.mdx` — policy doc
 - `tools/config/ownerless-governance-surfaces.json` — machine-readable surface manifest
-- `tests/unit/ownerless-governance.test.js` — validator
+- `operations/tests/unit/ownerless-governance.test.js` — validator
 - `lpd repair --surface <id>` — repair CLI
 
 **Surfaces tracked** (from OSS plan): portable skills, docs-guide catalogs, UI templates, GitHub governance, script governance, component governance, frontmatter contract.

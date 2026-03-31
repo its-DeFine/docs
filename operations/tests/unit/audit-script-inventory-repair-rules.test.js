@@ -8,7 +8,7 @@
  * @needs             E-C1, R-R14
  * @purpose-statement Tests audit-script-inventory repair hardening rules for judgement-field backfill and pipeline safety.
  * @pipeline          manual (not yet in pipeline)
- * @usage             node tests/unit/audit-script-inventory-repair-rules.test.js
+ * @usage             node operations/tests/unit/audit-script-inventory-repair-rules.test.js
  */
 
 const assert = require('assert');
@@ -131,7 +131,7 @@ function main() {
     const report = {
       classification_rows: [
         {
-          path: 'tests/unit/run-pr-checks.test.js',
+          path: 'operations/tests/unit/run-pr-checks.test.js',
           script: 'run-pr-checks.test',
           category: 'validator',
           purpose: 'qa:repo-health',
@@ -143,7 +143,7 @@ function main() {
       ],
       scripts: [
         {
-          path: 'tests/unit/run-pr-checks.test.js',
+          path: 'operations/tests/unit/run-pr-checks.test.js',
           script: 'run-pr-checks.test',
           category: 'validator',
           purpose: 'qa:repo-health',
@@ -153,7 +153,7 @@ function main() {
           purpose_statement: 'Tests run-pr-checks lane parsing.',
           pipeline_declared: 'manual',
           dualmode: '',
-          usage: 'node tests/unit/run-pr-checks.test.js',
+          usage: 'node operations/tests/unit/run-pr-checks.test.js',
           category_valid: true,
           purpose_valid: true,
           scope_valid: true,
@@ -166,10 +166,10 @@ function main() {
 
     const plan = buildRepairPlan(report, {
       scopedMode: true,
-      scopedPaths: ['tests/unit/run-pr-checks.test.js']
+      scopedPaths: ['operations/tests/unit/run-pr-checks.test.js']
     });
 
-    const row = plan.classification_rows.find((entry) => entry.path === 'tests/unit/run-pr-checks.test.js');
+    const row = plan.classification_rows.find((entry) => entry.path === 'operations/tests/unit/run-pr-checks.test.js');
     assert.ok(row);
     assert.strictEqual(row.pipeline, 'manual');
     assert.strictEqual(plan.fixes.json_entries_updated, 1);
@@ -178,7 +178,7 @@ function main() {
 
   runCase('accepts path-scoped governance values as valid scope', () => {
     const needsHuman = buildNeedsHumanEntry(
-      'tests/unit/docs-route-scope.test.js',
+      'operations/tests/unit/docs-route-scope.test.js',
       {
         category: 'validator',
         purpose: 'qa:repo-health',

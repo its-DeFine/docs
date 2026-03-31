@@ -7,10 +7,10 @@ keywords:
 ---
 
 <Note>
-**Generation Script**: This file is generated from script(s): `tests/unit/script-docs.test.js`. <br/>
+**Generation Script**: This file is generated from script(s): `operations/tests/unit/script-docs.test.js`. <br/>
 **Purpose**: Enforce script header schema, keep group script indexes in sync, and build aggregate script index. <br/>
 **Run when**: Scripts are added, removed, renamed, or script metadata changes in scoped roots. <br/>
-**Important**: Do not manually edit this file; run `node tests/unit/script-docs.test.js --write --rebuild-indexes`. <br/>
+**Important**: Do not manually edit this file; run `node operations/tests/unit/script-docs.test.js --write --rebuild-indexes`. <br/>
 </Note>
 
 ## .githooks
@@ -37,28 +37,28 @@ keywords:
 
 | Script | Summary | Usage | Owner |
 |---|---|---|---|
-| `tests/integration/browser.test.js` | Utility script for tests/integration/browser.test.js. | `node tests/integration/browser.test.js` | docs |
-| `tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. | `node tests/integration/domain-pages-audit.js --version both` | docs |
-| `tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit with internal strict checks and optional external URL validation. | `node tests/integration/v2-link-audit.js --full --write-links --strict` | docs |
-| `tests/integration/v2-link-audit.selftest.js` | Script-level self-tests for v2 link audit external validation using a local HTTP fixture and temporary MDX file. | `node tests/integration/v2-link-audit.selftest.js` | docs |
-| `tests/integration/v2-wcag-audit.js` | Audit v2 docs.json navigation pages for accessibility (WCAG 2.2 AA) with deterministic reports and conservative source autofixes. | `node tests/integration/v2-wcag-audit.js --full` | docs |
-| `tests/integration/v2-wcag-audit.selftest.js` | Script-level self-tests for the v2 WCAG audit (local HTTP + Puppeteer axe run, and temp-file fix/stage behavior without Mintlify). | `node tests/integration/v2-wcag-audit.selftest.js` | docs |
-| `tests/run-all.js` | Utility script for tests/run-all.js. | `node tests/run-all.js` | docs |
-| `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. | `node tests/run-pr-checks.js --base-ref main` | docs |
-| `tests/unit/docs-guide-sot.test.js` | Validate docs-guide source-of-truth coverage, README pointers, and generated index freshness. | `node tests/unit/docs-guide-sot.test.js` | docs |
-| `tests/unit/docs-navigation.test.js` | Validate docs.json page-entry syntax, report missing routes, suggest remaps, and optionally apply approved remaps. | `./lpd tests unit docs-navigation.test` | docs |
-| `tests/unit/links-imports.test.js` | Utility script for tests/unit/links-imports.test.js. | `node tests/unit/links-imports.test.js` | docs |
-| `tests/unit/mdx-guards.test.js` | Enforce MDX guardrails for globals imports, math delimiters, and markdown table line breaks. | `node tests/unit/mdx-guards.test.js` | docs |
-| `tests/unit/mdx.test.js` | Utility script for tests/unit/mdx.test.js. | `node tests/unit/mdx.test.js` | docs |
-| `tests/unit/quality.test.js` | Utility script for tests/unit/quality.test.js. | `node tests/unit/quality.test.js` | docs |
-| `tests/unit/script-docs.test.js` | Enforce script header schema, keep group script indexes in sync, and build aggregate script index. | `node tests/unit/script-docs.test.js --staged --write --stage --autofill` | docs |
-| `tests/unit/spelling.test.js` | Utility script for tests/unit/spelling.test.js. | `node tests/unit/spelling.test.js` | docs |
-| `tests/unit/style-guide.test.js` | Utility script for tests/unit/style-guide.test.js. | `node tests/unit/style-guide.test.js` | docs |
-| `tests/unit/v2-link-audit.test.js` | Unit tests for v2 link audit args, external validation helpers, and x-* scope exclusion behavior. | `node tests/unit/v2-link-audit.test.js` | docs |
-| `tests/unit/v2-wcag-audit.test.js` | Unit tests for v2 WCAG audit helper logic (args, thresholds, route mapping, report sorting, and conservative autofixes). | `node tests/unit/v2-wcag-audit.test.js` | docs |
-| `tests/utils/file-walker.js` | Utility script for tests/utils/file-walker.js. | `node tests/utils/file-walker.js` | docs |
-| `tests/utils/mdx-parser.js` | Utility script for tests/utils/mdx-parser.js. | `node tests/utils/mdx-parser.js` | docs |
-| `tests/utils/spell-checker.js` | Utility script for tests/utils/spell-checker.js. | `node tests/utils/spell-checker.js` | docs |
+| `operations/tests/integration/browser.test.js` | Utility script for operations/tests/integration/browser.test.js. | `node operations/tests/integration/browser.test.js` | docs |
+| `operations/tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. | `node operations/tests/integration/domain-pages-audit.js --version both` | docs |
+| `operations/tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit with internal strict checks and optional external URL validation. | `node operations/tests/integration/v2-link-audit.js --full --write-links --strict` | docs |
+| `operations/tests/integration/v2-link-audit.selftest.js` | Script-level self-tests for v2 link audit external validation using a local HTTP fixture and temporary MDX file. | `node operations/tests/integration/v2-link-audit.selftest.js` | docs |
+| `operations/tests/integration/v2-wcag-audit.js` | Audit v2 docs.json navigation pages for accessibility (WCAG 2.2 AA) with deterministic reports and conservative source autofixes. | `node operations/tests/integration/v2-wcag-audit.js --full` | docs |
+| `operations/tests/integration/v2-wcag-audit.selftest.js` | Script-level self-tests for the v2 WCAG audit (local HTTP + Puppeteer axe run, and temp-file fix/stage behavior without Mintlify). | `node operations/tests/integration/v2-wcag-audit.selftest.js` | docs |
+| `tests/run-all.js` | Utility script for tests/run-all.js. | `node operations/tests/run-all.js` | docs |
+| `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. | `node operations/tests/run-pr-checks.js --base-ref main` | docs |
+| `operations/tests/unit/docs-guide-sot.test.js` | Validate docs-guide source-of-truth coverage, README pointers, and generated index freshness. | `node operations/tests/unit/docs-guide-sot.test.js` | docs |
+| `operations/tests/unit/docs-navigation.test.js` | Validate docs.json page-entry syntax, report missing routes, suggest remaps, and optionally apply approved remaps. | `./lpd tests unit docs-navigation.test` | docs |
+| `operations/tests/unit/links-imports.test.js` | Utility script for operations/tests/unit/links-imports.test.js. | `node operations/tests/unit/links-imports.test.js` | docs |
+| `operations/tests/unit/mdx-guards.test.js` | Enforce MDX guardrails for globals imports, math delimiters, and markdown table line breaks. | `node operations/tests/unit/mdx-guards.test.js` | docs |
+| `operations/tests/unit/mdx.test.js` | Utility script for operations/tests/unit/mdx.test.js. | `node operations/tests/unit/mdx.test.js` | docs |
+| `operations/tests/unit/quality.test.js` | Utility script for operations/tests/unit/quality.test.js. | `node operations/tests/unit/quality.test.js` | docs |
+| `operations/tests/unit/script-docs.test.js` | Enforce script header schema, keep group script indexes in sync, and build aggregate script index. | `node operations/tests/unit/script-docs.test.js --staged --write --stage --autofill` | docs |
+| `operations/tests/unit/spelling.test.js` | Utility script for operations/tests/unit/spelling.test.js. | `node operations/tests/unit/spelling.test.js` | docs |
+| `operations/tests/unit/style-guide.test.js` | Utility script for operations/tests/unit/style-guide.test.js. | `node operations/tests/unit/style-guide.test.js` | docs |
+| `operations/tests/unit/v2-link-audit.test.js` | Unit tests for v2 link audit args, external validation helpers, and x-* scope exclusion behavior. | `node operations/tests/unit/v2-link-audit.test.js` | docs |
+| `operations/tests/unit/v2-wcag-audit.test.js` | Unit tests for v2 WCAG audit helper logic (args, thresholds, route mapping, report sorting, and conservative autofixes). | `node operations/tests/unit/v2-wcag-audit.test.js` | docs |
+| `operations/tests/utils/file-walker.js` | Utility script for operations/tests/utils/file-walker.js. | `node operations/tests/utils/file-walker.js` | docs |
+| `operations/tests/utils/mdx-parser.js` | Utility script for operations/tests/utils/mdx-parser.js. | `node operations/tests/utils/mdx-parser.js` | docs |
+| `operations/tests/utils/spell-checker.js` | Utility script for operations/tests/utils/spell-checker.js. | `node operations/tests/utils/spell-checker.js` | docs |
 
 ## tools/scripts
 
@@ -115,7 +115,7 @@ keywords:
 | `tools/scripts/inspect-page.js` | Utility script for tools/scripts/inspect-page.js. | `node tools/scripts/inspect-page.js` | docs |
 | `tools/scripts/inspect-video-page.js` | Utility script for tools/scripts/inspect-video-page.js. | `node tools/scripts/inspect-video-page.js` | docs |
 | `tools/scripts/mint-dev.sh` | Utility script for tools/scripts/mint-dev.sh. | `bash tools/scripts/mint-dev.sh` | docs |
-| `tools/scripts/new-script.js` | Create a new script file prefilled with the required docs header template. | `node tools/scripts/new-script.js --path tests/integration/my-script.js` | docs |
+| `tools/scripts/new-script.js` | Create a new script file prefilled with the required docs header template. | `node tools/scripts/new-script.js --path operations/tests/integration/my-script.js` | docs |
 | `tools/scripts/publish-v2-internal-reports.js` | Duplicate approved markdown reports into v2/internal/reports pages with metadata and update docs.json. | `node tools/scripts/publish-v2-internal-reports.js --check` | docs |
 | `tools/scripts/snippets/fetch-external-docs.sh` | Utility script for tools/scripts/snippets/fetch-external-docs.sh. | `bash tools/scripts/snippets/fetch-external-docs.sh` | docs |
 | `tools/scripts/snippets/fetch-lpt-exchanges.sh` | Utility script for tools/scripts/snippets/fetch-lpt-exchanges.sh. | `bash tools/scripts/snippets/fetch-lpt-exchanges.sh` | docs |

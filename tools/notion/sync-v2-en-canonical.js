@@ -769,7 +769,7 @@ function loadWcagBlockingMap(repoRoot) {
 }
 
 function loadDomainStatusMap(repoRoot) {
-  const reportPath = path.join(repoRoot, "tests", "reports", "domain-page-load-report.json");
+  const reportPath = path.join(repoRoot, "workspace", "reports", "page-audits", "domain-page-load-report.json");
   const report = readJsonSafe(reportPath, null);
   const map = new Map();
   if (!report || !Array.isArray(report.results)) return map;

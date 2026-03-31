@@ -118,7 +118,7 @@ This supplements the `generated-file-banner` (which only exists in generated fil
 
 ### R13 — Resolve `docs-guide/docs-glossary.md` format and stale paths [MEDIUM]
 **What**:
-1. Fix the stale `tasks/plan/active/COMPONENT-GOVERNANCE/structure.md` reference (→ `workspace/plan/active/...`)
+1. Fix the stale `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md` reference (→ `workspace/plan/active/...`)
 2. Rename from `.md` to `.mdx` if it should be Mintlify-served, OR explicitly mark it as agent/contributor-only and keep as `.md`
 3. Add a note at the top cross-linking the three glossary files and their distinct scopes
 
@@ -136,7 +136,7 @@ Document this model in `docs-guide/policies/source-of-truth-policy.mdx` under Ca
 **Type/Concern**: `governance/content`
 
 ### R15 — Enforce docs-guide naming conventions via a validator [MEDIUM]
-**What**: Add a validator (or extend `tests/unit/docs-guide-sot.test.js`) that checks:
+**What**: Add a validator (or extend `operations/tests/unit/docs-guide-sot.test.js`) that checks:
 - All `catalog/` files use `-catalog.mdx` suffix
 - All `policies/` files use `-policy.mdx` or `-governance.mdx` suffix
 - All `frameworks/` files use `-framework.mdx` or `-workflow.mdx` suffix

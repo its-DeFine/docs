@@ -13,10 +13,10 @@ primary_paths:
   - "ai-tools/ai-skills/skill-spec-contract.md"
   - "ai-tools/ai-skills/templates"
   - "ai-tools/ai-skills"
-  - "tests/unit/skill-docs.test.js"
+  - "operations/tests/unit/skill-docs.test.js"
 primary_commands:
-  - "node tests/unit/skill-docs.test.js"
-  - "node tests/unit/codex-skill-sync.test.js"
+  - "node operations/tests/unit/skill-docs.test.js"
+  - "node operations/tests/unit/codex-skill-sync.test.js"
 ---
 
 SKILL: Skill Docs Governance
@@ -35,12 +35,12 @@ Workflow
 2. Apply the canonical frontmatter fields: `name`, `version`, `description`, and `invoke_when`.
 3. Retain template-only operational fields on canonical templates: `tier`, `primary_paths`, and `primary_commands`.
 4. Check governed references for exact paths, self-references, and circular loading chains.
-5. Run `node tests/unit/skill-docs.test.js` and `node tests/unit/codex-skill-sync.test.js` after any contract or template change.
+5. Run `node operations/tests/unit/skill-docs.test.js` and `node operations/tests/unit/codex-skill-sync.test.js` after any contract or template change.
 
 Command examples
 ```bash
-node tests/unit/skill-docs.test.js
-node tests/unit/codex-skill-sync.test.js
+node operations/tests/unit/skill-docs.test.js
+node operations/tests/unit/codex-skill-sync.test.js
 ```
 
 Deliverable Format
@@ -58,4 +58,4 @@ Validation Checklist
 - [ ] Description is between 20 and 100 words.
 - [ ] Governed references resolve and do not create self-loops or cycles.
 - [ ] `ai-tools/ai-skills/skill-spec-contract.md` reflects the current enforced contract.
-- [ ] `node tests/unit/skill-docs.test.js` passes before handoff.
+- [ ] `node operations/tests/unit/skill-docs.test.js` passes before handoff.

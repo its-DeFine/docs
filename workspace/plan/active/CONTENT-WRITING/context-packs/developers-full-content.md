@@ -9416,7 +9416,7 @@ The repository has pre-commit hooks that check structure, style, links, spelling
 ```
 Or run the full test suite:
 ```bash icon="terminal"
-node tests/run-pr-checks.js --base-ref docs-v2
+node operations/tests/run-pr-checks.js --base-ref docs-v2
 ```
 </Step>
 
@@ -13313,4 +13313,3 @@ purpose: landing
 </Note>
 
 ---
-

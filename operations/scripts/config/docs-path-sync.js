@@ -73,6 +73,77 @@ function normalizeOrphanRouteKey(rawValue) {
   return value;
 }
 
+function splitUrlSuffix(rawValue) {
+  const value = String(rawValue || '').trim();
+  const match = value.match(/^([^?#]*)([?#].*)?$/);
+  return {
+    pathname: match ? match[1] : value,
+    suffix: match && match[2] ? match[2] : ''
+  };
+}
+
+function decodeRoutePath(rawValue) {
+  const value = String(rawValue || '').trim();
+  if (!value) return '';
+  try {
+    return decodeURI(value);
+  } catch (_error) {
+    return value
+      .split('/')
+      .map((segment) => {
+        try {
+          return decodeURIComponent(segment);
+        } catch (_innerError) {
+          return segment;
+        }
+      })
+      .join('/');
+  }
+}
+
+function stripSameBasenameLeaf(rawValue) {
+  const normalized = normalizeOrphanRouteKey(rawValue);
+  const segments = normalized.split('/').filter(Boolean);
+  if (
+    segments.length >= 2 &&
+    segments[segments.length - 1].toLowerCase() === segments[segments.length - 2].toLowerCase()
+  ) {
+    return segments.slice(0, -1).join('/');
+  }
+  return normalized;
+}
+
+function canonicalRouteFromFile(repoPath) {
+  return stripSameBasenameLeaf(repoPath);
+}
+
+function encodeRouteForHref(rawRoute, suffix = '') {
+  const canonicalRoute = canonicalRouteFromFile(decodeRoutePath(rawRoute));
+  if (!canonicalRoute) return String(suffix || '');
+  const encodedRoute = canonicalRoute
+    .split('/')
+    .filter(Boolean)
+    .map((segment) => encodeURIComponent(segment))
+    .join('/');
+  return `/${encodedRoute}${String(suffix || '')}`;
+}
+
+function resolveRelativeRoute(fromRoute, rawTarget, options = {}) {
+  const { pathname, suffix } = splitUrlSuffix(rawTarget);
+  if (!pathname) return { route: '', suffix };
+  const normalizedFrom = options.useRawBase
+    ? normalizeRepoPath(decodeRoutePath(fromRoute)).replace(/\.(md|mdx)$/i, '').replace(/\/+$/, '')
+    : canonicalRouteFromFile(fromRoute);
+  const baseDir = path.posix.dirname(normalizedFrom || '');
+  const resolved = pathname.startsWith('/')
+    ? pathname.replace(/^\/+/, '')
+    : path.posix.normalize(path.posix.join('/', baseDir, pathname)).replace(/^\/+/, '');
+  return {
+    route: normalizeRepoPath(decodeRoutePath(resolved)),
+    suffix
+  };
+}
+
 function collectPageEntries(node, pointer, out = []) {
   if (Array.isArray(node)) {
     node.forEach((item, index) => collectPageEntries(item, `${pointer}[${index}]`, out));
@@ -123,18 +194,68 @@ function collectExistingRoutes(repoRoot) {
   return [...routeSet];
 }
 
+function getRouteFileCandidatesDetailed(route) {
+  const variants = [];
+  const seenVariants = new Set();
+
+  function addVariant(rawValue, source) {
+    const normalized = normalizeOrphanRouteKey(rawValue);
+    if (!normalized) return;
+    const key = `${source}:${normalized}`;
+    if (seenVariants.has(key)) return;
+    seenVariants.add(key);
+    variants.push({ route: normalized, source });
+  }
+
+  addVariant(route, 'direct');
+  addVariant(decodeRoutePath(route), 'decoded');
+
+  const candidates = [];
+  const seenCandidates = new Set();
+
+  function addCandidate(filePath, kind, sourceRoute) {
+    const normalized = normalizeRepoPath(filePath);
+    if (!normalized || seenCandidates.has(normalized)) return;
+    seenCandidates.add(normalized);
+    candidates.push({ filePath: normalized, kind, sourceRoute });
+  }
+
+  variants.forEach(({ route: variantRoute, source }) => {
+    const base = normalizeRepoPath(variantRoute);
+    const leaf = path.posix.basename(base);
+    const lowerLeaf = leaf.toLowerCase();
+
+    addCandidate(`${base}.mdx`, `${source}:file-mdx`, variantRoute);
+    addCandidate(`${base}.md`, `${source}:file-md`, variantRoute);
+    addCandidate(`${base}/index.mdx`, `${source}:index-mdx`, variantRoute);
+    addCandidate(`${base}/index.md`, `${source}:index-md`, variantRoute);
+    addCandidate(`${base}/README.mdx`, `${source}:readme-mdx`, variantRoute);
+    addCandidate(`${base}/README.md`, `${source}:readme-md`, variantRoute);
+
+    if (leaf && lowerLeaf !== 'index' && lowerLeaf !== 'readme') {
+      addCandidate(`${base}/${leaf}.mdx`, `${source}:same-basename-mdx`, variantRoute);
+      addCandidate(`${base}/${leaf}.md`, `${source}:same-basename-md`, variantRoute);
+    }
+  });
+
+  return candidates;
+}
+
 function routeToFileCandidates(route) {
-  const normalized = normalizeRoute(route);
-  if (!normalized) return [];
-  return [`${normalized}.mdx`, `${normalized}.md`, `${normalized}/index.mdx`, `${normalized}/index.md`, `${normalized}/README.mdx`, `${normalized}/README.md`];
+  return getRouteFileCandidatesDetailed(route).map((candidate) => candidate.filePath);
+}
+
+function resolveRouteToFileDetailed(repoRoot, route) {
+  const candidates = getRouteFileCandidatesDetailed(route);
+  for (const candidate of candidates) {
+    if (fs.existsSync(path.join(repoRoot, candidate.filePath))) return candidate;
+  }
+  return null;
 }
 
 function resolveRouteToFile(repoRoot, route) {
-  const candidates = routeToFileCandidates(route);
-  for (const candidate of candidates) {
-    if (fs.existsSync(path.join(repoRoot, candidate))) return normalizeRepoPath(candidate);
-  }
-  return null;
+  const detailed = resolveRouteToFileDetailed(repoRoot, route);
+  return detailed ? detailed.filePath : null;
 }
 
 function filePathToRoute(repoPath) {
@@ -232,6 +353,42 @@ function getHighConfidenceSuggestion(suggestions, threshold = DEFAULT_REMAP_THRE
   return suggestions.find((item) => typeof item.score === 'number' && item.score >= threshold) || null;
 }
 
+function getUniqueHighConfidenceSuggestion(suggestions, options = {}) {
+  const threshold = Number.isFinite(options.threshold) ? options.threshold : DEFAULT_REMAP_THRESHOLD;
+  const includePrefixes = Array.isArray(options.includePrefixes) ? options.includePrefixes.map((value) => normalizeRoute(value)) : [];
+  const excludePrefixes = Array.isArray(options.excludePrefixes) ? options.excludePrefixes.map((value) => normalizeRoute(value)) : [];
+
+  const filtered = (Array.isArray(suggestions) ? suggestions : [])
+    .map((item) => ({
+      ...item,
+      route: normalizeRoute(item.route)
+    }))
+    .filter((item) => item.route)
+    .filter((item) => {
+      if (includePrefixes.length > 0 && !includePrefixes.some((prefix) => item.route.startsWith(prefix))) return false;
+      if (excludePrefixes.some((prefix) => item.route.startsWith(prefix))) return false;
+      return item.reason === 'canonical remap rule' || (typeof item.score === 'number' && item.score >= threshold);
+    });
+
+  const unique = [...new Map(filtered.map((item) => [item.route, item])).values()];
+  if (unique.length !== 1) return null;
+  return unique[0];
+}
+
+function classifyResolvedRouteMethod(kind) {
+  const normalized = String(kind || '').toLowerCase();
+  if (normalized.startsWith('decoded:')) {
+    if (normalized.includes('index') || normalized.includes('readme') || normalized.includes('same-basename')) {
+      return 'decoded-alias';
+    }
+    return 'decoded';
+  }
+  if (normalized.includes('index') || normalized.includes('readme') || normalized.includes('same-basename')) {
+    return 'directory-alias';
+  }
+  return 'direct';
+}
+
 function resolveRouteViaRedirects(repoRoot, docsJson, rawRoute) {
   const normalized = normalizeRoute(rawRoute);
   if (!normalized) return null;
@@ -261,6 +418,49 @@ function resolveRouteWithAliases(repoRoot, docsJson, rawRoute) {
   const redirected = resolveRouteViaRedirects(repoRoot, docsJson, rawRoute);
   if (redirected) return redirected;
   return resolveRouteViaCanonicalMap(repoRoot, rawRoute);
+}
+
+function resolveCanonicalDocRoute(repoRoot, docsJson, rawRoute) {
+  const normalized = normalizeOrphanRouteKey(rawRoute);
+  if (!normalized) return null;
+
+  const direct = resolveRouteToFileDetailed(repoRoot, normalized);
+  if (direct) {
+    return {
+      inputRoute: normalized,
+      filePath: direct.filePath,
+      route: canonicalRouteFromFile(direct.filePath),
+      source: 'file',
+      kind: direct.kind,
+      method: classifyResolvedRouteMethod(direct.kind)
+    };
+  }
+
+  const redirected = resolveRouteViaRedirects(repoRoot, docsJson, normalized);
+  if (redirected) {
+    return {
+      inputRoute: normalized,
+      filePath: redirected,
+      route: canonicalRouteFromFile(redirected),
+      source: 'redirect',
+      kind: 'redirect',
+      method: 'redirect'
+    };
+  }
+
+  const canonical = resolveRouteViaCanonicalMap(repoRoot, normalized);
+  if (canonical) {
+    return {
+      inputRoute: normalized,
+      filePath: canonical,
+      route: canonicalRouteFromFile(canonical),
+      source: 'canonical-map',
+      kind: 'canonical-map',
+      method: 'canonical-map'
+    };
+  }
+
+  return null;
 }
 
 function pointerToTokens(pointer) {
@@ -536,20 +736,28 @@ module.exports = {
   DEFAULT_REMAP_THRESHOLD,
   applyMovePairsToDocsJson,
   buildExplicitMovePair,
+  canonicalRouteFromFile,
   collectExistingRoutes,
   collectMovePairs,
   collectPageEntries,
+  decodeRoutePath,
+  encodeRouteForHref,
   filePathToRoute,
   getCanonicalMap,
   getHighConfidenceSuggestion,
+  getUniqueHighConfidenceSuggestion,
   getRepoRoot,
   normalizeOrphanRouteKey,
   normalizeRepoPath,
   normalizeRoute,
+  resolveCanonicalDocRoute,
+  resolveRelativeRoute,
   resolveRouteToFile,
+  resolveRouteToFileDetailed,
   resolveRouteWithAliases,
   runDocsPathSync,
   setByPointer,
+  splitUrlSuffix,
   suggestRemaps,
   toPosix
 };

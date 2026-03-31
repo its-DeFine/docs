@@ -1,7 +1,7 @@
 # Livepeer — Universal Terms
 
 **Purpose**: Canonical definitions for terms that appear across all or most tabs. Use these in any content prompt to ensure consistent terminology.
-**Full source**: `tasks/plan/active/TERMINOLOGY-COLLATE/classified-by-tab.md` and per-tab glossaries
+**Full source**: `workspace/plan/active/TERMINOLOGY-COLLATE/classified-by-tab.md` and per-tab glossaries
 **Generated**: 2026-03-20
 
 ---
@@ -72,7 +72,7 @@ These must be defined consistently everywhere they appear.
 
 ## Cross-Tab Index
 
-See full cross-tab matrix at: `tasks/plan/active/TERMINOLOGY-COLLATE/consolidated/glossary-index.md` (Section 3)
+See full cross-tab matrix at: `workspace/plan/active/TERMINOLOGY-COLLATE/consolidated/glossary-index.md` (Section 3)
 
 Key cross-tab terms with ambiguous ownership:
 

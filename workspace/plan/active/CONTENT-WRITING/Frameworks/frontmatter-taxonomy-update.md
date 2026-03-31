@@ -2,9 +2,9 @@
 
 **Status**: Ready to implement
 **Date**: 2026-03-21
-**Source of truth**: `tasks/plan/active/CONTENT-WRITING/framework.md`
+**Source of truth**: `workspace/plan/active/CONTENT-WRITING/Frameworks/content-pipeline-framework.md`
 **File to update**: `tools/lib/frontmatter-taxonomy.js`
-**Test file to update**: `tests/unit/frontmatter-taxonomy.test.js`
+**Test file to update**: `operations/tests/unit/frontmatter-taxonomy.test.js`
 **Related callers**: `add-pagetype-mechanical.js`, `rubric-loader.js`
 
 ---
@@ -28,7 +28,7 @@ What changes in this task:
 | `PAGE_TYPE_TO_PURPOSE` | Rewrite for new type→purpose mapping |
 | `PAGE_TYPE_ALLOWED_PURPOSES` | Rewrite for new types and purposes |
 | `purposeToRubricPurpose()` | New cases for new canonical purpose values |
-| `tests/unit/frontmatter-taxonomy.test.js` | Full update for new values + deprecated alias coverage |
+| `operations/tests/unit/frontmatter-taxonomy.test.js` | Full update for new values + deprecated alias coverage |
 
 **Not in scope** (separate tasks):
 - `add-pagetype-mechanical.js` remediation script update (follow-on)
@@ -252,7 +252,7 @@ Note: The old switch cases (`orientation`, `evaluation`, `setup`, `operations`, 
 
 ---
 
-## Change 8: `tests/unit/frontmatter-taxonomy.test.js` — Full Update
+## Change 8: `operations/tests/unit/frontmatter-taxonomy.test.js` — Full Update
 
 The test file is tightly coupled to old values. Full replacement needed. Key test cases to cover:
 
@@ -360,7 +360,7 @@ These are old type names — needs update to new types after this change. But si
 ### `rubric-loader.js`
 **Impact**: Uses `taxonomy.CANONICAL_PURPOSES` to validate purpose values (line 62) and `taxonomy.normalizePurpose()` (line 212). After the update, `CANONICAL_PURPOSES` exports the new 15 values. Any page using old purposes like `orientation` or `setup` will still normalize successfully via deprecated aliases. No breakage. The `AUDIENCE_ENUM` on line 64 is hardcoded (not from taxonomy), so it's unaffected.
 
-### `tests/unit/quality.test.js`
+### `operations/tests/unit/quality.test.js`
 **Impact**: Unknown. Need to check if it references specific pageType or purpose values. **Check before implementing** — search for any `how_to`, `landing`, `overview`, etc. enum literals in that test.
 
 ---
@@ -376,12 +376,12 @@ These are old type names — needs update to new types after this change. But si
    - `PAGE_TYPE_ALLOWED_PURPOSES`
    - `purposeToRubricPurpose()` switch cases
 
-2. Pre-check `tests/unit/quality.test.js` for hardcoded old enum values
+2. Pre-check `operations/tests/unit/quality.test.js` for hardcoded old enum values
 
-3. Rewrite `tests/unit/frontmatter-taxonomy.test.js` with new test cases
+3. Rewrite `operations/tests/unit/frontmatter-taxonomy.test.js` with new test cases
 
-4. Run tests: `node tests/unit/frontmatter-taxonomy.test.js` — expect pass
-5. Run full suite: `node tests/run-all.js` — expect pass
+4. Run tests: `node operations/tests/unit/frontmatter-taxonomy.test.js` — expect pass
+5. Run full suite: `node operations/tests/run-all.js` — expect pass
 
 ---
 

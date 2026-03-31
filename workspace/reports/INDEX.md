@@ -1,8 +1,8 @@
-# tasks/reports Index
+# workspace/reports Index
 
-Generated: 2026-03-09T07:12:34.433Z
-Generator: `tools/scripts/audit-scripts.js`
-Branch: codex/20260309-classifications-fix
+Generated: 2026-03-31T04:28:50.843Z
+Generator: `operations/scripts/audits/governance/scripts/audit-script-categories.js`
+Branch: docs-v2-dev
 
 | Generator script | Output path(s) |
 |---|---|
@@ -16,8 +16,8 @@ Branch: codex/20260309-classifications-fix
 | `test-all-pages-comprehensive.js` | `reports/page-audits/browser-test-report.{md,json}` |
 | `audit-all-pages.js` | `reports/page-audits/page-audit-latest.{md,json}` |
 | `audit-all-pages-simple.js` | `reports/page-audits/page-audit-simple-latest.{md,json}` |
-| `tasks/scripts/audit-python.py` | `reports/page-audits/page-audit-python-latest.{md,json}` |
-| `audit-scripts.js` | `reports/repo-ops/SCRIPT_AUDIT.{md,json}`, `reports/INDEX.md` |
+| `operations/scripts/audits/content/quality/audit-python.py` | `reports/page-audits/page-audit-python-latest.{md,json}` |
+| `operations/scripts/audits/governance/scripts/audit-script-categories.js` | `reports/repo-ops/SCRIPT_AUDIT.{md,json}`, `reports/INDEX.md` |
 | `audit-tasks-folders.js` | `reports/repo-ops/*_audit.md`, `reports/repo-ops/recommendation-conflicts.md`, `reports/repo-ops/recommendation-apply-summary.json` |
 | `audit-v1-to-v2-mapping.js` | `reports/v1-v2-mapping-audit/{v1-v2-page-mapping-audit.csv,v1-v2-page-mapping-audit.json,v1-v2-page-mapping-audit-report.md,v1-v2-page-mapping-adjudication-queue.json,v1-v2-page-mapping-run-metadata.json}` |
 | `audit-media-assets.js` | `reports/media-audit/media-audit-manifest.json`, `reports/media-audit/media-audit-summary.md` |

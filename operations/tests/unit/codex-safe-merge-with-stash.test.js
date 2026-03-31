@@ -3,13 +3,13 @@
  * @script            codex-safe-merge-with-stash.test
  * @category          utility
  * @purpose           governance:agent-governance
- * @scope             tests/unit, operations/scripts/codex-safe-merge-with-stash.js
+ * @scope             tests/unit, operations/scripts/x-archive/codex-safe-merge-with-stash.js
  * @owner             docs
  * @needs             R-R27, R-R30
  * @purpose-statement Tests codex-safe-merge-with-stash.js — asserts the deprecated stash helper hard-fails and points callers to the supported Codex lifecycle
  * @pipeline          manual — developer tool
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/unit/codex-safe-merge-with-stash.test.js [flags]
+ * @usage             node operations/tests/unit/codex-safe-merge-with-stash.test.js [flags]
  */
 
 const assert = require('assert');

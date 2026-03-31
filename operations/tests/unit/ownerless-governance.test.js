@@ -3,12 +3,12 @@
  * @script            ownerless-governance.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, tests/utils, tests/WHEN-TESTS-RUN.md, docs-guide, tools/config/ownerless-governance-surfaces.json, AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md
+ * @scope             tests/unit, tests/utils, operations/tests/WHEN-TESTS-RUN.md, docs-guide, tools/config/ownerless-governance-surfaces.json, AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md
  * @owner             docs
  * @needs             R-R14, R-R29
  * @purpose-statement Validates the ownerless governance manifest, primary gate-layer contract, and forbidden human-owner dependency in governed policy and GitHub surfaces.
  * @pipeline          P1, P3
- * @usage             node tests/unit/ownerless-governance.test.js [--staged|--files a,b]
+ * @usage             node operations/tests/unit/ownerless-governance.test.js [--staged|--files a,b]
  */
 
 const fs = require('fs');
@@ -67,9 +67,9 @@ const GOVERNED_TEXT_FILES = [
   'docs-guide/catalog/templates-catalog.mdx',
   'docs-guide/features/automations.mdx',
   'docs-guide/frameworks/component-governance.mdx',
-  'tests/WHEN-TESTS-RUN.md',
-  'tests/utils/openapi-rolling-issue.js',
-  'tests/unit/openapi-rolling-issue.test.js'
+  'operations/tests/WHEN-TESTS-RUN.md',
+  'operations/tests/utils/openapi-rolling-issue.js',
+  'operations/tests/unit/openapi-rolling-issue.test.js'
 ];
 const FORBIDDEN_PATTERNS = [
   ['Action requested from maintainers', 'Use "Requested repository outcome" instead of maintainer-request wording.'],

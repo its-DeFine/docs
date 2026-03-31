@@ -595,7 +595,7 @@ Any page using `SearchTable`, `ShowcaseCards`, or `CardCarousel` renders data cl
 
 **Rule**: `SearchTable` or `ShowcaseCards` on a page → write a companion `[page-slug]-data.json` alongside the MDX with the full unfiltered data array. Link the companion file from the page.
 
-Automation tracked in: [`tasks/plan/active/AI-DISCOVERABILITY/plan.md`](../AI-DISCOVERABILITY/plan.md) — Task CDA-4 (manual) / CDA-5 (automated). Until CDA-5 is complete, this is a manual write-time step.
+Automation tracked in: [`workspace/plan/active/AI-TOOLS-GOVERNANCE/AI-DISCOVERABILITY/plan.md`](../AI-TOOLS-GOVERNANCE/AI-DISCOVERABILITY/plan.md) — Task CDA-4 (manual) / CDA-5 (automated). Until CDA-5 is complete, this is a manual write-time step.
 
 ---
 

@@ -1,0 +1,146 @@
+# GitHub Actions Governance: Decisions Log
+
+> Thread: GitHub Actions Governance
+> Updated: 2026-03-31
+> Rule: Every decision recorded at the time it is made. No batch updates.
+
+---
+
+## Decisions
+
+### D-ACT-01: Issue/PR interfaces is a 7th type
+
+**Date:** 2026-03-31
+**Status:** Confirmed (renamed from `lifecycle` to `interface` on 2026-03-31)
+**Decision:** The 5 issue/PR management workflows become their own type `interface`, not a subtype of `automation`.
+**Workflows affected:** issue-auto-label, docs-v2-issue-indexer, discord-issue-intake, close-linked-issues-docs-v2, auto-assign-docs-reviewers
+**Reasoning:** These are event-reactive (fired by issue/PR events or repository_dispatch), not pipeline-shaped (fetch, transform, commit). They do not fit the automation pattern. `interface` describes what they are: they interface between external events (issues, PRs, Discord) and repo actions (labelling, indexing, assignment).
+**Impact:** Type taxonomy expands from 6 to 7 types. Audit classifications updated.
+
+### D-ACT-02: P5-auto is a distinct pipeline tag
+
+**Date:** 2026-03-31
+**Status:** Confirmed
+**Decision:** `P5-auto` is a separate pipeline tag from `P5`. P5 = scheduled, read-only (monitors and reports). P5-auto = scheduled, read-write (fetches external data and commits to repo).
+**Workflows affected (P5-auto):** update-discord-data, update-forum-data, update-ghost-blog-data, update-github-data, update-rss-blog-data, update-youtube-data, update-contract-addresses, update-changelogs, update-livepeer-release, project-showcase-sync, sync-large-assets, sdk_generation
+**Workflows affected (P5):** content-health, freshness-monitor, v2-external-link-audit, openapi-reference-validation
+**Reasoning:** P5-auto workflows need concurrency control, bot identity config, commit message conventions, and error-on-push handling. P5 workflows need none of that. Different operational requirements = different tag.
+**Impact:** Pipeline tag taxonomy has 8 tags. Framework standards section specifies different error handling and operational requirements per tag.
+
+### D-ACT-03: Data-fetch consolidation approved
+
+**Date:** 2026-03-31
+**Status:** Confirmed
+**Decision:** The 7 identical social data-fetch workflows will be consolidated into a single `update-data-feeds.yml` using a matrix strategy. Separate workflows stay separate where complexity justifies it.
+**Merge targets (7 into 1):** update-discord-data, update-forum-data, update-ghost-blog-data, update-github-data, update-rss-blog-data, update-youtube-data, update-blog-data (broken, remove)
+**Stay separate:** update-contract-addresses (gold standard, complex verification), update-changelogs (LLM integration), update-livepeer-release (inline sed, no script), project-showcase-sync (multi-service), sync-large-assets (git LFS), sdk_generation (Speakeasy)
+**Reasoning:** All 7 social data workflows have identical structure (checkout, setup node, run script, diff check, commit, push). 3 have missing permissions bugs. Consolidation fixes all 7 at once and reduces maintenance surface 7x.
+**Impact:** Phase 6 execution. Not blocking current documentation work. Consolidation happens after governance framework and library are in place.
+
+---
+
+## Framework Snapshots
+
+### Pipeline Tags (confirmed)
+
+| Tag | When | What | Authority | Count |
+|---|---|---|---|---|
+| **P2** | PR (required check) | Blocks merge | Hard gate | 2 |
+| **P3** | PR (non-required) | Reports, no block | Soft gate | 8 |
+| **P4** | Push to deploy branch | Post-merge generators | Auto-commit | 8 |
+| **P5** | Schedule (read-only) | Monitor and report | Advisory | 4 |
+| **P5-auto** | Schedule + auto-commit | Fetch data, commit | Writes on schedule | 10 |
+| **P6** | Schedule + auto-fix | Self-heal broken state | Writes + may PR | 1 |
+| **manual** | workflow_dispatch only | Human-triggered | User decides | 4 |
+| **event-driven** | repository_dispatch / issues | React to external events | Event-specific | 3 |
+
+**Status:** All confirmed (D-ACT-02).
+
+### Type Taxonomy (7 types)
+
+| Type | Purpose | Count |
+|---|---|---|
+| `automation` | End-to-end pipelines: fetch, transform, commit | 10 |
+| `generator` | Produce files from source-of-truth on push/merge | 7 |
+| `validator` | Enforce rules with pass/fail on PR | 10 |
+| `audit` | Read-only scheduled monitoring | 3 |
+| `remediator` | Auto-fix with optional commit | 3 |
+| `dispatch` | Orchestrate multiple scripts/workflows | 1 |
+| `interface` | Issue/PR event handling and triage | 5 |
+
+**Status:** Confirmed (D-ACT-01 added interface as 7th type).
+
+### Concern Taxonomy (7 concerns, confirmed D-ACT-05)
+
+| Concern | What it covers | Count |
+|---|---|---|
+| `integrations` | External data feeds, APIs, structured data pipelines | 11 |
+| `copy` | Written text, data standards, spelling, grammar | 2 |
+| `maintenance` | Indexes, catalogs, documentation, registries, changelogs | 6 |
+| `health` | Site integrity, links, rendering, freshness, assets | 8 |
+| `discoverability` | SEO, AEO, AI indexing, translation | 7 |
+| `governance` | System rules, compliance, issue/PR management | 8 |
+
+**Reserved:** `brand` (no workflows yet).
+**Status:** Confirmed.
+
+---
+
+### D-ACT-04: Workflow naming convention with function verb enum
+
+**Date:** 2026-03-31
+**Status:** Confirmed
+**Decision:** All workflow files follow the pattern `type-concern-function-name.yml`. Function verbs are a closed enum of 11 verbs.
+
+**Naming pattern:** `type-concern-function-name.yml`
+- type: `automation`, `audit`, `dispatch`, `generator`, `remediator`, `validator`, `interface`
+- concern: `integrations`, `copy`, `maintenance`, `health`, `discoverability`, `governance` (+ `brand` reserved)
+- function: one of the 11 verbs below
+- name: descriptive slug
+
+**Function verb enum (11 verbs):**
+
+| Verb | Absorbs | Used by types |
+|---|---|---|
+| `update` | `sync` | automation |
+| `generate` | (none) | generator |
+| `check` | `verify`, `test` | validator |
+| `scan` | `audit`, `monitor` | audit |
+| `repair` | `fix`, `refresh`, `homogenise` | remediator |
+| `dispatch` | (none) | dispatch |
+| `label` | (none) | interface |
+| `index` | (none) | interface |
+| `intake` | (none) | interface |
+| `close` | (none) | interface |
+| `assign` | (none) | interface |
+
+**Reasoning:** GitHub Actions requires all workflows flat in `.github/workflows/`. Subfolder grouping is impossible. The naming prefix replaces folder structure for discoverability. The verb enum was consolidated from 17 to 11 by merging synonymous verbs (sync into update, verify/test into check, audit/monitor into scan, fix/refresh/homogenise into repair). No industry standard exists for CI/CD verb taxonomies so this is domain-specific to documentation infrastructure.
+**Impact:** All 41 active workflows will be renamed in Phase 6. The naming convention applies immediately to any new workflows.
+
+### D-ACT-05: Concern taxonomy expanded from 4 to 7
+
+**Date:** 2026-03-31
+**Status:** Confirmed
+**Decision:** The original 4 concerns (`content`, `components`, `governance`, `ai`) are replaced with 7 concerns that name the part of the system each workflow operates on.
+
+**Concern enum (7 values):**
+
+| Concern | What it covers | Replaces | Count |
+|---|---|---|---|
+| `integrations` | External data feeds, APIs, structured data pipelines | content (data-fetch subset) | 11 |
+| `copy` | Written text, data standards, spelling, grammar | content (copy subset) | 2 |
+| `maintenance` | Indexes, catalogs, documentation, registries, changelogs | content (catalogs subset) + components | 6 |
+| `health` | Site integrity, links, rendering, freshness, assets | content (quality subset) | 8 |
+| `discoverability` | SEO, AEO, AI indexing, translation | ai + content (SEO subset) | 7 |
+| `governance` | System rules, compliance, issue/PR management | governance (unchanged) | 8 |
+
+**Reserved:** `brand` (style, formatting, page structure, voice). No workflows currently, but a real concern that may get workflows later.
+
+**Reasoning:** The original `content` concern carried 26 of 45 workflows, making it useless for grouping. The concern should name what part of the system the workflow operates on, not what kind of output it produces. `ai` and `components` were absorbed into concerns that describe function: AI companions/sitemap/LLM files are about discoverability; component registry is maintenance.
+**Impact:** D-ACT-04 naming convention updated (concern segment uses new 7-value enum). All workflow renames in Phase 6 use the new concerns. Framework document updated.
+
+---
+
+## Pending Decisions
+
+None at this time. All Phase 2 decisions confirmed.

@@ -8,7 +8,7 @@
  * @needs             E-R1, R-R11
  * @purpose-statement Self-test suite for v2-wcag-audit.js — validates WCAG audit logic against known fixtures
  * @pipeline          manual — not yet in pipeline
- * @usage             node tests/integration/v2-wcag-audit.selftest.js [flags]
+ * @usage             node operations/tests/integration/v2-wcag-audit.selftest.js [flags]
  */
 
 const assert = require('assert');

@@ -8,7 +8,7 @@
  * @needs             E-R1, R-R11
  * @purpose-statement Unit tests for v2-wcag-audit.js — tests individual WCAG rules
  * @pipeline          manual — not yet in pipeline
- * @usage             node tests/unit/v2-wcag-audit.test.js [flags]
+ * @usage             node operations/tests/unit/v2-wcag-audit.test.js [flags]
  */
 
 const assert = require('assert');
@@ -28,7 +28,7 @@ function runCase(name, fn) {
       rule: 'v2-wcag-audit unit',
       message: `${name}: ${error.message}`,
       line: 1,
-      file: 'tests/unit/v2-wcag-audit.test.js'
+      file: 'operations/tests/unit/v2-wcag-audit.test.js'
     });
   }
 }

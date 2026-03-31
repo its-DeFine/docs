@@ -8,7 +8,7 @@
  * @needs             F-R17
  * @purpose-statement OpenAPI rolling issue utility — creates/updates GitHub issues for persistent OpenAPI audit findings
  * @pipeline          indirect -- library module
- * @usage             node tests/utils/openapi-rolling-issue.js [flags]
+ * @usage             node operations/tests/utils/openapi-rolling-issue.js [flags]
  */
 
 const ROLLING_ISSUE_MARKER = '<!-- openapi-reference-audit -->';
@@ -86,7 +86,7 @@ function buildIssueBody({
     '.github/workflows/openapi-reference-validation.yml',
     '',
     '### Script or workflow path',
-    'tests/integration/openapi-reference-audit.js and .github/workflows/openapi-reference-validation.yml',
+    'operations/tests/integration/openapi-reference-audit.js and .github/workflows/openapi-reference-validation.yml',
     '',
     '### Full error output',
     '```text',

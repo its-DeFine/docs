@@ -8,7 +8,7 @@
  * @needs             R-R14, R-C6
  * @purpose-statement Tests rubric-based scoring logic against fixture pages.
  * @pipeline          P3
- * @usage             node tests/unit/usefulness-rubric.test.js
+ * @usage             node operations/tests/unit/usefulness-rubric.test.js
  */
 
 'use strict';
@@ -319,7 +319,7 @@ See /v2/gateways/faq.
 
   results.push(await runCase('PR checks generated-banner matcher is delta-aware and codex issue-skip log marker exists', async () => {
     assert.strictEqual(shouldRunGeneratedBannerCheck(['tools/lib/docs-usefulness/scoring.js']), false);
-    assert.strictEqual(shouldRunGeneratedBannerCheck(['operations/scripts/generate-pages-index.js']), true);
+    assert.strictEqual(shouldRunGeneratedBannerCheck(['operations/scripts/generators/content/catalogs/generate-pages-index.js']), true);
     assert.strictEqual(shouldRunGeneratedBannerCheck(['v2/fr/docs-guide/catalog/pages-catalog.mdx']), true);
 
     const prChecksSource = fs.readFileSync(path.join(__dirname, '..', 'run-pr-checks.js'), 'utf8');

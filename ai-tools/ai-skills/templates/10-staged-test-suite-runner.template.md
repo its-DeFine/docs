@@ -11,11 +11,11 @@ metadata:
 primary_paths:
   - "tests/run-all.js"
   - "tests/README.md"
-  - "tests/WHEN-TESTS-RUN.md"
+  - "operations/tests/WHEN-TESTS-RUN.md"
   - ".githooks/pre-commit"
 primary_commands:
-  - "node tests/run-all.js --staged --skip-browser"
-  - "node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md"
+  - "node operations/tests/run-all.js --staged --skip-browser"
+  - "node operations/tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md"
 ---
 
 SKILL: Staged Test Suite Runner
@@ -36,8 +36,8 @@ Workflow
 
 Command examples
 ```bash
-node tests/run-all.js --staged --skip-browser
-node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md
+node operations/tests/run-all.js --staged --skip-browser
+node operations/tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md
 ```
 
 Deliverable Format

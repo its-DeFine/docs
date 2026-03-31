@@ -41,8 +41,8 @@
 | 3.2 | `tools/config/component-layout-profile.json` | **2026-03-19** | Machine-readable version of 3.1 | REVIEW — probably good |
 | 3.3 | `docs-guide/component-registry.json` | **2026-03-19** | Full component inventory (246KB), 14 governance fields per component | REVIEW — probably good |
 | 3.4 | `docs-guide/component-usage-map.json` | 2026-03-18 | Which components are used on which pages | REVIEW — probably good |
-| 3.5 | `tasks/plan/active/COMPONENT-GOVERNANCE/structure.md` | **2026-03-19** | Target component folder layout — includes `snippets/composables/` directory marked "Future: MDX-defined composable snippets (TBD)" | **KEY DEPENDENCY** — defines where composables will live |
-| 3.6 | `tasks/plan/active/COMPONENT-GOVERNANCE/catalog.md` | **2026-03-19** | Component catalog from in-flight governance work | **KEY DEPENDENCY** — most current component inventory |
+| 3.5 | `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md` | **2026-03-19** | Target component folder layout — includes `snippets/composables/` directory marked "Future: MDX-defined composable snippets (TBD)" | **KEY DEPENDENCY** — defines where composables will live |
+| 3.6 | `workspace/plan/active/COMPONENT-GOVERNANCE/catalog.md` | **2026-03-19** | Component catalog from in-flight governance work | **KEY DEPENDENCY** — most current component inventory |
 
 ---
 
@@ -51,7 +51,7 @@
 | # | File | Modified | What it contributes | Rank |
 |---|---|---|---|---|
 | 4.1 | `v2/_workspace/research/content-naming.md` | **2026-03-19** | Section naming rubric — 6-step, 12 candidates, 5-dimension scoring, governing-concept rules | **GOOD REF** |
-| 4.2 | `tasks/plan/active/COPYWRITING FRAMEWORK/copy-rules-SKILL.md` | 2026-03-18 | Voice rules, 42 banned phrases, section opening order — operator-focused only | **BECOMING** — good resource but not fully defined yet |
+| 4.2 | `workspace/plan/complete/dep-COPYWRITING FRAMEWORK/copy-rules-SKILL.md` | 2026-03-18 | Voice rules, 42 banned phrases, section opening order — operator-focused only | **BECOMING** — good resource but not fully defined yet |
 | 4.3 | `tools/lib/copy-governance/banned-phrases.txt` | 2026-03-18 | Machine-readable banned phrases | **GOOD GUIDE** — needs review |
 | 4.4 | `tools/lib/copy-governance/banned-words.txt` | 2026-03-18 | Machine-readable banned words | **GOOD GUIDE** — needs review |
 
@@ -61,12 +61,12 @@
 
 | # | File | Modified | What it contributes | Rank |
 |---|---|---|---|---|
-| 5.1 | `tasks/plan/active/CONTENT-WRITING/plan.md` | **2026-03-19** | Content writing pipeline — Steps 2-10 define taxonomy, this work sits after Step 10 | **NOTE** — overlapping scope, dependency |
-| 5.2 | `tasks/plan/active/CONTENT-WRITING/collation.md` | **2026-03-19** | Dated inventory of all resources with gap analysis | **NOTE** — useful prior art for this research |
-| 5.3 | `tasks/plan/active/COMPONENT-GOVERNANCE/` | **2026-03-19** | Component restructuring — defines target folder layout incl. composables | **KEY DEPENDENCY** — in-flight, affects where things land |
-| 5.4 | `tasks/plan/active/SCRIPT-GOVERNANCE/` | **2026-03-19** | Script restructuring | **NOTE** — in-flight, may affect validation tooling |
-| 5.5 | `tasks/plan/active/CONTENT-WRITING/pageType.md` | **2026-03-20** | pageType definitions — being defined now | **KEY DEPENDENCY** — actively in progress, extremely relevant |
-| 5.6 | `tasks/plan/active/CONTENT-WRITING/framework.md` | **2026-03-20** | Framework definitions — being defined now | **KEY DEPENDENCY** — actively in progress, extremely relevant |
+| 5.1 | `workspace/plan/active/CONTENT-WRITING/plan.md` | **2026-03-19** | Content writing pipeline — Steps 2-10 define taxonomy, this work sits after Step 10 | **NOTE** — overlapping scope, dependency |
+| 5.2 | `workspace/plan/active/CONTENT-WRITING/Workspace/collation.md` | **2026-03-19** | Dated inventory of all resources with gap analysis | **NOTE** — useful prior art for this research |
+| 5.3 | `workspace/plan/active/COMPONENT-GOVERNANCE/` | **2026-03-19** | Component restructuring — defines target folder layout incl. composables | **KEY DEPENDENCY** — in-flight, affects where things land |
+| 5.4 | `workspace/plan/active/SCRIPT-GOVERNANCE/` | **2026-03-19** | Script restructuring | **NOTE** — in-flight, may affect validation tooling |
+| 5.5 | `workspace/plan/active/CONTENT-WRITING/pageType.md` | **2026-03-20** | pageType definitions — being defined now | **KEY DEPENDENCY** — actively in progress, extremely relevant |
+| 5.6 | `workspace/plan/active/CONTENT-WRITING/Frameworks/content-pipeline-framework.md` | **2026-03-20** | Framework definitions — being defined now | **KEY DEPENDENCY** — actively in progress, extremely relevant |
 
 ---
 

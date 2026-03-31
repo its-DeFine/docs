@@ -1,7 +1,7 @@
 # Livepeer — Source Authority Registry
 
 **Purpose**: Tells content prompts where to verify factual claims. Consult this before citing any specific value, parameter, contract address, or protocol mechanic.
-**Full source**: `tasks/plan/active/TERMINOLOGY-COLLATE/consolidated/veracity-sources.md`
+**Full source**: `workspace/plan/active/TERMINOLOGY-COLLATE/consolidated/veracity-sources.md`
 **Generated**: 2026-03-20
 
 ---

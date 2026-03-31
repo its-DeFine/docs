@@ -3,12 +3,12 @@
  * @script            domain-pages-audit
  * @category          validator
  * @purpose           qa:repo-health
- * @scope             tests/integration, tests/reports, docs.livepeer.org
+ * @scope             operations/tests/integration, workspace/reports/page-audits, docs.livepeer.org
  * @owner             docs
  * @needs             E-C1, R-R14
  * @purpose-statement Audits deployed docs page HTTP status codes (v1, v2, or both) and emits a stable JSON report
  * @pipeline          manual — not yet in pipeline
- * @usage             node tests/integration/domain-pages-audit.js [flags]
+ * @usage             node operations/tests/integration/domain-pages-audit.js [flags]
  */
 
 const fs = require('fs');
@@ -30,8 +30,8 @@ const versionScope = String(versionScopeRaw).toLowerCase();
 
 const ROOT = path.join(__dirname, '..', '..', '..');
 const DOCS_JSON_PATH = path.join(ROOT, 'docs.json');
-const REPORT_PATH = path.join(ROOT, 'tests', 'reports', 'domain-page-load-report.json');
-const REPORT_MD_PATH = path.join(ROOT, 'tests', 'reports', 'domain-page-load-report.md');
+const REPORT_PATH = path.join(ROOT, 'workspace', 'reports', 'page-audits', 'domain-page-load-report.json');
+const REPORT_MD_PATH = path.join(ROOT, 'workspace', 'reports', 'page-audits', 'domain-page-load-report.md');
 const TIMEOUT = 25000;
 const CONCURRENCY = 8;
 const ALLOWED_SCOPES = new Set(['v1', 'v2', 'both']);

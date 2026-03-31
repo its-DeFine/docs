@@ -3,12 +3,12 @@
  * @script            docs-research-adjudication.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, operations/scripts/docs-research-adjudication.js, workspace/research/adjudication, operations/scripts/docs-page-research.js, operations/scripts/docs-page-research-pr-report.js
+ * @scope             tests/unit, operations/scripts/audits/content/veracity/docs-research-adjudication.js, workspace/research/adjudication, operations/scripts/audits/content/veracity/docs-page-research.js, operations/scripts/dispatch/content/veracity/docs-page-research-pr-report.js
  * @domain            docs
  * @needs             R-R27, R-R30
  * @purpose-statement Tests docs-research-adjudication.js — validates adjudication-ledger schema, report-aware outcome recording, and trust-tier summary rules for measured research-skill review outcomes.
  * @pipeline          manual — experimental research system
- * @usage             node tests/unit/docs-research-adjudication.test.js [flags]
+ * @usage             node operations/tests/unit/docs-research-adjudication.test.js [flags]
  */
 
 const assert = require('assert');
@@ -18,7 +18,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const REPO_ROOT = process.cwd();
-const SCRIPT = path.join(REPO_ROOT, 'operations/scripts/docs-research-adjudication.js');
+const SCRIPT = path.join(REPO_ROOT, 'operations/scripts/audits/content/veracity/docs-research-adjudication.js');
 
 function mkTmpDir(prefix) {
   return fs.mkdtempSync(path.join(os.tmpdir(), prefix));

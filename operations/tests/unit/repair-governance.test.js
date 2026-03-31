@@ -8,7 +8,7 @@
  * @needs             R-R14, R-R18, R-C6
  * @purpose-statement Tests repair-governance.js for safe dry-run, fix, rollback, strict exit handling, and workflow contract coverage.
  * @pipeline          manual
- * @usage             node tests/unit/repair-governance.test.js
+ * @usage             node operations/tests/unit/repair-governance.test.js
  */
 
 const assert = require('assert');
@@ -22,7 +22,7 @@ const {
 
 const REPO_ROOT = path.resolve(__dirname, '../../..');
 const AUDIT_SCRIPT_PATH = 'operations/scripts/validators/governance/audit-script-inventory.js';
-const SCRIPT_DOCS_TEST_PATH = 'tests/unit/script-docs.test.js';
+const SCRIPT_DOCS_TEST_PATH = 'operations/tests/unit/script-docs.test.js';
 const INVENTORY_JSON_PATH = 'workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.json';
 const REPORT_JSON_PATH = 'workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json';
 const REPORT_MD_PATH = 'workspace/reports/repo-ops/REPAIR_REPORT_LATEST.md';

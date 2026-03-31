@@ -11,11 +11,11 @@ metadata:
 primary_paths:
   - "v2/resources/documentation-guide/style-guide.mdx"
   - "style.css"
-  - "tests/unit/style-guide.test.js"
-  - "tests/unit/mdx.test.js"
+  - "operations/tests/unit/style-guide.test.js"
+  - "operations/tests/unit/mdx.test.js"
 primary_commands:
-  - "node tests/unit/style-guide.test.js --staged"
-  - "node tests/unit/mdx.test.js --staged"
+  - "node operations/tests/unit/style-guide.test.js --staged"
+  - "node operations/tests/unit/mdx.test.js --staged"
 ---
 
 SKILL: Mintlify Authoring Style Compliance
@@ -36,8 +36,8 @@ Workflow
 
 Command examples
 ```bash
-node tests/unit/style-guide.test.js --staged
-node tests/unit/mdx.test.js --staged
+node operations/tests/unit/style-guide.test.js --staged
+node operations/tests/unit/mdx.test.js --staged
 ```
 
 Deliverable Format

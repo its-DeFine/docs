@@ -1,7 +1,7 @@
 # Livepeer — Deprecated and Conflicted Terms
 
 **Purpose**: Terms that have been renamed, deprecated, or have conflicting definitions across files. Content prompts must use the correct current term.
-**Sources**: `tasks/plan/active/TERMINOLOGY-COLLATE/research.md` (Known Issues), per-tab glossaries
+**Sources**: `workspace/plan/active/TERMINOLOGY-COLLATE/research.md` (Known Issues), per-tab glossaries
 **Generated**: 2026-03-20
 
 ---
@@ -22,7 +22,7 @@
 
 | Term | Conflict | Resolution |
 |---|---|---|
-| pageType enum | Old 12-type set (landing, overview, tutorial, quickstart, how_to, concept, reference, faq, troubleshooting, changelog, glossary, guide) vs new 7-type set (navigation, concept, tutorial, guide, instruction, reference, resource) | New 7-type set is canonical per `tasks/plan/active/CONTENT-WRITING/framework.md`. The old values are deprecated aliases. |
+| pageType enum | Old 12-type set (landing, overview, tutorial, quickstart, how_to, concept, reference, faq, troubleshooting, changelog, glossary, guide) vs new 7-type set (navigation, concept, tutorial, guide, instruction, reference, resource) | New 7-type set is canonical per `workspace/plan/active/CONTENT-WRITING/Frameworks/content-pipeline-framework.md`. The old values are deprecated aliases. |
 | purpose enum | Format-mirroring 16-value set vs intent-based 15-value set | Intent-based 15-value set is canonical (orient, explain, choose, start, build, configure, operate, troubleshoot, optimize, integrate, verify, compare, reference, learn, update). |
 | audience tokens | Old 9-token set (developer, gateway-operator, orchestrator, delegator, platform-builder, community, internal, general, everyone) vs new 10-token set | New set is canonical: added `founder`, renamed `platform-builder` → `builder`. |
 | "Network Participant" | Flagged with "..?" in livepeer-glossary.mdx — unclear if distinct from Protocol Actor | Avoid using "Network Participant" as a defined term until resolved. Use specific role labels (Orchestrator, Gateway, Delegator, Developer) instead. |

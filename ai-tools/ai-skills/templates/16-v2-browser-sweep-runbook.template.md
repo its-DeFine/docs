@@ -5,7 +5,7 @@ description: >-
   console/render failures. Use when: run full browser sweep for v2 pages,
   console errors across docs pages, validate all docs.json routes render.
 metadata:
-  version: "1.2"
+  version: "1.3"
   category: "audit"
   tier: "1"
 primary_paths:
@@ -28,11 +28,13 @@ Constraints
 - Do not modify `v1/` content; it is frozen/immutable.
 - Keep edits within requested scope and avoid protected root changes like `.allowlist` unless explicitly requested.
 - Use only repository-backed commands and paths listed in this template.
+- Any local dev server or Puppeteer browser process started for the sweep must be shut down before handoff.
 
 Workflow
-1. Ensure local mint server availability for sweep command.
+1. Ensure local mint server availability for sweep command, starting `lpd dev` only in a session you can stop cleanly after the sweep.
 2. Run full sweep over docs.json routes and capture report JSON.
 3. Triage failed pages by navigation/error/request-failure signals.
+4. Stop the local dev server and confirm the Puppeteer run exited cleanly before handing the task back.
 
 Command examples
 ```bash
@@ -42,13 +44,17 @@ npm --prefix tools run test:v2-pages
 
 Deliverable Format
 - Browser sweep summary (passed/failed/total).
+- Confirmation that any local dev server started for the sweep was stopped afterward.
 - Per-page failure details with suggested next checks.
 
 Failure Modes / Fallback
 - If server is unreachable, resolve local dev server state before retesting.
 - If failures are environment-specific, note reproducibility conditions explicitly.
+- If the sweep is interrupted or hangs, terminate leftover Puppeteer/browser processes before rerunning or finishing.
 
 Validation Checklist
 - [ ] Sweep command executes with generated JSON report.
 - [ ] Failed pages are enumerated with errors.
+- [ ] Any local dev server started for the sweep was stopped before finish.
+- [ ] No orphaned Puppeteer/browser process remains from the sweep run.
 - [ ] No unsafe bypass recommendations are present.

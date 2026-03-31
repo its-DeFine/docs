@@ -9,7 +9,7 @@
  * @purpose-statement Tests generated artifact governance manifest — validates enums, path matching, and hook-policy expectations
  * @pipeline          manual — targeted governance test
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/unit/generated-artifacts-policy.test.js
+ * @usage             node operations/tests/unit/generated-artifacts-policy.test.js
  */
 
 const assert = require('assert');

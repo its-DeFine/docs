@@ -3,12 +3,12 @@
  * @script            copy-lint.test
  * @category          validator
  * @purpose           qa:content-quality
- * @scope             tests/unit, tests/copy-lint-fixtures, tools/scripts
+ * @scope             tests/unit, operations/tests/copy-lint-fixtures, tools/scripts
  * @owner             docs
  * @needs             E-R1, R-R11
  * @purpose-statement Copy lint unit suite — validates fixture-driven copy-governance checks and runs changed-file scoped lint aggregation for authored docs pages.
  * @pipeline          P1, P3
- * @usage             node tests/unit/copy-lint.test.js [--staged] [--files <a,b,c>]
+ * @usage             node operations/tests/unit/copy-lint.test.js [--staged] [--files <a,b,c>]
  */
 
 'use strict';

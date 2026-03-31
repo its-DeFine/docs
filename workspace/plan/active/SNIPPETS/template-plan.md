@@ -142,7 +142,7 @@ After the generator no longer writes to `v2/templates/` and the folder is delete
 | `tests/run-all.js` (line 131) | Remove `v2/templates/` exclusion |
 | `tests/unit/v2-link-audit.test.js` (line 210) | Remove `v2/templates/overview-page-template` exception |
 
-After updating: run `node tests/run-all.js` and `node tools/scripts/generators/components/library/generate-ui-templates.js --check` to verify clean state.
+After updating: run `node operations/tests/run-all.js` and `node operations/scripts/generators/components/library/generate-ui-templates.js --check` to verify clean state.
 
 ---
 
@@ -152,7 +152,7 @@ After updating: run `node tests/run-all.js` and `node tools/scripts/generators/c
 Phase 1 — Strip preview pipeline from generator
     │
     ▼
-    Run: node tools/scripts/generators/components/library/generate-ui-templates.js --write
+    Run: node operations/scripts/generators/components/library/generate-ui-templates.js --write
     (regenerates catalog + ui-system without preview links; does not touch v2/templates yet)
     │
     ▼
@@ -168,8 +168,8 @@ Phase 2 — Delete v2/templates/ (21 files)
 Phase 5 — Update config and test references
     │
     ▼
-    Run: node tests/run-all.js
-    Run: node tools/scripts/generators/components/library/generate-ui-templates.js --check
+    Run: node operations/tests/run-all.js
+    Run: node operations/scripts/generators/components/library/generate-ui-templates.js --check
 ```
 
 Phases 4-A through 4-D and Phase 3 can run in parallel with each other. Phase 5 runs last.

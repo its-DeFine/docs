@@ -41,6 +41,12 @@ const LOCALE_DIRS = {
   fr: path.join(REPO_ROOT, 'v2', 'fr', 'resources', 'documentation-guide', 'component-library'),
   cn: path.join(REPO_ROOT, 'v2', 'cn', 'resources', 'documentation-guide', 'component-library')
 };
+const ENGLISH_COMPONENT_LIBRARY_ROUTE = '/v2/resources/documentation-guide/component-library';
+const LOCALE_COMPONENT_LIBRARY_ROUTES = {
+  es: '/v2/es/resources/documentation-guide/component-library',
+  fr: '/v2/fr/resources/documentation-guide/component-library',
+  cn: '/v2/cn/resources/documentation-guide/component-library'
+};
 const LEGACY_COMPONENT_LIBRARY_FILES = [
   'display.mdx', 'domain.mdx', 'integrations.mdx',
   'primitives.mdx', 'layout.mdx', 'content.mdx', 'data.mdx', 'page-structure.mdx'
@@ -214,6 +220,10 @@ function renderDecisionTree() {
     '4. Exists to hold, group, or arrange other things? → `wrappers/`',
     '5. Single visual piece — no wrapping, no arranging, no fetching? → `elements/`'
   ].join('\n');
+}
+
+function buildComponentLibraryRoute(baseRoute, slug = '') {
+  return slug ? `${baseRoute}/${slug}` : baseRoute;
 }
 
 function renderPropsTable(params) {
@@ -397,7 +407,7 @@ async function renderCategoryPage(category, components, args, cache, warnings) {
   return normalizeFileContent(
     [
       formatGeneratedPreamble(meta),
-      '<Card title="Back to Component Library" icon="arrow-left" href="../component-library" arrow>',
+      `<Card title="Back to Component Library" icon="arrow-left" href="${buildComponentLibraryRoute(ENGLISH_COMPONENT_LIBRARY_ROUTE)}" arrow>`,
       '  Return to the generated component library landing page.',
       '</Card>',
       '',
@@ -431,7 +441,7 @@ function renderOverviewPage(registry) {
 
   VALID_CATEGORIES.forEach((category) => {
     rows.push(
-      `| [${CATEGORY_LABELS[category]}](./${category}) | ${escapePipes(registry.categories[category].purpose)} | ${registry.categories[category].count} |`
+      `| [${CATEGORY_LABELS[category]}](${buildComponentLibraryRoute(ENGLISH_COMPONENT_LIBRARY_ROUTE, category)}) | ${escapePipes(registry.categories[category].purpose)} | ${registry.categories[category].count} |`
     );
   });
 
@@ -496,7 +506,7 @@ function renderLandingPage(registry) {
       formatGeneratedPreamble(meta),
       '<CardGroup cols={2}>',
       ...VALID_CATEGORIES.flatMap((category) => [
-        `  <Card title="${CATEGORY_LABELS[category]}" href="./${category}" icon="puzzle-piece">`,
+        `  <Card title="${CATEGORY_LABELS[category]}" href="${buildComponentLibraryRoute(ENGLISH_COMPONENT_LIBRARY_ROUTE, category)}" icon="puzzle-piece">`,
         `    ${CATEGORY_DESCRIPTIONS[category]} (${registry.categories[category].count} exports)`,
         '  </Card>'
       ]),
@@ -514,7 +524,7 @@ function renderLandingPage(registry) {
       '',
       '## Start Here',
       '',
-      '- Review [Overview](./overview) for the governance snapshot and category matrix.',
+      `- Review [Overview](${buildComponentLibraryRoute(ENGLISH_COMPONENT_LIBRARY_ROUTE, 'overview')}) for the governance snapshot and category matrix.`,
       '- Jump to a category page for component-level reference details.',
       ''
     ].join('\n')
@@ -586,6 +596,7 @@ function buildLocalizedScaffold(locale, targetPath, sourcePath, sourceContent, c
 }
 
 function renderLocaleScaffold(locale, slug, registry) {
+  const localeBaseRoute = LOCALE_COMPONENT_LIBRARY_ROUTES[locale];
   const titleMap = {
     overview: 'Component Library Overview',
     'component-library': 'Component Library',
@@ -633,7 +644,7 @@ function renderLocaleScaffold(locale, slug, registry) {
         '',
         '<CardGroup cols={2}>',
         ...VALID_CATEGORIES.flatMap((category) => [
-          `  <Card title="${CATEGORY_LABELS[category]}" href="./${category}" icon="puzzle-piece">`,
+          `  <Card title="${CATEGORY_LABELS[category]}" href="${buildComponentLibraryRoute(localeBaseRoute, category)}" icon="puzzle-piece">`,
           `    ${registry.categories[category].count} exports`,
           '  </Card>'
         ]),
@@ -651,7 +662,7 @@ function renderLocaleScaffold(locale, slug, registry) {
         '',
         '| Category | Exports |',
         '| --- | --- |',
-        ...VALID_CATEGORIES.map((category) => `| [${CATEGORY_LABELS[category]}](./${category}) | ${registry.categories[category].count} |`),
+        ...VALID_CATEGORIES.map((category) => `| [${CATEGORY_LABELS[category]}](${buildComponentLibraryRoute(localeBaseRoute, category)}) | ${registry.categories[category].count} |`),
         ''
       ].join('\n')
     );
@@ -663,7 +674,7 @@ function renderLocaleScaffold(locale, slug, registry) {
       formatGeneratedPreamble(meta),
       `<Note>Localized prose refresh for \`${locale}\` is pending. This page preserves the new route and mirrors the English category inventory at a summary level.</Note>`,
       '',
-      '<Card title="Back to Component Library" icon="arrow-left" href="../component-library" arrow>',
+      `<Card title="Back to Component Library" icon="arrow-left" href="${buildComponentLibraryRoute(localeBaseRoute)}" arrow>`,
       '  Return to the localized component-library landing page.',
       '</Card>',
       '',

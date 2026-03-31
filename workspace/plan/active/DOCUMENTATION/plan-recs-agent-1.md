@@ -311,7 +311,7 @@ Each of these takes under 30 minutes, has no dependencies on other work, and vis
 ### QW2 — Fix the stale path reference in `docs-guide/docs-glossary.md`
 
 **File:** `docs-guide/docs-glossary.md`
-**Fix:** Change the `tasks/plan/active/COMPONENT-GOVERNANCE/structure.md` reference to the correct current path (`workspace/plan/active/...`).
+**Fix:** Change the `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md` reference to the correct current path (`workspace/plan/active/...`).
 **Why it matters:** The glossary is read by agents orienting in the repo. A stale internal path in the glossary sends agents to a file that doesn't exist at that location, breaking their context.
 **Time:** Under 5 minutes.
 

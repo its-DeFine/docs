@@ -9,7 +9,7 @@
  * @purpose-statement Unit tests for v2-link-audit.js — tests individual link checking rules
  * @pipeline          manual — not yet in pipeline
  * @dualmode          --full (validator) | --write-links (remediator)
- * @usage             node tests/unit/v2-link-audit.test.js [flags]
+ * @usage             node operations/tests/unit/v2-link-audit.test.js [flags]
  */
 
 const assert = require('assert');
@@ -38,7 +38,7 @@ async function runCase(name, fn) {
       rule: 'v2-link-audit unit',
       message: `${name}: ${error.message}`,
       line: 1,
-      file: 'tests/unit/v2-link-audit.test.js'
+      file: 'operations/tests/unit/v2-link-audit.test.js'
     });
   }
 }
@@ -193,10 +193,13 @@ async function runTests() {
       ]
     });
 
-    assert.strictEqual(result.fileCount, 2);
+    assert(result.fileCount >= 4);
     const analyzedFiles = (result.jsonReport?.files || []).map((file) => file.file || file.filePath || '');
+    assert(analyzedFiles.some((file) => file.endsWith('v2/orchestrators/quickstart/AI-prompt-start.mdx')));
     assert(analyzedFiles.some((file) => file.endsWith('v2/orchestrators/quickstart/guide.mdx')));
+    assert(analyzedFiles.some((file) => file.endsWith('v2/orchestrators/quickstart/tutorial.mdx')));
     assert(analyzedFiles.some((file) => file.endsWith('v2/orchestrators/quickstart/video-transcoding.mdx')));
+    assert(analyzedFiles.some((file) => file.endsWith('snippets/composables/pages/shared/eth-account-setup.mdx')));
     assert(analyzedFiles.every((file) => !file.includes('v2/orchestrators/guides/')));
   });
 

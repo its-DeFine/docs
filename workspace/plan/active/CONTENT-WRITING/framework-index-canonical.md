@@ -121,6 +121,6 @@ See [framework.md](framework.md) for full per-audience persona lists
 | `snippets/templates/pages/page-composition-framework.mdx` | Page composition rules — input to Step 11 |
 | `workspace/plan/active/CONTENT-WRITING/Prompts/section-naming.md` | Section naming prompt (moved from `v2/_workspace/research/content-naming.md`) — input to Step 10 |
 | `v2/_workspace/research/ai-coauthoring.md` | Purpose + evaluation research notes — informed pagePurpose.md |
-| `tasks/plan/active/TERMINOLOGY-COLLATE/` | Full terminology collation across all tabs — input to veracity library |
-| `tasks/plan/active/SCRIPT-GOVERNANCE/catalog.md` | Script catalog — reference for validation tooling in Phase 2 |
+| `workspace/plan/active/TERMINOLOGY-COLLATE/` | Full terminology collation across all tabs — input to veracity library |
+| `docs-guide/catalog/scripts-catalog.mdx` | Script catalog — reference for validation tooling in Phase 2 |
 | `ai-tools/ai-skills/` | Existing skills — to be replaced or extended by pipeline skills in Phase 2 |

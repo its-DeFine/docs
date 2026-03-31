@@ -153,7 +153,7 @@ Each category page follows this generated structure:
 
 ### **6.3 Generation Pipeline**
 
-**Script:** `operations/scripts/generate-component-docs.js`
+**Script:** `operations/scripts/generators/components/documentation/generate-component-docs.js`
 
 ### **6.4 OpenRouter Integration**
 

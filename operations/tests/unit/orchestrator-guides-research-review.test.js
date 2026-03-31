@@ -3,12 +3,12 @@
  * @script            orchestrator-guides-research-review.test
  * @category          generator
  * @purpose           tooling:dev-tools
- * @scope             tests/unit, operations/scripts/orchestrator-guides-research-review.js, tools/config/scoped-navigation/docs-gate-work.json
+ * @scope             tests/unit, operations/scripts/dispatch/content/veracity/orchestrator-guides-research-review.js, tools/config/scoped-navigation/docs-gate-work.json
  * @domain            docs
  * @needs             R-R27, R-R30
  * @purpose-statement Tests orchestrator-guides-research-review.js — validates live Orchestrators Guides tranche extraction, report summary helpers, and registry-drift detection for the research packet generator.
  * @pipeline          manual — packet generator validation
- * @usage             node tests/unit/orchestrator-guides-research-review.test.js
+ * @usage             node operations/tests/unit/orchestrator-guides-research-review.test.js
  */
 
 const assert = require('assert');

@@ -9,7 +9,7 @@
  * @purpose-statement Tests validate-codex-task-contract.js — validates contract checking logic
  * @pipeline          manual — not yet in pipeline
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/unit/validate-codex-task-contract.test.js [flags]
+ * @usage             node operations/tests/unit/validate-codex-task-contract.test.js [flags]
  */
 
 const assert = require('assert');
@@ -52,7 +52,7 @@ function writeContract(absPath, taskId, branchName) {
     '  - v1/',
     'allowed_generated: []',
     'acceptance_checks:',
-    '  - node tests/run-pr-checks.js --base-ref docs-v2-dev',
+    '  - node operations/tests/run-pr-checks.js --base-ref docs-v2-dev',
     'risk_flags: []',
     'follow_up_issues: []',
     ''

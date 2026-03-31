@@ -8,7 +8,7 @@
  * @needs             E-C6, F-C1
  * @purpose-statement MDX parser utility — extracts frontmatter, components, content blocks from MDX files
  * @pipeline          indirect — library module
- * @usage             node tests/utils/mdx-parser.js [flags]
+ * @usage             node operations/tests/utils/mdx-parser.js [flags]
  */
 /**
  * MDX parsing utilities for validation

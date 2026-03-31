@@ -94,7 +94,7 @@ This document inventories every file in the repo that defines, introduces, or us
 
 ## 2. Framework & Structure Files (Canonical Sources of Truth)
 
-### 2.1 `tasks/plan/active/CONTENT-WRITING/framework.md`
+### 2.1 `workspace/plan/active/CONTENT-WRITING/Frameworks/content-pipeline-framework.md`
 
 **Status**: Active — decisions being recorded
 **Covers**: Content writing pipeline frontmatter schema
@@ -117,7 +117,7 @@ This document inventories every file in the repo that defines, introduces, or us
 
 ---
 
-### 2.2 `tasks/plan/active/COMPONENT-GOVERNANCE/structure.md`
+### 2.2 `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md`
 
 **Status**: Active — source of truth for component taxonomy
 **Covers**: Component folder taxonomy, JSDoc header standard
@@ -136,7 +136,7 @@ This document inventories every file in the repo that defines, introduces, or us
 
 ---
 
-### 2.3 `tasks/plan/active/SCRIPT-GOVERNANCE/structure.md`
+### 2.3 `workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md`
 
 **Status**: Active — source of truth for script taxonomy
 **Covers**: Script folder taxonomy, JSDoc header standard
@@ -279,7 +279,7 @@ Also defines **migration map** from old 12-type enum to new 7-type system.
 
 ## 4. Copy & Voice Governance
 
-### 4.1 `tasks/plan/active/dep-COPYWRITING FRAMEWORK/copy-rules-SKILL.md`
+### 4.1 `workspace/plan/complete/dep-COPYWRITING FRAMEWORK/copy-rules-SKILL.md`
 
 **Status**: Deprecated folder, but copy rules still apply
 **Covers**: Banned phrases, banned words, entity-led voice rules
@@ -349,7 +349,7 @@ Also defines **migration map** from old 12-type enum to new 7-type system.
 
 ### 5.3 Network terminology research pilot
 
-**Path**: `tasks/plan/repo-ops-reports/page-content-research-history/2026-03-16-page-content-research-pilot-network-terminology.md`
+**Path**: `workspace/plan/repo-ops-reports/page-content-research-history/2026-03-16-page-content-research-pilot-network-terminology.md`
 **Status**: Research pilot
 **Covers**: Gateway/orchestrator role terminology validation and propagation
 

@@ -9,13 +9,13 @@ metadata:
   category: "governance"
   tier: "1"
 primary_paths:
-  - "tests/unit/spelling.test.js"
-  - "tests/config/spell-dict.json"
+  - "operations/tests/unit/spelling.test.js"
+  - "operations/tests/config/spell-dict.json"
   - "tools/config/cspell.json"
   - "tests/README.md"
 primary_commands:
-  - "node tests/unit/spelling.test.js --staged"
-  - "npm --prefix tests run test:spell"
+  - "node operations/tests/unit/spelling.test.js --staged"
+  - "npm --prefix operations/tests run test:spell"
 ---
 
 SKILL: Spelling and CSpell Maintenance
@@ -36,8 +36,8 @@ Workflow
 
 Command examples
 ```bash
-node tests/unit/spelling.test.js --staged
-npm --prefix tests run test:spell
+node operations/tests/unit/spelling.test.js --staged
+npm --prefix operations/tests run test:spell
 ```
 
 Deliverable Format

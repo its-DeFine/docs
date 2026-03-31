@@ -3,8 +3,8 @@
  * @category         integrators
  * @subcategory      feeds
  * @status           experimental
- * @description      Interactive widget to verify Livepeer contract addresses on-chain. Two modes: look up by name (verifies via Controller RPC or Blockscout depending on contract), verify by pasted address. Consumes pipeline data from contractAddressesData.jsx.
- * @dataSource       prop (contractAddressesData.jsx — addresses, keccak hashes, registration status, explorer URLs, RPC URLs) + Arbitrum One RPC (eth_call) + Blockscout API v2 (/api/v2/addresses/)
+ * @description      Interactive widget to verify Livepeer contract addresses on-chain. Two modes: look up by name (verifies via Controller RPC or Blockscout depending on contract), verify by pasted address. Consumes lifecycle-safe pipeline data from contractAddressesData.jsx.
+ * @dataSource       prop (contractAddressesData.jsx — active registry rows, lifecycle metadata, keccak hashes, registration state, explorer URLs, RPC URLs) + Arbitrum One RPC (eth_call) + Blockscout API v2 (/api/v2/addresses/)
  * @aiDiscoverability props-extracted
  *
  * // ContractAddresses: see snippets/data/contract-addresses/contractAddressesData.jsx
@@ -12,6 +12,12 @@
  * @param {string} [className=''] - Optional CSS class override.
  * @param {object} [style={}]     - Optional inline style override.
  */
+
+import {
+  buildContractVerifierChainData,
+  isContractVerifierControllerLookupEligible,
+} from '/snippets/components/integrators/feeds/contractVerifierData.js'
+
 export const ContractVerifier = ({ data, className = "", style = {}, ...rest }) => {
 
   // ── CONSTANTS ──────────────────────────────────────────────────────────
@@ -40,22 +46,6 @@ export const ContractVerifier = ({ data, className = "", style = {}, ...rest }) 
   }
 
   // ── DERIVE CONTRACT LISTS FROM PIPELINE DATA ──────────────────────────
-  const buildChainData = (chainKey) => {
-    const chainData = data && data[chainKey]
-    const entries = (chainData && chainData.current) || []
-    // Active only: skip historical entries, prefer proxy over standalone over target
-    const canonical = {}
-    entries.forEach(c => {
-      if (c.isHistorical) return
-      if (!canonical[c.name]) {
-        canonical[c.name] = c
-      } else if (c.type === 'proxy') {
-        canonical[c.name] = c
-      }
-    })
-    return { entries, canonical }
-  }
-
   // ── STATE ─────────────────────────────────────────────────────────────
   const [chain, setChain] = useState('arbitrumOne')
   const [tab, setTab] = useState('lookup')
@@ -67,7 +57,7 @@ export const ContractVerifier = ({ data, className = "", style = {}, ...rest }) 
 
   // ── CHAIN-DERIVED DATA ────────────────────────────────────────────────
   const chainConfig = CHAINS[chain]
-  const { entries: contracts, canonical: canonicalMap } = buildChainData(chain)
+  const { activeEntries: contracts, inventoryEntries, canonical: canonicalMap } = buildContractVerifierChainData(data, chain)
   const controllerEntry = contracts.find(c => c.name === 'Controller')
   const CONTROLLER = controllerEntry
     ? controllerEntry.address
@@ -124,12 +114,9 @@ export const ContractVerifier = ({ data, className = "", style = {}, ...rest }) 
     setError(null)
     setResult(null)
     const entry = canonicalMap[selectedName]
+    const canRpcLookup = isContractVerifierControllerLookupEligible(entry, chainConfig.hasController)
     const entryMeta = (entry && entry.meta) || {}
     const hash = entryMeta.keccakHash || null
-    const isRegistered = typeof entryMeta.registeredInController === 'boolean'
-      ? entryMeta.registeredInController
-      : null
-    const canRpcLookup = chainConfig.hasController && hash && isRegistered === true
 
     try {
       // Helper: verify via Blockscout
@@ -226,7 +213,7 @@ export const ContractVerifier = ({ data, className = "", style = {}, ...rest }) 
       const nameStr = (bsData.name || '').toLowerCase()
       const isLivepeerNamed = nameStr.includes('livepeer') || nameStr.includes('proxy')
       // Check if this address is in our pipeline data
-      const pipelineMatch = contracts.find(
+      const pipelineMatch = inventoryEntries.find(
         c => c.address.toLowerCase() === trimmed.toLowerCase()
       )
       setResult({
@@ -567,7 +554,7 @@ export const ContractVerifier = ({ data, className = "", style = {}, ...rest }) 
             style={styles.link}
           >View on Arbiscan</a>
           <a
-            href={`${BLOCKSCOUT}/address/${result.queriedAddress}`}
+            href={`${chainConfig.blockscout}/address/${result.queriedAddress}`}
             target="_blank"
             rel="noopener noreferrer"
             style={styles.link}

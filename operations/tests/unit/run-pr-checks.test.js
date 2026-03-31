@@ -8,7 +8,7 @@
  * @needs             R-R14, R-R29
  * @purpose-statement Tests run-pr-checks lane parsing, branch-health registry coverage, and incremental summary/progress behavior.
  * @pipeline          manual
- * @usage             node tests/unit/run-pr-checks.test.js
+ * @usage             node operations/tests/unit/run-pr-checks.test.js
  */
 
 const assert = require('assert');

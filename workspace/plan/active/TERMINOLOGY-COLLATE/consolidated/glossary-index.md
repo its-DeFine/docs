@@ -9,7 +9,7 @@ domains: livepeer, video, ai, web3, economic, technical, operational
 
 # Livepeer Unified Glossary — Index
 
-This file is a pure index. No term definitions appear here. For definitions, see the per-tab source files in `tasks/plan/active/TERMINOLOGY-COLLATE/per-tab/`.
+This file is a pure index. No term definitions appear here. For definitions, see the per-tab source files in `workspace/plan/active/TERMINOLOGY-COLLATE/per-tab/`.
 
 ---
 

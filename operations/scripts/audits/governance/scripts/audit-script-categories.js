@@ -8,7 +8,7 @@
  * @description Script auditor — analyses all repo scripts, categorises usage/overlap, generates SCRIPT_AUDIT reports
  * @mode        read-only
  * @pipeline    manual — diagnostic/investigation tool, run on-demand only
- * @scope       operations/scripts, workspace/README.md, workspace/reports operations/tests/unit/script-docs.test.js, tests/README.md
+ * @scope       operations/scripts, workspace/README.md, workspace/reports, operations/tests/unit/script-docs.test.js, operations/tests/README.md
  * @usage       node operations/scripts/audits/governance/scripts/audit-script-categories.js [flags]
  * @policy      E-C1, R-R14
  */
@@ -35,7 +35,7 @@ try {
 const REPO_ROOT = process.cwd()
 const DEFAULT_FORMAT = 'both'
 const DEFAULT_OUTPUT_DIR = 'workspace/reports/repo-ops'
-const REPORTS_INDEX_PATH = path.join('tasks', 'reports', 'INDEX.md')
+const REPORTS_INDEX_PATH = path.join('workspace', 'reports', 'INDEX.md')
 
 const RULES_SOURCE = ['operations/tests/unit/script-docs.test.js', 'operations/tests/README.md']
 
@@ -125,7 +125,7 @@ const SCRIPT_COMMAND_NAMES = new Set([
 
 function usage() {
   console.log(
-    'Usage: node operations/scripts/audit-scripts.js [--format both|md|json] [--output-dir <dir>] [--strict]'
+    'Usage: node operations/scripts/audits/governance/scripts/audit-script-categories.js [--format both|md|json] [--output-dir <dir>] [--strict]'
   )
 }
 
@@ -1548,7 +1548,7 @@ function getCurrentBranch() {
 }
 
 function parseApprovedGeneratorRows() {
-  const readmePath = path.join(REPO_ROOT, 'tasks', 'README.md')
+  const readmePath = path.join(REPO_ROOT, 'workspace', 'README.md')
   if (!fs.existsSync(readmePath)) return []
 
   const lines = fs.readFileSync(readmePath, 'utf8').split('\n')

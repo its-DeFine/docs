@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-03-21T03:20:23.804Z",
-  "repoRoot": "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev-scripts",
+  "generatedAt": "2026-03-31T04:28:50.839Z",
+  "repoRoot": "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev",
   "options": {
-    "format": "json",
+    "format": "both",
     "outputDir": "workspace/reports/repo-ops",
     "strict": false
   },
@@ -11,50 +11,50 @@
     "operations/tests/README.md"
   ],
   "summary": {
-    "totalScripts": 281,
-    "templateCompliant": 117,
-    "templateNonCompliant": 164,
+    "totalScripts": 336,
+    "templateCompliant": 118,
+    "templateNonCompliant": 218,
     "categoryCounts": {
       "hook": 9,
-      "manual": 269,
-      "enforcement": 103,
+      "manual": 310,
+      "enforcement": 114,
       "pre-commit": 2,
-      "ci": 23,
-      "sync": 24,
-      "scheduled": 11,
-      "workflow-dispatch": 17,
-      "runner": 7,
-      "audit": 42,
-      "generator": 55,
-      "npm-script": 57,
-      "helper": 79,
-      "pr": 9,
-      "push": 9,
+      "ci": 39,
+      "sync": 32,
+      "scheduled": 10,
+      "workflow-dispatch": 38,
+      "generator": 62,
+      "audit": 45,
+      "npm-script": 59,
+      "helper": 103,
+      "pr": 12,
+      "push": 12,
+      "test": 73,
       "fixture": 9,
-      "test": 67,
+      "runner": 8,
       "deprecated": 9
     },
     "roleTagCounts": {
       "hook": 9,
-      "enforcement": 103,
-      "ci": 23,
-      "sync": 24,
-      "runner": 7,
-      "audit": 42,
-      "generator": 55,
-      "helper": 79,
+      "enforcement": 114,
+      "ci": 39,
+      "sync": 32,
+      "generator": 62,
+      "audit": 45,
+      "helper": 103,
+      "test": 73,
       "fixture": 9,
-      "test": 67,
+      "runner": 8,
       "deprecated": 9
     },
     "runContextTagCounts": {
-      "manual": 269,
+      "manual": 310,
       "pre-commit": 2,
-      "scheduled": 11,
-      "workflow-dispatch": 17,
-      "npm-script": 57,
-      "pr": 9,
-      "push": 9
+      "scheduled": 10,
+      "workflow-dispatch": 38,
+      "npm-script": 59,
+      "pr": 12,
+      "push": 12
     },
     "exactOverlapClusters": 1,
     "nearOverlapClusters": 0
@@ -182,7 +182,7 @@
       "metadata": {
         "scriptTag": "pre-push",
         "ownerTag": "docs",
-        "scopeTag": ".githooks, tools/scripts/validate-codex-task-contract.js, .codex/task-contract.yaml",
+        "scopeTag": ".githooks, operations/scripts/validators/governance/compliance/validate-codex-task-contract.js, .codex/task-contract.yaml",
         "usageTag": "bash .githooks/pre-push [flags]"
       },
       "categories": {
@@ -315,6 +315,113 @@
       "usedBy": []
     },
     {
+      "path": ".github/scripts/fetch-contract-addresses.js",
+      "purpose": "infrastructure:data-feeds",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement",
+          "@pipeline"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "fetch-contract-addresses",
+        "ownerTag": "",
+        "scopeTag": ".github/scripts, snippets/data/contract-addresses/, snippets/composables/pages/canonical/",
+        "usageTag": "node .github/scripts/fetch-contract-addresses.js [--dry-run] [--skip-verify]"
+      },
+      "categories": {
+        "roleTags": [
+          "ci",
+          "sync"
+        ],
+        "runContextTags": [
+          "scheduled",
+          "workflow-dispatch"
+        ],
+        "evidence": [
+          "role:ci via workflow invocation",
+          "role:sync via name/summary keyword"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/update-contract-addresses.yml",
+          "location": "Update Contract Addresses > update-contracts > Fetch and verify contract addresses",
+          "whenTags": [
+            "scheduled",
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node .github/scripts/fetch-contract-addresses.js $FLAGS",
+            "run: set -euo pipefail FLAGS=\"\" if [[ \"${{ inputs.dry_run }}\" == \"true\" ]]; then FLAGS=\"$FLAGS --dry-run\"; fi if [[ \"${{ inputs.skip_verify }}\" == \"true\" ]]; then FLAGS=\"$FLAGS --skip-verify\"; fi node .github/scripts/fetch-contract-addresses...."
+          ]
+        }
+      ]
+    },
+    {
+      "path": ".github/scripts/fetch-discord-announcements.js",
+      "purpose": "infrastructure:data-feeds",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "fetch-discord-announcements",
+        "ownerTag": "",
+        "scopeTag": ".github/scripts, snippets/automations/",
+        "usageTag": "node .github/scripts/fetch-discord-announcements.js"
+      },
+      "categories": {
+        "roleTags": [
+          "ci",
+          "sync"
+        ],
+        "runContextTags": [
+          "workflow-dispatch"
+        ],
+        "evidence": [
+          "role:ci via workflow invocation",
+          "role:sync via name/summary keyword"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/data-refresh-governance.yml",
+          "location": "Data Refresh Governance > data-refresh > Run selected refresh mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node .github/scripts/fetch-discord-announcements.js",
+            "run: case \"${{ inputs.mode }}\" in forum) node .github/scripts/fetch-forum-data.js ;; ghost-blog) node .github/scripts/fetch-ghost-blog-data.js ;; youtube) node .github/scripts/fetch-youtube-data.js ;; github) node .github/scripts/fetch-github..."
+          ]
+        }
+      ]
+    },
+    {
       "path": ".github/scripts/fetch-forum-data.js",
       "purpose": "Fetches latest topics and posts from Livepeer Forum API, writes to snippets/automations/forum/",
       "templateCompliance": {
@@ -338,7 +445,6 @@
           "sync"
         ],
         "runContextTags": [
-          "scheduled",
           "workflow-dispatch"
         ],
         "evidence": [
@@ -349,26 +455,30 @@
       "usedBy": [
         {
           "sourceType": "workflow",
-          "sourcePath": ".github/workflows/update-forum-data.yml",
-          "location": "Update Forum Data > update-forum-data > Fetch and process forum data",
+          "sourcePath": ".github/workflows/data-refresh-governance.yml",
+          "location": "Data Refresh Governance > data-refresh > Run selected refresh mode",
           "whenTags": [
-            "scheduled",
             "workflow-dispatch"
           ],
           "viaNpm": false,
           "evidence": [
             "node .github/scripts/fetch-forum-data.js",
-            "run: node .github/scripts/fetch-forum-data.js"
+            "run: case \"${{ inputs.mode }}\" in forum) node .github/scripts/fetch-forum-data.js ;; ghost-blog) node .github/scripts/fetch-ghost-blog-data.js ;; youtube) node .github/scripts/fetch-youtube-data.js ;; github) node .github/scripts/fetch-github..."
           ]
         }
       ]
     },
     {
       "path": ".github/scripts/fetch-ghost-blog-data.js",
-      "purpose": "Fetches blog posts from Ghost CMS API, writes to snippets/automations/blog/",
+      "purpose": "infrastructure:data-feeds",
       "templateCompliance": {
-        "valid": true,
-        "missingTags": [],
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
         "emptyTags": [],
         "rulesSource": [
           "operations/tests/unit/script-docs.test.js",
@@ -377,9 +487,9 @@
       },
       "metadata": {
         "scriptTag": "fetch-ghost-blog-data",
-        "ownerTag": "docs",
-        "scopeTag": ".github/scripts",
-        "usageTag": "node .github/scripts/fetch-ghost-blog-data.js [flags]"
+        "ownerTag": "",
+        "scopeTag": ".github/scripts, snippets/automations/blog/",
+        "usageTag": "node .github/scripts/fetch-ghost-blog-data.js"
       },
       "categories": {
         "roleTags": [
@@ -387,7 +497,6 @@
           "sync"
         ],
         "runContextTags": [
-          "scheduled",
           "workflow-dispatch"
         ],
         "evidence": [
@@ -398,16 +507,171 @@
       "usedBy": [
         {
           "sourceType": "workflow",
-          "sourcePath": ".github/workflows/update-ghost-blog-data.yml",
-          "location": "Update Ghost Blog Data > update-ghost-data > Fetch and process Ghost blog data",
+          "sourcePath": ".github/workflows/data-refresh-governance.yml",
+          "location": "Data Refresh Governance > data-refresh > Run selected refresh mode",
           "whenTags": [
-            "scheduled",
             "workflow-dispatch"
           ],
           "viaNpm": false,
           "evidence": [
             "node .github/scripts/fetch-ghost-blog-data.js",
-            "run: node .github/scripts/fetch-ghost-blog-data.js"
+            "run: case \"${{ inputs.mode }}\" in forum) node .github/scripts/fetch-forum-data.js ;; ghost-blog) node .github/scripts/fetch-ghost-blog-data.js ;; youtube) node .github/scripts/fetch-youtube-data.js ;; github) node .github/scripts/fetch-github..."
+          ]
+        }
+      ]
+    },
+    {
+      "path": ".github/scripts/fetch-github-discussions.js",
+      "purpose": "infrastructure:data-feeds",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "fetch-github-discussions",
+        "ownerTag": "",
+        "scopeTag": ".github/scripts, snippets/automations/",
+        "usageTag": "node .github/scripts/fetch-github-discussions.js"
+      },
+      "categories": {
+        "roleTags": [
+          "ci",
+          "sync"
+        ],
+        "runContextTags": [
+          "workflow-dispatch"
+        ],
+        "evidence": [
+          "role:ci via workflow invocation",
+          "role:sync via name/summary keyword"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/data-refresh-governance.yml",
+          "location": "Data Refresh Governance > data-refresh > Run selected refresh mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node .github/scripts/fetch-github-discussions.js",
+            "run: case \"${{ inputs.mode }}\" in forum) node .github/scripts/fetch-forum-data.js ;; ghost-blog) node .github/scripts/fetch-ghost-blog-data.js ;; youtube) node .github/scripts/fetch-youtube-data.js ;; github) node .github/scripts/fetch-github..."
+          ]
+        }
+      ]
+    },
+    {
+      "path": ".github/scripts/fetch-github-releases.js",
+      "purpose": "infrastructure:data-feeds",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "fetch-github-releases",
+        "ownerTag": "",
+        "scopeTag": ".github/scripts, snippets/automations/",
+        "usageTag": "node .github/scripts/fetch-github-releases.js"
+      },
+      "categories": {
+        "roleTags": [
+          "ci",
+          "sync"
+        ],
+        "runContextTags": [
+          "workflow-dispatch"
+        ],
+        "evidence": [
+          "role:ci via workflow invocation",
+          "role:sync via name/summary keyword"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/data-refresh-governance.yml",
+          "location": "Data Refresh Governance > data-refresh > Run selected refresh mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node .github/scripts/fetch-github-releases.js",
+            "run: case \"${{ inputs.mode }}\" in forum) node .github/scripts/fetch-forum-data.js ;; ghost-blog) node .github/scripts/fetch-ghost-blog-data.js ;; youtube) node .github/scripts/fetch-youtube-data.js ;; github) node .github/scripts/fetch-github..."
+          ]
+        }
+      ]
+    },
+    {
+      "path": ".github/scripts/fetch-rss-blog-data.js",
+      "purpose": "infrastructure:data-feeds",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "fetch-rss-blog-data",
+        "ownerTag": "",
+        "scopeTag": ".github/scripts, snippets/automations/",
+        "usageTag": "node .github/scripts/fetch-rss-blog-data.js"
+      },
+      "categories": {
+        "roleTags": [
+          "ci",
+          "sync"
+        ],
+        "runContextTags": [
+          "workflow-dispatch"
+        ],
+        "evidence": [
+          "role:ci via workflow invocation",
+          "role:sync via name/summary keyword"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/data-refresh-governance.yml",
+          "location": "Data Refresh Governance > data-refresh > Run selected refresh mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node .github/scripts/fetch-rss-blog-data.js",
+            "run: case \"${{ inputs.mode }}\" in forum) node .github/scripts/fetch-forum-data.js ;; ghost-blog) node .github/scripts/fetch-ghost-blog-data.js ;; youtube) node .github/scripts/fetch-youtube-data.js ;; github) node .github/scripts/fetch-github..."
           ]
         }
       ]
@@ -436,7 +700,6 @@
           "sync"
         ],
         "runContextTags": [
-          "scheduled",
           "workflow-dispatch"
         ],
         "evidence": [
@@ -447,16 +710,83 @@
       "usedBy": [
         {
           "sourceType": "workflow",
-          "sourcePath": ".github/workflows/update-youtube-data.yml",
-          "location": "Update YouTube Data > update-youtube > Fetch and process YouTube videos",
+          "sourcePath": ".github/workflows/data-refresh-governance.yml",
+          "location": "Data Refresh Governance > data-refresh > Run selected refresh mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node .github/scripts/fetch-youtube-data.js",
+            "run: case \"${{ inputs.mode }}\" in forum) node .github/scripts/fetch-forum-data.js ;; ghost-blog) node .github/scripts/fetch-ghost-blog-data.js ;; youtube) node .github/scripts/fetch-youtube-data.js ;; github) node .github/scripts/fetch-github..."
+          ]
+        }
+      ]
+    },
+    {
+      "path": ".github/scripts/generate-changelog.js",
+      "purpose": "infrastructure:data-feeds",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "generate-changelog",
+        "ownerTag": "",
+        "scopeTag": ".github/scripts, v2/solutions/, v2/resources/changelog/",
+        "usageTag": "CHANGELOG_KEY=contracts node .github/scripts/generate-changelog.js [--dry-run] [--enhance] [--contract] CHANGELOG_CATEGORY=solutions node .github/scripts/generate-changelog.js [--dry-run] [--enhance] PRODUCT_KEY=daydream node .github/scripts/generate-changelog.js [--dry-run] [--enhance]"
+      },
+      "categories": {
+        "roleTags": [
+          "ci",
+          "generator"
+        ],
+        "runContextTags": [
+          "scheduled",
+          "workflow-dispatch"
+        ],
+        "evidence": [
+          "role:ci via workflow invocation",
+          "role:generator via name/summary keyword"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/update-changelogs.yml",
+          "location": "Update Changelogs > update-changelogs > Generate changelog entries (enhanced)",
           "whenTags": [
             "scheduled",
             "workflow-dispatch"
           ],
           "viaNpm": false,
           "evidence": [
-            "node .github/scripts/fetch-youtube-data.js",
-            "run: node .github/scripts/fetch-youtube-data.js"
+            "node .github/scripts/generate-changelog.js \"${FLAGS[@]}\"",
+            "run: FLAGS=(--enhance) if [[ \"${{ inputs.dry_run }}\" == \"true\" ]]; then FLAGS+=(--dry-run) fi # Add --contract flag when targeting the contracts changelog if [[ \"${{ inputs.changelog_key }}\" == \"contracts\" ]] || [[ \"${{ github.event.action }}..."
+          ]
+        },
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/update-changelogs.yml",
+          "location": "Update Changelogs > update-changelogs > Generate changelog entries (fallback — no LLM)",
+          "whenTags": [
+            "scheduled",
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node .github/scripts/generate-changelog.js \"${FLAGS[@]}\"",
+            "run: FLAGS=() if [[ \"${{ inputs.dry_run }}\" == \"true\" ]]; then FLAGS+=(--dry-run) fi if [[ \"${{ inputs.changelog_key }}\" == \"contracts\" ]] || [[ \"${{ github.event.action }}\" == \"governor-scripts-update\" ]]; then FLAGS+=(--contract) fi echo \"R..."
           ]
         }
       ]
@@ -509,40 +839,6 @@
           ]
         }
       ]
-    },
-    {
-      "path": "lpd",
-      "purpose": "Developer CLI orchestrator — unified command surface for setup, dev server, testing, hooks, and script execution across all repo domains",
-      "templateCompliance": {
-        "valid": false,
-        "missingTags": [
-          "@owner"
-        ],
-        "emptyTags": [],
-        "rulesSource": [
-          "operations/tests/unit/script-docs.test.js",
-          "operations/tests/README.md"
-        ]
-      },
-      "metadata": {
-        "scriptTag": "lpd",
-        "ownerTag": "docs",
-        "scopeTag": "full-repo",
-        "usageTag": ""
-      },
-      "categories": {
-        "roleTags": [
-          "runner"
-        ],
-        "runContextTags": [
-          "manual"
-        ],
-        "evidence": [
-          "role:runner via orchestrator naming pattern",
-          "run-context:manual due to no direct invocation mapping"
-        ]
-      },
-      "usedBy": []
     },
     {
       "path": "operations/scripts/audits/components/documentation/audit-component-usage.js",
@@ -713,7 +1009,7 @@
     },
     {
       "path": "operations/scripts/audits/content/quality/audit-python.py",
-      "purpose": "qa:repo-health",
+      "purpose": "qa:content-quality",
       "templateCompliance": {
         "valid": false,
         "missingTags": [
@@ -731,8 +1027,8 @@
       "metadata": {
         "scriptTag": "audit-python",
         "ownerTag": "",
-        "scopeTag": "tasks/scripts",
-        "usageTag": "python3 tools/scripts/audits/governance/repo/audit-python.py [flags]"
+        "scopeTag": "docs.json, v2, snippets, workspace/reports/page-audits",
+        "usageTag": "python3 operations/scripts/audits/content/quality/audit-python.py [flags]"
       },
       "categories": {
         "roleTags": [
@@ -871,6 +1167,80 @@
         "evidence": [
           "role:audit via name/summary keyword",
           "role:generator via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/audits/content/reference/audit-glossary-gaps.js",
+      "purpose": "tooling:dev-tools",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "audit-glossary-gaps",
+        "ownerTag": "",
+        "scopeTag": "operations/scripts/audits/content/reference",
+        "usageTag": "node operations/scripts/audits/content/reference/audit-glossary-gaps.js [flags]"
+      },
+      "categories": {
+        "roleTags": [
+          "audit"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/audits/content/reference/audit-icon-usage.js",
+      "purpose": "tooling:dev-tools",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "audit-icon-usage",
+        "ownerTag": "",
+        "scopeTag": "operations/scripts/audits/content/reference",
+        "usageTag": "node operations/scripts/audits/content/reference/audit-icon-usage.js [flags]"
+      },
+      "categories": {
+        "roleTags": [
+          "audit"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword",
           "run-context:manual due to no direct invocation mapping"
         ]
       },
@@ -1135,7 +1505,7 @@
       "metadata": {
         "scriptTag": "audit-scripts",
         "ownerTag": "",
-        "scopeTag": "operations/scripts, workspace/README.md, workspace/reports operations/tests/unit/script-docs.test.js, tests/README.md",
+        "scopeTag": "operations/scripts, workspace/README.md, workspace/reports, operations/tests/unit/script-docs.test.js, operations/tests/README.md",
         "usageTag": "node operations/scripts/audits/governance/scripts/audit-script-categories.js [flags]"
       },
       "categories": {
@@ -1490,8 +1860,8 @@
       "metadata": {
         "scriptTag": "fetch-external-docs",
         "ownerTag": "",
-        "scopeTag": "tools/scripts",
-        "usageTag": "bash tools/scripts/automations/content/data/fetching/fetch-external-docs.sh [flags]"
+        "scopeTag": "operations/scripts/automations/content/data/fetching",
+        "usageTag": "bash operations/scripts/automations/content/data/fetching/fetch-external-docs.sh [flags]"
       },
       "categories": {
         "roleTags": [
@@ -1503,7 +1873,8 @@
           "manual",
           "npm-script",
           "pr",
-          "push"
+          "push",
+          "workflow-dispatch"
         ],
         "evidence": [
           "role:ci via workflow invocation",
@@ -1545,7 +1916,8 @@
           "sourcePath": ".github/workflows/broken-links.yml",
           "location": "Check Broken Links > broken-links > Fetch external snippets",
           "whenTags": [
-            "pr"
+            "pr",
+            "workflow-dispatch"
           ],
           "viaNpm": false,
           "evidence": [
@@ -1559,7 +1931,8 @@
           "location": "Docs CI - Content Quality Suite > test-suite > Fetch external snippets",
           "whenTags": [
             "pr",
-            "push"
+            "push",
+            "workflow-dispatch"
           ],
           "viaNpm": false,
           "evidence": [
@@ -1573,7 +1946,8 @@
           "location": "Docs CI - V2 Browser Sweep > test-pages > Fetch external snippets",
           "whenTags": [
             "pr",
-            "push"
+            "push",
+            "workflow-dispatch"
           ],
           "viaNpm": false,
           "evidence": [
@@ -1603,8 +1977,8 @@
       "metadata": {
         "scriptTag": "fetch-lpt-exchanges",
         "ownerTag": "",
-        "scopeTag": "tools/scripts",
-        "usageTag": "bash tools/scripts/automations/content/data/fetching/fetch-lpt-exchanges.sh [flags]"
+        "scopeTag": "operations/scripts/automations/content/data/fetching",
+        "usageTag": "bash operations/scripts/automations/content/data/fetching/fetch-lpt-exchanges.sh [flags]"
       },
       "categories": {
         "roleTags": [
@@ -1640,8 +2014,8 @@
       "metadata": {
         "scriptTag": "fetch-openapi-specs",
         "ownerTag": "",
-        "scopeTag": "tools/scripts",
-        "usageTag": "bash tools/scripts/automations/content/data/fetching/fetch-openapi-specs.sh [flags]"
+        "scopeTag": "operations/scripts/automations/content/data/fetching",
+        "usageTag": "bash operations/scripts/automations/content/data/fetching/fetch-openapi-specs.sh [flags]"
       },
       "categories": {
         "roleTags": [
@@ -1652,6 +2026,137 @@
         ],
         "evidence": [
           "role:sync via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/automations/content/data/test/contract-address-routes.test.js",
+      "purpose": "Utility script for contract address routes test.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "contract-address-routes.test.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "test"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:test via tests path or .test filename",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/automations/content/data/test/contract-verifier.test.js",
+      "purpose": "Utility script for contract verifier test.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "contract-verifier.test.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "test"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:test via tests path or .test filename",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/automations/content/data/test/fetch-contract-addresses.test.js",
+      "purpose": "Utility script for fetch contract addresses test.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "fetch-contract-addresses.test.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "sync",
+          "test"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:sync via name/summary keyword",
+          "role:test via tests path or .test filename",
           "run-context:manual due to no direct invocation mapping"
         ]
       },
@@ -2487,6 +2992,47 @@
       ]
     },
     {
+      "path": "operations/scripts/automations/content/studio-docs-migration.js",
+      "purpose": "Utility script for studio docs migration.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@summary",
+          "@owner",
+          "@scope",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "studio-docs-migration",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": "node operations/scripts/automations/content/studio-docs-migration.js [--write] Default: dry-run. Pass --write to apply changes."
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
       "path": "operations/scripts/automations/governance/pipelines/publish-v2-internal-reports.js",
       "purpose": "qa:repo-health",
       "templateCompliance": {
@@ -2506,7 +3052,7 @@
       "metadata": {
         "scriptTag": "publish-v2-internal-reports",
         "ownerTag": "",
-        "scopeTag": "operations/scripts, tools/config, v2/internal, docs.json, workspace/reports, operations/tests/eports",
+        "scopeTag": "operations/scripts, tools/config, v2/internal, docs.json, workspace/reports, operations/tests/reports",
         "usageTag": "node operations/scripts/automations/governance/pipelines/publish-v2-internal-reports.js [flags]"
       },
       "categories": {
@@ -2555,6 +3101,43 @@
         ],
         "evidence": [
           "role:sync via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/config/mdx-sanitise.js",
+      "purpose": "infrastructure:shared-lib",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "mdx-sanitise",
+        "ownerTag": "",
+        "scopeTag": "operations/scripts/config/, .github/scripts/",
+        "usageTag": "const { sanitiseForMdx, escapeForJsx } = require('../../operations/scripts/config/mdx-sanitise')"
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
           "run-context:manual due to no direct invocation mapping"
         ]
       },
@@ -2775,6 +3358,45 @@
       "usedBy": []
     },
     {
+      "path": "operations/scripts/dispatch/content/data/run-solutions-social-fetch.js",
+      "purpose": "infrastructure:data-feeds",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "run-solutions-social-fetch",
+        "ownerTag": "",
+        "scopeTag": ".github/scripts/fetch-*.js, snippets/automations/solutions/",
+        "usageTag": "node operations/scripts/dispatch/content/data/run-solutions-social-fetch.js [--env path/to/.env] [--skip youtube,discord]"
+      },
+      "categories": {
+        "roleTags": [
+          "runner",
+          "sync"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:runner via orchestrator naming pattern",
+          "role:sync via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
       "path": "operations/scripts/dispatch/content/veracity/docs-page-research-pr-report.js",
       "purpose": "governance:agent-governance",
       "templateCompliance": {
@@ -2895,6 +3517,339 @@
         ],
         "evidence": [
           "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/dispatch/governance/blast-radius-scanner.js",
+      "purpose": "Scans for consumers after editing shared files (components, templates, config)",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "blast-radius-scanner",
+        "ownerTag": "",
+        "scopeTag": ".claude/settings.json PostToolUse hook (Edit|Write matcher)",
+        "usageTag": "Called automatically by Claude Code PostToolUse hook. Not invoked directly."
+      },
+      "categories": {
+        "roleTags": [
+          "audit"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/dispatch/governance/friction-logger.js",
+      "purpose": "Detects and logs friction signals from user messages in real-time",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "friction-logger",
+        "ownerTag": "",
+        "scopeTag": ".claude/settings.json UserPromptSubmit hook",
+        "usageTag": "Called automatically by Claude Code UserPromptSubmit hook. Not invoked directly."
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/dispatch/governance/grep-loop-guard.js",
+      "purpose": "Detects repeated empty Grep results and fires a circuit-breaker warning",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "grep-loop-guard",
+        "ownerTag": "",
+        "scopeTag": ".claude/settings.json PostToolUse hook (Grep matcher)",
+        "usageTag": "Called automatically by Claude Code PostToolUse hook. Not invoked directly."
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/dispatch/governance/headless-batch.sh",
+      "purpose": "Run Claude Code headless for safe batch operations",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "headless-batch",
+        "ownerTag": "",
+        "scopeTag": "Any batch operation that is well-defined and repeatable",
+        "usageTag": "./operations/scripts/dispatch/governance/headless-batch.sh --prompt \"...\" --tools \"Read,Grep,Glob\" --output report.md"
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/dispatch/governance/mdx-constraints-injector.js",
+      "purpose": "Auto-injects Mintlify MDX constraints when user messages involve page/component editing",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "mdx-constraints-injector",
+        "ownerTag": "",
+        "scopeTag": ".claude/settings.json UserPromptSubmit hook",
+        "usageTag": "Called automatically by Claude Code UserPromptSubmit hook. Not invoked directly."
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/dispatch/governance/mdx-validate-hook.js",
+      "purpose": "Validates MDX files after edit using the server-manager (port 3145)",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "mdx-validate-hook",
+        "ownerTag": "",
+        "scopeTag": ".claude/settings.json PostToolUse hook (Edit|Write matcher)",
+        "usageTag": "Called automatically by Claude Code PostToolUse hook. Not invoked directly."
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/dispatch/governance/message-backup.js",
+      "purpose": "Backs up substantial user messages to prevent data loss from command typos",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "message-backup",
+        "ownerTag": "",
+        "scopeTag": ".claude/settings.json UserPromptSubmit hook",
+        "usageTag": "Called automatically by Claude Code UserPromptSubmit hook. Not invoked directly."
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/dispatch/governance/move-detect-hook.js",
+      "purpose": "governance:move-propagation",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "move-detect-hook",
+        "ownerTag": "",
+        "scopeTag": ".claude/settings.json PostToolUse hook (Bash matcher)",
+        "usageTag": "Called automatically by Claude Code PostToolUse hook. Not invoked directly."
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/dispatch/governance/phase-gate-hook.js",
+      "purpose": "Enforces phase checkpoint verification before allowing work to proceed",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "phase-gate-hook",
+        "ownerTag": "",
+        "scopeTag": ".claude/settings.json PostToolUse hook (Edit|Write matcher)",
+        "usageTag": "Called automatically by Claude Code PostToolUse hook. Not invoked directly."
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
           "run-context:manual due to no direct invocation mapping"
         ]
       },
@@ -3022,6 +3977,154 @@
       "usedBy": []
     },
     {
+      "path": "operations/scripts/dispatch/governance/post-tool-verify.js",
+      "purpose": "Post-tool verification for Claude Code sessions",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "post-tool-verify",
+        "ownerTag": "",
+        "scopeTag": ".claude/settings.json PostToolUseFailure hook",
+        "usageTag": "Called automatically by Claude Code PostToolUseFailure hook. Not invoked directly."
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/dispatch/governance/pre-compact-checkpoint.js",
+      "purpose": "Preserves critical session state before context compaction",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "pre-compact-checkpoint",
+        "ownerTag": "",
+        "scopeTag": ".claude/settings.json PreCompact hook",
+        "usageTag": "Called automatically by Claude Code PreCompact hook. Not invoked directly."
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/dispatch/governance/pre-tool-guard.js",
+      "purpose": "Pre-tool enforcement for Claude Code sessions",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "pre-tool-guard",
+        "ownerTag": "",
+        "scopeTag": ".claude/settings.json PreToolUse hook",
+        "usageTag": "Called automatically by Claude Code PreToolUse hook. Not invoked directly."
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/dispatch/governance/read-logger.js",
+      "purpose": "Tracks which files Claude reads per session for context-gate enforcement",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "read-logger",
+        "ownerTag": "",
+        "scopeTag": ".claude/settings.json PostToolUse hook (Read matcher)",
+        "usageTag": "Called automatically by Claude Code PostToolUse hook. Not invoked directly."
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
       "path": "operations/scripts/dispatch/governance/repo/repo-audit-orchestrator.js",
       "purpose": "infrastructure:pipeline-orchestration",
       "templateCompliance": {
@@ -3130,6 +4233,81 @@
       ]
     },
     {
+      "path": "operations/scripts/dispatch/governance/session-register.js",
+      "purpose": "Registers active sessions and tracks which files each session touches",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "session-register",
+        "ownerTag": "",
+        "scopeTag": ".claude/settings.json SessionStart + PostToolUse hooks",
+        "usageTag": "Called automatically by Claude Code hooks. Not invoked directly."
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/dispatch/governance/session-state.js",
+      "purpose": "governance:session-start",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement",
+          "@pipeline"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "session-state",
+        "ownerTag": "",
+        "scopeTag": "workspace/plan/active/",
+        "usageTag": "node operations/scripts/dispatch/governance/session-state.js"
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
       "path": "operations/scripts/generators/ai/llm/generate-llms-files.js",
       "purpose": "governance:index-management",
       "templateCompliance": {
@@ -3191,17 +4369,98 @@
       },
       "categories": {
         "roleTags": [
+          "ci",
           "generator"
         ],
         "runContextTags": [
-          "manual"
+          "workflow-dispatch"
         ],
         "evidence": [
-          "role:generator via name/summary keyword",
-          "run-context:manual due to no direct invocation mapping"
+          "role:ci via workflow invocation",
+          "role:generator via name/summary keyword"
         ]
       },
-      "usedBy": []
+      "usedBy": [
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/docs-catalog-governance.yml",
+          "location": "Docs Catalog Governance > catalog-checks > Run selected check mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/generators/components/documentation/generate-component-docs.js --check",
+            "run: case \"${{ inputs.mode }}\" in check-docs-guide-catalogs) node operations/scripts/generators/components/library/generate-component-registry.js --validate-only node operations/scripts/generators/components/documentation/generate-component-d..."
+          ]
+        },
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/docs-catalog-governance.yml",
+          "location": "Docs Catalog Governance > catalog-generate > Run selected generate mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/generators/components/documentation/generate-component-docs.js --write",
+            "run: case \"${{ inputs.mode }}\" in generate-component-registry) node operations/scripts/generators/components/library/generate-component-registry.js ;; generate-docs-guide-catalogs) node operations/scripts/generators/governance/catalogs/genera..."
+          ]
+        }
+      ]
+    },
+    {
+      "path": "operations/scripts/generators/components/library/generate-component-examples.js",
+      "purpose": "governance:index-management",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@scope",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "generate-component-examples",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "ci",
+          "generator"
+        ],
+        "runContextTags": [
+          "workflow-dispatch"
+        ],
+        "evidence": [
+          "role:ci via workflow invocation",
+          "role:generator via name/summary keyword"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/docs-catalog-governance.yml",
+          "location": "Docs Catalog Governance > catalog-checks > Run selected check mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/generators/components/library/generate-component-examples.js --check",
+            "run: case \"${{ inputs.mode }}\" in check-docs-guide-catalogs) node operations/scripts/generators/components/library/generate-component-registry.js --validate-only node operations/scripts/generators/components/documentation/generate-component-d..."
+          ]
+        }
+      ]
     },
     {
       "path": "operations/scripts/generators/components/library/generate-component-registry.js",
@@ -3277,11 +4536,38 @@
         },
         {
           "sourceType": "workflow",
+          "sourcePath": ".github/workflows/docs-catalog-governance.yml",
+          "location": "Docs Catalog Governance > catalog-checks > Run selected check mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/generators/components/library/generate-component-registry.js --validate-only",
+            "run: case \"${{ inputs.mode }}\" in check-docs-guide-catalogs) node operations/scripts/generators/components/library/generate-component-registry.js --validate-only node operations/scripts/generators/components/documentation/generate-component-d..."
+          ]
+        },
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/docs-catalog-governance.yml",
+          "location": "Docs Catalog Governance > catalog-generate > Run selected generate mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/generators/components/library/generate-component-registry.js",
+            "run: case \"${{ inputs.mode }}\" in generate-component-registry) node operations/scripts/generators/components/library/generate-component-registry.js ;; generate-docs-guide-catalogs) node operations/scripts/generators/governance/catalogs/genera..."
+          ]
+        },
+        {
+          "sourceType": "workflow",
           "sourcePath": ".github/workflows/test-suite.yml",
           "location": "Docs CI - Content Quality Suite > component-enforcement > Validate component registry",
           "whenTags": [
             "pr",
-            "push"
+            "push",
+            "workflow-dispatch"
           ],
           "viaNpm": false,
           "evidence": [
@@ -3311,7 +4597,7 @@
       "metadata": {
         "scriptTag": "generate-ui-templates",
         "ownerTag": "",
-        "scopeTag": "operations/scripts, docs-guide/catalog, docs-guide/features, snippets/templates, v2/templates, .vscode",
+        "scopeTag": "operations/scripts, docs-guide/catalog, docs-guide/features, snippets/templates, .vscode",
         "usageTag": "node operations/scripts/generators/components/library/generate-ui-templates.js [flags]"
       },
       "categories": {
@@ -3354,48 +4640,41 @@
       "categories": {
         "roleTags": [
           "ci",
-          "enforcement",
           "generator"
         ],
         "runContextTags": [
-          "pr",
-          "push",
           "workflow-dispatch"
         ],
         "evidence": [
           "role:ci via workflow invocation",
-          "role:enforcement via keyword or gating context",
           "role:generator via name/summary keyword"
         ]
       },
       "usedBy": [
         {
           "sourceType": "workflow",
-          "sourcePath": ".github/workflows/check-docs-index.yml",
-          "location": "Check Docs Index > docs-index-check > Verify docs-index.json is current",
+          "sourcePath": ".github/workflows/docs-catalog-governance.yml",
+          "location": "Docs Catalog Governance > catalog-checks > Run selected check mode",
           "whenTags": [
-            "pr",
-            "push",
             "workflow-dispatch"
           ],
           "viaNpm": false,
           "evidence": [
             "node operations/scripts/generators/content/catalogs/generate-docs-index.js --check",
-            "run: node operations/scripts/generators/content/catalogs/generate-docs-index.js --check"
+            "run: case \"${{ inputs.mode }}\" in check-docs-guide-catalogs) node operations/scripts/generators/components/library/generate-component-registry.js --validate-only node operations/scripts/generators/components/documentation/generate-component-d..."
           ]
         },
         {
           "sourceType": "workflow",
-          "sourcePath": ".github/workflows/generate-docs-index.yml",
-          "location": "Generate Docs Index > generate-docs-index > Generate docs index",
+          "sourcePath": ".github/workflows/docs-catalog-governance.yml",
+          "location": "Docs Catalog Governance > catalog-generate > Run selected generate mode",
           "whenTags": [
-            "push",
             "workflow-dispatch"
           ],
           "viaNpm": false,
           "evidence": [
             "node operations/scripts/generators/content/catalogs/generate-docs-index.js --write",
-            "run: node operations/scripts/generators/content/catalogs/generate-docs-index.js --write"
+            "run: case \"${{ inputs.mode }}\" in generate-component-registry) node operations/scripts/generators/components/library/generate-component-registry.js ;; generate-docs-guide-catalogs) node operations/scripts/generators/governance/catalogs/genera..."
           ]
         },
         {
@@ -3441,14 +4720,57 @@
           "generator"
         ],
         "runContextTags": [
-          "manual"
+          "manual",
+          "npm-script"
         ],
         "evidence": [
-          "role:generator via name/summary keyword",
-          "run-context:manual due to no direct invocation mapping"
+          "role:generator via name/summary keyword"
         ]
       },
-      "usedBy": []
+      "usedBy": [
+        {
+          "sourceType": "package-script",
+          "sourcePath": "operations/tests/package.json",
+          "location": "scripts.test:pages-index",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "command: node ../scripts/generators/content/catalogs/generate-pages-index.js",
+            "node ../scripts/generators/content/catalogs/generate-pages-index.js"
+          ]
+        },
+        {
+          "sourceType": "package-script",
+          "sourcePath": "operations/tests/package.json",
+          "location": "scripts.test:pages-index:rebuild",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "command: node ../scripts/generators/content/catalogs/generate-pages-index.js --write --rebuild-indexes",
+            "node ../scripts/generators/content/catalogs/generate-pages-index.js --write --rebuild-indexes"
+          ]
+        },
+        {
+          "sourceType": "package-script",
+          "sourcePath": "operations/tests/package.json",
+          "location": "scripts.test:pages-index:write",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "command: node ../scripts/generators/content/catalogs/generate-pages-index.js --write",
+            "node ../scripts/generators/content/catalogs/generate-pages-index.js --write"
+          ]
+        }
+      ]
     },
     {
       "path": "operations/scripts/generators/content/reference/generate-api-docs.sh",
@@ -3470,8 +4792,8 @@
       "metadata": {
         "scriptTag": "generate-api-docs",
         "ownerTag": "",
-        "scopeTag": "tools/scripts",
-        "usageTag": "bash tools/scripts/generators/content/reference/generate-api-docs.sh [flags]"
+        "scopeTag": "operations/scripts/generators/content/reference",
+        "usageTag": "bash operations/scripts/generators/content/reference/generate-api-docs.sh [flags]"
       },
       "categories": {
         "roleTags": [
@@ -3486,6 +4808,78 @@
         ]
       },
       "usedBy": []
+    },
+    {
+      "path": "operations/scripts/generators/content/reference/generate-glossary-companions.js",
+      "purpose": "tooling:dev-tools",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "generate-glossary-companions",
+        "ownerTag": "",
+        "scopeTag": "operations/scripts/generators/content/reference",
+        "usageTag": "node operations/scripts/generators/content/reference/generate-glossary-companions.js [--dry-run] [--check]"
+      },
+      "categories": {
+        "roleTags": [
+          "ci",
+          "enforcement",
+          "generator"
+        ],
+        "runContextTags": [
+          "pr",
+          "push",
+          "workflow-dispatch"
+        ],
+        "evidence": [
+          "role:ci via workflow invocation",
+          "role:enforcement via keyword or gating context",
+          "role:generator via name/summary keyword"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/check-ai-companions.yml",
+          "location": "Check AI Companion Files > check-ai-companions > Verify glossary companion JSONs are current",
+          "whenTags": [
+            "pr",
+            "push",
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/generators/content/reference/generate-glossary-companions.js --check",
+            "run: node operations/scripts/generators/content/reference/generate-glossary-companions.js --check"
+          ]
+        },
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/generate-ai-companions.yml",
+          "location": "Generate AI Companion Files > generate-ai-companions > Regenerate glossary companion JSONs",
+          "whenTags": [
+            "push",
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/generators/content/reference/generate-glossary-companions.js",
+            "run: node operations/scripts/generators/content/reference/generate-glossary-companions.js"
+          ]
+        }
+      ]
     },
     {
       "path": "operations/scripts/generators/content/reference/generate-glossary.js",
@@ -3636,6 +5030,43 @@
       "usedBy": []
     },
     {
+      "path": "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js",
+      "purpose": "governance:ai-tools-visual-library",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "generate-ai-tools-visual-library",
+        "ownerTag": "",
+        "scopeTag": ".github/workflows, ai-tools/registry, workspace/plan/active/AI-TOOLS-GOVERNANCE/AI-TOOLS, operations/tests/unit/ai-tools-visual-library.test.js",
+        "usageTag": "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js [--check|--write]"
+      },
+      "categories": {
+        "roleTags": [
+          "generator"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:generator via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
       "path": "operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js",
       "purpose": "governance:index-management",
       "templateCompliance": {
@@ -3697,13 +5128,16 @@
       },
       "categories": {
         "roleTags": [
+          "ci",
           "generator"
         ],
         "runContextTags": [
           "manual",
-          "npm-script"
+          "npm-script",
+          "workflow-dispatch"
         ],
         "evidence": [
+          "role:ci via workflow invocation",
           "role:generator via name/summary keyword"
         ]
       },
@@ -3720,6 +5154,32 @@
           "evidence": [
             "command: node ../operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js --write",
             "node ../operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js --write"
+          ]
+        },
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/docs-catalog-governance.yml",
+          "location": "Docs Catalog Governance > catalog-checks > Run selected check mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js --check",
+            "run: case \"${{ inputs.mode }}\" in check-docs-guide-catalogs) node operations/scripts/generators/components/library/generate-component-registry.js --validate-only node operations/scripts/generators/components/documentation/generate-component-d..."
+          ]
+        },
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/docs-catalog-governance.yml",
+          "location": "Docs Catalog Governance > catalog-generate > Run selected generate mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js --write",
+            "run: case \"${{ inputs.mode }}\" in generate-component-registry) node operations/scripts/generators/components/library/generate-component-registry.js ;; generate-docs-guide-catalogs) node operations/scripts/generators/governance/catalogs/genera..."
           ]
         }
       ]
@@ -3749,17 +5209,45 @@
       },
       "categories": {
         "roleTags": [
+          "ci",
           "generator"
         ],
         "runContextTags": [
-          "manual"
+          "workflow-dispatch"
         ],
         "evidence": [
-          "role:generator via name/summary keyword",
-          "run-context:manual due to no direct invocation mapping"
+          "role:ci via workflow invocation",
+          "role:generator via name/summary keyword"
         ]
       },
-      "usedBy": []
+      "usedBy": [
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/docs-catalog-governance.yml",
+          "location": "Docs Catalog Governance > catalog-checks > Run selected check mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js --check",
+            "run: case \"${{ inputs.mode }}\" in check-docs-guide-catalogs) node operations/scripts/generators/components/library/generate-component-registry.js --validate-only node operations/scripts/generators/components/documentation/generate-component-d..."
+          ]
+        },
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/docs-catalog-governance.yml",
+          "location": "Docs Catalog Governance > catalog-generate > Run selected generate mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js --write",
+            "run: case \"${{ inputs.mode }}\" in generate-component-registry) node operations/scripts/generators/components/library/generate-component-registry.js ;; generate-docs-guide-catalogs) node operations/scripts/generators/governance/catalogs/genera..."
+          ]
+        }
+      ]
     },
     {
       "path": "operations/scripts/generators/governance/catalogs/generate-script-registry.js",
@@ -3859,6 +5347,92 @@
         "ownerTag": "",
         "scopeTag": "${params.scope}`,",
         "usageTag": "${cmd} [flags]`,"
+      },
+      "categories": {
+        "roleTags": [
+          "generator"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:generator via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/generators/media/generate-hero-background.js",
+      "purpose": "Utility script for generate hero background.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "generate-hero-background.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "generator"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:generator via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/generators/media/generate-hero-image.js",
+      "purpose": "Utility script for generate hero image.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "generate-hero-image.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
       },
       "categories": {
         "roleTags": [
@@ -4383,7 +5957,7 @@
       "metadata": {
         "scriptTag": "repair-ownerless-language",
         "ownerTag": "",
-        "scopeTag": "AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md, docs-guide",
+        "scopeTag": "AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, docs-guide/contributing/agent-instructions.mdx, docs-guide",
         "usageTag": "node operations/scripts/remediators/content/style/repair-ownerless-language.js [--check|--write] [--files a,b]"
       },
       "categories": {
@@ -4572,8 +6146,8 @@
       "metadata": {
         "scriptTag": "test-scripts",
         "ownerTag": "docs",
-        "scopeTag": "tools/scripts",
-        "usageTag": "bash tools/scripts/snippets/test-scripts.sh [flags]"
+        "scopeTag": "operations/scripts/snippets",
+        "usageTag": "bash operations/scripts/snippets/test-scripts.sh [flags]"
       },
       "categories": {
         "roleTags": [
@@ -4611,8 +6185,8 @@
       "metadata": {
         "scriptTag": "check-no-ai-stash",
         "ownerTag": "",
-        "scopeTag": "tools/scripts, .githooks/pre-commit",
-        "usageTag": "bash tools/scripts/validators/ai/codex/check-no-ai-stash.sh [flags]"
+        "scopeTag": "operations/scripts/validators/ai/codex, .githooks/pre-commit",
+        "usageTag": "bash operations/scripts/validators/ai/codex/check-no-ai-stash.sh [flags]"
       },
       "categories": {
         "roleTags": [
@@ -4695,7 +6269,8 @@
         ],
         "runContextTags": [
           "pr",
-          "push"
+          "push",
+          "workflow-dispatch"
         ],
         "evidence": [
           "role:ci via workflow invocation",
@@ -4709,7 +6284,8 @@
           "location": "Docs CI - Content Quality Suite > component-enforcement > Component documentation",
           "whenTags": [
             "pr",
-            "push"
+            "push",
+            "workflow-dispatch"
           ],
           "viaNpm": false,
           "evidence": [
@@ -4749,7 +6325,8 @@
         ],
         "runContextTags": [
           "pr",
-          "push"
+          "push",
+          "workflow-dispatch"
         ],
         "evidence": [
           "role:ci via workflow invocation",
@@ -4763,12 +6340,66 @@
           "location": "Docs CI - Content Quality Suite > component-enforcement > Component CSS standards",
           "whenTags": [
             "pr",
-            "push"
+            "push",
+            "workflow-dispatch"
           ],
           "viaNpm": false,
           "evidence": [
             "node operations/scripts/validators/components/library/check-component-css.js",
             "run: node operations/scripts/validators/components/library/check-component-css.js"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "operations/scripts/validators/components/library/check-component-health.js",
+      "purpose": "governance:quality-gate",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@scope",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "check-component-health",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "ci",
+          "enforcement"
+        ],
+        "runContextTags": [
+          "workflow-dispatch"
+        ],
+        "evidence": [
+          "role:ci via workflow invocation",
+          "role:enforcement via keyword or gating context"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/docs-catalog-governance.yml",
+          "location": "Docs Catalog Governance > catalog-checks > Run selected check mode",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/validators/components/library/check-component-health.js --check",
+            "run: case \"${{ inputs.mode }}\" in check-docs-guide-catalogs) node operations/scripts/generators/components/library/generate-component-registry.js --validate-only node operations/scripts/generators/components/documentation/generate-component-d..."
           ]
         }
       ]
@@ -4798,17 +6429,36 @@
       },
       "categories": {
         "roleTags": [
+          "ci",
           "enforcement"
         ],
         "runContextTags": [
-          "manual"
+          "pr",
+          "push",
+          "workflow-dispatch"
         ],
         "evidence": [
-          "role:enforcement via keyword or gating context",
-          "run-context:manual due to no direct invocation mapping"
+          "role:ci via workflow invocation",
+          "role:enforcement via keyword or gating context"
         ]
       },
-      "usedBy": []
+      "usedBy": [
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/test-suite.yml",
+          "location": "Docs CI - Content Quality Suite > component-enforcement > Component MDX scope isolation",
+          "whenTags": [
+            "pr",
+            "push",
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/validators/components/library/check-mdx-component-scope.js",
+            "run: node operations/scripts/validators/components/library/check-mdx-component-scope.js"
+          ]
+        }
+      ]
     },
     {
       "path": "operations/scripts/validators/components/library/check-naming-conventions.js",
@@ -4835,17 +6485,36 @@
       },
       "categories": {
         "roleTags": [
+          "ci",
           "enforcement"
         ],
         "runContextTags": [
-          "manual"
+          "pr",
+          "push",
+          "workflow-dispatch"
         ],
         "evidence": [
-          "role:enforcement via keyword or gating context",
-          "run-context:manual due to no direct invocation mapping"
+          "role:ci via workflow invocation",
+          "role:enforcement via keyword or gating context"
         ]
       },
-      "usedBy": []
+      "usedBy": [
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/test-suite.yml",
+          "location": "Docs CI - Content Quality Suite > component-enforcement > Component naming conventions",
+          "whenTags": [
+            "pr",
+            "push",
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/validators/components/library/check-naming-conventions.js",
+            "run: node operations/scripts/validators/components/library/check-naming-conventions.js"
+          ]
+        }
+      ]
     },
     {
       "path": "operations/scripts/validators/components/library/component-layout-governance.js",
@@ -5378,15 +7047,30 @@
           "generator"
         ],
         "runContextTags": [
-          "manual"
+          "manual",
+          "npm-script"
         ],
         "evidence": [
           "role:enforcement via keyword or gating context",
-          "role:generator via name/summary keyword",
-          "run-context:manual due to no direct invocation mapping"
+          "role:generator via name/summary keyword"
         ]
       },
-      "usedBy": []
+      "usedBy": [
+        {
+          "sourceType": "package-script",
+          "sourcePath": "operations/tests/package.json",
+          "location": "scripts.test:generated-banners",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "command: node ../scripts/validators/content/structure/enforce-generated-file-banners.js --check",
+            "node ../scripts/validators/content/structure/enforce-generated-file-banners.js --check"
+          ]
+        }
+      ]
     },
     {
       "path": "operations/scripts/validators/content/structure/lint-structure.js",
@@ -5440,8 +7124,8 @@
       "metadata": {
         "scriptTag": "test-v2-pages",
         "ownerTag": "docs",
-        "scopeTag": "operations/scripts",
-        "usageTag": "node operations/scripts/test-v2-pages.js [flags]"
+        "scopeTag": "operations/scripts/validators/content/structure, docs.json, v2",
+        "usageTag": "node operations/scripts/validators/content/structure/test-v2-pages.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -5559,6 +7243,68 @@
         ]
       },
       "usedBy": []
+    },
+    {
+      "path": "operations/scripts/validators/governance/ai/check-companion-manifest.js",
+      "purpose": "Utility script for check companion manifest.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "check-companion-manifest.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "ci",
+          "enforcement"
+        ],
+        "runContextTags": [
+          "pr",
+          "push",
+          "workflow-dispatch"
+        ],
+        "evidence": [
+          "role:ci via workflow invocation",
+          "role:enforcement via keyword or gating context"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/check-ai-companions.yml",
+          "location": "Check AI Companion Files > check-ai-companions > Verify companion manifest is consistent with registry",
+          "whenTags": [
+            "pr",
+            "push",
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/scripts/validators/governance/ai/check-companion-manifest.js --check",
+            "run: node operations/scripts/validators/governance/ai/check-companion-manifest.js --check"
+          ]
+        }
+      ]
     },
     {
       "path": "operations/scripts/validators/governance/compliance/check-agent-docs-freshness.js",
@@ -5775,7 +7521,7 @@
         "scriptTag": "verify-pay-orc-gate-finalize",
         "ownerTag": "",
         "scopeTag": "v2-content",
-        "usageTag": "bash tools/scripts/validators/governance/compliance/verify-pay-orc-gate-finalize.sh [flags]"
+        "usageTag": "bash operations/scripts/validators/governance/compliance/verify-pay-orc-gate-finalize.sh [flags]"
       },
       "categories": {
         "roleTags": [
@@ -5858,7 +7604,8 @@
         ],
         "runContextTags": [
           "pr",
-          "push"
+          "push",
+          "workflow-dispatch"
         ],
         "evidence": [
           "role:ci via workflow invocation",
@@ -5872,7 +7619,8 @@
           "location": "Docs CI - Content Quality Suite > component-enforcement > Component immutability",
           "whenTags": [
             "pr",
-            "push"
+            "push",
+            "workflow-dispatch"
           ],
           "viaNpm": false,
           "evidence": [
@@ -5904,6 +7652,43 @@
         "ownerTag": "",
         "scopeTag": "operations/scripts/enforcers/pr, .github/pull_request_template.md, .github/pull-request-template-v2.md",
         "usageTag": "PR_BODY=\"...\" node operations/scripts/enforcers/pr/check-pr-template.js"
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/scripts/validators/governance/repo/validate-lpd-paths.js",
+      "purpose": "governance:repo-health",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@category",
+          "@owner",
+          "@needs",
+          "@purpose-statement"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "validate-lpd-paths",
+        "ownerTag": "",
+        "scopeTag": "lpd (repo root bash CLI)",
+        "usageTag": "node operations/scripts/validators/governance/repo/validate-lpd-paths.js [--json]"
       },
       "categories": {
         "roleTags": [
@@ -6252,7 +8037,7 @@
         "scriptTag": "browser.test",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/integration/browser.test.js [flags]"
+        "usageTag": "node operations/tests/integration/browser.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -6264,7 +8049,8 @@
           "manual",
           "npm-script",
           "pr",
-          "push"
+          "push",
+          "workflow-dispatch"
         ],
         "evidence": [
           "role:ci via workflow invocation",
@@ -6322,7 +8108,8 @@
           "whenTags": [
             "npm-script",
             "pr",
-            "push"
+            "push",
+            "workflow-dispatch"
           ],
           "viaNpm": true,
           "evidence": [
@@ -6347,8 +8134,8 @@
       "metadata": {
         "scriptTag": "domain-pages-audit",
         "ownerTag": "docs",
-        "scopeTag": "tests/integration, tests/reports, docs.livepeer.org",
-        "usageTag": "node tests/integration/domain-pages-audit.js [flags]"
+        "scopeTag": "operations/tests/integration, workspace/reports/page-audits, docs.livepeer.org",
+        "usageTag": "node operations/tests/integration/domain-pages-audit.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -6437,7 +8224,7 @@
         "scriptTag": "mdx-component-runtime-smoke",
         "ownerTag": "docs",
         "scopeTag": "tests/integration, .githooks/server-manager.js, tests/run-pr-checks.js",
-        "usageTag": "node tests/integration/mdx-component-runtime-smoke.js [--routes route[,route...]] [--base-url http://localhost:3000]"
+        "usageTag": "node operations/tests/integration/mdx-component-runtime-smoke.js [--routes route[,route...]] [--base-url http://localhost:3000]"
       },
       "categories": {
         "roleTags": [
@@ -6469,7 +8256,7 @@
         "scriptTag": "openapi-reference-audit",
         "ownerTag": "docs",
         "scopeTag": "full-repo",
-        "usageTag": "node tests/integration/openapi-reference-audit.js [flags]"
+        "usageTag": "node operations/tests/integration/openapi-reference-audit.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -6572,7 +8359,7 @@
         "scriptTag": "v2-link-audit",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/integration/v2-link-audit.js [flags]"
+        "usageTag": "node operations/tests/integration/v2-link-audit.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -6667,7 +8454,7 @@
         "scriptTag": "v2-link-audit.selftest",
         "ownerTag": "docs",
         "scopeTag": "tests/integration",
-        "usageTag": "node tests/integration/v2-link-audit.selftest.js [flags]"
+        "usageTag": "node operations/tests/integration/v2-link-audit.selftest.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -6718,7 +8505,7 @@
         "scriptTag": "v2-wcag-audit",
         "ownerTag": "docs",
         "scopeTag": "v2-content",
-        "usageTag": "node tests/integration/v2-wcag-audit.js [flags]"
+        "usageTag": "node operations/tests/integration/v2-wcag-audit.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -6795,7 +8582,7 @@
         "scriptTag": "v2-wcag-audit.selftest",
         "ownerTag": "docs",
         "scopeTag": "tests/integration, v2, git index",
-        "usageTag": "node tests/integration/v2-wcag-audit.selftest.js [flags]"
+        "usageTag": "node operations/tests/integration/v2-wcag-audit.selftest.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -6831,6 +8618,133 @@
       ]
     },
     {
+      "path": "operations/tests/playwright-community-components.js",
+      "purpose": "Utility script for playwright community components.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@summary",
+          "@owner",
+          "@scope",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [
+          "@usage"
+        ],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "playwright-community-components",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": "node operations/tests/playwright-community-components.js"
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/tests/playwright-contract-addresses.js",
+      "purpose": "Utility script for playwright contract addresses.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@summary",
+          "@owner",
+          "@scope",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [
+          "@usage"
+        ],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "playwright-contract-addresses",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": "node operations/tests/playwright-contract-addresses.js"
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/tests/playwright-studio-docs-migration.js",
+      "purpose": "Utility script for playwright studio docs migration.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@summary",
+          "@owner",
+          "@scope",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "playwright-studio-docs-migration",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": "Start scoped dev server first: lpd dev --scoped --scope-version v2 --scope-language en --scope-tab Solutions Then run: node operations/tests/playwright-studio-docs-migration.js"
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
       "path": "operations/tests/run-all.js",
       "purpose": "Test orchestrator — dispatches all unit test suites. Called by pre-commit hook and npm test.",
       "templateCompliance": {
@@ -6848,7 +8762,7 @@
         "scriptTag": "run-all",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/run-all.js [flags]"
+        "usageTag": "node operations/tests/run-all.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -6925,7 +8839,7 @@
         "scriptTag": "run-pr-checks",
         "ownerTag": "docs",
         "scopeTag": "changed",
-        "usageTag": "node tests/run-pr-checks.js [flags]"
+        "usageTag": "node operations/tests/run-pr-checks.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -6977,8 +8891,8 @@
       "metadata": {
         "scriptTag": "ai-tools-registry.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, ai-tools/registry, tools/lib/ai-tools-registry.js, operations/scripts/validate-ai-tools-registry.js, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx, tools/config/ownerless-governance-surfaces.json",
-        "usageTag": "node tests/unit/ai-tools-registry.test.js [--staged|--files path[,path]]"
+        "scopeTag": "operations/tests/unit, ai-tools/registry, tools/lib/ai-tools-registry.js, operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js, docs-guide/tooling/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx, tools/config/ownerless-governance-surfaces.json",
+        "usageTag": "node operations/tests/unit/ai-tools-registry.test.js [--staged|--files path[,path]]"
       },
       "categories": {
         "roleTags": [
@@ -6990,6 +8904,42 @@
         ],
         "evidence": [
           "role:enforcement via keyword or gating context",
+          "role:test via tests path or .test filename",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/tests/unit/ai-tools-visual-library.test.js",
+      "purpose": "Validates that the canonical AI-tools visual library is current, complete, and synchronized with the repo workflow inventory.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "ai-tools-visual-library.test",
+        "ownerTag": "docs",
+        "scopeTag": "operations/tests/unit, operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js, .github/workflows, ai-tools/registry/workflows, ai-tools/registry/dispatchers, workspace/plan/active/AI-TOOLS-GOVERNANCE/AI-TOOLS",
+        "usageTag": "node operations/tests/unit/ai-tools-visual-library.test.js [--staged] [--files path[,path]]"
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement",
+          "sync",
+          "test"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "role:sync via name/summary keyword",
           "role:test via tests path or .test filename",
           "run-context:manual due to no direct invocation mapping"
         ]
@@ -7014,7 +8964,7 @@
         "scriptTag": "audit-script-inventory-repair-rules.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, operations/scripts/validators/governance",
-        "usageTag": "node tests/unit/audit-script-inventory-repair-rules.test.js"
+        "usageTag": "node operations/tests/unit/audit-script-inventory-repair-rules.test.js"
       },
       "categories": {
         "roleTags": [
@@ -7047,8 +8997,8 @@
       "metadata": {
         "scriptTag": "authoring-tools.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, tools/vscode/authoring-tools, operations/scripts/format-mdx.js",
-        "usageTag": "node tests/unit/authoring-tools.test.js"
+        "scopeTag": "tests/unit, tools/editor-extensions/authoring-tools, operations/scripts/format-mdx.js",
+        "usageTag": "node operations/tests/unit/authoring-tools.test.js"
       },
       "categories": {
         "roleTags": [
@@ -7097,7 +9047,7 @@
         "scriptTag": "check-agent-docs-freshness.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, operations/scripts/validators/governance/check-agent-docs-freshness.js, AGENTS.md, .github/copilot-instructions.md, .claude, .cursor, .windsurf, docs-guide/policies, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md",
-        "usageTag": "node tests/unit/check-agent-docs-freshness.test.js"
+        "usageTag": "node operations/tests/unit/check-agent-docs-freshness.test.js"
       },
       "categories": {
         "roleTags": [
@@ -7130,8 +9080,8 @@
       "metadata": {
         "scriptTag": "codex-commit.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, operations/scripts/codex-commit.js",
-        "usageTag": "node tests/unit/codex-commit.test.js [flags]"
+        "scopeTag": "tests/unit, operations/scripts/dispatch/ai/codex/codex-commit.js",
+        "usageTag": "node operations/tests/unit/codex-commit.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -7164,8 +9114,8 @@
       "metadata": {
         "scriptTag": "codex-safe-merge-with-stash.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, operations/scripts/codex-safe-merge-with-stash.js",
-        "usageTag": "node tests/unit/codex-safe-merge-with-stash.test.js [flags]"
+        "scopeTag": "tests/unit, operations/scripts/x-archive/codex-safe-merge-with-stash.js",
+        "usageTag": "node operations/tests/unit/codex-safe-merge-with-stash.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -7198,8 +9148,8 @@
       "metadata": {
         "scriptTag": "codex-skill-sync.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, operations/scripts/sync-codex-skills.js, ai-tools/ai-skills/templates",
-        "usageTag": "node tests/unit/codex-skill-sync.test.js [flags]"
+        "scopeTag": "operations/tests/unit, operations/scripts/automations/ai/agents/sync-codex-skills.js, ai-tools/ai-skills/templates",
+        "usageTag": "node operations/tests/unit/codex-skill-sync.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -7250,7 +9200,7 @@
         "scriptTag": "codex-task-cleanup.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, operations/scripts/automations/ai/codex/task-cleanup.js",
-        "usageTag": "node tests/unit/codex-task-cleanup.test.js [flags]"
+        "usageTag": "node operations/tests/unit/codex-task-cleanup.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -7297,7 +9247,7 @@
         "scriptTag": "codex-task-preflight.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, operations/scripts/automations/ai/codex/task-preflight.js",
-        "usageTag": "node tests/unit/codex-task-preflight.test.js [flags]"
+        "usageTag": "node operations/tests/unit/codex-task-preflight.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -7344,7 +9294,7 @@
         "scriptTag": "component-governance-generators.test",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/unit/component-governance-generators.test.js"
+        "usageTag": "node operations/tests/unit/component-governance-generators.test.js"
       },
       "categories": {
         "roleTags": [
@@ -7393,7 +9343,7 @@
         "scriptTag": "component-governance-utils.test",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/unit/component-governance-utils.test.js"
+        "usageTag": "node operations/tests/unit/component-governance-utils.test.js"
       },
       "categories": {
         "roleTags": [
@@ -7442,7 +9392,7 @@
         "scriptTag": "component-template.test",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/unit/components/TEMPLATE.test.js"
+        "usageTag": "node operations/tests/unit/components/TEMPLATE.test.js"
       },
       "categories": {
         "roleTags": [
@@ -7452,6 +9402,40 @@
           "manual"
         ],
         "evidence": [
+          "role:test via tests path or .test filename",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "operations/tests/unit/contracts-addresses-pipeline.test.js",
+      "purpose": "Regression tests for the contracts authority catalog, lifecycle grouping, generated registry output, and widget data-consumption contract.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "contracts-addresses-pipeline.test",
+        "ownerTag": "docs",
+        "scopeTag": "tests/unit, .github/scripts/fetch-contract-addresses.js, operations/scripts/config/contract-addresses-authority.json, snippets/components/integrators/feeds/ContractVerifier.jsx, snippets/data/contract-addresses/contractAddressesData.json",
+        "usageTag": "node operations/tests/unit/contracts-addresses-pipeline.test.js"
+      },
+      "categories": {
+        "roleTags": [
+          "generator",
+          "test"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:generator via name/summary keyword",
           "role:test via tests path or .test filename",
           "run-context:manual due to no direct invocation mapping"
         ]
@@ -7473,8 +9457,8 @@
       "metadata": {
         "scriptTag": "copy-lint.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, tests/copy-lint-fixtures, tools/scripts",
-        "usageTag": "node tests/unit/copy-lint.test.js [--staged] [--files <a,b,c>]"
+        "scopeTag": "tests/unit, operations/tests/copy-lint-fixtures, tools/scripts",
+        "usageTag": "node operations/tests/unit/copy-lint.test.js [--staged] [--files <a,b,c>]"
       },
       "categories": {
         "roleTags": [
@@ -7509,8 +9493,8 @@
       "metadata": {
         "scriptTag": "create-codex-pr.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, operations/scripts/create-codex-pr.js",
-        "usageTag": "node tests/unit/create-codex-pr.test.js [flags]"
+        "scopeTag": "tests/unit, operations/scripts/dispatch/ai/codex/create-codex-pr.js",
+        "usageTag": "node operations/tests/unit/create-codex-pr.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -7562,7 +9546,7 @@
         "scriptTag": "docs-authoring-rules.test",
         "ownerTag": "docs",
         "scopeTag": "tests, tools/lib",
-        "usageTag": "node tests/unit/docs-authoring-rules.test.js"
+        "usageTag": "node operations/tests/unit/docs-authoring-rules.test.js"
       },
       "categories": {
         "roleTags": [
@@ -7593,8 +9577,8 @@
       "metadata": {
         "scriptTag": "docs-fact-registry.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, operations/scripts/docs-fact-registry.js, workspace/research/claims",
-        "usageTag": "node tests/unit/docs-fact-registry.test.js [flags]"
+        "scopeTag": "tests/unit, operations/scripts/validators/content/veracity/docs-fact-registry.js, workspace/research/claims",
+        "usageTag": "node operations/tests/unit/docs-fact-registry.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -7630,7 +9614,7 @@
         "scriptTag": "docs-guide-sot.test",
         "ownerTag": "docs",
         "scopeTag": "tests, docs-guide, README.md, operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js, operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js, operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js",
-        "usageTag": "node tests/unit/docs-guide-sot.test.js [flags]"
+        "usageTag": "node operations/tests/unit/docs-guide-sot.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -7681,7 +9665,7 @@
         "scriptTag": "docs-navigation.test",
         "ownerTag": "docs",
         "scopeTag": "tests, docs.json",
-        "usageTag": "node tests/unit/docs-navigation.test.js [flags]"
+        "usageTag": "node operations/tests/unit/docs-navigation.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -7763,8 +9747,8 @@
       "metadata": {
         "scriptTag": "docs-page-research-pr-report.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, operations/scripts/docs-page-research-pr-report.js, operations/scripts/docs-page-research.js, workspace/research/claims",
-        "usageTag": "node tests/unit/docs-page-research-pr-report.test.js [flags]"
+        "scopeTag": "tests/unit, operations/scripts/dispatch/content/veracity/docs-page-research-pr-report.js, operations/scripts/audits/content/veracity/docs-page-research.js, workspace/research/claims",
+        "usageTag": "node operations/tests/unit/docs-page-research-pr-report.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -7803,8 +9787,8 @@
       "metadata": {
         "scriptTag": "docs-page-research.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, operations/scripts/docs-page-research.js, operations/scripts/docs-fact-registry.js, workspace/research/claims",
-        "usageTag": "node tests/unit/docs-page-research.test.js [flags]"
+        "scopeTag": "tests/unit, operations/scripts/audits/content/veracity/docs-page-research.js, operations/scripts/validators/content/veracity/docs-fact-registry.js, workspace/research/claims",
+        "usageTag": "node operations/tests/unit/docs-page-research.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -7840,7 +9824,7 @@
         "scriptTag": "docs-page-scope.test",
         "ownerTag": "docs",
         "scopeTag": "tests, tools/lib",
-        "usageTag": "node tests/unit/docs-page-scope.test.js"
+        "usageTag": "node operations/tests/unit/docs-page-scope.test.js"
       },
       "categories": {
         "roleTags": [
@@ -7874,7 +9858,7 @@
         "scriptTag": "docs-path-sync.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, operations/scripts/lib, operations/scripts/validators/content, operations/scripts/remediators/content, lpd",
-        "usageTag": "node tests/unit/docs-path-sync.test.js"
+        "usageTag": "node operations/tests/unit/docs-path-sync.test.js"
       },
       "categories": {
         "roleTags": [
@@ -7911,8 +9895,8 @@
       "metadata": {
         "scriptTag": "docs-research-adjudication.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, operations/scripts/docs-research-adjudication.js, workspace/research/adjudication, operations/scripts/docs-page-research.js, operations/scripts/docs-page-research-pr-report.js",
-        "usageTag": "node tests/unit/docs-research-adjudication.test.js [flags]"
+        "scopeTag": "tests/unit, operations/scripts/audits/content/veracity/docs-research-adjudication.js, workspace/research/adjudication, operations/scripts/audits/content/veracity/docs-page-research.js, operations/scripts/dispatch/content/veracity/docs-page-research-pr-report.js",
+        "usageTag": "node operations/tests/unit/docs-research-adjudication.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -7949,8 +9933,8 @@
       "metadata": {
         "scriptTag": "docs-research-packet.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, operations/scripts/docs-research-packet.js, tools/config/scoped-navigation/docs-gate-work.json",
-        "usageTag": "node tests/unit/docs-research-packet.test.js"
+        "scopeTag": "tests/unit, operations/scripts/dispatch/content/veracity/docs-research-packet.js, tools/config/scoped-navigation/docs-gate-work.json",
+        "usageTag": "node operations/tests/unit/docs-research-packet.test.js"
       },
       "categories": {
         "roleTags": [
@@ -7987,7 +9971,7 @@
         "scriptTag": "docs-route-scope.test",
         "ownerTag": "docs",
         "scopeTag": "tests, docs.json",
-        "usageTag": "node tests/unit/docs-route-scope.test.js"
+        "usageTag": "node operations/tests/unit/docs-route-scope.test.js"
       },
       "categories": {
         "roleTags": [
@@ -8018,8 +10002,8 @@
       "metadata": {
         "scriptTag": "export-portable-skills.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, operations/scripts/export-portable-skills.js, tools/lib/codex-skill-templates.js, ai-tools/agent-packs/skills",
-        "usageTag": "node tests/unit/export-portable-skills.test.js [flags]"
+        "scopeTag": "tests/unit, operations/scripts/automations/ai/agents/export-portable-skills.js, tools/lib/codex-skill-templates.js, ai-tools/agent-packs/skills",
+        "usageTag": "node operations/tests/unit/export-portable-skills.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -8053,7 +10037,7 @@
         "scriptTag": "frontmatter-taxonomy.test",
         "ownerTag": "docs",
         "scopeTag": "tests, tools/lib",
-        "usageTag": "node tests/unit/frontmatter-taxonomy.test.js"
+        "usageTag": "node operations/tests/unit/frontmatter-taxonomy.test.js"
       },
       "categories": {
         "roleTags": [
@@ -8087,7 +10071,7 @@
         "scriptTag": "generated-artifacts-policy.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, tools/lib/generated-artifacts.js, tools/config/generated-artifacts.json",
-        "usageTag": "node tests/unit/generated-artifacts-policy.test.js"
+        "usageTag": "node operations/tests/unit/generated-artifacts-policy.test.js"
       },
       "categories": {
         "roleTags": [
@@ -8125,7 +10109,7 @@
         "scriptTag": "legacy-root-v1-redirects.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, operations/scripts/redirects, tools/data/redirects, docs.json",
-        "usageTag": "node tests/unit/legacy-root-v1-redirects.test.js"
+        "usageTag": "node operations/tests/unit/legacy-root-v1-redirects.test.js"
       },
       "categories": {
         "roleTags": [
@@ -8165,7 +10149,7 @@
         "scriptTag": "links-imports.test",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/unit/links-imports.test.js [flags]"
+        "usageTag": "node operations/tests/unit/links-imports.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -8229,8 +10213,8 @@
       "metadata": {
         "scriptTag": "lpd-scoped-mint-dev.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, lpd, operations/scripts/mint-dev.sh, operations/scripts/dev/generate-mint-dev-scope.js",
-        "usageTag": "node tests/unit/lpd-scoped-mint-dev.test.js [flags]"
+        "scopeTag": "tests/unit, lpd, tools/dev/mint-dev.sh, tools/dev/generate-mint-dev-scope.js",
+        "usageTag": "node operations/tests/unit/lpd-scoped-mint-dev.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -8264,7 +10248,7 @@
         "scriptTag": "mdx-component-runtime-smoke.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, tests/integration",
-        "usageTag": "node tests/unit/mdx-component-runtime-smoke.test.js"
+        "usageTag": "node operations/tests/unit/mdx-component-runtime-smoke.test.js"
       },
       "categories": {
         "roleTags": [
@@ -8296,7 +10280,7 @@
         "scriptTag": "mdx-component-scope.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, operations/scripts/validators/components",
-        "usageTag": "node tests/unit/mdx-component-scope.test.js"
+        "usageTag": "node operations/tests/unit/mdx-component-scope.test.js"
       },
       "categories": {
         "roleTags": [
@@ -8328,7 +10312,7 @@
         "scriptTag": "mdx-guards.test",
         "ownerTag": "docs",
         "scopeTag": "tests, v2/pages, snippets/pages, snippets/snippetsWiki",
-        "usageTag": "node tests/unit/mdx-guards.test.js [flags]"
+        "usageTag": "node operations/tests/unit/mdx-guards.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -8376,8 +10360,8 @@
       "metadata": {
         "scriptTag": "mdx-safe-markdown.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, tests/fixtures/mdx-safe-markdown, tools/lib, operations/scripts/remediators/content, operations/scripts/validators/content",
-        "usageTag": "node tests/unit/mdx-safe-markdown.test.js"
+        "scopeTag": "tests/unit, operations/tests/fixtures/mdx-safe-markdown, tools/lib, operations/scripts/remediators/content, operations/scripts/validators/content",
+        "usageTag": "node operations/tests/unit/mdx-safe-markdown.test.js"
       },
       "categories": {
         "roleTags": [
@@ -8413,6 +10397,49 @@
       ]
     },
     {
+      "path": "operations/tests/unit/mdx-sanitise.test.js",
+      "purpose": "Utility script for mdx sanitise test.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "mdx-sanitise.test.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "test"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:test via tests path or .test filename",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
       "path": "operations/tests/unit/mdx.test.js",
       "purpose": "Validates MDX syntax and structure — checks for parse errors, invalid JSX, broken components",
       "templateCompliance": {
@@ -8430,7 +10457,7 @@
         "scriptTag": "mdx.test",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/unit/mdx.test.js [flags]"
+        "usageTag": "node operations/tests/unit/mdx.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -8492,8 +10519,8 @@
       "metadata": {
         "scriptTag": "migrate-assets-to-branch.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, operations/scripts/remediators/assets, operations/scripts/audit-media-assets.js",
-        "usageTag": "node tests/unit/migrate-assets-to-branch.test.js"
+        "scopeTag": "tests/unit, operations/scripts/remediators/assets, operations/scripts/audits/content/quality/audit-media-assets.js",
+        "usageTag": "node operations/tests/unit/migrate-assets-to-branch.test.js"
       },
       "categories": {
         "roleTags": [
@@ -8527,7 +10554,7 @@
         "scriptTag": "og-image-policy.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, operations/scripts/snippets/lib",
-        "usageTag": "node tests/unit/og-image-policy.test.js [flags]"
+        "usageTag": "node operations/tests/unit/og-image-policy.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -8561,7 +10588,7 @@
         "scriptTag": "openapi-reference-audit.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, tests/integration, v2, api",
-        "usageTag": "node tests/unit/openapi-reference-audit.test.js [flags]"
+        "usageTag": "node operations/tests/unit/openapi-reference-audit.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -8595,7 +10622,7 @@
         "scriptTag": "openapi-rolling-issue.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, tests/utils, .github/workflows/openapi-reference-validation.yml",
-        "usageTag": "node tests/unit/openapi-rolling-issue.test.js [flags]"
+        "usageTag": "node operations/tests/unit/openapi-rolling-issue.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -8645,8 +10672,8 @@
       "metadata": {
         "scriptTag": "orchestrator-guides-research-review.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, operations/scripts/orchestrator-guides-research-review.js, tools/config/scoped-navigation/docs-gate-work.json",
-        "usageTag": "node tests/unit/orchestrator-guides-research-review.test.js"
+        "scopeTag": "tests/unit, operations/scripts/dispatch/content/veracity/orchestrator-guides-research-review.js, tools/config/scoped-navigation/docs-gate-work.json",
+        "usageTag": "node operations/tests/unit/orchestrator-guides-research-review.test.js"
       },
       "categories": {
         "roleTags": [
@@ -8684,8 +10711,8 @@
       "metadata": {
         "scriptTag": "ownerless-governance.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, tests/utils, tests/WHEN-TESTS-RUN.md, docs-guide, tools/config/ownerless-governance-surfaces.json, AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md",
-        "usageTag": "node tests/unit/ownerless-governance.test.js [--staged|--files a,b]"
+        "scopeTag": "tests/unit, tests/utils, operations/tests/WHEN-TESTS-RUN.md, docs-guide, tools/config/ownerless-governance-surfaces.json, AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md",
+        "usageTag": "node operations/tests/unit/ownerless-governance.test.js [--staged|--files a,b]"
       },
       "categories": {
         "roleTags": [
@@ -8721,7 +10748,7 @@
         "scriptTag": "precommit-staged-cache.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, tools/lib/precommit-staged-cache.js",
-        "usageTag": "node tests/unit/precommit-staged-cache.test.js"
+        "usageTag": "node operations/tests/unit/precommit-staged-cache.test.js"
       },
       "categories": {
         "roleTags": [
@@ -8770,18 +10797,21 @@
         "scriptTag": "quality.test",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/unit/quality.test.js [flags]"
+        "usageTag": "node operations/tests/unit/quality.test.js [flags]"
       },
       "categories": {
         "roleTags": [
+          "ci",
           "enforcement",
           "test"
         ],
         "runContextTags": [
           "manual",
-          "npm-script"
+          "npm-script",
+          "workflow-dispatch"
         ],
         "evidence": [
+          "role:ci via workflow invocation",
           "role:enforcement via keyword or gating context",
           "role:test via tests path or .test filename"
         ]
@@ -8814,6 +10844,19 @@
             "command: node ../operations/tests/unit/quality.test.js",
             "node ../operations/tests/unit/quality.test.js"
           ]
+        },
+        {
+          "sourceType": "workflow",
+          "sourcePath": ".github/workflows/docs-catalog-governance.yml",
+          "location": "Docs Catalog Governance > catalog-checks > Check frontmatter taxonomy on changed docs pages",
+          "whenTags": [
+            "workflow-dispatch"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "node operations/tests/unit/quality.test.js --files \"$CHANGED\"",
+            "run: CHANGED=$(git diff --name-only \"origin/${{ inputs.base_ref }}...HEAD\" | grep -E '^(v2|docs-guide)/.*\\.mdx$' | tr '\\n' ',' | sed 's/,$//') if [ -n \"$CHANGED\" ]; then node operations/tests/unit/quality.test.js --files \"$CHANGED\" else echo ..."
+          ]
         }
       ]
     },
@@ -8835,7 +10878,7 @@
         "scriptTag": "repair-governance.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, operations/scripts/orchestrators/repair-governance.js, .github/workflows/repair-governance.yml",
-        "usageTag": "node tests/unit/repair-governance.test.js"
+        "usageTag": "node operations/tests/unit/repair-governance.test.js"
       },
       "categories": {
         "roleTags": [
@@ -8867,7 +10910,7 @@
         "scriptTag": "repair-spelling.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, operations/scripts/remediators/content",
-        "usageTag": "node tests/unit/repair-spelling.test.js [flags]"
+        "usageTag": "node operations/tests/unit/repair-spelling.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -8901,7 +10944,7 @@
         "scriptTag": "repo-audit-pipeline.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, tools/scripts, ai-tools/ai-skills/catalog, ai-tools/agent-packs",
-        "usageTag": "node tests/unit/repo-audit-pipeline.test.js [flags]"
+        "usageTag": "node operations/tests/unit/repo-audit-pipeline.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -8952,7 +10995,7 @@
         "scriptTag": "root-allowlist-format.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, .allowlist, AGENTS.md, .claude, .cursor, .windsurf",
-        "usageTag": "node tests/unit/root-allowlist-format.test.js"
+        "usageTag": "node operations/tests/unit/root-allowlist-format.test.js"
       },
       "categories": {
         "roleTags": [
@@ -8988,7 +11031,7 @@
         "scriptTag": "run-pr-checks.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, tests/run-pr-checks.js",
-        "usageTag": "node tests/unit/run-pr-checks.test.js"
+        "usageTag": "node operations/tests/unit/run-pr-checks.test.js"
       },
       "categories": {
         "roleTags": [
@@ -9026,7 +11069,7 @@
         "scriptTag": "script-docs-test",
         "ownerTag": "docs",
         "scopeTag": ".githooks, .github/scripts, tests, tools/scripts, workspace/scripts, docs-guide/catalog/scripts-catalog.mdx",
-        "usageTag": "node tests/unit/script-docs.test.js [flags]"
+        "usageTag": "node operations/tests/unit/script-docs.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -9079,7 +11122,7 @@
         "scriptTag": "skill-docs.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, ai-tools/ai-skills, tools/lib/codex-skill-templates.js",
-        "usageTag": "node tests/unit/skill-docs.test.js [--staged] [--files path[,path]]"
+        "usageTag": "node operations/tests/unit/skill-docs.test.js [--staged] [--files path[,path]]"
       },
       "categories": {
         "roleTags": [
@@ -9115,7 +11158,7 @@
         "scriptTag": "spelling.test",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/unit/spelling.test.js [flags]"
+        "usageTag": "node operations/tests/unit/spelling.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -9178,7 +11221,7 @@
         "scriptTag": "style-guide.test",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/unit/style-guide.test.js [flags]"
+        "usageTag": "node operations/tests/unit/style-guide.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -9227,7 +11270,7 @@
     },
     {
       "path": "operations/tests/unit/ui-template-generator.test.js",
-      "purpose": "Validates UI template generator snippet outputs are valid JSON, deterministic, and safe for after-< component insertion",
+      "purpose": "Validates UI template artifacts, canonical template MDX safety, and Mint parse-surface boundaries before mint dev encounters them",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -9240,8 +11283,8 @@
       "metadata": {
         "scriptTag": "ui-template-generator.test",
         "ownerTag": "docs",
-        "scopeTag": "tests, operations/scripts/generate-ui-templates.js, .vscode, snippets/templates, docs-guide/component-registry.json",
-        "usageTag": "node tests/unit/ui-template-generator.test.js [flags]"
+        "scopeTag": "tests, operations/scripts/generators/components/library/generate-ui-templates.js, .vscode, snippets/templates, docs-guide/config/component-registry.json, .mintignore, docs.json, v1, v2, snippets",
+        "usageTag": "node operations/tests/unit/ui-template-generator.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -9277,7 +11320,7 @@
         "scriptTag": "usefulness-journey.test",
         "ownerTag": "docs",
         "scopeTag": "full-repo",
-        "usageTag": "node tests/unit/usefulness-journey.test.js"
+        "usageTag": "node operations/tests/unit/usefulness-journey.test.js"
       },
       "categories": {
         "roleTags": [
@@ -9313,7 +11356,7 @@
         "scriptTag": "usefulness-rubric.test",
         "ownerTag": "docs",
         "scopeTag": "full-repo",
-        "usageTag": "node tests/unit/usefulness-rubric.test.js"
+        "usageTag": "node operations/tests/unit/usefulness-rubric.test.js"
       },
       "categories": {
         "roleTags": [
@@ -9348,8 +11391,8 @@
       "metadata": {
         "scriptTag": "v2-folder-governance-cleanup-matrix.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, operations/scripts/generate-v2-folder-governance-cleanup-matrix.js",
-        "usageTag": "node tests/unit/v2-folder-governance-cleanup-matrix.test.js"
+        "scopeTag": "tests/unit, operations/scripts/audits/governance/reports/generate-v2-folder-governance-cleanup-matrix.js",
+        "usageTag": "node operations/tests/unit/v2-folder-governance-cleanup-matrix.test.js"
       },
       "categories": {
         "roleTags": [
@@ -9383,7 +11426,7 @@
         "scriptTag": "v2-link-audit.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, tests/integration",
-        "usageTag": "node tests/unit/v2-link-audit.test.js [flags]"
+        "usageTag": "node operations/tests/unit/v2-link-audit.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -9436,7 +11479,7 @@
         "scriptTag": "v2-wcag-audit.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, tests/integration",
-        "usageTag": "node tests/unit/v2-wcag-audit.test.js [flags]"
+        "usageTag": "node operations/tests/unit/v2-wcag-audit.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -9487,7 +11530,7 @@
         "scriptTag": "validate-codex-task-contract.test",
         "ownerTag": "docs",
         "scopeTag": "tests/unit, operations/scripts/validators/governance/compliance/validate-codex-task-contract.js",
-        "usageTag": "node tests/unit/validate-codex-task-contract.test.js [flags]"
+        "usageTag": "node operations/tests/unit/validate-codex-task-contract.test.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -9537,7 +11580,7 @@
         "scriptTag": "file-walker",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/utils/file-walker.js [flags]"
+        "usageTag": "node operations/tests/utils/file-walker.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -9581,7 +11624,7 @@
         "scriptTag": "mdx-parser",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/utils/mdx-parser.js [flags]"
+        "usageTag": "node operations/tests/utils/mdx-parser.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -9613,7 +11656,7 @@
         "scriptTag": "mintignore",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/utils/mintignore.js [flags]"
+        "usageTag": "node operations/tests/utils/mintignore.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -9645,7 +11688,7 @@
         "scriptTag": "openapi-rolling-issue",
         "ownerTag": "docs",
         "scopeTag": "tests/utils, tests/unit, .github/workflows/openapi-reference-validation.yml",
-        "usageTag": "node tests/utils/openapi-rolling-issue.js [flags]"
+        "usageTag": "node operations/tests/utils/openapi-rolling-issue.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -9681,7 +11724,7 @@
         "scriptTag": "spell-checker",
         "ownerTag": "docs",
         "scopeTag": "tests",
-        "usageTag": "node tests/utils/spell-checker.js [flags]"
+        "usageTag": "node operations/tests/utils/spell-checker.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -9724,6 +11767,49 @@
         ],
         "evidence": [
           "role:sync via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "snippets/components/integrators/feeds/contractVerifierData.js",
+      "purpose": "Utility script for contractVerifierData.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "contractVerifierData.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
           "run-context:manual due to no direct invocation mapping"
         ]
       },
@@ -9855,7 +11941,7 @@
       "metadata": {
         "scriptTag": "ensure-mint-watcher-patch",
         "ownerTag": "",
-        "scopeTag": "tools/scripts",
+        "scopeTag": "tools/dev",
         "usageTag": "bash tools/dev/ensure-mint-watcher-patch.sh [flags]"
       },
       "categories": {
@@ -9892,7 +11978,7 @@
       "metadata": {
         "scriptTag": "format-mdx",
         "ownerTag": "",
-        "scopeTag": "tools/scripts, tools/vscode/authoring-tools, tests/unit",
+        "scopeTag": "tools/scripts, tools/editor-extensions/authoring-tools, tests/unit",
         "usageTag": "node tools/dev/format-mdx.js [--check|--write] [--files a,b]"
       },
       "categories": {
@@ -9958,7 +12044,7 @@
       "metadata": {
         "scriptTag": "generate-mint-dev-scope",
         "ownerTag": "",
-        "scopeTag": "tools/scripts/dev, docs.json, .mintignore",
+        "scopeTag": "operations/scripts/dev, docs.json, .mintignore",
         "usageTag": "node tools/dev/generate-mint-dev-scope.js [flags]"
       },
       "categories": {
@@ -9995,7 +12081,7 @@
       "metadata": {
         "scriptTag": "install-authoring-tools-extension",
         "ownerTag": "",
-        "scopeTag": "tools/scripts, tools/vscode/authoring-tools, .vscode/settings.json",
+        "scopeTag": "tools/scripts, tools/editor-extensions/authoring-tools, .vscode/settings.json",
         "usageTag": "node tools/dev/install-authoring-tools-extension.js [--targets vscode,cursor] [--force]"
       },
       "categories": {
@@ -10044,8 +12130,8 @@
       "metadata": {
         "scriptTag": "resolve-scoped-docs-config",
         "ownerTag": "docs",
-        "scopeTag": "tools/scripts/dev/lib, tools/config/scoped-navigation",
-        "usageTag": "node -e \"require('./tools/scripts/dev/lib/resolve-scoped-docs-config')\""
+        "scopeTag": "tools/dev/lib, tools/config/scoped-navigation",
+        "usageTag": "node -e \"require('./tools/dev/lib/resolve-scoped-docs-config')\""
       },
       "categories": {
         "roleTags": [
@@ -10155,7 +12241,7 @@
       "metadata": {
         "scriptTag": "rename-vscode-codex-chat",
         "ownerTag": "",
-        "scopeTag": "tools/scripts/dev/rename-vscode-codex-chat.js, .vscode/tasks.json, tools/package.json",
+        "scopeTag": "tools/dev/rename-vscode-codex-chat.js, .vscode/tasks.json, tools/package.json",
         "usageTag": "node tools/dev/rename-vscode-codex-chat.js --title \"New title\" [--workspace <path>]"
       },
       "categories": {
@@ -10217,7 +12303,7 @@
         "scriptTag": "test-add-callouts",
         "ownerTag": "docs",
         "scopeTag": "tools/scripts",
-        "usageTag": "node tools/scripts/dev/test-add-callouts.js [flags]"
+        "usageTag": "node tools/dev/test-add-callouts.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -10251,7 +12337,7 @@
         "scriptTag": "test-seo-generator",
         "ownerTag": "docs",
         "scopeTag": "tools/scripts",
-        "usageTag": "node tools/scripts/dev/test-seo-generator.js [flags]"
+        "usageTag": "node tools/dev/test-seo-generator.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -10265,6 +12351,565 @@
           "role:enforcement via keyword or gating context",
           "role:generator via @category generator",
           "role:generator via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/editor-extensions/authoring-tools/extension.js",
+      "purpose": "Utility script for extension.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "extension.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/editor-extensions/authoring-tools/lib/authoring-core.js",
+      "purpose": "Utility script for authoring core.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "authoring-core.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/editor-extensions/components/extension.js",
+      "purpose": "Utility script for extension.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "extension.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/editor-extensions/install.sh",
+      "purpose": "Utility script for install.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "install.sh",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/editor-extensions/lpd-mdx-preview/extension.js",
+      "purpose": "Utility script for extension.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "extension.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/editor-extensions/lpd-mdx-preview/lib/component-map.js",
+      "purpose": "Utility script for component map.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "component-map.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/editor-extensions/lpd-mdx-preview/lib/mdx-parser.js",
+      "purpose": "Utility script for mdx parser.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "mdx-parser.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/editor-extensions/lpd-mdx-preview/lib/mintlify-components.js",
+      "purpose": "Utility script for mintlify components.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "mintlify-components.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/editor-extensions/lpd-mdx-preview/lib/webview-template.js",
+      "purpose": "Utility script for webview template.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "webview-template.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/editor-extensions/lpd-mdx-preview/media/markdown-it.min.js",
+      "purpose": "Utility script for markdown it min.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "markdown-it.min.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/editor-extensions/lpd-mdx-preview/media/mermaid.min.js",
+      "purpose": "Utility script for mermaid min.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "mermaid.min.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/editor-extensions/lpd-mdx-preview/media/preview.js",
+      "purpose": "Utility script for preview.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "preview.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/editor-extensions/markdown-list/extension.js",
+      "purpose": "Utility script for extension.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "extension.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
           "run-context:manual due to no direct invocation mapping"
         ]
       },
@@ -10287,7 +12932,7 @@
       "metadata": {
         "scriptTag": "ai-tools-registry",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib, ai-tools/registry, tools/scripts/validate-ai-tools-registry.js, tests/unit/ai-tools-registry.test.js, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx, tools/config/ownerless-governance-surfaces.json",
+        "scopeTag": "tools/lib, ai-tools/registry, operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js, operations/tests/unit/ai-tools-registry.test.js, docs-guide/tooling/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx, tools/config/ownerless-governance-surfaces.json",
         "usageTag": "const registry = require('../lib/ai-tools-registry');"
       },
       "categories": {
@@ -10323,7 +12968,7 @@
       "metadata": {
         "scriptTag": "codex-skill-templates",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib, ai-tools/ai-skills/templates, tools/scripts/sync-codex-skills.js, tools/scripts/export-portable-skills.js",
+        "scopeTag": "tools/lib, ai-tools/ai-skills/templates, operations/scripts/automations/ai/agents/sync-codex-skills.js, operations/scripts/automations/ai/agents/export-portable-skills.js",
         "usageTag": "const { discoverTemplates } = require('../lib/codex-skill-templates');"
       },
       "categories": {
@@ -11379,8 +14024,42 @@
       "usedBy": []
     },
     {
-      "path": "tools/vscode/authoring-tools/extension.js",
-      "purpose": "Utility script for extension.",
+      "path": "tools/lpd",
+      "purpose": "Developer CLI orchestrator — unified command surface for setup, dev server, testing, hooks, and script execution across all repo domains",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@owner"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "operations/tests/unit/script-docs.test.js",
+          "operations/tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "lpd",
+        "ownerTag": "docs",
+        "scopeTag": "full-repo",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "runner"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:runner via orchestrator naming pattern",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "workspace/plan/active/FUCK_CLAUDE/scripts/backup-vscode-state.sh",
+      "purpose": "Utility script for backup vscode state.",
       "templateCompliance": {
         "valid": false,
         "missingTags": [
@@ -11402,7 +14081,7 @@
         ]
       },
       "metadata": {
-        "scriptTag": "extension.js",
+        "scriptTag": "backup-vscode-state.sh",
         "ownerTag": "",
         "scopeTag": "",
         "usageTag": ""
@@ -11422,8 +14101,8 @@
       "usedBy": []
     },
     {
-      "path": "tools/vscode/authoring-tools/lib/authoring-core.js",
-      "purpose": "Utility script for authoring core.",
+      "path": "workspace/plan/active/FUCK_CLAUDE/scripts/fix-title-overwrite.sh",
+      "purpose": "Utility script for fix title overwrite.",
       "templateCompliance": {
         "valid": false,
         "missingTags": [
@@ -11445,7 +14124,7 @@
         ]
       },
       "metadata": {
-        "scriptTag": "authoring-core.js",
+        "scriptTag": "fix-title-overwrite.sh",
         "ownerTag": "",
         "scopeTag": "",
         "usageTag": ""
@@ -11465,8 +14144,8 @@
       "usedBy": []
     },
     {
-      "path": "tools/vscode/components/extension.js",
-      "purpose": "Utility script for extension.",
+      "path": "workspace/plan/active/FUCK_CLAUDE/scripts/fix-titles.sh",
+      "purpose": "Utility script for fix titles.",
       "templateCompliance": {
         "valid": false,
         "missingTags": [
@@ -11488,7 +14167,7 @@
         ]
       },
       "metadata": {
-        "scriptTag": "extension.js",
+        "scriptTag": "fix-titles.sh",
         "ownerTag": "",
         "scopeTag": "",
         "usageTag": ""
@@ -11508,8 +14187,8 @@
       "usedBy": []
     },
     {
-      "path": "tools/vscode/lpd-mdx-preview/extension.js",
-      "purpose": "Utility script for extension.",
+      "path": "workspace/plan/active/FUCK_CLAUDE/scripts/full-repair.sh",
+      "purpose": "Utility script for full repair.",
       "templateCompliance": {
         "valid": false,
         "missingTags": [
@@ -11531,7 +14210,7 @@
         ]
       },
       "metadata": {
-        "scriptTag": "extension.js",
+        "scriptTag": "full-repair.sh",
         "ownerTag": "",
         "scopeTag": "",
         "usageTag": ""
@@ -11551,8 +14230,8 @@
       "usedBy": []
     },
     {
-      "path": "tools/vscode/lpd-mdx-preview/lib/component-map.js",
-      "purpose": "Utility script for component map.",
+      "path": "workspace/plan/active/FUCK_CLAUDE/scripts/list-sessions.sh",
+      "purpose": "Utility script for list sessions.",
       "templateCompliance": {
         "valid": false,
         "missingTags": [
@@ -11574,7 +14253,7 @@
         ]
       },
       "metadata": {
-        "scriptTag": "component-map.js",
+        "scriptTag": "list-sessions.sh",
         "ownerTag": "",
         "scopeTag": "",
         "usageTag": ""
@@ -11594,8 +14273,8 @@
       "usedBy": []
     },
     {
-      "path": "tools/vscode/lpd-mdx-preview/lib/mdx-parser.js",
-      "purpose": "Utility script for mdx parser.",
+      "path": "workspace/plan/active/FUCK_CLAUDE/scripts/patch-extension.sh",
+      "purpose": "Utility script for patch extension.",
       "templateCompliance": {
         "valid": false,
         "missingTags": [
@@ -11617,7 +14296,7 @@
         ]
       },
       "metadata": {
-        "scriptTag": "mdx-parser.js",
+        "scriptTag": "patch-extension.sh",
         "ownerTag": "",
         "scopeTag": "",
         "usageTag": ""
@@ -11637,8 +14316,8 @@
       "usedBy": []
     },
     {
-      "path": "tools/vscode/lpd-mdx-preview/lib/mintlify-components.js",
-      "purpose": "Utility script for mintlify components.",
+      "path": "workspace/plan/active/FUCK_CLAUDE/scripts/reap-zombie-claude.sh",
+      "purpose": "Utility script for reap zombie claude.",
       "templateCompliance": {
         "valid": false,
         "missingTags": [
@@ -11660,7 +14339,7 @@
         ]
       },
       "metadata": {
-        "scriptTag": "mintlify-components.js",
+        "scriptTag": "reap-zombie-claude.sh",
         "ownerTag": "",
         "scopeTag": "",
         "usageTag": ""
@@ -11680,8 +14359,8 @@
       "usedBy": []
     },
     {
-      "path": "tools/vscode/lpd-mdx-preview/lib/webview-template.js",
-      "purpose": "Utility script for webview template.",
+      "path": "workspace/plan/active/FUCK_CLAUDE/scripts/recover-dropped-sessions.sh",
+      "purpose": "Utility script for recover dropped sessions.",
       "templateCompliance": {
         "valid": false,
         "missingTags": [
@@ -11703,7 +14382,7 @@
         ]
       },
       "metadata": {
-        "scriptTag": "webview-template.js",
+        "scriptTag": "recover-dropped-sessions.sh",
         "ownerTag": "",
         "scopeTag": "",
         "usageTag": ""
@@ -11723,8 +14402,8 @@
       "usedBy": []
     },
     {
-      "path": "tools/vscode/lpd-mdx-preview/media/markdown-it.min.js",
-      "purpose": "Utility script for markdown it min.",
+      "path": "workspace/plan/active/FUCK_CLAUDE/scripts/restore-vscode-state.sh",
+      "purpose": "Utility script for restore vscode state.",
       "templateCompliance": {
         "valid": false,
         "missingTags": [
@@ -11746,7 +14425,7 @@
         ]
       },
       "metadata": {
-        "scriptTag": "markdown-it.min.js",
+        "scriptTag": "restore-vscode-state.sh",
         "ownerTag": "",
         "scopeTag": "",
         "usageTag": ""
@@ -11766,8 +14445,8 @@
       "usedBy": []
     },
     {
-      "path": "tools/vscode/lpd-mdx-preview/media/mermaid.min.js",
-      "purpose": "Utility script for mermaid min.",
+      "path": "workspace/plan/active/FUCK_CLAUDE/scripts/sort-sessions.sh",
+      "purpose": "Utility script for sort sessions.",
       "templateCompliance": {
         "valid": false,
         "missingTags": [
@@ -11789,93 +14468,7 @@
         ]
       },
       "metadata": {
-        "scriptTag": "mermaid.min.js",
-        "ownerTag": "",
-        "scopeTag": "",
-        "usageTag": ""
-      },
-      "categories": {
-        "roleTags": [
-          "helper"
-        ],
-        "runContextTags": [
-          "manual"
-        ],
-        "evidence": [
-          "role:helper fallback because no stronger primary role was matched",
-          "run-context:manual due to no direct invocation mapping"
-        ]
-      },
-      "usedBy": []
-    },
-    {
-      "path": "tools/vscode/lpd-mdx-preview/media/preview.js",
-      "purpose": "Utility script for preview.",
-      "templateCompliance": {
-        "valid": false,
-        "missingTags": [
-          "@script",
-          "@summary",
-          "@owner",
-          "@scope",
-          "@usage",
-          "@inputs",
-          "@outputs",
-          "@exit-codes",
-          "@examples",
-          "@notes"
-        ],
-        "emptyTags": [],
-        "rulesSource": [
-          "operations/tests/unit/script-docs.test.js",
-          "operations/tests/README.md"
-        ]
-      },
-      "metadata": {
-        "scriptTag": "preview.js",
-        "ownerTag": "",
-        "scopeTag": "",
-        "usageTag": ""
-      },
-      "categories": {
-        "roleTags": [
-          "helper"
-        ],
-        "runContextTags": [
-          "manual"
-        ],
-        "evidence": [
-          "role:helper fallback because no stronger primary role was matched",
-          "run-context:manual due to no direct invocation mapping"
-        ]
-      },
-      "usedBy": []
-    },
-    {
-      "path": "tools/vscode/markdown-list/extension.js",
-      "purpose": "Utility script for extension.",
-      "templateCompliance": {
-        "valid": false,
-        "missingTags": [
-          "@script",
-          "@summary",
-          "@owner",
-          "@scope",
-          "@usage",
-          "@inputs",
-          "@outputs",
-          "@exit-codes",
-          "@examples",
-          "@notes"
-        ],
-        "emptyTags": [],
-        "rulesSource": [
-          "operations/tests/unit/script-docs.test.js",
-          "operations/tests/README.md"
-        ]
-      },
-      "metadata": {
-        "scriptTag": "extension.js",
+        "scriptTag": "sort-sessions.sh",
         "ownerTag": "",
         "scopeTag": "",
         "usageTag": ""

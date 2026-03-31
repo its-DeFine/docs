@@ -322,7 +322,7 @@ const VERSION = 'docs-index.v1';
 
 // WRONG — path buried in function body
 function generateReport() {
-  const output = path.join(process.cwd(), 'tasks/reports/docs-index/missing-frontmatter.md');
+  const output = path.join(process.cwd(), 'workspace/reports/docs-index/missing-frontmatter.md');
 }
 ```
 

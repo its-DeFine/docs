@@ -8,7 +8,7 @@
  * @needs             E-R1, R-R14
  * @purpose-statement Unit tests for og-image-policy — validates route mapping, locale asset selection, fallback assignment, and URL guardrails.
  * @pipeline          manual — targeted unit coverage for OG image governance
- * @usage             node tests/unit/og-image-policy.test.js [flags]
+ * @usage             node operations/tests/unit/og-image-policy.test.js [flags]
  */
 
 const assert = require("assert");

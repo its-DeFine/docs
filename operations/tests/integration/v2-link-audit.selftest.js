@@ -9,7 +9,7 @@
  * @purpose-statement Self-test suite for v2-link-audit.js — validates audit logic against known fixtures
  * @pipeline          manual — not yet in pipeline
  * @dualmode          --full (validator) | --write-links (remediator)
- * @usage             node tests/integration/v2-link-audit.selftest.js [flags]
+ * @usage             node operations/tests/integration/v2-link-audit.selftest.js [flags]
  */
 
 const assert = require('assert');

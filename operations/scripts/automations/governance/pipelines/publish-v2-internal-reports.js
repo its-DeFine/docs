@@ -8,7 +8,7 @@
  * @description Report publisher — publishes v2 internal audit reports to configured output locations
  * @mode        execute
  * @pipeline    manual — not yet in pipeline
- * @scope       operations/scripts, tools/config, v2/internal, docs.json, workspace/reports, operations/tests/eports
+ * @scope       operations/scripts, tools/config, v2/internal, docs.json, workspace/reports, operations/tests/reports
  * @usage       node operations/scripts/automations/governance/pipelines/publish-v2-internal-reports.js [flags]
  * @policy      E-C1, R-R14
  */
@@ -39,7 +39,7 @@ const UTC_MONTHS = [
 
 function usage() {
   console.log(
-    'Usage: node operations/scripts/publish-v2-internal-reports.js [--check] [--strict] [--category <slug[,slug]>]'
+    'Usage: node operations/scripts/automations/governance/pipelines/publish-v2-internal-reports.js [--check] [--strict] [--category <slug[,slug]>]'
   );
 }
 
@@ -142,7 +142,7 @@ function titleFromScope(scopeValue) {
   const rawScope = String(scopeValue || '').replace(/`/g, '').trim();
   const scopePath = rawScope.split('(')[0].trim();
   let pathSegments = scopePath.split('/').map((segment) => segment.trim()).filter(Boolean);
-  if (pathSegments[0] === 'tasks') pathSegments = pathSegments.slice(1);
+  if (pathSegments[0] === 'tasks' || pathSegments[0] === 'workspace') pathSegments = pathSegments.slice(1);
   if (pathSegments[0] === 'reports') pathSegments = pathSegments.slice(1);
 
   const source = pathSegments.length ? pathSegments.join('/') : scopePath;

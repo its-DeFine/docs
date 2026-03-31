@@ -3,13 +3,13 @@
  * @script            codex-commit.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, operations/scripts/codex-commit.js
+ * @scope             tests/unit, operations/scripts/dispatch/ai/codex/codex-commit.js
  * @owner             docs
  * @needs             R-R27, R-R30
  * @purpose-statement Tests codex-commit.js — validates commit message generation and contract compliance
  * @pipeline          manual — not yet in pipeline
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/unit/codex-commit.test.js [flags]
+ * @usage             node operations/tests/unit/codex-commit.test.js [flags]
  */
 
 const assert = require('assert');
@@ -19,7 +19,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const REPO_ROOT = process.cwd();
-const SCRIPT_PATH = path.join(REPO_ROOT, 'operations/scripts/codex-commit.js');
+const SCRIPT_PATH = path.join(REPO_ROOT, 'operations/scripts/dispatch/ai/codex/codex-commit.js');
 
 function run(cmd, args, cwd) {
   return spawnSync(cmd, args, { cwd, encoding: 'utf8' });

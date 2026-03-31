@@ -8,7 +8,7 @@
  * @needs             F-R17
  * @purpose-statement Tests OpenAPI rolling issue tracker — validates issue creation and dedup logic
  * @pipeline          manual — not yet in pipeline
- * @usage             node tests/unit/openapi-rolling-issue.test.js [flags]
+ * @usage             node operations/tests/unit/openapi-rolling-issue.test.js [flags]
  */
 
 const assert = require('assert');

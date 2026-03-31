@@ -179,7 +179,7 @@ Everything else — including root file governance, `snippets/assets/`, `contrib
 - [x] **V-WS.6** No broken refs in AI adapter files *(included in 5 config files updated)*
 - [x] **V-WS.7** `docs-guide/policies/root-allowlist-governance.mdx` updated: `workspace/` replaces `tasks/` *(2026-03-21 — inventory, decision matrix, move candidate note all updated)*
 - [x] **V-WS.8** Scripts referencing `tasks/` paths updated *(30 scripts updated; test suite exit code 0)*
-- [x] **V-WS.9** `lpd` CLI fixed *(2026-03-21 — `group_root tasks` now maps to `workspace/scripts`; `workspace` added as new canonical group; `tasks` kept as legacy alias; `tasks/reports/` git-add path fixed to `workspace/reports/`; all help text updated)*
+- [x] **V-WS.9** `lpd` CLI fixed *(2026-03-21 — `group_root tasks` now maps to `workspace/scripts`; `workspace` added as new canonical group; `tasks` kept as legacy alias; legacy report git-add path fixed to `workspace/reports/`; all help text updated)*
 - [x] **V-WS.10** `.mintignore` entry `/tasks/**` updated to `/workspace/**` *(2026-03-21)*
 
 ---

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Repair ai-tools/registry/ai-tools-registry.json.
-Run from the repo root: python3 tasks/scripts/repair-registry.py
+Run from the repo root: python3 workspace/scripts/repair-registry.py
 """
 import json, copy
 
@@ -27,13 +27,13 @@ def make_template(num, name, slug):
         "derived_outputs": ["ai-tools/agent-packs/skills/**", "~/.codex/skills/**"],
         "runtime_targets": ["portable skill export", "codex local sync"],
         "validators": [
-            "tests/unit/skill-docs.test.js",
-            "tests/unit/export-portable-skills.test.js",
-            "tests/unit/codex-skill-sync.test.js"
+            "operations/tests/unit/skill-docs.test.js",
+            "operations/tests/unit/export-portable-skills.test.js",
+            "operations/tests/unit/codex-skill-sync.test.js"
         ],
         "repair_commands": [
-            "node tools/scripts/automations/ai/agents/export-portable-skills.js --write",
-            "node tools/scripts/automations/ai/agents/sync-codex-skills.js"
+            "node operations/scripts/automations/ai/agents/export-portable-skills.js --write",
+            "node operations/scripts/automations/ai/agents/sync-codex-skills.js"
         ],
         "catalog_group": "ai-skills/templates",
         "status": "canonical-active",
@@ -57,12 +57,12 @@ def make_template_companion(num, name, ref_slug, ref_file, slug):
         ],
         "runtime_targets": ["portable skill export", "codex local sync"],
         "validators": [
-            "tests/unit/export-portable-skills.test.js",
-            "tests/unit/codex-skill-sync.test.js"
+            "operations/tests/unit/export-portable-skills.test.js",
+            "operations/tests/unit/codex-skill-sync.test.js"
         ],
         "repair_commands": [
-            "node tools/scripts/automations/ai/agents/export-portable-skills.js --write",
-            "node tools/scripts/automations/ai/agents/sync-codex-skills.js"
+            "node operations/scripts/automations/ai/agents/export-portable-skills.js --write",
+            "node operations/scripts/automations/ai/agents/sync-codex-skills.js"
         ],
         "catalog_group": "ai-skills/templates",
         "status": "canonical-active",
@@ -82,9 +82,9 @@ def make_portable_skill(skill_name, slug):
         "canonical_source": ["ai-tools/ai-skills/templates/*.template.md"],
         "derived_outputs": ["ai-tools/agent-packs/skills/**"],
         "runtime_targets": ["Codex", "Cursor", "Claude", "Windsurf"],
-        "validators": ["tests/unit/export-portable-skills.test.js"],
+        "validators": ["operations/tests/unit/export-portable-skills.test.js"],
         "repair_commands": [
-            "node tools/scripts/automations/ai/agents/export-portable-skills.js --write"
+            "node operations/scripts/automations/ai/agents/export-portable-skills.js --write"
         ],
         "catalog_group": "agent-packs/skills",
         "status": "generated-active",
@@ -104,9 +104,9 @@ def make_portable_ref(skill_name, slug, ref_file, ref_slug):
         "canonical_source": ["ai-tools/ai-skills/templates/*.references/**"],
         "derived_outputs": ["ai-tools/agent-packs/skills/**/references/**"],
         "runtime_targets": ["Codex", "Cursor", "Claude", "Windsurf"],
-        "validators": ["tests/unit/export-portable-skills.test.js"],
+        "validators": ["operations/tests/unit/export-portable-skills.test.js"],
         "repair_commands": [
-            "node tools/scripts/automations/ai/agents/export-portable-skills.js --write"
+            "node operations/scripts/automations/ai/agents/export-portable-skills.js --write"
         ],
         "catalog_group": "agent-packs/skills",
         "status": "generated-active",
@@ -126,9 +126,9 @@ def make_local_skill(skill_dir, slug):
         "canonical_source": ["ai-tools/ai-skills/*/SKILL.md"],
         "derived_outputs": [],
         "runtime_targets": ["repo-local skill use"],
-        "validators": ["tests/unit/skill-docs.test.js"],
+        "validators": ["operations/tests/unit/skill-docs.test.js"],
         "repair_commands": [
-            "node tools/scripts/automations/ai/agents/sync-codex-skills.js --check"
+            "node operations/scripts/automations/ai/agents/sync-codex-skills.js --check"
         ],
         "catalog_group": "ai-skills/local-skills",
         "status": "canonical-active",
@@ -188,9 +188,9 @@ def make_codex_manifest(skill_dir, slug):
         "canonical_source": [f"ai-tools/ai-skills/{skill_dir}/**"],
         "derived_outputs": [],
         "runtime_targets": ["codex local sync"],
-        "validators": ["tests/unit/codex-skill-sync.test.js"],
+        "validators": ["operations/tests/unit/codex-skill-sync.test.js"],
         "repair_commands": [
-            "node tools/scripts/automations/ai/agents/sync-codex-skills.js"
+            "node operations/scripts/automations/ai/agents/sync-codex-skills.js"
         ],
         "catalog_group": f"ai-skills/{skill_dir}",
         "status": "active",
@@ -572,4 +572,4 @@ with open(REGISTRY, "w") as f:
     json.dump(reg, f, indent=2)
     f.write("\n")
 
-print("Done. Run: node tools/scripts/validators/governance/compliance/validate-ai-tools-registry.js --check --coverage")
+print("Done. Run: node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js --check --coverage")

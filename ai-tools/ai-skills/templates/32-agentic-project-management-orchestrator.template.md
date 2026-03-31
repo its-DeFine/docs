@@ -20,7 +20,7 @@ primary_paths:
   - "tests/README.md"
 primary_commands:
   - "node operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js --check"
-  - "node tests/run-all.js --staged --skip-browser"
+  - "node operations/tests/run-all.js --staged --skip-browser"
 ---
 
 SKILL: Agentic Project Management Orchestrator
@@ -56,7 +56,7 @@ Workflow
 Command examples
 ```bash
 node operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js --check
-node tests/run-all.js --staged --skip-browser
+node operations/tests/run-all.js --staged --skip-browser
 ```
 
 Deliverable Format

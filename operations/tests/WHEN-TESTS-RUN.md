@@ -17,10 +17,10 @@
   - Spelling checks
   - Quality checks
   - Broken links & imports validation
-- Script docs enforcement (`tests/unit/script-docs.test.js --staged --write --stage --autofill`)
-- Pages index sync (`operations/scripts/generate-pages-index.js --staged --write --stage`)
-- Staged WCAG accessibility audit with conservative autofix (`tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious ...`)
-- Staged strict V2 link audit (`tests/integration/v2-link-audit.js --staged --strict ...`)
+- Script docs enforcement (`operations/tests/unit/script-docs.test.js --staged --write --stage --autofill`)
+- Pages index sync (`operations/scripts/generators/content/catalogs/generate-pages-index.js --staged --write --stage`)
+- Staged WCAG accessibility audit with conservative autofix (`operations/tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious ...`)
+- Staged strict V2 link audit (`operations/tests/integration/v2-link-audit.js --staged --strict ...`)
 - Staged selection will eventually exclude governed V2 non-publishable lanes through `.mintignore`; legacy buckets such as `_contextData`, `_plans-and-research`, `x-resources`, and nested `review.md` remain in inventory until move waves complete.
 - Expensive staged validation runs only after cheap pre-checks pass.
 - The hook test runner uses a `--precommit-basic` lane with staged syntax/style/content checks only; repo-wide governance/unit suites are deferred to full runs and CI.
@@ -49,14 +49,14 @@
 
 **What Runs:**
 - **On pull requests:** changed-file blocking checks
-  - Style guide (`tests/unit/style-guide.test.js`)
-  - MDX validation (`tests/unit/mdx.test.js`)
-  - Spelling (`tests/unit/spelling.test.js`)
-  - Quality (`tests/unit/quality.test.js`)
-  - Links/imports (`tests/unit/links-imports.test.js`)
-  - Script docs enforcement for changed scripts (`tests/unit/script-docs.test.js --files ...`)
-  - Strict link audit for changed docs pages (`tests/integration/v2-link-audit.js --files ... --strict`)
-- Browser tests (all pages from `docs.json`) via `tests/integration/browser.test.js`
+  - Style guide (`operations/tests/unit/style-guide.test.js`)
+  - MDX validation (`operations/tests/unit/mdx.test.js`)
+  - Spelling (`operations/tests/unit/spelling.test.js`)
+  - Quality (`operations/tests/unit/quality.test.js`)
+  - Links/imports (`operations/tests/unit/links-imports.test.js`)
+  - Script docs enforcement for changed scripts (`operations/tests/unit/script-docs.test.js --files ...`)
+  - Strict link audit for changed docs pages (`operations/tests/integration/v2-link-audit.js --files ... --strict`)
+- Browser tests (all pages from `docs.json`) via `operations/tests/integration/browser.test.js`
 
 **Output:**
 - GitHub Step Summary tables
@@ -73,7 +73,7 @@
 - On pull requests to `main` or `docs-v2`
 
 **What Runs:**
-- Full V2 browser sweep from `docs.json` (`operations/scripts/test-v2-pages.js`)
+- Full V2 browser sweep from `docs.json` (`operations/scripts/validators/content/structure/test-v2-pages.js`)
 
 **Output:**
 - PR comment summary
@@ -103,7 +103,7 @@
 
 **What Runs:**
 - Full V2 link audit with external HTTP/HTTPS validation:
-  `node tests/integration/v2-link-audit.js --full --external-policy validate --external-link-types navigational --no-write-links --report /tmp/v2-link-audit-external.md --report-json /tmp/v2-link-audit-external.json`
+  `node operations/tests/integration/v2-link-audit.js --full --external-policy validate --external-link-types navigational --no-write-links --report /tmp/v2-link-audit-external.md --report-json /tmp/v2-link-audit-external.json`
 
 **Output:**
 - Workflow artifacts:
@@ -125,9 +125,9 @@
 
 **What Runs:**
 - Strict OpenAPI endpoint reference audit:
-  `node tests/integration/openapi-reference-audit.js --full --strict --report /tmp/openapi-audit-final.md --report-json /tmp/openapi-audit-final.json`
+  `node operations/tests/integration/openapi-reference-audit.js --full --strict --report /tmp/openapi-audit-final.md --report-json /tmp/openapi-audit-final.json`
 - On non-PR events, conservative autofix attempt:
-  `node tests/integration/openapi-reference-audit.js --full --fix --write ...`
+  `node operations/tests/integration/openapi-reference-audit.js --full --fix --write ...`
 
 **Autofix Boundaries:**
 - Method casing normalization only
@@ -161,33 +161,33 @@
 
 ```bash
 # Full local suite
-node tests/run-all.js
+node operations/tests/run-all.js
 
 # Single suites
-node tests/unit/style-guide.test.js
-node tests/unit/mdx.test.js
-node tests/unit/spelling.test.js
-node tests/unit/quality.test.js
-node tests/unit/links-imports.test.js
-node tests/integration/browser.test.js
-node tests/integration/v2-wcag-audit.js --full
-node tests/integration/v2-wcag-audit.js --full --no-fix
-node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json
+node operations/tests/unit/style-guide.test.js
+node operations/tests/unit/mdx.test.js
+node operations/tests/unit/spelling.test.js
+node operations/tests/unit/quality.test.js
+node operations/tests/unit/links-imports.test.js
+node operations/tests/integration/browser.test.js
+node operations/tests/integration/v2-wcag-audit.js --full
+node operations/tests/integration/v2-wcag-audit.js --full --no-fix
+node operations/tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json
 bash lpd test --staged --wcag
 bash lpd test --full --wcag
 bash lpd test --full --wcag --wcag-no-fix
 
 # Changed-file PR simulation (local)
 # branch-health is the default lane
-node tests/run-pr-checks.js --base-ref main
-node tests/run-pr-checks.js --base-ref main --lane branch-health
+node operations/tests/run-pr-checks.js --base-ref main
+node operations/tests/run-pr-checks.js --base-ref main --lane branch-health
 
 # Strict link audit on explicit files
-node tests/integration/v2-link-audit.js --files v2/community/livepeer-community/trending-topics.mdx --strict
-node tests/integration/v2-link-audit.js --full --external-policy validate --external-link-types navigational --no-write-links --report /tmp/v2-link-audit-external.md --report-json /tmp/v2-link-audit-external.json
-node tests/integration/openapi-reference-audit.js --full --strict --report /tmp/openapi-audit.md --report-json /tmp/openapi-audit.json
-node tests/integration/openapi-reference-audit.js --full --fix --write --report /tmp/openapi-audit-fix.md --report-json /tmp/openapi-audit-fix.json
-node tests/integration/openapi-reference-audit.js --files v2/solutions/livepeer-studio/api-reference/streams/create.mdx --strict
+node operations/tests/integration/v2-link-audit.js --files v2/community/livepeer-community/trending-topics.mdx --strict
+node operations/tests/integration/v2-link-audit.js --full --external-policy validate --external-link-types navigational --no-write-links --report /tmp/v2-link-audit-external.md --report-json /tmp/v2-link-audit-external.json
+node operations/tests/integration/openapi-reference-audit.js --full --strict --report /tmp/openapi-audit.md --report-json /tmp/openapi-audit.json
+node operations/tests/integration/openapi-reference-audit.js --full --fix --write --report /tmp/openapi-audit-fix.md --report-json /tmp/openapi-audit-fix.json
+node operations/tests/integration/openapi-reference-audit.js --files v2/solutions/livepeer-studio/api-reference/streams/create.mdx --strict
 ```
 
 ## OpenAPI Triage (`endpoint-not-found-in-spec`)
@@ -236,4 +236,4 @@ Graduate to full-repo blocking only after agreed criteria are met, for example:
 ## Detailed Matrix
 
 For the full PR CI test breakdown and full script run-context inventory, see:
-`tests/PR-CI-TESTS-AND-SCRIPT-RUN-MATRIX.md`
+`operations/tests/PR-CI-TESTS-AND-SCRIPT-RUN-MATRIX.md`

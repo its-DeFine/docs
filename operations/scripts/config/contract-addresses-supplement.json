@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "description": "Supplement for contracts NOT tracked in livepeer/governor-scripts/updates/addresses.js. Merged with governor-scripts data at fetch time. Only update this file when a new contract is deployed outside the governance upgrade path.",
-    "lastUpdated": "2026-03-26",
-    "source": "v2/resources/references/contract-addresses.mdx (manual extraction)"
+    "description": "Deprecated legacy appendix retained for audit history only. Canonical address, lifecycle, and code-link resolution now live in operations/scripts/config/contract-addresses-authority.json and livepeer/governor-scripts/updates/addresses.js.",
+    "lastUpdated": "2026-03-31",
+    "source": "deprecated-legacy-appendix"
   },
 
   "explorerUrls": {

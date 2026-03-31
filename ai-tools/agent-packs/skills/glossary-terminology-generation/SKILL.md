@@ -1,13 +1,13 @@
 ---
 name: glossary-terminology-generation
-version: "1.0"
 description: >-
-  Generate discovered terminology and glossary datasets from repository content signals. Use when tasks include update glossary terms, discover missing terminology in docs, regenerate terminology data files.
-tier: 3
-invoke_when:
-  - "update glossary terms"
-  - "discover missing terminology in docs"
-  - "regenerate terminology data files"
+  Generate discovered terminology and glossary datasets from repository content
+  signals. Use when: update glossary terms, discover missing terminology in
+  docs, regenerate terminology data files.
+metadata:
+  version: "1.2"
+  category: "authoring"
+  tier: "2"
 primary_paths:
   - "operations/scripts/snippets/generate-data/scripts/terminology-search.js"
   - "operations/scripts/snippets/generate-data/scripts/generate-glossary.js"

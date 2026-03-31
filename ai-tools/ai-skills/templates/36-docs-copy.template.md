@@ -21,8 +21,8 @@ primary_paths:
   - "ai-tools/ai-skills/templates"
 primary_commands:
   - "node operations/scripts/audits/content/veracity/docs-page-research.js --page [path] --report-md /tmp/docs-page-research.md --report-json /tmp/docs-page-research.json"
-  - "node tests/run-all.js --staged --skip-browser"
-  - "node tests/run-pr-checks.js --base-ref docs-v2-dev"
+  - "node operations/tests/run-all.js --staged --skip-browser"
+  - "node operations/tests/run-pr-checks.js --base-ref docs-v2-dev"
 ---
 
 SKILL: Docs Copy

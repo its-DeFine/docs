@@ -3,12 +3,12 @@
  * @script            test-v2-pages
  * @category          utility
  * @purpose           tooling:dev-tools
- * @scope             operations/scripts
+ * @scope             operations/scripts/validators/content/structure, docs.json, v2
  * @owner             docs
  * @needs             E-C6, F-C1
  * @purpose-statement V2 page tester — validates v2 pages via Puppeteer browser rendering
  * @pipeline          P2, P3
- * @usage             node operations/scripts/test-v2-pages.js [flags]
+ * @usage             node operations/scripts/validators/content/structure/test-v2-pages.js [flags]
  */
 
 /**

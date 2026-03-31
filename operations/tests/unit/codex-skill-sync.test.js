@@ -9,7 +9,7 @@
  * @purpose-statement Tests sync-codex-skills.js — validates skill file and companion bundle synchronisation between sources
  * @pipeline          manual — not yet in pipeline
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/unit/codex-skill-sync.test.js [flags]
+ * @usage             node operations/tests/unit/codex-skill-sync.test.js [flags]
  */
 
 const assert = require('assert');
@@ -49,13 +49,11 @@ function createTemplate(sourceDir, number, name, description) {
   const content = [
     '---',
     `name: ${name}`,
-    'version: "1.0"',
     `description: ${description} Use when trigger one, trigger two, or trigger three apply to the requested workflow.`,
-    'tier: 1',
-    'invoke_when:',
-    '  - "trigger one"',
-    '  - "trigger two"',
-    '  - "trigger three"',
+    'metadata:',
+    '  version: "1.0"',
+    '  category: "meta"',
+    '  tier: "1"',
     'primary_paths:',
     '  - "README.md"',
     '  - "tools/scripts"',

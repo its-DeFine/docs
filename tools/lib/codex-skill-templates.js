@@ -2,7 +2,7 @@
  * @script            codex-skill-templates
  * @category          utility
  * @purpose           governance:agent-governance
- * @scope             tools/lib, ai-tools/ai-skills/templates, operations/scripts/sync-codex-skills.js, operations/scripts/export-portable-skills.js
+ * @scope             tools/lib, ai-tools/ai-skills/templates, operations/scripts/automations/ai/agents/sync-codex-skills.js, operations/scripts/automations/ai/agents/export-portable-skills.js
  * @owner             docs
  * @needs             R-R27, R-R30
  * @purpose-statement Shared helper for validating, selecting, and loading canonical Codex skill templates.
@@ -38,10 +38,7 @@ const RESOURCE_BUNDLES = [
 
 const REQUIRED_FRONTMATTER_KEYS = [
   'name',
-  'version',
   'description',
-  'tier',
-  'invoke_when',
   'primary_paths',
   'primary_commands'
 ];
@@ -193,6 +190,11 @@ function parseTemplateFile(filePathAbs, options = {}) {
     throw new Error(`${toPosix(filePathAbs)}: frontmatter must be a YAML object`);
   }
 
+  const metadata = frontmatter.metadata;
+  if (metadata !== undefined && (!metadata || typeof metadata !== 'object' || Array.isArray(metadata))) {
+    throw new Error(`${toPosix(filePathAbs)}: frontmatter "metadata" must be a YAML object when present`);
+  }
+
   for (const key of REQUIRED_FRONTMATTER_KEYS) {
     if (!(key in frontmatter)) {
       throw new Error(`${toPosix(filePathAbs)}: missing required frontmatter key "${key}"`);
@@ -207,9 +209,9 @@ function parseTemplateFile(filePathAbs, options = {}) {
     throw new Error(`${toPosix(filePathAbs)}: frontmatter "name" must match ${SKILL_NAME_RE}`);
   }
 
-  const version = String(frontmatter.version || '').trim();
+  const version = String(frontmatter.version || metadata?.version || '').trim();
   if (!VERSION_RE.test(version)) {
-    throw new Error(`${toPosix(filePathAbs)}: frontmatter "version" must match ${VERSION_RE}`);
+    throw new Error(`${toPosix(filePathAbs)}: frontmatter "version" or "metadata.version" must match ${VERSION_RE}`);
   }
 
   const description = String(frontmatter.description || '').replace(/\s+/g, ' ').trim();
@@ -217,7 +219,17 @@ function parseTemplateFile(filePathAbs, options = {}) {
     throw new Error(`${toPosix(filePathAbs)}: frontmatter "description" must be non-empty`);
   }
 
-  assertArrayCount(frontmatter.invoke_when, 1, 'invoke_when', filePathAbs);
+  const tier = String(frontmatter.tier || metadata?.tier || '').trim();
+  if (!tier) {
+    throw new Error(`${toPosix(filePathAbs)}: missing required frontmatter key "tier" or "metadata.tier"`);
+  }
+  if (!['1', '2'].includes(tier)) {
+    throw new Error(`${toPosix(filePathAbs)}: frontmatter "tier" or "metadata.tier" must be "1" or "2"`);
+  }
+
+  if ('invoke_when' in frontmatter) {
+    assertArrayCount(frontmatter.invoke_when, 1, 'invoke_when', filePathAbs);
+  }
   assertArrayCount(frontmatter.primary_paths, 1, 'primary_paths', filePathAbs);
   assertArrayCount(frontmatter.primary_commands, 1, 'primary_commands', filePathAbs);
 

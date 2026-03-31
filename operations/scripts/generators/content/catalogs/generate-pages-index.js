@@ -50,10 +50,10 @@ const DOMAIN_REVERSE_MAP = Object.fromEntries(
 );
 
 const GENERATED_DETAILS = {
-  script: 'operations/scripts/generate-pages-index.js',
+  script: 'operations/scripts/generators/content/catalogs/generate-pages-index.js',
   purpose: 'Table-of-contents index for v2 docs folders.',
   runWhen: 'v2 docs pages are added, removed, or renamed.',
-  runCommand: 'node operations/scripts/generate-pages-index.js --write'
+  runCommand: 'node operations/scripts/generators/content/catalogs/generate-pages-index.js --write'
 };
 
 function getRepoRoot() {

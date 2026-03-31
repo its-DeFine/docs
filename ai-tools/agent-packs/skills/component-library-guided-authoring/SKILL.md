@@ -1,13 +1,13 @@
 ---
 name: component-library-guided-authoring
-version: "1.0"
 description: >-
-  Use existing snippets components and library patterns before introducing new presentation logic. Use when tasks include which component should I use, add docs UI using existing snippets components, avoid creating new component if possible.
-tier: 1
-invoke_when:
-  - "which component should I use"
-  - "add docs UI using existing snippets components"
-  - "avoid creating new component if possible"
+  Use existing snippets components and library patterns before introducing new
+  presentation logic. Use when: which component should I use, add docs UI using
+  existing snippets components, avoid creating new component if possible.
+metadata:
+  version: "1.2"
+  category: "authoring"
+  tier: "1"
 primary_paths:
   - "v2/resources/documentation-guide/component-library.mdx"
   - "snippets/components"

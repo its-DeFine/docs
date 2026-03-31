@@ -8,7 +8,7 @@
  * @needs             R-R10
  * @purpose-statement Verifies component governance generators produce coherent registry, usage-map, and docs outputs.
  * @pipeline          P1 (commit, via run-all)
- * @usage             node tests/unit/component-governance-generators.test.js
+ * @usage             node operations/tests/unit/component-governance-generators.test.js
  */
 
 const assert = require('assert');

@@ -8,7 +8,7 @@
  * @needs             E-R1, R-R11
  * @purpose-statement WCAG accessibility audit for v2 pages — checks heading hierarchy, alt text, ARIA. Supports --fix mode for auto-repair.
  * @pipeline          P1
- * @usage             node tests/integration/v2-wcag-audit.js [flags]
+ * @usage             node operations/tests/integration/v2-wcag-audit.js [flags]
  */
 
 const fs = require('fs');
@@ -171,7 +171,7 @@ function normalizeInputPath(input) {
 }
 
 function printHelp() {
-  console.log(`Usage: node tests/integration/v2-wcag-audit.js [--full|--staged|--files <path[,path...]>] [--no-mintignore] [--fix|--no-fix] [--stage] [--max-pages <n>] [--base-url <url>] [--fail-impact <level>] [--report <path>] [--report-json <path>]`);
+  console.log(`Usage: node operations/tests/integration/v2-wcag-audit.js [--full|--staged|--files <path[,path...]>] [--no-mintignore] [--fix|--no-fix] [--stage] [--max-pages <n>] [--base-url <url>] [--fail-impact <level>] [--report <path>] [--report-json <path>]`);
 }
 
 function ensureDir(dirPath) {
@@ -619,7 +619,7 @@ function getV2DocsJsonRoutes() {
     const { getV2Pages } = require('../../scripts/validators/content/structure/test-v2-pages');
     return new Set(getV2Pages().map((route) => normalizeInputPath(route)));
   } catch (error) {
-    console.warn(`⚠️  Could not load docs.json v2 pages from operations/scripts/test-v2-pages.js: ${error.message}`);
+    console.warn(`⚠️  Could not load docs.json v2 pages from operations/scripts/validators/content/structure/test-v2-pages.js: ${error.message}`);
     return new Set();
   }
 }

@@ -54,7 +54,7 @@ Archives remain under `docs-guide/_workspace/archive/`. Archived pages are not c
    - `node operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js --write`
    - `node operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js --write`
    - `node operations/scripts/generators/components/library/generate-ui-templates.js --write`
-   - `node tests/unit/script-docs.test.js --write --rebuild-indexes`
+   - `node operations/tests/unit/script-docs.test.js --write --rebuild-indexes`
    - `node operations/scripts/validators/content/structure/enforce-generated-file-banners.js --check`
 3. Re-run the docs audit pipeline when docs, scripts, reports, or routing paths change:
    - `node operations/scripts/dispatch/governance/repo/repo-audit-orchestrator.js --mode static --scope full`
@@ -67,4 +67,4 @@ Archives remain under `docs-guide/_workspace/archive/`. Archived pages are not c
 - Root orientation: [`README.md`](../README.md)
 - Public docs guide: [`v2/resources/documentation-guide/`](../v2/resources/documentation-guide/)
 - Contributor procedures: [`docs-guide/contributing/`](./contributing/contributing)
-- Test matrices and CI behavior: [`tests/`](../tests/)
+- Test matrices and CI behavior: [`operations/tests/README.md`](../operations/tests/README.md)

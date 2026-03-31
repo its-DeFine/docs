@@ -1,13 +1,13 @@
 ---
 name: openapi-sync-and-api-doc-generation
-version: "1.0"
 description: >-
-  Sync OpenAPI sources and generate MDX API portal/endpoint docs using repository scripts. Use when tasks include regenerate api docs from openapi, sync latest openapi specs, create mdx endpoint pages from spec.
-tier: 3
-invoke_when:
-  - "regenerate api docs from openapi"
-  - "sync latest openapi specs"
-  - "create mdx endpoint pages from spec"
+  Sync OpenAPI sources and generate MDX API portal/endpoint docs using
+  repository scripts. Use when: regenerate api docs from openapi, sync latest
+  openapi specs, create mdx endpoint pages from spec.
+metadata:
+  version: "1.2"
+  category: "governance"
+  tier: "2"
 primary_paths:
   - "operations/scripts/snippets/fetch-openapi-specs.sh"
   - "operations/scripts/snippets/generate-api-docs.sh"

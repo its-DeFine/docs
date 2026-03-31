@@ -161,7 +161,7 @@ Every component must pass all three tiers to be considered "tested."
 | --- | --- | --- | --- |
 | Tier 1: Visual verification | Renders correctly in light and dark mode | Manual in mintlify dev | All components |
 | Tier 2: Browser test coverage | Pages using the component render without errors | CI — test-v2-pages.js, test-all-pages-browser.js | All components used on ≥1 page |
-| Tier 3: Component unit tests | Props handling, defensive rendering, edge cases | CI — test runner, tests/unit/components/ | All components |
+| Tier 3: Component unit tests | Props handling, defensive rendering, edge cases | CI — test runner, operations/tests/unit/components/ | All components |
 
 ### **7.2 Tier 1: Visual Verification**
 
@@ -185,7 +185,7 @@ Leverages existing CI infrastructure:
 
 ### **7.4 Tier 3: Component Unit Tests**
 
-New test directory: `tests/unit/components/`. One test file per source file (e.g. `tests/unit/components/primitives/divider.test.js` for `snippets/components/primitives/divider.jsx`).
+New test directory: `operations/tests/unit/components/`. One test file per source file (e.g. `operations/tests/unit/components/primitives/divider.test.js` for `snippets/components/primitives/divider.jsx`).
 
 **Required test cases per component:**
 
@@ -217,7 +217,7 @@ New test directory: `tests/unit/components/`. One test file per source file (e.g
 | **Aspect** | **Decision** |
 | --- | --- |
 | Test runner | Lightweight — Node.js test runner or a minimal framework compatible with JSX |
-| Test location | tests/unit/components/{category}/{file}.test.js |
+| Test location | operations/tests/unit/components/{category}/{file}.test.js |
 | Naming | Mirror the source file: divider.test.js tests divider.jsx |
 | CI integration | Run as part of tests/run-all.js |
 | Coverage target | Every exported component has at least the five core test cases |
@@ -252,7 +252,7 @@ Per the Component Governance Framework plan:
 
 | **Item** | **Downstream deliverable** | **Notes** |
 | --- | --- | --- |
-| Unit test infrastructure setup | D9 (Migration Plan) | Create tests/unit/components/ directory structure, configure test runner |
+| Unit test infrastructure setup | D9 (Migration Plan) | Create operations/tests/unit/components/ directory structure, configure test runner |
 | Unit test creation per component | D8 (Audit) / D9 (Migration) | Write tests during or after audit — five core cases per component minimum |
 | Defensive rendering retrofit | D9 (Migration Plan) | Existing components audited for missing guards, refactored to comply |
 | ARIA retrofit for interactive components | D9 (Migration Plan) | ~8 components need ARIA attributes added |

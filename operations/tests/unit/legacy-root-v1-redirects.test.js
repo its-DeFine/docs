@@ -8,7 +8,7 @@
  * @needs             E-C1, R-R14
  * @purpose-statement Validates legacy root-to-v1 redirect integrity, docs.json sync, root catch-all fallbacks, and legacy fallback-page cleanup behavior.
  * @pipeline          manual — targeted redirect migration coverage
- * @usage             node tests/unit/legacy-root-v1-redirects.test.js
+ * @usage             node operations/tests/unit/legacy-root-v1-redirects.test.js
  */
 
 const assert = require('assert');
@@ -38,7 +38,7 @@ function runCase(name, fn) {
     console.log(`   ✓ ${name}`);
   } catch (error) {
     errors.push({
-      file: 'tests/unit/legacy-root-v1-redirects.test.js',
+      file: 'operations/tests/unit/legacy-root-v1-redirects.test.js',
       rule: 'legacy-root-v1 redirect test',
       message: `${name}: ${error.message}`,
       line: 1

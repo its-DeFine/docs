@@ -9,7 +9,7 @@
  * @purpose-statement Tests codex/task-preflight.js — verifies managed worktree default behavior and the explicit in-place override
  * @pipeline          manual — developer tool
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/unit/codex-task-preflight.test.js [flags]
+ * @usage             node operations/tests/unit/codex-task-preflight.test.js [flags]
  */
 
 const assert = require('assert');

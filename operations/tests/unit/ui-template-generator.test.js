@@ -3,12 +3,12 @@
  * @script            ui-template-generator.test
  * @category          validator
  * @purpose           qa:repo-health
- * @scope             tests, operations/scripts/generate-ui-templates.js, .vscode, snippets/templates, docs-guide/config/component-registry.json, .mintignore, docs.json, v1, v2, snippets
+ * @scope             tests, operations/scripts/generators/components/library/generate-ui-templates.js, .vscode, snippets/templates, docs-guide/config/component-registry.json, .mintignore, docs.json, v1, v2, snippets
  * @owner             docs
  * @needs             E-C1, R-R14
  * @purpose-statement Validates UI template artifacts, canonical template MDX safety, and Mint parse-surface boundaries before mint dev encounters them
  * @pipeline          P1, P3
- * @usage             node tests/unit/ui-template-generator.test.js [flags]
+ * @usage             node operations/tests/unit/ui-template-generator.test.js [flags]
  */
 
 const assert = require('assert');

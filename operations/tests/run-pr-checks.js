@@ -8,7 +8,7 @@
  * @needs             R-R29
  * @purpose-statement PR orchestrator — runs changed-file scoped validation checks for pull request CI. Dispatches per-file validators based on PR diff.
  * @pipeline          P2, P3
- * @usage             node tests/run-pr-checks.js [flags]
+ * @usage             node operations/tests/run-pr-checks.js [flags]
  */
 
 const fs = require('fs');
@@ -64,8 +64,8 @@ const HEARTBEAT_INTERVAL_MS = 30 * 1000;
 const GENERATED_AFFECTING_PREFIXES = [
   'docs-guide/catalog/',
   'operations/scripts/generate-docs-guide-',
-  'operations/scripts/generate-pages-index.js',
-  'operations/scripts/enforce-generated-file-banners.js',
+  'operations/scripts/generators/content/catalogs/generate-pages-index.js',
+  'operations/scripts/validators/content/structure/enforce-generated-file-banners.js',
   'operations/scripts/automations/content/language-translation/lib/',
   'tools/lib/generated-file-banners.js'
 ];
@@ -114,7 +114,7 @@ function printUsage() {
   console.log(
     [
       'Usage:',
-      '  node tests/run-pr-checks.js [--base-ref <branch>] [--lane branch-health]',
+      '  node operations/tests/run-pr-checks.js [--base-ref <branch>] [--lane branch-health]',
       '',
       'Supported lanes:',
       '  branch-health    Run the full changed-file PR validation suite.'
@@ -258,9 +258,9 @@ function partitionFiles(changedFiles) {
   const governanceScriptFiles = existingChangedFiles.filter((file) => isDiscoveredScriptPath(file));
 
   const usefulnessFiles = existingChangedFiles.filter((file) =>
-    file === 'operations/scripts/audit-v2-usefulness.js' ||
-    file === 'operations/scripts/assign-purpose-metadata.js' ||
-    file === 'operations/scripts/docs-quality-and-freshness-audit.js' ||
+    file === 'operations/scripts/audits/content/quality/audit-v2-usefulness.js' ||
+    file === 'operations/scripts/remediators/content/classification/assign-purpose-metadata.js' ||
+    file === 'operations/scripts/audits/content/quality/docs-quality-and-freshness-audit.js' ||
     file === '.gitignore' ||
     file === 'tools/package.json' ||
     file === 'tools/package-lock.json' ||
@@ -272,7 +272,7 @@ function partitionFiles(changedFiles) {
   const portableSkillFiles = existingChangedFiles.filter((file) =>
     file.startsWith('ai-tools/ai-skills/templates/') ||
     file.startsWith('ai-tools/agent-packs/skills/') ||
-    file === 'operations/scripts/export-portable-skills.js' ||
+    file === 'operations/scripts/automations/ai/agents/export-portable-skills.js' ||
     file === 'tools/lib/codex-skill-templates.js' ||
     file === 'operations/tests/unit/export-portable-skills.test.js' ||
     file === 'operations/tests/unit/codex-skill-sync.test.js'
@@ -282,7 +282,7 @@ function partitionFiles(changedFiles) {
     file.startsWith('docs-guide/') ||
     file === 'operations/tests/unit/docs-guide-sot.test.js' ||
     file.startsWith('operations/scripts/generate-docs-guide-') ||
-    file === 'operations/scripts/generate-ui-templates.js' ||
+    file === 'operations/scripts/generators/components/library/generate-ui-templates.js' ||
     file === 'operations/tests/unit/script-docs.test.js'
   );
   const uiTemplateFiles = existingChangedFiles.filter((file) =>
@@ -296,7 +296,7 @@ function partitionFiles(changedFiles) {
     file === 'docs-guide/catalog/ui-templates.mdx' ||
     file === 'docs-guide/features/ui-system.mdx' ||
     file === 'docs-guide/config/component-registry.json' ||
-    file === 'operations/scripts/generate-ui-templates.js' ||
+    file === 'operations/scripts/generators/components/library/generate-ui-templates.js' ||
     file === 'operations/tests/unit/ui-template-generator.test.js' ||
     file === 'operations/tests/utils/mdx-parser.js' ||
     file === 'operations/tests/utils/file-walker.js' ||
@@ -308,7 +308,7 @@ function partitionFiles(changedFiles) {
     file === 'operations/tests/unit/ownerless-governance.test.js' ||
     file === 'operations/tests/unit/check-agent-docs-freshness.test.js' ||
     file === 'operations/tests/unit/root-allowlist-format.test.js' ||
-    file === 'operations/scripts/repair-ownerless-language.js' ||
+    file === 'operations/scripts/remediators/content/style/repair-ownerless-language.js' ||
     file === 'operations/scripts/validators/governance/compliance/validate-agent-docs-freshness.js' ||
     file === '.allowlist' ||
     file === 'AGENTS.md' ||
@@ -979,7 +979,7 @@ function runGeneratedBannerCheck(changedFiles) {
     };
   }
 
-  const cmd = spawnSync('node', ['operations/scripts/enforce-generated-file-banners.js', '--check', '--staged'], {
+  const cmd = spawnSync('node', ['operations/scripts/validators/content/structure/enforce-generated-file-banners.js', '--check', '--staged'], {
     cwd: REPO_ROOT,
     encoding: 'utf8',
     env: {
@@ -1000,8 +1000,8 @@ function runGeneratedBannerCheck(changedFiles) {
 
 function runCodexSkillSyncCheck() {
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-skill-sync-check-'));
-  const syncArgs = ['operations/scripts/sync-codex-skills.js', '--dest', tmpDir];
-  const checkArgs = ['operations/scripts/sync-codex-skills.js', '--dest', tmpDir, '--check'];
+  const syncArgs = ['operations/scripts/automations/ai/agents/sync-codex-skills.js', '--dest', tmpDir];
+  const checkArgs = ['operations/scripts/automations/ai/agents/sync-codex-skills.js', '--dest', tmpDir, '--check'];
 
   const syncCmd = spawnSync('node', syncArgs, { cwd: REPO_ROOT, encoding: 'utf8' });
   if (syncCmd.status !== 0) {
@@ -1098,7 +1098,7 @@ function createBranchHealthRegistry(context) {
     createCommandCheck({
       label: 'MDX-safe Markdown',
       files: groups.repoMarkdownFilesAbs,
-      args: ['operations/scripts/validators/content/structure/validate-mdx-safe-markdown.js', ...buildFilesArgs(groups.repoMarkdownFilesAbs)]
+      args: ['operations/scripts/validators/content/structure/check-mdx-safe-markdown.js', ...buildFilesArgs(groups.repoMarkdownFilesAbs)]
     }),
     createCommandCheck({
       label: 'Spelling',

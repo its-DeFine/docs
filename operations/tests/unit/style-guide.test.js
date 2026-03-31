@@ -9,7 +9,7 @@
  * @needs             E-R1, R-R11
  * @purpose-statement Style guide compliance — checks en-GB conventions, heading case, formatting rules
  * @pipeline          P1, P3
- * @usage             node tests/unit/style-guide.test.js [flags]
+ * @usage             node operations/tests/unit/style-guide.test.js [flags]
  */
 /**
  * Style guide rule validation tests

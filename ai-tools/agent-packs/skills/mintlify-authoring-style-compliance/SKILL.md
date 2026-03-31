@@ -1,21 +1,21 @@
 ---
 name: mintlify-authoring-style-compliance
-version: "1.0"
 description: >-
-  Author and edit MDX content in compliance with repository style and Mintlify constraints. Use when tasks include fix style-guide violations in docs, author mdx page for livepeer docs, replace ThemeData usage.
-tier: 1
-invoke_when:
-  - "fix style-guide violations in docs"
-  - "author mdx page for livepeer docs"
-  - "replace ThemeData usage"
+  Author and edit MDX content in compliance with repository style and Mintlify
+  constraints. Use when: fix style-guide violations in docs, author mdx page
+  for livepeer docs, replace ThemeData usage.
+metadata:
+  version: "1.2"
+  category: "governance"
+  tier: "1"
 primary_paths:
   - "v2/resources/documentation-guide/style-guide.mdx"
   - "style.css"
-  - "tests/unit/style-guide.test.js"
-  - "tests/unit/mdx.test.js"
+  - "operations/tests/unit/style-guide.test.js"
+  - "operations/tests/unit/mdx.test.js"
 primary_commands:
-  - "node tests/unit/style-guide.test.js --staged"
-  - "node tests/unit/mdx.test.js --staged"
+  - "node operations/tests/unit/style-guide.test.js --staged"
+  - "node operations/tests/unit/mdx.test.js --staged"
 ---
 
 SKILL: Mintlify Authoring Style Compliance
@@ -36,8 +36,8 @@ Workflow
 
 Command examples
 ```bash
-node tests/unit/style-guide.test.js --staged
-node tests/unit/mdx.test.js --staged
+node operations/tests/unit/style-guide.test.js --staged
+node operations/tests/unit/mdx.test.js --staged
 ```
 
 Deliverable Format

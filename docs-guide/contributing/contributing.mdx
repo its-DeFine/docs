@@ -147,7 +147,7 @@ scope_out:
 allowed_generated:
   - docs-index.json
 acceptance_checks:
-  - node tests/run-pr-checks.js --base-ref docs-v2
+  - node operations/tests/run-pr-checks.js --base-ref docs-v2
 risk_flags:
   - navigation
 follow_up_issues:
@@ -157,7 +157,7 @@ follow_up_issues:
 Open a prefilled PR directly from contract metadata:
 
 ```bash
-node operations/scripts/create-codex-pr.js --create
+node operations/scripts/dispatch/ai/codex/create-codex-pr.js --create
 ```
 
 ## 6) Required Quality Gates
@@ -209,10 +209,10 @@ See canonical docs:
 
 <CodeGroup>
 ```bash Regenerate Indexes
-node operations/scripts/generate-docs-guide-indexes.js --write
-node operations/scripts/generate-docs-guide-pages-index.js --write
-node operations/scripts/generate-docs-guide-components-index.js --write
-node tests/unit/script-docs.test.js --write --rebuild-indexes
+node operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js --write
+node operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js --write
+node operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js --write
+node operations/tests/unit/script-docs.test.js --write --rebuild-indexes
 ```
 </CodeGroup>
 

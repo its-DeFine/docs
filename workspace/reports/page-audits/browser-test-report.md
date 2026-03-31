@@ -9,5 +9,5 @@ Generated: 2026-02-16T11:50:35.428Z
 
 ## Source
 
-- Data source: `tasks/reports/page-audits/browser-test-report.json`
+- Data source: `workspace/reports/page-audits/browser-test-report.json`
 - Note: This markdown file was derived from the current JSON report snapshot.

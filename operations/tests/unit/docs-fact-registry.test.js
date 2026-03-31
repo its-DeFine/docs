@@ -3,12 +3,12 @@
  * @script            docs-fact-registry.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, operations/scripts/docs-fact-registry.js, workspace/research/claims
+ * @scope             tests/unit, operations/scripts/validators/content/veracity/docs-fact-registry.js, workspace/research/claims
  * @owner             docs
  * @needs             R-R27, R-R30
  * @purpose-statement Tests docs-fact-registry.js — validates claim-family registry schema checks and normalized loading by domain.
  * @pipeline          manual — experimental research system
- * @usage             node tests/unit/docs-fact-registry.test.js [flags]
+ * @usage             node operations/tests/unit/docs-fact-registry.test.js [flags]
  */
 
 const assert = require('assert');
@@ -18,7 +18,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const REPO_ROOT = process.cwd();
-const SCRIPT = path.join(REPO_ROOT, 'operations/scripts/docs-fact-registry.js');
+const SCRIPT = path.join(REPO_ROOT, 'operations/scripts/validators/content/veracity/docs-fact-registry.js');
 
 let errors = [];
 

@@ -9,7 +9,7 @@
  * @purpose-statement Tests lpd scoped mint-dev functionality — validates dev server scope filtering
  * @pipeline          manual — developer tool
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/unit/lpd-scoped-mint-dev.test.js [flags]
+ * @usage             node operations/tests/unit/lpd-scoped-mint-dev.test.js [flags]
  */
 
 const assert = require('assert');
@@ -932,7 +932,7 @@ async function runTests() {
         '',
         '{/*',
         'generated-file-banner: generated-file-banner:v1',
-        'Generation Script: operations/scripts/generate-pages-index.js',
+        'Generation Script: operations/scripts/generators/content/catalogs/generate-pages-index.js',
         '*/}',
         '',
         '- [Overview](overview.mdx)',

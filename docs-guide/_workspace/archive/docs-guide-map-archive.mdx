@@ -81,7 +81,7 @@ See [source-of-truth-policy.mdx](../policies/source-of-truth-policy.mdx) for ful
    - `node tools/scripts/generate-docs-guide-indexes.js --write`
    - `node tools/scripts/generate-docs-guide-pages-index.js --write`
    - `node tools/scripts/generate-docs-guide-components-index.js --write`
-   - `node tests/unit/script-docs.test.js --write --rebuild-indexes`
+   - `node operations/tests/unit/script-docs.test.js --write --rebuild-indexes`
    - `node tools/scripts/enforce-generated-file-banners.js --check`
 3. Re-run the docs audit pipeline when docs, scripts, reports, or routing paths change:
    - `node tools/scripts/repo-audit-orchestrator.js --mode static --scope full`

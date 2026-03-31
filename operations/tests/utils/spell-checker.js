@@ -9,7 +9,7 @@
  * @purpose-statement Spell checker utility — checks text against custom dictionary with en-GB locale support
  * @pipeline          indirect — library module
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/utils/spell-checker.js [flags]
+ * @usage             node operations/tests/utils/spell-checker.js [flags]
  */
 /**
  * Spell checking utilities using cspell

@@ -9,7 +9,7 @@
  * @purpose-statement File tree walker — recursively finds files matching patterns. Used by pre-commit hook and validators.
  * @pipeline          indirect — library module
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/utils/file-walker.js [flags]
+ * @usage             node operations/tests/utils/file-walker.js [flags]
  */
 /**
  * File traversal utilities for testing

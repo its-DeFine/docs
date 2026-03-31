@@ -1,18 +1,18 @@
 ---
 name: lpd-bootstrap-and-doctor
-version: "1.0"
 description: >-
-  Bootstrap local docs environment and verify readiness using lpd setup and doctor workflows. Use when tasks include set up this repo locally, run doctor for docs environment, bootstrap lpd tooling.
-tier: 1
-invoke_when:
-  - "set up this repo locally"
-  - "run doctor for docs environment"
-  - "bootstrap lpd tooling"
+  Bootstrap local docs environment and verify readiness using lpd setup and
+  doctor workflows. Use when: set up this repo locally, run doctor for docs
+  environment, bootstrap lpd tooling.
+metadata:
+  version: "1.2"
+  category: "meta"
+  tier: "1"
 primary_paths:
   - "README.md"
   - "tools/lpd"
   - "tools/package.json"
-  - "tests/package.json"
+  - "operations/tests/package.json"
 primary_commands:
   - "bash tools/lpd setup --yes"
   - "bash tools/lpd doctor --strict"

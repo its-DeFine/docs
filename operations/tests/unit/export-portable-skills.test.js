@@ -3,13 +3,13 @@
  * @script            export-portable-skills.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, operations/scripts/export-portable-skills.js, tools/lib/codex-skill-templates.js, ai-tools/agent-packs/skills
+ * @scope             tests/unit, operations/scripts/automations/ai/agents/export-portable-skills.js, tools/lib/codex-skill-templates.js, ai-tools/agent-packs/skills
  * @owner             docs
  * @needs             R-R27, R-R30
  * @purpose-statement Tests export-portable-skills.js — validates portable skill export packs from canonical templates.
  * @pipeline          P1, P3
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/unit/export-portable-skills.test.js [flags]
+ * @usage             node operations/tests/unit/export-portable-skills.test.js [flags]
  */
 
 const assert = require('assert');
@@ -46,13 +46,11 @@ function createTemplate(sourceDir, number, name, description) {
   const content = [
     '---',
     `name: ${name}`,
-    'version: "1.0"',
     `description: ${description} Use when trigger one, trigger two, or trigger three apply to the requested workflow.`,
-    'tier: 1',
-    'invoke_when:',
-    '  - "trigger one"',
-    '  - "trigger two"',
-    '  - "trigger three"',
+    'metadata:',
+    '  version: "1.0"',
+    '  category: "meta"',
+    '  tier: "1"',
     'primary_paths:',
     '  - "README.md"',
     '  - "tools/scripts"',

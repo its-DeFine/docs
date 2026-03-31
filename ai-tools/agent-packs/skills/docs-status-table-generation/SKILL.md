@@ -1,13 +1,13 @@
 ---
 name: docs-status-table-generation
-version: "1.0"
 description: >-
-  Generate docs status table and structure diagram artifacts from docs navigation sources. Use when tasks include regenerate docs status table, update docs structure diagram, sync status report with docs.json.
-tier: 2
-invoke_when:
-  - "regenerate docs status table"
-  - "update docs structure diagram"
-  - "sync status report with docs.json"
+  Generate docs status table and structure diagram artifacts from docs
+  navigation sources. Use when: regenerate docs status table, update docs
+  structure diagram, sync status report with docs.json.
+metadata:
+  version: "1.2"
+  category: "audit"
+  tier: "2"
 primary_paths:
   - "operations/scripts/snippets/generate-docs-status.js"
   - "snippets/generated/docs-status-table.mdx"

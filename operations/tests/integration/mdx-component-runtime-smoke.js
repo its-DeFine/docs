@@ -8,7 +8,7 @@
  * @needs             E-R1, R-R29
  * @purpose-statement Smoke-tests sentinel MDX routes for runtime component failures, focused on page-killing render errors from MDX-imported JSX modules.
  * @pipeline          manual
- * @usage             node tests/integration/mdx-component-runtime-smoke.js [--routes route[,route...]] [--base-url http://localhost:3000]
+ * @usage             node operations/tests/integration/mdx-component-runtime-smoke.js [--routes route[,route...]] [--base-url http://localhost:3000]
  */
 
 const path = require('path');
@@ -63,7 +63,7 @@ function toPosix(value) {
 function usage() {
   console.log(
     [
-      'Usage: node tests/integration/mdx-component-runtime-smoke.js [options]',
+      'Usage: node operations/tests/integration/mdx-component-runtime-smoke.js [options]',
       '',
       'Options:',
       `  --routes <route[,route]>  Override sentinel routes (default: ${SENTINEL_ROUTES.join(', ')})`,
@@ -184,7 +184,7 @@ function shouldRunForChangedFiles(changedFiles) {
     return (
       COMPONENT_CHANGE_RE.test(relPath) ||
       relPath === 'operations/scripts/validators/components/library/validate-mdx-component-scope.js' ||
-      relPath === 'tests/integration/mdx-component-runtime-smoke.js' ||
+      relPath === 'operations/tests/integration/mdx-component-runtime-smoke.js' ||
       SENTINEL_ROUTE_FILES.has(relPath)
     );
   });

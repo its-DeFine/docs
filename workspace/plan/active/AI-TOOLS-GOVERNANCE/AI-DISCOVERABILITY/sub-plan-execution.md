@@ -97,7 +97,7 @@ tools/
 
 ## Item 3 — What to add to `structure.md`
 
-**File**: `tasks/plan/active/COMPONENT-GOVERNANCE/structure.md`
+**File**: `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md`
 
 **Where to add**: After the existing `@accepts` row in the **Tag reference** table (line ~218), and after the **Removed tags** section.
 
@@ -215,7 +215,7 @@ Item 3 first — structure.md update (governance doc, no code impact, pure docum
 
 | File | Change | Status |
 |---|---|---|
-| `tasks/plan/active/COMPONENT-GOVERNANCE/structure.md` | `@aiDiscoverability` tag row, values table + 2 example headers, folder tree entries for `data/snapshots/` + Tier 2 note | ✅ Done |
+| `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md` | `@aiDiscoverability` tag row, values table + 2 example headers, folder tree entries for `data/snapshots/` + Tier 2 note | ✅ Done |
 | `snippets/data/snapshots/` (new folder) | Stub `.gitkeep` — marks the location | ✅ Done |
 | `tools/scripts/generators/ai/` (new folder) | Stub `.gitkeep` + `README.md` noting CDA-5 script | ✅ Done |
 | `docs-guide/frameworks/component-governance.mdx` | Section 5.2: `@aiDiscoverability` row + companion file explanation paragraph | ✅ Done |

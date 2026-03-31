@@ -59,7 +59,7 @@ The content pipeline ensures that the **v2 documentation pages** (`v2/`) remain:
 | Script | Niche | @pipeline | Output |
 |--------|-------|-----------|--------|
 | `docs-quality-and-freshness-audit.js` | quality | manual | `workspace/reports/repo-ops/` |
-| `audit-copy-patterns.js` | quality | manual | `tasks/reports/copy-governance/` |
+| `audit-copy-patterns.js` | quality | manual | `workspace/reports/copy-governance/` |
 | `audit-media-assets.js` | quality | manual | `workspace/reports/media-audit/` |
 | `audit-v2-usefulness.js` | quality | manual | `workspace/reports/` |
 | `generate-content-gap-reconciliation.js` | reconciliation | manual — not yet in pipeline | `workspace/reports/content-gap/` |

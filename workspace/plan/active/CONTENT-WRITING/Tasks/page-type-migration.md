@@ -2,7 +2,7 @@
 
 **Status**: Ready to execute
 **Date**: 2026-03-21
-**Source of truth**: `tasks/plan/active/CONTENT-WRITING/framework.md`
+**Source of truth**: `workspace/plan/active/CONTENT-WRITING/Frameworks/content-pipeline-framework.md`
 **Total pages to migrate**: 228
 
 ---

@@ -1,25 +1,25 @@
 ---
 name: docs-review-packet-generation
-version: "1.0"
 description: >-
   Generate dated, report-only docs review packets from live navigation scope so
   copy-framework, authoring-style, and research findings land in reusable
-  trackers, summaries, and section artifact sets.
-tier: 2
-invoke_when:
-  - "generate a docs review packet"
-  - "review this tab or section and create packet reports"
-  - "build copy style and research reports for live docs pages"
-  - "create a tracker and report packet for this docs section"
+  trackers, summaries, and section artifact sets. Use when: generate a docs
+  review packet, review this tab or section and create packet reports, build
+  copy style and research reports for live docs pages, create a tracker and
+  report packet for this docs section.
+metadata:
+  version: "1.2"
+  category: "review-pipeline"
+  tier: "2"
 primary_paths:
   - "tools/config/scoped-navigation"
   - "workspace/reports"
   - "ai-tools/ai-skills/docs-copy/SKILL.md"
   - "ai-tools/ai-skills/page-authoring/SKILL.md"
-  - "ai-tools/ai-skills/templates/32-page-content-research-review.template.md"
+  - "ai-tools/ai-skills/templates/39-page-content-research-review.template.md"
   - "docs-guide/tooling/review-packet-plan-template.md"
 primary_commands:
-  - "node tests/unit/copy-lint.test.js --files [csv]"
+  - "node operations/tests/unit/copy-lint.test.js --files [csv]"
   - "node operations/scripts/validators/content/copy/lint-copy.js [file-or-glob]"
   - "node operations/scripts/validators/content/structure/lint-structure.js [file]"
   - "node operations/scripts/validators/content/copy/lint-patterns.js [file-or-glob]"
@@ -37,7 +37,7 @@ Constraints
 - Keep the run report-only. Do not edit page files while generating the packet.
 - Derive page membership from the declared nav source first, not from folder guesses.
 - Include only live pages and exclude deprecated docs, helper notes, review files, and non-nav artifacts.
-- Use `ai-tools/ai-skills/docs-copy/SKILL.md` for copy-framework expectations, `ai-tools/ai-skills/page-authoring/SKILL.md` for authoring-style expectations, and `ai-tools/ai-skills/templates/32-page-content-research-review.template.md` for research routing.
+- Use `ai-tools/ai-skills/docs-copy/SKILL.md` for copy-framework expectations, `ai-tools/ai-skills/page-authoring/SKILL.md` for authoring-style expectations, and `ai-tools/ai-skills/templates/39-page-content-research-review.template.md` for research routing.
 - Preserve raw `authoring-style-findings.json` alongside `02-authoring-style.md`; the raw JSON stays equal source-of-truth when the markdown summary is incomplete.
 - The tracker must start in execution form with exactly one `[copy-framework]` bullet and one `[authoring-style]` bullet per live page, and no per-page research bullets.
 

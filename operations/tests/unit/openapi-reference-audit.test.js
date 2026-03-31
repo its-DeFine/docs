@@ -9,7 +9,7 @@
  * @purpose-statement Unit tests for openapi-reference-audit.js — tests individual audit rules and fix logic
  * @pipeline          manual — not yet in pipeline
  * @dualmode          --strict (enforcer) | --fix (remediator)
- * @usage             node tests/unit/openapi-reference-audit.test.js [flags]
+ * @usage             node operations/tests/unit/openapi-reference-audit.test.js [flags]
  */
 
 const assert = require('assert');
@@ -68,7 +68,7 @@ async function runCase(name, fn) {
       rule: 'openapi-reference-audit unit',
       message: `${name}: ${error.message}`,
       line: 1,
-      file: 'tests/unit/openapi-reference-audit.test.js'
+      file: 'operations/tests/unit/openapi-reference-audit.test.js'
     });
   }
 }

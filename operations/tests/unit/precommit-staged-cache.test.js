@@ -8,7 +8,7 @@
  * @needs             R-R14, R-R29
  * @purpose-statement Tests precommit-staged-cache.js — validates staged-tree cache hits, invalidation, and pruning
  * @pipeline          P1, manual
- * @usage             node tests/unit/precommit-staged-cache.test.js
+ * @usage             node operations/tests/unit/precommit-staged-cache.test.js
  */
 
 const assert = require('assert');
@@ -68,7 +68,7 @@ function initRepo() {
 
   writeFile(path.join(repoRoot, '.githooks/pre-commit'), '#!/bin/bash\necho precommit\n');
   writeFile(path.join(repoRoot, 'tests/run-all.js'), 'module.exports = {};\n');
-  writeFile(path.join(repoRoot, 'tests/unit/precommit-staged-cache.test.js'), '// fixture\n');
+  writeFile(path.join(repoRoot, 'operations/tests/unit/precommit-staged-cache.test.js'), '// fixture\n');
   writeFile(path.join(repoRoot, 'tools/lib/precommit-staged-cache.js'), 'module.exports = {};\n');
   writeFile(path.join(repoRoot, 'docs/example.mdx'), '# Example\n');
 

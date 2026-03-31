@@ -34,7 +34,7 @@ Follow the decision tree (first match wins):
 1. Use `var(--lp-*)` CSS tokens for all colours. No hardcoded hex. No ThemeData.
 1. Add defensive rendering — guard all props, never throw. A crash kills the entire page.
 1. Create an example in `{category}/examples/{file}-examples.mdx`.
-1. Write unit tests in `tests/unit/components/{category}/{file}.test.js`.
+1. Write unit tests in `operations/tests/unit/components/{category}/{file}.test.js`.
 1. Verify visually in both light and dark mode via `mintlify dev`.
 1. Commit. Pre-commit validates JSDoc, regenerates the registry, and checks styling rules.
 
@@ -202,7 +202,7 @@ Mintlify has no error boundary per component. **A component crash kills the enti
 | --- | --- | --- | --- |
 | Visual verification | Light + dark mode rendering | Manual, mintlify dev | All components |
 | Browser tests | Page renders without error | CI, existing infrastructure | All used components |
-| Unit tests | Props, edge cases, defensive rendering | CI, tests/unit/components/ | All components |
+| Unit tests | Props, edge cases, defensive rendering | CI, operations/tests/unit/components/ | All components |
 
 **Core unit test cases (every component):** renders with valid props, renders with no props, handles null/undefined data, handles missing required props, handles invalid prop types.
 

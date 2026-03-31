@@ -1,6 +1,6 @@
 # Veracity Library
 
-**Status**: COMPLETE — 45 sources. Priority table in `tasks/plan/active/TERMINOLOGY-COLLATE/consolidated/veracity-sources.md`
+**Status**: COMPLETE — 45 sources. Priority table in `workspace/plan/active/TERMINOLOGY-COLLATE/consolidated/veracity-sources.md`
 **Purpose**: Map every significant Livepeer documentation source to its information type and veracity standard
 **Owner**: Content pipeline — used at runtime by the review skill (Step 18) to verify claims per section
 
@@ -24,28 +24,28 @@ You are being asked to build the Livepeer veracity source library. This is a str
 The terminology team has already done a comprehensive scan of all Livepeer documentation sources across every tab. This is your richest input — it contains identified terms, definitions, and the sources they came from.
 
 Definition collations (by domain):
-- `tasks/plan/active/TERMINOLOGY-COLLATE/scan-results/definitions-livepeer.md` — Livepeer-specific definitions
-- `tasks/plan/active/TERMINOLOGY-COLLATE/scan-results/definitions-ai.md` — AI domain definitions
-- `tasks/plan/active/TERMINOLOGY-COLLATE/scan-results/definitions-video.md` — video domain definitions
-- `tasks/plan/active/TERMINOLOGY-COLLATE/scan-results/definitions-web3-economic-technical-ops.md` — web3/economics/ops definitions
+- `workspace/plan/active/TERMINOLOGY-COLLATE/scan-results/definitions-livepeer.md` — Livepeer-specific definitions
+- `workspace/plan/active/TERMINOLOGY-COLLATE/scan-results/definitions-ai.md` — AI domain definitions
+- `workspace/plan/active/TERMINOLOGY-COLLATE/scan-results/definitions-video.md` — video domain definitions
+- `workspace/plan/active/TERMINOLOGY-COLLATE/scan-results/definitions-web3-economic-technical-ops.md` — web3/economics/ops definitions
 
 Tab-level scans (per site section):
-- `tasks/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-home.md`
-- `tasks/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-about.md`
-- `tasks/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-solutions.md`
-- `tasks/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-developers.md`
-- `tasks/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-gateways.md`
-- `tasks/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-orchestrators.md`
-- `tasks/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-lpt.md`
-- `tasks/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-community.md`
-- `tasks/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-resources.md`
+- `workspace/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-home.md`
+- `workspace/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-about.md`
+- `workspace/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-solutions.md`
+- `workspace/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-developers.md`
+- `workspace/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-gateways.md`
+- `workspace/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-orchestrators.md`
+- `workspace/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-lpt.md`
+- `workspace/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-community.md`
+- `workspace/plan/active/TERMINOLOGY-COLLATE/scan-results/agent-resources.md`
 
 Summary and classification:
-- `tasks/plan/active/TERMINOLOGY-COLLATE/research.md` — research overview
-- `tasks/plan/active/TERMINOLOGY-COLLATE/classified-by-tag.md` — terms classified by tag
-- `tasks/plan/active/TERMINOLOGY-COLLATE/classified-by-tab.md` — terms classified by tab
-- `tasks/plan/active/TERMINOLOGY-COLLATE/harvest.md` — harvested terminology with sources
-- `tasks/plan/active/TERMINOLOGY-COLLATE/scan-summary.md` — scan summary
+- `workspace/plan/active/TERMINOLOGY-COLLATE/research.md` — research overview
+- `workspace/plan/active/TERMINOLOGY-COLLATE/classified-by-tag.md` — terms classified by tag
+- `workspace/plan/active/TERMINOLOGY-COLLATE/classified-by-tab.md` — terms classified by tab
+- `workspace/plan/active/TERMINOLOGY-COLLATE/harvest.md` — harvested terminology with sources
+- `workspace/plan/active/TERMINOLOGY-COLLATE/scan-summary.md` — scan summary
 
 **Also use the source-verification skill for methodology**:
 - `ai-tools/ai-skills/templates/33-docs-source-verification.references/source-priority.md`

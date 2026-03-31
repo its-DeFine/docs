@@ -8,7 +8,7 @@
  * @needs             R-R14, R-R29
  * @purpose-statement Validates the AI-tools registry contract, full tracked ai-tools coverage, and the Wave 1 inventory source-of-truth boundary.
  * @pipeline          P1, P3
- * @usage             node tests/unit/ai-tools-registry.test.js [--staged|--files path[,path]]
+ * @usage             node operations/tests/unit/ai-tools-registry.test.js [--staged|--files path[,path]]
  */
 
 const { execSync } = require('child_process');

@@ -44,13 +44,13 @@ Scripts are fragmented, not orchestrated. No clear execution model for what runs
 where, when, or why.
 
 **Total scripts across repo: 179** (158 in tools/scripts/, 4 in .githooks/,
-4 in .github/scripts/, 1 in tasks/scripts/, 8 in snippets/automations/, 4 config/data files)
+4 in .github/scripts/, 1 in workspace/scripts/, 8 in snippets/automations/, 4 config/data files)
 
 ---
 
 ## Parallel work — not in scope but noted
 
-- **Component restructure** is happening separately. Sync note at `tasks/plan/active/COMPONENT-GOVERNANCE/script-thread-sync-note.md` — component branch updated `component-governance-utils.js` (new VALID_CATEGORIES, reduced GOVERNANCE_FIELDS, `@category`→`@type`). Not yet merged to `docs-v2-dev`. When it merges, paths in the updated file will need adjusting to match our new structure.
+- **Component restructure** is happening separately. Sync note at `workspace/plan/active/COMPONENT-GOVERNANCE/script-thread-sync-note.md` — component branch updated `component-governance-utils.js` (new VALID_CATEGORIES, reduced GOVERNANCE_FIELDS, `@category`→`@type`). Not yet merged to `docs-v2-dev`. When it merges, paths in the updated file will need adjusting to match our new structure.
 - **`/tools` folder restructure** happens AFTER all script work is complete.
 - **`/api` folder** — only moves if it doesn't break Mintlify. May belong in `/tools` not scripts. Deferred.
 - **`/ai-tools`** — skills aren't scripts. Stays out of scope. May belong in `/tools`. The `ai/` concern in scripts may later house some of these or move there.
@@ -567,7 +567,7 @@ that being made explicit and detectable.
 | File type | Governance | Gap |
 |-----------|-----------|-----|
 | Generated `.mdx` files | ✅ `enforce-generated-file-banners.js` — hidden comment + visible `<Note>` block | None for MDX |
-| Generated `.md` indexes (`tools/script-index.md`, `tests/script-index.md`) | ❌ No banner | Completely unprotected |
+| Generated `.md` indexes (`tools/script-index.md`, `operations/tests/script-index.md`) | ❌ No banner | Completely unprotected |
 | Generated `.json` registries (`component-registry.json`, `script-registry.json`) | ❌ No banner | No machine-readable signal |
 | AI callout | ❌ `<Note>` tells humans; no explicit AI-agent instruction | Agents can clobber generated files without knowing |
 
@@ -641,7 +641,7 @@ This derisks Task 14 by handling the rename separately.
 - [x] ~~**13.1** Inventory all current script documentation surfaces (catalog.mdx, script-indexes, docs-guide pages, AGENTS.md references, README.md, scripts-library.mdx, script-framework.md, structure.md, plan.md)~~
 - [x] ~~**13.2** Identify consolidation opportunities — what can be generated vs authored, what is duplicated, what belongs in one MDX page vs many~~
 - [x] ~~**13.3** Define proposed single source of truth (JSON config? MDX? hybrid?) and derivation plan for docs-guide and internal nav pages~~
-- [x] ~~**13.4** Write findings to `tasks/plan/active/SCRIPT-GOVERNANCE/script-docs.md`~~
+- [x] ~~**13.4** Write findings to `workspace/plan/active/SCRIPT-GOVERNANCE/script-docs.md`~~
 - [ ] **13.5** **CHECKPOINT** — present to human for approval before any changes
 
 ---
@@ -674,7 +674,7 @@ documentation. Produce a recommendation report — do NOT execute changes in thi
 - [ ] **13d.3** Identify gaps: high-value scripts missing from CLI
 - [ ] **13d.4** Check governance alignment: JSDoc header, registry entry, classification
 - [ ] **13d.5** Check documentation currency: paths, commands, examples
-- [ ] **13d.6** Write recommendation report to `tasks/plan/active/SCRIPT-GOVERNANCE/lpd-cli-audit.md`
+- [ ] **13d.6** Write recommendation report to `workspace/plan/active/SCRIPT-GOVERNANCE/lpd-cli-audit.md`
 - [ ] **13d.7** **CHECKPOINT** — present recommendations to human for approval
 
 ---
@@ -809,9 +809,9 @@ snippets/automations/
 ### Tasks
 
 - [ ] **17.1** Reconcile `snippets/components/catalog.md` with completed restructure
-- [ ] **17.2** Reconcile any other plan files in `tasks/plan/active/` that overlap
+- [ ] **17.2** Reconcile any other plan files in `workspace/plan/active/` that overlap
 - [ ] **17.3** Remove worktree: `git worktree remove ../Docs-v2-dev-scripts`
-- [ ] **17.4** Move this plan to `tasks/plan/completed/`
+- [ ] **17.4** Move this plan to `workspace/plan/complete/`
 - [ ] **17.5** Strikethrough all remaining tasks
 
 ---
@@ -853,6 +853,6 @@ snippets/automations/
 ## Notes
 
 - Old script governance reference: https://docs.google.com/document/d/1P8Y5F-dKV3jR8c3p8KZy8kzxOMNXE18LBRuuLYMDSS8/edit?usp=sharing
-- Auto-generated catalog at `docs-guide/catalog/scripts-catalog.mdx` is produced by `tests/unit/script-docs.test.js` from script headers. Moving scripts auto-updates it once paths + headers are correct.
+- Auto-generated catalog at `docs-guide/catalog/scripts-catalog.mdx` is produced by `operations/tests/unit/script-docs.test.js` from script headers. Moving scripts auto-updates it once paths + headers are correct.
 - `snippets/components/catalog.md` contains working notes for broader repo restructure — reconcile in Task 14.
 - `luma-calendar.jsx` — belongs in `snippets/automations/` (data component, not a script).

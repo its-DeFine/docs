@@ -1337,13 +1337,13 @@
     "workflow_family": "data-refresh",
     "cleanup_decision": "merge",
     "usage_status": "compatibility-wrapper",
-    "process_fit": "legacy-or-unclear",
+    "process_fit": "core-shipping",
     "concern": "authoring",
     "trigger_mode": "schedule + workflow_dispatch",
     "risk_level": "medium",
     "dispatcher_candidate": "page-ship",
     "consolidation_target": "data-refresh-governance",
-    "engineering_action": "Keep this as a thin compatibility wrapper until the Actions vs n8n ownership decision is resolved, then either retire it or keep only the canonical reusable workflow.",
+    "engineering_action": "Keep this as a thin compatibility wrapper until the legacy entrypoint can be retired safely. The canonical implementation now lives in `data-refresh-governance`.",
     "dependencies": [],
     "dependants": [
       "dispatcher:page-ship"
@@ -1356,10 +1356,10 @@
       "Scheduled execution can hide drift until the next cron window."
     ],
     "second_pass_notes": [
-      "Dual ownership between Actions and n8n is governance debt.",
+      "Generated forum data is retained under snippets/automations/forum/forumData.jsx.",
+      "GitHub Actions is the canonical owner for this retained data path.",
       "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever.",
-      "This wrapper should not regain unique logic.",
-      "Workflow comments explicitly say n8n is being used as an alternative."
+      "This wrapper should not regain unique logic."
     ]
   },
   {

@@ -9,7 +9,7 @@
  * @purpose-statement Tests codex/task-cleanup.js — verifies safe worktree pruning, dirty-worktree preservation, branch pruning, and repo-root protection
  * @pipeline          manual — developer tool
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/unit/codex-task-cleanup.test.js [flags]
+ * @usage             node operations/tests/unit/codex-task-cleanup.test.js [flags]
  */
 
 const assert = require('assert');

@@ -8,7 +8,7 @@
  * @needs             E-R1, R-R11
  * @purpose-statement Verifies generated authored-page scope helpers so warning-only validators skip generated docs pages while keeping authored pages in scope.
  * @pipeline          P1 (commit, via run-all)
- * @usage             node tests/unit/docs-page-scope.test.js
+ * @usage             node operations/tests/unit/docs-page-scope.test.js
  */
 
 const assert = require('assert');
@@ -38,10 +38,10 @@ function runTests() {
         '',
         '{/*',
         'generated-file-banner: generated-file-banner:v1',
-        'Generation Script: operations/scripts/generate-pages-index.js',
+        'Generation Script: operations/scripts/generators/content/catalogs/generate-pages-index.js',
         'Purpose: Generated index',
         'Run when: docs.json changes',
-        'Run command: node operations/scripts/generate-pages-index.js --write',
+        'Run command: node operations/scripts/generators/content/catalogs/generate-pages-index.js --write',
         '*/}',
         '',
         '<Note>Generated</Note>'

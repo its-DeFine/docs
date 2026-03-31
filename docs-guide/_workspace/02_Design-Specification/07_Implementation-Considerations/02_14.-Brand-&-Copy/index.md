@@ -22,7 +22,7 @@ The repo already has a script governance framework with three layers: local pre-
 | audit-v2-usefulness.js | Page-level usefulness matrix with source-weighted accuracy verification. Rules-only or hybrid scoring. | accuracy-source-registry.json, accuracy-source-weights.json | JSONL + CSV + JSON + MD in tasks/reports/quality-accessibility/ |
 | docs-quality-and-freshness-audit.js | TODO/TBD/Coming Soon markers, placeholders, thin content detection | — | Report: tasks/reports/repo-ops/ |
 | repo-audit-orchestrator.js | Unified pipeline: runs multiple audit stages, emits prioritised scorecard | Skill catalog + execution manifest | Summary: tasks/reports/repo-ops/ |
-| cspell.json | Spell checking with en-GB dictionary + Livepeer custom terms | tests/config/spell-dict.json | Inline errors |
+| cspell.json | Spell checking with en-GB dictionary + Livepeer custom terms | operations/tests/config/spell-dict.json | Inline errors |
 | .githooks/pre-commit | Pre-commit enforcement: style + structure + staged checks | — | Blocks commit on violation |
 
 ### **What's Missing (Gap Analysis)**
@@ -158,7 +158,7 @@ Brand/copy enforcement follows the same ramp. New rules start as warnings, becom
 | tools/config/style-language-profile-en-gb.json | Forbidden terms, forbidden patterns, locale, file scope | Adding banned words, terminology pairs, US/UK spelling pairs |
 | tools/config/component-layout-profile.json | Page type → required sections + allowed components | Adding page types, changing component rules |
 | tools/config/cspell.json | Spell check: locale, dictionaries, ignore paths | Adding new technical terms, adjusting ignore rules |
-| tests/config/spell-dict.json | Custom Livepeer dictionary (en-GB spellings) | Adding Livepeer-specific terms |
+| operations/tests/config/spell-dict.json | Custom Livepeer dictionary (en-GB spellings) | Adding Livepeer-specific terms |
 | tools/config/accuracy-source-registry.json | Usefulness audit: which sources are trusted for verification | Adding/changing trusted sources |
 | tools/config/accuracy-source-weights.json | Usefulness audit: weight per source type | Adjusting verification scoring |
 | tests/config/codex-issue-policy.json | Issue management policy for automated checks | — |
@@ -252,5 +252,5 @@ When writing a new page:
 1. **Open 06 (Brand & Copy Guide)** — what voice for this page type? Opening/closing pattern? Terminology?
 1. **Open **`style-guide.mdx` — formatting rules, CSS variables, Mintlify gotchas, frontmatter template
 1. **Write the page**
-1. **Run enforcement:** `node operations/scripts/style-and-language-homogenizer-en-gb.js --scope changed`
-1. **Run governance:** `node operations/scripts/component-layout-governance.js --scope changed`
+1. **Run enforcement:** `node operations/scripts/audits/content/style/style-and-language-homogenizer-en-gb.js --scope changed`
+1. **Run governance:** `node operations/scripts/validators/components/library/component-layout-governance.js --scope changed`

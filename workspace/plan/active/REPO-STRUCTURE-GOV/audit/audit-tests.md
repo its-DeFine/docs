@@ -52,7 +52,7 @@ tests/
 
 **`README.mdx` is empty** — likely a generated placeholder stub. The real documentation is `README.md` (17 KB, comprehensive). The `.mdx` file is dead weight.
 
-**`reports/` has no defined lifecycle** — test output reports accumulate here with no stated TTL or cleanup policy. Unlike `tasks/reports/` (which has a retention workflow), `tests/reports/` has no governance.
+**`reports/` has no defined lifecycle** — test output reports accumulate here with no stated TTL or cleanup policy. Unlike `workspace/reports/` (which has a retention workflow), `tests/reports/` has no governance.
 
 ---
 

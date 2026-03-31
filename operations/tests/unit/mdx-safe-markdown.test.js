@@ -3,12 +3,12 @@
  * @script            mdx-safe-markdown.test
  * @category          validator
  * @purpose           qa:content-quality
- * @scope             tests/unit, tests/fixtures/mdx-safe-markdown, tools/lib, operations/scripts/remediators/content, operations/scripts/validators/content
+ * @scope             tests/unit, operations/tests/fixtures/mdx-safe-markdown, tools/lib, operations/scripts/remediators/content, operations/scripts/validators/content
  * @owner             docs
  * @needs             E-R1, R-R11
  * @purpose-statement Fixture-driven unit tests for repo-wide MDX-safe markdown repair and validation helpers.
  * @pipeline          P1 (commit, via run-all)
- * @usage             node tests/unit/mdx-safe-markdown.test.js
+ * @usage             node operations/tests/unit/mdx-safe-markdown.test.js
  */
 
 const assert = require('assert');
@@ -33,7 +33,7 @@ function runCase(name, fn) {
     console.log(`   ✓ ${name}`);
   } catch (error) {
     errors.push({
-      file: 'tests/unit/mdx-safe-markdown.test.js',
+      file: 'operations/tests/unit/mdx-safe-markdown.test.js',
       line: 1,
       rule: 'mdx-safe-markdown unit',
       message: `${name}: ${error.message}`

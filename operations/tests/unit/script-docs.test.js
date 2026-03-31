@@ -9,7 +9,7 @@
  * @purpose-statement Enforces script header schema, keeps group script indexes in sync, and builds aggregate script catalog
  * @pipeline          P1, P3
  * @dualmode          --check (validator) | --write --rebuild-indexes (generator)
- * @usage             node tests/unit/script-docs.test.js [flags]
+ * @usage             node operations/tests/unit/script-docs.test.js [flags]
  */
 
 const fs = require('fs');

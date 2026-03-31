@@ -11,11 +11,11 @@ metadata:
 primary_paths:
   - "tests/run-pr-checks.js"
   - ".github/workflows/test-suite.yml"
-  - "tests/PR-CI-TESTS-AND-SCRIPT-RUN-MATRIX.md"
-  - "tests/WHEN-TESTS-RUN.md"
+  - "operations/tests/PR-CI-TESTS-AND-SCRIPT-RUN-MATRIX.md"
+  - "operations/tests/WHEN-TESTS-RUN.md"
 primary_commands:
-  - "node tests/run-pr-checks.js --base-ref main"
-  - "npm --prefix tests run test:pr"
+  - "node operations/tests/run-pr-checks.js --base-ref main"
+  - "npm --prefix operations/tests run test:pr"
 ---
 
 SKILL: PR Changed-file CI Simulation
@@ -36,8 +36,8 @@ Workflow
 
 Command examples
 ```bash
-node tests/run-pr-checks.js --base-ref main
-npm --prefix tests run test:pr
+node operations/tests/run-pr-checks.js --base-ref main
+npm --prefix operations/tests run test:pr
 ```
 
 Deliverable Format

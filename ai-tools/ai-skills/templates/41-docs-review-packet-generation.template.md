@@ -19,7 +19,7 @@ primary_paths:
   - "ai-tools/ai-skills/templates/39-page-content-research-review.template.md"
   - "docs-guide/tooling/review-packet-plan-template.md"
 primary_commands:
-  - "node tests/unit/copy-lint.test.js --files [csv]"
+  - "node operations/tests/unit/copy-lint.test.js --files [csv]"
   - "node operations/scripts/validators/content/copy/lint-copy.js [file-or-glob]"
   - "node operations/scripts/validators/content/structure/lint-structure.js [file]"
   - "node operations/scripts/validators/content/copy/lint-patterns.js [file-or-glob]"

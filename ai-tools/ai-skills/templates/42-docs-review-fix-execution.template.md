@@ -22,9 +22,9 @@ primary_commands:
   - "node operations/scripts/validators/content/copy/lint-copy.js [file-or-glob]"
   - "node operations/scripts/validators/content/structure/lint-structure.js [file]"
   - "node operations/scripts/validators/content/copy/lint-patterns.js [file-or-glob]"
-  - "node tests/unit/copy-lint.test.js --files [csv]"
+  - "node operations/tests/unit/copy-lint.test.js --files [csv]"
   - "bash .githooks/pre-commit"
-  - "node tests/run-pr-checks.js --base-ref docs-v2-dev"
+  - "node operations/tests/run-pr-checks.js --base-ref docs-v2-dev"
 ---
 
 SKILL: Docs Review Fix Execution

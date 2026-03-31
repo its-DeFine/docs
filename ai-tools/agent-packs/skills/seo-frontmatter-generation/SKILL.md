@@ -1,13 +1,13 @@
 ---
 name: seo-frontmatter-generation
-version: "1.0"
 description: >-
-  Generate and normalize SEO metadata fields in MDX frontmatter with safe, repo-supported scripts. Use when tasks include generate seo metadata for docs pages, missing keywords or og:image in mdx, bulk frontmatter seo normalization.
-tier: 2
-invoke_when:
-  - "generate seo metadata for docs pages"
-  - "missing keywords or og:image in mdx"
-  - "bulk frontmatter seo normalization"
+  Generate and normalize SEO metadata fields in MDX frontmatter with safe,
+  repo-supported scripts. Use when: generate seo metadata for docs pages,
+  missing keywords or og:image in mdx, bulk frontmatter seo normalization.
+metadata:
+  version: "1.2"
+  category: "governance"
+  tier: "2"
 primary_paths:
   - "operations/scripts/snippets/generate-seo.js"
   - "tools/dev/seo-generator-safe.js"

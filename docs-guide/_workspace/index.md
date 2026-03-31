@@ -106,7 +106,7 @@ An AI-specific sitemap separate from the SEO sitemap, enriched with content type
 
 **Implementation Steps**
 
-**1.** Create operations/scripts/generate-ai-sitemap.js
+**1.** Create operations/scripts/generators/content/seo/generate-ai-sitemap.js
 
 **2.** Parse all v2/pages/**/*.mdx frontmatter for: title, description, category, lastVerified
 
@@ -304,7 +304,7 @@ A single JSON file listing every page with: URL, title, description, section, ta
 
 **Implementation Steps**
 
-**1.** Create operations/scripts/generate-docs-index.js
+**1.** Create operations/scripts/generators/content/catalogs/generate-docs-index.js
 
 **2.** Parse all v2/pages/**/*.mdx, extract frontmatter + headings + code block languages
 

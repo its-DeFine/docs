@@ -9,7 +9,7 @@
  * @purpose-statement Validates docs-guide source-of-truth coverage, README pointers, and generated index freshness
  * @pipeline          P1, P2, P3, manual
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/unit/docs-guide-sot.test.js [flags]
+ * @usage             node operations/tests/unit/docs-guide-sot.test.js [flags]
  */
 
 const fs = require('fs');

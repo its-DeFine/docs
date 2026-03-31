@@ -8,7 +8,7 @@
  * @needs             R-R10, R-R29
  * @purpose-statement Unit tests for the MDX-facing component scope validator — covers unsafe private helpers, safe inline logic, and imported helper patterns.
  * @pipeline          manual — targeted validator unit coverage
- * @usage             node tests/unit/mdx-component-scope.test.js
+ * @usage             node operations/tests/unit/mdx-component-scope.test.js
  */
 
 const assert = require('assert');
@@ -63,7 +63,7 @@ async function runCase(name, fn) {
       rule: 'mdx-component-scope unit',
       message: `${name}: ${error.message}`,
       line: 1,
-      file: 'tests/unit/mdx-component-scope.test.js'
+      file: 'operations/tests/unit/mdx-component-scope.test.js'
     });
   }
 }

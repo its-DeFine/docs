@@ -9,7 +9,7 @@
  * @purpose-statement Unit tests for docs path sync — validates staged move detection, deterministic docs.json/reference rewrites, validator behavior, and remediator write mode.
  * @pipeline          P1, P3
  * @dualmode          --check (validator) | fixture-driven script execution
- * @usage             node tests/unit/docs-path-sync.test.js
+ * @usage             node operations/tests/unit/docs-path-sync.test.js
  */
 
 const assert = require('assert');
@@ -20,6 +20,7 @@ const { spawnSync } = require('child_process');
 
 const syncLib = require('../../scripts/config/docs-path-sync');
 const remediator = require('../../scripts/remediators/content/repair/sync-docs-paths');
+const relativeHrefRepair = require('../../scripts/remediators/content/repair/repair-relative-page-hrefs');
 const validator = require('../../scripts/validators/content/structure/check-docs-path-sync');
 
 const REMEDIATOR_PATH = path.join(__dirname, '..', '..', 'scripts', 'remediators', 'content', 'repair', 'sync-docs-paths.js');
@@ -69,7 +70,7 @@ function runCase(name, fn) {
     fn();
     console.log(`   ✓ ${name}`);
   } catch (error) {
-    errors.push({ file: 'tests/unit/docs-path-sync.test.js', rule: 'docs-path-sync unit', message: `${name}: ${error.message}`, line: 1 });
+    errors.push({ file: 'operations/tests/unit/docs-path-sync.test.js', rule: 'docs-path-sync unit', message: `${name}: ${error.message}`, line: 1 });
   }
 }
 
@@ -100,6 +101,75 @@ function createFixtureRepo() {
   writeFile(repoDir, 'docs.json', `${JSON.stringify({ navigation: { versions: [{ version: 'v2', languages: [{ language: 'en', tab: 'Orchestrators', pages: ['v2/orchestrators/concepts/role', 'v2/orchestrators/overview'] }] }] }, redirects: [{ source: '/v2/orchestrators/concepts/legacy-role', destination: '/v2/orchestrators/concepts/role' }] }, null, 2)}\n`);
   writeFile(repoDir, 'v2/orchestrators/concepts/role.mdx', '# Role\n');
   writeFile(repoDir, 'v2/orchestrators/overview.mdx', 'import RolePage from "./concepts/role.mdx"\n\n[Role](./concepts/role)\n');
+  runCommand('git', ['add', '.'], { cwd: repoDir });
+  runCommand('git', ['commit', '-m', 'initial fixture'], { cwd: repoDir });
+  return repoDir;
+}
+
+function createRelativeHrefFixtureRepo() {
+  const repoDir = fs.mkdtempSync(path.join(os.tmpdir(), 'relative-href-repair-'));
+  runCommand('git', ['init', '-b', 'docs-v2'], { cwd: repoDir });
+  runCommand('git', ['config', 'user.name', 'Codex Test'], { cwd: repoDir });
+  runCommand('git', ['config', 'user.email', 'codex@example.com'], { cwd: repoDir });
+
+  writeFile(
+    repoDir,
+    'docs.json',
+    `${JSON.stringify({
+      navigation: {
+        versions: [
+          {
+            version: 'v2',
+            languages: [
+              {
+                language: 'en',
+                tab: 'About',
+                pages: [
+                  'v2/about/portal',
+                  'v2/about/livepeer-network/overview',
+                  'v2/about/resources/livepeer-whitepaper',
+                  'v2/resources/documentation-guide/component-library'
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }, null, 2)}\n`
+  );
+  writeFile(
+    repoDir,
+    'v2/about/portal.mdx',
+    [
+      '# Portal',
+      '',
+      '<Card href="./livepeer-network/overview#actors" />',
+      '<Card href={"./resources/livepeer-whitepaper?download=1"} />',
+      'const nav = [{ href: "./missing-page" }, { href: "../assets/guide.pdf" }];',
+      ''
+    ].join('\n')
+  );
+  writeFile(repoDir, 'v2/about/livepeer-network/overview.mdx', '# Network overview\n');
+  writeFile(repoDir, 'v2/about/resources/livepeer-whitepaper.mdx', '# Whitepaper\n');
+  writeFile(repoDir, 'v2/resources/documentation-guide/component-library/component-library.mdx', '# Component Library\n');
+  writeFile(repoDir, 'v2/resources/changelog/changelog.mdx', '<Card href="../../internal/overview/governance" />\n');
+  writeFile(repoDir, 'v2/internal/overview/governance.mdx', '# Governance\n');
+  writeFile(repoDir, 'v2/about/generated-page.mdx', [
+    '---',
+    'title: Generated',
+    '---',
+    '',
+    '{/*',
+    'generated-file-banner: generated-file-banner:v1',
+    'generation script: operations/tests/unit/docs-path-sync.test.js',
+    'purpose: test fixture',
+    'run when: unit tests execute',
+    'run command: node operations/tests/unit/docs-path-sync.test.js',
+    '*/}',
+    '',
+    '<Card href="./livepeer-network/overview" />',
+    ''
+  ].join('\n'));
   runCommand('git', ['add', '.'], { cwd: repoDir });
   runCommand('git', ['commit', '-m', 'initial fixture'], { cwd: repoDir });
   return repoDir;
@@ -177,7 +247,105 @@ function runTests() {
     }
   });
 
-  return { errors, passed: errors.length === 0, total: 5 };
+  runCase('Shared resolver preserves suffixes and canonicalizes index-style routes', () => {
+    const resolved = syncLib.resolveRelativeRoute(
+      'v2/about/livepeer-protocol/overview',
+      '../resources/livepeer-whitepaper?download=1#pdf'
+    );
+
+    assert.strictEqual(resolved.route, 'v2/about/resources/livepeer-whitepaper');
+    assert.strictEqual(resolved.suffix, '?download=1#pdf');
+    assert.strictEqual(
+      syncLib.encodeRouteForHref(resolved.route, resolved.suffix),
+      '/v2/about/resources/livepeer-whitepaper?download=1#pdf'
+    );
+    assert.strictEqual(
+      syncLib.canonicalRouteFromFile('v2/resources/documentation-guide/component-library/component-library.mdx'),
+      'v2/resources/documentation-guide/component-library'
+    );
+    assert.strictEqual(syncLib.encodeRouteForHref('v2/about/index'), '/v2/about');
+  });
+
+  runCase('Shared resolver handles decoded paths and same-basename aliases', () => {
+    const repoDir = createRelativeHrefFixtureRepo();
+    try {
+      writeFile(repoDir, 'v2/orchestrators/setup/requirements/on-chain setup/on-chain.mdx', '# On-chain setup\n');
+
+      const decoded = syncLib.resolveCanonicalDocRoute(
+        repoDir,
+        {},
+        'v2/orchestrators/setup/requirements/on-chain%20setup/on-chain'
+      );
+      assert.ok(decoded);
+      assert.strictEqual(decoded.method, 'decoded');
+      assert.strictEqual(decoded.filePath, 'v2/orchestrators/setup/requirements/on-chain setup/on-chain.mdx');
+
+      const alias = syncLib.resolveCanonicalDocRoute(
+        repoDir,
+        {},
+        'v2/resources/documentation-guide/component-library'
+      );
+      assert.ok(alias);
+      assert.strictEqual(alias.method, 'directory-alias');
+      assert.strictEqual(alias.filePath, 'v2/resources/documentation-guide/component-library/component-library.mdx');
+    } finally {
+      cleanupFixtureRepo(repoDir);
+    }
+  });
+
+  runCase('Relative href remediator rewrites canonical root paths and preserves suffixes', () => {
+    const repoDir = createRelativeHrefFixtureRepo();
+    try {
+      const result = relativeHrefRepair.run({
+        repoRoot: repoDir,
+        parsedArgs: relativeHrefRepair.parseArgs(['--dry-run', '--files', 'v2/about']),
+        quiet: true
+      });
+
+      assert.strictEqual(result.scannedFiles, 4);
+      assert.strictEqual(result.rewriteCount, 2);
+      assert.strictEqual(result.unresolvedCount, 1);
+      assert.strictEqual(result.skippedCount, 1);
+      assert.strictEqual(result.generatorOwnedCount, 1);
+
+      const portalPlan = result.files.find((plan) => plan.file === 'v2/about/portal.mdx');
+      assert.ok(portalPlan);
+      assert.ok(portalPlan.rewrites.some((entry) => entry.replacement === '/v2/about/livepeer-network/overview#actors'));
+      assert.ok(portalPlan.rewrites.some((entry) => entry.replacement === '/v2/about/resources/livepeer-whitepaper?download=1'));
+      assert.ok(portalPlan.unresolved.some((entry) => entry.rawHref === './missing-page'));
+      assert.ok(portalPlan.skipped.some((entry) => entry.rawHref === '../assets/guide.pdf'));
+
+      const generatedPlan = result.files.find((plan) => plan.file === 'v2/about/generated-page.mdx');
+      assert.ok(generatedPlan);
+      assert.strictEqual(generatedPlan.rewrites.length, 0);
+      assert.strictEqual(generatedPlan.generatorOwned.length, 1);
+    } finally {
+      cleanupFixtureRepo(repoDir);
+    }
+  });
+
+  runCase('Relative href remediator recovers page targets from same-basename routes', () => {
+    const repoDir = createRelativeHrefFixtureRepo();
+    try {
+      const result = relativeHrefRepair.run({
+        repoRoot: repoDir,
+        parsedArgs: relativeHrefRepair.parseArgs(['--dry-run', '--files', 'v2/resources/changelog/changelog.mdx']),
+        quiet: true
+      });
+
+      assert.strictEqual(result.scannedFiles, 1);
+      assert.strictEqual(result.rewriteCount, 1);
+      assert.strictEqual(result.unresolvedCount, 0);
+
+      const plan = result.files[0];
+      assert.strictEqual(plan.rewrites[0].status, 'file-route-recovery');
+      assert.strictEqual(plan.rewrites[0].replacement, '/v2/internal/overview/governance');
+    } finally {
+      cleanupFixtureRepo(repoDir);
+    }
+  });
+
+  return { errors, passed: errors.length === 0, total: 9 };
 }
 
 if (require.main === module) {

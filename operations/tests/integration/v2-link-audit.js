@@ -9,13 +9,23 @@
  * @purpose-statement Comprehensive V2 MDX link audit — checks internal links, external links, anchor refs. Supports --staged, --full, --strict, --write-links modes.
  * @pipeline          P1, P5, P6
  * @dualmode          --full (validator) | --write-links (remediator)
- * @usage             node tests/integration/v2-link-audit.js [flags]
+ * @usage             node operations/tests/integration/v2-link-audit.js [flags]
  */
 
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const { extractImports } = require('../utils/mdx-parser');
+const {
+  canonicalRouteFromFile,
+  collectExistingRoutes,
+  encodeRouteForHref,
+  getUniqueHighConfidenceSuggestion,
+  normalizeRoute: normalizeDocsSyncRoute,
+  resolveCanonicalDocRoute,
+  resolveRelativeRoute,
+  suggestRemaps
+} = require('../../scripts/config/docs-path-sync');
 const {
   getDocsJsonGroupFiles,
   getDocsJsonTabFiles,
@@ -402,6 +412,20 @@ function getExplicitTargets(files, options = {}) {
       : path.join(REPO_ROOT, normalized);
 
     if (!fs.existsSync(candidate)) continue;
+
+    if (fs.statSync(candidate).isDirectory()) {
+      const nested = [];
+      walkFiles(candidate, (abs) => abs.endsWith('.mdx') && !isIndexMdx(abs), nested);
+      for (const nestedFile of nested) {
+        if (!isWithinV2Roots(nestedFile)) continue;
+        const rel = relFromRoot(nestedFile);
+        if (seen.has(rel)) continue;
+        seen.add(rel);
+        out.push(nestedFile);
+      }
+      continue;
+    }
+
     if (!candidate.endsWith('.mdx')) continue;
     if (!isWithinV2Roots(candidate)) continue;
     if (isIndexMdx(candidate)) continue;
@@ -650,6 +674,84 @@ function loadRouteSet() {
   return routes;
 }
 
+function loadDocsConfig() {
+  if (!fs.existsSync(DOCS_CONFIG_PATH)) return {};
+  try {
+    return JSON.parse(fs.readFileSync(DOCS_CONFIG_PATH, 'utf8'));
+  } catch (_error) {
+    return {};
+  }
+}
+
+function collectPublishedV2Routes() {
+  return [...new Set(
+    collectExistingRoutes(REPO_ROOT)
+      .map((route) => normalizeDocsSyncRoute(route))
+      .filter((route) => route.startsWith('v2/'))
+      .filter((route) => isActiveV2DocRel(route))
+  )];
+}
+
+function isCandidatePageRef(rawPath) {
+  const normalized = normalizeRawPath(rawPath);
+  const ext = path.posix.extname(stripQueryHash(normalized)).toLowerCase();
+  return !ext || ext === '.md' || ext === '.mdx';
+}
+
+function buildRedirectSuggestion(routePath, docsConfig, knownRoutesSet) {
+  const normalized = normalizeDocsSyncRoute(routePath);
+  if (!normalized) return null;
+  const redirects = Array.isArray(docsConfig?.redirects) ? docsConfig.redirects : [];
+
+  for (const redirect of redirects) {
+    if (!redirect || typeof redirect !== 'object') continue;
+    if (normalizeDocsSyncRoute(redirect.source) !== normalized) continue;
+    const destination = normalizeDocsSyncRoute(redirect.destination);
+    if (!destination || destination.startsWith('v1/') || !knownRoutesSet.has(destination)) return null;
+    return {
+      route: destination,
+      reason: 'docs redirect',
+      score: 1
+    };
+  }
+
+  return null;
+}
+
+function buildSharedRemapSuggestions(routePath, docsConfig, knownPublishedRoutes) {
+  const knownRoutesSet = new Set(knownPublishedRoutes.map((route) => normalizeDocsSyncRoute(route)));
+  const suggestions = [];
+  const seen = new Set();
+
+  function addSuggestion(item) {
+    const normalizedRoute = normalizeDocsSyncRoute(item?.route);
+    if (!normalizedRoute || normalizedRoute.startsWith('v1/') || !knownRoutesSet.has(normalizedRoute) || seen.has(normalizedRoute)) {
+      return;
+    }
+    seen.add(normalizedRoute);
+    suggestions.push({
+      route: normalizedRoute,
+      reason: item.reason,
+      score: item.score
+    });
+  }
+
+  const redirectSuggestion = buildRedirectSuggestion(routePath, docsConfig, knownRoutesSet);
+  if (redirectSuggestion) addSuggestion(redirectSuggestion);
+  suggestRemaps(routePath, knownPublishedRoutes).forEach((item) => addSuggestion(item));
+  return suggestions;
+}
+
+function resolveSharedPageRef(rawPath, currentFileAbs, docsConfig) {
+  const currentRoute = canonicalRouteFromFile(relFromRoot(currentFileAbs));
+  const target = resolveRelativeRoute(currentRoute, rawPath);
+  if (!target.route || !target.route.startsWith('v2/')) return null;
+  return {
+    target,
+    exact: resolveCanonicalDocRoute(REPO_ROOT, docsConfig, target.route)
+  };
+}
+
 function isRoutableLinkRef(ref) {
   if (ref.sourceType === 'markdown-link') return true;
   if (ref.sourceType === 'jsx-attr') {
@@ -852,7 +954,7 @@ function shouldValidateExternalRef(ref, externalLinkTypes) {
   return false;
 }
 
-function analyzeRef(ref, currentFileAbs, repoFiles, routeSet, args) {
+function analyzeRef(ref, currentFileAbs, repoFiles, routeSet, args, docsConfig, knownPublishedRoutes) {
   if (ref.sourceType === 'import-path') {
     const importPath = String(ref.rawPath || '').trim();
     const isPackageImport = importPath && !importPath.startsWith('/') && !importPath.startsWith('./') && !importPath.startsWith('../');
@@ -936,6 +1038,33 @@ function analyzeRef(ref, currentFileAbs, repoFiles, routeSet, args) {
     };
   }
 
+  const sharedPageRef = isRoutableLinkRef(ref) && isCandidatePageRef(normalizedRaw)
+    ? resolveSharedPageRef(normalizedRaw, currentFileAbs, docsConfig)
+    : null;
+
+  if (sharedPageRef?.exact && isActiveV2DocRel(sharedPageRef.exact.route)) {
+    const browserRoute = asPageRouteForBrowser(normalizedRaw, currentFileAbs);
+    if (hasDocFileExtension(browserRoute)) {
+      return {
+        ...ref,
+        linkType,
+        resolvedPath: sharedPageRef.exact.filePath,
+        exists: true,
+        status: 'route-missing',
+        movedCandidates: []
+      };
+    }
+
+    return {
+      ...ref,
+      linkType,
+      resolvedPath: sharedPageRef.exact.filePath,
+      exists: true,
+      status: 'ok',
+      movedCandidates: []
+    };
+  }
+
   const targetAbs = resolveInternalPath(normalizedRaw, currentFileAbs);
 
   if (!targetAbs) {
@@ -1004,13 +1133,29 @@ function analyzeRef(ref, currentFileAbs, repoFiles, routeSet, args) {
     }
   }
 
+  const sharedSuggestions = sharedPageRef
+    ? buildSharedRemapSuggestions(sharedPageRef.target.route, docsConfig, knownPublishedRoutes)
+    : [];
+  const uniqueSharedSuggestion = getUniqueHighConfidenceSuggestion(sharedSuggestions, {
+    includePrefixes: ['v2/'],
+    excludePrefixes: ['v1/']
+  });
+
   return {
     ...ref,
     linkType,
     resolvedPath: relFromRoot(targetAbs),
     exists: false,
     status: 'missing',
-    movedCandidates: findMissingPathCandidates(targetAbs, repoFiles)
+    movedCandidates: sharedSuggestions.length > 0
+      ? sharedSuggestions
+          .map((item) => {
+            const score = typeof item.score === 'number' ? ` (${item.reason}, ${item.score})` : ` (${item.reason})`;
+            return `${encodeRouteForHref(item.route)}${score}`;
+          })
+          .slice(0, 3)
+      : findMissingPathCandidates(targetAbs, repoFiles),
+    highConfidenceCandidate: uniqueSharedSuggestion ? encodeRouteForHref(uniqueSharedSuggestion.route) : ''
   };
 }
 
@@ -1076,7 +1221,7 @@ function domainFromPath(relPath, folderToDomain) {
   return folderToDomain.get(folder) || readableFromFolder(folder) || 'unknown';
 }
 
-function analyzeFiles({ allFiles, rootTargets, importGraph, importedByRoot, structure, folderToDomain, repoFiles, routeSet, args }) {
+function analyzeFiles({ allFiles, rootTargets, importGraph, importedByRoot, structure, folderToDomain, repoFiles, routeSet, args, docsConfig, knownPublishedRoutes }) {
   const fileResults = new Map();
   const domainLinks = new Map();
   const pageToDomain = new Map();
@@ -1105,7 +1250,7 @@ function analyzeFiles({ allFiles, rootTargets, importGraph, importedByRoot, stru
 
     const content = loadFile(f);
     const refs = extractRefs(content);
-    const analyzed = refs.map((r) => analyzeRef(r, f, repoFiles, routeSet, args));
+    const analyzed = refs.map((r) => analyzeRef(r, f, repoFiles, routeSet, args, docsConfig, knownPublishedRoutes));
 
     const result = {
       file: rel,
@@ -1899,6 +2044,8 @@ async function runAudit(options = {}) {
   const { allMdxFiles, importGraph, importedByRoot } = discoverMdxImports(rootTargets);
   const repoFiles = listRepoFilesForMoveHints();
   const routeSet = loadRouteSet();
+  const docsConfig = loadDocsConfig();
+  const knownPublishedRoutes = collectPublishedV2Routes();
 
   const { fileResults, domainLinks, unindexedByDomain } = analyzeFiles({
     allFiles: allMdxFiles,
@@ -1909,7 +2056,9 @@ async function runAudit(options = {}) {
     folderToDomain,
     repoFiles,
     routeSet,
-    args
+    args,
+    docsConfig,
+    knownPublishedRoutes
   });
 
   attachImportedToStructure(structure, fileResults);
@@ -1992,6 +2141,7 @@ module.exports = {
   normalizeExternalUrl,
   shouldValidateExternalRef,
   classifyExternalStatus,
+  analyzeRef,
   resolveInternalPath,
   requestExternalUrlWithRetries,
   validateExternalUrls,

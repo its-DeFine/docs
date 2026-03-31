@@ -284,12 +284,12 @@ const WORKFLOW_MANUAL_OVERRIDES = {
     workflow_family: 'data-refresh',
     cleanup_decision: 'merge',
     usage_status: 'compatibility-wrapper',
-    process_fit: 'legacy-or-unclear',
-    engineering_action: 'Keep this as a thin compatibility wrapper until the Actions vs n8n ownership decision is resolved, then either retire it or keep only the canonical reusable workflow.',
+    process_fit: 'core-shipping',
+    engineering_action: 'Keep this as a thin compatibility wrapper until the legacy entrypoint can be retired safely. The canonical implementation now lives in `data-refresh-governance`.',
     consolidation_target: 'data-refresh-governance',
     second_pass_notes: [
-      'Workflow comments explicitly say n8n is being used as an alternative.',
-      'Dual ownership between Actions and n8n is governance debt.',
+      'Generated forum data is retained under snippets/automations/forum/forumData.jsx.',
+      'GitHub Actions is the canonical owner for this retained data path.',
       'This wrapper should not regain unique logic.'
     ]
   },
@@ -297,12 +297,12 @@ const WORKFLOW_MANUAL_OVERRIDES = {
     workflow_family: 'data-refresh',
     cleanup_decision: 'merge',
     usage_status: 'compatibility-wrapper',
-    process_fit: 'legacy-or-unclear',
-    engineering_action: 'Keep this as a thin compatibility wrapper until the Actions vs n8n ownership decision is resolved, then either retire it or keep only the canonical reusable workflow.',
+    process_fit: 'core-shipping',
+    engineering_action: 'Keep this as a thin compatibility wrapper until the legacy entrypoint can be retired safely. The canonical implementation now lives in `data-refresh-governance`.',
     consolidation_target: 'data-refresh-governance',
     second_pass_notes: [
-      'Workflow comments explicitly say n8n is being used as an alternative.',
-      'Dual ownership between Actions and n8n is governance debt.',
+      'Generated YouTube data is retained under snippets/automations/youtube/youtubeData.jsx.',
+      'GitHub Actions is the canonical owner for this retained data path.',
       'This wrapper should not regain unique logic.'
     ]
   },
@@ -692,7 +692,7 @@ function inferUsageStatus(slug, content) {
   if (/uses:\s*\.\/\.github\/workflows\/data-refresh-governance\.ya?ml/.test(raw)) {
     return 'compatibility-wrapper';
   }
-  if (/n8n is being using as an alternative|this github action will only run on main branch/.test(raw)) return 'legacy-unclear';
+  if (/this github action will only run on main branch/.test(raw)) return 'legacy-unclear';
   if (/continue-on-error:\s*true/.test(raw) || /\(advisory\)/.test(raw)) return 'active-advisory';
   if (/git\s+push/i.test(content) || /\bcontents:\s*write\b/i.test(content)) return 'active-mutating';
   return 'active';

@@ -829,3 +829,8 @@ Thread: References
 Shipped: Phase 2 complete — restructured into 13 category subfolders. Best-practice + patterns docs for copy, layout, ia-and-naming, components, scripts, prompts. Concern-audit-methodology written and validated against GitHub Actions thread. Actions repo analysis added as research exemplar. 26 total files.
 Files changed: .claude/references/ (restructured to subfolders, 12 new best-practice/patterns files), .claude/CLAUDE.md (thread row updated)
 Outcome: MET — references knowledge system complete.
+--- CHECKPOINT 2026-03-31T02:46:58.434Z [unknown] ---
+(No transcript summary available)
+---
+Session started: 2026-03-31 13:48:14
+Session started: 2026-03-31 19:41:29

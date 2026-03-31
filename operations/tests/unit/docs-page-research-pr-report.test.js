@@ -3,12 +3,12 @@
  * @script            docs-page-research-pr-report.test
  * @category          orchestrator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, operations/scripts/docs-page-research-pr-report.js, operations/scripts/docs-page-research.js, workspace/research/claims
+ * @scope             tests/unit, operations/scripts/dispatch/content/veracity/docs-page-research-pr-report.js, operations/scripts/audits/content/veracity/docs-page-research.js, workspace/research/claims
  * @domain            docs
  * @needs             R-R27, R-R30
  * @purpose-statement Tests docs-page-research-pr-report.js — validates changed-file advisory reporting for the fact-check research runner.
  * @pipeline          manual — experimental advisory PR integration, non-blocking
- * @usage             node tests/unit/docs-page-research-pr-report.test.js [flags]
+ * @usage             node operations/tests/unit/docs-page-research-pr-report.test.js [flags]
  */
 
 const assert = require('assert');
@@ -18,7 +18,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const REPO_ROOT = process.cwd();
-const SCRIPT_PATH = path.join(REPO_ROOT, 'operations/scripts/docs-page-research-pr-report.js');
+const SCRIPT_PATH = path.join(REPO_ROOT, 'operations/scripts/dispatch/content/veracity/docs-page-research-pr-report.js');
 
 function mkTmpDir(prefix) {
   return fs.mkdtempSync(path.join(os.tmpdir(), prefix));
@@ -73,7 +73,7 @@ async function runTests() {
 
     const run = runScript([
       '--files',
-      'operations/scripts/create-codex-pr.js,docs.json',
+      'operations/scripts/dispatch/ai/codex/create-codex-pr.js,docs.json',
       '--report-md',
       reportMd,
       '--report-json',

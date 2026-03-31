@@ -81,36 +81,78 @@ import { FunctionField } from '/snippets/components/displays/response-fields/Res
 import { DataWrap } from '/snippets/components/wrappers/data/workflows.jsx'
 
 {/* ADDRESS EXTRACTIONS — sourced from contractAddressesData; no addresses hardcoded below */}
-export const arb = contractAddresses.meta.explorerUrls.arbiscan
-export const eth = contractAddresses.meta.explorerUrls.etherscan
+export const arb = contractAddresses.meta.explorerUrls.arbiscanAddress || `${contractAddresses.meta.explorerUrls.arbiscan || 'https://arbiscan.io'}/address/`
+export const eth = contractAddresses.meta.explorerUrls.etherscanAddress || `${contractAddresses.meta.explorerUrls.etherscan || 'https://etherscan.io'}/address/`
 
-export const controller = contractAddresses.arbitrumOne.current.find(c => c.name === 'Controller')?.address
-export const bondingManagerProxy = contractAddresses.arbitrumOne.current.find(c => c.name === 'BondingManager' && c.type === 'proxy')?.address
-export const bondingManagerTarget = contractAddresses.arbitrumOne.current.find(c => c.name === 'BondingManager' && c.type === 'target')?.address
-export const ticketBrokerProxy = contractAddresses.arbitrumOne.current.find(c => c.name === 'TicketBroker' && c.type === 'proxy')?.address
-export const ticketBrokerTarget = contractAddresses.arbitrumOne.current.find(c => c.name === 'TicketBroker' && c.type === 'target')?.address
-export const roundsManagerProxy = contractAddresses.arbitrumOne.current.find(c => c.name === 'RoundsManager' && c.type === 'proxy')?.address
-export const roundsManagerTarget = contractAddresses.arbitrumOne.current.find(c => c.name === 'RoundsManager' && c.type === 'target')?.address
-export const minter = contractAddresses.arbitrumOne.current.find(c => c.name === 'Minter')?.address
-export const serviceRegistryProxy = contractAddresses.arbitrumOne.current.find(c => c.name === 'ServiceRegistry' && c.type === 'proxy')?.address
-export const serviceRegistryTarget = contractAddresses.arbitrumOne.current.find(c => c.name === 'ServiceRegistry' && c.type === 'target')?.address
-export const aiServiceRegistry = contractAddresses.arbitrumOne.current.find(c => c.name === 'AIServiceRegistry')?.address
-export const lptArb = contractAddresses.arbitrumOne.current.find(c => c.name === 'LivepeerToken')?.address
-export const lptEth = contractAddresses.ethereumMainnet.current.find(c => c.name === 'LivepeerToken')?.address
+export const dedupeContracts = (entries = []) => {
+  const seen = new Set()
+  return entries.filter((entry) => {
+    const key = `${entry?.name || ''}:${entry?.type || entry?.deploymentKind || ''}:${entry?.address || ''}`.toLowerCase()
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
 
-{/* NOTE Bridgeminter is at https://github.com/livepeer/protocol/blob/streamflow/contracts/token/BridgeMinter.sol*/}
-export const bridgeMinter = contractAddresses.ethereumMainnet.current.find(c => c.name === 'BridgeMinter')?.address
-export const l2Gateway = contractAddresses.arbitrumOne.current.find(c => c.name === 'L2LPTGateway')?.address
-export const l1Gateway = contractAddresses.ethereumMainnet.current.find(c => c.name === 'L1LPTGateway')?.address
-export const l1Escrow = contractAddresses.ethereumMainnet.current.find(c => c.name === 'L1Escrow')?.address
-export const bondingVotesProxy = contractAddresses.arbitrumOne.current.find(c => c.name === 'BondingVotes' && c.type === 'proxy')?.address
-export const bondingVotesTarget = contractAddresses.arbitrumOne.current.find(c => c.name === 'BondingVotes' && c.type === 'target')?.address
-export const governor = contractAddresses.arbitrumOne.current.find(c => c.name === 'Governor')?.address
-export const livepeerGovernorProxy = contractAddresses.arbitrumOne.current.find(c => c.name === 'LivepeerGovernor' && c.type === 'proxy')?.address
-export const livepeerGovernorTarget = contractAddresses.arbitrumOne.current.find(c => c.name === 'LivepeerGovernor' && c.type === 'target')?.address
-export const treasury = contractAddresses.arbitrumOne.current.find(c => c.name === 'Treasury')?.address
-export const l2Migrator = contractAddresses.arbitrumOne.current.find(c => c.name === 'L2Migrator' && c.type === 'proxy')?.address
-export const merkleSnapshot = contractAddresses.arbitrumOne.current.find(c => c.name === 'MerkleSnapshot')?.address
+export const chainPayload = (chain) => contractAddresses[chain] || {}
+export const chainActiveContracts = (chain) => dedupeContracts(chainPayload(chain).active || chainPayload(chain).current || [])
+export const chainImplementationContracts = (chain) => dedupeContracts(
+  chainPayload(chain).currentImplementations || (chainPayload(chain).current || []).filter((entry) => (entry.type || entry.deploymentKind) === 'target')
+)
+export const chainInventoryContracts = (chain) => {
+  const payload = chainPayload(chain)
+  return dedupeContracts([
+    ...(payload.inventory || []),
+    ...chainActiveContracts(chain),
+    ...(payload.paused || []),
+    ...(payload.migration_residual || []),
+    ...(payload.legacy_operational || []),
+    ...chainImplementationContracts(chain),
+  ])
+}
+
+export const findContractEntry = (entries, name, type = null) =>
+  (entries || []).find((entry) =>
+    entry?.name === name && (type == null || (entry.type || entry.deploymentKind) === type)
+  )
+
+export const getActiveEntry = (chain, name, type = null) => findContractEntry(chainActiveContracts(chain), name, type)
+export const getImplementationEntry = (chain, name) => findContractEntry(chainImplementationContracts(chain), name, 'target')
+export const getPublishedEntry = (chain, name, type = null) =>
+  getActiveEntry(chain, name, type) ||
+  getImplementationEntry(chain, name) ||
+  findContractEntry(chainInventoryContracts(chain), name, type)
+
+export const getCodeHref = (chain, name, type = null) => getPublishedEntry(chain, name, type)?.contractCodeHref || null
+export const toRawGitHubUrl = (href) => href
+  ? href.replace('https://github.com/', 'https://raw.githubusercontent.com/').replace('/blob/', '/')
+  : null
+export const getExplorerHref = (chain, name, type = null) => {
+  const entry = getPublishedEntry(chain, name, type)
+  if (!entry?.address) return null
+  return entry.blockchainHref || `${chain === 'ethereumMainnet' ? eth : arb}${entry.address}`
+}
+export const getRawCodeHref = (chain, name, type = null) => toRawGitHubUrl(getCodeHref(chain, name, type))
+
+export const controller = getActiveEntry('arbitrumOne', 'Controller')?.address
+export const bondingManagerProxy = getActiveEntry('arbitrumOne', 'BondingManager', 'proxy')?.address
+export const ticketBrokerProxy = getActiveEntry('arbitrumOne', 'TicketBroker', 'proxy')?.address
+export const roundsManagerProxy = getActiveEntry('arbitrumOne', 'RoundsManager', 'proxy')?.address
+export const minter = getActiveEntry('arbitrumOne', 'Minter')?.address
+export const serviceRegistryProxy = getActiveEntry('arbitrumOne', 'ServiceRegistry', 'proxy')?.address
+export const aiServiceRegistry = getActiveEntry('arbitrumOne', 'AIServiceRegistry')?.address
+export const lptArb = getActiveEntry('arbitrumOne', 'LivepeerToken')?.address
+export const lptEth = getActiveEntry('ethereumMainnet', 'LivepeerToken')?.address
+export const bridgeMinter = getActiveEntry('ethereumMainnet', 'BridgeMinter')?.address
+export const l2Gateway = getActiveEntry('arbitrumOne', 'L2LPTGateway')?.address
+export const l1Gateway = getActiveEntry('ethereumMainnet', 'L1LPTGateway')?.address
+export const l1Escrow = getActiveEntry('ethereumMainnet', 'L1Escrow')?.address
+export const bondingVotesProxy = getActiveEntry('arbitrumOne', 'BondingVotes', 'proxy')?.address
+export const governor = getActiveEntry('arbitrumOne', 'Governor')?.address
+export const livepeerGovernorProxy = getActiveEntry('arbitrumOne', 'LivepeerGovernor', 'proxy')?.address
+export const treasury = getActiveEntry('arbitrumOne', 'Treasury')?.address
+export const l2Migrator = getPublishedEntry('arbitrumOne', 'L2Migrator', 'proxy')?.address
+export const merkleSnapshot = getPublishedEntry('arbitrumOne', 'MerkleSnapshot')?.address
 export const lastVerifiedDate = contractAddresses.meta.lastVerified || "Pending"
 
 <Tip>
@@ -265,8 +307,8 @@ The Controller is the central registry for all protocol contracts. Every other c
 <Accordion  title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Controller"/>} >
   <AddressLinks
   address={controller}
-  blockchainHref={`${arb}${controller}`}
-  githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/Controller.sol"
+  blockchainHref={getExplorerHref('arbitrumOne', 'Controller')}
+  githubHref={getCodeHref('arbitrumOne', 'Controller')}
 />
 {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · Active · Deployed by Livepeer Deployer_
@@ -302,7 +344,7 @@ The Controller is the central registry for all protocol contracts. Every other c
 **Contract**
 
 <SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/Controller.sol"
+  url={toRawGitHubUrl(getCodeHref('arbitrumOne', 'Controller'))}
   title={<DoubleIconLink label="Controller.sol"/>}
   filename="Controller.sol"
 />
@@ -321,7 +363,7 @@ Source: `BondingManager.sol` includes this as struct comment: "// % of fees paid
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="BondingManager" />}>
   **Address (Arbitrum One)**:
-  <AddressLinks address={bondingManagerProxy} blockchainHref={`${arb}${bondingManagerProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingManager.sol" />
+  <AddressLinks address={bondingManagerProxy} blockchainHref={getExplorerHref('arbitrumOne', 'BondingManager', 'proxy')} githubHref={getCodeHref('arbitrumOne', 'BondingManager', 'proxy')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
@@ -394,7 +436,7 @@ Source: `BondingManager.sol` includes this as struct comment: "// % of fees paid
 **Contract**
 
 <SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/bonding/BondingManager.sol"
+  url={toRawGitHubUrl(getCodeHref('arbitrumOne', 'BondingManager', 'proxy'))}
   title={<DoubleIconLink label="BondingManager.sol"/>}
   filename="BondingManager.sol"
 />
@@ -409,7 +451,7 @@ The TicketBroker implements Livepeer's off-chain probabilistic micropayment (PM)
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="TicketBroker" />}>
   **Address (Arbitrum One)**:
-  <AddressLinks address={ticketBrokerProxy} blockchainHref={`${arb}${ticketBrokerProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/pm/TicketBroker.sol" />
+  <AddressLinks address={ticketBrokerProxy} blockchainHref={getExplorerHref('arbitrumOne', 'TicketBroker', 'proxy')} githubHref={getCodeHref('arbitrumOne', 'TicketBroker', 'proxy')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
@@ -457,7 +499,7 @@ The TicketBroker implements Livepeer's off-chain probabilistic micropayment (PM)
 **Contract**
 
 <SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/pm/TicketBroker.sol"
+  url={toRawGitHubUrl(getCodeHref('arbitrumOne', 'TicketBroker', 'proxy'))}
   title={<DoubleIconLink label="TicketBroker.sol"/>}
   filename="TicketBroker.sol"
 />
@@ -472,7 +514,7 @@ The RoundsManager defines the protocol's time unit. A round is a fixed number of
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="RoundsManager" />}>
   **Address (Arbitrum One)**:
-  <AddressLinks address={roundsManagerProxy} blockchainHref={`${arb}${roundsManagerProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/rounds/RoundsManager.sol" />
+  <AddressLinks address={roundsManagerProxy} blockchainHref={getExplorerHref('arbitrumOne', 'RoundsManager', 'proxy')} githubHref={getCodeHref('arbitrumOne', 'RoundsManager', 'proxy')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
@@ -510,7 +552,7 @@ The RoundsManager defines the protocol's time unit. A round is a fixed number of
 **Contract**
 
 <SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/rounds/RoundsManager.sol"
+  url={toRawGitHubUrl(getCodeHref('arbitrumOne', 'RoundsManager', 'proxy'))}
   title={<DoubleIconLink label="RoundsManager.sol"/>}
   filename="RoundsManager.sol"
 />
@@ -525,7 +567,7 @@ The Minter controls LPT token inflation. Each round it calculates the mintable t
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Minter" />}>
   **Address (Arbitrum One)**:
-  <AddressLinks address={minter} blockchainHref={`${arb}${minter}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/token/Minter.sol" />
+  <AddressLinks address={minter} blockchainHref={getExplorerHref('arbitrumOne', 'Minter')} githubHref={getCodeHref('arbitrumOne', 'Minter')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
@@ -573,7 +615,7 @@ The Minter controls LPT token inflation. Each round it calculates the mintable t
 **Contract**
 
 <SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/token/Minter.sol"
+  url={toRawGitHubUrl(getCodeHref('arbitrumOne', 'Minter'))}
   title={<DoubleIconLink label="Minter.sol"/>}
   filename="Minter.sol"
 />
@@ -588,7 +630,7 @@ The ServiceRegistry stores each orchestrator's publicly advertised HTTPS service
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="ServiceRegistry" />}>
   **Address (Arbitrum One)**:
-  <AddressLinks address={serviceRegistryProxy} blockchainHref={`${arb}${serviceRegistryProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/ServiceRegistry.sol" />
+  <AddressLinks address={serviceRegistryProxy} blockchainHref={getExplorerHref('arbitrumOne', 'ServiceRegistry', 'proxy')} githubHref={getCodeHref('arbitrumOne', 'ServiceRegistry', 'proxy')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · ~600 transactions · Last active Jan 2026_
 
@@ -610,7 +652,7 @@ The ServiceRegistry stores each orchestrator's publicly advertised HTTPS service
 **Contract**
 
 <SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/ServiceRegistry.sol"
+  url={toRawGitHubUrl(getCodeHref('arbitrumOne', 'ServiceRegistry', 'proxy'))}
   title={<DoubleIconLink label="ServiceRegistry.sol"/>}
   filename="ServiceRegistry.sol"
 />
@@ -625,7 +667,7 @@ A standalone ServiceRegistry for AI subnet orchestrators. Detached from the Cont
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="AIServiceRegistry" />}>
   **Address (Arbitrum One)**:
-  <AddressLinks address={aiServiceRegistry} blockchainHref={`${arb}${aiServiceRegistry}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/ServiceRegistry.sol" />
+  <AddressLinks address={aiServiceRegistry} blockchainHref={getExplorerHref('arbitrumOne', 'AIServiceRegistry')} githubHref={getCodeHref('arbitrumOne', 'AIServiceRegistry')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · Deployed Apr 2024 · Active · Deployed by AI subnet deployer (different from main Livepeer Deployer)_
 
@@ -681,13 +723,13 @@ The LivepeerToken is the native protocol token. It is an ERC-20 with AccessContr
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<LivepeerIcon color="var(--accent)" size={13} />} title="LivepeerToken" />}>
   **Address (Arbitrum One)**:
-  <AddressLinks address={lptArb} blockchainHref={`${arb}${lptArb}`} githubHref="https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/token/LivepeerToken.sol" />
+  <AddressLinks address={lptArb} blockchainHref={getExplorerHref('arbitrumOne', 'LivepeerToken')} githubHref={getCodeHref('arbitrumOne', 'LivepeerToken')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · 261,217 holders · Active_
 
 **Address (Ethereum Mainnet)**:
 
-  <AddressLinks address={lptEth} blockchainHref={`${eth}${lptEth}`} githubHref="https://github.com/livepeer/protocol/blob/master/contracts/token/LivepeerToken.sol" />
+  <AddressLinks address={lptEth} blockchainHref={getExplorerHref('ethereumMainnet', 'LivepeerToken')} githubHref={getCodeHref('ethereumMainnet', 'LivepeerToken')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · 1.88M holders · Origin token_
 
@@ -715,7 +757,7 @@ The LivepeerToken is the native protocol token. It is an ERC-20 with AccessContr
 **Contract**
 
 <SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/arbitrum-lpt-bridge/main/contracts/L2/token/LivepeerToken.sol"
+  url={toRawGitHubUrl(getCodeHref('arbitrumOne', 'LivepeerToken'))}
   title={<DoubleIconLink label="LivepeerToken.sol (L2)"/>}
   filename="LivepeerToken.sol"
 />
@@ -730,12 +772,12 @@ Holds MINTER_ROLE on the L1 LivepeerToken. Called by the bridge when LPT is tran
 
 <Info>
   `BridgeMinter.sol` is an Ethereum Mainnet contract predating the Delta upgrade.
-  <span style={{display: "flex", alignItems: "center", marginTop: "0.5rem"}}> See <DoubleIconLink label="BridgeMinter.sol" href="https://github.com/livepeer/protocol/blob/streamflow/contracts/token/BridgeMinter.sol"/> on the `streamflow` branch of `livepeer/protocol`</span>
+  <span style={{display: "flex", alignItems: "center", marginTop: "0.5rem"}}> See <DoubleIconLink label="BridgeMinter.sol" href={getCodeHref('ethereumMainnet', 'BridgeMinter')}/> on the `streamflow` branch of `livepeer/protocol`</span>
 </Info>
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<Icon icon="ethereum" color="var(--hero-text)"/>} title="BridgeMinter" />}>
   **Address (Ethereum Mainnet)**:
-  <AddressLinks address={bridgeMinter} blockchainHref={`${eth}${bridgeMinter}`} githubHref="https://github.com/livepeer/protocol/blob/streamflow/contracts/token/BridgeMinter.sol" />
+  <AddressLinks address={bridgeMinter} blockchainHref={getExplorerHref('ethereumMainnet', 'BridgeMinter')} githubHref={getCodeHref('ethereumMainnet', 'BridgeMinter')} />
   <Icon icon="check" color="var(--text)"/> _Verified · Active · "Livepeer: Bridge Minter" on Blockscout_
 
 **Purpose**:
@@ -766,7 +808,7 @@ Holds MINTER_ROLE on the L1 LivepeerToken. Called by the bridge when LPT is tran
 **Contract**
 
 <SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/streamflow/contracts/token/BridgeMinter.sol"
+  url={toRawGitHubUrl(getCodeHref('ethereumMainnet', 'BridgeMinter'))}
   title={<DoubleIconLink label="BridgeMinter.sol"/>}
   filename="BridgeMinter.sol"
 />
@@ -784,26 +826,26 @@ Paired bridge gateway contracts on Ethereum Mainnet (L1) and Arbitrum One (L2). 
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Bridge Gateways" />}>
   **L2LPTGateway (Arbitrum One)**:
-  <AddressLinks address={l2Gateway} blockchainHref={`${arb}${l2Gateway}`} githubHref="https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/gateway/L2LPTGateway.sol" />
+  <AddressLinks address={l2Gateway} blockchainHref={getExplorerHref('arbitrumOne', 'L2LPTGateway')} githubHref={getCodeHref('arbitrumOne', 'L2LPTGateway')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
 **L1LPTGateway (Ethereum Mainnet)**:
 
-  <AddressLinks address={l1Gateway} blockchainHref={`${eth}${l1Gateway}`} githubHref="https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L1/gateway/L1LPTGateway.sol" />
+  <AddressLinks address={l1Gateway} blockchainHref={getExplorerHref('ethereumMainnet', 'L1LPTGateway')} githubHref={getCodeHref('ethereumMainnet', 'L1LPTGateway')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
 **L1Escrow (Ethereum Mainnet)**:
 
-  <AddressLinks address={l1Escrow} blockchainHref={`${eth}${l1Escrow}`} githubHref="https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L1/escrow/L1Escrow.sol" />
+  <AddressLinks address={l1Escrow} blockchainHref={getExplorerHref('ethereumMainnet', 'L1Escrow')} githubHref={getCodeHref('ethereumMainnet', 'L1Escrow')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · Active · Holds bridged LPT_
 
 **Contract**
 
 <SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/arbitrum-lpt-bridge/main/contracts/L2/gateway/L2LPTGateway.sol"
+  url={toRawGitHubUrl(getCodeHref('arbitrumOne', 'L2LPTGateway'))}
   title={<DoubleIconLink label="L2LPTGateway.sol"/>}
   filename="L2LPTGateway.sol"
 />
@@ -882,7 +924,7 @@ BondingVotes implements the ERC-5805 votes interface, storing per-round stake ch
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="BondingVotes" />}>
   **Address (Arbitrum One)**:
-  <AddressLinks address={bondingVotesProxy} blockchainHref={`${arb}${bondingVotesProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingVotes.sol" />
+  <AddressLinks address={bondingVotesProxy} blockchainHref={getExplorerHref('arbitrumOne', 'BondingVotes', 'proxy')} githubHref={getCodeHref('arbitrumOne', 'BondingVotes', 'proxy')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
@@ -914,7 +956,7 @@ BondingVotes implements the ERC-5805 votes interface, storing per-round stake ch
 **Contract**
 
 <SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/bonding/BondingVotes.sol"
+  url={toRawGitHubUrl(getCodeHref('arbitrumOne', 'BondingVotes', 'proxy'))}
   title={<DoubleIconLink label="BondingVotes.sol"/>}
   filename="BondingVotes.sol"
 />
@@ -929,7 +971,7 @@ The original upgrade execution contract. Holds the owner role on the Controller.
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Governor" />}>
   **Address (Arbitrum One)**:
-  <AddressLinks address={governor} blockchainHref={`${arb}${governor}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/governance/Governor.sol" />
+  <AddressLinks address={governor} blockchainHref={getExplorerHref('arbitrumOne', 'Governor')} githubHref={getCodeHref('arbitrumOne', 'Governor')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · Active · Deployed by Livepeer Deployer_
 
@@ -958,7 +1000,7 @@ The `Update` struct contains: `address[] target`, `uint256[] value`, `bytes[] da
 **Contract**
 
 <SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/governance/Governor.sol"
+  url={toRawGitHubUrl(getCodeHref('arbitrumOne', 'Governor'))}
   title={<DoubleIconLink label="Governor.sol"/>}
   filename="Governor.sol"
 />
@@ -973,7 +1015,7 @@ Implements [OpenZeppelin](https://docs.openzeppelin.com/contracts/5.x/api/govern
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="LivepeerGovernor" />}>
   **Address (Arbitrum One)**:
-  <AddressLinks address={livepeerGovernorProxy} blockchainHref={`${arb}${livepeerGovernorProxy}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/treasury/LivepeerGovernor.sol" />
+  <AddressLinks address={livepeerGovernorProxy} blockchainHref={getExplorerHref('arbitrumOne', 'LivepeerGovernor', 'proxy')} githubHref={getCodeHref('arbitrumOne', 'LivepeerGovernor', 'proxy')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
@@ -1014,7 +1056,7 @@ Implements [OpenZeppelin](https://docs.openzeppelin.com/contracts/5.x/api/govern
 **Contract**
 
 <SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/treasury/LivepeerGovernor.sol"
+  url={toRawGitHubUrl(getCodeHref('arbitrumOne', 'LivepeerGovernor', 'proxy'))}
   title={<DoubleIconLink label="LivepeerGovernor.sol"/>}
   filename="LivepeerGovernor.sol"
 />
@@ -1029,7 +1071,7 @@ An [OpenZeppelin](https://docs.openzeppelin.com/contracts/5.x/api/governance#Tim
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="Treasury" />}>
   **Address (Arbitrum One)**:
-  <AddressLinks address={treasury} blockchainHref={`${arb}${treasury}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/treasury/Treasury.sol" />
+  <AddressLinks address={treasury} blockchainHref={getExplorerHref('arbitrumOne', 'Treasury')} githubHref={getCodeHref('arbitrumOne', 'Treasury')} />
   {/* CHANGELOG PIPELINE UPDATE */}
 <Icon icon="check" color="var(--text)"/> _Verified · Active_
 
@@ -1065,7 +1107,7 @@ An [OpenZeppelin](https://docs.openzeppelin.com/contracts/5.x/api/governance#Tim
 **Contract**
 
 <SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/treasury/Treasury.sol"
+  url={toRawGitHubUrl(getCodeHref('arbitrumOne', 'Treasury'))}
   title={<DoubleIconLink label="Treasury.sol"/>}
   filename="Treasury.sol"
 />
@@ -1090,7 +1132,7 @@ Facilitated the migration of bonded stake and delegations from Ethereum Mainnet 
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="L2Migrator" />}>
   **Address (Arbitrum One)**:
-  <AddressLinks address={l2Migrator} blockchainHref={`${arb}${l2Migrator}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/L2/L2Migrator.sol" />
+  <AddressLinks address={l2Migrator} blockchainHref={getExplorerHref('arbitrumOne', 'L2Migrator', 'proxy')} githubHref={getCodeHref('arbitrumOne', 'L2Migrator', 'proxy')} />
   <Icon icon="check" color="var(--text)"/> _Verified · Registered in Controller · Last active Feb 2026_
 
 **Purpose**:
@@ -1120,7 +1162,7 @@ Stores Merkle roots used to verify stake snapshots taken at the time of the Conf
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<ArbitrumIcon color="var(--arbitrum)" />} title="MerkleSnapshot" />}>
   **Address (Arbitrum One)**:
-  <AddressLinks address={merkleSnapshot} blockchainHref={`${arb}${merkleSnapshot}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/snapshots/MerkleSnapshot.sol" />
+  <AddressLinks address={merkleSnapshot} blockchainHref={getExplorerHref('arbitrumOne', 'MerkleSnapshot')} githubHref={getCodeHref('arbitrumOne', 'MerkleSnapshot')} />
   <Icon icon="check" color="var(--text)"/> _Verified · Registered in Controller · No activity since deployment_
 
 **Purpose**:
@@ -1141,7 +1183,7 @@ Stores Merkle roots used to verify stake snapshots taken at the time of the Conf
 **Contract**
 
 <SolidityEmbed
-  url="https://raw.githubusercontent.com/livepeer/protocol/delta/contracts/snapshots/MerkleSnapshot.sol"
+  url={toRawGitHubUrl(getCodeHref('arbitrumOne', 'MerkleSnapshot'))}
   title={<DoubleIconLink label="MerkleSnapshot.sol"/>}
   filename="MerkleSnapshot.sol"
 />
@@ -1152,12 +1194,12 @@ Stores Merkle roots used to verify stake snapshots taken at the time of the Conf
 
 ## Full Address Reference
 
-For the complete list of all current and historical contract addresses across Arbitrum One and Ethereum Mainnet, including all historical target/implementation versions, see the [Contract Addresses](/v2/about/resources/contract-addresses) reference page.
+For the complete list of all current, paused, migration-residual, legacy-operational, and historical contract addresses across Arbitrum One and Ethereum Mainnet, see the [Contract Addresses](/v2/about/resources/livepeer-contract-addresses) reference page.
 
 <Icon icon="check" color="var(--text)"/> <span style={{fontStyle: "italic", color: "var(--text)"}}>Last Verified {<DataWrap value={contractAddresses.meta.lastVerified} />}</span>
 
 <Card
-    href="/v2/about/resources/contract-addresses"
+    href="/v2/about/resources/livepeer-contract-addresses"
     icon="file-code"
     title={<> Contract Address Reference Page · Livepeer Docs <br/> <Badge color="surface"> <><Icon icon="user-robot" color="var(--text)"/> Automatically Updated </></Badge></>}
     horizontal

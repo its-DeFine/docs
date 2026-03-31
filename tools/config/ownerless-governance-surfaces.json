@@ -7,7 +7,7 @@
       "docs-guide/policies/source-of-truth-policy.mdx",
       "docs-guide/policies/audit-system-overview.mdx",
       "docs-guide/policies/skill-pipeline-map.mdx",
-      "operations/scripts/validate-ai-tools-registry.js",
+      "operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js",
       "operations/tests/unit/ai-tools-registry.test.js"
     ],
     "canonical_sources": [
@@ -22,8 +22,8 @@
       "operations/tests/unit/ai-tools-registry.test.js"
     ],
     "repair_commands": [
-      "node operations/scripts/validate-ai-tools-registry.js --check --coverage",
-      "node operations/scripts/validate-ai-tools-registry.js --write-report"
+      "node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js --check --coverage",
+      "node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js --write-report"
     ],
     "gate_layer": "pr-changed",
     "rollout_state": "migrating",
@@ -50,7 +50,7 @@
     ],
     "repair_commands": [
       "lpd repair --surface portable-skills --write",
-      "node operations/scripts/export-portable-skills.js --write"
+      "node operations/scripts/automations/ai/agents/export-portable-skills.js --write"
     ],
     "gate_layer": "pr-changed",
     "rollout_state": "autofix",
@@ -67,9 +67,9 @@
     "canonical_sources": [
       "docs-guide/overview.mdx",
       "docs-guide/policies/source-of-truth-policy.mdx",
-      "operations/scripts/generate-docs-guide-indexes.js",
-      "operations/scripts/generate-docs-guide-pages-index.js",
-      "operations/scripts/generate-docs-guide-components-index.js",
+      "operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js",
+      "operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js",
+      "operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js",
       "operations/tests/unit/script-docs.test.js"
     ],
     "derived_outputs": [
@@ -84,10 +84,10 @@
     ],
     "repair_commands": [
       "lpd repair --surface docs-guide-generated --write",
-      "node operations/scripts/generate-docs-guide-indexes.js --write",
-      "node operations/scripts/generate-docs-guide-pages-index.js --write",
-      "node operations/scripts/generate-docs-guide-components-index.js --write",
-      "node tests/unit/script-docs.test.js --write --rebuild-indexes"
+      "node operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js --write",
+      "node operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js --write",
+      "node operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js --write",
+      "node operations/tests/unit/script-docs.test.js --write --rebuild-indexes"
     ],
     "gate_layer": "pr-changed",
     "rollout_state": "autofix",
@@ -104,7 +104,7 @@
     "canonical_sources": [
       "snippets/templates/**",
       "docs-guide/config/component-registry.json",
-      "operations/scripts/generate-ui-templates.js"
+      "operations/scripts/generators/components/library/generate-ui-templates.js"
     ],
     "derived_outputs": [
       ".vscode/templates.code-snippets",
@@ -117,7 +117,7 @@
     ],
     "repair_commands": [
       "lpd repair --surface ui-templates --write",
-      "node operations/scripts/generate-ui-templates.js --write"
+      "node operations/scripts/generators/components/library/generate-ui-templates.js --write"
     ],
     "gate_layer": "pr-changed",
     "rollout_state": "autofix",
@@ -152,7 +152,7 @@
       "operations/tests/unit/ownerless-governance.test.js"
     ],
     "repair_commands": [
-      "node operations/scripts/repair-ownerless-language.js --write"
+      "node operations/scripts/remediators/content/style/repair-ownerless-language.js --write"
     ],
     "gate_layer": "pr-changed",
     "rollout_state": "autofix",
@@ -213,7 +213,7 @@
     "canonical_sources": [
       "snippets/components/**",
       "operations/scripts/generators/components/library/generate-component-registry.js",
-      "operations/scripts/generate-component-docs.js",
+      "operations/scripts/generators/components/documentation/generate-component-docs.js",
       "operations/scripts/remediators/components/library/repair-component-metadata.js"
     ],
     "derived_outputs": [
@@ -229,7 +229,7 @@
       "lpd repair --surface component-governance --write",
       "node operations/scripts/remediators/components/library/repair-component-metadata.js --fix",
       "node operations/scripts/generators/components/library/generate-component-registry.js",
-      "node operations/scripts/generate-component-docs.js --fix"
+      "node operations/scripts/generators/components/documentation/generate-component-docs.js --fix"
     ],
     "gate_layer": "pr-changed",
     "rollout_state": "migrating",
@@ -254,8 +254,8 @@
     ],
     "repair_commands": [
       "lpd repair --surface frontmatter-contract --files <path>",
-      "node tests/unit/quality.test.js --files <path>",
-      "node tests/unit/frontmatter-taxonomy.test.js"
+      "node operations/tests/unit/quality.test.js --files <path>",
+      "node operations/tests/unit/frontmatter-taxonomy.test.js"
     ],
     "gate_layer": "pr-changed",
     "rollout_state": "pr-changed",

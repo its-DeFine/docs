@@ -8,7 +8,7 @@
  * @needs             E-C6, F-C1
  * @purpose-statement Unit tests for repo-owned authoring tools — verifies MDX formatting and real-path completion/validation helpers.
  * @pipeline          P1, P3
- * @usage             node tests/unit/authoring-tools.test.js
+ * @usage             node operations/tests/unit/authoring-tools.test.js
  */
 
 const assert = require('assert');
@@ -33,7 +33,7 @@ function runCase(name, fn) {
     console.log(`   ✓ ${name}`);
   } catch (error) {
     errors.push({
-      file: 'tests/unit/authoring-tools.test.js',
+      file: 'operations/tests/unit/authoring-tools.test.js',
       line: 1,
       rule: 'authoring-tools',
       message: `${name}: ${error.message}`

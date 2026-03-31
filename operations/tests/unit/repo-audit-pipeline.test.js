@@ -9,7 +9,7 @@
  * @purpose-statement Tests repo-audit-orchestrator.js pipeline — validates mode/scope combinations and report output
  * @pipeline          manual — not yet in pipeline
  * @dualmode          dual-mode (document flags)
- * @usage             node tests/unit/repo-audit-pipeline.test.js [flags]
+ * @usage             node operations/tests/unit/repo-audit-pipeline.test.js [flags]
  */
 
 const assert = require('assert');
@@ -46,7 +46,7 @@ async function runCase(name, fn) {
       rule: 'repo-audit-pipeline unit',
       message: `${name}: ${error.message}`,
       line: 1,
-      file: 'tests/unit/repo-audit-pipeline.test.js'
+      file: 'operations/tests/unit/repo-audit-pipeline.test.js'
     });
   }
 }
@@ -91,7 +91,7 @@ async function runTests() {
 
   await runCase('Orchestrator static dry-run writes unified scorecard output', async () => {
     const result = runNode([
-      'operations/scripts/repo-audit-orchestrator.js',
+      'operations/scripts/dispatch/governance/repo/repo-audit-orchestrator.js',
       '--mode',
       'static',
       '--scope',
@@ -140,7 +140,7 @@ async function runTests() {
 
   await runCase('Cross-agent packager emits all pack targets from one catalogue', async () => {
     const result = runNode([
-      'operations/scripts/cross-agent-packager.js',
+      'operations/scripts/automations/ai/agents/cross-agent-packager.js',
       '--agent-pack',
       'all',
       '--output-dir',

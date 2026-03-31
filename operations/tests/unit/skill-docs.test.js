@@ -8,7 +8,7 @@
  * @needs             R-R27, R-R30
  * @purpose-statement Validates governed skill documentation frontmatter, references, and contract integrity for canonical templates and local skill files.
  * @pipeline          P1, P3
- * @usage             node tests/unit/skill-docs.test.js [--staged] [--files path[,path]]
+ * @usage             node operations/tests/unit/skill-docs.test.js [--staged] [--files path[,path]]
  */
 
 const assert = require('assert');
@@ -610,7 +610,7 @@ function runInternalUnitChecks() {
       fn();
     } catch (error) {
       errors.push({
-        file: 'tests/unit/skill-docs.test.js',
+        file: 'operations/tests/unit/skill-docs.test.js',
         rule: 'Internal unit coverage',
         message: `${name}: ${error.message}`,
         line: 1

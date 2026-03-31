@@ -58,8 +58,8 @@ These represent your latest direction. Everything downstream should align with t
 
 | File | Modified | Themes |
 |---|---|---|
-| [copy-rules-SKILL.md](../../../tasks/plan/active/COPYWRITING%20FRAMEWORK/copy-rules-SKILL.md) | 2026-03-18 20:56 | **Executable copy rules**: Master test ("Does this sentence give the operator something they can act on, believe, or use to make a decision?"). 42 banned phrases. Banned words: effectively, essentially, basically, meaningful, significant, real, various, several, simply, obviously, clearly, just. Banned constructions: conditional gatekeeping, comparative headers, contrast-by-diminishment. Section opening order: Operator benefit → Technical mechanism → Configuration. Frontmatter SEO: max 160 chars. REVIEW flag handling. |
-| [Copywriting Governance Framework.md](../../../tasks/plan/active/Copywriting%20Governance%20Framework.md) | 2026-03-18 20:56 | **Master framework** (~183KB, 3 layers): Layer 1 (framework/philosophy), Layer 2 (research from 6 external frameworks: Diátaxis, Google Tech Writing, Microsoft Style Guide, Red Hat Modular Docs, DITA, SKILL.md standards), Layer 3 (issue audit with codebase examples). Traceability table mapping each rule to source + principle. |
+| [copy-rules-SKILL.md](../../../complete/dep-COPYWRITING%20FRAMEWORK/copy-rules-SKILL.md) | 2026-03-18 20:56 | **Executable copy rules**: Master test ("Does this sentence give the operator something they can act on, believe, or use to make a decision?"). 42 banned phrases. Banned words: effectively, essentially, basically, meaningful, significant, real, various, several, simply, obviously, clearly, just. Banned constructions: conditional gatekeeping, comparative headers, contrast-by-diminishment. Section opening order: Operator benefit → Technical mechanism → Configuration. Frontmatter SEO: max 160 chars. REVIEW flag handling. |
+| [Copywriting Governance Framework.md](../../../complete/dep-COPYWRITING%20FRAMEWORK/Copywriting%20Governance%20Framework.md) | 2026-03-18 20:56 | **Master framework** (~183KB, 3 layers): Layer 1 (framework/philosophy), Layer 2 (research from 6 external frameworks: Diátaxis, Google Tech Writing, Microsoft Style Guide, Red Hat Modular Docs, DITA, SKILL.md standards), Layer 3 (issue audit with codebase examples). Traceability table mapping each rule to source + principle. |
 | [banned-phrases.txt](../../../tools/lib/copy-governance/banned-phrases.txt) | 2026-03-18 20:56 | Machine-readable banned phrase list for automated linting. |
 | [banned-words.txt](../../../tools/lib/copy-governance/banned-words.txt) | 2026-03-18 20:56 | Machine-readable banned word list for automated linting. |
 
@@ -238,12 +238,12 @@ These represent your latest direction. Everything downstream should align with t
 
 | Location | Modified | Content |
 |---|---|---|
-| `tasks/reports/gateway-guides-review/2026-03-17-copy-review-packet/` | 2026-03-18 20:56 | Copy-framework + authoring-style findings for 8 gateway guide sections |
-| `tasks/reports/orchestrator-guides-review/2026-03-16-copy-review-packet/` | 2026-03-18 20:56 | Copy-framework + authoring-style findings for 12 orchestrator guide sections |
-| `tasks/reports/copy-governance/` | 2026-03-18 20:56 | Copy framework audit reports |
-| `tasks/reports/page-audits/` | 2026-03-18 20:56 | Page-level audit reports |
-| `tasks/research/adjudication/page-content-research-outcomes.json` | 2026-03-18 20:56 | Adjudication ledger with trust tiers |
-| `tasks/research/claims/` | 2026-03-18 20:56 | Factual claim registry |
+| `workspace/reports/gateway-guides-review/2026-03-17-copy-review-packet/` | 2026-03-18 20:56 | Copy-framework + authoring-style findings for 8 gateway guide sections |
+| `workspace/reports/orchestrator-guides-review/2026-03-16-copy-review-packet/` | 2026-03-18 20:56 | Copy-framework + authoring-style findings for 12 orchestrator guide sections |
+| `workspace/reports/copy-governance/` | 2026-03-18 20:56 | Copy framework audit reports |
+| `workspace/reports/page-audits/` | 2026-03-18 20:56 | Page-level audit reports |
+| `workspace/research/adjudication/page-content-research-outcomes.json` | 2026-03-18 20:56 | Adjudication ledger with trust tiers |
+| `workspace/research/claims/` | 2026-03-18 20:56 | Factual claim registry |
 
 **Themes**: Reports exist but are report-only — no rewrite step follows. Gateway and orchestrator guides have the most complete review packets.
 

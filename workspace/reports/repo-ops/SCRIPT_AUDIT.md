@@ -1,15 +1,15 @@
 # SCRIPT_AUDIT
 
-Generated: 2026-03-21T03:13:33.224Z
+Generated: 2026-03-31T04:28:50.839Z
 
 ## Rules Source
 - `operations/tests/unit/script-docs.test.js`
 - `operations/tests/README.md`
 
 ## Summary
-- Total scripts: 281
-- Template compliant: 117
-- Template non-compliant: 164
+- Total scripts: 336
+- Template compliant: 118
+- Template non-compliant: 218
 - Exact overlap clusters: 1
 - Near overlap clusters: 0
 
@@ -17,24 +17,24 @@ Generated: 2026-03-21T03:13:33.224Z
 
 | Category | Count |
 |---|---:|
-| `audit` | 42 |
-| `ci` | 23 |
+| `audit` | 45 |
+| `ci` | 39 |
 | `deprecated` | 9 |
-| `enforcement` | 103 |
+| `enforcement` | 114 |
 | `fixture` | 9 |
-| `generator` | 55 |
-| `helper` | 79 |
+| `generator` | 62 |
+| `helper` | 103 |
 | `hook` | 9 |
-| `manual` | 269 |
-| `npm-script` | 57 |
-| `pr` | 9 |
+| `manual` | 310 |
+| `npm-script` | 59 |
+| `pr` | 12 |
 | `pre-commit` | 2 |
-| `push` | 9 |
-| `runner` | 7 |
-| `scheduled` | 11 |
-| `sync` | 24 |
-| `test` | 67 |
-| `workflow-dispatch` | 17 |
+| `push` | 12 |
+| `runner` | 8 |
+| `scheduled` | 10 |
+| `sync` | 32 |
+| `test` | 73 |
+| `workflow-dispatch` | 38 |
 
 ## Script Inventory
 
@@ -47,19 +47,26 @@ Generated: 2026-03-21T03:13:33.224Z
 | `.githooks/server-manager.js` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | hook | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `.githooks/verify-browser.js` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement, hook | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `.githooks/verify.sh` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement, hook | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `.github/scripts/fetch-forum-data.js` | Fetches latest topics and posts from Livepeer Forum API, writes to snippets/automations/forum/ | PASS | ci, sync | scheduled, workflow-dispatch | workflow:.github/workflows/update-forum-data.yml#Update Forum Data > update-forum-data > Fetch and process forum data [scheduled,workflow-dispatch] |
-| `.github/scripts/fetch-ghost-blog-data.js` | Fetches blog posts from Ghost CMS API, writes to snippets/automations/blog/ | PASS | ci, sync | scheduled, workflow-dispatch | workflow:.github/workflows/update-ghost-blog-data.yml#Update Ghost Blog Data > update-ghost-data > Fetch and process Ghost blog data [scheduled,workflow-dispatch] |
-| `.github/scripts/fetch-youtube-data.js` | Fetches video data from YouTube Data API, writes to snippets/automations/youtube/ | PASS | ci, sync | scheduled, workflow-dispatch | workflow:.github/workflows/update-youtube-data.yml#Update YouTube Data > update-youtube > Fetch and process YouTube videos [scheduled,workflow-dispatch] |
+| `.github/scripts/fetch-contract-addresses.js` | infrastructure:data-feeds | FAIL (missing @category, @owner, @needs, @purpose-statement, @pipeline) | ci, sync | scheduled, workflow-dispatch | workflow:.github/workflows/update-contract-addresses.yml#Update Contract Addresses > update-contracts > Fetch and verify contract addresses [scheduled,workflow-dispatch] |
+| `.github/scripts/fetch-discord-announcements.js` | infrastructure:data-feeds | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, sync | workflow-dispatch | workflow:.github/workflows/data-refresh-governance.yml#Data Refresh Governance > data-refresh > Run selected refresh mode [workflow-dispatch] |
+| `.github/scripts/fetch-forum-data.js` | Fetches latest topics and posts from Livepeer Forum API, writes to snippets/automations/forum/ | PASS | ci, sync | workflow-dispatch | workflow:.github/workflows/data-refresh-governance.yml#Data Refresh Governance > data-refresh > Run selected refresh mode [workflow-dispatch] |
+| `.github/scripts/fetch-ghost-blog-data.js` | infrastructure:data-feeds | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, sync | workflow-dispatch | workflow:.github/workflows/data-refresh-governance.yml#Data Refresh Governance > data-refresh > Run selected refresh mode [workflow-dispatch] |
+| `.github/scripts/fetch-github-discussions.js` | infrastructure:data-feeds | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, sync | workflow-dispatch | workflow:.github/workflows/data-refresh-governance.yml#Data Refresh Governance > data-refresh > Run selected refresh mode [workflow-dispatch] |
+| `.github/scripts/fetch-github-releases.js` | infrastructure:data-feeds | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, sync | workflow-dispatch | workflow:.github/workflows/data-refresh-governance.yml#Data Refresh Governance > data-refresh > Run selected refresh mode [workflow-dispatch] |
+| `.github/scripts/fetch-rss-blog-data.js` | infrastructure:data-feeds | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, sync | workflow-dispatch | workflow:.github/workflows/data-refresh-governance.yml#Data Refresh Governance > data-refresh > Run selected refresh mode [workflow-dispatch] |
+| `.github/scripts/fetch-youtube-data.js` | Fetches video data from YouTube Data API, writes to snippets/automations/youtube/ | PASS | ci, sync | workflow-dispatch | workflow:.github/workflows/data-refresh-governance.yml#Data Refresh Governance > data-refresh > Run selected refresh mode [workflow-dispatch] |
+| `.github/scripts/generate-changelog.js` | infrastructure:data-feeds | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, generator | scheduled, workflow-dispatch | workflow:.github/workflows/update-changelogs.yml#Update Changelogs > update-changelogs > Generate changelog entries (enhanced) [scheduled,workflow-dispatch] \| workflow:.github/workflows/update-changelogs.yml#Update Changelogs > update-changelogs > Generate changelog entries (fallback — no LLM) [scheduled,workflow-dispatch] |
 | `.github/scripts/project-showcase-sync.js` | Fetches project showcase data from external source, writes to snippets/automations/showcase/ | PASS | ci, sync | scheduled, workflow-dispatch | workflow:.github/workflows/project-showcase-sync.yml#Project Showcase Sync > sync-showcase > Run project showcase sync [scheduled,workflow-dispatch] |
-| `lpd` | Developer CLI orchestrator — unified command surface for setup, dev server, testing, hooks, and script execution across all repo domains | FAIL (missing @owner) | runner | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/audits/components/documentation/audit-component-usage.js` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/audits/components/library/scan-component-imports.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit, ci, generator | scheduled, workflow-dispatch | workflow:.github/workflows/content-health.yml#Content Health Check > content-health > Component usage drift check [scheduled,workflow-dispatch] |
 | `operations/scripts/audits/content/quality/audit-copy-patterns.js` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/audits/content/quality/audit-media-assets.js` | governance:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `operations/scripts/audits/content/quality/audit-python.py` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/audits/content/quality/audit-python.py` | qa:content-quality | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/audits/content/quality/audit-v2-usefulness.js` | qa:content-quality | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/audits/content/quality/docs-quality-and-freshness-audit.js` | qa:content-quality | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual, npm-script | package-script:tools/package.json#scripts.audit:docs-quality [manual,npm-script] |
 | `operations/scripts/audits/content/reconciliation/generate-content-gap-reconciliation.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit, generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/audits/content/reference/audit-glossary-gaps.js` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/audits/content/reference/audit-icon-usage.js` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/audits/content/reference/terminology-search.js` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/audits/content/style/style-and-language-homogenizer-en-gb.js` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual, npm-script | package-script:tools/package.json#scripts.audit:language-en-gb [manual,npm-script] |
 | `operations/scripts/audits/content/veracity/docs-page-research.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -74,9 +81,12 @@ Generated: 2026-03-21T03:13:33.224Z
 | `operations/scripts/automations/ai/codex/lock-release.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/automations/ai/codex/task-cleanup.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/automations/ai/codex/task-preflight.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `operations/scripts/automations/content/data/fetching/fetch-external-docs.sh` | infrastructure:data-feeds | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement, sync | manual, npm-script, pr, push | package-script:tools/package.json#scripts.fetch-docs [manual,npm-script] \| package-script:tools/package.json#scripts.prebuild [manual,npm-script] \| workflow:.github/workflows/broken-links.yml#Check Broken Links > broken-links > Fetch external snippets [pr] \| workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Fetch external snippets [pr,push] \| workflow:.github/workflows/test-v2-pages.yml#Docs CI - V2 Browser Sweep > test-pages > Fetch external snippets [pr,push] |
+| `operations/scripts/automations/content/data/fetching/fetch-external-docs.sh` | infrastructure:data-feeds | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement, sync | manual, npm-script, pr, push, workflow-dispatch | package-script:tools/package.json#scripts.fetch-docs [manual,npm-script] \| package-script:tools/package.json#scripts.prebuild [manual,npm-script] \| workflow:.github/workflows/broken-links.yml#Check Broken Links > broken-links > Fetch external snippets [pr,workflow-dispatch] \| workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Fetch external snippets [pr,push,workflow-dispatch] \| workflow:.github/workflows/test-v2-pages.yml#Docs CI - V2 Browser Sweep > test-pages > Fetch external snippets [pr,push,workflow-dispatch] |
 | `operations/scripts/automations/content/data/fetching/fetch-lpt-exchanges.sh` | infrastructure:data-feeds | FAIL (missing @category, @owner, @needs, @purpose-statement) | sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/automations/content/data/fetching/fetch-openapi-specs.sh` | tooling:api-spec | FAIL (missing @category, @owner, @needs, @purpose-statement) | sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/automations/content/data/test/contract-address-routes.test.js` | Utility script for contract address routes test. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/automations/content/data/test/contract-verifier.test.js` | Utility script for contract verifier test. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/automations/content/data/test/fetch-contract-addresses.test.js` | Utility script for fetch contract addresses test. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | sync, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/automations/content/data/transforms/convert-rss-to-mdx.js` | infrastructure:data-feeds | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/automations/content/language-translation/generate-localized-docs-json.js` | feature:translation | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, generator | manual, npm-script, workflow-dispatch | package-script:tools/package.json#scripts.i18n:docs-json [manual,npm-script] \| workflow:.github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Update docs.json localized language nodes [workflow-dispatch] |
 | `operations/scripts/automations/content/language-translation/lib/common.js` | i18n shared utilities — common helper functions for translation pipeline | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -99,36 +109,59 @@ Generated: 2026-03-21T03:13:33.224Z
 | `operations/scripts/automations/content/language-translation/test/provider-openrouter.test.js` | Tests OpenRouter provider — validates API call logic and response parsing | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/automations/content/language-translation/translate-docs.js` | feature:translation | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci | manual, npm-script, workflow-dispatch | package-script:tools/package.json#scripts.i18n:translate [manual,npm-script] \| workflow:.github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Run translation generation [workflow-dispatch] |
 | `operations/scripts/automations/content/language-translation/validate-generated.js` | feature:translation | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement, generator | manual, npm-script, workflow-dispatch | package-script:tools/package.json#scripts.i18n:validate [manual,npm-script] \| workflow:.github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Validate generated localized MDX [workflow-dispatch] |
+| `operations/scripts/automations/content/studio-docs-migration.js` | Utility script for studio docs migration. | FAIL (missing @summary, @owner, @scope, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/automations/governance/pipelines/publish-v2-internal-reports.js` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/config/docs-path-sync.js` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/config/mdx-sanitise.js` | infrastructure:shared-lib | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/config/og-image-policy.js` | seo:og-image-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/dispatch/ai/codex/check-codex-pr-overlap.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/dispatch/ai/codex/codex-commit.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/dispatch/ai/codex/create-codex-pr.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual, npm-script | package-script:tools/package.json#scripts.codex:pr [manual,npm-script] \| package-script:tools/package.json#scripts.codex:pr:advisory [manual,npm-script] |
 | `operations/scripts/dispatch/ai/codex/task-finalise.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/content/data/run-solutions-social-fetch.js` | infrastructure:data-feeds | FAIL (missing @category, @owner, @needs, @purpose-statement) | runner, sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/dispatch/content/veracity/docs-page-research-pr-report.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual, npm-script | package-script:tools/package.json#scripts.codex:pr:research [manual,npm-script] |
 | `operations/scripts/dispatch/content/veracity/docs-research-packet.js` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/dispatch/content/veracity/orchestrator-guides-research-review.js` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/governance/blast-radius-scanner.js` | Scans for consumers after editing shared files (components, templates, config) | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/governance/friction-logger.js` | Detects and logs friction signals from user messages in real-time | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/governance/grep-loop-guard.js` | Detects repeated empty Grep results and fires a circuit-breaker warning | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/governance/headless-batch.sh` | Run Claude Code headless for safe batch operations | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/governance/mdx-constraints-injector.js` | Auto-injects Mintlify MDX constraints when user messages involve page/component editing | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/governance/mdx-validate-hook.js` | Validates MDX files after edit using the server-manager (port 3145) | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/governance/message-backup.js` | Backs up substantial user messages to prevent data loss from command typos | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/governance/move-detect-hook.js` | governance:move-propagation | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/governance/phase-gate-hook.js` | Enforces phase checkpoint verification before allowing work to proceed | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/dispatch/governance/pipelines/governance-pipeline.js` | governance:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci | manual, npm-script, push, scheduled, workflow-dispatch | package-script:tools/package.json#scripts.repair:governance [manual,npm-script] \| workflow:.github/workflows/governance-sync.yml#Governance sync (post-merge) > sync > Run governance repair [push] \| workflow:.github/workflows/repair-governance.yml#Governance Repair > repair-governance > Run governance repair orchestrator [scheduled,workflow-dispatch] |
 | `operations/scripts/dispatch/governance/pipelines/sync-generated-files.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator, sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/governance/post-tool-verify.js` | Post-tool verification for Claude Code sessions | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/governance/pre-compact-checkpoint.js` | Preserves critical session state before context compaction | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/governance/pre-tool-guard.js` | Pre-tool enforcement for Claude Code sessions | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/governance/read-logger.js` | Tracks which files Claude reads per session for context-gate enforcement | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/dispatch/governance/repo/repo-audit-orchestrator.js` | infrastructure:pipeline-orchestration | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual, npm-script | package-script:tools/package.json#scripts.audit:repo [manual,npm-script] \| package-script:tools/package.json#scripts.audit:repo:changed [manual,npm-script] \| package-script:tools/package.json#scripts.audit:repo:full [manual,npm-script] \| package-script:tools/package.json#scripts.audit:repo:pack-all [manual,npm-script] \| package-script:tools/package.json#scripts.audit:repo:quarantine [manual,npm-script] |
+| `operations/scripts/dispatch/governance/session-register.js` | Registers active sessions and tracks which files each session touches | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/dispatch/governance/session-state.js` | governance:session-start | FAIL (missing @category, @owner, @needs, @purpose-statement, @pipeline) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/generators/ai/llm/generate-llms-files.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `operations/scripts/generators/components/documentation/generate-component-docs.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `operations/scripts/generators/components/library/generate-component-registry.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement, generator | manual, npm-script, pr, push, scheduled, workflow-dispatch | package-script:tools/package.json#scripts.registry:components [manual,npm-script] \| workflow:.github/workflows/content-health.yml#Content Health Check > content-health > Component registry validation [scheduled,workflow-dispatch] \| workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Validate component registry [pr,push] |
+| `operations/scripts/generators/components/documentation/generate-component-docs.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, generator | workflow-dispatch | workflow:.github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Run selected check mode [workflow-dispatch] \| workflow:.github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-generate > Run selected generate mode [workflow-dispatch] |
+| `operations/scripts/generators/components/library/generate-component-examples.js` | governance:index-management | FAIL (missing @category, @scope, @owner, @needs, @purpose-statement) | ci, generator | workflow-dispatch | workflow:.github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Run selected check mode [workflow-dispatch] |
+| `operations/scripts/generators/components/library/generate-component-registry.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement, generator | manual, npm-script, pr, push, scheduled, workflow-dispatch | package-script:tools/package.json#scripts.registry:components [manual,npm-script] \| workflow:.github/workflows/content-health.yml#Content Health Check > content-health > Component registry validation [scheduled,workflow-dispatch] \| workflow:.github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Run selected check mode [workflow-dispatch] \| workflow:.github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-generate > Run selected generate mode [workflow-dispatch] \| workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Validate component registry [pr,push,workflow-dispatch] |
 | `operations/scripts/generators/components/library/generate-ui-templates.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `operations/scripts/generators/content/catalogs/generate-docs-index.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement, generator | pr, push, workflow-dispatch | workflow:.github/workflows/check-docs-index.yml#Check Docs Index > docs-index-check > Verify docs-index.json is current [pr,push,workflow-dispatch] \| workflow:.github/workflows/generate-docs-index.yml#Generate Docs Index > generate-docs-index > Generate docs index [push,workflow-dispatch] \| workflow:.github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Regenerate docs-index.json [workflow-dispatch] |
-| `operations/scripts/generators/content/catalogs/generate-pages-index.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/generators/content/catalogs/generate-docs-index.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, generator | workflow-dispatch | workflow:.github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Run selected check mode [workflow-dispatch] \| workflow:.github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-generate > Run selected generate mode [workflow-dispatch] \| workflow:.github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Regenerate docs-index.json [workflow-dispatch] |
+| `operations/scripts/generators/content/catalogs/generate-pages-index.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual, npm-script | package-script:operations/tests/package.json#scripts.test:pages-index [manual,npm-script] \| package-script:operations/tests/package.json#scripts.test:pages-index:rebuild [manual,npm-script] \| package-script:operations/tests/package.json#scripts.test:pages-index:write [manual,npm-script] |
 | `operations/scripts/generators/content/reference/generate-api-docs.sh` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/generators/content/reference/generate-glossary-companions.js` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement, generator | pr, push, workflow-dispatch | workflow:.github/workflows/check-ai-companions.yml#Check AI Companion Files > check-ai-companions > Verify glossary companion JSONs are current [pr,push,workflow-dispatch] \| workflow:.github/workflows/generate-ai-companions.yml#Generate AI Companion Files > generate-ai-companions > Regenerate glossary companion JSONs [push,workflow-dispatch] |
 | `operations/scripts/generators/content/reference/generate-glossary.js` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/generators/content/seo/generate-ai-sitemap.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/generators/content/seo/generate-og-images.js` | seo:og-image-assets | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/generators/governance/catalogs/generate-ai-skills-indexes.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js` | governance:ai-tools-visual-library | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual, npm-script | package-script:tools/package.json#scripts.docs-guide:indexes [manual,npm-script] |
-| `operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, generator | manual, npm-script, workflow-dispatch | package-script:tools/package.json#scripts.docs-guide:indexes [manual,npm-script] \| workflow:.github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Run selected check mode [workflow-dispatch] \| workflow:.github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-generate > Run selected generate mode [workflow-dispatch] |
+| `operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, generator | workflow-dispatch | workflow:.github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Run selected check mode [workflow-dispatch] \| workflow:.github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-generate > Run selected generate mode [workflow-dispatch] |
 | `operations/scripts/generators/governance/catalogs/generate-script-registry.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/generators/governance/reports/generate-ai-tools-inventory.js` | governance:ai-tools-inventory | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit, generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/generators/governance/scaffold/new-script.js` | tooling:dev-tools', | FAIL (missing @category, @owner, @needs, @purpose-statement) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/generators/media/generate-hero-background.js` | Utility script for generate hero background. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/generators/media/generate-hero-image.js` | Utility script for generate hero image. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/remediators/components/library/repair-component-metadata.js` | governance:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci | scheduled, workflow-dispatch | workflow:.github/workflows/content-health.yml#Content Health Check > content-health > Component metadata drift check [scheduled,workflow-dispatch] |
 | `operations/scripts/remediators/content/classification/add-framework-headers.js` | governance:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/remediators/content/classification/add-pagetype-mechanical.js` | qa:content-quality | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -147,10 +180,11 @@ Generated: 2026-03-21T03:13:33.224Z
 | `operations/scripts/snippets/test-scripts.sh` | Snippet test runner — runs basic validation on snippet scripts | PASS | enforcement, runner | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/validators/ai/codex/check-no-ai-stash.sh` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/validators/ai/codex/validate-locks.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `operations/scripts/validators/components/documentation/check-component-docs.js` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement | pr, push | workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component documentation [pr,push] |
-| `operations/scripts/validators/components/library/check-component-css.js` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement | pr, push | workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component CSS standards [pr,push] |
-| `operations/scripts/validators/components/library/check-mdx-component-scope.js` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `operations/scripts/validators/components/library/check-naming-conventions.js` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/validators/components/documentation/check-component-docs.js` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement | pr, push, workflow-dispatch | workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component documentation [pr,push,workflow-dispatch] |
+| `operations/scripts/validators/components/library/check-component-css.js` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement | pr, push, workflow-dispatch | workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component CSS standards [pr,push,workflow-dispatch] |
+| `operations/scripts/validators/components/library/check-component-health.js` | governance:quality-gate | FAIL (missing @category, @scope, @owner, @needs, @purpose-statement) | ci, enforcement | workflow-dispatch | workflow:.github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Run selected check mode [workflow-dispatch] |
+| `operations/scripts/validators/components/library/check-mdx-component-scope.js` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement | pr, push, workflow-dispatch | workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component MDX scope isolation [pr,push,workflow-dispatch] |
+| `operations/scripts/validators/components/library/check-naming-conventions.js` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement | pr, push, workflow-dispatch | workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component naming conventions [pr,push,workflow-dispatch] |
 | `operations/scripts/validators/components/library/component-layout-governance.js` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci | manual, npm-script, scheduled, workflow-dispatch | package-script:tools/package.json#scripts.audit:component-layout [manual,npm-script] \| workflow:.github/workflows/content-health.yml#Content Health Check > content-health > Component layout governance [scheduled,workflow-dispatch] |
 | `operations/scripts/validators/content/copy/lint-copy.js` | qa:content-quality | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/validators/content/copy/lint-patterns.js` | qa:content-quality | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -163,19 +197,21 @@ Generated: 2026-03-21T03:13:33.224Z
 | `operations/scripts/validators/content/structure/check-double-headers.js` | qa:content-quality | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/validators/content/structure/check-mdx-safe-markdown.js` | qa:content-quality | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual, npm-script | package-script:operations/tests/package.json#scripts.test:mdx:safe [manual,npm-script] \| package-script:tools/package.json#scripts.test:mdx:safe [manual,npm-script] |
 | `operations/scripts/validators/content/structure/check-page-endings.js` | qa:content-quality | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `operations/scripts/validators/content/structure/enforce-generated-file-banners.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement, generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/validators/content/structure/enforce-generated-file-banners.js` | governance:index-management | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement, generator | manual, npm-script | package-script:operations/tests/package.json#scripts.test:generated-banners [manual,npm-script] |
 | `operations/scripts/validators/content/structure/lint-structure.js` | qa:content-quality | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/validators/content/structure/test-v2-pages.js` | V2 page tester — validates v2 pages via Puppeteer browser rendering | PASS | enforcement | manual, npm-script | package-script:tools/package.json#scripts.test:all-pages [manual,npm-script] \| package-script:tools/package.json#scripts.test:v2-pages [manual,npm-script] |
 | `operations/scripts/validators/content/structure/verify-all-pages.js` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/validators/content/veracity/docs-fact-registry.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/validators/governance/ai/check-companion-manifest.js` | Utility script for check companion manifest. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | ci, enforcement | pr, push, workflow-dispatch | workflow:.github/workflows/check-ai-companions.yml#Check AI Companion Files > check-ai-companions > Verify companion manifest is consistent with registry [pr,push,workflow-dispatch] |
 | `operations/scripts/validators/governance/compliance/check-agent-docs-freshness.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/validators/governance/compliance/review-governance-repair-checklist.js` | governance:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual, npm-script | package-script:tools/package.json#scripts.review:governance:repair [manual,npm-script] |
 | `operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/validators/governance/compliance/validate-codex-task-contract.js` | governance:agent-governance | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement, hook | pr, pre-commit | hook:.githooks/pre-commit#line 160 [pre-commit] \| workflow:.github/workflows/codex-governance.yml#Codex Governance > codex-governance > Validate codex task contract + issue readiness + PR body [pr] |
 | `operations/scripts/validators/governance/compliance/verify-pay-orc-gate-finalize.sh` | qa:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/validators/governance/pr/audit-script-inventory.js` | governance:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `operations/scripts/validators/governance/pr/check-component-immutability.js` | governance:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement | pr, push | workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component immutability [pr,push] |
+| `operations/scripts/validators/governance/pr/check-component-immutability.js` | governance:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | ci, enforcement | pr, push, workflow-dispatch | workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component immutability [pr,push,workflow-dispatch] |
 | `operations/scripts/validators/governance/pr/check-pr-template.js` | governance:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/scripts/validators/governance/repo/validate-lpd-paths.js` | governance:repo-health | FAIL (missing @category, @owner, @needs, @purpose-statement) | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/x-archive/.verify-large-change.sh` | Large change verifier — blocks or warns when a commit touches an unusually large number of files | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/x-archive/batch-update-og-image.sh` | Deprecated wrapper for the legacy bulk OG image replacement helper. Use the canonical OG generator workflow instead. | PASS | deprecated, generator, sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/x-archive/codex-safe-merge-with-stash.js` | Deprecated compatibility shim — blocks stash-based Codex merge flow and directs users to task-finalize, lock-release, and task-cleanup | PASS | deprecated | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -185,7 +221,7 @@ Generated: 2026-03-21T03:13:33.224Z
 | `operations/scripts/x-archive/sync-legacy-root-v1.js` | Legacy root redirect synchronizer — bootstraps root-level legacy-to-v1 mappings, rewrites managed docs.json redirects, installs root catch-all fallbacks, and removes legacy generated fallback pages | FAIL (missing @owner) | deprecated, generator, sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/x-archive/update-all-og-images.js` | Deprecated wrapper for legacy bulk OG image replacement. Use the canonical OG generator workflow instead. | PASS | deprecated, generator, sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/scripts/x-archive/update-og-image.js` | Deprecated wrapper for legacy OG image replacement. Use the canonical OG generator workflow instead. | PASS | deprecated, generator, sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `operations/tests/integration/browser.test.js` | Puppeteer browser integration test — renders pages from docs.json and checks for console errors, load failures, and visual regressions | PASS | ci, enforcement, test | manual, npm-script, pr, push | package-script:operations/tests/package.json#scripts.test:browser [manual,npm-script] \| package-script:tools/package.json#scripts.test:browser [manual,npm-script] \| package-script:tools/package.json#scripts.test:browser:all [manual,npm-script] \| workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Run Browser Tests (All Pages) [npm-script,pr,push] |
+| `operations/tests/integration/browser.test.js` | Puppeteer browser integration test — renders pages from docs.json and checks for console errors, load failures, and visual regressions | PASS | ci, enforcement, test | manual, npm-script, pr, push, workflow-dispatch | package-script:operations/tests/package.json#scripts.test:browser [manual,npm-script] \| package-script:tools/package.json#scripts.test:browser [manual,npm-script] \| package-script:tools/package.json#scripts.test:browser:all [manual,npm-script] \| workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Run Browser Tests (All Pages) [npm-script,pr,push,workflow-dispatch] |
 | `operations/tests/integration/domain-pages-audit.js` | Audits deployed docs page HTTP status codes (v1, v2, or both) and emits a stable JSON report | PASS | audit | manual, npm-script | package-script:operations/tests/package.json#scripts.test:domain [manual,npm-script] \| package-script:operations/tests/package.json#scripts.test:domain:both [manual,npm-script] \| package-script:operations/tests/package.json#scripts.test:domain:v1 [manual,npm-script] \| package-script:operations/tests/package.json#scripts.test:domain:v2 [manual,npm-script] |
 | `operations/tests/integration/mdx-component-runtime-smoke.js` | Smoke-tests sentinel MDX routes for runtime component failures, focused on page-killing render errors from MDX-imported JSX modules. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/integration/openapi-reference-audit.js` | Comprehensive OpenAPI spec validation — checks references, schemas, examples. Supports --strict (validate), --fix (repair), and report modes. | PASS | audit, ci, enforcement | manual, npm-script, pr, push, scheduled, workflow-dispatch | package-script:operations/tests/package.json#scripts.test:openapi:audit [manual,npm-script] \| workflow:.github/workflows/openapi-reference-validation.yml#OpenAPI Reference Validation > audit > Apply safe autofix (non-PR) [pr,push,scheduled,workflow-dispatch] \| workflow:.github/workflows/openapi-reference-validation.yml#OpenAPI Reference Validation > audit > Run strict OpenAPI audit (final) [pr,push,scheduled,workflow-dispatch] \| workflow:.github/workflows/openapi-reference-validation.yml#OpenAPI Reference Validation > audit > Run strict OpenAPI audit (initial) [pr,push,scheduled,workflow-dispatch] |
@@ -193,9 +229,13 @@ Generated: 2026-03-21T03:13:33.224Z
 | `operations/tests/integration/v2-link-audit.selftest.js` | Self-test suite for v2-link-audit.js — validates audit logic against known fixtures | PASS | audit, enforcement, fixture | manual, npm-script | package-script:operations/tests/package.json#scripts.test:link-audit:selftest [manual,npm-script] |
 | `operations/tests/integration/v2-wcag-audit.js` | WCAG accessibility audit for v2 pages — checks heading hierarchy, alt text, ARIA. Supports --fix mode for auto-repair. | PASS | audit, enforcement | manual, npm-script | package-script:operations/tests/package.json#scripts.test:wcag [manual,npm-script] \| package-script:operations/tests/package.json#scripts.test:wcag:nofix [manual,npm-script] \| package-script:operations/tests/package.json#scripts.test:wcag:staged [manual,npm-script] |
 | `operations/tests/integration/v2-wcag-audit.selftest.js` | Self-test suite for v2-wcag-audit.js — validates WCAG audit logic against known fixtures | PASS | audit, enforcement, fixture | manual, npm-script | package-script:operations/tests/package.json#scripts.test:wcag:selftest [manual,npm-script] |
+| `operations/tests/playwright-community-components.js` | Utility script for playwright community components. | FAIL (missing @summary, @owner, @scope, @inputs, @outputs, @exit-codes, @examples, @notes; empty @usage) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/tests/playwright-contract-addresses.js` | Utility script for playwright contract addresses. | FAIL (missing @summary, @owner, @scope, @inputs, @outputs, @exit-codes, @examples, @notes; empty @usage) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/tests/playwright-studio-docs-migration.js` | Utility script for playwright studio docs migration. | FAIL (missing @summary, @owner, @scope, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/run-all.js` | Test orchestrator — dispatches all unit test suites. Called by pre-commit hook and npm test. | FAIL (missing @owner) | runner | manual, npm-script | package-script:operations/tests/package.json#scripts.test [manual,npm-script] \| package-script:operations/tests/package.json#scripts.test:precommit [manual,npm-script] \| package-script:tools/package.json#scripts.test [manual,npm-script] |
 | `operations/tests/run-pr-checks.js` | PR orchestrator — runs changed-file scoped validation checks for pull request CI. Dispatches per-file validators based on PR diff. | FAIL (missing @owner) | enforcement, runner, sync | manual, npm-script | package-script:operations/tests/package.json#scripts.test:pr [manual,npm-script] |
 | `operations/tests/unit/ai-tools-registry.test.js` | Validates the AI-tools registry contract, full tracked ai-tools coverage, and the Wave 1 inventory source-of-truth boundary. | FAIL (missing @owner) | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/tests/unit/ai-tools-visual-library.test.js` | Validates that the canonical AI-tools visual library is current, complete, and synchronized with the repo workflow inventory. | PASS | enforcement, sync, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/audit-script-inventory-repair-rules.test.js` | Tests audit-script-inventory repair hardening rules for judgement-field backfill and pipeline safety. | FAIL (missing @owner) | audit, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/authoring-tools.test.js` | Unit tests for repo-owned authoring tools — verifies MDX formatting and real-path completion/validation helpers. | PASS | enforcement, test | manual, npm-script | package-script:operations/tests/package.json#scripts.test:authoring-tools [manual,npm-script] |
 | `operations/tests/unit/check-agent-docs-freshness.test.js` | Tests the agent governance freshness validator against the canonical runtime file set. | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -207,6 +247,7 @@ Generated: 2026-03-21T03:13:33.224Z
 | `operations/tests/unit/component-governance-generators.test.js` | Verifies component governance generators produce coherent registry, usage-map, and docs outputs. | PASS | generator, test | manual, npm-script | package-script:operations/tests/package.json#scripts.test:components:governance [manual,npm-script] |
 | `operations/tests/unit/component-governance-utils.test.js` | Verifies shared component governance utility parsing, scanning, and archive exclusion behavior. | PASS | audit, test | manual, npm-script | package-script:operations/tests/package.json#scripts.test:components:governance [manual,npm-script] |
 | `operations/tests/unit/components/TEMPLATE.test.js` | Template for category-scoped component unit tests. | PASS | test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/tests/unit/contracts-addresses-pipeline.test.js` | Regression tests for the contracts authority catalog, lifecycle grouping, generated registry output, and widget data-consumption contract. | PASS | generator, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/copy-lint.test.js` | Copy lint unit suite — validates fixture-driven copy-governance checks and runs changed-file scoped lint aggregation for authored docs pages. | PASS | enforcement, fixture, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/create-codex-pr.test.js` | Tests create-codex-pr.js — validates PR creation logic and branch naming | PASS | enforcement, generator, test | manual, npm-script | package-script:operations/tests/package.json#scripts.test:codex-pr-create [manual,npm-script] |
 | `operations/tests/unit/docs-authoring-rules.test.js` | Verifies guide-layout warning rules and deterministic code-block icon repair for authored docs pages. | PASS | test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -230,6 +271,7 @@ Generated: 2026-03-21T03:13:33.224Z
 | `operations/tests/unit/mdx-component-scope.test.js` | Unit tests for the MDX-facing component scope validator — covers unsafe private helpers, safe inline logic, and imported helper patterns. | PASS | test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/mdx-guards.test.js` | Enforces MDX guardrails — globals imports, math delimiters, markdown table line breaks | PASS | enforcement, test | manual, npm-script | package-script:operations/tests/package.json#scripts.test:mdx:guards [manual,npm-script] |
 | `operations/tests/unit/mdx-safe-markdown.test.js` | Fixture-driven unit tests for repo-wide MDX-safe markdown repair and validation helpers. | PASS | enforcement, fixture, test | manual, npm-script | package-script:operations/tests/package.json#scripts.test:mdx:safe:unit [manual,npm-script] |
+| `operations/tests/unit/mdx-sanitise.test.js` | Utility script for mdx sanitise test. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/mdx.test.js` | Validates MDX syntax and structure — checks for parse errors, invalid JSX, broken components | FAIL (missing @owner) | enforcement, test | manual, npm-script | package-script:operations/tests/package.json#scripts.test:mdx [manual,npm-script] \| package-script:tools/package.json#scripts.test:mdx [manual,npm-script] |
 | `operations/tests/unit/migrate-assets-to-branch.test.js` | Unit tests for migrate-assets-to-branch.js — validates CLI defaults, ambiguous basename detection, deterministic rewrites, and end-to-end branch migration in a temp git repo | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/og-image-policy.test.js` | Unit tests for og-image-policy — validates route mapping, locale asset selection, fallback assignment, and URL guardrails. | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -238,7 +280,7 @@ Generated: 2026-03-21T03:13:33.224Z
 | `operations/tests/unit/orchestrator-guides-research-review.test.js` | Tests orchestrator-guides-research-review.js — validates live Orchestrators Guides tranche extraction, report summary helpers, and registry-drift detection for the research packet generator. | FAIL (missing @owner) | audit, enforcement, generator, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/ownerless-governance.test.js` | Validates the ownerless governance manifest, primary gate-layer contract, and forbidden human-owner dependency in governed policy and GitHub surfaces. | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/precommit-staged-cache.test.js` | Tests precommit-staged-cache.js — validates staged-tree cache hits, invalidation, and pruning | FAIL (missing @owner) | enforcement, test | manual, npm-script | package-script:operations/tests/package.json#scripts.test:precommit-cache [manual,npm-script] |
-| `operations/tests/unit/quality.test.js` | Content quality checks — validates frontmatter completeness, thin content detection, placeholder flagging | PASS | enforcement, test | manual, npm-script | package-script:operations/tests/package.json#scripts.test:quality [manual,npm-script] \| package-script:tools/package.json#scripts.test:quality [manual,npm-script] |
+| `operations/tests/unit/quality.test.js` | Content quality checks — validates frontmatter completeness, thin content detection, placeholder flagging | PASS | ci, enforcement, test | manual, npm-script, workflow-dispatch | package-script:operations/tests/package.json#scripts.test:quality [manual,npm-script] \| package-script:tools/package.json#scripts.test:quality [manual,npm-script] \| workflow:.github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Check frontmatter taxonomy on changed docs pages [workflow-dispatch] |
 | `operations/tests/unit/repair-governance.test.js` | Tests repair-governance.js for safe dry-run, fix, rollback, strict exit handling, and workflow contract coverage. | FAIL (missing @owner) | test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/repair-spelling.test.js` | Unit tests for repair-spelling.js — validates deterministic spelling fixes and exclusion ranges | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/repo-audit-pipeline.test.js` | Tests repo-audit-orchestrator.js pipeline — validates mode/scope combinations and report output | PASS | audit, enforcement, test | manual, npm-script | package-script:operations/tests/package.json#scripts.test:repo-audit [manual,npm-script] |
@@ -248,7 +290,7 @@ Generated: 2026-03-21T03:13:33.224Z
 | `operations/tests/unit/skill-docs.test.js` | Validates governed skill documentation frontmatter, references, and contract integrity for canonical templates and local skill files. | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/spelling.test.js` | Spelling check — validates content against custom dictionary with en-GB rules | FAIL (missing @owner) | enforcement, test | manual, npm-script | package-script:operations/tests/package.json#scripts.test:spell [manual,npm-script] \| package-script:tools/package.json#scripts.test:spell [manual,npm-script] |
 | `operations/tests/unit/style-guide.test.js` | Style guide compliance — checks en-GB conventions, heading case, formatting rules | PASS | enforcement, test | manual, npm-script | package-script:operations/tests/package.json#scripts.test:style [manual,npm-script] \| package-script:tools/package.json#scripts.test:style [manual,npm-script] |
-| `operations/tests/unit/ui-template-generator.test.js` | Validates UI template generator snippet outputs are valid JSON, deterministic, and safe for after-< component insertion | PASS | enforcement, generator, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `operations/tests/unit/ui-template-generator.test.js` | Validates UI template artifacts, canonical template MDX safety, and Mint parse-surface boundaries before mint dev encounters them | PASS | enforcement, generator, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/usefulness-journey.test.js` | Tests journey-check evaluation logic against fixture pages. | PASS | enforcement, fixture, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/usefulness-rubric.test.js` | Tests rubric-based scoring logic against fixture pages. | PASS | fixture, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/unit/v2-folder-governance-cleanup-matrix.test.js` | Unit tests for the v2 folder governance cleanup matrix generator — verifies core classification, targeting, and age-bucket rules. | FAIL (missing @owner) | generator, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -261,6 +303,7 @@ Generated: 2026-03-21T03:13:33.224Z
 | `operations/tests/utils/openapi-rolling-issue.js` | OpenAPI rolling issue utility — creates/updates GitHub issues for persistent OpenAPI audit findings | PASS | audit, generator, sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `operations/tests/utils/spell-checker.js` | Spell checker utility — checks text against custom dictionary with en-GB locale support | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `snippets/automations/youtube/filterVideos.js` | YouTube video filter — post-processes fetched YouTube data to filter/sort videos for display | PASS | sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `snippets/components/integrators/feeds/contractVerifierData.js` | Utility script for contractVerifierData. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/config/v2-internal-report-pages.js` | Configuration data — list of internal report page paths for publish-v2-internal-reports.js | PASS | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/dev/add-callouts.js` | qa:content-quality | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/dev/debug-mint-dev.js` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -274,6 +317,19 @@ Generated: 2026-03-21T03:13:33.224Z
 | `tools/dev/rename-vscode-codex-chat.js` | tooling:dev-tools | FAIL (missing @category, @owner, @needs, @purpose-statement) | helper | manual, npm-script | package-script:tools/package.json#scripts.codex:chat:list [manual,npm-script] \| package-script:tools/package.json#scripts.codex:chat:rename [manual,npm-script] |
 | `tools/dev/test-add-callouts.js` | Test for add-callouts.js — validates callout insertion logic against fixtures | PASS | enforcement, fixture | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/dev/test-seo-generator.js` | Test for seo-generator — validates SEO generation logic | PASS | enforcement, generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/editor-extensions/authoring-tools/extension.js` | Utility script for extension. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/editor-extensions/authoring-tools/lib/authoring-core.js` | Utility script for authoring core. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/editor-extensions/components/extension.js` | Utility script for extension. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/editor-extensions/install.sh` | Utility script for install. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/editor-extensions/lpd-mdx-preview/extension.js` | Utility script for extension. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/editor-extensions/lpd-mdx-preview/lib/component-map.js` | Utility script for component map. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/editor-extensions/lpd-mdx-preview/lib/mdx-parser.js` | Utility script for mdx parser. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/editor-extensions/lpd-mdx-preview/lib/mintlify-components.js` | Utility script for mintlify components. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/editor-extensions/lpd-mdx-preview/lib/webview-template.js` | Utility script for webview template. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/editor-extensions/lpd-mdx-preview/media/markdown-it.min.js` | Utility script for markdown it min. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/editor-extensions/lpd-mdx-preview/media/mermaid.min.js` | Utility script for mermaid min. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/editor-extensions/lpd-mdx-preview/media/preview.js` | Utility script for preview. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/editor-extensions/markdown-list/extension.js` | Utility script for extension. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/lib/ai-tools-registry.js` | Shared loader, validator, coverage checker, and report renderer for the AI-tools registry contract and generated inventory report. | FAIL (missing @owner) | audit, enforcement, generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/lib/codex-skill-templates.js` | Shared helper for validating, selecting, and loading canonical Codex skill templates. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/lib/component-governance-utils.js` | Shared parsing and validation utilities for component governance scripts. | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -308,18 +364,17 @@ Generated: 2026-03-21T03:13:33.224Z
 | `tools/lib/precommit-staged-cache.js` | Shared pre-commit staged-cache helpers — fingerprint staged content plus hook inputs and persist reusable pass markers | FAIL (missing @owner) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/lib/script-governance-config.js` | Shared governance constants for script discovery, indexing, classification, and pipeline normalisation across the repo. | FAIL (missing @owner) | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/lib/script-header-utils.js` | Shared helpers for extracting and reading top-of-file script governance headers without scanning into executable source. | FAIL (missing @owner) | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/vscode/authoring-tools/extension.js` | Utility script for extension. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/vscode/authoring-tools/lib/authoring-core.js` | Utility script for authoring core. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/vscode/components/extension.js` | Utility script for extension. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/vscode/lpd-mdx-preview/extension.js` | Utility script for extension. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/vscode/lpd-mdx-preview/lib/component-map.js` | Utility script for component map. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/vscode/lpd-mdx-preview/lib/mdx-parser.js` | Utility script for mdx parser. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/vscode/lpd-mdx-preview/lib/mintlify-components.js` | Utility script for mintlify components. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/vscode/lpd-mdx-preview/lib/webview-template.js` | Utility script for webview template. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/vscode/lpd-mdx-preview/media/markdown-it.min.js` | Utility script for markdown it min. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/vscode/lpd-mdx-preview/media/mermaid.min.js` | Utility script for mermaid min. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/vscode/lpd-mdx-preview/media/preview.js` | Utility script for preview. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/vscode/markdown-list/extension.js` | Utility script for extension. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lpd` | Developer CLI orchestrator — unified command surface for setup, dev server, testing, hooks, and script execution across all repo domains | FAIL (missing @owner) | runner | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `workspace/plan/active/FUCK_CLAUDE/scripts/backup-vscode-state.sh` | Utility script for backup vscode state. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `workspace/plan/active/FUCK_CLAUDE/scripts/fix-title-overwrite.sh` | Utility script for fix title overwrite. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `workspace/plan/active/FUCK_CLAUDE/scripts/fix-titles.sh` | Utility script for fix titles. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `workspace/plan/active/FUCK_CLAUDE/scripts/full-repair.sh` | Utility script for full repair. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `workspace/plan/active/FUCK_CLAUDE/scripts/list-sessions.sh` | Utility script for list sessions. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `workspace/plan/active/FUCK_CLAUDE/scripts/patch-extension.sh` | Utility script for patch extension. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `workspace/plan/active/FUCK_CLAUDE/scripts/reap-zombie-claude.sh` | Utility script for reap zombie claude. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `workspace/plan/active/FUCK_CLAUDE/scripts/recover-dropped-sessions.sh` | Utility script for recover dropped sessions. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `workspace/plan/active/FUCK_CLAUDE/scripts/restore-vscode-state.sh` | Utility script for restore vscode state. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `workspace/plan/active/FUCK_CLAUDE/scripts/sort-sessions.sh` | Utility script for sort sessions. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `workspace/scripts/repair-registry.py` | Utility script for repair registry. | FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes) | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 
 ## Template Compliance Failures
@@ -348,8 +403,32 @@ Generated: 2026-03-21T03:13:33.224Z
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
-### `lpd`
-- Missing tags: @owner
+### `.github/scripts/fetch-contract-addresses.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement, @pipeline
+- Empty/placeholder tags: none
+
+### `.github/scripts/fetch-discord-announcements.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `.github/scripts/fetch-ghost-blog-data.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `.github/scripts/fetch-github-discussions.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `.github/scripts/fetch-github-releases.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `.github/scripts/fetch-rss-blog-data.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `.github/scripts/generate-changelog.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
 ### `operations/scripts/audits/components/documentation/audit-component-usage.js`
@@ -381,6 +460,14 @@ Generated: 2026-03-21T03:13:33.224Z
 - Empty/placeholder tags: none
 
 ### `operations/scripts/audits/content/reconciliation/generate-content-gap-reconciliation.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/audits/content/reference/audit-glossary-gaps.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/audits/content/reference/audit-icon-usage.js`
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
@@ -452,6 +539,18 @@ Generated: 2026-03-21T03:13:33.224Z
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
+### `operations/scripts/automations/content/data/test/contract-address-routes.test.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `operations/scripts/automations/content/data/test/contract-verifier.test.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `operations/scripts/automations/content/data/test/fetch-contract-addresses.test.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
 ### `operations/scripts/automations/content/data/transforms/convert-rss-to-mdx.js`
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
@@ -468,11 +567,19 @@ Generated: 2026-03-21T03:13:33.224Z
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
+### `operations/scripts/automations/content/studio-docs-migration.js`
+- Missing tags: @summary, @owner, @scope, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
 ### `operations/scripts/automations/governance/pipelines/publish-v2-internal-reports.js`
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
 ### `operations/scripts/config/docs-path-sync.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/config/mdx-sanitise.js`
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
@@ -496,6 +603,10 @@ Generated: 2026-03-21T03:13:33.224Z
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
+### `operations/scripts/dispatch/content/data/run-solutions-social-fetch.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
 ### `operations/scripts/dispatch/content/veracity/docs-page-research-pr-report.js`
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
@@ -508,6 +619,42 @@ Generated: 2026-03-21T03:13:33.224Z
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
+### `operations/scripts/dispatch/governance/blast-radius-scanner.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/dispatch/governance/friction-logger.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/dispatch/governance/grep-loop-guard.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/dispatch/governance/headless-batch.sh`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/dispatch/governance/mdx-constraints-injector.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/dispatch/governance/mdx-validate-hook.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/dispatch/governance/message-backup.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/dispatch/governance/move-detect-hook.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/dispatch/governance/phase-gate-hook.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
 ### `operations/scripts/dispatch/governance/pipelines/governance-pipeline.js`
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
@@ -516,8 +663,32 @@ Generated: 2026-03-21T03:13:33.224Z
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
+### `operations/scripts/dispatch/governance/post-tool-verify.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/dispatch/governance/pre-compact-checkpoint.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/dispatch/governance/pre-tool-guard.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/dispatch/governance/read-logger.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
 ### `operations/scripts/dispatch/governance/repo/repo-audit-orchestrator.js`
 - Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/dispatch/governance/session-register.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/dispatch/governance/session-state.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement, @pipeline
 - Empty/placeholder tags: none
 
 ### `operations/scripts/generators/ai/llm/generate-llms-files.js`
@@ -526,6 +697,10 @@ Generated: 2026-03-21T03:13:33.224Z
 
 ### `operations/scripts/generators/components/documentation/generate-component-docs.js`
 - Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/generators/components/library/generate-component-examples.js`
+- Missing tags: @category, @scope, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
 ### `operations/scripts/generators/components/library/generate-component-registry.js`
@@ -548,6 +723,10 @@ Generated: 2026-03-21T03:13:33.224Z
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
+### `operations/scripts/generators/content/reference/generate-glossary-companions.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
 ### `operations/scripts/generators/content/reference/generate-glossary.js`
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
@@ -561,6 +740,10 @@ Generated: 2026-03-21T03:13:33.224Z
 - Empty/placeholder tags: none
 
 ### `operations/scripts/generators/governance/catalogs/generate-ai-skills-indexes.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js`
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
@@ -586,6 +769,14 @@ Generated: 2026-03-21T03:13:33.224Z
 
 ### `operations/scripts/generators/governance/scaffold/new-script.js`
 - Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
+### `operations/scripts/generators/media/generate-hero-background.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `operations/scripts/generators/media/generate-hero-image.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
 - Empty/placeholder tags: none
 
 ### `operations/scripts/remediators/components/library/repair-component-metadata.js`
@@ -664,6 +855,10 @@ Generated: 2026-03-21T03:13:33.224Z
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
+### `operations/scripts/validators/components/library/check-component-health.js`
+- Missing tags: @category, @scope, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
 ### `operations/scripts/validators/components/library/check-mdx-component-scope.js`
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
@@ -732,6 +927,10 @@ Generated: 2026-03-21T03:13:33.224Z
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
+### `operations/scripts/validators/governance/ai/check-companion-manifest.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
 ### `operations/scripts/validators/governance/compliance/check-agent-docs-freshness.js`
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
@@ -764,12 +963,28 @@ Generated: 2026-03-21T03:13:33.224Z
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
+### `operations/scripts/validators/governance/repo/validate-lpd-paths.js`
+- Missing tags: @category, @owner, @needs, @purpose-statement
+- Empty/placeholder tags: none
+
 ### `operations/scripts/x-archive/pre-commit-v1`
 - Missing tags: @owner
 - Empty/placeholder tags: none
 
 ### `operations/scripts/x-archive/sync-legacy-root-v1.js`
 - Missing tags: @owner
+- Empty/placeholder tags: none
+
+### `operations/tests/playwright-community-components.js`
+- Missing tags: @summary, @owner, @scope, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: @usage
+
+### `operations/tests/playwright-contract-addresses.js`
+- Missing tags: @summary, @owner, @scope, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: @usage
+
+### `operations/tests/playwright-studio-docs-migration.js`
+- Missing tags: @summary, @owner, @scope, @inputs, @outputs, @exit-codes, @examples, @notes
 - Empty/placeholder tags: none
 
 ### `operations/tests/run-all.js`
@@ -824,6 +1039,10 @@ Generated: 2026-03-21T03:13:33.224Z
 - Missing tags: @owner
 - Empty/placeholder tags: none
 
+### `operations/tests/unit/mdx-sanitise.test.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
 ### `operations/tests/unit/mdx.test.js`
 - Missing tags: @owner
 - Empty/placeholder tags: none
@@ -862,6 +1081,10 @@ Generated: 2026-03-21T03:13:33.224Z
 
 ### `operations/tests/unit/validate-codex-task-contract.test.js`
 - Missing tags: @owner
+- Empty/placeholder tags: none
+
+### `snippets/components/integrators/feeds/contractVerifierData.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
 - Empty/placeholder tags: none
 
 ### `tools/dev/add-callouts.js`
@@ -904,6 +1127,58 @@ Generated: 2026-03-21T03:13:33.224Z
 - Missing tags: @category, @owner, @needs, @purpose-statement
 - Empty/placeholder tags: none
 
+### `tools/editor-extensions/authoring-tools/extension.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `tools/editor-extensions/authoring-tools/lib/authoring-core.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `tools/editor-extensions/components/extension.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `tools/editor-extensions/install.sh`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `tools/editor-extensions/lpd-mdx-preview/extension.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `tools/editor-extensions/lpd-mdx-preview/lib/component-map.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `tools/editor-extensions/lpd-mdx-preview/lib/mdx-parser.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `tools/editor-extensions/lpd-mdx-preview/lib/mintlify-components.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `tools/editor-extensions/lpd-mdx-preview/lib/webview-template.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `tools/editor-extensions/lpd-mdx-preview/media/markdown-it.min.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `tools/editor-extensions/lpd-mdx-preview/media/mermaid.min.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `tools/editor-extensions/lpd-mdx-preview/media/preview.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
+### `tools/editor-extensions/markdown-list/extension.js`
+- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
+- Empty/placeholder tags: none
+
 ### `tools/lib/ai-tools-registry.js`
 - Missing tags: @owner
 - Empty/placeholder tags: none
@@ -928,51 +1203,47 @@ Generated: 2026-03-21T03:13:33.224Z
 - Missing tags: @owner
 - Empty/placeholder tags: none
 
-### `tools/vscode/authoring-tools/extension.js`
+### `tools/lpd`
+- Missing tags: @owner
+- Empty/placeholder tags: none
+
+### `workspace/plan/active/FUCK_CLAUDE/scripts/backup-vscode-state.sh`
 - Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
 - Empty/placeholder tags: none
 
-### `tools/vscode/authoring-tools/lib/authoring-core.js`
+### `workspace/plan/active/FUCK_CLAUDE/scripts/fix-title-overwrite.sh`
 - Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
 - Empty/placeholder tags: none
 
-### `tools/vscode/components/extension.js`
+### `workspace/plan/active/FUCK_CLAUDE/scripts/fix-titles.sh`
 - Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
 - Empty/placeholder tags: none
 
-### `tools/vscode/lpd-mdx-preview/extension.js`
+### `workspace/plan/active/FUCK_CLAUDE/scripts/full-repair.sh`
 - Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
 - Empty/placeholder tags: none
 
-### `tools/vscode/lpd-mdx-preview/lib/component-map.js`
+### `workspace/plan/active/FUCK_CLAUDE/scripts/list-sessions.sh`
 - Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
 - Empty/placeholder tags: none
 
-### `tools/vscode/lpd-mdx-preview/lib/mdx-parser.js`
+### `workspace/plan/active/FUCK_CLAUDE/scripts/patch-extension.sh`
 - Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
 - Empty/placeholder tags: none
 
-### `tools/vscode/lpd-mdx-preview/lib/mintlify-components.js`
+### `workspace/plan/active/FUCK_CLAUDE/scripts/reap-zombie-claude.sh`
 - Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
 - Empty/placeholder tags: none
 
-### `tools/vscode/lpd-mdx-preview/lib/webview-template.js`
+### `workspace/plan/active/FUCK_CLAUDE/scripts/recover-dropped-sessions.sh`
 - Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
 - Empty/placeholder tags: none
 
-### `tools/vscode/lpd-mdx-preview/media/markdown-it.min.js`
+### `workspace/plan/active/FUCK_CLAUDE/scripts/restore-vscode-state.sh`
 - Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
 - Empty/placeholder tags: none
 
-### `tools/vscode/lpd-mdx-preview/media/mermaid.min.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/vscode/lpd-mdx-preview/media/preview.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/vscode/markdown-list/extension.js`
+### `workspace/plan/active/FUCK_CLAUDE/scripts/sort-sessions.sh`
 - Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
 - Empty/placeholder tags: none
 
@@ -1032,29 +1303,78 @@ Generated: 2026-03-21T03:13:33.224Z
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
+### `.github/scripts/fetch-contract-addresses.js`
+- Purpose: infrastructure:data-feeds
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement, @pipeline)
+- Role tags: ci, sync
+- Run-context tags: scheduled, workflow-dispatch
+- Used by:
+  - workflow: .github/workflows/update-contract-addresses.yml#Update Contract Addresses > update-contracts > Fetch and verify contract addresses (when: scheduled, workflow-dispatch)
+
+### `.github/scripts/fetch-discord-announcements.js`
+- Purpose: infrastructure:data-feeds
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: ci, sync
+- Run-context tags: workflow-dispatch
+- Used by:
+  - workflow: .github/workflows/data-refresh-governance.yml#Data Refresh Governance > data-refresh > Run selected refresh mode (when: workflow-dispatch)
+
 ### `.github/scripts/fetch-forum-data.js`
 - Purpose: Fetches latest topics and posts from Livepeer Forum API, writes to snippets/automations/forum/
 - Template compliance: PASS
 - Role tags: ci, sync
-- Run-context tags: scheduled, workflow-dispatch
+- Run-context tags: workflow-dispatch
 - Used by:
-  - workflow: .github/workflows/update-forum-data.yml#Update Forum Data > update-forum-data > Fetch and process forum data (when: scheduled, workflow-dispatch)
+  - workflow: .github/workflows/data-refresh-governance.yml#Data Refresh Governance > data-refresh > Run selected refresh mode (when: workflow-dispatch)
 
 ### `.github/scripts/fetch-ghost-blog-data.js`
-- Purpose: Fetches blog posts from Ghost CMS API, writes to snippets/automations/blog/
-- Template compliance: PASS
+- Purpose: infrastructure:data-feeds
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
 - Role tags: ci, sync
-- Run-context tags: scheduled, workflow-dispatch
+- Run-context tags: workflow-dispatch
 - Used by:
-  - workflow: .github/workflows/update-ghost-blog-data.yml#Update Ghost Blog Data > update-ghost-data > Fetch and process Ghost blog data (when: scheduled, workflow-dispatch)
+  - workflow: .github/workflows/data-refresh-governance.yml#Data Refresh Governance > data-refresh > Run selected refresh mode (when: workflow-dispatch)
+
+### `.github/scripts/fetch-github-discussions.js`
+- Purpose: infrastructure:data-feeds
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: ci, sync
+- Run-context tags: workflow-dispatch
+- Used by:
+  - workflow: .github/workflows/data-refresh-governance.yml#Data Refresh Governance > data-refresh > Run selected refresh mode (when: workflow-dispatch)
+
+### `.github/scripts/fetch-github-releases.js`
+- Purpose: infrastructure:data-feeds
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: ci, sync
+- Run-context tags: workflow-dispatch
+- Used by:
+  - workflow: .github/workflows/data-refresh-governance.yml#Data Refresh Governance > data-refresh > Run selected refresh mode (when: workflow-dispatch)
+
+### `.github/scripts/fetch-rss-blog-data.js`
+- Purpose: infrastructure:data-feeds
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: ci, sync
+- Run-context tags: workflow-dispatch
+- Used by:
+  - workflow: .github/workflows/data-refresh-governance.yml#Data Refresh Governance > data-refresh > Run selected refresh mode (when: workflow-dispatch)
 
 ### `.github/scripts/fetch-youtube-data.js`
 - Purpose: Fetches video data from YouTube Data API, writes to snippets/automations/youtube/
 - Template compliance: PASS
 - Role tags: ci, sync
+- Run-context tags: workflow-dispatch
+- Used by:
+  - workflow: .github/workflows/data-refresh-governance.yml#Data Refresh Governance > data-refresh > Run selected refresh mode (when: workflow-dispatch)
+
+### `.github/scripts/generate-changelog.js`
+- Purpose: infrastructure:data-feeds
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: ci, generator
 - Run-context tags: scheduled, workflow-dispatch
 - Used by:
-  - workflow: .github/workflows/update-youtube-data.yml#Update YouTube Data > update-youtube > Fetch and process YouTube videos (when: scheduled, workflow-dispatch)
+  - workflow: .github/workflows/update-changelogs.yml#Update Changelogs > update-changelogs > Generate changelog entries (enhanced) (when: scheduled, workflow-dispatch)
+  - workflow: .github/workflows/update-changelogs.yml#Update Changelogs > update-changelogs > Generate changelog entries (fallback — no LLM) (when: scheduled, workflow-dispatch)
 
 ### `.github/scripts/project-showcase-sync.js`
 - Purpose: Fetches project showcase data from external source, writes to snippets/automations/showcase/
@@ -1063,13 +1383,6 @@ Generated: 2026-03-21T03:13:33.224Z
 - Run-context tags: scheduled, workflow-dispatch
 - Used by:
   - workflow: .github/workflows/project-showcase-sync.yml#Project Showcase Sync > sync-showcase > Run project showcase sync (when: scheduled, workflow-dispatch)
-
-### `lpd`
-- Purpose: Developer CLI orchestrator — unified command surface for setup, dev server, testing, hooks, and script execution across all repo domains
-- Template compliance: FAIL (missing @owner)
-- Role tags: runner
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `operations/scripts/audits/components/documentation/audit-component-usage.js`
 - Purpose: qa:repo-health
@@ -1101,7 +1414,7 @@ Generated: 2026-03-21T03:13:33.224Z
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `operations/scripts/audits/content/quality/audit-python.py`
-- Purpose: qa:repo-health
+- Purpose: qa:content-quality
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
 - Role tags: audit
 - Run-context tags: manual
@@ -1126,6 +1439,20 @@ Generated: 2026-03-21T03:13:33.224Z
 - Purpose: governance:index-management
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
 - Role tags: audit, generator
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/audits/content/reference/audit-glossary-gaps.js`
+- Purpose: tooling:dev-tools
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: audit
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/audits/content/reference/audit-icon-usage.js`
+- Purpose: tooling:dev-tools
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: audit
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
@@ -1236,13 +1563,13 @@ Generated: 2026-03-21T03:13:33.224Z
 - Purpose: infrastructure:data-feeds
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
 - Role tags: ci, enforcement, sync
-- Run-context tags: manual, npm-script, pr, push
+- Run-context tags: manual, npm-script, pr, push, workflow-dispatch
 - Used by:
   - package-script: tools/package.json#scripts.fetch-docs (when: manual, npm-script)
   - package-script: tools/package.json#scripts.prebuild (when: manual, npm-script)
-  - workflow: .github/workflows/broken-links.yml#Check Broken Links > broken-links > Fetch external snippets (when: pr)
-  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Fetch external snippets (when: pr, push)
-  - workflow: .github/workflows/test-v2-pages.yml#Docs CI - V2 Browser Sweep > test-pages > Fetch external snippets (when: pr, push)
+  - workflow: .github/workflows/broken-links.yml#Check Broken Links > broken-links > Fetch external snippets (when: pr, workflow-dispatch)
+  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Fetch external snippets (when: pr, push, workflow-dispatch)
+  - workflow: .github/workflows/test-v2-pages.yml#Docs CI - V2 Browser Sweep > test-pages > Fetch external snippets (when: pr, push, workflow-dispatch)
 
 ### `operations/scripts/automations/content/data/fetching/fetch-lpt-exchanges.sh`
 - Purpose: infrastructure:data-feeds
@@ -1255,6 +1582,27 @@ Generated: 2026-03-21T03:13:33.224Z
 - Purpose: tooling:api-spec
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
 - Role tags: sync
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/automations/content/data/test/contract-address-routes.test.js`
+- Purpose: Utility script for contract address routes test.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: test
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/automations/content/data/test/contract-verifier.test.js`
+- Purpose: Utility script for contract verifier test.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: test
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/automations/content/data/test/fetch-contract-addresses.test.js`
+- Purpose: Utility script for fetch contract addresses test.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: sync, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
@@ -1418,6 +1766,13 @@ Generated: 2026-03-21T03:13:33.224Z
   - package-script: tools/package.json#scripts.i18n:validate (when: manual, npm-script)
   - workflow: .github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Validate generated localized MDX (when: workflow-dispatch)
 
+### `operations/scripts/automations/content/studio-docs-migration.js`
+- Purpose: Utility script for studio docs migration.
+- Template compliance: FAIL (missing @summary, @owner, @scope, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
 ### `operations/scripts/automations/governance/pipelines/publish-v2-internal-reports.js`
 - Purpose: qa:repo-health
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
@@ -1429,6 +1784,13 @@ Generated: 2026-03-21T03:13:33.224Z
 - Purpose: qa:repo-health
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
 - Role tags: sync
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/config/mdx-sanitise.js`
+- Purpose: infrastructure:shared-lib
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
@@ -1469,6 +1831,13 @@ Generated: 2026-03-21T03:13:33.224Z
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
+### `operations/scripts/dispatch/content/data/run-solutions-social-fetch.js`
+- Purpose: infrastructure:data-feeds
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: runner, sync
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
 ### `operations/scripts/dispatch/content/veracity/docs-page-research-pr-report.js`
 - Purpose: governance:agent-governance
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
@@ -1491,6 +1860,69 @@ Generated: 2026-03-21T03:13:33.224Z
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
+### `operations/scripts/dispatch/governance/blast-radius-scanner.js`
+- Purpose: Scans for consumers after editing shared files (components, templates, config)
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: audit
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/dispatch/governance/friction-logger.js`
+- Purpose: Detects and logs friction signals from user messages in real-time
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/dispatch/governance/grep-loop-guard.js`
+- Purpose: Detects repeated empty Grep results and fires a circuit-breaker warning
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/dispatch/governance/headless-batch.sh`
+- Purpose: Run Claude Code headless for safe batch operations
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/dispatch/governance/mdx-constraints-injector.js`
+- Purpose: Auto-injects Mintlify MDX constraints when user messages involve page/component editing
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/dispatch/governance/mdx-validate-hook.js`
+- Purpose: Validates MDX files after edit using the server-manager (port 3145)
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/dispatch/governance/message-backup.js`
+- Purpose: Backs up substantial user messages to prevent data loss from command typos
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/dispatch/governance/move-detect-hook.js`
+- Purpose: governance:move-propagation
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/dispatch/governance/phase-gate-hook.js`
+- Purpose: Enforces phase checkpoint verification before allowing work to proceed
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
 ### `operations/scripts/dispatch/governance/pipelines/governance-pipeline.js`
 - Purpose: governance:repo-health
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
@@ -1508,6 +1940,34 @@ Generated: 2026-03-21T03:13:33.224Z
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
+### `operations/scripts/dispatch/governance/post-tool-verify.js`
+- Purpose: Post-tool verification for Claude Code sessions
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/dispatch/governance/pre-compact-checkpoint.js`
+- Purpose: Preserves critical session state before context compaction
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/dispatch/governance/pre-tool-guard.js`
+- Purpose: Pre-tool enforcement for Claude Code sessions
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/dispatch/governance/read-logger.js`
+- Purpose: Tracks which files Claude reads per session for context-gate enforcement
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
 ### `operations/scripts/dispatch/governance/repo/repo-audit-orchestrator.js`
 - Purpose: infrastructure:pipeline-orchestration
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
@@ -1520,6 +1980,20 @@ Generated: 2026-03-21T03:13:33.224Z
   - package-script: tools/package.json#scripts.audit:repo:pack-all (when: manual, npm-script)
   - package-script: tools/package.json#scripts.audit:repo:quarantine (when: manual, npm-script)
 
+### `operations/scripts/dispatch/governance/session-register.js`
+- Purpose: Registers active sessions and tracks which files each session touches
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/dispatch/governance/session-state.js`
+- Purpose: governance:session-start
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement, @pipeline)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
 ### `operations/scripts/generators/ai/llm/generate-llms-files.js`
 - Purpose: governance:index-management
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
@@ -1530,9 +2004,19 @@ Generated: 2026-03-21T03:13:33.224Z
 ### `operations/scripts/generators/components/documentation/generate-component-docs.js`
 - Purpose: governance:index-management
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
-- Role tags: generator
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+- Role tags: ci, generator
+- Run-context tags: workflow-dispatch
+- Used by:
+  - workflow: .github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Run selected check mode (when: workflow-dispatch)
+  - workflow: .github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-generate > Run selected generate mode (when: workflow-dispatch)
+
+### `operations/scripts/generators/components/library/generate-component-examples.js`
+- Purpose: governance:index-management
+- Template compliance: FAIL (missing @category, @scope, @owner, @needs, @purpose-statement)
+- Role tags: ci, generator
+- Run-context tags: workflow-dispatch
+- Used by:
+  - workflow: .github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Run selected check mode (when: workflow-dispatch)
 
 ### `operations/scripts/generators/components/library/generate-component-registry.js`
 - Purpose: governance:index-management
@@ -1542,7 +2026,9 @@ Generated: 2026-03-21T03:13:33.224Z
 - Used by:
   - package-script: tools/package.json#scripts.registry:components (when: manual, npm-script)
   - workflow: .github/workflows/content-health.yml#Content Health Check > content-health > Component registry validation (when: scheduled, workflow-dispatch)
-  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Validate component registry (when: pr, push)
+  - workflow: .github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Run selected check mode (when: workflow-dispatch)
+  - workflow: .github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-generate > Run selected generate mode (when: workflow-dispatch)
+  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Validate component registry (when: pr, push, workflow-dispatch)
 
 ### `operations/scripts/generators/components/library/generate-ui-templates.js`
 - Purpose: governance:index-management
@@ -1554,19 +2040,22 @@ Generated: 2026-03-21T03:13:33.224Z
 ### `operations/scripts/generators/content/catalogs/generate-docs-index.js`
 - Purpose: governance:index-management
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
-- Role tags: ci, enforcement, generator
-- Run-context tags: pr, push, workflow-dispatch
+- Role tags: ci, generator
+- Run-context tags: workflow-dispatch
 - Used by:
-  - workflow: .github/workflows/check-docs-index.yml#Check Docs Index > docs-index-check > Verify docs-index.json is current (when: pr, push, workflow-dispatch)
-  - workflow: .github/workflows/generate-docs-index.yml#Generate Docs Index > generate-docs-index > Generate docs index (when: push, workflow-dispatch)
+  - workflow: .github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Run selected check mode (when: workflow-dispatch)
+  - workflow: .github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-generate > Run selected generate mode (when: workflow-dispatch)
   - workflow: .github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Regenerate docs-index.json (when: workflow-dispatch)
 
 ### `operations/scripts/generators/content/catalogs/generate-pages-index.js`
 - Purpose: governance:index-management
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
 - Role tags: generator
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+- Run-context tags: manual, npm-script
+- Used by:
+  - package-script: operations/tests/package.json#scripts.test:pages-index (when: manual, npm-script)
+  - package-script: operations/tests/package.json#scripts.test:pages-index:rebuild (when: manual, npm-script)
+  - package-script: operations/tests/package.json#scripts.test:pages-index:write (when: manual, npm-script)
 
 ### `operations/scripts/generators/content/reference/generate-api-docs.sh`
 - Purpose: tooling:dev-tools
@@ -1574,6 +2063,15 @@ Generated: 2026-03-21T03:13:33.224Z
 - Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/generators/content/reference/generate-glossary-companions.js`
+- Purpose: tooling:dev-tools
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: ci, enforcement, generator
+- Run-context tags: pr, push, workflow-dispatch
+- Used by:
+  - workflow: .github/workflows/check-ai-companions.yml#Check AI Companion Files > check-ai-companions > Verify glossary companion JSONs are current (when: pr, push, workflow-dispatch)
+  - workflow: .github/workflows/generate-ai-companions.yml#Generate AI Companion Files > generate-ai-companions > Regenerate glossary companion JSONs (when: push, workflow-dispatch)
 
 ### `operations/scripts/generators/content/reference/generate-glossary.js`
 - Purpose: tooling:dev-tools
@@ -1603,6 +2101,13 @@ Generated: 2026-03-21T03:13:33.224Z
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
+### `operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js`
+- Purpose: governance:ai-tools-visual-library
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: generator
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
 ### `operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js`
 - Purpose: governance:index-management
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
@@ -1613,17 +2118,21 @@ Generated: 2026-03-21T03:13:33.224Z
 ### `operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js`
 - Purpose: governance:index-management
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
-- Role tags: generator
-- Run-context tags: manual, npm-script
+- Role tags: ci, generator
+- Run-context tags: manual, npm-script, workflow-dispatch
 - Used by:
   - package-script: tools/package.json#scripts.docs-guide:indexes (when: manual, npm-script)
+  - workflow: .github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Run selected check mode (when: workflow-dispatch)
+  - workflow: .github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-generate > Run selected generate mode (when: workflow-dispatch)
 
 ### `operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js`
 - Purpose: governance:index-management
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
-- Role tags: generator
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+- Role tags: ci, generator
+- Run-context tags: workflow-dispatch
+- Used by:
+  - workflow: .github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Run selected check mode (when: workflow-dispatch)
+  - workflow: .github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-generate > Run selected generate mode (when: workflow-dispatch)
 
 ### `operations/scripts/generators/governance/catalogs/generate-script-registry.js`
 - Purpose: governance:index-management
@@ -1642,6 +2151,20 @@ Generated: 2026-03-21T03:13:33.224Z
 ### `operations/scripts/generators/governance/scaffold/new-script.js`
 - Purpose: tooling:dev-tools',
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: generator
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/generators/media/generate-hero-background.js`
+- Purpose: Utility script for generate hero background.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: generator
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/generators/media/generate-hero-image.js`
+- Purpose: Utility script for generate hero image.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
 - Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
@@ -1784,31 +2307,41 @@ Generated: 2026-03-21T03:13:33.224Z
 - Purpose: qa:repo-health
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
 - Role tags: ci, enforcement
-- Run-context tags: pr, push
+- Run-context tags: pr, push, workflow-dispatch
 - Used by:
-  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component documentation (when: pr, push)
+  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component documentation (when: pr, push, workflow-dispatch)
 
 ### `operations/scripts/validators/components/library/check-component-css.js`
 - Purpose: qa:repo-health
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
 - Role tags: ci, enforcement
-- Run-context tags: pr, push
+- Run-context tags: pr, push, workflow-dispatch
 - Used by:
-  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component CSS standards (when: pr, push)
+  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component CSS standards (when: pr, push, workflow-dispatch)
+
+### `operations/scripts/validators/components/library/check-component-health.js`
+- Purpose: governance:quality-gate
+- Template compliance: FAIL (missing @category, @scope, @owner, @needs, @purpose-statement)
+- Role tags: ci, enforcement
+- Run-context tags: workflow-dispatch
+- Used by:
+  - workflow: .github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Run selected check mode (when: workflow-dispatch)
 
 ### `operations/scripts/validators/components/library/check-mdx-component-scope.js`
 - Purpose: qa:repo-health
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
-- Role tags: enforcement
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+- Role tags: ci, enforcement
+- Run-context tags: pr, push, workflow-dispatch
+- Used by:
+  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component MDX scope isolation (when: pr, push, workflow-dispatch)
 
 ### `operations/scripts/validators/components/library/check-naming-conventions.js`
 - Purpose: qa:repo-health
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
-- Role tags: enforcement
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+- Role tags: ci, enforcement
+- Run-context tags: pr, push, workflow-dispatch
+- Used by:
+  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component naming conventions (when: pr, push, workflow-dispatch)
 
 ### `operations/scripts/validators/components/library/component-layout-governance.js`
 - Purpose: qa:repo-health
@@ -1902,8 +2435,9 @@ Generated: 2026-03-21T03:13:33.224Z
 - Purpose: governance:index-management
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
 - Role tags: enforcement, generator
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+- Run-context tags: manual, npm-script
+- Used by:
+  - package-script: operations/tests/package.json#scripts.test:generated-banners (when: manual, npm-script)
 
 ### `operations/scripts/validators/content/structure/lint-structure.js`
 - Purpose: qa:content-quality
@@ -1934,6 +2468,14 @@ Generated: 2026-03-21T03:13:33.224Z
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/validators/governance/ai/check-companion-manifest.js`
+- Purpose: Utility script for check companion manifest.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: ci, enforcement
+- Run-context tags: pr, push, workflow-dispatch
+- Used by:
+  - workflow: .github/workflows/check-ai-companions.yml#Check AI Companion Files > check-ai-companions > Verify companion manifest is consistent with registry (when: pr, push, workflow-dispatch)
 
 ### `operations/scripts/validators/governance/compliance/check-agent-docs-freshness.js`
 - Purpose: governance:agent-governance
@@ -1984,11 +2526,18 @@ Generated: 2026-03-21T03:13:33.224Z
 - Purpose: governance:repo-health
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
 - Role tags: ci, enforcement
-- Run-context tags: pr, push
+- Run-context tags: pr, push, workflow-dispatch
 - Used by:
-  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component immutability (when: pr, push)
+  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > component-enforcement > Component immutability (when: pr, push, workflow-dispatch)
 
 ### `operations/scripts/validators/governance/pr/check-pr-template.js`
+- Purpose: governance:repo-health
+- Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/scripts/validators/governance/repo/validate-lpd-paths.js`
 - Purpose: governance:repo-health
 - Template compliance: FAIL (missing @category, @owner, @needs, @purpose-statement)
 - Role tags: enforcement
@@ -2062,12 +2611,12 @@ Generated: 2026-03-21T03:13:33.224Z
 - Purpose: Puppeteer browser integration test — renders pages from docs.json and checks for console errors, load failures, and visual regressions
 - Template compliance: PASS
 - Role tags: ci, enforcement, test
-- Run-context tags: manual, npm-script, pr, push
+- Run-context tags: manual, npm-script, pr, push, workflow-dispatch
 - Used by:
   - package-script: operations/tests/package.json#scripts.test:browser (when: manual, npm-script)
   - package-script: tools/package.json#scripts.test:browser (when: manual, npm-script)
   - package-script: tools/package.json#scripts.test:browser:all (when: manual, npm-script)
-  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Run Browser Tests (All Pages) (when: npm-script, pr, push)
+  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Run Browser Tests (All Pages) (when: npm-script, pr, push, workflow-dispatch)
 
 ### `operations/tests/integration/domain-pages-audit.js`
 - Purpose: Audits deployed docs page HTTP status codes (v1, v2, or both) and emits a stable JSON report
@@ -2135,6 +2684,27 @@ Generated: 2026-03-21T03:13:33.224Z
 - Used by:
   - package-script: operations/tests/package.json#scripts.test:wcag:selftest (when: manual, npm-script)
 
+### `operations/tests/playwright-community-components.js`
+- Purpose: Utility script for playwright community components.
+- Template compliance: FAIL (missing @summary, @owner, @scope, @inputs, @outputs, @exit-codes, @examples, @notes; empty @usage)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/tests/playwright-contract-addresses.js`
+- Purpose: Utility script for playwright contract addresses.
+- Template compliance: FAIL (missing @summary, @owner, @scope, @inputs, @outputs, @exit-codes, @examples, @notes; empty @usage)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/tests/playwright-studio-docs-migration.js`
+- Purpose: Utility script for playwright studio docs migration.
+- Template compliance: FAIL (missing @summary, @owner, @scope, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
 ### `operations/tests/run-all.js`
 - Purpose: Test orchestrator — dispatches all unit test suites. Called by pre-commit hook and npm test.
 - Template compliance: FAIL (missing @owner)
@@ -2157,6 +2727,13 @@ Generated: 2026-03-21T03:13:33.224Z
 - Purpose: Validates the AI-tools registry contract, full tracked ai-tools coverage, and the Wave 1 inventory source-of-truth boundary.
 - Template compliance: FAIL (missing @owner)
 - Role tags: enforcement, test
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/tests/unit/ai-tools-visual-library.test.js`
+- Purpose: Validates that the canonical AI-tools visual library is current, complete, and synchronized with the repo workflow inventory.
+- Template compliance: PASS
+- Role tags: enforcement, sync, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
@@ -2240,6 +2817,13 @@ Generated: 2026-03-21T03:13:33.224Z
 - Purpose: Template for category-scoped component unit tests.
 - Template compliance: PASS
 - Role tags: test
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `operations/tests/unit/contracts-addresses-pipeline.test.js`
+- Purpose: Regression tests for the contracts authority catalog, lifecycle grouping, generated registry output, and widget data-consumption contract.
+- Template compliance: PASS
+- Role tags: generator, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
@@ -2413,6 +2997,13 @@ Generated: 2026-03-21T03:13:33.224Z
 - Used by:
   - package-script: operations/tests/package.json#scripts.test:mdx:safe:unit (when: manual, npm-script)
 
+### `operations/tests/unit/mdx-sanitise.test.js`
+- Purpose: Utility script for mdx sanitise test.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: test
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
 ### `operations/tests/unit/mdx.test.js`
 - Purpose: Validates MDX syntax and structure — checks for parse errors, invalid JSX, broken components
 - Template compliance: FAIL (missing @owner)
@@ -2476,11 +3067,12 @@ Generated: 2026-03-21T03:13:33.224Z
 ### `operations/tests/unit/quality.test.js`
 - Purpose: Content quality checks — validates frontmatter completeness, thin content detection, placeholder flagging
 - Template compliance: PASS
-- Role tags: enforcement, test
-- Run-context tags: manual, npm-script
+- Role tags: ci, enforcement, test
+- Run-context tags: manual, npm-script, workflow-dispatch
 - Used by:
   - package-script: operations/tests/package.json#scripts.test:quality (when: manual, npm-script)
   - package-script: tools/package.json#scripts.test:quality (when: manual, npm-script)
+  - workflow: .github/workflows/docs-catalog-governance.yml#Docs Catalog Governance > catalog-checks > Check frontmatter taxonomy on changed docs pages (when: workflow-dispatch)
 
 ### `operations/tests/unit/repair-governance.test.js`
 - Purpose: Tests repair-governance.js for safe dry-run, fix, rollback, strict exit handling, and workflow contract coverage.
@@ -2552,7 +3144,7 @@ Generated: 2026-03-21T03:13:33.224Z
   - package-script: tools/package.json#scripts.test:style (when: manual, npm-script)
 
 ### `operations/tests/unit/ui-template-generator.test.js`
-- Purpose: Validates UI template generator snippet outputs are valid JSON, deterministic, and safe for after-< component insertion
+- Purpose: Validates UI template artifacts, canonical template MDX safety, and Mint parse-surface boundaries before mint dev encounters them
 - Template compliance: PASS
 - Role tags: enforcement, generator, test
 - Run-context tags: manual
@@ -2643,6 +3235,13 @@ Generated: 2026-03-21T03:13:33.224Z
 - Purpose: YouTube video filter — post-processes fetched YouTube data to filter/sort videos for display
 - Template compliance: PASS
 - Role tags: sync
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `snippets/components/integrators/feeds/contractVerifierData.js`
+- Purpose: Utility script for contractVerifierData.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
@@ -2739,6 +3338,97 @@ Generated: 2026-03-21T03:13:33.224Z
 - Purpose: Test for seo-generator — validates SEO generation logic
 - Template compliance: PASS
 - Role tags: enforcement, generator
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/editor-extensions/authoring-tools/extension.js`
+- Purpose: Utility script for extension.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/editor-extensions/authoring-tools/lib/authoring-core.js`
+- Purpose: Utility script for authoring core.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/editor-extensions/components/extension.js`
+- Purpose: Utility script for extension.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/editor-extensions/install.sh`
+- Purpose: Utility script for install.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/editor-extensions/lpd-mdx-preview/extension.js`
+- Purpose: Utility script for extension.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/editor-extensions/lpd-mdx-preview/lib/component-map.js`
+- Purpose: Utility script for component map.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/editor-extensions/lpd-mdx-preview/lib/mdx-parser.js`
+- Purpose: Utility script for mdx parser.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/editor-extensions/lpd-mdx-preview/lib/mintlify-components.js`
+- Purpose: Utility script for mintlify components.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/editor-extensions/lpd-mdx-preview/lib/webview-template.js`
+- Purpose: Utility script for webview template.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/editor-extensions/lpd-mdx-preview/media/markdown-it.min.js`
+- Purpose: Utility script for markdown it min.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/editor-extensions/lpd-mdx-preview/media/mermaid.min.js`
+- Purpose: Utility script for mermaid min.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/editor-extensions/lpd-mdx-preview/media/preview.js`
+- Purpose: Utility script for preview.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/editor-extensions/markdown-list/extension.js`
+- Purpose: Utility script for extension.
+- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
@@ -2980,85 +3670,78 @@ Generated: 2026-03-21T03:13:33.224Z
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/vscode/authoring-tools/extension.js`
-- Purpose: Utility script for extension.
+### `tools/lpd`
+- Purpose: Developer CLI orchestrator — unified command surface for setup, dev server, testing, hooks, and script execution across all repo domains
+- Template compliance: FAIL (missing @owner)
+- Role tags: runner
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `workspace/plan/active/FUCK_CLAUDE/scripts/backup-vscode-state.sh`
+- Purpose: Utility script for backup vscode state.
 - Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/vscode/authoring-tools/lib/authoring-core.js`
-- Purpose: Utility script for authoring core.
+### `workspace/plan/active/FUCK_CLAUDE/scripts/fix-title-overwrite.sh`
+- Purpose: Utility script for fix title overwrite.
 - Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/vscode/components/extension.js`
-- Purpose: Utility script for extension.
+### `workspace/plan/active/FUCK_CLAUDE/scripts/fix-titles.sh`
+- Purpose: Utility script for fix titles.
 - Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/vscode/lpd-mdx-preview/extension.js`
-- Purpose: Utility script for extension.
+### `workspace/plan/active/FUCK_CLAUDE/scripts/full-repair.sh`
+- Purpose: Utility script for full repair.
 - Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/vscode/lpd-mdx-preview/lib/component-map.js`
-- Purpose: Utility script for component map.
+### `workspace/plan/active/FUCK_CLAUDE/scripts/list-sessions.sh`
+- Purpose: Utility script for list sessions.
 - Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/vscode/lpd-mdx-preview/lib/mdx-parser.js`
-- Purpose: Utility script for mdx parser.
+### `workspace/plan/active/FUCK_CLAUDE/scripts/patch-extension.sh`
+- Purpose: Utility script for patch extension.
 - Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/vscode/lpd-mdx-preview/lib/mintlify-components.js`
-- Purpose: Utility script for mintlify components.
+### `workspace/plan/active/FUCK_CLAUDE/scripts/reap-zombie-claude.sh`
+- Purpose: Utility script for reap zombie claude.
 - Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/vscode/lpd-mdx-preview/lib/webview-template.js`
-- Purpose: Utility script for webview template.
+### `workspace/plan/active/FUCK_CLAUDE/scripts/recover-dropped-sessions.sh`
+- Purpose: Utility script for recover dropped sessions.
 - Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/vscode/lpd-mdx-preview/media/markdown-it.min.js`
-- Purpose: Utility script for markdown it min.
+### `workspace/plan/active/FUCK_CLAUDE/scripts/restore-vscode-state.sh`
+- Purpose: Utility script for restore vscode state.
 - Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/vscode/lpd-mdx-preview/media/mermaid.min.js`
-- Purpose: Utility script for mermaid min.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tools/vscode/lpd-mdx-preview/media/preview.js`
-- Purpose: Utility script for preview.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tools/vscode/markdown-list/extension.js`
-- Purpose: Utility script for extension.
+### `workspace/plan/active/FUCK_CLAUDE/scripts/sort-sessions.sh`
+- Purpose: Utility script for sort sessions.
 - Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
 - Role tags: helper
 - Run-context tags: manual

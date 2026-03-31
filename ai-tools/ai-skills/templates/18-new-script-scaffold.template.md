@@ -10,12 +10,12 @@ metadata:
   tier: "2"
 primary_paths:
   - "operations/scripts/generators/governance/scaffold/new-script.js"
-  - "tests/unit/script-docs.test.js"
+  - "operations/tests/unit/script-docs.test.js"
   - "tools/script-index.md"
-  - "tests/script-index.md"
+  - "operations/tests/script-index.md"
 primary_commands:
   - "node operations/scripts/generators/governance/scaffold/new-script.js --path operations/scripts/my-script.js"
-  - "node tests/unit/script-docs.test.js --files operations/scripts/my-script.js --enforce-existing"
+  - "node operations/tests/unit/script-docs.test.js --files operations/scripts/my-script.js --enforce-existing"
 ---
 
 SKILL: New Script Scaffold
@@ -37,7 +37,7 @@ Workflow
 Command examples
 ```bash
 node operations/scripts/generators/governance/scaffold/new-script.js --path operations/scripts/my-script.js
-node tests/unit/script-docs.test.js --files operations/scripts/my-script.js --enforce-existing
+node operations/tests/unit/script-docs.test.js --files operations/scripts/my-script.js --enforce-existing
 ```
 
 Deliverable Format

@@ -8,7 +8,7 @@
  * @needs             E-R1, R-R11
  * @purpose-statement Spelling check — validates content against custom dictionary with en-GB rules
  * @pipeline          P1, P3
- * @usage             node tests/unit/spelling.test.js [flags]
+ * @usage             node operations/tests/unit/spelling.test.js [flags]
  */
 /**
  * UK English spelling validation tests

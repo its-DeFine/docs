@@ -72,7 +72,7 @@ docs/internal  docs/orchestrators_v1  docs/resources  docs/solutions
 Blast radius is enormous and verified:
 - Every active plan file is at `tasks/plan/active/...` — they'd all be dead links
 - `AGENTS.md` required context list references `tasks/` implicitly through governance docs
-- SCRIPT-GOVERNANCE plan has tasks writing reports to `tasks/reports/...` — 78 report files
+- SCRIPT-GOVERNANCE plan had report writers targeting the legacy `tasks/reports/...` root (now `workspace/reports/...`) — 78 report files at audit time
 - Pre-commit hook, CI scripts, `lpd` CLI, and multiple validators reference `tasks/`
 - All generated catalog files reference `tasks/` output paths
 

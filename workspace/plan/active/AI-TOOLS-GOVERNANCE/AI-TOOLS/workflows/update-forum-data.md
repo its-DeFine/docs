@@ -4,7 +4,7 @@
 - Workflow family: `data-refresh`
 - Cleanup decision: `merge`
 - Usage status: `compatibility-wrapper`
-- Process fit: `legacy-or-unclear`
+- Process fit: `core-shipping`
 - Concern: `authoring`
 - Risk level: `medium`
 - Dispatcher candidate: `page-ship`
@@ -16,7 +16,7 @@ Update Forum Data runs on schedule, workflow_dispatch and primarily produces gen
 
 ## Recommended Engineering Action
 
-Keep this as a thin compatibility wrapper until the Actions vs n8n ownership decision is resolved, then either retire it or keep only the canonical reusable workflow.
+Keep this as a thin compatibility wrapper until the legacy entrypoint can be retired safely. The canonical implementation now lives in `data-refresh-governance`.
 
 ## Dependencies
 
@@ -33,7 +33,7 @@ Keep this as a thin compatibility wrapper until the Actions vs n8n ownership dec
 
 ## Cleanup Rationale
 
-- Dual ownership between Actions and n8n is governance debt.
+- Generated forum data is retained under snippets/automations/forum/forumData.jsx.
+- GitHub Actions is the canonical owner for this retained data path.
 - This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever.
 - This wrapper should not regain unique logic.
-- Workflow comments explicitly say n8n is being used as an alternative.

@@ -8,7 +8,7 @@
  * @needs             R-R14, R-R18
  * @purpose-statement Tests the agent governance freshness validator against the canonical runtime file set.
  * @pipeline          P1, P3
- * @usage             node tests/unit/check-agent-docs-freshness.test.js
+ * @usage             node operations/tests/unit/check-agent-docs-freshness.test.js
  */
 
 const assert = require('assert');
@@ -24,7 +24,7 @@ async function runCase(name, fn) {
     console.log(`   ✓ ${name}`);
   } catch (error) {
     errors.push({
-      file: 'tests/unit/check-agent-docs-freshness.test.js',
+      file: 'operations/tests/unit/check-agent-docs-freshness.test.js',
       rule: 'Agent docs freshness unit',
       message: `${name}: ${error.message}`,
       line: 1

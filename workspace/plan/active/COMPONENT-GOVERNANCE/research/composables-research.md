@@ -10,15 +10,15 @@
 
 | Source | Type | Date | Relevance | Summary |
 |---|---|---|---|---|
-| `tasks/plan/active/CONTENT-WRITING/information-type.md` | Framework definition | 2026-03-19 (DRAFT) | 5/5 | 9 information types, purpose→type mapping, veracity standards |
-| `tasks/plan/active/CONTENT-WRITING/pagePurpose.md` | Framework definition | 2026-03-20 | 5/5 | 15 intent-based purpose values with structure rules, voice register, required component types |
-| `tasks/plan/active/CONTENT-WRITING/framework.md` | Decision log | 2026-03-20 | 5/5 | Master framework summary; locked enums; all dimensions |
-| `tasks/plan/active/CONTENT-WRITING/index.md` | Governance index | 2026-03-19 | 5/5 | Entry point; all locked/pending decisions |
+| `workspace/plan/active/CONTENT-WRITING/Frameworks/information-type.md` | Framework definition | 2026-03-19 (DRAFT) | 5/5 | 9 information types, purpose→type mapping, veracity standards |
+| `workspace/plan/active/CONTENT-WRITING/Frameworks/pagePurpose.md` | Framework definition | 2026-03-20 | 5/5 | 15 intent-based purpose values with structure rules, voice register, required component types |
+| `workspace/plan/active/CONTENT-WRITING/Frameworks/content-pipeline-framework.md` | Decision log | 2026-03-20 | 5/5 | Master framework summary; locked enums; all dimensions |
+| `workspace/plan/active/CONTENT-WRITING/framework-index-canonical.md` | Governance index | 2026-03-19 | 5/5 | Entry point; all locked/pending decisions |
 | `docs-guide/_workspace/02_Design-Specification/04_UX-Framework-&-Taxonomy/03_08-Composable-Content-Guide/index.md` | Design spec | 2026-03-19 | 5/5 | 3-layer content architecture; lifecycle model; naming rules; scope inheritance |
 | `docs-guide/_workspace/02_Design-Specification/03_IA-Framework/01_03-IA-Structure-and-Purpose/index.md` | Framework definition | 2026-03-20 | 5/5 | 6 purpose types for v2; per-tab journey matrices; section structure rules |
 | `ai-tools/ai-skills/page-authoring/SKILL.md` | AI skill / authoring guidance | 2026-03-18 (v1.2) | 4/5 | Page skeleton rules; CustomDivider usage; component defaults; pre-writing process |
 | `v2/orchestrators/_workspace/plans/tutorial-writing-pack/reference/page-authoring-SKILL.md` | AI skill (context-specific) | 2026-03-18 (v1.0) | 4/5 | Operator-audience hard rules; UX patterns; component usage; 4-page concept model |
-| `tasks/plan/active/CONTENT-WRITING/collation.md` | Inventory / scratchpad | 2026-03-19 | 4/5 | Dated repo resource inventory; identifies gaps in copy rules, personas, rewrite skills |
+| `workspace/plan/active/CONTENT-WRITING/Workspace/collation.md` | Inventory / scratchpad | 2026-03-19 | 4/5 | Dated repo resource inventory; identifies gaps in copy rules, personas, rewrite skills |
 | `v2/templates/pages/` (all 17 templates) | Templates | 2026-03-19 | 5/5 | All existing page templates — source for repeating section patterns |
 | `docs-guide/frameworks/component-governance.mdx` | Framework doc (live) | 2026-03-21 | 4/5 | Current component governance state; deferred items flagged; `component-layout-decisions.mdx` deferred |
 | `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md` | Taxonomy reference | 2026-03-21 | 3/5 | Component folder taxonomy; composables entry as TBD stub |

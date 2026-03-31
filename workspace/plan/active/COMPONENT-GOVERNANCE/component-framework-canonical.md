@@ -206,7 +206,7 @@ snippets/
 
 > **Tier 2 companion files** (props-extracted components) live adjacent to their MDX pages, not here:
 > `v2/[section]/[page-slug]-data.json` — same slug as the page, with `-data` suffix.
-> Written at page-authoring time; see `@aiDiscoverability` section below and `tasks/plan/active/AI-DISCOVERABILITY/plan.md`.
+> Written at page-authoring time; see `@aiDiscoverability` section below and `workspace/plan/active/AI-TOOLS-GOVERNANCE/AI-DISCOVERABILITY/plan.md`.
 
 ## Decision Rules
 
@@ -299,7 +299,7 @@ Not required on pure/presentational components.
 
 **How it works in Mintlify**: `.json` files placed alongside `.mdx` pages in `v2/` are served as static assets at their URL path. A file at `v2/developers/glossary-data.json` is accessible at `https://[domain]/v2/developers/glossary-data.json` and readable by AI crawlers, agents, and LLM pipelines without any build config.
 
-**Write-time obligation**: any author or agent writing a page that uses a `props-extracted` component must create the companion `.json` alongside the MDX. The automation to generate this from MDX props is tracked in `tasks/plan/active/AI-DISCOVERABILITY/plan.md` (CDA-5).
+**Write-time obligation**: any author or agent writing a page that uses a `props-extracted` component must create the companion `.json` alongside the MDX. The automation to generate this from MDX props is tracked in `workspace/plan/active/AI-TOOLS-GOVERNANCE/AI-DISCOVERABILITY/plan.md` (CDA-5).
 
 ### Example headers
 

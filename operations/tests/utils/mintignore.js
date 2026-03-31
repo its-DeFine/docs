@@ -8,7 +8,7 @@
  * @needs             E-C6, F-C1
  * @purpose-statement Mintignore utility — reads .mintignore patterns and filters file lists
  * @pipeline          indirect — library module
- * @usage             node tests/utils/mintignore.js [flags]
+ * @usage             node operations/tests/utils/mintignore.js [flags]
  */
 
 const fs = require('fs');

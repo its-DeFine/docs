@@ -9,13 +9,13 @@ metadata:
   category: "governance"
   tier: "1"
 primary_paths:
-  - "tests/unit/style-guide.test.js"
-  - "tests/unit/mdx.test.js"
-  - "tests/unit/quality.test.js"
+  - "operations/tests/unit/style-guide.test.js"
+  - "operations/tests/unit/mdx.test.js"
+  - "operations/tests/unit/quality.test.js"
   - "v2/pages"
 primary_commands:
-  - "node tests/unit/style-guide.test.js --staged"
-  - "node tests/unit/quality.test.js --staged"
+  - "node operations/tests/unit/style-guide.test.js --staged"
+  - "node operations/tests/unit/quality.test.js --staged"
 ---
 
 SKILL: Style MDX Quality Fix Playbook
@@ -36,8 +36,8 @@ Workflow
 
 Command examples
 ```bash
-node tests/unit/style-guide.test.js --staged
-node tests/unit/quality.test.js --staged
+node operations/tests/unit/style-guide.test.js --staged
+node operations/tests/unit/quality.test.js --staged
 ```
 
 Deliverable Format

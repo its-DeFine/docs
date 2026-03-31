@@ -8,7 +8,7 @@
  * @needs             E-C1, R-R14
  * @purpose-statement Verifies docs.json-derived tab and group route scopes resolve to live files.
  * @pipeline          P1 (commit, via run-all)
- * @usage             node tests/unit/docs-route-scope.test.js
+ * @usage             node operations/tests/unit/docs-route-scope.test.js
  */
 
 const assert = require('assert');

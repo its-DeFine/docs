@@ -113,7 +113,7 @@ Either create a task folder for them or move to `plan/future/`.
 | 5 empty `source-of-truth.md` stubs in `docs-guide/` subdirectories | Delete — `source-of-truth-policy.mdx` already exists |
 | `docs-guide/features/ai-features.mdx` — 43 lines, stub level | Expand or explicitly mark as placeholder |
 | `tests/README.mdx` — empty file | Delete |
-| `tests/reports/` — no TTL policy | Add cleanup policy matching `tasks/reports/` retention |
+| `tests/reports/` — no TTL policy | Add cleanup policy matching `workspace/reports/` retention |
 | `snippets/composables/` — empty directory | Delete |
 | `snippets/templates/pages/tutorial-and-guides/tutorial-template.md` — 0 bytes | Delete |
 | `snippets/automations/showcase/README.md` — 0 bytes | Delete |
@@ -209,7 +209,7 @@ Lifecycle:
 ### Governance additions (write, not delete)
 
 21. **Add `_workspace/` lifecycle policy** — document when specs graduate and when archives are retained (see Section 5 above)
-22. **Add TTL policy for `tests/reports/`** — mirror the existing `tasks/reports/` retention workflow
+22. **Add TTL policy for `tests/reports/`** — mirror the existing `workspace/reports/` retention workflow
 23. **Write `_workspace/` governance** as a new entry in `docs-guide/policies/cleanup-quarantine-policy.mdx` or standalone
 
 ---

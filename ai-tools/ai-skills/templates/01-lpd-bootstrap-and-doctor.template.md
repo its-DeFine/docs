@@ -12,7 +12,7 @@ primary_paths:
   - "README.md"
   - "tools/lpd"
   - "tools/package.json"
-  - "tests/package.json"
+  - "operations/tests/package.json"
 primary_commands:
   - "bash tools/lpd setup --yes"
   - "bash tools/lpd doctor --strict"

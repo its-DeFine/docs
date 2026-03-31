@@ -9,7 +9,7 @@
  * @purpose-statement Unit tests for repair-spelling.js — validates deterministic spelling fixes and exclusion ranges
  * @pipeline          manual — not yet in pipeline
  * @dualmode          --dry-run (validator) | --write (remediator)
- * @usage             node tests/unit/repair-spelling.test.js [flags]
+ * @usage             node operations/tests/unit/repair-spelling.test.js [flags]
  */
 
 const assert = require('assert');
@@ -47,7 +47,7 @@ async function runCase(name, fn) {
       rule: 'repair-spelling unit',
       message: `${name}: ${error.message}`,
       line: 1,
-      file: 'tests/unit/repair-spelling.test.js'
+      file: 'operations/tests/unit/repair-spelling.test.js'
     });
   }
 }

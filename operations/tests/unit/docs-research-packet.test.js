@@ -3,12 +3,12 @@
  * @script            docs-research-packet.test
  * @category          generator
  * @purpose           tooling:dev-tools
- * @scope             tests/unit, operations/scripts/docs-research-packet.js, tools/config/scoped-navigation/docs-gate-work.json
+ * @scope             tests/unit, operations/scripts/dispatch/content/veracity/docs-research-packet.js, tools/config/scoped-navigation/docs-gate-work.json
  * @domain            docs
  * @needs             R-R27, R-R30
  * @purpose-statement Tests docs-research-packet.js — validates nav, manifest, and path tranche derivation plus packet-summary rollups for the generic research packet engine.
  * @pipeline          manual — packet generator validation
- * @usage             node tests/unit/docs-research-packet.test.js
+ * @usage             node operations/tests/unit/docs-research-packet.test.js
  */
 
 const assert = require('assert');

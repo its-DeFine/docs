@@ -12,11 +12,11 @@ metadata:
 primary_paths:
   - "snippets/snippetsWiki/mintlify-behaviour.mdx"
   - "snippets/pages"
-  - "tests/unit/mdx.test.js"
-  - "tests/unit/links-imports.test.js"
+  - "operations/tests/unit/mdx.test.js"
+  - "operations/tests/unit/links-imports.test.js"
 primary_commands:
   - "rg -n \"import .*\\.mdx\" snippets/pages v2/pages"
-  - "node tests/unit/links-imports.test.js --staged"
+  - "node operations/tests/unit/links-imports.test.js --staged"
 ---
 
 SKILL: MDX Parent-Child Scope Patterns
@@ -39,7 +39,7 @@ Workflow
 Command examples
 ```bash
 rg -n \"import .*\\.mdx\" snippets/pages v2/pages
-node tests/unit/links-imports.test.js --staged
+node operations/tests/unit/links-imports.test.js --staged
 ```
 
 Deliverable Format

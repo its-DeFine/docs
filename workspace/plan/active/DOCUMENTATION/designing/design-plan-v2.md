@@ -529,12 +529,12 @@ All R1–R23 and I1–I5 from `recommendations.md` — none deprecated.
 
 | Test | Command | Pass condition | When |
 |---|---|---|---|
-| Frontmatter coverage | `node tests/unit/docs-guide-sot.test.js --check` | All docs-guide pages have `consumer`, `maintenance`, `concern`, `status` | After Phase 3A |
-| Generated files current | `node tests/unit/script-docs.test.js --check` | Catalogs match source data | After Phase 3B |
+| Frontmatter coverage | `node operations/tests/unit/docs-guide-sot.test.js --check` | All docs-guide pages have `consumer`, `maintenance`, `concern`, `status` | After Phase 3A |
+| Generated files current | `node operations/tests/unit/script-docs.test.js --check` | Catalogs match source data | After Phase 3B |
 | Ownerless reachability | `node tools/scripts/validators/governance/compliance/validate-ownerless-surfaces.js --check` | All manifest `canonical_sources` paths exist | After Phase 5A |
 | Adapter parity | `node tools/scripts/validators/governance/compliance/validate-adapter-parity.js --check` | Critical AGENTS.md rules exist in `.claude/CLAUDE.md` | After Phase 5B |
 | Docs coverage | `node tools/scripts/audits/governance/documentation/audit-docs-coverage.js --check` | No uncatalogued surfaces; all required files non-empty | After Phase 5 |
-| Naming convention | `node tests/unit/docs-guide-sot.test.js --check-names` | All files follow concern-prefixed naming rules | After Phase 5B |
+| Naming convention | `node operations/tests/unit/docs-guide-sot.test.js --check-names` | All files follow concern-prefixed naming rules | After Phase 5B |
 
 ### Agent behaviour test (manual — after Phase 3)
 

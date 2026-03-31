@@ -412,9 +412,9 @@
 | ORCH-G | `v2/orchestrators/resources/glossary.mdx` |
 | 101 | `v2/resources/concepts/livepeer-101.mdx` |
 | DEFN | `v2/internal/definitions.mdx` |
-| CW-FW | `tasks/plan/active/CONTENT-WRITING/framework.md` |
-| COMP-S | `tasks/plan/active/COMPONENT-GOVERNANCE/structure.md` |
-| SCRIPT-S | `tasks/plan/active/SCRIPT-GOVERNANCE/structure.md` |
+| CW-FW | `workspace/plan/active/CONTENT-WRITING/Frameworks/content-pipeline-framework.md` |
+| COMP-S | `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md` |
+| SCRIPT-S | `workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md` |
 | TAX-FW | `docs-guide/frameworks/page-taxonomy-framework.mdx` |
 | PAGETYPE | `v2/_workspace/references/content-pipeline/01-page-type-definitions.md` |
 | CONTENT-SYS | `docs-guide/frameworks/content-system.mdx` |

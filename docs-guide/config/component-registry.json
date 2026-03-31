@@ -1,7 +1,7 @@
 {
   "_meta": {
     "generated": "2026-03-22T14:37:07.914Z",
-    "generator": "operations/scripts/generate-component-registry.js",
+    "generator": "operations/scripts/generators/components/library/generate-component-registry.js",
     "componentCount": 117
   },
   "categories": {

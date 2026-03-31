@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # @script      audit-python
 # @type        audit
-# @concern     governance
-# @niche       repo
-# @purpose     qa:repo-health
-# @description Python audit utility — runs Python-based audit checks (alternative to Node auditors)
+# @concern     content
+# @niche       quality
+# @purpose     qa:content-quality
+# @description Python page audit utility — validates routed docs files, snippet imports, and internal links, then writes page-audit reports
 # @mode        read-only
 # @pipeline    manual — not yet in pipeline
-# @scope       tasks/scripts
+# @scope       docs.json, v2, snippets, workspace/reports/page-audits
 # @usage       python3 operations/scripts/audits/content/quality/audit-python.py [flags]
 # @policy      E-C1, R-R14
 """
@@ -16,18 +16,13 @@ Runs file checks, MDX validation, and link checking
 """
 
 import json
-import os
 from pathlib import Path
 from datetime import datetime
 import re
 
-# Get absolute path to script, then go up 3 levels
-SCRIPT_DIR = Path(__file__).resolve().parent
-BASE_DIR = SCRIPT_DIR.parent.parent
-DOCS_JSON_PATH = BASE_DIR / 'docs.json'
-REPORT_DIR = BASE_DIR / 'tasks' / 'reports' / 'page-audits'
-V2_PAGES_DIR = BASE_DIR / 'v2' / 'pages'
-SNIPPETS_DIR = BASE_DIR / 'snippets'
+REPO_ROOT = Path(__file__).resolve().parents[5]
+DOCS_JSON_PATH = REPO_ROOT / 'docs.json'
+REPORT_DIR = REPO_ROOT / 'workspace' / 'reports' / 'page-audits'
 
 # Ensure report directory exists
 REPORT_DIR.mkdir(parents=True, exist_ok=True)
@@ -77,12 +72,12 @@ def is_intentional_redirect(page_path):
 def check_file_exists(page_path):
     """Check if file exists and return full path"""
     candidates = [
-        BASE_DIR / f"{page_path}.mdx",
-        BASE_DIR / f"{page_path}.md",
-        BASE_DIR / page_path / 'index.mdx',
-        BASE_DIR / page_path / 'index.md',
-        BASE_DIR / page_path / 'README.mdx',
-        BASE_DIR / page_path / 'README.md'
+        REPO_ROOT / f"{page_path}.mdx",
+        REPO_ROOT / f"{page_path}.md",
+        REPO_ROOT / page_path / 'index.mdx',
+        REPO_ROOT / page_path / 'index.md',
+        REPO_ROOT / page_path / 'README.mdx',
+        REPO_ROOT / page_path / 'README.md'
     ]
     for file_path in candidates:
         if file_path.exists():
@@ -102,7 +97,7 @@ def check_mdx_errors(file_path):
         for match in re.finditer(import_pattern, content):
             import_path = match.group(2)
             if import_path.startswith('/snippets/'):
-                full_path = BASE_DIR / import_path.lstrip('/')
+                full_path = REPO_ROOT / import_path.lstrip('/')
                 if '/components/' in import_path:
                     # Import path may already include .jsx extension
                     component_file = full_path
@@ -165,15 +160,22 @@ def check_link(link, current_page_path):
     if url.startswith('/'):
         # Absolute path from root
         target_path = url.lstrip('/').rstrip('/')
-        file_check = check_file_exists(f"v2/pages/{target_path}")
-        if not file_check['exists']:
-            return {'broken': True, 'reason': 'file_not_found', 'expected': f"v2/pages/{target_path}"}
+        candidates = [target_path]
+        if target_path and not target_path.startswith('v2/'):
+            candidates.append(f"v2/{target_path}")
+
+        for candidate in candidates:
+            file_check = check_file_exists(candidate)
+            if file_check['exists']:
+                return {'broken': False, 'reason': 'valid'}
+
+        return {'broken': True, 'reason': 'file_not_found', 'expected': ', '.join(candidates)}
     else:
         # Relative path
         current_dir = Path(current_page_path).parent
         target_path = (current_dir / url).resolve()
         try:
-            relative_path = target_path.relative_to(BASE_DIR)
+            relative_path = target_path.relative_to(REPO_ROOT)
             file_check = check_file_exists(str(relative_path).replace('.mdx', '').replace('.md', ''))
             if not file_check['exists']:
                 return {'broken': True, 'reason': 'file_not_found', 'expected': str(relative_path)}

@@ -12,7 +12,7 @@ primary_paths:
   - ".githooks/pre-commit"
   - ".githooks/verify.sh"
   - "docs-guide/contributing/git-hooks.mdx"
-  - "tests/WHEN-TESTS-RUN.md"
+  - "operations/tests/WHEN-TESTS-RUN.md"
 primary_commands:
   - "bash .githooks/pre-commit"
   - "bash .githooks/verify.sh"

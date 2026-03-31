@@ -18,7 +18,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const DEFAULT_OUTPUT_DIR = path.join('tasks', 'reports', 'copy-governance');
+const DEFAULT_OUTPUT_DIR = path.join('workspace', 'reports', 'copy-governance');
 
 const ESCALATION_MAP = {
   NOT_CONSTRUCTION: {

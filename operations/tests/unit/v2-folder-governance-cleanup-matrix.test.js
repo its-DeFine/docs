@@ -3,12 +3,12 @@
  * @script            v2-folder-governance-cleanup-matrix.test
  * @category          validator
  * @purpose           governance:repo-health
- * @scope             tests/unit, operations/scripts/generate-v2-folder-governance-cleanup-matrix.js
+ * @scope             tests/unit, operations/scripts/audits/governance/reports/generate-v2-folder-governance-cleanup-matrix.js
  * @domain            docs
  * @needs             E-C1, R-R14
  * @purpose-statement Unit tests for the v2 folder governance cleanup matrix generator — verifies core classification, targeting, and age-bucket rules.
  * @pipeline          manual — planning artifact validator
- * @usage             node tests/unit/v2-folder-governance-cleanup-matrix.test.js
+ * @usage             node operations/tests/unit/v2-folder-governance-cleanup-matrix.test.js
  */
 
 const assert = require('assert');

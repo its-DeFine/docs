@@ -8,7 +8,7 @@
  * @needs             E-R1, R-R11
  * @purpose-statement Content quality checks — validates frontmatter completeness, thin content detection, placeholder flagging
  * @pipeline          P1, P3
- * @usage             node tests/unit/quality.test.js [flags]
+ * @usage             node operations/tests/unit/quality.test.js [flags]
  */
 /**
  * Quality checks: alt text, links, frontmatter, SEO

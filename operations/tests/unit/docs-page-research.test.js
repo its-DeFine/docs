@@ -3,12 +3,12 @@
  * @script            docs-page-research.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, operations/scripts/docs-page-research.js, operations/scripts/docs-fact-registry.js, workspace/research/claims
+ * @scope             tests/unit, operations/scripts/audits/content/veracity/docs-page-research.js, operations/scripts/validators/content/veracity/docs-fact-registry.js, workspace/research/claims
  * @domain            docs
  * @needs             R-R27, R-R30
  * @purpose-statement Tests docs-page-research.js — validates claim extraction, contradiction detection, and evidence-source adapters for the experimental research runner.
  * @pipeline          manual — experimental research system
- * @usage             node tests/unit/docs-page-research.test.js [flags]
+ * @usage             node operations/tests/unit/docs-page-research.test.js [flags]
  */
 
 const assert = require('assert');

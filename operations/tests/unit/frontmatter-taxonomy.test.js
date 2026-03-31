@@ -8,7 +8,7 @@
  * @needs             E-R1, R-R11
  * @purpose-statement Verifies shared docs frontmatter taxonomy normalization and purpose mapping.
  * @pipeline          P1 (commit, via run-all)
- * @usage             node tests/unit/frontmatter-taxonomy.test.js
+ * @usage             node operations/tests/unit/frontmatter-taxonomy.test.js
  */
 
 const assert = require('assert');

@@ -1,13 +1,13 @@
 ---
 name: component-library-index-refresh
-version: "1.0"
 description: >-
-  Refresh component inventory documentation generated from snippets component directories. Use when tasks include update component inventory page, new component not listed in library index, refresh snippets wiki component tree.
-tier: 2
-invoke_when:
-  - "update component inventory page"
-  - "new component not listed in library index"
-  - "refresh snippets wiki component tree"
+  Refresh component inventory documentation generated from snippets component
+  directories. Use when: update component inventory page, new component not
+  listed in library index, refresh snippets wiki component tree.
+metadata:
+  version: "1.2"
+  category: "governance"
+  tier: "2"
 primary_paths:
   - "operations/scripts/snippets/update-component-library.sh"
   - "snippets/snippetsWiki/componentLibrary/index.mdx"

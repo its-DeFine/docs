@@ -1,7 +1,7 @@
 # Livepeer Docs — Copy Governance
 
 **Purpose**: Writing rules for all content prompts. Apply these to every piece of content produced.
-**Sources**: `tools/lib/copy-governance/banned-phrases.txt`, `tools/lib/copy-governance/banned-words.txt`, `tasks/plan/active/CONTENT-WRITING/Prompts/voice-rules.md`
+**Sources**: `tools/lib/copy-governance/banned-phrases.txt`, `tools/lib/copy-governance/banned-words.txt`, `workspace/plan/active/CONTENT-WRITING/Prompts/voice-rules.md`
 **Generated**: 2026-03-20
 
 ---
@@ -92,14 +92,14 @@ For tab-specific terminology, read the relevant per-tab glossary before writing 
 
 | Tab | File | Terms | Status |
 |---|---|---|---|
-| Home | `tasks/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-home.md` | 63 | current |
-| About | `tasks/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-about.md` | 58 | current |
-| Solutions | `tasks/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-solutions.md` | 74 | current |
-| Developers | `tasks/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-developers.md` | 73 | current |
-| Gateways | `tasks/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-gateways.md` | 65 | current |
-| Orchestrators | `tasks/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-orchestrators.md` | 115 | current |
-| LP Token | `tasks/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-lpt.md` | 94 | current |
-| Community | `tasks/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-community.md` | 97 | current |
-| Resources | `tasks/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-resources.md` | 98 | current |
+| Home | `workspace/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-home.md` | 63 | current |
+| About | `workspace/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-about.md` | 58 | current |
+| Solutions | `workspace/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-solutions.md` | 74 | current |
+| Developers | `workspace/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-developers.md` | 73 | current |
+| Gateways | `workspace/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-gateways.md` | 65 | current |
+| Orchestrators | `workspace/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-orchestrators.md` | 115 | current |
+| LP Token | `workspace/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-lpt.md` | 94 | current |
+| Community | `workspace/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-community.md` | 97 | current |
+| Resources | `workspace/plan/active/TERMINOLOGY-COLLATE/per-tab/glossary-resources.md` | 98 | current |
 
-Full glossary index (480 terms, cross-tab matrix, external links): `tasks/plan/active/TERMINOLOGY-COLLATE/consolidated/glossary-index.md`
+Full glossary index (480 terms, cross-tab matrix, external links): `workspace/plan/active/TERMINOLOGY-COLLATE/consolidated/glossary-index.md`

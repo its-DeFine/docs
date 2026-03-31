@@ -8,7 +8,7 @@
  * @needs             E-R1, R-R29
  * @purpose-statement Unit tests for the MDX runtime smoke helpers — covers arg parsing, sentinel route selection, trigger logic, and failure classification.
  * @pipeline          manual — targeted smoke helper coverage
- * @usage             node tests/unit/mdx-component-runtime-smoke.test.js
+ * @usage             node operations/tests/unit/mdx-component-runtime-smoke.test.js
  */
 
 const assert = require('assert');
@@ -26,7 +26,7 @@ async function runCase(name, fn) {
       rule: 'mdx-component-runtime-smoke unit',
       message: `${name}: ${error.message}`,
       line: 1,
-      file: 'tests/unit/mdx-component-runtime-smoke.test.js'
+      file: 'operations/tests/unit/mdx-component-runtime-smoke.test.js'
     });
   }
 }
@@ -61,7 +61,7 @@ async function runTests() {
       smoke.shouldRunForChangedFiles(['operations/scripts/validators/components/library/check-mdx-component-scope.js']),
       true
     );
-    assert.strictEqual(smoke.shouldRunForChangedFiles(['tests/integration/mdx-component-runtime-smoke.js']), true);
+    assert.strictEqual(smoke.shouldRunForChangedFiles(['operations/tests/integration/mdx-component-runtime-smoke.js']), true);
     assert.strictEqual(smoke.shouldRunForChangedFiles(['v2/home/mission-control.mdx']), true);
     assert.strictEqual(smoke.shouldRunForChangedFiles(['docs-guide/frameworks/component-governance.mdx']), false);
   });

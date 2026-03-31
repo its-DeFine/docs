@@ -37,8 +37,8 @@ export const HistoricalContractTable = ({ contracts = [], sourceData = {} }) => 
   };
 
   const data = [
-    ...flatten("arbitrumOne", sourceData.meta?.explorerUrls?.arbiscan || "https://arbiscan.io/address/"),
-    ...flatten("ethereumMainnet", sourceData.meta?.explorerUrls?.etherscan || "https://etherscan.io/address/"),
+    ...flatten("arbitrumOne", sourceData.meta?.explorerUrls?.arbiscanAddress || `${sourceData.meta?.explorerUrls?.arbiscan || "https://arbiscan.io"}/address/`),
+    ...flatten("ethereumMainnet", sourceData.meta?.explorerUrls?.etherscanAddress || `${sourceData.meta?.explorerUrls?.etherscan || "https://etherscan.io"}/address/`),
   ].reduce((acc, row) => {
     if (!acc[row.name]) acc[row.name] = [];
     acc[row.name].push(row);
