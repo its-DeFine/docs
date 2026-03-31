@@ -201,7 +201,7 @@ Three IA options were developed and evaluated:
 2. **Job-type-first navigation** — build / operate / stake / reference
 3. **System Map + Reference Bible** — DeepWiki-inspired approach with a comprehensive anchor-stable heading structure
 
-The deployed IA (confirmed live) is a persona-first model with the following top-level structure: Home, About, Platforms, Developers, Gateways, GPU Nodes, LP Token, Community, Resource HUB — directly mapping to the identified stakeholder groups.
+The deployed IA (confirmed live) is a persona-first model with the following top-level structure: Home, About, Platforms, Developers, Gateways, GPU Nodes, Delegators, Community, Resource HUB — directly mapping to the identified stakeholder groups.
 
 ### 3.5 Brand Strategy Analysis
 
@@ -215,7 +215,7 @@ A comprehensive brand strategy analysis was conducted examining Livepeer's messa
 
 **Proposed:** Present a new documentation strategy with stakeholder-oriented navigation.
 
-**Delivered:** A fully deployed information architecture at docs.livepeer.org/v2 with nine top-level sections (Home, About, Platforms, Developers, Gateways, GPU Nodes, LP Token, Community, Resource HUB), each corresponding to a stakeholder persona or functional area. The v2 IA includes:
+**Delivered:** A fully deployed information architecture at docs.livepeer.org/v2 with nine top-level sections (Home, About, Platforms, Developers, Gateways, GPU Nodes, Delegators, Community, Resource HUB), each corresponding to a stakeholder persona or functional area. The v2 IA includes:
 
 - Clear version boundaries between v1/ and v2/ with version switcher in the navigation bar
 - Reorganised navigation hierarchy around roles, journeys, and products
@@ -239,7 +239,7 @@ A comprehensive brand strategy analysis was conducted examining Livepeer's messa
 - Developers section: Building on Livepeer, real-time video streaming, AI inference and AI pipelines, builder opportunities, developer programs
 - Gateways portal and gateway operational documentation
 - GPU Nodes / Orchestrators portal
-- LP Token portal
+- Delegators portal
 - Community portal
 - Resource HUB
 
@@ -645,7 +645,7 @@ Content rewrites are estimated per section based on the number of pages, depth o
 | W12 | Gateways — portal, overview, operational guides                   | Portal + runbook pages                 | Very high — operational infrastructure knowledge | 16      | 28       | \_\_    |
 | W13 | Gateways — AI gateway quickstart and agent runbook                | Quickstart + agent-oriented page       | High — novel format requiring deep research      | 8       | 14       | \_\_    |
 | W14 | GPU Nodes / Orchestrators — portal + operational docs             | Portal + multiple runbook pages        | Very high — node operations expertise            | 15      | 25       | \_\_    |
-| W15 | LP Token — portal + staking/delegation docs                       | Portal + multiple pages                | Medium–high — DeFi/on-chain knowledge            | 10      | 16       | \_\_    |
+| W15 | Delegators — portal + staking/delegation docs                       | Portal + multiple pages                | Medium–high — DeFi/on-chain knowledge            | 10      | 16       | \_\_    |
 | W16 | Resource HUB — portal, docs guide, style guide, component library | Portal + 4+ guide pages                | Medium — documentation-about-documentation       | 10      | 16       | \_\_    |
 | W17 | Resource HUB — automations and workflows page                     | Technical automation guide             | High — requires full system knowledge            | 6       | 10       | \_\_    |
 | W18 | Resource HUB — governance and internal docs                       | Governance page + internal pages       | Medium                                           | 6       | 10       | \_\_    |

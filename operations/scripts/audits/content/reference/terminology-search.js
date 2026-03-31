@@ -60,7 +60,7 @@ const V2_PAGES_DIRS = [
   'v2/developers',
   'v2/gateways',
   'v2/orchestrators',
-  'v2/lpt',
+  'v2/delegators',
   'v2/resources',
   'v2/internal',
   'v2/deprecated',

@@ -49,8 +49,8 @@
     {
       "mechanism": "props-extracted",
       "sourceComponent": "SearchTable",
-      "sourcePage": "v2/lpt/resources/compendium/glossary.mdx",
-      "companionPath": "v2/lpt/resources/compendium/glossary-data.json",
+      "sourcePage": "v2/delegators/resources/compendium/glossary.mdx",
+      "companionPath": "v2/delegators/resources/compendium/glossary-data.json",
       "lastUpdated": "2026-03-21T00:00:00.000Z",
       "status": "current"
     },

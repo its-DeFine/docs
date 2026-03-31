@@ -24,7 +24,7 @@ const DOMAIN_RENAME_MAP = {
   '03_developers': 'developers',
   '04_gateways': 'gateways',
   '05_orchestrators': 'orchestrators',
-  '06_lptoken': 'lpt',
+  '06_lptoken': 'delegators',
   '07_resources': 'resources',
   '09_internal': 'internal',
   deprecated: 'deprecated',

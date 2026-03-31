@@ -72,16 +72,16 @@
     "Orchestrator Troubleshooting": null,
     "Orchestrator FAQ": "v2/orchestrators/resources/faq.mdx"
   },
-  "LP TOKEN": {
-    "LPT Portal": "v2/lpt/token-portal.mdx",
-    "What is Delegation?": "v2/lpt/delegation/overview.mdx",
-    "Delegation Economics": "v2/lpt/delegation/delegation-economics.mdx",
-    "Delegate Your LPT": "v2/lpt/delegation/delegation-guide.mdx",
-    "Getting LPT": "v2/lpt/delegation/getting-started.mdx",
-    "Choosing an Orchestrator": "v2/lpt/delegation/about-delegators.mdx",
-    "Managing Your Delegation": "v2/lpt/delegation/delegation-guide.mdx",
-    "Livepeer Governance": "v2/lpt/governance/overview.mdx",
-    "Treasury & Proposals": "v2/lpt/treasury/overview.mdx",
+  "DELEGATORS": {
+    "Delegators Portal": "v2/delegators/token-portal.mdx",
+    "What is Delegation?": "v2/delegators/delegation/overview.mdx",
+    "Delegation Economics": "v2/delegators/delegation/delegation-economics.mdx",
+    "Delegate Your LPT": "v2/delegators/delegation/delegation-guide.mdx",
+    "Getting LPT": "v2/delegators/delegation/getting-started.mdx",
+    "Choosing an Orchestrator": "v2/delegators/delegation/about-delegators.mdx",
+    "Managing Your Delegation": "v2/delegators/delegation/delegation-guide.mdx",
+    "Livepeer Governance": "v2/delegators/governance/overview.mdx",
+    "Treasury & Proposals": "v2/delegators/treasury/overview.mdx",
     "Delegator FAQ & Troubleshooting": null
   },
   "COMMUNITY": {

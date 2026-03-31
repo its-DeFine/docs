@@ -50,7 +50,8 @@ const DOMAIN_IMAGES = {
     "/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg",
   orchestrators:
     "/snippets/assets/domain/05_ORCHESTRATORS/social-preview-orchestrators.jpg",
-  lpt: "/snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg",
+  delegators:
+    "/snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg",
   resources: "/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg",
   internal: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
   solutions: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
