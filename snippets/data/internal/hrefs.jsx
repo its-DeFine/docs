@@ -1,70 +1,5 @@
 export const LINK_MAP = {
   "v2/internal/definitions.mdx": [],
-  "v2/internal/docs-philosophy.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/internal/rfp/reports/livepeer-ai-first-docs-plan.pdf",
-      "resolvedPath": "v2/internal/rfp/reports/livepeer-ai-first-docs-plan.pdf",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://player.simplecast.com/27863aa4-9767-4c51-a1b9-7d220bb0af69?dark=true",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://creators.spotify.com/pod/profile/ycombinator/embed/episodes/OpenClaw-And-The-Future-Of-Personal-AI-Agents-e3eonov/a-acf7n3i",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://stackoverflow.blog/2024/11/26/your-docs-are-your-infrastructure/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://creators.spotify.com/pod/profile/ycombinator/episodes/OpenClaw-And-The-Future-Of-Personal-AI-Agents-e3eonov/a-acf7n3i",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://www.youtube.com/watch?v=9yLIPZ4iBLw",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://github.blog/developer-skills/documentation-done-right-a-developers-guide/#:~:text=Keep%20it%20clear,where%20to%20find%20specific%20information",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    }
-  ],
   "v2/internal/ecosystem.mdx": [],
   "v2/internal/internal-overview.mdx": [
     {
@@ -116,10 +51,14 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./docs-philosophy",
-      "resolvedPath": "v2/internal/docs-philosophy.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
+      "resolvedPath": "v2/internal/docs-philosophy",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/internal/overview/docs-philosophy.mdx",
+        "snippets/composables/pages/internal/docs-philosophy.mdx",
+        "workspace/plan/active/CONTENT-WRITING/Prompts/Prompts-By-Phase/_research-and-consolidated-notes/prompt-guides-guards-resources/docs-philosophy-authoring.md"
+      ]
     },
     {
       "sourceType": "jsx-attr",
@@ -252,123 +191,16 @@ export const LINK_MAP = {
   ],
   "v2/internal/overview/docs-philosophy.mdx": [
     {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/quickstart/AI-prompt",
-      "resolvedPath": "v2/gateways/quickstart/AI-prompt.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://player.simplecast.com/f6d42d55-3e7d-4d92-8517-8d84c18386af?dark=true",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://stackoverflow.blog/2024/11/26/your-docs-are-your-infrastructure/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://creators.spotify.com/pod/profile/ycombinator/episodes/OpenClaw-And-The-Future-Of-Personal-AI-Agents-e3eonov/a-acf7n3i",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://www.youtube.com/watch?v=9yLIPZ4iBLw",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://github.blog/developer-skills/documentation-done-right-a-developers-guide/#:~:text=Keep%20it%20clear,where%20to%20find%20specific%20information",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/internal/rfp/reports/livepeer-ai-first-docs-plan.pdf",
-      "resolvedPath": "v2/internal/rfp/reports/livepeer-ai-first-docs-plan.pdf",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/internal/rfp/reports/livepeer-ai-first-docs-plan.pdf",
-      "resolvedPath": "v2/internal/rfp/reports/livepeer-ai-first-docs-plan.pdf",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/displays/quotes/Quote.jsx",
-      "resolvedPath": "snippets/components/displays/quotes/Quote.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/elements/buttons/Buttons.jsx",
-      "resolvedPath": "snippets/components/elements/buttons/Buttons.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/elements/text/CustomCardTitle.jsx",
-      "resolvedPath": "snippets/components/elements/text/CustomCardTitle.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/integrators/embeds/DataEmbed.jsx",
-      "resolvedPath": "snippets/components/integrators/embeds/DataEmbed.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/wrappers/containers/Containers.jsx",
-      "resolvedPath": "snippets/components/wrappers/containers/Containers.jsx",
+      "rawPath": "/snippets/composables/pages/internal/docs-philosophy.mdx",
+      "resolvedPath": "snippets/composables/pages/internal/docs-philosophy.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
+  "v2/internal/overview/governance-pipeline.mdx": [],
   "v2/internal/overview/governance.mdx": [
     {
       "sourceType": "markdown-link",
@@ -487,15 +319,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/wrappers/containers/Containers.jsx",
-      "resolvedPath": "snippets/components/wrappers/containers/Containers.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/displays/video/Video.jsx",
       "resolvedPath": "snippets/components/displays/video/Video.jsx",
       "exists": true,
@@ -547,8 +370,118 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/v2/internal/overview/docs-philosophy.mdx",
-      "resolvedPath": "v2/internal/overview/docs-philosophy.mdx",
+      "rawPath": "/snippets/composables/pages/internal/docs-philosophy.mdx",
+      "resolvedPath": "snippets/composables/pages/internal/docs-philosophy.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "snippets/composables/pages/internal/docs-philosophy.mdx": [
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/gateways/quickstart/AI-prompt",
+      "resolvedPath": "v2/gateways/quickstart/AI-prompt.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/internal/rfp/reports/livepeer-ai-first-docs-plan.pdf",
+      "resolvedPath": "v2/internal/rfp/reports/livepeer-ai-first-docs-plan.pdf",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://player.simplecast.com/f6d42d55-3e7d-4d92-8517-8d84c18386af?dark=true",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://player.simplecast.com/27863aa4-9767-4c51-a1b9-7d220bb0af69?dark=true",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://creators.spotify.com/pod/profile/ycombinator/embed/episodes/OpenClaw-And-The-Future-Of-Personal-AI-Agents-e3eonov/a-acf7n3i",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://stackoverflow.blog/2024/11/26/your-docs-are-your-infrastructure/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://creators.spotify.com/pod/profile/ycombinator/episodes/OpenClaw-And-The-Future-Of-Personal-AI-Agents-e3eonov/a-acf7n3i",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://www.youtube.com/watch?v=9yLIPZ4iBLw",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://github.blog/developer-skills/documentation-done-right-a-developers-guide/#:~:text=Keep%20it%20clear,where%20to%20find%20specific%20information",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/displays/quotes/Quote.jsx",
+      "resolvedPath": "snippets/components/displays/quotes/Quote.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/elements/buttons/Buttons.jsx",
+      "resolvedPath": "snippets/components/elements/buttons/Buttons.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/elements/text/CustomCardTitle.jsx",
+      "resolvedPath": "snippets/components/elements/text/CustomCardTitle.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

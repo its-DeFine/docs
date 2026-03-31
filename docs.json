@@ -2983,63 +2983,63 @@
                 ]
               },
               {
-                "tab": "LP Token",
+                "tab": "Delegators",
                 "icon": "hand-holding-dollar",
                 "anchors": [
                   {
-                    "anchor": "Delegators & LPT",
+                    "anchor": "Delegators",
                     "icon": "hand-holding-dollar",
                     "groups": [
                       {
                         "group": "About LPT",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/lpt/token-portal",
-                          "v2/lpt/about/overview",
-                          "v2/lpt/about/purpose",
-                          "v2/lpt/about/tokenomics",
-                          "v2/lpt/about/mechanics"
+                          "v2/delegators/token-portal",
+                          "v2/delegators/about/overview",
+                          "v2/delegators/about/purpose",
+                          "v2/delegators/about/tokenomics",
+                          "v2/delegators/about/mechanics"
                         ]
                       },
                       {
                         "group": "Delegating LPT",
                         "icon": "money-bill-transfer",
                         "pages": [
-                          "v2/lpt/delegation/getting-started",
-                          "v2/lpt/delegation/overview",
-                          "v2/lpt/delegation/delegation-economics",
-                          "v2/lpt/delegation/about-delegators",
-                          "v2/lpt/delegation/delegation-guide",
-                          "v2/lpt/delegation/bridge-lpt-to-arbitrum"
+                          "v2/delegators/delegation/getting-started",
+                          "v2/delegators/delegation/overview",
+                          "v2/delegators/delegation/delegation-economics",
+                          "v2/delegators/delegation/about-delegators",
+                          "v2/delegators/delegation/delegation-guide",
+                          "v2/delegators/delegation/bridge-lpt-to-arbitrum"
                         ]
                       },
                       {
                         "group": "Livepeer Governance",
                         "icon": "box-ballot",
                         "pages": [
-                          "v2/lpt/governance/overview",
-                          "v2/lpt/governance/model",
-                          "v2/lpt/governance/processes"
+                          "v2/delegators/governance/overview",
+                          "v2/delegators/governance/model",
+                          "v2/delegators/governance/processes"
                         ]
                       },
                       {
                         "group": "Livepeer Treasury",
                         "pages": [
-                          "v2/lpt/treasury/overview",
-                          "v2/lpt/treasury/proposals",
-                          "v2/lpt/treasury/allocations"
+                          "v2/delegators/treasury/overview",
+                          "v2/delegators/treasury/proposals",
+                          "v2/delegators/treasury/allocations"
                         ]
                       },
                       {
                         "group": "Guides & Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/lpt/resources/delegator-videos-and-blogs",
-                          "v2/lpt/resources/exchanges",
-                          "v2/lpt/resources/lpt-eth-usage",
+                          "v2/delegators/resources/delegator-videos-and-blogs",
+                          "v2/delegators/resources/exchanges",
+                          "v2/delegators/resources/lpt-eth-usage",
                           {
                             "group": "Compendium",
-                            "pages": ["v2/lpt/resources/compendium/glossary"]
+                            "pages": ["v2/delegators/resources/compendium/glossary"]
                           }
                         ]
                       }
@@ -3530,6 +3530,14 @@
     {
       "source": "/api-reference/:slug*",
       "destination": "/v1/api-reference/:slug*"
+    },
+    {
+      "source": "/v2/lpt",
+      "destination": "/v2/delegators"
+    },
+    {
+      "source": "/v2/lpt/:slug*",
+      "destination": "/v2/delegators/:slug*"
     },
     {
       "source": "/delegators/:slug*",

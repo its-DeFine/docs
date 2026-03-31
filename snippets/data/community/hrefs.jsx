@@ -320,8 +320,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/lpt",
-      "resolvedPath": "v2/lpt/index.mdx",
+      "rawPath": "/v2/delegators",
+      "resolvedPath": "v2/delegators/index.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -720,8 +720,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/lpt",
-      "resolvedPath": "v2/lpt/index.mdx",
+      "rawPath": "/v2/delegators",
+      "resolvedPath": "v2/delegators/index.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1121,6 +1121,51 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/solutions/daydream/community",
+      "resolvedPath": "v2/solutions/daydream/community.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/solutions/livepeer-studio/community",
+      "resolvedPath": "v2/solutions/livepeer-studio/community.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/solutions/streamplace/community",
+      "resolvedPath": "v2/solutions/streamplace/community.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/solutions/embody/community",
+      "resolvedPath": "v2/solutions/embody/community.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/solutions/frameworks/community",
+      "resolvedPath": "v2/solutions/frameworks/community.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
       "linkType": "external-https",
       "rawPath": "https://www.youtube.com/watch?v=-iO7HsR3KE4&#x26;list=PLkw6hm1fcjtF1OYFCF20AwBUtGygQxTQV&#x26;index=3",
       "resolvedPath": null,
@@ -1178,6 +1223,15 @@ export const LINK_MAP = {
       "linkType": "import-path",
       "rawPath": "/snippets/components/elements/links/Links.jsx",
       "resolvedPath": "snippets/components/elements/links/Links.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/wrappers/containers/ScrollBox.jsx",
+      "resolvedPath": "snippets/components/wrappers/containers/ScrollBox.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1832,6 +1886,323 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
+  "v2/community/resources/compendium/glossary.mdx": [
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-relative",
+      "rawPath": "./glossary-data.json",
+      "resolvedPath": "v2/community/resources/compendium/glossary-data.json",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/wiki/blob/master/WHITEPAPER.md",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://livepeer.org/docs/video-developers/core-concepts/payments",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://en.wikipedia.org/wiki/Quadratic_voting",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://blog.ethereum.org/en/2026/02/27/project-odin",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://en.wikipedia.org/wiki/United_States_dollar",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://www.conventionalcommits.org/en/v1.0.0/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://dune.com/home",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://en.wikipedia.org/wiki/Failover",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://grafana.com/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://prometheus.io/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://docs.arbitrum.io/welcome/arbitrum-gentle-introduction",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://forum.livepeer.org/t/an-overview-of-bonding/97",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://en.wikipedia.org/wiki/Decentralized_autonomous_organization",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://forum.livepeer.org/t/introducing-the-merklemine/204",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://www.livepeer.org/primer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://en.wikipedia.org/wiki/Cryptoeconomics",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://en.wikipedia.org/wiki/Autonomous_agent",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://huggingface.co/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://www.ultralytics.com/glossary/real-time-inference",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://en.wikipedia.org/wiki/Generative_artificial_intelligence",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://en.wikipedia.org/wiki/Graphics_processing_unit",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://mistserver.org/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://en.wikipedia.org/wiki/Open-source_software",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://en.wikipedia.org/wiki/Remote_procedure_call",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://en.wikipedia.org/wiki/Transcoding",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/community",
+      "resolvedPath": "v2/community/index.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/resources/livepeer-glossary",
+      "resolvedPath": "v2/resources/livepeer-glossary.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/community/faq",
+      "resolvedPath": "v2/community/faq.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/wrappers/tables/SearchTable.jsx",
+      "resolvedPath": "snippets/components/wrappers/tables/SearchTable.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/wrappers/tables/Table.jsx",
+      "resolvedPath": "snippets/components/wrappers/tables/Table.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/elements/spacing/Divider.jsx",
+      "resolvedPath": "snippets/components/elements/spacing/Divider.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/wrappers/containers/LazyLoad.jsx",
+      "resolvedPath": "snippets/components/wrappers/containers/LazyLoad.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/v2/solutions/data/badges.jsx",
+      "resolvedPath": "v2/solutions/data/badges.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
   "v2/community/resources/dashboards.mdx": [
     {
       "sourceType": "jsx-attr",
@@ -1847,8 +2218,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/lpt/delegation/overview",
-      "resolvedPath": "v2/lpt/delegation/overview.mdx",
+      "rawPath": "/v2/delegators/delegation/overview",
+      "resolvedPath": "v2/delegators/delegation/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1965,10 +2336,14 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
       "rawPath": "/v2/developers/ai-pipelines/overview",
-      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
+      "resolvedPath": "v2/developers/ai-pipelines/overview",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/about/livepeer-network/overview.mdx",
+        "v2/about/livepeer-protocol/overview.mdx",
+        "v2/delegators/about/overview.mdx"
+      ]
     },
     {
       "sourceType": "jsx-attr",

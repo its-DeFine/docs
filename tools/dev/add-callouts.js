@@ -330,7 +330,7 @@ const pagesDirs = [
   path.join(__dirname, '../../../v2/developers'),
   path.join(__dirname, '../../../v2/gateways'),
   path.join(__dirname, '../../../v2/orchestrators'),
-  path.join(__dirname, '../../../v2/lpt'),
+  path.join(__dirname, '../../../v2/delegators'),
   path.join(__dirname, '../../../v2/resources'),
   path.join(__dirname, '../../../v2/internal'),
   path.join(__dirname, '../../../v2/deprecated'),

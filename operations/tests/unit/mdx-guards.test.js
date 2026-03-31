@@ -137,7 +137,7 @@ function checkGlobalsImportPath(rootDir) {
 }
 
 function checkLptMathDelimiters(rootDir) {
-  const files = collectMdxFiles(rootDir, 'v2/lpt');
+  const files = collectMdxFiles(rootDir, 'v2/delegators');
   const pattern = /\\\(|\\\[/g;
 
   files.forEach((filePath) => {

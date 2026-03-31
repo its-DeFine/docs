@@ -320,6 +320,174 @@
     <ai:lastVerified>2026-03-02</ai:lastVerified>
   </url>
   <url>
+    <loc>https://docs.livepeer.org/v2/delegators/about/mechanics</loc>
+    <lastmod>2026-03-31T10:55:18.625Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>371</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.625Z</ai:lastVerified>
+    <ai:tags>livepeer, lpt, mechanics, bonding, unbonding, staking, rewards, rounds</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/about/overview</loc>
+    <lastmod>2026-03-31T10:55:18.625Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>466</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.625Z</ai:lastVerified>
+    <ai:tags>livepeer, lpt, overview, token, staking, governance, economics, arbitrum</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/about/purpose</loc>
+    <lastmod>2026-03-31T10:55:18.625Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>1288</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.625Z</ai:lastVerified>
+    <ai:tags>livepeer, delegators, about lpt livepeer token, purpose, delegation</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/about/tokenomics</loc>
+    <lastmod>2026-03-31T10:55:18.625Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>398</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.625Z</ai:lastVerified>
+    <ai:tags>livepeer, lpt, tokenomics, inflation, staking, rewards, bonding rate, economics</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/delegation/about-delegators</loc>
+    <lastmod>2026-03-31T10:55:18.627Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>598</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.627Z</ai:lastVerified>
+    <ai:tags>livepeer, lpt, delegators, staking, delegation, rewards, governance, risk</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/delegation/bridge-lpt-to-arbitrum</loc>
+    <lastmod>2026-03-31T10:55:18.627Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>2758</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.627Z</ai:lastVerified>
+    <ai:tags>livepeer, LPT, bridge, arbitrum, ethereum, token transfer, L1, L2, CEX, DEX, exchange, Uniswap, Binance, OKX</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/delegation/delegation-economics</loc>
+    <lastmod>2026-03-31T10:55:18.627Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>13</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.627Z</ai:lastVerified>
+    <ai:tags>livepeer, lpt, delegation, economics, staking, rewards, orchestrators, delegators</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/delegation/delegation-guide</loc>
+    <lastmod>2026-03-31T10:55:18.627Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>495</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.627Z</ai:lastVerified>
+    <ai:tags>livepeer, lpt, delegation, staking, bonding, unbonding, rewards, guide</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/delegation/getting-started</loc>
+    <lastmod>2026-03-31T11:01:34.793Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>960</ai:wordCount>
+    <ai:lastVerified>2026-03-31T11:01:34.793Z</ai:lastVerified>
+    <ai:tags>livepeer, delegate lpt, staking, delegation, orchestrator, rewards, bonding, livepeer explorer</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/delegation/overview</loc>
+    <lastmod>2026-03-31T10:55:18.627Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>500</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.627Z</ai:lastVerified>
+    <ai:tags>livepeer, lpt, delegation, staking, bonding, orchestrators, rewards, economics</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/governance/model</loc>
+    <lastmod>2026-03-31T10:55:18.627Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>697</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.627Z</ai:lastVerified>
+    <ai:tags>livepeer, lpt, governance, model, quorum, voting, timelock, security</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/governance/overview</loc>
+    <lastmod>2026-03-31T10:55:18.628Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>639</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.628Z</ai:lastVerified>
+    <ai:tags>livepeer, lpt, governance, voting, LIPs, SPE, proposals</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/governance/processes</loc>
+    <lastmod>2026-03-31T11:01:34.793Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>945</ai:wordCount>
+    <ai:lastVerified>2026-03-31T11:01:34.793Z</ai:lastVerified>
+    <ai:tags>livepeer, lpt, governance, processes, voting, LIPs, treasury, proposals</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/resources/compendium/glossary</loc>
+    <lastmod>2026-03-31T11:01:34.794Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>4868</ai:wordCount>
+    <ai:lastVerified>2026-03</ai:lastVerified>
+    <ai:tags>livepeer, glossary, lpt, terminology, staking, tokenomics, governance</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/resources/delegator-videos-and-blogs</loc>
+    <lastmod>2026-03-31T10:55:18.628Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>285</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.628Z</ai:lastVerified>
+    <ai:tags>livepeer, delegators, LPT, staking, video, tutorial, blogs, delegate</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/resources/exchanges</loc>
+    <lastmod>2026-03-31T10:55:18.629Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>433</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.629Z</ai:lastVerified>
+    <ai:tags>livepeer, delegators, token resources, lpt exchanges, exchanges, listed, where</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/resources/lpt-eth-usage</loc>
+    <lastmod>2026-03-31T10:55:18.629Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>146</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.629Z</ai:lastVerified>
+    <ai:tags>livepeer, delegators, token resources, lpt eth usage, token, functions, tokens, protocol</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/token-portal</loc>
+    <lastmod>2026-03-31T11:02:34.391Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>152</ai:wordCount>
+    <ai:lastVerified>2026-03-31T11:02:34.391Z</ai:lastVerified>
+    <ai:tags>Start Here, livepeer, delegators, token portal, token, home, portal, welcome</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/treasury/allocations</loc>
+    <lastmod>2026-03-31T10:55:18.629Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>494</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.629Z</ai:lastVerified>
+    <ai:tags>livepeer, treasury, allocations, governance, grants, funding, accountability</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/treasury/overview</loc>
+    <lastmod>2026-03-31T10:55:18.629Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>395</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.629Z</ai:lastVerified>
+    <ai:tags>livepeer, lpt, treasury, governance, grants, funding, ecosystem</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/delegators/treasury/proposals</loc>
+    <lastmod>2026-03-31T10:55:18.629Z</lastmod>
+    <ai:section>delegators</ai:section>
+    <ai:wordCount>596</ai:wordCount>
+    <ai:lastVerified>2026-03-31T10:55:18.629Z</ai:lastVerified>
+    <ai:tags>livepeer, lpt, treasury, proposals, governance, grants, execution</ai:tags>
+  </url>
+  <url>
     <loc>https://docs.livepeer.org/v2/developers/build/byoc</loc>
     <lastmod>2026-03-17T06:36:42+11:00</lastmod>
     <ai:section>developers</ai:section>
@@ -897,7 +1065,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/quickstart/gateway-setup</loc>
-    <lastmod>2026-03-20T19:14:01+11:00</lastmod>
+    <lastmod>2026-03-31T05:10:11+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>318</ai:wordCount>
     <ai:lastVerified>2026-03-17</ai:lastVerified>
@@ -1316,18 +1484,18 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/setup/install/linux-install</loc>
-    <lastmod>2026-03-20T19:14:01+11:00</lastmod>
+    <lastmod>2026-03-31T05:10:11+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>297</ai:wordCount>
-    <ai:lastVerified>2026-03-20T19:14:01+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T05:10:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, gateways, run a gateway, install, linux install, linux, gateway</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/setup/install/windows-install</loc>
-    <lastmod>2026-03-20T19:14:01+11:00</lastmod>
+    <lastmod>2026-03-31T05:10:11+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>220</ai:wordCount>
-    <ai:lastVerified>2026-03-20T19:14:01+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T05:10:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, gateways, run a gateway, install, windows install, windows, gateway</ai:tags>
   </url>
   <url>
@@ -1457,174 +1625,6 @@
     <ai:wordCount>1330</ai:wordCount>
     <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
     <ai:tags>livepeer, home, project showcase, industry verticals, industry, applications</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/about/mechanics</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>371</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, mechanics, bonding, unbonding, staking, rewards, rounds</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/about/overview</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>466</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, overview, token, staking, governance, economics, arbitrum</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/about/purpose</loc>
-    <lastmod>2026-03-18T19:00:47+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>1288</ai:wordCount>
-    <ai:lastVerified>2026-03-18T19:00:47+11:00</ai:lastVerified>
-    <ai:tags>livepeer, delegators, about lpt livepeer token, purpose, delegation</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/about/tokenomics</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>398</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, tokenomics, inflation, staking, rewards, bonding rate, economics</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/delegation/about-delegators</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>598</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, delegators, staking, delegation, rewards, governance, risk</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/delegation/bridge-lpt-to-arbitrum</loc>
-    <lastmod>2026-03-31T04:09:00+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>2758</ai:wordCount>
-    <ai:lastVerified>2026-03-31T04:09:00+11:00</ai:lastVerified>
-    <ai:tags>livepeer, LPT, bridge, arbitrum, ethereum, token transfer, L1, L2, CEX, DEX, exchange, Uniswap, Binance, OKX</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/delegation/delegation-economics</loc>
-    <lastmod>2026-03-17T06:36:42+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>13</ai:wordCount>
-    <ai:lastVerified>2026-03-17T06:36:42+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, delegation, economics, staking, rewards, orchestrators, delegators</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/delegation/delegation-guide</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>495</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, delegation, staking, bonding, unbonding, rewards, guide</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/delegation/getting-started</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>960</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
-    <ai:tags>livepeer, delegate lpt, staking, delegation, orchestrator, rewards, bonding, livepeer explorer</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/delegation/overview</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>500</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, delegation, staking, bonding, orchestrators, rewards, economics</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/governance/model</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>697</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, governance, model, quorum, voting, timelock, security</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/governance/overview</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>639</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, governance, voting, LIPs, SPE, proposals</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/governance/processes</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>945</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, governance, processes, voting, LIPs, treasury, proposals</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/resources/compendium/glossary</loc>
-    <lastmod>2026-03-27T14:54:21+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>4868</ai:wordCount>
-    <ai:lastVerified>2026-03</ai:lastVerified>
-    <ai:tags>livepeer, glossary, lpt, terminology, staking, tokenomics, governance</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/resources/delegator-videos-and-blogs</loc>
-    <lastmod>2026-03-17T06:36:42+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>285</ai:wordCount>
-    <ai:lastVerified>2026-03-17T06:36:42+11:00</ai:lastVerified>
-    <ai:tags>livepeer, delegators, LPT, staking, video, tutorial, blogs, delegate</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/resources/exchanges</loc>
-    <lastmod>2026-03-17T06:36:42+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>433</ai:wordCount>
-    <ai:lastVerified>2026-03-17T06:36:42+11:00</ai:lastVerified>
-    <ai:tags>livepeer, delegators, token resources, lpt exchanges, exchanges, listed, where</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/resources/lpt-eth-usage</loc>
-    <lastmod>2026-03-17T06:36:42+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>146</ai:wordCount>
-    <ai:lastVerified>2026-03-17T06:36:42+11:00</ai:lastVerified>
-    <ai:tags>livepeer, delegators, token resources, lpt eth usage, token, functions, tokens, protocol</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/token-portal</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>152</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
-    <ai:tags>Start Here, livepeer, delegators, token portal, token, home, portal, welcome</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/treasury/allocations</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>494</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
-    <ai:tags>livepeer, treasury, allocations, governance, grants, funding, accountability</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/treasury/overview</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>395</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, treasury, governance, grants, funding, ecosystem</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/lpt/treasury/proposals</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
-    <ai:section>lpt</ai:section>
-    <ai:wordCount>596</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, treasury, proposals, governance, grants, execution</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/concepts/architecture</loc>
@@ -1941,7 +1941,7 @@
     <loc>https://docs.livepeer.org/v2/orchestrators/guides/staking-and-rewards/delegate-operations</loc>
     <lastmod>2026-03-19T21:20:19+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
-    <ai:wordCount>1396</ai:wordCount>
+    <ai:wordCount>1395</ai:wordCount>
     <ai:lastVerified>2026-03-19T21:20:19+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrator, delegators, lpt delegation, stake, reward cut, fee share, orchestrator reputation, yield calculation, roi</ai:tags>
   </url>
@@ -2371,10 +2371,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/ai-automations/automations-workflows</loc>
-    <lastmod>2026-03-30T08:29:06+11:00</lastmod>
+    <lastmod>2026-03-31T05:10:11+11:00</lastmod>
     <ai:section>resources</ai:section>
-    <ai:wordCount>3933</ai:wordCount>
-    <ai:lastVerified>2026-03-30T08:29:06+11:00</ai:lastVerified>
+    <ai:wordCount>3937</ai:wordCount>
+    <ai:lastVerified>2026-03-31T05:10:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, resources, documentation guide, automations, workflows, scripts, github actions, n8n, pre-commit, hooks</ai:tags>
   </url>
   <url>
@@ -2451,10 +2451,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/copy-style/authoring-guide</loc>
-    <lastmod>2026-03-31T04:33:04+11:00</lastmod>
+    <lastmod>2026-03-31T05:10:11+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>910</ai:wordCount>
-    <ai:lastVerified>2026-03-31T04:33:04+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T05:10:11+11:00</ai:lastVerified>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/copy-style/authoring-standard</loc>
@@ -2482,7 +2482,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/documentation-overview</loc>
-    <lastmod>2026-03-17T06:36:42+11:00</lastmod>
+    <lastmod>2026-03-31T05:10:11+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>421</ai:wordCount>
     <ai:lastVerified>2026-03-17</ai:lastVerified>

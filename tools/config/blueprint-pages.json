@@ -448,7 +448,7 @@
     "job": "Frequently asked questions."
   },
   {
-    "tab": "LP TOKEN",
+    "tab": "DELEGATORS",
     "position": 1,
     "name": "LPT Portal",
     "content_type": "landing",
@@ -456,7 +456,7 @@
     "job": "Route by goal: \"Stake my LPT\" \u2192 Delegation path. \"Participate in governance\" \u2192 Governance. \"Understand the token\" \u2192 Over"
   },
   {
-    "tab": "LP TOKEN",
+    "tab": "DELEGATORS",
     "position": 2,
     "name": "What is Delegation?",
     "content_type": "overview",
@@ -464,7 +464,7 @@
     "job": "Plain-language: how delegation works, what rewards look like, what the risks are."
   },
   {
-    "tab": "LP TOKEN",
+    "tab": "DELEGATORS",
     "position": 2,
     "name": "Delegation Economics",
     "content_type": "concept",
@@ -472,7 +472,7 @@
     "job": "The math. Reward share, fee distribution, how orchestrator selection affects returns. Yield calculation."
   },
   {
-    "tab": "LP TOKEN",
+    "tab": "DELEGATORS",
     "position": 3,
     "name": "Delegate Your LPT",
     "content_type": "tutorial",
@@ -480,7 +480,7 @@
     "job": "**P5 activation page.** Connect wallet \u2192 select orchestrator \u2192 enter amount \u2192 confirm. Verify in Explorer. 5 steps, 10 m"
   },
   {
-    "tab": "LP TOKEN",
+    "tab": "DELEGATORS",
     "position": 4,
     "name": "Getting LPT",
     "content_type": "how_to",
@@ -488,7 +488,7 @@
     "job": "Which exchanges. How to bridge to Arbitrum. Wallet requirements. Gas estimates."
   },
   {
-    "tab": "LP TOKEN",
+    "tab": "DELEGATORS",
     "position": 4,
     "name": "Choosing an Orchestrator",
     "content_type": "guide",
@@ -496,7 +496,7 @@
     "job": "What to look at: reward cut, fee share, uptime, performance. How to use Explorer. Decision framework."
   },
   {
-    "tab": "LP TOKEN",
+    "tab": "DELEGATORS",
     "position": 4,
     "name": "Managing Your Delegation",
     "content_type": "how_to",
@@ -504,7 +504,7 @@
     "job": "Check rewards, evaluate performance, switch orchestrators, partial undelegation, unbonding period."
   },
   {
-    "tab": "LP TOKEN",
+    "tab": "DELEGATORS",
     "position": 5,
     "name": "Livepeer Governance",
     "content_type": "overview",
@@ -512,7 +512,7 @@
     "job": "How governance works. Proposal types. Voting mechanics. Where to find and evaluate proposals. How to vote."
   },
   {
-    "tab": "LP TOKEN",
+    "tab": "DELEGATORS",
     "position": 5,
     "name": "Treasury & Proposals",
     "content_type": "how_to",
@@ -520,7 +520,7 @@
     "job": "How the treasury works. How to submit a proposal. Current and past allocations."
   },
   {
-    "tab": "LP TOKEN",
+    "tab": "DELEGATORS",
     "position": 6,
     "name": "Delegator FAQ & Troubleshooting",
     "content_type": "faq",

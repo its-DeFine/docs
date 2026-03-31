@@ -37,7 +37,7 @@ const DOMAIN_RENAME_MAP = {
   '03_developers': 'developers',
   '04_gateways': 'gateways',
   '05_orchestrators': 'orchestrators',
-  '06_lptoken': 'lpt',
+  '06_lptoken': 'delegators',
   '07_resources': 'resources',
   '09_internal': 'internal',
   deprecated: 'deprecated',
@@ -429,8 +429,8 @@ function renderLinkTitle(link) {
 function buildIndexMeta(outputDirRel) {
   const normalized = normalizeRel(outputDirRel);
   const sectionName = prettifyName(path.basename(normalized));
-  const isLptIndex = normalized === 'v2/lpt';
-  const displayName = isLptIndex ? 'LPT' : `${sectionName} Index`;
+  const isDelegatorsIndex = normalized === 'v2/delegators';
+  const displayName = isDelegatorsIndex ? 'Delegators' : `${sectionName} Index`;
   return {
     title: displayName,
     sidebarTitle: displayName,

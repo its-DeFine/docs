@@ -30,8 +30,8 @@ const MODERN_V2_PAGES_DIR = path.join(REPO_ROOT, 'v2');
 const V2_PAGES_DIR = fs.existsSync(LEGACY_V2_PAGES_DIR) ? LEGACY_V2_PAGES_DIR : MODERN_V2_PAGES_DIR;
 const INDEX_PATH = path.join(V2_PAGES_DIR, 'index.mdx');
 const DOCS_CONFIG_PATH = path.join(REPO_ROOT, 'docs.json');
-const DEFAULT_REPORT = path.join(REPO_ROOT, 'tasks', 'reports', 'navigation-links', 'LINK_TEST_REPORT.md');
-const DEFAULT_REPORT_JSON = path.join(REPO_ROOT, 'tasks', 'reports', 'navigation-links', 'LINK_TEST_REPORT.json');
+const DEFAULT_REPORT = path.join(REPO_ROOT, 'workspace', 'reports', 'navigation-links', 'LINK_TEST_REPORT.md');
+const DEFAULT_REPORT_JSON = path.join(REPO_ROOT, 'workspace', 'reports', 'navigation-links', 'LINK_TEST_REPORT.json');
 const LINKABLE_ATTRS = ['href', 'src', 'srcset', 'poster', 'action', 'data', 'to', 'image', 'url'];
 const EXCLUDED_ATTRS = new Set(['icon']);
 const FILE_EXT_CANDIDATES = ['.mdx', '.md', '.jsx', '.js', '.tsx', '.ts', '.json'];
@@ -55,7 +55,7 @@ const MIGRATED_V2_DOMAIN_DIRS = new Set([
   'developers',
   'gateways',
   'orchestrators',
-  'lpt',
+  'delegators',
   'resources',
   'internal',
   'deprecated',
