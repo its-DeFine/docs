@@ -2,6 +2,7 @@
 /**
  * @script            imports-cli.test
  * @category          validator
+ * @type              validator
  * @purpose           qa:import-integrity
  * @scope             tests/unit
  * @owner             docs

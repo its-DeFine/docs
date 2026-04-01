@@ -2,13 +2,19 @@
 /**
  * @script            run-all
  * @category          orchestrator
+ * @type              dispatch
+ * @concern           governance
+ * @niche             ci
  * @purpose           infrastructure:pipeline-orchestration
+ * @description       Main test-suite orchestrator for local, pre-commit, and package-script execution across the governed documentation validators.
+ * @mode              execute
  * @scope             tests
  * @domain            docs
  * @needs             R-R29
  * @purpose-statement Test orchestrator — dispatches all unit test suites. Called by pre-commit hook and npm test.
  * @pipeline          P1, P2, P3
  * @usage             node operations/tests/run-all.js [flags]
+ * @policy            R-R29
  */
 /**
  * Main test runner - orchestrates all test suites

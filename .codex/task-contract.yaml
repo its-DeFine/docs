@@ -1,40 +1,43 @@
-task_id: 20260317
-branch: codex/20260317-merge-readiness-style-root-cause
+task_id: 20260401
+branch: codex/20260401-page-integrity-operations
 base_branch: docs-v2-dev
 scope_in:
   - .codex/
+  - .github/workflows/
   - docs-guide/
-  - docs-index.json
-  - snippets/components/layout/
-  - snippets/components/primitives/divider.jsx
-  - snippets/data/gateways/
-  - workspace/reports/merge-readiness/
-  - operations/tests/unit/style-guide.test.js
-  - operations/scripts/
-  - v2/about/
-  - v2/cn/resources/documentation-guide/component-library/
-  - v2/community/
-  - v2/developers/
-  - v2/es/resources/documentation-guide/component-library/
-  - v2/fr/resources/documentation-guide/component-library/
-  - v2/gateways/
-  - v2/home/
-  - v2/internal/
-  - v2/lpt/
-  - v2/orchestrators/
-  - v2/resources/
-  - v2/index.mdx
-  - v2/solutions/
-scope_out: []
+  - operations/scripts/automations/governance/
+  - operations/scripts/audits/
+  - operations/scripts/dispatch/
+  - operations/scripts/generators/governance/
+  - operations/scripts/remediators/
+  - operations/scripts/script-index.md
+  - operations/tests/
+  - tools/config/
+  - tools/lib/
+  - tools/lpd
+  - tools/package.json
+scope_out:
+  - workspace/
+  - v1/
+  - v2/
 allowed_generated:
   - .codex/pr-body.generated.md
+  - docs-guide/catalog/scripts-catalog.mdx
+  - operations/scripts/script-index.md
+  - operations/tests/script-index.md
+  - tools/config/script-registry.json
 acceptance_checks:
-  - node operations/tests/unit/style-guide.test.js --staged
-  - node operations/tests/unit/copy-lint.test.js --staged
-  - node operations/tests/unit/mdx.test.js --staged
-  - node operations/tests/unit/quality.test.js --staged
-  - node operations/scripts/validators/governance/compliance/validate-codex-task-contract.js --branch codex/20260317-merge-readiness-style-root-cause
+  - node operations/tests/unit/links-cli.test.js
+  - node operations/tests/unit/imports-cli.test.js
+  - node operations/tests/unit/page-imports-audit.test.js
+  - node operations/tests/unit/page-integrity-rolling-issue.test.js
+  - node operations/tests/unit/page-integrity-dispatch.test.js
+  - node operations/tests/unit/run-pr-checks.test.js
+  - node operations/tests/unit/v2-link-audit.test.js
+  - node operations/tests/unit/openapi-rolling-issue.test.js
+  - node operations/scripts/validators/governance/compliance/validate-codex-task-contract.js --branch codex/20260401-page-integrity-operations
 risk_flags:
-  - authoring-governance
-  - routed-page-normalization
+  - operations-report-root-migration
+  - pipeline-orchestration
+  - ci-workflow-integration
 follow_up_issues: []

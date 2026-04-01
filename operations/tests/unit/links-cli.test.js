@@ -2,6 +2,7 @@
 /**
  * @script            links-cli.test
  * @category          validator
+ * @type              validator
  * @purpose           qa:link-integrity
  * @scope             tests/unit
  * @owner             docs

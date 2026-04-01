@@ -2,13 +2,19 @@
 /**
  * @script            links.test
  * @category          validator
+ * @type              validator
+ * @concern           content
+ * @niche             health
  * @purpose           qa:link-integrity
+ * @description       Fast link validator for staged and repo-scoped markdown/MDX checks, with explicit file-read failures and JSX href detection for local validation lanes.
+ * @mode              execute
  * @scope             tests
  * @domain            docs
  * @needs             E-R12, E-R14
  * @purpose-statement Primary link validator — validates internal markdown/MDX links only, with repo-wide dry-run support.
  * @pipeline          P1, P3
  * @usage             node operations/tests/unit/links.test.js [--dry-run] [--scope routable-v2|repo] [--staged] [--files <paths>]
+ * @policy            E-R12, E-R14
  */
 
 const fs = require('fs');
@@ -281,7 +287,14 @@ function getMatchesOutsideIgnoredRanges(content, regex, ignoredRanges) {
 function checkBrokenLinks(files) {
   files.forEach((file) => {
     const content = readFile(file);
-    if (!content) return;
+    if (content === null) {
+      errors.push({
+        file,
+        rule: 'File read error',
+        message: 'Unable to read file content for link validation'
+      });
+      return;
+    }
     const ignoredRanges = getIgnoredRanges(content);
 
     const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
@@ -356,7 +369,14 @@ function checkBrokenLinks(files) {
 function checkEmptyLinks(files) {
   files.forEach((file) => {
     const content = readFile(file);
-    if (!content) return;
+    if (content === null) {
+      errors.push({
+        file,
+        rule: 'File read error',
+        message: 'Unable to read file content for link validation'
+      });
+      return;
+    }
 
     const ignoredRanges = getIgnoredRanges(content);
     const emptyMarkdownLinkRegex = /\[\]\s*\(([^)]+)\)/g;

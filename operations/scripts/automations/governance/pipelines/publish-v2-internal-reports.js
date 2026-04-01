@@ -287,7 +287,7 @@ function sanitizePublishedBody(record, body) {
   }
   if (record.categorySlug === 'page-audits') {
     nextBody = truncatePublishedBody(nextBody, 12000);
-  } else if (record.scriptId === 'v2-link-audit') {
+  } else if (record.scriptId === 'v2-link-audit' || record.scriptId === 'page-links-audit') {
     nextBody = truncatePublishedBody(nextBody, 16000);
   }
   return nextBody;

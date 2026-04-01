@@ -2,6 +2,7 @@
 /**
  * @script            v2-link-audit.test
  * @category          validator
+ * @type              validator
  * @purpose           qa:link-integrity
  * @scope             tests/unit, tests/integration
  * @owner             docs
@@ -61,7 +62,8 @@ async function runTests() {
     assert.strictEqual(parsed.externalConcurrency, 12);
     assert.strictEqual(parsed.externalPerHostConcurrency, 2);
     assert.strictEqual(parsed.externalRetries, 1);
-    assert.strictEqual(parsed.writeLinks, true);
+    assert.strictEqual(parsed.writeLinks, false);
+    assert.ok(parsed.report.endsWith('operations/reports/health/page-links/page-links-audit.md'));
   });
 
   await runCase('Parses external validate overrides and no-write-links', async () => {

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
  * @script      generate-script-registry
+ * @category    generator
  * @type        generator
  * @concern     governance
  * @niche       catalogs
@@ -9,6 +10,9 @@
  *   script roots. JSDoc headers are authoritative; this file is a derived index. Run whenever
  *   script headers change. Output schema uses the 11-tag standard (@type, @concern, @niche, etc.).
  * @mode        write
+ * @domain      docs
+ * @needs       R-R14, R-R18
+ * @purpose-statement Generate the governed script registry from script headers so classification, catalogs, and script-docs enforcement share one derived source of truth.
  * @pipeline    P3
  * @scope       operations/scripts, operations/tests, workspace/scripts, .githooks, .github/scripts
  * @usage       node operations/scripts/generators/governance/catalogs/generate-script-registry.js [--dry-run]
@@ -53,7 +57,21 @@ function walkFiles(dirPath, out = []) {
       walkFiles(rel, out);
     } else {
       const ext = path.extname(rel).toLowerCase();
-      if (SCRIPT_EXTENSIONS_SET.has(ext)) out.push(rel);
+      if (SCRIPT_EXTENSIONS_SET.has(ext)) {
+        out.push(rel);
+        continue;
+      }
+
+      if (!ext) {
+        try {
+          const content = fs.readFileSync(path.join(REPO_ROOT, rel), 'utf8');
+          if (content.startsWith('#!/usr/bin/env') || content.startsWith('#!/bin/')) {
+            out.push(rel);
+          }
+        } catch (_) {
+          // Ignore unreadable files; extractEntry will handle read failures later.
+        }
+      }
     }
   }
   return out;
@@ -63,16 +81,6 @@ function collectAllScripts() {
   const scripts = new Set();
   for (const root of GOVERNED_ROOTS) {
     walkFiles(root).forEach((p) => scripts.add(p));
-  }
-  // Also include hook scripts (no extension)
-  const hooksDir = path.join(REPO_ROOT, '.githooks');
-  if (fs.existsSync(hooksDir)) {
-    for (const entry of fs.readdirSync(hooksDir, { withFileTypes: true })) {
-      if (entry.isFile() && !path.extname(entry.name)) {
-        const rel = normalizeRepoPath(path.join('.githooks', entry.name));
-        if (!shouldExcludeScriptPath(rel)) scripts.add(rel);
-      }
-    }
   }
   return [...scripts].sort();
 }

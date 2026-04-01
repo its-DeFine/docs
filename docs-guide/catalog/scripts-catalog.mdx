@@ -24,7 +24,7 @@ Run command: node operations/tests/unit/script-docs.test.js --write --rebuild-in
 **Important**: Do not manually edit this file; run `node operations/tests/unit/script-docs.test.js --write --rebuild-indexes`. <br/>
 </Note>
 
-The governed script library currently indexes **309** script(s).
+The governed script library currently indexes **324** script(s).
 
 ## Pipeline Flow
 
@@ -32,21 +32,21 @@ The governed script library currently indexes **309** script(s).
 flowchart LR
   DEV([👤 Developer])
 
-  subgraph P1["🔴 P1 — Commit Gate (42)"]
+  subgraph P1["🔴 P1 — Commit Gate (47)"]
     direction TB
     c0["pre-commit"]
-    c1["task-preflight.js"]
-    c2["sync-generated-files.js"]
-    c3["generate-docs-guide-components-index.js"]
-    c4["validate-locks.js"]
-    c5["enforce-generated-file-banners.js"]
-    c6["validate-codex-task-contract.js"]
-    c7["audit-script-inventory.js"]
-    c8["pre-commit-v1"]
-    c9["browser.test.js"]
-    c10["v2-link-audit.js"]
-    c11["v2-wcag-audit.js"]
-    cmore["... 30 more"]
+    c1["page-imports-audit.js"]
+    c2["page-links-audit.js"]
+    c3["task-preflight.js"]
+    c4["page-integrity-dispatch.js"]
+    c5["sync-generated-files.js"]
+    c6["generate-docs-guide-components-index.js"]
+    c7["validate-locks.js"]
+    c8["enforce-generated-file-banners.js"]
+    c9["validate-codex-task-contract.js"]
+    c10["audit-script-inventory.js"]
+    c11["pre-commit-v1"]
+    cmore["... 35 more"]
   end
 
   subgraph P2["🟠 P2 — Push Gate (11)"]
@@ -64,7 +64,7 @@ flowchart LR
     p10["docs-guide-sot.test.js"]
   end
 
-  subgraph P3["🟡 P3 — PR Gate (34)"]
+  subgraph P3["🟡 P3 — PR Gate (36)"]
     direction TB
     r0["check-codex-pr-overlap.js"]
     r1["generate-component-registry.js"]
@@ -78,24 +78,24 @@ flowchart LR
     r9["openapi-reference-audit.js"]
     r10["run-all.js"]
     r11["run-pr-checks.js"]
-    rmore["... 22 more"]
+    rmore["... 24 more"]
   end
 
-  subgraph P5_P6["🔵 P5/P6 — Scheduled (13)"]
+  subgraph P5_P6["🔵 P5/P6 — Scheduled (16)"]
     direction TB
     s0["fetch-forum-data.js"]
     s1["fetch-youtube-data.js"]
     s2["project-showcase-sync.js"]
     s3["scan-component-imports.js"]
-    s4["governance-pipeline.js"]
-    s5["generate-llms-files.js"]
-    s6["generate-component-registry.js"]
-    s7["generate-docs-index.js"]
-    s8["generate-ai-sitemap.js"]
-    s9["repair-component-metadata.js"]
-    s10["openapi-reference-audit.js"]
-    s11["v2-link-audit.js"]
-    smore["... 1 more"]
+    s4["page-imports-audit.js"]
+    s5["page-links-audit.js"]
+    s6["page-integrity-dispatch.js"]
+    s7["governance-pipeline.js"]
+    s8["generate-llms-files.js"]
+    s9["generate-component-registry.js"]
+    s10["generate-docs-index.js"]
+    s11["generate-ai-sitemap.js"]
+    smore["... 4 more"]
   end
 
   DEV -->|commit| P1
@@ -221,12 +221,25 @@ flowchart LR
 | `component-layout-governance.js` | Component layout governance validator — checks v2 page layouts against approved component contracts | manual | components | `node operations/scripts/validators/components/library/component-layout-governance.js [flags]` |
 | `docs-fact-registry.js` | Docs fact registry validator — validates repo-native research claim registries and provides normalized claim-family data for the manual research runner. | manual | content | `node operations/scripts/audits/content/veracity/docs-fact-registry.js [flags]` |
 | `enforce-generated-file-banners.js` | Validates "do not edit" banners and i18n parity on generated MDX files. Generator dispatch split to sync-generated-files.js. | P1 | content | `node operations/scripts/validators/content/structure/enforce-generated-file-banners.js --check [--staged]` |
+| `imports-cli.test.js` |  | manual |  | `node operations/tests/unit/imports-cli.test.js` |
+| `imports.test.js` | Compatibility wrapper for page-imports-audit.js that preserves the legacy imports.test surface while delegating to the canonical operations audit. | P1, P3 | content | `node operations/tests/unit/imports.test.js [--dry-run] [--scope routable-v2&#124;repo] [--staged] [--files &lt;paths&gt;]` |
+| `links-cli.test.js` |  | manual |  | `node operations/tests/unit/links-cli.test.js` |
+| `links-imports.test.js` | Compatibility alias for links.test.js that preserves the legacy links-imports entrypoint while delegating to the link-only validator. | P1, P3 | content | `node operations/tests/unit/links-imports.test.js [--dry-run] [--scope routable-v2&#124;repo] [--staged] [--files &lt;paths&gt;]` |
+| `links.test.js` | Fast link validator for staged and repo-scoped markdown/MDX checks, with explicit file-read failures and JSX href detection for local validation lanes. | P1, P3 | content | `node operations/tests/unit/links.test.js [--dry-run] [--scope routable-v2&#124;repo] [--staged] [--files &lt;paths&gt;]` |
 | `lint-copy.js` | Enforce banned word and phrase rules on MDX content files. | manual | content | `node operations/scripts/validators/content/copy/lint-copy.js [file or glob] [flags]` |
 | `lint-patterns.js` | Enforce Tier 2 copy pattern rules on MDX content files. | manual | content | `node operations/scripts/validators/content/copy/lint-patterns.js [file or glob] [flags]` |
 | `lint-structure.js` | Enforce structural rules on MDX content files. | manual | content | `node operations/scripts/validators/content/structure/lint-structure.js [file] [flags]` |
+| `page-imports-audit.js` | Canonical page import audit — validates page-reachable MDX, JS, JSX, TS, TSX, and JSON imports and forbids React runtime imports on Mintlify page surfaces. | P1, P5 | content | `node operations/scripts/audits/content/health/page-imports-audit.js [--staged&#124;--scope routable-v2&#124;repo&#124;--files &lt;paths&gt;&#124;--tab &lt;tab&gt;] [--strict] [--output-dir &lt;dir&gt;]` |
+| `page-imports-audit.test.js` |  | manual |  | `node operations/tests/unit/page-imports-audit.test.js` |
+| `page-integrity-dispatch.test.js` |  | manual |  | `node operations/tests/unit/page-integrity-dispatch.test.js` |
+| `page-integrity-rolling-issue.test.js` |  | manual |  | `node operations/tests/unit/page-integrity-rolling-issue.test.js` |
+| `page-links-audit.js` | Canonical page-link audit — validates internal page refs, anchors, JSX link props, and optional external URL health for v2 page surfaces. | P1, P5, P6 | content | `node operations/scripts/audits/content/health/page-links-audit.js [--full&#124;--staged&#124;--files &lt;paths&gt;&#124;--tab &lt;tab&gt;] [--strict] [--external-policy classify&#124;validate] [--output-dir &lt;dir&gt;]` |
 | `review-governance-repair-checklist.js` | Generates a review checklist for dry-run governance repair proposals that require human approval before fix mode is applied. | manual | governance | `node operations/scripts/validators/governance/compliance/review-governance-repair-checklist.js [--output &lt;dir&gt;] [--json] [--md]` |
+| `run-pr-checks.test.js` |  | manual |  | `node operations/tests/unit/run-pr-checks.test.js` |
 | `test-mintlify-version-language-toggle.js` |  | manual | content | `node operations/scripts/i18n/test-mintlify-version-language-toggle.js [flags]` |
 | `test-v2-pages.js` |  | P2, P3 | content | `node operations/scripts/validators/content/structure/test-v2-pages.js [flags]` |
+| `v2-link-audit.js` | Compatibility wrapper for page-links-audit.js that preserves the legacy v2-link-audit entrypoint while delegating to the canonical operations audit. | P1, P5, P6 | content | `node operations/tests/integration/v2-link-audit.js [flags]` |
+| `v2-link-audit.test.js` |  | manual |  | `node operations/tests/unit/v2-link-audit.test.js [flags]` |
 | `validate-ai-tools-registry.js` | AI-tools registry validator and report writer for source-of-truth coverage, lifecycle, lane alignment, and generated inventory output. | manual | governance | `node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js [--check] [--coverage] [--lanes] [--write-report]` |
 | `validate-codex-task-contract.js` | Codex task contract enforcer — validates branch naming, task files, PR body, and issue state for codex branches | P1, P2, P3 | governance | `node operations/scripts/validators/governance/compliance/validate-codex-task-contract.js [flags]` |
 | `validate-locks.js` | Codex lock validator — checks for stale or conflicting lock files before push | P1, P2 | ai | `node operations/scripts/validators/ai/codex/validate-locks.js [flags]` |
@@ -248,6 +261,9 @@ flowchart LR
 | `repair-component-metadata.js` | Auto-repairs derived JSDoc metadata fields from repo state. Safe fields only. Mirrors AUDIT-00 --fix pattern for components. | P6 | components | `node operations/scripts/remediators/components/library/repair-component-metadata.js [--dry-run] [--fix] [--staged]` |
 | `repair-mdx-safe-markdown.js` | Auto-repairs deterministic MDX-unsafe markdown patterns across first-party markdown and MDX content. | manual | content | `node operations/scripts/remediators/content/repair/repair-mdx-safe-markdown.js --dry-run [--staged&#124;--files a,b]` |
 | `repair-ownerless-language.js` | Applies deterministic wording repairs that remove human-owner dependency from governed GitHub and contributor surfaces. | manual | content | `node operations/scripts/remediators/content/style/repair-ownerless-language.js [--check&#124;--write] [--files a,b]` |
+| `repair-page-imports.js` | Deterministic page-import remediator — removes safe unused page-reachable React runtime imports and reports the remaining unresolved import findings. | manual | content | `node operations/scripts/remediators/content/repair/repair-page-imports.js [--dry-run&#124;--write] [--files &lt;paths&gt;] [--output-dir &lt;dir&gt;]` |
+| `repair-page-links.js` | Deterministic page-link remediator — rewrites safe relative internal page href literals to canonical root-level routes and reports unresolved targets. | manual | content | `node operations/scripts/remediators/content/repair/repair-page-links.js --dry-run --files v2/about --report-dir operations/reports/health/page-links` |
+| `repair-relative-page-hrefs.js` | Compatibility shim for repair-page-links.js — preserves the legacy relative-href repair entrypoint while delegating to the canonical page-links remediator. | manual | content | `node operations/scripts/remediators/content/repair/repair-relative-page-hrefs.js [flags]` |
 | `repair-script-inventory.js` | Repairs script headers and classification data. Thin wrapper that runs audit-script-inventory with --fix. Split from audit-script-inventory.js. | manual | governance | `node operations/scripts/remediators/governance/scripts/repair-script-inventory.js [--dry-run] [--staged-only] [--files &lt;path,...&gt;] [--json] [--md] [--output &lt;dir&gt;]` |
 | `repair-spelling.js` | Auto-corrects spelling errors using the shared cspell configuration. Safe, dictionary-based corrections only. | manual | content | `node operations/scripts/remediators/content/repair/repair-spelling.js --dry-run` |
 | `sync-docs-paths.js` | Docs path sync remediator — applies deterministic docs.json and governed reference rewrites for moved docs pages. | manual | content | `node operations/scripts/remediators/content/repair/sync-docs-paths.js --staged --dry-run` |
@@ -274,6 +290,7 @@ flowchart LR
 | `message-backup.js` | UserPromptSubmit hook. If a message is longer than 200 chars, saves it to | manual | governance | `Called automatically by Claude Code UserPromptSubmit hook. Not invoked directly.` |
 | `move-detect-hook.js` | PostToolUse hook on Bash. Detects mv/git mv commands targeting v2/ paths, | manual | governance | `Called automatically by Claude Code PostToolUse hook. Not invoked directly.` |
 | `orchestrator-guides-research-review.js` | Orchestrator guides research review packet wrapper — delegates to the generic docs-research-packet engine with the live Orchestrators Guides nav scope and legacy default output root. | manual | content | `node operations/scripts/audits/content/veracity/orchestrator-guides-research-review.js [flags]` |
+| `page-integrity-dispatch.js` | Page integrity dispatcher — resolves page scope once, runs page link and import audits, applies deterministic repairs, reruns, and emits combined unresolved findings plus rolling-issue planning data. | P1, P5, P6 | content | `node operations/scripts/dispatch/content/health/page-integrity-dispatch.js [--staged&#124;--files &lt;paths&gt;&#124;--tab &lt;tab&gt;] [--strict] [--no-repair] [--issue-mode off&#124;plan] [--output-dir &lt;dir&gt;]` |
 | `phase-gate-hook.js` | PostToolUse hook for Edit/Write. Reads phase-gate.jsonl and emits unverified | manual | governance | `Called automatically by Claude Code PostToolUse hook. Not invoked directly.` |
 | `post-tool-verify.js` | Tracks consecutive failures for circuit breaker. Fires after tool use failures. | manual | governance | `Called automatically by Claude Code PostToolUseFailure hook. Not invoked directly.` |
 | `pre-commit-v1` | Archived pre-commit hook orchestrator that runs structural checks, unit tests, codex validation, and docs-index freshness checks before allowing commit. | P1 | governance | `bash .githooks/pre-commit [flags]` |
@@ -281,6 +298,8 @@ flowchart LR
 | `pre-tool-guard.js` | Mechanically enforces co-work rules before tool execution. Blocks destructive git, public posts, and unconfirmed writes. | manual | governance | `Called automatically by Claude Code PreToolUse hook. Not invoked directly.` |
 | `read-logger.js` | PostToolUse hook on Read. Logs file paths to a session-scoped temp file. | manual | governance | `Called automatically by Claude Code PostToolUse hook. Not invoked directly.` |
 | `repo-audit-orchestrator.js` | Repo audit orchestrator — dispatches all static analysis validators in sequence. Supports --mode (static/full), --scope (full/changed), --quarantine, --agent-pack. | manual | governance | `node operations/scripts/audits/governance/repo/repo-audit-orchestrator.js [flags]` |
+| `run-all.js` | Main test-suite orchestrator for local, pre-commit, and package-script execution across the governed documentation validators. | P1, P2, P3 | governance | `node operations/tests/run-all.js [flags]` |
+| `run-pr-checks.js` | Changed-file PR validation orchestrator for the branch-health lane, including the strict page-integrity dispatch on changed docs pages. | P2, P3 | governance | `node operations/tests/run-pr-checks.js [flags]` |
 | `run-solutions-social-fetch.js` | Dispatches all solutions social data fetch scripts in sequence with env from a local .env file. | manual | content | `node operations/scripts/dispatch/content/data/run-solutions-social-fetch.js [--env path/to/.env] [--skip youtube,discord]` |
 | `server-manager.js` | Manages Mintlify dev server lifecycle for browser tests (start/stop/health-check) | manual | governance | `node .githooks/server-manager.js [flags]` |
 | `session-register.js` | SessionStart hook that registers this session in a shared registry file. | manual | governance | `Called automatically by Claude Code hooks. Not invoked directly.` |
@@ -290,7 +309,7 @@ flowchart LR
 | `verify-browser.js` | Verifies browser availability for Puppeteer-based integration tests | manual | governance | `node .githooks/verify-browser.js [flags]` |
 | `verify.sh` | Pre-commit sub-hook — verifies file-walker is available and runs structural checks on staged files | manual | governance | `bash .githooks/verify.sh [flags]` |
 
-<Accordion title="📚 Library Modules — 51">
+<Accordion title="📚 Library Modules — 53">
 
 | Module | Description | Concern |
 |---|---|---|
@@ -329,6 +348,7 @@ flowchart LR
 | `mintignore.js` |  |  |
 | `openapi-rolling-issue.js` |  |  |
 | `overview.js` |  |  |
+| `page-integrity-rolling-issue.js` | Rolling issue helper — decides create/update/close behavior for unresolved page-integrity findings and formats issue bodies for workflow automation. | content |
 | `path-utils.js` |  | content |
 | `precommit-staged-cache.js` |  |  |
 | `provenance.js` |  | content |
@@ -337,6 +357,7 @@ flowchart LR
 | `providers.js` |  | content |
 | `quality-gate.js` |  |  |
 | `reference.js` |  |  |
+| `repo-node-paths.js` |  |  |
 | `rubric-loader.js` |  |  |
 | `rule-evaluators.js` |  |  |
 | `scoring.js` |  |  |
@@ -348,7 +369,7 @@ flowchart LR
 
 </Accordion>
 
-<Accordion title="⚠️ Unclassified — 103 scripts need @type">
+<Accordion title="⚠️ Unclassified — 98 scripts need @type">
 
 | Script | Path | Pipeline | Notes |
 |---|---|---|---|
@@ -362,6 +383,7 @@ flowchart LR
 | `.verify-large-change.sh` | `operations/scripts/x-archive/.verify-large-change.sh` | manual | Missing `@type` in JSDoc header |
 | `batch-update-og-image.sh` | `operations/scripts/x-archive/batch-update-og-image.sh` | manual | Missing `@type` in JSDoc header |
 | `codex-safe-merge-with-stash.js` | `operations/scripts/x-archive/codex-safe-merge-with-stash.js` | manual | Missing `@type` in JSDoc header |
+| `pre-commit-v1` | `operations/scripts/x-archive/pre-commit-v1` | P1 | Missing `@type` in JSDoc header |
 | `replace-og-image.py` | `operations/scripts/x-archive/replace-og-image.py` | manual | Missing `@type` in JSDoc header |
 | `seo-generator-safe.js` | `operations/scripts/x-archive/seo-generator-safe.js` | manual | Missing `@type` in JSDoc header |
 | `sync-legacy-root-v1.js` | `operations/scripts/x-archive/sync-legacy-root-v1.js` | manual | Missing `@type` in JSDoc header |
@@ -371,14 +393,11 @@ flowchart LR
 | `domain-pages-audit.js` | `operations/tests/integration/domain-pages-audit.js` | manual | Missing `@type` in JSDoc header |
 | `mdx-component-runtime-smoke.js` | `operations/tests/integration/mdx-component-runtime-smoke.js` | manual | Missing `@type` in JSDoc header |
 | `openapi-reference-audit.js` | `operations/tests/integration/openapi-reference-audit.js` | P2, P3, P5, P6 | Missing `@type` in JSDoc header |
-| `v2-link-audit.js` | `operations/tests/integration/v2-link-audit.js` | P1, P5, P6 | Missing `@type` in JSDoc header |
 | `v2-link-audit.selftest.js` | `operations/tests/integration/v2-link-audit.selftest.js` | manual | Missing `@type` in JSDoc header |
 | `v2-wcag-audit.js` | `operations/tests/integration/v2-wcag-audit.js` | P1 | Missing `@type` in JSDoc header |
 | `v2-wcag-audit.selftest.js` | `operations/tests/integration/v2-wcag-audit.selftest.js` | manual | Missing `@type` in JSDoc header |
 | `playwright-community-components.js` | `operations/tests/playwright-community-components.js` | manual | Missing `@type` in JSDoc header |
 | `playwright-studio-docs-migration.js` | `operations/tests/playwright-studio-docs-migration.js` | manual | Missing `@type` in JSDoc header |
-| `run-all.js` | `operations/tests/run-all.js` | P1, P2, P3 | Missing `@type` in JSDoc header |
-| `run-pr-checks.js` | `operations/tests/run-pr-checks.js` | P2, P3 | Missing `@type` in JSDoc header |
 | `ai-tools-registry.test.js` | `operations/tests/unit/ai-tools-registry.test.js` | P1, P3 | Missing `@type` in JSDoc header |
 | `ai-tools-visual-library.test.js` | `operations/tests/unit/ai-tools-visual-library.test.js` | P1, P3 | Missing `@type` in JSDoc header |
 | `audit-script-inventory-repair-rules.test.js` | `operations/tests/unit/audit-script-inventory-repair-rules.test.js` | manual | Missing `@type` in JSDoc header |
@@ -410,7 +429,6 @@ flowchart LR
 | `frontmatter-taxonomy.test.js` | `operations/tests/unit/frontmatter-taxonomy.test.js` | P1 | Missing `@type` in JSDoc header |
 | `generated-artifacts-policy.test.js` | `operations/tests/unit/generated-artifacts-policy.test.js` | manual | Missing `@type` in JSDoc header |
 | `legacy-root-v1-redirects.test.js` | `operations/tests/unit/legacy-root-v1-redirects.test.js` | manual | Missing `@type` in JSDoc header |
-| `links-imports.test.js` | `operations/tests/unit/links-imports.test.js` | P1, P3 | Missing `@type` in JSDoc header |
 | `lpd-scoped-mint-dev.test.js` | `operations/tests/unit/lpd-scoped-mint-dev.test.js` | manual | Missing `@type` in JSDoc header |
 | `mdx-component-runtime-smoke.test.js` | `operations/tests/unit/mdx-component-runtime-smoke.test.js` | manual | Missing `@type` in JSDoc header |
 | `mdx-component-scope.test.js` | `operations/tests/unit/mdx-component-scope.test.js` | manual | Missing `@type` in JSDoc header |
@@ -430,7 +448,6 @@ flowchart LR
 | `repair-spelling.test.js` | `operations/tests/unit/repair-spelling.test.js` | manual | Missing `@type` in JSDoc header |
 | `repo-audit-pipeline.test.js` | `operations/tests/unit/repo-audit-pipeline.test.js` | manual | Missing `@type` in JSDoc header |
 | `root-allowlist-format.test.js` | `operations/tests/unit/root-allowlist-format.test.js` | P1, P3 | Missing `@type` in JSDoc header |
-| `run-pr-checks.test.js` | `operations/tests/unit/run-pr-checks.test.js` | manual | Missing `@type` in JSDoc header |
 | `script-docs.test.js` | `operations/tests/unit/script-docs.test.js` | P1, P3 | Missing `@type` in JSDoc header |
 | `skill-docs.test.js` | `operations/tests/unit/skill-docs.test.js` | P1, P3 | Missing `@type` in JSDoc header |
 | `spelling.test.js` | `operations/tests/unit/spelling.test.js` | P1, P3 | Missing `@type` in JSDoc header |
@@ -439,7 +456,6 @@ flowchart LR
 | `usefulness-journey.test.js` | `operations/tests/unit/usefulness-journey.test.js` | P3 | Missing `@type` in JSDoc header |
 | `usefulness-rubric.test.js` | `operations/tests/unit/usefulness-rubric.test.js` | P3 | Missing `@type` in JSDoc header |
 | `v2-folder-governance-cleanup-matrix.test.js` | `operations/tests/unit/v2-folder-governance-cleanup-matrix.test.js` | manual | Missing `@type` in JSDoc header |
-| `v2-link-audit.test.js` | `operations/tests/unit/v2-link-audit.test.js` | manual | Missing `@type` in JSDoc header |
 | `v2-wcag-audit.test.js` | `operations/tests/unit/v2-wcag-audit.test.js` | manual | Missing `@type` in JSDoc header |
 | `validate-codex-task-contract.test.js` | `operations/tests/unit/validate-codex-task-contract.test.js` | manual | Missing `@type` in JSDoc header |
 | `filterVideos.js` | `snippets/automations/youtube/filterVideos.js` | manual | Missing `@type` in JSDoc header |

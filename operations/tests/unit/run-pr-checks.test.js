@@ -2,6 +2,7 @@
 /**
  * @script            run-pr-checks.test
  * @category          validator
+ * @type              validator
  * @purpose           qa:repo-health
  * @scope             tests/unit, tests/run-pr-checks.js
  * @domain            docs
@@ -127,7 +128,7 @@ async function runTests() {
         'Docs-guide SoT',
         'UI Templates & Mint Surface',
         'Usefulness Unit Tests',
-        'V2 Link Audit (Strict)'
+        'Page Integrity Dispatch (Strict)'
       ]
     );
     console.log('   ✓ branch-health registry keeps the full changed-file suite order');

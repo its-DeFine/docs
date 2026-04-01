@@ -2,13 +2,19 @@
 /**
  * @script            run-pr-checks
  * @category          orchestrator
+ * @type              dispatch
+ * @concern           governance
+ * @niche             ci
  * @purpose           infrastructure:pipeline-orchestration
+ * @description       Changed-file PR validation orchestrator for the branch-health lane, including the strict page-integrity dispatch on changed docs pages.
+ * @mode              execute
  * @scope             changed
  * @domain            docs
  * @needs             R-R29
  * @purpose-statement PR orchestrator — runs changed-file scoped validation checks for pull request CI. Dispatches per-file validators based on PR diff.
  * @pipeline          P2, P3
  * @usage             node operations/tests/run-pr-checks.js [flags]
+ * @policy            R-R29
  */
 
 const fs = require('fs');
@@ -57,7 +63,7 @@ const SCRIPT_EXTENSIONS = new Set(GOVERNED_SCRIPT_EXTENSIONS);
 const SCRIPT_SCOPES = GOVERNED_ROOTS;
 const VALID_CATEGORY_SET = new Set(VALID_CATEGORIES);
 const VALID_PURPOSE_SET = new Set(VALID_PURPOSES);
-const LINK_AUDIT_REPORT = '/tmp/livepeer-link-audit-pr.md';
+const PAGE_INTEGRITY_REPORT = '/tmp/livepeer-page-integrity-pr.md';
 const CODEX_BRANCH_RE = /^codex\//;
 const DEFAULT_LANE = 'branch-health';
 const SUPPORTED_LANES = new Set([DEFAULT_LANE]);
@@ -809,12 +815,12 @@ function runUsefulnessChecks(files) {
 
 function runLinkAuditCheck(files) {
   if (!files.length) {
-    return { label: 'V2 Link Audit (Strict)', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+    return { label: 'Page Integrity Dispatch (Strict)', status: 'skipped', files: 0, errors: 0, warnings: 0 };
   }
 
   const cmd = spawnSync(
     'node',
-    ['operations/tests/integration/v2-link-audit.js', '--files', files.join(','), '--strict', '--report', LINK_AUDIT_REPORT],
+    ['operations/scripts/dispatch/content/health/page-integrity-dispatch.js', '--files', files.join(','), '--strict', '--no-repair', '--report', PAGE_INTEGRITY_REPORT],
     { cwd: REPO_ROOT, encoding: 'utf8', env: createNodeProcessEnv({}, __dirname) }
   );
 
@@ -822,7 +828,7 @@ function runLinkAuditCheck(files) {
   if (cmd.stderr) process.stderr.write(cmd.stderr);
 
   return {
-    label: 'V2 Link Audit (Strict)',
+    label: 'Page Integrity Dispatch (Strict)',
     status: cmd.status === 0 ? 'passed' : 'failed',
     files: files.length,
     errors: cmd.status === 0 ? 0 : 1,
@@ -1228,15 +1234,16 @@ function createBranchHealthRegistry(context) {
       run: () => runUsefulnessChecks(groups.usefulnessFiles)
     }),
     createCommandCheck({
-      label: 'V2 Link Audit (Strict)',
+      label: 'Page Integrity Dispatch (Strict)',
       files: groups.docsMdx,
       args: [
-        'operations/tests/integration/v2-link-audit.js',
+        'operations/scripts/dispatch/content/health/page-integrity-dispatch.js',
         '--files',
         groups.docsMdx.join(','),
         '--strict',
+        '--no-repair',
         '--report',
-        LINK_AUDIT_REPORT
+        PAGE_INTEGRITY_REPORT
       ],
       timeoutMs: LONG_CHECK_TIMEOUT_MS
     })

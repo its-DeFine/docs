@@ -1,4 +1,15 @@
 'use strict';
+/**
+ * @script            repo-node-paths
+ * @category          utility
+ * @purpose           tooling:dev-tools
+ * @scope             tools/lib, operations/tests
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement Shared repo Node path bootstrap helpers — discover repo-local node_modules roots and provide consistent NODE_PATH setup for test and script runners.
+ * @pipeline          indirect
+ * @usage             const { bootstrapRepoNodePaths, createNodeProcessEnv } = require('./repo-node-paths');
+ */
 
 const fs = require('fs');
 const path = require('path');
