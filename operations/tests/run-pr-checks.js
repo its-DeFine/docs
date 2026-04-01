@@ -2,20 +2,30 @@
 /**
  * @script            run-pr-checks
  * @category          orchestrator
+ * @type              dispatch
+ * @concern           governance
+ * @niche             ci
  * @purpose           infrastructure:pipeline-orchestration
+ * @description       Changed-file PR validation orchestrator for the branch-health lane, including the strict page-integrity dispatch on changed docs pages.
+ * @mode              execute
  * @scope             changed
  * @domain            docs
  * @needs             R-R29
  * @purpose-statement PR orchestrator — runs changed-file scoped validation checks for pull request CI. Dispatches per-file validators based on PR diff.
  * @pipeline          P2, P3
  * @usage             node operations/tests/run-pr-checks.js [flags]
+ * @policy            R-R29
  */
 
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { execSync, spawn, spawnSync } = require('child_process');
+const { bootstrapRepoNodePaths, createNodeProcessEnv } = require('../../tools/lib/repo-node-paths');
 const { getDocsJsonRouteKeys, toDocsRouteKeyFromFileV2Aware } = require('./utils/file-walker');
+
+bootstrapRepoNodePaths(__dirname);
+
 const {
   AGGREGATE_INDEX_PATH,
   CATEGORY_ENUM: VALID_CATEGORIES,
@@ -35,7 +45,6 @@ const mdxTests = require('./unit/mdx.test');
 const mdxGuardsTests = require('./unit/mdx-guards.test');
 const spellingTests = require('./unit/spelling.test');
 const qualityTests = require('./unit/quality.test');
-const linksImportsTests = require('./unit/links-imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const skillDocsTests = require('./unit/skill-docs.test');
@@ -46,7 +55,7 @@ const rootAllowlistFormatTests = require('./unit/root-allowlist-format.test');
 const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
 const docsGuideSotTests = require('./unit/docs-guide-sot.test');
 const uiTemplateGeneratorTests = require('./unit/ui-template-generator.test');
-const componentNamingTests = require('../scripts/validators/components/library/validate-naming-conventions');
+const componentNamingTests = require('../scripts/validators/components/library/check-naming-conventions');
 const { isAiToolsRegistryRelevantPath } = require('../../tools/lib/ai-tools-registry');
 
 const REPO_ROOT = getRepoRoot();
@@ -54,7 +63,7 @@ const SCRIPT_EXTENSIONS = new Set(GOVERNED_SCRIPT_EXTENSIONS);
 const SCRIPT_SCOPES = GOVERNED_ROOTS;
 const VALID_CATEGORY_SET = new Set(VALID_CATEGORIES);
 const VALID_PURPOSE_SET = new Set(VALID_PURPOSES);
-const LINK_AUDIT_REPORT = '/tmp/livepeer-link-audit-pr.md';
+const PAGE_INTEGRITY_REPORT = '/tmp/livepeer-page-integrity-pr.md';
 const CODEX_BRANCH_RE = /^codex\//;
 const DEFAULT_LANE = 'branch-health';
 const SUPPORTED_LANES = new Set([DEFAULT_LANE]);
@@ -472,7 +481,7 @@ async function runNodeCommandCheck(label, args, options = {}) {
     const child = spawn('node', args, {
       cwd: REPO_ROOT,
       env: {
-        ...process.env,
+        ...createNodeProcessEnv({}, __dirname),
         ...(options.env || {})
       },
       stdio: ['ignore', 'pipe', 'pipe']
@@ -780,14 +789,16 @@ function runUsefulnessChecks(files) {
 
   const rubric = spawnSync('node', ['operations/tests/unit/usefulness-rubric.test.js'], {
     cwd: REPO_ROOT,
-    encoding: 'utf8'
+    encoding: 'utf8',
+    env: createNodeProcessEnv({}, __dirname)
   });
   if (rubric.stdout) process.stdout.write(rubric.stdout);
   if (rubric.stderr) process.stderr.write(rubric.stderr);
 
   const journey = spawnSync('node', ['operations/tests/unit/usefulness-journey.test.js'], {
     cwd: REPO_ROOT,
-    encoding: 'utf8'
+    encoding: 'utf8',
+    env: createNodeProcessEnv({}, __dirname)
   });
   if (journey.stdout) process.stdout.write(journey.stdout);
   if (journey.stderr) process.stderr.write(journey.stderr);
@@ -804,20 +815,20 @@ function runUsefulnessChecks(files) {
 
 function runLinkAuditCheck(files) {
   if (!files.length) {
-    return { label: 'V2 Link Audit (Strict)', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+    return { label: 'Page Integrity Dispatch (Strict)', status: 'skipped', files: 0, errors: 0, warnings: 0 };
   }
 
   const cmd = spawnSync(
     'node',
-    ['operations/tests/integration/v2-link-audit.js', '--files', files.join(','), '--strict', '--report', LINK_AUDIT_REPORT],
-    { cwd: REPO_ROOT, encoding: 'utf8' }
+    ['operations/scripts/dispatch/content/health/page-integrity-dispatch.js', '--files', files.join(','), '--strict', '--no-repair', '--report', PAGE_INTEGRITY_REPORT],
+    { cwd: REPO_ROOT, encoding: 'utf8', env: createNodeProcessEnv({}, __dirname) }
   );
 
   if (cmd.stdout) process.stdout.write(cmd.stdout);
   if (cmd.stderr) process.stderr.write(cmd.stderr);
 
   return {
-    label: 'V2 Link Audit (Strict)',
+    label: 'Page Integrity Dispatch (Strict)',
     status: cmd.status === 0 ? 'passed' : 'failed',
     files: files.length,
     errors: cmd.status === 0 ? 0 : 1,
@@ -983,7 +994,7 @@ function runGeneratedBannerCheck(changedFiles) {
     cwd: REPO_ROOT,
     encoding: 'utf8',
     env: {
-      ...process.env,
+      ...createNodeProcessEnv({}, __dirname),
       LPD_STAGED_FILES_SNAPSHOT: changedFiles.join('\n')
     }
   });
@@ -1003,7 +1014,11 @@ function runCodexSkillSyncCheck() {
   const syncArgs = ['operations/scripts/automations/ai/agents/sync-codex-skills.js', '--dest', tmpDir];
   const checkArgs = ['operations/scripts/automations/ai/agents/sync-codex-skills.js', '--dest', tmpDir, '--check'];
 
-  const syncCmd = spawnSync('node', syncArgs, { cwd: REPO_ROOT, encoding: 'utf8' });
+  const syncCmd = spawnSync('node', syncArgs, {
+    cwd: REPO_ROOT,
+    encoding: 'utf8',
+    env: createNodeProcessEnv({}, __dirname)
+  });
   if (syncCmd.status !== 0) {
     if (syncCmd.stdout) process.stdout.write(syncCmd.stdout);
     if (syncCmd.stderr) process.stderr.write(syncCmd.stderr);
@@ -1017,7 +1032,11 @@ function runCodexSkillSyncCheck() {
     };
   }
 
-  const checkCmd = spawnSync('node', checkArgs, { cwd: REPO_ROOT, encoding: 'utf8' });
+  const checkCmd = spawnSync('node', checkArgs, {
+    cwd: REPO_ROOT,
+    encoding: 'utf8',
+    env: createNodeProcessEnv({}, __dirname)
+  });
   if (checkCmd.stdout) process.stdout.write(checkCmd.stdout);
   if (checkCmd.stderr) process.stderr.write(checkCmd.stderr);
   fs.rmSync(tmpDir, { recursive: true, force: true });
@@ -1055,7 +1074,11 @@ function runCodexTaskContractCheck(branch, changedFiles, baseRef) {
     args.push('--require-pr-body');
   }
 
-  const cmd = spawnSync('node', args, { cwd: REPO_ROOT, encoding: 'utf8' });
+  const cmd = spawnSync('node', args, {
+    cwd: REPO_ROOT,
+    encoding: 'utf8',
+    env: createNodeProcessEnv({}, __dirname)
+  });
   if (cmd.stdout) process.stdout.write(cmd.stdout);
   if (cmd.stderr) process.stderr.write(cmd.stderr);
 
@@ -1076,7 +1099,7 @@ function createBranchHealthRegistry(context) {
       label: 'Component Naming',
       files: groups.componentJsx,
       args: [
-        'operations/scripts/validators/components/library/validate-naming-conventions.js',
+        'operations/scripts/validators/components/library/check-naming-conventions.js',
         ...buildFilesArgs(groups.componentJsx)
       ]
     }),
@@ -1111,9 +1134,15 @@ function createBranchHealthRegistry(context) {
       args: ['operations/tests/unit/quality.test.js', ...buildFilesArgs(groups.docsMdxAbs)]
     }),
     createCommandCheck({
-      label: 'Links & Imports',
+      label: 'Links',
       files: groups.docsMdxAbs,
-      args: ['operations/tests/unit/links-imports.test.js', ...buildFilesArgs(groups.docsMdxAbs)],
+      args: ['operations/tests/unit/links.test.js', ...buildFilesArgs(groups.docsMdxAbs)],
+      timeoutMs: LONG_CHECK_TIMEOUT_MS
+    }),
+    createCommandCheck({
+      label: 'Imports',
+      files: groups.docsMdxAbs,
+      args: ['operations/tests/unit/imports.test.js', ...buildFilesArgs(groups.docsMdxAbs)],
       timeoutMs: LONG_CHECK_TIMEOUT_MS
     }),
     createInlineCheck({
@@ -1205,15 +1234,16 @@ function createBranchHealthRegistry(context) {
       run: () => runUsefulnessChecks(groups.usefulnessFiles)
     }),
     createCommandCheck({
-      label: 'V2 Link Audit (Strict)',
+      label: 'Page Integrity Dispatch (Strict)',
       files: groups.docsMdx,
       args: [
-        'operations/tests/integration/v2-link-audit.js',
+        'operations/scripts/dispatch/content/health/page-integrity-dispatch.js',
         '--files',
         groups.docsMdx.join(','),
         '--strict',
+        '--no-repair',
         '--report',
-        LINK_AUDIT_REPORT
+        PAGE_INTEGRITY_REPORT
       ],
       timeoutMs: LONG_CHECK_TIMEOUT_MS
     })

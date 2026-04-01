@@ -28,7 +28,8 @@ Runs unit + integration suite.
 - `node operations/tests/unit/mdx.test.js`
 - `node operations/tests/unit/spelling.test.js`
 - `node operations/tests/unit/quality.test.js`
-- `node operations/tests/unit/links-imports.test.js`
+- `node operations/tests/unit/links.test.js`
+- `node operations/tests/unit/imports.test.js`
 - `node operations/tests/unit/docs-navigation.test.js`
 Checks docs.json route integrity in non-writing mode by default.
 
@@ -49,14 +50,26 @@ Browser rendering checks (local server flow).
 - `node operations/tests/integration/domain-pages-audit.js`
 Domain load audit against deployed docs URLs.
 
-- `node operations/tests/integration/v2-link-audit.js`
-Comprehensive static link/import audit for all `v2/pages` MDX files and recursively imported MDX dependencies.
-Excludes any `x-*` path segments under `v2/`.
+- `node operations/scripts/audits/content/health/page-links-audit.js`
+Canonical page-link audit for `v2` page surfaces and page-relevant refs.
+The legacy `operations/tests/integration/v2-link-audit.js` entrypoint remains as a compatibility wrapper.
 Also respects `.mintignore` by default, so governed non-publishable lanes can be excluded from routine publishability checks without muting routed pages.
 Generates:
-  - `workspace/reports/navigation-links/LINK_TEST_REPORT.md`
-  - `workspace/reports/navigation-links/LINK_TEST_REPORT.json`
-  - Domain link maps at `snippets/data/<domain>/hrefs.jsx` in full mode when write-links is enabled.
+  - `operations/reports/health/page-links/page-links-audit.md`
+  - `operations/reports/health/page-links/page-links-audit.json`
+  - Domain link maps at `snippets/data/<domain>/hrefs.jsx` in full mode when `--write-links` is enabled.
+
+- `node operations/scripts/audits/content/health/page-imports-audit.js`
+Canonical page-import audit for page-reachable MDX, JS, JSX, TS, TSX, and JSON imports.
+Flags forbidden React runtime imports on Mintlify page surfaces and writes:
+  - `operations/reports/health/page-imports/page-imports-audit.md`
+  - `operations/reports/health/page-imports/page-imports-audit.json`
+
+- `node operations/scripts/dispatch/content/health/page-integrity-dispatch.js`
+Canonical page-integrity dispatcher.
+Resolves page scope once, runs the page links and page imports audits, applies safe deterministic repairs when enabled, reruns both audits, and writes:
+  - `operations/reports/health/page-integrity/page-integrity-dispatch.md`
+  - `operations/reports/health/page-integrity/page-integrity-dispatch.json`
 
 - `node operations/tests/integration/v2-wcag-audit.js`
 Hybrid v2 accessibility audit for filesystem docs pages under `v2/` (excluding any `x-*` directories).
@@ -98,11 +111,11 @@ Flags:
   - `--full` (default)
   - `--staged`
   - `--files <path[,path...]>` (repeatable)
-  - `--report <path>` (default: `workspace/reports/navigation-links/LINK_TEST_REPORT.md`)
-  - `--report-json <path>` (default: `workspace/reports/navigation-links/LINK_TEST_REPORT.json`)
-  - `--write-links` (default: true in full mode, false in staged/files mode)
+  - `--report <path>` (default: `operations/reports/health/page-links/page-links-audit.md`)
+  - `--report-json <path>` (default: `operations/reports/health/page-links/page-links-audit.json`)
+  - `--write-links` (default: false; enable explicitly when link-map outputs are required)
   - `--no-write-links`
-  - `--strict` (exit non-zero on missing internal links/imports)
+  - `--strict` (exit non-zero on missing internal link targets or anchors)
   - `--external-policy classify|validate` (default: `classify`)
   - `--external-link-types navigational|media|all` (default: `navigational`)
   - `--external-timeout-ms <int>` (default: `10000`)
@@ -151,10 +164,12 @@ node operations/tests/integration/domain-pages-audit.js --version v1
 node operations/tests/integration/domain-pages-audit.js --version v2
 node operations/tests/integration/domain-pages-audit.js --staged --version both
 node operations/tests/integration/domain-pages-audit.js --base-url https://docs.livepeer.org --version both
-node operations/tests/integration/v2-link-audit.js --full --write-links
-node operations/tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md
-node operations/tests/integration/v2-link-audit.js --files v2/community/livepeer-community/trending-topics.mdx --strict
-node operations/tests/integration/v2-link-audit.js --full --external-policy validate --external-link-types navigational --no-write-links --report /tmp/v2-link-audit-external.md --report-json /tmp/v2-link-audit-external.json
+node operations/scripts/audits/content/health/page-links-audit.js --full --write-links
+node operations/scripts/audits/content/health/page-links-audit.js --staged --strict --report /tmp/page-links-audit-staged.md
+node operations/scripts/audits/content/health/page-links-audit.js --files v2/community/livepeer-community/trending-topics.mdx --strict
+node operations/scripts/audits/content/health/page-links-audit.js --full --external-policy validate --external-link-types navigational --no-write-links --report /tmp/page-links-audit-external.md --report-json /tmp/page-links-audit-external.json
+node operations/scripts/audits/content/health/page-imports-audit.js --staged --strict
+node operations/scripts/dispatch/content/health/page-integrity-dispatch.js --files v2/community/livepeer-community/trending-topics.mdx --strict --no-repair --report /tmp/page-integrity.md
 node operations/tests/integration/v2-wcag-audit.js --full
 node operations/tests/integration/v2-wcag-audit.js --full --no-fix
 node operations/tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json
@@ -181,6 +196,7 @@ npm --prefix operations/tests run test:mdx
 npm --prefix operations/tests run test:spell
 npm --prefix operations/tests run test:quality
 npm --prefix operations/tests run test:links
+npm --prefix operations/tests run test:imports
 npm --prefix operations/tests run test:docs-nav
 npm --prefix operations/tests run test:docs-nav:write
 npm --prefix operations/tests run test:pr
@@ -199,6 +215,11 @@ npm --prefix operations/tests run test:link-audit:staged
 npm --prefix operations/tests run test:link-audit:external
 npm --prefix operations/tests run test:link-audit:unit
 npm --prefix operations/tests run test:link-audit:selftest
+npm --prefix operations/tests run test:page-imports:audit
+npm --prefix operations/tests run test:page-imports:unit
+npm --prefix operations/tests run test:page-integrity
+npm --prefix operations/tests run test:page-integrity:issue
+npm --prefix operations/tests run test:page-integrity:dispatch
 npm --prefix operations/tests run test:domain
 npm --prefix operations/tests run test:domain:v1
 npm --prefix operations/tests run test:domain:v2
@@ -214,9 +235,9 @@ npm --prefix operations/tests run test:wcag:selftest
 - `.github/workflows/test-suite.yml` runs changed-file scoped blocking checks on pull requests:
 - `operations/tests/run-pr-checks.js` defaults to the `branch-health` lane when `--lane` is omitted.
 - `node operations/tests/run-pr-checks.js --base-ref <branch> --lane branch-health` is the explicit local form when you want the supported lane spelled out.
-- style guide, MDX, spelling, quality, links/imports
+- style guide, MDX, spelling, quality, links, imports
   - script docs enforcement on changed scripts (`operations/tests/unit/script-docs.test.js --files ...`)
-  - strict V2 link audit on changed docs pages (`operations/tests/integration/v2-link-audit.js --files ... --strict`)
+  - strict page-integrity dispatch on changed docs pages (`operations/scripts/dispatch/content/health/page-integrity-dispatch.js --files ... --strict --no-repair`)
 - Advisory research pass for tracked claim families is available locally via:
   `node operations/scripts/dispatch/content/veracity/docs-page-research-pr-report.js --files <changed-file[,changed-file...]> --report-md /tmp/page-content-research-pr.md --report-json /tmp/page-content-research-pr.json`
 - Experimental advisory integration is also available in local/manual PR prep via:
@@ -237,7 +258,8 @@ Use those pages for workflow scope, commands, readiness, outputs, and source-of-
 - The same workflow also runs full browser tests from `docs.json`.
 - `.github/workflows/test-v2-pages.yml` is responsible for PR comments and artifact uploads for V2 browser sweep results.
 - `.github/workflows/broken-links.yml` is currently advisory (non-blocking) while legacy link cleanup is in progress.
-- `.github/workflows/v2-external-link-audit.yml` runs nightly advisory external-link validation for full `v2` scope (excluding `x-*` paths).
+- `.github/workflows/v2-external-link-audit.yml` runs nightly advisory external-link validation for full `v2` scope (excluding `x-*` paths) with the canonical `page-links-audit` script.
+- `.github/workflows/page-integrity-health.yml` runs the canonical page-integrity dispatcher on a schedule, uploads combined reports, and plans/updates a rolling GitHub issue when unresolved findings remain.
 - Full matrix: `operations/tests/PR-CI-TESTS-AND-SCRIPT-RUN-MATRIX.md`
 
 ## Pre-commit Interaction
@@ -245,8 +267,9 @@ Use those pages for workflow scope, commands, readiness, outputs, and source-of-
 - Docs navigation checks in this flow are check-only and do not rewrite `workspace/reports/navigation-links/navigation-report.*`.
 - Pre-commit runs staged WCAG accessibility audit (conservative autofix enabled by default, blocks on remaining `serious`/`critical` issues):
   `node operations/tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json`
-- Pre-commit runs staged V2 link audit (strict internal validation, external classify-only):
-  `node operations/tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-precommit.md`
+- Pre-commit fast mode runs staged link and import validators through `operations/tests/run-all.js`.
+  The stricter combined page-integrity dispatch is reserved for PR CI and manual changed-file simulation:
+  `node operations/scripts/dispatch/content/health/page-integrity-dispatch.js --files <changed-file[,changed-file...]> --strict --no-repair`
 - Pre-commit enforces script header docs for newly added scripts and auto-updates script indexes:
   `node operations/tests/unit/script-docs.test.js --staged --write --stage --autofill`
   Missing headers are auto-inserted, then commit remains blocked until placeholder values are filled.
@@ -314,7 +337,7 @@ node operations/scripts/generators/governance/scaffold/new-script.js --path oper
 |---|---|---|
 | `operations/tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. | `node operations/tests/integration/domain-pages-audit.js --version both` |
 | `operations/tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. Defaults to the `branch-health` lane. | `node operations/tests/run-pr-checks.js --base-ref main --lane branch-health` |
-| `operations/tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit with internal strict checks and optional external URL validation. | `node operations/tests/integration/v2-link-audit.js --full --write-links --strict` |
+| `operations/tests/integration/v2-link-audit.js` | Compatibility wrapper for `page-links-audit.js` — preserves the legacy entrypoint while delegating to the canonical operations audit. | `node operations/tests/integration/v2-link-audit.js --full --write-links --strict` |
 | `operations/tests/unit/v2-link-audit.test.js` | Unit tests for v2 link audit args, external validation helpers, and x-* scope exclusion behavior. | `node operations/tests/unit/v2-link-audit.test.js` |
 | `operations/tests/integration/v2-link-audit.selftest.js` | Script-level self-tests for v2 link audit external validation using a local HTTP fixture and temporary MDX file. | `node operations/tests/integration/v2-link-audit.selftest.js` |
 | `operations/tests/unit/script-docs.test.js` | Enforce script header schema, keep group script indexes in sync, and build aggregate script index. | `node operations/tests/unit/script-docs.test.js --staged --write --stage --autofill` |

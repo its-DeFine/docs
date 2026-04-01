@@ -1478,10 +1478,10 @@ EOF
         local -a external_link_cmd
         case "$mode" in
             full)
-                external_report="/tmp/v2-link-audit-external-full.md"
-                external_report_json="/tmp/v2-link-audit-external-full.json"
+                external_report="/tmp/page-links-audit-external-full.md"
+                external_report_json="/tmp/page-links-audit-external-full.json"
                 external_link_cmd=(
-                    node operations/tests/integration/v2-link-audit.js
+                    node operations/scripts/audits/content/health/page-links-audit.js
                     --full
                     --external-policy validate
                     --external-link-types navigational
@@ -1491,10 +1491,10 @@ EOF
                 )
                 ;;
             *)
-                external_report="/tmp/v2-link-audit-external-staged.md"
-                external_report_json="/tmp/v2-link-audit-external-staged.json"
+                external_report="/tmp/page-links-audit-external-staged.md"
+                external_report_json="/tmp/page-links-audit-external-staged.json"
                 external_link_cmd=(
-                    node operations/tests/integration/v2-link-audit.js
+                    node operations/scripts/audits/content/health/page-links-audit.js
                     --staged
                     --external-policy validate
                     --external-link-types navigational

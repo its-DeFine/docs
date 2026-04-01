@@ -51,7 +51,7 @@ function makeContract(absPath, taskId = 3456) {
     '  - docs-index.json',
     'acceptance_checks:',
     '  - node operations/tests/run-pr-checks.js --base-ref docs-v2',
-    '  - node operations/tests/integration/v2-link-audit.js --files v2/community/faq.mdx --strict',
+    '  - node operations/scripts/dispatch/content/health/page-integrity-dispatch.js --files v2/community/faq.mdx --strict --no-repair',
     'follow_up_issues:',
     `  - ${taskId + 1}`,
     ''

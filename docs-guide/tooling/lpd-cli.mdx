@@ -35,7 +35,7 @@ Use `bash lpd ...` until you have run `bash lpd setup --yes` and confirmed `lpd`
 </Note>
 
 <Note>
-`lpd dev` defaults to port `3333` when no port is provided and rejects port `3000`.
+`lpd dev` defaults to port `3333` when no port is provided. Agent sessions may not use port `3333` via `lpd dev`, and direct Mint launcher sessions may not use port `3000`.
 </Note>
 
 ## What `lpd` does
@@ -707,13 +707,13 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
 
   </Tab>
   <Tab title="Tests">
-  #### Test Scripts: `tests` (23)
+  #### Test Scripts: `tests` (24)
 
   | Script token | Flags available | Resolved path | PURPOSE |
   |---|---|---|---|
   | `integration browser.test` | script-specific via `-- <args>` | `operations/tests/integration/browser.test.js` | Utility script for operations/tests/integration/browser.test.js. |
   | `integration domain-pages-audit` | script-specific via `-- <args>` | `operations/tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. |
-  | `integration v2-link-audit` | script-specific via `-- <args>` | `operations/tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit with internal strict checks and optional external URL validation. |
+  | `integration v2-link-audit` | script-specific via `-- <args>` | `operations/tests/integration/v2-link-audit.js` | Compatibility wrapper for the canonical `page-links-audit.js` operations audit. |
   | `integration v2-link-audit.selftest` | script-specific via `-- <args>` | `operations/tests/integration/v2-link-audit.selftest.js` | Script-level self-tests for v2 link audit external validation using a local HTTP fixture and temporary MDX file. |
   | `integration v2-wcag-audit` | script-specific via `-- <args>` | `operations/tests/integration/v2-wcag-audit.js` | Audit v2 docs.json navigation pages for accessibility (WCAG 2.2 AA) with deterministic reports and conservative source autofixes. |
   | `integration v2-wcag-audit.selftest` | script-specific via `-- <args>` | `operations/tests/integration/v2-wcag-audit.selftest.js` | Script-level self-tests for the v2 WCAG audit (local HTTP + Puppeteer axe run, and temp-file fix/stage behaviour without Mintlify). |
@@ -722,18 +722,23 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
   | `unit docs-guide-sot.test` | script-specific via `-- <args>` | `operations/tests/unit/docs-guide-sot.test.js` | Validate docs-guide source-of-truth coverage, README pointers, and generated index freshness. |
   | `unit docs-navigation.test` | script-specific via `-- <args>` | `operations/tests/unit/docs-navigation.test.js` | Validate docs.json page-entry syntax, report missing routes, suggest remaps, and optionally apply approved remaps (`--write-report` to refresh navigation-report artifacts). |
   | `unit docs-usefulness-accuracy-verifier.test` | script-specific via `-- <args>` | `operations/tests/unit/docs-usefulness-accuracy-verifier.test.js` | Validate source-weighted 2026 accuracy verification rules (GitHub vs DeepWiki precedence, freshness, fallback, and cache reuse). |
-  | `unit links-imports.test` | script-specific via `-- <args>` | `operations/tests/unit/links-imports.test.js` | Utility script for operations/tests/unit/links-imports.test.js. |
+  | `unit imports.test` | script-specific via `-- <args>` | `operations/tests/unit/imports.test.js` | Compatibility wrapper for the canonical `page-imports-audit.js` operations audit. |
+  | `unit links.test` | script-specific via `-- <args>` | `operations/tests/unit/links.test.js` | Primary link validator — validates internal markdown/MDX links only, with repo-wide dry-run support. |
   | `unit mdx-guards.test` | script-specific via `-- <args>` | `operations/tests/unit/mdx-guards.test.js` | Enforce MDX guardrails for globals imports, math delimiters, and markdown table line breaks. |
   | `unit mdx.test` | script-specific via `-- <args>` | `operations/tests/unit/mdx.test.js` | Utility script for operations/tests/unit/mdx.test.js. |
   | `unit quality.test` | script-specific via `-- <args>` | `operations/tests/unit/quality.test.js` | Utility script for operations/tests/unit/quality.test.js. |
   | `unit script-docs.test` | script-specific via `-- <args>` | `operations/tests/unit/script-docs.test.js` | Enforce script header schema, keep group script indexes in sync, and build aggregate script index. |
   | `unit spelling.test` | script-specific via `-- <args>` | `operations/tests/unit/spelling.test.js` | Utility script for operations/tests/unit/spelling.test.js. |
   | `unit style-guide.test` | script-specific via `-- <args>` | `operations/tests/unit/style-guide.test.js` | Utility script for operations/tests/unit/style-guide.test.js. |
-  | `unit v2-link-audit.test` | script-specific via `-- <args>` | `operations/tests/unit/v2-link-audit.test.js` | Unit tests for v2 link audit args, external validation helpers, and x-* scope exclusion behaviour. |
+  | `unit v2-link-audit.test` | script-specific via `-- <args>` | `operations/tests/unit/v2-link-audit.test.js` | Unit tests for the legacy v2-link-audit compatibility wrapper and canonical page-links-audit args/helpers. |
   | `unit v2-wcag-audit.test` | script-specific via `-- <args>` | `operations/tests/unit/v2-wcag-audit.test.js` | Unit tests for v2 WCAG audit helper logic (args, thresholds, route mapping, report sorting, and conservative autofixes). |
   | `utils file-walker` | script-specific via `-- <args>` | `operations/tests/utils/file-walker.js` | Utility script for operations/tests/utils/file-walker.js. |
   | `utils mdx-parser` | script-specific via `-- <args>` | `operations/tests/utils/mdx-parser.js` | Utility script for operations/tests/utils/mdx-parser.js. |
   | `utils spell-checker` | script-specific via `-- <args>` | `operations/tests/utils/spell-checker.js` | Utility script for operations/tests/utils/spell-checker.js. |
+
+  Canonical page health entrypoints now live under `operations/scripts`:
+  `page-links-audit.js`, `page-imports-audit.js`, and `page-integrity-dispatch.js`.
+  The legacy `integration v2-link-audit` token remains available as a compatibility wrapper.
 
   </Tab>
   <Tab title="Other">

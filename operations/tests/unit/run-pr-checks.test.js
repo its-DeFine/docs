@@ -2,6 +2,7 @@
 /**
  * @script            run-pr-checks.test
  * @category          validator
+ * @type              validator
  * @purpose           qa:repo-health
  * @scope             tests/unit, tests/run-pr-checks.js
  * @domain            docs
@@ -108,7 +109,8 @@ async function runTests() {
         'MDX-safe Markdown',
         'Spelling',
         'Quality',
-        'Links & Imports',
+        'Links',
+        'Imports',
         'MDX Guardrails',
         'Docs Navigation',
         'docs.json /redirect Guard',
@@ -124,9 +126,9 @@ async function runTests() {
         'Root Allowlist Format',
         'Portable Skill Export',
         'Docs-guide SoT',
-        'UI Template Generator',
+        'UI Templates & Mint Surface',
         'Usefulness Unit Tests',
-        'V2 Link Audit (Strict)'
+        'Page Integrity Dispatch (Strict)'
       ]
     );
     console.log('   ✓ branch-health registry keeps the full changed-file suite order');

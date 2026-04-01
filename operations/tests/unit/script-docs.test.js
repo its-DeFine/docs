@@ -195,11 +195,8 @@ function getScriptsForRoots(roots) {
   const scripts = [];
   for (const root of roots) {
     const trackedFiles = getTrackedFilesForRoot(root);
-    if (trackedFiles.length > 0) {
-      scripts.push(...trackedFiles);
-      continue;
-    }
-    walkFiles(root, scripts);
+    const discoveredFiles = [...trackedFiles, ...walkFiles(root, [])];
+    scripts.push(...new Set(discoveredFiles));
   }
   return [...new Set(scripts)].filter(isScriptFile).sort();
 }
