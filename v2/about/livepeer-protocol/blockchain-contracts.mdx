@@ -156,16 +156,16 @@ export const merkleSnapshot = getPublishedEntry('arbitrumOne', 'MerkleSnapshot')
 export const lastVerifiedDate = contractAddresses.meta.lastVerified || "Pending"
 
 <Tip>
-  Addresses on this page are automatically updated via a Github Action workflow. <br/>
-  <span style={{display: "flex", alignItems: "center", marginTop: "0.2rem"}}> Data is sourced from the <DoubleIconLink label="Livepeer Github" href="https://github.com/livepeer/" iconRightColor="var(--hero-text)"/> and verified on-chain. </span> <br/>
+  Addresses on this page are automatically updated via a GitHub Action workflow. <br/>
+  <span style={{display: "flex", alignItems: "center", marginTop: "0.2rem"}}> Data is recovered from live chain state, upstream source provenance, and explorer verification before it is published on the canonical contracts page. </span> <br/>
   <span style={{color: "var(--text)", marginTop: "0.5rem"}}> Last Verified: <DataWrap value={contractAddresses.meta.lastVerified} /> </span>
 </Tip>
 
 <Columns cols={2}>
   <Card
-    href="https://github.com/livepeer/governor-scripts/blob/master/updates/addresses.js"
+    href="https://github.com/livepeer/protocol"
     icon="github"
-    title={<>Livepeer Contract Addresses <br/>  <Badge color="green"> Canonical Code </Badge></>}
+    title={<>Livepeer Protocol Source <br/>  <Badge color="green"> Commit Pinned </Badge></>}
     horizontal
   />
   <Card
@@ -1207,9 +1207,9 @@ For the complete list of all current, paused, migration-residual, legacy-operati
 />
 <Columns cols={2}>
   <Card
-    href="https://github.com/livepeer/governor-scripts/blob/master/updates/addresses.js"
+    href="https://github.com/livepeer/protocol"
     icon="github"
-    title={<>Livepeer Contract Addresses <br/>  <Badge color="green"> Canonical Code </Badge></>}
+    title={<>Livepeer Protocol Source <br/>  <Badge color="green"> Commit Pinned </Badge></>}
     horizontal
   />
   <Card

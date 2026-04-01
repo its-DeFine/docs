@@ -18,4 +18,4 @@ the whole repo contract.
   or path-scoped `.github/instructions/*.instructions.md`.
 - Do not recreate a second repo-wide baseline here.
 - Use the same validation and structure rules defined in `AGENTS.md`.
-- Do not use port `3000` for local Mintlify or preview sessions; choose a non-3000 port explicitly.
+- Do not use port `3000` for direct Mintlify preview runs or port `3333` via `lpd dev`; those ports are reserved for human-owned local servers.

@@ -3,23 +3,24 @@
  * @type automation
  * @concern testing
  * @niche render/page
- * @description CP-6: Verifies both contract-addresses pages render fully — table, search input,
- *              and at least one address row. Validates composable + SearchTable pattern.
+ * @description CP-6: Verifies the canonical contract-addresses page and legacy redirects render
+ *              fully against a local Mint preview. Validates the active table, widget controls,
+ *              and redirect contract.
  * @usage node operations/tests/playwright-contract-addresses.js
  */
 
 const puppeteer = require('/opt/homebrew/lib/node_modules/puppeteer');
 
-const BASE_URL = 'http://localhost:3333';
+const BASE_URL = process.env.CONTRACTS_TEST_BASE_URL || 'http://localhost:3334';
 
 const PAGES = [
   {
-    name: 'contract-addresses (about)',
+    name: 'contract-addresses (canonical)',
     url: `${BASE_URL}/v2/about/resources/livepeer-contract-addresses`,
   },
   {
-    name: 'contract-addresses (references)',
-    url: `${BASE_URL}/v2/resources/references/contract-addresses`,
+    name: 'contract-addresses (legacy redirect)',
+    url: `${BASE_URL}/references/contract-addresses`,
   },
 ];
 
@@ -32,14 +33,15 @@ async function testPage(browser, { name, url }) {
   page.on('console', msg => { if (msg.type() === 'error') errors.push(msg.text()); });
 
   try {
-    await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 });
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
     await sleep(3000);
 
     const bodyText = await page.$eval('body', el => el.textContent);
     const hasContent = bodyText.length > 200;
 
     const tableExists = await page.$('table') !== null;
-    const searchInput = await page.$('input[type="text"], input[placeholder], input[type="search"]') !== null;
+    const searchInput = await page.$('input[type="text"], input[placeholder], input[type="search"], select') !== null;
+    const finalUrl = page.url();
 
     // Look for an address row — check for 0x in table cells
     const hasAddress = await page.evaluate(() => {
@@ -53,19 +55,24 @@ async function testPage(browser, { name, url }) {
       !e.includes('rss.xml')
     );
 
+    const canonicalUrl = `${BASE_URL}/v2/about/resources/livepeer-contract-addresses`;
+    const redirectOk = name.includes('redirect') ? finalUrl === canonicalUrl : true;
+
     return {
       name,
       url,
-      passed: hasContent && tableExists && !filteredErrors.some(e => e.includes('import') || e.includes('Cannot read')),
+      passed: hasContent && tableExists && redirectOk && !filteredErrors.some(e => e.includes('import') || e.includes('Cannot read')),
       hasContent,
       tableExists,
       searchInput,
       hasAddress,
       errors: filteredErrors,
       bodyLength: bodyText.length,
+      finalUrl,
+      redirectOk,
     };
   } catch (e) {
-    return { name, url, passed: false, hasContent: false, tableExists: false, searchInput: false, hasAddress: false, errors: [e.message], bodyLength: 0 };
+    return { name, url, passed: false, hasContent: false, tableExists: false, searchInput: false, hasAddress: false, errors: [e.message], bodyLength: 0, finalUrl: null, redirectOk: false };
   } finally {
     await page.close();
   }
@@ -89,10 +96,12 @@ async function main() {
     const status = r.passed ? 'PASS' : 'FAIL';
     console.log(`\n[${status}] ${r.name}`);
     console.log(`  URL:          ${r.url}`);
+    console.log(`  Final URL:    ${r.finalUrl}`);
     console.log(`  Body length:  ${r.bodyLength}`);
     console.log(`  Table:        ${r.tableExists}`);
     console.log(`  Search input: ${r.searchInput}`);
     console.log(`  Has address:  ${r.hasAddress}`);
+    console.log(`  Redirect OK:  ${r.redirectOk}`);
     if (r.errors.length > 0) {
       console.log(`  Errors:`);
       r.errors.forEach(e => console.log(`    - ${e}`));

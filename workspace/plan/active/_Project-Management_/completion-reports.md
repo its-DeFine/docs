@@ -3496,3 +3496,67 @@ Closed the contracts companion governance gap (added to manifest). Executed Phas
 | `tools/lib/docs-index-utils.js` | Utility (modified) | Defensive warning for number-in-string-array |
 | `workspace/thread-outputs/research/mintlify-constraints-reference.md` | Reference (modified) | Constraint #13: YAML hex trap |
 | `workspace/plan/future/BACKLOG/registry.md` | Backlog (modified) | BL-015: wordCount:0 composable pages |
+
+## Delegators Rename Merge + Staged Test Harness Repair — 2026-04-01
+
+**Plans**: none
+**Scope**: Merged the v2 `LP Token` to `Delegators` path/navigation migration into `docs-v2-dev`, then repaired repo-wide staged test harness dependency resolution so `bash tools/lpd test --staged` reaches real validator failures instead of crashing on missing modules.
+**Outcome**: Met
+
+### Summary
+The v2 `Delegators` rename is now merged on `docs-v2-dev` and validated as a path/navigation migration, with broader local preview/runtime instability explicitly kept out of merge scope. In the same thread, the staged test harness root cause was fixed by standardising repo dependency resolution across split `node_modules` roots and child Node processes, so staged checks now run through to real repo failures instead of dying on `gray-matter` and `unified` resolution errors.
+
+### Completed
+**Delegators migration:**
+- Merged the `v2/lpt` to `v2/delegators` rename into `docs-v2-dev` at commit `850f72f27d51fd24b8f572e29b135d8002abd0a8`.
+- Updated public nav and redirects in `docs.json`, moved the v2 section tree to `v2/delegators`, and fixed the broken internal links surfaced during staged audit and merge resolution.
+- Verified targeted route/link behavior for `/v2/delegators/*` and `/v2/lpt/*` redirect compatibility before shutting down local browser tooling.
+
+**Staged test harness repair:**
+- Added a shared repo dependency resolver in `tools/lib/repo-node-paths.js` to bootstrap split dependency roots and build stable child-process environments.
+- Updated `operations/tests/run-all.js` and `operations/tests/run-pr-checks.js` to bootstrap repo node paths before loading suites and to pass the same environment into spawned Node checks.
+- Updated the i18n MDX parser to import ESM dependencies through repo-owned dependency roots instead of assuming a flat root `node_modules`.
+- Fixed stale validator command paths in `operations/tests/run-pr-checks.js` so the runner points at the current component naming validator entrypoint.
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| Merge the `Delegators` rename as a path/navigation migration branch and do not block it on unrelated Mint preview/runtime instability | Targeted rename QA passed, while the failing full sweep showed broader site/runtime debt not introduced by the rename |
+| Fix staged test runner dependency resolution in-place on `docs-v2-dev` | The failure was repo-wide harness bootstrap debt, not branch-local content debt, and it was blocking trustworthy staged validation |
+| Defer the remaining content/style debt to a separate worktree | After the harness fix, the remaining `lpd test --staged` failures are real repo issues and should be triaged independently from the rename and bootstrap work |
+
+### Deferred Items
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Isolated remediation of remaining `lpd test --staged` failures | P1 | Harness bootstrap is fixed; remaining failures are real repo/test debt across navigation, governance, usefulness, and authoring checks | Fresh worktree follow-up |
+
+### Dependencies & Downstream Effects
+- **`bash tools/lpd test --staged`**: No longer depends on manually exporting `NODE_PATH`; the runner now bootstraps repo dependency roots itself.
+- **Child Node validators**: Spawned checks now inherit the same dependency resolution as the parent runner, which removes split-install drift between direct and spawned test execution.
+- **i18n MDX parsing**: Translation tests now resolve `unified`, `remark-parse`, `remark-mdx`, and `remark-gfm` from repo-owned installs instead of relying on accidental root resolution.
+- **Project management records**: Delegators path references in active project-state are updated to `v2/delegators` so the session snapshot matches the merged repo state.
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| `node operations/scripts/generators/content/catalogs/generate-pages-index.js --check` | Pass | Re-run after index regeneration during Delegators merge |
+| `node operations/scripts/validators/content/structure/lint-structure.js --check` | Pass | Nav/route structure clean for merged rename |
+| `node operations/tests/integration/v2-link-audit.js --staged --strict` | Pass | `Missing refs: 0` after merge fixes |
+| Targeted browser smoke for `Delegators` routes | Pass | `/v2/delegators/*` pages loaded and `/v2/lpt/*` redirects resolved correctly |
+| `bash tools/lpd test --staged` | Partially pass | Harness/bootstrap issue resolved; suite now exits on 10 real repo/test errors and 99 warnings instead of module-resolution crashes |
+| `node operations/tests/run-pr-checks.js --help` | Pass | Confirms runner boots with the new dependency bootstrap path |
+
+### Recommendations
+1. **Start the deferred hardening work in a fresh worktree** — the remaining staged-suite failures are now real debt and can be triaged cleanly without mixing with the rename or harness fix.
+2. **Commit the harness repair separately from the active parallel contracts/actions work** — `tools/lib/repo-node-paths.js`, `operations/tests/run-all.js`, `operations/tests/run-pr-checks.js`, and `operations/scripts/automations/content/language-translation/lib/mdx-parser.js` should be staged intentionally.
+3. **Review cleanup for `.playwright-cli/` before the next browser task** — it is leftover tooling debris, not a deliverable.
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `docs.json` | Nav config (merged) | v2 tab rename, `Delegators` paths, and `/v2/lpt/*` compatibility redirects |
+| `v2/delegators/` | Content tree (merged) | Renamed v2 section root replacing `v2/lpt/` |
+| `tools/lib/repo-node-paths.js` | Utility (new) | Shared repo dependency resolver and child-process environment bootstrap |
+| `operations/tests/run-all.js` | Test runner (modified) | Bootstraps repo dependency roots for staged/full test execution |
+| `operations/tests/run-pr-checks.js` | Test runner (modified) | Bootstraps dependency roots, passes env to child checks, and fixes stale validator paths |
+| `operations/scripts/automations/content/language-translation/lib/mdx-parser.js` | Utility (modified) | Resolves ESM parser dependencies through repo-owned installs |

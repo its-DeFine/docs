@@ -4,8 +4,9 @@ const path = require("node:path");
 
 const {
   buildContractVerifierChainData,
+  buildContractVerifierLookupData,
   isContractVerifierControllerLookupEligible,
-} = require(path.join(process.cwd(), "snippets/components/integrators/feeds/contractVerifierData.js"));
+} = require(path.join(process.cwd(), "snippets/components/integrators/feeds/contractVerifierData.cjs"));
 
 const addr = (hex) => `0x${hex.repeat(40)}`;
 
@@ -32,12 +33,16 @@ test("buildContractVerifierChainData keeps lookup options active-only and prefer
   assert.equal(result.inventoryEntries.some((entry) => entry.address === implementation.address), true);
 });
 
-test("isContractVerifierControllerLookupEligible prefers explicit registrationState over deprecated boolean", () => {
+test("isContractVerifierControllerLookupEligible prefers structured controller registration over deprecated fields", () => {
   const keccakHash = `0x${"a".repeat(64)}`;
 
   assert.equal(
     isContractVerifierControllerLookupEligible(
-      { meta: { keccakHash, registrationState: "not_registered", registeredInController: true } },
+      {
+        verification: { controller: { controllerRegistered: false } },
+        controllerRegistered: true,
+        meta: { keccakHash, registrationState: "registered", registeredInController: true },
+      },
       true
     ),
     false
@@ -45,7 +50,10 @@ test("isContractVerifierControllerLookupEligible prefers explicit registrationSt
 
   assert.equal(
     isContractVerifierControllerLookupEligible(
-      { meta: { keccakHash, registrationState: "registered", registeredInController: false } },
+      {
+        controllerRegistered: true,
+        meta: { keccakHash, registrationState: "not_registered", registeredInController: false },
+      },
       true
     ),
     true
@@ -57,5 +65,38 @@ test("isContractVerifierControllerLookupEligible prefers explicit registrationSt
       true
     ),
     true
+  );
+
+  assert.equal(
+    isContractVerifierControllerLookupEligible(
+      { meta: { keccakHash, registrationState: "not_applicable", registeredInController: false } },
+      true
+    ),
+    false
+  );
+});
+
+test("buildContractVerifierLookupData preserves active cross-chain duplicates under one lookup name", () => {
+  const result = buildContractVerifierLookupData({
+    arbitrumOne: {
+      active: [
+        { name: "LivepeerToken", chain: "arbitrumOne", address: addr("1"), type: "standalone", category: "token" },
+      ],
+    },
+    ethereumMainnet: {
+      active: [
+        { name: "LivepeerToken", chain: "ethereumMainnet", address: addr("2"), type: "standalone", category: "token" },
+        { name: "L1Escrow", chain: "ethereumMainnet", address: addr("3"), type: "standalone", category: "bridge" },
+      ],
+    },
+  });
+
+  assert.deepEqual(
+    result.lookupEntries.map((entry) => entry.name).sort(),
+    ["L1Escrow", "LivepeerToken"]
+  );
+  assert.deepEqual(
+    result.entriesByName.LivepeerToken.map((entry) => entry.chain),
+    ["arbitrumOne", "ethereumMainnet"]
   );
 });

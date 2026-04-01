@@ -834,3 +834,18 @@ Outcome: MET — references knowledge system complete.
 ---
 Session started: 2026-03-31 13:48:14
 Session started: 2026-03-31 19:41:29
+
+=== 2026-04-01 01:26 ===
+Stream: Delegators Rename Merge + Staged Test Harness Repair
+Outcome: Met
+Done:
+- v2 `Delegators` rename was merged into `docs-v2-dev`, with route/link validation and `/v2/lpt/*` redirect compatibility verified
+- `bash tools/lpd test --staged` now boots through split repo dependencies instead of failing on `gray-matter` or `unified` resolution
+- Remaining staged-suite failures are narrowed to real repo debt, not harness/bootstrap failure
+Next: Start a fresh worktree to triage and fix the remaining real staged-suite failures separately from the rename and harness work
+Session started: 2026-04-01 13:50:42
+Session started: 2026-04-01 13:50:42
+Session started: 2026-04-01 13:50:45
+Session started: 2026-04-01 13:50:45
+Session started: 2026-04-01 13:51:04
+Session started: 2026-04-01 13:51:04

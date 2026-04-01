@@ -24,7 +24,7 @@ Run command: node operations/tests/unit/script-docs.test.js --write --rebuild-in
 **Important**: Do not manually edit this file; run `node operations/tests/unit/script-docs.test.js --write --rebuild-indexes`. <br/>
 </Note>
 
-The governed script library currently indexes **308** script(s).
+The governed script library currently indexes **309** script(s).
 
 ## Pipeline Flow
 
@@ -32,7 +32,7 @@ The governed script library currently indexes **308** script(s).
 flowchart LR
   DEV([👤 Developer])
 
-  subgraph P1["🔴 P1 — Commit Gate (41)"]
+  subgraph P1["🔴 P1 — Commit Gate (42)"]
     direction TB
     c0["pre-commit"]
     c1["task-preflight.js"]
@@ -42,11 +42,11 @@ flowchart LR
     c5["enforce-generated-file-banners.js"]
     c6["validate-codex-task-contract.js"]
     c7["audit-script-inventory.js"]
-    c8["browser.test.js"]
-    c9["v2-link-audit.js"]
-    c10["v2-wcag-audit.js"]
-    c11["run-all.js"]
-    cmore["... 29 more"]
+    c8["pre-commit-v1"]
+    c9["browser.test.js"]
+    c10["v2-link-audit.js"]
+    c11["v2-wcag-audit.js"]
+    cmore["... 30 more"]
   end
 
   subgraph P2["🟠 P2 — Push Gate (11)"]
@@ -276,6 +276,7 @@ flowchart LR
 | `orchestrator-guides-research-review.js` | Orchestrator guides research review packet wrapper — delegates to the generic docs-research-packet engine with the live Orchestrators Guides nav scope and legacy default output root. | manual | content | `node operations/scripts/audits/content/veracity/orchestrator-guides-research-review.js [flags]` |
 | `phase-gate-hook.js` | PostToolUse hook for Edit/Write. Reads phase-gate.jsonl and emits unverified | manual | governance | `Called automatically by Claude Code PostToolUse hook. Not invoked directly.` |
 | `post-tool-verify.js` | Tracks consecutive failures for circuit breaker. Fires after tool use failures. | manual | governance | `Called automatically by Claude Code PostToolUseFailure hook. Not invoked directly.` |
+| `pre-commit-v1` | Archived pre-commit hook orchestrator that runs structural checks, unit tests, codex validation, and docs-index freshness checks before allowing commit. | P1 | governance | `bash .githooks/pre-commit [flags]` |
 | `pre-compact-checkpoint.js` | Fires before Claude Code compacts context in long sessions. Reads the | manual | governance | `Called automatically by Claude Code PreCompact hook. Not invoked directly.` |
 | `pre-tool-guard.js` | Mechanically enforces co-work rules before tool execution. Blocks destructive git, public posts, and unconfirmed writes. | manual | governance | `Called automatically by Claude Code PreToolUse hook. Not invoked directly.` |
 | `read-logger.js` | PostToolUse hook on Read. Logs file paths to a session-scoped temp file. | manual | governance | `Called automatically by Claude Code PostToolUse hook. Not invoked directly.` |

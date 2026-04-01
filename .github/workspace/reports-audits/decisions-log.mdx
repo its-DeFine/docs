@@ -60,15 +60,15 @@
 
 | Type | Purpose | Count |
 |---|---|---|
-| `automation` | End-to-end pipelines: fetch, transform, commit | 10 |
-| `generator` | Produce files from source-of-truth on push/merge | 7 |
+| `integrator` | Pulls external data into the repo | 12 |
+| `generator` | Produces files from internal repo data | 7 |
 | `validator` | Enforce rules with pass/fail on PR | 10 |
 | `audit` | Read-only scheduled monitoring | 3 |
 | `remediator` | Auto-fix with optional commit | 3 |
 | `dispatch` | Orchestrate multiple scripts/workflows | 1 |
 | `interface` | Issue/PR event handling and triage | 5 |
 
-**Status:** Confirmed (D-ACT-01 added interface as 7th type).
+**Status:** Confirmed (D-ACT-01 added interface, D-ACT-07 renamed automation/generator).
 
 ### Concern Taxonomy (7 concerns, confirmed D-ACT-05)
 
@@ -139,8 +139,54 @@
 **Reasoning:** The original `content` concern carried 26 of 45 workflows, making it useless for grouping. The concern should name what part of the system the workflow operates on, not what kind of output it produces. `ai` and `components` were absorbed into concerns that describe function: AI companions/sitemap/LLM files are about discoverability; component registry is maintenance.
 **Impact:** D-ACT-04 naming convention updated (concern segment uses new 7-value enum). All workflow renames in Phase 6 use the new concerns. Framework document updated.
 
+### D-ACT-06: Migrate .github/scripts/ into operations/scripts/ governance
+
+**Date:** 2026-04-01
+**Status:** Confirmed
+**Decision:** The 10 scripts in `.github/scripts/` will be migrated to `operations/scripts/` under the existing script governance framework (6-type, 4-concern, 11-tag JSDoc). Workflow YAML files become pure dispatchers (trigger + environment + orchestration). Scripts become independently runnable and governed.
+**Scope:** 10 scripts currently in `.github/scripts/`. The 6 workflows with inline scripts (80-400 lines) are extraction candidates in the same pass.
+**Execution:** After actions governance Phases 3-5 complete. Before Phase 6 workflow renames, a companion "Scripts Governance Audit" thread runs the same flow (audit, framework co-design, library pages) for `operations/scripts/`. The script migration merges both threads.
+**Reasoning:** Scripts can live anywhere; the workflow just calls `node path/to/script.js`. The only scripts outside the governed `operations/scripts/` tree are these 10 in `.github/scripts/`. Moving them under governance gives: independent runnability, JSDoc tag coverage, catalog generation, reuse by other tools, and clean separation of when/where (workflow) from what/how (script).
+**Impact:** Phase 6 scope expands. New thread: "Scripts Governance Audit" to be opened after this thread's Phase 5.
+
+### D-ACT-07: Rename automation to integrator
+
+**Date:** 2026-04-01
+**Status:** Confirmed
+**Decision:** `automation` becomes `integrator` (pulls external data into the repo). `generator` stays as is (aligned to scripts framework).
+
+**Type enum (7 values, updated):**
+
+| Type | What it does | Change |
+|---|---|---|
+| `integrator` | Pulls external data into the repo | renamed from `automation` |
+| `generator` | Produces files from internal repo data | unchanged |
+| `validator` | Checks rules, returns pass/fail | unchanged |
+| `audit` | Scheduled read-only observation | unchanged |
+| `remediator` | Fixes broken state | unchanged |
+| `interface` | Reacts to issue/PR/external events | unchanged |
+| `dispatch` | Orchestrates child workflows | unchanged |
+
+**Reasoning:** `automation` was vague and described every workflow equally. The actual distinction is source: external API vs internal repo. `integrator` names that. With `integrator` as the type, the concern carries the domain (maintenance, health, etc.) instead of redundantly saying `integrations`.
+**Impact:** D-ACT-04 naming convention updated. Integrator workflows use domain concerns since their type already signals external source. All prior references to `automation` in framework docs need updating.
+
+### D-ACT-08: Workflows are dispatchers, type reflects the script
+
+**Date:** 2026-04-01
+**Status:** Confirmed
+**Decision:** Architecturally, all workflow YAML files are dispatchers. They handle when, where, permissions, and orchestration. The typed work (integrating, generating, validating, etc.) lives in the script. The type prefix in the workflow filename reflects the script's type, not the workflow's role.
+
+**Implications:**
+- Naming convention unchanged: `type-concern-verb-name.yml`. The type prefix stays for visual grouping in the flat `.github/workflows/` folder
+- D-ACT-06 (inline script extraction) is now architecturally necessary, not just cleanup. Workflows with inline scripts (6 workflows, 80-400 lines) violate this separation
+- The action-library documents the full pipeline (workflow + script), but the type classification comes from what the script does
+- The consolidated data-feed workflow (D-ACT-03) is the cleanest expression of this: one dispatcher YAML, matrix of integrator scripts
+
+**Reasoning:** Every workflow does the same thing: checkout, setup, run script, handle output. The only difference is what the script does. Making this separation explicit means workflows become thin, standardised shells and the interesting logic lives in governed, independently runnable scripts.
+**Impact:** Strengthens D-ACT-06. No changes to naming convention or type enum.
+
 ---
 
 ## Pending Decisions
 
-None at this time. All Phase 2 decisions confirmed.
+None at this time. All decisions confirmed.

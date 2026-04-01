@@ -3,10 +3,10 @@
  * @script            contracts-addresses-pipeline.test
  * @category          validator
  * @purpose           qa:contracts-registry
- * @scope             tests/unit, .github/scripts/fetch-contract-addresses.js, operations/scripts/config/contract-addresses-authority.json, snippets/components/integrators/feeds/ContractVerifier.jsx, snippets/data/contract-addresses/contractAddressesData.json
+ * @scope             tests/unit, .github/scripts/fetch-contract-addresses.js, operations/scripts/automations/content/data/contracts/, snippets/components/integrators/feeds/ContractVerifier.jsx, snippets/data/contract-addresses/contractAddressesData.json
  * @owner             docs
  * @needs             E-R12, E-R14
- * @purpose-statement Regression tests for the contracts authority catalog, lifecycle grouping, generated registry output, and widget data-consumption contract.
+ * @purpose-statement Regression tests for the contracts proof catalog, lifecycle grouping, generated registry output, and widget data-consumption contract.
  * @pipeline          P1 (commit, via run-all)
  * @usage             node operations/tests/unit/contracts-addresses-pipeline.test.js
  */
@@ -16,14 +16,17 @@ const fs = require('fs');
 const path = require('path');
 
 const {
-  loadAuthorityCatalog,
+  loadContractProofCatalog,
   resolveAuthority,
   buildChainPayload,
 } = require('../../../.github/scripts/fetch-contract-addresses.js');
 const {
   buildContractVerifierChainData,
   isContractVerifierControllerLookupEligible,
-} = require('../../../snippets/components/integrators/feeds/contractVerifierData.js');
+} = require('../../../snippets/components/integrators/feeds/contractVerifierData.cjs');
+const {
+  ROUTE_DEPENDENCIES,
+} = require('../../../operations/scripts/generators/content/seo/generate-ai-sitemap.js');
 
 const REPO_ROOT = path.resolve(__dirname, '../../..');
 const GENERATED_JSON_PATH = path.join(
@@ -82,12 +85,17 @@ function runTests() {
 
   console.log('🧪 Contracts Addresses Pipeline Unit Tests');
 
-  runCase('authority catalog loads and includes deterministic latest-resolution policy', () => {
-    const catalog = loadAuthorityCatalog();
+  runCase('proof catalog loads and excludes docs-local fixed address truth', () => {
+    const catalog = loadContractProofCatalog();
     assert.ok(Array.isArray(catalog.deployments) && catalog.deployments.length > 0, 'catalog should contain deployments');
     assert.ok(
       Array.isArray(catalog._meta?.latestResolutionPolicy) && catalog._meta.latestResolutionPolicy.length > 0,
-      'catalog should publish latest-resolution policy',
+      'catalog should publish latest-resolution policy'
+    );
+    assert.strictEqual(
+      catalog.deployments.some((deployment) => deployment.addressStrategy?.kind === 'fixed'),
+      false,
+      'proof catalog must not contain fixed local address truth'
     );
   });
 
@@ -110,7 +118,7 @@ function runTests() {
 
     assert.strictEqual(resolved.address, governorChain.minterV10);
     assert.strictEqual(resolved.version, 'V10');
-    assert.strictEqual(resolved.authorityKind, 'governor-scripts');
+    assert.strictEqual(resolved.authorityKind, 'governor-manifest');
     assert.strictEqual(resolved.sourceKey, 'minterV10');
   });
 
@@ -213,6 +221,38 @@ function runTests() {
       false,
       'non-controller contracts must not be treated as controller lookups',
     );
+    assert.strictEqual(canonical.BondingManager?.verification?.controller?.controllerRegistered, true);
+    assert.strictEqual(canonical.BondingManager?.verification?.explorer?.host, 'arbiscan.io');
+    assert.ok(
+      canonical.BondingManager?.verification?.proxy?.implementationMatchesExpected !== false,
+      'active proxy rows should not contradict expected implementation metadata',
+    );
+    assert.ok(canonical.BondingManager?.addressSource?.kind, 'generated entries should expose structured address source metadata');
+  });
+
+  runCase('active proxy rows expose runtime-resolved implementation addresses that match expected targets', () => {
+    const data = loadGeneratedJson();
+    const activeProxies = (data.arbitrumOne?.active || []).filter((entry) => (entry.type || entry.deploymentKind) === 'proxy');
+
+    assert.ok(activeProxies.length > 0, 'arbitrumOne should publish active proxy rows');
+    assert.strictEqual(
+      activeProxies.some((entry) => !entry.verification?.proxy?.implementationAddress),
+      false,
+      'every active proxy should expose a runtime implementation address',
+    );
+    assert.strictEqual(
+      activeProxies.some((entry) => entry.verification?.proxy?.controllerMatchesExpected === false),
+      false,
+      'active proxy controller pointers should match the expected chain controller',
+    );
+    assert.strictEqual(
+      activeProxies.some((entry) =>
+        entry.verification?.proxy?.expectedImplementationAddress
+        && entry.verification?.proxy?.implementationMatchesExpected !== true
+      ),
+      false,
+      'runtime proxy implementations should match expected targets where an expected target is defined',
+    );
   });
 
   runCase('contracts pages are rewired away from raw current lookups and legacy routes', () => {
@@ -228,10 +268,16 @@ function runTests() {
     assert.ok(!blockchainPage.includes('/v2/about/resources/contract-addresses'), 'blockchain page should link to the canonical route');
   });
 
+  runCase('AI sitemap freshness tracks the generated contracts data for the canonical contracts route', () => {
+    const dependencies = ROUTE_DEPENDENCIES['v2/about/resources/livepeer-contract-addresses'] || [];
+    assert.ok(dependencies.includes('snippets/data/contract-addresses/contractAddressesData.json'));
+    assert.ok(dependencies.includes('snippets/composables/pages/canonical/livepeer-contract-addresses-data.json'));
+  });
+
   return {
     errors,
     passed: errors.length === 0,
-    total: 6,
+    total: 7,
   };
 }
 

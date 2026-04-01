@@ -141,3 +141,8 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 **Source:** Mint Parse Hygiene — 2026-03-31
 **Description:** Fresh `mint dev` and `bash tools/lpd dev` boots are parse-clean and reach preview-ready, but both still print `[TypeError: controller[kState].transformAlgorithm is not a function]` after startup. Likely Mint CLI runtime or watcher patch behaviour rather than content parsing. Needs isolated diagnosis.
 **Priority:** P2
+
+## BL-027 — Resolve real staged-suite failures after harness repair
+**Source:** Staged Test Harness Repair — 2026-04-01
+**Description:** After fixing repo-wide dependency bootstrap, `bash tools/lpd test --staged` now runs through to real failures in authoring tools, docs navigation, ownerless governance, root allowlist checks, and usefulness assertions. Triage and repair these in an isolated worktree.
+**Priority:** P1

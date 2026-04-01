@@ -32,11 +32,19 @@ const BASE_URL = 'https://docs.livepeer.org';
 const DOCS_JSON = 'docs.json';
 const OUTPUT_FILE = 'sitemap-ai.xml';
 const AI_NAMESPACE = 'https://docs.livepeer.org/schemas/ai-sitemap/1.0';
+const ROUTE_DEPENDENCIES = {
+  'v2/about/resources/livepeer-contract-addresses': [
+    'snippets/data/contract-addresses/contractAddressesData.jsx',
+    'snippets/data/contract-addresses/contractAddressesData.json',
+    'snippets/composables/pages/canonical/livepeer-contract-addresses-data.json',
+    'snippets/data/contract-addresses/_health-checks.json',
+  ],
+};
 
 const REPO_ROOT = getRepoRoot();
 
 function usage() {
-  console.log('Usage: node operations/scripts/generate-ai-sitemap.js --write|--check');
+  console.log('Usage: node operations/scripts/generators/content/seo/generate-ai-sitemap.js --write|--check');
 }
 
 function normalizeRoute(route) {
@@ -197,6 +205,18 @@ function getLastModified(relPath, gitMap) {
   }
 }
 
+function getDependencyLastModified(route, gitMap) {
+  const normalized = normalizeRoute(route);
+  const dependencies = ROUTE_DEPENDENCIES[normalized] || [];
+  const timestamps = dependencies
+    .map((dependency) => getLastModified(dependency, gitMap))
+    .filter(Boolean)
+    .map((value) => new Date(value).toISOString());
+
+  if (!timestamps.length) return null;
+  return timestamps.sort().slice(-1)[0];
+}
+
 function buildEntries() {
   const docsJsonPath = path.join(REPO_ROOT, DOCS_JSON);
   const docsJson = JSON.parse(fs.readFileSync(docsJsonPath, 'utf8'));
@@ -229,7 +249,9 @@ function buildEntries() {
     if (!loc) return;
 
     const wordCount = countWords(stripForWordCount(body));
-    const lastmod = getLastModified(resolvedPath, gitMap);
+    const fileLastmod = getLastModified(resolvedPath, gitMap);
+    const dependencyLastmod = getDependencyLastModified(mapped, gitMap);
+    const lastmod = [fileLastmod, dependencyLastmod].filter(Boolean).sort().slice(-1)[0] || fileLastmod;
     const lastVerified = getLastVerified(resolvedPath, frontmatter.data || {}, gitMap, REPO_ROOT);
     const section = getSection(mapped);
     const tags = collectFrontmatterList(frontmatter.data || {}, ['tags', 'tag', 'keywords']);
@@ -337,4 +359,13 @@ function main() {
   process.exit(0);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  ROUTE_DEPENDENCIES,
+  buildEntries,
+  buildXml,
+  getDependencyLastModified,
+};

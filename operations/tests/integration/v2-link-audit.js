@@ -923,15 +923,6 @@ function extractRefs(content) {
     });
   }
 
-  const imports = extractImports(contentForExtraction);
-  for (const imp of imports) {
-    refs.push({
-      sourceType: 'import-path',
-      rawPath: String(imp.path || '').trim(),
-      line: imp.line
-    });
-  }
-
   return refs;
 }
 
@@ -955,34 +946,8 @@ function shouldValidateExternalRef(ref, externalLinkTypes) {
 }
 
 function analyzeRef(ref, currentFileAbs, repoFiles, routeSet, args, docsConfig, knownPublishedRoutes) {
-  if (ref.sourceType === 'import-path') {
-    const importPath = String(ref.rawPath || '').trim();
-    const isPackageImport = importPath && !importPath.startsWith('/') && !importPath.startsWith('./') && !importPath.startsWith('../');
-    if (isPackageImport) {
-      return {
-        ...ref,
-        linkType: 'import-path',
-        resolvedPath: null,
-        exists: null,
-        status: 'skipped-package-import',
-        movedCandidates: []
-      };
-    }
-
-    if (toPosix(currentFileAbs).endsWith('/style-guide.mdx')) {
-      return {
-        ...ref,
-        linkType: 'import-path',
-        resolvedPath: null,
-        exists: null,
-        status: 'skipped-style-guide-example',
-        movedCandidates: []
-      };
-    }
-  }
-
   const normalizedRaw = normalizeRawPath(ref.rawPath);
-  const linkType = ref.sourceType === 'import-path' ? 'import-path' : classifyPath(normalizedRaw);
+  const linkType = classifyPath(normalizedRaw);
 
   if (linkType === 'external-http' || linkType === 'external-https') {
     const normalizedExternalUrl = normalizeExternalUrl(ref.rawPath);

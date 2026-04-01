@@ -1,5 +1,5 @@
 # Project State — Content Writing Pipeline
-> Last updated: 2026-03-31
+> Last updated: 2026-04-01
 > This file must be read at the start of every AI session and updated after every agent batch.
 
 ---
@@ -33,7 +33,8 @@
 | context-packs/gateways-v1-content.md | | Phase 1b (Gateways) |
 | context-packs/developers-full-content.md | 112 files, 534KB | Phase 1b (Developers) |
 | context-packs/about-full-content.md | v2 full content read complete | Phase 1b (About) |
-| context-packs/delegators-full-content.md | v2/lpt/ path | Phase 1b (Delegators) |
+| context-packs/delegators-full-content.md | v2/delegators/ path | Phase 1b (Delegators) |
+| Staged test harness repair | `bash tools/lpd test --staged` now bootstraps split repo dependency roots and reaches real validator failures instead of module crashes | Unblocks isolated remediation of staged repo debt |
 | context-packs/developers-v1-content.md | | Phase 1b (Developers) |
 | context-packs/delegators-v1-content.md | 6 files — 3 misrouted Studio docs flagged | Phase 1b (Delegators) |
 | context-packs/developers-content-scan.md | Phase 2 — Developers complete | Phase 3 (Developers) after Phase 0 decisions |
@@ -106,6 +107,7 @@
 | Flag | Thread | Issue | Date |
 |---|---|---|---|
 | LIMBO | Contracts & Changelogs | Changelog migration half-done — old files deleted but unstaged, architecture.md references paths that may not exist on disk | 2026-03-29 |
+| REAL-DEBT | Staged Test Harness Repair | Harness bootstrap is fixed; remaining staged-suite failures are real repo debt across navigation, governance, usefulness, and authoring checks | 2026-04-01 |
 
 ---
 

@@ -15,6 +15,9 @@
  */
 const { spawnSync } = require('child_process');
 const path = require('path');
+const { bootstrapRepoNodePaths, createNodeProcessEnv } = require('../../tools/lib/repo-node-paths');
+
+bootstrapRepoNodePaths(__dirname);
 
 const styleGuideTests = require('./unit/style-guide.test');
 const copyLintTests = require('./unit/copy-lint.test');
@@ -27,7 +30,8 @@ const docsAuthoringRulesTests = require('./unit/docs-authoring-rules.test');
 const frontmatterTaxonomyTests = require('./unit/frontmatter-taxonomy.test');
 const spellingTests = require('./unit/spelling.test');
 const qualityTests = require('./unit/quality.test');
-const linksImportsTests = require('./unit/links-imports.test');
+const linksTests = require('./unit/links.test');
+const importsTests = require('./unit/imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
 const docsPathSyncTests = require('./unit/docs-path-sync.test');
 const scriptDocsTests = require('./unit/script-docs.test');
@@ -286,12 +290,18 @@ async function runAllTests() {
   totalWarnings += qualityResult.warnings.length;
   console.log(`   ${qualityResult.errors.length} errors, ${qualityResult.warnings.length} warnings`);
   
-  // Links & Imports Tests
-  console.log('\n🔗 Running Links & Imports Validation...');
-  const linksResult = normalizeSuiteResult(linksImportsTests.runTests({ stagedOnly }));
+  // Link Tests
+  console.log('\n🔗 Running Link Validation...');
+  const linksResult = normalizeSuiteResult(linksTests.runTests({ stagedOnly }));
   totalErrors += linksResult.errors.length;
   totalWarnings += linksResult.warnings.length;
   console.log(`   ${linksResult.errors.length} errors, ${linksResult.warnings.length} warnings`);
+
+  console.log('\n📦 Running Import Validation...');
+  const importsResult = normalizeSuiteResult(importsTests.runTests({ stagedOnly }));
+  totalErrors += importsResult.errors.length;
+  totalWarnings += importsResult.warnings.length;
+  console.log(`   ${importsResult.errors.length} errors, ${importsResult.warnings.length} warnings`);
 
   if (precommitBasic) {
     console.log('\n🧭 Running Extended Governance and Repo-wide Suites...');
@@ -428,7 +438,7 @@ async function runAllTests() {
     const usefulnessRubricCheck = spawnSync(
       'node',
       ['operations/tests/unit/usefulness-rubric.test.js'],
-      { cwd: REPO_ROOT, encoding: 'utf8' }
+      { cwd: REPO_ROOT, encoding: 'utf8', env: createNodeProcessEnv({}, __dirname) }
     );
     if (usefulnessRubricCheck.stdout) process.stdout.write(usefulnessRubricCheck.stdout);
     if (usefulnessRubricCheck.stderr) process.stderr.write(usefulnessRubricCheck.stderr);
@@ -437,7 +447,7 @@ async function runAllTests() {
     const usefulnessJourneyCheck = spawnSync(
       'node',
       ['operations/tests/unit/usefulness-journey.test.js'],
-      { cwd: REPO_ROOT, encoding: 'utf8' }
+      { cwd: REPO_ROOT, encoding: 'utf8', env: createNodeProcessEnv({}, __dirname) }
     );
     if (usefulnessJourneyCheck.stdout) process.stdout.write(usefulnessJourneyCheck.stdout);
     if (usefulnessJourneyCheck.stderr) process.stderr.write(usefulnessJourneyCheck.stderr);
@@ -450,7 +460,7 @@ async function runAllTests() {
     const i18nCheck = spawnSync(
       'node --test operations/scripts/automations/content/language-translation/test/*.test.js',
       [],
-      { cwd: REPO_ROOT, encoding: 'utf8', shell: true }
+      { cwd: REPO_ROOT, encoding: 'utf8', shell: true, env: createNodeProcessEnv({}, __dirname) }
     );
     if (i18nCheck.stdout) process.stdout.write(i18nCheck.stdout);
     if (i18nCheck.stderr) process.stderr.write(i18nCheck.stderr);
@@ -481,7 +491,7 @@ async function runAllTests() {
     const generatedBannerCheck = spawnSync(
       'node',
       ['operations/scripts/validators/content/structure/enforce-generated-file-banners.js', '--check'],
-      { cwd: REPO_ROOT, encoding: 'utf8' }
+      { cwd: REPO_ROOT, encoding: 'utf8', env: createNodeProcessEnv({}, __dirname) }
     );
     if (generatedBannerCheck.stdout) process.stdout.write(generatedBannerCheck.stdout);
     if (generatedBannerCheck.stderr) process.stderr.write(generatedBannerCheck.stderr);

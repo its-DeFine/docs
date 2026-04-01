@@ -108,7 +108,8 @@ async function runTests() {
         'MDX-safe Markdown',
         'Spelling',
         'Quality',
-        'Links & Imports',
+        'Links',
+        'Imports',
         'MDX Guardrails',
         'Docs Navigation',
         'docs.json /redirect Guard',
@@ -124,7 +125,7 @@ async function runTests() {
         'Root Allowlist Format',
         'Portable Skill Export',
         'Docs-guide SoT',
-        'UI Template Generator',
+        'UI Templates & Mint Surface',
         'Usefulness Unit Tests',
         'V2 Link Audit (Strict)'
       ]

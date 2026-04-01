@@ -222,8 +222,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -264,7 +264,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "controller"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/Controller.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/Controller.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xD8E8328501E9645d16Cf49539efC04f734606ee4"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -286,17 +338,17 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
           "deployedBy": "Livepeer Deployer",
           "notes": null,
-          "holderCount": "245,860",
+          "holderCount": "245,861",
           "transactionCount": 127236,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "Livepeer",
           "keccakHash": "0x3443e257065fe41dd0e4d1f5a1b73a22a62e300962b57f30cddf41d0f8273ba7",
           "registrationState": "registered",
@@ -314,10 +366,10 @@ export const contractAddresses = {
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2022-02-11T13:19:54.000Z",
-          "totalSupply": "31765014587243867843268937",
+          "totalSupply": "31775549992216911572114348",
           "decimals": "18",
           "symbol": "LPT",
-          "lastActiveDateISO": "2026-03-31T01:27:27.000Z",
+          "lastActiveDateISO": "2026-03-31T14:23:52.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": false,
           "language": "solidity",
@@ -331,7 +383,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 20,
           "validationsCount": 0,
-          "transactionsRecent": 3
+          "transactionsRecent": 3,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "livepeerToken"
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L2/token/LivepeerToken.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/token/LivepeerToken.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x289ba1701C2F088cf0faf8B3705246331cB8A839"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "LivepeerToken",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0x289ba1701c2f088cf0faf8b3705246331cb8a839",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -353,8 +457,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -379,7 +483,7 @@ export const contractAddresses = {
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
-          "balance": "172960928488901091590",
+          "balance": "172774020606111007832",
           "deployedAtISO": "2022-02-17T15:50:01.000Z",
           "lastActiveDateISO": "2024-01-31T21:28:22.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
@@ -394,7 +498,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 248229,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "minterV2"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/token/Minter.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/token/Minter.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xc20DE37170B45774e6CD3d2304017fc962f27252"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "Minter",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xc20de37170b45774e6cd3d2304017fc962f27252",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -416,8 +572,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -426,7 +582,7 @@ export const contractAddresses = {
           "holderCount": null,
           "transactionCount": 224146,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "ManagerProxy",
           "keccakHash": "0x2517d59a36a86548e38734e8ab416f42afff4bca78706a66ad65750dae7f9e37",
           "registrationState": "registered",
@@ -436,29 +592,88 @@ export const contractAddresses = {
           "addressAuthority": "governor-scripts",
           "governorKey": "bondingManager",
           "currentImplementation": false,
-          "currentImplementationVersion": null,
-          "proxyTarget": "0x363cdb9bae210ef182c60b5a496139e980330127",
+          "currentImplementationVersion": "V13",
+          "proxyTarget": "0xda6fe3f332ae11539b3cf777284ae70fd3bf2d74",
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2022-02-11T13:25:10.000Z",
-          "lastActiveDateISO": "2026-03-31T02:46:57.000Z",
+          "lastActiveDateISO": "2026-03-31T14:22:48.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xfc6f6f33d2bb065ac61cbdd4dbe4b7adf6f3e7e6c6a3d1fe297cbf9a187092e4",
+          "proxyTargetContractName": "BondingManagerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 7,
           "validationsCount": 0,
-          "transactionsRecent": 19
+          "transactionsRecent": 19,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "bondingManager"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/bonding/BondingManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x35Bcf3c30594191d53231E4FF333E8A770453e40"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "BondingManager",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0x35bcf3c30594191d53231e4ff333e8a770453e40",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x35Bcf3c30594191d53231E4FF333E8A770453e40",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xfc6f6f33d2bb065ac61cbdd4dbe4b7adf6f3e7e6c6a3d1fe297cbf9a187092e4",
+            "targetContractName": "BondingManagerTarget",
+            "implementationAddress": "0xda6fe3f332ae11539b3cf777284ae70fd3bf2d74",
+            "implementationName": null,
+            "implementationVersion": "V13",
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -480,8 +695,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -490,7 +705,7 @@ export const contractAddresses = {
           "holderCount": null,
           "transactionCount": 286976,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "ManagerProxy",
           "keccakHash": "0xbd1aa3e8d2464256d7fd3dcf645c16418d5d8c51d971f1ad7d57e7b1b5eee239",
           "registrationState": "registered",
@@ -501,28 +716,87 @@ export const contractAddresses = {
           "governorKey": null,
           "currentImplementation": false,
           "currentImplementationVersion": null,
-          "proxyTarget": "0xd906d192e2503aafd1bc5f5fc4163e842d5b1d6e",
+          "proxyTarget": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2022-02-11T13:24:06.000Z",
-          "lastActiveDateISO": "2026-03-31T03:08:58.000Z",
+          "lastActiveDateISO": "2026-03-31T14:21:07.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xf16f832ef171c8058cbd4a32de7d27c32a1a1ad90bb091b4b7f376f1d95ee254",
+          "proxyTargetContractName": "TicketBrokerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 12,
           "validationsCount": 0,
-          "transactionsRecent": 95
+          "transactionsRecent": 95,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/pm/TicketBroker.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/pm/TicketBroker.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xa8bB618B1520E284046F3dFc448851A1Ff26e41B"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "TicketBroker",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xa8bb618b1520e284046f3dfc448851a1ff26e41b",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xa8bB618B1520E284046F3dFc448851A1Ff26e41B",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xf16f832ef171c8058cbd4a32de7d27c32a1a1ad90bb091b4b7f376f1d95ee254",
+            "targetContractName": "TicketBrokerTarget",
+            "implementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -544,8 +818,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -554,7 +828,7 @@ export const contractAddresses = {
           "holderCount": null,
           "transactionCount": 2320,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "30 Mar 2026",
+          "lastActiveDate": "31 Mar 2026",
           "blockscoutLabel": "ManagerProxy",
           "keccakHash": "0xe8438ea868df48e3fc21f2f087b993c9b1837dc0f6135064161ce7d7a1701fe8",
           "registrationState": "registered",
@@ -572,21 +846,80 @@ export const contractAddresses = {
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2022-02-11T13:25:54.000Z",
-          "lastActiveDateISO": "2026-03-30T12:39:54.000Z",
+          "lastActiveDateISO": "2026-03-31T09:59:16.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0x56f65aba3e3e5b6d5adbc6cdc14c51957893b21d4a6a56260af4e03af7e1a51d",
+          "proxyTargetContractName": "RoundsManagerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 2,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "roundsManager"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/rounds/RoundsManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/rounds/RoundsManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "RoundsManager",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xdd6f56dcc28d3f5f27084381fe8df634985cc39f",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0x56f65aba3e3e5b6d5adbc6cdc14c51957893b21d4a6a56260af4e03af7e1a51d",
+            "targetContractName": "RoundsManagerTarget",
+            "implementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -608,8 +941,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -641,16 +974,75 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "15 May 2025",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xa65c3dc1a85422ba3e6003be871c3339b882a9c28fc454085d394e4b6436d564",
+          "proxyTargetContractName": "ServiceRegistryTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/ServiceRegistry.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/ServiceRegistry.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xC92d3A360b8f9e083bA64DE15d95Cf8180897431"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "ServiceRegistry",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xc92d3a360b8f9e083ba64de15d95cf8180897431",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xC92d3A360b8f9e083bA64DE15d95Cf8180897431",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xa65c3dc1a85422ba3e6003be871c3339b882a9c28fc454085d394e4b6436d564",
+            "targetContractName": "ServiceRegistryTarget",
+            "implementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -672,8 +1064,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -713,7 +1105,53 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 1,
           "validationsCount": 0,
-          "transactionsRecent": 1
+          "transactionsRecent": 1,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": null,
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x04C0b249740175999E5BF5c9ac1dA92431EF34C5"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -735,8 +1173,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -776,7 +1214,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/governance/Governor.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/governance/Governor.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xD9dEd6f9959176F0A04dcf88a0d2306178A736a6"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -798,8 +1288,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -818,7 +1308,7 @@ export const contractAddresses = {
           "addressAuthority": "governor-scripts",
           "governorKey": "bondingVotes",
           "currentImplementation": false,
-          "currentImplementationVersion": null,
+          "currentImplementationVersion": "V2",
           "proxyTarget": "0x68af80376bc1ca0c25a83b28e5570e8c7bdd3119",
           "repoIsPrivate": false,
           "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
@@ -831,16 +1321,75 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "27 Apr 2025",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0x7de5a5b8ecd5bb031f348e5f6eaba02944a498be282a3242da27f5a559dbd5dc",
+          "proxyTargetContractName": "BondingVotesTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "bondingVotes"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/bonding/BondingVotes.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingVotes.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x0B9C254837E72Ebe9Fe04960C43B69782E68169A"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "BondingVotes",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0x0b9c254837e72ebe9fe04960c43b69782e68169a",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x0B9C254837E72Ebe9Fe04960C43B69782E68169A",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0x7de5a5b8ecd5bb031f348e5f6eaba02944a498be282a3242da27f5a559dbd5dc",
+            "targetContractName": "BondingVotesTarget",
+            "implementationAddress": "0x68af80376bc1ca0c25a83b28e5570e8c7bdd3119",
+            "implementationName": null,
+            "implementationVersion": "V2",
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -862,8 +1411,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -872,7 +1421,7 @@ export const contractAddresses = {
           "holderCount": null,
           "transactionCount": 2936,
           "deployedAt": "12 Oct 2023",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "ManagerProxy",
           "keccakHash": "0xaea11c65571dd8b6188d3a5cf5e5d3d4695845e6f217cad0b453b4e276c6cdcd",
           "registrationState": "registered",
@@ -890,21 +1439,80 @@ export const contractAddresses = {
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2023-10-11T22:24:42.000Z",
-          "lastActiveDateISO": "2026-03-30T15:51:06.000Z",
+          "lastActiveDateISO": "2026-03-31T14:09:20.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xd4c5f51c55641d608f9aa8c83a618a0b4bafdf778911c37f61b63c6be7a6992e",
+          "proxyTargetContractName": "LivepeerGovernorTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0xd2Ce37BCB287CaDc40647f567C2D3C4220901634",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 1
+          "transactionsRecent": 1,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "livepeerGovernor"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/treasury/LivepeerGovernor.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/treasury/LivepeerGovernor.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xcFE4E2879B786C3aa075813F0E364bb5acCb6aa0"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "LivepeerGovernor",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xcfe4e2879b786c3aa075813f0e364bb5accb6aa0",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xcFE4E2879B786C3aa075813F0E364bb5acCb6aa0",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xd4c5f51c55641d608f9aa8c83a618a0b4bafdf778911c37f61b63c6be7a6992e",
+            "targetContractName": "LivepeerGovernorTarget",
+            "implementationAddress": "0xd2ce37bcb287cadc40647f567c2d3c4220901634",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0xd2Ce37BCB287CaDc40647f567C2D3C4220901634",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -926,8 +1534,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -967,7 +1575,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 65549,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "treasury"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/treasury/Treasury.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/treasury/Treasury.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xf82C1FF415F1fCf582554fDba790E27019c8E8C4"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "Treasury",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xf82c1ff415f1fcf582554fdba790e27019c8e8c4",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -989,8 +1649,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -1030,7 +1690,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 3,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l2LPTGateway"
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L2/gateway/L2LPTGateway.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/gateway/L2LPTGateway.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x6D2457a4ad276000A615295f7A80F79E48CcD318"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -1052,8 +1764,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -1093,7 +1805,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l2LPTDataCache"
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L2/gateway/L2LPTDataCache.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/gateway/L2LPTDataCache.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xd78b6bD09cd28A83cFb21aFa0DA95c685A6bb0B1"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "L2LPTDataCache",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xd78b6bd09cd28a83cfb21afa0da95c685a6bb0b1",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -1115,8 +1879,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Migration complete",
@@ -1147,20 +1911,73 @@ export const contractAddresses = {
           "optimizationEnabled": false,
           "language": "solidity",
           "sourceVerifiedAt": "29 Dec 2025",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xf2067c9567f013942aa0abbd1c844dbf9301abbb14dba85f598a220968c88dd9",
+          "proxyTargetContractName": "L2MigratorTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x93BB030735747708b4D33093A98d4c804Cd6B58C",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "lastActiveDate",
+            "repoIsPrivate",
             "tokenTransferCount",
             "validationsCount",
             "lastActiveDateISO",
-            "proxyTarget",
-            "repoIsPrivate",
             "transactionsRecent"
           ],
           "tokenTransferCount": 325,
           "validationsCount": 0,
           "lastActiveDateISO": "2026-03-30T00:08:37.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l2Migrator"
+        },
+        "codeSource": null,
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x148D5b6B4df9530c7C76A810bd1Cdf69EC4c2085"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "L2Migrator",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0x148d5b6b4df9530c7c76a810bd1cdf69ec4c2085",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x148D5b6B4df9530c7C76A810bd1Cdf69EC4c2085",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xf2067c9567f013942aa0abbd1c844dbf9301abbb14dba85f598a220968c88dd9",
+            "targetContractName": "L2MigratorTarget",
+            "implementationAddress": "0x93bb030735747708b4d33093a98d4c804cd6b58c",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x93BB030735747708b4D33093A98d4c804Cd6B58C",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -1182,8 +1999,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Migration complete",
@@ -1216,16 +2033,62 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Dec 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-11T16:15:34.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": null,
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xfdb06109032AD3671a8f14f5f2E78f4B9E81b567"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -1247,8 +2110,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Migration complete",
@@ -1281,16 +2144,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "30 Dec 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-11T13:25:54.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/snapshots/MerkleSnapshot.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/snapshots/MerkleSnapshot.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x10736ffaCe687658F88a46D042631d182C7757f7"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -1312,8 +2227,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -1346,16 +2261,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "21 Jan 2026",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2026-02-26T07:27:46.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/polling/PollCreator.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/polling/PollCreator.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x8bb50806D60c492c0004DAD5D9627DAA2d9732E6"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -1377,8 +2344,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -1411,16 +2378,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "5 Apr 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-11T13:25:10.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/libraries/SortedDoublyLL.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/libraries/SortedDoublyLL.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xC45f6918F7Bcac7aBc8fe05302b3cDF39776cdeb"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -1440,10 +2459,10 @@ export const contractAddresses = {
         "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingManager.sol",
         "blockchainHref": "https://arbiscan.io/address/0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
         "hasBytecode": true,
-        "sourceVerified": false,
-        "verified": false,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:20.221Z",
+        "sourceVerified": true,
+        "verified": true,
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:04.673Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -1453,7 +2472,7 @@ export const contractAddresses = {
           "transactionCount": null,
           "deployedAt": "18 Mar 2026",
           "lastActiveDate": null,
-          "blockscoutLabel": null,
+          "blockscoutLabel": "BondingManager",
           "keccakHash": "0x2517d59a36a86548e38734e8ab416f42afff4bca78706a66ad65750dae7f9e37",
           "registrationState": "not_applicable",
           "registeredInController": false,
@@ -1464,19 +2483,79 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": "V13",
           "proxyAddress": "0x35Bcf3c30594191d53231E4FF333E8A770453e40",
+          "proxyImplementationSource": "governor-scripts",
+          "expectedProxyImplementationAddress": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0xE499a4122bd93283431591A758cf59A921919D90",
-          "bsVerified": false,
+          "bsVerified": true,
           "isContract": true,
           "balance": "0",
-          "deployedAtISO": "2026-03-17T13:56:27.000Z"
+          "deployedAtISO": "2026-03-17T13:56:27.000Z",
+          "compilerVersion": "v0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "31 Mar 2026",
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "bondingManagerTargetV13"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/bonding/BondingManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:04.673Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": "BondingManager",
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x35Bcf3c30594191d53231E4FF333E8A770453e40",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
+            "implementationName": "BondingManager",
+            "implementationVersion": "V13",
+            "implementationSource": "governor-scripts",
+            "expectedImplementationAddress": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
         "id": "arbitrumOne.ticketBroker.implementation",
         "name": "TicketBroker",
         "canonicalName": "TicketBroker",
-        "address": "0xd906d192e2503aafd1bc5f5fc4163e842d5b1d6e",
+        "address": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
         "type": "target",
         "deploymentKind": "target",
         "category": "core",
@@ -1487,12 +2566,12 @@ export const contractAddresses = {
         "runtimeAuthority": "explorer",
         "repoSrc": "livepeer/protocol@delta",
         "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/pm/TicketBroker.sol",
-        "blockchainHref": "https://arbiscan.io/address/0xd906d192e2503aafd1bc5f5fc4163e842d5b1d6e",
+        "blockchainHref": "https://arbiscan.io/address/0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:20.221Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:04.673Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -1500,7 +2579,7 @@ export const contractAddresses = {
           "notes": "Current implementation behind the published proxy address.",
           "holderCount": null,
           "transactionCount": null,
-          "deployedAt": "4 Mar 2022",
+          "deployedAt": "7 Sept 2023",
           "lastActiveDate": null,
           "blockscoutLabel": "TicketBroker",
           "keccakHash": "0xbd1aa3e8d2464256d7fd3dcf645c16418d5d8c51d971f1ad7d57e7b1b5eee239",
@@ -1513,16 +2592,72 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0xa8bB618B1520E284046F3dFc448851A1Ff26e41B",
+          "proxyImplementationSource": "proxy-meta",
+          "expectedProxyImplementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
-          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "creatorAddress": "0xd94387c220385bFE4bf599d95E199f3823Da593F",
           "bsVerified": true,
           "isContract": true,
           "balance": "0",
-          "deployedAtISO": "2022-03-03T19:08:26.000Z",
+          "deployedAtISO": "2023-09-06T19:25:31.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
-          "sourceVerifiedAt": "30 Dec 2025"
+          "sourceVerifiedAt": "19 Jul 2024",
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "proxy-runtime",
+          "repo": null,
+          "path": null,
+          "refMode": "runtime",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/pm/TicketBroker.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/pm/TicketBroker.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:04.673Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xea1b0f6c8d158328a6e3d3f924b86a759f41465c"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": "TicketBroker",
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xa8bB618B1520E284046F3dFc448851A1Ff26e41B",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+            "implementationName": "TicketBroker",
+            "implementationVersion": null,
+            "implementationSource": "proxy-meta",
+            "expectedImplementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -1544,8 +2679,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:20.221Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:04.673Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -1566,6 +2701,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f",
+          "proxyImplementationSource": "proxy-meta",
+          "expectedProxyImplementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
@@ -1578,16 +2717,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Dec 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-11T13:25:10.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "proxy-runtime",
+          "repo": null,
+          "path": null,
+          "refMode": "runtime",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/rounds/RoundsManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/rounds/RoundsManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:04.673Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x92d804ed49d92438aea6fe552bd9163aacb7e841"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": "RoundsManager",
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+            "implementationName": "RoundsManager",
+            "implementationVersion": null,
+            "implementationSource": "proxy-meta",
+            "expectedImplementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -1609,8 +2800,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:20.221Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:04.673Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -1631,6 +2822,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0xC92d3A360b8f9e083bA64DE15d95Cf8180897431",
+          "proxyImplementationSource": "proxy-meta",
+          "expectedProxyImplementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
@@ -1643,16 +2838,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Dec 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-11T13:25:54.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "proxy-runtime",
+          "repo": null,
+          "path": null,
+          "refMode": "runtime",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/ServiceRegistry.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/ServiceRegistry.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:04.673Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x38093cdca43aecd7bb474983519a246e93a3b0a7"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": "ServiceRegistry",
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xC92d3A360b8f9e083bA64DE15d95Cf8180897431",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+            "implementationName": "ServiceRegistry",
+            "implementationVersion": null,
+            "implementationSource": "proxy-meta",
+            "expectedImplementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -1674,8 +2921,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:20.221Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:04.673Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -1696,6 +2943,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": "V2",
           "proxyAddress": "0x0B9C254837E72Ebe9Fe04960C43B69782E68169A",
+          "proxyImplementationSource": "governor-scripts",
+          "expectedProxyImplementationAddress": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
           "bsVerified": true,
@@ -1705,7 +2956,59 @@ export const contractAddresses = {
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
-          "sourceVerifiedAt": "19 Jul 2024"
+          "sourceVerifiedAt": "19 Jul 2024",
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "bondingVotesTargetV2"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/bonding/BondingVotes.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingVotes.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:04.673Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": "BondingVotes",
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x0B9C254837E72Ebe9Fe04960C43B69782E68169A",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119",
+            "implementationName": "BondingVotes",
+            "implementationVersion": "V2",
+            "implementationSource": "governor-scripts",
+            "expectedImplementationAddress": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -1727,8 +3030,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:20.221Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:04.673Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -1749,6 +3052,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0xcFE4E2879B786C3aa075813F0E364bb5acCb6aa0",
+          "proxyImplementationSource": "governor-scripts",
+          "expectedProxyImplementationAddress": "0xd2Ce37BCB287CaDc40647f567C2D3C4220901634",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
           "bsVerified": true,
@@ -1770,7 +3077,59 @@ export const contractAddresses = {
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2023-10-11T22:24:36.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "livepeerGovernorTarget"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/treasury/LivepeerGovernor.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/treasury/LivepeerGovernor.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:04.673Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xd2Ce37BCB287CaDc40647f567C2D3C4220901634"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": "LivepeerGovernor",
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xcFE4E2879B786C3aa075813F0E364bb5acCb6aa0",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0xd2Ce37BCB287CaDc40647f567C2D3C4220901634",
+            "implementationName": "LivepeerGovernor",
+            "implementationVersion": null,
+            "implementationSource": "governor-scripts",
+            "expectedImplementationAddress": "0xd2Ce37BCB287CaDc40647f567C2D3C4220901634",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -1792,8 +3151,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:20.221Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:04.673Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -1814,6 +3173,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0x148D5b6B4df9530c7C76A810bd1Cdf69EC4c2085",
+          "proxyImplementationSource": "authority-catalog",
+          "expectedProxyImplementationAddress": "0x93BB030735747708b4D33093A98d4c804Cd6B58C",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": null,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
@@ -1826,16 +3189,62 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Dec 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-15T02:46:40.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": null,
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:04.673Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x93BB030735747708b4D33093A98d4c804Cd6B58C"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": "L2Migrator",
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x148D5b6B4df9530c7C76A810bd1Cdf69EC4c2085",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0x93BB030735747708b4D33093A98d4c804Cd6B58C",
+            "implementationName": "L2Migrator",
+            "implementationVersion": null,
+            "implementationSource": "authority-catalog",
+            "expectedImplementationAddress": "0x93BB030735747708b4D33093A98d4c804Cd6B58C",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       }
     ],
@@ -1859,8 +3268,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -1900,7 +3309,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l2LPTDataCache"
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L2/gateway/L2LPTDataCache.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/gateway/L2LPTDataCache.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xd78b6bD09cd28A83cFb21aFa0DA95c685A6bb0B1"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "L2LPTDataCache",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xd78b6bd09cd28a83cfb21afa0da95c685a6bb0b1",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -1922,8 +3383,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -1963,7 +3424,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 3,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l2LPTGateway"
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L2/gateway/L2LPTGateway.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/gateway/L2LPTGateway.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x6D2457a4ad276000A615295f7A80F79E48CcD318"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -1985,8 +3498,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2026,7 +3539,53 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 1,
           "validationsCount": 0,
-          "transactionsRecent": 1
+          "transactionsRecent": 1,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": null,
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x04C0b249740175999E5BF5c9ac1dA92431EF34C5"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -2048,8 +3607,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2058,7 +3617,7 @@ export const contractAddresses = {
           "holderCount": null,
           "transactionCount": 224146,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "ManagerProxy",
           "keccakHash": "0x2517d59a36a86548e38734e8ab416f42afff4bca78706a66ad65750dae7f9e37",
           "registrationState": "registered",
@@ -2068,29 +3627,88 @@ export const contractAddresses = {
           "addressAuthority": "governor-scripts",
           "governorKey": "bondingManager",
           "currentImplementation": false,
-          "currentImplementationVersion": null,
-          "proxyTarget": "0x363cdb9bae210ef182c60b5a496139e980330127",
+          "currentImplementationVersion": "V13",
+          "proxyTarget": "0xda6fe3f332ae11539b3cf777284ae70fd3bf2d74",
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2022-02-11T13:25:10.000Z",
-          "lastActiveDateISO": "2026-03-31T02:46:57.000Z",
+          "lastActiveDateISO": "2026-03-31T14:22:48.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xfc6f6f33d2bb065ac61cbdd4dbe4b7adf6f3e7e6c6a3d1fe297cbf9a187092e4",
+          "proxyTargetContractName": "BondingManagerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 7,
           "validationsCount": 0,
-          "transactionsRecent": 19
+          "transactionsRecent": 19,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "bondingManager"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/bonding/BondingManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x35Bcf3c30594191d53231E4FF333E8A770453e40"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "BondingManager",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0x35bcf3c30594191d53231e4ff333e8a770453e40",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x35Bcf3c30594191d53231E4FF333E8A770453e40",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xfc6f6f33d2bb065ac61cbdd4dbe4b7adf6f3e7e6c6a3d1fe297cbf9a187092e4",
+            "targetContractName": "BondingManagerTarget",
+            "implementationAddress": "0xda6fe3f332ae11539b3cf777284ae70fd3bf2d74",
+            "implementationName": null,
+            "implementationVersion": "V13",
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -2112,8 +3730,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2154,7 +3772,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "controller"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/Controller.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/Controller.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xD8E8328501E9645d16Cf49539efC04f734606ee4"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -2176,8 +3846,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2202,7 +3872,7 @@ export const contractAddresses = {
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
-          "balance": "172960928488901091590",
+          "balance": "172774020606111007832",
           "deployedAtISO": "2022-02-17T15:50:01.000Z",
           "lastActiveDateISO": "2024-01-31T21:28:22.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
@@ -2217,7 +3887,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 248229,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "minterV2"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/token/Minter.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/token/Minter.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xc20DE37170B45774e6CD3d2304017fc962f27252"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "Minter",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xc20de37170b45774e6cd3d2304017fc962f27252",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -2239,8 +3961,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2249,7 +3971,7 @@ export const contractAddresses = {
           "holderCount": null,
           "transactionCount": 2320,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "30 Mar 2026",
+          "lastActiveDate": "31 Mar 2026",
           "blockscoutLabel": "ManagerProxy",
           "keccakHash": "0xe8438ea868df48e3fc21f2f087b993c9b1837dc0f6135064161ce7d7a1701fe8",
           "registrationState": "registered",
@@ -2267,21 +3989,80 @@ export const contractAddresses = {
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2022-02-11T13:25:54.000Z",
-          "lastActiveDateISO": "2026-03-30T12:39:54.000Z",
+          "lastActiveDateISO": "2026-03-31T09:59:16.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0x56f65aba3e3e5b6d5adbc6cdc14c51957893b21d4a6a56260af4e03af7e1a51d",
+          "proxyTargetContractName": "RoundsManagerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 2,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "roundsManager"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/rounds/RoundsManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/rounds/RoundsManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "RoundsManager",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xdd6f56dcc28d3f5f27084381fe8df634985cc39f",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0x56f65aba3e3e5b6d5adbc6cdc14c51957893b21d4a6a56260af4e03af7e1a51d",
+            "targetContractName": "RoundsManagerTarget",
+            "implementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -2303,8 +4084,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2336,16 +4117,75 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "15 May 2025",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xa65c3dc1a85422ba3e6003be871c3339b882a9c28fc454085d394e4b6436d564",
+          "proxyTargetContractName": "ServiceRegistryTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/ServiceRegistry.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/ServiceRegistry.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xC92d3A360b8f9e083bA64DE15d95Cf8180897431"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "ServiceRegistry",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xc92d3a360b8f9e083ba64de15d95cf8180897431",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xC92d3A360b8f9e083bA64DE15d95Cf8180897431",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xa65c3dc1a85422ba3e6003be871c3339b882a9c28fc454085d394e4b6436d564",
+            "targetContractName": "ServiceRegistryTarget",
+            "implementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -2367,8 +4207,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2377,7 +4217,7 @@ export const contractAddresses = {
           "holderCount": null,
           "transactionCount": 286976,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "ManagerProxy",
           "keccakHash": "0xbd1aa3e8d2464256d7fd3dcf645c16418d5d8c51d971f1ad7d57e7b1b5eee239",
           "registrationState": "registered",
@@ -2388,28 +4228,87 @@ export const contractAddresses = {
           "governorKey": null,
           "currentImplementation": false,
           "currentImplementationVersion": null,
-          "proxyTarget": "0xd906d192e2503aafd1bc5f5fc4163e842d5b1d6e",
+          "proxyTarget": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2022-02-11T13:24:06.000Z",
-          "lastActiveDateISO": "2026-03-31T03:08:58.000Z",
+          "lastActiveDateISO": "2026-03-31T14:21:07.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xf16f832ef171c8058cbd4a32de7d27c32a1a1ad90bb091b4b7f376f1d95ee254",
+          "proxyTargetContractName": "TicketBrokerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 12,
           "validationsCount": 0,
-          "transactionsRecent": 95
+          "transactionsRecent": 95,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/pm/TicketBroker.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/pm/TicketBroker.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xa8bB618B1520E284046F3dFc448851A1Ff26e41B"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "TicketBroker",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xa8bb618b1520e284046f3dfc448851a1ff26e41b",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xa8bB618B1520E284046F3dFc448851A1Ff26e41B",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xf16f832ef171c8058cbd4a32de7d27c32a1a1ad90bb091b4b7f376f1d95ee254",
+            "targetContractName": "TicketBrokerTarget",
+            "implementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -2431,8 +4330,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2451,7 +4350,7 @@ export const contractAddresses = {
           "addressAuthority": "governor-scripts",
           "governorKey": "bondingVotes",
           "currentImplementation": false,
-          "currentImplementationVersion": null,
+          "currentImplementationVersion": "V2",
           "proxyTarget": "0x68af80376bc1ca0c25a83b28e5570e8c7bdd3119",
           "repoIsPrivate": false,
           "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
@@ -2464,16 +4363,75 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "27 Apr 2025",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0x7de5a5b8ecd5bb031f348e5f6eaba02944a498be282a3242da27f5a559dbd5dc",
+          "proxyTargetContractName": "BondingVotesTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "bondingVotes"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/bonding/BondingVotes.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingVotes.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x0B9C254837E72Ebe9Fe04960C43B69782E68169A"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "BondingVotes",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0x0b9c254837e72ebe9fe04960c43b69782e68169a",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x0B9C254837E72Ebe9Fe04960C43B69782E68169A",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0x7de5a5b8ecd5bb031f348e5f6eaba02944a498be282a3242da27f5a559dbd5dc",
+            "targetContractName": "BondingVotesTarget",
+            "implementationAddress": "0x68af80376bc1ca0c25a83b28e5570e8c7bdd3119",
+            "implementationName": null,
+            "implementationVersion": "V2",
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -2495,8 +4453,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2536,7 +4494,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/governance/Governor.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/governance/Governor.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xD9dEd6f9959176F0A04dcf88a0d2306178A736a6"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -2558,8 +4568,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2568,7 +4578,7 @@ export const contractAddresses = {
           "holderCount": null,
           "transactionCount": 2936,
           "deployedAt": "12 Oct 2023",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "ManagerProxy",
           "keccakHash": "0xaea11c65571dd8b6188d3a5cf5e5d3d4695845e6f217cad0b453b4e276c6cdcd",
           "registrationState": "registered",
@@ -2586,21 +4596,80 @@ export const contractAddresses = {
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2023-10-11T22:24:42.000Z",
-          "lastActiveDateISO": "2026-03-30T15:51:06.000Z",
+          "lastActiveDateISO": "2026-03-31T14:09:20.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xd4c5f51c55641d608f9aa8c83a618a0b4bafdf778911c37f61b63c6be7a6992e",
+          "proxyTargetContractName": "LivepeerGovernorTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0xd2Ce37BCB287CaDc40647f567C2D3C4220901634",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 1
+          "transactionsRecent": 1,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "livepeerGovernor"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/treasury/LivepeerGovernor.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/treasury/LivepeerGovernor.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xcFE4E2879B786C3aa075813F0E364bb5acCb6aa0"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "LivepeerGovernor",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xcfe4e2879b786c3aa075813f0e364bb5accb6aa0",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xcFE4E2879B786C3aa075813F0E364bb5acCb6aa0",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xd4c5f51c55641d608f9aa8c83a618a0b4bafdf778911c37f61b63c6be7a6992e",
+            "targetContractName": "LivepeerGovernorTarget",
+            "implementationAddress": "0xd2ce37bcb287cadc40647f567c2d3c4220901634",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0xd2Ce37BCB287CaDc40647f567C2D3C4220901634",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -2622,8 +4691,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2663,7 +4732,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 65549,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "treasury"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/treasury/Treasury.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/treasury/Treasury.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xf82C1FF415F1fCf582554fDba790E27019c8E8C4"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "Treasury",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xf82c1ff415f1fcf582554fdba790e27019c8e8c4",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -2685,17 +4806,17 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
           "deployedBy": "Livepeer Deployer",
           "notes": null,
-          "holderCount": "245,860",
+          "holderCount": "245,861",
           "transactionCount": 127236,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "Livepeer",
           "keccakHash": "0x3443e257065fe41dd0e4d1f5a1b73a22a62e300962b57f30cddf41d0f8273ba7",
           "registrationState": "registered",
@@ -2713,10 +4834,10 @@ export const contractAddresses = {
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2022-02-11T13:19:54.000Z",
-          "totalSupply": "31765014587243867843268937",
+          "totalSupply": "31775549992216911572114348",
           "decimals": "18",
           "symbol": "LPT",
-          "lastActiveDateISO": "2026-03-31T01:27:27.000Z",
+          "lastActiveDateISO": "2026-03-31T14:23:52.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": false,
           "language": "solidity",
@@ -2730,7 +4851,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 20,
           "validationsCount": 0,
-          "transactionsRecent": 3
+          "transactionsRecent": 3,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "livepeerToken"
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L2/token/LivepeerToken.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/token/LivepeerToken.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x289ba1701C2F088cf0faf8B3705246331cB8A839"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "LivepeerToken",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0x289ba1701c2f088cf0faf8b3705246331cb8a839",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       }
     ],
@@ -2754,8 +4927,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2795,7 +4968,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l2LPTDataCache"
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L2/gateway/L2LPTDataCache.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/gateway/L2LPTDataCache.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xd78b6bD09cd28A83cFb21aFa0DA95c685A6bb0B1"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "L2LPTDataCache",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xd78b6bd09cd28a83cfb21afa0da95c685a6bb0b1",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -2817,8 +5042,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2858,7 +5083,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 3,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l2LPTGateway"
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L2/gateway/L2LPTGateway.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/gateway/L2LPTGateway.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x6D2457a4ad276000A615295f7A80F79E48CcD318"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -2880,8 +5157,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2921,7 +5198,53 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 1,
           "validationsCount": 0,
-          "transactionsRecent": 1
+          "transactionsRecent": 1,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": null,
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x04C0b249740175999E5BF5c9ac1dA92431EF34C5"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -2943,8 +5266,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -2953,7 +5276,7 @@ export const contractAddresses = {
           "holderCount": null,
           "transactionCount": 224146,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "ManagerProxy",
           "keccakHash": "0x2517d59a36a86548e38734e8ab416f42afff4bca78706a66ad65750dae7f9e37",
           "registrationState": "registered",
@@ -2963,29 +5286,88 @@ export const contractAddresses = {
           "addressAuthority": "governor-scripts",
           "governorKey": "bondingManager",
           "currentImplementation": false,
-          "currentImplementationVersion": null,
-          "proxyTarget": "0x363cdb9bae210ef182c60b5a496139e980330127",
+          "currentImplementationVersion": "V13",
+          "proxyTarget": "0xda6fe3f332ae11539b3cf777284ae70fd3bf2d74",
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2022-02-11T13:25:10.000Z",
-          "lastActiveDateISO": "2026-03-31T02:46:57.000Z",
+          "lastActiveDateISO": "2026-03-31T14:22:48.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xfc6f6f33d2bb065ac61cbdd4dbe4b7adf6f3e7e6c6a3d1fe297cbf9a187092e4",
+          "proxyTargetContractName": "BondingManagerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 7,
           "validationsCount": 0,
-          "transactionsRecent": 19
+          "transactionsRecent": 19,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "bondingManager"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/bonding/BondingManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x35Bcf3c30594191d53231E4FF333E8A770453e40"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "BondingManager",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0x35bcf3c30594191d53231e4ff333e8a770453e40",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x35Bcf3c30594191d53231E4FF333E8A770453e40",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xfc6f6f33d2bb065ac61cbdd4dbe4b7adf6f3e7e6c6a3d1fe297cbf9a187092e4",
+            "targetContractName": "BondingManagerTarget",
+            "implementationAddress": "0xda6fe3f332ae11539b3cf777284ae70fd3bf2d74",
+            "implementationName": null,
+            "implementationVersion": "V13",
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -3007,8 +5389,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -3049,7 +5431,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "controller"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/Controller.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/Controller.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xD8E8328501E9645d16Cf49539efC04f734606ee4"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -3071,8 +5505,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -3097,7 +5531,7 @@ export const contractAddresses = {
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
-          "balance": "172960928488901091590",
+          "balance": "172774020606111007832",
           "deployedAtISO": "2022-02-17T15:50:01.000Z",
           "lastActiveDateISO": "2024-01-31T21:28:22.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
@@ -3112,7 +5546,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 248229,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "minterV2"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/token/Minter.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/token/Minter.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xc20DE37170B45774e6CD3d2304017fc962f27252"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "Minter",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xc20de37170b45774e6cd3d2304017fc962f27252",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -3134,8 +5620,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -3144,7 +5630,7 @@ export const contractAddresses = {
           "holderCount": null,
           "transactionCount": 2320,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "30 Mar 2026",
+          "lastActiveDate": "31 Mar 2026",
           "blockscoutLabel": "ManagerProxy",
           "keccakHash": "0xe8438ea868df48e3fc21f2f087b993c9b1837dc0f6135064161ce7d7a1701fe8",
           "registrationState": "registered",
@@ -3162,21 +5648,80 @@ export const contractAddresses = {
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2022-02-11T13:25:54.000Z",
-          "lastActiveDateISO": "2026-03-30T12:39:54.000Z",
+          "lastActiveDateISO": "2026-03-31T09:59:16.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0x56f65aba3e3e5b6d5adbc6cdc14c51957893b21d4a6a56260af4e03af7e1a51d",
+          "proxyTargetContractName": "RoundsManagerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 2,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "roundsManager"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/rounds/RoundsManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/rounds/RoundsManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "RoundsManager",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xdd6f56dcc28d3f5f27084381fe8df634985cc39f",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0x56f65aba3e3e5b6d5adbc6cdc14c51957893b21d4a6a56260af4e03af7e1a51d",
+            "targetContractName": "RoundsManagerTarget",
+            "implementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -3198,8 +5743,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -3231,16 +5776,75 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "15 May 2025",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xa65c3dc1a85422ba3e6003be871c3339b882a9c28fc454085d394e4b6436d564",
+          "proxyTargetContractName": "ServiceRegistryTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/ServiceRegistry.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/ServiceRegistry.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xC92d3A360b8f9e083bA64DE15d95Cf8180897431"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "ServiceRegistry",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xc92d3a360b8f9e083ba64de15d95cf8180897431",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xC92d3A360b8f9e083bA64DE15d95Cf8180897431",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xa65c3dc1a85422ba3e6003be871c3339b882a9c28fc454085d394e4b6436d564",
+            "targetContractName": "ServiceRegistryTarget",
+            "implementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -3262,8 +5866,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -3272,7 +5876,7 @@ export const contractAddresses = {
           "holderCount": null,
           "transactionCount": 286976,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "ManagerProxy",
           "keccakHash": "0xbd1aa3e8d2464256d7fd3dcf645c16418d5d8c51d971f1ad7d57e7b1b5eee239",
           "registrationState": "registered",
@@ -3283,28 +5887,87 @@ export const contractAddresses = {
           "governorKey": null,
           "currentImplementation": false,
           "currentImplementationVersion": null,
-          "proxyTarget": "0xd906d192e2503aafd1bc5f5fc4163e842d5b1d6e",
+          "proxyTarget": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2022-02-11T13:24:06.000Z",
-          "lastActiveDateISO": "2026-03-31T03:08:58.000Z",
+          "lastActiveDateISO": "2026-03-31T14:21:07.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xf16f832ef171c8058cbd4a32de7d27c32a1a1ad90bb091b4b7f376f1d95ee254",
+          "proxyTargetContractName": "TicketBrokerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 12,
           "validationsCount": 0,
-          "transactionsRecent": 95
+          "transactionsRecent": 95,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/pm/TicketBroker.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/pm/TicketBroker.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xa8bB618B1520E284046F3dFc448851A1Ff26e41B"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "TicketBroker",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xa8bb618b1520e284046f3dfc448851a1ff26e41b",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xa8bB618B1520E284046F3dFc448851A1Ff26e41B",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xf16f832ef171c8058cbd4a32de7d27c32a1a1ad90bb091b4b7f376f1d95ee254",
+            "targetContractName": "TicketBrokerTarget",
+            "implementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -3326,8 +5989,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -3346,7 +6009,7 @@ export const contractAddresses = {
           "addressAuthority": "governor-scripts",
           "governorKey": "bondingVotes",
           "currentImplementation": false,
-          "currentImplementationVersion": null,
+          "currentImplementationVersion": "V2",
           "proxyTarget": "0x68af80376bc1ca0c25a83b28e5570e8c7bdd3119",
           "repoIsPrivate": false,
           "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
@@ -3359,16 +6022,75 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "27 Apr 2025",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0x7de5a5b8ecd5bb031f348e5f6eaba02944a498be282a3242da27f5a559dbd5dc",
+          "proxyTargetContractName": "BondingVotesTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "bondingVotes"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/bonding/BondingVotes.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingVotes.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x0B9C254837E72Ebe9Fe04960C43B69782E68169A"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "BondingVotes",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0x0b9c254837e72ebe9fe04960c43b69782e68169a",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x0B9C254837E72Ebe9Fe04960C43B69782E68169A",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0x7de5a5b8ecd5bb031f348e5f6eaba02944a498be282a3242da27f5a559dbd5dc",
+            "targetContractName": "BondingVotesTarget",
+            "implementationAddress": "0x68af80376bc1ca0c25a83b28e5570e8c7bdd3119",
+            "implementationName": null,
+            "implementationVersion": "V2",
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -3390,8 +6112,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -3431,7 +6153,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/governance/Governor.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/governance/Governor.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xD9dEd6f9959176F0A04dcf88a0d2306178A736a6"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -3453,8 +6227,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -3463,7 +6237,7 @@ export const contractAddresses = {
           "holderCount": null,
           "transactionCount": 2936,
           "deployedAt": "12 Oct 2023",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "ManagerProxy",
           "keccakHash": "0xaea11c65571dd8b6188d3a5cf5e5d3d4695845e6f217cad0b453b4e276c6cdcd",
           "registrationState": "registered",
@@ -3481,21 +6255,80 @@ export const contractAddresses = {
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2023-10-11T22:24:42.000Z",
-          "lastActiveDateISO": "2026-03-30T15:51:06.000Z",
+          "lastActiveDateISO": "2026-03-31T14:09:20.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "16 Dec 2024",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xd4c5f51c55641d608f9aa8c83a618a0b4bafdf778911c37f61b63c6be7a6992e",
+          "proxyTargetContractName": "LivepeerGovernorTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0xd2Ce37BCB287CaDc40647f567C2D3C4220901634",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "tokenTransferCount",
             "validationsCount",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 1
+          "transactionsRecent": 1,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "livepeerGovernor"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/treasury/LivepeerGovernor.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/treasury/LivepeerGovernor.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xcFE4E2879B786C3aa075813F0E364bb5acCb6aa0"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "LivepeerGovernor",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xcfe4e2879b786c3aa075813f0e364bb5accb6aa0",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xcFE4E2879B786C3aa075813F0E364bb5acCb6aa0",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xd4c5f51c55641d608f9aa8c83a618a0b4bafdf778911c37f61b63c6be7a6992e",
+            "targetContractName": "LivepeerGovernorTarget",
+            "implementationAddress": "0xd2ce37bcb287cadc40647f567c2d3c4220901634",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0xd2Ce37BCB287CaDc40647f567C2D3C4220901634",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -3517,8 +6350,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -3558,7 +6391,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 65549,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "treasury"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/treasury/Treasury.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/treasury/Treasury.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xf82C1FF415F1fCf582554fDba790E27019c8E8C4"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "Treasury",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0xf82c1ff415f1fcf582554fdba790e27019c8e8c4",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -3580,17 +6465,17 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
           "deployedBy": "Livepeer Deployer",
           "notes": null,
-          "holderCount": "245,860",
+          "holderCount": "245,861",
           "transactionCount": 127236,
           "deployedAt": "12 Feb 2022",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "Livepeer",
           "keccakHash": "0x3443e257065fe41dd0e4d1f5a1b73a22a62e300962b57f30cddf41d0f8273ba7",
           "registrationState": "registered",
@@ -3608,10 +6493,10 @@ export const contractAddresses = {
           "isContract": true,
           "balance": "0",
           "deployedAtISO": "2022-02-11T13:19:54.000Z",
-          "totalSupply": "31765014587243867843268937",
+          "totalSupply": "31775549992216911572114348",
           "decimals": "18",
           "symbol": "LPT",
-          "lastActiveDateISO": "2026-03-31T01:27:27.000Z",
+          "lastActiveDateISO": "2026-03-31T14:23:52.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": false,
           "language": "solidity",
@@ -3625,7 +6510,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 20,
           "validationsCount": 0,
-          "transactionsRecent": 3
+          "transactionsRecent": 3,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "livepeerToken"
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L2/token/LivepeerToken.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L2/token/LivepeerToken.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x289ba1701C2F088cf0faf8B3705246331cB8A839"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "LivepeerToken",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0x289ba1701c2f088cf0faf8b3705246331cb8a839",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       }
     ],
@@ -3650,8 +6587,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Migration complete",
@@ -3684,16 +6621,62 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Dec 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-11T16:15:34.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": null,
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xfdb06109032AD3671a8f14f5f2E78f4B9E81b567"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -3715,8 +6698,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Migration complete",
@@ -3747,20 +6730,73 @@ export const contractAddresses = {
           "optimizationEnabled": false,
           "language": "solidity",
           "sourceVerifiedAt": "29 Dec 2025",
+          "proxyControllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xf2067c9567f013942aa0abbd1c844dbf9301abbb14dba85f598a220968c88dd9",
+          "proxyTargetContractName": "L2MigratorTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x93BB030735747708b4D33093A98d4c804Cd6B58C",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
             "lastActiveDate",
+            "repoIsPrivate",
             "tokenTransferCount",
             "validationsCount",
             "lastActiveDateISO",
-            "proxyTarget",
-            "repoIsPrivate",
             "transactionsRecent"
           ],
           "tokenTransferCount": 325,
           "validationsCount": 0,
           "lastActiveDateISO": "2026-03-30T00:08:37.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": true
+        },
+        "controllerRegistered": true,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l2Migrator"
+        },
+        "codeSource": null,
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x148D5b6B4df9530c7C76A810bd1Cdf69EC4c2085"
+          },
+          "controller": {
+            "applicable": true,
+            "controllerAddress": "0xD8E8328501E9645d16Cf49539efC04f734606ee4",
+            "controllerSlot": "L2Migrator",
+            "registrationState": "registered",
+            "controllerRegistered": true,
+            "resolvedAddress": "0x148d5b6b4df9530c7c76a810bd1cdf69ec4c2085",
+            "currentAddressMatches": true
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x148D5b6B4df9530c7C76A810bd1Cdf69EC4c2085",
+            "controllerAddress": "0xd8e8328501e9645d16cf49539efc04f734606ee4",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xf2067c9567f013942aa0abbd1c844dbf9301abbb14dba85f598a220968c88dd9",
+            "targetContractName": "L2MigratorTarget",
+            "implementationAddress": "0x93bb030735747708b4d33093a98d4c804cd6b58c",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x93BB030735747708b4D33093A98d4c804Cd6B58C",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": true
+          }
         }
       },
       {
@@ -3782,8 +6818,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Migration complete",
@@ -3816,16 +6852,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "30 Dec 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-11T13:25:54.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/snapshots/MerkleSnapshot.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/snapshots/MerkleSnapshot.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x10736ffaCe687658F88a46D042631d182C7757f7"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       }
     ],
@@ -3849,8 +6937,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -3883,16 +6971,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "21 Jan 2026",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2026-02-26T07:27:46.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/polling/PollCreator.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/polling/PollCreator.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x8bb50806D60c492c0004DAD5D9627DAA2d9732E6"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -3914,8 +7054,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:22.597Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:42.404Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -3948,16 +7088,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "5 Apr 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-11T13:25:10.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/libraries/SortedDoublyLL.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/libraries/SortedDoublyLL.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:42.404Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xC45f6918F7Bcac7aBc8fe05302b3cDF39776cdeb"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       }
     ],
@@ -3979,10 +7171,10 @@ export const contractAddresses = {
         "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingManager.sol",
         "blockchainHref": "https://arbiscan.io/address/0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
         "hasBytecode": true,
-        "sourceVerified": false,
-        "verified": false,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:20.221Z",
+        "sourceVerified": true,
+        "verified": true,
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:04.673Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -3992,7 +7184,7 @@ export const contractAddresses = {
           "transactionCount": null,
           "deployedAt": "18 Mar 2026",
           "lastActiveDate": null,
-          "blockscoutLabel": null,
+          "blockscoutLabel": "BondingManager",
           "keccakHash": "0x2517d59a36a86548e38734e8ab416f42afff4bca78706a66ad65750dae7f9e37",
           "registrationState": "not_applicable",
           "registeredInController": false,
@@ -4003,12 +7195,72 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": "V13",
           "proxyAddress": "0x35Bcf3c30594191d53231E4FF333E8A770453e40",
+          "proxyImplementationSource": "governor-scripts",
+          "expectedProxyImplementationAddress": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0xE499a4122bd93283431591A758cf59A921919D90",
-          "bsVerified": false,
+          "bsVerified": true,
           "isContract": true,
           "balance": "0",
-          "deployedAtISO": "2026-03-17T13:56:27.000Z"
+          "deployedAtISO": "2026-03-17T13:56:27.000Z",
+          "compilerVersion": "v0.8.9+commit.e5eed63a",
+          "optimizationEnabled": true,
+          "language": "solidity",
+          "sourceVerifiedAt": "31 Mar 2026",
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "bondingManagerTargetV13"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/bonding/BondingManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:04.673Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": "BondingManager",
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x35Bcf3c30594191d53231E4FF333E8A770453e40",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
+            "implementationName": "BondingManager",
+            "implementationVersion": "V13",
+            "implementationSource": "governor-scripts",
+            "expectedImplementationAddress": "0xdA6fe3f332Ae11539b3cF777284Ae70fd3bF2D74",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -4030,8 +7282,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:20.221Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:04.673Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -4052,6 +7304,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f",
+          "proxyImplementationSource": "proxy-meta",
+          "expectedProxyImplementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
@@ -4064,16 +7320,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Dec 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-11T13:25:10.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "proxy-runtime",
+          "repo": null,
+          "path": null,
+          "refMode": "runtime",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/rounds/RoundsManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/rounds/RoundsManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:04.673Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x92d804ed49d92438aea6fe552bd9163aacb7e841"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": "RoundsManager",
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+            "implementationName": "RoundsManager",
+            "implementationVersion": null,
+            "implementationSource": "proxy-meta",
+            "expectedImplementationAddress": "0x92d804ed49d92438aea6fe552bd9163aacb7e841",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -4095,8 +7403,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:20.221Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:04.673Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -4117,6 +7425,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0xC92d3A360b8f9e083bA64DE15d95Cf8180897431",
+          "proxyImplementationSource": "proxy-meta",
+          "expectedProxyImplementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
@@ -4129,23 +7441,75 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Dec 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-11T13:25:54.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "proxy-runtime",
+          "repo": null,
+          "path": null,
+          "refMode": "runtime",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/ServiceRegistry.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/ServiceRegistry.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:04.673Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x38093cdca43aecd7bb474983519a246e93a3b0a7"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": "ServiceRegistry",
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xC92d3A360b8f9e083bA64DE15d95Cf8180897431",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+            "implementationName": "ServiceRegistry",
+            "implementationVersion": null,
+            "implementationSource": "proxy-meta",
+            "expectedImplementationAddress": "0x38093cdca43aecd7bb474983519a246e93a3b0a7",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
         "id": "arbitrumOne.ticketBroker.implementation",
         "name": "TicketBroker",
         "canonicalName": "TicketBroker",
-        "address": "0xd906d192e2503aafd1bc5f5fc4163e842d5b1d6e",
+        "address": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
         "type": "target",
         "deploymentKind": "target",
         "category": "core",
@@ -4156,12 +7520,12 @@ export const contractAddresses = {
         "runtimeAuthority": "explorer",
         "repoSrc": "livepeer/protocol@delta",
         "contractCodeHref": "https://github.com/livepeer/protocol/blob/delta/contracts/pm/TicketBroker.sol",
-        "blockchainHref": "https://arbiscan.io/address/0xd906d192e2503aafd1bc5f5fc4163e842d5b1d6e",
+        "blockchainHref": "https://arbiscan.io/address/0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:20.221Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:04.673Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -4169,7 +7533,7 @@ export const contractAddresses = {
           "notes": "Current implementation behind the published proxy address.",
           "holderCount": null,
           "transactionCount": null,
-          "deployedAt": "4 Mar 2022",
+          "deployedAt": "7 Sept 2023",
           "lastActiveDate": null,
           "blockscoutLabel": "TicketBroker",
           "keccakHash": "0xbd1aa3e8d2464256d7fd3dcf645c16418d5d8c51d971f1ad7d57e7b1b5eee239",
@@ -4182,16 +7546,72 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0xa8bB618B1520E284046F3dFc448851A1Ff26e41B",
+          "proxyImplementationSource": "proxy-meta",
+          "expectedProxyImplementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+          "expectedProxyImplementationSource": "proxy-meta",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
-          "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
+          "creatorAddress": "0xd94387c220385bFE4bf599d95E199f3823Da593F",
           "bsVerified": true,
           "isContract": true,
           "balance": "0",
-          "deployedAtISO": "2022-03-03T19:08:26.000Z",
+          "deployedAtISO": "2023-09-06T19:25:31.000Z",
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
-          "sourceVerifiedAt": "30 Dec 2025"
+          "sourceVerifiedAt": "19 Jul 2024",
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "proxy-runtime",
+          "repo": null,
+          "path": null,
+          "refMode": "runtime",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/pm/TicketBroker.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/pm/TicketBroker.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:04.673Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xea1b0f6c8d158328a6e3d3f924b86a759f41465c"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": "TicketBroker",
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xa8bB618B1520E284046F3dFc448851A1Ff26e41B",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+            "implementationName": "TicketBroker",
+            "implementationVersion": null,
+            "implementationSource": "proxy-meta",
+            "expectedImplementationAddress": "0xea1b0f6c8d158328a6e3d3f924b86a759f41465c",
+            "expectedImplementationSource": "proxy-meta",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -4213,8 +7633,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:20.221Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:04.673Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -4235,6 +7655,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": "V2",
           "proxyAddress": "0x0B9C254837E72Ebe9Fe04960C43B69782E68169A",
+          "proxyImplementationSource": "governor-scripts",
+          "expectedProxyImplementationAddress": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
           "bsVerified": true,
@@ -4244,7 +7668,59 @@ export const contractAddresses = {
           "compilerVersion": "0.8.9+commit.e5eed63a",
           "optimizationEnabled": true,
           "language": "solidity",
-          "sourceVerifiedAt": "19 Jul 2024"
+          "sourceVerifiedAt": "19 Jul 2024",
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "bondingVotesTargetV2"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/bonding/BondingVotes.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/bonding/BondingVotes.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:04.673Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": "BondingVotes",
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x0B9C254837E72Ebe9Fe04960C43B69782E68169A",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119",
+            "implementationName": "BondingVotes",
+            "implementationVersion": "V2",
+            "implementationSource": "governor-scripts",
+            "expectedImplementationAddress": "0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -4266,8 +7742,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:20.221Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:04.673Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -4288,6 +7764,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0xcFE4E2879B786C3aa075813F0E364bb5acCb6aa0",
+          "proxyImplementationSource": "governor-scripts",
+          "expectedProxyImplementationAddress": "0xd2Ce37BCB287CaDc40647f567C2D3C4220901634",
+          "expectedProxyImplementationSource": "governor-scripts",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
           "bsVerified": true,
@@ -4309,7 +7789,59 @@ export const contractAddresses = {
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2023-10-11T22:24:36.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "livepeerGovernorTarget"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "delta",
+          "path": "contracts/treasury/LivepeerGovernor.sol",
+          "href": "https://github.com/livepeer/protocol/blob/delta/contracts/treasury/LivepeerGovernor.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:04.673Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0xd2Ce37BCB287CaDc40647f567C2D3C4220901634"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": "LivepeerGovernor",
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0xcFE4E2879B786C3aa075813F0E364bb5acCb6aa0",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0xd2Ce37BCB287CaDc40647f567C2D3C4220901634",
+            "implementationName": "LivepeerGovernor",
+            "implementationVersion": null,
+            "implementationSource": "governor-scripts",
+            "expectedImplementationAddress": "0xd2Ce37BCB287CaDc40647f567C2D3C4220901634",
+            "expectedImplementationSource": "governor-scripts",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -4331,8 +7863,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:20.221Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:04.673Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -4353,6 +7885,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0x148D5b6B4df9530c7C76A810bd1Cdf69EC4c2085",
+          "proxyImplementationSource": "authority-catalog",
+          "expectedProxyImplementationAddress": "0x93BB030735747708b4D33093A98d4c804Cd6B58C",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": null,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
@@ -4365,204 +7901,66 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Dec 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-15T02:46:40.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": null,
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:04.673Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "arbiscan.io",
+            "addressBaseUrl": "https://arbiscan.io/address/",
+            "addressUrl": "https://arbiscan.io/address/0x93BB030735747708b4D33093A98d4c804Cd6B58C"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": "L2Migrator",
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x148D5b6B4df9530c7C76A810bd1Cdf69EC4c2085",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0x93BB030735747708b4D33093A98d4c804Cd6B58C",
+            "implementationName": "L2Migrator",
+            "implementationVersion": null,
+            "implementationSource": "authority-catalog",
+            "expectedImplementationAddress": "0x93BB030735747708b4D33093A98d4c804Cd6B58C",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       }
     ],
-    "historical": {
-      "Minter": {
-        "note": null,
-        "entries": [
-          {
-            "version": "V1",
-            "address": "0x4969dcCF5186e1c49411638fc8A2a020Fdab752E",
-            "verified": true,
-            "blockchainHref": "https://arbiscan.io/address/0x4969dcCF5186e1c49411638fc8A2a020Fdab752E",
-            "blockscoutLabel": "Minter",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "12 Feb 2022",
-            "replacedBy": "current"
-          }
-        ]
-      },
-      "BondingManager (Target)": {
-        "note": null,
-        "entries": [
-          {
-            "version": "V1",
-            "address": "0xe479B9fbA2Cd65f822f451fC8C145c663B995CE6",
-            "verified": false,
-            "blockchainHref": "https://arbiscan.io/address/0xe479B9fbA2Cd65f822f451fC8C145c663B995CE6",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "12 Feb 2022",
-            "replacedBy": "V2"
-          },
-          {
-            "version": "V2",
-            "address": "0xC40df4db2f99e7e235780A93B192F1a934f0c45b",
-            "verified": false,
-            "blockchainHref": "https://arbiscan.io/address/0xC40df4db2f99e7e235780A93B192F1a934f0c45b",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "24 Feb 2022",
-            "replacedBy": "V3"
-          },
-          {
-            "version": "V3",
-            "address": "0x3757DB506ECd9CBE643660C0F5b70db5b321202C",
-            "verified": false,
-            "blockchainHref": "https://arbiscan.io/address/0x3757DB506ECd9CBE643660C0F5b70db5b321202C",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "26 Feb 2022",
-            "replacedBy": "V4"
-          },
-          {
-            "version": "V4",
-            "address": "0x0f9C425E7374602C20370d3fd263155B4c3bDc91",
-            "verified": false,
-            "blockchainHref": "https://arbiscan.io/address/0x0f9C425E7374602C20370d3fd263155B4c3bDc91",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "17 Mar 2022",
-            "replacedBy": "V5"
-          },
-          {
-            "version": "V5",
-            "address": "0x3a941e1094B9E33efABB26a9047a8ABb4b257907",
-            "verified": false,
-            "blockchainHref": "https://arbiscan.io/address/0x3a941e1094B9E33efABB26a9047a8ABb4b257907",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "25 Aug 2022",
-            "replacedBy": "V6"
-          },
-          {
-            "version": "V6",
-            "address": "0x9c9209c9ff6996513b3673d69ee7b36a6c58a8cf",
-            "verified": false,
-            "blockchainHref": "https://arbiscan.io/address/0x9c9209c9ff6996513b3673d69ee7b36a6c58a8cf",
-            "creatorAddress": "0xd94387c220385bFE4bf599d95E199f3823Da593F",
-            "deployedAt": "7 Jul 2023",
-            "replacedBy": "V7"
-          },
-          {
-            "version": "V7",
-            "address": "0x363cdB9BaE210Ef182c60b5a496139E980330127",
-            "verified": false,
-            "blockchainHref": "https://arbiscan.io/address/0x363cdB9BaE210Ef182c60b5a496139E980330127",
-            "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
-            "deployedAt": "12 Oct 2023",
-            "replacedBy": "V8"
-          },
-          {
-            "version": "V8",
-            "address": "0x557093B1Ab53412166beAd939f34244170b6525B",
-            "verified": false,
-            "blockchainHref": "https://arbiscan.io/address/0x557093B1Ab53412166beAd939f34244170b6525B",
-            "creatorAddress": "0xd94387c220385bFE4bf599d95E199f3823Da593F",
-            "deployedAt": "2 Nov 2023",
-            "replacedBy": "V9"
-          },
-          {
-            "version": "V9",
-            "address": "0x6b397f20DC227B4E23fEc20BBDBe166d0DFFC452",
-            "verified": true,
-            "blockchainHref": "https://arbiscan.io/address/0x6b397f20DC227B4E23fEc20BBDBe166d0DFFC452",
-            "blockscoutLabel": "BondingManager",
-            "creatorAddress": "0xBB1D39b4997210208b41E88436e881Cce7160562",
-            "deployedAt": "26 Mar 2024",
-            "replacedBy": "V10"
-          },
-          {
-            "version": "V10",
-            "address": "0xd1C1F5d44D8F83ca2A05Baf40461e550cFDDecA2",
-            "verified": false,
-            "blockchainHref": "https://arbiscan.io/address/0xd1C1F5d44D8F83ca2A05Baf40461e550cFDDecA2",
-            "creatorAddress": "0xeF5f4D2A90E9a6FDdeF903ce7C54A1D294431381",
-            "deployedAt": "26 Oct 2024",
-            "replacedBy": "V11"
-          },
-          {
-            "version": "V11",
-            "address": "0xF62C30242fccd3a46721f155d4d367De3fD5B3b3",
-            "verified": false,
-            "blockchainHref": "https://arbiscan.io/address/0xF62C30242fccd3a46721f155d4d367De3fD5B3b3",
-            "creatorAddress": "0x9B4330188AeD73cE40c860469cBb7770995854A1",
-            "deployedAt": "23 Aug 2025",
-            "replacedBy": "V12"
-          },
-          {
-            "version": "V12",
-            "address": "0x4bA7E7531Ab56bC8d78dB4FDc88D21F621f34BB4",
-            "verified": true,
-            "blockchainHref": "https://arbiscan.io/address/0x4bA7E7531Ab56bC8d78dB4FDc88D21F621f34BB4",
-            "blockscoutLabel": "BondingManager",
-            "creatorAddress": "0x9dF71aad3d07334793C0E46DC107F2F69F2d8856",
-            "deployedAt": "17 Feb 2026",
-            "replacedBy": "current"
-          }
-        ]
-      },
-      "TicketBroker (Target)": {
-        "note": null,
-        "entries": [
-          {
-            "version": "V1",
-            "address": "0x7Beb84c52ce96DFd90431FAA97378994a8baa6df",
-            "verified": false,
-            "blockchainHref": "https://arbiscan.io/address/0x7Beb84c52ce96DFd90431FAA97378994a8baa6df",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "12 Feb 2022",
-            "replacedBy": "V3"
-          },
-          {
-            "version": "V3",
-            "address": "0xea1b0F6c8D158328a6e3D3F924B86A759F41465c",
-            "verified": true,
-            "blockchainHref": "https://arbiscan.io/address/0xea1b0F6c8D158328a6e3D3F924B86A759F41465c",
-            "blockscoutLabel": "TicketBroker",
-            "creatorAddress": "0xd94387c220385bFE4bf599d95E199f3823Da593F",
-            "deployedAt": "7 Sept 2023",
-            "replacedBy": "current"
-          }
-        ]
-      },
-      "BondingVotes (Target)": {
-        "note": null,
-        "entries": [
-          {
-            "version": "V1",
-            "address": "0x1561fC5F7Efc049476224005DFf38256dccfc509",
-            "verified": true,
-            "blockchainHref": "https://arbiscan.io/address/0x1561fC5F7Efc049476224005DFf38256dccfc509",
-            "blockscoutLabel": "BondingVotes",
-            "creatorAddress": "0x74B5BA17b2Fee90FDae8f252D3E7998022069Ba0",
-            "deployedAt": "12 Oct 2023",
-            "replacedBy": "current"
-          }
-        ]
-      },
-      "L2Migrator (Target)": {
-        "note": null,
-        "entries": [
-          {
-            "version": "V1",
-            "address": "0x4F59b39e2ea628fe8371BDfd51B063319339c7EE",
-            "verified": false,
-            "blockchainHref": "https://arbiscan.io/address/0x4F59b39e2ea628fe8371BDfd51B063319339c7EE",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "12 Feb 2022",
-            "replacedBy": "current"
-          }
-        ]
-      }
-    }
+    "historical": []
   },
   "ethereumMainnet": {
     "inventory": [
@@ -4585,8 +7983,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Paused",
@@ -4629,7 +8027,59 @@ export const contractAddresses = {
           "tokenTransferCount": 3,
           "validationsCount": 0,
           "lastActiveDateISO": "2021-01-31T02:23:14.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "controller"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/Controller.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/Controller.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0xf96d54e490317c557a967abfa5d6e33006be69b3"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -4651,8 +8101,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Paused",
@@ -4694,7 +8144,59 @@ export const contractAddresses = {
           "tokenTransferCount": 21661,
           "validationsCount": 0,
           "lastActiveDateISO": "2020-08-18T20:22:22.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "minter"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/token/Minter.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/token/Minter.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x505F8c2ee81f1C6fa0D88e918eF0491222E05818"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -4716,17 +8218,17 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
           "deployedBy": null,
           "notes": "Origin token.",
-          "holderCount": "1,887,656",
+          "holderCount": "1,887,643",
           "transactionCount": 1010457,
           "deployedAt": "1 May 2018",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "Livepeer",
           "keccakHash": "0x3443e257065fe41dd0e4d1f5a1b73a22a62e300962b57f30cddf41d0f8273ba7",
           "registrationState": "not_applicable",
@@ -4747,7 +8249,7 @@ export const contractAddresses = {
           "totalSupply": "24918514377941353891894504",
           "decimals": "18",
           "symbol": "LPT",
-          "lastActiveDateISO": "2026-03-31T03:08:59.000Z",
+          "lastActiveDateISO": "2026-03-31T14:09:35.000Z",
           "compilerVersion": "v0.4.18+commit.9cf6e910",
           "optimizationEnabled": true,
           "language": "solidity",
@@ -4760,7 +8262,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 713148,
           "validationsCount": 0,
-          "transactionsRecent": 37
+          "transactionsRecent": 37,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/token/LivepeerToken.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/token/LivepeerToken.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x58b6a8a3302369daec383334672404ee733ab239"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -4782,8 +8336,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -4823,7 +8377,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 3,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "bridgeMinter"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/token/BridgeMinter.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/token/BridgeMinter.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x8dDDB96CF36AC8860f1DE5C7c4698fd499FAB405"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -4845,8 +8451,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -4886,7 +8492,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l1LPTGateway"
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L1/gateway/L1LPTGateway.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L1/gateway/L1LPTGateway.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x6142f1C8bBF02E6A6bd074E8d564c9A5420a0676"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -4908,8 +8566,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -4949,7 +8607,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 8067,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L1/escrow/L1Escrow.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L1/escrow/L1Escrow.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x6A23F4940BD5BA117Da261f98aae51A8BFfa210A"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -4971,8 +8681,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5014,7 +8724,59 @@ export const contractAddresses = {
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-12-01T09:00:47.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l1LPTDataCache"
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L1/gateway/L1LPTDataCache.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L1/gateway/L1LPTDataCache.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x1d24838b35A9c138Ac157A852e19e948aD6323D7"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5036,8 +8798,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Migration complete",
@@ -5071,16 +8833,62 @@ export const contractAddresses = {
           "_stale": [
             "transactionCount",
             "lastActiveDate",
+            "repoIsPrivate",
             "tokenTransferCount",
             "validationsCount",
             "lastActiveDateISO",
-            "repoIsPrivate",
             "transactionsRecent"
           ],
           "tokenTransferCount": 3,
           "validationsCount": 0,
           "lastActiveDateISO": "2025-12-17T00:35:59.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l1Migrator"
+        },
+        "codeSource": null,
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x21146B872D3A95d2cF9afeD03eE5a783DaE9A89A"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5102,8 +8910,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Paused",
@@ -5134,19 +8942,78 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "20 Aug 2019",
+          "proxyControllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xfc6f6f33d2bb065ac61cbdd4dbe4b7adf6f3e7e6c6a3d1fe297cbf9a187092e4",
+          "proxyTargetContractName": "BondingManagerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 25,
           "validationsCount": 0,
           "lastActiveDateISO": "2025-02-05T23:22:11.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/bonding/BondingManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/bonding/BondingManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x511bc4556d823ae99630ae8de28b9b80df90ea2e"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x511bc4556d823ae99630ae8de28b9b80df90ea2e",
+            "controllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xfc6f6f33d2bb065ac61cbdd4dbe4b7adf6f3e7e6c6a3d1fe297cbf9a187092e4",
+            "targetContractName": "BondingManagerTarget",
+            "implementationAddress": "0x5fe3565db7f1dd8d6a9e968d45bd2aee3836a1d4",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5168,8 +9035,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Paused",
@@ -5200,19 +9067,78 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "8 Aug 2024",
+          "proxyControllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xf16f832ef171c8058cbd4a32de7d27c32a1a1ad90bb091b4b7f376f1d95ee254",
+          "proxyTargetContractName": "TicketBrokerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 1,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-14T13:27:40.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/pm/TicketBroker.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/pm/TicketBroker.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x5b1ce829384eebfa30286f12d1e7a695ca45f5d2"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x5b1ce829384eebfa30286f12d1e7a695ca45f5d2",
+            "controllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xf16f832ef171c8058cbd4a32de7d27c32a1a1ad90bb091b4b7f376f1d95ee254",
+            "targetContractName": "TicketBrokerTarget",
+            "implementationAddress": "0x6f582e2bb19ac31d4b1e6edd0c2efeabd700f808",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5234,8 +9160,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Paused",
@@ -5266,19 +9192,78 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "20 Aug 2019",
+          "proxyControllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0x56f65aba3e3e5b6d5adbc6cdc14c51957893b21d4a6a56260af4e03af7e1a51d",
+          "proxyTargetContractName": "RoundsManagerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0xC89fE48382F8fda6992dC590786A84275bCD1C57",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 2,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-14T12:00:10.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/rounds/RoundsManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/rounds/RoundsManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x3984fc4ceeef1739135476f625d36d6c35c40dc3"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x3984fc4ceeef1739135476f625d36d6c35c40dc3",
+            "controllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0x56f65aba3e3e5b6d5adbc6cdc14c51957893b21d4a6a56260af4e03af7e1a51d",
+            "targetContractName": "RoundsManagerTarget",
+            "implementationAddress": "0xc89fe48382f8fda6992dc590786a84275bcd1c57",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0xC89fE48382F8fda6992dC590786A84275bCD1C57",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5300,8 +9285,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Paused",
@@ -5332,19 +9317,78 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "22 Apr 2019",
+          "proxyControllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xa65c3dc1a85422ba3e6003be871c3339b882a9c28fc454085d394e4b6436d564",
+          "proxyTargetContractName": "ServiceRegistryTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 1,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-10-20T04:05:23.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/ServiceRegistry.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/ServiceRegistry.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x406a112f3218b988c66778fd72fc8467f2601366"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x406a112f3218b988c66778fd72fc8467f2601366",
+            "controllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xa65c3dc1a85422ba3e6003be871c3339b882a9c28fc454085d394e4b6436d564",
+            "targetContractName": "ServiceRegistryTarget",
+            "implementationAddress": "0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5366,8 +9410,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5400,16 +9444,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Mar 2026",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-15T00:08:04.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/governance/Governor.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/governance/Governor.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0xFC3CBed6A3476F7616CC70f078397700136eEBFd"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5431,8 +9527,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5465,16 +9561,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "8 Aug 2024",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 5,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-01T20:59:46.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/polling/PollCreator.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/polling/PollCreator.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0xBf824EDb6b94D9B52d972d5B25bCc19b4e6E3F3C"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5496,8 +9644,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Migration complete",
@@ -5530,16 +9678,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Mar 2026",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2020-10-01T21:30:12.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/snapshots/MerkleSnapshot.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/snapshots/MerkleSnapshot.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x24ebEd82c681f435E944BEEbFAEEAaE443D08438"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5561,8 +9761,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5595,16 +9795,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "27 Sept 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 50,
           "validationsCount": 0,
           "lastActiveDateISO": "2018-04-30T21:43:57.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/GenesisManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/GenesisManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x3a9543d4767b2c914ea22fd0b07e17b0901aaebf"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5626,8 +9878,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5660,16 +9912,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "16 May 2024",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 5195651,
           "validationsCount": 0,
           "lastActiveDateISO": "2023-07-23T02:37:59.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/token/MerkleMine.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/token/MerkleMine.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x8e306b005773bee6ba6a6e8972bc79d766cc15c8"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5691,8 +9995,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5725,16 +10029,62 @@ export const contractAddresses = {
           "sourceVerifiedAt": "17 Aug 2024",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 2022683,
           "validationsCount": 0,
           "lastActiveDateISO": "2019-03-17T00:51:34.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": null,
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x182ebf4c80b28efc45ad992ecbb9f730e31e8c7f"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5756,8 +10106,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5790,16 +10140,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "5 Apr 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2018-04-30T16:10:21.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/libraries/SortedDoublyLL.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/libraries/SortedDoublyLL.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x1a0b2ca69ca2c7f96e2529faa6d63f881655d81a"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5821,8 +10223,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5855,16 +10257,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Mar 2026",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 5,
           "validationsCount": 0,
           "lastActiveDateISO": "2020-01-13T20:32:36.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/refund/Refunder.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/refund/Refunder.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x780c98cbb0cc21d6617c05332bd5cf6f847c71c2"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5886,8 +10340,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:58.578Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:44.363Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -5908,6 +10362,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0x511bc4556d823ae99630ae8de28b9b80df90ea2e",
+          "proxyImplementationSource": "authority-catalog",
+          "expectedProxyImplementationAddress": "0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
@@ -5920,16 +10378,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "17 Jan 2026",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2021-04-01T07:41:45.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/bonding/BondingManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/bonding/BondingManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:44.363Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x511bc4556d823ae99630ae8de28b9b80df90ea2e",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4",
+            "implementationName": "BondingManager",
+            "implementationVersion": null,
+            "implementationSource": "authority-catalog",
+            "expectedImplementationAddress": "0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -5951,8 +10461,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:58.578Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:44.363Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -5973,6 +10483,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0x5b1ce829384eebfa30286f12d1e7a695ca45f5d2",
+          "proxyImplementationSource": "authority-catalog",
+          "expectedProxyImplementationAddress": "0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
@@ -5985,16 +10499,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Mar 2026",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2020-01-13T18:58:36.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/pm/TicketBroker.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/pm/TicketBroker.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:44.363Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x5b1ce829384eebfa30286f12d1e7a695ca45f5d2",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808",
+            "implementationName": "TicketBroker",
+            "implementationVersion": null,
+            "implementationSource": "authority-catalog",
+            "expectedImplementationAddress": "0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -6016,8 +10582,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:58.578Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:44.363Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -6038,6 +10604,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0x3984fc4ceeef1739135476f625d36d6c35c40dc3",
+          "proxyImplementationSource": "authority-catalog",
+          "expectedProxyImplementationAddress": "0xC89fE48382F8fda6992dC590786A84275bCD1C57",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
@@ -6050,16 +10620,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Mar 2026",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2020-10-01T20:47:18.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/rounds/RoundsManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/rounds/RoundsManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:44.363Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0xC89fE48382F8fda6992dC590786A84275bCD1C57"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x3984fc4ceeef1739135476f625d36d6c35c40dc3",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0xC89fE48382F8fda6992dC590786A84275bCD1C57",
+            "implementationName": "RoundsManager",
+            "implementationVersion": null,
+            "implementationSource": "authority-catalog",
+            "expectedImplementationAddress": "0xC89fE48382F8fda6992dC590786A84275bCD1C57",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -6081,8 +10703,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:58.578Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:44.363Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -6103,6 +10725,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0x406a112f3218b988c66778fd72fc8467f2601366",
+          "proxyImplementationSource": "authority-catalog",
+          "expectedProxyImplementationAddress": "0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
@@ -6115,16 +10741,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "18 Sept 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2018-08-22T19:13:55.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/ServiceRegistry.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/ServiceRegistry.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:44.363Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x406a112f3218b988c66778fd72fc8467f2601366",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e",
+            "implementationName": "ServiceRegistry",
+            "implementationVersion": null,
+            "implementationSource": "authority-catalog",
+            "expectedImplementationAddress": "0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       }
     ],
@@ -6148,8 +10826,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -6189,7 +10867,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 3,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "bridgeMinter"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/token/BridgeMinter.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/token/BridgeMinter.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x8dDDB96CF36AC8860f1DE5C7c4698fd499FAB405"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -6211,8 +10941,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -6252,7 +10982,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 8067,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L1/escrow/L1Escrow.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L1/escrow/L1Escrow.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x6A23F4940BD5BA117Da261f98aae51A8BFfa210A"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -6274,8 +11056,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -6315,7 +11097,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l1LPTGateway"
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L1/gateway/L1LPTGateway.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L1/gateway/L1LPTGateway.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x6142f1C8bBF02E6A6bd074E8d564c9A5420a0676"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -6337,17 +11171,17 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
           "deployedBy": null,
           "notes": "Origin token.",
-          "holderCount": "1,887,656",
+          "holderCount": "1,887,643",
           "transactionCount": 1010457,
           "deployedAt": "1 May 2018",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "Livepeer",
           "keccakHash": "0x3443e257065fe41dd0e4d1f5a1b73a22a62e300962b57f30cddf41d0f8273ba7",
           "registrationState": "not_applicable",
@@ -6368,7 +11202,7 @@ export const contractAddresses = {
           "totalSupply": "24918514377941353891894504",
           "decimals": "18",
           "symbol": "LPT",
-          "lastActiveDateISO": "2026-03-31T03:08:59.000Z",
+          "lastActiveDateISO": "2026-03-31T14:09:35.000Z",
           "compilerVersion": "v0.4.18+commit.9cf6e910",
           "optimizationEnabled": true,
           "language": "solidity",
@@ -6381,7 +11215,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 713148,
           "validationsCount": 0,
-          "transactionsRecent": 37
+          "transactionsRecent": 37,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/token/LivepeerToken.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/token/LivepeerToken.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x58b6a8a3302369daec383334672404ee733ab239"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       }
     ],
@@ -6405,8 +11291,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -6446,7 +11332,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 3,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "bridgeMinter"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/token/BridgeMinter.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/token/BridgeMinter.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x8dDDB96CF36AC8860f1DE5C7c4698fd499FAB405"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -6468,8 +11406,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -6509,7 +11447,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 8067,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L1/escrow/L1Escrow.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L1/escrow/L1Escrow.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x6A23F4940BD5BA117Da261f98aae51A8BFfa210A"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -6531,8 +11521,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -6572,7 +11562,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l1LPTGateway"
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L1/gateway/L1LPTGateway.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L1/gateway/L1LPTGateway.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x6142f1C8bBF02E6A6bd074E8d564c9A5420a0676"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -6594,17 +11636,17 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
           "deployedBy": null,
           "notes": "Origin token.",
-          "holderCount": "1,887,656",
+          "holderCount": "1,887,643",
           "transactionCount": 1010457,
           "deployedAt": "1 May 2018",
-          "lastActiveDate": "31 Mar 2026",
+          "lastActiveDate": "1 Apr 2026",
           "blockscoutLabel": "Livepeer",
           "keccakHash": "0x3443e257065fe41dd0e4d1f5a1b73a22a62e300962b57f30cddf41d0f8273ba7",
           "registrationState": "not_applicable",
@@ -6625,7 +11667,7 @@ export const contractAddresses = {
           "totalSupply": "24918514377941353891894504",
           "decimals": "18",
           "symbol": "LPT",
-          "lastActiveDateISO": "2026-03-31T03:08:59.000Z",
+          "lastActiveDateISO": "2026-03-31T14:09:35.000Z",
           "compilerVersion": "v0.4.18+commit.9cf6e910",
           "optimizationEnabled": true,
           "language": "solidity",
@@ -6638,7 +11680,59 @@ export const contractAddresses = {
           ],
           "tokenTransferCount": 713148,
           "validationsCount": 0,
-          "transactionsRecent": 37
+          "transactionsRecent": 37,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/token/LivepeerToken.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/token/LivepeerToken.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x58b6a8a3302369daec383334672404ee733ab239"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       }
     ],
@@ -6662,8 +11756,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Paused",
@@ -6694,19 +11788,78 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "20 Aug 2019",
+          "proxyControllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xfc6f6f33d2bb065ac61cbdd4dbe4b7adf6f3e7e6c6a3d1fe297cbf9a187092e4",
+          "proxyTargetContractName": "BondingManagerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 25,
           "validationsCount": 0,
           "lastActiveDateISO": "2025-02-05T23:22:11.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/bonding/BondingManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/bonding/BondingManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x511bc4556d823ae99630ae8de28b9b80df90ea2e"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x511bc4556d823ae99630ae8de28b9b80df90ea2e",
+            "controllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xfc6f6f33d2bb065ac61cbdd4dbe4b7adf6f3e7e6c6a3d1fe297cbf9a187092e4",
+            "targetContractName": "BondingManagerTarget",
+            "implementationAddress": "0x5fe3565db7f1dd8d6a9e968d45bd2aee3836a1d4",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -6728,8 +11881,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Paused",
@@ -6772,7 +11925,59 @@ export const contractAddresses = {
           "tokenTransferCount": 3,
           "validationsCount": 0,
           "lastActiveDateISO": "2021-01-31T02:23:14.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "controller"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/Controller.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/Controller.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0xf96d54e490317c557a967abfa5d6e33006be69b3"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -6794,8 +11999,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Paused",
@@ -6837,7 +12042,59 @@ export const contractAddresses = {
           "tokenTransferCount": 21661,
           "validationsCount": 0,
           "lastActiveDateISO": "2020-08-18T20:22:22.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "minter"
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/token/Minter.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/token/Minter.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x505F8c2ee81f1C6fa0D88e918eF0491222E05818"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -6859,8 +12116,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Paused",
@@ -6891,19 +12148,78 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "20 Aug 2019",
+          "proxyControllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0x56f65aba3e3e5b6d5adbc6cdc14c51957893b21d4a6a56260af4e03af7e1a51d",
+          "proxyTargetContractName": "RoundsManagerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0xC89fE48382F8fda6992dC590786A84275bCD1C57",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 2,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-14T12:00:10.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/rounds/RoundsManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/rounds/RoundsManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x3984fc4ceeef1739135476f625d36d6c35c40dc3"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x3984fc4ceeef1739135476f625d36d6c35c40dc3",
+            "controllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0x56f65aba3e3e5b6d5adbc6cdc14c51957893b21d4a6a56260af4e03af7e1a51d",
+            "targetContractName": "RoundsManagerTarget",
+            "implementationAddress": "0xc89fe48382f8fda6992dc590786a84275bcd1c57",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0xC89fE48382F8fda6992dC590786A84275bCD1C57",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -6925,8 +12241,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Paused",
@@ -6957,19 +12273,78 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "22 Apr 2019",
+          "proxyControllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xa65c3dc1a85422ba3e6003be871c3339b882a9c28fc454085d394e4b6436d564",
+          "proxyTargetContractName": "ServiceRegistryTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 1,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-10-20T04:05:23.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/ServiceRegistry.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/ServiceRegistry.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x406a112f3218b988c66778fd72fc8467f2601366"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x406a112f3218b988c66778fd72fc8467f2601366",
+            "controllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xa65c3dc1a85422ba3e6003be871c3339b882a9c28fc454085d394e4b6436d564",
+            "targetContractName": "ServiceRegistryTarget",
+            "implementationAddress": "0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -6991,8 +12366,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Paused",
@@ -7023,19 +12398,78 @@ export const contractAddresses = {
           "optimizationEnabled": true,
           "language": "solidity",
           "sourceVerifiedAt": "8 Aug 2024",
+          "proxyControllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+          "proxyControllerMatchesExpected": true,
+          "proxyTargetContractId": "0xf16f832ef171c8058cbd4a32de7d27c32a1a1ad90bb091b4b7f376f1d95ee254",
+          "proxyTargetContractName": "TicketBrokerTarget",
+          "proxyImplementationSource": "proxy-runtime-controller",
+          "expectedProxyImplementationAddress": "0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
-            "proxyTarget",
             "transactionsRecent"
           ],
           "tokenTransferCount": 1,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-14T13:27:40.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/pm/TicketBroker.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/pm/TicketBroker.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x5b1ce829384eebfa30286f12d1e7a695ca45f5d2"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x5b1ce829384eebfa30286f12d1e7a695ca45f5d2",
+            "controllerAddress": "0xf96d54e490317c557a967abfa5d6e33006be69b3",
+            "controllerMatchesExpected": true,
+            "targetContractId": "0xf16f832ef171c8058cbd4a32de7d27c32a1a1ad90bb091b4b7f376f1d95ee254",
+            "targetContractName": "TicketBrokerTarget",
+            "implementationAddress": "0x6f582e2bb19ac31d4b1e6edd0c2efeabd700f808",
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": "proxy-runtime-controller",
+            "expectedImplementationAddress": "0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       }
     ],
@@ -7059,8 +12493,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Migration complete",
@@ -7094,16 +12528,62 @@ export const contractAddresses = {
           "_stale": [
             "transactionCount",
             "lastActiveDate",
+            "repoIsPrivate",
             "tokenTransferCount",
             "validationsCount",
             "lastActiveDateISO",
-            "repoIsPrivate",
             "transactionsRecent"
           ],
           "tokenTransferCount": 3,
           "validationsCount": 0,
           "lastActiveDateISO": "2025-12-17T00:35:59.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l1Migrator"
+        },
+        "codeSource": null,
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x21146B872D3A95d2cF9afeD03eE5a783DaE9A89A"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -7125,8 +12605,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Migration complete",
@@ -7159,16 +12639,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Mar 2026",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2020-10-01T21:30:12.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/snapshots/MerkleSnapshot.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/snapshots/MerkleSnapshot.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x24ebEd82c681f435E944BEEbFAEEAaE443D08438"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       }
     ],
@@ -7192,8 +12724,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7235,7 +12767,59 @@ export const contractAddresses = {
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-12-01T09:00:47.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "governor-scripts",
+          "repo": "livepeer/governor-scripts",
+          "path": "updates/addresses.js",
+          "refMode": "default_branch",
+          "resolvedCommit": "2cb192a",
+          "key": "l1LPTDataCache"
+        },
+        "codeSource": {
+          "repo": "livepeer/arbitrum-lpt-bridge",
+          "branch": "main",
+          "path": "contracts/L1/gateway/L1LPTDataCache.sol",
+          "href": "https://github.com/livepeer/arbitrum-lpt-bridge/blob/main/contracts/L1/gateway/L1LPTDataCache.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x1d24838b35A9c138Ac157A852e19e948aD6323D7"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -7257,8 +12841,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7291,16 +12875,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Mar 2026",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-15T00:08:04.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/governance/Governor.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/governance/Governor.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0xFC3CBed6A3476F7616CC70f078397700136eEBFd"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -7322,8 +12958,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7356,16 +12992,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "8 Aug 2024",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 5,
           "validationsCount": 0,
           "lastActiveDateISO": "2022-02-01T20:59:46.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/polling/PollCreator.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/polling/PollCreator.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0xBf824EDb6b94D9B52d972d5B25bCc19b4e6E3F3C"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -7387,8 +13075,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7421,16 +13109,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "27 Sept 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 50,
           "validationsCount": 0,
           "lastActiveDateISO": "2018-04-30T21:43:57.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/GenesisManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/GenesisManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x3a9543d4767b2c914ea22fd0b07e17b0901aaebf"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -7452,8 +13192,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7486,16 +13226,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "16 May 2024",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 5195651,
           "validationsCount": 0,
           "lastActiveDateISO": "2023-07-23T02:37:59.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/token/MerkleMine.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/token/MerkleMine.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x8e306b005773bee6ba6a6e8972bc79d766cc15c8"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -7517,8 +13309,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7551,16 +13343,62 @@ export const contractAddresses = {
           "sourceVerifiedAt": "17 Aug 2024",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 2022683,
           "validationsCount": 0,
           "lastActiveDateISO": "2019-03-17T00:51:34.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": null,
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x182ebf4c80b28efc45ad992ecbb9f730e31e8c7f"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -7582,8 +13420,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7616,16 +13454,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Mar 2026",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 5,
           "validationsCount": 0,
           "lastActiveDateISO": "2020-01-13T20:32:36.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/refund/Refunder.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/refund/Refunder.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x780c98cbb0cc21d6617c05332bd5cf6f847c71c2"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -7647,8 +13537,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:09:32.758Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:23:53.708Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7681,16 +13571,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "5 Apr 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2018-04-30T16:10:21.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/libraries/SortedDoublyLL.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/libraries/SortedDoublyLL.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "partial",
+          "lastVerifiedAt": "2026-03-31T14:23:53.708Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x1a0b2ca69ca2c7f96e2529faa6d63f881655d81a"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": false,
+            "proxyAddress": null,
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": null,
+            "implementationName": null,
+            "implementationVersion": null,
+            "implementationSource": null,
+            "expectedImplementationAddress": null,
+            "expectedImplementationSource": null,
+            "implementationMatchesExpected": null,
+            "controllerCurrentProxyMatches": null
+          }
         }
       }
     ],
@@ -7714,8 +13656,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:58.578Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:44.363Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -7736,6 +13678,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0x511bc4556d823ae99630ae8de28b9b80df90ea2e",
+          "proxyImplementationSource": "authority-catalog",
+          "expectedProxyImplementationAddress": "0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
@@ -7748,16 +13694,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "17 Jan 2026",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2021-04-01T07:41:45.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/bonding/BondingManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/bonding/BondingManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:44.363Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x511bc4556d823ae99630ae8de28b9b80df90ea2e",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4",
+            "implementationName": "BondingManager",
+            "implementationVersion": null,
+            "implementationSource": "authority-catalog",
+            "expectedImplementationAddress": "0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -7779,8 +13777,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:58.578Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:44.363Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -7801,6 +13799,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0x3984fc4ceeef1739135476f625d36d6c35c40dc3",
+          "proxyImplementationSource": "authority-catalog",
+          "expectedProxyImplementationAddress": "0xC89fE48382F8fda6992dC590786A84275bCD1C57",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
@@ -7813,16 +13815,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Mar 2026",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2020-10-01T20:47:18.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/rounds/RoundsManager.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/rounds/RoundsManager.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:44.363Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0xC89fE48382F8fda6992dC590786A84275bCD1C57"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x3984fc4ceeef1739135476f625d36d6c35c40dc3",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0xC89fE48382F8fda6992dC590786A84275bCD1C57",
+            "implementationName": "RoundsManager",
+            "implementationVersion": null,
+            "implementationSource": "authority-catalog",
+            "expectedImplementationAddress": "0xC89fE48382F8fda6992dC590786A84275bCD1C57",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -7844,8 +13898,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:58.578Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:44.363Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -7866,6 +13920,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0x406a112f3218b988c66778fd72fc8467f2601366",
+          "proxyImplementationSource": "authority-catalog",
+          "expectedProxyImplementationAddress": "0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
@@ -7878,16 +13936,68 @@ export const contractAddresses = {
           "sourceVerifiedAt": "18 Sept 2025",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2018-08-22T19:13:55.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "master",
+          "path": "contracts/ServiceRegistry.sol",
+          "href": "https://github.com/livepeer/protocol/blob/master/contracts/ServiceRegistry.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:44.363Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x406a112f3218b988c66778fd72fc8467f2601366",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e",
+            "implementationName": "ServiceRegistry",
+            "implementationVersion": null,
+            "implementationSource": "authority-catalog",
+            "expectedImplementationAddress": "0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       },
       {
@@ -7909,8 +14019,8 @@ export const contractAddresses = {
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
-        "verifiedAt": "31 Mar 2026",
-        "verifiedAtISO": "2026-03-31T03:13:58.578Z",
+        "verifiedAt": "1 Apr 2026",
+        "verifiedAtISO": "2026-03-31T14:28:44.363Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Current implementation",
@@ -7931,6 +14041,10 @@ export const contractAddresses = {
           "currentImplementation": true,
           "currentImplementationVersion": null,
           "proxyAddress": "0x5b1ce829384eebfa30286f12d1e7a695ca45f5d2",
+          "proxyImplementationSource": "authority-catalog",
+          "expectedProxyImplementationAddress": "0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808",
+          "expectedProxyImplementationSource": "authority-catalog",
+          "proxyImplementationMatchesExpected": true,
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
           "bsVerified": true,
@@ -7943,276 +14057,76 @@ export const contractAddresses = {
           "sourceVerifiedAt": "29 Mar 2026",
           "_stale": [
             "transactionCount",
+            "lastActiveDate",
             "tokenTransferCount",
             "validationsCount",
-            "lastActiveDate",
             "lastActiveDateISO",
             "transactionsRecent"
           ],
           "tokenTransferCount": 0,
           "validationsCount": 0,
           "lastActiveDateISO": "2020-01-13T18:58:36.000Z",
-          "transactionsRecent": 0
+          "transactionsRecent": 0,
+          "controllerRegistered": null
+        },
+        "controllerRegistered": null,
+        "addressSource": {
+          "kind": "authority-catalog",
+          "repo": null,
+          "path": "operations/scripts/config/contract-addresses-authority.json",
+          "refMode": "repo_path",
+          "resolvedCommit": null,
+          "key": null
+        },
+        "codeSource": {
+          "repo": "livepeer/protocol",
+          "branch": "streamflow",
+          "path": "contracts/pm/TicketBroker.sol",
+          "href": "https://github.com/livepeer/protocol/blob/streamflow/contracts/pm/TicketBroker.sol",
+          "isPrivate": false
+        },
+        "verification": {
+          "status": "strong",
+          "lastVerifiedAt": "2026-03-31T14:28:44.363Z",
+          "explorer": {
+            "family": "etherscan",
+            "host": "etherscan.io",
+            "addressBaseUrl": "https://etherscan.io/address/",
+            "addressUrl": "https://etherscan.io/address/0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808"
+          },
+          "controller": {
+            "applicable": false,
+            "controllerAddress": null,
+            "controllerSlot": null,
+            "registrationState": "not_applicable",
+            "controllerRegistered": null,
+            "resolvedAddress": null,
+            "currentAddressMatches": null
+          },
+          "proxy": {
+            "applicable": true,
+            "proxyAddress": "0x5b1ce829384eebfa30286f12d1e7a695ca45f5d2",
+            "controllerAddress": null,
+            "controllerMatchesExpected": null,
+            "targetContractId": null,
+            "targetContractName": null,
+            "implementationAddress": "0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808",
+            "implementationName": "TicketBroker",
+            "implementationVersion": null,
+            "implementationSource": "authority-catalog",
+            "expectedImplementationAddress": "0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808",
+            "expectedImplementationSource": "authority-catalog",
+            "implementationMatchesExpected": true,
+            "controllerCurrentProxyMatches": null
+          }
         }
       }
     ],
-    "historical": {
-      "Minter": {
-        "note": null,
-        "entries": [
-          {
-            "version": "V1",
-            "address": "0x8573f2f5a3bd960eee3d998473e50c75cdbe6828",
-            "verified": true,
-            "blockchainHref": "https://etherscan.io/address/0x8573f2f5a3bd960eee3d998473e50c75cdbe6828",
-            "blockscoutLabel": "Minter",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "1 May 2018",
-            "replacedBy": "current"
-          }
-        ]
-      },
-      "BondingManager (Target)": {
-        "note": null,
-        "entries": [
-          {
-            "version": "V1",
-            "address": "0x81eb0b10ff8703905904e4d91cf6aa575d59736f",
-            "verified": true,
-            "blockchainHref": "https://etherscan.io/address/0x81eb0b10ff8703905904e4d91cf6aa575d59736f",
-            "blockscoutLabel": "BondingManager",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "1 May 2018",
-            "replacedBy": "V2"
-          },
-          {
-            "version": "V2",
-            "address": "0x5A9512826EAAF1FE4190f89443314E95A515fE24",
-            "verified": true,
-            "blockchainHref": "https://etherscan.io/address/0x5A9512826EAAF1FE4190f89443314E95A515fE24",
-            "blockscoutLabel": "BondingManager",
-            "creatorAddress": "0xb21A62cd0219F72cdee8E9ae7A53708B4DAf02b5",
-            "deployedAt": "28 May 2018",
-            "replacedBy": "V3"
-          },
-          {
-            "version": "V3",
-            "address": "0x633101b3f15f93c5f415830d48e56b9b1f7ba584",
-            "verified": true,
-            "blockchainHref": "https://etherscan.io/address/0x633101b3f15f93c5f415830d48e56b9b1f7ba584",
-            "blockscoutLabel": "BondingManager",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "23 Aug 2018",
-            "replacedBy": "V4"
-          },
-          {
-            "version": "V4",
-            "address": "0x05C03EA0039f2e828A725A82939fc1e90de38B44",
-            "verified": true,
-            "blockchainHref": "https://etherscan.io/address/0x05C03EA0039f2e828A725A82939fc1e90de38B44",
-            "blockscoutLabel": "BondingManager",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "1 Sept 2018",
-            "replacedBy": "V5"
-          },
-          {
-            "version": "V5",
-            "address": "0xCBAa6eA4886b535FC7ABACe3F3985Ed03b3b80a0",
-            "verified": true,
-            "blockchainHref": "https://etherscan.io/address/0xCBAa6eA4886b535FC7ABACe3F3985Ed03b3b80a0",
-            "blockscoutLabel": "BondingManager",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "3 Oct 2018",
-            "replacedBy": "V6"
-          },
-          {
-            "version": "V6",
-            "address": "0xDC6eE74A18994caD3876a078B6fa4920FD9C507d",
-            "verified": true,
-            "blockchainHref": "https://etherscan.io/address/0xDC6eE74A18994caD3876a078B6fa4920FD9C507d",
-            "blockscoutLabel": "BondingManager",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "14 Jan 2020",
-            "replacedBy": "V7"
-          },
-          {
-            "version": "V7",
-            "address": "0x1a6007d1D0583452Bd6f45a4e1a9190B15Fbd7E3",
-            "verified": false,
-            "blockchainHref": "https://etherscan.io/address/0x1a6007d1D0583452Bd6f45a4e1a9190B15Fbd7E3",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "25 Sept 2020",
-            "replacedBy": "V8"
-          },
-          {
-            "version": "V8",
-            "address": "0xef5E170b679ddaF5e22ADC10fD23DDdB79E3C0c5",
-            "verified": true,
-            "blockchainHref": "https://etherscan.io/address/0xef5E170b679ddaF5e22ADC10fD23DDdB79E3C0c5",
-            "blockscoutLabel": "BondingManager",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "2 Oct 2020",
-            "replacedBy": "V9"
-          },
-          {
-            "version": "V9",
-            "address": "0xc8a695155648F18B0cfd6989498B6f8b2c4cc56A",
-            "verified": true,
-            "blockchainHref": "https://etherscan.io/address/0xc8a695155648F18B0cfd6989498B6f8b2c4cc56A",
-            "blockscoutLabel": "BondingManager",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "13 Oct 2020",
-            "replacedBy": "V10"
-          },
-          {
-            "version": "V10",
-            "address": "0x35F99F326681FE4F38719491be48Ab4950795013",
-            "verified": false,
-            "blockchainHref": "https://etherscan.io/address/0x35F99F326681FE4F38719491be48Ab4950795013",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "13 Jan 2021",
-            "replacedBy": "V11"
-          },
-          {
-            "version": "V11",
-            "address": "0xAC0153a8C5227e43506901a4f3f83FD000c8178f",
-            "verified": false,
-            "blockchainHref": "https://etherscan.io/address/0xAC0153a8C5227e43506901a4f3f83FD000c8178f",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "29 Jan 2021",
-            "replacedBy": "V12"
-          },
-          {
-            "version": "V12",
-            "address": "0x246edEBae14b186a67e3d466A485321169a8bcD5",
-            "verified": false,
-            "blockchainHref": "https://etherscan.io/address/0x246edEBae14b186a67e3d466A485321169a8bcD5",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "10 Feb 2021",
-            "replacedBy": "V13"
-          },
-          {
-            "version": "V13",
-            "address": "0x223398d0BF9cc24960b3886CC481dBf5276EdeD2",
-            "verified": false,
-            "blockchainHref": "https://etherscan.io/address/0x223398d0BF9cc24960b3886CC481dBf5276EdeD2",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "28 Mar 2021",
-            "replacedBy": "V14"
-          },
-          {
-            "version": "V14",
-            "address": "0x0da7c263eCF5cD3ddba275b9A2D63320E28fD287",
-            "verified": false,
-            "blockchainHref": "https://etherscan.io/address/0x0da7c263eCF5cD3ddba275b9A2D63320E28fD287",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "28 Mar 2021",
-            "replacedBy": "current"
-          }
-        ]
-      },
-      "RoundsManager (Target)": {
-        "note": null,
-        "entries": [
-          {
-            "version": "V1",
-            "address": "0xa3aa52ce79e85a21d9ccda705c57e426b160112c",
-            "verified": true,
-            "blockchainHref": "https://etherscan.io/address/0xa3aa52ce79e85a21d9ccda705c57e426b160112c",
-            "blockscoutLabel": "RoundsManager",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "1 May 2018",
-            "replacedBy": "V2"
-          },
-          {
-            "version": "V2",
-            "address": "0x857d4bf18a80f03d3d11f438825cd3d0aa0d9d68",
-            "verified": false,
-            "blockchainHref": "https://etherscan.io/address/0x857d4bf18a80f03d3d11f438825cd3d0aa0d9d68",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "14 Jan 2020",
-            "replacedBy": "current"
-          }
-        ]
-      },
-      "LivepeerVerifier": {
-        "note": null,
-        "entries": [
-          {
-            "version": "V1",
-            "address": "0xf623811b08b45792d0223d77d9c922dae29712ec",
-            "verified": true,
-            "blockchainHref": "https://etherscan.io/address/0xf623811b08b45792d0223d77d9c922dae29712ec",
-            "blockscoutLabel": "LivepeerVerifier",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "1 May 2018",
-            "replacedBy": "V2"
-          },
-          {
-            "version": "V2",
-            "address": "0xe4be2a35dec0063f9dfccb9b740b1acb7eefefec",
-            "verified": false,
-            "blockchainHref": "https://etherscan.io/address/0xe4be2a35dec0063f9dfccb9b740b1acb7eefefec",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "23 Aug 2018",
-            "replacedBy": "current"
-          }
-        ]
-      },
-      "JobsManager (Proxy)": {
-        "note": null,
-        "entries": [
-          {
-            "version": "V1",
-            "address": "0xbf07ff45f14c9ff0571b9fbdc7e2b62d29931224",
-            "verified": true,
-            "blockchainHref": "https://etherscan.io/address/0xbf07ff45f14c9ff0571b9fbdc7e2b62d29931224",
-            "blockscoutLabel": "ManagerProxy",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "1 May 2018",
-            "replacedBy": "current"
-          }
-        ]
-      },
-      "JobsManager (Target)": {
-        "note": null,
-        "entries": [
-          {
-            "version": "V1",
-            "address": "0x68b463bca7d561118636e9f028ff0f2e8398dd6a",
-            "verified": true,
-            "blockchainHref": "https://etherscan.io/address/0x68b463bca7d561118636e9f028ff0f2e8398dd6a",
-            "blockscoutLabel": "JobsManager",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "1 May 2018",
-            "replacedBy": "V2"
-          },
-          {
-            "version": "V2",
-            "address": "0xB620c762dd4bC350602936d7401BB8393Ee6687c",
-            "verified": true,
-            "blockchainHref": "https://etherscan.io/address/0xB620c762dd4bC350602936d7401BB8393Ee6687c",
-            "blockscoutLabel": "JobsManager",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "30 Jul 2019",
-            "replacedBy": "V3"
-          },
-          {
-            "version": "V3",
-            "address": "0x8eade5eec609572bf53deadb88d36f862ddec517",
-            "verified": false,
-            "blockchainHref": "https://etherscan.io/address/0x8eade5eec609572bf53deadb88d36f862ddec517",
-            "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-            "deployedAt": "14 Jan 2020",
-            "replacedBy": "current"
-          }
-        ]
-      }
-    }
+    "historical": []
   },
   "meta": {
-    "lastUpdated": "2026-03-31T03:16:45.454Z",
-    "lastVerified": "31 Mar 2026",
+    "lastUpdated": "2026-03-31T14:31:38.090Z",
+    "lastVerified": "1 Apr 2026",
     "sourceRepo": "livepeer/governor-scripts",
     "sourceCommit": "2cb192a",
     "authorityCatalog": "operations/scripts/config/contract-addresses-authority.json",
@@ -8238,6 +14152,7 @@ export const contractAddresses = {
         "https://eth.drpc.org"
       ]
     },
+    "verificationModel": "structured-v1",
     "latestResolutionPolicy": [
       "Do not discover latest branches dynamically.",
       "Address truth comes from governor-scripts when a governor key is declared.",

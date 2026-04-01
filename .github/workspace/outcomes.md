@@ -156,57 +156,71 @@ We work in phases. Each phase has a gate (a human review point) before the next 
       report2-repo-analysis.md                  #   Phase 0B research
       audit1-full-classification.md             #   Phase 1 full audit
       decisions-log.mdx                         #   Live decisions tracker
-    actions-library/                            #   Per-action documentation (one page per workflow)
+    actions-library/                            #   Per-action docs: type/concern/page.mdx
       action-template.mdx                       #   Template for new pages
       catalog-index.mdx                         #   Master SearchTable index
-      automations/                              #   10 pages
-        update-contract-addresses.mdx
-        update-changelogs.mdx
-        update-discord-data.mdx
-        update-forum-data.mdx
-        update-ghost-blog-data.mdx
-        update-github-data.mdx
-        update-rss-blog-data.mdx
-        update-youtube-data.mdx
-        update-livepeer-release.mdx
-        project-showcase-sync.mdx
-        sync-large-assets.mdx
-        translate-docs.mdx
-      generators/                               #   7 pages
-        generate-ai-companions.mdx
-        generate-ai-sitemap.mdx
-        generate-component-registry.mdx
-        generate-docs-guide-catalogs.mdx
-        generate-docs-index.mdx
-        generate-llms-files.mdx
-        sdk-generation.mdx
-      validators/                               #   10 pages
-        test-suite.mdx
-        test-v2-pages.mdx
-        codex-governance.mdx
-        broken-links.mdx
-        check-ai-companions.mdx
-        check-docs-guide-catalogs.mdx
-        check-docs-index.mdx
-        verify-ai-sitemap.mdx
-        verify-llms-files.mdx
-        openapi-reference-validation.mdx
-      audits/                                   #   3 pages
-        content-health.mdx
-        freshness-monitor.mdx
-        v2-external-link-audit.mdx
-      remediators/                              #   3 pages
-        repair-governance.mdx
-        seo-refresh.mdx
-        style-homogenise.mdx
-      interface/                                #   5 pages
-        auto-assign-docs-reviewers.mdx
-        close-linked-issues.mdx
-        discord-issue-intake.mdx
-        docs-v2-issue-indexer.mdx
-        issue-auto-label.mdx
-      dispatch/                                 #   1 page
-        governance-sync.mdx
+      automations/                              #   type: automation (12 pages)
+        integrations/                           #     concern: integrations
+          update-contract-addresses.mdx         #       GOLD STANDARD
+          update-changelogs.mdx
+          update-discord-data.mdx
+          update-forum-data.mdx
+          update-ghost-blog-data.mdx
+          update-github-data.mdx
+          update-rss-blog-data.mdx
+          update-youtube-data.mdx
+          update-livepeer-release.mdx
+          project-showcase-sync.mdx
+          sync-large-assets.mdx
+        copy/                                   #     concern: copy
+          translate-docs.mdx
+      generators/                               #   type: generator (7 pages)
+        discoverability/                        #     concern: discoverability
+          generate-ai-companions.mdx
+          generate-ai-sitemap.mdx
+          generate-llms-files.mdx
+        maintenance/                            #     concern: maintenance
+          generate-component-registry.mdx
+          generate-docs-guide-catalogs.mdx
+          generate-docs-index.mdx
+          sdk-generation.mdx
+      validators/                               #   type: validator (10 pages)
+        health/                                 #     concern: health
+          test-suite.mdx
+          test-v2-pages.mdx
+          broken-links.mdx
+          openapi-reference-validation.mdx
+        maintenance/                            #     concern: maintenance
+          check-docs-guide-catalogs.mdx
+          check-docs-index.mdx
+        discoverability/                        #     concern: discoverability
+          check-ai-companions.mdx
+          verify-ai-sitemap.mdx
+          verify-llms-files.mdx
+        governance/                             #     concern: governance
+          codex-governance.mdx
+      auditors/                                 #   type: audit (3 pages)
+        health/                                 #     concern: health
+          content-health.mdx
+          freshness-monitor.mdx
+          v2-external-link-audit.mdx
+      remediators/                              #   type: remediator (3 pages)
+        discoverability/                        #     concern: discoverability
+          seo-refresh.mdx
+        copy/                                   #     concern: copy
+          style-homogenise.mdx
+        governance/                             #     concern: governance
+          repair-governance.mdx
+      interfaces/                               #   type: interface (5 pages)
+        governance/                             #     concern: governance
+          auto-assign-docs-reviewers.mdx
+          close-linked-issues.mdx
+          discord-issue-intake.mdx
+          docs-v2-issue-indexer.mdx
+          issue-auto-label.mdx
+      dispatchers/                              #   type: dispatch (1 page)
+        governance/                             #     concern: governance
+          governance-sync.mdx
 
 .claude/references/                             # [NEW entries]
   governance/actions-framework.md               #   Key patterns to emulate

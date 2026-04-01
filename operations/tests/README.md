@@ -28,7 +28,8 @@ Runs unit + integration suite.
 - `node operations/tests/unit/mdx.test.js`
 - `node operations/tests/unit/spelling.test.js`
 - `node operations/tests/unit/quality.test.js`
-- `node operations/tests/unit/links-imports.test.js`
+- `node operations/tests/unit/links.test.js`
+- `node operations/tests/unit/imports.test.js`
 - `node operations/tests/unit/docs-navigation.test.js`
 Checks docs.json route integrity in non-writing mode by default.
 
@@ -50,7 +51,7 @@ Browser rendering checks (local server flow).
 Domain load audit against deployed docs URLs.
 
 - `node operations/tests/integration/v2-link-audit.js`
-Comprehensive static link/import audit for all `v2/pages` MDX files and recursively imported MDX dependencies.
+Comprehensive static link audit for all `v2/pages` MDX files and recursively imported MDX dependencies.
 Excludes any `x-*` path segments under `v2/`.
 Also respects `.mintignore` by default, so governed non-publishable lanes can be excluded from routine publishability checks without muting routed pages.
 Generates:
@@ -102,7 +103,7 @@ Flags:
   - `--report-json <path>` (default: `workspace/reports/navigation-links/LINK_TEST_REPORT.json`)
   - `--write-links` (default: true in full mode, false in staged/files mode)
   - `--no-write-links`
-  - `--strict` (exit non-zero on missing internal links/imports)
+  - `--strict` (exit non-zero on missing internal link targets or anchors)
   - `--external-policy classify|validate` (default: `classify`)
   - `--external-link-types navigational|media|all` (default: `navigational`)
   - `--external-timeout-ms <int>` (default: `10000`)
@@ -181,6 +182,7 @@ npm --prefix operations/tests run test:mdx
 npm --prefix operations/tests run test:spell
 npm --prefix operations/tests run test:quality
 npm --prefix operations/tests run test:links
+npm --prefix operations/tests run test:imports
 npm --prefix operations/tests run test:docs-nav
 npm --prefix operations/tests run test:docs-nav:write
 npm --prefix operations/tests run test:pr
@@ -214,7 +216,7 @@ npm --prefix operations/tests run test:wcag:selftest
 - `.github/workflows/test-suite.yml` runs changed-file scoped blocking checks on pull requests:
 - `operations/tests/run-pr-checks.js` defaults to the `branch-health` lane when `--lane` is omitted.
 - `node operations/tests/run-pr-checks.js --base-ref <branch> --lane branch-health` is the explicit local form when you want the supported lane spelled out.
-- style guide, MDX, spelling, quality, links/imports
+- style guide, MDX, spelling, quality, links, imports
   - script docs enforcement on changed scripts (`operations/tests/unit/script-docs.test.js --files ...`)
   - strict V2 link audit on changed docs pages (`operations/tests/integration/v2-link-audit.js --files ... --strict`)
 - Advisory research pass for tracked claim families is available locally via:

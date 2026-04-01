@@ -4,8 +4,8 @@ sidebarTitle: Contract Addresses
 title: Canonical Contract Addresses
 description: >-
   Official Livepeer protocol contract addresses on Arbitrum One and Ethereum
-  Mainnet. Verified on-chain and automatically updated from the canonical
-  governor-scripts source. The only official reference outside the blockchain.
+  Mainnet. Verified from live chain state, upstream source provenance, and
+  explorer evidence on every refresh. The canonical public reference surface.
 keywords:
   - livepeer
   - livepeer contracts
@@ -39,7 +39,8 @@ keywords:
 'og:title': "Official Livepeer Contract Addresses - Verified On-Chain"
 'og:description': >-
   The only canonical source for Livepeer protocol contract addresses on
-  Arbitrum One and Ethereum Mainnet. Verified on-chain, updated automatically.
+  Arbitrum One and Ethereum Mainnet. Verified from chain state, source
+  provenance, and explorer evidence.
 'og:image': /snippets/assets/site/og-image/fallback.png
 'og:image:alt': Livepeer Docs social preview image
 'og:image:type': image/png
@@ -49,7 +50,7 @@ keywords:
 'twitter:title': "Official Livepeer Contract Addresses"
 'twitter:description': >-
   Canonical reference for all Livepeer protocol smart contract addresses.
-  Verified on-chain. Automatically updated.
+  Verified from chain state and upstream source provenance. Automatically updated.
 pageType: reference
 purpose: reference
 audience: community
@@ -85,7 +86,7 @@ import { contractAddresses } from '/snippets/data/contract-addresses/contractAdd
 <Tip>
   Addresses on this page are automatically updated via a GitHub Action workflow `update-contract-addresses.yml`.
 
-  Data is sourced from the <DoubleIconLink label="Livepeer GitHub" href="https://github.com/livepeer/governor-scripts/blob/master/updates/addresses.js" iconRightColor="var(--hero-text)"/> and verified on-chain.
+  Current addresses are recovered from live controller reads, upstream deployment sources, commit-pinned code provenance, and explorer verification.
 
   **Last Verified:** <DataWrap value={contractAddresses.meta.lastVerified} />
 </Tip>
@@ -93,9 +94,9 @@ import { contractAddresses } from '/snippets/data/contract-addresses/contractAdd
 <br/>
 <Columns cols={2}>
   <Card
-    href="https://github.com/livepeer/governor-scripts/blob/master/updates/addresses.js"
+    href="https://github.com/livepeer/protocol"
     icon="github"
-    title={<>Livepeer Contract Addresses <br/>  <Badge color="green"> Canonical Source </Badge></>}
+    title={<>Livepeer Protocol Source <br/>  <Badge color="green"> Commit Pinned </Badge></>}
     horizontal
   />
   <Card
@@ -139,6 +140,17 @@ Use the tool below to query the blockchain directly from your browser.
 </Accordion>
 <br/>
 
+{/*
+WIDGET:
+- The contract category should be a badge UNDER the contract name in the text box
+- the standalone and target labels are confusing.
+- TEXT:
+MATCH (OK) ServiceRegistry (OK) CHAIN ICON + NAME HERE
+NEWLINE -> (Core (ICON - used in accordions later + name in hero-text, bold), proxy(BADGE))
+Check mark Verified: -> message/dot point list if multiple
+0xc92d3a360b8f9e083ba64de15d95cf8180897431 -> COPYABLE component (same as table)
+(OK) View on Arbiscan View on Blockscout (what about etherscan? what about contracts on both arb & eth?)
+*/}
 <BorderedBox variant="accent">
   <ContractVerifier data={contractAddresses} />
 </BorderedBox>
@@ -168,10 +180,9 @@ Every Arbitrum One contract address can be independently verified by querying th
                 <InlineDivider margin="0.5rem 0" />
         </StyledStep>
 
-        <StyledStep title={<span>Cross Check Against <code>governor-scripts</code></span>} icon="triangle-exclamation">
+        <StyledStep title={<span>Cross Check Against Published Proof</span>} icon="triangle-exclamation">
 
-            Confirm the returned address matches the entry in [`governor-scripts/updates/addresses.js`](https://github.com/livepeer/governor-scripts/blob/master/updates/addresses.js).
-            This file is updated by Livepeer when governance approves an upgrade.
+            Confirm the returned address matches the current row on this page, then inspect the row's source link and explorer link. The page publishes the same verified address, chain, and source provenance that the contracts pipeline generated on the last successful run.
 
             <InlineDivider margin="0.5rem 0" />
         </StyledStep>
@@ -191,7 +202,7 @@ Every Arbitrum One contract address can be independently verified by querying th
 
 <CustomDivider />
 
-## Livepeer Contracts
+## Livepeer Contract Overview
 
 Livepeer protocol contracts are deployed on **Arbitrum One** (active) and **Ethereum Mainnet** (legacy bridge and governance). Proxy addresses are stable across upgrades; target addresses change when a new implementation is deployed via governance.
 
@@ -256,18 +267,30 @@ Livepeer protocol contracts are deployed on **Arbitrum One** (active) and **Ethe
   </Accordion>
 </AccordionGroup>
 
-## Livepeer Contract Addresses (Active)
+## Active Livepeer Contract Addresses
+<Badge color="green"> ACTIVE </Badge>
+{/*
+THIS NEEDS TARGET CONTRACTS with the related proxy contract in another column
+Also change header colors for categories or instead just put them in a column
+*/}
 <Icon icon="check" color="var(--text)"/> _Verified <DataWrap value={contractAddresses.meta.lastVerified}/>_
 
 This table lists only currently active standalone contract entrypoints used for standard protocol reference. Active proxy contracts are listed separately below. Paused, migration-residual, and legacy-operational contracts are grouped into a separate section so the main searchable table stays active-only.
 
 <Accordion title="See Workflow Verification Information">
+{/* This accordion should provide
+- pipeline details (mermaid diagram)
+- cadence / runtimes
+- verification method checks...
+- usage details  */}
   The information in these contracts is populated by the GitHub Action [`update-contract-addresses.yml`](https://github.com/livepeer/docs/blob/main/.github/workflows/update-contract-addresses.yml).
 
     - Cron: Weekly Monday 02:00 UTC
     - Manual dispatch: From Actions tab with inputs (`dry_run`, `skip_verify`, `use_test_branch`)
     - Repository dispatch: `governor-scripts-update`
 </Accordion>
+
+{/* WTF WITH THESE - MDX pages shouldn't have all this data in them...  */}
 
 export const chainLabel = {
   arbitrumOne: "Arbitrum One",
@@ -363,7 +386,7 @@ export const currentTableItems = (() => {
   ]}
 />
 
-### Proxy Contract Addresses
+### Active Proxy Contract Addresses
 
 Proxy addresses are stable upgrade entrypoints for active controller-managed contracts. They are primarily useful for deployment, governance upgrade, and implementation-tracking workflows rather than day-to-day contract usage.
 
@@ -479,8 +502,8 @@ Historical implementations replaced through governance upgrades. These target co
   <Card title="Arbitrum LPT Bridge" icon="github" href="https://github.com/livepeer/arbitrum-lpt-bridge/tree/main/contracts" arrow>
     Token bridge contracts connecting Ethereum Mainnet and Arbitrum One
   </Card>
-  <Card title="Governor Scripts" icon="github" href="https://github.com/livepeer/governor-scripts" arrow>
-    Canonical address source and governance upgrade scripts
+  <Card title="Contracts Proof Inputs" icon="github" href="https://github.com/livepeer" arrow>
+    Watched upstream repositories used for discovery, provenance resolution, and verification support
   </Card>
   <Card title="Livepeer on Arbiscan" icon="cubes" href="https://arbiscan.io/accounts/label/livepeer" arrow>
     All labelled Livepeer contracts on Arbitrum One block explorer

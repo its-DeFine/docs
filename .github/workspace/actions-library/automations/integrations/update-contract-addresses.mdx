@@ -1,7 +1,7 @@
 ---
 title: 'Update Contract Addresses'
 sidebarTitle: 'Contract Addresses'
-description: 'Fetches Livepeer protocol contract addresses from governor-scripts, verifies against Arbiscan/Etherscan, and commits the canonical data files.'
+description: 'Builds the canonical Livepeer contract registry from governor-scripts, authority catalog, on-chain verification, and explorer enrichment.'
 pageType: reference
 purpose: reference
 audience: internal
@@ -137,10 +137,10 @@ graph LR
 ## Dependencies
 
 **Script:**
-- `.github/scripts/fetch-contract-addresses.js` : Fetches addresses from governor-scripts, verifies against block explorers, writes all 4 data files
+- `.github/scripts/fetch-contract-addresses.js` : Builds contract registry from governor-scripts, authority catalog, on-chain RPC, and explorer APIs
 
 **Config:**
-- `.github/scripts/contract-addresses-supplement.json` : Supplementary address data not in governor-scripts
+- `operations/scripts/config/contract-addresses-authority.json` : Governed authority catalog for address metadata and lifecycle state
 
 **Data files produced:**
 - `snippets/data/contract-addresses/contractAddressesData.jsx` : JSX export consumed by MDX pages
@@ -160,8 +160,7 @@ graph LR
 
 ## Known Issues
 
-- **P0 (from flags.jsonl):** This workflow has never been dispatched. It exists only on `docs-v2-dev`. GitHub Actions only indexes workflows on the default/production branch. Must cherry-pick workflow + fetch script to `docs-v2` then manual dispatch with `--dry-run` to verify
-- **P2 (from audit):** `git add v2/` in commit step is overly broad (audit notes this but actual workflow uses targeted staging, so this may be stale audit data)
+- **P0 (flags.jsonl):** This workflow has never been dispatched. It exists only on `docs-v2-dev`. GitHub Actions only indexes workflows on the default/production branch. Must cherry-pick workflow + fetch script to `docs-v2` then manual dispatch with `--dry-run` to verify
 - No generate/verify pair exists. No PR-time validator checks whether contract data is stale
 
 <CustomDivider />
@@ -175,5 +174,5 @@ graph LR
 | **Concurrency** | No (should add) |
 | **Error reporting** | None (should add step summary) |
 | **Auto-commit** | Yes (targeted: 4 specific files) |
-| **Bot identity** | `github-actions[bot]` |
+| **Bot identity** | github-actions[bot] |
 | **Commit message** | `chore: update contract addresses from governor-scripts [skip ci]` |

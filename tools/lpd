@@ -96,7 +96,7 @@ Usage:
 
 Examples:
   lpd dev
-    - Starts local docs development server on the default non-3000 port (3333 unless overridden).
+    - Starts local docs development server on port 3333 by default. Agent sessions must pass a non-3333 port explicitly.
 
   lpd dev --test --test-mode staged -- --port 3333
     - Runs staged checks, then launches docs server on port 3333.
@@ -128,7 +128,7 @@ Examples:
 Notes:
   - `lpd setup` syncs the repo planning skill to `$CODEX_HOME/skills` (fallback: `~/.codex/skills`) unless `--no-codex-skills` is used.
   - `lpd dev` auto-installs/updates pre-commit hooks via tools/dev/mint-dev.sh.
-  - `lpd dev` defaults to port 3333 when no port is provided and rejects port 3000.
+  - `lpd dev` defaults to port 3333 when no port is provided. Agent sessions may not use port 3333 and must pass a different port explicitly.
   - Human `.allowlist` edits require: `git commit -m "msg" --trailer "allowlist-edit=true"`.
   - Human deletions require: `git commit -m "msg" --trailer "allow-deletions=true"`.
   - Script discovery supports `tools/.lpdignore` (gitignore-style patterns) if present.
@@ -197,7 +197,7 @@ Common Workflows:
 
 Notes:
   - `lpd setup` syncs the repo planning skill to `$CODEX_HOME/skills` (fallback: `~/.codex/skills`) unless `--no-codex-skills` is used.
-  - `lpd dev` defaults to port 3333 when no port is provided and rejects port 3000.
+  - `lpd dev` defaults to port 3333 when no port is provided. Agent sessions may not use port 3333 and must pass a different port explicitly.
   - lpd uses tools/.lpdignore (if present) to hide/block scripts from discovery and execution.
   - Human `.allowlist` edits require: `git commit -m "msg" --trailer "allowlist-edit=true"`.
   - Human deletions require: `git commit -m "msg" --trailer "allow-deletions=true"`.
@@ -1313,7 +1313,7 @@ EOF
     fi
 
     local -a env_vars
-    env_vars=()
+    env_vars=("LPD_DEV_ENTRYPOINT=lpd")
     if [ "$scoped_mode" = "1" ]; then
         env_vars+=("LPD_SCOPED_MINT_DEV=1")
     fi
@@ -1348,19 +1348,10 @@ EOF
         env_vars+=("LPD_MINT_DISABLE_OPENAPI=1")
     fi
 
-    if [ "${#env_vars[@]}" -gt 0 ]; then
-        if [ "${#mint_args[@]}" -gt 0 ]; then
-            env "${env_vars[@]}" "$script_path" "${mint_args[@]}"
-        else
-            env "${env_vars[@]}" "$script_path"
-        fi
-        return
-    fi
-
     if [ "${#mint_args[@]}" -gt 0 ]; then
-        "$script_path" "${mint_args[@]}"
+        env "${env_vars[@]}" "$script_path" "${mint_args[@]}"
     else
-        "$script_path"
+        env "${env_vars[@]}" "$script_path"
     fi
 }
 

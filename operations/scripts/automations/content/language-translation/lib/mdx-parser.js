@@ -9,11 +9,18 @@
  * @pipeline          indirect — library module
  * @usage             node operations/scripts/i18n/lib/mdx-parser.js [flags]
  */
+const { importRepoDependency } = require('../../../../../../tools/lib/repo-node-paths');
+
 let parserPromise = null;
 
 async function createParser() {
   const [{ unified }, { default: remarkParse }, { default: remarkMdx }, { default: remarkGfm }] =
-    await Promise.all([import('unified'), import('remark-parse'), import('remark-mdx'), import('remark-gfm')]);
+    await Promise.all([
+      importRepoDependency('unified', __dirname),
+      importRepoDependency('remark-parse', __dirname),
+      importRepoDependency('remark-mdx', __dirname),
+      importRepoDependency('remark-gfm', __dirname)
+    ]);
   return unified().use(remarkParse).use(remarkGfm).use(remarkMdx);
 }
 

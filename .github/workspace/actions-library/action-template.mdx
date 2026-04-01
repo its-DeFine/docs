@@ -2,28 +2,86 @@
 ================================================================================
 ACTION DOCUMENTATION TEMPLATE
 ================================================================================
-Governance:  .github/workspace/framework-canonical.md
-Decisions:   .github/workspace/reports-audits/decisions-log.mdx
-Catalog:     .github/workspace/actions-library/catalog-index.mdx
-Data:        .github/workspace/actions-audit.json
-Gold std:    .github/workspace/actions-library/integrations/update-contract-addresses.mdx
-================================================================================
+
+REFERENCES:
+  Governance:  .github/workspace/framework-canonical.md
+  Decisions:   .github/workspace/reports-audits/decisions-log.mdx
+  Catalog:     .github/workspace/actions-library/catalog-index.mdx
+  Audit data:  .github/workspace/actions-audit.json
+  Gold std:    .github/workspace/actions-library/automations/integrations/update-contract-addresses.mdx
 
 USAGE:
-- One file per workflow
-- Place in concern subfolder: integrations/, copy/, maintenance/, health/,
-  discoverability/, governance/
-- File named to match workflow (kebab-case .mdx)
-- Populate from actions-audit.json + workflow file inspection
-- Pipeline diagram: trace triggers, scripts, data files, consuming pages
-- Remove sections that do not apply (e.g. Inputs if none, Secrets if none)
+  - One file per workflow
+  - Place in type/concern subfolder: e.g. automations/integrations/
+  - File named to match workflow (kebab-case .mdx)
+  - Populate from actions-audit.json + workflow file inspection
+  - Pipeline diagram: trace triggers, scripts, data files, consuming pages
+  - Remove sections that do not apply (e.g. Inputs if none, Secrets if none)
 
-NAMING (D-ACT-04):
-  type-concern-function-name.yml
-  Types:    automation, audit, dispatch, generator, remediator, validator, interface
-  Concerns: integrations, copy, maintenance, health, discoverability, governance
-  Verbs:    update, generate, check, scan, repair, dispatch, label, index,
-            intake, close, assign
+================================================================================
+FILE NAMING CONVENTION (D-ACT-04)
+================================================================================
+
+  Pattern: type-concern-function-name.yml
+
+  Example: automation-integrations-update-contract-addresses.yml
+
+================================================================================
+TYPES (D-ACT-01) - what the workflow does
+================================================================================
+
+  automation   End-to-end pipeline: fetch external data, transform, commit
+  generator    Produce files from source-of-truth on push/merge
+  validator    Enforce rules with pass/fail on PR
+  audit        Read-only scheduled monitoring and reporting
+  remediator   Auto-fix broken state with optional commit
+  dispatch     Orchestrate multiple scripts or child workflows
+  interface    React to issue/PR/external events for triage and management
+
+================================================================================
+CONCERNS (D-ACT-05) - what part of the system it operates on
+================================================================================
+
+  integrations    External data feeds, APIs, structured data pipelines
+  copy            Written text, data standards, spelling, grammar
+  maintenance     Indexes, catalogs, documentation, registries, changelogs
+  health          Site integrity, links, rendering, freshness, assets
+  discoverability SEO, AEO, AI indexing, translation
+  governance      System rules, compliance, issue/PR management
+  (brand)         RESERVED: style, formatting, page structure, voice
+
+  Folder path: actions-library/{type}/{concern}/
+  e.g. actions-library/automations/integrations/update-contract-addresses.mdx
+
+================================================================================
+FUNCTION VERBS (D-ACT-04) - closed enum, pick one per workflow
+================================================================================
+
+  update     Fetch/sync external data into repo      (automation)
+  generate   Produce files from source-of-truth      (generator)
+  check      Validate rules on PR                    (validator)
+  scan       Read-only scheduled observation          (audit)
+  repair     Auto-fix broken state                    (remediator)
+  dispatch   Orchestrate child workflows              (dispatch)
+  label      Auto-classify issues                     (interface)
+  index      Build issue/PR tracking data             (interface)
+  intake     Receive external event, create issue     (interface)
+  close      Close linked issues on merge             (interface)
+  assign     Auto-assign reviewers                    (interface)
+
+================================================================================
+PIPELINE TAGS (D-ACT-02) - when it runs and what authority it has
+================================================================================
+
+  P2           PR required check, blocks merge        (hard gate)
+  P3           PR non-required check, advisory        (soft gate)
+  P4           Push to deploy branch, post-merge      (auto-commit)
+  P5           Scheduled, read-only monitoring        (advisory)
+  P5-auto      Scheduled + auto-commit to repo        (writes on schedule)
+  P6           Scheduled + auto-fix, self-heal        (writes + may PR)
+  manual       workflow_dispatch only                  (human-triggered)
+  event-driven repository_dispatch / issue events     (external event)
+
 ================================================================================
 */}
 

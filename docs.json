@@ -4748,6 +4748,14 @@
       "destination": "/v1/api-reference/overview/introduction"
     },
     {
+      "source": "/references/contract-addresses",
+      "destination": "/v2/about/resources/livepeer-contract-addresses"
+    },
+    {
+      "source": "/v2/about/resources/contract-addresses",
+      "destination": "/v2/about/resources/livepeer-contract-addresses"
+    },
+    {
       "source": "/v2/resources/references/contract-addresses",
       "destination": "/v2/about/resources/livepeer-contract-addresses"
     },

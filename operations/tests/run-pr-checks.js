@@ -15,7 +15,11 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { execSync, spawn, spawnSync } = require('child_process');
+const { bootstrapRepoNodePaths, createNodeProcessEnv } = require('../../tools/lib/repo-node-paths');
 const { getDocsJsonRouteKeys, toDocsRouteKeyFromFileV2Aware } = require('./utils/file-walker');
+
+bootstrapRepoNodePaths(__dirname);
+
 const {
   AGGREGATE_INDEX_PATH,
   CATEGORY_ENUM: VALID_CATEGORIES,
@@ -35,7 +39,6 @@ const mdxTests = require('./unit/mdx.test');
 const mdxGuardsTests = require('./unit/mdx-guards.test');
 const spellingTests = require('./unit/spelling.test');
 const qualityTests = require('./unit/quality.test');
-const linksImportsTests = require('./unit/links-imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const skillDocsTests = require('./unit/skill-docs.test');
@@ -46,7 +49,7 @@ const rootAllowlistFormatTests = require('./unit/root-allowlist-format.test');
 const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
 const docsGuideSotTests = require('./unit/docs-guide-sot.test');
 const uiTemplateGeneratorTests = require('./unit/ui-template-generator.test');
-const componentNamingTests = require('../scripts/validators/components/library/validate-naming-conventions');
+const componentNamingTests = require('../scripts/validators/components/library/check-naming-conventions');
 const { isAiToolsRegistryRelevantPath } = require('../../tools/lib/ai-tools-registry');
 
 const REPO_ROOT = getRepoRoot();
@@ -472,7 +475,7 @@ async function runNodeCommandCheck(label, args, options = {}) {
     const child = spawn('node', args, {
       cwd: REPO_ROOT,
       env: {
-        ...process.env,
+        ...createNodeProcessEnv({}, __dirname),
         ...(options.env || {})
       },
       stdio: ['ignore', 'pipe', 'pipe']
@@ -780,14 +783,16 @@ function runUsefulnessChecks(files) {
 
   const rubric = spawnSync('node', ['operations/tests/unit/usefulness-rubric.test.js'], {
     cwd: REPO_ROOT,
-    encoding: 'utf8'
+    encoding: 'utf8',
+    env: createNodeProcessEnv({}, __dirname)
   });
   if (rubric.stdout) process.stdout.write(rubric.stdout);
   if (rubric.stderr) process.stderr.write(rubric.stderr);
 
   const journey = spawnSync('node', ['operations/tests/unit/usefulness-journey.test.js'], {
     cwd: REPO_ROOT,
-    encoding: 'utf8'
+    encoding: 'utf8',
+    env: createNodeProcessEnv({}, __dirname)
   });
   if (journey.stdout) process.stdout.write(journey.stdout);
   if (journey.stderr) process.stderr.write(journey.stderr);
@@ -810,7 +815,7 @@ function runLinkAuditCheck(files) {
   const cmd = spawnSync(
     'node',
     ['operations/tests/integration/v2-link-audit.js', '--files', files.join(','), '--strict', '--report', LINK_AUDIT_REPORT],
-    { cwd: REPO_ROOT, encoding: 'utf8' }
+    { cwd: REPO_ROOT, encoding: 'utf8', env: createNodeProcessEnv({}, __dirname) }
   );
 
   if (cmd.stdout) process.stdout.write(cmd.stdout);
@@ -983,7 +988,7 @@ function runGeneratedBannerCheck(changedFiles) {
     cwd: REPO_ROOT,
     encoding: 'utf8',
     env: {
-      ...process.env,
+      ...createNodeProcessEnv({}, __dirname),
       LPD_STAGED_FILES_SNAPSHOT: changedFiles.join('\n')
     }
   });
@@ -1003,7 +1008,11 @@ function runCodexSkillSyncCheck() {
   const syncArgs = ['operations/scripts/automations/ai/agents/sync-codex-skills.js', '--dest', tmpDir];
   const checkArgs = ['operations/scripts/automations/ai/agents/sync-codex-skills.js', '--dest', tmpDir, '--check'];
 
-  const syncCmd = spawnSync('node', syncArgs, { cwd: REPO_ROOT, encoding: 'utf8' });
+  const syncCmd = spawnSync('node', syncArgs, {
+    cwd: REPO_ROOT,
+    encoding: 'utf8',
+    env: createNodeProcessEnv({}, __dirname)
+  });
   if (syncCmd.status !== 0) {
     if (syncCmd.stdout) process.stdout.write(syncCmd.stdout);
     if (syncCmd.stderr) process.stderr.write(syncCmd.stderr);
@@ -1017,7 +1026,11 @@ function runCodexSkillSyncCheck() {
     };
   }
 
-  const checkCmd = spawnSync('node', checkArgs, { cwd: REPO_ROOT, encoding: 'utf8' });
+  const checkCmd = spawnSync('node', checkArgs, {
+    cwd: REPO_ROOT,
+    encoding: 'utf8',
+    env: createNodeProcessEnv({}, __dirname)
+  });
   if (checkCmd.stdout) process.stdout.write(checkCmd.stdout);
   if (checkCmd.stderr) process.stderr.write(checkCmd.stderr);
   fs.rmSync(tmpDir, { recursive: true, force: true });
@@ -1055,7 +1068,11 @@ function runCodexTaskContractCheck(branch, changedFiles, baseRef) {
     args.push('--require-pr-body');
   }
 
-  const cmd = spawnSync('node', args, { cwd: REPO_ROOT, encoding: 'utf8' });
+  const cmd = spawnSync('node', args, {
+    cwd: REPO_ROOT,
+    encoding: 'utf8',
+    env: createNodeProcessEnv({}, __dirname)
+  });
   if (cmd.stdout) process.stdout.write(cmd.stdout);
   if (cmd.stderr) process.stderr.write(cmd.stderr);
 
@@ -1076,7 +1093,7 @@ function createBranchHealthRegistry(context) {
       label: 'Component Naming',
       files: groups.componentJsx,
       args: [
-        'operations/scripts/validators/components/library/validate-naming-conventions.js',
+        'operations/scripts/validators/components/library/check-naming-conventions.js',
         ...buildFilesArgs(groups.componentJsx)
       ]
     }),
@@ -1111,9 +1128,15 @@ function createBranchHealthRegistry(context) {
       args: ['operations/tests/unit/quality.test.js', ...buildFilesArgs(groups.docsMdxAbs)]
     }),
     createCommandCheck({
-      label: 'Links & Imports',
+      label: 'Links',
       files: groups.docsMdxAbs,
-      args: ['operations/tests/unit/links-imports.test.js', ...buildFilesArgs(groups.docsMdxAbs)],
+      args: ['operations/tests/unit/links.test.js', ...buildFilesArgs(groups.docsMdxAbs)],
+      timeoutMs: LONG_CHECK_TIMEOUT_MS
+    }),
+    createCommandCheck({
+      label: 'Imports',
+      files: groups.docsMdxAbs,
+      args: ['operations/tests/unit/imports.test.js', ...buildFilesArgs(groups.docsMdxAbs)],
       timeoutMs: LONG_CHECK_TIMEOUT_MS
     }),
     createInlineCheck({

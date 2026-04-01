@@ -8,7 +8,8 @@
 
 **What Runs:**
 - Style guide checks (ThemeData, hardcoded colors, imports)
-- Broken links and imports validation
+- Broken links validation
+- Import validation
 - MDX syntax validation
 - JSON/JS/Shell syntax checks
 - **Test suite (fast mode)** on staged docs pages
@@ -16,7 +17,8 @@
   - MDX validation
   - Spelling checks
   - Quality checks
-  - Broken links & imports validation
+  - Broken links validation
+  - Import validation
 - Script docs enforcement (`operations/tests/unit/script-docs.test.js --staged --write --stage --autofill`)
 - Pages index sync (`operations/scripts/generators/content/catalogs/generate-pages-index.js --staged --write --stage`)
 - Staged WCAG accessibility audit with conservative autofix (`operations/tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious ...`)
@@ -53,7 +55,8 @@
   - MDX validation (`operations/tests/unit/mdx.test.js`)
   - Spelling (`operations/tests/unit/spelling.test.js`)
   - Quality (`operations/tests/unit/quality.test.js`)
-  - Links/imports (`operations/tests/unit/links-imports.test.js`)
+  - Links (`operations/tests/unit/links.test.js`)
+  - Imports (`operations/tests/unit/imports.test.js`)
   - Script docs enforcement for changed scripts (`operations/tests/unit/script-docs.test.js --files ...`)
   - Strict link audit for changed docs pages (`operations/tests/integration/v2-link-audit.js --files ... --strict`)
 - Browser tests (all pages from `docs.json`) via `operations/tests/integration/browser.test.js`
@@ -168,7 +171,8 @@ node operations/tests/unit/style-guide.test.js
 node operations/tests/unit/mdx.test.js
 node operations/tests/unit/spelling.test.js
 node operations/tests/unit/quality.test.js
-node operations/tests/unit/links-imports.test.js
+node operations/tests/unit/links.test.js
+node operations/tests/unit/imports.test.js
 node operations/tests/integration/browser.test.js
 node operations/tests/integration/v2-wcag-audit.js --full
 node operations/tests/integration/v2-wcag-audit.js --full --no-fix

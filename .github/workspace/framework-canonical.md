@@ -80,16 +80,16 @@ Pipeline tags classify WHEN a workflow runs and what authority it has.
 
 **Pattern:** `type-concern-function-name.yml`
 
-**Example:** `automation-content-update-contract-addresses.yml`
+**Example:** `integrator-maintenance-update-contract-addresses.yml`
 
 **Segments:**
-- **type** (7 values): `automation`, `audit`, `dispatch`, `generator`, `remediator`, `validator`, `interface`
+- **type** (7 values): `integrator`, `generator`, `validator`, `audit`, `remediator`, `dispatch`, `interface`
 - **concern** (7 values): `integrations`, `copy`, `maintenance`, `health`, `discoverability`, `governance` (+ `brand` reserved)
 - **function** (11 verbs, closed enum):
 
 | Verb | Absorbs | Used by types |
 |---|---|---|
-| `update` | `sync` | automation |
+| `update` | `sync` | integrator |
 | `generate` | | generator |
 | `check` | `verify`, `test` | validator |
 | `scan` | `audit`, `monitor` | audit |
@@ -101,7 +101,19 @@ Pipeline tags classify WHEN a workflow runs and what authority it has.
 | `close` | | interface |
 | `assign` | | interface |
 
-- **name**: descriptive kebab-case slug (e.g. `contract-addresses`, `companions`, `quality-suite`)
+- **name**: descriptive kebab-case slug that communicates purpose at a glance
+
+**Naming quality rule:** The name segment must describe what the workflow does, not how it is implemented. If someone unfamiliar with the repo cannot guess the workflow's purpose from the filename alone, the name is bad. Rename during governance adoption.
+
+| Bad name | Problem | Good name |
+|---|---|---|
+| `sdk_generation` | Vague, underscore | `generate-sdk-clients` |
+| `content-health` | What aspect of content? | `scan-content-quality` |
+| `broken-links` | Missing verb context | `check-broken-links` |
+| `codex-governance` | Internal jargon | `check-codex-compliance` |
+| `test-suite` | Which tests? | `check-content-quality-suite` |
+| `project-showcase-sync` | What does it sync? | `update-showcase-submissions` |
+| `seo-refresh` | Refresh what? | `repair-seo-metadata` |
 
 ### 4.2 Workflow file standards
 
@@ -109,7 +121,7 @@ Every workflow file MUST have:
 
 | Requirement | Example |
 |---|---|
-| File name follows naming convention | `automation-content-update-contract-addresses.yml` |
+| File name follows naming convention | `integrator-maintenance-update-contract-addresses.yml` |
 | `name:` field (human-readable) | `name: Update Contract Addresses` |
 | Named steps (every step has `name:`) | `- name: Checkout repository` |
 | `permissions:` declared explicitly | `permissions: contents: write` |

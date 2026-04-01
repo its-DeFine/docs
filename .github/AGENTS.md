@@ -14,7 +14,7 @@
 - **EXCEPTION:** A human may explicitly authorize `--no-verify` in-thread; if so,
   follow [`ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md`](../ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md)
   (requires `ALLOW_HUMAN_NO_VERIFY=1` and commit trailers).
-- **NEVER** use port `3000` for local Mintlify, preview, or browser-validation sessions; choose a non-3000 port explicitly.
+- **NEVER** use port `3000` for direct Mintlify preview runs or port `3333` via `lpd dev`; those ports are reserved for human-owned local servers.
 - **NEVER** perform a `git reset --hard` or `git push --force` without an
   explicit, multi-turn plan confirmed by the user.
 - **NEVER** use `git stash` for AI task isolation in this repository.
