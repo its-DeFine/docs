@@ -1004,7 +1004,6 @@ async function resolveProxyRuntimeVerification(chain, proxyAddress, canonicalNam
       targetContractName: null,
       implementationAddress: null,
       implementationSource: null,
-      rpcFailures: [],
     };
   }
 
@@ -1031,7 +1030,6 @@ async function resolveProxyRuntimeVerification(chain, proxyAddress, canonicalNam
     targetContractName,
     implementationAddress,
     implementationSource: implementationAddress ? "proxy-runtime-controller" : null,
-    rpcFailures: [...(controllerCall.failures || []), ...(targetIdCall.failures || [])],
   };
 }
 
@@ -1068,6 +1066,159 @@ async function searchRepoForAddress(strategy) {
   }
 
   return { address: null, authorityKind: "repo-search", repo: null, path: null, refMode: "code-search", resolvedCommit: null, sourceKey: null };
+}
+
+function getExplorerSiteBase(chain) {
+  return chain === "arbitrumOne" ? "https://arbiscan.io" : "https://etherscan.io";
+}
+
+function normalizeWhitespace(value) {
+  return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function includesNormalized(haystack, needle) {
+  return normalizeWhitespace(haystack).toLowerCase().includes(normalizeWhitespace(needle).toLowerCase());
+}
+
+function extractHtmlTitle(html) {
+  const match = String(html || "").match(/<title>\s*([^<]+?)\s*<\/title>/i);
+  return normalizeWhitespace(match?.[1] || null);
+}
+
+function extractExplorerContractName(html) {
+  const patterns = [
+    /Contract Name:<\/div>\s*<div[^>]*>\s*<span[^>]*>\s*([^<]+?)\s*<\/span>/i,
+    /Contract Name<\/div>\s*<div[^>]*>\s*<span[^>]*>\s*([^<]+?)\s*<\/span>/i,
+  ];
+  for (const pattern of patterns) {
+    const match = String(html || "").match(pattern);
+    if (match?.[1]) {
+      return normalizeWhitespace(match[1]);
+    }
+  }
+  return null;
+}
+
+async function fetchExplorerSearchHandlerHits(chain, query) {
+  if (!query) return [];
+  const response = await httpsGet(`${getExplorerSiteBase(chain)}/searchHandler?term=${encodeURIComponent(query)}`, {
+    Accept: "application/json, text/plain, */*",
+    "User-Agent": "Mozilla/5.0",
+    "X-Requested-With": "XMLHttpRequest",
+  });
+  if (response.status !== 200) return [];
+  try {
+    const parsed = JSON.parse(response.data);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (_error) {
+    return [];
+  }
+}
+
+async function fetchExplorerSearchPageAddresses(chain, query) {
+  if (!query) return [];
+  const response = await httpsGet(`${getExplorerSiteBase(chain)}/search?f=0&q=${encodeURIComponent(query)}`, {
+    Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "User-Agent": "Mozilla/5.0",
+  });
+  if (response.status !== 200) return [];
+  const seen = new Set();
+  const matches = String(response.data || "").match(/\/address\/(0x[a-fA-F0-9]{40})/g) || [];
+  for (const match of matches) {
+    const address = match.replace("/address/", "").toLowerCase();
+    seen.add(address);
+    if (seen.size >= 20) break;
+  }
+  return [...seen];
+}
+
+async function fetchExplorerAddressPage(chain, address) {
+  if (!address) return null;
+  const normalizedAddress = normalizeAddress(address);
+  const response = await httpsGet(`${getExplorerSiteBase(chain)}/address/${normalizedAddress}`, {
+    Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "User-Agent": "Mozilla/5.0",
+  });
+  if (response.status !== 200) return null;
+  return {
+    address: normalizedAddress,
+    html: response.data,
+    title: extractHtmlTitle(response.data),
+  };
+}
+
+function explorerHitMatches(hit, strategy) {
+  if (!hit?.address) return false;
+  const group = String(hit.group || "");
+  const groupId = String(hit.groupid || "");
+  if (group !== "Addresses" && groupId !== "2") return false;
+  const title = normalizeWhitespace(hit.title);
+  if (strategy.expectedSearchTitle && title !== normalizeWhitespace(strategy.expectedSearchTitle)) return false;
+  if (strategy.searchTitleIncludes && !includesNormalized(title, strategy.searchTitleIncludes)) return false;
+  return true;
+}
+
+function explorerAddressPageMatches(page, strategy) {
+  if (!page?.html) return false;
+  if (strategy.expectedPageTitle && page.title !== normalizeWhitespace(strategy.expectedPageTitle)) return false;
+  if (strategy.expectedContractName) {
+    const contractName = extractExplorerContractName(page.html);
+    if (contractName !== normalizeWhitespace(strategy.expectedContractName)) return false;
+  }
+  if (strategy.requiredCreatorLabel && !includesNormalized(page.html, strategy.requiredCreatorLabel)) return false;
+  return (strategy.pageMustInclude || []).every((needle) => includesNormalized(page.html, needle));
+}
+
+async function resolveExplorerSearchLabel(definition) {
+  const strategy = definition?.addressStrategy || {};
+  const searchTerms = [strategy.query, ...(strategy.fallbackQueries || [])].filter(Boolean);
+
+  for (const query of searchTerms) {
+    const searchHits = await fetchExplorerSearchHandlerHits(definition.chain, query);
+    for (const hit of searchHits) {
+      if (!explorerHitMatches(hit, strategy)) continue;
+      const page = await fetchExplorerAddressPage(definition.chain, hit.address);
+      if (!explorerAddressPageMatches(page, strategy)) continue;
+      return {
+        address: hit.address,
+        authorityKind: "explorer-search",
+        repo: null,
+        path: hit.link || `/address/${hit.address}`,
+        refMode: "search-handler",
+        resolvedCommit: null,
+        sourceKey: query,
+        version: null,
+      };
+    }
+
+    if (strategy.searchPageFallback === false) continue;
+    const candidates = await fetchExplorerSearchPageAddresses(definition.chain, query);
+    for (const candidate of candidates) {
+      const page = await fetchExplorerAddressPage(definition.chain, candidate);
+      if (!explorerAddressPageMatches(page, strategy)) continue;
+      return {
+        address: candidate,
+        authorityKind: "explorer-search",
+        repo: null,
+        path: `/address/${candidate}`,
+        refMode: "search-page",
+        resolvedCommit: null,
+        sourceKey: query,
+        version: null,
+      };
+    }
+  }
+
+  return {
+    address: null,
+    authorityKind: "explorer-search",
+    repo: null,
+    path: null,
+    refMode: "search-handler",
+    resolvedCommit: null,
+    sourceKey: strategy.query || null,
+    version: null,
+  };
 }
 
 async function resolveRuntimeConsumerEvidence(strategy, address) {
@@ -1193,6 +1344,8 @@ async function resolveDeployment(definition, governorAddresses) {
     };
   } else if (definition.addressStrategy.kind === "repo-search") {
     resolved = await searchRepoForAddress(definition.addressStrategy);
+  } else if (definition.addressStrategy.kind === "explorer-search-label") {
+    resolved = await resolveExplorerSearchLabel(definition);
   } else {
     resolved = {
       address: null,
@@ -1567,9 +1720,6 @@ async function enrichMetadata(entries, skipVerify = false) {
         ? "registered"
         : "not_registered";
       next.meta.registeredInController = next.meta.registrationState === "registered";
-      if (controllerResolution.failures?.length) {
-        next.meta.rpcFailures = controllerResolution.failures;
-      }
     } else {
       next.meta.registrationState = "not_applicable";
       next.meta.registeredInController = false;
@@ -2281,9 +2431,9 @@ async function runContractsPipeline(options = {}) {
   });
   const ethHistoricalArtifacts = buildHistoricalArtifacts({
     chain: "ethereumMainnet",
-    entries: [],
+    entries: ethEnriched,
     currentImplementations: ethImplementations,
-    previousChainPayload: null,
+    previousChainPayload: previousPayload?.ethereumMainnet || null,
   });
 
   const payload = {

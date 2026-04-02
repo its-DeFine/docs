@@ -3,6 +3,7 @@
  * @category wrappers
  * @subcategory tables
  * @status stable
+ * @deprecated Use DynamicTableV2 for new tables that need measured fit-content columns and fluid column tracks.
  * @description Renders structured data as a scrollable table with section separators and accessible region.
   * @aiDiscoverability none
  * @param {any} [tableTitle=null] - table Title prop.

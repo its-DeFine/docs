@@ -84,6 +84,14 @@ const SHADOW_WORKFLOW_PATH = path.join(
 
 const STALE_ARBITRUM_MINTER_V1 = "0x4969dcCF5186e1c49411638fc8A2a020Fdab752E".toLowerCase();
 const STALE_BONDING_VOTES_TARGET = "0x1561fC5F7Efc049476224005DFf38256dccfc509".toLowerCase();
+const EXPECTED_ETH_LEGACY_UTILITY_NAMES = [
+  "GenesisManager",
+  "MerkleMine",
+  "MultiMerkleMine",
+  "Refunder",
+  "SortedDoublyLL",
+];
+const EXPECTED_ETH_HISTORICAL_GENESIS_ADDRESS = "0x289ba1701c2f088cf0faf8b3705246331cb8a839";
 
 let errors = [];
 let total = 0;
@@ -150,6 +158,18 @@ function runTests() {
       false,
       "proof catalog must not contain fixed local address truth"
     );
+    const seededNames = catalog.deployments
+      .filter((deployment) =>
+        deployment.chain === "ethereumMainnet"
+        && ["legacy_operational", "historical"].includes(deployment.lifecycle)
+      )
+      .map((deployment) => deployment.canonicalName);
+    for (const name of [...EXPECTED_ETH_LEGACY_UTILITY_NAMES, "MerkleProof"]) {
+      assert.ok(
+        seededNames.includes(name),
+        `proof catalog should retain externally resolvable ${name} coverage`
+      );
+    }
   });
 
   runCase("resolveAuthority selects the latest governor version instead of the base key", () => {
@@ -225,18 +245,28 @@ function runTests() {
   runCase("generated registry publishes stable root historical payloads and synced companion JSON", () => {
     const data = loadGeneratedJson();
     const companion = loadPublicCompanionJson();
+    const serialized = JSON.stringify(data);
 
     assert.ok(data.historical && typeof data.historical === "object", "generated registry should publish root historical");
     assert.ok(data.historical.arbitrumOne && typeof data.historical.arbitrumOne === "object", "arbitrumOne root historical should be present");
-    assert.deepStrictEqual(
-      data.historical.ethereumMainnet,
-      {},
-      "ethereumMainnet root historical should remain intentionally empty until authoritative history exists"
+    assert.ok(
+      Array.isArray(data.historical.ethereumMainnet?.MerkleProof) && data.historical.ethereumMainnet.MerkleProof.length > 0,
+      "ethereumMainnet root historical should publish externally revalidated MerkleProof history"
+    );
+    assert.strictEqual(
+      String(data.historical.ethereumMainnet.MerkleProof[0].address || "").toLowerCase(),
+      EXPECTED_ETH_HISTORICAL_GENESIS_ADDRESS,
+      "ethereumMainnet root historical should preserve the canonical MerkleProof address"
     );
     assert.deepStrictEqual(
       stripGenerated(companion),
       stripGenerated(data),
       "public companion JSON should stay byte-for-byte aligned with the generated registry JSON aside from _generated metadata"
+    );
+    assert.strictEqual(
+      serialized.includes("\"rpcFailures\""),
+      false,
+      "published contracts payload must not serialize transient rpcFailures diagnostics"
     );
   });
 
@@ -370,6 +400,40 @@ function runTests() {
       serialized.includes("\"weak\""),
       false,
       "generated contracts data must not emit weak verification language anywhere in the published payload"
+    );
+  });
+
+  runCase("generated registry publishes externally proven ethereum legacy utility families and genesis history", () => {
+    const data = loadGeneratedJson();
+    const legacyOperational = data.ethereumMainnet?.legacy_operational || [];
+    const legacyByName = new Map(legacyOperational.map((entry) => [entry.name, entry]));
+    const missing = EXPECTED_ETH_LEGACY_UTILITY_NAMES.filter((name) => !legacyByName.has(name));
+    const genesisSeries = data.ethereumMainnet?.historicalSeries?.genesis || [];
+    const merkleProofGroup = genesisSeries.find((group) => group?.canonicalName === "MerkleProof");
+
+    assert.deepStrictEqual(
+      missing,
+      [],
+      "ethereumMainnet.legacy_operational should retain the externally proven legacy utility families"
+    );
+    for (const name of EXPECTED_ETH_LEGACY_UTILITY_NAMES) {
+      assert.strictEqual(
+        legacyByName.get(name)?.addressSource?.kind,
+        "explorer-search",
+        `${name} should resolve from explorer-backed external proof`
+      );
+      assert.strictEqual(
+        legacyByName.get(name)?.proofChain,
+        "detached",
+        `${name} should remain a detached external-proof contract`
+      );
+    }
+    assert.ok(merkleProofGroup, "ethereumMainnet historicalSeries.genesis should include MerkleProof");
+    assert.ok(Array.isArray(merkleProofGroup.entries) && merkleProofGroup.entries.length > 0, "MerkleProof genesis group should contain entries");
+    assert.strictEqual(
+      String(merkleProofGroup.entries[0]?.address || "").toLowerCase(),
+      EXPECTED_ETH_HISTORICAL_GENESIS_ADDRESS,
+      "MerkleProof genesis group should preserve the canonical address"
     );
   });
 

@@ -3,6 +3,7 @@
  * @category wrappers
  * @subcategory tables
  * @status stable
+ * @deprecated Use SearchTableV2 for new tables that need content-driven sizing and composable column behaviour.
  * @description Generic filterable table wrapper with search input, category dropdown(s), and optional separators.
  * @aiDiscoverability props-extracted
  * @param {Function} [TableComponent=null] - Table renderer component (e.g. DynamicTable).
