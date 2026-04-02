@@ -31,7 +31,8 @@ const NODE_BINARY = process.execPath || '/opt/homebrew/bin/node';
 const PLAYWRIGHT_PATTERNS = [
   '@playwright/mcp@latest',
   'playwright-mcp',
-  'ms-playwright/mcp-chrome-'
+  'ms-playwright/mcp-chrome-',
+  'puppeteer_dev_chrome_profile-'
 ];
 const MINT_PATTERNS = [
   'tools/dev/mint-dev.sh',
@@ -435,7 +436,7 @@ function printResult(payload, json) {
       console.log(`${payload.applied ? 'Targeted' : 'Would target'} ${target.pid} [${target.reason}]: ${target.command}`);
     }
   } else {
-    console.log('No matching Playwright or non-3333 Mint sessions found.');
+    console.log('No matching browser or non-3333 Mint sessions found.');
   }
   if (payload.applied) {
     console.log(`Sent SIGTERM to ${payload.terminated.length} process(es); escalated SIGKILL to ${payload.forced.length}.`);

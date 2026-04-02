@@ -1221,6 +1221,34 @@ async function resolveExplorerSearchLabel(definition) {
   };
 }
 
+async function resolveVerifiedSeedAddress(definition) {
+  const strategy = definition?.addressStrategy || {};
+  const address = normalizeAddress(strategy.address);
+  const page = await fetchExplorerAddressPage(definition.chain, address);
+  if (!explorerAddressPageMatches(page, strategy)) {
+    return {
+      address: null,
+      authorityKind: "verified-seed-address",
+      repo: null,
+      path: null,
+      refMode: "seed-address",
+      resolvedCommit: null,
+      sourceKey: address,
+      version: null,
+    };
+  }
+  return {
+    address,
+    authorityKind: "verified-seed-address",
+    repo: null,
+    path: `/address/${address}`,
+    refMode: "seed-address",
+    resolvedCommit: null,
+    sourceKey: address,
+    version: null,
+  };
+}
+
 async function resolveRuntimeConsumerEvidence(strategy, address) {
   if (!strategy?.repo || !address) {
     return null;
@@ -1346,6 +1374,8 @@ async function resolveDeployment(definition, governorAddresses) {
     resolved = await searchRepoForAddress(definition.addressStrategy);
   } else if (definition.addressStrategy.kind === "explorer-search-label") {
     resolved = await resolveExplorerSearchLabel(definition);
+  } else if (definition.addressStrategy.kind === "verified-seed-address") {
+    resolved = await resolveVerifiedSeedAddress(definition);
   } else {
     resolved = {
       address: null,
@@ -2434,6 +2464,8 @@ async function runContractsPipeline(options = {}) {
     entries: ethEnriched,
     currentImplementations: ethImplementations,
     previousChainPayload: previousPayload?.ethereumMainnet || null,
+    seededHistoricalEntries: ethEnriched.filter((entry) => entry.lifecycle === "historical"),
+    resetSeededGroups: ethEnriched.some((entry) => entry.lifecycle === "historical"),
   });
 
   const payload = {

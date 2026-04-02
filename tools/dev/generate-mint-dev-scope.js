@@ -1027,7 +1027,13 @@ function collectDocsConfigFileReferences(node, out = new Set()) {
 function isGeneratedPagesIndexFile(filePath, content) {
   if (path.basename(filePath) !== 'index.mdx') return false;
   const body = String(content || '');
-  return body.includes('generated-file-banner:v1') && body.includes('operations/scripts/generate-pages-index.js');
+  return (
+    body.includes('generated-file-banner:v1') &&
+    (
+      body.includes('operations/scripts/generators/content/catalogs/generate-pages-index.js') ||
+      body.includes('operations/scripts/generate-pages-index.js')
+    )
+  );
 }
 
 function looksLikeRepoLink(value) {

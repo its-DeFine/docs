@@ -1,7 +1,7 @@
 {
   "_generated": {
     "by": "fetch-contract-addresses.js",
-    "at": "2026-04-02T18:41:15.089Z",
+    "at": "2026-04-02T18:54:54.557Z",
     "source": "livepeer/governor-scripts (2cb192a)"
   },
   "arbitrumOne": {
@@ -27,7 +27,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -82,7 +82,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -153,7 +153,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -208,7 +208,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -279,7 +279,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -334,7 +334,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -405,7 +405,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -465,7 +465,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -536,7 +536,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -596,7 +596,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -667,7 +667,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -727,7 +727,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -798,7 +798,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -858,7 +858,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -929,7 +929,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -984,7 +984,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -1055,7 +1055,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -1110,7 +1110,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -1181,7 +1181,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -1241,7 +1241,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -1312,7 +1312,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -1372,7 +1372,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -1443,7 +1443,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -1498,7 +1498,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -1569,7 +1569,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -1624,7 +1624,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -1695,7 +1695,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -1750,7 +1750,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -1821,7 +1821,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "migration residual",
@@ -1881,7 +1881,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -1952,7 +1952,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "migration residual",
@@ -2007,7 +2007,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -2077,7 +2077,7 @@
         "sourceVerified": null,
         "verified": null,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:41:08.934Z",
+        "verifiedAtISO": "2026-04-02T18:54:48.961Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Implementation target",
@@ -2120,7 +2120,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:41:08.934Z",
+          "lastVerifiedAt": "2026-04-02T18:54:48.961Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -2190,7 +2190,7 @@
         "sourceVerified": null,
         "verified": null,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:41:08.934Z",
+        "verifiedAtISO": "2026-04-02T18:54:48.961Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Implementation target",
@@ -2233,7 +2233,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:41:08.934Z",
+          "lastVerifiedAt": "2026-04-02T18:54:48.961Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -2303,7 +2303,7 @@
         "sourceVerified": null,
         "verified": null,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:41:08.934Z",
+        "verifiedAtISO": "2026-04-02T18:54:48.961Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Implementation target",
@@ -2346,7 +2346,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:41:08.934Z",
+          "lastVerifiedAt": "2026-04-02T18:54:48.961Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -2416,7 +2416,7 @@
         "sourceVerified": null,
         "verified": null,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:41:08.934Z",
+        "verifiedAtISO": "2026-04-02T18:54:48.961Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Implementation target",
@@ -2459,7 +2459,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:41:08.934Z",
+          "lastVerifiedAt": "2026-04-02T18:54:48.961Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -2529,7 +2529,7 @@
         "sourceVerified": null,
         "verified": null,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:41:08.934Z",
+        "verifiedAtISO": "2026-04-02T18:54:48.961Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Implementation target",
@@ -2572,7 +2572,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:41:08.934Z",
+          "lastVerifiedAt": "2026-04-02T18:54:48.961Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -2642,7 +2642,7 @@
         "sourceVerified": null,
         "verified": null,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:41:08.934Z",
+        "verifiedAtISO": "2026-04-02T18:54:48.961Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Implementation target",
@@ -2685,7 +2685,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:41:08.934Z",
+          "lastVerifiedAt": "2026-04-02T18:54:48.961Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -2755,7 +2755,7 @@
         "sourceVerified": null,
         "verified": null,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:41:08.934Z",
+        "verifiedAtISO": "2026-04-02T18:54:48.961Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Implementation target",
@@ -2798,7 +2798,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:41:08.934Z",
+          "lastVerifiedAt": "2026-04-02T18:54:48.961Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -4486,7 +4486,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -4541,7 +4541,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -4612,7 +4612,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -4667,7 +4667,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -4738,7 +4738,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -4793,7 +4793,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -4864,7 +4864,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -4924,7 +4924,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -4995,7 +4995,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5050,7 +5050,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -5121,7 +5121,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5176,7 +5176,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -5247,7 +5247,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5307,7 +5307,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -5378,7 +5378,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5438,7 +5438,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -5509,7 +5509,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5569,7 +5569,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -5640,7 +5640,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5700,7 +5700,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -5771,7 +5771,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5826,7 +5826,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -5897,7 +5897,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -5957,7 +5957,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -6028,7 +6028,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -6083,7 +6083,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -6154,7 +6154,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -6209,7 +6209,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -6282,7 +6282,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -6337,7 +6337,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -6408,7 +6408,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -6463,7 +6463,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -6534,7 +6534,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -6589,7 +6589,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -6660,7 +6660,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -6720,7 +6720,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -6791,7 +6791,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -6846,7 +6846,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -6917,7 +6917,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -6972,7 +6972,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -7043,7 +7043,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7103,7 +7103,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -7174,7 +7174,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7234,7 +7234,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -7305,7 +7305,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7365,7 +7365,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -7436,7 +7436,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7496,7 +7496,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -7567,7 +7567,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7622,7 +7622,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -7693,7 +7693,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7753,7 +7753,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -7824,7 +7824,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -7879,7 +7879,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -7950,7 +7950,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -8005,7 +8005,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -8079,7 +8079,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "migration residual",
@@ -8139,7 +8139,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -8210,7 +8210,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:39:59.904Z",
+        "verifiedAtISO": "2026-04-02T18:53:37.558Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "migration residual",
@@ -8265,7 +8265,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:39:59.904Z",
+          "lastVerifiedAt": "2026-04-02T18:53:37.558Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -10306,7 +10306,7 @@
         "sourceVerified": null,
         "verified": null,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:41:08.934Z",
+        "verifiedAtISO": "2026-04-02T18:54:48.961Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Implementation target",
@@ -10349,7 +10349,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:41:08.934Z",
+          "lastVerifiedAt": "2026-04-02T18:54:48.961Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -10419,7 +10419,7 @@
         "sourceVerified": null,
         "verified": null,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:41:08.934Z",
+        "verifiedAtISO": "2026-04-02T18:54:48.961Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Implementation target",
@@ -10462,7 +10462,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:41:08.934Z",
+          "lastVerifiedAt": "2026-04-02T18:54:48.961Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -10532,7 +10532,7 @@
         "sourceVerified": null,
         "verified": null,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:41:08.934Z",
+        "verifiedAtISO": "2026-04-02T18:54:48.961Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Implementation target",
@@ -10575,7 +10575,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:41:08.934Z",
+          "lastVerifiedAt": "2026-04-02T18:54:48.961Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -10645,7 +10645,7 @@
         "sourceVerified": null,
         "verified": null,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:41:08.934Z",
+        "verifiedAtISO": "2026-04-02T18:54:48.961Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Implementation target",
@@ -10688,7 +10688,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:41:08.934Z",
+          "lastVerifiedAt": "2026-04-02T18:54:48.961Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -10758,7 +10758,7 @@
         "sourceVerified": null,
         "verified": null,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:41:08.934Z",
+        "verifiedAtISO": "2026-04-02T18:54:48.961Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Implementation target",
@@ -10801,7 +10801,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:41:08.934Z",
+          "lastVerifiedAt": "2026-04-02T18:54:48.961Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -10871,7 +10871,7 @@
         "sourceVerified": null,
         "verified": null,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:41:08.934Z",
+        "verifiedAtISO": "2026-04-02T18:54:48.961Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Implementation target",
@@ -10914,7 +10914,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:41:08.934Z",
+          "lastVerifiedAt": "2026-04-02T18:54:48.961Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -10984,7 +10984,7 @@
         "sourceVerified": null,
         "verified": null,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:41:08.934Z",
+        "verifiedAtISO": "2026-04-02T18:54:48.961Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "Implementation target",
@@ -11027,7 +11027,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:41:08.934Z",
+          "lastVerifiedAt": "2026-04-02T18:54:48.961Z",
           "explorer": {
             "family": "etherscan",
             "host": "arbiscan.io",
@@ -11102,7 +11102,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "paused",
@@ -11157,7 +11157,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -11228,7 +11228,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -11283,7 +11283,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -11354,7 +11354,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "paused",
@@ -11409,7 +11409,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -11480,7 +11480,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -11535,7 +11535,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -11606,7 +11606,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -11661,7 +11661,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -11732,7 +11732,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -11787,7 +11787,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -11858,7 +11858,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "legacy operational",
@@ -11913,7 +11913,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -11984,7 +11984,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "migration residual",
@@ -12039,7 +12039,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -12110,7 +12110,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "legacy operational",
@@ -12165,7 +12165,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -12236,7 +12236,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "legacy operational",
@@ -12291,7 +12291,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -12362,7 +12362,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "legacy operational",
@@ -12408,7 +12408,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -12479,7 +12479,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "legacy operational",
@@ -12534,7 +12534,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -12605,7 +12605,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "legacy operational",
@@ -12660,7 +12660,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -12714,7 +12714,7 @@
         "id": "ethereumMainnet.merkleProof",
         "name": "MerkleProof",
         "canonicalName": "MerkleProof",
-        "address": "0x8e306b005773bee6ba6a6e8972bc79d766cc15c8",
+        "address": "0x289ba1701c2f088cf0faf8b3705246331cb8a839",
         "type": "standalone",
         "deploymentKind": "standalone",
         "category": "genesis",
@@ -12722,16 +12722,16 @@
         "chain": "ethereumMainnet",
         "proofChain": "detached",
         "version": null,
-        "addressAuthority": "explorer-search",
+        "addressAuthority": "verified-seed-address",
         "runtimeAuthority": "explorer",
         "repoSrc": "livepeer/protocol@6e6b452",
         "contractCodeHref": "https://github.com/livepeer/protocol/blob/6e6b452/contracts/zeppelin/MerkleProof.sol",
-        "blockchainHref": "https://etherscan.io/address/0x8e306b005773bee6ba6a6e8972bc79d766cc15c8",
+        "blockchainHref": "https://etherscan.io/address/0x289ba1701c2f088cf0faf8b3705246331cb8a839",
         "hasBytecode": true,
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": true,
         "meta": {
           "statusLabel": "historical",
@@ -12741,13 +12741,13 @@
           "registeredInController": false,
           "controllerSlot": null,
           "controllerResolvedAddress": null,
-          "governorKey": "Livepeer Merkle Proof",
+          "governorKey": "0x289ba1701c2f088cf0faf8b3705246331cb8a839",
           "currentImplementation": false,
           "currentImplementationVersion": null,
           "proxyTarget": null,
           "repoIsPrivate": false,
           "creatorAddress": "0xB5Af4138f0f33be0D6414Eb25271B9C2Dc245fb5",
-          "blockscoutLabel": "MerkleMine",
+          "blockscoutLabel": "MerkleProof",
           "sourceResolvedCommit": "6e6b452",
           "sourceResolutionError": null,
           "deploymentArtifactAddress": null,
@@ -12766,12 +12766,12 @@
           "controllerRegistered": null
         },
         "addressSource": {
-          "kind": "explorer-search",
+          "kind": "verified-seed-address",
           "repo": null,
-          "path": "/address/0x8e306b005773bee6ba6a6e8972bc79d766cc15c8",
-          "refMode": "search-page",
+          "path": "/address/0x289ba1701c2f088cf0faf8b3705246331cb8a839",
+          "refMode": "seed-address",
           "resolvedCommit": null,
-          "key": "Livepeer Merkle Proof"
+          "key": "0x289ba1701c2f088cf0faf8b3705246331cb8a839"
         },
         "codeSource": {
           "repo": "livepeer/protocol",
@@ -12786,12 +12786,12 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
             "addressBaseUrl": "https://etherscan.io/address/",
-            "addressUrl": "https://etherscan.io/address/0x8e306b005773bee6ba6a6e8972bc79d766cc15c8"
+            "addressUrl": "https://etherscan.io/address/0x289ba1701c2f088cf0faf8b3705246331cb8a839"
           },
           "controller": {
             "applicable": false,
@@ -12857,7 +12857,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "paused",
@@ -12917,7 +12917,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -12988,7 +12988,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "paused",
@@ -13048,7 +13048,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -13119,7 +13119,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "paused",
@@ -13179,7 +13179,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -13250,7 +13250,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "paused",
@@ -13310,7 +13310,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -13364,7 +13364,7 @@
         "id": "genesis.MerkleProof.historicalSeries.1",
         "name": "MerkleProof",
         "canonicalName": "MerkleProof",
-        "address": "0x8e306b005773bee6ba6a6e8972bc79d766cc15c8",
+        "address": "0x289ba1701c2f088cf0faf8b3705246331cb8a839",
         "type": "standalone",
         "deploymentKind": "standalone",
         "category": "genesis",
@@ -13376,7 +13376,7 @@
         "runtimeAuthority": "archive",
         "repoSrc": null,
         "contractCodeHref": null,
-        "blockchainHref": "https://etherscan.io/address/0x8e306b005773bee6ba6a6e8972bc79d766cc15c8",
+        "blockchainHref": "https://etherscan.io/address/0x289ba1701c2f088cf0faf8b3705246331cb8a839",
         "hasBytecode": null,
         "sourceVerified": null,
         "verified": null,
@@ -13410,7 +13410,7 @@
             "family": "etherscan",
             "host": "etherscan.io",
             "addressBaseUrl": "https://etherscan.io/address/",
-            "addressUrl": "https://etherscan.io/address/0x8e306b005773bee6ba6a6e8972bc79d766cc15c8"
+            "addressUrl": "https://etherscan.io/address/0x289ba1701c2f088cf0faf8b3705246331cb8a839"
           },
           "controller": {
             "applicable": false,
@@ -13478,7 +13478,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -13533,7 +13533,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -13604,7 +13604,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -13659,7 +13659,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -13730,7 +13730,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -13785,7 +13785,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -13856,7 +13856,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -13911,7 +13911,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -13984,7 +13984,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -14039,7 +14039,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -14110,7 +14110,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -14165,7 +14165,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -14236,7 +14236,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -14291,7 +14291,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -14362,7 +14362,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "Active",
@@ -14417,7 +14417,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -14490,7 +14490,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "paused",
@@ -14550,7 +14550,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -14621,7 +14621,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "paused",
@@ -14676,7 +14676,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -14747,7 +14747,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "paused",
@@ -14802,7 +14802,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -14873,7 +14873,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "paused",
@@ -14933,7 +14933,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -15004,7 +15004,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "paused",
@@ -15064,7 +15064,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -15135,7 +15135,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "paused",
@@ -15195,7 +15195,7 @@
         "controllerRegistered": true,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -15268,7 +15268,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "migration residual",
@@ -15323,7 +15323,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -15396,7 +15396,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "legacy operational",
@@ -15451,7 +15451,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "strong",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -15522,7 +15522,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "legacy operational",
@@ -15577,7 +15577,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -15648,7 +15648,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "legacy operational",
@@ -15703,7 +15703,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -15774,7 +15774,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "legacy operational",
@@ -15820,7 +15820,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -15891,7 +15891,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "legacy operational",
@@ -15946,7 +15946,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -16017,7 +16017,7 @@
         "sourceVerified": true,
         "verified": true,
         "verifiedAt": "3 Apr 2026",
-        "verifiedAtISO": "2026-04-02T18:40:08.467Z",
+        "verifiedAtISO": "2026-04-02T18:53:46.253Z",
         "isHistorical": false,
         "meta": {
           "statusLabel": "legacy operational",
@@ -16072,7 +16072,7 @@
         "controllerRegistered": null,
         "verification": {
           "status": "partial",
-          "lastVerifiedAt": "2026-04-02T18:40:08.467Z",
+          "lastVerifiedAt": "2026-04-02T18:53:46.253Z",
           "explorer": {
             "family": "etherscan",
             "host": "etherscan.io",
@@ -16128,7 +16128,7 @@
         "id": "genesis.MerkleProof.historicalSeries.1",
         "name": "MerkleProof",
         "canonicalName": "MerkleProof",
-        "address": "0x8e306b005773bee6ba6a6e8972bc79d766cc15c8",
+        "address": "0x289ba1701c2f088cf0faf8b3705246331cb8a839",
         "type": "standalone",
         "deploymentKind": "standalone",
         "category": "genesis",
@@ -16140,7 +16140,7 @@
         "runtimeAuthority": "archive",
         "repoSrc": null,
         "contractCodeHref": null,
-        "blockchainHref": "https://etherscan.io/address/0x8e306b005773bee6ba6a6e8972bc79d766cc15c8",
+        "blockchainHref": "https://etherscan.io/address/0x289ba1701c2f088cf0faf8b3705246331cb8a839",
         "hasBytecode": null,
         "sourceVerified": null,
         "verified": null,
@@ -16174,7 +16174,7 @@
             "family": "etherscan",
             "host": "etherscan.io",
             "addressBaseUrl": "https://etherscan.io/address/",
-            "addressUrl": "https://etherscan.io/address/0x8e306b005773bee6ba6a6e8972bc79d766cc15c8"
+            "addressUrl": "https://etherscan.io/address/0x289ba1701c2f088cf0faf8b3705246331cb8a839"
           },
           "controller": {
             "applicable": false,
@@ -16346,9 +16346,9 @@
               "chain": "ethereumMainnet",
               "type": "standalone",
               "deploymentKind": "standalone",
-              "address": "0x8e306b005773bee6ba6a6e8972bc79d766cc15c8",
+              "address": "0x289ba1701c2f088cf0faf8b3705246331cb8a839",
               "version": null,
-              "blockchainHref": "https://etherscan.io/address/0x8e306b005773bee6ba6a6e8972bc79d766cc15c8",
+              "blockchainHref": "https://etherscan.io/address/0x289ba1701c2f088cf0faf8b3705246331cb8a839",
               "isCurrent": false,
               "status": "Deprecated",
               "replacedBy": null
@@ -16528,11 +16528,11 @@
     "ethereumMainnet": {
       "MerkleProof": [
         {
-          "address": "0x8e306b005773bee6ba6a6e8972bc79d766cc15c8",
+          "address": "0x289ba1701c2f088cf0faf8b3705246331cb8a839",
           "chain": "ethereumMainnet",
           "type": "standalone",
           "version": null,
-          "blockchainHref": "https://etherscan.io/address/0x8e306b005773bee6ba6a6e8972bc79d766cc15c8",
+          "blockchainHref": "https://etherscan.io/address/0x289ba1701c2f088cf0faf8b3705246331cb8a839",
           "replacedBy": null,
           "status": "Deprecated"
         }
@@ -16540,7 +16540,7 @@
     }
   },
   "meta": {
-    "lastUpdated": "2026-04-02T18:41:15.089Z",
+    "lastUpdated": "2026-04-02T18:54:54.557Z",
     "lastVerified": "3 Apr 2026",
     "sourceRepo": "livepeer/governor-scripts",
     "sourceCommit": "2cb192a",

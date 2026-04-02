@@ -41,7 +41,7 @@ const { getMdxFiles, getStagedDocsPageFiles } = require('../utils/file-walker');
 const { getV2Pages } = require('../../scripts/validators/content/structure/test-v2-pages');
 const { ensureServerRunning, stopServer, getServerUrl } = require('../../../.githooks/server-manager');
 
-const DEFAULT_BASE_URL = process.env.MINT_BASE_URL || 'http://localhost:3000';
+const DEFAULT_BASE_URL = process.env.MINT_BASE_URL || 'http://localhost:3145';
 const TIMEOUT = 30000;
 
 /**
@@ -71,6 +71,13 @@ function filePathToUrl(filePath) {
   }
   
   return `/${url}`;
+}
+
+function resolveProbePath(files) {
+  if (!Array.isArray(files) || files.length === 0) {
+    return '';
+  }
+  return filePathToUrl(files[0]);
 }
 
 /**
@@ -245,7 +252,8 @@ async function runTests(options = {}) {
   // Ensure server is running (start if needed)
   let serverStarted = false;
   try {
-    serverStarted = await ensureServerRunning();
+    const probePath = resolveProbePath(testFiles);
+    serverStarted = await ensureServerRunning({ probePath, allowCommonPorts: false });
   } catch (error) {
     return {
       errors: [`Failed to start server: ${error.message}`],

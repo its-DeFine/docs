@@ -53,6 +53,45 @@ let serverStartedByUs = false;
 let actualServerUrl = BASE_URL; // Will be updated if port is detected from log
 let detectedServerPort = null; // Port where server was actually found
 
+function signalManagedProcess(pid, signal) {
+  if (!Number.isInteger(pid) || pid <= 0) {
+    return false;
+  }
+
+  if (process.platform === 'win32') {
+    try {
+      process.kill(pid, signal);
+      return true;
+    } catch (_error) {
+      return false;
+    }
+  }
+
+  try {
+    process.kill(-pid, signal);
+    return true;
+  } catch (_groupError) {
+    try {
+      process.kill(pid, signal);
+      return true;
+    } catch (_pidError) {
+      return false;
+    }
+  }
+}
+
+function reapStaleManagedProcessGroup(pid) {
+  if (!Number.isInteger(pid) || pid <= 0 || process.platform === 'win32') {
+    return;
+  }
+
+  try {
+    process.kill(-pid, 'SIGKILL');
+  } catch (_error) {
+    // Ignore already-dead or non-existent stale groups.
+  }
+}
+
 /**
  * Check if server is already running for this worktree.
  * Ambient servers on common dev ports are only reused when explicitly allowed.
@@ -149,8 +188,11 @@ async function isServerRunningOnPort(port, probePath) {
         return;
       }
       if (pathSuffix) {
-        // Treat 404 on probe paths as a mismatch (not the expected server).
-        resolve(res.statusCode !== 404);
+        // A probe path is expected to represent the route the caller intends to
+        // validate next. Treat 404 and 5xx responses as not-ready so browser
+        // harnesses do not attach to a listening server that still cannot serve
+        // the target page.
+        resolve(res.statusCode !== 404 && res.statusCode < 500);
         return;
       }
       // Any HTTP response means the server is up (Mint may return redirects during startup).
@@ -222,6 +264,7 @@ function startServer() {
         serverStartedByUs = false;
         return existingPid;
       } catch (e) {
+        reapStaleManagedProcessGroup(existingPid);
         // Process doesn't exist, remove stale PID file
         fs.unlinkSync(PID_FILE);
       }
@@ -313,12 +356,12 @@ function stopServer() {
         if (process.platform === 'win32') {
           execSync(`taskkill /PID ${pid} /T /F`, { stdio: 'ignore' });
         } else {
-          process.kill(pid, 'SIGTERM');
+          signalManagedProcess(pid, 'SIGTERM');
           // Wait a bit, then force kill if still running
           setTimeout(() => {
             try {
-              process.kill(pid, 'SIGKILL');
-            } catch (e) {
+              signalManagedProcess(pid, 'SIGKILL');
+            } catch (_error) {
               // Process already dead
             }
           }, 2000);

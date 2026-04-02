@@ -580,10 +580,8 @@ function buildContractProofCatalog() {
         category: "genesis",
         lifecycle: "historical",
         addressStrategyOverride: {
-          kind: "explorer-search-label",
-          query: "Merkle Proof",
-          fallbackQueries: ["Livepeer Merkle Proof"],
-          searchPageFallback: true,
+          kind: "verified-seed-address",
+          address: "0x289ba1701c2f088cf0faf8b3705246331cb8a839",
           expectedContractName: "MerkleProof",
           requiredCreatorLabel: "Livepeer: Deployer",
         },
