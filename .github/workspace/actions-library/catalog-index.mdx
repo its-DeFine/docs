@@ -1,115 +1,91 @@
-{/*
-================================================================================
-GITHUB ACTIONS CATALOG INDEX
-================================================================================
-Renders all workflows from actions-audit.json as a filterable SearchTable.
-Source of truth: .github/workspace/actions-audit.json
-Framework: .github/workspace/framework-canonical.md
-================================================================================
-*/}
-
 ---
-title: GitHub Actions Catalog
-sidebarTitle: Actions Catalog
-description: Filterable catalog of all GitHub Actions workflows in the Livepeer docs repo, classified by type, concern, pipeline tag, and status.
+title: 'Actions Library Catalog'
+sidebarTitle: 'Catalog'
+description: 'Index of all GitHub Actions workflows with classification, naming, and status.'
 pageType: reference
 purpose: reference
 audience: internal
-status: draft
-lastVerified: '2026-03-31'
-keywords:
-  - livepeer
-  - github-actions
-  - catalog
-  - governance
-  - workflows
+lastVerified: '2026-04-01'
 ---
 
-import { SearchTable } from '/snippets/components/wrappers/tables/SearchTable.jsx'
-import { DynamicTable } from '/snippets/components/wrappers/tables/Table.jsx'
-import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+# Actions Library Catalog
 
-export const actionsCatalog = [
-  { Name: "Auto Assign Docs Reviewers", File: "auto-assign-docs-reviewers.yml", Type: "automation", Concern: "governance", Pipeline: "P3", Status: "active", Bugs: 1, Consolidation: "none" },
-  { Name: "Check Broken Links", File: "broken-links.yml", Type: "validator", Concern: "content", Pipeline: "P3", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Build Review Assets", File: "build-review-assets.yml", Type: "generator", Concern: "governance", Pipeline: "manual", Status: "placeholder", Bugs: 0, Consolidation: "deprecate" },
-  { Name: "Check AI Companions", File: "check-ai-companions.yml", Type: "validator", Concern: "ai", Pipeline: "P3", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Check Docs Guide Catalogs", File: "check-docs-guide-catalogs.yml", Type: "validator", Concern: "governance", Pipeline: "P3", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Check Docs Index", File: "check-docs-index.yml", Type: "validator", Concern: "content", Pipeline: "P3", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Close Linked Issues", File: "close-linked-issues-docs-v2.yml", Type: "automation", Concern: "governance", Pipeline: "P4", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Codex Governance", File: "codex-governance.yml", Type: "validator", Concern: "governance", Pipeline: "P2", Status: "active", Bugs: 1, Consolidation: "none" },
-  { Name: "Content Health", File: "content-health.yml", Type: "audit", Concern: "content", Pipeline: "P5", Status: "active", Bugs: 2, Consolidation: "none" },
-  { Name: "Discord Issue Intake", File: "discord-issue-intake.yml", Type: "automation", Concern: "governance", Pipeline: "event-driven", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Docs v2 Issue Indexer", File: "docs-v2-issue-indexer.yml", Type: "automation", Concern: "governance", Pipeline: "P5", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Freshness Monitor", File: "freshness-monitor.yml", Type: "audit", Concern: "content", Pipeline: "P5", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Generate AI Companions", File: "generate-ai-companions.yml", Type: "generator", Concern: "ai", Pipeline: "P4", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Generate AI Sitemap", File: "generate-ai-sitemap.yml", Type: "generator", Concern: "ai", Pipeline: "P4", Status: "active", Bugs: 1, Consolidation: "none" },
-  { Name: "Generate Component Registry", File: "generate-component-registry.yml", Type: "generator", Concern: "components", Pipeline: "P4", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Generate Docs Guide Catalogs", File: "generate-docs-guide-catalogs.yml", Type: "generator", Concern: "governance", Pipeline: "P4", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Generate Docs Index", File: "generate-docs-index.yml", Type: "generator", Concern: "content", Pipeline: "P4", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Generate LLMs Files", File: "generate-llms-files.yml", Type: "generator", Concern: "ai", Pipeline: "P4", Status: "active", Bugs: 1, Consolidation: "none" },
-  { Name: "Generate Review Table", File: "generate-review-table.yml", Type: "generator", Concern: "governance", Pipeline: "manual", Status: "placeholder", Bugs: 0, Consolidation: "deprecate" },
-  { Name: "Governance Sync", File: "governance-sync.yml", Type: "dispatch", Concern: "governance", Pipeline: "P4", Status: "active", Bugs: 1, Consolidation: "none" },
-  { Name: "Issue Auto Label", File: "issue-auto-label.yml", Type: "automation", Concern: "governance", Pipeline: "event-driven", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "OpenAPI Validation", File: "openapi-reference-validation.yml", Type: "validator", Concern: "content", Pipeline: "P5", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Project Showcase Sync", File: "project-showcase-sync.yml", Type: "automation", Concern: "content", Pipeline: "P5-auto", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Repair Governance", File: "repair-governance.yml", Type: "remediator", Concern: "governance", Pipeline: "P6", Status: "active", Bugs: 1, Consolidation: "none" },
-  { Name: "SEO Refresh", File: "seo-refresh.yml", Type: "remediator", Concern: "content", Pipeline: "manual", Status: "active", Bugs: 1, Consolidation: "none" },
-  { Name: "Style Homogenise", File: "style-homogenise.yml", Type: "remediator", Concern: "content", Pipeline: "manual", Status: "active", Bugs: 1, Consolidation: "none" },
-  { Name: "Sync Large Assets", File: "sync-large-assets.yml", Type: "automation", Concern: "content", Pipeline: "manual", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Test Suite", File: "test-suite.yml", Type: "validator", Concern: "content", Pipeline: "P2", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Test v2 Pages", File: "test-v2-pages.yml", Type: "validator", Concern: "content", Pipeline: "P3", Status: "active", Bugs: 0, Consolidation: "merge-test-suite" },
-  { Name: "Translate Docs", File: "translate-docs.yml", Type: "automation", Concern: "content", Pipeline: "manual", Status: "active", Bugs: 1, Consolidation: "none" },
-  { Name: "Update Blog Data", File: "update-blog-data.yml", Type: "automation", Concern: "content", Pipeline: "P5-auto", Status: "broken", Bugs: 1, Consolidation: "deprecate" },
-  { Name: "Update Changelogs", File: "update-changelogs.yml", Type: "automation", Concern: "content", Pipeline: "P5-auto", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Update Contract Addresses", File: "update-contract-addresses.yml", Type: "automation", Concern: "content", Pipeline: "P5-auto", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Update Discord Data", File: "update-discord-data.yml", Type: "automation", Concern: "content", Pipeline: "P5-auto", Status: "active", Bugs: 0, Consolidation: "merge-data-fetch" },
-  { Name: "Update Forum Data", File: "update-forum-data.yml", Type: "automation", Concern: "content", Pipeline: "P5-auto", Status: "active", Bugs: 1, Consolidation: "merge-data-fetch" },
-  { Name: "Update Ghost Blog Data", File: "update-ghost-blog-data.yml", Type: "automation", Concern: "content", Pipeline: "P5-auto", Status: "active", Bugs: 1, Consolidation: "merge-data-fetch" },
-  { Name: "Update GitHub Data", File: "update-github-data.yml", Type: "automation", Concern: "content", Pipeline: "P5-auto", Status: "active", Bugs: 0, Consolidation: "merge-data-fetch" },
-  { Name: "Update Livepeer Release", File: "update-livepeer-release.yml", Type: "automation", Concern: "content", Pipeline: "P5-auto", Status: "active", Bugs: 0, Consolidation: "merge-data-fetch" },
-  { Name: "Update Review Template", File: "update-review-template.yml", Type: "automation", Concern: "governance", Pipeline: "manual", Status: "placeholder", Bugs: 0, Consolidation: "deprecate" },
-  { Name: "Update RSS Blog Data", File: "update-rss-blog-data.yml", Type: "automation", Concern: "content", Pipeline: "P5-auto", Status: "active", Bugs: 0, Consolidation: "merge-data-fetch" },
-  { Name: "Update Solutions Changelog", File: "update-solutions-changelog.yml", Type: "automation", Concern: "content", Pipeline: "P5-auto", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Update YouTube Data", File: "update-youtube-data.yml", Type: "automation", Concern: "content", Pipeline: "P5-auto", Status: "active", Bugs: 1, Consolidation: "merge-data-fetch" },
-  { Name: "V2 External Link Audit", File: "v2-external-link-audit.yml", Type: "audit", Concern: "content", Pipeline: "P5", Status: "active", Bugs: 0, Consolidation: "none" },
-  { Name: "Verify AI Sitemap", File: "verify-ai-sitemap.yml", Type: "validator", Concern: "ai", Pipeline: "P3", Status: "active", Bugs: 1, Consolidation: "merge-verify" },
-  { Name: "Verify LLMs Files", File: "verify-llms-files.yml", Type: "validator", Concern: "ai", Pipeline: "P3", Status: "active", Bugs: 1, Consolidation: "merge-verify" },
-]
+> Generated from `actions-audit.json`. Do not edit directly.
+> Run `node .github/workspace/generate-action-pages.js` to regenerate.
 
-<SearchTable
-  TableComponent={DynamicTable}
-  tableTitle="GitHub Actions Catalog"
-  headerList={['Name', 'Type', 'Concern', 'Pipeline', 'Status', 'Bugs', 'Consolidation']}
-  itemsList={actionsCatalog}
-  searchColumns={['Name', 'Type', 'Concern']}
-  categoryColumn="Type"
-  filterColumns={['Concern', 'Pipeline', 'Status']}
-  columnVariant={{ Status: 'badge', Consolidation: 'badge' }}
-  categoryBadges={[
-    { label: 'active', color: 'green' },
-    { label: 'broken', color: 'red' },
-    { label: 'placeholder', color: 'yellow' },
-    { label: 'none', color: 'surface' },
-    { label: 'deprecate', color: 'red' },
-    { label: 'merge-data-fetch', color: 'purple' },
-    { label: 'merge-verify', color: 'purple' },
-    { label: 'merge-test-suite', color: 'purple' },
-  ]}
-  searchPlaceholder="Search actions by name, type, or concern..."
-/>
+## Integrators (12)
 
-<CustomDivider />
+| Current name | New name | Concern | Pipeline | Status |
+|---|---|---|---|---|
+| [project-showcase-sync.yml](integrators/copy/project-showcase-sync.mdx) | `integrator-copy-update-showcase-submissions.yml` | copy | P5-auto | active |
+| [sync-large-assets.yml](integrators/maintenance/sync-large-assets.mdx) | `integrator-maintenance-update-large-assets.yml` | maintenance | P5-auto | active |
+| [translate-docs.yml](integrators/copy/translate-docs.mdx) | `integrator-copy-update-translations.yml` | copy | manual | active |
+| [update-changelogs.yml](integrators/copy/update-changelogs.mdx) | `integrator-copy-update-changelogs.yml` | copy | P5-auto | active |
+| [update-contract-addresses.yml](integrators/maintenance/update-contract-addresses.mdx) | `DEFERRED` | maintenance | P5-auto | active |
+| [update-discord-data.yml](integrators/copy/update-discord-data.mdx) | `integrator-copy-update-social-feeds.yml` | copy | P5-auto | active |
+| [update-forum-data.yml](integrators/copy/update-forum-data.mdx) | `integrator-copy-update-social-feeds.yml` | copy | P5-auto | active |
+| [update-ghost-blog-data.yml](integrators/copy/update-ghost-blog-data.mdx) | `integrator-copy-update-social-feeds.yml` | copy | P5-auto | active |
+| [update-github-data.yml](integrators/copy/update-github-data.mdx) | `integrator-copy-update-social-feeds.yml` | copy | P5-auto | active |
+| [update-livepeer-release.yml](integrators/maintenance/update-livepeer-release.mdx) | `integrator-maintenance-update-release-version.yml` | maintenance | P5-auto | active |
+| [update-rss-blog-data.yml](integrators/copy/update-rss-blog-data.mdx) | `integrator-copy-update-social-feeds.yml` | copy | P5-auto | active |
+| [update-youtube-data.yml](integrators/copy/update-youtube-data.mdx) | `integrator-copy-update-social-feeds.yml` | copy | P5-auto | active |
 
-## Summary
+## Generators (7)
 
-| Metric | Count |
-|---|---|
-| Total workflows | 45 |
-| Active | 38 |
-| Broken | 1 |
-| Placeholder (deprecate candidate) | 3 |
-| With known bugs | 13 |
-| Consolidation candidates | 10 |
-| Missing concurrency controls | 42 |
-| Missing error handling | 30+ |
+| Current name | New name | Concern | Pipeline | Status |
+|---|---|---|---|---|
+| [generate-ai-companions.yml](generators/discoverability/generate-ai-companions.mdx) | `generator-discoverability-generate-glossary-companions.yml` | discoverability | P4 | active |
+| [generate-ai-sitemap.yml](generators/discoverability/generate-ai-sitemap.mdx) | `generator-discoverability-generate-ai-sitemap.yml` | discoverability | P4 | active |
+| [generate-component-registry.yml](generators/maintenance/generate-component-registry.mdx) | `generator-maintenance-generate-component-registry.yml` | maintenance | P4 | active |
+| [generate-docs-guide-catalogs.yml](generators/maintenance/generate-docs-guide-catalogs.mdx) | `generator-maintenance-generate-docs-guide-catalogs.yml` | maintenance | P4 | active |
+| [generate-docs-index.yml](generators/maintenance/generate-docs-index.mdx) | `generator-maintenance-generate-docs-index.yml` | maintenance | P4 | active |
+| [generate-llms-files.yml](generators/discoverability/generate-llms-files.mdx) | `generator-discoverability-generate-llms-files.yml` | discoverability | P4 | active |
+| [sdk_generation.yaml](generators/maintenance/sdk_generation.mdx) | `generator-maintenance-generate-sdk-clients.yml` | maintenance | P5-auto | active |
+
+## Validators (10)
+
+| Current name | New name | Concern | Pipeline | Status |
+|---|---|---|---|---|
+| [broken-links.yml](validators/health/broken-links.mdx) | `validator-health-check-broken-links.yml` | health | P3 | active |
+| [check-ai-companions.yml](validators/discoverability/check-ai-companions.mdx) | `validator-discoverability-check-glossary-companions.yml` | discoverability | P3 | active |
+| [check-docs-guide-catalogs.yml](validators/maintenance/check-docs-guide-catalogs.mdx) | `validator-maintenance-check-docs-guide-catalogs.yml` | maintenance | P3 | active |
+| [check-docs-index.yml](validators/maintenance/check-docs-index.mdx) | `validator-maintenance-check-docs-index.yml` | maintenance | P3 | active |
+| [codex-governance.yml](validators/governance/codex-governance.mdx) | `validator-governance-check-codex-compliance.yml` | governance | P2 | active |
+| [openapi-reference-validation.yml](validators/health/openapi-reference-validation.mdx) | `validator-health-check-openapi-reference.yml` | health | P3 | active |
+| [test-suite.yml](validators/copy/test-suite.mdx) | `validator-copy-check-content-quality-suite.yml` | copy | P2 | active |
+| [test-v2-pages.yml](validators/health/test-v2-pages.mdx) | `validator-health-check-page-rendering.yml` | health | P3 | active |
+| [verify-ai-sitemap.yml](validators/discoverability/verify-ai-sitemap.mdx) | `validator-discoverability-check-ai-sitemap.yml` | discoverability | P3 | active |
+| [verify-llms-files.yml](validators/discoverability/verify-llms-files.mdx) | `validator-discoverability-check-llms-files.yml` | discoverability | P3 | active |
+
+## Audits (3)
+
+| Current name | New name | Concern | Pipeline | Status |
+|---|---|---|---|---|
+| [content-health.yml](auditors/health/content-health.mdx) | `audit-health-scan-content-quality.yml` | health | P5 | active |
+| [freshness-monitor.yml](auditors/health/freshness-monitor.mdx) | `audit-health-scan-data-freshness.yml` | health | P5 | active |
+| [v2-external-link-audit.yml](auditors/health/v2-external-link-audit.mdx) | `audit-health-scan-external-links.yml` | health | P5 | active |
+
+## Remediators (3)
+
+| Current name | New name | Concern | Pipeline | Status |
+|---|---|---|---|---|
+| [repair-governance.yml](remediators/governance/repair-governance.mdx) | `remediator-governance-repair-pipelines.yml` | governance | P6 | active |
+| [seo-refresh.yml](remediators/discoverability/seo-refresh.mdx) | `remediator-discoverability-repair-seo-metadata.yml` | discoverability | manual | active |
+| [style-homogenise.yml](remediators/brand/style-homogenise.mdx) | `remediator-brand-repair-en-gb-style.yml` | brand | manual | active |
+
+## Interfaces (5)
+
+| Current name | New name | Concern | Pipeline | Status |
+|---|---|---|---|---|
+| [auto-assign-docs-reviewers.yml](interfaces/governance/auto-assign-docs-reviewers.mdx) | `interface-governance-assign-reviewers.yml` | governance | P3 | active |
+| [close-linked-issues-docs-v2.yml](interfaces/governance/close-linked-issues-docs-v2.mdx) | `interface-governance-close-linked-issues.yml` | governance | P4 | active |
+| [discord-issue-intake.yml](interfaces/governance/discord-issue-intake.mdx) | `interface-governance-intake-discord-issues.yml` | governance | event-driven | active |
+| [docs-v2-issue-indexer.yml](interfaces/governance/docs-v2-issue-indexer.mdx) | `interface-governance-index-issues.yml` | governance | P5 | active |
+| [issue-auto-label.yml](interfaces/governance/issue-auto-label.mdx) | `interface-governance-label-issues.yml` | governance | event-driven | active |
+
+## Dispatchs (1)
+
+| Current name | New name | Concern | Pipeline | Status |
+|---|---|---|---|---|
+| [governance-sync.yml](dispatchers/governance/governance-sync.mdx) | `dispatch-governance-post-merge-sync.yml` | governance | P4 | active |
+

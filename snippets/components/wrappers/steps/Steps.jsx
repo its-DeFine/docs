@@ -23,7 +23,7 @@ export const StyledSteps = ({
   style = {},
   ...rest
 }) => {
-  const stepsId = `styled-steps-${Math.random().toString(36).substr(2, 9)}`
+  const stepsId = `styled-steps-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`
   const resolvedIconColor = iconColor || 'var(--accent-dark, #18794E)'
   const resolvedTitleColor = titleColor || 'var(--accent)'
   const resolvedLineColor = lineColor || 'var(--accent)'

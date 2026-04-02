@@ -10,15 +10,24 @@
  *                    contracts pipeline modules under operations/scripts/automations/content/data/contracts/.
  * @mode              generate
  * @scope             .github/scripts, operations/scripts/automations/content/data/contracts/, snippets/data/contract-addresses/, snippets/composables/pages/canonical/
- * @usage             node .github/scripts/fetch-contract-addresses.js [--dry-run] [--skip-verify]
+ * @usage             node .github/scripts/fetch-contract-addresses.js [--dry-run] [--check] [--skip-verify]
  * @policy            Docs-local files do not define publishable contract truth.
  */
 
 const {
+  buildBlockchainContractsPageData,
   buildChainPayload,
+  buildHistoricalArtifacts,
+  buildHistoricalEntriesFromEventLogs,
   buildContractProofCatalog,
   computeIncidentFingerprint,
+  decodeSetContractInfoLog,
   diffBranchWatchState,
+  fetchControllerSetContractInfoLogs,
+  resolveCodeSource,
+  resolveDeploymentArtifact,
+  resolveRepoPath,
+  resolveRuntimeConsumerEvidence,
   resolveAuthority,
   resolveGovernorSeries,
   runContractsPipeline,
@@ -26,8 +35,12 @@ const {
 
 async function main() {
   const dryRun = process.argv.includes("--dry-run");
+  const check = process.argv.includes("--check");
   const skipVerify = process.argv.includes("--skip-verify");
-  await runContractsPipeline({ dryRun, skipVerify });
+  if (dryRun && check) {
+    throw new Error("--dry-run and --check are mutually exclusive");
+  }
+  await runContractsPipeline({ dryRun, check, skipVerify });
 }
 
 if (require.main === module) {
@@ -43,10 +56,19 @@ if (require.main === module) {
 }
 
 module.exports = {
+  buildBlockchainContractsPageData,
   buildChainPayload,
+  buildHistoricalArtifacts,
+  buildHistoricalEntriesFromEventLogs,
   computeIncidentFingerprint,
+  decodeSetContractInfoLog,
   diffBranchWatchState,
+  fetchControllerSetContractInfoLogs,
   loadContractProofCatalog: buildContractProofCatalog,
+  resolveCodeSource,
+  resolveDeploymentArtifact,
+  resolveRepoPath,
+  resolveRuntimeConsumerEvidence,
   resolveAuthority,
   resolveGovernorSeries,
   runContractsPipeline,

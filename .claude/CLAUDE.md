@@ -35,7 +35,7 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 | References | `.claude/references/` — 26 files, 13 categories. Exemplars + best-practice + patterns. Concern-audit methodology validated | Done | 2026-03-31 |
 | Solutions Merge | merge/solutions-to-docs-v2 branch ready, pushed to origin. PR creation blocked by hook — user runs manually | Pending PR | 2026-03-30 |
 | Workflow Alignment Skills | `/thread` v1.4: auto-derive entry (no questions), 10-phase lifecycle. PreEdit auto-gen hook shipped | Done | 2026-03-31 |
-| GitHub Actions Governance | Framework canonical + action template + catalog index (45 workflows). Phases 1-4 complete. Remaining: per-action pages, consolidation execution, shared module extraction | Active | 2026-03-31 |
+| GitHub Actions Governance | Phases 0-5 complete. Framework (7 types, 7 concerns, 8 decisions), 41 action pages, catalog, CI staged. Phase 6+: consolidation research, build/test, script migration, cleanup last | Active | 2026-04-01 |
 
 **Rule:** When you finish a task or change status, update your row in this table before closing. If the master-tasks.md file has a matching item, update that too.
 
@@ -47,7 +47,7 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 - **Verify before asserting.** Never claim a component, file, or config does not exist without searching for it. Never claim something works without running it.
 - **Reproduce before fixing.** For bugs: (1) reproduce the exact failure, (2) capture the error, (3) hypothesise from evidence, (4) test one fix at a time. Use `/diagnose` for anything beyond a trivial one-line fix.
 - **Verify first instance before bulk operations.** Apply to one file, confirm it works, then proceed to the rest.
-- **Read Mintlify constraints before editing MDX.** Reference: `workspace/thread-outputs/research/mintlify-constraints-reference.md`. No React/hook imports (globally available), no SSR patterns, prefer root-absolute import paths, include .jsx extension, no top-level constants in JSX files (define inside function bodies), arrow function syntax only, verify component imports exist before using them.
+- **Read Mintlify constraints before editing MDX.** Reference: `workspace/thread-outputs/research/mintlify-constraints-reference.md`. No React/hook imports (globally available), Mintlify platform globals are also globally available and must be used directly without import, no SSR patterns, prefer root-absolute import paths, include .jsx extension, no top-level constants in JSX files (define inside function bodies), arrow function syntax only, verify component imports exist before using them.
 
 ---
 

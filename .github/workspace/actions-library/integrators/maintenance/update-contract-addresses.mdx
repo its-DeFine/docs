@@ -69,8 +69,9 @@ graph LR
     subgraph "Data files produced"
         D1["contractAddressesData.jsx"]
         D2["contractAddressesData.json"]
-        D3["_health-checks.json"]
-        D4["livepeer-contract-addresses-data.json"]
+        D3["blockchainContractsPageData.jsx"]
+        D4["blockchainContractsPageData.json"]
+        D5["_health-checks.json"]
     end
 
     subgraph "Pages that consume"
@@ -86,13 +87,14 @@ graph LR
     FETCH --> GH_API
     FETCH --> ARBISCAN
     FETCH --> ETHERSCAN
-    FETCH --> D1 & D2 & D3 & D4
+    FETCH --> D1 & D2 & D3 & D4 & D5
     D1 --> P1 & P2 & P3
 
     style D1 fill:#1565c0,color:#fff
     style D2 fill:#1565c0,color:#fff
     style D3 fill:#1565c0,color:#fff
     style D4 fill:#1565c0,color:#fff
+    style D5 fill:#1565c0,color:#fff
     style P2 fill:#f57f17,color:#000
 ```
 
@@ -106,8 +108,8 @@ graph LR
 
 | Trigger | Details |
 |---|---|
-| `schedule` | Weekly Monday 02:00 UTC |
-| `repository_dispatch` | Events: `governor-scripts-update`, `protocol-update`, `bridge-update` |
+| `schedule` | Daily at 02:00 UTC |
+| `repository_dispatch` | Events: `governor-scripts-update`, `protocol-update`, `bridge-update`, `go-livepeer-update` |
 | `workflow_dispatch` | Manual with inputs: `dry_run`, `skip_verify`, `use_test_branch` |
 
 <CustomDivider />
@@ -145,8 +147,9 @@ graph LR
 **Data files produced:**
 - `snippets/data/contract-addresses/contractAddressesData.jsx` : JSX export consumed by MDX pages
 - `snippets/data/contract-addresses/contractAddressesData.json` : Raw JSON
+- `snippets/data/contract-addresses/blockchainContractsPageData.jsx` : JSX export consumed by the blockchain route
+- `snippets/data/contract-addresses/blockchainContractsPageData.json` : Raw blockchain page companion JSON
 - `snippets/data/contract-addresses/_health-checks.json` : Verification results
-- `snippets/composables/pages/canonical/livepeer-contract-addresses-data.json` : Composable page data
 
 **Consumed by:**
 

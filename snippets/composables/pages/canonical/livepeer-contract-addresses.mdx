@@ -1,11 +1,10 @@
 ---
 mode: wide
 sidebarTitle: Contract Addresses
-title: Canonical Contract Addresses
+title: Contract Addresses
 description: >-
-  Official Livepeer protocol contract addresses on Arbitrum One and Ethereum
-  Mainnet. Verified from live chain state, upstream source provenance, and
-  explorer evidence on every refresh. The canonical public reference surface.
+  Current and historical Livepeer protocol contract addresses across Arbitrum
+  One and Ethereum Mainnet. Verified on-chain.
 keywords:
   - livepeer
   - livepeer contracts
@@ -36,21 +35,20 @@ keywords:
   - official livepeer addresses
   - "0x289ba1701C2F088cf0faf8B3705246331cB8A839"
   - "0x58b6a8a3302369daec383334672404ee733ab239"
-'og:title': "Official Livepeer Contract Addresses - Verified On-Chain"
+'og:title': Contract Addresses
 'og:description': >-
-  The only canonical source for Livepeer protocol contract addresses on
-  Arbitrum One and Ethereum Mainnet. Verified from chain state, source
-  provenance, and explorer evidence.
+  Current and historical Livepeer protocol contract addresses across Arbitrum
+  One and Ethereum Mainnet. Verified on-chain.
 'og:image': /snippets/assets/site/og-image/fallback.png
 'og:image:alt': Livepeer Docs social preview image
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
-'twitter:title': "Official Livepeer Contract Addresses"
+'twitter:title': Contract Addresses
 'twitter:description': >-
-  Canonical reference for all Livepeer protocol smart contract addresses.
-  Verified from chain state and upstream source provenance. Automatically updated.
+  Current and historical Livepeer protocol contract addresses across Arbitrum
+  One and Ethereum Mainnet. Verified on-chain.
 pageType: reference
 purpose: reference
 audience: community
@@ -60,14 +58,14 @@ lastVerified: 2026-03-26
 
 {/* components */}
 import { CustomDivider, InlineDivider } from '/snippets/components/elements/spacing/Divider.jsx'
-import { LinkArrow, DoubleIconLink, LinkIcon } from '/snippets/components/elements/links/Links.jsx'
-import { CopyText } from '/snippets/components/elements/text/Text.jsx';
+import { DoubleIconLink } from '/snippets/components/elements/links/Links.jsx'
 import { SearchTable } from '/snippets/components/wrappers/tables/SearchTable.jsx'
 import { DynamicTable } from '/snippets/components/wrappers/tables/Table.jsx'
-import { StyledTable, TableRow, TableCell } from '/snippets/components/wrappers/tables/Tables.jsx'
 import { StyledSteps, StyledStep } from '/snippets/components/wrappers/steps/Steps.jsx'
 import { ContractVerifier } from '/snippets/components/integrators/feeds/ContractVerifier.jsx'
 import { CustomCardTitle, AccordionTitle } from '/snippets/components/elements/text/CustomCardTitle.jsx'
+import { LinkIcon } from '/snippets/components/elements/links/Links.jsx'
+import { CopyText } from '/snippets/components/elements/text/Text.jsx'
 import { ArbitrumIcon, LivepeerIcon } from '/snippets/components/elements/icons/Icons.jsx'
 import { BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
 import { HistoricalContractTable } from '/snippets/components/displays/tables/HistoricalContractTable.jsx'
@@ -75,6 +73,293 @@ import { DataWrap } from '/snippets/components/wrappers/data/workflows.jsx'
 
 {/* data */}
 import { contractAddresses } from '/snippets/data/contract-addresses/contractAddressesData.jsx'
+
+export const chainLabel = {
+  arbitrumOne: 'Arbitrum One',
+  ethereumMainnet: 'Ethereum Mainnet',
+}
+
+export const lifecycleLabel = {
+  active: 'Active',
+  paused: 'Paused',
+  migration_residual: 'Migration',
+  legacy_operational: 'Legacy operational',
+  historical: 'Historical',
+}
+
+export const categoryOrder = ['bridge', 'core', 'governance', 'token', 'migration', 'genesis', 'utility', 'other']
+
+export const historicalCategoryConfig = {
+  core: {
+    title: 'Core',
+    description: 'Historical staking, payments, round progression, and service discovery contracts',
+    icon: 'gear',
+  },
+  governance: {
+    title: 'Governance',
+    description: 'Historical voting and proposal contracts',
+    icon: 'landmark',
+  },
+  migration: {
+    title: 'Migration',
+    description: 'Historical Confluence upgrade contracts',
+    icon: 'bridge',
+  },
+  genesis: {
+    title: 'Genesis',
+    description: 'Historical libraries and helper contracts from the 2018 launch',
+    icon: 'livepeer',
+  },
+}
+
+export const getExplorerBase = (sourceData = {}, chain) => {
+  const urls = sourceData?.meta?.explorerUrls || {}
+  if (chain === 'arbitrumOne') {
+    return urls.arbiscanAddress || `${urls.arbiscan || 'https://arbiscan.io'}/address/`
+  }
+
+  return urls.etherscanAddress || `${urls.etherscan || 'https://etherscan.io'}/address/`
+}
+
+export const normalizeContractsForTable = (sourceData = {}, entries, chain, fallbackLifecycle = 'active') =>
+  (entries || []).map((contract) => {
+    const type = contract.type || contract.deploymentKind || 'standalone'
+    const lifecycle = contract.lifecycle || fallbackLifecycle
+    const proxyAddress = contract.meta?.proxyAddress || contract.meta?.historicalProxyAddress || null
+
+    return {
+      Name: contract.name,
+      Address: contract.address,
+      _addressHref: contract.blockchainHref || `${getExplorerBase(sourceData, chain)}${contract.address}`,
+      Type: type,
+      Status: contract.meta?.statusLabel || lifecycleLabel[lifecycle] || lifecycle,
+      Category: contract.category,
+      Version: contract.version || contract.meta?.version || '—',
+      Chain: chainLabel[chain] || chain,
+      _lifecycle: lifecycle,
+      _chainKey: chain,
+      _typeKey: type,
+      _categoryKey: contract.category || 'other',
+      _proxyAddress: proxyAddress,
+      _proxyHref: proxyAddress ? `${getExplorerBase(sourceData, chain)}${proxyAddress}` : null,
+    }
+  })
+
+export const sortContractsForDisplay = (items = []) =>
+  [...items].sort((left, right) => {
+    const categoryA = categoryOrder.indexOf((left._categoryKey || left.Category || 'other').toLowerCase())
+    const categoryB = categoryOrder.indexOf((right._categoryKey || right.Category || 'other').toLowerCase())
+    if (categoryA !== categoryB) return categoryA - categoryB
+
+    const nameCompare = String(left.Name || '').localeCompare(String(right.Name || ''), 'en', {
+      sensitivity: 'base',
+    })
+    if (nameCompare !== 0) return nameCompare
+
+    const chainCompare = String(left.Chain || '').localeCompare(String(right.Chain || ''), 'en', {
+      sensitivity: 'base',
+    })
+    if (chainCompare !== 0) return chainCompare
+
+    const versionA = Number(String(left.Version || '').replace(/^V/i, '')) || 0
+    const versionB = Number(String(right.Version || '').replace(/^V/i, '')) || 0
+    return versionA - versionB
+  })
+
+export const renderAddressCell = (address, href) => (
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.35rem',
+      width: '100%',
+      minWidth: 0,
+    }}
+  >
+    <CopyText text={address} style={{ flex: 1 }} />
+    {href ? <LinkIcon href={href} color="var(--accent)" /> : null}
+  </div>
+)
+
+export const renderChainCell = (chainKey) => (
+  <span
+    style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '0.35rem',
+    }}
+  >
+    {chainKey === 'ethereumMainnet' ? (
+      <>
+        <Icon icon="ethereum" color="var(--hero-text)" size={13} />
+        Ethereum Mainnet
+      </>
+    ) : (
+      <>
+        <ArbitrumIcon color="var(--arbitrum)" />
+        Arbitrum One
+      </>
+    )}
+  </span>
+)
+
+export const renderTypeBadge = (type) => {
+  const colorMap = {
+    standalone: 'blue',
+    target: 'surface-destructive',
+    proxy: 'surface',
+  }
+
+  return <Badge color={colorMap[type] || 'surface'}>{type}</Badge>
+}
+
+export const getActiveEntries = (sourceData = {}) => [
+  ...normalizeContractsForTable(
+    sourceData,
+    sourceData?.arbitrumOne?.active || sourceData?.arbitrumOne?.current,
+    'arbitrumOne',
+    'active',
+  ),
+  ...normalizeContractsForTable(
+    sourceData,
+    sourceData?.ethereumMainnet?.active || sourceData?.ethereumMainnet?.current,
+    'ethereumMainnet',
+    'active',
+  ),
+]
+
+export const getImplementationTableItems = (sourceData = {}) => [
+  ...normalizeContractsForTable(
+    sourceData,
+    sourceData?.arbitrumOne?.currentImplementations,
+    'arbitrumOne',
+    'historical',
+  ),
+  ...normalizeContractsForTable(
+    sourceData,
+    sourceData?.ethereumMainnet?.currentImplementations,
+    'ethereumMainnet',
+    'historical',
+  ),
+]
+
+export const buildCategoryAccordionRows = (
+  items = [],
+  { includeType = true, includeVersion = false, showSeparators = true } = {},
+) => {
+  const rows = []
+  let lastCategory = null
+
+  sortContractsForDisplay(items).forEach((item) => {
+    if (showSeparators && item.Category && item.Category !== lastCategory) {
+      rows.push({
+        __separator: true,
+        Name: String(item.Category).toUpperCase(),
+      })
+      lastCategory = item.Category
+    }
+
+    const row = {
+      Name: <strong>{item.Name}</strong>,
+      Address: renderAddressCell(item.Address, item._addressHref),
+      Chain: renderChainCell(item._chainKey),
+      Category: item.Category,
+    }
+
+    if (includeVersion) {
+      row.Version = item.Version || '—'
+    }
+
+    if (includeType) {
+      row.Type = renderTypeBadge(item._typeKey || item.Type)
+    }
+
+    rows.push(row)
+  })
+
+  return rows
+}
+
+export const getProxyTableItems = (sourceData = {}) => {
+  const activeEntries = getActiveEntries(sourceData)
+  const implementationTableItems = getImplementationTableItems(sourceData)
+  const implementationLookup = implementationTableItems.reduce((lookup, item) => {
+    lookup.set(`${item.Name}:${item._chainKey}`, item)
+    return lookup
+  }, new Map())
+
+  return activeEntries
+    .filter(({ Type }) => Type === 'proxy')
+    .map((item) => {
+      const target = implementationLookup.get(`${item.Name}:${item._chainKey}`)
+      return {
+        ...item,
+        Proxy: 'proxy',
+        'Proxy Address': item.Address,
+        '_Proxy AddressHref': item._addressHref,
+        Target: target?._typeKey || 'target',
+        'Target Address': target?.Address || '—',
+        '_Target AddressHref': target?._addressHref,
+      }
+    })
+}
+
+export const getActiveTableItems = (sourceData = {}) => {
+  const activeEntries = getActiveEntries(sourceData)
+  return [
+    ...activeEntries.filter(({ Type }) => Type === 'standalone'),
+    ...getImplementationTableItems(sourceData),
+  ]
+}
+
+export const getPausedTableItems = (sourceData = {}) => [
+  ...normalizeContractsForTable(sourceData, sourceData?.arbitrumOne?.paused, 'arbitrumOne', 'paused'),
+  ...normalizeContractsForTable(sourceData, sourceData?.ethereumMainnet?.paused, 'ethereumMainnet', 'paused'),
+]
+
+export const getMigrationResidualTableItems = (sourceData = {}) => [
+  ...normalizeContractsForTable(
+    sourceData,
+    sourceData?.arbitrumOne?.migration_residual,
+    'arbitrumOne',
+    'migration_residual',
+  ),
+  ...normalizeContractsForTable(
+    sourceData,
+    sourceData?.ethereumMainnet?.migration_residual,
+    'ethereumMainnet',
+    'migration_residual',
+  ),
+]
+
+export const getLegacyOperationalTableItems = (sourceData = {}) => [
+  ...normalizeContractsForTable(
+    sourceData,
+    sourceData?.arbitrumOne?.legacy_operational,
+    'arbitrumOne',
+    'legacy_operational',
+  ),
+  ...normalizeContractsForTable(
+    sourceData,
+    sourceData?.ethereumMainnet?.legacy_operational,
+    'ethereumMainnet',
+    'legacy_operational',
+  ),
+]
+
+export const historicalCategoryTitle = (category) =>
+  historicalCategoryConfig[category]?.title ||
+  String(category || 'Historical')
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase())
+
+export const historicalCategoryDescription = (category) =>
+  historicalCategoryConfig[category]?.description || 'Historical contract versions grouped by generator-owned contract series'
+
+export const historicalCategoryIcon = (category) =>
+  historicalCategoryConfig[category]?.icon === 'livepeer'
+    ? <LivepeerIcon color="var(--accent)" size={16} />
+    : <Icon icon={historicalCategoryConfig[category]?.icon || 'clock-rotate-left'} color="var(--accent)" />
 
 <Danger>
  Ensure you are on the official `docs.livepeer.org/` site before using any address.
@@ -269,105 +554,23 @@ Livepeer protocol contracts are deployed on **Arbitrum One** (active) and **Ethe
 
 ## Active Livepeer Contract Addresses
 <Badge color="green"> ACTIVE </Badge>
-{/*
-THIS NEEDS TARGET CONTRACTS with the related proxy contract in another column
-Also change header colors for categories or instead just put them in a column
-*/}
 <Icon icon="check" color="var(--text)"/> _Verified <DataWrap value={contractAddresses.meta.lastVerified}/>_
 
-This table lists only currently active standalone contract entrypoints used for standard protocol reference. Active proxy contracts are listed separately below. Paused, migration-residual, and legacy-operational contracts are grouped into a separate section so the main searchable table stays active-only.
+This table lists currently active standalone contract entrypoints together with the current implementation targets behind active upgradeable proxies. Active proxy addresses are listed separately below. Paused, migration-residual, and legacy-operational contracts are grouped into a separate section so the main searchable table stays active-only.
 
 <Accordion title="See Workflow Verification Information">
-{/* This accordion should provide
-- pipeline details (mermaid diagram)
-- cadence / runtimes
-- verification method checks...
-- usage details  */}
-  The information in these contracts is populated by the GitHub Action [`update-contract-addresses.yml`](https://github.com/livepeer/docs/blob/main/.github/workflows/update-contract-addresses.yml).
+  The contracts registry on this page is generated by the GitHub Actions workflow [`update-contract-addresses.yml`](https://github.com/livepeer/docs/blob/main/.github/workflows/update-contract-addresses.yml).
 
-    - Cron: Weekly Monday 02:00 UTC
-    - Manual dispatch: From Actions tab with inputs (`dry_run`, `skip_verify`, `use_test_branch`)
-    - Repository dispatch: `governor-scripts-update`
+    - Refresh cadence: Scheduled daily at 02:00 UTC (`0 2 * * *`)
+    - Manual dispatch: Supports `dry_run`, `skip_verify`, and `use_test_branch`
+    - Repository dispatch triggers: `governor-scripts-update`, `protocol-update`, `bridge-update`, `go-livepeer-update`
 </Accordion>
-
-{/* WTF WITH THESE - MDX pages shouldn't have all this data in them...  */}
-
-export const chainLabel = {
-  arbitrumOne: "Arbitrum One",
-  ethereumMainnet: "Ethereum Mainnet",
-}
-
-export const lifecycleLabel = {
-  active: "Active",
-  paused: "Paused",
-  migration_residual: "Migration residual",
-  legacy_operational: "Legacy operational",
-  historical: "Historical",
-}
-
-export const explorerBase = {
-  arbitrumOne: contractAddresses.meta?.explorerUrls?.arbiscanAddress || `${contractAddresses.meta?.explorerUrls?.arbiscan || "https://arbiscan.io"}/address/`,
-  ethereumMainnet: contractAddresses.meta?.explorerUrls?.etherscanAddress || `${contractAddresses.meta?.explorerUrls?.etherscan || "https://etherscan.io"}/address/`,
-}
-
-export const normalizeContractsForTable = (entries, chain, fallbackLifecycle = "active") =>
-  (entries || []).map((contract) => {
-    const type = contract.type || contract.deploymentKind || "standalone"
-    const lifecycle = contract.lifecycle || fallbackLifecycle
-    return {
-      "Name": contract.name,
-      "Address": contract.address,
-      "_addressHref": contract.blockchainHref || `${explorerBase[chain]}${contract.address}`,
-      "Type": type,
-      "Status": contract.meta?.statusLabel || lifecycleLabel[lifecycle] || lifecycle,
-      "Category": contract.category,
-      "Chain": chainLabel[chain] || chain,
-      "_lifecycle": lifecycle,
-    }
-  })
-
-export const activeEntries = [
-  ...normalizeContractsForTable(
-    contractAddresses.arbitrumOne?.active || contractAddresses.arbitrumOne?.current,
-    "arbitrumOne",
-    "active",
-  ),
-  ...normalizeContractsForTable(
-    contractAddresses.ethereumMainnet?.active || contractAddresses.ethereumMainnet?.current,
-    "ethereumMainnet",
-    "active",
-  ),
-]
-
-export const proxyTableItems = activeEntries.filter(({ Type }) => Type === "proxy")
-
-export const activeTableItems = activeEntries.filter(
-  ({ Type }) => Type === "standalone"
-)
-
-export const implementationTableItems = [
-  ...normalizeContractsForTable(contractAddresses.arbitrumOne?.currentImplementations, "arbitrumOne", "historical"),
-  ...normalizeContractsForTable(contractAddresses.ethereumMainnet?.currentImplementations, "ethereumMainnet", "historical"),
-]
-
-export const nonActiveTableItems = [
-  ...normalizeContractsForTable(contractAddresses.arbitrumOne?.paused, "arbitrumOne", "paused"),
-  ...normalizeContractsForTable(contractAddresses.arbitrumOne?.migration_residual, "arbitrumOne", "migration_residual"),
-  ...normalizeContractsForTable(contractAddresses.arbitrumOne?.legacy_operational, "arbitrumOne", "legacy_operational"),
-  ...normalizeContractsForTable(contractAddresses.ethereumMainnet?.paused, "ethereumMainnet", "paused"),
-  ...normalizeContractsForTable(contractAddresses.ethereumMainnet?.migration_residual, "ethereumMainnet", "migration_residual"),
-  ...normalizeContractsForTable(contractAddresses.ethereumMainnet?.legacy_operational, "ethereumMainnet", "legacy_operational"),
-]
-
-export const currentTableItems = (() => {
-  return [...activeTableItems, ...proxyTableItems, ...nonActiveTableItems]
-})()
 
 <SearchTable
   TableComponent={DynamicTable}
   headerList={["Name", "Address", "Type", "Chain"]}
-  itemsList={activeTableItems}
-  columnWidths={{ Chain: '45%' }}
+  itemsList={getActiveTableItems(contractAddresses)}
+  columnWidths={{ Type: 'clamp(4.5rem, 6vw, 5.25rem)', Chain: 'clamp(12rem, 22vw, 15rem)' }}
   monospaceColumns={[]}
   searchPlaceholder="Search by name or address..."
   searchColumns={["Name", "Address"]}
@@ -378,9 +581,10 @@ export const currentTableItems = (() => {
   boldFirstColumn={true}
   columnVariant={{ "Type": "badge", "Chain": "textIcon", "Address": "addressWrapper" }}
   categoryBadges={[
+    { label: "target", color: "surface-destructive" },
     { label: "standalone", color: "blue" },
   ]}
-    textIcons={[
+  textIcons={[
     { label: "Arbitrum One", icon: <ArbitrumIcon color="var(--arbitrum)"/> },
     { label: "Ethereum Mainnet", icon: <Icon icon="ethereum" color="var(--hero-text)" size={13} /> }
   ]}
@@ -392,43 +596,27 @@ Proxy addresses are stable upgrade entrypoints for active controller-managed con
 
 <SearchTable
   TableComponent={DynamicTable}
-  headerList={["Name", "Address", "Chain"]}
-  itemsList={proxyTableItems}
-  columnWidths={{ Chain: '45%' }}
+  headerList={["Name", "Proxy", "Proxy Address", "Chain", "Target", "Target Address"]}
+  itemsList={getProxyTableItems(contractAddresses)}
+  columnWidths={{
+    Name: 'clamp(10rem, 16vw, 14rem)',
+    Proxy: 'clamp(3.75rem, 5vw, 4.5rem)',
+    "Proxy Address": 'clamp(14rem, 26vw, 20rem)',
+    Chain: 'clamp(12rem, 22vw, 15rem)',
+    Target: 'clamp(3.75rem, 5vw, 4.5rem)',
+    "Target Address": 'clamp(14rem, 26vw, 20rem)',
+  }}
   monospaceColumns={[]}
   searchPlaceholder="Search proxy contracts by name or address..."
-  searchColumns={["Name", "Address"]}
+  searchColumns={["Name", "Proxy Address", "Target Address"]}
   categoryColumn="Category"
   filterColumns={["Chain"]}
   showSeparators={true}
   separatorColumn="Category"
   boldFirstColumn={true}
-  columnVariant={{ "Chain": "textIcon", "Address": "addressWrapper" }}
-    textIcons={[
-    { label: "Arbitrum One", icon: <ArbitrumIcon color="var(--arbitrum)"/> },
-    { label: "Ethereum Mainnet", icon: <Icon icon="ethereum" color="var(--hero-text)" size={13} /> }
-  ]}
-/>
-
-### Current Implementation Addresses
-
-These are the currently deployed implementation targets behind upgradeable proxies. They are published for audit and upgrade-tracking workflows, but they are not part of the main active-only registry.
-
-<SearchTable
-  TableComponent={DynamicTable}
-  headerList={["Name", "Address", "Type", "Chain"]}
-  itemsList={implementationTableItems}
-  columnWidths={{ Chain: '45%' }}
-  monospaceColumns={[]}
-  searchPlaceholder="Search current implementation contracts by name or address..."
-  searchColumns={["Name", "Address"]}
-  categoryColumn="Category"
-  filterColumns={["Chain"]}
-  showSeparators={true}
-  separatorColumn="Category"
-  boldFirstColumn={true}
-  columnVariant={{ "Type": "badge", "Chain": "textIcon", "Address": "addressWrapper" }}
+  columnVariant={{ "Proxy": "badge", "Proxy Address": "addressWrapper", "Chain": "textIcon", "Target": "badge", "Target Address": "addressWrapper" }}
   categoryBadges={[
+    { label: "proxy", color: "surface" },
     { label: "target", color: "surface-destructive" },
   ]}
   textIcons={[
@@ -443,51 +631,65 @@ These are the currently deployed implementation targets behind upgradeable proxi
 
 Paused Ethereum contracts, migration-residual contracts, and legacy-operational helper contracts remain published for verification and audit purposes, but they are not part of the active contract table above.
 
-<SearchTable
-  TableComponent={DynamicTable}
-  headerList={["Name", "Address", "Type", "Status", "Chain"]}
-  itemsList={nonActiveTableItems}
-  columnWidths={{ Chain: '30%', Status: '22%' }}
-  monospaceColumns={[]}
-  searchPlaceholder="Search non-active contracts by name or address..."
-  searchColumns={["Name", "Address"]}
-  categoryColumn="Category"
-  filterColumns={["Chain", "Status", "Type"]}
-  showSeparators={true}
-  separatorColumn="Category"
-  boldFirstColumn={true}
-  columnVariant={{ "Type": "badge", "Status": "badge", "Chain": "textIcon", "Address": "addressWrapper" }}
-  categoryBadges={[
-    { label: "standalone", color: "blue" },
-    { label: "proxy", color: "surface" },
-    { label: "Paused", color: "surface-destructive" },
-    { label: "Migration complete", color: "yellow" },
-    { label: "Migration residual", color: "yellow" },
-    { label: "Active", color: "green" },
-  ]}
-  textIcons={[
-    { label: "Arbitrum One", icon: <ArbitrumIcon color="var(--arbitrum)"/> },
-    { label: "Ethereum Mainnet", icon: <Icon icon="ethereum" color="var(--hero-text)" size={13} /> }
-  ]}
-/>
+<AccordionGroup>
+  <Accordion title="Paused" icon="pause">
+    <p style={{ color: "var(--text)", fontStyle: "italic", marginBottom: "0.75rem" }}>
+      Controller-era contracts that remain published for verification but are no longer active.
+    </p>
+    <DynamicTable
+      headerList={["Name", "Address", "Chain", "Type"]}
+      itemsList={buildCategoryAccordionRows(getPausedTableItems(contractAddresses))}
+      columnWidths={{ Chain: '36%' }}
+      showSeparators={true}
+    />
+  </Accordion>
+
+  <Accordion title="Migration" icon="clock-rotate-left">
+    <p style={{ color: "var(--text)", fontStyle: "italic", marginBottom: "0.75rem" }}>
+      Contracts left in place for late claims or migration completion workflows.
+    </p>
+    <DynamicTable
+      headerList={["Name", "Address", "Chain", "Type"]}
+      itemsList={buildCategoryAccordionRows(getMigrationResidualTableItems(contractAddresses))}
+      columnWidths={{ Chain: '36%' }}
+      showSeparators={true}
+    />
+  </Accordion>
+
+  <Accordion title="Legacy Operational" icon="wrench">
+    <p style={{ color: "var(--text)", fontStyle: "italic", marginBottom: "0.75rem" }}>
+      Legacy helper contracts that remain deployed for reference or support functions.
+    </p>
+    <DynamicTable
+      headerList={["Name", "Address", "Chain", "Type"]}
+      itemsList={buildCategoryAccordionRows(getLegacyOperationalTableItems(contractAddresses))}
+      columnWidths={{ Chain: '36%' }}
+      showSeparators={true}
+    />
+  </Accordion>
+</AccordionGroup>
 
 <CustomDivider />
 
 ## Historical Contract Addresses
 
-Historical implementations replaced through governance upgrades. These target contracts are superseded - listed for audit trail and version history only. Do not interact with deprecated targets directly.
+Historical implementations replaced through governance upgrades. These target contracts are superseded and listed for audit trail and version history only. Do not interact with deprecated targets directly.
 
 <AccordionGroup>
-  <Accordion title={<AccordionTitle icon={<Icon icon="gear" color="var(--accent)" />} title="Core" description="Historical staking, payments, round progression, and service discovery contracts" />}>
-    <HistoricalContractTable contracts={["BondingManager","TicketBroker","Minter","RoundsManager","JobsManager","LivepeerVerifier"]} sourceData={contractAddresses} />
-</Accordion>
-
-  <Accordion title={<AccordionTitle icon={<Icon icon="landmark" color="var(--accent)" />} title="Governance" description="Historical voting and proposal contracts" />}>
-    <HistoricalContractTable contracts={["BondingVotes"]} sourceData={contractAddresses} />
+  <Accordion title={<AccordionTitle icon={historicalCategoryIcon("core")} title={historicalCategoryTitle("core")} description={historicalCategoryDescription("core")} />}>
+    <HistoricalContractTable category="core" sourceData={contractAddresses} />
   </Accordion>
 
-  <Accordion title={<AccordionTitle icon={<Icon icon="bridge" color="var(--accent)" />} title="Migration" description="Historical Confluence upgrade contracts" />}>
-    <HistoricalContractTable contracts={["L2Migrator"]} sourceData={contractAddresses} />
+  <Accordion title={<AccordionTitle icon={historicalCategoryIcon("governance")} title={historicalCategoryTitle("governance")} description={historicalCategoryDescription("governance")} />}>
+    <HistoricalContractTable category="governance" sourceData={contractAddresses} />
+  </Accordion>
+
+  <Accordion title={<AccordionTitle icon={historicalCategoryIcon("migration")} title={historicalCategoryTitle("migration")} description={historicalCategoryDescription("migration")} />}>
+    <HistoricalContractTable category="migration" sourceData={contractAddresses} />
+  </Accordion>
+
+  <Accordion title={<AccordionTitle icon={historicalCategoryIcon("genesis")} title={historicalCategoryTitle("genesis")} description={historicalCategoryDescription("genesis")} />}>
+    <HistoricalContractTable category="genesis" sourceData={contractAddresses} />
   </Accordion>
 </AccordionGroup>
 

@@ -44,10 +44,6 @@ const PAGE_OVERRIDES = {
     label: "Livepeer Contract Addresses",
     subtitle: "Verified On-Chain \u00b7 Automatically Updated",
   },
-  "v2/about/resources/blockchain-contracts": {
-    label: "Blockchain Contracts",
-    subtitle: "Protocol Architecture Overview",
-  },
   "v2/about/livepeer-protocol/blockchain-contracts": {
     label: "Blockchain Contracts",
     subtitle: "Architecture \u00b7 Interactions \u00b7 Governance",

@@ -759,6 +759,24 @@ function ensureLinkedFile(source, target) {
   fs.symlinkSync(source, target, 'file');
 }
 
+function ensureCopiedFile(source, target) {
+  if (pathExists(target)) {
+    const stats = fs.lstatSync(target);
+    if (stats.isFile() && !stats.isSymbolicLink()) {
+      const current = fs.readFileSync(target);
+      const desired = fs.readFileSync(source);
+      if (Buffer.compare(current, desired) === 0) {
+        return;
+      }
+    }
+
+    removeExistingPath(target, stats);
+  }
+
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  fs.copyFileSync(source, target);
+}
+
 function ensureWrittenFile(target, content) {
   const desiredContent = String(content || '');
 
@@ -784,6 +802,10 @@ function toPosixPath(value) {
 
 function normalizeRepoRelativePath(repoRoot, absolutePath) {
   return toPosixPath(path.relative(repoRoot, absolutePath)).replace(/^\/+/, '');
+}
+
+function shouldCopyWorkspaceFile(fileRelPath) {
+  return /\.(?:md|mdx|js|jsx|cjs|mjs|ts|tsx|css|json)$/i.test(String(fileRelPath || ''));
 }
 
 function isSafeRepoRelativePath(relPath) {
@@ -1181,7 +1203,7 @@ function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
     }
 
     addWorkspaceEntry(entries, fileRelPath, {
-      type: 'symlink',
+      type: shouldCopyWorkspaceFile(fileRelPath) ? 'copy' : 'symlink',
       source: absolutePath
     });
   });
@@ -1261,6 +1283,10 @@ function syncScopedWorkspace(workspaceDir, fileEntries) {
       const absoluteTarget = path.join(workspaceDir, relPath);
       if (entry.type === 'content') {
         ensureWrittenFile(absoluteTarget, entry.content);
+        return;
+      }
+      if (entry.type === 'copy') {
+        ensureCopiedFile(entry.source, absoluteTarget);
         return;
       }
       ensureLinkedFile(entry.source, absoluteTarget);

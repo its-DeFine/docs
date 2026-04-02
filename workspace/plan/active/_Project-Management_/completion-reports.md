@@ -3560,3 +3560,67 @@ The v2 `Delegators` rename is now merged on `docs-v2-dev` and validated as a pat
 | `operations/tests/run-all.js` | Test runner (modified) | Bootstraps repo dependency roots for staged/full test execution |
 | `operations/tests/run-pr-checks.js` | Test runner (modified) | Bootstraps dependency roots, passes env to child checks, and fixes stale validator paths |
 | `operations/scripts/automations/content/language-translation/lib/mdx-parser.js` | Utility (modified) | Resolves ESM parser dependencies through repo-owned installs |
+
+---
+
+## GitHub Actions Governance Phases 0-5 — 2026-04-01
+
+**Plans**: `.claude/plans/soft-gliding-falcon.md`
+**Scope**: Full governance framework design, audit, documentation, and CI infrastructure for 45 GitHub Actions workflows.
+**Outcome**: Met
+
+### Summary
+Designed and implemented a governance framework for all 45 GitHub Actions workflows, aligned to the existing script governance model. Co-designed 8 taxonomy decisions with the user (types, concerns, verbs, pipeline tags, naming convention, architectural separation). Generated 41 per-action documentation pages, a searchable catalog, and two CI workflows. GitHub Actions is now the 10th governed surface in the repo.
+
+### Completed
+- **Phase 0**: Best practices research + repo-specific analysis (2 reports)
+- **Phase 1**: Full audit of 45 workflows, machine-readable JSON, 6 Mermaid dependency diagrams, 18-bug registry
+- **Phase 2**: 8 co-designed decisions (D-ACT-01 through D-ACT-08): 7 types, 7 concerns, 11 verbs, 8 pipeline tags, naming convention, architectural separation (workflows=dispatchers, type=script's purpose)
+- **Phase 3**: Gold-standard page, template with full enum reference, type-by-type review with confirmed names for all 41 active workflows, generator script, 41 pages + catalog
+- **Phase 4**: Two CI workflows staged (generate-action-docs, check-action-naming)
+- **Phase 5**: References added to governance/exemplars.md and pipelines/exemplars.md. Governance index updated (10th surface). "Before Writing a Workflow" decision rule added
+- **Outcomes.md**: Visual outcome map with repo tree, aims, process, 8 per-trigger Mermaid diagrams, data feed consumption table with In Nav + Flags columns
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| D-ACT-01: interface as 7th type | Issue/PR workflows are event-reactive, not pipeline-shaped |
+| D-ACT-02: P5-auto distinct from P5 | Read-write (auto-commit) has different operational requirements than read-only |
+| D-ACT-03: Data-feed consolidation | 7 identical workflows merge into 1 matrix dispatcher |
+| D-ACT-04: Naming convention type-concern-verb-name.yml | Compensates for GitHub's flat workflow folder |
+| D-ACT-05: 7 concerns replacing original 4 | 'content' carried 26/45 workflows, useless for grouping |
+| D-ACT-06: Migrate .github/scripts/ to operations/scripts/ | Clean separation of dispatch (workflow) from work (script) |
+| D-ACT-07: automation renamed to integrator | Names what it does (pull external data) not what it is generically |
+| D-ACT-08: Workflows are dispatchers, type reflects script | Architectural insight enabling script extraction and composability |
+
+### Deferred Items
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Phase 6: Pipeline consolidation research | P1 | Design phase needed before any execution | None |
+| Phase 7: Build and test consolidated workflows | P1 | Needs Phase 6 design | Phase 6 |
+| Phase 8: Cleanup and deletion | P2 | Last, after everything proven | Phase 7 |
+| Scripts Governance Audit (D-ACT-06) | P1 | 163 scripts need same audit/co-design flow | None |
+| Contract addresses workflow rename | P2 | Pipeline changes in progress | Contracts thread |
+
+### Dependencies & Downstream Effects
+- **governance-index.mdx**: Now lists 10 governed surfaces (was 9). "Before Writing a Workflow" rule added
+- **references/**: Two new exemplar entries for actions governance and self-documenting pipeline
+- **actions-audit.json**: Machine-readable source of truth with confirmed new_name per workflow. Generator reads this
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `.github/workspace/actions-audit.json` | Data | Machine-readable audit of 45 workflows with confirmed names/types/concerns |
+| `.github/workspace/framework-canonical.md` | Framework | Governance rules: 7 types, 7 concerns, 11 verbs, 8 pipeline tags |
+| `.github/workspace/outcomes.md` | Visual map | Repo tree, aims, process, 8 Mermaid diagrams, data feed table |
+| `.github/workspace/reports-audits/decisions-log.mdx` | Decisions | 8 decisions (D-ACT-01 through D-ACT-08) |
+| `.github/workspace/reports-audits/audit1-full-classification.md` | Audit | Full classification + 18-bug registry |
+| `.github/workspace/reports-audits/report1-best-practices.md` | Research | GH Actions best practices |
+| `.github/workspace/reports-audits/report2-repo-analysis.md` | Research | Repo-specific analysis |
+| `.github/workspace/dependency-map.md` | Diagrams | 6 Mermaid dependency diagrams |
+| `.github/workspace/generate-action-pages.js` | Script | Page generator (reads audit JSON, produces MDX) |
+| `.github/workspace/actions-library/action-template.mdx` | Template | Per-action page template with full enum reference |
+| `.github/workspace/actions-library/catalog-index.mdx` | Catalog | Searchable index of all workflows |
+| `.github/workspace/actions-library/{type}/{concern}/*.mdx` | Pages | 41 per-action documentation pages |
+| `.github/workspace/actions-library/generators/maintenance/generate-action-docs.yml` | Workflow (staged) | P4 auto-regeneration |
+| `.github/workspace/actions-library/validators/governance/check-action-naming.yml` | Workflow (staged) | P3 naming convention validator |

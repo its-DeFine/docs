@@ -15,10 +15,10 @@
 2. **Reliability.** 18 known bugs (5 at P0). Missing permissions, masked errors, no concurrency control on auto-commit workflows. Governance gives us a framework to fix these systematically.
 3. **Maintainability.** 7 data-fetch workflows are copy-paste identical. 6 workflows have 80-400 line inline scripts. Consolidation and extraction reduce surface area.
 4. **Self-documentation.** When a workflow changes, its documentation page regenerates automatically. No manual doc maintenance.
-5. **Alignment.** Scripts have a 6-type, 4-concern taxonomy with 11-tag JSDoc headers. Components have a 7-tag standard. Actions get the same treatment so all three systems speak the same language.
+5. **Alignment.** Scripts have a 6-type, 4-concern taxonomy with 11-tag JSDoc headers. Components have a 7-tag standard. Actions get the same treatment (7 types, 7 concerns) so all three systems speak the same language.
 
 **What "done" looks like:**
-- Every workflow classified by type (7 types), concern (4 concerns), and pipeline tag (8 tags)
+- Every workflow classified by type (7 types), concern (7 concerns), and pipeline tag (8 tags)
 - One documentation page per workflow with Mermaid pipeline map, scripts, data files, triggers, and known bugs
 - A searchable catalog index page
 - A governance framework document with required standards for new workflows
@@ -97,17 +97,17 @@ We work in phases. Each phase has a gate (a human review point) before the next 
     generate-llms-files.yml                     #   P4  generator   post-merge
     governance-sync.yml                         #   P4  dispatch    post-merge
     close-linked-issues-docs-v2.yml             #   P4  interface   post-merge
-    update-contract-addresses.yml               #   P5a automation  scheduled + commit
-    update-changelogs.yml                       #   P5a automation  scheduled + commit
-    update-discord-data.yml                     #   P5a automation  scheduled + commit
-    update-forum-data.yml                       #   P5a automation  scheduled + commit
-    update-ghost-blog-data.yml                  #   P5a automation  scheduled + commit
-    update-github-data.yml                      #   P5a automation  scheduled + commit
-    update-rss-blog-data.yml                    #   P5a automation  scheduled + commit
-    update-youtube-data.yml                     #   P5a automation  scheduled + commit
-    update-livepeer-release.yml                 #   P5a automation  scheduled + commit
-    project-showcase-sync.yml                   #   P5a automation  scheduled + commit
-    sync-large-assets.yml                       #   P5a automation  scheduled + commit
+    update-contract-addresses.yml               #   P5a integrator  scheduled + commit
+    update-changelogs.yml                       #   P5a integrator  scheduled + commit
+    update-discord-data.yml                     #   P5a integrator  scheduled + commit
+    update-forum-data.yml                       #   P5a integrator  scheduled + commit
+    update-ghost-blog-data.yml                  #   P5a integrator  scheduled + commit
+    update-github-data.yml                      #   P5a integrator  scheduled + commit
+    update-rss-blog-data.yml                    #   P5a integrator  scheduled + commit
+    update-youtube-data.yml                     #   P5a integrator  scheduled + commit
+    update-livepeer-release.yml                 #   P5a integrator  scheduled + commit
+    project-showcase-sync.yml                   #   P5a integrator  scheduled + commit
+    sync-large-assets.yml                       #   P5a integrator  scheduled + commit
     sdk_generation.yaml                         #   P5a generator   scheduled + commit
     content-health.yml                          #   P5  audit       scheduled read-only
     freshness-monitor.yml                       #   P5  audit       scheduled read-only
@@ -115,7 +115,7 @@ We work in phases. Each phase has a gate (a human review point) before the next 
     repair-governance.yml                       #   P6  remediator  self-heal
     seo-refresh.yml                             #   man remediator  manual
     style-homogenise.yml                        #   man remediator  manual
-    translate-docs.yml                          #   man automation  manual
+    translate-docs.yml                          #   man integrator  manual
     discord-issue-intake.yml                    #   evt interface   event-driven
     issue-auto-label.yml                        #   evt interface   event-driven
     docs-v2-issue-indexer.yml                   #   evt interface   event-driven
@@ -159,7 +159,7 @@ We work in phases. Each phase has a gate (a human review point) before the next 
     actions-library/                            #   Per-action docs: type/concern/page.mdx
       action-template.mdx                       #   Template for new pages
       catalog-index.mdx                         #   Master SearchTable index
-      automations/                              #   type: automation (12 pages)
+      integrators/                              #   type: integrator (12 pages)
         integrations/                           #     concern: integrations
           update-contract-addresses.mdx         #       GOLD STANDARD
           update-changelogs.mdx
@@ -399,7 +399,7 @@ graph LR
 
 #### Data Feed to Page Map
 
-Where the automation data actually surfaces on the live site.
+Where the integrator data actually surfaces on the live site.
 
 | Workflow | Data file | Consuming pages | In nav? | Flags |
 |---|---|---|---|---|

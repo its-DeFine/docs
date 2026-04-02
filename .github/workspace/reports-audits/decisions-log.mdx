@@ -68,7 +68,7 @@
 | `dispatch` | Orchestrate multiple scripts/workflows | 1 |
 | `interface` | Issue/PR event handling and triage | 5 |
 
-**Status:** Confirmed (D-ACT-01 added interface, D-ACT-07 renamed automation/generator).
+**Status:** Confirmed (D-ACT-01 added interface, D-ACT-07 renamed automation to integrator).
 
 ### Concern Taxonomy (7 concerns, confirmed D-ACT-05)
 
@@ -80,8 +80,8 @@
 | `health` | Site integrity, links, rendering, freshness, assets | 8 |
 | `discoverability` | SEO, AEO, AI indexing, translation | 7 |
 | `governance` | System rules, compliance, issue/PR management | 8 |
+| `brand` | Style, formatting, page structure, voice | 1 |
 
-**Reserved:** `brand` (no workflows yet).
 **Status:** Confirmed.
 
 ---
@@ -184,6 +184,96 @@
 
 **Reasoning:** Every workflow does the same thing: checkout, setup, run script, handle output. The only difference is what the script does. Making this separation explicit means workflows become thin, standardised shells and the interesting logic lives in governed, independently runnable scripts.
 **Impact:** Strengthens D-ACT-06. No changes to naming convention or type enum.
+
+---
+
+---
+
+## Type-by-Type Review: Confirmed Names
+
+### Integrators (12 workflows, reviewed 2026-04-01)
+
+| # | Current name | New name | Concern | Flags |
+|---|---|---|---|---|
+| 1-6 | update-discord-data, update-forum-data, update-ghost-blog-data, update-github-data, update-rss-blog-data, update-youtube-data | `integrator-copy-update-social-feeds.yml` (single matrix) | copy | D-ACT-03: merge 7 into 1. 3 have missing permissions bugs. github-data has zero consumers (flag for wiring up) |
+| 7 | update-blog-data.yml | **DELETE** | - | Broken: hardcoded API key placeholder |
+| 8 | update-contract-addresses.yml | **Deferred** | - | Pipeline changes in progress. Do not rename yet |
+| 9 | update-changelogs.yml | `integrator-copy-update-changelogs.yml` | copy | LLM integration, no concurrency control |
+| 10 | update-livepeer-release.yml | `integrator-maintenance-update-release-version.yml` | maintenance | Inline script (60 lines), extraction candidate. GNU grep incompatible |
+| 11 | project-showcase-sync.yml | `integrator-copy-update-showcase-submissions.yml` | copy | Disable for now, not working. Flag for follow-up |
+| 12 | sync-large-assets.yml | `integrator-maintenance-update-large-assets.yml` | maintenance | Clean, has dry-run |
+| 13 | translate-docs.yml | `integrator-copy-update-translations.yml` | copy | Path mismatch bug (es,fr,cn vs es,fr,de) |
+
+### Generators (7 workflows, reviewed 2026-04-01)
+
+| # | Current name | New name | Concern | Flags |
+|---|---|---|---|---|
+| 1 | generate-ai-companions.yml | `generator-discoverability-generate-glossary-companions.yml` | discoverability | No concurrency control |
+| 2 | generate-ai-sitemap.yml | `generator-discoverability-generate-ai-sitemap.yml` | discoverability | Broad push trigger, no concurrency |
+| 3 | generate-component-registry.yml | `generator-maintenance-generate-component-registry.yml` | maintenance | Missing verify pair, no concurrency |
+| 4 | generate-docs-guide-catalogs.yml | `generator-maintenance-generate-docs-guide-catalogs.yml` | maintenance | Overly broad git add, no concurrency |
+| 5 | generate-docs-index.yml | `generator-maintenance-generate-docs-index.yml` | maintenance | Broad push trigger, no concurrency |
+| 6 | generate-llms-files.yml | `generator-discoverability-generate-llms-files.yml` | discoverability | No concurrency |
+| 7 | sdk_generation.yaml | `generator-maintenance-generate-sdk-clients.yml` | maintenance | Fix .yaml extension. Current name "Generate" is useless |
+
+**Systemic:** All 7 lack concurrency control and error handling. Fix in Phase 6.
+
+### Validators (10 workflows, reviewed 2026-04-01)
+
+| # | Current name | New name | Concern | Flags |
+|---|---|---|---|---|
+| 1 | test-suite.yml | `validator-copy-check-content-quality-suite.yml` | copy | Hard gate (P2) |
+| 2 | codex-governance.yml | `validator-governance-check-codex-compliance.yml` | governance | Hard gate (P2). Script path may be stale |
+| 3 | broken-links.yml | `validator-health-check-broken-links.yml` | health | |
+| 4 | test-v2-pages.yml | `validator-health-check-page-rendering.yml` | health | |
+| 5 | openapi-reference-validation.yml | `validator-health-check-openapi-reference.yml` | health | Uses create-pull-request@v6 (others @v7) |
+| 6 | check-ai-companions.yml | `validator-discoverability-check-glossary-companions.yml` | discoverability | Verify pair for generate-ai-companions |
+| 7 | check-docs-guide-catalogs.yml | `validator-maintenance-check-docs-guide-catalogs.yml` | maintenance | Verify pair for generate-docs-guide-catalogs |
+| 8 | check-docs-index.yml | `validator-maintenance-check-docs-index.yml` | maintenance | Verify pair for generate-docs-index |
+| 9 | verify-ai-sitemap.yml | `validator-discoverability-check-ai-sitemap.yml` | discoverability | Hardcoded branch. Verify pair for generate-ai-sitemap |
+| 10 | verify-llms-files.yml | `validator-discoverability-check-llms-files.yml` | discoverability | Hardcoded branch. Verify pair for generate-llms-files |
+
+---
+
+### Auditors (3 workflows, reviewed 2026-04-01)
+
+| # | Current name | New name | Concern | Flags |
+|---|---|---|---|---|
+| 1 | content-health.yml | `audit-health-scan-content-quality.yml` | health | All 6 steps have continue-on-error masking failures. Script paths may be stale |
+| 2 | freshness-monitor.yml | `audit-health-scan-data-freshness.yml` | health | Inline script (80 lines), extraction candidate. Hardcoded file list + thresholds |
+| 3 | v2-external-link-audit.yml | `audit-health-scan-external-links.yml` | health | Clean |
+
+---
+
+### Remediators (3 workflows, reviewed 2026-04-01)
+
+| # | Current name | New name | Concern | Flags |
+|---|---|---|---|---|
+| 1 | repair-governance.yml | `remediator-governance-repair-pipelines.yml` | governance | Dead code referencing undefined input |
+| 2 | seo-refresh.yml | `remediator-discoverability-repair-seo-metadata.yml` | discoverability | **P0: no commit step, writes vanish** |
+| 3 | style-homogenise.yml | `remediator-brand-repair-en-gb-style.yml` | brand | First workflow using `brand` concern. Script path may be stale |
+
+---
+
+### Interfaces (5 workflows, reviewed 2026-04-01)
+
+| # | Current name | New name | Concern | Flags |
+|---|---|---|---|---|
+| 1 | auto-assign-docs-reviewers.yml | `interface-governance-assign-reviewers.yml` | governance | Hardcoded branch. 80 lines inline |
+| 2 | close-linked-issues-docs-v2.yml | `interface-governance-close-linked-issues.yml` | governance | 141 lines inline |
+| 3 | discord-issue-intake.yml | `interface-governance-intake-discord-issues.yml` | governance | 261 lines inline |
+| 4 | docs-v2-issue-indexer.yml | `interface-governance-index-issues.yml` | governance | 403 lines inline |
+| 5 | issue-auto-label.yml | `interface-governance-label-issues.yml` | governance | Hardcoded label metadata. 339 lines inline |
+
+**Systemic:** All 5 are inline-only (1,224 total lines). All extraction candidates for D-ACT-06.
+
+---
+
+### Dispatchers (1 workflow, reviewed 2026-04-01)
+
+| # | Current name | New name | Concern | Flags |
+|---|---|---|---|---|
+| 1 | governance-sync.yml | `dispatch-governance-post-merge-sync.yml` | governance | Dead code (undefined input). Python3 dependency for JSON parsing |
 
 ---
 

@@ -4,7 +4,9 @@ const path = require("node:path");
 
 const {
   buildContractVerifierChainData,
+  buildContractVerifierVerifyChains,
   buildContractVerifierLookupData,
+  findContractVerifierInventoryMatch,
   isContractVerifierControllerLookupEligible,
 } = require(path.join(process.cwd(), "snippets/components/integrators/feeds/contractVerifierData.cjs"));
 
@@ -99,4 +101,26 @@ test("buildContractVerifierLookupData preserves active cross-chain duplicates un
     result.entriesByName.LivepeerToken.map((entry) => entry.chain),
     ["arbitrumOne", "ethereumMainnet"]
   );
+});
+
+test("verify helpers prefer an exact pipeline match chain before fallback explorer order", () => {
+  const data = {
+    arbitrumOne: {
+      inventory: [
+        { name: "BondingManager", chain: "arbitrumOne", address: addr("1"), type: "proxy", category: "core" },
+      ],
+    },
+    ethereumMainnet: {
+      inventory: [
+        { name: "LivepeerToken", chain: "ethereumMainnet", address: addr("2"), type: "standalone", category: "token" },
+      ],
+    },
+  };
+
+  const match = findContractVerifierInventoryMatch(data, addr("2").toUpperCase());
+  assert.equal(match?.chain, "ethereumMainnet");
+  assert.equal(match?.name, "LivepeerToken");
+
+  const chainOrder = buildContractVerifierVerifyChains(data, addr("2"), "arbitrumOne");
+  assert.deepEqual(chainOrder, ["ethereumMainnet", "arbitrumOne"]);
 });

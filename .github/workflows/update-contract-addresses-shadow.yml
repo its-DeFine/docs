@@ -2,7 +2,7 @@ name: Update Contract Addresses Shadow
 
 on:
   schedule:
-    - cron: "30 */6 * * *"
+    - cron: "30 2 * * *" # Daily at 02:30 UTC
 
   repository_dispatch:
     types: [governor-scripts-update, protocol-update, bridge-update, go-livepeer-update]
@@ -38,6 +38,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install contracts pipeline dependencies
+        run: npm ci --prefix operations
+
       - name: Run shadow contracts pipeline
         id: generate
         continue-on-error: true
@@ -51,7 +54,7 @@ jobs:
           ETHEREUM_RPC_FALLBACK_URL: ${{ secrets.ETHEREUM_RPC_FALLBACK_URL }}
         run: |
           set -euo pipefail
-          FLAGS="--dry-run"
+          FLAGS="--check"
           if [[ "${{ inputs.skip_verify }}" == "true" ]]; then FLAGS="$FLAGS --skip-verify"; fi
           node .github/scripts/fetch-contract-addresses.js $FLAGS
 

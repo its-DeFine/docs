@@ -49,7 +49,7 @@ function runTests() {
 
   runCase('collects only real docs routes from docs and scoped navigation', () => {
     const routes = getRealDocsRoutes(REPO_ROOT);
-    assert(routes.includes('v2/about/resources/blockchain-contracts'));
+    assert(routes.includes('v2/about/livepeer-protocol/blockchain-contracts'));
     assert(!routes.includes('v2/resources/redirect'));
     assert(!routes.includes(' '));
   });
@@ -57,7 +57,7 @@ function runTests() {
   runCase('suggests snippets as absolute root imports', () => {
     const suggestions = getMdxImportSuggestions(
       REPO_ROOT,
-      'v2/about/resources/blockchain-contracts.mdx',
+      'v2/about/livepeer-protocol/blockchain-contracts.mdx',
       '/snippets/components/displays/quotes/Q'
     );
 
@@ -113,7 +113,7 @@ function runTests() {
                   tabs: [
                     {
                       tab: 'Test',
-                      pages: ['v2/about/resources/blockchain-contracts', 'v2/resources/redirect']
+                      pages: ['v2/about/livepeer-protocol/blockchain-contracts', 'v2/resources/redirect']
                     }
                   ]
                 }

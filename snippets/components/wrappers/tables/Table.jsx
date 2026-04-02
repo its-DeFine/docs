@@ -68,7 +68,13 @@ export const DynamicTable = ({
                     textAlign: "left",
                     fontWeight: "600",
                     color: "var(--lp-color-on-accent)",
-                    ...(columnWidths[header] ? { width: columnWidths[header] } : {}),
+                    ...(columnWidths[header]
+                      ? {
+                          width: columnWidths[header],
+                          minWidth: columnWidths[header],
+                          maxWidth: columnWidths[header],
+                        }
+                      : {}),
                   }}
                 >
                   {header}
@@ -117,6 +123,13 @@ export const DynamicTable = ({
                           fontFamily: isMonospace ? "monospace" : "inherit",
                           wordWrap: "break-word",
                           overflowWrap: "break-word",
+                          ...(columnWidths[header]
+                            ? {
+                                width: columnWidths[header],
+                                minWidth: columnWidths[header],
+                                maxWidth: columnWidths[header],
+                              }
+                            : {}),
                         }}
                       >
                         {isMonospace ? <code>{value}</code> : value}

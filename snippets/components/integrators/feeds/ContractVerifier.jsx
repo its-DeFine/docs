@@ -16,116 +16,168 @@
 import { CopyText } from '/snippets/components/elements/text/Text.jsx'
 import { ArbitrumIcon } from '/snippets/components/elements/icons/Icons.jsx'
 
-const buildContractVerifierChainData = (data = {}, chainKey) => {
-  const chainData = (data && data[chainKey]) || {}
-  const activeEntries = chainData.active || chainData.current || []
-  const inventoryEntries = chainData.inventory || [
-    ...activeEntries,
-    ...((chainData.currentImplementations) || []),
-  ]
-  const canonical = {}
-
-  activeEntries.forEach((entry) => {
-    if (!canonical[entry.name]) {
-      canonical[entry.name] = entry
-    } else if ((entry.type || entry.deploymentKind) === 'proxy') {
-      canonical[entry.name] = entry
-    }
-  })
-
-  return { activeEntries, inventoryEntries, canonical }
-}
-
-const buildContractVerifierLookupData = (data = {}) => {
-  const chainOrder = ['arbitrumOne', 'ethereumMainnet']
-  const entriesByName = {}
-  const primaryByName = {}
-
-  chainOrder.forEach((chainKey) => {
-    const { canonical } = buildContractVerifierChainData(data, chainKey)
-    Object.values(canonical).forEach((entry) => {
-      if (!entriesByName[entry.name]) {
-        entriesByName[entry.name] = []
-      }
-      entriesByName[entry.name].push(entry)
-      if (!primaryByName[entry.name]) {
-        primaryByName[entry.name] = entry
-      }
-    })
-  })
-
-  Object.values(entriesByName).forEach((entries) => {
-    entries.sort((a, b) => {
-      const chainA = chainOrder.indexOf(a.chain || '')
-      const chainB = chainOrder.indexOf(b.chain || '')
-      if (chainA !== chainB) return chainA - chainB
-      return a.name.localeCompare(b.name)
-    })
-  })
-
-  return {
-    entriesByName,
-    lookupEntries: Object.values(primaryByName),
-  }
-}
-
-const buildContractVerifierGlobalInventory = (data = {}) => {
-  const chainOrder = ['arbitrumOne', 'ethereumMainnet']
-  const entries = []
-
-  chainOrder.forEach((chainKey) => {
-    const chainData = buildContractVerifierChainData(data, chainKey)
-    chainData.inventoryEntries.forEach((entry) => {
-      entries.push(entry)
-    })
-  })
-
-  return entries
-}
-
-const isContractVerifierControllerLookupEligible = (entry, hasController) => {
-  const entryMeta = (entry && entry.meta) || {}
-  const hash = entryMeta.keccakHash || null
-  const structuredRegistered = entry?.verification?.controller?.controllerRegistered
-  const topLevelRegistered =
-    typeof entry?.controllerRegistered === 'boolean' ? entry.controllerRegistered : null
-  const metaRegistered =
-    typeof entryMeta.controllerRegistered === 'boolean'
-      ? entryMeta.controllerRegistered
-      : null
-  const registrationState =
-    entryMeta.registrationState ||
-    entry?.verification?.controller?.registrationState ||
-    null
-  let isRegistered = null
-
-  if (typeof structuredRegistered === 'boolean') {
-    isRegistered = structuredRegistered
-  } else if (typeof topLevelRegistered === 'boolean') {
-    isRegistered = topLevelRegistered
-  } else if (typeof metaRegistered === 'boolean') {
-    isRegistered = metaRegistered
-  } else if (registrationState === 'registered') {
-    isRegistered = true
-  } else if (
-    registrationState &&
-    registrationState !== 'unknown' &&
-    registrationState !== 'not_applicable'
-  ) {
-    isRegistered = false
-  } else if (typeof entryMeta.registeredInController === 'boolean') {
-    isRegistered = entryMeta.registeredInController
-  }
-
-  return Boolean(hasController && hash && isRegistered === true)
-}
-
 export const ContractVerifier = ({
   data,
   className = '',
   style = {},
   ...rest
 }) => {
+  function buildContractVerifierChainData(innerData = {}, chainKey) {
+    const chainData = (innerData && innerData[chainKey]) || {}
+    const activeEntries = chainData.active || chainData.current || []
+    const inventoryEntries = chainData.inventory || [
+      ...activeEntries,
+      ...(chainData.currentImplementations || []),
+    ]
+    const canonical = {}
+
+    activeEntries.forEach((entry) => {
+      if (!canonical[entry.name]) {
+        canonical[entry.name] = entry
+      } else if ((entry.type || entry.deploymentKind) === 'proxy') {
+        canonical[entry.name] = entry
+      }
+    })
+
+    return { activeEntries, inventoryEntries, canonical }
+  }
+
+  function buildContractVerifierLookupData(innerData = {}) {
+    const chainOrder = ['arbitrumOne', 'ethereumMainnet']
+    const entriesByName = {}
+    const primaryByName = {}
+
+    chainOrder.forEach((chainKey) => {
+      const { canonical } = buildContractVerifierChainData(innerData, chainKey)
+      Object.values(canonical).forEach((entry) => {
+        if (!entriesByName[entry.name]) {
+          entriesByName[entry.name] = []
+        }
+        entriesByName[entry.name].push(entry)
+        if (!primaryByName[entry.name]) {
+          primaryByName[entry.name] = entry
+        }
+      })
+    })
+
+    Object.values(entriesByName).forEach((entries) => {
+      entries.sort((a, b) => {
+        const chainA = chainOrder.indexOf(a.chain || '')
+        const chainB = chainOrder.indexOf(b.chain || '')
+        if (chainA !== chainB) return chainA - chainB
+        return a.name.localeCompare(b.name)
+      })
+    })
+
+    return {
+      entriesByName,
+      lookupEntries: Object.values(primaryByName),
+    }
+  }
+
+  function buildContractVerifierGlobalInventory(innerData = {}) {
+    const chainOrder = ['arbitrumOne', 'ethereumMainnet']
+    const entries = []
+
+    chainOrder.forEach((chainKey) => {
+      const chainData = buildContractVerifierChainData(innerData, chainKey)
+      chainData.inventoryEntries.forEach((entry) => {
+        entries.push(entry)
+      })
+    })
+
+    return entries
+  }
+
+  function normalizeContractVerifierAddress(innerAddress = '') {
+    return String(innerAddress || '').trim().toLowerCase()
+  }
+
+  function findContractVerifierInventoryMatch(
+    innerData = {},
+    innerAddress = ''
+  ) {
+    const needle = normalizeContractVerifierAddress(innerAddress)
+    if (!needle) return null
+
+    return (
+      buildContractVerifierGlobalInventory(innerData).find(
+        (entry) =>
+          normalizeContractVerifierAddress(entry?.address) === needle
+      ) || null
+    )
+  }
+
+  function buildContractVerifierVerifyChains(
+    innerData = {},
+    innerAddress = '',
+    preferredChain = 'arbitrumOne'
+  ) {
+    const chainOrder = ['arbitrumOne', 'ethereumMainnet']
+    const pipelineMatch = findContractVerifierInventoryMatch(
+      innerData,
+      innerAddress
+    )
+    const ordered = []
+
+    if (pipelineMatch?.chain && chainOrder.includes(pipelineMatch.chain)) {
+      ordered.push(pipelineMatch.chain)
+    }
+    if (
+      chainOrder.includes(preferredChain) &&
+      !ordered.includes(preferredChain)
+    ) {
+      ordered.push(preferredChain)
+    }
+    chainOrder.forEach((chainKey) => {
+      if (!ordered.includes(chainKey)) {
+        ordered.push(chainKey)
+      }
+    })
+
+    return ordered
+  }
+
+  function isContractVerifierControllerLookupEligible(entry, hasController) {
+    const entryMeta = (entry && entry.meta) || {}
+    const hash = entryMeta.keccakHash || null
+    const structuredRegistered =
+      entry?.verification?.controller?.controllerRegistered
+    const topLevelRegistered =
+      typeof entry?.controllerRegistered === 'boolean'
+        ? entry.controllerRegistered
+        : null
+    const metaRegistered =
+      typeof entryMeta.controllerRegistered === 'boolean'
+        ? entryMeta.controllerRegistered
+        : null
+    const registrationState =
+      entryMeta.registrationState ||
+      entry?.verification?.controller?.registrationState ||
+      null
+    let isRegistered = null
+
+    if (typeof structuredRegistered === 'boolean') {
+      isRegistered = structuredRegistered
+    } else if (typeof topLevelRegistered === 'boolean') {
+      isRegistered = topLevelRegistered
+    } else if (typeof metaRegistered === 'boolean') {
+      isRegistered = metaRegistered
+    } else if (registrationState === 'registered') {
+      isRegistered = true
+    } else if (
+      registrationState &&
+      registrationState !== 'unknown' &&
+      registrationState !== 'not_applicable'
+    ) {
+      isRegistered = false
+    } else if (typeof entryMeta.registeredInController === 'boolean') {
+      isRegistered = entryMeta.registeredInController
+    }
+
+    return Boolean(hasController && hash && isRegistered === true)
+  }
+
   // ── CONSTANTS ──────────────────────────────────────────────────────────
   const ZERO_ADDR = '0x0000000000000000000000000000000000000000'
   const SELECTOR = '0xe16c7d98' // keccak256("getContract(bytes32)")[:4]
@@ -385,30 +437,60 @@ export const ContractVerifier = ({
     setError(null)
     setResult(null)
     try {
-      const res = await fetch(
-        `${chainConfig.blockscout}/api/v2/addresses/${trimmed}`
-      )
-      if (!res.ok) throw new Error(`Blockscout returned ${res.status}`)
-      const bsData = await res.json()
-      const nameStr = (bsData.name || '').toLowerCase()
+      const pipelineMatch =
+        findContractVerifierInventoryMatch(data, trimmed)
+      const verifyChains = buildContractVerifierVerifyChains(data, trimmed, chain)
+      let explorerResult = null
+      let lastExplorerError = null
+
+      for (const chainKey of verifyChains) {
+        const verifyChainConfig = CHAINS[chainKey]
+        if (!verifyChainConfig?.blockscout) continue
+
+        try {
+          const res = await fetch(
+            `${verifyChainConfig.blockscout}/api/v2/addresses/${trimmed}`
+          )
+          if (!res.ok) throw new Error(`Blockscout returned ${res.status}`)
+          const bsData = await res.json()
+          explorerResult = { chainKey, data: bsData }
+          if (bsData?.is_contract || pipelineMatch?.chain === chainKey) {
+            break
+          }
+        } catch (error_) {
+          lastExplorerError = error_
+        }
+      }
+
+      if (!explorerResult && !pipelineMatch) {
+        throw lastExplorerError || new Error('Explorer verification failed')
+      }
+
+      const bsData = explorerResult?.data || {}
+      const resolvedChain =
+        pipelineMatch?.chain || explorerResult?.chainKey || chain
+      const nameStr = (bsData.name || pipelineMatch?.name || '').toLowerCase()
       const isLivepeerNamed =
-        nameStr.includes('livepeer') || nameStr.includes('proxy')
-      // Cross-check both supported chains before falling back to explorer-only evidence.
-      const pipelineMatch = globalInventoryEntries.find(
-        (c) => c.address.toLowerCase() === trimmed.toLowerCase()
-      )
+        Boolean(pipelineMatch) ||
+        nameStr.includes('livepeer') ||
+        nameStr.includes('proxy')
+
       setResult({
         mode: 'verify',
-        is_contract: bsData.is_contract,
-        is_verified: bsData.is_verified,
-        name: bsData.name || null,
+        is_contract: bsData.is_contract ?? Boolean(pipelineMatch),
+        is_verified:
+          bsData.is_verified ??
+          pipelineMatch?.sourceVerified ??
+          null,
+        name: bsData.name || pipelineMatch?.name || null,
         isLivepeerNamed,
         has_logs: bsData.has_logs || false,
         queriedAddress: trimmed,
         pipelineMatch: pipelineMatch || null,
+        resolvedChain,
       })
     } catch (e) {
-      setError(e.message || 'Blockscout query failed')
+      setError(e.message || 'Explorer query failed')
     } finally {
       setLoading(false)
     }
@@ -915,9 +997,9 @@ export const ContractVerifier = ({
         <div style={styles.card}>
           <span style={styles.badgeMismatch}>NOT A CONTRACT</span>
           <span style={{ fontSize: '0.9rem' }}>
-            This address is not a contract on Arbitrum One. It may be an
-            externally owned account (EOA) or does not exist on the selected
-            chain.
+            This address is not a contract on Arbitrum One or Ethereum
+            Mainnet. It may be an externally owned account (EOA) or does not
+            exist on either supported chain.
           </span>
         </div>
       )
@@ -925,13 +1007,16 @@ export const ContractVerifier = ({
     return (
       <div style={styles.card}>
         {renderIdentity(
-          matchedEntry || { name: result.name || 'Address lookup', chain },
+          matchedEntry || {
+            name: result.name || 'Address lookup',
+            chain: result.resolvedChain || chain,
+          },
           statusBadge,
           result.name || 'Address lookup'
         )}
         {renderAddressBlock(
           result.queriedAddress,
-          matchedEntry?.chain || chain
+          result.resolvedChain || matchedEntry?.chain || chain
         )}
         {renderVerificationBlock(verificationBullets)}
         {result.name && (
@@ -968,8 +1053,8 @@ export const ContractVerifier = ({
       {tab === 'verify' && (
         <div style={{ fontSize: '0.9rem', color: 'var(--muted-text)' }}>
           Paste any address to check bytecode, explorer verification, and
-          whether it matches the published Livepeer contract registry on{' '}
-          {chainConfig.label}.
+          whether it matches the published Livepeer contract registry on
+          Arbitrum One or Ethereum Mainnet.
         </div>
       )}
 
@@ -1090,12 +1175,21 @@ export const ContractVerifier = ({
               <div style={{ marginTop: '0.5rem', fontSize: '0.85rem' }}>
                 Try inspecting this address directly on{' '}
                 <a
-                  href={chainConfig.etherscan}
+                  href={CHAINS.arbitrumOne.etherscan}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={styles.link}
                 >
                   Arbiscan
+                </a>{' '}
+                or{' '}
+                <a
+                  href={CHAINS.ethereumMainnet.etherscan}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={styles.link}
+                >
+                  Etherscan
                 </a>
                 .
               </div>

@@ -798,10 +798,10 @@ async function runTests() {
     assert.ok(!fs.lstatSync(v2Dir).isSymbolicLink(), 'workspace v2 should not be a symlink');
     assert.ok(fs.lstatSync(snippetsDir).isDirectory(), 'workspace snippets should be a real directory');
     assert.ok(!fs.lstatSync(snippetsDir).isSymbolicLink(), 'workspace snippets should not be a symlink');
-    assert.ok(fs.lstatSync(rootStyleFile).isSymbolicLink(), 'root style.css should be included in the scoped workspace');
-    assert.ok(fs.lstatSync(pageFile).isSymbolicLink(), 'workspace page file should remain a symlink');
-    assert.ok(fs.lstatSync(snippetFile).isSymbolicLink(), 'workspace snippet file should remain a symlink');
-    assert.ok(fs.lstatSync(helperFile).isSymbolicLink(), 'transitive helper import should remain a symlink');
+    assert.ok(!fs.lstatSync(rootStyleFile).isSymbolicLink(), 'root style.css should be materialized as a real file');
+    assert.ok(!fs.lstatSync(pageFile).isSymbolicLink(), 'workspace page file should be materialized as a real file');
+    assert.ok(!fs.lstatSync(snippetFile).isSymbolicLink(), 'workspace snippet file should be materialized as a real file');
+    assert.ok(!fs.lstatSync(helperFile).isSymbolicLink(), 'transitive helper import should be materialized as a real file');
     assert.ok(fs.lstatSync(logoFile).isSymbolicLink(), 'transitive asset import should remain a symlink');
     assert.ok(fs.lstatSync(faviconFile).isSymbolicLink(), 'docs config asset should remain a symlink');
     assert.ok(fs.lstatSync(imageFile).isSymbolicLink(), 'page asset should remain a symlink');
@@ -882,8 +882,8 @@ async function runTests() {
     });
 
     assert.ok(
-      fs.lstatSync(path.join(result.workspaceDir, 'snippets/data/reference-map.js')).isSymbolicLink(),
-      'imported data modules should remain in the scoped workspace'
+      !fs.lstatSync(path.join(result.workspaceDir, 'snippets/data/reference-map.js')).isSymbolicLink(),
+      'imported data modules should be materialized in the scoped workspace'
     );
     assert.ok(
       fs.lstatSync(path.join(result.workspaceDir, 'snippets/assets/icons/demo.svg')).isSymbolicLink(),
@@ -894,8 +894,8 @@ async function runTests() {
       'frontmatter file references should be projected'
     );
     assert.ok(
-      fs.lstatSync(path.join(result.workspaceDir, 'docs-guide/tooling/reference-maps/icon-map.mdx')).isSymbolicLink(),
-      'quoted docs-guide file references inside data modules should be projected'
+      !fs.lstatSync(path.join(result.workspaceDir, 'docs-guide/tooling/reference-maps/icon-map.mdx')).isSymbolicLink(),
+      'quoted docs-guide file references inside data modules should be materialized'
     );
   });
 

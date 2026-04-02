@@ -6,6 +6,8 @@ const { keccak256 } = require("js-sha3");
 
 const {
   ACTIVE_LIFECYCLES,
+  BLOCKCHAIN_PAGE_DATA_JSON_PATH,
+  BLOCKCHAIN_PAGE_DATA_PATH,
   BRANCH_WATCH_STATE_PATH,
   CONTROLLERS,
   DEFAULT_RPC_URLS,
@@ -16,7 +18,6 @@ const {
   HEALTH_CHECK_PATH,
   OUTPUT_JSON_PATH,
   OUTPUT_PATH,
-  PUBLIC_COMPANION_PATH,
   PUBLISHED_LIFECYCLES,
   REPO_ROOT,
   WATCHED_REPOS,
@@ -24,14 +25,19 @@ const {
 const { diffBranchWatchState, loadBranchWatchState, writeBranchWatchState } = require("./branch-watch");
 const { writeIncidentArtifacts, computeIncidentFingerprint } = require("./incidents");
 const { buildContractProofCatalog } = require("./spec");
+const { BLOCKCHAIN_CONTRACT_PAGE_SPEC } = require("./blockchain-page-spec");
+const { extractContractMetadata } = require("./solidity-parser");
 
 const REQUEST_TIMEOUT_MS = Number.parseInt(process.env.CONTRACTS_HTTP_TIMEOUT_MS || "15000", 10) || 15000;
 const GET_CONTRACT_SELECTOR = `0x${keccak256("getContract(bytes32)").slice(0, 8)}`;
 const TARGET_CONTRACT_ID_SELECTOR = `0x${keccak256("targetContractId()").slice(0, 8)}`;
 const CONTROLLER_GETTER_SELECTOR = `0x${keccak256("controller()").slice(0, 8)}`;
+const SET_CONTRACT_INFO_TOPIC = `0x${keccak256("SetContractInfo(bytes32,address,bytes20)")}`;
 const ARBISCAN_API_KEY = process.env.ARBISCAN_API_KEY || "";
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || process.env.ETHERSCAN_API_KEY_2 || "";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
+const BRANCH_COMMIT_CACHE = new Map();
+const REPO_PATH_CACHE = new Map();
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -91,18 +97,22 @@ function httpsPost(url, body) {
 }
 
 async function ethCall(chain, to, data) {
+  return ethRpc(chain, "eth_call", [{ to, data }, "latest"]);
+}
+
+async function ethRpc(chain, method, params) {
   const urls = DEFAULT_RPC_URLS[chain] || [];
   const failures = [];
   for (const rpcUrl of urls) {
     try {
       const rpcResponse = await httpsPost(rpcUrl, {
         jsonrpc: "2.0",
-        method: "eth_call",
-        params: [{ to, data }, "latest"],
+        method,
+        params,
         id: 1,
       });
       const rpcData = JSON.parse(rpcResponse.data);
-      if (rpcData.result && rpcData.result !== "0x") {
+      if (!rpcData.error && rpcData.result != null && rpcData.result !== "0x") {
         return { result: rpcData.result, rpcUrl, failures };
       }
       failures.push({ rpcUrl, detail: rpcData.error?.message || "empty result" });
@@ -127,6 +137,13 @@ function decodeBytes32CallResult(result) {
   return result;
 }
 
+function decodeGitCommitHashWord(word) {
+  if (typeof word !== "string" || !/^[a-fA-F0-9]{64}$/.test(word)) return null;
+  const commit = word.slice(0, 40);
+  if (/^0{40}$/i.test(commit)) return null;
+  return commit;
+}
+
 function normalizeAddress(value) {
   return typeof value === "string" ? value.toLowerCase() : null;
 }
@@ -139,6 +156,584 @@ function compareVersions(left, right) {
   const l = Number(String(left || "").replace(/^V/i, "")) || 0;
   const r = Number(String(right || "").replace(/^V/i, "")) || 0;
   return l - r;
+}
+
+function parseVersionNumber(version) {
+  const value = Number(String(version || "").replace(/^V/i, ""));
+  return Number.isFinite(value) && value > 0 ? value : null;
+}
+
+function formatVersion(versionNumber) {
+  return Number.isFinite(versionNumber) && versionNumber > 0 ? `V${versionNumber}` : null;
+}
+
+function seriesGroupKey(entry) {
+  return `${entry.category || "other"}:${entry.canonicalName || entry.name}`;
+}
+
+function seriesEntryKey(entry) {
+  return `${entry.chain || ""}:${entry.type || entry.deploymentKind || "standalone"}:${normalizeAddress(entry.address) || ""}`;
+}
+
+function sortSeriesEntries(left, right) {
+  const leftVersion = parseVersionNumber(left.version);
+  const rightVersion = parseVersionNumber(right.version);
+  if (leftVersion != null && rightVersion != null && leftVersion !== rightVersion) {
+    return leftVersion - rightVersion;
+  }
+  if (leftVersion != null && rightVersion == null) return -1;
+  if (leftVersion == null && rightVersion != null) return 1;
+  const chainCompare = String(left.chain || "").localeCompare(String(right.chain || ""), "en", { sensitivity: "base" });
+  if (chainCompare !== 0) return chainCompare;
+  const typeRank = { target: 0, proxy: 1, standalone: 2 };
+  const typeCompare = (typeRank[left.type] ?? 99) - (typeRank[right.type] ?? 99);
+  if (typeCompare !== 0) return typeCompare;
+  return String(left.address || "").localeCompare(String(right.address || ""), "en", { sensitivity: "base" });
+}
+
+function inferNextSeriesVersion(entries = [], explicitVersion = null) {
+  if (explicitVersion) return explicitVersion;
+  const maxVersion = entries.reduce((winner, entry) => {
+    const parsed = parseVersionNumber(entry.version);
+    return parsed != null && parsed > winner ? parsed : winner;
+  }, 0);
+  return formatVersion(maxVersion + 1);
+}
+
+function buildSeriesEntry(entry, overrides = {}) {
+  if (!entry?.address) return null;
+  const type = overrides.type || entry.type || entry.deploymentKind || "standalone";
+  const chain = overrides.chain || entry.chain || null;
+  const version = overrides.version ?? entry.version ?? entry.meta?.currentImplementationVersion ?? null;
+  const address = overrides.address || entry.address;
+  return {
+    name: overrides.name || entry.name || entry.canonicalName,
+    canonicalName: overrides.canonicalName || entry.canonicalName || entry.name,
+    category: overrides.category || entry.category || "other",
+    chain,
+    type,
+    deploymentKind: type,
+    address,
+    version,
+    blockchainHref: overrides.blockchainHref || entry.blockchainHref || (address ? `${getExplorerAddressBase(chain)}${address}` : null),
+    isCurrent: Boolean(overrides.isCurrent),
+    status: null,
+    replacedBy: null,
+  };
+}
+
+function loadPreviousGeneratedContracts() {
+  const candidates = [OUTPUT_JSON_PATH, OUTPUT_PATH];
+  for (const candidate of candidates) {
+    if (!fs.existsSync(candidate)) continue;
+    try {
+      if (candidate.endsWith(".json")) {
+        const parsed = JSON.parse(fs.readFileSync(candidate, "utf8"));
+        if (parsed?.arbitrumOne || parsed?.ethereumMainnet) return parsed;
+      } else {
+        const output = require(candidate);
+        if (output?.contractAddresses?.arbitrumOne || output?.contractAddresses?.ethereumMainnet) {
+          return output.contractAddresses;
+        }
+      }
+    } catch (_error) {
+      continue;
+    }
+  }
+  return null;
+}
+
+function normalizeHistoricalSeriesMap(series = {}) {
+  const map = new Map();
+  Object.entries(series || {}).forEach(([category, groups]) => {
+    if (!Array.isArray(groups)) return;
+    groups.forEach((group) => {
+      const canonicalName = group?.canonicalName || group?.name;
+      if (!canonicalName) return;
+      const key = `${category}:${canonicalName}`;
+      const entries = Array.isArray(group.entries)
+        ? group.entries
+          .filter((entry) => !entry?.isCurrent && entry?.meta?.currentImplementation !== true && String(entry?.status || "").toLowerCase() !== "current")
+          .map((entry) => buildSeriesEntry({
+            ...entry,
+            category,
+            canonicalName,
+            name: group.name || canonicalName,
+          }, { isCurrent: false }))
+          .filter(Boolean)
+        : [];
+      map.set(key, {
+        category,
+        name: group.name || canonicalName,
+        canonicalName,
+        entries,
+      });
+    });
+  });
+  return map;
+}
+
+function buildCurrentSeriesCandidate(entry) {
+  if (!entry) return null;
+  const deploymentKind = entry.type || entry.deploymentKind || "standalone";
+  if (deploymentKind === "proxy") {
+    const implementationAddress = entry.meta?.proxyTarget || entry.verification?.proxy?.implementationAddress || null;
+    if (!implementationAddress) return null;
+    return buildSeriesEntry(entry, {
+      address: implementationAddress,
+      type: "target",
+      version: entry.meta?.currentImplementationVersion || entry.verification?.proxy?.implementationVersion || entry.version || null,
+      blockchainHref: `${getExplorerAddressBase(entry.chain)}${implementationAddress}`,
+      isCurrent: true,
+    });
+  }
+  if (!entry.address) return null;
+  return buildSeriesEntry(entry, { isCurrent: true });
+}
+
+function buildCurrentSeriesCandidates(entries = [], currentImplementations = []) {
+  const candidates = new Map();
+  const addCandidate = (entry) => {
+    const candidate = buildCurrentSeriesCandidate(entry);
+    if (!candidate) return;
+    candidates.set(`${seriesGroupKey(candidate)}:${seriesEntryKey(candidate)}`, candidate);
+  };
+
+  currentImplementations.forEach(addCandidate);
+  entries.forEach(addCandidate);
+
+  return [...candidates.values()];
+}
+
+function bootstrapHistoricalSeriesMap(chainPayload = {}) {
+  const currentLifecycleEntries = [
+    ...(Array.isArray(chainPayload.active) ? chainPayload.active : []),
+    ...(Array.isArray(chainPayload.paused) ? chainPayload.paused : []),
+    ...(Array.isArray(chainPayload.migration_residual) ? chainPayload.migration_residual : []),
+    ...(Array.isArray(chainPayload.legacy_operational) ? chainPayload.legacy_operational : []),
+  ];
+
+  const normalizedExisting = normalizeHistoricalSeriesMap(chainPayload.historicalSeries);
+  if (normalizedExisting.size > 0) {
+    normalizedExisting.forEach((series) => {
+      series.entries.forEach((entry) => {
+        entry.isCurrent = false;
+        entry.status = null;
+        entry.replacedBy = null;
+      });
+    });
+    return normalizedExisting;
+  }
+
+  const map = new Map();
+  (Array.isArray(chainPayload.historical) ? chainPayload.historical : []).forEach((entry) => {
+    const seriesEntry = buildSeriesEntry(entry);
+    if (!seriesEntry) return;
+    const key = seriesGroupKey(seriesEntry);
+    if (!map.has(key)) {
+      map.set(key, {
+        category: seriesEntry.category,
+        name: seriesEntry.name,
+        canonicalName: seriesEntry.canonicalName,
+        entries: [],
+      });
+    }
+    const series = map.get(key);
+    if (!series.entries.some((candidate) => seriesEntryKey(candidate) === seriesEntryKey(seriesEntry))) {
+      series.entries.push(seriesEntry);
+    }
+  });
+
+  buildCurrentSeriesCandidates(currentLifecycleEntries, chainPayload.currentImplementations || []).forEach((candidate) => {
+    const key = seriesGroupKey(candidate);
+    if (!map.has(key)) {
+      map.set(key, {
+        category: candidate.category,
+        name: candidate.name,
+        canonicalName: candidate.canonicalName,
+        entries: [],
+      });
+    }
+    const series = map.get(key);
+    const matches = series.entries.filter((entry) => entry.chain === candidate.chain && entry.type === candidate.type);
+    const existing = matches.find((entry) => addressesMatch(entry.address, candidate.address));
+    if (existing) {
+      existing.isCurrent = true;
+      existing.version = existing.version || candidate.version || inferNextSeriesVersion(matches);
+      existing.blockchainHref = existing.blockchainHref || candidate.blockchainHref;
+      return;
+    }
+    series.entries.push({
+      ...candidate,
+      version: inferNextSeriesVersion(matches, candidate.version),
+      isCurrent: true,
+    });
+  });
+
+  return map;
+}
+
+function finalizeHistoricalSeriesMap(seriesMap = new Map()) {
+  const categories = {};
+
+  seriesMap.forEach((series) => {
+    const entries = [...(series.entries || [])]
+      .filter((entry) => entry?.address && !entry.isCurrent && entry?.meta?.currentImplementation !== true)
+      .sort(sortSeriesEntries);
+
+    const groups = new Map();
+    entries.forEach((entry) => {
+      const key = `${entry.chain}:${entry.type}`;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(entry);
+    });
+
+    groups.forEach((groupEntries) => {
+      groupEntries.sort(sortSeriesEntries);
+      groupEntries.forEach((entry, index) => {
+        const nextEntry = groupEntries[index + 1] || null;
+        entry.replacedBy = nextEntry?.version || null;
+        entry.status = nextEntry?.version
+          ? `Replaced by ${nextEntry.version}`
+          : "Deprecated";
+      });
+    });
+
+    const category = series.category || "other";
+    if (!categories[category]) categories[category] = [];
+    categories[category].push({
+      category,
+      name: series.name,
+      canonicalName: series.canonicalName,
+      entries,
+    });
+  });
+
+  Object.values(categories).forEach((groups) => {
+    groups.sort((left, right) => String(left.name || "").localeCompare(String(right.name || ""), "en", { sensitivity: "base" }));
+  });
+
+  return categories;
+}
+
+function flattenHistoricalSeries(historicalSeries = {}) {
+  const rows = [];
+  Object.values(historicalSeries || {}).forEach((groups) => {
+    (groups || []).forEach((group) => {
+      const includeGroup = (group.entries || []).some((entry) => !entry.isCurrent);
+      if (!includeGroup) return;
+      (group.entries || []).forEach((entry, index) => {
+        rows.push({
+          id: `${group.category}.${group.canonicalName}.historicalSeries.${index + 1}`.replace(/[^a-zA-Z0-9.]+/g, "-"),
+          name: group.name,
+          canonicalName: group.canonicalName,
+          address: entry.address,
+          type: entry.type,
+          deploymentKind: entry.type,
+          category: group.category,
+          lifecycle: "historical",
+          chain: entry.chain,
+          proofChain: "historical-series",
+          version: entry.version,
+          addressAuthority: "historical-series",
+          runtimeAuthority: "archive",
+          repoSrc: null,
+          contractCodeHref: null,
+          blockchainHref: entry.blockchainHref || `${getExplorerAddressBase(entry.chain)}${entry.address}`,
+          hasBytecode: null,
+          sourceVerified: null,
+          verified: null,
+          verifiedAt: null,
+          verifiedAtISO: null,
+          isHistorical: true,
+          meta: {
+            statusLabel: entry.status,
+            notes: "Historical version emitted from the contracts pipeline historical series model.",
+            controllerSlot: null,
+            controllerResolvedAddress: null,
+            historicalSlotId: null,
+            historicalSlotName: group.canonicalName,
+            historicalProxyAddress: null,
+          },
+          addressSource: {
+            kind: "historical-series",
+            repo: null,
+            path: null,
+            refMode: "generated-state",
+            resolvedCommit: null,
+            key: `${group.category}:${group.canonicalName}`,
+          },
+          codeSource: null,
+        });
+      });
+    });
+  });
+
+  return rows;
+}
+
+function buildHistoricalArtifacts({ chain, entries = [], currentImplementations = [], previousChainPayload = null }) {
+  const previousSeriesMap = bootstrapHistoricalSeriesMap(previousChainPayload || {});
+  const historicalEntries = (Array.isArray(entries) ? entries : [])
+    .filter((entry) => entry?.address && entry.lifecycle === "historical" && entry?.meta?.currentImplementation !== true && !entry?.isCurrent);
+
+  historicalEntries.forEach((entry) => {
+    const seriesEntry = buildSeriesEntry(entry);
+    if (!seriesEntry) return;
+    const key = seriesGroupKey(seriesEntry);
+    if (!previousSeriesMap.has(key)) {
+      previousSeriesMap.set(key, {
+        category: seriesEntry.category,
+        name: seriesEntry.name,
+        canonicalName: seriesEntry.canonicalName,
+        entries: [],
+      });
+    }
+    const series = previousSeriesMap.get(key);
+    if (!series.entries.some((candidate) => seriesEntryKey(candidate) === seriesEntryKey(seriesEntry))) {
+      series.entries.push(seriesEntry);
+    }
+  });
+
+  const historicalSeries = finalizeHistoricalSeriesMap(previousSeriesMap);
+  const historical = flattenHistoricalSeries(historicalSeries)
+    .filter((entry) => entry.chain === chain)
+    .sort((left, right) =>
+      String(left.category || "").localeCompare(String(right.category || ""), "en", { sensitivity: "base" })
+      || String(left.name || "").localeCompare(String(right.name || ""), "en", { sensitivity: "base" })
+      || compareVersions(left.version, right.version)
+    );
+
+  return { historicalSeries, historical };
+}
+
+const CHAIN_LABELS = {
+  arbitrumOne: "Arbitrum One",
+  ethereumMainnet: "Ethereum Mainnet",
+};
+
+const LIFECYCLE_LABELS = {
+  active: "Active",
+  paused: "Paused",
+  migration_residual: "Migration",
+  legacy_operational: "Legacy operational",
+  historical: "Historical",
+  source_only: "Source only",
+};
+
+const PROOF_CHAIN_LABELS = {
+  controller: "Controller-managed",
+  bridge: "Bridge-derived",
+  detached: "Detached runtime-backed",
+  "source-only": "Source-backed",
+};
+
+function getChainLabel(chain) {
+  return CHAIN_LABELS[chain] || chain || null;
+}
+
+function getLifecycleLabel(lifecycle) {
+  return LIFECYCLE_LABELS[lifecycle] || String(lifecycle || "").replaceAll("_", " ") || null;
+}
+
+function getProofChainLabel(proofChain) {
+  return PROOF_CHAIN_LABELS[proofChain] || proofChain || null;
+}
+
+function toRawGitHubHref(href) {
+  return href
+    ? href.replace("https://github.com/", "https://raw.githubusercontent.com/").replace("/blob/", "/")
+    : null;
+}
+
+function sanitizeCodeSource(codeSource) {
+  if (!codeSource) return null;
+  return {
+    repo: codeSource.repo || null,
+    branch: codeSource.branch || null,
+    path: codeSource.path || null,
+    href: codeSource.href || null,
+    resolvedCommit: codeSource.resolvedCommit || null,
+    exists: codeSource.exists !== false,
+    resolutionError: codeSource.resolutionError || null,
+  };
+}
+
+function buildPageResolutionIndex(resolutions = []) {
+  const index = new Map();
+  resolutions.forEach((item) => {
+    const chain = item?.entry?.chain || item?.definition?.chain || null;
+    const canonicalName = item?.entry?.canonicalName || item?.definition?.canonicalName || null;
+    if (!chain || !canonicalName) return;
+    index.set(`${chain}:${canonicalName}`, item?.resolution?.codeSource || null);
+  });
+  return index;
+}
+
+function getExactPublishedEntry(payload, chain, bucket, canonicalName, type = null) {
+  if (!chain || !bucket || !canonicalName) return null;
+  return (payload?.[chain]?.[bucket] || []).find((entry) =>
+    entry?.canonicalName === canonicalName &&
+    (type == null || (entry.type || entry.deploymentKind) === type)
+  ) || null;
+}
+
+function getExactImplementationEntry(payload, chain, canonicalName) {
+  if (!chain || !canonicalName) return null;
+  return (payload?.[chain]?.currentImplementations || []).find((entry) =>
+    entry?.canonicalName === canonicalName && (entry.type || entry.deploymentKind) === "target"
+  ) || null;
+}
+
+function buildContractFacts(spec, entry, implementationEntry = null) {
+  if (!entry || !spec) return [];
+
+  const facts = [];
+  const lifecycleLabel = getLifecycleLabel(entry.lifecycle);
+  const isProxy = (entry.type || entry.deploymentKind) === "proxy";
+  const implementationAddress = implementationEntry?.address || entry.verification?.proxy?.implementationAddress || null;
+  const implementationVersion = implementationEntry?.version || entry.verification?.proxy?.implementationVersion || null;
+  const controllerRegistered = entry.verification?.controller?.applicable && entry.verification.controller.controllerRegistered === true;
+  const bridgeArtifactConfirmed = entry.verification?.bridge?.deploymentArtifactMatchesAddress === true;
+  const runtimeConsumerConfirmed =
+    entry.verification?.runtimeConsumer?.required && entry.verification.runtimeConsumer.exactAddressMatch === true;
+
+  if (spec.slug === "controller") {
+    facts.push("Controller registry");
+    if (lifecycleLabel) facts.push(lifecycleLabel);
+    return facts;
+  }
+
+  if (entry.proofChain === "controller") {
+    if (controllerRegistered) facts.push("Controller registered");
+    if (lifecycleLabel) facts.push(lifecycleLabel);
+    if (isProxy && implementationAddress) facts.push("Proxy target resolved");
+    if (isProxy && implementationVersion) facts.push(`Target ${implementationVersion}`);
+    return facts;
+  }
+
+  if (entry.proofChain === "bridge") {
+    facts.push("Bridge-derived");
+    if (bridgeArtifactConfirmed) facts.push("Bridge artifact confirmed");
+    if (lifecycleLabel) facts.push(lifecycleLabel);
+    return facts;
+  }
+
+  if (entry.proofChain === "detached") {
+    if (bridgeArtifactConfirmed) facts.push("Deployment artifact confirmed");
+    if (runtimeConsumerConfirmed) facts.push("Runtime consumer confirmed");
+    if (lifecycleLabel) facts.push(lifecycleLabel);
+    return facts;
+  }
+
+  if (controllerRegistered) facts.push("Controller registered");
+  if (bridgeArtifactConfirmed) facts.push("Deployment artifact confirmed");
+  if (runtimeConsumerConfirmed) facts.push("Runtime consumer confirmed");
+  if (lifecycleLabel) facts.push(lifecycleLabel);
+  if (isProxy && implementationAddress) facts.push("Proxy target resolved");
+  if (isProxy && implementationVersion) facts.push(`Target ${implementationVersion}`);
+
+  return facts;
+}
+
+function buildBlockchainPageContractEntry({
+  spec,
+  registryEntry = null,
+  implementationEntry = null,
+  resolvedSource = null,
+}) {
+  const parsedSource = extractContractMetadata(resolvedSource?.content || "", spec.sourceContractName || spec.canonicalName || spec.name);
+  const supported = Boolean(registryEntry) && !spec.sourceOnly;
+  const proxyAddress = registryEntry && (registryEntry.type || registryEntry.deploymentKind) === "proxy"
+    ? registryEntry.address
+    : null;
+  const targetAddress = proxyAddress
+    ? (implementationEntry?.address || registryEntry?.verification?.proxy?.implementationAddress || null)
+    : null;
+  const currentAddress = registryEntry?.address || null;
+  const sourceDisplayName = spec.sourceDisplayName || (resolvedSource?.path ? path.basename(resolvedSource.path) : null);
+  const unsupportedNote = spec.sourceOnly
+    ? spec.unsupportedNote
+    : (!registryEntry ? `No canonical ${getLifecycleLabel(spec.bucket || spec.lifecycle || "published").toLowerCase()} entry resolved from the contracts pipeline.` : null);
+  const subtitle = spec.sourceOnly
+    ? spec.unsupportedNote || spec.subtitle || null
+    : (spec.subtitle || registryEntry?.subtitle || null);
+
+  return {
+    slug: spec.slug,
+    name: spec.name,
+    canonicalName: spec.canonicalName,
+    subtitle,
+    category: spec.category || registryEntry?.category || null,
+    chain: spec.chain || registryEntry?.chain || null,
+    chainLabel: getChainLabel(spec.chain || registryEntry?.chain || null),
+    lifecycle: registryEntry?.lifecycle || (spec.sourceOnly ? "source_only" : null),
+    lifecycleLabel: getLifecycleLabel(registryEntry?.lifecycle || (spec.sourceOnly ? "source_only" : null)),
+    proofChain: registryEntry?.proofChain || (spec.sourceOnly ? "source-only" : null),
+    proofChainLabel: getProofChainLabel(registryEntry?.proofChain || (spec.sourceOnly ? "source-only" : null)),
+    type: registryEntry?.type || spec.type || "standalone",
+    currentAddress,
+    proxyAddress,
+    targetAddress,
+    blockchainHref: registryEntry?.blockchainHref || null,
+    proxyBlockchainHref: proxyAddress ? `${getExplorerAddressBase(spec.chain || registryEntry?.chain)}${proxyAddress}` : null,
+    targetBlockchainHref: targetAddress ? `${getExplorerAddressBase(spec.chain || registryEntry?.chain)}${targetAddress}` : null,
+    contractCodeHref: registryEntry?.contractCodeHref || resolvedSource?.href || null,
+    rawContractCodeHref: toRawGitHubHref(registryEntry?.contractCodeHref || resolvedSource?.href || null),
+    contractCodeLabel: sourceDisplayName,
+    codeSource: sanitizeCodeSource(registryEntry?.codeSource || resolvedSource),
+    addressSource: registryEntry?.addressSource || null,
+    verification: registryEntry?.verification || null,
+    supported,
+    unsupportedNote,
+    functions: parsedSource.functions,
+    sourceContractName: spec.sourceContractName || spec.canonicalName || spec.name,
+    sourceContractKind: parsedSource.contractKind,
+    sourceInheritance: parsedSource.bases,
+    sourceContractFound: parsedSource.contractFound,
+    sourceParseError: parsedSource.error,
+    facts: supported ? buildContractFacts(spec, registryEntry, implementationEntry) : [],
+  };
+}
+
+async function buildBlockchainContractsPageData({
+  payload,
+  resolutions = [],
+  meta = {},
+}) {
+  const resolutionIndex = buildPageResolutionIndex(resolutions);
+  const contracts = {};
+
+  for (const spec of BLOCKCHAIN_CONTRACT_PAGE_SPEC.contracts) {
+    const registryEntry = spec.sourceOnly
+      ? null
+      : getExactPublishedEntry(payload, spec.chain, spec.bucket, spec.canonicalName, spec.type);
+    const implementationEntry = registryEntry && (registryEntry.type || registryEntry.deploymentKind) === "proxy"
+      ? getExactImplementationEntry(payload, spec.chain, spec.canonicalName)
+      : null;
+    const resolvedSource = spec.sourceOnly
+      ? await resolveRepoPath(spec.codeAuthority)
+      : (resolutionIndex.get(`${spec.chain}:${spec.canonicalName}`) || null);
+
+    contracts[spec.slug] = buildBlockchainPageContractEntry({
+      spec,
+      registryEntry,
+      implementationEntry,
+      resolvedSource,
+    });
+  }
+
+  return {
+    meta: {
+      lastUpdated: meta.lastUpdated || null,
+      lastVerified: meta.lastVerified || null,
+      verificationModel: meta.verificationModel || "contracts-proof-v2",
+      sourceCommit: meta.sourceCommit || null,
+      explorerUrls: meta.explorerUrls || EXPLORER_URLS,
+    },
+    sections: BLOCKCHAIN_CONTRACT_PAGE_SPEC.sections,
+    contracts,
+  };
 }
 
 function resolveGovernorSeries(governorChain, prefix) {
@@ -211,6 +806,76 @@ async function githubGet(endpoint) {
   return githubCliGet(endpoint);
 }
 
+async function resolveRepoPath(authority) {
+  if (!authority?.repo || !authority?.branch || !authority?.path) return null;
+  const cacheKey = `${authority.repo}@${authority.branch}:${authority.path}`;
+  if (REPO_PATH_CACHE.has(cacheKey)) {
+    return REPO_PATH_CACHE.get(cacheKey);
+  }
+
+  const branchKey = `${authority.repo}@${authority.branch}`;
+  let resolvedCommit = BRANCH_COMMIT_CACHE.get(branchKey) || null;
+  if (!resolvedCommit) {
+    const commitResponse = await githubGet(`/repos/${authority.repo}/commits/${authority.branch}`);
+    resolvedCommit = commitResponse.status === 200
+      ? String(JSON.parse(commitResponse.data).sha || "").slice(0, 7) || null
+      : null;
+    BRANCH_COMMIT_CACHE.set(branchKey, resolvedCommit);
+  }
+
+  const contentsResponse = await githubGet(`/repos/${authority.repo}/contents/${authority.path}?ref=${authority.branch}`);
+  const exists = contentsResponse.status === 200;
+  const fileJson = exists ? JSON.parse(contentsResponse.data) : null;
+  const content = fileJson?.content ? Buffer.from(fileJson.content, "base64").toString("utf8") : null;
+
+  const resolved = {
+    ...authority,
+    resolvedCommit,
+    href: resolvedCommit
+      ? `https://github.com/${authority.repo}/blob/${resolvedCommit}/${authority.path}`
+      : `https://github.com/${authority.repo}/blob/${authority.branch}/${authority.path}`,
+    exists,
+    content,
+    blobSha: fileJson?.sha || null,
+    resolutionError: exists ? null : `contents lookup returned ${contentsResponse.status}`,
+  };
+  REPO_PATH_CACHE.set(cacheKey, resolved);
+  return resolved;
+}
+
+function getCompilationTargetPath(artifactJson) {
+  const rawMetadata = artifactJson?.metadata;
+  if (!rawMetadata) return null;
+
+  try {
+    const metadata = typeof rawMetadata === "string" ? JSON.parse(rawMetadata) : rawMetadata;
+    const compilationTarget = metadata?.settings?.compilationTarget || {};
+    const [sourcePath] = Object.keys(compilationTarget);
+    return sourcePath || null;
+  } catch (_error) {
+    return null;
+  }
+}
+
+async function resolveDeploymentArtifact(authority) {
+  const repoPath = await resolveRepoPath(authority);
+  if (!repoPath) return null;
+
+  let artifactJson = null;
+  try {
+    artifactJson = repoPath.content ? JSON.parse(repoPath.content) : null;
+  } catch (_error) {
+    artifactJson = null;
+  }
+
+  return {
+    ...repoPath,
+    address: artifactJson?.address || artifactJson?.receipt?.contractAddress || null,
+    compilationPath: artifactJson ? getCompilationTargetPath(artifactJson) : null,
+    contractName: artifactJson?.contractName || null,
+  };
+}
+
 async function fetchGovernorAddresses() {
   const response = await githubGet(`/repos/${GOVERNOR_REPO}/contents/${GOVERNOR_FILE}`);
   if (response.status !== 200) {
@@ -246,31 +911,11 @@ async function fetchRepoInventory(repoConfig) {
 
 async function resolveCodeSource(codeAuthority) {
   if (!codeAuthority) return null;
-  const commitResponse = await githubGet(`/repos/${codeAuthority.repo}/commits/${codeAuthority.branch}`);
-  if (commitResponse.status !== 200) {
-    return {
-      ...codeAuthority,
-      resolvedCommit: null,
-      href: codeAuthority.path
-        ? `https://github.com/${codeAuthority.repo}/blob/${codeAuthority.branch}/${codeAuthority.path}`
-        : null,
-      isPrivate: false,
-      resolutionError: `commit lookup returned ${commitResponse.status}`,
-    };
-  }
-  const commitData = JSON.parse(commitResponse.data);
-  const resolvedCommit = String(commitData.sha || "").slice(0, 7) || null;
-  const contentsResponse = await githubGet(
-    `/repos/${codeAuthority.repo}/contents/${codeAuthority.path}?ref=${codeAuthority.branch}`
-  );
+  const resolved = await resolveRepoPath(codeAuthority);
+  if (!resolved) return null;
   return {
-    ...codeAuthority,
-    resolvedCommit,
-    href: resolvedCommit
-      ? `https://github.com/${codeAuthority.repo}/blob/${resolvedCommit}/${codeAuthority.path}`
-      : `https://github.com/${codeAuthority.repo}/blob/${codeAuthority.branch}/${codeAuthority.path}`,
+    ...resolved,
     isPrivate: false,
-    exists: contentsResponse.status === 200,
   };
 }
 
@@ -359,8 +1004,77 @@ async function searchRepoForAddress(strategy) {
   return { address: null, authorityKind: "repo-search", repo: null, path: null, refMode: "code-search", resolvedCommit: null, sourceKey: null };
 }
 
+async function resolveRuntimeConsumerEvidence(strategy, address) {
+  if (!strategy?.repo || !address) {
+    return null;
+  }
+
+  if (strategy.path && strategy.branch) {
+    const repoPath = await resolveRepoPath({
+      repo: strategy.repo,
+      branch: strategy.branch,
+      path: strategy.path,
+    });
+    const exactAddressMatch = Boolean(
+      repoPath?.content && repoPath.content.toLowerCase().includes(String(address).toLowerCase())
+    );
+    return {
+      repo: strategy.repo,
+      path: strategy.path,
+      branch: strategy.branch,
+      resolvedCommit: repoPath?.resolvedCommit || null,
+      href: repoPath?.href || null,
+      exactAddressMatch,
+      resolutionError: repoPath?.resolutionError || (exactAddressMatch ? null : "address literal not found in runtime consumer file"),
+    };
+  }
+
+  const query = encodeURIComponent(`${address} repo:${strategy.repo}`);
+  const response = await githubGet(`/search/code?q=${query}&per_page=10`);
+  if (response.status !== 200) {
+    return {
+      repo: strategy.repo,
+      path: null,
+      branch: strategy.branch || null,
+      resolvedCommit: null,
+      exactAddressMatch: false,
+      resolutionError: `code search returned ${response.status}`,
+    };
+  }
+
+  const data = JSON.parse(response.data);
+  for (const item of data.items || []) {
+    const repoPath = await resolveRepoPath({
+      repo: strategy.repo,
+      branch: strategy.branch || item.repository?.default_branch || "master",
+      path: item.path,
+    });
+    if (repoPath?.content?.toLowerCase().includes(String(address).toLowerCase())) {
+      return {
+        repo: strategy.repo,
+        path: item.path,
+        branch: repoPath.branch,
+        resolvedCommit: repoPath.resolvedCommit,
+        href: repoPath.href,
+        exactAddressMatch: true,
+        resolutionError: null,
+      };
+    }
+  }
+
+  return {
+    repo: strategy.repo,
+    path: null,
+    branch: strategy.branch || null,
+    resolvedCommit: null,
+    exactAddressMatch: false,
+    resolutionError: "address literal not found in runtime consumer repo",
+  };
+}
+
 async function resolveDeployment(definition, governorAddresses) {
   const governorChain = getGovernorChain(governorAddresses, definition.chain);
+  const artifact = definition.artifactAuthority ? await resolveDeploymentArtifact(definition.artifactAuthority) : null;
   let resolved;
 
   if (definition.addressStrategy.kind === "controller-root") {
@@ -399,6 +1113,18 @@ async function resolveDeployment(definition, governorAddresses) {
       sourceKey: authority.sourceKey,
       version: authority.version,
     };
+  } else if (definition.addressStrategy.kind === "deployment-artifact") {
+    const artifactResolution = artifact || await resolveDeploymentArtifact(definition.addressStrategy);
+    resolved = {
+      address: artifactResolution?.address || null,
+      authorityKind: "deployment-artifact",
+      repo: artifactResolution?.repo || definition.addressStrategy.repo || null,
+      path: artifactResolution?.path || definition.addressStrategy.path || null,
+      refMode: "resolved-commit",
+      resolvedCommit: artifactResolution?.resolvedCommit || null,
+      sourceKey: artifactResolution?.path || definition.addressStrategy.path || null,
+      version: null,
+    };
   } else if (definition.addressStrategy.kind === "repo-search") {
     resolved = await searchRepoForAddress(definition.addressStrategy);
   } else {
@@ -414,12 +1140,25 @@ async function resolveDeployment(definition, governorAddresses) {
     };
   }
 
-  const codeSource = await resolveCodeSource(definition.codeAuthority);
+  let codeSource = await resolveCodeSource(definition.codeAuthority);
+  if ((!codeSource || codeSource.exists === false) && artifact?.compilationPath) {
+    codeSource = await resolveCodeSource({
+      repo: artifact.repo,
+      branch: artifact.branch,
+      path: artifact.compilationPath,
+    });
+  }
+  const runtimeConsumerEvidence = definition.runtimeEvidence && resolved.address
+    ? await resolveRuntimeConsumerEvidence(definition.runtimeEvidence, resolved.address)
+    : null;
+
   return {
     definition,
     governorChain,
     resolved,
     codeSource,
+    artifact,
+    runtimeConsumerEvidence,
   };
 }
 
@@ -429,6 +1168,156 @@ function getExplorerAddressBase(chain) {
 
 function getBlockscoutBase(chain) {
   return chain === "arbitrumOne" ? EXPLORER_URLS.blockscoutArbitrum : EXPLORER_URLS.blockscoutEthereum;
+}
+
+function sortLogsByBlockAndIndex(left, right) {
+  const blockCompare = Number.parseInt(left.blockNumber || "0x0", 16) - Number.parseInt(right.blockNumber || "0x0", 16);
+  if (blockCompare !== 0) return blockCompare;
+  return Number.parseInt(left.logIndex || "0x0", 16) - Number.parseInt(right.logIndex || "0x0", 16);
+}
+
+function decodeSetContractInfoLog(log) {
+  const words = String(log?.data || "").replace(/^0x/, "").match(/.{1,64}/g) || [];
+  if (words.length < 3) return null;
+  const id = `0x${words[0]}`;
+  const address = decodeAddressCallResult(`0x${words[1]}`);
+  const gitCommitHash = decodeGitCommitHashWord(words[2]);
+  if (!id || !address) return null;
+  return {
+    id: id.toLowerCase(),
+    address,
+    gitCommitHash,
+    blockNumber: log.blockNumber || "0x0",
+    logIndex: log.logIndex || "0x0",
+    transactionHash: log.transactionHash || null,
+  };
+}
+
+async function fetchControllerSetContractInfoLogs(chain) {
+  const controllerAddress = CONTROLLERS[chain];
+  if (!controllerAddress) {
+    return { logs: [], rpcUrl: null, failures: [{ detail: `No controller configured for ${chain}` }] };
+  }
+  const rpcResult = await ethRpc(chain, "eth_getLogs", [{
+    address: controllerAddress,
+    fromBlock: "0x0",
+    toBlock: "latest",
+    topics: [SET_CONTRACT_INFO_TOPIC],
+  }]);
+  return {
+    logs: Array.isArray(rpcResult.result) ? rpcResult.result : [],
+    rpcUrl: rpcResult.rpcUrl,
+    failures: rpcResult.failures || [],
+  };
+}
+
+function buildHistoricalEntriesFromEventLogs(chainEntries, logs = []) {
+  const decodedLogs = (Array.isArray(logs) ? logs : [])
+    .map(decodeSetContractInfoLog)
+    .filter(Boolean)
+    .sort(sortLogsByBlockAndIndex);
+
+  const logsById = new Map();
+  decodedLogs.forEach((log) => {
+    const key = String(log.id || "").toLowerCase();
+    if (!logsById.has(key)) logsById.set(key, []);
+    logsById.get(key).push(log);
+  });
+
+  const historicalEntries = [];
+  chainEntries.forEach(({ definition, entry }) => {
+    if (definition.proofChain !== "controller" || definition.chain !== "arbitrumOne") return;
+
+    const isProxy = (entry.deploymentKind || entry.type) === "proxy";
+    const slotId = isProxy
+      ? entry.meta?.proxyTargetContractId || null
+      : (entry.meta?.controllerSlot ? `0x${keccak256(entry.meta.controllerSlot)}` : null);
+    if (!slotId) return;
+
+    const slotName = isProxy
+      ? entry.meta?.proxyTargetContractName || `${entry.canonicalName}Target`
+      : entry.meta?.controllerSlot || entry.canonicalName;
+    const currentAddress = isProxy ? (entry.meta?.proxyTarget || null) : entry.address;
+    const seriesLogs = logsById.get(String(slotId).toLowerCase()) || [];
+    if (!seriesLogs.length) return;
+
+    const ordered = [];
+    const seenAddresses = new Set();
+    seriesLogs.forEach((log) => {
+      const normalized = normalizeAddress(log.address);
+      if (!normalized || seenAddresses.has(normalized)) return;
+      seenAddresses.add(normalized);
+      ordered.push(log);
+    });
+
+    const historicalSeries = ordered.filter((log) => !addressesMatch(log.address, currentAddress));
+    historicalSeries.forEach((log, index) => {
+      const resolvedCommit = log.gitCommitHash || entry.codeSource?.resolvedCommit || null;
+      const codeSource = entry.codeSource
+        ? {
+            ...entry.codeSource,
+            resolvedCommit,
+            href: resolvedCommit
+              ? `https://github.com/${entry.codeSource.repo}/blob/${resolvedCommit}/${entry.codeSource.path}`
+              : entry.codeSource.href,
+          }
+        : null;
+
+      historicalEntries.push({
+        id: `${definition.id}.historical.${index + 1}`,
+        name: definition.canonicalName,
+        canonicalName: definition.canonicalName,
+        address: log.address,
+        type: isProxy ? "target" : (entry.type || entry.deploymentKind || "standalone"),
+        deploymentKind: isProxy ? "target" : (entry.deploymentKind || entry.type || "standalone"),
+        category: definition.category,
+        lifecycle: "historical",
+        chain: definition.chain,
+        proofChain: "controller-history",
+        version: `V${index + 1}`,
+        addressAuthority: "controller-event-history",
+        runtimeAuthority: "controller",
+        repoSrc: codeSource?.repo && resolvedCommit ? `${codeSource.repo}@${resolvedCommit}` : null,
+        contractCodeHref: codeSource?.href || entry.contractCodeHref || null,
+        blockchainHref: `${getExplorerAddressBase(definition.chain)}${log.address}`,
+        hasBytecode: null,
+        sourceVerified: null,
+        verified: null,
+        verifiedAt: null,
+        verifiedAtISO: null,
+        isHistorical: true,
+        meta: {
+          statusLabel: "Historical",
+          notes: `Historical controller entry reconstructed from SetContractInfo for ${slotName}.`,
+          keccakHash: `0x${keccak256(slotName)}`,
+          registrationState: "unknown",
+          registeredInController: null,
+          controllerSlot: slotName,
+          controllerResolvedAddress: null,
+          governorKey: slotName,
+          currentImplementation: false,
+          currentImplementationVersion: null,
+          proxyTarget: null,
+          repoIsPrivate: false,
+          onchainGitCommitHash: log.gitCommitHash || null,
+          historicalSlotId: slotId,
+          historicalSlotName: slotName,
+          historicalProxyAddress: isProxy ? entry.address : null,
+        },
+        addressSource: {
+          kind: "controller-event-history",
+          repo: codeSource?.repo || null,
+          path: codeSource?.path || null,
+          refMode: "onchain-event",
+          resolvedCommit,
+          key: slotName,
+        },
+        codeSource,
+      });
+    });
+  });
+
+  return historicalEntries;
 }
 
 function getExplorerProfile(chain) {
@@ -453,6 +1342,7 @@ function buildBaseEntry(definition, resolution) {
     category: definition.category,
     lifecycle: definition.lifecycle,
     chain: definition.chain,
+    proofChain: definition.proofChain,
     version: resolution.resolved.version || null,
     addressAuthority: resolution.resolved.authorityKind,
     runtimeAuthority: definition.runtimeAuthority?.kind || "explorer",
@@ -484,6 +1374,18 @@ function buildBaseEntry(definition, resolution) {
       blockscoutLabel: null,
       sourceResolvedCommit: codeSource?.resolvedCommit || null,
       sourceResolutionError: codeSource?.resolutionError || null,
+      deploymentArtifactAddress: resolution.artifact?.address || null,
+      deploymentArtifactRepo: resolution.artifact?.repo || null,
+      deploymentArtifactPath: resolution.artifact?.path || null,
+      deploymentArtifactResolvedCommit: resolution.artifact?.resolvedCommit || null,
+      deploymentArtifactMatchesAddress: resolution.artifact?.address && address
+        ? addressesMatch(resolution.artifact.address, address)
+        : null,
+      runtimeConsumerRepo: resolution.runtimeConsumerEvidence?.repo || null,
+      runtimeConsumerPath: resolution.runtimeConsumerEvidence?.path || null,
+      runtimeConsumerResolvedCommit: resolution.runtimeConsumerEvidence?.resolvedCommit || null,
+      runtimeConsumerExactAddressMatch: resolution.runtimeConsumerEvidence?.exactAddressMatch ?? null,
+      runtimeConsumerRequired: Boolean(definition.requiredRuntimeEvidence),
     },
     addressSource: {
       kind: resolution.resolved.authorityKind || "unknown",
@@ -501,6 +1403,8 @@ function buildBaseEntry(definition, resolution) {
           href: codeSource.href,
           isPrivate: false,
           resolvedCommit: codeSource.resolvedCommit || null,
+          exists: codeSource.exists !== false,
+          resolutionError: codeSource.resolutionError || null,
         }
       : null,
   };
@@ -664,8 +1568,8 @@ function buildImplementationEntries(entries, governorAddresses) {
       verifiedAtISO: null,
       isHistorical: true,
       meta: {
-        statusLabel: "Current implementation",
-        notes: "Current implementation behind the published proxy address.",
+        statusLabel: "Implementation target",
+        notes: "Implementation behind the published proxy address.",
         keccakHash: `0x${keccak256(entry.definition.canonicalName)}`,
         registrationState: "not_applicable",
         registeredInController: false,
@@ -705,17 +1609,27 @@ function deriveControllerRegistered(registrationState, legacyValue) {
 }
 
 function buildVerificationStatus(entry, controllerRegistered, proxyVerification) {
+  const bridgeArtifactMatch = entry.meta?.deploymentArtifactMatchesAddress;
+  const runtimeConsumerMatch = entry.meta?.runtimeConsumerExactAddressMatch;
+  const runtimeConsumerRequired = entry.meta?.runtimeConsumerRequired;
+
   if (entry.runtimeAuthority === "controller" && controllerRegistered === true && entry.hasBytecode === true) {
     return "strong";
   }
   if (proxyVerification.applicable && proxyVerification.implementationMatchesExpected === true && entry.hasBytecode === true) {
     return "strong";
   }
+  if (entry.proofChain === "bridge" && bridgeArtifactMatch === true && entry.hasBytecode === true) {
+    return "strong";
+  }
+  if (runtimeConsumerRequired && runtimeConsumerMatch === true && entry.hasBytecode === true) {
+    return "strong";
+  }
   if ((entry.hasBytecode === true || entry.sourceVerified === true) && entry.addressSource?.kind && entry.addressSource.kind !== "unknown") {
     return "partial";
   }
   if (entry.addressSource?.kind && entry.addressSource.kind !== "unknown") {
-    return "weak";
+    return "partial";
   }
   return "unverified";
 }
@@ -772,21 +1686,52 @@ function decorateEntryForOutput(entry) {
         resolvedAddress: meta.controllerResolvedAddress || null,
         currentAddressMatches: meta.controllerResolvedAddress ? addressesMatch(entry.address, meta.controllerResolvedAddress) : null,
       },
+      bridge: {
+        applicable: entry.proofChain === "bridge",
+        deploymentArtifactAddress: meta.deploymentArtifactAddress || null,
+        deploymentArtifactRepo: meta.deploymentArtifactRepo || null,
+        deploymentArtifactPath: meta.deploymentArtifactPath || null,
+        deploymentArtifactResolvedCommit: meta.deploymentArtifactResolvedCommit || null,
+        deploymentArtifactMatchesAddress: typeof meta.deploymentArtifactMatchesAddress === "boolean"
+          ? meta.deploymentArtifactMatchesAddress
+          : null,
+      },
+      runtimeConsumer: {
+        applicable: Boolean(meta.runtimeConsumerRepo || meta.runtimeConsumerRequired),
+        required: Boolean(meta.runtimeConsumerRequired),
+        repo: meta.runtimeConsumerRepo || null,
+        path: meta.runtimeConsumerPath || null,
+        resolvedCommit: meta.runtimeConsumerResolvedCommit || null,
+        exactAddressMatch: typeof meta.runtimeConsumerExactAddressMatch === "boolean"
+          ? meta.runtimeConsumerExactAddressMatch
+          : null,
+      },
       proxy: proxyVerification,
     },
     meta,
   };
 }
 
-function buildChainPayload(entries, currentImplementations = [], historical = [], governorSha = null) {
+function buildChainPayload(entries, currentImplementations = [], historical = [], historicalSeriesOrGovernorSha = {}, governorSha = null) {
+  const historicalSeries = typeof historicalSeriesOrGovernorSha === "string" || historicalSeriesOrGovernorSha == null
+    ? {}
+    : historicalSeriesOrGovernorSha;
+  const resolvedGovernorSha = typeof historicalSeriesOrGovernorSha === "string" && governorSha == null
+    ? historicalSeriesOrGovernorSha
+    : governorSha;
   const decorate = (item) => {
     const entry = decorateEntryForOutput(item);
     if (entry.addressSource?.kind === "governor-manifest" && !entry.addressSource.resolvedCommit) {
-      entry.addressSource.resolvedCommit = governorSha || null;
+      entry.addressSource.resolvedCommit = resolvedGovernorSha || null;
     }
     return entry;
   };
-  const inventory = [...entries.map(decorate), ...currentImplementations.map(decorate)];
+  const historicalEntries = Array.isArray(historical) ? historical : [];
+  const inventory = [
+    ...entries.map(decorate),
+    ...currentImplementations.map(decorate),
+    ...historicalEntries.map(decorate),
+  ];
   const sortByCategoryThenName = (left, right) =>
     String(left.category || "").localeCompare(String(right.category || ""))
     || String(left.name || "").localeCompare(String(right.name || ""))
@@ -795,7 +1740,6 @@ function buildChainPayload(entries, currentImplementations = [], historical = []
   const paused = inventory.filter((entry) => entry.lifecycle === "paused").sort(sortByCategoryThenName);
   const migrationResidual = inventory.filter((entry) => entry.lifecycle === "migration_residual").sort(sortByCategoryThenName);
   const legacyOperational = inventory.filter((entry) => entry.lifecycle === "legacy_operational").sort(sortByCategoryThenName);
-  const historicalEntries = Array.isArray(historical) ? historical : [];
   return {
     inventory,
     current: active,
@@ -804,6 +1748,7 @@ function buildChainPayload(entries, currentImplementations = [], historical = []
     migration_residual: migrationResidual,
     legacy_operational: legacyOperational,
     historical: historicalEntries.map(decorate).sort(sortByCategoryThenName),
+    historicalSeries,
     currentImplementations: currentImplementations.map(decorate).sort(sortByCategoryThenName),
   };
 }
@@ -847,7 +1792,86 @@ function writeHealthChecks(checks, dryRun = false) {
   }, null, 2));
 }
 
-function writeDataFiles(data, governorSha, catalog, dryRun = false) {
+function normalizeComparableJsonPayload(value) {
+  const clone = JSON.parse(JSON.stringify(value));
+  const scrub = (node, parentKey = null) => {
+    if (!node || typeof node !== "object") return;
+
+    if (Array.isArray(node)) {
+      node.forEach((item) => scrub(item, parentKey));
+      return;
+    }
+
+    Object.entries(node).forEach(([key, child]) => {
+      if (key === "_generated" && child && typeof child === "object" && child.at) {
+        child.at = "__VOLATILE_GENERATED_AT__";
+      }
+      if (key === "meta" && child && typeof child === "object" && child.lastUpdated) {
+        child.lastUpdated = "__VOLATILE_LAST_UPDATED__";
+      }
+      if (key === "verifiedAt" || key === "verifiedAtISO" || key === "lastVerifiedAt") {
+        node[key] = "__VOLATILE_VERIFIED_AT__";
+        return;
+      }
+      scrub(child, key);
+    });
+  };
+
+  scrub(clone);
+  if (clone._generated?.at) {
+    clone._generated.at = "__VOLATILE_GENERATED_AT__";
+  }
+  if (clone.meta?.lastUpdated) {
+    clone.meta.lastUpdated = "__VOLATILE_LAST_UPDATED__";
+  }
+  return JSON.stringify(clone, null, 2);
+}
+
+function normalizeComparableJsx(text) {
+  return String(text)
+    .replace(/^ \* Last updated: .+$/m, " * Last updated: __VOLATILE_LAST_UPDATED__")
+    .replace(/"lastUpdated": "[^"]+"/g, '"lastUpdated": "__VOLATILE_LAST_UPDATED__"')
+    .replace(/"verifiedAtISO": "[^"]+"/g, '"verifiedAtISO": "__VOLATILE_VERIFIED_AT__"')
+    .replace(/"verifiedAt": "[^"]+"/g, '"verifiedAt": "__VOLATILE_VERIFIED_AT__"')
+    .replace(/"lastVerifiedAt": "[^"]+"/g, '"lastVerifiedAt": "__VOLATILE_VERIFIED_AT__"');
+}
+
+function assertCanonicalOutputsMatch(expectedFiles) {
+  const drift = [];
+
+  for (const [filePath, descriptor] of Object.entries(expectedFiles)) {
+    if (!fs.existsSync(filePath)) {
+      drift.push(`${path.relative(REPO_ROOT, filePath)} is missing`);
+      continue;
+    }
+
+    const current = fs.readFileSync(filePath, "utf8");
+    const normalizedCurrent = descriptor.kind === "json"
+      ? normalizeComparableJsonPayload(JSON.parse(current))
+      : normalizeComparableJsx(current);
+    const normalizedExpected = descriptor.kind === "json"
+      ? normalizeComparableJsonPayload(descriptor.value)
+      : normalizeComparableJsx(descriptor.value);
+
+    if (normalizedCurrent !== normalizedExpected) {
+      drift.push(`${path.relative(REPO_ROOT, filePath)} is out of date`);
+    }
+  }
+
+  if (drift.length) {
+    const error = new Error(`Contracts output drift detected:\n- ${drift.join("\n- ")}`);
+    error.failures = drift.map((detail) => ({
+      failureClass: FAILURE_CLASSES.output,
+      endpoint: "output-check",
+      chain: "multi",
+      contract: "contracts-pipeline",
+      detail,
+    }));
+    throw error;
+  }
+}
+
+function buildDataArtifacts(data, blockchainPageData, governorSha, catalog) {
   const now = new Date();
   const nowISO = now.toISOString();
   const nowFormatted = now.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
@@ -870,11 +1894,17 @@ function writeDataFiles(data, governorSha, catalog, dryRun = false) {
       latestResolutionPolicy: catalog._meta.latestResolutionPolicy,
     },
   };
-
-  if (dryRun) return payload;
-
-  const header = `/**\n * Auto-generated by fetch-contract-addresses.js\n * Source: ${GOVERNOR_REPO} (${governorSha})\n * Last updated: ${nowISO}\n * DO NOT EDIT MANUALLY\n */\n\n`;
-  const jsx = `${header}export const contractAddresses = ${JSON.stringify(payload, null, 2)};\n`;
+  const blockchainPayload = {
+    ...blockchainPageData,
+    meta: {
+      ...(blockchainPageData?.meta || {}),
+      lastUpdated: nowISO,
+      lastVerified: nowFormatted,
+      verificationModel: "contracts-proof-v2",
+      sourceCommit: governorSha,
+      explorerUrls: EXPLORER_URLS,
+    },
+  };
   const jsonPayload = {
     _generated: {
       by: "fetch-contract-addresses.js",
@@ -883,15 +1913,77 @@ function writeDataFiles(data, governorSha, catalog, dryRun = false) {
     },
     ...payload,
   };
+  const blockchainJsonPayload = {
+    _generated: {
+      by: "fetch-contract-addresses.js",
+      at: nowISO,
+      source: `${GOVERNOR_REPO} (${governorSha})`,
+    },
+    ...blockchainPayload,
+  };
+  const header = `/**\n * Auto-generated by fetch-contract-addresses.js\n * Source: ${GOVERNOR_REPO} (${governorSha})\n * Last updated: ${nowISO}\n * DO NOT EDIT MANUALLY\n */\n\n`;
+  const jsx = `${header}export const contractAddresses = ${JSON.stringify(payload, null, 2)};\n`;
+  const blockchainJsx = `${header}export const blockchainContractsPageData = ${JSON.stringify(blockchainPayload, null, 2)};\n`;
+
+  return {
+    contractAddresses: payload,
+    blockchainContractsPageData: blockchainPayload,
+    files: {
+      [OUTPUT_PATH]: {
+        kind: "jsx",
+        value: jsx,
+      },
+      [OUTPUT_JSON_PATH]: {
+        kind: "json",
+        value: jsonPayload,
+      },
+      [BLOCKCHAIN_PAGE_DATA_PATH]: {
+        kind: "jsx",
+        value: blockchainJsx,
+      },
+      [BLOCKCHAIN_PAGE_DATA_JSON_PATH]: {
+        kind: "json",
+        value: blockchainJsonPayload,
+      },
+    },
+  };
+}
+
+function writeDataFiles(data, blockchainPageData, governorSha, catalog, options = {}) {
+  const { dryRun = false, check = false } = options;
+  const artifacts = buildDataArtifacts(data, blockchainPageData, governorSha, catalog);
+
+  if (check) {
+    assertCanonicalOutputsMatch(artifacts.files);
+    return {
+      contractAddresses: artifacts.contractAddresses,
+      blockchainContractsPageData: artifacts.blockchainContractsPageData,
+    };
+  }
+
+  if (dryRun) {
+    return {
+      contractAddresses: artifacts.contractAddresses,
+      blockchainContractsPageData: artifacts.blockchainContractsPageData,
+    };
+  }
 
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
   fs.mkdirSync(path.dirname(OUTPUT_JSON_PATH), { recursive: true });
-  fs.mkdirSync(path.dirname(PUBLIC_COMPANION_PATH), { recursive: true });
-  fs.writeFileSync(OUTPUT_PATH, jsx);
-  fs.writeFileSync(OUTPUT_JSON_PATH, JSON.stringify(jsonPayload, null, 2));
-  fs.writeFileSync(PUBLIC_COMPANION_PATH, JSON.stringify(jsonPayload, null, 2));
+  fs.mkdirSync(path.dirname(BLOCKCHAIN_PAGE_DATA_PATH), { recursive: true });
+  fs.mkdirSync(path.dirname(BLOCKCHAIN_PAGE_DATA_JSON_PATH), { recursive: true });
+  fs.writeFileSync(OUTPUT_PATH, artifacts.files[OUTPUT_PATH].value);
+  fs.writeFileSync(OUTPUT_JSON_PATH, JSON.stringify(artifacts.files[OUTPUT_JSON_PATH].value, null, 2));
+  fs.writeFileSync(BLOCKCHAIN_PAGE_DATA_PATH, artifacts.files[BLOCKCHAIN_PAGE_DATA_PATH].value);
+  fs.writeFileSync(
+    BLOCKCHAIN_PAGE_DATA_JSON_PATH,
+    JSON.stringify(artifacts.files[BLOCKCHAIN_PAGE_DATA_JSON_PATH].value, null, 2),
+  );
 
-  return payload;
+  return {
+    contractAddresses: artifacts.contractAddresses,
+    blockchainContractsPageData: artifacts.blockchainContractsPageData,
+  };
 }
 
 function buildValidationReport({
@@ -909,6 +2001,7 @@ function buildValidationReport({
 
   for (const resolution of resolutions) {
     const entry = resolution.entry;
+    const deploymentResolution = resolution.resolution || {};
     if (!entry.address) {
       failures.push({
         failureClass: FAILURE_CLASSES.truth,
@@ -934,6 +2027,34 @@ function buildValidationReport({
         chain: entry.chain,
         contract: entry.name,
         detail: `Missing commit-specific provenance for ${entry.codeSource.repo}:${entry.codeSource.path}`,
+      });
+    }
+    if (entry.codeSource && entry.codeSource.exists === false) {
+      failures.push({
+        failureClass: FAILURE_CLASSES.provenance,
+        endpoint: "code-provenance",
+        chain: entry.chain,
+        contract: entry.name,
+        detail: `Resolved source path does not exist: ${entry.codeSource.repo}:${entry.codeSource.path}`,
+      });
+    }
+    if (resolution.definition.artifactAuthority && deploymentResolution.artifact?.address && entry.address
+      && !addressesMatch(deploymentResolution.artifact.address, entry.address)) {
+      failures.push({
+        failureClass: FAILURE_CLASSES.truth,
+        endpoint: "deployment-artifact",
+        chain: entry.chain,
+        contract: entry.name,
+        detail: "Deployment artifact address does not match the published row",
+      });
+    }
+    if (resolution.definition.requiredRuntimeEvidence && deploymentResolution.runtimeConsumerEvidence?.exactAddressMatch !== true) {
+      failures.push({
+        failureClass: FAILURE_CLASSES.truth,
+        endpoint: "runtime-consumer",
+        chain: entry.chain,
+        contract: entry.name,
+        detail: "Required runtime consumer evidence did not confirm the published address",
       });
     }
   }
@@ -990,14 +2111,26 @@ function buildValidationReport({
     });
   }
 
+  if (JSON.stringify(payload).includes("snippets/data/changelogs/contractAddressesData.jsx")) {
+    failures.push({
+      failureClass: FAILURE_CLASSES.output,
+      endpoint: "historical-cutover",
+      chain: "multi",
+      contract: "historical-series",
+      detail: "Generated contracts payload still references the archived historical changelog path",
+    });
+  }
+
   return { failures, warnings, catalog, payload };
 }
 
 async function runContractsPipeline(options = {}) {
-  const { dryRun = false, skipVerify = false } = options;
+  const { dryRun = false, check = false, skipVerify = false } = options;
+  const noWrite = dryRun || check;
   const catalog = buildContractProofCatalog();
   const { addresses, sha } = await fetchGovernorAddresses();
   addresses._sha = sha;
+  const previousPayload = loadPreviousGeneratedContracts();
 
   const previousBranchState = loadBranchWatchState();
   const nextBranchState = {
@@ -1041,11 +2174,32 @@ async function runContractsPipeline(options = {}) {
     "ethereumMainnet",
     skipVerify
   );
+  const arbHistoricalArtifacts = buildHistoricalArtifacts({
+    chain: "arbitrumOne",
+    entries: arbEnriched,
+    currentImplementations: arbImplementations,
+    previousChainPayload: previousPayload?.arbitrumOne || null,
+  });
+  const ethHistoricalArtifacts = buildHistoricalArtifacts({
+    chain: "ethereumMainnet",
+    entries: ethEnriched,
+    currentImplementations: ethImplementations,
+    previousChainPayload: previousPayload?.ethereumMainnet || null,
+  });
 
   const payload = {
-    arbitrumOne: buildChainPayload(arbEnriched, arbImplementations, [], sha),
-    ethereumMainnet: buildChainPayload(ethEnriched, ethImplementations, [], sha),
+    arbitrumOne: buildChainPayload(arbEnriched, arbImplementations, arbHistoricalArtifacts.historical, arbHistoricalArtifacts.historicalSeries, sha),
+    ethereumMainnet: buildChainPayload(ethEnriched, ethImplementations, ethHistoricalArtifacts.historical, ethHistoricalArtifacts.historicalSeries, sha),
   };
+  const blockchainPageData = await buildBlockchainContractsPageData({
+    payload,
+    resolutions: [...byChain.arbitrumOne, ...byChain.ethereumMainnet],
+    meta: {
+      verificationModel: "contracts-proof-v2",
+      sourceCommit: sha,
+      explorerUrls: EXPLORER_URLS,
+    },
+  });
 
   const validation = buildValidationReport({
     catalog,
@@ -1053,6 +2207,8 @@ async function runContractsPipeline(options = {}) {
     branchDiffs,
     resolutions: [...byChain.arbitrumOne, ...byChain.ethereumMainnet],
   });
+  const supplementalWarnings = [];
+  const allWarnings = [...validation.warnings, ...supplementalWarnings];
   const checks = [
     ...validation.failures.map((failure) => ({
       endpoint: failure.endpoint,
@@ -1060,14 +2216,14 @@ async function runContractsPipeline(options = {}) {
       detail: failure.detail,
       affects: failure.contract || failure.chain || "contracts-pipeline",
     })),
-    ...validation.warnings.map((warning) => ({
+    ...allWarnings.map((warning) => ({
       endpoint: warning.endpoint,
       status: "WARN",
       detail: warning.detail,
       affects: warning.contract || warning.chain || "contracts-pipeline",
     })),
   ];
-  writeHealthChecks(checks, dryRun);
+  writeHealthChecks(checks, noWrite);
 
   if (validation.failures.length) {
     writeIncidentArtifacts({
@@ -1076,28 +2232,38 @@ async function runContractsPipeline(options = {}) {
         verificationModel: "contracts-proof-v2",
         branchWatchStatePath: path.relative(REPO_ROOT, BRANCH_WATCH_STATE_PATH),
       },
-      dryRun,
+      dryRun: noWrite,
     });
     const error = new Error(`${validation.failures.length} blocking validation failure(s)`);
     error.failures = validation.failures;
     throw error;
   }
 
-  const writtenPayload = writeDataFiles(payload, sha, catalog, dryRun);
-  writeBranchWatchState(nextBranchState, dryRun);
+  const writtenPayload = writeDataFiles(payload, blockchainPageData, sha, catalog, { dryRun, check });
+  writeBranchWatchState(nextBranchState, noWrite);
   return {
-    payload: writtenPayload || payload,
+    payload: writtenPayload?.contractAddresses || payload,
+    blockchainContractsPageData: writtenPayload?.blockchainContractsPageData || blockchainPageData,
     branchWatch: nextBranchState,
-    warnings: validation.warnings,
+    warnings: allWarnings,
     sourceCommit: sha,
   };
 }
 
 module.exports = {
+  buildBlockchainContractsPageData,
   buildChainPayload,
+  buildHistoricalArtifacts,
+  buildHistoricalEntriesFromEventLogs,
   buildContractProofCatalog,
   computeIncidentFingerprint,
+  decodeSetContractInfoLog,
   diffBranchWatchState,
+  fetchControllerSetContractInfoLogs,
+  resolveCodeSource,
+  resolveDeploymentArtifact,
+  resolveRepoPath,
+  resolveRuntimeConsumerEvidence,
   resolveAuthority,
   resolveGovernorSeries,
   runContractsPipeline,

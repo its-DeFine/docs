@@ -91,6 +91,44 @@ destructive or history-altering actions.
    - Pre-commit hook blocks unauthorized root files/directories
    - Always check structure rules before creating new files
 
+## 🚨 MINTLIFY MDX DEBUG ORDER
+
+For broken Mintlify pages, Codex must debug in this order:
+
+1. **Working repo pattern first**
+   - Compare against a working page outside the broken surface before designing a new page/data boundary.
+   - Do not use another broken contracts page as the architectural reference.
+   - Prefer established `v2/**` and `snippets/**` patterns already rendering correctly.
+
+2. **Canonical data source first**
+   - If canonical page data already exists, pages must consume that source directly.
+   - Do not introduce route-local helper data files unless a working repo pattern proves they are necessary.
+   - Do not treat stale unit tests or broken helper layers as target-state truth.
+
+3. **Static errors before runtime tools**
+   - Check IDE Problems and `mint dev` output before running browser automation, Playwright, or long validators.
+   - Missing imports, undefined symbols, MDX parse errors, and invalid top-level page expressions must be fixed first.
+   - If Mint dev already shows the failure, do not run slower tools just to rediscover the same failure.
+
+4. **Fast confirmation before heavy validation**
+   - Use the fastest available confirmation path first: IDE errors, Mint dev errors, one quick console/error read, one quick route render check.
+   - Browser automation is for final confirmation or targeted console inspection, not primary diagnosis of broken MDX imports or parse failures.
+
+5. **Two-failure redesign rule**
+   - After two failed fixes in the same direction, stop and redesign.
+   - Redesign must be based on working repo patterns and current Mintlify constraints, not another variation of the same broken approach.
+
+6. **Contracts-specific recovery rule**
+   - For contracts pages, restore render correctness first with the correct canonical data shape and correct page styling.
+   - Do not widen into workflow, browser harness, or architecture cleanup while the page still has obvious Mint dev or IDE failures in front of you.
+
+7. **User-feedback and execution discipline**
+   - Direct user corrections about scope, tools, repo patterns, or constraints must be treated as immediate operating constraints, not as suggestions to revisit later.
+   - If the user points to a visible failure in Mint dev, IDE Problems, terminal output, or console logs, inspect that exact failure before choosing any other tool.
+   - Do not keep defending or iterating on a broken design once repo evidence and user feedback have invalidated it.
+   - If long-running checks are needed, push them to agents or background work only after the fastest local failure signals have been cleared.
+   - Persist major failures, wasted loops, and changed operating rules to shared workspace artifacts as they happen, not only after being asked.
+
 ## 🧪 VALIDATION COMMANDS
 
 Before asking for a commit, you should ideally run these to ensure code quality:

@@ -58,18 +58,18 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-overview</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>about</ai:section>
     <ai:wordCount>1090</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, about, livepeer protocol, protocol overview, protocol, overview</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/blockchain-contracts</loc>
-    <lastmod>2026-03-31T04:09:00+11:00</lastmod>
+    <lastmod>2026-04-01T17:53:31+11:00</lastmod>
     <ai:section>about</ai:section>
-    <ai:wordCount>3629</ai:wordCount>
-    <ai:lastVerified>2026-03-31T04:09:00+11:00</ai:lastVerified>
+    <ai:wordCount>3723</ai:wordCount>
+    <ai:lastVerified>2026-04-01T17:53:31+11:00</ai:lastVerified>
     <ai:tags>livepeer, livepeer protocol, livepeer smart contracts, livepeer contract architecture, blockchain contracts, blockchain, contracts, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer Governor, livepeer RoundsManager, livepeer Minter, livepeer ServiceRegistry, livepeer protocol contracts, arbitrum contracts, ethereum contracts, smart contract upgrade, governance upgrade</ai:tags>
   </url>
   <url>
@@ -106,26 +106,26 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/overview</loc>
-    <lastmod>2026-03-31T04:09:00+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>about</ai:section>
     <ai:wordCount>895</ai:wordCount>
-    <ai:lastVerified>2026-03-31T04:09:00+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, about, livepeer protocol, protocol overview, protocol, overview</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/technical-architecture</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>about</ai:section>
     <ai:wordCount>115</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, about, livepeer protocol, technical overview, technical, overview</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/treasury</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>about</ai:section>
     <ai:wordCount>757</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, about, livepeer network, livepeer treasury, treasury, learn</ai:tags>
   </url>
   <url>
@@ -138,10 +138,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/portal</loc>
-    <lastmod>2026-03-27T14:05:19+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>about</ai:section>
     <ai:wordCount>172</ai:wordCount>
-    <ai:lastVerified>2026-03-27T14:05:19+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>Start Here, livepeer, about, about livepeer, about portal, about livepeer portal, about livepeer network, about livepeer protocol, about livepeer token, about livepeer governance, about livepeer actors, about livepeer economics, about livepeer whitepaper, about livepeer faq</ai:tags>
   </url>
   <url>
@@ -162,10 +162,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/resources/livepeer-contract-addresses</loc>
-    <lastmod>2026-03-31T04:33:04+11:00</lastmod>
+    <lastmod>2026-04-01T08:04:47.153Z</lastmod>
     <ai:section>about</ai:section>
     <ai:wordCount>0</ai:wordCount>
-    <ai:lastVerified>2026-03-31T04:33:04+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, livepeer contracts, livepeer contract address, livepeer contract addresses, LPT contract address, LPT token address, livepeer token address, livepeer smart contract address, livepeer arbitrum contract address, livepeer ethereum contract address, livepeer official contract, livepeer protocol contracts, contract addresses, arbitrum, ethereum, blockchain, smart contracts, canonical, reference, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer RoundsManager, livepeer Governor, livepeer verified contracts, livepeer arbiscan, official livepeer addresses, 0x289ba1701C2F088cf0faf8B3705246331cB8A839, 0x58b6a8a3302369daec383334672404ee733ab239</ai:tags>
   </url>
   <url>
@@ -194,7 +194,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/community/faq</loc>
-    <lastmod>2026-03-19T16:50:13+11:00</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>703</ai:wordCount>
     <ai:lastVerified>2026-03-02</ai:lastVerified>
@@ -210,7 +210,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/community/livepeer-community/governance-and-foundation</loc>
-    <lastmod>2026-03-19T16:50:13+11:00</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>1472</ai:wordCount>
     <ai:lastVerified>2026-03-02</ai:lastVerified>
@@ -314,118 +314,118 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/community/resources/guides</loc>
-    <lastmod>2026-03-20T23:57:09+11:00</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>395</ai:wordCount>
     <ai:lastVerified>2026-03-02</ai:lastVerified>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/about/mechanics</loc>
-    <lastmod>2026-03-31T10:55:18.625Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>371</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.625Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, mechanics, bonding, unbonding, staking, rewards, rounds</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/about/overview</loc>
-    <lastmod>2026-03-31T10:55:18.625Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>466</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.625Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, overview, token, staking, governance, economics, arbitrum</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/about/purpose</loc>
-    <lastmod>2026-03-31T10:55:18.625Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>1288</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.625Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, delegators, about lpt livepeer token, purpose, delegation</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/about/tokenomics</loc>
-    <lastmod>2026-03-31T10:55:18.625Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>398</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.625Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, tokenomics, inflation, staking, rewards, bonding rate, economics</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/delegation/about-delegators</loc>
-    <lastmod>2026-03-31T10:55:18.627Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>598</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.627Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, delegators, staking, delegation, rewards, governance, risk</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/delegation/bridge-lpt-to-arbitrum</loc>
-    <lastmod>2026-03-31T10:55:18.627Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>2758</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.627Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, LPT, bridge, arbitrum, ethereum, token transfer, L1, L2, CEX, DEX, exchange, Uniswap, Binance, OKX</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/delegation/delegation-economics</loc>
-    <lastmod>2026-03-31T10:55:18.627Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>13</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.627Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, delegation, economics, staking, rewards, orchestrators, delegators</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/delegation/delegation-guide</loc>
-    <lastmod>2026-03-31T10:55:18.627Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>495</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.627Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, delegation, staking, bonding, unbonding, rewards, guide</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/delegation/getting-started</loc>
-    <lastmod>2026-03-31T11:01:34.793Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>960</ai:wordCount>
-    <ai:lastVerified>2026-03-31T11:01:34.793Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, delegate lpt, staking, delegation, orchestrator, rewards, bonding, livepeer explorer</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/delegation/overview</loc>
-    <lastmod>2026-03-31T10:55:18.627Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>500</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.627Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, delegation, staking, bonding, orchestrators, rewards, economics</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/governance/model</loc>
-    <lastmod>2026-03-31T10:55:18.627Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>697</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.627Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, governance, model, quorum, voting, timelock, security</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/governance/overview</loc>
-    <lastmod>2026-03-31T10:55:18.628Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>639</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.628Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, governance, voting, LIPs, SPE, proposals</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/governance/processes</loc>
-    <lastmod>2026-03-31T11:01:34.793Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>945</ai:wordCount>
-    <ai:lastVerified>2026-03-31T11:01:34.793Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, governance, processes, voting, LIPs, treasury, proposals</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/resources/compendium/glossary</loc>
-    <lastmod>2026-03-31T11:01:34.794Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>4868</ai:wordCount>
     <ai:lastVerified>2026-03</ai:lastVerified>
@@ -433,58 +433,58 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/resources/delegator-videos-and-blogs</loc>
-    <lastmod>2026-03-31T10:55:18.628Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>285</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.628Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, delegators, LPT, staking, video, tutorial, blogs, delegate</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/resources/exchanges</loc>
-    <lastmod>2026-03-31T10:55:18.629Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>433</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.629Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, delegators, token resources, lpt exchanges, exchanges, listed, where</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/resources/lpt-eth-usage</loc>
-    <lastmod>2026-03-31T10:55:18.629Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>146</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.629Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, delegators, token resources, lpt eth usage, token, functions, tokens, protocol</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/token-portal</loc>
-    <lastmod>2026-03-31T11:02:34.391Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>152</ai:wordCount>
-    <ai:lastVerified>2026-03-31T11:02:34.391Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>Start Here, livepeer, delegators, token portal, token, home, portal, welcome</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/treasury/allocations</loc>
-    <lastmod>2026-03-31T10:55:18.629Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>494</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.629Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, treasury, allocations, governance, grants, funding, accountability</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/treasury/overview</loc>
-    <lastmod>2026-03-31T10:55:18.629Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>395</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.629Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, treasury, governance, grants, funding, ecosystem</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/treasury/proposals</loc>
-    <lastmod>2026-03-31T10:55:18.629Z</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>596</ai:wordCount>
-    <ai:lastVerified>2026-03-31T10:55:18.629Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, treasury, proposals, governance, grants, execution</ai:tags>
   </url>
   <url>
@@ -521,7 +521,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/build/workload-fit</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>672</ai:wordCount>
     <ai:lastVerified>2026-03-17</ai:lastVerified>
@@ -569,7 +569,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/developer-journey</loc>
-    <lastmod>2026-03-25T22:08:53+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>1051</ai:wordCount>
     <ai:lastVerified>2026-03-17</ai:lastVerified>
@@ -641,10 +641,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/guides/local-testnet-deployment</loc>
-    <lastmod>2026-03-31T04:09:00+11:00</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>861</ai:wordCount>
-    <ai:lastVerified>2026-03-31T04:09:00+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, testnet, local development, hardhat, deploy contracts, go-livepeer, developer</ai:tags>
   </url>
   <url>
@@ -657,15 +657,15 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/guides/testnet-contract-deployment</loc>
-    <lastmod>2026-03-31T04:09:00+11:00</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>935</ai:wordCount>
-    <ai:lastVerified>2026-03-31T04:09:00+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, contract addresses, arbitrum, ethereum, blockchain, smart contracts, testnet deployment, local testnet, hardhat, foundry, contract deployment guide, livepeer protocol testnet, arbitrum testnet, ethereum testnet, deploy smart contracts, developer guide, livepeer developer, protocol testing, contract verification, cast commands</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/opportunities/bug-bounties</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>720</ai:wordCount>
     <ai:lastVerified>2026-03</ai:lastVerified>
@@ -673,7 +673,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/opportunities/grants-and-programmes</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>983</ai:wordCount>
     <ai:lastVerified>2026-03</ai:lastVerified>
@@ -681,7 +681,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/opportunities/oss-contributions</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>1128</ai:wordCount>
     <ai:lastVerified>2026-03</ai:lastVerified>
@@ -689,7 +689,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/opportunities/overview</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>359</ai:wordCount>
     <ai:lastVerified>2026-03</ai:lastVerified>
@@ -705,10 +705,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/portal</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>112</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>Start Here, home, index, landing, developer, developers, dev, development, build, build on livepeer, livepeer developer, livepeer developers, livepeer dev, livepeer devs, livepeer development, livepeer dev portal, livepeer developer portal, livepeer dev home, livepeer developer home, livepeer dev hub, livepeer developer hub, livepeer dev center, livepeer developer center</ai:tags>
   </url>
   <url>
@@ -857,7 +857,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/guides/monitoring-and-tooling/on-chain-metrics</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>859</ai:wordCount>
     <ai:lastVerified>2026-03-15</ai:lastVerified>
@@ -865,7 +865,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>742</ai:wordCount>
     <ai:lastVerified>2026-03-15</ai:lastVerified>
@@ -881,7 +881,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/guides/node-pipelines/ai-pipelines</loc>
-    <lastmod>2026-03-19T21:20:19+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>1486</ai:wordCount>
     <ai:lastVerified>2026-03-13</ai:lastVerified>
@@ -889,7 +889,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/guides/node-pipelines/byoc-pipelines</loc>
-    <lastmod>2026-03-19T21:20:19+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>947</ai:wordCount>
     <ai:lastVerified>2026-03-13</ai:lastVerified>
@@ -897,7 +897,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/guides/node-pipelines/guide</loc>
-    <lastmod>2026-03-19T21:20:19+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>1095</ai:wordCount>
     <ai:lastVerified>2026-03-13</ai:lastVerified>
@@ -905,7 +905,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/guides/node-pipelines/pipeline-configuration</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>907</ai:wordCount>
     <ai:lastVerified>2026-03-15</ai:lastVerified>
@@ -913,7 +913,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/guides/node-pipelines/video-pipelines</loc>
-    <lastmod>2026-03-19T21:20:19+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>1275</ai:wordCount>
     <ai:lastVerified>2026-03-13</ai:lastVerified>
@@ -1033,7 +1033,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/guides/tutorials/tutorial-3-go-production</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>2033</ai:wordCount>
     <ai:lastVerified>2026-03-15</ai:lastVerified>
@@ -1049,7 +1049,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/portal</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>157</ai:wordCount>
     <ai:lastVerified>2026-03-17</ai:lastVerified>
@@ -1065,7 +1065,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/quickstart/gateway-setup</loc>
-    <lastmod>2026-03-31T05:10:11+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>318</ai:wordCount>
     <ai:lastVerified>2026-03-17</ai:lastVerified>
@@ -1089,10 +1089,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/resources/knowledge-hub/resources</loc>
-    <lastmod>2026-03-28T11:50:11+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>965</ai:wordCount>
-    <ai:lastVerified>2026-03-28T11:50:11+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, gateway, resources, tools, dashboards, SDK, go-livepeer, monitoring, analytics</ai:tags>
   </url>
   <url>
@@ -1372,10 +1372,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/contract-addresses</loc>
-    <lastmod>2026-03-31T04:33:04+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>0</ai:wordCount>
-    <ai:lastVerified>2026-03-31T04:33:04+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, livepeer contracts, livepeer contract address, livepeer contract addresses, LPT contract address, LPT token address, livepeer token address, livepeer smart contract address, livepeer arbitrum contract address, livepeer ethereum contract address, livepeer official contract, livepeer protocol contracts, contract addresses, arbitrum, ethereum, blockchain, smart contracts, canonical, reference, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer RoundsManager, livepeer Governor, livepeer verified contracts, livepeer arbiscan, official livepeer addresses, 0x289ba1701C2F088cf0faf8B3705246331cB8A839, 0x58b6a8a3302369daec383334672404ee733ab239</ai:tags>
   </url>
   <url>
@@ -1404,10 +1404,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/setup/configure/configuration-overview</loc>
-    <lastmod>2026-03-17T06:36:42+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>180</ai:wordCount>
-    <ai:lastVerified>2026-03-17T06:36:42+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, gateways, run a gateway, configure, configuration overview, configuration, overview, configuring</ai:tags>
   </url>
   <url>
@@ -1420,18 +1420,18 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/setup/configure/pricing-configuration</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>589</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, gateways, run a gateway, configure, pricing configuration, pricing, configuration</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/setup/configure/video-configuration</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>500</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, gateways, run a gateway, configure, video configuration, video, configuration, services</ai:tags>
   </url>
   <url>
@@ -1476,10 +1476,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/setup/install/install-overview</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>214</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, gateways, run a gateway, install, install overview, installation, overview, process</ai:tags>
   </url>
   <url>
@@ -1516,10 +1516,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/setup/requirements/on-chain setup/on-chain</loc>
-    <lastmod>2026-03-23T03:53:25+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>1790</ai:wordCount>
-    <ai:lastVerified>2026-03-23T03:53:25+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, gateways, run a gateway, requirements, on chain setup, on chain, chain, setup, through, setting</ai:tags>
   </url>
   <url>
@@ -1532,18 +1532,18 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/setup/run-a-gateway</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>178</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, gateways, run a gateway, gateway, connect, applications, video</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/setup/transcoding</loc>
-    <lastmod>2026-03-17T06:36:42+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>54</ai:wordCount>
-    <ai:lastVerified>2026-03-17T06:36:42+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, gateways, transcoding, go-livepeer</ai:tags>
   </url>
   <url>
@@ -1556,10 +1556,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/about-livepeer/ecosystem</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>1883</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, home, introduction, livepeer ecosystem, ecosystem, grown, robust</ai:tags>
   </url>
   <url>
@@ -1588,7 +1588,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/mission-control</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>21</ai:wordCount>
     <ai:lastVerified>2026-03-17</ai:lastVerified>
@@ -1596,10 +1596,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/primer</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>598</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer intro, livepeer introduction, livepeer overview, livepeer primer</ai:tags>
   </url>
   <url>
@@ -1884,7 +1884,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/guides/operator-considerations/operator-impact</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>1254</ai:wordCount>
     <ai:lastVerified>2026-03-15</ai:lastVerified>
@@ -1939,10 +1939,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/guides/staking-and-rewards/delegate-operations</loc>
-    <lastmod>2026-03-19T21:20:19+11:00</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>1395</ai:wordCount>
-    <ai:lastVerified>2026-03-19T21:20:19+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrator, delegators, lpt delegation, stake, reward cut, fee share, orchestrator reputation, yield calculation, roi</ai:tags>
   </url>
   <url>
@@ -1955,10 +1955,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/guides/staking-and-rewards/network-participation</loc>
-    <lastmod>2026-03-19T19:19:38+11:00</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>945</ai:wordCount>
-    <ai:lastVerified>2026-03-19T19:19:38+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, governance, lip, livepeer improvement proposal, voting, livepeer_cli, orchestrator vote, lpt governance, protocol parameters</ai:tags>
   </url>
   <url>
@@ -2139,10 +2139,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/resources/reference/technical/contract-addresses</loc>
-    <lastmod>2026-03-31T04:33:04+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>0</ai:wordCount>
-    <ai:lastVerified>2026-03-31T04:33:04+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, livepeer contracts, livepeer contract address, livepeer contract addresses, LPT contract address, LPT token address, livepeer token address, livepeer smart contract address, livepeer arbitrum contract address, livepeer ethereum contract address, livepeer official contract, livepeer protocol contracts, contract addresses, arbitrum, ethereum, blockchain, smart contracts, canonical, reference, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer RoundsManager, livepeer Governor, livepeer verified contracts, livepeer arbiscan, official livepeer addresses, 0x289ba1701C2F088cf0faf8B3705246331cB8A839, 0x58b6a8a3302369daec383334672404ee733ab239</ai:tags>
   </url>
   <url>
@@ -2267,10 +2267,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/changelog/changelog</loc>
-    <lastmod>2026-03-30T04:31:37+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>363</ai:wordCount>
-    <ai:lastVerified>2026-03-30T04:31:37+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, resources, changelog, updates, documentation</ai:tags>
   </url>
   <url>
@@ -2371,10 +2371,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/ai-automations/automations-workflows</loc>
-    <lastmod>2026-03-31T05:10:11+11:00</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>3937</ai:wordCount>
-    <ai:lastVerified>2026-03-31T05:10:11+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:56:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, resources, documentation guide, automations, workflows, scripts, github actions, n8n, pre-commit, hooks</ai:tags>
   </url>
   <url>
@@ -2387,59 +2387,59 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/component-library</loc>
-    <lastmod>2026-03-23T03:53:25+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>223</ai:wordCount>
-    <ai:lastVerified>2026-03-23T03:53:25+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/config</loc>
-    <lastmod>2026-03-22T23:23:57+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>205</ai:wordCount>
-    <ai:lastVerified>2026-03-22T23:23:57+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/displays</loc>
-    <lastmod>2026-03-23T03:53:25+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>950</ai:wordCount>
-    <ai:lastVerified>2026-03-23T03:53:25+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/elements</loc>
-    <lastmod>2026-03-23T03:53:25+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>1098</ai:wordCount>
-    <ai:lastVerified>2026-03-23T03:53:25+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/integrators</loc>
-    <lastmod>2026-03-23T03:53:25+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>984</ai:wordCount>
-    <ai:lastVerified>2026-03-23T03:53:25+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/overview</loc>
-    <lastmod>2026-03-23T03:53:25+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>212</ai:wordCount>
-    <ai:lastVerified>2026-03-23T03:53:25+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/scaffolding</loc>
-    <lastmod>2026-03-23T03:53:25+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>1148</ai:wordCount>
-    <ai:lastVerified>2026-03-23T03:53:25+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/wrappers</loc>
-    <lastmod>2026-03-23T03:53:25+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>1348</ai:wordCount>
-    <ai:lastVerified>2026-03-23T03:53:25+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/contributing/contribute-to-the-docs</loc>
@@ -2474,15 +2474,15 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/documentation-guide</loc>
-    <lastmod>2026-03-17T06:36:42+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>829</ai:wordCount>
-    <ai:lastVerified>2026-03-17T06:36:42+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, resources, documentation guide, guide, using, documentation</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/documentation-overview</loc>
-    <lastmod>2026-03-31T05:10:11+11:00</lastmod>
+    <lastmod>2026-03-31T23:56:23+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>421</ai:wordCount>
     <ai:lastVerified>2026-03-17</ai:lastVerified>
@@ -2521,10 +2521,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/portal</loc>
-    <lastmod>2026-03-30T08:29:06+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>91</ai:wordCount>
-    <ai:lastVerified>2026-03-30T08:29:06+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>Start Here, livepeer, resources, resource hub, resource portal, changelogs, guides, help, documentation</ai:tags>
   </url>
   <url>
@@ -3177,10 +3177,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/get-started/overview</loc>
-    <lastmod>2026-03-28T00:37:54+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>108</ai:wordCount>
-    <ai:lastVerified>2026-03-28T00:37:54+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, studio, getting started, quickstart, setup</ai:tags>
   </url>
   <url>
@@ -3297,10 +3297,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/solutions/livepeer-studio/docs/reference/overview</loc>
-    <lastmod>2026-03-25T22:08:53+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>195</ai:wordCount>
-    <ai:lastVerified>2026-03-25T22:08:53+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, studio, api, reference, endpoints</ai:tags>
   </url>
   <url>
@@ -3369,10 +3369,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/solutions/portal</loc>
-    <lastmod>2026-03-28T11:50:11+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>402</ai:wordCount>
-    <ai:lastVerified>2026-03-28T11:50:11+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>Start Here, livepeer, about, about livepeer, about portal, about livepeer portal, about livepeer network, about livepeer protocol, about livepeer token, about livepeer governance, about livepeer actors, about livepeer economics, about livepeer whitepaper, about livepeer faq</ai:tags>
   </url>
   <url>
@@ -3385,10 +3385,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/solutions/solution-providers</loc>
-    <lastmod>2026-03-27T14:05:19+11:00</lastmod>
+    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
     <ai:section>solutions</ai:section>
     <ai:wordCount>458</ai:wordCount>
-    <ai:lastVerified>2026-03-27T14:05:19+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-31T23:57:50+11:00</ai:lastVerified>
     <ai:tags>livepeer, solutions, providers, ecosystem, products</ai:tags>
   </url>
   <url>

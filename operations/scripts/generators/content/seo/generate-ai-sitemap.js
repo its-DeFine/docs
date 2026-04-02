@@ -36,8 +36,12 @@ const ROUTE_DEPENDENCIES = {
   'v2/about/resources/livepeer-contract-addresses': [
     'snippets/data/contract-addresses/contractAddressesData.jsx',
     'snippets/data/contract-addresses/contractAddressesData.json',
-    'snippets/composables/pages/canonical/livepeer-contract-addresses-data.json',
     'snippets/data/contract-addresses/_health-checks.json',
+  ],
+  'v2/about/livepeer-protocol/blockchain-contracts': [
+    'snippets/data/contract-addresses/blockchainContractsPageData.jsx',
+    'snippets/data/contract-addresses/blockchainContractsPageData.json',
+    'snippets/data/contract-addresses/contractAddressesData.json',
   ],
 };
 

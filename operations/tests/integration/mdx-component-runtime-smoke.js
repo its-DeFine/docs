@@ -20,10 +20,8 @@ try {
   puppeteer = require(path.join(process.cwd(), 'tools', 'node_modules', 'puppeteer'));
 }
 const {
-  ensureServerRunning,
-  stopServer,
-  getServerUrl
-} = require('../../../.githooks/server-manager');
+  ensureFreshBundleBaseUrl
+} = require('../contracts-validator-contract');
 
 const DEFAULT_TIMEOUT_MS = 30000;
 const SENTINEL_ROUTES = [
@@ -255,8 +253,11 @@ async function testRoute(browser, route, baseUrl) {
 
 async function runSmoke(options = {}) {
   const routes = getRoutes(options);
-  const startedServer = options.baseUrl ? false : await ensureServerRunning({ probePath: routes[0] });
-  const baseUrl = String(options.baseUrl || '').trim() || getServerUrl();
+  const baseUrl = await ensureFreshBundleBaseUrl({
+    probePath: routes[0],
+    baseUrl: options.baseUrl,
+    fresh: true
+  });
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -277,9 +278,6 @@ async function runSmoke(options = {}) {
     };
   } finally {
     await browser.close();
-    if (startedServer) {
-      stopServer();
-    }
   }
 }
 

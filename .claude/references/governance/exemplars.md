@@ -41,3 +41,23 @@
 - Published location noted: `docs-guide/frameworks/component-governance.mdx`
 
 **Watch out:** The component entries within each sub-niche are noted as "aspirational and may not match current file names." The category-level structure and decision rules are verified accurate. Always check actual file existence before referencing specific components.
+
+---
+
+### Actions Governance Framework
+
+**File:** `.github/workspace/framework-canonical.md`
+
+**Why it's good:** Third governed surface aligned to the same taxonomy model as scripts and components. The key architectural insight (D-ACT-08) is that all workflow YAML files are dispatchers; the type classification comes from the script, not the workflow. Seven types with classification tests, seven concerns that name the part of the system (not the output kind), eight pipeline tags that classify when/authority. The naming convention (`type-concern-verb-name.yml`) compensates for GitHub's flat `.github/workflows/` constraint with a naming quality rule and bad/good name examples.
+
+**Key patterns:**
+- Architectural separation: workflows dispatch, scripts do the typed work (D-ACT-08)
+- Seven types with positive classification tests: integrator, generator, validator, audit, remediator, dispatch, interface
+- Seven concerns naming what part of the system: integrations, copy, maintenance, health, discoverability, governance, brand
+- 11-verb closed enum (consolidated from 17): update, generate, check, scan, repair, dispatch, label, index, intake, close, assign
+- Pipeline tags (P2-P6, manual, event-driven) with authority levels and error handling requirements per tag
+- Naming quality rule: "If someone unfamiliar with the repo cannot guess the workflow's purpose from the filename alone, the name is bad"
+- Self-documenting pipeline: generator script reads audit JSON, produces per-action MDX pages
+- Decisions log updated at the time each decision is made (8 decisions, D-ACT-01 through D-ACT-08)
+
+**Watch out:** The audit JSON (`actions-audit.json`) reflects confirmed names/types/concerns from the review but the actual workflow files have NOT been renamed yet. Renaming happens in Phase 6. The two new CI workflows (generate-action-docs, check-action-naming) are staged in the actions-library, not yet in `.github/workflows/`.

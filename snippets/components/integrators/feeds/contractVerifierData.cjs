@@ -71,6 +71,43 @@ function buildContractVerifierGlobalInventory(data = {}) {
   return entries;
 }
 
+function normalizeContractVerifierAddress(address = "") {
+  return String(address || "").trim().toLowerCase();
+}
+
+function findContractVerifierInventoryMatch(data = {}, address = "") {
+  const needle = normalizeContractVerifierAddress(address);
+  if (!needle) return null;
+
+  return buildContractVerifierGlobalInventory(data).find(
+    (entry) => normalizeContractVerifierAddress(entry?.address) === needle
+  ) || null;
+}
+
+function buildContractVerifierVerifyChains(
+  data = {},
+  address = "",
+  preferredChain = "arbitrumOne"
+) {
+  const chainOrder = ["arbitrumOne", "ethereumMainnet"];
+  const pipelineMatch = findContractVerifierInventoryMatch(data, address);
+  const ordered = [];
+
+  if (pipelineMatch?.chain && chainOrder.includes(pipelineMatch.chain)) {
+    ordered.push(pipelineMatch.chain);
+  }
+  if (chainOrder.includes(preferredChain) && !ordered.includes(preferredChain)) {
+    ordered.push(preferredChain);
+  }
+  chainOrder.forEach((chainKey) => {
+    if (!ordered.includes(chainKey)) {
+      ordered.push(chainKey);
+    }
+  });
+
+  return ordered;
+}
+
 function isContractVerifierControllerLookupEligible(entry, hasController) {
   const entryMeta = (entry && entry.meta) || {};
   const hash = entryMeta.keccakHash || null;
@@ -101,5 +138,7 @@ module.exports = {
   buildContractVerifierChainData,
   buildContractVerifierGlobalInventory,
   buildContractVerifierLookupData,
+  buildContractVerifierVerifyChains,
+  findContractVerifierInventoryMatch,
   isContractVerifierControllerLookupEligible,
 };

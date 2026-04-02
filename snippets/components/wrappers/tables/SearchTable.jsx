@@ -16,7 +16,7 @@
  * @param {string} [categoryColumn='Category'] - Field name the first dropdown filters on.
  * @param {Array} [filterColumns=[]] - Additional column names that get dropdown filters. Each scoped by selections above it.
  * @param {object} [columnWidths={}] - Column width overrides keyed by header name. Passed to TableComponent.
- * @param {object} [columnVariant={}] - Column display variants keyed by header name. Supported: "bold", "badge", "textIcon".
+ * @param {object} [columnVariant={}] - Column display variants keyed by header name. Supported: "bold", "badge", "textIcon", "addressWrapper".
  * @param {Array} [categoryBadges=[]] - Array of {color, label} for "badge" variant rendering. Matched by label (case-insensitive).
  * @param {Array} [textIcons=[]] - Array of {label, icon} for "textIcon" variant rendering. Icon is JSX rendered inline before the label text.
  * @param {boolean} [showSeparators=false] - When true, inserts category separator rows. Labels are uppercased.
@@ -26,6 +26,7 @@
  * @param {object} [style={}] - Inline style overrides.
  */
 import { LinkIcon } from '/snippets/components/elements/links/Links.jsx'
+import { CopyText } from '/snippets/components/elements/text/Text.jsx'
 
 export const SearchTable = ({
   TableComponent = null,
@@ -138,7 +139,7 @@ export const SearchTable = ({
   // --- Apply column variants ---
   const firstColumnName = safeHeaderList[0]
 
-  const renderVariant = (value, variant, item) => {
+  const renderVariant = (value, variant, item, header) => {
     if (variant === 'bold' && typeof value === 'string') {
       return <strong>{value}</strong>
     }
@@ -165,7 +166,7 @@ export const SearchTable = ({
       }
     }
     if (variant === 'addressWrapper' && typeof value === 'string') {
-      const href = item?._addressHref
+      const href = item?.[`_${header}Href`] ?? item?._addressHref
       return (
         <div
           style={{
@@ -191,7 +192,7 @@ export const SearchTable = ({
     }
     for (const header of safeHeaderList) {
       if (columnVariant[header] && out[header] !== undefined) {
-        out[header] = renderVariant(out[header], columnVariant[header], item)
+        out[header] = renderVariant(out[header], columnVariant[header], item, header)
       }
     }
     if (

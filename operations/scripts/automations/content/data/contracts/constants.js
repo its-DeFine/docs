@@ -10,9 +10,13 @@ const OUTPUT_JSON_PATH = path.join(
   REPO_ROOT,
   "snippets/data/contract-addresses/contractAddressesData.json"
 );
-const PUBLIC_COMPANION_PATH = path.join(
+const BLOCKCHAIN_PAGE_DATA_PATH = path.join(
   REPO_ROOT,
-  "snippets/composables/pages/canonical/livepeer-contract-addresses-data.json"
+  "snippets/data/contract-addresses/blockchainContractsPageData.jsx"
+);
+const BLOCKCHAIN_PAGE_DATA_JSON_PATH = path.join(
+  REPO_ROOT,
+  "snippets/data/contract-addresses/blockchainContractsPageData.json"
 );
 const HEALTH_CHECK_PATH = path.join(
   REPO_ROOT,
@@ -115,6 +119,8 @@ module.exports = {
   ACTIVE_LIFECYCLES,
   ANOMALY_JSON_PATH,
   ANOMALY_MD_PATH,
+  BLOCKCHAIN_PAGE_DATA_JSON_PATH,
+  BLOCKCHAIN_PAGE_DATA_PATH,
   BRANCH_WATCH_STATE_PATH,
   CONTROLLERS,
   DEFAULT_RPC_URLS,
@@ -127,7 +133,6 @@ module.exports = {
   LIVEPEER_DEPLOYER,
   OUTPUT_JSON_PATH,
   OUTPUT_PATH,
-  PUBLIC_COMPANION_PATH,
   PUBLISHED_LIFECYCLES,
   REPO_ROOT,
   WATCHED_REPOS,

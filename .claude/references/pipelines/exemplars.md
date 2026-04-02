@@ -93,3 +93,31 @@ When designing a new pipeline, follow this structure:
 ```
 
 **Composability test:** Can you add a new entry by creating only a config entry and a page file? If yes, the pipeline is composable. If you need to modify the script, it's not.
+
+---
+
+### Actions Governance Pipeline (Self-Documenting)
+
+**Files:**
+- **Audit data:** `.github/workspace/actions-audit.json`
+- **Generator:** `.github/workspace/generate-action-pages.js`
+- **Template:** `.github/workspace/actions-library/action-template.mdx`
+- **Output:** `.github/workspace/actions-library/{type}/{concern}/*.mdx` (41 pages)
+- **Catalog:** `.github/workspace/actions-library/catalog-index.mdx`
+- **CI (staged):** `generate-action-docs.yml` (P4, regenerate on change), `check-action-naming.yml` (P3, validate naming)
+- **Framework:** `.github/workspace/framework-canonical.md`
+- **Decisions:** `.github/workspace/reports-audits/decisions-log.mdx`
+
+**Why it's good:** Self-documenting pipeline where the documentation regenerates from structured data. The generator script reads `actions-audit.json` (machine-readable audit of all 45 workflows) and produces one MDX page per workflow plus a catalog index. The folder structure is `type/concern/page.mdx`, mirroring the naming convention `type-concern-verb-name.yml`. Adding a new workflow = add entry to audit JSON, run generator. Eight co-designed decisions (D-ACT-01 through D-ACT-08) are recorded in a decisions log at the time each was made, not batched.
+
+**Key patterns:**
+- Structured data first: all classifications in JSON, pages generated from it
+- Generator script with `--dry-run` support
+- Gold-standard page (contract-addresses) hand-written, rest generated with TODO markers
+- Folder hierarchy: type (top) / concern (second) / page.mdx
+- Naming convention compensates for GitHub's flat workflow folder
+- Decisions log updated live during co-design, not after the fact
+- Two CI workflows: one regenerates docs (P4), one validates naming (P3 soft gate)
+- Architectural separation (D-ACT-08): workflows are dispatchers, type lives on the script
+
+**Watch out:** The actual workflow files have NOT been renamed yet. `actions-audit.json` has the confirmed new names in the `new_name` field. Renaming is Phase 6. The two CI workflows are staged in the actions-library, not yet in `.github/workflows/`.
