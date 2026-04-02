@@ -18,10 +18,6 @@ const BLOCKCHAIN_PAGE_DATA_JSON_PATH = path.join(
   REPO_ROOT,
   "snippets/data/contract-addresses/blockchainContractsPageData.json"
 );
-const PUBLIC_COMPANION_PATH = path.join(
-  REPO_ROOT,
-  "snippets/composables/pages/canonical/livepeer-contract-addresses-data.json"
-);
 const HEALTH_CHECK_PATH = path.join(
   REPO_ROOT,
   "snippets/data/contract-addresses/_health-checks.json"
@@ -102,20 +98,6 @@ const DEFAULT_RPC_URLS = {
   ].filter(Boolean),
 };
 
-const CONTRACTS_PIPELINE_CADENCE = {
-  defaultLabel: "daily",
-  mainScheduleCron: "0 2 * * *",
-  shadowScheduleCron: "30 2 * * *",
-  configurable: true,
-};
-
-const BLOCKING_BRANCH_DIFF_TYPES = [
-  "new-repo-watch",
-  "default-branch-change",
-  "new-branch",
-  "missing-branch",
-];
-
 const ACTIVE_LIFECYCLES = new Set(["active"]);
 const PUBLISHED_LIFECYCLES = new Set([
   "active",
@@ -149,11 +131,8 @@ module.exports = {
   HEALTH_CHECK_PATH,
   ISSUE_PAYLOAD_PATH,
   LIVEPEER_DEPLOYER,
-  BLOCKING_BRANCH_DIFF_TYPES,
-  CONTRACTS_PIPELINE_CADENCE,
   OUTPUT_JSON_PATH,
   OUTPUT_PATH,
-  PUBLIC_COMPANION_PATH,
   PUBLISHED_LIFECYCLES,
   REPO_ROOT,
   WATCHED_REPOS,

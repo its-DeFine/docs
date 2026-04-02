@@ -8,9 +8,7 @@ const {
   ACTIVE_LIFECYCLES,
   BLOCKCHAIN_PAGE_DATA_JSON_PATH,
   BLOCKCHAIN_PAGE_DATA_PATH,
-  BLOCKING_BRANCH_DIFF_TYPES,
   BRANCH_WATCH_STATE_PATH,
-  CONTRACTS_PIPELINE_CADENCE,
   CONTROLLERS,
   DEFAULT_RPC_URLS,
   EXPLORER_URLS,
@@ -20,7 +18,6 @@ const {
   HEALTH_CHECK_PATH,
   OUTPUT_JSON_PATH,
   OUTPUT_PATH,
-  PUBLIC_COMPANION_PATH,
   PUBLISHED_LIFECYCLES,
   REPO_ROOT,
   WATCHED_REPOS,
@@ -226,7 +223,7 @@ function buildSeriesEntry(entry, overrides = {}) {
 }
 
 function loadPreviousGeneratedContracts() {
-  const candidates = [OUTPUT_JSON_PATH, PUBLIC_COMPANION_PATH, OUTPUT_PATH];
+  const candidates = [OUTPUT_JSON_PATH, OUTPUT_PATH];
   for (const candidate of candidates) {
     if (!fs.existsSync(candidate)) continue;
     try {
@@ -308,18 +305,13 @@ function buildCurrentSeriesCandidates(entries = [], currentImplementations = [])
   return [...candidates.values()];
 }
 
-function bootstrapHistoricalSeriesMap(chainPayload = {}, currentLifecycleEntries = [], currentImplementations = []) {
-  const normalizedCurrentEntries = currentLifecycleEntries.length > 0
-    ? currentLifecycleEntries
-    : [
-      ...(Array.isArray(chainPayload.active) ? chainPayload.active : []),
-      ...(Array.isArray(chainPayload.paused) ? chainPayload.paused : []),
-      ...(Array.isArray(chainPayload.migration_residual) ? chainPayload.migration_residual : []),
-      ...(Array.isArray(chainPayload.legacy_operational) ? chainPayload.legacy_operational : []),
-    ];
-  const normalizedCurrentImplementations = currentImplementations.length > 0
-    ? currentImplementations
-    : (Array.isArray(chainPayload.currentImplementations) ? chainPayload.currentImplementations : []);
+function bootstrapHistoricalSeriesMap(chainPayload = {}) {
+  const currentLifecycleEntries = [
+    ...(Array.isArray(chainPayload.active) ? chainPayload.active : []),
+    ...(Array.isArray(chainPayload.paused) ? chainPayload.paused : []),
+    ...(Array.isArray(chainPayload.migration_residual) ? chainPayload.migration_residual : []),
+    ...(Array.isArray(chainPayload.legacy_operational) ? chainPayload.legacy_operational : []),
+  ];
 
   const normalizedExisting = normalizeHistoricalSeriesMap(chainPayload.historicalSeries);
   if (normalizedExisting.size > 0) {
@@ -352,7 +344,7 @@ function bootstrapHistoricalSeriesMap(chainPayload = {}, currentLifecycleEntries
     }
   });
 
-  buildCurrentSeriesCandidates(normalizedCurrentEntries, normalizedCurrentImplementations).forEach((candidate) => {
+  buildCurrentSeriesCandidates(currentLifecycleEntries, chainPayload.currentImplementations || []).forEach((candidate) => {
     const key = seriesGroupKey(candidate);
     if (!map.has(key)) {
       map.set(key, {
@@ -379,19 +371,6 @@ function bootstrapHistoricalSeriesMap(chainPayload = {}, currentLifecycleEntries
   });
 
   return map;
-}
-
-function pruneSeededHistoricalGroups(seriesMap = new Map(), seededHistoricalEntries = []) {
-  const seededKeys = new Set(
-    (Array.isArray(seededHistoricalEntries) ? seededHistoricalEntries : [])
-      .map((entry) => buildSeriesEntry(entry))
-      .filter(Boolean)
-      .map((entry) => seriesGroupKey(entry))
-  );
-  seededKeys.forEach((key) => {
-    seriesMap.delete(key);
-  });
-  return seriesMap;
 }
 
 function finalizeHistoricalSeriesMap(seriesMap = new Map()) {
@@ -493,29 +472,10 @@ function flattenHistoricalSeries(historicalSeries = {}) {
   return rows;
 }
 
-function buildHistoricalArtifacts({
-  chain,
-  entries = [],
-  currentImplementations = [],
-  previousChainPayload = null,
-  seededHistoricalEntries = [],
-  resetSeededGroups = false,
-}) {
-  const currentLifecycleEntries = (Array.isArray(entries) ? entries : [])
-    .filter((entry) => entry?.address && entry.lifecycle !== "historical" && entry?.meta?.currentImplementation !== true);
-  const previousSeriesMap = bootstrapHistoricalSeriesMap(
-    previousChainPayload || {},
-    currentLifecycleEntries,
-    Array.isArray(currentImplementations) ? currentImplementations : []
-  );
-  if (resetSeededGroups) {
-    pruneSeededHistoricalGroups(previousSeriesMap, seededHistoricalEntries);
-  }
-  const historicalEntries = [
-    ...(Array.isArray(seededHistoricalEntries) ? seededHistoricalEntries : []),
-    ...(Array.isArray(entries) ? entries : [])
-      .filter((entry) => entry?.address && entry.lifecycle === "historical" && entry?.meta?.currentImplementation !== true && !entry?.isCurrent),
-  ];
+function buildHistoricalArtifacts({ chain, entries = [], currentImplementations = [], previousChainPayload = null }) {
+  const previousSeriesMap = bootstrapHistoricalSeriesMap(previousChainPayload || {});
+  const historicalEntries = (Array.isArray(entries) ? entries : [])
+    .filter((entry) => entry?.address && entry.lifecycle === "historical" && entry?.meta?.currentImplementation !== true && !entry?.isCurrent);
 
   historicalEntries.forEach((entry) => {
     const seriesEntry = buildSeriesEntry(entry);
@@ -545,32 +505,6 @@ function buildHistoricalArtifacts({
     );
 
   return { historicalSeries, historical };
-}
-
-function buildRootHistoricalChainPayload(historicalSeries = {}) {
-  const grouped = {};
-
-  Object.values(historicalSeries || {}).forEach((groups) => {
-    (groups || []).forEach((group) => {
-      const canonicalName = group?.canonicalName || group?.name;
-      const entries = [...(group?.entries || [])]
-        .filter((entry) => entry?.address && !entry.isCurrent && entry?.meta?.currentImplementation !== true)
-        .sort(sortSeriesEntries)
-        .map((entry) => ({
-          address: entry.address,
-          chain: entry.chain || null,
-          type: entry.type || entry.deploymentKind || null,
-          version: entry.version || null,
-          blockchainHref: entry.blockchainHref || `${getExplorerAddressBase(entry.chain)}${entry.address}`,
-          replacedBy: entry.replacedBy || null,
-          status: entry.status || null,
-        }));
-      if (!canonicalName || entries.length === 0) return;
-      grouped[canonicalName] = entries;
-    });
-  });
-
-  return grouped;
 }
 
 const CHAIN_LABELS = {
@@ -1946,10 +1880,6 @@ function buildDataArtifacts(data, blockchainPageData, governorSha, catalog) {
   const payload = {
     arbitrumOne: data.arbitrumOne,
     ethereumMainnet: data.ethereumMainnet,
-    historical: {
-      arbitrumOne: buildRootHistoricalChainPayload(data.arbitrumOne?.historicalSeries || {}),
-      ethereumMainnet: buildRootHistoricalChainPayload(data.ethereumMainnet?.historicalSeries || {}),
-    },
     meta: {
       lastUpdated: nowISO,
       lastVerified: nowFormatted,
@@ -1962,7 +1892,6 @@ function buildDataArtifacts(data, blockchainPageData, governorSha, catalog) {
       verificationModel: "contracts-proof-v2",
       watchedRepos: catalog._meta.watchedRepos,
       latestResolutionPolicy: catalog._meta.latestResolutionPolicy,
-      cadence: CONTRACTS_PIPELINE_CADENCE,
     },
   };
   const blockchainPayload = {
@@ -2016,10 +1945,6 @@ function buildDataArtifacts(data, blockchainPageData, governorSha, catalog) {
         kind: "json",
         value: blockchainJsonPayload,
       },
-      [PUBLIC_COMPANION_PATH]: {
-        kind: "json",
-        value: jsonPayload,
-      },
     },
   };
 }
@@ -2047,17 +1972,12 @@ function writeDataFiles(data, blockchainPageData, governorSha, catalog, options 
   fs.mkdirSync(path.dirname(OUTPUT_JSON_PATH), { recursive: true });
   fs.mkdirSync(path.dirname(BLOCKCHAIN_PAGE_DATA_PATH), { recursive: true });
   fs.mkdirSync(path.dirname(BLOCKCHAIN_PAGE_DATA_JSON_PATH), { recursive: true });
-  fs.mkdirSync(path.dirname(PUBLIC_COMPANION_PATH), { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, artifacts.files[OUTPUT_PATH].value);
   fs.writeFileSync(OUTPUT_JSON_PATH, JSON.stringify(artifacts.files[OUTPUT_JSON_PATH].value, null, 2));
   fs.writeFileSync(BLOCKCHAIN_PAGE_DATA_PATH, artifacts.files[BLOCKCHAIN_PAGE_DATA_PATH].value);
   fs.writeFileSync(
     BLOCKCHAIN_PAGE_DATA_JSON_PATH,
     JSON.stringify(artifacts.files[BLOCKCHAIN_PAGE_DATA_JSON_PATH].value, null, 2),
-  );
-  fs.writeFileSync(
-    PUBLIC_COMPANION_PATH,
-    JSON.stringify(artifacts.files[PUBLIC_COMPANION_PATH].value, null, 2),
   );
 
   return {
@@ -2182,18 +2102,13 @@ function buildValidationReport({
   }
 
   for (const diff of branchDiffs) {
-    const branchFailure = {
+    warnings.push({
       failureClass: FAILURE_CLASSES.branch,
       endpoint: diff.type,
       chain: null,
       contract: diff.repo,
       detail: diff.detail,
-    };
-    if (BLOCKING_BRANCH_DIFF_TYPES.includes(diff.type)) {
-      failures.push(branchFailure);
-    } else {
-      warnings.push(branchFailure);
-    }
+    });
   }
 
   if (JSON.stringify(payload).includes("snippets/data/changelogs/contractAddressesData.jsx")) {
@@ -2259,31 +2174,17 @@ async function runContractsPipeline(options = {}) {
     "ethereumMainnet",
     skipVerify
   );
-  const arbHistoricalLogResult = await fetchControllerSetContractInfoLogs("arbitrumOne");
-  const arbHistoricalSeedEntries = buildHistoricalEntriesFromEventLogs(byChain.arbitrumOne, arbHistoricalLogResult.logs);
-  const supplementalFailures = [];
-  if (arbHistoricalLogResult.failures?.length && arbHistoricalSeedEntries.length === 0) {
-    supplementalFailures.push({
-      failureClass: FAILURE_CLASSES.rpc,
-      endpoint: "controller-history",
-      chain: "arbitrumOne",
-      contract: "controller-history",
-      detail: "Failed to recover authoritative Arbitrum controller event history",
-    });
-  }
   const arbHistoricalArtifacts = buildHistoricalArtifacts({
     chain: "arbitrumOne",
     entries: arbEnriched,
     currentImplementations: arbImplementations,
     previousChainPayload: previousPayload?.arbitrumOne || null,
-    seededHistoricalEntries: arbHistoricalSeedEntries,
-    resetSeededGroups: arbHistoricalSeedEntries.length > 0,
   });
   const ethHistoricalArtifacts = buildHistoricalArtifacts({
     chain: "ethereumMainnet",
-    entries: [],
+    entries: ethEnriched,
     currentImplementations: ethImplementations,
-    previousChainPayload: null,
+    previousChainPayload: previousPayload?.ethereumMainnet || null,
   });
 
   const payload = {
@@ -2307,10 +2208,9 @@ async function runContractsPipeline(options = {}) {
     resolutions: [...byChain.arbitrumOne, ...byChain.ethereumMainnet],
   });
   const supplementalWarnings = [];
-  const allFailures = [...validation.failures, ...supplementalFailures];
   const allWarnings = [...validation.warnings, ...supplementalWarnings];
   const checks = [
-    ...allFailures.map((failure) => ({
+    ...validation.failures.map((failure) => ({
       endpoint: failure.endpoint,
       status: "FAIL",
       detail: failure.detail,
@@ -2325,17 +2225,17 @@ async function runContractsPipeline(options = {}) {
   ];
   writeHealthChecks(checks, noWrite);
 
-  if (allFailures.length) {
+  if (validation.failures.length) {
     writeIncidentArtifacts({
-      incidents: allFailures,
+      incidents: validation.failures,
       summary: {
         verificationModel: "contracts-proof-v2",
         branchWatchStatePath: path.relative(REPO_ROOT, BRANCH_WATCH_STATE_PATH),
       },
       dryRun: noWrite,
     });
-    const error = new Error(`${allFailures.length} blocking validation failure(s)`);
-    error.failures = allFailures;
+    const error = new Error(`${validation.failures.length} blocking validation failure(s)`);
+    error.failures = validation.failures;
     throw error;
   }
 
@@ -2353,11 +2253,8 @@ async function runContractsPipeline(options = {}) {
 module.exports = {
   buildBlockchainContractsPageData,
   buildChainPayload,
-  buildDataArtifacts,
   buildHistoricalArtifacts,
   buildHistoricalEntriesFromEventLogs,
-  buildRootHistoricalChainPayload,
-  buildValidationReport,
   buildContractProofCatalog,
   computeIncidentFingerprint,
   decodeSetContractInfoLog,

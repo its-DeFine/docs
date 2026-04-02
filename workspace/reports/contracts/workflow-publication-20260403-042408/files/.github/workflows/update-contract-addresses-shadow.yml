@@ -1,33 +1,29 @@
-name: Update Contract Addresses
+name: Update Contract Addresses Shadow
 
 on:
   schedule:
-    - cron: "0 2 * * *" # Daily at 02:00 UTC
+    - cron: "30 2 * * *" # Daily at 02:30 UTC
 
   repository_dispatch:
     types: [governor-scripts-update, protocol-update, bridge-update, go-livepeer-update]
 
   workflow_dispatch:
     inputs:
-      dry_run:
-        description: "Show changes without writing"
-        type: boolean
-        default: false
       skip_verify:
         description: "Skip explorer verification"
         type: boolean
         default: false
       use_test_branch:
-        description: "Write to TEST_BRANCH (docs-v2-dev) instead of DEPLOY_BRANCH"
+        description: "Run against TEST_BRANCH (docs-v2-dev) instead of DEPLOY_BRANCH"
         type: boolean
-        default: false
+        default: true
 
 jobs:
-  update-contracts:
+  shadow-contracts:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
+      contents: read
       issues: write
 
     steps:
@@ -45,26 +41,9 @@ jobs:
       - name: Install contracts pipeline dependencies
         run: npm ci --prefix operations
 
-      - name: Run contracts pipeline
+      - name: Run shadow contracts pipeline
         id: generate
         continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ARBISCAN_API_KEY: ${{ secrets.ARBISCAN_API_KEY }}
-          ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
-          ARBITRUM_RPC_URL: ${{ secrets.ARBITRUM_RPC_URL }}
-          ARBITRUM_RPC_FALLBACK_URL: ${{ secrets.ARBITRUM_RPC_FALLBACK_URL }}
-          ETHEREUM_RPC_URL: ${{ secrets.ETHEREUM_RPC_URL }}
-          ETHEREUM_RPC_FALLBACK_URL: ${{ secrets.ETHEREUM_RPC_FALLBACK_URL }}
-        run: |
-          set -euo pipefail
-          FLAGS=""
-          if [[ "${{ inputs.dry_run }}" == "true" ]]; then FLAGS="$FLAGS --dry-run"; fi
-          if [[ "${{ inputs.skip_verify }}" == "true" ]]; then FLAGS="$FLAGS --skip-verify"; fi
-          node .github/scripts/fetch-contract-addresses.js $FLAGS
-
-      - name: Check canonical contracts outputs
-        if: steps.generate.outcome == 'success'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ARBISCAN_API_KEY: ${{ secrets.ARBISCAN_API_KEY }}
@@ -79,15 +58,14 @@ jobs:
           if [[ "${{ inputs.skip_verify }}" == "true" ]]; then FLAGS="$FLAGS --skip-verify"; fi
           node .github/scripts/fetch-contract-addresses.js $FLAGS
 
-      - name: Upload contracts pipeline artifacts
+      - name: Upload shadow pipeline artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: contracts-pipeline-artifacts
+          name: contracts-pipeline-shadow-artifacts
           if-no-files-found: ignore
           path: |
             snippets/data/contract-addresses/_health-checks.json
-            snippets/data/contract-addresses/_branch-watch-state.json
             workspace/reports/contracts/contract-pipeline-anomaly-report.json
             workspace/reports/contracts/contract-pipeline-anomaly-report.md
             workspace/reports/contracts/contract-pipeline-issue-payload.json
@@ -100,10 +78,7 @@ jobs:
           script: |
             const fs = require('fs');
             const payloadPath = 'workspace/reports/contracts/contract-pipeline-issue-payload.json';
-            if (!fs.existsSync(payloadPath)) {
-              core.setFailed('Missing issue payload for failed contracts pipeline run.');
-              return;
-            }
+            if (!fs.existsSync(payloadPath)) return;
             const payload = JSON.parse(fs.readFileSync(payloadPath, 'utf8'));
             const { owner, repo } = context.repo;
             const existing = await github.paginate(github.rest.issues.listForRepo, {
@@ -123,46 +98,18 @@ jobs:
                 body: payload.body,
                 labels: payload.labels,
               });
-              core.info(`Updated existing issue #${match.number}`);
             } else {
-              const created = await github.rest.issues.create({
+              await github.rest.issues.create({
                 owner,
                 repo,
                 title: payload.title,
                 body: payload.body,
                 labels: payload.labels,
               });
-              core.info(`Created issue #${created.data.number}`);
             }
 
       - name: Fail on blocking contracts incident
         if: steps.generate.outcome == 'failure'
         run: |
-          echo "Contracts pipeline failed. See uploaded artifacts and issue payload."
+          echo "Shadow contracts pipeline failed."
           exit 1
-
-      - name: Check for changes
-        id: changes
-        if: steps.generate.outcome == 'success'
-        run: |
-          if git diff --quiet; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
-            git diff --name-only
-          fi
-
-      - name: Commit and push
-        if: steps.generate.outcome == 'success' && steps.changes.outputs.changed == 'true' && inputs.dry_run != 'true'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add snippets/data/contract-addresses/contractAddressesData.jsx
-          git add snippets/data/contract-addresses/contractAddressesData.json
-          git add snippets/data/contract-addresses/blockchainContractsPageData.jsx
-          git add snippets/data/contract-addresses/blockchainContractsPageData.json
-          git add snippets/composables/pages/canonical/livepeer-contract-addresses-data.json
-          git add snippets/data/contract-addresses/_health-checks.json
-          git add snippets/data/contract-addresses/_branch-watch-state.json
-          git commit -m "chore(contracts): refresh verified contract registry"
-          git push

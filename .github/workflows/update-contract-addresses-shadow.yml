@@ -66,6 +66,7 @@ jobs:
           if-no-files-found: ignore
           path: |
             snippets/data/contract-addresses/_health-checks.json
+            snippets/data/contract-addresses/_branch-watch-state.json
             workspace/reports/contracts/contract-pipeline-anomaly-report.json
             workspace/reports/contracts/contract-pipeline-anomaly-report.md
             workspace/reports/contracts/contract-pipeline-issue-payload.json
