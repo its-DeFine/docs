@@ -26,6 +26,8 @@
 - For any implementation task, apply the `codex-task-isolation-standard` skill
   first (task contract + scoped branch enforcement).
 - Before MDX/JSX edits or Mint preview work, read `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`.
+- **NEVER** change page structure, headings, section order, copy, layout, styling, route boundaries, or IA when the approved task is data-only, helper-only, or pipeline-only without explicit human permission for those presentation changes.
+- If the approved task is “move data out of MDX”, “extract helpers”, “make the widget standalone in terms of data”, or any equivalent narrow refactor, preserve the existing user-facing page contract exactly unless the human explicitly approves a presentation change.
 
 ## 📦 GIT WORKFLOW & CHECKPOINTS
 
@@ -134,6 +136,7 @@ For broken Mintlify pages, Codex must debug in this order:
    - Do not keep defending or iterating on a broken design once repo evidence and user feedback have invalidated it.
    - If long-running checks are needed, push them to agents or background work only after the fastest local failure signals have been cleared.
    - Persist major failures, wasted loops, and changed operating rules to shared workspace artifacts as they happen, not only after being asked.
+   - When a human authorises a narrow technical refactor, do not silently widen it into UX, copy, layout, route, or IA changes. Stop and get explicit permission before touching any user-facing presentation contract.
 
 ## 🧪 VALIDATION COMMANDS
 

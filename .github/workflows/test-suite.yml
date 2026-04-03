@@ -58,6 +58,9 @@ jobs:
         continue-on-error: true
         run: npm --prefix tests run test:docs-guide
 
+      - name: Run Mintlify Canonical Sync Check
+        run: node operations/scripts/validators/governance/compliance/check-mintlify-canonical-sync.js --json
+
       - name: Install Mintlify globally
         run: npm install -g mintlify
 

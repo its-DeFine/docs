@@ -475,7 +475,7 @@ Before any implementation, read:
 | `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md` | JSDoc 7-tag standard for any new component. Approval required before creating new components. |
 | `workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md` | JSDoc 11-tag standard for any new or modified script. |
 | `workspace/thread-outputs/research/component-script-placement-reference.md` | Folder placement rules — components go in `snippets/components/{type}/{subniche}/`. |
-| `workspace/thread-outputs/research/mintlify-constraints-reference.md` | Mintlify MDX constraints — no React imports (hooks are globals), 35 platform globals, arrow functions only, no top-level constants, cross-JSX imports fragile. Headless-verified 2026-03-29. |
+| `docs-guide/canonical/collation-data/Mintlify/dep-files/workspace/thread-outputs/research/mintlify-constraints-reference.md` | Mintlify MDX constraints — no React imports (hooks are globals), 35 platform globals, arrow functions only, no top-level constants, cross-JSX imports fragile. Headless-verified 2026-03-29. |
 
 **Component governance rule:** No new component without approval. The ContractAddressDisplay situation was created by bypassing this gate. SearchTable + DynamicTable are the approved table pattern — use them.
 

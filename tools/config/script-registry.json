@@ -1110,6 +1110,21 @@
     "status": "active"
   },
   {
+    "path": "operations/scripts/config/mintlify-canonical-sync.js",
+    "name": "mintlify-canonical-sync.js",
+    "type": "generator",
+    "concern": "governance",
+    "niche": "compliance",
+    "purpose": "governance:agent-governance",
+    "description": "Shared Mintlify canonical sync library — validates archived-source cleanup, consumer references, and deterministic rewrite plans for the canonical Mintlify governance surface.",
+    "mode": "read-only",
+    "pipeline": "manual -- library module",
+    "scope": "docs-guide/canonical/collation-data/Mintlify, operations/scripts/validators/governance, operations/scripts/remediators/content/repair",
+    "usage": "const sync = require('./mintlify-canonical-sync');",
+    "policy": "R-R14, R-R18",
+    "status": "active"
+  },
+  {
     "path": "operations/scripts/config/mdx-sanitise.js",
     "name": "mdx-sanitise.js",
     "type": "config",
@@ -2070,6 +2085,21 @@
     "status": "active"
   },
   {
+    "path": "operations/scripts/remediators/content/repair/sync-mintlify-canonical-consumers.js",
+    "name": "sync-mintlify-canonical-consumers.js",
+    "type": "remediator",
+    "concern": "content",
+    "niche": "repair",
+    "purpose": "governance:agent-governance",
+    "description": "Repair registered Mintlify consumer surfaces by applying exact path rewrites from the canonical sync registry without broad repo-wide content mutation.",
+    "mode": "edit",
+    "pipeline": "manual",
+    "scope": "docs-guide/canonical/collation-data/Mintlify, docs-guide/contributing, AGENTS.md, .github, .claude, ai-tools, snippets, workspace/plan/active",
+    "usage": "node operations/scripts/remediators/content/repair/sync-mintlify-canonical-consumers.js [--staged] [--check|--write] [--stage] [--json]",
+    "policy": "R-R14, R-R18",
+    "status": "active"
+  },
+  {
     "path": "operations/scripts/remediators/content/seo/generate-seo.js",
     "name": "generate-seo.js",
     "type": "remediator",
@@ -2561,6 +2591,21 @@
     "pipeline": "manual, ci",
     "scope": "operations/scripts/validators/governance, AGENTS.md, .github, .claude, .cursor, .cursorrules, .windsurf, .augment, .mintlify, docs-guide/policies, ai-tools/ai-skills, contribute",
     "usage": "node operations/scripts/validators/governance/compliance/check-agent-docs-freshness.js [--threshold <days>] [--json]",
+    "policy": "R-R14, R-R18",
+    "status": "active"
+  },
+  {
+    "path": "operations/scripts/validators/governance/compliance/check-mintlify-canonical-sync.js",
+    "name": "check-mintlify-canonical-sync.js",
+    "type": "validator",
+    "concern": "governance",
+    "niche": "compliance",
+    "purpose": "governance:agent-governance",
+    "description": "Enforce the Mintlify canonical-sync contract so archived legacy sources stay moved, registered consumers stay updated, and retained-source logs match the registry.",
+    "mode": "read-only",
+    "pipeline": "manual, ci",
+    "scope": "docs-guide/canonical/collation-data/Mintlify, docs-guide/contributing, AGENTS.md, .github, .claude, ai-tools, snippets, v2/resources/documentation-guide, workspace/plan/active",
+    "usage": "node operations/scripts/validators/governance/compliance/check-mintlify-canonical-sync.js [--staged] [--json]",
     "policy": "R-R14, R-R18",
     "status": "active"
   },
@@ -3086,6 +3131,21 @@
     "pipeline": "P1, P3",
     "scope": "tests/unit, operations/scripts/validators/governance/check-agent-docs-freshness.js, AGENTS.md, .github/copilot-instructions.md, .claude, .cursor, .windsurf, docs-guide/policies, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md",
     "usage": "node operations/tests/unit/check-agent-docs-freshness.test.js",
+    "policy": "",
+    "status": "active"
+  },
+  {
+    "path": "operations/tests/unit/check-mintlify-canonical-sync.test.js",
+    "name": "check-mintlify-canonical-sync.test.js",
+    "type": "",
+    "concern": "",
+    "niche": "",
+    "purpose": "governance:agent-governance",
+    "description": "",
+    "mode": "",
+    "pipeline": "P1, P3",
+    "scope": "tests/unit, operations/scripts/config/mintlify-canonical-sync.js, operations/scripts/validators/governance/compliance/check-mintlify-canonical-sync.js, operations/scripts/remediators/content/repair/sync-mintlify-canonical-consumers.js, docs-guide/canonical/collation-data/Mintlify",
+    "usage": "node operations/tests/unit/check-mintlify-canonical-sync.test.js [--staged]",
     "policy": "",
     "status": "active"
   },

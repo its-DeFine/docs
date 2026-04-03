@@ -24,8 +24,8 @@ The goal is not to critique visual polish in isolation. The main question is whe
 
 - `AGENTS.md`
 - `.claude/CLAUDE.md`
-- `workspace/thread-outputs/research/mintlify-constraints-reference.md`
-- `snippets/snippetsWiki/mintlify-behaviour.mdx`
+- `docs-guide/canonical/collation-data/Mintlify/dep-files/workspace/thread-outputs/research/mintlify-constraints-reference.md`
+- `docs-guide/canonical/collation-data/Mintlify/dep-files/snippets/snippetsWiki/mintlify-behaviour.mdx`
 - `snippets/components/README.md`
 
 ### Repo evidence reviewed
@@ -154,7 +154,7 @@ This is the correct architectural direction for the contracts reference surface.
 Evidence:
 
 - `v2/gateways/quickstart/gateway-setup.mdx` explicitly acknowledges import-placement debt at `v2/gateways/quickstart/gateway-setup.mdx:28`
-- repo behavior notes document the parent-MDX-scope pattern at `snippets/snippetsWiki/mintlify-behaviour.mdx:90`
+- repo behavior notes document the parent-MDX-scope pattern at `docs-guide/canonical/collation-data/Mintlify/dep-files/snippets/snippetsWiki/mintlify-behaviour.mdx:90`
 
 What this means:
 
@@ -175,8 +175,8 @@ Official Mintlify guidance confirms:
 
 Repo constraint docs align with this:
 
-- `workspace/thread-outputs/research/mintlify-constraints-reference.md:70` says to import data in the MDX and pass it into components via props
-- `workspace/thread-outputs/research/mintlify-constraints-reference.md:90` states the practical rule: JSX-to-JSX component imports can work, but JSX should not own cross-file data-variable logic
+- `docs-guide/canonical/collation-data/Mintlify/dep-files/workspace/thread-outputs/research/mintlify-constraints-reference.md:70` says to import data in the MDX and pass it into components via props
+- `docs-guide/canonical/collation-data/Mintlify/dep-files/workspace/thread-outputs/research/mintlify-constraints-reference.md:90` states the practical rule: JSX-to-JSX component imports can work, but JSX should not own cross-file data-variable logic
 - `snippets/components/README.md:30` defines the expected split between wrappers, displays, integrators, and config
 
 What this means for contracts:

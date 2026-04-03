@@ -1,9 +1,11 @@
 # Mintlify Source Inventory
 
 Scope:
+
 - Included if the file materially documents, configures, runs, enforces, tests, or records Mintlify or docs-platform behavior in this repo.
 - Core signals used for inclusion: `Mintlify`, `docs.json`, `.mintignore`, `style.css`, `lpd dev`, scoped navigation, MDX constraints, local preview, render/runtime validation, translation/localisation of routed docs, and docs-platform research.
 - Excluded from this first-pass inventory: ordinary product docs that only mention these systems incidentally, plus pure component/reference catalogs that do not add platform-behavior guidance.
+- Cleanup enforcement explicitly ignores `v2/_workspace/archive/language-pages/**`; that tree is deprecated and already on a separate removal path.
 
 ## Active Canonical / Runtime
 
@@ -114,6 +116,12 @@ Scope:
 - `generate-localized-docs-json.js` — `operations/scripts/automations/content/language-translation/generate-localized-docs-json.js`
 - `docs-json-localizer.js` — `operations/scripts/automations/content/language-translation/lib/docs-json-localizer.js`
 - `sync-docs-paths.js` — `operations/scripts/remediators/content/repair/sync-docs-paths.js`
+- `mintlify-canonical-consumers.json` — `docs-guide/canonical/collation-data/Mintlify/mintlify-canonical-consumers.json`
+- `mintlify-canonical-sync.js` — `operations/scripts/config/mintlify-canonical-sync.js`
+- `check-mintlify-canonical-sync.js` — `operations/scripts/validators/governance/compliance/check-mintlify-canonical-sync.js`
+- `sync-mintlify-canonical-consumers.js` — `operations/scripts/remediators/content/repair/sync-mintlify-canonical-consumers.js`
+- `check-mintlify-canonical-sync.test.js` — `operations/tests/unit/check-mintlify-canonical-sync.test.js`
+- `run-all.js` — `operations/tests/run-all.js`
 
 ## Active Public Docs-Guide Surfaces
 
@@ -132,11 +140,12 @@ Scope:
 - `README.md` — `snippets/components/README.md`
 - `README.md` — `snippets/snippetsWiki/README.md`
 - `index.mdx` — `snippets/snippetsWiki/index.mdx`
-- `mintlify-behaviour.mdx` — `snippets/snippetsWiki/mintlify-behaviour.mdx`
+- `mintlify-behaviour.mdx` — `docs-guide/canonical/collation-data/Mintlify/dep-files/snippets/snippetsWiki/mintlify-behaviour.mdx`
 - `theme-colors.mdx` — `snippets/snippetsWiki/theme-colors.mdx`
 
 ## AI Skills / Prompted Constraints
 
+- `SKILL.md` — `ai-tools/ai-skills/build/SKILL.md`
 - `SKILL.md` — `ai-tools/ai-skills/page-authoring/SKILL.md`
 - `02-mint-dev-and-hook-install.template.md` — `ai-tools/ai-skills/templates/02-mint-dev-and-hook-install.template.md`
 - `03-mintlify-authoring-style-compliance.template.md` — `ai-tools/ai-skills/templates/03-mintlify-authoring-style-compliance.template.md`
@@ -148,11 +157,11 @@ Scope:
 
 ## Research / Audit / Planning Artifacts
 
-- `mintlify-constraints-reference.md` — `workspace/thread-outputs/research/mintlify-constraints-reference.md`
-- `styles-gap-analysis.md` — `workspace/thread-outputs/research/styles-gap-analysis.md`
-- `component-infrastructure-state.md` — `workspace/reports/component-infrastructure-state.md`
-- `css-audit-report.md` — `workspace/reports/performance/css-audit-report.md`
-- `style-css-token-audit.md` — `workspace/reports/style-css-token-audit.md`
+- `mintlify-constraints-reference.md` — `docs-guide/canonical/collation-data/Mintlify/dep-files/workspace/thread-outputs/research/mintlify-constraints-reference.md`
+- `styles-gap-analysis.md` — `docs-guide/canonical/collation-data/Mintlify/dep-files/workspace/thread-outputs/research/styles-gap-analysis.md`
+- `component-infrastructure-state.md` — `docs-guide/canonical/collation-data/Mintlify/dep-files/workspace/reports/component-infrastructure-state.md`
+- `css-audit-report.md` — `docs-guide/canonical/collation-data/Mintlify/dep-files/workspace/reports/performance/css-audit-report.md`
+- `style-css-token-audit.md` — `docs-guide/canonical/collation-data/Mintlify/dep-files/workspace/reports/style-css-token-audit.md`
 - `lpd-command-reference.md` — `workspace/plan/active/TOOLING/lpd-command-reference.md`
 - `lpd-audit.md` — `workspace/plan/active/TOOLING/lpd-audit.md`
 - `design-canonical.mdx` — `workspace/plan/active/DOCUMENTATION/design-canonical.mdx`
@@ -163,11 +172,11 @@ Scope:
 
 ## Legacy / Archived / Drift Surfaces
 
-- `dev-README.mdx` — `operations/scripts/x-archive/dev-README.mdx`
-- `i18n-README.mdx` — `operations/scripts/x-archive/i18n-README.mdx`
-- `snippets-README.mdx` — `operations/scripts/x-archive/snippets-README.mdx`
-- `style.css` — `v2/_workspace/archive/style.css`
-- `style.css` — `v2/_workspace/archive/p1-cleanup/style.css`
+- `dev-README.mdx` — `docs-guide/canonical/collation-data/Mintlify/dep-files/operations/scripts/x-archive/dev-README.mdx`
+- `i18n-README.mdx` — `docs-guide/canonical/collation-data/Mintlify/dep-files/operations/scripts/x-archive/i18n-README.mdx`
+- `snippets-README.mdx` — `docs-guide/canonical/collation-data/Mintlify/dep-files/operations/scripts/x-archive/snippets-README.mdx`
+- `style.css` — `docs-guide/canonical/collation-data/Mintlify/dep-files/v2/_workspace/archive/style.css`
+- `style.css` — `docs-guide/canonical/collation-data/Mintlify/dep-files/v2/_workspace/archive/p1-cleanup/style.css`
 - `README.md` — `v2/_workspace/archive/language-pages/fr/contribute/CONTRIBUTING/README.md`
 - `GIT-HOOKS.md` — `v2/_workspace/archive/language-pages/fr/contribute/CONTRIBUTING/GIT-HOOKS.md`
 - `lpd-cli.mdx` — `v2/_workspace/archive/language-pages/fr/docs-guide/tooling/lpd-cli.mdx`
@@ -220,3 +229,32 @@ Scope:
 - `style-guide.mdx` — `v2/_workspace/archive/language-pages/es/cn/resources/documentation-guide/style-guide.mdx`
 - `snippets-inventory.mdx` — `v2/_workspace/archive/language-pages/es/cn/resources/documentation-guide/snippets-inventory.mdx`
 - `automations-workflows.mdx` — `v2/_workspace/archive/language-pages/es/cn/resources/documentation-guide/automations-workflows.mdx`
+
+## Remaining SOURCES after Clean
+
+These remain live after cleanup because they are still authoritative Mintlify guidance surfaces or broader docs-platform references that cannot be collapsed without losing needed scope. `v2/_workspace/archive/language-pages/**` is intentionally excluded from this retained-source set because that tree is already deprecated and on a separate removal path.
+
+- `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md` — Internal canonical Mintlify authority.
+- `docs-guide/canonical/collation-data/Mintlify/index.md` — Inventory and cleanup log.
+- `docs-guide/contributing/mintlify.mdx` — Routed public Mintlify companion page.
+- `docs-guide/contributing/local-preview.mdx` — Active preview workflow guidance with broader scope than Mintlify-only behavior.
+- `docs-guide/tooling/lpd-cli.mdx` — Active LPD command reference and broader local workflow surface.
+- `snippets/snippetsWiki/README.md` — Broader snippets wiki documentation, not Mintlify-only guidance.
+- `snippets/snippetsWiki/index.mdx` — Broader snippets wiki overview.
+- `snippets/snippetsWiki/theme-colors.mdx` — Theme token reference rather than Mintlify behavioral guidance.
+- `snippets/components/README.md` — Active component authoring README.
+- `workspace/plan/active/TOOLING/lpd-command-reference.md` — Active tooling reference with broader CLI scope.
+- `workspace/plan/active/TOOLING/lpd-audit.md` — Active tooling audit with broader CLI scope.
+- `workspace/plan/active/DOCUMENTATION/design-canonical.mdx` — Broader docs-governance design source.
+- `workspace/plan/active/DOCUMENTATION/system-canonical-design/pages.mdx` — Broader docs-governance system design source.
+- `workspace/plan/active/DOCUMENTATION/system-canonical-design/repo-structure.mdx` — Broader docs-governance system design source.
+- `workspace/plan/active/DOCUMENTATION/system-canonical-design/tooling.mdx` — Broader docs-governance system design source.
+- `workspace/plan/active/DOCUMENTATION/system-canonical-design/workflows.mdx` — Broader docs-governance system design source.
+
+## Sync Gate Implementation
+
+- `docs-guide/canonical/collation-data/Mintlify/mintlify-canonical-consumers.json`
+- `operations/scripts/config/mintlify-canonical-sync.js`
+- `operations/scripts/validators/governance/compliance/check-mintlify-canonical-sync.js`
+- `operations/scripts/remediators/content/repair/sync-mintlify-canonical-consumers.js`
+- `operations/tests/unit/check-mintlify-canonical-sync.test.js`

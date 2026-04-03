@@ -3811,8 +3811,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/snippets/snippetsWiki/mintlify-behaviour",
-      "resolvedPath": "snippets/snippetsWiki/mintlify-behaviour.mdx",
+      "rawPath": "/docs-guide/contributing/mintlify",
+      "resolvedPath": "docs-guide/contributing/mintlify.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3853,8 +3853,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/snippets/snippetsWiki/mintlify-behaviour",
-      "resolvedPath": "snippets/snippetsWiki/mintlify-behaviour.mdx",
+      "rawPath": "/docs-guide/contributing/mintlify",
+      "resolvedPath": "docs-guide/contributing/mintlify.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4311,8 +4311,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/snippets/snippetsWiki/mintlify-behaviour",
-      "resolvedPath": "snippets/snippetsWiki/mintlify-behaviour.mdx",
+      "rawPath": "/docs-guide/contributing/mintlify",
+      "resolvedPath": "docs-guide/contributing/mintlify.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

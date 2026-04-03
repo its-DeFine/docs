@@ -208,7 +208,6 @@ pages/
 snippetsWiki/
 ├── README.md              ← says index.mdx is auto-generated
 ├── index.mdx              ← overview of snippets folder
-├── mintlify-behaviour.mdx ← Mintlify platform quirks and constraints
 ├── theme-colors.mdx       ← color reference
 └── componentLibrary/
     ├── index.mdx          ← component library overview
@@ -222,7 +221,7 @@ snippetsWiki/
 | Item | Issue | Action |
 |---|---|---|
 | **Wrong location** | This is documentation ABOUT the snippets system — it belongs in `docs-guide/tooling/` or `docs-guide/contributing/`, not inside `snippets/` | **Decision: move to docs-guide** |
-| `mintlify-behaviour.mdx` | Documents platform constraints — high-value contributor reference | If moved: `docs-guide/tooling/mintlify-behaviour.mdx` |
+| `docs-guide/canonical/collation-data/Mintlify/dep-files/snippets/snippetsWiki/mintlify-behaviour.mdx` | Archived Mintlify discovery notes retained for evidence after canonical cleanup. | Canonical guidance now lives in `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md` |
 | `theme-colors.mdx` | Color reference — belongs in `docs-guide/features/` or `tooling/` | If moved: `docs-guide/tooling/theme-colors.mdx` |
 | Not in `docs.json` nav | This content exists but is not published or discoverable | Fix as part of move |
 

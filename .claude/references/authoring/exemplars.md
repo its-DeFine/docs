@@ -9,7 +9,7 @@
 
 **File:** `snippets/components/component-composition-template.mdx`
 
-**Why it's good:** Verified and updated 2026-03-28. Three sections: ALWAYS DO, NEVER DO, and JSDOC HEADER STANDARD. The ALWAYS DO section covers modularity, accessibility (WCAG 2.1 AA), styles (CSS variables only), prop signatures (className, style, ...rest), complex prop shapes, exports (named only), and Mintlify native components. The NEVER DO section corrects common misconceptions with specific examples (imports, top-level constants, hardcoded data/colours). The forbidden tags list with reasons prevents tag drift.
+**Why it's good:** Verified and updated 2026-03-28. Three sections: ALWAYS DO, NEVER DO, and JSDOC HEADER STANDARD. The ALWAYS DO section covers modularity, accessibility (WCAG 2.1 AA), styles (CSS variables only), prop signatures (className, style, ...rest), complex prop shapes, exports (named only), and Mintlify platform globals. The NEVER DO section corrects common misconceptions with specific examples (imports, export-used file-scope constants, hardcoded data/colours). The forbidden tags list with reasons prevents tag drift.
 
 **Key patterns:**
 - ALWAYS DO / NEVER DO structure — unambiguous
@@ -17,8 +17,8 @@
 - Style rules: CSS variables only, named const before return, spread user style AFTER internal defaults
 - Prop signature standard: className="", style={}, ...rest always last
 - Complex prop shapes: TypeScript-like interface comment above @param
-- Import correction: components CAN import other components, CANNOT import from MDX pages
-- Top-level constants: MUST be inside function body (discovered bug 2026-03-28)
+- Import correction: components CAN import other components, but MDX pages should remain the owner of shared data/constants used in page composition
+- Export-used constants: in MDX-facing JSX, keep them inside the function body or move them into a non-component helper module (discovered bug 2026-03-28)
 - Forbidden tags list: 12 removed tags with reasons (prevents re-introduction)
 - Full JSDoc tag reference with values, descriptions, and decision trees
 

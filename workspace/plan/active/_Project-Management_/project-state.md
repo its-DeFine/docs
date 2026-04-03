@@ -1,5 +1,5 @@
 # Project State — Content Writing Pipeline
-> Last updated: 2026-04-01
+> Last updated: 2026-04-03
 > This file must be read at the start of every AI session and updated after every agent batch.
 
 ---
@@ -17,6 +17,8 @@
 | Output file | Notes | Unblocks |
 |---|---|---|
 | VS Code Claude extension fix toolkit | Canonical diagnostic, 7 scripts, extension patched, cron backup, community research. `workspace/plan/active/FUCK_CLAUDE/` | Unblocks stable VS Code workflow — re-run `patch-extension.sh` after updates |
+| Contracts canonical documentation cleanup | Contracts planning root normalized into `Canonical/`, `CURRENT-STATE/`, and `DEPRECATED/`; canonical workflow references synced to current script behavior | Unblocks contracts planning/navigation by keeping only current framework docs at root and preserving live script references |
+| Contracts surface redesign merge | Canonical contracts reference and verifier split is merged into local `docs-v2-dev`; shared contracts view-model and catalog-config derivation now back the About contracts surfaces | Unblocks local review of the contracts redesign and future pipeline consolidation work |
 | Mint parse hygiene remediation | Canonical templates are MDX-safe, routed/composable MDX contract enforced, globals.jsx is the single source of truth for gateway release data, and Mint boots cleanly without parse warnings | Unblocks reliable `mint dev` / `lpd dev` and prevents routed-page import regressions |
 | resources-restructure (Gateways + Orchestrators) | reference/ and knowledge-hub/ sub-sections created. All files moved. docs.json updated. 15 redirects added. No content changed. | Unblocks IA audit accuracy (folder tree now matches pipeline spec) |
 | context-packs/orchestrators-ia-prereq.md | Folder tree + nav tree + discrepancies | Human IA review (Orchestrators) |
@@ -108,6 +110,7 @@
 |---|---|---|---|
 | LIMBO | Contracts & Changelogs | Changelog migration half-done — old files deleted but unstaged, architecture.md references paths that may not exist on disk | 2026-03-29 |
 | REAL-DEBT | Staged Test Harness Repair | Harness bootstrap is fixed; remaining staged-suite failures are real repo debt across navigation, governance, usefulness, and authoring checks | 2026-04-01 |
+| REAL-DEBT | Contracts Surface Redesign | CP-6 contracts browser validation can hang on the newest `docs-v2-dev` base even when the scoped preview serves the canonical and verifier routes | 2026-04-03 |
 
 ---
 

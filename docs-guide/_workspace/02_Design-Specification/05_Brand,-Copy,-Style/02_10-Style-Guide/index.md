@@ -296,7 +296,7 @@ Before submitting:
 
 - [Component Library](https://claude.ai/chat/component-library) — component reference pages
 - [Snippets Inventory](https://claude.ai/chat/snippets-inventory) — all available snippets
-- [Mintlify Behaviour Guide](https://claude.ai/snippets/snippetsWiki/mintlify-behaviour) — detailed Mintlify gotchas
+- [Mintlify Repo Guide](/docs-guide/contributing/mintlify) — repo-safe Mintlify gotchas
 - [Git Hooks Documentation](https://claude.ai/contribute/CONTRIBUTING/GIT-HOOKS.md) — pre-commit hook details
 - [Brand & Copy Guide](https://claude.ai/chat/06-brand-copy-guide.md) — voice, tone, terminology
 - `style.css` — global CSS Custom Properties

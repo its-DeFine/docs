@@ -45,7 +45,7 @@
 - `snippets/components/component-composition-template.mdx`
 - `snippets/templates/pages/page-composition-framework.mdx`
 - `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
-- `workspace/thread-outputs/research/mintlify-constraints-reference.md`
+- `docs-guide/canonical/collation-data/Mintlify/dep-files/workspace/thread-outputs/research/mintlify-constraints-reference.md`
 
 ### ia-and-naming/ — IA & Naming
 - `_research-and-consolidated-notes/prompt-guides-guards-resources/naming-research.md`

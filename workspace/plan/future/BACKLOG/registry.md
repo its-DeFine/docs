@@ -146,3 +146,13 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 **Source:** Staged Test Harness Repair — 2026-04-01
 **Description:** After fixing repo-wide dependency bootstrap, `bash tools/lpd test --staged` now runs through to real failures in authoring tools, docs navigation, ownerless governance, root allowlist checks, and usefulness assertions. Triage and repair these in an isolated worktree.
 **Priority:** P1
+
+## BL-028 — Fix CP-6 contracts browser validation hang on latest docs-v2-dev
+**Source:** Contracts Surface Redesign — 2026-04-03
+**Description:** `operations/tests/contracts-browser-harness.js` and `operations/tests/playwright-contract-addresses.js` can hang after scoped preview startup on the current `docs-v2-dev` base, even when the preview serves `/v2/about/resources/livepeer-contract-addresses` and `/v2/about/resources/verify-contract-addresses`. Isolate whether the regression is in the harness wrapper, Puppeteer flow, or page/widget readiness waits.
+**Priority:** P1
+
+## BL-029 — Consolidate contracts catalog discovery and output contract
+**Source:** Contracts Surface Redesign — 2026-04-03
+**Description:** The contracts redesign centralized family declarations in `catalog-config.js` and derived the blockchain-page roster from it, but new contract families still require code edits and the pipeline still writes parallel JSX/JSON consumer payloads. Follow up with a dedicated design/execution thread for config-first family discovery and slimmer persisted outputs without duplicating truth.
+**Priority:** P2

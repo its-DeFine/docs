@@ -1948,11 +1948,87 @@ All planned deliverables exist on disk. Five community pages with social data fe
 
 ---
 
+## Contracts Canonical Documentation Cleanup — 2026-04-03
+
+**Plans**: `workspace/plan/active/CONTRACTS/Canonical/livepeer-contracts-pipeline.mdx`, `workspace/plan/active/CONTRACTS/Canonical/automation-integrations-update-contract-addresses.mdx`, `workspace/plan/active/CONTRACTS/Canonical/workflow-scripts.mdx`
+**Scope**: Clean the contracts planning tree, archive legacy planning artifacts, and sync the canonical contracts workflow docs to the current script implementation.
+
+### Summary
+
+The contracts planning surface was normalized so root `CONTRACTS/` now points to canonical framework material only, with recovery state under `CURRENT-STATE/` and archived material under `DEPRECATED/`. The canonical contracts workflow references were then rewritten against the actual implemented workflow and script boundaries on disk instead of the aspirational replacement design. No explicit `/thread` outcome was defined this session, so closeout is recorded against verified repo state only.
+
+---
+
+### Completed
+
+**Contracts planning structure**
+- Root `workspace/plan/active/CONTRACTS/` was cleaned down to governed subtrees instead of mixed active, audit, and legacy files.
+- Recovery packet files were moved under `workspace/plan/active/CONTRACTS/CURRENT-STATE/` and legacy planning/audit material was archived under `workspace/plan/active/CONTRACTS/DEPRECATED/`.
+- Internal references were updated so active docs no longer point at dead root-level contracts paths.
+
+**Canonical contracts references**
+- `automation-integrations-update-contract-addresses.mdx` was updated to reflect the current workflow cadence, dispatcher shape, and script boundary.
+- `livepeer-contracts-pipeline.mdx` was updated to describe the current resolver/catalog behavior, current historical handling, and actual external-source flow implemented in the repo.
+- `workflow-scripts.mdx` was added as an end-to-end current-state workflow reference aligned to `.github/workspace/framework-canonical.md`.
+
+**Recovery evidence**
+- Per-change backup batches were written under `workspace/reports/contracts/` before the documentation cleanup and sync passes.
+- Closeout verification confirmed the contracts artifacts exist on disk while the currently dirty git worktree is unrelated governance work outside this contracts session scope.
+
+---
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Keep only canonical frameworks at `CONTRACTS/` root | Prevents the root planning surface from mixing current guidance, recovery packets, and deprecated research |
+| Treat the canonical contracts docs as current-state references, not target-state designs | The repo needs documentation of what the scripts actually do today |
+| Close this session against repo state, not active diff state | The contracts deliverables exist on disk, but the remaining open git changes are unrelated to this thread |
+
+---
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| `git diff --check -- workspace/plan/active/CONTRACTS` | ✅ | Passed after contracts documentation moves and link updates |
+| `git diff --check -- workspace/plan/active/CONTRACTS/Canonical/automation-integrations-update-contract-addresses.mdx workspace/plan/active/CONTRACTS/Canonical/livepeer-contracts-pipeline.mdx` | ✅ | Passed after canonical doc sync |
+| Contracts planning tree exists on disk | ✅ | Verified under `Canonical/`, `CURRENT-STATE/`, and `DEPRECATED/` |
+| Current git worktree isolated to this contracts session | ❌ | Current uncommitted changes are unrelated governance/docs files outside the contracts scope |
+
+---
+
+### Deferred Items
+
+1. Propagate any wording or anchor changes from the updated canonical contracts docs into dependent packets only if a later thread explicitly needs those downstream references refreshed.
+
+---
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `workspace/plan/active/CONTRACTS/Canonical/workflow-scripts.mdx` | new | End-to-end current-state contracts workflow reference with trigger-to-fallback diagram |
+| `workspace/plan/active/CONTRACTS/Canonical/automation-integrations-update-contract-addresses.mdx` | modified | Canonical workflow page synced to current workflow/script behavior |
+| `workspace/plan/active/CONTRACTS/Canonical/livepeer-contracts-pipeline.mdx` | modified | Canonical pipeline page synced to current resolver/catalog behavior |
+| `workspace/plan/active/CONTRACTS/CURRENT-STATE/*` | moved | Recovery packet relocated out of contracts root |
+| `workspace/plan/active/CONTRACTS/DEPRECATED/*` | moved | Legacy planning/audit artifacts archived |
+| `workspace/reports/contracts/20260403-120724-contracts-workflow-doc` | backup | Backup batch for workflow-scripts authoring |
+| `workspace/reports/contracts/20260403-121617-contracts-doc-archive` | backup | Backup batch for contracts doc archive pass |
+| `workspace/reports/contracts/20260403-122325-contracts-root-framework-cleanup` | backup | Backup batch for contracts root cleanup |
+| `workspace/reports/contracts/20260403-122731-canonical-contract-doc-sync` | backup | Backup batch for canonical doc sync |
+
+### Outcome: MET
+
+The contracts documentation cleanup and canonical workflow sync are present on disk and internally linked. The remaining dirty worktree at close time belongs to unrelated governance work and is not part of this completed contracts session.
+
+---
+
 ## Claude Code VS Code Session Loss Recovery — 2026-03-27
 
 **Plans**: `workspace/plan/active/FUCK_CLAUDE/session-loss-diagnosis-2026-03-27.md`
 **Scope**: Emergency diagnosis and patching of Claude Code VS Code extension to restore visibility of 83 missing chat sessions in the sidebar.
-**Outcome**: Partially met
+**Outcome**: Met
 
 ### Summary
 
@@ -3624,3 +3700,77 @@ Designed and implemented a governance framework for all 45 GitHub Actions workfl
 | `.github/workspace/actions-library/{type}/{concern}/*.mdx` | Pages | 41 per-action documentation pages |
 | `.github/workspace/actions-library/generators/maintenance/generate-action-docs.yml` | Workflow (staged) | P4 auto-regeneration |
 | `.github/workspace/actions-library/validators/governance/check-action-naming.yml` | Workflow (staged) | P3 naming convention validator |
+
+---
+
+## Contracts Surface Redesign and Local Merge — 2026-04-03
+
+**Plans**: `workspace/plan/active/CONTRACTS/Canonical/livepeer-contracts-pipeline.mdx`
+**Scope**: Implement the contracts surface redesign, merge it into the local `docs-v2-dev` branch, and record the resulting data-path architecture and validation state.
+**Outcome**: Met
+
+### Summary
+The contracts redesign is now merged into the local `docs-v2-dev` branch and the core repo-facing deliverables exist in the repo: a static-first canonical contracts reference, a separate verifier page, a shared contracts view-model, and the rewired blockchain concept page. That meets the thread objective of moving contracts data ownership and shaping out of MDX pages and into governed data and helper layers. Focused unit and structure validation passed on the merged branch; the remaining CP-6 browser-runner hang is follow-up validation debt on the newest `docs-v2-dev` base, not a failure of the redesign objective.
+
+### Completed
+**Contracts surface redesign:**
+- Rebased the isolated `codex/20260403-contracts-surface-redesign` worktree onto the latest `docs-v2-dev` tip and fast-forward merged it into the local `docs-v2-dev` checkout at `30715f5a805630fb9acc764af78b58893e575fdd`.
+- Split the public contracts surface into a thin canonical registry page at `v2/about/resources/livepeer-contract-addresses.mdx` and a dedicated verifier page at `v2/about/resources/verify-contract-addresses.mdx`.
+- Introduced the shared contracts view-model layer in `snippets/data/contract-addresses/view-model.js` and rewired the blockchain concept page to consume shared helpers instead of redefining lookup logic inline.
+- Centralized contract-family catalog ownership in `operations/scripts/automations/content/data/contracts/catalog-config.js` and derived the blockchain-page spec from the canonical contracts catalog instead of maintaining a separate hardcoded roster.
+
+**Contracts documentation and recovery records:**
+- Wrote the contracts data-path reference at `workspace/plan/active/CONTRACTS/Canonical/workflow-data.mdx` so the worktree-created ownership boundaries and rationale are repeatable for future generated reference surfaces.
+- Preserved the current contracts planning trail in the canonical contracts workspace so the redesign, recovery constraints, and future consolidation direction are documented alongside the live pipeline references.
+
+**Validation and runtime evidence:**
+- Re-ran focused contracts validation in the merged repo with passing results for `node operations/tests/unit/contracts-addresses-pipeline.test.js`, `node operations/tests/unit/contracts-view-model.test.js`, and `node operations/scripts/validators/content/structure/lint-structure.js --check`.
+- Reconfirmed the blockchain concept page with a passing CP-7 browser run on the rebased contracts branch.
+- Verified that the scoped Mint preview served both `/v2/about/resources/livepeer-contract-addresses` and `/v2/about/resources/verify-contract-addresses` on the latest base, then cleaned up the agent-owned preview listener on port `3145`.
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| Merge the contracts redesign into the local `docs-v2-dev` branch via fast-forward after rebasing to the latest tip | Keeps the local branch aligned with current repo state while preserving the isolated worktree as the implementation lane |
+| Treat the CP-6 browser-runner hang on the latest base as unresolved validation debt, not as proof that the contracts pages failed to render | The scoped preview served both routes, CP-7 still passed, and the canonical/verifier surface had already passed browser validation in the isolated worktree before the final base update |
+| Defer full contracts-pipeline consolidation beyond this merge unit | The redesign fixed ownership boundaries, consumer ergonomics, and catalog derivation first; config-first family discovery and slimmer persisted outputs are follow-up work |
+
+### Deferred Items
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Restore reliable CP-6 browser validation for the canonical and verifier contracts pages on the newest `docs-v2-dev` base | P1 | `operations/tests/contracts-browser-harness.js` and `operations/tests/playwright-contract-addresses.js` can hang after preview startup even when the scoped preview serves both routes | Isolated browser/harness diagnosis |
+| Consolidate the remaining contracts pipeline hardcoding and duplicated persisted outputs | P2 | New contract families still require catalog code edits and the pipeline still writes parallel JSX/JSON consumer payloads | Separate pipeline design and implementation thread |
+
+### Dependencies & Downstream Effects
+- **`docs-v2-dev` local branch**: Now includes the merged contracts redesign and is ahead of `origin/docs-v2-dev` by two commits pending human review/push.
+- **`v2/about/resources/livepeer-contract-addresses.mdx`**: The canonical contracts page is now a thin consumer of generated data and shared shaping logic instead of a page-owned transformation layer.
+- **`v2/about/resources/verify-contract-addresses.mdx`**: The verifier is now isolated as its own public route, reducing the canonical registry page to one primary job.
+- **`snippets/data/contract-addresses/view-model.js`**: Canonical and concept-page consumers now share one pure shaping layer for labels, groupings, routes, and row construction.
+- **`workspace/plan/active/CONTRACTS/Canonical/workflow-data.mdx`**: The worktree-created data path and rationale are now documented for repeatable future implementation.
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| `node operations/tests/unit/contracts-addresses-pipeline.test.js` | Pass | 18 contracts pipeline checks passed on the merged local branch |
+| `node operations/tests/unit/contracts-view-model.test.js` | Pass | Shared contracts view-model behavior passed on the merged local branch |
+| `node operations/scripts/validators/content/structure/lint-structure.js --check` | Pass | No route-structure files required checking after merge |
+| `node operations/tests/playwright-blockchain-contracts.js` | Pass | CP-7 passed against the rebased scoped preview |
+| Scoped route evidence for canonical + verifier pages | Pass | Latest scoped preview served both routes and their expected content strings |
+| `node operations/tests/contracts-browser-harness.js` | Partial | Passed on the earlier rebased worktree state, but hung after startup on the newest `docs-v2-dev` base |
+| `node operations/tests/playwright-contract-addresses.js` | Partial | Hangs on the newest base after startup; needs isolated diagnosis before calling browser validation fully green |
+
+### Recommendations
+1. **Diagnose the CP-6 browser-runner hang in isolation** — separate the harness wrapper, Puppeteer flow, and page/widget readiness waits so the canonical/verifier browser gate is trustworthy again on current `docs-v2-dev`.
+2. **Review the unrelated local reference-doc edits before the next commit** — `.claude/references/**` and `docs-guide/canonical/collation-data/Mintlify/index.md` are outside the contracts redesign scope and should be staged intentionally or moved to their own thread.
+3. **Start a follow-up contracts pipeline consolidation thread** — the redesign fixed page/data ownership, but full config-first family discovery and output-contract slimming remain open architectural work.
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `v2/about/resources/livepeer-contract-addresses.mdx` | Page | Canonical static-first contracts reference route |
+| `v2/about/resources/verify-contract-addresses.mdx` | Page | Dedicated verifier route and manual verification walkthrough |
+| `v2/about/livepeer-protocol/blockchain-contracts.mdx` | Page | Blockchain contracts concept page rewired to generated/shared data |
+| `snippets/data/contract-addresses/view-model.js` | Shared helper | Pure contracts view-model used by multiple page consumers |
+| `operations/scripts/automations/content/data/contracts/catalog-config.js` | Pipeline config | Canonical contract family and blockchain-page section declaration surface |
+| `operations/tests/unit/contracts-view-model.test.js` | Test | Focused unit coverage for shared contracts shaping logic |
+| `workspace/plan/active/CONTRACTS/Canonical/workflow-data.mdx` | Internal reference | End-to-end documentation of the redesign data path and rationale |

@@ -43,9 +43,9 @@ export const MyComponent = ({ data, title = "", className = "", style = {}, ...r
 
 ---
 
-## Pattern 3: Constants inside function body
+## Pattern 3: Export-used constants inside function body
 
-Mintlify's MDX processor does NOT support top-level const/let/var outside exports.
+In MDX-facing JSX, avoid file-scope constants that exported components depend on.
 
 ```jsx
 // ❌ WRONG — throws ReferenceError at runtime
@@ -59,7 +59,7 @@ export const MyComponent = () => {
 }
 ```
 
-**Linked to:** `snippets/components/component-composition-template.mdx` → Top-Level Constants
+**Linked to:** `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
 
 ---
 
@@ -133,7 +133,7 @@ Ask these questions in order (first match wins):
 - [ ] 6-tag JSDoc header in correct order
 - [ ] Arrow function with named export
 - [ ] className, style, ...rest as final props
-- [ ] Constants inside function body
+- [ ] Export-used constants stay inside the body or live in a safe non-component helper
 - [ ] CSS variables only (no hardcoded colours)
 - [ ] No React/hook imports
 - [ ] Correct category placement (decision tree)

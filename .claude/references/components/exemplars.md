@@ -9,12 +9,12 @@
 
 **File:** `snippets/components/integrators/feeds/ContractVerifier.jsx`
 
-**Why it's good:** Full JSDoc with all required tags (@component, @category, @subcategory, @status, @description, @dataSource). Config-driven chain switching — CHAINS object defines per-chain RPC URLs, explorer URLs, and capabilities. RPC failover with sequential retry across multiple public endpoints. All constants defined INSIDE the function body (Mintlify constraint). No React imports. Arrow function export. Props include className="", style={}, ...rest.
+**Why it's good:** Full JSDoc with all required tags (@component, @category, @subcategory, @status, @description, @dataSource). Config-driven chain switching — CHAINS object defines per-chain RPC URLs, explorer URLs, and capabilities. RPC failover with sequential retry across multiple public endpoints. Export-used config/constants stay inside the component body, which matches the repo's safe Mintlify pattern for MDX-facing JSX. No React imports. Arrow function export. Props include className="", style={}, ...rest.
 
 **Key patterns:**
 - JSDoc header: @component, @category, @subcategory, @status, @description, @dataSource, @aiDiscoverability
 - @param with typedef reference: `@param {ContractAddresses} data` pointing to data file typedef
-- Config object (CHAINS) inside function body — never at top level
+- Config object (CHAINS) inside function body because the exported component reads it directly
 - RPC failover: array of endpoints, sequential retry on failure
 - Pipeline data consumption: receives data as prop, does not fetch its own
 - Arrow function: `export const ContractVerifier = ({ data, className = "", style = {}, ...rest }) => {`

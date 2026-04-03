@@ -69,6 +69,8 @@ Call out conflicts explicitly instead of guessing.
 
 - Default to `v2/**`; treat `v1/**` as frozen unless a user explicitly requests legacy edits.
 - Preserve information architecture unless the task is an intentional IA migration.
+- When the approved task is data-only, helper-only, or pipeline-only, preserve the existing page structure, headings, section order, copy, layout, styling, and route boundaries exactly unless the user explicitly approves presentation changes.
+- Requests such as “move data out of MDX”, “extract helpers”, or “make the widget standalone in terms of data” do not grant permission to rewrite the page experience.
 - Keep edits minimal, local, and consistent with nearby files.
 - Use absolute snippet imports from root, for example `/snippets/components/...`.
 - Use CSS custom properties instead of `ThemeData` or hardcoded theme colours.

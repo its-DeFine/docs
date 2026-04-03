@@ -137,7 +137,7 @@ Use CustomDivider for visual section separation. Standard margin patterns:
 - [ ] Data imported, never hardcoded
 - [ ] Components imported, never inlined
 - [ ] Imports organised by category (components, data, pages, composables)
-- [ ] Root-absolute paths for snippets imports
+- [ ] Root-absolute paths for shared snippets imports; page-local relative imports only for colocated route files
 - [ ] .jsx extension included on all imports
 - [ ] No React/hook imports (globally available)
 - [ ] Badge colours consistent with site convention

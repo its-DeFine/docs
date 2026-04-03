@@ -45,6 +45,7 @@ const skillDocsTests = require('./unit/skill-docs.test');
 const aiToolsRegistryTests = require('./unit/ai-tools-registry.test');
 const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
 const checkAgentDocsFreshnessTests = require('./unit/check-agent-docs-freshness.test');
+const checkMintlifyCanonicalSyncTests = require('./unit/check-mintlify-canonical-sync.test');
 const rootAllowlistFormatTests = require('./unit/root-allowlist-format.test');
 const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
 const docsGuideSotTests = require('./unit/docs-guide-sot.test');
@@ -371,6 +372,17 @@ async function runAllTests() {
     totalErrors += agentDocsFreshnessResult.errors.length;
     totalWarnings += agentDocsFreshnessResult.warnings.length;
     console.log(`   ${agentDocsFreshnessResult.errors.length} errors, ${agentDocsFreshnessResult.warnings.length} warnings`);
+
+    // Mintlify Canonical Sync
+    console.log('\n🧭 Running Mintlify Canonical Sync Checks...');
+    const mintlifyCanonicalSyncResult = normalizeSuiteResult(
+      await checkMintlifyCanonicalSyncTests.runTests({ stagedOnly })
+    );
+    totalErrors += mintlifyCanonicalSyncResult.errors.length;
+    totalWarnings += mintlifyCanonicalSyncResult.warnings.length;
+    console.log(
+      `   ${mintlifyCanonicalSyncResult.errors.length} errors, ${mintlifyCanonicalSyncResult.warnings.length} warnings`
+    );
 
     // Root Allowlist Format
     console.log('\n🧱 Running Root Allowlist Format Checks...');

@@ -24,13 +24,13 @@
 
 ---
 
-### Mintlify Constraints Reference (Gold Standard)
+### Mintlify Constraints Research Packet (Gold Standard)
 
-**File:** `workspace/thread-outputs/research/mintlify-constraints-reference.md`
+**File:** `docs-guide/canonical/collation-data/Mintlify/dep-files/workspace/thread-outputs/research/mintlify-constraints-reference.md`
 
 **Operational successor:** `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
 
-**Why it's good:** "Top mistakes Claude makes" framing — directly addresses the consumer (Claude) and the failure modes. Each constraint has WRONG/RIGHT code examples with source evidence (Mintlify docs, repo evidence with file counts). The nuance sections are exceptional: "Relative imports DO resolve... We prefer root-absolute paths because they are [4 reasons]". This distinguishes between "doesn't work" and "works but we prefer not to".
+**Why it's good:** "Top mistakes Claude makes" framing — directly addresses the consumer (Claude) and the failure modes. Each constraint has WRONG/RIGHT code examples with source evidence (Mintlify docs, repo evidence with file counts). The nuance sections are exceptional: "Relative imports DO resolve... We prefer root-absolute paths because they are [4 reasons]". This distinguishes between "doesn't work" and "works but we prefer not to". It is still the best evidence packet for how the repo discovered and verified these Mintlify behaviours.
 
 **Key patterns:**
 - Consumer-first framing: "Top mistakes Claude makes" — names the reader and the failure

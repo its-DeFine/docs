@@ -89,6 +89,8 @@ import DockerOffChainTab from './views/docker/dockerOffChainTab.mdx'
 import DockerSupport from './groups/docker/dockerSupport.mdx'
 ```
 
+Use root-absolute imports for shared repo resources such as `snippets/**`. Use relative imports for page-local files that are intentionally colocated with the route, such as `./views/*`, `./groups/*`, and `./components/*`.
+
 ---
 
 ## Multi-Path Layout Pattern

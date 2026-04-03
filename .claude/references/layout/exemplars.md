@@ -21,7 +21,7 @@
 - WidthCard for software version display with live data import
 - Badge colour coding: blue=Video, purple=AI, green=Dual — consistent throughout
 
-**Watch out:** Some relative imports used (e.g., `./views/docker/dockerOffChainTab.mdx`). Root-absolute paths are preferred for new work. Also `narginTop` typo in CustomDivider style.
+**Watch out:** The relative imports here are acceptable because the views, groups, and components are page-local and colocated with the route. The actual drift to avoid is in page-level inline styling and small implementation mistakes such as the `narginTop` typo in `CustomDivider`.
 
 ---
 
