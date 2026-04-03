@@ -14,17 +14,6 @@
  * @param {object} [style={}] - Inline style overrides.
  */
 
-const buildDiagramKey = (title = '', className = '') => {
-  const source = `${title}|${className}|scrollable-diagram`
-  let hash = 0
-
-  for (let index = 0; index < source.length; index += 1) {
-    hash = (hash * 31 + source.charCodeAt(index)) >>> 0
-  }
-
-  return `docs-diagram-${hash.toString(36)}`
-}
-
 export const ScrollableDiagram = ({
   children,
   title = '',
@@ -35,6 +24,17 @@ export const ScrollableDiagram = ({
   style = {},
   ...rest
 }) => {
+  const buildDiagramKey = (currentTitle = '', currentClassName = '') => {
+    const source = `${currentTitle}|${currentClassName}|scrollable-diagram`
+    let hash = 0
+
+    for (let index = 0; index < source.length; index += 1) {
+      hash = (hash * 31 + source.charCodeAt(index)) >>> 0
+    }
+
+    return `docs-diagram-${hash.toString(36)}`
+  }
+
   const diagramKey = buildDiagramKey(title, className)
   const zoomName = `${diagramKey}-zoom`
   const zoomLevels = [
