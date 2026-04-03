@@ -729,7 +729,7 @@ const livepeerComponents = {
  * tells the renderer where to load the actual data from disk.
  */
 const DATA_SOURCES = {
-  contractAddresses: 'snippets/data/contract-addresses/contractAddressesData.jsx'
+  contractAddresses: 'snippets/data/contract-addresses/contractAddressesData.json'
 };
 
 /** Cache parsed data files within a single render pass */
@@ -744,10 +744,7 @@ function loadDataFromFile(identifier, workspaceRoot) {
   try {
     const filePath = nodePath.join(workspaceRoot, DATA_SOURCES[identifier]);
     const raw = fs.readFileSync(filePath, 'utf-8');
-    // Extract the object literal from  `export const <name> = { ... };`
-    const match = raw.match(/export\s+const\s+\w+\s*=\s*(\{[\s\S]*\});?\s*$/);
-    if (!match) return null;
-    const data = JSON.parse(match[1]);
+    const data = JSON.parse(raw);
     _dataCache.set(cacheKey, data);
     return data;
   } catch {

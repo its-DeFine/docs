@@ -791,6 +791,7 @@ async function runTests() {
     const unusedFile = path.join(result.workspaceDir, 'snippets/components/unused.jsx');
     const deeplyNestedSnippetFile = path.join(result.workspaceDir, 'snippets/components/primitives/deep/nested-divider.jsx');
     const rootIndexFile = path.join(result.workspaceDir, 'v2/index.mdx');
+    const generatedDocsNavFile = path.join(result.workspaceDir, 'src/_props/generatedDocsNav.json');
     const legacyWorkspaceMetadataFile = path.join(result.workspaceDir, '.lpd-scope.json');
     const controlManifestFile = path.join(result.controlDir, 'manifest.json');
 
@@ -802,9 +803,15 @@ async function runTests() {
     assert.ok(!fs.lstatSync(pageFile).isSymbolicLink(), 'workspace page file should be materialized as a real file');
     assert.ok(!fs.lstatSync(snippetFile).isSymbolicLink(), 'workspace snippet file should be materialized as a real file');
     assert.ok(!fs.lstatSync(helperFile).isSymbolicLink(), 'transitive helper import should be materialized as a real file');
-    assert.ok(fs.lstatSync(logoFile).isSymbolicLink(), 'transitive asset import should remain a symlink');
-    assert.ok(fs.lstatSync(faviconFile).isSymbolicLink(), 'docs config asset should remain a symlink');
-    assert.ok(fs.lstatSync(imageFile).isSymbolicLink(), 'page asset should remain a symlink');
+    assert.ok(!fs.lstatSync(logoFile).isSymbolicLink(), 'transitive asset import should be copied into the scoped workspace');
+    assert.ok(!fs.lstatSync(faviconFile).isSymbolicLink(), 'docs config asset should be copied into the scoped workspace');
+    assert.ok(!fs.lstatSync(imageFile).isSymbolicLink(), 'page asset should be copied into the scoped workspace');
+    assert.ok(fs.existsSync(generatedDocsNavFile), 'scoped workspace should materialize generatedDocsNav runtime file');
+    assert.deepStrictEqual(
+      JSON.parse(fs.readFileSync(generatedDocsNavFile, 'utf8')),
+      docs.navigation,
+      'generatedDocsNav runtime file should mirror the scoped docs navigation'
+    );
     assert.ok(!fs.existsSync(unusedFile), 'unused snippet files should be excluded from the scoped workspace');
     assert.ok(!fs.existsSync(deeplyNestedSnippetFile), 'deeply nested unused snippet files should be excluded from the scoped workspace');
     assert.ok(!fs.existsSync(rootIndexFile), 'out-of-scope generated indexes should be excluded from scoped workspace');
@@ -940,12 +947,12 @@ async function runTests() {
       'imported data modules should be materialized in the scoped workspace'
     );
     assert.ok(
-      fs.lstatSync(path.join(result.workspaceDir, 'snippets/assets/icons/demo.svg')).isSymbolicLink(),
-      'quoted local asset references inside data modules should be projected'
+      !fs.lstatSync(path.join(result.workspaceDir, 'snippets/assets/icons/demo.svg')).isSymbolicLink(),
+      'quoted local asset references inside data modules should be copied into the scoped workspace'
     );
     assert.ok(
-      fs.lstatSync(path.join(result.workspaceDir, 'snippets/assets/social/demo.png')).isSymbolicLink(),
-      'frontmatter file references should be projected'
+      !fs.lstatSync(path.join(result.workspaceDir, 'snippets/assets/social/demo.png')).isSymbolicLink(),
+      'frontmatter file references should be copied into the scoped workspace'
     );
     assert.ok(
       !fs.lstatSync(path.join(result.workspaceDir, 'docs-guide/tooling/reference-maps/icon-map.mdx')).isSymbolicLink(),

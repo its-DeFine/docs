@@ -3650,3 +3650,5 @@ export const blockchainContractsPageData = {
     }
   }
 };
+
+export default blockchainContractsPageData;

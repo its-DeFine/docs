@@ -38,6 +38,8 @@ MINT_BIN="$(command -v mint)"
 MINT_ENTRY_REALPATH="$(node -e 'const fs=require("fs"); console.log(fs.realpathSync(process.argv[1]));' "$MINT_BIN")"
 MINT_ROOT="$(cd "$(dirname "$MINT_ENTRY_REALPATH")" && pwd)"
 LISTENER_PATH="$MINT_ROOT/node_modules/@mintlify/previewing/dist/local-preview/listener/index.js"
+MINT_CLIENT_CHUNKS_DIR="$HOME/.mintlify/mint/apps/client/.next/server/chunks"
+MINT_CLIENT_PROPS_DIR="$HOME/.mintlify/mint/apps/client/src/_props"
 
 pattern_in_file() {
     local pattern="$1"
@@ -56,13 +58,28 @@ if [ ! -f "$LISTENER_PATH" ]; then
     exit 2
 fi
 
+watcher_patch_present=0
 if pattern_in_file "disableGlobbing:[[:space:]]*true" "$LISTENER_PATH"; then
-    echo "Mint watcher patch present: $LISTENER_PATH"
+    watcher_patch_present=1
+fi
+
+runtime_patch_present=0
+if [ -d "$MINT_CLIENT_CHUNKS_DIR" ] && rg -q "$MINT_CLIENT_PROPS_DIR" "$MINT_CLIENT_CHUNKS_DIR"/*.js 2>/dev/null; then
+    runtime_patch_present=1
+fi
+
+if [ "$watcher_patch_present" = "1" ] && [ "$runtime_patch_present" = "1" ]; then
+    echo "Mint watcher/runtime patch present: $LISTENER_PATH"
     exit 0
 fi
 
 if [ "$MODE" = "check" ]; then
-    echo "Mint watcher patch missing: $LISTENER_PATH" >&2
+    if [ "$watcher_patch_present" != "1" ]; then
+        echo "Mint watcher patch missing: $LISTENER_PATH" >&2
+    fi
+    if [ "$runtime_patch_present" != "1" ]; then
+        echo "Mint runtime props patch missing under: $MINT_CLIENT_CHUNKS_DIR" >&2
+    fi
     exit 1
 fi
 
@@ -98,6 +115,60 @@ try {
 ' "$LISTENER_PATH"; then
     echo "Error: Failed to apply Mint watcher patch at: $LISTENER_PATH" >&2
     exit 3
+fi
+
+if [ -d "$MINT_CLIENT_CHUNKS_DIR" ]; then
+    if ! node - <<'NODE' "$MINT_CLIENT_CHUNKS_DIR" "$MINT_CLIENT_PROPS_DIR"; then
+const fs = require("fs");
+const path = require("path");
+
+const chunksDir = process.argv[2];
+const propsDir = process.argv[3];
+
+const replacements = [
+  {
+    needle: "`src/_props/${a}.mdx`",
+    replacement: `\`${propsDir}/\${a}.mdx\``,
+  },
+  {
+    needle: "`src/_props/${a}.md`",
+    replacement: `\`${propsDir}/\${a}.md\``,
+  },
+  {
+    needle: "`src/_props/${a}.json`",
+    replacement: `\`${propsDir}/\${a}.json\``,
+  },
+];
+
+const files = fs.readdirSync(chunksDir)
+  .filter((entry) => entry.endsWith(".js"))
+  .map((entry) => path.join(chunksDir, entry));
+
+let touched = 0;
+for (const filePath of files) {
+  let source = fs.readFileSync(filePath, "utf8");
+  let next = source;
+  for (const { needle, replacement } of replacements) {
+    if (next.includes(needle)) {
+      next = next.split(needle).join(replacement);
+    }
+  }
+
+  if (next !== source) {
+    fs.writeFileSync(filePath, next, "utf8");
+    touched += 1;
+  }
+}
+
+console.log(
+  touched > 0
+    ? `Mint runtime props patch applied to ${touched} chunk file(s): ${chunksDir}`
+    : `Mint runtime props patch already satisfied: ${chunksDir}`
+);
+NODE
+        echo "Error: Failed to apply Mint runtime props patch under: $MINT_CLIENT_CHUNKS_DIR" >&2
+        exit 3
+    fi
 fi
 
 echo "Mint watcher patch applied: $LISTENER_PATH"

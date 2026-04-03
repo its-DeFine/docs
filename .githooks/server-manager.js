@@ -274,15 +274,15 @@ function startServer() {
   }
 
   const scopePrefixes = String(process.env.MINT_SCOPE_PREFIXES || '').trim();
-  const scopedLaunch = Boolean(scopePrefixes);
+  const scopeTabs = String(process.env.MINT_SCOPE_TABS || '').trim();
+  const scopedLaunch = Boolean(scopeTabs || scopePrefixes);
   const command = scopedLaunch ? 'bash' : 'mint';
   const args = scopedLaunch
     ? [
         path.join(REPO_ROOT, 'tools', 'lpd'),
         'dev',
         '--scoped',
-        '--scope-prefix',
-        scopePrefixes,
+        ...(scopeTabs ? ['--scope-tab', scopeTabs] : ['--scope-prefix', scopePrefixes]),
         '--skip-external-fetch',
         '--disable-openapi',
         '--',
@@ -294,7 +294,11 @@ function startServer() {
 
   console.log(`🚀 Starting ${scopedLaunch ? 'scoped lpd dev' : 'mint dev'} server on port ${PORT}...`);
   if (scopedLaunch) {
-    console.log(`   Scope prefixes: ${scopePrefixes}`);
+    if (scopeTabs) {
+      console.log(`   Scope tabs: ${scopeTabs}`);
+    } else {
+      console.log(`   Scope prefixes: ${scopePrefixes}`);
+    }
   }
 
   try {

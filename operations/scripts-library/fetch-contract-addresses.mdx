@@ -62,7 +62,8 @@ These are used to enrich the registry with source verification, deployment metad
 
 ### 4. Previous generated data
 
-- `snippets/data/contract-addresses/contractAddressesData.jsx.bak`
+- `snippets/data/contract-addresses/contractAddressesData.json`
+- `snippets/data/contract-addresses/contractAddressesData.jsx`
 
 This is only used as a fallback for stale metadata fields when explorer enrichment is missing. It is not the canonical address source.
 
@@ -74,11 +75,11 @@ The script fetches `updates/addresses.js` from `livepeer/governor-scripts` via t
 
 This gives it the canonical manifest values for contracts that are maintained in `governor-scripts`.
 
-### Step 2. Load the authority catalog
+### Step 2. Load the contracts catalog config
 
-The script loads `contract-addresses-authority.json`.
+The script loads `operations/scripts/automations/content/data/contracts/catalog-config.js`.
 
-This catalog fills the gaps that `governor-scripts` does not cover and defines:
+This catalog config fills the gaps that `governor-scripts` does not cover and defines:
 
 - which contracts are governed by which source
 - chain ownership
@@ -173,17 +174,15 @@ The script groups contracts into lifecycle outputs including:
 
 This is what allows the page to show active contracts separately from historical or residual ones.
 
-### Step 10. Write the generated files
+### Step 10. Write the generated JSON files
 
 The script writes:
 
-- `snippets/data/contract-addresses/contractAddressesData.jsx`
 - `snippets/data/contract-addresses/contractAddressesData.json`
-- `snippets/data/contract-addresses/blockchainContractsPageData.jsx`
 - `snippets/data/contract-addresses/blockchainContractsPageData.json`
 - `snippets/data/contract-addresses/_health-checks.json`
 
-These are the canonical generated outputs consumed by the contracts page, the blockchain page, and the verifier widget.
+These are the canonical generated outputs. MDX pages consume them through the checked-in adapter at `snippets/data/contract-addresses/index.jsx`.
 
 ## What The Script Does Not Do
 

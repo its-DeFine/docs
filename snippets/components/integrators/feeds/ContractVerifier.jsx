@@ -3,11 +3,11 @@
  * @category         integrators
  * @subcategory      feeds
  * @status           experimental
- * @description      Interactive widget to verify Livepeer contract addresses on-chain. Two modes: look up by name (verifies via Controller RPC or Blockscout depending on contract), verify by pasted address. Consumes lifecycle-safe pipeline data from contractAddressesData.jsx.
- * @dataSource       prop (contractAddressesData.jsx — active registry rows, lifecycle metadata, keccak hashes, registration state, explorer URLs, RPC URLs) + Arbitrum One RPC (eth_call) + Blockscout API v2 (/api/v2/addresses/)
+ * @description      Interactive widget to verify Livepeer contract addresses on-chain. Two modes: look up by name (verifies via Controller RPC or Blockscout depending on contract), verify by pasted address. Consumes lifecycle-safe pipeline data from contractAddressesData.json.
+ * @dataSource       prop (contractAddressesData.json — active registry rows, lifecycle metadata, keccak hashes, registration state, explorer URLs, RPC URLs) + Arbitrum One RPC (eth_call) + Blockscout API v2 (/api/v2/addresses/)
  * @aiDiscoverability props-extracted
  *
- * // ContractAddresses: see snippets/data/contract-addresses/contractAddressesData.jsx
+ * // ContractAddresses: see snippets/data/contract-addresses/contractAddressesData.json
  * @param {ContractAddresses} data - Pipeline contract addresses data object.
  * @param {string} [className=''] - Optional CSS class override.
  * @param {object} [style={}]     - Optional inline style override.

@@ -76,11 +76,11 @@ export const blockchainContractsPageMeta = blockchainContractsPageData.meta
 
 const explorerBase = {
   arbitrumOne:
-    blockchainContractsPageMeta?.explorerUrls?.arbiscanAddress
-    || `${blockchainContractsPageMeta?.explorerUrls?.arbiscan || 'https://arbiscan.io'}/address/`,
+    blockchainContractsPageMeta?.explorerUrls?.arbiscanAddress ||
+    `${blockchainContractsPageMeta?.explorerUrls?.arbiscan || 'https://arbiscan.io'}/address/`,
   ethereumMainnet:
-    blockchainContractsPageMeta?.explorerUrls?.etherscanAddress
-    || `${blockchainContractsPageMeta?.explorerUrls?.etherscan || 'https://etherscan.io'}/address/`,
+    blockchainContractsPageMeta?.explorerUrls?.etherscanAddress ||
+    `${blockchainContractsPageMeta?.explorerUrls?.etherscan || 'https://etherscan.io'}/address/`,
 }
 
 const contractByName = {

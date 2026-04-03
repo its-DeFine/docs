@@ -22,6 +22,9 @@ const { spawn } = require('child_process');
 
 const STRUCTURAL_ARRAY_KEYS = ['versions', 'languages', 'tabs', 'dropdowns', 'anchors', 'groups', 'pages'];
 const SCOPED_ROOT_RUNTIME_FILES = ['mint.json', 'style.css'];
+const SCOPED_GENERATED_RUNTIME_FILES = {
+  'src/_props/generatedDocsNav.json': (scopedDocs) => `${JSON.stringify(scopedDocs.navigation || {}, null, 2)}\n`,
+};
 const SCOPED_NAVIGATION_CONFIG_DIR = 'tools/config/scoped-navigation';
 const SCOPED_CONTROL_DIRNAME = '.lpd-control';
 const REPO_ROOT_IMPORT_PREFIX_REGEX = /^(?:v1|v2|snippets|docs-guide|tools|tests|images|api)\//;
@@ -805,7 +808,7 @@ function normalizeRepoRelativePath(repoRoot, absolutePath) {
 }
 
 function shouldCopyWorkspaceFile(fileRelPath) {
-  return /\.(?:md|mdx|js|jsx|cjs|mjs|ts|tsx|css|json)$/i.test(String(fileRelPath || ''));
+  return /\.(?:md|mdx|js|jsx|cjs|mjs|ts|tsx|css|json|svg|png|jpe?g|gif|webp|avif|ico)$/i.test(String(fileRelPath || ''));
 }
 
 function isSafeRepoRelativePath(relPath) {
@@ -2063,6 +2066,12 @@ async function createScopedManifest(args) {
   addWorkspaceEntry(workspaceEntries, '.mintignore', {
     type: 'content',
     content: scopedMintignore
+  });
+  Object.entries(SCOPED_GENERATED_RUNTIME_FILES).forEach(([fileRelPath, buildContent]) => {
+    addWorkspaceEntry(workspaceEntries, fileRelPath, {
+      type: 'content',
+      content: buildContent(scopedDocs)
+    });
   });
 
   const watchFiles = uniqStrings([

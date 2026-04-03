@@ -1,0 +1,156 @@
+---
+sidebarTitle: Verify Contract Addresses
+title: Verify Contract Addresses
+description: >-
+  Browser-based verifier and manual self-verification workflow for Livepeer
+  protocol contract addresses.
+keywords:
+  - livepeer
+  - contract verification
+  - verify contract addresses
+  - livepeer contract verifier
+  - on-chain verification
+  - arbitrum
+  - ethereum
+  - smart contracts
+pageType: reference
+purpose: reference
+audience: community
+status: current
+lastVerified: 2026-04-03
+'og:image': /snippets/assets/site/og-image/fallback.png
+'og:image:alt': Livepeer Docs social preview image
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+'twitter:card': summary_large_image
+---
+
+import { CustomDivider, InlineDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { StyledSteps, StyledStep } from '/snippets/components/wrappers/steps/Steps.jsx'
+import { ContractVerifier } from '/snippets/components/integrators/feeds/ContractVerifier.jsx'
+import { CustomCardTitle } from '/snippets/components/elements/text/CustomCardTitle.jsx'
+import { BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
+import { CopyText } from '/snippets/components/elements/text/Text.jsx'
+import { ArbitrumIcon } from '/snippets/components/elements/icons/Icons.jsx'
+import { DataWrap } from '/snippets/components/wrappers/data/workflows.jsx'
+import { contractAddresses } from '/snippets/data/contract-addresses/contractAddressesData.jsx'
+import { contractsRoutes } from '/snippets/data/contract-addresses/view-model.jsx'
+
+<Note>
+  This page is the interactive companion to the canonical reference at
+  [Contract Addresses]({contractsRoutes.reference}).
+  Use the reference page for official lookup; use this page when you want to verify an address in-browser or follow the
+  manual on-chain proof steps.
+</Note>
+
+<Tip>
+  The verifier queries public blockchain infrastructure directly from your browser. No sign-in, wallet connection, or docs
+  backend is required.
+
+  **Last verified reference data:** <DataWrap value={contractAddresses.meta.lastVerified} />
+</Tip>
+
+<CardGroup cols={2}>
+  <Card
+    href={contractsRoutes.reference}
+    icon="table-list"
+    title="Canonical Reference"
+    arrow
+  >
+    Static-first lookup surface for current and historical published contract addresses.
+  </Card>
+  <Card
+    href="/v2/about/livepeer-protocol/blockchain-contracts"
+    icon="diagram-project"
+    title="Blockchain Contracts Guide"
+    arrow
+  >
+    Contract architecture, roles, and upgrade model for the Livepeer protocol.
+  </Card>
+</CardGroup>
+
+<CustomDivider />
+
+## Browser Verifier
+
+Use the tool below to query the blockchain directly from your browser.
+
+<Accordion title={<CustomCardTitle variant="accordion" icon={<Icon icon="info-circle" color="var(--accent)" />} title="How this verifier works" />}>
+  This verifier checks the published contracts data against live chain and explorer information.
+
+  <StyledSteps>
+    <StyledStep title="Look up a contract by name" icon="terminal">
+      Select a Livepeer contract from the dropdown. For contracts registered in the on-chain Controller, the verifier calls
+      `getContract()` via a public Arbitrum RPC and compares the returned address against the canonical reference. For
+      standalone and bridge contracts outside the Controller, it verifies the address directly against explorer data.
+    </StyledStep>
+    <StyledStep title="Verify an address you already have" icon="magnifying-glass">
+      Paste an address and the verifier checks whether it is a contract, whether source code is verified, and whether the
+      address matches a published Livepeer contract on either Arbitrum One or Ethereum Mainnet.
+    </StyledStep>
+  </StyledSteps>
+
+  <Note>
+    RPC calls are only made after you click a button. If public endpoints are unavailable, the verifier falls back to showing a
+    `cast` command that you can run locally.
+  </Note>
+</Accordion>
+
+<BorderedBox variant="accent">
+  <ContractVerifier data={contractAddresses} />
+</BorderedBox>
+
+<CustomDivider />
+
+## No-Trust On-Chain Verification
+
+Every Arbitrum One controller-managed contract can be verified independently without trusting this documentation or the browser
+ verifier.
+
+<Accordion title={<CustomCardTitle variant="accordion" icon={<Icon icon="key" color="var(--accent)" />} title="See the manual verification steps" />}>
+  <StyledSteps>
+    <StyledStep title={<span>Call <code>getContract</code> on the Controller</span>} icon="terminal">
+      Query `getContract(keccak256("<ContractName>"))` on the Controller at `0xD8E8328501E9645d16Cf49539efC04f734606ee4`
+      on Arbitrum One (`42161`). The returned address is the current controller-registered implementation or proxy address.
+
+      ```bash title="Controller getContract Example" icon="terminal"
+      # Example: verify the BondingManager proxy address
+      cast call 0xD8E8328501E9645d16Cf49539efC04f734606ee4 \
+        "getContract(bytes32)(address)" \
+        $(cast keccak "BondingManager") \
+        --rpc-url https://arb1.arbitrum.io/rpc
+      ```
+
+      A valid result returns a non-zero address:
+
+      ```txt title="Example Controller Response" icon="terminal"
+      0x35Bcf3c30594191d53231E4FF333E8A770453e40
+      ```
+
+      If the output is `0x0000000000000000000000000000000000000000`, the contract name is misspelled or not registered on this chain.
+
+      <InlineDivider margin="0.5rem 0" />
+    </StyledStep>
+
+    <StyledStep title="Cross-check against the canonical reference" icon="list-check">
+      Confirm that the returned address matches the current row on
+      [Contract Addresses]({contractsRoutes.reference}), then inspect the row's explorer link and source-code link.
+
+      <InlineDivider margin="0.5rem 0" />
+    </StyledStep>
+
+    <StyledStep title="Inspect on the explorer" icon="triangle-exclamation">
+      Paste the address into [Arbiscan](https://arbiscan.io) or [Blockscout](https://arbitrum.blockscout.com) and confirm:
+
+      - The address is a contract, not an EOA.
+      - The contract source is verified.
+      - The explorer label and transaction history are consistent with Livepeer deployment activity.
+
+      <Danger>
+        An address with no verified source, no contract bytecode, or no relationship to the published controller lookup result is
+        not a valid Livepeer protocol contract address.
+      </Danger>
+    </StyledStep>
+  </StyledSteps>
+</Accordion>

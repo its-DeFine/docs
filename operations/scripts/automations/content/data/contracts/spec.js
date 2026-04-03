@@ -1,4 +1,10 @@
 const { WATCHED_REPOS } = require("./constants");
+const {
+  BLOCKCHAIN_PAGE_SECTIONS,
+  BLOCKCHAIN_PAGE_SOURCE_ONLY_CONTRACTS,
+  CONTRACT_DEFINITIONS,
+  LATEST_RESOLUTION_POLICY,
+} = require("./catalog-config");
 
 function controllerDeployment({
   id,
@@ -115,544 +121,88 @@ function detachedDeployment({
   };
 }
 
+function materializeDeployment(definition = {}) {
+  if (definition.kind === "controller") {
+    return controllerDeployment(definition);
+  }
+
+  if (definition.kind === "bridge") {
+    return bridgeDeployment(definition);
+  }
+
+  if (definition.kind === "detached") {
+    return detachedDeployment(definition);
+  }
+
+  throw new Error(`Unsupported contract definition kind: ${definition.kind || "unknown"}`);
+}
+
+function buildBlockchainContractPageSpec() {
+  const sectionOrder = new Map(BLOCKCHAIN_PAGE_SECTIONS.map((section, index) => [section.slug, index]));
+  const pageContracts = [
+    ...CONTRACT_DEFINITIONS
+      .filter((definition) => definition?.page?.slug && definition?.page?.section)
+      .map((definition) => ({
+        slug: definition.page.slug,
+        name: definition.page.name || definition.canonicalName,
+        canonicalName: definition.canonicalName,
+        subtitle: definition.page.subtitle || null,
+        category: definition.category,
+        chain: definition.chain || null,
+        bucket: definition.lifecycle || "active",
+        type: definition.deploymentKind || "standalone",
+        sourceContractName: definition.page.sourceContractName || definition.canonicalName,
+        sourceDisplayName: definition.page.sourceDisplayName || null,
+        codeAuthority: definition.codeAuthority || null,
+        __section: definition.page.section,
+        __order: definition.page.order || 0,
+      })),
+    ...BLOCKCHAIN_PAGE_SOURCE_ONLY_CONTRACTS.map((contract) => ({
+      ...contract,
+      __section: contract.section,
+      __order: contract.order || 0,
+    })),
+  ].sort((left, right) => {
+    const sectionCompare = (sectionOrder.get(left.__section) ?? Number.MAX_SAFE_INTEGER)
+      - (sectionOrder.get(right.__section) ?? Number.MAX_SAFE_INTEGER);
+    if (sectionCompare !== 0) return sectionCompare;
+    if ((left.__order || 0) !== (right.__order || 0)) {
+      return (left.__order || 0) - (right.__order || 0);
+    }
+    return String(left.canonicalName || left.name || "").localeCompare(
+      String(right.canonicalName || right.name || ""),
+      "en",
+      { sensitivity: "base" },
+    );
+  });
+
+  return {
+    sections: BLOCKCHAIN_PAGE_SECTIONS
+      .map((section) => ({
+        slug: section.slug,
+        title: section.title,
+        contracts: pageContracts
+          .filter((contract) => contract.__section === section.slug)
+          .map((contract) => contract.slug),
+      }))
+      .filter((section) => section.contracts.length > 0),
+    contracts: pageContracts.map(({ __section, __order, section, order, ...contract }) => contract),
+  };
+}
+
 function buildContractProofCatalog() {
   return {
     _meta: {
       watchedRepos: WATCHED_REPOS,
-      latestResolutionPolicy: [
-        "Current controller-managed addresses are recovered from live controller reads on every run.",
-        "Bridge and detached families must resolve from watched upstream repositories or official manifests, then survive runtime and explorer validation.",
-        "Branch names are discovery inputs only. Published code provenance must resolve to repo, commit, and file path.",
-        "Docs-local files do not define publishable address truth, lifecycle truth, implementation truth, or code-source truth.",
-        "Silent degradation is not a permitted outcome. Unresolved truth, provenance, or branch anomalies produce a blocking incident artifact.",
-      ],
+      latestResolutionPolicy: LATEST_RESOLUTION_POLICY,
+      blockchainPageSections: BLOCKCHAIN_PAGE_SECTIONS,
     },
-    deployments: [
-      controllerDeployment({
-        id: "arbitrumOne.controller",
-        canonicalName: "Controller",
-        chain: "arbitrumOne",
-        category: "core",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "delta",
-          path: "contracts/Controller.sol",
-        },
-      }),
-      controllerDeployment({
-        id: "arbitrumOne.livepeerToken",
-        canonicalName: "LivepeerToken",
-        chain: "arbitrumOne",
-        category: "token",
-        controllerSlot: "LivepeerToken",
-        codeAuthority: {
-          repo: "livepeer/arbitrum-lpt-bridge",
-          branch: "main",
-          path: "contracts/L2/token/LivepeerToken.sol",
-        },
-      }),
-      controllerDeployment({
-        id: "arbitrumOne.minter",
-        canonicalName: "Minter",
-        chain: "arbitrumOne",
-        category: "core",
-        controllerSlot: "Minter",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "delta",
-          path: "contracts/token/Minter.sol",
-        },
-      }),
-      controllerDeployment({
-        id: "arbitrumOne.bondingManager",
-        canonicalName: "BondingManager",
-        chain: "arbitrumOne",
-        category: "core",
-        deploymentKind: "proxy",
-        controllerSlot: "BondingManager",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "delta",
-          path: "contracts/bonding/BondingManager.sol",
-        },
-        currentImplementationStrategy: {
-          kind: "governor-versioned-latest",
-          baseKey: "bondingManagerTarget",
-          prefix: "bondingManagerTargetV",
-        },
-      }),
-      controllerDeployment({
-        id: "arbitrumOne.ticketBroker",
-        canonicalName: "TicketBroker",
-        chain: "arbitrumOne",
-        category: "core",
-        deploymentKind: "proxy",
-        controllerSlot: "TicketBroker",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "delta",
-          path: "contracts/pm/TicketBroker.sol",
-        },
-        currentImplementationStrategy: { kind: "proxy-meta" },
-      }),
-      controllerDeployment({
-        id: "arbitrumOne.roundsManager",
-        canonicalName: "RoundsManager",
-        chain: "arbitrumOne",
-        category: "core",
-        deploymentKind: "proxy",
-        controllerSlot: "RoundsManager",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "delta",
-          path: "contracts/rounds/RoundsManager.sol",
-        },
-        currentImplementationStrategy: { kind: "proxy-meta" },
-      }),
-      controllerDeployment({
-        id: "arbitrumOne.serviceRegistry",
-        canonicalName: "ServiceRegistry",
-        chain: "arbitrumOne",
-        category: "core",
-        deploymentKind: "proxy",
-        controllerSlot: "ServiceRegistry",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "delta",
-          path: "contracts/ServiceRegistry.sol",
-        },
-        currentImplementationStrategy: { kind: "proxy-meta" },
-      }),
-      detachedDeployment({
-        id: "arbitrumOne.aiServiceRegistry",
-        canonicalName: "AIServiceRegistry",
-        chain: "arbitrumOne",
-        category: "core",
-        artifactAuthority: {
-          repo: "livepeer/protocol",
-          branch: "delta",
-          path: "deployments/arbitrumMainnet/AIServiceRegistry.json",
-        },
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "delta",
-          path: "contracts/ServiceRegistry.sol",
-        },
-        runtimeEvidence: {
-          kind: "repo-address-literal",
-          repo: "livepeer/go-livepeer",
-          branch: "master",
-          path: "cmd/livepeer/starter/starter.go",
-        },
-        requiredRuntimeEvidence: true,
-        searchTerms: ["AI Service Registry", "ServiceRegistry"],
-        notes: "Detached from Controller. Must resolve from watched repo/runtime evidence before publication.",
-      }),
-      detachedDeployment({
-        id: "arbitrumOne.governor",
-        canonicalName: "Governor",
-        chain: "arbitrumOne",
-        category: "governance",
-        artifactAuthority: {
-          repo: "livepeer/protocol",
-          branch: "delta",
-          path: "deployments/arbitrumMainnet/Governor.json",
-        },
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "delta",
-          path: "contracts/governance/Governor.sol",
-        },
-      }),
-      controllerDeployment({
-        id: "arbitrumOne.bondingVotes",
-        canonicalName: "BondingVotes",
-        chain: "arbitrumOne",
-        category: "governance",
-        deploymentKind: "proxy",
-        controllerSlot: "BondingVotes",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "delta",
-          path: "contracts/bonding/BondingVotes.sol",
-        },
-        currentImplementationStrategy: {
-          kind: "governor-versioned-latest",
-          baseKey: "bondingVotesTarget",
-          prefix: "bondingVotesTargetV",
-        },
-      }),
-      controllerDeployment({
-        id: "arbitrumOne.livepeerGovernor",
-        canonicalName: "LivepeerGovernor",
-        chain: "arbitrumOne",
-        category: "governance",
-        deploymentKind: "proxy",
-        controllerSlot: "LivepeerGovernor",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "delta",
-          path: "contracts/treasury/LivepeerGovernor.sol",
-        },
-        currentImplementationStrategy: {
-          kind: "governor-key",
-          key: "livepeerGovernorTarget",
-        },
-      }),
-      controllerDeployment({
-        id: "arbitrumOne.treasury",
-        canonicalName: "Treasury",
-        chain: "arbitrumOne",
-        category: "governance",
-        controllerSlot: "Treasury",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "delta",
-          path: "contracts/treasury/Treasury.sol",
-        },
-      }),
-      bridgeDeployment({
-        id: "arbitrumOne.l2LPTGateway",
-        canonicalName: "L2LPTGateway",
-        chain: "arbitrumOne",
-        governorKey: "l2LPTGateway",
-        artifactAuthority: {
-          repo: "livepeer/arbitrum-lpt-bridge",
-          branch: "main",
-          path: "deployments/arbitrumMainnet/L2LPTGateway.json",
-        },
-        codeAuthority: {
-          repo: "livepeer/arbitrum-lpt-bridge",
-          branch: "main",
-          path: "contracts/L2/gateway/L2LPTGateway.sol",
-        },
-      }),
-      controllerDeployment({
-        id: "arbitrumOne.l2LPTDataCache",
-        canonicalName: "L2LPTDataCache",
-        chain: "arbitrumOne",
-        category: "bridge",
-        controllerSlot: "L2LPTDataCache",
-        codeAuthority: {
-          repo: "livepeer/arbitrum-lpt-bridge",
-          branch: "main",
-          path: "contracts/L2/gateway/L2LPTDataCache.sol",
-        },
-      }),
-      controllerDeployment({
-        id: "arbitrumOne.l2Migrator",
-        canonicalName: "L2Migrator",
-        chain: "arbitrumOne",
-        category: "migration",
-        lifecycle: "migration_residual",
-        deploymentKind: "proxy",
-        controllerSlot: "L2Migrator",
-        codeAuthority: {
-          repo: "livepeer/arbitrum-lpt-bridge",
-          branch: "main",
-          path: "contracts/L2/gateway/L2Migrator.sol",
-        },
-        currentImplementationStrategy: { kind: "proxy-meta" },
-      }),
-      controllerDeployment({
-        id: "arbitrumOne.merkleSnapshot",
-        canonicalName: "MerkleSnapshot",
-        chain: "arbitrumOne",
-        category: "migration",
-        lifecycle: "migration_residual",
-        controllerSlot: "MerkleSnapshot",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "delta",
-          path: "contracts/snapshots/MerkleSnapshot.sol",
-        },
-        notes: "Migration proof registry retained for Confluence claim verification.",
-      }),
-      controllerDeployment({
-        id: "ethereumMainnet.controller",
-        canonicalName: "Controller",
-        chain: "ethereumMainnet",
-        category: "core",
-        lifecycle: "paused",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "master",
-          path: "contracts/Controller.sol",
-        },
-      }),
-      controllerDeployment({
-        id: "ethereumMainnet.livepeerToken",
-        canonicalName: "LivepeerToken",
-        chain: "ethereumMainnet",
-        category: "token",
-        controllerSlot: "LivepeerToken",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "master",
-          path: "contracts/token/LivepeerToken.sol",
-        },
-      }),
-      controllerDeployment({
-        id: "ethereumMainnet.minter",
-        canonicalName: "Minter",
-        chain: "ethereumMainnet",
-        category: "core",
-        lifecycle: "paused",
-        controllerSlot: "Minter",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "master",
-          path: "contracts/token/Minter.sol",
-        },
-      }),
-      bridgeDeployment({
-        id: "ethereumMainnet.bridgeMinter",
-        canonicalName: "BridgeMinter",
-        chain: "ethereumMainnet",
-        governorKey: "bridgeMinter",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "streamflow",
-          path: "contracts/token/BridgeMinter.sol",
-        },
-      }),
-      bridgeDeployment({
-        id: "ethereumMainnet.l1LPTGateway",
-        canonicalName: "L1LPTGateway",
-        chain: "ethereumMainnet",
-        governorKey: "l1LPTGateway",
-        artifactAuthority: {
-          repo: "livepeer/arbitrum-lpt-bridge",
-          branch: "main",
-          path: "deployments/mainnet/L1LPTGateway.json",
-        },
-        codeAuthority: {
-          repo: "livepeer/arbitrum-lpt-bridge",
-          branch: "main",
-          path: "contracts/L1/gateway/L1LPTGateway.sol",
-        },
-      }),
-      bridgeDeployment({
-        id: "ethereumMainnet.l1Escrow",
-        canonicalName: "L1Escrow",
-        chain: "ethereumMainnet",
-        artifactAuthority: {
-          repo: "livepeer/arbitrum-lpt-bridge",
-          branch: "main",
-          path: "deployments/mainnet/L1Escrow.json",
-        },
-        codeAuthority: {
-          repo: "livepeer/arbitrum-lpt-bridge",
-          branch: "main",
-          path: "contracts/L1/escrow/L1Escrow.sol",
-        },
-      }),
-      bridgeDeployment({
-        id: "ethereumMainnet.l1LPTDataCache",
-        canonicalName: "L1LPTDataCache",
-        chain: "ethereumMainnet",
-        lifecycle: "legacy_operational",
-        governorKey: "l1LPTDataCache",
-        artifactAuthority: {
-          repo: "livepeer/arbitrum-lpt-bridge",
-          branch: "main",
-          path: "deployments/mainnet/L1LPTDataCache.json",
-        },
-        codeAuthority: {
-          repo: "livepeer/arbitrum-lpt-bridge",
-          branch: "main",
-          path: "contracts/L1/gateway/L1LPTDataCache.sol",
-        },
-      }),
-      bridgeDeployment({
-        id: "ethereumMainnet.l1Migrator",
-        canonicalName: "L1Migrator",
-        chain: "ethereumMainnet",
-        category: "migration",
-        lifecycle: "migration_residual",
-        governorKey: "l1Migrator",
-        artifactAuthority: {
-          repo: "livepeer/arbitrum-lpt-bridge",
-          branch: "main",
-          path: "deployments/mainnet/L1Migrator.json",
-        },
-        codeAuthority: {
-          repo: "livepeer/arbitrum-lpt-bridge",
-          branch: "main",
-          path: "contracts/L1/gateway/L1Migrator.sol",
-        },
-      }),
-      detachedDeployment({
-        id: "ethereumMainnet.genesisManager",
-        canonicalName: "GenesisManager",
-        chain: "ethereumMainnet",
-        category: "utility",
-        lifecycle: "legacy_operational",
-        addressStrategyOverride: {
-          kind: "explorer-search-label",
-          query: "Genesis Manager",
-          expectedSearchTitle: "Livepeer: Genesis Manager",
-          expectedContractName: "GenesisManager",
-          requiredCreatorLabel: "Livepeer: Deployer",
-        },
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "master",
-          path: "contracts/GenesisManager.sol",
-        },
-      }),
-      detachedDeployment({
-        id: "ethereumMainnet.merkleMine",
-        canonicalName: "MerkleMine",
-        chain: "ethereumMainnet",
-        category: "utility",
-        lifecycle: "legacy_operational",
-        addressStrategyOverride: {
-          kind: "explorer-search-label",
-          query: "Merkle Mine",
-          expectedSearchTitle: "Livepeer: Merkle Mine",
-          expectedContractName: "MerkleMine",
-          requiredCreatorLabel: "Livepeer: Deployer",
-        },
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "master",
-          path: "contracts/token/MerkleMine.sol",
-        },
-      }),
-      detachedDeployment({
-        id: "ethereumMainnet.multiMerkleMine",
-        canonicalName: "MultiMerkleMine",
-        chain: "ethereumMainnet",
-        category: "utility",
-        lifecycle: "legacy_operational",
-        addressStrategyOverride: {
-          kind: "explorer-search-label",
-          query: "Multi Merkle Mine",
-          expectedSearchTitle: "Livepeer: Multi Merkle Mine",
-          expectedContractName: "MultiMerkleMine",
-          requiredCreatorLabel: "Livepeer: Deployer",
-        },
-        notes: "Legacy utility contract resolved from external explorer label search and on-chain verification.",
-      }),
-      detachedDeployment({
-        id: "ethereumMainnet.refunder",
-        canonicalName: "Refunder",
-        chain: "ethereumMainnet",
-        category: "utility",
-        lifecycle: "legacy_operational",
-        addressStrategyOverride: {
-          kind: "explorer-search-label",
-          query: "Refunder",
-          expectedSearchTitle: "Livepeer: Refunder",
-          expectedContractName: "Refunder",
-          requiredCreatorLabel: "Livepeer: Deployer",
-        },
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "streamflow",
-          path: "contracts/refund/Refunder.sol",
-        },
-      }),
-      detachedDeployment({
-        id: "ethereumMainnet.sortedDoublyLL",
-        canonicalName: "SortedDoublyLL",
-        chain: "ethereumMainnet",
-        category: "utility",
-        lifecycle: "legacy_operational",
-        addressStrategyOverride: {
-          kind: "explorer-search-label",
-          query: "Sorted Doubly LL",
-          expectedSearchTitle: "Livepeer: Sorted Doubly LL",
-          expectedContractName: "SortedDoublyLL",
-          requiredCreatorLabel: "Livepeer: Deployer",
-        },
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "master",
-          path: "contracts/libraries/SortedDoublyLL.sol",
-        },
-      }),
-      detachedDeployment({
-        id: "ethereumMainnet.merkleProof",
-        canonicalName: "MerkleProof",
-        chain: "ethereumMainnet",
-        category: "genesis",
-        lifecycle: "historical",
-        addressStrategyOverride: {
-          kind: "verified-seed-address",
-          address: "0x289ba1701c2f088cf0faf8b3705246331cb8a839",
-          expectedContractName: "MerkleProof",
-          requiredCreatorLabel: "Livepeer: Deployer",
-        },
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "6e6b452634542ff92b93643196a97ff356bac230",
-          path: "contracts/zeppelin/MerkleProof.sol",
-        },
-        notes: "Genesis-era helper contract preserved in historical output once revalidated from explorer proof.",
-      }),
-      controllerDeployment({
-        id: "ethereumMainnet.bondingManager",
-        canonicalName: "BondingManager",
-        chain: "ethereumMainnet",
-        category: "core",
-        deploymentKind: "proxy",
-        lifecycle: "paused",
-        controllerSlot: "BondingManager",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "master",
-          path: "contracts/bonding/BondingManager.sol",
-        },
-      }),
-      controllerDeployment({
-        id: "ethereumMainnet.ticketBroker",
-        canonicalName: "TicketBroker",
-        chain: "ethereumMainnet",
-        category: "core",
-        deploymentKind: "proxy",
-        lifecycle: "paused",
-        controllerSlot: "TicketBroker",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "streamflow",
-          path: "contracts/pm/TicketBroker.sol",
-        },
-      }),
-      controllerDeployment({
-        id: "ethereumMainnet.roundsManager",
-        canonicalName: "RoundsManager",
-        chain: "ethereumMainnet",
-        category: "core",
-        deploymentKind: "proxy",
-        lifecycle: "paused",
-        controllerSlot: "RoundsManager",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "master",
-          path: "contracts/rounds/RoundsManager.sol",
-        },
-      }),
-      controllerDeployment({
-        id: "ethereumMainnet.serviceRegistry",
-        canonicalName: "ServiceRegistry",
-        chain: "ethereumMainnet",
-        category: "core",
-        deploymentKind: "proxy",
-        lifecycle: "paused",
-        controllerSlot: "ServiceRegistry",
-        codeAuthority: {
-          repo: "livepeer/protocol",
-          branch: "master",
-          path: "contracts/ServiceRegistry.sol",
-        },
-      }),
-    ],
+    deployments: CONTRACT_DEFINITIONS.map(materializeDeployment),
   };
 }
 
 module.exports = {
   WATCHED_REPOS,
+  buildBlockchainContractPageSpec,
   buildContractProofCatalog,
 };

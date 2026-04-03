@@ -157,11 +157,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add snippets/data/contract-addresses/contractAddressesData.jsx
           git add snippets/data/contract-addresses/contractAddressesData.json
-          git add snippets/data/contract-addresses/blockchainContractsPageData.jsx
+          git add snippets/data/contract-addresses/contractAddressesData.jsx
           git add snippets/data/contract-addresses/blockchainContractsPageData.json
-          git add snippets/composables/pages/canonical/livepeer-contract-addresses-data.json
+          git add snippets/data/contract-addresses/blockchainContractsPageData.jsx
           git add snippets/data/contract-addresses/_health-checks.json
           git add snippets/data/contract-addresses/_branch-watch-state.json
           git commit -m "chore(contracts): refresh verified contract registry"

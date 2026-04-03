@@ -17,6 +17,7 @@
  * @param {string} [categoryColumn='Category'] - Field name the first dropdown filters on.
  * @param {Array} [filterColumns=[]] - Additional column names that get dropdown filters. Each scoped by selections above it.
  * @param {object} [columnWidths={}] - Column width overrides keyed by header name. Passed to TableComponent.
+ * @param {Array} [contentFitColumns=[]] - Column names that should size to their contents when supported by TableComponent.
  * @param {object} [columnVariant={}] - Column display variants keyed by header name. Supported: "bold", "badge", "textIcon", "addressWrapper".
  * @param {Array} [categoryBadges=[]] - Array of {color, label} for "badge" variant rendering. Matched by label (case-insensitive).
  * @param {Array} [textIcons=[]] - Array of {label, icon} for "textIcon" variant rendering. Icon is JSX rendered inline before the label text.
@@ -42,6 +43,7 @@ export const SearchTable = ({
   categoryColumn = 'Category',
   filterColumns = [],
   columnWidths = {},
+  contentFitColumns = [],
   columnVariant = {},
   categoryBadges = [],
   textIcons = [],
@@ -302,6 +304,7 @@ export const SearchTable = ({
           itemsList={withSeparators}
           monospaceColumns={safeMonospaceColumns}
           columnWidths={columnWidths}
+          contentFitColumns={contentFitColumns}
           showSeparators={showSeparators}
           margin={margin}
         />

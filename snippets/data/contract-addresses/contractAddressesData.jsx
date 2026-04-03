@@ -16618,3 +16618,5 @@ export const contractAddresses = {
     }
   }
 };
+
+export default contractAddresses;

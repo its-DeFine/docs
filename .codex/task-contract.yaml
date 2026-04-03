@@ -1,43 +1,42 @@
-task_id: 20260401
-branch: codex/20260401-page-integrity-operations
+task_id: 20260403
+branch: codex/20260403-contracts-surface-redesign
 base_branch: docs-v2-dev
 scope_in:
   - .codex/
-  - .github/workflows/
+  - .claude/
+  - .cursor/
+  - .githooks/
+  - .github/
+  - .playwright-cli/
+  - .vscode/
+  - .windsurf/
+  - AGENTS.md
+  - ai-tools/
   - docs-guide/
-  - operations/scripts/automations/governance/
-  - operations/scripts/audits/
-  - operations/scripts/dispatch/
-  - operations/scripts/generators/governance/
-  - operations/scripts/remediators/
-  - operations/scripts/script-index.md
+  - docs.json
+  - llms.txt
   - operations/tests/
-  - tools/config/
-  - tools/lib/
-  - tools/lpd
-  - tools/package.json
-scope_out:
-  - workspace/
-  - v1/
+  - operations/
+  - snippets/
+  - tools/
   - v2/
+  - workspace/
+scope_out:
+  - v1/
 allowed_generated:
   - .codex/pr-body.generated.md
-  - docs-guide/catalog/scripts-catalog.mdx
-  - operations/scripts/script-index.md
-  - operations/tests/script-index.md
-  - tools/config/script-registry.json
+  - sitemap-ai.xml
 acceptance_checks:
-  - node operations/tests/unit/links-cli.test.js
-  - node operations/tests/unit/imports-cli.test.js
-  - node operations/tests/unit/page-imports-audit.test.js
-  - node operations/tests/unit/page-integrity-rolling-issue.test.js
-  - node operations/tests/unit/page-integrity-dispatch.test.js
-  - node operations/tests/unit/run-pr-checks.test.js
-  - node operations/tests/unit/v2-link-audit.test.js
-  - node operations/tests/unit/openapi-rolling-issue.test.js
-  - node operations/scripts/validators/governance/compliance/validate-codex-task-contract.js --branch codex/20260401-page-integrity-operations
+  - node operations/tests/unit/contracts-addresses-pipeline.test.js
+  - node operations/tests/unit/contracts-view-model.test.js
+  - node operations/tests/playwright-contract-addresses.js
+  - node operations/tests/playwright-blockchain-contracts.js
+  - node operations/tests/contracts-browser-harness.js
+  - lpd test --staged
+  - node operations/scripts/validators/content/structure/lint-structure.js --check
+  - node operations/scripts/validators/governance/compliance/validate-codex-task-contract.js --branch codex/20260403-contracts-surface-redesign
 risk_flags:
-  - operations-report-root-migration
-  - pipeline-orchestration
-  - ci-workflow-integration
+  - docs-navigation
+  - contracts-reference-surface
+  - mintlify-browser-render
 follow_up_issues: []

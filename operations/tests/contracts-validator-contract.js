@@ -30,16 +30,25 @@ function getRepoRoot() {
 const REPO_ROOT = getRepoRoot();
 const REPO_KEY = crypto.createHash('sha1').update(REPO_ROOT).digest('hex').slice(0, 12);
 const HTTP_PROBE_TIMEOUT_MS = Number.parseInt(process.env.CONTRACTS_PROBE_TIMEOUT_MS || '30000', 10);
+const HTTP_PROBE_MAX_ATTEMPTS = Number.parseInt(process.env.CONTRACTS_PROBE_MAX_ATTEMPTS || '10', 10);
+const HTTP_PROBE_RETRY_INTERVAL_MS = Number.parseInt(process.env.CONTRACTS_PROBE_RETRY_INTERVAL_MS || '2000', 10);
 const CONTRACTS_SCOPE_PREFIXES = [
   'v2/about/resources/livepeer-contract-addresses',
+  'v2/about/resources/verify-contract-addresses',
   'v2/about/livepeer-protocol/blockchain-contracts',
-  'snippets/composables/pages/canonical/data',
+  'v2/resources/references/contract-addresses',
+  'snippets/composables/pages/canonical',
   'snippets/data/contract-addresses',
   'v2/about/livepeer-protocol/data',
 ].join(',');
+const CONTRACTS_SCOPE_TABS = 'About,Resource HUB';
 const SESSION_FILE = path.join(os.tmpdir(), `contracts-validation-session-${REPO_KEY}.json`);
 const PID_FILE = path.join(os.tmpdir(), `mint-dev-test-${REPO_KEY}.pid`);
 const SERVER_MANAGER_PATH = path.join(REPO_ROOT, '.githooks', 'server-manager.js');
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 function normalizeBaseUrl(value) {
   const raw = String(value || '').trim();
@@ -175,30 +184,57 @@ function isUrlReachable(baseUrl, probePath) {
   });
 }
 
+async function waitForUrlReachable(baseUrl, probePath, options = {}) {
+  const attempts = Number.isInteger(options.attempts) ? options.attempts : HTTP_PROBE_MAX_ATTEMPTS;
+  const intervalMs = Number.isInteger(options.intervalMs) ? options.intervalMs : HTTP_PROBE_RETRY_INTERVAL_MS;
+
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    if (await isUrlReachable(baseUrl, probePath)) {
+      return true;
+    }
+
+    if (attempt < attempts - 1) {
+      await sleep(intervalMs);
+    }
+  }
+
+  return false;
+}
+
 async function ensureFreshBundleBaseUrl(options = {}) {
   const probePath = normalizeProbePath(options.probePath);
   const explicitBaseUrl = normalizeBaseUrl(options.baseUrl);
   const configuredBaseUrl = explicitBaseUrl || getConfiguredBaseUrl();
 
   if (configuredBaseUrl) {
-    if (!(await isUrlReachable(configuredBaseUrl, probePath))) {
-      throw new Error(`Configured contracts base URL is not reachable at ${probePath}: ${configuredBaseUrl}`);
+    const configuredReachable = await waitForUrlReachable(configuredBaseUrl, probePath);
+    if (!configuredReachable) {
+      console.warn(
+        `Configured contracts base URL did not answer the preflight probe at ${probePath}; continuing with browser validation: ${configuredBaseUrl}`
+      );
     }
 
+    process.env.CONTRACTS_TEST_SCOPED = '1';
     process.env.CONTRACTS_TEST_BASE_URL = configuredBaseUrl;
     process.env.MINT_BASE_URL = configuredBaseUrl;
     writeSession({
       baseUrl: configuredBaseUrl,
       pid: readPidFile(),
       startedAt: new Date().toISOString(),
-      source: explicitBaseUrl ? 'explicit' : 'configured'
+      source: configuredReachable
+        ? explicitBaseUrl
+          ? 'explicit'
+          : 'configured'
+        : explicitBaseUrl
+          ? 'explicit-unverified'
+          : 'configured-unverified'
     });
     return configuredBaseUrl;
   }
 
   if (!options.fresh) {
     const session = readSession();
-    if (session?.baseUrl && (await isUrlReachable(session.baseUrl, probePath))) {
+    if (session?.baseUrl && (await waitForUrlReachable(session.baseUrl, probePath))) {
       process.env.CONTRACTS_TEST_BASE_URL = session.baseUrl;
       process.env.MINT_BASE_URL = session.baseUrl;
       return session.baseUrl;
@@ -208,9 +244,13 @@ async function ensureFreshBundleBaseUrl(options = {}) {
   const port = await pickFreePort();
   const freshBaseUrl = `http://localhost:${port}`;
 
+  process.env.CONTRACTS_TEST_SCOPED = '1';
   process.env.CONTRACTS_TEST_BASE_URL = freshBaseUrl;
   process.env.MINT_BASE_URL = freshBaseUrl;
-  process.env.MINT_SCOPE_PREFIXES = process.env.MINT_SCOPE_PREFIXES || CONTRACTS_SCOPE_PREFIXES;
+  process.env.MINT_SCOPE_TABS = process.env.MINT_SCOPE_TABS || CONTRACTS_SCOPE_TABS;
+  if (!process.env.MINT_SCOPE_TABS) {
+    process.env.MINT_SCOPE_PREFIXES = process.env.MINT_SCOPE_PREFIXES || CONTRACTS_SCOPE_PREFIXES;
+  }
   deletePidFile();
 
   const serverManager = loadServerManager();

@@ -10,6 +10,7 @@
  * @param {Array} [headerList=[]] - header List prop.
  * @param {Array} [itemsList=[]] - items List prop.
  * @param {Array} [monospaceColumns=[]] - monospace Columns prop.
+ * @param {Array} [contentFitColumns=[]] - Column names that should size to their contents.
  * @param {any} margin - margin prop.
  * @param {string} [className=''] - Optional CSS class override.
  * @param {object} [style={}] - Optional inline style override.
@@ -22,6 +23,7 @@ export const DynamicTable = ({
   itemsList = [],
   monospaceColumns = [],
   columnWidths = {},
+  contentFitColumns = [],
   showSeparators = false,
   margin,
   className = "",
@@ -31,6 +33,32 @@ export const DynamicTable = ({
   if (!headerList.length) {
     return <div>No headers provided</div>;
   }
+
+  const safeContentFitColumns = Array.isArray(contentFitColumns)
+    ? contentFitColumns
+    : [];
+  const usesContentFitColumns = safeContentFitColumns.length > 0;
+  const isContentFitColumn = (header) => safeContentFitColumns.includes(header);
+  const getColumnStyle = (header) => {
+    const widthStyle = columnWidths[header]
+      ? {
+          width: columnWidths[header],
+          minWidth: columnWidths[header],
+          maxWidth: columnWidths[header],
+        }
+      : {};
+    const contentFitStyle = !columnWidths[header] && isContentFitColumn(header)
+      ? {
+          width: "1%",
+          whiteSpace: "nowrap",
+        }
+      : {};
+
+    return {
+      ...contentFitStyle,
+      ...widthStyle,
+    };
+  };
 
   return (
     <div className={className} style={style} {...rest}>
@@ -49,7 +77,7 @@ export const DynamicTable = ({
           data-docs-dynamic-table
           style={{
             width: "100%",
-            tableLayout: "fixed",
+            tableLayout: usesContentFitColumns ? "auto" : "fixed",
             borderCollapse: "collapse",
             fontSize: "0.9rem",
             marginTop: 0,
@@ -71,13 +99,7 @@ export const DynamicTable = ({
                     textAlign: "left",
                     fontWeight: "600",
                     color: "var(--lp-color-on-accent)",
-                    ...(columnWidths[header]
-                      ? {
-                          width: columnWidths[header],
-                          minWidth: columnWidths[header],
-                          maxWidth: columnWidths[header],
-                        }
-                      : {}),
+                    ...getColumnStyle(header),
                   }}
                 >
                   {header}
@@ -126,13 +148,7 @@ export const DynamicTable = ({
                           fontFamily: isMonospace ? "monospace" : "inherit",
                           wordWrap: "break-word",
                           overflowWrap: "break-word",
-                          ...(columnWidths[header]
-                            ? {
-                                width: columnWidths[header],
-                                minWidth: columnWidths[header],
-                                maxWidth: columnWidths[header],
-                              }
-                            : {}),
+                          ...getColumnStyle(header),
                         }}
                       >
                         {isMonospace ? <code>{value}</code> : value}

@@ -9,7 +9,7 @@
  *   contract series is split into separate chain tables to keep version history readable.
  * @aiDiscoverability none
  * @param {string} category - Historical category key to render.
- * @param {Object} sourceData - The full contractAddresses object from contractAddressesData.jsx.
+ * @param {Object} sourceData - The full contractAddresses object from the contracts data adapter.
  */
 import { ArbitrumIcon } from '/snippets/components/elements/icons/Icons.jsx'
 
