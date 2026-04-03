@@ -1,4 +1,5 @@
 ---
+mode: panel
 sidebarTitle: Contract Addresses
 title: Contract Addresses
 description: >-
@@ -75,9 +76,9 @@ import {
   getPausedTableItems,
   getProxyTableItems,
   historicalCategoryDescription,
-  historicalCategoryIcon,
+  historicalCategoryIconName,
   historicalCategoryTitle,
-} from '/snippets/composables/pages/canonical/data/livepeer-contract-addresses-page-data.jsx'
+} from '/snippets/composables/pages/canonical/data/livepeer-contract-addresses-page-data.js'
 
 {/* data */}
 import { contractAddresses } from '/snippets/data/contract-addresses/contractAddressesData.jsx'
@@ -308,19 +309,19 @@ Paused Ethereum contracts, migration-residual contracts, and legacy-operational 
 Historical implementations replaced through governance upgrades. These target contracts are superseded and listed for audit trail and version history only. Do not interact with deprecated targets directly.
 
 <AccordionGroup>
-  <Accordion title={<AccordionTitle icon={historicalCategoryIcon("core")} title={historicalCategoryTitle("core")} description={historicalCategoryDescription("core")} />}>
+  <Accordion title={<AccordionTitle icon={renderHistoricalCategoryIcon("core")} title={historicalCategoryTitle("core")} description={historicalCategoryDescription("core")} />}>
     <HistoricalContractTable category="core" sourceData={contractAddresses} />
   </Accordion>
 
-  <Accordion title={<AccordionTitle icon={historicalCategoryIcon("governance")} title={historicalCategoryTitle("governance")} description={historicalCategoryDescription("governance")} />}>
+  <Accordion title={<AccordionTitle icon={renderHistoricalCategoryIcon("governance")} title={historicalCategoryTitle("governance")} description={historicalCategoryDescription("governance")} />}>
     <HistoricalContractTable category="governance" sourceData={contractAddresses} />
   </Accordion>
 
-  <Accordion title={<AccordionTitle icon={historicalCategoryIcon("migration")} title={historicalCategoryTitle("migration")} description={historicalCategoryDescription("migration")} />}>
+  <Accordion title={<AccordionTitle icon={renderHistoricalCategoryIcon("migration")} title={historicalCategoryTitle("migration")} description={historicalCategoryDescription("migration")} />}>
     <HistoricalContractTable category="migration" sourceData={contractAddresses} />
   </Accordion>
 
-  <Accordion title={<AccordionTitle icon={historicalCategoryIcon("genesis")} title={historicalCategoryTitle("genesis")} description={historicalCategoryDescription("genesis")} />}>
+  <Accordion title={<AccordionTitle icon={renderHistoricalCategoryIcon("genesis")} title={historicalCategoryTitle("genesis")} description={historicalCategoryDescription("genesis")} />}>
     <HistoricalContractTable category="genesis" sourceData={contractAddresses} />
   </Accordion>
 </AccordionGroup>
