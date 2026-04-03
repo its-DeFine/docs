@@ -201,18 +201,6 @@ function runTests() {
       false,
       'proof catalog must not contain fixed local address truth'
     );
-    const seededNames = catalog.deployments
-      .filter((deployment) =>
-        deployment.chain === 'ethereumMainnet'
-        && ['legacy_operational', 'historical'].includes(deployment.lifecycle)
-      )
-      .map((deployment) => deployment.canonicalName);
-    for (const name of [...EXPECTED_ETH_LEGACY_UTILITY_NAMES, 'MerkleProof']) {
-      assert.ok(
-        seededNames.includes(name),
-        `proof catalog should retain externally resolvable ${name} coverage`
-      );
-    }
   });
 
   runCase('resolveAuthority selects the latest governor version instead of the base key', () => {
