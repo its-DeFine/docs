@@ -2,7 +2,7 @@
 
 This audit compares the current contracts script, workflow, pipeline, and generated outputs to the requirements in:
 
-- `workspace/plan/active/CONTRACTS/CURRENT-STATE/REQUIREMENTS.mdx`
+- `workspace/plan/active/CONTRACTS/REQUIREMENTS.mdx`
 
 Scope:
 
