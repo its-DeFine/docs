@@ -813,6 +813,60 @@ async function runTests() {
   });
 
   cases.push(async () => {
+    const repoRoot = mkTmpDir('lpd-scope-composable-pages-');
+    const workspaceBase = mkTmpDir('lpd-scope-composable-pages-out-');
+    const docs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Composable Pages Fixture',
+      navigation: {
+        tabs: [
+          {
+            tab: 'Developers',
+            groups: [
+              {
+                group: 'Dev',
+                pages: ['v2/dev/get-started']
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    writeFile(path.join(repoRoot, 'docs.json'), `${JSON.stringify(docs, null, 2)}\n`);
+    writeFile(path.join(repoRoot, '.mintignore'), '# fixture\n');
+    writeFile(
+      path.join(repoRoot, 'v2/dev/get-started.mdx'),
+      ['import DemoPage from "/snippets/composables/pages/canonical/demo.mdx";', '', '<DemoPage />', ''].join('\n')
+    );
+    writeFile(
+      path.join(repoRoot, 'snippets/composables/pages/canonical/demo.mdx'),
+      ['export default function DemoPage() {', '  return <div>Demo page</div>;', '}', ''].join('\n')
+    );
+
+    const result = await createScopedProfile({
+      repoRoot,
+      workspaceBase,
+      scopeFile: '',
+      versions: [],
+      languages: [],
+      tabs: [],
+      prefixes: ['v2/dev'],
+      interactive: false,
+      disableOpenApi: false,
+      printOnly: false,
+      help: false
+    });
+
+    const composablePageFile = path.join(result.workspaceDir, 'snippets/composables/pages/canonical/demo.mdx');
+    const publicComposablePagesKeep = path.join(result.workspaceDir, 'public/snippets/composables/pages/.keep');
+
+    assert.ok(!fs.lstatSync(composablePageFile).isSymbolicLink(), 'composable page snippets should be materialized in the scoped workspace');
+    assert.ok(fs.existsSync(publicComposablePagesKeep), 'scoped workspace should materialize public/snippets/composables/pages for Mint runtime scans');
+  });
+
+  cases.push(async () => {
     const repoRoot = mkTmpDir('lpd-scope-string-ref-');
     const workspaceBase = mkTmpDir('lpd-scope-string-ref-out-');
     const docs = {

@@ -12,7 +12,7 @@
  * @param {string} [className=''] - Optional CSS class override.
  * @param {object} [style={}]     - Optional inline style override.
  */
-
+'use client'
 import { CopyText } from '/snippets/components/elements/text/Text.jsx'
 import { ArbitrumIcon } from '/snippets/components/elements/icons/Icons.jsx'
 

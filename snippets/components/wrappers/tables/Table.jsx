@@ -11,9 +11,11 @@
  * @param {Array} [itemsList=[]] - items List prop.
  * @param {Array} [monospaceColumns=[]] - monospace Columns prop.
  * @param {any} margin - margin prop.
-  * @param {string} [className=''] - Optional CSS class override.
-  * @param {object} [style={}] - Optional inline style override.
+ * @param {string} [className=''] - Optional CSS class override.
+ * @param {object} [style={}] - Optional inline style override.
  */
+'use client'
+
 export const DynamicTable = ({
   tableTitle = null,
   headerList = [],

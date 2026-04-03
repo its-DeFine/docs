@@ -39,6 +39,9 @@ Call out conflicts explicitly instead of guessing.
 - Do not use `--no-verify` by default.
 - If a human explicitly authorizes a bypass, follow `ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md`.
 - Agent sessions must not use port `3000` for direct Mintlify preview runs or port `3333` via `lpd dev`; those ports are reserved for human-owned local servers.
+- Never switch branches in an existing worktree. Treat the current worktree as pinned to its current branch for the full session.
+- If work must target a different branch or base, use a separate dedicated worktree instead of repurposing the current one.
+- Do not create/remove worktrees or delete branches unless the human explicitly asks for that exact action.
 - Do not use `git reset --hard`, `git stash`, or `git push --force` unless a human explicitly directs it.
 - Do not delete tracked files casually. File deletions require a human-owned commit with `--trailer "allow-deletions=true"`.
 - Do not make the final `.allowlist` commit yourself. A human must commit `.allowlist` edits with `--trailer "allowlist-edit=true"`.

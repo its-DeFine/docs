@@ -18,6 +18,9 @@
 - **NEVER** perform a `git reset --hard` or `git push --force` without an
   explicit, multi-turn plan confirmed by the user.
 - **NEVER** use `git stash` for AI task isolation in this repository.
+- **NEVER** switch branches inside an existing worktree. Treat the active worktree as pinned to its current branch for the entire task unless a human explicitly says otherwise.
+- If branch-targeted work is required, use a separate dedicated worktree instead of repurposing the current one.
+- **NEVER** create/remove worktrees or delete branches unless the human explicitly asks for that exact action.
 - **NEVER** perform a `git reset --hard` or `git push --force` without a saved
   branch to revert to in case of failure.
 - For any implementation task, apply the `codex-task-isolation-standard` skill

@@ -26,6 +26,7 @@
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  */
+'use client'
 import { LinkIcon } from '/snippets/components/elements/links/Links.jsx'
 import { CopyText } from '/snippets/components/elements/text/Text.jsx'
 
