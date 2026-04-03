@@ -110,7 +110,7 @@ import { useState, useEffect } from 'react'
 const [value, setValue] = useState(false)
 ```
 
-**Linked to:** `workspace/thread-outputs/research/mintlify-constraints-reference.md`
+**Linked to:** `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
 
 ---
 

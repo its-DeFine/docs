@@ -9,10 +9,13 @@ metadata:
   category: "meta"
   tier: "1"
 primary_paths:
-  - "operations/scripts/mint-dev.sh"
+  - "docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md"
+  - "tools/dev/mint-dev.sh"
   - ".githooks/install.sh"
   - ".githooks/pre-commit"
   - "docs-guide/contributing/git-hooks.mdx"
+  - "docs-guide/contributing/local-preview.mdx"
+  - "docs-guide/tooling/lpd-cli.mdx"
 primary_commands:
   - "bash lpd dev"
   - "bash lpd hooks status"
@@ -31,7 +34,7 @@ Constraints
 - Any `lpd dev` or `mint dev` session started for the task must be stopped before handoff.
 
 Workflow
-1. Use `lpd dev` as the default launcher for local preview and hook sync, and run it in a dedicated session you can stop cleanly with `Ctrl-C` when the task is done.
+1. Use `lpd dev` as the default launcher for local preview and hook sync, follow the canonical scoped-preview and port rules, and run it in a dedicated session you can stop cleanly with `Ctrl-C` when the task is done.
 2. Verify hook status and re-install hooks when out of date.
 3. Confirm local server availability before deeper troubleshooting.
 

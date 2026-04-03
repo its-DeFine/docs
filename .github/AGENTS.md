@@ -25,6 +25,7 @@
   branch to revert to in case of failure.
 - For any implementation task, apply the `codex-task-isolation-standard` skill
   first (task contract + scoped branch enforcement).
+- Before MDX/JSX edits or Mint preview work, read `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`.
 
 ## 📦 GIT WORKFLOW & CHECKPOINTS
 
@@ -95,6 +96,8 @@ destructive or history-altering actions.
    - Always check structure rules before creating new files
 
 ## 🚨 MINTLIFY MDX DEBUG ORDER
+
+Canonical reference: `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
 
 For broken Mintlify pages, Codex must debug in this order:
 

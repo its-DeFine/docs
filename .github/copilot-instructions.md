@@ -11,6 +11,7 @@ the whole repo contract.
 - `AGENTS.md`
 - `docs-guide/policies/agent-governance-framework.mdx`
 - `docs-guide/policies/root-allowlist-governance.mdx`
+- `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
 
 ## Copilot-Specific Notes
 

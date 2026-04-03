@@ -55,11 +55,11 @@ stdin.on('end', () => {
           'MINTLIFY MDX CONSTRAINTS (auto-injected):',
           '1. Do NOT import React or hooks — they are global',
           '2. Do NOT import Mintlify built-ins (Card, Tabs, Accordion, Steps, etc.) — they are global',
-          '3. Custom component imports MUST use absolute paths from snippets/ with .jsx extension',
-          '4. No dynamic JS expressions (toLocaleDateString, Date(), etc.) — MDX compiles at build time',
-          '5. Cross-JSX imports are fragile and officially unsupported — import all components in parent MDX instead',
+          '3. Use root-absolute imports for shared repo resources, include file extensions, and only use page-local relative imports for tightly colocated route files',
+          '4. Keep data flow in parent MDX for MDX-facing JSX components; do not make JSX own shared data/constants',
+          '5. Cross-JSX component imports are not the safe default — only use proven repo patterns',
           '6. Verify every import path exists before using it (Glob or Grep first)',
-          'Full reference: workspace/thread-outputs/research/mintlify-constraints-reference.md',
+          'Full reference: docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md',
         ].join(' | ')
       }));
     }

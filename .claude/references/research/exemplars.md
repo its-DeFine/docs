@@ -28,6 +28,8 @@
 
 **File:** `workspace/thread-outputs/research/mintlify-constraints-reference.md`
 
+**Operational successor:** `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
+
 **Why it's good:** "Top mistakes Claude makes" framing — directly addresses the consumer (Claude) and the failure modes. Each constraint has WRONG/RIGHT code examples with source evidence (Mintlify docs, repo evidence with file counts). The nuance sections are exceptional: "Relative imports DO resolve... We prefer root-absolute paths because they are [4 reasons]". This distinguishes between "doesn't work" and "works but we prefer not to".
 
 **Key patterns:**
@@ -38,7 +40,7 @@
 - Cross-file import rules: what works in JSX-to-JSX vs what fails in JSX-to-data
 - Verified date and source list in the header
 
-**Watch out:** This file must be kept current. If Mintlify changes platform constraints, this file becomes stale and dangerous. Always check the verified date.
+**Watch out:** Treat this as the research packet, not the live operational contract. The canonical operational source is `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`.
 
 ---
 

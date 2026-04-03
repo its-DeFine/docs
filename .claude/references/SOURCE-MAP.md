@@ -17,6 +17,7 @@
 | `workspace/thread-outputs/research/` | Thread research outputs | 8 files |
 | `workspace/plan/active/SCRIPT-GOVERNANCE/` | Script framework + plan | 5 files |
 | `workspace/plan/active/COMPONENT-GOVERNANCE/` | Component framework + plan | 14 files |
+| `docs-guide/canonical/collation-data/Mintlify/` | Canonical Mintlify and repo-practices collation | 2 files |
 | `snippets/components/component-composition-template.mdx` | Component authoring standard | 1 file |
 | `snippets/templates/pages/page-composition-framework.mdx` | Page authoring standard | 1 file |
 | `v2/orchestrators/_workspace/canonical/` | Orchestrators tab canonical (IA, frameworks, process, research) | ~15 files |
@@ -43,6 +44,7 @@
 - `CONTENT-WRITING/Research/page-templates-survey.md`
 - `snippets/components/component-composition-template.mdx`
 - `snippets/templates/pages/page-composition-framework.mdx`
+- `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
 - `workspace/thread-outputs/research/mintlify-constraints-reference.md`
 
 ### ia-and-naming/ — IA & Naming
@@ -95,6 +97,7 @@
 
 ### authoring/ — Authoring Standards
 - `ai-tools/ai-skills/page-authoring/SKILL.md`
+- `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
 - `snippets/components/component-composition-template.mdx`
 - `snippets/templates/pages/page-composition-framework.mdx`
 - `CONTENT-WRITING/Frameworks/` (pageType, pagePurpose, complexity, industry)

@@ -64,7 +64,7 @@ If this task produces a file, write to:
 Do NOT write files to repo root. Propose location with reasoning if no path is specified.
 
 ## Platform and style constraints
-If this task involves MDX or JSX: read `workspace/thread-outputs/research/mintlify-constraints-reference.md` first.
+If this task involves MDX or JSX: read `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md` first.
 If this task involves component or script files: read `workspace/thread-outputs/research/component-script-placement-reference.md` first.
 If this task involves writing or editing prose content: follow these rules from CLAUDE.md:
   - UK English: -ise, -our, -re endings

@@ -18,6 +18,7 @@ Canonical governance docs:
 
 - `docs-guide/policies/agent-governance-framework.mdx`
 - `docs-guide/policies/root-allowlist-governance.mdx`
+- `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
 
 ## Required Context
 
@@ -27,9 +28,10 @@ Use these sources in this order when they apply:
 2. `v2/**` for current user-facing docs.
 3. `README.md` and `contribute/**` for workflow, hooks, testing, and contributor process.
 4. `docs-guide/**` for internal capability maps, governance policy, and generator ownership.
-5. `v2/orchestrators/_workspace/canonical/Frameworks.mdx` for locked content taxonomy: `pageType`, `pagePurpose`, `audience` enums, and voice rules. All content pages must use values from this file.
-6. `workspace/plan/active/CONTENT-WRITING/Prompts/voice-rules.md` for per-audience voice and tone rules.
-7. `v1/**` only for legacy reference or when the user explicitly asks for legacy behavior.
+5. `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md` for Mintlify runtime, MDX/JSX constraints, local preview rules, and repo authoring defaults.
+6. `v2/orchestrators/_workspace/canonical/Frameworks.mdx` for locked content taxonomy: `pageType`, `pagePurpose`, `audience` enums, and voice rules. All content pages must use values from this file.
+7. `workspace/plan/active/CONTENT-WRITING/Prompts/voice-rules.md` for per-audience voice and tone rules.
+8. `v1/**` only for legacy reference or when the user explicitly asks for legacy behavior.
 
 Call out conflicts explicitly instead of guessing.
 

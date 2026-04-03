@@ -1,7 +1,7 @@
 # Layout — Collated Best Practice
 
 > Collated from repo research sources. Verified against canonical files.
-> Sources: `page-structure-rules.md`, `page-composition-framework.mdx`, `component-composition-template.mdx`, `mintlify-constraints-reference.md`
+> Sources: `page-structure-rules.md`, `page-composition-framework.mdx`, `component-composition-template.mdx`, `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
 
 ---
 
@@ -116,7 +116,7 @@ page.mdx                    # Entry point with imports + layout
 
 ## Mintlify Component Globals (No Import Needed)
 
-**Source:** `workspace/thread-outputs/research/mintlify-constraints-reference.md`
+**Source:** `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
 
 These are globally available in MDX — do NOT import:
 - `<Card>`, `<CardGroup>`, `<Columns>`

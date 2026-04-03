@@ -47,7 +47,7 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 - **Verify before asserting.** Never claim a component, file, or config does not exist without searching for it. Never claim something works without running it.
 - **Reproduce before fixing.** For bugs: (1) reproduce the exact failure, (2) capture the error, (3) hypothesise from evidence, (4) test one fix at a time. Use `/diagnose` for anything beyond a trivial one-line fix.
 - **Verify first instance before bulk operations.** Apply to one file, confirm it works, then proceed to the rest.
-- **Read Mintlify constraints before editing MDX.** Reference: `workspace/thread-outputs/research/mintlify-constraints-reference.md`. No React/hook imports (globally available), Mintlify platform globals are also globally available and must be used directly without import, no SSR patterns, prefer root-absolute import paths, include .jsx extension, no top-level constants in JSX files (define inside function bodies), arrow function syntax only, verify component imports exist before using them.
+- **Read Mintlify constraints before editing MDX.** Reference: `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`. Supporting evidence snapshot: `workspace/thread-outputs/research/mintlify-constraints-reference.md`. No React/hook imports, no Mintlify global imports, use root-absolute imports for shared resources, include file extensions, keep MDX-facing JSX data flow in parent MDX, define risky constants inside export bodies, use arrow function syntax only, and follow the repo's scoped preview and styling rules.
 
 ---
 
@@ -209,7 +209,8 @@ If the sidebar is broken: run `full-repair.sh --dry-run` first, then without `--
 | `docs.json` | Mintlify navigation and routing config |
 | `docs-guide/policies/governance-index.mdx` | Canonical governance index — all governed surfaces, what to read before writing |
 | `workspace/thread-outputs/research/component-script-placement-reference.md` | Component/script folder placement rules |
-| `workspace/thread-outputs/research/mintlify-constraints-reference.md` | Mintlify platform constraints |
+| `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md` | Canonical Mintlify and repo best-practices reference |
+| `workspace/thread-outputs/research/mintlify-constraints-reference.md` | Supporting Mintlify constraints research snapshot |
 | `.claude/references/` | Exemplary work to emulate — read before designing, writing, or building |
 
 ---

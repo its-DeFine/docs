@@ -29,6 +29,7 @@ Scope:
 
 ## Active Internal Docs
 
+- `mintlify-repo-best-practices.md` — `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
 - `source-of-truth-guide.mdx` — `docs-guide/source-of-truth-guide.mdx`
 - `contributing.mdx` — `docs-guide/contributing/contributing.mdx`
 - `local-preview.mdx` — `docs-guide/contributing/local-preview.mdx`

@@ -12,6 +12,7 @@ Favor correctness and clear boundaries over speculative answers.
 - Current docs: `v2/**`
 - Legacy docs: `v1/**` (frozen unless explicitly requested)
 - Contribution and process docs: `README.md`, `docs-guide/contributing/**`
+- Canonical Mintlify and repo-practices reference: `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
 - Internal governance: `docs-guide/**`
 
 ## Source-Of-Truth Priority
@@ -25,6 +26,8 @@ Use sources in this order:
 5. `v1/**` only when a user asks for legacy behavior or no `v2` equivalent exists.
 
 If two sources conflict, prefer the higher-priority source and call out the conflict explicitly.
+
+For contributor, authoring, or repo-behaviour questions about Mintlify, also consult `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`.
 
 ## Domain Disambiguation Rules
 

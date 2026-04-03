@@ -10,6 +10,7 @@ metadata:
   category: "authoring"
   tier: "1"
 primary_paths:
+  - "docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md"
   - "snippets/snippetsWiki/mintlify-behaviour.mdx"
   - "snippets/pages"
   - "operations/tests/unit/mdx.test.js"

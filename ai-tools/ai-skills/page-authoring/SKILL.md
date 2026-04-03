@@ -10,6 +10,7 @@ metadata:
 # SKILL: Page Authoring for Livepeer v2 Docs
 
 Use this skill for page structure, frontmatter, MDX constraints, and repo-backed authoring rules.
+For current Mintlify/runtime behaviour, read `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`.
 Use `docs-copy` skills for prose decisions. This file does not assume every editorial preference is auto-enforced.
 
 <CustomDivider />
