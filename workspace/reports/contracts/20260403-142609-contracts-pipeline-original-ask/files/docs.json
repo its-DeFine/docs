@@ -2153,6 +2153,7 @@
                         "pages": [
                           "v2/about/resources/livepeer-whitepaper",
                           "v2/about/resources/livepeer-contract-addresses",
+                          "v2/about/resources/verify-contract-addresses",
                           "v2/about/resources/technical-roadmap",
                           {
                             "group": "Compendium",
@@ -3199,7 +3200,8 @@
                         "group": "Technical References",
                         "icon": "code",
                         "pages": [
-                          "v2/about/resources/livepeer-contract-addresses"
+                          "v2/about/resources/livepeer-contract-addresses",
+                          "v2/about/resources/verify-contract-addresses"
                         ]
                       },
                       {
