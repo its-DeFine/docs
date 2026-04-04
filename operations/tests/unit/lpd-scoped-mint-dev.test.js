@@ -727,7 +727,7 @@ async function runTests() {
       $schema: 'https://mintlify.com/docs.json',
       theme: 'palm',
       name: 'Workspace Fixture',
-      favicon: '/snippets/assets/favicon.png',
+      favicon: '/snippets/assets/logos/favicon/favicon.png',
       navigation: {
         tabs: [
           {
@@ -756,7 +756,7 @@ async function runTests() {
     );
     writeFile(path.join(repoRoot, 'snippets/shared/util.js'), 'export function getLabel() { return "demo"; }\n');
     writeFile(path.join(repoRoot, 'snippets/assets/logo.svg'), '<svg />\n');
-    writeFile(path.join(repoRoot, 'snippets/assets/favicon.png'), 'PNG\n');
+    writeFile(path.join(repoRoot, 'snippets/assets/logos/favicon/favicon.png'), 'PNG\n');
     writeFile(path.join(repoRoot, 'v2/dev/diagram.png'), 'PNG\n');
     writeFile(path.join(repoRoot, 'snippets/components/unused.jsx'), 'export default function Unused() { return null; }\n');
     writeFile(
@@ -786,7 +786,7 @@ async function runTests() {
     const snippetFile = path.join(result.workspaceDir, 'snippets/components/demo.jsx');
     const helperFile = path.join(result.workspaceDir, 'snippets/shared/util.js');
     const logoFile = path.join(result.workspaceDir, 'snippets/assets/logo.svg');
-    const faviconFile = path.join(result.workspaceDir, 'snippets/assets/favicon.png');
+    const faviconFile = path.join(result.workspaceDir, 'snippets/assets/logos/favicon/favicon.png');
     const imageFile = path.join(result.workspaceDir, 'v2/dev/diagram.png');
     const unusedFile = path.join(result.workspaceDir, 'snippets/components/unused.jsx');
     const deeplyNestedSnippetFile = path.join(result.workspaceDir, 'snippets/components/primitives/deep/nested-divider.jsx');

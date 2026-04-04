@@ -24,7 +24,7 @@ const {
   isGitHubBlobUrl,
   isLocalAssetPath,
   resolveOgImageForFile,
-} = require("../../operations/scripts/config/og-image-policy");
+} = require("../../scripts/config/og-image-policy");
 
 let errors = [];
 
@@ -89,13 +89,18 @@ function runTests() {
 
   runCase("Builds the expected shared asset inventory", () => {
     assert.ok(context.tabDefinitions.length > 0);
-    assert.strictEqual(
-      context.manifest.assets.length,
-      context.tabDefinitions.length * 4,
+    const sectionIds = new Set(
+      context.manifest.assets.map((asset) => asset.sectionId).filter(Boolean),
     );
     assert.strictEqual(
+      context.manifest.assets.length,
+      sectionIds.size * 4,
+    );
+    assert.ok(sectionIds.has("blockchain-contracts"));
+    assert.ok(sectionIds.has("livepeer-contract-addresses"));
+    assert.strictEqual(
       context.manifest.fallback.path,
-      "/snippets/assets/site/og-image/fallback.png",
+      "/snippets/assets/media/og-images/fallback.png",
     );
   });
 
@@ -107,7 +112,7 @@ function runTests() {
     assert.strictEqual(resolved.sectionId, firstTab.id);
     assert.strictEqual(
       resolved.fields["og:image"],
-      `/snippets/assets/site/og-image/en/${firstTab.id}.png`,
+      `/snippets/assets/media/og-images/en/${firstTab.id}.png`,
     );
     assert.strictEqual(resolved.fields["og:image:type"], OG_IMAGE_TYPE);
     assert.strictEqual(resolved.fields["og:image:width"], OG_IMAGE_WIDTH);
@@ -130,7 +135,7 @@ function runTests() {
     assert.strictEqual(resolved.sectionId, firstTab.id);
     assert.strictEqual(
       resolved.fields["og:image"],
-      `/snippets/assets/site/og-image/es/${firstTab.id}.png`,
+      `/snippets/assets/media/og-images/es/${firstTab.id}.png`,
     );
   });
 
@@ -140,7 +145,7 @@ function runTests() {
     assert.strictEqual(resolved.sectionId, "fallback");
     assert.strictEqual(
       resolved.fields["og:image"],
-      "/snippets/assets/site/og-image/fallback.png",
+      "/snippets/assets/media/og-images/fallback.png",
     );
   });
 
@@ -157,15 +162,15 @@ function runTests() {
   runCase("Rejects GitHub blob URLs and accepts raster repo assets", () => {
     assert.strictEqual(
       isGitHubBlobUrl(
-        "https://github.com/livepeer/docs/blob/main/snippets/assets/site/og-image/fallback.png",
+        "https://github.com/livepeer/docs/blob/main/snippets/assets/media/og-images/fallback.png",
       ),
       true,
     );
     assert.strictEqual(
-      isLocalAssetPath("/snippets/assets/site/og-image/fallback.png"),
+      isLocalAssetPath("/snippets/assets/media/og-images/fallback.png"),
       true,
     );
-    assert.strictEqual(hasRasterExtension("/snippets/assets/site/og-image/fallback.png"), true);
+    assert.strictEqual(hasRasterExtension("/snippets/assets/media/og-images/fallback.png"), true);
     assert.strictEqual(
       hasRasterExtension("/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"),
       false,

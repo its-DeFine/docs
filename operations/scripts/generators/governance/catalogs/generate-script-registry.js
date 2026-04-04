@@ -39,7 +39,8 @@ const REPO_ROOT = path.resolve(__dirname, '../../../../..');
 const OUTPUT_PATH = 'tools/config/script-registry.json';
 const DRY_RUN = process.argv.includes('--dry-run');
 
-const VALID_TYPES = new Set(['audit', 'generator', 'validator', 'remediator', 'dispatch', 'automation']);
+// Aligned to actions framework: D-ACT-07 (integrator), D-ACT-01 (interface). Accepts legacy 'automation' during transition
+const VALID_TYPES = new Set(['audit', 'generator', 'validator', 'remediator', 'dispatch', 'integrator', 'interface', 'automation']);
 const SCRIPT_EXTENSIONS_SET = new Set(SCRIPT_EXTENSIONS);
 
 // ---------------------------------------------------------------------------

@@ -8,7 +8,7 @@
  * @description Generate canonical site-level Open Graph image assets and manifest for fallback and section-level social previews.
  * @mode        generate
  * @pipeline    manual — run when OG assets, section labels, or branding change
- * @scope       operations/scripts, snippets/assets/site/og-image
+ * @scope       operations/scripts, snippets/assets/media/og-images
  * @usage       node operations/scripts/generators/content/seo/generate-og-images.js [--dry-run] [--only <locale:section-id|fallback>]
  * @policy      E-R1, R-R14
  */
@@ -304,7 +304,7 @@ async function main() {
     process.exit(0);
   }
 
-  const logoPath = path.join(repoRoot, "snippets/assets/site/logo/light.svg");
+  const logoPath = path.join(repoRoot, "snippets/assets/logos/light.svg");
   const logoDataUrl = svgToDataUrl(logoPath);
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();

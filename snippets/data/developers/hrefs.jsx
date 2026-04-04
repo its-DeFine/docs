@@ -2435,7 +2435,7 @@ export const LINK_MAP = {
       "movedCandidates": [
         "v2/about/livepeer-protocol/blockchain-contracts.mdx",
         "v2/about/resources/blockchain-contracts.mdx",
-        "snippets/assets/site/og-image/cn/page-blockchain-contracts.png"
+        "snippets/assets/media/og-images/cn/page-blockchain-contracts.png"
       ]
     },
     {
@@ -3793,7 +3793,7 @@ export const LINK_MAP = {
       "movedCandidates": [
         "v2/about/livepeer-protocol/blockchain-contracts.mdx",
         "v2/about/resources/blockchain-contracts.mdx",
-        "snippets/assets/site/og-image/cn/page-blockchain-contracts.png"
+        "snippets/assets/media/og-images/cn/page-blockchain-contracts.png"
       ]
     },
     {

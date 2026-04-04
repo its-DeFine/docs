@@ -61,7 +61,6 @@ const TIER_3 = [
   'llms.txt',
   'ai-tools/ai-skills/source-content/llms.txt',
   'sitemap-ai.xml',
-  'snippets/assets/site/sitemap-ai.xml',
 ];
 
 // Also process all moved files that may contain absolute self-references

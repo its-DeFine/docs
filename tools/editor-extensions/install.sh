@@ -55,6 +55,17 @@ find_vsix() {
   ls "$ext_dir"/*.vsix 2>/dev/null | sort -V | tail -1 || true
 }
 
+requires_vsix_parity_check() {
+  local ext_dir="$1"
+  [[ "$(basename "$ext_dir")" == "lpd-mdx-preview" ]]
+}
+
+verify_vsix_parity() {
+  local ext_dir="$1"
+  echo "  [verify] $(basename "$ext_dir") — VSIX matches source"
+  node "$SCRIPT_DIR/lib/vsix-parity.js" --extension "$ext_dir" >/dev/null
+}
+
 # ── Install helpers ───────────────────────────────────────────────────────────
 
 install_via_cli() {
@@ -113,6 +124,23 @@ main() {
     vsix="$(find_vsix "$ext_dir")"
     if [[ -z "$vsix" ]]; then
       build_vsix "$ext_dir"
+      vsix="$(find_vsix "$ext_dir")"
+      if [[ -z "$vsix" ]]; then
+        echo "  [error] $(basename "$ext_dir") — build did not produce a .vsix"
+        exit 1
+      fi
+    fi
+
+    if requires_vsix_parity_check "$ext_dir"; then
+      if verify_vsix_parity "$ext_dir"; then
+        echo "  [skip build] $(basename "$ext_dir") — $(basename "$vsix") already current"
+      else
+        echo "  [error] $(basename "$ext_dir") — checked-in VSIX is stale"
+        echo "          Rebuild it with:"
+        echo "          (cd \"$ext_dir\" && npx @vscode/vsce package --no-dependencies -o \"$(basename "$vsix")\")"
+        echo "          Then rerun bash tools/editor-extensions/install.sh"
+        exit 1
+      fi
     else
       echo "  [skip build] $(basename "$ext_dir") — $(basename "$vsix") already built"
     fi

@@ -3,7 +3,7 @@ title: 'All Pages Comprehensive Browser Report'
 sidebarTitle: 'Browser Report'
 description: 'Generated browser report from operations/scripts/archive/legacy/test-all-pages-comprehensive.js.'
 keywords: ["livepeer","internal","reports","page-audits","test-all-pages-comprehensive"]
-og:image: "/snippets/assets/site/og-image/fallback.png"
+og:image: "/snippets/assets/media/og-images/fallback.png"
 ---
 Last Generated (UTC ISO): `2026-03-31T04:31:17.145Z`
 Last Generated (UTC Human): `March 31, 2026 04:31 UTC`

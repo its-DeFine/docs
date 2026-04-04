@@ -3,7 +3,7 @@ title: 'All Pages Audit Simple (File Checks)'
 sidebarTitle: 'Audit Simple'
 description: 'Generated file-check audit report from operations/scripts/archive/legacy/audit-all-pages-simple.js.'
 keywords: ["livepeer","internal","reports","page-audits","audit-all-pages-simple"]
-og:image: "/snippets/assets/site/og-image/fallback.png"
+og:image: "/snippets/assets/media/og-images/fallback.png"
 ---
 Last Generated (UTC ISO): `2026-03-31T04:31:17.145Z`
 Last Generated (UTC Human): `March 31, 2026 04:31 UTC`

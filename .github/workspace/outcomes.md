@@ -11,6 +11,7 @@
 **What we are doing:** Bringing the 45 GitHub Actions workflows under the same governance model as our scripts and components. Every workflow gets classified, documented, and wired into a self-maintaining pipeline.
 
 **Why:**
+
 1. **Visibility.** Right now there is no single place to see what runs, when, why, or what it touches. The diagrams below fix that.
 2. **Reliability.** 18 known bugs (5 at P0). Missing permissions, masked errors, no concurrency control on auto-commit workflows. Governance gives us a framework to fix these systematically.
 3. **Maintainability.** 7 data-fetch workflows are copy-paste identical. 6 workflows have 80-400 line inline scripts. Consolidation and extraction reduce surface area.
@@ -18,6 +19,7 @@
 5. **Alignment.** Scripts have a 6-type, 4-concern taxonomy with 11-tag JSDoc headers. Components have a 7-tag standard. Actions get the same treatment (7 types, 7 concerns) so all three systems speak the same language.
 
 **What "done" looks like:**
+
 - Every workflow classified by type (7 types), concern (7 concerns), and pipeline tag (8 tags)
 - One documentation page per workflow with Mermaid pipeline map, scripts, data files, triggers, and known bugs
 - A searchable catalog index page
@@ -28,22 +30,26 @@
 
 ---
 
+## Decision Log
+
+(to consolidate later)
+
 ## Process
 
 We work in phases. Each phase has a gate (a human review point) before the next phase starts. Decisions are recorded in [decisions-log.mdx](reports-audits/decisions-log.mdx) at the time they are made.
 
 ### Phase Summary
 
-| Phase | What | Gate | Status |
-|---|---|---|---|
-| 0A | Best practices research | Review report | Done |
-| 0B | Repo-specific analysis | Review report | Done |
-| 1 | Full audit + dependency map + bug registry | Review classifications | Done |
-| 2 | Framework co-design (taxonomy, tags, standards) | Confirm 3 pending decisions | Done (D-ACT-01, 02, 03) |
-| 3 | Template + per-action MDX pages + catalog index | Review template + 2 sample pages | **Current** |
-| 4 | Self-documenting CI pipeline + header validator | Review pipeline behaviour | Pending |
-| 5 | References + governance index entry | Review before commit | Pending |
-| 6 | Consolidation execution (optional, per-item approval) | Each merge individually | Future |
+| Phase | What                                                  | Gate                             | Status                  |
+| ----- | ----------------------------------------------------- | -------------------------------- | ----------------------- |
+| 0A    | Best practices research                               | Review report                    | Done                    |
+| 0B    | Repo-specific analysis                                | Review report                    | Done                    |
+| 1     | Full audit + dependency map + bug registry            | Review classifications           | Done                    |
+| 2     | Framework co-design (taxonomy, tags, standards)       | Confirm 3 pending decisions      | Done (D-ACT-01, 02, 03) |
+| 3     | Template + per-action MDX pages + catalog index       | Review template + 2 sample pages | **Current**             |
+| 4     | Self-documenting CI pipeline + header validator       | Review pipeline behaviour        | Pending                 |
+| 5     | References + governance index entry                   | Review before commit             | Pending                 |
+| 6     | Consolidation execution (optional, per-item approval) | Each merge individually          | Future                  |
 
 ### How decisions work
 
@@ -55,21 +61,21 @@ We work in phases. Each phase has a gate (a human review point) before the next 
 
 ### Confirmed decisions
 
-| # | Decision | Date |
-|---|---|---|
-| D-ACT-01 | Issue/PR interface is a 7th type (`interface`) | 2026-03-31 |
-| D-ACT-02 | P5-auto is a distinct pipeline tag (read-write vs read-only) | 2026-03-31 |
+| #        | Decision                                                                  | Date       |
+| -------- | ------------------------------------------------------------------------- | ---------- |
+| D-ACT-01 | Issue/PR interface is a 7th type (`interface`)                            | 2026-03-31 |
+| D-ACT-02 | P5-auto is a distinct pipeline tag (read-write vs read-only)              | 2026-03-31 |
 | D-ACT-03 | Data-fetch consolidation approved (7 social feeds into 1 matrix workflow) | 2026-03-31 |
 
 ### File roles
 
-| File | What it does |
-|---|---|
-| `outcomes.md` | THIS FILE. The visual map of where we are going |
-| `decisions-log.mdx` | Every decision, recorded live |
-| `framework-canonical.md` | The governance rules (updated after each decision) |
-| `actions-audit.json` | Machine-readable audit data (feeds the generator) |
-| `actions-library/` | Per-action documentation pages (the visible output) |
+| File                     | What it does                                        |
+| ------------------------ | --------------------------------------------------- |
+| `outcomes.md`            | THIS FILE. The visual map of where we are going     |
+| `decisions-log.mdx`      | Every decision, recorded live                       |
+| `framework-canonical.md` | The governance rules (updated after each decision)  |
+| `actions-audit.json`     | Machine-readable audit data (feeds the generator)   |
+| `actions-library/`       | Per-action documentation pages (the visible output) |
 
 ---
 
@@ -401,21 +407,21 @@ graph LR
 
 Where the integrator data actually surfaces on the live site.
 
-| Workflow | Data file | Consuming pages | In nav? | Flags |
-|---|---|---|---|---|
-| update-discord-data | `discordData.jsx` (per-solution) | `solutions/{streamplace,daydream,frameworks,embody}/community` | All 4 YES | |
-| update-forum-data | `forumData.jsx` | `home/trending`, `community/.../trending-topics`, `community/.../livepeer-latest-topics` | 2/3 (home/trending NOT in nav) | `home/trending` is a near-duplicate of `trending-topics` (97% identical). Flagged to Cleanup |
-| update-ghost-blog-data | `ghostBlogData.jsx` | `home/trending`, `community/.../trending-topics` | 1/2 (home/trending NOT in nav) | Same near-duplicate issue as forum. Both pages import the same data |
-| update-github-data | `githubDiscussionsData.jsx` | **None.** Data files exist per-solution but no page imports them | N/A | Dead data. Fetched on schedule, stored, never consumed. Deprecate or wire up |
-| update-github-data | `githubReleasesData.jsx` | **None.** Data files exist per-solution but no page imports them | N/A | Dead data. Same as above |
-| update-rss-blog-data | `blogData.jsx` (per-solution) | `solutions/daydream/community` | YES | Only 1 of 5 solution community pages uses blog data |
-| update-youtube-data | `youtubeData.jsx` (per-solution) | `home/trending`, `community/.../trending-topics`, 5 solution community pages | 6/7 (home/trending NOT in nav) | Most-consumed data feed. Near-duplicate flag applies to 2 of 7 consumers |
-| update-contract-addresses | `contractAddressesData.jsx` | `about/resources/blockchain-contracts`, `about/livepeer-protocol/blockchain-contracts`, `lpt/delegation/bridge-lpt-to-arbitrum` | 2/3 (`about/resources/blockchain-contracts` NOT in nav) | Two blockchain-contracts pages exist in different locations. Check if intentional |
-| update-changelogs | `changelog.mdx` pages | 20 pages in `resources/changelog/` | YES (all 20) | |
-| update-livepeer-release | `globals.jsx` (`latestVersion`) | 2 gateway install pages, `gateways/quickstart/gateway-setup`, `quickstart/views/linux/linuxOffChainTab`, snippets-inventory | 4/5 (`linuxOffChainTab` NOT in nav, it is a view partial) | linuxOffChainTab is a snippet/partial, not a standalone page. Correct behaviour |
-| project-showcase-sync | `showcaseData.jsx` | `home/solutions/showcase` | YES | |
-| sync-large-assets | Binary assets (images, video) | Referenced by `<img>` / `<video>` tags across v2/ | N/A | |
-| sdk_generation | SDK client code | External SDK repos | N/A | No in-repo consumers |
+| Workflow                  | Data file                        | Consuming pages                                                                                                                 | In nav?                                                   | Flags                                                                                        |
+| ------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| update-discord-data       | `discordData.jsx` (per-solution) | `solutions/{streamplace,daydream,frameworks,embody}/community`                                                                  | All 4 YES                                                 |                                                                                              |
+| update-forum-data         | `forumData.jsx`                  | `home/trending`, `community/.../trending-topics`, `community/.../livepeer-latest-topics`                                        | 2/3 (home/trending NOT in nav)                            | `home/trending` is a near-duplicate of `trending-topics` (97% identical). Flagged to Cleanup |
+| update-ghost-blog-data    | `ghostBlogData.jsx`              | `home/trending`, `community/.../trending-topics`                                                                                | 1/2 (home/trending NOT in nav)                            | Same near-duplicate issue as forum. Both pages import the same data                          |
+| update-github-data        | `githubDiscussionsData.jsx`      | **None.** Data files exist per-solution but no page imports them                                                                | N/A                                                       | Dead data. Fetched on schedule, stored, never consumed. Deprecate or wire up                 |
+| update-github-data        | `githubReleasesData.jsx`         | **None.** Data files exist per-solution but no page imports them                                                                | N/A                                                       | Dead data. Same as above                                                                     |
+| update-rss-blog-data      | `blogData.jsx` (per-solution)    | `solutions/daydream/community`                                                                                                  | YES                                                       | Only 1 of 5 solution community pages uses blog data                                          |
+| update-youtube-data       | `youtubeData.jsx` (per-solution) | `home/trending`, `community/.../trending-topics`, 5 solution community pages                                                    | 6/7 (home/trending NOT in nav)                            | Most-consumed data feed. Near-duplicate flag applies to 2 of 7 consumers                     |
+| update-contract-addresses | `contractAddressesData.jsx`      | `about/resources/blockchain-contracts`, `about/livepeer-protocol/blockchain-contracts`, `lpt/delegation/bridge-lpt-to-arbitrum` | 2/3 (`about/resources/blockchain-contracts` NOT in nav)   | Two blockchain-contracts pages exist in different locations. Check if intentional            |
+| update-changelogs         | `changelog.mdx` pages            | 20 pages in `resources/changelog/`                                                                                              | YES (all 20)                                              |                                                                                              |
+| update-livepeer-release   | `globals.jsx` (`latestVersion`)  | 2 gateway install pages, `gateways/quickstart/gateway-setup`, `quickstart/views/linux/linuxOffChainTab`, snippets-inventory     | 4/5 (`linuxOffChainTab` NOT in nav, it is a view partial) | linuxOffChainTab is a snippet/partial, not a standalone page. Correct behaviour              |
+| project-showcase-sync     | `showcaseData.jsx`               | `home/solutions/showcase`                                                                                                       | YES                                                       |                                                                                              |
+| sync-large-assets         | Binary assets (images, video)    | Referenced by `<img>` / `<video>` tags across v2/                                                                               | N/A                                                       |                                                                                              |
+| sdk_generation            | SDK client code                  | External SDK repos                                                                                                              | N/A                                                       | No in-repo consumers                                                                         |
 
 **Key findings:**
 
@@ -565,11 +571,11 @@ graph LR
 
 ## Colour Key
 
-| Colour | Meaning |
-|---|---|
-| Red nodes | Hard gates / known bugs |
-| Green nodes | Data files produced (committed to repo) |
-| Blue nodes | Data files produced by scheduled feeds |
+| Colour       | Meaning                                    |
+| ------------ | ------------------------------------------ |
+| Red nodes    | Hard gates / known bugs                    |
+| Green nodes  | Data files produced (committed to repo)    |
+| Blue nodes   | Data files produced by scheduled feeds     |
 | Orange nodes | Report-only outputs (summaries, artifacts) |
-| Purple nodes | PR creation (self-heal) |
-| Teal nodes | GitHub API actions (labels, comments) |
+| Purple nodes | PR creation (self-heal)                    |
+| Teal nodes   | GitHub API actions (labels, comments)      |

@@ -98,7 +98,7 @@ stdin.on('end', () => {
         const bytesRead = fs.readSync(fd, buf, 0, 512, 0);
         fs.closeSync(fd);
         const header = buf.toString('utf8', 0, bytesRead);
-        if (/DO\s*NOT\s*EDIT|AUTO[- ]?GENERATED|This file is generated/i.test(header)) {
+        if (/DO\s*NOT\s*EDIT|AUTO[- ]GENERATED(?![\w-])|This file is generated/i.test(header)) {
           console.log(JSON.stringify({
             decision: 'block',
             reason: 'BLOCKED: Auto-generated file (header marker detected in first 512 bytes). Edit the generator script or put derived logic in a separate file.'

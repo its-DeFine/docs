@@ -156,3 +156,13 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 **Source:** Contracts Surface Redesign — 2026-04-03
 **Description:** The contracts redesign centralized family declarations in `catalog-config.js` and derived the blockchain-page roster from it, but new contract families still require code edits and the pipeline still writes parallel JSX/JSON consumer payloads. Follow up with a dedicated design/execution thread for config-first family discovery and slimmer persisted outputs without duplicating truth.
 **Priority:** P2
+
+## BL-030 — Add governance headers to migrated contracts pipeline modules
+**Source:** Contracts Surface Migration to docs-v2 — 2026-04-03
+**Description:** The new `operations/scripts/automations/content/data/contracts/*.js` modules shipped in PR #857 without the canonical script-governance metadata header block. Normalize them in a dedicated governance pass instead of leaving the migration with silent policy drift.
+**Priority:** P1
+
+## BL-031 — Register migrated contracts UI components in component governance outputs
+**Source:** Contracts Surface Migration to docs-v2 — 2026-04-03
+**Description:** The docs-v2 contracts migration relies on `ContractVerifier`, `HistoricalContractTable`, and `ZoomableDiagram`, but the regenerated component registry still does not surface them. Audit component-library extraction and registry generation so contracts UI dependencies are governed explicitly.
+**Priority:** P1

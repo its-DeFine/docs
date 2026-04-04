@@ -218,17 +218,6 @@ Fresh validation confirmed the fix at the real entrypoints: `mint dev --port 334
 | File | Type | Description |
 |---|---|---|
 | `snippets/composables/pages/internal/docs-philosophy.mdx` | new | Canonical reusable docs-philosophy content extracted from routed page |
-| `v2/internal/overview/docs-philosophy.mdx` | modified | Routed page reduced to thin wrapper over the composable content |
-| `v2/internal/rfp/report.mdx` | modified | Now imports composable docs philosophy content instead of a routed page |
-| `v2/resources/documentation-guide/documentation-overview.mdx` | modified | Now imports composable docs philosophy content instead of a routed page |
-| `snippets/automations/globals/globals.mdx` | modified | Reduced to a thin re-export wrapper over `globals.jsx` |
-| `v2/gateways/quickstart/gateway-setup.mdx` | modified | Switched to canonical `globals.jsx` import |
-| `v2/gateways/quickstart/views/linux/linuxOffChainTab.mdx` | modified | Switched to canonical `globals.jsx` import |
-| `v2/gateways/setup/install/linux-install.mdx` | modified | Switched to canonical `globals.jsx` import |
-| `v2/gateways/setup/install/windows-install.mdx` | modified | Switched to canonical `globals.jsx` import and removed aliasing |
-| `operations/tests/unit/ui-template-generator.test.js` | modified | Added Mint parse-surface and routed/composable contract enforcement |
-| `operations/tests/unit/mdx-guards.test.js` | modified | Added current-surface globals import and aliasing enforcement |
-| `v2/resources/documentation-guide/copy-style/authoring-guide.mdx` | modified | Fixed malformed fenced `CodeGroup` example |
 
 ---
 
@@ -3774,3 +3763,191 @@ The contracts redesign is now merged into the local `docs-v2-dev` branch and the
 | `operations/scripts/automations/content/data/contracts/catalog-config.js` | Pipeline config | Canonical contract family and blockchain-page section declaration surface |
 | `operations/tests/unit/contracts-view-model.test.js` | Test | Focused unit coverage for shared contracts shaping logic |
 | `workspace/plan/active/CONTRACTS/Canonical/workflow-data.mdx` | Internal reference | End-to-end documentation of the redesign data path and rationale |
+
+---
+
+## Contracts Surface Migration to docs-v2 — 2026-04-03
+
+**Plans**: none
+**Scope**: Migrate the working contracts surface from `docs-v2-dev` onto an isolated `docs-v2` worktree, validate it there, and open the review PR without changing the source worktree.
+**Outcome**: Met
+
+### Summary
+
+The contracts surface migration was completed in an isolated `docs-v2` worktree on branch `codex/20260403-contracts-docs-v2-migration`, then pushed and opened as PR #857 against `docs-v2`. The resulting branch carries the contracts fetch/generation pipeline, generated datasets, canonical composables, route importers, and the repo-governed generated artifacts needed for hooks to pass, while leaving `Docs-v2-dev` untouched.
+
+### Completed
+
+**docs-v2 migration branch**
+- Landed `feat(contracts): migrate docs-v2 contract surfaces` on `codex/20260403-contracts-docs-v2-migration` and pushed it to `origin`.
+- Opened [PR #857](https://github.com/livepeer/docs/pull/857) against `docs-v2` with the repository PR template filled out from the actual branch diff and validation state.
+- Verified the isolated worktree was clean after push and that the migrated contracts pages rendered successfully, including Mermaid on `v2/about/livepeer-protocol/blockchain-contracts.mdx`.
+
+**Validation and root-cause repair**
+- Passed `node operations/tests/unit/contracts-view-model.test.js`, `node operations/tests/unit/contracts-addresses-pipeline.test.js`, `node operations/scripts/validators/content/structure/lint-structure.js --check`, `node tests/unit/v2-link-audit.test.js`, `node tests/integration/v2-link-audit.js --staged --strict ...`, and `bash ./lpd test --staged` in the isolated worktree.
+- Repaired the staged V2 link-audit scope so non-composable `snippets/**` files no longer poison the audited import graph while `snippets/composables/**` and `docs-guide/**` stay governed.
+- Regenerated and staged the hook-required docs-guide, component registry, docs index, script index, and template artifacts so the migration could commit cleanly under repo governance.
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Keep the migration on a separate `docs-v2` worktree and leave `Docs-v2-dev` untouched | The user explicitly required source isolation and zero behavioral drift in the source worktree |
+| Preserve the contracts verifier as a composable dependency only, not a standalone route | The working source surface already embeds verifier behavior in the contracts page and the user rejected route expansion |
+| Fix the link-audit root cause in scope selection rather than ignoring the audit or deleting files | The repo needs the contracts PR to validate cleanly without papering over non-composable snippet imports |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Add script-governance headers to the new `operations/scripts/automations/content/data/contracts/*.js` modules | P1 | The migration is shipped, but the new pipeline helper modules were added without the canonical script metadata header block | Governance follow-up thread |
+| Register or document missing contracts UI surfaces in the component registry (`ContractVerifier`, `HistoricalContractTable`, `ZoomableDiagram`) | P1 | The contracts migration relies on these components, but the regenerated registry did not surface them | Component governance follow-up thread |
+
+### Dependencies & Downstream Effects
+
+- **PR review path**: `docs-v2` reviewers now have PR #857 as the single merge surface for the contracts migration.
+- **Contracts pipeline consumers**: `docs-v2` now has the contracts fetch/generation pipeline, generated datasets, and route importers needed for the migrated contracts pages.
+- **Repo governance hooks**: This migration also refreshed docs-guide, template, component-registry, and script-index artifacts because the current hook chain treats them as coupled generated outputs.
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| `node operations/tests/unit/contracts-view-model.test.js` | ✅ Clean | Run in isolated `docs-v2` worktree |
+| `node operations/tests/unit/contracts-addresses-pipeline.test.js` | ✅ Clean | Run in isolated `docs-v2` worktree |
+| `node operations/scripts/validators/content/structure/lint-structure.js --check` | ✅ Clean | Route structure validation passed |
+| `node tests/unit/v2-link-audit.test.js` | ✅ Clean | Updated scope logic covered by unit tests |
+| `node tests/integration/v2-link-audit.js --staged --strict ...` | ✅ Clean | Missing refs: 0 |
+| `bash ./lpd test --staged` | ✅ Clean | Commit landed under full staged hook chain |
+| Scoped preview render verification | ✅ Clean | Contracts pages rendered in isolated worktree; Mermaid rendered on blockchain contracts |
+| Staged WCAG hook browser lane | ⚠️ Infra fallback only | Hook passed with blocking total 0, but reported missing local `axe-core/axe.min.js` and completed in static-only mode |
+
+### Recommendations
+
+1. **Review and merge PR #857 into `docs-v2`** — this is the shipped migration surface; do not re-run the work in the source worktree.
+2. **Run a follow-up governance pass for the new contracts pipeline modules and contracts UI components** — the branch is functional, but the missing script metadata headers and incomplete component registry coverage should be normalized instead of left as silent debt.
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `workspace/plan/active/_Project-Management_/completion-reports.md` | modified | Session closeout record for the docs-v2 contracts migration |
+| `workspace/thread-outputs/sessions/session-log.txt` | modified | Session outcome log entry |
+| `workspace/plan/active/_Project-Management_/project-state.md` | modified | Completed output state updated with the new PR surface |
+| `workspace/plan/future/BACKLOG/registry.md` | modified | Governance follow-up items captured for next sessions |
+
+---
+
+## Contracts Local Render Recovery and Data Surface Audit — 2026-04-03
+
+**Plans**: `workspace/plan/active/CONTRACTS/Canonical/livepeer-contracts-pipeline.mdx`
+**Scope**: Restore the local contracts routes, verify the render/data pipeline on `docs-v2-dev`, and audit the contracts machine-readable companion and helper-file surface.
+**Outcome**: Partially met
+
+### Summary
+
+The local contracts routes were restored and render-verified in `docs-v2-dev`, and the contracts data surface was reduced back to the live `.jsx` adapter/model pair plus the generated JSON/JSX companion layer under `snippets/data/contract-addresses`. The session does not close as fully complete because the current working tree now contains a further uncommitted diff in `snippets/composables/pages/canonical/livepeer-contract-addresses.mdx`, so the repo no longer exactly matches the state that was validated on port `3350`.
+
+### Completed
+
+**Local render recovery**
+- Re-aligned `snippets/composables/pages/canonical/livepeer-contract-addresses.mdx` with the working contracts adapter surface and verified both local routes on a scoped preview server at `http://localhost:3350`.
+- Confirmed the canonical contracts route rendered the expected active, proxy, historical, and verifier surfaces, and the blockchain-contracts route rendered the expected protocol architecture sections.
+
+**Contracts data-surface audit**
+- Confirmed the contracts machine-readable companion is the generated layer under `snippets/data/contract-addresses/`, including `contractAddressesData.json` and `blockchainContractsPageData.json`, not the Codex/task/test/docs scaffolding around the page.
+- Reduced `snippets/composables/pages/canonical/data/` back to the live contracts `.jsx` files by removing the dead legacy contracts helper `.js` stack from active use.
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Treat `snippets/data/contract-addresses/*.json` and companion JSX wrappers as the contracts AI-readable surface | That is the pipeline-generated machine-readable layer actually consumed by the contracts pages and verifier |
+| Treat the current uncommitted `livepeer-contract-addresses.mdx` diff as unresolved closeout drift, not as a verified deliverable | The render proof was produced before the current page diff existed, so claiming the current tree is still validated would be false |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Revalidate or revert the current `snippets/composables/pages/canonical/livepeer-contract-addresses.mdx` diff | P1 | The repo no longer exactly matches the state that was render-verified on `3350` | Human decision on whether to keep the expanded workflow-verification copy |
+| Review `.github/workspace/phase2/pipeline-review-process.md` | P2 | Untracked unrelated file remains in the worktree at close | Human confirmation that it belongs in this branch |
+
+### Dependencies & Downstream Effects
+
+- **`snippets/data/contract-addresses/`**: Remains the contracts machine-readable companion layer and the generated source surface for page consumers.
+- **`snippets/composables/pages/canonical/livepeer-contract-addresses.mdx`**: Current local diff means the earlier render proof is now stale until this file is revalidated or reverted.
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| `node operations/tests/unit/mdx.test.js --files snippets/composables/pages/canonical/livepeer-contract-addresses.mdx v2/about/resources/livepeer-contract-addresses.mdx v2/about/livepeer-protocol/blockchain-contracts.mdx` | ✅ Clean | Passed before the current uncommitted page diff |
+| Scoped preview `http://localhost:3350/v2/about/resources/livepeer-contract-addresses` | ✅ Clean | Render-verified before the current uncommitted page diff |
+| Scoped preview `http://localhost:3350/v2/about/livepeer-protocol/blockchain-contracts` | ✅ Clean | Render-verified before the current uncommitted page diff |
+
+### Recommendations
+
+1. **Resolve the current `livepeer-contract-addresses.mdx` diff before treating the branch as locked** — either keep it and rerun the local proof, or revert it to the already-verified state.
+2. **Triage the unrelated untracked `.github/workspace/phase2/pipeline-review-process.md` file separately** — it is outside the contracts outcome and should not ride along silently.
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `snippets/composables/pages/canonical/livepeer-contract-addresses.mdx` | modified | Current uncommitted contracts page diff; not yet revalidated |
+| `workspace/plan/active/_Project-Management_/completion-reports.md` | modified | Session closeout entry for the local contracts render recovery and data-surface audit |
+| `workspace/thread-outputs/sessions/session-log.txt` | modified | Session outcome log entry |
+| `workspace/plan/active/_Project-Management_/project-state.md` | modified | Watcher flag updated for the current local contracts drift |
+
+---
+
+## Contracts Workflow Verification Copy — 2026-04-03
+
+**Plans**: `workspace/plan/active/CONTRACTS/Canonical/livepeer-contracts-pipeline.mdx`
+**Scope**: Replace the contracts-page `See Workflow Verification Information` accordion copy with a step-based summary of the live contracts pipeline inputs, verification surfaces, canonical dataset, and failure behavior.
+**Outcome**: Met
+
+### Summary
+
+The contracts page now contains a step-based workflow-verification summary in `snippets/composables/pages/canonical/livepeer-contract-addresses.mdx` that describes the live trigger path, watched repos, external APIs, verification checks, canonical data output, and fail-safe behavior. The requested copy exists in the repo, while the unrelated untracked `.github/workspace/phase2/pipeline-review-process.md` file still remains outside this scope and should be reviewed separately.
+
+### Completed
+
+**Contracts Page Copy**
+- Replaced the old minimal workflow-verification bullets with a fuller step-based explanation under the existing `See Workflow Verification Information` accordion in `snippets/composables/pages/canonical/livepeer-contract-addresses.mdx`.
+- Named the watched repos, the generator entrypoint, the on-chain and explorer verification surfaces, the canonical contracts dataset, and the shadow verification pass in reader-facing copy.
+- Kept the deliverable local to the existing contracts-page accordion instead of introducing more page structure changes.
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| Keep the deliverable inside the existing contracts-page accordion | The user’s requested surface was the workflow-verification box on the contracts page, not a broader page or route redesign |
+| Describe the live implementation as it exists today, including its limits | Trust copy is only useful if it reflects the current proof catalog, verification calls, and failure path honestly |
+
+### Deferred Items
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Review `.github/workspace/phase2/pipeline-review-process.md` | P2 | Untracked unrelated file remains in the worktree and is outside the contracts-page copy scope | Human confirmation of ownership and intent |
+| Optional scoped render check for the updated accordion copy | P3 | The copy exists in the repo, but this closeout did not rerun a fresh browser render proof after the final wording pass | Human decision on whether extra visual validation is needed before commit |
+
+### Dependencies & Downstream Effects
+- **`snippets/composables/pages/canonical/livepeer-contract-addresses.mdx`**: Readers now get a fuller explanation of where the contracts data comes from and how the live workflow verifies it before publication.
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| `git diff --check` on the session files | ✅ Clean | No whitespace or patch-format errors in the session deliverable and closeout files |
+| Repo presence of updated accordion copy | ✅ Clean | `snippets/composables/pages/canonical/livepeer-contract-addresses.mdx` contains the new step-based workflow-verification block |
+| Fresh browser validation after the final wording pass | Not run | No final scoped preview/browser pass was rerun for this exact copy before closeout |
+
+### Recommendations
+1. **Commit or revert the updated contracts accordion intentionally** — the requested copy exists in the repo, but it is still uncommitted.
+2. **Review the unrelated `.github/workspace/phase2/pipeline-review-process.md` file separately** — it remains outside this session’s scope and should not ride along silently.
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `snippets/composables/pages/canonical/livepeer-contract-addresses.mdx` | modified | Updated workflow-verification accordion copy on the contracts page |
+| `workspace/plan/active/_Project-Management_/completion-reports.md` | modified | Session closeout entry |
+| `workspace/thread-outputs/sessions/session-log.txt` | modified | Session outcome log entry |
+| `workspace/plan/active/_Project-Management_/project-state.md` | modified | Watcher flag refined for the current contracts-page drift |

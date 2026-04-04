@@ -8,7 +8,7 @@
  * @description OG image policy helper — resolves authored MDX pages to canonical section or fallback social images and metadata.
  * @mode        generate
  * @pipeline    manual — library module imported by generators and validators
- * @scope       operations/scripts, snippets/assets/site/og-image, docs.json
+ * @scope       operations/scripts, snippets/assets/media/og-images, docs.json
  * @usage       node operations/scripts/config/og-image-policy.js [flags]
  * @policy      E-R1, R-R14
  */
@@ -20,7 +20,7 @@ const { execSync } = require("child_process");
 const OG_IMAGE_WIDTH = 1200;
 const OG_IMAGE_HEIGHT = 630;
 const OG_IMAGE_TYPE = "image/png";
-const OG_IMAGE_DIR = "snippets/assets/site/og-image";
+const OG_IMAGE_DIR = "snippets/assets/media/og-images";
 const FALLBACK_FILENAME = "fallback.png";
 const FALLBACK_ALT = "Livepeer Docs social preview image";
 const AUTHORED_MDX_ROOTS = [

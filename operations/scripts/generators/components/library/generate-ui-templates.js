@@ -190,7 +190,7 @@ function buildPageSnippetLines(template) {
   keywords.forEach((keyword) => {
     lines.push(`  - ${keyword}`);
   });
-  lines.push("'og:image': /snippets/assets/site/og-image/fallback.png");
+  lines.push("'og:image': /snippets/assets/media/og-images/fallback.png");
   lines.push("'og:image:alt': Livepeer Docs social preview image");
   lines.push("'og:image:type': image/png");
   lines.push("'og:image:width': 1200");

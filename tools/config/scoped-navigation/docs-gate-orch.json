@@ -10,7 +10,7 @@
     "light": "#2b9a66",
     "dark": "#3CB540"
   },
-  "favicon": "/snippets/assets/favicon.png",
+  "favicon": "/snippets/assets/logos/favicon/favicon.png",
   "navigation": {
     "versions": [
       {
@@ -3451,8 +3451,8 @@
     ]
   },
   "logo": {
-    "light": "/snippets/assets/logo/light.svg",
-    "dark": "/snippets/assets/logo/dark.svg"
+    "light": "/snippets/assets/logos/light.svg",
+    "dark": "/snippets/assets/logos/dark.svg"
   },
   "api": {
     "openapi": "api/openapi.yaml",

@@ -26,9 +26,9 @@ node tools/scripts/snippets/generate-seo.js
 
 `generate-og-images.js` writes:
 
-- `snippets/assets/site/og-image/fallback.png`
+- `snippets/assets/media/og-images/fallback.png`
 - one section-level PNG per top-level tab per locale
-- `snippets/assets/site/og-image/manifest.json`
+- `snippets/assets/media/og-images/manifest.json`
 
 `generate-seo.js` then:
 

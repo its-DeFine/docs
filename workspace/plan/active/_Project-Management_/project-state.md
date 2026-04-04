@@ -16,6 +16,7 @@
 
 | Output file | Notes | Unblocks |
 |---|---|---|
+| Contracts docs-v2 migration PR | Isolated `docs-v2` branch `codex/20260403-contracts-docs-v2-migration` pushed and opened as PR #857 with contracts pipeline, generated data, composables, and importer routes migrated from the working source surface | Unblocks review and merge of the contracts surface onto `docs-v2` without touching `Docs-v2-dev` |
 | VS Code Claude extension fix toolkit | Canonical diagnostic, 7 scripts, extension patched, cron backup, community research. `workspace/plan/active/FUCK_CLAUDE/` | Unblocks stable VS Code workflow — re-run `patch-extension.sh` after updates |
 | Contracts canonical documentation cleanup | Contracts planning root normalized into `Canonical/`, `CURRENT-STATE/`, and `DEPRECATED/`; canonical workflow references synced to current script behavior | Unblocks contracts planning/navigation by keeping only current framework docs at root and preserving live script references |
 | Contracts surface redesign merge | Canonical contracts reference and verifier split is merged into local `docs-v2-dev`; shared contracts view-model and catalog-config derivation now back the About contracts surfaces | Unblocks local review of the contracts redesign and future pipeline consolidation work |
@@ -111,6 +112,8 @@
 | LIMBO | Contracts & Changelogs | Changelog migration half-done — old files deleted but unstaged, architecture.md references paths that may not exist on disk | 2026-03-29 |
 | REAL-DEBT | Staged Test Harness Repair | Harness bootstrap is fixed; remaining staged-suite failures are real repo debt across navigation, governance, usefulness, and authoring checks | 2026-04-01 |
 | REAL-DEBT | Contracts Surface Redesign | CP-6 contracts browser validation can hang on the newest `docs-v2-dev` base even when the scoped preview serves the canonical and verifier routes | 2026-04-03 |
+| REAL-DEBT | Contracts Surface Migration to docs-v2 | New contracts pipeline helper modules lack canonical script-governance headers, and the regenerated component registry still does not surface all migrated contracts UI components | 2026-04-03 |
+| REVIEW | Contracts Local Render Recovery | The contracts routes were render-verified locally on port `3350`, but `snippets/composables/pages/canonical/livepeer-contract-addresses.mdx` now contains an uncommitted workflow-verification accordion rewrite and `.github/workspace/phase2/pipeline-review-process.md` remains unrelated untracked work | 2026-04-03 |
 
 ---
 

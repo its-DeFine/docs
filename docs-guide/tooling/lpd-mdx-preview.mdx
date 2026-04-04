@@ -6,7 +6,7 @@ pageType: reference
 purpose: source_of_truth
 audience: maintainer
 status: current
-lastVerified: '2026-03-22'
+lastVerified: '2026-04-04'
 keywords:
   - vscode extension
   - mdx preview
@@ -22,7 +22,7 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/wrappers/
 
 ## Overview
 
-`lpd-mdx-preview` is a VS Code extension that renders `.mdx` and `.md` files in a side panel, with full support for Livepeer custom components, Mintlify built-in components, and Mermaid diagrams. It is the primary local authoring preview tool for this repo.
+`lpd-mdx-preview` is a VS Code extension that renders `.mdx` and `.md` files in a side panel with governed Mintlify built-ins, Livepeer custom component renderers, and Mermaid diagrams. It is the primary local authoring preview tool for this repo, but runtime-dependent surfaces still need verification in a Mintlify dev session.
 
 **Keybinding:** `Cmd+Shift+V` (Mac) / `Ctrl+Shift+V` (Windows/Linux)
 
@@ -33,25 +33,25 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/wrappers/
 ## Repo Context
 
 <Tree>
-  <Folder name="tools/editor-extensions/lpd-mdx-preview" defaultOpen>
-    <File name="extension.js" />
-    <File name="package.json" />
-    <File name="README.md" />
-    <Folder name="lib">
-      <File name="mdx-parser.js" />
-      <File name="component-map.js" />
-      <File name="mintlify-components.js" />
-      <File name="webview-template.js" />
-    </Folder>
-    <Folder name="media">
-      <File name="preview.css" />
-      <File name="preview.js" />
-      <File name="icon.png" />
-      <File name="markdown-it.min.js" />
-      <File name="mermaid.min.js" />
-    </Folder>
-    <File name="lpd-mdx-preview-0.0.2.vsix" />
-  </Folder>
+  <Tree.Folder name="tools/editor-extensions/lpd-mdx-preview" defaultOpen>
+    <Tree.File name="extension.js" />
+    <Tree.File name="package.json" />
+    <Tree.File name="README.md" />
+    <Tree.Folder name="lib">
+      <Tree.File name="mdx-parser.js" />
+      <Tree.File name="component-map.js" />
+      <Tree.File name="mintlify-components.js" />
+      <Tree.File name="webview-template.js" />
+    </Tree.Folder>
+    <Tree.Folder name="media">
+      <Tree.File name="preview.css" />
+      <Tree.File name="preview.js" />
+      <Tree.File name="icon.png" />
+      <Tree.File name="markdown-it.min.js" />
+      <Tree.File name="mermaid.min.js" />
+    </Tree.Folder>
+    <Tree.File name="lpd-mdx-preview-0.0.2.vsix" />
+  </Tree.Folder>
 </Tree>
 
 <CustomDivider />
@@ -68,6 +68,8 @@ bash tools/editor-extensions/install.sh
 
 Detects which editors are installed (`~/.vscode`, `~/.cursor`, `~/.windsurf`) and deploys to each.
 
+The installer verifies that the checked-in `.vsix` matches source before installing. If the package is stale, the install fails and prints the exact rebuild command.
+
 **Manual install:**
 
 Extensions sidebar → `...` menu → **Install from VSIX** → select `tools/editor-extensions/lpd-mdx-preview/lpd-mdx-preview-0.0.2.vsix`.
@@ -76,7 +78,7 @@ Extensions sidebar → `...` menu → **Install from VSIX** → select `tools/ed
 
 ```bash
 cd tools/editor-extensions/lpd-mdx-preview
-npx @vscode/vsce package --no-dependencies
+npx @vscode/vsce package --no-dependencies -o lpd-mdx-preview-0.0.2.vsix
 ```
 
 Then re-run `install.sh` or reinstall manually.
@@ -104,7 +106,7 @@ Then re-run `install.sh` or reinstall manually.
     Frontmatter is stripped from the preview body and rendered as a header bar showing: `title`, `pageType`, `audience`, `status`, `purpose`, and `lastVerified`.
   </Accordion>
   <Accordion title="Mermaid diagrams">
-    Fenced code blocks with ` ```mermaid ` are rendered using the bundled Mermaid.js with Livepeer theme colours. Diagrams update live as you edit.
+    Fenced code blocks tagged with `mermaid` are rendered using the bundled Mermaid.js with Livepeer theme colours. Diagrams update live as you edit.
   </Accordion>
 </AccordionGroup>
 
@@ -125,8 +127,8 @@ Then re-run `install.sh` or reinstall manually.
     <TableRow>
       <TableCell>**1 — Mintlify built-ins**</TableCell>
       <TableCell>`lib/mintlify-components.js`</TableCell>
-      <TableCell>Full styled HTML — cards, tabs, accordions, callouts, steps, tables</TableCell>
-      <TableCell>~20</TableCell>
+      <TableCell>Styled HTML for common built-ins including callouts, cards, tabs, tables, Tree, and API doc primitives; `OpenAPI` remains descriptive</TableCell>
+      <TableCell>20+</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>**2 — Livepeer custom**</TableCell>
@@ -144,7 +146,7 @@ Then re-run `install.sh` or reinstall manually.
 </StyledTable>
 
 <Note>
-Custom components (your own project `.jsx` files) fall into Tier 3 — they render as labelled placeholders with their children content visible. Mintlify built-ins and the Livepeer component library are fully rendered.
+Custom components (your own project `.jsx` files) fall into Tier 3 — they render as labelled placeholders with their children content visible. Most Mintlify built-ins and the Livepeer component library render as styled HTML, but runtime-heavy built-ins such as `OpenAPI` remain approximate.
 </Note>
 
 <CustomDivider />
@@ -296,7 +298,7 @@ Custom components (your own project `.jsx` files) fall into Tier 3 — they rend
     | `title` | string | `Show more` | Toggle label |
   </Accordion>
   <Accordion title="CodeBlock">
-    **Purpose:** Syntax-highlighted code block.
+    **Purpose:** Code block container. Rendered as plain `<pre><code>` in the preview without syntax highlighting.
 
     ```mdx
     <CodeBlock language="bash">livepeer -gateway</CodeBlock>
@@ -343,6 +345,90 @@ Custom components (your own project `.jsx` files) fall into Tier 3 — they rend
     | --- | --- | --- | --- |
     | `name` | string | — | Field name (rendered in accent colour) |
     | `type` | string | — | Data type label |
+  </Accordion>
+  <Accordion title="ParamField">
+    **Purpose:** API parameter documentation row.
+
+    ```mdx
+    <ParamField path="streamId" type="string" required>
+      Stream identifier passed in the URL path.
+    </ParamField>
+    ```
+
+    | Prop | Type | Default | Description |
+    | --- | --- | --- | --- |
+    | `path` | string | — | Path parameter name |
+    | `query` | string | — | Query parameter name |
+    | `body` | string | — | Request-body field name |
+    | `header` | string | — | Header name |
+    | `type` | string | — | Data type label |
+    | `required` | boolean | `false` | Adds a required marker |
+  </Accordion>
+  <Accordion title="Danger">
+    **Purpose:** High-severity callout variant.
+
+    ```mdx
+    <Danger>Do not expose this secret in client-side code.</Danger>
+    ```
+  </Accordion>
+  <Accordion title="Badge">
+    **Purpose:** Inline pill label with accent styling.
+
+    ```mdx
+    <Badge color="var(--accent)">Preview</Badge>
+    ```
+
+    | Prop | Type | Default | Description |
+    | --- | --- | --- | --- |
+    | `color` | string | `var(--accent)` | Accent colour used for border, text, and background tint |
+    | `text` | string | — | Fallback text when no children are passed |
+  </Accordion>
+  <Accordion title="CodeGroup">
+    **Purpose:** Group multiple code blocks in one bordered container.
+
+    ```mdx
+    <CodeGroup>
+      <CodeBlock language="bash">npm install</CodeBlock>
+      <CodeBlock language="bash">npm run dev</CodeBlock>
+    </CodeGroup>
+    ```
+  </Accordion>
+  <Accordion title="Tree / Tree.Folder / Tree.File">
+    **Purpose:** Repo-style file tree rendering using canonical Mintlify syntax.
+
+    ```mdx
+    <Tree>
+      <Tree.Folder name="src" defaultOpen>
+        <Tree.File name="index.js" />
+      </Tree.Folder>
+    </Tree>
+    ```
+
+    **Tree.Folder props:**
+
+    | Prop | Type | Default | Description |
+    | --- | --- | --- | --- |
+    | `name` | string | `folder` | Folder label |
+    | `defaultOpen` | boolean | `false` | Expands the folder by default |
+
+    **Tree.File props:**
+
+    | Prop | Type | Default | Description |
+    | --- | --- | --- | --- |
+    | `name` | string | `file` | File label |
+  </Accordion>
+  <Accordion title="OpenAPI">
+    **Purpose:** API reference embed. The preview renders a descriptive placeholder rather than the full interactive Mintlify API experience.
+
+    ```mdx
+    <OpenAPI method="get" path="/asset/{id}" />
+    ```
+
+    | Prop | Type | Default | Description |
+    | --- | --- | --- | --- |
+    | `method` | string | — | HTTP method label |
+    | `path` | string | — | API path shown in the placeholder |
+    | `openapi` | string | — | Alias for `path` |
   </Accordion>
   <Accordion title="StyledTable / TableRow / TableCell">
     **Purpose:** Styled HTML table with header and body rows.
@@ -984,9 +1070,9 @@ Custom components (your own project `.jsx` files) fall into Tier 3 — they rend
 
 Any component not in Tier 1 or Tier 2 renders as:
 
-```
+```text
 ┌ - - - - - - - - - - - - - - ┐
-  <ComponentName prop="value">
+  &lt;ComponentName prop="value"&gt;
   [children rendered here]
 └ - - - - - - - - - - - - - - ┘
 ```
@@ -999,7 +1085,7 @@ To promote a component from Tier 3 to Tier 2, add a renderer function to `lib/co
 
 Some Tier 2 components use React hooks (`useState`, `useEffect`) and are fully interactive in deployed Mintlify but cannot run in the VS Code webview (Node.js environment, no React runtime). These render as **static mocks** — they show the correct UI chrome but do not respond to input.
 
-Currently affected: `SearchTable`, `SocialLinks`, `MarkdownEmbed`.
+Currently affected: `SearchTable`, `SocialLinks`, `MarkdownEmbed`, and `OpenAPI`.
 
 These components display an `⚡ interactive — static in preview` badge so authors know to verify their behaviour in a Mintlify dev session, not just the local preview.
 
@@ -1025,7 +1111,7 @@ Data-feed integrators (`ShowcaseCards`, `CoinGeckoExchanges`, `LumaEvents`, `Dis
     Parses raw MDX text into a flat array of typed segments: `frontmatter`, `import`, `markdown`, `mermaid`, `codeblock`, `jsx`, `jsx-expression`. Regex-based extraction — not a full MDX compiler, for robustness with non-standard MDX.
   </Accordion>
   <Accordion title="lib/mintlify-components.js — Tier 1 renderers">
-    Functions for all Mintlify built-in components. Each function signature: `(props, childrenHtml) => htmlString`.
+    Functions for the governed Mintlify built-ins used by this repo, including canonical `Tree.Folder` / `Tree.File` rendering and descriptive placeholders where full runtime parity is not practical in the preview. Each function signature: `(props, childrenHtml) => htmlString`.
   </Accordion>
   <Accordion title="lib/component-map.js — Tier 2 renderers + dispatch">
     Livepeer custom component renderers. Merges with Tier 1 into `COMPONENT_MAP`. Exports `renderSegments()` which dispatches each segment to its renderer or falls through to `renderPlaceholder()`.
@@ -1037,7 +1123,7 @@ Data-feed integrators (`ShowcaseCards`, `CoinGeckoExchanges`, `LumaEvents`, `Dis
     Runs inside the webview. Initialises Mermaid.js with Livepeer theme vars, processes `.lpd-md-raw` blocks with markdown-it, and handles tab switching interactions.
   </Accordion>
   <Accordion title="media/preview.css — Theme & component styles">
-    CSS custom properties for light and dark themes using Livepeer brand colours (`#3CB540` primary). Styles for all Tier 1 and Tier 2 component classes.
+    CSS custom properties for light and dark themes using the governed Livepeer accent variables from `style.css`. Styles for all Tier 1 and Tier 2 component classes.
   </Accordion>
 </AccordionGroup>
 
@@ -1053,9 +1139,9 @@ Data-feed integrators (`ShowcaseCards`, `CoinGeckoExchanges`, `LumaEvents`, `Dis
     Any component that falls through to the placeholder renderer can be promoted to Tier 2 by adding a renderer function to `lib/component-map.js` under `livepeerComponents`. The function signature is `(props, childrenHtml) => htmlString`.
 
     Priority candidates based on usage frequency in the repo:
-    - `Tree` / `Folder` / `File` (used in source-of-truth pages)
-    - `ParamField` (used in API reference pages)
     - `Snippet` (used in composable page patterns)
+    - data-feed integrators that could be represented by stable static mocks
+    - additional low-use repo components that currently fall through to generic placeholders
   </Accordion>
   <Accordion title="Syntax highlighting for code blocks">
     Code blocks are currently rendered as plain `<pre><code>` without syntax colouring. Adding `highlight.js` (vendored, ~50 KB minified) as a third media asset and calling `hljs.highlightAll()` in `preview.js` would add language-aware colouring for all fenced blocks.

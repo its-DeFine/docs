@@ -17,7 +17,7 @@ VS Code-compatible extensions for the Livepeer docs repo. All extensions use the
 
 | Extension | Folder | What it does |
 |---|---|---|
-| `lpd-mdx-preview` | `lpd-mdx-preview/` | `Cmd+Shift+V` side-panel preview rendering MDX with Livepeer components, Mintlify built-ins, and Mermaid |
+| `lpd-mdx-preview` | `lpd-mdx-preview/` | `Cmd+Shift+V` side-panel preview rendering MDX with governed Mintlify built-ins, Livepeer components, Mermaid, and canonical `Tree.Folder` / `Tree.File` support |
 | `authoring-tools` | `authoring-tools/` | MDX formatter, real-path import completions, docs.json route validation |
 | `components` | `components/` | Component picker — insert and wrap with any of the 120 repo components |
 | `markdown-list` | `markdown-list/` | Markdown list tools — toggle, indent, sort |
@@ -32,6 +32,8 @@ Detects which editors are installed and deploys all extensions:
 bash tools/editor-extensions/install.sh
 ```
 
+For `lpd-mdx-preview`, `install.sh` verifies that the checked-in `.vsix` matches its governed source files before installing. If that package is stale, the script fails loudly and prints the exact rebuild command.
+
 ### Manual
 
 Extensions sidebar → `...` → **Install from VSIX** → select the `.vsix` file from the extension's folder.
@@ -44,6 +46,13 @@ npx @vscode/vsce package
 ```
 
 Then install the generated `.vsix`.
+
+For `lpd-mdx-preview`, overwrite the tracked artifact explicitly:
+
+```bash
+cd tools/editor-extensions/lpd-mdx-preview
+npx @vscode/vsce package --no-dependencies -o lpd-mdx-preview-0.0.2.vsix
+```
 
 ## Source layout
 

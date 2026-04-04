@@ -9,6 +9,15 @@ Done:
 - YAML boolean/null type trap scan: clean
 Next: Scam protection page (pending approval). ContractVerifier registry gap. PreviewCallouts tag downgrade
 
+=== 2026-04-03 22:41 ===
+Stream: Contracts Surface Migration to docs-v2
+Outcome: Met
+Done:
+- Migrated the working contracts surface onto isolated branch `codex/20260403-contracts-docs-v2-migration` and committed `feat(contracts): migrate docs-v2 contract surfaces`
+- Pushed the branch and opened PR #857 against `docs-v2` with the repository PR template filled from the actual migration diff and validations
+- Verified the isolated worktree stayed clean after push and confirmed the migrated contracts pages rendered, including Mermaid on blockchain contracts
+Next: Review and merge PR #857, then run a governance follow-up for missing script headers and contracts component registry coverage
+
 === 2026-03-31 ===
 Stream: Backlog Execution (BL-013, BL-014, BL-015)
 Outcome: Met
@@ -900,3 +909,26 @@ Files changed: [workspace/reports/contracts/2026-04-03-contracts-redesign-regres
 Thread: Codex governance hardening
 What shipped: Added an explicit permanent rule to the Codex governance layer and shared repo baseline forbidding page structure, copy, layout, styling, route, or IA changes during data-only/helper-only/pipeline-only refactors unless the human explicitly approves presentation changes.
 Files changed: [.github/AGENTS.md](/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/.github/AGENTS.md), [AGENTS.md](/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/AGENTS.md), [workspace/thread-outputs/sessions/session-log.txt](/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/workspace/thread-outputs/sessions/session-log.txt)
+
+=== 2026-04-03 22:49 ===
+Stream: Contracts Local Render Recovery and Data Surface Audit
+Outcome: Partially met
+Done:
+- Restored and render-verified the local contracts routes on scoped preview port `3350`, including the canonical contracts page and the blockchain-contracts page
+- Confirmed the contracts machine-readable companion layer lives under `snippets/data/contract-addresses/` and reduced the canonical contracts data folder back to the live `.jsx` surface
+- Identified that the current working tree has since drifted from the validated state because `snippets/composables/pages/canonical/livepeer-contract-addresses.mdx` now has a new uncommitted diff
+Next: Revalidate or revert the current contracts page diff, and review the unrelated untracked `.github/workspace/phase2/pipeline-review-process.md` file separately
+
+=== 2026-04-03 23:02 AEDT ===
+Stream: Contracts Workflow Verification Copy
+Outcome: Met
+Done:
+- Replaced the old workflow-verification bullets in the contracts page with a step-based explanation of the live contracts pipeline
+- Named the watched repos, external verification APIs, canonical contracts dataset, and fail-safe publication behavior in the accordion copy
+- Kept the deliverable local to `snippets/composables/pages/canonical/livepeer-contract-addresses.mdx`; the unrelated `.github/workspace/phase2/pipeline-review-process.md` file still needs separate review
+Next: Commit or revert the updated contracts accordion intentionally, and only run an extra scoped render check if final browser proof is needed before commit
+Session started: 2026-04-04 10:23:57
+Session started: 2026-04-04 10:23:57
+Session started: 2026-04-04 10:24:11
+Session started: 2026-04-04 13:12:27
+Session started: 2026-04-04 13:24:36

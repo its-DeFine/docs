@@ -21,7 +21,7 @@ const manifest = require('../../../../../tools/config/v2-internal-report-pages')
 const REPO_ROOT = process.cwd();
 const DOCS_JSON_PATH = path.join(REPO_ROOT, 'docs.json');
 const INTERNAL_REPORTS_ROOT = path.join(REPO_ROOT, 'v2', 'internal', 'reports');
-const GENERATED_OG_IMAGE = '/snippets/assets/site/og-image/fallback.png';
+const GENERATED_OG_IMAGE = '/snippets/assets/media/og-images/fallback.png';
 const UTC_MONTHS = [
   'January',
   'February',

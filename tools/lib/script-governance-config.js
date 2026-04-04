@@ -103,7 +103,27 @@ const CATEGORY_ENUM = [
 ];
 
 // New 3-tier taxonomy type values (replaces CATEGORY_ENUM for scripts using @type)
-const VALID_TYPES = ['audit', 'generator', 'validator', 'remediator', 'dispatch', 'automation'];
+// Aligned to actions framework: D-ACT-07 (automation -> integrator), D-ACT-01 (interface added)
+const VALID_TYPES = ['audit', 'generator', 'validator', 'remediator', 'dispatch', 'integrator', 'interface'];
+
+// Concern values aligned to actions framework D-ACT-05 (expanded from 4 to 7)
+const VALID_CONCERNS = ['copy', 'health', 'maintenance', 'discoverability', 'governance', 'brand', 'integrations'];
+
+// Legacy concern values (accepted during transition, mapped to new values)
+const LEGACY_CONCERN_MAP = {
+  content: null,       // must be manually mapped to copy/health/maintenance/discoverability/integrations
+  components: 'maintenance',
+  ai: 'discoverability',
+  governance: 'governance'
+};
+
+// Legacy type values (accepted during transition, mapped to new values)
+const LEGACY_TYPE_MAP = {
+  automation: 'integrator',
+  orchestrator: 'dispatch',
+  enforcer: 'validator',
+  utility: null          // must be manually classified
+};
 
 const PURPOSE_ENUM = [
   'qa:content-quality',
@@ -222,6 +242,9 @@ module.exports = {
   CATEGORY_ENUM,
   CLASSIFICATION_DATA_PATH,
   VALID_TYPES,
+  VALID_CONCERNS,
+  LEGACY_CONCERN_MAP,
+  LEGACY_TYPE_MAP,
   DISCOVERY_ROOTS,
   EXCLUDED_PREFIXES,
   FRAMEWORK_FIELDS,

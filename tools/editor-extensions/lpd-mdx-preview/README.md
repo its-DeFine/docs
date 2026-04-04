@@ -1,6 +1,6 @@
 # Livepeer MDX Preview
 
-VS Code extension that previews MDX files with Livepeer custom components, Mintlify built-ins, and Mermaid diagrams.
+VS Code extension that previews MDX files with Livepeer custom components, governed Mintlify built-ins, and Mermaid diagrams.
 
 ## Usage
 
@@ -14,27 +14,37 @@ The preview updates automatically as you type (300ms debounce).
 
 - Standard Markdown rendering (via markdown-it)
 - Mermaid diagram rendering with Livepeer theme colors
-- Mintlify built-in components: Card, Tabs, Accordion, Steps, Note, Tip, Warning, etc.
+- Mintlify built-in components rendered as styled HTML, including `Tree`, `Tree.Folder`, `Tree.File`, response/param field docs, and common callouts/cards/tables
+- Descriptive placeholder rendering for runtime-heavy built-ins such as `OpenAPI`
 - 40+ Livepeer custom components rendered as styled HTML
 - Remaining components shown as labeled placeholders with children rendered
 - Frontmatter metadata displayed as a header bar
 - Light/dark theme detection (matches VS Code theme)
+- Checked-in `.vsix` package is validated against source before install
 
 ## Installation
 
-From this directory:
+Preferred install path from repo root:
 
 ```bash
-npx @vscode/vsce package
+bash tools/editor-extensions/install.sh
 ```
 
-Then in VS Code: Extensions → `...` menu → "Install from VSIX" → select the generated `.vsix` file.
+The installer verifies that the checked-in `.vsix` matches source and fails if the package is stale.
+
+Manual rebuild from this directory:
+
+```bash
+npx @vscode/vsce package --no-dependencies -o lpd-mdx-preview-0.0.2.vsix
+```
+
+Then in VS Code: Extensions → `...` menu → "Install from VSIX" → select `lpd-mdx-preview-0.0.2.vsix`.
 
 ## Component Support
 
 | Tier | Count | Rendering |
 |------|-------|-----------|
-| Mintlify built-ins | ~20 | Styled HTML (Card, Tabs, Accordion, Steps, callouts, etc.) |
+| Mintlify built-ins | 20+ | Styled HTML for common built-ins plus canonical tree rendering; `OpenAPI` stays descriptive/approximate |
 | Livepeer custom | ~40 | Styled HTML matching actual component output |
 | All other | ~90 | Labeled placeholder with rendered children |
 
