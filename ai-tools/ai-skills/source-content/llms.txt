@@ -299,8 +299,8 @@
 ### Gateways NEW / Run A Gateway / Gateway Setup Guide / Setup Checklist
 
 - [Gateway Node Requirements](https://docs.livepeer.org/v2/gateways/setup/requirements/setup): Learn about the hardware, network, and software requirements for running a Livepeer Gateway.
-- [On-Chain Setup Requirements](https://docs.livepeer.org/v2/gateways/setup/requirements/on-chain setup/on-chain): This page will take you through setting up the additional requirements for running a Gateway in On-Chain mode including finding an RPC URL, and creating an Ethereum account and keystore.
-- [Fund The Livepeer Gateway](https://docs.livepeer.org/v2/gateways/setup/requirements/on-chain setup/fund-gateway): The following steps will walk you through adding funds to your Gateway ETH account, including funding the ETH account on Ethereum Mainnet, bridging the funds to Arbritrum's L2 Network, and then usi...
+- [On-Chain Setup Requirements](https://docs.livepeer.org/v2/gateways/setup/requirements/on-chain-setup/on-chain): This page will take you through setting up the additional requirements for running a Gateway in On-Chain mode including finding an RPC URL, and creating an Ethereum account and keystore.
+- [Fund The Livepeer Gateway](https://docs.livepeer.org/v2/gateways/setup/requirements/on-chain-setup/fund-gateway): The following steps will walk you through adding funds to your Gateway ETH account, including funding the ETH account on Ethereum Mainnet, bridging the funds to Arbritrum's L2 Network, and then usi...
 
 ### Gateways NEW / Run A Gateway / Gateway Setup Guide / Installation
 
@@ -424,9 +424,9 @@
 
 ### Gateways NEW / Resources / Reference / Technical Reference / Exchanges & RPCs
 
-- [Livepeer Exchanges](https://docs.livepeer.org/v2/gateways/resources/reference/technical/livepeer-exchanges): List of exchanges that support Livepeer
-- [Arbitrum Exchange Reference](https://docs.livepeer.org/v2/gateways/resources/reference/technical/arbitrum-exchanges): List of Exchanges that support Arbitrum One - dynamically fetched from CoinGecko
-- [Arbitrum RPCs](https://docs.livepeer.org/v2/gateways/resources/reference/technical/arbitrum-rpc): List of Public Arbitrum RPCs
+- [Livepeer Exchanges](https://docs.livepeer.org/v2/gateways/resources/compendium/livepeer-exchanges): List of exchanges that support Livepeer
+- [Arbitrum Exchange Reference](https://docs.livepeer.org/v2/gateways/resources/compendium/arbitrum-exchanges): List of Exchanges that support Arbitrum One - dynamically fetched from CoinGecko
+- [Arbitrum RPCs](https://docs.livepeer.org/v2/gateways/resources/compendium/arbitrum-rpc): List of Public Arbitrum RPCs
 
 ### Gateways NEW / Resources / Reference / Technical Reference
 
@@ -445,7 +445,7 @@
 
 ### Gateways NEW / Resources / Reference / Compendium
 
-- [Gateway Glossary](https://docs.livepeer.org/v2/gateways/resources/reference/compendium/glossary): Key terms for Livepeer gateway operators — deployment modes, payment mechanics, orchestrator routing, and node configuration.
+- [Gateway Glossary](https://docs.livepeer.org/v2/gateways/resources/compendium/glossary): Key terms for Livepeer gateway operators — deployment modes, payment mechanics, orchestrator routing, and node configuration.
 
 ### Gateways NEW / Resources / Reference
 

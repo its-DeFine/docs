@@ -854,7 +854,7 @@ When configuring `aiModels.json`, two external references are authoritative:
 
 **For supported models and pipeline compatibility:** The [AI Model Support](/v2/developers/concepts/ai-on-livepeer) page in the Developers section lists every pipeline type, supported model architectures, minimum VRAM, and current network status. This is the single source of truth for "will this model work on the network?" Use it before experimenting with untested model IDs.
 
-**For understanding how gateways select your node:** The [Orchestrator Offerings reference](/v2/gateways/resources/technical/orchestrator-offerings) documents the capability discovery protocol — specifically the `capabilities_prices` field structure and how gateways evaluate your node against their `-maxPricePerCapability` configuration. Before setting prices, confirm your prices fall within ranges that major gateways will accept.
+**For understanding how gateways select your node:** The [Orchestrator Offerings reference](/v2/gateways/resources/reference/technical/orchestrator-offerings) documents the capability discovery protocol — specifically the `capabilities_prices` field structure and how gateways evaluate your node against their `-maxPricePerCapability` configuration. Before setting prices, confirm your prices fall within ranges that major gateways will accept.
 
 **For custom models outside the standard pipeline list:** [Bring Your Own Container (BYOC)](/v2/developers/build/byoc) covers building a custom Docker container with PyTrickle integration to run any model on the network. BYOC is the path for proprietary models, fine-tuned checkpoints, or models with non-standard inference architectures.
 
@@ -869,7 +869,7 @@ When configuring `aiModels.json`, two external references are authoritative:
   <Card title="Bring Your Own Container (BYOC)" icon="box-open" href="/v2/developers/build/byoc">
     Run any custom model on the network using PyTrickle — for models not covered by the standard AI runner containers.
   </Card>
-  <Card title="Orchestrator Offerings Reference" icon="tower-broadcast" href="/v2/gateways/resources/technical/orchestrator-offerings">
+  <Card title="Orchestrator Offerings Reference" icon="tower-broadcast" href="/v2/gateways/resources/reference/technical/orchestrator-offerings">
     How gateways discover orchestrators and evaluate capability/pricing — the selection algorithm that determines whether your node receives jobs.
   </Card>
   <Card title="Model Hosting and VRAM Planning" icon="microchip" href="/v2/orchestrators/guides/ai-and-job-workloads/model-demand-reference">

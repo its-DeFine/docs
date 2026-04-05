@@ -26,7 +26,8 @@ purpose: landing
 import { PortalHeroContent, HeroImageBackgroundComponent, LogoHeroContainer, HeroContentContainer, HeroSectionContainer, PortalCardsHeader, PortalContentContainer, PortalSectionHeader } from '/snippets/components/scaffolding/portals/Portals.jsx'
 import { BlinkingIcon } from '/snippets/components/elements/links/Links.jsx'
 import { Starfield } from "/snippets/components/scaffolding/heroes/HeroGif.jsx";
-
+import { CustomDivider } from "/snippets/components/elements/spacing/Divider.jsx"
+import { H1, H2, H3 } from '/snippets/components/scaffolding/frame-mode/FrameMode.jsx'
 
 <HeroSectionContainer>
 
@@ -113,19 +114,21 @@ import { Starfield } from "/snippets/components/scaffolding/heroes/HeroGif.jsx";
  </Card> */}
   </Columns>
 
+  <CustomDivider />
+
   <PortalSectionHeader title="Live Network" icon="chart-line">
- Track live network parameters and treasury status.
+ _Track live network parameters and treasury status._
   </PortalSectionHeader>
 
-  <Columns cols={3}>
-    <Card
+  <Columns cols={2}>
+    {/* <Card
       title="Livepeer Explorer"
       icon="chart-mixed"
       href="https://explorer.livepeer.org"
       arrow
     >
  Live staking stats, orchestrator list, and bonding rate.
-    </Card>
+    </Card> */}
     <Card
       title="Treasury"
       icon="vault"

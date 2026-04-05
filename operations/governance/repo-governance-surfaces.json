@@ -1,11 +1,14 @@
 {
   "_meta": {
-    "description": "Canonical repo governance registry. Every governed surface registered here. Supersedes tools/config/runtime/ownerless-governance-surfaces.json.",
+    "description": "Superseded governance registry snapshot kept only for migration context. The canonical registry now lives at operations/governance/config/repo-governance-surfaces.json.",
     "version": "1.0.0",
     "lastUpdated": "2026-04-05",
     "generated": false,
     "policy": "docs-guide/policies/ownerless-governance.mdx",
-    "decision": "D-ACT-10 (unified governance control plane)"
+    "decision": "D-ACT-10 (unified governance control plane)",
+    "status": "superseded_snapshot",
+    "canonical_registry": "operations/governance/config/repo-governance-surfaces.json",
+    "do_not_consume": true
   },
   "surfaces": [
     {

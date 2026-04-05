@@ -124,7 +124,7 @@ async function runTests() {
   });
 
   await runCase('Resolves technical gateway API files to api/openapi.yaml', async () => {
-    const spec = audit.resolveSpecForFile('v2/gateways/resources/technical/api-reference/AI-API/audio-to-text.mdx');
+    const spec = audit.resolveSpecForFile('v2/gateways/resources/reference/technical/api-reference/AI-API/audio-to-text.mdx');
     assert.strictEqual(spec, 'api/openapi.yaml');
   });
 

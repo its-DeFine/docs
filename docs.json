@@ -2598,8 +2598,8 @@
                         "group": "Setup Checklist",
                         "pages": [
                           "v2/gateways/setup/requirements/setup",
-                          "v2/gateways/setup/requirements/on-chain setup/on-chain",
-                          "v2/gateways/setup/requirements/on-chain setup/fund-gateway"
+                          "v2/gateways/setup/requirements/on-chain-setup/on-chain",
+                          "v2/gateways/setup/requirements/on-chain-setup/fund-gateway"
                         ]
                       },
                       {
@@ -2729,7 +2729,7 @@
                     "pages": [
                       "v2/gateways/resources/reference/faq",
                       "v2/gateways/resources/reference/glossary",
-                      "v2/gateways/resources/reference/compendium/glossary",
+                      "v2/gateways/resources/compendium/glossary",
                       {
                         "group": "Reference",
                         "pages": [
@@ -2790,13 +2790,13 @@
                       {
                         "group": "Compendium",
                         "pages": [
-                          "v2/gateways/resources/reference/compendium/glossary",
+                          "v2/gateways/resources/compendium/glossary",
                           {
                             "group": "Exchanges & RPCs",
                             "pages": [
-                              "v2/gateways/resources/reference/technical/livepeer-exchanges",
-                              "v2/gateways/resources/reference/technical/arbitrum-exchanges",
-                              "v2/gateways/resources/reference/technical/arbitrum-rpc"
+                              "v2/gateways/resources/compendium/livepeer-exchanges",
+                              "v2/gateways/resources/compendium/arbitrum-exchanges",
+                              "v2/gateways/resources/compendium/arbitrum-rpc"
                             ]
                           }
                         ]

@@ -969,7 +969,7 @@ export const iconMapSections = [
         components: ['Accordion', 'Card', 'FAQ block'],
         examples: [
           'v2/orchestrators/resources/faq.mdx',
-          'v2/gateways/resources/faq.mdx',
+          'v2/gateways/resources/reference/faq.mdx',
         ],
       },
       {

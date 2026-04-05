@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-05T11:07:26.006Z",
+  "generatedAt": "2026-04-05T11:24:53.343Z",
   "totalTerms": 183,
   "terms": [
     {
@@ -139,7 +139,7 @@
           "occurrences": 46
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 44
         },
         {
@@ -351,7 +351,7 @@
           "occurrences": 27
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 27
         },
         {
@@ -536,6 +536,10 @@
         },
         {
           "path": "v2/about/_design/audience-personas-journey-design.md",
+          "occurrences": 20
+        },
+        {
+          "path": "v2/about/index.mdx",
           "occurrences": 20
         },
         {
@@ -1555,10 +1559,6 @@
           "occurrences": 8
         },
         {
-          "path": "v2/gateways/index.mdx",
-          "occurrences": 8
-        },
-        {
           "path": "v2/orchestrators/_workspace/canonical/check/guides/advanced-operations/pool-operators.md",
           "occurrences": 8
         },
@@ -2152,6 +2152,10 @@
         },
         {
           "path": "v2/gateways/guides/roadmap-and-funding/x-resources/ctx-new--economics.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/gateways/index.mdx",
           "occurrences": 6
         },
         {
@@ -3067,7 +3071,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 4
         },
         {
@@ -3463,6 +3467,10 @@
           "occurrences": 3
         },
         {
+          "path": "v2/gateways/resources/compendium/livepeer-exchanges.mdx",
+          "occurrences": 3
+        },
+        {
           "path": "v2/gateways/resources/reference/go-livepeer/gpu-support.mdx",
           "occurrences": 3
         },
@@ -3476,10 +3484,6 @@
         },
         {
           "path": "v2/gateways/resources/reference/technical/go-livepeer/prometheus-metrics.mdx",
-          "occurrences": 3
-        },
-        {
-          "path": "v2/gateways/resources/reference/technical/livepeer-exchanges.mdx",
           "occurrences": 3
         },
         {
@@ -4351,10 +4355,6 @@
           "occurrences": 1
         },
         {
-          "path": "v2/about/index.mdx",
-          "occurrences": 1
-        },
-        {
           "path": "v2/about/navigator.mdx",
           "occurrences": 1
         },
@@ -4639,15 +4639,15 @@
           "occurrences": 1
         },
         {
+          "path": "v2/gateways/resources/compendium/arbitrum-exchanges.mdx",
+          "occurrences": 1
+        },
+        {
           "path": "v2/gateways/resources/reference/go-livepeer/cli-reference.mdx",
           "occurrences": 1
         },
         {
           "path": "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/cli-http-api.mdx",
-          "occurrences": 1
-        },
-        {
-          "path": "v2/gateways/resources/reference/technical/arbitrum-exchanges.mdx",
           "occurrences": 1
         },
         {
@@ -4867,7 +4867,7 @@
           "occurrences": 1
         }
       ],
-      "totalOccurrences": 11501,
+      "totalOccurrences": 11518,
       "definition": "",
       "tags": [
         "livepeer"
@@ -4892,7 +4892,7 @@
           "occurrences": 75
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 75
         },
         {
@@ -5028,10 +5028,6 @@
           "occurrences": 44
         },
         {
-          "path": "v2/gateways/index.mdx",
-          "occurrences": 44
-        },
-        {
           "path": "v2/gateways/_workspace/archive/context-data/new/guides.mdx",
           "occurrences": 43
         },
@@ -5045,6 +5041,10 @@
         },
         {
           "path": "v2/gateways/guides/advanced-operations/gateway-discoverability.mdx",
+          "occurrences": 42
+        },
+        {
+          "path": "v2/gateways/index.mdx",
           "occurrences": 42
         },
         {
@@ -5532,7 +5532,7 @@
           "occurrences": 18
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 18
         },
         {
@@ -5984,7 +5984,7 @@
           "occurrences": 11
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 11
         },
         {
@@ -8208,7 +8208,7 @@
           "occurrences": 1
         }
       ],
-      "totalOccurrences": 9018,
+      "totalOccurrences": 9016,
       "definition": "A Gateway is a Livepeer node operated by a user or organization to interact directly with the Livepeer protocol, submitting jobs, routing work to orchestrators, and managing payment flows.",
       "tags": [
         "livepeer"
@@ -8309,7 +8309,7 @@
           "occurrences": 33
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 33
         },
         {
@@ -11313,7 +11313,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 1
         },
         {
@@ -11814,7 +11814,7 @@
           "occurrences": 17
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 17
         },
         {
@@ -13022,6 +13022,10 @@
           "occurrences": 2
         },
         {
+          "path": "v2/about/index.mdx",
+          "occurrences": 2
+        },
+        {
           "path": "v2/about/network/job-lifecycle.mdx",
           "occurrences": 2
         },
@@ -14090,7 +14094,7 @@
           "occurrences": 1
         }
       ],
-      "totalOccurrences": 3868,
+      "totalOccurrences": 3870,
       "definition": "",
       "tags": [
         "ai"
@@ -14335,7 +14339,7 @@
           "occurrences": 13
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 13
         },
         {
@@ -16588,7 +16592,7 @@
           "occurrences": 18
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 17
         },
         {
@@ -18184,7 +18188,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 2
         },
         {
@@ -18868,7 +18872,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 1
         },
         {
@@ -19433,7 +19437,7 @@
           "occurrences": 14
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 14
         },
         {
@@ -20633,15 +20637,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/index.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
           "path": "v2/gateways/resources/knowledge-hub/guides.mdx",
-          "occurrences": 1
-        },
-        {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -20853,7 +20853,7 @@
           "occurrences": 1
         }
       ],
-      "totalOccurrences": 2780,
+      "totalOccurrences": 2779,
       "definition": "Livepeer Token (LPT) is the native governance and staking token of the Livepeer network, used for orchestrator selection, delegation, reward distribution, and protocol security.",
       "tags": [
         "livepeer"
@@ -21114,7 +21114,7 @@
           "occurrences": 12
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 12
         },
         {
@@ -22787,7 +22787,7 @@
           "occurrences": 18
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 17
         },
         {
@@ -25123,7 +25123,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 1
         },
         {
@@ -25504,7 +25504,7 @@
           "occurrences": 19
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 19
         },
         {
@@ -25540,7 +25540,7 @@
           "occurrences": 16
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 16
         },
         {
@@ -25560,7 +25560,7 @@
           "occurrences": 15
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 15
         },
         {
@@ -26356,7 +26356,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 4
         },
         {
@@ -27585,7 +27585,7 @@
           "occurrences": 12
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 12
         },
         {
@@ -28014,6 +28014,10 @@
         },
         {
           "path": "v2/about/_design/ia-design.md",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/about/index.mdx",
           "occurrences": 5
         },
         {
@@ -29005,10 +29009,6 @@
           "occurrences": 1
         },
         {
-          "path": "v2/about/index.mdx",
-          "occurrences": 1
-        },
-        {
           "path": "v2/about/network/actors.mdx",
           "occurrences": 1
         },
@@ -29681,7 +29681,7 @@
           "occurrences": 1
         }
       ],
-      "totalOccurrences": 2593,
+      "totalOccurrences": 2597,
       "definition": "",
       "tags": [
         "technical"
@@ -30278,7 +30278,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 5
         },
         {
@@ -30470,7 +30470,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 4
         },
         {
@@ -31370,15 +31370,15 @@
           "occurrences": 1
         },
         {
+          "path": "v2/gateways/resources/compendium/arbitrum-exchanges.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/gateways/resources/compendium/livepeer-exchanges.mdx",
+          "occurrences": 1
+        },
+        {
           "path": "v2/gateways/resources/knowledge-hub/guides.mdx",
-          "occurrences": 1
-        },
-        {
-          "path": "v2/gateways/resources/reference/technical/arbitrum-exchanges.mdx",
-          "occurrences": 1
-        },
-        {
-          "path": "v2/gateways/resources/reference/technical/livepeer-exchanges.mdx",
           "occurrences": 1
         },
         {
@@ -32163,15 +32163,15 @@
           "occurrences": 5
         },
         {
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
+          "occurrences": 5
+        },
+        {
           "path": "v2/gateways/resources/knowledge-hub/help.mdx",
           "occurrences": 5
         },
         {
           "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
-          "occurrences": 5
-        },
-        {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
           "occurrences": 5
         },
         {
@@ -33743,19 +33743,19 @@
           "occurrences": 1
         },
         {
+          "path": "v2/gateways/resources/compendium/arbitrum-exchanges.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/gateways/resources/compendium/livepeer-exchanges.mdx",
+          "occurrences": 1
+        },
+        {
           "path": "v2/gateways/resources/reference/go-livepeer/cli-reference.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/technical/arbitrum-exchanges.mdx",
-          "occurrences": 1
-        },
-        {
           "path": "v2/gateways/resources/reference/technical/go-livepeer/cli-reference.mdx",
-          "occurrences": 1
-        },
-        {
-          "path": "v2/gateways/resources/reference/technical/livepeer-exchanges.mdx",
           "occurrences": 1
         },
         {
@@ -34532,7 +34532,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 2
         },
         {
@@ -34981,7 +34981,7 @@
           "occurrences": 17
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 17
         },
         {
@@ -35041,7 +35041,7 @@
           "occurrences": 13
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 12
         },
         {
@@ -35097,7 +35097,7 @@
           "occurrences": 11
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 11
         },
         {
@@ -35193,7 +35193,7 @@
           "occurrences": 9
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 9
         },
         {
@@ -35741,10 +35741,6 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/index.mdx",
-          "occurrences": 3
-        },
-        {
           "path": "v2/gateways/resources/knowledge-hub/help.mdx",
           "occurrences": 3
         },
@@ -36061,7 +36057,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/resources/reference/technical/arbitrum-exchanges.mdx",
+          "path": "v2/gateways/resources/compendium/arbitrum-exchanges.mdx",
           "occurrences": 2
         },
         {
@@ -36853,7 +36849,7 @@
           "occurrences": 1
         }
       ],
-      "totalOccurrences": 2291,
+      "totalOccurrences": 2288,
       "definition": "",
       "tags": [
         "web3"
@@ -36886,7 +36882,7 @@
           "occurrences": 22
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 22
         },
         {
@@ -37138,10 +37134,6 @@
           "occurrences": 8
         },
         {
-          "path": "v2/gateways/index.mdx",
-          "occurrences": 8
-        },
-        {
           "path": "v2/orchestrators/_workspace/canonical/review/06-terminology.md",
           "occurrences": 8
         },
@@ -37231,6 +37223,10 @@
         },
         {
           "path": "v2/gateways/guides/payments-and-pricing/pricing-strategy.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v2/gateways/index.mdx",
           "occurrences": 7
         },
         {
@@ -37330,7 +37326,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 6
         },
         {
@@ -38614,7 +38610,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 1
         },
         {
@@ -38842,7 +38838,7 @@
           "occurrences": 1
         }
       ],
-      "totalOccurrences": 2273,
+      "totalOccurrences": 2272,
       "definition": "",
       "tags": [
         "web3"
@@ -38915,7 +38911,7 @@
           "occurrences": 17
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 15
         },
         {
@@ -41412,7 +41408,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 6
         },
         {
@@ -43913,6 +43909,10 @@
           "occurrences": 1
         },
         {
+          "path": "v2/about/index.mdx",
+          "occurrences": 1
+        },
+        {
           "path": "v2/about/navigator.mdx",
           "occurrences": 1
         },
@@ -44413,7 +44413,7 @@
           "occurrences": 1
         }
       ],
-      "totalOccurrences": 1614,
+      "totalOccurrences": 1615,
       "definition": "",
       "tags": [
         "web3"
@@ -44754,7 +44754,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 6
         },
         {
@@ -45746,11 +45746,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/knowledge-hub/help.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/knowledge-hub/help.mdx",
           "occurrences": 1
         },
         {
@@ -46371,7 +46371,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 5
         },
         {
@@ -47656,7 +47656,7 @@
           "occurrences": 19
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 19
         },
         {
@@ -47888,7 +47888,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 4
         },
         {
@@ -48028,7 +48028,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 3
         },
         {
@@ -48885,7 +48885,7 @@
           "occurrences": 16
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 16
         },
         {
@@ -49937,7 +49937,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 1
         },
         {
@@ -50138,7 +50138,7 @@
           "occurrences": 29
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 29
         },
         {
@@ -50186,7 +50186,7 @@
           "occurrences": 15
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 15
         },
         {
@@ -50246,7 +50246,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 8
         },
         {
@@ -50602,7 +50602,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 3
         },
         {
@@ -54365,7 +54365,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -54373,7 +54373,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 1
         },
         {
@@ -56191,7 +56191,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 2
         },
         {
@@ -57240,7 +57240,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 8
         },
         {
@@ -58364,7 +58364,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 1
         },
         {
@@ -58865,7 +58865,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 4
         },
         {
@@ -59529,6 +59529,10 @@
           "occurrences": 1
         },
         {
+          "path": "v2/about/index.mdx",
+          "occurrences": 1
+        },
+        {
           "path": "v2/about/network/livepeer-actors/delegators.mdx",
           "occurrences": 1
         },
@@ -60037,7 +60041,7 @@
           "occurrences": 1
         }
       ],
-      "totalOccurrences": 917,
+      "totalOccurrences": 918,
       "definition": "",
       "tags": [
         "web3"
@@ -60922,11 +60926,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/knowledge-hub/guides.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/knowledge-hub/guides.mdx",
           "occurrences": 1
         },
         {
@@ -62423,11 +62427,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
           "occurrences": 1
         },
         {
@@ -63657,7 +63661,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 3
         },
         {
@@ -63921,11 +63925,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 2
         },
         {
@@ -65018,7 +65022,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 4
         },
         {
@@ -65134,7 +65138,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 3
         },
         {
@@ -65142,7 +65146,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 3
         },
         {
@@ -65847,7 +65851,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 6
         },
         {
@@ -67720,7 +67724,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -67732,7 +67736,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 1
         },
         {
@@ -67953,7 +67957,7 @@
           "occurrences": 27
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 27
         },
         {
@@ -68041,7 +68045,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 7
         },
         {
@@ -68109,7 +68113,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 5
         },
         {
@@ -68213,7 +68217,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 3
         },
         {
@@ -70700,7 +70704,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 6
         },
         {
@@ -71624,7 +71628,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 1
         },
         {
@@ -72461,15 +72465,15 @@
           "occurrences": 1
         },
         {
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
+          "occurrences": 1
+        },
+        {
           "path": "v2/gateways/resources/knowledge-hub/guides.mdx",
           "occurrences": 1
         },
         {
           "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
-          "occurrences": 1
-        },
-        {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -72590,7 +72594,7 @@
           "occurrences": 14
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 10
         },
         {
@@ -74284,7 +74288,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 5
         },
         {
@@ -75377,7 +75381,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 4
         },
         {
@@ -78140,7 +78144,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -79129,7 +79133,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 2
         },
         {
@@ -79642,7 +79646,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 5
         },
         {
@@ -80142,6 +80146,10 @@
           "occurrences": 1
         },
         {
+          "path": "v2/about/index.mdx",
+          "occurrences": 1
+        },
+        {
           "path": "v2/about/network/livepeer-actors/end-users.mdx",
           "occurrences": 1
         },
@@ -80514,7 +80522,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 1
         },
         {
@@ -80702,7 +80710,7 @@
           "occurrences": 1
         }
       ],
-      "totalOccurrences": 550,
+      "totalOccurrences": 551,
       "definition": "",
       "tags": [
         "livepeer"
@@ -81551,11 +81559,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
           "occurrences": 1
         },
         {
@@ -82408,7 +82416,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -83250,7 +83258,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 8
         },
         {
@@ -83410,7 +83418,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 3
         },
         {
@@ -83710,7 +83718,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -83718,7 +83726,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 1
         },
         {
@@ -84035,7 +84043,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 3
         },
         {
@@ -84155,7 +84163,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 2
         },
         {
@@ -84379,7 +84387,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 1
         },
         {
@@ -84712,7 +84720,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 4
         },
         {
@@ -85385,7 +85393,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 8
         },
         {
@@ -85741,15 +85749,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/index.mdx",
-          "occurrences": 1
-        },
-        {
           "path": "v2/gateways/resources/reference/faq.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 1
         },
         {
@@ -85845,7 +85849,7 @@
           "occurrences": 1
         }
       ],
-      "totalOccurrences": 427,
+      "totalOccurrences": 426,
       "definition": "",
       "tags": [
         "web3"
@@ -86138,11 +86142,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/resources/knowledge-hub/guides.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/knowledge-hub/guides.mdx",
           "occurrences": 2
         },
         {
@@ -86903,11 +86907,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
           "occurrences": 1
         },
         {
@@ -87668,11 +87672,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
           "occurrences": 1
         },
         {
@@ -88349,15 +88353,15 @@
           "occurrences": 1
         },
         {
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
+          "occurrences": 1
+        },
+        {
           "path": "v2/gateways/resources/knowledge-hub/guides.mdx",
           "occurrences": 1
         },
         {
           "path": "v2/gateways/resources/knowledge-hub/help.mdx",
-          "occurrences": 1
-        },
-        {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -89155,11 +89159,11 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
           "occurrences": 3
         },
         {
@@ -89332,6 +89336,10 @@
         },
         {
           "path": "v2/about/_workspace/deprecated/dep-bridge-lpt-to-arbitrum.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/about/index.mdx",
           "occurrences": 1
         },
         {
@@ -89783,7 +89791,7 @@
           "occurrences": 1
         }
       ],
-      "totalOccurrences": 347,
+      "totalOccurrences": 348,
       "definition": "",
       "tags": [
         "livepeer"
@@ -89876,7 +89884,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 3
         },
         {
@@ -91089,7 +91097,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -91542,7 +91550,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 1
         },
         {
@@ -92912,11 +92920,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
           "occurrences": 1
         },
         {
@@ -93578,7 +93586,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 3
         },
         {
@@ -93722,7 +93730,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 2
         },
         {
@@ -93775,6 +93783,10 @@
         },
         {
           "path": "v2/about/_workspace/deprecated/dep-bridge-lpt-to-arbitrum.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/about/index.mdx",
           "occurrences": 1
         },
         {
@@ -93974,7 +93986,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -94110,7 +94122,7 @@
           "occurrences": 1
         }
       ],
-      "totalOccurrences": 290,
+      "totalOccurrences": 291,
       "definition": "",
       "tags": [
         "web3"
@@ -95057,7 +95069,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 7
         },
         {
@@ -95089,7 +95101,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 5
         },
         {
@@ -95289,7 +95301,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 1
         },
         {
@@ -96364,7 +96376,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -96541,11 +96553,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/knowledge-hub/resources.mdx",
           "occurrences": 2
         },
         {
@@ -98674,7 +98686,7 @@
           "occurrences": 21
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 21
         },
         {
@@ -98890,7 +98902,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -99031,7 +99043,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 3
         },
         {
@@ -99536,7 +99548,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 2
         },
         {
@@ -100110,7 +100122,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 4
         },
         {
@@ -100719,11 +100731,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/knowledge-hub/help.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/knowledge-hub/help.mdx",
           "occurrences": 1
         },
         {
@@ -100796,7 +100808,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 4
         },
         {
@@ -101012,7 +101024,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
           "occurrences": 1
         },
         {
@@ -101851,7 +101863,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 4
         },
         {
@@ -101983,7 +101995,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 1
         },
         {
@@ -102316,7 +102328,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -102686,7 +102698,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 2
         },
         {
@@ -103192,7 +103204,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 3
         },
         {
@@ -103457,7 +103469,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 2
         },
         {
@@ -103550,7 +103562,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 3
         },
         {
@@ -104044,7 +104056,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 2
         },
         {
@@ -104662,11 +104674,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 1
         },
         {
@@ -105233,7 +105245,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 2
         },
         {
@@ -105852,7 +105864,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -106734,6 +106746,10 @@
           "occurrences": 1
         },
         {
+          "path": "v2/about/index.mdx",
+          "occurrences": 1
+        },
+        {
           "path": "v2/about/network/livepeer-actors/delegators.mdx",
           "occurrences": 1
         },
@@ -106814,7 +106830,7 @@
           "occurrences": 1
         }
       ],
-      "totalOccurrences": 46,
+      "totalOccurrences": 47,
       "definition": "",
       "tags": [
         "livepeer"
@@ -107215,7 +107231,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 3
         },
         {
@@ -107573,7 +107589,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -107819,7 +107835,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -107989,7 +108005,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -109810,7 +109826,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         }
       ],
@@ -109997,7 +110013,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -110123,7 +110139,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "occurrences": 1
         }
       ],
@@ -110221,7 +110237,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/gateways/resources/reference/compendium/glossary.mdx",
+          "path": "v2/gateways/resources/compendium/glossary.mdx",
           "occurrences": 1
         },
         {

@@ -354,23 +354,23 @@ function resolveSpecForFile(relPath) {
     return SPEC_BY_KEY.studio;
   }
 
-  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference)\/AI-API\//.test(file)) {
+  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference|resources\/reference\/technical\/api-reference)\/AI-API\//.test(file)) {
     return SPEC_BY_KEY.ai;
   }
 
-  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference)\/AI-Worker\//.test(file)) {
+  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference|resources\/reference\/technical\/api-reference)\/AI-Worker\//.test(file)) {
     return SPEC_BY_KEY.ai;
   }
 
-  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference)\/CLI-HTTP\//.test(file)) {
+  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference|resources\/reference\/technical\/api-reference)\/CLI-HTTP\//.test(file)) {
     return SPEC_BY_KEY.cliHttp;
   }
 
-  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference)\/(?:ai-worker-api|health|hardware-info|hardware-stats)\.mdx$/.test(file)) {
+  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference|resources\/reference\/technical\/api-reference)\/(?:ai-worker-api|health|hardware-info|hardware-stats)\.mdx$/.test(file)) {
     return SPEC_BY_KEY.ai;
   }
 
-  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference)\/status\.mdx$/.test(file)) {
+  if (/^v2(?:\/(?:es|fr|cn))?\/gateways\/(?:references\/api-reference|resources\/technical\/api-reference|resources\/reference\/technical\/api-reference)\/status\.mdx$/.test(file)) {
     return SPEC_BY_KEY.cliHttp;
   }
 

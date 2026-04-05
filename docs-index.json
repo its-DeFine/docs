@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-04-05T10:49:57.689Z",
+  "generated": "2026-04-05T11:24:26.382Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -438,7 +438,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 142,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -483,7 +483,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 1092,
-      "lastVerified": "2026-04-05T10:42:13.138Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -531,7 +531,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1432,
-      "lastVerified": "2026-04-04T12:26:07.169Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 1,
@@ -579,7 +579,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 594,
-      "lastVerified": "2026-04-04T12:26:07.124Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 3,
@@ -637,7 +637,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 895,
-      "lastVerified": "2026-04-05T10:42:13.140Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 1,
@@ -694,7 +694,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1860,
-      "lastVerified": "2026-04-04T12:26:07.153Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -754,7 +754,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 994,
-      "lastVerified": "2026-04-04T12:26:07.146Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -828,7 +828,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 781,
-      "lastVerified": "2026-04-04T12:26:07.143Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -904,7 +904,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1070,
-      "lastVerified": "2026-04-05T10:42:13.141Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -965,7 +965,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 757,
-      "lastVerified": "2026-04-04T12:26:07.149Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -1032,7 +1032,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 115,
-      "lastVerified": "2026-04-05T10:42:13.141Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -1104,7 +1104,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3247,
-      "lastVerified": "2026-04-05T10:42:13.142Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -1255,7 +1255,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 238,
-      "lastVerified": "2026-04-04T12:26:07.142Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -1291,7 +1291,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 639,
-      "lastVerified": "2026-04-04T12:54:57.099Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -1356,7 +1356,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 145,
-      "lastVerified": "2026-04-05T10:42:13.144Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -1401,7 +1401,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 124,
-      "lastVerified": "2026-04-04T12:26:07.132Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -1444,7 +1444,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 153,
-      "lastVerified": "2026-04-04T12:54:57.101Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -1491,7 +1491,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 153,
-      "lastVerified": "2026-04-04T12:26:07.130Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -1536,7 +1536,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 390,
-      "lastVerified": "2026-04-05T10:42:13.143Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -1615,7 +1615,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 448,
-      "lastVerified": "2026-04-05T10:42:13.143Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -1689,7 +1689,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 725,
-      "lastVerified": "2026-04-04T12:26:07.141Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 3,
@@ -1734,7 +1734,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 282,
-      "lastVerified": "2026-04-05T10:42:13.143Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -1802,7 +1802,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 18,
-      "lastVerified": "2026-04-04T12:26:07.138Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -1825,7 +1825,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 20,
-      "lastVerified": "2026-04-04T12:26:07.139Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -1848,7 +1848,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 17,
-      "lastVerified": "2026-04-04T12:26:07.136Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -1869,7 +1869,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 24,
-      "lastVerified": "2026-04-04T12:26:07.125Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -1954,7 +1954,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1678,
-      "lastVerified": "2026-03-29T03:31:41+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -2297,7 +2297,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 436,
-      "lastVerified": "2026-04-04T12:26:07.186Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 3,
@@ -2331,7 +2331,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 184,
-      "lastVerified": "2026-04-04T12:26:07.184Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -2437,7 +2437,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 18,
-      "lastVerified": "2026-04-04T12:26:07.171Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -2464,7 +2464,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 0,
-      "lastVerified": "2026-04-04T12:26:07.187Z",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -7684,7 +7684,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 935,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -7758,7 +7758,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 861,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -8326,88 +8326,6 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/tooling/reference-maps/icon-map",
-      "title": "Icon Map",
-      "description": "Canonical icon-to-usage map for tabs, accordions, cards, and guide navigation across current Livepeer docs.",
-      "section": "docs-guide",
-      "tags": [
-        "livepeer",
-        "icon-map",
-        "fontawesome",
-        "reference-map",
-        "docs-guide",
-        "authoring",
-        "tooling",
-        "reference-maps"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "advanced",
-      "wordCount": 937,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Scope"
-        },
-        {
-          "level": 2,
-          "text": "Page-Type Canonical Defaults"
-        },
-        {
-          "level": 2,
-          "text": "Section Jump"
-        },
-        {
-          "level": 2,
-          "text": "Review Queue"
-        },
-        {
-          "level": 3,
-          "text": "Inline Review Notes"
-        },
-        {
-          "level": 3,
-          "text": "`wand-magic-sparkles`"
-        },
-        {
-          "level": 3,
-          "text": "`book`"
-        },
-        {
-          "level": 3,
-          "text": "`server`"
-        },
-        {
-          "level": 3,
-          "text": "`bolt` vs `rocket`"
-        },
-        {
-          "level": 3,
-          "text": "`tools`"
-        },
-        {
-          "level": 3,
-          "text": "`coins`"
-        },
-        {
-          "level": 3,
-          "text": "`link`"
-        },
-        {
-          "level": 2,
-          "text": "Data Location"
-        },
-        {
-          "level": 2,
-          "text": "Audit Tooling"
-        }
-      ],
-      "codeLanguages": [
-        "bash"
-      ]
-    },
-    {
       "url": "https://docs.livepeer.org/v2/gateways/concepts/role",
       "title": "The Gateway Role in the Livepeer Network",
       "description": "Learn how gateways connect applications to Livepeer, route video and AI workloads, and define the demand side of the network.",
@@ -8969,7 +8887,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/requirements/on-chain setup/on-chain",
+      "url": "https://docs.livepeer.org/v2/gateways/setup/requirements/on-chain-setup/on-chain",
       "title": "On-Chain Setup Requirements",
       "description": "This page will take you through setting up the additional requirements for running a Gateway in On-Chain mode including finding an RPC URL, and creating an Ethereum account and keystore.",
       "section": "gateways",
@@ -8992,7 +8910,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1790,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T11:22:47.167Z",
       "headings": [
         {
           "level": 2,
@@ -9032,7 +8950,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/requirements/on-chain setup/fund-gateway",
+      "url": "https://docs.livepeer.org/v2/gateways/setup/requirements/on-chain-setup/fund-gateway",
       "title": "Fund The Livepeer Gateway",
       "description": "The following steps will walk you through adding funds to your Gateway ETH account, including funding the ETH account on Ethereum Mainnet, bridging the funds to Arbritrum's L2 Network, and then using the Livepeer CLI to allocate the proper deposit and reserve amounts.",
       "section": "gateways",
@@ -9054,7 +8972,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 864,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T11:20:24.424Z",
       "headings": [
         {
           "level": 1,
@@ -12276,6 +12194,62 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/gateways/resources/compendium/glossary",
+      "title": "Gateway Glossary",
+      "description": "Key terms for Livepeer gateway operators — deployment modes, payment mechanics, orchestrator routing, and node configuration.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "glossary",
+        "gateways",
+        "terminology",
+        "resources",
+        "compendium"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 3442,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Livepeer Protocol Terms"
+        },
+        {
+          "level": 2,
+          "text": "Economic Terms"
+        },
+        {
+          "level": 2,
+          "text": "Video Terms"
+        },
+        {
+          "level": 2,
+          "text": "AI Terms"
+        },
+        {
+          "level": 2,
+          "text": "Web3 Terms"
+        },
+        {
+          "level": 2,
+          "text": "Technical Terms"
+        },
+        {
+          "level": 2,
+          "text": "Hardware Terms"
+        },
+        {
+          "level": 2,
+          "text": "Operational Terms"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/technical-architecture",
       "title": "Technical Architecture",
       "description": "Technical Architecture Diagrams and References",
@@ -13173,98 +13147,6 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/livepeer-exchanges",
-      "title": "Livepeer Exchanges",
-      "description": "List of exchanges that support Livepeer",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "references",
-        "livepeer-exchanges",
-        "exchanges",
-        "support",
-        "resources",
-        "reference",
-        "technical"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "advanced",
-      "wordCount": 63,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Exchanges that support Livepeer"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/arbitrum-exchanges",
-      "title": "Arbitrum Exchange Reference",
-      "description": "List of Exchanges that support Arbitrum One - dynamically fetched from CoinGecko",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "references",
-        "artibtrum-exchanges",
-        "arbitrum",
-        "exchange",
-        "reference",
-        "exchanges",
-        "support",
-        "resources",
-        "technical",
-        "arbitrum-exchanges"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "advanced",
-      "wordCount": 64,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Exchanges that support Arbitrum One"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/arbitrum-rpc",
-      "title": "Arbitrum RPCs",
-      "description": "List of Public Arbitrum RPCs",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "references",
-        "arbitrum-rpc",
-        "arbitrum",
-        "rpcs",
-        "public",
-        "resources",
-        "reference",
-        "technical"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "advanced",
-      "wordCount": 6,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/go-livepeer/bandwidth-requirements",
       "title": "Bandwidth Requirements",
       "description": "",
@@ -13451,60 +13333,93 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/resources/reference/compendium/glossary",
-      "title": "Gateway Glossary",
-      "description": "Key terms for Livepeer gateway operators — deployment modes, payment mechanics, orchestrator routing, and node configuration.",
+      "url": "https://docs.livepeer.org/v2/gateways/resources/compendium/livepeer-exchanges",
+      "title": "Livepeer Exchanges",
+      "description": "List of exchanges that support Livepeer",
       "section": "gateways",
       "tags": [
         "livepeer",
-        "glossary",
         "gateways",
-        "terminology",
+        "references",
+        "livepeer-exchanges",
+        "exchanges",
+        "support",
         "resources",
-        "reference",
         "compendium"
       ],
       "entities": [
         "gateway"
       ],
       "apiEndpoints": [],
-      "difficulty": "advanced",
-      "wordCount": 3442,
-      "lastVerified": "2026-03",
+      "difficulty": "intermediate",
+      "wordCount": 63,
+      "lastVerified": "2026-04-04T12:26:07.142Z",
       "headings": [
         {
           "level": 2,
-          "text": "Livepeer Protocol Terms"
-        },
-        {
-          "level": 2,
-          "text": "Economic Terms"
-        },
-        {
-          "level": 2,
-          "text": "Video Terms"
-        },
-        {
-          "level": 2,
-          "text": "AI Terms"
-        },
-        {
-          "level": 2,
-          "text": "Web3 Terms"
-        },
-        {
-          "level": 2,
-          "text": "Technical Terms"
-        },
-        {
-          "level": 2,
-          "text": "Hardware Terms"
-        },
-        {
-          "level": 2,
-          "text": "Operational Terms"
+          "text": "Exchanges that support Livepeer"
         }
       ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/resources/compendium/arbitrum-exchanges",
+      "title": "Arbitrum Exchange Reference",
+      "description": "List of Exchanges that support Arbitrum One - dynamically fetched from CoinGecko",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "references",
+        "artibtrum-exchanges",
+        "arbitrum",
+        "exchange",
+        "reference",
+        "exchanges",
+        "support",
+        "resources",
+        "compendium",
+        "arbitrum-exchanges"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 64,
+      "lastVerified": "2026-04-04T12:26:07.143Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Exchanges that support Arbitrum One"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/resources/compendium/arbitrum-rpc",
+      "title": "Arbitrum RPCs",
+      "description": "List of Public Arbitrum RPCs",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "references",
+        "arbitrum-rpc",
+        "arbitrum",
+        "rpcs",
+        "public",
+        "resources",
+        "compendium"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 6,
+      "lastVerified": "2026-04-04T12:26:07.128Z",
+      "headings": [],
       "codeLanguages": []
     },
     {
@@ -13609,7 +13524,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 965,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -18591,7 +18506,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 466,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -18713,7 +18628,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 398,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -18785,7 +18700,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 371,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -18861,7 +18776,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 960,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -18921,7 +18836,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 500,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -19028,7 +18943,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 598,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -19140,7 +19055,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 495,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -19228,7 +19143,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2758,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -19281,7 +19196,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 639,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -19360,7 +19275,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 697,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -19459,7 +19374,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 945,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -19594,7 +19509,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 395,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -19672,7 +19587,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 596,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -19766,7 +19681,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 494,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 2,
@@ -25775,6 +25690,88 @@
       ]
     },
     {
+      "url": "https://docs.livepeer.org/docs-guide/tooling/reference-maps/icon-map",
+      "title": "Icon Map",
+      "description": "Canonical icon-to-usage map for tabs, accordions, cards, and guide navigation across current Livepeer docs.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "icon-map",
+        "fontawesome",
+        "reference-map",
+        "docs-guide",
+        "authoring",
+        "tooling",
+        "reference-maps"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 937,
+      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Scope"
+        },
+        {
+          "level": 2,
+          "text": "Page-Type Canonical Defaults"
+        },
+        {
+          "level": 2,
+          "text": "Section Jump"
+        },
+        {
+          "level": 2,
+          "text": "Review Queue"
+        },
+        {
+          "level": 3,
+          "text": "Inline Review Notes"
+        },
+        {
+          "level": 3,
+          "text": "`wand-magic-sparkles`"
+        },
+        {
+          "level": 3,
+          "text": "`book`"
+        },
+        {
+          "level": 3,
+          "text": "`server`"
+        },
+        {
+          "level": 3,
+          "text": "`bolt` vs `rocket`"
+        },
+        {
+          "level": 3,
+          "text": "`tools`"
+        },
+        {
+          "level": 3,
+          "text": "`coins`"
+        },
+        {
+          "level": 3,
+          "text": "`link`"
+        },
+        {
+          "level": 2,
+          "text": "Data Location"
+        },
+        {
+          "level": 2,
+          "text": "Audit Tooling"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
       "url": "https://docs.livepeer.org/ai-tools/claude-code",
       "title": "Claude Code setup",
       "description": "",
@@ -26902,7 +26899,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 605,
-      "lastVerified": "2026-04-05T15:39:57+10:00",
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 1,
@@ -27371,8 +27368,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 884,
-      "lastVerified": "2026-04-05T20:38:28+10:00",
+      "wordCount": 880,
+      "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
           "level": 1,

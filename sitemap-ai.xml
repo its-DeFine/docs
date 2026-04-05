@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:ai="https://docs.livepeer.org/schemas/ai-sitemap/1.0">
   <url>
     <loc>https://docs.livepeer.org/v2/about/resources/reference/livepeer-contract-addresses</loc>
-    <lastmod>2026-04-04T12:26:07.187Z</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>about</ai:section>
     <ai:wordCount>0</ai:wordCount>
-    <ai:lastVerified>2026-04-04T12:26:07.187Z</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, livepeer contracts, livepeer contract address, livepeer contract addresses, LPT contract address, LPT token address, livepeer token address, livepeer smart contract address, livepeer arbitrum contract address, livepeer ethereum contract address, livepeer official contract, livepeer protocol contracts, contract addresses, arbitrum, ethereum, blockchain, smart contracts, canonical, reference, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer RoundsManager, livepeer Governor, livepeer verified contracts, livepeer arbiscan, official livepeer addresses, 0x289ba1701C2F088cf0faf8B3705246331cB8A839, 0x58b6a8a3302369daec383334672404ee733ab239</ai:tags>
   </url>
   <url>
@@ -145,18 +145,18 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/about/mechanics</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>371</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, mechanics, bonding, unbonding, staking, rewards, rounds</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/about/overview</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>466</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, overview, token, staking, governance, economics, arbitrum</ai:tags>
   </url>
   <url>
@@ -169,26 +169,26 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/about/tokenomics</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>398</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, tokenomics, inflation, staking, rewards, bonding rate, economics</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/delegation/about-delegators</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>598</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, delegators, staking, delegation, rewards, governance, risk</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/delegation/bridge-lpt-to-arbitrum</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>2758</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, LPT, bridge, arbitrum, ethereum, token transfer, L1, L2, CEX, DEX, exchange, Uniswap, Binance, OKX</ai:tags>
   </url>
   <url>
@@ -201,50 +201,50 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/delegation/delegation-guide</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>495</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, delegation, staking, bonding, unbonding, rewards, guide</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/delegation/getting-started</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>960</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, delegate lpt, staking, delegation, orchestrator, rewards, bonding, livepeer explorer</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/delegation/overview</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>500</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, delegation, staking, bonding, orchestrators, rewards, economics</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/governance/model</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>697</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, governance, model, quorum, voting, timelock, security</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/governance/overview</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>639</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, governance, voting, LIPs, SPE, proposals</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/governance/processes</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>945</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, governance, processes, voting, LIPs, treasury, proposals</ai:tags>
   </url>
   <url>
@@ -289,26 +289,26 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/treasury/allocations</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>494</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, treasury, allocations, governance, grants, funding, accountability</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/treasury/overview</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>395</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, treasury, governance, grants, funding, ecosystem</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/delegators/treasury/proposals</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>delegators</ai:section>
     <ai:wordCount>596</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, treasury, proposals, governance, grants, execution</ai:tags>
   </url>
   <url>
@@ -393,7 +393,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/developer-journey</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>1051</ai:wordCount>
     <ai:lastVerified>2026-03-17</ai:lastVerified>
@@ -465,10 +465,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/guides/local-testnet-deployment</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>861</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, testnet, local development, hardhat, deploy contracts, go-livepeer, developer</ai:tags>
   </url>
   <url>
@@ -481,10 +481,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/guides/testnet-contract-deployment</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>935</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
     <ai:tags>livepeer, contract addresses, arbitrum, ethereum, blockchain, smart contracts, testnet deployment, local testnet, hardhat, foundry, contract deployment guide, livepeer protocol testnet, arbitrum testnet, ethereum testnet, deploy smart contracts, developer guide, livepeer developer, protocol testing, contract verification, cast commands</ai:tags>
   </url>
   <url>
@@ -584,791 +584,12 @@
     <ai:tags>livepeer, developers, technical references, wiki</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/gateways/concepts/architecture</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>942</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, gateway architecture, gateway internals, request flow, session manager, go-livepeer, LivepeerNode, BroadcastSessionsManager, AISessionManager, orchestrator, remote signer, Arbitrum</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/concepts/business-model</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>745</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, gateway economics, gateway business model, gateway pricing, gateway fees, payment flow, arbitrage, maxPricePerUnit, ETH, LPT</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/concepts/capabilities</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>869</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, gateway capabilities, gateway functions, routing, orchestrator selection, video transcoding, AI inference, BYOC, session management, dual gateway</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/concepts/role</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>824</ai:wordCount>
-    <ai:lastVerified>2026-03-13</ai:lastVerified>
-    <ai:tags>livepeer, gateways, role of gateways, gateway role, gateway, demand aggregation, AI gateway, video gateway, off-chain gateway, on-chain gateway, gateway operator, gateway functions</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/advanced-operations/gateway-discoverability</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>977</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, publishing, discoverability, serviceAddr, gatewayHost, DNS, marketplace, capability advertising</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/advanced-operations/gateway-middleware</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>690</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, middleware, authentication, rate limiting, API key, JWT, reverse proxy, custom routing, BYOC, billing</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/advanced-operations/orchestrator-selection</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>942</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, orchestrator selection, tiering, performance score, blocklist, failover, capability routing, orchAddr, orchBlocklist</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/advanced-operations/scaling</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1039</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, scaling, session limits, maxSessions, GPU, hardware stats, horizontal scaling, dual gateway, capacity planning, livepeer_bench</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/deployment-details/setup-options</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>770</ai:wordCount>
-    <ai:lastVerified>2026-03-14</ai:lastVerified>
-    <ai:tags>livepeer, gateway deployment, on-chain vs off-chain, AI gateway, video gateway, dual gateway, SDK gateway, remote signer, gateway decision, GWID</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/deployment-details/setup-requirements</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1074</ai:wordCount>
-    <ai:lastVerified>2026-03-14</ai:lastVerified>
-    <ai:tags>livepeer, gateway requirements, gateway hardware, gateway server, gateway OS, Linux gateway, on-chain requirements, off-chain requirements, gateway skills</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/monitoring-and-tooling/health-checks</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>732</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, health check, monitoring, /health, /status, deposit, reserve, orchestrator reachability</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/monitoring-and-tooling/monitoring-setup</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>688</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, prometheus, grafana, monitoring, metrics, alerting, -monitor flag, metricsPerStream</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/monitoring-and-tooling/on-chain-metrics</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>859</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, arbitrum, on-chain, ticketbroker, arbiscan, contract, deposit, reserve, gas, probabilistic micropayments</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>742</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, explorer, livepeer tools, livepeer_cli, arbiscan, dashboard, monitoring, tools</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/monitoring-and-tooling/troubleshooting</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1726</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, troubleshooting, errors, not receiving jobs, rpc failure, cuda error, port conflict, deposit, docker, ai gateway, windows</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/node-pipelines/ai-pipelines</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1486</ai:wordCount>
-    <ai:lastVerified>2026-03-13</ai:lastVerified>
-    <ai:tags>livepeer, gateway, ai inference, ai pipeline, orchestrator discovery, ai session manager, text-to-image, comfystream, byoc, off-chain, orchAddr, ai gateway</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/node-pipelines/byoc-pipelines</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>947</ai:wordCount>
-    <ai:lastVerified>2026-03-13</ai:lastVerified>
-    <ai:tags>livepeer, gateway, byoc, bring your own container, capability routing, custom inference, ai pipeline, operator</ai:tags>
-  </url>
-  <url>
     <loc>https://docs.livepeer.org/v2/gateways/guides/node-pipelines/guide</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>1095</ai:wordCount>
     <ai:lastVerified>2026-03-13</ai:lastVerified>
     <ai:tags>livepeer, gateway, pipelines, job types, video transcoding, ai inference, byoc, routing, overview</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/node-pipelines/pipeline-configuration</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>907</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, transcoding options, transcoding profiles, pipeline configuration, transcodingOptions, encoding ladder, aiProcessingRetryTimeout, warm model, inference steps</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/node-pipelines/video-pipelines</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1275</ai:wordCount>
-    <ai:lastVerified>2026-03-13</ai:lastVerified>
-    <ai:tags>livepeer, gateway, video transcoding, rtmp, hls, segmentation, broadcast sessions manager, transcoding profiles, on-chain payment, pipeline</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/operator-considerations/business-case</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>2028</ai:wordCount>
-    <ai:lastVerified>2026-03-14</ai:lastVerified>
-    <ai:tags>livepeer, gateway business case, gateway operator, gateway revenue, gateway economics, self-hosted gateway, AI gateway, video gateway, gateway margin, NaaP</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/operator-considerations/production-gateways</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1291</ai:wordCount>
-    <ai:lastVerified>2026-03-14</ai:lastVerified>
-    <ai:tags>livepeer, ecosystem, gateway projects, community projects, Daydream, Livepeer Studio, Livepeer Cloud, NaaP, AI video, gateway examples</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/payments-and-pricing/clearinghouse-guide</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>949</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>beta, livepeer, gateway, clearinghouse, remote signer, NaaP, payment, ETH, API key, multi-tenant, gateway-as-service</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/payments-and-pricing/funding-guide</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>890</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, fund, ETH, Arbitrum, deposit, reserve, TicketBroker, livepeer_cli, on-chain</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/payments-and-pricing/payment-guide</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>632</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, payments, ETH, on-chain, off-chain, remote signer, clearinghouse, probabilistic micropayments, Arbitrum</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/payments-and-pricing/pricing-strategy</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1102</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, pricing, maxPricePerUnit, maxPricePerCapability, orchestrator, wei, ETH, AI pipeline, livePaymentInterval, Chainlink</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/payments-and-pricing/remote-signers</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1071</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, remote signer, signing, ETH, key isolation, Live AI, clearinghouse, go-livepeer, PR-3791, PR-3822, signerAddr</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/roadmap-and-funding/gateway-showcase</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1115</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, ecosystem, gateway projects, community projects, Daydream, Livepeer Studio, Livepeer Cloud, NaaP, AI video, gateway examples</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1075</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, NaaP, network as a platform, multi-tenant gateway, API key management, gateway billing, clearinghouse, JWT auth, SIWE, gateway-as-service</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/roadmap-and-funding/operator-support</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>604</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway operator, SPE grant, AI Video Startup Programme, funding, support, community, contribute</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/roadmap-and-funding/spe-grant-model</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1013</ai:wordCount>
-    <ai:lastVerified>2026-03-13</ai:lastVerified>
-    <ai:tags>livepeer, SPE, treasury grant, gateway funding, Livepeer Cloud SPE, LLM SPE, treasury proposal, gateway grant, Livepeer governance</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/tutorials/byoc-cpu-tutorial</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1300</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, BYOC, gateway, orchestrator, CPU, tutorial, off-chain, remote signer, Docker</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>869</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, tutorial, off-chain, transcoding, ffmpeg, quickstart</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>854</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, BYOC, PyTrickle, CPU, AI, tutorial, Docker, Whisper</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/guides/tutorials/tutorial-3-go-production</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>2033</ai:wordCount>
-    <ai:lastVerified>2026-03-15</ai:lastVerified>
-    <ai:tags>livepeer, gateway, production, on-chain, GPU, Arbitrum, ETH, orchestrator, network</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/navigator</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>876</ai:wordCount>
-    <ai:lastVerified>2026-03-13</ai:lastVerified>
-    <ai:tags>Start Here, livepeer, gateways, navigator, decision guide, getting started, gateway types, AI gateway, video gateway, gateway path</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/portal</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>157</ai:wordCount>
-    <ai:lastVerified>2026-03-17</ai:lastVerified>
-    <ai:tags>home, index, landing, gateway, gateways, applications, production builds, broadcaster, livepeer gateway, livepeer gateways, livepeer broadcaster, livepeer broadcasters, livepeer broadcasting, livepeer broadcast, livepeer broadcasts, livepeer broadcast portal, livepeer gateways portal, livepeer broadcaster portal, livepeer broadcasters portal, livepeer broadcasting portal</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/quickstart/AI-prompt</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>86</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, quickstart, get ai to setup the gateway, setup, gateway</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/quickstart/gateway-setup</loc>
-    <lastmod>2026-04-05T15:39:57+10:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>318</ai:wordCount>
-    <ai:lastVerified>2026-03-17</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, quickstart, quickstart a gateway, gateway, guide, video</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/knowledge-hub/guides</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1253</ai:wordCount>
-    <ai:lastVerified>2026-03-17</ai:lastVerified>
-    <ai:tags>livepeer, gateway, guides, tutorials, off-chain, remote signer, BYOC, AI gateway, go-livepeer</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/knowledge-hub/help</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1374</ai:wordCount>
-    <ai:lastVerified>2026-03-13</ai:lastVerified>
-    <ai:tags>livepeer, gateway, help, support, discord, forum, github issues, office hours</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/knowledge-hub/resources</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>965</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateway, resources, tools, dashboards, SDK, go-livepeer, monitoring, analytics</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/compendium/glossary</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>3442</ai:wordCount>
-    <ai:lastVerified>2026-03</ai:lastVerified>
-    <ai:tags>livepeer, glossary, gateways, terminology</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/faq</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1195</ai:wordCount>
-    <ai:lastVerified>2026-03</ai:lastVerified>
-    <ai:tags>livepeer, gateway, faq, frequently asked questions, broadcaster, gateway flag, ETH, AI gateway, Windows, pricing, ports</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/glossary</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>846</ai:wordCount>
-    <ai:lastVerified>2026-03-14</ai:lastVerified>
-    <ai:tags>livepeer, gateway glossary, operational mode, on-chain, off-chain, setup type, node type, gateway terminology</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/go-livepeer/bandwidth-requirements</loc>
-    <lastmod>2026-03-28T11:50:11+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>332</ai:wordCount>
-    <ai:lastVerified>2026-03-28T11:50:11+11:00</ai:lastVerified>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/go-livepeer/cli-reference</loc>
-    <lastmod>2026-03-28T11:50:11+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>905</ai:wordCount>
-    <ai:lastVerified>2026-03-28T11:50:11+11:00</ai:lastVerified>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/go-livepeer/gpu-support</loc>
-    <lastmod>2026-03-28T11:50:11+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>298</ai:wordCount>
-    <ai:lastVerified>2026-03-28T11:50:11+11:00</ai:lastVerified>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/go-livepeer/hardware-requirements</loc>
-    <lastmod>2026-03-28T11:50:11+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>149</ai:wordCount>
-    <ai:lastVerified>2026-03-17</ai:lastVerified>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/go-livepeer/prometheus-metrics</loc>
-    <lastmod>2026-03-28T11:50:11+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>825</ai:wordCount>
-    <ai:lastVerified>2026-03-17</ai:lastVerified>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/ai</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>165</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>API Index, livepeer, gateways, references, api reference, ai api, portal, reference, endpoints</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/audio-to-text</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>66</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, ai api, audio to text</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/hardware-info</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>63</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, ai api, hardware info</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/hardware-stats</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>60</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, ai api, hardware stats</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/health</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>61</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, ai api, health</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/image-to-image</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>67</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, ai api, image to image</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/image-to-text</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>66</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, ai api, image to text</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/image-to-video</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>48</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, ai api, image to video</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/live-video-to-video</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>50</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, ai api, live video to video</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/llm</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>44</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, ai api, llm</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/segment-anything-2</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>48</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, ai api, segment anything 2</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/text-to-image</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>48</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, ai api, text to image</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/text-to-speech</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>48</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, ai api, text to speech</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/upscale</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>44</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, ai api, upscale</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/activateorchestrator</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>45</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, cli http, activateorchestrator</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/cli-http-api</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>235</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>Index, livepeer, gateways, references, api reference, cli http, cli http api, http, portal, reference, endpoints</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/rebond</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>44</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, cli http, rebond</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/reward</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>44</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, cli http, reward</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/setbroadcastconfig</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>46</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, cli http, setbroadcastconfig</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/setmaxpriceforcapability</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>48</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, cli http, setmaxpriceforcapability</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/signmessage</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>45</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, cli http, signmessage</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/transfertokens</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>45</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, cli http, transfertokens</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/unbond</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>44</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api reference, cli http, unbond</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/arbitrum-exchanges</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>64</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, artibtrum exchanges, arbitrum, exchange, reference, exchanges, support</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/arbitrum-rpc</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>6</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, arbitrum rpc, arbitrum, rpcs, public</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/cli-commands</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>517</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, cli commands, gateway, commands, reference</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/configuration-flags</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>36</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, configuration flags, gateway, configuration, flags, reference</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/contract-addresses</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>0</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, livepeer contracts, livepeer contract address, livepeer contract addresses, LPT contract address, LPT token address, livepeer token address, livepeer smart contract address, livepeer arbitrum contract address, livepeer ethereum contract address, livepeer official contract, livepeer protocol contracts, contract addresses, arbitrum, ethereum, blockchain, smart contracts, canonical, reference, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer RoundsManager, livepeer Governor, livepeer verified contracts, livepeer arbiscan, official livepeer addresses, 0x289ba1701C2F088cf0faf8B3705246331cB8A839, 0x58b6a8a3302369daec383334672404ee733ab239</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/livepeer-exchanges</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>63</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, livepeer exchanges, exchanges, support</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/resources/reference/technical/technical-architecture</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>0</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, technical architecture, technical, architecture, diagrams</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/configure/ai-configuration</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>500</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, configure, ai configuration, configuration, inference, services</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/configure/configuration-overview</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>180</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, configure, configuration overview, configuration, overview, configuring</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/configure/dual-configuration</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>479</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>AI &amp; Video, livepeer, gateways, run a gateway, configure, dual configuration, video, dual, gateway, services</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/configure/pricing-configuration</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>589</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, configure, pricing configuration, pricing, configuration</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/configure/video-configuration</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>500</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, configure, video configuration, video, configuration, services</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/connect/connect-with-offerings</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>172</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, connect, connect with offerings, discover, marketplace, compute, services, explains</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/connect/discover-offerings</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>131</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, connect, discover offerings, discover, marketplace, offerings, explains, video</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/connect/lp-marketplace</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>120</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, connect, lp marketplace, marketplace, overview, provides</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/install/community-projects</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>173</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>beta, livepeer, gateways, run a gateway, install, community projects, easy, devops, community, projects, pipelines</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/install/docker-install</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>727</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, install, docker install, docker, gateway, transcoding, rtmp</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/install/install-overview</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>214</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, install, install overview, installation, overview, process</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/install/linux-install</loc>
-    <lastmod>2026-04-05T15:39:57+10:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>297</ai:wordCount>
-    <ai:lastVerified>2026-04-05T15:39:57+10:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, install, linux install, linux, gateway</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/install/windows-install</loc>
-    <lastmod>2026-04-05T15:39:57+10:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>220</ai:wordCount>
-    <ai:lastVerified>2026-04-05T15:39:57+10:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, install, windows install, windows, gateway</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/monitor/monitor-and-optimise</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>313</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, monitor, monitor and optimise, optimise, gateway, services</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/requirements/on-chain setup/fund-gateway</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>864</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, requirements, on chain setup, fund gateway, fund, gateway</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/requirements/on-chain setup/on-chain</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>1790</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, requirements, on chain setup, on chain, chain, setup, through, setting</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/requirements/setup</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>597</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, requirements, setup, gateway, node, learn, hardware, network</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/run-a-gateway</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>178</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run a gateway, gateway, connect, applications, video</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/gateways/setup/transcoding</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>gateways</ai:section>
-    <ai:wordCount>54</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, transcoding, go-livepeer</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/about-livepeer/benefits</loc>

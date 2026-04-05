@@ -5251,8 +5251,8 @@ const gatewaysNew = {
               "group": "Setup Checklist",
               "pages": [
                 "v2/gateways/setup/requirements/setup",
-                "v2/gateways/setup/requirements/on-chain setup/on-chain",
-                "v2/gateways/setup/requirements/on-chain setup/fund-gateway"
+                "v2/gateways/setup/requirements/on-chain-setup/on-chain",
+                "v2/gateways/setup/requirements/on-chain-setup/fund-gateway"
               ]
             },
             {
@@ -5382,74 +5382,86 @@ const gatewaysNew = {
       "group": "Resources",
       "icon": "code",
       "pages": [
-        "v2/gateways/resources/faq",
-        "v2/gateways/resources/glossary",
+        "v2/gateways/resources/reference/faq",
+        "v2/gateways/resources/reference/glossary",
+        "v2/gateways/resources/compendium/glossary",
         {
-          "group": "Technical Reference",
+          "group": "Reference",
           "pages": [
-            "v2/gateways/resources/technical/technical-architecture",
-            "v2/gateways/resources/technical/configuration-flags",
-            "v2/gateways/resources/technical/contract-addresses",
-            "v2/gateways/resources/technical/cli-commands",
             {
-              "group": "AI API",
+              "group": "Technical Reference",
               "pages": [
-                "v2/gateways/resources/technical/api-reference/AI-API/ai",
-                "v2/gateways/resources/technical/api-reference/AI-API/text-to-image",
-                "v2/gateways/resources/technical/api-reference/AI-API/image-to-image",
-                "v2/gateways/resources/technical/api-reference/AI-API/image-to-video",
-                "v2/gateways/resources/technical/api-reference/AI-API/upscale",
-                "v2/gateways/resources/technical/api-reference/AI-API/audio-to-text",
-                "v2/gateways/resources/technical/api-reference/AI-API/segment-anything-2",
-                "v2/gateways/resources/technical/api-reference/AI-API/llm",
-                "v2/gateways/resources/technical/api-reference/AI-API/image-to-text",
-                "v2/gateways/resources/technical/api-reference/AI-API/live-video-to-video",
-                "v2/gateways/resources/technical/api-reference/AI-API/text-to-speech",
-                "v2/gateways/resources/technical/api-reference/AI-API/health",
-                "v2/gateways/resources/technical/api-reference/AI-API/hardware-info",
-                "v2/gateways/resources/technical/api-reference/AI-API/hardware-stats"
+                "v2/gateways/resources/reference/technical/technical-architecture",
+                "v2/gateways/resources/reference/technical/configuration-flags",
+                "v2/gateways/resources/reference/technical/contract-addresses",
+                "v2/gateways/resources/reference/technical/cli-commands",
+                {
+                  "group": "AI API",
+                  "pages": [
+                    "v2/gateways/resources/reference/technical/api-reference/AI-API/ai",
+                    "v2/gateways/resources/reference/technical/api-reference/AI-API/text-to-image",
+                    "v2/gateways/resources/reference/technical/api-reference/AI-API/image-to-image",
+                    "v2/gateways/resources/reference/technical/api-reference/AI-API/image-to-video",
+                    "v2/gateways/resources/reference/technical/api-reference/AI-API/upscale",
+                    "v2/gateways/resources/reference/technical/api-reference/AI-API/audio-to-text",
+                    "v2/gateways/resources/reference/technical/api-reference/AI-API/segment-anything-2",
+                    "v2/gateways/resources/reference/technical/api-reference/AI-API/llm",
+                    "v2/gateways/resources/reference/technical/api-reference/AI-API/image-to-text",
+                    "v2/gateways/resources/reference/technical/api-reference/AI-API/live-video-to-video",
+                    "v2/gateways/resources/reference/technical/api-reference/AI-API/text-to-speech",
+                    "v2/gateways/resources/reference/technical/api-reference/AI-API/health",
+                    "v2/gateways/resources/reference/technical/api-reference/AI-API/hardware-info",
+                    "v2/gateways/resources/reference/technical/api-reference/AI-API/hardware-stats"
+                  ]
+                },
+                {
+                  "group": "CLI HTTP API",
+                  "pages": [
+                    "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/cli-http-api",
+                    "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/unbond",
+                    "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/rebond",
+                    "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/activateorchestrator",
+                    "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/setbroadcastconfig",
+                    "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/setmaxpriceforcapability",
+                    "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/reward",
+                    "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/transfertokens",
+                    "v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/signmessage"
+                  ]
+                }
               ]
             },
             {
-              "group": "CLI HTTP API",
+              "group": "go-livepeer Reference",
               "pages": [
-                "v2/gateways/resources/technical/api-reference/CLI-HTTP/cli-http-api",
-                "v2/gateways/resources/technical/api-reference/CLI-HTTP/unbond",
-                "v2/gateways/resources/technical/api-reference/CLI-HTTP/rebond",
-                "v2/gateways/resources/technical/api-reference/CLI-HTTP/activateorchestrator",
-                "v2/gateways/resources/technical/api-reference/CLI-HTTP/setbroadcastconfig",
-                "v2/gateways/resources/technical/api-reference/CLI-HTTP/setmaxpriceforcapability",
-                "v2/gateways/resources/technical/api-reference/CLI-HTTP/reward",
-                "v2/gateways/resources/technical/api-reference/CLI-HTTP/transfertokens",
-                "v2/gateways/resources/technical/api-reference/CLI-HTTP/signmessage"
+                "v2/gateways/resources/reference/go-livepeer/bandwidth-requirements",
+                "v2/gateways/resources/reference/go-livepeer/hardware-requirements",
+                "v2/gateways/resources/reference/go-livepeer/gpu-support",
+                "v2/gateways/resources/reference/go-livepeer/cli-reference",
+                "v2/gateways/resources/reference/go-livepeer/prometheus-metrics"
               ]
             },
             {
-              "group": "Exchanges & RPCs",
+              "group": "Compendium",
               "pages": [
-                "v2/gateways/resources/technical/livepeer-exchanges",
-                "v2/gateways/resources/technical/arbitrum-exchanges",
-                "v2/gateways/resources/technical/arbitrum-rpc"
+                "v2/gateways/resources/compendium/glossary",
+                {
+                  "group": "Exchanges & RPCs",
+                  "pages": [
+                    "v2/gateways/resources/compendium/livepeer-exchanges",
+                    "v2/gateways/resources/compendium/arbitrum-exchanges",
+                    "v2/gateways/resources/compendium/arbitrum-rpc"
+                  ]
+                }
+              ]
+            },
+            {
+              "group": "Knowledge Hub",
+              "pages": [
+                "v2/gateways/resources/knowledge-hub/guides",
+                "v2/gateways/resources/knowledge-hub/resources",
+                "v2/gateways/resources/knowledge-hub/help"
               ]
             }
-          ]
-        },
-        {
-          "group": "go-livepeer Reference",
-          "pages": [
-            "v2/gateways/resources/go-livepeer/bandwidth-requirements",
-            "v2/gateways/resources/go-livepeer/hardware-requirements",
-            "v2/gateways/resources/go-livepeer/gpu-support",
-            "v2/gateways/resources/go-livepeer/cli-reference",
-            "v2/gateways/resources/go-livepeer/prometheus-metrics"
-          ]
-        },
-        {
-          "group": "More Resources",
-          "pages": [
-            "v2/gateways/resources/knowledge-base/guides",
-            "v2/gateways/resources/knowledge-base/resources",
-            "v2/gateways/resources/knowledge-base/help"
           ]
         }
       ]

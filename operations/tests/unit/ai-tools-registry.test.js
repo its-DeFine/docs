@@ -3,7 +3,7 @@
  * @script            ai-tools-registry.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             operations/tests/unit, ai-tools/registry, tools/lib/ai/ai-tools-registry.js, operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js, docs-guide/tooling/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx, tools/config/runtime/ownerless-governance-surfaces.json
+ * @scope             operations/tests/unit, ai-tools/registry, tools/lib/ai/ai-tools-registry.js, operations/scripts/generators/governance/catalogs/generate-ai-tools-registry-artifacts.js, operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js, operations/governance/config/ownerless-governance-surfaces.json, tools/config/runtime/ownerless-governance-surfaces.json, docs-guide/tooling/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx
  * @domain            docs
  * @needs             R-R14, R-R29
  * @purpose-statement Validates the AI-tools registry contract, full tracked ai-tools coverage, and the Wave 1 inventory source-of-truth boundary.

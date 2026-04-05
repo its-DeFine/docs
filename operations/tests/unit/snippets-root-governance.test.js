@@ -3,7 +3,7 @@
  * @script            snippets-root-governance.test
  * @category          validator
  * @purpose           qa:repo-health
- * @scope             operations/tests/unit, snippets/guide.mdx, snippets/snippets-registry.mdx, snippets/_workspace/archive, tools/config/runtime/generated-artifacts.json
+ * @scope             operations/tests/unit, snippets/guide.mdx, snippets/snippets-registry.mdx, snippets/_workspace/archive, operations/governance/config/generated-artifacts.json, tools/config/runtime/generated-artifacts.json
  * @domain            docs
  * @needs             R-R16, R-R17
  * @purpose-statement Validates the governed two-file snippets root model and enforces freshness for the generated snippets registry.

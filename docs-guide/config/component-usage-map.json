@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generated": "2026-04-05T10:47:45.051Z",
+    "generated": "2026-04-05T11:24:46.421Z",
     "generator": "operations/scripts/audits/components/library/scan-component-imports.js",
     "componentCount": 144,
     "canonicalUsagePolicy": "english-only-jsdoc"
@@ -218,21 +218,25 @@
       "name": "FrameQuote",
       "file": "snippets/components/displays/quotes/Quote.jsx",
       "category": "displays",
-      "count": 3,
+      "count": 5,
       "pages": [
+        "v2/about/protocol/core-mechanisms.mdx",
+        "v2/about/protocol/overview.mdx",
         "v2/home/about-livepeer/benefits.mdx",
         "v2/home/about-livepeer/ecosystem.mdx",
         "v2/home/about-livepeer/vision.mdx"
       ],
       "localeBreakdown": {
-        "en": 3,
+        "en": 5,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 3,
+      "englishCanonicalCount": 5,
       "englishCanonicalPages": [
+        "v2/about/protocol/core-mechanisms.mdx",
+        "v2/about/protocol/overview.mdx",
         "v2/home/about-livepeer/benefits.mdx",
         "v2/home/about-livepeer/ecosystem.mdx",
         "v2/home/about-livepeer/vision.mdx"
@@ -241,6 +245,8 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/protocol/core-mechanisms.mdx",
+          "v2/about/protocol/overview.mdx",
           "v2/home/about-livepeer/benefits.mdx",
           "v2/home/about-livepeer/ecosystem.mdx",
           "v2/home/about-livepeer/vision.mdx"
@@ -252,21 +258,27 @@
       "name": "FunctionField",
       "file": "snippets/components/displays/response-fields/ResponseField.jsx",
       "category": "displays",
-      "count": 0,
-      "pages": [],
+      "count": 1,
+      "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "localeBreakdown": {
-        "en": 0,
+        "en": 1,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
+      "englishCanonicalCount": 1,
+      "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
-        "missingFromJsDoc": [],
+        "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx"
+        ],
         "staleInJsDoc": []
       }
     },
@@ -318,8 +330,14 @@
       "name": "Quote",
       "file": "snippets/components/displays/quotes/Quote.jsx",
       "category": "displays",
-      "count": 5,
+      "count": 11,
       "pages": [
+        "v2/about/protocol/core-mechanisms.mdx",
+        "v2/about/protocol/governance-model.mdx",
+        "v2/about/protocol/livepeer-token.mdx",
+        "v2/about/protocol/overview.mdx",
+        "v2/about/protocol/technical-architecture.mdx",
+        "v2/about/protocol/treasury.mdx",
         "v2/home/about-livepeer/vision.mdx",
         "v2/internal/rfp/aims.mdx",
         "v2/internal/rfp/report.mdx",
@@ -327,14 +345,20 @@
         "v2/orchestrators/guides/deployment-details/setup-options.mdx"
       ],
       "localeBreakdown": {
-        "en": 5,
+        "en": 11,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 5,
+      "englishCanonicalCount": 11,
       "englishCanonicalPages": [
+        "v2/about/protocol/core-mechanisms.mdx",
+        "v2/about/protocol/governance-model.mdx",
+        "v2/about/protocol/livepeer-token.mdx",
+        "v2/about/protocol/overview.mdx",
+        "v2/about/protocol/technical-architecture.mdx",
+        "v2/about/protocol/treasury.mdx",
         "v2/home/about-livepeer/vision.mdx",
         "v2/internal/rfp/aims.mdx",
         "v2/internal/rfp/report.mdx",
@@ -345,6 +369,12 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/protocol/core-mechanisms.mdx",
+          "v2/about/protocol/governance-model.mdx",
+          "v2/about/protocol/livepeer-token.mdx",
+          "v2/about/protocol/overview.mdx",
+          "v2/about/protocol/technical-architecture.mdx",
+          "v2/about/protocol/treasury.mdx",
           "v2/home/about-livepeer/vision.mdx",
           "v2/internal/rfp/aims.mdx",
           "v2/internal/rfp/report.mdx",
@@ -546,8 +576,11 @@
       "name": "ScrollableDiagram",
       "file": "snippets/components/displays/diagrams/ZoomableDiagram.jsx",
       "category": "displays",
-      "count": 21,
+      "count": 24,
       "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx",
+        "v2/about/protocol/livepeer-token.mdx",
+        "v2/about/protocol/technical-architecture.mdx",
         "v2/gateways/concepts/architecture.mdx",
         "v2/gateways/concepts/role.mdx",
         "v2/gateways/guides/advanced-operations/gateway-middleware.mdx",
@@ -571,14 +604,17 @@
         "v2/orchestrators/guides/operator-considerations/operator-rationale.mdx"
       ],
       "localeBreakdown": {
-        "en": 21,
+        "en": 24,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 21,
+      "englishCanonicalCount": 24,
       "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx",
+        "v2/about/protocol/livepeer-token.mdx",
+        "v2/about/protocol/technical-architecture.mdx",
         "v2/gateways/concepts/architecture.mdx",
         "v2/gateways/concepts/role.mdx",
         "v2/gateways/guides/advanced-operations/gateway-middleware.mdx",
@@ -605,6 +641,9 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx",
+          "v2/about/protocol/livepeer-token.mdx",
+          "v2/about/protocol/technical-architecture.mdx",
           "v2/gateways/concepts/architecture.mdx",
           "v2/gateways/concepts/role.mdx",
           "v2/gateways/guides/advanced-operations/gateway-middleware.mdx",
@@ -693,20 +732,22 @@
       "name": "ValueResponseField",
       "file": "snippets/components/displays/response-fields/ResponseField.jsx",
       "category": "displays",
-      "count": 2,
+      "count": 3,
       "pages": [
+        "v2/about/protocol/core-mechanisms.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
         "v2/gateways/setup/configure/video-configuration.mdx"
       ],
       "localeBreakdown": {
-        "en": 2,
+        "en": 3,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 2,
+      "englishCanonicalCount": 3,
       "englishCanonicalPages": [
+        "v2/about/protocol/core-mechanisms.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
         "v2/gateways/setup/configure/video-configuration.mdx"
       ],
@@ -714,6 +755,7 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/protocol/core-mechanisms.mdx",
           "v2/gateways/quickstart/gateway-setup.mdx",
           "v2/gateways/setup/configure/video-configuration.mdx"
         ],
@@ -945,21 +987,33 @@
       "name": "AccordionTitleWithArrow",
       "file": "snippets/components/elements/text/Text.jsx",
       "category": "elements",
-      "count": 0,
-      "pages": [],
+      "count": 3,
+      "pages": [
+        "v2/about/protocol/core-mechanisms.mdx",
+        "v2/about/protocol/governance-model.mdx",
+        "v2/about/protocol/livepeer-token.mdx"
+      ],
       "localeBreakdown": {
-        "en": 0,
+        "en": 3,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
+      "englishCanonicalCount": 3,
+      "englishCanonicalPages": [
+        "v2/about/protocol/core-mechanisms.mdx",
+        "v2/about/protocol/governance-model.mdx",
+        "v2/about/protocol/livepeer-token.mdx"
+      ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
-        "missingFromJsDoc": [],
+        "missingFromJsDoc": [
+          "v2/about/protocol/core-mechanisms.mdx",
+          "v2/about/protocol/governance-model.mdx",
+          "v2/about/protocol/livepeer-token.mdx"
+        ],
         "staleInJsDoc": []
       }
     },
@@ -967,21 +1021,27 @@
       "name": "AddressLinks",
       "file": "snippets/components/elements/links/Links.jsx",
       "category": "elements",
-      "count": 0,
-      "pages": [],
+      "count": 1,
+      "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "localeBreakdown": {
-        "en": 0,
+        "en": 1,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
+      "englishCanonicalCount": 1,
+      "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
-        "missingFromJsDoc": [],
+        "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx"
+        ],
         "staleInJsDoc": []
       }
     },
@@ -989,21 +1049,27 @@
       "name": "ArbitrumIcon",
       "file": "snippets/components/elements/icons/Icons.jsx",
       "category": "elements",
-      "count": 0,
-      "pages": [],
+      "count": 1,
+      "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "localeBreakdown": {
-        "en": 0,
+        "en": 1,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
+      "englishCanonicalCount": 1,
+      "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
-        "missingFromJsDoc": [],
+        "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx"
+        ],
         "staleInJsDoc": []
       }
     },
@@ -1011,21 +1077,27 @@
       "name": "ArbitrumSVG",
       "file": "snippets/components/elements/icons/Icons.jsx",
       "category": "elements",
-      "count": 0,
-      "pages": [],
+      "count": 1,
+      "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "localeBreakdown": {
-        "en": 0,
+        "en": 1,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
+      "englishCanonicalCount": 1,
+      "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
-        "missingFromJsDoc": [],
+        "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx"
+        ],
         "staleInJsDoc": []
       }
     },
@@ -1033,7 +1105,7 @@
       "name": "BlinkingIcon",
       "file": "snippets/components/elements/links/Links.jsx",
       "category": "elements",
-      "count": 11,
+      "count": 10,
       "pages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
@@ -1041,20 +1113,19 @@
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/gateways/setup/configure/ai-configuration.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
         "v2/home/mission-control.mdx",
         "v2/orchestrators/portal.mdx",
         "v2/resources/portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "localeBreakdown": {
-        "en": 11,
+        "en": 10,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 11,
+      "englishCanonicalCount": 10,
       "englishCanonicalPages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
@@ -1062,7 +1133,6 @@
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/gateways/setup/configure/ai-configuration.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
         "v2/home/mission-control.mdx",
         "v2/orchestrators/portal.mdx",
         "v2/resources/portal.mdx",
@@ -1078,7 +1148,6 @@
           "v2/developers/portal.mdx",
           "v2/gateways/portal.mdx",
           "v2/gateways/setup/configure/ai-configuration.mdx",
-          "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
           "v2/home/mission-control.mdx",
           "v2/orchestrators/portal.mdx",
           "v2/resources/portal.mdx",
@@ -1135,21 +1204,42 @@
       "name": "CardTitleTextWithArrow",
       "file": "snippets/components/elements/text/Text.jsx",
       "category": "elements",
-      "count": 0,
-      "pages": [],
+      "count": 6,
+      "pages": [
+        "v2/about/protocol/core-mechanisms.mdx",
+        "v2/about/protocol/governance-model.mdx",
+        "v2/about/protocol/livepeer-token.mdx",
+        "v2/about/protocol/overview.mdx",
+        "v2/about/protocol/technical-architecture.mdx",
+        "v2/about/protocol/treasury.mdx"
+      ],
       "localeBreakdown": {
-        "en": 0,
+        "en": 6,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
+      "englishCanonicalCount": 6,
+      "englishCanonicalPages": [
+        "v2/about/protocol/core-mechanisms.mdx",
+        "v2/about/protocol/governance-model.mdx",
+        "v2/about/protocol/livepeer-token.mdx",
+        "v2/about/protocol/overview.mdx",
+        "v2/about/protocol/technical-architecture.mdx",
+        "v2/about/protocol/treasury.mdx"
+      ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
-        "missingFromJsDoc": [],
+        "missingFromJsDoc": [
+          "v2/about/protocol/core-mechanisms.mdx",
+          "v2/about/protocol/governance-model.mdx",
+          "v2/about/protocol/livepeer-token.mdx",
+          "v2/about/protocol/overview.mdx",
+          "v2/about/protocol/technical-architecture.mdx",
+          "v2/about/protocol/treasury.mdx"
+        ],
         "staleInJsDoc": []
       }
     },
@@ -1188,21 +1278,27 @@
       "name": "CopyText",
       "file": "snippets/components/elements/text/Text.jsx",
       "category": "elements",
-      "count": 0,
-      "pages": [],
+      "count": 1,
+      "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "localeBreakdown": {
-        "en": 0,
+        "en": 1,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
+      "englishCanonicalCount": 1,
+      "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
-        "missingFromJsDoc": [],
+        "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx"
+        ],
         "staleInJsDoc": []
       }
     },
@@ -1241,8 +1337,9 @@
       "name": "CustomCardTitle",
       "file": "snippets/components/elements/text/CustomCardTitle.jsx",
       "category": "elements",
-      "count": 11,
+      "count": 12,
       "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/about-livepeer/benefits.mdx",
         "v2/home/primer.mdx",
@@ -1256,14 +1353,15 @@
         "v2/solutions/streamplace/overview.mdx"
       ],
       "localeBreakdown": {
-        "en": 11,
+        "en": 12,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 11,
+      "englishCanonicalCount": 12,
       "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/about-livepeer/benefits.mdx",
         "v2/home/primer.mdx",
@@ -1280,6 +1378,7 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx",
           "v2/gateways/portal.mdx",
           "v2/home/about-livepeer/benefits.mdx",
           "v2/home/primer.mdx",
@@ -1299,9 +1398,23 @@
       "name": "CustomDivider",
       "file": "snippets/components/elements/spacing/Divider.jsx",
       "category": "elements",
-      "count": 166,
+      "count": 178,
       "pages": [
+        "v2/about/navigator.mdx",
         "v2/about/portal.mdx",
+        "v2/about/protocol/blockchain-contracts.mdx",
+        "v2/about/protocol/core-mechanisms.mdx",
+        "v2/about/protocol/design-philosophy.mdx",
+        "v2/about/protocol/governance-model.mdx",
+        "v2/about/protocol/livepeer-token.mdx",
+        "v2/about/protocol/overview.mdx",
+        "v2/about/protocol/technical-architecture.mdx",
+        "v2/about/protocol/treasury.mdx",
+        "v2/about/resources/faq.mdx",
+        "v2/about/resources/glossary.mdx",
+        "v2/about/resources/knowledge-hub/contributor-orientation.mdx",
+        "v2/about/resources/knowledge-hub/evaluating-livepeer.mdx",
+        "v2/about/resources/reference/network-metrics.mdx",
         "v2/community/community-portal.mdx",
         "v2/community/livepeer-community/community-guidelines.mdx",
         "v2/community/resources/compendium/glossary.mdx",
@@ -1355,10 +1468,8 @@
         "v2/gateways/navigator.mdx",
         "v2/gateways/portal.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
-        "v2/gateways/resources/reference/compendium/glossary.mdx",
         "v2/gateways/resources/reference/glossary.mdx",
         "v2/gateways/setup/configure/video-configuration.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/home/about-livepeer/benefits.mdx",
         "v2/home/about-livepeer/ecosystem.mdx",
@@ -1469,15 +1580,29 @@
         "v2/solutions/streamplace/overview.mdx"
       ],
       "localeBreakdown": {
-        "en": 166,
+        "en": 178,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 166,
+      "englishCanonicalCount": 178,
       "englishCanonicalPages": [
+        "v2/about/navigator.mdx",
         "v2/about/portal.mdx",
+        "v2/about/protocol/blockchain-contracts.mdx",
+        "v2/about/protocol/core-mechanisms.mdx",
+        "v2/about/protocol/design-philosophy.mdx",
+        "v2/about/protocol/governance-model.mdx",
+        "v2/about/protocol/livepeer-token.mdx",
+        "v2/about/protocol/overview.mdx",
+        "v2/about/protocol/technical-architecture.mdx",
+        "v2/about/protocol/treasury.mdx",
+        "v2/about/resources/faq.mdx",
+        "v2/about/resources/glossary.mdx",
+        "v2/about/resources/knowledge-hub/contributor-orientation.mdx",
+        "v2/about/resources/knowledge-hub/evaluating-livepeer.mdx",
+        "v2/about/resources/reference/network-metrics.mdx",
         "v2/community/community-portal.mdx",
         "v2/community/livepeer-community/community-guidelines.mdx",
         "v2/community/resources/compendium/glossary.mdx",
@@ -1531,10 +1656,8 @@
         "v2/gateways/navigator.mdx",
         "v2/gateways/portal.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
-        "v2/gateways/resources/reference/compendium/glossary.mdx",
         "v2/gateways/resources/reference/glossary.mdx",
         "v2/gateways/setup/configure/video-configuration.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/home/about-livepeer/benefits.mdx",
         "v2/home/about-livepeer/ecosystem.mdx",
@@ -1648,7 +1771,21 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/navigator.mdx",
           "v2/about/portal.mdx",
+          "v2/about/protocol/blockchain-contracts.mdx",
+          "v2/about/protocol/core-mechanisms.mdx",
+          "v2/about/protocol/design-philosophy.mdx",
+          "v2/about/protocol/governance-model.mdx",
+          "v2/about/protocol/livepeer-token.mdx",
+          "v2/about/protocol/overview.mdx",
+          "v2/about/protocol/technical-architecture.mdx",
+          "v2/about/protocol/treasury.mdx",
+          "v2/about/resources/faq.mdx",
+          "v2/about/resources/glossary.mdx",
+          "v2/about/resources/knowledge-hub/contributor-orientation.mdx",
+          "v2/about/resources/knowledge-hub/evaluating-livepeer.mdx",
+          "v2/about/resources/reference/network-metrics.mdx",
           "v2/community/community-portal.mdx",
           "v2/community/livepeer-community/community-guidelines.mdx",
           "v2/community/resources/compendium/glossary.mdx",
@@ -1702,10 +1839,8 @@
           "v2/gateways/navigator.mdx",
           "v2/gateways/portal.mdx",
           "v2/gateways/quickstart/gateway-setup.mdx",
-          "v2/gateways/resources/reference/compendium/glossary.mdx",
           "v2/gateways/resources/reference/glossary.mdx",
           "v2/gateways/setup/configure/video-configuration.mdx",
-          "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
           "v2/gateways/setup/requirements/setup.mdx",
           "v2/home/about-livepeer/benefits.mdx",
           "v2/home/about-livepeer/ecosystem.mdx",
@@ -1824,6 +1959,7 @@
       "category": "elements",
       "count": 34,
       "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx",
         "v2/gateways/guides/deployment-details/setup-options.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
         "v2/gateways/setup/configure/ai-configuration.mdx",
@@ -1833,7 +1969,6 @@
         "v2/gateways/setup/install/docker-install.mdx",
         "v2/gateways/setup/install/install-overview.mdx",
         "v2/gateways/setup/monitor/monitor-and-optimise.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/resources/changelog/ai-compute/ai-runner.mdx",
         "v2/resources/changelog/ai-compute/comfystream.mdx",
@@ -1868,6 +2003,7 @@
       },
       "englishCanonicalCount": 34,
       "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx",
         "v2/gateways/guides/deployment-details/setup-options.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
         "v2/gateways/setup/configure/ai-configuration.mdx",
@@ -1877,7 +2013,6 @@
         "v2/gateways/setup/install/docker-install.mdx",
         "v2/gateways/setup/install/install-overview.mdx",
         "v2/gateways/setup/monitor/monitor-and-optimise.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/resources/changelog/ai-compute/ai-runner.mdx",
         "v2/resources/changelog/ai-compute/comfystream.mdx",
@@ -1907,6 +2042,7 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx",
           "v2/gateways/guides/deployment-details/setup-options.mdx",
           "v2/gateways/quickstart/gateway-setup.mdx",
           "v2/gateways/setup/configure/ai-configuration.mdx",
@@ -1916,7 +2052,6 @@
           "v2/gateways/setup/install/docker-install.mdx",
           "v2/gateways/setup/install/install-overview.mdx",
           "v2/gateways/setup/monitor/monitor-and-optimise.mdx",
-          "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
           "v2/gateways/setup/requirements/setup.mdx",
           "v2/resources/changelog/ai-compute/ai-runner.mdx",
           "v2/resources/changelog/ai-compute/comfystream.mdx",
@@ -2030,8 +2165,11 @@
       "name": "GotoCard",
       "file": "snippets/components/elements/links/Links.jsx",
       "category": "elements",
-      "count": 10,
+      "count": 13,
       "pages": [
+        "v2/about/network/marketplace.mdx",
+        "v2/about/network/technical-architecture.mdx",
+        "v2/about/protocol/technical-architecture.mdx",
         "v2/developers/build/workload-fit.mdx",
         "v2/developers/guides/developer-guides.mdx",
         "v2/developers/guides/developer-help.mdx",
@@ -2044,14 +2182,17 @@
         "v2/home/primer.mdx"
       ],
       "localeBreakdown": {
-        "en": 10,
+        "en": 13,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 10,
+      "englishCanonicalCount": 13,
       "englishCanonicalPages": [
+        "v2/about/network/marketplace.mdx",
+        "v2/about/network/technical-architecture.mdx",
+        "v2/about/protocol/technical-architecture.mdx",
         "v2/developers/build/workload-fit.mdx",
         "v2/developers/guides/developer-guides.mdx",
         "v2/developers/guides/developer-help.mdx",
@@ -2067,6 +2208,9 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/network/marketplace.mdx",
+          "v2/about/network/technical-architecture.mdx",
+          "v2/about/protocol/technical-architecture.mdx",
           "v2/developers/build/workload-fit.mdx",
           "v2/developers/guides/developer-guides.mdx",
           "v2/developers/guides/developer-help.mdx",
@@ -2085,8 +2229,12 @@
       "name": "GotoLink",
       "file": "snippets/components/elements/links/Links.jsx",
       "category": "elements",
-      "count": 6,
+      "count": 10,
       "pages": [
+        "v2/about/network/interfaces.mdx",
+        "v2/about/network/marketplace.mdx",
+        "v2/about/network/technical-architecture.mdx",
+        "v2/about/protocol/technical-architecture.mdx",
         "v2/developers/build/workload-fit.mdx",
         "v2/gateways/setup/install/community-projects.mdx",
         "v2/gateways/setup/install/install-overview.mdx",
@@ -2095,14 +2243,18 @@
         "v2/home/primer.mdx"
       ],
       "localeBreakdown": {
-        "en": 6,
+        "en": 10,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 6,
+      "englishCanonicalCount": 10,
       "englishCanonicalPages": [
+        "v2/about/network/interfaces.mdx",
+        "v2/about/network/marketplace.mdx",
+        "v2/about/network/technical-architecture.mdx",
+        "v2/about/protocol/technical-architecture.mdx",
         "v2/developers/build/workload-fit.mdx",
         "v2/gateways/setup/install/community-projects.mdx",
         "v2/gateways/setup/install/install-overview.mdx",
@@ -2114,6 +2266,10 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/network/interfaces.mdx",
+          "v2/about/network/marketplace.mdx",
+          "v2/about/network/technical-architecture.mdx",
+          "v2/about/protocol/technical-architecture.mdx",
           "v2/developers/build/workload-fit.mdx",
           "v2/gateways/setup/install/community-projects.mdx",
           "v2/gateways/setup/install/install-overview.mdx",
@@ -2128,8 +2284,9 @@
       "name": "Image",
       "file": "snippets/components/elements/images/Image.jsx",
       "category": "elements",
-      "count": 6,
+      "count": 7,
       "pages": [
+        "v2/about/protocol/technical-architecture.mdx",
         "v2/community/livepeer-community/community-guidelines.mdx",
         "v2/home/about-livepeer/benefits.mdx",
         "v2/home/about-livepeer/evolution.mdx",
@@ -2137,14 +2294,15 @@
         "v2/home/primer.mdx"
       ],
       "localeBreakdown": {
-        "en": 6,
+        "en": 7,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 5,
+      "englishCanonicalCount": 6,
       "englishCanonicalPages": [
+        "v2/about/protocol/technical-architecture.mdx",
         "v2/community/livepeer-community/community-guidelines.mdx",
         "v2/home/about-livepeer/benefits.mdx",
         "v2/home/about-livepeer/evolution.mdx",
@@ -2155,6 +2313,7 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/protocol/technical-architecture.mdx",
           "v2/community/livepeer-community/community-guidelines.mdx",
           "v2/home/about-livepeer/benefits.mdx",
           "v2/home/about-livepeer/evolution.mdx",
@@ -2190,8 +2349,13 @@
       "name": "LinkArrow",
       "file": "snippets/components/elements/links/Links.jsx",
       "category": "elements",
-      "count": 107,
+      "count": 112,
       "pages": [
+        "v2/about/concepts/livepeer-overview.mdx",
+        "v2/about/protocol/blockchain-contracts.mdx",
+        "v2/about/protocol/governance-model.mdx",
+        "v2/about/protocol/livepeer-token.mdx",
+        "v2/about/protocol/overview.mdx",
         "v2/community/livepeer-community/trending-topics.mdx",
         "v2/community/livepeer-connect/events-and-community-streams.mdx",
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
@@ -2301,14 +2465,19 @@
         "v2/solutions/streamplace/community.mdx"
       ],
       "localeBreakdown": {
-        "en": 107,
+        "en": 112,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 107,
+      "englishCanonicalCount": 112,
       "englishCanonicalPages": [
+        "v2/about/concepts/livepeer-overview.mdx",
+        "v2/about/protocol/blockchain-contracts.mdx",
+        "v2/about/protocol/governance-model.mdx",
+        "v2/about/protocol/livepeer-token.mdx",
+        "v2/about/protocol/overview.mdx",
         "v2/community/livepeer-community/trending-topics.mdx",
         "v2/community/livepeer-connect/events-and-community-streams.mdx",
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
@@ -2421,6 +2590,11 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/concepts/livepeer-overview.mdx",
+          "v2/about/protocol/blockchain-contracts.mdx",
+          "v2/about/protocol/governance-model.mdx",
+          "v2/about/protocol/livepeer-token.mdx",
+          "v2/about/protocol/overview.mdx",
           "v2/community/livepeer-community/trending-topics.mdx",
           "v2/community/livepeer-connect/events-and-community-streams.mdx",
           "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
@@ -2536,21 +2710,27 @@
       "name": "LinkIcon",
       "file": "snippets/components/elements/links/Links.jsx",
       "category": "elements",
-      "count": 0,
-      "pages": [],
+      "count": 1,
+      "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "localeBreakdown": {
-        "en": 0,
+        "en": 1,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
+      "englishCanonicalCount": 1,
+      "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
-        "missingFromJsDoc": [],
+        "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx"
+        ],
         "staleInJsDoc": []
       }
     },
@@ -2580,9 +2760,40 @@
       "name": "LivepeerIcon",
       "file": "snippets/components/elements/icons/Icons.jsx",
       "category": "elements",
+      "count": 2,
+      "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx",
+        "v2/home/mission-control.mdx"
+      ],
+      "localeBreakdown": {
+        "en": 2,
+        "es": 0,
+        "fr": 0,
+        "cn": 0,
+        "other": 0
+      },
+      "englishCanonicalCount": 2,
+      "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx",
+        "v2/home/mission-control.mdx"
+      ],
+      "declaredUsedIn": [],
+      "declaredUsedInEnglish": [],
+      "drift": {
+        "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx",
+          "v2/home/mission-control.mdx"
+        ],
+        "staleInJsDoc": []
+      }
+    },
+    {
+      "name": "LivepeerSVG",
+      "file": "snippets/components/elements/icons/Icons.jsx",
+      "category": "elements",
       "count": 1,
       "pages": [
-        "v2/home/mission-control.mdx"
+        "v2/about/protocol/blockchain-contracts.mdx"
       ],
       "localeBreakdown": {
         "en": 1,
@@ -2593,36 +2804,14 @@
       },
       "englishCanonicalCount": 1,
       "englishCanonicalPages": [
-        "v2/home/mission-control.mdx"
+        "v2/about/protocol/blockchain-contracts.mdx"
       ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
-          "v2/home/mission-control.mdx"
+          "v2/about/protocol/blockchain-contracts.mdx"
         ],
-        "staleInJsDoc": []
-      }
-    },
-    {
-      "name": "LivepeerSVG",
-      "file": "snippets/components/elements/icons/Icons.jsx",
-      "category": "elements",
-      "count": 0,
-      "pages": [],
-      "localeBreakdown": {
-        "en": 0,
-        "es": 0,
-        "fr": 0,
-        "cn": 0,
-        "other": 0
-      },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
-      "declaredUsedIn": [],
-      "declaredUsedInEnglish": [],
-      "drift": {
-        "missingFromJsDoc": [],
         "staleInJsDoc": []
       }
     },
@@ -2891,20 +3080,24 @@
       "name": "Subtitle",
       "file": "snippets/components/elements/text/Text.jsx",
       "category": "elements",
-      "count": 2,
+      "count": 4,
       "pages": [
+        "v2/about/concepts/mental-model.mdx",
+        "v2/about/protocol/blockchain-contracts.mdx",
         "v2/home/solutions/showcase.mdx",
         "v2/home/solutions/verticals.mdx"
       ],
       "localeBreakdown": {
-        "en": 2,
+        "en": 4,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 2,
+      "englishCanonicalCount": 4,
       "englishCanonicalPages": [
+        "v2/about/concepts/mental-model.mdx",
+        "v2/about/protocol/blockchain-contracts.mdx",
         "v2/home/solutions/showcase.mdx",
         "v2/home/solutions/verticals.mdx"
       ],
@@ -2912,6 +3105,8 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/concepts/mental-model.mdx",
+          "v2/about/protocol/blockchain-contracts.mdx",
           "v2/home/solutions/showcase.mdx",
           "v2/home/solutions/verticals.mdx"
         ],
@@ -3087,30 +3282,21 @@
       "name": "CoinGeckoExchanges",
       "file": "snippets/components/integrators/feeds/Coingecko.jsx",
       "category": "integrators",
-      "count": 2,
-      "pages": [
-        "v2/gateways/resources/reference/technical/arbitrum-exchanges.mdx",
-        "v2/gateways/resources/reference/technical/livepeer-exchanges.mdx"
-      ],
+      "count": 0,
+      "pages": [],
       "localeBreakdown": {
-        "en": 2,
+        "en": 0,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 2,
-      "englishCanonicalPages": [
-        "v2/gateways/resources/reference/technical/arbitrum-exchanges.mdx",
-        "v2/gateways/resources/reference/technical/livepeer-exchanges.mdx"
-      ],
+      "englishCanonicalCount": 0,
+      "englishCanonicalPages": [],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
-        "missingFromJsDoc": [
-          "v2/gateways/resources/reference/technical/arbitrum-exchanges.mdx",
-          "v2/gateways/resources/reference/technical/livepeer-exchanges.mdx"
-        ],
+        "missingFromJsDoc": [],
         "staleInJsDoc": []
       }
     },
@@ -3518,21 +3704,27 @@
       "name": "SolidityEmbed",
       "file": "snippets/components/integrators/embeds/DataEmbed.jsx",
       "category": "integrators",
-      "count": 0,
-      "pages": [],
+      "count": 1,
+      "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "localeBreakdown": {
-        "en": 0,
+        "en": 1,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
+      "englishCanonicalCount": 1,
+      "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
-        "missingFromJsDoc": [],
+        "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx"
+        ],
         "staleInJsDoc": []
       }
     },
@@ -4439,21 +4631,27 @@
       "name": "AccordionLayout",
       "file": "snippets/components/wrappers/accordions/AccordionLayout.jsx",
       "category": "wrappers",
-      "count": 0,
-      "pages": [],
+      "count": 1,
+      "pages": [
+        "v2/about/concepts/mental-model.mdx"
+      ],
       "localeBreakdown": {
-        "en": 0,
+        "en": 1,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
+      "englishCanonicalCount": 1,
+      "englishCanonicalPages": [
+        "v2/about/concepts/mental-model.mdx"
+      ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
-        "missingFromJsDoc": [],
+        "missingFromJsDoc": [
+          "v2/about/concepts/mental-model.mdx"
+        ],
         "staleInJsDoc": []
       }
     },
@@ -4537,6 +4735,7 @@
       "category": "wrappers",
       "count": 62,
       "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx",
         "v2/community/livepeer-community/community-guidelines.mdx",
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/delegators/delegation/getting-started.mdx",
@@ -4564,7 +4763,6 @@
         "v2/gateways/guides/roadmap-and-funding/operator-support.mdx",
         "v2/gateways/guides/roadmap-and-funding/spe-grant-model.mdx",
         "v2/gateways/navigator.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/orchestrators/concepts/architecture.mdx",
         "v2/orchestrators/concepts/capabilities.mdx",
@@ -4609,6 +4807,7 @@
       },
       "englishCanonicalCount": 62,
       "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx",
         "v2/community/livepeer-community/community-guidelines.mdx",
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/delegators/delegation/getting-started.mdx",
@@ -4636,7 +4835,6 @@
         "v2/gateways/guides/roadmap-and-funding/operator-support.mdx",
         "v2/gateways/guides/roadmap-and-funding/spe-grant-model.mdx",
         "v2/gateways/navigator.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/orchestrators/concepts/architecture.mdx",
         "v2/orchestrators/concepts/capabilities.mdx",
@@ -4676,6 +4874,7 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx",
           "v2/community/livepeer-community/community-guidelines.mdx",
           "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
           "v2/delegators/delegation/getting-started.mdx",
@@ -4703,7 +4902,6 @@
           "v2/gateways/guides/roadmap-and-funding/operator-support.mdx",
           "v2/gateways/guides/roadmap-and-funding/spe-grant-model.mdx",
           "v2/gateways/navigator.mdx",
-          "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
           "v2/gateways/setup/requirements/setup.mdx",
           "v2/orchestrators/concepts/architecture.mdx",
           "v2/orchestrators/concepts/capabilities.mdx",
@@ -4768,8 +4966,9 @@
       "name": "CenteredContainer",
       "file": "snippets/components/wrappers/containers/Containers.jsx",
       "category": "wrappers",
-      "count": 26,
+      "count": 27,
       "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx",
         "v2/gateways/concepts/business-model.mdx",
         "v2/gateways/concepts/capabilities.mdx",
         "v2/gateways/concepts/role.mdx",
@@ -4798,14 +4997,15 @@
         "v2/solutions/streamplace/overview.mdx"
       ],
       "localeBreakdown": {
-        "en": 26,
+        "en": 27,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 26,
+      "englishCanonicalCount": 27,
       "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx",
         "v2/gateways/concepts/business-model.mdx",
         "v2/gateways/concepts/capabilities.mdx",
         "v2/gateways/concepts/role.mdx",
@@ -4837,6 +5037,7 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx",
           "v2/gateways/concepts/business-model.mdx",
           "v2/gateways/concepts/capabilities.mdx",
           "v2/gateways/concepts/role.mdx",
@@ -4871,21 +5072,27 @@
       "name": "DataWrap",
       "file": "snippets/components/wrappers/data/workflows.jsx",
       "category": "wrappers",
-      "count": 0,
-      "pages": [],
+      "count": 1,
+      "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "localeBreakdown": {
-        "en": 0,
+        "en": 1,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
+      "englishCanonicalCount": 1,
+      "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx"
+      ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
-        "missingFromJsDoc": [],
+        "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx"
+        ],
         "staleInJsDoc": []
       }
     },
@@ -4948,14 +5155,23 @@
       "name": "DynamicTable",
       "file": "snippets/components/wrappers/tables/Table.jsx",
       "category": "wrappers",
-      "count": 17,
+      "count": 26,
       "pages": [
+        "v2/about/network/interfaces.mdx",
+        "v2/about/network/job-lifecycle.mdx",
+        "v2/about/network/marketplace.mdx",
+        "v2/about/network/technical-architecture.mdx",
+        "v2/about/protocol/core-mechanisms.mdx",
+        "v2/about/protocol/livepeer-token.mdx",
+        "v2/about/protocol/overview.mdx",
+        "v2/about/protocol/technical-architecture.mdx",
+        "v2/about/protocol/treasury.mdx",
+        "v2/about/resources/glossary.mdx",
         "v2/community/resources/compendium/glossary.mdx",
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/delegators/resources/compendium/glossary.mdx",
         "v2/developers/build/workload-fit.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
-        "v2/gateways/resources/reference/compendium/glossary.mdx",
         "v2/gateways/resources/reference/technical/configuration-flags.mdx",
         "v2/gateways/setup/configure/pricing-configuration.mdx",
         "v2/gateways/setup/configure/video-configuration-view.mdx",
@@ -4969,20 +5185,29 @@
         "v2/solutions/solution-providers.mdx"
       ],
       "localeBreakdown": {
-        "en": 17,
+        "en": 26,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 17,
+      "englishCanonicalCount": 26,
       "englishCanonicalPages": [
+        "v2/about/network/interfaces.mdx",
+        "v2/about/network/job-lifecycle.mdx",
+        "v2/about/network/marketplace.mdx",
+        "v2/about/network/technical-architecture.mdx",
+        "v2/about/protocol/core-mechanisms.mdx",
+        "v2/about/protocol/livepeer-token.mdx",
+        "v2/about/protocol/overview.mdx",
+        "v2/about/protocol/technical-architecture.mdx",
+        "v2/about/protocol/treasury.mdx",
+        "v2/about/resources/glossary.mdx",
         "v2/community/resources/compendium/glossary.mdx",
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/delegators/resources/compendium/glossary.mdx",
         "v2/developers/build/workload-fit.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
-        "v2/gateways/resources/reference/compendium/glossary.mdx",
         "v2/gateways/resources/reference/technical/configuration-flags.mdx",
         "v2/gateways/setup/configure/pricing-configuration.mdx",
         "v2/gateways/setup/configure/video-configuration-view.mdx",
@@ -4999,12 +5224,21 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/network/interfaces.mdx",
+          "v2/about/network/job-lifecycle.mdx",
+          "v2/about/network/marketplace.mdx",
+          "v2/about/network/technical-architecture.mdx",
+          "v2/about/protocol/core-mechanisms.mdx",
+          "v2/about/protocol/livepeer-token.mdx",
+          "v2/about/protocol/overview.mdx",
+          "v2/about/protocol/technical-architecture.mdx",
+          "v2/about/protocol/treasury.mdx",
+          "v2/about/resources/glossary.mdx",
           "v2/community/resources/compendium/glossary.mdx",
           "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
           "v2/delegators/resources/compendium/glossary.mdx",
           "v2/developers/build/workload-fit.mdx",
           "v2/developers/resources/compendium/glossary.mdx",
-          "v2/gateways/resources/reference/compendium/glossary.mdx",
           "v2/gateways/resources/reference/technical/configuration-flags.mdx",
           "v2/gateways/setup/configure/pricing-configuration.mdx",
           "v2/gateways/setup/configure/video-configuration-view.mdx",
@@ -5276,12 +5510,13 @@
       "name": "LazyLoad",
       "file": "snippets/components/wrappers/containers/LazyLoad.jsx",
       "category": "wrappers",
-      "count": 36,
+      "count": 37,
       "pages": [
+        "v2/about/protocol/blockchain-contracts.mdx",
+        "v2/about/resources/glossary.mdx",
         "v2/community/resources/compendium/glossary.mdx",
         "v2/delegators/resources/compendium/glossary.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
-        "v2/gateways/resources/reference/compendium/glossary.mdx",
         "v2/home/resources/compendium/glossary.mdx",
         "v2/orchestrators/resources/reference/compendium/glossary.mdx",
         "v2/resources/changelog/ai-compute/ai-runner.mdx",
@@ -5316,18 +5551,19 @@
         "v2/solutions/streamplace/community.mdx"
       ],
       "localeBreakdown": {
-        "en": 36,
+        "en": 37,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 36,
+      "englishCanonicalCount": 37,
       "englishCanonicalPages": [
+        "v2/about/protocol/blockchain-contracts.mdx",
+        "v2/about/resources/glossary.mdx",
         "v2/community/resources/compendium/glossary.mdx",
         "v2/delegators/resources/compendium/glossary.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
-        "v2/gateways/resources/reference/compendium/glossary.mdx",
         "v2/home/resources/compendium/glossary.mdx",
         "v2/orchestrators/resources/reference/compendium/glossary.mdx",
         "v2/resources/changelog/ai-compute/ai-runner.mdx",
@@ -5365,10 +5601,11 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/protocol/blockchain-contracts.mdx",
+          "v2/about/resources/glossary.mdx",
           "v2/community/resources/compendium/glossary.mdx",
           "v2/delegators/resources/compendium/glossary.mdx",
           "v2/developers/resources/compendium/glossary.mdx",
-          "v2/gateways/resources/reference/compendium/glossary.mdx",
           "v2/home/resources/compendium/glossary.mdx",
           "v2/orchestrators/resources/reference/compendium/glossary.mdx",
           "v2/resources/changelog/ai-compute/ai-runner.mdx",
@@ -5431,20 +5668,22 @@
       "name": "QuadGrid",
       "file": "snippets/components/wrappers/grids/QuadGrid.jsx",
       "category": "wrappers",
-      "count": 2,
+      "count": 3,
       "pages": [
+        "v2/about/concepts/livepeer-overview.mdx",
         "v2/home/about-livepeer/ecosystem.mdx",
         "v2/home/about-livepeer/vision.mdx"
       ],
       "localeBreakdown": {
-        "en": 2,
+        "en": 3,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 2,
+      "englishCanonicalCount": 3,
       "englishCanonicalPages": [
+        "v2/about/concepts/livepeer-overview.mdx",
         "v2/home/about-livepeer/ecosystem.mdx",
         "v2/home/about-livepeer/vision.mdx"
       ],
@@ -5452,6 +5691,7 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/concepts/livepeer-overview.mdx",
           "v2/home/about-livepeer/ecosystem.mdx",
           "v2/home/about-livepeer/vision.mdx"
         ],
@@ -5585,10 +5825,10 @@
       "category": "wrappers",
       "count": 10,
       "pages": [
+        "v2/about/resources/glossary.mdx",
         "v2/community/resources/compendium/glossary.mdx",
         "v2/delegators/resources/compendium/glossary.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
-        "v2/gateways/resources/reference/compendium/glossary.mdx",
         "v2/home/resources/compendium/glossary.mdx",
         "v2/orchestrators/resources/reference/compendium/glossary.mdx",
         "v2/resources/compendium/glossary.mdx",
@@ -5605,10 +5845,10 @@
       },
       "englishCanonicalCount": 10,
       "englishCanonicalPages": [
+        "v2/about/resources/glossary.mdx",
         "v2/community/resources/compendium/glossary.mdx",
         "v2/delegators/resources/compendium/glossary.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
-        "v2/gateways/resources/reference/compendium/glossary.mdx",
         "v2/home/resources/compendium/glossary.mdx",
         "v2/orchestrators/resources/reference/compendium/glossary.mdx",
         "v2/resources/compendium/glossary.mdx",
@@ -5620,10 +5860,10 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
+          "v2/about/resources/glossary.mdx",
           "v2/community/resources/compendium/glossary.mdx",
           "v2/delegators/resources/compendium/glossary.mdx",
           "v2/developers/resources/compendium/glossary.mdx",
-          "v2/gateways/resources/reference/compendium/glossary.mdx",
           "v2/home/resources/compendium/glossary.mdx",
           "v2/orchestrators/resources/reference/compendium/glossary.mdx",
           "v2/resources/compendium/glossary.mdx",
@@ -5822,7 +6062,7 @@
       "name": "StyledStep",
       "file": "snippets/components/wrappers/steps/Steps.jsx",
       "category": "wrappers",
-      "count": 46,
+      "count": 44,
       "pages": [
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/delegators/delegation/getting-started.mdx",
@@ -5840,8 +6080,6 @@
         "v2/gateways/setup/install/docker-install.mdx",
         "v2/gateways/setup/install/linux-install.mdx",
         "v2/gateways/setup/install/windows-install.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/gateways/setup/run-a-gateway.mdx",
         "v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx",
@@ -5872,13 +6110,13 @@
         "v2/solutions/streamplace/overview.mdx"
       ],
       "localeBreakdown": {
-        "en": 46,
+        "en": 44,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 46,
+      "englishCanonicalCount": 44,
       "englishCanonicalPages": [
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/delegators/delegation/getting-started.mdx",
@@ -5896,8 +6134,6 @@
         "v2/gateways/setup/install/docker-install.mdx",
         "v2/gateways/setup/install/linux-install.mdx",
         "v2/gateways/setup/install/windows-install.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/gateways/setup/run-a-gateway.mdx",
         "v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx",
@@ -5947,8 +6183,6 @@
           "v2/gateways/setup/install/docker-install.mdx",
           "v2/gateways/setup/install/linux-install.mdx",
           "v2/gateways/setup/install/windows-install.mdx",
-          "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
-          "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
           "v2/gateways/setup/requirements/setup.mdx",
           "v2/gateways/setup/run-a-gateway.mdx",
           "v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx",
@@ -5985,7 +6219,7 @@
       "name": "StyledSteps",
       "file": "snippets/components/wrappers/steps/Steps.jsx",
       "category": "wrappers",
-      "count": 46,
+      "count": 44,
       "pages": [
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/delegators/delegation/getting-started.mdx",
@@ -6003,8 +6237,6 @@
         "v2/gateways/setup/install/docker-install.mdx",
         "v2/gateways/setup/install/linux-install.mdx",
         "v2/gateways/setup/install/windows-install.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/gateways/setup/run-a-gateway.mdx",
         "v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx",
@@ -6035,13 +6267,13 @@
         "v2/solutions/streamplace/overview.mdx"
       ],
       "localeBreakdown": {
-        "en": 46,
+        "en": 44,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 46,
+      "englishCanonicalCount": 44,
       "englishCanonicalPages": [
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/delegators/delegation/getting-started.mdx",
@@ -6059,8 +6291,6 @@
         "v2/gateways/setup/install/docker-install.mdx",
         "v2/gateways/setup/install/linux-install.mdx",
         "v2/gateways/setup/install/windows-install.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
-        "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/gateways/setup/run-a-gateway.mdx",
         "v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx",
@@ -6110,8 +6340,6 @@
           "v2/gateways/setup/install/docker-install.mdx",
           "v2/gateways/setup/install/linux-install.mdx",
           "v2/gateways/setup/install/windows-install.mdx",
-          "v2/gateways/setup/requirements/on-chain setup/fund-gateway.mdx",
-          "v2/gateways/setup/requirements/on-chain setup/on-chain.mdx",
           "v2/gateways/setup/requirements/setup.mdx",
           "v2/gateways/setup/run-a-gateway.mdx",
           "v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx",
@@ -7211,11 +7439,6 @@
       "category": "config"
     },
     {
-      "name": "FunctionField",
-      "file": "snippets/components/displays/response-fields/ResponseField.jsx",
-      "category": "displays"
-    },
-    {
       "name": "HistoricalContractTable",
       "file": "snippets/components/displays/tables/HistoricalContractTable.jsx",
       "category": "displays"
@@ -7261,26 +7484,6 @@
       "category": "elements"
     },
     {
-      "name": "AccordionTitleWithArrow",
-      "file": "snippets/components/elements/text/Text.jsx",
-      "category": "elements"
-    },
-    {
-      "name": "AddressLinks",
-      "file": "snippets/components/elements/links/Links.jsx",
-      "category": "elements"
-    },
-    {
-      "name": "ArbitrumIcon",
-      "file": "snippets/components/elements/icons/Icons.jsx",
-      "category": "elements"
-    },
-    {
-      "name": "ArbitrumSVG",
-      "file": "snippets/components/elements/icons/Icons.jsx",
-      "category": "elements"
-    },
-    {
       "name": "BlinkingTerminal",
       "file": "snippets/components/elements/links/Links.jsx",
       "category": "elements"
@@ -7288,16 +7491,6 @@
     {
       "name": "CalloutWrapper",
       "file": "snippets/components/elements/callouts/PreviewCallouts.jsx",
-      "category": "elements"
-    },
-    {
-      "name": "CardTitleTextWithArrow",
-      "file": "snippets/components/elements/text/Text.jsx",
-      "category": "elements"
-    },
-    {
-      "name": "CopyText",
-      "file": "snippets/components/elements/text/Text.jsx",
       "category": "elements"
     },
     {
@@ -7311,18 +7504,8 @@
       "category": "elements"
     },
     {
-      "name": "LinkIcon",
-      "file": "snippets/components/elements/links/Links.jsx",
-      "category": "elements"
-    },
-    {
       "name": "LinkImage",
       "file": "snippets/components/elements/images/Image.jsx",
-      "category": "elements"
-    },
-    {
-      "name": "LivepeerSVG",
-      "file": "snippets/components/elements/icons/Icons.jsx",
       "category": "elements"
     },
     {
@@ -7346,6 +7529,11 @@
       "category": "integrators"
     },
     {
+      "name": "CoinGeckoExchanges",
+      "file": "snippets/components/integrators/feeds/Coingecko.jsx",
+      "category": "integrators"
+    },
+    {
       "name": "ContractVerifier",
       "file": "snippets/components/integrators/feeds/ContractVerifier.jsx",
       "category": "integrators"
@@ -7358,11 +7546,6 @@
     {
       "name": "LatestVersion",
       "file": "snippets/components/integrators/feeds/Release.jsx",
-      "category": "integrators"
-    },
-    {
-      "name": "SolidityEmbed",
-      "file": "snippets/components/integrators/embeds/DataEmbed.jsx",
       "category": "integrators"
     },
     {
@@ -7401,18 +7584,8 @@
       "category": "wrappers"
     },
     {
-      "name": "AccordionLayout",
-      "file": "snippets/components/wrappers/accordions/AccordionLayout.jsx",
-      "category": "wrappers"
-    },
-    {
       "name": "CardCarousel",
       "file": "snippets/components/wrappers/grids/CardCarousel.jsx",
-      "category": "wrappers"
-    },
-    {
-      "name": "DataWrap",
-      "file": "snippets/components/wrappers/data/workflows.jsx",
       "category": "wrappers"
     },
     {
@@ -7461,13 +7634,13 @@
       "rank": 1,
       "name": "CustomDivider",
       "category": "elements",
-      "count": 166
+      "count": 178
     },
     {
       "rank": 2,
       "name": "LinkArrow",
       "category": "elements",
-      "count": 107
+      "count": 112
     },
     {
       "rank": 3,
@@ -7497,19 +7670,19 @@
       "rank": 7,
       "name": "StyledStep",
       "category": "wrappers",
-      "count": 46
+      "count": 44
     },
     {
       "rank": 8,
       "name": "StyledSteps",
       "category": "wrappers",
-      "count": 46
+      "count": 44
     },
     {
       "rank": 9,
       "name": "LazyLoad",
       "category": "wrappers",
-      "count": 36
+      "count": 37
     },
     {
       "rank": 10,
@@ -7527,85 +7700,85 @@
       "rank": 12,
       "name": "CenteredContainer",
       "category": "wrappers",
-      "count": 26
+      "count": 27
     },
     {
       "rank": 13,
-      "name": "ScrollableDiagram",
-      "category": "displays",
-      "count": 21
+      "name": "DynamicTable",
+      "category": "wrappers",
+      "count": 26
     },
     {
       "rank": 14,
+      "name": "ScrollableDiagram",
+      "category": "displays",
+      "count": 24
+    },
+    {
+      "rank": 15,
       "name": "YouTubeVideo",
       "category": "displays",
       "count": 21
     },
     {
-      "rank": 15,
-      "name": "DynamicTable",
-      "category": "wrappers",
-      "count": 17
-    },
-    {
       "rank": 16,
-      "name": "MathBlock",
+      "name": "GotoCard",
       "category": "elements",
       "count": 13
     },
     {
       "rank": 17,
-      "name": "MathInline",
+      "name": "MathBlock",
       "category": "elements",
       "count": 13
     },
     {
       "rank": 18,
+      "name": "MathInline",
+      "category": "elements",
+      "count": 13
+    },
+    {
+      "rank": 19,
+      "name": "CustomCardTitle",
+      "category": "elements",
+      "count": 12
+    },
+    {
+      "rank": 20,
       "name": "SocialLinks",
       "category": "elements",
       "count": 12
     },
     {
-      "rank": 19,
-      "name": "BlinkingIcon",
-      "category": "elements",
-      "count": 11
-    },
-    {
-      "rank": 20,
-      "name": "CustomCardTitle",
-      "category": "elements",
-      "count": 11
-    },
-    {
       "rank": 21,
-      "name": "DisplayCard",
-      "category": "wrappers",
-      "count": 10
+      "name": "Quote",
+      "category": "displays",
+      "count": 11
     },
     {
       "rank": 22,
-      "name": "GotoCard",
+      "name": "BlinkingIcon",
       "category": "elements",
       "count": 10
     },
     {
       "rank": 23,
-      "name": "SearchTable",
+      "name": "DisplayCard",
       "category": "wrappers",
       "count": 10
     },
     {
       "rank": 24,
-      "name": "HeroContentContainer",
-      "category": "scaffolding",
-      "count": 9
+      "name": "GotoLink",
+      "category": "elements",
+      "count": 10
     },
     {
       "rank": 25,
-      "name": "HeroImageBackgroundComponent",
-      "category": "scaffolding",
-      "count": 9
+      "name": "SearchTable",
+      "category": "wrappers",
+      "count": 10
     }
   ]
 }
