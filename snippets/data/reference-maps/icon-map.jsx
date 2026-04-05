@@ -78,7 +78,7 @@ export const iconMapSections = [
         components: ['Card', 'Accordion', 'Tab', 'comparison row'],
         examples: [
           'v2/orchestrators/navigator.mdx',
-          'v2/developers/developer-journey.mdx',
+          'v2/developers/navigator.mdx',
           'v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx',
         ],
       },
@@ -129,7 +129,7 @@ export const iconMapSections = [
           'Avoid for node hardware, GPU sizing, or general developer docs that are not AI-specific.',
         components: ['Card', 'Step', 'resource listing'],
         examples: [
-          'v2/developers/guides/resources.mdx',
+          'v2/developers/resources/compendium/resources.mdx',
           'v2/developers/guides/developer-guides.mdx',
         ],
       },
@@ -143,7 +143,7 @@ export const iconMapSections = [
           'Avoid for infrastructure or SDK pages — prefer `brain-circuit` for AI pipeline logic or `microchip-ai` for model runtime.',
         components: ['Card', 'Accordion', 'concept reference'],
         examples: [
-          'v2/developers/guides/resources.mdx',
+          'v2/developers/resources/compendium/resources.mdx',
           'v2/solutions/frameworks/overview.mdx',
         ],
       },
@@ -172,7 +172,7 @@ export const iconMapSections = [
         components: ['Card', 'Tab', 'setup choice'],
         examples: [
           'v2/developers/get-started/comfystream-quickstart.mdx',
-          'v2/developers/developer-journey.mdx',
+          'v2/developers/navigator.mdx',
         ],
       },
       {
@@ -299,7 +299,7 @@ export const iconMapSections = [
           'Avoid for every documentation link by default; keep a distinction from `book`.',
         components: ['Card', 'reference CTA', 'Accordion (default)'],
         examples: [
-          'v2/developers/guides/resources.mdx',
+          'v2/developers/resources/compendium/resources.mdx',
           'v2/orchestrators/rc-navigator.mdx',
         ],
       },
@@ -314,7 +314,7 @@ export const iconMapSections = [
         components: ['Card', 'Accordion'],
         examples: [
           'docs-guide/tooling/dev-tools.mdx',
-          'v2/developers/opportunities/rfps-and-proposals.mdx',
+          'v2/developers/guides/opportunities/rfps-and-proposals.mdx',
         ],
       },
       {
@@ -355,7 +355,7 @@ export const iconMapSections = [
         components: ['Accordion', 'Card', 'resource CTA'],
         examples: [
           'docs-guide/tooling/dev-tools.mdx',
-          'v2/developers/guides/resources.mdx',
+          'v2/developers/resources/compendium/resources.mdx',
         ],
       },
     ],
@@ -433,7 +433,7 @@ export const iconMapSections = [
         components: ['Card', 'config CTA'],
         examples: [
           'v2/orchestrators/setup/rs-install.mdx',
-          'v2/developers/guides/resources.mdx',
+          'v2/developers/resources/compendium/resources.mdx',
         ],
       },
       {
@@ -495,7 +495,7 @@ export const iconMapSections = [
           'Avoid for generic crypto concepts when the page is not actually chain- or ETH-specific.',
         components: ['Card', 'Accordion', 'funding reference'],
         examples: [
-          'v2/developers/guides/resources.mdx',
+          'v2/developers/resources/compendium/resources.mdx',
           'v2/gateways/guides/payments-and-pricing/funding-guide.mdx',
         ],
       },
@@ -537,7 +537,7 @@ export const iconMapSections = [
           'Avoid for the forum or long-form discussions.',
         components: ['Card', 'community CTA'],
         examples: [
-          'v2/developers/guides/developer-help.mdx',
+          'v2/developers/resources/compendium/developer-help.mdx',
           'v2/community/community-portal.mdx',
         ],
       },
@@ -551,7 +551,7 @@ export const iconMapSections = [
           'Avoid for synchronous chat destinations like Discord.',
         components: ['Card', 'forum CTA'],
         examples: [
-          'v2/developers/guides/developer-help.mdx',
+          'v2/developers/resources/compendium/developer-help.mdx',
           'v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx',
         ],
       },
@@ -565,7 +565,7 @@ export const iconMapSections = [
           'Avoid when a more specific brand or platform icon exists.',
         components: ['Card', 'reference CTA'],
         examples: [
-          'v2/developers/resources/deepwiki.mdx',
+          'v2/developers/resources/knowledge-hub/deepwiki.mdx',
         ],
       },
       {
@@ -578,7 +578,7 @@ export const iconMapSections = [
           'Avoid as a generic external-link stand-in. It becomes too vague when overused.',
         components: ['Card', 'Tab', 'resource CTA'],
         examples: [
-          'v2/developers/guides/resources.mdx',
+          'v2/developers/resources/compendium/resources.mdx',
           'v2/gateways/concepts/role.mdx',
         ],
       },
@@ -731,7 +731,7 @@ export const iconMapSections = [
           'Avoid for SDK or API references (use `network-wired` or `code`) where the focus is connectivity.',
         components: ['Card', 'Accordion'],
         examples: [
-          'v2/developers/guides/resources.mdx',
+          'v2/developers/resources/compendium/resources.mdx',
           'v2/solutions/frameworks/overview.mdx',
         ],
       },
@@ -746,7 +746,7 @@ export const iconMapSections = [
         components: ['Card', 'Accordion', 'version CTA'],
         examples: [
           'v2/resources/documentation-guide/contribute-to-the-docs.mdx',
-          'v2/developers/opportunities/oss-contributions.mdx',
+          'v2/developers/guides/opportunities/oss-contributions.mdx',
         ],
       },
       {
@@ -760,7 +760,7 @@ export const iconMapSections = [
         components: ['Card', 'Accordion', 'dashboard CTA'],
         examples: [
           'v2/orchestrators/guides/feasibility-and-hardware/benchmarking.mdx',
-          'v2/developers/guides/resources.mdx',
+          'v2/developers/resources/compendium/resources.mdx',
         ],
       },
       {
@@ -822,7 +822,7 @@ export const iconMapSections = [
           'Avoid for general rewards or staking pages (use `coins`) or wallet-funding steps (use `wallet`).',
         components: ['Card', 'Accordion', 'programme CTA'],
         examples: [
-          'v2/developers/opportunities/grants-and-programmes.mdx',
+          'v2/developers/guides/opportunities/grants-and-programmes.mdx',
           'v2/gateways/guides/opportunities/community-ecosystem.mdx',
         ],
       },
@@ -864,7 +864,7 @@ export const iconMapSections = [
         components: ['Card', 'Accordion', 'partner CTA'],
         examples: [
           'v2/solutions/frameworks/overview.mdx',
-          'v2/developers/opportunities/grants-and-programmes.mdx',
+          'v2/developers/guides/opportunities/grants-and-programmes.mdx',
         ],
       },
       {
@@ -1008,7 +1008,7 @@ export const iconMapSections = [
           'Avoid for general history or changelog pages.',
         components: ['Callout', 'Accordion', 'status indicator'],
         examples: [
-          'v2/developers/opportunities/grants-and-programmes.mdx',
+          'v2/developers/guides/opportunities/grants-and-programmes.mdx',
         ],
       },
       {
@@ -1111,7 +1111,7 @@ export const iconMapSections = [
           'Avoid for the AI builder persona (use `user-robot`) or AI models (use `brain`).',
         components: ['Card', 'Accordion'],
         examples: [
-          'v2/developers/guides/resources.mdx',
+          'v2/developers/resources/compendium/resources.mdx',
         ],
       },
       {
@@ -1126,7 +1126,7 @@ export const iconMapSections = [
         examples: [
           'v2/orchestrators/navigator.mdx',
           'v2/gateways/navigator.mdx',
-          'v2/developers/developer-journey.mdx',
+          'v2/developers/navigator.mdx',
         ],
       },
       {
@@ -1152,7 +1152,7 @@ export const iconMapSections = [
           'Avoid when a more specific icon exists for the destination (github, discord, etc.).',
         components: ['Card', 'reference CTA'],
         examples: [
-          'v2/developers/opportunities/grants-and-programmes.mdx',
+          'v2/developers/guides/opportunities/grants-and-programmes.mdx',
         ],
       },
       {

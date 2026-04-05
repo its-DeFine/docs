@@ -13,11 +13,11 @@
     "status_report_json": "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json",
     "status_report_md": "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md"
   },
-  "total_surfaces": 4,
+  "total_surfaces": 5,
   "ownerless_ready_count": 3,
   "rollout_state_counts": {
     "autofix": 3,
-    "migrating": 1
+    "migrating": 2
   },
   "approval_checkpoint_ids": [
     "design-lock",
@@ -25,8 +25,20 @@
     "gate-escalation",
     "legacy-retirement"
   ],
+  "github_workspace_classification_counts": {
+    "transitional-runtime": 2,
+    "generated-support": 1,
+    "design-only": 3,
+    "historical-audit": 1
+  },
+  "legacy_bridge_ids": [
+    "legacy-generated-artifacts-manifest",
+    "legacy-ownerless-governance-manifest",
+    "legacy-root-governance-manifest"
+  ],
   "surface_ids": [
     "generated-artifact-governance",
+    "github-workspace-governance",
     "ownerless-governance",
     "repo-governance-registry",
     "root-governance"

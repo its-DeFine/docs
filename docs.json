@@ -2470,90 +2470,93 @@
               {
                 "tab": "Developers",
                 "icon": "display-code",
-                "anchors": [
+                "groups": [
                   {
-                    "anchor": "Developers",
+                    "group": "Start Here",
                     "icon": "display-code",
-                    "groups": [
-                      {
-                        "group": "Hub",
-                        "icon": "house",
-                        "pages": [
-                          "v2/developers/portal",
-                          "v2/developers/developer-journey"
-                        ]
-                      },
-                      {
-                        "group": "Concepts",
-                        "icon": "lightbulb",
-                        "pages": [
-                          "v2/developers/concepts/developer-stack",
-                          "v2/developers/concepts/ai-on-livepeer",
-                          "v2/developers/concepts/video-on-livepeer",
-                          "v2/developers/concepts/running-a-gateway",
-                          "v2/developers/concepts/oss-stack"
-                        ]
-                      },
-                      {
-                        "group": "Get Started",
-                        "icon": "fast-forward",
-                        "pages": [
-                          "v2/developers/get-started/setup-paths",
-                          "v2/developers/get-started/video-quickstart",
-                          "v2/developers/get-started/transcoding-quickstart",
-                          "v2/developers/get-started/ai-quickstart",
-                          "v2/developers/get-started/comfystream-quickstart"
-                        ]
-                      },
-                      {
-                        "group": "Build",
-                        "icon": "hammer",
-                        "pages": [
-                          "v2/developers/build/comfystream",
-                          "v2/developers/build/byoc",
-                          "v2/developers/build/sdk-gateway",
-                          "v2/developers/build/workload-fit",
-                          "v2/developers/build/model-support"
-                        ]
-                      },
-                      {
-                        "group": "Guides",
-                        "icon": "laptop-file",
-                        "pages": [
-                          "v2/developers/guides/developer-guides",
-                          "v2/developers/guides/resources",
-                          "v2/developers/guides/contribution-guide",
-                          "v2/developers/guides/developer-help",
-                          "v2/developers/guides/testnet-contract-deployment",
-                          "v2/developers/guides/local-testnet-deployment"
-                        ]
-                      },
+                    "pages": [
+                      "v2/developers/portal",
+                      "v2/developers/navigator"
+                    ]
+                  },
+                  {
+                    "group": "Concepts",
+                    "icon": "lightbulb",
+                    "pages": [
+                      "v2/developers/concepts/developer-stack",
+                      "v2/developers/concepts/ai-on-livepeer",
+                      "v2/developers/concepts/video-on-livepeer",
+                      "v2/developers/concepts/running-a-gateway",
+                      "v2/developers/concepts/oss-stack"
+                    ]
+                  },
+                  {
+                    "group": "Get Started",
+                    "icon": "fast-forward",
+                    "pages": [
+                      "v2/developers/get-started/setup-paths",
+                      "v2/developers/get-started/video-quickstart",
+                      "v2/developers/get-started/transcoding-quickstart",
+                      "v2/developers/get-started/ai-quickstart",
+                      "v2/developers/get-started/comfystream-quickstart"
+                    ]
+                  },
+                  {
+                    "group": "Custom AI Workflows",
+                    "icon": "user-robot",
+                    "pages": [
+                      "v2/developers/build/comfystream",
+                      "v2/developers/build/byoc",
+                      "v2/developers/build/sdk-gateway",
+                      "v2/developers/build/workload-fit",
+                      "v2/developers/build/model-support"
+                    ]
+                  },
+                  {
+                    "group": "Guides",
+                    "icon": "laptop-file",
+                    "pages": [
+                      "v2/developers/guides/developer-guides",
+                      "v2/developers/guides/contribution-guide",
+                      "v2/developers/guides/local-testnet-deployment",
                       {
                         "group": "Opportunities",
-                        "icon": "lightbulb",
                         "pages": [
-                          "v2/developers/opportunities/overview",
-                          "v2/developers/opportunities/grants-and-programmes",
-                          "v2/developers/opportunities/rfps-and-proposals",
-                          "v2/developers/opportunities/oss-contributions",
-                          "v2/developers/opportunities/bug-bounties"
+                          "v2/developers/guides/opportunities/overview",
+                          "v2/developers/guides/opportunities/grants-and-programmes",
+                          "v2/developers/guides/opportunities/rfps-and-proposals",
+                          "v2/developers/guides/opportunities/oss-contributions",
+                          "v2/developers/guides/opportunities/bug-bounties"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Resources",
+                    "icon": "books",
+                    "pages": [
+                      {
+                        "group": "Reference",
+                        "pages": [
+                          "v2/developers/resources/reference/sdks",
+                          "v2/developers/resources/reference/apis"
                         ]
                       },
                       {
-                        "group": "Resources",
-                        "icon": "books",
+                        "group": "Compendium",
                         "pages": [
-                          "v2/developers/resources/sdks",
-                          "v2/developers/resources/apis",
-                          "v2/developers/resources/awesome-livepeer",
-                          "v2/developers/resources/wiki",
-                          "v2/developers/resources/deepwiki",
-                          {
-                            "group": "Compendium",
-                            "pages": [
-                              "v2/developers/resources/compendium/glossary"
-                            ]
-                          }
+                          "v2/developers/resources/compendium/glossary",
+                          "v2/developers/resources/compendium/resources",
+                          "v2/developers/resources/compendium/developer-help",
+                          "v2/developers/resources/compendium/example-applications"
+                        ]
+                      },
+                      {
+                        "group": "Knowledge Hub",
+                        "pages": [
+                          "v2/developers/resources/knowledge-hub/awesome-livepeer",
+                          "v2/developers/resources/knowledge-hub/wiki",
+                          "v2/developers/resources/knowledge-hub/deepwiki"
                         ]
                       }
                     ]

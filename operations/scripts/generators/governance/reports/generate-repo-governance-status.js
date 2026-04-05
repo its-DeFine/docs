@@ -28,6 +28,8 @@ const {
   getRepoRoot,
   readManifest,
   getApprovalCheckpointIds,
+  getGithubWorkspaceClassificationCounts,
+  getLegacyBridgeIds,
   getSurfaceIds,
   getOwnerlessReadyCount,
   getRolloutStateCounts,
@@ -142,6 +144,27 @@ function buildApprovalRows(manifest) {
   ]);
 }
 
+function buildGithubWorkspaceRows(manifest) {
+  return manifest.github_workspace_surfaces.map((entry) => [
+    `\`${entry.id}\``,
+    `\`${entry.path}\``,
+    `\`${entry.classification}\``,
+    `\`${entry.runtime_role}\``,
+    `\`${entry.future_state}\``,
+    escapeCell(entry.notes)
+  ]);
+}
+
+function buildLegacyBridgeRows(manifest) {
+  return manifest.legacy_bridge_inventory.map((entry) => [
+    `\`${entry.id}\``,
+    `\`${entry.legacy_path}\``,
+    `\`${entry.canonical_path}\``,
+    toCodeList(entry.consumer_paths),
+    toCodeList(entry.retirement_requirements)
+  ]);
+}
+
 function buildRolloutRows(manifest) {
   const counts = getRolloutStateCounts(manifest);
   return Object.entries(counts)
@@ -210,6 +233,24 @@ function buildRepoGovernanceMapContent(manifest = readManifest()) {
       '',
       toTable(['Checkpoint', 'Label', 'Phase', 'Human approval', 'Trigger', 'Required evidence'], buildApprovalRows(manifest)),
       '',
+      '## GitHub Workspace Classification',
+      '',
+      'Only the classified transitional runtime items in `.github/workspace` should be treated as live governance inputs during bridge mode. Design and audit trees are reference-only unless later promoted.',
+      '',
+      toTable(
+        ['Entry', 'Path', 'Classification', 'Runtime role', 'Future state', 'Notes'],
+        buildGithubWorkspaceRows(manifest)
+      ),
+      '',
+      '## Legacy Bridge Inventory',
+      '',
+      'These entries are the remaining live bridge dependencies that must be cleared before legacy manifest retirement can be approved.',
+      '',
+      toTable(
+        ['Bridge', 'Legacy path', 'Canonical path', 'Live consumers', 'Retirement requirements'],
+        buildLegacyBridgeRows(manifest)
+      ),
+      '',
       '## Canonical Manifests',
       '',
       manifest.canonical_manifests.map((entry) => `- \`${entry}\``).join('\n'),
@@ -238,6 +279,8 @@ function buildStatusPayload(manifest = readManifest()) {
     ownerless_ready_count: getOwnerlessReadyCount(manifest),
     rollout_state_counts: getRolloutStateCounts(manifest),
     approval_checkpoint_ids: getApprovalCheckpointIds(manifest),
+    github_workspace_classification_counts: getGithubWorkspaceClassificationCounts(manifest),
+    legacy_bridge_ids: getLegacyBridgeIds(manifest),
     surface_ids: getSurfaceIds(manifest),
     transitional_sources: getTransitionalSources(manifest),
     path_classes: manifest.path_classes.map((entry) => entry.id),
@@ -261,6 +304,8 @@ function buildStatusMarkdownContent(manifest = readManifest()) {
       `- Total surfaces: ${payload.total_surfaces}`,
       `- Ownerless-ready surfaces: ${payload.ownerless_ready_count}`,
       `- Human approval checkpoints: ${payload.approval_checkpoint_ids.length}`,
+      `- GitHub workspace classified entries: ${manifest.github_workspace_surfaces.length}`,
+      `- Legacy bridge entries: ${payload.legacy_bridge_ids.length}`,
       '',
       '## Rollout States',
       '',
@@ -280,6 +325,19 @@ function buildStatusMarkdownContent(manifest = readManifest()) {
       '## Human Approval Checkpoints',
       '',
       payload.approval_checkpoint_ids.map((entry) => `- \`${entry}\``).join('\n'),
+      '',
+      '## GitHub Workspace Classification',
+      '',
+      toTable(
+        ['Classification', 'Entry count'],
+        Object.entries(payload.github_workspace_classification_counts)
+          .sort((left, right) => left[0].localeCompare(right[0]))
+          .map(([classification, count]) => [`\`${classification}\``, String(count)])
+      ),
+      '',
+      '## Legacy Bridge Inventory',
+      '',
+      payload.legacy_bridge_ids.map((entry) => `- \`${entry}\``).join('\n'),
       '',
       '## Registered Surface IDs',
       '',

@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-04-05T11:50:12.025Z",
+  "generated": "2026-04-05T12:25:44.345Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -201,7 +201,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1883,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -483,7 +483,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 1092,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -965,7 +965,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 757,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -6411,7 +6411,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/developers/developer-journey",
+      "url": "https://docs.livepeer.org/v2/developers/navigator",
       "title": "Developer Journey",
       "description": "Find your path on Livepeer - whether you want to build video apps, run AI pipelines, operate a gateway, or contribute to the protocol. Start here.",
       "section": "developers",
@@ -6424,7 +6424,8 @@
         "ai-developer",
         "video-developer",
         "where-to-start",
-        "developers"
+        "developers",
+        "navigator"
       ],
       "entities": [
         "developer"
@@ -7440,67 +7441,6 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/developers/guides/resources",
-      "title": "Resources",
-      "description": "A curated library of tools, dashboards, reading, videos, and reference material from across the Livepeer ecosystem.",
-      "section": "developers",
-      "tags": [
-        "livepeer",
-        "developers",
-        "resources",
-        "tools",
-        "dashboards",
-        "reading",
-        "blog",
-        "whitepaper",
-        "sdk",
-        "explorer",
-        "guides"
-      ],
-      "entities": [
-        "developer"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 989,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Official Tools and Platforms"
-        },
-        {
-          "level": 2,
-          "text": "SDKs and Developer Libraries"
-        },
-        {
-          "level": 2,
-          "text": "Network Dashboards and Analytics"
-        },
-        {
-          "level": 2,
-          "text": "Node Operator Tools"
-        },
-        {
-          "level": 2,
-          "text": "Community Platforms and Aggregators"
-        },
-        {
-          "level": 2,
-          "text": "Blogs, Reading, and Key Articles"
-        },
-        {
-          "level": 2,
-          "text": "Security and Bug Bounties"
-        },
-        {
-          "level": 2,
-          "text": "Grants and Funding"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
       "url": "https://docs.livepeer.org/v2/developers/guides/contribution-guide",
       "title": "Contribution Guide",
       "description": "How to contribute to Livepeer — code, documentation, governance, community support, and bug reports across all repositories.",
@@ -7582,7 +7522,506 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/developers/guides/developer-help",
+      "url": "https://docs.livepeer.org/v2/developers/guides/local-testnet-deployment",
+      "title": "Deploy a local testnet",
+      "description": "Deploy the full Livepeer protocol stack locally using Hardhat and connect go-livepeer nodes to your own contracts for development and testing.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "testnet",
+        "local-development",
+        "hardhat",
+        "deploy-contracts",
+        "go-livepeer",
+        "developer",
+        "developers",
+        "guides",
+        "local-testnet-deployment"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 861,
+      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "Deploy the protocol contracts"
+        },
+        {
+          "level": 2,
+          "text": "What gets deployed"
+        },
+        {
+          "level": 2,
+          "text": "Connect go-livepeer to your local contracts"
+        },
+        {
+          "level": 2,
+          "text": "Deploying to Arbitrum Sepolia"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/opportunities/overview",
+      "title": "Builder Opportunities",
+      "description": "Find grants, programmes, RFPs, treasury proposals, open source contribution pathways, and bug bounties for every type of Livepeer builder.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "builder-opportunities",
+        "grants",
+        "rfps",
+        "open-source",
+        "bug-bounty",
+        "treasury",
+        "hackathon",
+        "guides",
+        "opportunities",
+        "overview"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 359,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Who Are You?"
+        },
+        {
+          "level": 2,
+          "text": "All Opportunities"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/opportunities/grants-and-programmes",
+      "title": "Grants & Programmes",
+      "description": "Livepeer funding opportunities for app builders, AI workflow creators, orchestrators, and research teams -- from microgrants to multi-month accelerator programmes.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "grants",
+        "programmes",
+        "hackathon",
+        "ai-video-startup",
+        "comfyui",
+        "bootcamp",
+        "funding",
+        "builder-opportunities",
+        "guides",
+        "opportunities"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 983,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Grant Types"
+        },
+        {
+          "level": 2,
+          "text": "AI Video Startup Programme"
+        },
+        {
+          "level": 2,
+          "text": "ComfyUI Live Video Hacker Programme"
+        },
+        {
+          "level": 2,
+          "text": "Real-Time Video AI Bootcamp"
+        },
+        {
+          "level": 2,
+          "text": "Hackathons"
+        },
+        {
+          "level": 3,
+          "text": "Livepeer Summit Hackathon"
+        },
+        {
+          "level": 3,
+          "text": "Encode Club Hackathons"
+        },
+        {
+          "level": 2,
+          "text": "How to Apply"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/opportunities/rfps-and-proposals",
+      "title": "RFPs & Treasury Proposals",
+      "description": "Apply for Foundation-issued Requests for Proposals (RFPs) or submit a funded Special Purpose Entity (SPE) proposal to the Livepeer onchain treasury.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "rfp",
+        "treasury",
+        "spe",
+        "special-purpose-entity",
+        "governance",
+        "onchain",
+        "proposal",
+        "builder-opportunities",
+        "guides",
+        "opportunities"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 920,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Foundation RFPs"
+        },
+        {
+          "level": 3,
+          "text": "How RFPs Work"
+        },
+        {
+          "level": 3,
+          "text": "Past RFPs"
+        },
+        {
+          "level": 2,
+          "text": "SPE Treasury Proposals"
+        },
+        {
+          "level": 3,
+          "text": "The SPE Governance Process"
+        },
+        {
+          "level": 3,
+          "text": "Active SPEs (Examples)"
+        },
+        {
+          "level": 2,
+          "text": "What Kinds of SPEs Does the Ecosystem Need?"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/opportunities/oss-contributions",
+      "title": "Open Source Contributions",
+      "description": "How to contribute to Livepeer's open source repositories -- from documentation fixes to protocol engineering -- including a guide to every core repo and its contributing process.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "open-source",
+        "oss",
+        "contribute",
+        "github",
+        "go-livepeer",
+        "studio",
+        "ai-runner",
+        "comfystream",
+        "pull-request",
+        "good-first-issue",
+        "developers"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1128,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Ways to Contribute"
+        },
+        {
+          "level": 2,
+          "text": "Contribution Principles"
+        },
+        {
+          "level": 2,
+          "text": "Core Repositories"
+        },
+        {
+          "level": 2,
+          "text": "First Contribution Workflow"
+        },
+        {
+          "level": 2,
+          "text": "Code of Conduct"
+        }
+      ],
+      "codeLanguages": [
+        "text"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/opportunities/bug-bounties",
+      "title": "Bug Bounties",
+      "description": "Report smart contract vulnerabilities in the Livepeer protocol and earn USDC rewards through the official Livepeer bug bounty programme on Immunefi.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "bug-bounty",
+        "immunefi",
+        "security",
+        "smart-contract",
+        "vulnerability",
+        "usdc",
+        "developer",
+        "builder-opportunities",
+        "developers",
+        "guides",
+        "opportunities"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 720,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Programme Overview"
+        },
+        {
+          "level": 2,
+          "text": "Severity Levels and Rewards"
+        },
+        {
+          "level": 3,
+          "text": "Focus Areas"
+        },
+        {
+          "level": 2,
+          "text": "Scope"
+        },
+        {
+          "level": 3,
+          "text": "Out of Scope"
+        },
+        {
+          "level": 2,
+          "text": "How to Submit a Report"
+        },
+        {
+          "level": 2,
+          "text": "Recent Programme Activity"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/resources/reference/sdks",
+      "title": "SDKs",
+      "description": "SDKs for Livepeer - Studio SDKs and Network SDKs",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "sdk",
+        "studio",
+        "network",
+        "developers",
+        "resources",
+        "reference",
+        "sdks"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 103,
+      "lastVerified": "2026-04-05T11:22:47.165Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Livepeer Studio SDKs"
+        },
+        {
+          "level": 2,
+          "text": "Network-side SDKs"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/resources/reference/apis",
+      "title": "APIs",
+      "description": "APIs for Livepeer - Studio API and Network APIs",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "api",
+        "studio",
+        "network",
+        "developers",
+        "resources",
+        "reference",
+        "apis"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 100,
+      "lastVerified": "2026-04-05T11:22:47.165Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Livepeer Studio API"
+        },
+        {
+          "level": 2,
+          "text": "Network APIs"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/resources/compendium/glossary",
+      "title": "Developer Glossary",
+      "description": "Key terms for Livepeer developers — SDKs, APIs, AI pipelines, streaming protocols, and integration concepts.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "glossary",
+        "developers",
+        "terminology",
+        "resources",
+        "compendium"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 2889,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Livepeer Protocol Terms"
+        },
+        {
+          "level": 2,
+          "text": "AI Terms"
+        },
+        {
+          "level": 2,
+          "text": "Video Terms"
+        },
+        {
+          "level": 2,
+          "text": "Web3 Terms"
+        },
+        {
+          "level": 2,
+          "text": "Technical Terms"
+        },
+        {
+          "level": 2,
+          "text": "Operational Terms"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/resources/compendium/resources",
+      "title": "Resources",
+      "description": "A curated library of tools, dashboards, reading, videos, and reference material from across the Livepeer ecosystem.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "resources",
+        "tools",
+        "dashboards",
+        "reading",
+        "blog",
+        "whitepaper",
+        "sdk",
+        "explorer",
+        "compendium"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 989,
+      "lastVerified": "2026-04-04T12:26:05.567Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Official Tools and Platforms"
+        },
+        {
+          "level": 2,
+          "text": "SDKs and Developer Libraries"
+        },
+        {
+          "level": 2,
+          "text": "Network Dashboards and Analytics"
+        },
+        {
+          "level": 2,
+          "text": "Node Operator Tools"
+        },
+        {
+          "level": 2,
+          "text": "Community Platforms and Aggregators"
+        },
+        {
+          "level": 2,
+          "text": "Blogs, Reading, and Key Articles"
+        },
+        {
+          "level": 2,
+          "text": "Security and Bug Bounties"
+        },
+        {
+          "level": 2,
+          "text": "Grants and Funding"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/resources/compendium/developer-help",
       "title": "Developer Help",
       "description": "Every way to get help as a Livepeer developer — Discord channels, forum, office hours, GitHub issues, and more.",
       "section": "developers",
@@ -7598,7 +8037,7 @@
         "bug-report",
         "contact",
         "developers",
-        "guides"
+        "resources"
       ],
       "entities": [
         "developer"
@@ -7660,470 +8099,28 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/developers/guides/testnet-contract-deployment",
-      "title": "Contract Addresses",
-      "description": "Current and historical Livepeer protocol contract addresses across Arbitrum One and Ethereum Mainnet. Verified on-chain.",
+      "url": "https://docs.livepeer.org/v2/developers/resources/compendium/example-applications",
+      "title": "Example Applications",
+      "description": "Curated collection of Livepeer example applications and integrations",
       "section": "developers",
       "tags": [
-        "livepeer",
-        "contract-addresses",
-        "arbitrum",
-        "ethereum",
-        "blockchain",
-        "smart-contracts",
-        "testnet-deployment",
-        "local-testnet",
-        "hardhat",
-        "foundry",
-        "contract-deployment-guide",
-        "livepeer-protocol-testnet"
-      ],
-      "entities": [
-        "developer"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 935,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "How to verify an address"
-        },
-        {
-          "level": 2,
-          "text": "Arbitrum One (active)"
-        },
-        {
-          "level": 3,
-          "text": "Core protocol"
-        },
-        {
-          "level": 3,
-          "text": "Governance"
-        },
-        {
-          "level": 3,
-          "text": "Bridge"
-        },
-        {
-          "level": 3,
-          "text": "Migration (Confluence, 2022)"
-        },
-        {
-          "level": 2,
-          "text": "Ethereum Mainnet"
-        },
-        {
-          "level": 3,
-          "text": "Active"
-        },
-        {
-          "level": 3,
-          "text": "Paused"
-        },
-        {
-          "level": 2,
-          "text": "Historical target versions"
-        },
-        {
-          "level": 2,
-          "text": "Related pages"
-        }
-      ],
-      "codeLanguages": [
-        "bash"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/developers/guides/local-testnet-deployment",
-      "title": "Deploy a local testnet",
-      "description": "Deploy the full Livepeer protocol stack locally using Hardhat and connect go-livepeer nodes to your own contracts for development and testing.",
-      "section": "developers",
-      "tags": [
-        "livepeer",
-        "testnet",
-        "local-development",
-        "hardhat",
-        "deploy-contracts",
-        "go-livepeer",
-        "developer",
-        "developers",
-        "guides",
-        "local-testnet-deployment"
-      ],
-      "entities": [
-        "developer"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 861,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Prerequisites"
-        },
-        {
-          "level": 2,
-          "text": "Deploy the protocol contracts"
-        },
-        {
-          "level": 2,
-          "text": "What gets deployed"
-        },
-        {
-          "level": 2,
-          "text": "Connect go-livepeer to your local contracts"
-        },
-        {
-          "level": 2,
-          "text": "Deploying to Arbitrum Sepolia"
-        },
-        {
-          "level": 2,
-          "text": "Related pages"
-        }
-      ],
-      "codeLanguages": [
-        "bash"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/developers/opportunities/overview",
-      "title": "Builder Opportunities",
-      "description": "Find grants, programmes, RFPs, treasury proposals, open source contribution pathways, and bug bounties for every type of Livepeer builder.",
-      "section": "developers",
-      "tags": [
-        "livepeer",
-        "developers",
-        "builder-opportunities",
-        "grants",
-        "rfps",
-        "open-source",
-        "bug-bounty",
-        "treasury",
-        "hackathon",
-        "opportunities",
-        "overview"
-      ],
-      "entities": [
-        "developer"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "beginner",
-      "wordCount": 359,
-      "lastVerified": "2026-03",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Who Are You?"
-        },
-        {
-          "level": 2,
-          "text": "All Opportunities"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/developers/opportunities/grants-and-programmes",
-      "title": "Grants & Programmes",
-      "description": "Livepeer funding opportunities for app builders, AI workflow creators, orchestrators, and research teams -- from microgrants to multi-month accelerator programmes.",
-      "section": "developers",
-      "tags": [
-        "livepeer",
-        "developers",
-        "grants",
-        "programmes",
-        "hackathon",
-        "ai-video-startup",
-        "comfyui",
-        "bootcamp",
-        "funding",
-        "builder-opportunities",
-        "opportunities",
-        "grants-and-programmes"
-      ],
-      "entities": [
-        "developer"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 983,
-      "lastVerified": "2026-03",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Grant Types"
-        },
-        {
-          "level": 2,
-          "text": "AI Video Startup Programme"
-        },
-        {
-          "level": 2,
-          "text": "ComfyUI Live Video Hacker Programme"
-        },
-        {
-          "level": 2,
-          "text": "Real-Time Video AI Bootcamp"
-        },
-        {
-          "level": 2,
-          "text": "Hackathons"
-        },
-        {
-          "level": 3,
-          "text": "Livepeer Summit Hackathon"
-        },
-        {
-          "level": 3,
-          "text": "Encode Club Hackathons"
-        },
-        {
-          "level": 2,
-          "text": "How to Apply"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/developers/opportunities/rfps-and-proposals",
-      "title": "RFPs & Treasury Proposals",
-      "description": "Apply for Foundation-issued Requests for Proposals (RFPs) or submit a funded Special Purpose Entity (SPE) proposal to the Livepeer onchain treasury.",
-      "section": "developers",
-      "tags": [
-        "livepeer",
-        "developers",
-        "rfp",
-        "treasury",
-        "spe",
-        "special-purpose-entity",
-        "governance",
-        "onchain",
-        "proposal",
-        "builder-opportunities",
-        "opportunities",
-        "rfps-and-proposals"
-      ],
-      "entities": [
-        "developer"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 920,
-      "lastVerified": "2026-03",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Foundation RFPs"
-        },
-        {
-          "level": 3,
-          "text": "How RFPs Work"
-        },
-        {
-          "level": 3,
-          "text": "Past RFPs"
-        },
-        {
-          "level": 2,
-          "text": "SPE Treasury Proposals"
-        },
-        {
-          "level": 3,
-          "text": "The SPE Governance Process"
-        },
-        {
-          "level": 3,
-          "text": "Active SPEs (Examples)"
-        },
-        {
-          "level": 2,
-          "text": "What Kinds of SPEs Does the Ecosystem Need?"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/developers/opportunities/oss-contributions",
-      "title": "Open Source Contributions",
-      "description": "How to contribute to Livepeer's open source repositories -- from documentation fixes to protocol engineering -- including a guide to every core repo and its contributing process.",
-      "section": "developers",
-      "tags": [
-        "livepeer",
-        "open-source",
-        "oss",
-        "contribute",
-        "github",
-        "go-livepeer",
-        "studio",
-        "ai-runner",
-        "comfystream",
-        "pull-request",
-        "good-first-issue",
-        "developers"
-      ],
-      "entities": [
-        "developer"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 1128,
-      "lastVerified": "2026-03",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Ways to Contribute"
-        },
-        {
-          "level": 2,
-          "text": "Contribution Principles"
-        },
-        {
-          "level": 2,
-          "text": "Core Repositories"
-        },
-        {
-          "level": 2,
-          "text": "First Contribution Workflow"
-        },
-        {
-          "level": 2,
-          "text": "Code of Conduct"
-        }
-      ],
-      "codeLanguages": [
-        "text"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/developers/opportunities/bug-bounties",
-      "title": "Bug Bounties",
-      "description": "Report smart contract vulnerabilities in the Livepeer protocol and earn USDC rewards through the official Livepeer bug bounty programme on Immunefi.",
-      "section": "developers",
-      "tags": [
-        "livepeer",
-        "bug-bounty",
-        "immunefi",
-        "security",
-        "smart-contract",
-        "vulnerability",
-        "usdc",
-        "developer",
-        "builder-opportunities",
-        "developers",
-        "opportunities",
-        "bug-bounties"
-      ],
-      "entities": [
-        "developer"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 720,
-      "lastVerified": "2026-03",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Programme Overview"
-        },
-        {
-          "level": 2,
-          "text": "Severity Levels and Rewards"
-        },
-        {
-          "level": 3,
-          "text": "Focus Areas"
-        },
-        {
-          "level": 2,
-          "text": "Scope"
-        },
-        {
-          "level": 3,
-          "text": "Out of Scope"
-        },
-        {
-          "level": 2,
-          "text": "How to Submit a Report"
-        },
-        {
-          "level": 2,
-          "text": "Recent Programme Activity"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/developers/resources/sdks",
-      "title": "SDKs",
-      "description": "SDKs for Livepeer - Studio SDKs and Network SDKs",
-      "section": "developers",
-      "tags": [
-        "livepeer",
-        "sdk",
-        "studio",
-        "network",
         "developers",
         "resources",
-        "sdks"
-      ],
-      "entities": [
-        "developer"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "advanced",
-      "wordCount": 103,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Livepeer Studio SDKs"
-        },
-        {
-          "level": 2,
-          "text": "Network-side SDKs"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/developers/resources/apis",
-      "title": "APIs",
-      "description": "APIs for Livepeer - Studio API and Network APIs",
-      "section": "developers",
-      "tags": [
-        "livepeer",
-        "api",
-        "studio",
-        "network",
-        "developers",
-        "resources",
-        "apis"
+        "compendium",
+        "example-applications"
       ],
       "entities": [
         "developer"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 100,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Livepeer Studio API"
-        },
-        {
-          "level": 2,
-          "text": "Network APIs"
-        }
-      ],
+      "wordCount": 117,
+      "lastVerified": "2026-03-18T09:56:02.000Z",
+      "headings": [],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/developers/resources/awesome-livepeer",
+      "url": "https://docs.livepeer.org/v2/developers/resources/knowledge-hub/awesome-livepeer",
       "title": "Awesome Livepeer",
       "description": "Browse the community-curated Awesome Livepeer collection of tools, libraries, examples, and ecosystem resources.",
       "section": "developers",
@@ -8133,7 +8130,8 @@
         "technical-references",
         "awesome-livepeer",
         "awesome",
-        "resources"
+        "resources",
+        "knowledge-hub"
       ],
       "entities": [
         "developer"
@@ -8141,7 +8139,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 43,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-04T12:26:05.597Z",
       "headings": [
         {
           "level": 2,
@@ -8151,7 +8149,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/developers/resources/wiki",
+      "url": "https://docs.livepeer.org/v2/developers/resources/knowledge-hub/wiki",
       "title": "Livepeer Wiki",
       "description": "Access the Livepeer Wiki README and repository for older technical reference material and project documentation.",
       "section": "developers",
@@ -8160,7 +8158,8 @@
         "developers",
         "technical-references",
         "wiki",
-        "resources"
+        "resources",
+        "knowledge-hub"
       ],
       "entities": [
         "developer"
@@ -8168,12 +8167,12 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 29,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-04T12:26:05.606Z",
       "headings": [],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/developers/resources/deepwiki",
+      "url": "https://docs.livepeer.org/v2/developers/resources/knowledge-hub/deepwiki",
       "title": "DeepWiki",
       "description": "Use DeepWiki to explore Livepeer repositories, architecture, and workflows through AI-generated codebase documentation and search.",
       "section": "developers",
@@ -8182,7 +8181,8 @@
         "developers",
         "technical-references",
         "deepwiki",
-        "resources"
+        "resources",
+        "knowledge-hub"
       ],
       "entities": [
         "developer"
@@ -8190,56 +8190,8 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 86,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-04T12:26:05.604Z",
       "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/developers/resources/compendium/glossary",
-      "title": "Developer Glossary",
-      "description": "Key terms for Livepeer developers — SDKs, APIs, AI pipelines, streaming protocols, and integration concepts.",
-      "section": "developers",
-      "tags": [
-        "livepeer",
-        "glossary",
-        "developers",
-        "terminology",
-        "resources",
-        "compendium"
-      ],
-      "entities": [
-        "developer"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 2889,
-      "lastVerified": "2026-03",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Livepeer Protocol Terms"
-        },
-        {
-          "level": 2,
-          "text": "AI Terms"
-        },
-        {
-          "level": 2,
-          "text": "Video Terms"
-        },
-        {
-          "level": 2,
-          "text": "Web3 Terms"
-        },
-        {
-          "level": 2,
-          "text": "Technical Terms"
-        },
-        {
-          "level": 2,
-          "text": "Operational Terms"
-        }
-      ],
       "codeLanguages": []
     },
     {
@@ -16479,7 +16431,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1395,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -16597,7 +16549,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 945,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -18481,7 +18433,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 144,
-      "lastVerified": "2026-04-05T11:48:44.390Z",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -18506,7 +18458,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 466,
-      "lastVerified": "2026-04-05T10:49:17.783Z",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -18586,7 +18538,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1288,
-      "lastVerified": "2026-04-04T12:26:05.570Z",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -18628,7 +18580,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 398,
-      "lastVerified": "2026-04-05T10:49:17.782Z",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -18700,7 +18652,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 371,
-      "lastVerified": "2026-04-05T10:49:17.783Z",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -18776,7 +18728,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 960,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -19197,7 +19149,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 639,
-      "lastVerified": "2026-04-05T10:49:17.781Z",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -19277,7 +19229,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 697,
-      "lastVerified": "2026-04-05T10:49:17.782Z",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -19377,7 +19329,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 945,
-      "lastVerified": "2026-04-05T10:49:17.781Z",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -19513,7 +19465,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 395,
-      "lastVerified": "2026-04-05T10:49:17.780Z",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -19592,7 +19544,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 596,
-      "lastVerified": "2026-04-05T10:49:17.780Z",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -19687,7 +19639,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 494,
-      "lastVerified": "2026-04-05T10:49:17.778Z",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -19852,7 +19804,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 433,
-      "lastVerified": "2026-04-04T12:26:05.607Z",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -19892,7 +19844,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 146,
-      "lastVerified": "2026-04-04T12:26:05.608Z",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 3,
@@ -19931,7 +19883,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 285,
-      "lastVerified": "2026-04-04T12:26:05.601Z",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -21453,7 +21405,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3950,
-      "lastVerified": "2026-04-05T15:39:57+10:00",
+      "lastVerified": "2026-04-05T22:04:34+10:00",
       "headings": [
         {
           "level": 2,
@@ -27377,7 +27329,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 988,
+      "wordCount": 880,
       "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
@@ -27411,10 +27363,6 @@
         {
           "level": 3,
           "text": "ownerless-governance-surfaces.json"
-        },
-        {
-          "level": 2,
-          "text": ".github/workspace/"
         },
         {
           "level": 2,

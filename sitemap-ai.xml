@@ -144,278 +144,6 @@
     <ai:lastVerified>2026-03-02</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/developers/build/byoc</loc>
-    <lastmod>2026-03-17T06:36:42+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>905</ai:wordCount>
-    <ai:lastVerified>2026-03-17T06:36:42+11:00</ai:lastVerified>
-    <ai:tags>BYOC, bring your own container, livepeer, AI, custom model, docker, pytrickle, ai-worker, container spec, streaming</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/build/comfystream</loc>
-    <lastmod>2026-03-17T06:36:42+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>1525</ai:wordCount>
-    <ai:lastVerified>2026-03-17T06:36:42+11:00</ai:lastVerified>
-    <ai:tags>comfystream, livepeer, real-time AI, pipeline modes, nodes, custom workflow, data-channel, streamdiffusion, audio transcription, BYOC</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/build/model-support</loc>
-    <lastmod>2026-03-17T06:36:42+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>1182</ai:wordCount>
-    <ai:lastVerified>2026-03-17T06:36:42+11:00</ai:lastVerified>
-    <ai:tags>livepeer, AI, models, pipeline, VRAM, support, LLM, diffusion, cascade, comfystream, BYOC, reference</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/build/sdk-gateway</loc>
-    <lastmod>2026-03-17T06:36:42+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>0</ai:wordCount>
-    <ai:lastVerified>2026-03-17T06:36:42+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateway, SDK, python, remote signer, livepeer-python-gateway, NaaP, off-chain, API key</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/build/workload-fit</loc>
-    <lastmod>2026-03-31T23:57:50+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>672</ai:wordCount>
-    <ai:lastVerified>2026-03-17</ai:lastVerified>
-    <ai:tags>livepeer, ai workload, inference, streaming, real-time, batch, fit, comfystream, byoc, decision</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/concepts/ai-on-livepeer</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>1093</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, AI, pipeline, cascade, batch AI, real-time AI, LLM, comfystream, inference, developer</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/concepts/developer-stack</loc>
-    <lastmod>2026-04-05T21:31:42+10:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>1285</ai:wordCount>
-    <ai:lastVerified>2026-03-17</ai:lastVerified>
-    <ai:tags>livepeer, developer, studio, daydream, AI gateway, comfystream, developer stack, SDK</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/concepts/oss-stack</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>854</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, open source, go-livepeer, protocol, ai-worker, comfystream, contribute, SPE, OSS</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/concepts/running-a-gateway</loc>
-    <lastmod>2026-03-17T06:36:42+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>746</ai:wordCount>
-    <ai:lastVerified>2026-03-17</ai:lastVerified>
-    <ai:tags>livepeer, gateway, self-host, developer, graduation, AI gateway, off-chain, cost, decision</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/concepts/video-on-livepeer</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>0</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, video, streaming, transcoding, developer</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/developer-journey</loc>
-    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>1051</ai:wordCount>
-    <ai:lastVerified>2026-03-17</ai:lastVerified>
-    <ai:tags>livepeer, developer journey, build on livepeer, gateway operator, orchestrator, ai developer, video developer, where to start</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/get-started/ai-quickstart</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>443</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, ai jobs, quickstart, ai api, gateway, text-to-image</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/get-started/comfystream-quickstart</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>1067</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>comfystream, livepeer, real-time AI, live video, quickstart, ComfyUI, vtuber, cascade, docker, runpod</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/get-started/setup-paths</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>0</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developer, quickstart, get started</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/get-started/transcoding-quickstart</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>412</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, transcoding jobs, quickstart, studio api, transcode, tasks api</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/get-started/video-quickstart</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>0</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, video, streaming, quickstart, studio</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/guides/contribution-guide</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>1029</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, contribution guide, contribute, open source, pull request, github, documentation</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/guides/developer-guides</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>937</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, guides, tutorials, how-to, video streaming, AI inference, SDK, API</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/guides/developer-help</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>1132</ai:wordCount>
-    <ai:lastVerified>2026-03-03</ai:lastVerified>
-    <ai:tags>livepeer, developer, help, support, discord, forum, office hours, github, bug report, contact</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/guides/local-testnet-deployment</loc>
-    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>861</ai:wordCount>
-    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
-    <ai:tags>livepeer, testnet, local development, hardhat, deploy contracts, go-livepeer, developer</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/guides/resources</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>989</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, resources, tools, dashboards, reading, blog, whitepaper, SDK, explorer</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/guides/testnet-contract-deployment</loc>
-    <lastmod>2026-04-05T21:08:17+10:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>935</ai:wordCount>
-    <ai:lastVerified>2026-04-05T21:08:17+10:00</ai:lastVerified>
-    <ai:tags>livepeer, contract addresses, arbitrum, ethereum, blockchain, smart contracts, testnet deployment, local testnet, hardhat, foundry, contract deployment guide, livepeer protocol testnet, arbitrum testnet, ethereum testnet, deploy smart contracts, developer guide, livepeer developer, protocol testing, contract verification, cast commands</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/opportunities/bug-bounties</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>720</ai:wordCount>
-    <ai:lastVerified>2026-03</ai:lastVerified>
-    <ai:tags>livepeer, bug bounty, immunefi, security, smart contract, vulnerability, usdc, developer, builder opportunities</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/opportunities/grants-and-programmes</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>983</ai:wordCount>
-    <ai:lastVerified>2026-03</ai:lastVerified>
-    <ai:tags>livepeer, developers, grants, programmes, hackathon, ai video startup, comfyui, bootcamp, funding, builder opportunities</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/opportunities/oss-contributions</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>1128</ai:wordCount>
-    <ai:lastVerified>2026-03</ai:lastVerified>
-    <ai:tags>livepeer, open source, oss, contribute, github, go-livepeer, studio, ai-runner, comfystream, pull request, good first issue</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/opportunities/overview</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>359</ai:wordCount>
-    <ai:lastVerified>2026-03</ai:lastVerified>
-    <ai:tags>livepeer, developers, builder opportunities, grants, rfps, open source, bug bounty, treasury, hackathon</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/opportunities/rfps-and-proposals</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>920</ai:wordCount>
-    <ai:lastVerified>2026-03</ai:lastVerified>
-    <ai:tags>livepeer, developers, rfp, treasury, spe, special purpose entity, governance, onchain, proposal, builder opportunities</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/portal</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>112</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>Start Here, home, index, landing, developer, developers, dev, development, build, build on livepeer, livepeer developer, livepeer developers, livepeer dev, livepeer devs, livepeer development, livepeer dev portal, livepeer developer portal, livepeer dev home, livepeer developer home, livepeer dev hub, livepeer developer hub, livepeer dev center, livepeer developer center</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/resources/apis</loc>
-    <lastmod>2026-04-05T21:31:42+10:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>100</ai:wordCount>
-    <ai:lastVerified>2026-04-05T21:31:42+10:00</ai:lastVerified>
-    <ai:tags>livepeer, api, studio, network</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/resources/awesome-livepeer</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>43</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, technical references, awesome livepeer, awesome</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/resources/compendium/glossary</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>2889</ai:wordCount>
-    <ai:lastVerified>2026-03</ai:lastVerified>
-    <ai:tags>livepeer, glossary, developers, terminology</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/resources/deepwiki</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>86</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, technical references, deepwiki</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/resources/sdks</loc>
-    <lastmod>2026-04-05T21:31:42+10:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>103</ai:wordCount>
-    <ai:lastVerified>2026-04-05T21:31:42+10:00</ai:lastVerified>
-    <ai:tags>livepeer, sdk, studio, network</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/resources/wiki</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>29</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, technical references, wiki</ai:tags>
-  </url>
-  <url>
     <loc>https://docs.livepeer.org/v2/gateways/guides/node-pipelines/guide</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>gateways</ai:section>
@@ -433,10 +161,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/about-livepeer/ecosystem</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T22:04:34+10:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>1883</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T22:04:34+10:00</ai:lastVerified>
     <ai:tags>livepeer, home, introduction, livepeer ecosystem, ecosystem, grown, robust</ai:tags>
   </url>
   <url>
@@ -465,7 +193,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/mission-control</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T22:04:34+10:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>21</ai:wordCount>
     <ai:lastVerified>2026-03-17</ai:lastVerified>
@@ -673,10 +401,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/ai-automations/automations-workflows</loc>
-    <lastmod>2026-04-05T15:39:57+10:00</lastmod>
+    <lastmod>2026-04-05T22:04:34+10:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>3950</ai:wordCount>
-    <ai:lastVerified>2026-04-05T15:39:57+10:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T22:04:34+10:00</ai:lastVerified>
     <ai:tags>livepeer, resources, documentation guide, automations, workflows, scripts, github actions, n8n, pre-commit, hooks</ai:tags>
   </url>
   <url>
@@ -784,7 +512,7 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/documentation-overview</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <lastmod>2026-04-05T22:04:34+10:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>421</ai:wordCount>
     <ai:lastVerified>2026-03-17</ai:lastVerified>

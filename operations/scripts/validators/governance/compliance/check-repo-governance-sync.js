@@ -97,6 +97,32 @@ function checkReferencedPaths(manifest, issues) {
       });
     });
   });
+
+  (manifest.github_workspace_surfaces || []).forEach((entry) => {
+    const absPath = path.join(REPO_ROOT, entry.path);
+    if (!fs.existsSync(absPath)) {
+      addIssue(
+        issues,
+        'missing_github_workspace_reference',
+        entry.path,
+        `${entry.path} referenced by github_workspace_surfaces is missing.`
+      );
+    }
+  });
+
+  (manifest.legacy_bridge_inventory || []).forEach((entry) => {
+    [entry.legacy_path, entry.canonical_path, ...(entry.consumer_paths || [])].forEach((repoPath) => {
+      const absPath = path.join(REPO_ROOT, repoPath);
+      if (!fs.existsSync(absPath)) {
+        addIssue(
+          issues,
+          'missing_legacy_bridge_reference',
+          repoPath,
+          `${repoPath} referenced by legacy bridge inventory ${entry.id} is missing.`
+        );
+      }
+    });
+  });
 }
 
 function checkBridgeManifestEquality(issues, canonicalPath, legacyPath) {

@@ -63,6 +63,116 @@
     "status_report_json": "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json",
     "status_report_md": "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md"
   },
+  "github_workspace_surfaces": [
+    {
+      "id": "workspace-framework",
+      "path": ".github/workspace/framework-canonical.md",
+      "classification": "transitional-runtime",
+      "runtime_role": "workflow-taxonomy-framework",
+      "future_state": "promote-or-replace",
+      "notes": "Still referenced for workflow taxonomy and naming rules, but not treated as the long-term canonical governance home."
+    },
+    {
+      "id": "workspace-decisions-log",
+      "path": ".github/workspace/decisions-log.mdx",
+      "classification": "transitional-runtime",
+      "runtime_role": "locked-workflow-decisions",
+      "future_state": "promote-or-replace",
+      "notes": "Operational decisions remain live inputs during bridge mode while governance moves under operations/governance."
+    },
+    {
+      "id": "workspace-actions-library",
+      "path": ".github/workspace/actions-library",
+      "classification": "generated-support",
+      "runtime_role": "workflow-reference-library",
+      "future_state": "retain-generated-support",
+      "notes": "Generated/reference workflow documentation and supporting assets used for workflow governance visibility."
+    },
+    {
+      "id": "workspace-outcomes",
+      "path": ".github/workspace/outcomes.md",
+      "classification": "design-only",
+      "runtime_role": "visual-design-context",
+      "future_state": "archive-reference",
+      "notes": "Useful design context and maps, but not an active runtime governance source."
+    },
+    {
+      "id": "workspace-phase2",
+      "path": ".github/workspace/phase2",
+      "classification": "design-only",
+      "runtime_role": "pipeline-design-history",
+      "future_state": "archive-reference",
+      "notes": "Pipeline design and review planning material retained for context, not as canonical runtime governance."
+    },
+    {
+      "id": "workspace-design",
+      "path": ".github/workspace/design",
+      "classification": "design-only",
+      "runtime_role": "concern-design-research",
+      "future_state": "archive-reference",
+      "notes": "Concern-level design work and research should inform future promotion decisions but does not directly govern runtime behavior."
+    },
+    {
+      "id": "workspace-reports-audits",
+      "path": ".github/workspace/reports-audits",
+      "classification": "historical-audit",
+      "runtime_role": "audit-history",
+      "future_state": "archive-reference",
+      "notes": "Historical audit packets and dependency analysis remain reference material only."
+    }
+  ],
+  "legacy_bridge_inventory": [
+    {
+      "id": "legacy-root-governance-manifest",
+      "legacy_path": "tools/config/runtime/root-governance.json",
+      "canonical_path": "operations/governance/config/root-governance.json",
+      "consumer_paths": [
+        "tools/lib/governance/root-governance.js",
+        "operations/tests/run-pr-checks.js",
+        "operations/scripts/validators/governance/compliance/check-repo-governance-sync.js"
+      ],
+      "retirement_requirements": [
+        "root-governance helper no longer falls back to legacy manifest",
+        "changed-file PR routing no longer needs legacy root-governance path",
+        "bridge sync validator no longer checks legacy root-governance equality"
+      ],
+      "notes": "Legacy root-governance manifest remains live because helper fallback, PR routing, and sync validation still reference it during bridge mode."
+    },
+    {
+      "id": "legacy-generated-artifacts-manifest",
+      "legacy_path": "tools/config/runtime/generated-artifacts.json",
+      "canonical_path": "operations/governance/config/generated-artifacts.json",
+      "consumer_paths": [
+        "tools/lib/governance/generated-artifacts.js",
+        "operations/tests/run-pr-checks.js",
+        "operations/scripts/validators/governance/compliance/check-repo-governance-sync.js"
+      ],
+      "retirement_requirements": [
+        "generated-artifacts helper no longer falls back to legacy manifest",
+        "changed-file PR routing no longer needs legacy generated-artifacts path",
+        "bridge sync validator no longer checks legacy generated-artifacts equality"
+      ],
+      "notes": "Legacy generated-artifacts manifest remains live because helper fallback, PR routing, and sync validation still reference it during bridge mode."
+    },
+    {
+      "id": "legacy-ownerless-governance-manifest",
+      "legacy_path": "tools/config/runtime/ownerless-governance-surfaces.json",
+      "canonical_path": "operations/governance/config/ownerless-governance-surfaces.json",
+      "consumer_paths": [
+        "operations/tests/unit/ownerless-governance.test.js",
+        "operations/tests/run-pr-checks.js",
+        "tools/lib/ai/ai-tools-registry.js",
+        "operations/scripts/validators/governance/compliance/check-repo-governance-sync.js"
+      ],
+      "retirement_requirements": [
+        "ownerless-governance test no longer falls back to legacy manifest",
+        "changed-file PR routing no longer needs legacy ownerless-governance path",
+        "AI-tools registry relevance checks no longer treat the legacy ownerless manifest as active",
+        "bridge sync validator no longer checks legacy ownerless-governance equality"
+      ],
+      "notes": "Legacy ownerless-governance manifest remains live because test fallback, PR routing, AI-tools relevance checks, and sync validation still reference it during bridge mode."
+    }
+  ],
   "path_classes": [
     {
       "id": "governance-config",
@@ -346,6 +456,56 @@
         "gate-layer contract remains explicit"
       ],
       "notes": "Canonical ownerless-governance manifest now lives under operations/governance/config while the legacy runtime mirror remains in staged bridge mode."
+    },
+    {
+      "id": "github-workspace-governance",
+      "name": "GitHub Workspace Governance",
+      "surface_type": "github-workspace-governance",
+      "paths": [
+        ".github/workspace/framework-canonical.md",
+        ".github/workspace/decisions-log.mdx",
+        ".github/workspace/actions-library",
+        ".github/workspace/outcomes.md",
+        ".github/workspace/phase2",
+        ".github/workspace/design",
+        ".github/workspace/reports-audits"
+      ],
+      "canonical_sources": [
+        "operations/governance/config/repo-governance-surfaces.json",
+        ".github/workspace/framework-canonical.md",
+        ".github/workspace/decisions-log.mdx"
+      ],
+      "derived_outputs": [
+        "docs-guide/repo-ops/config/repo-governance-map.mdx",
+        "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json",
+        "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md"
+      ],
+      "validators": [
+        "operations/scripts/validators/governance/compliance/check-repo-governance-sync.js",
+        "operations/tests/unit/repo-governance-sync.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/reports/generate-repo-governance-status.js --write",
+        "node operations/scripts/validators/governance/compliance/check-repo-governance-sync.js --json"
+      ],
+      "gate_layer": "pr-changed",
+      "rollout_state": "migrating",
+      "ownerless_ready": false,
+      "write_policy": "policy_and_registry_controlled",
+      "agent_write_policy": "registry_defaults_only",
+      "network_dependent": false,
+      "public_contract": "internal",
+      "doc_refs": [
+        "docs-guide/repo-ops/config/repo-config-map.mdx",
+        "docs-guide/policies/governance-index.mdx"
+      ],
+      "escalation_mode": "human-review-required",
+      "success_signals": [
+        "github workspace references are explicitly classified",
+        "runtime support paths are distinguished from design-only history",
+        "repo governance map reflects the current promotion posture"
+      ],
+      "notes": ".github/workspace contains mixed transitional runtime sources, generated support material, and design/audit history; this classification prevents the whole tree from being treated as canonical runtime governance."
     }
   ]
 }

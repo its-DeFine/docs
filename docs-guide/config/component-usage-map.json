@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generated": "2026-04-05T11:49:47.029Z",
+    "generated": "2026-04-05T12:25:49.470Z",
     "generator": "operations/scripts/audits/components/library/scan-component-imports.js",
     "componentCount": 144,
     "canonicalUsagePolicy": "english-only-jsdoc"
@@ -1401,7 +1401,7 @@
       "name": "CustomDivider",
       "file": "snippets/components/elements/spacing/Divider.jsx",
       "category": "elements",
-      "count": 181,
+      "count": 175,
       "pages": [
         "v2/about/navigator.mdx",
         "v2/about/portal.mdx",
@@ -1425,12 +1425,6 @@
         "v2/delegators/portal.mdx",
         "v2/delegators/resources/reference/glossary.mdx",
         "v2/developers/guides/local-testnet-deployment.mdx",
-        "v2/developers/guides/testnet-contract-deployment.mdx",
-        "v2/developers/opportunities/bug-bounties.mdx",
-        "v2/developers/opportunities/grants-and-programmes.mdx",
-        "v2/developers/opportunities/oss-contributions.mdx",
-        "v2/developers/opportunities/overview.mdx",
-        "v2/developers/opportunities/rfps-and-proposals.mdx",
         "v2/developers/portal.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
         "v2/gateways/concepts/architecture.mdx",
@@ -1586,13 +1580,13 @@
         "v2/solutions/streamplace/overview.mdx"
       ],
       "localeBreakdown": {
-        "en": 181,
+        "en": 175,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 181,
+      "englishCanonicalCount": 175,
       "englishCanonicalPages": [
         "v2/about/navigator.mdx",
         "v2/about/portal.mdx",
@@ -1616,12 +1610,6 @@
         "v2/delegators/portal.mdx",
         "v2/delegators/resources/reference/glossary.mdx",
         "v2/developers/guides/local-testnet-deployment.mdx",
-        "v2/developers/guides/testnet-contract-deployment.mdx",
-        "v2/developers/opportunities/bug-bounties.mdx",
-        "v2/developers/opportunities/grants-and-programmes.mdx",
-        "v2/developers/opportunities/oss-contributions.mdx",
-        "v2/developers/opportunities/overview.mdx",
-        "v2/developers/opportunities/rfps-and-proposals.mdx",
         "v2/developers/portal.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
         "v2/gateways/concepts/architecture.mdx",
@@ -1802,12 +1790,6 @@
           "v2/delegators/portal.mdx",
           "v2/delegators/resources/reference/glossary.mdx",
           "v2/developers/guides/local-testnet-deployment.mdx",
-          "v2/developers/guides/testnet-contract-deployment.mdx",
-          "v2/developers/opportunities/bug-bounties.mdx",
-          "v2/developers/opportunities/grants-and-programmes.mdx",
-          "v2/developers/opportunities/oss-contributions.mdx",
-          "v2/developers/opportunities/overview.mdx",
-          "v2/developers/opportunities/rfps-and-proposals.mdx",
           "v2/developers/portal.mdx",
           "v2/developers/resources/compendium/glossary.mdx",
           "v2/gateways/concepts/architecture.mdx",
@@ -2180,40 +2162,32 @@
       "name": "GotoCard",
       "file": "snippets/components/elements/links/Links.jsx",
       "category": "elements",
-      "count": 13,
+      "count": 9,
       "pages": [
         "v2/about/network/marketplace.mdx",
         "v2/about/network/technical-architecture.mdx",
         "v2/about/protocol/technical-architecture.mdx",
         "v2/developers/build/workload-fit.mdx",
         "v2/developers/guides/developer-guides.mdx",
-        "v2/developers/guides/developer-help.mdx",
-        "v2/developers/guides/resources.mdx",
-        "v2/developers/opportunities/grants-and-programmes.mdx",
-        "v2/developers/opportunities/overview.mdx",
         "v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards.mdx",
         "v2/gateways/setup/install/community-projects.mdx",
         "v2/home/about-livepeer/vision.mdx",
         "v2/home/primer.mdx"
       ],
       "localeBreakdown": {
-        "en": 13,
+        "en": 9,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 13,
+      "englishCanonicalCount": 9,
       "englishCanonicalPages": [
         "v2/about/network/marketplace.mdx",
         "v2/about/network/technical-architecture.mdx",
         "v2/about/protocol/technical-architecture.mdx",
         "v2/developers/build/workload-fit.mdx",
         "v2/developers/guides/developer-guides.mdx",
-        "v2/developers/guides/developer-help.mdx",
-        "v2/developers/guides/resources.mdx",
-        "v2/developers/opportunities/grants-and-programmes.mdx",
-        "v2/developers/opportunities/overview.mdx",
         "v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards.mdx",
         "v2/gateways/setup/install/community-projects.mdx",
         "v2/home/about-livepeer/vision.mdx",
@@ -2228,10 +2202,6 @@
           "v2/about/protocol/technical-architecture.mdx",
           "v2/developers/build/workload-fit.mdx",
           "v2/developers/guides/developer-guides.mdx",
-          "v2/developers/guides/developer-help.mdx",
-          "v2/developers/guides/resources.mdx",
-          "v2/developers/opportunities/grants-and-programmes.mdx",
-          "v2/developers/opportunities/overview.mdx",
           "v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards.mdx",
           "v2/gateways/setup/install/community-projects.mdx",
           "v2/home/about-livepeer/vision.mdx",
@@ -2364,7 +2334,7 @@
       "name": "LinkArrow",
       "file": "snippets/components/elements/links/Links.jsx",
       "category": "elements",
-      "count": 112,
+      "count": 111,
       "pages": [
         "v2/about/concepts/livepeer-overview.mdx",
         "v2/about/protocol/blockchain-contracts.mdx",
@@ -2376,7 +2346,6 @@
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/developers/guides/contribution-guide.mdx",
         "v2/developers/guides/local-testnet-deployment.mdx",
-        "v2/developers/guides/testnet-contract-deployment.mdx",
         "v2/gateways/concepts/architecture.mdx",
         "v2/gateways/concepts/business-model.mdx",
         "v2/gateways/concepts/capabilities.mdx",
@@ -2480,13 +2449,13 @@
         "v2/solutions/streamplace/community.mdx"
       ],
       "localeBreakdown": {
-        "en": 112,
+        "en": 111,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 112,
+      "englishCanonicalCount": 111,
       "englishCanonicalPages": [
         "v2/about/concepts/livepeer-overview.mdx",
         "v2/about/protocol/blockchain-contracts.mdx",
@@ -2498,7 +2467,6 @@
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/developers/guides/contribution-guide.mdx",
         "v2/developers/guides/local-testnet-deployment.mdx",
-        "v2/developers/guides/testnet-contract-deployment.mdx",
         "v2/gateways/concepts/architecture.mdx",
         "v2/gateways/concepts/business-model.mdx",
         "v2/gateways/concepts/capabilities.mdx",
@@ -2615,7 +2583,6 @@
           "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
           "v2/developers/guides/contribution-guide.mdx",
           "v2/developers/guides/local-testnet-deployment.mdx",
-          "v2/developers/guides/testnet-contract-deployment.mdx",
           "v2/gateways/concepts/architecture.mdx",
           "v2/gateways/concepts/business-model.mdx",
           "v2/gateways/concepts/capabilities.mdx",
@@ -4766,19 +4733,13 @@
       "name": "BorderedBox",
       "file": "snippets/components/wrappers/containers/Containers.jsx",
       "category": "wrappers",
-      "count": 63,
+      "count": 57,
       "pages": [
         "v2/about/protocol/blockchain-contracts.mdx",
         "v2/community/livepeer-community/community-guidelines.mdx",
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/delegators/delegation/getting-started.mdx",
         "v2/developers/build/workload-fit.mdx",
-        "v2/developers/developer-journey.mdx",
-        "v2/developers/opportunities/bug-bounties.mdx",
-        "v2/developers/opportunities/grants-and-programmes.mdx",
-        "v2/developers/opportunities/oss-contributions.mdx",
-        "v2/developers/opportunities/overview.mdx",
-        "v2/developers/opportunities/rfps-and-proposals.mdx",
         "v2/gateways/guides/advanced-operations/gateway-discoverability.mdx",
         "v2/gateways/guides/advanced-operations/gateway-middleware.mdx",
         "v2/gateways/guides/advanced-operations/orchestrator-selection.mdx",
@@ -4833,25 +4794,19 @@
         "v2/solutions/streamplace/overview.mdx"
       ],
       "localeBreakdown": {
-        "en": 63,
+        "en": 57,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 63,
+      "englishCanonicalCount": 57,
       "englishCanonicalPages": [
         "v2/about/protocol/blockchain-contracts.mdx",
         "v2/community/livepeer-community/community-guidelines.mdx",
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/delegators/delegation/getting-started.mdx",
         "v2/developers/build/workload-fit.mdx",
-        "v2/developers/developer-journey.mdx",
-        "v2/developers/opportunities/bug-bounties.mdx",
-        "v2/developers/opportunities/grants-and-programmes.mdx",
-        "v2/developers/opportunities/oss-contributions.mdx",
-        "v2/developers/opportunities/overview.mdx",
-        "v2/developers/opportunities/rfps-and-proposals.mdx",
         "v2/gateways/guides/advanced-operations/gateway-discoverability.mdx",
         "v2/gateways/guides/advanced-operations/gateway-middleware.mdx",
         "v2/gateways/guides/advanced-operations/orchestrator-selection.mdx",
@@ -4914,12 +4869,6 @@
           "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
           "v2/delegators/delegation/getting-started.mdx",
           "v2/developers/build/workload-fit.mdx",
-          "v2/developers/developer-journey.mdx",
-          "v2/developers/opportunities/bug-bounties.mdx",
-          "v2/developers/opportunities/grants-and-programmes.mdx",
-          "v2/developers/opportunities/oss-contributions.mdx",
-          "v2/developers/opportunities/overview.mdx",
-          "v2/developers/opportunities/rfps-and-proposals.mdx",
           "v2/gateways/guides/advanced-operations/gateway-discoverability.mdx",
           "v2/gateways/guides/advanced-operations/gateway-middleware.mdx",
           "v2/gateways/guides/advanced-operations/orchestrator-selection.mdx",
@@ -5136,34 +5085,24 @@
       "name": "DisplayCard",
       "file": "snippets/components/wrappers/cards/CustomCards.jsx",
       "category": "wrappers",
-      "count": 10,
+      "count": 5,
       "pages": [
         "v2/community/livepeer-community/community-guidelines.mdx",
-        "v2/developers/opportunities/bug-bounties.mdx",
-        "v2/developers/opportunities/grants-and-programmes.mdx",
-        "v2/developers/opportunities/oss-contributions.mdx",
-        "v2/developers/opportunities/overview.mdx",
-        "v2/developers/opportunities/rfps-and-proposals.mdx",
         "v2/home/about-livepeer/vision.mdx",
         "v2/home/get-started.mdx",
         "v2/home/solutions/applications.mdx",
         "v2/internal/rfp/problem-statements.mdx"
       ],
       "localeBreakdown": {
-        "en": 10,
+        "en": 5,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 10,
+      "englishCanonicalCount": 5,
       "englishCanonicalPages": [
         "v2/community/livepeer-community/community-guidelines.mdx",
-        "v2/developers/opportunities/bug-bounties.mdx",
-        "v2/developers/opportunities/grants-and-programmes.mdx",
-        "v2/developers/opportunities/oss-contributions.mdx",
-        "v2/developers/opportunities/overview.mdx",
-        "v2/developers/opportunities/rfps-and-proposals.mdx",
         "v2/home/about-livepeer/vision.mdx",
         "v2/home/get-started.mdx",
         "v2/home/solutions/applications.mdx",
@@ -5174,11 +5113,6 @@
       "drift": {
         "missingFromJsDoc": [
           "v2/community/livepeer-community/community-guidelines.mdx",
-          "v2/developers/opportunities/bug-bounties.mdx",
-          "v2/developers/opportunities/grants-and-programmes.mdx",
-          "v2/developers/opportunities/oss-contributions.mdx",
-          "v2/developers/opportunities/overview.mdx",
-          "v2/developers/opportunities/rfps-and-proposals.mdx",
           "v2/home/about-livepeer/vision.mdx",
           "v2/home/get-started.mdx",
           "v2/home/solutions/applications.mdx",
@@ -7686,13 +7620,13 @@
       "rank": 1,
       "name": "CustomDivider",
       "category": "elements",
-      "count": 181
+      "count": 175
     },
     {
       "rank": 2,
       "name": "LinkArrow",
       "category": "elements",
-      "count": 112
+      "count": 111
     },
     {
       "rank": 3,
@@ -7716,7 +7650,7 @@
       "rank": 6,
       "name": "BorderedBox",
       "category": "wrappers",
-      "count": 63
+      "count": 57
     },
     {
       "rank": 7,
@@ -7774,63 +7708,63 @@
     },
     {
       "rank": 16,
-      "name": "GotoCard",
-      "category": "elements",
-      "count": 13
-    },
-    {
-      "rank": 17,
       "name": "MathBlock",
       "category": "elements",
       "count": 13
     },
     {
-      "rank": 18,
+      "rank": 17,
       "name": "MathInline",
       "category": "elements",
       "count": 13
     },
     {
-      "rank": 19,
+      "rank": 18,
       "name": "CustomCardTitle",
       "category": "elements",
       "count": 12
     },
     {
-      "rank": 20,
+      "rank": 19,
       "name": "SocialLinks",
       "category": "elements",
       "count": 12
     },
     {
-      "rank": 21,
+      "rank": 20,
       "name": "BlinkingIcon",
       "category": "elements",
       "count": 11
     },
     {
-      "rank": 22,
+      "rank": 21,
       "name": "Quote",
       "category": "displays",
       "count": 11
     },
     {
-      "rank": 23,
+      "rank": 22,
       "name": "SearchTable",
       "category": "wrappers",
       "count": 11
     },
     {
-      "rank": 24,
-      "name": "DisplayCard",
-      "category": "wrappers",
-      "count": 10
-    },
-    {
-      "rank": 25,
+      "rank": 23,
       "name": "GotoLink",
       "category": "elements",
       "count": 10
+    },
+    {
+      "rank": 24,
+      "name": "GotoCard",
+      "category": "elements",
+      "count": 9
+    },
+    {
+      "rank": 25,
+      "name": "H1",
+      "category": "scaffolding",
+      "count": 9
     }
   ]
 }

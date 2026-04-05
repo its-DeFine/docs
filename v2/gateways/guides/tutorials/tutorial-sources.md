@@ -22,7 +22,7 @@ All of the following file contents or directory listings were retrieved live via
 
 | Path | Bytes | Used for |
 |---|---|---|
-| `v2/developers/developer-journey.mdx` | 8,122 | Developer section paths, Daydream/Embody/livepeer-ops links confirmed |
+| `v2/developers/navigator.mdx` | 8,122 | Developer section paths, Daydream/Embody/livepeer-ops links confirmed |
 | `v2/developers/ai-pipelines/byoc.mdx` | 8,129 | BYOC guide content, Dockerfile, config.yaml pattern confirmed |
 | `v2/developers/ai-pipelines/comfystream.mdx` | 3,592 | ComfyStream guide content confirmed |
 | `v2/developers/ai-inference-on-livepeer/overview.mdx` | 5,928 | AI inference overview content confirmed |

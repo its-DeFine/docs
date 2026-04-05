@@ -21,7 +21,19 @@ const VALID_SURFACE_TYPES = new Set([
   'governance-registry',
   'root-governance',
   'generated-artifact-governance',
-  'ownerless-governance'
+  'ownerless-governance',
+  'github-workspace-governance'
+]);
+const VALID_GITHUB_WORKSPACE_CLASSIFICATIONS = new Set([
+  'transitional-runtime',
+  'generated-support',
+  'design-only',
+  'historical-audit'
+]);
+const VALID_GITHUB_WORKSPACE_FUTURE_STATES = new Set([
+  'promote-or-replace',
+  'retain-generated-support',
+  'archive-reference'
 ]);
 const VALID_AGENT_COMMIT_POLICIES = new Set(['tracked', 'task_dependent', 'untracked', 'forbidden']);
 const VALID_PUBLIC_CONTRACTS = new Set(['internal', 'public_root_contract']);
@@ -78,6 +90,48 @@ function validateTopLevelEntries(entries, label) {
     if (!String(entry.notes || '').trim()) {
       throw new Error(`${label}[${index}].notes is required.`);
     }
+  });
+}
+
+function validateGithubWorkspaceEntries(entries) {
+  ensureArray(entries, 'github_workspace_surfaces');
+  const seen = new Set();
+  entries.forEach((entry, index) => {
+    const label = `github_workspace_surfaces[${index}]`;
+    ['id', 'path', 'classification', 'runtime_role', 'future_state', 'notes'].forEach((field) => {
+      if (!String(entry[field] || '').trim()) {
+        throw new Error(`${label}.${field} is required.`);
+      }
+    });
+    if (seen.has(entry.id)) {
+      throw new Error(`Duplicate github_workspace_surfaces id "${entry.id}".`);
+    }
+    seen.add(entry.id);
+    if (!VALID_GITHUB_WORKSPACE_CLASSIFICATIONS.has(String(entry.classification || '').trim())) {
+      throw new Error(`${label}.classification has invalid value "${entry.classification}".`);
+    }
+    if (!VALID_GITHUB_WORKSPACE_FUTURE_STATES.has(String(entry.future_state || '').trim())) {
+      throw new Error(`${label}.future_state has invalid value "${entry.future_state}".`);
+    }
+  });
+}
+
+function validateLegacyBridgeInventory(entries) {
+  ensureArray(entries, 'legacy_bridge_inventory');
+  const seen = new Set();
+  entries.forEach((entry, index) => {
+    const label = `legacy_bridge_inventory[${index}]`;
+    ['id', 'legacy_path', 'canonical_path', 'notes'].forEach((field) => {
+      if (!String(entry[field] || '').trim()) {
+        throw new Error(`${label}.${field} is required.`);
+      }
+    });
+    if (seen.has(entry.id)) {
+      throw new Error(`Duplicate legacy_bridge_inventory id "${entry.id}".`);
+    }
+    seen.add(entry.id);
+    ensureArray(entry.consumer_paths, `${label}.consumer_paths`);
+    ensureArray(entry.retirement_requirements, `${label}.retirement_requirements`);
   });
 }
 
@@ -176,6 +230,8 @@ function validateManifest(manifest) {
     }
   });
 
+  validateGithubWorkspaceEntries(manifest.github_workspace_surfaces);
+  validateLegacyBridgeInventory(manifest.legacy_bridge_inventory);
   validateTopLevelEntries(manifest.path_classes, 'path_classes');
   manifest.path_classes.forEach((entry, index) => {
     ensureArray(entry.allowed_paths, `path_classes[${index}].allowed_paths`);
@@ -241,11 +297,24 @@ function getApprovalCheckpointIds(manifest = readManifest()) {
   return sortStrings(manifest.approval_checkpoints.map((entry) => entry.id));
 }
 
+function getGithubWorkspaceClassificationCounts(manifest = readManifest()) {
+  return manifest.github_workspace_surfaces.reduce((acc, entry) => {
+    acc[entry.classification] = (acc[entry.classification] || 0) + 1;
+    return acc;
+  }, {});
+}
+
+function getLegacyBridgeIds(manifest = readManifest()) {
+  return sortStrings(manifest.legacy_bridge_inventory.map((entry) => entry.id));
+}
+
 module.exports = {
   MANIFEST_PATH,
   VALID_GATE_LAYERS,
   VALID_ROLLOUT_STATES,
   VALID_SURFACE_TYPES,
+  VALID_GITHUB_WORKSPACE_CLASSIFICATIONS,
+  VALID_GITHUB_WORKSPACE_FUTURE_STATES,
   VALID_AGENT_COMMIT_POLICIES,
   VALID_PUBLIC_CONTRACTS,
   VALID_ESCALATION_MODES,
@@ -258,6 +327,8 @@ module.exports = {
   readManifest,
   getSurfaceIds,
   getApprovalCheckpointIds,
+  getGithubWorkspaceClassificationCounts,
+  getLegacyBridgeIds,
   getSurfaceById,
   getRolloutStateCounts,
   getOwnerlessReadyCount,

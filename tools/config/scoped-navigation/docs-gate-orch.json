@@ -2544,7 +2544,7 @@
                         "icon": "house",
                         "pages": [
                           "v2/developers/portal",
-                          "v2/developers/developer-journey"
+                          "v2/developers/navigator"
                         ]
                       },
                       {
@@ -2585,31 +2585,31 @@
                         "icon": "laptop-file",
                         "pages": [
                           "v2/developers/guides/developer-guides",
-                          "v2/developers/guides/resources",
+                          "v2/developers/resources/compendium/resources",
                           "v2/developers/guides/contribution-guide",
-                          "v2/developers/guides/developer-help"
+                          "v2/developers/resources/compendium/developer-help"
                         ]
                       },
                       {
                         "group": "Opportunities",
                         "icon": "lightbulb",
                         "pages": [
-                          "v2/developers/opportunities/overview",
-                          "v2/developers/opportunities/grants-and-programmes",
-                          "v2/developers/opportunities/rfps-and-proposals",
-                          "v2/developers/opportunities/oss-contributions",
-                          "v2/developers/opportunities/bug-bounties"
+                          "v2/developers/guides/opportunities/overview",
+                          "v2/developers/guides/opportunities/grants-and-programmes",
+                          "v2/developers/guides/opportunities/rfps-and-proposals",
+                          "v2/developers/guides/opportunities/oss-contributions",
+                          "v2/developers/guides/opportunities/bug-bounties"
                         ]
                       },
                       {
                         "group": "Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/developers/resources/sdks",
-                          "v2/developers/resources/apis",
-                          "v2/developers/resources/awesome-livepeer",
-                          "v2/developers/resources/wiki",
-                          "v2/developers/resources/deepwiki"
+                          "v2/developers/resources/reference/sdks",
+                          "v2/developers/resources/reference/apis",
+                          "v2/developers/resources/knowledge-hub/awesome-livepeer",
+                          "v2/developers/resources/knowledge-hub/wiki",
+                          "v2/developers/resources/knowledge-hub/deepwiki"
                         ]
                       }
                     ]
@@ -3996,15 +3996,15 @@
     },
     {
       "source": "/v2/developers/developer-path",
-      "destination": "/v2/developers/developer-journey"
+      "destination": "/v2/developers/navigator"
     },
     {
       "source": "/v2/developers/developer-guide",
-      "destination": "/v2/developers/developer-journey"
+      "destination": "/v2/developers/navigator"
     },
     {
       "source": "/v2/developers/journey-mapping",
-      "destination": "/v2/developers/developer-journey"
+      "destination": "/v2/developers/navigator"
     },
     {
       "source": "/v2/developers/quickstart/ai/ai-pipelines",
@@ -4056,11 +4056,11 @@
     },
     {
       "source": "/v2/developers/guides-and-tools/resources",
-      "destination": "/v2/developers/guides/resources"
+      "destination": "/v2/developers/resources/compendium/resources"
     },
     {
       "source": "/v2/developers/guides-and-tools/developer-help",
-      "destination": "/v2/developers/guides/developer-help"
+      "destination": "/v2/developers/resources/compendium/developer-help"
     },
     {
       "source": "/v2/developers/guides-and-tools/contribution-guide",
@@ -4072,47 +4072,47 @@
     },
     {
       "source": "/v2/developers/builder-opportunities/overview",
-      "destination": "/v2/developers/opportunities/overview"
+      "destination": "/v2/developers/guides/opportunities/overview"
     },
     {
       "source": "/v2/developers/builder-opportunities/grants-and-programmes",
-      "destination": "/v2/developers/opportunities/grants-and-programmes"
+      "destination": "/v2/developers/guides/opportunities/grants-and-programmes"
     },
     {
       "source": "/v2/developers/builder-opportunities/rfps-and-proposals",
-      "destination": "/v2/developers/opportunities/rfps-and-proposals"
+      "destination": "/v2/developers/guides/opportunities/rfps-and-proposals"
     },
     {
       "source": "/v2/developers/builder-opportunities/oss-contributions",
-      "destination": "/v2/developers/opportunities/oss-contributions"
+      "destination": "/v2/developers/guides/opportunities/oss-contributions"
     },
     {
       "source": "/v2/developers/builder-opportunities/bug-bounties",
-      "destination": "/v2/developers/opportunities/bug-bounties"
+      "destination": "/v2/developers/guides/opportunities/bug-bounties"
     },
     {
       "source": "/v2/developers/builder-opportunities/livepeer-rfps",
-      "destination": "/v2/developers/opportunities/rfps-and-proposals"
+      "destination": "/v2/developers/guides/opportunities/rfps-and-proposals"
     },
     {
       "source": "/v2/developers/technical-references/sdks",
-      "destination": "/v2/developers/resources/sdks"
+      "destination": "/v2/developers/resources/reference/sdks"
     },
     {
       "source": "/v2/developers/technical-references/apis",
-      "destination": "/v2/developers/resources/apis"
+      "destination": "/v2/developers/resources/reference/apis"
     },
     {
       "source": "/v2/developers/technical-references/awesome-livepeer",
-      "destination": "/v2/developers/resources/awesome-livepeer"
+      "destination": "/v2/developers/resources/knowledge-hub/awesome-livepeer"
     },
     {
       "source": "/v2/developers/technical-references/wiki",
-      "destination": "/v2/developers/resources/wiki"
+      "destination": "/v2/developers/resources/knowledge-hub/wiki"
     },
     {
       "source": "/v2/developers/technical-references/deepwiki",
-      "destination": "/v2/developers/resources/deepwiki"
+      "destination": "/v2/developers/resources/knowledge-hub/deepwiki"
     },
     {
       "source": "/v2/gateways/gateways-portal",

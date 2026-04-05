@@ -67,6 +67,8 @@ operations/governance/config/repo-governance-surfaces.json
 | Field group | Purpose |
 |-------------|---------|
 | `generated_outputs` | Declares the repo-governance map and deterministic status reports |
+| `github_workspace_surfaces` | Classifies `.github/workspace` entries as transitional runtime, generated support, design-only, or historical audit |
+| `legacy_bridge_inventory` | Declares the remaining live consumers blocking retirement of `tools/config/runtime/**` bridge manifests |
 | `path_classes` | Declares admitted path classes for governance-controlled writes |
 | `agent_output_classes` | Declares where agent-generated outputs should live and whether they may be committed |
 | `surfaces` | Declares governed governance surfaces, validators, repair commands, gate layer, rollout state, and escalation |
@@ -120,6 +122,30 @@ operations/governance/config/ownerless-governance-surfaces.json
 **Bridge source:** `tools/config/runtime/ownerless-governance-surfaces.json`
 
 **Read by:** ownerless-governance policy/tests, repo-governance sync validation, PR checks, and adjacent governance consumers such as AI-tools registry relevance checks.
+
+---
+
+## .github/workspace/
+
+`.github/workspace/` is not one uniform canonical runtime governance tree.
+
+Under the staged bridge model it contains a mix of:
+- transitional runtime support still used for workflow taxonomy and locked decisions
+- generated support/reference material
+- design-only planning material
+- historical audit context
+
+The live classification is declared in `operations/governance/config/repo-governance-surfaces.json` and rendered in [`docs-guide/repo-ops/config/repo-governance-map.mdx`](/docs-guide/repo-ops/config/repo-governance-map).
+
+Current operating rule:
+- `.github/workspace/framework-canonical.md` and `.github/workspace/decisions-log.mdx` are transitional runtime support, not the long-term canonical governance home
+- `.github/workspace/actions-library/` is generated/supporting reference material
+- `.github/workspace/design/**`, `.github/workspace/phase2/**`, `.github/workspace/outcomes.md`, and `.github/workspace/reports-audits/**` are design or audit context, not active runtime governance
+
+Correct live support paths:
+- Decisions log: `.github/workspace/decisions-log.mdx`
+- Actions audit data: `.github/workspace/actions-library/actions-audit.json`
+- Actions library index: `.github/workspace/actions-library/catalog-index.mdx`
 
 ---
 

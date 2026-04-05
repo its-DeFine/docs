@@ -216,64 +216,6 @@
 
 ## Developers
 
-### Developers / Hub
-
-- [Livepeer Developer Portal](https://docs.livepeer.org/v2/developers/portal): Welcome To The Developer Portal: Explore, Build, Create
-- [Developer Journey](https://docs.livepeer.org/v2/developers/developer-journey): Find your path on Livepeer - whether you want to build video apps, run AI pipelines, operate a gateway, or contribute to the protocol. Start here.
-
-### Developers / Concepts
-
-- [The Livepeer Developer Landscape](https://docs.livepeer.org/v2/developers/concepts/developer-stack): Explains the relationship between Studio, Daydream, the AI gateway API, ComfyStream, and the raw Livepeer protocol — so you can choose the right layer to build at.
-- [AI on Livepeer](https://docs.livepeer.org/v2/developers/concepts/ai-on-livepeer): Explains the three AI pipeline categories on the Livepeer network — batch inference, real-time AI (live-video-to-video), and LLM — so you can choose the right path for your workload.
-- [Video on Livepeer](https://docs.livepeer.org/v2/developers/concepts/video-on-livepeer): Explains video streaming and transcoding on the Livepeer network for developers.
-- [When to Run Your Own Gateway](https://docs.livepeer.org/v2/developers/concepts/running-a-gateway): A decision guide for developers considering self-hosting a Livepeer gateway — covering the trade-offs between hosted APIs and self-hosted infrastructure, and what self-hosting requires.
-- [The Livepeer Open Source Stack](https://docs.livepeer.org/v2/developers/concepts/oss-stack): Maps the main Livepeer open-source repositories — go-livepeer, livepeer-protocol, ai-worker, comfystream, and livepeer.js — and explains how they connect, for developers wanting to contribute.
-
-### Developers / Get Started
-
-- [How to Get Started](https://docs.livepeer.org/v2/developers/get-started/setup-paths): Choose your developer path and get to your first successful Livepeer integration.
-- [Quickstart: Video Streaming](https://docs.livepeer.org/v2/developers/get-started/video-quickstart): Stream and transcode video using the Livepeer Studio API.
-- [Transcoding Jobs Quickstart](https://docs.livepeer.org/v2/developers/get-started/transcoding-quickstart): Submit a Livepeer Studio Transcode job, poll the task status, and verify completion. Built from the GitHub-validated Studio OpenAPI spec and pending TD accuracy review.
-- [AI Jobs Quickstart](https://docs.livepeer.org/v2/developers/get-started/ai-quickstart): Send your first AI job to a Livepeer gateway using the AI API, with GitHub-validated endpoint references and a stakeholder signoff checklist.
-- [Quickstart: ComfyStream on Livepeer](https://docs.livepeer.org/v2/developers/get-started/comfystream-quickstart): Get a ComfyStream instance running and connected to the Livepeer network in a single session — covering Docker, RunPod, and local install paths.
-
-### Developers / Build
-
-- [Build with ComfyStream](https://docs.livepeer.org/v2/developers/build/comfystream): Reference for ComfyStream pipeline modes, custom nodes, workflow format, data-channel output, and performance tuning for developers building real-time AI video applications on Livepeer.
-- [Bring Your Own Container (BYOC)](https://docs.livepeer.org/v2/developers/build/byoc): Step-by-step guide to building a custom AI container using the PyTrickle integration layer and deploying it as a worker on the Livepeer network.
-- [Build a Gateway Client with the SDK](https://docs.livepeer.org/v2/developers/build/sdk-gateway): Build a lightweight Livepeer gateway client in Python, JavaScript, or mobile using the SDK and remote signer — no Go required.
-- [Is My AI Workload a Good Fit for Livepeer?](https://docs.livepeer.org/v2/developers/build/workload-fit): Decision framework for evaluating whether your AI workload belongs on Livepeer. Includes decision tree, capability matrix, gateway vs orchestrator responsibilities, and anti-patterns.
-- [AI Model Support](https://docs.livepeer.org/v2/developers/build/model-support): Reference tables for all AI pipeline types supported on the Livepeer network, with supported model architectures, minimum GPU VRAM requirements, and current status.
-
-### Developers / Guides
-
-- [Developer Guides](https://docs.livepeer.org/v2/developers/guides/developer-guides): A curated library of how-to guides, tutorials, and walkthroughs for building with Livepeer — from first API call to production AI pipelines.
-- [Resources](https://docs.livepeer.org/v2/developers/guides/resources): A curated library of tools, dashboards, reading, videos, and reference material from across the Livepeer ecosystem.
-- [Contribution Guide](https://docs.livepeer.org/v2/developers/guides/contribution-guide): How to contribute to Livepeer — code, documentation, governance, community support, and bug reports across all repositories.
-- [Developer Help](https://docs.livepeer.org/v2/developers/guides/developer-help): Every way to get help as a Livepeer developer — Discord channels, forum, office hours, GitHub issues, and more.
-- [Contract Addresses](https://docs.livepeer.org/v2/developers/guides/testnet-contract-deployment): Current and historical Livepeer protocol contract addresses across Arbitrum One and Ethereum Mainnet. Verified on-chain.
-- [Deploy a local testnet](https://docs.livepeer.org/v2/developers/guides/local-testnet-deployment): Deploy the full Livepeer protocol stack locally using Hardhat and connect go-livepeer nodes to your own contracts for development and testing.
-
-### Developers / Opportunities
-
-- [Builder Opportunities](https://docs.livepeer.org/v2/developers/opportunities/overview): Find grants, programmes, RFPs, treasury proposals, open source contribution pathways, and bug bounties for every type of Livepeer builder.
-- [Grants & Programmes](https://docs.livepeer.org/v2/developers/opportunities/grants-and-programmes): Livepeer funding opportunities for app builders, AI workflow creators, orchestrators, and research teams -- from microgrants to multi-month accelerator programmes.
-- [RFPs & Treasury Proposals](https://docs.livepeer.org/v2/developers/opportunities/rfps-and-proposals): Apply for Foundation-issued Requests for Proposals (RFPs) or submit a funded Special Purpose Entity (SPE) proposal to the Livepeer onchain treasury.
-- [Open Source Contributions](https://docs.livepeer.org/v2/developers/opportunities/oss-contributions): How to contribute to Livepeer's open source repositories -- from documentation fixes to protocol engineering -- including a guide to every core repo and its contributing process.
-- [Bug Bounties](https://docs.livepeer.org/v2/developers/opportunities/bug-bounties): Report smart contract vulnerabilities in the Livepeer protocol and earn USDC rewards through the official Livepeer bug bounty programme on Immunefi.
-
-### Developers / Resources / Compendium
-
-- [Developer Glossary](https://docs.livepeer.org/v2/developers/resources/compendium/glossary): Key terms for Livepeer developers — SDKs, APIs, AI pipelines, streaming protocols, and integration concepts.
-
-### Developers / Resources
-
-- [SDKs](https://docs.livepeer.org/v2/developers/resources/sdks): SDKs for Livepeer - Studio SDKs and Network SDKs
-- [APIs](https://docs.livepeer.org/v2/developers/resources/apis): APIs for Livepeer - Studio API and Network APIs
-- [Awesome Livepeer](https://docs.livepeer.org/v2/developers/resources/awesome-livepeer): Browse the community-curated Awesome Livepeer collection of tools, libraries, examples, and ecosystem resources.
-- [Livepeer Wiki](https://docs.livepeer.org/v2/developers/resources/wiki): Access the Livepeer Wiki README and repository for older technical reference material and project documentation.
-- [DeepWiki](https://docs.livepeer.org/v2/developers/resources/deepwiki): Use DeepWiki to explore Livepeer repositories, architecture, and workflows through AI-generated codebase documentation and search.
-
 
 ## Gateways
 
