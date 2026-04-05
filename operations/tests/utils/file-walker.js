@@ -19,8 +19,8 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const { filterPathsByMintIgnore } = require('./mintignore');
-const { isExcludedV2ExperimentalPath } = require('../../../tools/lib/docs-publishability');
-const { filterAuthoredDocsPageFiles } = require('../../../tools/lib/docs-page-scope');
+const { isExcludedV2ExperimentalPath } = require('../../../tools/lib/docs/docs-publishability');
+const { filterAuthoredDocsPageFiles } = require('../../../tools/lib/docs/docs-page-scope');
 
 function toPosix(filePath) {
   return String(filePath || '').split(path.sep).join('/');

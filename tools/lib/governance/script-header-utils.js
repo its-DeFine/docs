@@ -7,7 +7,7 @@
  * @needs             R-R14, R-R18
  * @purpose-statement Shared helpers for extracting and reading top-of-file script governance headers without scanning into executable source.
  * @pipeline          indirect - library module
- * @usage             const { extractLeadingScriptHeader } = require('../lib/script-header-utils');
+ * @usage             const { extractLeadingScriptHeader } = require('../../tools/lib/governance/script-header-utils');
  */
 
 const HEADER_SCAN_LINES = 200;

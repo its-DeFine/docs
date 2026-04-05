@@ -1,16 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script      generate-ai-skills-indexes
- * @type        generator
- * @concern     governance
- * @niche       catalogs
- * @purpose     governance:agent-governance
- * @description Generates ai-tools/ai-skills inventory.json and content-map.md from the canonical agent-governance surface manifest.
- * @mode        generate
- * @pipeline    manual, ci
- * @scope       operations/scripts, ai-tools/ai-skills, AGENTS.md, .github, .claude, .cursor, .windsurf, docs-guide/policies, contribute, v2
- * @usage       node operations/scripts/generators/governance/catalogs/generate-ai-skills-indexes.js [--check|--write]
- * @policy      R-R14, R-R18
+ * @script            generate-ai-skills-indexes
+ * @category          
+ * @purpose           governance:agent-governance
+ * @scope             operations/scripts, ai-tools/ai-skills, AGENTS.md, .github, .claude, .cursor, .windsurf, docs-guide/policies, docs-guide/contributing, v2
+ * @domain            docs
+ * @needs             
+ * @purpose-statement 
+ * @pipeline          manual, ci
+ * @usage             node operations/scripts/generators/governance/catalogs/generate-ai-skills-indexes.js [--check|--write]
  */
 
 const fs = require('fs');
@@ -208,15 +206,9 @@ const SURFACES = [
   },
   {
     path: '.github/AGENTS.md',
-    section: 'retired-legacy',
-    status: 'retired',
-    primary_purpose: 'Retired repo-wide agent baseline replaced by the canonical root AGENTS.md.'
-  },
-  {
-    path: '.cursorrules',
-    section: 'retired-legacy',
-    status: 'retired',
-    primary_purpose: 'Retired Cursor root rule file replaced by .cursor/rules/repo-governance.mdc.'
+    section: 'canonical-runtime',
+    status: 'active',
+    primary_purpose: 'Defines the Codex-specific task-layer extension that augments the canonical root AGENTS baseline.'
   },
   {
     path: 'ASSISTANT.md',
@@ -233,7 +225,7 @@ const SURFACES = [
 ];
 
 function usage() {
-  console.log('Usage: node operations/scripts/generate-ai-skills-indexes.js [--check|--write]');
+  console.log('Usage: node operations/scripts/generators/governance/catalogs/generate-ai-skills-indexes.js [--check|--write]');
 }
 
 function parseArgs(argv) {

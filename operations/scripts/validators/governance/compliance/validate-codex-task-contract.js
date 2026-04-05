@@ -16,7 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
-const yaml = require('../../../../../tools/lib/load-js-yaml');
+const yaml = require('../../../../../tools/lib/bootstrap/load-js-yaml');
 
 const DEFAULT_CONTRACT_PATH = '.codex/task-contract.yaml';
 const DEFAULT_ISSUE_POLICY_PATH = 'tests/config/codex-issue-policy.json';

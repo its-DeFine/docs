@@ -7,11 +7,11 @@
 # @needs             bash, git, node, NOTION_LOCAL_SYNC_MODE(optional), NOTION_LOCAL_SYNC_STALE_TAB_NAME(optional), NOTION_LOCAL_SYNC_DISABLE(optional)
 # @purpose-statement Detects docs.json or v2 content changes in the latest commit and runs the canonical Notion sync locally when enabled.
 # @pipeline          manual
-# @usage             bash tools/notion/local-post-commit-sync.sh [flags]
+# @usage             bash tools/dev/integrations/notion/local-post-commit-sync.sh [flags]
 set -u
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/../../../.." && pwd)"
 
 if [ "${NOTION_LOCAL_SYNC_DISABLE:-0}" = "1" ]; then
   exit 0
@@ -34,7 +34,7 @@ if ! echo "$changed_files" | grep -Eq '^(docs\.json|v2/.*\.(md|mdx))$'; then
 fi
 
 if [ ! -f "$SCRIPT_DIR/.env" ]; then
-  echo "[notion-sync] tools/notion/.env not found; skipping."
+  echo "[notion-sync] tools/dev/integrations/notion/.env not found; skipping."
   exit 0
 fi
 

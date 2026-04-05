@@ -16,7 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
-const { isExcludedV2ExperimentalPath } = require('../../../../../tools/lib/docs-publishability');
+const { isExcludedV2ExperimentalPath } = require('../../../../../tools/lib/docs/docs-publishability');
 
 const DEFAULT_REPORT_MD = 'workspace/reports/repo-ops/v2-folder-governance-cleanup-matrix.md';
 const DEFAULT_REPORT_JSON = 'workspace/reports/repo-ops/v2-folder-governance-cleanup-matrix.json';

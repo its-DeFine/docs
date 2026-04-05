@@ -21,7 +21,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { execSync, spawn, spawnSync } = require('child_process');
-const { bootstrapRepoNodePaths, createNodeProcessEnv } = require('../../tools/lib/repo-node-paths');
+const { bootstrapRepoNodePaths, createNodeProcessEnv } = require('../../tools/lib/bootstrap/repo-node-paths');
 const { getDocsJsonRouteKeys, toDocsRouteKeyFromFileV2Aware } = require('./utils/file-walker');
 
 bootstrapRepoNodePaths(__dirname);
@@ -36,8 +36,8 @@ const {
   isDiscoveredScriptPath,
   isValidGovernanceScope,
   isWithinRoots
-} = require('../../tools/lib/script-governance-config');
-const { extractLeadingScriptHeader, getTagValue } = require('../../tools/lib/script-header-utils');
+} = require('../../tools/lib/governance/script-governance-config');
+const { extractLeadingScriptHeader, getTagValue } = require('../../tools/lib/governance/script-header-utils');
 
 const styleGuideTests = require('./unit/style-guide.test');
 const copyLintTests = require('./unit/copy-lint.test');
@@ -52,11 +52,12 @@ const aiToolsRegistryTests = require('./unit/ai-tools-registry.test');
 const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
 const checkAgentDocsFreshnessTests = require('./unit/check-agent-docs-freshness.test');
 const rootAllowlistFormatTests = require('./unit/root-allowlist-format.test');
+const rootGovernanceSyncTests = require('./unit/root-governance-sync.test');
 const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
 const docsGuideSotTests = require('./unit/docs-guide-sot.test');
 const uiTemplateGeneratorTests = require('./unit/ui-template-generator.test');
 const componentNamingTests = require('../scripts/validators/components/library/check-naming-conventions');
-const { isAiToolsRegistryRelevantPath } = require('../../tools/lib/ai-tools-registry');
+const { isAiToolsRegistryRelevantPath } = require('../../tools/lib/ai/ai-tools-registry');
 
 const REPO_ROOT = getRepoRoot();
 const SCRIPT_EXTENSIONS = new Set(GOVERNED_SCRIPT_EXTENSIONS);
@@ -76,7 +77,7 @@ const GENERATED_AFFECTING_PREFIXES = [
   'operations/scripts/generators/content/catalogs/generate-pages-index.js',
   'operations/scripts/validators/content/structure/enforce-generated-file-banners.js',
   'operations/scripts/automations/content/language-translation/lib/',
-  'tools/lib/generated-file-banners.js'
+  'tools/lib/governance/generated-file-banners.js'
 ];
 const GENERATED_AFFECTING_EXACT = new Set([
   'operations/tests/unit/script-docs.test.js',
@@ -95,7 +96,7 @@ function fallbackIsEligibleRepoMarkdownPath(filePath) {
 
 let isEligibleRepoMarkdownPath = fallbackIsEligibleRepoMarkdownPath;
 try {
-  ({ isEligibleRepoMarkdownPath } = require('../../tools/lib/mdx-safe-markdown'));
+  ({ isEligibleRepoMarkdownPath } = require('../../tools/lib/docs/mdx-safe-markdown'));
 } catch (_error) {
   isEligibleRepoMarkdownPath = fallbackIsEligibleRepoMarkdownPath;
 }
@@ -282,7 +283,7 @@ function partitionFiles(changedFiles) {
     file.startsWith('ai-tools/ai-skills/templates/') ||
     file.startsWith('ai-tools/agent-packs/skills/') ||
     file === 'operations/scripts/automations/ai/agents/export-portable-skills.js' ||
-    file === 'tools/lib/codex-skill-templates.js' ||
+    file === 'tools/lib/ai/codex-skill-templates.js' ||
     file === 'operations/tests/unit/export-portable-skills.test.js' ||
     file === 'operations/tests/unit/codex-skill-sync.test.js'
   );
@@ -317,8 +318,14 @@ function partitionFiles(changedFiles) {
     file === 'operations/tests/unit/ownerless-governance.test.js' ||
     file === 'operations/tests/unit/check-agent-docs-freshness.test.js' ||
     file === 'operations/tests/unit/root-allowlist-format.test.js' ||
+    file === 'operations/tests/unit/root-governance-sync.test.js' ||
     file === 'operations/scripts/remediators/content/style/repair-ownerless-language.js' ||
     file === 'operations/scripts/validators/governance/compliance/validate-agent-docs-freshness.js' ||
+    file === 'operations/scripts/validators/governance/compliance/check-root-governance-sync.js' ||
+    file === 'operations/scripts/generators/governance/root/generate-root-governance-artifacts.js' ||
+    file === 'tools/config/runtime/root-governance.json' ||
+    file === 'tools/config/runtime/generated-artifacts.json' ||
+    file === 'tools/lib/governance/root-governance.js' ||
     file === '.allowlist' ||
     file === 'AGENTS.md' ||
     file === '.github/copilot-instructions.md' ||
@@ -726,6 +733,21 @@ function runRootAllowlistFormatCheck(files) {
   const result = rootAllowlistFormatTests.runTests();
   return {
     label: 'Root Allowlist Format',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
+async function runRootGovernanceSyncCheck(files) {
+  if (!files.length) {
+    return { label: 'Root Governance Sync', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = await rootGovernanceSyncTests.runTests();
+  return {
+    label: 'Root Governance Sync',
     status: result.passed ? 'passed' : 'failed',
     files: files.length,
     errors: Array.isArray(result.errors) ? result.errors.length : 0,
@@ -1210,6 +1232,11 @@ function createBranchHealthRegistry(context) {
       label: 'Root Allowlist Format',
       files: groups.ownerlessGovernanceFiles,
       run: () => runRootAllowlistFormatCheck(groups.ownerlessGovernanceFiles)
+    }),
+    createInlineCheck({
+      label: 'Root Governance Sync',
+      files: groups.ownerlessGovernanceFiles,
+      run: () => runRootGovernanceSyncCheck(groups.ownerlessGovernanceFiles)
     }),
     createInlineCheck({
       label: 'Portable Skill Export',

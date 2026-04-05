@@ -24,11 +24,11 @@ const {
   hasGeneratedNote,
   removeGeneratedNotes,
   hasFrontmatterKey
-} = require('../../../../../tools/lib/generated-file-banners');
+} = require('../../../../../tools/lib/governance/generated-file-banners');
 const {
   readManifest,
   pathMatches
-} = require('../../../../../tools/lib/generated-artifacts');
+} = require('../../../../../tools/lib/governance/generated-artifacts');
 
 const REPO_ROOT = process.cwd();
 const STAGED_SNAPSHOT_ENV = 'LPD_STAGED_FILES_SNAPSHOT';

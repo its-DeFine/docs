@@ -395,29 +395,6 @@
       ]
     },
     {
-      "path": "snippets/data/resources/hrefs.jsx",
-      "mode": "generated",
-      "requiredRefs": [
-        "docs-guide/contributing/mintlify.mdx"
-      ],
-      "forbiddenRefs": [
-        "snippets/snippetsWiki/mintlify-behaviour.mdx",
-        "/snippets/snippetsWiki/mintlify-behaviour"
-      ],
-      "touchOnCanonicalChange": false,
-      "autofix": "paths-only",
-      "replacementPairs": [
-        {
-          "from": "\"rawPath\": \"/snippets/snippetsWiki/mintlify-behaviour\"",
-          "to": "\"rawPath\": \"/docs-guide/contributing/mintlify\""
-        },
-        {
-          "from": "\"resolvedPath\": \"snippets/snippetsWiki/mintlify-behaviour.mdx\"",
-          "to": "\"resolvedPath\": \"docs-guide/contributing/mintlify.mdx\""
-        }
-      ]
-    },
-    {
       "path": "snippets/snippets-registry.mdx",
       "mode": "compat-retained",
       "requiredRefs": [],

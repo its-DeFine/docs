@@ -145,6 +145,7 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 ## BL-027 — Resolve real staged-suite failures after harness repair
 **Source:** Staged Test Harness Repair — 2026-04-01
 **Description:** After fixing repo-wide dependency bootstrap, `bash tools/lpd test --staged` now runs through to real failures in authoring tools, docs navigation, ownerless governance, root allowlist checks, and usefulness assertions. Triage and repair these in an isolated worktree.
+**Status:** Closed — 2026-04-05. The staged-suite failures were cleared in the snippets root governance follow-up, and `lpd test --staged` now passes in the current worktree.
 **Priority:** P1
 
 ## BL-028 — Fix CP-6 contracts browser validation hang on latest docs-v2-dev
@@ -170,6 +171,7 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 ## BL-032 — Repair Resource HUB redirect contract in docs.json
 **Source:** Snippets Assets `/site` Migration Verification — 2026-04-05
 **Description:** `node operations/tests/unit/docs-navigation.test.js` fails because the Resource HUB tab first routable page and redirect contract are out of sync. Fix `docs.json` so `/v2/resources/redirect` exists and maps to the expected destination.
+**Status:** Closed — 2026-04-05. `docs.json` now restores `/v2/resources/redirect` and the expected redirect target, and staged navigation validation passes.
 **Priority:** P0
 
 ## BL-033 — Fix invalid frontmatter in blockchain-contracts.mdx
@@ -181,3 +183,19 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 **Source:** Snippets Assets `/site` Migration Verification — 2026-04-05
 **Description:** Scoped browser validation on `3145` returns `200` for representative routes but still fails due to `React error #418`, malformed `https://undefined.mintlify.app//...` OG URLs, and non-empty request-abort surfaces. Isolate whether the root cause is Mint config/base URL state, render hydration, analytics/embed behavior, or scoped projection.
 **Priority:** P0
+
+## BL-035 — Remove `snippets/automations` from script-governance indexed roots
+**Source:** Snippets Root Governance Consolidation — 2026-04-05
+**Description:** `snippets/automations/script-index.md` still regenerates because script governance continues to index `snippets/automations` as a managed script root, even though the repo is dismantling that tree and moving live outputs elsewhere.
+**Status:** Closed — 2026-04-05. `tools/lib/script-governance-config.js` no longer indexes `snippets/automations`, and the old path is no longer present on disk.
+**Priority:** P1
+
+## BL-036 — Make the human-owned delete commit for retired `snippets/automations` files
+**Source:** Snippets Root Governance Consolidation — 2026-04-05
+**Description:** `snippets/automations/globals/` and `snippets/automations/script-index.md` are now deleted in the working tree and validated as retired, but tracked-file removal still requires a human-owned commit with `--trailer "allow-deletions=true"`.
+**Priority:** P1
+
+## BL-037 — Make the human-owned delete commit for validated `tools/` restructures
+**Source:** Tools Governance Consolidation — 2026-04-05
+**Description:** The validated `tools/` cleanup includes tracked-file removals across the retired `tools/lib` root paths and other legacy tool surfaces. Repo policy requires a human-owned commit with `--trailer "allow-deletions=true"` after staging only the intended tool-governance files.
+**Priority:** P1

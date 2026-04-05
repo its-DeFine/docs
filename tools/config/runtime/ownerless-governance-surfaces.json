@@ -172,8 +172,8 @@
       "workspace/scripts/**"
     ],
     "canonical_sources": [
-      "tools/lib/script-governance-config.js",
-      "tools/lib/script-header-utils.js",
+      "tools/lib/governance/script-governance-config.js",
+      "tools/lib/governance/script-header-utils.js",
       "operations/tests/unit/script-docs.test.js",
       "operations/scripts/validators/governance/audit-script-inventory.js",
       "operations/scripts/dispatch/governance/pipelines/governance-pipeline.js"
@@ -243,10 +243,10 @@
       "v2/**/*.mdx",
       "docs-guide/**/*.mdx",
       "operations/tests/unit/quality.test.js",
-      "tools/lib/frontmatter-taxonomy.js"
+      "tools/lib/docs/frontmatter-taxonomy.js"
     ],
     "canonical_sources": [
-      "tools/lib/frontmatter-taxonomy.js"
+      "tools/lib/docs/frontmatter-taxonomy.js"
     ],
     "derived_outputs": [],
     "validators": [

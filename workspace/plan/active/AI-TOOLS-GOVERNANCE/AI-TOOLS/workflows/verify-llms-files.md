@@ -22,7 +22,7 @@ Merge this workflow with its sibling family into `future:ai-runtime-artifacts-wo
 
 - action:actions/checkout@v4
 - action:actions/setup-node@v4
-- operations/scripts/generate-llms-files.js
+- operations/scripts/generators/ai/llm/generate-llms-files.js
 
 ## Dependants
 

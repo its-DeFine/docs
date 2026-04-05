@@ -8,12 +8,12 @@
  * @needs             R-R14
  * @purpose-statement Loads and parses rubric YAML/JSON for page-type scoring rules.
  * @pipeline          indirect -- library module
- * @usage             const { loadRubric } = require('../lib/docs-usefulness/rubric-loader');
+ * @usage             const { loadRubric } = require('../../tools/lib/docs-usefulness/rubric-loader');
  */
 
 const fs = require('fs');
 const path = require('path');
-const taxonomy = require('../frontmatter-taxonomy');
+const taxonomy = require('../docs/frontmatter-taxonomy');
 const { CANONICAL_AUDIENCES } = taxonomy;
 
 // Rubric-internal purpose labels — intentionally uses pre-Phase-1 names that key

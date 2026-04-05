@@ -2,17 +2,17 @@
  * @script            load-minimatch
  * @category          utility
  * @purpose           tooling:dev-tools
- * @scope             tools/lib, tests, tools/scripts
+ * @scope             tools/lib/bootstrap, tests
  * @owner             docs
  * @needs             E-C6, F-C1
  * @purpose-statement Glob matcher loader — resolves minimatch from repo-local installs and falls back to a simple glob matcher for bare worktrees
  * @pipeline          indirect — library module
- * @usage             node -e "require('./tools/lib/load-minimatch')"
+ * @usage             const { minimatch } = require('../../tools/lib/bootstrap/load-minimatch');
  */
 
 const path = require('path');
 
-const REPO_ROOT = path.resolve(__dirname, '..');
+const REPO_ROOT = path.resolve(__dirname, '..', '..', '..');
 
 function tryRequire(candidate) {
   try {

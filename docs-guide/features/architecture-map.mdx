@@ -27,7 +27,7 @@ This is an internal systems map for how content, tooling, validation, and automa
 - Content source: `v2/pages/**`, `snippets/**`, `docs.json`
 - Runtime UX: Mintlify dev/build + hosted docs deployment
 - Local operator tooling: `lpd`, `.githooks/*`, `operations/scripts/*`, `tests/*`
-- CI/automation: `.github/workflows/*`, `.github/scripts/*`, `snippets/automations/*`
+- CI/automation: `.github/workflows/*`, `.github/scripts/*`, `snippets/data/*`
 - Governance docs: `README.md`, `docs-guide/*`
 
 ## Data + Control Flow
@@ -42,7 +42,7 @@ flowchart TD
   F --> G["Deployment + runtime docs experience"]
 
   H["External sources (forum/blog/youtube/releases)"] --> I["Automation scripts/workflows"]
-  I --> J["Generated data in snippets/automations + snippets/data"]
+  I --> J["Generated data in snippets/data"]
   J --> A
 ```
 

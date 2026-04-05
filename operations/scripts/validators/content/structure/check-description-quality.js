@@ -15,9 +15,9 @@
 
 const fs = require('fs');
 const path = require('path');
-const yaml = require('../../../../../tools/lib/load-js-yaml');
-const { isExcludedV2ExperimentalPath } = require('../../../../../tools/lib/docs-publishability');
-const { isGeneratedDocsPageFile } = require('../../../../../tools/lib/docs-page-scope');
+const yaml = require('../../../../../tools/lib/bootstrap/load-js-yaml');
+const { isExcludedV2ExperimentalPath } = require('../../../../../tools/lib/docs/docs-publishability');
+const { isGeneratedDocsPageFile } = require('../../../../../tools/lib/docs/docs-page-scope');
 
 const REPO_ROOT = process.cwd();
 const DOCS_JSON_PATH = path.join(REPO_ROOT, 'docs.json');

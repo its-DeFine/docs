@@ -16,7 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
-const yaml = require('../../../../../tools/lib/load-js-yaml');
+const yaml = require('../../../../../tools/lib/bootstrap/load-js-yaml');
 
 const DEFAULT_BASE_REF = 'docs-v2-dev';
 const DEFAULT_CONTRACT = '.codex/task-contract.yaml';
@@ -24,13 +24,16 @@ const LOCK_DIR_REL = '.codex/locks-local';
 const CODEX_BRANCH_RE = /^codex\/[a-z0-9][a-z0-9-]*(?:\/[a-z0-9][a-z0-9-]*)*$/i;
 const GENERATED_EXACT = new Set([
   'docs-index.json',
-  'llms-full.txt',
   'llms.txt',
   'sitemap-ai.xml',
+  '.allowlist',
+  'docs-guide/repo-ops/config/root-governance-map.mdx',
   'docs-guide/catalog/pages-catalog.mdx',
   'docs-guide/catalog/scripts-catalog.mdx',
   'docs-guide/catalog/templates-catalog.mdx',
   'docs-guide/catalog/workflows-catalog.mdx',
+  'workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.json',
+  'workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md',
   'tools/script-index.md'
 ]);
 const OPERATIONAL_PATTERNS = [

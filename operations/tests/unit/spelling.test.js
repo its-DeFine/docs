@@ -18,7 +18,7 @@ const { execSync } = require('child_process');
 const path = require('path');
 const { getAuthoredMdxFiles, getStagedAuthoredDocsPageFiles } = require('../utils/file-walker');
 const { checkMultipleFiles, resolveCspellBinary, resolveCspellConfig } = require('../utils/spell-checker');
-const { filterAuthoredDocsPageFiles } = require('../../../tools/lib/docs-page-scope');
+const { filterAuthoredDocsPageFiles } = require('../../../tools/lib/docs/docs-page-scope');
 
 let errors = [];
 

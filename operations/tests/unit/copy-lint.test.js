@@ -16,7 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const { getAuthoredMdxFiles, getStagedAuthoredDocsPageFiles } = require('../utils/file-walker');
-const { filterAuthoredDocsPageFiles } = require('../../../tools/lib/docs-page-scope');
+const { filterAuthoredDocsPageFiles } = require('../../../tools/lib/docs/docs-page-scope');
 const lintCopy = require('../../scripts/validators/content/copy/lint-copy');
 const lintStructure = require('../../scripts/validators/content/structure/lint-structure');
 const lintPatterns = require('../../scripts/validators/content/copy/lint-patterns');

@@ -33,7 +33,7 @@ Conversation analytics are available in the Mintlify dashboard and surface unans
 
 ### llms.txt
 
-Mintlify auto-generates `llms.txt` and `llms-full.txt` for all hosted sites. These provide clean Markdown for LLM consumption. No repo-level configuration needed.
+This repo governs `llms.txt` as a committed AI-first public root artifact. It is generated from the repo docs navigation by `operations/scripts/generators/ai/llm/generate-llms-files.js`. `llms-full.txt` is retired and not part of the active root contract.
 
 ### MCP Server
 
@@ -147,7 +147,7 @@ Weekly scheduled workflow (`content-health.yml`) scans for stale pages, broken l
 
 ### Language Translation
 
-Translation pipeline for multi-locale content. Frontmatter taxonomy validator at `tools/lib/frontmatter-taxonomy.js` enforces valid locale values.
+Translation pipeline for multi-locale content. Frontmatter taxonomy validator at `tools/lib/docs/frontmatter-taxonomy.js` enforces valid locale values.
 
 ## Contributing AI Tools
 

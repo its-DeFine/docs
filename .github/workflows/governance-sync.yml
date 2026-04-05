@@ -4,9 +4,11 @@ on:
   push:
     branches: [docs-v2]
     paths:
+      - '.allowlist'
+      - 'README.md'
       - 'operations/scripts/**'
       - 'tools/lib/**'
-      - 'tools/notion/**'
+      - 'tools/dev/**'
       - 'tools/config/**'
       - 'operations/tests/unit/**'
       - 'operations/tests/integration/**'
@@ -16,8 +18,9 @@ on:
       - '.githooks/**'
       - '.github/scripts/**'
       - '.github/workflows/**'
+      - 'docs-guide/policies/root-allowlist-governance.mdx'
+      - 'docs-guide/repo-ops/config/root-governance-map.mdx'
       - 'workspace/scripts/**'
-      - 'snippets/automations/**'
       - 'workspace/reports/script-classifications.json'
 
 permissions:
@@ -39,6 +42,8 @@ jobs:
 
       - run: cd tools && npm ci
       - run: cd tests && npm ci
+      - run: node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write
+      - run: node operations/scripts/validators/governance/compliance/check-root-governance-sync.js
 
       - name: Run governance repair
         id: repair
@@ -51,15 +56,29 @@ jobs:
           " 2>/dev/null || echo "0")
           echo "fixes=$FIXES" >> $GITHUB_OUTPUT
 
+      - name: Detect changed governance outputs
+        id: changed
+        shell: bash
+        run: |
+          FILES="$(git diff --name-only)"
+          COUNT="$(printf '%s\n' "$FILES" | sed '/^$/d' | wc -l | tr -d ' ')"
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          {
+            echo 'files<<EOF'
+            printf '%s\n' "$FILES" | sed '/^$/d'
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
       - name: Create PR if fixes applied
-        if: steps.repair.outputs.fixes != '0'
+        if: steps.changed.outputs.count != '0'
         uses: peter-evans/create-pull-request@v7
         with:
           branch: automation/governance-sync
           title: 'chore(governance): post-merge sync -- ${{ steps.repair.outputs.fixes }} fixes'
           body: |
             Automated post-merge governance sync triggered by ${{ github.sha }}.
-            See `workspace/reports/repo-ops/REPAIR_REPORT_LATEST.md` for details.
+            See `workspace/reports/repo-ops/REPAIR_REPORT_LATEST.md` and `workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md` for details.
           base: docs-v2
           delete-branch: true
           labels: governance, automated
+          add-paths: ${{ steps.changed.outputs.files }}

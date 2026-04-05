@@ -8,7 +8,7 @@
  * @description AI-tools registry validator and report writer for source-of-truth coverage, lifecycle, lane alignment, and generated inventory output.
  * @mode        read-only
  * @pipeline    manual -- bounded validator CLI
- * @scope       operations/scripts, tools/lib/ai-tools-registry.js, ai-tools/registry operations/tests/unit/ai-tools-registry.test.js, tools/config/runtime/ownerless-governance-surfaces.json, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx
+ * @scope       operations/scripts, tools/lib/ai/ai-tools-registry.js, ai-tools/registry operations/tests/unit/ai-tools-registry.test.js, tools/config/runtime/ownerless-governance-surfaces.json, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx
  * @usage       node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js [--check] [--coverage] [--lanes] [--write-report]
  * @policy      R-R14, R-R29
  */
@@ -20,7 +20,7 @@ const {
   getRepoRoot,
   validateRegistry,
   writeInventoryReport
-} = require('../../../../../tools/lib/ai-tools-registry');
+} = require('../../../../../tools/lib/ai/ai-tools-registry');
 
 function usage() {
   process.stdout.write(

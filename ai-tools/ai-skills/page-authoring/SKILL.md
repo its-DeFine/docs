@@ -74,7 +74,7 @@ lastVerified: YYYY-MM-DD
 
 Canonical `pageType` and `purpose` values live in:
 
-- `tools/lib/frontmatter-taxonomy.js`
+- `tools/lib/docs/frontmatter-taxonomy.js`
 
 Do not hardcode your own enum list in local docs or prompts.
 

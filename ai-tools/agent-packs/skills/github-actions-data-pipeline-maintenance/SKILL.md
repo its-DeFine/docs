@@ -32,7 +32,7 @@ Constraints
 Workflow
 1. Run fetch scripts locally to validate output schema and file targets.
 2. Cross-check workflow triggers, branch refs, and secret names.
-3. Align script outputs with expected snippets/automations destinations.
+3. Align script outputs with expected `snippets/data/**` destinations.
 
 Command examples
 ```bash

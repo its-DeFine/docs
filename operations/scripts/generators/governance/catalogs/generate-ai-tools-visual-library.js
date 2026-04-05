@@ -16,12 +16,12 @@
 const fs = require('fs');
 const path = require('path');
 
-const yaml = require('../../../../../tools/lib/load-js-yaml');
+const yaml = require('../../../../../tools/lib/bootstrap/load-js-yaml');
 const {
   normalizeRepoPath,
   renderInventoryReport,
   loadRegistry
-} = require('../../../../../tools/lib/ai-tools-registry');
+} = require('../../../../../tools/lib/ai/ai-tools-registry');
 
 const REPO_ROOT = process.cwd();
 const WORKFLOWS_DIR = '.github/workflows';

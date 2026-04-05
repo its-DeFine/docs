@@ -35,7 +35,7 @@ const PLAYWRIGHT_PATTERNS = [
   'puppeteer_dev_chrome_profile-'
 ];
 const MINT_PATTERNS = [
-  'tools/dev/mint-dev.sh',
+  'tools/dev/preview/mint-dev.sh',
   'generate-mint-dev-scope.js',
   '@mintlify/cli/bin/start.js dev',
   '/opt/homebrew/bin/mint dev',

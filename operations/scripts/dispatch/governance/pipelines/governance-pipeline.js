@@ -18,7 +18,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 const {
   CLASSIFICATION_DATA_PATH
-} = require('../../../../../tools/lib/script-governance-config');
+} = require('../../../../../tools/lib/governance/script-governance-config');
 
 const REPO_ROOT = process.cwd();
 const AUDIT_SCRIPT_PATH = 'operations/scripts/validators/governance/audit-script-inventory.js';

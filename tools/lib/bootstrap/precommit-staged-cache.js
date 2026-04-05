@@ -2,12 +2,12 @@
  * @script            precommit-staged-cache
  * @category          orchestrator
  * @purpose           infrastructure:pipeline-orchestration
- * @scope             .githooks, tests, tools/lib, tools/scripts
+ * @scope             .githooks, tests, tools/lib/bootstrap, operations/scripts
  * @domain            docs
  * @needs             R-R29
  * @purpose-statement Shared pre-commit staged-cache helpers — fingerprint staged content plus hook inputs and persist reusable pass markers
  * @pipeline          indirect -- library module
- * @usage             const cache = require('./precommit-staged-cache');
+ * @usage             const cache = require('../../tools/lib/bootstrap/precommit-staged-cache');
  */
 const crypto = require('crypto');
 const fs = require('fs');
@@ -57,9 +57,9 @@ const DEFAULT_WATCHED_FILES = Object.freeze([
   'operations/tests/unit/ui-template-generator.test.js',
   'operations/tests/unit/usefulness-journey.test.js',
   'operations/tests/unit/usefulness-rubric.test.js',
-  'tools/lib/generated-artifacts.js',
-  'tools/lib/precommit-staged-cache.js',
-  'tools/lib/script-governance-config.js',
+  'tools/lib/governance/generated-artifacts.js',
+  'tools/lib/bootstrap/precommit-staged-cache.js',
+  'tools/lib/governance/script-governance-config.js',
   'operations/scripts/validators/content/structure/enforce-generated-file-banners.js',
   'operations/scripts/generators/components/library/generate-component-registry.js',
   'operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js',

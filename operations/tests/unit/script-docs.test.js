@@ -20,13 +20,13 @@ const {
   buildGeneratedHiddenBannerLines,
   buildGeneratedNoteLines,
   readCatalogMarkers
-} = require('../../../tools/lib/generated-file-banners');
+} = require('../../../tools/lib/governance/generated-file-banners');
 const {
   extractLeadingScriptHeader,
   getSectionLines,
   getTagValue,
   hasFrameworkHeaderTags
-} = require('../../../tools/lib/script-header-utils');
+} = require('../../../tools/lib/governance/script-header-utils');
 const {
   AGGREGATE_INDEX_PATH,
   CLASSIFICATION_DATA_PATH,
@@ -38,7 +38,7 @@ const {
   isWithinRoots,
   normalizeRepoPath,
   shouldExcludeScriptPath
-} = require('../../../tools/lib/script-governance-config');
+} = require('../../../tools/lib/governance/script-governance-config');
 
 const REPO_ROOT = path.resolve(__dirname, '../../..');
 const INDEX_START = '{/* SCRIPT-INDEX:START */}';

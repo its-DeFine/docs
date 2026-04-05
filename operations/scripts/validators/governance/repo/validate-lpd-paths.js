@@ -43,7 +43,7 @@ function parseArgs(argv) {
  *   1. `node operations/...` or `node tools/...` — bare relative paths after a `node` invocation.
  *      Covers: run_cli_step node ..., cmd=(node ...), direct `node ...` calls.
  *   2. `script_path="$VAR/relative/path"` — variable assignments using $REPO_ROOT or similar.
- *      Covers: launcher script assignments such as `local script_path="$REPO_ROOT/tools/dev/mint-dev.sh"`.
+ *      Covers: launcher script assignments such as `local script_path="$REPO_ROOT/tools/dev/preview/mint-dev.sh"`.
  *
  * @param {string} content - full text of the lpd file
  * @returns {string[]} sorted list of unique relative paths

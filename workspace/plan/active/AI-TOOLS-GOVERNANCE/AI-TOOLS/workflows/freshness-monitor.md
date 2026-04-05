@@ -21,7 +21,7 @@ Consolidate this workflow under `dispatcher:review-fix` and keep the script or v
 ## Dependencies
 
 - action:actions/checkout@v4
-- snippets/automations/globals/globals.mdx
+- snippets/data/globals/latestRelease.jsx
 - snippets/data/showcase-feed/showcaseData.jsx
 - snippets/data/social-feeds/discordAnnouncementsData.jsx
 - snippets/data/social-feeds/forumData.jsx

@@ -16,12 +16,12 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync, spawnSync } = require('child_process');
-const { isExcludedV2ExperimentalPath } = require('../../../../../tools/lib/docs-publishability');
+const { isExcludedV2ExperimentalPath } = require('../../../../../tools/lib/docs/docs-publishability');
 const {
   buildGeneratedFrontmatterLines,
   buildGeneratedHiddenBannerLines,
   buildGeneratedNoteLines
-} = require('../../../../../tools/lib/generated-file-banners');
+} = require('../../../../../tools/lib/governance/generated-file-banners');
 
 const LEGACY_PAGES_ROOT = 'v2/pages';
 const MODERN_PAGES_ROOT = 'v2';

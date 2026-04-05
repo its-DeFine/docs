@@ -10,7 +10,7 @@ metadata:
   tier: "1"
 primary_paths:
   - "docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md"
-  - "tools/dev/mint-dev.sh"
+  - "tools/dev/preview/mint-dev.sh"
   - ".githooks/install.sh"
   - ".githooks/pre-commit"
   - "docs-guide/contributing/git-hooks.mdx"

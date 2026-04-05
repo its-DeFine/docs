@@ -73,7 +73,6 @@ async function runTests(options = {}) {
     assert.ok(repairFiles.includes('docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md'));
     assert.ok(repairFiles.includes('docs-guide/canonical/collation-data/Mintlify/index.md'));
     assert.ok(repairFiles.includes('docs-guide/contributing/mintlify.mdx'));
-    assert.ok(repairFiles.includes('snippets/data/resources/hrefs.jsx'));
     assert.ok(!repairFiles.includes('workspace/plan/active/CONTRACTS/CURRENT-STATE/REQUIREMENTS.mdx'));
   });
 

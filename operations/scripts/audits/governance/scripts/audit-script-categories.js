@@ -22,12 +22,12 @@ const {
   getSectionLines,
   getTagValue,
   hasFrameworkHeaderTags,
-} = require('../../../../../tools/lib/script-header-utils')
+} = require('../../../../../tools/lib/governance/script-header-utils')
 
 let yaml = null
 try {
   // Optional dependency; parser falls back to text heuristics if unavailable.
-  yaml = require('../../../../../tools/lib/load-js-yaml')
+  yaml = require('../../../../../tools/lib/bootstrap/load-js-yaml')
 } catch (_err) {
   yaml = null
 }

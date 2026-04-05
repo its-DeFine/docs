@@ -80,7 +80,7 @@ bash lpd dev --scoped --docs-config docs-gate-work.json
 ### Use the custom Mint loader helper
 
 ```bash icon="terminal"
-bash tools/dev/mint-custom-loader.sh docs-orch-work.json
+bash tools/dev/preview/mint-custom-loader.sh docs-orch-work.json
 ```
 
 ### Run pre-PR checks
@@ -278,7 +278,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     <ResponseField name="--test-mode fast|staged|full" type="enum" default="fast">
       Choose which advisory test mode to run with `--test`.
     </ResponseField>
-    <ResponseField name="--script [path]" type="string" default="tools/dev/mint-dev.sh">
+    <ResponseField name="--script [path]" type="string" default="tools/dev/preview/mint-dev.sh">
       Override the launcher script path.
     </ResponseField>
     <ResponseField name="--dry-run" type="boolean" default="false">
@@ -337,13 +337,13 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
 
     **Usage**
     ```bash icon="terminal"
-    bash tools/dev/mint-custom-loader.sh <custom-docs-json> [-- ...mint args]
+    bash tools/dev/preview/mint-custom-loader.sh <custom-docs-json> [-- ...mint args]
     ```
 
     **Examples**
     ```bash icon="terminal"
-    bash tools/dev/mint-custom-loader.sh docs-orch-work.json
-    bash tools/dev/mint-custom-loader.sh docs-gate-work.json -- --port 3333
+    bash tools/dev/preview/mint-custom-loader.sh docs-orch-work.json
+    bash tools/dev/preview/mint-custom-loader.sh docs-gate-work.json -- --port 3333
     ```
 
     **Use this when**
@@ -510,7 +510,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
 
     **Examples**
     ```bash icon="terminal"
-    lpd scripts run tools dev test-add-callouts -- --help
+    lpd scripts run tools dev authoring add-callouts -- --help
     lpd scripts run tasks run-audit --dry-run
     lpd scripts run tasks run-audit --yes
     ```
@@ -535,7 +535,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     </ResponseField>
     <ResponseField name="--" type="separator">
       Passes remaining args to the resolved script target.
-      Example: `lpd scripts run tools dev test-add-callouts -- --help`
+      Example: `lpd scripts run tools dev authoring add-callouts -- --help`
     </ResponseField>
   </ResponseField>
 
@@ -552,7 +552,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
 
     **Examples**
     ```bash icon="terminal"
-    lpd tools dev test-add-callouts -- --help
+    lpd tools dev authoring add-callouts -- --help
     lpd tests unit lpd-scoped-mint-dev.test -- --help
     lpd v2 wcag-repair-common -- --staged --stage
     ```
@@ -617,8 +617,8 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     For alternate docs configs, use the helper:
 
     ```bash icon="terminal"
-    bash tools/dev/mint-custom-loader.sh docs-orch-work.json
-    bash tools/dev/mint-custom-loader.sh docs-gate-work.json
+    bash tools/dev/preview/mint-custom-loader.sh docs-orch-work.json
+    bash tools/dev/preview/mint-custom-loader.sh docs-gate-work.json
     ```
   </ResponseField>
 
@@ -665,18 +665,17 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
   | `audit-tasks-folders` | script-specific via `-- <args>` | `operations/scripts/audits/governance/repo/audit-tasks-folders.js` | Audit tasks folders, optionally normalise report locations, and optionally apply audit recommendations with conflict-safe moves. |
   | `audit-v2-usefulness` | script-specific via `-- <args>` | `operations/scripts/audits/content/quality/audit-v2-usefulness.js` | Audit v2 MDX pages (excluding x-* directories) and emit page-level usefulness matrix rows with source-weighted 2026 accuracy verification fields. |
   | `convert-rss-to-mdx` | script-specific via `-- <args>` | `operations/scripts/automations/content/data/transforms/convert-rss-to-mdx.js` | Runs `operations/scripts/automations/content/data/transforms/convert-rss-to-mdx.js`. |
-  | `debug-mint-dev` | script-specific via `-- <args>` | `tools/dev/debug-mint-dev.js` | Utility script for tools/dev/debug-mint-dev.js. |
+  | `dev preview debug-mint-dev` | script-specific via `-- <args>` | `tools/dev/preview/debug-mint-dev.js` | Utility script for tools/dev/preview/debug-mint-dev.js. |
   | `deprecated project-management-output-script` | script-specific via `-- <args>` | `operations/scripts/deprecated/project-management-output-script.js` | Deprecated legacy project-management output script retained as a reference stub. |
-  | `dev add-callouts` | script-specific via `-- <args>` | `tools/dev/add-callouts.js` | Utility script for tools/dev/add-callouts.js. |
+  | `dev authoring add-callouts` | script-specific via `-- <args>` | `tools/dev/authoring/add-callouts.js` | Utility script for tools/dev/authoring/add-callouts.js. |
   | `dev batch-update-og-image` | script-specific via `-- <args>` | `tools/dev/batch-update-og-image.sh` | Utility script for tools/dev/batch-update-og-image.sh. |
-  | `dev ensure-mint-watcher-patch` | script-specific via `-- <args>` | `tools/dev/ensure-mint-watcher-patch.sh` | Ensure Mint local-preview watcher disables glob expansion in repo paths. |
+  | `dev preview ensure-mint-watcher-patch` | script-specific via `-- <args>` | `tools/dev/preview/ensure-mint-watcher-patch.sh` | Ensure Mint local-preview watcher disables glob expansion in repo paths. |
   | `dev replace-og-image` | script-specific via `-- <args>` | `tools/dev/replace-og-image.py` | Utility script for tools/dev/replace-og-image.py. |
-  | `dev test-add-callouts` | script-specific via `-- <args>` | `tools/dev/test-add-callouts.js` | Utility script for tools/dev/test-add-callouts.js. |
   | `generate-ai-sitemap` | script-specific via `-- <args>` | `operations/scripts/generators/content/seo/generate-ai-sitemap.js` | Generate an AI-focused sitemap from v2 docs navigation. |
   | `generate-docs-guide-indexes` | script-specific via `-- <args>` | `operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js` | Generate docs-guide workflow/template indexes and optionally verify they are up to date. |
   | `generate-docs-guide-pages-index` | script-specific via `-- <args>` | `operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js` | Generate docs-guide/catalog/pages-catalog.mdx from v2/index.mdx entries filtered to docs.json navigation pages. |
   | `generate-docs-index` | script-specific via `-- <args>` | `operations/scripts/generators/content/catalogs/generate-docs-index.js` | Generate docs-index.json and optionally backfill v2 frontmatter metadata. |
-  | `generate-llms-files` | script-specific via `-- <args>` | `operations/scripts/generators/ai/llm/generate-llms-files.js` | Generate llms.txt and llms-full.txt from v2 docs navigation. |
+  | `generate-llms-files` | script-specific via `-- <args>` | `operations/scripts/generators/ai/llm/generate-llms-files.js` | Generate llms.txt from v2 docs navigation. |
   | `generate-pages-index` | script-specific via `-- <args>` | `operations/scripts/generators/content/catalogs/generate-pages-index.js` | Generate and verify section-style index.mdx files for v2 docs folders, plus the root aggregate index. |
   | `mint-dev` | script-specific via `-- <args>` | `operations/scripts/mint-dev.sh` | Utility script for operations/scripts/mint-dev.sh. |
   | `new-script` | script-specific via `-- <args>` | `operations/scripts/generators/governance/scaffold/new-script.js` | Create a new script file prefilled with the required docs header template. |
@@ -746,11 +745,10 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
 
   | Script token | Flags available | Resolved path | PURPOSE |
   |---|---|---|---|
-  | `add-callouts` | script-specific via `-- <args>` | `tools/dev/add-callouts.js` | Utility script for tools/dev/add-callouts.js. |
+  | `authoring add-callouts` | script-specific via `-- <args>` | `tools/dev/authoring/add-callouts.js` | Utility script for tools/dev/authoring/add-callouts.js. |
   | `batch-update-og-image` | script-specific via `-- <args>` | `tools/dev/batch-update-og-image.sh` | Utility script for tools/dev/batch-update-og-image.sh. |
-  | `ensure-mint-watcher-patch` | script-specific via `-- <args>` | `tools/dev/ensure-mint-watcher-patch.sh` | Ensure Mint local-preview watcher disables glob expansion in repo paths. |
+  | `preview ensure-mint-watcher-patch` | script-specific via `-- <args>` | `tools/dev/preview/ensure-mint-watcher-patch.sh` | Ensure Mint local-preview watcher disables glob expansion in repo paths. |
   | `replace-og-image` | script-specific via `-- <args>` | `tools/dev/replace-og-image.py` | Utility script for tools/dev/replace-og-image.py. |
-  | `test-add-callouts` | script-specific via `-- <args>` | `tools/dev/test-add-callouts.js` | Utility script for tools/dev/test-add-callouts.js. |
 
   </Tab>
 </TabsContainer>

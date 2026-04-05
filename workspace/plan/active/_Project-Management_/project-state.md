@@ -16,7 +16,9 @@
 
 | Output file | Notes | Unblocks |
 |---|---|---|
+| Tools governance consolidation | `tools/config`, `tools/dev`, and `tools/lib` now use governed namespace contracts; workflow-owned and legacy tool surfaces were relocated or removed; and maintained script indexes/registries were regenerated to the live paths | Unblocks a final human-owned deletion commit and future `tools/` maintenance on explicit folder contracts instead of ad hoc sprawl |
 | Contracts docs-v2 migration PR | Isolated `docs-v2` branch `codex/20260403-contracts-docs-v2-migration` pushed and opened as PR #857 with contracts pipeline, generated data, composables, and importer routes migrated from the working source surface | Unblocks review and merge of the contracts surface onto `docs-v2` without touching `Docs-v2-dev` |
+| Snippets root governance consolidation | `snippets/guide.mdx` is the canonical manual framework, `snippets/snippets-registry.mdx` is generated from the live tree, `framework-canonical.mdx` is archived, `snippets/automations` is no longer a script-governance root, `snippets/automations/globals/` is retired and deleted in the working tree, and `lpd test --staged` is green for the current worktree | Unblocks future snippets folder governance without maintaining multiple drifting root files or carrying the old closeout debt |
 | VS Code Claude extension fix toolkit | Canonical diagnostic, 7 scripts, extension patched, cron backup, community research. `workspace/plan/active/FUCK_CLAUDE/` | Unblocks stable VS Code workflow — re-run `patch-extension.sh` after updates |
 | Contracts canonical documentation cleanup | Contracts planning root normalized into `Canonical/`, `CURRENT-STATE/`, and `DEPRECATED/`; canonical workflow references synced to current script behavior | Unblocks contracts planning/navigation by keeping only current framework docs at root and preserving live script references |
 | Contracts surface redesign merge | Canonical contracts reference and verifier split is merged into local `docs-v2-dev`; shared contracts view-model and catalog-config derivation now back the About contracts surfaces | Unblocks local review of the contracts redesign and future pipeline consolidation work |
@@ -110,11 +112,11 @@
 | Flag | Thread | Issue | Date |
 |---|---|---|---|
 | LIMBO | Contracts & Changelogs | Changelog migration half-done — old files deleted but unstaged, architecture.md references paths that may not exist on disk | 2026-03-29 |
-| REAL-DEBT | Staged Test Harness Repair | Harness bootstrap is fixed; remaining staged-suite failures are real repo debt across navigation, governance, usefulness, and authoring checks | 2026-04-01 |
 | REAL-DEBT | Contracts Surface Redesign | CP-6 contracts browser validation can hang on the newest `docs-v2-dev` base even when the scoped preview serves the canonical and verifier routes | 2026-04-03 |
 | REAL-DEBT | Contracts Surface Migration to docs-v2 | New contracts pipeline helper modules lack canonical script-governance headers, and the regenerated component registry still does not surface all migrated contracts UI components | 2026-04-03 |
 | REVIEW | Contracts Local Render Recovery | The contracts routes were render-verified locally on port `3350`, but `snippets/composables/pages/canonical/livepeer-contract-addresses.mdx` now contains an uncommitted workflow-verification accordion rewrite and `.github/workspace/phase2/pipeline-review-process.md` remains unrelated untracked work | 2026-04-03 |
 | REVIEW | Snippets Assets `/site` Migration Verification | Full verification runbook executed in a disposable clone. Asset/path probes are green, but completion is blocked by `docs.json` Resource HUB redirect drift, invalid frontmatter in `v2/about/livepeer-protocol/blockchain-contracts.mdx`, and scoped runtime failures (`React #418`, `undefined.mintlify.app` OG URLs, request-abort surfaces) on the representative routes | 2026-04-05 |
+| REVIEW | Tools Governance Consolidation | The `tools/` restructure is validated but still uncommitted. The worktree contains tracked deletions that require a human-owned commit with `--trailer "allow-deletions=true"`, and unrelated root-governance/snippets work remains in the same tree and should be staged separately | 2026-04-05 |
 
 ---
 

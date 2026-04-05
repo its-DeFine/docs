@@ -7,10 +7,10 @@
  * @needs             node, @notionhq/client, dotenv, NOTION_API_KEY, NOTION_DATABASE_ID, NOTION_WRITABLE_DATABASE_ID(optional)
  * @purpose-statement Updates existing Notion page grouping fields from the exported docs navigation snapshot.
  * @pipeline          manual
- * @usage             node tools/notion/5-export-to-notion.js [flags]
+ * @usage             node tools/dev/integrations/notion/5-export-to-notion.js [flags]
  */
 
-require("dotenv").config();
+require("dotenv").config({ path: require("path").join(__dirname, ".env") });
 const { Client } = require("@notionhq/client");
 const fs = require("fs");
 const path = require("path");

@@ -16,7 +16,7 @@ const {
   analyzeGuideLayoutWarnings,
   analyzeCodeBlockMetadata,
   repairCodeBlockMetadata
-} = require('../../../tools/lib/docs-authoring-rules');
+} = require('../../../tools/lib/docs/docs-authoring-rules');
 
 function runTests() {
   const errors = [];

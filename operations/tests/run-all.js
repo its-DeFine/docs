@@ -21,7 +21,7 @@
  */
 const { spawnSync } = require('child_process');
 const path = require('path');
-const { bootstrapRepoNodePaths, createNodeProcessEnv } = require('../../tools/lib/repo-node-paths');
+const { bootstrapRepoNodePaths, createNodeProcessEnv } = require('../../tools/lib/bootstrap/repo-node-paths');
 
 bootstrapRepoNodePaths(__dirname);
 
@@ -48,6 +48,7 @@ const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
 const checkAgentDocsFreshnessTests = require('./unit/check-agent-docs-freshness.test');
 const checkMintlifyCanonicalSyncTests = require('./unit/check-mintlify-canonical-sync.test');
 const rootAllowlistFormatTests = require('./unit/root-allowlist-format.test');
+const rootGovernanceSyncTests = require('./unit/root-governance-sync.test');
 const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
 const docsGuideSotTests = require('./unit/docs-guide-sot.test');
 const precommitStagedCacheTests = require('./unit/precommit-staged-cache.test');
@@ -101,7 +102,7 @@ function hasStagedComponentGovernanceChanges() {
   const relevantFiles = new Set([
     'docs-guide/config/component-registry.json',
     'docs-guide/config/component-usage-map.json',
-    'tools/lib/component-governance-utils.js',
+    'tools/lib/governance/component-governance-utils.js',
     'operations/scripts/audits/components/documentation/audit-component-usage.js',
     'operations/scripts/generators/components/library/generate-component-registry.js',
     'operations/scripts/audits/components/library/scan-component-imports.js',
@@ -397,6 +398,13 @@ async function runAllTests() {
     totalErrors += rootAllowlistFormatResult.errors.length;
     totalWarnings += rootAllowlistFormatResult.warnings.length;
     console.log(`   ${rootAllowlistFormatResult.errors.length} errors, ${rootAllowlistFormatResult.warnings.length} warnings`);
+
+    // Root Governance Sync
+    console.log('\n🗺️  Running Root Governance Sync Checks...');
+    const rootGovernanceSyncResult = normalizeSuiteResult(await rootGovernanceSyncTests.runTests());
+    totalErrors += rootGovernanceSyncResult.errors.length;
+    totalWarnings += rootGovernanceSyncResult.warnings.length;
+    console.log(`   ${rootGovernanceSyncResult.errors.length} errors, ${rootGovernanceSyncResult.warnings.length} warnings`);
 
     // Portable Skill Export
     console.log('\n📦 Running Portable Skill Export Checks...');

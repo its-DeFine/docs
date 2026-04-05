@@ -276,10 +276,6 @@ function collectAssetPaths(checkStaged) {
       assets.add(normalizeRepoPath(repoPath))
       continue
     }
-
-    if (repoPath.startsWith('snippets/automations/') && isLikelyBinary(repoPath)) {
-      assets.add(normalizeRepoPath(repoPath))
-    }
   }
 
   return [...assets].sort()
@@ -442,7 +438,7 @@ function captureBaseline() {
     'du -sh snippets/assets/',
     "find snippets/assets -type f \\( -name '*.mp4' -o -name '*.mov' -o -name '*.gif' -o -name '*.webm' \\) | wc -l",
     "find snippets/assets -type f \\( -name '*.png' -o -name '*.jpg' -o -name '*.jpeg' \\) -size +5M | wc -l",
-    'git ls-files tools/notion/backups/ | wc -l',
+    'git ls-files tools/dev/integrations/notion/data/ | wc -l',
   ]
   const outputs = commands.map((command) => ({
     command,

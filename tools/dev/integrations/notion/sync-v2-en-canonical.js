@@ -8,7 +8,7 @@
  * @needs             node, @notionhq/client, dotenv, NOTION_API_KEY, NOTION_DATABASE_ID or NOTION_WRITABLE_DATABASE_ID
  * @purpose-statement Builds canonical v2 English page metadata and syncs Notion schema, row metadata, and optional page-body blocks to match docs.
  * @pipeline          manual
- * @usage             node tools/notion/sync-v2-en-canonical.js [flags]
+ * @usage             node tools/dev/integrations/notion/sync-v2-en-canonical.js [flags]
  */
 
 const fs = require("fs");
@@ -19,11 +19,11 @@ const { Client } = require("@notionhq/client");
 const {
   resolveDocPath,
   toPosix
-} = require("../lib/docs-index-utils");
+} = require("../../../lib/docs-index-utils");
 const {
   analyzeMdxPage,
   buildUsefulnessMatrixFields
-} = require("../lib/docs-usefulness/scoring");
+} = require("../../../lib/docs-usefulness/scoring");
 
 const MAPPING_REQUIRED_MARKER = "[MAPPING_REQUIRED]";
 const PAGE_INFO_START_MARKER = "AUTO-GENERATED PAGE INFO START";
@@ -1372,10 +1372,10 @@ function valueChanged(a, b) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   if (!process.env.NOTION_API_KEY) {
-    throw new Error("Missing NOTION_API_KEY in tools/notion/.env");
+    throw new Error("Missing NOTION_API_KEY in tools/dev/integrations/notion/.env");
   }
 
-  const repoRoot = path.resolve(__dirname, "..", "..");
+  const repoRoot = path.resolve(__dirname, "..", "..", "..", "..");
   const notion = new Client({ auth: process.env.NOTION_API_KEY });
   const { dataSourceId, databaseId, dataSource } = await resolveDataSourceIds(notion);
   if (!databaseId) {

@@ -58,7 +58,7 @@ Govern the `.github/workflows/update-blog-data.yml` workflow as a human-readable
 - `Fetch Forum data` | runs `curl -f -o forum-data.json "https://forum.livepeer.org/latest.json" || echo "[]" > forum-data.json`
 - `Update Ghost data file` | runs `echo "export const ghostData = " > snippets/data/social-feeds/ghostBlogData.jsx`
 - `Update Forum data file` | runs `echo "export const forumData = " > snippets/data/social-feeds/forumData.jsx`
-- `Check for changes` | runs `git diff --exit-code snippets/automations/ || echo "changed=true" >> $GITHUB_OUTPUT`
+- `Check for changes` | runs `git diff --exit-code snippets/data/social-feeds/ghostBlogData.jsx snippets/data/social-feeds/forumData.jsx || echo "c...`
 - `Commit and push if changed` | runs `git config --global user.name 'github-actions[bot]'`
 - `Cleanup` | runs `rm -f ghost-data.json forum-data.json`
 
@@ -84,7 +84,6 @@ Govern the `.github/workflows/update-blog-data.yml` workflow as a human-readable
 
 - action:actions/checkout@v4
 - secret:GITHUB_TOKEN
-- snippets/automations/
 - snippets/data/social-feeds/forumData.jsx
 - snippets/data/social-feeds/ghostBlogData.jsx
 

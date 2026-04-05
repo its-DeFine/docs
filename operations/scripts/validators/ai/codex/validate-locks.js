@@ -16,7 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
-const yaml = require('../../../../../tools/lib/load-js-yaml');
+const yaml = require('../../../../../tools/lib/bootstrap/load-js-yaml');
 
 const CODEX_BRANCH_RE = /^codex\/(\d+)-[a-z0-9][a-z0-9-]*$/;
 const DEFAULT_CONTRACT = '.codex/task-contract.yaml';

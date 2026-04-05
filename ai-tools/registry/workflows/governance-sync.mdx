@@ -43,13 +43,13 @@ Govern the `.github/workflows/governance-sync.yml` workflow as a human-readable,
 
 ## Triggers
 
-- push: branches=docs-v2; paths=operations/scripts/**, tools/lib/**, tools/notion/**, tools/config/**, operations/tests/unit/**, operations/tests/integration/**, operations/tests/utils/**, operations/tests/run-all.js, operations/tests/run-pr-checks.js, .githooks/**, .github/scripts/**, .github/workflows/**, workspace/scripts/**, snippets/automations/**, workspace/reports/script-classifications.json
+- push: branches=docs-v2; paths=.allowlist, README.md, operations/scripts/**, tools/lib/**, tools/dev/**, tools/config/**, operations/tests/unit/**, operations/tests/integration/**, operations/tests/utils/**, operations/tests/run-all.js, operations/tests/run-pr-checks.js, .githooks/**, .github/scripts/**, .github/workflows/**, docs-guide/policies/root-allowlist-governance.mdx, docs-guide/repo-ops/config/root-governance-map.mdx, workspace/scripts/**, workspace/reports/script-classifications.json
 
 ## Jobs
 
 | Job ID | Name | Runs On | Needs | Step Count |
 | --- | --- | --- | --- | --- |
-| `sync` | sync | `ubuntu-latest` | none | 6 |
+| `sync` | sync | `ubuntu-latest` | none | 9 |
 
 ### sync
 
@@ -57,7 +57,10 @@ Govern the `.github/workflows/governance-sync.yml` workflow as a human-readable,
 - `step-2` | uses actions/setup-node@v4
 - `step-3` | runs `cd tools && npm ci`
 - `step-4` | runs `cd tests && npm ci`
+- `step-5` | runs `node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write`
+- `step-6` | runs `node operations/scripts/validators/governance/compliance/check-root-governance-sync.js`
 - `Run governance repair` | runs `node operations/scripts/dispatch/governance/pipelines/governance-pipeline.js 2>&1 | tee /tmp/repair.log`
+- `Detect changed governance outputs` | runs `FILES="$(git diff --name-only)"`
 - `Create PR if fixes applied` | uses peter-evans/create-pull-request@v7
 
 ## Inputs
@@ -84,6 +87,8 @@ Govern the `.github/workflows/governance-sync.yml` workflow as a human-readable,
 - action:actions/setup-node@v4
 - action:peter-evans/create-pull-request@v7
 - operations/scripts/dispatch/governance/pipelines/governance-pipeline.js
+- operations/scripts/generators/governance/root/generate-root-governance-artifacts.js
+- operations/scripts/validators/governance/compliance/check-root-governance-sync.js
 - workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json
 
 ## Dependants

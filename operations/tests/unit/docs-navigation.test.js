@@ -17,7 +17,7 @@ const path = require('path');
 const readline = require('readline');
 const { execSync } = require('child_process');
 const { listMintIgnoredRepoPaths } = require('../utils/mintignore');
-const { isExcludedV2ExperimentalPath } = require('../../../tools/lib/docs-publishability');
+const { isExcludedV2ExperimentalPath } = require('../../../tools/lib/docs/docs-publishability');
 
 const REPORT_MD_REL = 'workspace/reports/navigation-links/navigation-report.md';
 const REPORT_JSON_REL = 'workspace/reports/navigation-links/navigation-report.json';

@@ -76,15 +76,15 @@ This runs the canonical sync script on your machine only.
 
 ```bash
 npm --prefix tools ci
-npm --prefix tools/notion ci
-npm --prefix tools/notion run sync:hook:install
+npm --prefix tools/dev/integrations/notion ci
+npm --prefix tools/dev/integrations/notion run sync:hook:install
 ```
 
 ### Default behavior
 
 - Trigger: after each local commit
 - Runs only when the last commit changed `docs.json` or `v2/*.md` / `v2/*.mdx`
-- Uses `tools/notion/.env` credentials
+- Uses `tools/dev/integrations/notion/.env` credentials
 - Mode default: `write`
 
 ### Optional local controls
@@ -122,7 +122,7 @@ mv .git/hooks/post-commit .git/hooks/post-commit.disabled
 ### Remove local hook
 
 ```bash
-npm --prefix tools/notion run sync:hook:remove
+npm --prefix tools/dev/integrations/notion run sync:hook:remove
 ```
 
 ---

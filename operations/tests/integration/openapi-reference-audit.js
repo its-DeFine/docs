@@ -14,9 +14,9 @@
 
 const fs = require('fs');
 const path = require('path');
-const yaml = require('../../../tools/lib/load-js-yaml');
+const yaml = require('../../../tools/lib/bootstrap/load-js-yaml');
 const { execSync } = require('child_process');
-const { isExcludedV2ExperimentalPath } = require('../../../tools/lib/docs-publishability');
+const { isExcludedV2ExperimentalPath } = require('../../../tools/lib/docs/docs-publishability');
 
 const FINDING_TYPES = {
   INVALID_REFERENCE_FORMAT: 'invalid-reference-format',

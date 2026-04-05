@@ -50,16 +50,15 @@ Govern the `.github/workflows/data-refresh-governance.yml` workflow as a human-r
 
 | Job ID | Name | Runs On | Needs | Step Count |
 | --- | --- | --- | --- | --- |
-| `data-refresh` | data-refresh | `ubuntu-latest` | none | 8 |
+| `data-refresh` | data-refresh | `ubuntu-latest` | none | 7 |
 
 ### data-refresh
 
 - `Checkout repository` | uses actions/checkout@v4
 - `Resolve target branch` | runs `if [ "${{ inputs.use_test_branch }}" = "true" ]; then`
 - `Setup Node.js` | uses actions/setup-node@v4
-- `Resolve livepeer release version` | runs `if [[ -n "${{ inputs.version }}" ]]; then`
-- `Read current release version` | runs `CURRENT=$(grep -oP 'latestVersion = "\K[^"]+' snippets/automations/globals/globals.jsx || echo "")`
 - `Run selected refresh mode` | runs `case "${{ inputs.mode }}" in`
+- `Read updated release version` | runs `VERSION=$(grep -oP 'latestVersion = "\K[^"]+' snippets/data/globals/latestRelease.jsx || echo "")`
 - `Check for generated changes` | runs `case "${{ inputs.mode }}" in`
 - `Commit and push if changed` | runs `git config user.name "github-actions[bot]"`
 
@@ -94,14 +93,15 @@ Govern the `.github/workflows/data-refresh-governance.yml` workflow as a human-r
 - .github/scripts/fetch-github-releases.js
 - .github/scripts/fetch-rss-blog-data.js
 - .github/scripts/fetch-youtube-data.js
+- .github/scripts/update-livepeer-release.js
 - action:actions/checkout@v4
 - action:actions/setup-node@v4
 - secret:DISCORD_BOT_TOKEN
 - secret:GITHUB_TOKEN
 - secret:YOUTUBE_API_KEY
-- snippets/automations
-- snippets/automations/
-- snippets/automations/globals/globals.jsx
+- snippets/data/globals/latestRelease.jsx
+- snippets/data/social-feed-solutions
+- snippets/data/social-feed-solutions/
 - snippets/data/social-feeds/discordAnnouncementsData.jsx
 - snippets/data/social-feeds/forumData.jsx
 - snippets/data/social-feeds/ghostBlogData.jsx

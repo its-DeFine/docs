@@ -26,7 +26,7 @@ const {
   countWords,
   buildGitLastModifiedMap,
   getLastVerified
-} = require('../../../../../tools/lib/docs-index-utils');
+} = require('../../../../../tools/lib/docs/docs-index-utils');
 
 const BASE_URL = 'https://docs.livepeer.org';
 const DOCS_JSON = 'docs.json';
@@ -227,6 +227,11 @@ function buildEntries() {
   const docsJsonPath = path.join(REPO_ROOT, DOCS_JSON);
   const docsJson = JSON.parse(fs.readFileSync(docsJsonPath, 'utf8'));
   const rawRoutes = collectV2Routes(docsJson);
+  const redirectRoutes = new Set(
+    (docsJson.redirects || [])
+      .map((entry) => normalizeRoute(entry && entry.source))
+      .filter(Boolean)
+  );
   const gitMap = buildGitLastModifiedMap(REPO_ROOT);
   const missingRoutes = new Set();
   const entriesMap = new Map();
@@ -235,6 +240,7 @@ function buildEntries() {
     if (isExcludedRoute(route)) return;
     const normalized = normalizeRoute(route);
     if (!normalized) return;
+    if (redirectRoutes.has(normalized)) return;
     const mapped = normalized.startsWith('v2/pages/')
       ? mapLegacyRepoPathToModern(normalized)
       : normalized;

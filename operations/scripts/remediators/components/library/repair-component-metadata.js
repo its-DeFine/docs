@@ -32,7 +32,7 @@ const {
   serializeCsvField,
   updateJSDocTags,
   validateGovernanceFields
-} = require('../../../../../tools/lib/component-governance-utils');
+} = require('../../../../../tools/lib/governance/component-governance-utils');
 
 const SAFE_FIELDS = new Set([
   'component',

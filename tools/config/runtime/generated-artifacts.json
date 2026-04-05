@@ -2,6 +2,22 @@
   "version": "generated-artifacts.v1",
   "artifacts": [
     {
+      "path": ".allowlist",
+      "owner": "docs",
+      "generator": "node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write",
+      "sources": [
+        "tools/config/runtime/root-governance.json",
+        "operations/scripts/generators/governance/root/generate-root-governance-artifacts.js",
+        "tools/lib/governance/root-governance.js"
+      ],
+      "class": "committed_authoritative",
+      "commit_policy": "required",
+      "hook_policy": "check_only",
+      "ci_policy": "enforce",
+      "delta_strategy": "full",
+      "notes": "Generated root-allowlist projection. Human review happens by editing the manifest, not by hand-editing .allowlist."
+    },
+    {
       "path": "docs-index.json",
       "owner": "docs",
       "generator": "node operations/scripts/generators/content/catalogs/generate-docs-index.js --write",
@@ -22,6 +38,40 @@
       "notes": "Repo-wide machine-readable navigation index used by runtime- and governance-adjacent tooling. Pre-commit must check freshness but not auto-stage."
     },
     {
+      "path": "llms.txt",
+      "owner": "docs",
+      "generator": "node operations/scripts/generators/ai/llm/generate-llms-files.js --write",
+      "sources": [
+        "docs.json",
+        "v2/**/*.md",
+        "v2/**/*.mdx",
+        "operations/scripts/generators/ai/llm/generate-llms-files.js"
+      ],
+      "class": "committed_authoritative",
+      "commit_policy": "required",
+      "hook_policy": "check_only",
+      "ci_policy": "enforce",
+      "delta_strategy": "staged",
+      "notes": "Ratified AI-first public root artifact for LLM discovery."
+    },
+    {
+      "path": "sitemap-ai.xml",
+      "owner": "docs",
+      "generator": "node operations/scripts/generators/content/seo/generate-ai-sitemap.js --write",
+      "sources": [
+        "docs.json",
+        "v2/**/*.md",
+        "v2/**/*.mdx",
+        "operations/scripts/generators/content/seo/generate-ai-sitemap.js"
+      ],
+      "class": "committed_authoritative",
+      "commit_policy": "required",
+      "hook_policy": "check_only",
+      "ci_policy": "enforce",
+      "delta_strategy": "staged",
+      "notes": "Ratified AI-first public root artifact for AI sitemap discovery."
+    },
+    {
       "path": "docs-guide/catalog/components-catalog.mdx",
       "owner": "docs",
       "generator": "node operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js --write",
@@ -33,7 +83,7 @@
         "snippets/components/**/*.mdx",
         "docs-guide/**/*.mdx",
         "operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js",
-        "tools/lib/generated-file-banners.js"
+        "tools/lib/governance/generated-file-banners.js"
       ],
       "class": "committed_derived_scoped",
       "commit_policy": "manual",
@@ -52,7 +102,7 @@
         "v2/**/*.mdx",
         "docs-guide/**/*.mdx",
         "operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js",
-        "tools/lib/generated-file-banners.js"
+        "tools/lib/governance/generated-file-banners.js"
       ],
       "class": "committed_derived_scoped",
       "commit_policy": "manual",
@@ -79,6 +129,23 @@
       "ci_policy": "enforce",
       "delta_strategy": "source_glob",
       "notes": "Generated script inventory for maintainers."
+    },
+    {
+      "path": "docs-guide/repo-ops/config/root-governance-map.mdx",
+      "owner": "docs",
+      "generator": "node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write",
+      "sources": [
+        "tools/config/runtime/root-governance.json",
+        "operations/scripts/generators/governance/root/generate-root-governance-artifacts.js",
+        "tools/lib/governance/root-governance.js",
+        "tools/lib/governance/generated-file-banners.js"
+      ],
+      "class": "committed_derived_scoped",
+      "commit_policy": "manual",
+      "hook_policy": "check_only",
+      "ci_policy": "enforce",
+      "delta_strategy": "full",
+      "notes": "Generated live inventory and taxonomy map for the governed repo root."
     },
     {
       "path": "docs-guide/catalog/templates-catalog.mdx",
@@ -164,7 +231,7 @@
         "snippets/components/**/*.tsx",
         "snippets/components/**/*.mdx",
         "operations/scripts/generators/components/documentation/generate-component-docs.js",
-        "tools/lib/generated-file-banners.js"
+        "tools/lib/governance/generated-file-banners.js"
       ],
       "class": "committed_derived_scoped",
       "commit_policy": "manual",
@@ -208,7 +275,7 @@
       "sources": [
         "snippets/**",
         "operations/scripts/generators/governance/catalogs/generate-snippets-registry.js",
-        "tools/lib/generated-file-banners.js"
+        "tools/lib/governance/generated-file-banners.js"
       ],
       "class": "committed_derived_scoped",
       "commit_policy": "manual",
@@ -216,6 +283,38 @@
       "ci_policy": "enforce",
       "delta_strategy": "source_glob",
       "notes": "Generated snippets root registry built from the live snippets tree plus guide-owned folder metadata."
+    },
+    {
+      "path": "workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.json",
+      "owner": "docs",
+      "generator": "node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write",
+      "sources": [
+        "tools/config/runtime/root-governance.json",
+        "operations/scripts/generators/governance/root/generate-root-governance-artifacts.js",
+        "tools/lib/governance/root-governance.js"
+      ],
+      "class": "committed_derived_scoped",
+      "commit_policy": "manual",
+      "hook_policy": "check_only",
+      "ci_policy": "enforce",
+      "delta_strategy": "full",
+      "notes": "Latest machine-readable root-governance sync report."
+    },
+    {
+      "path": "workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md",
+      "owner": "docs",
+      "generator": "node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write",
+      "sources": [
+        "tools/config/runtime/root-governance.json",
+        "operations/scripts/generators/governance/root/generate-root-governance-artifacts.js",
+        "tools/lib/governance/root-governance.js"
+      ],
+      "class": "committed_derived_scoped",
+      "commit_policy": "manual",
+      "hook_policy": "check_only",
+      "ci_policy": "enforce",
+      "delta_strategy": "full",
+      "notes": "Latest Markdown root-governance sync report."
     },
     {
       "path": "workspace/reports/_local/**",

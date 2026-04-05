@@ -17,7 +17,7 @@ const path = require('path');
 const {
   validateRegistry,
   writeInventoryReport
-} = require('../../../../../tools/lib/ai-tools-registry');
+} = require('../../../../../tools/lib/ai/ai-tools-registry');
 
 const REPO_ROOT = process.cwd();
 

@@ -3,7 +3,7 @@
  * @script            skill-docs.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, ai-tools/ai-skills, tools/lib/codex-skill-templates.js
+ * @scope             tests/unit, ai-tools/ai-skills, tools/lib/ai/codex-skill-templates.js
  * @owner             docs
  * @needs             R-R27, R-R30
  * @purpose-statement Validates governed skill documentation frontmatter, references, and contract integrity for canonical templates and local skill files.
@@ -15,7 +15,7 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
-const yaml = require('../../../tools/lib/load-js-yaml');
+const yaml = require('../../../tools/lib/bootstrap/load-js-yaml');
 
 const REPO_ROOT = path.resolve(__dirname, '../../..');
 const SKILLS_ROOT = 'ai-tools/ai-skills';

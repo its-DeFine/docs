@@ -18,7 +18,7 @@
 const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
-const { CANONICAL_PAGE_TYPES, normalizePageType } = require('../../../../../tools/lib/frontmatter-taxonomy');
+const { CANONICAL_PAGE_TYPES, normalizePageType } = require('../../../../../tools/lib/docs/frontmatter-taxonomy');
 
 const REPO_ROOT = process.cwd();
 const V2_ROOT = path.join(REPO_ROOT, 'v2');

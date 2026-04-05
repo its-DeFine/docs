@@ -129,10 +129,10 @@ jobs:
               git diff --exit-code snippets/data/social-feeds/youtubeData.jsx || echo "changed=true" >> "$GITHUB_OUTPUT"
               ;;
             github|rss-blog)
-              git diff --exit-code snippets/automations/ || echo "changed=true" >> "$GITHUB_OUTPUT"
+              git diff --exit-code snippets/data/social-feed-solutions/ || echo "changed=true" >> "$GITHUB_OUTPUT"
               ;;
             discord)
-              git diff --exit-code snippets/automations/ snippets/data/social-feeds/discordAnnouncementsData.jsx || echo "changed=true" >> "$GITHUB_OUTPUT"
+              git diff --exit-code snippets/data/social-feed-solutions/ snippets/data/social-feeds/discordAnnouncementsData.jsx || echo "changed=true" >> "$GITHUB_OUTPUT"
               ;;
             livepeer-release)
               git diff --exit-code snippets/data/globals/latestRelease.jsx || echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -163,15 +163,15 @@ jobs:
               git commit -m "Update YouTube videos - $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
               ;;
             github)
-              git add snippets/automations
+              git add snippets/data/social-feed-solutions
               git commit -m "chore: update GitHub discussions & releases data [skip ci]"
               ;;
             discord)
-              git add snippets/automations snippets/data/social-feeds/discordAnnouncementsData.jsx
+              git add snippets/data/social-feed-solutions snippets/data/social-feeds/discordAnnouncementsData.jsx
               git commit -m "chore: update Discord announcements data [skip ci]"
               ;;
             rss-blog)
-              git add snippets/automations
+              git add snippets/data/social-feed-solutions
               git commit -m "chore: update RSS blog data [skip ci]"
               ;;
             livepeer-release)

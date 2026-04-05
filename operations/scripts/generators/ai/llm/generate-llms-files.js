@@ -1,27 +1,25 @@
 #!/usr/bin/env node
 /**
- * @script      generate-llms-files
- * @type        generator
- * @concern     ai
- * @niche       llm
- * @purpose     governance:index-management
- * @description LLMs file generator — produces llms.txt and llms-full.txt for AI consumption. Dual-mode: --check / --write.
- * @mode        generate
- * @pipeline    manual, P6
- * @scope       operations/scripts, docs.json, v2
- * @usage       node operations/scripts/generators/ai/llm/generate-llms-files.js [flags]
- * @policy      R-R16, R-R17
+ * @script            generate-llms-files
+ * @category          
+ * @purpose           governance:index-management
+ * @scope             operations/scripts, docs.json, v2
+ * @domain            docs
+ * @needs             
+ * @purpose-statement 
+ * @pipeline          manual, P6
+ * @usage             node operations/scripts/generators/ai/llm/generate-llms-files.js [flags]
  */
 
 const fs = require('fs');
 const path = require('path');
+const { pathToFileURL } = require('url');
 const { execSync } = require('child_process');
-const yaml = require('../../../../../tools/lib/load-js-yaml');
+const yaml = require('../../../../../tools/lib/bootstrap/load-js-yaml');
 
 const BASE_URL = 'https://docs.livepeer.org/';
 const DOCS_JSON = 'docs.json';
 const OUTPUT_LLM = 'llms.txt';
-const OUTPUT_FULL = 'llms-full.txt';
 
 const DOMAIN_RENAME_MAP = {
   '00_home': 'home',
@@ -208,6 +206,10 @@ function buildSectionLabel(anchorLabel, groupPath) {
   return parts.join(' / ');
 }
 
+function resolveToolsPackageImport(specifier) {
+  return pathToFileURL(require.resolve(specifier, { paths: [path.join(REPO_ROOT, 'tools')] })).href;
+}
+
 function joinUrl(base, route) {
   const normalized = normalizeRoute(route);
   if (!normalized) return base;
@@ -284,11 +286,11 @@ function collectTabSections(tab) {
 }
 
 async function loadMdxHelpers() {
-  const unifiedMod = await import('unified');
-  const remarkParseMod = await import('remark-parse');
-  const remarkMdxMod = await import('remark-mdx');
-  const remarkStringifyMod = await import('remark-stringify');
-  const visitMod = await import('unist-util-visit');
+  const unifiedMod = await import(resolveToolsPackageImport('unified'));
+  const remarkParseMod = await import(resolveToolsPackageImport('remark-parse'));
+  const remarkMdxMod = await import(resolveToolsPackageImport('remark-mdx'));
+  const remarkStringifyMod = await import(resolveToolsPackageImport('remark-stringify'));
+  const visitMod = await import(resolveToolsPackageImport('unist-util-visit'));
 
   return {
     unified: unifiedMod.unified || unifiedMod.default || unifiedMod,
@@ -379,6 +381,11 @@ async function buildOutputs() {
   const docsJsonPath = path.join(REPO_ROOT, DOCS_JSON);
   const docsJson = JSON.parse(fs.readFileSync(docsJsonPath, 'utf8'));
   const siteName = docsJson.name || 'Livepeer Docs';
+  const redirectRoutes = new Set(
+    (docsJson.redirects || [])
+      .map((entry) => normalizeRoute(entry && entry.source))
+      .filter(Boolean)
+  );
 
   const v2Version = (docsJson.navigation?.versions || []).find((version) => version.version === 'v2');
   if (!v2Version) {
@@ -392,7 +399,6 @@ async function buildOutputs() {
 
   const tabs = Array.isArray(language.tabs) ? language.tabs : [];
   const outputLines = [`# ${siteName}`, ''];
-  const fullBlocks = [];
   const missingRoutes = new Set();
   const pageCache = new Map();
 
@@ -408,7 +414,7 @@ async function buildOutputs() {
       const routes = section.routes || [];
       const filteredRoutes = routes
         .map((route) => normalizeRoute(route))
-        .filter((route) => route && !isExcludedRoute(route));
+        .filter((route) => route && !redirectRoutes.has(route) && !isExcludedRoute(route));
 
       if (!filteredRoutes.length) continue;
 
@@ -426,7 +432,6 @@ async function buildOutputs() {
         const descriptionSuffix = description ? `: ${description}` : '';
         outputLines.push(`- [${pageData.title}](${joinUrl(BASE_URL, route)})${descriptionSuffix}`);
 
-        fullBlocks.push(buildFullBlock(route, pageData));
       }
 
       outputLines.push('');
@@ -436,9 +441,8 @@ async function buildOutputs() {
   }
 
   const llmsIndex = outputLines.join('\n').trimEnd() + '\n';
-  const llmsFull = fullBlocks.join('\n\n---\n\n').trimEnd() + '\n';
 
-  return { llmsIndex, llmsFull, missingRoutes: Array.from(missingRoutes) };
+  return { llmsIndex, missingRoutes: Array.from(missingRoutes) };
 }
 
 async function getPageData(route, cache, missingRoutes) {
@@ -472,16 +476,6 @@ async function getPageData(route, cache, missingRoutes) {
   return pageData;
 }
 
-function buildFullBlock(route, pageData) {
-  const lines = [
-    `# ${pageData.title}`,
-    `URL: ${joinUrl(BASE_URL, route)}`,
-    '',
-    pageData.markdown || ''
-  ];
-  return lines.join('\n').trim();
-}
-
 function writeFile(fileName, contents) {
   const targetPath = path.join(REPO_ROOT, fileName);
   fs.writeFileSync(targetPath, contents);
@@ -494,7 +488,7 @@ function readFile(fileName) {
 }
 
 function usage() {
-  console.log('Usage: node operations/scripts/generate-llms-files.js --write|--check');
+  console.log('Usage: node operations/scripts/generators/ai/llm/generate-llms-files.js --write|--check');
 }
 
 async function main() {
@@ -507,7 +501,7 @@ async function main() {
     process.exit(1);
   }
 
-  const { llmsIndex, llmsFull, missingRoutes } = await buildOutputs();
+  const { llmsIndex, missingRoutes } = await buildOutputs();
 
   if (missingRoutes.length) {
     console.warn('Missing docs pages referenced in docs.json:');
@@ -516,24 +510,21 @@ async function main() {
 
   if (shouldWrite) {
     writeFile(OUTPUT_LLM, llmsIndex);
-    writeFile(OUTPUT_FULL, llmsFull);
   }
 
   if (shouldCheck) {
     const existingIndex = readFile(OUTPUT_LLM);
-    const existingFull = readFile(OUTPUT_FULL);
 
-    if (existingIndex === null || existingFull === null) {
-      console.error('Missing llms.txt or llms-full.txt outputs.');
+    if (existingIndex === null) {
+      console.error('Missing llms.txt output.');
       process.exit(1);
     }
 
     const normalize = (value) => String(value || '').trimEnd() + '\n';
     const indexMatches = normalize(existingIndex) === normalize(llmsIndex);
-    const fullMatches = normalize(existingFull) === normalize(llmsFull);
 
-    if (!indexMatches || !fullMatches || missingRoutes.length) {
-      console.error('llms outputs are stale or incomplete.');
+    if (!indexMatches || missingRoutes.length) {
+      console.error('llms.txt is stale or incomplete.');
       process.exit(1);
     }
   }

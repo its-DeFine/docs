@@ -19,7 +19,7 @@ const {
   hasFrontmatterKey,
   hasGeneratedNote,
   parseGeneratedHiddenBanner
-} = require('../../../tools/lib/generated-file-banners');
+} = require('../../../tools/lib/governance/generated-file-banners');
 const { checkAggregateIndex } = require('./script-docs.test.js');
 const uiTemplateGenerator = require('../../scripts/generators/components/library/generate-ui-templates');
 

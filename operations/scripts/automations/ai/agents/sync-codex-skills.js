@@ -23,7 +23,7 @@ const {
   parseSkillsList,
   selectTemplates,
   toPosix
-} = require('../../../../../tools/lib/codex-skill-templates');
+} = require('../../../../../tools/lib/ai/codex-skill-templates');
 
 const REPO_ROOT = process.cwd();
 const DEFAULT_SOURCE_DIR = 'ai-tools/ai-skills/templates';

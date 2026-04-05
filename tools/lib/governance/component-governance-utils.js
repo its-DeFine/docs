@@ -7,13 +7,13 @@
  * @needs             R-R10
  * @purpose-statement Shared parsing and validation utilities for component governance scripts.
  * @pipeline          indirect
- * @usage             const utils = require('../lib/component-governance-utils');
+ * @usage             const utils = require('../../tools/lib/governance/component-governance-utils');
  */
 
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
-const { isPublishedDocsPath: isPublishableDocsPath } = require('./docs-publishability');
+const { isPublishedDocsPath: isPublishableDocsPath } = require('../docs/docs-publishability');
 
 const VALID_CATEGORIES = ['elements', 'wrappers', 'displays', 'scaffolding', 'integrators', 'config'];
 const VALID_STATUSES = ['stable', 'experimental', 'deprecated', 'broken', 'placeholder', 'planned'];

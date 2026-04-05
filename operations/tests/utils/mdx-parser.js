@@ -14,7 +14,7 @@
  * MDX parsing utilities for validation
  */
 
-const yaml = require('../../../tools/lib/load-js-yaml');
+const yaml = require('../../../tools/lib/bootstrap/load-js-yaml');
 
 function getIgnoredRanges(content) {
   const ignoredRanges = [];

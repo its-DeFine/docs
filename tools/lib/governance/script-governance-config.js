@@ -7,12 +7,12 @@
  * @needs             R-R14, R-R18, R-C6
  * @purpose-statement Shared governance constants for script discovery, indexing, classification, and pipeline normalisation across the repo.
  * @pipeline          indirect -- library module
- * @usage             const config = require('../lib/script-governance-config');
+ * @usage             const config = require('../../tools/lib/governance/script-governance-config');
  */
 
 const fs = require('fs');
 const path = require('path');
-const REPO_ROOT = path.resolve(__dirname, '..', '..');
+const REPO_ROOT = path.resolve(__dirname, '..', '..', '..');
 
 const DISCOVERY_ROOTS = [
   '.githooks',
@@ -25,8 +25,7 @@ const DISCOVERY_ROOTS = [
   'operations/scripts',
   'tools/lib',
   'tools/dev',
-  'tools/config',
-  'snippets/automations'
+  'tools/config'
 ];
 
 const GOVERNED_ROOTS = [
@@ -37,8 +36,7 @@ const GOVERNED_ROOTS = [
   'tools/lib',
   'tools/dev',
   'tools/config',
-  'workspace/scripts',
-  'snippets/automations'
+  'workspace/scripts'
 ];
 
 const INDEXED_ROOTS = [
@@ -49,8 +47,7 @@ const INDEXED_ROOTS = [
   'tools/lib',
   'tools/dev',
   'tools/config',
-  'workspace/scripts',
-  'snippets/automations'
+  'workspace/scripts'
 ];
 
 const GROUP_INDEX_MAP = [
@@ -61,8 +58,7 @@ const GROUP_INDEX_MAP = [
   { root: 'tools/lib', index: 'tools/lib/script-index.md' },
   { root: 'tools/dev', index: 'tools/dev/script-index.md' },
   { root: 'tools/config', index: 'tools/config/registry/script-index.md' },
-  { root: 'workspace/scripts', index: 'workspace/scripts/script-index.md' },
-  { root: 'snippets/automations', index: 'snippets/automations/script-index.md' }
+  { root: 'workspace/scripts', index: 'workspace/scripts/script-index.md' }
 ];
 const GROUP_INDEX_PATHS = GROUP_INDEX_MAP.map((entry) => entry.index);
 

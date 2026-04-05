@@ -3,7 +3,7 @@
  * @script            generated-artifacts-policy.test
  * @category          validator
  * @purpose           qa:repo-health
- * @scope             tests/unit, tools/lib/generated-artifacts.js, tools/config/runtime/generated-artifacts.json
+ * @scope             tests/unit, tools/lib/governance/generated-artifacts.js, tools/config/runtime/generated-artifacts.json
  * @domain            docs
  * @needs             R-R16, R-R17
  * @purpose-statement Tests generated artifact governance manifest — validates enums, path matching, and hook-policy expectations
@@ -19,7 +19,7 @@ const {
   findArtifactsForPath,
   isArtifactAffectedByFiles,
   getForbiddenEphemeralFiles
-} = require('../../../tools/lib/generated-artifacts');
+} = require('../../../tools/lib/governance/generated-artifacts');
 
 async function runTests() {
   const failures = [];
@@ -39,6 +39,24 @@ async function runTests() {
     assert.strictEqual(artifact.hook_policy, 'check_only');
     assert.strictEqual(artifact.ci_policy, 'enforce');
     assert.strictEqual(artifact.delta_strategy, 'staged');
+  });
+
+  cases.push(async () => {
+    ['llms.txt', 'sitemap-ai.xml'].forEach((repoPath) => {
+      const artifact = getFirstArtifactByPath(repoPath);
+      assert.ok(artifact, `${repoPath} manifest entry should exist`);
+      assert.strictEqual(artifact.class, 'committed_authoritative');
+      assert.strictEqual(artifact.commit_policy, 'required');
+      assert.strictEqual(artifact.hook_policy, 'check_only');
+      assert.strictEqual(artifact.ci_policy, 'enforce');
+    });
+  });
+
+  cases.push(async () => {
+    ['.allowlist', 'docs-guide/repo-ops/config/root-governance-map.mdx'].forEach((repoPath) => {
+      const artifact = getFirstArtifactByPath(repoPath);
+      assert.ok(artifact, `${repoPath} manifest entry should exist`);
+    });
   });
 
   cases.push(async () => {

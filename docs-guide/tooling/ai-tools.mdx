@@ -79,40 +79,16 @@ The registry organises all AI-tools artefacts into seven lanes. Lane assignment 
 | `manual-doc` | Registry artefacts, subsystem-scoped governance/support docs | `ai-tools/*.mdx`, `ai-tools/registry/**`, `ai-tools/ai-skills/catalog/**`, and others | No |
 | `retired` | Historical material retained for reference only | `ai-tools/retired/**` | Yes |
 
-## Architecture Transition
+## Root Governance Status
 
-The current operational root remains `ai-tools/`, but the governed model is now wider than the older `templates + local skills + exports` framing.
+`ai-tools/` is an approved root subsystem in the current root-governance contract.
 
 Current implementation rule:
 
-- keep the active root and existing entrypoints working
-- consolidate logic toward one canonical source
-- keep agent-specific wrappers thin
-- treat generated outputs as derived only
-
-Target architecture:
-
-```text
-ai-tools/
-├── canonical/
-│   ├── skills/
-│   ├── references/
-│   ├── dispatchers/
-│   ├── governance/
-│   └── packaging/
-├── adapters/
-│   ├── claude/
-│   ├── codex/
-│   ├── cursor/
-│   └── windsurf/
-├── generated/
-│   ├── packs/
-│   ├── manifests/
-│   └── indexes/
-└── registry/
-```
-
-This is a target model for documentation, classification, and migration. It is not a mandate to move every file immediately.
+- keep `ai-tools/` at repo root
+- govern it explicitly instead of treating it as tolerated drift
+- keep generated outputs derived only
+- defer any structural review of whether it should move to a later governance pass
 
 Canonical planning references:
 
@@ -160,14 +136,13 @@ Every file listed below has been verified on disk.
 | Cross-agent baseline | `AGENTS.md` | `AGENTS.md` | Primary source of truth for all repo-wide rules |
 | GitHub Copilot | `.github/copilot-instructions.md` | `copilot-instructions.md` | GitHub-native path; thin adapter |
 | Claude Code | `.claude/CLAUDE.md` | `CLAUDE.md` | Claude Code native path |
-| Cursor (modern) | `.cursor/rules/*.mdc` | `repo-governance.mdc`, `no-deletions.mdc` | Active; replaces legacy `.cursorrules` |
-| Cursor (legacy) | `.cursorrules` | `.cursorrules` | Backward-compat stub pointing to `.cursor/rules/` |
+| Cursor | `.cursor/rules/*.mdc` | `repo-governance.mdc`, `no-deletions.mdc` | Active canonical Cursor adapter surface |
 | Windsurf | `.windsurf/rules/*.md` | `repo-governance.md` | Windsurf native path |
 | Augment Code | `.augment/rules/*.md` | `repo-governance.md`, `git-safety.md`, `no-deletions.md` | Added Phase 9 |
 | Mintlify Assistant | `.mintlify/Assistant.md` | `Assistant.md` | Chat widget context for the docs site (not an AI coding adapter) |
 | Codex (task layer) | `.github/AGENTS.md` | `AGENTS.md` | Codex-specific HitL and checkpoint rules; extends root `AGENTS.md` via directory-walk |
 
-Legacy stubs retained on disk: `ASSISTANT.md` (redirect stub pointing to `.mintlify/Assistant.md`).
+Legacy assistant redirects may still exist outside the active adapter set, but they are not part of the governed root contract.
 
 ### Supplemental cross-agent packs (generated, not canonical)
 

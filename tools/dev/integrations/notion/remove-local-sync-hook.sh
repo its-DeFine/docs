@@ -7,12 +7,12 @@
 # @needs             bash, git
 # @purpose-statement Removes the managed local Notion post-commit hook when it is present.
 # @pipeline          manual
-# @usage             bash tools/notion/remove-local-sync-hook.sh [flags]
+# @usage             bash tools/dev/integrations/notion/remove-local-sync-hook.sh [flags]
 set -euo pipefail
 
 MARKER="LIVEPEER_NOTION_LOCAL_SYNC_HOOK"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/../../../.." && pwd)"
 HOOKS_DIR="$(git -C "$REPO_ROOT" rev-parse --git-path hooks)"
 HOOK_PATH="$HOOKS_DIR/post-commit"
 

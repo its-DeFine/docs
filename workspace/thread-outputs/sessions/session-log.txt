@@ -18,6 +18,15 @@ Done:
 - Verified the isolated worktree stayed clean after push and confirmed the migrated contracts pages rendered, including Mermaid on blockchain contracts
 Next: Review and merge PR #857, then run a governance follow-up for missing script headers and contracts component registry coverage
 
+=== 2026-04-05 15:59 ===
+Stream: Snippets Root Governance Consolidation
+Outcome: Met
+Done:
+- Closed the snippets root stream by clearing the old staged-suite blockers and getting `lpd test --staged` green
+- Confirmed `snippets/automations` is no longer a script-governance indexed root and no longer exists on disk
+- Synced the completion report, project state, and backlog records to the final repo state
+Next: none
+
 === 2026-03-31 ===
 Stream: Backlog Execution (BL-013, BL-014, BL-015)
 Outcome: Met
@@ -238,6 +247,14 @@ Session started: 2026-03-26 18:30:02
 Session started: 2026-03-26 19:37:25
 Session started: 2026-03-26 19:37:25
 Session started: 2026-03-26 20:02:51
+=== 2026-04-05 15:46 ===
+Stream: Snippets Root Governance Consolidation
+Outcome: Partially met
+Done:
+- Replaced the snippets root draft model with `snippets/guide.mdx` as the canonical manual guide and `snippets/snippets-registry.mdx` as a generated registry
+- Added the governed generator and validator for snippets root governance and registered them in script/artifact governance
+- Archived the retired root `framework-canonical.mdx` surface and updated the published snippets inventory to the new contract
+Next: Remove `snippets/automations` from script-governance indexed roots and clear the broader staged-suite repo failures blocking a fully green `lpd test --staged`
 Session started: 2026-03-26 20:31:53
 Session started: 2026-03-26 20:43:19
 Session started: 2026-03-26 21:27:22
@@ -958,3 +975,31 @@ Session started: 2026-04-05 12:49:31
 Session started: 2026-04-05 12:49:31
 Session started: 2026-04-05 12:49:44
 Session started: 2026-04-05 13:16:26
+
+=== 2026-04-05 15:58 AEST ===
+Stream: Snippets Root Governance Consolidation
+Outcome: Met
+Done:
+- Retired `snippets/automations` as an active script-governance root and verified the regenerated catalogs/registries no longer treat that tree as managed
+- Removed the last live `snippets/automations/globals` compatibility contract, deleted the retired globals files in the working tree, and removed the deprecated `latestVersionUrl` alias from active helpers
+- Verified the retirement path with `script-docs --check-indexes`, `mdx-guards`, `update-livepeer-release`, `snippets-root-governance`, and AI-tools workflow-registry freshness checks
+Next: Make the human-owned deletion commit with `--trailer "allow-deletions=true"` for the retired `snippets/automations` files, then stage only the intended cleanup deliverables
+
+=== 2026-04-05 ===
+Stream: Snippets Cleanup
+Outcome: Partially met
+Done:
+- Design phase: target snippets/ structure decided (5 folders + guide.mdx + catalog.mdx)
+- Root cleanup: external/ → composables/archived, snippetsWiki/ → guide.mdx + archived, logos consolidated, 8 empty variables deleted, data/ docs archived
+- Script fixes: page-links-audit.js domain links rerouted to report, pre-tool-guard.js hook regex fixed
+- Full audit: data/ folder with upstream/downstream dependency mapping, assets/domain/ per-file classification
+Next: assets/ implementation (file moves + ref updates), automations/ archive, data/ snapshots + pipeline state decisions
+
+=== 2026-04-05 17:00 AEST ===
+Stream: Tools Governance Consolidation
+Outcome: Met
+Done:
+- Audited `tools/`, wrote the governance reports, and reclassified workflow-owned and legacy surfaces instead of leaving them under generic `tools/` roots
+- Rebuilt `tools/config`, `tools/dev`, and `tools/lib` into explicit governed namespaces and propagated the live path changes through maintained consumers, tests, docs, and registries
+- Regenerated the script-governance outputs and verified the targeted config/dev/lib validation suites against the new structure
+Next: Make the human-owned deletion commit with `--trailer "allow-deletions=true"` after staging only the intended tool-governance files, then decide separately whether historical archive/report surfaces should stay as snapshots or be refreshed

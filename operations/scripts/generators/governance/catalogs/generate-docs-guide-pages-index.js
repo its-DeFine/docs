@@ -20,7 +20,7 @@ const {
   buildGeneratedHiddenBannerLines,
   buildGeneratedNoteLines,
   readCatalogMarkers
-} = require('../../../../../tools/lib/generated-file-banners');
+} = require('../../../../../tools/lib/governance/generated-file-banners');
 
 const REPO_ROOT = process.cwd();
 const SOURCE_INDEX_PATH = 'v2/index.mdx';

@@ -23,7 +23,7 @@ const {
   getDocsJsonRouteKeys,
   toDocsRouteKeyFromFileV2Aware
 } = require('../../../../../operations/tests/utils/file-walker');
-const { isGeneratedDocsPageContent } = require('../../../../../tools/lib/docs-page-scope');
+const { isGeneratedDocsPageContent } = require('../../../../../tools/lib/docs/docs-page-scope');
 const { analyzeMdxPage, scorePage, computeBand } = require('../../../../../tools/lib/docs-usefulness/scoring');
 const { getRulesForPage } = require('../../../../../tools/lib/docs-usefulness/rubric-loader');
 const { checkJourneys } = require('../../../../../tools/lib/docs-usefulness/journey-check');

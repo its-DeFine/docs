@@ -26,7 +26,7 @@ const {
   scanMDXImports,
   scanStylingViolations,
   updateJSDocTags
-} = require('../../../tools/lib/component-governance-utils');
+} = require('../../../tools/lib/governance/component-governance-utils');
 
 function runTests() {
   const errors = [];

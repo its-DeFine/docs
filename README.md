@@ -42,13 +42,18 @@ docs-guide/          Internal docs-about-docs: policies, frameworks, catalogs
 docs.json            Navigation and routing config (source of truth)
 ```
 
+Root governance is explicit. Only approved root contracts and subsystem roots belong at repo root. `ai-tools/` is an intentionally governed root subsystem, and the ratified AI-first public root artifacts are `docs-index.json`, `llms.txt`, and `sitemap-ai.xml`.
+
+Live root inventory: [`docs-guide/repo-ops/config/root-governance-map.mdx`](docs-guide/repo-ops/config/root-governance-map.mdx)  
+Root policy: [`docs-guide/policies/root-allowlist-governance.mdx`](docs-guide/policies/root-allowlist-governance.mdx)
+
 ## Contributing
 
 1. Read the [authoring guide](v2/resources/documentation-guide/authoring-guide.mdx) and [style guide](v2/resources/documentation-guide/style-guide.mdx).
 2. Install hooks: `bash .githooks/install.sh` (or `lpd hooks install`).
 3. Branch from `docs-v2`, run `lpd dev` to preview, then open a PR against `docs-v2`.
 
-Full contributing docs: [`contribute/CONTRIBUTING/README.md`](contribute/CONTRIBUTING/README.md)
+Full contributing docs: [`docs-guide/contributing/contributing.mdx`](docs-guide/contributing/contributing.mdx)
 
 ## Quality gates
 

@@ -36,9 +36,13 @@ These files live at the repo root and are read by Mintlify, the pre-commit hook,
 | File | Read by | Purpose |
 |------|---------|---------|
 | `docs.json` | Mintlify | Navigation structure, version config, redirect rules, logo/favicon paths, SEO defaults, component imports |
-| `.allowlist` | Pre-commit hook | Allowlist of permitted root-level files and directories. New root entries require a human edit with `--trailer "allowlist-edit=true"`. |
+| `.allowlist` | Pre-commit hook | Generated allowlist of permitted root-level files and directories. Canonical edits happen in `tools/config/runtime/root-governance.json`, then regenerate projections. |
 | `.mintignore` | Mintlify | Files and directories excluded from the docs build. Prevents operational scripts, workspace scratch, and draft content from becoming routable pages. |
-| `.env.example` | Local dev reference | Documents all environment variables used by local tooling and GitHub Actions secrets. Not committed with real values. |
+| `docs-index.json` | AI and tooling consumers | Ratified machine-readable public root artifact describing docs inventory. |
+| `llms.txt` | AI consumers | Ratified AI-first public root artifact for LLM discovery. |
+| `sitemap-ai.xml` | AI and crawler consumers | Ratified AI-first public root sitemap artifact. |
+
+Live governed root inventory is generated at [`docs-guide/repo-ops/config/root-governance-map.mdx`](/docs-guide/repo-ops/config/root-governance-map). Do not duplicate the full root inventory in manual docs.
 
 ---
 
@@ -114,7 +118,7 @@ These are not config files themselves but are the source inputs that trigger CI 
 
 ## Environment Variables
 
-Runtime secrets and variables are documented in `.env.example` at the repo root.
+Runtime secrets and variables are documented in `docs-guide/repo-ops/config/.env.example`.
 
 For secrets required by the solutions social data pipeline specifically, see [Solutions Secrets](solutions-secrets).
 

@@ -4,6 +4,8 @@ Date: 2026-04-05
 Scope: tracked files under `tools/`
 Method: repo file inventory, exact-path repo reference scan, targeted content review of root entrypoints, configs, dev scripts, editor-extension packaging, Notion sync docs, and existing governance notes.
 
+Update: this audit records the pre-migration state captured earlier on 2026-04-05. The approved implementation has since moved active Notion runtime assets to `tools/dev/integrations/notion/`, split `tools/dev` into `preview/`, `authoring/`, `editor/`, and `integrations/`, and archived the deprecated dev/Notion note files under `tools/_workspace/archive/`.
+
 ## Executive Summary
 
 `tools/` is not sprawling because it holds too many tool surfaces. It is sprawling because several old migrations were left half-finished:

@@ -24,6 +24,8 @@ Merge this workflow with its sibling family into `future:governance-maintenance-
 - action:actions/setup-node@v4
 - action:peter-evans/create-pull-request@v7
 - operations/scripts/dispatch/governance/pipelines/governance-pipeline.js
+- operations/scripts/generators/governance/root/generate-root-governance-artifacts.js
+- operations/scripts/validators/governance/compliance/check-root-governance-sync.js
 - workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json
 
 ## Dependants

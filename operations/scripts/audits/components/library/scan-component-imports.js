@@ -24,7 +24,7 @@ const {
   normalizeCsvField,
   parseJSDocBlock,
   scanMDXImports
-} = require('../../../../../tools/lib/component-governance-utils');
+} = require('../../../../../tools/lib/governance/component-governance-utils');
 
 const REPO_ROOT = process.cwd();
 const OUTPUT_PATH = path.join(REPO_ROOT, 'docs-guide', 'config', 'component-usage-map.json');

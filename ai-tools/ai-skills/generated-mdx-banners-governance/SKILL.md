@@ -24,14 +24,14 @@ Required Pattern
     - Remove `<Note>` when source English page does not include generated `<Note>`.
 
 Single Source of Formatting
-- Use `tools/lib/generated-file-banners.js` for:
+- Use `tools/lib/governance/generated-file-banners.js` for:
   - frontmatter builders
   - hidden banner builders/parsers
   - generated `<Note>` helpers
 - Do not duplicate banner strings inside individual generators.
 
 Primary Files to Touch
-- `tools/lib/generated-file-banners.js`
+- `tools/lib/governance/generated-file-banners.js`
 - `operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js`
 - `operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js`
 - `operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js`

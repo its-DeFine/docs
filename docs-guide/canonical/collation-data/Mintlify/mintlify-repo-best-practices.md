@@ -91,7 +91,7 @@ Do not treat `_workspace`, `x-deprecated`, archived language folders, or `v1/**`
 
 - Quote hex strings, addresses, IDs, and other values that look numeric in YAML frontmatter.
 - Do not rely on YAML coercion for values that must remain strings.
-- Keep frontmatter aligned to the repo taxonomy and validation rules used by `tools/lib/frontmatter-taxonomy.js` and the MDX/style tests.
+- Keep frontmatter aligned to the repo taxonomy and validation rules used by `tools/lib/docs/frontmatter-taxonomy.js` and the MDX/style tests.
 
 ## Validation Baseline
 

@@ -29,11 +29,11 @@ const {
   SCRIPT_EXTENSIONS,
   normalizeRepoPath,
   shouldExcludeScriptPath
-} = require('../../../../../tools/lib/script-governance-config');
+} = require('../../../../../tools/lib/governance/script-governance-config');
 const {
   extractLeadingScriptHeader,
   getTagValue
-} = require('../../../../../tools/lib/script-header-utils');
+} = require('../../../../../tools/lib/governance/script-header-utils');
 
 const REPO_ROOT = path.resolve(__dirname, '../../../../..');
 const OUTPUT_PATH = 'tools/config/registry/script-registry.json';

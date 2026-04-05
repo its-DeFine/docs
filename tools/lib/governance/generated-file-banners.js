@@ -7,7 +7,7 @@
  * @needs             R-R16, R-R17
  * @purpose-statement Generated file banner template — provides standard banner text for auto-generated files
  * @pipeline          indirect — library module
- * @usage             node tools/lib/generated-file-banners.js [flags]
+ * @usage             const { applyGeneratedBanners, parseGeneratedHiddenBanner } = require('../../tools/lib/governance/generated-file-banners');
  */
 const fs = require('fs');
 const GENERATED_HIDDEN_MARKER = 'generated-file-banner:v1';
@@ -203,7 +203,7 @@ const VALID_CATALOG_DIAGRAMS = ['pipeline-flow', 'none'];
  *   @diagram         — optional diagram section ('pipeline-flow' | 'none')
  *
  * Example usage in a generator:
- *   const { readCatalogMarkers } = require('../../../../../tools/lib/generated-file-banners');
+ *   const { readCatalogMarkers } = require('../../../../../tools/lib/governance/generated-file-banners');
  *   const markers = readCatalogMarkers(TEMPLATE_PATH);
  *   const layout = markers['catalog-layout'] ?? 'grouped-tables';
  *   const diagram = markers['diagram'] ?? null;

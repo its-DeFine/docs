@@ -59,7 +59,7 @@
 ### About Livepeer / Resources
 
 - [Livepeer Whitepaper](https://docs.livepeer.org/v2/about/resources/livepeer-whitepaper): Read the original Livepeer whitepaper and understand how its decentralised video vision evolved into the current network.
-- [Canonical Contract Addresses](https://docs.livepeer.org/v2/about/resources/livepeer-contract-addresses): Official Livepeer protocol contract addresses on Arbitrum One and Ethereum Mainnet. Verified on-chain and automatically updated from the canonical governor-scripts source. The only official referen...
+- [Canonical Contract Addresses](https://docs.livepeer.org/v2/about/resources/livepeer-contract-addresses): Official Livepeer protocol contract addresses on Arbitrum One and Ethereum Mainnet. Verified from live chain state, upstream source provenance, and explorer evidence on every refresh. The canonical...
 - [Technical Roadmap](https://docs.livepeer.org/v2/about/resources/technical-roadmap): Review the current Livepeer roadmap posts covering network and product direction.
 
 
@@ -705,10 +705,6 @@
 
 ## Resource HUB
 
-### Resources / Resources
-
-- [Resource Hub](https://docs.livepeer.org/v2/resources/portal): Welcome to the Resource Hub: Changelogs, Guides, Documentation, and Help
-
 ### Resources / Documentation Guide / Contributing
 
 - [Contributing to the Livepeer Docs](https://docs.livepeer.org/docs-guide/contributing/contributing): Canonical contributor workflow for docs content, components, tooling, quality gates, and PR process.
@@ -745,7 +741,7 @@
 ### Resources / Documentation Guide / Tooling
 
 - [Lpd Cli](https://docs.livepeer.org/v2/resources/documentation-guide/tooling/lpd-cli)
-- [Snippets Folder Inventory](https://docs.livepeer.org/v2/resources/documentation-guide/tooling/snippets-inventory): This page provides a comprehensive inventory of all files and folders in the `/snippets` directory. The snippets folder is the central location for all custom components, data, scripts, and assets...
+- [Snippets Folder Inventory](https://docs.livepeer.org/v2/resources/documentation-guide/tooling/snippets-inventory): Governance overview for the repo's snippets directory, including the canonical root guide, generated registry, and current folder taxonomy.
 
 ### Resources / Documentation Guide / Catalogs
 
@@ -763,7 +759,7 @@
 
 ### Resources / Technical References
 
-- [Canonical Contract Addresses](https://docs.livepeer.org/v2/about/resources/livepeer-contract-addresses): Official Livepeer protocol contract addresses on Arbitrum One and Ethereum Mainnet. Verified on-chain and automatically updated from the canonical governor-scripts source. The only official referen...
+- [Canonical Contract Addresses](https://docs.livepeer.org/v2/about/resources/livepeer-contract-addresses): Official Livepeer protocol contract addresses on Arbitrum One and Ethereum Mainnet. Verified from live chain state, upstream source provenance, and explorer evidence on every refresh. The canonical...
 
 ### Resources / Compendium
 

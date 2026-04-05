@@ -3,12 +3,12 @@
  * @script            frontmatter-taxonomy
  * @category          utility
  * @purpose           qa:content-quality
- * @scope             tools/lib, tests
+ * @scope             tools/lib/docs, tests
  * @owner             docs
  * @needs             E-R1, R-R11
  * @purpose-statement Shared frontmatter taxonomy utilities for routable docs pages.
  * @pipeline          indirect -- library module
- * @usage             const taxonomy = require('../lib/frontmatter-taxonomy');
+ * @usage             const taxonomy = require('../../tools/lib/docs/frontmatter-taxonomy');
  */
 
 // Phase 1 canonical values — source of truth: tasks/plan/active/CONTENT-WRITING/framework.md

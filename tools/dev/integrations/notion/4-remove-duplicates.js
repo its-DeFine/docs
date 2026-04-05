@@ -7,10 +7,10 @@
  * @needs             node, @notionhq/client, dotenv, NOTION_API_KEY
  * @purpose-statement Archives duplicate Notion pages from the duplicate report while keeping the first record in each group.
  * @pipeline          manual
- * @usage             node tools/notion/4-remove-duplicates.js [flags]
+ * @usage             node tools/dev/integrations/notion/4-remove-duplicates.js [flags]
  */
 
-require("dotenv").config();
+require("dotenv").config({ path: require("path").join(__dirname, ".env") });
 const { Client } = require("@notionhq/client");
 const fs = require("fs");
 const path = require("path");

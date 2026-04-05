@@ -97,7 +97,7 @@ async function main() {
       section: 'solutions',
       frontmatter: {}
     }, normalization);
-    assert.strictEqual(fallback.audience, 'platform-builder');
+    assert.strictEqual(fallback.audience, 'builder');
     assert.strictEqual(fallback.source, 'inferred');
   }));
 

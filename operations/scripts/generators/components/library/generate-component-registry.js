@@ -21,7 +21,7 @@ const {
   parseJSDocBlock,
   validateGovernanceFields,
   VALID_CATEGORIES
-} = require('../../../../../tools/lib/component-governance-utils');
+} = require('../../../../../tools/lib/governance/component-governance-utils');
 
 const REPO_ROOT = process.cwd();
 const REGISTRY_PATH = path.join(REPO_ROOT, 'docs-guide', 'config', 'component-registry.json');

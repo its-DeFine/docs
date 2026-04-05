@@ -7,7 +7,7 @@
  * @needs             node
  * @purpose-statement Analyzes the exported Notion snapshot for duplicate page keys and writes JSON and Markdown reports.
  * @pipeline          manual
- * @usage             node tools/notion/3-check-duplicates.js [flags]
+ * @usage             node tools/dev/integrations/notion/3-check-duplicates.js [flags]
  */
 
 const fs = require("fs");

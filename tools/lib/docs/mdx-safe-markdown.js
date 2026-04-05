@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * @script            mdx-safe-markdown
  * @category          utility
@@ -8,7 +7,7 @@
  * @needs             E-R1, R-R11
  * @purpose-statement Shared MDX-safe markdown helpers that collect first-party markdown files, detect unsafe patterns, and apply deterministic repairs.
  * @pipeline          indirect -- library module
- * @usage             node tools/lib/mdx-safe-markdown.js [flags]
+ * @usage             const { validateMarkdownContent, repairMarkdownContent } = require('../../tools/lib/docs/mdx-safe-markdown');
  */
 
 const fs = require('fs');
@@ -29,7 +28,7 @@ const remarkGfm = loadPlugin('remark-gfm');
 const remarkMath = loadPlugin('remark-math');
 const remarkMdx = loadPlugin('remark-mdx');
 
-const REPO_ROOT = path.resolve(__dirname, '..', '..');
+const REPO_ROOT = path.resolve(__dirname, '..', '..', '..');
 const STAGED_SNAPSHOT_ENV = 'LPD_STAGED_FILES_SNAPSHOT';
 const MARKDOWN_EXTENSIONS = new Set(['.md', '.mdx']);
 const FRONTMATTER_BLOCK_RE = /^\uFEFF?---[ \t]*\r?\n[\s\S]*?\r?\n---[ \t]*(?:\r?\n|$)/;

@@ -20,7 +20,7 @@ const {
   getComponentFiles,
   getEnglishComponentLibraryDocPaths,
   scanMDXImports
-} = require('../../../../../tools/lib/component-governance-utils');
+} = require('../../../../../tools/lib/governance/component-governance-utils');
 
 const REPORT_PATH = path.join(REPO_ROOT, 'tasks', 'reports', 'repo-ops', 'component-usage-audit.json');
 

@@ -8,8 +8,8 @@
  * @description Callout inserter — adds Note/Tip/Warning callout components to MDX files based on content patterns
  * @mode        execute
  * @pipeline    manual — interactive developer tool, not suited for automated pipelines
- * @scope       tools/scripts
- * @usage       node tools/dev/add-callouts.js [flags]
+ * @scope       tools/dev/authoring
+ * @usage       node tools/dev/authoring/add-callouts.js [flags]
  * @policy      E-R1, R-R11
  */
 

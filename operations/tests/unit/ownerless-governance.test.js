@@ -3,7 +3,7 @@
  * @script            ownerless-governance.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, tests/utils, operations/tests/WHEN-TESTS-RUN.md, docs-guide, tools/config/runtime/ownerless-governance-surfaces.json, AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md
+ * @scope             tests/unit, tests/utils, operations/tests/WHEN-TESTS-RUN.md, docs-guide, tools/config/runtime/ownerless-governance-surfaces.json, AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, docs-guide/contributing/agent-instructions.mdx
  * @owner             docs
  * @needs             R-R14, R-R29
  * @purpose-statement Validates the ownerless governance manifest, primary gate-layer contract, and forbidden human-owner dependency in governed policy and GitHub surfaces.

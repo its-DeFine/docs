@@ -11,7 +11,7 @@ metadata:
 primary_paths:
   - "snippets/assets/data/n8n"
   - "v2/resources/documentation-guide/automations-workflows.mdx"
-  - "snippets/automations"
+  - "snippets/data"
 primary_commands:
   - "find snippets/assets/data/n8n -maxdepth 1 -name \"*.json\" | sort"
   - "node -e \"JSON.parse(require(\"fs\").readFileSync(\"snippets/assets/data/n8n/Luma-To-Mintlify.json\",\"utf8\")); console.log(\"ok\")\""
@@ -30,7 +30,7 @@ Constraints
 
 Workflow
 1. Enumerate workflow JSON files and parse-validate each target workflow.
-2. Check output file destinations against current snippets/automations structure.
+2. Check output file destinations against the current `snippets/data/**` structure.
 3. Document active/inactive status and maintenance priority.
 
 Command examples

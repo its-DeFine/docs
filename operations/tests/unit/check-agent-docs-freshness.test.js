@@ -3,7 +3,7 @@
  * @script            check-agent-docs-freshness.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, operations/scripts/validators/governance/check-agent-docs-freshness.js, AGENTS.md, .github/copilot-instructions.md, .claude, .cursor, .windsurf, docs-guide/policies, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md
+ * @scope             tests/unit, operations/scripts/validators/governance/compliance/check-agent-docs-freshness.js, AGENTS.md, .github/copilot-instructions.md, .claude, .cursor, .windsurf, docs-guide/policies, docs-guide/contributing/agent-instructions.mdx
  * @owner             docs
  * @needs             R-R14, R-R18
  * @purpose-statement Tests the agent governance freshness validator against the canonical runtime file set.

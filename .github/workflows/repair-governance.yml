@@ -38,6 +38,12 @@ jobs:
         working-directory: tools
         run: npm install
 
+      - name: Generate root governance projections
+        run: node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write
+
+      - name: Validate root governance sync
+        run: node operations/scripts/validators/governance/compliance/check-root-governance-sync.js
+
       - name: Resolve run mode
         id: mode
         run: |
@@ -80,10 +86,15 @@ jobs:
         run: |
           node <<'NODE'
           const fs = require('fs');
+          const { execSync } = require('child_process');
           const reportPath = 'workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json';
           const outputPath = process.env.GITHUB_OUTPUT;
           const summaryPath = process.env.GITHUB_STEP_SUMMARY;
           const runUrl = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+          const changedFiles = execSync('git diff --name-only', { encoding: 'utf8' })
+            .split('\n')
+            .map((line) => line.trim())
+            .filter(Boolean);
 
           const lines = [
             '## Governance Repair',
@@ -96,16 +107,17 @@ jobs:
           if (!fs.existsSync(reportPath)) {
             lines.push('- Repair report: missing');
             fs.appendFileSync(summaryPath, `${lines.join('\n')}\n`);
-            fs.appendFileSync(outputPath, 'changed=false\n');
-            fs.appendFileSync(outputPath, 'files_modified_count=0\n');
-            fs.appendFileSync(outputPath, 'files_modified<<EOF\n\nEOF\n');
+            fs.appendFileSync(outputPath, `changed=${changedFiles.length > 0 ? 'true' : 'false'}\n`);
+            fs.appendFileSync(outputPath, `files_modified_count=${changedFiles.length}\n`);
+            fs.appendFileSync(outputPath, `files_modified<<EOF\n${changedFiles.join('\n')}\nEOF\n`);
             process.exit(0);
           }
 
           const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
-          const filesModified = Array.isArray(report?.repairs_applied?.files_modified)
+          const reportFiles = Array.isArray(report?.repairs_applied?.files_modified)
             ? report.repairs_applied.files_modified
             : [];
+          const filesModified = [...new Set([...reportFiles, ...changedFiles])];
           const changed = process.env.RUN_MODE === 'fix' && filesModified.length > 0;
 
           lines.push(`- Verification: ${report.verification}`);
@@ -140,6 +152,8 @@ jobs:
           path: |
             workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json
             workspace/reports/repo-ops/REPAIR_REPORT_LATEST.md
+            workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.json
+            workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md
             workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.json
             workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.md
           if-no-files-found: warn

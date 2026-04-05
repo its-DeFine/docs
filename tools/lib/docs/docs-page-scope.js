@@ -3,39 +3,39 @@
  * @script            docs-page-scope
  * @category          utility
  * @purpose           qa:content-quality
- * @scope             tools/lib, tests, tools/scripts
+ * @scope             tools/lib/docs, tests
  * @owner             docs
  * @needs             E-R1, R-R11
  * @purpose-statement Shared authored-page scope helpers that distinguish generated docs pages from authored docs pages for warning-only validators and reports.
  * @pipeline          indirect
- * @usage             const { filterAuthoredDocsPageFiles } = require('../lib/docs-page-scope');
+ * @usage             const { filterAuthoredDocsPageFiles } = require('../../tools/lib/docs/docs-page-scope');
  */
 /**
  * @script            docs-page-scope
  * @category          utility
  * @purpose           qa:content-quality
- * @scope             tools/lib, tests, tools/scripts
+ * @scope             tools/lib/docs, tests
  * @owner             docs
  * @needs             E-R1, R-R11
  * @purpose-statement Shared authored-page scope helpers that distinguish generated docs pages from authored docs pages for warning-only validators and reports.
  * @pipeline          indirect
- * @usage             const { filterAuthoredDocsPageFiles } = require('../lib/docs-page-scope');
+ * @usage             const { filterAuthoredDocsPageFiles } = require('../../tools/lib/docs/docs-page-scope');
  */
 /**
  * @script            docs-page-scope
  * @category          utility
  * @purpose           qa:content-quality
- * @scope             tools/lib, tests, tools/scripts
+ * @scope             tools/lib/docs, tests
  * @owner             docs
  * @needs             E-R1, R-R11
  * @purpose-statement Shared authored-page scope helpers that distinguish generated docs pages from authored docs pages for warning-only validators and reports.
  * @pipeline          indirect
- * @usage             const { filterAuthoredDocsPageFiles } = require('../lib/docs-page-scope');
+ * @usage             const { filterAuthoredDocsPageFiles } = require('../../tools/lib/docs/docs-page-scope');
  */
 
 const fs = require('fs');
 const path = require('path');
-const { parseGeneratedHiddenBanner } = require('./generated-file-banners');
+const { parseGeneratedHiddenBanner } = require('../governance/generated-file-banners');
 
 function toPosix(value) {
   return String(value || '').split(path.sep).join('/');

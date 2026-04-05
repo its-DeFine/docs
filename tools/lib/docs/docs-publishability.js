@@ -2,12 +2,12 @@
  * @script            docs-publishability
  * @category          utility
  * @purpose           governance:repo-health
- * @scope             tools/lib, tests, tools/scripts
+ * @scope             tools/lib/docs, tests
  * @domain            docs
  * @needs             E-C6, F-C1
  * @purpose-statement Shared path publishability rules for v2 docs content and tooling.
  * @pipeline          indirect
- * @usage             const { isExcludedV2ExperimentalPath } = require('../lib/docs-publishability');
+ * @usage             const { isExcludedV2ExperimentalPath } = require('../../tools/lib/docs/docs-publishability');
  */
 
 const path = require('path');

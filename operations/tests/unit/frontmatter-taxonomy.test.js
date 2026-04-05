@@ -12,7 +12,7 @@
  */
 
 const assert = require('assert');
-const taxonomy = require('../../../tools/lib/frontmatter-taxonomy');
+const taxonomy = require('../../../tools/lib/docs/frontmatter-taxonomy');
 
 function runTests() {
   const errors = [];

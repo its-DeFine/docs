@@ -2,12 +2,12 @@
  * @script            generated-artifacts
  * @category          utility
  * @purpose           governance:index-management
- * @scope             tools/lib, tools/config/runtime, .githooks, tests/unit
+ * @scope             tools/lib/governance, tools/config/runtime, .githooks, tests/unit
  * @domain            docs
  * @needs             R-R16, R-R17
  * @purpose-statement Generated artifact governance helpers — load the manifest, validate enums, and match staged files to managed artifacts
  * @pipeline          indirect — library module
- * @usage             node tools/lib/generated-artifacts.js [flags]
+ * @usage             const { readManifest, getAffectedArtifacts } = require('../../tools/lib/governance/generated-artifacts');
  */
 
 const fs = require('fs');

@@ -1,20 +1,19 @@
-#!/usr/bin/env node
 /**
  * @script            docs-index-utils
  * @category          utility
  * @purpose           governance:index-management
- * @scope             tools/lib, tools/scripts, v2
+ * @scope             tools/lib/docs, v2
  * @owner             docs
  * @needs             R-R16, R-R17
  * @purpose-statement Shared utilities for docs-index.json generation — path resolution, frontmatter extraction, index merging
  * @pipeline          indirect — library module
- * @usage             node tools/lib/docs-index-utils.js [flags]
+ * @usage             const { resolveDocPath, extractFrontmatter } = require('../../tools/lib/docs/docs-index-utils');
  */
 
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
-const yaml = require('./load-js-yaml');
+const yaml = require('../bootstrap/load-js-yaml');
 
 const DOMAIN_RENAME_MAP = {
   '00_home': 'home',

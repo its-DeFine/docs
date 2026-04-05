@@ -1,61 +1,39 @@
-# Machine-readable repo-root allowlist.
+# Generated from tools/config/runtime/root-governance.json
+# Do not edit manually. Regenerate with:
+# node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write
 
-# Root entries only. Comments must use #. No nested paths.
-
-# Core repo files
-
-.gitignore
 .allowlist
-.env.example
-README.md
-LICENSE
-
-# Platform and governance roots
-
-.github
-.githooks
-.gitattributes
-.codex
-AGENTS.md
-
-# Mintlify runtime roots
-
-docs.json
-style.css
-.mintignore
-.mintlify
-snippets
-v1
-v2
-
-# Tooling and workspace roots
-
-.vscode
-.editorconfig
-.prettierrc
-tools
-docs-guide
-workspace
-operations
-ai-tools
-api
-\_dep-docs
-
-# Native agent adapters
-
 .augment
 .claude
+.codex
 .cursor
-.cursorrules
+.editorconfig
+.gitattributes
+.githooks
+.github
+.gitignore
+.mintignore
+.mintlify
+.prettierrc
+.vscode
 .windsurf
-
-# Other governed root entries
-
-robots.txt
-Dockerfile
-Makefile
-sitemap-ai.xml
-llms.txt
+AGENTS.md
+ai-tools
+api
+docs-guide
 docs-index.json
+docs.json
+LICENSE
+llms.txt
+Makefile
+operations
+README.md
+robots.txt
 SECURITY.md
-repo-catalog.mdx
+sitemap-ai.xml
+snippets
+style.css
+tools
+v1
+v2
+workspace

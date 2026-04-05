@@ -7,12 +7,12 @@
 # @needs             bash, git
 # @purpose-statement Installs the managed local post-commit hook that invokes the Notion sync runner and preserves any prior hook as a backup.
 # @pipeline          manual
-# @usage             bash tools/notion/install-local-sync-hook.sh [flags]
+# @usage             bash tools/dev/integrations/notion/install-local-sync-hook.sh [flags]
 set -euo pipefail
 
 MARKER="LIVEPEER_NOTION_LOCAL_SYNC_HOOK"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/../../../.." && pwd)"
 HOOKS_DIR="$(git -C "$REPO_ROOT" rev-parse --git-path hooks)"
 HOOK_PATH="$HOOKS_DIR/post-commit"
 RUNNER="$SCRIPT_DIR/local-post-commit-sync.sh"
@@ -42,7 +42,7 @@ cat >"$HOOK_PATH" <<EOF
 set -u
 
 REPO_ROOT="\$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-RUNNER="\$REPO_ROOT/tools/notion/local-post-commit-sync.sh"
+RUNNER="\$REPO_ROOT/tools/dev/integrations/notion/local-post-commit-sync.sh"
 PREVIOUS_HOOK="${backup_hook}"
 
 if [ -n "\$PREVIOUS_HOOK" ] && [ -x "\$PREVIOUS_HOOK" ]; then

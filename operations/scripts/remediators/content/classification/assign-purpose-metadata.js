@@ -34,7 +34,7 @@ const {
 // Previously this script used PURPOSE_ENUM from rubric-loader, which contains rubric-internal
 // labels (landing, overview, how_to, faq, etc.) — not valid frontmatter values. Fixed to use
 // CANONICAL_PURPOSES so written frontmatter always contains canonical values only.
-const { CANONICAL_PURPOSES } = require('../../../../../tools/lib/frontmatter-taxonomy');
+const { CANONICAL_PURPOSES } = require('../../../../../tools/lib/docs/frontmatter-taxonomy');
 const { analyzeMdxPage } = require('../../../../../tools/lib/docs-usefulness/scoring');
 const prompts = require('../../../../../tools/lib/docs-usefulness/prompts');
 const { loadAndValidateUsefulnessConfig } = require('../../../../../tools/lib/docs-usefulness/config-validator');
@@ -125,7 +125,7 @@ function isPilotFile(relPath) {
 }
 
 // PURPOSE_RULES maps filename/directory patterns to canonical purpose values.
-// All purpose values here must be members of CANONICAL_PURPOSES (tools/lib/frontmatter-taxonomy.js).
+// All purpose values here must be members of CANONICAL_PURPOSES (tools/lib/docs/frontmatter-taxonomy.js).
 const PURPOSE_RULES = [
   { test: (p) => /portal/i.test(path.basename(p)), purpose: 'orient', source: 'filename' },
   { test: (p) => /mission-control/i.test(path.basename(p)), purpose: 'orient', source: 'filename' },

@@ -9,7 +9,7 @@
  * @pipeline          indirect — library module
  * @usage             node operations/scripts/i18n/lib/mdx-parser.js [flags]
  */
-const { importRepoDependency } = require('../../../../../../tools/lib/repo-node-paths');
+const { importRepoDependency } = require('../../../../../../tools/lib/bootstrap/repo-node-paths');
 
 let parserPromise = null;
 

@@ -24,8 +24,8 @@ const {
   getStagedAuthoredDocsPageFiles,
   readFile
 } = require('../utils/file-walker');
-const { filterAuthoredDocsPageFiles } = require('../../../tools/lib/docs-page-scope');
-const { analyzeGuideLayoutWarnings, analyzeCodeBlockMetadata } = require('../../../tools/lib/docs-authoring-rules');
+const { filterAuthoredDocsPageFiles } = require('../../../tools/lib/docs/docs-page-scope');
+const { analyzeGuideLayoutWarnings, analyzeCodeBlockMetadata } = require('../../../tools/lib/docs/docs-authoring-rules');
 
 const REPO_ROOT = process.cwd();
 let errors = [];

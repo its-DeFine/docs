@@ -34,13 +34,13 @@ function runTests() {
     { pid: 101, ppid: 100, user, command: 'node /tmp/node_modules/.bin/playwright-mcp' },
     { pid: 102, ppid: 101, user, command: '/Applications/Google Chrome --user-data-dir=/Users/alisonhaire/Library/Caches/ms-playwright/mcp-chrome-abc about:blank' },
     { pid: 200, ppid: 1, user, command: 'bash tools/lpd dev --scoped --scope-tab About -- --port 3333' },
-    { pid: 201, ppid: 200, user, command: 'bash /repo/tools/dev/mint-dev.sh' },
-    { pid: 202, ppid: 201, user, command: 'node /repo/tools/dev/generate-mint-dev-scope.js --port 3333' },
+    { pid: 201, ppid: 200, user, command: 'bash /repo/tools/dev/preview/mint-dev.sh' },
+    { pid: 202, ppid: 201, user, command: 'node /repo/tools/dev/preview/generate-mint-dev-scope.js --port 3333' },
     { pid: 203, ppid: 202, user, command: 'node /opt/homebrew/bin/mint dev --port 3333' },
     { pid: 204, ppid: 203, user, command: 'node --no-deprecation /opt/homebrew/lib/node_modules/mint/node_modules/@mintlify/cli/bin/start.js dev --port 3333' },
     { pid: 300, ppid: 1, user, command: 'bash tools/lpd dev --scoped --scope-tab About -- --port 3335' },
-    { pid: 301, ppid: 300, user, command: 'bash /repo/tools/dev/mint-dev.sh --port 3335' },
-    { pid: 302, ppid: 301, user, command: 'node /repo/tools/dev/generate-mint-dev-scope.js --port 3335' },
+    { pid: 301, ppid: 300, user, command: 'bash /repo/tools/dev/preview/mint-dev.sh --port 3335' },
+    { pid: 302, ppid: 301, user, command: 'node /repo/tools/dev/preview/generate-mint-dev-scope.js --port 3335' },
     { pid: 303, ppid: 302, user, command: 'node /opt/homebrew/bin/mint dev --port 3335' },
     { pid: 304, ppid: 303, user, command: 'node --no-deprecation /opt/homebrew/lib/node_modules/mint/node_modules/@mintlify/cli/bin/start.js dev --port 3335' }
   ];

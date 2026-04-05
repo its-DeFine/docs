@@ -16,7 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
-const yaml = require('../../../../../tools/lib/load-js-yaml');
+const yaml = require('../../../../../tools/lib/bootstrap/load-js-yaml');
 
 const LOCK_DIR_REL = '.codex/locks-local';
 const DEFAULT_CONTRACT = '.codex/task-contract.yaml';

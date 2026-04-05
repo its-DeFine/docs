@@ -15,6 +15,8 @@ Favor correctness and clear boundaries over speculative answers.
 - Canonical Mintlify and repo-practices reference: `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`
 - Internal governance: `docs-guide/**`
 
+Treat `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md` as the canonical source of truth for Mintlify runtime behavior, MDX constraints, and repo authoring rules.
+
 ## Source-Of-Truth Priority
 
 Use sources in this order:

@@ -8,8 +8,8 @@
  * @description VS Code Codex chat rename utility — finds recent VS Code chat session files, filters to Codex sessions, and updates the stored customTitle without manual JSON editing.
  * @mode        execute
  * @pipeline    manual — interactive developer tool, not suited for automated pipelines
- * @scope       tools/dev/rename-vscode-codex-chat.js, .vscode/tasks.json, tools/package.json
- * @usage       node tools/dev/rename-vscode-codex-chat.js --title "New title" [--workspace <path>]
+ * @scope       tools/dev/editor/rename-vscode-codex-chat.js, .vscode/tasks.json, tools/package.json
+ * @usage       node tools/dev/editor/rename-vscode-codex-chat.js --title "New title" [--workspace <path>]
  * @policy      E-C1, R-R14
  */
 
@@ -29,9 +29,9 @@ const WORKSPACE_STORAGE_ROOT = path.join(
 function usage() {
   const lines = [
     'Usage:',
-    '  node tools/dev/rename-vscode-codex-chat.js --title "New title" [--workspace <path>]',
-    '  node tools/dev/rename-vscode-codex-chat.js --list [--workspace <path>] [--limit <n>]',
-    '  node tools/dev/rename-vscode-codex-chat.js --session-id <uuid> --title "New title"',
+    '  node tools/dev/editor/rename-vscode-codex-chat.js --title "New title" [--workspace <path>]',
+    '  node tools/dev/editor/rename-vscode-codex-chat.js --list [--workspace <path>] [--limit <n>]',
+    '  node tools/dev/editor/rename-vscode-codex-chat.js --session-id <uuid> --title "New title"',
     '',
     'Options:',
     '  --title <text>       New chat title. You can also pass the title as positional text.',

@@ -28,7 +28,7 @@ const {
   parseProvenanceComment,
   sha256
 } = require('./lib/provenance');
-const { hasGeneratedNote, removeGeneratedNotes } = require('../../../../../tools/lib/generated-file-banners');
+const { hasGeneratedNote, removeGeneratedNotes } = require('../../../../../tools/lib/governance/generated-file-banners');
 const { createTranslator } = require('./lib/providers');
 const { getRepoRoot, normalizeRepoRel, writeJson, writeTextIfChanged } = require('./lib/common');
 

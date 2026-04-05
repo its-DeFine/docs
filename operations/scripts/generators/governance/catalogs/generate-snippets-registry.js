@@ -17,7 +17,7 @@ const {
   buildGeneratedFrontmatterLines,
   buildGeneratedHiddenBannerLines,
   buildGeneratedNoteLines
-} = require('../../../../../tools/lib/generated-file-banners');
+} = require('../../../../../tools/lib/governance/generated-file-banners');
 
 const REPO_ROOT = process.cwd();
 const SNIPPETS_ROOT = 'snippets';

@@ -20,7 +20,7 @@ const {
   getComponentFiles,
   scanStylingViolations,
   isArchivePath
-} = require('../../../../../tools/lib/component-governance-utils');
+} = require('../../../../../tools/lib/governance/component-governance-utils');
 
 const DEFAULT_TARGET = 'snippets/components';
 const FIX_REPLACEMENTS = [

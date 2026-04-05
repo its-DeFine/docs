@@ -3,6 +3,8 @@
 Date: 2026-04-05
 Scope: report-only recommendation for `tools/`
 
+Update: sections below describe the pre-migration audit state captured earlier on 2026-04-05. The approved implementation has since moved the Notion toolchain to `tools/dev/integrations/notion/`, introduced the governed `tools/dev/{preview,authoring,editor,integrations}` taxonomy, and archived the ad hoc Notion/dev note files under `tools/_workspace/archive/`.
+
 ## Goal
 
 Make `tools/` understandable at a glance:

@@ -12,9 +12,9 @@
  * @needs             F-R1
  * @purpose-statement Fetches Discord announcements for product and shared community feeds, writing per-product outputs plus the shared social feed module under snippets/data/social-feeds/.
  * @mode              generate
- * @pipeline          config → Discord API → snippets/automations/{product}/discordData.jsx
+ * @pipeline          config → Discord API → snippets/data/social-feed-solutions/{product}/discordData.jsx
  *                                        → snippets/data/social-feeds/discordAnnouncementsData.jsx
- * @scope             .github/scripts, snippets/automations/, snippets/data/social-feeds/
+ * @scope             .github/scripts, snippets/data/social-feed-solutions/, snippets/data/social-feeds/
  * @usage             node .github/scripts/fetch-discord-announcements.js
  * @policy            Announcements channel only. No general chat. Requires DISCORD_BOT_TOKEN.
  */

@@ -1,6 +1,6 @@
 name: Update Blog and Forum Data
 # DISABLED: superseded by the dedicated GitHub Actions refresh workflows and retained data files
-# under snippets/automations/. The curl + raw JSON approach never worked
+# under snippets/data/social-feeds/. The curl + raw JSON approach never worked
 # (uses YOUR_CONTENT_API_KEY placeholder). Kept for reference only.
 # Re-enable workflow_dispatch only if an emergency manual fallback is required.
 
@@ -45,7 +45,7 @@ jobs:
       - name: Check for changes
         id: git-check
         run: |
-          git diff --exit-code snippets/automations/ || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --exit-code snippets/data/social-feeds/ghostBlogData.jsx snippets/data/social-feeds/forumData.jsx || echo "changed=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push if changed
         if: steps.git-check.outputs.changed == 'true'

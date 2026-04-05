@@ -19,7 +19,7 @@ const {
   isGeneratedDocsPageContent,
   isGeneratedDocsPageFile,
   filterAuthoredDocsPageFiles
-} = require('../../../tools/lib/docs-page-scope');
+} = require('../../../tools/lib/docs/docs-page-scope');
 
 function runTests() {
   const errors = [];

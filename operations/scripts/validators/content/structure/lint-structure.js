@@ -19,7 +19,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const taxonomy = require(path.resolve(__dirname, '../../../../../tools/lib/frontmatter-taxonomy'));
+const taxonomy = require(path.resolve(__dirname, '../../../../../tools/lib/docs/frontmatter-taxonomy'));
 const { isValidPageType, isValidPurpose, isValidAudience, CANONICAL_AUDIENCES } = taxonomy;
 
 // Valid veracityStatus values — source: v2/orchestrators/_workspace/canonical/checks.mdx §1.8

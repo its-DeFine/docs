@@ -221,6 +221,106 @@ Fresh validation confirmed the fix at the real entrypoints: `mint dev --port 334
 
 ---
 
+## Snippets Root Governance Consolidation — 2026-04-05
+
+**Plans**: none
+**Scope**: Replace the snippets root three-file draft model with a governed two-file guide + generated registry system, then close the remaining script-governance and staged-suite blockers tied to that migration.
+**Outcome**: Met
+
+### Summary
+
+The snippets root is now governed by a single manual source of truth plus a generated registry, and the follow-up repo debt that was blocking final closeout was cleared in the same workstream. `snippets/guide.mdx` is the canonical framework, `snippets/snippets-registry.mdx` is generated from the live filesystem, `framework-canonical.mdx` is archived, `snippets/automations` is no longer a script-governance indexed root, and the current `lpd test --staged` run is green.
+
+### Completed
+
+**Root governance model**
+- Replaced the root three-file draft pattern with the strict two-file model: `snippets/guide.mdx` as the only human-authored governance file and `snippets/snippets-registry.mdx` as the generated inventory.
+- Archived the retired root framework surface to `snippets/_workspace/archive/framework-canonical.mdx`.
+- Rewrote the published snippets inventory page to describe the new root contract instead of the obsolete `pages/`, `automations/`, and `snippetsWiki` taxonomy.
+
+**Generation and enforcement**
+- Added `operations/scripts/generators/governance/catalogs/generate-snippets-registry.js` to render the live snippets tree while excluding `snippets/_workspace/` and `snippets/automations/`.
+- Added `operations/tests/unit/snippets-root-governance.test.js` to enforce the two-file root contract, registry freshness, exclusion rules, and delegated `components/**` wording.
+- Registered the generated registry in `tools/config/runtime/generated-artifacts.json` and the new generator/validator in `tools/config/registry/script-registry.json`.
+- Rebuilt the affected scripts catalog through the governed script-docs pipeline.
+
+**Propagation**
+- Updated snippets governance references and review surfaces so the root contract now points to `guide.mdx` and `snippets-registry.mdx`.
+- Updated `docs-guide/canonical/collation-data/Mintlify/mintlify-canonical-consumers.json` to reference `snippets/snippets-registry.mdx`.
+
+**Closeout debt removal**
+- Removed the stale staged-suite blockers by repairing the root allowlist, Resource HUB redirect contract, Mintlify canonical consumer drift, usefulness rubric expectation drift, and component naming violations that were still failing `lpd test --staged`.
+- Confirmed `snippets/automations` is no longer treated as a governed indexed root in `tools/lib/script-governance-config.js`, and the old `snippets/automations` path is no longer present on disk.
+- Retired the last active `snippets/automations/globals` compatibility contract, removed the deprecated `latestVersionUrl` alias from active helpers, and reduced the remaining globals path to a human-delete-only cleanup state.
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| `snippets/guide.mdx` is the only manual root governance file | Folder meanings and placement rules need one human-owned source of truth instead of multiple drifting root docs |
+| `snippets/snippets-registry.mdx` is generated from filesystem + embedded guide metadata | The registry should reflect live repo structure and fail on taxonomy drift instead of being maintained by hand |
+| `components/**` stays delegated in the registry | Component governance already exists elsewhere; duplicating it at the snippets root would create another stale contract |
+| `snippets/_workspace/` and `snippets/automations/` are excluded from the root registry | They are working-state / migration surfaces, not part of the canonical steady-state snippets taxonomy |
+| `snippets/automations/globals/` should not retain a compatibility shim | The folder must be deletable cleanly once the human-owned deletion commit is made |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Make the human-owned deletion commit for the retired `snippets/automations` files | P1 | The globals files and `snippets/automations/script-index.md` are deleted in the working tree, but tracked-file deletion still requires a human-owned commit with the required trailer | Human-owned commit with `--trailer "allow-deletions=true"` |
+
+### Dependencies & Downstream Effects
+
+- **Snippets root governance**: Future folder moves must update the metadata block inside `snippets/guide.mdx` and then regenerate `snippets/snippets-registry.mdx`.
+- **Script governance**: The new generator and validator are now part of the governed script inventory and catalog flow.
+- **Published snippets documentation**: `v2/resources/documentation-guide/tooling/snippets-inventory.mdx` now points readers to the new guide/registry contract rather than the obsolete snippets structure.
+- **Staged validation**: The repo’s staged validation path now clears for the current worktree instead of failing on the old allowlist/navigation/governance drift set that was blocking closeout.
+- **Release data consumers**: `snippets/data/globals/latestRelease.jsx` is the only supported release data source; the deleted `snippets/automations/globals/` files should not be restored.
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| `node operations/scripts/generators/governance/catalogs/generate-snippets-registry.js --write` | ✅ Clean | Registry regenerated successfully |
+| `node operations/scripts/generators/governance/catalogs/generate-snippets-registry.js --check` | ✅ Clean | Freshness passes |
+| `node operations/tests/unit/snippets-root-governance.test.js` | ✅ Clean | Two-file root contract and registry assertions pass |
+| `node operations/tests/unit/generated-artifacts-policy.test.js` | ✅ Clean | Generated artifact manifest remains valid |
+| `node operations/tests/unit/script-docs.test.js --files operations/scripts/generators/governance/catalogs/generate-snippets-registry.js,operations/tests/unit/snippets-root-governance.test.js,operations/tests/unit/update-livepeer-release.test.js --write --rebuild-indexes` | ✅ Clean | Scripts catalog refreshed |
+| `node operations/tests/unit/script-docs.test.js --files operations/scripts/generators/governance/catalogs/generate-snippets-registry.js,operations/tests/unit/snippets-root-governance.test.js,operations/tests/unit/update-livepeer-release.test.js --check-indexes` | ✅ Clean | Script governance checks pass after rebuild |
+| `node operations/tests/unit/root-allowlist-format.test.js` | ✅ Clean | Root allowlist now matches current governed root structure |
+| `node operations/tests/unit/check-mintlify-canonical-sync.test.js` | ✅ Clean | Stale consumer expectations removed and required Mintlify references aligned |
+| `node operations/tests/unit/usefulness-rubric.test.js` | ✅ Clean | Audience fallback expectation aligned to canonical taxonomy |
+| `node operations/scripts/validators/components/library/check-naming-conventions.js --files snippets/components/displays/pages/BlockchainContractsRenderers.jsx` | ✅ Clean | Lower-case renderer exports normalized to component naming rules |
+| `node operations/tests/unit/docs-navigation.test.js --staged` | ✅ Clean | Resource HUB redirect contract repaired in `docs.json` |
+| `node operations/tests/unit/mdx-guards.test.js` | ✅ Clean | Retired globals imports are blocked and the canonical release-data path remains enforced |
+| `node operations/tests/unit/update-livepeer-release.test.js` | ✅ Clean | Canonical release output remains `latestVersion` + `latestReleasePageUrl` only |
+| `lpd test --staged` | ✅ Clean | 0 errors in the current worktree |
+
+### Recommendations
+
+1. **Keep the snippets root on the two-file contract** — future folder taxonomy changes should be made in `snippets/guide.mdx` and then propagated only by regenerating `snippets/snippets-registry.mdx`.
+2. **Make the human-owned delete commit for the retired `snippets/automations` files** — the working tree is deletion-ready, but policy still requires a human-owned commit with `allow-deletions=true`.
+3. **Treat new staged-suite regressions as separate repo debt, not snippets-root debt** — this stream is now closed with the staged gate green.
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `snippets/guide.mdx` | modified | Canonical snippets framework with embedded folder metadata |
+| `snippets/snippets-registry.mdx` | modified | Generated live snippets tree and folder registry |
+| `snippets/_workspace/archive/framework-canonical.mdx` | moved | Archived retired root framework surface |
+| `operations/scripts/generators/governance/catalogs/generate-snippets-registry.js` | modified | New snippets registry generator |
+| `operations/tests/unit/snippets-root-governance.test.js` | modified | Dedicated snippets root governance validator |
+| `v2/resources/documentation-guide/tooling/snippets-inventory.mdx` | modified | Published snippets inventory aligned to the new root contract |
+| `tools/lib/script-governance-config.js` | modified | Script governance no longer indexes `snippets/automations` as a managed root |
+| `docs.json` | modified | Resource HUB redirect contract repaired so staged navigation validation passes |
+| `snippets/automations/globals/README.mdx` | deleted in worktree | Retired globals compatibility contract removed pending human-owned deletion commit |
+| `snippets/automations/globals/globals.jsx` | deleted in worktree | Legacy globals shim removed pending human-owned deletion commit |
+| `snippets/automations/globals/globals.mdx` | deleted in worktree | Legacy globals wrapper removed pending human-owned deletion commit |
+| `snippets/automations/script-index.md` | deleted in worktree | Obsolete generated script index removed after retiring the indexed root |
+
+---
+
 ## Full repo cleanup + docs-v2 cleanup + reconciliation prep — 2026-03-27/28
 
 **Plans**: `/Users/alisonhaire/.claude/plans/bright-floating-pebble.md`
@@ -4031,3 +4131,121 @@ The contracts page now contains a step-based workflow-verification summary in `s
 | `workspace/plan/active/_Project-Management_/completion-reports.md` | modified | Session closeout entry |
 | `workspace/thread-outputs/sessions/session-log.txt` | modified | Session outcome log entry |
 | `workspace/plan/active/_Project-Management_/project-state.md` | modified | Watcher flag refined for the current contracts-page drift |
+
+## Snippets Cleanup — 2026-04-05
+
+**Plans**: `snippets/_workspace/snippets-review.md`, `snippets/_workspace/audit.md`
+**Scope**: snippets/ folder review — design phase, root-level cleanup, data/ audit, script fix.
+**Outcome**: Partially met
+
+### Summary
+Began systematic snippets/ folder cleanup. Completed root-level design (target structure decided), cleaned up deprecated folders (external, snippetsWiki), consolidated logos, fixed hook false positives, rerouted page-links-audit domain link output from snippets/data/ to the report, and audited data/ folder. Implementation of the assets/ restructure not started — design and audit phases only.
+
+### Completed
+- **Design**: Target snippets/ structure decided — assets/{logos,media}, components, composables, data, templates, guide.mdx, catalog.mdx
+- **Design**: assets/ target structure decided — logos/{custom,livepeer,solutions}, media/{heros,og-images,images,videos,files}
+- **Cleanup**: Consolidated logo/ and site/logo/ into logos/ (5 refs updated, dirs deleted)
+- **Cleanup**: Archived snippetsWiki/ to _workspace/archive/, folded content into guide.mdx
+- **Cleanup**: Moved external/ files to composables/archived/
+- **Cleanup**: Deleted 8 empty variable placeholder files from data/variables/
+- **Cleanup**: Archived data/API/README.md, data/data-catalog.mdx, data/contract-addresses/research.md
+- **Audit**: Full file-by-file audit of snippets/ (535 files, all subfolders)
+- **Audit**: Full data/ folder audit with upstream/downstream dependency mapping
+- **Audit**: assets/domain/ audit with per-file classification (audit.md)
+- **Fix**: pre-tool-guard.js regex — auto-generated marker now requires comment opener prefix
+- **Fix**: page-links-audit.js — rerouted --write-links from writing hrefs.jsx to snippets/data/ to rendering domain links as report sections
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| snippets/ keeps 5 folders: assets, components, composables, data, templates | Matches Mintlify import pattern; automations/external/snippetsWiki deprecated or folded |
+| Root files: guide.mdx + catalog.mdx replace framework-canonical.mdx + snippets-catalog.mdx | Single guide, single index |
+| assets/ structure: logos/{custom,livepeer,solutions} + media/{heros,og-images,images,videos,files} | Consolidate from 7 dirs to 2, organise by type not domain |
+| hrefs.jsx files removed from snippets/data/ | Audit artefacts, not page data — script rerouted to report |
+| Hook regex tightened | Prevents false positives on "auto-generated" in descriptive text |
+
+### Deferred Items
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| assets/ implementation (file moves, ref updates) | P1 | Design done, implementation not started | Hook fix done, ready to execute |
+| data/ snapshots decision | P2 | coingecko JSONs have zero consumers | Need decision: archive or activate |
+| data/ _branch-watch-state.json + _health-checks.json location | P2 | Pipeline state in data/ folder | Active pipeline dependency — needs careful move |
+| changelogs/contractAddressesData.jsx deprecation | P2 | Deprecated path still has 1 ref | Ref cleanup needed |
+| automations/ archive decision | P1 | Folder identified as deprecated, not yet archived | Some files have active imports from v2/ |
+
+### Dependencies & Downstream Effects
+- **page-links-audit.js**: --write-links no longer writes to snippets/data/. Any process expecting hrefs.jsx files there will find nothing
+- **pre-tool-guard.js**: Hook regex changed — files with "auto-generated" mid-sentence no longer blocked
+- **4 scoped-navigation JSON configs**: Logo paths updated from logo/ to logos/
+- **generate-og-images.js**: Logo path updated from site/logo/ to logos/
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| snippets/_workspace/snippets-review.md | modified | Canonical review doc with target structure and per-folder tracking |
+| snippets/_workspace/audit.md | modified | Domain audit with per-file classification |
+| snippets/_workspace/reports/data-folder-audit.md | created | Full data/ folder audit with dependency mapping |
+| snippets/assets/decision-log.mdx | modified | Assets decision log with target tree |
+| snippets/guide.mdx | created | Folded snippetsWiki content — import rules, theming, frame mode |
+| snippets/snippets-registry.mdx | modified | Tree updated to current state |
+| operations/scripts/audits/content/health/page-links-audit.js | modified | Domain links rerouted to report sections |
+| operations/scripts/dispatch/governance/pre-tool-guard.js | modified | Hook regex fix |
+
+## Tools Governance Consolidation — 2026-04-05
+
+**Plans**: none
+**Scope**: Audit and restructure `tools/` into governed surfaces, relocate workflow-owned and legacy items out of generic `tools/` ownership, and propagate the live path contracts through maintained consumers.
+**Outcome**: Met
+
+### Summary
+`tools/` was converted from a mixed dumping-ground into explicit governed areas with real ownership boundaries. `tools/config` now uses `runtime/`, `quality/`, `registry/`, and `scoped-navigation/`; Notion now lives under `tools/dev/integrations/notion/`; and `tools/lib` now uses `ai/`, `bootstrap/`, `docs/`, and `governance/` namespaces with no loose root-level `.js` files left behind. Live consumers, tests, docs, and registries were updated so the new structure is operational rather than documentary-only.
+
+### Completed
+- **Audit and classification**: Wrote the current-state audit and governance recommendation reports for `tools/`, then used them to classify legacy redirect, workflow config, translation config, Notion, dev helpers, and shared library surfaces.
+- **`tools/config` governance**: Added `tools/config/README.md`, moved active manifests into `runtime/`, quality profiles into `quality/`, script-governance outputs into `registry/`, removed duplicate root-level Speakeasy copies, deleted `.env.docsearch`, and moved seed/baseline CSVs beside their owning workflows.
+- **`tools/dev` governance**: Added `tools/dev/README.md`, created `preview/`, `authoring/`, `editor/`, and `integrations/notion/`, moved the Notion toolchain under `tools/dev/integrations/notion/`, and archived deprecated helper/test/docs surfaces.
+- **`tools/lib` governance**: Added `tools/lib/README.md`, created `ai/`, `bootstrap/`, `docs/`, and `governance/`, moved every root-level shared module into one of those namespaces, rewrote maintained imports atomically, and regenerated the governed script indexes/registries.
+- **Legacy cleanup**: Removed the obsolete legacy root-to-v1 redirect manifest/script/test surface and moved the translation config out of `tools/i18n/` into its owning translation workflow.
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| Keep `tools/config/.speakeasy/` as the only vendor/workflow exception in `tools/config` | The repo still needs the canonical vendor-owned Speakeasy files, but the duplicate root-level copies created drift and unclear ownership |
+| Move Notion under `tools/dev/integrations/notion/` instead of leaving it at `tools/notion/` | Notion is developer-operated tooling, not a generic top-level tools surface |
+| Namespace `tools/lib` internally instead of pushing modules into workflow folders | The current modules still serve multiple maintained consumers, so the right fix was governed namespacing rather than premature eviction |
+
+### Deferred Items
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Human-owned deletion commit for the tracked file removals in `tools/` | P1 | Repo policy requires tracked-file deletions to be committed by a human with `--trailer "allow-deletions=true"` | Human staging and commit |
+| Historical/archive references to pre-migration `tools/` paths | P3 | Dated reports and archive surfaces were intentionally left untouched to avoid rewriting historical snapshots | Human decision on whether to preserve snapshots or refresh archives |
+
+### Dependencies & Downstream Effects
+- **`operations/scripts/**` and `operations/tests/**`**: Maintained imports now target the namespaced `tools/lib/**` modules and the relocated `tools/config/**` and `tools/dev/**` surfaces.
+- **`tools/lpd` and `docs-guide/tooling/lpd-cli.mdx`**: The preview/dev tooling contract now points at the governed `tools/dev/preview/**` layout.
+- **`tools/config/registry/script-registry.json` and `docs-guide/catalog/scripts-catalog.mdx`**: Script-governance outputs were regenerated to match the live on-disk structure instead of the retired paths.
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| `node operations/scripts/generators/governance/catalogs/generate-script-registry.js` | ✅ Clean | Regenerated the script registry after the `tools/config`, `tools/dev`, and `tools/lib` moves |
+| `node operations/tests/unit/script-docs.test.js --write --rebuild-indexes` | ✅ Clean | Rebuilt governed script indexes, including `tools/dev/script-index.md` and `tools/lib/script-index.md` |
+| `node operations/tests/unit/ownerless-governance.test.js` | ✅ Clean | Passed after the README policy link and dev/tooling path updates |
+| `node operations/scripts/validators/governance/repo/validate-lpd-paths.js` plus scoped preview unit checks | ✅ Clean | `validate-lpd-paths`, `lpd-scoped-mint-dev`, `mint-dev-locks`, and `cleanup-local-dev-sessions` all passed after the `tools/dev` move |
+| `tools/lib` targeted unit suite | ✅ Clean | `generated-artifacts-policy`, `component-governance-utils`, `docs-authoring-rules`, `docs-page-scope`, `frontmatter-taxonomy`, `mdx-safe-markdown`, `precommit-staged-cache`, `usefulness-journey`, `usefulness-rubric`, and `node --check` all passed |
+
+### Recommendations
+1. **Make one human-owned deletion commit for the validated `tools/` cleanup** — stage only the intended tool-governance files and commit with `--trailer "allow-deletions=true"`.
+2. **Keep historical path updates as a deliberate follow-up decision** — either preserve dated archive/report surfaces as snapshots, or run a separate historical-refresh thread instead of silently rewriting them.
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `tools/_workspace/reports/tools-audit-2026-04-05.md` | modified | Current-state audit of the `tools/` tree |
+| `tools/_workspace/reports/tools-governance-recommendations-2026-04-05.md` | modified | Governance recommendations and corrected folder classifications |
+| `tools/config/README.md` | created | Canonical contract for the governed `tools/config` surface |
+| `tools/dev/README.md` | created | Canonical contract for the governed `tools/dev` surface |
+| `tools/lib/README.md` | created | Canonical contract for the governed `tools/lib` surface |
+| `tools/config/registry/script-registry.json` | modified | Regenerated script registry aligned to the new `tools/` paths |
+| `tools/dev/script-index.md` | created | Regenerated script index for the governed `tools/dev` root |
+| `tools/lib/script-index.md` | modified | Regenerated script index for the namespaced `tools/lib` layout |

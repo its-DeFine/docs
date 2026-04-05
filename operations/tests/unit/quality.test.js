@@ -17,8 +17,8 @@
 const path = require('path');
 const { getAuthoredMdxFiles, getStagedAuthoredDocsPageFiles, readFile } = require('../utils/file-walker');
 const { extractFrontmatter } = require('../utils/mdx-parser');
-const { filterAuthoredDocsPageFiles } = require('../../../tools/lib/docs-page-scope');
-const taxonomy = require('../../../tools/lib/frontmatter-taxonomy');
+const { filterAuthoredDocsPageFiles } = require('../../../tools/lib/docs/docs-page-scope');
+const taxonomy = require('../../../tools/lib/docs/frontmatter-taxonomy');
 const { loadAudienceNormalization, audienceTokensFromRaw } = require('../../../tools/lib/docs-usefulness/rubric-loader');
 
 const ENFORCE_OG_IMAGE = process.env.ENFORCE_OG_IMAGE === '1';

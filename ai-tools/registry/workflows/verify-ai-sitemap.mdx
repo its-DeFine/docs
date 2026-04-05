@@ -58,7 +58,7 @@ Govern the `.github/workflows/verify-ai-sitemap.yml` workflow as a human-readabl
 - `Checkout repository` | uses actions/checkout@v4
 - `Set up Node.js` | uses actions/setup-node@v4
 - `Install dependencies` | runs `cd tools && npm install`
-- `Verify AI sitemap output` | runs `node operations/scripts/generate-ai-sitemap.js --check`
+- `Verify AI sitemap output` | runs `node operations/scripts/generators/content/seo/generate-ai-sitemap.js --check`
 
 ## Inputs
 
@@ -81,7 +81,7 @@ Govern the `.github/workflows/verify-ai-sitemap.yml` workflow as a human-readabl
 
 - action:actions/checkout@v4
 - action:actions/setup-node@v4
-- operations/scripts/generate-ai-sitemap.js
+- operations/scripts/generators/content/seo/generate-ai-sitemap.js
 
 ## Dependants
 

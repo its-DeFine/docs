@@ -20,12 +20,12 @@ const {
   VALID_CATEGORIES,
   compactWhitespace,
   normalizeRepoPath
-} = require('../../../../../tools/lib/component-governance-utils');
+} = require('../../../../../tools/lib/governance/component-governance-utils');
 const {
   buildGeneratedFrontmatterLines,
   buildGeneratedHiddenBannerLines,
   buildGeneratedNoteLines
-} = require('../../../../../tools/lib/generated-file-banners');
+} = require('../../../../../tools/lib/governance/generated-file-banners');
 const {
   buildProvenanceComment,
   injectOrReplaceProvenanceComment,

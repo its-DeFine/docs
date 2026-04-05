@@ -3,7 +3,7 @@
  * @script            mint-dev-locks.test
  * @category          utility
  * @purpose           tooling:dev-tools
- * @scope             tests/unit, tools/dev/mint-dev.sh
+ * @scope             tests/unit, tools/dev/preview/mint-dev.sh
  * @domain            docs
  * @needs             E-C6, F-C1
  * @purpose-statement Tests mint-dev lock behavior — validates concurrent dev sessions only block on conflicting ports
@@ -19,7 +19,7 @@ const path = require('path');
 const { spawn, spawnSync } = require('child_process');
 
 const REPO_ROOT = process.cwd();
-const SOURCE_SCRIPT = path.join(REPO_ROOT, 'tools/dev/mint-dev.sh');
+const SOURCE_SCRIPT = path.join(REPO_ROOT, 'tools/dev/preview/mint-dev.sh');
 const SOURCE_LPD = path.join(REPO_ROOT, 'tools/lpd');
 
 function mkTmpDir(prefix) {
@@ -46,7 +46,7 @@ function runGit(repoRoot, args) {
 
 function createFixtureRepo() {
   const repoRoot = mkTmpDir('mint-dev-lock-repo-');
-  const scriptTarget = path.join(repoRoot, 'tools/dev/mint-dev.sh');
+  const scriptTarget = path.join(repoRoot, 'tools/dev/preview/mint-dev.sh');
   const lpdTarget = path.join(repoRoot, 'tools/lpd');
 
   runGit(repoRoot, ['init']);
@@ -54,7 +54,7 @@ function createFixtureRepo() {
   writeFile(scriptTarget, fs.readFileSync(SOURCE_SCRIPT, 'utf8'), { executable: true });
   writeFile(lpdTarget, fs.readFileSync(SOURCE_LPD, 'utf8'), { executable: true });
   writeFile(
-    path.join(repoRoot, 'tools/dev/ensure-mint-watcher-patch.sh'),
+    path.join(repoRoot, 'tools/dev/preview/ensure-mint-watcher-patch.sh'),
     '#!/usr/bin/env bash\nexit 0\n',
     { executable: true }
   );
@@ -186,7 +186,7 @@ async function terminateSession(child) {
 }
 
 async function startMintSession({ repoRoot, binDir, port, signalFile, agent = false }) {
-  const child = spawn('bash', ['tools/dev/mint-dev.sh', '--port', String(port)], {
+  const child = spawn('bash', ['tools/dev/preview/mint-dev.sh', '--port', String(port)], {
     cwd: repoRoot,
     env: buildEnv(binDir, signalFile, { agent }),
     detached: true,
@@ -262,7 +262,7 @@ async function runTests() {
     const first = await startMintSession({ repoRoot, binDir, port: 3333, signalFile: signalOne });
 
     try {
-      const conflict = spawnSync('bash', ['tools/dev/mint-dev.sh', '--port', '3333'], {
+      const conflict = spawnSync('bash', ['tools/dev/preview/mint-dev.sh', '--port', '3333'], {
         cwd: repoRoot,
         env: buildEnv(binDir, signalTwo),
         encoding: 'utf8'
@@ -299,7 +299,7 @@ async function runTests() {
     const binDir = createFakeMintBin();
     const signalFile = path.join(mkTmpDir('mint-dev-lock-signal-'), 'mint-3000-agent.txt');
 
-    const blocked = spawnSync('bash', ['tools/dev/mint-dev.sh', '--port', '3000'], {
+    const blocked = spawnSync('bash', ['tools/dev/preview/mint-dev.sh', '--port', '3000'], {
       cwd: repoRoot,
       env: buildEnv(binDir, signalFile, { agent: true }),
       encoding: 'utf8'

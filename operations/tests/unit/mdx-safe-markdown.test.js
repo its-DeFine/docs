@@ -15,7 +15,7 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 
-const { repairMarkdownContent, validateMarkdownContent } = require('../../../tools/lib/mdx-safe-markdown');
+const { repairMarkdownContent, validateMarkdownContent } = require('../../../tools/lib/docs/mdx-safe-markdown');
 
 const REPO_ROOT = path.resolve(__dirname, '../../..');
 const FIXTURE_DIR = path.join(REPO_ROOT, 'operations', 'tests', 'fixtures', 'mdx-safe-markdown');

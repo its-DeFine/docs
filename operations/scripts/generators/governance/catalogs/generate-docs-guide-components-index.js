@@ -15,13 +15,13 @@
 
 const fs = require('fs');
 const path = require('path');
-const { VALID_CATEGORIES, VALID_STATUSES } = require('../../../../../tools/lib/component-governance-utils');
+const { VALID_CATEGORIES, VALID_STATUSES } = require('../../../../../tools/lib/governance/component-governance-utils');
 const {
   buildGeneratedFrontmatterLines,
   buildGeneratedHiddenBannerLines,
   buildGeneratedNoteLines,
   readCatalogMarkers
-} = require('../../../../../tools/lib/generated-file-banners');
+} = require('../../../../../tools/lib/governance/generated-file-banners');
 
 // Template path — layout and diagram decisions are read from markers in this file.
 // To change the catalog layout or add/remove a diagram, edit the template.

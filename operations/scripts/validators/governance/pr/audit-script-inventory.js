@@ -37,13 +37,13 @@ const {
   isWithinRoots,
   normalizeRepoPath,
   parseDeclaredPipelines
-} = require('../../../../../tools/lib/script-governance-config');
+} = require('../../../../../tools/lib/governance/script-governance-config');
 const {
   extractLeadingScriptHeader,
   getSectionLines,
   getTagValue,
   hasFrameworkHeaderTags
-} = require('../../../../../tools/lib/script-header-utils');
+} = require('../../../../../tools/lib/governance/script-header-utils');
 
 const REPO_ROOT = process.cwd();
 const DEFAULT_OUTPUT_DIR = 'workspace/reports/repo-ops';
@@ -745,7 +745,14 @@ function classifyOutputType(outputPath) {
   ) {
     return 'generated-index';
   }
-  if (outputPath.startsWith('snippets/automations/')) return 'data-feed';
+  if (
+    outputPath.startsWith('snippets/data/social-feeds/') ||
+    outputPath.startsWith('snippets/data/social-feed-solutions/') ||
+    outputPath.startsWith('snippets/data/showcase-feed/') ||
+    outputPath.startsWith('snippets/data/globals/')
+  ) {
+    return 'data-feed';
+  }
   if (!path.extname(outputPath)) return 'directory';
   return 'generated-output';
 }

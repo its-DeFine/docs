@@ -16,7 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const { buildRepairPlan, runAudit } = require('../pr/audit-script-inventory.js');
-const { parseDeclaredPipelines } = require('../../../../../tools/lib/script-governance-config');
+const { parseDeclaredPipelines } = require('../../../../../tools/lib/governance/script-governance-config');
 
 const REPO_ROOT = process.cwd();
 const DEFAULT_OUTPUT_DIR = 'workspace/reports/repo-ops';

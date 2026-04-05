@@ -15,6 +15,7 @@ the whole repo contract.
 
 ## Copilot-Specific Notes
 
+- Treat `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md` as the canonical Mintlify runtime and authoring contract when repo behavior is unclear.
 - Keep any future GitHub-specific additions in `.github/copilot-instructions.md`
   or path-scoped `.github/instructions/*.instructions.md`.
 - Do not recreate a second repo-wide baseline here.

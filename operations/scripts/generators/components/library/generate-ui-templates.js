@@ -16,13 +16,13 @@
 
 const fs = require('fs');
 const path = require('path');
-const yaml = require('../../../../../tools/lib/load-js-yaml');
+const yaml = require('../../../../../tools/lib/bootstrap/load-js-yaml');
 const {
   buildGeneratedFrontmatterLines,
   buildGeneratedHiddenBannerLines,
   buildGeneratedNoteLines,
   readCatalogMarkers
-} = require('../../../../../tools/lib/generated-file-banners');
+} = require('../../../../../tools/lib/governance/generated-file-banners');
 
 const REPO_ROOT = process.cwd();
 const TEMPLATE_ROOT = 'snippets/templates';

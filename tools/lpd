@@ -119,8 +119,8 @@ Examples:
   lpd scripts list --group tools
     - Lists available scripts in the tools group.
 
-  lpd tools dev test-add-callouts -- --help
-    - Shows help for a managed tools/dev script via shorthand.
+  lpd tools dev authoring add-callouts -- --help
+    - Shows help for a managed `tools/dev` script via shorthand.
 
   lpd scripts run workspace run-audit --dry-run
     - Previews the exact workspace-script command without executing.
@@ -187,7 +187,7 @@ Common Workflows:
   fast staged validation
     lpd test --staged
   run a managed script
-    lpd tools dev test-add-callouts -- --help
+    lpd tools dev authoring add-callouts -- --help
   regenerate AI sitemap
     lpd ai-sitemap --write
   repair a governed surface
@@ -2065,7 +2065,7 @@ Usage:
   lpd scripts run <group> <script-path tokens...> [--dry-run] [--yes] [-- script args]
 
 Example:
-  lpd scripts run tools dev test-add-callouts -- --help
+  lpd scripts run tools dev authoring add-callouts -- --help
 EOF
                 return 0
                 ;;

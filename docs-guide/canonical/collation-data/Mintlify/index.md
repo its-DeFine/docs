@@ -60,12 +60,12 @@ Scope:
 ## Active Tooling / Scripts / Config
 
 - `lpd` — `tools/lpd`
-- `mint-dev.sh` — `tools/dev/mint-dev.sh`
-- `generate-mint-dev-scope.js` — `tools/dev/generate-mint-dev-scope.js`
-- `debug-mint-dev.js` — `tools/dev/debug-mint-dev.js`
-- `mint-custom-loader.sh` — `tools/dev/mint-custom-loader.sh`
-- `ensure-mint-watcher-patch.sh` — `tools/dev/ensure-mint-watcher-patch.sh`
-- `resolve-scoped-docs-config.js` — `tools/dev/lib/resolve-scoped-docs-config.js`
+- `mint-dev.sh` — `tools/dev/preview/mint-dev.sh`
+- `generate-mint-dev-scope.js` — `tools/dev/preview/generate-mint-dev-scope.js`
+- `debug-mint-dev.js` — `tools/dev/preview/debug-mint-dev.js`
+- `mint-custom-loader.sh` — `tools/dev/preview/mint-custom-loader.sh`
+- `ensure-mint-watcher-patch.sh` — `tools/dev/preview/ensure-mint-watcher-patch.sh`
+- `resolve-scoped-docs-config.js` — `tools/dev/preview/lib/resolve-scoped-docs-config.js`
 - `navigation-exclusions.json` — `tools/config/runtime/navigation-exclusions.json`
 - `docs-solutions.json` — `tools/config/scoped-navigation/docs-solutions.json`
 - `docs.json.jsx` — `tools/config/scoped-navigation/docs.json.jsx`

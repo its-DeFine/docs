@@ -33,8 +33,8 @@ const {
   suggestRemaps,
   toPosix
 } = require('../../../config/docs-path-sync');
-const { isPublishedDocsPath } = require('../../../../../tools/lib/docs-publishability');
-const { isGeneratedDocsPageFile } = require('../../../../../tools/lib/docs-page-scope');
+const { isPublishedDocsPath } = require('../../../../../tools/lib/docs/docs-publishability');
+const { isGeneratedDocsPageFile } = require('../../../../../tools/lib/docs/docs-page-scope');
 
 const DOCS_JSON_PATH = 'docs.json';
 const DEFAULT_REPORT_DIR = 'operations/reports/health/page-links';

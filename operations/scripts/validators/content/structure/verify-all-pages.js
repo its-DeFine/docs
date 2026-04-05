@@ -12,7 +12,7 @@
  * @policy      E-C1, R-R14
  */
 const puppeteer = require('puppeteer');
-const { getEnglishComponentLibraryRoutes } = require('../../../../../tools/lib/component-governance-utils');
+const { getEnglishComponentLibraryRoutes } = require('../../../../../tools/lib/governance/component-governance-utils');
 
 const BASE_URL = 'http://localhost:3333';
 const ROUTE_LABELS = {

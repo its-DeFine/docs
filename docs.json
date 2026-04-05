@@ -3122,7 +3122,7 @@
                         "group": "Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/resources/portal"
+                          "v2/resources/redirect"
                         ]
                       },
                       {
@@ -3523,6 +3523,10 @@
     }
   },
   "redirects": [
+    {
+      "source": "/v2/resources/redirect",
+      "destination": "/v2/resources/resources-portal"
+    },
     {
       "source": "/ai/:slug*",
       "destination": "/v1/ai/:slug*"

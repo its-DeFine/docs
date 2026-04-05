@@ -2,7 +2,7 @@ import { AddressLinks, DoubleIconLink } from '/snippets/components/elements/link
 import { SolidityEmbed } from '/snippets/components/integrators/embeds/DataEmbed.jsx'
 import { FunctionField } from '/snippets/components/displays/response-fields/ResponseField.jsx'
 
-export const renderFactLine = function renderFactLine(contract) {
+export const RenderFactLine = function RenderFactLine(contract) {
   if (!contract) return null
   const text = (contract.facts || []).join(' · ')
   if (!text && !contract.unsupportedNote) return null
@@ -20,7 +20,7 @@ export const renderFactLine = function renderFactLine(contract) {
   )
 }
 
-export const renderAddressLine = function renderAddressLine(label, contract, addressKey = 'currentAddress', hrefKey = 'blockchainHref') {
+export const RenderAddressLine = function RenderAddressLine(label, contract, addressKey = 'currentAddress', hrefKey = 'blockchainHref') {
   if (!contract?.[addressKey]) return null
   return (
     <div style={{ marginBottom: '0.8rem' }}>
@@ -36,7 +36,7 @@ export const renderAddressLine = function renderAddressLine(label, contract, add
   )
 }
 
-export const renderSourceInheritance = function renderSourceInheritance(contract) {
+export const RenderSourceInheritance = function RenderSourceInheritance(contract) {
   const bases = contract?.sourceInheritance || []
   if (!bases.length) return null
   return (
@@ -54,7 +54,7 @@ export const renderSourceInheritance = function renderSourceInheritance(contract
   )
 }
 
-export const renderGeneratedFunctionFields = function renderGeneratedFunctionFields(contract) {
+export const RenderGeneratedFunctionFields = function RenderGeneratedFunctionFields(contract) {
   const functions = contract?.functions || []
   if (!functions.length) {
     return (
@@ -87,7 +87,7 @@ export const renderGeneratedFunctionFields = function renderGeneratedFunctionFie
   })
 }
 
-export const renderContractEmbed = function renderContractEmbed(contract) {
+export const RenderContractEmbed = function RenderContractEmbed(contract) {
   if (!contract?.rawContractCodeHref) {
     return (
       <div

@@ -20,11 +20,11 @@ const {
   buildGeneratedHiddenBannerLines,
   buildGeneratedNoteLines,
   readCatalogMarkers
-} = require('../../../../../tools/lib/generated-file-banners');
+} = require('../../../../../tools/lib/governance/generated-file-banners');
 
 let yaml = null;
 try {
-  yaml = require('../../../../../tools/lib/load-js-yaml');
+  yaml = require('../../../../../tools/lib/bootstrap/load-js-yaml');
 } catch (_err) {
   yaml = null;
 }

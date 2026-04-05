@@ -7,12 +7,12 @@
  * @needs             R-R27, R-R30
  * @purpose-statement Shared helper for validating, selecting, and loading canonical Codex skill templates.
  * @pipeline          indirect -- library module
- * @usage             const { discoverTemplates } = require('../lib/codex-skill-templates');
+ * @usage             const { discoverTemplates } = require('../../tools/lib/ai/codex-skill-templates');
  */
 
 const fs = require('fs');
 const path = require('path');
-const yaml = require('./load-js-yaml');
+const yaml = require('../bootstrap/load-js-yaml');
 
 const TEMPLATE_SUFFIX = '.template.md';
 const TEMPLATE_FILE_RE = /^\d{2}-[a-z0-9-]+\.template\.md$/;

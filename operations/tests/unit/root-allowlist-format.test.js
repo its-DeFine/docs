@@ -3,30 +3,24 @@
  * @script            root-allowlist-format.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, .allowlist, AGENTS.md, .claude, .cursor, .windsurf
+ * @scope             tests/unit, .allowlist, tools/config/runtime/root-governance.json, tools/lib/governance/root-governance.js
  * @owner             docs
  * @needs             R-R14, R-R29
- * @purpose-statement Validates that .allowlist stays machine-readable, root-only, and aligned with the canonical agent root layout.
+ * @purpose-statement Validates that .allowlist stays machine-readable, root-only, and aligned with the canonical root-governance manifest.
  * @pipeline          P1, P3
  * @usage             node operations/tests/unit/root-allowlist-format.test.js
  */
 
 const fs = require('fs');
 const path = require('path');
+const {
+  getAllowlistEntries,
+  getForbiddenEntries,
+  readManifest
+} = require('../../../tools/lib/governance/root-governance');
 
 const REPO_ROOT = path.resolve(__dirname, '../../..');
 const ALLOWLIST_PATH = path.join(REPO_ROOT, '.allowlist');
-const REQUIRED_ENTRIES = ['AGENTS.md', '.claude', '.cursor', '.windsurf', '.github', '.codex'];
-const FORBIDDEN_ENTRIES = [
-  '.cursorrules',
-  'ASSISTANT.md',
-  'Assistant.md',
-  '.mintlify',
-  '.claude/CLAUDE.md',
-  '.cursor/rules/',
-  '.windsurf/rules/',
-  '.github/copilot-instructions.md'
-];
 
 function addIssue(target, rule, message) {
   target.push({
@@ -80,6 +74,9 @@ function parseAllowlist(errors) {
 function runTests() {
   const errors = [];
   const warnings = [];
+  const manifest = readManifest(REPO_ROOT);
+  const requiredEntries = getAllowlistEntries(manifest);
+  const forbiddenEntries = getForbiddenEntries(manifest);
 
   console.log('🧪 Root Allowlist Format Unit Tests');
 
@@ -117,21 +114,32 @@ function runTests() {
     }
   });
 
-  REQUIRED_ENTRIES.forEach((entry) => {
+  requiredEntries.forEach((entry) => {
     if (!seen.has(entry)) {
       addIssue(errors, 'Root allowlist contract', `Missing required canonical root entry: ${entry}`);
     }
   });
 
-  FORBIDDEN_ENTRIES.forEach((entry) => {
+  forbiddenEntries.forEach((entry) => {
     if (seen.has(entry)) {
       addIssue(errors, 'Root allowlist contract', `Forbidden legacy or nested entry still present: ${entry}`);
     }
   });
 
+  entries.forEach((entry) => {
+    if (!requiredEntries.includes(entry.value)) {
+      errors.push({
+        file: '.allowlist',
+        rule: 'Root allowlist contract',
+        message: `Allowlist entry is not declared in tools/config/runtime/root-governance.json: ${entry.value}`,
+        line: entry.line
+      });
+    }
+  });
+
   return {
     passed: errors.length === 0,
-    total: 2,
+    total: 3,
     errors,
     warnings
   };

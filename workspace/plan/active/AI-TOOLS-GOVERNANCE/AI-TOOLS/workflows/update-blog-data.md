@@ -22,7 +22,6 @@ Consolidate this workflow under `future:data-refresh-dispatcher` and keep the sc
 
 - action:actions/checkout@v4
 - secret:GITHUB_TOKEN
-- snippets/automations/
 - snippets/data/social-feeds/forumData.jsx
 - snippets/data/social-feeds/ghostBlogData.jsx
 

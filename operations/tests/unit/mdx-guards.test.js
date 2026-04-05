@@ -118,11 +118,15 @@ function checkGlobalsImportPath(rootDir) {
     ...collectMdxFiles(rootDir, 'snippets'),
     ...collectMdxFiles(rootDir, 'snippets/snippetsWiki')
   ];
+  const retiredGlobalsImportPattern = new RegExp(
+    String.raw`from\s*['"]\/${['snippets', 'automations', 'globals', 'globals'].join('/')}\\.(mdx|jsx)['"]`,
+    'g',
+  );
   const bannedImportRules = [
     {
       message:
-        'Use /snippets/data/globals/latestRelease.jsx as the canonical release data module; /snippets/automations/globals/* are legacy shims only.',
-      pattern: /from\s*['"]\/snippets\/automations\/globals\/globals\.(mdx|jsx)['"]/g,
+        'Use /snippets/data/globals/latestRelease.jsx as the canonical release data module; retired globals imports must be removed.',
+      pattern: retiredGlobalsImportPattern,
     },
     {
       message:

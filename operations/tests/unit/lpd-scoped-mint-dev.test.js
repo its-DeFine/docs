@@ -3,7 +3,7 @@
  * @script            lpd-scoped-mint-dev.test
  * @category          utility
  * @purpose           tooling:dev-tools
- * @scope             tests/unit, lpd, tools/dev/mint-dev.sh, tools/dev/generate-mint-dev-scope.js
+ * @scope             tests/unit, lpd, tools/dev/preview/mint-dev.sh, tools/dev/preview/generate-mint-dev-scope.js
  * @domain            docs
  * @needs             E-C6, F-C1
  * @purpose-statement Tests lpd scoped mint-dev functionality — validates dev server scope filtering
@@ -27,11 +27,11 @@ const {
   ScopedMintSessionSupervisor,
   createScopedManifest,
   createScopedProfile
-} = require('../../../tools/dev/generate-mint-dev-scope');
+} = require('../../../tools/dev/preview/generate-mint-dev-scope');
 
 const REPO_ROOT = process.cwd();
 const LPD_PATH = path.join(REPO_ROOT, 'tools/lpd');
-const SCOPE_SCRIPT_PATH = path.join(REPO_ROOT, 'tools/dev/generate-mint-dev-scope.js');
+const SCOPE_SCRIPT_PATH = path.join(REPO_ROOT, 'tools/dev/preview/generate-mint-dev-scope.js');
 
 const SAMPLE_NAVIGATION = {
   versions: [
@@ -349,7 +349,7 @@ async function runTests() {
     assert.match(run.stdout, /scope_languages:\s*en/);
     assert.match(run.stdout, /scope_tabs:\s*Developers/);
     assert.match(run.stdout, /OpenAPI docs scope: disabled/);
-    assert.match(run.stdout, /tools\/dev\/mint-dev\.sh/);
+    assert.match(run.stdout, /tools\/dev\/preview\/mint-dev\.sh/);
   });
 
   cases.push(async () => {

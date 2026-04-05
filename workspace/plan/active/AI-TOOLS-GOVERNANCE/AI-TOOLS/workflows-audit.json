@@ -303,14 +303,15 @@
       ".github/scripts/fetch-github-releases.js",
       ".github/scripts/fetch-rss-blog-data.js",
       ".github/scripts/fetch-youtube-data.js",
+      ".github/scripts/update-livepeer-release.js",
       "action:actions/checkout@v4",
       "action:actions/setup-node@v4",
       "secret:DISCORD_BOT_TOKEN",
       "secret:GITHUB_TOKEN",
       "secret:YOUTUBE_API_KEY",
-      "snippets/automations",
-      "snippets/automations/",
-      "snippets/automations/globals/globals.jsx",
+      "snippets/data/globals/latestRelease.jsx",
+      "snippets/data/social-feed-solutions",
+      "snippets/data/social-feed-solutions/",
       "snippets/data/social-feeds/discordAnnouncementsData.jsx",
       "snippets/data/social-feeds/forumData.jsx",
       "snippets/data/social-feeds/ghostBlogData.jsx",
@@ -470,7 +471,7 @@
     "engineering_action": "Consolidate this workflow under `dispatcher:review-fix` and keep the script or validator layer as the reusable implementation boundary.",
     "dependencies": [
       "action:actions/checkout@v4",
-      "snippets/automations/globals/globals.mdx",
+      "snippets/data/globals/latestRelease.jsx",
       "snippets/data/showcase-feed/showcaseData.jsx",
       "snippets/data/social-feeds/discordAnnouncementsData.jsx",
       "snippets/data/social-feeds/forumData.jsx",
@@ -665,7 +666,7 @@
     "dependencies": [
       "action:actions/checkout@v4",
       "action:actions/setup-node@v4",
-      "operations/scripts/generate-llms-files.js"
+      "operations/scripts/generators/ai/llm/generate-llms-files.js"
     ],
     "dependants": [
       "dispatcher:handover-readiness"
@@ -727,6 +728,8 @@
       "action:actions/setup-node@v4",
       "action:peter-evans/create-pull-request@v7",
       "operations/scripts/dispatch/governance/pipelines/governance-pipeline.js",
+      "operations/scripts/generators/governance/root/generate-root-governance-artifacts.js",
+      "operations/scripts/validators/governance/compliance/check-root-governance-sync.js",
       "workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json"
     ],
     "dependants": [
@@ -904,6 +907,8 @@
       "action:actions/upload-artifact@v4",
       "action:peter-evans/create-pull-request@v7",
       "operations/scripts/dispatch/governance/pipelines/governance-pipeline.js",
+      "operations/scripts/generators/governance/root/generate-root-governance-artifacts.js",
+      "operations/scripts/validators/governance/compliance/check-root-governance-sync.js",
       "workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json"
     ],
     "dependants": [
@@ -1192,13 +1197,13 @@
       "action:actions/setup-node@v4",
       "action:actions/upload-artifact@v4",
       "action:peter-evans/create-pull-request@v7",
+      "operations/scripts/automations/content/language-translation/config.json",
       "operations/scripts/automations/content/language-translation/generate-localized-docs-json.js",
       "operations/scripts/automations/content/language-translation/translate-docs.js",
       "operations/scripts/automations/content/language-translation/validate-generated.js",
       "operations/scripts/generators/content/catalogs/generate-docs-index.js",
       "operations/tests/unit/docs-navigation.test.js",
       "secret:OPENROUTER_API_KEY",
-      "operations/scripts/automations/content/language-translation/config.json",
       "v2/cn",
       "v2/es",
       "v2/fr"
@@ -1236,7 +1241,6 @@
     "dependencies": [
       "action:actions/checkout@v4",
       "secret:GITHUB_TOKEN",
-      "snippets/automations/",
       "snippets/data/social-feeds/forumData.jsx",
       "snippets/data/social-feeds/ghostBlogData.jsx"
     ],
@@ -1685,7 +1689,7 @@
     "dependencies": [
       "action:actions/checkout@v4",
       "action:actions/setup-node@v4",
-      "operations/scripts/generate-ai-sitemap.js"
+      "operations/scripts/generators/content/seo/generate-ai-sitemap.js"
     ],
     "dependants": [
       "dispatcher:handover-readiness"
@@ -1717,7 +1721,7 @@
     "dependencies": [
       "action:actions/checkout@v4",
       "action:actions/setup-node@v4",
-      "operations/scripts/generate-llms-files.js"
+      "operations/scripts/generators/ai/llm/generate-llms-files.js"
     ],
     "dependants": [
       "dispatcher:handover-readiness"

@@ -7,7 +7,7 @@
  * @needs             node
  * @purpose-statement Parses docs.json v2 navigation and writes CSV/JSON exports with section-group metadata for Notion sync.
  * @pipeline          manual
- * @usage             node tools/notion/2-read-docs-to-csv.js [flags]
+ * @usage             node tools/dev/integrations/notion/2-read-docs-to-csv.js [flags]
  */
 
 const fs = require("fs");
@@ -16,7 +16,7 @@ const path = require("path");
 function readDocsToCSV() {
   console.log("Starting docs.json export...");
 
-  const docsJsonPath = path.join(__dirname, "../docs.json");
+  const docsJsonPath = path.resolve(__dirname, "..", "..", "..", "..", "docs.json");
   console.log(`Reading docs.json from: ${docsJsonPath}`);
 
   const docsJson = JSON.parse(fs.readFileSync(docsJsonPath, "utf8"));
