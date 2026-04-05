@@ -23,7 +23,7 @@ This document is the normative policy for repo-root governance.
 
 The live inventory is generated, not maintained here. Use these surfaces together:
 
-- Canonical contract: `tools/config/runtime/root-governance.json`
+- Canonical contract: `operations/governance/config/root-governance.json`
 - Generated root projection: `.allowlist`
 - Generated live map: `docs-guide/repo-ops/config/root-governance-map.mdx`
 - Generated sync reports: `workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.{json,md}`
@@ -39,7 +39,7 @@ It must never be used as:
 - a report sink
 - a place to pre-allow future paths
 
-Human-authored root decisions belong in `tools/config/runtime/root-governance.json`. `.allowlist` is a generated projection.
+Human-authored root decisions belong in `operations/governance/config/root-governance.json`. `.allowlist` is a generated projection.
 
 ## Root Admission Rules
 
@@ -65,7 +65,7 @@ The root-governance generator must deterministically write:
 - `workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.json`
 - `workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md`
 
-The validator `operations/scripts/validators/governance/compliance/check-root-governance-sync.js` must fail when those outputs drift from `tools/config/runtime/root-governance.json`.
+The validator `operations/scripts/validators/governance/compliance/check-root-governance-sync.js` must fail when those outputs drift from `operations/governance/config/root-governance.json`.
 
 ## Root Hygiene Rules
 
@@ -108,7 +108,7 @@ The following decisions are locked into the current governance contract:
 
 When root governance changes:
 
-1. Edit `tools/config/runtime/root-governance.json`.
+1. Edit `operations/governance/config/root-governance.json`.
 2. Regenerate root-governance outputs.
 3. Update manual policy docs that describe the rules, not the live inventory.
 4. Run the root-governance validator and affected generated-artifact checks.

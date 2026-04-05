@@ -53,6 +53,7 @@ const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
 const checkAgentDocsFreshnessTests = require('./unit/check-agent-docs-freshness.test');
 const rootAllowlistFormatTests = require('./unit/root-allowlist-format.test');
 const rootGovernanceSyncTests = require('./unit/root-governance-sync.test');
+const repoGovernanceSyncTests = require('./unit/repo-governance-sync.test');
 const exportPortableSkillsTests = require('./unit/export-portable-skills.test');
 const docsGuideSotTests = require('./unit/docs-guide-sot.test');
 const uiTemplateGeneratorTests = require('./unit/ui-template-generator.test');
@@ -313,19 +314,29 @@ function partitionFiles(changedFiles) {
     file === 'operations/tests/utils/mintignore.js'
   );
   const ownerlessGovernanceFiles = existingChangedFiles.filter((file) =>
+    file.startsWith('operations/governance/config/') ||
     file === OWNERLESS_MANIFEST_PATH ||
     file === OWNERLESS_POLICY_PATH ||
     file === 'operations/tests/unit/ownerless-governance.test.js' ||
     file === 'operations/tests/unit/check-agent-docs-freshness.test.js' ||
     file === 'operations/tests/unit/root-allowlist-format.test.js' ||
     file === 'operations/tests/unit/root-governance-sync.test.js' ||
+    file === 'operations/tests/unit/repo-governance-sync.test.js' ||
     file === 'operations/scripts/remediators/content/style/repair-ownerless-language.js' ||
     file === 'operations/scripts/validators/governance/compliance/validate-agent-docs-freshness.js' ||
     file === 'operations/scripts/validators/governance/compliance/check-root-governance-sync.js' ||
+    file === 'operations/scripts/validators/governance/compliance/check-repo-governance-sync.js' ||
     file === 'operations/scripts/generators/governance/root/generate-root-governance-artifacts.js' ||
+    file === 'operations/scripts/generators/governance/reports/generate-repo-governance-status.js' ||
+    file === 'operations/governance/config/root-governance.json' ||
+    file === 'operations/governance/config/generated-artifacts.json' ||
+    file === 'operations/governance/config/agent-write-governance.json' ||
     file === 'tools/config/runtime/root-governance.json' ||
     file === 'tools/config/runtime/generated-artifacts.json' ||
     file === 'tools/lib/governance/root-governance.js' ||
+    file === 'tools/lib/governance/generated-artifacts.js' ||
+    file === 'tools/lib/governance/agent-write-governance.js' ||
+    file === 'tools/lib/governance/repo-governance.js' ||
     file === '.allowlist' ||
     file === 'AGENTS.md' ||
     file === '.github/copilot-instructions.md' ||
@@ -333,6 +344,9 @@ function partitionFiles(changedFiles) {
     file === '.cursor/rules/repo-governance.mdc' ||
     file === '.windsurf/rules/repo-governance.md' ||
     file === 'README.md' ||
+    file === 'docs-guide/repo-ops/config/repo-governance-map.mdx' ||
+    file === 'workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json' ||
+    file === 'workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md' ||
     file === 'docs-guide/contributing/agent-instructions.mdx' ||
     file === '.github/workflows/docs-v2-issue-indexer.yml' ||
     file.startsWith('.github/ISSUE_TEMPLATE/')
@@ -748,6 +762,21 @@ async function runRootGovernanceSyncCheck(files) {
   const result = await rootGovernanceSyncTests.runTests();
   return {
     label: 'Root Governance Sync',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
+async function runRepoGovernanceSyncCheck(files) {
+  if (!files.length) {
+    return { label: 'Repo Governance Sync', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = await repoGovernanceSyncTests.runTests();
+  return {
+    label: 'Repo Governance Sync',
     status: result.passed ? 'passed' : 'failed',
     files: files.length,
     errors: Array.isArray(result.errors) ? result.errors.length : 0,
@@ -1237,6 +1266,11 @@ function createBranchHealthRegistry(context) {
       label: 'Root Governance Sync',
       files: groups.ownerlessGovernanceFiles,
       run: () => runRootGovernanceSyncCheck(groups.ownerlessGovernanceFiles)
+    }),
+    createInlineCheck({
+      label: 'Repo Governance Sync',
+      files: groups.ownerlessGovernanceFiles,
+      run: () => runRepoGovernanceSyncCheck(groups.ownerlessGovernanceFiles)
     }),
     createInlineCheck({
       label: 'Portable Skill Export',

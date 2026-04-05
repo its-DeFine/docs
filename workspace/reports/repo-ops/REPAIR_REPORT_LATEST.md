@@ -1,64 +1,680 @@
 # Governance Repair Report
 
-- Date: 2026-03-16T13:56:17.604Z
-- Mode: fix
-- Verification: PASS
+- Date: 2026-04-05T09:06:55.386Z
+- Mode: dry-run
+- Verification: SKIPPED (dry-run)
 
 ## Pre Repair
 
-- Total scripts: 6
-- Grade A/B/C/F: 0/1/5/0
-- Pipeline mismatches: 0
-- Not in JSON: 5
+- Total scripts: 357
+- Grade A/B/C/F: 0/85/195/77
+- Pipeline mismatches: 83
+- Not in JSON: 0
 - Phantom JSON: 0
 
 ## Repairs Applied
 
-- Total fixes: 10
-- JSON phantoms removed: 0
-- JSON entries added: 5
-- JSON entries updated: 0
+- Total fixes: 555
+- JSON phantoms removed: 1
+- JSON entries added: 0
+- JSON entries updated: 357
 - Header category added: 0
 - Header purpose added: 0
-- Header domain added: 0
-- Header script added: 0
-- Header usage added: 0
+- Header domain added: 159
+- Header script added: 18
+- Header usage added: 20
 - Header scope added: 0
 - Header needs added: 0
 - Header purpose-statement added: 0
 - Header pipeline corrected: 0
-- Indexes regenerated: false
+- Indexes regenerated: true
 
 ### Files Modified
 
-- tasks/reports/script-classifications.json
-- tests/unit/docs-guide-sot.test.js
-- tests/unit/generated-artifacts-policy.test.js
-- tests/unit/legacy-root-v1-redirects.test.js
-- tools/lib/generated-artifacts.js
-- tools/scripts/dev/lib/resolve-scoped-docs-config.js
-- tools/scripts/redirects/sync-legacy-root-v1.js
+- .githooks/install.sh
+- .githooks/pre-commit
+- .githooks/pre-commit-no-deletions
+- .githooks/script-index.md
+- .githooks/server-manager.js
+- .githooks/verify-browser.js
+- .githooks/verify.sh
+- .github/script-index.md
+- .github/scripts/fetch-contract-addresses.js
+- .github/scripts/fetch-discord-announcements.js
+- .github/scripts/fetch-forum-data.js
+- .github/scripts/fetch-ghost-blog-data.js
+- .github/scripts/fetch-github-discussions.js
+- .github/scripts/fetch-github-releases.js
+- .github/scripts/fetch-rss-blog-data.js
+- .github/scripts/fetch-youtube-data.js
+- .github/scripts/generate-changelog.js
+- .github/scripts/project-showcase-sync.js
+- .github/scripts/update-livepeer-release.js
+- docs-guide/catalog/scripts-catalog.mdx
+- docs-guide/indexes/scripts-index.mdx
+- operations/scripts/audits/components/documentation/audit-component-usage.js
+- operations/scripts/audits/components/library/scan-component-imports.js
+- operations/scripts/audits/content/health/page-imports-audit.js
+- operations/scripts/audits/content/health/page-links-audit.js
+- operations/scripts/audits/content/quality/audit-copy-patterns.js
+- operations/scripts/audits/content/quality/audit-media-assets.js
+- operations/scripts/audits/content/quality/audit-python.py
+- operations/scripts/audits/content/quality/audit-v2-usefulness.js
+- operations/scripts/audits/content/quality/docs-quality-and-freshness-audit.js
+- operations/scripts/audits/content/reconciliation/generate-content-gap-reconciliation.js
+- operations/scripts/audits/content/reference/audit-glossary-gaps.js
+- operations/scripts/audits/content/reference/audit-icon-usage.js
+- operations/scripts/audits/content/reference/terminology-search.js
+- operations/scripts/audits/content/style/style-and-language-homogenizer-en-gb.js
+- operations/scripts/audits/content/veracity/docs-page-research.js
+- operations/scripts/audits/content/veracity/docs-research-adjudication.js
+- operations/scripts/audits/governance/repo/audit-tasks-folders.js
+- operations/scripts/audits/governance/reports/generate-v2-folder-governance-cleanup-matrix.js
+- operations/scripts/audits/governance/scripts/audit-script-categories.js
+- operations/scripts/audits/governance/scripts/script-footprint-and-usage-audit.js
+- operations/scripts/automations/ai/agents/cross-agent-packager.js
+- operations/scripts/automations/ai/agents/export-portable-skills.js
+- operations/scripts/automations/ai/agents/sync-codex-skills.js
+- operations/scripts/automations/ai/codex/lock-release.js
+- operations/scripts/automations/ai/codex/task-cleanup.js
+- operations/scripts/automations/ai/codex/task-preflight.js
+- operations/scripts/automations/content/data/contracts/blockchain-page-spec.js
+- operations/scripts/automations/content/data/contracts/branch-watch.js
+- operations/scripts/automations/content/data/contracts/catalog-config.js
+- operations/scripts/automations/content/data/contracts/constants.js
+- operations/scripts/automations/content/data/contracts/incidents.js
+- operations/scripts/automations/content/data/contracts/pipeline.js
+- operations/scripts/automations/content/data/contracts/solidity-parser.js
+- operations/scripts/automations/content/data/contracts/spec.js
+- operations/scripts/automations/content/data/fetching/fetch-external-docs.sh
+- operations/scripts/automations/content/data/fetching/fetch-lpt-exchanges.sh
+- operations/scripts/automations/content/data/fetching/fetch-openapi-specs.sh
+- operations/scripts/automations/content/data/test/contract-address-routes.test.js
+- operations/scripts/automations/content/data/test/contract-verifier.test.js
+- operations/scripts/automations/content/data/test/fetch-contract-addresses.test.js
+- operations/scripts/automations/content/data/transforms/convert-rss-to-mdx.js
+- operations/scripts/automations/content/language-translation/generate-localized-docs-json.js
+- operations/scripts/automations/content/language-translation/lib/common.js
+- operations/scripts/automations/content/language-translation/lib/config.js
+- operations/scripts/automations/content/language-translation/lib/docs-json-localizer.js
+- operations/scripts/automations/content/language-translation/lib/docs-routes.js
+- operations/scripts/automations/content/language-translation/lib/frontmatter.js
+- operations/scripts/automations/content/language-translation/lib/mdx-parser.js
+- operations/scripts/automations/content/language-translation/lib/mdx-translate.js
+- operations/scripts/automations/content/language-translation/lib/path-utils.js
+- operations/scripts/automations/content/language-translation/lib/provenance.js
+- operations/scripts/automations/content/language-translation/lib/provider-mock.js
+- operations/scripts/automations/content/language-translation/lib/provider-openrouter.js
+- operations/scripts/automations/content/language-translation/lib/providers.js
+- operations/scripts/automations/content/language-translation/test/cli-guardrails.test.js
+- operations/scripts/automations/content/language-translation/test/docs-json-localizer.test.js
+- operations/scripts/automations/content/language-translation/test/frontmatter.test.js
+- operations/scripts/automations/content/language-translation/test/mdx-translate.test.js
+- operations/scripts/automations/content/language-translation/test/provenance.test.js
+- operations/scripts/automations/content/language-translation/test/provider-openrouter.test.js
+- operations/scripts/automations/content/language-translation/translate-docs.js
+- operations/scripts/automations/content/language-translation/validate-generated.js
+- operations/scripts/automations/content/studio-docs-migration.js
+- operations/scripts/automations/governance/cleanup-local-dev-sessions.js
+- operations/scripts/automations/governance/pipelines/publish-v2-internal-reports.js
+- operations/scripts/config/docs-path-sync.js
+- operations/scripts/config/mdx-sanitise.js
+- operations/scripts/config/mintlify-canonical-sync.js
+- operations/scripts/config/og-image-policy.js
+- operations/scripts/dispatch/ai/codex/check-codex-pr-overlap.js
+- operations/scripts/dispatch/ai/codex/codex-commit.js
+- operations/scripts/dispatch/ai/codex/create-codex-pr.js
+- operations/scripts/dispatch/ai/codex/task-finalise.js
+- operations/scripts/dispatch/content/data/run-solutions-social-fetch.js
+- operations/scripts/dispatch/content/health/page-integrity-dispatch.js
+- operations/scripts/dispatch/content/health/page-integrity-rolling-issue.js
+- operations/scripts/dispatch/content/veracity/docs-page-research-pr-report.js
+- operations/scripts/dispatch/content/veracity/docs-research-packet.js
+- operations/scripts/dispatch/content/veracity/orchestrator-guides-research-review.js
+- operations/scripts/dispatch/governance/blast-radius-scanner.js
+- operations/scripts/dispatch/governance/friction-logger.js
+- operations/scripts/dispatch/governance/grep-loop-guard.js
+- operations/scripts/dispatch/governance/headless-batch.sh
+- operations/scripts/dispatch/governance/mdx-constraints-injector.js
+- operations/scripts/dispatch/governance/mdx-validate-hook.js
+- operations/scripts/dispatch/governance/message-backup.js
+- operations/scripts/dispatch/governance/move-detect-hook.js
+- operations/scripts/dispatch/governance/phase-gate-hook.js
+- operations/scripts/dispatch/governance/pipelines/governance-pipeline.js
+- operations/scripts/dispatch/governance/pipelines/sync-generated-files.js
+- operations/scripts/dispatch/governance/post-tool-verify.js
+- operations/scripts/dispatch/governance/pre-compact-checkpoint.js
+- operations/scripts/dispatch/governance/pre-tool-guard.js
+- operations/scripts/dispatch/governance/read-logger.js
+- operations/scripts/dispatch/governance/repo/repo-audit-orchestrator.js
+- operations/scripts/dispatch/governance/session-register.js
+- operations/scripts/dispatch/governance/session-state.js
+- operations/scripts/generators/ai/llm/generate-llms-files.js
+- operations/scripts/generators/components/documentation/generate-component-docs.js
+- operations/scripts/generators/components/library/generate-component-examples.js
+- operations/scripts/generators/components/library/generate-component-registry.js
+- operations/scripts/generators/components/library/generate-ui-templates.js
+- operations/scripts/generators/content/catalogs/generate-docs-index.js
+- operations/scripts/generators/content/catalogs/generate-pages-index.js
+- operations/scripts/generators/content/reference/generate-api-docs.sh
+- operations/scripts/generators/content/reference/generate-glossary-companions.js
+- operations/scripts/generators/content/reference/generate-glossary.js
+- operations/scripts/generators/content/seo/generate-ai-sitemap.js
+- operations/scripts/generators/content/seo/generate-og-images.js
+- operations/scripts/generators/governance/catalogs/generate-ai-skills-indexes.js
+- operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js
+- operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js
+- operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js
+- operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js
+- operations/scripts/generators/governance/catalogs/generate-script-registry.js
+- operations/scripts/generators/governance/reports/generate-ai-tools-inventory.js
+- operations/scripts/generators/governance/root/generate-root-governance-artifacts.js
+- operations/scripts/generators/governance/scaffold/new-script.js
+- operations/scripts/generators/media/generate-hero-background.js
+- operations/scripts/generators/media/generate-hero-image.js
+- operations/scripts/remediators/components/library/repair-component-metadata.js
+- operations/scripts/remediators/content/classification/add-framework-headers.js
+- operations/scripts/remediators/content/classification/add-pagetype-mechanical.js
+- operations/scripts/remediators/content/classification/assign-purpose-metadata.js
+- operations/scripts/remediators/content/repair/migrate-assets-to-branch.js
+- operations/scripts/remediators/content/repair/quarantine-manager.js
+- operations/scripts/remediators/content/repair/repair-mdx-safe-markdown.js
+- operations/scripts/remediators/content/repair/repair-page-imports.js
+- operations/scripts/remediators/content/repair/repair-page-links.js
+- operations/scripts/remediators/content/repair/repair-relative-page-hrefs.js
+- operations/scripts/remediators/content/repair/repair-spelling.js
+- operations/scripts/remediators/content/repair/sync-docs-paths.js
+- operations/scripts/remediators/content/repair/sync-mintlify-canonical-consumers.js
+- operations/scripts/remediators/content/seo/generate-seo.js
+- operations/scripts/remediators/content/style/repair-ownerless-language.js
+- operations/scripts/remediators/content/style/wcag-repair-common.js
+- operations/scripts/remediators/governance/scaffold/fix-usage-paths.js
+- operations/scripts/remediators/governance/scaffold/update-jsdoc-headers.js
+- operations/scripts/remediators/governance/scripts/repair-script-inventory.js
+- operations/scripts/script-index.md
+- operations/scripts/snippets/test-scripts.sh
+- operations/scripts/validators/ai/codex/check-no-ai-stash.sh
+- operations/scripts/validators/ai/codex/validate-locks.js
+- operations/scripts/validators/components/documentation/check-component-docs.js
+- operations/scripts/validators/components/library/check-component-css.js
+- operations/scripts/validators/components/library/check-component-health.js
+- operations/scripts/validators/components/library/check-mdx-component-scope.js
+- operations/scripts/validators/components/library/check-naming-conventions.js
+- operations/scripts/validators/components/library/component-layout-governance.js
+- operations/scripts/validators/content/copy/lint-copy.js
+- operations/scripts/validators/content/copy/lint-patterns.js
+- operations/scripts/validators/content/grammar/check-grammar-en-gb.js
+- operations/scripts/validators/content/grammar/check-proper-nouns.js
+- operations/scripts/validators/content/language-translation/test-mintlify-version-language-toggle.js
+- operations/scripts/validators/content/structure/check-anchor-usage.js
+- operations/scripts/validators/content/structure/check-description-quality.js
+- operations/scripts/validators/content/structure/check-docs-path-sync.js
+- operations/scripts/validators/content/structure/check-double-headers.js
+- operations/scripts/validators/content/structure/check-mdx-safe-markdown.js
+- operations/scripts/validators/content/structure/check-page-endings.js
+- operations/scripts/validators/content/structure/enforce-generated-file-banners.js
+- operations/scripts/validators/content/structure/lint-structure.js
+- operations/scripts/validators/content/structure/test-v2-pages.js
+- operations/scripts/validators/content/structure/verify-all-pages.js
+- operations/scripts/validators/content/veracity/docs-fact-registry.js
+- operations/scripts/validators/governance/ai/check-companion-manifest.js
+- operations/scripts/validators/governance/compliance/check-agent-docs-freshness.js
+- operations/scripts/validators/governance/compliance/check-mintlify-canonical-sync.js
+- operations/scripts/validators/governance/compliance/check-root-governance-sync.js
+- operations/scripts/validators/governance/compliance/review-governance-repair-checklist.js
+- operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js
+- operations/scripts/validators/governance/compliance/validate-codex-task-contract.js
+- operations/scripts/validators/governance/compliance/verify-pay-orc-gate-finalize.sh
+- operations/scripts/validators/governance/pr/audit-script-inventory.js
+- operations/scripts/validators/governance/pr/check-component-immutability.js
+- operations/scripts/validators/governance/pr/check-pr-template.js
+- operations/scripts/validators/governance/repo/validate-lpd-paths.js
+- operations/scripts/x-archive/.verify-large-change.sh
+- operations/scripts/x-archive/batch-update-og-image.sh
+- operations/scripts/x-archive/codex-safe-merge-with-stash.js
+- operations/scripts/x-archive/replace-og-image.py
+- operations/scripts/x-archive/seo-generator-safe.js
+- operations/scripts/x-archive/update-all-og-images.js
+- operations/scripts/x-archive/update-og-image.js
+- operations/tests/contracts-browser-harness.js
+- operations/tests/contracts-validator-contract.js
+- operations/tests/integration/browser.test.js
+- operations/tests/integration/domain-pages-audit.js
+- operations/tests/integration/mdx-component-runtime-smoke.js
+- operations/tests/integration/openapi-reference-audit.js
+- operations/tests/integration/v2-link-audit.js
+- operations/tests/integration/v2-link-audit.selftest.js
+- operations/tests/integration/v2-wcag-audit.js
+- operations/tests/integration/v2-wcag-audit.selftest.js
+- operations/tests/playwright-blockchain-contracts.js
+- operations/tests/playwright-community-components.js
+- operations/tests/playwright-contract-addresses.js
+- operations/tests/playwright-studio-docs-migration.js
+- operations/tests/run-all.js
+- operations/tests/run-pr-checks.js
+- operations/tests/script-index.md
+- operations/tests/unit/ai-tools-visual-library.test.js
+- operations/tests/unit/authoring-tools.test.js
+- operations/tests/unit/check-agent-docs-freshness.test.js
+- operations/tests/unit/check-mintlify-canonical-sync.test.js
+- operations/tests/unit/codex-commit.test.js
+- operations/tests/unit/codex-safe-merge-with-stash.test.js
+- operations/tests/unit/codex-skill-sync.test.js
+- operations/tests/unit/codex-task-cleanup.test.js
+- operations/tests/unit/codex-task-preflight.test.js
+- operations/tests/unit/component-governance-generators.test.js
+- operations/tests/unit/component-governance-utils.test.js
+- operations/tests/unit/components/TEMPLATE.test.js
+- operations/tests/unit/contracts-addresses-pipeline.test.js
+- operations/tests/unit/contracts-view-model.test.js
+- operations/tests/unit/copy-lint.test.js
+- operations/tests/unit/create-codex-pr.test.js
+- operations/tests/unit/docs-authoring-rules.test.js
+- operations/tests/unit/docs-fact-registry.test.js
+- operations/tests/unit/docs-navigation.test.js
+- operations/tests/unit/docs-page-scope.test.js
+- operations/tests/unit/docs-path-sync.test.js
+- operations/tests/unit/docs-route-scope.test.js
+- operations/tests/unit/export-portable-skills.test.js
+- operations/tests/unit/frontmatter-taxonomy.test.js
+- operations/tests/unit/imports-cli.test.js
+- operations/tests/unit/imports.test.js
+- operations/tests/unit/links-cli.test.js
+- operations/tests/unit/links-imports.test.js
+- operations/tests/unit/links.test.js
+- operations/tests/unit/mdx-component-runtime-smoke.test.js
+- operations/tests/unit/mdx-component-scope.test.js
+- operations/tests/unit/mdx-guards.test.js
+- operations/tests/unit/mdx-safe-markdown.test.js
+- operations/tests/unit/mdx-sanitise.test.js
+- operations/tests/unit/migrate-assets-to-branch.test.js
+- operations/tests/unit/og-image-policy.test.js
+- operations/tests/unit/openapi-reference-audit.test.js
+- operations/tests/unit/openapi-rolling-issue.test.js
+- operations/tests/unit/ownerless-governance.test.js
+- operations/tests/unit/page-imports-audit.test.js
+- operations/tests/unit/page-integrity-dispatch.test.js
+- operations/tests/unit/page-integrity-rolling-issue.test.js
+- operations/tests/unit/quality.test.js
+- operations/tests/unit/repair-spelling.test.js
+- operations/tests/unit/repo-audit-pipeline.test.js
+- operations/tests/unit/root-allowlist-format.test.js
+- operations/tests/unit/root-governance-sync.test.js
+- operations/tests/unit/run-pr-checks.test.js
+- operations/tests/unit/skill-docs.test.js
+- operations/tests/unit/style-guide.test.js
+- operations/tests/unit/ui-template-generator.test.js
+- operations/tests/unit/update-livepeer-release.test.js
+- operations/tests/unit/usefulness-journey.test.js
+- operations/tests/unit/usefulness-rubric.test.js
+- operations/tests/unit/v2-link-audit.test.js
+- operations/tests/unit/vsix-parity.test.js
+- operations/tests/utils/file-walker.js
+- operations/tests/utils/mdx-parser.js
+- operations/tests/utils/mintignore.js
+- operations/tests/utils/openapi-rolling-issue.js
+- operations/tests/utils/spell-checker.js
+- tools/config/registry/script-index.md
+- tools/config/registry/script-registry.json
+- tools/config/runtime/v2-internal-report-pages.js
+- tools/dev/authoring/add-callouts.js
+- tools/dev/authoring/format-mdx.js
+- tools/dev/editor/rename-vscode-codex-chat.js
+- tools/dev/integrations/notion/1-read-notion-to-csv.js
+- tools/dev/integrations/notion/2-read-docs-to-csv.js
+- tools/dev/integrations/notion/3-check-duplicates.js
+- tools/dev/integrations/notion/4-remove-duplicates.js
+- tools/dev/integrations/notion/5-export-to-notion.js
+- tools/dev/integrations/notion/backup-notion-table.js
+- tools/dev/integrations/notion/install-local-sync-hook.sh
+- tools/dev/integrations/notion/local-post-commit-sync.sh
+- tools/dev/integrations/notion/remove-local-sync-hook.sh
+- tools/dev/integrations/notion/sync-v2-en-canonical.js
+- tools/dev/preview/debug-mint-dev.js
+- tools/dev/preview/ensure-mint-watcher-patch.sh
+- tools/dev/preview/generate-mint-dev-scope.js
+- tools/dev/preview/mint-custom-loader.sh
+- tools/dev/preview/mint-dev.sh
+- tools/dev/script-index.md
+- tools/lib/ai/codex-skill-templates.js
+- tools/lib/bootstrap/load-js-yaml.js
+- tools/lib/bootstrap/load-minimatch.js
+- tools/lib/bootstrap/repo-node-paths.js
+- tools/lib/docs-usefulness/config-validator.js
+- tools/lib/docs-usefulness/journey-check.js
+- tools/lib/docs-usefulness/llm-evaluator.js
+- tools/lib/docs-usefulness/prompts/changelog.js
+- tools/lib/docs-usefulness/prompts/concept.js
+- tools/lib/docs-usefulness/prompts/faq.js
+- tools/lib/docs-usefulness/prompts/glossary.js
+- tools/lib/docs-usefulness/prompts/how_to.js
+- tools/lib/docs-usefulness/prompts/index.js
+- tools/lib/docs-usefulness/prompts/landing.js
+- tools/lib/docs-usefulness/prompts/overview.js
+- tools/lib/docs-usefulness/prompts/reference.js
+- tools/lib/docs-usefulness/prompts/troubleshooting.js
+- tools/lib/docs-usefulness/prompts/tutorial.js
+- tools/lib/docs-usefulness/quality-gate.js
+- tools/lib/docs-usefulness/rubric-loader.js
+- tools/lib/docs-usefulness/rule-evaluators.js
+- tools/lib/docs-usefulness/scoring.js
+- tools/lib/docs/docs-authoring-rules.js
+- tools/lib/docs/docs-index-utils.js
+- tools/lib/docs/docs-page-scope.js
+- tools/lib/docs/frontmatter-taxonomy.js
+- tools/lib/docs/mdx-safe-markdown.js
+- tools/lib/governance/component-governance-utils.js
+- tools/lib/governance/generated-file-banners.js
+- tools/lib/governance/root-governance.js
+- tools/lib/script-index.md
+- workspace/scripts/repair-registry.py
+- workspace/scripts/script-index.md
 
 ## Post Repair
 
-- Total scripts: 6
-- Grade A/B/C/F: 0/6/0/0
-- Pipeline mismatches: 0
+- Total scripts: 357
+- Grade A/B/C/F: 0/85/231/41
+- Pipeline mismatches: 83
 - Not in JSON: 0
 - Phantom JSON: 0
 
 ## Needs Human
 
-- None
-
-## Warnings
-
-- Skipped staging pre-existing dirty repair targets: tasks/reports/script-classifications.json, tests/unit/docs-guide-sot.test.js
+- .githooks/install.sh: @category, @needs, @purpose-statement
+- .githooks/server-manager.js: @category, @needs, @purpose-statement
+- .githooks/verify-browser.js: @category, @needs, @purpose-statement
+- .githooks/verify.sh: @category, @needs, @purpose-statement
+- .github/scripts/fetch-contract-addresses.js: @category, @needs, @purpose-statement, @pipeline
+- .github/scripts/fetch-discord-announcements.js: @pipeline
+- .github/scripts/fetch-forum-data.js: @pipeline
+- .github/scripts/fetch-ghost-blog-data.js: @pipeline
+- .github/scripts/fetch-github-discussions.js: @pipeline
+- .github/scripts/fetch-github-releases.js: @pipeline
+- .github/scripts/fetch-rss-blog-data.js: @pipeline
+- .github/scripts/fetch-youtube-data.js: @pipeline
+- .github/scripts/generate-changelog.js: @category, @needs, @purpose-statement, @pipeline
+- .github/scripts/update-livepeer-release.js: @purpose, @pipeline
+- operations/scripts/audits/components/documentation/audit-component-usage.js: @category, @needs, @purpose-statement
+- operations/scripts/audits/components/library/scan-component-imports.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/audits/content/health/page-imports-audit.js: @purpose, @scope, @pipeline
+- operations/scripts/audits/content/health/page-links-audit.js: @scope, @pipeline
+- operations/scripts/audits/content/quality/audit-copy-patterns.js: @category, @needs, @purpose-statement
+- operations/scripts/audits/content/quality/audit-media-assets.js: @category, @needs, @purpose-statement
+- operations/scripts/audits/content/quality/audit-python.py: @category, @needs, @purpose-statement
+- operations/scripts/audits/content/quality/audit-v2-usefulness.js: @category, @needs, @purpose-statement
+- operations/scripts/audits/content/quality/docs-quality-and-freshness-audit.js: @category, @needs, @purpose-statement
+- operations/scripts/audits/content/reconciliation/generate-content-gap-reconciliation.js: @category, @needs, @purpose-statement
+- operations/scripts/audits/content/reference/audit-glossary-gaps.js: @category, @needs, @purpose-statement
+- operations/scripts/audits/content/reference/audit-icon-usage.js: @category, @needs, @purpose-statement
+- operations/scripts/audits/content/reference/terminology-search.js: @category, @needs, @purpose-statement
+- operations/scripts/audits/content/style/style-and-language-homogenizer-en-gb.js: @category, @needs, @purpose-statement
+- operations/scripts/audits/content/veracity/docs-page-research.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/audits/content/veracity/docs-research-adjudication.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/audits/governance/repo/audit-tasks-folders.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/audits/governance/reports/generate-v2-folder-governance-cleanup-matrix.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/audits/governance/scripts/audit-script-categories.js: @category, @needs, @purpose-statement
+- operations/scripts/audits/governance/scripts/script-footprint-and-usage-audit.js: @category, @needs, @purpose-statement
+- operations/scripts/automations/ai/agents/cross-agent-packager.js: @category, @needs, @purpose-statement
+- operations/scripts/automations/ai/agents/export-portable-skills.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/automations/ai/agents/sync-codex-skills.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/automations/ai/codex/lock-release.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/automations/ai/codex/task-cleanup.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/automations/ai/codex/task-preflight.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/automations/content/data/contracts/blockchain-page-spec.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/content/data/contracts/branch-watch.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/content/data/contracts/catalog-config.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/content/data/contracts/constants.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/content/data/contracts/incidents.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/content/data/contracts/pipeline.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/content/data/contracts/solidity-parser.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/content/data/contracts/spec.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/content/data/fetching/fetch-external-docs.sh: @pipeline
+- operations/scripts/automations/content/data/fetching/fetch-lpt-exchanges.sh: @category, @needs, @purpose-statement
+- operations/scripts/automations/content/data/fetching/fetch-openapi-specs.sh: @category, @needs, @purpose-statement
+- operations/scripts/automations/content/data/test/contract-address-routes.test.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/content/data/test/contract-verifier.test.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/content/data/test/fetch-contract-addresses.test.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/content/data/transforms/convert-rss-to-mdx.js: @category, @needs, @purpose-statement
+- operations/scripts/automations/content/language-translation/generate-localized-docs-json.js: @category, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/content/language-translation/translate-docs.js: @category, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/content/language-translation/validate-generated.js: @category, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/content/studio-docs-migration.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/automations/governance/cleanup-local-dev-sessions.js: @scope
+- operations/scripts/automations/governance/pipelines/publish-v2-internal-reports.js: @category, @needs, @purpose-statement
+- operations/scripts/config/docs-path-sync.js: @category, @needs, @purpose-statement
+- operations/scripts/config/mdx-sanitise.js: @category, @purpose, @needs, @purpose-statement
+- operations/scripts/config/mintlify-canonical-sync.js: @category
+- operations/scripts/config/og-image-policy.js: @category, @needs, @purpose-statement
+- operations/scripts/dispatch/ai/codex/check-codex-pr-overlap.js: @category, @needs, @purpose-statement
+- operations/scripts/dispatch/ai/codex/codex-commit.js: @category, @needs, @purpose-statement
+- operations/scripts/dispatch/ai/codex/create-codex-pr.js: @category, @needs, @purpose-statement
+- operations/scripts/dispatch/ai/codex/task-finalise.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/content/data/run-solutions-social-fetch.js: @category, @scope
+- operations/scripts/dispatch/content/health/page-integrity-dispatch.js: @scope, @pipeline
+- operations/scripts/dispatch/content/veracity/docs-page-research-pr-report.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/content/veracity/docs-research-packet.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/content/veracity/orchestrator-guides-research-review.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/blast-radius-scanner.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/friction-logger.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/grep-loop-guard.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/headless-batch.sh: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/mdx-constraints-injector.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/mdx-validate-hook.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/message-backup.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/move-detect-hook.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/phase-gate-hook.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/pipelines/governance-pipeline.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/dispatch/governance/pipelines/sync-generated-files.js: @category, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/post-tool-verify.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/pre-compact-checkpoint.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/pre-tool-guard.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/read-logger.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/repo/repo-audit-orchestrator.js: @category, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/session-register.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/dispatch/governance/session-state.js: @category, @purpose, @needs, @purpose-statement, @pipeline
+- operations/scripts/generators/ai/llm/generate-llms-files.js: @category, @pipeline
+- operations/scripts/generators/components/documentation/generate-component-docs.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/generators/components/library/generate-component-examples.js: @category, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/generators/components/library/generate-component-registry.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/generators/components/library/generate-ui-templates.js: @category, @needs, @purpose-statement
+- operations/scripts/generators/content/catalogs/generate-docs-index.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/generators/content/catalogs/generate-pages-index.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/generators/content/reference/generate-api-docs.sh: @category, @needs, @purpose-statement
+- operations/scripts/generators/content/reference/generate-glossary-companions.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/generators/content/reference/generate-glossary.js: @category, @needs, @purpose-statement
+- operations/scripts/generators/content/seo/generate-ai-sitemap.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/generators/content/seo/generate-og-images.js: @category, @needs, @purpose-statement
+- operations/scripts/generators/governance/catalogs/generate-ai-skills-indexes.js: @category
+- operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js: @category, @purpose, @needs, @purpose-statement
+- operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js: @category, @needs, @purpose-statement
+- operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/generators/governance/catalogs/generate-script-registry.js: @pipeline
+- operations/scripts/generators/governance/catalogs/generate-snippets-registry.js: @pipeline
+- operations/scripts/generators/governance/reports/generate-ai-tools-inventory.js: @category, @purpose, @needs, @purpose-statement
+- operations/scripts/generators/governance/root/generate-root-governance-artifacts.js: @purpose, @pipeline
+- operations/scripts/generators/governance/scaffold/new-script.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/generators/media/generate-hero-background.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/generators/media/generate-hero-image.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/remediators/components/library/repair-component-metadata.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/remediators/content/classification/add-framework-headers.js: @category, @needs, @purpose-statement
+- operations/scripts/remediators/content/classification/add-pagetype-mechanical.js: @category, @needs, @purpose-statement
+- operations/scripts/remediators/content/classification/assign-purpose-metadata.js: @category, @needs, @purpose-statement
+- operations/scripts/remediators/content/repair/migrate-assets-to-branch.js: @category, @needs, @purpose-statement
+- operations/scripts/remediators/content/repair/quarantine-manager.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/remediators/content/repair/repair-mdx-safe-markdown.js: @category, @needs, @purpose-statement
+- operations/scripts/remediators/content/repair/repair-page-imports.js: @purpose, @scope
+- operations/scripts/remediators/content/repair/repair-page-links.js: @scope
+- operations/scripts/remediators/content/repair/repair-relative-page-hrefs.js: @scope
+- operations/scripts/remediators/content/repair/repair-spelling.js: @category, @needs, @purpose-statement
+- operations/scripts/remediators/content/repair/sync-docs-paths.js: @category, @needs, @purpose-statement
+- operations/scripts/remediators/content/seo/generate-seo.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/remediators/content/style/repair-ownerless-language.js: @category, @needs, @purpose-statement
+- operations/scripts/remediators/content/style/wcag-repair-common.js: @category, @needs, @purpose-statement
+- operations/scripts/remediators/governance/scaffold/fix-usage-paths.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/remediators/governance/scaffold/update-jsdoc-headers.js: @category, @purpose, @scope, @needs, @purpose-statement
+- operations/scripts/remediators/governance/scripts/repair-script-inventory.js: @category, @purpose, @needs, @purpose-statement
+- operations/scripts/validators/ai/codex/check-no-ai-stash.sh: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/validators/ai/codex/validate-locks.js: @category, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/validators/components/documentation/check-component-docs.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/validators/components/library/check-component-css.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/validators/components/library/check-component-health.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/validators/components/library/check-mdx-component-scope.js: @category, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/validators/components/library/check-naming-conventions.js: @category, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/validators/components/library/component-layout-governance.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/validators/content/copy/lint-copy.js: @category, @needs, @purpose-statement
+- operations/scripts/validators/content/copy/lint-patterns.js: @category, @needs, @purpose-statement
+- operations/scripts/validators/content/grammar/check-grammar-en-gb.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/validators/content/grammar/check-proper-nouns.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/validators/content/language-translation/test-mintlify-version-language-toggle.js: @scope
+- operations/scripts/validators/content/structure/check-anchor-usage.js: @category, @needs, @purpose-statement
+- operations/scripts/validators/content/structure/check-description-quality.js: @category, @needs, @purpose-statement
+- operations/scripts/validators/content/structure/check-docs-path-sync.js: @category, @needs, @purpose-statement
+- operations/scripts/validators/content/structure/check-double-headers.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/validators/content/structure/check-mdx-safe-markdown.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/validators/content/structure/check-page-endings.js: @category, @needs, @purpose-statement
+- operations/scripts/validators/content/structure/enforce-generated-file-banners.js: @category, @needs, @purpose-statement
+- operations/scripts/validators/content/structure/lint-structure.js: @category, @needs, @purpose-statement
+- operations/scripts/validators/content/structure/test-v2-pages.js: @pipeline
+- operations/scripts/validators/content/structure/verify-all-pages.js: @category, @needs, @purpose-statement
+- operations/scripts/validators/content/veracity/docs-fact-registry.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/validators/governance/ai/check-companion-manifest.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/validators/governance/compliance/check-agent-docs-freshness.js: @category
+- operations/scripts/validators/governance/compliance/check-mintlify-canonical-sync.js: @pipeline
+- operations/scripts/validators/governance/compliance/check-root-governance-sync.js: @purpose, @pipeline
+- operations/scripts/validators/governance/compliance/review-governance-repair-checklist.js: @category, @needs, @purpose-statement
+- operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/validators/governance/compliance/validate-codex-task-contract.js: @category, @scope, @needs, @purpose-statement, @pipeline
+- operations/scripts/validators/governance/compliance/verify-pay-orc-gate-finalize.sh: @category, @needs, @purpose-statement
+- operations/scripts/validators/governance/pr/audit-script-inventory.js: @category, @needs, @purpose-statement
+- operations/scripts/validators/governance/pr/check-component-immutability.js: @category, @needs, @purpose-statement, @pipeline
+- operations/scripts/validators/governance/pr/check-pr-template.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/validators/governance/repo/validate-lpd-paths.js: @category, @scope, @needs, @purpose-statement
+- operations/scripts/x-archive/.verify-large-change.sh: @scope
+- operations/scripts/x-archive/batch-update-og-image.sh: @scope
+- operations/scripts/x-archive/codex-safe-merge-with-stash.js: @scope
+- operations/scripts/x-archive/replace-og-image.py: @scope
+- operations/scripts/x-archive/seo-generator-safe.js: @scope
+- operations/scripts/x-archive/update-all-og-images.js: @scope
+- operations/scripts/x-archive/update-og-image.js: @scope
+- operations/tests/contracts-browser-harness.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/tests/contracts-validator-contract.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/tests/integration/browser.test.js: @scope
+- operations/tests/integration/mdx-component-runtime-smoke.js: @scope
+- operations/tests/integration/v2-link-audit.js: @scope, @pipeline
+- operations/tests/integration/v2-link-audit.selftest.js: @scope
+- operations/tests/integration/v2-wcag-audit.selftest.js: @scope
+- operations/tests/playwright-blockchain-contracts.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/tests/playwright-community-components.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/tests/playwright-contract-addresses.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/tests/playwright-studio-docs-migration.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/tests/run-all.js: @scope, @pipeline
+- operations/tests/run-pr-checks.js: @pipeline
+- operations/tests/unit/ai-tools-registry.test.js: @pipeline
+- operations/tests/unit/ai-tools-visual-library.test.js: @purpose, @pipeline
+- operations/tests/unit/audit-script-inventory-repair-rules.test.js: @scope
+- operations/tests/unit/authoring-tools.test.js: @scope, @pipeline
+- operations/tests/unit/check-agent-docs-freshness.test.js: @scope, @pipeline
+- operations/tests/unit/check-mintlify-canonical-sync.test.js: @scope, @pipeline
+- operations/tests/unit/cleanup-local-dev-sessions.test.js: @scope
+- operations/tests/unit/codex-commit.test.js: @scope
+- operations/tests/unit/codex-safe-merge-with-stash.test.js: @scope
+- operations/tests/unit/codex-task-cleanup.test.js: @scope
+- operations/tests/unit/codex-task-preflight.test.js: @scope
+- operations/tests/unit/component-governance-generators.test.js: @scope
+- operations/tests/unit/component-governance-utils.test.js: @scope
+- operations/tests/unit/components/TEMPLATE.test.js: @scope
+- operations/tests/unit/contracts-addresses-pipeline.test.js: @purpose, @scope, @pipeline
+- operations/tests/unit/contracts-view-model.test.js: @purpose, @scope, @needs, @pipeline
+- operations/tests/unit/copy-lint.test.js: @scope, @pipeline
+- operations/tests/unit/create-codex-pr.test.js: @scope
+- operations/tests/unit/docs-authoring-rules.test.js: @scope
+- operations/tests/unit/docs-fact-registry.test.js: @scope
+- operations/tests/unit/docs-guide-sot.test.js: @scope, @pipeline
+- operations/tests/unit/docs-navigation.test.js: @scope, @pipeline
+- operations/tests/unit/docs-page-research-pr-report.test.js: @scope
+- operations/tests/unit/docs-page-research.test.js: @scope
+- operations/tests/unit/docs-page-scope.test.js: @scope
+- operations/tests/unit/docs-path-sync.test.js: @scope, @pipeline
+- operations/tests/unit/docs-research-adjudication.test.js: @scope
+- operations/tests/unit/docs-research-packet.test.js: @scope
+- operations/tests/unit/docs-route-scope.test.js: @scope, @pipeline
+- operations/tests/unit/export-portable-skills.test.js: @scope, @pipeline
+- operations/tests/unit/frontmatter-taxonomy.test.js: @scope
+- operations/tests/unit/generated-artifacts-policy.test.js: @scope
+- operations/tests/unit/imports-cli.test.js: @purpose, @scope
+- operations/tests/unit/imports.test.js: @purpose, @scope, @pipeline
+- operations/tests/unit/links-cli.test.js: @scope
+- operations/tests/unit/links-imports.test.js: @scope, @pipeline
+- operations/tests/unit/links.test.js: @scope, @pipeline
+- operations/tests/unit/lpd-scoped-mint-dev.test.js: @scope
+- operations/tests/unit/mdx-component-runtime-smoke.test.js: @scope
+- operations/tests/unit/mdx-component-scope.test.js: @scope
+- operations/tests/unit/mdx-guards.test.js: @scope, @pipeline
+- operations/tests/unit/mdx-safe-markdown.test.js: @scope
+- operations/tests/unit/mdx-sanitise.test.js: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
+- operations/tests/unit/mdx.test.js: @scope, @pipeline
+- operations/tests/unit/migrate-assets-to-branch.test.js: @scope
+- operations/tests/unit/mint-dev-locks.test.js: @scope
+- operations/tests/unit/og-image-policy.test.js: @scope
+- operations/tests/unit/openapi-reference-audit.test.js: @scope
+- operations/tests/unit/openapi-rolling-issue.test.js: @scope
+- operations/tests/unit/orchestrator-guides-research-review.test.js: @scope
+- operations/tests/unit/ownerless-governance.test.js: @scope, @pipeline
+- operations/tests/unit/page-imports-audit.test.js: @purpose, @scope
+- operations/tests/unit/page-integrity-dispatch.test.js: @scope
+- operations/tests/unit/page-integrity-rolling-issue.test.js: @scope
+- operations/tests/unit/precommit-staged-cache.test.js: @scope
+- operations/tests/unit/quality.test.js: @scope, @pipeline
+- operations/tests/unit/repair-governance.test.js: @scope
+- operations/tests/unit/repair-spelling.test.js: @scope
+- operations/tests/unit/repo-audit-pipeline.test.js: @scope
+- operations/tests/unit/root-allowlist-format.test.js: @scope, @pipeline
+- operations/tests/unit/root-governance-sync.test.js: @pipeline
+- operations/tests/unit/run-pr-checks.test.js: @scope
+- operations/tests/unit/script-docs.test.js: @scope, @pipeline
+- operations/tests/unit/skill-docs.test.js: @scope, @pipeline
+- operations/tests/unit/snippets-root-governance.test.js: @pipeline
+- operations/tests/unit/spelling.test.js: @scope, @pipeline
+- operations/tests/unit/style-guide.test.js: @scope, @pipeline
+- operations/tests/unit/ui-template-generator.test.js: @scope, @pipeline
+- operations/tests/unit/update-livepeer-release.test.js: @purpose, @pipeline
+- operations/tests/unit/usefulness-journey.test.js: @pipeline
+- operations/tests/unit/usefulness-rubric.test.js: @pipeline
+- operations/tests/unit/v2-folder-governance-cleanup-matrix.test.js: @scope
+- operations/tests/unit/v2-link-audit.test.js: @scope
+- operations/tests/unit/v2-wcag-audit.test.js: @scope
+- operations/tests/unit/validate-codex-task-contract.test.js: @scope
+- operations/tests/unit/vsix-parity.test.js: @scope, @pipeline
+- operations/tests/utils/file-walker.js: @scope
+- operations/tests/utils/mdx-parser.js: @scope
+- operations/tests/utils/mintignore.js: @scope
+- operations/tests/utils/openapi-rolling-issue.js: @scope
+- operations/tests/utils/spell-checker.js: @scope
+- tools/config/runtime/v2-internal-report-pages.js: @category
+- tools/dev/authoring/add-callouts.js: @category, @needs, @purpose-statement
+- tools/dev/authoring/format-mdx.js: @category, @scope, @needs, @purpose-statement
+- tools/dev/editor/rename-vscode-codex-chat.js: @category, @needs, @purpose-statement
+- tools/dev/preview/debug-mint-dev.js: @category, @needs, @purpose-statement
+- tools/dev/preview/ensure-mint-watcher-patch.sh: @category, @needs, @purpose-statement
+- tools/dev/preview/generate-mint-dev-scope.js: @category, @scope, @needs, @purpose-statement
+- tools/dev/preview/mint-custom-loader.sh: @category, @needs, @purpose-statement
+- tools/dev/preview/mint-dev.sh: @category, @needs, @purpose-statement
+- tools/lib/bootstrap/load-js-yaml.js: @scope
+- tools/lib/bootstrap/load-minimatch.js: @scope
+- tools/lib/bootstrap/precommit-staged-cache.js: @scope
+- tools/lib/docs/docs-authoring-rules.js: @scope
+- tools/lib/docs/docs-page-scope.js: @scope
+- tools/lib/docs/docs-publishability.js: @scope
+- tools/lib/docs/frontmatter-taxonomy.js: @scope
+- tools/lib/governance/generated-artifacts.js: @scope
+- tools/lib/governance/root-governance.js: @purpose
+- workspace/scripts/repair-registry.py: @category, @purpose, @scope, @needs, @purpose-statement, @pipeline
 
 ## Improvement
 
 - Grade A delta: +0
-- Grade F delta: +0
-- Fixes applied: 10
-- Remaining human items: 0
+- Grade F delta: -36
+- Fixes applied: 555
+- Remaining human items: 290
 

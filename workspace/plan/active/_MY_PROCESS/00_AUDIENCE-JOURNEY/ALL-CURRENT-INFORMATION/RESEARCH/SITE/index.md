@@ -2,48 +2,283 @@ AIM: consolidate all audience, personas, journeys for each tab & determine a fin
 
 # ALL FILES
 
-Category = Persona, Audience, Journey, IA, Content, Prompt/Skill, Plan
+| Name | Location | Category |
+|------|----------|----------|
+| Audience & Persona Mapping & Definitions | `docs-guide/_workspace/02_Design-Specification/02_Audience-&-Personas/01_01.../index.md` | Persona |
+| Personas Journey Alignment | `docs-guide/_workspace/02_Design-Specification/02_Audience-&-Personas/02_02.../index.md` | Journey |
+| IA Structure & Purpose | `docs-guide/_workspace/02_Design-Specification/03_IA-Framework/01_03.../index.md` | IA |
+| IA Journey-Derived IA | `docs-guide/_workspace/02_Design-Specification/03_IA-Framework/02_04.../index.md` | IA |
+| IA Blueprint | `docs-guide/_workspace/02_Design-Specification/03_IA-Framework/03_05.../index.md` | IA |
+| usefulness-audience-normalization.json | `tools/config/` | Audience |
+| usefulness-journeys.json | `tools/config/` | Journey |
+| cross-tab-journeys.md | `CONTENT-WRITING/decisions/` | Journey |
+| site-map.md | `CONTENT-WRITING/Prompts/Previous Prompts Used/site-map/` | IA |
+| 08a-ia-per-tab.md | `CONTENT-WRITING/Prompts/Previous Prompts Used/derive-ia/` | IA |
+| TEMPLATE-tab-ia-map.md | `CONTENT-WRITING/Prompts/Previous Prompts Used/derive-ia/` | Plan |
+| personas.md (research) | `CONTENT-WRITING/Prompts/.../current-repo-resources/` | Persona |
+| MASTER-AUDIENCE-SOURCES-CONTENT-GAP-REPORT.md | `CONTENT-WRITING/CONTENT/` | Content |
+| voice-rules.md | `CONTENT-WRITING/Prompts/` | Prompt/Skill |
+| 00-NEW-tab-ownership-map.md | `_MY_PROCESS/.../FULL-FILES/` | IA |
+| personas.mdx | `v2/internal/overview/` | Persona |
+| persona-routing.md | `ai-tools/ai-skills/docs-copy/skills/` | Prompt/Skill |
+| audience-design-v5.md | `CONTENT-WRITING/Prompts/Prompts-By-Phase/1-audience-design/` | Prompt/Skill |
 
-| Name | Location | Category | Summary of File Contents |
-|------|----------|----------|--------------------------|
-| Audience & Persona Mapping & Definitions | `docs-guide/_workspace/02_Design-Specification/02_Audience-&-Personas/01_01.-Audience-&-Persona-Mapping-&-Definitions/index.md` | Persona | 8 personas tied to network functions: Solution Integrator, Application Developer, Gateway Operator, Orchestrator, Delegator, Protocol Developer, Community Builder, Researcher. Mapped to network functions, tabs, activation moments. Roles overlap — routing should be goal-based not label-based. |
-| Personas Journey Alignment | `docs-guide/_workspace/02_Design-Specification/02_Audience-&-Personas/02_02.-Personas-Journey-Alignment/index.md` | Journey | Maps self-identification ("I'm a developer") to actual personas via goal-based tabs. 9 audience tokens (developer, gateway-operator, orchestrator, delegator, platform-builder, community, internal, general, everyone). Journey stages per persona from discovery through activation to mastery. Known content gaps (AI Jobs quickstart "coming soon", Studio migration missing). |
-| IA Structure & Purpose | `docs-guide/_workspace/02_Design-Specification/03_IA-Framework/01_03-IA-Structure-and-Purpose/index.md` | IA | 6-position structural pattern: landing → overview/concept → quickstart → how_to → guide → reference. Each purpose type has criteria and assessment checklists. Positions 1-3 LINEAR (sequential). Positions 4-6 ON-DEMAND (jump-to). |
-| IA Journey-Derived IA | `docs-guide/_workspace/02_Design-Specification/03_IA-Framework/02_04-IA-Journey-Derived-IA/index.md` | IA | Maps journey stages to purpose types and structural alignment per persona. Per-tab purpose skeletons: Developers needs full stack (landing through reference); Delegators needs no guide; Resource Hub needs reference only. |
-| IA Blueprint | `docs-guide/_workspace/02_Design-Specification/03_IA-Framework/03_05-IA-Blueprint/index.md` | IA | Journey-first page derivation for all 9 journeys. **~96 pages total across site** (down from 177 repo-contaminated count). Each journey specifies pages by stage and purpose type. |
-| usefulness-audience-normalization.json | `tools/config/` | Audience | 7 canonical audiences: founder, builder, developer, gateway, orchestrator, delegator, community. Deterministic precedence ordering. Synonym mapping. Section defaults (developers tab → developer audience, etc.). Supports scalar/CSV/YAML array formats. |
-| usefulness-journeys.json | `tools/config/` | Journey | 8 persona journeys with success criteria and step-by-step paths. Developer AI: "zero to completed AI inference job." Gateway: "zero to running gateway routing first job." Delegator: "active delegation with rewards visible." Each journey maps positions, purpose types, and path patterns. |
-| cross-tab-journeys.md | `workspace/plan/active/CONTENT-WRITING/decisions/` | Journey | Stub for Phase 3 (IA Audit). Structure for graduation paths (Founder → About → Builder → Developers), cross-tab shared terminology (Phase 12), AI discoverability requirements. Placeholder — no content yet. |
-| site-map.md | `workspace/plan/active/CONTENT-WRITING/Prompts/Previous Prompts Used/site-map/` | Content, IA | 9-tab ownership map (March 2026). Home (narrative + routing), About (protocol + architecture), Solutions (platform products), Developers (custom pipelines + SDKs), Gateways (operator setup), Orchestrators (GPU nodes), Delegators (LPT mechanics), Community (ecosystem), Resource Hub (cross-cutting reference). Self-containment principle: each tab serves its audience without requiring other tab visits. Estimated 10-50 pages per tab; ~96 total. |
-| 08a-ia-per-tab.md | `workspace/plan/active/CONTENT-WRITING/Prompts/Previous Prompts Used/derive-ia/` | IA | Locked section vocabulary: portal, concepts, quickstart, setup, guides, resources/reference, resources/knowledge-hub. Audit of Gateways and Orchestrators folder structure. Defines reader journey per tab (linear 1-3, on-demand 4-6). Guide subgroups with pageType and lifecycleStage assignments. |
-| TEMPLATE-tab-ia-map.md | `workspace/plan/active/CONTENT-WRITING/Prompts/Previous Prompts Used/derive-ia/` | Plan | Reusable template for tab IA maps. 3 parts: existing resources + findings, audience design (arriving question, personas, jobs, journey, sections), gap analysis vs current structure. Checkpoint gates for validation. |
-| personas.md (research) | `workspace/plan/active/CONTENT-WRITING/Prompts/Prompts-By-Phase/_research-and-consolidated-notes/current-repo-resources/` | Persona | Registry of sourced personas and journey resources. Gateway: 5 archetypes (Discord/GitHub/Messari sourced). Community: 20 JTBDs. Developer: from internal personas.mdx (aspirational). **Orchestrators, Delegators, Founders have NO sourced persona files** — Phase 1 requires human research. |
-| MASTER-AUDIENCE-SOURCES-CONTENT-GAP-REPORT.md | `workspace/plan/active/CONTENT-WRITING/CONTENT/` | Content | Network state July 2025-March 2026. AI fees up 21x ($7K to $147K/quarter) but 89:1 inflation:fees ratio ($18M staking vs $204K fees). LPT price collapsed $6→$2. Delegators declining 3,332→2,683. Developer audience bifurcating: legacy video (Studio) vs AI-native (ComfyStream, BYOC, Daydream). Governance: LIP-107 (emissions brake), LIP-101 (treasury restart), LIP-100 (inflation bounds). Orchestrator pain: unreliable AI models vs centralised providers. |
-| voice-rules.md | `workspace/plan/active/CONTENT-WRITING/Prompts/` | Prompt/Skill | 5 audience-specific voice registers: gateway (infrastructure, direct/factual), orchestrator (operational, numbers-driven, hardware-aware), developer (code-first, minimal prose), builder (integration-focused, outcome-before-mechanism), delegator (accessible, plain-language, decision-support). Banned phrases. Applied in Phase 5 voice check. |
-| 00-NEW-tab-ownership-map.md | `workspace/plan/active/_MY_PROCESS/00_AUDIENCE-JOURNEY/ALL-CURRENT-INFORMATION/FULL-FILES/` | Content, IA | Canonical 9-tab ownership. Each tab: primary audience, secondary visitors, what it owns, what it does NOT own, handoff points. IA alignment gaps: Developers most problematic (missing portal, no canonical quickstart folder); LP Token needs proper portal and quickstart; Gateways and Orchestrators well-aligned. |
-| personas.mdx | `v2/internal/overview/` | Persona | Developer persona definition. Developer modes mapped to roles (hosted gateways → App Developer, self-hosted → Gateway Operator, protocol → Protocol Developer). 5-stage builder journey: Awareness → Orientation → Activation → Progression → Hero. May be aspirational — requires sourcing before Phase 1. |
-| persona-routing.md | `ai-tools/ai-skills/docs-copy/skills/` | Prompt/Skill | L1 skill for multi-profile pages. Uses functional identifiers (hardware/LPT/goal), NOT persona names. Majority path = default; routing directs minority profiles. Never routes to non-existent pages. Routing appears once near page top, after outcome sentence. |
-| audience-design-v5.md | `workspace/plan/active/CONTENT-WRITING/Prompts/Prompts-By-Phase/1-audience-design/` | Prompt/Skill | Prompt A of tab IA design pipeline. 7-phase execution for tab audience/journey/IA derivation. 7 pageTypes (navigation, concept, tutorial, guide, instruction, reference, resource). 7 lifecycleStages (discover through optimise). 15 purpose enums (orient through update). Framework locked — input is Product Context + TERMINOLOGY_LOCK. |
+---
 
-# Summary All Files Per Category
+# AUDIENCE — Site-wide canonical model
 
-## Persona
-8 primary personas tied to network functions. Roles overlap fundamentally — an "orchestrator" is simultaneously compute provider, AI model curator, governance voter, reputation player. Docs must serve all functions, not assume single role. Gateway personas sourced (5 archetypes from Discord/GitHub/Messari). Community: 20 JTBDs. **Orchestrators, Delegators, Founders have NO sourced persona files.**
+### 7 canonical audiences
 
-## Audience
-7 canonical audiences: founder, builder, developer, gateway, orchestrator, delegator, community. Self-containment principle: each tab serves its audience without requiring other tab visits. Intentional cross-tab duplication is correct. Tab-to-audience: Home → community, About → all at discover, Solutions → builder + founder, Developers → developer, Gateways → gateway, Orchestrators → orchestrator, Delegators → delegator, Community → community, Resource Hub → community.
+**Source**: usefulness-audience-normalization.json
 
-## Journey
-8 persona journeys with binary success gates (testable activation tests): Developer AI (send inference, get result), Developer Video (submit transcode, get output), Gateway (route first job), Orchestrator (process job with earnings visible), Delegator (active delegation with rewards visible), Newcomer (explain Livepeer + navigate to portal in 5 min), Community (submit first contribution), Platform Builder (evaluate → prototype → operate). Cross-journey graduation paths: Platform Builder → Developer → Gateways → About. Orchestrator → dual-mode (run gateway too). Delegator → About → LP Token.
+| Token | Description | Primary tab |
+|---|---|---|
+| `founder` | Evaluating Livepeer for product/business | Solutions, About |
+| `builder` | Building products ON TOP of Livepeer (Daydream, Streamplace, etc.) | Solutions |
+| `developer` | Building apps/APIs/SDKs consuming Livepeer | Developers |
+| `gateway` | Running gateway infrastructure | Gateways |
+| `orchestrator` | GPU node operators providing compute | Orchestrators |
+| `delegator` | LPT token holders staking + governance | Delegators |
+| `community` | Contributors, governance participants, newcomers, everyone else | Community, Home, Resource Hub |
 
-## IA
-6-position structural pattern LOCKED: landing → overview → quickstart → how_to → guide → reference. Positions 1-3 LINEAR, 4-6 ON-DEMAND. Per-tab skeletons: Developers/Gateways/Orchestrators need full stack; Delegators no guide; Resource Hub reference only. **~96 pages ideal** (down from 177 in repo). Section vocabulary locked: portal, concepts, quickstart, setup, guides, resources. Current alignment: Gateways/Orchestrators closest; Developers most problematic; Delegators missing portal/quickstart.
+Deterministic precedence ordering. Synonym mapping. Section defaults.
 
-## Content
-Network state: AI fees growing 21x but 89:1 inflation:fees ratio unsustainable. LPT collapsed $6→$2. Delegators declining. Developer audience bifurcating (Studio legacy vs AI-native). Governance: LIP-107/101/100 addressing inflation. Orchestrator pain: unreliable AI models. 9-tab ownership map defines what each tab owns and does NOT own. Voice rules: 5 registers per audience.
+### Self-containment principle
 
-## Prompt/Skill
-Audience design prompt v5 (7-phase execution). 7 pageTypes, 7 lifecycleStages, 15 purpose enums — all LOCKED. Persona routing skill: functional identifiers not persona names. Voice rules: 5 registers. Model pairing recommendations: Claude for terminology precision, ChatGPT for granularity and exit-state specificity. Source authority: 4-tier system (primary/acceptable/lead/not-permitted). Governance-controlled values never hard-coded.
+**Source**: site-map.md
 
-## Plan
-~96 pages ideal across site. Self-containment principle. Cross-tab journeys placeholder (Phase 3). Graduation paths defined but Phase 12 work deferred. IA template reusable across all tabs. Key findings: Gateways most advanced (13 pages written), Orchestrators Phase 1 complete (gated on LIP-92), Developers Phase 1 complete (gated on S6 split), Delegators Phase 1 complete (gated on rewards placement), About Phase 1 complete (gated on audience token), Home/Community/Solutions/Resource Hub early stage (1 run only each).
+Each tab is authored for one primary audience assuming they will NOT visit other tabs. If a gateway operator needs to understand AI selection, that content must exist in the Gateways tab — not just linked to Developers. **Intentional cross-tab duplication is correct and expected.**
+
+### Tab-to-audience mapping
+
+**Source**: 00-NEW-tab-ownership-map.md
+
+| Tab | Owns | Does NOT own |
+|---|---|---|
+| **Home** | Narrative, value prop, routing, Foundation intro, ecosystem map, evolution, roadmap | Any role-specific task content |
+| **About** | Protocol mechanics, actor definitions, tokenomics, governance model, economics, whitepaper reference | Task-oriented content (quickstarts, how-tos) |
+| **Solutions** | Platform products (Daydream, Streamplace, Studio, etc.), full Studio docs as legacy anchor | Protocol mechanics, node operation |
+| **Developers** | Custom AI + video development, BYOC, integration patterns, SDK/API reference, opportunities/grants | Gateway operation, node operation |
+| **Gateways** | Gateway operator concepts, quickstart, setup, operational guides, business model, all 3 gateway types | Application development, orchestrator operation |
+| **Orchestrators** | Orchestrator concepts, quickstart, setup, guides, hardware profiles | Gateway setup, application development |
+| **Delegators** | LPT definition, delegation mechanics, governance participation, treasury, staking/earning | Protocol architecture, node operation |
+| **Community** | Contribution guidelines, events, participation paths, forums, ecosystem participation | Governance mechanics (→ LP Token), protocol governance (→ About), code contribution (→ Developers) |
+| **Resource Hub** | Cross-cutting reference: changelog, glossaries, docs guide, per-role reference indexes | Conceptual content, task-oriented content |
+
+---
+
+# PERSONAS — Site-wide model (8 personas by network function)
+
+**Source**: Audience & Persona Mapping & Definitions (Design Specification)
+
+### The core insight
+
+> People self-identify with generic labels: "I'm a developer," "I'm an operator." **But Livepeer's roles don't map cleanly to those labels.** An orchestrator is also a delegate, also a model builder, also a governance voter. A "developer" could mean six different things.
+
+### 8 personas by function
+
+| # | Persona | Primary function | Self-identifies as | Primary tab | Activation moment |
+|---|---|---|---|---|---|
+| 1 | **Solution Integrator** | Consume services (call API, get results, don't run infra) | "Developer," "founder" | Solutions / Developers | First successful API call returning video/AI result |
+| 2 | **Application Developer** | Provide workloads (build pipelines/BYOC that run on network GPUs) | "Developer," "founder," "builder," "AI engineer" | Developers | First working custom pipeline processing jobs |
+| 3 | **Gateway Operator** | Route traffic (run gateway middleware between clients and orchestrators) | "Operator," "infra engineer" | Gateways | First job routed through their gateway to orchestrator |
+| 4 | **Orchestrator** | Provide compute (run GPU hardware executing jobs) | "Operator," "miner," "node runner" | Orchestrators | First job processed with earnings visible in Explorer |
+| 5 | **Delegator** | Provide capital (stake LPT, earn rewards, vote) | "Investor," "token holder," "staker" | Delegators | Active delegation with reward accrual visible |
+| 6 | **Protocol Developer / Core Contributor** | Extend the protocol (smart contracts, go-livepeer core, LIPs) | "Protocol dev," "blockchain dev," "contributor" | Developers + About | First merged PR to go-livepeer or deployed improvement |
+| 7 | **Community Builder** | Build ecosystem (docs, education, governance, SPE participation) | "Contributor," "community member" | Community | First visible contribution (doc PR, governance vote, SPE proposal) |
+| 8 | **Researcher** | Evaluate (architecture, performance, economics for papers/benchmarks/analysis) | "Researcher," "analyst" | About + Resource Hub | Not building — studying |
+
+### Real-world actor to function mapping
+
+**Source**: Design Specification
+
+| Real-world actor | Functions they perform | Tabs they need |
+|---|---|---|
+| AI startup founder | Consume + Provide workloads + Route traffic | Developers, Gateways |
+| Indie app developer | Consume services (that's it) | Solutions or Developers (API only) |
+| GPU farm operator | Provide compute + Provide capital | Orchestrators + Delegators |
+| Long-time LPT holder | Provide capital + Governance | Delegators |
+| Protocol engineer | Extend protocol | Developers + About |
+| DePIN researcher | Evaluate | About + Resource Hub |
+
+### Persona research status
+
+**Source**: personas.md (research index)
+
+| Persona | Sourced research exists? | Source |
+|---|---|---|
+| Gateway Operator | ✅ Yes — 5 archetypes | Discord #local-gateways, GitHub issues, Messari |
+| Community | ✅ Yes — 20 JTBDs | community-tab-02 research |
+| Developer | ⚠️ Partial — aspirational only | v2/internal/overview/personas.mdx |
+| Orchestrator | ❌ No sourced persona file | Phase 1 requires human research |
+| Delegator | ❌ No sourced persona file | Phase 1 requires human research |
+| Founder | ❌ No sourced persona file | Phase 1 requires human research |
+| Researcher | ❌ No sourced persona file | Thin coverage, Foundation targets this group |
+
+---
+
+# JOURNEYS — Site-wide model (8 persona journeys with success gates)
+
+**Source**: usefulness-journeys.json, Personas Journey Alignment
+
+| Journey | Success gate (binary test) | Known gaps |
+|---|---|---|
+| **Developer (AI)** | Tester follows only docs, sends text-to-image request, receives image | AI Jobs quickstart "coming soon" in some paths |
+| **Developer (Video)** | Submit video file, receive transcoded output | Transcoding quickstart "coming soon"; Studio migration guide missing |
+| **Gateway Operator** | Zero to running gateway routing first job + on-chain registration | On-chain registration incomplete; no end-to-end walkthrough |
+| **Orchestrator** | Zero to registered node processing job with earnings visible | AI setup fragmented; no end-to-end walkthrough stages 3-6 |
+| **Delegator** | Zero to active delegation with rewards visible | Guide exists but no interactive walkthrough; exchange/bridge info stale |
+| **Newcomer** | Within 5 minutes, explain Livepeer in one sentence AND navigate to correct portal | Get Started sub-pages are placeholders |
+| **Community** | Submit first contribution (doc PR, GitHub issue, governance vote) | Contribution guidelines placeholder; no "your first contribution" walkthrough |
+| **Platform Builder** | Evaluate → design → prototype → operate at scale | Production operations doesn't exist |
+
+### Cross-journey graduation paths
+
+**Source**: cross-tab-journeys.md (stub), Personas Journey Alignment
+
+- Founder → About → Builder → Developers/Gateways
+- Delegator → About (protocol understanding) → LP Token (participation)
+- Orchestrator → dual-mode (add gateway operation)
+- Platform Builder → Developer → Gateways → About (multi-tab journey)
+
+---
+
+# IA — Site-wide structural model
+
+### 6-position structural pattern (LOCKED)
+
+**Source**: IA Structure & Purpose
+
+| Position | Purpose type | Reader state | Job |
+|---|---|---|---|
+| 1 | **landing** | Just arrived | Route to right place |
+| 2 | **overview** | Orienting, evaluating | Understand what this is, how it works, does it apply |
+| 3 | **quickstart** | Ready to try | First success in 15 min |
+| 4 | **how_to** | Active, specific task | One specific thing |
+| 5 | **guide** | Active, system understanding | How does this work in practice |
+| 6 | **reference** | Any stage, on-demand lookup | Exact specs/parameters/answers |
+
+**Positions 1-3 are LINEAR** (first-time, sequential). **Positions 4-6 are ON-DEMAND** (jump from anywhere).
+
+### Per-tab purpose skeletons
+
+**Source**: IA Journey-Derived IA
+
+| Tab | Required purpose types |
+|---|---|
+| Home | landing, overview |
+| About | overview, reference (conceptual, not task-oriented) |
+| Solutions | landing, overview (signpost only) |
+| Developers | landing, overview, quickstart (×2: AI + Video), how_to, guide, reference — **FULL STACK** |
+| Gateways | landing, overview, quickstart, how_to, guide, reference — **FULL STACK** |
+| Orchestrators | landing, overview, quickstart, how_to, guide, reference — **FULL STACK** |
+| Delegators | landing, overview, quickstart, how_to, reference (no guide needed) |
+| Community | landing, overview, how_to, reference (lighter stack) |
+| Resource Hub | reference only (no tutorials or concepts) |
+
+### Locked section vocabulary
+
+**Source**: 08a-ia-per-tab.md
+
+Canonical folder names: portal, concepts, quickstart, setup, guides, resources/reference, resources/knowledge-hub.
+
+### Page count target
+
+**Source**: IA Blueprint
+
+**~96 pages total** across site (down from 177 repo-contaminated count). Journey-first design produces ~45% fewer pages than repo-first design.
+
+| Tab | Estimated pages |
+|---|---|
+| Home | 4 |
+| About | 7 |
+| Developers | 14 |
+| Solutions | ~22 (2 shared + ~5 per platform × 4) |
+| Gateways | 15 |
+| Orchestrators | 12 |
+| Delegators | 10 |
+| Community | 6 |
+| Resource Hub | 6 |
+
+### Current IA alignment
+
+**Source**: 00-NEW-tab-ownership-map.md
+
+| Tab | Alignment to canonical |
+|---|---|
+| Orchestrators | ✅ Closest to canonical. Reference template. |
+| Gateways | ✅ Close. Minor sub-section reorganisation needed |
+| Developers | 🔴 Most problematic. Missing portal, quickstart scattered, no setup section, guides mix types |
+| Delegators | ⚠️ Missing proper portal and quickstart |
+| About | ⚠️ Non-task tab — custom IA correct |
+| Home | ⚠️ Non-task tab — custom IA correct |
+| Community | ⚠️ Lighter stack — custom IA correct |
+| Solutions | ⚠️ Product-focused — custom IA correct |
+| Resource Hub | ⚠️ Reference-only — custom IA correct |
+
+---
+
+# VOICE — Per-audience registers
+
+**Source**: voice-rules.md
+
+| Audience | Register | Key rules |
+|---|---|---|
+| `gateway` | Infrastructure operator | Peer-to-peer technical, direct/factual, assumes competence, concrete numbers, imperative commands |
+| `orchestrator` | Node operator | Operational/numbers-driven, hardware-specific (VRAM, CPU, NVLink), performance-focused, respects investment |
+| `developer` | Code-first builder | Code first, minimal prose, peer-level precision, function signatures as primary content, error states in main text |
+| `builder` | Platform integrator | Outcome-before-mechanism, API-centric, full request/response, explicit prerequisites |
+| `delegator` | LPT holder | Accessible, plain-language decision-support, financial context, actual steps, no CLI commands |
+
+**Banned across all**: effectively, essentially, basically, meaningful, significant, various, obviously, clearly, "This page covers," "it is important to note," "rather than," marketing language adjacent to technical content.
+
+---
+
+# NETWORK STATE CONTEXT
+
+**Source**: MASTER-AUDIENCE-SOURCES-CONTENT-GAP-REPORT.md
+
+Key numbers affecting persona/journey design (March 2026):
+- AI fees growing 21x ($7K → $147K/quarter) but 89:1 inflation:fees ratio ($18M staking vs $204K fees)
+- LPT price collapsed $6 → $2, market cap ~$110M
+- Delegators declining: 3,332 → 2,683
+- Developer audience bifurcating: legacy video (Studio API) vs AI-native (ComfyStream, BYOC, Daydream)
+- Governance: LIP-107 (emissions brake), LIP-101 (treasury restart), LIP-100 (inflation bounds)
+- Orchestrator pain: AI models frequently don't respond — unreliable vs centralised providers
+- Delegator motivation eroding: yield-based rewards losing appeal as token price drops
+
+---
+
+# PROMPT/SKILL FRAMEWORK
+
+**Source**: audience-design-v5.md, persona-routing.md
+
+### Execution pipeline
+
+Phase 0 (Terminology Anchoring) → Phase 1 (Persona Research) → Phase 2 (Gap Analysis) → Phase 3 (IA Audit) → Phase 5 (Voice Check) → Phase 6 (Content Writing) → Phase 8a (Section Vocabulary) → Phase 12 (Cross-Tab Consistency)
+
+### Key locked definitions
+
+- 7 pageTypes: navigation, concept, tutorial, guide, instruction, reference, resource
+- 7 lifecycleStages: discover, evaluate, setup, build, operate, optimise, troubleshoot
+- 15 purpose enums: orient, explain, learn, choose, evaluate, start, build, configure, operate, troubleshoot, verify, integrate, optimise, reference, update
+
+### Persona routing skill
+
+Uses functional identifiers (hardware/LPT/goal), NOT persona names. Majority path is default, described first. Routing appears once near page top. Never routes to non-existent pages.
+
+---
+
+# PIPELINE STATUS BY TAB
+
+| Tab | Phase 1 (Audience Design) | Collation | Check B | IA Locked | Content Written | Blocking Decision |
+|---|---|---|---|---|---|---|
+| **Gateways** | ✅ 3 runs | ✅ | ✅ Approved | ✅ LOCKED | ✅ 13/13 pages (9,482 words) | NaaP/BYOC RESOLVED |
+| **Orchestrators** | ✅ 4 runs (most) | ✅ | ✅ Approved | ❌ Human review pending | ❌ | LIP-92 BLOCKING |
+| **Developers** | ✅ 2 runs | ✅ | ❌ | ❌ | ❌ | S6 split BLOCKING |
+| **About** | ✅ 3 runs | ✅ | ❌ | ❌ | ❌ | Audience token BLOCKING |
+| **Delegators** | ✅ 3 runs | ✅ | ❌ | ❌ | ❌ | Rewards placement BLOCKING |
+| **Home** | ⚠️ 1 run | ❌ | ❌ | ❌ | ❌ | — |
+| **Community** | ⚠️ 2 runs | ❌ EMPTY | ❌ | ❌ | ❌ | — |
+| **Solutions** | ⚠️ 1 run | ❌ EMPTY | ❌ | ❌ | ❌ | — |
+| **Resource Hub** | ⚠️ 1 run | ❌ EMPTY | ❌ | ❌ | ❌ | — |

@@ -3,7 +3,7 @@
  * @script            generated-artifacts-policy.test
  * @category          validator
  * @purpose           qa:repo-health
- * @scope             tests/unit, tools/lib/governance/generated-artifacts.js, tools/config/runtime/generated-artifacts.json
+ * @scope             tests/unit, tools/lib/governance/generated-artifacts.js, operations/governance/config/generated-artifacts.json, tools/config/runtime/generated-artifacts.json
  * @domain            docs
  * @needs             R-R16, R-R17
  * @purpose-statement Tests generated artifact governance manifest — validates enums, path matching, and hook-policy expectations
@@ -53,7 +53,13 @@ async function runTests() {
   });
 
   cases.push(async () => {
-    ['.allowlist', 'docs-guide/repo-ops/config/root-governance-map.mdx'].forEach((repoPath) => {
+    [
+      '.allowlist',
+      'docs-guide/repo-ops/config/root-governance-map.mdx',
+      'docs-guide/repo-ops/config/repo-governance-map.mdx',
+      'workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json',
+      'workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md'
+    ].forEach((repoPath) => {
       const artifact = getFirstArtifactByPath(repoPath);
       assert.ok(artifact, `${repoPath} manifest entry should exist`);
     });

@@ -7,6 +7,7 @@ on:
       - '.allowlist'
       - 'README.md'
       - 'operations/scripts/**'
+      - 'operations/governance/config/**'
       - 'tools/lib/**'
       - 'tools/dev/**'
       - 'tools/config/**'
@@ -19,7 +20,9 @@ on:
       - '.github/scripts/**'
       - '.github/workflows/**'
       - 'docs-guide/policies/root-allowlist-governance.mdx'
+      - 'docs-guide/policies/generated-artifact-and-hook-governance.mdx'
       - 'docs-guide/repo-ops/config/root-governance-map.mdx'
+      - 'docs-guide/repo-ops/config/repo-governance-map.mdx'
       - 'workspace/scripts/**'
       - 'workspace/reports/script-classifications.json'
 
@@ -33,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.use_test_branch == 'true' && vars.TEST_BRANCH || vars.DEPLOY_BRANCH }}
+          ref: ${{ vars.DEPLOY_BRANCH }}
           fetch-depth: 0
 
       - uses: actions/setup-node@v4
@@ -41,18 +44,20 @@ jobs:
           node-version: '20'
 
       - run: cd tools && npm ci
-      - run: cd tests && npm ci
       - run: node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write
       - run: node operations/scripts/validators/governance/compliance/check-root-governance-sync.js
+      - run: node operations/scripts/generators/governance/reports/generate-repo-governance-status.js --write
+      - run: node operations/scripts/validators/governance/compliance/check-repo-governance-sync.js
 
       - name: Run governance repair
         id: repair
         run: |
           node operations/scripts/dispatch/governance/pipelines/governance-pipeline.js 2>&1 | tee /tmp/repair.log
-          FIXES=$(python3 -c "
-          import json
-          d = json.load(open('workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json'))
-          print(d.get('repairs_applied', {}).get('total_fixes', 0))
+          FIXES=$(node -e "
+          try {
+            const d = require('./workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json');
+            console.log((d.repairs_applied || {}).total_fixes || 0);
+          } catch { console.log(0); }
           " 2>/dev/null || echo "0")
           echo "fixes=$FIXES" >> $GITHUB_OUTPUT
 
@@ -77,7 +82,7 @@ jobs:
           title: 'chore(governance): post-merge sync -- ${{ steps.repair.outputs.fixes }} fixes'
           body: |
             Automated post-merge governance sync triggered by ${{ github.sha }}.
-            See `workspace/reports/repo-ops/REPAIR_REPORT_LATEST.md` and `workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md` for details.
+            See `workspace/reports/repo-ops/REPAIR_REPORT_LATEST.md`, `workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md`, and `workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md` for details.
           base: docs-v2
           delete-branch: true
           labels: governance, automated

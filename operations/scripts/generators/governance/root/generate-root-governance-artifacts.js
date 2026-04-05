@@ -4,7 +4,7 @@
  * @category          generator
  * @type              generator
  * @purpose           governance:root-management
- * @scope             operations/scripts, tools/config/runtime, tools/lib/governance, docs-guide/repo-ops/config, workspace/reports/repo-ops, .allowlist
+ * @scope             operations/scripts, operations/governance/config, tools/config/runtime, tools/lib/governance, docs-guide/repo-ops/config, workspace/reports/repo-ops, .allowlist
  * @owner             docs
  * @needs             R-R14, R-R16, R-R17
  * @purpose-statement Generates root-governance projections from the canonical manifest, including .allowlist, the generated root map, and sync reports.
@@ -106,7 +106,7 @@ function buildAllowlistContent(manifest = readManifest()) {
   const entries = getAllowlistEntries(manifest);
   return normalizeContent(
     [
-      '# Generated from tools/config/runtime/root-governance.json',
+      '# Generated from operations/governance/config/root-governance.json',
       '# Do not edit manually. Regenerate with:',
       `# node ${SCRIPT_PATH} --write`,
       '',
@@ -205,7 +205,7 @@ function buildRootGovernanceMapContent(manifest = readManifest()) {
     '',
     '# Root Governance Map',
     '',
-    'This page is generated from `tools/config/runtime/root-governance.json` and is the live reference for what may exist at repo root.',
+    'This page is generated from `operations/governance/config/root-governance.json` and is the live reference for what may exist at repo root.',
     '',
     '## Governed Root Inventory',
     '',
@@ -261,7 +261,7 @@ function buildSyncPayload(manifest = readManifest()) {
 
   return {
     version: manifest.version,
-    manifest_path: 'tools/config/runtime/root-governance.json',
+    manifest_path: 'operations/governance/config/root-governance.json',
     generated_outputs: manifest.generated_outputs,
     counts: {
       governed_root_entries: governedEntries.length,

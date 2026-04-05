@@ -1,6 +1,6 @@
 {
   "version": "root-governance.v1",
-  "manifest_path": "tools/config/runtime/root-governance.json",
+  "manifest_path": "operations/governance/config/root-governance.json",
   "generated_outputs": {
     "allowlist": ".allowlist",
     "map_doc": "docs-guide/repo-ops/config/root-governance-map.mdx",

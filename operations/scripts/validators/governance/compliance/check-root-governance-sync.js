@@ -4,7 +4,7 @@
  * @category          validator
  * @type              validator
  * @purpose           governance:root-management
- * @scope             operations/scripts/validators/governance, operations/scripts/generators/governance/root, tools/config/runtime, tools/lib/governance, docs-guide/repo-ops/config, .allowlist
+ * @scope             operations/scripts/validators/governance, operations/scripts/generators/governance/root, operations/governance/config, tools/config/runtime, tools/lib/governance, docs-guide/repo-ops/config, .allowlist
  * @owner             docs
  * @needs             R-R14, R-R16, R-R17
  * @purpose-statement Validates that root-governance generated outputs, required documentation references, and public root artifact declarations stay aligned with the canonical manifest.
@@ -71,7 +71,7 @@ function run() {
       issues.push({
         type: 'stale_output',
         path: repoPath,
-        message: `${repoPath} is stale relative to tools/config/runtime/root-governance.json.`
+        message: `${repoPath} is stale relative to operations/governance/config/root-governance.json.`
       });
     }
   });
@@ -82,7 +82,7 @@ function run() {
       issues.push({
         type: 'missing_generated_artifact_manifest',
         path: entry.path,
-        message: `${entry.path} is missing from tools/config/runtime/generated-artifacts.json.`
+        message: `${entry.path} is missing from operations/governance/config/generated-artifacts.json.`
       });
       return;
     }
@@ -90,7 +90,7 @@ function run() {
       issues.push({
         type: 'invalid_generated_artifact_class',
         path: entry.path,
-        message: `${entry.path} must be classified as committed_authoritative in tools/config/runtime/generated-artifacts.json.`
+        message: `${entry.path} must be classified as committed_authoritative in operations/governance/config/generated-artifacts.json.`
       });
     }
   });

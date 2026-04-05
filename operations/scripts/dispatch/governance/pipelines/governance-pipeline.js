@@ -21,7 +21,7 @@ const {
 } = require('../../../../../tools/lib/governance/script-governance-config');
 
 const REPO_ROOT = process.cwd();
-const AUDIT_SCRIPT_PATH = 'operations/scripts/validators/governance/audit-script-inventory.js';
+const AUDIT_SCRIPT_PATH = 'operations/scripts/validators/governance/pr/audit-script-inventory.js';
 const SCRIPT_DOCS_TEST_PATH = 'operations/tests/unit/script-docs.test.js';
 const INVENTORY_JSON_PATH = 'workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.json';
 const INVENTORY_MD_PATH = 'workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.md';

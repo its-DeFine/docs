@@ -2106,61 +2106,60 @@
               {
                 "tab": "About",
                 "icon": "camera-movie",
-                "anchors": [
+                "groups": [
                   {
-                    "anchor": "About Livepeer",
+                    "group": "About Livepeer",
+                    "icon": "graduation-cap",
+                    "pages": ["v2/about/portal", "v2/about/livepeer-overview"]
+                  },
+                  {
+                    "group": "Core Concepts",
                     "icon": "play",
-                    "groups": [
+                    "pages": ["v2/about/core-concepts", "v2/about/mental-model"]
+                  },
+                  {
+                    "group": "Livepeer Protocol",
+                    "icon": "cube",
+                    "pages": [
+                      "v2/about/livepeer-protocol/overview",
+                      "v2/about/livepeer-protocol/core-mechanisms",
+                      "v2/about/livepeer-protocol/blockchain-contracts",
+                      "v2/about/livepeer-protocol/livepeer-token",
+                      "v2/about/livepeer-protocol/governance-model",
+                      "v2/about/livepeer-protocol/treasury",
+                      "v2/about/livepeer-protocol/economics",
+                      "v2/about/livepeer-protocol/technical-architecture"
+                    ]
+                  },
+                  {
+                    "group": "Livepeer Network",
+                    "icon": "circle-nodes",
+                    "pages": [
+                      "v2/about/livepeer-network/overview",
+                      "v2/about/livepeer-network/actors",
+                      "v2/about/livepeer-network/job-lifecycle",
+                      "v2/about/livepeer-network/marketplace",
+                      "v2/about/livepeer-network/technical-architecture",
+                      "v2/about/livepeer-network/interfaces"
+                    ]
+                  },
+                  {
+                    "group": "Guides",
+                    "icon": "chart-line",
+                    "pages": []
+                  },
+                  {
+                    "group": "Resources",
+                    "icon": "books",
+                    "pages": [
+                      "v2/about/resources/livepeer-whitepaper",
+                      "v2/about/resources/livepeer-contract-addresses",
+                      "v2/about/resources/technical-roadmap",
                       {
-                        "group": "About Livepeer",
-                        "icon": "graduation-cap",
+                        "group": "Compendium",
                         "pages": [
-                          "v2/about/portal",
-                          "v2/about/livepeer-overview",
-                          "v2/about/core-concepts",
-                          "v2/about/mental-model"
-                        ]
-                      },
-                      {
-                        "group": "Livepeer Protocol",
-                        "icon": "cube",
-                        "pages": [
-                          "v2/about/livepeer-protocol/overview",
-                          "v2/about/livepeer-protocol/core-mechanisms",
-                          "v2/about/livepeer-protocol/blockchain-contracts",
-                          "v2/about/livepeer-protocol/livepeer-token",
-                          "v2/about/livepeer-protocol/governance-model",
-                          "v2/about/livepeer-protocol/treasury",
-                          "v2/about/livepeer-protocol/economics",
-                          "v2/about/livepeer-protocol/technical-architecture"
-                        ]
-                      },
-                      {
-                        "group": "Livepeer Network",
-                        "icon": "circle-nodes",
-                        "pages": [
-                          "v2/about/livepeer-network/overview",
-                          "v2/about/livepeer-network/actors",
-                          "v2/about/livepeer-network/job-lifecycle",
-                          "v2/about/livepeer-network/marketplace",
-                          "v2/about/livepeer-network/technical-architecture",
-                          "v2/about/livepeer-network/interfaces"
-                        ]
-                      },
-                      {
-                        "group": "Resources",
-                        "icon": "books",
-                        "pages": [
-                          "v2/about/resources/livepeer-whitepaper",
-                          "v2/about/resources/livepeer-contract-addresses",
-                          "v2/about/resources/technical-roadmap",
-                          {
-                            "group": "Compendium",
-                            "pages": [
-                              "v2/about/resources/compendium/livepeer-glossary",
-                              "v2/about/resources/compendium/glossary"
-                            ]
-                          }
+                          "v2/about/resources/compendium/livepeer-glossary",
+                          "v2/about/resources/compendium/glossary"
                         ]
                       }
                     ]
@@ -3039,7 +3038,9 @@
                           "v2/delegators/resources/lpt-eth-usage",
                           {
                             "group": "Compendium",
-                            "pages": ["v2/delegators/resources/compendium/glossary"]
+                            "pages": [
+                              "v2/delegators/resources/compendium/glossary"
+                            ]
                           }
                         ]
                       }
@@ -3121,9 +3122,7 @@
                       {
                         "group": "Resources",
                         "icon": "books",
-                        "pages": [
-                          "v2/resources/redirect"
-                        ]
+                        "pages": ["v2/resources/redirect"]
                       },
                       {
                         "group": "Documentation Guide",

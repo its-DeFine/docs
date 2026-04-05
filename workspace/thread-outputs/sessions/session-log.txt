@@ -1003,3 +1003,19 @@ Done:
 - Rebuilt `tools/config`, `tools/dev`, and `tools/lib` into explicit governed namespaces and propagated the live path changes through maintained consumers, tests, docs, and registries
 - Regenerated the script-governance outputs and verified the targeted config/dev/lib validation suites against the new structure
 Next: Make the human-owned deletion commit with `--trailer "allow-deletions=true"` after staging only the intended tool-governance files, then decide separately whether historical archive/report surfaces should stay as snapshots or be refreshed
+
+=== 2026-04-05 ===
+Stream: GitHub Actions Governance + Governance Pipeline Design
+Outcome: Partially met (design complete, implementation plan approved, implementation not started)
+Done:
+- Governance design from first principles: 10 design requirements, 6 enforcement layers, self-repair pattern
+- 4 agent audit passes: 11 gaps identified across all enforcement layers
+- Implementation plan: 7 phases with co-design checkpoints, approved
+- Config enums aligned (7 types, 7 concerns, legacy maps)
+- Framework-canonical.md rewritten (pipeline architecture first)
+- 7 concern design doc templates created
+- D-GOV-01 through D-GOV-06 + D-ACT-09 decisions locked
+- Pipeline review process with reusable agent prompts
+Next: Phase 0 (unified governance control plane in operations/governance/), then Phase 1 (fix governance-sync)
+Session started: 2026-04-05 18:35:48
+Session started: 2026-04-05 20:14:28

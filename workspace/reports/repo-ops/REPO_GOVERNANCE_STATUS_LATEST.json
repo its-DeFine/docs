@@ -1,0 +1,54 @@
+{
+  "version": "repo-governance-surfaces.v1",
+  "canonical_home": "operations/governance",
+  "bridge_mode": "staged",
+  "canonical_manifests": [
+    "operations/governance/config/root-governance.json",
+    "operations/governance/config/generated-artifacts.json",
+    "operations/governance/config/agent-write-governance.json"
+  ],
+  "generated_outputs": {
+    "map_doc": "docs-guide/repo-ops/config/repo-governance-map.mdx",
+    "status_report_json": "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json",
+    "status_report_md": "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md"
+  },
+  "total_surfaces": 4,
+  "ownerless_ready_count": 3,
+  "rollout_state_counts": {
+    "autofix": 3,
+    "migrating": 1
+  },
+  "approval_checkpoint_ids": [
+    "design-lock",
+    "first-instance-review",
+    "gate-escalation",
+    "legacy-retirement"
+  ],
+  "surface_ids": [
+    "generated-artifact-governance",
+    "ownerless-governance",
+    "repo-governance-registry",
+    "root-governance"
+  ],
+  "transitional_sources": [
+    "tools/config/runtime/generated-artifacts.json",
+    "tools/config/runtime/ownerless-governance-surfaces.json",
+    "tools/config/runtime/root-governance.json"
+  ],
+  "path_classes": [
+    "governance-config",
+    "governance-docs",
+    "governance-runtime-bridge",
+    "workspace-report",
+    "workspace-local"
+  ],
+  "agent_output_classes": [
+    "canonical",
+    "generated",
+    "report",
+    "scratch",
+    "capture",
+    "task-state",
+    "forbidden"
+  ]
+}

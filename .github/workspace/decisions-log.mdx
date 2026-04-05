@@ -298,7 +298,29 @@
 **Reasoning:** Outputs were scattered with no consistent convention. Each pipeline needs to know where its outputs go without guessing.
 **Impact:** All pipelines must follow these conventions. Existing outputs that don't conform need migrating.
 
-### D-ACT-10: Reserved
+### D-ACT-10: Unified governance registry replaces ownerless-governance-surfaces.json
+
+**Date:** 2026-04-05
+**Status:** Confirmed
+**Decision:** One canonical governance registry at `operations/governance/repo-governance-surfaces.json` replaces `tools/config/runtime/ownerless-governance-surfaces.json`. 11 surfaces registered. Specialised manifests (root-governance.json, generated-artifacts.json, script-registry.json) remain but are referenced from the unified registry.
+
+**Surfaces registered (11):**
+- root-governance (root placement, Class A-F)
+- generated-artifacts (16 artifacts, 4 classes)
+- workflow-governance (workflows + pipeline framework)
+- ai-tools-registry
+- portable-skills
+- docs-guide-generated
+- ui-templates
+- github-contributor-governance
+- script-governance (358 scripts, 7 types, 7 concerns)
+- component-governance (6 categories, 7-tag JSDoc)
+- frontmatter-contract (page metadata)
+
+**New fields added:** name, manifest, policy, write_policy, escalation_mode
+
+**Reasoning:** Ownerless self-governance audit (2026-04-05) found multiple overlapping control planes that contradict each other. One registry, one truth. Specialised manifests stay for detail; the unified registry is the index.
+**Impact:** tools/config/runtime/ownerless-governance-surfaces.json superseded. All governance queries start from operations/governance/.
 
 ---
 

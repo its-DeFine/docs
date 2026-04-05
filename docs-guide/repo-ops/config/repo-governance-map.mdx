@@ -1,0 +1,99 @@
+---
+title: 'Repo Governance Map'
+sidebarTitle: 'Repo Governance Map'
+description: 'Generated control-plane map for governed repo surfaces, path classes, and agent output defaults.'
+consumer: [human, agent]
+maintenance: generated
+status: active
+generator: 'operations/scripts/generators/governance/reports/generate-repo-governance-status.js'
+keywords:
+  [
+    'livepeer',
+    'repo governance',
+    'ownerless governance',
+    'operations governance',
+    'agent write policy',
+  ]
+---
+
+{/*
+generated-file-banner: generated-file-banner:v1
+Generation Script: operations/scripts/generators/governance/reports/generate-repo-governance-status.js
+Purpose: Generate the top-level repo-governance control-plane map from the canonical registry.
+Run when: Repo-governance registry, validator, helper, or bridge-mode governance paths change.
+Run command: node operations/scripts/generators/governance/reports/generate-repo-governance-status.js --write
+*/}
+
+<Note>
+**Generation Script**: This file is generated from script(s): `operations/scripts/generators/governance/reports/generate-repo-governance-status.js`. <br/>
+**Purpose**: Keep the top-level governance map aligned with the canonical registry and staged bridge model. <br/>
+**Run when**: Repo-governance registry, validator, helper, or bridge-mode governance paths change. <br/>
+**Important**: Do not manually edit this file; run `node operations/scripts/generators/governance/reports/generate-repo-governance-status.js --write`. <br/>
+</Note>
+
+# Repo Governance Map
+
+This page is generated from `operations/governance/config/repo-governance-surfaces.json` and is the live top-level reference for the repo governance control plane.
+
+Bridge mode: `staged`. Canonical governance home: `operations/governance`.
+
+## Governed Governance Surfaces
+
+Registered surfaces: 4. Ownerless-ready now: 3.
+
+| Surface | Name | Type | Gate | Rollout | Ready | Canonical sources | Derived outputs | Escalation | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `repo-governance-registry` | Repo Governance Registry | `governance-registry` | `pr-changed` | `autofix` | yes | `operations/governance/config/repo-governance-surfaces.json`<br/>`operations/governance/config/root-governance.json`<br/>`operations/governance/config/generated-artifacts.json`<br/>`operations/governance/config/agent-write-governance.json`<br/>`docs-guide/repo-ops/config/repo-config-map.mdx` | `docs-guide/repo-ops/config/repo-governance-map.mdx`<br/>`workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json`<br/>`workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md` | `auto-fix-pr` | Top-level governance index introduced in staged bridge mode before specialized manifests move under operations/governance/config. |
+| `root-governance` | Root Governance | `root-governance` | `pre-commit` | `autofix` | yes | `operations/governance/config/root-governance.json`<br/>`tools/config/runtime/root-governance.json`<br/>`docs-guide/policies/root-allowlist-governance.mdx` | `.allowlist`<br/>`docs-guide/repo-ops/config/root-governance-map.mdx`<br/>`workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.json`<br/>`workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md` | `auto-fix-pr` | Canonical root-governance manifest now lives under operations/governance/config while the legacy runtime mirror remains in staged bridge mode. |
+| `generated-artifact-governance` | Generated Artifact Governance | `generated-artifact-governance` | `pr-changed` | `autofix` | yes | `operations/governance/config/generated-artifacts.json`<br/>`tools/config/runtime/generated-artifacts.json`<br/>`docs-guide/policies/generated-artifact-and-hook-governance.mdx` | `docs-index.json`<br/>`llms.txt`<br/>`sitemap-ai.xml`<br/>`docs-guide/repo-ops/config/root-governance-map.mdx`<br/>`workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.json`<br/>`workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md`<br/>`docs-guide/repo-ops/config/repo-governance-map.mdx`<br/>`workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json`<br/>`workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md` | `auto-fix-pr` | Canonical generated-artifact governance manifest now lives under operations/governance/config while the legacy runtime mirror remains in staged bridge mode. |
+| `ownerless-governance` | Ownerless Governance | `ownerless-governance` | `pr-changed` | `migrating` | no | `tools/config/runtime/ownerless-governance-surfaces.json`<br/>`docs-guide/policies/ownerless-governance.mdx` |  | `human-review-required` | Ownerless governance remains in migration while the top-level registry is introduced in operations/governance/config. |
+
+## Path Classes
+
+| Class | Allowed paths | Notes |
+| --- | --- | --- |
+| `governance-config` | `operations/governance/config/**` | Canonical governance manifests live under operations/governance/config in the target model. |
+| `governance-docs` | `docs-guide/policies/**`<br/>`docs-guide/repo-ops/**` | Policy prose and generated governance reference pages live under docs-guide. |
+| `governance-runtime-bridge` | `tools/config/runtime/**`<br/>`tools/lib/governance/**`<br/>`operations/scripts/**`<br/>`operations/tests/**`<br/>`.githooks/**`<br/>`.github/**` | Bridge-mode runtime and enforcement paths remain active until canonical cutover completes. |
+| `workspace-report` | `workspace/reports/**` | Tracked governance reports and generated status outputs belong under workspace/reports. |
+| `workspace-local` | `workspace/reports/_local/**`<br/>`workspace/tmp/**` | Local-only diagnostics, captures, and scratch outputs must stay out of repo root and canonical docs paths. |
+
+## Agent Output Classes
+
+| Class | Default destination | Commit policy | Notes |
+| --- | --- | --- | --- |
+| `canonical` | `declared governed surface paths only` | `tracked` | Canonical repo changes must target an admitted governed surface. |
+| `generated` | `manifest-declared generated outputs only` | `tracked` | Generated tracked outputs must be declared by a governance or artifact manifest. |
+| `report` | `workspace/reports/**` | `task_dependent` | Tracked reports are allowed only when the task explicitly calls for a committed report. |
+| `scratch` | `workspace/reports/_local/**` | `untracked` | Default destination for temporary diagnostics and ad hoc working outputs. |
+| `capture` | `workspace/reports/_local/**` | `untracked` | Screenshots, browser captures, and similar agent artifacts must remain local-only by default. |
+| `task-state` | `workspace/thread-outputs/**` | `tracked` | Session and thread state belongs in the governed workspace thread-output tree. |
+| `forbidden` | `repo root or ad hoc top-level paths` | `forbidden` | Agents must not create undeclared top-level files or folders outside admitted governance and workspace paths. |
+
+## Human Approval Checkpoints
+
+| Checkpoint | Label | Phase | Human approval | Trigger | Required evidence |
+| --- | --- | --- | --- | --- | --- |
+| `design-lock` | Design Lock | `design` | yes | Before registry schema, path classes, agent-write classes, and bridge model are treated as locked. | `approved operations/governance taxonomy`<br/>`approved registry schema`<br/>`approved staged bridge model` |
+| `first-instance-review` | First-Instance Review | `implement` | yes | After the first thin-slice implementation and before repeating the migration pattern across additional surfaces. | `first-slice generator output`<br/>`first-slice validator output`<br/>`targeted tests passing` |
+| `gate-escalation` | Gate Escalation | `iterate` | yes | Before any governance rule is promoted from advisory or autofix to blocking. | `baseline noise review`<br/>`false-positive review`<br/>`contributor impact review` |
+| `legacy-retirement` | Legacy Retirement | `cleanup` | yes | Before retiring live bridge-mode governance sources under tools/config/runtime or deleting bridge logic. | `consumer cutover proof`<br/>`bridge sync validator pass`<br/>`retirement inventory` |
+
+## Canonical Manifests
+
+- `operations/governance/config/root-governance.json`
+- `operations/governance/config/generated-artifacts.json`
+- `operations/governance/config/agent-write-governance.json`
+
+## Transitional Live Sources
+
+- `tools/config/runtime/generated-artifacts.json`
+- `tools/config/runtime/ownerless-governance-surfaces.json`
+- `tools/config/runtime/root-governance.json`
+
+## Rollout State Summary
+
+| State | Surface count |
+| --- | --- |
+| `autofix` | 3 |
+| `migrating` | 1 |

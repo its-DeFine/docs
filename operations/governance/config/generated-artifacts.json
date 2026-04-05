@@ -1,4 +1,9 @@
 {
+  "bridge_metadata": {
+    "bridge_mode": "staged",
+    "legacy_source": "tools/config/runtime/generated-artifacts.json",
+    "bridge_status": "transitional_live_source_remains_authoritative_until_cutover"
+  },
   "version": "generated-artifacts.v1",
   "artifacts": [
     {

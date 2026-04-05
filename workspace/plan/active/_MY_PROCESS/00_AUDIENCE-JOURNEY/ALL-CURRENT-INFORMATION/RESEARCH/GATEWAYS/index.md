@@ -2,56 +2,234 @@ AIM: consolidate all audience, personas, journeys for each tab & determine a fin
 
 # ALL FILES
 
-Category = Persona, Audience, Journey, IA, Content, Prompt/Skill, Plan
+| Name | Location | Category |
+|------|----------|----------|
+| canonical-gateways-audience-design.md | `CONTENT-WRITING/.../testing/Tabs/gateways/collated/` | Audience, Persona, Journey, IA |
+| collation-notes-gateways.md | `...gateways/collated/` | Prompt/Skill |
+| validation-check.md | `...testing/Tabs/gateways/` | Plan |
+| agent-v5-gateways-audience-design.md | `...gateways/zero-context-ai-results/v5/` | Audience, Persona, Journey, IA |
+| glossary-gateways.md | `...gateways/input-pack/` | Content |
+| v4.md, collation-v2.md (learnings) | `...gateways/learnings/` | Prompt/Skill |
+| gateways-content-scan.md | `CONTENT-WRITING/context-packs/` | Content, IA |
+| gateways-research-pack.md | `CONTENT-WRITING/context-packs/` | Content |
+| gateways-v1-content.md | `CONTENT-WRITING/context-packs/` | Content |
+| gateways-full-content.md | `CONTENT-WRITING/context-packs/` | Content |
+| gateways-ia-prereq.md | `CONTENT-WRITING/context-packs/` | IA |
+| collated/gateways/ (8 files) | `CONTENT-WRITING/collated/gateways/` | Audience, IA |
+| gateways-IA.md | `ORCHESTRATOR-CONTENT-WRITING/` | IA, Plan |
+| gateways-COMPLETION-STATUS.md | `ORCHESTRATOR-CONTENT-WRITING/` | Plan |
+| S01-S13 gateway pages | `ORCHESTRATOR-CONTENT-WRITING/gateways/` | Content, Journey |
+| personas.md | `v2/gateways/_workspace/notes/` | Persona |
+| portal.mdx | `v2/gateways/` | Content |
+| navigator.mdx | `v2/gateways/` | Content, Journey |
+| 05b-tab-gateways.md | `_MY_PROCESS/.../FULL-FILES/TABS/` | Persona, Journey, Plan |
+| personas.md (historical) | `CONTENT-WRITING/Prompts/Previous Prompts Used/personas-and-journeys/` | Persona |
+| gateways.json | `workspace/research/claims/` | Content |
 
-| Name | Location | Category | Summary of File Contents |
-|------|----------|----------|--------------------------|
-| canonical-gateways-audience-design.md | `workspace/plan/active/CONTENT-WRITING/Prompts/Prompts-By-Phase/1-audience-design/testing/Tabs/gateways/collated/` | Audience, Persona, Journey, IA | **CANONICAL.** Synthesised from 3 AI runs. 45-term terminology lock. 4 personas: Self-Hosted Gateway Launcher (primary), Platform Reseller/NaaP Builder, Existing Operator Tuning, Builder Graduating from API. 7 JTBDs. 13-section structure (S1 disambiguation through S13 NaaP). Arriving question: "I want to route AI or video jobs through Livepeer — which gateway type do I need?" 2 flagged conflicts: NaaP acronym, BYOC expansion. All personas unblocked. |
-| collation-notes-gateways.md | `workspace/plan/active/CONTENT-WRITING/Prompts/Prompts-By-Phase/1-audience-design/testing/Tabs/gateways/collated/` | Prompt/Skill | 5 excluded personas with reasoning. 4 excluded sections. 6 structural decisions with rationale (13-section count, payment before quickstarts, two parallel quickstarts, standalone troubleshooting, dual mode section). 6 open items for Phase 2: NaaP expansion, BYOC expansion, S13 split, dual mode merge candidate, remote signer endpoint, weight factor flag names. |
-| validation-check.md | `workspace/plan/active/CONTENT-WRITING/Prompts/Prompts-By-Phase/1-audience-design/testing/Tabs/gateways/` | Plan | Phase 1 validation. 6 checks all PASS. APPROVED FOR PHASE 2 subject to resolving NaaP and BYOC conflicts. |
-| agent-v5-gateways-audience-design.md | `workspace/plan/active/CONTENT-WRITING/Prompts/Prompts-By-Phase/1-audience-design/testing/Tabs/gateways/zero-context-ai-results/v5/` | Audience, Persona, Journey, IA | v5 Agent run. 27-term terminology lock. 5 personas (net-new infrastructure operator primary). 8-stage ideal journey. Entry blockers: path ambiguity, ETH prerequisite, remote signer prerequisite, NaaP ambiguity. |
-| glossary-gateways.md | `workspace/plan/active/CONTENT-WRITING/Prompts/Prompts-By-Phase/1-audience-design/testing/Tabs/gateways/input-pack/` | Content | 75 terms classified by domain (livepeer:protocol, livepeer:deployment, economic:payment, ai:concept, video:encoding, etc.). Two inconsistencies: NaaP ("Network as a Platform" vs "Network-as-a-Product"), BYOC ("Bring-Your-Own-Container" vs "Bring Your Own Compute"). |
-| v4.md (learnings) | `workspace/plan/active/CONTENT-WRITING/Prompts/Prompts-By-Phase/1-audience-design/testing/Tabs/gateways/learnings/` | Prompt/Skill | 3 v4 fixes held: pageType:navigation on S1 (3/3), section load flag (1/3), source verification (2/3). On-chain/off-chain parallel quickstarts unanimous (3/3). Claude Web placed payment after quickstarts (overridden by 2/3 consensus). |
-| collation-v2.md (learnings) | `workspace/plan/active/CONTENT-WRITING/Prompts/Prompts-By-Phase/1-audience-design/testing/Tabs/gateways/learnings/` | Prompt/Skill | Collation v2 applied. 3 input runs produced clean consensus (parallel quickstarts 3/3, disambiguation 3/3, payment 2/3, troubleshooting 2/3, dual mode 2/3). 6 open items with blocking status — "most complete of any tab." |
-| gateways-content-scan.md | `workspace/plan/active/CONTENT-WRITING/context-packs/` | Content, IA | 98 pages scanned. 22 stubs, 76 current, 10 deprecated pageType, 20 unknown pageType, 98 missing lifecycleStage. Grouped by section. Per-page frontmatter completeness assessed. Duplicates identified. |
-| gateways-research-pack.md | `workspace/plan/active/CONTENT-WRITING/context-packs/` | Content, Research | v1 + v2 consolidation. V1: 3 misfiled pages, 9 genuine guides, 3 AI gateway pages. V2: 98 pages mapped to research purposes. Key facts: production ETH minimum 0.36 ETH (GitHub #3744), community remote signer (unverified), on-chain/off-chain distinct, dual mode Linux-required. |
-| gateways-v1-content.md | `workspace/plan/active/CONTENT-WRITING/context-packs/` | Content | Verbatim v1 pages. Docker/Linux/Windows install procedures, funding flows, transcoding profile templates, RTMP/HLS, off-chain AI setup, on-chain AI with Arbitrum RPC. Source of truth for legacy patterns. |
-| gateways-full-content.md | `workspace/plan/active/CONTENT-WRITING/context-packs/` | Content | Consolidated v2 gateways content mapped to audience design sections. Phase 2.5 research input. |
-| gateways-ia-prereq.md | `workspace/plan/active/CONTENT-WRITING/context-packs/` | IA | IA prerequisite analysis for Phase 2 structure design. |
-| audience-design.md | `workspace/plan/active/CONTENT-WRITING/collated/gateways/` | Audience, Persona, Journey | Collated audience design. 27-term lock, 5 personas, 7 JTBDs, 8-stage journey, on-demand categories. |
-| collation-notes.md | `workspace/plan/active/CONTENT-WRITING/collated/gateways/references/` | Prompt/Skill | Terminology conflicts, excluded personas/sections, structural disagreements, 6 open items. |
-| validation-check.md | `workspace/plan/active/CONTENT-WRITING/collated/gateways/references/` | Plan | Check B APPROVED FOR PHASE 2. |
-| gateways-IA.md | `workspace/plan/active/ORCHESTRATOR-CONTENT-WRITING/` | IA, Plan | **PHASE 2 IA LOCKED.** 13-section structure mapped to v2 source pages with CONSOLIDATE/REWRITE decisions. NaaP = "Network-as-a-Product" (LOCKED), BYOC = "Bring Your Own Container" (LOCKED). |
-| gateways-COMPLETION-STATUS.md | `workspace/plan/active/ORCHESTRATOR-CONTENT-WRITING/` | Plan | **ALL 13 PAGES WRITTEN** (9,482 words). ~48 veracity REVIEW markers placed. Pending: naming audit, veracity pass, layout pass, universal pages, human review. |
-| S01-gateway-path-finder.md | `workspace/plan/active/ORCHESTRATOR-CONTENT-WRITING/gateways/` | Content, Journey | S1 WRITTEN. 4 deployment paths: on-chain self-hosted, off-chain self-hosted, gateway-as-a-service, NaaP. Each with audience, requirements, routing. ETH minimum 0.36 production (flagged REVIEW). |
-| S02-what-a-gateway-does.md | `workspace/plan/active/ORCHESTRATOR-CONTENT-WRITING/gateways/` | Content | S2 WRITTEN. Gateway = demand-side router, no GPU required. Video (RTMP to HLS/DASH) and AI (HTTP to capability-matched). 5 core functions. What it does NOT do. |
-| S03-payments-and-funding.md | `workspace/plan/active/ORCHESTRATOR-CONTENT-WRITING/gateways/` | Content | S3 WRITTEN. Probabilistic micropayments. On-chain: deposit + reserve via TicketBroker. Off-chain: remote signer. 0.1 ETH testing / 0.36 ETH production (flagged REVIEW). |
-| personas.md | `v2/gateways/_workspace/notes/` | Persona | Gateway operator persona definitions from workspace. |
-| portal.mdx | `v2/gateways/` | Content | Landing/navigation frame. Hero: "Build – Create – Innovate". Deprecated frontmatter (pageType:landing, audience:gateway-operator). |
-| navigator.mdx | `v2/gateways/` | Content, Journey | Decision guide routing by goal (Build AI product, Transcode video, Build platform, Evaluate) and mode (on-chain, off-chain). 4 goal tabs with path sequences. Deprecated pageType:overview. |
-| 05b-tab-gateways.md | `workspace/plan/active/_MY_PROCESS/00_AUDIENCE-JOURNEY/ALL-CURRENT-INFORMATION/FULL-FILES/TABS/` | Journey, Persona, Plan | Tab audience analysis and gap report. |
-| personas.md | `workspace/plan/active/CONTENT-WRITING/Prompts/Previous Prompts Used/personas-and-journeys/` | Persona | 5 gateway operator personas sourced from Discord/GitHub/Messari: Graduate, Provider, Builder, Enterprise, Broadcaster. |
-| gateways.json | `workspace/research/claims/` | Content | JSON mapping content claims to gateway audiences. |
+---
 
-# Summary All Files Per Category
+# AUDIENCE — Who lands on this tab
 
-## Persona
-4 canonical personas: (1) Self-Hosted Gateway Launcher (primary), (2) Platform Reseller/NaaP Builder, (3) Existing Operator Tuning, (4) Builder Graduating from API. Earlier sourced personas (5 from Discord/GitHub/Messari): Graduate, Provider, Builder, Enterprise, Broadcaster. No GPU background required; general web3/infrastructure knowledge assumed.
+**Audience token**: `gateway`
 
-## Audience
-Token: `gateway`. Self-identifies as "infrastructure operator", "platform engineer", "API gateway operator" — NOT "gateway operator". Requires explicit path disambiguation as first section. Entry blockers: path ambiguity, ETH prerequisite (0.36 ETH production on Arbitrum), remote signer prerequisite (off-chain).
+### Who arrives and from where
 
-## Journey
-8-stage linear: (1) Orient to gateway role (discover), (2) Choose operational model (evaluate), (3) Understand payment layer (evaluate), (4a) On-chain setup / (4b) Off-chain setup (setup), (5) Configure routing/pricing (build), (6) Configure production ops (build), (7) Run in production (operate), (8) Improve efficiency (optimise). Cross-tab: inbound from Developers/Solutions; outbound to Orchestrators/Developers/About.
+| Arriving type | Entry vector | Arriving state | Routing need |
+|---|---|---|---|
+| **Developer graduating from hosted API** | Developers tab `concepts/running-a-gateway.mdx` — decided to run own gateway | Has used Studio API, wants direct network access, custom routing, pricing control | Stays — this is their tab now |
+| **Existing gateway operator** | Direct URL / bookmark / search "Livepeer gateway config" | Already running a gateway, needs upgrade/config/operations content | Stays — return visitor |
+| **Developers evaluating** self-hosted vs Studio | Developers tab cross-reference | Wants to understand trade-offs before committing | May read concepts then return to Developers |
+| **Orchestrators understanding demand side** | Orchestrators tab cross-reference | Wants to understand gateway pricing expectations, capability broadcasts, job routing | Reads concepts, returns to Orchestrators |
+| **Protocol researchers/analysts** | About tab cross-reference | Wants to understand gateway layer architecture | Reads concepts, may return to About |
 
-## IA
-13-section canonical structure (S1 Path Finder through S13 NaaP Platform). **PHASE 2 IA LOCKED.** Design flags: S11 may split (monitoring + operations checklist), S13 likely splits (evaluate + build). Parallel quickstarts (S4 on-chain / S5 off-chain) unanimous consensus. Current live: 98 pages, 98 missing lifecycleStage.
+### Cross-tab routing
 
-## Content
-**ALL 13 PAGES WRITTEN** (9,482 words). ~48 veracity REVIEW markers. 98 existing v2 pages scanned. Pending: naming audit, full veracity pass, layout pass (MDX), universal pages, human review. Critical blockers: verify NaaP acronym, community remote signer endpoint, 0.36 ETH minimum.
+| Direction | From / To | Why |
+|---|---|---|
+| Inbound | Developers → Gateways | Developer decided to run own gateway (graduation) |
+| Inbound | Solutions → Gateways | Operator-level control needed beyond hosted |
+| Outbound | Gateways → Orchestrators | Supplier depth — how orchestrators are selected/paid |
+| Outbound | Gateways → Developers | SDK integration for gateway clients |
+| Outbound | Gateways → About | Protocol economics, architecture depth |
 
-## Prompt/Skill
-3 AI runs + collation v2 applied. 45-term terminology lock. NaaP = "Network-as-a-Product" LOCKED. BYOC = "Bring Your Own Container" LOCKED. Check B APPROVED. "Most complete of any tab" per collation learnings.
+### Arriving question
 
-## Plan
-Phase 1 COMPLETE. Phase 2 IA LOCKED. Phase 3-10 content WRITTEN. Remaining: naming audit, veracity pass, layout pass, universal pages, human review sign-off. Most advanced tab in the pipeline.
+> "I want to route AI or video jobs through Livepeer — which gateway type do I need, and how do I set it up?"
+
+---
+
+# PERSONAS — Who this tab actually serves
+
+### Source: 05b-tab-gateways.md (process analysis)
+
+**Primary persona: The Gateway Infrastructure Operator**
+
+An operator who wants to run their own Livepeer gateway — either as infrastructure for their own application, or as a public/commercial gateway. Has strong DevOps skills. Has deliberately decided NOT to use the managed Studio API — they want direct network access, custom routing logic, pricing control, and the ability to keep fees.
+
+This is a smaller and more technically sophisticated audience than the Developers tab persona. The key distinguishing question is: **"Am I building an application that uses a gateway, or am I the one running the gateway?"** The Gateways tab owns the latter.
+
+**Three distinct intents within this persona:**
+
+| Intent | Who | What they need |
+|---|---|---|
+| **Private gateway operator** | Running gateway for their own application only | Setup, config, operations — focused on their own stack |
+| **Public gateway operator** | Running a gateway accessible to third-party developers, listed on the network | All of the above plus: discovery/listing, SLA considerations, client management |
+| **Commercial gateway / NaaP builder** | Building a multi-tenant platform on top of their gateway | All of the above plus: auth, billing, usage tracking, NaaP architecture |
+
+**What they need (in order):**
+1. Confirmation this is the right path (vs Studio API) — the decision boundary
+2. What a gateway actually does at a technical level — role, responsibilities, payment mechanics
+3. Installation and initial configuration
+4. Network registration and ETH deposit mechanics
+5. Pricing and pipeline selection configuration
+6. Production operations: monitoring, uptime, upgrading, incident response
+7. How their gateway relates to the orchestrators it selects and pays
+
+**Top frustration points** (from forum/Discord):
+- ETH deposit mechanics confuse new operators (how much to deposit, how deposits draw down, what happens when empty)
+- On-chain vs off-chain gateway distinction not clear enough at entry
+- go-livepeer v0.8.9 added WHEP server, v0.8.10 added AI/Live Remote Signer — setup docs may not reflect these
+- sdk-gateway.mdx in Developers tab is critically thin (1.8KB) for operators who are also developers
+
+### Source: canonical-gateways-audience-design.md (3-run synthesis)
+
+| Rank | Persona | Score | Consensus |
+|---|---|---|---|
+| 1 | Self-Hosted Gateway Launcher | Primary | 3/3 |
+| 2 | Platform Reseller / NaaP Builder | Secondary | 3/3 |
+| 3 | Existing Operator Tuning Production | Secondary | 3/3 |
+| 4 | Builder Graduating from API Use | Secondary | 3/3 |
+
+5 personas excluded with reasoning: Off-Chain Explorer, Hosted Service User, Return Operator, Protocol-Native Operator, AI Pipeline Tester.
+
+### Source: personas.md (historical, Discord/GitHub/Messari sourced)
+
+5 gateway operator archetypes from community research:
+
+| Persona | Description | Source |
+|---|---|---|
+| Graduate | Developer who outgrew Studio API | Discord #local-gateways |
+| Provider | Running gateway as a service for others | GitHub issues |
+| Builder | Building platform on top of gateway | Messari reports |
+| Enterprise | Large-scale commercial gateway operation | Messari reports |
+| Broadcaster (deprecated) | Legacy v1 term — now Gateway | — |
+
+---
+
+# JOURNEYS — What each persona needs to accomplish through this tab
+
+## The Gateway Infrastructure Operator's journey
+
+**Source**: 05b-tab-gateways.md (gap analysis)
+
+| Step | Reader's question | What they need |
+|---|---|---|
+| 1 | Is this the right path for me? (vs Studio API) | Decision boundary: when to self-host vs use hosted |
+| 2 | What does a gateway actually do? | Technical role, responsibilities, payment mechanics |
+| 3 | How do I install and configure? | go-livepeer gateway mode, initial config |
+| 4 | How do I register and fund? | Network registration, ETH deposit mechanics |
+| 5 | How do I configure pricing and pipelines? | MaxPricePerUnit, pipeline selection, cost control |
+| 6 | How do I run in production? | Monitoring, uptime, upgrading, incident response |
+| 7 | How does my gateway relate to orchestrators? | Selection, pricing, capability matching |
+
+## Canonical ideal journey (8 stages)
+
+**Source**: canonical-gateways-audience-design.md
+
+| Position | Stage | lifecycleStage |
+|---|---|---|
+| 1 | Orient to gateway role | `discover` |
+| 2 | Choose operational model (on-chain / off-chain / hosted / NaaP) | `evaluate` |
+| 3 | Understand payment layer (probabilistic micropayments, deposit/reserve) | `evaluate` |
+| 4a | On-chain setup (wallet, ETH funding, TicketBroker deposit, node config) | `setup` |
+| 4b | Off-chain setup (remote signer connection, manual orchestrator config) | `setup` |
+| 5 | Configure routing and pricing (price caps, weight factors, workload routing) | `build` |
+| 6 | Configure production operations (monitoring, alerting, baselines) | `build` |
+| 7 | Run in production (deposit management, failover, orchestrator health) | `operate` |
+| 8 | Improve efficiency (weight factors, NaaP/dual-mode, scaling) | `optimise` |
+
+## Entry blockers
+
+| Blocker | Path affected | Resolution |
+|---|---|---|
+| Path ambiguity (on-chain vs off-chain vs hosted vs NaaP) | All | S1 disambiguates |
+| ETH prerequisite (on-chain: 0.36 ETH production minimum on Arbitrum) | On-chain path | S3 (payments) before S4 (setup) |
+| Remote signer prerequisite (off-chain) | Off-chain path | S5 |
+
+## Jobs to be Done
+
+**Source**: canonical
+
+| # | When... | I want to... | So I can... |
+|---|---|---|---|
+| J1 | Evaluating deployment paths | choose on-chain, off-chain, hosted, or NaaP with clear prerequisites | commit to correct path before setup |
+| J2 | Zero to first job | get minimal gateway running and validate stack | confirm setup works in my environment |
+| J3 | Configuring production | set price limits and routing weights | control per-job costs and orchestrator pool quality |
+| J4 | Operating daily | top up deposit/reserve and know when to act | prevent payment failures |
+| J5 | Building platform (NaaP) | design and implement multi-tenant architecture | expose Livepeer as managed service |
+| J6 | Adding AI routing | configure AI pipeline capability matching | deliver AI output reliably with acceptable latency |
+| J7 | Something broken | diagnose payment/routing/capability/network failures | identify and resolve root cause without guessing |
+
+---
+
+# IA — All section structures found
+
+## Canonical 13-section structure (3-run synthesis) — PHASE 2 IA LOCKED
+
+| # | Section | purpose | pageType | lifecycleStage |
+|---|---|---|---|---|
+| S1 | Gateway Path Finder | `orient` | `navigation` | `evaluate` |
+| S2 | What a Gateway Does | `explain` | `concept` | `discover` |
+| S3 | Payments and Funding | `explain` | `concept` | `evaluate` |
+| S4 | On-Chain Gateway Quickstart | `start` | `instruction` | `setup` |
+| S5 | Off-Chain Gateway Quickstart | `start` | `instruction` | `setup` |
+| S6 | Pricing and Cost Control | `configure` | `guide` | `build` |
+| S7 | Orchestrator Selection and Routing | `configure` | `guide` | `build` |
+| S8 | AI Pipeline Routing | `configure` | `instruction` | `build` |
+| S9 | Dual Mode Configuration | `configure` | `instruction` | `build` |
+| S10 | Payment Operations | `operate` | `guide` | `operate` |
+| S11 | Running in Production | `operate` | `guide` | `operate` |
+| S12 | Troubleshooting | `troubleshoot` | `guide` | `troubleshoot` |
+| S13 | Gateway as a Platform (NaaP) | `build` | `guide` | `build` |
+
+**Design flags**: S11 may split (monitoring + operations checklist). S13 likely splits (evaluate + build). Parallel quickstarts (S4/S5) unanimous 3/3 consensus.
+
+**ALL 13 PAGES WRITTEN** (9,482 words total). ~48 veracity REVIEW markers placed. Pending: naming audit, full veracity pass, layout pass (MDX), universal pages, human review.
+
+## Current live v2/gateways/ structure
+
+```
+v2/gateways/
+├── portal.mdx               ✅ exists — deprecated pageType, audit developer handoff
+├── navigator.mdx             ✅ most comprehensive navigator in site (19.1KB)
+├── index.mdx                 ✅ substantial (12.5KB)
+├── concepts/
+│   └── role.mdx              ✅ confirmed live
+│   └── [payment mechanics]   ⚠️ confirm ETH/payment depth
+├── quickstart/               ✅ exists — confirm vs v0.8.10
+├── setup/
+│   └── [ETH deposit]         ⚠️ confirm depth
+│   └── [WHEP server]         ⚠️ needs v0.8.9 update
+│   └── [Remote Signer]       ⚠️ needs v0.8.10 update
+├── guides/
+│   └── production-gateways   ✅ live — confirm public/private/commercial modes covered
+└── resources/                ✅ exists — add SDK cross-reference
+```
+
+98 pages scanned. 22 stubs. 98 missing lifecycleStage. 10 deprecated pageType.
+
+---
+
+# OPEN ITEMS & BLOCKING DECISIONS
+
+1. **RESOLVED — NaaP acronym**: "Network-as-a-Product" LOCKED.
+2. **RESOLVED — BYOC acronym**: "Bring Your Own Container" LOCKED.
+3. **NON-BLOCKING — Community remote signer endpoint**: signer.eliteencoder.net referenced but unverified.
+4. **NON-BLOCKING — 0.36 ETH production minimum**: Sourced from GitHub #3744, flagged REVIEW.
+5. **NON-BLOCKING — S13 split decision**: NaaP evaluate + build may need separate pages during detailed design.
+6. **CRITICAL CONTENT GAPS**: ETH deposit mechanics depth, WHEP server config (v0.8.9), Remote Signer config (v0.8.10), public vs private vs commercial mode coverage.
+
+# RESEARCH GAP — Missing Personas
+
+The canonical work may underserve:
+- **The NaaP Platform Builder** — treated as a section (S13) but may warrant distinct persona treatment. Building a multi-tenant platform on Livepeer is architecturally different from running a simple gateway. Auth, billing, usage tracking, multi-tenancy are entirely different concerns. The 05b process notes identify private/public/commercial as three modes but don't fully develop the NaaP builder as a persona with their own journey.

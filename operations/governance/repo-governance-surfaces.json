@@ -1,0 +1,403 @@
+{
+  "_meta": {
+    "description": "Canonical repo governance registry. Every governed surface registered here. Supersedes tools/config/runtime/ownerless-governance-surfaces.json.",
+    "version": "1.0.0",
+    "lastUpdated": "2026-04-05",
+    "generated": false,
+    "policy": "docs-guide/policies/ownerless-governance.mdx",
+    "decision": "D-ACT-10 (unified governance control plane)"
+  },
+  "surfaces": [
+    {
+      "id": "root-governance",
+      "name": "Root Placement",
+      "manifest": "tools/config/runtime/root-governance.json",
+      "policy": "docs-guide/policies/root-allowlist-governance.mdx",
+      "surface_globs": [
+        ".allowlist",
+        "docs-guide/policies/root-allowlist-governance.mdx",
+        "tools/config/runtime/root-governance.json",
+        "tools/lib/governance/root-governance.js",
+        "operations/tests/unit/root-allowlist-format.test.js"
+      ],
+      "canonical_sources": [
+        "tools/config/runtime/root-governance.json"
+      ],
+      "derived_outputs": [
+        ".allowlist"
+      ],
+      "validators": [
+        "operations/tests/unit/root-allowlist-format.test.js",
+        ".githooks/pre-commit"
+      ],
+      "repair_commands": [
+        "node tools/lib/governance/root-governance.js --sync-allowlist",
+        "node tools/lib/governance/root-governance.js --generate-map"
+      ],
+      "gate_layer": "pre-commit",
+      "rollout_state": "blocking",
+      "ownerless_ready": true,
+      "write_policy": "Root entries governed by class (A-F). New entries require registry admission.",
+      "escalation_mode": "rolling-issue",
+      "network_dependent": false
+    },
+    {
+      "id": "generated-artifacts",
+      "name": "Generated Artifacts",
+      "manifest": "tools/config/runtime/generated-artifacts.json",
+      "policy": "docs-guide/policies/generated-artifact-and-hook-governance.mdx",
+      "surface_globs": [
+        "docs-index.json",
+        "llms.txt",
+        "sitemap-ai.xml",
+        "docs-guide/catalog/*.mdx",
+        "snippets/snippets-registry.mdx",
+        ".vscode/*.code-snippets"
+      ],
+      "canonical_sources": [
+        "tools/config/runtime/generated-artifacts.json"
+      ],
+      "derived_outputs": [],
+      "validators": [
+        "operations/scripts/dispatch/governance/pre-tool-guard.js"
+      ],
+      "repair_commands": [],
+      "gate_layer": "pre-tool-hook",
+      "rollout_state": "autofix",
+      "ownerless_ready": true,
+      "write_policy": "Generated files must not be manually edited. Pre-tool-guard blocks edits to files with DO NOT EDIT markers.",
+      "escalation_mode": "block-with-error",
+      "network_dependent": false
+    },
+    {
+      "id": "workflow-governance",
+      "name": "Workflow and Pipeline Governance",
+      "manifest": null,
+      "policy": ".github/workspace/framework-canonical.md",
+      "surface_globs": [
+        ".github/workflows/*.yml",
+        ".github/workflows/*.yaml",
+        ".github/scripts/**"
+      ],
+      "canonical_sources": [
+        ".github/workspace/framework-canonical.md",
+        ".github/workspace/decisions-log.mdx"
+      ],
+      "derived_outputs": [
+        ".github/workspace/actions-library/**"
+      ],
+      "validators": [],
+      "repair_commands": [],
+      "gate_layer": "pr-changed",
+      "rollout_state": "migrating",
+      "ownerless_ready": false,
+      "write_policy": "Workflows follow type-concern-verb-name.yml naming (D-ACT-04). Workflows are dispatchers, scripts carry the type (D-ACT-08).",
+      "escalation_mode": "advisory",
+      "network_dependent": false
+    },
+    {
+      "id": "ai-tools-registry",
+      "name": "AI Tools Registry",
+      "manifest": null,
+      "policy": "docs-guide/policies/source-of-truth-policy.mdx",
+      "surface_globs": [
+        "ai-tools/registry/**",
+        "docs-guide/tooling/ai-tools.mdx",
+        "docs-guide/policies/source-of-truth-policy.mdx",
+        "docs-guide/policies/audit-system-overview.mdx",
+        "docs-guide/policies/skill-pipeline-map.mdx",
+        "operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js",
+        "operations/tests/unit/ai-tools-registry.test.js"
+      ],
+      "canonical_sources": [
+        "ai-tools/registry/ai-tools-registry.schema.json",
+        "ai-tools/registry/ai-tools-registry.json",
+        "docs-guide/policies/source-of-truth-policy.mdx"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/ai-tools-inventory.md"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js --check --coverage",
+        "node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js --write-report"
+      ],
+      "gate_layer": "pr-changed",
+      "rollout_state": "migrating",
+      "ownerless_ready": false,
+      "write_policy": "Registry entries validated against schema. Inventory auto-generated.",
+      "escalation_mode": "advisory",
+      "network_dependent": false
+    },
+    {
+      "id": "portable-skills",
+      "name": "Portable Skills",
+      "manifest": null,
+      "policy": "docs-guide/policies/source-of-truth-policy.mdx",
+      "surface_globs": [
+        "ai-tools/ai-skills/templates/*.template.md",
+        "ai-tools/agent-packs/skills/**"
+      ],
+      "canonical_sources": [
+        "ai-tools/ai-skills/templates/*.template.md",
+        "ai-tools/ai-skills/skill-spec-contract.md",
+        "docs-guide/policies/source-of-truth-policy.mdx"
+      ],
+      "derived_outputs": [
+        "ai-tools/agent-packs/skills/**"
+      ],
+      "validators": [
+        "operations/tests/unit/export-portable-skills.test.js",
+        "operations/tests/unit/codex-skill-sync.test.js"
+      ],
+      "repair_commands": [
+        "lpd repair --surface portable-skills --write",
+        "node operations/scripts/automations/ai/agents/export-portable-skills.js --write"
+      ],
+      "gate_layer": "pr-changed",
+      "rollout_state": "autofix",
+      "ownerless_ready": true,
+      "write_policy": "Skills exported from canonical templates. Agent packs are derived.",
+      "escalation_mode": "autofix-pr",
+      "network_dependent": false
+    },
+    {
+      "id": "docs-guide-generated",
+      "name": "Docs Guide Catalogs",
+      "manifest": null,
+      "policy": "docs-guide/policies/source-of-truth-policy.mdx",
+      "surface_globs": [
+        "docs-guide/catalog/*.mdx",
+        "operations/scripts/generate-docs-guide-*.js",
+        "operations/tests/unit/docs-guide-sot.test.js"
+      ],
+      "canonical_sources": [
+        "docs-guide/overview.mdx",
+        "docs-guide/policies/source-of-truth-policy.mdx",
+        "operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js",
+        "operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js",
+        "operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js",
+        "operations/tests/unit/script-docs.test.js"
+      ],
+      "derived_outputs": [
+        "docs-guide/catalog/workflows-catalog.mdx",
+        "docs-guide/catalog/templates-catalog.mdx",
+        "docs-guide/catalog/pages-catalog.mdx",
+        "docs-guide/catalog/components-catalog.mdx",
+        "docs-guide/catalog/scripts-catalog.mdx"
+      ],
+      "validators": [
+        "operations/tests/unit/docs-guide-sot.test.js"
+      ],
+      "repair_commands": [
+        "lpd repair --surface docs-guide-generated --write",
+        "node operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js --write",
+        "node operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js --write",
+        "node operations/scripts/generators/governance/catalogs/generate-docs-guide-components-index.js --write",
+        "node operations/tests/unit/script-docs.test.js --write --rebuild-indexes"
+      ],
+      "gate_layer": "pr-changed",
+      "rollout_state": "autofix",
+      "ownerless_ready": true,
+      "write_policy": "Catalogs auto-generated from repo state. Do not edit manually.",
+      "escalation_mode": "autofix-pr",
+      "network_dependent": false
+    },
+    {
+      "id": "ui-templates",
+      "name": "UI Templates and VS Code Snippets",
+      "manifest": null,
+      "policy": null,
+      "surface_globs": [
+        "snippets/templates/**",
+        ".vscode/*.code-snippets",
+        "docs-guide/catalog/ui-templates.mdx"
+      ],
+      "canonical_sources": [
+        "snippets/templates/**",
+        "docs-guide/config/component-registry.json",
+        "operations/scripts/generators/components/library/generate-ui-templates.js"
+      ],
+      "derived_outputs": [
+        ".vscode/templates.code-snippets",
+        ".vscode/components.code-snippets",
+        "docs-guide/catalog/ui-templates.mdx"
+      ],
+      "validators": [
+        "operations/tests/unit/ui-template-generator.test.js",
+        "operations/tests/unit/docs-guide-sot.test.js"
+      ],
+      "repair_commands": [
+        "lpd repair --surface ui-templates --write",
+        "node operations/scripts/generators/components/library/generate-ui-templates.js --write"
+      ],
+      "gate_layer": "pr-changed",
+      "rollout_state": "autofix",
+      "ownerless_ready": true,
+      "write_policy": "Snippets generated from templates. VS Code snippets are derived.",
+      "escalation_mode": "autofix-pr",
+      "network_dependent": false
+    },
+    {
+      "id": "github-contributor-governance",
+      "name": "Contributor Governance",
+      "manifest": null,
+      "policy": "docs-guide/policies/ownerless-governance.mdx",
+      "surface_globs": [
+        "AGENTS.md",
+        ".github/copilot-instructions.md",
+        ".claude/CLAUDE.md",
+        ".cursor/rules/*.mdc",
+        ".windsurf/rules/*.md",
+        ".allowlist",
+        ".github/ISSUE_TEMPLATE/*.yml",
+        ".github/pull_request_template.md",
+        ".github/workflows/issue-auto-label.yml",
+        ".github/workflows/discord-issue-intake.yml",
+        ".github/workflows/openapi-reference-validation.yml",
+        ".github/workflows/docs-v2-issue-indexer.yml",
+        "README.md",
+        "docs-guide/contributing/agent-instructions.mdx"
+      ],
+      "canonical_sources": [
+        "docs-guide/policies/ownerless-governance.mdx",
+        "docs-guide/policies/source-of-truth-policy.mdx",
+        "docs-guide/policies/infrastructure-principles.mdx"
+      ],
+      "derived_outputs": [],
+      "validators": [
+        "operations/tests/unit/ownerless-governance.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/remediators/content/style/repair-ownerless-language.js --write"
+      ],
+      "gate_layer": "pr-changed",
+      "rollout_state": "autofix",
+      "ownerless_ready": true,
+      "write_policy": "Agent instruction files follow canonical layout per agent-governance-framework.mdx. No policy drift between overlapping files.",
+      "escalation_mode": "advisory",
+      "network_dependent": false
+    },
+    {
+      "id": "script-governance",
+      "name": "Script Governance",
+      "manifest": "tools/config/registry/script-registry.json",
+      "policy": "docs-guide/policies/script-governance.mdx",
+      "surface_globs": [
+        ".githooks/**",
+        ".github/scripts/**",
+        "operations/tests/**",
+        "operations/scripts/**",
+        "tools/lib/**",
+        "tools/config/**",
+        "tools/dev/**",
+        "workspace/scripts/**"
+      ],
+      "canonical_sources": [
+        "tools/lib/governance/script-governance-config.js",
+        "tools/lib/governance/script-header-utils.js",
+        "operations/tests/unit/script-docs.test.js",
+        "operations/scripts/validators/governance/pr/audit-script-inventory.js",
+        "operations/scripts/dispatch/governance/pipelines/governance-pipeline.js"
+      ],
+      "derived_outputs": [
+        "docs-guide/catalog/scripts-catalog.mdx",
+        "operations/tests/script-index.md",
+        "tools/config/registry/script-index.md",
+        "tools/dev/script-index.md",
+        "tools/lib/script-index.md",
+        "workspace/reports/script-classifications.json",
+        "workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.json",
+        "workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.md"
+      ],
+      "validators": [
+        "operations/tests/unit/script-docs.test.js",
+        "operations/tests/unit/ownerless-governance.test.js"
+      ],
+      "repair_commands": [
+        "lpd repair --surface script-governance --write --staged",
+        "lpd repair --surface script-governance --write --files <path[,path...]>",
+        "node operations/scripts/dispatch/governance/pipelines/governance-pipeline.js --staged",
+        "node operations/scripts/dispatch/governance/pipelines/governance-pipeline.js --files <path[,path...]>"
+      ],
+      "gate_layer": "pre-commit",
+      "rollout_state": "migrating",
+      "ownerless_ready": false,
+      "write_policy": "Scripts require 11-tag JSDoc header. 7 types, 7 concerns. Placement at operations/scripts/<type>/<concern>/<niche>/.",
+      "escalation_mode": "autofix-pr",
+      "network_dependent": false
+    },
+    {
+      "id": "component-governance",
+      "name": "Component Governance",
+      "manifest": "docs-guide/config/component-registry.json",
+      "policy": "docs-guide/policies/component-layout-decisions.mdx",
+      "surface_globs": [
+        "snippets/components/**",
+        "docs-guide/frameworks/component-governance.mdx",
+        "docs-guide/config/component-registry.json",
+        "v2/resources/documentation-guide/component-library/**"
+      ],
+      "canonical_sources": [
+        "snippets/components/**",
+        "operations/scripts/generators/components/library/generate-component-registry.js",
+        "operations/scripts/generators/components/documentation/generate-component-docs.js",
+        "operations/scripts/remediators/components/library/repair-component-metadata.js"
+      ],
+      "derived_outputs": [
+        "docs-guide/config/component-registry.json",
+        "v2/resources/documentation-guide/component-library/**"
+      ],
+      "validators": [
+        "operations/scripts/validators/components/documentation/check-component-docs.js",
+        "operations/tests/unit/component-governance-generators.test.js",
+        "operations/tests/unit/ownerless-governance.test.js"
+      ],
+      "repair_commands": [
+        "lpd repair --surface component-governance --write",
+        "node operations/scripts/remediators/components/library/repair-component-metadata.js --fix",
+        "node operations/scripts/generators/components/library/generate-component-registry.js",
+        "node operations/scripts/generators/components/documentation/generate-component-docs.js --fix"
+      ],
+      "gate_layer": "pr-changed",
+      "rollout_state": "migrating",
+      "ownerless_ready": false,
+      "write_policy": "Components require 7-tag JSDoc header. 6 categories. Modifications need component-change-approved label.",
+      "escalation_mode": "block-with-error",
+      "network_dependent": false
+    },
+    {
+      "id": "frontmatter-contract",
+      "name": "Page Frontmatter Contract",
+      "manifest": null,
+      "policy": null,
+      "surface_globs": [
+        "v2/**/*.mdx",
+        "docs-guide/**/*.mdx",
+        "operations/tests/unit/quality.test.js",
+        "tools/lib/docs/frontmatter-taxonomy.js"
+      ],
+      "canonical_sources": [
+        "tools/lib/docs/frontmatter-taxonomy.js"
+      ],
+      "derived_outputs": [],
+      "validators": [
+        "operations/tests/unit/frontmatter-taxonomy.test.js",
+        "operations/tests/unit/quality.test.js"
+      ],
+      "repair_commands": [
+        "lpd repair --surface frontmatter-contract --files <path>",
+        "node operations/tests/unit/quality.test.js --files <path>",
+        "node operations/tests/unit/frontmatter-taxonomy.test.js"
+      ],
+      "gate_layer": "pr-changed",
+      "rollout_state": "migrating",
+      "ownerless_ready": false,
+      "write_policy": "Every page requires: title, description, pageType, purpose, audience frontmatter.",
+      "escalation_mode": "advisory",
+      "network_dependent": false
+    }
+  ]
+}

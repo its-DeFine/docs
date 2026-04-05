@@ -4249,3 +4249,62 @@ Began systematic snippets/ folder cleanup. Completed root-level design (target s
 | `tools/config/registry/script-registry.json` | modified | Regenerated script registry aligned to the new `tools/` paths |
 | `tools/dev/script-index.md` | created | Regenerated script index for the governed `tools/dev` root |
 | `tools/lib/script-index.md` | modified | Regenerated script index for the namespaced `tools/lib` layout |
+
+---
+
+## Governance Pipeline Design + Implementation Plan — 2026-04-05
+
+**Plans**: `.claude/plans/soft-gliding-falcon.md`
+**Scope**: Full governance concern design: research, requirements, design from first principles, audit, implementation plan.
+
+### Summary
+Designed the governance enforcement system for an ownerless documentation repo from first principles. Governance owns enforcement infrastructure (layers, patterns, standards), not content rules. Each concern owns its rules; governance makes them stick. 4 agent audit passes revealed 11 gaps between design and reality. Two fresh repo audits (root governance + ownerless self-governance) identified the core issue: multiple overlapping governance control planes that contradict each other. Implementation plan approved with 7 phases, each requiring re-audit and co-design checkpoint before implementation.
+
+### Completed
+- Research: 43 governance docs + 28 enforcement mechanisms indexed
+- Requirements: defined by 7 categories (workflows, contributions, repo, UX, pages, documentation, agents)
+- Design: 10 design requirements, 6 enforcement layers, self-repair pattern, tooling principles
+- Audit: 4 agent passes across all enforcement layers, 11 gaps identified
+- Decisions: D-GOV-01 through D-GOV-06 (governance is enforcement infra, categories are layers, every detection self-repairs or escalates, tooling makes correct default, advisory before hard gate, align script framework)
+- Config: VALID_TYPES (7 types), VALID_CONCERNS (7 concerns), legacy maps added to script-governance-config.js
+- Framework: framework-canonical.md rewritten (pipeline architecture first, not taxonomy)
+- Design docs: template replicated to all 7 concern folders
+- Files: generator + audit JSON moved to actions-library, dependency-map to reports-audits
+- D-ACT-09: pipeline output locations decision locked
+- Implementation plan: 7 phases (Phase 0: unified control plane, Phase 1-6: fix, reconcile, wire, scan-to-act, architecture, docs+merge)
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| D-GOV-01: Governance is enforcement infrastructure | Each concern owns rules, governance enforces them |
+| D-GOV-02: Categories are enforcement layers | Pre-commit, PR, post-merge, scheduled, self-heal, hooks, lifecycle |
+| D-GOV-03: Every detection self-repairs or escalates | Auto-fix > auto-fix PR > create issue > block. No headless scans |
+| D-GOV-04: Tooling makes correct the default | Templates, scaffolding, IDE snippets, documentation, examples |
+| D-GOV-05: Advisory before hard gate | P3 first, promote P2 after baseline clean |
+| D-GOV-06: Align script framework to actions | 7 types, 7 concerns. Config updated, docs pending |
+| D-ACT-09: Pipeline output locations | Reports to workspace/reports, data to snippets/data, errors to operations/reports/errors + GitHub issue |
+
+### Deferred Items
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Phase 0: Unified governance control plane | P0 | operations/governance/ doesn't exist yet | None |
+| Phase 1: Fix governance-sync (broken stale path) | P0 | Pipeline can't run | Phase 0 |
+| Phase 2: Reconcile root governance surfaces | P1 | Contradictions between allowlist, validators, policies | Phase 1 |
+| Phase 3: Wire brand/copy + structure validators to PR | P1 | Zero enforcement currently | Phase 2 |
+| Phase 4: Fix headless scans (18/20 are headless) | P1 | Detect but never act | Phase 3 |
+| Phase 5: Extract inline JS, centralise labels/templates | P2 | Architectural, working as-is | Phase 4 |
+| Phase 6: Documentation alignment + merge to docs-v2 | P2 | Final step | Phase 5 |
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `.github/workspace/design/governance/design-overview.md` | Design doc | Canonical governance design (research, requirements, design, audit, decisions) |
+| `.github/workspace/design/governance/process-docs/research.md` | Research | 43 docs + 28 mechanisms indexed |
+| `.github/workspace/design/governance/process-docs/audit.md` | Audit | Per-pipeline audit findings |
+| `.github/workspace/design/design-canonical.md` | Index | Root doc linking all 7 concern design docs |
+| `.github/workspace/design/{concern}/design-overview.md` | Templates | 6 concern templates (health, copy, brand, discoverability, maintenance, data-importers) |
+| `.github/workspace/framework-canonical.md` | Framework | Rewritten: pipeline architecture first, 7 patterns, dispatcher model |
+| `.github/workspace/decisions-log.mdx` | Decisions | D-ACT-01 through D-ACT-10 |
+| `.github/workspace/phase2/pipeline-review-process.md` | Process | Per-concern review process with agent prompts, design principles |
+| `.github/workspace/phase2/locked-pipelines.md` | Product | Product capabilities, 6 critical gaps, full concern mapping |
+| `.claude/plans/soft-gliding-falcon.md` | Plan | 7-phase implementation plan with co-design checkpoints |

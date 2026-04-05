@@ -27,22 +27,28 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ inputs.use_test_branch == 'true' && vars.TEST_BRANCH || vars.DEPLOY_BRANCH }}
+          ref: ${{ vars.DEPLOY_BRANCH }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '20'
 
       - name: Install tools dependencies
         working-directory: tools
-        run: npm install
+        run: npm ci
 
       - name: Generate root governance projections
         run: node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write
 
       - name: Validate root governance sync
         run: node operations/scripts/validators/governance/compliance/check-root-governance-sync.js
+
+      - name: Generate repo governance status
+        run: node operations/scripts/generators/governance/reports/generate-repo-governance-status.js --write
+
+      - name: Validate repo governance sync
+        run: node operations/scripts/validators/governance/compliance/check-repo-governance-sync.js
 
       - name: Resolve run mode
         id: mode
@@ -154,6 +160,8 @@ jobs:
             workspace/reports/repo-ops/REPAIR_REPORT_LATEST.md
             workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.json
             workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md
+            workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json
+            workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md
             workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.json
             workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.md
           if-no-files-found: warn

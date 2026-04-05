@@ -1,6 +1,6 @@
 # Root Governance Sync Report
 
-Manifest: `tools/config/runtime/root-governance.json`
+Manifest: `operations/governance/config/root-governance.json`
 
 Governed root entries: 35
 Current root entries: 36

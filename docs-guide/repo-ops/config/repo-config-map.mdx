@@ -36,13 +36,78 @@ These files live at the repo root and are read by Mintlify, the pre-commit hook,
 | File | Read by | Purpose |
 |------|---------|---------|
 | `docs.json` | Mintlify | Navigation structure, version config, redirect rules, logo/favicon paths, SEO defaults, component imports |
-| `.allowlist` | Pre-commit hook | Generated allowlist of permitted root-level files and directories. Canonical edits happen in `tools/config/runtime/root-governance.json`, then regenerate projections. |
+| `.allowlist` | Pre-commit hook | Generated allowlist of permitted root-level files and directories. Canonical edits happen in `operations/governance/config/root-governance.json`, then regenerate projections. |
 | `.mintignore` | Mintlify | Files and directories excluded from the docs build. Prevents operational scripts, workspace scratch, and draft content from becoming routable pages. |
 | `docs-index.json` | AI and tooling consumers | Ratified machine-readable public root artifact describing docs inventory. |
 | `llms.txt` | AI consumers | Ratified AI-first public root artifact for LLM discovery. |
 | `sitemap-ai.xml` | AI and crawler consumers | Ratified AI-first public root sitemap artifact. |
 
 Live governed root inventory is generated at [`docs-guide/repo-ops/config/root-governance-map.mdx`](/docs-guide/repo-ops/config/root-governance-map). Do not duplicate the full root inventory in manual docs.
+
+---
+
+## operations/governance/config/
+
+Top-level governance control-plane manifests live here in staged bridge mode. Legacy mirrors still remain under `tools/config/runtime/**` until approved cutover, but active canonical reads now target `operations/governance/config/**`.
+
+### repo-governance-surfaces.json
+
+```
+operations/governance/config/repo-governance-surfaces.json
+```
+
+**Purpose:** Canonical top-level registry for governed repo surfaces, path classes, agent output classes, rollout state, and staged bridge status.
+
+**Read by:** `generate-repo-governance-status.js`, `check-repo-governance-sync.js`, `repo-governance-sync.test.js`, and human/operator docs via the generated repo governance map.
+
+**Bridge mode:** `staged`
+
+**Key responsibilities:**
+
+| Field group | Purpose |
+|-------------|---------|
+| `generated_outputs` | Declares the repo-governance map and deterministic status reports |
+| `path_classes` | Declares admitted path classes for governance-controlled writes |
+| `agent_output_classes` | Declares where agent-generated outputs should live and whether they may be committed |
+| `surfaces` | Declares governed governance surfaces, validators, repair commands, gate layer, rollout state, and escalation |
+
+**When to update:** When introducing a new governance-controlled surface, changing admitted path classes, or changing the staged bridge model.
+
+Live top-level governance state is generated at [`docs-guide/repo-ops/config/repo-governance-map.mdx`](/docs-guide/repo-ops/config/repo-governance-map).
+
+### root-governance.json
+
+```
+operations/governance/config/root-governance.json
+```
+
+**Purpose:** Canonical manifest for the governed repo root during staged migration to `operations/governance/**`.
+
+**Bridge source:** `tools/config/runtime/root-governance.json`
+
+**Read by:** root-governance helpers, generators, validators, and bridge sync validation.
+
+### generated-artifacts.json
+
+```
+operations/governance/config/generated-artifacts.json
+```
+
+**Purpose:** Canonical manifest for generated-artifact governance during staged migration to `operations/governance/**`.
+
+**Bridge source:** `tools/config/runtime/generated-artifacts.json`
+
+**Read by:** generated-artifact helpers, validators, hooks, PR checks, and bridge sync validation.
+
+### agent-write-governance.json
+
+```
+operations/governance/config/agent-write-governance.json
+```
+
+**Purpose:** Canonical policy manifest for agent output classes, admitted destinations, and root-write restrictions.
+
+**Read by:** repo-governance map/status generation now; path-admission and stricter anti-bloat enforcement later in the programme.
 
 ---
 
