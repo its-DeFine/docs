@@ -73,6 +73,15 @@ Related to #
 
 [//]: # (Any additional information, context, or notes for reviewers)
 
+## Governance Approval
+
+[//]: # (Required when governance-sensitive files change. Use one line per field. Write "Not required for this PR." only when no governance approval class applies.)
+
+- Approval class:
+- Approver:
+- Rationale:
+- Evidence / decision record:
+
 ## Copy Governance Gate - L5
 
 Complete before requesting review. Every item must be checked or the PR is not ready.
