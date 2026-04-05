@@ -124,7 +124,7 @@
 | File | What |
 |---|---|
 | `tools/lib/script-governance-config.js` | Central governance config (enums, roots, schemas) |
-| `tools/config/ownerless-governance-surfaces.json` | Ownerless repo surfaces map |
+| `tools/config/runtime/ownerless-governance-surfaces.json` | Ownerless repo surfaces map |
 | `workspace/reports/script-classifications.json` | Master script inventory |
 | `.codex/task-contract.yaml` | Codex task contract schema |
 

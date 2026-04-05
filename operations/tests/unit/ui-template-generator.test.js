@@ -253,7 +253,7 @@ function validateCanonicalImportContracts(errors) {
       errors.push({
         file: repoPath,
         rule: 'Mint globals import contract',
-        message: 'Import latestVersion data from /snippets/automations/globals/globals.jsx. globals.mdx must stay a thin wrapper, not the canonical import path.',
+        message: 'Import latestVersion data from /snippets/data/globals/latestRelease.jsx. globals.mdx must stay a thin wrapper, not the canonical import path.',
         line: getLineNumber(content, globalsMatch.index),
       });
     }

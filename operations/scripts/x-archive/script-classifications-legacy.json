@@ -247,7 +247,7 @@
     "script": "ai-tools-registry.test",
     "category": "validator",
     "purpose": "governance:agent-governance",
-    "scope": "tests/unit, ai-tools/registry, tools/lib/ai-tools-registry.js, tools/scripts/validate-ai-tools-registry.js, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx, tools/config/ownerless-governance-surfaces.json",
+    "scope": "tests/unit, ai-tools/registry, tools/lib/ai-tools-registry.js, tools/scripts/validate-ai-tools-registry.js, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx, tools/config/runtime/ownerless-governance-surfaces.json",
     "needs": "R-R14, R-R29",
     "purpose_statement": "Validates the AI-tools registry contract, full tracked ai-tools coverage, and the Wave 1 inventory source-of-truth boundary.",
     "pipeline": "P1, P3"
@@ -516,20 +516,10 @@
     "script": "generated-artifacts-policy.test",
     "category": "validator",
     "purpose": "qa:repo-health",
-    "scope": "tests/unit, tools/lib/generated-artifacts.js, tools/config/generated-artifacts.json",
+    "scope": "tests/unit, tools/lib/generated-artifacts.js, tools/config/runtime/generated-artifacts.json",
     "needs": "R-R16, R-R17",
     "purpose_statement": "Tests generated artifact governance manifest — validates enums, path matching, and hook-policy expectations",
     "pipeline": "manual — targeted governance test"
-  },
-  {
-    "path": "tests/unit/legacy-root-v1-redirects.test.js",
-    "script": "legacy-root-v1-redirects.test",
-    "category": "validator",
-    "purpose": "qa:repo-health",
-    "scope": "tests/unit, tools/scripts/redirects, tools/data/redirects, docs.json",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Validates legacy root-to-v1 redirect integrity, docs.json sync, root catch-all fallbacks, and legacy fallback-page cleanup behavior.",
-    "pipeline": "manual — targeted redirect migration coverage"
   },
   {
     "path": "tests/unit/links-imports.test.js",
@@ -660,7 +650,7 @@
     "script": "ownerless-governance.test",
     "category": "validator",
     "purpose": "governance:agent-governance",
-    "scope": "tests/unit, docs-guide/policies/ownerless-governance.mdx, tools/config/ownerless-governance-surfaces.json, .github, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md",
+    "scope": "tests/unit, docs-guide/policies/ownerless-governance.mdx, tools/config/runtime/ownerless-governance-surfaces.json, .github, README.md, contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md",
     "needs": "R-R14, R-R29",
     "purpose_statement": "Validates the ownerless governance manifest, primary gate-layer contract, and forbidden human-owner dependency in governed policy and GitHub surfaces.",
     "pipeline": "P1, P3"
@@ -903,7 +893,7 @@
     "dualmode": "dual-mode (document flags)"
   },
   {
-    "path": "tools/config/v2-internal-report-pages.js",
+    "path": "tools/config/runtime/v2-internal-report-pages.js",
     "script": "v2-internal-report-pages",
     "category": "config",
     "purpose": "tooling:dev-tools",
@@ -917,7 +907,7 @@
     "script": "ai-tools-registry",
     "category": "utility",
     "purpose": "governance:agent-governance",
-    "scope": "tools/lib, ai-tools/registry, tools/scripts/validate-ai-tools-registry.js, tests/unit/ai-tools-registry.test.js, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx, tools/config/ownerless-governance-surfaces.json",
+    "scope": "tools/lib, ai-tools/registry, tools/scripts/validate-ai-tools-registry.js, tests/unit/ai-tools-registry.test.js, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx, tools/config/runtime/ownerless-governance-surfaces.json",
     "needs": "R-R14, R-R29",
     "purpose_statement": "Shared loader, validator, coverage checker, and report renderer for the AI-tools registry contract and generated inventory report.",
     "pipeline": "indirect -- library module used by validator and test surfaces"
@@ -1508,7 +1498,7 @@
     "script": "component-layout-governance",
     "category": "validator",
     "purpose": "qa:repo-health",
-    "scope": "tools/scripts, v2, tools/config/component-layout-profile.json",
+    "scope": "tools/scripts, v2, tools/config/quality/component-layout-profile.json",
     "needs": "E-C1, R-R14",
     "purpose_statement": "Component layout governance validator — checks v2 page layouts against approved component contracts",
     "pipeline": "P5, P6"
@@ -2122,16 +2112,6 @@
     "pipeline": "manual — not yet in pipeline"
   },
   {
-    "path": "tools/scripts/x-archive/sync-legacy-root-v1.js",
-    "script": "sync-legacy-root-v1",
-    "category": "generator",
-    "purpose": "governance:index-management",
-    "scope": "full-repo",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Legacy root redirect synchronizer — bootstraps root-level legacy-to-v1 mappings, rewrites managed docs.json redirects, installs root catch-all fallbacks, and removes legacy generated fallback pages",
-    "pipeline": "manual — on-demand maintainer sync tool"
-  },
-  {
     "path": "tools/scripts/remediators/content/repair/migrate-assets-to-branch.js",
     "script": "migrate-assets-to-branch",
     "category": "remediator",
@@ -2330,7 +2310,7 @@
     "script": "style-and-language-homogenizer-en-gb",
     "category": "remediator",
     "purpose": "tooling:dev-tools",
-    "scope": "tools/scripts, v2, tools/config/style-language-profile-en-gb.json",
+    "scope": "tools/scripts, v2, tools/config/quality/style-language-profile-en-gb.json",
     "needs": "E-C6, F-C1",
     "purpose_statement": "EN-GB style homogeniser — finds and fixes American English spellings, style guide violations, and formatting inconsistencies across v2 content",
     "pipeline": "P6 (on-demand, repair)"
@@ -2360,7 +2340,7 @@
     "script": "validate-ai-tools-registry",
     "category": "validator",
     "purpose": "governance:agent-governance",
-    "scope": "tools/scripts, tools/lib/ai-tools-registry.js, ai-tools/registry, tests/unit/ai-tools-registry.test.js, tools/config/ownerless-governance-surfaces.json, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx",
+    "scope": "tools/scripts, tools/lib/ai-tools-registry.js, ai-tools/registry, tests/unit/ai-tools-registry.test.js, tools/config/runtime/ownerless-governance-surfaces.json, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx",
     "needs": "R-R14, R-R29",
     "purpose_statement": "AI-tools registry validator and report writer for source-of-truth coverage, lifecycle, lane alignment, and generated inventory output.",
     "pipeline": "manual -- bounded validator CLI"
@@ -2740,16 +2720,6 @@
     "needs": "E-R19, F-R7",
     "purpose_statement": "Deprecated wrapper for the legacy safe SEO generator.",
     "pipeline": "manual — interactive developer helper"
-  },
-  {
-    "path": "tools/scripts/x-archive/sync-legacy-root-v1.js",
-    "script": "sync-legacy-root-v1",
-    "category": "generator",
-    "purpose": "governance:index-management",
-    "scope": "full-repo",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Legacy root redirect synchronizer — bootstraps root-level legacy-to-v1 mappings.",
-    "pipeline": "manual — on-demand maintainer sync tool"
   },
   {
     "path": "tools/scripts/x-archive/update-all-og-images.js",

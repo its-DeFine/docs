@@ -78,7 +78,7 @@ Script-generated outputs only. Humans and agents do not write directly into this
 - Every output path must be registered in the [Approved Generators](#approved-generators) table below.
 - Outputs overwrite in place. One current copy per approved output path.
 - No dated subdirectories. No one-off run directories. No ad hoc outputs.
-- Seed files and baselines do not belong here — use governed config paths under `tools/config/`.
+- Seed files and baselines do not belong here — keep shared contracts under `tools/config/**` and workflow-owned datasets beside their owning scripts.
 - `_legacy-unmanaged/` must contain no tracked files.
 
 **Report metadata:**
@@ -139,7 +139,7 @@ Active remediation notes tied to open issues or PRs.
 
 ## Protected data
 
-`tools/config/script-registry.json` is canonical governance data for the script governance framework. Regenerate it; do not hand-edit derived copies.
+`tools/config/registry/script-registry.json` is canonical governance data for the script governance framework. Regenerate it; do not hand-edit derived copies.
 
 ---
 
@@ -154,7 +154,7 @@ Workflow: `.github/workflows/tasks-retention.yml` — runs weekly on `docs-v2`, 
 | `workspace/scripts/**` | Hard delete files &gt;14 days old |
 | `workspace/errors/**` | Open GitHub issue if unchanged &gt;14 days |
 | `workspace/reports/**` | No action — scripts manage their own overwrite cycle |
-| `tools/config/script-registry.json` | Never touched by the retention workflow; regenerate instead |
+| `tools/config/registry/script-registry.json` | Never touched by the retention workflow; regenerate instead |
 
 **Required labels** (must exist in repo before first workflow run):
 `tasks-retention`, `plan-stale`, `error-stale`, `agent-brief`, `backlog`, `handoff`, `analysis`, `execution`, `copilot-candidate`, `needs-human`, `uncategorised`

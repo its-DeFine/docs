@@ -1,4 +1,4 @@
-# Retains generated forum data under snippets/automations/forum/forumData.jsx.
+# Retains generated forum data under snippets/data/social-feeds/forumData.jsx.
 # Legacy entrypoint kept as a compatibility wrapper during workflow consolidation.
 name: Update Forum Data
 

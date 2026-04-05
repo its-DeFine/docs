@@ -9,12 +9,12 @@ metadata:
   category: "meta"
   tier: "2"
 primary_paths:
-  - "snippets/automations/scripts/n8n"
+  - "snippets/assets/data/n8n"
   - "v2/resources/documentation-guide/automations-workflows.mdx"
   - "snippets/automations"
 primary_commands:
-  - "find snippets/automations/scripts/n8n -maxdepth 1 -name \"*.json\" | sort"
-  - "node -e \"JSON.parse(require(\"fs\").readFileSync(\"snippets/automations/scripts/n8n/Luma-To-Mintlify.json\",\"utf8\")); console.log(\"ok\")\""
+  - "find snippets/assets/data/n8n -maxdepth 1 -name \"*.json\" | sort"
+  - "node -e \"JSON.parse(require(\"fs\").readFileSync(\"snippets/assets/data/n8n/Luma-To-Mintlify.json\",\"utf8\")); console.log(\"ok\")\""
 ---
 
 SKILL: n8n Workflow Maintenance
@@ -35,8 +35,8 @@ Workflow
 
 Command examples
 ```bash
-find snippets/automations/scripts/n8n -maxdepth 1 -name \"*.json\" | sort
-node -e \"JSON.parse(require(\"fs\").readFileSync(\"snippets/automations/scripts/n8n/Luma-To-Mintlify.json\",\"utf8\")); console.log(\"ok\")\"
+find snippets/assets/data/n8n -maxdepth 1 -name \"*.json\" | sort
+node -e \"JSON.parse(require(\"fs\").readFileSync(\"snippets/assets/data/n8n/Luma-To-Mintlify.json\",\"utf8\")); console.log(\"ok\")\"
 ```
 
 Deliverable Format

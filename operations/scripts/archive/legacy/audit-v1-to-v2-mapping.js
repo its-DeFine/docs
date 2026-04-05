@@ -3,13 +3,13 @@
  * @script            audit-v1-to-v2-mapping
  * @category          validator
  * @purpose           qa:repo-health
- * @scope             tools/scripts, v1, v2, docs.json, workspace/reports
+ * @scope             operations/scripts/archive/legacy, v1, v2, docs.json, workspace/reports
  * @owner             docs
  * @needs             E-C1, R-R14
  * @purpose-statement Diagnostic — maps v1 page URLs to v2 equivalents for migration tracking
  * @pipeline          manual — diagnostic/investigation tool, run on-demand only
  * @dualmode          dual-mode (document flags)
- * @usage             node tools/scripts/archive/legacy/audit-v1-to-v2-mapping.js [flags]
+ * @usage             node operations/scripts/archive/legacy/audit-v1-to-v2-mapping.js [flags]
  */
 
 const fs = require('fs');
@@ -21,7 +21,7 @@ const DEFAULT_OUT_DIR = 'workspace/reports/v1-v2-mapping-audit';
 const DEFAULT_CANDIDATE_COUNT = 8;
 const DEFAULT_ADJUDICATE_THRESHOLD = 0.8;
 const DEFAULT_SEED =
-  'tools/config/v1-v2-mapping-seeds/v1-to-v2-gap-fill-matrix.csv';
+  'operations/scripts/archive/legacy/seeds/v1-to-v2-gap-fill-matrix.csv';
 
 const TARGET_FILES = {
   csv: 'v1-v2-page-mapping-audit.csv',

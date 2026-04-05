@@ -60,7 +60,7 @@ const GROUP_INDEX_MAP = [
   { root: 'operations/scripts', index: 'operations/scripts/script-index.md' },
   { root: 'tools/lib', index: 'tools/lib/script-index.md' },
   { root: 'tools/notion', index: 'tools/notion/script-index.md' },
-  { root: 'tools/config', index: 'tools/config/script-index.md' },
+  { root: 'tools/config', index: 'tools/config/registry/script-index.md' },
   { root: 'workspace/scripts', index: 'workspace/scripts/script-index.md' },
   { root: 'snippets/automations', index: 'snippets/automations/script-index.md' }
 ];
@@ -70,7 +70,7 @@ const AGGREGATE_INDEX_PATH = 'docs-guide/catalog/scripts-catalog.mdx';
 const LEGACY_AGGREGATE_INDEX_PATH = AGGREGATE_INDEX_PATH
   .replace('/catalog/', '/indexes/')
   .replace(/-catalog\.mdx$/i, () => ['-', 'index', '.mdx'].join(''));
-const CLASSIFICATION_DATA_PATH = 'tools/config/script-registry.json';
+const CLASSIFICATION_DATA_PATH = 'tools/config/registry/script-registry.json';
 
 const SCRIPT_EXTENSIONS = ['.js', '.sh', '.py'];
 const SCRIPT_EXTENSIONS_SET = new Set(SCRIPT_EXTENSIONS);

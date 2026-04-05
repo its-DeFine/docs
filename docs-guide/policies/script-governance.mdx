@@ -271,7 +271,7 @@ const REPO_ROOT = path.resolve(__dirname, '../../../../..');
     Set `@pipeline` to indicate where the script runs. Hard gates go in pre-commit or required CI; soft gates in non-required CI; self-heals in cron.
   </Step>
   <Step title="Add to the registry">
-    Run `node operations/scripts/generators/governance/catalogs/generate-script-registry.js` to update `tools/config/script-registry.json`. The catalog is regenerated automatically from the registry.
+    Run `node operations/scripts/generators/governance/catalogs/generate-script-registry.js` to update `tools/config/registry/script-registry.json`. The catalog is regenerated automatically from the registry.
   </Step>
 </Steps>
 
@@ -283,6 +283,6 @@ const REPO_ROOT = path.resolve(__dirname, '../../../../..');
 |---|---|
 | This governance spec | `docs-guide/policies/script-governance.mdx` (you are here) |
 | Full technical spec | `workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md` |
-| Script registry (derived index) | `tools/config/script-registry.json` |
+| Script registry (derived index) | `tools/config/registry/script-registry.json` |
 | Script catalog (auto-generated) | [docs-guide/catalog/scripts-catalog](/docs-guide/catalog/scripts-catalog) |
 | Registry generator | `operations/scripts/generators/governance/catalogs/generate-script-registry.js` |

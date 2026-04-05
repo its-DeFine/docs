@@ -1,13 +1,17 @@
 /**
  * @script            fetch-github-discussions
+ * @category          automation
  * @type              automation
  * @concern           content
  * @niche             data/fetching
  * @purpose           infrastructure:data-feeds
  * @description       Fetches latest GitHub Discussions via public GraphQL API, writes per-product JSX data files.
+ * @domain            docs
+ * @needs             F-R1
+ * @purpose-statement Fetches GitHub Discussions for configured solutions and writes per-solution discussion data modules under snippets/data/social-feed-solutions/.
  * @mode              generate
- * @pipeline          config → GitHub GraphQL API → snippets/automations/{product}/githubDiscussionsData.jsx
- * @scope             .github/scripts, snippets/automations/
+ * @pipeline          config → GitHub GraphQL API → snippets/data/social-feed-solutions/{product}/githubDiscussionsData.jsx
+ * @scope             .github/scripts, snippets/data/social-feed-solutions/
  * @usage             node .github/scripts/fetch-github-discussions.js
  * @policy            Public repos only. Uses GITHUB_TOKEN for rate limits (optional for public repos).
  */
@@ -156,7 +160,7 @@ async function main() {
       });
       jsx += `];\n`;
 
-      const outDir = `snippets/automations/solutions/${productKey}`;
+      const outDir = `snippets/data/social-feed-solutions/${productKey}`;
       fs.mkdirSync(outDir, { recursive: true });
       const outPath = path.join(outDir, "githubDiscussionsData.jsx");
       fs.writeFileSync(outPath, jsx);

@@ -1749,7 +1749,7 @@ function attachImportedToStructure(structure, fileResults) {
   }
 }
 
-function renderReport({ args, structure, fileResults, unindexedByDomain, summary, externalValidation }) {
+function renderReport({ args, structure, fileResults, unindexedByDomain, summary, externalValidation, domainLinks }) {
   const lines = [];
   lines.push('# LINK_TEST_REPORT');
   lines.push('');
@@ -1883,10 +1883,15 @@ function renderReport({ args, structure, fileResults, unindexedByDomain, summary
     }
   }
 
+  if (args.writeLinks && domainLinks && domainLinks.size > 0) {
+    lines.push('');
+    lines.push(renderDomainLinksSection(domainLinks));
+  }
+
   return `${lines.join('\n')}\n`;
 }
 
-function buildJsonReport({ args, summary, fileResults, externalValidation }) {
+function buildJsonReport({ args, summary, fileResults, externalValidation, domainLinks }) {
   const perFile = [];
   for (const file of Array.from(fileResults.keys()).sort()) {
     const result = fileResults.get(file);
@@ -1960,7 +1965,8 @@ function buildJsonReport({ args, summary, fileResults, externalValidation }) {
       })),
       refsByFile: externalValidation.refsByFile
     },
-    files: perFile
+    files: perFile,
+    domainLinks: args.writeLinks && domainLinks ? buildDomainLinksJson(domainLinks) : undefined
   };
 }
 
@@ -1968,38 +1974,39 @@ function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
 }
 
-function listExistingDomainLinkOutputs() {
-  const dataRoot = path.join(REPO_ROOT, 'snippets', 'data');
-  if (!fs.existsSync(dataRoot)) return [];
-
-  const outPaths = [];
-  for (const entry of fs.readdirSync(dataRoot, { withFileTypes: true })) {
-    if (!entry.isDirectory()) continue;
-    const candidate = path.join(dataRoot, entry.name, 'hrefs.jsx');
-    if (fs.existsSync(candidate)) outPaths.push(candidate);
+function renderDomainLinksSection(domainLinks) {
+  const lines = [];
+  lines.push('## Domain Link Maps');
+  lines.push('');
+  const domains = Array.from(domainLinks.keys()).sort();
+  lines.push(`Domains: ${domains.length}`);
+  lines.push('');
+  for (const domain of domains) {
+    const map = domainLinks.get(domain);
+    const files = Object.keys(map).sort();
+    const totalRefs = files.reduce((sum, f) => sum + (map[f] || []).length, 0);
+    lines.push(`### ${domain}`);
+    lines.push(`Files: ${files.length} | Refs: ${totalRefs}`);
+    lines.push('');
+    lines.push('| file | refs | missing | external |');
+    lines.push('|---|---:|---:|---:|');
+    for (const file of files) {
+      const refs = map[file] || [];
+      const missing = refs.filter((r) => r.status === 'missing').length;
+      const external = refs.filter((r) => /external/.test(r.status)).length;
+      lines.push(`| ${mdEscape(file)} | ${refs.length} | ${missing} | ${external} |`);
+    }
+    lines.push('');
   }
-
-  return outPaths;
+  return lines.join('\n');
 }
 
-function writeDomainLinks(domainLinks) {
-  const staleOutputs = new Set(listExistingDomainLinkOutputs());
-  const outPaths = [];
+function buildDomainLinksJson(domainLinks) {
+  const result = {};
   for (const [domain, map] of domainLinks.entries()) {
-    const dir = path.join(REPO_ROOT, 'snippets', 'data', domain);
-    ensureDir(dir);
-    const out = path.join(dir, 'hrefs.jsx');
-    const body = `export const LINK_MAP = ${JSON.stringify(map, null, 2)};\n\nexport default LINK_MAP;\n`;
-    fs.writeFileSync(out, body, 'utf8');
-    staleOutputs.delete(out);
-    outPaths.push(out);
+    result[domain] = map;
   }
-
-  for (const stalePath of staleOutputs) {
-    fs.unlinkSync(stalePath);
-  }
-
-  return outPaths;
+  return result;
 }
 
 async function runAudit(options = {}) {
@@ -2067,8 +2074,8 @@ async function runAudit(options = {}) {
     ? new Set(rootTargets.map((absPath) => relFromRoot(absPath)))
     : null;
   const summary = countSummary(fileResults, { blockingFiles });
-  const report = renderReport({ args, structure, fileResults, unindexedByDomain, summary, externalValidation });
-  const jsonReport = buildJsonReport({ args, summary, fileResults, externalValidation });
+  const report = renderReport({ args, structure, fileResults, unindexedByDomain, summary, externalValidation, domainLinks });
+  const jsonReport = buildJsonReport({ args, summary, fileResults, externalValidation, domainLinks });
 
   if (!options.skipWriteReports) {
     ensureDir(path.dirname(args.report));
@@ -2078,17 +2085,10 @@ async function runAudit(options = {}) {
     fs.writeFileSync(args.reportJson, `${JSON.stringify(jsonReport, null, 2)}\n`, 'utf8');
   }
 
-  let writtenLinks = [];
-  if (args.writeLinks) {
-    writtenLinks = writeDomainLinks(domainLinks);
-  }
-
   console.log(`📝 Report written: ${relFromRoot(args.report)}`);
   console.log(`🧾 JSON report written: ${relFromRoot(args.reportJson)}`);
-  if (writtenLinks.length) {
-    console.log(`🔗 Domain link maps written: ${writtenLinks.length}`);
-  } else {
-    console.log('🔗 Domain link maps not written in this mode.');
+  if (args.writeLinks) {
+    console.log(`🔗 Domain link maps included in report (${domainLinks.size} domains).`);
   }
   console.log(`📄 Files analyzed: ${fileResults.size}`);
   console.log(`🔍 Total refs: ${summary.totalRefs}`);

@@ -213,9 +213,9 @@ TAG REFERENCE
     prop                        Data passed in as a prop (no runtime fetch)
     CoinGecko API               GET /coins/{coinId}/tickers
     fetch(url)                  Runtime fetch to a URL — describe the URL pattern
-    automation/blog             snippets/automations/solutions/[product]/blogData.jsx
-    automation/discord          snippets/automations/solutions/[product]/discordData.jsx
-    automation/youtube          snippets/automations/solutions/[product]/youtubeData.jsx
+    automation/blog             snippets/data/social-feed-solutions/[product]/blogData.jsx
+    automation/discord          snippets/data/social-feed-solutions/[product]/discordData.jsx
+    automation/youtube          snippets/data/social-feed-solutions/[product]/youtubeData.jsx
     GitHub API                  REST or GraphQL fetch to api.github.com
     Luma API                    lu.ma events API
   If data comes from a JSX automation file (e.g. discordData.jsx), the MDX page
@@ -331,7 +331,7 @@ NOTE: In this file, JSDoc closing markers are written as  * /  (with a space)
  * @subcategory    feeds
  * @status      stable
  * @description Renders a list of Discord announcements from pre-fetched automation data.
- * @dataSource  prop — data from snippets/automations/solutions/[product]/discordData.jsx
+ * @dataSource  prop — data from snippets/data/social-feed-solutions/[product]/discordData.jsx
  * @aiDiscoverability none
  *
  * ItemShape: id (string), content (string), timestamp (string), author? (string)

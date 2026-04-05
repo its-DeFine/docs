@@ -32,7 +32,6 @@
 | `operations/scripts/x-archive/pre-commit-v1` | Pre-commit hook orchestrator — runs structural checks, unit tests, codex validation, and docs-index freshness check before allowing commit | `bash .githooks/pre-commit [flags]` | docs |
 | `operations/scripts/x-archive/replace-og-image.py` | Deprecated wrapper for the legacy OG image replacement helper. Use the canonical OG generator workflow instead. | `python3 tools/dev/replace-og-image.py` | docs |
 | `operations/scripts/x-archive/seo-generator-safe.js` | Deprecated wrapper for the legacy safe SEO generator. Use the canonical OG generator workflow instead. | `node tools/dev/seo-generator-safe.js` | docs |
-| `operations/scripts/x-archive/sync-legacy-root-v1.js` | Legacy root redirect synchronizer — bootstraps root-level legacy-to-v1 mappings, rewrites managed docs.json redirects, installs root catch-all fallbacks, and removes legacy generated fallback pages | `node operations/scripts/redirects/sync-legacy-root-v1.js [--bootstrap-manifest] [--write] [--repo-root <path>] [--manifest <path>] [--docs-json <path>]` | docs |
 | `operations/scripts/x-archive/update-all-og-images.js` | Deprecated wrapper for legacy bulk OG image replacement. Use the canonical OG generator workflow instead. | `node tools/dev/update-all-og-images.js` | docs |
 | `operations/scripts/x-archive/update-og-image.js` | Deprecated wrapper for legacy OG image replacement. Use the canonical OG generator workflow instead. | `node tools/dev/update-og-image.js` | docs |
 {/* SCRIPT-INDEX:END */}

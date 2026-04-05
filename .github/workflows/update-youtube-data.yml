@@ -1,4 +1,4 @@
-# Retains generated YouTube data under snippets/automations/youtube/youtubeData.jsx.
+# Retains generated YouTube data under snippets/data/social-feeds/youtubeData.jsx.
 # Legacy entrypoint kept as a compatibility wrapper during workflow consolidation.
 # Requires YOUTUBE_API_KEY secret in repo settings (Settings -> Secrets -> Actions).
 

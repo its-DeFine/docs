@@ -231,7 +231,7 @@ function detectDuplicatePairs(issues, files) {
 }
 
 function detectReportBloat(issues) {
-  const policyPath = path.join(REPO_ROOT, 'tools/config/report-retention-policy.json');
+  const policyPath = path.join(REPO_ROOT, 'tools/config/runtime/report-retention-policy.json');
   let policy = null;
 
   try {

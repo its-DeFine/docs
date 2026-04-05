@@ -288,7 +288,7 @@ const WORKFLOW_MANUAL_OVERRIDES = {
     engineering_action: 'Keep this as a thin compatibility wrapper until the legacy entrypoint can be retired safely. The canonical implementation now lives in `data-refresh-governance`.',
     consolidation_target: 'data-refresh-governance',
     second_pass_notes: [
-      'Generated forum data is retained under snippets/automations/forum/forumData.jsx.',
+      'Generated forum data is retained under snippets/data/social-feeds/forumData.jsx.',
       'GitHub Actions is the canonical owner for this retained data path.',
       'This wrapper should not regain unique logic.'
     ]
@@ -301,7 +301,7 @@ const WORKFLOW_MANUAL_OVERRIDES = {
     engineering_action: 'Keep this as a thin compatibility wrapper until the legacy entrypoint can be retired safely. The canonical implementation now lives in `data-refresh-governance`.',
     consolidation_target: 'data-refresh-governance',
     second_pass_notes: [
-      'Generated YouTube data is retained under snippets/automations/youtube/youtubeData.jsx.',
+      'Generated YouTube data is retained under snippets/data/social-feeds/youtubeData.jsx.',
       'GitHub Actions is the canonical owner for this retained data path.',
       'This wrapper should not regain unique logic.'
     ]

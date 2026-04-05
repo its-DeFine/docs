@@ -538,11 +538,11 @@ if [ -n "$WHITELIST_CHANGES" ]; then
 fi
 
 # Navigation exclusions — intentional Mintlify workarounds
-# See tools/config/navigation-exclusions.json for documented patterns.
+# See tools/config/runtime/navigation-exclusions.json for documented patterns.
 # Validators must load this config and skip:
 #   - anchors with value " " (empty anchor sidebar separators)
 #   - pages listed in intentionalPatterns.redirectRoutes.paths
-NAVIGATION_EXCLUSIONS_CONFIG="tools/config/navigation-exclusions.json"
+NAVIGATION_EXCLUSIONS_CONFIG="tools/config/runtime/navigation-exclusions.json"
 
 # Check for docs.json /redirect route changes (BLOCKED unless staged docs.json stays aligned with source-of-truth)
 DOCS_JSON_REDIRECT_DIFF=$(git diff --cached --unified=0 -- docs.json | grep -E '^[+-][^+-].*/redirect' || true)

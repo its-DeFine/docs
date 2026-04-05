@@ -295,7 +295,7 @@ function resolveEntryFiles(args) {
 }
 
 function ensureExternalDocs(findings, warnings) {
-  const externalDir = path.join(REPO_ROOT, 'snippets', 'external');
+  const externalDir = path.join(REPO_ROOT, 'snippets', 'composables', 'pages', 'shared');
   const missingFiles = GENERATED_EXTERNAL_DOCS.filter(
     (fileName) => !fs.existsSync(path.join(externalDir, fileName))
   );
@@ -304,13 +304,22 @@ function ensureExternalDocs(findings, warnings) {
     return;
   }
 
-  const fetchScript = path.join(REPO_ROOT, 'tools', 'scripts', 'snippets', 'fetch-external-docs.sh');
+  const fetchScript = path.join(
+    REPO_ROOT,
+    'operations',
+    'scripts',
+    'automations',
+    'content',
+    'data',
+    'fetching',
+    'fetch-external-docs.sh'
+  );
   if (!fs.existsSync(fetchScript)) {
     warnings.push(
       createFinding({
         findingType: 'missing-external-doc-bootstrap',
         severity: 'warning',
-        file: relFromRoot(path.join(REPO_ROOT, 'tools', 'scripts', 'snippets', 'fetch-external-docs.sh')),
+        file: relFromRoot(fetchScript),
         sourceType: 'bootstrap',
         status: 'warning',
         message: `Missing external-doc bootstrap script; generated imports may fail: ${missingFiles.join(', ')}`

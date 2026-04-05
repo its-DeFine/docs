@@ -6,7 +6,7 @@
  * @concern     governance
  * @niche       catalogs
  * @purpose     governance:index-management
- * @description Derives tools/config/script-registry.json from JSDoc headers across all governed
+ * @description Derives tools/config/registry/script-registry.json from JSDoc headers across all governed
  *   script roots. JSDoc headers are authoritative; this file is a derived index. Run whenever
  *   script headers change. Output schema uses the 11-tag standard (@type, @concern, @niche, etc.).
  * @mode        write
@@ -36,7 +36,7 @@ const {
 } = require('../../../../../tools/lib/script-header-utils');
 
 const REPO_ROOT = path.resolve(__dirname, '../../../../..');
-const OUTPUT_PATH = 'tools/config/script-registry.json';
+const OUTPUT_PATH = 'tools/config/registry/script-registry.json';
 const DRY_RUN = process.argv.includes('--dry-run');
 
 // Aligned to actions framework: D-ACT-07 (integrator), D-ACT-01 (interface). Accepts legacy 'automation' during transition

@@ -66,13 +66,13 @@ Scope:
 - `mint-custom-loader.sh` — `tools/dev/mint-custom-loader.sh`
 - `ensure-mint-watcher-patch.sh` — `tools/dev/ensure-mint-watcher-patch.sh`
 - `resolve-scoped-docs-config.js` — `tools/dev/lib/resolve-scoped-docs-config.js`
-- `navigation-exclusions.json` — `tools/config/navigation-exclusions.json`
+- `navigation-exclusions.json` — `tools/config/runtime/navigation-exclusions.json`
 - `docs-solutions.json` — `tools/config/scoped-navigation/docs-solutions.json`
 - `docs.json.jsx` — `tools/config/scoped-navigation/docs.json.jsx`
 - `docs-orch-work.json` — `tools/config/scoped-navigation/docs-orch-work.json`
 - `docs-gate-orch.json` — `tools/config/scoped-navigation/docs-gate-orch.json`
 - `docs-gate-work.json` — `tools/config/scoped-navigation/docs-gate-work.json`
-- `config.json` — `tools/i18n/config.json`
+- `config.json` — `operations/scripts/automations/content/language-translation/config.json`
 - `README.md` — `tools/editor-extensions/README.md`
 - `recommended_extensions.md` — `tools/editor-extensions/recommended_extensions.md`
 - `README.md` — `tools/editor-extensions/authoring-tools/README.md`

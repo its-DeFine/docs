@@ -29,9 +29,9 @@
 | `workspace/plan/active/SCRIPT-GOVERNANCE/decision-log.md` | 13 locked decisions (D1-D13) | Current |
 | `docs-guide/policies/script-governance.mdx` | Published version of script framework | Current |
 | `tools/lib/script-governance-config.js` | Enum source of truth (types, concerns, purposes, scopes, pipeline tiers) | Just updated (7 types, 7 concerns) |
-| `tools/config/ownerless-governance-surfaces.json` | 9 governed surfaces with repair paths. Script rollout: "migrating" | Current |
+| `tools/config/runtime/ownerless-governance-surfaces.json` | 9 governed surfaces with repair paths. Script rollout: "migrating" | Current |
 | `operations/scripts/README.md` | Script governance entry point for contributors | Current |
-| `tools/config/script-registry.json` | Auto-generated catalog of all governed scripts | Partially stale (7 headers need fixing) |
+| `tools/config/registry/script-registry.json` | Auto-generated catalog of all governed scripts | Partially stale (7 headers need fixing) |
 
 ### AI Agents (7 docs)
 
@@ -61,15 +61,15 @@
 | Doc | What it defines | Status |
 |---|---|---|
 | `workspace/plan/active/CONTENT-WRITING/plan-canonical.md` | Page taxonomy (7 pageTypes, 15 purposes, 7 audiences), voice rules, content pipeline | Active |
-| `tools/config/blueprint-pages.json` | Blueprint page config (position, content_type, phase, job) | Current |
-| `tools/config/usefulness-rubric.json` | Page usefulness scoring (tier1 structural + tier2 LLM signals) | Current |
+| `tools/config/runtime/blueprint-pages.json` | Blueprint page config (position, content_type, phase, job) | Current |
+| `tools/config/quality/usefulness-rubric.json` | Page usefulness scoring (tier1 structural + tier2 LLM signals) | Current |
 | `.github/pull_request_template.md` | PR requirements: description, scope, validation, copy governance L5 gate | Current |
 
 ### Brand/Copy (3 docs)
 
 | Doc | What it defines | Status |
 |---|---|---|
-| `tools/config/style-language-profile-en-gb.json` | EN-GB style enforcement profile | Current |
+| `tools/config/quality/style-language-profile-en-gb.json` | EN-GB style enforcement profile | Current |
 | `tools/lib/copy-governance/banned-words.txt` | 10 banned words (L5 quality gate) | Current |
 | `tools/lib/copy-governance/banned-phrases.txt` | 17 banned phrases (L5 quality gate) | Current |
 
@@ -78,14 +78,14 @@
 | Doc | What it defines | Status |
 |---|---|---|
 | `workspace/plan/active/COMPONENT-GOVERNANCE/component-framework-canonical.md` | 6 categories, 7-tag JSDoc, decision tree | Partially stale |
-| `tools/config/component-layout-profile.json` | Component layout constraints | Current |
+| `tools/config/quality/component-layout-profile.json` | Component layout constraints | Current |
 | `docs-guide/policies/component-layout-decisions.mdx` | Component layout decisions | Current |
 
 ### Documentation (2 docs)
 
 | Doc | What it defines | Status |
 |---|---|---|
-| `tools/config/accuracy-source-registry.json` | 3-tier accuracy model (A: canonical, B: corroborating, C: context) | Current |
+| `tools/config/quality/accuracy-source-registry.json` | 3-tier accuracy model (A: canonical, B: corroborating, C: context) | Current |
 | `docs-guide/policies/docs-guide-structure-policy.mdx` | Docs-guide structure governance | Current |
 
 ### Contributions (3 docs)

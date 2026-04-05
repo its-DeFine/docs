@@ -7,20 +7,20 @@
 | Value | Count |
 | --- | ---: |
 | `ai-runtime-artifacts` | 6 |
-| `content-publication` | 5 |
+| `content-publication` | 6 |
 | `data-refresh` | 9 |
 | `docs-catalog-governance` | 6 |
 | `governance-maintenance` | 5 |
 | `issue-intake-and-triage` | 3 |
 | `placeholder-backlog` | 3 |
 | `review-event-automation` | 3 |
-| `validation-sweeps` | 8 |
+| `validation-sweeps` | 9 |
 
 ### Cleanup Decisions
 
 | Value | Count |
 | --- | ---: |
-| `consolidate` | 7 |
+| `consolidate` | 9 |
 | `keep` | 13 |
 | `merge` | 20 |
 | `needs-investigation` | 6 |
@@ -43,14 +43,15 @@
 
 ### content-publication
 
-- Count: 5
-- Dominant decision: keep
+- Count: 6
+- Dominant decision: consolidate
 - Targets: `dispatcher:page-ship`
 - Members:
   - `.github/workflows/sdk_generation.yaml` -> `needs-investigation`
   - `.github/workflows/seo-refresh.yml` -> `consolidate`
   - `.github/workflows/translate-docs.yml` -> `needs-investigation`
   - `.github/workflows/update-changelogs.yml` -> `keep`
+  - `.github/workflows/update-contract-addresses-shadow.yml` -> `consolidate`
   - `.github/workflows/update-contract-addresses.yml` -> `keep`
 
 ### data-refresh
@@ -126,7 +127,7 @@
 
 ### validation-sweeps
 
-- Count: 8
+- Count: 9
 - Dominant decision: consolidate
 - Targets: `dispatcher:review-fix`
 - Members:
@@ -134,6 +135,7 @@
   - `.github/workflows/content-health.yml` -> `consolidate`
   - `.github/workflows/freshness-monitor.yml` -> `consolidate`
   - `.github/workflows/openapi-reference-validation.yml` -> `keep`
+  - `.github/workflows/page-integrity-health.yml` -> `consolidate`
   - `.github/workflows/style-homogenise.yml` -> `needs-investigation`
   - `.github/workflows/test-suite.yml` -> `keep`
   - `.github/workflows/test-v2-pages.yml` -> `keep`

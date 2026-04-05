@@ -8,7 +8,7 @@
  * @description EN-GB style homogeniser — finds and fixes American English spellings, style guide violations, and formatting inconsistencies across v2 content
  * @mode        edit
  * @pipeline    on-demand, repair)
- * @scope       operations/scripts, v2, tools/config/style-language-profile-en-gb.json
+ * @scope       operations/scripts, v2, tools/config/quality/style-language-profile-en-gb.json
  * @usage       node operations/scripts/remediators/content/style/style-and-language-homogenizer-en-gb.js [flags]
  * @policy      E-C6, F-C1
  */
@@ -20,7 +20,7 @@ const { execSync } = require('child_process');
 const STAGE_ID = 'style-and-language-homogenizer-en-gb';
 const REPO_ROOT = process.cwd();
 const DEFAULT_OUTPUT_DIR = 'workspace/reports/repo-ops';
-const DEFAULT_PROFILE_PATH = 'tools/config/style-language-profile-en-gb.json';
+const DEFAULT_PROFILE_PATH = 'tools/config/quality/style-language-profile-en-gb.json';
 
 function toPosix(value) {
   return String(value || '').split(path.sep).join('/');

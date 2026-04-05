@@ -1,5 +1,5 @@
 # Project State — Content Writing Pipeline
-> Last updated: 2026-04-03
+> Last updated: 2026-04-05
 > This file must be read at the start of every AI session and updated after every agent batch.
 
 ---
@@ -114,6 +114,7 @@
 | REAL-DEBT | Contracts Surface Redesign | CP-6 contracts browser validation can hang on the newest `docs-v2-dev` base even when the scoped preview serves the canonical and verifier routes | 2026-04-03 |
 | REAL-DEBT | Contracts Surface Migration to docs-v2 | New contracts pipeline helper modules lack canonical script-governance headers, and the regenerated component registry still does not surface all migrated contracts UI components | 2026-04-03 |
 | REVIEW | Contracts Local Render Recovery | The contracts routes were render-verified locally on port `3350`, but `snippets/composables/pages/canonical/livepeer-contract-addresses.mdx` now contains an uncommitted workflow-verification accordion rewrite and `.github/workspace/phase2/pipeline-review-process.md` remains unrelated untracked work | 2026-04-03 |
+| REVIEW | Snippets Assets `/site` Migration Verification | Full verification runbook executed in a disposable clone. Asset/path probes are green, but completion is blocked by `docs.json` Resource HUB redirect drift, invalid frontmatter in `v2/about/livepeer-protocol/blockchain-contracts.mdx`, and scoped runtime failures (`React #418`, `undefined.mintlify.app` OG URLs, request-abort surfaces) on the representative routes | 2026-04-05 |
 
 ---
 

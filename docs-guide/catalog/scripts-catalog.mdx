@@ -24,7 +24,7 @@ Run command: node operations/tests/unit/script-docs.test.js --write --rebuild-in
 **Important**: Do not manually edit this file; run `node operations/tests/unit/script-docs.test.js --write --rebuild-indexes`. <br/>
 </Note>
 
-The governed script library currently indexes **344** script(s).
+The governed script library currently indexes **342** script(s).
 
 ## Pipeline Flow
 
@@ -49,19 +49,20 @@ flowchart LR
     cmore["... 37 more"]
   end
 
-  subgraph P2["🟠 P2 — Push Gate (11)"]
+  subgraph P2["🟠 P2 — Push Gate (12)"]
     direction TB
     p0["pre-push"]
-    p1["generate-glossary-companions.js"]
-    p2["generate-docs-guide-indexes.js"]
-    p3["generate-docs-guide-pages-index.js"]
-    p4["validate-locks.js"]
-    p5["test-v2-pages.js"]
-    p6["validate-codex-task-contract.js"]
-    p7["openapi-reference-audit.js"]
-    p8["run-all.js"]
-    p9["run-pr-checks.js"]
-    p10["docs-guide-sot.test.js"]
+    p1["update-livepeer-release.js"]
+    p2["generate-glossary-companions.js"]
+    p3["generate-docs-guide-indexes.js"]
+    p4["generate-docs-guide-pages-index.js"]
+    p5["validate-locks.js"]
+    p6["test-v2-pages.js"]
+    p7["validate-codex-task-contract.js"]
+    p8["openapi-reference-audit.js"]
+    p9["run-all.js"]
+    p10["run-pr-checks.js"]
+    p11["docs-guide-sot.test.js"]
   end
 
   subgraph P3["🟡 P3 — PR Gate (39)"]
@@ -149,8 +150,8 @@ flowchart LR
 | `fetch-contract-addresses.js` | Thin CLI entrypoint for the chain-first contracts pipeline. | manual | content | `node .github/scripts/fetch-contract-addresses.js [--dry-run] [--check] [--skip-verify]` |
 | `fetch-contract-addresses.test.js` |  | manual | content |  |
 | `fetch-discord-announcements.js` | Fetches announcements from Discord channels via bot token. Writes per-product | manual | content | `node .github/scripts/fetch-discord-announcements.js` |
-| `fetch-external-docs.sh` | External docs fetcher — pulls doc fragments from external GitHub repos into snippets/data/ for inclusion in builds | manual | content | `bash operations/scripts/automations/content/data/fetching/fetch-external-docs.sh [flags]` |
-| `fetch-ghost-blog-data.js` | Fetches Livepeer blog posts via public RSS feed (blog.livepeer.org/rss/). No API key required. Writes to snippets/automations/blog/ghostBlogData.jsx. | manual | content | `node .github/scripts/fetch-ghost-blog-data.js` |
+| `fetch-external-docs.sh` | External docs fetcher — pulls doc fragments from external GitHub repos into snippets/composables/pages/shared/ for inclusion in builds | manual | content | `bash operations/scripts/automations/content/data/fetching/fetch-external-docs.sh [flags]` |
+| `fetch-ghost-blog-data.js` | Fetches Livepeer blog posts via public RSS feed (blog.livepeer.org/rss/). No API key required. Writes to snippets/data/social-feeds/ghostBlogData.jsx. | manual | content | `node .github/scripts/fetch-ghost-blog-data.js` |
 | `fetch-github-discussions.js` | Fetches latest GitHub Discussions via public GraphQL API, writes per-product JSX data files. | manual | content | `node .github/scripts/fetch-github-discussions.js` |
 | `fetch-github-releases.js` | Fetches latest GitHub Releases via public REST API, writes per-product JSX data files. | manual | content | `node .github/scripts/fetch-github-releases.js` |
 | `fetch-lpt-exchanges.sh` | LPT exchange data fetcher — pulls exchange listing data for LPT token pages | manual | content | `bash operations/scripts/automations/content/data/fetching/fetch-lpt-exchanges.sh [flags]` |
@@ -201,7 +202,7 @@ flowchart LR
 | `generate-llms-files.js` | LLMs file generator — produces llms.txt and llms-full.txt for AI consumption. Dual-mode: --check / --write. | P6 | ai | `node operations/scripts/generators/ai/llm/generate-llms-files.js [flags]` |
 | `generate-og-images.js` | Generate canonical site-level Open Graph image assets and manifest for fallback and section-level social previews. | manual | content | `node operations/scripts/generators/content/seo/generate-og-images.js [--dry-run] [--only &lt;locale:section-id&#124;fallback&gt;]` |
 | `generate-pages-index.js` | Pages index generator — generates and verifies section-style index.mdx files for v2 docs folders plus root aggregate index | manual | content | `node operations/scripts/generators/content/catalogs/generate-pages-index.js [flags]` |
-| `generate-script-registry.js` | Derives tools/config/script-registry.json from JSDoc headers across all governed | P3 | governance | `node operations/scripts/generators/governance/catalogs/generate-script-registry.js [--dry-run]` |
+| `generate-script-registry.js` | Derives tools/config/registry/script-registry.json from JSDoc headers across all governed | P3 | governance | `node operations/scripts/generators/governance/catalogs/generate-script-registry.js [--dry-run]` |
 | `generate-ui-templates.js` | Generates the UI template catalog and VS Code snippets from canonical template/component sources. | manual | components | `node operations/scripts/generators/components/library/generate-ui-templates.js [flags]` |
 | `mintlify-canonical-sync.js` | Shared Mintlify canonical sync library — loads the Mintlify consumer registry, validates cleanup state, and plans deterministic reference rewrites. | manual | governance | `const sync = require('./mintlify-canonical-sync');` |
 | `new-script.js` | $&#123;params.summary&#125;`, | manual | governance | <code>$&#123;cmd&#125; [flags]`,</code> |
@@ -382,7 +383,7 @@ flowchart LR
 
 </Accordion>
 
-<Accordion title="⚠️ Unclassified — 104 scripts need @type">
+<Accordion title="⚠️ Unclassified — 102 scripts need @type">
 
 | Script | Path | Pipeline | Notes |
 |---|---|---|---|
@@ -392,6 +393,7 @@ flowchart LR
 | `fetch-forum-data.js` | `.github/scripts/fetch-forum-data.js` | P5, P6 | Missing `@type` in JSDoc header |
 | `fetch-youtube-data.js` | `.github/scripts/fetch-youtube-data.js` | P5, P6 | Missing `@type` in JSDoc header |
 | `project-showcase-sync.js` | `.github/scripts/project-showcase-sync.js` | P5, P6 | Missing `@type` in JSDoc header |
+| `update-livepeer-release.js` | `.github/scripts/update-livepeer-release.js` | P2 | Missing `@type` in JSDoc header |
 | `test-scripts.sh` | `operations/scripts/snippets/test-scripts.sh` | manual | Missing `@type` in JSDoc header |
 | `.verify-large-change.sh` | `operations/scripts/x-archive/.verify-large-change.sh` | manual | Missing `@type` in JSDoc header |
 | `batch-update-og-image.sh` | `operations/scripts/x-archive/batch-update-og-image.sh` | manual | Missing `@type` in JSDoc header |
@@ -399,7 +401,6 @@ flowchart LR
 | `pre-commit-v1` | `operations/scripts/x-archive/pre-commit-v1` | P1 | Missing `@type` in JSDoc header |
 | `replace-og-image.py` | `operations/scripts/x-archive/replace-og-image.py` | manual | Missing `@type` in JSDoc header |
 | `seo-generator-safe.js` | `operations/scripts/x-archive/seo-generator-safe.js` | manual | Missing `@type` in JSDoc header |
-| `sync-legacy-root-v1.js` | `operations/scripts/x-archive/sync-legacy-root-v1.js` | manual | Missing `@type` in JSDoc header |
 | `update-all-og-images.js` | `operations/scripts/x-archive/update-all-og-images.js` | manual | Missing `@type` in JSDoc header |
 | `update-og-image.js` | `operations/scripts/x-archive/update-og-image.js` | manual | Missing `@type` in JSDoc header |
 | `contracts-validator-contract.js` | `operations/tests/contracts-validator-contract.js` | manual | Missing `@type` in JSDoc header |
@@ -445,7 +446,6 @@ flowchart LR
 | `export-portable-skills.test.js` | `operations/tests/unit/export-portable-skills.test.js` | P1, P3 | Missing `@type` in JSDoc header |
 | `frontmatter-taxonomy.test.js` | `operations/tests/unit/frontmatter-taxonomy.test.js` | P1 | Missing `@type` in JSDoc header |
 | `generated-artifacts-policy.test.js` | `operations/tests/unit/generated-artifacts-policy.test.js` | manual | Missing `@type` in JSDoc header |
-| `legacy-root-v1-redirects.test.js` | `operations/tests/unit/legacy-root-v1-redirects.test.js` | manual | Missing `@type` in JSDoc header |
 | `lpd-scoped-mint-dev.test.js` | `operations/tests/unit/lpd-scoped-mint-dev.test.js` | manual | Missing `@type` in JSDoc header |
 | `mdx-component-runtime-smoke.test.js` | `operations/tests/unit/mdx-component-runtime-smoke.test.js` | manual | Missing `@type` in JSDoc header |
 | `mdx-component-scope.test.js` | `operations/tests/unit/mdx-component-scope.test.js` | manual | Missing `@type` in JSDoc header |
@@ -477,8 +477,7 @@ flowchart LR
 | `v2-wcag-audit.test.js` | `operations/tests/unit/v2-wcag-audit.test.js` | manual | Missing `@type` in JSDoc header |
 | `validate-codex-task-contract.test.js` | `operations/tests/unit/validate-codex-task-contract.test.js` | manual | Missing `@type` in JSDoc header |
 | `vsix-parity.test.js` | `operations/tests/unit/vsix-parity.test.js` | P1, P3 | Missing `@type` in JSDoc header |
-| `filterVideos.js` | `snippets/automations/youtube/filterVideos.js` | manual | Missing `@type` in JSDoc header |
-| `v2-internal-report-pages.js` | `tools/config/v2-internal-report-pages.js` | manual | Missing `@type` in JSDoc header |
+| `v2-internal-report-pages.js` | `tools/config/runtime/v2-internal-report-pages.js` | manual | Missing `@type` in JSDoc header |
 | `1-read-notion-to-csv.js` | `tools/notion/1-read-notion-to-csv.js` | manual | Missing `@type` in JSDoc header |
 | `2-read-docs-to-csv.js` | `tools/notion/2-read-docs-to-csv.js` | manual | Missing `@type` in JSDoc header |
 | `3-check-duplicates.js` | `tools/notion/3-check-duplicates.js` | manual | Missing `@type` in JSDoc header |

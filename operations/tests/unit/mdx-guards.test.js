@@ -118,19 +118,34 @@ function checkGlobalsImportPath(rootDir) {
     ...collectMdxFiles(rootDir, 'snippets'),
     ...collectMdxFiles(rootDir, 'snippets/snippetsWiki')
   ];
-  const globalsMdxPattern = /from\s*['"]\/snippets\/automations\/globals\/globals\.mdx['"]/g;
+  const bannedImportRules = [
+    {
+      message:
+        'Use /snippets/data/globals/latestRelease.jsx as the canonical release data module; /snippets/automations/globals/* are legacy shims only.',
+      pattern: /from\s*['"]\/snippets\/automations\/globals\/globals\.(mdx|jsx)['"]/g,
+    },
+    {
+      message:
+        'Use /snippets/data/globals/latestRelease.jsx as the canonical release data module; /snippets/data/gateways/version.jsx is deprecated.',
+      pattern: /from\s*['"]\/snippets\/data\/gateways\/version\.jsx['"]/g,
+    },
+  ];
 
   files.forEach((filePath) => {
     const content = stripFencedCode(readFileSafe(filePath));
-    let match;
-    while ((match = globalsMdxPattern.exec(content)) !== null) {
-      errors.push({
-        file: toRelative(filePath, rootDir),
-        rule: 'globals import path',
-        line: getLineFromIndex(content, match.index),
-        message: 'Use /snippets/automations/globals/globals.jsx as the canonical data module; globals.mdx is only a thin wrapper.'
-      });
-    }
+
+    bannedImportRules.forEach(({ message, pattern }) => {
+      let match;
+      while ((match = pattern.exec(content)) !== null) {
+        errors.push({
+          file: toRelative(filePath, rootDir),
+          rule: 'globals import path',
+          line: getLineFromIndex(content, match.index),
+          message,
+        });
+      }
+      pattern.lastIndex = 0;
+    });
   });
 
   return files.length;

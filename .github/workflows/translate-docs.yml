@@ -108,10 +108,14 @@ jobs:
         run: |
           node - <<'NODE'
           const fs = require('fs');
-          const cfg = JSON.parse(fs.readFileSync('tools/i18n/config.json', 'utf8'));
+          const cfg = JSON.parse(
+            fs.readFileSync('operations/scripts/automations/content/language-translation/config.json', 'utf8')
+          );
           const provider = String(cfg?.provider?.name || '').trim().toLowerCase();
           if (provider === 'mock') {
-            console.error('Refusing non-dry workflow run because tools/i18n/config.json provider.name is "mock".');
+            console.error(
+              'Refusing non-dry workflow run because operations/scripts/automations/content/language-translation/config.json provider.name is "mock".'
+            );
             process.exit(1);
           }
           console.log(`Provider preflight ok: ${provider || '(default openrouter)'}`);

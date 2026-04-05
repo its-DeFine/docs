@@ -310,10 +310,11 @@
       "secret:YOUTUBE_API_KEY",
       "snippets/automations",
       "snippets/automations/",
-      "snippets/automations/blog/ghostBlogData.jsx",
-      "snippets/automations/forum/forumData.jsx",
       "snippets/automations/globals/globals.jsx",
-      "snippets/automations/youtube/youtubeData.jsx"
+      "snippets/data/social-feeds/discordAnnouncementsData.jsx",
+      "snippets/data/social-feeds/forumData.jsx",
+      "snippets/data/social-feeds/ghostBlogData.jsx",
+      "snippets/data/social-feeds/youtubeData.jsx"
     ],
     "dependants": [
       "dispatcher:review-fix",
@@ -469,13 +470,13 @@
     "engineering_action": "Consolidate this workflow under `dispatcher:review-fix` and keep the script or validator layer as the reusable implementation boundary.",
     "dependencies": [
       "action:actions/checkout@v4",
-      "snippets/automations/blog/ghostBlogData.jsx",
-      "snippets/automations/discord/discordAnnouncementsData.jsx",
-      "snippets/automations/forum/forumData.jsx",
       "snippets/automations/globals/globals.mdx",
-      "snippets/automations/luma/lumaEventsData.jsx",
-      "snippets/automations/showcase/showcaseData.jsx",
-      "snippets/automations/youtube/youtubeData.jsx"
+      "snippets/data/showcase-feed/showcaseData.jsx",
+      "snippets/data/social-feeds/discordAnnouncementsData.jsx",
+      "snippets/data/social-feeds/forumData.jsx",
+      "snippets/data/social-feeds/ghostBlogData.jsx",
+      "snippets/data/social-feeds/lumaEventsData.jsx",
+      "snippets/data/social-feeds/youtubeData.jsx"
     ],
     "dependants": [
       "dispatcher:review-fix"
@@ -544,7 +545,7 @@
     "dependencies": [
       "action:actions/checkout@v4",
       "action:actions/setup-node@v4",
-      "operations/scripts/generate-ai-sitemap.js",
+      "operations/scripts/generators/content/seo/generate-ai-sitemap.js",
       "secret:GITHUB_TOKEN"
     ],
     "dependants": [
@@ -811,6 +812,42 @@
     ]
   },
   {
+    "slug": "page-integrity-health",
+    "title": "Page Integrity Health",
+    "source_path": ".github/workflows/page-integrity-health.yml",
+    "workflow_family": "validation-sweeps",
+    "cleanup_decision": "consolidate",
+    "usage_status": "active-advisory",
+    "process_fit": "core-shipping",
+    "concern": "validation",
+    "trigger_mode": "schedule + workflow_dispatch",
+    "risk_level": "medium",
+    "dispatcher_candidate": "review-fix",
+    "consolidation_target": "dispatcher:review-fix",
+    "engineering_action": "Consolidate this workflow under `dispatcher:review-fix` and keep the script or validator layer as the reusable implementation boundary.",
+    "dependencies": [
+      "action:actions/checkout@v4",
+      "action:actions/github-script@v7",
+      "action:actions/setup-node@v4",
+      "action:actions/upload-artifact@v4",
+      "operations/scripts/dispatch/content/health/page-integrity-dispatch.js"
+    ],
+    "dependants": [
+      "dispatcher:review-fix"
+    ],
+    "outputs": [
+      "GitHub step summary",
+      "Uploaded artifacts"
+    ],
+    "frailty_notes": [
+      "Contains advisory steps with `continue-on-error`, so failures may be softened rather than fully blocking.",
+      "Scheduled execution can hide drift until the next cron window."
+    ],
+    "second_pass_notes": [
+      "This workflow is advisory-shaped, which is useful for audits but can also hide unresolved failures."
+    ]
+  },
+  {
     "slug": "project-showcase-sync",
     "title": "Project Showcase Sync",
     "source_path": ".github/workflows/project-showcase-sync.yml",
@@ -923,29 +960,33 @@
     "source_path": ".github/workflows/seo-refresh.yml",
     "workflow_family": "content-publication",
     "cleanup_decision": "consolidate",
-    "usage_status": "active",
+    "usage_status": "active-mutating",
     "process_fit": "core-shipping",
     "concern": "authoring",
     "trigger_mode": "workflow_dispatch",
-    "risk_level": "low",
+    "risk_level": "high",
     "dispatcher_candidate": "page-ship",
     "consolidation_target": "dispatcher:page-ship",
     "engineering_action": "Consolidate this workflow under `dispatcher:page-ship` and keep the script or validator layer as the reusable implementation boundary.",
     "dependencies": [
       "action:actions/checkout@v4",
       "action:actions/setup-node@v4",
-      "operations/scripts/remediators/content/seo/generate-seo.js"
+      "operations/scripts/remediators/content/seo/generate-seo.js",
+      "secret:GITHUB_TOKEN"
     ],
     "dependants": [
       "dispatcher:page-ship"
     ],
     "outputs": [
-      "Workflow logs and job status"
+      "Repository commits or branch updates"
     ],
     "frailty_notes": [
-      "Current heuristic risk level is `low`; no exceptional frailty markers were detected in the file scan."
+      "Mutates repository state from CI, which raises coordination and safety risk.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone."
     ],
-    "second_pass_notes": []
+    "second_pass_notes": [
+      "This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow."
+    ]
   },
   {
     "slug": "style-homogenise",
@@ -1073,6 +1114,7 @@
       "operations/scripts/validators/components/library/check-component-css.js",
       "operations/scripts/validators/components/library/check-mdx-component-scope.js",
       "operations/scripts/validators/components/library/check-naming-conventions.js",
+      "operations/scripts/validators/governance/compliance/check-mintlify-canonical-sync.js",
       "operations/scripts/validators/governance/pr/check-component-immutability.js",
       "secret:GITHUB_TOKEN"
     ],
@@ -1156,7 +1198,7 @@
       "operations/scripts/generators/content/catalogs/generate-docs-index.js",
       "operations/tests/unit/docs-navigation.test.js",
       "secret:OPENROUTER_API_KEY",
-      "tools/i18n/config.json",
+      "operations/scripts/automations/content/language-translation/config.json",
       "v2/cn",
       "v2/es",
       "v2/fr"
@@ -1195,8 +1237,8 @@
       "action:actions/checkout@v4",
       "secret:GITHUB_TOKEN",
       "snippets/automations/",
-      "snippets/automations/blog/ghostBlogData.jsx",
-      "snippets/automations/forum/forumData.jsx"
+      "snippets/data/social-feeds/forumData.jsx",
+      "snippets/data/social-feeds/ghostBlogData.jsx"
     ],
     "dependants": [
       "dispatcher:page-ship"
@@ -1260,12 +1302,56 @@
     ]
   },
   {
+    "slug": "update-contract-addresses-shadow",
+    "title": "Update Contract Addresses Shadow",
+    "source_path": ".github/workflows/update-contract-addresses-shadow.yml",
+    "workflow_family": "content-publication",
+    "cleanup_decision": "consolidate",
+    "usage_status": "active-advisory",
+    "process_fit": "core-shipping",
+    "concern": "authoring",
+    "trigger_mode": "repository_dispatch + schedule + workflow_dispatch",
+    "risk_level": "medium",
+    "dispatcher_candidate": "page-ship",
+    "consolidation_target": "dispatcher:page-ship",
+    "engineering_action": "Consolidate this workflow under `dispatcher:page-ship` and keep the script or validator layer as the reusable implementation boundary.",
+    "dependencies": [
+      ".github/scripts/fetch-contract-addresses.js",
+      "action:actions/checkout@v4",
+      "action:actions/github-script@v7",
+      "action:actions/setup-node@v4",
+      "action:actions/upload-artifact@v4",
+      "secret:ARBISCAN_API_KEY",
+      "secret:ARBITRUM_RPC_FALLBACK_URL",
+      "secret:ARBITRUM_RPC_URL",
+      "secret:ETHEREUM_RPC_FALLBACK_URL",
+      "secret:ETHEREUM_RPC_URL",
+      "secret:ETHERSCAN_API_KEY",
+      "secret:GITHUB_TOKEN"
+    ],
+    "dependants": [
+      "dispatcher:page-ship"
+    ],
+    "outputs": [
+      "Generated or refreshed repository data",
+      "Uploaded artifacts"
+    ],
+    "frailty_notes": [
+      "Contains advisory steps with `continue-on-error`, so failures may be softened rather than fully blocking.",
+      "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
+      "Scheduled execution can hide drift until the next cron window."
+    ],
+    "second_pass_notes": [
+      "This workflow is advisory-shaped, which is useful for audits but can also hide unresolved failures."
+    ]
+  },
+  {
     "slug": "update-contract-addresses",
     "title": "Update Contract Addresses",
     "source_path": ".github/workflows/update-contract-addresses.yml",
     "workflow_family": "content-publication",
     "cleanup_decision": "keep",
-    "usage_status": "active-mutating",
+    "usage_status": "active-advisory",
     "process_fit": "core-shipping",
     "concern": "authoring",
     "trigger_mode": "repository_dispatch + schedule + workflow_dispatch",
@@ -1276,11 +1362,21 @@
     "dependencies": [
       ".github/scripts/fetch-contract-addresses.js",
       "action:actions/checkout@v4",
+      "action:actions/github-script@v7",
       "action:actions/setup-node@v4",
+      "action:actions/upload-artifact@v4",
       "secret:ARBISCAN_API_KEY",
+      "secret:ARBITRUM_RPC_FALLBACK_URL",
+      "secret:ARBITRUM_RPC_URL",
+      "secret:ETHEREUM_RPC_FALLBACK_URL",
+      "secret:ETHEREUM_RPC_URL",
       "secret:ETHERSCAN_API_KEY",
       "secret:GITHUB_TOKEN",
+      "snippets/data/contract-addresses/_branch-watch-state.json",
       "snippets/data/contract-addresses/_health-checks.json",
+      "snippets/data/contract-addresses/blockchainContractsPageData.json",
+      "snippets/data/contract-addresses/blockchainContractsPageData.jsx",
+      "snippets/data/contract-addresses/contractAddressesData.json",
       "snippets/data/contract-addresses/contractAddressesData.jsx"
     ],
     "dependants": [
@@ -1288,17 +1384,18 @@
     ],
     "outputs": [
       "Generated or refreshed repository data",
-      "GitHub issue or PR metadata",
-      "Repository commits or branch updates"
+      "Repository commits or branch updates",
+      "Uploaded artifacts"
     ],
     "frailty_notes": [
+      "Contains advisory steps with `continue-on-error`, so failures may be softened rather than fully blocking.",
       "Mutates repository state from CI, which raises coordination and safety risk.",
       "Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.",
       "Scheduled execution can hide drift until the next cron window."
     ],
     "second_pass_notes": [
       "The current trigger contract looks distinct enough to justify keeping a dedicated workflow entrypoint.",
-      "This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow."
+      "This workflow is advisory-shaped, which is useful for audits but can also hide unresolved failures."
     ]
   },
   {
@@ -1356,7 +1453,7 @@
       "Scheduled execution can hide drift until the next cron window."
     ],
     "second_pass_notes": [
-      "Generated forum data is retained under snippets/automations/forum/forumData.jsx.",
+      "Generated forum data is retained under snippets/data/social-feeds/forumData.jsx.",
       "GitHub Actions is the canonical owner for this retained data path.",
       "This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever.",
       "This wrapper should not regain unique logic."
@@ -1554,7 +1651,7 @@
       "action:actions/checkout@v4",
       "action:actions/setup-node@v4",
       "action:actions/upload-artifact@v4",
-      "operations/tests/integration/v2-link-audit.js"
+      "operations/scripts/audits/content/health/page-links-audit.js"
     ],
     "dependants": [
       "dispatcher:review-fix"

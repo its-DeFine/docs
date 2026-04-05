@@ -10,7 +10,6 @@
 tools/
 ├── cli/              1 file: lpdignore.example
 ├── config/           31 config + policy files
-├── data/             1 file: redirects/legacy-root-to-v1.json
 ├── dev/              13 development utility scripts
 ├── i18n/             1 file: config.json
 ├── lib/              37 shared utility modules

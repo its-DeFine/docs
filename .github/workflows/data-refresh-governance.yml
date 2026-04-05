@@ -67,32 +67,6 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Resolve livepeer release version
-        if: ${{ inputs.mode == 'livepeer-release' }}
-        id: version
-        run: |
-          if [[ -n "${{ inputs.version }}" ]]; then
-            VERSION="${{ inputs.version }}"
-            echo "source=input" >> "$GITHUB_OUTPUT"
-          else
-            VERSION=$(curl -sf \
-              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/livepeer/go-livepeer/releases/latest" \
-              | jq -r '.tag_name')
-            echo "source=api_fallback" >> "$GITHUB_OUTPUT"
-          fi
-          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
-          echo "Resolved version: ${VERSION}"
-
-      - name: Read current release version
-        if: ${{ inputs.mode == 'livepeer-release' }}
-        id: current
-        run: |
-          CURRENT=$(grep -oP 'latestVersion = "\K[^"]+' snippets/automations/globals/globals.jsx || echo "")
-          echo "version=${CURRENT}" >> "$GITHUB_OUTPUT"
-          echo "Current version: ${CURRENT}"
-
       - name: Run selected refresh mode
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
@@ -121,14 +95,10 @@ jobs:
               node .github/scripts/fetch-rss-blog-data.js
               ;;
             livepeer-release)
-              if [[ "${{ steps.version.outputs.version }}" != "${{ steps.current.outputs.version }}" && "${{ steps.version.outputs.version }}" != "null" && -n "${{ steps.version.outputs.version }}" ]]; then
-                VERSION="${{ steps.version.outputs.version }}"
-                sed -i "s|latestVersion = \"[^\"]*\"|latestVersion = \"${VERSION}\"|" snippets/automations/globals/globals.jsx
-                sed -i "s|releases/download/[^\"]*\"|releases/download/${VERSION}\"|" snippets/automations/globals/globals.jsx
-                echo "Updated globals.jsx:"
-                cat snippets/automations/globals/globals.jsx
+              if [[ -n "${{ inputs.version }}" ]]; then
+                node .github/scripts/update-livepeer-release.js --version "${{ inputs.version }}"
               else
-                echo "No release update required."
+                node .github/scripts/update-livepeer-release.js
               fi
               ;;
             *)
@@ -137,24 +107,35 @@ jobs:
               ;;
           esac
 
+      - name: Read updated release version
+        if: ${{ inputs.mode == 'livepeer-release' }}
+        id: version
+        run: |
+          VERSION=$(grep -oP 'latestVersion = "\K[^"]+' snippets/data/globals/latestRelease.jsx || echo "")
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "Updated version: ${VERSION}"
+
       - name: Check for generated changes
         id: git-check
         run: |
           case "${{ inputs.mode }}" in
             forum)
-              git diff --exit-code snippets/automations/forum/forumData.jsx || echo "changed=true" >> "$GITHUB_OUTPUT"
+              git diff --exit-code snippets/data/social-feeds/forumData.jsx || echo "changed=true" >> "$GITHUB_OUTPUT"
               ;;
             ghost-blog)
-              git diff --exit-code snippets/automations/blog/ghostBlogData.jsx || echo "changed=true" >> "$GITHUB_OUTPUT"
+              git diff --exit-code snippets/data/social-feeds/ghostBlogData.jsx || echo "changed=true" >> "$GITHUB_OUTPUT"
               ;;
             youtube)
-              git diff --exit-code snippets/automations/youtube/youtubeData.jsx || echo "changed=true" >> "$GITHUB_OUTPUT"
+              git diff --exit-code snippets/data/social-feeds/youtubeData.jsx || echo "changed=true" >> "$GITHUB_OUTPUT"
               ;;
-            github|discord|rss-blog)
+            github|rss-blog)
               git diff --exit-code snippets/automations/ || echo "changed=true" >> "$GITHUB_OUTPUT"
               ;;
+            discord)
+              git diff --exit-code snippets/automations/ snippets/data/social-feeds/discordAnnouncementsData.jsx || echo "changed=true" >> "$GITHUB_OUTPUT"
+              ;;
             livepeer-release)
-              git diff --exit-code snippets/automations/globals/globals.jsx || echo "changed=true" >> "$GITHUB_OUTPUT"
+              git diff --exit-code snippets/data/globals/latestRelease.jsx || echo "changed=true" >> "$GITHUB_OUTPUT"
               ;;
             *)
               echo "Unsupported diff mode: ${{ inputs.mode }}"
@@ -170,15 +151,15 @@ jobs:
 
           case "${{ inputs.mode }}" in
             forum)
-              git add snippets/automations/forum/forumData.jsx
+              git add snippets/data/social-feeds/forumData.jsx
               git commit -m "chore: update forum data [skip ci]"
               ;;
             ghost-blog)
-              git add snippets/automations/blog/ghostBlogData.jsx
+              git add snippets/data/social-feeds/ghostBlogData.jsx
               git commit -m "chore: update Ghost blog data [skip ci]"
               ;;
             youtube)
-              git add snippets/automations/youtube/youtubeData.jsx
+              git add snippets/data/social-feeds/youtubeData.jsx
               git commit -m "Update YouTube videos - $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
               ;;
             github)
@@ -186,7 +167,7 @@ jobs:
               git commit -m "chore: update GitHub discussions & releases data [skip ci]"
               ;;
             discord)
-              git add snippets/automations
+              git add snippets/automations snippets/data/social-feeds/discordAnnouncementsData.jsx
               git commit -m "chore: update Discord announcements data [skip ci]"
               ;;
             rss-blog)
@@ -194,7 +175,7 @@ jobs:
               git commit -m "chore: update RSS blog data [skip ci]"
               ;;
             livepeer-release)
-              git add snippets/automations/globals/globals.jsx
+              git add snippets/data/globals/latestRelease.jsx
               git commit -m "chore: update go-livepeer release to ${{ steps.version.outputs.version }} [skip ci]"
               ;;
             *)

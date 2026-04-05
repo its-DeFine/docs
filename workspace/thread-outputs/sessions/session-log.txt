@@ -932,3 +932,29 @@ Session started: 2026-04-04 10:23:57
 Session started: 2026-04-04 10:24:11
 Session started: 2026-04-04 13:12:27
 Session started: 2026-04-04 13:24:36
+
+=== 2026-04-05 17:17 AEST ===
+Stream: Snippets Assets `/site` Migration Verification
+Outcome: Not met
+Done:
+- Executed the full `/site` migration verification runbook in a disposable clone, including changed-page manifests, targeted validators, scoped `lpd dev --scoped`, raw probes, browser assertions, and cleanup verification
+- Confirmed the moved asset contracts at the probe layer: representative routes and moved favicon/OG/site-image assets returned `200`, root `sitemap-ai.xml` stayed canonical, and teardown left no residual `3145` session
+- Isolated the blockers that keep the migration incomplete: `docs.json` Resource HUB redirect drift, invalid frontmatter in `v2/about/livepeer-protocol/blockchain-contracts.mdx`, and scoped runtime/browser failures (`React #418`, `undefined.mintlify.app` OG URLs, request-abort surfaces)
+Next: Fix the P0 blockers, then rerun the exact same six-gate verification sequence before starting `/domain`
+Session started: 2026-04-05 12:23:26
+Session started: 2026-04-05 12:23:26
+Session started: 2026-04-05 12:23:35
+
+=== 2026-04-05 12:35 AEST ===
+Stream: Snippets Audit
+Outcome: Met
+Done:
+- Audited every tracked file under `snippets/automations` and `snippets/data`, traced current repo consumers, named creator workflows/scripts where present, and separated live runtime paths from docs-only, generated-audit, duplicate, and orphan candidates
+- Wrote the current-state report to `snippets/_workspace/reports/automations-data-audit-2026-04-05.md`
+Next: Use the report to choose a cleanup sequence; the safest first removals are duplicate/unused files, while any path migration for live outputs, `hrefs.jsx`, or contracts state needs one repo-wide propagation change
+Session started: 2026-04-05 12:48:14
+Session started: 2026-04-05 12:48:20
+Session started: 2026-04-05 12:49:31
+Session started: 2026-04-05 12:49:31
+Session started: 2026-04-05 12:49:44
+Session started: 2026-04-05 13:16:26

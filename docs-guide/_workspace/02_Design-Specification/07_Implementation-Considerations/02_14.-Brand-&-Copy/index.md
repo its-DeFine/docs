@@ -155,14 +155,14 @@ Brand/copy enforcement follows the same ramp. New rules start as warnings, becom
 
 | **Config File** | **What It Controls** | **Edit When...** |
 | --- | --- | --- |
-| tools/config/style-language-profile-en-gb.json | Forbidden terms, forbidden patterns, locale, file scope | Adding banned words, terminology pairs, US/UK spelling pairs |
-| tools/config/component-layout-profile.json | Page type → required sections + allowed components | Adding page types, changing component rules |
-| tools/config/cspell.json | Spell check: locale, dictionaries, ignore paths | Adding new technical terms, adjusting ignore rules |
+| tools/config/quality/style-language-profile-en-gb.json | Forbidden terms, forbidden patterns, locale, file scope | Adding banned words, terminology pairs, US/UK spelling pairs |
+| tools/config/quality/component-layout-profile.json | Page type → required sections + allowed components | Adding page types, changing component rules |
+| tools/config/quality/cspell.json | Spell check: locale, dictionaries, ignore paths | Adding new technical terms, adjusting ignore rules |
 | operations/tests/config/spell-dict.json | Custom Livepeer dictionary (en-GB spellings) | Adding Livepeer-specific terms |
-| tools/config/accuracy-source-registry.json | Usefulness audit: which sources are trusted for verification | Adding/changing trusted sources |
-| tools/config/accuracy-source-weights.json | Usefulness audit: weight per source type | Adjusting verification scoring |
+| tools/config/quality/accuracy-source-registry.json | Usefulness audit: which sources are trusted for verification | Adding/changing trusted sources |
+| tools/config/quality/accuracy-source-weights.json | Usefulness audit: weight per source type | Adjusting verification scoring |
 | tests/config/codex-issue-policy.json | Issue management policy for automated checks | — |
-| tools/config/report-retention-policy.json | How long audit reports are kept | — |
+| tools/config/runtime/report-retention-policy.json | How long audit reports are kept | — |
 
 ## **Priority Implementation Order**
 

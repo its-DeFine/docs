@@ -418,7 +418,7 @@
       ]
     },
     {
-      "path": "snippets/snippets-catalog.mdx",
+      "path": "snippets/snippets-registry.mdx",
       "mode": "compat-retained",
       "requiredRefs": [],
       "forbiddenRefs": [

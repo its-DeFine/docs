@@ -86,7 +86,7 @@ const GENERATED_AFFECTING_EXACT = new Set([
   'v2/resources/documentation-guide/component-library/overview.mdx'
 ]);
 const SKILL_SPEC_CONTRACT_PATH = 'ai-tools/ai-skills/skill-spec-contract.md';
-const OWNERLESS_MANIFEST_PATH = 'tools/config/ownerless-governance-surfaces.json';
+const OWNERLESS_MANIFEST_PATH = 'tools/config/runtime/ownerless-governance-surfaces.json';
 const OWNERLESS_POLICY_PATH = 'docs-guide/policies/ownerless-governance.mdx';
 
 function fallbackIsEligibleRepoMarkdownPath(filePath) {
@@ -274,7 +274,7 @@ function partitionFiles(changedFiles) {
     file === 'tools/package.json' ||
     file === 'tools/package-lock.json' ||
     file.startsWith('tools/lib/docs-usefulness/') ||
-    file.startsWith('tools/config/usefulness-') ||
+    file.startsWith('tools/config/quality/usefulness-') ||
     file.startsWith('operations/tests/unit/usefulness-')
   );
   const skillDocsFiles = existingChangedFiles.filter((file) => isGovernedSkillDocPath(file));

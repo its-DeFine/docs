@@ -3,19 +3,19 @@ name: external-docs-sync-and-sanitize
 description: >-
   Fetch external markdown docs and sanitize them for MDX-safe inclusion in this
   repository. Use when: refresh external docs content, import upstream markdown
-  into snippets/external, sanitize html-heavy markdown for mdx.
+  into snippets/composables/pages/shared, sanitize html-heavy markdown for mdx.
 metadata:
   version: "1.2"
   category: "governance"
   tier: "2"
 primary_paths:
-  - "operations/scripts/snippets/fetch-external-docs.sh"
-  - "snippets/external"
+  - "operations/scripts/automations/content/data/fetching/fetch-external-docs.sh"
+  - "snippets/composables/pages/shared"
   - "operations/scripts/snippets/paths.config.json"
   - "v2/resources/documentation-guide/docs-features-and-ai-integrations.mdx"
 primary_commands:
-  - "bash operations/scripts/snippets/fetch-external-docs.sh"
-  - "rg --files snippets/external"
+  - "bash operations/scripts/automations/content/data/fetching/fetch-external-docs.sh"
+  - "rg --files snippets/composables/pages/shared"
 ---
 
 SKILL: External Docs Sync and Sanitize
@@ -36,8 +36,8 @@ Workflow
 
 Command examples
 ```bash
-bash operations/scripts/snippets/fetch-external-docs.sh
-rg --files snippets/external
+bash operations/scripts/automations/content/data/fetching/fetch-external-docs.sh
+rg --files snippets/composables/pages/shared
 ```
 
 Deliverable Format

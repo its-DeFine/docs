@@ -79,9 +79,9 @@ async function main() {
   }));
 
   results.push(await runCase('Config validation blocks deprecated v2/platforms journey patterns', async () => {
-    const rubric = require('../../../tools/config/usefulness-rubric.json');
-    const audience = require('../../../tools/config/usefulness-audience-normalization.json');
-    const llm = require('../../../tools/config/usefulness-llm-tiers.json');
+    const rubric = require('../../../tools/config/quality/usefulness-rubric.json');
+    const audience = require('../../../tools/config/quality/usefulness-audience-normalization.json');
+    const llm = require('../../../tools/config/quality/usefulness-llm-tiers.json');
     const prompts = require('../../../tools/lib/docs-usefulness/prompts');
 
     const badJourneys = {

@@ -1,5 +1,6 @@
 /**
  * @script            fetch-discord-announcements
+ * @category          automation
  * @type              automation
  * @concern           content
  * @niche             data/fetching
@@ -7,10 +8,13 @@
  * @description       Fetches announcements from Discord channels via bot token. Writes per-product
  *                    JSX data files from config.products[].discord and per-channel JSX files from
  *                    config.globals.discord[]. Each entry produces a specific output file.
+ * @domain            docs
+ * @needs             F-R1
+ * @purpose-statement Fetches Discord announcements for product and shared community feeds, writing per-product outputs plus the shared social feed module under snippets/data/social-feeds/.
  * @mode              generate
  * @pipeline          config → Discord API → snippets/automations/{product}/discordData.jsx
- *                                        → snippets/automations/discord/discordAnnouncementsData.jsx
- * @scope             .github/scripts, snippets/automations/
+ *                                        → snippets/data/social-feeds/discordAnnouncementsData.jsx
+ * @scope             .github/scripts, snippets/automations/, snippets/data/social-feeds/
  * @usage             node .github/scripts/fetch-discord-announcements.js
  * @policy            Announcements channel only. No general chat. Requires DISCORD_BOT_TOKEN.
  */
@@ -227,7 +231,7 @@ async function main() {
     if (announcements === null) continue;
 
     const exportName = `${productKey.replace(/-/g, "")}DiscordData`;
-    const outPath = path.join(`snippets/automations/solutions/${productKey}`, "discordData.jsx");
+    const outPath = path.join(`snippets/data/social-feed-solutions/${productKey}`, "discordData.jsx");
     writeJSX(exportName, announcements, outPath);
   }
 

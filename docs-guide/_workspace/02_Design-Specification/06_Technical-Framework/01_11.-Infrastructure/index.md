@@ -18,11 +18,11 @@
 
 | **Workflow** | **Source** | **Schedule** | **Output** |
 | --- | --- | --- | --- |
-| update-blog-data.yml | Ghost API | Cron | snippets/automations/blog/ |
-| update-ghost-blog-data.yml | Ghost API | Cron | snippets/automations/blog/ |
-| update-forum-data.yml | Discourse API | Cron | snippets/automations/forum/ |
-| update-youtube-data.yml | YouTube Data API | Cron | snippets/automations/youtube/ |
-| project-showcase-sync.yml | External + dispatch | Cron + dispatch | snippets/automations/showcase/ |
+| update-blog-data.yml | Ghost API | Cron | snippets/data/social-feeds/ |
+| update-ghost-blog-data.yml | Ghost API | Cron | snippets/data/social-feeds/ |
+| update-forum-data.yml | Discourse API | Cron | snippets/data/social-feeds/ |
+| update-youtube-data.yml | YouTube Data API | Cron | snippets/data/social-feeds/ |
+| project-showcase-sync.yml | External + dispatch | Cron + dispatch | snippets/data/showcase-feed/ |
 | update-livepeer-release.yml | GitHub Releases API | On release | snippets/automations/globals/ |
 
 ### **Generators (4 workflows)**
@@ -67,7 +67,7 @@
 
 ## **n8n Workflow Configurations**
 
-5 n8n workflow JSON files stored in `snippets/automations/scripts/n8n/`:
+5 n8n workflow JSON files stored in `snippets/assets/data/n8n/`:
 
 | **File** | **What It Does** | **Status** |
 | --- | --- | --- |

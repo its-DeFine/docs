@@ -1,13 +1,17 @@
 /**
  * @script            fetch-ghost-blog-data
+ * @category          automation
  * @type              automation
  * @concern           content
  * @niche             data/fetching
  * @purpose           infrastructure:data-feeds
- * @description       Fetches Livepeer blog posts via public RSS feed (blog.livepeer.org/rss/). No API key required. Writes to snippets/automations/blog/ghostBlogData.jsx.
+ * @description       Fetches Livepeer blog posts via public RSS feed (blog.livepeer.org/rss/). No API key required. Writes to snippets/data/social-feeds/ghostBlogData.jsx.
+ * @domain            docs
+ * @needs             F-R1
+ * @purpose-statement Fetches Livepeer blog posts via public RSS feed and writes the shared social feed module under snippets/data/social-feeds/.
  * @mode              generate
- * @pipeline          RSS feed → snippets/automations/blog/ghostBlogData.jsx
- * @scope             .github/scripts, snippets/automations/blog/
+ * @pipeline          RSS feed → snippets/data/social-feeds/ghostBlogData.jsx
+ * @scope             .github/scripts, snippets/data/social-feeds/
  * @policy            PUBLIC RSS only. No API keys.
  * @usage             node .github/scripts/fetch-ghost-blog-data.js
  */
@@ -19,7 +23,7 @@ const { escapeForJsx } = require(path.resolve(__dirname, "../../operations/scrip
 
 const RSS_URL = process.env.GHOST_RSS_URL || "https://blog.livepeer.org/rss/";
 const LIMIT = parseInt(process.env.LIMIT || "4", 10);
-const OUTPUT_PATH = "snippets/automations/blog/ghostBlogData.jsx";
+const OUTPUT_PATH = "snippets/data/social-feeds/ghostBlogData.jsx";
 
 function fetchUrl(url) {
   return new Promise((resolve, reject) => {
@@ -120,7 +124,7 @@ async function main() {
   });
   jsx += "];\n";
 
-  fs.mkdirSync("snippets/automations/blog", { recursive: true });
+  fs.mkdirSync("snippets/data/social-feeds", { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, jsx);
   console.log(`Written to ${OUTPUT_PATH}`);
 }

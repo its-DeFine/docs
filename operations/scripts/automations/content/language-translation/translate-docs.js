@@ -38,7 +38,7 @@ function printHelp() {
       'Usage: node operations/scripts/i18n/translate-docs.js [options]',
       '',
       'Options:',
-      '  --languages <csv>            Target languages (default from tools/i18n/config.json)',
+      '  --languages <csv>            Target languages (default from operations/scripts/automations/content/language-translation/config.json)',
       '  --scope-mode <mode>          changed_since_ref | prefixes | paths_file | full_v2_nav',
       '  --base-ref <ref>             Base ref for changed_since_ref mode',
       '  --prefixes <csv>             Repo prefixes for prefixes mode',

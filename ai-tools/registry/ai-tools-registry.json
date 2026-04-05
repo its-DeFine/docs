@@ -7477,6 +7477,37 @@
       "notes": "Generated canonical workflow detail page for .github/workflows/openapi-reference-validation.yml."
     },
     {
+      "id": "registry-workflow-page-integrity-health-mdx",
+      "path": "ai-tools/registry/workflows/page-integrity-health.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/page-integrity-health.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/page-integrity-health.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/page-integrity-health.yml."
+    },
+    {
       "id": "registry-workflow-project-showcase-sync-mdx",
       "path": "ai-tools/registry/workflows/project-showcase-sync.mdx",
       "artifact_type": "visual-library-detail",
@@ -7847,6 +7878,37 @@
       "status": "generated-active",
       "migration_wave": "wave-1",
       "notes": "Generated canonical workflow detail page for .github/workflows/update-changelogs.yml."
+    },
+    {
+      "id": "registry-workflow-update-contract-addresses-shadow-mdx",
+      "path": "ai-tools/registry/workflows/update-contract-addresses-shadow.mdx",
+      "artifact_type": "visual-library-detail",
+      "category": "workflow-visual-library",
+      "lifecycle_state": "manual-doc",
+      "current_lane": "manual-doc",
+      "target_lane": "manual-doc",
+      "canonical_source": [
+        ".github/workflows/update-contract-addresses-shadow.yml",
+        "operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js"
+      ],
+      "derived_outputs": [
+        "ai-tools/registry/workflows/update-contract-addresses-shadow.mdx"
+      ],
+      "runtime_targets": [
+        "human",
+        "agent"
+      ],
+      "validators": [
+        "operations/tests/unit/ai-tools-registry.test.js",
+        "operations/tests/unit/ai-tools-visual-library.test.js"
+      ],
+      "repair_commands": [
+        "node operations/scripts/generators/governance/catalogs/generate-ai-tools-visual-library.js --write"
+      ],
+      "catalog_group": "ai-tools/registry/visual-library",
+      "status": "generated-active",
+      "migration_wave": "wave-1",
+      "notes": "Generated canonical workflow detail page for .github/workflows/update-contract-addresses-shadow.yml."
     },
     {
       "id": "registry-workflow-update-contract-addresses-mdx",

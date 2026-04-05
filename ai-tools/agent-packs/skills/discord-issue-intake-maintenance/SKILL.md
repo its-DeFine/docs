@@ -12,7 +12,7 @@ metadata:
 primary_paths:
   - ".github/workflows/discord-issue-intake.yml"
   - ".github/workflows/issue-auto-label.yml"
-  - "snippets/automations/scripts/n8n/Discord-Issue-Intake.json"
+  - "snippets/assets/data/n8n/Discord-Issue-Intake.json"
   - "v2/resources/documentation-guide/automations-workflows.mdx"
 primary_commands:
   - "sed -n \"1,260p\" .github/workflows/discord-issue-intake.yml"

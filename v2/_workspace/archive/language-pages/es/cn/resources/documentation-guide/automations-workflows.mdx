@@ -292,7 +292,7 @@ GitHub Actions 实现使用按数据源拆分的专用工作流（`update-forum-
 
 **它会做什么:**
 1. 运行 `.github/scripts/fetch-forum-data.js`
-2. 更新 `snippets/automations/forum/forumData.jsx`
+2. 更新 `snippets/data/social-feeds/forumData.jsx`
 3. 如果检测到更改则提交并推送
 
 **必需的密钥:**
@@ -317,7 +317,7 @@ GitHub Actions 实现使用按数据源拆分的专用工作流（`update-forum-
 
 **它做什么:**
 1. 运行 `.github/scripts/fetch-ghost-blog-data.js`
-2. 更新 `snippets/automations/blog/ghostBlogData.jsx`
+2. 更新 `snippets/data/social-feeds/ghostBlogData.jsx`
 3. 如果检测到更改则提交并推送
 
 **所需的密钥:**
@@ -342,7 +342,7 @@ GitHub Actions 实现使用按数据源拆分的专用工作流（`update-forum-
 **它会做什么：**
 1. 运行 `.github/scripts/fetch-youtube-data.js`
 2. 过滤掉短视频（≤60 秒）
-3. 更新 `snippets/automations/youtube/youtubeData.jsx`
+3. 更新 `snippets/data/social-feeds/youtubeData.jsx`
 4. 如果检测到更改，则提交并推送
 
 **所需的密钥:**
@@ -378,7 +378,7 @@ Most n8n workflows are currently **inactive** (`"active": false`). Only active w
 3. 生成 JSX 数据文件
 4. 提交到 GitHub 的 `docs-v2` 分支
 
-**输出:** `snippets/automations/luma/lumaEventsData.jsx`
+**输出:** `snippets/data/social-feeds/lumaEventsData.jsx`
 
 **如何使用:**
 1. 将 JSON 文件导入 n8n 实例
@@ -407,10 +407,10 @@ Most n8n workflows are currently **inactive** (`"active": false`). Only active w
 2. 验证提交数据
 3. 发送 Discord 通知以获得批准
 4. 从 Google Drive 下载媒体文件
-5. 更新 `snippets/automations/showcase/showcaseData.jsx`当获得批准时
+5. 更新 `snippets/data/showcase-feed/showcaseData.jsx`当获得批准时
 6. 向提交者发送通知
 
-**输出:** `snippets/automations/showcase/showcaseData.jsx`
+**输出:** `snippets/data/showcase-feed/showcaseData.jsx`
 
 **如何使用:**
 1. 将 JSON 文件导入 n8n 实例
@@ -646,21 +646,21 @@ output-dir/
 
 #### 获取外部文档
 
-**文件:** `tools/scripts/snippets/fetch-external-docs.sh`
+**文件:** `operations/scripts/automations/content/data/fetching/fetch-external-docs.sh`
 
 **目的:** 从其他 Livepeer 仓库获取外部文档文件并对其进行清理，以实现 MDX 兼容性
 
 **用法:**
 ```bash
-./tools/scripts/snippets/fetch-external-docs.sh
+./operations/scripts/automations/content/data/fetching/fetch-external-docs.sh
 ```
 
 **它做什么：**
 1. 从外部仓库下载文档
 2. 对内容进行清理以兼容 MDX
-3. 保存到 `snippets/external/`
+3. 保存到 `snippets/composables/pages/shared/`
 
-**下载到 `snippets/external/`:**
+**下载到 `snippets/composables/pages/shared/`:**
 - `wiki-readme.mdx` - livepeer/wiki README
 - `awesome-livepeer-readme.mdx` - livepeer/awesome-livepeer README
 - `whitepaper.mdx` - Livepeer 白皮书

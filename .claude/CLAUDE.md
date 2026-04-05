@@ -36,6 +36,7 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 | Solutions Merge | merge/solutions-to-docs-v2 branch ready, pushed to origin. PR creation blocked by hook — user runs manually | Pending PR | 2026-03-30 |
 | Workflow Alignment Skills | `/thread` v1.4: auto-derive entry (no questions), 10-phase lifecycle. PreEdit auto-gen hook shipped | Done | 2026-03-31 |
 | GitHub Actions Governance | Phases 0-5 complete. Framework (7 types, 7 concerns, 8 decisions), 41 action pages, catalog, CI staged. Phase 6+: consolidation research, build/test, script migration, cleanup last | Active | 2026-04-01 |
+| Snippets Audit | Full audit of `snippets/automations` and `snippets/data` with creator/consumer/risk report in `snippets/_workspace/reports/automations-data-audit-2026-04-05.md` | Done | 2026-04-05 |
 
 **Rule:** When you finish a task or change status, update your row in this table before closing. If the master-tasks.md file has a matching item, update that too.
 

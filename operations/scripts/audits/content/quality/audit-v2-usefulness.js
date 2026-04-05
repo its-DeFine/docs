@@ -48,9 +48,12 @@ const REMOVED_FLAGS = new Set([
 ]);
 
 const BASELINE_DEFAULT_REL = path.join(
-  'tools',
-  'config',
-  'usefulness-baselines',
+  'operations',
+  'scripts',
+  'audits',
+  'content',
+  'quality',
+  'baselines',
   'full-run-2026-02-23-page-matrix.csv'
 );
 

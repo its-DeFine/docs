@@ -115,7 +115,7 @@ Uses Puppeteer (already in the repo for browser tests) with `--enable-performanc
 - **Silent failures:** If a scheduled workflow fails (API down, auth expired), nobody is notified unless they check the Actions tab.
 - **No freshness dashboard:** No single view showing when each data source was last updated.
 - **Dead pipeline data:** `showcaseDataOld.jsx` and `showcaseData copy.jsx` are dead files still in the repo.
-- **n8n workflows:** 5 workflow JSONs in `snippets/automations/scripts/n8n/`. Their relationship to the GitHub Actions workflows is unclear — are they alternatives, predecessors, or complementary?
+- **n8n workflows:** 5 workflow JSONs in `snippets/assets/data/n8n/`. Their relationship to the GitHub Actions workflows is unclear — are they alternatives, predecessors, or complementary?
 
 ### **Measurement Script Requirements**
 

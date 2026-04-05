@@ -44,9 +44,9 @@ async function main() {
 
   results.push(await runCase('Rubric config validates against prompts and journey/audience/llm schemas', async () => {
     const rubric = loadRubric();
-    const journeys = require('../../../tools/config/usefulness-journeys.json');
+    const journeys = require('../../../tools/config/quality/usefulness-journeys.json');
     const audience = loadAudienceNormalization();
-    const llm = require('../../../tools/config/usefulness-llm-tiers.json');
+    const llm = require('../../../tools/config/quality/usefulness-llm-tiers.json');
     validateUsefulnessConfig({ rubric, journeys, audience, llmTiers: llm, prompts });
   }));
 

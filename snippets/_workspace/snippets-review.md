@@ -20,13 +20,12 @@ In this repo snippets contain...
 /composables
 /data
 /templates (potentially align with composables)
-guide.mdx (contains framework, repo structure, description,usage guide, etc)
-catalog.mdx (index of whats in this folder.)
+guide.mdx (canonical human-authored framework, placement rules, and folder metadata)
+snippets-registry.mdx (generated tree and folder registry)
 
 deprecated / folded in elsewhere / unclassified now
 /automationsI
 /snippetsWiki
-/external (what is this?)
 
 # Snippets Per folder
 
@@ -49,8 +48,8 @@ deprecated / folded in elsewhere / unclassified now
 <Tree>
   <Tree.Folder name="snippets" defaultOpen>
     <Tree.File name="README.md" />
-    <Tree.File name="framework-canonical.mdx" />
-    <Tree.File name="snippets-catalog.mdx" />
+      <Tree.File name="guide.mdx" />
+      <Tree.File name="snippets-registry.mdx" />
     <Tree.Folder name="_workspace" defaultOpen>
       <Tree.Folder name="archive" />
       <Tree.Folder name="asset-staging" />
@@ -71,85 +70,41 @@ deprecated / folded in elsewhere / unclassified now
         <Tree.Folder name="files" />
       </Tree.Folder>
     </Tree.Folder>
-    <Tree.Folder name="automations" defaultOpen>
-      <Tree.File name="README.mdx" />
-      <Tree.File name="automations-catalog.mdx" />
-      <Tree.File name="script-index.md" />
-      <Tree.Folder name="blog">
-        <Tree.File name="ghostBlogData.jsx" />
+    <Tree.Folder name="data" defaultOpen>
+      <Tree.Folder name="showcase-feed">
+        <Tree.File name="showcaseData.jsx" />
       </Tree.Folder>
-      <Tree.Folder name="discord">
-        <Tree.File name="Discord_Announce_to_Mintlify.json" />
+      <Tree.Folder name="social-feeds">
         <Tree.File name="discordAnnouncementsData.jsx" />
-      </Tree.Folder>
-      <Tree.Folder name="forum">
-        <Tree.File name="Hero_Livepeer_Forum.png" />
         <Tree.File name="forumData.jsx" />
+        <Tree.File name="ghostBlogData.jsx" />
+        <Tree.File name="lumaEventsData.jsx" />
+        <Tree.Folder name="transformers">
+          <Tree.File name="filterVideos.js" />
+        </Tree.Folder>
+        <Tree.File name="youtubeData.jsx" />
       </Tree.Folder>
+      <Tree.Folder name="social-feed-solutions">
+        <Tree.Folder name="daydream" />
+        <Tree.Folder name="embody" />
+        <Tree.Folder name="frameworks" />
+        <Tree.Folder name="livepeer-studio" />
+        <Tree.Folder name="streamplace" />
+      </Tree.Folder>
+    </Tree.Folder>
+    <Tree.Folder name="automations" defaultOpen>
+      <Tree.Folder name="blog" />
+      <Tree.Folder name="discord" />
+      <Tree.Folder name="forum" />
       <Tree.Folder name="globals">
         <Tree.File name="README.mdx" />
         <Tree.File name="globals.jsx" />
         <Tree.File name="globals.mdx" />
       </Tree.Folder>
-      <Tree.Folder name="luma">
-        <Tree.File name="lumaEventsData.jsx" />
-      </Tree.Folder>
-      <Tree.Folder name="scripts">
-        <Tree.Folder name="n8n">
-          <Tree.File name="Discord-Issue-Intake.json" />
-          <Tree.File name="Discord_Announce_to_Mintlify.json" />
-          <Tree.File name="Forum-To-Mintlify-Latest-Topics.json" />
-          <Tree.File name="Ghost-to-Mintlify.json" />
-          <Tree.File name="Luma-To-Mintlify.json" />
-          <Tree.File name="Showcase_Project_Pipeline.json" />
-          <Tree.File name="Showcase_To_Mintlify_Pipeline.json" />
-          <Tree.File name="YouTube-To-Mintlify.json" />
-          <Tree.File name="mp4-to-gif.json" />
-          <Tree.File name="project-showcase-application-workflow.json" />
-        </Tree.Folder>
-      </Tree.Folder>
-      <Tree.Folder name="showcase">
-        <Tree.File name="Livepeer_Ecosystem_Descriptions.pdf" />
-        <Tree.File name="README.md" />
-        <Tree.File name="showcaseData.jsx" />
-      </Tree.Folder>
-      <Tree.Folder name="solutions">
-        <Tree.Folder name="daydream">
-          <Tree.File name="blogData.jsx" />
-          <Tree.File name="discordData.jsx" />
-          <Tree.File name="githubDiscussionsData.jsx" />
-          <Tree.File name="githubReleasesData.jsx" />
-          <Tree.File name="youtubeData.jsx" />
-        </Tree.Folder>
-        <Tree.Folder name="embody">
-          <Tree.File name="discordData.jsx" />
-          <Tree.File name="githubReleasesData.jsx" />
-          <Tree.File name="youtubeData.jsx" />
-          <Tree.File name="youtubeDataStatic.jsx" />
-        </Tree.Folder>
-        <Tree.Folder name="frameworks">
-          <Tree.File name="discordData.jsx" />
-          <Tree.File name="githubDiscussionsData.jsx" />
-          <Tree.File name="githubReleasesData.jsx" />
-          <Tree.File name="youtubeDataStatic.jsx" />
-        </Tree.Folder>
-        <Tree.Folder name="livepeer-studio">
-          <Tree.File name="blogData.jsx" />
-          <Tree.File name="githubDiscussionsData.jsx" />
-          <Tree.File name="githubReleasesData.jsx" />
-          <Tree.File name="youtubeData.jsx" />
-          <Tree.File name="youtubeDataStatic.jsx" />
-        </Tree.Folder>
-        <Tree.Folder name="streamplace">
-          <Tree.File name="discordData.jsx" />
-          <Tree.File name="githubDiscussionsData.jsx" />
-          <Tree.File name="youtubeDataStatic.jsx" />
-        </Tree.Folder>
-      </Tree.Folder>
-      <Tree.Folder name="youtube">
-        <Tree.File name="filterVideos.js" />
-        <Tree.File name="youtubeData.jsx" />
-      </Tree.Folder>
+      <Tree.Folder name="luma" />
+      <Tree.Folder name="showcase" />
+      <Tree.Folder name="solutions" />
+      <Tree.Folder name="youtube" />
     </Tree.Folder>
     <Tree.Folder name="components" defaultOpen>
       <Tree.File name="README.md" />
@@ -385,8 +340,14 @@ deprecated / folded in elsewhere / unclassified now
           <Tree.File name="docs-philosophy.mdx" />
         </Tree.Folder>
         <Tree.Folder name="shared">
+          <Tree.File name=".last_fetch" />
           <Tree.File name="FrameModePageHeader.mdx" />
+          <Tree.File name="awesome-livepeer-readme.mdx" />
+          <Tree.File name="box-additional-config.mdx" />
           <Tree.File name="eth-account-setup.mdx" />
+          <Tree.File name="gwid-readme.mdx" />
+          <Tree.File name="whitepaper.mdx" />
+          <Tree.File name="wiki-readme.mdx" />
         </Tree.Folder>
         <Tree.Folder name="unclassified">
           <Tree.File name="accordion-faq-section.mdx" />
@@ -479,14 +440,6 @@ deprecated / folded in elsewhere / unclassified now
         <Tree.File name="resources.mdx" />
       </Tree.Folder>
       <Tree.File name="variables.mdx" />
-    </Tree.Folder>
-    <Tree.Folder name="external" defaultOpen>
-      <Tree.File name=".last_fetch" />
-      <Tree.File name="awesome-livepeer-readme.mdx" />
-      <Tree.File name="box-additional-config.mdx" />
-      <Tree.File name="gwid-readme.mdx" />
-      <Tree.File name="whitepaper.mdx" />
-      <Tree.File name="wiki-readme.mdx" />
     </Tree.Folder>
     <Tree.Folder name="snippetsWiki" defaultOpen>
       <Tree.File name="README.md" />

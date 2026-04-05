@@ -373,14 +373,14 @@ A multi-source automation layer was built providing ongoing content freshness an
 
 | Workflow                      | Trigger                      | Output                                           |
 | ----------------------------- | ---------------------------- | ------------------------------------------------ |
-| `update-forum-data.yml`       | Schedule + manual            | `snippets/automations/forum/forumData.jsx`       |
-| `update-ghost-blog-data.yml`  | Schedule + manual            | `snippets/automations/blog/ghostBlogData.jsx`    |
-| `update-youtube-data.yml`     | Schedule + manual            | `snippets/automations/youtube/youtubeData.jsx`   |
+| `update-forum-data.yml`       | Schedule + manual            | `snippets/data/social-feeds/forumData.jsx`       |
+| `update-ghost-blog-data.yml`  | Schedule + manual            | `snippets/data/social-feeds/ghostBlogData.jsx`    |
+| `update-youtube-data.yml`     | Schedule + manual            | `snippets/data/social-feeds/youtubeData.jsx`   |
 | `update-livepeer-release.yml` | Schedule + manual            | `snippets/automations/globals/globals.mdx`       |
-| `project-showcase-sync.yml`   | Schedule + manual + dispatch | `snippets/automations/showcase/showcaseData.jsx` |
+| `project-showcase-sync.yml`   | Schedule + manual + dispatch | `snippets/data/showcase-feed/showcaseData.jsx` |
 | `update-blog-data.yml`        | Schedule + manual            | Forum + blog data combined                       |
 
-**n8n workflow assets.** Parallel n8n pipeline assets exist in `snippets/automations/scripts/n8n/` providing operational flexibility: simple updates can remain repo-native while complex multi-step flows can be delegated to n8n. This redundant architecture is a strategic asset — the documentation can be maintained without dependency on any single automation platform.
+**n8n workflow assets.** Parallel n8n pipeline assets exist in `snippets/assets/data/n8n/` providing operational flexibility: simple updates can remain repo-native while complex multi-step flows can be delegated to n8n. This redundant architecture is a strategic asset — the documentation can be maintained without dependency on any single automation platform.
 
 **Forum data ingestion.** `.github/scripts/fetch-forum-data.js` fetches and normalises Livepeer forum data, feeding the `forumData.jsx` snippet used in the Trending Topics surface.
 
@@ -388,7 +388,7 @@ A multi-source automation layer was built providing ongoing content freshness an
 
 **YouTube data ingestion.** `.github/scripts/fetch-youtube-data.js` fetches YouTube data (filtering Shorts), feeding the `youtubeData.jsx` snippet.
 
-**Project Showcase pipeline.** `.github/scripts/project-showcase-sync.js` syncs ecosystem project data into `snippets/automations/showcase/showcaseData.jsx`. The showcase is searchable and sortable, and the pipeline is architected to be extensible — additional curation sources can be added without restructuring the pipeline.
+**Project Showcase pipeline.** `.github/scripts/project-showcase-sync.js` syncs ecosystem project data into `snippets/data/showcase-feed/showcaseData.jsx`. The showcase is searchable and sortable, and the pipeline is architected to be extensible — additional curation sources can be added without restructuring the pipeline.
 
 **Governance and intake automation:**
 
@@ -399,7 +399,7 @@ A multi-source automation layer was built providing ongoing content freshness an
 
 **Full workflow inventory:** 17 workflows documented in `docs-guide/catalog/workflows-catalog.mdx`.
 
-**Repo evidence:** `.github/scripts/fetch-forum-data.js`, `.github/scripts/fetch-ghost-blog-data.js`, `.github/scripts/fetch-youtube-data.js`, `.github/scripts/project-showcase-sync.js`, `.github/workflows/project-showcase-sync.yml`, `.github/workflows/update-*.yml`, `snippets/automations/scripts/n8n/`, `snippets/automations/forum/forumData.jsx`, `snippets/automations/blog/ghostBlogData.jsx`, `snippets/automations/youtube/youtubeData.jsx`, `snippets/automations/showcase/showcaseData.jsx`
+**Repo evidence:** `.github/scripts/fetch-forum-data.js`, `.github/scripts/fetch-ghost-blog-data.js`, `.github/scripts/fetch-youtube-data.js`, `.github/scripts/project-showcase-sync.js`, `.github/workflows/project-showcase-sync.yml`, `.github/workflows/update-*.yml`, `snippets/assets/data/n8n/`, `snippets/data/social-feeds/forumData.jsx`, `snippets/data/social-feeds/ghostBlogData.jsx`, `snippets/data/social-feeds/youtubeData.jsx`, `snippets/data/showcase-feed/showcaseData.jsx`
 
 ### 5d. Future-Proof Maintenance Automation Scripts
 
@@ -459,7 +459,7 @@ The depth of technical content in the v2 documentation significantly exceeds wha
 
 **LPT exchange data integration.** `operations/scripts/snippets/fetch-lpt-exchanges.sh` fetches LPT exchange data. `snippets/data/` contains domain data modules including exchange and reference data surfaces.
 
-**External docs integration.** `operations/scripts/snippets/fetch-external-docs.sh` provides automated fetching of external documentation sources.
+**External docs integration.** `operations/scripts/automations/content/data/fetching/fetch-external-docs.sh` provides automated fetching of external documentation sources.
 
 **SDK documentation.** Automated SDK generation is handled by `sdk_generation.yaml` (GitHub Actions), which runs on schedule and produces PRs with updated SDK documentation.
 
@@ -743,11 +743,11 @@ This section covers all software engineering, automation, and tooling work — t
 | S2  | `.github/scripts/fetch-ghost-blog-data.js`                           | Ghost blog data fetch and write                      | 3       | 5        | \_\_    |
 | S3  | `.github/scripts/fetch-youtube-data.js`                              | YouTube data fetch (Shorts filtering) and write      | 4       | 7        | \_\_    |
 | S4  | `.github/scripts/project-showcase-sync.js`                           | Ecosystem showcase sync script                       | 5       | 9        | \_\_    |
-| S5  | `snippets/automations/scripts/n8n/` — n8n workflow assets            | Parallel n8n pipeline assets (JSON workflow configs) | 6       | 12       | \_\_    |
-| S6  | `snippets/automations/forum/forumData.jsx`                           | Forum data component                                 | 2       | 4        | \_\_    |
-| S7  | `snippets/automations/blog/ghostBlogData.jsx`                        | Blog data component                                  | 2       | 4        | \_\_    |
-| S8  | `snippets/automations/youtube/youtubeData.jsx`                       | YouTube data component                               | 2       | 4        | \_\_    |
-| S9  | `snippets/automations/showcase/showcaseData.jsx`                     | Showcase data component (searchable, sortable)       | 4       | 8        | \_\_    |
+| S5  | `snippets/assets/data/n8n/` — n8n workflow assets                    | Parallel n8n pipeline assets (JSON workflow configs) | 6       | 12       | \_\_    |
+| S6  | `snippets/data/social-feeds/forumData.jsx`                           | Forum data component                                 | 2       | 4        | \_\_    |
+| S7  | `snippets/data/social-feeds/ghostBlogData.jsx`                        | Blog data component                                  | 2       | 4        | \_\_    |
+| S8  | `snippets/data/social-feeds/youtubeData.jsx`                       | YouTube data component                               | 2       | 4        | \_\_    |
+| S9  | `snippets/data/showcase-feed/showcaseData.jsx`                     | Showcase data component (searchable, sortable)       | 4       | 8        | \_\_    |
 | S10 | `snippets/automations/globals/globals.mdx`                           | Global variables and release state                   | 2       | 4        | \_\_    |
 | S11 | `scripts/archive/placeholders/embed-table.js`, `scripts/archive/placeholders/gen-table.js`, `scripts/archive/placeholders/gen-textareas.js` | Archived CI placeholder scripts (no active workflow wiring) | 1       | 2        | \_\_    |
 |     |                                                                      | **AUTOMATION SCRIPTS SUBTOTAL**                      | **36**  | **68**   | \_\_    |
@@ -770,7 +770,7 @@ This section covers all software engineering, automation, and tooling work — t
 | M12 | `operations/scripts/snippets/fetch-openapi-specs.sh`                                                                           | OpenAPI spec fetcher                                         | 2       | 4        | \_\_    |
 | M13 | `operations/scripts/snippets/generate-api-docs.sh`                                                                             | API documentation generator                                  | 3       | 5        | \_\_    |
 | M14 | `operations/scripts/snippets/fetch-lpt-exchanges.sh`                                                                           | LPT exchange data fetcher                                    | 2       | 4        | \_\_    |
-| M15 | `operations/scripts/snippets/fetch-external-docs.sh`                                                                           | External docs fetcher                                        | 2       | 4        | \_\_    |
+| M15 | `operations/scripts/automations/content/data/fetching/fetch-external-docs.sh`                                                                           | External docs fetcher                                        | 2       | 4        | \_\_    |
 | M16 | `operations/scripts/snippets/test-scripts.sh`                                                                                  | Script test runner                                           | 1       | 2        | \_\_    |
 | M17 | OG image tooling (`dev/update-og-image.js`, `batch-update-og-image.sh`, `replace-og-image.py`, `update-all-og-images.js`) | Open Graph image management tooling                          | 4       | 8        | \_\_    |
 | M18 | `operations/scripts/test-v2-pages.js`, `test-all-pages-browser.js`, `test-all-pages-comprehensive.js`                          | Page testing scripts                                         | 4       | 7        | \_\_    |
@@ -969,9 +969,9 @@ The following table applies standard market rates for the type of work delivered
 | Forum data ingestion pipeline         | Automation          | Automated scheduled fetch and normalisation of Livepeer forum data                            | `.github/scripts/fetch-forum-data.js`; `update-forum-data.yml`                               | Medium                      |
 | Ghost blog data ingestion pipeline    | Automation          | Automated scheduled fetch of Livepeer blog content                                            | `.github/scripts/fetch-ghost-blog-data.js`; `update-ghost-blog-data.yml`                     | Medium                      |
 | YouTube data ingestion pipeline       | Automation          | Automated scheduled fetch of YouTube data (Shorts filtered)                                   | `.github/scripts/fetch-youtube-data.js`; `update-youtube-data.yml`                           | Medium                      |
-| Project Showcase pipeline             | Automation          | Searchable, sortable ecosystem project showcase with sync automation; extensible architecture | `.github/scripts/project-showcase-sync.js`; `snippets/automations/showcase/showcaseData.jsx` | Medium                      |
+| Project Showcase pipeline             | Automation          | Searchable, sortable ecosystem project showcase with sync automation; extensible architecture | `.github/scripts/project-showcase-sync.js`; `snippets/data/showcase-feed/showcaseData.jsx` | Medium                      |
 | Release version tracking              | Automation          | Automated release version and global state updates                                            | `update-livepeer-release.yml`; `snippets/automations/globals/globals.mdx`                    | Small                       |
-| n8n workflow assets                   | Automation          | Parallel n8n pipeline assets providing platform-independent automation                        | `snippets/automations/scripts/n8n/`                                                          | Medium                      |
+| n8n workflow assets                   | Automation          | Parallel n8n pipeline assets providing platform-independent automation                        | `snippets/assets/data/n8n/`                                                                  | Medium                      |
 | Governance and intake automation      | Automation          | Discord issue intake, auto-labelling, review asset generation, reviewer assignment            | `discord-issue-intake.yml`; `issue-auto-label.yml`; review workflows                         | Medium                      |
 | SEO/AEO generator                     | Maintenance scripts | Runnable script generating SEO metadata and AEO structure across all pages                    | `operations/scripts/snippets/generate-seo.js`                                                     | Small–medium                |
 | Glossary generation tooling           | Maintenance scripts | Automated terminology extraction, classification, and JSON data generation                    | `generate-glossary.js`; `terminology-search.js`; `glossary-terms.json`                       | Medium                      |

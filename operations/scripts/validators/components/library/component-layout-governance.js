@@ -8,7 +8,7 @@
  * @description Component layout governance validator — checks v2 page layouts against approved component contracts
  * @mode        read-only
  * @pipeline    manual
- * @scope       operations/scripts, v2, tools/config/component-layout-profile.json
+ * @scope       operations/scripts, v2, tools/config/quality/component-layout-profile.json
  * @usage       node operations/scripts/validators/components/library/component-layout-governance.js [flags]
  * @policy      E-C1, R-R14
  */
@@ -20,7 +20,7 @@ const { execSync } = require('child_process');
 const STAGE_ID = 'component-layout-governance';
 const REPO_ROOT = process.cwd();
 const DEFAULT_OUTPUT_DIR = 'workspace/reports/repo-ops';
-const DEFAULT_PROFILE_PATH = 'tools/config/component-layout-profile.json';
+const DEFAULT_PROFILE_PATH = 'tools/config/quality/component-layout-profile.json';
 
 function toPosix(value) {
   return String(value || '').split(path.sep).join('/');

@@ -30,7 +30,7 @@ Trace actual runtime use, owner, and downstream dependencies before deciding whe
 - operations/scripts/generators/content/catalogs/generate-docs-index.js
 - operations/tests/unit/docs-navigation.test.js
 - secret:OPENROUTER_API_KEY
-- tools/i18n/config.json
+- operations/scripts/automations/content/language-translation/config.json
 - v2/cn
 - v2/es
 - v2/fr

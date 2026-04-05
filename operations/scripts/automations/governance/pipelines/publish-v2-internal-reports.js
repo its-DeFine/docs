@@ -16,7 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const manifest = require('../../../../../tools/config/v2-internal-report-pages');
+const manifest = require('../../../../../tools/config/runtime/v2-internal-report-pages');
 
 const REPO_ROOT = process.cwd();
 const DOCS_JSON_PATH = path.join(REPO_ROOT, 'docs.json');

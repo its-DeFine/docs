@@ -75,7 +75,7 @@ function getFrontmatterValues(page) {
 }
 
 function configPath(relativePath) {
-  return path.join(__dirname, '../../config', relativePath);
+  return path.join(__dirname, '../../config/quality', relativePath);
 }
 
 function loadRubric(filePath = configPath('usefulness-rubric.json')) {

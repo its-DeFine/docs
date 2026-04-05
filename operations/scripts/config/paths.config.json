@@ -1,8 +1,8 @@
 {
-  "_comment": "Central path configuration for operations/scripts/snippets. Used as fallback when git repo root detection fails.",
+  "_comment": "Central path configuration for operations scripts. Used as fallback when git repo root detection fails.",
   "paths": {
     "snippets": "snippets",
-    "snippetsExternal": "snippets/external",
+    "externalDocsOutput": "snippets/composables/pages/shared",
     "snippetsGenerated": "snippets/generated",
     "snippetsComponents": "snippets/components",
     "snippetsWikiComponentLibrary": "snippets/snippetsWiki/componentLibrary/index.mdx",

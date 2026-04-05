@@ -1,10 +1,14 @@
 #!/bin/bash
 # @script      fetch-external-docs
+# @category    automation
 # @type        automation
 # @concern     content
 # @niche       data
 # @purpose     infrastructure:data-feeds
-# @description External docs fetcher — pulls doc fragments from external GitHub repos into snippets/data/ for inclusion in builds
+# @domain      docs
+# @description External docs fetcher — pulls doc fragments from external GitHub repos into snippets/composables/pages/shared/ for inclusion in builds
+# @needs       F-R1
+# @purpose-statement Fetches upstream markdown from external Livepeer repositories, sanitizes it for MDX, and writes shared page composables under snippets/composables/pages/shared/.
 # @mode        execute
 # @pipeline    manual
 # @scope       operations/scripts/automations/content/data/fetching
@@ -17,7 +21,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CONFIG_FILE="$SCRIPT_DIR/paths.config.json"
+CONFIG_FILE="$(cd "$SCRIPT_DIR/../../../../config" && pwd)/paths.config.json"
 
 # Try to detect repo root via git, fallback to config file
 if git rev-parse --show-toplevel &>/dev/null; then
@@ -33,9 +37,9 @@ fi
 
 # Read path from config or use default
 if [ -f "$CONFIG_FILE" ] && command -v node &>/dev/null; then
-  EXTERNAL_DIR="$REPO_ROOT/$(node -pe "require('$CONFIG_FILE').paths.snippetsExternal")"
+  EXTERNAL_DIR="$REPO_ROOT/$(node -pe "const p=require('$CONFIG_FILE').paths; p.externalDocsOutput || 'snippets/composables/pages/shared'")"
 else
-  EXTERNAL_DIR="$REPO_ROOT/snippets/external"
+  EXTERNAL_DIR="$REPO_ROOT/snippets/composables/pages/shared"
 fi
 
 # Create external docs directory if it doesn't exist

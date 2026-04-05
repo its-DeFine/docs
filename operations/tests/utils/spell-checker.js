@@ -36,7 +36,7 @@ function resolveCspellConfig(configPath = null) {
   const candidates = [
     path.join(process.cwd(), 'cspell.json'),
     path.join(repoRoot, 'cspell.json'),
-    path.join(repoRoot, 'tools', 'config', 'cspell.json')
+    path.join(repoRoot, 'tools', 'config', 'quality', 'cspell.json')
   ];
 
   for (const candidate of candidates) {
@@ -45,7 +45,7 @@ function resolveCspellConfig(configPath = null) {
     }
   }
 
-  return path.join(repoRoot, 'tools', 'config', 'cspell.json');
+  return path.join(repoRoot, 'tools', 'config', 'quality', 'cspell.json');
 }
 
 function resolveCspellBinary() {

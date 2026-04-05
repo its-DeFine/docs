@@ -28,6 +28,7 @@ Keep this as a standalone workflow because its trigger contract and ownership bo
 - operations/scripts/validators/components/library/check-component-css.js
 - operations/scripts/validators/components/library/check-mdx-component-scope.js
 - operations/scripts/validators/components/library/check-naming-conventions.js
+- operations/scripts/validators/governance/compliance/check-mintlify-canonical-sync.js
 - operations/scripts/validators/governance/pr/check-component-immutability.js
 - secret:GITHUB_TOKEN
 

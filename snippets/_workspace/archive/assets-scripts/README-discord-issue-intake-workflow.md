@@ -1,7 +1,7 @@
 # Discord Issue Intake Workflow (n8n, Phase 1)
 
 Workflow file:
-- `/Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/snippets/automations/scripts/n8n/Discord-Issue-Intake.json`
+- `/Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/snippets/assets/data/n8n/Discord-Issue-Intake.json`
 
 GitHub Action target:
 - `/Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/.github/workflows/discord-issue-intake.yml`

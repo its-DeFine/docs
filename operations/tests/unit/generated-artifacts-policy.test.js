@@ -3,7 +3,7 @@
  * @script            generated-artifacts-policy.test
  * @category          validator
  * @purpose           qa:repo-health
- * @scope             tests/unit, tools/lib/generated-artifacts.js, tools/config/generated-artifacts.json
+ * @scope             tests/unit, tools/lib/generated-artifacts.js, tools/config/runtime/generated-artifacts.json
  * @domain            docs
  * @needs             R-R16, R-R17
  * @purpose-statement Tests generated artifact governance manifest — validates enums, path matching, and hook-policy expectations

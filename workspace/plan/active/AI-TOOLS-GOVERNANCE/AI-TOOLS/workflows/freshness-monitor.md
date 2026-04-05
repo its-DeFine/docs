@@ -21,13 +21,13 @@ Consolidate this workflow under `dispatcher:review-fix` and keep the script or v
 ## Dependencies
 
 - action:actions/checkout@v4
-- snippets/automations/blog/ghostBlogData.jsx
-- snippets/automations/discord/discordAnnouncementsData.jsx
-- snippets/automations/forum/forumData.jsx
 - snippets/automations/globals/globals.mdx
-- snippets/automations/luma/lumaEventsData.jsx
-- snippets/automations/showcase/showcaseData.jsx
-- snippets/automations/youtube/youtubeData.jsx
+- snippets/data/showcase-feed/showcaseData.jsx
+- snippets/data/social-feeds/discordAnnouncementsData.jsx
+- snippets/data/social-feeds/forumData.jsx
+- snippets/data/social-feeds/ghostBlogData.jsx
+- snippets/data/social-feeds/lumaEventsData.jsx
+- snippets/data/social-feeds/youtubeData.jsx
 
 ## Dependants
 

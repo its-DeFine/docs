@@ -25,8 +25,8 @@ const {
 const REPO_ROOT = process.cwd();
 
 const DEFAULTS = {
-  blueprintPagesPath: 'tools/config/blueprint-pages.json',
-  blueprintMappingPath: 'tools/config/blueprint-mapping.json',
+  blueprintPagesPath: 'tools/config/runtime/blueprint-pages.json',
+  blueprintMappingPath: 'tools/config/runtime/blueprint-mapping.json',
   v2Root: 'v2',
   outDir: 'workspace/reports/content-gap'
 };

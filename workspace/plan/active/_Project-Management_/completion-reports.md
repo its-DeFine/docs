@@ -3838,6 +3838,86 @@ The contracts surface migration was completed in an isolated `docs-v2` worktree 
 
 ---
 
+## Snippets Assets `/site` Migration Verification — 2026-04-05
+
+**Plans**: none
+**Scope**: Execute the full verification runbook for the `snippets/assets/site` dissolution using a disposable clone, scoped preview, targeted validators, route probes, browser checks, and teardown.
+**Outcome**: Not met
+
+### Summary
+
+The `/site` migration was verified end to end against the repo rather than the conversation, including a disposable validation clone, explicit changed-page manifests, targeted validator runs, scoped `lpd dev --scoped` preview, raw asset probes, browser assertions, and cleanup verification. The migration is not complete: the path/probe layer is green, but targeted validators and scoped browser/runtime validation still fail due to repo/runtime blockers including `docs.json` Resource HUB redirect contract drift, invalid frontmatter in `v2/about/livepeer-protocol/blockchain-contracts.mdx`, and scoped render/runtime issues that emit `React error #418`, `https://undefined.mintlify.app//...` OG URLs, and non-empty request-failure surfaces on the required representative routes.
+
+### Completed
+
+**Verification execution**
+- Ran the full six-gate verification sequence in a disposable clone at `/tmp/docs-v2-verify.teuffE/repo` so scoped Mint state could mutate safely without touching the main worktree.
+- Built explicit manifests for the changed page set and exercised the required static path sweeps, asset existence checks, targeted validator suite, scoped runtime probes, headless browser checks, and teardown validation.
+- Confirmed the active migration contracts at the probe layer: moved favicon, OG image, and site image assets resolve; representative routes respond with `200`; root `sitemap-ai.xml` remains canonical; and no residual agent-owned `3145` session was left behind after cleanup.
+
+**Failure isolation**
+- Isolated validator blockers in `docs.json`, `v2/about/livepeer-protocol/blockchain-contracts.mdx`, `docs-guide/**`, and `v2/resources/documentation-guide/**` as the main reasons the targeted changed-file suite is not green.
+- Captured scoped browser/runtime evidence showing all four required routes render with `200` but still fail the acceptance gate because they emit `React error #418`, `undefined.mintlify.app` OG URLs, and request-failure traffic during render.
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Treat the `/site` migration as not complete | The agreed pass criteria required validator and browser/runtime success, not just successful file moves and `200` route probes |
+| Record browser/runtime failures as blockers, not noise | The scoped runbook explicitly fails on page errors, bad OG contract values, and request-failure surfaces |
+| Log newly exposed blockers into backlog and watcher state | The next session needs a clean handoff anchored to concrete repo files and observed runtime evidence, not conversational memory |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Repair Resource HUB redirect contract in `docs.json` | P0 | `docs-navigation.test.js` fails and blocks a green verification outcome | Navigation decision and fix in `docs.json` |
+| Fix invalid frontmatter in `v2/about/livepeer-protocol/blockchain-contracts.mdx` | P0 | `mdx.test.js` and `quality.test.js` fail on this file | Frontmatter/YAML repair |
+| Diagnose scoped Mint OG/runtime failure (`undefined.mintlify.app`, React 418, request aborts) | P0 | Browser/runtime gate fails on all representative routes | Scoped runtime investigation across Mint config/render surfaces |
+| Triage existing docs-guide style/link/import debt surfaced by the changed-page suite | P1 | Targeted verification remains red outside the direct asset path changes | Separate remediation thread or explicit acceptance decision |
+
+### Dependencies & Downstream Effects
+
+- **[docs.json](/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/docs.json)**: Resource HUB redirect drift currently blocks a clean verification outcome even though the asset moves themselves probe correctly.
+- **[blockchain-contracts.mdx](/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/v2/about/livepeer-protocol/blockchain-contracts.mdx)**: Invalid frontmatter causes targeted MDX/quality validation to fail for the changed-page verification set.
+- **Scoped Mint runtime**: Representative routes under Home, Resources, Orchestrators, and Solutions all return `200` yet still fail the browser gate because the runtime emits React/page errors and malformed OG URLs.
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| Static old-path sweep | ⚠️ Partial | Active consumers are effectively clean; remaining hits are a policy note, a `.bak` file, and historical report surfaces |
+| Asset existence and ownership checks | ✅ Clean | Moved favicon, OG image, site image assets, and root `sitemap-ai.xml` all exist; `snippets/assets/site` is gone |
+| `node operations/tests/unit/mdx.test.js --files <changed set>` | ❌ Failed | Invalid frontmatter YAML in `v2/about/livepeer-protocol/blockchain-contracts.mdx` |
+| `node operations/tests/unit/style-guide.test.js --files <changed set>` | ❌ Failed | Existing docs-guide and protocol-page style debt |
+| `node operations/tests/unit/quality.test.js --files <changed set>` | ❌ Failed | Same `blockchain-contracts.mdx` frontmatter failure plus existing warnings |
+| `node operations/tests/unit/links.test.js --files <changed set>` | ❌ Failed | Existing broken links in docs-guide surfaces |
+| `node operations/tests/unit/imports.test.js --files <changed set>` | ❌ Failed | Existing unresolved example imports in `v2/resources/documentation-guide/copy-style/style-guide.mdx` |
+| `node operations/tests/unit/docs-navigation.test.js` | ❌ Failed | Resource HUB redirect contract broken in `docs.json` |
+| `node operations/scripts/validators/content/structure/lint-structure.js --check` | ✅ Clean | No files to check |
+| `node operations/tests/unit/og-image-policy.test.js` | ✅ Clean | Passed |
+| `node operations/tests/unit/lpd-scoped-mint-dev.test.js` | ✅ Clean | Passed |
+| Scoped `lpd dev --scoped` on `3145` | ✅ Clean | Preview reached `preview ready` |
+| Raw route and asset HTTP probes | ✅ Clean | Four representative routes and moved assets all returned `200` |
+| Headless browser assertions on representative routes | ❌ Failed | `React error #418`, malformed `https://undefined.mintlify.app//...` OG URLs, and non-empty request-failure lists |
+| Cleanup / residual-session verification | ✅ Clean | No remaining listener on `3145`; cleanup reports empty |
+
+### Recommendations
+
+1. **Fix the P0 blockers before any further `/domain` work** — `docs.json`, `blockchain-contracts.mdx`, and the scoped Mint OG/runtime failure are the shortest path to a truthful green closeout on the `/site` migration.
+2. **Re-run the exact same six-gate verification sequence after those fixes** — the runbook and disposable-clone path are now proven, so the next session should reuse them rather than invent another validation workflow.
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `workspace/plan/active/_Project-Management_/completion-reports.md` | modified | Session closeout entry for the `/site` migration verification run |
+| `workspace/thread-outputs/sessions/session-log.txt` | modified | Session outcome log entry |
+| `workspace/plan/active/_Project-Management_/project-state.md` | modified | Watcher flag updated with the current verification blockers |
+| `workspace/plan/future/BACKLOG/registry.md` | modified | Follow-up backlog items for the concrete verification blockers |
+
+---
+
 ## Contracts Local Render Recovery and Data Surface Audit — 2026-04-03
 
 **Plans**: `workspace/plan/active/CONTRACTS/Canonical/livepeer-contracts-pipeline.mdx`

@@ -2,7 +2,7 @@
  * @script            generated-artifacts
  * @category          utility
  * @purpose           governance:index-management
- * @scope             tools/lib, tools/config, .githooks, tests/unit
+ * @scope             tools/lib, tools/config/runtime, .githooks, tests/unit
  * @domain            docs
  * @needs             R-R16, R-R17
  * @purpose-statement Generated artifact governance helpers — load the manifest, validate enums, and match staged files to managed artifacts
@@ -14,7 +14,7 @@ const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
-const MANIFEST_PATH = 'tools/config/generated-artifacts.json';
+const MANIFEST_PATH = 'tools/config/runtime/generated-artifacts.json';
 const VALID_CLASS = new Set(['committed_authoritative', 'committed_derived_scoped', 'ephemeral_local']);
 const VALID_COMMIT_POLICY = new Set(['required', 'manual', 'forbidden']);
 const VALID_HOOK_POLICY = new Set(['check_only', 'write_and_stage', 'ignore']);

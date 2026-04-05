@@ -237,7 +237,7 @@
         "rssUrl": "https://blog.livepeer.org/rss/",
         "apiKeyRequired": false,
         "fetchMethod": "rss",
-        "_note": "Uses public RSS feed — no API key required. Script: fetch-ghost-blog-data.js. Output: snippets/automations/blog/ghostBlogData.jsx."
+        "_note": "Uses public RSS feed — no API key required. Script: fetch-ghost-blog-data.js. Output: snippets/data/social-feeds/ghostBlogData.jsx."
       },
       "forum": {
         "url": "https://forum.livepeer.org",
@@ -583,7 +583,7 @@
         "displayName": "Livepeer Community",
         "serverId": "1066890817425387581",
         "announcementsChannelId": "1463391944746078319",
-        "outputPath": "snippets/automations/discord/discordAnnouncementsData.jsx",
+        "outputPath": "snippets/data/social-feeds/discordAnnouncementsData.jsx",
         "exportName": "discordAnnouncementsData"
       }
     ]

@@ -23,7 +23,7 @@ Consolidate this workflow under `dispatcher:review-fix` and keep the script or v
 - action:actions/checkout@v4
 - action:actions/setup-node@v4
 - action:actions/upload-artifact@v4
-- operations/tests/integration/v2-link-audit.js
+- operations/scripts/audits/content/health/page-links-audit.js
 
 ## Dependants
 

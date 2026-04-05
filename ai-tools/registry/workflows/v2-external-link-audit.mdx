@@ -13,7 +13,7 @@ cleanup_decision: 'consolidate'
 usage_status: 'active-advisory'
 process_fit: 'core-shipping'
 consolidation_target: 'dispatcher:review-fix'
-last_verified: '2026-03-31'
+last_verified: '2026-04-05'
 ---
 
 {/*
@@ -56,7 +56,7 @@ Govern the `.github/workflows/v2-external-link-audit.yml` workflow as a human-re
 
 - `Checkout repository` | uses actions/checkout@v4
 - `Set up Node.js` | uses actions/setup-node@v4
-- `Run V2 external link audit (advisory)` | runs `node operations/tests/integration/v2-link-audit.js \`
+- `Run V2 external link audit (advisory)` | runs `node operations/scripts/audits/content/health/page-links-audit.js \`
 - `Upload external link audit reports` | uses actions/upload-artifact@v4
 - `Publish summary` | runs `echo "## V2 External Link Audit (Advisory)" >> "$GITHUB_STEP_SUMMARY"`
 
@@ -83,7 +83,7 @@ Govern the `.github/workflows/v2-external-link-audit.yml` workflow as a human-re
 - action:actions/checkout@v4
 - action:actions/setup-node@v4
 - action:actions/upload-artifact@v4
-- operations/tests/integration/v2-link-audit.js
+- operations/scripts/audits/content/health/page-links-audit.js
 
 ## Dependants
 

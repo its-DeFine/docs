@@ -166,3 +166,18 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 **Source:** Contracts Surface Migration to docs-v2 — 2026-04-03
 **Description:** The docs-v2 contracts migration relies on `ContractVerifier`, `HistoricalContractTable`, and `ZoomableDiagram`, but the regenerated component registry still does not surface them. Audit component-library extraction and registry generation so contracts UI dependencies are governed explicitly.
 **Priority:** P1
+
+## BL-032 — Repair Resource HUB redirect contract in docs.json
+**Source:** Snippets Assets `/site` Migration Verification — 2026-04-05
+**Description:** `node operations/tests/unit/docs-navigation.test.js` fails because the Resource HUB tab first routable page and redirect contract are out of sync. Fix `docs.json` so `/v2/resources/redirect` exists and maps to the expected destination.
+**Priority:** P0
+
+## BL-033 — Fix invalid frontmatter in blockchain-contracts.mdx
+**Source:** Snippets Assets `/site` Migration Verification — 2026-04-05
+**Description:** `node operations/tests/unit/mdx.test.js` and `quality.test.js` fail on `v2/about/livepeer-protocol/blockchain-contracts.mdx` because the file contains invalid frontmatter YAML. Repair the frontmatter so changed-page validation can go green.
+**Priority:** P0
+
+## BL-034 — Diagnose scoped Mint OG/runtime failures on representative routes
+**Source:** Snippets Assets `/site` Migration Verification — 2026-04-05
+**Description:** Scoped browser validation on `3145` returns `200` for representative routes but still fails due to `React error #418`, malformed `https://undefined.mintlify.app//...` OG URLs, and non-empty request-abort surfaces. Isolate whether the root cause is Mint config/base URL state, render hydration, analytics/embed behavior, or scoped projection.
+**Priority:** P0

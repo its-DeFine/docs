@@ -13,7 +13,7 @@ cleanup_decision: 'keep'
 usage_status: 'active-advisory'
 process_fit: 'core-shipping'
 consolidation_target: 'dispatcher:review-fix'
-last_verified: '2026-03-31'
+last_verified: '2026-04-05'
 ---
 
 {/*
@@ -51,7 +51,7 @@ Govern the `.github/workflows/test-suite.yml` workflow as a human-readable, visu
 
 | Job ID | Name | Runs On | Needs | Step Count |
 | --- | --- | --- | --- | --- |
-| `test-suite` | content-quality-suite | `ubuntu-latest` | none | 14 |
+| `test-suite` | content-quality-suite | `ubuntu-latest` | none | 15 |
 | `component-enforcement` | component-governance | `ubuntu-latest` | none | 10 |
 
 ### content-quality-suite
@@ -62,6 +62,7 @@ Govern the `.github/workflows/test-suite.yml` workflow as a human-readable, visu
 - `Install dependencies (tools)` | runs `npm install`
 - `Run PR Changed-File Checks` | runs `npm --prefix tests run test:pr`
 - `Run Docs-Guide SoT Check (Advisory)` | runs `npm --prefix tests run test:docs-guide`
+- `Run Mintlify Canonical Sync Check` | runs `node operations/scripts/validators/governance/compliance/check-mintlify-canonical-sync.js --json`
 - `Install Mintlify globally` | runs `npm install -g mintlify`
 - `Fetch external snippets` | runs `bash operations/scripts/automations/content/data/fetching/fetch-external-docs.sh`
 - `Start Mintlify dev server` | runs `npx mintlify dev > /tmp/mint-dev.log 2>&1 &`
@@ -112,6 +113,7 @@ Govern the `.github/workflows/test-suite.yml` workflow as a human-readable, visu
 - operations/scripts/validators/components/library/check-component-css.js
 - operations/scripts/validators/components/library/check-mdx-component-scope.js
 - operations/scripts/validators/components/library/check-naming-conventions.js
+- operations/scripts/validators/governance/compliance/check-mintlify-canonical-sync.js
 - operations/scripts/validators/governance/pr/check-component-immutability.js
 - secret:GITHUB_TOKEN
 

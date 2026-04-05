@@ -22,7 +22,7 @@ Merge this workflow with its sibling family into `future:ai-runtime-artifacts-wo
 
 - action:actions/checkout@v4
 - action:actions/setup-node@v4
-- operations/scripts/generate-ai-sitemap.js
+- operations/scripts/generators/content/seo/generate-ai-sitemap.js
 - secret:GITHUB_TOKEN
 
 ## Dependants

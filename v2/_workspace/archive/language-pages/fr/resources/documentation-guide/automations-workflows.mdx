@@ -295,7 +295,7 @@ L'implémentation GitHub Actions utilise des workflows dédiés, divisés par so
 
 **Ce qu'il fait :**
 1. Exécute `.github/scripts/fetch-forum-data.js`
-2. Mises à jour `snippets/automations/forum/forumData.jsx`
+2. Mises à jour `snippets/data/social-feeds/forumData.jsx`
 3. Validation et envoi si des modifications sont détectées
 
 **Secrets requis :**
@@ -320,7 +320,7 @@ L'implémentation GitHub Actions utilise des workflows dédiés, divisés par so
 
 **Ce que cela fait :**
 1. Exécute `.github/scripts/fetch-ghost-blog-data.js`
-2. Met à jour `snippets/automations/blog/ghostBlogData.jsx`
+2. Met à jour `snippets/data/social-feeds/ghostBlogData.jsx`
 3. Valide et pousse si des modifications sont détectées
 
 **Secrets requis :**
@@ -345,7 +345,7 @@ L'implémentation GitHub Actions utilise des workflows dédiés, divisés par so
 **Ce qu'il fait :**
 1. Exécute`.github/scripts/fetch-youtube-data.js`
 2. Filtre les Shorts (≤60 secondes)
-3. Met à jour`snippets/automations/youtube/youtubeData.jsx`
+3. Met à jour`snippets/data/social-feeds/youtubeData.jsx`
 4. Valide et pousse si des modifications sont détectées
 
 **Secrets requis :**
@@ -381,7 +381,7 @@ Most n8n workflows are currently **inactive** (`"active": false`). Only active w
 3. Génère un fichier de données JSX
 4. Valide sur GitHub sur`docs-v2` branche
 
-**Sortie :** `snippets/automations/luma/lumaEventsData.jsx`
+**Sortie :** `snippets/data/social-feeds/lumaEventsData.jsx`
 
 **Comment l'utiliser :**
 1. Importer le fichier JSON dans une instance n8n
@@ -410,10 +410,10 @@ Most n8n workflows are currently **inactive** (`"active": false`). Only active w
 2. Valide les données de la soumission
 3. Envoie des notifications Discord pour l'approbation
 4. Télécharge les fichiers multimédias depuis Google Drive
-5. Met à jour `snippets/automations/showcase/showcaseData.jsx`lorsqu'apprové
+5. Met à jour `snippets/data/showcase-feed/showcaseData.jsx`lorsqu'apprové
 6. Envoie des notifications aux soumissionnaires
 
-**Sortie :** `snippets/automations/showcase/showcaseData.jsx`
+**Sortie :** `snippets/data/showcase-feed/showcaseData.jsx`
 
 **Comment l'utiliser :**
 1. Importer le fichier JSON dans une instance n8n
@@ -649,21 +649,21 @@ output-dir/
 
 #### Récupérer la documentation externe
 
-**Fichier :** `tools/scripts/snippets/fetch-external-docs.sh`
+**Fichier :** `operations/scripts/automations/content/data/fetching/fetch-external-docs.sh`
 
 **Objectif :**Récupère les fichiers de documentation externe depuis d'autres dépôts Livepeer et les nettoie pour les rendre compatibles avec MDX
 
 **Utilisation :**
 ```bash
-./tools/scripts/snippets/fetch-external-docs.sh
+./operations/scripts/automations/content/data/fetching/fetch-external-docs.sh
 ```
 
 **Ce qu'il fait :**
 1. Télécharge la documentation depuis des dépôts externes
 2. Nettoie le contenu pour la compatibilité MDX
-3. Sauvegarde dans`snippets/external/`
+3. Sauvegarde dans`snippets/composables/pages/shared/`
 
-**Télécharge dans`snippets/external/`:**
+**Télécharge dans`snippets/composables/pages/shared/`:**
 - `wiki-readme.mdx` - livepeer/wiki README
 - `awesome-livepeer-readme.mdx` - livepeer/awesome-livepeer README
 - `whitepaper.mdx` - Livepeer Whitepaper

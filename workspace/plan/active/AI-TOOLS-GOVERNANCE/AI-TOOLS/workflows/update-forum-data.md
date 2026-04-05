@@ -33,7 +33,7 @@ Keep this as a thin compatibility wrapper until the legacy entrypoint can be ret
 
 ## Cleanup Rationale
 
-- Generated forum data is retained under snippets/automations/forum/forumData.jsx.
+- Generated forum data is retained under snippets/data/social-feeds/forumData.jsx.
 - GitHub Actions is the canonical owner for this retained data path.
 - This belongs to a repeating data-refresh pattern and should not stay as an uncoordinated top-level workflow forever.
 - This wrapper should not regain unique logic.

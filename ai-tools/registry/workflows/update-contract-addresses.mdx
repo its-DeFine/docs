@@ -10,10 +10,10 @@ consolidation_flag: 'review for alignment with `page-ship` while preserving curr
 dispatcher_candidate: 'page-ship'
 workflow_family: 'content-publication'
 cleanup_decision: 'keep'
-usage_status: 'active-mutating'
+usage_status: 'active-advisory'
 process_fit: 'core-shipping'
 consolidation_target: 'dispatcher:page-ship'
-last_verified: '2026-03-31'
+last_verified: '2026-04-05'
 ---
 
 {/*
@@ -43,7 +43,7 @@ Govern the `.github/workflows/update-contract-addresses.yml` workflow as a human
 
 ## Triggers
 
-- repository_dispatch: types=governor-scripts-update, protocol-update, bridge-update
+- repository_dispatch: types=governor-scripts-update, protocol-update, bridge-update, go-livepeer-update
 - schedule: default event configuration
 - workflow_dispatch: configured in workflow file
 
@@ -51,29 +51,31 @@ Govern the `.github/workflows/update-contract-addresses.yml` workflow as a human
 
 | Job ID | Name | Runs On | Needs | Step Count |
 | --- | --- | --- | --- | --- |
-| `update-contracts` | update-contracts | `ubuntu-latest` | none | 7 |
+| `update-contracts` | update-contracts | `ubuntu-latest` | none | 10 |
 
 ### update-contracts
 
 - `Checkout docs repository` | uses actions/checkout@v4
 - `Set up Node.js` | uses actions/setup-node@v4
-- `Fetch and verify contract addresses` | runs `FLAGS=""`
+- `Install contracts pipeline dependencies` | runs `npm ci --prefix operations`
+- `Run contracts pipeline` | runs `set -euo pipefail`
+- `Check canonical contracts outputs` | runs `set -euo pipefail`
+- `Upload contracts pipeline artifacts` | uses actions/upload-artifact@v4
+- `Create or update contracts incident issue` | uses actions/github-script@v7
+- `Fail on blocking contracts incident` | runs `echo "Contracts pipeline failed. See uploaded artifacts and issue payload."`
 - `Check for changes` | runs `if git diff --quiet; then`
-- `Check for failures (enrichment warnings + health check)` | runs `ISSUES=""`
-- `Create issue on pipeline failure` | runs `BODY="## Contract Pipeline Failures — $(date +%Y-%m-%d)\n\n"`
 - `Commit and push` | runs `git config user.name "github-actions[bot]"`
 
 ## Inputs
 
 - workflow_dispatch:dry_run (optional)
-- workflow_dispatch:scan_fix (optional)
 - workflow_dispatch:skip_verify (optional)
 - workflow_dispatch:use_test_branch (optional)
 
 ## Second Pass Assessment
 
 - Workflow family: `content-publication`
-- Usage status: `active-mutating`
+- Usage status: `active-advisory`
 - Cleanup decision: `keep`
 - Process fit: `core-shipping`
 - Consolidation target: `dispatcher:page-ship`
@@ -82,18 +84,27 @@ Govern the `.github/workflows/update-contract-addresses.yml` workflow as a human
 ## Outputs
 
 - Generated or refreshed repository data
-- GitHub issue or PR metadata
 - Repository commits or branch updates
+- Uploaded artifacts
 
 ## Dependencies
 
 - .github/scripts/fetch-contract-addresses.js
 - action:actions/checkout@v4
+- action:actions/github-script@v7
 - action:actions/setup-node@v4
+- action:actions/upload-artifact@v4
 - secret:ARBISCAN_API_KEY
+- secret:ARBITRUM_RPC_FALLBACK_URL
+- secret:ARBITRUM_RPC_URL
+- secret:ETHEREUM_RPC_FALLBACK_URL
+- secret:ETHEREUM_RPC_URL
 - secret:ETHERSCAN_API_KEY
 - secret:GITHUB_TOKEN
+- snippets/data/contract-addresses/_branch-watch-state.json
 - snippets/data/contract-addresses/_health-checks.json
+- snippets/data/contract-addresses/blockchainContractsPageData.json
+- snippets/data/contract-addresses/blockchainContractsPageData.jsx
 - snippets/data/contract-addresses/contractAddressesData.json
 - snippets/data/contract-addresses/contractAddressesData.jsx
 
@@ -110,12 +121,13 @@ flowchart TD
   trigger --> workflow
   job1["Job: update-contracts"]
   workflow --> job1
-  outputs["Outputs: Generated or refreshed repository data, GitHub issue or PR metadata, Repository commits or branch updates"]
+  outputs["Outputs: Generated or refreshed repository data, Repository commits or branch updates, Uploaded artifacts"]
   job1 --> outputs
 ```
 
 ## Frailty And Risk
 
+- Contains advisory steps with `continue-on-error`, so failures may be softened rather than fully blocking.
 - Mutates repository state from CI, which raises coordination and safety risk.
 - Depends on secrets, so runtime behavior cannot be fully reasoned about from repo state alone.
 - Scheduled execution can hide drift until the next cron window.
@@ -127,7 +139,7 @@ Dispatcher suggestion: `page-ship`. Second-pass target: `dispatcher:page-ship`. 
 ## Cleanup Rationale
 
 - The current trigger contract looks distinct enough to justify keeping a dedicated workflow entrypoint.
-- This workflow writes back to the repository, so its blast radius is higher than a read-only validation workflow.
+- This workflow is advisory-shaped, which is useful for audits but can also hide unresolved failures.
 
 ## Handover Notes
 

@@ -34,10 +34,11 @@ Keep this as the canonical reusable workflow for the data-refresh family and col
 - secret:YOUTUBE_API_KEY
 - snippets/automations
 - snippets/automations/
-- snippets/automations/blog/ghostBlogData.jsx
-- snippets/automations/forum/forumData.jsx
 - snippets/automations/globals/globals.jsx
-- snippets/automations/youtube/youtubeData.jsx
+- snippets/data/social-feeds/discordAnnouncementsData.jsx
+- snippets/data/social-feeds/forumData.jsx
+- snippets/data/social-feeds/ghostBlogData.jsx
+- snippets/data/social-feeds/youtubeData.jsx
 
 ## Dependants
 
