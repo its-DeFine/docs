@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-04-05T07:13:25.204Z",
+  "generated": "2026-04-05T10:49:57.689Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -437,13 +437,35 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 172,
+      "wordCount": 142,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-overview",
+      "url": "https://docs.livepeer.org/v2/about/navigator",
+      "title": "Find Your Path",
+      "description": "Choose the right About reading path based on what you need to understand about Livepeer.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "navigator",
+        "reading-path",
+        "protocol",
+        "network",
+        "faq"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 226,
+      "lastVerified": "2026-04-05",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/concepts/livepeer-overview",
       "title": "Livepeer Overview",
       "description": "An overview of the Livepeer protocol and network.",
       "section": "about",
@@ -454,13 +476,14 @@
         "protocol-overview",
         "protocol",
         "overview",
+        "concepts",
         "livepeer-overview"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 1090,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "wordCount": 1092,
+      "lastVerified": "2026-04-05T10:42:13.138Z",
       "headings": [
         {
           "level": 2,
@@ -490,7 +513,55 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/core-concepts",
+      "url": "https://docs.livepeer.org/v2/about/concepts/mental-model",
+      "title": "The Livepeer Stack and Mental Model",
+      "description": "A high-level introduction to the key concepts workings of the Livepeer open, on-demand AI & Media infrastructure substrate and the distributed crypto-primitive coordination system.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "core-concepts",
+        "mental-model",
+        "introduction",
+        "key",
+        "architecture",
+        "concepts"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1432,
+      "lastVerified": "2026-04-04T12:26:07.169Z",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Livepeer Mental Model"
+        },
+        {
+          "level": 3,
+          "text": "Infra Layers"
+        },
+        {
+          "level": 2,
+          "text": "Livepeer as an OSI-Like Stack"
+        },
+        {
+          "level": 3,
+          "text": "Network & Protocol Stack"
+        },
+        {
+          "level": 3,
+          "text": "Platform and Application Stack"
+        },
+        {
+          "level": 2,
+          "text": "Middleware & Integrations"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/concepts/core-concepts",
       "title": "Livepeer Core Concepts",
       "description": "A high-level introduction to the key concepts and architecture of the Livepeer Real-time AI & Video Network",
       "section": "about",
@@ -501,13 +572,14 @@
         "livepeer-core-concepts",
         "introduction",
         "key",
-        "architecture"
+        "architecture",
+        "concepts"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 594,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-04T12:26:07.124Z",
       "headings": [
         {
           "level": 3,
@@ -549,54 +621,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/mental-model",
-      "title": "The Livepeer Stack and Mental Model",
-      "description": "A high-level introduction to the key concepts workings of the Livepeer open, on-demand AI & Media infrastructure substrate and the distributed crypto-primitive coordination system.",
-      "section": "about",
-      "tags": [
-        "livepeer",
-        "about",
-        "core-concepts",
-        "mental-model",
-        "introduction",
-        "key",
-        "architecture"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 1432,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 1,
-          "text": "Livepeer Mental Model"
-        },
-        {
-          "level": 3,
-          "text": "Infra Layers"
-        },
-        {
-          "level": 2,
-          "text": "Livepeer as an OSI-Like Stack"
-        },
-        {
-          "level": 3,
-          "text": "Network & Protocol Stack"
-        },
-        {
-          "level": 3,
-          "text": "Platform and Application Stack"
-        },
-        {
-          "level": 2,
-          "text": "Middleware & Integrations"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-protocol/overview",
+      "url": "https://docs.livepeer.org/v2/about/protocol/overview",
       "title": "Protocol Overview",
       "description": "This section outlines the design, contract architecture, staking & reward mechanisms, incentive alignment and governance model of the on-chain Livepeer Protocol that governs how work is coordinated, secured and rewarded and how upgrades are proposed and implemented.",
       "section": "about",
@@ -612,7 +637,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 895,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T10:42:13.140Z",
       "headings": [
         {
           "level": 1,
@@ -654,7 +679,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-protocol/core-mechanisms",
+      "url": "https://docs.livepeer.org/v2/about/protocol/core-mechanisms",
       "title": "Core Mechanisms and Functions",
       "description": "The Livepeer protocol secures a decentralised marketplace for verifiable media and AI compute through a tightly coupled set of economic and cryptographic systems. These mechanisms include LPT bonding, dynamic inflation, staking and delegation, slashing conditions, and rewards distribution - all executed through Ethereum-based smart contracts on Arbitrum. This page details each core mechanism, how it interacts with others, and why these design decisions underpin Livepeer’s scalable, permissionless infrastructure.",
       "section": "about",
@@ -669,7 +694,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1860,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-04T12:26:07.153Z",
       "headings": [
         {
           "level": 2,
@@ -711,7 +736,351 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-protocol/blockchain-contracts",
+      "url": "https://docs.livepeer.org/v2/about/protocol/livepeer-token",
+      "title": "Livepeer Token",
+      "description": "Livepeer Token (LPT) is the native proof-of-stake token of the Livepeer network. It is the key to participating in the protocol: to operate or delegate in the transcoding network, to earn rewards, and to vote on governance proposals. This page details the technical attributes, token supply dynamics, inflation model, and contract integrations that define LPT’s role.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "livepeer-network",
+        "livepeer-token-economics",
+        "token",
+        "learn",
+        "protocol",
+        "livepeer-token"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 994,
+      "lastVerified": "2026-04-04T12:26:07.146Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "LP Token"
+        },
+        {
+          "level": 3,
+          "text": "Token Purpose"
+        },
+        {
+          "level": 3,
+          "text": "Supply & Distribution"
+        },
+        {
+          "level": 3,
+          "text": "Dynamic Inflation Model"
+        },
+        {
+          "level": 3,
+          "text": "Rewards Distribution"
+        },
+        {
+          "level": 3,
+          "text": "Governance"
+        },
+        {
+          "level": 3,
+          "text": "Treasury"
+        },
+        {
+          "level": 2,
+          "text": "Technical Mechanics"
+        },
+        {
+          "level": 3,
+          "text": "Bonding & Unbonding"
+        },
+        {
+          "level": 3,
+          "text": "Slashing & Penalties"
+        },
+        {
+          "level": 3,
+          "text": "Additional Resources"
+        },
+        {
+          "level": 2,
+          "text": "Economic Flow Diagrams"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid",
+        "bash",
+        "text"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/protocol/economics",
+      "title": "Livepeer Protocol Economics",
+      "description": "Learn how LPT, staking, inflation, rewards, fees, and payment flows shape the Livepeer protocol economy.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "livepeer-protocol",
+        "livepeer-protocol-economics",
+        "protocol",
+        "economics"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 781,
+      "lastVerified": "2026-04-04T12:26:07.143Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Money Flow: LPT Token Economics"
+        },
+        {
+          "level": 3,
+          "text": "1. **Staking Flow (Delegators → Orchestrators)**"
+        },
+        {
+          "level": 3,
+          "text": "2. **Reward Flow (Minter → Orchestrators → Delegators)**"
+        },
+        {
+          "level": 3,
+          "text": "3. **Payment Flow (Broadcasters → Orchestrators)**"
+        },
+        {
+          "level": 3,
+          "text": "4. **Fee Flow (Broadcasters → Orchestrators → Delegators)**"
+        },
+        {
+          "level": 3,
+          "text": "5. **Withdrawal Flows**"
+        },
+        {
+          "level": 2,
+          "text": "Client Integration"
+        },
+        {
+          "level": 2,
+          "text": "Gas Optimisation Strategies"
+        },
+        {
+          "level": 3,
+          "text": "1. **Pool Hints**"
+        },
+        {
+          "level": 3,
+          "text": "2. **Batch Operations**"
+        },
+        {
+          "level": 3,
+          "text": "3. **Dynamic Gas Pricing**"
+        },
+        {
+          "level": 2,
+          "text": "Summary: Complete Money Flow"
+        },
+        {
+          "level": 2,
+          "text": "Notes"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/protocol/governance-model",
+      "title": "Livepeer Governance Model",
+      "description": "This page describes the on-chain governance model which provides a permissionless, transparent, and community-driven framework for upgrading and governing the Livepeer protocol. It touches on the key actors, processes and mechanisms that drive coordination and growth of the Livepeer ecosystem.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "livepeer-network",
+        "livepeer-governance",
+        "governance",
+        "learn",
+        "protocol",
+        "governance-model"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1070,
+      "lastVerified": "2026-04-05T10:42:13.141Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Governance"
+        },
+        {
+          "level": 3,
+          "text": "Governance Functions"
+        },
+        {
+          "level": 3,
+          "text": "Governance Process"
+        },
+        {
+          "level": 3,
+          "text": "Livepeer Improvement Proposals (LIPs)"
+        },
+        {
+          "level": 3,
+          "text": "On-Chain Contracts"
+        },
+        {
+          "level": 3,
+          "text": "Key Roles & Stakeholders"
+        },
+        {
+          "level": 3,
+          "text": "Visualising the Governance Process"
+        },
+        {
+          "level": 2,
+          "text": "Related Resources"
+        },
+        {
+          "level": 3,
+          "text": "On-chain governance"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/protocol/treasury",
+      "title": "Livepeer Treasury",
+      "description": "This page outlines how the treasury accumulates funds, how disbursements are authorised, and how its role is evolving across the protocol’s roadmap.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "livepeer-network",
+        "livepeer-treasury",
+        "treasury",
+        "learn",
+        "protocol"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 757,
+      "lastVerified": "2026-04-04T12:26:07.149Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Genesis"
+        },
+        {
+          "level": 2,
+          "text": "Objectives"
+        },
+        {
+          "level": 2,
+          "text": "Funding Sources"
+        },
+        {
+          "level": 2,
+          "text": "Fund Usage"
+        },
+        {
+          "level": 2,
+          "text": "Governance"
+        },
+        {
+          "level": 3,
+          "text": "Reporting & Transparency"
+        },
+        {
+          "level": 2,
+          "text": "Livepeer Foundation Role"
+        },
+        {
+          "level": 2,
+          "text": "Contract Architecture"
+        },
+        {
+          "level": 2,
+          "text": "Improvement Discussions"
+        },
+        {
+          "level": 2,
+          "text": "Further Resources"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid",
+        "javascript"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/protocol/technical-architecture",
+      "title": "Technical Overview",
+      "description": "A technical overview of the Livepeer protocol.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "livepeer-protocol",
+        "technical-overview",
+        "technical",
+        "overview",
+        "protocol",
+        "technical-architecture"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 115,
+      "lastVerified": "2026-04-05T10:42:13.141Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Protocol Architecture"
+        },
+        {
+          "level": 2,
+          "text": "System Overview"
+        },
+        {
+          "level": 2,
+          "text": "System Diagram"
+        },
+        {
+          "level": 2,
+          "text": "Actor & Incentive Model"
+        },
+        {
+          "level": 2,
+          "text": "Trust & Verification Model"
+        },
+        {
+          "level": 2,
+          "text": "Job Lifecycle"
+        },
+        {
+          "level": 2,
+          "text": "Governance & Treasury"
+        },
+        {
+          "level": 2,
+          "text": "Protocol References"
+        },
+        {
+          "level": 3,
+          "text": "A/B/C TEST LAYOUTS"
+        },
+        {
+          "level": 3,
+          "text": "Links"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/protocol/blockchain-contracts",
       "title": "Blockchain Contracts",
       "description": "Architecture overview of all Livepeer protocol smart contracts on Arbitrum One and Ethereum Mainnet. What each contract does, how contracts interact, and how upgrades work through governance.",
       "section": "about",
@@ -735,7 +1104,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3247,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T10:42:13.142Z",
       "headings": [
         {
           "level": 2,
@@ -839,350 +1208,38 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-protocol/livepeer-token",
-      "title": "Livepeer Token",
-      "description": "Livepeer Token (LPT) is the native proof-of-stake token of the Livepeer network. It is the key to participating in the protocol: to operate or delegate in the transcoding network, to earn rewards, and to vote on governance proposals. This page details the technical attributes, token supply dynamics, inflation model, and contract integrations that define LPT’s role.",
+      "url": "https://docs.livepeer.org/v2/about/protocol/design-philosophy",
+      "title": "Protocol Design Philosophy",
+      "description": "Why the Livepeer protocol uses staking, inflation, probabilistic payments, and a strict boundary between protocol and execution network.",
       "section": "about",
       "tags": [
         "livepeer",
-        "about",
-        "livepeer-network",
-        "livepeer-token-economics",
-        "token",
-        "learn",
-        "livepeer-protocol",
-        "livepeer-token"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 994,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "LP Token"
-        },
-        {
-          "level": 3,
-          "text": "Token Purpose"
-        },
-        {
-          "level": 3,
-          "text": "Supply & Distribution"
-        },
-        {
-          "level": 3,
-          "text": "Dynamic Inflation Model"
-        },
-        {
-          "level": 3,
-          "text": "Rewards Distribution"
-        },
-        {
-          "level": 3,
-          "text": "Governance"
-        },
-        {
-          "level": 3,
-          "text": "Treasury"
-        },
-        {
-          "level": 2,
-          "text": "Technical Mechanics"
-        },
-        {
-          "level": 3,
-          "text": "Bonding & Unbonding"
-        },
-        {
-          "level": 3,
-          "text": "Slashing & Penalties"
-        },
-        {
-          "level": 3,
-          "text": "Additional Resources"
-        },
-        {
-          "level": 2,
-          "text": "Economic Flow Diagrams"
-        }
-      ],
-      "codeLanguages": [
-        "mermaid",
-        "bash",
-        "text"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-protocol/governance-model",
-      "title": "Livepeer Governance Model",
-      "description": "This page describes the on-chain governance model which provides a permissionless, transparent, and community-driven framework for upgrading and governing the Livepeer protocol. It touches on the key actors, processes and mechanisms that drive coordination and growth of the Livepeer ecosystem.",
-      "section": "about",
-      "tags": [
-        "livepeer",
-        "about",
-        "livepeer-network",
-        "livepeer-governance",
-        "governance",
-        "learn",
-        "livepeer-protocol",
-        "governance-model"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 1070,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Governance"
-        },
-        {
-          "level": 3,
-          "text": "Governance Functions"
-        },
-        {
-          "level": 3,
-          "text": "Governance Process"
-        },
-        {
-          "level": 3,
-          "text": "Livepeer Improvement Proposals (LIPs)"
-        },
-        {
-          "level": 3,
-          "text": "On-Chain Contracts"
-        },
-        {
-          "level": 3,
-          "text": "Key Roles & Stakeholders"
-        },
-        {
-          "level": 3,
-          "text": "Visualising the Governance Process"
-        },
-        {
-          "level": 2,
-          "text": "Related Resources"
-        },
-        {
-          "level": 3,
-          "text": "On-chain governance"
-        }
-      ],
-      "codeLanguages": [
-        "mermaid"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-protocol/treasury",
-      "title": "Livepeer Treasury",
-      "description": "This page outlines how the treasury accumulates funds, how disbursements are authorised, and how its role is evolving across the protocol’s roadmap.",
-      "section": "about",
-      "tags": [
-        "livepeer",
-        "about",
-        "livepeer-network",
-        "livepeer-treasury",
-        "treasury",
-        "learn",
-        "livepeer-protocol"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 757,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Genesis"
-        },
-        {
-          "level": 2,
-          "text": "Objectives"
-        },
-        {
-          "level": 2,
-          "text": "Funding Sources"
-        },
-        {
-          "level": 2,
-          "text": "Fund Usage"
-        },
-        {
-          "level": 2,
-          "text": "Governance"
-        },
-        {
-          "level": 3,
-          "text": "Reporting & Transparency"
-        },
-        {
-          "level": 2,
-          "text": "Livepeer Foundation Role"
-        },
-        {
-          "level": 2,
-          "text": "Contract Architecture"
-        },
-        {
-          "level": 2,
-          "text": "Improvement Discussions"
-        },
-        {
-          "level": 2,
-          "text": "Further Resources"
-        }
-      ],
-      "codeLanguages": [
-        "mermaid",
-        "javascript"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-protocol/economics",
-      "title": "Livepeer Protocol Economics",
-      "description": "Learn how LPT, staking, inflation, rewards, fees, and payment flows shape the Livepeer protocol economy.",
-      "section": "about",
-      "tags": [
-        "livepeer",
-        "about",
-        "livepeer-protocol",
-        "livepeer-protocol-economics",
         "protocol",
-        "economics"
+        "design-philosophy",
+        "probabilistic-payments",
+        "inflation",
+        "staking",
+        "about"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 781,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "wordCount": 123,
+      "lastVerified": "2026-04-05",
       "headings": [
         {
           "level": 2,
-          "text": "Money Flow: LPT Token Economics"
-        },
-        {
-          "level": 3,
-          "text": "1. **Staking Flow (Delegators → Orchestrators)**"
-        },
-        {
-          "level": 3,
-          "text": "2. **Reward Flow (Minter → Orchestrators → Delegators)**"
-        },
-        {
-          "level": 3,
-          "text": "3. **Payment Flow (Broadcasters → Orchestrators)**"
-        },
-        {
-          "level": 3,
-          "text": "4. **Fee Flow (Broadcasters → Orchestrators → Delegators)**"
-        },
-        {
-          "level": 3,
-          "text": "5. **Withdrawal Flows**"
+          "text": "What this page will cover"
         },
         {
           "level": 2,
-          "text": "Client Integration"
-        },
-        {
-          "level": 2,
-          "text": "Gas Optimisation Strategies"
-        },
-        {
-          "level": 3,
-          "text": "1. **Pool Hints**"
-        },
-        {
-          "level": 3,
-          "text": "2. **Batch Operations**"
-        },
-        {
-          "level": 3,
-          "text": "3. **Dynamic Gas Pricing**"
-        },
-        {
-          "level": 2,
-          "text": "Summary: Complete Money Flow"
-        },
-        {
-          "level": 2,
-          "text": "Notes"
+          "text": "Best pages to read now"
         }
       ],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-protocol/technical-architecture",
-      "title": "Technical Overview",
-      "description": "A technical overview of the Livepeer protocol.",
-      "section": "about",
-      "tags": [
-        "livepeer",
-        "about",
-        "livepeer-protocol",
-        "technical-overview",
-        "technical",
-        "overview",
-        "technical-architecture"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "advanced",
-      "wordCount": 115,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Protocol Architecture"
-        },
-        {
-          "level": 2,
-          "text": "System Overview"
-        },
-        {
-          "level": 2,
-          "text": "System Diagram"
-        },
-        {
-          "level": 2,
-          "text": "Actor & Incentive Model"
-        },
-        {
-          "level": 2,
-          "text": "Trust & Verification Model"
-        },
-        {
-          "level": 2,
-          "text": "Job Lifecycle"
-        },
-        {
-          "level": 2,
-          "text": "Governance & Treasury"
-        },
-        {
-          "level": 2,
-          "text": "Protocol References"
-        },
-        {
-          "level": 3,
-          "text": "A/B/C TEST LAYOUTS"
-        },
-        {
-          "level": 3,
-          "text": "Links"
-        }
-      ],
-      "codeLanguages": [
-        "mermaid"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-network/overview",
+      "url": "https://docs.livepeer.org/v2/about/network/overview",
       "title": "Livepeer Network Overview",
       "description": "An overview of the Livepeer network and its components.",
       "section": "about",
@@ -1198,7 +1255,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 238,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-04T12:26:07.142Z",
       "headings": [
         {
           "level": 2,
@@ -1216,7 +1273,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-network/actors",
+      "url": "https://docs.livepeer.org/v2/about/network/actors",
       "title": "Actors Overview",
       "description": "Who participates in Livepeer, what each role does, and how roles interact.",
       "section": "about",
@@ -1228,13 +1285,13 @@
         "orchestrator",
         "delegator",
         "developers",
-        "livepeer-network"
+        "network"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 639,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-04T12:54:57.099Z",
       "headings": [
         {
           "level": 2,
@@ -1280,122 +1337,187 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-network/job-lifecycle",
-      "title": "Livepeer Job Lifecycle",
-      "description": "This page describes the end-to-end “compute job” as a state machine. Since Livepeer’s compute is segment-oriented, the lifecycle is modelled at the level of a stream session and per-segment processing, with payment settlement occurring continuously via tickets and periodically via reward calls.",
+      "url": "https://docs.livepeer.org/v2/about/network/livepeer-actors/delegators",
+      "title": "Delegators",
+      "description": "How delegators back orchestrators with LPT and participate in Livepeer’s security and economic outcomes.",
       "section": "about",
       "tags": [
         "livepeer",
         "about",
         "livepeer-network",
-        "job-lifecycle",
-        "job",
-        "lifecycle",
-        "learn"
+        "actors",
+        "delegators",
+        "lpt",
+        "staking",
+        "network",
+        "livepeer-actors"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 725,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "wordCount": 145,
+      "lastVerified": "2026-04-05T10:42:13.144Z",
       "headings": [
         {
-          "level": 3,
-          "text": "Lifecycle Narrative"
+          "level": 2,
+          "text": "Core Responsibilities"
         },
         {
-          "level": 3,
-          "text": "State machine diagram"
+          "level": 2,
+          "text": "How Delegators Earn"
         },
         {
-          "level": 3,
-          "text": "Events and transitions"
+          "level": 2,
+          "text": "Delegator Decision Factors"
         },
         {
-          "level": 3,
-          "text": "Job Lifecycle (video vs AI)"
+          "level": 2,
+          "text": "Important Tradeoffs"
+        },
+        {
+          "level": 2,
+          "text": "Related Pages"
         }
       ],
-      "codeLanguages": [
-        "mermaid"
-      ]
+      "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-network/marketplace",
-      "title": "Livepeer Marketplace",
-      "description": "How the Livepeer Network marketplace matches demand and supply for real-time media compute: transcoding and AI inference, including routing, pricing, and settlement.",
+      "url": "https://docs.livepeer.org/v2/about/network/livepeer-actors/end-users",
+      "title": "Builders and End Users",
+      "description": "How developers, product teams, and users consume Livepeer-powered services.",
       "section": "about",
       "tags": [
         "livepeer",
         "about",
         "livepeer-network",
-        "marketplace",
-        "routing",
-        "orchestrators",
+        "actors",
+        "builders",
+        "end-users",
+        "applications",
+        "network",
+        "livepeer-actors"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 124,
+      "lastVerified": "2026-04-04T12:26:07.132Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Builder Responsibilities"
+        },
+        {
+          "level": 2,
+          "text": "End-User Expectations"
+        },
+        {
+          "level": 2,
+          "text": "Why This Role Matters"
+        },
+        {
+          "level": 2,
+          "text": "Related Pages"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/network/livepeer-actors/gateways",
+      "title": "Gateways",
+      "description": "How gateway operators provide intake, routing, and service coordination in the Livepeer network.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "livepeer-network",
+        "actors",
         "gateways",
-        "pricing"
+        "routing",
+        "coordination",
+        "network",
+        "livepeer-actors"
       ],
-      "entities": [],
+      "entities": [
+        "gateway"
+      ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 448,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "wordCount": 153,
+      "lastVerified": "2026-04-04T12:54:57.101Z",
       "headings": [
         {
           "level": 2,
-          "text": "Marketplace overview"
+          "text": "Core Responsibilities"
         },
         {
           "level": 2,
-          "text": "Demand: client workloads"
+          "text": "What Gateways Do Not Do"
         },
         {
           "level": 2,
-          "text": "Supply: Orchestrator nodes"
+          "text": "Why Gateways Matter"
         },
         {
           "level": 2,
-          "text": "Routing logic"
+          "text": "Typical Flow"
         },
         {
           "level": 2,
-          "text": "Price discovery"
-        },
-        {
-          "level": 2,
-          "text": "Payments and settlement"
-        },
-        {
-          "level": 2,
-          "text": "Credit system extensions"
-        },
-        {
-          "level": 2,
-          "text": "Observability"
-        },
-        {
-          "level": 2,
-          "text": "Protocol–market boundaries"
-        },
-        {
-          "level": 2,
-          "text": "Future upgrades (LIPs proposed)"
-        },
-        {
-          "level": 2,
-          "text": "See also"
-        },
-        {
-          "level": 2,
-          "text": "References"
+          "text": "Related Pages"
         }
       ],
-      "codeLanguages": [
-        "mermaid"
-      ]
+      "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-network/technical-architecture",
+      "url": "https://docs.livepeer.org/v2/about/network/livepeer-actors/orchestrators",
+      "title": "Orchestrators",
+      "description": "How orchestrator operators provide supply-side execution capacity and economic participation in Livepeer.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "livepeer-network",
+        "actors",
+        "orchestrators",
+        "supply-side",
+        "gpu",
+        "network",
+        "livepeer-actors"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 153,
+      "lastVerified": "2026-04-04T12:26:07.130Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Core Responsibilities"
+        },
+        {
+          "level": 2,
+          "text": "Economic Position"
+        },
+        {
+          "level": 2,
+          "text": "Operational Priorities"
+        },
+        {
+          "level": 2,
+          "text": "Relationship To Other Actors"
+        },
+        {
+          "level": 2,
+          "text": "Related Pages"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/network/technical-architecture",
       "title": "Network Technical Architecture",
       "description": "Technical stack of the Livepeer Network: node types, gateway infrastructure, APIs, CLI, SDKs, and monitoring. How orchestrators, gateways, and workers fit together.",
       "section": "about",
@@ -1407,13 +1529,14 @@
         "stack",
         "orchestrator",
         "gateway",
-        "go-livepeer"
+        "go-livepeer",
+        "network"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 390,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T10:42:13.143Z",
       "headings": [
         {
           "level": 2,
@@ -1473,7 +1596,124 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/livepeer-network/interfaces",
+      "url": "https://docs.livepeer.org/v2/about/network/marketplace",
+      "title": "Livepeer Marketplace",
+      "description": "How the Livepeer Network marketplace matches demand and supply for real-time media compute: transcoding and AI inference, including routing, pricing, and settlement.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "livepeer-network",
+        "marketplace",
+        "routing",
+        "orchestrators",
+        "gateways",
+        "pricing",
+        "network"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 448,
+      "lastVerified": "2026-04-05T10:42:13.143Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Marketplace overview"
+        },
+        {
+          "level": 2,
+          "text": "Demand: client workloads"
+        },
+        {
+          "level": 2,
+          "text": "Supply: Orchestrator nodes"
+        },
+        {
+          "level": 2,
+          "text": "Routing logic"
+        },
+        {
+          "level": 2,
+          "text": "Price discovery"
+        },
+        {
+          "level": 2,
+          "text": "Payments and settlement"
+        },
+        {
+          "level": 2,
+          "text": "Credit system extensions"
+        },
+        {
+          "level": 2,
+          "text": "Observability"
+        },
+        {
+          "level": 2,
+          "text": "Protocol–market boundaries"
+        },
+        {
+          "level": 2,
+          "text": "Future upgrades (LIPs proposed)"
+        },
+        {
+          "level": 2,
+          "text": "See also"
+        },
+        {
+          "level": 2,
+          "text": "References"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/network/job-lifecycle",
+      "title": "Livepeer Job Lifecycle",
+      "description": "This page describes the end-to-end “compute job” as a state machine. Since Livepeer’s compute is segment-oriented, the lifecycle is modelled at the level of a stream session and per-segment processing, with payment settlement occurring continuously via tickets and periodically via reward calls.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "livepeer-network",
+        "job-lifecycle",
+        "job",
+        "lifecycle",
+        "learn",
+        "network"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 725,
+      "lastVerified": "2026-04-04T12:26:07.141Z",
+      "headings": [
+        {
+          "level": 3,
+          "text": "Lifecycle Narrative"
+        },
+        {
+          "level": 3,
+          "text": "State machine diagram"
+        },
+        {
+          "level": 3,
+          "text": "Events and transitions"
+        },
+        {
+          "level": 3,
+          "text": "Job Lifecycle (video vs AI)"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/network/interfaces",
       "title": "Network Interfaces",
       "description": "How to interact with the Livepeer Network and protocol: REST and gRPC APIs, GraphQL, JS SDK, CLI, and smart contract interfaces.",
       "section": "about",
@@ -1487,13 +1727,14 @@
         "cli",
         "graphql",
         "rest",
-        "grpc"
+        "grpc",
+        "network"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 282,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T10:42:13.143Z",
       "headings": [
         {
           "level": 2,
@@ -1543,82 +1784,160 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/resources/livepeer-whitepaper",
-      "title": "Livepeer Whitepaper",
-      "description": "Read the original Livepeer whitepaper and understand how its decentralised video vision evolved into the current network.",
+      "url": "https://docs.livepeer.org/v2/about/network/fee-flow",
+      "title": "Livepeer Fee Flow",
+      "description": "Learn about the Livepeer fee flow.",
       "section": "about",
       "tags": [
         "livepeer",
         "about",
-        "livepeer-protocol",
-        "livepeer-whitepaper",
-        "whitepaper",
-        "resources"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 436,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 3,
-          "text": "Livepeer Now"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/about/resources/livepeer-contract-addresses",
-      "title": "Canonical Contract Addresses",
-      "description": "Official Livepeer protocol contract addresses on Arbitrum One and Ethereum Mainnet. Verified from live chain state, upstream source provenance, and explorer evidence on every refresh. The canonical public reference surface.",
-      "section": "about",
-      "tags": [
-        "livepeer",
-        "livepeer-contracts",
-        "livepeer-contract-address",
-        "livepeer-contract-addresses",
-        "lpt-contract-address",
-        "lpt-token-address",
-        "livepeer-token-address",
-        "livepeer-smart-contract-address",
-        "livepeer-arbitrum-contract-address",
-        "livepeer-ethereum-contract-address",
-        "livepeer-official-contract",
-        "livepeer-protocol-contracts"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 0,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/about/resources/technical-roadmap",
-      "title": "Technical Roadmap",
-      "description": "Review the current Livepeer roadmap posts covering network and product direction.",
-      "section": "about",
-      "tags": [
-        "livepeer",
-        "about",
-        "resources",
-        "technical-roadmap",
-        "roadmap",
-        "https",
-        "introducing"
+        "livepeer-network",
+        "fee-flow",
+        "fee",
+        "flow",
+        "learn",
+        "network"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 18,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-04T12:26:07.138Z",
       "headings": [],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/resources/compendium/livepeer-glossary",
+      "url": "https://docs.livepeer.org/v2/about/network/demand-side",
+      "title": "Livepeer Demand Side",
+      "description": "Learn about the Livepeer demand side.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "livepeer-network",
+        "demand-side",
+        "demand",
+        "side",
+        "learn",
+        "network"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 20,
+      "lastVerified": "2026-04-04T12:26:07.139Z",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/network/supply-side",
+      "title": "Livepeer Supply Side",
+      "description": "Learn about the Livepeer supply side.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "livepeer-network",
+        "supply-side",
+        "supply",
+        "side",
+        "learn",
+        "network"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 17,
+      "lastVerified": "2026-04-04T12:26:07.136Z",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/network/scaling",
+      "title": "Livepeer Scaling",
+      "description": "Learn about the Livepeer scaling.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "livepeer-network",
+        "scaling",
+        "learn",
+        "network"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 24,
+      "lastVerified": "2026-04-04T12:26:07.125Z",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/resources/faq",
+      "title": "FAQ",
+      "description": "Common questions about what Livepeer is, how the protocol and network differ, and where to go next.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "faq",
+        "protocol",
+        "network",
+        "glossary",
+        "resources"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 150,
+      "lastVerified": "2026-04-05",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/resources/glossary",
+      "title": "About Livepeer — Glossary",
+      "description": "Key terms used in the Livepeer About section — protocol architecture, network roles, governance, and ecosystem concepts.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "glossary",
+        "about",
+        "terminology",
+        "resources"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 2943,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Livepeer Protocol Terms"
+        },
+        {
+          "level": 2,
+          "text": "Economic Terms"
+        },
+        {
+          "level": 2,
+          "text": "Web3 Terms"
+        },
+        {
+          "level": 2,
+          "text": "Video Terms"
+        },
+        {
+          "level": 2,
+          "text": "Technical Terms"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/resources/livepeer-glossary",
       "title": "Livepeer Glossary",
       "description": "A comprehensive glossary of terms used in the Livepeer Real-time AI & Video Network",
       "section": "about",
@@ -1629,14 +1948,13 @@
         "glossary",
         "comprehensive",
         "terms",
-        "about",
-        "compendium"
+        "about"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1678,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-03-29T03:31:41+11:00",
       "headings": [
         {
           "level": 2,
@@ -1962,43 +2280,223 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/resources/compendium/glossary",
-      "title": "About Livepeer — Glossary",
-      "description": "Key terms used in the Livepeer About section — protocol architecture, network roles, governance, and ecosystem concepts.",
+      "url": "https://docs.livepeer.org/v2/about/resources/knowledge-hub/livepeer-whitepaper",
+      "title": "Livepeer Whitepaper",
+      "description": "Read the original Livepeer whitepaper and understand how its decentralised video vision evolved into the current network.",
       "section": "about",
       "tags": [
         "livepeer",
-        "glossary",
         "about",
-        "terminology",
+        "livepeer-protocol",
+        "livepeer-whitepaper",
+        "whitepaper",
         "resources",
-        "compendium"
+        "knowledge-hub"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 2943,
-      "lastVerified": "2026-03",
+      "wordCount": 436,
+      "lastVerified": "2026-04-04T12:26:07.186Z",
+      "headings": [
+        {
+          "level": 3,
+          "text": "Livepeer Now"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/resources/knowledge-hub/gateways-vs-orchestrators",
+      "title": "Gateways Vs. Orchestrators: What’s the Difference?",
+      "description": "Livepeer uses two core node types-**Gateways** and **Orchestrators**-that work together to provide real-time AI video compute at scale. Although closely connected, they serve entirely different purposes. This page breaks down how they differ and why both roles matter for a decentralized compute marketplace.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "livepeer-network",
+        "gateways-vs-orchestrators",
+        "gateways",
+        "orchestrators",
+        "what",
+        "difference",
+        "types",
+        "resources",
+        "knowledge-hub"
+      ],
+      "entities": [
+        "gateway",
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 184,
+      "lastVerified": "2026-04-04T12:26:07.184Z",
       "headings": [
         {
           "level": 2,
-          "text": "Livepeer Protocol Terms"
+          "text": "Overview"
         },
         {
           "level": 2,
-          "text": "Economic Terms"
+          "text": "Gateway Responsibilities"
         },
         {
           "level": 2,
-          "text": "Web3 Terms"
+          "text": "Orchestrator Responsibilities"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/resources/knowledge-hub/evaluating-livepeer",
+      "title": "Evaluating Livepeer",
+      "description": "A curated reading path for founders, researchers, and analysts evaluating Livepeer's scope, design, and current network posture.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "evaluation",
+        "due-diligence",
+        "founder",
+        "protocol",
+        "network",
+        "about",
+        "resources",
+        "knowledge-hub",
+        "evaluating-livepeer"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 76,
+      "lastVerified": "2026-04-05",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Recommended reading order"
         },
         {
           "level": 2,
-          "text": "Video Terms"
+          "text": "What this guide will eventually add"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/resources/knowledge-hub/contributor-orientation",
+      "title": "Contributor Orientation",
+      "description": "A curated About reading path for technical contributors, researchers, and protocol-adjacent builders.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "contributor",
+        "orientation",
+        "protocol",
+        "network",
+        "oss",
+        "about",
+        "resources",
+        "knowledge-hub",
+        "contributor-orientation"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 69,
+      "lastVerified": "2026-04-05",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Recommended reading order"
         },
         {
           "level": 2,
-          "text": "Technical Terms"
+          "text": "What this guide will eventually add"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/resources/reference/technical-roadmap",
+      "title": "Technical Roadmap",
+      "description": "Review the current Livepeer roadmap posts covering network and product direction.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "about",
+        "resources",
+        "technical-roadmap",
+        "roadmap",
+        "https",
+        "introducing",
+        "reference"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 18,
+      "lastVerified": "2026-04-04T12:26:07.171Z",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/resources/reference/livepeer-contract-addresses",
+      "title": "Canonical Contract Addresses",
+      "description": "Official Livepeer protocol contract addresses on Arbitrum One and Ethereum Mainnet. Verified from live chain state, upstream source provenance, and explorer evidence on every refresh. The canonical public reference surface.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "livepeer-contracts",
+        "livepeer-contract-address",
+        "livepeer-contract-addresses",
+        "lpt-contract-address",
+        "lpt-token-address",
+        "livepeer-token-address",
+        "livepeer-smart-contract-address",
+        "livepeer-arbitrum-contract-address",
+        "livepeer-ethereum-contract-address",
+        "livepeer-official-contract",
+        "livepeer-protocol-contracts"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 0,
+      "lastVerified": "2026-04-04T12:26:07.187Z",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/about/resources/reference/network-metrics",
+      "title": "Network Metrics",
+      "description": "Reference links for understanding Livepeer's current network activity, participation, and public analytics surfaces.",
+      "section": "about",
+      "tags": [
+        "livepeer",
+        "network-metrics",
+        "analytics",
+        "explorer",
+        "dune",
+        "roadmap",
+        "about",
+        "resources",
+        "reference"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 106,
+      "lastVerified": "2026-04-05",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Primary sources to use now"
+        },
+        {
+          "level": 2,
+          "text": "What this page will eventually add"
         }
       ],
       "codeLanguages": []
@@ -22800,7 +23298,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 467,
-      "lastVerified": "2026-04-05T15:39:57+10:00",
+      "lastVerified": "2026-04-05T17:17:29+10:00",
       "headings": [
         {
           "level": 2,
@@ -22978,7 +23476,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3402,
-      "lastVerified": "2026-04-05T15:39:57+10:00",
+      "lastVerified": "2026-04-05T17:17:29+10:00",
       "headings": [
         {
           "level": 2,
@@ -24335,7 +24833,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 334,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T17:17:29+10:00",
       "headings": [
         {
           "level": 2,
@@ -24392,7 +24890,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 738,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T17:17:29+10:00",
       "headings": [
         {
           "level": 1,
@@ -24508,7 +25006,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 208,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T17:17:29+10:00",
       "headings": [
         {
           "level": 2,
@@ -24843,7 +25341,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 2275,
-      "lastVerified": "2026-04-05T15:39:57+10:00",
+      "lastVerified": "2026-04-05T17:17:29+10:00",
       "headings": [
         {
           "level": 2,
@@ -25141,7 +25639,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1947,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T17:17:29+10:00",
       "headings": [
         {
           "level": 2,
@@ -25491,7 +25989,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3100,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T17:17:29+10:00",
       "headings": [
         {
           "level": 1,
@@ -25923,7 +26421,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 615,
-      "lastVerified": "2026-04-05T15:39:57+10:00",
+      "lastVerified": "2026-04-05T20:38:28+10:00",
       "headings": [
         {
           "level": 1,
@@ -25987,7 +26485,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 552,
-      "lastVerified": "2026-04-05T15:39:57+10:00",
+      "lastVerified": "2026-04-05T20:38:28+10:00",
       "headings": [
         {
           "level": 1,
@@ -26403,7 +26901,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 595,
+      "wordCount": 605,
       "lastVerified": "2026-04-05T15:39:57+10:00",
       "headings": [
         {
@@ -26466,7 +26964,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 739,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T20:38:28+10:00",
       "headings": [
         {
           "level": 1,
@@ -26537,7 +27035,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1235,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T17:17:29+10:00",
       "headings": [
         {
           "level": 1,
@@ -26873,8 +27371,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 614,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "wordCount": 884,
+      "lastVerified": "2026-04-05T20:38:28+10:00",
       "headings": [
         {
           "level": 1,
@@ -26883,6 +27381,30 @@
         {
           "level": 2,
           "text": "Root Config Files"
+        },
+        {
+          "level": 2,
+          "text": "operations/governance/config/"
+        },
+        {
+          "level": 3,
+          "text": "repo-governance-surfaces.json"
+        },
+        {
+          "level": 3,
+          "text": "root-governance.json"
+        },
+        {
+          "level": 3,
+          "text": "generated-artifacts.json"
+        },
+        {
+          "level": 3,
+          "text": "agent-write-governance.json"
+        },
+        {
+          "level": 3,
+          "text": "ownerless-governance-surfaces.json"
         },
         {
           "level": 2,
@@ -27041,7 +27563,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 568,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T17:17:29+10:00",
       "headings": [
         {
           "level": 1,

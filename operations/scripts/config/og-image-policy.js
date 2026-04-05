@@ -40,11 +40,11 @@ const LOCAL_ASSET_ROOTS = ["/snippets/assets/"];
  * on the generated image. Add entries here for high-value reference pages.
  */
 const PAGE_OVERRIDES = {
-  "v2/about/resources/livepeer-contract-addresses": {
+  "v2/about/resources/reference/livepeer-contract-addresses": {
     label: "Livepeer Contract Addresses",
     subtitle: "Verified On-Chain \u00b7 Automatically Updated",
   },
-  "v2/about/livepeer-protocol/blockchain-contracts": {
+  "v2/about/protocol/blockchain-contracts": {
     label: "Blockchain Contracts",
     subtitle: "Architecture \u00b7 Interactions \u00b7 Governance",
   },

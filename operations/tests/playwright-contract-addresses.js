@@ -13,7 +13,7 @@ const {
   ensureFreshBundleBaseUrl
 } = require('./contracts-validator-contract');
 
-const CANONICAL_ROUTE = '/v2/about/resources/livepeer-contract-addresses';
+const CANONICAL_ROUTE = '/v2/about/resources/reference/livepeer-contract-addresses';
 const VERIFIER_ROUTE = '/v2/about/resources/verify-contract-addresses';
 const LEGACY_REDIRECT_ROUTE = '/references/contract-addresses';
 const EXPECTED_LOOKUP_ADDRESSES = {

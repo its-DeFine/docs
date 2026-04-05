@@ -47,6 +47,7 @@ async function runTests() {
     assert.strictEqual(manifest.canonical_home, 'operations/governance');
     assert.strictEqual(manifest.bridge_mode, 'staged');
     assert.ok(manifest.canonical_manifests.includes('operations/governance/config/root-governance.json'));
+    assert.ok(manifest.canonical_manifests.includes('operations/governance/config/ownerless-governance-surfaces.json'));
     assert.ok(getSurfaceIds(manifest).includes('repo-governance-registry'));
   });
 
@@ -114,6 +115,7 @@ async function runTests() {
     assert.ok(fs.existsSync(path.join(REPO_ROOT, 'operations/governance/config/root-governance.json')));
     assert.ok(fs.existsSync(path.join(REPO_ROOT, 'operations/governance/config/generated-artifacts.json')));
     assert.ok(fs.existsSync(path.join(REPO_ROOT, 'operations/governance/config/agent-write-governance.json')));
+    assert.ok(fs.existsSync(path.join(REPO_ROOT, 'operations/governance/config/ownerless-governance-surfaces.json')));
     const currentMap = `${readRepoFile(manifest.generated_outputs.map_doc).trim()}\n`;
     const currentStatusJson = readRepoFile(manifest.generated_outputs.status_report_json);
     const currentStatusMd = `${readRepoFile(manifest.generated_outputs.status_report_md).trim()}\n`;

@@ -5,7 +5,7 @@
  * @concern testing
  * @niche render/page
  * @description Unified scoped-browser harness for the contracts recovery browser gates.
- *              Starts one lpd scoped preview for the About/Resource HUB contracts surface,
+ *              Starts one lpd scoped preview for the contracts route prefixes,
  *              then runs both contracts route browser validators against that exact bundle.
  * @usage node operations/tests/contracts-browser-harness.js
  */
@@ -15,13 +15,15 @@ const http = require('http');
 const os = require('os');
 const path = require('path');
 const { spawn, spawnSync } = require('child_process');
+const { CONTRACTS_SCOPE_PREFIXES } = require('./contracts-validator-contract');
 
-const CONTRACTS_ROUTE = '/v2/about/resources/livepeer-contract-addresses';
+const CONTRACTS_ROUTE = '/v2/about/resources/reference/livepeer-contract-addresses';
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const LPD_PATH = path.join(REPO_ROOT, 'tools', 'lpd');
 const HARNESS_PORT = Number.parseInt(process.env.CONTRACTS_HARNESS_PORT || '3145', 10);
 const HARNESS_BASE_URL = `http://localhost:${HARNESS_PORT}`;
-const HARNESS_SCOPE_TAB = process.env.CONTRACTS_HARNESS_SCOPE_TAB || 'About,Resource HUB';
+const HARNESS_SCOPE_PREFIXES =
+  process.env.CONTRACTS_HARNESS_SCOPE_PREFIXES || CONTRACTS_SCOPE_PREFIXES;
 const LOG_FILE = path.join(os.tmpdir(), `contracts-browser-harness-${process.pid}.log`);
 const PREVIEW_TIMEOUT_MS = Number.parseInt(process.env.CONTRACTS_HARNESS_TIMEOUT_MS || '240000', 10);
 const PROBE_TIMEOUT_MS = Number.parseInt(process.env.CONTRACTS_HARNESS_PROBE_TIMEOUT_MS || '30000', 10);
@@ -71,8 +73,8 @@ function startScopedPreview() {
       LPD_PATH,
       'dev',
       '--scoped',
-      '--scope-tab',
-      HARNESS_SCOPE_TAB,
+      '--scope-prefix',
+      HARNESS_SCOPE_PREFIXES,
       '--skip-external-fetch',
       '--disable-openapi',
       '--',
@@ -173,7 +175,7 @@ function runNodeScript(relativeScriptPath, args = [], env = {}) {
 
 async function main() {
   console.log(`🚀 Starting scoped lpd dev server on port ${HARNESS_PORT}...`);
-  console.log(`   Scope tabs: ${HARNESS_SCOPE_TAB}`);
+  console.log(`   Scope prefixes: ${HARNESS_SCOPE_PREFIXES}`);
   const child = startScopedPreview();
   console.log(`   Started with PID: ${child.pid}`);
   console.log(`   Logs: ${LOG_FILE}`);
@@ -187,7 +189,7 @@ async function main() {
       CONTRACTS_TEST_BASE_URL: HARNESS_BASE_URL,
       CONTRACTS_TEST_SCOPED: '1',
       MINT_BASE_URL: HARNESS_BASE_URL,
-      MINT_SCOPE_TABS: HARNESS_SCOPE_TAB,
+      MINT_SCOPE_PREFIXES: HARNESS_SCOPE_PREFIXES,
     };
 
     console.log('\n── Contracts Browser Harness ─────────────────────');

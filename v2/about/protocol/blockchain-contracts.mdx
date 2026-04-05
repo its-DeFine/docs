@@ -798,7 +798,7 @@ Paired bridge gateway contracts on Ethereum Mainnet (L1) and Arbitrum One (L2). 
 
 ## Governance Contracts
 
-The Delta upgrade ([LIP-89](https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-89.md), [LIP-91](https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-91.md) - October 2023) introduced full on-chain governance alongside the [Livepeer Treasury](/v2/about/livepeer-protocol/treasury). The governance system consists of four contracts working together: BondingVotes checkpoints voting power, LivepeerGovernor manages proposal voting, Treasury holds protocol funds, and Governor executes approved upgrades.
+The Delta upgrade ([LIP-89](https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-89.md), [LIP-91](https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-91.md) - October 2023) introduced full on-chain governance alongside the [Livepeer Treasury](/v2/about/protocol/treasury). The governance system consists of four contracts working together: BondingVotes checkpoints voting power, LivepeerGovernor manages proposal voting, Treasury holds protocol funds, and Governor executes approved upgrades.
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#18794E', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3CB540', 'lineColor': '#3CB540', 'mainBkg': '#18794E', 'nodeBorder': '#3CB540', 'clusterBkg': 'transparent', 'clusterBorder': '#3CB540', 'titleColor': '#3CB540', 'edgeLabelBackground': 'transparent', 'textColor': '#3CB540', 'nodeTextColor': '#fff'}}}%%
@@ -1094,12 +1094,12 @@ Stores Merkle roots used to verify stake snapshots taken at the time of the Conf
 
 ## Full Address Reference
 
-For the complete list of all current, paused, migration-residual, legacy-operational, and historical contract addresses across Arbitrum One and Ethereum Mainnet, see the [Contract Addresses](/v2/about/resources/livepeer-contract-addresses) reference page.
+For the complete list of all current, paused, migration-residual, legacy-operational, and historical contract addresses across Arbitrum One and Ethereum Mainnet, see the [Contract Addresses](/v2/about/resources/reference/livepeer-contract-addresses) reference page.
 
 <Icon icon="check" color="var(--text)"/> <span style={{fontStyle: "italic", color: "var(--text)"}}>Last Verified {<DataWrap value={blockchainContractsPageData.meta.lastVerified} />}</span>
 
 <Card
-    href="/v2/about/resources/livepeer-contract-addresses"
+    href="/v2/about/resources/reference/livepeer-contract-addresses"
     icon="file-code"
     title={<> Contract Address Reference Page · Livepeer Docs <br/> <Badge color="surface"> <><Icon icon="user-robot" color="var(--text)"/> Automatically Updated </></Badge></>}
     horizontal
@@ -1125,16 +1125,16 @@ For the complete list of all current, paused, migration-residual, legacy-operati
 ## Related Pages
 
 <Columns cols={2}>
-  <Card title={<CustomCardTitle icon="coins" title="Livepeer Token" />} href="/v2/about/livepeer-protocol/livepeer-token" horizontal arrow>
+  <Card title={<CustomCardTitle icon="coins" title="Livepeer Token" />} href="/v2/about/protocol/livepeer-token" horizontal arrow>
     LPT token mechanics, supply, minting, and the role of the token in the protocol.
   </Card>
-  <Card title={<CustomCardTitle icon="vault" title="Treasury" />} href="/v2/about/livepeer-protocol/treasury" horizontal arrow>
+  <Card title={<CustomCardTitle icon="vault" title="Treasury" />} href="/v2/about/protocol/treasury" horizontal arrow>
     On-chain treasury, funding proposals, SPEs, and the treasury balance ceiling.
   </Card>
-  <Card title={<CustomCardTitle icon="landmark" title="Governance" />} href="/v2/about/livepeer-protocol/governance-model" horizontal arrow>
+  <Card title={<CustomCardTitle icon="landmark" title="Governance" />} href="/v2/about/protocol/governance-model" horizontal arrow>
     On-chain voting, proposal lifecycle, and delegator vote overrides.
   </Card>
-  <Card title={<CustomCardTitle icon="chart-line" title="Economics" />} href="/v2/about/livepeer-protocol/economics" horizontal arrow>
+  <Card title={<CustomCardTitle icon="chart-line" title="Economics" />} href="/v2/about/protocol/economics" horizontal arrow>
     Inflation model, bonding rate targets, reward distribution, and fee economics.
   </Card>
 </Columns>

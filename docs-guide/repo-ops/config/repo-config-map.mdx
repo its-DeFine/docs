@@ -107,7 +107,19 @@ operations/governance/config/agent-write-governance.json
 
 **Purpose:** Canonical policy manifest for agent output classes, admitted destinations, and root-write restrictions.
 
-**Read by:** repo-governance map/status generation now; path-admission and stricter anti-bloat enforcement later in the programme.
+**Read by:** repo-governance map/status generation, `agent-write-admission.test.js`, and PR changed-file governance checks.
+
+### ownerless-governance-surfaces.json
+
+```
+operations/governance/config/ownerless-governance-surfaces.json
+```
+
+**Purpose:** Canonical ownerless-governance surface registry during staged migration to `operations/governance/**`.
+
+**Bridge source:** `tools/config/runtime/ownerless-governance-surfaces.json`
+
+**Read by:** ownerless-governance policy/tests, repo-governance sync validation, PR checks, and adjacent governance consumers such as AI-tools registry relevance checks.
 
 ---
 

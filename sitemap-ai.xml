@@ -1,188 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:ai="https://docs.livepeer.org/schemas/ai-sitemap/1.0">
   <url>
-    <loc>https://docs.livepeer.org/v2/about/core-concepts</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>594</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, core concepts, livepeer core concepts, introduction, key, architecture</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-network/actors</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>639</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, actors, gateway, orchestrator, delegator, developers</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-network/interfaces</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>282</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer network, interfaces, API, SDK, CLI, GraphQL, REST, gRPC</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-network/job-lifecycle</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>725</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer network, job lifecycle, job, lifecycle, learn</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-network/marketplace</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>448</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer network, marketplace, routing, orchestrators, gateways, pricing</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-network/overview</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>238</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer network, network overview, network, overview</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-network/technical-architecture</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>390</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer network, technical architecture, stack, orchestrator, gateway, go-livepeer</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-overview</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>1090</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer protocol, protocol overview, protocol, overview</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/blockchain-contracts</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>3247</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, livepeer protocol, livepeer smart contracts, livepeer contract architecture, blockchain contracts, blockchain, contracts, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer Governor, livepeer RoundsManager, livepeer Minter, livepeer ServiceRegistry, livepeer protocol contracts, arbitrum contracts, ethereum contracts, smart contract upgrade, governance upgrade</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/core-mechanisms</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>1860</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer protocol, protocol</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/economics</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>781</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer protocol, livepeer protocol economics, protocol, economics</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/governance-model</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>1070</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer network, livepeer governance, governance, learn</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/livepeer-token</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>994</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer network, livepeer token economics, token, learn</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/overview</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>895</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer protocol, protocol overview, protocol, overview</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/technical-architecture</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>115</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer protocol, technical overview, technical, overview</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/treasury</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>757</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer network, livepeer treasury, treasury, learn</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/mental-model</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>1432</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, core concepts, mental model, introduction, key, architecture</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/portal</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>172</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>Start Here, livepeer, about, about livepeer, about portal, about livepeer portal, about livepeer network, about livepeer protocol, about livepeer token, about livepeer governance, about livepeer actors, about livepeer economics, about livepeer whitepaper, about livepeer faq</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/resources/compendium/glossary</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>2943</ai:wordCount>
-    <ai:lastVerified>2026-03</ai:lastVerified>
-    <ai:tags>livepeer, glossary, about, terminology</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/resources/compendium/livepeer-glossary</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>1678</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, resources, livepeer glossary, glossary, comprehensive, terms</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/resources/livepeer-contract-addresses</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
+    <loc>https://docs.livepeer.org/v2/about/resources/reference/livepeer-contract-addresses</loc>
+    <lastmod>2026-04-04T12:26:07.187Z</lastmod>
     <ai:section>about</ai:section>
     <ai:wordCount>0</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-04T12:26:07.187Z</ai:lastVerified>
     <ai:tags>livepeer, livepeer contracts, livepeer contract address, livepeer contract addresses, LPT contract address, LPT token address, livepeer token address, livepeer smart contract address, livepeer arbitrum contract address, livepeer ethereum contract address, livepeer official contract, livepeer protocol contracts, contract addresses, arbitrum, ethereum, blockchain, smart contracts, canonical, reference, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer RoundsManager, livepeer Governor, livepeer verified contracts, livepeer arbiscan, official livepeer addresses, 0x289ba1701C2F088cf0faf8B3705246331cB8A839, 0x58b6a8a3302369daec383334672404ee733ab239</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/resources/livepeer-whitepaper</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>436</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer protocol, livepeer whitepaper, whitepaper</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/about/resources/technical-roadmap</loc>
-    <lastmod>2026-04-05T01:48:52+11:00</lastmod>
-    <ai:section>about</ai:section>
-    <ai:wordCount>18</ai:wordCount>
-    <ai:lastVerified>2026-04-05T01:48:52+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, resources, technical roadmap, roadmap, https, introducing</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/community/community-portal</loc>
@@ -2505,10 +2329,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/tooling/snippets-inventory</loc>
-    <lastmod>2026-04-05T15:39:57+10:00</lastmod>
+    <lastmod>2026-04-05T17:17:29+10:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>467</ai:wordCount>
-    <ai:lastVerified>2026-04-05T15:39:57+10:00</ai:lastVerified>
+    <ai:lastVerified>2026-04-05T17:17:29+10:00</ai:lastVerified>
     <ai:tags>livepeer, resources, documentation guide, snippets, inventory, governance, components, data, composables, templates</ai:tags>
   </url>
   <url>

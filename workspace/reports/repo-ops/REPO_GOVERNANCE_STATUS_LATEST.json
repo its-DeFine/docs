@@ -5,7 +5,8 @@
   "canonical_manifests": [
     "operations/governance/config/root-governance.json",
     "operations/governance/config/generated-artifacts.json",
-    "operations/governance/config/agent-write-governance.json"
+    "operations/governance/config/agent-write-governance.json",
+    "operations/governance/config/ownerless-governance-surfaces.json"
   ],
   "generated_outputs": {
     "map_doc": "docs-guide/repo-ops/config/repo-governance-map.mdx",

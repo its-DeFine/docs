@@ -144,6 +144,11 @@ function run() {
     'operations/governance/config/generated-artifacts.json',
     'tools/config/runtime/generated-artifacts.json'
   );
+  checkBridgeManifestEquality(
+    issues,
+    'operations/governance/config/ownerless-governance-surfaces.json',
+    'tools/config/runtime/ownerless-governance-surfaces.json'
+  );
   try {
     readAgentWriteManifest(REPO_ROOT);
   } catch (error) {

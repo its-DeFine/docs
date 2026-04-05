@@ -93,12 +93,12 @@
     "Community FAQ": null
   },
   "ABOUT": {
-    "Protocol Overview": "v2/about/livepeer-network/overview.mdx",
-    "Core Mechanisms": "v2/about/livepeer-network/fee-flow.mdx",
-    "Network Architecture": "v2/about/livepeer-network/actors.mdx",
-    "The Marketplace": "v2/about/livepeer-network/marketplace.mdx",
-    "Protocol Economics": "v2/about/livepeer-network/scaling.mdx",
-    "Glossary": "v2/resources/livepeer-glossary.mdx"
+    "Protocol Overview": "v2/about/protocol/overview.mdx",
+    "Core Mechanisms": "v2/about/protocol/core-mechanisms.mdx",
+    "Network Architecture": "v2/about/network/technical-architecture.mdx",
+    "The Marketplace": "v2/about/network/marketplace.mdx",
+    "Protocol Economics": "v2/about/protocol/economics.mdx",
+    "Glossary": "v2/about/resources/livepeer-glossary.mdx"
   },
   "RESOURCE HUB": {
     "Resource Portal": "v2/resources/resources-portal.mdx",

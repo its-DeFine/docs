@@ -17,6 +17,43 @@ const { spawnSync } = require('child_process');
 const MANIFEST_PATH = 'operations/governance/config/agent-write-governance.json';
 const VALID_COMMIT_POLICIES = new Set(['tracked', 'task_dependent', 'forbidden']);
 
+function toPosix(value) {
+  return String(value || '').split(path.sep).join('/');
+}
+
+function normalizeRepoPath(value) {
+  return toPosix(String(value || '').trim()).replace(/^\.\//, '');
+}
+
+function escapeRegExp(value) {
+  return String(value || '').replace(/[|\\{}()[\]^$+?.]/g, '\\$&');
+}
+
+function globToRegExp(glob) {
+  const normalized = normalizeRepoPath(glob);
+  let pattern = '^';
+  for (let index = 0; index < normalized.length; index += 1) {
+    const char = normalized[index];
+    const next = normalized[index + 1];
+    if (char === '*' && next === '*') {
+      pattern += '.*';
+      index += 1;
+      continue;
+    }
+    if (char === '*') {
+      pattern += '[^/]*';
+      continue;
+    }
+    pattern += escapeRegExp(char);
+  }
+  pattern += '$';
+  return new RegExp(pattern);
+}
+
+function pathMatches(pattern, repoPath) {
+  return globToRegExp(pattern).test(normalizeRepoPath(repoPath));
+}
+
 function getRepoRoot() {
   const result = spawnSync('git', ['rev-parse', '--show-toplevel'], { encoding: 'utf8' });
   if (result.status === 0 && String(result.stdout || '').trim()) {
@@ -106,10 +143,52 @@ function readManifest(repoRoot = getRepoRoot()) {
   return manifest;
 }
 
+function getPathClassById(pathClassId, manifest = readManifest()) {
+  return (manifest.path_classes || []).find((entry) => entry.id === pathClassId) || null;
+}
+
+function findPathClassesForPath(repoPath, manifest = readManifest()) {
+  const normalized = normalizeRepoPath(repoPath);
+  return (manifest.path_classes || []).filter((entry) =>
+    (entry.allowed_paths || []).some((pattern) => pathMatches(pattern, normalized))
+  );
+}
+
+function getForbiddenTrackedPatterns(manifest = readManifest()) {
+  const grouped = new Map();
+  (manifest.output_classes || [])
+    .filter((entry) => entry.commit_policy === 'forbidden' && entry.path_class && entry.path_class !== 'none')
+    .forEach((entry) => {
+      (getPathClassById(entry.path_class, manifest)?.allowed_paths || []).forEach((pattern) => {
+        const key = `${entry.path_class}:${pattern}`;
+        if (!grouped.has(key)) {
+          grouped.set(key, {
+            path_class: entry.path_class,
+            pattern,
+            output_classes: []
+          });
+        }
+        grouped.get(key).output_classes.push(entry.id);
+      });
+    });
+  return [...grouped.values()].map((entry) => ({
+    path_class: entry.path_class,
+    pattern: entry.pattern,
+    output_classes: [...new Set(entry.output_classes)].sort()
+  }));
+}
+
 module.exports = {
   MANIFEST_PATH,
   VALID_COMMIT_POLICIES,
   getRepoRoot,
+  toPosix,
+  normalizeRepoPath,
+  globToRegExp,
+  pathMatches,
   validateManifest,
-  readManifest
+  readManifest,
+  getPathClassById,
+  findPathClassesForPath,
+  getForbiddenTrackedPatterns
 };

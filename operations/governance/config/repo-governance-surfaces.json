@@ -5,7 +5,8 @@
   "canonical_manifests": [
     "operations/governance/config/root-governance.json",
     "operations/governance/config/generated-artifacts.json",
-    "operations/governance/config/agent-write-governance.json"
+    "operations/governance/config/agent-write-governance.json",
+    "operations/governance/config/ownerless-governance-surfaces.json"
   ],
   "approval_checkpoints": [
     {
@@ -160,6 +161,7 @@
         "operations/governance/config/root-governance.json",
         "operations/governance/config/generated-artifacts.json",
         "operations/governance/config/agent-write-governance.json",
+        "operations/governance/config/ownerless-governance-surfaces.json",
         "docs-guide/repo-ops/config/repo-governance-map.mdx",
         "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json",
         "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md"
@@ -169,6 +171,7 @@
         "operations/governance/config/root-governance.json",
         "operations/governance/config/generated-artifacts.json",
         "operations/governance/config/agent-write-governance.json",
+        "operations/governance/config/ownerless-governance-surfaces.json",
         "docs-guide/repo-ops/config/repo-config-map.mdx"
       ],
       "derived_outputs": [
@@ -309,11 +312,13 @@
       "name": "Ownerless Governance",
       "surface_type": "ownerless-governance",
       "paths": [
+        "operations/governance/config/ownerless-governance-surfaces.json",
         "tools/config/runtime/ownerless-governance-surfaces.json",
         "docs-guide/policies/ownerless-governance.mdx",
         "operations/tests/unit/ownerless-governance.test.js"
       ],
       "canonical_sources": [
+        "operations/governance/config/ownerless-governance-surfaces.json",
         "tools/config/runtime/ownerless-governance-surfaces.json",
         "docs-guide/policies/ownerless-governance.mdx"
       ],
@@ -340,7 +345,7 @@
         "policy language stays ownerless",
         "gate-layer contract remains explicit"
       ],
-      "notes": "Ownerless governance remains in migration while the top-level registry is introduced in operations/governance/config."
+      "notes": "Canonical ownerless-governance manifest now lives under operations/governance/config while the legacy runtime mirror remains in staged bridge mode."
     }
   ]
 }

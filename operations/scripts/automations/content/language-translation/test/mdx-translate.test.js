@@ -46,7 +46,7 @@ test('protectText preserves URLs/routes/brand terms and restores placeholders', 
     preserveBrandTerms: ['Livepeer'],
     preserveRegexes: []
   };
-  const input = 'Use Livepeer at https://example.com and route v2/about/livepeer-network/actors';
+  const input = 'Use Livepeer at https://example.com and route v2/about/network/actors';
   const protectedValue = protectText(input, rules);
   assert.equal(protectedValue.skip, false);
   assert.match(protectedValue.text, /__I18N_PH_/);
@@ -63,8 +63,8 @@ test('translateMdxBody rewrites internal markdown links when localized targets e
   };
 
   const routeMap = new Map([
-    ['v2/about/livepeer-network/actors', new Map([['es', 'v2/es/about/livepeer-network/actors']])],
-    ['v2/about/livepeer-network/job-lifecycle', new Map([['es', 'v2/es/about/livepeer-network/job-lifecycle']])]
+    ['v2/about/network/actors', new Map([['es', 'v2/es/about/network/actors']])],
+    ['v2/about/network/job-lifecycle', new Map([['es', 'v2/es/about/network/job-lifecycle']])]
   ]);
 
   const body = 'See [Job Lifecycle](./job-lifecycle) and [External](https://example.com).';
@@ -74,9 +74,9 @@ test('translateMdxBody rewrites internal markdown links when localized targets e
     translator,
     rules: { preserveBrandTerms: [], preserveRegexes: [] },
     routeContext: {
-      sourceRoute: 'v2/about/livepeer-network/actors',
+      sourceRoute: 'v2/about/network/actors',
       language: 'es',
-      sourceLocalizedRoute: 'v2/es/about/livepeer-network/actors',
+      sourceLocalizedRoute: 'v2/es/about/network/actors',
       routeMapBySourceRoute: routeMap
     }
   });

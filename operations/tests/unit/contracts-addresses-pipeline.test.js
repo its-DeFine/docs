@@ -96,6 +96,7 @@ const CANONICAL_PAGE_PATH = path.join(
   'v2',
   'about',
   'resources',
+  'reference',
   'livepeer-contract-addresses.mdx'
 );
 const VERIFIER_PAGE_PATH = path.join(
@@ -109,7 +110,7 @@ const BLOCKCHAIN_PAGE_PATH = path.join(
   REPO_ROOT,
   'v2',
   'about',
-  'livepeer-protocol',
+  'protocol',
   'blockchain-contracts.mdx'
 );
 const DOCS_JSON_PATH = path.join(REPO_ROOT, 'docs.json');
@@ -638,14 +639,14 @@ function runTests() {
   runCase('docs navigation exposes the verifier route next to the contracts reference page', () => {
     const docsJson = readText(DOCS_JSON_PATH);
 
-    assert.ok(docsJson.includes('v2/about/resources/livepeer-contract-addresses'), 'docs.json should keep the canonical contracts route');
+    assert.ok(docsJson.includes('v2/about/resources/reference/livepeer-contract-addresses'), 'docs.json should keep the canonical contracts route');
     assert.ok(docsJson.includes('v2/about/resources/verify-contract-addresses'), 'docs.json should include the verifier route');
   });
 
   runCase('AI sitemap freshness tracks generated contracts data for all contracts routes', () => {
-    const canonicalDependencies = ROUTE_DEPENDENCIES['v2/about/resources/livepeer-contract-addresses'] || [];
+    const canonicalDependencies = ROUTE_DEPENDENCIES['v2/about/resources/reference/livepeer-contract-addresses'] || [];
     const verifierDependencies = ROUTE_DEPENDENCIES['v2/about/resources/verify-contract-addresses'] || [];
-    const blockchainDependencies = ROUTE_DEPENDENCIES['v2/about/livepeer-protocol/blockchain-contracts'] || [];
+    const blockchainDependencies = ROUTE_DEPENDENCIES['v2/about/protocol/blockchain-contracts'] || [];
 
     assert.ok(canonicalDependencies.includes('snippets/data/contract-addresses/contractAddressesData.json'));
     assert.strictEqual(

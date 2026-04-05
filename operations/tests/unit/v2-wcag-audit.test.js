@@ -46,7 +46,7 @@ function runTests() {
     assert.strictEqual(fileWalker.isExcludedV2ExperimentalPath('v2/orchestrators/_contextData/product-thinking-handoff.md'), true);
     assert.strictEqual(fileWalker.isExcludedV2ExperimentalPath('v2/gateways/guides/payments-and-pricing/review.md'), true);
     assert.strictEqual(fileWalker.isExcludedV2ExperimentalPath('v2/orchestrators/operations/x-running-workloads.mdx'), false);
-    assert.strictEqual(fileWalker.isExcludedV2ExperimentalPath('v2/about/livepeer-overview.mdx'), false);
+    assert.strictEqual(fileWalker.isExcludedV2ExperimentalPath('v2/about/concepts/livepeer-overview.mdx'), false);
   });
 
   runCase('Parses WCAG args with defaults and flags', () => {
@@ -65,21 +65,21 @@ function runTests() {
   });
 
   runCase('Files mode does not default-cap browser pages', () => {
-    const parsed = wcag.parseArgs(['--files', 'v2/about/livepeer-overview.mdx']);
+    const parsed = wcag.parseArgs(['--files', 'v2/about/concepts/livepeer-overview.mdx']);
     assert.strictEqual(parsed.mode, 'files');
     assert.strictEqual(parsed.maxPages, null);
   });
 
   runCase('Maps legacy and migrated v2 route keys to URL paths', () => {
     assert.strictEqual(wcag.routeKeyToUrlPath('v2/pages/04_gateways/index'), '/v2/04_gateways');
-    assert.strictEqual(wcag.routeKeyToUrlPath('v2/about/livepeer-overview'), '/v2/about/livepeer-overview');
+    assert.strictEqual(wcag.routeKeyToUrlPath('v2/about/concepts/livepeer-overview'), '/v2/about/concepts/livepeer-overview');
   });
 
   runCase('Supports v2-aware file route key mapping', () => {
     const root = process.cwd();
-    const migrated = path.join(root, 'v2', 'about', 'livepeer-overview.mdx');
+    const migrated = path.join(root, 'v2', 'about', 'concepts', 'livepeer-overview.mdx');
     const legacy = path.join(root, 'v2', 'x-pages', '00_home', 'home', 'primer.mdx');
-    assert.strictEqual(wcag.fileToV2RouteKey(migrated), 'v2/about/livepeer-overview');
+    assert.strictEqual(wcag.fileToV2RouteKey(migrated), 'v2/about/concepts/livepeer-overview');
     assert.strictEqual(wcag.fileToV2RouteKey(legacy), '');
   });
 

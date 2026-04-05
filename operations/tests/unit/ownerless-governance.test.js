@@ -3,7 +3,7 @@
  * @script            ownerless-governance.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, tests/utils, operations/tests/WHEN-TESTS-RUN.md, docs-guide, tools/config/runtime/ownerless-governance-surfaces.json, AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, docs-guide/contributing/agent-instructions.mdx
+ * @scope             tests/unit, tests/utils, operations/tests/WHEN-TESTS-RUN.md, docs-guide, operations/governance/config/ownerless-governance-surfaces.json, tools/config/runtime/ownerless-governance-surfaces.json, AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, docs-guide/contributing/agent-instructions.mdx
  * @owner             docs
  * @needs             R-R14, R-R29
  * @purpose-statement Validates the ownerless governance manifest, primary gate-layer contract, and forbidden human-owner dependency in governed policy and GitHub surfaces.
@@ -16,7 +16,8 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const REPO_ROOT = path.resolve(__dirname, '../../..');
-const MANIFEST_PATH = 'tools/config/runtime/ownerless-governance-surfaces.json';
+const MANIFEST_PATH = 'operations/governance/config/ownerless-governance-surfaces.json';
+const LEGACY_MANIFEST_PATH = 'tools/config/runtime/ownerless-governance-surfaces.json';
 const POLICY_PATH = 'docs-guide/policies/ownerless-governance.mdx';
 const REQUIRED_KEYS = [
   'id',
@@ -41,7 +42,7 @@ const REQUIRED_POLICY_SNIPPETS = [
   '## Repair Path Rules',
   '## Rollout State Rules',
   '## OSS Contributor Loop',
-  'tools/config/runtime/ownerless-governance-surfaces.json'
+  'operations/governance/config/ownerless-governance-surfaces.json'
 ];
 const GOVERNED_TEXT_FILES = [
   'README.md',
@@ -132,10 +133,11 @@ function exists(repoPathValue) {
 }
 
 function loadManifest() {
-  const raw = readUtf8(MANIFEST_PATH);
+  const manifestPath = exists(MANIFEST_PATH) ? MANIFEST_PATH : LEGACY_MANIFEST_PATH;
+  const raw = readUtf8(manifestPath);
   const parsed = JSON.parse(raw);
   if (!Array.isArray(parsed)) {
-    throw new Error(`${MANIFEST_PATH} must be a JSON array.`);
+    throw new Error(`${manifestPath} must be a JSON array.`);
   }
   return parsed;
 }

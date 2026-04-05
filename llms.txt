@@ -24,44 +24,6 @@
 
 ## About
 
-### About Livepeer / About Livepeer
-
-- [About Livepeer: Protocol & Network](https://docs.livepeer.org/v2/about/portal): Welcome To The About Portal: Explore, Connect, Contribute
-- [Livepeer Overview](https://docs.livepeer.org/v2/about/livepeer-overview): An overview of the Livepeer protocol and network.
-- [Livepeer Core Concepts](https://docs.livepeer.org/v2/about/core-concepts): A high-level introduction to the key concepts and architecture of the Livepeer Real-time AI & Video Network
-- [The Livepeer Stack and Mental Model](https://docs.livepeer.org/v2/about/mental-model): A high-level introduction to the key concepts workings of the Livepeer open, on-demand AI & Media infrastructure substrate and the distributed crypto-primitive coordination system.
-
-### About Livepeer / Livepeer Protocol
-
-- [Protocol Overview](https://docs.livepeer.org/v2/about/livepeer-protocol/overview): This section outlines the design, contract architecture, staking & reward mechanisms, incentive alignment and governance model of the on-chain Livepeer Protocol that governs how work is coordinated...
-- [Core Mechanisms and Functions](https://docs.livepeer.org/v2/about/livepeer-protocol/core-mechanisms): The Livepeer protocol secures a decentralised marketplace for verifiable media and AI compute through a tightly coupled set of economic and cryptographic systems. These mechanisms include LPT bondi...
-- [Blockchain Contracts](https://docs.livepeer.org/v2/about/livepeer-protocol/blockchain-contracts): Architecture overview of all Livepeer protocol smart contracts on Arbitrum One and Ethereum Mainnet. What each contract does, how contracts interact, and how upgrades work through governance.
-- [Livepeer Token](https://docs.livepeer.org/v2/about/livepeer-protocol/livepeer-token): Livepeer Token (LPT) is the native proof-of-stake token of the Livepeer network. It is the key to participating in the protocol: to operate or delegate in the transcoding network, to earn rewards,...
-- [Livepeer Governance Model](https://docs.livepeer.org/v2/about/livepeer-protocol/governance-model): This page describes the on-chain governance model which provides a permissionless, transparent, and community-driven framework for upgrading and governing the Livepeer protocol. It touches on the k...
-- [Livepeer Treasury](https://docs.livepeer.org/v2/about/livepeer-protocol/treasury): This page outlines how the treasury accumulates funds, how disbursements are authorised, and how its role is evolving across the protocol’s roadmap.
-- [Livepeer Protocol Economics](https://docs.livepeer.org/v2/about/livepeer-protocol/economics): Learn how LPT, staking, inflation, rewards, fees, and payment flows shape the Livepeer protocol economy.
-- [Technical Overview](https://docs.livepeer.org/v2/about/livepeer-protocol/technical-architecture): A technical overview of the Livepeer protocol.
-
-### About Livepeer / Livepeer Network
-
-- [Livepeer Network Overview](https://docs.livepeer.org/v2/about/livepeer-network/overview): An overview of the Livepeer network and its components.
-- [Actors Overview](https://docs.livepeer.org/v2/about/livepeer-network/actors): Who participates in Livepeer, what each role does, and how roles interact.
-- [Livepeer Job Lifecycle](https://docs.livepeer.org/v2/about/livepeer-network/job-lifecycle): This page describes the end-to-end “compute job” as a state machine. Since Livepeer’s compute is segment-oriented, the lifecycle is modelled at the level of a stream session and per-segment process...
-- [Livepeer Marketplace](https://docs.livepeer.org/v2/about/livepeer-network/marketplace): How the Livepeer Network marketplace matches demand and supply for real-time media compute: transcoding and AI inference, including routing, pricing, and settlement.
-- [Network Technical Architecture](https://docs.livepeer.org/v2/about/livepeer-network/technical-architecture): Technical stack of the Livepeer Network: node types, gateway infrastructure, APIs, CLI, SDKs, and monitoring. How orchestrators, gateways, and workers fit together.
-- [Network Interfaces](https://docs.livepeer.org/v2/about/livepeer-network/interfaces): How to interact with the Livepeer Network and protocol: REST and gRPC APIs, GraphQL, JS SDK, CLI, and smart contract interfaces.
-
-### About Livepeer / Resources / Compendium
-
-- [Livepeer Glossary](https://docs.livepeer.org/v2/about/resources/compendium/livepeer-glossary): A comprehensive glossary of terms used in the Livepeer Real-time AI & Video Network
-- [About Livepeer — Glossary](https://docs.livepeer.org/v2/about/resources/compendium/glossary): Key terms used in the Livepeer About section — protocol architecture, network roles, governance, and ecosystem concepts.
-
-### About Livepeer / Resources
-
-- [Livepeer Whitepaper](https://docs.livepeer.org/v2/about/resources/livepeer-whitepaper): Read the original Livepeer whitepaper and understand how its decentralised video vision evolved into the current network.
-- [Canonical Contract Addresses](https://docs.livepeer.org/v2/about/resources/livepeer-contract-addresses): Official Livepeer protocol contract addresses on Arbitrum One and Ethereum Mainnet. Verified from live chain state, upstream source provenance, and explorer evidence on every refresh. The canonical...
-- [Technical Roadmap](https://docs.livepeer.org/v2/about/resources/technical-roadmap): Review the current Livepeer roadmap posts covering network and product direction.
-
 
 ## Solutions
 
@@ -759,7 +721,7 @@
 
 ### Resources / Technical References
 
-- [Canonical Contract Addresses](https://docs.livepeer.org/v2/about/resources/livepeer-contract-addresses): Official Livepeer protocol contract addresses on Arbitrum One and Ethereum Mainnet. Verified from live chain state, upstream source provenance, and explorer evidence on every refresh. The canonical...
+- [Canonical Contract Addresses](https://docs.livepeer.org/v2/about/resources/reference/livepeer-contract-addresses): Official Livepeer protocol contract addresses on Arbitrum One and Ethereum Mainnet. Verified from live chain state, upstream source provenance, and explorer evidence on every refresh. The canonical...
 
 ### Resources / Compendium
 

@@ -50,7 +50,7 @@ If any of those are missing, the surface is not ownerless-ready and must remain 
 
 ## Gate Ownership Rules
 
-Each governed surface must declare exactly one primary gate layer in `tools/config/runtime/ownerless-governance-surfaces.json`.
+Each governed surface must declare exactly one primary gate layer in `operations/governance/config/ownerless-governance-surfaces.json`.
 
 Allowed gate layers:
 
@@ -89,6 +89,10 @@ Promotion to `blocking` requires:
 ## Surface Registry
 
 The machine-readable surface registry lives at:
+
+- `operations/governance/config/ownerless-governance-surfaces.json`
+
+During staged bridge migration, a legacy mirror remains at:
 
 - `tools/config/runtime/ownerless-governance-surfaces.json`
 

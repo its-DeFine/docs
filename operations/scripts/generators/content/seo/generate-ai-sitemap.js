@@ -33,7 +33,7 @@ const DOCS_JSON = 'docs.json';
 const OUTPUT_FILE = 'sitemap-ai.xml';
 const AI_NAMESPACE = 'https://docs.livepeer.org/schemas/ai-sitemap/1.0';
 const ROUTE_DEPENDENCIES = {
-  'v2/about/resources/livepeer-contract-addresses': [
+  'v2/about/resources/reference/livepeer-contract-addresses': [
     'snippets/data/contract-addresses/contractAddressesData.json',
     'snippets/data/contract-addresses/_health-checks.json',
   ],
@@ -41,7 +41,7 @@ const ROUTE_DEPENDENCIES = {
     'snippets/data/contract-addresses/contractAddressesData.json',
     'snippets/data/contract-addresses/_health-checks.json',
   ],
-  'v2/about/livepeer-protocol/blockchain-contracts': [
+  'v2/about/protocol/blockchain-contracts': [
     'snippets/data/contract-addresses/blockchainContractsPageData.json',
     'snippets/data/contract-addresses/contractAddressesData.json',
   ],

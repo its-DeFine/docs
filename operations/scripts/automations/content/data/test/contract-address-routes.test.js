@@ -9,6 +9,7 @@ const V2_ROOT = path.join(REPO_ROOT, "v2");
 const IGNORE_DIRS = new Set(["_workspace", "archive", "TO-ADD", "x-deprecated", "internal"]);
 const BAD_PATTERNS = [
   "https://docs.livepeer.org/references/contract-addresses",
+  "/v2/about/resources/livepeer-contract-addresses",
   "/v2/about/resources/contract-addresses",
   "/v2/resources/references/contract-addresses",
   "/v2/gateways/resources/technical/contract-addresses",
@@ -35,8 +36,8 @@ test("docs.json redirects legacy contract-address routes to the canonical v2 pag
   const redirects = docsJson.redirects || [];
   const destinationFor = (source) => redirects.find((redirect) => redirect.source === source)?.destination || null;
 
-  assert.equal(destinationFor("/references/contract-addresses"), "/v2/about/resources/livepeer-contract-addresses");
-  assert.equal(destinationFor("/v2/about/resources/contract-addresses"), "/v2/about/resources/livepeer-contract-addresses");
+  assert.equal(destinationFor("/references/contract-addresses"), "/v2/about/resources/reference/livepeer-contract-addresses");
+  assert.equal(destinationFor("/v2/about/resources/contract-addresses"), "/v2/about/resources/reference/livepeer-contract-addresses");
 });
 
 test("active v2 pages do not reference legacy contract-address routes", () => {

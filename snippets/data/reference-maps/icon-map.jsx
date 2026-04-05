@@ -208,7 +208,7 @@ export const iconMapSections = [
         components: ['Card', 'Tab', 'Accordion'],
         examples: [
           'v2/solutions/livepeer-studio/docs/reference/overview.mdx',
-          'v2/about/livepeer-overview.mdx',
+          'v2/about/concepts/livepeer-overview.mdx',
         ],
       },
       {
@@ -836,7 +836,7 @@ export const iconMapSections = [
           'Avoid for general blockchain or on-chain pages (use `ethereum` for ETH-specific).',
         components: ['Card', 'Accordion', 'governance CTA'],
         examples: [
-          'v2/about/livepeer-protocol/overview.mdx',
+          'v2/about/protocol/overview.mdx',
           'v2/community/livepeer-community/livepeer-latest-topics.mdx',
         ],
       },
@@ -891,7 +891,7 @@ export const iconMapSections = [
           'Avoid for protocol governance — `building-columns` is more specific to that context.',
         components: ['Card', 'Accordion'],
         examples: [
-          'v2/about/livepeer-overview.mdx',
+          'v2/about/concepts/livepeer-overview.mdx',
           'v2/community/livepeer-community/ecosystem.mdx',
         ],
       },
@@ -906,7 +906,7 @@ export const iconMapSections = [
         components: ['Card', 'Accordion', 'reference CTA'],
         examples: [
           'v2/gateways/resources/technical/new-contract-addresses.mdx',
-          'v2/about/livepeer-protocol/core-mechanisms.mdx',
+          'v2/about/protocol/core-mechanisms.mdx',
         ],
       },
     ],
@@ -1098,7 +1098,7 @@ export const iconMapSections = [
         components: ['Card', 'Tab', 'community CTA'],
         examples: [
           'v2/community/community-portal.mdx',
-          'v2/about/livepeer-overview.mdx',
+          'v2/about/concepts/livepeer-overview.mdx',
         ],
       },
       {

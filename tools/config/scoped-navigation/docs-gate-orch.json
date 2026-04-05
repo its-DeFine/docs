@@ -2152,44 +2152,91 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/about/portal",
-                          "v2/about/livepeer-overview",
-                          "v2/about/core-concepts",
-                          "v2/about/mental-model"
+                          "v2/about/navigator"
+                        ]
+                      },
+                      {
+                        "group": "Core Concepts",
+                        "icon": "play",
+                        "pages": [
+                          "v2/about/concepts/livepeer-overview",
+                          "v2/about/concepts/mental-model",
+                          "v2/about/concepts/core-concepts"
                         ]
                       },
                       {
                         "group": "Livepeer Protocol",
                         "icon": "cube",
                         "pages": [
-                          "v2/about/livepeer-protocol/overview",
-                          "v2/about/livepeer-protocol/core-mechanisms",
-                          "v2/about/livepeer-protocol/livepeer-token",
-                          "v2/about/livepeer-protocol/governance-model",
-                          "v2/about/livepeer-protocol/treasury",
-                          "v2/about/livepeer-protocol/economics",
-                          "v2/about/livepeer-protocol/technical-architecture"
+                          "v2/about/protocol/overview",
+                          "v2/about/protocol/core-mechanisms",
+                          "v2/about/protocol/livepeer-token",
+                          "v2/about/protocol/economics",
+                          "v2/about/protocol/governance-model",
+                          "v2/about/protocol/treasury",
+                          "v2/about/protocol/technical-architecture",
+                          "v2/about/protocol/blockchain-contracts",
+                          "v2/about/protocol/design-philosophy"
                         ]
                       },
                       {
                         "group": "Livepeer Network",
                         "icon": "circle-nodes",
                         "pages": [
-                          "v2/about/livepeer-network/overview",
-                          "v2/about/livepeer-network/actors",
-                          "v2/about/livepeer-network/job-lifecycle",
-                          "v2/about/livepeer-network/marketplace",
-                          "v2/about/livepeer-network/technical-architecture",
-                          "v2/about/livepeer-network/interfaces"
+                          "v2/about/network/overview",
+                          "v2/about/network/actors",
+                          {
+                            "group": "Actor Profiles",
+                            "pages": [
+                              "v2/about/network/livepeer-actors/delegators",
+                              "v2/about/network/livepeer-actors/end-users",
+                              "v2/about/network/livepeer-actors/gateways",
+                              "v2/about/network/livepeer-actors/orchestrators"
+                            ]
+                          },
+                          "v2/about/network/technical-architecture",
+                          "v2/about/network/marketplace",
+                          "v2/about/network/job-lifecycle",
+                          "v2/about/network/interfaces",
+                          "v2/about/network/fee-flow",
+                          "v2/about/network/demand-side",
+                          "v2/about/network/supply-side",
+                          "v2/about/network/scaling"
                         ]
+                      },
+                      {
+                        "group": "Guides",
+                        "icon": "chart-line",
+                        "pages": []
                       },
                       {
                         "group": "Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/about/resources/livepeer-whitepaper",
+                          "v2/about/resources/faq",
+                          "v2/about/resources/glossary",
                           "v2/about/resources/livepeer-glossary",
-                          "v2/about/livepeer-protocol/blockchain-contracts",
-                          "v2/about/resources/technical-roadmap"
+                          {
+                            "group": "Knowledge Hub",
+                            "pages": [
+                              "v2/about/resources/knowledge-hub/livepeer-whitepaper",
+                              "v2/about/resources/knowledge-hub/gateways-vs-orchestrators",
+                              "v2/about/resources/knowledge-hub/evaluating-livepeer",
+                              "v2/about/resources/knowledge-hub/contributor-orientation"
+                            ]
+                          },
+                          {
+                            "group": "Compendium",
+                            "pages": []
+                          },
+                          {
+                            "group": "Reference",
+                            "pages": [
+                              "v2/about/resources/reference/technical-roadmap",
+                              "v2/about/resources/reference/livepeer-contract-addresses",
+                              "v2/about/resources/reference/network-metrics"
+                            ]
+                          }
                         ]
                       }
                     ]
@@ -3207,9 +3254,9 @@
                         "group": "Livepeer Concepts",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/about/core-concepts",
+                          "v2/about/concepts/core-concepts",
                           "v2/resources/livepeer-glossary",
-                          "v2/about/livepeer-network/actors"
+                          "v2/about/network/actors"
                         ]
                       },
                       {

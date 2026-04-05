@@ -25,12 +25,36 @@
       "notes": "Canonical user-facing docs and internal governance docs."
     },
     {
+      "id": "canonical-doc-support",
+      "allowed_paths": [
+        "snippets/**",
+        "api/**"
+      ],
+      "commit_policy": "tracked",
+      "notes": "Governed doc-supporting content, APIs, snippets, and shared content assets."
+    },
+    {
+      "id": "legacy-docs-frozen",
+      "allowed_paths": [
+        "v1/**"
+      ],
+      "commit_policy": "tracked",
+      "notes": "Legacy docs tree remains path-classified for governance coverage, while separate freeze rules continue to block edits."
+    },
+    {
       "id": "canonical-operations",
       "allowed_paths": [
         "operations/**",
         ".github/**",
         ".githooks/**",
-        "ai-tools/**"
+        "ai-tools/**",
+        ".mintlify/**",
+        ".codex/**",
+        ".claude/**",
+        ".cursor/**",
+        ".windsurf/**",
+        ".augment/**",
+        ".vscode/**"
       ],
       "commit_policy": "tracked",
       "notes": "Canonical repo operations, automation, and AI-first subsystem paths."
@@ -42,6 +66,18 @@
       ],
       "commit_policy": "tracked",
       "notes": "Shared helper code and non-canonical supporting tooling."
+    },
+    {
+      "id": "workspace-governed",
+      "allowed_paths": [
+        "workspace/plan/**",
+        "workspace/research/**",
+        "workspace/scripts/**",
+        "workspace/staging/**",
+        "workspace/errors/**"
+      ],
+      "commit_policy": "task_dependent",
+      "notes": "Tracked workspace planning, research, scripts, and staged working material with explicit task scope."
     },
     {
       "id": "workspace-report",
@@ -76,6 +112,13 @@
       "path_class": "canonical-docs",
       "commit_policy": "tracked",
       "notes": "Canonical repo changes must target admitted governed surfaces."
+    },
+    {
+      "id": "governed-workspace",
+      "default_destination": "workspace/plan/** or other governed workspace paths",
+      "path_class": "workspace-governed",
+      "commit_policy": "task_dependent",
+      "notes": "Tracked workspace material is allowed only in declared governed workspace paths."
     },
     {
       "id": "generated",

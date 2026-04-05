@@ -1,5 +1,5 @@
 export const contractsRoutes = {
-  reference: '/v2/about/resources/livepeer-contract-addresses',
+  reference: '/v2/about/resources/reference/livepeer-contract-addresses',
   verifier: '/v2/about/resources/verify-contract-addresses',
 }
 

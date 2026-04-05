@@ -51,6 +51,7 @@ const skillDocsTests = require('./unit/skill-docs.test');
 const aiToolsRegistryTests = require('./unit/ai-tools-registry.test');
 const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
 const checkAgentDocsFreshnessTests = require('./unit/check-agent-docs-freshness.test');
+const agentWriteAdmissionTests = require('./unit/agent-write-admission.test');
 const rootAllowlistFormatTests = require('./unit/root-allowlist-format.test');
 const rootGovernanceSyncTests = require('./unit/root-governance-sync.test');
 const repoGovernanceSyncTests = require('./unit/repo-governance-sync.test');
@@ -88,7 +89,7 @@ const GENERATED_AFFECTING_EXACT = new Set([
   'v2/resources/documentation-guide/component-library/overview.mdx'
 ]);
 const SKILL_SPEC_CONTRACT_PATH = 'ai-tools/ai-skills/skill-spec-contract.md';
-const OWNERLESS_MANIFEST_PATH = 'tools/config/runtime/ownerless-governance-surfaces.json';
+const OWNERLESS_MANIFEST_PATH = 'operations/governance/config/ownerless-governance-surfaces.json';
 const OWNERLESS_POLICY_PATH = 'docs-guide/policies/ownerless-governance.mdx';
 
 function fallbackIsEligibleRepoMarkdownPath(filePath) {
@@ -316,6 +317,7 @@ function partitionFiles(changedFiles) {
   const ownerlessGovernanceFiles = existingChangedFiles.filter((file) =>
     file.startsWith('operations/governance/config/') ||
     file === OWNERLESS_MANIFEST_PATH ||
+    file === 'tools/config/runtime/ownerless-governance-surfaces.json' ||
     file === OWNERLESS_POLICY_PATH ||
     file === 'operations/tests/unit/ownerless-governance.test.js' ||
     file === 'operations/tests/unit/check-agent-docs-freshness.test.js' ||
@@ -777,6 +779,21 @@ async function runRepoGovernanceSyncCheck(files) {
   const result = await repoGovernanceSyncTests.runTests();
   return {
     label: 'Repo Governance Sync',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
+function runAgentWriteAdmissionCheck(files) {
+  if (!files.length) {
+    return { label: 'Agent Write Admission', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = agentWriteAdmissionTests.runTests({ files });
+  return {
+    label: 'Agent Write Admission',
     status: result.passed ? 'passed' : 'failed',
     files: files.length,
     errors: Array.isArray(result.errors) ? result.errors.length : 0,
@@ -1246,6 +1263,11 @@ function createBranchHealthRegistry(context) {
       label: 'AI-tools Registry',
       files: groups.aiToolsRegistryFiles,
       run: () => runAiToolsRegistryCheck(groups.aiToolsRegistryFiles)
+    }),
+    createInlineCheck({
+      label: 'Agent Write Admission',
+      files: changedFiles,
+      run: () => runAgentWriteAdmissionCheck(changedFiles)
     }),
     createInlineCheck({
       label: 'Ownerless Governance',

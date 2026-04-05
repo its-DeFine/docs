@@ -126,8 +126,8 @@ function createRelativeHrefFixtureRepo() {
                 tab: 'About',
                 pages: [
                   'v2/about/portal',
-                  'v2/about/livepeer-network/overview',
-                  'v2/about/resources/livepeer-whitepaper',
+                  'v2/about/network/overview',
+                  'v2/about/resources/knowledge-hub/livepeer-whitepaper',
                   'v2/resources/documentation-guide/component-library'
                 ]
               }
@@ -143,14 +143,14 @@ function createRelativeHrefFixtureRepo() {
     [
       '# Portal',
       '',
-      '<Card href="./livepeer-network/overview#actors" />',
-      '<Card href={"./resources/livepeer-whitepaper?download=1"} />',
+      '<Card href="./network/overview#actors" />',
+      '<Card href={"./resources/knowledge-hub/livepeer-whitepaper?download=1"} />',
       'const nav = [{ href: "./missing-page" }, { href: "../assets/guide.pdf" }];',
       ''
     ].join('\n')
   );
-  writeFile(repoDir, 'v2/about/livepeer-network/overview.mdx', '# Network overview\n');
-  writeFile(repoDir, 'v2/about/resources/livepeer-whitepaper.mdx', '# Whitepaper\n');
+  writeFile(repoDir, 'v2/about/network/overview.mdx', '# Network overview\n');
+  writeFile(repoDir, 'v2/about/resources/knowledge-hub/livepeer-whitepaper.mdx', '# Whitepaper\n');
   writeFile(repoDir, 'v2/resources/documentation-guide/component-library/component-library.mdx', '# Component Library\n');
   writeFile(repoDir, 'v2/resources/changelog/changelog.mdx', '<Card href="../../internal/overview/governance" />\n');
   writeFile(repoDir, 'v2/internal/overview/governance.mdx', '# Governance\n');
@@ -167,7 +167,7 @@ function createRelativeHrefFixtureRepo() {
     'run command: node operations/tests/unit/docs-path-sync.test.js',
     '*/}',
     '',
-    '<Card href="./livepeer-network/overview" />',
+    '<Card href="./network/overview" />',
     ''
   ].join('\n'));
   runCommand('git', ['add', '.'], { cwd: repoDir });
@@ -249,15 +249,15 @@ function runTests() {
 
   runCase('Shared resolver preserves suffixes and canonicalizes index-style routes', () => {
     const resolved = syncLib.resolveRelativeRoute(
-      'v2/about/livepeer-protocol/overview',
-      '../resources/livepeer-whitepaper?download=1#pdf'
+      'v2/about/protocol/overview',
+      '../resources/knowledge-hub/livepeer-whitepaper?download=1#pdf'
     );
 
-    assert.strictEqual(resolved.route, 'v2/about/resources/livepeer-whitepaper');
+    assert.strictEqual(resolved.route, 'v2/about/resources/knowledge-hub/livepeer-whitepaper');
     assert.strictEqual(resolved.suffix, '?download=1#pdf');
     assert.strictEqual(
       syncLib.encodeRouteForHref(resolved.route, resolved.suffix),
-      '/v2/about/resources/livepeer-whitepaper?download=1#pdf'
+      '/v2/about/resources/knowledge-hub/livepeer-whitepaper?download=1#pdf'
     );
     assert.strictEqual(
       syncLib.canonicalRouteFromFile('v2/resources/documentation-guide/component-library/component-library.mdx'),
@@ -310,8 +310,8 @@ function runTests() {
 
       const portalPlan = result.files.find((plan) => plan.file === 'v2/about/portal.mdx');
       assert.ok(portalPlan);
-      assert.ok(portalPlan.rewrites.some((entry) => entry.replacement === '/v2/about/livepeer-network/overview#actors'));
-      assert.ok(portalPlan.rewrites.some((entry) => entry.replacement === '/v2/about/resources/livepeer-whitepaper?download=1'));
+      assert.ok(portalPlan.rewrites.some((entry) => entry.replacement === '/v2/about/network/overview#actors'));
+      assert.ok(portalPlan.rewrites.some((entry) => entry.replacement === '/v2/about/resources/knowledge-hub/livepeer-whitepaper?download=1'));
       assert.ok(portalPlan.unresolved.some((entry) => entry.rawHref === './missing-page'));
       assert.ok(portalPlan.skipped.some((entry) => entry.rawHref === '../assets/guide.pdf'));
 
