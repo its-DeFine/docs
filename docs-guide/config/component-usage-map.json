@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generated": "2026-04-05T11:24:46.421Z",
+    "generated": "2026-04-05T11:49:47.029Z",
     "generator": "operations/scripts/audits/components/library/scan-component-imports.js",
     "componentCount": 144,
     "canonicalUsagePolicy": "english-only-jsdoc"
@@ -1105,34 +1105,36 @@
       "name": "BlinkingIcon",
       "file": "snippets/components/elements/links/Links.jsx",
       "category": "elements",
-      "count": 10,
+      "count": 11,
       "pages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/gateways/setup/configure/ai-configuration.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
         "v2/home/mission-control.mdx",
         "v2/orchestrators/portal.mdx",
         "v2/resources/portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "localeBreakdown": {
-        "en": 10,
+        "en": 11,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 10,
+      "englishCanonicalCount": 11,
       "englishCanonicalPages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/gateways/setup/configure/ai-configuration.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
         "v2/home/mission-control.mdx",
         "v2/orchestrators/portal.mdx",
         "v2/resources/portal.mdx",
@@ -1144,10 +1146,11 @@
         "missingFromJsDoc": [
           "v2/about/portal.mdx",
           "v2/community/community-portal.mdx",
-          "v2/delegators/token-portal.mdx",
+          "v2/delegators/portal.mdx",
           "v2/developers/portal.mdx",
           "v2/gateways/portal.mdx",
           "v2/gateways/setup/configure/ai-configuration.mdx",
+          "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "v2/home/mission-control.mdx",
           "v2/orchestrators/portal.mdx",
           "v2/resources/portal.mdx",
@@ -1398,7 +1401,7 @@
       "name": "CustomDivider",
       "file": "snippets/components/elements/spacing/Divider.jsx",
       "category": "elements",
-      "count": 178,
+      "count": 181,
       "pages": [
         "v2/about/navigator.mdx",
         "v2/about/portal.mdx",
@@ -1419,7 +1422,8 @@
         "v2/community/livepeer-community/community-guidelines.mdx",
         "v2/community/resources/compendium/glossary.mdx",
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
-        "v2/delegators/resources/compendium/glossary.mdx",
+        "v2/delegators/portal.mdx",
+        "v2/delegators/resources/reference/glossary.mdx",
         "v2/developers/guides/local-testnet-deployment.mdx",
         "v2/developers/guides/testnet-contract-deployment.mdx",
         "v2/developers/opportunities/bug-bounties.mdx",
@@ -1468,8 +1472,10 @@
         "v2/gateways/navigator.mdx",
         "v2/gateways/portal.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
+        "v2/gateways/resources/compendium/glossary.mdx",
         "v2/gateways/resources/reference/glossary.mdx",
         "v2/gateways/setup/configure/video-configuration.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/home/about-livepeer/benefits.mdx",
         "v2/home/about-livepeer/ecosystem.mdx",
@@ -1580,13 +1586,13 @@
         "v2/solutions/streamplace/overview.mdx"
       ],
       "localeBreakdown": {
-        "en": 178,
+        "en": 181,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 178,
+      "englishCanonicalCount": 181,
       "englishCanonicalPages": [
         "v2/about/navigator.mdx",
         "v2/about/portal.mdx",
@@ -1607,7 +1613,8 @@
         "v2/community/livepeer-community/community-guidelines.mdx",
         "v2/community/resources/compendium/glossary.mdx",
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
-        "v2/delegators/resources/compendium/glossary.mdx",
+        "v2/delegators/portal.mdx",
+        "v2/delegators/resources/reference/glossary.mdx",
         "v2/developers/guides/local-testnet-deployment.mdx",
         "v2/developers/guides/testnet-contract-deployment.mdx",
         "v2/developers/opportunities/bug-bounties.mdx",
@@ -1656,8 +1663,10 @@
         "v2/gateways/navigator.mdx",
         "v2/gateways/portal.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
+        "v2/gateways/resources/compendium/glossary.mdx",
         "v2/gateways/resources/reference/glossary.mdx",
         "v2/gateways/setup/configure/video-configuration.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/home/about-livepeer/benefits.mdx",
         "v2/home/about-livepeer/ecosystem.mdx",
@@ -1790,7 +1799,8 @@
           "v2/community/livepeer-community/community-guidelines.mdx",
           "v2/community/resources/compendium/glossary.mdx",
           "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
-          "v2/delegators/resources/compendium/glossary.mdx",
+          "v2/delegators/portal.mdx",
+          "v2/delegators/resources/reference/glossary.mdx",
           "v2/developers/guides/local-testnet-deployment.mdx",
           "v2/developers/guides/testnet-contract-deployment.mdx",
           "v2/developers/opportunities/bug-bounties.mdx",
@@ -1839,8 +1849,10 @@
           "v2/gateways/navigator.mdx",
           "v2/gateways/portal.mdx",
           "v2/gateways/quickstart/gateway-setup.mdx",
+          "v2/gateways/resources/compendium/glossary.mdx",
           "v2/gateways/resources/reference/glossary.mdx",
           "v2/gateways/setup/configure/video-configuration.mdx",
+          "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "v2/gateways/setup/requirements/setup.mdx",
           "v2/home/about-livepeer/benefits.mdx",
           "v2/home/about-livepeer/ecosystem.mdx",
@@ -1957,7 +1969,7 @@
       "name": "DoubleIconLink",
       "file": "snippets/components/elements/links/Links.jsx",
       "category": "elements",
-      "count": 34,
+      "count": 35,
       "pages": [
         "v2/about/protocol/blockchain-contracts.mdx",
         "v2/gateways/guides/deployment-details/setup-options.mdx",
@@ -1969,6 +1981,7 @@
         "v2/gateways/setup/install/docker-install.mdx",
         "v2/gateways/setup/install/install-overview.mdx",
         "v2/gateways/setup/monitor/monitor-and-optimise.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/resources/changelog/ai-compute/ai-runner.mdx",
         "v2/resources/changelog/ai-compute/comfystream.mdx",
@@ -1995,13 +2008,13 @@
         "v2/solutions/streamplace/changelog.mdx"
       ],
       "localeBreakdown": {
-        "en": 34,
+        "en": 35,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 34,
+      "englishCanonicalCount": 35,
       "englishCanonicalPages": [
         "v2/about/protocol/blockchain-contracts.mdx",
         "v2/gateways/guides/deployment-details/setup-options.mdx",
@@ -2013,6 +2026,7 @@
         "v2/gateways/setup/install/docker-install.mdx",
         "v2/gateways/setup/install/install-overview.mdx",
         "v2/gateways/setup/monitor/monitor-and-optimise.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/resources/changelog/ai-compute/ai-runner.mdx",
         "v2/resources/changelog/ai-compute/comfystream.mdx",
@@ -2052,6 +2066,7 @@
           "v2/gateways/setup/install/docker-install.mdx",
           "v2/gateways/setup/install/install-overview.mdx",
           "v2/gateways/setup/monitor/monitor-and-optimise.mdx",
+          "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "v2/gateways/setup/requirements/setup.mdx",
           "v2/resources/changelog/ai-compute/ai-runner.mdx",
           "v2/resources/changelog/ai-compute/comfystream.mdx",
@@ -2821,18 +2836,18 @@
       "category": "elements",
       "count": 13,
       "pages": [
-        "v2/delegators/about/mechanics.mdx",
-        "v2/delegators/about/overview.mdx",
-        "v2/delegators/about/tokenomics.mdx",
+        "v2/delegators/concepts/mechanics.mdx",
+        "v2/delegators/concepts/overview.mdx",
+        "v2/delegators/concepts/tokenomics.mdx",
         "v2/delegators/delegation/about-delegators.mdx",
         "v2/delegators/delegation/delegation-guide.mdx",
         "v2/delegators/delegation/overview.mdx",
-        "v2/delegators/governance/model.mdx",
-        "v2/delegators/governance/overview.mdx",
-        "v2/delegators/governance/processes.mdx",
-        "v2/delegators/treasury/allocations.mdx",
-        "v2/delegators/treasury/overview.mdx",
-        "v2/delegators/treasury/proposals.mdx",
+        "v2/delegators/guides/governance/model.mdx",
+        "v2/delegators/guides/governance/overview.mdx",
+        "v2/delegators/guides/governance/processes.mdx",
+        "v2/delegators/guides/treasury/allocations.mdx",
+        "v2/delegators/guides/treasury/overview.mdx",
+        "v2/delegators/guides/treasury/proposals.mdx",
         "v2/orchestrators/guides/staking-and-rewards/delegate-operations.mdx"
       ],
       "localeBreakdown": {
@@ -2844,36 +2859,36 @@
       },
       "englishCanonicalCount": 13,
       "englishCanonicalPages": [
-        "v2/delegators/about/mechanics.mdx",
-        "v2/delegators/about/overview.mdx",
-        "v2/delegators/about/tokenomics.mdx",
+        "v2/delegators/concepts/mechanics.mdx",
+        "v2/delegators/concepts/overview.mdx",
+        "v2/delegators/concepts/tokenomics.mdx",
         "v2/delegators/delegation/about-delegators.mdx",
         "v2/delegators/delegation/delegation-guide.mdx",
         "v2/delegators/delegation/overview.mdx",
-        "v2/delegators/governance/model.mdx",
-        "v2/delegators/governance/overview.mdx",
-        "v2/delegators/governance/processes.mdx",
-        "v2/delegators/treasury/allocations.mdx",
-        "v2/delegators/treasury/overview.mdx",
-        "v2/delegators/treasury/proposals.mdx",
+        "v2/delegators/guides/governance/model.mdx",
+        "v2/delegators/guides/governance/overview.mdx",
+        "v2/delegators/guides/governance/processes.mdx",
+        "v2/delegators/guides/treasury/allocations.mdx",
+        "v2/delegators/guides/treasury/overview.mdx",
+        "v2/delegators/guides/treasury/proposals.mdx",
         "v2/orchestrators/guides/staking-and-rewards/delegate-operations.mdx"
       ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
-          "v2/delegators/about/mechanics.mdx",
-          "v2/delegators/about/overview.mdx",
-          "v2/delegators/about/tokenomics.mdx",
+          "v2/delegators/concepts/mechanics.mdx",
+          "v2/delegators/concepts/overview.mdx",
+          "v2/delegators/concepts/tokenomics.mdx",
           "v2/delegators/delegation/about-delegators.mdx",
           "v2/delegators/delegation/delegation-guide.mdx",
           "v2/delegators/delegation/overview.mdx",
-          "v2/delegators/governance/model.mdx",
-          "v2/delegators/governance/overview.mdx",
-          "v2/delegators/governance/processes.mdx",
-          "v2/delegators/treasury/allocations.mdx",
-          "v2/delegators/treasury/overview.mdx",
-          "v2/delegators/treasury/proposals.mdx",
+          "v2/delegators/guides/governance/model.mdx",
+          "v2/delegators/guides/governance/overview.mdx",
+          "v2/delegators/guides/governance/processes.mdx",
+          "v2/delegators/guides/treasury/allocations.mdx",
+          "v2/delegators/guides/treasury/overview.mdx",
+          "v2/delegators/guides/treasury/proposals.mdx",
           "v2/orchestrators/guides/staking-and-rewards/delegate-operations.mdx"
         ],
         "staleInJsDoc": []
@@ -2885,18 +2900,18 @@
       "category": "elements",
       "count": 13,
       "pages": [
-        "v2/delegators/about/mechanics.mdx",
-        "v2/delegators/about/overview.mdx",
-        "v2/delegators/about/tokenomics.mdx",
+        "v2/delegators/concepts/mechanics.mdx",
+        "v2/delegators/concepts/overview.mdx",
+        "v2/delegators/concepts/tokenomics.mdx",
         "v2/delegators/delegation/about-delegators.mdx",
         "v2/delegators/delegation/delegation-guide.mdx",
         "v2/delegators/delegation/overview.mdx",
-        "v2/delegators/governance/model.mdx",
-        "v2/delegators/governance/overview.mdx",
-        "v2/delegators/governance/processes.mdx",
-        "v2/delegators/treasury/allocations.mdx",
-        "v2/delegators/treasury/overview.mdx",
-        "v2/delegators/treasury/proposals.mdx",
+        "v2/delegators/guides/governance/model.mdx",
+        "v2/delegators/guides/governance/overview.mdx",
+        "v2/delegators/guides/governance/processes.mdx",
+        "v2/delegators/guides/treasury/allocations.mdx",
+        "v2/delegators/guides/treasury/overview.mdx",
+        "v2/delegators/guides/treasury/proposals.mdx",
         "v2/orchestrators/guides/staking-and-rewards/delegate-operations.mdx"
       ],
       "localeBreakdown": {
@@ -2908,36 +2923,36 @@
       },
       "englishCanonicalCount": 13,
       "englishCanonicalPages": [
-        "v2/delegators/about/mechanics.mdx",
-        "v2/delegators/about/overview.mdx",
-        "v2/delegators/about/tokenomics.mdx",
+        "v2/delegators/concepts/mechanics.mdx",
+        "v2/delegators/concepts/overview.mdx",
+        "v2/delegators/concepts/tokenomics.mdx",
         "v2/delegators/delegation/about-delegators.mdx",
         "v2/delegators/delegation/delegation-guide.mdx",
         "v2/delegators/delegation/overview.mdx",
-        "v2/delegators/governance/model.mdx",
-        "v2/delegators/governance/overview.mdx",
-        "v2/delegators/governance/processes.mdx",
-        "v2/delegators/treasury/allocations.mdx",
-        "v2/delegators/treasury/overview.mdx",
-        "v2/delegators/treasury/proposals.mdx",
+        "v2/delegators/guides/governance/model.mdx",
+        "v2/delegators/guides/governance/overview.mdx",
+        "v2/delegators/guides/governance/processes.mdx",
+        "v2/delegators/guides/treasury/allocations.mdx",
+        "v2/delegators/guides/treasury/overview.mdx",
+        "v2/delegators/guides/treasury/proposals.mdx",
         "v2/orchestrators/guides/staking-and-rewards/delegate-operations.mdx"
       ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
-          "v2/delegators/about/mechanics.mdx",
-          "v2/delegators/about/overview.mdx",
-          "v2/delegators/about/tokenomics.mdx",
+          "v2/delegators/concepts/mechanics.mdx",
+          "v2/delegators/concepts/overview.mdx",
+          "v2/delegators/concepts/tokenomics.mdx",
           "v2/delegators/delegation/about-delegators.mdx",
           "v2/delegators/delegation/delegation-guide.mdx",
           "v2/delegators/delegation/overview.mdx",
-          "v2/delegators/governance/model.mdx",
-          "v2/delegators/governance/overview.mdx",
-          "v2/delegators/governance/processes.mdx",
-          "v2/delegators/treasury/allocations.mdx",
-          "v2/delegators/treasury/overview.mdx",
-          "v2/delegators/treasury/proposals.mdx",
+          "v2/delegators/guides/governance/model.mdx",
+          "v2/delegators/guides/governance/overview.mdx",
+          "v2/delegators/guides/governance/processes.mdx",
+          "v2/delegators/guides/treasury/allocations.mdx",
+          "v2/delegators/guides/treasury/overview.mdx",
+          "v2/delegators/guides/treasury/proposals.mdx",
           "v2/orchestrators/guides/staking-and-rewards/delegate-operations.mdx"
         ],
         "staleInJsDoc": []
@@ -3282,21 +3297,30 @@
       "name": "CoinGeckoExchanges",
       "file": "snippets/components/integrators/feeds/Coingecko.jsx",
       "category": "integrators",
-      "count": 0,
-      "pages": [],
+      "count": 2,
+      "pages": [
+        "v2/gateways/resources/compendium/arbitrum-exchanges.mdx",
+        "v2/gateways/resources/compendium/livepeer-exchanges.mdx"
+      ],
       "localeBreakdown": {
-        "en": 0,
+        "en": 2,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
+      "englishCanonicalCount": 2,
+      "englishCanonicalPages": [
+        "v2/gateways/resources/compendium/arbitrum-exchanges.mdx",
+        "v2/gateways/resources/compendium/livepeer-exchanges.mdx"
+      ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
-        "missingFromJsDoc": [],
+        "missingFromJsDoc": [
+          "v2/gateways/resources/compendium/arbitrum-exchanges.mdx",
+          "v2/gateways/resources/compendium/livepeer-exchanges.mdx"
+        ],
         "staleInJsDoc": []
       }
     },
@@ -3551,7 +3575,7 @@
       "category": "integrators",
       "count": 3,
       "pages": [
-        "v2/delegators/treasury/overview.mdx",
+        "v2/delegators/guides/treasury/overview.mdx",
         "v2/internal/rfp/aims.mdx",
         "v2/resources/compendium/media-kit.mdx"
       ],
@@ -3564,7 +3588,7 @@
       },
       "englishCanonicalCount": 3,
       "englishCanonicalPages": [
-        "v2/delegators/treasury/overview.mdx",
+        "v2/delegators/guides/treasury/overview.mdx",
         "v2/internal/rfp/aims.mdx",
         "v2/resources/compendium/media-kit.mdx"
       ],
@@ -3572,7 +3596,7 @@
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
-          "v2/delegators/treasury/overview.mdx",
+          "v2/delegators/guides/treasury/overview.mdx",
           "v2/internal/rfp/aims.mdx",
           "v2/resources/compendium/media-kit.mdx"
         ],
@@ -3831,10 +3855,11 @@
       "name": "H1",
       "file": "snippets/components/scaffolding/frame-mode/FrameMode.jsx",
       "category": "scaffolding",
-      "count": 8,
+      "count": 9,
       "pages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -3843,16 +3868,17 @@
         "v2/solutions/portal.mdx"
       ],
       "localeBreakdown": {
-        "en": 8,
+        "en": 9,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 8,
+      "englishCanonicalCount": 9,
       "englishCanonicalPages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -3866,6 +3892,7 @@
         "missingFromJsDoc": [
           "v2/about/portal.mdx",
           "v2/community/community-portal.mdx",
+          "v2/delegators/portal.mdx",
           "v2/developers/portal.mdx",
           "v2/gateways/portal.mdx",
           "v2/home/mission-control.mdx",
@@ -3880,10 +3907,11 @@
       "name": "H2",
       "file": "snippets/components/scaffolding/frame-mode/FrameMode.jsx",
       "category": "scaffolding",
-      "count": 8,
+      "count": 9,
       "pages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -3892,16 +3920,17 @@
         "v2/solutions/portal.mdx"
       ],
       "localeBreakdown": {
-        "en": 8,
+        "en": 9,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 8,
+      "englishCanonicalCount": 9,
       "englishCanonicalPages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -3915,6 +3944,7 @@
         "missingFromJsDoc": [
           "v2/about/portal.mdx",
           "v2/community/community-portal.mdx",
+          "v2/delegators/portal.mdx",
           "v2/developers/portal.mdx",
           "v2/gateways/portal.mdx",
           "v2/home/mission-control.mdx",
@@ -3929,26 +3959,29 @@
       "name": "H3",
       "file": "snippets/components/scaffolding/frame-mode/FrameMode.jsx",
       "category": "scaffolding",
-      "count": 1,
+      "count": 2,
       "pages": [
-        "v2/community/community-portal.mdx"
+        "v2/community/community-portal.mdx",
+        "v2/delegators/portal.mdx"
       ],
       "localeBreakdown": {
-        "en": 1,
+        "en": 2,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 1,
+      "englishCanonicalCount": 2,
       "englishCanonicalPages": [
-        "v2/community/community-portal.mdx"
+        "v2/community/community-portal.mdx",
+        "v2/delegators/portal.mdx"
       ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
-          "v2/community/community-portal.mdx"
+          "v2/community/community-portal.mdx",
+          "v2/delegators/portal.mdx"
         ],
         "staleInJsDoc": []
       }
@@ -4051,7 +4084,7 @@
       "pages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4070,7 +4103,7 @@
       "englishCanonicalPages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4084,7 +4117,7 @@
         "missingFromJsDoc": [
           "v2/about/portal.mdx",
           "v2/community/community-portal.mdx",
-          "v2/delegators/token-portal.mdx",
+          "v2/delegators/portal.mdx",
           "v2/developers/portal.mdx",
           "v2/gateways/portal.mdx",
           "v2/home/mission-control.mdx",
@@ -4103,7 +4136,7 @@
       "pages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4122,7 +4155,7 @@
       "englishCanonicalPages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4136,7 +4169,7 @@
         "missingFromJsDoc": [
           "v2/about/portal.mdx",
           "v2/community/community-portal.mdx",
-          "v2/delegators/token-portal.mdx",
+          "v2/delegators/portal.mdx",
           "v2/developers/portal.mdx",
           "v2/gateways/portal.mdx",
           "v2/home/mission-control.mdx",
@@ -4177,7 +4210,7 @@
       "pages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4196,7 +4229,7 @@
       "englishCanonicalPages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4210,7 +4243,7 @@
         "missingFromJsDoc": [
           "v2/about/portal.mdx",
           "v2/community/community-portal.mdx",
-          "v2/delegators/token-portal.mdx",
+          "v2/delegators/portal.mdx",
           "v2/developers/portal.mdx",
           "v2/gateways/portal.mdx",
           "v2/home/mission-control.mdx",
@@ -4229,7 +4262,7 @@
       "pages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4248,7 +4281,7 @@
       "englishCanonicalPages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4262,7 +4295,7 @@
         "missingFromJsDoc": [
           "v2/about/portal.mdx",
           "v2/community/community-portal.mdx",
-          "v2/delegators/token-portal.mdx",
+          "v2/delegators/portal.mdx",
           "v2/developers/portal.mdx",
           "v2/gateways/portal.mdx",
           "v2/home/mission-control.mdx",
@@ -4352,7 +4385,7 @@
       "pages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4371,7 +4404,7 @@
       "englishCanonicalPages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4385,7 +4418,7 @@
         "missingFromJsDoc": [
           "v2/about/portal.mdx",
           "v2/community/community-portal.mdx",
-          "v2/delegators/token-portal.mdx",
+          "v2/delegators/portal.mdx",
           "v2/developers/portal.mdx",
           "v2/gateways/portal.mdx",
           "v2/home/mission-control.mdx",
@@ -4404,7 +4437,7 @@
       "pages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4423,7 +4456,7 @@
       "englishCanonicalPages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4437,7 +4470,7 @@
         "missingFromJsDoc": [
           "v2/about/portal.mdx",
           "v2/community/community-portal.mdx",
-          "v2/delegators/token-portal.mdx",
+          "v2/delegators/portal.mdx",
           "v2/developers/portal.mdx",
           "v2/gateways/portal.mdx",
           "v2/home/mission-control.mdx",
@@ -4456,7 +4489,7 @@
       "pages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4475,7 +4508,7 @@
       "englishCanonicalPages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4489,7 +4522,7 @@
         "missingFromJsDoc": [
           "v2/about/portal.mdx",
           "v2/community/community-portal.mdx",
-          "v2/delegators/token-portal.mdx",
+          "v2/delegators/portal.mdx",
           "v2/developers/portal.mdx",
           "v2/gateways/portal.mdx",
           "v2/home/mission-control.mdx",
@@ -4507,7 +4540,7 @@
       "count": 2,
       "pages": [
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx"
+        "v2/delegators/portal.mdx"
       ],
       "localeBreakdown": {
         "en": 2,
@@ -4519,14 +4552,14 @@
       "englishCanonicalCount": 2,
       "englishCanonicalPages": [
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx"
+        "v2/delegators/portal.mdx"
       ],
       "declaredUsedIn": [],
       "declaredUsedInEnglish": [],
       "drift": {
         "missingFromJsDoc": [
           "v2/community/community-portal.mdx",
-          "v2/delegators/token-portal.mdx"
+          "v2/delegators/portal.mdx"
         ],
         "staleInJsDoc": []
       }
@@ -4561,7 +4594,7 @@
       "pages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4580,7 +4613,7 @@
       "englishCanonicalPages": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/delegators/token-portal.mdx",
+        "v2/delegators/portal.mdx",
         "v2/developers/portal.mdx",
         "v2/gateways/portal.mdx",
         "v2/home/mission-control.mdx",
@@ -4594,7 +4627,7 @@
         "missingFromJsDoc": [
           "v2/about/portal.mdx",
           "v2/community/community-portal.mdx",
-          "v2/delegators/token-portal.mdx",
+          "v2/delegators/portal.mdx",
           "v2/developers/portal.mdx",
           "v2/gateways/portal.mdx",
           "v2/home/mission-control.mdx",
@@ -4733,7 +4766,7 @@
       "name": "BorderedBox",
       "file": "snippets/components/wrappers/containers/Containers.jsx",
       "category": "wrappers",
-      "count": 62,
+      "count": 63,
       "pages": [
         "v2/about/protocol/blockchain-contracts.mdx",
         "v2/community/livepeer-community/community-guidelines.mdx",
@@ -4763,6 +4796,7 @@
         "v2/gateways/guides/roadmap-and-funding/operator-support.mdx",
         "v2/gateways/guides/roadmap-and-funding/spe-grant-model.mdx",
         "v2/gateways/navigator.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/orchestrators/concepts/architecture.mdx",
         "v2/orchestrators/concepts/capabilities.mdx",
@@ -4799,13 +4833,13 @@
         "v2/solutions/streamplace/overview.mdx"
       ],
       "localeBreakdown": {
-        "en": 62,
+        "en": 63,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 62,
+      "englishCanonicalCount": 63,
       "englishCanonicalPages": [
         "v2/about/protocol/blockchain-contracts.mdx",
         "v2/community/livepeer-community/community-guidelines.mdx",
@@ -4835,6 +4869,7 @@
         "v2/gateways/guides/roadmap-and-funding/operator-support.mdx",
         "v2/gateways/guides/roadmap-and-funding/spe-grant-model.mdx",
         "v2/gateways/navigator.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/orchestrators/concepts/architecture.mdx",
         "v2/orchestrators/concepts/capabilities.mdx",
@@ -4902,6 +4937,7 @@
           "v2/gateways/guides/roadmap-and-funding/operator-support.mdx",
           "v2/gateways/guides/roadmap-and-funding/spe-grant-model.mdx",
           "v2/gateways/navigator.mdx",
+          "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "v2/gateways/setup/requirements/setup.mdx",
           "v2/orchestrators/concepts/architecture.mdx",
           "v2/orchestrators/concepts/capabilities.mdx",
@@ -5155,7 +5191,7 @@
       "name": "DynamicTable",
       "file": "snippets/components/wrappers/tables/Table.jsx",
       "category": "wrappers",
-      "count": 26,
+      "count": 27,
       "pages": [
         "v2/about/network/interfaces.mdx",
         "v2/about/network/job-lifecycle.mdx",
@@ -5169,9 +5205,10 @@
         "v2/about/resources/glossary.mdx",
         "v2/community/resources/compendium/glossary.mdx",
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
-        "v2/delegators/resources/compendium/glossary.mdx",
+        "v2/delegators/resources/reference/glossary.mdx",
         "v2/developers/build/workload-fit.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
+        "v2/gateways/resources/compendium/glossary.mdx",
         "v2/gateways/resources/reference/technical/configuration-flags.mdx",
         "v2/gateways/setup/configure/pricing-configuration.mdx",
         "v2/gateways/setup/configure/video-configuration-view.mdx",
@@ -5185,13 +5222,13 @@
         "v2/solutions/solution-providers.mdx"
       ],
       "localeBreakdown": {
-        "en": 26,
+        "en": 27,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 26,
+      "englishCanonicalCount": 27,
       "englishCanonicalPages": [
         "v2/about/network/interfaces.mdx",
         "v2/about/network/job-lifecycle.mdx",
@@ -5205,9 +5242,10 @@
         "v2/about/resources/glossary.mdx",
         "v2/community/resources/compendium/glossary.mdx",
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
-        "v2/delegators/resources/compendium/glossary.mdx",
+        "v2/delegators/resources/reference/glossary.mdx",
         "v2/developers/build/workload-fit.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
+        "v2/gateways/resources/compendium/glossary.mdx",
         "v2/gateways/resources/reference/technical/configuration-flags.mdx",
         "v2/gateways/setup/configure/pricing-configuration.mdx",
         "v2/gateways/setup/configure/video-configuration-view.mdx",
@@ -5236,9 +5274,10 @@
           "v2/about/resources/glossary.mdx",
           "v2/community/resources/compendium/glossary.mdx",
           "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
-          "v2/delegators/resources/compendium/glossary.mdx",
+          "v2/delegators/resources/reference/glossary.mdx",
           "v2/developers/build/workload-fit.mdx",
           "v2/developers/resources/compendium/glossary.mdx",
+          "v2/gateways/resources/compendium/glossary.mdx",
           "v2/gateways/resources/reference/technical/configuration-flags.mdx",
           "v2/gateways/setup/configure/pricing-configuration.mdx",
           "v2/gateways/setup/configure/video-configuration-view.mdx",
@@ -5510,13 +5549,14 @@
       "name": "LazyLoad",
       "file": "snippets/components/wrappers/containers/LazyLoad.jsx",
       "category": "wrappers",
-      "count": 37,
+      "count": 38,
       "pages": [
         "v2/about/protocol/blockchain-contracts.mdx",
         "v2/about/resources/glossary.mdx",
         "v2/community/resources/compendium/glossary.mdx",
-        "v2/delegators/resources/compendium/glossary.mdx",
+        "v2/delegators/resources/reference/glossary.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
+        "v2/gateways/resources/compendium/glossary.mdx",
         "v2/home/resources/compendium/glossary.mdx",
         "v2/orchestrators/resources/reference/compendium/glossary.mdx",
         "v2/resources/changelog/ai-compute/ai-runner.mdx",
@@ -5551,19 +5591,20 @@
         "v2/solutions/streamplace/community.mdx"
       ],
       "localeBreakdown": {
-        "en": 37,
+        "en": 38,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 37,
+      "englishCanonicalCount": 38,
       "englishCanonicalPages": [
         "v2/about/protocol/blockchain-contracts.mdx",
         "v2/about/resources/glossary.mdx",
         "v2/community/resources/compendium/glossary.mdx",
-        "v2/delegators/resources/compendium/glossary.mdx",
+        "v2/delegators/resources/reference/glossary.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
+        "v2/gateways/resources/compendium/glossary.mdx",
         "v2/home/resources/compendium/glossary.mdx",
         "v2/orchestrators/resources/reference/compendium/glossary.mdx",
         "v2/resources/changelog/ai-compute/ai-runner.mdx",
@@ -5604,8 +5645,9 @@
           "v2/about/protocol/blockchain-contracts.mdx",
           "v2/about/resources/glossary.mdx",
           "v2/community/resources/compendium/glossary.mdx",
-          "v2/delegators/resources/compendium/glossary.mdx",
+          "v2/delegators/resources/reference/glossary.mdx",
           "v2/developers/resources/compendium/glossary.mdx",
+          "v2/gateways/resources/compendium/glossary.mdx",
           "v2/home/resources/compendium/glossary.mdx",
           "v2/orchestrators/resources/reference/compendium/glossary.mdx",
           "v2/resources/changelog/ai-compute/ai-runner.mdx",
@@ -5823,12 +5865,13 @@
       "name": "SearchTable",
       "file": "snippets/components/wrappers/tables/SearchTable.jsx",
       "category": "wrappers",
-      "count": 10,
+      "count": 11,
       "pages": [
         "v2/about/resources/glossary.mdx",
         "v2/community/resources/compendium/glossary.mdx",
-        "v2/delegators/resources/compendium/glossary.mdx",
+        "v2/delegators/resources/reference/glossary.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
+        "v2/gateways/resources/compendium/glossary.mdx",
         "v2/home/resources/compendium/glossary.mdx",
         "v2/orchestrators/resources/reference/compendium/glossary.mdx",
         "v2/resources/compendium/glossary.mdx",
@@ -5837,18 +5880,19 @@
         "v2/solutions/solution-providers.mdx"
       ],
       "localeBreakdown": {
-        "en": 10,
+        "en": 11,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 10,
+      "englishCanonicalCount": 11,
       "englishCanonicalPages": [
         "v2/about/resources/glossary.mdx",
         "v2/community/resources/compendium/glossary.mdx",
-        "v2/delegators/resources/compendium/glossary.mdx",
+        "v2/delegators/resources/reference/glossary.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
+        "v2/gateways/resources/compendium/glossary.mdx",
         "v2/home/resources/compendium/glossary.mdx",
         "v2/orchestrators/resources/reference/compendium/glossary.mdx",
         "v2/resources/compendium/glossary.mdx",
@@ -5862,8 +5906,9 @@
         "missingFromJsDoc": [
           "v2/about/resources/glossary.mdx",
           "v2/community/resources/compendium/glossary.mdx",
-          "v2/delegators/resources/compendium/glossary.mdx",
+          "v2/delegators/resources/reference/glossary.mdx",
           "v2/developers/resources/compendium/glossary.mdx",
+          "v2/gateways/resources/compendium/glossary.mdx",
           "v2/home/resources/compendium/glossary.mdx",
           "v2/orchestrators/resources/reference/compendium/glossary.mdx",
           "v2/resources/compendium/glossary.mdx",
@@ -6062,7 +6107,7 @@
       "name": "StyledStep",
       "file": "snippets/components/wrappers/steps/Steps.jsx",
       "category": "wrappers",
-      "count": 44,
+      "count": 46,
       "pages": [
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/delegators/delegation/getting-started.mdx",
@@ -6080,6 +6125,8 @@
         "v2/gateways/setup/install/docker-install.mdx",
         "v2/gateways/setup/install/linux-install.mdx",
         "v2/gateways/setup/install/windows-install.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/gateways/setup/run-a-gateway.mdx",
         "v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx",
@@ -6110,13 +6157,13 @@
         "v2/solutions/streamplace/overview.mdx"
       ],
       "localeBreakdown": {
-        "en": 44,
+        "en": 46,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 44,
+      "englishCanonicalCount": 46,
       "englishCanonicalPages": [
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/delegators/delegation/getting-started.mdx",
@@ -6134,6 +6181,8 @@
         "v2/gateways/setup/install/docker-install.mdx",
         "v2/gateways/setup/install/linux-install.mdx",
         "v2/gateways/setup/install/windows-install.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/gateways/setup/run-a-gateway.mdx",
         "v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx",
@@ -6183,6 +6232,8 @@
           "v2/gateways/setup/install/docker-install.mdx",
           "v2/gateways/setup/install/linux-install.mdx",
           "v2/gateways/setup/install/windows-install.mdx",
+          "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
+          "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "v2/gateways/setup/requirements/setup.mdx",
           "v2/gateways/setup/run-a-gateway.mdx",
           "v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx",
@@ -6219,7 +6270,7 @@
       "name": "StyledSteps",
       "file": "snippets/components/wrappers/steps/Steps.jsx",
       "category": "wrappers",
-      "count": 44,
+      "count": 46,
       "pages": [
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/delegators/delegation/getting-started.mdx",
@@ -6237,6 +6288,8 @@
         "v2/gateways/setup/install/docker-install.mdx",
         "v2/gateways/setup/install/linux-install.mdx",
         "v2/gateways/setup/install/windows-install.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/gateways/setup/run-a-gateway.mdx",
         "v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx",
@@ -6267,13 +6320,13 @@
         "v2/solutions/streamplace/overview.mdx"
       ],
       "localeBreakdown": {
-        "en": 44,
+        "en": 46,
         "es": 0,
         "fr": 0,
         "cn": 0,
         "other": 0
       },
-      "englishCanonicalCount": 44,
+      "englishCanonicalCount": 46,
       "englishCanonicalPages": [
         "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
         "v2/delegators/delegation/getting-started.mdx",
@@ -6291,6 +6344,8 @@
         "v2/gateways/setup/install/docker-install.mdx",
         "v2/gateways/setup/install/linux-install.mdx",
         "v2/gateways/setup/install/windows-install.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
+        "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
         "v2/gateways/setup/requirements/setup.mdx",
         "v2/gateways/setup/run-a-gateway.mdx",
         "v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx",
@@ -6340,6 +6395,8 @@
           "v2/gateways/setup/install/docker-install.mdx",
           "v2/gateways/setup/install/linux-install.mdx",
           "v2/gateways/setup/install/windows-install.mdx",
+          "v2/gateways/setup/requirements/on-chain-setup/fund-gateway.mdx",
+          "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
           "v2/gateways/setup/requirements/setup.mdx",
           "v2/gateways/setup/run-a-gateway.mdx",
           "v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx",
@@ -7529,11 +7586,6 @@
       "category": "integrators"
     },
     {
-      "name": "CoinGeckoExchanges",
-      "file": "snippets/components/integrators/feeds/Coingecko.jsx",
-      "category": "integrators"
-    },
-    {
       "name": "ContractVerifier",
       "file": "snippets/components/integrators/feeds/ContractVerifier.jsx",
       "category": "integrators"
@@ -7634,7 +7686,7 @@
       "rank": 1,
       "name": "CustomDivider",
       "category": "elements",
-      "count": 178
+      "count": 181
     },
     {
       "rank": 2,
@@ -7664,31 +7716,31 @@
       "rank": 6,
       "name": "BorderedBox",
       "category": "wrappers",
-      "count": 62
+      "count": 63
     },
     {
       "rank": 7,
       "name": "StyledStep",
       "category": "wrappers",
-      "count": 44
+      "count": 46
     },
     {
       "rank": 8,
       "name": "StyledSteps",
       "category": "wrappers",
-      "count": 44
+      "count": 46
     },
     {
       "rank": 9,
       "name": "LazyLoad",
       "category": "wrappers",
-      "count": 37
+      "count": 38
     },
     {
       "rank": 10,
       "name": "DoubleIconLink",
       "category": "elements",
-      "count": 34
+      "count": 35
     },
     {
       "rank": 11,
@@ -7706,7 +7758,7 @@
       "rank": 13,
       "name": "DynamicTable",
       "category": "wrappers",
-      "count": 26
+      "count": 27
     },
     {
       "rank": 14,
@@ -7752,32 +7804,32 @@
     },
     {
       "rank": 21,
+      "name": "BlinkingIcon",
+      "category": "elements",
+      "count": 11
+    },
+    {
+      "rank": 22,
       "name": "Quote",
       "category": "displays",
       "count": 11
     },
     {
-      "rank": 22,
-      "name": "BlinkingIcon",
-      "category": "elements",
-      "count": 10
+      "rank": 23,
+      "name": "SearchTable",
+      "category": "wrappers",
+      "count": 11
     },
     {
-      "rank": 23,
+      "rank": 24,
       "name": "DisplayCard",
       "category": "wrappers",
       "count": 10
     },
     {
-      "rank": 24,
+      "rank": 25,
       "name": "GotoLink",
       "category": "elements",
-      "count": 10
-    },
-    {
-      "rank": 25,
-      "name": "SearchTable",
-      "category": "wrappers",
       "count": 10
     }
   ]

@@ -33,10 +33,10 @@ fi
 if [ -f "$CONFIG_FILE" ] && command -v node &>/dev/null; then
   OUTPUT_FILE="$REPO_ROOT/$(node -pe "require('$CONFIG_FILE').paths.lptExchanges")"
 else
-  if [ -f "$REPO_ROOT/v2/delegators/resources/exchanges.mdx" ]; then
-    OUTPUT_FILE="$REPO_ROOT/v2/delegators/resources/exchanges.mdx"
+  if [ -f "$REPO_ROOT/v2/delegators/resources/compendium/exchanges.mdx" ]; then
+    OUTPUT_FILE="$REPO_ROOT/v2/delegators/resources/compendium/exchanges.mdx"
   else
-    OUTPUT_FILE="$REPO_ROOT/v2/delegators/resources/exchanges.mdx"
+    OUTPUT_FILE="$REPO_ROOT/v2/delegators/resources/compendium/exchanges.mdx"
   fi
 fi
 

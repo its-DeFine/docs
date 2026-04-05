@@ -589,11 +589,11 @@
 
 ### Delegators / About LPT
 
-- [Delegators Home Portal](https://docs.livepeer.org/v2/delegators/token-portal): Welcome to the Delegators Portal: explore, navigate, delegate, and vote
-- [LPT Overview](https://docs.livepeer.org/v2/delegators/about/overview): Comprehensive architectural and economic overview of the Livepeer Token (LPT) within the Livepeer Protocol.
-- [Livepeer Token Purpose](https://docs.livepeer.org/v2/delegators/about/purpose): Core purpose of LPT in Livepeer: protocol security collateral, reward distribution, and governance participation.
-- [LPT Tokenomics](https://docs.livepeer.org/v2/delegators/about/tokenomics): Formal economic model of LPT issuance, bonding dynamics, reward distribution, and security equilibrium.
-- [LPT Mechanics](https://docs.livepeer.org/v2/delegators/about/mechanics): Detailed protocol-level mechanics governing bonding, unbonding, reward checkpointing, and round-based state transitions in the Livepeer Protocol.
+- [Delegators Home Portal](https://docs.livepeer.org/v2/delegators/portal): Welcome to the Delegators Portal: explore, navigate, delegate, and vote
+- [LPT Overview](https://docs.livepeer.org/v2/delegators/concepts/overview): Comprehensive architectural and economic overview of the Livepeer Token (LPT) within the Livepeer Protocol.
+- [Livepeer Token Purpose](https://docs.livepeer.org/v2/delegators/concepts/purpose): Core purpose of LPT in Livepeer: protocol security collateral, reward distribution, and governance participation.
+- [LPT Tokenomics](https://docs.livepeer.org/v2/delegators/concepts/tokenomics): Formal economic model of LPT issuance, bonding dynamics, reward distribution, and security equilibrium.
+- [LPT Mechanics](https://docs.livepeer.org/v2/delegators/concepts/mechanics): Detailed protocol-level mechanics governing bonding, unbonding, reward checkpointing, and round-based state transitions in the Livepeer Protocol.
 
 ### Delegators / Delegating LPT
 
@@ -606,25 +606,25 @@
 
 ### Delegators / Livepeer Governance
 
-- [Livepeer Governance Overview](https://docs.livepeer.org/v2/delegators/governance/overview): Architectural and economic overview of stake-weighted governance in the Livepeer Protocol.
-- [Livepeer Governance Model](https://docs.livepeer.org/v2/delegators/governance/model): Formal model of stake-weighted governance, quorum mechanics, voting thresholds, timelock execution, and attack surface analysis.
-- [Livepeer Governance Processes](https://docs.livepeer.org/v2/delegators/governance/processes): End-to-end governance process lifecycle including off-chain signaling, LIP drafting, on-chain proposal execution, and treasury coordination.
+- [Livepeer Governance Overview](https://docs.livepeer.org/v2/delegators/guides/governance/overview): Architectural and economic overview of stake-weighted governance in the Livepeer Protocol.
+- [Livepeer Governance Model](https://docs.livepeer.org/v2/delegators/guides/governance/model): Formal model of stake-weighted governance, quorum mechanics, voting thresholds, timelock execution, and attack surface analysis.
+- [Livepeer Governance Processes](https://docs.livepeer.org/v2/delegators/guides/governance/processes): End-to-end governance process lifecycle including off-chain signaling, LIP drafting, on-chain proposal execution, and treasury coordination.
 
 ### Delegators / Livepeer Treasury
 
-- [Treasury Overview](https://docs.livepeer.org/v2/delegators/treasury/overview): Formal model of the Livepeer Treasury as a governance-controlled protocol asset allocator.
-- [Treasury Proposals](https://docs.livepeer.org/v2/delegators/treasury/proposals): Formal structure and execution semantics of treasury proposals as governance-authorized on-chain actions.
-- [Treasury Allocations](https://docs.livepeer.org/v2/delegators/treasury/allocations): Allocation design, accounting model, evaluation framework, and verification/audit approach for governance-authorized treasury spending.
+- [Treasury Overview](https://docs.livepeer.org/v2/delegators/guides/treasury/overview): Formal model of the Livepeer Treasury as a governance-controlled protocol asset allocator.
+- [Treasury Proposals](https://docs.livepeer.org/v2/delegators/guides/treasury/proposals): Formal structure and execution semantics of treasury proposals as governance-authorized on-chain actions.
+- [Treasury Allocations](https://docs.livepeer.org/v2/delegators/guides/treasury/allocations): Allocation design, accounting model, evaluation framework, and verification/audit approach for governance-authorized treasury spending.
 
 ### Delegators / Guides & Resources / Compendium
 
-- [LPT Token Glossary](https://docs.livepeer.org/v2/delegators/resources/compendium/glossary): Key terms for the Livepeer Token (LPT) — staking, delegation, inflation, governance, treasury, and tokenomics.
+- [LPT Token Glossary](https://docs.livepeer.org/v2/delegators/resources/reference/glossary): Key terms for the Livepeer Token (LPT) — staking, delegation, inflation, governance, treasury, and tokenomics.
 
 ### Delegators / Guides & Resources
 
-- [Delegator Videos and Blogs](https://docs.livepeer.org/v2/delegators/resources/delegator-videos-and-blogs): Curated video and blog resources for delegators: staking tutorials, LPT delegation guides, and official links.
-- [Exchanges with LPT Listed](https://docs.livepeer.org/v2/delegators/resources/exchanges): A list of exchanges where the Livepeer Token (LPT) is listed. Note: this information is fetched from Coingecko weekly
-- [LPT & ETH Token Functions](https://docs.livepeer.org/v2/delegators/resources/lpt-eth-usage): What the LPT & ETH Tokens are used for in the Livepeer Protocol
+- [Delegator Videos and Blogs](https://docs.livepeer.org/v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs): Curated video and blog resources for delegators: staking tutorials, LPT delegation guides, and official links.
+- [Exchanges with LPT Listed](https://docs.livepeer.org/v2/delegators/resources/compendium/exchanges): A list of exchanges where the Livepeer Token (LPT) is listed. Note: this information is fetched from Coingecko weekly
+- [LPT & ETH Token Functions](https://docs.livepeer.org/v2/delegators/resources/compendium/lpt-eth-usage): What the LPT & ETH Tokens are used for in the Livepeer Protocol
 
 
 ## Community

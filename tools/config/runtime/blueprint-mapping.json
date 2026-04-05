@@ -73,15 +73,15 @@
     "Orchestrator FAQ": "v2/orchestrators/resources/faq.mdx"
   },
   "DELEGATORS": {
-    "Delegators Portal": "v2/delegators/token-portal.mdx",
+    "Delegators Portal": "v2/delegators/portal.mdx",
     "What is Delegation?": "v2/delegators/delegation/overview.mdx",
     "Delegation Economics": "v2/delegators/delegation/delegation-economics.mdx",
     "Delegate Your LPT": "v2/delegators/delegation/delegation-guide.mdx",
     "Getting LPT": "v2/delegators/delegation/getting-started.mdx",
     "Choosing an Orchestrator": "v2/delegators/delegation/about-delegators.mdx",
     "Managing Your Delegation": "v2/delegators/delegation/delegation-guide.mdx",
-    "Livepeer Governance": "v2/delegators/governance/overview.mdx",
-    "Treasury & Proposals": "v2/delegators/treasury/overview.mdx",
+    "Livepeer Governance": "v2/delegators/guides/governance/overview.mdx",
+    "Treasury & Proposals": "v2/delegators/guides/treasury/overview.mdx",
     "Delegator FAQ & Troubleshooting": null
   },
   "COMMUNITY": {

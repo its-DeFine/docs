@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-04-05T11:24:26.382Z",
+  "generated": "2026-04-05T11:50:12.025Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -8076,7 +8076,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 103,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -8109,7 +8109,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 100,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -8689,7 +8689,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1300,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -8865,7 +8865,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 597,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -8910,7 +8910,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1790,
-      "lastVerified": "2026-04-05T11:22:47.167Z",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -8972,7 +8972,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 864,
-      "lastVerified": "2026-04-05T11:20:24.424Z",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 1,
@@ -9005,7 +9005,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 214,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -9045,7 +9045,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 727,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -9221,7 +9221,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 180,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -9265,7 +9265,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 500,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -9470,7 +9470,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 589,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -12868,7 +12868,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 235,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -13353,7 +13353,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 63,
-      "lastVerified": "2026-04-04T12:26:07.142Z",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -13387,7 +13387,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 64,
-      "lastVerified": "2026-04-04T12:26:07.143Z",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -13418,7 +13418,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 6,
-      "lastVerified": "2026-04-04T12:26:07.128Z",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -15425,7 +15425,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1400,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -15496,7 +15496,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2358,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -18463,7 +18463,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/token-portal",
+      "url": "https://docs.livepeer.org/v2/delegators/portal",
       "title": "Delegators Home Portal",
       "description": "Welcome to the Delegators Portal: explore, navigate, delegate, and vote",
       "section": "delegators",
@@ -18480,13 +18480,13 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 152,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "wordCount": 144,
+      "lastVerified": "2026-04-05T11:48:44.390Z",
       "headings": [],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/about/overview",
+      "url": "https://docs.livepeer.org/v2/delegators/concepts/overview",
       "title": "LPT Overview",
       "description": "Comprehensive architectural and economic overview of the Livepeer Token (LPT) within the Livepeer Protocol.",
       "section": "delegators",
@@ -18500,13 +18500,13 @@
         "economics",
         "arbitrum",
         "delegators",
-        "about"
+        "concepts"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 466,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-05T10:49:17.783Z",
       "headings": [
         {
           "level": 2,
@@ -18570,7 +18570,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/about/purpose",
+      "url": "https://docs.livepeer.org/v2/delegators/concepts/purpose",
       "title": "Livepeer Token Purpose",
       "description": "Core purpose of LPT in Livepeer: protocol security collateral, reward distribution, and governance participation.",
       "section": "delegators",
@@ -18580,13 +18580,13 @@
         "about-lpt-livepeer-token",
         "purpose",
         "delegation",
-        "about"
+        "concepts"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1288,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-04T12:26:05.570Z",
       "headings": [
         {
           "level": 2,
@@ -18608,7 +18608,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/about/tokenomics",
+      "url": "https://docs.livepeer.org/v2/delegators/concepts/tokenomics",
       "title": "LPT Tokenomics",
       "description": "Formal economic model of LPT issuance, bonding dynamics, reward distribution, and security equilibrium.",
       "section": "delegators",
@@ -18622,13 +18622,13 @@
         "bonding-rate",
         "economics",
         "delegators",
-        "about"
+        "concepts"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 398,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-05T10:49:17.782Z",
       "headings": [
         {
           "level": 2,
@@ -18680,7 +18680,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/about/mechanics",
+      "url": "https://docs.livepeer.org/v2/delegators/concepts/mechanics",
       "title": "LPT Mechanics",
       "description": "Detailed protocol-level mechanics governing bonding, unbonding, reward checkpointing, and round-based state transitions in the Livepeer Protocol.",
       "section": "delegators",
@@ -18694,13 +18694,13 @@
         "rewards",
         "rounds",
         "delegators",
-        "about"
+        "concepts"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 371,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-05T10:49:17.783Z",
       "headings": [
         {
           "level": 2,
@@ -18776,7 +18776,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 960,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -19143,7 +19143,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2758,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-05T21:31:42+10:00",
       "headings": [
         {
           "level": 2,
@@ -19177,7 +19177,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/governance/overview",
+      "url": "https://docs.livepeer.org/v2/delegators/guides/governance/overview",
       "title": "Livepeer Governance Overview",
       "description": "Architectural and economic overview of stake-weighted governance in the Livepeer Protocol.",
       "section": "delegators",
@@ -19190,13 +19190,14 @@
         "spe",
         "proposals",
         "delegators",
+        "guides",
         "overview"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 639,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-05T10:49:17.781Z",
       "headings": [
         {
           "level": 2,
@@ -19256,7 +19257,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/governance/model",
+      "url": "https://docs.livepeer.org/v2/delegators/guides/governance/model",
       "title": "Livepeer Governance Model",
       "description": "Formal model of stake-weighted governance, quorum mechanics, voting thresholds, timelock execution, and attack surface analysis.",
       "section": "delegators",
@@ -19269,13 +19270,14 @@
         "voting",
         "timelock",
         "security",
-        "delegators"
+        "delegators",
+        "guides"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 697,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-05T10:49:17.782Z",
       "headings": [
         {
           "level": 2,
@@ -19355,7 +19357,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/governance/processes",
+      "url": "https://docs.livepeer.org/v2/delegators/guides/governance/processes",
       "title": "Livepeer Governance Processes",
       "description": "End-to-end governance process lifecycle including off-chain signaling, LIP drafting, on-chain proposal execution, and treasury coordination.",
       "section": "delegators",
@@ -19368,13 +19370,14 @@
         "lips",
         "treasury",
         "proposals",
-        "delegators"
+        "delegators",
+        "guides"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 945,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-05T10:49:17.781Z",
       "headings": [
         {
           "level": 2,
@@ -19490,7 +19493,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/treasury/overview",
+      "url": "https://docs.livepeer.org/v2/delegators/guides/treasury/overview",
       "title": "Treasury Overview",
       "description": "Formal model of the Livepeer Treasury as a governance-controlled protocol asset allocator.",
       "section": "delegators",
@@ -19503,13 +19506,14 @@
         "funding",
         "ecosystem",
         "delegators",
+        "guides",
         "overview"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 395,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-05T10:49:17.780Z",
       "headings": [
         {
           "level": 2,
@@ -19569,7 +19573,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/treasury/proposals",
+      "url": "https://docs.livepeer.org/v2/delegators/guides/treasury/proposals",
       "title": "Treasury Proposals",
       "description": "Formal structure and execution semantics of treasury proposals as governance-authorized on-chain actions.",
       "section": "delegators",
@@ -19581,13 +19585,14 @@
         "governance",
         "grants",
         "execution",
-        "delegators"
+        "delegators",
+        "guides"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 596,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-05T10:49:17.780Z",
       "headings": [
         {
           "level": 2,
@@ -19663,7 +19668,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/treasury/allocations",
+      "url": "https://docs.livepeer.org/v2/delegators/guides/treasury/allocations",
       "title": "Treasury Allocations",
       "description": "Allocation design, accounting model, evaluation framework, and verification/audit approach for governance-authorized treasury spending.",
       "section": "delegators",
@@ -19675,13 +19680,14 @@
         "grants",
         "funding",
         "accountability",
-        "delegators"
+        "delegators",
+        "guides"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 494,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-05T10:49:17.778Z",
       "headings": [
         {
           "level": 2,
@@ -19765,120 +19771,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/resources/delegator-videos-and-blogs",
-      "title": "Delegator Videos and Blogs",
-      "description": "Curated video and blog resources for delegators: staking tutorials, LPT delegation guides, and official links.",
-      "section": "delegators",
-      "tags": [
-        "livepeer",
-        "delegators",
-        "lpt",
-        "staking",
-        "video",
-        "tutorial",
-        "blogs",
-        "delegate",
-        "resources",
-        "delegator-videos-and-blogs"
-      ],
-      "entities": [
-        "video"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 285,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Video content"
-        },
-        {
-          "level": 2,
-          "text": "Blogs (delegator-focused or with delegator sections)"
-        },
-        {
-          "level": 2,
-          "text": "Official delegator destinations"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/delegators/resources/exchanges",
-      "title": "Exchanges with LPT Listed",
-      "description": "A list of exchanges where the Livepeer Token (LPT) is listed. Note: this information is fetched from Coingecko weekly",
-      "section": "delegators",
-      "tags": [
-        "livepeer",
-        "delegators",
-        "token-resources",
-        "lpt-exchanges",
-        "exchanges",
-        "listed",
-        "where",
-        "resources"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 433,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Centralized Exchanges (CEX)"
-        },
-        {
-          "level": 2,
-          "text": "Decentralized Exchanges (DEX)"
-        },
-        {
-          "level": 2,
-          "text": "Contract Addresses"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/delegators/resources/lpt-eth-usage",
-      "title": "LPT & ETH Token Functions",
-      "description": "What the LPT & ETH Tokens are used for in the Livepeer Protocol",
-      "section": "delegators",
-      "tags": [
-        "livepeer",
-        "delegators",
-        "token-resources",
-        "lpt-eth-usage",
-        "token",
-        "functions",
-        "tokens",
-        "protocol",
-        "resources"
-      ],
-      "entities": [
-        "lpt"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 146,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 3,
-          "text": "Payment Layers"
-        },
-        {
-          "level": 2,
-          "text": "ETH Payments"
-        }
-      ],
-      "codeLanguages": [
-        "go"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/delegators/resources/compendium/glossary",
+      "url": "https://docs.livepeer.org/v2/delegators/resources/reference/glossary",
       "title": "LPT Token Glossary",
       "description": "Key terms for the Livepeer Token (LPT) — staking, delegation, inflation, governance, treasury, and tokenomics.",
       "section": "delegators",
@@ -19892,11 +19785,11 @@
         "governance",
         "delegators",
         "resources",
-        "compendium"
+        "reference"
       ],
       "entities": [],
       "apiEndpoints": [],
-      "difficulty": "intermediate",
+      "difficulty": "advanced",
       "wordCount": 4868,
       "lastVerified": "2026-03",
       "headings": [
@@ -19935,6 +19828,122 @@
         {
           "level": 2,
           "text": "AI and Video Terms"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/delegators/resources/compendium/exchanges",
+      "title": "Exchanges with LPT Listed",
+      "description": "A list of exchanges where the Livepeer Token (LPT) is listed. Note: this information is fetched from Coingecko weekly",
+      "section": "delegators",
+      "tags": [
+        "livepeer",
+        "delegators",
+        "token-resources",
+        "lpt-exchanges",
+        "exchanges",
+        "listed",
+        "where",
+        "resources",
+        "compendium"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 433,
+      "lastVerified": "2026-04-04T12:26:05.607Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Centralized Exchanges (CEX)"
+        },
+        {
+          "level": 2,
+          "text": "Decentralized Exchanges (DEX)"
+        },
+        {
+          "level": 2,
+          "text": "Contract Addresses"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/delegators/resources/compendium/lpt-eth-usage",
+      "title": "LPT & ETH Token Functions",
+      "description": "What the LPT & ETH Tokens are used for in the Livepeer Protocol",
+      "section": "delegators",
+      "tags": [
+        "livepeer",
+        "delegators",
+        "token-resources",
+        "lpt-eth-usage",
+        "token",
+        "functions",
+        "tokens",
+        "protocol",
+        "resources",
+        "compendium"
+      ],
+      "entities": [
+        "lpt"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 146,
+      "lastVerified": "2026-04-04T12:26:05.608Z",
+      "headings": [
+        {
+          "level": 3,
+          "text": "Payment Layers"
+        },
+        {
+          "level": 2,
+          "text": "ETH Payments"
+        }
+      ],
+      "codeLanguages": [
+        "go"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs",
+      "title": "Delegator Videos and Blogs",
+      "description": "Curated video and blog resources for delegators: staking tutorials, LPT delegation guides, and official links.",
+      "section": "delegators",
+      "tags": [
+        "livepeer",
+        "delegators",
+        "lpt",
+        "staking",
+        "video",
+        "tutorial",
+        "blogs",
+        "delegate",
+        "resources",
+        "knowledge-hub",
+        "delegator-videos-and-blogs"
+      ],
+      "entities": [
+        "video"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 285,
+      "lastVerified": "2026-04-04T12:26:05.601Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Video content"
+        },
+        {
+          "level": 2,
+          "text": "Blogs (delegator-focused or with delegator sections)"
+        },
+        {
+          "level": 2,
+          "text": "Official delegator destinations"
         }
       ],
       "codeLanguages": []
@@ -27368,7 +27377,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 880,
+      "wordCount": 988,
       "lastVerified": "2026-04-05T21:08:17+10:00",
       "headings": [
         {
@@ -27402,6 +27411,10 @@
         {
           "level": 3,
           "text": "ownerless-governance-surfaces.json"
+        },
+        {
+          "level": 2,
+          "text": ".github/workspace/"
         },
         {
           "level": 2,

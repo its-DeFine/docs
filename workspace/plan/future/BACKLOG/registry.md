@@ -199,3 +199,13 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 **Source:** Tools Governance Consolidation — 2026-04-05
 **Description:** The validated `tools/` cleanup includes tracked-file removals across the retired `tools/lib` root paths and other legacy tool surfaces. Repo policy requires a human-owned commit with `--trailer "allow-deletions=true"` after staging only the intended tool-governance files.
 **Priority:** P1
+
+## BL-038 — Refresh stale UI template generated artifacts
+**Source:** About/Gateways/Delegators IA Route Alignment — 2026-04-05
+**Description:** `node operations/tests/unit/ui-template-generator.test.js` currently fails because the checked-in UI template artifacts are stale relative to the generator output, including the fallback `og:image` path and glossary-route examples. Regenerate or reconcile the owned template artifacts in an isolated follow-up.
+**Priority:** P1
+
+## BL-039 — Make the human-owned delete commit for About/Gateways/Delegators IA migrations
+**Source:** About/Gateways/Delegators IA Route Alignment — 2026-04-05
+**Description:** The current IA migration worktree contains tracked path moves and deletions across `v2/about`, `v2/gateways`, and `v2/delegators`. Repo policy requires a human-owned commit with `--trailer "allow-deletions=true"` after staging only the intended IA migration files.
+**Priority:** P1

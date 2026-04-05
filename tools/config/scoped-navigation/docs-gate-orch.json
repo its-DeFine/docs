@@ -3084,11 +3084,11 @@
                         "group": "About LPT",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/delegators/token-portal",
-                          "v2/delegators/about/overview",
-                          "v2/delegators/about/purpose",
-                          "v2/delegators/about/tokenomics",
-                          "v2/delegators/about/mechanics"
+                          "v2/delegators/portal",
+                          "v2/delegators/concepts/overview",
+                          "v2/delegators/concepts/purpose",
+                          "v2/delegators/concepts/tokenomics",
+                          "v2/delegators/concepts/mechanics"
                         ]
                       },
                       {
@@ -3106,26 +3106,26 @@
                         "group": "Livepeer Governance",
                         "icon": "box-ballot",
                         "pages": [
-                          "v2/delegators/governance/overview",
-                          "v2/delegators/governance/model",
-                          "v2/delegators/governance/processes"
+                          "v2/delegators/guides/governance/overview",
+                          "v2/delegators/guides/governance/model",
+                          "v2/delegators/guides/governance/processes"
                         ]
                       },
                       {
                         "group": "Livepeer Treasury",
                         "pages": [
-                          "v2/delegators/treasury/overview",
-                          "v2/delegators/treasury/proposals",
-                          "v2/delegators/treasury/allocations"
+                          "v2/delegators/guides/treasury/overview",
+                          "v2/delegators/guides/treasury/proposals",
+                          "v2/delegators/guides/treasury/allocations"
                         ]
                       },
                       {
                         "group": "Guides & Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/delegators/resources/delegator-videos-and-blogs",
-                          "v2/delegators/resources/exchanges",
-                          "v2/delegators/resources/lpt-eth-usage"
+                          "v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs",
+                          "v2/delegators/resources/compendium/exchanges",
+                          "v2/delegators/resources/compendium/lpt-eth-usage"
                         ]
                       }
                     ]

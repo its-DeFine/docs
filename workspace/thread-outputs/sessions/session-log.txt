@@ -1019,3 +1019,12 @@ Done:
 Next: Phase 0 (unified governance control plane in operations/governance/), then Phase 1 (fix governance-sync)
 Session started: 2026-04-05 18:35:48
 Session started: 2026-04-05 20:14:28
+
+=== 2026-04-05 21:55 AEST ===
+Stream: About/Gateways/Delegators IA Route Alignment
+Outcome: Partially met
+Done:
+- Aligned the public About, Gateways, and Delegators folder trees to their approved `docs.json` contracts, propagated the moved routes through live config/docs consumers, and refreshed the route-derived public artifacts
+- Verified the path migrations with structure, navigation, path-sync, localizer, pages-index, docs-index, llms, ai-sitemap, and repo-governance-sync checks
+- Reduced the remaining closeout debt to two explicit items: a human-owned deletion commit for the tracked path moves and an unrelated UI template artifact drift blocking the full staged suite
+Next: Stage the IA migration files for a human-owned commit with `--trailer "allow-deletions=true"`, then run a separate quality/template follow-up to clear the staged style/copy debt and `ui-template-generator` drift

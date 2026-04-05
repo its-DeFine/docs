@@ -4308,3 +4308,78 @@ Designed the governance enforcement system for an ownerless documentation repo f
 | `.github/workspace/phase2/pipeline-review-process.md` | Process | Per-concern review process with agent prompts, design principles |
 | `.github/workspace/phase2/locked-pipelines.md` | Product | Product capabilities, 6 critical gaps, full concern mapping |
 | `.claude/plans/soft-gliding-falcon.md` | Plan | 7-phase implementation plan with co-design checkpoints |
+
+---
+
+## About, Gateways, and Delegators IA Route Alignment — 2026-04-05
+
+**Plans**: none
+**Scope**: Align the About, Gateways, and Delegators public folder contracts to the current `docs.json` IA, migrate affected routes, and propagate the live path changes through repo consumers and generated discovery artifacts.
+**Outcome**: Partially met
+
+### Summary
+
+The About, Gateways, and Delegators v2 surfaces now match their intended on-disk IA contracts, and the path migrations were propagated through live route consumers instead of leaving broken references behind. Public navigation, runtime mappings, exchange/glossary companions, and generated discovery artifacts were rebuilt against the new paths. The remaining gap is closeout, not migration correctness: the worktree still needs a human-owned deletion commit, and the full staged suite is still blocked by pre-existing style/copy debt plus an unrelated UI template artifact drift.
+
+### Completed
+
+- **About IA migration**: Moved About content into `concepts/`, `protocol/`, `network/`, and normalized `resources/`, added the new public stub pages and navigator surface, and updated route consumers and generated artifacts to the new About paths.
+- **Gateways folder alignment**: Renamed `setup/requirements/on-chain setup/` to `on-chain-setup/`, moved the Gateways compendium content to `resources/compendium/`, and updated the fetch/config/runtime consumers that depended on the old paths.
+- **Delegators folder alignment**: Renamed `token-portal.mdx` to `portal.mdx`, moved `about/*` into `concepts/*`, moved `governance/*` and `treasury/*` into `guides/*`, normalized Delegators resources into `reference/`, `compendium/`, and `knowledge-hub/`, and removed the duplicate glossary entry from the Delegators `Resources` nav.
+- **Propagation and generated outputs**: Rebuilt section/root indexes, `docs-index.json`, `llms.txt`, `sitemap-ai.xml`, component-usage inventory, glossary datasets, and the AI-skills `llms` snapshot so the moved routes are reflected in tracked machine-readable outputs.
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Treat these IA changes as hard path migrations with repo-wide reference updates and no redirect layer | The approved task was to make repo folders and public routes match the new IA contracts, not preserve old aliases |
+| Normalize Delegators glossary to `resources/reference/glossary` and keep it only under the `Reference` group | The folder contract needed to match the section name instead of leaving glossary physically under `resources/compendium` while nav labeled it as `Reference` |
+| Keep generated discovery and glossary datasets in scope for path propagation | Leaving old paths in machine-readable outputs would create silent downstream breakage even if the MDX routes themselves were correct |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Human-owned commit for tracked IA path moves/deletions | P1 | Repo policy requires `--trailer "allow-deletions=true"` for the moved/deleted tracked files | Human staging + commit |
+| Full staged-suite remediation for migrated docs pages | P1 | `lpd test --staged` still reports broad style/copy failures on the staged page set | Dedicated docs quality pass |
+| UI template generated-artifact drift | P1 | `node operations/tests/unit/ui-template-generator.test.js` fails on stale template artifacts unrelated to the IA migration | Template artifact refresh / generator follow-up |
+
+### Dependencies & Downstream Effects
+
+- **Public route consumers**: `docs.json`, scoped navigation mirrors, runtime blueprint mappings, usefulness journey patterns, and cross-tab MDX links now resolve to the new About/Gateways/Delegators routes.
+- **Data and automation consumers**: The LPT exchange fetch script/config and the glossary companion manifest now point at the normalized Gateways and Delegators resource paths.
+- **Machine-readable discovery surfaces**: `docs-index.json`, `llms.txt`, `sitemap-ai.xml`, `glossary-terms.json`, `discovered-terms.json`, and `ai-tools/ai-skills/source-content/llms.txt` were refreshed so AI/search/tooling consumers see the new canonical routes.
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| `node operations/scripts/validators/content/structure/lint-structure.js --check` | ✅ Clean | No route-structure regression detected in the changed scope |
+| `node operations/tests/unit/docs-navigation.test.js` | ✅ Clean with warnings | Passed; warnings are the repo’s existing “page exists on disk but not in docs.json” set |
+| `node operations/tests/unit/docs-path-sync.test.js` | ✅ Clean | Path-sync migration helpers pass on the moved route set |
+| `node operations/scripts/automations/content/language-translation/test/docs-json-localizer.test.js` | ✅ Clean | Localizer path rewriting still passes |
+| `node operations/scripts/generators/content/catalogs/generate-pages-index.js --check` | ✅ Clean | Section/root indexes synced after the path moves |
+| `node operations/scripts/generators/content/catalogs/generate-docs-index.js --check` | ✅ Clean | Public docs index regenerated and verified |
+| `node operations/scripts/generators/ai/llm/generate-llms-files.js --check` | ✅ Clean | `llms.txt` refreshed to the new routes |
+| `node operations/scripts/generators/content/seo/generate-ai-sitemap.js --check` | ✅ Clean | AI sitemap refreshed to the new routes |
+| `node operations/tests/unit/repo-governance-sync.test.js` | ✅ Clean | Rechecked after removing unrelated governance drift from the worktree |
+| `node operations/tests/unit/ui-template-generator.test.js` | ❌ Unrelated drift | Fails on stale template artifacts (`og:image` path and glossary-route examples), not on the IA migration |
+| `lpd test --staged` | ❌ Not clean | Still blocked by broad staged style/copy failures plus the unrelated UI template drift |
+
+### Recommendations
+
+1. **Make one human-owned IA migration commit** — stage only the About/Gateways/Delegators route-alignment files and commit with `--trailer "allow-deletions=true"` so the tracked moves are preserved cleanly.
+2. **Handle the staged style/copy debt in a separate docs-quality pass** — the route migration is structurally correct, but the staged suite will stay red until the moved pages’ existing quality issues are remediated.
+3. **Refresh the UI template generated artifacts in an isolated follow-up** — that failure is orthogonal to the route migration and should not be mixed into the IA commit.
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `docs.json` | modified | Updated About, Gateways, and Delegators route contracts |
+| `v2/about/` | modified | About IA paths normalized to the approved structure |
+| `v2/gateways/` | modified | Gateways on-disk folders aligned to the current nav contract |
+| `v2/delegators/` | modified | Delegators content moved into `portal`, `concepts`, `guides`, and normalized `resources` |
+| `docs-index.json` | modified | Refreshed public docs inventory for the new routes |
+| `llms.txt` | modified | Refreshed AI-first route inventory |
+| `sitemap-ai.xml` | modified | Refreshed AI sitemap entries for the moved routes |

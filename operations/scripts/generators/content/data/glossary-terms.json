@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-05T11:24:53.343Z",
+  "generatedAt": "2026-04-05T11:49:48.502Z",
   "totalTerms": 183,
   "terms": [
     {
@@ -75,7 +75,7 @@
           "occurrences": 54
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 54
         },
         {
@@ -527,7 +527,7 @@
           "occurrences": 21
         },
         {
-          "path": "v2/delegators/resources/delegator-videos-and-blogs.mdx",
+          "path": "v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs.mdx",
           "occurrences": 21
         },
         {
@@ -1171,7 +1171,7 @@
           "occurrences": 11
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 11
         },
         {
@@ -1455,7 +1455,7 @@
           "occurrences": 9
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 9
         },
         {
@@ -1655,7 +1655,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 8
         },
         {
@@ -1947,7 +1947,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/delegators/treasury/proposals.mdx",
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 7
         },
         {
@@ -2255,7 +2255,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 6
         },
         {
@@ -2267,7 +2267,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/delegators/token-portal.mdx",
+          "path": "v2/delegators/portal.mdx",
           "occurrences": 6
         },
         {
@@ -3651,7 +3651,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/governance/model.mdx",
+          "path": "v2/delegators/guides/governance/model.mdx",
           "occurrences": 3
         },
         {
@@ -4175,11 +4175,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/about/tokenomics.mdx",
+          "path": "v2/delegators/concepts/tokenomics.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/treasury/overview.mdx",
+          "path": "v2/delegators/guides/treasury/overview.mdx",
           "occurrences": 2
         },
         {
@@ -4827,7 +4827,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/mechanics.mdx",
+          "path": "v2/delegators/concepts/mechanics.mdx",
           "occurrences": 1
         },
         {
@@ -4843,11 +4843,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/lpt-eth-usage.mdx",
+          "path": "v2/delegators/guides/treasury/allocations.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/treasury/allocations.mdx",
+          "path": "v2/delegators/resources/compendium/lpt-eth-usage.mdx",
           "occurrences": 1
         },
         {
@@ -7264,7 +7264,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 3
         },
         {
@@ -8172,11 +8172,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 1
         },
         {
@@ -8301,7 +8301,7 @@
           "occurrences": 34
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 34
         },
         {
@@ -8913,7 +8913,7 @@
           "occurrences": 12
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 12
         },
         {
@@ -10577,7 +10577,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/about/tokenomics.mdx",
+          "path": "v2/delegators/concepts/tokenomics.mdx",
           "occurrences": 3
         },
         {
@@ -11001,11 +11001,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/about/mechanics.mdx",
+          "path": "v2/delegators/concepts/mechanics.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 2
         },
         {
@@ -11525,19 +11525,19 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/delegator-videos-and-blogs.mdx",
+          "path": "v2/delegators/guides/treasury/overview.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/token-portal.mdx",
+          "path": "v2/delegators/portal.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/treasury/overview.mdx",
+          "path": "v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs.mdx",
           "occurrences": 1
         },
         {
@@ -11926,7 +11926,7 @@
           "occurrences": 12
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 12
         },
         {
@@ -12682,7 +12682,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/delegators/treasury/allocations.mdx",
+          "path": "v2/delegators/guides/treasury/allocations.mdx",
           "occurrences": 4
         },
         {
@@ -12966,7 +12966,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 3
         },
         {
@@ -13374,11 +13374,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/about/tokenomics.mdx",
+          "path": "v2/delegators/concepts/tokenomics.mdx",
           "occurrences": 2
         },
         {
@@ -13386,15 +13386,15 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/treasury/overview.mdx",
+          "path": "v2/delegators/guides/treasury/overview.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/treasury/proposals.mdx",
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 2
         },
         {
@@ -14062,7 +14062,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 1
         },
         {
@@ -16467,7 +16467,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 1
         },
         {
@@ -16483,11 +16483,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -19136,11 +19136,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/model.mdx",
+          "path": "v2/delegators/guides/governance/model.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 1
         },
         {
@@ -19148,7 +19148,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -19245,7 +19245,7 @@
           "occurrences": 98
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 75
         },
         {
@@ -19341,7 +19341,7 @@
           "occurrences": 21
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 21
         },
         {
@@ -19589,7 +19589,7 @@
           "occurrences": 9
         },
         {
-          "path": "v2/delegators/resources/delegator-videos-and-blogs.mdx",
+          "path": "v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs.mdx",
           "occurrences": 9
         },
         {
@@ -19677,7 +19677,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 7
         },
         {
@@ -19737,7 +19737,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/delegators/token-portal.mdx",
+          "path": "v2/delegators/portal.mdx",
           "occurrences": 6
         },
         {
@@ -19845,11 +19845,11 @@
           "occurrences": 5
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 5
         },
         {
-          "path": "v2/delegators/resources/lpt-eth-usage.mdx",
+          "path": "v2/delegators/resources/compendium/lpt-eth-usage.mdx",
           "occurrences": 5
         },
         {
@@ -20009,7 +20009,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/delegators/about/tokenomics.mdx",
+          "path": "v2/delegators/concepts/tokenomics.mdx",
           "occurrences": 4
         },
         {
@@ -20169,7 +20169,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/about/mechanics.mdx",
+          "path": "v2/delegators/concepts/mechanics.mdx",
           "occurrences": 3
         },
         {
@@ -20397,15 +20397,15 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/governance/model.mdx",
+          "path": "v2/delegators/guides/governance/model.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/resources/exchanges.mdx",
+          "path": "v2/delegators/resources/compendium/exchanges.mdx",
           "occurrences": 2
         },
         {
@@ -20829,7 +20829,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/treasury/proposals.mdx",
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 1
         },
         {
@@ -22714,7 +22714,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/exchanges.mdx",
+          "path": "v2/delegators/resources/compendium/exchanges.mdx",
           "occurrences": 1
         },
         {
@@ -23319,7 +23319,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 6
         },
         {
@@ -24711,7 +24711,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 2
         },
         {
@@ -24727,7 +24727,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/resources/lpt-eth-usage.mdx",
+          "path": "v2/delegators/resources/compendium/lpt-eth-usage.mdx",
           "occurrences": 2
         },
         {
@@ -25379,11 +25379,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 1
         },
         {
@@ -25468,7 +25468,7 @@
           "occurrences": 20
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 20
         },
         {
@@ -26084,7 +26084,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 6
         },
         {
@@ -26420,7 +26420,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/delegators/resources/lpt-eth-usage.mdx",
+          "path": "v2/delegators/resources/compendium/lpt-eth-usage.mdx",
           "occurrences": 4
         },
         {
@@ -27505,7 +27505,7 @@
           "occurrences": 29
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 29
         },
         {
@@ -27665,7 +27665,7 @@
           "occurrences": 10
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 10
         },
         {
@@ -27673,11 +27673,11 @@
           "occurrences": 10
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 10
         },
         {
-          "path": "v2/delegators/treasury/overview.mdx",
+          "path": "v2/delegators/guides/treasury/overview.mdx",
           "occurrences": 10
         },
         {
@@ -27721,7 +27721,7 @@
           "occurrences": 9
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 9
         },
         {
@@ -27745,7 +27745,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/delegators/about/mechanics.mdx",
+          "path": "v2/delegators/concepts/mechanics.mdx",
           "occurrences": 8
         },
         {
@@ -27753,7 +27753,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/delegators/treasury/allocations.mdx",
+          "path": "v2/delegators/guides/treasury/allocations.mdx",
           "occurrences": 8
         },
         {
@@ -27865,11 +27865,11 @@
           "occurrences": 7
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 7
         },
         {
-          "path": "v2/delegators/about/tokenomics.mdx",
+          "path": "v2/delegators/concepts/tokenomics.mdx",
           "occurrences": 7
         },
         {
@@ -28173,7 +28173,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/delegators/treasury/proposals.mdx",
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 5
         },
         {
@@ -28297,7 +28297,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/delegators/governance/model.mdx",
+          "path": "v2/delegators/guides/governance/model.mdx",
           "occurrences": 4
         },
         {
@@ -28921,7 +28921,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/resources/lpt-eth-usage.mdx",
+          "path": "v2/delegators/resources/compendium/lpt-eth-usage.mdx",
           "occurrences": 2
         },
         {
@@ -30610,7 +30610,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 4
         },
         {
@@ -34083,11 +34083,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/compendium/exchanges.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/exchanges.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -35053,7 +35053,7 @@
           "occurrences": 12
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 12
         },
         {
@@ -35529,7 +35529,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/delegators/resources/delegator-videos-and-blogs.mdx",
+          "path": "v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs.mdx",
           "occurrences": 5
         },
         {
@@ -36253,7 +36253,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/resources/exchanges.mdx",
+          "path": "v2/delegators/resources/compendium/exchanges.mdx",
           "occurrences": 2
         },
         {
@@ -36817,15 +36817,15 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 1
         },
         {
@@ -36870,7 +36870,7 @@
           "occurrences": 32
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 32
         },
         {
@@ -37050,11 +37050,11 @@
           "occurrences": 11
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 11
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 11
         },
         {
@@ -37358,7 +37358,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/delegators/treasury/allocations.mdx",
+          "path": "v2/delegators/guides/treasury/allocations.mdx",
           "occurrences": 6
         },
         {
@@ -37502,11 +37502,11 @@
           "occurrences": 5
         },
         {
-          "path": "v2/delegators/treasury/overview.mdx",
+          "path": "v2/delegators/guides/treasury/overview.mdx",
           "occurrences": 5
         },
         {
-          "path": "v2/delegators/treasury/proposals.mdx",
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 5
         },
         {
@@ -37662,7 +37662,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 4
         },
         {
@@ -38050,7 +38050,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/about/mechanics.mdx",
+          "path": "v2/delegators/concepts/mechanics.mdx",
           "occurrences": 3
         },
         {
@@ -38350,7 +38350,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/about/tokenomics.mdx",
+          "path": "v2/delegators/concepts/tokenomics.mdx",
           "occurrences": 2
         },
         {
@@ -38806,11 +38806,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/model.mdx",
+          "path": "v2/delegators/guides/governance/model.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/token-portal.mdx",
+          "path": "v2/delegators/portal.mdx",
           "occurrences": 1
         },
         {
@@ -39359,7 +39359,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 6
         },
         {
@@ -40947,7 +40947,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 1
         },
         {
@@ -43033,7 +43033,7 @@
           "occurrences": 48
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 47
         },
         {
@@ -43065,7 +43065,7 @@
           "occurrences": 21
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 21
         },
         {
@@ -43093,7 +43093,7 @@
           "occurrences": 17
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 17
         },
         {
@@ -43149,11 +43149,11 @@
           "occurrences": 13
         },
         {
-          "path": "v2/delegators/governance/model.mdx",
+          "path": "v2/delegators/guides/governance/model.mdx",
           "occurrences": 12
         },
         {
-          "path": "v2/delegators/treasury/overview.mdx",
+          "path": "v2/delegators/guides/treasury/overview.mdx",
           "occurrences": 12
         },
         {
@@ -43181,7 +43181,7 @@
           "occurrences": 10
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 10
         },
         {
@@ -43205,7 +43205,7 @@
           "occurrences": 9
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 9
         },
         {
@@ -43225,7 +43225,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/delegators/treasury/allocations.mdx",
+          "path": "v2/delegators/guides/treasury/allocations.mdx",
           "occurrences": 8
         },
         {
@@ -43313,7 +43313,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/delegators/token-portal.mdx",
+          "path": "v2/delegators/portal.mdx",
           "occurrences": 6
         },
         {
@@ -43353,7 +43353,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/delegators/treasury/proposals.mdx",
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 5
         },
         {
@@ -43533,7 +43533,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/resources/lpt-eth-usage.mdx",
+          "path": "v2/delegators/resources/compendium/lpt-eth-usage.mdx",
           "occurrences": 3
         },
         {
@@ -43849,7 +43849,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/about/mechanics.mdx",
+          "path": "v2/delegators/concepts/mechanics.mdx",
           "occurrences": 2
         },
         {
@@ -44381,7 +44381,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/tokenomics.mdx",
+          "path": "v2/delegators/concepts/tokenomics.mdx",
           "occurrences": 1
         },
         {
@@ -47587,7 +47587,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -48804,19 +48804,19 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/guides/treasury/allocations.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/exchanges.mdx",
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/treasury/allocations.mdx",
+          "path": "v2/delegators/resources/compendium/exchanges.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/treasury/proposals.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -48997,7 +48997,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 8
         },
         {
@@ -49033,7 +49033,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 7
         },
         {
@@ -49225,7 +49225,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/delegators/treasury/allocations.mdx",
+          "path": "v2/delegators/guides/treasury/allocations.mdx",
           "occurrences": 5
         },
         {
@@ -49537,11 +49537,11 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/guides/treasury/overview.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/treasury/overview.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 3
         },
         {
@@ -49729,7 +49729,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/treasury/proposals.mdx",
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 2
         },
         {
@@ -50069,15 +50069,15 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/mechanics.mdx",
+          "path": "v2/delegators/concepts/mechanics.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/tokenomics.mdx",
+          "path": "v2/delegators/concepts/tokenomics.mdx",
           "occurrences": 1
         },
         {
@@ -50085,7 +50085,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/model.mdx",
+          "path": "v2/delegators/guides/governance/model.mdx",
           "occurrences": 1
         },
         {
@@ -50154,7 +50154,7 @@
           "occurrences": 21
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 18
         },
         {
@@ -50298,7 +50298,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/delegators/resources/exchanges.mdx",
+          "path": "v2/delegators/resources/compendium/exchanges.mdx",
           "occurrences": 6
         },
         {
@@ -50946,7 +50946,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/resources/lpt-eth-usage.mdx",
+          "path": "v2/delegators/resources/compendium/lpt-eth-usage.mdx",
           "occurrences": 2
         },
         {
@@ -51342,7 +51342,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 1
         },
         {
@@ -51354,7 +51354,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 1
         },
         {
@@ -52007,7 +52007,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 2
         },
         {
@@ -52383,7 +52383,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 1
         },
         {
@@ -55266,11 +55266,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 2
         },
         {
@@ -56067,7 +56067,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/resources/delegator-videos-and-blogs.mdx",
+          "path": "v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs.mdx",
           "occurrences": 3
         },
         {
@@ -57135,7 +57135,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 1
         },
         {
@@ -58616,11 +58616,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 1
         },
         {
@@ -58661,7 +58661,7 @@
           "occurrences": 27
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 21
         },
         {
@@ -58929,11 +58929,11 @@
           "occurrences": 4
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/delegators/token-portal.mdx",
+          "path": "v2/delegators/portal.mdx",
           "occurrences": 4
         },
         {
@@ -59069,15 +59069,15 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 3
         },
         {
           "path": "v2/delegators/index.mdx",
-          "occurrences": 3
-        },
-        {
-          "path": "v2/delegators/treasury/proposals.mdx",
           "occurrences": 3
         },
         {
@@ -60017,7 +60017,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 1
         },
         {
@@ -60070,7 +60070,7 @@
           "occurrences": 18
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 17
         },
         {
@@ -60174,7 +60174,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/delegators/resources/delegator-videos-and-blogs.mdx",
+          "path": "v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs.mdx",
           "occurrences": 7
         },
         {
@@ -60470,7 +60470,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/about/tokenomics.mdx",
+          "path": "v2/delegators/concepts/tokenomics.mdx",
           "occurrences": 3
         },
         {
@@ -60750,11 +60750,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 2
         },
         {
@@ -60762,11 +60762,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/resources/lpt-eth-usage.mdx",
+          "path": "v2/delegators/portal.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/token-portal.mdx",
+          "path": "v2/delegators/resources/compendium/lpt-eth-usage.mdx",
           "occurrences": 2
         },
         {
@@ -61182,7 +61182,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/mechanics.mdx",
+          "path": "v2/delegators/concepts/mechanics.mdx",
           "occurrences": 1
         },
         {
@@ -61202,7 +61202,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 1
         },
         {
@@ -65174,7 +65174,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 3
         },
         {
@@ -65722,7 +65722,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         }
       ],
@@ -68445,7 +68445,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 2
         },
         {
@@ -68905,11 +68905,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/delegator-videos-and-blogs.mdx",
+          "path": "v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs.mdx",
           "occurrences": 1
         },
         {
@@ -73466,7 +73466,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -73491,7 +73491,7 @@
           "occurrences": 40
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 38
         },
         {
@@ -73499,7 +73499,7 @@
           "occurrences": 18
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 18
         },
         {
@@ -73507,7 +73507,7 @@
           "occurrences": 15
         },
         {
-          "path": "v2/delegators/about/tokenomics.mdx",
+          "path": "v2/delegators/concepts/tokenomics.mdx",
           "occurrences": 14
         },
         {
@@ -73543,7 +73543,7 @@
           "occurrences": 9
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 9
         },
         {
@@ -73843,7 +73843,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/resources/delegator-videos-and-blogs.mdx",
+          "path": "v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs.mdx",
           "occurrences": 2
         },
         {
@@ -74139,7 +74139,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/mechanics.mdx",
+          "path": "v2/delegators/concepts/mechanics.mdx",
           "occurrences": 1
         },
         {
@@ -74155,7 +74155,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 1
         },
         {
@@ -78680,7 +78680,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -80682,7 +80682,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 1
         },
         {
@@ -80694,15 +80694,15 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/portal.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/delegator-videos-and-blogs.mdx",
+          "path": "v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/token-portal.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -83582,11 +83582,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/treasury/proposals.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 2
         },
         {
@@ -83822,11 +83822,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/treasury/allocations.mdx",
+          "path": "v2/delegators/guides/treasury/allocations.mdx",
           "occurrences": 1
         },
         {
@@ -84067,7 +84067,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 3
         },
         {
@@ -84515,7 +84515,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 1
         },
         {
@@ -84531,7 +84531,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/exchanges.mdx",
+          "path": "v2/delegators/resources/compendium/exchanges.mdx",
           "occurrences": 1
         }
       ],
@@ -85469,7 +85469,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 4
         },
         {
@@ -85841,7 +85841,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/delegator-videos-and-blogs.mdx",
+          "path": "v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs.mdx",
           "occurrences": 1
         },
         {
@@ -86563,7 +86563,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/delegators/resources/delegator-videos-and-blogs.mdx",
+          "path": "v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs.mdx",
           "occurrences": 7
         },
         {
@@ -86639,7 +86639,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 4
         },
         {
@@ -86699,7 +86699,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 3
         },
         {
@@ -87079,7 +87079,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/mechanics.mdx",
+          "path": "v2/delegators/concepts/mechanics.mdx",
           "occurrences": 1
         },
         {
@@ -87087,7 +87087,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 1
         },
         {
@@ -89079,7 +89079,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 7
         },
         {
@@ -89175,7 +89175,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 3
         },
         {
@@ -89279,7 +89279,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/about/tokenomics.mdx",
+          "path": "v2/delegators/concepts/tokenomics.mdx",
           "occurrences": 2
         },
         {
@@ -89715,11 +89715,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/mechanics.mdx",
+          "path": "v2/delegators/concepts/mechanics.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 1
         },
         {
@@ -89747,27 +89747,27 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/model.mdx",
+          "path": "v2/delegators/guides/governance/model.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/treasury/allocations.mdx",
+          "path": "v2/delegators/guides/treasury/allocations.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/treasury/overview.mdx",
+          "path": "v2/delegators/guides/treasury/overview.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/treasury/proposals.mdx",
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 1
         },
         {
@@ -90528,7 +90528,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -91795,7 +91795,7 @@
           "occurrences": 9
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 8
         },
         {
@@ -91847,7 +91847,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/delegators/resources/delegator-videos-and-blogs.mdx",
+          "path": "v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs.mdx",
           "occurrences": 5
         },
         {
@@ -91999,11 +91999,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/about/mechanics.mdx",
+          "path": "v2/delegators/concepts/mechanics.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/about/tokenomics.mdx",
+          "path": "v2/delegators/concepts/tokenomics.mdx",
           "occurrences": 2
         },
         {
@@ -92307,7 +92307,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 1
         },
         {
@@ -93746,7 +93746,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 2
         },
         {
@@ -94118,7 +94118,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 1
         }
       ],
@@ -95157,7 +95157,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 3
         },
         {
@@ -95373,7 +95373,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 1
         },
         {
@@ -95389,7 +95389,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/delegator-videos-and-blogs.mdx",
+          "path": "v2/delegators/resources/knowledge-hub/delegator-videos-and-blogs.mdx",
           "occurrences": 1
         },
         {
@@ -95687,7 +95687,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 7
         },
         {
@@ -95771,7 +95771,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/about/mechanics.mdx",
+          "path": "v2/delegators/concepts/mechanics.mdx",
           "occurrences": 3
         },
         {
@@ -95879,7 +95879,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 2
         },
         {
@@ -97795,7 +97795,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 2
         },
         {
@@ -98079,7 +98079,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 1
         },
         {
@@ -98087,11 +98087,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -98140,7 +98140,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 7
         },
         {
@@ -99496,7 +99496,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/delegators/treasury/allocations.mdx",
+          "path": "v2/delegators/guides/treasury/allocations.mdx",
           "occurrences": 4
         },
         {
@@ -99556,11 +99556,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/treasury/overview.mdx",
+          "path": "v2/delegators/guides/treasury/overview.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/treasury/proposals.mdx",
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 2
         },
         {
@@ -99788,7 +99788,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -99841,7 +99841,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 6
         },
         {
@@ -100454,7 +100454,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -100836,7 +100836,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 3
         },
         {
@@ -103180,7 +103180,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 6
         },
         {
@@ -103356,11 +103356,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/overview.mdx",
+          "path": "v2/delegators/guides/governance/overview.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 1
         },
         {
@@ -103895,7 +103895,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 3
         },
         {
@@ -103999,11 +103999,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/model.mdx",
+          "path": "v2/delegators/guides/governance/model.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -104088,7 +104088,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/treasury/proposals.mdx",
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 2
         },
         {
@@ -104268,11 +104268,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/purpose.mdx",
+          "path": "v2/delegators/concepts/purpose.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -104690,7 +104690,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -105578,7 +105578,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/model.mdx",
+          "path": "v2/delegators/guides/governance/model.mdx",
           "occurrences": 1
         },
         {
@@ -105723,7 +105723,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -106363,11 +106363,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/governance/processes.mdx",
+          "path": "v2/delegators/guides/governance/processes.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -106710,7 +106710,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/token-portal.mdx",
+          "path": "v2/delegators/portal.mdx",
           "occurrences": 3
         },
         {
@@ -106798,7 +106798,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 1
         },
         {
@@ -106806,7 +106806,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -107206,11 +107206,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/treasury/proposals.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         }
       ],
@@ -108045,7 +108045,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 1
         },
         {
@@ -108567,7 +108567,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 2
         },
         {
@@ -108635,7 +108635,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/token-portal.mdx",
+          "path": "v2/delegators/portal.mdx",
           "occurrences": 1
         },
         {
@@ -109081,7 +109081,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/delegators/about/tokenomics.mdx",
+          "path": "v2/delegators/concepts/tokenomics.mdx",
           "occurrences": 4
         },
         {
@@ -109097,7 +109097,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 2
         },
         {
@@ -109125,7 +109125,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/about/overview.mdx",
+          "path": "v2/delegators/concepts/overview.mdx",
           "occurrences": 1
         },
         {
@@ -110168,7 +110168,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/delegators/treasury/proposals.mdx",
+          "path": "v2/delegators/guides/treasury/proposals.mdx",
           "occurrences": 2
         },
         {
@@ -110180,11 +110180,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/treasury/allocations.mdx",
+          "path": "v2/delegators/guides/treasury/allocations.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/delegators/treasury/overview.mdx",
+          "path": "v2/delegators/guides/treasury/overview.mdx",
           "occurrences": 1
         }
       ],
@@ -110372,7 +110372,7 @@
       "category": "Web3 / Blockchain",
       "pages": [
         {
-          "path": "v2/delegators/resources/compendium/glossary.mdx",
+          "path": "v2/delegators/resources/reference/glossary.mdx",
           "occurrences": 6
         },
         {
