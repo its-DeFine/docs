@@ -2104,6 +2104,7 @@ async function runAudit(options = {}) {
 
   const strictMissingCount = args.strictRootsOnly ? summary.blockingMissingCount : summary.missingCount;
   const exitCode = args.strict && strictMissingCount > 0 ? 1 : 0;
+  const writtenLinks = args.writeLinks ? Array.from(domainLinks.keys()).sort() : [];
 
   return {
     exitCode,

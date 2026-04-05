@@ -961,7 +961,7 @@
     },
     {
       "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/README",
-      "destination": "/v2/developers/technical-references/apis"
+      "destination": "/v2/developers/resources/reference/apis"
     },
     {
       "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/*",

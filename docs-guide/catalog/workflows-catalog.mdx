@@ -62,7 +62,7 @@ Run command: node operations/scripts/generators/governance/catalogs/generate-doc
 | Project Showcase Sync | `.github/workflows/project-showcase-sync.yml` | repository_dispatch, schedule, workflow_dispatch | Project Showcase Sync | blocking by default (subject to branch protection) | workflow logs | docs |
 | Governance Repair | `.github/workflows/repair-governance.yml` | schedule, workflow_dispatch | Governance Repair | blocking by default (subject to branch protection) | artifact upload, step summary, PR comments/metadata | docs |
 | Generate | `.github/workflows/sdk_generation.yaml` | schedule, workflow_dispatch | Generate | blocking by default (subject to branch protection) | PR comments/metadata | docs |
-| SEO Metadata Refresh | `.github/workflows/seo-refresh.yml` | workflow_dispatch | SEO Metadata Refresh | blocking by default (subject to branch protection) | workflow logs | docs |
+| SEO Metadata Refresh | `.github/workflows/seo-refresh.yml` | workflow_dispatch | SEO Metadata Refresh | blocking by default (subject to branch protection) | repository commits | docs |
 | EN-GB Style Homogenisation | `.github/workflows/style-homogenise.yml` | workflow_dispatch | EN-GB Style Homogenisation | blocking by default (subject to branch protection) | PR comments/metadata | docs |
 | Sync Large Assets | `.github/workflows/sync-large-assets.yml` | push, schedule, workflow_dispatch | Sync Large Assets | blocking by default (subject to branch protection) | repository commits | docs |
 | workspace/ retention enforcement | `.github/workflows/tasks-retention.yml` | schedule, workflow_dispatch | workspace/ retention enforcement | blocking by default (subject to branch protection) | workflow logs | docs |
@@ -71,7 +71,8 @@ Run command: node operations/scripts/generators/governance/catalogs/generate-doc
 | Docs Translation Pipeline | `.github/workflows/translate-docs.yml` | workflow_dispatch | Docs Translation Pipeline | blocking by default (subject to branch protection) | artifact upload, step summary, PR comments/metadata | docs |
 | Update Blog and Forum Data | `.github/workflows/update-blog-data.yml` | workflow_dispatch | Update Blog and Forum Data | advisory or partial-advisory | repository commits | docs |
 | Update Changelogs | `.github/workflows/update-changelogs.yml` | repository_dispatch, schedule, workflow_dispatch | Update Changelogs | advisory or partial-advisory | repository commits | docs |
-| Update Contract Addresses | `.github/workflows/update-contract-addresses.yml` | repository_dispatch, schedule, workflow_dispatch | Update Contract Addresses | blocking by default (subject to branch protection) | repository commits | docs |
+| Update Contract Addresses Shadow | `.github/workflows/update-contract-addresses-shadow.yml` | repository_dispatch, schedule, workflow_dispatch | Update Contract Addresses Shadow | advisory or partial-advisory | artifact upload | docs |
+| Update Contract Addresses | `.github/workflows/update-contract-addresses.yml` | repository_dispatch, schedule, workflow_dispatch | Update Contract Addresses | advisory or partial-advisory | artifact upload, repository commits | docs |
 | Update Discord Announcements Data | `.github/workflows/update-discord-data.yml` | schedule, workflow_dispatch | Update Discord Announcements Data | blocking by default (subject to branch protection) | workflow logs | docs |
 | Update Forum Data | `.github/workflows/update-forum-data.yml` | schedule, workflow_dispatch | Update Forum Data | blocking by default (subject to branch protection) | workflow logs | docs |
 | Update Ghost Blog Data | `.github/workflows/update-ghost-blog-data.yml` | schedule, workflow_dispatch | Update Ghost Blog Data | blocking by default (subject to branch protection) | workflow logs | docs |
