@@ -9,7 +9,7 @@
  * @mode        execute
  * @pipeline    manual — interactive developer tool, not suited for automated pipelines
  * @scope       operations/scripts/dev, docs.json, .mintignore
- * @usage       node tools/dev/generate-mint-dev-scope.js [flags]
+ * @usage       node tools/dev/preview/generate-mint-dev-scope.js [flags]
  * @policy      E-C6, F-C1
  */
 
@@ -32,7 +32,7 @@ const REPO_ROOT_IMPORT_PREFIX_REGEX = /^(?:v1|v2|snippets|docs-guide|tools|tests
 function printUsage() {
   console.log(
     [
-      'Usage: node tools/dev/generate-mint-dev-scope.js [options]',
+      'Usage: node tools/dev/preview/generate-mint-dev-scope.js [options]',
       '',
       'Options:',
       '  --repo-root <path>',

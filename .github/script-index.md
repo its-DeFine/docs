@@ -13,4 +13,5 @@
 | `.github/scripts/fetch-rss-blog-data.js` | Fetches product RSS feeds from config and writes per-solution blog data modules under snippets/data/social-feed-solutions/. | `node .github/scripts/fetch-rss-blog-data.js` | docs |
 | `.github/scripts/fetch-youtube-data.js` | Fetches video data from YouTube Data API, writes to snippets/data/social-feeds/ | `node .github/scripts/fetch-youtube-data.js [flags]` | docs |
 | `.github/scripts/project-showcase-sync.js` | Fetches project showcase data from external source, writes to snippets/data/showcase-feed/ | `node .github/scripts/project-showcase-sync.js [flags]` | docs |
+| `.github/scripts/update-livepeer-release.js` | Fetches or accepts the latest go-livepeer release tag and writes the canonical release data module. | `node .github/scripts/update-livepeer-release.js [--version <tag>]` | docs |
 {/* SCRIPT-INDEX:END */}

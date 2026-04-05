@@ -78,6 +78,7 @@ Deep docs:
 | CLI commands and runbooks | [`docs-guide/tooling/lpd-cli.mdx`](docs-guide/tooling/lpd-cli.mdx) |
 | Validation and enforcement gates | [`docs-guide/policies/quality-gates.mdx`](docs-guide/policies/quality-gates.mdx) |
 | Generated artifact governance | [`docs-guide/policies/generated-artifact-and-hook-governance.mdx`](docs-guide/policies/generated-artifact-and-hook-governance.mdx) |
+| Ownerless governance policy | [`docs-guide/policies/ownerless-governance.mdx`](docs-guide/policies/ownerless-governance.mdx) |
 | Content system and IA model | [`docs-guide/frameworks/content-system.mdx`](docs-guide/frameworks/content-system.mdx) |
 | UI authoring system | [`docs-guide/features/ui-system.mdx`](docs-guide/features/ui-system.mdx) |
 | AI tools and skills | [`docs-guide/tooling/ai-tools.mdx`](docs-guide/tooling/ai-tools.mdx) |

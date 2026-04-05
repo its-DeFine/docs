@@ -8,8 +8,8 @@
  * @description Mintlify dev debugger — diagnostic tool for troubleshooting mint dev server issues
  * @mode        execute
  * @pipeline    manual — developer tool
- * @scope       tools/scripts
- * @usage       node tools/dev/debug-mint-dev.js [flags]
+ * @scope       tools/dev/preview
+ * @usage       node tools/dev/preview/debug-mint-dev.js [flags]
  * @policy      E-C6, F-C1
  */
 /**
@@ -21,7 +21,7 @@ const path = require('path');
 const { execSync, spawn } = require('child_process');
 const os = require('os');
 
-const LOG_PATH = path.join(__dirname, '..', '.cursor', 'debug.log');
+const LOG_PATH = path.join(__dirname, '..', '..', '.cursor', 'debug.log');
 const TIMEOUT_MS = 25000;
 
 function log(obj) {
@@ -53,7 +53,7 @@ if (fs.existsSync(mintlifyLast) && fs.statSync(mintlifyLast).isDirectory()) {
 log({ hypothesisId: 'H2', message: 'cache dirs', data: { mintlifyDir: statMintlify, mintlifyLast: statLast, lastDirContents } });
 
 // H4: package.json scripts
-const pkgPath = path.join(__dirname, '..', 'package.json');
+const pkgPath = path.join(__dirname, '..', '..', 'package.json');
 const pkgScripts = safe(() => {
   const p = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
   return p.scripts ? Object.keys(p.scripts) : [];
@@ -62,7 +62,7 @@ log({ hypothesisId: 'H4', message: 'package.json scripts', data: { scripts: pkgS
 
 // Run mint dev with timeout; capture first chunk of output (H3/H5: parse or network)
 log({ hypothesisId: 'H3_H5', message: 'mint dev start' });
-const cwd = path.join(__dirname, '..');
+const cwd = path.join(__dirname, '..', '..');
 const child = spawn('mint', ['dev'], { cwd, stdio: ['ignore', 'pipe', 'pipe'], shell: false });
 let out = '';
 let err = '';

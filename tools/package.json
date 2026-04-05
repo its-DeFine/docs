@@ -27,13 +27,13 @@
     "unified": "^11.0.5"
   },
   "scripts": {
-    "codex:chat:list": "node ../tools/dev/rename-vscode-codex-chat.js --list",
-    "codex:chat:rename": "node ../tools/dev/rename-vscode-codex-chat.js",
-    "vscode:authoring-tools:install": "node ../tools/dev/install-authoring-tools-extension.js",
+    "codex:chat:list": "node ../tools/dev/editor/rename-vscode-codex-chat.js --list",
+    "codex:chat:rename": "node ../tools/dev/editor/rename-vscode-codex-chat.js",
+    "vscode:authoring-tools:install": "bash ../tools/editor-extensions/install.sh",
     "vscode:authoring-tools:package": "cd vscode/authoring-tools && ../../node_modules/.bin/vsce package -o livepeer-authoring-tools.vsix",
     "vscode:markdown-list:package": "cd vscode/markdown-list && ../../node_modules/.bin/vsce package -o livepeer-markdown-list-tools.vsix",
-    "format-mdx": "node ../tools/dev/format-mdx.js --write",
-    "format-mdx:check": "node ../tools/dev/format-mdx.js --check",
+    "format-mdx": "node ../tools/dev/authoring/format-mdx.js --write",
+    "format-mdx:check": "node ../tools/dev/authoring/format-mdx.js --check",
     "audit:scripts": "node ../operations/scripts/audits/governance/scripts/audit-script-categories.js",
     "audit:repo": "node ../operations/scripts/dispatch/governance/repo/repo-audit-orchestrator.js --mode static --scope full",
     "audit:repo:changed": "node ../operations/scripts/dispatch/governance/repo/repo-audit-orchestrator.js --mode static --scope changed",

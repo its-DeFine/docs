@@ -24,7 +24,7 @@ const DISCOVERY_ROOTS = [
   'operations/tests',
   'operations/scripts',
   'tools/lib',
-  'tools/notion',
+  'tools/dev',
   'tools/config',
   'snippets/automations'
 ];
@@ -35,7 +35,7 @@ const GOVERNED_ROOTS = [
   'operations/tests',
   'operations/scripts',
   'tools/lib',
-  'tools/notion',
+  'tools/dev',
   'tools/config',
   'workspace/scripts',
   'snippets/automations'
@@ -47,7 +47,7 @@ const INDEXED_ROOTS = [
   'operations/tests',
   'operations/scripts',
   'tools/lib',
-  'tools/notion',
+  'tools/dev',
   'tools/config',
   'workspace/scripts',
   'snippets/automations'
@@ -59,7 +59,7 @@ const GROUP_INDEX_MAP = [
   { root: 'operations/tests', index: 'operations/tests/script-index.md' },
   { root: 'operations/scripts', index: 'operations/scripts/script-index.md' },
   { root: 'tools/lib', index: 'tools/lib/script-index.md' },
-  { root: 'tools/notion', index: 'tools/notion/script-index.md' },
+  { root: 'tools/dev', index: 'tools/dev/script-index.md' },
   { root: 'tools/config', index: 'tools/config/registry/script-index.md' },
   { root: 'workspace/scripts', index: 'workspace/scripts/script-index.md' },
   { root: 'snippets/automations', index: 'snippets/automations/script-index.md' }

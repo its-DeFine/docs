@@ -8,15 +8,15 @@
  * @description MDX formatter — applies the repo-owned conservative MDX formatter used by the Livepeer authoring extension.
  * @mode        execute
  * @pipeline    manual
- * @scope       tools/scripts, tools/editor-extensions/authoring-tools, tests/unit
- * @usage       node tools/dev/format-mdx.js [--check|--write] [--files a,b]
+ * @scope       tools/dev/authoring, tools/editor-extensions/authoring-tools, tests/unit
+ * @usage       node tools/dev/authoring/format-mdx.js [--check|--write] [--files a,b]
  * @policy      E-C6, F-C1
  */
 
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
-const { formatMdxContent } = require('../vscode/authoring-tools/lib/authoring-core');
+const { formatMdxContent } = require('../../editor-extensions/authoring-tools/lib/authoring-core');
 
 function getRepoRoot() {
   try {

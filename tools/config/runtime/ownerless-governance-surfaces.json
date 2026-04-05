@@ -168,7 +168,7 @@
       "operations/scripts/**",
       "tools/lib/**",
       "tools/config/**",
-      "tools/notion/**",
+      "tools/dev/**",
       "workspace/scripts/**"
     ],
     "canonical_sources": [
@@ -182,6 +182,7 @@
       "docs-guide/catalog/scripts-catalog.mdx",
       "operations/tests/script-index.md",
       "tools/script-index.md",
+      "tools/dev/script-index.md",
       "tools/lib/script-index.md",
       "workspace/reports/script-classifications.json",
       "workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.json",

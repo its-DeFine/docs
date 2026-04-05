@@ -4215,6 +4215,21 @@
     "status": "active"
   },
   {
+    "path": "operations/tests/unit/snippets-root-governance.test.js",
+    "name": "snippets-root-governance.test.js",
+    "type": "validator",
+    "concern": "governance",
+    "niche": "snippets",
+    "purpose": "qa:repo-health",
+    "description": "Validates the two-file snippets root governance model and enforces freshness for the generated snippets registry.",
+    "mode": "check",
+    "pipeline": "manual, P3",
+    "scope": "operations/tests/unit, snippets/guide.mdx, snippets/snippets-registry.mdx, snippets/_workspace/archive, tools/config/runtime/generated-artifacts.json",
+    "usage": "node operations/tests/unit/snippets-root-governance.test.js",
+    "policy": "R-R16, R-R17",
+    "status": "active"
+  },
+  {
     "path": "operations/tests/unit/spelling.test.js",
     "name": "spelling.test.js",
     "type": "",
@@ -4257,6 +4272,21 @@
     "scope": "tests, operations/scripts/generators/components/library/generate-ui-templates.js, .vscode, snippets/templates, docs-guide/config/component-registry.json, .mintignore, docs.json, v1, v2, snippets",
     "usage": "node operations/tests/unit/ui-template-generator.test.js [flags]",
     "policy": "",
+    "status": "active"
+  },
+  {
+    "path": "operations/tests/unit/update-livepeer-release.test.js",
+    "name": "update-livepeer-release.test.js",
+    "type": "validator",
+    "concern": "maintenance",
+    "niche": "release-data",
+    "purpose": "qa:data-refresh",
+    "description": "Verifies the go-livepeer release updater writes the canonical release data module shape.",
+    "mode": "check",
+    "pipeline": "P2",
+    "scope": ".github/scripts, snippets/data/globals",
+    "usage": "node operations/tests/unit/update-livepeer-release.test.js",
+    "policy": "E-R1, R-R11",
     "status": "active"
   },
   {

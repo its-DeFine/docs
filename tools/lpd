@@ -127,7 +127,7 @@ Examples:
 
 Notes:
   - `lpd setup` syncs the repo planning skill to `$CODEX_HOME/skills` (fallback: `~/.codex/skills`) unless `--no-codex-skills` is used.
-  - `lpd dev` auto-installs/updates pre-commit hooks via tools/dev/mint-dev.sh.
+  - `lpd dev` auto-installs/updates pre-commit hooks via tools/dev/preview/mint-dev.sh.
   - `lpd dev` defaults to port 3333 when no port is provided. Agent sessions may not use port 3333 and must pass a different port explicitly.
   - Human `.allowlist` edits require: `git commit -m "msg" --trailer "allowlist-edit=true"`.
   - Human deletions require: `git commit -m "msg" --trailer "allow-deletions=true"`.
@@ -999,7 +999,7 @@ run_test_mode() {
 cmd_dev() {
     local run_tests=0
     local test_mode="fast"
-    local script_path="$REPO_ROOT/tools/dev/mint-dev.sh"
+    local script_path="$REPO_ROOT/tools/dev/preview/mint-dev.sh"
     local dry_run=0
     local scoped_mode=0
     local docs_config=""
@@ -1063,7 +1063,7 @@ cmd_dev() {
                 scope_interactive=1
                 ;;
             --scope-list)
-                node "$REPO_ROOT/tools/dev/generate-mint-dev-scope.js" --list
+                node "$REPO_ROOT/tools/dev/preview/generate-mint-dev-scope.js" --list
                 return 0
                 ;;
             --scope-file)

@@ -8,13 +8,13 @@
 # @mode        execute
 # @pipeline    manual — developer tool
 # @scope       full-repo
-# @usage       bash tools/dev/mint-dev.sh [flags]
+# @usage       bash tools/dev/preview/mint-dev.sh [flags]
 # @policy      E-C6, F-C1
 set -euo pipefail
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 MINT_WORKDIR="$REPO_ROOT"
-SCOPE_GENERATOR="$REPO_ROOT/tools/dev/generate-mint-dev-scope.js"
+SCOPE_GENERATOR="$REPO_ROOT/tools/dev/preview/generate-mint-dev-scope.js"
 SCOPED_MODE="${LPD_SCOPED_MINT_DEV:-0}"
 DEV_ENTRYPOINT="${LPD_DEV_ENTRYPOINT:-mint-dev}"
 DOCS_CONFIG="${LPD_MINT_DOCS_CONFIG:-}"
@@ -144,7 +144,7 @@ enforce_safe_port() {
         if [ "$DEV_ENTRYPOINT" = "lpd" ]; then
             echo "Use an explicit non-reserved port such as: lpd dev -- --port 3334" >&2
         else
-            echo "Use an explicit non-reserved port such as: bash tools/dev/mint-dev.sh --port 3334" >&2
+            echo "Use an explicit non-reserved port such as: bash tools/dev/preview/mint-dev.sh --port 3334" >&2
         fi
         exit 1
     fi
@@ -419,11 +419,11 @@ if ! command -v mint >/dev/null 2>&1; then
 fi
 
 echo "Checking Mint watcher patch..."
-if bash "$REPO_ROOT/tools/dev/ensure-mint-watcher-patch.sh" --apply; then
+if bash "$REPO_ROOT/tools/dev/preview/ensure-mint-watcher-patch.sh" --apply; then
     echo "Mint watcher patch preflight complete."
 else
     echo "Warning: Mint watcher patch preflight failed."
-    echo "Run manually: bash tools/dev/ensure-mint-watcher-patch.sh --apply"
+    echo "Run manually: bash tools/dev/preview/ensure-mint-watcher-patch.sh --apply"
     echo "Continuing with repo-local watcher-safe launcher path fallback."
 fi
 

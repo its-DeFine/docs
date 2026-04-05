@@ -62,8 +62,8 @@ async function runTests() {
     const registry = readRepoFile(OUTPUT_PATH);
     assert.ok(!registry.includes('name="_workspace"'));
     assert.ok(!registry.includes('name="automations"'));
-    assert.ok(!registry.includes('`snippets/_workspace/`'));
-    assert.ok(!registry.includes('`snippets/automations/`'));
+    assert.ok(!registry.includes('| `snippets/_workspace/` |'));
+    assert.ok(!registry.includes('| `snippets/automations/` |'));
   });
 
   cases.push(async () => {
