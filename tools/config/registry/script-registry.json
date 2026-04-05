@@ -2019,7 +2019,7 @@
     "description": "",
     "mode": "",
     "pipeline": "manual, P3",
-    "scope": "operations/scripts, snippets/guide.mdx, snippets/snippets-registry.mdx, operations/governance/config/generated-artifacts.json, tools/config/runtime/generated-artifacts.json",
+    "scope": "operations/scripts, snippets/guide.mdx, snippets/snippets-registry.mdx, operations/governance/config/generated-artifacts.json",
     "usage": "node operations/scripts/generators/governance/catalogs/generate-snippets-registry.js [--write|--check]",
     "policy": "",
     "status": "active"
@@ -2826,7 +2826,7 @@
     "concern": "governance",
     "niche": "compliance",
     "purpose": "governance:ownerless-governance",
-    "description": "Validates that the top-level repo-governance registry, generated outputs, and referenced bridge-mode paths stay aligned.",
+    "description": "Validates that the top-level repo-governance registry, generated outputs, and referenced steady-state paths stay aligned.",
     "mode": "read-only",
     "pipeline": "manual, pr-changed -> repo-governance registry -> exit-code, stdout:violations",
     "scope": "operations/governance/config, operations/scripts/generators/governance/reports, operations/scripts/validators/governance/compliance, tools/lib/governance, docs-guide/repo-ops/config, workspace/reports/repo-ops",
@@ -2874,7 +2874,7 @@
     "description": "AI-tools registry validator and report writer for source-of-truth coverage, lifecycle, lane alignment, and generated inventory output.",
     "mode": "read-only",
     "pipeline": "manual -- bounded validator CLI",
-    "scope": "operations/scripts, tools/lib/ai/ai-tools-registry.js, ai-tools/registry, operations/scripts/generators/governance/catalogs/generate-ai-tools-registry-artifacts.js, operations/tests/unit/ai-tools-registry.test.js, operations/governance/config/ownerless-governance-surfaces.json, tools/config/runtime/ownerless-governance-surfaces.json, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx",
+    "scope": "operations/scripts, tools/lib/ai/ai-tools-registry.js, ai-tools/registry, operations/scripts/generators/governance/catalogs/generate-ai-tools-registry-artifacts.js, operations/tests/unit/ai-tools-registry.test.js, operations/governance/config/ownerless-governance-surfaces.json, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/catalog/ai-tools.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx",
     "usage": "node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js [--check] [--coverage] [--lanes] [--write-report]",
     "policy": "R-R14, R-R29",
     "status": "active"
@@ -3354,7 +3354,7 @@
     "description": "",
     "mode": "",
     "pipeline": "P1, P3",
-    "scope": "operations/tests/unit, ai-tools/registry, tools/lib/ai/ai-tools-registry.js, operations/scripts/generators/governance/catalogs/generate-ai-tools-registry-artifacts.js, operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js, operations/governance/config/ownerless-governance-surfaces.json, tools/config/runtime/ownerless-governance-surfaces.json, docs-guide/tooling/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx",
+    "scope": "operations/tests/unit, ai-tools/registry, tools/lib/ai/ai-tools-registry.js, operations/scripts/generators/governance/catalogs/generate-ai-tools-registry-artifacts.js, operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js, operations/governance/config/ownerless-governance-surfaces.json, docs-guide/tooling/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx, docs-guide/policies/audit-system-overview.mdx, docs-guide/policies/skill-pipeline-map.mdx",
     "usage": "node operations/tests/unit/ai-tools-registry.test.js [--staged|--files path[,path]]",
     "policy": "",
     "status": "active"
@@ -3834,7 +3834,7 @@
     "description": "",
     "mode": "",
     "pipeline": "manual — targeted governance test",
-    "scope": "tests/unit, tools/lib/governance/generated-artifacts.js, operations/governance/config/generated-artifacts.json, tools/config/runtime/generated-artifacts.json",
+    "scope": "tests/unit, tools/lib/governance/generated-artifacts.js, operations/governance/config/generated-artifacts.json",
     "usage": "node operations/tests/unit/generated-artifacts-policy.test.js",
     "policy": "",
     "status": "active"
@@ -4119,7 +4119,7 @@
     "description": "",
     "mode": "",
     "pipeline": "P1, P3",
-    "scope": "tests/unit, tests/utils, operations/tests/WHEN-TESTS-RUN.md, docs-guide, operations/governance/config/ownerless-governance-surfaces.json, tools/config/runtime/ownerless-governance-surfaces.json, AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, docs-guide/contributing/agent-instructions.mdx",
+    "scope": "tests/unit, tests/utils, operations/tests/WHEN-TESTS-RUN.md, docs-guide, operations/governance/config/ownerless-governance-surfaces.json, AGENTS.md, .allowlist, .github, .claude, .cursor, .windsurf, README.md, docs-guide/contributing/agent-instructions.mdx",
     "usage": "node operations/tests/unit/ownerless-governance.test.js [--staged|--files a,b]",
     "policy": "",
     "status": "active"
@@ -4269,7 +4269,7 @@
     "description": "",
     "mode": "",
     "pipeline": "P1, P3",
-    "scope": "tests/unit, .allowlist, operations/governance/config/root-governance.json, tools/config/runtime/root-governance.json, tools/lib/governance/root-governance.js",
+    "scope": "tests/unit, .allowlist, operations/governance/config/root-governance.json, tools/lib/governance/root-governance.js",
     "usage": "node operations/tests/unit/root-allowlist-format.test.js",
     "policy": "",
     "status": "active"
@@ -4344,7 +4344,7 @@
     "description": "",
     "mode": "",
     "pipeline": "manual, P3",
-    "scope": "operations/tests/unit, snippets/guide.mdx, snippets/snippets-registry.mdx, snippets/_workspace/archive, operations/governance/config/generated-artifacts.json, tools/config/runtime/generated-artifacts.json",
+    "scope": "operations/tests/unit, snippets/guide.mdx, snippets/snippets-registry.mdx, snippets/_workspace/archive, operations/governance/config/generated-artifacts.json",
     "usage": "node operations/tests/unit/snippets-root-governance.test.js",
     "policy": "",
     "status": "active"
@@ -4586,21 +4586,6 @@
     "pipeline": "indirect — library module",
     "scope": "tests",
     "usage": "node operations/tests/utils/spell-checker.js [flags]",
-    "policy": "",
-    "status": "active"
-  },
-  {
-    "path": "tools/config/runtime/v2-internal-report-pages.js",
-    "name": "v2-internal-report-pages.js",
-    "type": "",
-    "concern": "",
-    "niche": "",
-    "purpose": "tooling:dev-tools",
-    "description": "",
-    "mode": "",
-    "pipeline": "manual — interactive developer tool, not suited for automated pipelines",
-    "scope": "full-repo",
-    "usage": "node tools/config/runtime/v2-internal-report-pages.js [flags]",
     "policy": "",
     "status": "active"
   },
@@ -4899,7 +4884,7 @@
     "description": "",
     "mode": "",
     "pipeline": "indirect -- library module used by validator and test surfaces",
-    "scope": "tools/lib/ai, ai-tools/registry, operations/governance/config/ownerless-governance-surfaces.json, tools/config/runtime/ownerless-governance-surfaces.json, operations/scripts/generators/governance/catalogs/generate-ai-tools-registry-artifacts.js, operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js, operations/tests/unit/ai-tools-registry.test.js, docs-guide/tooling/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx",
+    "scope": "tools/lib/ai, ai-tools/registry, operations/governance/config/ownerless-governance-surfaces.json, operations/scripts/generators/governance/catalogs/generate-ai-tools-registry-artifacts.js, operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js, operations/tests/unit/ai-tools-registry.test.js, docs-guide/tooling/ai-tools.mdx, docs-guide/policies/source-of-truth-policy.mdx",
     "usage": "const registry = require('../../tools/lib/ai/ai-tools-registry');",
     "policy": "",
     "status": "active"
@@ -5379,7 +5364,7 @@
     "description": "",
     "mode": "",
     "pipeline": "indirect — library module",
-    "scope": "tools/lib/governance, operations/governance/config, tools/config/runtime, .githooks, tests/unit",
+    "scope": "tools/lib/governance, operations/governance/config, .githooks, tests/unit",
     "usage": "const { readManifest, getAffectedArtifacts } = require('../../tools/lib/governance/generated-artifacts');",
     "policy": "",
     "status": "active"
@@ -5410,7 +5395,7 @@
     "mode": "",
     "pipeline": "indirect — library module",
     "scope": "operations/governance/config, operations/scripts, operations/tests, docs-guide, workspace/reports/repo-ops",
-    "usage": "const { readManifest, getTransitionalSources } = require('../../tools/lib/governance/repo-governance');",
+    "usage": "const { readManifest, getCompatibilitySources } = require('../../tools/lib/governance/repo-governance');",
     "policy": "",
     "status": "active"
   },
@@ -5424,7 +5409,7 @@
     "description": "",
     "mode": "",
     "pipeline": "indirect — library module",
-    "scope": "tools/lib/governance, operations/governance/config, tools/config/runtime, operations/scripts, operations/tests, docs-guide",
+    "scope": "tools/lib/governance, operations/governance/config, operations/scripts, operations/tests, docs-guide",
     "usage": "const { readManifest, getAllowlistEntries } = require('../../tools/lib/governance/root-governance');",
     "policy": "",
     "status": "active"

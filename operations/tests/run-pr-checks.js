@@ -317,7 +317,6 @@ function partitionFiles(changedFiles) {
   const ownerlessGovernanceFiles = existingChangedFiles.filter((file) =>
     file.startsWith('operations/governance/config/') ||
     file === OWNERLESS_MANIFEST_PATH ||
-    file === 'tools/config/runtime/ownerless-governance-surfaces.json' ||
     file === OWNERLESS_POLICY_PATH ||
     file === 'operations/tests/unit/ownerless-governance.test.js' ||
     file === 'operations/tests/unit/check-agent-docs-freshness.test.js' ||
@@ -333,8 +332,6 @@ function partitionFiles(changedFiles) {
     file === 'operations/governance/config/root-governance.json' ||
     file === 'operations/governance/config/generated-artifacts.json' ||
     file === 'operations/governance/config/agent-write-governance.json' ||
-    file === 'tools/config/runtime/root-governance.json' ||
-    file === 'tools/config/runtime/generated-artifacts.json' ||
     file === 'tools/lib/governance/root-governance.js' ||
     file === 'tools/lib/governance/generated-artifacts.js' ||
     file === 'tools/lib/governance/agent-write-governance.js' ||

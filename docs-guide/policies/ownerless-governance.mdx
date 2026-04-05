@@ -92,10 +92,6 @@ The machine-readable surface registry lives at:
 
 - `operations/governance/config/ownerless-governance-surfaces.json`
 
-During staged bridge migration, a legacy mirror remains at:
-
-- `tools/config/runtime/ownerless-governance-surfaces.json`
-
 That manifest is the canonical index for:
 
 - governed globs
@@ -107,6 +103,8 @@ That manifest is the canonical index for:
 - rollout state
 - network dependence
 - ownerless readiness
+
+Legacy runtime mirrors under `tools/config/runtime/**` are retired. Active governance reads must target `operations/governance/config/**` only.
 
 ## OSS Contributor Loop
 

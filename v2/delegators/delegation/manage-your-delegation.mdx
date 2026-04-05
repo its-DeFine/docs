@@ -22,7 +22,8 @@ keywords:
 'og:image:height': 630
 pageType: guide
 audience: delegator
-purpose: operational
+purpose: operate
+lifecycleStage: operate
 status: current
 lastVerified: 2026-03-13
 ---
@@ -63,7 +64,7 @@ The protocol supports claiming rewards accumulated over many rounds in a single 
 That said, unclaimed rewards do not compound. If you want your reward earnings to generate additional rewards, you need to claim and rebond them. The longer you leave unclaimed rewards without rebonding, the more compounding potential you forego.
 
 <Tip>
-  Some orchestrators run automated bots that call `claimEarnings` on behalf of their delegators. Ask in [#orchestrators on Discord](https://discord.gg/livepeer) or check the orchestrator's documentation to see if they do this.
+  Claim on a cadence that makes sense for your position size. The protocol lets you accumulate earnings across multiple rounds and claim them later in one transaction.
 </Tip>
 
 ---
@@ -134,11 +135,9 @@ stateDiagram-v2
 
 Your stake enters the unbonding state. It no longer earns rewards from this point.
 
-{/* REVIEW: Unbonding period — verify the exact round count against the current BondingManager `unbondingPeriod` parameter. The protocol has historically used 7 rounds (~7 days at ~21 hours per round). getting-started.mdx stated "approximately 21 hours (one round)" which may refer to a different protocol state or be incorrect. Confirm with Mehrdad or Rick before publishing. */}
-
 ### Step 2: Wait for the unbonding period
 
-During this period, your LPT remains in the BondingManager contract. You cannot accelerate the wait. You can, however, cancel unbonding and rebond if you change your mind — this returns your stake to bonded status without needing to start a new approval and bond cycle.
+During this period, your LPT remains in the BondingManager contract. The current round-based wait is shown in Explorer at the time you undelegate. You cannot accelerate the wait. You can, however, cancel unbonding and rebond if you change your mind — this returns your stake to bonded status without needing to start a new approval and bond cycle.
 
 ### Step 3: Withdraw
 
@@ -175,7 +174,7 @@ Check this at minimum whenever you plan to claim or when you hear about changes 
 </Accordion>
 
 <Accordion title="Your orchestrator drops out of the active set">
-  If their total bonded stake falls below the top 100, they exit the active set. You earn nothing while they are inactive. This can happen if large delegators exit. Redelegate promptly to an active orchestrator.
+  If they fall out of the active set, you earn nothing while they are inactive. This can happen if large delegators exit or the active-set threshold moves around them. Redelegate promptly to an active orchestrator.
 </Accordion>
 
 <Accordion title="A governance proposal that affects your returns">
@@ -188,7 +187,7 @@ Check this at minimum whenever you plan to claim or when you hear about changes 
 
 ## Governance
 
-Your bonded LPT gives you voting weight on Livepeer Improvement Proposals. Governance decisions include inflation parameter changes, treasury allocations, protocol upgrades, and active set size.
+Your bonded LPT gives you voting weight on Livepeer Improvement Proposals. Governance decisions include inflation parameter changes, treasury allocations, protocol upgrades, and active-set rules.
 
 Voting happens through the Explorer. Active proposals are visible under the governance section. To vote, connect your wallet and sign a transaction with your preferred option.
 

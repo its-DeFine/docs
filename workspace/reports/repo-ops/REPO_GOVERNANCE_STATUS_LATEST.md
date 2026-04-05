@@ -2,12 +2,12 @@
 
 - Version: `repo-governance-surfaces.v1`
 - Canonical home: `operations/governance`
-- Bridge mode: `staged`
+- Cutover status: `retired`
 - Total surfaces: 5
 - Ownerless-ready surfaces: 3
 - Human approval checkpoints: 4
 - GitHub workspace classified entries: 7
-- Legacy bridge entries: 3
+- Legacy bridge entries: 0
 
 ## Rollout States
 
@@ -16,11 +16,9 @@
 | `autofix` | 3 |
 | `migrating` | 2 |
 
-## Transitional Sources
+## Compatibility Sources
 
-- `tools/config/runtime/generated-artifacts.json`
-- `tools/config/runtime/ownerless-governance-surfaces.json`
-- `tools/config/runtime/root-governance.json`
+No compatibility-source paths remain in the canonical governance registry.
 
 ## Human Approval Checkpoints
 
@@ -37,12 +35,6 @@
 | `generated-support` | 1 |
 | `historical-audit` | 1 |
 | `transitional-runtime` | 2 |
-
-## Legacy Bridge Inventory
-
-- `legacy-generated-artifacts-manifest`
-- `legacy-ownerless-governance-manifest`
-- `legacy-root-governance-manifest`
 
 ## Registered Surface IDs
 

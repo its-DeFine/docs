@@ -1,6 +1,6 @@
 ---
 title: Choose an Orchestrator and Delegate
-sidebarTitle: Choose a Delegate
+sidebarTitle: Choose an Orchestrator
 description: >-
   How to evaluate Livepeer orchestrators, pick one that fits your goals, and
   complete the delegation transaction on Arbitrum One.
@@ -22,7 +22,8 @@ keywords:
 'og:image:height': 630
 pageType: guide
 audience: delegator
-purpose: guide
+purpose: choose
+lifecycleStage: setup
 status: current
 lastVerified: 2026-03-13
 ---
@@ -74,7 +75,7 @@ You need:
 
 Navigate to [explorer.livepeer.org](https://explorer.livepeer.org) and connect your wallet.
 
-The main orchestrators page shows all registered orchestrators, sortable by stake, reward rate, and fee cut. You are looking at the full list — not just the top 100. The top 100 by bonded stake form the **active set**: the only orchestrators eligible to earn rewards in the current round.
+The main orchestrators page shows registered orchestrators, their current status, and the reward and fee terms attached to each operator. Start by narrowing the list to orchestrators that are currently active, then compare their profile details before you delegate.
 
 <Tip>
   Filter or sort by "Active" first. Delegating to an inactive orchestrator means your stake contributes to their potential activation but earns nothing until they enter the active set.
@@ -82,11 +83,9 @@ The main orchestrators page shows all registered orchestrators, sortable by stak
 
 ### What the active set means
 
-The Livepeer protocol selects the top 100 orchestrators by total bonded stake at the start of each round. Only these 100 earn inflation rewards or are routed video and AI jobs that round. Orchestrators outside the top 100 earn nothing regardless of their commission settings or uptime.
+The Livepeer protocol maintains an active set of orchestrators that are eligible to earn inflation rewards and handle routed work for the round. Orchestrators outside that active set do not earn rewards for delegators, regardless of their commission settings or uptime.
 
 When you delegate, you want your orchestrator to be firmly in the active set — not borderline — so that changes in other orchestrators' stake do not knock them out between rounds.
-
-{/* REVIEW: Active set size = 100 — verify against current protocol parameter `numActiveTranscoders` before publishing. This was confirmed in gpu-nodes-ia-planning.md but the protocol parameter is configurable via governance. */}
 
 ---
 
@@ -138,7 +137,7 @@ The percentage of LPT inflation rewards the orchestrator keeps. The remainder is
 
 ### feeShare (ETH fee distribution)
 
-The percentage of ETH fee revenue the orchestrator passes to delegators. This appears as "Fee Share" in the Explorer.
+The percentage of ETH fee revenue the orchestrator passes to delegators.
 
 - 80% feeShare: delegators receive 80% of all ETH fees the orchestrator earns
 - 25% feeShare: delegators receive only 25% of ETH fees
@@ -199,7 +198,7 @@ Optional but worth a few minutes for anyone delegating meaningful amounts.
 
 Before moving to the delegation step, confirm:
 
-- [ ] Orchestrator is in the active set (top 100 by bonded stake)
+- [ ] Orchestrator is in the active set
 - [ ] Reward call history: 28+ of last 30 rounds called (or equivalent consistency)
 - [ ] rewardCut is competitive (typically below 20%)
 - [ ] feeShare is meaningful (above 50% if ETH fees matter to you)
@@ -211,19 +210,6 @@ Before moving to the delegation step, confirm:
 ## Step 6: Delegate
 
 With your orchestrator chosen, you are ready to execute the delegation transaction.
-
-{/* VIDEO PLACEHOLDER: Short screen-recording of the delegation flow in Explorer — connect wallet, navigate to orchestrator, click Delegate, sign Approve, sign Bond, confirm success. Replace embed ID when available. */}
-
-<Frame>
-  <iframe
-    src="https://www.youtube.com/embed/PLACEHOLDER_ID"
-    width="100%"
-    height="400"
-    frameBorder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen
-  />
-</Frame>
 
 ### The delegation transaction in detail
 

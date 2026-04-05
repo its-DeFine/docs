@@ -10,11 +10,12 @@ keywords:
   - staking
   - tokenomics
   - governance
-audience: everyone
+audience: delegator
 pageType: reference
 pageVariant: compendium
 purpose: reference
 status: draft
+lifecycleStage: operate
 lastVerified: '2026-03'
 'og:image': /snippets/assets/media/og-images/fallback.png
 'og:image:alt': Livepeer Docs social preview image
@@ -69,8 +70,8 @@ Definitions for LPT token holders and stakers — covering staking, delegation, 
   headerList={["Term", "Category", "Niche", "Definition"]}
   searchColumns={["Term", "Definition"]}
   itemsList={[
-    { Term: "Active Set", Category: "livepeer", Niche: "protocol", Definition: "The top 100 orchestrators ranked by total bonded stake that are eligible to receive work and earn rewards each round." },
-    { Term: "Active Set Election", Category: "livepeer", Niche: "protocol", Definition: "The process at the start of each round that selects the top 100 orchestrators by total bonded stake to form the Active Set eligible to receive work." },
+    { Term: "Active Set", Category: "livepeer", Niche: "protocol", Definition: "The protocol-defined set of orchestrators ranked highly enough by bonded stake to receive work and earn rewards for the round." },
+    { Term: "Active Set Election", Category: "livepeer", Niche: "protocol", Definition: "The round-by-round process that determines which orchestrators are in the Active Set based on bonded stake and protocol rules." },
     { Term: "AI Inference", Category: "ai", Niche: "concept", Definition: "Running a trained machine learning model on new input data to produce predictions or generated outputs, as opposed to the training phase." },
     { Term: "AI Inference (Network Work Type)", Category: "ai", Niche: "concept, livepeer:protocol", Definition: "Running trained AI models as the newer category of on-network compute work alongside transcoding, with orchestrators earning ETH fees for completed inference jobs." },
     { Term: "Arbitrum One", Category: "web3", Niche: "chain", Definition: "A Layer 2 Optimistic Rollup that settles to Ethereum, processing transactions off-chain while inheriting Ethereum-grade security guarantees." },
@@ -149,7 +150,7 @@ Definitions for LPT token holders and stakers — covering staking, delegation, 
     { Term: "Staking", Category: "web3", Niche: "tokenomics, economic:reward", Definition: "The act of locking tokens in a proof-of-stake protocol to participate in network security, governance, and earn inflationary rewards and fee income." },
     { Term: "Supply", Category: "web3", Niche: "tokenomics", Definition: "The total number of LPT tokens in existence at any given time, starting from a genesis supply of 10 million and growing continuously through inflationary issuance." },
     { Term: "Target Bonding Rate", Category: "web3", Niche: "tokenomics", Definition: "The 50% participation threshold for the ratio of bonded LPT to total supply; the inflation mechanism adjusts the per-round issuance rate to push toward this target." },
-    { Term: "Thawing Period", Category: "livepeer", Niche: "protocol", Definition: "The mandatory waiting period of approximately 7 rounds after initiating an unbond before the freed LPT becomes withdrawable to the holder's wallet." },
+    { Term: "Thawing Period", Category: "livepeer", Niche: "protocol", Definition: "The mandatory waiting period after initiating an unbond before the freed LPT becomes withdrawable to the holder's wallet." },
     { Term: "Timelock", Category: "web3", Niche: "governance", Definition: "A smart contract mechanism that enforces a mandatory delay between when a governance proposal passes and when it can be executed on-chain." },
     { Term: "Token Distribution", Category: "web3", Niche: "tokenomics", Definition: "The allocation and dispersal of LPT tokens across founders, team, investors, and the public through mechanisms including the Merkle Mine, vesting schedules, and inflationary issuance." },
     { Term: "Tokenomics", Category: "web3", Niche: "tokenomics", Definition: "The economic design of the LPT token system encompassing total supply, genesis distribution, inflation schedule, staking incentives, governance rights, and deflationary mechanisms." },
@@ -179,7 +180,7 @@ Definitions for LPT token holders and stakers — covering staking, delegation, 
 
 <AccordionGroup>
   <Accordion title="Active Set" icon="book-open">
-    **Definition**: The top 100 orchestrators ranked by total bonded stake that are eligible to receive work and earn rewards each round.
+    **Definition**: The protocol-defined set of orchestrators ranked highly enough by bonded stake to receive work and earn rewards for the round.
 
     **Also known as**: Active set election
 
@@ -191,9 +192,9 @@ Definitions for LPT token holders and stakers — covering staking, delegation, 
   </Accordion>
 
   <Accordion title="Active Set Election <Badge color='yellow'>draft</Badge>" icon="book-open">
-    **Definition**: The process at the start of each round that selects the top 100 orchestrators by total bonded stake to form the Active Set eligible to receive work.
+    **Definition**: The round-by-round process that determines which orchestrators are in the Active Set based on bonded stake and protocol rules.
 
-    **Context**: Active Set Election runs deterministically from the BondingManager's stake rankings; orchestrators that fall out of the top 100 between rounds do not earn inflationary rewards for that round.
+    **Context**: Active Set Election runs deterministically from the BondingManager's stake rankings; orchestrators that fall out of the active set between rounds do not earn inflationary rewards for that round.
 
     **Status**: draft
 
@@ -357,7 +358,7 @@ Definitions for LPT token holders and stakers — covering staking, delegation, 
   </Accordion>
 
   <Accordion title="Thawing Period" icon="book-open">
-    **Definition**: The mandatory waiting period of approximately 7 rounds after initiating an unbond before the freed LPT becomes withdrawable to the holder's wallet.
+    **Definition**: The mandatory waiting period after initiating an unbond before the freed LPT becomes withdrawable to the holder's wallet.
 
     **Context**: The thawing period is a security mechanism that prevents delegators from immediately withdrawing stake after misbehavior, giving the protocol time to apply any pending slashing.
 
@@ -759,7 +760,7 @@ Definitions for LPT token holders and stakers — covering staking, delegation, 
 
     **Also known as**: Unbonding period
 
-    **Context**: Unbonding does not immediately return LPT to the wallet; tokens remain locked for approximately 7 rounds (the thawing period), during which they can still be rebonded but earn no new rewards.
+    **Context**: Unbonding does not immediately return LPT to the wallet; tokens remain locked for the thawing period, during which they can still be rebonded but earn no new rewards.
 
     **Status**: current
 

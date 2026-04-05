@@ -48,7 +48,7 @@ Live governed root inventory is generated at [`docs-guide/repo-ops/config/root-g
 
 ## operations/governance/config/
 
-Top-level governance control-plane manifests live here in staged bridge mode. Legacy mirrors still remain under `tools/config/runtime/**` until approved cutover, but active canonical reads now target `operations/governance/config/**`.
+Top-level governance control-plane manifests live here in the ownerless steady state. Active canonical reads target `operations/governance/config/**`, and operational runtime config lives under `operations/config/**`.
 
 ### repo-governance-surfaces.json
 
@@ -56,11 +56,11 @@ Top-level governance control-plane manifests live here in staged bridge mode. Le
 operations/governance/config/repo-governance-surfaces.json
 ```
 
-**Purpose:** Canonical top-level registry for governed repo surfaces, path classes, agent output classes, rollout state, and staged bridge status.
+**Purpose:** Canonical top-level registry for governed repo surfaces, path classes, agent output classes, rollout state, and steady-state handover status.
 
 **Read by:** `generate-repo-governance-status.js`, `check-repo-governance-sync.js`, `repo-governance-sync.test.js`, and human/operator docs via the generated repo governance map.
 
-**Bridge mode:** `staged`
+**Cutover status:** `retired`
 
 **Key responsibilities:**
 
@@ -68,12 +68,12 @@ operations/governance/config/repo-governance-surfaces.json
 |-------------|---------|
 | `generated_outputs` | Declares the repo-governance map and deterministic status reports |
 | `github_workspace_surfaces` | Classifies `.github/workspace` entries as transitional runtime, generated support, design-only, or historical audit |
-| `legacy_bridge_inventory` | Declares the remaining live consumers blocking retirement of `tools/config/runtime/**` bridge manifests |
+| `legacy_bridge_inventory` | Retirement record for former bridge manifests. This remains empty after cutover. |
 | `path_classes` | Declares admitted path classes for governance-controlled writes |
 | `agent_output_classes` | Declares where agent-generated outputs should live and whether they may be committed |
 | `surfaces` | Declares governed governance surfaces, validators, repair commands, gate layer, rollout state, and escalation |
 
-**When to update:** When introducing a new governance-controlled surface, changing admitted path classes, or changing the staged bridge model.
+**When to update:** When introducing a new governance-controlled surface, changing admitted path classes, or changing the steady-state governance model.
 
 Live top-level governance state is generated at [`docs-guide/repo-ops/config/repo-governance-map.mdx`](/docs-guide/repo-ops/config/repo-governance-map).
 
@@ -83,11 +83,9 @@ Live top-level governance state is generated at [`docs-guide/repo-ops/config/rep
 operations/governance/config/root-governance.json
 ```
 
-**Purpose:** Canonical manifest for the governed repo root during staged migration to `operations/governance/**`.
+**Purpose:** Canonical manifest for the governed repo root.
 
-**Bridge source:** `tools/config/runtime/root-governance.json`
-
-**Read by:** root-governance helpers, generators, validators, and bridge sync validation.
+**Read by:** root-governance helpers, generators, validators, and governance sync validation.
 
 ### generated-artifacts.json
 
@@ -95,11 +93,9 @@ operations/governance/config/root-governance.json
 operations/governance/config/generated-artifacts.json
 ```
 
-**Purpose:** Canonical manifest for generated-artifact governance during staged migration to `operations/governance/**`.
+**Purpose:** Canonical manifest for generated-artifact governance.
 
-**Bridge source:** `tools/config/runtime/generated-artifacts.json`
-
-**Read by:** generated-artifact helpers, validators, hooks, PR checks, and bridge sync validation.
+**Read by:** generated-artifact helpers, validators, hooks, PR checks, and governance sync validation.
 
 ### agent-write-governance.json
 
@@ -117,11 +113,30 @@ operations/governance/config/agent-write-governance.json
 operations/governance/config/ownerless-governance-surfaces.json
 ```
 
-**Purpose:** Canonical ownerless-governance surface registry during staged migration to `operations/governance/**`.
-
-**Bridge source:** `tools/config/runtime/ownerless-governance-surfaces.json`
+**Purpose:** Canonical ownerless-governance surface registry.
 
 **Read by:** ownerless-governance policy/tests, repo-governance sync validation, PR checks, and adjacent governance consumers such as AI-tools registry relevance checks.
+
+---
+
+## operations/config/
+
+Operational runtime config now lives under `operations/config/**`.
+
+This tree is for runtime config consumed by scripts, validators, audits, and reporting flows that is not itself a governance control-plane manifest.
+
+Current canonical runtime-config surfaces:
+
+| Path | Purpose | Read by |
+|------|---------|---------|
+| `operations/config/content/blueprints/blueprint-mapping.json` | Canonical blueprint mapping for reconciliation and blueprint-aware audits | `generate-content-gap-reconciliation.js` and adjacent content-audit tooling |
+| `operations/config/content/blueprints/blueprint-pages.json` | Canonical blueprint page inventory for content reconciliation | `generate-content-gap-reconciliation.js` and blueprint-aware audits |
+| `operations/config/content/navigation/navigation-exclusions.json` | Canonical navigation-exclusion config for Mintlify/data collation support | Mintlify collation/reference docs and navigation-aware support tooling |
+| `operations/config/content/reports/v2-internal-report-pages.js` | Canonical runtime module for published internal report page routing | `publish-v2-internal-reports.js` |
+| `operations/config/workspace/retention/report-retention-policy.json` | Canonical report retention and quarantine policy data | `quarantine-manager.js`, `script-footprint-and-usage-audit.js`, and cleanup/report audits |
+| `operations/config/workspace/schemas/cleanup-manifest.schema.json` | Canonical cleanup-manifest schema | cleanup/quarantine policy and cleanup tooling |
+
+`tools/config/runtime/**` is retired. Active runtime reads must target `operations/config/**`.
 
 ---
 
@@ -129,7 +144,7 @@ operations/governance/config/ownerless-governance-surfaces.json
 
 `.github/workspace/` is not one uniform canonical runtime governance tree.
 
-Under the staged bridge model it contains a mix of:
+Under the ownerless steady state it contains a mix of:
 - transitional runtime support still used for workflow taxonomy and locked decisions
 - generated support/reference material
 - design-only planning material

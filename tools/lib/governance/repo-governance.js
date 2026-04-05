@@ -7,7 +7,7 @@
  * @needs             R-R14, R-R16, R-R17, R-R29
  * @purpose-statement Repo governance helpers — load the canonical registry, validate its schema, and expose derived state for generators and validators.
  * @pipeline          indirect — library module
- * @usage             const { readManifest, getTransitionalSources } = require('../../tools/lib/governance/repo-governance');
+ * @usage             const { readManifest, getCompatibilitySources } = require('../../tools/lib/governance/repo-governance');
  */
 
 const fs = require('fs');
@@ -117,7 +117,12 @@ function validateGithubWorkspaceEntries(entries) {
 }
 
 function validateLegacyBridgeInventory(entries) {
-  ensureArray(entries, 'legacy_bridge_inventory');
+  if (entries == null) {
+    return;
+  }
+  if (!Array.isArray(entries)) {
+    throw new Error('legacy_bridge_inventory must be an array when provided.');
+  }
   const seen = new Set();
   entries.forEach((entry, index) => {
     const label = `legacy_bridge_inventory[${index}]`;
@@ -285,7 +290,7 @@ function getOwnerlessReadyCount(manifest = readManifest()) {
   return manifest.surfaces.filter((surface) => surface.ownerless_ready).length;
 }
 
-function getTransitionalSources(manifest = readManifest()) {
+function getCompatibilitySources(manifest = readManifest()) {
   return sortStrings(
     manifest.surfaces.flatMap((surface) =>
       surface.canonical_sources.filter((repoPath) => repoPath.startsWith('tools/config/runtime/'))
@@ -305,7 +310,7 @@ function getGithubWorkspaceClassificationCounts(manifest = readManifest()) {
 }
 
 function getLegacyBridgeIds(manifest = readManifest()) {
-  return sortStrings(manifest.legacy_bridge_inventory.map((entry) => entry.id));
+  return sortStrings((manifest.legacy_bridge_inventory || []).map((entry) => entry.id));
 }
 
 module.exports = {
@@ -332,5 +337,5 @@ module.exports = {
   getSurfaceById,
   getRolloutStateCounts,
   getOwnerlessReadyCount,
-  getTransitionalSources
+  getCompatibilitySources
 };

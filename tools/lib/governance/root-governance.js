@@ -3,7 +3,7 @@
  * @category          utility
  * @type              utility
  * @purpose           governance:root-management
- * @scope             tools/lib/governance, operations/governance/config, tools/config/runtime, operations/scripts, operations/tests, docs-guide
+ * @scope             tools/lib/governance, operations/governance/config, operations/scripts, operations/tests, docs-guide
  * @owner             docs
  * @needs             R-R14, R-R16, R-R17
  * @purpose-statement Root governance helpers — load the canonical manifest, validate the governed root contract, and project derived allowlist/report state.
@@ -16,7 +16,6 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const MANIFEST_PATH = 'operations/governance/config/root-governance.json';
-const LEGACY_MANIFEST_PATH = 'tools/config/runtime/root-governance.json';
 const VALID_ENTRY_TYPES = new Set(['file', 'directory']);
 const VALID_CLASSES = new Set([
   'platform_contract',
@@ -59,9 +58,7 @@ function sortStrings(values) {
 }
 
 function readManifest(repoRoot = getRepoRoot()) {
-  const canonicalAbsPath = path.join(repoRoot, MANIFEST_PATH);
-  const legacyAbsPath = path.join(repoRoot, LEGACY_MANIFEST_PATH);
-  const absPath = fs.existsSync(canonicalAbsPath) ? canonicalAbsPath : legacyAbsPath;
+  const absPath = path.join(repoRoot, MANIFEST_PATH);
   const parsed = JSON.parse(fs.readFileSync(absPath, 'utf8'));
   validateManifest(parsed);
   return parsed;
@@ -240,7 +237,6 @@ function getTrackedUnexpectedRootEntries(manifest = readManifest(), repoRoot = g
 
 module.exports = {
   MANIFEST_PATH,
-  LEGACY_MANIFEST_PATH,
   VALID_ENTRY_TYPES,
   VALID_CLASSES,
   VALID_ROOT_BASIS,

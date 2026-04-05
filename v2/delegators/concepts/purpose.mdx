@@ -17,8 +17,9 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: delegator
+lifecycleStage: evaluate
 lastVerified: 2026-03-17
-purpose: concept
+purpose: explain
 ---
 ## Purpose of LPT
 
@@ -39,7 +40,7 @@ LPT launched with a fixed genesis supply of 25.8 million tokens and continues to
 - Initial distribution and lockups – At genesis, LPT was allocated to early investors, founders, community members and a protocol treasury. Many allocations vested over multiple years to align long‑term interests. The majority of circulating supply is now held by the community.
 
 - Adaptive inflation – The inflation rate responds to staking participation: if less than ~50 % of LPT is bonded, the rate increases; if more than ~50 % is bonded, the rate decreases. This feedback loop keeps the network secure by incentivising additional bonding when needed while reducing dilution when security is sufficient. Early on, inflation exceeded 13 % per year; as participation grew, the community voted to reduce baseline issuance to around 6–8 % and to direct a portion to the community treasury.
-The precise formula is inflation := inflation ± inflationChangeRate depending on whether the bonded ratio is above or below the target bonding rate (initially 50 %). InflationChangeRate determines how quickly the rate adjusts (e.g., 0.0005 per round). Because rounds occur roughly every 21 hours, adjustments compound gradually. This design prevents abrupt shocks while steering the network toward the target stake level.
+The precise formula is inflation := inflation ± inflationChangeRate depending on whether the bonded ratio is above or below the target bonding rate (initially 50 %). InflationChangeRate determines how quickly the rate adjusts each round. This design prevents abrupt shocks while steering the network toward the target stake level.
 
 - Staking multiplier and round length – The protocol’s security depends not only on the percentage of LPT bonded but also on the work capacity per stake unit. As demand for video/AI throughput grows, governance can increase the number of active orchestrators (via numActiveTranscoders) to enlarge supply. Conversely, if demand shrinks, inflation continues to distribute rewards but orchestrator earnings decline, signalling to operators to scale down capacity.
 
@@ -61,13 +62,13 @@ There are two revenue streams in Livepeer:
 
 2. LPT inflation – In each round, the BondingManager calls `reward()` for every active orchestrator. The contract mints new LPT proportional to the orchestrator’s total stake (bonded LPT + delegations) and transfers it to the orchestrator. The orchestrator then splits the reward with delegators according to its `rewardCut` (percentage it keeps). Delegators call `claimEarnings()` to collect accumulated LPT and ETH.
 
-Bonding is non‑custodial: delegators’ LPT remains within the BondingManager. To withdraw, a delegator initiates an unbond. After a thawing period of one round (currently ~21 hours), they can withdraw their principal and any unclaimed rewards. This unbonding period prevents rapid stake flipping and provides time for slashing (when enabled) to be enforced.
+Bonding is non-custodial: delegators' LPT remains within the BondingManager. To withdraw, a delegator initiates an unbond and waits for the protocol-defined thawing period before withdrawal becomes available. This unbonding period prevents rapid stake flipping and provides time for slashing (when enabled) to be enforced.
 
 The configurability of `rewardCut` and `feeShare` creates a pricing market. Orchestrators must decide how much of the reward to retain versus share to attract delegators. Delegators, in turn, evaluate orchestrators based on uptime, transcoding quality, `feeShare`, `rewardCut`, and governance alignment. The resulting competition drives better service quality and decentralises power.
 
 Reward compounding and inflation capture
 
-Because inflation is distributed continuously, delegators benefit from regularly compounding their earnings by calling `claimEarnings()` or by bonding additional LPT. Failure to claim for many rounds does not forfeit rewards, but it can delay compounding and reduce effective yield due to dilution. Some operators run bots to automate `claimEarnings()` for their delegators, smoothing compounding and saving gas by batching calls.
+Because inflation is distributed continuously, delegators benefit from regularly compounding their earnings by calling `claimEarnings()` or by bonding additional LPT. Failure to claim for many rounds does not forfeit rewards, but it can delay compounding and reduce effective yield due to dilution.
 
 _**Reward leakage and “fee switch”**_
 

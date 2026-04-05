@@ -1,7 +1,7 @@
 {
   "version": "repo-governance-surfaces.v1",
   "canonical_home": "operations/governance",
-  "bridge_mode": "staged",
+  "bridge_mode": "retired",
   "canonical_manifests": [
     "operations/governance/config/root-governance.json",
     "operations/governance/config/generated-artifacts.json",
@@ -31,11 +31,7 @@
     "design-only": 3,
     "historical-audit": 1
   },
-  "legacy_bridge_ids": [
-    "legacy-generated-artifacts-manifest",
-    "legacy-ownerless-governance-manifest",
-    "legacy-root-governance-manifest"
-  ],
+  "legacy_bridge_ids": [],
   "surface_ids": [
     "generated-artifact-governance",
     "github-workspace-governance",
@@ -43,15 +39,11 @@
     "repo-governance-registry",
     "root-governance"
   ],
-  "transitional_sources": [
-    "tools/config/runtime/generated-artifacts.json",
-    "tools/config/runtime/ownerless-governance-surfaces.json",
-    "tools/config/runtime/root-governance.json"
-  ],
+  "compatibility_sources": [],
   "path_classes": [
     "governance-config",
     "governance-docs",
-    "governance-runtime-bridge",
+    "governance-runtime",
     "workspace-report",
     "workspace-local"
   ],

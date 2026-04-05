@@ -2,7 +2,7 @@
  * @script            generated-artifacts
  * @category          utility
  * @purpose           governance:index-management
- * @scope             tools/lib/governance, operations/governance/config, tools/config/runtime, .githooks, tests/unit
+ * @scope             tools/lib/governance, operations/governance/config, .githooks, tests/unit
  * @domain            docs
  * @needs             R-R16, R-R17
  * @purpose-statement Generated artifact governance helpers — load the manifest, validate enums, and match staged files to managed artifacts
@@ -15,7 +15,6 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const MANIFEST_PATH = 'operations/governance/config/generated-artifacts.json';
-const LEGACY_MANIFEST_PATH = 'tools/config/runtime/generated-artifacts.json';
 const VALID_CLASS = new Set(['committed_authoritative', 'committed_derived_scoped', 'ephemeral_local']);
 const VALID_COMMIT_POLICY = new Set(['required', 'manual', 'forbidden']);
 const VALID_HOOK_POLICY = new Set(['check_only', 'write_and_stage', 'ignore']);
@@ -68,9 +67,7 @@ function uniqueSorted(values) {
 }
 
 function readManifest(repoRoot = getRepoRoot()) {
-  const canonicalAbs = path.join(repoRoot, MANIFEST_PATH);
-  const legacyAbs = path.join(repoRoot, LEGACY_MANIFEST_PATH);
-  const manifestAbs = fs.existsSync(canonicalAbs) ? canonicalAbs : legacyAbs;
+  const manifestAbs = path.join(repoRoot, MANIFEST_PATH);
   const raw = fs.readFileSync(manifestAbs, 'utf8');
   const parsed = JSON.parse(raw);
   validateManifest(parsed);
@@ -162,7 +159,6 @@ function getFirstArtifactByPath(repoPath, manifest = readManifest()) {
 
 module.exports = {
   MANIFEST_PATH,
-  LEGACY_MANIFEST_PATH,
   VALID_CLASS,
   VALID_COMMIT_POLICY,
   VALID_HOOK_POLICY,

@@ -3,7 +3,7 @@
  * @script            root-allowlist-format.test
  * @category          validator
  * @purpose           governance:agent-governance
- * @scope             tests/unit, .allowlist, operations/governance/config/root-governance.json, tools/config/runtime/root-governance.json, tools/lib/governance/root-governance.js
+ * @scope             tests/unit, .allowlist, operations/governance/config/root-governance.json, tools/lib/governance/root-governance.js
  * @owner             docs
  * @needs             R-R14, R-R29
  * @purpose-statement Validates that .allowlist stays machine-readable, root-only, and aligned with the canonical root-governance manifest.

@@ -3,7 +3,7 @@
  * @script            generate-snippets-registry
  * @category          generator
  * @purpose           governance:index-management
- * @scope             operations/scripts, snippets/guide.mdx, snippets/snippets-registry.mdx, operations/governance/config/generated-artifacts.json, tools/config/runtime/generated-artifacts.json
+ * @scope             operations/scripts, snippets/guide.mdx, snippets/snippets-registry.mdx, operations/governance/config/generated-artifacts.json
  * @domain            docs
  * @needs             R-R16, R-R17
  * @purpose-statement Generates the snippets root registry from the live snippets filesystem plus structured folder metadata embedded in snippets/guide.mdx.

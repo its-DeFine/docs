@@ -20,7 +20,7 @@ const STAGE_ID = 'cleanup-quarantine-manager';
 const REPO_ROOT = process.cwd();
 const DEFAULT_OUTPUT_DIR = 'workspace/reports/repo-ops';
 const DEFAULT_QUARANTINE_ROOT = 'workspace/quarantine/repo-audit';
-const RETENTION_POLICY_PATH = 'tools/config/runtime/report-retention-policy.json';
+const RETENTION_POLICY_PATH = 'operations/config/workspace/retention/report-retention-policy.json';
 
 const STAGE_REPORT_FILES = [
   'script-footprint-and-usage-audit.json',

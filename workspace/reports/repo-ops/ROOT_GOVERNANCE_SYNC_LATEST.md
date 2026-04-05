@@ -3,14 +3,15 @@
 Manifest: `operations/governance/config/root-governance.json`
 
 Governed root entries: 35
-Current root entries: 36
-Unexpected entries: 0
+Current root entries: 38
+Unexpected entries: 2
 Missing governed entries: 0
-Forbidden entries present: 0
+Forbidden entries present: 2
 
 ## Unexpected Root Entries
 
-None.
+- `.cache`
+- `.DS_Store`
 
 ## Missing Governed Entries
 
@@ -18,7 +19,8 @@ None.
 
 ## Forbidden Entries Present
 
-None.
+- `.cache`
+- `.DS_Store`
 
 ## Local Compatibility Entries
 

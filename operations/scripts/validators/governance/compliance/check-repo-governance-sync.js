@@ -6,11 +6,11 @@
  * @concern           governance
  * @niche             compliance
  * @purpose           governance:ownerless-governance
- * @description       Validates that the top-level repo-governance registry, generated outputs, and referenced bridge-mode paths stay aligned.
+ * @description       Validates that the top-level repo-governance registry, generated outputs, and referenced steady-state paths stay aligned.
  * @mode              read-only
  * @domain            docs
  * @needs             R-R14, R-R16, R-R17, R-R29
- * @purpose-statement Validates the canonical repo-governance registry, generated outputs, and referenced staged-bridge paths.
+ * @purpose-statement Validates the canonical repo-governance registry, generated outputs, and referenced ownerless steady-state paths.
  * @pipeline          manual, pr-changed -> repo-governance registry -> exit-code, stdout:violations
  * @scope             operations/governance/config, operations/scripts/generators/governance/reports, operations/scripts/validators/governance/compliance, tools/lib/governance, docs-guide/repo-ops/config, workspace/reports/repo-ops
  * @usage             node operations/scripts/validators/governance/compliance/check-repo-governance-sync.js [--json]
@@ -26,7 +26,6 @@ const {
 } = require('../../../generators/governance/reports/generate-repo-governance-status');
 
 const REPO_ROOT = getRepoRoot();
-const BRIDGE_METADATA_KEY = 'bridge_metadata';
 
 function parseArgs(argv) {
   const args = { json: false, help: false };
@@ -54,23 +53,6 @@ function normalizeContent(content) {
 
 function addIssue(issues, type, repoPath, message) {
   issues.push({ type, path: repoPath, message });
-}
-
-function stripBridgeMetadata(value) {
-  if (Array.isArray(value)) {
-    return value.map((entry) => stripBridgeMetadata(entry));
-  }
-  if (!value || typeof value !== 'object') {
-    return value;
-  }
-  const next = {};
-  Object.keys(value)
-    .filter((key) => key !== BRIDGE_METADATA_KEY)
-    .sort((left, right) => left.localeCompare(right))
-    .forEach((key) => {
-      next[key] = stripBridgeMetadata(value[key]);
-    });
-  return next;
 }
 
 function checkReferencedPaths(manifest, issues) {
@@ -110,36 +92,6 @@ function checkReferencedPaths(manifest, issues) {
     }
   });
 
-  (manifest.legacy_bridge_inventory || []).forEach((entry) => {
-    [entry.legacy_path, entry.canonical_path, ...(entry.consumer_paths || [])].forEach((repoPath) => {
-      const absPath = path.join(REPO_ROOT, repoPath);
-      if (!fs.existsSync(absPath)) {
-        addIssue(
-          issues,
-          'missing_legacy_bridge_reference',
-          repoPath,
-          `${repoPath} referenced by legacy bridge inventory ${entry.id} is missing.`
-        );
-      }
-    });
-  });
-}
-
-function checkBridgeManifestEquality(issues, canonicalPath, legacyPath) {
-  const canonicalAbs = path.join(REPO_ROOT, canonicalPath);
-  const legacyAbs = path.join(REPO_ROOT, legacyPath);
-  if (!fs.existsSync(canonicalAbs) || !fs.existsSync(legacyAbs)) return;
-
-  const canonical = stripBridgeMetadata(JSON.parse(fs.readFileSync(canonicalAbs, 'utf8')));
-  const legacy = stripBridgeMetadata(JSON.parse(fs.readFileSync(legacyAbs, 'utf8')));
-  if (JSON.stringify(canonical) !== JSON.stringify(legacy)) {
-    addIssue(
-      issues,
-      'bridge_manifest_drift',
-      canonicalPath,
-      `${canonicalPath} has drifted from legacy bridge source ${legacyPath}.`
-    );
-  }
 }
 
 function run() {
@@ -160,21 +112,6 @@ function run() {
   });
 
   checkReferencedPaths(manifest, issues);
-  checkBridgeManifestEquality(
-    issues,
-    'operations/governance/config/root-governance.json',
-    'tools/config/runtime/root-governance.json'
-  );
-  checkBridgeManifestEquality(
-    issues,
-    'operations/governance/config/generated-artifacts.json',
-    'tools/config/runtime/generated-artifacts.json'
-  );
-  checkBridgeManifestEquality(
-    issues,
-    'operations/governance/config/ownerless-governance-surfaces.json',
-    'tools/config/runtime/ownerless-governance-surfaces.json'
-  );
   try {
     readAgentWriteManifest(REPO_ROOT);
   } catch (error) {

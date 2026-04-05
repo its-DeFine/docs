@@ -162,7 +162,7 @@ Brand/copy enforcement follows the same ramp. New rules start as warnings, becom
 | tools/config/quality/accuracy-source-registry.json | Usefulness audit: which sources are trusted for verification | Adding/changing trusted sources |
 | tools/config/quality/accuracy-source-weights.json | Usefulness audit: weight per source type | Adjusting verification scoring |
 | tests/config/codex-issue-policy.json | Issue management policy for automated checks | — |
-| tools/config/runtime/report-retention-policy.json | How long audit reports are kept | — |
+| operations/config/workspace/retention/report-retention-policy.json | How long audit reports are kept | — |
 
 ## **Priority Implementation Order**
 

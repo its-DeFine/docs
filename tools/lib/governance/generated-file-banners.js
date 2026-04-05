@@ -64,6 +64,10 @@ function buildGeneratedFrontmatterLines(options = {}) {
   const sidebarTitle = normalizeInline(options.sidebarTitle);
   const description = normalizeInline(options.description);
   const pageType = normalizeInline(options.pageType);
+  const pageVariant = normalizeInline(options.pageVariant);
+  const audience = normalizeInline(options.audience);
+  const purpose = normalizeInline(options.purpose);
+  const lifecycleStage = normalizeInline(options.lifecycleStage);
   const keywords = Array.isArray(options.keywords) ? options.keywords.map((item) => normalizeInline(item)).filter(Boolean) : [];
   const keywordsStyle = options.keywordsStyle === 'multiline' ? 'multiline' : 'inline';
 
@@ -79,6 +83,10 @@ function buildGeneratedFrontmatterLines(options = {}) {
   if (sidebarTitle) lines.push(`sidebarTitle: ${asQuotedYaml(sidebarTitle)}`);
   if (description) lines.push(`description: ${asQuotedYaml(description)}`);
   if (pageType) lines.push(`pageType: ${pageType}`);
+  if (pageVariant) lines.push(`pageVariant: ${pageVariant}`);
+  if (audience) lines.push(`audience: ${audience}`);
+  if (purpose) lines.push(`purpose: ${purpose}`);
+  if (lifecycleStage) lines.push(`lifecycleStage: ${lifecycleStage}`);
 
   if (consumer.length > 0) lines.push(`consumer: [${consumer.join(', ')}]`);
   if (maintenance) lines.push(`maintenance: ${maintenance}`);

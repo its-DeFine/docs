@@ -10,7 +10,7 @@
  * @mode              generate
  * @domain            docs
  * @needs             R-R14, R-R16, R-R17, R-R29
- * @purpose-statement Generates the top-level repo-governance map and status reports from the canonical staged-bridge registry.
+ * @purpose-statement Generates the top-level repo-governance map and status reports from the canonical steady-state registry.
  * @pipeline          manual, pr-changed -> repo-governance registry -> governance map and status reports
  * @scope             operations/governance/config, operations/scripts/generators/governance/reports, tools/lib/governance, docs-guide/repo-ops/config, workspace/reports/repo-ops
  * @usage             node operations/scripts/generators/governance/reports/generate-repo-governance-status.js [--write|--check]
@@ -33,7 +33,7 @@ const {
   getSurfaceIds,
   getOwnerlessReadyCount,
   getRolloutStateCounts,
-  getTransitionalSources
+  getCompatibilitySources
 } = require('../../../../../tools/lib/governance/repo-governance');
 
 const REPO_ROOT = getRepoRoot();
@@ -187,16 +187,16 @@ function buildRepoGovernanceMapContent(manifest = readManifest()) {
   const banner = buildGeneratedHiddenBannerLines({
     script: SCRIPT_PATH,
     purpose: 'Generate the top-level repo-governance control-plane map from the canonical registry.',
-    runWhen: 'Repo-governance registry, validator, helper, or bridge-mode governance paths change.',
+    runWhen: 'Repo-governance registry, validator, helper, operational config taxonomy, or governance paths change.',
     runCommand: `node ${SCRIPT_PATH} --write`
   });
   const note = buildGeneratedNoteLines({
     script: SCRIPT_PATH,
-    purpose: 'Keep the top-level governance map aligned with the canonical registry and staged bridge model.',
-    runWhen: 'Repo-governance registry, validator, helper, or bridge-mode governance paths change.',
+    purpose: 'Keep the top-level governance map aligned with the canonical registry and ownerless steady-state architecture.',
+    runWhen: 'Repo-governance registry, validator, helper, operational config taxonomy, or governance paths change.',
     runCommand: `node ${SCRIPT_PATH} --write`
   });
-  const transitionalSources = getTransitionalSources(manifest);
+  const compatibilitySources = getCompatibilitySources(manifest);
 
   return normalizeContent(
     [
@@ -210,7 +210,7 @@ function buildRepoGovernanceMapContent(manifest = readManifest()) {
       '',
       'This page is generated from `operations/governance/config/repo-governance-surfaces.json` and is the live top-level reference for the repo governance control plane.',
       '',
-      `Bridge mode: \`${manifest.bridge_mode}\`. Canonical governance home: \`${manifest.canonical_home}\`.`,
+      `Cutover status: \`${manifest.bridge_mode}\`. Canonical governance home: \`${manifest.canonical_home}\`.`,
       '',
       '## Governed Governance Surfaces',
       '',
@@ -235,31 +235,22 @@ function buildRepoGovernanceMapContent(manifest = readManifest()) {
       '',
       '## GitHub Workspace Classification',
       '',
-      'Only the classified transitional runtime items in `.github/workspace` should be treated as live governance inputs during bridge mode. Design and audit trees are reference-only unless later promoted.',
+      'Only explicitly classified `.github/workspace` items should be treated as live support material. Design and audit trees are reference-only unless later promoted.',
       '',
       toTable(
         ['Entry', 'Path', 'Classification', 'Runtime role', 'Future state', 'Notes'],
         buildGithubWorkspaceRows(manifest)
       ),
       '',
-      '## Legacy Bridge Inventory',
-      '',
-      'These entries are the remaining live bridge dependencies that must be cleared before legacy manifest retirement can be approved.',
-      '',
-      toTable(
-        ['Bridge', 'Legacy path', 'Canonical path', 'Live consumers', 'Retirement requirements'],
-        buildLegacyBridgeRows(manifest)
-      ),
-      '',
       '## Canonical Manifests',
       '',
       manifest.canonical_manifests.map((entry) => `- \`${entry}\``).join('\n'),
       '',
-      '## Transitional Live Sources',
+      '## Compatibility Sources',
       '',
-      transitionalSources.length === 0
-        ? 'No transitional sources are currently registered.'
-        : transitionalSources.map((entry) => `- \`${entry}\``).join('\n'),
+      compatibilitySources.length === 0
+        ? 'No compatibility-source paths remain in the canonical governance registry.'
+        : compatibilitySources.map((entry) => `- \`${entry}\``).join('\n'),
       '',
       '## Rollout State Summary',
       '',
@@ -282,7 +273,7 @@ function buildStatusPayload(manifest = readManifest()) {
     github_workspace_classification_counts: getGithubWorkspaceClassificationCounts(manifest),
     legacy_bridge_ids: getLegacyBridgeIds(manifest),
     surface_ids: getSurfaceIds(manifest),
-    transitional_sources: getTransitionalSources(manifest),
+    compatibility_sources: getCompatibilitySources(manifest),
     path_classes: manifest.path_classes.map((entry) => entry.id),
     agent_output_classes: manifest.agent_output_classes.map((entry) => entry.id)
   };
@@ -300,7 +291,7 @@ function buildStatusMarkdownContent(manifest = readManifest()) {
       '',
       `- Version: \`${payload.version}\``,
       `- Canonical home: \`${payload.canonical_home}\``,
-      `- Bridge mode: \`${payload.bridge_mode}\``,
+      `- Cutover status: \`${payload.bridge_mode}\``,
       `- Total surfaces: ${payload.total_surfaces}`,
       `- Ownerless-ready surfaces: ${payload.ownerless_ready_count}`,
       `- Human approval checkpoints: ${payload.approval_checkpoint_ids.length}`,
@@ -316,11 +307,11 @@ function buildStatusMarkdownContent(manifest = readManifest()) {
           .map(([state, count]) => [`\`${state}\``, String(count)])
       ),
       '',
-      '## Transitional Sources',
+      '## Compatibility Sources',
       '',
-      payload.transitional_sources.length === 0
-        ? 'No transitional sources are currently registered.'
-        : payload.transitional_sources.map((entry) => `- \`${entry}\``).join('\n'),
+      payload.compatibility_sources.length === 0
+        ? 'No compatibility-source paths remain in the canonical governance registry.'
+        : payload.compatibility_sources.map((entry) => `- \`${entry}\``).join('\n'),
       '',
       '## Human Approval Checkpoints',
       '',
@@ -335,10 +326,14 @@ function buildStatusMarkdownContent(manifest = readManifest()) {
           .map(([classification, count]) => [`\`${classification}\``, String(count)])
       ),
       '',
-      '## Legacy Bridge Inventory',
-      '',
-      payload.legacy_bridge_ids.map((entry) => `- \`${entry}\``).join('\n'),
-      '',
+      ...(payload.legacy_bridge_ids.length > 0
+        ? [
+            '## Legacy Bridge Inventory',
+            '',
+            payload.legacy_bridge_ids.map((entry) => `- \`${entry}\``).join('\n'),
+            ''
+          ]
+        : []),
       '## Registered Surface IDs',
       '',
       payload.surface_ids.map((entry) => `- \`${entry}\``).join('\n')

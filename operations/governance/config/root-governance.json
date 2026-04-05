@@ -1,9 +1,4 @@
 {
-  "bridge_metadata": {
-    "bridge_mode": "staged",
-    "legacy_source": "tools/config/runtime/root-governance.json",
-    "bridge_status": "transitional_live_source_remains_authoritative_until_cutover"
-  },
   "version": "root-governance.v1",
   "policy_owner": "docs",
   "generated_outputs": {
@@ -106,7 +101,6 @@
       "generator": "node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write",
       "sources": [
         "operations/governance/config/root-governance.json",
-        "tools/config/runtime/root-governance.json",
         "operations/scripts/generators/governance/root/generate-root-governance-artifacts.js",
         "tools/lib/governance/root-governance.js"
       ],

@@ -1,9 +1,4 @@
 {
-  "bridge_metadata": {
-    "bridge_mode": "staged",
-    "legacy_source": "tools/config/runtime/generated-artifacts.json",
-    "bridge_status": "transitional_live_source_remains_authoritative_until_cutover"
-  },
   "version": "generated-artifacts.v1",
   "artifacts": [
     {
@@ -12,7 +7,6 @@
       "generator": "node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write",
       "sources": [
         "operations/governance/config/root-governance.json",
-        "tools/config/runtime/root-governance.json",
         "operations/scripts/generators/governance/root/generate-root-governance-artifacts.js",
         "tools/lib/governance/root-governance.js"
       ],
@@ -142,7 +136,6 @@
       "generator": "node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write",
       "sources": [
         "operations/governance/config/root-governance.json",
-        "tools/config/runtime/root-governance.json",
         "operations/scripts/generators/governance/root/generate-root-governance-artifacts.js",
         "tools/lib/governance/root-governance.js",
         "tools/lib/governance/generated-file-banners.js"
@@ -297,7 +290,6 @@
       "generator": "node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write",
       "sources": [
         "operations/governance/config/root-governance.json",
-        "tools/config/runtime/root-governance.json",
         "operations/scripts/generators/governance/root/generate-root-governance-artifacts.js",
         "tools/lib/governance/root-governance.js"
       ],
@@ -314,7 +306,6 @@
       "generator": "node operations/scripts/generators/governance/root/generate-root-governance-artifacts.js --write",
       "sources": [
         "operations/governance/config/root-governance.json",
-        "tools/config/runtime/root-governance.json",
         "operations/scripts/generators/governance/root/generate-root-governance-artifacts.js",
         "tools/lib/governance/root-governance.js"
       ],

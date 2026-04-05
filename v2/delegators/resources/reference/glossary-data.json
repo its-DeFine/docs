@@ -2,7 +2,7 @@
   "terms": [
     {
       "term": "Active Set",
-      "definition": "The top 100 orchestrators ranked by total bonded stake that are eligible to receive work and earn rewards each round.",
+      "definition": "The protocol-defined set of orchestrators ranked highly enough by bonded stake to receive work and earn rewards for the round.",
       "category": "livepeer",
       "tags": [
         "livepeer"
@@ -10,7 +10,7 @@
     },
     {
       "term": "Active Set Election",
-      "definition": "The process at the start of each round that selects the top 100 orchestrators by total bonded stake to form the Active Set eligible to receive work.",
+      "definition": "The round-by-round process that determines which orchestrators are in the Active Set based on bonded stake and protocol rules.",
       "category": "livepeer",
       "tags": [
         "livepeer"
@@ -642,7 +642,7 @@
     },
     {
       "term": "Thawing Period",
-      "definition": "The mandatory waiting period of approximately 7 rounds after initiating an unbond before the freed LPT becomes withdrawable to the holder's wallet.",
+      "definition": "The mandatory waiting period after initiating an unbond before the freed LPT becomes withdrawable to the holder's wallet.",
       "category": "livepeer",
       "tags": [
         "livepeer"

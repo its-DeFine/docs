@@ -6,8 +6,6 @@ This folder is for shared config that is consumed by live tooling. It is not a g
 
 ## Allowed Structure
 
-- `tools/config/runtime/`
-  Shared runtime manifests, schemas, and config modules used by multiple tools or governance surfaces.
 - `tools/config/quality/`
   Style, spelling, layout, usefulness, and accuracy profiles used by audits, validators, and tests.
 - `tools/config/scoped-navigation/`
@@ -24,10 +22,12 @@ This folder is for shared config that is consumed by live tooling. It is not a g
 - Ad hoc env templates such as `.env.*` placeholders without a live documented consumer
 - Duplicate vendor config copied out of canonical hidden folders
 - Reports, archives, or experiments
+- Runtime config under `tools/config/runtime/**`; that surface is retired
 
 ## Placement Rules
 
-- If the file configures a shared runtime or governance contract, place it in `runtime/`.
+- If the file configures operational runtime behavior, place it in `operations/config/**`.
+- If the file configures governance contracts, place it in `operations/governance/config/**`.
 - If the file defines style, spelling, scoring, or quality rules, place it in `quality/`.
 - If the file is a scoped docs config used for preview or bounded review, place it in `scoped-navigation/`.
 - If the file is generated from repo metadata, place it in `registry/` and regenerate it instead of hand-editing it.
@@ -40,6 +40,6 @@ This folder is for shared config that is consumed by live tooling. It is not a g
 
 ## Maintenance
 
-- Update consuming code, tests, and docs in the same change when a config path moves.
+- Update consuming code, tests, and docs in the same change when an `operations/config/**` or `operations/governance/config/**` path moves.
 - Regenerate `registry/` outputs after changing script metadata or indexed script paths.
 - Keep this folder understandable from a quick directory listing.

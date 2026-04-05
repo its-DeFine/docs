@@ -1,7 +1,7 @@
 {
   "version": "repo-governance-surfaces.v1",
   "canonical_home": "operations/governance",
-  "bridge_mode": "staged",
+  "bridge_mode": "retired",
   "canonical_manifests": [
     "operations/governance/config/root-governance.json",
     "operations/governance/config/generated-artifacts.json",
@@ -14,11 +14,11 @@
       "label": "Design Lock",
       "phase": "design",
       "requires_human_approval": true,
-      "trigger": "Before registry schema, path classes, agent-write classes, and bridge model are treated as locked.",
+      "trigger": "Before registry schema, path classes, and agent-write classes are treated as locked.",
       "required_evidence": [
         "approved operations/governance taxonomy",
         "approved registry schema",
-        "approved staged bridge model"
+        "approved steady-state governance model"
       ]
     },
     {
@@ -78,7 +78,7 @@
       "classification": "transitional-runtime",
       "runtime_role": "locked-workflow-decisions",
       "future_state": "promote-or-replace",
-      "notes": "Operational decisions remain live inputs during bridge mode while governance moves under operations/governance."
+      "notes": "Operational decisions remain live transitional support until they are promoted into canonical docs or archived."
     },
     {
       "id": "workspace-actions-library",
@@ -121,58 +121,7 @@
       "notes": "Historical audit packets and dependency analysis remain reference material only."
     }
   ],
-  "legacy_bridge_inventory": [
-    {
-      "id": "legacy-root-governance-manifest",
-      "legacy_path": "tools/config/runtime/root-governance.json",
-      "canonical_path": "operations/governance/config/root-governance.json",
-      "consumer_paths": [
-        "tools/lib/governance/root-governance.js",
-        "operations/tests/run-pr-checks.js",
-        "operations/scripts/validators/governance/compliance/check-repo-governance-sync.js"
-      ],
-      "retirement_requirements": [
-        "root-governance helper no longer falls back to legacy manifest",
-        "changed-file PR routing no longer needs legacy root-governance path",
-        "bridge sync validator no longer checks legacy root-governance equality"
-      ],
-      "notes": "Legacy root-governance manifest remains live because helper fallback, PR routing, and sync validation still reference it during bridge mode."
-    },
-    {
-      "id": "legacy-generated-artifacts-manifest",
-      "legacy_path": "tools/config/runtime/generated-artifacts.json",
-      "canonical_path": "operations/governance/config/generated-artifacts.json",
-      "consumer_paths": [
-        "tools/lib/governance/generated-artifacts.js",
-        "operations/tests/run-pr-checks.js",
-        "operations/scripts/validators/governance/compliance/check-repo-governance-sync.js"
-      ],
-      "retirement_requirements": [
-        "generated-artifacts helper no longer falls back to legacy manifest",
-        "changed-file PR routing no longer needs legacy generated-artifacts path",
-        "bridge sync validator no longer checks legacy generated-artifacts equality"
-      ],
-      "notes": "Legacy generated-artifacts manifest remains live because helper fallback, PR routing, and sync validation still reference it during bridge mode."
-    },
-    {
-      "id": "legacy-ownerless-governance-manifest",
-      "legacy_path": "tools/config/runtime/ownerless-governance-surfaces.json",
-      "canonical_path": "operations/governance/config/ownerless-governance-surfaces.json",
-      "consumer_paths": [
-        "operations/tests/unit/ownerless-governance.test.js",
-        "operations/tests/run-pr-checks.js",
-        "tools/lib/ai/ai-tools-registry.js",
-        "operations/scripts/validators/governance/compliance/check-repo-governance-sync.js"
-      ],
-      "retirement_requirements": [
-        "ownerless-governance test no longer falls back to legacy manifest",
-        "changed-file PR routing no longer needs legacy ownerless-governance path",
-        "AI-tools registry relevance checks no longer treat the legacy ownerless manifest as active",
-        "bridge sync validator no longer checks legacy ownerless-governance equality"
-      ],
-      "notes": "Legacy ownerless-governance manifest remains live because test fallback, PR routing, AI-tools relevance checks, and sync validation still reference it during bridge mode."
-    }
-  ],
+  "legacy_bridge_inventory": [],
   "path_classes": [
     {
       "id": "governance-config",
@@ -190,16 +139,16 @@
       "notes": "Policy prose and generated governance reference pages live under docs-guide."
     },
     {
-      "id": "governance-runtime-bridge",
+      "id": "governance-runtime",
       "allowed_paths": [
-        "tools/config/runtime/**",
+        "operations/config/**",
         "tools/lib/governance/**",
         "operations/scripts/**",
         "operations/tests/**",
         ".githooks/**",
         ".github/**"
       ],
-      "notes": "Bridge-mode runtime and enforcement paths remain active until canonical cutover completes."
+      "notes": "Ownerless runtime and enforcement paths remain active under operations/config, operations/governance, operations/scripts, and operations/tests."
     },
     {
       "id": "workspace-report",
@@ -313,14 +262,13 @@
         "registry references resolve",
         "sync validator passes"
       ],
-      "notes": "Top-level governance index introduced in staged bridge mode before specialized manifests move under operations/governance/config."
+      "notes": "Top-level governance index for the ownerless steady-state control plane."
     },
     {
       "id": "root-governance",
       "name": "Root Governance",
       "surface_type": "root-governance",
       "paths": [
-        "tools/config/runtime/root-governance.json",
         ".allowlist",
         "docs-guide/repo-ops/config/root-governance-map.mdx",
         "workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.json",
@@ -328,7 +276,6 @@
       ],
       "canonical_sources": [
         "operations/governance/config/root-governance.json",
-        "tools/config/runtime/root-governance.json",
         "docs-guide/policies/root-allowlist-governance.mdx"
       ],
       "derived_outputs": [
@@ -362,21 +309,19 @@
         "root map is current",
         "root sync report is current"
       ],
-      "notes": "Canonical root-governance manifest now lives under operations/governance/config while the legacy runtime mirror remains in staged bridge mode."
+      "notes": "Canonical root-governance manifest under the ownerless steady-state architecture."
     },
     {
       "id": "generated-artifact-governance",
       "name": "Generated Artifact Governance",
       "surface_type": "generated-artifact-governance",
       "paths": [
-        "tools/config/runtime/generated-artifacts.json",
         "docs-index.json",
         "llms.txt",
         "sitemap-ai.xml"
       ],
       "canonical_sources": [
         "operations/governance/config/generated-artifacts.json",
-        "tools/config/runtime/generated-artifacts.json",
         "docs-guide/policies/generated-artifact-and-hook-governance.mdx"
       ],
       "derived_outputs": [
@@ -415,7 +360,7 @@
         "artifact classes and policies validate",
         "derived outputs stay current"
       ],
-      "notes": "Canonical generated-artifact governance manifest now lives under operations/governance/config while the legacy runtime mirror remains in staged bridge mode."
+      "notes": "Canonical generated-artifact governance manifest under the ownerless steady-state architecture."
     },
     {
       "id": "ownerless-governance",
@@ -423,13 +368,11 @@
       "surface_type": "ownerless-governance",
       "paths": [
         "operations/governance/config/ownerless-governance-surfaces.json",
-        "tools/config/runtime/ownerless-governance-surfaces.json",
         "docs-guide/policies/ownerless-governance.mdx",
         "operations/tests/unit/ownerless-governance.test.js"
       ],
       "canonical_sources": [
         "operations/governance/config/ownerless-governance-surfaces.json",
-        "tools/config/runtime/ownerless-governance-surfaces.json",
         "docs-guide/policies/ownerless-governance.mdx"
       ],
       "derived_outputs": [],
@@ -455,7 +398,7 @@
         "policy language stays ownerless",
         "gate-layer contract remains explicit"
       ],
-      "notes": "Canonical ownerless-governance manifest now lives under operations/governance/config while the legacy runtime mirror remains in staged bridge mode."
+      "notes": "Canonical ownerless-governance manifest under the ownerless steady-state architecture."
     },
     {
       "id": "github-workspace-governance",
@@ -505,7 +448,7 @@
         "runtime support paths are distinguished from design-only history",
         "repo governance map reflects the current promotion posture"
       ],
-      "notes": ".github/workspace contains mixed transitional runtime sources, generated support material, and design/audit history; this classification prevents the whole tree from being treated as canonical runtime governance."
+      "notes": ".github/workspace contains classified transitional support, generated reference material, and archived design history; this prevents the whole tree from being treated as canonical runtime governance."
     }
   ]
 }

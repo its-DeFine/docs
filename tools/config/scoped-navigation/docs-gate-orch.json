@@ -2540,8 +2540,8 @@
                     "icon": "display-code",
                     "groups": [
                       {
-                        "group": "Hub",
-                        "icon": "house",
+                        "group": "Start Here",
+                        "icon": "display-code",
                         "pages": [
                           "v2/developers/portal",
                           "v2/developers/navigator"
@@ -2563,21 +2563,21 @@
                         "icon": "fast-forward",
                         "pages": [
                           "v2/developers/get-started/setup-paths",
-                          "v2/developers/get-started/video-quickstart",
-                          "v2/developers/get-started/transcoding-quickstart",
                           "v2/developers/get-started/ai-quickstart",
-                          "v2/developers/get-started/comfystream-quickstart"
+                          "v2/developers/get-started/comfystream-quickstart",
+                          "v2/developers/get-started/transcoding-quickstart",
+                          "v2/developers/get-started/contributor-quickstart"
                         ]
                       },
                       {
-                        "group": "Build",
-                        "icon": "hammer",
+                        "group": "Custom AI Workflows",
+                        "icon": "user-robot",
                         "pages": [
-                          "v2/developers/build/comfystream",
-                          "v2/developers/build/byoc",
-                          "v2/developers/build/sdk-gateway",
                           "v2/developers/build/workload-fit",
-                          "v2/developers/build/model-support"
+                          "v2/developers/build/sdk-gateway",
+                          "v2/developers/build/model-support",
+                          "v2/developers/build/byoc",
+                          "v2/developers/build/comfystream"
                         ]
                       },
                       {
@@ -2585,31 +2585,77 @@
                         "icon": "laptop-file",
                         "pages": [
                           "v2/developers/guides/developer-guides",
-                          "v2/developers/resources/compendium/resources",
                           "v2/developers/guides/contribution-guide",
-                          "v2/developers/resources/compendium/developer-help"
-                        ]
-                      },
-                      {
-                        "group": "Opportunities",
-                        "icon": "lightbulb",
-                        "pages": [
-                          "v2/developers/guides/opportunities/overview",
-                          "v2/developers/guides/opportunities/grants-and-programmes",
-                          "v2/developers/guides/opportunities/rfps-and-proposals",
-                          "v2/developers/guides/opportunities/oss-contributions",
-                          "v2/developers/guides/opportunities/bug-bounties"
+                          "v2/developers/guides/local-testnet-deployment",
+                          {
+                            "group": "AI",
+                            "pages": [
+                              "v2/developers/guides/ai/authentication",
+                              "v2/developers/guides/ai/troubleshooting",
+                              "v2/developers/guides/ai/production-checklist"
+                            ]
+                          },
+                          {
+                            "group": "Video",
+                            "pages": [
+                              "v2/developers/guides/video/create-livestream",
+                              "v2/developers/guides/video/access-control",
+                              "v2/developers/guides/video/webhooks",
+                              "v2/developers/guides/video/monitor-stream-health",
+                              "v2/developers/guides/video/playback",
+                              "v2/developers/guides/video/upload-asset"
+                            ]
+                          },
+                          {
+                            "group": "Tutorials",
+                            "pages": [
+                              "v2/developers/guides/tutorials/build-an-ai-agent-on-livepeer",
+                              "v2/developers/guides/tutorials/ipfs-video-integration",
+                              "v2/developers/guides/tutorials/token-gated-video"
+                            ]
+                          },
+                          {
+                            "group": "Opportunities",
+                            "pages": [
+                              "v2/developers/guides/opportunities/overview",
+                              "v2/developers/guides/opportunities/grants-and-programmes",
+                              "v2/developers/guides/opportunities/rfps-and-proposals",
+                              "v2/developers/guides/opportunities/oss-contributions",
+                              "v2/developers/guides/opportunities/bug-bounties"
+                            ]
+                          }
                         ]
                       },
                       {
                         "group": "Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/developers/resources/reference/sdks",
-                          "v2/developers/resources/reference/apis",
-                          "v2/developers/resources/knowledge-hub/awesome-livepeer",
-                          "v2/developers/resources/knowledge-hub/wiki",
-                          "v2/developers/resources/knowledge-hub/deepwiki"
+                          {
+                            "group": "Reference",
+                            "pages": [
+                              "v2/developers/resources/reference/sdks",
+                              "v2/developers/resources/reference/apis",
+                              "v2/developers/resources/reference/pricing-rate-limits",
+                              "v2/developers/resources/reference/pytrickle"
+                            ]
+                          },
+                          {
+                            "group": "Compendium",
+                            "pages": [
+                              "v2/developers/resources/compendium/glossary",
+                              "v2/developers/resources/compendium/resources",
+                              "v2/developers/resources/compendium/developer-help",
+                              "v2/developers/resources/compendium/example-applications"
+                            ]
+                          },
+                          {
+                            "group": "Knowledge Hub",
+                            "pages": [
+                              "v2/developers/resources/knowledge-hub/awesome-livepeer",
+                              "v2/developers/resources/knowledge-hub/wiki",
+                              "v2/developers/resources/knowledge-hub/deepwiki"
+                            ]
+                          }
                         ]
                       }
                     ]
@@ -4113,6 +4159,34 @@
     {
       "source": "/v2/developers/technical-references/deepwiki",
       "destination": "/v2/developers/resources/knowledge-hub/deepwiki"
+    },
+    {
+      "source": "/v2/developers/opportunities/overview",
+      "destination": "/v2/developers/guides/opportunities/overview"
+    },
+    {
+      "source": "/v2/developers/opportunities/grants-and-programmes",
+      "destination": "/v2/developers/guides/opportunities/grants-and-programmes"
+    },
+    {
+      "source": "/v2/developers/opportunities/rfps-and-proposals",
+      "destination": "/v2/developers/guides/opportunities/rfps-and-proposals"
+    },
+    {
+      "source": "/v2/developers/opportunities/oss-contributions",
+      "destination": "/v2/developers/guides/opportunities/oss-contributions"
+    },
+    {
+      "source": "/v2/developers/opportunities/bug-bounties",
+      "destination": "/v2/developers/guides/opportunities/bug-bounties"
+    },
+    {
+      "source": "/v2/developers/resources/sdks",
+      "destination": "/v2/developers/resources/reference/sdks"
+    },
+    {
+      "source": "/v2/developers/resources/apis",
+      "destination": "/v2/developers/resources/reference/apis"
     },
     {
       "source": "/v2/gateways/gateways-portal",

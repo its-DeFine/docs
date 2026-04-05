@@ -20,9 +20,8 @@ const {
   readManifest,
   getApprovalCheckpointIds,
   getGithubWorkspaceClassificationCounts,
-  getLegacyBridgeIds,
   getSurfaceIds,
-  getTransitionalSources
+  getCompatibilitySources
 } = require('../../../tools/lib/governance/repo-governance');
 const { readManifest: readAgentWriteManifest } = require('../../../tools/lib/governance/agent-write-governance');
 const {
@@ -47,7 +46,7 @@ async function runTests() {
   cases.push(async () => {
     const manifest = readManifest(REPO_ROOT);
     assert.strictEqual(manifest.canonical_home, 'operations/governance');
-    assert.strictEqual(manifest.bridge_mode, 'staged');
+    assert.strictEqual(manifest.bridge_mode, 'retired');
     assert.ok(manifest.canonical_manifests.includes('operations/governance/config/root-governance.json'));
     assert.ok(manifest.canonical_manifests.includes('operations/governance/config/ownerless-governance-surfaces.json'));
     assert.ok(getSurfaceIds(manifest).includes('repo-governance-registry'));
@@ -65,7 +64,7 @@ async function runTests() {
     assert.ok(agentOutputIds.includes('forbidden'));
     assert.ok(getApprovalCheckpointIds(manifest).includes('design-lock'));
     assert.ok(getApprovalCheckpointIds(manifest).includes('legacy-retirement'));
-    assert.ok(getLegacyBridgeIds(manifest).includes('legacy-root-governance-manifest'));
+    assert.deepStrictEqual(manifest.legacy_bridge_inventory || [], []);
     assert.ok(manifest.github_workspace_surfaces.some((entry) => entry.path === '.github/workspace/framework-canonical.md'));
   });
 
@@ -86,8 +85,7 @@ async function runTests() {
     assert.ok(map.includes('## Agent Output Classes'));
     assert.ok(map.includes('## Human Approval Checkpoints'));
     assert.ok(map.includes('## GitHub Workspace Classification'));
-    assert.ok(map.includes('## Legacy Bridge Inventory'));
-    assert.ok(map.includes('## Transitional Live Sources'));
+    assert.ok(map.includes('## Compatibility Sources'));
   });
 
   cases.push(async () => {
@@ -95,17 +93,16 @@ async function runTests() {
     const payload = buildStatusPayload(manifest);
     const json = JSON.parse(buildStatusJsonContent(manifest));
     const markdown = buildStatusMarkdownContent(manifest);
-    assert.strictEqual(json.bridge_mode, 'staged');
+    assert.strictEqual(json.bridge_mode, 'retired');
     assert.deepStrictEqual(json.surface_ids, payload.surface_ids);
     assert.deepStrictEqual(json.approval_checkpoint_ids, payload.approval_checkpoint_ids);
     assert.deepStrictEqual(json.github_workspace_classification_counts, getGithubWorkspaceClassificationCounts(manifest));
-    assert.deepStrictEqual(json.legacy_bridge_ids, getLegacyBridgeIds(manifest));
-    assert.ok(Array.isArray(getTransitionalSources(manifest)));
+    assert.deepStrictEqual(json.legacy_bridge_ids, []);
+    assert.ok(Array.isArray(getCompatibilitySources(manifest)));
     assert.ok(markdown.includes('# Repo Governance Status'));
     assert.ok(markdown.includes('## Rollout States'));
     assert.ok(markdown.includes('## Human Approval Checkpoints'));
     assert.ok(markdown.includes('## GitHub Workspace Classification'));
-    assert.ok(markdown.includes('## Legacy Bridge Inventory'));
   });
 
   cases.push(async () => {

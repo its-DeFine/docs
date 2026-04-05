@@ -2,8 +2,8 @@
 title: Delegation Overview
 sidebarTitle: Delegation
 description: >-
-  Protocol-level overview of LPT delegation, including stake attribution, reward
-  flows, and security implications.
+  What LPT delegation is, what you earn, and what you need to know before
+  bonding your tokens to an orchestrator.
 keywords:
   - livepeer
   - lpt
@@ -12,218 +12,145 @@ keywords:
   - bonding
   - orchestrators
   - rewards
-  - economics
+  - arbitrum
 'og:image': /snippets/assets/media/og-images/fallback.png
 'og:image:alt': Livepeer Docs social preview image
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
-pageType: overview
+pageType: concept
 audience: delegator
-lastVerified: 2026-03-17
-purpose: overview
+purpose: explain
+lifecycleStage: evaluate
+status: current
+lastVerified: 2026-03-13
 ---
-import { MathInline, MathBlock } from '/snippets/components/elements/math/Math.jsx'
 
+Delegation is how LPT holders participate in the Livepeer network without running infrastructure. You bond your tokens to an orchestrator, that orchestrator earns more work and more rewards because of your stake, and you receive a share of those rewards in return.
 
-## Executive Summary
+This section covers everything you need to go from LPT holder to active delegator: how the economics work, how to choose an orchestrator, how to execute the delegation transaction, and how to manage your position over time.
 
-Delegation is the protocol mechanism by which an LPT holder bonds stake and attributes it to an orchestrator, increasing that orchestrator's economic weight without the delegator operating infrastructure.
+---
 
-Delegation is strictly a **protocol-layer (on-chain)** action. It does not execute jobs, route segments, or control GPU scheduling. Instead, it modifies stake-weighted outcomes: reward allocation, governance weight, and (where applicable) work allocation.
+## What you get from delegating
 
-<CustomDivider />
+<CardGroup cols={3}>
+  <Card title="LPT inflation rewards" icon="coins">
+    New LPT is minted each round and distributed to bonded stake. Delegating is the only way to keep pace with network inflation.
+  </Card>
+  <Card title="ETH fee revenue" icon="ethereum">
+    Orchestrators earn ETH when they process video or AI jobs. A share of those fees flows to delegators proportional to their stake.
+  </Card>
+  <Card title="Governance weight" icon="scale-balanced">
+    Bonded stake gives you voting power on Livepeer Improvement Proposals (LIPs), protocol upgrades, and treasury decisions.
+  </Card>
+</CardGroup>
 
-<Accordion title="Technical Reference: Stake Attribution Model" icon="function">
+---
 
-## 1. Formal Definition
+## What happens if you do not delegate
 
-Let:
+LPT has a parametric inflation model. When less than roughly 50% of total supply is bonded, the inflation rate rises to encourage more delegation. When more than 50% is bonded, it falls.
 
-- <MathInline latex={String.raw`D`} /> be a delegator
-- <MathInline latex={String.raw`O`} /> be an orchestrator
-- <MathInline latex={String.raw`b_{D,O}`} /> be LPT bonded by <MathInline latex={String.raw`D`} /> toward <MathInline latex={String.raw`O`} />
-- <MathInline latex={String.raw`B_{self,O}`} /> be orchestrator self-bonded stake
+If you hold LPT but do not delegate, you receive none of this inflation. Every round you stay unbonded, your share of total supply decreases relative to delegators who are earning new tokens. This is a real and ongoing cost of holding without delegating.
 
-Total stake attributed to orchestrator <MathInline latex={String.raw`O`} />:
+<Note>
+  The inflation rate adjusts each round based on the bonding ratio. You can view the current rate and total bonded supply at [explorer.livepeer.org](https://explorer.livepeer.org).
+</Note>
 
-<MathBlock latex={String.raw`B_O = B_{self,O} + \sum_D b_{D,O}`} />
+---
 
-Total bonded stake:
+## Key facts before you start
 
-<MathBlock latex={String.raw`B_T = \sum_O B_O`} />
+<AccordionGroup>
 
-Delegation is an attribution rule over bonded stake recorded in protocol contract state.
-
+<Accordion title="Your tokens stay in a non-custodial contract">
+  When you delegate, your LPT moves into the Livepeer BondingManager smart contract on Arbitrum One. You are not sending tokens to an orchestrator. The orchestrator cannot access or move your LPT. Only you can initiate unbonding and withdrawal.
 </Accordion>
 
-<CustomDivider />
-
-## 2. Architectural Context
-
-### 2.1 Protocol Layer Responsibilities
-
-Delegation is implemented by protocol smart contracts that:
-
-- Track bonded stake per address
-- Attribute delegator stake to a delegate (orchestrator)
-- Allocate inflation and fee entitlements proportionally
-- Enforce unbonding delays
-
-Canonical contract addresses: [Contract Registry](/v2/about/resources/reference/livepeer-contract-addresses)
-
-### 2.2 Network Layer Responsibilities
-
-The network layer:
-
-- Runs orchestrator software
-- Executes transcoding/AI workloads
-- Produces fees under market demand
-- Maintains uptime and performance characteristics
-
-Delegation influences which operators have greater economic weight, but network execution remains off-chain.
-
-<CustomDivider />
-
-<Accordion title="Technical Reference: Stake Attribution Model" icon="function">
-
-## 3. Economic Weight and Security
-
-Delegation increases <MathInline latex={String.raw`B_O`} />, increasing the orchestrator's stake-weighted share.
-
-Define orchestrator weight:
-
-<MathBlock latex={String.raw`W_O = \frac{B_O}{B_T}`} />
-
-Security implication:
-
-- Increasing <MathInline latex={String.raw`B_T`} /> increases the capital cost required to capture stake-weighted outcomes.
-
-Thus:
-
-<MathBlock latex={String.raw`\text{Security} \propto B_T`} />
-
----
-
-## 4. Reward Allocation (Issuance)
-
-Per round <MathInline latex={String.raw`t`} />, protocol issuance is minted:
-
-<MathBlock latex={String.raw`R_t = S_t \cdot r_t`} />
-
-Orchestrator gross issuance allocation:
-
-<MathBlock latex={String.raw`R_O = R_t \cdot \frac{B_O}{B_T}`} />
-
-Delegator net issuance allocation with commission <MathInline latex={String.raw`c_O`} />:
-
-<MathBlock latex={String.raw`R_{D,O} = R_O (1 - c_O) \cdot \frac{b_{D,O}}{B_O}`} />
-
-This formula separates:
-
-- Protocol issuance (supply expansion)
-- Orchestrator commission
-- Proportional delegator share
-
----
-
-## 5. Fee Revenue (Demand)
-
-Fees are demand-driven and may accrue to stakeholders according to protocol accounting rules.
-
-Total delegator return decomposes into:
-
-<MathBlock latex={String.raw`Reward_{D,O} = Issuance_{D,O} + Fees_{D,O}`} />
-
-Issuance is protocol-determined; fees depend on network usage.
-
+<Accordion title="LPT must be on Arbitrum One">
+  Livepeer's staking protocol runs on Arbitrum One, not Ethereum mainnet. If your LPT is on Ethereum, you need to bridge it first before delegating. See the bridging guide linked at the bottom of this page.
 </Accordion>
 
-<CustomDivider />
+<Accordion title="You can only delegate to one orchestrator at a time">
+  Your full bonded stake is attributed to a single orchestrator. You cannot split your stake across multiple orchestrators from one address. To change orchestrators, you redelegate (instant) or unbond and re-bond (slower).
+</Accordion>
 
-## 6. Delegation as Capital Allocation
+<Accordion title="Unbonding is not instant">
+  When you want to exit, you initiate unbonding. There is a protocol-enforced waiting period before you can withdraw your LPT to your wallet. Plan accordingly if you may need liquidity.
+</Accordion>
 
-Delegation creates an operator market. Delegators allocate stake based on:
+<Accordion title="You are not responsible for orchestrator performance">
+  If your orchestrator underperforms or stops earning, you stop earning — but your stake is not at risk from their performance. Slashing (stake reduction as a penalty) exists as a protocol mechanism but is currently disabled on Livepeer mainnet.
+</Accordion>
 
-- Commission levels
-- Checkpoint reliability
-- Performance reputation
-- Decentralization preferences
+</AccordionGroup>
 
-Because stake can migrate (subject to unbonding constraints), delegation functions as ongoing capital allocation instead of a one-time decision.
+---
 
-<CustomDivider />
-
-## 7. Liquidity Constraints and Unbonding
-
-Delegation is not instantly reversible.
-
-Unbonding introduces a delay measured in protocol rounds. This delay:
-
-- Reduces rapid stake rotation attacks
-- Stabilizes security participation
-- Introduces liquidity constraints for delegators
-
-State model:
-
-```mermaid
-stateDiagram-v2
-    [*] --> Bonded
-    Bonded --> Unbonding
-    Unbonding --> Withdrawable
-    Withdrawable --> [*]
-```
-
-<CustomDivider />
-
-## 8. Risks and Failure Modes
-
-Delegators face protocol- and operator-level risks:
-
-1. **Commission risk:** <MathInline latex={String.raw`c_O`} /> reduces net share
-2. **Checkpoint risk:** missed checkpointing reduces realized issuance
-3. **Slashing exposure:** where enabled, stake may be reduced under defined conditions
-4. **Concentration risk:** large <MathInline latex={String.raw`B_O`} /> increases systemic exposure
-5. **Liquidity risk:** unbonding delay restricts exit
-
-These are economic risks inherent to a capital-weighted protocol.
-
-<CustomDivider />
-
-## 9. Sequence Diagram
+## How delegation works
 
 ```mermaid
 sequenceDiagram
-    participant D as Delegator
+    participant W as Your Wallet
     participant BM as BondingManager
     participant O as Orchestrator
 
-    D->>BM: bond(amount, O)
-    BM-->>BM: attribute stake to O
-    O->>BM: checkpoint / reward
-    BM-->>D: update reward accounting
+    W->>BM: approve(amount)
+    W->>BM: bond(amount, orchestrator)
+    BM-->>BM: attribute stake to orchestrator
+    note over O: earns more work and rewards<br/>because of higher total stake
+    O->>BM: calls Reward() each round
+    BM-->>W: rewards accrue to your balance
+    note over W: claim earnings or rebond to compound
 ```
 
-<CustomDivider />
+---
 
-## 10. Protocol vs Network Separation
+## State lifecycle
 
-**Protocol (On-Chain):**
-- Stake attribution
-- Issuance formulas and minting
-- Reward entitlement accounting
-- Governance weight attribution
+```mermaid
+stateDiagram-v2
+    [*] --> Bonded : bond()
+    Bonded --> Unbonding : unbond()
+    Unbonding --> Withdrawable : after delay
+    Withdrawable --> [*] : withdrawStake()
+    Unbonding --> Bonded : rebond()
+```
 
-**Network (Off-Chain):**
-- Execution of transcoding/AI jobs
-- Uptime and performance
-- Fee generation
+---
 
-Delegation is a protocol action that economically constrains network behavior.
+## In this section
 
-<CustomDivider />
+<CardGroup cols={2}>
 
-## References
+  <Card title="Delegation Economics" icon="chart-line" href="./delegation-economics" arrow>
+    How inflation works, what rewardCut and feeShare mean, and a worked example of what you can expect to earn.
+  </Card>
 
-- [Livepeer Protocol Repository](https://github.com/livepeer/protocol)
-- [Contract Registry](/v2/about/resources/reference/livepeer-contract-addresses)
+  <Card title="Choose an Orchestrator" icon="list-check" href="./choose-an-orchestrator" arrow>
+    The step-by-step guide to evaluating orchestrators, selecting one, and completing the delegation transaction. Start here when you are ready to delegate.
+  </Card>
+
+  <Card title="Manage Your Delegation" icon="gauge" href="./manage-your-delegation" arrow>
+    Claiming rewards, compounding, switching orchestrators, and exiting your position.
+  </Card>
+
+  <Card title="Bridge LPT to Arbitrum" icon="bridge" href="/v2/delegators/delegation/bridge-lpt-to-arbitrum" arrow>
+    If your LPT is on Ethereum mainnet, start here.
+  </Card>
+
+</CardGroup>
+
+---
+
+## Protocol references
+
+<CardGroup cols={2}>
+  <Card title="Livepeer Explorer" icon="compass" href="https://explorer.livepeer.org" arrow>
+    The primary interface for delegation, orchestrator browsing, and reward claiming.
+  </Card>
+  <Card title="Contract Addresses" icon="file-contract" href="/v2/about/resources/reference/livepeer-contract-addresses" arrow>
+    BondingManager and associated contract addresses on Arbitrum One.
+  </Card>
+</CardGroup>

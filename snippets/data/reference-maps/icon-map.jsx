@@ -185,7 +185,7 @@ export const iconMapSections = [
           'Avoid when the page is about business relationships or abstract architecture diagrams.',
         components: ['Card', 'reference CTA'],
         examples: [
-          'v2/developers/technical-references/sdks.mdx',
+          'v2/developers/resources/reference/sdks.mdx',
           'v2/orchestrators/navigator.mdx',
         ],
       },
@@ -524,7 +524,7 @@ export const iconMapSections = [
         components: ['Card', 'portal CTA', 'external reference'],
         examples: [
           'v2/developers/portal.mdx',
-          'v2/developers/technical-references/awesome-livepeer.mdx',
+          'v2/developers/resources/knowledge-hub/awesome-livepeer.mdx',
         ],
       },
       {
@@ -691,7 +691,7 @@ export const iconMapSections = [
         components: ['Card', 'Accordion', 'Tab'],
         examples: [
           'v2/developers/guides/developer-guides.mdx',
-          'v2/developers/technical-references/apis.mdx',
+          'v2/developers/resources/reference/apis.mdx',
         ],
       },
       {
@@ -704,7 +704,7 @@ export const iconMapSections = [
           'Avoid for general developer pages — prefer `code` for code surfaces and `database` for data storage.',
         components: ['Accordion', 'reference CTA'],
         examples: [
-          'v2/developers/technical-references/apis.mdx',
+          'v2/developers/resources/reference/apis.mdx',
         ],
       },
       {
@@ -717,7 +717,7 @@ export const iconMapSections = [
           'Avoid for general code surfaces; use `code` for language-agnostic examples.',
         components: ['Card', 'Tab', 'SDK reference'],
         examples: [
-          'v2/developers/technical-references/sdks.mdx',
+          'v2/developers/resources/reference/sdks.mdx',
           'v2/gateways/guides/node-pipelines/ai-pipelines.mdx',
         ],
       },
@@ -1049,7 +1049,7 @@ export const iconMapSections = [
         components: ['Card', 'Accordion', 'auth step'],
         examples: [
           'v2/gateways/setup/requirements/setup.mdx',
-          'v2/developers/technical-references/apis.mdx',
+          'v2/developers/resources/reference/apis.mdx',
         ],
       },
       {

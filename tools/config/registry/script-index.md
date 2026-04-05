@@ -3,7 +3,5 @@
 {/* SCRIPT-INDEX:START */}
 ## Script Index
 
-| Script | Summary | Usage | Domain |
-|---|---|---|---|
-| `tools/config/runtime/v2-internal-report-pages.js` | Configuration data — list of internal report page paths for publish-v2-internal-reports.js | `node tools/config/runtime/v2-internal-report-pages.js [flags]` | docs |
+_No scripts indexed yet._
 {/* SCRIPT-INDEX:END */}

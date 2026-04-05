@@ -66,7 +66,7 @@ Scope:
 - `mint-custom-loader.sh` — `tools/dev/preview/mint-custom-loader.sh`
 - `ensure-mint-watcher-patch.sh` — `tools/dev/preview/ensure-mint-watcher-patch.sh`
 - `resolve-scoped-docs-config.js` — `tools/dev/preview/lib/resolve-scoped-docs-config.js`
-- `navigation-exclusions.json` — `tools/config/runtime/navigation-exclusions.json`
+- `navigation-exclusions.json` — `operations/config/content/navigation/navigation-exclusions.json`
 - `docs-solutions.json` — `tools/config/scoped-navigation/docs-solutions.json`
 - `docs.json.jsx` — `tools/config/scoped-navigation/docs.json.jsx`
 - `docs-orch-work.json` — `tools/config/scoped-navigation/docs-orch-work.json`
