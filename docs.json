@@ -2622,8 +2622,8 @@
                       "v2/gateways/setup/prepare",
                       "v2/gateways/setup/install",
                       "v2/gateways/setup/configure",
-                      "v2/gateways/setup/connect",
                       "v2/gateways/setup/verify",
+                      "v2/gateways/setup/connect",
                       "v2/gateways/setup/monitor"
                     ]
                   },

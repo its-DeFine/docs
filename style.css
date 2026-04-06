@@ -481,6 +481,19 @@ img[alt="US"][src*="flags/US.svg"]::before {
   margin-bottom: 0 !important;
 }
 
+[data-docs-bordered-box][data-accent-bar]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background-color: var(--accent-bar-color);
+  border-radius: inherit;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
 /* Frame mode container - 80% of #content-container width, centered */
 /* Breaks out of #content padding to center in full #content-container */
 .frame-mode-container {
