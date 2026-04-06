@@ -1,21 +1,26 @@
 #!/usr/bin/env node
 /**
- * @script      repair-governance
- * @type        dispatch
- * @concern     governance
- * @niche       pipelines
- * @purpose     governance:repo-health
- * @description Chains audit, safe repair, verification, and reporting into a single self-healing governance pipeline.
- * @mode        execute
- * @pipeline    manual, P6, manual, manual
- * @scope       full-repo
- * @usage       node operations/scripts/dispatch/governance/pipelines/governance-pipeline.js [--dry-run] [--auto-commit] [--report-only] [--strict] [--staged|--files <path[,path...]>|--full]
- * @policy      R-R14, R-R18, R-C6
+ * @script            repair-governance
+ * @category          dispatch
+ * @type              dispatch
+ * @concern           governance
+ * @niche             pipelines
+ * @purpose           governance:repo-health
+ * @description       Chains audit, safe repair, verification, and reporting into a single self-healing governance pipeline.
+ * @mode              execute
+ * @domain            docs
+ * @needs             R-R14, R-R18, R-C6
+ * @purpose-statement Run the bounded governance repair pipeline and regenerate the active repo-ops governance reports.
+ * @pipeline          manual, P6, manual, manual
+ * @scope             full-repo
+ * @usage             node operations/scripts/dispatch/governance/pipelines/governance-pipeline.js [--dry-run] [--auto-commit] [--report-only] [--strict] [--staged|--files <path[,path...]>|--full]
+ * @policy            R-R14, R-R18, R-C6
  */
 
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
+const { createNodeProcessEnv } = require('../../../../../tools/lib/bootstrap/repo-node-paths');
 const {
   CLASSIFICATION_DATA_PATH
 } = require('../../../../../tools/lib/governance/script-governance-config');
@@ -29,9 +34,9 @@ const REPAIR_REPORT_JSON_PATH = 'workspace/reports/repo-ops/REPAIR_REPORT_LATEST
 const REPAIR_REPORT_MD_PATH = 'workspace/reports/repo-ops/REPAIR_REPORT_LATEST.md';
 const PYTHON_VALIDATE_COMMAND = ['-c', "import json; json.load(open('workspace/reports/script-classifications.json'))"];
 const FIX_SCOPE_REQUIRED_MESSAGE =
-  'Script-governance fix mode requires explicit scope during the @owner -> @domain migration. Use --staged or --files.';
+  'Script-governance fix mode requires explicit scope. Use --staged or --files for bounded repair.';
 const FULL_REPAIR_DISABLED_MESSAGE =
-  'Full-repo script-governance repair is disabled during the @owner -> @domain migration. Use --staged or --files for bounded repair; perform the corpus rewrite as a separate evidence-backed batch.';
+  'Full-repo script-governance repair is intentionally disabled for bounded ownerless operation. Use --staged or --files for repair; use --report-only or --dry-run for full-repo audit output.';
 
 function parseArgs(argv) {
   const args = {
@@ -181,7 +186,8 @@ function restoreSnapshots(repoRoot, snapshot) {
 function defaultRunCommand(command, args, options = {}) {
   const result = spawnSync(command, args, {
     cwd: options.cwd || REPO_ROOT,
-    encoding: 'utf8'
+    encoding: 'utf8',
+    env: createNodeProcessEnv(options.env || {}, __dirname)
   });
 
   return {

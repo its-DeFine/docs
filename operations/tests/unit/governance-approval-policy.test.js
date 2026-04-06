@@ -2,6 +2,7 @@
 /**
  * @script            governance-approval-policy.test
  * @category          validator
+ * @type              validator
  * @purpose           governance:repo-health
  * @scope             operations/tests/unit, operations/governance/config/governance-approval-policy.json, operations/scripts/validators/governance/pr/check-governance-approvals.js, .github/pull_request_template.md, operations/tests/run-pr-checks.js
  * @domain            docs

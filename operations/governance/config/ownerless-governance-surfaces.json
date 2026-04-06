@@ -26,9 +26,9 @@
       "node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js --write-report"
     ],
     "gate_layer": "pr-changed",
-    "rollout_state": "migrating",
+    "rollout_state": "autofix",
     "network_dependent": false,
-    "ownerless_ready": false
+    "ownerless_ready": true
   },
   {
     "id": "portable-skills",
@@ -135,6 +135,9 @@
       ".allowlist",
       ".github/ISSUE_TEMPLATE/*.yml",
       ".github/pull_request_template.md",
+      "operations/governance/config/governance-approval-policy.json",
+      "operations/scripts/validators/governance/pr/check-governance-approvals.js",
+      "operations/tests/unit/governance-approval-policy.test.js",
       ".github/workflows/issue-auto-label.yml",
       ".github/workflows/discord-issue-intake.yml",
       ".github/workflows/openapi-reference-validation.yml",
@@ -164,7 +167,7 @@
     "surface_globs": [
       ".githooks/**",
       ".github/scripts/**",
-      "operations/operations/tests/**",
+      "operations/tests/**",
       "operations/scripts/**",
       "tools/lib/**",
       "tools/config/**",
@@ -199,9 +202,9 @@
       "node operations/scripts/dispatch/governance/pipelines/governance-pipeline.js --files <path[,path...]>"
     ],
     "gate_layer": "pre-commit",
-    "rollout_state": "migrating",
+    "rollout_state": "autofix",
     "network_dependent": false,
-    "ownerless_ready": false
+    "ownerless_ready": true
   },
   {
     "id": "component-governance",

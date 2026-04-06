@@ -7,7 +7,7 @@
  * @needs             R-R14, R-R16, R-R17, R-R29
  * @purpose-statement Repo governance helpers — load the canonical registry, validate its schema, and expose derived state for generators and validators.
  * @pipeline          indirect — library module
- * @usage             const { readManifest, getCompatibilitySources } = require('../../tools/lib/governance/repo-governance');
+ * @usage             const { readManifest, getProductionApprovalLabels } = require('../../tools/lib/governance/repo-governance');
  */
 
 const fs = require('fs');
@@ -48,6 +48,7 @@ const VALID_AGENT_WRITE_POLICIES = new Set([
   'root_forbidden_workspace_default',
   'generated_only_when_declared'
 ]);
+const VALID_APPROVAL_ENFORCEMENT_MODES = new Set(['ci-blocking']);
 
 function getRepoRoot() {
   const result = spawnSync('git', ['rev-parse', '--show-toplevel'], { encoding: 'utf8' });
@@ -113,6 +114,13 @@ function validateGithubWorkspaceEntries(entries) {
     if (!VALID_GITHUB_WORKSPACE_FUTURE_STATES.has(String(entry.future_state || '').trim())) {
       throw new Error(`${label}.future_state has invalid value "${entry.future_state}".`);
     }
+    if (entry.classification === 'transitional-runtime') {
+      if (!Number.isInteger(entry.review_cadence_days) || entry.review_cadence_days <= 0) {
+        throw new Error(`${label}.review_cadence_days must be a positive integer for transitional-runtime entries.`);
+      }
+    } else if (entry.review_cadence_days != null && (!Number.isInteger(entry.review_cadence_days) || entry.review_cadence_days <= 0)) {
+      throw new Error(`${label}.review_cadence_days must be a positive integer when provided.`);
+    }
   });
 }
 
@@ -151,6 +159,18 @@ function validateApprovalCheckpoint(entry, index) {
     throw new Error(`${label}.requires_human_approval must be boolean.`);
   }
   ensureArray(entry.required_evidence, `${label}.required_evidence`);
+}
+
+function validateProductionApprovalPolicy(entry) {
+  if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
+    throw new Error('production_approval_policy must be an object.');
+  }
+  ['manifest', 'pr_template', 'validator', 'notes'].forEach((field) => {
+    if (!String(entry[field] || '').trim()) {
+      throw new Error(`production_approval_policy.${field} is required.`);
+    }
+  });
+  ensureArray(entry.required_labels, 'production_approval_policy.required_labels');
 }
 
 function validateSurface(surface, index) {
@@ -229,11 +249,13 @@ function validateManifest(manifest) {
   if (!manifest.generated_outputs || typeof manifest.generated_outputs !== 'object') {
     throw new Error('Repo governance manifest must define generated_outputs.');
   }
-  ['map_doc', 'status_report_json', 'status_report_md'].forEach((field) => {
+  ['map_doc', 'status_report_json', 'status_report_md', 'handover_report_md'].forEach((field) => {
     if (!String(manifest.generated_outputs[field] || '').trim()) {
       throw new Error(`generated_outputs.${field} is required.`);
     }
   });
+  validateProductionApprovalPolicy(manifest.production_approval_policy);
+  ensureArray(manifest.active_governance_reports, 'active_governance_reports');
 
   validateGithubWorkspaceEntries(manifest.github_workspace_surfaces);
   validateLegacyBridgeInventory(manifest.legacy_bridge_inventory);
@@ -290,16 +312,12 @@ function getOwnerlessReadyCount(manifest = readManifest()) {
   return manifest.surfaces.filter((surface) => surface.ownerless_ready).length;
 }
 
-function getCompatibilitySources(manifest = readManifest()) {
-  return sortStrings(
-    manifest.surfaces.flatMap((surface) =>
-      surface.canonical_sources.filter((repoPath) => repoPath.startsWith('tools/config/runtime/'))
-    )
-  );
-}
-
 function getApprovalCheckpointIds(manifest = readManifest()) {
   return sortStrings(manifest.approval_checkpoints.map((entry) => entry.id));
+}
+
+function getProductionApprovalLabels(manifest = readManifest()) {
+  return sortStrings(manifest.production_approval_policy.required_labels || []);
 }
 
 function getGithubWorkspaceClassificationCounts(manifest = readManifest()) {
@@ -311,6 +329,10 @@ function getGithubWorkspaceClassificationCounts(manifest = readManifest()) {
 
 function getLegacyBridgeIds(manifest = readManifest()) {
   return sortStrings((manifest.legacy_bridge_inventory || []).map((entry) => entry.id));
+}
+
+function getActiveGovernanceReports(manifest = readManifest()) {
+  return sortStrings(manifest.active_governance_reports || []);
 }
 
 module.exports = {
@@ -332,10 +354,11 @@ module.exports = {
   readManifest,
   getSurfaceIds,
   getApprovalCheckpointIds,
+  getProductionApprovalLabels,
   getGithubWorkspaceClassificationCounts,
+  getActiveGovernanceReports,
   getLegacyBridgeIds,
   getSurfaceById,
   getRolloutStateCounts,
-  getOwnerlessReadyCount,
-  getCompatibilitySources
+  getOwnerlessReadyCount
 };

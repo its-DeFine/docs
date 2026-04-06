@@ -50,6 +50,7 @@ const scriptDocsTests = require('./unit/script-docs.test');
 const skillDocsTests = require('./unit/skill-docs.test');
 const aiToolsRegistryTests = require('./unit/ai-tools-registry.test');
 const ownerlessGovernanceTests = require('./unit/ownerless-governance.test');
+const governanceApprovalPolicyTests = require('./unit/governance-approval-policy.test');
 const checkAgentDocsFreshnessTests = require('./unit/check-agent-docs-freshness.test');
 const agentWriteAdmissionTests = require('./unit/agent-write-admission.test');
 const rootAllowlistFormatTests = require('./unit/root-allowlist-format.test');
@@ -60,6 +61,7 @@ const docsGuideSotTests = require('./unit/docs-guide-sot.test');
 const uiTemplateGeneratorTests = require('./unit/ui-template-generator.test');
 const componentNamingTests = require('../scripts/validators/components/library/check-naming-conventions');
 const { isAiToolsRegistryRelevantPath } = require('../../tools/lib/ai/ai-tools-registry');
+const governanceApprovalValidator = require('../scripts/validators/governance/pr/check-governance-approvals');
 
 const REPO_ROOT = getRepoRoot();
 const SCRIPT_EXTENSIONS = new Set(GOVERNED_SCRIPT_EXTENSIONS);
@@ -319,6 +321,7 @@ function partitionFiles(changedFiles) {
     file === OWNERLESS_MANIFEST_PATH ||
     file === OWNERLESS_POLICY_PATH ||
     file === 'operations/tests/unit/ownerless-governance.test.js' ||
+    file === 'operations/tests/unit/governance-approval-policy.test.js' ||
     file === 'operations/tests/unit/check-agent-docs-freshness.test.js' ||
     file === 'operations/tests/unit/root-allowlist-format.test.js' ||
     file === 'operations/tests/unit/root-governance-sync.test.js' ||
@@ -350,6 +353,21 @@ function partitionFiles(changedFiles) {
     file === '.github/workflows/docs-v2-issue-indexer.yml' ||
     file.startsWith('.github/ISSUE_TEMPLATE/')
   );
+  const governanceApprovalFiles = existingChangedFiles.filter((file) =>
+    file.startsWith('operations/governance/config/') ||
+    file.startsWith('operations/config/') ||
+    file === '.github/pull_request_template.md' ||
+    file === 'operations/scripts/validators/governance/pr/check-governance-approvals.js' ||
+    file === 'operations/tests/unit/governance-approval-policy.test.js' ||
+    file === 'operations/tests/run-pr-checks.js' ||
+    file === '.github/workflows/test-suite.yml' ||
+    file === '.github/workflows/governance-sync.yml' ||
+    file === '.github/workflows/repair-governance.yml' ||
+    file === '.githooks/pre-commit' ||
+    file === '.github/workspace/framework-canonical.md' ||
+    file === '.github/workspace/decisions-log.mdx' ||
+    file.startsWith('.github/workspace/actions-library/')
+  );
   const aiToolsRegistryFiles = existingChangedFiles.filter((file) => isAiToolsRegistryRelevantPath(file));
 
   return {
@@ -367,6 +385,7 @@ function partitionFiles(changedFiles) {
     docsGuideSotFiles: dedupe(docsGuideSotFiles),
     uiTemplateFiles: dedupe(uiTemplateFiles),
     ownerlessGovernanceFiles: dedupe(ownerlessGovernanceFiles),
+    governanceApprovalFiles: dedupe(governanceApprovalFiles),
     usefulnessFiles: dedupe(usefulnessFiles)
   };
 }
@@ -720,6 +739,37 @@ function runOwnerlessGovernanceCheck(files) {
     files: files.length,
     errors: Array.isArray(result.errors) ? result.errors.length : 0,
     warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
+function runGovernanceApprovalPolicyUnitCheck(files) {
+  if (!files.length) {
+    return { label: 'Governance Approval Policy', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = governanceApprovalPolicyTests.runTests();
+  return {
+    label: 'Governance Approval Policy',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: 0
+  };
+}
+
+function runGovernanceApprovalCheck(baseRef, files) {
+  if (!files.length) {
+    return { label: 'Governance Approval Gate', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const result = governanceApprovalValidator.run({ baseRef, files });
+  return {
+    label: 'Governance Approval Gate',
+    status: result.passed ? 'passed' : 'failed',
+    files: files.length,
+    errors: Array.isArray(result.issues) ? result.issues.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0,
+    note: result.skipped ? 'PR context unavailable' : ''
   };
 }
 
@@ -1270,6 +1320,16 @@ function createBranchHealthRegistry(context) {
       label: 'Ownerless Governance',
       files: groups.ownerlessGovernanceFiles,
       run: () => runOwnerlessGovernanceCheck(groups.ownerlessGovernanceFiles)
+    }),
+    createInlineCheck({
+      label: 'Governance Approval Policy',
+      files: groups.governanceApprovalFiles,
+      run: () => runGovernanceApprovalPolicyUnitCheck(groups.governanceApprovalFiles)
+    }),
+    createInlineCheck({
+      label: 'Governance Approval Gate',
+      files: groups.governanceApprovalFiles,
+      run: () => runGovernanceApprovalCheck(args.baseRef, groups.governanceApprovalFiles)
     }),
     createInlineCheck({
       label: 'Agent Docs Freshness',

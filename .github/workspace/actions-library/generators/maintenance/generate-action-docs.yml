@@ -14,7 +14,7 @@ on:
       - ${{ vars.DEPLOY_BRANCH }}
     paths:
       - ".github/workflows/**"
-      - ".github/workspace/actions-audit.json"
+      - ".github/workspace/actions-library/actions-audit.json"
       - ".github/workspace/generate-action-pages.js"
 
   workflow_dispatch:

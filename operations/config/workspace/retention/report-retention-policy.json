@@ -3,6 +3,18 @@
   "default_action": "keep_latest",
   "rules": [
     {
+      "pattern": "workspace/reports/repo-ops/*_LATEST.*",
+      "action": "keep_latest",
+      "reason": "active governance latest reports",
+      "retention_days": 30
+    },
+    {
+      "pattern": "workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.*",
+      "action": "keep_latest",
+      "reason": "active governance inventory reports",
+      "retention_days": 30
+    },
+    {
       "pattern": "workspace/quarantine/repo-audit/**",
       "action": "quarantine",
       "reason": "quarantined report artifacts",

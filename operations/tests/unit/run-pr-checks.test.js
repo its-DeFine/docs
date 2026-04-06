@@ -55,6 +55,7 @@ function buildEmptyGroups() {
     docsGuideSotFiles: [],
     uiTemplateFiles: [],
     ownerlessGovernanceFiles: [],
+    governanceApprovalFiles: [],
     usefulnessFiles: []
   };
 }
@@ -121,9 +122,14 @@ async function runTests() {
         'Script Docs',
         'Skill Docs',
         'AI-tools Registry',
+        'Agent Write Admission',
         'Ownerless Governance',
+        'Governance Approval Policy',
+        'Governance Approval Gate',
         'Agent Docs Freshness',
         'Root Allowlist Format',
+        'Root Governance Sync',
+        'Repo Governance Sync',
         'Portable Skill Export',
         'Docs-guide SoT',
         'UI Templates & Mint Surface',

@@ -6,7 +6,8 @@
     "operations/governance/config/root-governance.json",
     "operations/governance/config/generated-artifacts.json",
     "operations/governance/config/agent-write-governance.json",
-    "operations/governance/config/ownerless-governance-surfaces.json"
+    "operations/governance/config/ownerless-governance-surfaces.json",
+    "operations/governance/config/governance-approval-policy.json"
   ],
   "approval_checkpoints": [
     {
@@ -61,8 +62,32 @@
   "generated_outputs": {
     "map_doc": "docs-guide/repo-ops/config/repo-governance-map.mdx",
     "status_report_json": "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json",
-    "status_report_md": "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md"
+    "status_report_md": "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md",
+    "handover_report_md": "workspace/reports/repo-ops/OWNERLESS_REPO_HANDOVER_LATEST.md"
   },
+  "production_approval_policy": {
+    "manifest": "operations/governance/config/governance-approval-policy.json",
+    "pr_template": ".github/pull_request_template.md",
+    "validator": "operations/scripts/validators/governance/pr/check-governance-approvals.js",
+    "required_labels": [
+      "approval:governance-schema",
+      "approval:governance-gate",
+      "approval:workflow-governance",
+      "approval:governance-retirement"
+    ],
+    "notes": "Production governance-sensitive PRs require GitHub labels plus PR-body evidence under the Governance Approval section."
+  },
+  "active_governance_reports": [
+    "workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.json",
+    "workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md",
+    "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json",
+    "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md",
+    "workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json",
+    "workspace/reports/repo-ops/REPAIR_REPORT_LATEST.md",
+    "workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.json",
+    "workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.md",
+    "workspace/reports/repo-ops/OWNERLESS_REPO_HANDOVER_LATEST.md"
+  ],
   "github_workspace_surfaces": [
     {
       "id": "workspace-framework",
@@ -70,6 +95,7 @@
       "classification": "transitional-runtime",
       "runtime_role": "workflow-taxonomy-framework",
       "future_state": "promote-or-replace",
+      "review_cadence_days": 90,
       "notes": "Still referenced for workflow taxonomy and naming rules, but not treated as the long-term canonical governance home."
     },
     {
@@ -78,6 +104,7 @@
       "classification": "transitional-runtime",
       "runtime_role": "locked-workflow-decisions",
       "future_state": "promote-or-replace",
+      "review_cadence_days": 90,
       "notes": "Operational decisions remain live transitional support until they are promoted into canonical docs or archived."
     },
     {
@@ -220,10 +247,14 @@
         "operations/governance/config/root-governance.json",
         "operations/governance/config/generated-artifacts.json",
         "operations/governance/config/agent-write-governance.json",
+        "operations/governance/config/governance-approval-policy.json",
         "operations/governance/config/ownerless-governance-surfaces.json",
+        ".github/pull_request_template.md",
+        "operations/scripts/validators/governance/pr/check-governance-approvals.js",
         "docs-guide/repo-ops/config/repo-governance-map.mdx",
         "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json",
-        "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md"
+        "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md",
+        "workspace/reports/repo-ops/OWNERLESS_REPO_HANDOVER_LATEST.md"
       ],
       "canonical_sources": [
         "operations/governance/config/repo-governance-surfaces.json",
@@ -231,14 +262,19 @@
         "operations/governance/config/generated-artifacts.json",
         "operations/governance/config/agent-write-governance.json",
         "operations/governance/config/ownerless-governance-surfaces.json",
+        "operations/governance/config/governance-approval-policy.json",
+        ".github/pull_request_template.md",
+        "operations/scripts/validators/governance/pr/check-governance-approvals.js",
         "docs-guide/repo-ops/config/repo-config-map.mdx"
       ],
       "derived_outputs": [
         "docs-guide/repo-ops/config/repo-governance-map.mdx",
         "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json",
-        "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md"
+        "workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md",
+        "workspace/reports/repo-ops/OWNERLESS_REPO_HANDOVER_LATEST.md"
       ],
       "validators": [
+        "operations/scripts/validators/governance/pr/check-governance-approvals.js",
         "operations/scripts/validators/governance/compliance/check-repo-governance-sync.js",
         "operations/tests/unit/repo-governance-sync.test.js"
       ],
@@ -369,22 +405,25 @@
       "paths": [
         "operations/governance/config/ownerless-governance-surfaces.json",
         "docs-guide/policies/ownerless-governance.mdx",
-        "operations/tests/unit/ownerless-governance.test.js"
+        "operations/tests/unit/ownerless-governance.test.js",
+        "operations/tests/unit/governance-approval-policy.test.js"
       ],
       "canonical_sources": [
         "operations/governance/config/ownerless-governance-surfaces.json",
-        "docs-guide/policies/ownerless-governance.mdx"
+        "docs-guide/policies/ownerless-governance.mdx",
+        "operations/governance/config/governance-approval-policy.json"
       ],
       "derived_outputs": [],
       "validators": [
+        "operations/tests/unit/governance-approval-policy.test.js",
         "operations/tests/unit/ownerless-governance.test.js"
       ],
       "repair_commands": [
         "node operations/scripts/remediators/content/style/repair-ownerless-language.js --write"
       ],
       "gate_layer": "pr-changed",
-      "rollout_state": "migrating",
-      "ownerless_ready": false,
+      "rollout_state": "autofix",
+      "ownerless_ready": true,
       "write_policy": "policy_and_registry_controlled",
       "agent_write_policy": "registry_defaults_only",
       "network_dependent": false,
@@ -392,7 +431,7 @@
       "doc_refs": [
         "docs-guide/policies/ownerless-governance.mdx"
       ],
-      "escalation_mode": "human-review-required",
+      "escalation_mode": "auto-fix-pr",
       "success_signals": [
         "manifest remains structurally valid",
         "policy language stays ownerless",

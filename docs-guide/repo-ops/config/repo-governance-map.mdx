@@ -39,14 +39,14 @@ Cutover status: `retired`. Canonical governance home: `operations/governance`.
 
 ## Governed Governance Surfaces
 
-Registered surfaces: 5. Ownerless-ready now: 3.
+Registered surfaces: 5. Ownerless-ready now: 4.
 
 | Surface | Name | Type | Gate | Rollout | Ready | Canonical sources | Derived outputs | Escalation | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `repo-governance-registry` | Repo Governance Registry | `governance-registry` | `pr-changed` | `autofix` | yes | `operations/governance/config/repo-governance-surfaces.json`<br/>`operations/governance/config/root-governance.json`<br/>`operations/governance/config/generated-artifacts.json`<br/>`operations/governance/config/agent-write-governance.json`<br/>`operations/governance/config/ownerless-governance-surfaces.json`<br/>`docs-guide/repo-ops/config/repo-config-map.mdx` | `docs-guide/repo-ops/config/repo-governance-map.mdx`<br/>`workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json`<br/>`workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md` | `auto-fix-pr` | Top-level governance index for the ownerless steady-state control plane. |
+| `repo-governance-registry` | Repo Governance Registry | `governance-registry` | `pr-changed` | `autofix` | yes | `operations/governance/config/repo-governance-surfaces.json`<br/>`operations/governance/config/root-governance.json`<br/>`operations/governance/config/generated-artifacts.json`<br/>`operations/governance/config/agent-write-governance.json`<br/>`operations/governance/config/ownerless-governance-surfaces.json`<br/>`operations/governance/config/governance-approval-policy.json`<br/>`.github/pull_request_template.md`<br/>`operations/scripts/validators/governance/pr/check-governance-approvals.js`<br/>`docs-guide/repo-ops/config/repo-config-map.mdx` | `docs-guide/repo-ops/config/repo-governance-map.mdx`<br/>`workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json`<br/>`workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md`<br/>`workspace/reports/repo-ops/OWNERLESS_REPO_HANDOVER_LATEST.md` | `auto-fix-pr` | Top-level governance index for the ownerless steady-state control plane. |
 | `root-governance` | Root Governance | `root-governance` | `pre-commit` | `autofix` | yes | `operations/governance/config/root-governance.json`<br/>`docs-guide/policies/root-allowlist-governance.mdx` | `.allowlist`<br/>`docs-guide/repo-ops/config/root-governance-map.mdx`<br/>`workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.json`<br/>`workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md` | `auto-fix-pr` | Canonical root-governance manifest under the ownerless steady-state architecture. |
 | `generated-artifact-governance` | Generated Artifact Governance | `generated-artifact-governance` | `pr-changed` | `autofix` | yes | `operations/governance/config/generated-artifacts.json`<br/>`docs-guide/policies/generated-artifact-and-hook-governance.mdx` | `docs-index.json`<br/>`llms.txt`<br/>`sitemap-ai.xml`<br/>`docs-guide/repo-ops/config/root-governance-map.mdx`<br/>`workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.json`<br/>`workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md`<br/>`docs-guide/repo-ops/config/repo-governance-map.mdx`<br/>`workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json`<br/>`workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md` | `auto-fix-pr` | Canonical generated-artifact governance manifest under the ownerless steady-state architecture. |
-| `ownerless-governance` | Ownerless Governance | `ownerless-governance` | `pr-changed` | `migrating` | no | `operations/governance/config/ownerless-governance-surfaces.json`<br/>`docs-guide/policies/ownerless-governance.mdx` |  | `human-review-required` | Canonical ownerless-governance manifest under the ownerless steady-state architecture. |
+| `ownerless-governance` | Ownerless Governance | `ownerless-governance` | `pr-changed` | `autofix` | yes | `operations/governance/config/ownerless-governance-surfaces.json`<br/>`docs-guide/policies/ownerless-governance.mdx`<br/>`operations/governance/config/governance-approval-policy.json` |  | `auto-fix-pr` | Canonical ownerless-governance manifest under the ownerless steady-state architecture. |
 | `github-workspace-governance` | GitHub Workspace Governance | `github-workspace-governance` | `pr-changed` | `migrating` | no | `operations/governance/config/repo-governance-surfaces.json`<br/>`.github/workspace/framework-canonical.md`<br/>`.github/workspace/decisions-log.mdx` | `docs-guide/repo-ops/config/repo-governance-map.mdx`<br/>`workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json`<br/>`workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md` | `human-review-required` | .github/workspace contains classified transitional support, generated reference material, and archived design history; this prevents the whole tree from being treated as canonical runtime governance. |
 
 ## Path Classes
@@ -71,7 +71,7 @@ Registered surfaces: 5. Ownerless-ready now: 3.
 | `task-state` | `workspace/thread-outputs/**` | `tracked` | Session and thread state belongs in the governed workspace thread-output tree. |
 | `forbidden` | `repo root or ad hoc top-level paths` | `forbidden` | Agents must not create undeclared top-level files or folders outside admitted governance and workspace paths. |
 
-## Human Approval Checkpoints
+## Historical Approval Checkpoints
 
 | Checkpoint | Label | Phase | Human approval | Trigger | Required evidence |
 | --- | --- | --- | --- | --- | --- |
@@ -79,6 +79,15 @@ Registered surfaces: 5. Ownerless-ready now: 3.
 | `first-instance-review` | First-Instance Review | `implement` | yes | After the first thin-slice implementation and before repeating the migration pattern across additional surfaces. | `first-slice generator output`<br/>`first-slice validator output`<br/>`targeted tests passing` |
 | `gate-escalation` | Gate Escalation | `iterate` | yes | Before any governance rule is promoted from advisory or autofix to blocking. | `baseline noise review`<br/>`false-positive review`<br/>`contributor impact review` |
 | `legacy-retirement` | Legacy Retirement | `cleanup` | yes | Before retiring live bridge-mode governance sources under tools/config/runtime or deleting bridge logic. | `consumer cutover proof`<br/>`bridge sync validator pass`<br/>`retirement inventory` |
+
+## Production Approval Policy
+
+| Policy element | Value | Notes |
+| --- | --- | --- |
+| `manifest` | `operations/governance/config/governance-approval-policy.json` | Production governance-sensitive PRs require GitHub labels plus PR-body evidence under the Governance Approval section. |
+| `pr_template` | `.github/pull_request_template.md` | Required PR body section and evidence fields for governance-sensitive changes. |
+| `validator` | `operations/scripts/validators/governance/pr/check-governance-approvals.js` | Changed-file PR validator enforcing labels plus PR-body evidence. |
+| `required_labels` | `approval:governance-schema`<br/>`approval:governance-gate`<br/>`approval:workflow-governance`<br/>`approval:governance-retirement` | GitHub labels that act as the authoritative approval signal in CI. |
 
 ## GitHub Workspace Classification
 
@@ -100,14 +109,33 @@ Only explicitly classified `.github/workspace` items should be treated as live s
 - `operations/governance/config/generated-artifacts.json`
 - `operations/governance/config/agent-write-governance.json`
 - `operations/governance/config/ownerless-governance-surfaces.json`
+- `operations/governance/config/governance-approval-policy.json`
 
-## Compatibility Sources
+## Canonical Runtime Config
 
-No compatibility-source paths remain in the canonical governance registry.
+- `operations/config/content/blueprints/blueprint-mapping.json`
+- `operations/config/content/blueprints/blueprint-pages.json`
+- `operations/config/content/navigation/navigation-exclusions.json`
+- `operations/config/content/reports/v2-internal-report-pages.js`
+- `operations/config/README.md`
+- `operations/config/workspace/retention/report-retention-policy.json`
+- `operations/config/workspace/schemas/cleanup-manifest.schema.json`
+
+## Active Governance Reports
+
+- `workspace/reports/repo-ops/OWNERLESS_REPO_HANDOVER_LATEST.md`
+- `workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json`
+- `workspace/reports/repo-ops/REPAIR_REPORT_LATEST.md`
+- `workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json`
+- `workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md`
+- `workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.json`
+- `workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md`
+- `workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.json`
+- `workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.md`
 
 ## Rollout State Summary
 
 | State | Surface count |
 | --- | --- |
-| `autofix` | 3 |
-| `migrating` | 2 |
+| `autofix` | 4 |
+| `migrating` | 1 |

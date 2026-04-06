@@ -24,7 +24,7 @@ Run command: node operations/tests/unit/script-docs.test.js --write --rebuild-in
 **Important**: Do not manually edit this file; run `node operations/tests/unit/script-docs.test.js --write --rebuild-indexes`. <br/>
 </Note>
 
-The governed script library currently indexes **364** script(s).
+The governed script library currently indexes **366** script(s).
 
 ## Pipeline Flow
 
@@ -66,7 +66,7 @@ flowchart LR
     pmore["... 1 more"]
   end
 
-  subgraph P3["🟡 P3 — PR Gate (44)"]
+  subgraph P3["🟡 P3 — PR Gate (45)"]
     direction TB
     r0["check-codex-pr-overlap.js"]
     r1["generate-component-registry.js"]
@@ -80,7 +80,7 @@ flowchart LR
     r9["validate-codex-task-contract.js"]
     r10["check-pr-template.js"]
     r11["openapi-reference-audit.js"]
-    rmore["... 32 more"]
+    rmore["... 33 more"]
   end
 
   subgraph P5_P6["🔵 P5/P6 — Scheduled (16)"]
@@ -237,6 +237,7 @@ flowchart LR
 | `check-description-quality.js` | Validates English v2 frontmatter descriptions for SEO length, boilerplate openings, and duplicate reuse | manual | content | `node operations/scripts/validators/content/structure/check-description-quality.js [--path &lt;repo-path&gt;] [--strict]` |
 | `check-docs-path-sync.js` | Docs path sync validator — detects staged page moves that require docs.json or governed path reference rewrites. | manual | content | `node operations/scripts/validators/content/structure/check-docs-path-sync.js --staged` |
 | `check-double-headers.js` | Detects duplicate body H1 headings and opening paragraphs that repeat frontmatter title or description content. | manual | content | `node operations/scripts/validators/content/structure/check-double-headers.js [--staged&#124;--file &lt;path&gt;&#124;--files &lt;a,b&gt;] [--fix]` |
+| `check-governance-approvals.js` | Enforces human approval labels and PR-body evidence for governance-sensitive pull requests. | manual | governance | `node operations/scripts/validators/governance/pr/check-governance-approvals.js [--base-ref &lt;branch&gt;] [--files &lt;path[,path...]&gt;] [--json]` |
 | `check-grammar-en-gb.js` | Deterministic UK English grammar checker for prose content with optional conservative autofix for safe rules. | manual | content | `node operations/scripts/validators/content/grammar/check-grammar-en-gb.js [--scope full&#124;changed] [--file &lt;path[,path...]&gt;] [--fix] [--strict]` |
 | `check-mdx-component-scope.js` | Validates MDX-facing component modules do not depend on private file-scope helper bindings from exported components. | manual | components | `node operations/scripts/validators/components/library/check-mdx-component-scope.js [--files path[,path...]] [--staged]` |
 | `check-mdx-safe-markdown.js` | Validates first-party markdown and MDX content for repo-wide MDX-safe syntax, including parse failures and deterministic unsafe patterns. | manual | content | `node operations/scripts/validators/content/structure/check-mdx-safe-markdown.js [--staged&#124;--files a,b] [--json]` |
@@ -251,6 +252,7 @@ flowchart LR
 | `component-layout-governance.js` | Component layout governance validator — checks v2 page layouts against approved component contracts | manual | components | `node operations/scripts/validators/components/library/component-layout-governance.js [flags]` |
 | `docs-fact-registry.js` | Docs fact registry validator — validates repo-native research claim registries and provides normalized claim-family data for the manual research runner. | manual | content | `node operations/scripts/audits/content/veracity/docs-fact-registry.js [flags]` |
 | `enforce-generated-file-banners.js` | Validates "do not edit" banners and i18n parity on generated MDX files. Generator dispatch split to sync-generated-files.js. | P1 | content | `node operations/scripts/validators/content/structure/enforce-generated-file-banners.js --check [--staged]` |
+| `governance-approval-policy.test.js` |  | P3 |  | `node operations/tests/unit/governance-approval-policy.test.js` |
 | `imports-cli.test.js` |  | manual |  | `node operations/tests/unit/imports-cli.test.js` |
 | `imports.test.js` | Compatibility wrapper for page-imports-audit.js that preserves the legacy imports.test surface while delegating to the canonical operations audit. | P1, P3 | content | `node operations/tests/unit/imports.test.js [--dry-run] [--scope routable-v2&#124;repo] [--staged] [--files &lt;paths&gt;]` |
 | `links-cli.test.js` |  | manual |  | `node operations/tests/unit/links-cli.test.js` |

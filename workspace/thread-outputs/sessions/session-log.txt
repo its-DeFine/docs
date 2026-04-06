@@ -1028,3 +1028,21 @@ Done:
 - Verified the path migrations with structure, navigation, path-sync, localizer, pages-index, docs-index, llms, ai-sitemap, and repo-governance-sync checks
 - Reduced the remaining closeout debt to two explicit items: a human-owned deletion commit for the tracked path moves and an unrelated UI template artifact drift blocking the full staged suite
 Next: Stage the IA migration files for a human-owned commit with `--trailer "allow-deletions=true"`, then run a separate quality/template follow-up to clear the staged style/copy debt and `ui-template-generator` drift
+
+=== 2026-04-06 09:55 AEST ===
+Stream: Production Governance Cutover
+Outcome: Met
+Done:
+- Added a production governance approval contract, PR validator, PR-template section, and changed-file routing so governance-sensitive PRs now require explicit GitHub-native approval evidence
+- Promoted the active governance control plane to steady-state mode, cleaned current docs and reports to the production architecture, and generated the ownerless handover report
+- Bounded the remaining `.github/workspace` workflow-governance exception with explicit classification and review cadence instead of leaving it as implicit legacy
+Next: Review the bounded `.github/workspace` transitional governance surfaces on cadence and retire them in a future governance decision once replacement coverage is complete
+
+=== 2026-04-06 09:58 AEST ===
+Stream: Developers Tab Restructure and Content Promotion
+Outcome: Partially met
+Done:
+- Promoted the planned Developers AI, Video, Tutorials, and Reference content into canonical live routes, updated `docs.json` and scoped navigation mirrors, and rewired stale internal links to the new route structure
+- Archived the duplicate legacy `developer-tools` and `technical-references` trees under `v2/developers/x-deprecated/` and refreshed the generated page/docs-guide catalogs to the new Developers IA
+- Verified the live Developers tab with scoped MDX/style/link validation and a full 48-route scoped preview smoke pass after fixing promoted import drift and the link-audit runtime bug
+Next: Run a primary-source verification pass for promoted Developers claims, then stage the Developers archive moves for a human-owned deletion commit with `--trailer "allow-deletions=true"`

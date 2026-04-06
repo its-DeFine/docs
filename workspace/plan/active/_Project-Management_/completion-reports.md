@@ -221,6 +221,92 @@ Fresh validation confirmed the fix at the real entrypoints: `mint dev --port 334
 
 ---
 
+## Developers Tab Restructure and Content Promotion — 2026-04-06
+
+**Plans**: none
+**Scope**: Restructure the live Developers tab around the approved `docs.json` contract, promote staged content into canonical routes, archive legacy duplicate trees without deletion, and revalidate the routed Developers surface.
+**Outcome**: Partially met
+
+### Summary
+
+The live Developers tab now matches the current route contract: promoted AI, Video, Tutorial, and Reference content is in canonical publishable paths, `docs.json` and scoped navigation mirrors were updated, and the duplicate legacy `developer-tools` and `technical-references` trees were moved under `v2/developers/x-deprecated/`. Route-level validation is in a good state: generated indexes were refreshed, MDX validation passed, the scoped Developers style/link checks passed, and a 48-route scoped preview smoke pass returned cleanly after the preview settled.
+
+The remaining gap is factual closeout rather than IA/runtime structure: promoted external claims still need a primary-source verification pass before merge, and the tracked archive moves require a human-owned deletion commit per repo policy.
+
+### Completed
+
+**Developers IA and route alignment**
+- Replaced the thin/stub live Developers pages with governed content promoted from `v2/developers/_workspace/files-to-add` into the canonical `get-started/`, `build/`, `guides/`, and `resources/reference/` routes.
+- Updated the live Developers navigation in `docs.json` to the AI-first journey, added `AI`, `Video`, and `Tutorials` guide subgroups, removed `video-quickstart` from primary nav while keeping the compatibility file, and expanded `Resources > Reference` with `pricing-rate-limits` and `pytrickle`.
+- Synced the route contract through the scoped navigation mirrors and repaired stale internal links across the Developers surface and dependent consumers.
+
+**Archive and contract cleanup**
+- Archived the prior versions of the replaced Developers pages under `v2/developers/_workspace/archive/pre-restructure-2026-04-06/`.
+- Moved the legacy duplicate public-looking trees from `v2/developers/developer-tools/**` and `v2/developers/technical-references/**` into `v2/developers/x-deprecated/**` instead of leaving two competing route structures in the tree.
+- Rewrote the maintained Developers hub pages so they point at current internal routes rather than stale external roundups or dead internal paths.
+
+**Validation and verification tooling**
+- Regenerated and rechecked the affected page and docs-guide catalogs, including `v2/developers/index.mdx`, `v2/index.mdx`, `docs-guide/catalog/pages-catalog.mdx`, and `docs-guide/catalog/workflows-catalog.mdx`.
+- Fixed the `page-links-audit` runtime bug that returned an undefined `writtenLinks` value so the scoped Developers link audit could complete successfully.
+- Normalized the promoted bundle’s invalid component import aliases and inline-style container usage so the scoped Mint preview could boot the Developers tab cleanly.
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Live `docs.json` and on-disk route families were treated as the governing source over older `_design` notes | The request explicitly set the live route contract as the tie-breaker, and the restructure needed to land in the currently published folder/navigation model |
+| Legacy duplicate Developers trees were archived into `v2/developers/x-deprecated/` instead of being left in place | The tab needed one canonical IA, but repo policy prohibited tracked deletions in this session |
+| `video-quickstart.mdx` was retained as a compatibility route while being removed from primary navigation | The new journey routes through canonical quickstarts, but older direct links still need a stable landing page |
+| The link-audit validator bug was fixed in-session | It was blocking the validation path required to verify the Developers restructure itself |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Primary-source verification pass for promoted Developers claims | P1 | Structural and route work is complete, but external/product-sensitive claims still need explicit source verification before merge | Current Livepeer primary sources and product docs |
+| Human-owned deletion commit for archived Developers moves | P1 | `v2/developers/developer-tools/**` and `v2/developers/technical-references/**` now appear as tracked deletions plus `x-deprecated` additions; repo policy requires a human-owned commit with `--trailer "allow-deletions=true"` | Human staging/commit step |
+
+### Dependencies & Downstream Effects
+
+- **Developers routing and navigation**: Consumers of the Developers tab now follow the canonical `guides/*`, `resources/reference/*`, and `resources/knowledge-hub/*` structure instead of the retired flat legacy trees.
+- **Scoped navigation mirrors**: `tools/config/scoped-navigation/docs-gate-orch.json`, `docs-gate-work.json`, and `docs-orch-work.json` were updated alongside `docs.json`, so future scoped workflows now see the restructured Developers IA.
+- **Validation tooling**: `operations/scripts/audits/content/health/page-links-audit.js` no longer crashes on successful runs that omit link-map writing, which affects future scoped link-audit sessions outside this thread as well.
+- **Worktree hygiene**: The session was executed in a dirty tree with unrelated governance work already present, so commit/staging needs to isolate the Developers files from the unrelated governance changes.
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| `node operations/scripts/generators/content/catalogs/generate-pages-index.js --check` | ✅ Clean | Rewritten after `--write`; refreshed `v2/developers/index.mdx` and `v2/index.mdx` |
+| `node operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js --check` | ✅ Clean | Rewritten after `--write` |
+| `node operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js --check` | ✅ Clean | Rewritten after `--write` |
+| `node operations/tests/unit/mdx.test.js` | ✅ Clean | One unrelated warning remains for `v2/orchestrators/guides/operator-considerations/operator-rationale.mdx` missing optional frontmatter |
+| `node operations/tests/unit/style-guide.test.js --files <Developers MDX set>` | ✅ Clean | Warnings only; no scoped Developers errors remained after import/container normalization |
+| `node operations/tests/integration/v2-link-audit.js --files <Developers MDX set> --strict` | ✅ Clean | 44 files analyzed, 454 refs, 0 missing refs |
+| Scoped Developers Mint preview on `3101` | ✅ Clean after settling | Resolved promoted bundle import drift; preview served the full Developers tab |
+| 48-route Developers HTTP smoke pass from live `docs.json` | ✅ Clean | All live Developers routes returned successfully from the scoped preview |
+| `lpd test --full --domain v2 --json` | ⚠️ Not used as gate | Run was terminated after surfacing unrelated repo-wide failures outside the Developers scope |
+
+### Recommendations
+
+1. **Run a factual verification pass before merge** — verify pricing, SDK/status, API/authentication, PyTrickle, and similar promoted claims against current primary sources so the restructure closes both IA drift and claim drift.
+2. **Stage the Developers archive move separately for a human-owned commit** — the tracked path deletions/moves need an isolated commit with `--trailer "allow-deletions=true"` so this session’s route work does not get mixed with the unrelated governance changes already in the worktree.
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `docs.json` | modified | Live Developers navigation and redirect contract updated to the new IA |
+| `v2/developers/guides/developer-guides.mdx` | modified | Maintained internal guide hub rewritten around the canonical Developers routes |
+| `v2/developers/portal.mdx` | modified | Developers portal updated to current route targets |
+| `v2/developers/x-deprecated/` | added | Archived legacy duplicate Developers trees retained without deletion |
+| `tools/config/scoped-navigation/docs-gate-orch.json` | modified | Scoped Developers nav and redirect mirror updated |
+| `tools/config/scoped-navigation/docs-gate-work.json` | modified | Scoped Developers nav and redirect mirror updated |
+| `tools/config/scoped-navigation/docs-orch-work.json` | modified | Scoped Developers nav and redirect mirror updated |
+| `operations/scripts/audits/content/health/page-links-audit.js` | modified | Validation bug fixed so scoped link audit completes cleanly |
+
+---
+
 ## Snippets Root Governance Consolidation — 2026-04-05
 
 **Plans**: none
@@ -4383,3 +4469,75 @@ The About, Gateways, and Delegators v2 surfaces now match their intended on-disk
 | `docs-index.json` | modified | Refreshed public docs inventory for the new routes |
 | `llms.txt` | modified | Refreshed AI-first route inventory |
 | `sitemap-ai.xml` | modified | Refreshed AI sitemap entries for the moved routes |
+
+---
+
+## Production Governance Cutover — 2026-04-06
+
+**Plans**: `/Users/alisonhaire/.claude/plans/soft-gliding-falcon.md`
+**Scope**: Harden the production governance architecture around `operations/governance/**` and `operations/config/**`, add enforceable PR approval gates, and clean the active governance report layer so only current/canonical surfaces remain authoritative.
+**Outcome**: Met
+
+### Summary
+
+The repo’s production governance model now runs on one active control plane, with canonical manifests under `operations/governance/config/**`, canonical runtime config under `operations/config/**`, and CI-enforceable governance approval rules. The active/current governance docs, workflows, and report surfaces were cleaned to remove bridge-era behavior, while the remaining `.github/workspace` workflow-governance inputs stay intentionally transitional under bounded review cadence instead of silently lingering as undefined legacy.
+
+### Completed
+
+- **Production approval gate**: Added the canonical approval policy manifest, PR approval validator, PR template contract, and changed-file routing so governance-sensitive PRs now require explicit GitHub-native approval evidence instead of relying on informal process.
+- **Steady-state governance registry**: Promoted repo governance to a production model with active approval policy metadata, live governance report declarations, bounded transitional workflow-governance cadence, and deterministic rollout states for the now-stable ownerless governance surfaces.
+- **Workflow and report cleanup**: Updated governance sync/repair automation, current docs, script registries, and active repo-ops reports so current surfaces describe the production architecture rather than the retired bridge model.
+- **Transitional workflow-governance bounding**: Kept only `.github/workspace/framework-canonical.md`, `.github/workspace/decisions-log.mdx`, and `actions-library/**` as live transitional support surfaces, and reclassified the rest of the `.github/workspace/**` tree as archive/reference-only context in active governance documentation.
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Governance-sensitive PRs use GitHub labels plus a required PR-template section as the approval contract | Approval needs to be explicit, reviewable in CI, and native to repo operations instead of hidden in commits or chat |
+| `ownerless-governance`, `script-governance`, and `ai-tools-registry` advance to `autofix` while `github-workspace-governance` remains `migrating` | Those surfaces are deterministic now; only transitional workflow-governance still needs bounded exception handling |
+| Only latest/current repo-ops governance reports are treated as live state | Historical and dated artifacts can remain archival, but active/current surfaces must stay clean and canonical |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Review and retire the bounded `.github/workspace` workflow-governance exception | P2 | `framework-canonical.md` and `decisions-log.mdx` are still intentionally transitional, not final steady-state runtime sources | Future governance review against the 90-day cadence |
+
+### Dependencies & Downstream Effects
+
+- **Governance-sensitive PRs**: CI can now require explicit approval labels and a populated `Governance Approval` section when canonical governance files, gate behavior, workflow-governance surfaces, or retirement-sensitive paths change.
+- **Active governance reports**: `REPO_GOVERNANCE_STATUS_LATEST.*`, `ROOT_GOVERNANCE_SYNC_LATEST.*`, `REPAIR_REPORT_LATEST.*`, `SCRIPT_INVENTORY_FULL.*`, and the new ownerless handover report now describe the current architecture instead of the retired bridge state.
+- **Contributor instructions**: Governance docs and contributor guidance now point at the production approval policy instead of relying on undocumented human process.
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| `node operations/scripts/validators/governance/compliance/check-root-governance-sync.js --json` | ✅ Clean | Root governance remains aligned after production cutover |
+| `node operations/scripts/validators/governance/compliance/check-repo-governance-sync.js --json` | ✅ Clean | Repo governance registry, reports, and workflow-governance bounds validate cleanly |
+| `node operations/scripts/validators/governance/compliance/check-agent-docs-freshness.js --json` | ✅ Clean | Governance docs and agent-facing references remain fresh |
+| `node operations/tests/unit/generated-artifacts-policy.test.js` | ✅ Clean | Active generated-artifact policy matches the new report surface set |
+| `node operations/tests/unit/root-governance-sync.test.js` | ✅ Clean | Root governance generated outputs stay in sync |
+| `node operations/tests/unit/repo-governance-sync.test.js` | ✅ Clean | Production approval metadata and handover outputs are enforced |
+| `node operations/tests/unit/ownerless-governance.test.js` | ✅ Clean | Ownerless governance surfaces validate under the new rollout states |
+| `node operations/tests/unit/ai-tools-registry.test.js` | ✅ Clean | AI tools registry remains aligned with ownerless governance expectations |
+| `node operations/tests/unit/script-docs.test.js --files operations/scripts/validators/governance/pr/check-governance-approvals.js,operations/scripts/validators/governance/pr/audit-script-inventory.js,operations/tests/unit/governance-approval-policy.test.js --write --rebuild-indexes` | ✅ Clean | New/updated governance scripts and tests satisfy script-governance docs/index requirements |
+| `node operations/tests/unit/run-pr-checks.test.js` | ✅ Clean | Changed-file PR routing covers the production approval gate |
+| `node operations/scripts/dispatch/governance/pipelines/governance-pipeline.js --report-only` | ✅ Clean | Governance pipeline regenerates the active/current report layer in steady-state mode |
+| `node operations/scripts/validators/governance/compliance/validate-ai-tools-registry.js --check --coverage` | ✅ Clean | AI-tools governance coverage remains intact after cutover |
+
+### Recommendations
+
+1. **Stage the governance cutover as one focused review unit** — The work is production-ready, but the diff spans workflows, validators, docs, registries, and generated reports; keeping review scope tight will reduce approval noise.
+2. **Use the bounded cadence to revisit workflow-governance transition deliberately** — The `.github/workspace` exception is now explicit and governed; future retirement should happen by review decision, not drift.
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `operations/governance/config/governance-approval-policy.json` | new manifest | Canonical production approval contract for governance-sensitive PRs |
+| `operations/scripts/validators/governance/pr/check-governance-approvals.js` | new validator | Enforces approval labels and PR-body evidence when governance-sensitive files change |
+| `.github/pull_request_template.md` | modified template | Adds the required `Governance Approval` section |
+| `operations/governance/config/repo-governance-surfaces.json` | modified manifest | Records production approval policy, active reports, bounded transitional workflow-governance, and steady-state rollout |
+| `docs-guide/repo-ops/config/repo-governance-map.mdx` | generated doc | Live repo governance map updated to the production architecture |
+| `workspace/reports/repo-ops/OWNERLESS_REPO_HANDOVER_LATEST.md` | new report | Final ownerless-handover summary of canonical governance/runtime surfaces and repair paths |

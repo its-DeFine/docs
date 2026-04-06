@@ -4,23 +4,27 @@
 - Canonical home: `operations/governance`
 - Cutover status: `retired`
 - Total surfaces: 5
-- Ownerless-ready surfaces: 3
-- Human approval checkpoints: 4
+- Ownerless-ready surfaces: 4
+- Historical approval checkpoints: 4
+- Production approval labels: 4
 - GitHub workspace classified entries: 7
-- Legacy bridge entries: 0
+- Active governance reports: 9
 
 ## Rollout States
 
 | State | Surface count |
 | --- | --- |
-| `autofix` | 3 |
-| `migrating` | 2 |
+| `autofix` | 4 |
+| `migrating` | 1 |
 
-## Compatibility Sources
+## Production Approval Labels
 
-No compatibility-source paths remain in the canonical governance registry.
+- `approval:governance-gate`
+- `approval:governance-retirement`
+- `approval:governance-schema`
+- `approval:workflow-governance`
 
-## Human Approval Checkpoints
+## Historical Approval Checkpoints
 
 - `design-lock`
 - `first-instance-review`
@@ -35,6 +39,18 @@ No compatibility-source paths remain in the canonical governance registry.
 | `generated-support` | 1 |
 | `historical-audit` | 1 |
 | `transitional-runtime` | 2 |
+
+## Active Governance Reports
+
+- `workspace/reports/repo-ops/OWNERLESS_REPO_HANDOVER_LATEST.md`
+- `workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json`
+- `workspace/reports/repo-ops/REPAIR_REPORT_LATEST.md`
+- `workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json`
+- `workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md`
+- `workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.json`
+- `workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md`
+- `workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.json`
+- `workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.md`
 
 ## Registered Surface IDs
 

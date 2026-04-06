@@ -19,9 +19,10 @@ const { execFileSync } = require('child_process');
 const {
   readManifest,
   getApprovalCheckpointIds,
+  getProductionApprovalLabels,
   getGithubWorkspaceClassificationCounts,
   getSurfaceIds,
-  getCompatibilitySources
+  getActiveGovernanceReports
 } = require('../../../tools/lib/governance/repo-governance');
 const { readManifest: readAgentWriteManifest } = require('../../../tools/lib/governance/agent-write-governance');
 const {
@@ -29,7 +30,8 @@ const {
   buildRepoGovernanceMapContent,
   buildStatusPayload,
   buildStatusJsonContent,
-  buildStatusMarkdownContent
+  buildStatusMarkdownContent,
+  buildOwnerlessHandoverContent
 } = require('../../scripts/generators/governance/reports/generate-repo-governance-status');
 const validator = require('../../scripts/validators/governance/compliance/check-repo-governance-sync');
 
@@ -49,6 +51,7 @@ async function runTests() {
     assert.strictEqual(manifest.bridge_mode, 'retired');
     assert.ok(manifest.canonical_manifests.includes('operations/governance/config/root-governance.json'));
     assert.ok(manifest.canonical_manifests.includes('operations/governance/config/ownerless-governance-surfaces.json'));
+    assert.ok(manifest.canonical_manifests.includes('operations/governance/config/governance-approval-policy.json'));
     assert.ok(getSurfaceIds(manifest).includes('repo-governance-registry'));
     assert.ok(getSurfaceIds(manifest).includes('github-workspace-governance'));
   });
@@ -64,8 +67,10 @@ async function runTests() {
     assert.ok(agentOutputIds.includes('forbidden'));
     assert.ok(getApprovalCheckpointIds(manifest).includes('design-lock'));
     assert.ok(getApprovalCheckpointIds(manifest).includes('legacy-retirement'));
+    assert.ok(getProductionApprovalLabels(manifest).includes('approval:governance-schema'));
     assert.deepStrictEqual(manifest.legacy_bridge_inventory || [], []);
     assert.ok(manifest.github_workspace_surfaces.some((entry) => entry.path === '.github/workspace/framework-canonical.md'));
+    assert.ok(manifest.active_governance_reports.includes('workspace/reports/repo-ops/REPAIR_REPORT_LATEST.md'));
   });
 
   cases.push(async () => {
@@ -83,9 +88,10 @@ async function runTests() {
     assert.ok(map.includes('## Governed Governance Surfaces'));
     assert.ok(map.includes('## Path Classes'));
     assert.ok(map.includes('## Agent Output Classes'));
-    assert.ok(map.includes('## Human Approval Checkpoints'));
+    assert.ok(map.includes('## Historical Approval Checkpoints'));
+    assert.ok(map.includes('## Production Approval Policy'));
     assert.ok(map.includes('## GitHub Workspace Classification'));
-    assert.ok(map.includes('## Compatibility Sources'));
+    assert.ok(map.includes('## Active Governance Reports'));
   });
 
   cases.push(async () => {
@@ -96,13 +102,16 @@ async function runTests() {
     assert.strictEqual(json.bridge_mode, 'retired');
     assert.deepStrictEqual(json.surface_ids, payload.surface_ids);
     assert.deepStrictEqual(json.approval_checkpoint_ids, payload.approval_checkpoint_ids);
+    assert.deepStrictEqual(json.production_approval_labels, getProductionApprovalLabels(manifest));
     assert.deepStrictEqual(json.github_workspace_classification_counts, getGithubWorkspaceClassificationCounts(manifest));
     assert.deepStrictEqual(json.legacy_bridge_ids, []);
-    assert.ok(Array.isArray(getCompatibilitySources(manifest)));
+    assert.deepStrictEqual(json.active_governance_reports, getActiveGovernanceReports(manifest));
     assert.ok(markdown.includes('# Repo Governance Status'));
     assert.ok(markdown.includes('## Rollout States'));
-    assert.ok(markdown.includes('## Human Approval Checkpoints'));
+    assert.ok(markdown.includes('## Historical Approval Checkpoints'));
+    assert.ok(markdown.includes('## Production Approval Labels'));
     assert.ok(markdown.includes('## GitHub Workspace Classification'));
+    assert.ok(markdown.includes('## Active Governance Reports'));
   });
 
   cases.push(async () => {
@@ -124,12 +133,15 @@ async function runTests() {
     assert.ok(fs.existsSync(path.join(REPO_ROOT, 'operations/governance/config/generated-artifacts.json')));
     assert.ok(fs.existsSync(path.join(REPO_ROOT, 'operations/governance/config/agent-write-governance.json')));
     assert.ok(fs.existsSync(path.join(REPO_ROOT, 'operations/governance/config/ownerless-governance-surfaces.json')));
+    assert.ok(fs.existsSync(path.join(REPO_ROOT, 'operations/governance/config/governance-approval-policy.json')));
     const currentMap = `${readRepoFile(manifest.generated_outputs.map_doc).trim()}\n`;
     const currentStatusJson = readRepoFile(manifest.generated_outputs.status_report_json);
     const currentStatusMd = `${readRepoFile(manifest.generated_outputs.status_report_md).trim()}\n`;
+    const currentHandover = `${readRepoFile(manifest.generated_outputs.handover_report_md).trim()}\n`;
     assert.strictEqual(currentMap, buildRepoGovernanceMapContent(manifest));
     assert.strictEqual(currentStatusJson, buildStatusJsonContent(manifest));
     assert.strictEqual(currentStatusMd, buildStatusMarkdownContent(manifest));
+    assert.strictEqual(currentHandover, buildOwnerlessHandoverContent(manifest));
   });
 
   for (let index = 0; index < cases.length; index += 1) {

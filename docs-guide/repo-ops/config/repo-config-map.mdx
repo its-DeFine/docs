@@ -67,6 +67,8 @@ operations/governance/config/repo-governance-surfaces.json
 | Field group | Purpose |
 |-------------|---------|
 | `generated_outputs` | Declares the repo-governance map and deterministic status reports |
+| `production_approval_policy` | Declares the canonical PR approval contract, required labels, and validator for governance-sensitive changes |
+| `active_governance_reports` | Declares which repo-ops governance reports are treated as current/live surfaces |
 | `github_workspace_surfaces` | Classifies `.github/workspace` entries as transitional runtime, generated support, design-only, or historical audit |
 | `legacy_bridge_inventory` | Retirement record for former bridge manifests. This remains empty after cutover. |
 | `path_classes` | Declares admitted path classes for governance-controlled writes |
@@ -76,6 +78,25 @@ operations/governance/config/repo-governance-surfaces.json
 **When to update:** When introducing a new governance-controlled surface, changing admitted path classes, or changing the steady-state governance model.
 
 Live top-level governance state is generated at [`docs-guide/repo-ops/config/repo-governance-map.mdx`](/docs-guide/repo-ops/config/repo-governance-map).
+
+### governance-approval-policy.json
+
+```
+operations/governance/config/governance-approval-policy.json
+```
+
+**Purpose:** Canonical production approval contract for governance-sensitive PRs.
+
+**Read by:** `check-governance-approvals.js`, `run-pr-checks.js`, the PR template, and contributor-facing governance docs.
+
+**Current contract:**
+
+| Approval class | Required label | Used when |
+|---|---|---|
+| `governance-schema` | `approval:governance-schema` | Canonical governance manifests, enums, path classes, or approval schema change |
+| `governance-gate` | `approval:governance-gate` | Gate-layer behavior, PR governance checks, or enforcement posture changes |
+| `workflow-governance` | `approval:workflow-governance` | Transitional workflow-governance files or their registry classification change |
+| `governance-retirement` | `approval:governance-retirement` | Active governance/runtime config or generated governance outputs are retired |
 
 ### root-governance.json
 
@@ -136,7 +157,7 @@ Current canonical runtime-config surfaces:
 | `operations/config/workspace/retention/report-retention-policy.json` | Canonical report retention and quarantine policy data | `quarantine-manager.js`, `script-footprint-and-usage-audit.js`, and cleanup/report audits |
 | `operations/config/workspace/schemas/cleanup-manifest.schema.json` | Canonical cleanup-manifest schema | cleanup/quarantine policy and cleanup tooling |
 
-`tools/config/runtime/**` is retired. Active runtime reads must target `operations/config/**`.
+`operations/config/**` is the canonical runtime-config home. Active runtime reads must target canonical operations config paths only.
 
 ---
 
@@ -156,11 +177,26 @@ Current operating rule:
 - `.github/workspace/framework-canonical.md` and `.github/workspace/decisions-log.mdx` are transitional runtime support, not the long-term canonical governance home
 - `.github/workspace/actions-library/` is generated/supporting reference material
 - `.github/workspace/design/**`, `.github/workspace/phase2/**`, `.github/workspace/outcomes.md`, and `.github/workspace/reports-audits/**` are design or audit context, not active runtime governance
+- the two transitional runtime files are reviewed on a 90-day cadence declared in `operations/governance/config/repo-governance-surfaces.json`
 
 Correct live support paths:
 - Decisions log: `.github/workspace/decisions-log.mdx`
 - Actions audit data: `.github/workspace/actions-library/actions-audit.json`
 - Actions library index: `.github/workspace/actions-library/catalog-index.mdx`
+
+## Active Governance Reports
+
+The only repo-ops governance reports treated as live/current are:
+
+- `workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.json`
+- `workspace/reports/repo-ops/ROOT_GOVERNANCE_SYNC_LATEST.md`
+- `workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.json`
+- `workspace/reports/repo-ops/REPO_GOVERNANCE_STATUS_LATEST.md`
+- `workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json`
+- `workspace/reports/repo-ops/REPAIR_REPORT_LATEST.md`
+- `workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.json`
+- `workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.md`
+- `workspace/reports/repo-ops/OWNERLESS_REPO_HANDOVER_LATEST.md`
 
 ---
 

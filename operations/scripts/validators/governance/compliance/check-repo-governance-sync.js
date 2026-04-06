@@ -94,6 +94,58 @@ function checkReferencedPaths(manifest, issues) {
 
 }
 
+function checkProductionApprovalPolicy(manifest, issues) {
+  const policy = manifest.production_approval_policy || {};
+  [policy.manifest, policy.pr_template, policy.validator].forEach((repoPath) => {
+    if (!repoPath) return;
+    if (!fs.existsSync(path.join(REPO_ROOT, repoPath))) {
+      addIssue(issues, 'missing_approval_policy_reference', repoPath, `${repoPath} required by production_approval_policy is missing.`);
+    }
+  });
+}
+
+function checkActiveGovernanceReports(manifest, issues) {
+  const retiredRuntimePattern = /tools\/config\/runtime\//;
+  (manifest.active_governance_reports || []).forEach((repoPath) => {
+    const absPath = path.join(REPO_ROOT, repoPath);
+    if (!fs.existsSync(absPath)) {
+      addIssue(issues, 'missing_active_report', repoPath, `${repoPath} declared in active_governance_reports is missing.`);
+      return;
+    }
+    const content = fs.readFileSync(absPath, 'utf8');
+    if (retiredRuntimePattern.test(content)) {
+      addIssue(
+        issues,
+        'retired_runtime_reference',
+        repoPath,
+        `${repoPath} still references retired legacy runtime-governance paths.`
+      );
+    }
+  });
+}
+
+function checkGithubWorkspaceRuntimeReferences(manifest, issues) {
+  const approvedActive = new Set(
+    (manifest.github_workspace_surfaces || [])
+      .filter((entry) => entry.classification === 'transitional-runtime' || entry.classification === 'generated-support')
+      .map((entry) => entry.path)
+  );
+
+  manifest.surfaces.forEach((surface) => {
+    (surface.canonical_sources || []).forEach((repoPath) => {
+      if (!repoPath.startsWith('.github/workspace/')) return;
+      if (!approvedActive.has(repoPath)) {
+        addIssue(
+          issues,
+          'unapproved_workspace_runtime_source',
+          repoPath,
+          `${repoPath} is referenced as an active canonical source by surface ${surface.id} but is not an approved transitional/generated-support workspace path.`
+        );
+      }
+    });
+  });
+}
+
 function run() {
   const manifest = readManifest(REPO_ROOT);
   const issues = [];
@@ -112,6 +164,9 @@ function run() {
   });
 
   checkReferencedPaths(manifest, issues);
+  checkProductionApprovalPolicy(manifest, issues);
+  checkActiveGovernanceReports(manifest, issues);
+  checkGithubWorkspaceRuntimeReferences(manifest, issues);
   try {
     readAgentWriteManifest(REPO_ROOT);
   } catch (error) {

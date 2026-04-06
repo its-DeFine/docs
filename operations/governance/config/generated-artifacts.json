@@ -366,6 +366,96 @@
       "notes": "Latest Markdown repo-governance status report."
     },
     {
+      "path": "workspace/reports/repo-ops/OWNERLESS_REPO_HANDOVER_LATEST.md",
+      "owner": "docs",
+      "generator": "node operations/scripts/generators/governance/reports/generate-repo-governance-status.js --write",
+      "sources": [
+        "operations/governance/config/repo-governance-surfaces.json",
+        "operations/governance/config/governance-approval-policy.json",
+        "operations/config/**",
+        "operations/scripts/generators/governance/reports/generate-repo-governance-status.js",
+        "tools/lib/governance/repo-governance.js"
+      ],
+      "class": "committed_derived_scoped",
+      "commit_policy": "manual",
+      "hook_policy": "check_only",
+      "ci_policy": "enforce",
+      "delta_strategy": "full",
+      "notes": "Current ownerless handover summary for the production governance control plane."
+    },
+    {
+      "path": "workspace/reports/repo-ops/REPAIR_REPORT_LATEST.json",
+      "owner": "docs",
+      "generator": "node operations/scripts/dispatch/governance/pipelines/governance-pipeline.js --report-only",
+      "sources": [
+        "operations/scripts/dispatch/governance/pipelines/governance-pipeline.js",
+        "operations/scripts/validators/governance/pr/audit-script-inventory.js",
+        "operations/config/**",
+        "operations/governance/config/**"
+      ],
+      "class": "committed_derived_scoped",
+      "commit_policy": "manual",
+      "hook_policy": "check_only",
+      "ci_policy": "enforce",
+      "delta_strategy": "full",
+      "notes": "Current machine-readable governance repair report. Historical dated reports are archival only."
+    },
+    {
+      "path": "workspace/reports/repo-ops/REPAIR_REPORT_LATEST.md",
+      "owner": "docs",
+      "generator": "node operations/scripts/dispatch/governance/pipelines/governance-pipeline.js --report-only",
+      "sources": [
+        "operations/scripts/dispatch/governance/pipelines/governance-pipeline.js",
+        "operations/scripts/validators/governance/pr/audit-script-inventory.js",
+        "operations/config/**",
+        "operations/governance/config/**"
+      ],
+      "class": "committed_derived_scoped",
+      "commit_policy": "manual",
+      "hook_policy": "check_only",
+      "ci_policy": "enforce",
+      "delta_strategy": "full",
+      "notes": "Current Markdown governance repair report. Historical dated reports are archival only."
+    },
+    {
+      "path": "workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.json",
+      "owner": "docs",
+      "generator": "node operations/scripts/dispatch/governance/pipelines/governance-pipeline.js --report-only",
+      "sources": [
+        "operations/scripts/validators/governance/pr/audit-script-inventory.js",
+        "operations/scripts/dispatch/governance/pipelines/governance-pipeline.js",
+        "operations/config/**",
+        "operations/governance/config/**",
+        "tools/lib/**",
+        "operations/tests/**"
+      ],
+      "class": "committed_derived_scoped",
+      "commit_policy": "manual",
+      "hook_policy": "check_only",
+      "ci_policy": "enforce",
+      "delta_strategy": "full",
+      "notes": "Current machine-readable script inventory report used by the governance pipeline. Historical/diff reports are archival only."
+    },
+    {
+      "path": "workspace/reports/repo-ops/SCRIPT_INVENTORY_FULL.md",
+      "owner": "docs",
+      "generator": "node operations/scripts/dispatch/governance/pipelines/governance-pipeline.js --report-only",
+      "sources": [
+        "operations/scripts/validators/governance/pr/audit-script-inventory.js",
+        "operations/scripts/dispatch/governance/pipelines/governance-pipeline.js",
+        "operations/config/**",
+        "operations/governance/config/**",
+        "tools/lib/**",
+        "operations/tests/**"
+      ],
+      "class": "committed_derived_scoped",
+      "commit_policy": "manual",
+      "hook_policy": "check_only",
+      "ci_policy": "enforce",
+      "delta_strategy": "full",
+      "notes": "Current Markdown script inventory report used by the governance pipeline. Historical/diff reports are archival only."
+    },
+    {
       "path": "workspace/reports/_local/**",
       "owner": "docs",
       "generator": "local-only report generators and scratch audits",

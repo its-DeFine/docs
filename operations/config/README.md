@@ -33,4 +33,4 @@ This folder is the steady-state home for runtime config that influences repo ope
 
 ## Steady-State Rule
 
-`tools/config/runtime/**` is retired. New canonical runtime state must not be introduced there.
+The former runtime-config subtree under `tools/` is retired. New canonical runtime state must not be introduced outside `operations/config/**`.

@@ -209,3 +209,18 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 **Source:** About/Gateways/Delegators IA Route Alignment — 2026-04-05
 **Description:** The current IA migration worktree contains tracked path moves and deletions across `v2/about`, `v2/gateways`, and `v2/delegators`. Repo policy requires a human-owned commit with `--trailer "allow-deletions=true"` after staging only the intended IA migration files.
 **Priority:** P1
+
+## BL-040 — Review and retire bounded workflow-governance transitional surfaces
+**Source:** Production Governance Cutover — 2026-04-06
+**Description:** `.github/workspace/framework-canonical.md` and `.github/workspace/decisions-log.mdx` are now explicitly governed as bounded transitional workflow-governance inputs with review cadence, but they are not yet final retired/archive-only surfaces. Future governance review should either replace or retire them deliberately instead of allowing indefinite transition.
+**Priority:** P2
+
+## BL-041 — Verify promoted Developers claims against primary sources
+**Source:** Developers Tab Restructure and Content Promotion — 2026-04-06
+**Description:** The Developers IA/nav/content restructure is implemented and locally validated, but promoted claims around pricing, SDK/status, API/authentication behavior, PyTrickle, and related external/product-sensitive details still need a primary-source verification pass before merge.
+**Priority:** P1
+
+## BL-042 — Make the human-owned delete commit for Developers archive moves
+**Source:** Developers Tab Restructure and Content Promotion — 2026-04-06
+**Description:** `v2/developers/developer-tools/**` and `v2/developers/technical-references/**` were moved into `v2/developers/x-deprecated/**`, leaving tracked deletions plus archive additions in the worktree. Repo policy requires a human-owned commit with `--trailer "allow-deletions=true"` after staging only the intended Developers IA files.
+**Priority:** P1

@@ -1,5 +1,5 @@
 # Project State — Content Writing Pipeline
-> Last updated: 2026-04-05
+> Last updated: 2026-04-06
 > This file must be read at the start of every AI session and updated after every agent batch.
 
 ---
@@ -16,6 +16,7 @@
 
 | Output file | Notes | Unblocks |
 |---|---|---|
+| Production governance cutover | `operations/governance/**` and `operations/config/**` now operate as the production control plane; governance-sensitive PRs require explicit approval labels plus PR-body evidence; active/current governance reports and docs were cleaned to the steady-state architecture; and the ownerless handover report was generated | Unblocks production review of the governance model without relying on bridge-era behavior or undocumented approval process |
 | About, Gateways, and Delegators IA route alignment | The v2 About, Gateways, and Delegators folder trees now match their approved `docs.json` contracts, repo-wide path consumers were updated, and route-derived public artifacts were regenerated to the new canonical paths | Unblocks human review and a focused human-owned deletion commit for the IA migrations without carrying stale path references |
 | Tools governance consolidation | `tools/config`, `tools/dev`, and `tools/lib` now use governed namespace contracts; workflow-owned and legacy tool surfaces were relocated or removed; and maintained script indexes/registries were regenerated to the live paths | Unblocks a final human-owned deletion commit and future `tools/` maintenance on explicit folder contracts instead of ad hoc sprawl |
 | Contracts docs-v2 migration PR | Isolated `docs-v2` branch `codex/20260403-contracts-docs-v2-migration` pushed and opened as PR #857 with contracts pipeline, generated data, composables, and importer routes migrated from the working source surface | Unblocks review and merge of the contracts surface onto `docs-v2` without touching `Docs-v2-dev` |
@@ -119,6 +120,8 @@
 | REVIEW | Snippets Assets `/site` Migration Verification | Full verification runbook executed in a disposable clone. Asset/path probes are green, but completion is blocked by `docs.json` Resource HUB redirect drift, invalid frontmatter in `v2/about/livepeer-protocol/blockchain-contracts.mdx`, and scoped runtime failures (`React #418`, `undefined.mintlify.app` OG URLs, request-abort surfaces) on the representative routes | 2026-04-05 |
 | REVIEW | Tools Governance Consolidation | The `tools/` restructure is validated but still uncommitted. The worktree contains tracked deletions that require a human-owned commit with `--trailer "allow-deletions=true"`, and unrelated root-governance/snippets work remains in the same tree and should be staged separately | 2026-04-05 |
 | REVIEW | About/Gateways/Delegators IA Route Alignment | The path migrations are implemented and targeted route validators are green, but the worktree still needs a human-owned deletion commit for the tracked moves and `lpd test --staged` remains blocked by staged style/copy debt plus unrelated UI template artifact drift | 2026-04-05 |
+| REVIEW | Production Governance Cutover | The production governance model is implemented and validated, but `.github/workspace/framework-canonical.md` and `.github/workspace/decisions-log.mdx` remain intentionally transitional workflow-governance inputs under bounded review cadence rather than final retired surfaces | 2026-04-06 |
+| REVIEW | Developers Tab Restructure and Content Promotion | The Developers IA/nav/content restructure is implemented and locally validated, but promoted product/external claims still need a primary-source verification pass and the tracked archive moves require a human-owned deletion commit with `--trailer "allow-deletions=true"` | 2026-04-06 |
 
 ---
 

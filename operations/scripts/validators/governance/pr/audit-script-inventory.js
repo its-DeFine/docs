@@ -1,21 +1,26 @@
 #!/usr/bin/env node
 /**
- * @script      audit-script-inventory
- * @type        validator
- * @concern     governance
- * @niche       pr
- * @purpose     governance:repo-health
- * @description Deep inventory audit of every script in the repo. Traces triggers, outputs, downstream chains, and governance compliance. Produces reports grouped by trigger category.
- * @mode        read-only
- * @pipeline    commit), manual
- * @scope       full-repo
- * @usage       node operations/scripts/validators/governance/pr/audit-script-inventory.js [--fix] [--dry-run] [--staged-only|--staged] [--files <path[,path...]>] [--quiet] [--json] [--md] [--output <dir>] [--verbose]
- * @policy      R-R14, R-R18, R-C6
+ * @script            audit-script-inventory
+ * @category          validator
+ * @type              validator
+ * @concern           governance
+ * @niche             pr
+ * @purpose           governance:repo-health
+ * @description       Deep inventory audit of every script in the repo. Traces triggers, outputs, downstream chains, and governance compliance. Produces reports grouped by trigger category.
+ * @mode              read-only
+ * @domain            docs
+ * @needs             R-R14, R-R18, R-C6
+ * @purpose-statement Audit the governed script corpus and regenerate the canonical script inventory outputs from current headers and filesystem state.
+ * @pipeline          commit), manual
+ * @scope             full-repo
+ * @usage             node operations/scripts/validators/governance/pr/audit-script-inventory.js [--fix] [--dry-run] [--staged-only|--staged] [--files <path[,path...]>] [--quiet] [--json] [--md] [--output <dir>] [--verbose]
+ * @policy            R-R14, R-R18, R-C6
  */
 
 const fs = require('fs');
 const path = require('path');
 const { execFileSync, spawnSync } = require('child_process');
+const { bootstrapRepoNodePaths } = require('../../../../../tools/lib/bootstrap/repo-node-paths');
 const yaml = require('js-yaml');
 const {
   AGGREGATE_INDEX_PATH,
@@ -44,6 +49,8 @@ const {
   getTagValue,
   hasFrameworkHeaderTags
 } = require('../../../../../tools/lib/governance/script-header-utils');
+
+bootstrapRepoNodePaths(__dirname);
 
 const REPO_ROOT = process.cwd();
 const DEFAULT_OUTPUT_DIR = 'workspace/reports/repo-ops';

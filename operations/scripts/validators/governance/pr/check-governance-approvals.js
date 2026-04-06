@@ -479,10 +479,16 @@ function buildResult({ requiredRules, context, policy, issues, warnings }) {
 
 function run(options = {}) {
   const policy = loadPolicy();
+  const effectiveBaseRef =
+    Object.prototype.hasOwnProperty.call(options, 'baseRef')
+      ? options.baseRef
+      : Array.isArray(options.files) && options.files.length > 0
+        ? ''
+        : DEFAULT_BASE_REF;
   const entries = Array.isArray(options.changedEntries)
     ? options.changedEntries
-    : getChangedEntries(options.baseRef || DEFAULT_BASE_REF, options.files || []);
-  const requiredRules = deriveRequiredRules(policy, entries, options.baseRef || DEFAULT_BASE_REF);
+    : getChangedEntries(effectiveBaseRef, options.files || []);
+  const requiredRules = deriveRequiredRules(policy, entries, effectiveBaseRef);
   const issues = [];
   const warnings = [];
 

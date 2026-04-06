@@ -78,13 +78,32 @@ Secondary checks may exist, but the manifest must name only one primary layer.
 | `advisory` | Validate and report only. Do not block merges or commits. |
 | `autofix` | Deterministic repair exists, but blocking promotion is not complete. |
 | `blocking` | Surface is ownerless-ready and enforced in its primary layer. |
-| `migrating` | Contract is changing and dual-read support is active until the repo is clean. |
+| `migrating` | Surface remains a bounded transitional exception. The canonical control plane is already single-source, but promotion or archival is still under explicit review. |
 
 Promotion to `blocking` requires:
 
 1. one clean baseline run on the full governed surface
 2. changed-file PR simulation proving the scope is bounded
 3. exact repair output for every blocking failure mode
+
+## Production Approval Gate
+
+Governance-sensitive PRs are controlled by the canonical approval policy at:
+
+- `operations/governance/config/governance-approval-policy.json`
+
+The required PR body section is:
+
+- `## Governance Approval`
+
+The CI approval labels are:
+
+- `approval:governance-schema`
+- `approval:governance-gate`
+- `approval:workflow-governance`
+- `approval:governance-retirement`
+
+Those labels are GitHub-native approval evidence for governance-sensitive PRs. They do not replace the existing human-only commit trailers required for `.allowlist` edits or tracked deletions.
 
 ## Surface Registry
 
@@ -104,7 +123,7 @@ That manifest is the canonical index for:
 - network dependence
 - ownerless readiness
 
-Legacy runtime mirrors under `tools/config/runtime/**` are retired. Active governance reads must target `operations/governance/config/**` only.
+Legacy runtime mirrors are retired. Active governance reads must target `operations/governance/config/**` only.
 
 ## OSS Contributor Loop
 
@@ -124,4 +143,5 @@ No repo-tracked governance surface should require private staff-only context for
 - `docs-guide/policies/source-of-truth-policy.mdx` defines canonical boundaries.
 - `docs-guide/policies/infrastructure-principles.mdx` defines the gate-layer model.
 - `operations/tests/unit/ownerless-governance.test.js` validates the manifest and ownerless language rules.
-- `operations/tests/unit/ai-tools-registry.test.js` validates the migrating AI-tools registry surface declared in the ownerless manifest.
+- `operations/tests/unit/ai-tools-registry.test.js` validates the AI-tools registry surface declared in the ownerless manifest.
+- `operations/tests/unit/governance-approval-policy.test.js` validates the production governance approval contract and PR evidence rules.

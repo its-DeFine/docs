@@ -302,7 +302,7 @@
 
 **Date:** 2026-04-05
 **Status:** Confirmed
-**Decision:** One canonical governance registry at `operations/governance/repo-governance-surfaces.json` replaces `tools/config/runtime/ownerless-governance-surfaces.json`. 11 surfaces registered. Specialised manifests (root-governance.json, generated-artifacts.json, script-registry.json) remain but are referenced from the unified registry.
+**Decision:** One canonical governance registry at `operations/governance/config/repo-governance-surfaces.json` replaces the former legacy ownerless-governance manifest path. 11 surfaces registered. Specialised manifests (root-governance.json, generated-artifacts.json, script-registry.json) remain but are referenced from the unified registry.
 
 **Surfaces registered (11):**
 - root-governance (root placement, Class A-F)
@@ -320,7 +320,7 @@
 **New fields added:** name, manifest, policy, write_policy, escalation_mode
 
 **Reasoning:** Ownerless self-governance audit (2026-04-05) found multiple overlapping control planes that contradict each other. One registry, one truth. Specialised manifests stay for detail; the unified registry is the index.
-**Impact:** tools/config/runtime/ownerless-governance-surfaces.json superseded. All governance queries start from operations/governance/.
+**Impact:** The former legacy ownerless-governance manifest path is superseded. All governance queries start from `operations/governance/config/`.
 
 ---
 

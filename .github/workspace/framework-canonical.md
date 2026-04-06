@@ -2,9 +2,9 @@
 
 > Canonical reference for the Livepeer Docs workflow and pipeline architecture.
 > Status: CONFIRMED. 8 decisions locked (D-ACT-01 through D-ACT-08).
-> Decisions log: `.github/workspace/reports-audits/decisions-log.mdx`
-> Product capabilities: `.github/workspace/phase2/locked-pipelines.md`
-> Pipeline designs: `.github/workspace/phase2/pipeline-design/`
+> Decisions log: `.github/workspace/decisions-log.mdx`
+> Archived product capabilities context: `.github/workspace/phase2/locked-pipelines.md`
+> Archived pipeline design context: `.github/workspace/phase2/pipeline-design/`
 
 ---
 
@@ -342,7 +342,7 @@ Adding a new workflow:
 
 ## 9. Decisions
 
-8 decisions locked. Full text in `.github/workspace/reports-audits/decisions-log.mdx`.
+8 decisions locked. Full text in `.github/workspace/decisions-log.mdx`.
 
 | #        | Decision                                        | Summary                                                    |
 | -------- | ----------------------------------------------- | ---------------------------------------------------------- |
@@ -359,9 +359,9 @@ Adding a new workflow:
 
 ## Sources
 
-- Product capabilities: `.github/workspace/phase2/locked-pipelines.md`
-- Pipeline designs: `.github/workspace/phase2/pipeline-design/`
-- Audit data: `.github/workspace/actions-audit.json`
-- Consolidation analysis: `.github/workspace/reports-audits/audit2-consolidation-analysis.md`
-- Decisions log: `.github/workspace/reports-audits/decisions-log.mdx`
+- Archived product capabilities context: `.github/workspace/phase2/locked-pipelines.md`
+- Archived pipeline design context: `.github/workspace/phase2/pipeline-design/`
+- Audit data: `.github/workspace/actions-library/actions-audit.json`
+- Archived consolidation analysis: `.github/workspace/reports-audits/audit2-consolidation-analysis.md`
+- Decisions log: `.github/workspace/decisions-log.mdx`
 - Script framework: `workspace/plan/active/SCRIPT-GOVERNANCE/script-framework.md` (NOT YET ALIGNED)
