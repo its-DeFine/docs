@@ -2,14 +2,14 @@
 
 Run an on-chain gateway connected to the Livepeer network on Arbitrum One. The gateway discovers orchestrators via the on-chain ServiceRegistry, manages its own Ethereum wallet, and deposits ETH into the TicketBroker to pay for transcoding and AI inference jobs.
 
-{/* REVIEW: ServiceRegistry as discovery mechanism — verify with: go-livepeer source + protocol docs */}
+{/_ REVIEW: ServiceRegistry as discovery mechanism — verify with: go-livepeer source + protocol docs _/}
 
 ---
 
 ## Prerequisites
 
 - **ETH on Arbitrum One**: minimum 0.1 ETH for testing; 0.36 ETH for production (covers deposit, reserve, and gas).
-  {/* REVIEW: ETH amounts (0.1 test, 0.36 production) — verify with: go-livepeer docs + GitHub #3744 */}
+  {/_ REVIEW: ETH amounts (0.1 test, 0.36 production) — verify with: go-livepeer docs + GitHub #3744 _/}
 - **Arbitrum RPC endpoint**: Alchemy, Infura, or `arb1.arbitrum.io/rpc` for initial testing.
 - **Operating system**: Linux recommended for production; macOS acceptable for development.
 - **Docker Engine + NVIDIA Container Toolkit** (Docker method only).
@@ -49,7 +49,7 @@ docker run -d \
   -v 6
 ```
 
-{/* REVIEW: flag names (-gateway, -network arbitrum-one-mainnet, -ethUrl, -httpAddr, -rtmpAddr, -monitor, -v) — verify with: go-livepeer latest tagged release */}
+{/_ REVIEW: flag names (-gateway, -network arbitrum-one-mainnet, -ethUrl, -httpAddr, -rtmpAddr, -monitor, -v) — verify with: go-livepeer latest tagged release _/}
 
 Replace `YOUR_API_KEY` with your Arbitrum RPC provider key.
 
@@ -64,7 +64,7 @@ docker exec -it livepeer-gateway livepeer_cli
 - Select **Option 11** — Deposit ETH into the TicketBroker.
 - Deposit at least **0.065 ETH** (deposit) and **0.03 ETH** (reserve).
 
-{/* REVIEW: livepeer_cli option number (11) and deposit/reserve amounts — verify with: livepeer_cli current version */}
+{/_ REVIEW: livepeer_cli option number (11) and deposit/reserve amounts — verify with: livepeer_cli current version _/}
 
 6. Confirm the node is running:
 
@@ -101,7 +101,7 @@ livepeer \
   -v 6
 ```
 
-{/* REVIEW: -maxPricePerUnit and -pixelsPerUnit defaults — verify with: go-livepeer latest tagged release */}
+{/_ REVIEW: -maxPricePerUnit and -pixelsPerUnit defaults — verify with: go-livepeer latest tagged release _/}
 
 4. Fund the gateway via `livepeer_cli` — same procedure as Docker step 5 above. Run `livepeer_cli` in a separate terminal while the node is running.
 
@@ -132,7 +132,7 @@ curl -X POST http://localhost:8937/text-to-image \
   -d '{"prompt": "a network of interconnected nodes"}'
 ```
 
-{/* REVIEW: AI gateway port 8937 and /text-to-image endpoint — verify with: go-livepeer latest release + AI subnet docs */}
+{/_ REVIEW: AI gateway port 8937 and /text-to-image endpoint — verify with: go-livepeer latest release + AI subnet docs _/}
 
 A JSON response containing image data confirms AI routing is functional.
 
@@ -140,14 +140,14 @@ A JSON response containing image data confirms AI routing is functional.
 
 ## Port reference
 
-| Port | Protocol | Purpose |
-|------|----------|---------|
-| 1935 | RTMP | Video stream ingest |
-| 8935 | HTTP | Video gateway API and HLS playback |
-| 8937 | HTTP | AI gateway API |
-| 5935 | HTTP | `livepeer_cli` interface |
+| Port | Protocol | Purpose                            |
+| ---- | -------- | ---------------------------------- |
+| 1935 | RTMP     | Video stream ingest                |
+| 8935 | HTTP     | Video gateway API and HLS playback |
+| 8937 | HTTP     | AI gateway API                     |
+| 5935 | HTTP     | `livepeer_cli` interface           |
 
-{/* REVIEW: port 5935 for livepeer_cli — verify with: go-livepeer default configuration */}
+{/_ REVIEW: port 5935 for livepeer_cli — verify with: go-livepeer default configuration _/}
 
 ---
 

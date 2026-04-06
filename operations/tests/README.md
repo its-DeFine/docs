@@ -184,8 +184,8 @@ bash lpd test --full --wcag --wcag-no-fix
 bash lpd tools wcag-repair-common -- --staged --stage
 node operations/tests/run-pr-checks.js --base-ref main
 node operations/tests/run-pr-checks.js --base-ref main --lane branch-health
-node operations/scripts/dispatch/ai/codex/create-codex-pr.js --advisory-research --changed-files v2/orchestrators/guides/deployment-details/setup-options.mdx,v2/orchestrators/setup/rcs-requirements.mdx,v2/orchestrators/guides/operator-considerations/business-case.mdx
-node operations/scripts/dispatch/content/veracity/docs-page-research-pr-report.js --files v2/orchestrators/guides/deployment-details/setup-options.mdx,v2/orchestrators/setup/rcs-requirements.mdx,v2/orchestrators/guides/operator-considerations/business-case.mdx --report-md /tmp/page-content-research-pr.md --report-json /tmp/page-content-research-pr.json
+node operations/scripts/dispatch/ai/codex/create-codex-pr.js --advisory-research --changed-files v2/orchestrators/guides/deployment-details/setup-options.mdx,v2/orchestrators/setup/prepare.mdx,v2/orchestrators/guides/operator-considerations/business-case.mdx
+node operations/scripts/dispatch/content/veracity/docs-page-research-pr-report.js --files v2/orchestrators/guides/deployment-details/setup-options.mdx,v2/orchestrators/setup/prepare.mdx,v2/orchestrators/guides/operator-considerations/business-case.mdx --report-md /tmp/page-content-research-pr.md --report-json /tmp/page-content-research-pr.json
 ```
 
 ### npm Scripts (`operations/tests/package.json`)

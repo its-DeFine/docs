@@ -156,7 +156,7 @@ const CANONICAL_ROUTE_MAP = {
   'v2/pages/04_gateways/references/video-flags': ['v2/pages/04_gateways/references/configuration-flags'],
   'v2/orchestrators/setting-up-an-orchestrator/overview': ['v2/orchestrators/setup/guide'],
   'v2/orchestrators/setting-up-an-orchestrator/hardware-requirements': [
-    'v2/orchestrators/setup/rcs-requirements'
+    'v2/orchestrators/setup/prepare'
   ],
   'v2/orchestrators/setup/rs-install': [
     'v2/orchestrators/setup/rs-install'

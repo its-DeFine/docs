@@ -1,14 +1,16 @@
 'use strict';
 /**
  * @script            frontmatter-taxonomy
- * @category          utility
+ * @type              utility
+ * @concern           governance
+ * @niche             taxonomy
  * @purpose           qa:content-quality
  * @scope             tools/lib/docs, tests
- * @owner             docs
- * @needs             E-R1, R-R11
- * @purpose-statement Shared frontmatter taxonomy utilities for routable docs pages.
+ * @description       Shared frontmatter taxonomy utilities for routable docs pages.
+ * @mode              read-only
  * @pipeline          indirect -- library module
  * @usage             const taxonomy = require('../../tools/lib/docs/frontmatter-taxonomy');
+ * @policy            E-R1, R-R11
  */
 
 // Phase 1 canonical values — source of truth: tasks/plan/active/CONTENT-WRITING/framework.md

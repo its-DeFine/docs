@@ -55,6 +55,34 @@ stdin.on('end', () => {
         process.exit(2);
       }
 
+      // Block commands that would bind to human-reserved ports while occupied
+      const reservedPorts = [3000, 3333];
+      const portBindPattern = /--port\s+(\d+)|-p\s+(\d+)|:(\d{4})\b|PORT[=\s]+(\d+)/g;
+      let portMatch;
+      const requestedPorts = new Set();
+      while ((portMatch = portBindPattern.exec(cmd)) !== null) {
+        const port = parseInt(portMatch[1] || portMatch[2] || portMatch[3] || portMatch[4], 10);
+        if (reservedPorts.includes(port)) requestedPorts.add(port);
+      }
+      // Catch tools that default to these ports even without explicit flags
+      if (/\b(next\s+dev|vite|webpack-dev-server|http-server|live-server)\b/i.test(cmd) &&
+          !/--port|-p\s+\d/i.test(cmd)) {
+        requestedPorts.add(3000);
+      }
+      for (const port of requestedPorts) {
+        try {
+          const { execSync } = require('child_process');
+          const result = execSync(`lsof -i :${port} -sTCP:LISTEN -t 2>/dev/null`, { encoding: 'utf8' }).trim();
+          if (result) {
+            console.log(JSON.stringify({
+              decision: 'block',
+              reason: `BLOCKED: Port ${port} is already in use (PID: ${result.split('\n')[0]}). Human-reserved ports (3000, 3333) must not be hijacked. Use a different port or check with the user.`
+            }));
+            process.exit(2);
+          }
+        } catch (_) { /* port is free — allow */ }
+      }
+
       // Browser test commands: warn about cleanup
       if (/puppeteer|playwright|headless|smoke.*test|verify.*page/i.test(cmd)) {
         console.log(JSON.stringify({
@@ -153,14 +181,14 @@ stdin.on('end', () => {
         }));
       }
 
-      // Em-dash check — block on .mdx content files, skip props/code
+      // Em-dash check — block on authored MDX content, including prop text.
+      // Only code fences, inline code, and JSX comments are exempt.
       if (/\.mdx$/.test(fp)) {
         const content = toolInput.new_string || toolInput.content || '';
-        // Strip JSX props (key="value" or key={value}) and code blocks before checking
         const stripped = content
-          .replace(/\w+=["'{][^"'}]*["'}]/g, '')  // props
-          .replace(/`[^`]*`/g, '')                 // inline code
-          .replace(/```[\s\S]*?```/g, '');         // code blocks
+          .replace(/\{\/\*[\s\S]*?\*\/\}/g, '') // JSX comments
+          .replace(/`[^`]*`/g, '')              // inline code
+          .replace(/```[\s\S]*?```/g, '');      // code blocks
         if (stripped.includes('\u2014')) {
           console.log(JSON.stringify({
             decision: 'block',

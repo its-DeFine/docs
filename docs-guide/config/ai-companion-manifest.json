@@ -9,8 +9,8 @@
     {
       "mechanism": "props-extracted",
       "sourceComponent": "SearchTable",
-      "sourcePage": "v2/home/resources/compendium/glossary.mdx",
-      "companionPath": "v2/home/resources/compendium/glossary-data.json",
+      "sourcePage": "v2/home/resources/glossary.mdx",
+      "companionPath": "v2/home/resources/glossary-data.json",
       "lastUpdated": "2026-03-21T00:00:00.000Z",
       "status": "current"
     },
@@ -25,64 +25,64 @@
     {
       "mechanism": "props-extracted",
       "sourceComponent": "SearchTable",
-      "sourcePage": "v2/community/resources/compendium/glossary.mdx",
-      "companionPath": "v2/community/resources/compendium/glossary-data.json",
+      "sourcePage": "v2/community/resources/glossary.mdx",
+      "companionPath": "v2/community/resources/glossary-data.json",
       "lastUpdated": "2026-03-21T00:00:00.000Z",
       "status": "current"
     },
     {
       "mechanism": "props-extracted",
       "sourceComponent": "SearchTable",
-      "sourcePage": "v2/developers/resources/compendium/glossary.mdx",
-      "companionPath": "v2/developers/resources/compendium/glossary-data.json",
+      "sourcePage": "v2/developers/resources/glossary.mdx",
+      "companionPath": "v2/developers/resources/glossary-data.json",
       "lastUpdated": "2026-03-21T00:00:00.000Z",
       "status": "current"
     },
     {
       "mechanism": "props-extracted",
       "sourceComponent": "SearchTable",
-      "sourcePage": "v2/gateways/resources/compendium/glossary.mdx",
-      "companionPath": "v2/gateways/resources/compendium/glossary-data.json",
+      "sourcePage": "v2/gateways/resources/glossary.mdx",
+      "companionPath": "v2/gateways/resources/glossary-data.json",
       "lastUpdated": "2026-03-21T00:00:00.000Z",
       "status": "current"
     },
     {
       "mechanism": "props-extracted",
       "sourceComponent": "SearchTable",
-      "sourcePage": "v2/delegators/resources/reference/glossary.mdx",
-      "companionPath": "v2/delegators/resources/reference/glossary-data.json",
+      "sourcePage": "v2/delegators/resources/glossary.mdx",
+      "companionPath": "v2/delegators/resources/glossary-data.json",
       "lastUpdated": "2026-03-21T00:00:00.000Z",
       "status": "current"
     },
     {
       "mechanism": "props-extracted",
       "sourceComponent": "SearchTable",
-      "sourcePage": "v2/orchestrators/resources/compendium/glossary.mdx",
-      "companionPath": "v2/orchestrators/resources/compendium/glossary-data.json",
+      "sourcePage": "v2/orchestrators/resources/glossary.mdx",
+      "companionPath": "v2/orchestrators/resources/glossary-data.json",
       "lastUpdated": "2026-03-21T00:00:00.000Z",
       "status": "current"
     },
     {
       "mechanism": "props-extracted",
       "sourceComponent": "SearchTable",
-      "sourcePage": "v2/solutions/resources/compendium/glossary.mdx",
-      "companionPath": "v2/solutions/resources/compendium/glossary-data.json",
+      "sourcePage": "v2/solutions/resources/glossary.mdx",
+      "companionPath": "v2/solutions/resources/glossary-data.json",
       "lastUpdated": "2026-03-21T00:00:00.000Z",
       "status": "current"
     },
     {
       "mechanism": "props-extracted",
       "sourceComponent": "SearchTable",
-      "sourcePage": "v2/resources/resources/compendium/glossary.mdx",
-      "companionPath": "v2/resources/resources/compendium/glossary-data.json",
+      "sourcePage": "v2/resources/resource-hub-terms.mdx",
+      "companionPath": "v2/resources/resource-hub-terms-data.json",
       "lastUpdated": "2026-03-21T00:00:00.000Z",
       "status": "current"
     },
     {
       "mechanism": "props-extracted",
       "sourceComponent": "SearchTable",
-      "sourcePage": "v2/resources/livepeer-glossary.mdx",
-      "companionPath": "v2/resources/livepeer-glossary-data.json",
+      "sourcePage": "v2/resources/glossary.mdx",
+      "companionPath": "v2/resources/glossary-data.json",
       "lastUpdated": "2026-03-21T00:00:00.000Z",
       "status": "current"
     },

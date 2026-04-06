@@ -7,8 +7,8 @@
 | Source | categories.md domains 9-13 |
 
 > **Scope**: Internal contributor and agent terms — component taxonomy, script taxonomy, governance terminology, page types.
-> For protocol/video/AI/web3 terms see `v2/resources/livepeer-glossary.mdx`.
-> For resources-section-scoped terms see `v2/resources/resources/compendium/glossary.mdx`.
+> For protocol/video/AI/web3 terms see `v2/resources/glossary.mdx`.
+> For resources-section-scoped terms see `v2/resources/resource-hub-terms.mdx`.
 
 ---
 

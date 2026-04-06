@@ -1,7 +1,16 @@
 ---
-title: 'AI Pipelines on Livepeer'
-sidebarTitle: 'AI Pipelines'
-description: 'How AI inference jobs flow through your gateway - HTTP request routing, orchestrator discovery via -orchAddr, capability and model matching via AISessionManager, retry logic, available pipeline types (Standard API, ComfyStream, BYOC), and platform limitations.'
+title: AI Pipelines on Livepeer
+sidebarTitle: AI Pipelines
+description: >-
+  How AI inference jobs flow through your gateway - HTTP request routing, orchestrator
+  discovery via -orchAddr, capability and model matching via AISessionManager, retry
+  logic, available pipeline types (Standard API, ComfyStream, BYOC), and platform
+  limitations.
+pageType: guide
+audience: gateway
+purpose: explain
+status: current
+lastVerified: '2026-03-13'
 keywords:
   - livepeer
   - gateway
@@ -16,11 +25,6 @@ keywords:
   - orchAddr
   - ai gateway
 og:image: /snippets/assets/media/og-images/fallback.png
-pageType: guide
-audience: gateway-operator
-purpose: concept
-status: current
-lastVerified: '2026-03-13'
 ---
 {/* TODO:
 Terminology Validation:
@@ -562,7 +566,7 @@ There is no single registry that lets operators query all available models and p
 
 {/* ---
 title: 'AI Inference Pipeline'
-description: 'How AI jobs flow through your gateway — HTTP requests, orchestrator discovery, model routing, retry logic, and available pipeline types (Standard API, ComfyStream, BYOC).'
+description: 'How AI jobs flow through your gateway - HTTP requests, orchestrator discovery, model routing, retry logic, and available pipeline types (Standard API, ComfyStream, BYOC).'
 sidebarTitle: 'AI Inference'
 pageType: 'guide'
 audience: 'gateway'
@@ -582,28 +586,28 @@ status: 'stub'
   SECTION HOME: Guides → AI and Job Pipelines
 
   JOURNEY POSITION:
-  1. Pipeline Overview — "What workloads can my gateway route?"
-  2. Video Transcoding Pipeline — "How do video jobs flow?"
-  3. AI Inference Pipeline (this page) — "How do AI jobs flow?"
-  4. BYOC Pipelines — "Custom containers on the network"
-  5. Pipeline Configuration — "Configure transcoding profiles and AI routing"
+  1. Pipeline Overview - "What workloads can my gateway route?"
+  2. Video Transcoding Pipeline - "How do video jobs flow?"
+  3. AI Inference Pipeline (this page) - "How do AI jobs flow?"
+  4. BYOC Pipelines - "Custom containers on the network"
+  5. Pipeline Configuration - "Configure transcoding profiles and AI routing"
 
   RELATED FILES (draw from):
-  - all-resources/ctx-gwnew--ai-configuration.mdx            — PRIMARY (90%): 196 lines. Comprehensive AI gateway config: flag audit, orchAddr, HTTP ingest, Docker examples, verification steps, on-chain mode flags.
-  - all-resources/ctx-new--ai-configuration.mdx               — PRIMARY (85%): 190 lines. AI deployment walkthrough: off-chain vs on-chain, Docker/binary, component descriptions (AISessionManager, MediaMTX, Trickle Protocol, ai_process.go).
-  - all-resources/v2-dev--ai-pipelines-overview.mdx            — PRIMARY (70%): 262 lines. 3 integration patterns (Standard API, ComfyStream, BYOC). Developer-focused but describes pipeline types.
-  - all-resources/v1--ai-worker.mdx                            — SECONDARY (40%): 139 lines. Remote AI worker setup. Helps explain what orchestrators expose.
-  - all-resources/v1--models-config.mdx                        — SECONDARY (40%): 172 lines. aiModels.json format, pricing. Helps explain what models are available.
-  - all-resources/v1--ai-builders-gateways.mdx                 — SECONDARY (20%): 723 lines. AI gateway ecosystem overview. Context for available gateways.
-  - all-resources/v2-dev--ai-pipelines-model-support.mdx       — SECONDARY (30%): 250 lines. Model compatibility matrix. Useful for "what models work" section.
+  - all-resources/ctx-gwnew--ai-configuration.mdx            - PRIMARY (90%): 196 lines. Comprehensive AI gateway config: flag audit, orchAddr, HTTP ingest, Docker examples, verification steps, on-chain mode flags.
+  - all-resources/ctx-new--ai-configuration.mdx               - PRIMARY (85%): 190 lines. AI deployment walkthrough: off-chain vs on-chain, Docker/binary, component descriptions (AISessionManager, MediaMTX, Trickle Protocol, ai_process.go).
+  - all-resources/v2-dev--ai-pipelines-overview.mdx            - PRIMARY (70%): 262 lines. 3 integration patterns (Standard API, ComfyStream, BYOC). Developer-focused but describes pipeline types.
+  - all-resources/v1--ai-worker.mdx                            - SECONDARY (40%): 139 lines. Remote AI worker setup. Helps explain what orchestrators expose.
+  - all-resources/v1--models-config.mdx                        - SECONDARY (40%): 172 lines. aiModels.json format, pricing. Helps explain what models are available.
+  - all-resources/v1--ai-builders-gateways.mdx                 - SECONDARY (20%): 723 lines. AI gateway ecosystem overview. Context for available gateways.
+  - all-resources/v2-dev--ai-pipelines-model-support.mdx       - SECONDARY (30%): 250 lines. Model compatibility matrix. Useful for "what models work" section.
 
   CROSS-REFS:
-  - Setup → AI Configuration — initial setup vs this guide's pipeline understanding
-  - BYOC Pipelines (this section) — custom container details
-  - Payments & Pricing → Pricing Strategy — AI pricing model (no on-chain cost for off-chain AI)
-  - Monitoring → Health Checks — AI pipeline health (/health on port 8935)
-  - Resources → AI API Reference — full endpoint documentation
-  - FAQ — "How do I find which AI models/pipelines are available?"
+  - Setup → AI Configuration - initial setup vs this guide's pipeline understanding
+  - BYOC Pipelines (this section) - custom container details
+  - Payments & Pricing → Pricing Strategy - AI pricing model (no on-chain cost for off-chain AI)
+  - Monitoring → Health Checks - AI pipeline health (/health on port 8935)
+  - Resources → AI API Reference - full endpoint documentation
+  - FAQ - "How do I find which AI models/pipelines are available?"
 */}
 {/*
 # AI Inference Pipeline
@@ -631,7 +635,7 @@ and model-dependent.
 | ComfyStream | Real-time video frame processing | Live video AI effects | Route stream frames to ComfyUI worker |
 | BYOC | Custom inference containers | Custom diffusion, vision | Route by capability contract |
 
-Brief intro to each — detailed BYOC coverage in next page.
+Brief intro to each - detailed BYOC coverage in next page.
 
 ### 3. Orchestrator Discovery
 - `-orchAddr` flag: direct orchestrator specification

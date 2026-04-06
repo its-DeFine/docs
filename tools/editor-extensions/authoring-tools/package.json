@@ -19,7 +19,9 @@
   ],
   "activationEvents": [
     "onLanguage:mdx",
-    "onLanguage:json"
+    "onLanguage:json",
+    "onLanguage:javascriptreact",
+    "onLanguage:javascript"
   ],
   "main": "./extension.js",
   "files": [
@@ -42,6 +44,11 @@
           "type": "boolean",
           "default": true,
           "description": "Enable repo-backed MDX import completions."
+        },
+        "livepeer.authoringTools.mdxComponentCompletions.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable MDX component completions with automatic import insertion."
         }
       }
     }

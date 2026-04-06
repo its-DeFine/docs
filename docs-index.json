@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-04-05T12:25:44.345Z",
+  "generated": "2026-04-06T06:14:02.221Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -6400,8 +6400,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 112,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "wordCount": 125,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
       "headings": [
         {
           "level": 2,
@@ -6412,18 +6412,17 @@
     },
     {
       "url": "https://docs.livepeer.org/v2/developers/navigator",
-      "title": "Developer Journey",
-      "description": "Find your path on Livepeer - whether you want to build video apps, run AI pipelines, operate a gateway, or contribute to the protocol. Start here.",
+      "title": "Find your build path",
+      "description": "Choose your build track on Livepeer: AI inference, real-time video AI, video streaming, custom containers, or OSS contribution.",
       "section": "developers",
       "tags": [
         "livepeer",
-        "developer-journey",
-        "build-on-livepeer",
-        "gateway-operator",
-        "orchestrator",
-        "ai-developer",
-        "video-developer",
-        "where-to-start",
+        "developer-path",
+        "ai-inference",
+        "comfystream",
+        "byoc",
+        "video-streaming",
+        "build-path",
         "developers",
         "navigator"
       ],
@@ -6432,44 +6431,24 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1051,
-      "lastVerified": "2026-03-17",
+      "wordCount": 513,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
       "headings": [
         {
           "level": 2,
-          "text": "Start here in 5 minutes"
+          "text": "What are you building?"
         },
         {
           "level": 2,
-          "text": "What do you want to build?"
+          "text": "Build path reference"
         },
         {
           "level": 2,
-          "text": "Three ways to go deeper"
-        },
-        {
-          "level": 3,
-          "text": "Workload Provider"
-        },
-        {
-          "level": 3,
-          "text": "Workload Consumer"
-        },
-        {
-          "level": 3,
-          "text": "Core Contributor"
-        },
-        {
-          "level": 2,
-          "text": "Zero-to-Hero Progression"
-        },
-        {
-          "level": 2,
-          "text": "Not sure yet? Browse by use case"
+          "text": "Related pages"
         }
       ],
       "codeLanguages": [
-        "mermaid"
+        "bash"
       ]
     },
     {
@@ -6558,7 +6537,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1093,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -6590,14 +6569,16 @@
     {
       "url": "https://docs.livepeer.org/v2/developers/concepts/video-on-livepeer",
       "title": "Video on Livepeer",
-      "description": "Explains video streaming and transcoding on the Livepeer network for developers.",
+      "description": "What Livepeer provides for video developers: livestreaming, VOD transcoding, playback, and access control via the Studio API and SDKs.",
       "section": "developers",
       "tags": [
         "livepeer",
-        "video",
-        "streaming",
-        "transcoding",
-        "developer",
+        "video-transcoding",
+        "livestreaming",
+        "vod",
+        "studio-api",
+        "hls",
+        "webrtc",
         "developers",
         "concepts",
         "video-on-livepeer"
@@ -6608,10 +6589,41 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 0,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [],
-      "codeLanguages": []
+      "wordCount": 457,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Capabilities"
+        },
+        {
+          "level": 2,
+          "text": "API surface"
+        },
+        {
+          "level": 2,
+          "text": "SDKs"
+        },
+        {
+          "level": 2,
+          "text": "Playback protocols"
+        },
+        {
+          "level": 2,
+          "text": "Pricing"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "typescript",
+        "python",
+        "go",
+        "tsx"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/developers/concepts/running-a-gateway",
@@ -6684,7 +6696,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 854,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -6711,15 +6723,18 @@
     },
     {
       "url": "https://docs.livepeer.org/v2/developers/get-started/setup-paths",
-      "title": "How to Get Started",
-      "description": "Choose your developer path and get to your first successful Livepeer integration.",
+      "title": "Setup paths",
+      "description": "Four quickstart tracks for building on Livepeer: AI inference, real-time AI video, video transcoding, and OSS contribution.",
       "section": "developers",
       "tags": [
         "livepeer",
-        "developer",
         "quickstart",
-        "get-started",
+        "ai-inference",
+        "comfystream",
+        "video-transcoding",
+        "setup",
         "developers",
+        "get-started",
         "setup-paths"
       ],
       "entities": [
@@ -6727,133 +6742,36 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 0,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/developers/get-started/video-quickstart",
-      "title": "Quickstart: Video Streaming",
-      "description": "Stream and transcode video using the Livepeer Studio API.",
-      "section": "developers",
-      "tags": [
-        "livepeer",
-        "video",
-        "streaming",
-        "quickstart",
-        "studio",
-        "developers",
-        "get-started",
-        "video-quickstart"
-      ],
-      "entities": [
-        "developer",
-        "video"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "beginner",
-      "wordCount": 0,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/developers/get-started/transcoding-quickstart",
-      "title": "Transcoding Jobs Quickstart",
-      "description": "Submit a Livepeer Studio Transcode job, poll the task status, and verify completion. Built from the GitHub-validated Studio OpenAPI spec and pending TD accuracy review.",
-      "section": "developers",
-      "tags": [
-        "livepeer",
-        "transcoding-jobs",
-        "quickstart",
-        "studio-api",
-        "transcode",
-        "tasks-api",
-        "developers",
-        "get-started",
-        "transcoding-quickstart"
-      ],
-      "entities": [
-        "developer"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "beginner",
       "wordCount": 412,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-06T00:40:49+10:00",
       "headings": [
         {
           "level": 2,
-          "text": "AI-ready summary (for humans and assistants)"
+          "text": "AI inference"
         },
         {
           "level": 2,
-          "text": "Review status"
+          "text": "Real-time AI video"
         },
         {
           "level": 2,
-          "text": "1. Prerequisites"
+          "text": "Video transcoding and streaming"
         },
         {
           "level": 2,
-          "text": "2. Base URL and authentication"
+          "text": "OSS contribution"
         },
         {
           "level": 2,
-          "text": "3. Submit a transcode job"
-        },
-        {
-          "level": 3,
-          "text": "Example request body"
-        },
-        {
-          "level": 3,
-          "text": "Example curl request"
+          "text": "Not sure which path fits?"
         },
         {
           "level": 2,
-          "text": "4. Capture the task ID"
-        },
-        {
-          "level": 2,
-          "text": "5. Poll the task status"
-        },
-        {
-          "level": 2,
-          "text": "6. Verify completion and outputs"
-        },
-        {
-          "level": 2,
-          "text": "7. Common failure modes"
-        },
-        {
-          "level": 3,
-          "text": "`401 Unauthorized`"
-        },
-        {
-          "level": 3,
-          "text": "`422 Validation Error`"
-        },
-        {
-          "level": 3,
-          "text": "Task enters `failed`"
-        },
-        {
-          "level": 2,
-          "text": "8. Rick (TD) review checklist (blocking before final publish)"
-        },
-        {
-          "level": 2,
-          "text": "9. Next steps"
-        },
-        {
-          "level": 2,
-          "text": "Canonical references (source-of-truth first)"
+          "text": "Related pages"
         }
       ],
       "codeLanguages": [
-        "bash",
-        "json"
+        "bash"
       ]
     },
     {
@@ -6879,7 +6797,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 443,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-06T00:40:49+10:00",
       "headings": [
         {
           "level": 2,
@@ -6976,7 +6894,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 1067,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -7012,229 +6930,146 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/developers/build/comfystream",
-      "title": "Build with ComfyStream",
-      "description": "Reference for ComfyStream pipeline modes, custom nodes, workflow format, data-channel output, and performance tuning for developers building real-time AI video applications on Livepeer.",
+      "url": "https://docs.livepeer.org/v2/developers/get-started/transcoding-quickstart",
+      "title": "Transcoding Jobs Quickstart",
+      "description": "Submit a Livepeer Studio Transcode job, poll the task status, and verify completion. Built from the GitHub-validated Studio OpenAPI spec and pending TD accuracy review.",
       "section": "developers",
       "tags": [
-        "comfystream",
         "livepeer",
-        "real-time-ai",
-        "pipeline-modes",
-        "nodes",
-        "custom-workflow",
-        "data-channel",
-        "streamdiffusion",
-        "audio-transcription",
-        "byoc",
+        "transcoding-jobs",
+        "quickstart",
+        "studio-api",
+        "transcode",
+        "tasks-api",
         "developers",
-        "build"
+        "get-started",
+        "transcoding-quickstart"
       ],
       "entities": [
         "developer"
       ],
       "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 1525,
-      "lastVerified": "2026-03-17T06:36:42+11:00",
+      "difficulty": "beginner",
+      "wordCount": 412,
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
-          "text": "Pipeline Modes"
+          "text": "AI-ready summary (for humans and assistants)"
         },
         {
           "level": 2,
-          "text": "Node Ecosystem"
-        },
-        {
-          "level": 3,
-          "text": "Core I/O nodes"
-        },
-        {
-          "level": 3,
-          "text": "Real-time control nodes"
-        },
-        {
-          "level": 3,
-          "text": "StreamDiffusion nodes (Phase 4)"
-        },
-        {
-          "level": 3,
-          "text": "SuperResolution node (Phase 4)"
-        },
-        {
-          "level": 3,
-          "text": "AudioTranscription nodes (Phase 4)"
+          "text": "Review status"
         },
         {
           "level": 2,
-          "text": "Custom Workflows"
-        },
-        {
-          "level": 3,
-          "text": "Workflow format"
-        },
-        {
-          "level": 3,
-          "text": "Loading a workflow"
-        },
-        {
-          "level": 3,
-          "text": "Custom node dependencies"
+          "text": "1. Prerequisites"
         },
         {
           "level": 2,
-          "text": "Data-Channel Output"
+          "text": "2. Base URL and authentication"
         },
         {
           "level": 2,
-          "text": "Performance Tuning"
+          "text": "3. Submit a transcode job"
         },
         {
           "level": 3,
-          "text": "First-run compilation"
+          "text": "Example request body"
         },
         {
           "level": 3,
-          "text": "Frame rate and throughput"
-        },
-        {
-          "level": 3,
-          "text": "Dynamic warm-up (Phase 4)"
-        },
-        {
-          "level": 3,
-          "text": "Configuration parameters"
+          "text": "Example curl request"
         },
         {
           "level": 2,
-          "text": "Next Steps"
+          "text": "4. Capture the task ID"
+        },
+        {
+          "level": 2,
+          "text": "5. Poll the task status"
+        },
+        {
+          "level": 2,
+          "text": "6. Verify completion and outputs"
+        },
+        {
+          "level": 2,
+          "text": "7. Common failure modes"
+        },
+        {
+          "level": 3,
+          "text": "`401 Unauthorized`"
+        },
+        {
+          "level": 3,
+          "text": "`422 Validation Error`"
+        },
+        {
+          "level": 3,
+          "text": "Task enters `failed`"
+        },
+        {
+          "level": 2,
+          "text": "8. Rick (TD) review checklist (blocking before final publish)"
+        },
+        {
+          "level": 2,
+          "text": "9. Next steps"
+        },
+        {
+          "level": 2,
+          "text": "Canonical references (source-of-truth first)"
         }
       ],
       "codeLanguages": [
-        "bash"
+        "bash",
+        "json"
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/developers/build/byoc",
-      "title": "Bring Your Own Container (BYOC)",
-      "description": "Step-by-step guide to building a custom AI container using the PyTrickle integration layer and deploying it as a worker on the Livepeer network.",
+      "url": "https://docs.livepeer.org/v2/developers/get-started/contributor-quickstart",
+      "title": "Contributor quickstart",
+      "description": "Get the Livepeer protocol running locally, set up a testnet with one orchestrator and one gateway, and submit your first test job.",
       "section": "developers",
       "tags": [
-        "byoc",
-        "bring-your-own-container",
-        "livepeer",
-        "ai",
-        "custom-model",
-        "docker",
-        "pytrickle",
-        "ai-worker",
-        "container-spec",
-        "streaming",
+        "livepeer-contribution",
+        "go-livepeer",
+        "testnet",
+        "oss",
+        "local-development",
         "developers",
-        "build"
+        "get-started",
+        "contributor-quickstart"
       ],
       "entities": [
         "developer"
       ],
       "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 905,
-      "lastVerified": "2026-03-17T06:36:42+11:00",
+      "difficulty": "beginner",
+      "wordCount": 392,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
       "headings": [
-        {
-          "level": 2,
-          "text": "When to Use BYOC"
-        },
         {
           "level": 2,
           "text": "Prerequisites"
         },
         {
           "level": 2,
-          "text": "How BYOC Works"
+          "text": "Get the codebase running"
         },
         {
           "level": 2,
-          "text": "Step 1 — Implement Your Processor"
+          "text": "Next steps"
         },
         {
           "level": 2,
-          "text": "Step 2 — Define the REST API Contract"
-        },
-        {
-          "level": 2,
-          "text": "Step 3 — Build Your Docker Container"
-        },
-        {
-          "level": 2,
-          "text": "Step 4 — Test Locally"
-        },
-        {
-          "level": 2,
-          "text": "Step 5 — Push to a Container Registry"
-        },
-        {
-          "level": 2,
-          "text": "Step 6 — Deploy to the Livepeer Network"
-        },
-        {
-          "level": 2,
-          "text": "Building a Client Application on Top of BYOC"
-        },
-        {
-          "level": 2,
-          "text": "Variants"
-        },
-        {
-          "level": 3,
-          "text": "ComfyStream as a BYOC container"
-        },
-        {
-          "level": 3,
-          "text": "Python-native processing (no Docker)"
-        },
-        {
-          "level": 2,
-          "text": "Related"
+          "text": "Related pages"
         }
       ],
       "codeLanguages": [
-        "bash",
-        "python",
-        "json",
-        "dockerfile",
-        "typescript"
+        "bash"
       ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/developers/build/sdk-gateway",
-      "title": "Build a Gateway Client with the SDK",
-      "description": "Build a lightweight Livepeer gateway client in Python, JavaScript, or mobile using the SDK and remote signer — no Go required.",
-      "section": "developers",
-      "tags": [
-        "livepeer",
-        "gateway",
-        "sdk",
-        "python",
-        "remote-signer",
-        "livepeer-python-gateway",
-        "naap",
-        "off-chain",
-        "api-key",
-        "developers",
-        "build",
-        "sdk-gateway"
-      ],
-      "entities": [
-        "developer"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "advanced",
-      "wordCount": 0,
-      "lastVerified": "2026-03-17T06:36:42+11:00",
-      "headings": [],
-      "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/v2/developers/build/workload-fit",
@@ -7325,6 +7160,71 @@
       ]
     },
     {
+      "url": "https://docs.livepeer.org/v2/developers/build/sdk-gateway",
+      "title": "SDK integration guide",
+      "description": "Integrate Livepeer AI and video APIs via official SDKs in TypeScript, Python, and Go. Covers authentication, error handling, retries, and SDK vs direct REST trade-offs.",
+      "section": "developers",
+      "tags": [
+        "livepeer-sdk",
+        "ai-sdk",
+        "typescript",
+        "python",
+        "go",
+        "api-integration",
+        "authentication",
+        "developers",
+        "build",
+        "sdk-gateway"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 325,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Installation and initialisation"
+        },
+        {
+          "level": 2,
+          "text": "AI inference calls"
+        },
+        {
+          "level": 2,
+          "text": "Video API calls (Studio SDK)"
+        },
+        {
+          "level": 2,
+          "text": "Error handling"
+        },
+        {
+          "level": 2,
+          "text": "Retry configuration"
+        },
+        {
+          "level": 2,
+          "text": "API key types"
+        },
+        {
+          "level": 2,
+          "text": "SDK vs direct REST"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "typescript",
+        "python",
+        "go"
+      ]
+    },
+    {
       "url": "https://docs.livepeer.org/v2/developers/build/model-support",
       "title": "AI Model Support",
       "description": "Reference tables for all AI pipeline types supported on the Livepeer network, with supported model architectures, minimum GPU VRAM requirements, and current status.",
@@ -7385,6 +7285,202 @@
       ]
     },
     {
+      "url": "https://docs.livepeer.org/v2/developers/build/byoc",
+      "title": "Bring Your Own Container (BYOC)",
+      "description": "Step-by-step guide to building a custom AI container using the PyTrickle integration layer and deploying it as a worker on the Livepeer network.",
+      "section": "developers",
+      "tags": [
+        "byoc",
+        "bring-your-own-container",
+        "livepeer",
+        "ai",
+        "custom-model",
+        "docker",
+        "pytrickle",
+        "ai-worker",
+        "container-spec",
+        "streaming",
+        "developers",
+        "build"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 905,
+      "lastVerified": "2026-04-06T00:24:12+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "When to Use BYOC"
+        },
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "How BYOC Works"
+        },
+        {
+          "level": 2,
+          "text": "Step 1 — Implement Your Processor"
+        },
+        {
+          "level": 2,
+          "text": "Step 2 — Define the REST API Contract"
+        },
+        {
+          "level": 2,
+          "text": "Step 3 — Build Your Docker Container"
+        },
+        {
+          "level": 2,
+          "text": "Step 4 — Test Locally"
+        },
+        {
+          "level": 2,
+          "text": "Step 5 — Push to a Container Registry"
+        },
+        {
+          "level": 2,
+          "text": "Step 6 — Deploy to the Livepeer Network"
+        },
+        {
+          "level": 2,
+          "text": "Building a Client Application on Top of BYOC"
+        },
+        {
+          "level": 2,
+          "text": "Variants"
+        },
+        {
+          "level": 3,
+          "text": "ComfyStream as a BYOC container"
+        },
+        {
+          "level": 3,
+          "text": "Python-native processing (no Docker)"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "python",
+        "json",
+        "dockerfile",
+        "typescript"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/build/comfystream",
+      "title": "Build with ComfyStream",
+      "description": "Reference for ComfyStream pipeline modes, custom nodes, workflow format, data-channel output, and performance tuning for developers building real-time AI video applications on Livepeer.",
+      "section": "developers",
+      "tags": [
+        "comfystream",
+        "livepeer",
+        "real-time-ai",
+        "pipeline-modes",
+        "nodes",
+        "custom-workflow",
+        "data-channel",
+        "streamdiffusion",
+        "audio-transcription",
+        "byoc",
+        "developers",
+        "build"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1525,
+      "lastVerified": "2026-04-06T00:24:12+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Pipeline Modes"
+        },
+        {
+          "level": 2,
+          "text": "Node Ecosystem"
+        },
+        {
+          "level": 3,
+          "text": "Core I/O nodes"
+        },
+        {
+          "level": 3,
+          "text": "Real-time control nodes"
+        },
+        {
+          "level": 3,
+          "text": "StreamDiffusion nodes (Phase 4)"
+        },
+        {
+          "level": 3,
+          "text": "SuperResolution node (Phase 4)"
+        },
+        {
+          "level": 3,
+          "text": "AudioTranscription nodes (Phase 4)"
+        },
+        {
+          "level": 2,
+          "text": "Custom Workflows"
+        },
+        {
+          "level": 3,
+          "text": "Workflow format"
+        },
+        {
+          "level": 3,
+          "text": "Loading a workflow"
+        },
+        {
+          "level": 3,
+          "text": "Custom node dependencies"
+        },
+        {
+          "level": 2,
+          "text": "Data-Channel Output"
+        },
+        {
+          "level": 2,
+          "text": "Performance Tuning"
+        },
+        {
+          "level": 3,
+          "text": "First-run compilation"
+        },
+        {
+          "level": 3,
+          "text": "Frame rate and throughput"
+        },
+        {
+          "level": 3,
+          "text": "Dynamic warm-up (Phase 4)"
+        },
+        {
+          "level": 3,
+          "text": "Configuration parameters"
+        },
+        {
+          "level": 2,
+          "text": "Next Steps"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
       "url": "https://docs.livepeer.org/v2/developers/guides/developer-guides",
       "title": "Developer Guides",
       "description": "A curated library of how-to guides, tutorials, and walkthroughs for building with Livepeer — from first API call to production AI pipelines.",
@@ -7406,36 +7502,28 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 937,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "wordCount": 458,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
       "headings": [
         {
           "level": 2,
-          "text": "Getting Started"
+          "text": "Choose a Guide Path"
         },
         {
           "level": 2,
-          "text": "Video Streaming: Livestreams and VOD"
+          "text": "AI Guides"
         },
         {
           "level": 2,
-          "text": "Full-Stack Application Guides"
+          "text": "Video Guides"
         },
         {
           "level": 2,
-          "text": "AI Inference and Real-Time AI Video"
+          "text": "Tutorials"
         },
         {
           "level": 2,
-          "text": "SDK and API Reference Guides"
-        },
-        {
-          "level": 2,
-          "text": "Node Operations: Orchestrators and Gateways"
-        },
-        {
-          "level": 2,
-          "text": "Community-Curated Resources"
+          "text": "Opportunities and Resources"
         }
       ],
       "codeLanguages": []
@@ -7462,7 +7550,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1029,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-06T00:40:49+10:00",
       "headings": [
         {
           "level": 2,
@@ -7544,7 +7632,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 861,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -7573,6 +7661,663 @@
       ],
       "codeLanguages": [
         "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/ai/authentication",
+      "title": "AI API authentication",
+      "description": "How to authenticate with the Livepeer AI Gateway API: API key types, CORS configuration, rotation strategy, and security patterns.",
+      "section": "developers",
+      "tags": [
+        "livepeer-authentication",
+        "api-key",
+        "cors",
+        "bearer-token",
+        "security",
+        "developers",
+        "guides",
+        "ai",
+        "authentication"
+      ],
+      "entities": [
+        "developer",
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 386,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "API key types"
+        },
+        {
+          "level": 2,
+          "text": "Using a backend API key"
+        },
+        {
+          "level": 2,
+          "text": "CORS-enabled keys for browser applications"
+        },
+        {
+          "level": 2,
+          "text": "Key rotation"
+        },
+        {
+          "level": 2,
+          "text": "Authentication errors"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "typescript",
+        "json"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/ai/troubleshooting",
+      "title": "AI inference troubleshooting",
+      "description": "Diagnose and fix common Livepeer AI inference failures: 401 auth errors, 422 validation, cold model timeouts, and network issues.",
+      "section": "developers",
+      "tags": [
+        "livepeer-troubleshooting",
+        "ai-inference-errors",
+        "cold-model",
+        "401-unauthorized",
+        "422-validation",
+        "developers",
+        "guides",
+        "ai",
+        "troubleshooting"
+      ],
+      "entities": [
+        "developer",
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 509,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Errors by HTTP status code"
+        },
+        {
+          "level": 2,
+          "text": "Cold model timeouts"
+        },
+        {
+          "level": 2,
+          "text": "Diagnosing a non-responsive job"
+        },
+        {
+          "level": 2,
+          "text": "422 validation errors"
+        },
+        {
+          "level": 2,
+          "text": "Getting help"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "typescript",
+        "bash",
+        "json"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/ai/production-checklist",
+      "title": "AI production checklist",
+      "description": "Pre-launch checklist for Livepeer AI applications: gateway selection, authentication, error handling, cost estimation, and monitoring.",
+      "section": "developers",
+      "tags": [
+        "livepeer-production",
+        "ai-application",
+        "production-checklist",
+        "monitoring",
+        "cost-estimation",
+        "developers",
+        "guides",
+        "ai"
+      ],
+      "entities": [
+        "developer",
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 579,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Gateway selection"
+        },
+        {
+          "level": 2,
+          "text": "Authentication"
+        },
+        {
+          "level": 2,
+          "text": "Error handling"
+        },
+        {
+          "level": 2,
+          "text": "Model selection"
+        },
+        {
+          "level": 2,
+          "text": "Cost estimation"
+        },
+        {
+          "level": 2,
+          "text": "Monitoring"
+        },
+        {
+          "level": 2,
+          "text": "Launch readiness summary"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/video/create-livestream",
+      "title": "Create a livestream",
+      "description": "Create a Livepeer livestream via the Studio API, get the RTMP ingest URL, and configure HLS playback -- in TypeScript, Python, or Go.",
+      "section": "developers",
+      "tags": [
+        "livepeer-livestream",
+        "create-stream",
+        "rtmp-ingest",
+        "hls-playback",
+        "studio-api",
+        "developers",
+        "guides",
+        "video",
+        "create-livestream"
+      ],
+      "entities": [
+        "developer",
+        "video"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 266,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "Step 1 -- Create a stream"
+        },
+        {
+          "level": 2,
+          "text": "Step 2 -- Push your stream"
+        },
+        {
+          "level": 2,
+          "text": "Step 3 -- Play back the stream"
+        },
+        {
+          "level": 2,
+          "text": "Checking stream status"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "typescript",
+        "python",
+        "go",
+        "bash",
+        "tsx",
+        "javascript"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/video/access-control",
+      "title": "Video access control",
+      "description": "Gate Livepeer streams and assets with JWTs or webhook-based authorisation. Covers signing key creation, JWT generation, and player configuration.",
+      "section": "developers",
+      "tags": [
+        "livepeer-access-control",
+        "jwt",
+        "playback-policy",
+        "signing-key",
+        "gated-content",
+        "developers",
+        "guides",
+        "video",
+        "access-control"
+      ],
+      "entities": [
+        "developer",
+        "video"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 291,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "JWT vs webhook"
+        },
+        {
+          "level": 2,
+          "text": "JWT access control"
+        },
+        {
+          "level": 3,
+          "text": "Step 1 -- Create a signing key"
+        },
+        {
+          "level": 3,
+          "text": "Step 2 -- Create a gated stream or asset"
+        },
+        {
+          "level": 3,
+          "text": "Step 3 -- Sign a JWT (server-side API route)"
+        },
+        {
+          "level": 3,
+          "text": "Step 4 -- Pass the JWT to the player"
+        },
+        {
+          "level": 2,
+          "text": "Webhook access control"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "typescript",
+        "tsx",
+        "javascript"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/video/webhooks",
+      "title": "Video webhooks",
+      "description": "Set up Livepeer Studio webhooks to receive stream and asset events. Covers endpoint setup, signature verification, event types, and troubleshooting.",
+      "section": "developers",
+      "tags": [
+        "livepeer-webhooks",
+        "stream-events",
+        "asset-events",
+        "signature-verification",
+        "hmac",
+        "developers",
+        "guides",
+        "video",
+        "webhooks"
+      ],
+      "entities": [
+        "developer",
+        "video"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 235,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Available events"
+        },
+        {
+          "level": 2,
+          "text": "Step 1 -- Create a webhook"
+        },
+        {
+          "level": 2,
+          "text": "Step 2 -- Handle incoming events"
+        },
+        {
+          "level": 2,
+          "text": "Step 3 -- Verify webhook signatures"
+        },
+        {
+          "level": 2,
+          "text": "Testing locally"
+        },
+        {
+          "level": 2,
+          "text": "Webhook payload structure"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "typescript",
+        "javascript",
+        "bash",
+        "json"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/video/monitor-stream-health",
+      "title": "Monitor stream health",
+      "description": "Monitor Livepeer livestream ingest health, bitrate, and segment delivery using the Studio API and webhooks.",
+      "section": "developers",
+      "tags": [
+        "livepeer-stream-health",
+        "ingest-monitoring",
+        "bitrate",
+        "stream-status",
+        "developers",
+        "guides",
+        "video",
+        "monitor-stream-health"
+      ],
+      "entities": [
+        "developer",
+        "video"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 262,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Stream lifecycle"
+        },
+        {
+          "level": 2,
+          "text": "Ingest health metrics"
+        },
+        {
+          "level": 2,
+          "text": "Interpreting health signals"
+        },
+        {
+          "level": 2,
+          "text": "Setting up alerts"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "typescript"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/video/playback",
+      "title": "Video playback",
+      "description": "Play Livepeer livestreams and video assets via HLS and WebRTC. Covers the React Player, HLS.js, and direct URL construction for custom players.",
+      "section": "developers",
+      "tags": [
+        "livepeer-playback",
+        "hls",
+        "webrtc",
+        "react-player",
+        "vod",
+        "developers",
+        "guides",
+        "video",
+        "playback"
+      ],
+      "entities": [
+        "developer",
+        "video"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 186,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "@livepeer/react Player"
+        },
+        {
+          "level": 2,
+          "text": "Direct playback URLs"
+        },
+        {
+          "level": 2,
+          "text": "HLS.js integration"
+        },
+        {
+          "level": 2,
+          "text": "Confirming asset readiness"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "tsx",
+        "javascript",
+        "typescript"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/video/upload-asset",
+      "title": "Upload a video asset",
+      "description": "Upload video files to Livepeer Studio for transcoding and VOD playback. Covers direct upload, URL-based import, and tus resumable upload.",
+      "section": "developers",
+      "tags": [
+        "livepeer-upload",
+        "video-asset",
+        "vod",
+        "tus-upload",
+        "transcoding",
+        "developers",
+        "guides",
+        "video",
+        "upload-asset"
+      ],
+      "entities": [
+        "developer",
+        "video"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 123,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Step 1 -- Create an asset and get upload URL"
+        },
+        {
+          "level": 2,
+          "text": "Step 2 -- Upload the file"
+        },
+        {
+          "level": 2,
+          "text": "Step 3 -- Wait for transcoding"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "typescript",
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/tutorials/build-an-ai-agent-on-livepeer",
+      "title": "Build an AI agent on Livepeer",
+      "description": "Build an AI agent using the Eliza framework with Livepeer as the model provider for decentralised GPU inference. A complete tutorial with working code.",
+      "section": "developers",
+      "tags": [
+        "livepeer-ai-agent",
+        "eliza",
+        "ai16z",
+        "decentralised-ai",
+        "llm-inference",
+        "tutorial",
+        "developers",
+        "guides",
+        "tutorials",
+        "build-an-ai-agent-on-livepeer"
+      ],
+      "entities": [
+        "developer",
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 535,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "Build your agent"
+        },
+        {
+          "level": 2,
+          "text": "What to build next"
+        },
+        {
+          "level": 2,
+          "text": "Supported LLM models"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "json"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/tutorials/ipfs-video-integration",
+      "title": "Store and play videos on IPFS",
+      "description": "Upload a video to IPFS and play it back via Livepeer. Covers web3.storage integration, asset creation, and decentralised video delivery.",
+      "section": "developers",
+      "tags": [
+        "livepeer-ipfs",
+        "web3storage",
+        "decentralised-video",
+        "vod",
+        "nft-video",
+        "developers",
+        "guides",
+        "tutorials",
+        "ipfs-video-integration"
+      ],
+      "entities": [
+        "developer",
+        "video"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 279,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "Build the pipeline"
+        },
+        {
+          "level": 2,
+          "text": "Storing the CID on-chain (optional)"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "typescript",
+        "tsx",
+        "json"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/tutorials/token-gated-video",
+      "title": "Token-gate videos with Lit Protocol",
+      "description": "Gate Livepeer video playback behind NFT ownership using Lit Protocol for decentralised access control. A full tutorial with working code.",
+      "section": "developers",
+      "tags": [
+        "token-gating",
+        "lit-protocol",
+        "nft-access-control",
+        "livepeer",
+        "web3-video",
+        "developers",
+        "guides",
+        "tutorials",
+        "token-gated-video"
+      ],
+      "entities": [
+        "developer",
+        "video"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 365,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "How it works"
+        },
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "Build the gate"
+        },
+        {
+          "level": 2,
+          "text": "Extending the gate"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "typescript",
+        "tsx"
       ]
     },
     {
@@ -7846,13 +8591,16 @@
     {
       "url": "https://docs.livepeer.org/v2/developers/resources/reference/sdks",
       "title": "SDKs",
-      "description": "SDKs for Livepeer - Studio SDKs and Network SDKs",
+      "description": "All official Livepeer SDKs: Studio SDK (TypeScript, Python, Go), AI SDK, and React UI Kit. Versions, install commands, and links to full reference.",
       "section": "developers",
       "tags": [
-        "livepeer",
-        "sdk",
-        "studio",
-        "network",
+        "livepeer-sdk",
+        "typescript",
+        "python",
+        "go",
+        "react",
+        "npm",
+        "ai-sdk",
         "developers",
         "resources",
         "reference",
@@ -7863,30 +8611,78 @@
       ],
       "apiEndpoints": [],
       "difficulty": "advanced",
-      "wordCount": 103,
-      "lastVerified": "2026-04-05T11:22:47.165Z",
+      "wordCount": 378,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
       "headings": [
         {
           "level": 2,
-          "text": "Livepeer Studio SDKs"
+          "text": "SDK families"
         },
         {
           "level": 2,
-          "text": "Network-side SDKs"
+          "text": "Studio SDK"
+        },
+        {
+          "level": 3,
+          "text": "TypeScript / JavaScript"
+        },
+        {
+          "level": 3,
+          "text": "Python"
+        },
+        {
+          "level": 3,
+          "text": "Go"
+        },
+        {
+          "level": 2,
+          "text": "React UI Kit"
+        },
+        {
+          "level": 2,
+          "text": "AI SDK (alpha)"
+        },
+        {
+          "level": 3,
+          "text": "TypeScript"
+        },
+        {
+          "level": 3,
+          "text": "Python"
+        },
+        {
+          "level": 3,
+          "text": "Go"
+        },
+        {
+          "level": 2,
+          "text": "Deprecated SDKs"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
         }
       ],
-      "codeLanguages": []
+      "codeLanguages": [
+        "bash",
+        "typescript",
+        "python",
+        "go",
+        "tsx"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/developers/resources/reference/apis",
       "title": "APIs",
-      "description": "APIs for Livepeer - Studio API and Network APIs",
+      "description": "Livepeer API reference: Studio REST API, AI Gateway API, authentication, base URLs, and OpenAPI spec location.",
       "section": "developers",
       "tags": [
-        "livepeer",
-        "api",
-        "studio",
-        "network",
+        "livepeer-api",
+        "rest-api",
+        "ai-gateway-api",
+        "openapi",
+        "authentication",
+        "rate-limits",
         "developers",
         "resources",
         "reference",
@@ -7897,19 +8693,154 @@
       ],
       "apiEndpoints": [],
       "difficulty": "advanced",
-      "wordCount": 100,
-      "lastVerified": "2026-04-05T11:22:47.165Z",
+      "wordCount": 384,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
       "headings": [
         {
           "level": 2,
-          "text": "Livepeer Studio API"
+          "text": "Studio REST API"
+        },
+        {
+          "level": 3,
+          "text": "Resource endpoints"
+        },
+        {
+          "level": 3,
+          "text": "Rate limits"
         },
         {
           "level": 2,
-          "text": "Network APIs"
+          "text": "AI Gateway API"
+        },
+        {
+          "level": 3,
+          "text": "Inference endpoints"
+        },
+        {
+          "level": 3,
+          "text": "Common response shape"
+        },
+        {
+          "level": 3,
+          "text": "OpenAPI spec"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "json"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/resources/reference/pricing-rate-limits",
+      "title": "Pricing and rate limits",
+      "description": "Livepeer Studio pricing tiers, transcoding costs, AI inference pricing, and rate limit configuration for developers.",
+      "section": "developers",
+      "tags": [
+        "livepeer-pricing",
+        "rate-limits",
+        "transcoding-cost",
+        "ai-inference-cost",
+        "studio-billing",
+        "developers",
+        "resources",
+        "reference",
+        "pricing-rate-limits"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 336,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Studio pricing tiers"
+        },
+        {
+          "level": 2,
+          "text": "AI inference pricing"
+        },
+        {
+          "level": 2,
+          "text": "Rate limits"
+        },
+        {
+          "level": 2,
+          "text": "Streaming credits"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
         }
       ],
       "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/resources/reference/pytrickle",
+      "title": "PyTrickle reference",
+      "description": "PyTrickle is the Python framework for building BYOC containers on Livepeer. Covers FrameProcessor API, StreamServer, TrickleClient, and VideoFrame/AudioFrame interfaces.",
+      "section": "developers",
+      "tags": [
+        "pytrickle",
+        "byoc",
+        "frameprocessor",
+        "streamserver",
+        "trickle-protocol",
+        "custom-model",
+        "developers",
+        "resources",
+        "reference"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 373,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Installation"
+        },
+        {
+          "level": 2,
+          "text": "FrameProcessor"
+        },
+        {
+          "level": 2,
+          "text": "VideoFrame"
+        },
+        {
+          "level": 2,
+          "text": "AudioFrame"
+        },
+        {
+          "level": 2,
+          "text": "StreamServer"
+        },
+        {
+          "level": 2,
+          "text": "TrickleClient"
+        },
+        {
+          "level": 2,
+          "text": "Built-in monitoring"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "python"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/developers/resources/compendium/glossary",
@@ -7983,7 +8914,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 989,
-      "lastVerified": "2026-04-04T12:26:05.567Z",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -8115,7 +9046,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 117,
-      "lastVerified": "2026-03-18T09:56:02.000Z",
+      "lastVerified": "2026-04-05T22:35:20+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -8139,7 +9070,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 43,
-      "lastVerified": "2026-04-04T12:26:05.597Z",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -8167,7 +9098,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 29,
-      "lastVerified": "2026-04-04T12:26:05.606Z",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -8190,7 +9121,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 86,
-      "lastVerified": "2026-04-04T12:26:05.604Z",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -8575,7 +9506,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "quickstart",
         "quickstart-a-gateway",
         "gateway",
@@ -8694,7 +9625,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "quickstart",
         "get-ai-to-setup-the-gateway",
         "setup",
@@ -8715,14 +9646,14 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/run-a-gateway",
-      "title": "Run a Gateway",
-      "description": "Connect Applications with Video & AI services by running your own Gateway!\n This page gives an overview of the steps to run a Gateway node.",
+      "url": "https://docs.livepeer.org/v2/gateways/setup/guide",
+      "title": "Gateway Operators Guide",
+      "description": "Connect Applications with Video & AI services by running your own Gateway! This page gives an overview of the steps to run a Gateway node.",
       "section": "gateways",
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "gateway",
         "connect",
         "applications",
@@ -8734,24 +9665,12 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 178,
+      "wordCount": 605,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "Introduction Gateways are essential infrastructure in the Livepeer network. They"
-        },
-        {
-          "level": 2,
-          "text": "Gateway Modes"
-        },
-        {
-          "level": 2,
-          "text": "Gateway Capabilities"
-        },
-        {
-          "level": 2,
-          "text": "Gateway Architecture"
+          "text": "Deployment"
         },
         {
           "level": 2,
@@ -8759,40 +9678,16 @@
         },
         {
           "level": 2,
+          "text": "Gateway Architecture"
+        },
+        {
+          "level": 2,
           "text": "Related Pages"
         }
       ],
       "codeLanguages": [
-        "mermaid",
-        "text"
+        "mermaid"
       ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/transcoding",
-      "title": "Gateway Transcoding Guide",
-      "description": "go-livepeer native transcoding gateway guide and end-to-end setup flow.",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "transcoding",
-        "go-livepeer",
-        "setup"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 54,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Planned Structure"
-        }
-      ],
-      "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/v2/gateways/setup/requirements/setup",
@@ -8802,7 +9697,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "requirements",
         "setup",
         "gateway",
@@ -8846,7 +9741,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "requirements",
         "on-chain-setup",
         "on-chain",
@@ -8902,40 +9797,6 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/requirements/on-chain-setup/fund-gateway",
-      "title": "Fund The Livepeer Gateway",
-      "description": "The following steps will walk you through adding funds to your Gateway ETH account, including funding the ETH account on Ethereum Mainnet, bridging the funds to Arbritrum's L2 Network, and then using the Livepeer CLI to allocate the proper deposit and reserve amounts.",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "run-a-gateway",
-        "requirements",
-        "on-chain-setup",
-        "fund-gateway",
-        "fund",
-        "gateway",
-        "setup"
-      ],
-      "entities": [
-        "gateway",
-        "ai"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 864,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
-      "headings": [
-        {
-          "level": 1,
-          "text": "Add Funds to Gateway Wallet"
-        }
-      ],
-      "codeLanguages": [
-        "bash"
-      ]
-    },
-    {
       "url": "https://docs.livepeer.org/v2/gateways/setup/install/install-overview",
       "title": "Installation Overview",
       "description": "An overview of the installation process for Livepeer Gateways",
@@ -8943,7 +9804,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "install",
         "install-overview",
         "installation",
@@ -8975,6 +9836,98 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/gateways/setup/install/install-review-view",
+      "title": "Installation Review: View",
+      "description": "Review the consolidated Livepeer Gateway installation content using Mintlify View sections.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "install",
+        "installation-review",
+        "view",
+        "setup",
+        "install-review-view"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 49,
+      "lastVerified": "2026-04-06T06:07:34.218Z",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/setup/install/install-review-tabs",
+      "title": "Installation Review: Tabs",
+      "description": "Review the consolidated Livepeer Gateway installation content using Mintlify Tabs.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "install",
+        "installation-review",
+        "tabs",
+        "setup",
+        "install-review-tabs"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 18,
+      "lastVerified": "2026-04-06T06:07:34.218Z",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/setup/install/install-review-codegroup",
+      "title": "Installation Review: CodeGroup",
+      "description": "Review the consolidated Livepeer Gateway installation content using a CodeGroup-led comparison page.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "install",
+        "installation-review",
+        "codegroup",
+        "setup",
+        "install-review-codegroup"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 45,
+      "lastVerified": "2026-04-06T06:07:34.218Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Entry Commands"
+        },
+        {
+          "level": 2,
+          "text": "Docker"
+        },
+        {
+          "level": 2,
+          "text": "Linux"
+        },
+        {
+          "level": 2,
+          "text": "Windows"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "powershell"
+      ]
+    },
+    {
       "url": "https://docs.livepeer.org/v2/gateways/setup/install/docker-install",
       "title": "Docker Install",
       "description": "Install and run a Livepeer transcoding gateway using Docker",
@@ -8982,7 +9935,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "install",
         "docker-install",
         "docker",
@@ -8996,44 +9949,10 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 727,
+      "wordCount": 0,
       "lastVerified": "2026-04-05T21:31:42+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Prerequisites"
-        },
-        {
-          "level": 2,
-          "text": "Pull the Livepeer Docker Image"
-        },
-        {
-          "level": 2,
-          "text": "Configure the Gateway"
-        },
-        {
-          "level": 2,
-          "text": "Create Livepeer Gateway ETH Account"
-        },
-        {
-          "level": 2,
-          "text": "Start the Gateway"
-        },
-        {
-          "level": 2,
-          "text": "Stream Live Video"
-        },
-        {
-          "level": 2,
-          "text": "Stream Authentication"
-        }
-      ],
-      "codeLanguages": [
-        "bash",
-        "yaml",
-        "text",
-        "json"
-      ]
+      "headings": [],
+      "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/v2/gateways/setup/install/linux-install",
@@ -9043,7 +9962,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "install",
         "linux-install",
         "linux",
@@ -9055,23 +9974,10 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 297,
+      "wordCount": 0,
       "lastVerified": "2026-04-05T15:39:57+10:00",
-      "headings": [
-        {
-          "level": 1,
-          "text": "Create a file containing your Gateway Ethereum password"
-        },
-        {
-          "level": 1,
-          "text": "Create a system service"
-        }
-      ],
-      "codeLanguages": [
-        "bash",
-        "text",
-        "jsx"
-      ]
+      "headings": [],
+      "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/v2/gateways/setup/install/windows-install",
@@ -9081,7 +9987,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "install",
         "windows-install",
         "windows",
@@ -9093,62 +9999,9 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 220,
+      "wordCount": 0,
       "lastVerified": "2026-04-05T15:39:57+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Start the Livepeer Gateway"
-        }
-      ],
-      "codeLanguages": [
-        "bash"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/install/community-projects",
-      "title": "Easy Install [DevOps & Community Projects]",
-      "description": "Community CICD Pipelines to make installation accessible & easy",
-      "section": "gateways",
-      "tags": [
-        "beta",
-        "livepeer",
-        "gateways",
-        "run-a-gateway",
-        "install",
-        "community-projects",
-        "easy",
-        "devops",
-        "community",
-        "projects",
-        "pipelines",
-        "setup"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 173,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 1,
-          "text": "Gateway HUB"
-        },
-        {
-          "level": 2,
-          "text": "GWID (Gateway Wizard)"
-        },
-        {
-          "level": 3,
-          "text": "GWID RFP & Updates"
-        },
-        {
-          "level": 3,
-          "text": "GWID Documentation"
-        }
-      ],
+      "headings": [],
       "codeLanguages": []
     },
     {
@@ -9159,7 +10012,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "configure",
         "configuration-overview",
         "configuration",
@@ -9202,7 +10055,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "configure",
         "video-configuration",
         "video",
@@ -9298,7 +10151,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "configure",
         "ai-configuration",
         "configuration",
@@ -9345,7 +10198,7 @@
         "ai--video",
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "configure",
         "dual-configuration",
         "video",
@@ -9402,362 +10255,6 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/configure/pricing-configuration",
-      "title": "Pricing Configuration",
-      "description": "Configure Pricing for Livepeer Gateway Services",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "run-a-gateway",
-        "configure",
-        "pricing-configuration",
-        "pricing",
-        "configuration",
-        "setup"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 589,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Pricing Concepts"
-        },
-        {
-          "level": 4,
-          "text": "Payment Currency"
-        },
-        {
-          "level": 4,
-          "text": "Pricing Models"
-        },
-        {
-          "level": 2,
-          "text": "Pricing Configuration Flags"
-        },
-        {
-          "level": 4,
-          "text": "Video Transcoding Core Flags"
-        },
-        {
-          "level": 4,
-          "text": "AI Processing Core Flags"
-        },
-        {
-          "level": 2,
-          "text": "Fee Payment Calculation & Process"
-        },
-        {
-          "level": 2,
-          "text": "Configuration Methods"
-        },
-        {
-          "level": 2,
-          "text": "Orchestrator Configuration & Price Information (Gateway Reference)"
-        },
-        {
-          "level": 4,
-          "text": "Per-Gateway Pricing (can be set by Orchestrators)"
-        },
-        {
-          "level": 4,
-          "text": "Price Calculation"
-        },
-        {
-          "level": 4,
-          "text": "Dynamic Price Adjustment"
-        },
-        {
-          "level": 2,
-          "text": "Full List of Gateway Pricing Configuration Flags"
-        },
-        {
-          "level": 4,
-          "text": "Video Transcoding Pricing Flags"
-        },
-        {
-          "level": 4,
-          "text": "AI Processing Pricing Flags"
-        },
-        {
-          "level": 4,
-          "text": "Payment Ticket Flags"
-        },
-        {
-          "level": 4,
-          "text": "Gas & Transaction Flags (Affect Pricing)"
-        },
-        {
-          "level": 4,
-          "text": "Orchestrator-Specific Pricing (For Reference)"
-        },
-        {
-          "level": 4,
-          "text": "Notes"
-        },
-        {
-          "level": 2,
-          "text": "Related Pages"
-        }
-      ],
-      "codeLanguages": [
-        "json",
-        "bash",
-        "go"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test",
-      "title": "Your First Gateway: Off-chain Transcoding",
-      "description": "Prove the Gateway-Orchestrator pipeline works in 15 minutes - CPU only, no ETH, no GPU, no registration.",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateway",
-        "tutorial",
-        "off-chain",
-        "transcoding",
-        "ffmpeg",
-        "quickstart",
-        "gateways",
-        "guides",
-        "tutorials",
-        "tutorial-1-offchain-transcoding-test"
-      ],
-      "entities": [
-        "gateway",
-        "ai"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 869,
-      "lastVerified": "2026-03-15",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Architecture"
-        },
-        {
-          "level": 2,
-          "text": "Prerequisites"
-        },
-        {
-          "level": 2,
-          "text": "Steps"
-        },
-        {
-          "level": 2,
-          "text": "What Happened"
-        },
-        {
-          "level": 2,
-          "text": "Troubleshooting"
-        },
-        {
-          "level": 2,
-          "text": "Related Pages"
-        }
-      ],
-      "codeLanguages": [
-        "bash",
-        "text"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline",
-      "title": "Add AI: BYOC CPU Pipeline",
-      "description": "Build a custom AI pipeline container and route jobs through the Gateway - no GPU required.",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateway",
-        "byoc",
-        "pytrickle",
-        "cpu",
-        "ai",
-        "tutorial",
-        "docker",
-        "whisper",
-        "gateways",
-        "guides",
-        "tutorials"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 854,
-      "lastVerified": "2026-03-15",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Architecture"
-        },
-        {
-          "level": 2,
-          "text": "Trickle Protocol"
-        },
-        {
-          "level": 2,
-          "text": "Prerequisites"
-        },
-        {
-          "level": 2,
-          "text": "Steps"
-        },
-        {
-          "level": 3,
-          "text": "Run the container"
-        },
-        {
-          "level": 2,
-          "text": "What Happened"
-        },
-        {
-          "level": 2,
-          "text": "Troubleshooting"
-        },
-        {
-          "level": 2,
-          "text": "Related Pages"
-        }
-      ],
-      "codeLanguages": [
-        "python",
-        "bash",
-        "dockerfile"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/guides/tutorials/tutorial-3-go-production",
-      "title": "Go Production: On-chain, GPU, and Network",
-      "description": "Graduate the tested Gateway to the live Livepeer network - on-chain registration, GPU pipelines, and public Orchestrator discovery.",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateway",
-        "production",
-        "on-chain",
-        "gpu",
-        "arbitrum",
-        "eth",
-        "orchestrator",
-        "network",
-        "gateways",
-        "guides",
-        "tutorials"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 2033,
-      "lastVerified": "2026-03-15",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Which upgrades do you need?"
-        },
-        {
-          "level": 2,
-          "text": "Upgrade 1 - On-chain registration"
-        },
-        {
-          "level": 3,
-          "text": "What this gives you"
-        },
-        {
-          "level": 3,
-          "text": "1.1 - Acquire ETH on Arbitrum One"
-        },
-        {
-          "level": 3,
-          "text": "1.2 - Create a dedicated wallet for your gateway"
-        },
-        {
-          "level": 3,
-          "text": "1.3 - Deposit PM funds on-chain"
-        },
-        {
-          "level": 3,
-          "text": "1.4 - Start your gateway on-chain"
-        },
-        {
-          "level": 2,
-          "text": "Upgrade 2 - GPU pipelines"
-        },
-        {
-          "level": 3,
-          "text": "What this gives you"
-        },
-        {
-          "level": 3,
-          "text": "2.1 - GPU requirements by pipeline type"
-        },
-        {
-          "level": 3,
-          "text": "2.2 - Enable GPU on the orchestrator"
-        },
-        {
-          "level": 3,
-          "text": "2.3 - Run your GPU BYOC container (BYOC operators only)"
-        },
-        {
-          "level": 2,
-          "text": "Upgrade 3 - Network connect"
-        },
-        {
-          "level": 3,
-          "text": "What this gives you"
-        },
-        {
-          "level": 3,
-          "text": "3.1 - On-chain gateway: automatic discovery"
-        },
-        {
-          "level": 3,
-          "text": "3.2 - Off-chain gateway: orchestrator list or remote signer discovery"
-        },
-        {
-          "level": 3,
-          "text": "3.3 - Set pricing"
-        },
-        {
-          "level": 3,
-          "text": "3.4 - Verify public orchestrator routing"
-        },
-        {
-          "level": 2,
-          "text": "Putting it together - full production command"
-        },
-        {
-          "level": 2,
-          "text": "Monitoring your production gateway"
-        },
-        {
-          "level": 2,
-          "text": "Troubleshooting"
-        },
-        {
-          "level": 2,
-          "text": "Related Pages"
-        }
-      ],
-      "codeLanguages": [
-        "bash",
-        "dockerfile",
-        "json",
-        "ini"
-      ]
-    },
-    {
       "url": "https://docs.livepeer.org/v2/gateways/setup/connect/lp-marketplace",
       "title": "Livepeer Marketplace Overview",
       "description": "This page provides an overview of the Livepeer Marketplace, including what offerings Orchestrators publish, in order to provide Gateway operators the context they need to discover & route application requests",
@@ -9765,7 +10262,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "connect",
         "lp-marketplace",
         "marketplace",
@@ -9804,7 +10301,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "connect",
         "discover-offerings",
         "discover",
@@ -9867,7 +10364,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "connect",
         "connect-with-offerings",
         "discover",
@@ -9934,7 +10431,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "run-a-gateway",
+        "guide",
         "monitor",
         "monitor-and-optimise",
         "optimise",
@@ -10275,6 +10772,53 @@
         {
           "level": 2,
           "text": "Related Pages"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/guides/deployment-details/gwid-single-click-deploy",
+      "title": "Easy Install [DevOps & Community Projects]",
+      "description": "Community CICD Pipelines to make installation accessible & easy",
+      "section": "gateways",
+      "tags": [
+        "beta",
+        "livepeer",
+        "gateways",
+        "guide",
+        "install",
+        "community-projects",
+        "easy",
+        "devops",
+        "community",
+        "projects",
+        "pipelines",
+        "guides"
+      ],
+      "entities": [
+        "gateway",
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 173,
+      "lastVerified": "2026-04-06T06:04:26.028Z",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Gateway HUB"
+        },
+        {
+          "level": 2,
+          "text": "GWID (Gateway Wizard)"
+        },
+        {
+          "level": 3,
+          "text": "GWID RFP & Updates"
+        },
+        {
+          "level": 3,
+          "text": "GWID Documentation"
         }
       ],
       "codeLanguages": []
@@ -10826,7 +11370,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/guides/payments-and-pricing/funding-guide",
       "title": "Guide to Funding an On-Chain Gateway",
-      "description": "Step-by-step guide to funding an on-chain Livepeer Gateway with ETH on Arbitrum One. Covers bridging, depositing, setting reserve amounts via livepeer_cli, and monitoring balance.",
+      "description": "Step-by-step guide to funding an on-chain Livepeer Gateway with ETH on Arbitrum One. Covers bridging, depositing, setting reserve amounts via livepeercli, and monitoring balance.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -10877,6 +11421,40 @@
         {
           "level": 2,
           "text": "Related Pages"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/guides/payments-and-pricing/fund-gateway",
+      "title": "Fund The Livepeer Gateway",
+      "description": "The following steps will walk you through adding funds to your Gateway ETH account, including funding the ETH account on Ethereum Mainnet, bridging the funds to Arbritrum's L2 Network, and then using the Livepeer CLI to allocate the proper deposit and reserve amounts.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "guide",
+        "requirements",
+        "on-chain-setup",
+        "fund-gateway",
+        "fund",
+        "gateway",
+        "guides",
+        "payments-and-pricing"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 864,
+      "lastVerified": "2026-04-06T06:11:02.875Z",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Add Funds to Gateway Wallet"
         }
       ],
       "codeLanguages": [
@@ -10938,6 +11516,117 @@
       "codeLanguages": [
         "bash",
         "json"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/guides/payments-and-pricing/pricing-configuration",
+      "title": "Pricing Configuration",
+      "description": "Configure Pricing for Livepeer Gateway Services",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "guide",
+        "configure",
+        "pricing-configuration",
+        "pricing",
+        "configuration",
+        "guides",
+        "payments-and-pricing"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 589,
+      "lastVerified": "2026-04-06T06:11:02.881Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Pricing Concepts"
+        },
+        {
+          "level": 4,
+          "text": "Payment Currency"
+        },
+        {
+          "level": 4,
+          "text": "Pricing Models"
+        },
+        {
+          "level": 2,
+          "text": "Pricing Configuration Flags"
+        },
+        {
+          "level": 4,
+          "text": "Video Transcoding Core Flags"
+        },
+        {
+          "level": 4,
+          "text": "AI Processing Core Flags"
+        },
+        {
+          "level": 2,
+          "text": "Fee Payment Calculation & Process"
+        },
+        {
+          "level": 2,
+          "text": "Configuration Methods"
+        },
+        {
+          "level": 2,
+          "text": "Orchestrator Configuration & Price Information (Gateway Reference)"
+        },
+        {
+          "level": 4,
+          "text": "Per-Gateway Pricing (can be set by Orchestrators)"
+        },
+        {
+          "level": 4,
+          "text": "Price Calculation"
+        },
+        {
+          "level": 4,
+          "text": "Dynamic Price Adjustment"
+        },
+        {
+          "level": 2,
+          "text": "Full List of Gateway Pricing Configuration Flags"
+        },
+        {
+          "level": 4,
+          "text": "Video Transcoding Pricing Flags"
+        },
+        {
+          "level": 4,
+          "text": "AI Processing Pricing Flags"
+        },
+        {
+          "level": 4,
+          "text": "Payment Ticket Flags"
+        },
+        {
+          "level": 4,
+          "text": "Gas & Transaction Flags (Affect Pricing)"
+        },
+        {
+          "level": 4,
+          "text": "Orchestrator-Specific Pricing (For Reference)"
+        },
+        {
+          "level": 4,
+          "text": "Notes"
+        },
+        {
+          "level": 2,
+          "text": "Related Pages"
+        }
+      ],
+      "codeLanguages": [
+        "json",
+        "bash",
+        "go"
       ]
     },
     {
@@ -11159,7 +11848,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards",
       "title": "Tools & Dashboards",
-      "description": "Monitor a Livepeer gateway with Explorer, Livepeer Tools, livepeer_cli, and Arbiscan - what each tool shows, which to use when, and how to read the data.",
+      "description": "Monitor a Livepeer gateway with Explorer, Livepeer Tools, livepeercli, and Arbiscan - what each tool shows, which to use when, and how to read the data.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -11964,9 +12653,255 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test",
+      "title": "Your First Gateway: Off-chain Transcoding",
+      "description": "Prove the Gateway-Orchestrator pipeline works in 15 minutes - CPU only, no ETH, no GPU, no registration.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateway",
+        "tutorial",
+        "off-chain",
+        "transcoding",
+        "ffmpeg",
+        "quickstart",
+        "gateways",
+        "guides",
+        "tutorials",
+        "tutorial-1-offchain-transcoding-test"
+      ],
+      "entities": [
+        "gateway",
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 869,
+      "lastVerified": "2026-03-15",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Architecture"
+        },
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "Steps"
+        },
+        {
+          "level": 2,
+          "text": "What Happened"
+        },
+        {
+          "level": 2,
+          "text": "Troubleshooting"
+        },
+        {
+          "level": 2,
+          "text": "Related Pages"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "text"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline",
+      "title": "Add AI: BYOC CPU Pipeline",
+      "description": "Build a custom AI pipeline container and route jobs through the Gateway - no GPU required.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateway",
+        "byoc",
+        "pytrickle",
+        "cpu",
+        "ai",
+        "tutorial",
+        "docker",
+        "whisper",
+        "gateways",
+        "guides",
+        "tutorials"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 854,
+      "lastVerified": "2026-03-15",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Architecture"
+        },
+        {
+          "level": 2,
+          "text": "Trickle Protocol"
+        },
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "Steps"
+        },
+        {
+          "level": 3,
+          "text": "Run the container"
+        },
+        {
+          "level": 2,
+          "text": "What Happened"
+        },
+        {
+          "level": 2,
+          "text": "Troubleshooting"
+        },
+        {
+          "level": 2,
+          "text": "Related Pages"
+        }
+      ],
+      "codeLanguages": [
+        "python",
+        "bash",
+        "dockerfile"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/guides/tutorials/tutorial-3-go-production",
+      "title": "Go Production: On-chain, GPU, and Network",
+      "description": "Graduate the tested Gateway to the live Livepeer network - on-chain registration, GPU pipelines, and public Orchestrator discovery.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateway",
+        "production",
+        "on-chain",
+        "gpu",
+        "arbitrum",
+        "eth",
+        "orchestrator",
+        "network",
+        "gateways",
+        "guides",
+        "tutorials"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 2033,
+      "lastVerified": "2026-03-15",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Which upgrades do you need?"
+        },
+        {
+          "level": 2,
+          "text": "Upgrade 1 - On-chain registration"
+        },
+        {
+          "level": 3,
+          "text": "What this gives you"
+        },
+        {
+          "level": 3,
+          "text": "1.1 - Acquire ETH on Arbitrum One"
+        },
+        {
+          "level": 3,
+          "text": "1.2 - Create a dedicated wallet for your gateway"
+        },
+        {
+          "level": 3,
+          "text": "1.3 - Deposit PM funds on-chain"
+        },
+        {
+          "level": 3,
+          "text": "1.4 - Start your gateway on-chain"
+        },
+        {
+          "level": 2,
+          "text": "Upgrade 2 - GPU pipelines"
+        },
+        {
+          "level": 3,
+          "text": "What this gives you"
+        },
+        {
+          "level": 3,
+          "text": "2.1 - GPU requirements by pipeline type"
+        },
+        {
+          "level": 3,
+          "text": "2.2 - Enable GPU on the orchestrator"
+        },
+        {
+          "level": 3,
+          "text": "2.3 - Run your GPU BYOC container (BYOC operators only)"
+        },
+        {
+          "level": 2,
+          "text": "Upgrade 3 - Network connect"
+        },
+        {
+          "level": 3,
+          "text": "What this gives you"
+        },
+        {
+          "level": 3,
+          "text": "3.1 - On-chain gateway: automatic discovery"
+        },
+        {
+          "level": 3,
+          "text": "3.2 - Off-chain gateway: orchestrator list or remote signer discovery"
+        },
+        {
+          "level": 3,
+          "text": "3.3 - Set pricing"
+        },
+        {
+          "level": 3,
+          "text": "3.4 - Verify public orchestrator routing"
+        },
+        {
+          "level": 2,
+          "text": "Putting it together - full production command"
+        },
+        {
+          "level": 2,
+          "text": "Monitoring your production gateway"
+        },
+        {
+          "level": 2,
+          "text": "Troubleshooting"
+        },
+        {
+          "level": 2,
+          "text": "Related Pages"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "dockerfile",
+        "json",
+        "ini"
+      ]
+    },
+    {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/faq",
       "title": "Gateway FAQ",
-      "description": "Frequently asked questions for Livepeer gateway operators — the -broadcaster rename, ETH requirements, AI limitations, pricing, orchestrator discovery, and port configuration.",
+      "description": "Frequently asked questions for Livepeer gateway operators - the -broadcaster rename, ETH requirements, AI limitations, pricing, orchestrator discovery, and port configuration.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -12148,7 +13083,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/compendium/glossary",
       "title": "Gateway Glossary",
-      "description": "Key terms for Livepeer gateway operators — deployment modes, payment mechanics, orchestrator routing, and node configuration.",
+      "description": "Key terms for Livepeer gateway operators - deployment modes, payment mechanics, orchestrator routing, and node configuration.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -12406,7 +13341,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/text-to-image",
       "title": "Text to Image",
-      "description": "",
+      "description": "Text to Image for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -12428,7 +13363,7 @@
         "POST /text-to-image"
       ],
       "difficulty": "advanced",
-      "wordCount": 48,
+      "wordCount": 57,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12458,7 +13393,7 @@
         "POST /image-to-image"
       ],
       "difficulty": "advanced",
-      "wordCount": 67,
+      "wordCount": 69,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12466,7 +13401,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/image-to-video",
       "title": "Image to Video",
-      "description": "",
+      "description": "Image to Video for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -12489,7 +13424,7 @@
         "POST /image-to-video"
       ],
       "difficulty": "advanced",
-      "wordCount": 48,
+      "wordCount": 57,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12497,7 +13432,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/upscale",
       "title": "Upscale",
-      "description": "",
+      "description": "Upscale for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -12519,7 +13454,7 @@
         "POST /upscale"
       ],
       "difficulty": "advanced",
-      "wordCount": 44,
+      "wordCount": 51,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12549,7 +13484,7 @@
         "POST /audio-to-text"
       ],
       "difficulty": "advanced",
-      "wordCount": 66,
+      "wordCount": 68,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12557,7 +13492,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/segment-anything-2",
       "title": "Segment Anything 2",
-      "description": "",
+      "description": "Segment Anything 2 for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -12579,7 +13514,7 @@
         "POST /segment-anything-2"
       ],
       "difficulty": "advanced",
-      "wordCount": 48,
+      "wordCount": 57,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12587,7 +13522,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/llm",
       "title": "LLM",
-      "description": "",
+      "description": "LLM for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -12609,7 +13544,7 @@
         "POST /llm"
       ],
       "difficulty": "advanced",
-      "wordCount": 44,
+      "wordCount": 51,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12639,7 +13574,7 @@
         "POST /image-to-text"
       ],
       "difficulty": "advanced",
-      "wordCount": 66,
+      "wordCount": 68,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12647,7 +13582,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/live-video-to-video",
       "title": "Live Video to Video",
-      "description": "",
+      "description": "Live Video to Video for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -12670,7 +13605,7 @@
         "POST /live-video-to-video"
       ],
       "difficulty": "advanced",
-      "wordCount": 50,
+      "wordCount": 60,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12678,7 +13613,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/AI-API/text-to-speech",
       "title": "Text to Speech",
-      "description": "",
+      "description": "Text to Speech for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -12700,7 +13635,7 @@
         "POST /text-to-speech"
       ],
       "difficulty": "advanced",
-      "wordCount": 48,
+      "wordCount": 57,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12730,7 +13665,7 @@
         "GET /health"
       ],
       "difficulty": "advanced",
-      "wordCount": 61,
+      "wordCount": 63,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12760,7 +13695,7 @@
         "GET /hardware/info"
       ],
       "difficulty": "advanced",
-      "wordCount": 63,
+      "wordCount": 65,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12790,7 +13725,7 @@
         "GET /hardware/stats"
       ],
       "difficulty": "advanced",
-      "wordCount": 60,
+      "wordCount": 62,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12868,7 +13803,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/unbond",
       "title": "Unbond",
-      "description": "",
+      "description": "Unbond for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -12889,7 +13824,7 @@
         "POST /unbond"
       ],
       "difficulty": "advanced",
-      "wordCount": 44,
+      "wordCount": 51,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12897,7 +13832,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/rebond",
       "title": "Rebond",
-      "description": "",
+      "description": "Rebond for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -12918,7 +13853,7 @@
         "POST /rebond"
       ],
       "difficulty": "advanced",
-      "wordCount": 44,
+      "wordCount": 51,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12926,7 +13861,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/activateorchestrator",
       "title": "Activate Orchestrator",
-      "description": "",
+      "description": "Activate Orchestrator for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -12948,7 +13883,7 @@
         "POST /activateOrchestrator"
       ],
       "difficulty": "advanced",
-      "wordCount": 45,
+      "wordCount": 53,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12956,7 +13891,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/setbroadcastconfig",
       "title": "Set Broadcast Config",
-      "description": "",
+      "description": "Set Broadcast Config for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -12977,7 +13912,7 @@
         "POST /setBroadcastConfig"
       ],
       "difficulty": "advanced",
-      "wordCount": 46,
+      "wordCount": 55,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -12985,7 +13920,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/setmaxpriceforcapability",
       "title": "Set Max Price For Capability",
-      "description": "",
+      "description": "Set Max Price For Capability for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -13006,7 +13941,7 @@
         "POST /setMaxPriceForCapability"
       ],
       "difficulty": "advanced",
-      "wordCount": 48,
+      "wordCount": 59,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -13014,7 +13949,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/reward",
       "title": "Reward",
-      "description": "",
+      "description": "Reward for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -13035,7 +13970,7 @@
         "POST /reward"
       ],
       "difficulty": "advanced",
-      "wordCount": 44,
+      "wordCount": 51,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -13043,7 +13978,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/transfertokens",
       "title": "Transfer Tokens",
-      "description": "",
+      "description": "Transfer Tokens for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -13064,7 +13999,7 @@
         "POST /transferTokens"
       ],
       "difficulty": "advanced",
-      "wordCount": 45,
+      "wordCount": 53,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -13072,7 +14007,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/signmessage",
       "title": "Sign Message",
-      "description": "",
+      "description": "Sign Message for Livepeer gateways.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -13093,7 +14028,7 @@
         "POST /signMessage"
       ],
       "difficulty": "advanced",
-      "wordCount": 45,
+      "wordCount": 53,
       "lastVerified": "2026-04-05T01:48:52+11:00",
       "headings": [],
       "codeLanguages": []
@@ -13101,7 +14036,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/go-livepeer/bandwidth-requirements",
       "title": "Bandwidth Requirements",
-      "description": "",
+      "description": "The bandwidth requirements for video miners are based on the amount of video",
       "section": "gateways",
       "tags": [
         "gateways",
@@ -13123,7 +14058,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/go-livepeer/hardware-requirements",
       "title": "Hardware Requirements",
-      "description": "",
+      "description": "The hardware requirements for video miners are based on the computational",
       "section": "gateways",
       "tags": [
         "gateways",
@@ -13162,7 +14097,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/go-livepeer/gpu-support",
       "title": "GPU Support",
-      "description": "",
+      "description": "Livepeer enables node operators to transcode video on GPUs while concurrently",
       "section": "gateways",
       "tags": [
         "gateways",
@@ -13189,7 +14124,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/go-livepeer/cli-reference",
       "title": "CLI Reference",
-      "description": "",
+      "description": "The livepeer binary in go-livepeer has a number of configurable options. You",
       "section": "gateways",
       "tags": [
         "gateways",
@@ -13240,7 +14175,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/go-livepeer/prometheus-metrics",
       "title": "Prometheus Metrics",
-      "description": "",
+      "description": "Livepeer exposes a number of metrics via the Prometheus exporter. This page",
       "section": "gateways",
       "tags": [
         "gateways",
@@ -13377,7 +14312,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/knowledge-hub/guides",
       "title": "Gateway guides",
-      "description": "Curated how-to guides, walkthroughs, and tutorials for running Livepeer gateways — covering off-chain AI setup, remote signers, BYOC, video transcoding, payments, and production operations.",
+      "description": "Curated how-to guides, walkthroughs, and tutorials for running Livepeer gateways - covering off-chain AI setup, remote signers, BYOC, video transcoding, payments, and production operations.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -13411,7 +14346,7 @@
         },
         {
           "level": 2,
-          "text": "BYOC — Bring Your Own Container"
+          "text": "BYOC - Bring Your Own Container"
         },
         {
           "level": 2,
@@ -13455,7 +14390,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/knowledge-hub/resources",
       "title": "Gateway resources",
-      "description": "Tools, SDKs, dashboards, reference documentation, and community platforms for Livepeer gateway operators — covering go-livepeer, the Python gateway SDK, monitoring, analytics, and production tooling.",
+      "description": "Tools, SDKs, dashboards, reference documentation, and community platforms for Livepeer gateway operators - covering go-livepeer, the Python gateway SDK, monitoring, analytics, and production tooling.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -13516,7 +14451,7 @@
     {
       "url": "https://docs.livepeer.org/v2/gateways/resources/knowledge-hub/help",
       "title": "Gateway help",
-      "description": "Every channel available to get help running a Livepeer gateway — Discord, forum, GitHub issues, office hours, SPE contacts, and security reporting.",
+      "description": "Every channel available to get help running a Livepeer gateway - Discord, forum, GitHub issues, office hours, SPE contacts, and security reporting.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -14216,7 +15151,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/rcs-requirements",
+      "url": "https://docs.livepeer.org/v2/orchestrators/setup/prepare",
       "title": "Operational and Hardware Requirements for Orchestrators",
       "description": "Minimum, recommended, and production hardware for running a Livepeer orchestrator.",
       "section": "orchestrators",
@@ -14227,7 +15162,7 @@
         "gpu",
         "requirements",
         "setup",
-        "rcs-requirements"
+        "prepare"
       ],
       "entities": [
         "orchestrator"
@@ -14265,7 +15200,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/rs-install",
+      "url": "https://docs.livepeer.org/v2/orchestrators/setup/install",
       "title": "Install go-livepeer",
       "description": "Install the go-livepeer binary on Linux, macOS, or via Docker. Covers prerequisites, GPU driver requirements, installation steps, and verification.",
       "section": "orchestrators",
@@ -14281,7 +15216,7 @@
         "linux",
         "orchestrators",
         "setup",
-        "rs-install"
+        "install"
       ],
       "entities": [
         "orchestrator"
@@ -14385,7 +15320,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/connect-and-activate",
+      "url": "https://docs.livepeer.org/v2/orchestrators/setup/connect",
       "title": "Connect to Arbitrum",
       "description": "Connect the orchestrator to the Livepeer protocol on Arbitrum - fund the wallet, stake LPT, register the service URI, and activate on-chain.",
       "section": "orchestrators",
@@ -14400,7 +15335,7 @@
         "service-uri",
         "orchestrators",
         "setup",
-        "connect-and-activate"
+        "connect"
       ],
       "entities": [
         "orchestrator"
@@ -14424,7 +15359,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/test",
+      "url": "https://docs.livepeer.org/v2/orchestrators/setup/verify",
       "title": "Verify Your Setup",
       "description": "Verify the orchestrator is on-chain, processing jobs, and healthy - video transcoding test, AI inference test, Explorer check, and basic monitoring confirmation.",
       "section": "orchestrators",
@@ -14466,7 +15401,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/r-monitor",
+      "url": "https://docs.livepeer.org/v2/orchestrators/setup/monitor",
       "title": "Monitoring Your Orchestrator Setup",
       "description": "Monitor node health, GPU performance, and earnings with Prometheus and the Livepeer Explorer.",
       "section": "orchestrators",
@@ -14478,7 +15413,7 @@
         "prometheus",
         "metrics",
         "setup",
-        "r-monitor"
+        "monitor"
       ],
       "entities": [
         "orchestrator"
@@ -16430,8 +17365,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1395,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "wordCount": 1396,
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -18348,7 +19283,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 395,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T22:35:20+10:00",
       "headings": [
         {
           "level": 2,
@@ -18416,25 +19351,33 @@
     },
     {
       "url": "https://docs.livepeer.org/v2/delegators/portal",
-      "title": "Delegators Home Portal",
-      "description": "Welcome to the Delegators Portal: explore, navigate, delegate, and vote",
+      "title": "Delegators Portal",
+      "description": "Start here for the Livepeer delegator journey: understand LPT, choose an orchestrator, delegate on Arbitrum, and use your bonded stake in governance.",
       "section": "delegators",
       "tags": [
         "start-here",
         "livepeer",
         "delegators",
-        "token-portal",
-        "token",
-        "home",
         "portal",
-        "welcome"
+        "lpt",
+        "delegation",
+        "governance"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 144,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
-      "headings": [],
+      "wordCount": 166,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Choose your path"
+        },
+        {
+          "level": 2,
+          "text": "Most-used live destinations"
+        }
+      ],
       "codeLanguages": []
     },
     {
@@ -18458,7 +19401,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 466,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -18537,8 +19480,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1288,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "wordCount": 1205,
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -18580,7 +19523,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 398,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -18634,69 +19577,60 @@
     {
       "url": "https://docs.livepeer.org/v2/delegators/concepts/mechanics",
       "title": "LPT Mechanics",
-      "description": "Detailed protocol-level mechanics governing bonding, unbonding, reward checkpointing, and round-based state transitions in the Livepeer Protocol.",
+      "description": "How rounds, reward calls, reward accounting, and governance checkpoints work beneath delegation in the Livepeer protocol.",
       "section": "delegators",
       "tags": [
         "livepeer",
         "lpt",
         "mechanics",
         "bonding",
-        "unbonding",
-        "staking",
-        "rewards",
+        "reward",
         "rounds",
+        "claimearnings",
         "delegators",
         "concepts"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 371,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "wordCount": 563,
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
-          "text": "Executive Summary"
+          "text": "Rounds"
         },
         {
           "level": 2,
-          "text": "1. Core State Variables"
+          "text": "The active set"
         },
         {
           "level": 2,
-          "text": "2. Bonding"
+          "text": "The `reward()` call"
         },
         {
           "level": 2,
-          "text": "3. Delegation Attribution"
+          "text": "How delegation is accounted for"
         },
         {
           "level": 2,
-          "text": "4. Unbonding"
+          "text": "Reward accounting"
         },
         {
           "level": 2,
-          "text": "5. Round Lifecycle"
+          "text": "Claim timing matters"
         },
         {
           "level": 2,
-          "text": "6. Reward Checkpointing"
+          "text": "Governance checkpoints"
         },
         {
           "level": 2,
-          "text": "7. Claiming and Rebonding"
+          "text": "State lifecycle"
         },
         {
           "level": 2,
-          "text": "8. State Transition Diagram"
-        },
-        {
-          "level": 2,
-          "text": "9. Security Implications"
-        },
-        {
-          "level": 2,
-          "text": "10. Protocol vs Network Separation"
+          "text": "Related pages"
         },
         {
           "level": 2,
@@ -18708,69 +19642,9 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/delegation/getting-started",
-      "title": "Delegating LPT: Getting Started",
-      "description": "How to delegate LPT to an orchestrator, earn rewards, and participate in Livepeer network security - a step-by-step guide for new delegators.",
-      "section": "delegators",
-      "tags": [
-        "livepeer",
-        "delegate-lpt",
-        "staking",
-        "delegation",
-        "orchestrator",
-        "rewards",
-        "bonding",
-        "livepeer-explorer",
-        "delegators",
-        "getting-started"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "beginner",
-      "wordCount": 960,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Start here in 5 minutes"
-        },
-        {
-          "level": 2,
-          "text": "What Is Delegation?"
-        },
-        {
-          "level": 2,
-          "text": "What You Earn"
-        },
-        {
-          "level": 2,
-          "text": "Before You Start"
-        },
-        {
-          "level": 2,
-          "text": "Step-by-Step: How to Delegate"
-        },
-        {
-          "level": 2,
-          "text": "Risk Factors"
-        },
-        {
-          "level": 2,
-          "text": "Reward Calculation Reference"
-        },
-        {
-          "level": 2,
-          "text": "Related Pages"
-        }
-      ],
-      "codeLanguages": [
-        "text"
-      ]
-    },
-    {
       "url": "https://docs.livepeer.org/v2/delegators/delegation/overview",
       "title": "Delegation Overview",
-      "description": "Protocol-level overview of LPT delegation, including stake attribution, reward flows, and security implications.",
+      "description": "Start the delegation journey: identify your situation, understand what bonding means, and take the correct next step toward delegating LPT.",
       "section": "delegators",
       "tags": [
         "livepeer",
@@ -18780,71 +19654,31 @@
         "bonding",
         "orchestrators",
         "rewards",
-        "economics",
+        "arbitrum",
         "delegators",
         "overview"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 500,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "wordCount": 298,
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
-          "text": "Executive Summary"
+          "text": "Which situation is yours?"
         },
         {
           "level": 2,
-          "text": "1. Formal Definition"
+          "text": "Key facts before you start"
         },
         {
           "level": 2,
-          "text": "2. Architectural Context"
-        },
-        {
-          "level": 3,
-          "text": "2.1 Protocol Layer Responsibilities"
-        },
-        {
-          "level": 3,
-          "text": "2.2 Network Layer Responsibilities"
+          "text": "Delegation in one diagram"
         },
         {
           "level": 2,
-          "text": "3. Economic Weight and Security"
-        },
-        {
-          "level": 2,
-          "text": "4. Reward Allocation (Issuance)"
-        },
-        {
-          "level": 2,
-          "text": "5. Fee Revenue (Demand)"
-        },
-        {
-          "level": 2,
-          "text": "6. Delegation as Capital Allocation"
-        },
-        {
-          "level": 2,
-          "text": "7. Liquidity Constraints and Unbonding"
-        },
-        {
-          "level": 2,
-          "text": "8. Risks and Failure Modes"
-        },
-        {
-          "level": 2,
-          "text": "9. Sequence Diagram"
-        },
-        {
-          "level": 2,
-          "text": "10. Protocol vs Network Separation"
-        },
-        {
-          "level": 2,
-          "text": "References"
+          "text": "Live tools and references"
         }
       ],
       "codeLanguages": [
@@ -18852,228 +19686,63 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/delegation/delegation-economics",
-      "title": "Delegation Economics",
-      "description": "Interim overview of delegation economics and stake-weighted incentives for LPT delegators and orchestrators.",
+      "url": "https://docs.livepeer.org/v2/delegators/delegation/about-delegation",
+      "title": "What Bonding LPT Means",
+      "description": "What delegators are actually doing when they bond LPT: non-custodial stake attribution, dilution protection, rewards, governance weight, and unbonding.",
       "section": "delegators",
       "tags": [
         "livepeer",
         "lpt",
-        "delegation",
-        "economics",
-        "staking",
-        "rewards",
-        "orchestrators",
-        "delegators",
-        "delegation-economics"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 13,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/delegators/delegation/about-delegators",
-      "title": "About Delegators",
-      "description": "Formal definition, incentive role, rights/constraints, and risk model for delegators in the Livepeer Protocol.",
-      "section": "delegators",
-      "tags": [
-        "livepeer",
-        "lpt",
-        "delegators",
-        "staking",
-        "delegation",
-        "rewards",
-        "governance",
-        "risk",
-        "about-delegators"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 598,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Executive Summary"
-        },
-        {
-          "level": 2,
-          "text": "1. Formal Definition"
-        },
-        {
-          "level": 2,
-          "text": "2. Architectural Context"
-        },
-        {
-          "level": 3,
-          "text": "2.1 Protocol Layer (On-Chain)"
-        },
-        {
-          "level": 3,
-          "text": "2.2 Network Layer (Off-Chain)"
-        },
-        {
-          "level": 2,
-          "text": "3. Economic Role"
-        },
-        {
-          "level": 3,
-          "text": "3.1 Security Participation"
-        },
-        {
-          "level": 3,
-          "text": "3.2 Capital Allocation"
-        },
-        {
-          "level": 3,
-          "text": "3.3 Governance Participation"
-        },
-        {
-          "level": 2,
-          "text": "4. Reward Model (Issuance and Fees)"
-        },
-        {
-          "level": 2,
-          "text": "5. Rights, Constraints, and Responsibilities"
-        },
-        {
-          "level": 3,
-          "text": "5.1 Rights"
-        },
-        {
-          "level": 3,
-          "text": "5.2 Constraints"
-        },
-        {
-          "level": 3,
-          "text": "5.3 Responsibilities (Practical)"
-        },
-        {
-          "level": 2,
-          "text": "6. Evaluation Framework for Orchestrator Selection"
-        },
-        {
-          "level": 2,
-          "text": "7. Risks and Failure Modes"
-        },
-        {
-          "level": 2,
-          "text": "8. Diagrams"
-        },
-        {
-          "level": 3,
-          "text": "8.1 State Model"
-        },
-        {
-          "level": 3,
-          "text": "8.2 Reward Flow"
-        },
-        {
-          "level": 2,
-          "text": "9. Protocol vs Network Separation"
-        },
-        {
-          "level": 2,
-          "text": "References"
-        }
-      ],
-      "codeLanguages": [
-        "mermaid"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/delegators/delegation/delegation-guide",
-      "title": "Delegation Guide",
-      "description": "Contract-level, step-by-step guide to bonding, delegating, unbonding, rebonding, and verifying LPT delegation on-chain.",
-      "section": "delegators",
-      "tags": [
-        "livepeer",
-        "lpt",
-        "delegation",
-        "staking",
         "bonding",
+        "delegation",
+        "staking",
+        "reward-cut",
+        "fee-share",
         "unbonding",
-        "rewards",
-        "guide",
         "delegators",
-        "delegation-guide"
+        "about-delegation"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 495,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "wordCount": 526,
+      "lastVerified": "2026-04-06T00:11:31.183Z",
       "headings": [
         {
           "level": 2,
-          "text": "Executive Summary"
+          "text": "Delegation is stake attribution, not custody transfer"
         },
         {
           "level": 2,
-          "text": "1. Preconditions"
+          "text": "Why unbonded LPT gets diluted"
         },
         {
           "level": 2,
-          "text": "2. Step 1 - Approve Token Transfer"
+          "text": "What you earn when bonded"
         },
         {
           "level": 2,
-          "text": "3. Step 2 - Bond and Delegate"
+          "text": "What bonding commits you to"
         },
         {
           "level": 2,
-          "text": "4. Step 3 - Verify On-Chain State"
+          "text": "Switching is different from exiting"
         },
         {
           "level": 2,
-          "text": "5. Reward Accrual and Checkpointing"
+          "text": "What risk you are actually taking"
         },
         {
           "level": 2,
-          "text": "6. Step 4 - Rebond (Optional Compounding)"
-        },
-        {
-          "level": 2,
-          "text": "7. Step 5 - Initiate Unbonding"
-        },
-        {
-          "level": 2,
-          "text": "8. Unbonding Delay"
-        },
-        {
-          "level": 2,
-          "text": "9. Step 6 - Withdraw Stake"
-        },
-        {
-          "level": 2,
-          "text": "10. Risk Review Checklist"
-        },
-        {
-          "level": 2,
-          "text": "11. Protocol vs Network Separation"
-        },
-        {
-          "level": 2,
-          "text": "12. Sequence Diagram (End-to-End)"
-        },
-        {
-          "level": 2,
-          "text": "References"
+          "text": "Related pages"
         }
       ],
-      "codeLanguages": [
-        "mermaid"
-      ]
+      "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/v2/delegators/delegation/bridge-lpt-to-arbitrum",
       "title": "Bridge LPT between Ethereum and Arbitrum",
-      "description": "Move LPT to Arbitrum One to stake, delegate, and participate in Livepeer governance — via bridge, CEX, or DEX swap.",
+      "description": "Move or acquire LPT on Arbitrum One so it can be delegated through the Livepeer protocol.",
       "section": "delegators",
       "tags": [
         "livepeer",
@@ -19081,52 +19750,295 @@
         "bridge",
         "arbitrum",
         "ethereum",
-        "token-transfer",
         "l1",
         "l2",
-        "cex",
-        "dex",
-        "exchange",
-        "uniswap"
+        "token-transfer",
+        "delegators",
+        "delegation",
+        "bridge-lpt-to-arbitrum"
       ],
       "entities": [
         "lpt"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 2758,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
+      "wordCount": 526,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
       "headings": [
         {
           "level": 2,
-          "text": "Overview"
+          "text": "What counts as \"ready to delegate\""
         },
         {
           "level": 2,
-          "text": "Deposits: Ethereum LPT → Arbitrum One LPT"
+          "text": "Canonical bridge route: Ethereum mainnet to Arbitrum One"
         },
         {
           "level": 2,
-          "text": "Withdrawals: Arbitrum One LPT → Ethereum LPT"
-        },
-        {
-          "level": 2,
-          "text": "Troubleshooting"
+          "text": "Other practical routes"
         },
         {
           "level": 3,
-          "text": "Failed deposits"
+          "text": "Buy or withdraw directly to Arbitrum One"
+        },
+        {
+          "level": 3,
+          "text": "Swap on Arbitrum One"
         },
         {
           "level": 2,
-          "text": "Contract References"
+          "text": "Bridge-specific details worth knowing"
         },
         {
           "level": 2,
-          "text": "Related Pages"
+          "text": "Next steps"
         }
       ],
       "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/delegators/delegation/delegation-economics",
+      "title": "Delegation Economics",
+      "description": "How LPT inflation, treasury allocation, reward cut, fee share, and reward reliability combine into real delegator outcomes.",
+      "section": "delegators",
+      "tags": [
+        "livepeer",
+        "lpt",
+        "delegation",
+        "economics",
+        "staking",
+        "rewards",
+        "inflation",
+        "reward-cut",
+        "fee-share",
+        "delegators",
+        "delegation-economics"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 558,
+      "lastVerified": "2026-04-06T00:24:12+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Where delegator rewards come from"
+        },
+        {
+          "level": 2,
+          "text": "Inflation reward maths"
+        },
+        {
+          "level": 3,
+          "text": "Worked example"
+        },
+        {
+          "level": 2,
+          "text": "ETH fee revenue"
+        },
+        {
+          "level": 2,
+          "text": "`rewardCut` and `feeShare` in plain English"
+        },
+        {
+          "level": 2,
+          "text": "Why reward reliability matters more than a tiny commission difference"
+        },
+        {
+          "level": 2,
+          "text": "How rewards accrue and compound"
+        },
+        {
+          "level": 2,
+          "text": "What changes your real return in practice"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/delegators/delegation/choose-an-orchestrator",
+      "title": "Choose an Orchestrator",
+      "description": "How to evaluate Livepeer orchestrators and pick one that fits your goals before you execute the delegation transaction.",
+      "section": "delegators",
+      "tags": [
+        "livepeer",
+        "delegate-lpt",
+        "staking",
+        "orchestrator-selection",
+        "reward-cut",
+        "fee-share",
+        "reward-call",
+        "bonding",
+        "livepeer-explorer",
+        "arbitrum",
+        "delegators",
+        "delegation"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 639,
+      "lastVerified": "2026-04-06T00:24:12+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Before you start"
+        },
+        {
+          "level": 2,
+          "text": "Step 1: Confirm active-set status"
+        },
+        {
+          "level": 2,
+          "text": "Step 2: Check reward-call reliability"
+        },
+        {
+          "level": 2,
+          "text": "Step 3: Compare commission terms"
+        },
+        {
+          "level": 3,
+          "text": "`rewardCut`"
+        },
+        {
+          "level": 3,
+          "text": "`feeShare`"
+        },
+        {
+          "level": 2,
+          "text": "Step 4: Check concentration and resilience"
+        },
+        {
+          "level": 2,
+          "text": "Step 5: Look for signs of durability"
+        },
+        {
+          "level": 2,
+          "text": "Selection checklist"
+        },
+        {
+          "level": 2,
+          "text": "After you choose"
+        },
+        {
+          "level": 2,
+          "text": "Frequently asked questions"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/delegators/delegation/delegate-your-lpt",
+      "title": "Delegate Your LPT",
+      "description": "Complete the initial Livepeer delegation flow on Arbitrum One: connect your wallet, approve LPT, bond to an orchestrator, and verify the position.",
+      "section": "delegators",
+      "tags": [
+        "livepeer",
+        "delegate-lpt",
+        "how-to-bond-lpt",
+        "livepeer-explorer",
+        "arbitrum",
+        "staking-tutorial",
+        "delegators",
+        "delegation",
+        "delegate-your-lpt"
+      ],
+      "entities": [
+        "lpt"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 380,
+      "lastVerified": "2026-04-06T00:13:29.378Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Delegation tutorial"
+        },
+        {
+          "level": 2,
+          "text": "What success looks like"
+        },
+        {
+          "level": 2,
+          "text": "Important warning before your first claim"
+        },
+        {
+          "level": 2,
+          "text": "Frequently asked questions"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/delegators/delegation/manage-your-delegation",
+      "title": "Manage Your Delegation",
+      "description": "How to claim rewards, compound your position, switch orchestrators, and fully exit delegation on Livepeer.",
+      "section": "delegators",
+      "tags": [
+        "livepeer",
+        "lpt",
+        "delegation",
+        "claim-earnings",
+        "compounding",
+        "unbonding",
+        "withdraw",
+        "redelegate",
+        "delegators",
+        "manage-your-delegation"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 543,
+      "lastVerified": "2026-04-06T00:24:12+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Rewards accrue automatically"
+        },
+        {
+          "level": 2,
+          "text": "Claim your earnings"
+        },
+        {
+          "level": 3,
+          "text": "Claim timing warning"
+        },
+        {
+          "level": 2,
+          "text": "Compound your position"
+        },
+        {
+          "level": 2,
+          "text": "Redelegate when the operator stops being the right choice"
+        },
+        {
+          "level": 2,
+          "text": "Unbond and withdraw if you want liquid tokens back"
+        },
+        {
+          "level": 3,
+          "text": "Exit flow"
+        },
+        {
+          "level": 2,
+          "text": "Monitor your position"
+        },
+        {
+          "level": 2,
+          "text": "Frequently asked questions"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/delegators/guides/governance/overview",
@@ -19149,7 +20061,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 639,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -19229,7 +20141,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 697,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -19329,7 +20241,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 945,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -19465,7 +20377,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 395,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -19544,7 +20456,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 596,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -19639,7 +20551,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 494,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -19723,7 +20635,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/delegators/resources/reference/glossary",
+      "url": "https://docs.livepeer.org/v2/delegators/resources/glossary",
       "title": "LPT Token Glossary",
       "description": "Key terms for the Livepeer Token (LPT) — staking, delegation, inflation, governance, treasury, and tokenomics.",
       "section": "delegators",
@@ -19736,14 +20648,13 @@
         "tokenomics",
         "governance",
         "delegators",
-        "resources",
-        "reference"
+        "resources"
       ],
       "entities": [],
       "apiEndpoints": [],
-      "difficulty": "advanced",
-      "wordCount": 4868,
-      "lastVerified": "2026-03",
+      "difficulty": "intermediate",
+      "wordCount": 4863,
+      "lastVerified": "2026-04-06",
       "headings": [
         {
           "level": 2,
@@ -19785,6 +20696,82 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/delegators/resources/reference/protocol-parameters",
+      "title": "Protocol Parameters",
+      "description": "Governance-controlled protocol values that matter most to delegators: unbonding, inflation settings, treasury allocation, and governance thresholds.",
+      "section": "delegators",
+      "tags": [
+        "livepeer",
+        "protocol-parameters",
+        "unbonding-period",
+        "treasury-reward-cut",
+        "proposal-threshold",
+        "quorum",
+        "voting-period",
+        "delegators",
+        "resources",
+        "reference"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 267,
+      "lastVerified": "2026-04-06T00:13:29.378Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Delegator-relevant protocol values"
+        },
+        {
+          "level": 2,
+          "text": "Governance thresholds"
+        },
+        {
+          "level": 2,
+          "text": "Active set note"
+        },
+        {
+          "level": 2,
+          "text": "How to verify these values yourself"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/delegators/resources/reference/contracts",
+      "title": "Contract Addresses",
+      "description": "Canonical deployed Livepeer protocol and bridge contracts relevant to delegators, rendered from the repository's address data.",
+      "section": "delegators",
+      "tags": [
+        "livepeer",
+        "contract-addresses",
+        "bonding-manager",
+        "minter",
+        "governor",
+        "lpt-gateway",
+        "delegators",
+        "resources",
+        "reference",
+        "contracts"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 219,
+      "lastVerified": "2026-04-06T00:13:29.378Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Arbitrum One contracts"
+        },
+        {
+          "level": 2,
+          "text": "Ethereum mainnet contracts"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
       "url": "https://docs.livepeer.org/v2/delegators/resources/compendium/exchanges",
       "title": "Exchanges with LPT Listed",
       "description": "A list of exchanges where the Livepeer Token (LPT) is listed. Note: this information is fetched from Coingecko weekly",
@@ -19804,7 +20791,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 433,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -19843,8 +20830,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 146,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "wordCount": 148,
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 3,
@@ -19883,7 +20870,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 285,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -23252,7 +24239,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 41,
-      "lastVerified": "2026-03-29T21:00:40+11:00",
+      "lastVerified": "2026-04-06T00:40:49+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -23351,12 +24338,36 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3402,
-      "lastVerified": "2026-04-05T17:17:29+10:00",
+      "wordCount": 5527,
+      "lastVerified": "2026-04-06T10:02:03+10:00",
       "headings": [
         {
           "level": 2,
           "text": "Pipeline Flow"
+        },
+        {
+          "level": 2,
+          "text": "🔍 Audits"
+        },
+        {
+          "level": 2,
+          "text": "⚙️ Automations"
+        },
+        {
+          "level": 2,
+          "text": "🏭 Generators"
+        },
+        {
+          "level": 2,
+          "text": "✅ Validators"
+        },
+        {
+          "level": 2,
+          "text": "🔧 Remediators"
+        },
+        {
+          "level": 2,
+          "text": "🚦 Dispatch"
         }
       ],
       "codeLanguages": [
@@ -23403,8 +24414,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1346,
-      "lastVerified": "2026-04-01T20:35:46+11:00",
+      "wordCount": 1369,
+      "lastVerified": "2026-04-06T00:40:49+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -24632,8 +25643,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 28,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "wordCount": 44,
+      "lastVerified": "2026-04-06T10:02:03+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -25669,7 +26680,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 937,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-05T22:35:20+10:00",
       "headings": [
         {
           "level": 2,
@@ -26720,7 +27731,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 70,
-      "lastVerified": "2026-04-05T15:39:57+10:00",
+      "lastVerified": "2026-04-06T00:24:12+10:00",
       "headings": [
         {
           "level": 2,
@@ -26859,8 +27870,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 605,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "wordCount": 680,
+      "lastVerified": "2026-04-06T10:02:03+10:00",
       "headings": [
         {
           "level": 1,
@@ -26885,6 +27896,10 @@
         {
           "level": 2,
           "text": "Rollout State Rules"
+        },
+        {
+          "level": 2,
+          "text": "Production Approval Gate"
         },
         {
           "level": 2,
@@ -27329,8 +28344,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 880,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "wordCount": 1289,
+      "lastVerified": "2026-04-06T10:02:03+10:00",
       "headings": [
         {
           "level": 1,
@@ -27350,6 +28365,10 @@
         },
         {
           "level": 3,
+          "text": "governance-approval-policy.json"
+        },
+        {
+          "level": 3,
           "text": "root-governance.json"
         },
         {
@@ -27363,6 +28382,18 @@
         {
           "level": 3,
           "text": "ownerless-governance-surfaces.json"
+        },
+        {
+          "level": 2,
+          "text": "operations/config/"
+        },
+        {
+          "level": 2,
+          "text": ".github/workspace/"
+        },
+        {
+          "level": 2,
+          "text": "Active Governance Reports"
         },
         {
           "level": 2,
@@ -28053,7 +29084,7 @@
         },
         {
           "level": 3,
-          "text": "v2/orchestrators/setup/rcs-requirements"
+          "text": "v2/orchestrators/setup/prepare"
         },
         {
           "level": 3,

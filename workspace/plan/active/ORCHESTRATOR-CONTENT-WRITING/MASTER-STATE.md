@@ -163,7 +163,7 @@ Phase 6 (Content) → Phase 8 (Naming) → Phase 7 (Veracity) → Phase 10 (Layo
 
 **S4/S5 Setup** (7 nav pages):
 - `setup/guide.mdx` — Setup flow overview (141 lines)
-- `setup/rcs-requirements.mdx` — Pre-flight checklist by mode (336 lines)
+- `setup/prepare.mdx` — Pre-flight checklist by mode (336 lines)
 - `setup/rs-install.mdx` — Docker and binary install (285 lines)
 - `setup/configure.mdx` — Docker-compose templates (430 lines)
 - `setup/connect-and-activate.mdx` — Fund, stake, register, activate (286 lines)

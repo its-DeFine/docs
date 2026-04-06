@@ -122,13 +122,20 @@ main() {
   echo "Building extensions..."
   for ext_dir in "${ext_dirs[@]}"; do
     vsix="$(find_vsix "$ext_dir")"
-    if [[ -z "$vsix" ]]; then
+    if requires_vsix_parity_check "$ext_dir"; then
+      if [[ -z "$vsix" ]]; then
+        echo "  [error] $(basename "$ext_dir") — missing governed .vsix package"
+        exit 1
+      fi
+    else
       build_vsix "$ext_dir"
       vsix="$(find_vsix "$ext_dir")"
       if [[ -z "$vsix" ]]; then
         echo "  [error] $(basename "$ext_dir") — build did not produce a .vsix"
         exit 1
       fi
+      echo "  [built] $(basename "$ext_dir") — refreshed $(basename "$vsix")"
+      continue
     fi
 
     if requires_vsix_parity_check "$ext_dir"; then
@@ -170,7 +177,9 @@ main() {
   done
 
   echo "Done."
-  [[ "$DRY_RUN" == "true" ]] && echo "(dry-run — no changes were made)"
+  if [[ "$DRY_RUN" == "true" ]]; then
+    echo "(dry-run — no changes were made)"
+  fi
 }
 
 main "$@"

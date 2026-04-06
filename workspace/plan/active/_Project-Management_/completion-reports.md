@@ -4541,3 +4541,146 @@ The repo’s production governance model now runs on one active control plane, w
 | `operations/governance/config/repo-governance-surfaces.json` | modified manifest | Records production approval policy, active reports, bounded transitional workflow-governance, and steady-state rollout |
 | `docs-guide/repo-ops/config/repo-governance-map.mdx` | generated doc | Live repo governance map updated to the production architecture |
 | `workspace/reports/repo-ops/OWNERLESS_REPO_HANDOVER_LATEST.md` | new report | Final ownerless-handover summary of canonical governance/runtime surfaces and repair paths |
+
+---
+
+## Delegators Canonical IA Rebuild — 2026-04-06
+
+**Plans**: none
+**Scope**: Rebuild the live Delegators tab to the canonical `v2/delegators/**` IA, promote the approved Delegators content into public routes, and repair the dependent runtime/generator surfaces needed to validate the tab.
+**Outcome**: Partially met
+
+### Summary
+
+The live Delegators tab now follows the canonical `v2/delegators/**` structure, with the public route set rebuilt under `portal`, `concepts`, `delegation`, `guides`, and `resources`, and with the new delegation/reference pages published on their intended live routes. Repo consumers were propagated through `docs.json`, blueprint/companion surfaces, generated indexes, and glossary data, and the local preview blocker caused by MDX-unsafe snippets metadata was fixed at the generator contract rather than worked around per page.
+
+The outcome is only partially met because the live Delegators experience is rebuilt and validated, but the tracked `_workspace/TO-ADD/files` shadow source set was not retired in this session, and local scoped preview still returned `404` for the legacy redirect source paths even though the redirect entries exist in `docs.json`.
+
+### Completed
+
+- **Canonical Delegators route rebuild**: Replaced the live Delegators portal and delegation content, added the new `about-delegation`, `delegate-your-lpt`, `protocol-parameters`, and `contracts` routes, and moved the Delegators glossary to the canonical `resources/glossary` location.
+- **Route and config propagation**: Updated the Delegators navigation and redirects in `docs.json`, refreshed the Delegators blueprint mapping and AI companion manifest, and regenerated the affected page-index and glossary-companion surfaces.
+- **Root-cause preview hardening**: Fixed the `snippets/guide.mdx` metadata sentinel contract by making the markers MDX-safe and updating the snippets-registry generator accordingly.
+- **Shared glossary import repair**: Moved glossary badge data into a shared `snippets/data/references/` source and repointed glossary consumers so scoped previews no longer depend on `v2/solutions`.
+- **Claim-sensitive copy normalization**: Rewrote the live Delegators mechanics/economics/management content using verified protocol values and downgraded unstable claims where live confirmation was not available.
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Keep the public tab entirely under `v2/delegators/**` and do not reintroduce `v2/lpt/**` | Matches the canonical IA and avoids parallel public trees |
+| Treat “Technical References” as `v2/delegators/resources/reference/**` and move the glossary to `v2/delegators/resources/glossary.mdx` | The canonical IA reserves `resources/` as the flat glossary location and does not allow a separate top-level technical-reference tree |
+| Move shared glossary badge data into `snippets/data/references/glossaryBadges.jsx` | Cross-tab glossary pages should not depend on the `solutions` tree, especially under scoped preview |
+| Fix the preview parse blocker in the snippets generator contract instead of patching preview commands | The underlying issue was MDX-unsafe comment syntax in a canonical source file, not the Delegators pages themselves |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Retire `v2/delegators/_workspace/TO-ADD/files/**` as a tracked shadow source | P1 | Repo policy forbids casual tracked-file deletions, and the design/workspace docs still reference parts of that source set | Human-owned deletion commit plus any design-doc updates needed to preserve history cleanly |
+| Confirm redirect behavior outside scoped preview | P2 | Scoped preview served the live Delegators routes but returned `404` for the legacy redirect source paths despite the redirect entries being present in `docs.json` | Full preview or deployed-route verification to distinguish preview projection limits from runtime redirect defects |
+
+### Dependencies & Downstream Effects
+
+- **Delegators readers**: The live Delegators journey now starts from the canonical portal and delegation disambiguation flow instead of the previous mixed/stub path set.
+- **Navigation/runtime consumers**: `docs.json`, the blueprint mapping, AI companion manifest, page indexes, and glossary companion data now point at the canonical Delegators paths.
+- **Cross-tab glossary consumers**: Shared glossary badge rendering now resolves through `snippets/data/references/glossaryBadges.jsx`, reducing scoped-preview coupling to the Solutions tab.
+- **Preview infrastructure**: `snippets/guide.mdx` and the snippets-registry generator now use MDX-safe metadata sentinels, removing the parse failure that previously blocked local preview startup.
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| `node operations/scripts/generators/content/catalogs/generate-pages-index.js --check` | ✅ Clean | Page indexes matched the rebuilt Delegators route set |
+| `node operations/scripts/generators/content/reference/generate-glossary-companions.js --check` | ✅ Clean | Delegators glossary companion stayed in sync after the glossary move |
+| `node operations/scripts/generators/governance/catalogs/generate-snippets-registry.js --check` | ✅ Clean | Snippets metadata/generator contract is synchronized after the MDX-safe sentinel fix |
+| `node operations/tests/integration/v2-link-audit.js --files ... --strict --report /tmp/livepeer-link-audit-delegators.md` | ✅ Clean | Targeted Delegators route audit reported `Missing refs: 0` for the changed live files |
+| `bash lpd dev --scoped --scope-tab Delegators -- --port 3107` | ✅ Live routes served | `200` confirmed for the target live Delegators routes; scoped preview still returned `404` on redirect-source route probes |
+| `node operations/scripts/validators/content/structure/lint-structure.js --check` | ✅ No scoped findings | Validator reported `no files to check` in the current unstaged worktree state |
+| `lpd test --staged` | ✅ Passed with warnings | Final run reported `Total Errors: 0`, `Total Warnings: 77` |
+
+### Recommendations
+
+1. **Stage the Delegators rebuild separately from older worktree debt** — The current diff spans live Delegators files, generated artifacts, preview-governance fixes, and cross-tab glossary consumers; keep reviewable concerns isolated when you stage.
+2. **Handle tracked shadow-source retirement in a human-owned deletion commit** — If `_workspace/TO-ADD/files/**` is no longer needed, remove it deliberately with the required repo-policy trailer and update any design/workspace references at the same time.
+3. **Verify redirects in a non-scoped runtime before merge** — The config entries are present, but the scoped preview did not prove redirect behavior for the retired URLs.
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `docs.json` | modified | Delegators nav order and redirect contract updated to the canonical IA |
+| `v2/delegators/portal.mdx` | modified | Rebuilt Delegators entry page around the canonical route lanes |
+| `v2/delegators/delegation/about-delegation.mdx` | new | New public mental-model page for delegation/bonding |
+| `v2/delegators/delegation/delegate-your-lpt.mdx` | new | New public step-by-step delegation tutorial |
+| `v2/delegators/resources/glossary.mdx` | new path | Delegators glossary moved to the canonical `resources/` root |
+| `v2/delegators/resources/reference/protocol-parameters.mdx` | new | Verified protocol-parameter reference page |
+| `v2/delegators/resources/reference/contracts.mdx` | new | Contract-address reference page backed by shared contract data |
+| `operations/scripts/generators/governance/catalogs/generate-snippets-registry.js` | modified | MDX-safe snippets metadata sentinel contract |
+| `snippets/data/references/glossaryBadges.jsx` | new | Shared glossary badge mapping decoupled from `v2/solutions` |
+
+---
+
+## Gateway Single-Click Deployment Path Migration — 2026-04-06
+
+**Plans**: none
+**Scope**: Move the gateway community-projects page into `guides/deployment-details`, rename it to `gwid-single-click-deploy.mdx`, and propagate the active route references.
+**Outcome**: Met
+
+### Summary
+
+The gateway single-click deployment page now lives at the canonical deployment-details route instead of under setup/install. The move was propagated through the public navigation contract, scoped-preview navigation mirrors, active in-product links, and a redirect from the old public route so existing links do not break.
+
+### Completed
+
+**Gateway route migration**
+- Moved `v2/gateways/setup/install/community-projects.mdx` to `v2/gateways/guides/deployment-details/gwid-single-click-deploy.mdx` without changing the page body.
+- Updated the routed navigation and scoped-navigation mirrors so the page now appears under Gateway Guides > Deployment Details instead of Installation.
+- Repointed active gateway references from `install-overview.mdx`, `setup-requirements.mdx`, `v2/gateways/index.mdx`, and `v2/index.mdx` to the new deployment-details route.
+- Added redirects from `/v2/gateways/setup/install/community-projects` and the legacy run-a-gateway source path to the new `gwid-single-click-deploy` destination.
+
+### Decisions Made
+
+| Decision | Rationale |
+|---|---|
+| Keep the page content unchanged and limit the session to path/reference updates | The request was a path migration, so content/layout changes would have widened scope without approval |
+| Add redirects from the old public route instead of silently dropping it | Existing inbound links should keep resolving while the new canonical route becomes the source of truth |
+
+### Deferred Items
+
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Refresh `docs-guide/config/component-usage-map.json` for the moved page path | P2 | The generator-owned usage map still points at the old file path in this dirty worktree and was intentionally left out of this narrow route-move scope | Isolated generator refresh or a clean follow-up staging pass |
+
+### Dependencies & Downstream Effects
+
+- **Gateway navigation/runtime consumers**: `docs.json` and the scoped preview configs now treat `gwid-single-click-deploy` as the canonical route.
+- **Existing shared links**: Old `/v2/gateways/setup/install/community-projects` URLs now redirect to the new deployment-details page instead of breaking.
+- **Generated indexes**: `v2/gateways/index.mdx` and `v2/index.mdx` were regenerated so their surfaced links align with the new route.
+
+### Test / Validation State
+
+| Check | Result | Notes |
+|---|---|---|
+| `node operations/scripts/generators/content/catalogs/generate-pages-index.js --write` | ✅ Clean | Regenerated `v2/gateways/index.mdx` and `v2/index.mdx` after temporarily staging the rename so the generator could see the moved file |
+| `node operations/scripts/generators/content/catalogs/generate-pages-index.js` | ⚠️ Dirty-worktree sensitive | Passes only while the rename is staged; unstaged `git ls-files` does not see the moved file and reports the indexes outdated |
+| `node operations/scripts/validators/content/structure/lint-structure.js --check` | ✅ No scoped findings | Validator reported `no files to check` in the current unstaged worktree state |
+
+### Recommendations
+
+1. **Stage the old/new gateway page paths together before rerunning page-index verification** — the current generator relies on tracked paths and misses unstaged renames.
+2. **Refresh generator-owned governance artifacts in an isolated follow-up** — `component-usage-map.json` still references the old page path and should be regenerated in a scope where unrelated dirty-worktree churn will not leak in.
+
+### Artifacts
+
+| File | Type | Description |
+|---|---|---|
+| `v2/gateways/guides/deployment-details/gwid-single-click-deploy.mdx` | new path | Canonical destination for the moved gateway single-click deployment page |
+| `docs.json` | modified | Nav path updated and redirect added from the old gateway install route |
+| `tools/config/scoped-navigation/docs.json.jsx` | modified | Scoped preview source-of-truth updated to the new route |
+| `tools/config/scoped-navigation/docs-gate-orch.json` | modified | Scoped gateway/orchestrator nav and redirects updated to the new route |
+| `tools/config/scoped-navigation/docs-gate-work.json` | modified | Scoped gateway work nav updated to the new route |
+| `v2/gateways/setup/install/install-overview.mdx` | modified | Active installation cross-link repointed to the new deployment-details page |
+| `v2/gateways/guides/deployment-details/setup-requirements.mdx` | modified | Related-page card repointed to the new deployment-details page |
+| `v2/gateways/index.mdx` | modified | Generated gateways index refreshed to surface the new route |
+| `v2/index.mdx` | modified | Generated root index refreshed to surface the new route |

@@ -16,8 +16,10 @@ const path = require('path');
 
 const {
   formatMdxContent,
+  getMdxComponentSuggestions,
   getMdxImportSuggestions,
   getRealDocsRoutes,
+  upsertNamedImport,
   validateDocsJsonRoutes,
   validateSnippetImports
 } = require('../../../tools/editor-extensions/authoring-tools/lib/authoring-core');
@@ -68,6 +70,54 @@ function runTests() {
     assert(
       suggestions.snippetSuggestions.every((entry) => entry.startsWith('/snippets/')),
       'all snippet suggestions must be absolute /snippets/ imports'
+    );
+  });
+
+  runCase('suggests stable MDX components for tag completion', () => {
+    const suggestions = getMdxComponentSuggestions(REPO_ROOT, 'Bor');
+    const names = suggestions.map((entry) => entry.name);
+
+    assert(names.includes('BorderedBox'), 'expected BorderedBox in MDX component suggestions');
+    assert(!names.includes('Card'), 'Mintlify built-ins must not be surfaced as repo component suggestions');
+  });
+
+  runCase('merges component imports into an existing same-path import', () => {
+    const result = upsertNamedImport(
+      [
+        'import { Quote } from "/snippets/components/displays/quotes/Quote.jsx";',
+        '',
+        '# Heading',
+        ''
+      ].join('\n'),
+      '/snippets/components/displays/quotes/Quote.jsx',
+      'FrameQuote'
+    );
+
+    assert(result, 'expected an import edit');
+    assert.strictEqual(
+      result.text.trim(),
+      'import { FrameQuote, Quote } from "/snippets/components/displays/quotes/Quote.jsx";'
+    );
+  });
+
+  runCase('inserts a new component import after frontmatter when missing', () => {
+    const result = upsertNamedImport(
+      [
+        '---',
+        "title: 'Example'",
+        '---',
+        '# Heading',
+        ''
+      ].join('\n'),
+      '/snippets/components/wrappers/containers/Containers.jsx',
+      'BorderedBox'
+    );
+
+    assert(result, 'expected an import insertion');
+    assert.strictEqual(result.start, 25);
+    assert.strictEqual(
+      result.text,
+      'import { BorderedBox } from "/snippets/components/wrappers/containers/Containers.jsx";\n\n'
     );
   });
 
@@ -132,7 +182,7 @@ function runTests() {
     errors,
     warnings,
     passed: errors.length === 0,
-    total: 5
+    total: 8
   };
 }
 

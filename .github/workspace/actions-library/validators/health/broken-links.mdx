@@ -62,11 +62,14 @@ graph LR
 **Scripts:**
 - `operations/scripts/automations/content/data/fetching/fetch-external-docs.sh`
 
+**Canonical repo-root link auditor:**
+- `operations/scripts/audits/content/health/page-links-audit.js`
+
 <CustomDivider />
 
 ## Known Issues
 
-None identified.
+- Advisory-only workflow surface. The canonical repo-root internal-link owner is `page-links-audit.js`, which also inspects link-bearing MDX/JSX props during strict audits and remediation passes.
 
 
 <CustomDivider />

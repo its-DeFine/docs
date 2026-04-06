@@ -26,8 +26,8 @@ const OUTPUT_PATH = 'snippets/snippets-registry.mdx';
 const SCRIPT_PATH = 'operations/scripts/generators/governance/catalogs/generate-snippets-registry.js';
 const EXCLUDED_ROOTS = new Set(['_workspace', 'automations']);
 const EXCLUDED_FILE_NAMES = new Set(['.DS_Store']);
-const GUIDE_METADATA_START = '<!-- SNIPPETS_FOLDER_METADATA:START -->';
-const GUIDE_METADATA_END = '<!-- SNIPPETS_FOLDER_METADATA:END -->';
+const GUIDE_METADATA_START = '{/* SNIPPETS_FOLDER_METADATA:START */}';
+const GUIDE_METADATA_END = '{/* SNIPPETS_FOLDER_METADATA:END */}';
 const COMPONENT_GOVERNANCE_PATH = '/docs-guide/frameworks/component-framework-canonical';
 const COMPONENT_LIBRARY_OVERVIEW_PATH = '/v2/resources/documentation-guide/component-library/overview';
 

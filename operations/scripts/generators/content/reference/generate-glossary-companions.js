@@ -189,7 +189,7 @@ function normalizeItem(item) {
 /**
  * Derive the companion JSON path for a given MDX file.
  * Convention: [page-slug]-data.json adjacent to the MDX file.
- * e.g. v2/home/resources/compendium/glossary.mdx → …/glossary-data.json
+ * e.g. v2/home/resources/glossary.mdx → …/glossary-data.json
  */
 function companionPath(mdxPath) {
   const dir = path.dirname(mdxPath);

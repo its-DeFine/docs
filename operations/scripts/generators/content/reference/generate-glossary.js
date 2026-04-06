@@ -236,7 +236,7 @@ function scanFilesForTerms(files) {
  */
 function loadExistingDefinitions() {
   const glossaryPathCandidates = [
-    path.join(REPO_ROOT, 'v2/resources/livepeer-glossary.mdx'),
+    path.join(REPO_ROOT, 'v2/resources/glossary.mdx'),
     path.join(REPO_ROOT, 'v2/resources/livepeer-glossary.mdx')
   ];
   const glossaryPath = glossaryPathCandidates.find((candidate) => fs.existsSync(candidate));

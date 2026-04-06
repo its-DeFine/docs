@@ -1,7 +1,15 @@
 ---
-title: 'Gateway FAQ'
-description: 'Frequently asked questions for Livepeer gateway operators — the -broadcaster rename, ETH requirements, AI limitations, pricing, orchestrator discovery, and port configuration.'
-sidebarTitle: 'FAQ'
+title: Gateway FAQ
+sidebarTitle: FAQ
+description: >-
+  Frequently asked questions for Livepeer gateway operators - the -broadcaster rename,
+  ETH requirements, AI limitations, pricing, orchestrator discovery, and port
+  configuration.
+pageType: reference
+audience: gateway
+purpose: reference
+status: current
+lastVerified: 2026-03
 keywords:
   - livepeer
   - gateway
@@ -14,16 +22,11 @@ keywords:
   - Windows
   - pricing
   - ports
-'og:image': /snippets/assets/media/og-images/fallback.png
-'og:image:alt': Livepeer Docs social preview image
-'og:image:type': image/png
-'og:image:width': 1200
-'og:image:height': 630
-pageType: faq
-audience: gateway-operator
-purpose: reference
-status: current
-lastVerified: '2026-03'
+og:image: /snippets/assets/media/og-images/fallback.png
+og:image:alt: Livepeer Docs social preview image
+og:image:type: image/png
+og:image:width: 1200
+og:image:height: 630
 ---
 {/* TODO:
 Terminology Validation:
@@ -47,14 +50,14 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
     Use `-gateway`. The Livepeer Gateway was previously called the Livepeer Broadcaster, and the old flag name appears throughout community guides, forum threads, and Docker Compose examples written before the rename.
 
     ```bash icon="terminal"
-    # Legacy — may still be accepted but not canonical
+    # Legacy - may still be accepted but not canonical
     ./livepeer -broadcaster -network arbitrum-one-mainnet ...
 
-    # Current — use this in all new configs
+    # Current - use this in all new configs
     ./livepeer -gateway -network arbitrum-one-mainnet ...
     ```
 
-    The `livepeer_cli` tool and some log output still display "Broadcaster" in places that have not been updated. This is cosmetic — the underlying behaviour is unchanged.
+    The `livepeer_cli` tool and some log output still display "Broadcaster" in places that have not been updated. This is cosmetic - the underlying behaviour is unchanged.
 
     [//]: # (REVIEW: Confirm whether -broadcaster remains accepted as an alias in current builds.)
   </Accordion>
@@ -69,7 +72,7 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
     | Dual gateway | Yes | No |
     | Clearinghouse-backed | No | No |
 
-    ETH is required on Arbitrum One (not Ethereum mainnet) for on-chain gateways. LPT is not part of the payment flow for any gateway type — it is a staking token for orchestrators.
+    ETH is required on Arbitrum One (not Ethereum mainnet) for on-chain gateways. LPT is not part of the payment flow for any gateway type - it is a staking token for orchestrators.
 
     If you want to run an AI gateway without managing ETH, see [Payment Paths](/v2/gateways/guides/payments-and-pricing/payment-guide).
   </Accordion>
@@ -97,7 +100,7 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
     - If you are only pushing streams outward (e.g. re-encoding your own content), NAT is less of a concern.
     - For orchestrator discovery via the Livepeer network, your gateway needs to be publicly reachable at the address it registers.
 
-    Home networks with NAT (standard home router) require port forwarding rules for ports 8935 and 1935 to the machine running the gateway. Running a public-facing node at home carries general server security risks — only do so if you are comfortable managing those.
+    Home networks with NAT (standard home router) require port forwarding rules for ports 8935 and 1935 to the machine running the gateway. Running a public-facing node at home carries general server security risks - only do so if you are comfortable managing those.
   </Accordion>
 
   <Accordion title="Is there a marketplace showing all gateway offerings?">
@@ -115,7 +118,7 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
 <AccordionGroup>
 
   <Accordion title="What is -maxPricePerUnit and why doesn't it match what I'm paying?">
-    `-maxPricePerUnit` sets the maximum price your gateway **pays orchestrators** per pixel processed — it is not a price you charge your customers.
+    `-maxPricePerUnit` sets the maximum price your gateway **pays orchestrators** per pixel processed - it is not a price you charge your customers.
 
     The unit is **wei per pixel** (not ETH). Common starting values:
 
@@ -156,7 +159,7 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
   </Accordion>
 
   <Accordion title="I bridged ETH to Arbitrum but my balance shows zero.">
-    Bridging ETH to Arbitrum One transfers it to your wallet address on Arbitrum — but it does not automatically allocate it as a gateway deposit. You must explicitly deposit and reserve via `livepeer_cli` after the bridge confirms.
+    Bridging ETH to Arbitrum One transfers it to your wallet address on Arbitrum - but it does not automatically allocate it as a gateway deposit. You must explicitly deposit and reserve via `livepeer_cli` after the bridge confirms.
 
     ```bash icon="terminal"
     livepeer_cli -host 127.0.0.1 -http 5935
@@ -168,9 +171,9 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
   </Accordion>
 
   <Accordion title="How does transcoding pricing work? Who sets it?">
-    Orchestrators set their price per pixel (in wei) and advertise it to gateways. Your gateway's `-maxPricePerUnit` is the ceiling you are willing to pay — any orchestrator advertising below your cap is eligible to receive your jobs.
+    Orchestrators set their price per pixel (in wei) and advertise it to gateways. Your gateway's `-maxPricePerUnit` is the ceiling you are willing to pay - any orchestrator advertising below your cap is eligible to receive your jobs.
 
-    Orchestrators may adjust their prices automatically based on gas costs on Arbitrum (the `autoAdjustPrice` behaviour). During high-gas periods, orchestrator prices rise — you may need to raise `-maxPricePerUnit` temporarily to keep jobs routing.
+    Orchestrators may adjust their prices automatically based on gas costs on Arbitrum (the `autoAdjustPrice` behaviour). During high-gas periods, orchestrator prices rise - you may need to raise `-maxPricePerUnit` temporarily to keep jobs routing.
 
     There is no protocol-fixed price. The market price emerges from supply (orchestrators) and demand (gateways) with the gateway's `maxPrice` acting as the ceiling.
   </Accordion>
@@ -184,7 +187,7 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
 <AccordionGroup>
 
   <Accordion title="The AI gateway binary doesn't work on Windows. Why?">
-    The Livepeer AI gateway binary is **not currently available for Windows or macOS (Intel)**. The AI inference stack requires a Linux environment — the GPU/CUDA toolchain used for AI inference has only been tested and compiled for Linux.
+    The Livepeer AI gateway binary is **not currently available for Windows or macOS (Intel)**. The AI inference stack requires a Linux environment - the GPU/CUDA toolchain used for AI inference has only been tested and compiled for Linux.
 
     **Workaround:** Use Docker on Linux (or WSL2 on Windows).
 
@@ -239,11 +242,11 @@ Jump to: [General](#general) · [Video Gateway](#video-gateway) · [AI Gateway](
 
     [//]: # (REVIEW: Confirm whether /getOrchestratorInfo is the correct stable endpoint for capability discovery.)
 
-    For finding AI-capable orchestrators to query: ask in [Discord #local-gateways](https://discord.gg/livepeer) — community operators share their endpoints there. Community discussion on a unified discovery mechanism is ongoing.
+    For finding AI-capable orchestrators to query: ask in [Discord #local-gateways](https://discord.gg/livepeer) - community operators share their endpoints there. Community discussion on a unified discovery mechanism is ongoing.
   </Accordion>
 
   <Accordion title="Can gateway operators add custom AI inference endpoints or pipelines?">
-    Gateway operators run AI gateways and expose the inference APIs — the gateway itself is the inference endpoint. Orchestrators running AI inference advertise their AI service URI and capability set.
+    Gateway operators run AI gateways and expose the inference APIs - the gateway itself is the inference endpoint. Orchestrators running AI inference advertise their AI service URI and capability set.
 
     There is currently no formal documented flow for registering a custom pipeline type beyond what go-livepeer supports natively. Running a gateway connected to orchestrators running your custom pipeline is the current approach.
 
@@ -260,16 +263,16 @@ The following external resources are useful reference points for pricing, networ
 
 | Resource | Link | What it covers |
 |----------|------|----------------|
-| Livepeer Docs — Set Pricing | [docs.livepeer.org](https://docs.livepeer.org/orchestrators/portal/guides/set-pricing) | How orchestrators set per-pixel pricing, auto-adjustment |
+| Livepeer Docs - Set Pricing | [docs.livepeer.org](https://docs.livepeer.org/orchestrators/portal/guides/set-pricing) | How orchestrators set per-pixel pricing, auto-adjustment |
 | Livepeer Studio Pricing | [livepeer.studio/pricing](https://livepeer.studio/pricing) | Example commercial gateway pricing tiers |
 | Livepeer Whitepaper | [GitHub Wiki](https://github.com/livepeer/wiki/blob/master/WHITEPAPER.md) | Protocol-level economic model (foundational) |
-| TokenTerminal — Livepeer Fees | [tokenterminal.com](https://tokenterminal.com/explorer/projects/livepeer/metrics/fees) | Network fees and usage-based revenue |
-| Figment — Transcoding Fees Primer | [medium.com](https://medium.com/figment/primer-on-livepeer-transcoding-fees-3658057f98c2) | Clear per-pixel pricing explanation |
+| TokenTerminal - Livepeer Fees | [tokenterminal.com](https://tokenterminal.com/explorer/projects/livepeer/metrics/fees) | Network fees and usage-based revenue |
+| Figment - Transcoding Fees Primer | [medium.com](https://medium.com/figment/primer-on-livepeer-transcoding-fees-3658057f98c2) | Clear per-pixel pricing explanation |
 | Livepeer Pricing Tool | [GitHub](https://github.com/buidl-labs/livepeer-pricing-tool) | Community tool for observing network pricing |
 
 <CardGroup cols={3}>
   <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/gateways/guides/monitoring-and-tooling/troubleshooting">
-    Something is broken — fix it by symptom
+    Something is broken - fix it by symptom
   </Card>
   <Card title="Pricing Strategy" icon="circle-dollar-sign" href="/v2/gateways/guides/payments-and-pricing/pricing-strategy">
     Configure maxPricePerUnit and AI pricing
@@ -282,7 +285,7 @@ The following external resources are useful reference points for pricing, networ
 
 {/* ---
 title: 'Gateway FAQ'
-description: 'Frequently asked questions for Livepeer gateway operators — pricing, the -broadcaster rename, Windows AI limitations, orchestrator discovery, ETH requirements, and more.'
+description: 'Frequently asked questions for Livepeer gateway operators - pricing, the -broadcaster rename, Windows AI limitations, orchestrator discovery, ETH requirements, and more.'
 sidebarTitle: 'FAQ'
 pageType: 'faq'
 audience: 'gateway'
@@ -292,7 +295,7 @@ status: 'stub'
 {/*
   PURPOSE:
   Journey step: "Common questions"
-  Clean FAQ page answering "how does X work?" questions. NOT error fixes — those go in
+  Clean FAQ page answering "how does X work?" questions. NOT error fixes - those go in
   troubleshooting.mdx. This is for conceptual confusion, terminology, pricing
   misunderstandings, and capability questions.
 
@@ -305,15 +308,15 @@ status: 'stub'
   It answers "how does X work?" questions. For "X is broken" → see Troubleshooting in Guides.
 
   RELATED FILES (draw from):
-  - all-resources/ctx-gwnew--GW-03-faq-completed.md        — PRIMARY SOURCE (95%): Complete research + draft MDX. Video FAQ (6 Q&As), AI FAQ (6 Q&As). Real operator pain points from Discord, Forum, official docs. SME review flags.
-  - all-resources/v2-guidesres--faq.mdx                     — Existing research FAQ (70%): pricing refs table, key findings on pricing/discovery gaps. Good external references.
-  - all-resources/v1--troubleshoot.mdx                      — V1 "Common Questions" section: public accessibility, running from home, service URI, how to know if transcoding, log management
+  - all-resources/ctx-gwnew--GW-03-faq-completed.md        - PRIMARY SOURCE (95%): Complete research + draft MDX. Video FAQ (6 Q&As), AI FAQ (6 Q&As). Real operator pain points from Discord, Forum, official docs. SME review flags.
+  - all-resources/v2-guidesres--faq.mdx                     - Existing research FAQ (70%): pricing refs table, key findings on pricing/discovery gaps. Good external references.
+  - all-resources/v1--troubleshoot.mdx                      - V1 "Common Questions" section: public accessibility, running from home, service URI, how to know if transcoding, log management
 
   CROSS-REFS:
-  - Troubleshooting (this section) — "X is broken" → troubleshooting; "how does X work?" → FAQ
-  - Concepts section — deeper explanations for conceptual questions
-  - Payments & Pricing guide — pricing questions link here for detail
-  - Setup Paths guide — "which gateway?" questions link here
+  - Troubleshooting (this section) - "X is broken" → troubleshooting; "how does X work?" → FAQ
+  - Concepts section - deeper explanations for conceptual questions
+  - Payments & Pricing guide - pricing questions link here for detail
+  - Setup Paths guide - "which gateway?" questions link here
 */}
 {/*
 # Gateway FAQ

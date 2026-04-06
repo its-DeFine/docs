@@ -123,7 +123,7 @@
 - **Voice**: 9/10 — Strong transactional framing
 - **Gaps**: Missing per-step time estimates, missing cost summary (gas + LPT range)
 
-#### setup/rcs-requirements.mdx — Requirements
+#### setup/prepare.mdx — Requirements
 - **Voice**: 9/10 — Numbers-driven, specific thresholds
 - **P0**: Line 279 — TODO: "Confirm the current active-set threshold" — will rot weekly
 - **Gaps**: Missing power consumption estimates, network latency impact, DIY vs cloud cost comparison

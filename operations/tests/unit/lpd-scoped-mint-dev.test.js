@@ -167,7 +167,8 @@ function createSupervisorProfile(overrides = {}) {
     routeCounts: overrides.routeCounts || { original: 4, scoped: 2 },
     scopedRoutes: overrides.scopedRoutes || ['v2/dev/get-started', 'v2/dev/overview'],
     watchFiles: overrides.watchFiles || [sourceDocsConfig, sourceMintignore],
-    disabledOpenapi: Boolean(overrides.disabledOpenapi)
+    disabledOpenapi: Boolean(overrides.disabledOpenapi),
+    diagnostics: overrides.diagnostics || []
   };
 }
 
@@ -718,6 +719,64 @@ async function runTests() {
       help: false
     });
     assert.ok(profile, 'scoped projection should succeed with warnings for missing page-level imports');
+    assert.ok(
+      Array.isArray(profile.diagnostics) &&
+        profile.diagnostics.some((diagnostic) => diagnostic.kind === 'unresolved-import'),
+      'scoped projection should expose unresolved import warnings as diagnostics'
+    );
+  });
+
+  cases.push(async () => {
+    const repoRoot = mkTmpDir('lpd-scope-import-reexport-');
+    const workspaceBase = mkTmpDir('lpd-scope-import-reexport-out-');
+    const docs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Import Re-export Fixture',
+      navigation: {
+        tabs: [
+          {
+            tab: 'Developers',
+            groups: [
+              {
+                group: 'Dev',
+                pages: ['v2/dev/get-started']
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    writeFile(path.join(repoRoot, 'docs.json'), `${JSON.stringify(docs, null, 2)}\n`);
+    writeFile(path.join(repoRoot, '.mintignore'), '# fixture\n');
+    writeFile(path.join(repoRoot, 'v2/dev/get-started.mdx'), 'import Demo from "/snippets/components/demo.jsx";\n<Demo />\n');
+    writeFile(path.join(repoRoot, 'snippets/components/demo.jsx'), 'import { label } from "./demo-model.js";\nexport { label };\nexport default function Demo() { return <div>{label}</div>; }\n');
+    writeFile(path.join(repoRoot, 'snippets/components/demo-model.js'), 'export const label = "demo";\n');
+
+    const profile = await createScopedProfile({
+      repoRoot,
+      workspaceBase,
+      scopeFile: '',
+      versions: [],
+      languages: [],
+      tabs: [],
+      prefixes: ['v2/dev'],
+      interactive: false,
+      disableOpenapi: false,
+      printOnly: false,
+      help: false
+    });
+
+    assert.ok(
+      profile.diagnostics.some(
+        (diagnostic) =>
+          diagnostic.kind === 'mint-import-reexport' &&
+          diagnostic.fileRelPath === 'snippets/components/demo.jsx' &&
+          diagnostic.binding === 'label'
+      ),
+      'scoped projection should classify import-then-export bindings as Mint compatibility warnings'
+    );
   });
 
   cases.push(async () => {
@@ -1159,6 +1218,67 @@ async function runTests() {
     assert.ok(
       harness.logMessages.some((message) => message.includes('Scoped workspace refreshed in place')),
       'config refresh should reconcile the workspace in place'
+    );
+
+    await harness.supervisor.shutdown();
+    await sessionPromise;
+  });
+
+  cases.push(async () => {
+    const harness = createSupervisorHarness([
+      createSupervisorProfile({
+        sourceDocsConfig: '/tmp/repo/docs.json',
+        scopeHash: 'diagnostics-session',
+        watchFiles: ['/tmp/repo/docs.json', '/tmp/repo/.mintignore', '/tmp/repo/v2/dev/get-started.mdx'],
+        diagnostics: [
+          {
+            key: 'warn::existing',
+            kind: 'unresolved-import',
+            fileRelPath: 'v2/dev/get-started.mdx',
+            message: 'Pre-existing scoped workspace warning: unresolved import "./missing-demo.jsx" in v2/dev/get-started.mdx'
+          }
+        ]
+      }),
+      createSupervisorProfile({
+        sourceDocsConfig: '/tmp/repo/docs.json',
+        scopeHash: 'diagnostics-session',
+        watchFiles: ['/tmp/repo/docs.json', '/tmp/repo/.mintignore', '/tmp/repo/v2/dev/get-started.mdx'],
+        diagnostics: [
+          {
+            key: 'warn::existing',
+            kind: 'unresolved-import',
+            fileRelPath: 'v2/dev/get-started.mdx',
+            message: 'Pre-existing scoped workspace warning: unresolved import "./missing-demo.jsx" in v2/dev/get-started.mdx'
+          },
+          {
+            key: 'warn::new',
+            kind: 'mint-import-reexport',
+            fileRelPath: 'snippets/components/demo.jsx',
+            message:
+              'Pre-existing Mint compatibility warning: imported binding "label" is re-exported in snippets/components/demo.jsx. Mint incremental parsing may treat this as a duplicate export on change.'
+          }
+        ]
+      })
+    ]);
+
+    const sessionPromise = harness.supervisor.start();
+    await waitFor(20);
+
+    assert.ok(
+      harness.logMessages.some((message) => message.includes('pre-existing warnings detected before Mint startup')),
+      'startup should classify initial scoped warnings as pre-existing'
+    );
+
+    harness.emit('change', 'get-started.mdx');
+    await waitFor(40);
+
+    assert.ok(
+      harness.logMessages.some((message) => message.includes('introduced 1 new warning')),
+      'refresh should classify newly surfaced diagnostics as introduced by the latest change set'
+    );
+    assert.ok(
+      harness.logMessages.some((message) => message.includes('still has 1 pre-existing warning')),
+      'refresh should preserve classification for warnings that already existed before the change'
     );
 
     await harness.supervisor.shutdown();

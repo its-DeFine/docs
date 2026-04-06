@@ -20,7 +20,13 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const taxonomy = require(path.resolve(__dirname, '../../../../../tools/lib/docs/frontmatter-taxonomy'));
-const { isValidPageType, isValidPurpose, isValidAudience, CANONICAL_AUDIENCES } = taxonomy;
+const {
+  isValidPageType,
+  isValidPurpose,
+  isValidAudience,
+  isValidStatus,
+  CANONICAL_AUDIENCES
+} = taxonomy;
 
 // Valid veracityStatus values — source: v2/orchestrators/_workspace/canonical/checks.mdx §1.8
 const CANONICAL_VERACITY_STATUSES = Object.freeze(['verified', 'unverified', 'stale']);
@@ -100,15 +106,15 @@ function parseFrontmatter(content) {
 }
 
 function getEnforcementDepth(pageType) {
+  const normalized = taxonomy.normalizePageType(pageType);
   const depths = {
     guide: 'full',
-    evaluation: 'full',
     concept: 'structural',
     reference: 'tier1-only',
-    'how-to': 'full',
-    landing: 'structural'
+    instruction: 'full',
+    navigation: 'structural'
   };
-  return depths[pageType] || 'full';
+  return depths[normalized.canonical || String(pageType || '').trim().toLowerCase()] || 'full';
 }
 
 function checkFrontmatter(content, filePath) {
@@ -183,6 +189,29 @@ function checkFrontmatter(content, filePath) {
     });
   }
 
+  if (frontmatter.status && !isValidStatus(frontmatter.status)) {
+    results.push({
+      tier: 2,
+      file: filePath,
+      line: 1,
+      id: 'INVALID_STATUS',
+      label: `status "${frontmatter.status}" is not a canonical value`,
+      fix: `Use one of: ${taxonomy.describeCanonicalPageStatuses()}.`,
+      match: frontmatter.status
+    });
+  }
+
+  if (!frontmatter.status) {
+    results.push({
+      tier: 2,
+      file: filePath,
+      line: 1,
+      id: 'MISSING_STATUS',
+      label: 'Missing status field',
+      fix: 'Add a canonical status value to frontmatter.'
+    });
+  }
+
   if (frontmatter.pageVariant && !CANONICAL_PAGE_VARIANTS.includes(frontmatter.pageVariant.toLowerCase())) {
     results.push({
       tier: 2,
@@ -218,6 +247,17 @@ function checkFrontmatter(content, filePath) {
       id: 'MISSING_VERACITY_STATUS',
       label: 'status is "current" but veracityStatus is not set',
       fix: 'Add veracityStatus: verified (or unverified/stale) to frontmatter. See checks.mdx §1.8.'
+    });
+  }
+
+  if (filePath.includes('/x-deprecated/') && String(frontmatter.status || '').trim().toLowerCase() !== 'deprecated') {
+    results.push({
+      tier: 2,
+      file: filePath,
+      line: 1,
+      id: 'DEPRECATED_PATH_STATUS_MISMATCH',
+      label: 'Page is under x-deprecated but status is not "deprecated"',
+      fix: 'Set status: deprecated for authored pages under x-deprecated/.'
     });
   }
 

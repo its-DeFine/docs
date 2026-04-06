@@ -1,7 +1,15 @@
 ---
-title: 'Video & Transcoding Pipelines'
-sidebarTitle: 'Video Pipelines'
-description: 'How video jobs flow through your gateway - RTMP and HTTP ingest, source segmentation, orchestrator selection via BroadcastSessionsManager, transcoding profiles, on-chain payment per segment, and output delivery as HLS.'
+title: Video & Transcoding Pipelines
+sidebarTitle: Video Pipelines
+description: >-
+  How video jobs flow through your gateway - RTMP and HTTP ingest, source segmentation,
+  orchestrator selection via BroadcastSessionsManager, transcoding profiles, on-chain
+  payment per segment, and output delivery as HLS.
+pageType: guide
+audience: gateway
+purpose: explain
+status: current
+lastVerified: '2026-03-13'
 keywords:
   - livepeer
   - gateway
@@ -14,11 +22,6 @@ keywords:
   - on-chain payment
   - pipeline
 og:image: /snippets/assets/media/og-images/fallback.png
-pageType: guide
-audience: gateway-operator
-purpose: concept
-status: current
-lastVerified: '2026-03-13'
 ---
 {/* TODO:
 Terminology Validation:
@@ -427,7 +430,7 @@ For Prometheus setup and alert YAML, see Monitoring Setup.
 
 {/* ---
 title: 'Video Transcoding Pipeline'
-description: 'How video jobs flow through your gateway — RTMP/HTTP ingest, segmentation, orchestrator selection, transcoding profiles, and output delivery.'
+description: 'How video jobs flow through your gateway - RTMP/HTTP ingest, segmentation, orchestrator selection, transcoding profiles, and output delivery.'
 sidebarTitle: 'Video Transcoding'
 pageType: 'guide'
 audience: 'gateway'
@@ -438,32 +441,32 @@ status: 'stub'
   PURPOSE:
   Journey step: "How do video jobs flow through my gateway?"
   Gateway-side video pipeline guide. NOT a setup guide (that's in Setup → Configuration).
-  This is "understand and tune your video pipeline" — how data flows, what happens at
+  This is "understand and tune your video pipeline" - how data flows, what happens at
   each stage, how to configure transcoding profiles, and how to optimise.
 
   SECTION HOME: Guides → AI and Job Pipelines
 
   JOURNEY POSITION:
-  1. Pipeline Overview — "What workloads can my gateway route?"
-  2. Video Transcoding Pipeline (this page) — "How do video jobs flow?"
-  3. AI Inference Pipeline — "How do AI jobs flow?"
-  4. BYOC Pipelines — "Custom containers on the network"
-  5. Pipeline Configuration — "Configure transcoding profiles and AI routing"
+  1. Pipeline Overview - "What workloads can my gateway route?"
+  2. Video Transcoding Pipeline (this page) - "How do video jobs flow?"
+  3. AI Inference Pipeline - "How do AI jobs flow?"
+  4. BYOC Pipelines - "Custom containers on the network"
+  5. Pipeline Configuration - "Configure transcoding profiles and AI routing"
 
   RELATED FILES (draw from):
-  - all-resources/ctx-new--video-configuration.mdx           — PRIMARY (90%): 745 lines. Comprehensive video config with Mermaid architecture diagram, essential flags, transcoding options JSON, Docker/CLI/binary examples, production considerations.
-  - all-resources/v1--transcoding-options.mdx                 — PRIMARY (80%): 93 lines. V1 transcoding config guide: JSON template, platform-specific instructions (Docker, Linux, Windows).
-  - all-resources/v2-setup--transcoding-options.mdx            — PRIMARY (80%): 109 lines. V2 copy of transcoding options with platform-specific config.
-  - all-resources/ctx-new--video-configuration-view.mdx       — SECONDARY (30%): 193 lines. Tabbed view alternative with Mermaid diagram, quickstart, config flags.
-  - all-resources/v2-run--video-configuration.mdx              — SECONDARY (40%): Run-a-gateway video configuration (if different from _contextData_ version).
-  - all-resources/v2-run--transcoding.mdx                      — Placeholder (5%): 38 lines. Reserved page, planned structure only.
+  - all-resources/ctx-new--video-configuration.mdx           - PRIMARY (90%): 745 lines. Comprehensive video config with Mermaid architecture diagram, essential flags, transcoding options JSON, Docker/CLI/binary examples, production considerations.
+  - all-resources/v1--transcoding-options.mdx                 - PRIMARY (80%): 93 lines. V1 transcoding config guide: JSON template, platform-specific instructions (Docker, Linux, Windows).
+  - all-resources/v2-setup--transcoding-options.mdx            - PRIMARY (80%): 109 lines. V2 copy of transcoding options with platform-specific config.
+  - all-resources/ctx-new--video-configuration-view.mdx       - SECONDARY (30%): 193 lines. Tabbed view alternative with Mermaid diagram, quickstart, config flags.
+  - all-resources/v2-run--video-configuration.mdx              - SECONDARY (40%): Run-a-gateway video configuration (if different from _contextData_ version).
+  - all-resources/v2-run--transcoding.mdx                      - Placeholder (5%): 38 lines. Reserved page, planned structure only.
 
   CROSS-REFS:
-  - Setup → Video Configuration — initial setup vs this guide's "how it works and how to tune"
-  - Payments & Pricing → Pricing Strategy — per-pixel pricing for video transcoding
-  - Monitoring → Health Checks — video pipeline health verification
-  - Resources → Configuration Flags — full flag reference for video flags
-  - Resources → Prometheus Metrics — video-specific metrics (success_rate, transcode_latency)
+  - Setup → Video Configuration - initial setup vs this guide's "how it works and how to tune"
+  - Payments & Pricing → Pricing Strategy - per-pixel pricing for video transcoding
+  - Monitoring → Health Checks - video pipeline health verification
+  - Resources → Configuration Flags - full flag reference for video flags
+  - Resources → Prometheus Metrics - video-specific metrics (success_rate, transcode_latency)
 */}
 
 {/* # Video Transcoding Pipeline

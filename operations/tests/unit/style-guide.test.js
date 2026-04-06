@@ -44,6 +44,7 @@ const NEGATION_DEFINITION_PATTERNS = [
   /\bis\s+[^.\n]{0,120}?,\s*not\s+(?:an?|the)\s+[a-z]/i,
   /\bis\s+[^.\n]{0,120}\s+not\s+(?:an?|the)\s+[a-z]/i
 ];
+const EM_DASH = '\u2014';
 
 function toPosix(filePath) {
   return String(filePath || '').split(path.sep).join('/');
@@ -394,6 +395,74 @@ function checkInlineStylesInMdx(files, stagedOnly = false) {
       if (inCustomDividerTag && lineClosesSelfClosingTag(line)) {
         inCustomDividerTag = false;
       }
+    });
+  });
+}
+
+/**
+ * Check for em-dashes in authored MDX, including JSX prop strings.
+ * Code fences, inline code, and JSX comments are exempt.
+ */
+function checkEmDashes(files, stagedOnly = false) {
+  files.filter((file) => file.endsWith('.mdx')).forEach((file) => {
+    const content = readFile(file);
+    if (!content) return;
+
+    const lines = content.split('\n');
+    let inCodeBlock = false;
+    let inJsxComment = false;
+
+    lines.forEach((line, index) => {
+      const lineNumber = index + 1;
+      const trimmed = line.trim();
+
+      if (!shouldCheckLine(file, lineNumber, stagedOnly)) {
+        return;
+      }
+
+      if (trimmed.startsWith('```')) {
+        inCodeBlock = !inCodeBlock;
+        return;
+      }
+
+      if (inCodeBlock) {
+        return;
+      }
+
+      let scanLine = line;
+
+      if (inJsxComment) {
+        const commentEnd = scanLine.indexOf('*/}');
+        if (commentEnd === -1) {
+          return;
+        }
+        scanLine = scanLine.slice(commentEnd + 3);
+        inJsxComment = false;
+      }
+
+      while (scanLine.includes('{/*')) {
+        const commentStart = scanLine.indexOf('{/*');
+        const commentEnd = scanLine.indexOf('*/}', commentStart + 3);
+        if (commentEnd === -1) {
+          scanLine = scanLine.slice(0, commentStart);
+          inJsxComment = true;
+          break;
+        }
+        scanLine = `${scanLine.slice(0, commentStart)} ${scanLine.slice(commentEnd + 3)}`;
+      }
+
+      scanLine = scanLine.replace(/`[^`]*`/g, '');
+
+      if (!scanLine.includes(EM_DASH)) {
+        return;
+      }
+
+      errors.push({
+        file,
+        rule: 'No em-dashes',
+        message: 'Em-dash detected - use a comma, colon, semicolon, or rewrite the sentence',
+        line: lineNumber
+      });
     });
   });
 }
@@ -755,6 +824,7 @@ function runTests(options = {}) {
   checkThemeData(testFiles, changedOnly);
   checkHardcodedColors(testFiles, changedOnly);
   checkInlineStylesInMdx(testFiles, changedOnly);
+  checkEmDashes(testFiles, changedOnly);
   checkTailwindClasses(testFiles, changedOnly);
   checkBoilerplateOpenings(testFiles, changedOnly);
   checkFillerMarketingLanguage(testFiles, changedOnly);

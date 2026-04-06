@@ -67,12 +67,21 @@ graph LR
 - `operations/scripts/remediators/components/library/repair-component-metadata.js`
 - `operations/scripts/validators/components/library/component-layout-governance.js`
 
+**Canonical repo-root quality owners consumed alongside this workflow:**
+- `tools/lib/docs/frontmatter-taxonomy.js`
+- `operations/tests/unit/frontmatter-taxonomy.test.js`
+- `operations/scripts/validators/content/structure/lint-structure.js`
+- `operations/tests/unit/quality.test.js`
+- `operations/tests/unit/spelling.test.js`
+- `operations/tests/unit/style-guide.test.js`
+
 <CustomDivider />
 
 ## Known Issues
 
 - All 6 steps have continue-on-error masking failures
 - Script paths may be stale from restructure
+- This workflow is not the canonical owner for frontmatter taxonomy or link remediation. It consumes health signals; repo-root ownership stays with the dedicated validators/audits listed above.
 
 **Review flags:** continue-on-error masking all failures
 

@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 /**
  * @script            frontmatter-taxonomy.test
- * @category          validator
+ * @type              validator
+ * @concern           governance
+ * @niche             taxonomy
  * @purpose           qa:content-quality
  * @scope             tests, tools/lib
- * @owner             docs
- * @needs             E-R1, R-R11
- * @purpose-statement Verifies shared docs frontmatter taxonomy normalization and purpose mapping.
+ * @description       Verifies shared docs frontmatter taxonomy normalization and purpose mapping.
+ * @mode              read-only
  * @pipeline          P1 (commit, via run-all)
  * @usage             node operations/tests/unit/frontmatter-taxonomy.test.js
+ * @policy            E-R1, R-R11
  */
 
 const assert = require('assert');

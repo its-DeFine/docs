@@ -40,7 +40,7 @@ export const StyledSteps = ({
         .docs-styled-steps .steps > div > div.w-full > p {
           color: ${resolvedTitleColor};
         }
-        .docs-styled-steps > div > div > div.absolute.w-px {
+        .docs-styled-steps .steps > div > div.absolute.w-px {
           background-color: ${resolvedLineColor};
         }
         .docs-styled-steps .steps > div:last-child > div.absolute.w-px::after {

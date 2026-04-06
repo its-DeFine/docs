@@ -2,18 +2,18 @@
 title: LPT Mechanics
 sidebarTitle: Mechanics
 description: >-
-  Detailed protocol-level mechanics governing bonding, unbonding, reward
-  checkpointing, and round-based state transitions in the Livepeer Protocol.
+  How rounds, reward calls, reward accounting, and governance checkpoints work
+  beneath delegation in the Livepeer protocol.
 pageType: concept
+pageVariant: overview
 keywords:
   - livepeer
   - lpt
   - mechanics
   - bonding
-  - unbonding
-  - staking
-  - rewards
+  - reward
   - rounds
+  - claimEarnings
 'og:image': /snippets/assets/media/og-images/fallback.png
 'og:image:alt': Livepeer Docs social preview image
 'og:image:type': image/png
@@ -21,174 +21,110 @@ keywords:
 'og:image:height': 630
 audience: delegator
 lifecycleStage: evaluate
-lastVerified: 2026-03-17
+lastVerified: 2026-04-06
 purpose: explain
 ---
 import { MathInline, MathBlock } from '/snippets/components/elements/math/Math.jsx'
 
+Delegation returns are driven by a small set of on-chain mechanics: rounds, active-set selection, reward calls, and earnings checkpoints. Understanding those moving parts explains why orchestrator reliability matters as much as headline commission.
 
-## Executive Summary
+## Rounds
 
-This page describes the deterministic contract-level mechanics governing how LPT transitions between bonded and unbonded states, how rounds are processed, and how rewards are checkpointed and claimed.
+A round is the protocol's accounting unit. Livepeer uses rounds to:
 
-All mechanisms described here operate strictly at the **protocol layer (on-chain)**.
+- elect the active set
+- update inflation-related state
+- determine when orchestrators can mint that round's rewards
+- snapshot bonded stake for governance
 
-<CustomDivider />
+Reader-facing shorthand is still "about one day per round", but the exact cadence depends on chain timing. Use the Explorer for the current round and countdown rather than relying on any fixed hourly estimate.
 
-## 1. Core State Variables
+## The active set
 
-Let:
+Only active orchestrators can earn inflation rewards for a round. If your orchestrator drops out of the active set, your stake stays bonded but does not earn round rewards until they return or you redelegate.
 
-- <MathInline latex={String.raw`S_t`} /> = total LPT supply at round <MathInline latex={String.raw`t`} />
-- <MathInline latex={String.raw`B_T`} /> = total bonded stake
-- <MathInline latex={String.raw`B_i`} /> = bonded stake attributed to participant <MathInline latex={String.raw`i`} />
-- Round <MathInline latex={String.raw`t`} /> = discrete accounting epoch managed by the protocol
+<Info>
+  The active-set size is governance-controlled. Current public Livepeer product surfaces still describe the active set as 100 orchestrators, but if you need an operationally exact value, re-check `numActiveTranscoders()` directly before automating against it.
+</Info>
 
-Rounds form the atomic accounting unit for issuance and reward distribution.
+## The `reward()` call
 
-<CustomDivider />
+Every active orchestrator has to submit `reward()` on-chain each round. That call is what causes the protocol to mint and account for that round's inflationary LPT for the orchestrator's pool.
 
-## 2. Bonding
+If the orchestrator misses the call:
 
-Bonding is the act of locking LPT into the staking contract to participate in protocol rewards and governance.
+- no inflation reward is minted for that pool for that round
+- the missed round does not get backfilled later
+- delegators in that pool permanently miss that round's inflation
 
-When participant <MathInline latex={String.raw`i`} /> bonds amount <MathInline latex={String.raw`x`} />:
+That is why a reliable reward-call history is a first-order delegator signal.
 
-<MathBlock latex={String.raw`B_i^{new} = B_i^{old} + x`} />
+## How delegation is accounted for
 
-<MathBlock latex={String.raw`B_T^{new} = B_T^{old} + x`} />
-
-Bonded stake contributes to:
-
-- Reward eligibility
-- Governance voting weight
-- Security participation
-
-Bonding is recorded in the BondingManager contract.
-
-<CustomDivider />
-
-## 3. Delegation Attribution
-
-If delegator <MathInline latex={String.raw`D`} /> bonds to orchestrator <MathInline latex={String.raw`O`} />:
+When delegator <MathInline latex={String.raw`D`} /> bonds to orchestrator <MathInline latex={String.raw`O`} />, the orchestrator's effective stake becomes:
 
 <MathBlock latex={String.raw`B_O = B_{self,O} + \sum_D b_{D,O}`} />
 
-Delegators retain ownership but delegate reward rights and voting weight attribution.
+That total stake is what matters for active-set ranking and reward allocation. Your tokens remain yours, but your stake weight is attributed to the orchestrator you selected.
 
-<CustomDivider />
+## Reward accounting
 
-## 4. Unbonding
-
-Unbonding initiates a withdrawal period.
-
-When participant <MathInline latex={String.raw`i`} /> unbonds amount <MathInline latex={String.raw`x`} />:
-
-<MathBlock latex={String.raw`B_i^{new} = B_i^{old} - x`} />
-
-<MathBlock latex={String.raw`B_T^{new} = B_T^{old} - x`} />
-
-The stake enters a pending withdrawal state subject to an unbonding period measured in rounds.
-
-During this period:
-
-- Stake does not earn rewards
-- Stake cannot be immediately transferred
-
-This delay protects against rapid stake-based manipulation.
-
-<CustomDivider />
-
-## 5. Round Lifecycle
-
-Each round includes:
-
-1. Inflation calculation
-2. Reward distribution eligibility
-3. Checkpoint processing
-
-Round transition is triggered by protocol timing logic.
-
-Issuance per round:
-
-<MathBlock latex={String.raw`R_t = S_t \cdot r_t`} />
-
-Supply update:
-
-<MathBlock latex={String.raw`S_{t+1} = S_t + R_t`} />
-
-<CustomDivider />
-
-## 6. Reward Checkpointing
-
-Rewards are not automatically transferred; they must be checkpointed.
-
-Checkpointing updates participant reward balances according to stake weight.
-
-Allocation to orchestrator <MathInline latex={String.raw`O`} />:
+At the protocol level, inflation available to an orchestrator's pool for round <MathInline latex={String.raw`t`} /> is proportional to that pool's share of total bonded stake:
 
 <MathBlock latex={String.raw`R_O = R_t \cdot \frac{B_O}{B_T}`} />
 
-Delegator share:
+Your share of that pool's delegator rewards is then determined by your share of the pool after the orchestrator's `rewardCut`:
 
 <MathBlock latex={String.raw`R_{D,O} = R_O (1 - c_O) \cdot \frac{b_{D,O}}{B_O}`} />
 
-Checkpointing updates internal accounting state before withdrawal or rebonding.
+The protocol tracks this through cumulative reward accounting rather than updating every delegator record every round.
 
-<CustomDivider />
+## Claim timing matters
 
-## 7. Claiming and Rebonding
+`claimEarnings()` moves accrued earnings into your bonded balance. The protocol also triggers that accounting path when you bond more, unbond, rebond, or redelegate.
 
-Participants may:
+The critical edge case is timing:
 
-- Claim rewards to liquid balance
-- Rebond rewards (compound stake)
+- if you claim after your orchestrator has already called `reward()` for the current round, accounting includes that round
+- if you claim before your orchestrator has called `reward()` for the current round, you can skip that round's reward accounting entirely
 
-Rebonding increases <MathInline latex={String.raw`B_i`} /> and thus future economic weight.
+As of 6 April 2026, the Explorer warning for this behaviour is still not fully shipped in production UI terms because Explorer PR `#613` remains open. Do not rely on the interface to catch the timing for you.
 
-<CustomDivider />
+## Governance checkpoints
 
-## 8. State Transition Diagram
+Bonded stake is also checkpointed for governance. The BondingVotes contract records stake snapshots so proposal voting power is based on stake at proposal creation time rather than whatever a wallet bonded later.
+
+That prevents last-minute stake moves from distorting proposal outcomes.
+
+## State lifecycle
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Bonded
-    Bonded --> Unbonding : initiateUnbond()
-    Unbonding --> Withdrawable : afterUnbondingPeriod
-    Withdrawable --> [*] : withdraw()
-    Bonded --> Bonded : checkpoint() / rebond()
+    [*] --> Bonded : bond()
+    Bonded --> Unbonding : unbond()
+    Unbonding --> Withdrawable : after unbonding period
+    Withdrawable --> [*] : withdrawStake()
+    Unbonding --> Bonded : rebond()
 ```
 
-<CustomDivider />
+## Related pages
 
-## 9. Security Implications
-
-Mechanisms that protect protocol integrity:
-
-- **Unbonding delay** - reduces short-term manipulation
-- **Round-based accounting** - deterministic reward cycles
-- **Stake-weighted allocation** - capital-backed security
-
-<CustomDivider />
-
-## 10. Protocol vs Network Separation
-
-**Protocol (On-Chain):**
-- Bonding/unbonding logic
-- Round transitions
-- Reward issuance
-- Stake attribution
-
-**Network (Off-Chain):**
-- Job execution
-- Performance
-- Fee generation
-
-Mechanics described here are entirely on-chain.
-
-<CustomDivider />
+<CardGroup cols={2}>
+  <Card title="Protocol Parameters" icon="sliders" href="/v2/delegators/resources/reference/protocol-parameters" arrow>
+    Exact governance-controlled values that shape delegation behaviour.
+  </Card>
+  <Card title="Delegation Economics" icon="chart-line" href="/v2/delegators/delegation/delegation-economics" arrow>
+    See how the protocol mechanics translate into reader-facing reward outcomes.
+  </Card>
+  <Card title="Manage Your Delegation" icon="gauge" href="/v2/delegators/delegation/manage-your-delegation" arrow>
+    Claim, compound, redelegate, unbond, and withdraw with the protocol edge cases in mind.
+  </Card>
+  <Card title="Contract Addresses" icon="file-contract" href="/v2/delegators/resources/reference/contracts" arrow>
+    Canonical deployed addresses for the contracts named on this page.
+  </Card>
+</CardGroup>
 
 ## References
 
-- [Livepeer Protocol Repository](https://github.com/livepeer/protocol)
-- [Contract Registry](/v2/about/resources/reference/livepeer-contract-addresses)
+- [Livepeer protocol repository](https://github.com/livepeer/protocol)
+- [Livepeer Explorer](https://explorer.livepeer.org)

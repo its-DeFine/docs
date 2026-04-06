@@ -82,7 +82,7 @@ These URLs appear in project files, cross-references in confirmed MDX files, or 
 | https://github.com/j0sh/livepeer-python-gateway | gateways-research-report.md + multiple project files |
 | https://signer.eliteencoder.net | Remote_signers.md + Discord export |
 | https://docs.livepeer.org/gateways/payments/remote-signers | docs.json nav (page exists, content not confirmed) |
-| https://docs.livepeer.org/gateways/setup/configure/dual-configuration | docs.json nav |
+| https://docs.livepeer.org/gateways/setup/configure | docs.json nav |
 | https://app.titan-node.com | Titan-Node/Titan-Node-Pool README (confirmed via setup-paths-sources.md) |
 | https://www.youtube.com/@TitanNode | gpu-nodes-ia-planning.md persona research |
 | https://www.youtube.com/@Livepeer | content-brief-template.md |

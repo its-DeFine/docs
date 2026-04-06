@@ -7,7 +7,7 @@ Run a gateway without managing an Arbitrum wallet. Off-chain mode delegates paym
 ## Prerequisites
 
 - **Remote signer endpoint**: either a community-hosted signer or a self-deployed instance.
-  {/* REVIEW: community signer URL — verify with: Discord #local-gateways */}
+  {/_ REVIEW: community signer URL — verify with: Discord #local-gateways _/}
 - **Orchestrator addresses**: one or more orchestrator Ethereum addresses to connect to. Off-chain mode has no on-chain discovery — specify orchestrators explicitly.
 - **Operating system**: Linux or macOS.
 - **Docker Engine** (Docker method only).
@@ -47,7 +47,7 @@ docker run -d \
   -v 6
 ```
 
-{/* REVIEW: -network offchain flag name — verify with: go-livepeer latest tagged release */}
+{/_ REVIEW: -network offchain flag name — verify with: go-livepeer latest tagged release _/}
 
 Replace `ORCHESTRATOR_ADDRESS_1,ORCHESTRATOR_ADDRESS_2` with the Ethereum addresses of orchestrators you want to route work to. Separate multiple addresses with commas, no spaces.
 
@@ -101,21 +101,21 @@ A remote signer is a separate service that holds an Ethereum private key and sig
 **Deployment options:**
 
 - **Community-hosted signer**: available for testing and smaller deployments.
-  {/* REVIEW: community signer URL and availability — verify with: Discord #local-gateways */}
+  {/_ REVIEW: community signer URL and availability — verify with: Discord #local-gateways _/}
 - **Self-hosted signer**: deploy your own instance for full control over key material. Refer to the Remote Signers guide for deployment instructions.
-  {/* REVIEW: Remote Signers guide location — verify with: docs-v2 information architecture */}
+  {/_ REVIEW: Remote Signers guide location — verify with: docs-v2 information architecture _/}
 
 ---
 
 ## On-chain vs off-chain comparison
 
-| Aspect | On-chain | Off-chain |
-|--------|----------|-----------|
-| Orchestrator discovery | Automatic via ServiceRegistry | Manual — specify addresses with `-orchAddr` |
-| Payment | Direct ETH deposit in TicketBroker | Via remote signer |
-| ETH management | Gateway manages wallet and deposits | Remote signer manages key |
-| Setup complexity | Higher — requires Arbitrum RPC, funding | Lower — no chain interaction |
-| Production ready | Yes | Yes |
+| Aspect                 | On-chain                                | Off-chain                                   |
+| ---------------------- | --------------------------------------- | ------------------------------------------- |
+| Orchestrator discovery | Automatic via ServiceRegistry           | Manual — specify addresses with `-orchAddr` |
+| Payment                | Direct ETH deposit in TicketBroker      | Via remote signer                           |
+| ETH management         | Gateway manages wallet and deposits     | Remote signer manages key                   |
+| Setup complexity       | Higher — requires Arbitrum RPC, funding | Lower — no chain interaction                |
+| Production ready       | Yes                                     | Yes                                         |
 
 ---
 
@@ -144,20 +144,20 @@ curl -X POST http://localhost:8937/text-to-image \
   -d '{"prompt": "a network of interconnected nodes"}'
 ```
 
-{/* REVIEW: AI gateway port 8937 and /text-to-image endpoint — verify with: go-livepeer latest release + AI subnet docs */}
+{/_ REVIEW: AI gateway port 8937 and /text-to-image endpoint — verify with: go-livepeer latest release + AI subnet docs _/}
 
 ---
 
 ## Port reference
 
-| Port | Protocol | Purpose |
-|------|----------|---------|
-| 1935 | RTMP | Video stream ingest |
-| 8935 | HTTP | Video gateway API and HLS playback |
-| 8937 | HTTP | AI gateway API |
-| 5935 | HTTP | `livepeer_cli` interface |
+| Port | Protocol | Purpose                            |
+| ---- | -------- | ---------------------------------- |
+| 1935 | RTMP     | Video stream ingest                |
+| 8935 | HTTP     | Video gateway API and HLS playback |
+| 8937 | HTTP     | AI gateway API                     |
+| 5935 | HTTP     | `livepeer_cli` interface           |
 
-{/* REVIEW: port 5935 for livepeer_cli in off-chain mode — verify with: go-livepeer default configuration */}
+{/_ REVIEW: port 5935 for livepeer_cli in off-chain mode — verify with: go-livepeer default configuration _/}
 
 ---
 

@@ -91,7 +91,7 @@ const BLOCKCHAIN_PAGE_SPEC_PATH = path.join(
   'contracts',
   'blockchain-page-spec.js'
 );
-const CANONICAL_PAGE_PATH = path.join(
+const CANONICAL_ROUTE_PATH = path.join(
   REPO_ROOT,
   'v2',
   'about',
@@ -99,12 +99,31 @@ const CANONICAL_PAGE_PATH = path.join(
   'reference',
   'livepeer-contract-addresses.mdx'
 );
-const VERIFIER_PAGE_PATH = path.join(
+const CANONICAL_COMPOSABLE_PATH = path.join(
   REPO_ROOT,
-  'v2',
-  'about',
-  'resources',
-  'verify-contract-addresses.mdx'
+  'snippets',
+  'composables',
+  'pages',
+  'canonical',
+  'livepeer-contract-addresses.mdx'
+);
+const CANONICAL_PAGE_DATA_HELPER_PATH = path.join(
+  REPO_ROOT,
+  'snippets',
+  'composables',
+  'pages',
+  'canonical',
+  'data',
+  'livepeer-contract-addresses-page-data.jsx'
+);
+const CANONICAL_PAGE_MODEL_PATH = path.join(
+  REPO_ROOT,
+  'snippets',
+  'composables',
+  'pages',
+  'canonical',
+  'data',
+  'livepeer-contract-addresses-page-model.jsx'
 );
 const BLOCKCHAIN_PAGE_PATH = path.join(
   REPO_ROOT,
@@ -595,28 +614,32 @@ function runTests() {
   });
 
   runCase('contracts pages consume the shared contracts view-model and stable table stack', () => {
-    const canonicalPage = readText(CANONICAL_PAGE_PATH);
-    const verifierPage = readText(VERIFIER_PAGE_PATH);
+    const canonicalRoute = readText(CANONICAL_ROUTE_PATH);
+    const canonicalComposable = readText(CANONICAL_COMPOSABLE_PATH);
+    const pageDataHelper = readText(CANONICAL_PAGE_DATA_HELPER_PATH);
     const blockchainPage = readText(BLOCKCHAIN_PAGE_PATH);
     const contractsAdapter = readText(CONTRACTS_DATA_ADAPTER_PATH);
     const viewModelAdapter = readText(VIEW_MODEL_ADAPTER_PATH);
     const registryDataModule = readText(GENERATED_JSX_PATH);
     const blockchainDataModule = readText(BLOCKCHAIN_PAGE_JSX_PATH);
 
-    assert.ok(canonicalPage.includes('/snippets/data/contract-addresses/view-model.jsx'), 'canonical page should import the shared contracts view-model adapter');
-    assert.ok(canonicalPage.includes('/snippets/data/contract-addresses/contractAddressesData.jsx'), 'canonical page should import the canonical contracts data module');
-    assert.ok(!canonicalPage.includes('export const '), 'canonical page should not own data/helper exports in MDX');
-    assert.ok(!canonicalPage.includes('/snippets/data/changelogs/contractAddressesData.jsx'), 'canonical page should not import archived historical changelog data');
-    assert.ok(!canonicalPage.includes('ContractVerifier'), 'canonical reference page should not embed the verifier widget');
-    assert.ok(!canonicalPage.includes('SearchTableV2'), 'canonical page must use the stable SearchTable component');
-    assert.ok(!canonicalPage.includes('DynamicTableV2'), 'canonical page must use the stable DynamicTable component');
-    assert.ok(!canonicalPage.includes('#verifier-widget-verify-contract-address'), 'canonical page should not keep widget-anchor navigation');
-    assert.ok(canonicalPage.includes('contractsRoutes.verifier'), 'canonical page should link to the dedicated verifier route through the shared routes helper');
-    assert.ok(canonicalPage.includes('HistoricalContractTable category={meta.key} sourceData={contractAddresses}'), 'canonical page should consume generated historical data through the table component');
+    assert.ok(canonicalRoute.includes('/snippets/composables/pages/canonical/livepeer-contract-addresses.mdx'), 'canonical route should delegate rendering to the canonical composable');
+    assert.ok(canonicalComposable.includes('/snippets/data/contract-addresses/view-model.jsx'), 'canonical composable should import the shared contracts view-model adapter');
+    assert.ok(canonicalComposable.includes('/snippets/data/contract-addresses/contractAddressesData.jsx'), 'canonical composable should import the canonical contracts data module');
+    assert.ok(!canonicalComposable.includes('/snippets/composables/pages/canonical/data/livepeer-contract-addresses-page-model.jsx'), 'canonical composable should not import the retired page-local selector layer');
+    assert.ok(canonicalComposable.includes('getNonActiveGroups(contractAddresses).map'), 'canonical composable should build non-active sections from shared lifecycle groups');
+    assert.ok(canonicalComposable.includes('getHistoricalCategories(contractAddresses).map'), 'canonical composable should build historical sections from shared category metadata');
+    assert.ok(canonicalComposable.includes('getHistoricalCategoryMeta(group.key)'), 'canonical composable should resolve historical titles and descriptions from the shared view-model');
 
-    assert.ok(verifierPage.includes('ContractVerifier'), 'verifier page should host the ContractVerifier widget');
-    assert.ok(verifierPage.includes('contractsRoutes.reference'), 'verifier page should link back to the canonical reference route through the shared routes helper');
-    assert.ok(verifierPage.includes('/snippets/data/contract-addresses/contractAddressesData.jsx'), 'verifier page should import the canonical contracts data module');
+    assert.ok(!pageDataHelper.includes("from './livepeer-contract-addresses-page-model.jsx'"), 'page-local helper should not import the retired page-local selector layer');
+    assert.strictEqual(
+      /getEthereumActiveNameList|getActiveTableItems|getProxyTableItems|getPausedTableItems|getMigrationResidualTableItems|getLegacyOperationalTableItems|historicalCategoryTitle|historicalCategoryDescription/.test(pageDataHelper),
+      false,
+      'page-local helper should not re-export or retain shared selector bindings'
+    );
+    assert.ok(pageDataHelper.includes('export const buildCategoryAccordionRows ='), 'page-local helper should keep the render-only accordion row helper');
+    assert.ok(pageDataHelper.includes('export const historicalCategoryIcon ='), 'page-local helper should keep the render-only historical icon helper');
+    assert.strictEqual(fs.existsSync(CANONICAL_PAGE_MODEL_PATH), false, 'page-local selector layer should be removed');
 
     assert.ok(!blockchainPage.includes('/snippets/data/changelogs/contractAddressesData.jsx'), 'blockchain page should not import archived historical changelog data');
     assert.ok(!blockchainPage.includes('/snippets/composables/pages/canonical/data/blockchain-contracts-data.jsx'), 'blockchain page must not depend on the composable helper data layer');

@@ -1,7 +1,15 @@
 ---
-title: 'Pipeline Configuration'
-sidebarTitle: 'Pipeline Configuration'
-description: 'Post-setup tuning for Livepeer gateway pipelines - video transcoding profiles (JSON encoding ladder, presets, recipes) and AI inference tuning (retry timeouts, model selection, warm vs cold behaviour).'
+title: Pipeline Configuration
+sidebarTitle: Pipeline Configuration
+description: >-
+  Post-setup tuning for Livepeer gateway pipelines - video transcoding profiles (JSON
+  encoding ladder, presets, recipes) and AI inference tuning (retry timeouts, model
+  selection, warm vs cold behaviour).
+pageType: guide
+audience: gateway
+purpose: operate
+status: current
+lastVerified: '2026-03-15'
 keywords:
   - livepeer
   - gateway
@@ -14,11 +22,6 @@ keywords:
   - warm model
   - inference steps
 og:image: /snippets/assets/media/og-images/fallback.png
-pageType: guide
-audience: gateway-operator
-purpose: operations
-status: current
-lastVerified: '2026-03-15'
 ---
 {/* TODO:
 Terminology Validation:
@@ -36,7 +39,7 @@ Verify:
 Human:
 - Pricing sections moved to pricing-strategy.mdx (see payments-and-pricing/to-include.md for gaps)
 - AI routing flags (orchAddr, discovery) covered in ai-pipelines.mdx
-- Dual gateway resource allocation covered in setup/configure/dual-configuration.mdx and advanced-operations/scaling.mdx
+- Dual gateway resource allocation covered in setup/configure.mdx and advanced-operations/scaling.mdx
 - Port 8935 used as standard per quickstart code.jsx (all AI and video endpoints share the -httpAddr port)
 */}
 
@@ -525,7 +528,7 @@ For the full side-by-side comparison, see <LinkArrow href="/v2/gateways/guides/n
   <Card title="Pricing Strategy" icon="tag" href="/v2/gateways/guides/payments-and-pricing/pricing-strategy">
     Price caps for video and AI, competitive positioning, and ETH volatility handling.
   </Card>
-  <Card title="Dual Configuration" icon="clone" href="/v2/gateways/setup/configure/dual-configuration">
+  <Card title="Dual Configuration" icon="clone" href="/v2/gateways/setup/configure">
     Architecture, port setup, and session management for dual gateways.
   </Card>
   <Card title="Scaling" icon="arrow-up-right-dots" href="/v2/gateways/guides/advanced-operations/scaling">

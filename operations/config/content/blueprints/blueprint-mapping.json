@@ -67,7 +67,7 @@
     "Configuring AI on Your Orchestrator": "v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide.mdx",
     "Model Curation Strategy": null,
     "Orchestrator Earnings & Optimisation": "v2/orchestrators/guides/staking-and-rewards/earnings.mdx",
-    "Hardware Requirements": "v2/orchestrators/setup/rcs-requirements.mdx",
+    "Hardware Requirements": "v2/orchestrators/setup/prepare.mdx",
     "CLI Flags Reference": "v2/orchestrators/resources/cli-flags.mdx",
     "Orchestrator Troubleshooting": null,
     "Orchestrator FAQ": "v2/orchestrators/resources/faq.mdx"
@@ -75,11 +75,15 @@
   "DELEGATORS": {
     "Delegators Portal": "v2/delegators/portal.mdx",
     "What is Delegation?": "v2/delegators/delegation/overview.mdx",
+    "What Bonding Means": "v2/delegators/delegation/about-delegation.mdx",
     "Delegation Economics": "v2/delegators/delegation/delegation-economics.mdx",
-    "Delegate Your LPT": "v2/delegators/delegation/choose-an-orchestrator.mdx",
+    "Delegate Your LPT": "v2/delegators/delegation/delegate-your-lpt.mdx",
     "Getting LPT": "v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx",
     "Choosing an Orchestrator": "v2/delegators/delegation/choose-an-orchestrator.mdx",
     "Managing Your Delegation": "v2/delegators/delegation/manage-your-delegation.mdx",
+    "Protocol Parameters": "v2/delegators/resources/reference/protocol-parameters.mdx",
+    "Contract Addresses": "v2/delegators/resources/reference/contracts.mdx",
+    "Glossary": "v2/delegators/resources/glossary.mdx",
     "Livepeer Governance": "v2/delegators/guides/governance/overview.mdx",
     "Treasury & Proposals": "v2/delegators/guides/treasury/overview.mdx",
     "Delegator FAQ & Troubleshooting": null
@@ -98,7 +102,7 @@
     "Network Architecture": "v2/about/network/technical-architecture.mdx",
     "The Marketplace": "v2/about/network/marketplace.mdx",
     "Protocol Economics": "v2/about/protocol/economics.mdx",
-    "Glossary": "v2/about/resources/livepeer-glossary.mdx"
+    "Glossary": "v2/about/resources/glossary.mdx"
   },
   "RESOURCE HUB": {
     "Resource Portal": "v2/resources/resources-portal.mdx",

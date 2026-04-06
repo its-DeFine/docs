@@ -21,7 +21,7 @@ const fs = require('fs');
 const path = require('path');
 const { execFileSync, spawnSync } = require('child_process');
 const { bootstrapRepoNodePaths } = require('../../../../../tools/lib/bootstrap/repo-node-paths');
-const yaml = require('js-yaml');
+const yaml = require('../../../../../tools/lib/bootstrap/load-js-yaml');
 const {
   AGGREGATE_INDEX_PATH,
   CATEGORY_ENUM,

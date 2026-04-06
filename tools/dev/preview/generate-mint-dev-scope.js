@@ -942,6 +942,91 @@ function extractImportReferences(content) {
   return [...refs];
 }
 
+function splitNamedSpecifiers(specifierBlock) {
+  return String(specifierBlock || '')
+    .split(',')
+    .map((entry) => entry.trim())
+    .filter(Boolean)
+    .map((entry) => {
+      const aliasMatch = entry.match(/^(.+?)\s+as\s+(.+)$/i);
+      const localName = aliasMatch ? aliasMatch[2].trim() : entry;
+      const sourceName = aliasMatch ? aliasMatch[1].trim() : entry;
+      return {
+        sourceName,
+        localName
+      };
+    });
+}
+
+function detectImportedBindingReexports(content) {
+  const source = String(content || '');
+  const importedBindings = new Set();
+  const namedImportRegex = /^\s*import\s+(?:[^'"]*?,\s*)?\{([^}]+)\}\s+from\s+['"][^'"]+['"];?/gm;
+  const namedExportRegex = /^\s*export\s+\{([^}]+)\}\s*(?:from\s+['"][^'"]+['"])?;?/gm;
+
+  let match;
+  while ((match = namedImportRegex.exec(source)) !== null) {
+    splitNamedSpecifiers(match[1]).forEach(({ localName }) => {
+      if (localName) {
+        importedBindings.add(localName);
+      }
+    });
+  }
+
+  const duplicatedBindings = new Set();
+  while ((match = namedExportRegex.exec(source)) !== null) {
+    const fullMatch = match[0] || '';
+    if (/\}\s*from\s+['"]/.test(fullMatch)) {
+      continue;
+    }
+    splitNamedSpecifiers(match[1]).forEach(({ sourceName }) => {
+      if (sourceName && importedBindings.has(sourceName)) {
+        duplicatedBindings.add(sourceName);
+      }
+    });
+  }
+
+  return [...duplicatedBindings].sort();
+}
+
+function buildDiagnosticKey(diagnostic) {
+  return [
+    String(diagnostic.kind || 'unknown'),
+    String(diagnostic.fileRelPath || ''),
+    String(diagnostic.reference || ''),
+    String(diagnostic.binding || '')
+  ].join('::');
+}
+
+function collectScopedCompatibilityDiagnostics(repoRoot, includedFiles) {
+  const diagnostics = [];
+  [...includedFiles].sort((left, right) => left.localeCompare(right)).forEach((fileRelPath) => {
+    if (!/\.(?:js|jsx|ts|tsx)$/i.test(fileRelPath)) {
+      return;
+    }
+    const absolutePath = path.join(repoRoot, fileRelPath);
+    if (!pathExists(absolutePath)) {
+      return;
+    }
+    const content = fs.readFileSync(absolutePath, 'utf8');
+    detectImportedBindingReexports(content).forEach((binding) => {
+      diagnostics.push({
+        kind: 'mint-import-reexport',
+        fileRelPath,
+        binding,
+        severity: 'warning',
+        message:
+          `Pre-existing Mint compatibility warning: imported binding "${binding}" is re-exported in ${fileRelPath}. ` +
+          'Mint incremental parsing may treat this as a duplicate export on change.'
+      });
+    });
+  });
+  return diagnostics.map((diagnostic) => ({
+    ...diagnostic,
+    key: buildDiagnosticKey(diagnostic)
+  }));
+}
+
 function extractAssetReferences(content, extension) {
   const source = String(content || '');
   const refs = new Set();
@@ -1115,7 +1200,7 @@ function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
     enqueue(resolved);
   }
 
-  const unresolvedWarnings = [];
+  const diagnostics = [];
   const ensureResolvedReference = (importerRelPath, reference, options = {}) => {
     const kind = String(options.kind || 'import');
     const resolved = resolveRepoFileReference(repoRoot, importerRelPath, reference, { kind });
@@ -1133,7 +1218,13 @@ function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
     if (!importerRelPath) {
       throw new Error(`Could not resolve local ${kind} reference "${reference}" from ${importerLabel}`);
     }
-    unresolvedWarnings.push(`Warning: unresolved ${kind} "${reference}" in ${importerLabel}`);
+    diagnostics.push({
+      kind: `unresolved-${kind}`,
+      fileRelPath: importerRelPath,
+      reference,
+      severity: 'warning',
+      message: `Pre-existing scoped workspace warning: unresolved ${kind} "${reference}" in ${importerLabel}`
+    });
     return '';
   };
 
@@ -1226,9 +1317,18 @@ function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
     });
   }
 
-  if (unresolvedWarnings.length > 0) {
-    console.error(`\n${unresolvedWarnings.length} unresolved reference(s) in scoped workspace:`);
-    unresolvedWarnings.forEach((w) => console.error(`  ${w}`));
+  const scopedDiagnostics = [
+    ...diagnostics.map((diagnostic) => ({
+      ...diagnostic,
+      key: buildDiagnosticKey(diagnostic)
+    })),
+    ...collectScopedCompatibilityDiagnostics(repoRoot, includedFiles)
+  ];
+
+  const unresolvedDiagnostics = scopedDiagnostics.filter((diagnostic) => diagnostic.kind.startsWith('unresolved-'));
+  if (unresolvedDiagnostics.length > 0) {
+    console.error(`\n${unresolvedDiagnostics.length} unresolved reference(s) in scoped workspace:`);
+    unresolvedDiagnostics.forEach((diagnostic) => console.error(`  ${diagnostic.message}`));
     console.error('');
   }
 
@@ -1236,7 +1336,8 @@ function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
     entries,
     routeFiles,
     includedFiles,
-    rootRuntimeFiles
+    rootRuntimeFiles,
+    diagnostics: scopedDiagnostics
   };
 }
 
@@ -1361,7 +1462,8 @@ function createScopedManifestSummary(manifest) {
     runtimeRootFiles: [...manifest.runtimeRootFiles].sort((left, right) => left.localeCompare(right)),
     dependencyFiles: [...manifest.workspaceProjection.includedFiles].sort((left, right) => left.localeCompare(right)),
     workspaceFileCount: manifest.workspaceProjection.includedFiles.size,
-    watchFiles: [...manifest.watchFiles].sort((left, right) => left.localeCompare(right))
+    watchFiles: [...manifest.watchFiles].sort((left, right) => left.localeCompare(right)),
+    diagnostics: [...(manifest.diagnostics || [])]
   };
 }
 
@@ -1600,6 +1702,8 @@ class ScopedMintSessionSupervisor {
     this.shuttingDown = false;
     this.expectedChildExit = false;
     this.signalHandlers = new Map();
+    this.changedFilesSinceRefresh = new Set();
+    this.lastDiagnostics = new Map();
     this.sessionPromise = null;
     this.resolveSession = null;
     this.rejectSession = null;
@@ -1627,10 +1731,67 @@ class ScopedMintSessionSupervisor {
     const profile = await this.buildProfile();
     this.applyProfile(profile);
     this.configureWatchTargets(profile.watchFiles || []);
+    this.reportScopedDiagnostics(profile.diagnostics || [], { initial: true });
     this.log(
       `Using scoped Mint workspace: ${profile.workspaceDir} (routes ${profile.routeCounts.scoped}/${profile.routeCounts.original}, hash ${profile.scopeHash})`
     );
     return profile;
+  }
+
+  rememberChangedFile(filePath) {
+    const absolutePath = path.resolve(filePath);
+    const relPath = path.relative(this.profileArgs.repoRoot, absolutePath);
+    if (relPath && !relPath.startsWith('..') && !path.isAbsolute(relPath)) {
+      this.changedFilesSinceRefresh.add(toPosixPath(relPath));
+      return;
+    }
+    this.changedFilesSinceRefresh.add(path.basename(absolutePath));
+  }
+
+  reportScopedDiagnostics(diagnostics, options = {}) {
+    const nextDiagnostics = Array.isArray(diagnostics) ? diagnostics : [];
+    const nextMap = new Map(nextDiagnostics.map((diagnostic) => [diagnostic.key || buildDiagnosticKey(diagnostic), diagnostic]));
+    const initial = Boolean(options.initial);
+    const changedFiles = [...this.changedFilesSinceRefresh].sort((left, right) => left.localeCompare(right));
+
+    if (initial) {
+      this.lastDiagnostics = nextMap;
+      if (nextDiagnostics.length === 0) {
+        return;
+      }
+      this.log(`Scoped graph pre-existing warnings detected before Mint startup (${nextDiagnostics.length}):`);
+      nextDiagnostics.forEach((diagnostic) => this.log(`  - ${diagnostic.message}`));
+      return;
+    }
+
+    const newDiagnostics = [];
+    let resolvedCount = 0;
+    for (const [key, diagnostic] of nextMap.entries()) {
+      if (!this.lastDiagnostics.has(key)) {
+        newDiagnostics.push(diagnostic);
+      }
+    }
+    for (const key of this.lastDiagnostics.keys()) {
+      if (!nextMap.has(key)) {
+        resolvedCount += 1;
+      }
+    }
+
+    const continuingCount = nextDiagnostics.length - newDiagnostics.length;
+    const changeLabel = changedFiles.length > 0 ? changedFiles.join(', ') : 'the latest scoped refresh';
+
+    if (newDiagnostics.length > 0) {
+      this.log(`Scoped changes in ${changeLabel} introduced ${newDiagnostics.length} new warning(s):`);
+      newDiagnostics.forEach((diagnostic) => this.log(`  - ${diagnostic.message}`));
+    }
+    if (continuingCount > 0) {
+      this.log(`Scoped graph still has ${continuingCount} pre-existing warning(s) after changes in ${changeLabel}.`);
+    }
+    if (resolvedCount > 0) {
+      this.log(`Scoped changes in ${changeLabel} resolved ${resolvedCount} warning(s).`);
+    }
+
+    this.lastDiagnostics = nextMap;
   }
 
   captureWatchFileState(filePath) {
@@ -1736,13 +1897,17 @@ class ScopedMintSessionSupervisor {
       if (!watcher.names.has(normalizedName)) {
         return;
       }
-      if (!this.hasWatchedFileStateChanged(path.join(dirPath, normalizedName))) {
+      const changedPath = path.join(dirPath, normalizedName);
+      if (!this.hasWatchedFileStateChanged(changedPath)) {
         return;
       }
+      this.rememberChangedFile(changedPath);
     } else {
       let changed = false;
       for (const watchedName of watcher.names.values()) {
-        if (this.hasWatchedFileStateChanged(path.join(dirPath, watchedName))) {
+        const changedPath = path.join(dirPath, watchedName);
+        if (this.hasWatchedFileStateChanged(changedPath)) {
+          this.rememberChangedFile(changedPath);
           changed = true;
           break;
         }
@@ -1779,6 +1944,7 @@ class ScopedMintSessionSupervisor {
       const refreshedProfile = await this.buildProfile();
       this.applyProfile(refreshedProfile);
       this.configureWatchTargets(refreshedProfile.watchFiles || []);
+      this.reportScopedDiagnostics(refreshedProfile.diagnostics || []);
       this.log(
         `Scoped workspace refreshed in place: ${refreshedProfile.sourceDocsConfig} (routes ${refreshedProfile.routeCounts.scoped}/${refreshedProfile.routeCounts.original})`
       );
@@ -1787,6 +1953,7 @@ class ScopedMintSessionSupervisor {
       return;
     } finally {
       this.refreshInProgress = false;
+      this.changedFilesSinceRefresh.clear();
     }
 
     await this.flushPendingRefresh();
@@ -2122,7 +2289,8 @@ async function createScopedProfile(args) {
     scopedRoutes: manifest.scopedRoutes,
     workspaceFileCount: manifest.workspaceProjection.includedFiles.size,
     watchFiles: manifest.watchFiles,
-    disabledOpenapi: Boolean(manifest.selection.disableOpenapi)
+    disabledOpenapi: Boolean(manifest.selection.disableOpenapi),
+    diagnostics: manifest.workspaceProjection.diagnostics || []
   };
 }
 

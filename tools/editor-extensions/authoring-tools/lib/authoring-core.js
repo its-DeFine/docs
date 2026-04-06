@@ -5,6 +5,7 @@ const path = require('path');
 
 const DOC_EXTENSIONS = new Set(['.md', '.mdx']);
 const IMPORT_EXTENSIONS = new Set(['.js', '.jsx', '.ts', '.tsx', '.md', '.mdx']);
+const COMPONENT_REGISTRY_PATH = path.join('docs-guide', 'config', 'component-registry.json');
 const PROTECTED_COMPONENTS = new Set([
   'Accordion',
   'AccordionGroup',
@@ -25,7 +26,17 @@ const IGNORED_DIRS = new Set([
   '.next',
   '.venv',
   '__pycache__',
-  'node_modules'
+  'node_modules',
+  '_workspace',
+  'x-archived',
+  'archive',
+  'archived',
+  'deprecated',
+  'DEPRECATED',
+  'reports',
+  'recovered-chats',
+  'locale-page-archive',
+  'examples'
 ]);
 
 function toPosix(value) {
@@ -181,11 +192,24 @@ function walkImportableFiles(repoRoot, dirRel, out = []) {
   return out;
 }
 
+const COMPONENT_SOURCE_EXTENSIONS = new Set(['.js', '.jsx', '.ts', '.tsx']);
+
 function getImportableFiles(repoRoot) {
-  const roots = ['snippets', 'v2', 'docs-guide', 'contribute'];
   const files = [];
-  roots.forEach((rootRel) => walkImportableFiles(repoRoot, rootRel, files));
-  return [...new Set(files)].sort((left, right) => left.localeCompare(right));
+  walkImportableFiles(repoRoot, 'snippets/components', files);
+  walkImportableFiles(repoRoot, 'snippets/composables', files);
+  walkImportableFiles(repoRoot, 'snippets/data', files);
+  walkImportableFiles(repoRoot, 'v2', files);
+
+  const SNIPPET_ROOT_JUNK = /^snippets\/(components|composables)\/[^/]+\.(md|mdx)$/;
+
+  return [...new Set(files)]
+    .filter((f) => {
+      if (SNIPPET_ROOT_JUNK.test(f)) return false;
+      if (f.startsWith('snippets/components/') && !COMPONENT_SOURCE_EXTENSIONS.has(path.extname(f).toLowerCase())) return false;
+      return true;
+    })
+    .sort((left, right) => left.localeCompare(right));
 }
 
 function toRelativeImport(fromFileRel, targetFileRel) {
@@ -197,18 +221,51 @@ function toRelativeImport(fromFileRel, targetFileRel) {
   return relPath;
 }
 
-function getMdxImportSuggestions(repoRoot, currentFileRel, currentValue = '') {
+function resolveNamedImports(repoRoot, names) {
+  const registryPath = path.join(repoRoot, COMPONENT_REGISTRY_PATH);
+  if (!fs.existsSync(registryPath)) return [];
+
+  let parsed;
+  try {
+    parsed = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+  } catch (_error) {
+    return [];
+  }
+
+  const components = Array.isArray(parsed.components) ? parsed.components : [];
+  const resolved = [];
+  const nameSet = new Set(names);
+
+  for (const component of components) {
+    const name = String(component.name || '').trim();
+    const file = normalizeRel(component.file || '');
+    if (name && file && nameSet.has(name)) {
+      resolved.push(`/${file}`);
+    }
+  }
+
+  return [...new Set(resolved)];
+}
+
+function getMdxImportSuggestions(repoRoot, currentFileRel, currentValue = '', namedImports = []) {
   const value = String(currentValue || '');
   const normalizedValue = value.trim();
+
+  const registryMatches = namedImports.length > 0
+    ? resolveNamedImports(repoRoot, namedImports)
+    : [];
+
   const importable = getImportableFiles(repoRoot);
   const snippetSuggestions = [];
   const localSuggestions = [];
+  const registryMatchSet = new Set(registryMatches);
 
   for (const fileRel of importable) {
     if (fileRel === normalizeRel(currentFileRel)) continue;
 
     if (fileRel.startsWith('snippets/')) {
       const absoluteSnippetPath = `/${fileRel}`;
+      if (registryMatchSet.has(absoluteSnippetPath)) continue;
       if (!normalizedValue || absoluteSnippetPath.startsWith(normalizedValue) || normalizedValue.startsWith('/snippets')) {
         snippetSuggestions.push(absoluteSnippetPath);
       }
@@ -222,9 +279,72 @@ function getMdxImportSuggestions(repoRoot, currentFileRel, currentValue = '') {
   }
 
   return {
+    registryMatches,
     snippetSuggestions,
     localSuggestions
   };
+}
+
+function componentAcceptsChildren(component) {
+  const accepts = String(component.accepts || '').toLowerCase();
+  if (accepts.includes('children')) {
+    return true;
+  }
+
+  const params = Array.isArray(component.params) ? component.params : [];
+  return params.some((param) => String(param && param.name ? param.name : '').trim() === 'children');
+}
+
+function getAuthoringComponents(repoRoot) {
+  const registryPath = path.join(repoRoot, COMPONENT_REGISTRY_PATH);
+  if (!fs.existsSync(registryPath)) {
+    return [];
+  }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+  } catch (_error) {
+    return [];
+  }
+
+  const components = Array.isArray(parsed.components) ? parsed.components : [];
+  const deduped = new Map();
+
+  components.forEach((component) => {
+    const name = String(component.name || '').trim();
+    const file = normalizeRel(component.file || '');
+    const status = String(component.status || '').trim().toLowerCase();
+    const deprecated = String(component.deprecated || '').trim();
+    const category = String(component.category || '').trim();
+
+    if (!name || !file) return;
+    if (category === 'config') return;
+    if (status && status !== 'stable') return;
+    if (deprecated) return;
+    if (PROTECTED_COMPONENTS.has(name)) return;
+
+    deduped.set(name, {
+      name,
+      importPath: `/${file}`,
+      description: String(component.description || '').trim(),
+      category,
+      subniche: String(component.subniche || '').trim(),
+      hasChildren: componentAcceptsChildren(component)
+    });
+  });
+
+  return [...deduped.values()].sort((left, right) =>
+    left.name.localeCompare(right.name, 'en', { sensitivity: 'base' })
+  );
+}
+
+function getMdxComponentSuggestions(repoRoot, currentValue = '') {
+  const value = String(currentValue || '').trim().toLowerCase();
+  return getAuthoringComponents(repoRoot).filter((component) => {
+    if (!value) return true;
+    return component.name.toLowerCase().startsWith(value);
+  });
 }
 
 function extractImportStatements(content) {
@@ -240,6 +360,199 @@ function extractImportStatements(content) {
   }
 
   return imports;
+}
+
+function getFrontmatterEndIndex(content) {
+  const match = String(content || '').match(/^---\n[\s\S]*?\n---\n?/);
+  return match ? match[0].length : 0;
+}
+
+function parseImportLine(line) {
+  const match = String(line || '').match(/^import\s+(.+?)\s+from\s+['"]([^'"]+)['"];?\s*$/);
+  if (!match) {
+    return null;
+  }
+
+  return {
+    clause: match[1].trim(),
+    importPath: match[2]
+  };
+}
+
+function parseNamedBindings(clause) {
+  const normalizedClause = String(clause || '').trim();
+  const braceStart = normalizedClause.indexOf('{');
+  const braceEnd = normalizedClause.lastIndexOf('}');
+
+  if (braceStart === -1 || braceEnd === -1 || braceEnd < braceStart) {
+    return {
+      prefix: normalizedClause,
+      namedEntries: []
+    };
+  }
+
+  const prefix = normalizedClause
+    .slice(0, braceStart)
+    .trim()
+    .replace(/,\s*$/, '');
+  const namedEntries = normalizedClause
+    .slice(braceStart + 1, braceEnd)
+    .split(',')
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+
+  return {
+    prefix,
+    namedEntries
+  };
+}
+
+function importedNameFromSpecifier(specifier) {
+  return String(specifier || '')
+    .split(/\s+as\s+/i)[0]
+    .trim();
+}
+
+function buildImportClause(prefix, namedEntries) {
+  const namedBlock = namedEntries.length > 0 ? `{ ${namedEntries.join(', ')} }` : '';
+  if (prefix && namedBlock) {
+    return `${prefix}, ${namedBlock}`;
+  }
+  return prefix || namedBlock;
+}
+
+function buildImportLine(clause, importPath) {
+  return `import ${clause} from "${importPath}";`;
+}
+
+function mergeNamedImportClause(clause, importName) {
+  const { prefix, namedEntries } = parseNamedBindings(clause);
+  const merged = [...namedEntries];
+  const existingNames = new Set(merged.map(importedNameFromSpecifier));
+  if (!existingNames.has(importName)) {
+    merged.push(importName);
+  }
+
+  merged.sort((left, right) =>
+    importedNameFromSpecifier(left).localeCompare(importedNameFromSpecifier(right), 'en', {
+      sensitivity: 'base'
+    })
+  );
+
+  return buildImportClause(prefix, merged);
+}
+
+function getLineStartOffsets(content) {
+  const offsets = [0];
+  for (let index = 0; index < content.length; index += 1) {
+    if (content[index] === '\n' && index + 1 < content.length) {
+      offsets.push(index + 1);
+    }
+  }
+  return offsets;
+}
+
+function buildInsertedImportText(content, insertionStart, importLine) {
+  const nextChar = content[insertionStart] || '';
+  if (!nextChar || nextChar === '\n') {
+    return `${importLine}\n`;
+  }
+  return `${importLine}\n\n`;
+}
+
+function upsertNamedImport(content, importPath, importName) {
+  const normalizedContent = String(content || '').replace(/\r\n?/g, '\n');
+  const lineOffsets = getLineStartOffsets(normalizedContent);
+  const frontmatterEnd = getFrontmatterEndIndex(normalizedContent);
+  let lastImportEnd = frontmatterEnd;
+
+  for (let lineIndex = 0; lineIndex < lineOffsets.length; lineIndex += 1) {
+    const start = lineOffsets[lineIndex];
+    const end = lineIndex + 1 < lineOffsets.length ? lineOffsets[lineIndex + 1] : normalizedContent.length;
+    const line = normalizedContent.slice(start, end).replace(/\n$/, '');
+
+    if (start < frontmatterEnd) {
+      continue;
+    }
+
+    if (!line.trim()) {
+      if (lastImportEnd > frontmatterEnd) {
+        break;
+      }
+      continue;
+    }
+
+    const parsed = parseImportLine(line);
+    if (!parsed) {
+      if (lastImportEnd > frontmatterEnd) {
+        break;
+      }
+      continue;
+    }
+
+    lastImportEnd = end;
+    if (parsed.importPath !== importPath) {
+      continue;
+    }
+
+    const existingNames = new Set(parseNamedBindings(parsed.clause).namedEntries.map(importedNameFromSpecifier));
+    if (existingNames.has(importName)) {
+      return null;
+    }
+
+    return {
+      start,
+      end,
+      text: `${buildImportLine(mergeNamedImportClause(parsed.clause, importName), importPath)}\n`
+    };
+  }
+
+  return {
+    start: lastImportEnd,
+    end: lastImportEnd,
+    text: buildInsertedImportText(normalizedContent, lastImportEnd, buildImportLine(`{ ${importName} }`, importPath))
+  };
+}
+
+function validateImportPathsExist(repoRoot, content, currentFileRel) {
+  const normalizedContent = String(content || '').replace(/\r\n?/g, '\n');
+  const lines = normalizedContent.split('\n');
+  const findings = [];
+  const fileDir = currentFileRel
+    ? path.posix.dirname(normalizeRel(currentFileRel))
+    : '';
+
+  for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+    const line = lines[lineIndex];
+    const importMatch = line.match(/^\s*import\s+.+?\s+from\s+['"]([^'"]+)['"]/);
+    if (!importMatch) continue;
+
+    const importPath = importMatch[1];
+    const pathStart = line.indexOf(importMatch[1]);
+    const pathEnd = pathStart + importMatch[1].length;
+
+    let diskPath;
+    if (importPath.startsWith('/')) {
+      diskPath = importPath.slice(1);
+    } else if (importPath.startsWith('.')) {
+      diskPath = path.posix.join(fileDir, importPath);
+    } else {
+      continue;
+    }
+
+    const absPath = path.join(repoRoot, diskPath);
+    if (!fs.existsSync(absPath)) {
+      findings.push({
+        line: lineIndex,
+        startChar: pathStart,
+        endChar: pathEnd,
+        importPath,
+        message: `Import path does not exist: ${importPath}`
+      });
+    }
+  }
+
+  return findings;
 }
 
 function validateSnippetImports(content, filePath) {
@@ -382,11 +695,16 @@ function formatMdxContent(content) {
 
 module.exports = {
   formatMdxContent,
+  getAuthoringComponents,
+  getMdxComponentSuggestions,
   getMdxImportSuggestions,
   getRealDocsRoutes,
   normalizeRel,
   normalizeRoute,
+  resolveNamedImports,
   resolveRouteToFile,
+  upsertNamedImport,
   validateDocsJsonRoutes,
+  validateImportPathsExist,
   validateSnippetImports
 };

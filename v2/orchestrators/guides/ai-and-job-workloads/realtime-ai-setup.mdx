@@ -213,7 +213,7 @@ The `live-base` tag is separate from the standard `livepeer/ai-runner` image use
 
 **Pricing and gateway compatibility:** Your `price_per_unit` must stay at or below the gateway's configured `-maxPricePerCapability` for `live-video-to-video`. This is a hard filter — gateways skip nodes priced above that cap, regardless of hardware quality or latency.
 
-For transcoding, the equivalent flag is `-maxPricePerUnit` on the gateway side. Before going live, verify that your transcoding price (set via `-pricePerUnit` or `livepeer_cli`) is below what major gateways have configured as their maximum. See [Gateway Pricing Configuration](/v2/gateways/setup/configure/pricing-configuration) for the full gateway pricing flag reference and the JSON structure used for AI capability pricing.
+For transcoding, the equivalent flag is `-maxPricePerUnit` on the gateway side. Before going live, verify that your transcoding price (set via `-pricePerUnit` or `livepeer_cli`) is below what major gateways have configured as their maximum. See [Gateway Pricing Configuration](/v2/gateways/guides/payments-and-pricing/pricing-configuration) for the full gateway pricing flag reference and the JSON structure used for AI capability pricing.
 </StyledStep>
 
 <StyledStep title="Download the pipeline model weights">

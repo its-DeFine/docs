@@ -12,8 +12,14 @@
 
 const HEADER_SCAN_LINES = 200;
 const TAG_ALIASES = Object.freeze({
+  '@category': ['@type'],
+  '@type': ['@category'],
   '@domain': ['@owner'],
-  '@owner': ['@domain']
+  '@owner': ['@domain'],
+  '@needs': ['@policy'],
+  '@policy': ['@needs'],
+  '@purpose-statement': ['@description'],
+  '@description': ['@purpose-statement']
 });
 
 function trimBom(value) {
@@ -139,8 +145,10 @@ function getSectionLines(header, tagName) {
 function hasFrameworkHeaderTags(header) {
   return (
     String(header || '').includes('@category') ||
+    String(header || '').includes('@type') ||
     String(header || '').includes('@purpose') ||
-    String(header || '').includes('@purpose-statement')
+    String(header || '').includes('@purpose-statement') ||
+    String(header || '').includes('@description')
   );
 }
 

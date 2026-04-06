@@ -234,7 +234,7 @@
 | orchestrators/concepts/capabilities.mdx | concept | concept | Workload types, capability advertisement | concept | (none) | explain |
 | orchestrators/concepts/incentive-model.mdx | concept | concept | ETH fees + LPT rewards, cost structure, pricing | concept | (none) | explain |
 | orchestrators/setup/guide.mdx | overview | overview | Setup flow overview: ordered steps with links | overview | (none) | orient |
-| orchestrators/setup/rcs-requirements.mdx | how_to | how_to | Pre-flight checklist: hardware, software, wallet, tokens | instruction | setup | configure |
+| orchestrators/setup/prepare.mdx | how_to | how_to | Pre-flight checklist: hardware, software, wallet, tokens | instruction | setup | configure |
 | orchestrators/setup/rs-install.mdx | how_to | how_to | Install via Docker or binary, GPU passthrough | instruction | setup | configure |
 | orchestrators/setup/configure.mdx | how_to | (none) | Set operational flags via docker-compose | instruction | setup | configure |
 | orchestrators/setup/connect-and-activate.mdx | how_to | (none) | Connect to Arbitrum, fund, stake, register, activate | instruction | setup | configure |

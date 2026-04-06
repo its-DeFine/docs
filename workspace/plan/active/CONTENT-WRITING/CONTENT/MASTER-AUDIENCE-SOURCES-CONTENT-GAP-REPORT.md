@@ -20,15 +20,15 @@ Three significant Livepeer Improvement Proposals dominated governance during thi
 
 The SPE (Special Purpose Entity) model is Livepeer's mechanism for treasury-funded working groups. Key grants during this period:
 
-| Proposal | Amount | Proposer | Status | Purpose |
-|----------|--------|----------|--------|---------|
-| Transformation SPE ("Surge") | 44,500 LPT (~$290K) | Foundation (b3nnn) | Passed Sep 16, 2025 | Ecosystem coordination, 9 workstreams |
-| AI Video SPE Stage 4 | 97,500 LPT | AI SPE team | Passed Jun 20, 2025 (99.84%) | ComfyStream scaling, BYOC productionization |
-| Protocol R&D SPE (Sidestream) | $360K (6-month) | rickstaa / Foundation | Passed Jan 2026 | Security triage, protocol upgrades, testnet |
-| LiveInfra SPE (quarterly) | ~7,152 LPT/quarter | FTK Staking | Passed (Q3, Q4 2025, Q1 2026) | Community Arbitrum RPC node |
-| LISAR SPE | 4,450 LPT (~$29K) | LISAR team | Passed Sep 16, 2025 | Fiat-to-delegation gateway |
-| Streamplace 2.0 | 100,000 LPT | iameli (Eli) | Passed Apr 26, 2025 | Decentralized livestreaming |
-| Creative Industries SPE | 12,500 LPT | Sean Bradford | **Failed** (31% support) | Creative workflow adoption |
+| Proposal                      | Amount              | Proposer              | Status                        | Purpose                                     |
+| ----------------------------- | ------------------- | --------------------- | ----------------------------- | ------------------------------------------- |
+| Transformation SPE ("Surge")  | 44,500 LPT (~$290K) | Foundation (b3nnn)    | Passed Sep 16, 2025           | Ecosystem coordination, 9 workstreams       |
+| AI Video SPE Stage 4          | 97,500 LPT          | AI SPE team           | Passed Jun 20, 2025 (99.84%)  | ComfyStream scaling, BYOC productionization |
+| Protocol R&D SPE (Sidestream) | $360K (6-month)     | rickstaa / Foundation | Passed Jan 2026               | Security triage, protocol upgrades, testnet |
+| LiveInfra SPE (quarterly)     | ~7,152 LPT/quarter  | FTK Staking           | Passed (Q3, Q4 2025, Q1 2026) | Community Arbitrum RPC node                 |
+| LISAR SPE                     | 4,450 LPT (~$29K)   | LISAR team            | Passed Sep 16, 2025           | Fiat-to-delegation gateway                  |
+| Streamplace 2.0               | 100,000 LPT         | iameli (Eli)          | Passed Apr 26, 2025           | Decentralized livestreaming                 |
+| Creative Industries SPE       | 12,500 LPT          | Sean Bradford         | **Failed** (31% support)      | Creative workflow adoption                  |
 
 The most contentious proposal was the original **Transformation SPE "Surge" strategy**, which initially requested **119,000 LPT (~$786K)** for 9 workstreams. Community member Karolak argued treasury should invest in DeFi yield instead; pablov called it "exponential onchain grifting"; Authority_Null (an orchestrator) demanded base AI supply issues and UX friction be fixed first; vires-in-numeris said 9 workstreams were too overwhelming. The proposal was revised downward to 44,500 LPT before passing.
 
@@ -40,7 +40,7 @@ Participation remains a persistent challenge. The Creative Industries SPE attrac
 
 ### Key governance actors
 
-**Proposers and Foundation leaders:** b3nnn (Foundation governance lead), honestly_rich (Foundation), rickstaa (Foundation/Protocol R&D), dob/Doug Petkanics (co-founder, Livepeer Inc.), awma (Shtuka Research, LIP-107 author). **SPE operators:** FTK Staking/ftkuhnsman (LiveInfra), _ptr (MuxionLabs/AI SPE), DeFine and Dane (Embody SPE), drieddate_sidestream (Protocol R&D partner, ex-MakerDAO). **Vocal community critics:** Karolak (long-time holder since Merkle Mine, skeptical of treasury spending and AI pivot), pablov (most critical voice, questions Foundation legitimacy), obodur (delegator, credits LPT market cap to Doug's personal relationships), Authority_Null (orchestrator, frustrated with AI reliability vs. centralized alternatives).
+**Proposers and Foundation leaders:** b3nnn (Foundation governance lead), honestly_rich (Foundation), rickstaa (Foundation/Protocol R&D), dob/Doug Petkanics (co-founder, Livepeer Inc.), awma (Shtuka Research, LIP-107 author). **SPE operators:** FTK Staking/ftkuhnsman (LiveInfra), \_ptr (MuxionLabs/AI SPE), DeFine and Dane (Embody SPE), drieddate_sidestream (Protocol R&D partner, ex-MakerDAO). **Vocal community critics:** Karolak (long-time holder since Merkle Mine, skeptical of treasury spending and AI pivot), pablov (most critical voice, questions Foundation legitimacy), obodur (delegator, credits LPT market cap to Doug's personal relationships), Authority_Null (orchestrator, frustrated with AI reliability vs. centralized alternatives).
 
 ---
 
@@ -118,20 +118,20 @@ The **ai-runner** saw a major **v0.14.0** release (December 22, 2025) with a com
 
 ### Network metrics at a glance
 
-| Metric | Value | Notes |
-|--------|-------|-------|
-| LPT Price | ~$2.08–$2.30 | Down from ~$6 (mid-2025); ATH was $99 (2021) |
-| Market Cap | ~$103–113M | CoinGecko rank ~#256 |
-| Circulating Supply | ~50M LPT | No hard cap (inflationary) |
-| Active Orchestrators | 100 | Protocol-defined maximum set |
-| Staking Participation | ~50% | Hovering at target threshold |
-| Active Delegators | ~2,683 | Declining (was 3,332 in Q2 2024) |
-| Annualized Inflation | ~28% | Trending down as participation crosses 50% |
-| Q3 2025 Total Fees | $203,700 | +76% QoQ |
-| Q3 2025 AI Fees | $147,100 | >70% of total; +131% QoQ |
-| Q3 2025 Staking Rewards | ~$18.1M | +30% QoQ |
-| Q3 2025 Minutes Processed | 89.4M | +94% QoQ; peak 1.9M in one day |
-| Layer 2 | Arbitrum One | Fully migrated since Feb 2022 |
+| Metric                    | Value        | Notes                                        |
+| ------------------------- | ------------ | -------------------------------------------- |
+| LPT Price                 | ~$2.08–$2.30 | Down from ~$6 (mid-2025); ATH was $99 (2021) |
+| Market Cap                | ~$103–113M   | CoinGecko rank ~#256                         |
+| Circulating Supply        | ~50M LPT     | No hard cap (inflationary)                   |
+| Active Orchestrators      | 100          | Protocol-defined maximum set                 |
+| Staking Participation     | ~50%         | Hovering at target threshold                 |
+| Active Delegators         | ~2,683       | Declining (was 3,332 in Q2 2024)             |
+| Annualized Inflation      | ~28%         | Trending down as participation crosses 50%   |
+| Q3 2025 Total Fees        | $203,700     | +76% QoQ                                     |
+| Q3 2025 AI Fees           | $147,100     | >70% of total; +131% QoQ                     |
+| Q3 2025 Staking Rewards   | ~$18.1M      | +30% QoQ                                     |
+| Q3 2025 Minutes Processed | 89.4M        | +94% QoQ; peak 1.9M in one day               |
+| Layer 2                   | Arbitrum One | Fully migrated since Feb 2022                |
 
 ### The fee-to-inflation imbalance
 

@@ -1,13 +1,24 @@
 ---
-title: 'Gateway help'
-sidebarTitle: 'Get help'
-description: 'Every channel available to get help running a Livepeer gateway — Discord, forum, GitHub issues, office hours, SPE contacts, and security reporting.'
-purpose: operations
-audience: gateway-operator
-pageType: guide
-keywords: ["livepeer", "gateway", "help", "support", "discord", "forum", "github issues", "office hours"]
-og:image: "/snippets/assets/media/og-images/en/gateways.png"
-lastVerified: "2026-03-13"
+title: Gateway help
+sidebarTitle: Get help
+description: >-
+  Every channel available to get help running a Livepeer gateway - Discord, forum,
+  GitHub issues, office hours, SPE contacts, and security reporting.
+pageType: navigation
+audience: gateway
+purpose: orient
+status: current
+lastVerified: '2026-03-13'
+keywords:
+  - livepeer
+  - gateway
+  - help
+  - support
+  - discord
+  - forum
+  - github issues
+  - office hours
+og:image: /snippets/assets/media/og-images/en/gateways.png
 ---
 {/* TODO:
 Terminology Validation:
@@ -17,7 +28,7 @@ Verify:
 */}
 
 
-Every channel available for gateway operator support — from quick questions in Discord to production incident escalation. Choose the right channel for your situation.
+Every channel available for gateway operator support - from quick questions in Discord to production incident escalation. Choose the right channel for your situation.
 
 <CustomDivider />
 
@@ -32,10 +43,10 @@ Every channel available for gateway operator support — from quick questions in
 | Protocol governance, network parameters, LIPs | [#governance on Discord](https://discord.gg/livepeer) |
 | Confirmed bug in go-livepeer | [go-livepeer GitHub Issues](https://github.com/livepeer/go-livepeer/issues) |
 | Confirmed bug in ai-runner | [ai-runner GitHub Issues](https://github.com/livepeer/ai-runner/issues) |
-| Security vulnerability | [Immunefi Bug Bounty](https://immunefi.com/bug-bounty/livepeer/information/) — never GitHub |
+| Security vulnerability | [Immunefi Bug Bounty](https://immunefi.com/bug-bounty/livepeer/information/) - never GitHub |
 | Gateway business / grants / SPE | [Livepeer Foundation grants](https://livepeer.org/grants) or [#governance Discord](https://discord.gg/livepeer) |
 | Daydream API or platform issues | [Daydream Docs](https://docs.daydream.live) and Daydream Discord |
-| Livepeer.Cloud gateway service | [livepeer.cloud](https://livepeer.cloud) — contact page |
+| Livepeer.Cloud gateway service | [livepeer.cloud](https://livepeer.cloud) - contact page |
 
 <CustomDivider />
 
@@ -52,7 +63,7 @@ The primary real-time support channel for gateway operators. Join at [discord.gg
     Typical questions answered here:
     - "How do I configure `remoteSignerAddr` for off-chain mode?"
     - "What orchAddr should I use for local testing?"
-    - "BYOC payments aren't working — where do I look in the logs?"
+    - "BYOC payments aren't working - where do I look in the logs?"
     - "Which SDK version supports remote signer for BYOC?"
     - "How does orchestrator discovery work without an Ethereum RPC?"
   </Accordion>
@@ -64,7 +75,7 @@ The primary real-time support channel for gateway operators. Join at [discord.gg
 
     Typical questions answered here:
     - "What's the right way to set up an on-chain video gateway?"
-    - "My gateway isn't finding any orchestrators — what do I check?"
+    - "My gateway isn't finding any orchestrators - what do I check?"
     - "What's the minimum ETH deposit for a new gateway?"
     - "How do I set max price per unit across all capabilities?"
   </Accordion>
@@ -104,20 +115,20 @@ The primary real-time support channel for gateway operators. Join at [discord.gg
 
 ## Livepeer Forum
 
-[forum.livepeer.org](https://forum.livepeer.org) — for longer-form questions, troubleshooting threads, and discussions that benefit from persistent searchable records.
+[forum.livepeer.org](https://forum.livepeer.org) - for longer-form questions, troubleshooting threads, and discussions that benefit from persistent searchable records.
 
 The forum has the following categories relevant to gateway operators:
 
-**Help: Development** — Technical implementation questions that are too detailed for Discord and benefit from being searchable. Past threads include production log monitoring guides, PM deposit troubleshooting, and orchestrator selection configuration.
+**Help: Development** - Technical implementation questions that are too detailed for Discord and benefit from being searchable. Past threads include production log monitoring guides, PM deposit troubleshooting, and orchestrator selection configuration.
 
-**Help: Orchestrators** — Questions about running orchestrators connected to your gateway. Relevant if you are operating both sides of the pipeline.
+**Help: Orchestrators** - Questions about running orchestrators connected to your gateway. Relevant if you are operating both sides of the pipeline.
 
-**Protocol** — Network-level protocol discussion. Gateway economics, payment mechanics, and any protocol changes that affect gateway operation.
+**Protocol** - Network-level protocol discussion. Gateway economics, payment mechanics, and any protocol changes that affect gateway operation.
 
-**Governance** — LIP discussion, SPE proposals, and Treasury decisions. SPE applications for funded gateway operator roles live here.
+**Governance** - LIP discussion, SPE proposals, and Treasury decisions. SPE applications for funded gateway operator roles live here.
 
 <Tip>
-Search the forum before posting — many gateway setup questions have been answered in detail in persistent threads. Good search terms: "gateway", "broadcaster", "remote signer", "BYOC", "PM deposit", "orchestrator discovery", "maxPricePerUnit".
+Search the forum before posting - many gateway setup questions have been answered in detail in persistent threads. Good search terms: "gateway", "broadcaster", "remote signer", "BYOC", "PM deposit", "orchestrator discovery", "maxPricePerUnit".
 </Tip>
 
 <CustomDivider />
@@ -138,7 +149,7 @@ Recent calls have included live demos of ComfyUI pipelines, the remote signer E2
 
 ## GitHub Issues
 
-Use GitHub Issues for **confirmed bugs** or **feature requests** — not for setup help or configuration questions (use Discord or the forum first).
+Use GitHub Issues for **confirmed bugs** or **feature requests** - not for setup help or configuration questions (use Discord or the forum first).
 
 <CardGroup cols={2}>
   <Card title="go-livepeer Issues" href="https://github.com/livepeer/go-livepeer/issues" icon="bug">
@@ -148,7 +159,7 @@ Use GitHub Issues for **confirmed bugs** or **feature requests** — not for set
     Bugs in the AI inference runtime: pipeline errors, Docker image issues, BYOC integration failures. Include ai-runner version and full error output.
   </Card>
   <Card title="livepeer-python-gateway Issues" href="https://github.com/j0sh/livepeer-python-gateway/issues" icon="python">
-    Bugs in the Python gateway SDK: payment session failures, remote signer connection errors, BYOC session management issues. Check open PRs first — there is active development here.
+    Bugs in the Python gateway SDK: payment session failures, remote signer connection errors, BYOC session management issues. Check open PRs first - there is active development here.
   </Card>
   <Card title="NaaP Issues" href="https://github.com/livepeer/naap/issues" icon="network-wired">
     Issues with the NaaP dashboard or JWT auth integration. Tag Qiang Han in the issue.

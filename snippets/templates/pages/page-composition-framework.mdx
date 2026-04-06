@@ -183,3 +183,76 @@ DONT:
 - Use more than one of the same layout element
 */}
 
+{/* ==========================COMPONENT STRUCTURE RULES========================= */}
+{/*
+COMPONENT STRUCTURE RULES
+Canonical rules for how components must be configured on every page.
+Source: v2/gateways/_workspace/canonical/checks.mdx (checks 5.12-5.15)
+*/}
+
+## Component Structure Rules
+
+### Tabs
+- Every `<Tab>` must include an `icon` prop
+- Use FontAwesome icon names that match the tab content
+- Tabs without icons create visual inconsistency and reduce scannability
+
+```mdx icon="code" title="tab-example.mdx"
+<Tabs>
+  <Tab title="Docker" icon="docker">Content</Tab>
+  <Tab title="Linux" icon="linux">Content</Tab>
+  <Tab title="Windows" icon="windows">Content</Tab>
+</Tabs>
+```
+
+### Code Blocks
+- Every fenced code block must include `icon` and `title` attributes
+- `icon` conveys the tool (e.g. `terminal`, `docker`, `code`)
+- `title` conveys the file or command context (e.g. `start-gateway.sh`, `docker-compose.yml`)
+- Bare code fences without metadata fail quality checks
+
+```mdx icon="code" title="code-block-example.mdx"
+```bash icon="terminal" title="start-gateway.sh"
+livepeer -gateway -network arbitrum-one-mainnet
+```
+```
+
+### Steps
+- Procedural step sequences must use `<StyledSteps>` (not raw `<Steps>`)
+- StyledSteps must include accent styling props
+- Raw numbered lists or unstyled Steps components fail quality checks
+
+```mdx icon="code" title="steps-example.mdx"
+<StyledSteps iconColor="#2d9a67" titleColor="var(--accent)">
+  <StyledStep title="Install">Content</StyledStep>
+  <StyledStep title="Configure">Content</StyledStep>
+  <StyledStep title="Connect">Content</StyledStep>
+</StyledSteps>
+```
+
+### Accordions
+- Every `<Accordion>` must include an `icon` prop
+- Use FontAwesome icon names that match the accordion content
+- Accordions without icons create visual inconsistency and reduce scannability
+
+```mdx icon="code" title="accordion-example.mdx"
+<AccordionGroup>
+  <Accordion title="On-chain gateway" icon="link">Content</Accordion>
+  <Accordion title="Off-chain gateway" icon="cloud">Content</Accordion>
+</AccordionGroup>
+```
+
+### Cards
+- Every `<Card>` used for navigation must include a title with icon via `<CustomCardTitle>`
+- Cards must include `href` and use `horizontal` layout when in Related Pages sections
+
+```mdx icon="code" title="card-example.mdx"
+<Card
+  title={<CustomCardTitle icon="arrow-right" title="Next Step" />}
+  href="/v2/gateways/setup/install/install-overview"
+  horizontal
+>
+  Short description of destination
+</Card>
+```
+

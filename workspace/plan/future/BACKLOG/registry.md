@@ -224,3 +224,18 @@ _Empty — cleared 2026-03-29. BL-001 (SHOWCASE_DISCORD_REVIEWER_USER_ID warning
 **Source:** Developers Tab Restructure and Content Promotion — 2026-04-06
 **Description:** `v2/developers/developer-tools/**` and `v2/developers/technical-references/**` were moved into `v2/developers/x-deprecated/**`, leaving tracked deletions plus archive additions in the worktree. Repo policy requires a human-owned commit with `--trailer "allow-deletions=true"` after staging only the intended Developers IA files.
 **Priority:** P1
+
+## BL-043 — Retire Delegators `_workspace/TO-ADD/files` shadow source cleanly
+**Source:** Delegators Canonical IA Rebuild — 2026-04-06
+**Description:** The live Delegators tab now uses the canonical `v2/delegators/**` routes, but `v2/delegators/_workspace/TO-ADD/files/**` still exists as tracked shadow source content. Remove or archive it in a human-owned deletion commit and update any design/workspace references that still depend on those file paths.
+**Priority:** P1
+
+## BL-044 — Diagnose scoped preview redirect omissions for docs.json redirects
+**Source:** Delegators Canonical IA Rebuild — 2026-04-06
+**Description:** Scoped Delegators preview on port `3107` served the live routes correctly but returned `404` for the legacy redirect source paths, even though the redirect entries are present in `docs.json`. Verify whether scoped preview drops redirects or whether runtime redirect handling is incomplete.
+**Priority:** P2
+
+## BL-045 — Make page-index generation handle unstaged renames and new route files
+**Source:** Gateway Single-Click Deployment Path Migration — 2026-04-06
+**Description:** `operations/scripts/generators/content/catalogs/generate-pages-index.js` currently relies on tracked-path discovery, so it misses unstaged renames/new files and reports `v2/gateways/index.mdx` / `v2/index.mdx` as outdated until the moved page paths are staged. The generator should account for working-tree renames/new files or document/enforce the staging requirement explicitly.
+**Priority:** P2

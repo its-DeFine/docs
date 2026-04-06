@@ -55,13 +55,13 @@
                     "icon": "gear",
                     "pages": [
                       "v2/orchestrators/setup/guide",
-                      "v2/orchestrators/setup/rcs-requirements",
-                      "v2/orchestrators/setup/rs-install",
+                      "v2/orchestrators/setup/prepare",
+                      "v2/orchestrators/setup/install",
                       "v2/orchestrators/setup/r-configure",
                       "v2/orchestrators/setup/sc-connect",
                       "v2/orchestrators/setup/activate",
-                      "v2/orchestrators/setup/test",
-                      "v2/orchestrators/setup/r-monitor"
+                      "v2/orchestrators/setup/verify",
+                      "v2/orchestrators/setup/monitor"
                     ]
                   },
                   {
@@ -236,15 +236,15 @@
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/hardware-requirements",
-      "destination": "/v2/orchestrators/setup/rcs-requirements"
+      "destination": "/v2/orchestrators/setup/prepare"
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer",
-      "destination": "/v2/orchestrators/setup/rs-install"
+      "destination": "/v2/orchestrators/setup/install"
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats",
-      "destination": "/v2/orchestrators/setup/r-monitor"
+      "destination": "/v2/orchestrators/setup/monitor"
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/data-centre-setup",

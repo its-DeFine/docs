@@ -1046,3 +1046,43 @@ Done:
 - Archived the duplicate legacy `developer-tools` and `technical-references` trees under `v2/developers/x-deprecated/` and refreshed the generated page/docs-guide catalogs to the new Developers IA
 - Verified the live Developers tab with scoped MDX/style/link validation and a full 48-route scoped preview smoke pass after fixing promoted import drift and the link-audit runtime bug
 Next: Run a primary-source verification pass for promoted Developers claims, then stage the Developers archive moves for a human-owned deletion commit with `--trailer "allow-deletions=true"`
+
+=== 2026-04-06 11:50 AEST ===
+Stream: Delegators Canonical IA Rebuild
+Outcome: Partially met
+Done:
+- Rebuilt the live Delegators tab under the canonical `v2/delegators/**` IA, including the new `about-delegation`, `delegate-your-lpt`, `protocol-parameters`, `contracts`, and moved glossary routes
+- Propagated the new Delegators paths through `docs.json`, blueprint/companion surfaces, page indexes, and glossary data, and repaired the MDX-unsafe snippets metadata contract blocking preview startup
+- Fixed cross-tab glossary badge ownership by moving the shared badge data into `snippets/data/references/` and verified the live Delegators routes with scoped preview plus staged validation
+Next: Retire the tracked `_workspace/TO-ADD/files/**` shadow source in a human-owned deletion commit and verify legacy redirect behavior outside scoped preview
+Session started: 2026-04-06 11:57:22
+Session started: 2026-04-06 11:57:46
+Session started: 2026-04-06 11:58:27
+Session started: 2026-04-06 11:58:27
+Session started: 2026-04-06 11:58:34
+Session started: 2026-04-06 11:58:39
+Session started: 2026-04-06 11:58:39
+Session started: 2026-04-06 11:58:47
+Session started: 2026-04-06 12:04:07
+Session started: 2026-04-06 12:13:00
+Session started: 2026-04-06 12:22:11
+Session started: 2026-04-06 14:24:47
+Session started: 2026-04-06 14:25:06
+Session started: 2026-04-06 15:25:32
+=== 2026-04-06 16:03 ===
+Stream: Gateway Single-Click Deployment Path Migration
+Outcome: Met
+Done:
+- Moved the gateway community-projects page to `v2/gateways/guides/deployment-details/gwid-single-click-deploy.mdx`
+- Updated `docs.json`, scoped navigation mirrors, generated indexes, and the active gateway cross-links to the new canonical route
+- Added redirects from the old gateway install route so existing inbound links continue to resolve
+Next: Refresh generator-owned governance artifacts like `docs-guide/config/component-usage-map.json` in an isolated follow-up and stage the rename paths together before rerunning page-index verification
+Session started: 2026-04-06 16:25:03
+Session started: 2026-04-06 17:49:24
+Session started: 2026-04-06 21:57:22
+Session started: 2026-04-06 22:29:04
+Session started: 2026-04-06 23:45:32
+Session started: 2026-04-06 23:48:53
+Session started: 2026-04-07 00:13:27
+Session started: 2026-04-07 00:49:28
+Session started: 2026-04-07 01:06:38

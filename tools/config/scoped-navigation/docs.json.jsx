@@ -5245,14 +5245,13 @@ const gatewaysNew = {
           "group": "Gateway Setup Guide",
           "expanded": true,
           "pages": [
-            "v2/gateways/setup/run-a-gateway",
+            "v2/gateways/setup/guide",
             "v2/gateways/setup/transcoding",
             {
               "group": "Setup Checklist",
               "pages": [
                 "v2/gateways/setup/requirements/setup",
-                "v2/gateways/setup/requirements/on-chain-setup/on-chain",
-                "v2/gateways/setup/requirements/on-chain-setup/fund-gateway"
+                "v2/gateways/setup/requirements/on-chain-setup/on-chain"
               ]
             },
             {
@@ -5261,8 +5260,7 @@ const gatewaysNew = {
                 "v2/gateways/setup/install/install-overview",
                 "v2/gateways/setup/install/docker-install",
                 "v2/gateways/setup/install/linux-install",
-                "v2/gateways/setup/install/windows-install",
-                "v2/gateways/setup/install/community-projects"
+                "v2/gateways/setup/install/windows-install"
               ]
             },
             {
@@ -5271,8 +5269,7 @@ const gatewaysNew = {
                 "v2/gateways/setup/configure/configuration-overview",
                 "v2/gateways/setup/configure/video-configuration",
                 "v2/gateways/setup/configure/ai-configuration",
-                "v2/gateways/setup/configure/dual-configuration",
-                "v2/gateways/setup/configure/pricing-configuration"
+                "v2/gateways/setup/configure/dual-configuration"
               ]
             },
             {
@@ -5317,7 +5314,8 @@ const gatewaysNew = {
           "group": "Deployment Options",
           "pages": [
             "v2/gateways/guides/deployment-details/setup-options",
-            "v2/gateways/guides/deployment-details/setup-requirements"
+            "v2/gateways/guides/deployment-details/setup-requirements",
+            "v2/gateways/guides/deployment-details/gwid-single-click-deploy"
           ]
         },
         {
@@ -5335,7 +5333,9 @@ const gatewaysNew = {
           "pages": [
             "v2/gateways/guides/payments-and-pricing/payment-guide",
             "v2/gateways/guides/payments-and-pricing/funding-guide",
+            "v2/gateways/guides/payments-and-pricing/fund-gateway",
             "v2/gateways/guides/payments-and-pricing/pricing-strategy",
+            "v2/gateways/guides/payments-and-pricing/pricing-configuration",
             "v2/gateways/guides/payments-and-pricing/remote-signers",
             "v2/gateways/guides/payments-and-pricing/clearinghouse-guide"
           ]
@@ -5501,13 +5501,13 @@ const orchNew = {
       icon: 'gear',
       pages: [
         'v2/orchestrators/setup/guide',
-        'v2/orchestrators/setup/rcs-requirements',
-        'v2/orchestrators/setup/rs-install',
+        'v2/orchestrators/setup/prepare',
+        'v2/orchestrators/setup/install',
         'v2/orchestrators/setup/r-configure',
         'v2/orchestrators/setup/sc-connect',
         'v2/orchestrators/setup/activate',
-        'v2/orchestrators/setup/test',
-        'v2/orchestrators/setup/r-monitor',
+        'v2/orchestrators/setup/verify',
+        'v2/orchestrators/setup/monitor',
       ],
     },
     {

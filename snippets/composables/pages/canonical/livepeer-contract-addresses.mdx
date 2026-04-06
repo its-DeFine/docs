@@ -61,22 +61,20 @@ import { DoubleIconLink } from '/snippets/components/elements/links/Links.jsx'
 import { SearchTableV2 } from '/snippets/components/wrappers/tables/SearchTable.jsx'
 import { DynamicTable, DynamicTableV2 } from '/snippets/components/wrappers/tables/Table.jsx'
 import { AccordionTitle } from '/snippets/components/elements/text/CustomCardTitle.jsx'
-import { LinkIcon } from '/snippets/components/elements/links/Links.jsx'
-import { CopyText } from '/snippets/components/elements/text/Text.jsx'
-import { ArbitrumIcon, LivepeerIcon } from '/snippets/components/elements/icons/Icons.jsx'
+import { ArbitrumIcon } from '/snippets/components/elements/icons/Icons.jsx'
 import { HistoricalContractTable } from '/snippets/components/displays/tables/HistoricalContractTable.jsx'
 import { DataWrap } from '/snippets/components/wrappers/data/workflows.jsx'
 import VerifyContractAddresses from '/snippets/composables/pages/canonical/verify-contract-addresses.mdx'
 import {
-  buildCategoryAccordionRows,
   getActiveTableItems,
-  getLegacyOperationalTableItems,
-  getMigrationResidualTableItems,
-  getPausedTableItems,
+  getHistoricalCategories,
+  getHistoricalCategoryMeta,
+  getNonActiveGroups,
   getProxyTableItems,
-  historicalCategoryDescription,
+} from '/snippets/data/contract-addresses/view-model.jsx'
+import {
+  buildCategoryAccordionRows,
   historicalCategoryIcon,
-  historicalCategoryTitle,
 } from '/snippets/composables/pages/canonical/data/livepeer-contract-addresses-page-data.jsx'
 
 {/* data */}
@@ -311,41 +309,19 @@ Proxy addresses are stable upgrade entrypoints for active controller-managed con
 Paused Ethereum contracts, migration-residual contracts, and legacy-operational helper contracts remain published for verification and audit purposes, but they are not part of the active contract table above.
 
 <AccordionGroup>
-  <Accordion title="Paused" icon="pause">
-    <p style={{ color: "var(--text)", fontStyle: "italic", marginBottom: "0.75rem" }}>
-      Controller-era contracts that remain published for verification but are no longer active.
-    </p>
-    <DynamicTable
-      headerList={["Name", "Address", "Chain", "Type"]}
-      itemsList={buildCategoryAccordionRows(getPausedTableItems(contractAddresses))}
-      columnWidths={{ Chain: '36%' }}
-      showSeparators={true}
-    />
-  </Accordion>
-
-  <Accordion title="Migration" icon="clock-rotate-left">
-    <p style={{ color: "var(--text)", fontStyle: "italic", marginBottom: "0.75rem" }}>
-      Contracts left in place for late claims or migration completion workflows.
-    </p>
-    <DynamicTable
-      headerList={["Name", "Address", "Chain", "Type"]}
-      itemsList={buildCategoryAccordionRows(getMigrationResidualTableItems(contractAddresses))}
-      columnWidths={{ Chain: '36%' }}
-      showSeparators={true}
-    />
-  </Accordion>
-
-  <Accordion title="Legacy Operational" icon="wrench">
-    <p style={{ color: "var(--text)", fontStyle: "italic", marginBottom: "0.75rem" }}>
-      Legacy helper contracts that remain deployed for reference or support functions.
-    </p>
-    <DynamicTable
-      headerList={["Name", "Address", "Chain", "Type"]}
-      itemsList={buildCategoryAccordionRows(getLegacyOperationalTableItems(contractAddresses))}
-      columnWidths={{ Chain: '36%' }}
-      showSeparators={true}
-    />
-  </Accordion>
+  {getNonActiveGroups(contractAddresses).map((group) => (
+    <Accordion key={group.key} title={group.title} icon={group.icon}>
+      <p style={{ color: "var(--text)", fontStyle: "italic", marginBottom: "0.75rem" }}>
+        {group.description}
+      </p>
+      <DynamicTable
+        headerList={["Name", "Address", "Chain", "Type"]}
+        itemsList={buildCategoryAccordionRows(group.items)}
+        columnWidths={{ Chain: '36%' }}
+        showSeparators={true}
+      />
+    </Accordion>
+  ))}
 </AccordionGroup>
 
 <CustomDivider />
@@ -355,21 +331,18 @@ Paused Ethereum contracts, migration-residual contracts, and legacy-operational 
 Historical implementations replaced through governance upgrades. These target contracts are superseded and listed for audit trail and version history only. Do not interact with deprecated targets directly.
 
 <AccordionGroup>
-  <Accordion title={<AccordionTitle icon={historicalCategoryIcon("core")} title={historicalCategoryTitle("core")} description={historicalCategoryDescription("core")} />}>
-    <HistoricalContractTable category="core" sourceData={contractAddresses} />
-  </Accordion>
+  {getHistoricalCategories(contractAddresses).map((group) => {
+    const meta = getHistoricalCategoryMeta(group.key)
 
-  <Accordion title={<AccordionTitle icon={historicalCategoryIcon("governance")} title={historicalCategoryTitle("governance")} description={historicalCategoryDescription("governance")} />}>
-    <HistoricalContractTable category="governance" sourceData={contractAddresses} />
-  </Accordion>
-
-  <Accordion title={<AccordionTitle icon={historicalCategoryIcon("migration")} title={historicalCategoryTitle("migration")} description={historicalCategoryDescription("migration")} />}>
-    <HistoricalContractTable category="migration" sourceData={contractAddresses} />
-  </Accordion>
-
-  <Accordion title={<AccordionTitle icon={historicalCategoryIcon("genesis")} title={historicalCategoryTitle("genesis")} description={historicalCategoryDescription("genesis")} />}>
-    <HistoricalContractTable category="genesis" sourceData={contractAddresses} />
-  </Accordion>
+    return (
+      <Accordion
+        key={group.key}
+        title={<AccordionTitle icon={historicalCategoryIcon(meta.key)} title={meta.title} description={meta.description} />}
+      >
+        <HistoricalContractTable category={group.key} sourceData={contractAddresses} />
+      </Accordion>
+    )
+  })}
 </AccordionGroup>
 
 <CustomDivider />

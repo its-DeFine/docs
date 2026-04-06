@@ -1,13 +1,15 @@
 /**
  * @script            frontmatter
- * @category          utility
+ * @type              utility
+ * @concern           copy
+ * @niche             translation
  * @purpose           feature:translation
  * @scope             operations/scripts
- * @owner             docs
- * @needs             F-R6, F-R7
- * @purpose-statement Frontmatter parser/writer — reads and writes MDX frontmatter for translation
+ * @description       Frontmatter parser/writer for translation surfaces.
+ * @mode              write
  * @pipeline          indirect — library module
  * @usage             node operations/scripts/i18n/lib/frontmatter.js [flags]
+ * @policy            F-R6, F-R7
  */
 const matter = require('gray-matter');
 const { protectText, restoreProtectedText } = require('./mdx-translate');

@@ -2,10 +2,14 @@
 title: On-Chain Setup Requirements
 sidebarTitle: On-Chain Setup
 description: >-
-  This page will take you through setting up the additional requirements for
-  running a Gateway in On-Chain mode including finding an RPC URL, and creating
-  an Ethereum account and keystore.
+  This page will take you through setting up the additional requirements for running a
+  Gateway in On-Chain mode including finding an RPC URL, and creating an Ethereum
+  account and keystore.
 pageType: guide
+audience: gateway
+purpose: operate
+status: current
+lastVerified: 2026-03-17T00:00:00.000Z
 keywords:
   - livepeer
   - gateways
@@ -17,14 +21,11 @@ keywords:
   - setup
   - through
   - setting
-'og:image': /snippets/assets/media/og-images/fallback.png
-'og:image:alt': Livepeer Docs social preview image
-'og:image:type': image/png
-'og:image:width': 1200
-'og:image:height': 630
-audience: gateway-operator
-lastVerified: 2026-03-17
-purpose: operations
+og:image: /snippets/assets/media/og-images/fallback.png
+og:image:alt: Livepeer Docs social preview image
+og:image:type: image/png
+og:image:width: 1200
+og:image:height: 630
 icon: chain
 ---
 {/* TODO:
@@ -65,8 +66,8 @@ import EthAccountSetup from '/snippets/composables/pages/shared/eth-account-setu
     <div>
  Related Pages
         - [Run a Gateway](/v2/gateways/quickstart/gateway-setup)
-        - [Fund Gateway](./fund-gateway)
-        - [Install Gateway](/v2/gateways/setup/install/install-overview)
+        - [Fund Gateway](/v2/gateways/guides/payments-and-pricing/fund-gateway)
+        - [Install Gateway](/v2/gateways/setup/install)
         - [RPC Reference](/v2/gateways/resources/compendium/arbitrum-rpc)
     </div>
 
@@ -134,7 +135,7 @@ If you plan to run your Gateway in **On-Chain** mode, you will need:
 
 <Card
   title="Install Your Gateway Software First"
-  href="/v2/gateways/setup/install/install-overview"
+  href="/v2/gateways/setup/install"
   icon="tools"
   horizontal
   arrow
@@ -143,7 +144,7 @@ If you plan to run your Gateway in **On-Chain** mode, you will need:
  -> then come back to this guide.{' '}
 </Card>
 
- Livepeer will automatically create a new wallet & keystore for you if you do not provide an existing wallet address after first [installing your Gateway software](/v2/gateways/setup/install/install-overview).
+ Livepeer will automatically create a new wallet & keystore for you if you do not provide an existing wallet address after first [installing your Gateway software](/v2/gateways/setup/install).
 
  The software will detect no keystore exists for that address and ask you to:
         - Enter your private key
@@ -208,7 +209,7 @@ Keystore files are by default created in:
   icon="coins"
   title="Next Step"
   arrow
-  href="/v2/gateways/setup/requirements/on-chain-setup/fund-gateway"
+  href="/v2/gateways/guides/payments-and-pricing/fund-gateway"
 >
  {' '}
  Fund Your Gateway{' '}
@@ -445,7 +446,7 @@ Full Guide with alternative options for setting up an on-chain Gateway
 
     ### Create Automatically with Livepeer Tooling
     <Tip>
- It's recommended to let Livepeer devtools automatically create the keystore on first run after [installing the Gateway software](/v2/gateways/setup/install/install-overview).
+ It's recommended to let Livepeer devtools automatically create the keystore on first run after [installing the Gateway software](/v2/gateways/setup/install).
     </Tip>
     <Accordion icon="code" title="See Commands to Create Keystore with Livepeer Devtools">
     <Tabs>
@@ -717,7 +718,7 @@ Full Guide with alternative options for setting up an on-chain Gateway
 
 </StyledStep>
 <StyledStep title="Funding Your Gateway">
-    <Card title="Funding Your Gateway" href="/v2/gateways/setup/requirements/on-chain-setup/fund-gateway" icon="piggy-bank" horizontal arrow >
+    <Card title="Funding Your Gateway" href="/v2/gateways/guides/payments-and-pricing/fund-gateway" icon="piggy-bank" horizontal arrow >
  Jump to the funding your gateway guide
     </Card>
 </StyledStep>
@@ -937,7 +938,7 @@ Full Guide with alternative options for setting up an on-chain Gateway
     </Expandable>
 
     ### Funding Your ETH Account
- See <DoubleIconLink label="Fund Your Gateway" href="/v2/gateways/setup/requirements/on-chain-setup/fund-gateway" iconLeft="coins" />
+ See <DoubleIconLink label="Fund Your Gateway" href="/v2/gateways/guides/payments-and-pricing/fund-gateway" iconLeft="coins" />
 
 
         - `-ethUrl`: Ethereum JSON-RPC URL (required for on-chain)

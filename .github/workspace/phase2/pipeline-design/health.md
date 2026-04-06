@@ -19,11 +19,32 @@
 
 ## Current pipelines
 
+### Canonical repo-root ownership
+
+These are the repo-root entrypoints that own the current frontmatter/link/style contract. This pass kept these entrypoints intact and did not add new scripts.
+
+| Surface | Canonical owner | Status |
+|---|---|---|
+| Frontmatter taxonomy | `tools/lib/docs/frontmatter-taxonomy.js` + `operations/tests/unit/frontmatter-taxonomy.test.js` | Active |
+| Frontmatter structure | `operations/scripts/validators/content/structure/lint-structure.js` | Active |
+| Docs-index/frontmatter consumption | `operations/scripts/generators/content/catalogs/generate-docs-index.js` | Active |
+| Quality and taxonomy advisories | `operations/tests/unit/quality.test.js` | Active |
+| Spelling | `operations/tests/unit/spelling.test.js` | Active |
+| Style and em-dash | `operations/tests/unit/style-guide.test.js` + `operations/scripts/dispatch/governance/pre-tool-guard.js` | Active |
+| Internal link health | `operations/scripts/audits/content/health/page-links-audit.js` | Active |
+
+Notes:
+
+- `spelling.test.js` already checks MDX/JSX prop text.
+- `page-links-audit.js` already checks link-bearing props such as `href`, `src`, `to`, `url`, and `image`.
+- `style-guide.test.js` and `pre-tool-guard.js` now also cover prop text for em-dash enforcement.
+- Deprecated frontmatter aliases remain advisory repo-wide after cleanup. This pass does not promote them to a hard gate.
+
 ### Working
 
 | Pipeline | When | What it does | Gold standard? |
 |---|---|---|---|
-| Link check on PR | PR opened | Checks internal/external links via Mintlify scanner | No (advisory only, no remediation) |
+| Link check on PR | PR opened | Checks internal/external links via Mintlify scanner | No (advisory workflow, not the canonical repo-root auditor) |
 | Page rendering on PR | PR opened | Browser sweep via Puppeteer, catches console errors/404s | No (reports only) |
 | Page integrity (scan+fix) | Scheduled + manual | Runs link + import audit, applies safe repairs, reruns, creates rolling issue | Close (has the full chain) |
 | OpenAPI validation | Scheduled + PR | Compares spec to live API, creates PR if drifted | YES. Scan, detect, auto-fix, issue tracking |
@@ -42,6 +63,7 @@
 | Need | Scripts that exist | What's missing |
 |---|---|---|
 | Structure validation on PR | 9 validators (lint-structure, check-double-headers, check-anchor-usage, check-mdx-safe-markdown, check-page-endings, check-description-quality, verify-all-pages, check-docs-path-sync, enforce-generated-file-banners) | A PR workflow dispatching them |
+| Canonical frontmatter freshness metadata | lint-structure, quality.test, frontmatter-taxonomy, generate-docs-index | A reviewed rollout strategy for `lastVerified` / `veracityStatus` on legacy pages without inventing review claims |
 | Veracity checking on PR | docs-page-research.js, docs-research-adjudication.js, docs-page-research-pr-report.js, docs-fact-registry.js | A PR workflow dispatching fact-check on changed docs |
 | Page usefulness scoring | audit-v2-usefulness.js | A scheduled scan that creates issues for low-scoring pages |
 | Media asset audit | audit-media-assets.js | A scheduled scan |
@@ -164,6 +186,12 @@ Keep as-is. May absorb additional repair scripts over time.
 | quarantine-manager.js | File quarantine | Manual |
 | add-pagetype-mechanical.js | Assign pageType | Manual or scheduled |
 | assign-purpose-metadata.js | Assign purpose | Manual or scheduled |
+
+### Advisory boundaries
+
+- `.github/workflows/broken-links.yml` is an advisory PR validator. Repo-root remediation and strict internal-link ownership live in `page-links-audit.js`.
+- `content-health.yml` is not the canonical owner of frontmatter taxonomy. It consumes quality signals, while taxonomy/structure ownership stays with `frontmatter-taxonomy.js`, `frontmatter-taxonomy.test.js`, `lint-structure.js`, and `quality.test.js`.
+- The gateway alignment pass fixed repo-root runtime resolution for the affected governance audit path by making `operations/` the dependency owner for the audited `operations/scripts/**` entrypoints.
 
 ---
 
