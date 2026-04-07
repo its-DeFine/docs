@@ -7,9 +7,9 @@
  * @description       Thin CLI entrypoint for the chain-first contracts pipeline.
  *                    Delegates discovery, truth recovery, provenance resolution,
  *                    enrichment, output generation, and incident reporting to the
- *                    contracts pipeline modules under operations/scripts/automations/content/data/contracts/.
+ *                    contracts pipeline modules under operations/scripts/integrators/content/data/contracts/.
  * @mode              generate
- * @scope             .github/scripts, operations/scripts/automations/content/data/contracts/, snippets/data/contract-addresses/, snippets/composables/pages/canonical/
+ * @scope             .github/scripts, operations/scripts/integrators/content/data/contracts/, snippets/data/contract-addresses/, snippets/composables/pages/canonical/
  * @usage             node .github/scripts/fetch-contract-addresses.js [--dry-run] [--check] [--skip-verify]
  * @policy            Docs-local files do not define publishable contract truth.
  * @pipeline    manual
@@ -32,7 +32,7 @@ const {
   resolveAuthority,
   resolveGovernorSeries,
   runContractsPipeline,
-} = require(path.join(process.cwd(), "operations/scripts/automations/content/data/contracts/pipeline.js"));
+} = require(path.join(process.cwd(), "operations/scripts/integrators/content/data/contracts/pipeline.js"));
 
 async function main() {
   const dryRun = process.argv.includes("--dry-run");
