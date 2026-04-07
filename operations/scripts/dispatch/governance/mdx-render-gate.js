@@ -18,6 +18,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 const { stdin } = process;
 
 // ---------------------------------------------------------------------------
@@ -111,10 +112,25 @@ stdin.on('end', () => {
     }
 
     if (state.status === 'server-failed') {
-      console.log(JSON.stringify({
-        systemMessage: 'RENDER GATE: Server was unavailable during last verification. Allowing edit. The PostToolUse hook will retry verification after this edit.'
-      }));
-      process.exit(0);
+      // Try auto-restart before allowing unverified edits
+      try {
+        execSync('node operations/scripts/dispatch/governance/server-lifecycle.js restart', {
+          timeout: 120000,
+          stdio: 'pipe',
+          cwd: process.cwd()
+        });
+        console.log(JSON.stringify({
+          systemMessage: 'RENDER GATE: Server was down. Auto-restarted successfully. Allowing edit — verification will run after.'
+        }));
+        process.exit(0);
+      } catch (_) {
+        // Restart failed — BLOCK to prevent unverified edits
+        console.log(JSON.stringify({
+          decision: 'block',
+          reason: 'BLOCKED: Mintlify dev server is down and could not be restarted. Check build errors: tail -50 /tmp/mint-dev-test-*.log. Fix the build error, then run: node operations/scripts/dispatch/governance/server-lifecycle.js restart'
+        }));
+        process.exit(2);
+      }
     }
 
     if (state.status === 'pending') {

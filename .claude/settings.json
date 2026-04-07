@@ -128,6 +128,16 @@
         ]
       },
       {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/completion-gate.js",
+            "statusMessage": "Checking completion prerequisites..."
+          }
+        ]
+      },
+      {
         "matcher": "Agent",
         "hooks": [
           {
@@ -196,6 +206,26 @@
             "type": "command",
             "command": "node operations/scripts/dispatch/governance/session-register.js",
             "async": true
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/edit-loop-guard.js",
+            "statusMessage": "Checking for edit loops..."
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/scope-checkpoint.js",
+            "statusMessage": "Scope checkpoint..."
           }
         ]
       },

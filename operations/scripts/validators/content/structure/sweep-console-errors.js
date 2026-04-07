@@ -267,8 +267,11 @@ async function main(argv = process.argv.slice(2)) {
   let clean = 0;
   let dirty = 0;
   let serverRestarts = 0;
+  const INTER_ROUTE_DELAY_MS = 500; // Don't hammer the dev server
 
   for (let i = 0; i < routes.length; i++) {
+    // Throttle to avoid killing the server
+    if (i > 0) await new Promise((r) => setTimeout(r, INTER_ROUTE_DELAY_MS));
     const route = routes[i];
     const pct = ((i / routes.length) * 100).toFixed(0);
     process.stdout.write(`\r[${pct}%] ${i + 1}/${routes.length} — ${route}                    `);
@@ -294,24 +297,37 @@ async function main(argv = process.argv.slice(2)) {
 
     // Detect server death — connection refused means server crashed
     const hasConnectionRefused = result.consoleErrors.some((e) => /ERR_CONNECTION_REFUSED|ECONNREFUSED/i.test(e));
-    if (hasConnectionRefused && serverRestarts < 5) {
+    if (hasConnectionRefused && serverRestarts < 10) {
       serverRestarts++;
-      console.error(`\nServer died at route ${i + 1}/${routes.length}. Restarting (attempt ${serverRestarts}/5)...`);
+      console.error(`\nServer died at route ${i + 1}/${routes.length}. Restarting (attempt ${serverRestarts}/10)...`);
       try { await browser.close(); } catch (_) {}
 
-      // Restart server
-      baseUrl = await ensureServer(null);
-      console.log(`Server restarted at ${baseUrl}`);
-      browser = await launchBrowser();
-
-      // Retry this route
+      // Restart server — wrap in try-catch so sweep continues even if restart fails
       try {
-        result = await checkRoute(browser, route, baseUrl);
-      } catch (_) {
-        result = {
-          status: 0, consoleErrors: ['Server restart failed'],
-          bodyLength: 0, hasH1: false, hasErrorBoundary: false, is404: false, clean: false
-        };
+        baseUrl = await ensureServer(null);
+        console.log(`Server restarted at ${baseUrl}`);
+        browser = await launchBrowser();
+
+        // Retry this route
+        try {
+          result = await checkRoute(browser, route, baseUrl);
+        } catch (_) {
+          result = {
+            status: 0, consoleErrors: ['Server restart failed — route skipped'],
+            bodyLength: 0, hasH1: false, hasErrorBoundary: false, is404: false, clean: false
+          };
+        }
+      } catch (restartErr) {
+        console.error(`Server restart failed: ${restartErr.message}. Skipping remaining routes.`);
+        // Record all remaining routes as skipped
+        for (let j = i; j < routes.length; j++) {
+          results[routes[j]] = {
+            status: 0, consoleErrors: ['Server unavailable — skipped'],
+            bodyLength: 0, hasH1: false, hasErrorBoundary: false, is404: false, clean: false
+          };
+          dirty++;
+        }
+        break;
       }
     }
 

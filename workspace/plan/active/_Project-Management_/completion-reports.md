@@ -4684,3 +4684,58 @@ The gateway single-click deployment page now lives at the canonical deployment-d
 | `v2/gateways/guides/deployment-details/setup-requirements.mdx` | modified | Related-page card repointed to the new deployment-details page |
 | `v2/gateways/index.mdx` | modified | Generated gateways index refreshed to surface the new route |
 | `v2/index.mdx` | modified | Generated root index refreshed to surface the new route |
+
+---
+
+## Insights Enforcement Hooks — 2026-04-07
+
+**Plans**: `.claude/plans/humming-swimming-cake.md`
+**Scope**: Mechanical hook enforcement for the three recurring failures identified by /insights: cycling, scope drift, unverified completion claims.
+**Outcome**: Met
+
+### Summary
+Built three new governance hooks to mechanically enforce behaviour that CLAUDE.md rules alone could not. The edit-loop-guard detects repeated edits to the same file (warns at 3, blocks at 5). The scope-checkpoint injects a drift check every 8 edits. The completion-gate blocks writing to session-log/completion-reports while render verification is failing. All hooks tested in isolation with 8/8 tests passing.
+
+### Completed
+- **edit-loop-guard.js** (PostToolUse) — tracks per-file edit counts, requires hypothesis at 3, writes block flag at 5
+- **scope-checkpoint.js** (PostToolUse) — injects scope check every 8 edits with thread outcome from /tmp
+- **completion-gate.js** (PreToolUse) — blocks completion artifact writes when mdx-render-verify state is "failed"
+- **pre-tool-guard.js** extended with edit-loop block enforcement (reads block flag, blocks with exit 2)
+- **settings.json** wired with 3 new hook entries
+- **CLAUDE.md** hardened with 3 new sections (Debugging discipline, Platform constraints, Dry-run policy) and 3 new hook-enforced hard boundary rules
+- **/thread SKILL.md** updated to write outcome to `/tmp/claude-thread-outcome-{sessionId}.txt`
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| Warn at 3 edits, block at 5 | 3 gives one more chance with a hypothesis requirement; 5 is a hard stop that requires /diagnose or verification |
+| Scope checkpoint every 8 edits | Frequent enough to catch drift, infrequent enough to not be noise |
+| Block completion artifacts, not all writes | Cannot block Claude's text output; blocking session-log and completion-reports is the closest mechanical equivalent |
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| Edit loop: warning at 3 | PASS | systemMessage with hypothesis requirement injected |
+| Edit loop: block flag at 5 | PASS | Block file written to /tmp |
+| Edit loop: pre-tool-guard blocks | PASS | Exit code 2, decision: block |
+| Edit loop: exempt paths | PASS | workspace/, .claude/ not tracked |
+| Scope checkpoint at 8th edit | PASS | Outcome and file list injected |
+| Completion gate: blocks on failed render | PASS | Exit code 2 |
+| Completion gate: allows on passed render | PASS | Exit code 0 |
+| Completion gate: allows non-completion files | PASS | Exit code 0 |
+
+### Recommendations
+1. **Register 3 new scripts in script-registry.json** — governance gap flagged
+2. **Live integration test** — run a session that intentionally triggers all three hooks to confirm they work end-to-end in the harness (not just isolated stdin tests)
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `operations/scripts/dispatch/governance/edit-loop-guard.js` | new script | PostToolUse hook — cycling prevention |
+| `operations/scripts/dispatch/governance/scope-checkpoint.js` | new script | PostToolUse hook — scope drift detection |
+| `operations/scripts/dispatch/governance/completion-gate.js` | new script | PreToolUse hook — completion gate |
+| `operations/scripts/dispatch/governance/pre-tool-guard.js` | modified | Edit-loop block enforcement added |
+| `.claude/settings.json` | modified | 3 new hook entries wired |
+| `.claude/CLAUDE.md` | modified | 3 new sections + 3 hard boundary rules |
+| `ai-tools/ai-skills/thread/SKILL.md` | modified | Outcome file write instruction |
+| `.claude/plans/humming-swimming-cake.md` | plan | Full design document |
