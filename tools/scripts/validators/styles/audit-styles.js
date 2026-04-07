@@ -143,6 +143,14 @@ function getLineNumber(content, index) {
    SCANNERS
    ============================================ */
 
+function isOnComponent(content, matchIndex) {
+  // Check if style={{ is on a PascalCase component (acceptable) vs raw HTML (violation)
+  const lineStart = content.lastIndexOf('\n', matchIndex) + 1;
+  const before = content.slice(lineStart, matchIndex);
+  const tagMatch = before.match(/<([A-Z]\w*)[^>]*$/);
+  return !!tagMatch;
+}
+
 function scanInlineStylesMdx(filePath, content) {
   const violations = [];
   const regex = /style=\{\{/g;
@@ -150,6 +158,8 @@ function scanInlineStylesMdx(filePath, content) {
   while ((match = regex.exec(content)) !== null) {
     if (isInsideCodeBlock(content, match.index)) continue;
     if (isInsideInlineCode(content, match.index)) continue;
+    // Skip style props on components — that's the correct pattern (prop merging)
+    if (isOnComponent(content, match.index)) continue;
     violations.push({
       category: CATEGORIES.INLINE_STYLE_MDX,
       file: path.relative(REPO_ROOT, filePath),
