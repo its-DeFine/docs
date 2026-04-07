@@ -25,7 +25,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 | **New name** | `dispatch-copy-update-social-feeds.yml` |
 | **Type** | `dispatch` |
 | **Concern** | `copy` |
-| **Pipeline tag** | P4 (post-merge, auto-commit) |
+| **Pipeline tag** | reusable |
 | **Status** | active |
 
 <CustomDivider />
@@ -42,7 +42,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 ```mermaid
 graph LR
-    TRIGGER[""] --> WF["dispatch-copy-update-social-feeds"]
+    TRIGGER["workflow_dispatch, workflow_call"] --> WF["dispatch-copy-update-social-feeds"]
     WF --> OUTPUT["output"]
 ```
 
@@ -52,14 +52,22 @@ graph LR
 
 | Trigger | Details |
 |---|---|
-
+| `workflow_dispatch` | See workflow file |
+| `workflow_call` | See workflow file |
 
 <CustomDivider />
 
 ## Dependencies
 
 **Scripts:**
-None (inline only)
+- `operations/scripts/integrators/copy/social-feeds/fetch-forum-data.js`
+- `operations/scripts/integrators/copy/social-feeds/fetch-ghost-blog-data.js`
+- `operations/scripts/integrators/copy/social-feeds/fetch-youtube-data.js`
+- `operations/scripts/integrators/copy/social-feeds/fetch-github-discussions.js`
+- `operations/scripts/integrators/copy/social-feeds/fetch-github-releases.js`
+- `operations/scripts/integrators/copy/social-feeds/fetch-discord-announcements.js`
+- `operations/scripts/integrators/copy/social-feeds/fetch-rss-blog-data.js`
+- `operations/scripts/integrators/maintenance/release/update-livepeer-release.js`
 
 <CustomDivider />
 
@@ -67,7 +75,6 @@ None (inline only)
 
 None identified.
 
-**Review flags:** Auto-added during governance consolidation 2026-04-07
 
 <CustomDivider />
 
@@ -75,8 +82,7 @@ None identified.
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Stays separate |
-| **Dry-run** | No |
+| **Permissions** | Declared |
 | **Concurrency** | No |
-| **Error reporting** | unknown |
-| **Auto-commit** | No |
+| **Auto-commit** | Yes |
+| **Inline script** | No |

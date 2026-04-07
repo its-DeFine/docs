@@ -60,8 +60,8 @@ graph LR
 ## Dependencies
 
 **Scripts:**
-- `operations/scripts/docs-quality-and-freshness-audit.js`
-- `operations/scripts/audit-component-usage.js`
+- `operations/scripts/audits/content/quality/docs-quality-and-freshness-audit.js`
+- `operations/scripts/audits/components/documentation/audit-component-usage.js`
 - `operations/scripts/generators/components/library/generate-component-registry.js`
 - `operations/scripts/audits/components/library/scan-component-imports.js`
 - `operations/scripts/remediators/components/library/repair-component-metadata.js`
@@ -71,10 +71,8 @@ graph LR
 
 ## Known Issues
 
-- All 6 steps have continue-on-error masking failures
-- Script paths may be stale from restructure
+None identified.
 
-**Review flags:** continue-on-error masking all failures
 
 <CustomDivider />
 
@@ -82,8 +80,7 @@ graph LR
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Stays separate |
-| **Dry-run** | No |
+| **Permissions** | Declared |
 | **Concurrency** | No |
-| **Error reporting** | continue-on-error-all |
 | **Auto-commit** | No |
+| **Inline script** | No |

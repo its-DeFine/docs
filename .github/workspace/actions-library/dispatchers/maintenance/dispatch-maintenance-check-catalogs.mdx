@@ -25,7 +25,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 | **New name** | `dispatch-maintenance-check-catalogs.yml` |
 | **Type** | `dispatch` |
 | **Concern** | `maintenance` |
-| **Pipeline tag** | P4 (post-merge, auto-commit) |
+| **Pipeline tag** | reusable |
 | **Status** | active |
 
 <CustomDivider />
@@ -42,7 +42,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 ```mermaid
 graph LR
-    TRIGGER[""] --> WF["dispatch-maintenance-check-catalogs"]
+    TRIGGER["workflow_dispatch, workflow_call"] --> WF["dispatch-maintenance-check-catalogs"]
     WF --> OUTPUT["output"]
 ```
 
@@ -52,14 +52,22 @@ graph LR
 
 | Trigger | Details |
 |---|---|
-
+| `workflow_dispatch` | See workflow file |
+| `workflow_call` | See workflow file |
 
 <CustomDivider />
 
 ## Dependencies
 
 **Scripts:**
-None (inline only)
+- `operations/scripts/generators/components/library/generate-component-registry.js`
+- `operations/scripts/generators/components/documentation/generate-component-docs.js`
+- `operations/scripts/validators/components/library/check-component-health.js`
+- `operations/scripts/generators/components/library/generate-component-examples.js`
+- `operations/scripts/generators/governance/catalogs/generate-docs-guide-indexes.js`
+- `operations/scripts/generators/governance/catalogs/generate-docs-guide-pages-index.js`
+- `operations/scripts/generators/content/catalogs/generate-docs-index.js`
+- `operations/tests/unit/quality.test.js`
 
 <CustomDivider />
 
@@ -67,7 +75,6 @@ None (inline only)
 
 None identified.
 
-**Review flags:** Auto-added during governance consolidation 2026-04-07
 
 <CustomDivider />
 
@@ -75,8 +82,7 @@ None identified.
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Stays separate |
-| **Dry-run** | No |
+| **Permissions** | Declared |
 | **Concurrency** | No |
-| **Error reporting** | unknown |
-| **Auto-commit** | No |
+| **Auto-commit** | Yes |
+| **Inline script** | No |

@@ -25,7 +25,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 | **New name** | `validator-governance-check-codex-compliance.yml` |
 | **Type** | `validator` |
 | **Concern** | `governance` |
-| **Pipeline tag** | P2 (hard gate, blocks merge) |
+| **Pipeline tag** | P3 (soft gate, advisory) |
 | **Status** | active |
 
 <CustomDivider />
@@ -66,9 +66,8 @@ graph LR
 
 ## Known Issues
 
-- check-codex-pr-overlap.js path may be stale (moved to dispatch/ai/codex/)
+None identified.
 
-**Review flags:** Hard gate P2. Script path may be stale
 
 <CustomDivider />
 
@@ -76,8 +75,7 @@ graph LR
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Stays separate |
-| **Dry-run** | No |
+| **Permissions** | Declared |
 | **Concurrency** | No |
-| **Error reporting** | none |
 | **Auto-commit** | No |
+| **Inline script** | No |

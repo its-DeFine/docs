@@ -25,7 +25,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 | **New name** | `interface-governance-index-issues.yml` |
 | **Type** | `interface` |
 | **Concern** | `governance` |
-| **Pipeline tag** | P5 (scheduled, read-only) |
+| **Pipeline tag** | Event-driven (repository_dispatch / issues) |
 | **Status** | active |
 
 <CustomDivider />
@@ -42,7 +42,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 ```mermaid
 graph LR
-    TRIGGER["issues, workflow_dispatch, schedule"] --> WF["interface-governance-index-issues"]
+    TRIGGER["schedule, workflow_dispatch, issues"] --> WF["interface-governance-index-issues"]
     WF --> OUTPUT["output"]
 ```
 
@@ -52,9 +52,9 @@ graph LR
 
 | Trigger | Details |
 |---|---|
-| `issues` | See workflow file |
-| `workflow_dispatch` | See workflow file |
 | `schedule` | See workflow file |
+| `workflow_dispatch` | See workflow file |
+| `issues` | See workflow file |
 
 <CustomDivider />
 
@@ -69,7 +69,6 @@ None (inline only)
 
 None identified.
 
-**Review flags:** 403 lines inline
 
 <CustomDivider />
 
@@ -77,8 +76,7 @@ None identified.
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Stays separate |
-| **Dry-run** | No |
+| **Permissions** | Declared |
 | **Concurrency** | Yes |
-| **Error reporting** | summary |
 | **Auto-commit** | No |
+| **Inline script** | Yes (extraction candidate) |

@@ -42,7 +42,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 ```mermaid
 graph LR
-    TRIGGER[""] --> WF["validator-health-check-page-structure"]
+    TRIGGER["pull_request, workflow_dispatch"] --> WF["validator-health-check-page-structure"]
     WF --> OUTPUT["output"]
 ```
 
@@ -52,7 +52,8 @@ graph LR
 
 | Trigger | Details |
 |---|---|
-
+| `pull_request` | See workflow file |
+| `workflow_dispatch` | See workflow file |
 
 <CustomDivider />
 
@@ -67,7 +68,6 @@ None (inline only)
 
 None identified.
 
-**Review flags:** Auto-added during governance consolidation 2026-04-07
 
 <CustomDivider />
 
@@ -75,8 +75,7 @@ None identified.
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Stays separate |
-| **Dry-run** | No |
+| **Permissions** | Declared |
 | **Concurrency** | No |
-| **Error reporting** | unknown |
 | **Auto-commit** | No |
+| **Inline script** | No |

@@ -60,15 +60,18 @@ graph LR
 ## Dependencies
 
 **Scripts:**
+- `operations/scripts/generators/governance/root/generate-root-governance-artifacts.js`
+- `operations/scripts/validators/governance/compliance/check-root-governance-sync.js`
+- `operations/scripts/generators/governance/reports/generate-repo-governance-status.js`
+- `operations/scripts/validators/governance/compliance/check-repo-governance-sync.js`
 - `operations/scripts/dispatch/governance/pipelines/governance-pipeline.js`
 
 <CustomDivider />
 
 ## Known Issues
 
-- References undefined inputs.use_test_branch
+None identified.
 
-**Review flags:** Dead code (undefined input)
 
 <CustomDivider />
 
@@ -76,8 +79,7 @@ graph LR
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Stays separate |
-| **Dry-run** | Yes |
+| **Permissions** | Declared |
 | **Concurrency** | No |
-| **Error reporting** | robust |
-| **Auto-commit** | No |
+| **Auto-commit** | Yes |
+| **Inline script** | Yes (extraction candidate) |

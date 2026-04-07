@@ -25,7 +25,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 | **New name** | `interface-governance-close-linked-issues.yml` |
 | **Type** | `interface` |
 | **Concern** | `governance` |
-| **Pipeline tag** | P4 (post-merge, auto-commit) |
+| **Pipeline tag** | Event-driven (repository_dispatch / issues) |
 | **Status** | active |
 
 <CustomDivider />
@@ -42,7 +42,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 ```mermaid
 graph LR
-    TRIGGER["pull_request:closed"] --> WF["interface-governance-close-linked-issues"]
+    TRIGGER["pull_request"] --> WF["interface-governance-close-linked-issues"]
     WF --> OUTPUT["output"]
 ```
 
@@ -52,7 +52,7 @@ graph LR
 
 | Trigger | Details |
 |---|---|
-| `pull_request:closed` | See workflow file |
+| `pull_request` | See workflow file |
 
 <CustomDivider />
 
@@ -67,7 +67,6 @@ None (inline only)
 
 None identified.
 
-**Review flags:** 141 lines inline
 
 <CustomDivider />
 
@@ -75,8 +74,7 @@ None identified.
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Stays separate |
-| **Dry-run** | No |
+| **Permissions** | Declared |
 | **Concurrency** | No |
-| **Error reporting** | robust |
 | **Auto-commit** | No |
+| **Inline script** | Yes (extraction candidate) |

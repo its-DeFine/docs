@@ -42,7 +42,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 ```mermaid
 graph LR
-    TRIGGER[""] --> WF["integrator-maintenance-update-contract-addresses-shadow"]
+    TRIGGER["schedule, workflow_dispatch, repository_dispatch"] --> WF["integrator-maintenance-update-contract-addresses-shadow"]
     WF --> OUTPUT["output"]
 ```
 
@@ -52,14 +52,16 @@ graph LR
 
 | Trigger | Details |
 |---|---|
-
+| `schedule` | See workflow file |
+| `workflow_dispatch` | See workflow file |
+| `repository_dispatch` | See workflow file |
 
 <CustomDivider />
 
 ## Dependencies
 
 **Scripts:**
-None (inline only)
+- `operations/scripts/integrators/maintenance/contracts/fetch-contract-addresses.js`
 
 <CustomDivider />
 
@@ -67,7 +69,6 @@ None (inline only)
 
 None identified.
 
-**Review flags:** Auto-added during governance consolidation 2026-04-07
 
 <CustomDivider />
 
@@ -75,8 +76,7 @@ None identified.
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Stays separate |
-| **Dry-run** | No |
+| **Permissions** | Declared |
 | **Concurrency** | No |
-| **Error reporting** | unknown |
-| **Auto-commit** | Yes |
+| **Auto-commit** | No |
+| **Inline script** | Yes (extraction candidate) |

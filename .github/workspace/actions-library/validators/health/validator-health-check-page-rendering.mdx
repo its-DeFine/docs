@@ -42,7 +42,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 ```mermaid
 graph LR
-    TRIGGER["push, pull_request, workflow_dispatch"] --> WF["validator-health-check-page-rendering"]
+    TRIGGER["pull_request, push, workflow_dispatch"] --> WF["validator-health-check-page-rendering"]
     WF --> OUTPUT["output"]
 ```
 
@@ -52,8 +52,8 @@ graph LR
 
 | Trigger | Details |
 |---|---|
-| `push` | See workflow file |
 | `pull_request` | See workflow file |
+| `push` | See workflow file |
 | `workflow_dispatch` | See workflow file |
 
 <CustomDivider />
@@ -61,7 +61,7 @@ graph LR
 ## Dependencies
 
 **Scripts:**
-- `operations/scripts/automations/content/data/fetching/fetch-external-docs.sh`
+None (inline only)
 
 <CustomDivider />
 
@@ -76,8 +76,7 @@ None identified.
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Overlaps with test-suite.yml — merge as a job within test-suite |
-| **Dry-run** | No |
+| **Permissions** | Declared |
 | **Concurrency** | Yes |
-| **Error reporting** | summary |
 | **Auto-commit** | No |
+| **Inline script** | Yes (extraction candidate) |

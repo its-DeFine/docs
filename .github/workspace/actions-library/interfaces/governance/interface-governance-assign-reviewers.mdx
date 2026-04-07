@@ -25,7 +25,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 | **New name** | `interface-governance-assign-reviewers.yml` |
 | **Type** | `interface` |
 | **Concern** | `governance` |
-| **Pipeline tag** | P3 (soft gate, advisory) |
+| **Pipeline tag** | Event-driven (repository_dispatch / issues) |
 | **Status** | active |
 
 <CustomDivider />
@@ -65,9 +65,8 @@ None (inline only)
 
 ## Known Issues
 
-- Branch docs-v2 hardcoded instead of vars.DEPLOY_BRANCH
+None identified.
 
-**Review flags:** Hardcoded branch. 80 lines inline
 
 <CustomDivider />
 
@@ -75,8 +74,7 @@ None (inline only)
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Stays separate |
-| **Dry-run** | No |
+| **Permissions** | Declared |
 | **Concurrency** | No |
-| **Error reporting** | robust |
 | **Auto-commit** | No |
+| **Inline script** | Yes (extraction candidate) |

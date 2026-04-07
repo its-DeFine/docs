@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generated": "2026-04-07T14:29:23.365Z",
-    "commit": "35a25da81b497b50919600f0118af79554a3acc8",
+    "generated": "2026-04-07T14:46:31.143Z",
+    "commit": "94d8be32b436cdaed032639b1116b7af18506cb7",
     "totalRoutes": 532,
-    "clean": 3,
-    "dirty": 529
+    "clean": 6,
+    "dirty": 526
   },
   "/v2/home/mission-control": {
     "status": 200,
@@ -554,224 +554,265 @@
     "clean": false
   },
   "/v2/solutions/portal": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 940,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/solution-providers": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Error: Expected component `CopyText` to be defined: you likely forgot to import, pass, or provide it.",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 811,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/daydream/overview": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 3478,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/daydream/community": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 1202,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/daydream/changelog": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 2821,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/overview": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 5048,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/community": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 1164,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/changelog": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 14022,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/streamplace/overview": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 3950,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/streamplace/community": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 3721,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/streamplace/changelog": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 4746,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/embody/overview": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 3620,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/embody/community": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 1112,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/embody/changelog": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 5547,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/frameworks/overview": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 4068,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/frameworks/community": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 1108,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/frameworks/changelog": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 19809,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/resources/glossary": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Error: Expected component `CopyText` to be defined: you likely forgot to import, pass, or provide it."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 971,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/get-started/overview": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 1472,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/quickstart": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 3660,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/get-started/authentication": {
     "status": 0,
@@ -2884,7 +2925,8 @@
   "/v2/gateways/resources/reference/faq": {
     "status": 0,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Navigation error: Navigating frame was detached",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
     "bodyLength": 0,
     "hasH1": false,
@@ -2893,34 +2935,35 @@
     "clean": false
   },
   "/v2/gateways/resources/deployment-terms": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 5267,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/technical-architecture": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 1370,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/configuration-flags": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "ReferenceError: gatewayConfigurationFlagSections is not defined",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 1150,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
@@ -2928,7 +2971,9 @@
   "/v2/gateways/resources/reference/technical/contract-addresses": {
     "status": 0,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "ReferenceError: getActiveEntries is not defined",
+      "Navigation error: Navigating frame was detached",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
     "bodyLength": 0,
     "hasH1": false,
@@ -2937,386 +2982,402 @@
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/cli-commands": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 4451,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/AI-API/ai": {
-    "status": 0,
+    "status": 500,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 95,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/AI-API/text-to-image": {
-    "status": 0,
+    "status": 500,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 95,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/AI-API/image-to-image": {
-    "status": 0,
+    "status": 500,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 95,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/AI-API/image-to-video": {
-    "status": 0,
+    "status": 500,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 95,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/AI-API/upscale": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/AI-API/audio-to-text": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/AI-API/segment-anything-2": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/AI-API/llm": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/AI-API/image-to-text": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/AI-API/live-video-to-video": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/AI-API/text-to-speech": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/AI-API/health": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/AI-API/hardware-info": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/AI-API/hardware-stats": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/cli-http-api": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/unbond": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/rebond": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/activateorchestrator": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/setbroadcastconfig": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/setmaxpriceforcapability": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/reward": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/transfertokens": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/technical/api-reference/CLI-HTTP/signmessage": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/reference/go-livepeer/bandwidth-requirements": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 2926,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/reference/go-livepeer/hardware-requirements": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 2034,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/reference/go-livepeer/gpu-support": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 2320,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/reference/go-livepeer/cli-reference": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 7214,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/reference/go-livepeer/prometheus-metrics": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 7287,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/compendium/livepeer-exchanges": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 4244,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/gateways/resources/compendium/arbitrum-exchanges": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 3780,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/gateways/resources/compendium/arbitrum-rpc": {
-    "status": 0,
+    "status": 500,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 95,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/knowledge-hub/guides": {
-    "status": 0,
+    "status": 500,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 95,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/knowledge-hub/resources": {
-    "status": 0,
+    "status": 500,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 95,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/gateways/resources/knowledge-hub/help": {
-    "status": 0,
+    "status": 500,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 95,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false

@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "description": "Centralised label taxonomy. Single source of truth for all issue/PR label names, colours, and descriptions. Referenced by interface-governance workflows.",
+    "policy": "D-GOV-04: tooling makes correct the default"
+  },
+  "managed_prefixes": ["area:", "priority:", "classification:", "kind:", "scope:", "type:", "status:"],
+  "labels": {
+    "docs-v2": { "color": "1d76db", "description": "Livepeer docs v2 scope" },
+    "automated": { "color": "e6e6e6", "description": "Created by automated workflow" },
+    "governance": { "color": "d4c5f9", "description": "Governance and compliance" },
+    "health:external-links": { "color": "f9d0c4", "description": "External link health findings" },
+    "health:data-freshness": { "color": "f9d0c4", "description": "Data feed freshness findings" },
+    "health:page-integrity": { "color": "f9d0c4", "description": "Page integrity findings" },
+    "contracts": { "color": "fef2c0", "description": "Contract address pipeline" },
+    "pipeline": { "color": "fef2c0", "description": "Automated pipeline issue" },
+    "help wanted": { "color": "008672", "description": "Community help requested" },
+    "area:developers": { "color": "0e8a16", "description": "Developer documentation" },
+    "area:gateways": { "color": "0e8a16", "description": "Gateway documentation" },
+    "area:orchestrators": { "color": "0e8a16", "description": "Orchestrator documentation" },
+    "area:delegators": { "color": "0e8a16", "description": "Delegator documentation" },
+    "area:community": { "color": "0e8a16", "description": "Community documentation" },
+    "area:about": { "color": "0e8a16", "description": "About/protocol documentation" },
+    "area:solutions": { "color": "0e8a16", "description": "Solutions documentation" },
+    "area:home": { "color": "0e8a16", "description": "Home page documentation" },
+    "area:resources": { "color": "0e8a16", "description": "Resources documentation" },
+    "priority:p0-critical": { "color": "b60205", "description": "Must fix immediately" },
+    "priority:p1-high": { "color": "d93f0b", "description": "Fix in current sprint" },
+    "priority:p2-medium": { "color": "fbca04", "description": "Fix when capacity allows" },
+    "priority:p3-low": { "color": "0e8a16", "description": "Nice to have" },
+    "classification:bug": { "color": "d73a4a", "description": "Something is broken" },
+    "classification:enhancement": { "color": "a2eeef", "description": "Improvement to existing" },
+    "classification:new-content": { "color": "0075ca", "description": "New documentation needed" },
+    "classification:maintenance": { "color": "cfd3d7", "description": "Repo maintenance" },
+    "kind:content": { "color": "c5def5", "description": "Documentation content" },
+    "kind:tooling": { "color": "c5def5", "description": "Scripts, CI, automation" },
+    "kind:governance": { "color": "c5def5", "description": "Framework and policy" },
+    "kind:infrastructure": { "color": "c5def5", "description": "Repo infrastructure" }
+  }
+}

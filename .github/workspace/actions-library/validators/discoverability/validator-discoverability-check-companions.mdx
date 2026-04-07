@@ -42,7 +42,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 ```mermaid
 graph LR
-    TRIGGER[""] --> WF["validator-discoverability-check-companions"]
+    TRIGGER["pull_request, push, workflow_dispatch"] --> WF["validator-discoverability-check-companions"]
     WF --> OUTPUT["output"]
 ```
 
@@ -52,14 +52,17 @@ graph LR
 
 | Trigger | Details |
 |---|---|
-
+| `pull_request` | See workflow file |
+| `push` | See workflow file |
+| `workflow_dispatch` | See workflow file |
 
 <CustomDivider />
 
 ## Dependencies
 
 **Scripts:**
-None (inline only)
+- `operations/scripts/generators/content/reference/generate-glossary-companions.js`
+- `operations/scripts/validators/governance/ai/check-companion-manifest.js`
 
 <CustomDivider />
 
@@ -67,7 +70,6 @@ None (inline only)
 
 None identified.
 
-**Review flags:** Auto-added during governance consolidation 2026-04-07
 
 <CustomDivider />
 
@@ -75,8 +77,7 @@ None identified.
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Stays separate |
-| **Dry-run** | No |
+| **Permissions** | Declared |
 | **Concurrency** | No |
-| **Error reporting** | unknown |
 | **Auto-commit** | No |
+| **Inline script** | No |

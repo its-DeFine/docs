@@ -42,7 +42,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 ```mermaid
 graph LR
-    TRIGGER["repository_dispatch, schedule, workflow_dispatch"] --> WF["integrator-maintenance-update-release-version"]
+    TRIGGER["schedule, workflow_dispatch, repository_dispatch"] --> WF["integrator-maintenance-update-release-version"]
     WF --> OUTPUT["output"]
 ```
 
@@ -52,9 +52,9 @@ graph LR
 
 | Trigger | Details |
 |---|---|
-| `repository_dispatch` | See workflow file |
 | `schedule` | See workflow file |
 | `workflow_dispatch` | See workflow file |
+| `repository_dispatch` | See workflow file |
 
 <CustomDivider />
 
@@ -67,10 +67,8 @@ None (inline only)
 
 ## Known Issues
 
-- Uses grep -oP (GNU grep, not macOS compatible)
-- sed replacement may malform file
+None identified.
 
-**Review flags:** Inline script extraction candidate
 
 <CustomDivider />
 
@@ -78,8 +76,7 @@ None (inline only)
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Stays separate |
-| **Dry-run** | No |
+| **Permissions** | Missing |
 | **Concurrency** | No |
-| **Error reporting** | basic |
-| **Auto-commit** | Yes |
+| **Auto-commit** | No |
+| **Inline script** | No |

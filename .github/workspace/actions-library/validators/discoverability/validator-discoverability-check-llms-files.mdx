@@ -42,7 +42,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 ```mermaid
 graph LR
-    TRIGGER["push, pull_request, workflow_dispatch"] --> WF["validator-discoverability-check-llms-files"]
+    TRIGGER["pull_request, push, workflow_dispatch"] --> WF["validator-discoverability-check-llms-files"]
     WF --> OUTPUT["output"]
 ```
 
@@ -52,8 +52,8 @@ graph LR
 
 | Trigger | Details |
 |---|---|
-| `push` | See workflow file |
 | `pull_request` | See workflow file |
+| `push` | See workflow file |
 | `workflow_dispatch` | See workflow file |
 
 <CustomDivider />
@@ -61,15 +61,14 @@ graph LR
 ## Dependencies
 
 **Scripts:**
-- `operations/scripts/generate-llms-files.js`
+- `operations/scripts/generators/ai/llm/generate-llms-files.js`
 
 <CustomDivider />
 
 ## Known Issues
 
-- Branch docs-v2 hardcoded
+None identified.
 
-**Review flags:** Hardcoded branch
 
 <CustomDivider />
 
@@ -77,8 +76,7 @@ graph LR
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Identical structure to verify-ai-sitemap — merge into unified verify workflow |
-| **Dry-run** | No |
+| **Permissions** | Declared |
 | **Concurrency** | No |
-| **Error reporting** | none |
 | **Auto-commit** | No |
+| **Inline script** | No |

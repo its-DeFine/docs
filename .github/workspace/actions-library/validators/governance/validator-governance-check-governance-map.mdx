@@ -42,7 +42,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 ```mermaid
 graph LR
-    TRIGGER[""] --> WF["validator-governance-check-governance-map"]
+    TRIGGER["pull_request, schedule, workflow_dispatch"] --> WF["validator-governance-check-governance-map"]
     WF --> OUTPUT["output"]
 ```
 
@@ -52,14 +52,18 @@ graph LR
 
 | Trigger | Details |
 |---|---|
-
+| `pull_request` | See workflow file |
+| `schedule` | See workflow file |
+| `workflow_dispatch` | See workflow file |
 
 <CustomDivider />
 
 ## Dependencies
 
 **Scripts:**
-None (inline only)
+- `operations/scripts/validators/governance/compliance/check-governance-markers.js`
+- `operations/scripts/generators/governance/map/generate-governance-map.js`
+- `operations/scripts/remediators/governance/compliance/repair-governance-artifacts.js`
 
 <CustomDivider />
 
@@ -67,7 +71,6 @@ None (inline only)
 
 None identified.
 
-**Review flags:** Auto-added during governance consolidation 2026-04-07
 
 <CustomDivider />
 
@@ -75,8 +78,7 @@ None identified.
 
 | Field | Value |
 |---|---|
-| **Consolidation** | Stays separate |
-| **Dry-run** | No |
+| **Permissions** | Declared |
 | **Concurrency** | No |
-| **Error reporting** | unknown |
-| **Auto-commit** | No |
+| **Auto-commit** | Yes |
+| **Inline script** | Yes (extraction candidate) |

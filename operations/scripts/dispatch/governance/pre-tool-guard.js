@@ -129,11 +129,18 @@ stdin.on('end', () => {
         process.exit(2);
       }
 
-      // Block file deletion - must use git mv to x-archive/ instead (D2: no deletions policy)
-      if (/\brm\s+(?!-rf\s+node_modules).*\.(yml|js|sh|mdx|md|json|jsx)\b/.test(cmd) || /git\s+rm\b/.test(cmd)) {
+      // Block deletion of tracked files/directories (D2: no deletions policy)
+      // ALLOWED to delete: anything in .gitignore (untracked/ignored), /tmp/ scratch
+      // BLOCKED: any tracked file or directory. Must use git mv to x-archive/ instead.
+      const isRm = /\brm\b/.test(cmd);
+      const isGitRm = /git\s+rm\b/.test(cmd);
+      // Safe targets: /tmp/, node_modules, .DS_Store, .env, .cache, package-lock, yarn.lock,
+      // pnpm-lock, debug logs, *.code-workspace — all are gitignored or scratch
+      const isGitignored = /\brm\s+.*(\b\/tmp\/|node_modules|\.DS_Store|\.env|\.cache|package-lock|yarn\.lock|pnpm-lock|debug\.log|\.code-workspace|client_secret|\.playwright-cli)/.test(cmd);
+      if ((isRm && !isGitignored) || isGitRm) {
         console.log(JSON.stringify({
           decision: 'block',
-          reason: 'BLOCKED: Do not delete files. Use git mv to x-archive/ instead. Per D2 (no deletions policy): all superseded files must be archived, never deleted. Example: git mv .github/workflows/old-name.yml .github/workflows/x-archive/old-name.yml'
+          reason: 'BLOCKED: Do not delete tracked files or directories. Use git mv to x-archive/ instead. Per D2 (no deletions policy): all superseded files must be archived, never deleted. Gitignored files (.env, node_modules, .cache, /tmp/, etc.) can be deleted freely. Example: git mv old-file.yml x-archive/old-file.yml'
         }));
         process.exit(2);
       }
