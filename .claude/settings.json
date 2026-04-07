@@ -56,6 +56,15 @@
             "statusMessage": "Loading session rules..."
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/server-lifecycle.js",
+            "statusMessage": "Starting render verification server..."
+          }
+        ]
       }
     ],
     "UserPromptSubmit": [
@@ -95,6 +104,16 @@
             "type": "command",
             "command": "node operations/scripts/dispatch/governance/pre-tool-guard.js",
             "statusMessage": "Checking command safety..."
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node operations/scripts/dispatch/governance/mdx-render-gate.js",
+            "statusMessage": "Checking render verification state..."
           }
         ]
       },
@@ -145,8 +164,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node operations/scripts/dispatch/governance/mdx-validate-hook.js",
-            "statusMessage": "Validating MDX..."
+            "command": "node operations/scripts/dispatch/governance/mdx-render-verify.js",
+            "statusMessage": "Verifying MDX render..."
           }
         ]
       },
