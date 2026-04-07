@@ -36,13 +36,13 @@ jobs:
         if: inputs.dry_run != 'true'
         id: git-check
         run: |
-          git diff --exit-code snippets/automations/exchanges/ || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --exit-code snippets/data/exchanges/ || echo "changed=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push if changed
         if: steps.git-check.outputs.changed == 'true'
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add snippets/automations/exchanges/
+          git add snippets/data/exchanges/
           git commit -m "chore: update exchanges data - $(date -u +'%Y-%m-%dT%H:%M:%SZ') [skip ci]"
           git push

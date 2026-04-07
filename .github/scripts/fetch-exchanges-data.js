@@ -18,7 +18,7 @@ const path = require('path');
 
 const COIN_ID = process.env.COINGECKO_COIN_ID || 'livepeer';
 const API_BASE = 'https://api.coingecko.com/api/v3';
-const OUTPUT_PATH = path.resolve(__dirname, '../../snippets/automations/exchanges/exchangesData.jsx');
+const OUTPUT_PATH = path.resolve(__dirname, '../../snippets/data/exchanges/exchangesData.jsx');
 
 const DRY_RUN = process.argv.includes('--dry-run');
 
