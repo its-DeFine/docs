@@ -112,10 +112,12 @@ stdin.on('end', () => {
     }
 
     if (state.status === 'server-failed') {
-      // Derive scope from the file that triggered the failure
+      // Derive scope from the file that triggered the failure — must be a real tab
+      const VALID_TABS = ['home', 'about', 'gateways', 'orchestrators', 'developers', 'delegators', 'solutions', 'resources'];
       const failedRoute = state.route || state.file || '';
       const scopeMatch = failedRoute.match(/\/?v2\/([^/]+)/);
-      const scope = scopeMatch ? `v2/${scopeMatch[1]}` : 'v2/home';
+      const tab = scopeMatch ? scopeMatch[1] : '';
+      const scope = VALID_TABS.includes(tab) ? `v2/${tab}` : 'v2/home';
 
       // Try scoped auto-restart before allowing unverified edits
       try {

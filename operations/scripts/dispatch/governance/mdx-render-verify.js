@@ -107,8 +107,10 @@ function extractRoute(filePath) {
 
 function extractScopePrefix(filePath) {
   // v2/gateways/setup/prepare.mdx → v2/gateways
-  const match = filePath.match(/\/(v2\/[^/]+)\//);
-  return match ? match[1] : 'v2/home';
+  const VALID_TABS = ['home', 'about', 'gateways', 'orchestrators', 'developers', 'delegators', 'solutions', 'resources'];
+  const match = filePath.match(/\/?v2\/([^/]+)/);
+  const tab = match ? match[1] : '';
+  return VALID_TABS.includes(tab) ? `v2/${tab}` : 'v2/home';
 }
 
 // ---------------------------------------------------------------------------

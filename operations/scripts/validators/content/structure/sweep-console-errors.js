@@ -52,10 +52,7 @@ const NOISE_PATTERNS = [
   /failed to execute/i,
   /\b403\b/,
   /\b500\b/,
-  /favicon/i,
-  /Minified React error #41[0-9]/i,
-  /Minified React error #42[0-9]/i,
-  /hydration/i
+  /favicon/i
 ];
 
 // ---------------------------------------------------------------------------
