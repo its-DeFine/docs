@@ -24,7 +24,7 @@ const REPORT_JSON_REL = 'workspace/reports/navigation-links/navigation-report.js
 const I18N_CONFIG_REL = 'operations/scripts/automations/content/language-translation/config.json';
 const DEFAULT_REMAP_THRESHOLD = 0.85;
 const RESOURCE_HUB_REDIRECT_ROUTE = 'v2/resources/redirect';
-const RESOURCE_HUB_PORTAL_ROUTE = 'v2/resources/resources-portal';
+const RESOURCE_HUB_PORTAL_ROUTE = 'v2/resources/portal';
 const LEGACY_RESOURCE_HUB_ROUTE = 'v2/pages/07_resources/redirect';
 
 let errors = [];

@@ -53,7 +53,7 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 - **Reproduce before fixing.** For bugs: (1) reproduce the exact failure, (2) capture the error, (3) hypothesise from evidence, (4) test one fix at a time. Use `/diagnose` for anything beyond a trivial one-line fix.
 - **Verify first instance before bulk operations.** Apply to one file, confirm it works, then proceed to the rest.
 - **Read Mintlify constraints before editing MDX.** Reference: `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`. No React/hook imports, no Mintlify global imports, use root-absolute imports for shared resources, include file extensions, keep MDX-facing JSX data flow in parent MDX, define risky constants inside export bodies, use arrow function syntax only, and follow the repo's scoped preview and styling rules.
-- **Verify renders before declaring done.** After editing any `v2/*.mdx` file, confirm the PostToolUse render-verify hook reported PASSED. If it reported `server-failed`, restart the server with `node operations/scripts/dispatch/governance/server-lifecycle.js restart` before continuing. Before declaring a page complete, run the smoke test: `node operations/tests/integration/mdx-component-runtime-smoke.js --routes /v2/path/to/page`. Never use `node .githooks/server-manager.js` directly (library, not CLI). Never declare a page "done" without a PASSED verification or successful smoke test.
+- **Verify renders before declaring done.** After editing any `v2/*.mdx` file, confirm the PostToolUse render-verify hook reported PASSED. If it reported `server-failed`, restart the server with a scoped restart: `node operations/scripts/dispatch/governance/server-lifecycle.js restart v2/TAB` (e.g. `restart v2/home`). Scoped restarts take <2 min. Never cold-start the full 795-page docs.json (10+ min). Before declaring a page complete, run the smoke test: `node operations/tests/integration/mdx-component-runtime-smoke.js --routes /v2/path/to/page`. Never use `node .githooks/server-manager.js` directly (library, not CLI). Never declare a page "done" without a PASSED verification or successful smoke test.
 
 ---
 
@@ -163,7 +163,7 @@ These are inline. No skill files. Just do what it says.
 | `/remind` | Re-read `.claude/CLAUDE.md` right now. Re-read the thread outcome. State your role, the rules you're following, and what you're working on. Then propose the next action with reasoning. |
 | `/log` | Append a timestamped entry to `workspace/thread-outputs/sessions/session-log.txt` with: thread name, what just shipped, files changed. One entry, no ceremony. Then continue working. |
 | `/flag [thread] [message]` | Append a flag to `workspace/thread-outputs/sessions/flags.jsonl` for another thread to pick up. One JSON line. Then continue working. |
-| `/server` | Check server health: `node operations/scripts/dispatch/governance/server-lifecycle.js health`. If down, restart: `server-lifecycle.js restart`. Read log on failure: `tail -50 /tmp/mint-dev-test-*.log`. Report status. |
+| `/server` | Check health: `node server-lifecycle.js health`. If down, scoped restart: `node server-lifecycle.js restart v2/TAB` (e.g. `restart v2/home`). Read log on failure: `tail -50 /tmp/mint-dev-test-*.log`. Full path: `operations/scripts/dispatch/governance/server-lifecycle.js`. |
 
 **If the user says a message was lost/eaten:** Immediately read the last 5 entries from `workspace/thread-outputs/sessions/message-backup.jsonl` and present them. Don't ask questions — just show the content.
 

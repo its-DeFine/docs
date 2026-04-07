@@ -3108,6 +3108,7 @@
                     "group": "Documentation Guide",
                     "icon": "book-open",
                     "pages": [
+                      "v2/resources/portal",
                       "v2/resources/documentation-guide/documentation-overview",
                       "v2/resources/documentation-guide/documentation-guide",
                       {
