@@ -36,6 +36,9 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 import { LinkArrow, DoubleIconLink } from '/snippets/components/elements/links/Links.jsx'
 import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
 import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
+import { Subtitle } from '/snippets/components/elements/text/Text.jsx'
+import { CustomCardTitle } from '/snippets/components/elements/text/CustomCardTitle.jsx'
+import { InlineDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 
 <Tip>
   This page is an automated workflow.
@@ -54,10 +57,10 @@ Track releases for <LinkArrow label="Livepeer Subgraph" href="https://github.com
 
 <LazyLoad height="600px">
 
-<Update label="v1.3.2" tags={["Features", "Fixes"]} rss={{ title: "Livepeer Subgraph v1.3.2", description: "* chore: update package.json to v1.3.1 by @rickstaa in https://github.com/livepeer/subgraph/pull/216" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>March 2026</div>}>
+<Update label="v1.3.2" tags={["Features", "Fixes"]} rss={{ title: "Livepeer Subgraph v1.3.2", description: "* chore: update package.json to v1.3.1 by @rickstaa in https://github.com/livepeer/subgraph/pull/216" }} description={<Subtitle variant="changelog">March 2026</div>}>
   ## v1.3.2
 
-  <span style={{display: "inline-flex", alignItems: "center", gap: "0.35rem"}}><Icon icon="user-robot" size={14} /> _AI Summary_</span>
+  <CustomCardTitle variant="tab" icon="user-robot" title="_AI Summary_" />
 
   ## What's Changed
   * chore: update package.json to v1.3.1
@@ -67,15 +70,15 @@ Track releases for <LinkArrow label="Livepeer Subgraph" href="https://github.com
   * feat/upgrade docker node
   * refactor: rename broadcaster day fields with deprecated aliases
 
-  <span style={{display: "block", borderBottom: "1px solid var(--border)", margin: "1rem 0 1rem 0"}} />
+  <InlineDivider margin="1rem 0" />
 
   <DoubleIconLink label="View release on GitHub" href="https://github.com/livepeer/subgraph/releases/tag/v1.3.2" iconLeft="github" />
 </Update>
 
-<Update label="v1.3.1" tags={["Features", "Fixes"]} rss={{ title: "Livepeer Subgraph v1.3.1", description: "* chore: update version and add version badge by @rickstaa in https://github.com/livepeer/subgraph/pull/198" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>March 2026</div>}>
+<Update label="v1.3.1" tags={["Features", "Fixes"]} rss={{ title: "Livepeer Subgraph v1.3.1", description: "* chore: update version and add version badge by @rickstaa in https://github.com/livepeer/subgraph/pull/198" }} description={<Subtitle variant="changelog">March 2026</div>}>
   ## v1.3.1
 
-  <span style={{display: "inline-flex", alignItems: "center", gap: "0.35rem"}}><Icon icon="user-robot" size={14} /> _AI Summary_</span>
+  <CustomCardTitle variant="tab" icon="user-robot" title="_AI Summary_" />
 
   ## What's Changed
   
@@ -89,15 +92,15 @@ Track releases for <LinkArrow label="Livepeer Subgraph" href="https://github.com
   * chore(deps-dev): bump hardhat from 2.13.0 to 2.15.0 by @dependabot[bot] in https://github.com/livepeer/subgraph/pull/154
   * fix: compare poll endBlock against L1 block number instead of L2 on Arbitrum
 
-  <span style={{display: "block", borderBottom: "1px solid var(--border)", margin: "1rem 0 1rem 0"}} />
+  <InlineDivider margin="1rem 0" />
 
   <DoubleIconLink label="View release on GitHub" href="https://github.com/livepeer/subgraph/releases/tag/v1.3.1" iconLeft="github" />
 </Update>
 
-<Update label="v1.3.0" tags={["Features", "Fixes"]} rss={{ title: "Livepeer Subgraph v1.3.0", description: "* ci: add Studio preview deploy and surface query URL by @rickstaa in https://github.com/livepeer/subgraph/pull/169" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>January 2026</div>}>
+<Update label="v1.3.0" tags={["Features", "Fixes"]} rss={{ title: "Livepeer Subgraph v1.3.0", description: "* ci: add Studio preview deploy and surface query URL by @rickstaa in https://github.com/livepeer/subgraph/pull/169" }} description={<Subtitle variant="changelog">January 2026</div>}>
   ## v1.3.0
 
-  <span style={{display: "inline-flex", alignItems: "center", gap: "0.35rem"}}><Icon icon="user-robot" size={14} /> _AI Summary_</span>
+  <CustomCardTitle variant="tab" icon="user-robot" title="_AI Summary_" />
 
   ## What's Changed
   
@@ -116,15 +119,15 @@ Track releases for <LinkArrow label="Livepeer Subgraph" href="https://github.com
   * ci: deploy graph to Studio as part of CI
   * ci: remove yarn forward indicator
 
-  <span style={{display: "block", borderBottom: "1px solid var(--border)", margin: "1rem 0 1rem 0"}} />
+  <InlineDivider margin="1rem 0" />
 
   <DoubleIconLink label="View release on GitHub" href="https://github.com/livepeer/subgraph/releases/tag/v1.3.0" iconLeft="github" />
 </Update>
 
-<Update label="v1.2.0" tags={["Features"]} rss={{ title: "Livepeer Subgraph v1.2.0", description: "* Create indexer for LivepeerGovernor (treasury) proposals by @victorges in https://github.com/livepeer/subgraph/pull..." }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>January 2026</div>}>
+<Update label="v1.2.0" tags={["Features"]} rss={{ title: "Livepeer Subgraph v1.2.0", description: "* Create indexer for LivepeerGovernor (treasury) proposals by @victorges in https://github.com/livepeer/subgraph/pull..." }} description={<Subtitle variant="changelog">January 2026</div>}>
   ## v1.2.0
 
-  <span style={{display: "inline-flex", alignItems: "center", gap: "0.35rem"}}><Icon icon="user-robot" size={14} /> _AI Summary_</span>
+  <CustomCardTitle variant="tab" icon="user-robot" title="_AI Summary_" />
 
   ## What's Changed
   
@@ -136,15 +139,15 @@ Track releases for <LinkArrow label="Livepeer Subgraph" href="https://github.com
   * @victorges made their first contribution in https://github.com/livepeer/subgraph/pull/157
   * @iameli made their first contribution in https://github.com/livepeer/subgraph/pull/160
 
-  <span style={{display: "block", borderBottom: "1px solid var(--border)", margin: "1rem 0 1rem 0"}} />
+  <InlineDivider margin="1rem 0" />
 
   <DoubleIconLink label="View release on GitHub" href="https://github.com/livepeer/subgraph/releases/tag/v1.2.0" iconLeft="github" />
 </Update>
 
-<Update label="v1.1.0" tags={["Features", "Fixes"]} rss={{ title: "Livepeer Subgraph v1.1.0", description: "* Add support for arbitrum-one / aribtrum-rinkeby by @adamsoffer in https://github.com/livepeer/subgraph/pull/19" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>January 2026</div>}>
+<Update label="v1.1.0" tags={["Features", "Fixes"]} rss={{ title: "Livepeer Subgraph v1.1.0", description: "* Add support for arbitrum-one / aribtrum-rinkeby by @adamsoffer in https://github.com/livepeer/subgraph/pull/19" }} description={<Subtitle variant="changelog">January 2026</div>}>
   ## v1.1.0
 
-  <span style={{display: "inline-flex", alignItems: "center", gap: "0.35rem"}}><Icon icon="user-robot" size={14} /> _AI Summary_</span>
+  <CustomCardTitle variant="tab" icon="user-robot" title="_AI Summary_" />
 
   ## What's Changed
   
@@ -174,19 +177,19 @@ Track releases for <LinkArrow label="Livepeer Subgraph" href="https://github.com
   
   * @dependabot[bot] made their first contribution in https://github.com/livepeer/subgraph/pull/66
 
-  <span style={{display: "block", borderBottom: "1px solid var(--border)", margin: "1rem 0 1rem 0"}} />
+  <InlineDivider margin="1rem 0" />
 
   <DoubleIconLink label="View release on GitHub" href="https://github.com/livepeer/subgraph/releases/tag/v1.1.0" iconLeft="github" />
 </Update>
 
-<Update label="v1.0.0" tags={["Release"]} rss={{ title: "Livepeer Subgraph v1.0.0", description: "First stable release. 🎉" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>January 2026</div>}>
+<Update label="v1.0.0" tags={["Release"]} rss={{ title: "Livepeer Subgraph v1.0.0", description: "First stable release. 🎉" }} description={<Subtitle variant="changelog">January 2026</div>}>
   ## v1.0.0
 
-  <span style={{display: "inline-flex", alignItems: "center", gap: "0.35rem"}}><Icon icon="user-robot" size={14} /> _AI Summary_</span>
+  <CustomCardTitle variant="tab" icon="user-robot" title="_AI Summary_" />
 
   First stable release. 🎉
 
-  <span style={{display: "block", borderBottom: "1px solid var(--border)", margin: "1rem 0 1rem 0"}} />
+  <InlineDivider margin="1rem 0" />
 
   <DoubleIconLink label="View release on GitHub" href="https://github.com/livepeer/subgraph/releases/tag/v1.0.0" iconLeft="github" />
 </Update>

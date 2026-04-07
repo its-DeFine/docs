@@ -18,17 +18,32 @@ export const Subtitle = ({
   style = {},
   text,
   children,
+  variant = 'default',
   className = '',
   ...rest
 }) => {
+  const variants = {
+    default: {
+      fontSize: '1rem',
+      fontStyle: 'italic',
+      color: 'var(--lp-color-accent)',
+      marginBottom: 0,
+    },
+    changelog: {
+      fontSize: '0.8rem',
+      fontStyle: 'normal',
+      fontWeight: 700,
+      color: 'var(--lp-color-text-primary)',
+      marginBottom: 0,
+    },
+  }
+  const base = variants[variant] || variants.default
+
   return (
     <span
       className={className}
       style={{
-        fontSize: style.fontSize ? style.fontSize : '1rem',
-        fontStyle: style.fontStyle ? style.fontStyle : 'italic',
-        color: style.color ? style.color : 'var(--lp-color-accent)',
-        marginBottom: style.marginBottom ? style.marginBottom : 0,
+        ...base,
         ...style,
       }}
       {...rest}
