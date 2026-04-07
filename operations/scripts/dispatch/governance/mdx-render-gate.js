@@ -63,6 +63,99 @@ function readState() {
   }
 }
 
+const VALID_TABS = ['home', 'about', 'gateways', 'orchestrators', 'developers', 'delegators', 'solutions', 'resources'];
+
+function extractTab(filePath) {
+  const match = filePath.match(/\/?v2\/([^/]+)/);
+  const tab = match ? match[1] : '';
+  return VALID_TABS.includes(tab) ? `v2/${tab}` : null;
+}
+
+// ---------------------------------------------------------------------------
+// Remediation lookup — scan repo for scripts that can fix the error class
+// ---------------------------------------------------------------------------
+
+const REMEDIATOR_DIR = path.join(
+  __dirname, '..', '..', '..', '..',
+  'operations', 'scripts', 'remediators'
+);
+
+const ERROR_TO_REMEDIATOR = [
+  {
+    pattern: /frontmatter|duplicate.*key|yaml.*syntax/i,
+    script: 'operations/scripts/dispatch/governance/mdx-frontmatter-sanitise.js',
+    label: 'Frontmatter auto-fix (duplicate keys)',
+    usage: 'Runs automatically as PostToolUse hook on next edit'
+  },
+  {
+    pattern: /import|unused.*import|cannot.*find.*module/i,
+    script: 'operations/scripts/remediators/content/repair/repair-page-imports.js',
+    label: 'Unused import remediator',
+    usage: 'node operations/scripts/remediators/content/repair/repair-page-imports.js --dry-run --files <file>'
+  },
+  {
+    pattern: /markdown|html.*comment|br.*tag|angle.*bracket/i,
+    script: 'operations/scripts/remediators/content/repair/repair-mdx-safe-markdown.js',
+    label: 'MDX-safe markdown repair',
+    usage: 'node operations/scripts/remediators/content/repair/repair-mdx-safe-markdown.js --dry-run --files <file>'
+  },
+  {
+    pattern: /href|link|relative.*path|page.*not.*found/i,
+    script: 'operations/scripts/remediators/content/repair/repair-page-links.js',
+    label: 'Page link repair',
+    usage: 'node operations/scripts/remediators/content/repair/repair-page-links.js --dry-run --files <file>'
+  },
+  {
+    pattern: /spell|typo/i,
+    script: 'operations/scripts/remediators/content/repair/repair-spelling.js',
+    label: 'Spelling repair',
+    usage: 'node operations/scripts/remediators/content/repair/repair-spelling.js --dry-run --files <file>'
+  },
+  {
+    pattern: /governance|GOVERNANCE\.md|lastVerified/i,
+    script: 'operations/scripts/remediators/governance/compliance/repair-governance-artifacts.js',
+    label: 'Governance artifact repair',
+    usage: 'node operations/scripts/remediators/governance/compliance/repair-governance-artifacts.js --dry-run'
+  }
+];
+
+function findRemediation(failedFile, errors) {
+  const errorText = errors.join(' ');
+  const matches = [];
+
+  for (const entry of ERROR_TO_REMEDIATOR) {
+    if (entry.pattern.test(errorText) || entry.pattern.test(failedFile)) {
+      try {
+        const absPath = path.resolve(__dirname, '..', '..', '..', '..', entry.script);
+        if (fs.existsSync(absPath)) {
+          matches.push(entry);
+        }
+      } catch (_) {
+        // Script missing — skip
+      }
+    }
+  }
+
+  // Always check if any remediator exists for the file extension
+  if (matches.length === 0 && failedFile.endsWith('.mdx')) {
+    try {
+      if (fs.existsSync(REMEDIATOR_DIR)) {
+        matches.push({
+          label: 'Manual inspection',
+          usage: `ls operations/scripts/remediators/ — check for applicable fix scripts`
+        });
+      }
+    } catch (_) {
+      // No remediator dir
+    }
+  }
+
+  if (matches.length === 0) return '';
+
+  const lines = matches.map((m) => `  → ${m.label}: ${m.usage}`);
+  return `\n\nAvailable remediators:\n${lines.join('\n')}`;
+}
+
 // ---------------------------------------------------------------------------
 // Main hook logic
 // ---------------------------------------------------------------------------
@@ -160,13 +253,29 @@ stdin.on('end', () => {
         process.exit(0);
       }
 
-      // BLOCK — agent is trying to edit a different file without fixing the broken one
+      // Scope check — only block edits within the same v2/{tab} as the failure.
+      // Files outside v2/ (docs-guide/, snippets/, operations/) are never blocked
+      // by a v2/ render failure. Files in a different v2/ tab are also allowed.
+      const failedTab = extractTab(failedFile);
+      const editTab = extractTab(filePath);
+
+      if (!editTab || editTab !== failedTab) {
+        console.log(JSON.stringify({
+          systemMessage: `RENDER GATE: ${path.basename(failedFile)} has render errors on ${failedRoute}, but ${path.basename(filePath)} is in a different scope (${editTab || 'non-v2'}). Allowing edit. Fix ${path.basename(failedFile)} when you return to ${failedTab || 'that tab'}.`
+        }));
+        process.exit(0);
+      }
+
+      // BLOCK — agent is editing within the same tab as the failure
       const errorList = newErrors.slice(0, 5).map((e) => `  - ${e}`).join('\n');
       const truncated = newErrors.length > 5 ? `\n  ... and ${newErrors.length - 5} more` : '';
 
+      // Look for applicable remediation scripts
+      const remediation = findRemediation(failedFile, newErrors);
+
       console.log(JSON.stringify({
         decision: 'block',
-        reason: `BLOCKED: Your last edit to ${path.basename(failedFile)} introduced console errors on ${failedRoute}:\n${errorList}${truncated}\n\nFix ${path.basename(failedFile)} before editing other files. The render gate will clear when ${failedRoute} renders clean.`
+        reason: `BLOCKED: Your last edit to ${path.basename(failedFile)} introduced console errors on ${failedRoute}:\n${errorList}${truncated}\n\nFix ${path.basename(failedFile)} before editing other files in ${failedTab}. The render gate will clear when ${failedRoute} renders clean.${remediation}`
       }));
       process.exit(2);
     }

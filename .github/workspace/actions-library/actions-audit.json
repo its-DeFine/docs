@@ -1,17 +1,20 @@
 {
   "meta": {
-    "generated": "2026-03-31",
+    "generated": "2026-04-07",
     "thread": "GitHub Actions Governance",
-    "workflow_count": 45,
+    "workflow_count": 60,
     "script_count": 10,
     "deprecated_count": 1,
     "placeholder_count": 3,
-    "lastReviewed": "2026-04-01",
-    "decisions": "D-ACT-01 through D-ACT-08"
+    "lastReviewed": "2026-04-08",
+    "decisions": "D-ACT-01 through D-ACT-08",
+    "status": "STALE - workflows renamed 2026-04-07, audit data needs regeneration from current workflow files",
+    "workflow_count_actual": 49,
+    "workflow_count_in_audit": 60
   },
   "workflows": [
     {
-      "file": "auto-assign-docs-reviewers.yml",
+      "file": "interface-governance-assign-reviewers.yml",
       "name": "Auto Assign Docs Reviewers",
       "type": "interface",
       "concern": "governance",
@@ -47,7 +50,7 @@
       "review_flags": "Hardcoded branch. 80 lines inline"
     },
     {
-      "file": "broken-links.yml",
+      "file": "validator-health-check-broken-links.yml",
       "name": "Check Broken Links",
       "type": "validator",
       "concern": "health",
@@ -75,34 +78,6 @@
       "bugs": [],
       "inline_script_lines": 0,
       "new_name": "validator-health-check-broken-links.yml"
-    },
-    {
-      "file": "build-review-assets.yml",
-      "name": "Build Review Assets",
-      "type": "placeholder",
-      "concern": "governance",
-      "niche": "review",
-      "pipeline_tag": "manual",
-      "enforcement": "none",
-      "triggers": [
-        "workflow_dispatch"
-      ],
-      "scripts": [],
-      "secrets": [],
-      "permissions": [],
-      "error_handling": "none",
-      "branch_targeting": "none",
-      "dry_run": false,
-      "auto_commit": false,
-      "concurrency": false,
-      "node_version": null,
-      "status": "placeholder",
-      "consolidation_flag": "deprecate-candidate",
-      "consolidation_note": "Not implemented. Remove or implement.",
-      "bugs": [],
-      "inline_script_lines": 0,
-      "new_name": "DELETE",
-      "review_flags": "Never implemented"
     },
     {
       "file": "check-ai-companions.yml",
@@ -174,7 +149,7 @@
       "new_name": "validator-maintenance-check-docs-guide-catalogs.yml"
     },
     {
-      "file": "check-docs-index.yml",
+      "file": "validator-maintenance-check-docs-index.yml",
       "name": "Check Docs Index",
       "type": "validator",
       "concern": "maintenance",
@@ -205,7 +180,7 @@
       "new_name": "validator-maintenance-check-docs-index.yml"
     },
     {
-      "file": "close-linked-issues-docs-v2.yml",
+      "file": "interface-governance-close-linked-issues.yml",
       "name": "Close Linked Issues (docs-v2 Merge)",
       "type": "interface",
       "concern": "governance",
@@ -239,7 +214,7 @@
       "review_flags": "141 lines inline"
     },
     {
-      "file": "codex-governance.yml",
+      "file": "validator-governance-check-codex-compliance.yml",
       "name": "Codex Governance",
       "type": "validator",
       "concern": "governance",
@@ -278,7 +253,7 @@
       "review_flags": "Hard gate P2. Script path may be stale"
     },
     {
-      "file": "content-health.yml",
+      "file": "audit-health-scan-content-quality.yml",
       "name": "Content Health Check",
       "type": "audit",
       "concern": "health",
@@ -317,7 +292,7 @@
       "review_flags": "continue-on-error masking all failures"
     },
     {
-      "file": "discord-issue-intake.yml",
+      "file": "interface-governance-intake-discord-issues.yml",
       "name": "Discord Issue Intake",
       "type": "interface",
       "concern": "governance",
@@ -350,7 +325,7 @@
       "review_flags": "261 lines inline"
     },
     {
-      "file": "docs-v2-issue-indexer.yml",
+      "file": "interface-governance-index-issues.yml",
       "name": "Docs v2 Issue Indexer",
       "type": "interface",
       "concern": "governance",
@@ -385,7 +360,7 @@
       "review_flags": "403 lines inline"
     },
     {
-      "file": "freshness-monitor.yml",
+      "file": "audit-health-scan-data-freshness.yml",
       "name": "Pipeline Freshness Monitor",
       "type": "audit",
       "concern": "health",
@@ -453,7 +428,7 @@
       "new_name": "generator-discoverability-generate-glossary-companions.yml"
     },
     {
-      "file": "generate-ai-sitemap.yml",
+      "file": "generator-discoverability-generate-ai-sitemap.yml",
       "name": "Generate AI Sitemap",
       "type": "generator",
       "concern": "discoverability",
@@ -488,7 +463,7 @@
       "new_name": "generator-discoverability-generate-ai-sitemap.yml"
     },
     {
-      "file": "generate-component-registry.yml",
+      "file": "generator-maintenance-generate-component-registry.yml",
       "name": "Generate Component Registry",
       "type": "generator",
       "concern": "maintenance",
@@ -562,7 +537,7 @@
       "review_flags": "Overly broad git add"
     },
     {
-      "file": "generate-docs-index.yml",
+      "file": "generator-maintenance-generate-docs-index.yml",
       "name": "Generate Docs Index",
       "type": "generator",
       "concern": "maintenance",
@@ -597,7 +572,7 @@
       "new_name": "generator-maintenance-generate-docs-index.yml"
     },
     {
-      "file": "generate-llms-files.yml",
+      "file": "generator-discoverability-generate-llms-files.yml",
       "name": "Generate llms.txt",
       "type": "generator",
       "concern": "discoverability",
@@ -633,35 +608,7 @@
       "new_name": "generator-discoverability-generate-llms-files.yml"
     },
     {
-      "file": "generate-review-table.yml",
-      "name": "Generate Review Table",
-      "type": "placeholder",
-      "concern": "governance",
-      "niche": "review",
-      "pipeline_tag": "manual",
-      "enforcement": "none",
-      "triggers": [
-        "workflow_dispatch"
-      ],
-      "scripts": [],
-      "secrets": [],
-      "permissions": [],
-      "error_handling": "none",
-      "branch_targeting": "none",
-      "dry_run": false,
-      "auto_commit": false,
-      "concurrency": false,
-      "node_version": null,
-      "status": "placeholder",
-      "consolidation_flag": "deprecate-candidate",
-      "consolidation_note": "Not implemented. Remove or implement.",
-      "bugs": [],
-      "inline_script_lines": 0,
-      "new_name": "DELETE",
-      "review_flags": "Never implemented"
-    },
-    {
-      "file": "governance-sync.yml",
+      "file": "dispatch-governance-post-merge-sync.yml",
       "name": "Governance sync (post-merge)",
       "type": "dispatch",
       "concern": "governance",
@@ -699,7 +646,7 @@
       "review_flags": "Dead code (undefined input). Python3 dependency"
     },
     {
-      "file": "issue-auto-label.yml",
+      "file": "interface-governance-label-issues.yml",
       "name": "Issue Auto Label",
       "type": "interface",
       "concern": "governance",
@@ -734,7 +681,7 @@
       "review_flags": "Hardcoded labels. 339 lines inline"
     },
     {
-      "file": "openapi-reference-validation.yml",
+      "file": "validator-health-check-openapi-reference.yml",
       "name": "OpenAPI Reference Validation",
       "type": "validator",
       "concern": "health",
@@ -817,7 +764,7 @@
       "review_flags": "Disable for now, not working"
     },
     {
-      "file": "repair-governance.yml",
+      "file": "remediator-governance-repair-pipelines.yml",
       "name": "Governance Repair",
       "type": "remediator",
       "concern": "governance",
@@ -855,7 +802,7 @@
       "review_flags": "Dead code (undefined input)"
     },
     {
-      "file": "sdk_generation.yaml",
+      "file": "generator-maintenance-generate-sdk-clients.yml",
       "name": "Generate",
       "type": "generator",
       "concern": "maintenance",
@@ -895,7 +842,7 @@
       "review_flags": "Fix .yaml extension"
     },
     {
-      "file": "seo-refresh.yml",
+      "file": "remediator-discoverability-repair-seo-metadata.yml",
       "name": "SEO Metadata Refresh",
       "type": "remediator",
       "concern": "discoverability",
@@ -927,7 +874,7 @@
       "review_flags": "P0: no commit step"
     },
     {
-      "file": "style-homogenise.yml",
+      "file": "remediator-brand-repair-en-gb-style.yml",
       "name": "EN-GB Style Homogenisation",
       "type": "remediator",
       "concern": "brand",
@@ -964,7 +911,7 @@
       "review_flags": "Script path may be stale"
     },
     {
-      "file": "sync-large-assets.yml",
+      "file": "integrator-maintenance-update-large-assets.yml",
       "name": "Sync Large Assets",
       "type": "integrator",
       "concern": "maintenance",
@@ -997,7 +944,7 @@
       "new_name": "integrator-maintenance-update-large-assets.yml"
     },
     {
-      "file": "test-suite.yml",
+      "file": "validator-copy-check-content-quality-suite.yml",
       "name": "Docs CI - Content Quality Suite",
       "type": "validator",
       "concern": "copy",
@@ -1040,7 +987,7 @@
       "review_flags": "Hard gate P2"
     },
     {
-      "file": "test-v2-pages.yml",
+      "file": "validator-health-check-page-rendering.yml",
       "name": "Docs CI - V2 Browser Sweep",
       "type": "validator",
       "concern": "health",
@@ -1077,7 +1024,7 @@
       "new_name": "validator-health-check-page-rendering.yml"
     },
     {
-      "file": "translate-docs.yml",
+      "file": "integrator-copy-update-translations.yml",
       "name": "Docs Translation Pipeline",
       "type": "integrator",
       "concern": "copy",
@@ -1118,41 +1065,7 @@
       "review_flags": "Path mismatch bug"
     },
     {
-      "file": "update-blog-data.yml",
-      "name": "Update Blog and Forum Data",
-      "type": "integrator",
-      "concern": "copy",
-      "niche": "data-fetch",
-      "pipeline_tag": "manual",
-      "enforcement": "none",
-      "triggers": [
-        "workflow_dispatch"
-      ],
-      "scripts": [],
-      "secrets": [
-        "GITHUB_TOKEN"
-      ],
-      "permissions": [
-        "contents:write"
-      ],
-      "error_handling": "continue-on-error",
-      "branch_targeting": "default",
-      "dry_run": false,
-      "auto_commit": true,
-      "concurrency": false,
-      "node_version": null,
-      "status": "broken",
-      "consolidation_flag": "deprecate-candidate",
-      "consolidation_note": "Hardcoded YOUR_CONTENT_API_KEY placeholder — never worked. Superseded.",
-      "bugs": [
-        "CRITICAL: YOUR_CONTENT_API_KEY placeholder — non-functional"
-      ],
-      "inline_script_lines": 40,
-      "new_name": "DELETE",
-      "review_flags": "Broken: hardcoded API key placeholder"
-    },
-    {
-      "file": "update-changelogs.yml",
+      "file": "integrator-copy-update-changelogs.yml",
       "name": "Update Changelogs",
       "type": "integrator",
       "concern": "copy",
@@ -1379,7 +1292,7 @@
       "review_flags": "Merge into single matrix dispatcher (D-ACT-03). Zero consumers for output data"
     },
     {
-      "file": "update-livepeer-release.yml",
+      "file": "integrator-maintenance-update-release-version.yml",
       "name": "Update Livepeer Release Version",
       "type": "integrator",
       "concern": "maintenance",
@@ -1414,34 +1327,6 @@
       "inline_script_lines": 60,
       "new_name": "integrator-maintenance-update-release-version.yml",
       "review_flags": "Inline script extraction candidate"
-    },
-    {
-      "file": "update-review-template.yml",
-      "name": "Update Review Template",
-      "type": "placeholder",
-      "concern": "governance",
-      "niche": "review",
-      "pipeline_tag": "manual",
-      "enforcement": "none",
-      "triggers": [
-        "workflow_dispatch"
-      ],
-      "scripts": [],
-      "secrets": [],
-      "permissions": [],
-      "error_handling": "none",
-      "branch_targeting": "none",
-      "dry_run": false,
-      "auto_commit": false,
-      "concurrency": false,
-      "node_version": null,
-      "status": "placeholder",
-      "consolidation_flag": "deprecate-candidate",
-      "consolidation_note": "Not implemented. Remove or implement.",
-      "bugs": [],
-      "inline_script_lines": 0,
-      "new_name": "DELETE",
-      "review_flags": "Never implemented"
     },
     {
       "file": "update-rss-blog-data.yml",
@@ -1520,7 +1405,7 @@
       "review_flags": "Merge into single matrix dispatcher (D-ACT-03). P0: missing permissions"
     },
     {
-      "file": "v2-external-link-audit.yml",
+      "file": "audit-health-scan-external-links.yml",
       "name": "V2 External Link Audit (Advisory)",
       "type": "audit",
       "concern": "health",
@@ -1550,7 +1435,7 @@
       "new_name": "audit-health-scan-external-links.yml"
     },
     {
-      "file": "verify-ai-sitemap.yml",
+      "file": "validator-discoverability-check-ai-sitemap.yml",
       "name": "Verify AI Sitemap",
       "type": "validator",
       "concern": "discoverability",
@@ -1584,7 +1469,7 @@
       "review_flags": "Hardcoded branch"
     },
     {
-      "file": "verify-llms-files.yml",
+      "file": "validator-discoverability-check-llms-files.yml",
       "name": "Verify llms.txt Files",
       "type": "validator",
       "concern": "discoverability",
@@ -1616,6 +1501,538 @@
       "inline_script_lines": 0,
       "new_name": "validator-discoverability-check-llms-files.yml",
       "review_flags": "Hardcoded branch"
+    },
+    {
+      "file": "audit-governance-scan-workspace-retention.yml",
+      "name": "workspace/ retention enforcement",
+      "type": "audit",
+      "concern": "governance",
+      "niche": "auto-classified",
+      "pipeline_tag": "P5",
+      "enforcement": "none",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": false,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "audit-governance-scan-workspace-retention.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "audit-health-scan-page-integrity.yml",
+      "name": "Page Integrity Health",
+      "type": "audit",
+      "concern": "health",
+      "niche": "auto-classified",
+      "pipeline_tag": "P5",
+      "enforcement": "none",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": false,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "audit-health-scan-page-integrity.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "dispatch-copy-update-social-feeds.yml",
+      "name": "Data Refresh Governance",
+      "type": "dispatch",
+      "concern": "copy",
+      "niche": "auto-classified",
+      "pipeline_tag": "P4",
+      "enforcement": "none",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": false,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "dispatch-copy-update-social-feeds.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "dispatch-maintenance-check-catalogs.yml",
+      "name": "Docs Catalog Governance",
+      "type": "dispatch",
+      "concern": "maintenance",
+      "niche": "auto-classified",
+      "pipeline_tag": "P4",
+      "enforcement": "none",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": false,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "dispatch-maintenance-check-catalogs.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "generator-discoverability-generate-companions.yml",
+      "name": "Generate AI Companion Files",
+      "type": "generator",
+      "concern": "discoverability",
+      "niche": "auto-classified",
+      "pipeline_tag": "P4",
+      "enforcement": "none",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": true,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "generator-discoverability-generate-companions.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "generator-maintenance-generate-catalogs.yml",
+      "name": "Generate Docs Guide Catalogs",
+      "type": "generator",
+      "concern": "maintenance",
+      "niche": "auto-classified",
+      "pipeline_tag": "P4",
+      "enforcement": "none",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": true,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "generator-maintenance-generate-catalogs.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "integrator-copy-update-discord-data.yml",
+      "name": "Update Discord Announcements Data",
+      "type": "integrator",
+      "concern": "copy",
+      "niche": "auto-classified",
+      "pipeline_tag": "P5-auto",
+      "enforcement": "none",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": true,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "integrator-copy-update-discord-data.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "integrator-copy-update-forum-data.yml",
+      "name": "Update Forum Data",
+      "type": "integrator",
+      "concern": "copy",
+      "niche": "auto-classified",
+      "pipeline_tag": "P5-auto",
+      "enforcement": "none",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": true,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "integrator-copy-update-forum-data.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "integrator-copy-update-ghost-blog-data.yml",
+      "name": "Update Ghost Blog Data",
+      "type": "integrator",
+      "concern": "copy",
+      "niche": "auto-classified",
+      "pipeline_tag": "P5-auto",
+      "enforcement": "none",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": true,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "integrator-copy-update-ghost-blog-data.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "integrator-copy-update-github-data.yml",
+      "name": "Update GitHub Discussions & Releases Data",
+      "type": "integrator",
+      "concern": "copy",
+      "niche": "auto-classified",
+      "pipeline_tag": "P5-auto",
+      "enforcement": "none",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": true,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "integrator-copy-update-github-data.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "integrator-copy-update-rss-blog-data.yml",
+      "name": "Update RSS Blog Data",
+      "type": "integrator",
+      "concern": "copy",
+      "niche": "auto-classified",
+      "pipeline_tag": "P5-auto",
+      "enforcement": "none",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": true,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "integrator-copy-update-rss-blog-data.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "integrator-copy-update-youtube-data.yml",
+      "name": "Update YouTube Data",
+      "type": "integrator",
+      "concern": "copy",
+      "niche": "auto-classified",
+      "pipeline_tag": "P5-auto",
+      "enforcement": "none",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": true,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "integrator-copy-update-youtube-data.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "integrator-maintenance-update-contract-addresses-shadow.yml",
+      "name": "Update Contract Addresses Shadow",
+      "type": "integrator",
+      "concern": "maintenance",
+      "niche": "auto-classified",
+      "pipeline_tag": "P5-auto",
+      "enforcement": "none",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": true,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "integrator-maintenance-update-contract-addresses-shadow.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "integrator-maintenance-update-contract-addresses.yml",
+      "name": "Update Contract Addresses",
+      "type": "integrator",
+      "concern": "maintenance",
+      "niche": "auto-classified",
+      "pipeline_tag": "P5-auto",
+      "enforcement": "none",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": true,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "integrator-maintenance-update-contract-addresses.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "validator-brand-check-copy-standards.yml",
+      "name": "Check Copy Standards",
+      "type": "validator",
+      "concern": "brand",
+      "niche": "auto-classified",
+      "pipeline_tag": "P3",
+      "enforcement": "soft-gate",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": false,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "validator-brand-check-copy-standards.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "validator-discoverability-check-companions.yml",
+      "name": "Check AI Companion Files",
+      "type": "validator",
+      "concern": "discoverability",
+      "niche": "auto-classified",
+      "pipeline_tag": "P3",
+      "enforcement": "soft-gate",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": false,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "validator-discoverability-check-companions.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "validator-governance-check-governance-map.yml",
+      "name": "Check Governance Map",
+      "type": "validator",
+      "concern": "governance",
+      "niche": "auto-classified",
+      "pipeline_tag": "P3",
+      "enforcement": "soft-gate",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": false,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "validator-governance-check-governance-map.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "validator-health-check-page-structure.yml",
+      "name": "Check Page Structure",
+      "type": "validator",
+      "concern": "health",
+      "niche": "auto-classified",
+      "pipeline_tag": "P3",
+      "enforcement": "soft-gate",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": false,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "validator-health-check-page-structure.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
+    },
+    {
+      "file": "validator-maintenance-check-catalogs.yml",
+      "name": "Check Docs Guide Catalogs",
+      "type": "validator",
+      "concern": "maintenance",
+      "niche": "auto-classified",
+      "pipeline_tag": "P3",
+      "enforcement": "soft-gate",
+      "triggers": [],
+      "scripts": [],
+      "secrets": [
+        "GITHUB_TOKEN"
+      ],
+      "permissions": [],
+      "error_handling": "unknown",
+      "branch_targeting": "unknown",
+      "dry_run": false,
+      "auto_commit": false,
+      "concurrency": false,
+      "node_version": null,
+      "status": "active",
+      "consolidation_flag": "none",
+      "consolidation_note": null,
+      "bugs": [],
+      "inline_script_lines": 0,
+      "new_name": "validator-maintenance-check-catalogs.yml",
+      "review_flags": "Auto-added during governance consolidation 2026-04-07"
     }
   ],
   "generate_verify_pairs": [

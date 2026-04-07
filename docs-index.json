@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-04-07T11:45:36.269Z",
+  "generated": "2026-04-07T13:27:03.745Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -42,7 +42,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 598,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T22:26:06+10:00",
       "headings": [
         {
           "level": 2,
@@ -20794,34 +20794,29 @@
     },
     {
       "url": "https://docs.livepeer.org/v2/resources/portal",
-      "title": "Resource Portal",
-      "description": "Livepeer Resource Compendium",
+      "title": "Resource HUB",
+      "description": "Welcome To The Resource HUB: Documentation, References, Changelogs",
       "section": "resources",
       "tags": [
-        "home",
-        "index",
-        "landing",
-        "help",
-        "support",
-        "contact",
-        "faq",
+        "start-here",
         "resource",
         "resources",
-        "reference",
-        "references",
-        "compendium"
+        "resource-hub",
+        "resource-portal",
+        "documentation",
+        "documentation-guide",
+        "glossary",
+        "changelog",
+        "changelogs",
+        "help-center",
+        "reference"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 10,
-      "lastVerified": "2026-04-07T21:11:01+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Resources Portal"
-        }
-      ],
+      "wordCount": 166,
+      "lastVerified": "2026-04-07",
+      "headings": [],
       "codeLanguages": []
     },
     {
@@ -23620,7 +23615,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1369,
+      "wordCount": 1320,
       "lastVerified": "2026-04-06T00:40:49+10:00",
       "headings": [],
       "codeLanguages": []
@@ -26203,17 +26198,12 @@
     {
       "url": "https://docs.livepeer.org/docs-guide/frameworks/content-system",
       "title": "Content System",
-      "description": "This document defines how product messaging, information architecture, and technical depth are organized.",
+      "description": "",
       "section": "docs-guide",
       "tags": [
-        "livepeer",
-        "content-system",
-        "product-messaging",
-        "information-architecture",
-        "technical-depth",
-        "organized",
         "docs-guide",
-        "frameworks"
+        "frameworks",
+        "content-system"
       ],
       "entities": [],
       "apiEndpoints": [],

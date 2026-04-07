@@ -1,48 +1,410 @@
 # Consolidated Governance Architecture
 
-> The COMPLETE blueprint. Every workflow renamed, every consolidation, every self-remediation path.
-> NOTHING gets implemented until this is approved.
-> Date: 2026-04-07
+> Complete blueprint for ownerless, self-governing documentation repo.
+> Covers: workflows, scripts, hooks, policies, config, reports, design docs.
+> NOTHING gets implemented until approved.
+> Date: 2026-04-07 (updated with gap audit findings)
 
 ---
 
-## Target State: Workflow Inventory
+## 1. Governed Surfaces (complete inventory)
 
-52 current workflows → target ~30 after consolidation + renames.
+Everything in this repo that governance must account for.
 
-### DELETE (4 workflows → 0)
+### 1.1 Workflows (.github/workflows/)
 
-| Current | Reason |
-|---|---|
-| build-review-assets.yml | Placeholder, never implemented |
-| generate-review-table.yml | Placeholder, never implemented |
-| update-review-template.yml | Placeholder, never implemented |
-| update-blog-data.yml | Broken (hardcoded YOUR_CONTENT_API_KEY). Superseded by data-refresh-governance |
+52 current files. Target: 47 active + 4 deleted + 1 disabled.
 
-### DISABLE (1 workflow)
+**DELETE:** build-review-assets.yml, generate-review-table.yml, update-review-template.yml, update-blog-data.yml
+**DISABLE:** project-showcase-sync.yml
 
-| Current | Reason |
-|---|---|
-| project-showcase-sync.yml | Not working. Keep workflow_dispatch for future investigation, disable schedule |
+**RENAME all 47 active to D-ACT-04 convention:** `type-concern-verb-name.yml`
 
-### CONSOLIDATE: Social Data Feeds (6 → already using data-refresh-governance.yml)
+See Appendix A for the complete rename table.
 
-These already delegate to data-refresh-governance.yml. They are thin wrappers.
+### 1.2 Scripts by location
 
-| Current wrapper | Mode | Keep as-is or consolidate? |
+| Location | Count | Governed? | JSDoc? | In registry? |
+|---|---|---|---|---|
+| operations/scripts/ (6 type folders) | ~196 | YES (script framework) | 93% have some, 70% have @type/@concern | YES (script-registry.json, 358 entries) |
+| .github/scripts/ | 10 | PARTIAL (JSDoc exists, wrong location) | YES | YES |
+| tools/lib/governance/ | 8 | NOT EXPLICITLY | PARTIAL | NOT IN REGISTRY |
+| tools/dev/ | ~14 | NOT GOVERNED | UNKNOWN | NOT IN REGISTRY |
+| tools/config/ | config files, not scripts | N/A | N/A | N/A |
+| workspace/scripts/ | 1 (.py) | NOT GOVERNED | NO | NOT IN REGISTRY |
+| .githooks/ | 7 | PARTIAL (in registry) | PARTIAL | PARTIAL |
+| operations/scripts/dispatch/governance/ | 23 hooks + 2 pipeline scripts | YES (governance infra) | YES | PARTIAL |
+
+**GAP: ~45 scripts in tools/lib/, tools/dev/, workspace/scripts/ are ungoverned.** These need classification and either:
+- Governance (add to registry with JSDoc)
+- Exemption (document why they're exempt)
+- Migration (move to operations/scripts/)
+
+### 1.3 Git hooks (.githooks/)
+
+| File | Purpose | In architecture? |
 |---|---|---|
-| update-discord-data.yml | discord | Keep (thin wrapper, different schedule) |
-| update-forum-data.yml | forum | Keep (thin wrapper) |
-| update-ghost-blog-data.yml | ghost-blog | Keep (thin wrapper) |
-| update-github-data.yml | github | Keep (thin wrapper) |
-| update-rss-blog-data.yml | rss-blog | Keep (thin wrapper) |
-| update-youtube-data.yml | youtube | Keep (thin wrapper) |
+| pre-commit | 5 hard gates (< 5 seconds) | YES |
+| pre-push | Codex isolation + task contract | YES |
+| pre-commit-no-deletions | Alternative pre-commit (deletion guard variant) | NOT IN ARCHITECTURE |
+| post-commit.disabled | Disabled post-commit hook | NOT IN ARCHITECTURE |
+| install.sh | Hook installer | YES |
+| verify.sh | Hook verification | NOT IN ARCHITECTURE |
+| verify-browser.js | Browser verification tool | NOT IN ARCHITECTURE |
+| server-manager.js | Mintlify dev server lifecycle | NOT IN ARCHITECTURE |
+| script-index.md | Hook documentation | N/A |
+| README.md | Hook documentation | N/A |
 
-These are already consolidated via the reusable workflow pattern. The wrappers just set schedule + mode. This is the correct architecture. No further consolidation needed here.
+### 1.4 Claude hooks (operations/scripts/dispatch/governance/)
 
-### RENAME: Every Active Workflow
+23 files implementing enforcement at write time (Layer 1).
 
-| # | Current name | New name (D-ACT-04) | Type | Concern | Pipeline |
+| Hook | Event | Purpose |
+|---|---|---|
+| pre-tool-guard.js | PreToolUse | Block destructive git, public posts, auto-generated edits, em-dashes |
+| mdx-constraints-injector.js | UserPromptSubmit | Inject Mintlify constraints |
+| mdx-validate-hook.js | PostToolUse (Edit/Write .mdx) | Validate MDX renders |
+| mdx-render-verify.js | PostToolUse (Edit/Write .mdx) | Render verification with gate state |
+| mdx-render-gate.js | PreToolUse (Write/Edit) | Block edits while render failing |
+| edit-loop-guard.js | PostToolUse (Edit/Write) | Circuit breaker at 3/5 edits |
+| phase-gate-hook.js | PostToolUse (Edit/Write) | Nag unverified checkpoints |
+| move-detect-hook.js | PostToolUse (Bash) | Detect file moves, prompt /propagate |
+| blast-radius-scanner.js | PostToolUse (Edit/Write) | List consumers of edited shared files |
+| grep-loop-guard.js | PostToolUse (Grep) | Circuit breaker at 3 empty results |
+| post-tool-verify.js | PostToolUseFailure | Circuit breaker at 3 consecutive failures |
+| completion-gate.js | PreToolUse (Write) | Block completion artifacts while render failing |
+| server-lifecycle.js | SessionStart | Ensure Mintlify dev server running |
+| pre-compact-checkpoint.js | PreCompact | Preserve state before compaction |
+| message-backup.js | UserPromptSubmit | Backup messages > 200 chars |
+| session-register.js | SessionStart + PostToolUse | Track sessions, detect collisions |
+| session-state.js | SessionStart | Inject session state |
+| read-logger.js | PostToolUse (Read) | Track file reads |
+| friction-logger.js | UserPromptSubmit | Log frustration signals |
+| scope-checkpoint.js | PostToolUse | Periodic scope reconnection |
+
+**GAP: 3 hooks not in the above list** (need to verify complete inventory against .claude/settings.json hooks registration)
+
+### 1.5 Policy documents (docs-guide/policies/)
+
+17 files found. All must be referenced in governance-index.mdx or explicitly marked as covered by another surface.
+
+| Policy | Referenced in architecture? | Status |
+|---|---|---|
+| governance-index.mdx | YES (the index itself) | Current |
+| ownerless-governance.mdx | YES | Current |
+| root-allowlist-governance.mdx | YES | Reconciled |
+| agent-governance-framework.mdx | YES | Reconciled |
+| generated-artifact-and-hook-governance.mdx | YES | Current |
+| script-governance.mdx | YES | Stale (4 concerns) |
+| infrastructure-principles.mdx | NOT IN ARCHITECTURE | Current |
+| quality-gates.mdx | NOT IN ARCHITECTURE | Current |
+| source-of-truth-policy.mdx | NOT IN ARCHITECTURE | Current |
+| component-layout-decisions.mdx | NOT IN ARCHITECTURE | Current |
+| docs-guide-structure-policy.mdx | NOT IN ARCHITECTURE | Current |
+| v2-folder-governance.mdx | NOT IN ARCHITECTURE | Current |
+| cleanup-quarantine-policy.mdx | NOT IN ARCHITECTURE | Current |
+| snippets-assets-policy.mdx | NOT IN ARCHITECTURE | Current |
+| audit-system-overview.mdx | NOT IN ARCHITECTURE | Current |
+| skill-pipeline-map.mdx | NOT IN ARCHITECTURE | Current |
+| workspace-lifecycle-policy.mdx | NOT IN ARCHITECTURE | Current |
+
+**GAP: 10 policy docs not referenced in architecture.** These need to be verified as current and added to the governance surface map, or marked as superseded.
+
+### 1.6 Governance config (operations/governance/config/)
+
+| File | Purpose | Status |
+|---|---|---|
+| repo-governance-surfaces.json | Unified registry (PRIMARY) | Current |
+| root-governance.json | Root placement rules | Current (canonical location) |
+| generated-artifacts.json | Generated artifact contracts | Current (canonical location) |
+| agent-write-governance.json | Agent output placement rules | Current |
+| ownerless-governance-surfaces.json | Ownerless operating model | Current (canonical location) |
+| governance-approval-policy.json | PR approval requirements | Current |
+
+**Bridge-mode legacy files (tools/config/runtime/):**
+
+| Legacy file | Canonical location | Bridge status |
+|---|---|---|
+| tools/config/runtime/root-governance.json | operations/governance/config/root-governance.json | Passive mirror |
+| tools/config/runtime/generated-artifacts.json | operations/governance/config/generated-artifacts.json | Passive mirror |
+| tools/config/runtime/ownerless-governance-surfaces.json | operations/governance/config/ownerless-governance-surfaces.json | Passive mirror |
+
+### 1.7 Generated artifacts at repo root
+
+| File | In manifest? | Generator | Status |
+|---|---|---|---|
+| docs-index.json | YES | generate-docs-index.js | Current |
+| llms.txt | YES | generate-llms-files.js | Current |
+| sitemap-ai.xml | YES | generate-ai-sitemap.js | Current |
+| .allowlist | YES | generate-root-governance-artifacts.js | Current |
+| robots.txt | NOT IN MANIFEST | Mintlify platform | GAP: governance unclear |
+| docs.json | NOT IN MANIFEST | Hand-maintained | GAP: should be in governance-index as canonical source |
+| style.css | NOT IN MANIFEST | Mintlify platform | GAP: governance unclear |
+
+### 1.8 Report folders
+
+| Location | Contents | Status |
+|---|---|---|
+| workspace/reports/repo-ops/ | Active governance reports (8 LATEST files) | Current, governed |
+| workspace/reports/ (root) | 60+ historical reports, audits, reviews | STALE: needs archival policy |
+| workspace/reports/_local/ | Local-only scratch outputs | Current, governed (untracked) |
+| workspace/reports/contracts/ | Contract pipeline reports | Current |
+| .github/workspace/reports-audits/ | Phase 1 audit artifacts + dependency map | Superseded by design/ folder |
+
+### 1.9 Design docs
+
+| Location | Purpose | Status |
+|---|---|---|
+| .github/workspace/design/ | Per-concern design docs (7 folders) | Active |
+| .github/workspace/design/governance/ | Governance design + this architecture | Active |
+| .github/workspace/phase2/ | Pipeline design, review process, locked-pipelines | SUPERSEDED by design/ (archive candidate) |
+| .github/workspace/framework-canonical.md | Pipeline framework | Active (transitional-runtime per registry) |
+| .github/workspace/decisions-log.mdx | D-ACT decisions | Active (transitional-runtime per registry) |
+| .github/workspace/outcomes.md | Visual maps + data feed table | Design-only (archive candidate) |
+
+---
+
+## 2. Enforcement Layer Architecture
+
+### Layer 1: Write time (Claude hooks, < 1 second)
+
+**Implementation:** 20+ hooks in operations/scripts/dispatch/governance/ registered in .claude/settings.json
+**Self-repair:** Constraints auto-injected. Em-dashes blocked. Render validation.
+**GAP:** No auto-fix on write (hooks warn but don't correct). Render gate false-positives on Mintlify platform React 418 errors.
+
+### Layer 2: Commit time (git hooks, < 5 seconds)
+
+**Implementation:** .githooks/pre-commit (5 hard gates), .githooks/pre-push (codex isolation)
+**Self-repair:** BLOCK only. No auto-correct.
+**GAP:** Pre-push overrides use env vars not git trailers (no audit trail). Codex validators run in both pre-commit AND pre-push (should be pre-push only).
+
+### Layer 3: PR time (GitHub Actions, minutes)
+
+**P2 hard gates (block merge):**
+- test-suite.yml (content quality, components)
+- codex-governance.yml (codex compliance)
+
+**P3 advisory (report, don't block):**
+- check-copy-standards.yml (copy lint: 4 validators)
+- check-page-structure.yml (structure: 6 validators)
+- broken-links.yml (link check)
+- test-v2-pages.yml (browser rendering)
+- check-ai-companions.yml (verify pair)
+- check-docs-guide-catalogs.yml (verify pair, via docs-catalog-governance.yml)
+- check-docs-index.yml (verify pair, via docs-catalog-governance.yml)
+- verify-ai-sitemap.yml (verify pair)
+- verify-llms-files.yml (verify pair)
+- openapi-reference-validation.yml (spec check, also P5)
+
+**Self-repair:** Most validators have --fix mode but don't expose it in workflow. Only openapi provides PR comment with fix instructions.
+**GAP:** 70% of PR workflows have no PR comment with fix instructions. --fix mode not surfaced.
+
+### Layer 4: Merge time (GitHub Actions, P4)
+
+**Generators (auto-commit after merge):**
+- generate-ai-companions.yml
+- generate-ai-sitemap.yml
+- generate-component-registry.yml
+- generate-docs-guide-catalogs.yml
+- generate-docs-index.yml
+- generate-llms-files.yml
+
+**Dispatchers (orchestrate post-merge):**
+- governance-sync.yml (governance-pipeline.js)
+- docs-catalog-governance.yml (catalog validation)
+
+**Self-repair:** Generators auto-commit. governance-sync catches failures.
+**GAP:** No single generator orchestrator (generators run independently, can race). No concurrency control on generators. No error handling (all fail silently).
+
+### Layer 5: Scheduled (GitHub Actions, P5/P5-auto)
+
+**Read-only scanners (P5):**
+- content-health.yml (quality + components, weekly)
+- freshness-monitor.yml (data staleness, daily)
+- v2-external-link-audit.yml (external links, daily)
+- page-integrity-health.yml (links + imports + auto-repair, daily)
+- openapi-reference-validation.yml (spec drift + auto-fix, daily)
+- tasks-retention.yml (workspace retention)
+
+**Auto-commit integrators (P5-auto):**
+- 6 social feed wrappers (via data-refresh-governance.yml)
+- update-changelogs.yml
+- update-contract-addresses.yml (+shadow)
+- update-livepeer-release.yml
+- sync-large-assets.yml
+- sdk_generation.yaml
+
+**Self-repair:** page-integrity-health and openapi have full scan-to-act (rolling issue, auto-close). freshness-monitor and v2-external-link-audit now have rolling issues (added this session). content-health unblinded (continue-on-error removed).
+**GAP:** Data integrators have no error handling (no issue creation on fetch failure).
+
+### Layer 6: Self-heal (GitHub Actions, P6)
+
+**Implementation:** repair-governance.yml (weekly Monday, governance-pipeline.js)
+**Self-repair:** Full cycle: audit, fix, verify, create PR.
+**GAP:** Repair scope limited by @owner to @domain migration guards. Full-repo repair disabled.
+
+### Layer 7: Event-driven (GitHub Actions)
+
+**Implementation:**
+- auto-assign-docs-reviewers.yml (PR opened)
+- close-linked-issues-docs-v2.yml (PR merged)
+- discord-issue-intake.yml (repository_dispatch)
+- docs-v2-issue-indexer.yml (issues + schedule)
+- issue-auto-label.yml (issues)
+
+**Self-repair:** Inherently self-managing (fire on event).
+**GAP:** All 5 have inline JS (1,340 lines total). Labels hardcoded (not config-driven). No .github/ISSUE_TEMPLATE/ files.
+
+---
+
+## 3. Self-Remediation Map
+
+```
+DETECTION                     RESPONSE
+---------                     --------
+Pre-commit violation      --> BLOCK + clear error + trailer override
+PR P2 failure             --> BLOCK merge + step summary with fix instructions
+PR P3 failure             --> WARN + step summary (does not block)
+Generator drift           --> Auto-commit on merge + verify pair catches on PR
+Content-health finding    --> Step summary (repair-component-metadata in pipeline)
+Stale data feed           --> Rolling issue (health:data-freshness) + auto-close when fresh
+Broken external link      --> Rolling issue (health:external-links) + auto-close when clean
+Page integrity issue      --> Auto-repair links/imports + rolling issue for unresolved
+OpenAPI spec drift        --> Auto-fix PR + rolling issue
+Governance drift          --> Weekly repair: audit, fix, verify, create PR
+Issue/PR event            --> Auto-label, assign, index, close, intake
+```
+
+**Pattern:** Detect -> Diagnose -> Self-repair (if possible) -> Escalate (if not) -> Verify
+**Priority:** Auto-fix silently > Auto-fix PR > Create issue > Block with error
+**Rule:** No headless scans. Every finding gets a response.
+
+---
+
+## 4. File Moves and Renames
+
+### 4.1 Workflow renames (47 files)
+
+See Appendix A for the complete table.
+
+### 4.2 Script migrations (D-ACT-06: .github/scripts/ to operations/scripts/)
+
+| Current | Target | Notes |
+|---|---|---|
+| .github/scripts/fetch-contract-addresses.js | Keep (CLI entrypoint delegates to operations/scripts/automations/content/data/contracts/) | Already has pipeline modules |
+| .github/scripts/fetch-discord-announcements.js | operations/scripts/integrators/copy/social-feeds/ | Create directory |
+| .github/scripts/fetch-forum-data.js | operations/scripts/integrators/copy/social-feeds/ | |
+| .github/scripts/fetch-ghost-blog-data.js | operations/scripts/integrators/copy/social-feeds/ | |
+| .github/scripts/fetch-github-discussions.js | operations/scripts/integrators/copy/social-feeds/ | |
+| .github/scripts/fetch-github-releases.js | operations/scripts/integrators/copy/social-feeds/ | |
+| .github/scripts/fetch-rss-blog-data.js | operations/scripts/integrators/copy/social-feeds/ | |
+| .github/scripts/fetch-youtube-data.js | operations/scripts/integrators/copy/social-feeds/ | |
+| .github/scripts/generate-changelog.js | operations/scripts/integrators/copy/changelogs/ | Create directory |
+| .github/scripts/project-showcase-sync.js | operations/scripts/integrators/copy/showcase/ | Create directory |
+
+**Note:** operations/scripts/ type folder is currently `automations/` not `integrators/`. Need to either:
+- Rename the folder (high risk, many references)
+- Accept `automations/` as the current name and add `integrators/` as alias
+- Add `integrators/` as new folder alongside `automations/`
+
+### 4.3 Inline script extractions (5 workflows)
+
+| Workflow | Extract to | Lines |
+|---|---|---|
+| auto-assign-docs-reviewers.yml | operations/scripts/interfaces/governance/assign-reviewers.js | 80 |
+| close-linked-issues-docs-v2.yml | operations/scripts/interfaces/governance/close-linked-issues.js | 140 |
+| discord-issue-intake.yml | operations/scripts/interfaces/governance/discord-issue-intake.js | 260 |
+| docs-v2-issue-indexer.yml | operations/scripts/interfaces/governance/issue-indexer.js | 400 |
+| issue-auto-label.yml | operations/scripts/interfaces/governance/issue-auto-label.js | 340 |
+
+**Note:** operations/scripts/interfaces/ doesn't exist yet. `interface` is a new type (D-ACT-01). Need to create the folder.
+
+### 4.4 Design doc archival
+
+| Current | Action |
+|---|---|
+| .github/workspace/phase2/ | Archive to .github/workspace/archive/phase2/ (superseded by design/) |
+| .github/workspace/outcomes.md | Keep as reference (design-only per registry classification) |
+| .github/workspace/reports-audits/ | Archive to .github/workspace/archive/reports-audits/ |
+
+### 4.5 Report cleanup
+
+| Location | Action |
+|---|---|
+| workspace/reports/repo-ops/ | Keep (active governance reports) |
+| workspace/reports/ (60+ historical reports) | Archive dated reports to workspace/reports/archive/ |
+| workspace/reports/_local/ | Keep (local scratch) |
+
+---
+
+## 5. Gaps Still Open
+
+### Critical
+
+| Gap | What's needed |
+|---|---|
+| 4 deleted workflows still exist | Execute deletion |
+| Script framework doc says 6 types, 4 concerns | Update to 7 types, 7 concerns |
+| operations/scripts/README.md says old taxonomy | Update to match |
+
+### High
+
+| Gap | What's needed |
+|---|---|
+| 11 scripts in .github/scripts/ not migrated | Create target dirs, git mv, update workflow paths |
+| 5 inline scripts not extracted | Create operations/scripts/interfaces/, extract, add JSDoc |
+| ~45 scripts in tools/lib/ tools/dev/ ungoverned | Classify: govern, exempt, or migrate |
+| Script registry incomplete | Regenerate to include all governed scripts |
+| docs.json and robots.txt not in governance manifest | Add to governance-index or generated-artifacts |
+
+### Medium
+
+| Gap | What's needed |
+|---|---|
+| 10 policy docs not referenced in architecture | Verify current, add to governance map |
+| PR workflows have no fix instructions (70%) | Add step summary with fix guidance |
+| Generators have no concurrency control | Add concurrency groups |
+| Labels hardcoded in 3 workflows | Centralise to config file |
+| No .github/ISSUE_TEMPLATE/ files | Create from Discord schema |
+| phase2/ docs superseded but not archived | Move to archive/ |
+| 60+ stale reports unarchived | Move to workspace/reports/archive/ |
+
+### Low
+
+| Gap | What's needed |
+|---|---|
+| Pre-push overrides use env vars not trailers | Change to git trailers |
+| Render gate false-positives on React 418 | Add platform-error exclusion to render-verify hook |
+| Advisory-to-gate promotion not documented | Write criteria in framework doc |
+
+---
+
+## 6. Implementation Order
+
+1. **Architecture approval** (this document)
+2. **Delete 4 workflows + disable showcase**
+3. **Verify every script runs** (--help/--dry-run/--check for every script referenced by every workflow)
+4. **Fix all standards violations** across all workflows (permissions, concurrency, node version, npm ci, error handling, branch targeting)
+5. **Rename all 47 workflows** in one batch (with full reference scan after)
+6. **Extract 5 inline scripts** (create operations/scripts/interfaces/, extract verbatim, add JSDoc, test)
+7. **Migrate .github/scripts/** (create target dirs, git mv, update workflow paths, test)
+8. **Add scan-to-act** to remaining headless scanners
+9. **Centralise labels** + create issue templates
+10. **Classify ungoverned scripts** (tools/lib/, tools/dev/) - govern, exempt, or migrate
+11. **Update all canonical docs** (script-framework.md, governance-index.mdx, operations/scripts/README.md)
+12. **Archive superseded design docs** (phase2/, reports-audits/)
+13. **Archive stale reports** (workspace/reports/ historical)
+14. **Regenerate script registry** (full, covering all governed scripts)
+15. **Full end-to-end test** per enforcement layer
+16. **Merge to docs-v2**
+
+Each step: explain intent, wait for go, test, document.
+
+---
+
+## Appendix A: Complete Workflow Rename Table
+
+| # | Current name | New name (D-ACT-04) | Type | Concern | Tag |
 |---|---|---|---|---|---|
 | 1 | auto-assign-docs-reviewers.yml | interface-governance-assign-reviewers.yml | interface | governance | P3 |
 | 2 | broken-links.yml | validator-health-check-broken-links.yml | validator | health | P3 |
@@ -91,121 +453,4 @@ These are already consolidated via the reusable workflow pattern. The wrappers j
 | 45 | v2-external-link-audit.yml | audit-health-scan-external-links.yml | audit | health | P5 |
 | 46 | verify-ai-sitemap.yml | validator-discoverability-check-ai-sitemap.yml | validator | discoverability | P3 |
 | 47 | verify-llms-files.yml | validator-discoverability-check-llms-files.yml | validator | discoverability | P3 |
-
-**47 active workflows after deleting 4 + disabling 1.**
-
-### Inline Script Extractions (5 workflows)
-
-| Workflow | Lines inline | Extract to | JSDoc type |
-|---|---|---|---|
-| auto-assign-docs-reviewers | 80 | operations/scripts/interfaces/governance/assign-reviewers.js | interface |
-| close-linked-issues-docs-v2 | 140 | operations/scripts/interfaces/governance/close-linked-issues.js | interface |
-| discord-issue-intake | 260 | operations/scripts/interfaces/governance/discord-issue-intake.js | interface |
-| docs-v2-issue-indexer | 400 | operations/scripts/interfaces/governance/issue-indexer.js | interface |
-| issue-auto-label | 340 | operations/scripts/interfaces/governance/issue-auto-label.js | interface |
-
-### .github/scripts/ Migration (D-ACT-06)
-
-| Current (.github/scripts/) | Target (operations/scripts/) |
-|---|---|
-| fetch-contract-addresses.js | Already has pipeline modules in operations/scripts/automations/content/data/contracts/ |
-| fetch-discord-announcements.js | operations/scripts/integrators/copy/social-feeds/ |
-| fetch-forum-data.js | operations/scripts/integrators/copy/social-feeds/ |
-| fetch-ghost-blog-data.js | operations/scripts/integrators/copy/social-feeds/ |
-| fetch-github-discussions.js | operations/scripts/integrators/copy/social-feeds/ |
-| fetch-github-releases.js | operations/scripts/integrators/copy/social-feeds/ |
-| fetch-rss-blog-data.js | operations/scripts/integrators/copy/social-feeds/ |
-| fetch-youtube-data.js | operations/scripts/integrators/copy/social-feeds/ |
-| generate-changelog.js | operations/scripts/integrators/copy/changelogs/ |
-| project-showcase-sync.js | operations/scripts/integrators/copy/showcase/ |
-
----
-
-## Self-Remediation Architecture
-
-### Every enforcement layer must respond to findings:
-
-| Layer | On detection | Response |
-|---|---|---|
-| Pre-commit | Violation detected | BLOCK with clear error + override via git trailer |
-| PR (P2) | Check fails | BLOCK merge. Step summary explains what and how to fix |
-| PR (P3) | Check fails | WARN (advisory). Step summary explains what and how to fix. Does NOT block |
-| Post-merge (P4) | Generator runs | Auto-commit. If fails: governance-sync catches next merge |
-| Scheduled (P5) | Scanner finds issues | Route A: auto-fix + commit/PR. Route B: create/update rolling issue. Route C: re-dispatch stale feed |
-| Self-heal (P6) | Weekly audit | Full repair cycle: audit, fix, verify, create PR |
-| Event | Issue/PR event | Auto-label, assign, index, close, intake. Config-driven |
-
-### Generate/Verify Pairs (complete)
-
-| Generator | Verifier | Status |
-|---|---|---|
-| generate-ai-companions | check-ai-companions | Paired |
-| generate-ai-sitemap | verify-ai-sitemap | Paired |
-| generate-llms-files | verify-llms-files | Paired |
-| generate-docs-index | check-docs-index | Paired |
-| generate-docs-guide-catalogs | check-docs-guide-catalogs | Paired |
-| generate-component-registry | check-component-registry (via docs-catalog-governance) | Paired (indirect) |
-
-### Scan-to-Act Routing
-
-| Scanner | Finding type | Route |
-|---|---|---|
-| content-health | Component issues | Step 5 (repair-component-metadata.js) runs in same pipeline |
-| content-health | Quality/layout | Report in step summary (no auto-fix for quality judgments) |
-| freshness-monitor | Stale data feed | Create/update rolling issue (health:data-freshness label) |
-| freshness-monitor | All feeds fresh | Auto-close rolling issue |
-| v2-external-link-audit | Broken external link | Create/update rolling issue (health:external-links label) |
-| v2-external-link-audit | All links clean | Auto-close rolling issue |
-| page-integrity-health | Broken links/imports | Auto-repair + rolling issue for unresolved |
-| openapi-reference-validation | Spec drift | Auto-fix PR + rolling issue |
-
----
-
-## Standards Compliance Checklist (per workflow)
-
-Every workflow in the target state must pass:
-
-- [ ] File name follows `type-concern-verb-name.yml` (D-ACT-04)
-- [ ] `name:` field is descriptive
-- [ ] `permissions:` declared explicitly
-- [ ] `concurrency:` group set (auto-commit workflows)
-- [ ] Branch targeting uses `vars.DEPLOY_BRANCH` (no hardcoded branches)
-- [ ] Node version: `20`
-- [ ] `npm ci` (not `npm install`)
-- [ ] Bot identity: `github-actions[bot]`
-- [ ] Commit message: `chore(scope): description [skip ci]`
-- [ ] Error handling per pipeline tag
-- [ ] `--dry-run` support (workflow_dispatch)
-- [ ] No inline scripts > 50 lines
-- [ ] Scripts called via NODE_PATH=tools/node_modules where needed
-
----
-
-## Ownerless Contract Compliance (per surface)
-
-Every governed surface in the unified registry must have:
-
-- [ ] Canonical source registered
-- [ ] Validator exists and runs
-- [ ] Repair path exists
-- [ ] Gate layer assigned
-- [ ] Escalation mode defined
-- [ ] Success signals defined
-- [ ] Write policy declared
-- [ ] Agent write policy declared
-
----
-
-## Implementation Order
-
-1. Delete 4 placeholder workflows + disable showcase
-2. Rename all 47 workflows in one batch
-3. Fix all standards violations across all workflows (permissions, concurrency, node version, npm ci, error handling, hardcoded branches)
-4. Add scan-to-act to all headless scanners
-5. Extract 5 inline scripts
-6. Migrate .github/scripts/ to operations/scripts/
-7. Run every script with --dry-run/--check/--help to verify
-8. Full end-to-end test per enforcement layer
-9. Update all canonical docs
-10. Merge to docs-v2
 

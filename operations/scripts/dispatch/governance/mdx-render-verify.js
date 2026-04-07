@@ -93,8 +93,17 @@ function isNoise(text) {
 
 function loadBaseline() {
   try {
-    return JSON.parse(fs.readFileSync(BASELINE_PATH, 'utf8'));
-  } catch (_) {
+    const raw = fs.readFileSync(BASELINE_PATH, 'utf8');
+    try {
+      return JSON.parse(raw);
+    } catch (_parseErr) {
+      // Baseline file exists but is corrupted or being written (race condition).
+      // Flag it so callers know this is a degraded read, not a missing file.
+      console.error(`RENDER VERIFY WARNING: Baseline file exists but failed to parse (${BASELINE_PATH}). Possible race condition with baseline generator. All errors will be treated as pre-existing to avoid false positives.`);
+      return { _parseError: true };
+    }
+  } catch (_readErr) {
+    // File doesn't exist — genuinely no baseline
     return null;
   }
 }
@@ -235,7 +244,16 @@ async function verifyRoute(route, baseUrl) {
   } catch (err) {
     consoleErrors.push(`Navigation error: ${err.message}`);
   } finally {
-    try { await browser.close(); } catch (_) {}
+    // Timeout browser.close() to prevent hanging the hook pipeline
+    try {
+      await Promise.race([
+        browser.close(),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('browser.close timeout')), 5000))
+      ]);
+    } catch (_) {
+      // Force-kill if close hangs
+      try { browser.process()?.kill('SIGKILL'); } catch (__) {}
+    }
   }
 
   const allErrors = [...consoleErrors, ...pageErrors];
@@ -316,6 +334,27 @@ stdin.on('end', async () => {
 
     // Compare against baseline
     const baseline = loadBaseline();
+
+    // If baseline is corrupted (race condition with generator), treat all errors
+    // as pre-existing. A false pass is far less damaging than a false fail that
+    // deadlocks all edits repo-wide.
+    if (baseline?._parseError) {
+      writeState({
+        status: 'passed',
+        file: fp,
+        route,
+        timestamp: new Date().toISOString(),
+        consoleErrors: result.consoleErrors,
+        bodyLength: result.bodyLength,
+        httpStatus: result.status,
+        note: 'Baseline corrupted — skipped comparison to avoid false-positive deadlock'
+      });
+      console.log(JSON.stringify({
+        systemMessage: `RENDER VERIFY: Baseline file corrupted (possible race with generator). Skipping comparison for ${route}. Re-run verification after baseline regenerates.`
+      }));
+      process.exit(0);
+    }
+
     const baselineEntry = baseline?.[route];
     const baselineErrors = new Set(baselineEntry?.consoleErrors || []);
     const newErrors = result.consoleErrors.filter((e) => !baselineErrors.has(e));

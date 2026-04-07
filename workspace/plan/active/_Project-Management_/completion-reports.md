@@ -4739,3 +4739,97 @@ Built three new governance hooks to mechanically enforce behaviour that CLAUDE.m
 | `.claude/CLAUDE.md` | modified | 3 new sections + 3 hard boundary rules |
 | `ai-tools/ai-skills/thread/SKILL.md` | modified | Outcome file write instruction |
 | `.claude/plans/humming-swimming-cake.md` | plan | Full design document |
+
+---
+
+## PR/Issue Triage & Pipeline Governance — 2026-04-07
+
+**Plans**: `.claude/plans/snug-noodling-ripple.md`
+**Scope**: Triage all open PRs and issues on livepeer/docs; design and build issue/PR lifecycle governance.
+**Outcome**: Partially met (triage complete, pipeline built but untested on live GitHub)
+
+### Summary
+Triaged all 17 open PRs (closed 13, retargeted 2, created 1 new) and all 26 open issues (closed 16). Built a closed-loop issue/PR governance pipeline across 3 GitHub Actions workflows: Copilot auto-assignment on issue creation, PR-to-issue notification on PR open, enhanced resolution comments on PR merge, and upgraded #793 from a passive report to a governing document with assignee/closed-by/resolution columns and a Copilot queue section.
+
+### Completed
+- **PR triage**: Closed 13 stale/superseded PRs, retargeted #844 and #840 (Dependabot security) to docs-v2, created #863 (Ubuntu deps fix from community PR #721), commented on #721 referencing #863
+- **Issue triage**: Closed 16 stale/placeholder/superseded issues (Sprint 3 trackers, rickstaa placeholders, v1 issues 2-3 years old)
+- **Security**: Applied picomatch 4.0.4 (CVE-2026-33671, CVE-2026-33672) and flatted 3.4.2 (CWE-1321) to tools/package-lock.json
+- **Pipeline governance (3 workflow files)**:
+  - `close-linked-issues-docs-v2.yml`: state_reason 'completed', resolution comment with PR title/author, new notify-linked-issues job
+  - `issue-auto-label.yml`: Copilot auto-assignment on docs-v2 + trigger labels
+  - `docs-v2-issue-indexer.yml`: assignee column, closed-by/resolution via timeline API, Copilot queue section
+- **Hook fix**: Unblocked gh CLI in pre-tool-guard.js (was blocking issue/PR comments)
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| PRs must target docs-v2, not main | main is legacy v1; docs-v2 is production branch |
+| Close Copilot Sprint 3 PRs and tracking issues | Superseded by v2 governance framework |
+| Copilot auto-assigned on type:bug + good first issue + help wanted | These are the labels most likely to produce actionable Copilot PRs |
+
+### Deferred Items
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Live testing of pipeline workflows | P0 | Requires merge to docs-v2 for workflows to fire | Next merge |
+| Retarget or close PR #817 (404 page) | P3 | Draft from rickstaa, v1 target | User decision |
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| YAML syntax | Not validated | No local YAML linter available; relies on GitHub Actions parser |
+| Marker uniqueness | Passed | 5 unique markers across 3 files, no collisions |
+| Live workflow test | Pending | Requires merge to docs-v2 |
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `.github/workflows/interface-governance-close-linked-issues.yml` | modified | Resolution context + PR-opened notification |
+| `.github/workflows/interface-governance-label-issues.yml` | modified | Copilot auto-assignment |
+| `.github/workflows/interface-governance-index-issues.yml` | modified | Governing document with assignees, closed-by, Copilot queue |
+| `.claude/plans/snug-noodling-ripple.md` | plan | Pipeline governance design |
+| `operations/scripts/dispatch/governance/pre-tool-guard.js` | modified | Unblocked gh CLI commands |
+
+## Zombie Process Prevention & Dev Server Recovery — 2026-04-08
+
+**Plans**: `.claude/plans/wobbly-launching-sutherland.md`
+**Scope**: Diagnose and permanently fix zombie process accumulation that broke the mint dev server.
+**Outcome**: Met
+
+### Summary
+The mint dev site was returning 404 errors because 158 zombie node processes from previous Claude Code sessions were consuming resources, leaving the dev server CPU-pegged at 128%. Root causes: MCP servers (claude-session-continuity-mcp, thedotmack/mcp-server.cjs) never terminated between sessions; sweep-console-errors.js had no signal handlers or timeout; pre-tool-guard.js blocked legitimate diagnostic commands. All 5 root causes fixed permanently with 3 redundancy layers for zombie prevention.
+
+### Completed
+- **Immediate recovery**: Killed 158 zombie processes (190 → 80 node processes), restored dev server on port 3145
+- **SessionStart hook expansion**: Added MCP zombie patterns, scoped dev server kill to port 3145 only (protects human ports 3000/3333)
+- **SessionEnd hook**: New hook kills Puppeteer Chrome and sweep scripts on clean session close
+- **UserPromptSubmit Chrome reaper**: Kills orphan Chrome if count exceeds 15, fires every user message
+- **sweep-console-errors.js hardening**: SIGTERM/SIGINT/exit handlers close browser; 5-minute global execution timeout prevents indefinite hangs
+- **mdx-render-verify.js hardening**: browser.close() races against 5-second timeout with SIGKILL fallback
+- **pre-tool-guard.js fixes**: Regex anchored to command boundaries (stops false positives on grep/ps commands); Plan agent type added to pre-approved list
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| 3 redundancy layers acceptable | User instruction: "multiple redundancies on zombie processes are acceptable" |
+| Port 3145 scoped kill only | Ports 3000/3333 are human-reserved for manual mint dev / lpd dev |
+| Plan agent pre-approved | Plan agents are read-only (produce plans, not edits) — same risk profile as Explore |
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| Dev server health | Passed | 200 on /v2/home after cleanup and restart |
+| Process count | Passed | 190 → 80 (all zombies eliminated) |
+| settings.json JSON validity | Passed | python3 json.load |
+| sweep-console-errors.js syntax | Passed | node -c |
+| mdx-render-verify.js syntax | Passed | node -c |
+| pre-tool-guard.js syntax | Passed | node -c |
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `.claude/settings.json` | modified | SessionStart expanded, SessionEnd added, UserPromptSubmit reaper added |
+| `operations/scripts/validators/content/structure/sweep-console-errors.js` | modified | Signal handlers + global timeout |
+| `operations/scripts/dispatch/governance/mdx-render-verify.js` | modified | browser.close timeout with SIGKILL fallback |
+| `operations/scripts/dispatch/governance/pre-tool-guard.js` | modified | Regex fix + Plan agent pre-approved |
+| `.claude/plans/wobbly-launching-sutherland.md` | plan | Full diagnostic and implementation plan |

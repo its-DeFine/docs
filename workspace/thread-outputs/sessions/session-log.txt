@@ -1,3 +1,50 @@
+=== 2026-04-08 ===
+Stream: Docs Library
+Outcome: Met
+Done:
+- Created docs-guide/docs-library/ — 8 pages documenting the full governance infrastructure
+- 6 pipeline concern pages with real Mermaid diagrams: content quality, governance compliance, component health, discoverability, data integration, copy/brand
+- Each page has: trigger chain, full script inventory tables, remediator listing, and per-pipeline gaps
+- Gap report: 17 gaps identified (2 P0, 5 P1, 6 P2, 4 P3) with severity, pipeline, impact, and recommended fix
+- P0 gaps: contract addresses workflow not on production branch, OG images not in CI
+- Research: 2 parallel agents inventoried all 265 infrastructure pieces and traced 6 complete pipeline flows
+Next: Address P0 gaps (contract addresses cherry-pick, OG CI job)
+---
+
+=== 2026-04-07 ===
+Stream: Workflow Governance Headers
+Outcome: Met
+Done:
+- Governance comment headers added to all 49 workflows (type/concern/pipeline from governed filename pattern)
+- Built add-workflow-governance-headers.js remediator script for future use
+- actions-audit.json updated: 29 file references updated to new governed names, 19 new workflows added, DELETE/broken entries removed
+- 59 actions-library .mdx docs regenerated from updated audit data
+- check-workflow-headers.js validator now passes clean (0 violations)
+- project-showcase-sync.yml (last old-name workflow) got manual header
+- 40 orphaned old-name action docs archived to .github/workspace/actions-library/x-archive/
+- Final state: 49 workflows, 49 matching action docs, 1:1 coverage
+Next: none from this thread
+---
+
+=== 2026-04-07 ===
+Stream: Canonical Consolidation
+Outcome: Met
+Done:
+- 3-layer governance spine designed and implemented (published governance in docs-guide/, enforcement in operations/, working plans in workspace/)
+- 13 framework files in docs-guide/frameworks/ — all with lastVerified frontmatter field
+- 5 standards files created in docs-guide/standards/ (voice-and-copy, authoring-standard, naming-conventions, frontmatter, voice-rules)
+- Unified decision registry created at docs-guide/decisions/registry.md — cross-references all 7+ registries
+- 18 GOVERNANCE.md markers placed across all root folders and key subfolders (10 root + 8 subfolders)
+- Governance map generator built: operations/scripts/generators/governance/map/generate-governance-map.js (walks markers, validates links, detects staleness)
+- 3 new validators built: check-jsdoc-headers.js, check-workflow-headers.js, check-governance-markers.js
+- Self-remediation repair script built: repair-governance-artifacts.js (regenerates map, updates lastVerified)
+- CI workflow created: validator-governance-check-governance-map.yml (PR checks + weekly staleness cron + manual repair dispatch)
+- governance-index.mdx updated — all 10 framework paths now point to docs-guide/frameworks/ (promoted from workspace/plan/)
+- CLAUDE.md key files table updated with new governance entry points
+- All tests pass: markers valid, links resolve, generator clean, validators correctly detect known gaps
+Next: Workflow governance headers (48 workflows), actions-library docs (48 workflows), .github/scripts migration (D-ACT-06)
+---
+
 === 2026-03-31 04:45 ===
 Stream: Companion Pipeline + YAML Hex Root-Cause Fix
 Outcome: Met
@@ -1160,3 +1207,37 @@ FILES CHANGED (not committed):
 === 2026-04-07 ===
 Stream: Merge docs-v2-dev → docs-v2
 Flag: Verification phase skipped running actual tests (dev server, test suite) — went straight to file-level checks instead. Plan requirement was: npm run dev, spot-check 10 key pages, run test suite. Correcting now.
+Session started: 2026-04-07 22:31:27
+Session started: 2026-04-07 22:41:03
+Session started: 2026-04-07 22:57:55
+Session started: 2026-04-07 22:58:30
+
+=== 2026-04-07 22:58 ===
+Stream: Repo Housekeeping Q&A
+Outcome: Met
+Done:
+- Reviewed 7 open Dependabot alerts — all in non-production tooling (tools/ and tests/ lock files). Recommended dismissal: tests/ dir already removed from docs-v2, tools/ deps are build-only
+- Confirmed GitHub Actions starter templates not needed — deployment is Mintlify-managed, existing workflow suite covers operational needs
+Next: Dismiss Dependabot alerts via API (pending approval). No code changes made this session
+
+=== 2026-04-07 23:30 ===
+Stream: PR/Issue Triage & Pipeline Governance
+Outcome: Partially met
+Done:
+- Triaged all PRs (13 closed, 2 retargeted, 1 created) and issues (16 closed) on livepeer/docs
+- Built issue/PR lifecycle governance: Copilot auto-assignment, PR notification, resolution tracking, #793 as governing doc
+- Applied 2 security CVE fixes (picomatch, flatted)
+Next: Merge docs-v2-dev to docs-v2 to activate workflows; live-test the pipeline with a real issue
+Session started: 2026-04-07 23:34:46
+Session started: 2026-04-07 23:48:33
+Session started: 2026-04-07 23:56:44
+Session started: 2026-04-08 00:05:42
+
+=== 2026-04-08 00:30 ===
+Stream: Zombie Process Prevention & Dev Server Recovery
+Outcome: Met
+Done:
+- Diagnosed and killed 158 zombie processes (104 claude-session-continuity-mcp, 54 thedotmack mcp-server.cjs, stale sweep + puppeteer chains). Process count: 190 → 80
+- Restored dev server on port 3145, confirmed 200 on /v2/home
+- 6 permanent fixes: SessionStart expanded with MCP patterns (port-safe for 3000/3333), SessionEnd hook added, UserPromptSubmit Chrome reaper added, sweep-console-errors.js signal handlers + 5min timeout, mdx-render-verify.js browser.close timeout with SIGKILL fallback, pre-tool-guard.js regex anchored + Plan agent unblocked
+Next: Monitor next few sessions for zombie accumulation. Edit-loop-guard cross-session persistence is a known issue (state files in /tmp not session-scoped)
