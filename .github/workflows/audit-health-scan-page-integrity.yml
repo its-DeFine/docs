@@ -66,32 +66,16 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-            const labels = [
-              { name: 'docs-v2', color: '0e8a16', description: 'Docs V2 maintenance and tooling' },
-              { name: 'help wanted', color: '008672', description: 'Extra attention is needed' },
-              { name: 'status: needs-routing', color: 'f9d0c4', description: 'Awaiting repository routing' },
-              { name: 'type: bug', color: 'd73a4a', description: 'Behavior is incorrect' },
-              { name: 'area: ci-cd', color: '5319e7', description: 'CI/CD automation and workflows' }
-            ];
-
-            for (const label of labels) {
-              try {
-                await github.rest.issues.getLabel({ owner, repo, name: label.name });
-              } catch (error) {
-                if (error.status !== 404) throw error;
-                try {
-                  await github.rest.issues.createLabel({
-                    owner,
-                    repo,
-                    name: label.name,
-                    color: label.color,
-                    description: label.description
-                  });
-                } catch (createError) {
-                  if (createError.status !== 422) throw createError;
-                }
+            const { owner, repo } = context.repo;
+            const allLabels = require('./.github/config/labels.json').labels;
+            const needed = ['docs-v2', 'help wanted', 'status: needs-routing', 'type: bug', 'area: ci-cd'];
+            for (const name of needed) {
+              const meta = allLabels[name] || { color: 'ededed', description: name };
+              try { await github.rest.issues.getLabel({ owner, repo, name }); }
+              catch (e) {
+                if (e.status !== 404) throw e;
+                try { await github.rest.issues.createLabel({ owner, repo, name, color: meta.color, description: meta.description }); }
+                catch (ce) { if (ce.status !== 422) throw ce; }
               }
             }
 

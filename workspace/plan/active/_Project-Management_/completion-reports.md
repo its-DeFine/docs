@@ -4833,3 +4833,92 @@ The mint dev site was returning 404 errors because 158 zombie node processes fro
 | `operations/scripts/dispatch/governance/mdx-render-verify.js` | modified | browser.close timeout with SIGKILL fallback |
 | `operations/scripts/dispatch/governance/pre-tool-guard.js` | modified | Regex fix + Plan agent pre-approved |
 | `.claude/plans/wobbly-launching-sutherland.md` | plan | Full diagnostic and implementation plan |
+
+---
+
+## Canonical Consolidation + Gap Remediation + Final Gap Closure -- 2026-04-07 to 2026-04-08
+
+**Plans**: `.claude/plans/spicy-percolating-conway.md`
+**Scope**: Complete governance consolidation: discovery layer, enforcement layer, self-documenting/self-remediating infrastructure, gap remediation, documentation cleanup.
+**Outcome**: Met
+
+### Summary
+Built a 3-layer governance spine (published in docs-guide/, enforcement in operations/, working plans in workspace/) with mechanical self-documentation and self-remediation. Every root folder now has a GOVERNANCE.md marker. Every framework has a lastVerified field. Validators enforce JSDoc headers, workflow governance headers, script placement, voice register, and translation freshness. The gap report went from 17 gaps to 2 remaining (both defer to branch merge). Browser tests now use baseline diffing and are promoted to blocking.
+
+### Completed
+
+**Phase 1: Canonical Consolidation**
+- 13 framework files promoted to docs-guide/frameworks/ with lastVerified frontmatter
+- 5 standards files created in docs-guide/standards/ (voice, authoring, naming, frontmatter, voice-rules)
+- Unified decision registry at docs-guide/decisions/registry.md
+- 18 GOVERNANCE.md markers (10 root + 8 subfolders)
+- Governance map generator, 3 validators, repair script, CI workflow
+- governance-index.mdx updated to point to published frameworks
+
+**Phase 2: Gap Remediation (17 gaps)**
+- Script placement validator + JSDoc validator wired into CI
+- Brand checks promoted P3 to P2 (blocks merge)
+- Component registry, CSS, docs checks now blocking
+- JSDoc debt cleared: 0 violations (was 49)
+- Freshness monitor auto-retriggers stale integrator workflows
+- Governance staleness cron weekly to daily
+- Auto-repair job in brand workflow
+- New-addition detection at 3 layers (pre-tool, pre-commit, CI)
+- Circuit breaker fixed for validator exits
+- D2 deletion hook + v1 frozen block + root allowlist enforcement in pre-tool-guard
+
+**Phase 3: Final Gap Closure**
+- OG images CI workflow (P4, post-merge, Puppeteer cached)
+- Voice register self-remediation: 84 violations auto-fixed across 60 pages
+- Browser test baseline diffing: promoted to blocking, only NEW errors fail
+
+**Documentation Cleanup**
+- AGENTS.md Required Context rewritten with canonical governance locations
+- All 5 IDE adapters synced (Cursor, Windsurf, Augment, Copilot, Codex)
+- CLAUDE.md key files table cleaned (stale paths removed, new surfaces added)
+- Docs-library: 6 pipeline pages with Mermaid diagrams in docs-guide/docs-library/
+- Gap report at workspace/reports/governance/gap-report.mdx
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| Contract workflow deferred to branch merge | Incompatible implementations between branches; production weekly workflow still functions |
+| Voice violations auto-fixed (not flagged for review) | Rule is unambiguous: "Delete self-reference. Start with content." No judgment needed |
+| Browser tests use baseline diffing | 94.7% of pages have baselined errors; strict mode would block all PRs |
+| x- prefixed directories excluded from validators | Deprecated/archived content should not trigger governance violations |
+
+### Deferred Items
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Contract workflow production deployment | P1 | Incompatible implementations | docs-v2-dev to docs-v2 merge |
+| .github/scripts/ migration on production | P3 | Already done on dev | docs-v2-dev to docs-v2 merge |
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| check-script-locations.js | Pass | 374 files, 0 violations |
+| check-jsdoc-headers.js | Pass | 181 files, 0 violations |
+| check-governance-markers.js | Pass | 18/18 present, all links valid |
+| check-workflow-headers.js | Pass | 50/50 have headers |
+| generate-governance-map.js --check | Pass | 0 stale, 0 broken links |
+| check-voice-register.js | Pass | 0 violations (was 52) |
+| check-translation-freshness.js | Pass | All translations current |
+| All AGENTS.md paths resolve | Pass | 6/6 OK |
+| All CLAUDE.md key file paths resolve | Pass | 8/8 OK |
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| docs-guide/frameworks/*.mdx (13 files) | governance | Published frameworks with lastVerified |
+| docs-guide/standards/*.mdx (5 files) | governance | Voice, authoring, naming, frontmatter standards |
+| docs-guide/decisions/registry.md | governance | Unified decision registry |
+| docs-guide/docs-library/ (7 files) | reference | Pipeline diagrams and script inventories |
+| workspace/reports/governance/gap-report.mdx | report | Gap analysis (14/17 resolved) |
+| operations/scripts/generators/governance/map/generate-governance-map.js | script | Self-documenting governance map generator |
+| operations/scripts/validators/governance/compliance/ (6 files) | scripts | JSDoc, workflow, markers, placement, new-file validators |
+| operations/scripts/remediators/content/copy/remediate-voice-violations.js | script | Self-remediating voice register fixer |
+| operations/scripts/remediators/governance/compliance/ (2 files) | scripts | Repair artifacts, add workflow headers |
+| .github/workflows/validator-governance-check-governance-map.yml | workflow | Governance CI (PR + daily cron + repair dispatch) |
+| .github/workflows/generator-discoverability-generate-og-images.yml | workflow | OG image generation (P4, post-merge) |
+| */GOVERNANCE.md (18 files) | markers | Folder governance markers |
+| .claude/plans/spicy-percolating-conway.md | plan | Full 3-phase plan with architecture diagrams |

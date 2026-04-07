@@ -15,6 +15,8 @@
 
 'use strict';
 
+const loadLabels = require('./lib/load-labels.js');
+
 /**
  * @param {Object} params
  * @param {import('@octokit/rest').Octokit} params.github - Authenticated GitHub client
@@ -138,16 +140,10 @@ module.exports = async function ({ github, context }) {
     };
   }
 
-  const labelMeta = {
-    'docs-v2': { color: '1d76db', description: 'Livepeer docs v2 issue scope' },
-    'help wanted': { color: '008672', description: 'Community help requested' },
-    'status: needs-routing': { color: 'fbca04', description: 'Needs initial repository routing' },
-    'type: documentation': { color: '0075ca', description: 'Documentation issue or request' },
-    'scope: page': { color: '1d76db', description: 'Issue scoped to a specific docs page' },
-  };
+  const { getMeta } = loadLabels();
 
   const ensureLabel = async (name) => {
-    const meta = labelMeta[name] || { color: 'ededed', description: 'Managed by Discord issue intake workflow' };
+    const meta = getMeta(name);
     try {
       await github.rest.issues.getLabel({ owner, repo, name });
     } catch (error) {

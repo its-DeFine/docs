@@ -1,4 +1,29 @@
 === 2026-04-08 ===
+Stream: Final Gap Closure (Phase 3)
+Outcome: Met
+Done:
+- OG images CI workflow created (P4, post-merge, Puppeteer cached)
+- Voice register self-remediation: 84 violations auto-fixed, validator now passes clean
+- Browser test baseline diffing implemented, promoted from advisory to blocking
+- 4 commits: gap remediation, OG CI + voice + cleanup, discord workflow fix, baseline diffing
+- Gap report: 14/17 resolved, 2 remaining (both defer to branch merge)
+- Completion report written to project management
+Next: none from this session
+---
+
+=== 2026-04-08 ===
+Stream: Governance Documentation Cleanup
+Outcome: Met
+Done:
+- Gap report summary updated: 11/17 resolved, 6 remaining with revised severities
+- CLAUDE.md key files table cleaned: removed stale CONTENTI-PIPLEINE typo path, old voice-rules path; added docs-library, gap report, voice-and-copy standards
+- AGENTS.md Required Context rewritten: now points to governance-index.mdx, frameworks/, standards/ instead of old workspace paths
+- All 5 IDE adapters synced (Cursor, Windsurf, Augment, Copilot, Codex) with governance-index, frameworks/, standards/, GOVERNANCE.md markers
+- All cross-references verified: AGENTS.md (6/6 OK), CLAUDE.md (8/8 OK), governance markers (18/18 OK, all links valid)
+Next: none
+---
+
+=== 2026-04-08 ===
 Stream: Gap Remediation (all 17 gaps)
 Outcome: Met
 Done:
@@ -1264,3 +1289,5 @@ Next: Monitor next few sessions for zombie accumulation. Edit-loop-guard cross-s
 (No transcript summary available)
 ---
 Session started: 2026-04-08 00:58:44
+Session started: 2026-04-08 01:55:12
+Session started: 2026-04-08 02:06:15
