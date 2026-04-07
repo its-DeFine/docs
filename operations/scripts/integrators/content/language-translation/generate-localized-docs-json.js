@@ -9,7 +9,7 @@
  * @mode        read-only
  * @pipeline    on-demand, translation pipeline)
  * @scope       docs.json, operations/scripts/i18n
- * @usage       node operations/scripts/automations/content/language-translation/generate-localized-docs-json.js [flags]
+ * @usage       node operations/scripts/integrators/content/language-translation/generate-localized-docs-json.js [flags]
  */
 
 const fs = require('fs');

@@ -1,6 +1,6 @@
 /**
  * @script            fetch-youtube-data
- * @category          automation
+ * @category          integrator
  * @purpose           infrastructure:data-feeds
  * @scope             .github/scripts
  * @owner             docs

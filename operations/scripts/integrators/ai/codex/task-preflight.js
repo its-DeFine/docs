@@ -9,7 +9,7 @@
  * @mode        read-only
  * @pipeline    manual — codex setup tool referenced by .githooks/pre-commit guidance, not auto-executed
  * @scope       operations/scripts/codex, .codex/task-contract.yaml, .codex/locks-local
- * @usage       node operations/scripts/automations/ai/codex/task-preflight.js [flags]
+ * @usage       node operations/scripts/integrators/ai/codex/task-preflight.js [flags]
  */
 
 const fs = require('fs');

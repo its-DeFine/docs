@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * @script            project-showcase-sync
- * @category          automation
+ * @category          integrator
  * @purpose           infrastructure:data-feeds
  * @scope             .github/scripts
  * @owner             docs

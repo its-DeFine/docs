@@ -1,7 +1,7 @@
 /**
  * @script            fetch-ghost-blog-data
- * @category          automation
- * @type              automation
+ * @category          integrator
+ * @type              integrator
  * @concern           content
  * @niche             data/fetching
  * @purpose           infrastructure:data-feeds

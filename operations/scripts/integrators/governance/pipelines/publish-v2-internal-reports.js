@@ -9,7 +9,7 @@
  * @mode        read-only
  * @pipeline    manual — not yet in pipeline
  * @scope       operations/scripts, tools/config, v2/internal, docs.json, workspace/reports, operations/tests/reports
- * @usage       node operations/scripts/automations/governance/pipelines/publish-v2-internal-reports.js [flags]
+ * @usage       node operations/scripts/integrators/governance/pipelines/publish-v2-internal-reports.js [flags]
  */
 
 const fs = require('fs');
@@ -38,7 +38,7 @@ const UTC_MONTHS = [
 
 function usage() {
   console.log(
-    'Usage: node operations/scripts/automations/governance/pipelines/publish-v2-internal-reports.js [--check] [--strict] [--category <slug[,slug]>]'
+    'Usage: node operations/scripts/integrators/governance/pipelines/publish-v2-internal-reports.js [--check] [--strict] [--category <slug[,slug]>]'
   );
 }
 

@@ -9,7 +9,7 @@
  * @mode        read-only
  * @pipeline    on-demand, translation pipeline)
  * @scope       operations/scripts/i18n, docs.json, v2
- * @usage       node operations/scripts/automations/content/language-translation/translate-docs.js [flags]
+ * @usage       node operations/scripts/integrators/content/language-translation/translate-docs.js [flags]
  */
 
 const fs = require('fs');
@@ -37,7 +37,7 @@ function printHelp() {
       'Usage: node operations/scripts/i18n/translate-docs.js [options]',
       '',
       'Options:',
-      '  --languages <csv>            Target languages (default from operations/scripts/automations/content/language-translation/config.json)',
+      '  --languages <csv>            Target languages (default from operations/scripts/integrators/content/language-translation/config.json)',
       '  --scope-mode <mode>          changed_since_ref | prefixes | paths_file | full_v2_nav',
       '  --base-ref <ref>             Base ref for changed_since_ref mode',
       '  --prefixes <csv>             Repo prefixes for prefixes mode',

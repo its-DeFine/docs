@@ -7,8 +7,8 @@
 # @description LPT exchange data fetcher — pulls exchange listing data for LPT token pages
 # @mode        read-only
 # @pipeline    manual — not yet in pipeline
-# @scope       operations/scripts/automations/content/data/fetching
-# @usage       bash operations/scripts/automations/content/data/fetching/fetch-lpt-exchanges.sh [flags]
+# @scope       operations/scripts/integrators/content/data/fetching
+# @usage       bash operations/scripts/integrators/content/data/fetching/fetch-lpt-exchanges.sh [flags]
 # Fetch LPT exchange listings from CoinGecko API and append to lpt-exchanges.mdx
 # Usage: ./operations/scripts/snippets/fetch-lpt-exchanges.sh
 

@@ -8,8 +8,8 @@
  * @description Local dev session cleanup — preserves Mint on port 3333 and terminates stale Playwright plus non-3333 Mint session trees
  * @mode        read-only
  * @pipeline    manual — local developer automation, with optional user cron installation
- * @scope       operations/scripts/automations/governance, local user process table, local user crontab
- * @usage       node operations/scripts/automations/governance/cleanup-local-dev-sessions.js [--apply] [--install-cron] [--remove-cron] [--keep-port 3333]
+ * @scope       operations/scripts/integrators/governance, local user process table, local user crontab
+ * @usage       node operations/scripts/integrators/governance/cleanup-local-dev-sessions.js [--apply] [--install-cron] [--remove-cron] [--keep-port 3333]
  * @policy      E-C6, F-C1
  */
 
@@ -92,7 +92,7 @@ function parseArgs(argv) {
 
 function usage() {
   console.log([
-    'Usage: node operations/scripts/automations/governance/cleanup-local-dev-sessions.js [options]',
+    'Usage: node operations/scripts/integrators/governance/cleanup-local-dev-sessions.js [options]',
     '',
     'Options:',
     '  --apply               Send SIGTERM, then SIGKILL to stubborn targets.',

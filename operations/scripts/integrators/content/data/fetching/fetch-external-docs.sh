@@ -7,8 +7,8 @@
 # @description Fetches upstream markdown from external Livepeer repositories, sanitizes it for MDX, and writes shared page composables under snippets/composables/pages/shared/.
 # @mode        read-only
 # @pipeline    manual
-# @scope       operations/scripts/automations/content/data/fetching
-# @usage       bash operations/scripts/automations/content/data/fetching/fetch-external-docs.sh [flags]
+# @scope       operations/scripts/integrators/content/data/fetching
+# @usage       bash operations/scripts/integrators/content/data/fetching/fetch-external-docs.sh [flags]
 # @policy      F-R1
 # Pre-build script to fetch external markdown files
 # Run this before building the docs to ensure external content is up-to-date

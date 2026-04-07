@@ -1,13 +1,13 @@
 /**
  * @script      catalog-config
- * @type        automation
+ * @type              integrator
  * @concern     content
  * @niche       data
  * @purpose     content:contract-data
  * @description Contract data pipeline module: catalog-config
  * @mode        execute
  * @pipeline    manual -> contract data sources -> contract data files
- * @scope       operations/scripts/automations/content/data/contracts/
+ * @scope       operations/scripts/integrators/content/data/contracts/
  * @usage       Internal module — imported by fetch-contract-addresses.js
  */
 const LATEST_RESOLUTION_POLICY = [

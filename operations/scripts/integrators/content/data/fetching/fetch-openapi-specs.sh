@@ -7,8 +7,8 @@
 # @description OpenAPI spec fetcher — pulls latest OpenAPI specs from Livepeer services for reference pages
 # @mode        read-only
 # @pipeline    manual — not yet in pipeline
-# @scope       operations/scripts/automations/content/data/fetching
-# @usage       bash operations/scripts/automations/content/data/fetching/fetch-openapi-specs.sh [flags]
+# @scope       operations/scripts/integrators/content/data/fetching
+# @usage       bash operations/scripts/integrators/content/data/fetching/fetch-openapi-specs.sh [flags]
 # Pre-build script to fetch external OpenAPI specification files
 # Run this before building the docs to ensure API specs are up-to-date
 

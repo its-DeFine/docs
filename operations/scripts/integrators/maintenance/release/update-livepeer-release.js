@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * @script            update-livepeer-release
- * @category          automation
+ * @category          integrator
  * @purpose           qa:data-refresh
  * @scope             .github/workflows, snippets/data/globals
  * @owner             docs

@@ -9,7 +9,7 @@
  * @mode        read-only
  * @pipeline    manual
  * @scope       
- * @usage       node operations/scripts/automations/content/studio-docs-migration.js [--write]
+ * @usage       node operations/scripts/integrators/content/studio-docs-migration.js [--write]
  */
 
 const fs = require('fs');

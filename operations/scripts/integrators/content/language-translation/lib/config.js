@@ -13,7 +13,7 @@ const fs = require('fs');
 const path = require('path');
 const { getRepoRoot, parseCsv, readJson } = require('./common');
 
-const DEFAULT_CONFIG_REPO_REL = 'operations/scripts/automations/content/language-translation/config.json';
+const DEFAULT_CONFIG_REPO_REL = 'operations/scripts/integrators/content/language-translation/config.json';
 
 function loadI18nConfig(options = {}) {
   const repoRoot = options.repoRoot || getRepoRoot();

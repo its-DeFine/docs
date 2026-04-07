@@ -9,7 +9,7 @@
  * @mode        read-only
  * @pipeline    manual — not yet in pipeline
  * @scope       operations/scripts, ai-tools/ai-skills/templates operations/tests/unit/codex-skill-sync.test.js
- * @usage       node operations/scripts/automations/ai/agents/sync-codex-skills.js [flags]
+ * @usage       node operations/scripts/integrators/ai/agents/sync-codex-skills.js [flags]
  */
 
 const fs = require('fs');

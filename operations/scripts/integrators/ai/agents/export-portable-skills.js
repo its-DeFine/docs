@@ -9,7 +9,7 @@
  * @mode        read-only
  * @pipeline    manual — not yet in pipeline
  * @scope       operations/scripts, ai-tools/ai-skills/templates, ai-tools/agent-packs, too../../../../lib/codex-skill-templates.js operations/tests/unit/export-portable-skills.test.js
- * @usage       node operations/scripts/automations/ai/agents/export-portable-skills.js --write|--check [--skills name[,name...]]
+ * @usage       node operations/scripts/integrators/ai/agents/export-portable-skills.js --write|--check [--skills name[,name...]]
  */
 
 const fs = require('fs');

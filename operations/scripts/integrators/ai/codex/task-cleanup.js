@@ -9,7 +9,7 @@
  * @mode        read-only
  * @pipeline    manual — interactive developer tool, not suited for automated pipelines
  * @scope       operations/scripts/codex, .codex/locks-local, .codex/task-contract.yaml
- * @usage       node operations/scripts/automations/ai/codex/task-cleanup.js [flags]
+ * @usage       node operations/scripts/integrators/ai/codex/task-cleanup.js [flags]
  */
 
 const fs = require('fs');

@@ -9,7 +9,7 @@
  * @mode        read-only
  * @pipeline    manual — not yet in pipeline
  * @scope       operations/scripts, v2/internal/assets/transcripts
- * @usage       node operations/scripts/automations/content/data/transforms/convert-rss-to-mdx.js [flags]
+ * @usage       node operations/scripts/integrators/content/data/transforms/convert-rss-to-mdx.js [flags]
  */
 
 const fs = require('fs')

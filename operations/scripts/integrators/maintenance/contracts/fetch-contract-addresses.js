@@ -1,6 +1,6 @@
 /**
  * @script            fetch-contract-addresses
- * @type              automation
+ * @type              integrator
  * @concern           content
  * @niche             data/blockchain
  * @purpose           infrastructure:data-feeds

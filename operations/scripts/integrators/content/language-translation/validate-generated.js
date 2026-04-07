@@ -9,7 +9,7 @@
  * @mode        read-only
  * @pipeline    manual
  * @scope       operations/scripts/i18n, v2
- * @usage       node operations/scripts/automations/content/language-translation/validate-generated.js [flags]
+ * @usage       node operations/scripts/integrators/content/language-translation/validate-generated.js [flags]
  */
 
 const fs = require('fs');
