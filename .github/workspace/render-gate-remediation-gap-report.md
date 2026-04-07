@@ -158,12 +158,14 @@ The 6 pipeline docs in `docs-guide/docs-library/pipelines/` document how validat
 
 | Layer | Total available | In render gate | Coverage |
 |---|---|---|---|
-| Remediator scripts | 21 | 6 | **29%** |
-| Validator scripts | 45 | 0 | **0%** |
-| GitHub Actions (remediator) | 3 | 0 | **0%** |
-| GitHub Actions (validator) | 13 | 0 | **0%** |
-| docs-guide pipeline docs | 6 | 0 | **0%** |
-| **Total** | **88** | **6** | **7%** |
+| Remediator scripts | 21 | 21 | **100%** |
+| Validator scripts | 45 | 0 | **0%** (backlog) |
+| GitHub Actions (remediator) | 3 | 0 | **0%** (backlog) |
+| GitHub Actions (validator) | 13 | 0 | **0%** (backlog) |
+| docs-guide pipeline docs | 6 | 0 | **0%** (backlog) |
+| **Total** | **88** | **21** | **24%** |
+
+> **Update 2026-04-08:** Gap A resolved. All 15 missing remediator scripts wired into `ERROR_TO_REMEDIATOR` registry. Coverage from 7% to 24%. Remaining gaps (validators, workflows, pipeline docs) are backlog items.
 
 ---
 

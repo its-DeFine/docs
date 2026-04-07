@@ -36,7 +36,7 @@ function parseArgs(argv) {
   const args = { mode: 'check', help: false };
   argv.forEach((token) => {
     if (token === '--write') { args.mode = 'write'; return; }
-    if (token === '--check') { args.mode = 'check'; return; }
+    if (token === '--check' || token === '--dry-run') { args.mode = 'check'; return; }
     if (token === '--json') { args.mode = 'json'; return; }
     if (token === '--help' || token === '-h') { args.help = true; return; }
   });

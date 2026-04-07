@@ -1,3 +1,6 @@
+# type: generator
+# concern: governance
+# pipeline: P4
 # generator-governance-generate-action-docs.yml
 # P4: Regenerates the actions-library documentation when workflows change.
 # Self-documenting pipeline: scan workflows → update audit JSON → regenerate pages + catalog

@@ -111,6 +111,97 @@ const ERROR_TO_REMEDIATOR = [
     script: 'operations/scripts/remediators/governance/compliance/repair-governance-artifacts.js',
     label: 'Governance artifact repair',
     usage: 'node operations/scripts/remediators/governance/compliance/repair-governance-artifacts.js --dry-run'
+  },
+  // --- Remediators added 2026-04-08 (render-gate-remediation-gap-report.md Gap A) ---
+  {
+    pattern: /relative.*href|\.\/|\.\.\/|href.*relative/i,
+    script: 'operations/scripts/remediators/content/repair/repair-relative-page-hrefs.js',
+    label: 'Relative href canonicalisation',
+    usage: 'node operations/scripts/remediators/content/repair/repair-relative-page-hrefs.js'
+  },
+  {
+    pattern: /docs-path|moved|renamed|stale.*path/i,
+    script: 'operations/scripts/remediators/content/repair/sync-docs-paths.js',
+    label: 'Docs-path sync after file moves',
+    usage: 'node operations/scripts/remediators/content/repair/sync-docs-paths.js --staged --dry-run'
+  },
+  {
+    pattern: /mintlify.*consumer|registry.*drift|canonical.*sync/i,
+    script: 'operations/scripts/remediators/content/repair/sync-mintlify-canonical-consumers.js',
+    label: 'Mintlify consumer registry sync',
+    usage: 'node operations/scripts/remediators/content/repair/sync-mintlify-canonical-consumers.js --check'
+  },
+  {
+    pattern: /ownerless|passive.*voice|unclear.*ownership/i,
+    script: 'operations/scripts/remediators/content/style/repair-ownerless-language.js',
+    label: 'Ownerless language repair',
+    usage: 'node operations/scripts/remediators/content/style/repair-ownerless-language.js --check --files <file>'
+  },
+  {
+    pattern: /accessibility|wcag|aria|alt.*text|contrast/i,
+    script: 'operations/scripts/remediators/content/style/wcag-repair-common.js',
+    label: 'WCAG accessibility repair',
+    usage: 'node operations/scripts/remediators/content/style/wcag-repair-common.js --files <file>'
+  },
+  {
+    pattern: /seo|og:image|meta.*description|open.*graph/i,
+    script: 'operations/scripts/remediators/content/seo/generate-seo.js',
+    label: 'SEO metadata generation',
+    usage: 'node operations/scripts/remediators/content/seo/generate-seo.js --dry-run --files <file>'
+  },
+  {
+    pattern: /component.*registry|component.*metadata|export.*not.*found/i,
+    script: 'operations/scripts/remediators/components/library/repair-component-metadata.js',
+    label: 'Component metadata repair',
+    usage: 'node operations/scripts/remediators/components/library/repair-component-metadata.js --dry-run'
+  },
+  {
+    pattern: /framework.*header|missing.*classification/i,
+    script: 'operations/scripts/remediators/content/classification/add-framework-headers.js',
+    label: 'Framework classification header repair',
+    usage: 'node operations/scripts/remediators/content/classification/add-framework-headers.js --dry-run'
+  },
+  {
+    pattern: /pageType|missing.*frontmatter.*type/i,
+    script: 'operations/scripts/remediators/content/classification/add-pagetype-mechanical.js',
+    label: 'pageType frontmatter repair',
+    usage: 'node operations/scripts/remediators/content/classification/add-pagetype-mechanical.js --dry-run'
+  },
+  {
+    pattern: /purpose|missing.*metadata|classification/i,
+    script: 'operations/scripts/remediators/content/classification/assign-purpose-metadata.js',
+    label: 'Purpose metadata assignment',
+    usage: 'node operations/scripts/remediators/content/classification/assign-purpose-metadata.js --dry-run --files <file>'
+  },
+  {
+    pattern: /workflow.*header|workflow.*governance/i,
+    script: 'operations/scripts/remediators/governance/compliance/add-workflow-governance-headers.js',
+    label: 'Workflow governance header repair',
+    usage: 'node operations/scripts/remediators/governance/compliance/add-workflow-governance-headers.js --dry-run'
+  },
+  {
+    pattern: /jsdoc|script.*header|missing.*@script/i,
+    script: 'operations/scripts/remediators/governance/scaffold/update-jsdoc-headers.js',
+    label: 'JSDoc header repair',
+    usage: 'node operations/scripts/remediators/governance/scaffold/update-jsdoc-headers.js --dry-run'
+  },
+  {
+    pattern: /usage.*path|scaffold|broken.*reference/i,
+    script: 'operations/scripts/remediators/governance/scaffold/fix-usage-paths.js',
+    label: 'Usage path repair',
+    usage: 'node operations/scripts/remediators/governance/scaffold/fix-usage-paths.js'
+  },
+  {
+    pattern: /script.*inventory|registry.*mismatch/i,
+    script: 'operations/scripts/remediators/governance/scripts/repair-script-inventory.js',
+    label: 'Script inventory repair',
+    usage: 'node operations/scripts/remediators/governance/scripts/repair-script-inventory.js --dry-run'
+  },
+  {
+    pattern: /quarantine|deprecated|cleanup.*risk/i,
+    script: 'operations/scripts/remediators/content/repair/quarantine-manager.js',
+    label: 'Quarantine manager (safe cleanup)',
+    usage: 'node operations/scripts/remediators/content/repair/quarantine-manager.js'
   }
 ];
 
