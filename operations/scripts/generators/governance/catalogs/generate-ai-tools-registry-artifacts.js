@@ -82,8 +82,8 @@ function buildTemplateArtifact(repoPath) {
       'operations/tests/unit/codex-skill-sync.test.js'
     ],
     repair_commands: [
-      'node operations/scripts/automations/ai/agents/export-portable-skills.js --write',
-      'node operations/scripts/automations/ai/agents/sync-codex-skills.js'
+      'node operations/scripts/integrators/ai/agents/export-portable-skills.js --write',
+      'node operations/scripts/integrators/ai/agents/sync-codex-skills.js'
     ],
     catalog_group: 'ai-skills/templates',
     status: 'canonical-active',
@@ -105,7 +105,7 @@ function buildExportArtifact(repoPath) {
     derived_outputs: ['ai-tools/agent-packs/skills/**'],
     runtime_targets: ['Codex', 'Cursor', 'Claude', 'Windsurf'],
     validators: ['operations/tests/unit/export-portable-skills.test.js'],
-    repair_commands: ['node operations/scripts/automations/ai/agents/export-portable-skills.js --write'],
+    repair_commands: ['node operations/scripts/integrators/ai/agents/export-portable-skills.js --write'],
     catalog_group: 'agent-packs/skills',
     status: 'generated-active',
     migration_wave: 'wave-2',
@@ -126,7 +126,7 @@ function buildLocalSkillArtifact(repoPath) {
     derived_outputs: [],
     runtime_targets: ['repo-local skill use'],
     validators: ['operations/tests/unit/skill-docs.test.js'],
-    repair_commands: ['node operations/scripts/automations/ai/agents/sync-codex-skills.js --check'],
+    repair_commands: ['node operations/scripts/integrators/ai/agents/sync-codex-skills.js --check'],
     catalog_group: 'ai-skills/local-skills',
     status: 'canonical-active',
     migration_wave: 'wave-3',

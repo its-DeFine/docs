@@ -112,12 +112,12 @@ jobs:
           node - <<'NODE'
           const fs = require('fs');
           const cfg = JSON.parse(
-            fs.readFileSync('operations/scripts/automations/content/language-translation/config.json', 'utf8')
+            fs.readFileSync('operations/scripts/integrators/content/language-translation/config.json', 'utf8')
           );
           const provider = String(cfg?.provider?.name || '').trim().toLowerCase();
           if (provider === 'mock') {
             console.error(
-              'Refusing non-dry workflow run because operations/scripts/automations/content/language-translation/config.json provider.name is "mock".'
+              'Refusing non-dry workflow run because operations/scripts/integrators/content/language-translation/config.json provider.name is "mock".'
             );
             process.exit(1);
           }
@@ -147,13 +147,13 @@ jobs:
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
             ARGS+=(--dry-run)
           fi
-          node operations/scripts/automations/content/language-translation/translate-docs.js "${ARGS[@]}"
+          node operations/scripts/integrators/content/language-translation/translate-docs.js "${ARGS[@]}"
 
       - name: Update docs.json localized language nodes
         if: ${{ !inputs.dry_run }}
         run: |
           set -euo pipefail
-          node operations/scripts/automations/content/language-translation/generate-localized-docs-json.js \
+          node operations/scripts/integrators/content/language-translation/generate-localized-docs-json.js \
             --write \
             --languages "${{ github.event.inputs.languages }}" \
             --route-map "$I18N_ARTIFACT_DIR/route-map.json" \
@@ -167,7 +167,7 @@ jobs:
         if: ${{ !inputs.dry_run }}
         run: |
           set -euo pipefail
-          node operations/scripts/automations/content/language-translation/validate-generated.js \
+          node operations/scripts/integrators/content/language-translation/validate-generated.js \
             --languages "${{ github.event.inputs.languages }}" \
             --route-map "$I18N_ARTIFACT_DIR/route-map.json" \
             --report-json "$I18N_ARTIFACT_DIR/validate-report.json"

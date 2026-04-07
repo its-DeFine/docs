@@ -21,7 +21,7 @@ const { isExcludedV2ExperimentalPath } = require('../../../tools/lib/docs/docs-p
 
 const REPORT_MD_REL = 'workspace/reports/navigation-links/navigation-report.md';
 const REPORT_JSON_REL = 'workspace/reports/navigation-links/navigation-report.json';
-const I18N_CONFIG_REL = 'operations/scripts/automations/content/language-translation/config.json';
+const I18N_CONFIG_REL = 'operations/scripts/integrators/content/language-translation/config.json';
 const DEFAULT_REMAP_THRESHOLD = 0.85;
 const RESOURCE_HUB_REDIRECT_ROUTE = 'v2/resources/redirect';
 const RESOURCE_HUB_PORTAL_ROUTE = 'v2/resources/portal';
