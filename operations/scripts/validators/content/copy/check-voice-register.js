@@ -88,7 +88,7 @@ function walkMdx(dir, results = []) {
   try {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
     for (const entry of entries) {
-      if (entry.name.startsWith('_') || entry.name === 'node_modules') continue;
+      if (entry.name.startsWith('_') || entry.name.startsWith('x-') || entry.name === 'node_modules' || entry.name === 'workspace') continue;
       const fullPath = path.join(dir, entry.name);
       if (entry.isDirectory()) walkMdx(fullPath, results);
       else if (entry.name.endsWith('.mdx')) results.push(fullPath);
