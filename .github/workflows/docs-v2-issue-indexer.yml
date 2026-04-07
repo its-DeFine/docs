@@ -10,6 +10,7 @@ on:
 permissions:
   issues: write
   contents: read
+  pull-requests: read
 
 concurrency:
   group: docs-v2-issue-indexer
@@ -29,7 +30,7 @@ jobs:
 
             // Maintainer knobs: keep marker stable unless you update issue-auto-label skip logic too.
             const TARGET_LABEL = 'docs-v2';
-            const INDEX_TITLE = '[docs-v2-index] Open + Recently Closed Issue Index';
+            const INDEX_TITLE = '[docs-v2-index] Issue Governance Index';
             const INDEX_MARKER = '<!-- docs-v2-issue-indexer -->';
             const RECENTLY_CLOSED_DAYS = 30;
 
@@ -45,6 +46,7 @@ jobs:
               const labels = normalizeLabelNames(issue);
               const firstByPrefix = (prefix) => labels.find((name) => name.startsWith(prefix)) || '';
               const allByPrefix = (prefix) => labels.filter((name) => name.startsWith(prefix)).sort();
+              const assigneeLogins = (issue.assignees || []).map((a) => a.login).filter(Boolean);
               return {
                 ...issue,
                 _labels: labels,
@@ -53,6 +55,7 @@ jobs:
                 _type: firstByPrefix('type:'),
                 _area: firstByPrefix('area:'),
                 _statuses: allByPrefix('status:'),
+                _assignees: assigneeLogins,
               };
             };
 
@@ -173,6 +176,63 @@ jobs:
 
             recentClosedIssues.sort((a, b) => new Date(b.closed_at || 0) - new Date(a.closed_at || 0));
 
+            // Look up closing PRs via timeline events (capped to avoid rate limits)
+            const closingPrMap = new Map();
+            if (recentClosedIssues.length <= 50) {
+              for (const issue of recentClosedIssues) {
+                try {
+                  const events = await github.paginate(github.rest.issues.listEventsForTimeline, {
+                    owner, repo, issue_number: issue.number, per_page: 100,
+                  });
+
+                  // Strategy 1: find cross-referenced PR that was merged
+                  const crossRef = events.find(
+                    (e) => e.event === 'cross-referenced' &&
+                      e.source?.issue?.pull_request &&
+                      String(e.source.issue.state).toLowerCase() === 'closed'
+                  );
+                  if (crossRef?.source?.issue) {
+                    const pr = crossRef.source.issue;
+                    closingPrMap.set(issue.number, {
+                      number: pr.number,
+                      title: pr.title || '',
+                      url: pr.html_url || '',
+                      author: pr.user?.login || '',
+                    });
+                    continue;
+                  }
+
+                  // Strategy 2: check auto-close comment marker left by our workflow
+                  const comments = await github.paginate(github.rest.issues.listComments, {
+                    owner, repo, issue_number: issue.number, per_page: 100,
+                  });
+                  const autoCloseComment = comments.find(
+                    (c) => c.body && c.body.includes('docs-v2-merge-auto-close')
+                  );
+                  if (autoCloseComment) {
+                    const prMatch = autoCloseComment.body.match(/pr=(\d+)/);
+                    if (prMatch) {
+                      const prNum = Number(prMatch[1]);
+                      const resolvedMatch = autoCloseComment.body.match(/\*\*Resolved\*\* by PR #\d+: "(.+?)"/);
+                      closingPrMap.set(issue.number, {
+                        number: prNum,
+                        title: resolvedMatch ? resolvedMatch[1] : '',
+                        url: `https://github.com/${owner}/${repo}/pull/${prNum}`,
+                        author: '',
+                      });
+                    }
+                  }
+                } catch (error) {
+                  console.log(`Timeline lookup failed for #${issue.number}: ${error.message}`);
+                }
+              }
+            }
+
+            // Copilot queue: open issues assigned to copilot
+            const copilotQueue = openIssues.filter(
+              (issue) => issue._assignees.some((login) => login.toLowerCase() === 'copilot')
+            );
+
             const escapeCell = (value) => {
               const text = value === null || value === undefined ? '' : String(value);
               const normalized = text.replace(/\r?\n+/g, ' ').replace(/\|/g, '\\|').trim();
@@ -195,21 +255,51 @@ jobs:
 
             const issueLink = (issue) => `[#${issue.number}](${issue.html_url})`;
             const statusCell = (issue) => (issue._statuses.length ? issue._statuses.join(', ') : '-');
+            const assigneeCell = (issue) => {
+              if (!issue._assignees || issue._assignees.length === 0) return '-';
+              return issue._assignees.map((login) => `@${login}`).join(', ');
+            };
 
-            const renderIssueRows = (issues, { includeClosedAt = false } = {}) =>
+            const renderOpenIssueRows = (issues) =>
+              issues.map((issue) => [
+                issueLink(issue),
+                issue.title || '(no title)',
+                assigneeCell(issue),
+                issue._classification || '-',
+                issue._priority || '-',
+                issue._type || '-',
+                issue._area || '-',
+                statusCell(issue),
+                formatTimestamp(issue.updated_at),
+              ]);
+
+            const renderClosedIssueRows = (issues) =>
               issues.map((issue) => {
-                const row = [
+                const prInfo = closingPrMap.get(issue.number);
+                const closedByCell = prInfo ? `[#${prInfo.number}](${prInfo.url})` : 'Manual';
+                const resolutionCell = prInfo ? prInfo.title : '-';
+                return [
                   issueLink(issue),
                   issue.title || '(no title)',
+                  closedByCell,
+                  resolutionCell,
                   issue._classification || '-',
-                  issue._priority || '-',
+                  formatTimestamp(issue.closed_at),
+                ];
+              });
+
+            const renderCopilotQueueRows = (issues) =>
+              issues.map((issue) => {
+                const createdDate = new Date(issue.created_at);
+                const ageDays = Math.floor((Date.now() - createdDate.getTime()) / (1000 * 60 * 60 * 24));
+                return [
+                  issueLink(issue),
+                  issue.title || '(no title)',
+                  String(ageDays),
                   issue._type || '-',
                   issue._area || '-',
                   statusCell(issue),
-                  formatTimestamp(issue.updated_at),
                 ];
-                if (includeClosedAt) row.push(formatTimestamp(issue.closed_at));
-                return row;
               });
 
             const increment = (map, key, amount = 1) => {
@@ -269,19 +359,25 @@ jobs:
 
             const summaryLines = [
               `- Open docs-v2 issues: **${openIssues.length}**`,
+              `- Copilot queue: **${copilotQueue.length}**`,
               `- Recently closed docs-v2 issues (${RECENTLY_CLOSED_DAYS}d): **${recentClosedIssues.length}**`,
               `- Open docs-v2 issues missing classification: **${openUnclassifiedIssues.length}**`,
               `- Open docs-v2 issues with \`status: needs-routing\`: **${needsTriageOpenCount}**`,
             ];
 
             const openIssuesTable = markdownTable(
-              ['Issue', 'Title', 'Classification', 'Priority', 'Type', 'Area', 'Status', 'Updated (UTC)'],
-              renderIssueRows(openIssues)
+              ['Issue', 'Title', 'Assignee', 'Classification', 'Priority', 'Type', 'Area', 'Status', 'Updated (UTC)'],
+              renderOpenIssueRows(openIssues)
             );
 
             const recentClosedTable = markdownTable(
-              ['Issue', 'Title', 'Classification', 'Priority', 'Type', 'Area', 'Status', 'Updated (UTC)', 'Closed (UTC)'],
-              renderIssueRows(recentClosedIssues, { includeClosedAt: true })
+              ['Issue', 'Title', 'Closed By', 'Resolution', 'Classification', 'Closed (UTC)'],
+              renderClosedIssueRows(recentClosedIssues)
+            );
+
+            const copilotQueueTable = markdownTable(
+              ['Issue', 'Title', 'Age (days)', 'Type', 'Area', 'Status'],
+              renderCopilotQueueRows(copilotQueue)
             );
 
             const missingClassificationTable = markdownTable(
@@ -311,9 +407,10 @@ jobs:
             const body = [
               INDEX_MARKER,
               '',
-              '# docs-v2 Issue Index',
+              '# docs-v2 Issue Governance Index',
               '',
               '_Auto-generated by `.github/workflows/docs-v2-issue-indexer.yml`. Do not edit manually._',
+              '_This is the governing document for all docs-v2 issue lifecycle._',
               '',
               `Last updated (UTC): ${nowIso}`,
               `Recently closed window: last ${RECENTLY_CLOSED_DAYS} days (since ${cutoffDate})`,
@@ -321,6 +418,12 @@ jobs:
               '## Summary',
               '',
               ...summaryLines,
+              '',
+              '## Copilot Queue',
+              '',
+              '_Issues assigned to Copilot awaiting PR creation._',
+              '',
+              copilotQueueTable,
               '',
               '## Open Issue Breakdown by Classification',
               '',
