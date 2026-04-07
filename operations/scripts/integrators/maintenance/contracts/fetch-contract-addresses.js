@@ -12,6 +12,7 @@
  * @scope             .github/scripts, operations/scripts/automations/content/data/contracts/, snippets/data/contract-addresses/, snippets/composables/pages/canonical/
  * @usage             node .github/scripts/fetch-contract-addresses.js [--dry-run] [--check] [--skip-verify]
  * @policy            Docs-local files do not define publishable contract truth.
+ * @pipeline    manual
  */
 
 const {

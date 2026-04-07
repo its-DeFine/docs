@@ -1,16 +1,15 @@
 #!/usr/bin/env node
 /**
  * @script      validate-generated
- * @type        automation
- * @concern     content
- * @niche       language-translation
+ * @type        
+ * @concern     
+ * @niche       
  * @purpose     feature:translation
  * @description Generated localisation validator — checks generated translated MDX files and route-map outputs for integrity
- * @mode        execute
+ * @mode        read-only
  * @pipeline    manual
  * @scope       operations/scripts/i18n, v2
  * @usage       node operations/scripts/automations/content/language-translation/validate-generated.js [flags]
- * @policy      F-R6, F-R7
  */
 
 const fs = require('fs');

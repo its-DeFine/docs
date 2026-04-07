@@ -1,3 +1,15 @@
+/**
+ * @script      catalog-config
+ * @type        automation
+ * @concern     content
+ * @niche       data
+ * @purpose     content:contract-data
+ * @description Contract data pipeline module: catalog-config
+ * @mode        execute
+ * @pipeline    manual -> contract data sources -> contract data files
+ * @scope       operations/scripts/automations/content/data/contracts/
+ * @usage       Internal module — imported by fetch-contract-addresses.js
+ */
 const LATEST_RESOLUTION_POLICY = [
   "Current controller-managed addresses are recovered from live controller reads on every run.",
   "Bridge and detached families must resolve from watched upstream repositories or official manifests, then survive runtime and explorer validation.",

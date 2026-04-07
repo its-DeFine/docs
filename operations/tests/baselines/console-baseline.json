@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generated": "2026-04-07T14:46:31.143Z",
-    "commit": "94d8be32b436cdaed032639b1116b7af18506cb7",
+    "generated": "2026-04-07T15:03:11.724Z",
+    "commit": "91c9704d345140c8dd4dbba4e9af1eb8251ca1a6",
     "totalRoutes": 532,
-    "clean": 6,
-    "dirty": 526
+    "clean": 28,
+    "dirty": 504
   },
   "/v2/home/mission-control": {
     "status": 200,
@@ -815,251 +815,208 @@
     "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/get-started/authentication": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 2877,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/get-started/studio-cli": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 1381,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/livestream/overview": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 3188,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/livestream/create-livestream": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 1925,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/livestream/playback-livestream": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 3093,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/livestream/stream-via-obs": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 1806,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/livestream/livestream-from-browser": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 2618,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/livestream/multistream": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 1805,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/livestream/clip-livestream": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 3100,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/livestream/stream-health": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 3083,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/livestream/optimize-latency": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 3044,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/video-on-demand/overview": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 1930,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/video-on-demand/upload-asset": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 1445,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/video-on-demand/playback-asset": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 1909,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/video-on-demand/encrypted-assets": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 1541,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/video-on-demand/thumbnails-vod": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 2324,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/video-on-demand/transcode-video": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 2229,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/access-control/overview": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 1296,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/access-control/webhooks": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 2204,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/access-control/jwt": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 2084,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/analytics/webhooks": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 2319,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/analytics/listen-to-events": {
-    "status": 0,
-    "consoleErrors": [
-      "Server unavailable — skipped"
-    ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "status": 200,
+    "consoleErrors": [],
+    "bodyLength": 2308,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
-    "clean": false
+    "clean": true
   },
   "/v2/solutions/livepeer-studio/docs/analytics/overview": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "WebSocket connection to 'ws://localhost:3145/socket.io/?EIO=4&transport=websocket&sid=ipW5tsOWRR_wArQbAABU' failed: ",
+      "Navigation error: Attempted to use detached Frame '2D863195BD364DE45F417BDB17BCF734'."
     ],
     "bodyLength": 0,
     "hasH1": false,
@@ -1068,751 +1025,759 @@
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/player": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 2832,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/reference/api": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 2236,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/reference/overview": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 2769,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/reference/sdks": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 2263,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/reference/managing-projects": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 2281,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/assets/overview": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 2946,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/assets/upload": {
-    "status": 0,
+    "status": 200,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 7144,
+    "hasH1": true,
     "hasErrorBoundary": false,
     "is404": false,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/assets/upload-via-url": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/assets/get": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/assets/update": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/assets/delete": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/assets/get-all": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/streams/overview": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/streams/create": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/streams/get": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/streams/get-all": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/streams/update": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/streams/terminate": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/streams/create-clip": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/streams/get-clip": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/streams/add-multistream-target": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/streams/delete-multistream-target": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/streams/delete": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/multistream/overview": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/multistream/create": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/multistream/get": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/multistream/get-all": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/multistream/update": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/multistream/delete": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/playback/overview": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/playback/get": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/sessions/overview": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/sessions/get": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/sessions/get-all": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/sessions/get-clip": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/tasks/overview": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/tasks/get": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/tasks/get-all": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/transcode/overview": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/transcode/create": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/overview": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/create": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/get": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/get-all": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/update": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/signing-keys/delete": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/webhooks/overview": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/webhooks/create": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/webhooks/get": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/webhooks/get-all": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/webhooks/update": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/webhooks/delete": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/rooms/overview": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/rooms/create": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/rooms/get": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/rooms/delete": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/rooms/create-user": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/rooms/get-user": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/rooms/update-user": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/rooms/remove-user": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/rooms/start-egress": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/rooms/stop-egress": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/viewership/overview": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-usage-metrics": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-viewership-metrics": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-creators-metrics": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-public-total-views": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/solutions/livepeer-studio/docs/api-reference/viewership/get-realtime-viewership": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/developers/portal": {
@@ -4672,14 +4637,15 @@
     "clean": false
   },
   "/docs-guide/contributing/contributing": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/resources/documentation-guide/contributing/contribute-to-the-docs": {
@@ -4893,69 +4859,69 @@
     "clean": false
   },
   "/docs-guide/catalog/pages-catalog": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/catalog/components-catalog": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/catalog/scripts-catalog": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/catalog/templates-catalog": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/catalog/workflows-catalog": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/catalog/ui-templates": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/resources/glossary": {
@@ -5318,476 +5284,480 @@
     "clean": false
   },
   "/docs-guide/source-of-truth-guide": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/repo-ops/config/repo-config-map": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/repo-ops/maps/enforcement-map": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/repo-ops/secrets/solutions-secrets": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/contributing/local-preview": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/contributing/git-hooks": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/contributing/agent-instructions": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/contributing/mintlify": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/features/feature-map": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/features/ai-features": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/features/architecture-map": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/features/automations": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/features/data-integrations": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/features/ui-system": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/features/visual-explainer-workflows": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/tooling/lpd-cli": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/tooling/dev-tools": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/tooling/lpd-mdx-preview": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/tooling/ai-tools": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/tooling/reference-maps/icon-map": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/ai-tools/claude-code": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/ai-tools/cursor": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/ai-tools/windsurf": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/frameworks/content-system": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/frameworks/component-governance": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/frameworks/component-framework-canonical": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/frameworks/research-skill-workflow": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/source-of-truth-policy": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/generated-artifact-and-hook-governance": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/v2-folder-governance": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/quality-gates": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/audit-system-overview": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/skill-pipeline-map": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/cleanup-quarantine-policy": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/component-layout-decisions": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/infrastructure-principles": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/ownerless-governance": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/root-allowlist-governance": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/agent-governance-framework": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/docs-guide-structure-policy": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/workspace-lifecycle-policy": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/snippets-assets-policy": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/docs-guide/policies/script-governance": {
-    "status": 0,
+    "status": 404,
     "consoleErrors": [
-      "Server unavailable — skipped"
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
     ],
-    "bodyLength": 0,
-    "hasH1": false,
+    "bodyLength": 105,
+    "hasH1": true,
     "hasErrorBoundary": false,
-    "is404": false,
+    "is404": true,
     "clean": false
   },
   "/v2/internal/reports/navigation-links/docs-navigation": {

@@ -1,16 +1,15 @@
 #!/usr/bin/env node
 /**
  * @script      cross-agent-packager
- * @type        automation
- * @concern     ai
- * @niche       agents
+ * @type        
+ * @concern     
+ * @niche       
  * @purpose     governance:agent-governance
  * @description Cross-agent packager — bundles audit reports and repo state into agent-consumable packages
- * @mode        execute
+ * @mode        read-only
  * @pipeline    manual — not yet in pipeline
  * @scope       operations/scripts, ai-tools/ai-skills/catalog, ai-tools/agent-packs
  * @usage       node operations/scripts/automations/ai/agents/cross-agent-packager.js [flags]
- * @policy      R-R27, R-R30
  */
 
 const fs = require('fs');

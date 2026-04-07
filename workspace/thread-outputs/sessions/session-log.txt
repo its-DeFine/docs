@@ -1,4 +1,23 @@
 === 2026-04-08 ===
+Stream: Gap Remediation (all 17 gaps)
+Outcome: Met
+Done:
+- Batch A: Script placement validator + wired JSDoc/placement into governance CI workflow
+- Batch B: Brand checks promoted P3 to P2. Component registry/CSS/docs checks now blocking
+- Batch C: JSDoc debt cleared to 0 violations (was 49). 29 headers fixed, test/lib dirs exempt
+- Batch D: Freshness monitor auto-retriggers stale integrator workflows via repository_dispatch
+- Batch E: Contract workflow gap downgraded P0 to P1, deferred to branch merge
+- Batch F: 3 new validators: translation-freshness, voice-register (52 violations found), AI content deferred
+- Batch G: Governance staleness cron weekly to daily
+- Batch H: Auto-repair job in brand workflow dispatches EN-GB homogeniser on failure
+- Batch I: New-addition detection at 3 layers (pre-tool guidance, CI job, pre-commit validator)
+- Circuit breaker fixed: validator exits no longer count as failures
+- D2 deletion hook fixed for /tmp/ cleanup. v1/ frozen block added to pre-tool-guard
+- Gap report updated. All 13 verification tests pass
+Next: none
+---
+
+=== 2026-04-08 ===
 Stream: Docs Library
 Outcome: Met
 Done:
@@ -1241,3 +1260,7 @@ Done:
 - Restored dev server on port 3145, confirmed 200 on /v2/home
 - 6 permanent fixes: SessionStart expanded with MCP patterns (port-safe for 3000/3333), SessionEnd hook added, UserPromptSubmit Chrome reaper added, sweep-console-errors.js signal handlers + 5min timeout, mdx-render-verify.js browser.close timeout with SIGKILL fallback, pre-tool-guard.js regex anchored + Plan agent unblocked
 Next: Monitor next few sessions for zombie accumulation. Edit-loop-guard cross-session persistence is a known issue (state files in /tmp not session-scoped)
+--- CHECKPOINT 2026-04-07T14:56:25.725Z [unknown] ---
+(No transcript summary available)
+---
+Session started: 2026-04-08 00:58:44

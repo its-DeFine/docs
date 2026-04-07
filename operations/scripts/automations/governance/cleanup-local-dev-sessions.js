@@ -1,16 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      cleanup-local-dev-sessions
- * @type        automation
- * @category    utility
- * @concern     governance
- * @niche       dev-tools
+ * @type        
+ * @concern     
+ * @niche       
  * @purpose     tooling:dev-tools
  * @description Local dev session cleanup — preserves Mint on port 3333 and terminates stale Playwright plus non-3333 Mint session trees
- * @domain      docs
- * @mode        execute
- * @needs       E-C6, F-C1
- * @purpose-statement Local dev session cleanup — preserves Mint on port 3333 and terminates stale Playwright plus non-3333 Mint session trees
+ * @mode        read-only
  * @pipeline    manual — local developer automation, with optional user cron installation
  * @scope       operations/scripts/automations/governance, local user process table, local user crontab
  * @usage       node operations/scripts/automations/governance/cleanup-local-dev-sessions.js [--apply] [--install-cron] [--remove-cron] [--keep-port 3333]

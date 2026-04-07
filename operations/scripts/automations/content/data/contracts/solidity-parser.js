@@ -1,3 +1,15 @@
+/**
+ * @script      solidity-parser
+ * @type        automation
+ * @concern     content
+ * @niche       data
+ * @purpose     content:contract-data
+ * @description Contract data pipeline module: solidity-parser
+ * @mode        execute
+ * @pipeline    manual -> contract data sources -> contract data files
+ * @scope       operations/scripts/automations/content/data/contracts/
+ * @usage       Internal module — imported by fetch-contract-addresses.js
+ */
 const parser = require("@solidity-parser/parser");
 
 function toParameterArray(parameters) {

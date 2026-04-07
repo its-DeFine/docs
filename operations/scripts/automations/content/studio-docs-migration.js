@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 /**
  * @script      studio-docs-migration
- * @type        automation
- * @concern     content
+ * @type        
+ * @concern     
+ * @niche       
+ * @purpose     
  * @description Migrates livepeer-studio subfolder path references after moving
- *              7 subfolders into /docs. Inserts '/docs/' segment into paths
- *              that reference the moved folders.
+ * @mode        read-only
+ * @pipeline    manual
+ * @scope       
  * @usage       node operations/scripts/automations/content/studio-docs-migration.js [--write]
- *              Default: dry-run. Pass --write to apply changes.
  */
 
 const fs = require('fs');

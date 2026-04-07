@@ -11,6 +11,7 @@ on:
 permissions:
   contents: read
   issues: write
+  actions: write
 
 jobs:
   check-freshness:
@@ -115,6 +116,38 @@ jobs:
                 owner, repo, title: TITLE, body, labels: [LABEL, 'automated']
               });
               core.info(`Created issue #${created.data.number}`);
+            }
+
+      - name: Retrigger stale integrator workflows
+        if: steps.freshness.outputs.stale == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { owner, repo } = context.repo;
+            const staleFeeds = '${{ steps.freshness.outputs.stale_feeds }}';
+            const feedToWorkflow = {
+              'ghostBlogData': 'integrator-copy-update-ghost-blog-data.yml',
+              'discordAnnouncementsData': 'integrator-copy-update-discord-data.yml',
+              'forumData': 'integrator-copy-update-forum-data.yml',
+              'youtubeData': 'integrator-copy-update-youtube-data.yml',
+              'rssData': 'integrator-copy-update-rss-blog-data.yml',
+              'githubData': 'integrator-copy-update-github-data.yml',
+              'latestRelease': 'integrator-maintenance-update-release-version.yml',
+              'showcaseData': 'dispatch-copy-update-social-feeds.yml',
+            };
+            for (const [feed, workflow] of Object.entries(feedToWorkflow)) {
+              if (staleFeeds.includes(feed)) {
+                try {
+                  await github.rest.actions.createWorkflowDispatch({
+                    owner, repo, workflow_id: workflow,
+                    ref: '${{ vars.DEPLOY_BRANCH || 'docs-v2' }}'
+                  });
+                  core.info(`Retriggered ${workflow} for stale ${feed}`);
+                } catch (e) {
+                  core.warning(`Failed to retrigger ${workflow}: ${e.message}`);
+                }
+              }
             }
 
       - name: Close freshness issue if all clean

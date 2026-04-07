@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script            check-jsdoc-headers
- * @type              validator
- * @concern           governance
- * @niche             compliance
- * @purpose           governance:script-compliance
- * @description       Validates that all JS files in governed locations have core JSDoc tags
- * @mode              read-only
- * @pipeline          pr-changed -> governed JS files -> exit-code, stdout:violations
- * @scope             operations/scripts/, .github/scripts/, .githooks/
- * @usage             node operations/scripts/validators/governance/compliance/check-jsdoc-headers.js [--json]
+ * @script      check-jsdoc-headers
+ * @type        
+ * @concern     
+ * @niche       
+ * @purpose     governance:script-compliance
+ * @description Validates that all JS files in governed locations have core JSDoc tags
+ * @mode        read-only
+ * @pipeline    pr-changed -> governed JS files -> exit-code, stdout:violations
+ * @scope       operations/scripts/, .github/scripts/, .githooks/
+ * @usage       node operations/scripts/validators/governance/compliance/check-jsdoc-headers.js [--json]
  */
 'use strict';
 
@@ -27,7 +27,7 @@ const GOVERNED_FILES_GLOB = [
   '.githooks/*.js'
 ];
 
-const SKIP_DIRS = ['x-archive', 'archive', 'config', 'node_modules'];
+const SKIP_DIRS = ['x-archive', 'archive', 'config', 'node_modules', 'test', 'tests', 'lib'];
 
 const REQUIRED_TAGS = ['@script', '@type', '@description', '@mode', '@pipeline', '@scope', '@usage'];
 

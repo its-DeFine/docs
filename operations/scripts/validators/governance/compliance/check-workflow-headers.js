@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script            check-workflow-headers
- * @type              validator
- * @concern           governance
- * @niche             compliance
- * @purpose           governance:workflow-compliance
- * @description       Validates that GitHub Actions workflow YAML files have governance comment headers
- * @mode              read-only
- * @pipeline          pr-changed -> .github/workflows/*.yml -> exit-code, stdout:violations
- * @scope             .github/workflows/
- * @usage             node operations/scripts/validators/governance/compliance/check-workflow-headers.js [--json]
+ * @script      check-workflow-headers
+ * @type        
+ * @concern     
+ * @niche       
+ * @purpose     governance:workflow-compliance
+ * @description Validates that GitHub Actions workflow YAML files have governance comment headers
+ * @mode        read-only
+ * @pipeline    pr-changed -> .github/workflows/*.yml -> exit-code, stdout:violations
+ * @scope       .github/workflows/
+ * @usage       node operations/scripts/validators/governance/compliance/check-workflow-headers.js [--json]
  */
 'use strict';
 

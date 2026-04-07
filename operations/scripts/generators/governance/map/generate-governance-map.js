@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script            generate-governance-map
- * @type              generator
- * @concern           governance
- * @niche             compliance
- * @purpose           governance:map-management
- * @description       Walks all GOVERNANCE.md markers, validates links, detects staleness, and generates the governance map
- * @mode              generate
- * @pipeline          manual, P4 -> GOVERNANCE.md markers, docs-guide/frameworks/*.mdx -> GOVERNANCE_MAP_LATEST.json
- * @scope             all GOVERNANCE.md markers, docs-guide/frameworks/, docs-guide/standards/, docs-guide/policies/
- * @usage             node operations/scripts/generators/governance/map/generate-governance-map.js [--write|--check|--json]
+ * @script      generate-governance-map
+ * @type        
+ * @concern     
+ * @niche       
+ * @purpose     governance:map-management
+ * @description Walks all GOVERNANCE.md markers, validates links, detects staleness, and generates the governance map
+ * @mode        read-only
+ * @pipeline    manual, P4 -> GOVERNANCE.md markers, docs-guide/frameworks/*.mdx -> GOVERNANCE_MAP_LATEST.json
+ * @scope       all GOVERNANCE.md markers, docs-guide/frameworks/, docs-guide/standards/, docs-guide/policies/
+ * @usage       node operations/scripts/generators/governance/map/generate-governance-map.js [--write|--check|--json]
  */
 'use strict';
 

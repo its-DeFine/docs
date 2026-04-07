@@ -13,8 +13,8 @@ on:
       - 'docs-guide/policies/**'
       - 'operations/governance/config/**'
   schedule:
-    # Weekly staleness check - Mondays at 06:00 UTC
-    - cron: '0 6 * * 1'
+    # Daily staleness check at 06:00 UTC
+    - cron: '0 6 * * *'
   workflow_dispatch:
     inputs:
       mode:
@@ -49,6 +49,37 @@ jobs:
 
       - name: Check governance map
         run: node operations/scripts/generators/governance/map/generate-governance-map.js --check
+
+  check-jsdoc-headers:
+    name: Validate JSDoc Headers
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check JSDoc headers
+        run: node operations/scripts/validators/governance/compliance/check-jsdoc-headers.js
+
+  check-script-locations:
+    name: Validate Script Locations
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check script locations
+        run: node operations/scripts/validators/governance/compliance/check-script-locations.js
+
+  check-new-file-governance:
+    name: Validate New File Governance
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check new files have governance metadata
+        run: node operations/scripts/validators/governance/compliance/check-new-file-governance.js --staged
+        continue-on-error: true
 
   staleness-check:
     name: Framework Staleness Check

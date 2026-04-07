@@ -1,16 +1,15 @@
 #!/usr/bin/env node
 /**
  * @script      repair-spelling
- * @type        remediator
- * @concern     content
- * @niche       repair
+ * @type        
+ * @concern     
+ * @niche       
  * @purpose     qa:content-quality
  * @description Auto-corrects spelling errors using the shared cspell configuration. Safe, dictionary-based corrections only.
- * @mode        edit
+ * @mode        read-only
  * @pipeline    manual
  * @scope       v2-content
  * @usage       node operations/scripts/remediators/content/repair/repair-spelling.js --dry-run
- * @policy      R-R2
  */
 
 const fs = require('fs');

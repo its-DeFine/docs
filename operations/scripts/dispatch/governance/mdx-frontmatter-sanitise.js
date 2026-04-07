@@ -1,19 +1,14 @@
 /**
- * @script mdx-frontmatter-sanitise
- * @type dispatch
- * @concern governance
- * @niche pipelines
- * @purpose Auto-fixes known frontmatter errors in MDX files after edit
+ * @script      mdx-frontmatter-sanitise
+ * @type        
+ * @concern     
+ * @niche       
+ * @purpose     Auto-fixes known frontmatter errors in MDX files after edit
  * @description PostToolUse hook for Edit/Write on ANY .mdx file (not just v2/).
- *   Parses YAML frontmatter and auto-remediates known error patterns that would
- *   kill the Mintlify dev server. Currently handles:
- *   - Duplicate YAML keys (keeps last value, removes duplicates)
- *   Rewrites the file in place and reports what was fixed.
- * @mode execute
- * @pipeline PostToolUse hook → parse frontmatter → detect errors → auto-fix → rewrite
- * @scope .claude/settings.json PostToolUse hook (Edit|Write matcher)
- * @usage Called automatically by Claude Code PostToolUse hook. Not invoked directly.
- * @policy Governance enforcement — do not bypass
+ * @mode        read-only
+ * @pipeline    PostToolUse hook → parse frontmatter → detect errors → auto-fix → rewrite
+ * @scope       .claude/settings.json PostToolUse hook (Edit|Write matcher)
+ * @usage       Called automatically by Claude Code PostToolUse hook. Not invoked directly.
  */
 
 const fs = require('fs');

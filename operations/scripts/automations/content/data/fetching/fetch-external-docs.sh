@@ -1,15 +1,11 @@
 #!/bin/bash
 # @script      fetch-external-docs
-# @category    automation
-# @type        automation
-# @concern     content
-# @niche       data
+# @type        
+# @concern     
+# @niche       
 # @purpose     infrastructure:data-feeds
-# @domain      docs
-# @description External docs fetcher — pulls doc fragments from external GitHub repos into snippets/composables/pages/shared/ for inclusion in builds
-# @needs       F-R1
-# @purpose-statement Fetches upstream markdown from external Livepeer repositories, sanitizes it for MDX, and writes shared page composables under snippets/composables/pages/shared/.
-# @mode        execute
+# @description Fetches upstream markdown from external Livepeer repositories, sanitizes it for MDX, and writes shared page composables under snippets/composables/pages/shared/.
+# @mode        read-only
 # @pipeline    manual
 # @scope       operations/scripts/automations/content/data/fetching
 # @usage       bash operations/scripts/automations/content/data/fetching/fetch-external-docs.sh [flags]

@@ -1,19 +1,14 @@
 /**
- * @script mdx-render-gate
- * @type dispatch
- * @concern governance
- * @niche pipelines
- * @purpose Blocks Edit/Write when the last MDX edit introduced console errors
+ * @script      mdx-render-gate
+ * @type        
+ * @concern     
+ * @niche       
+ * @purpose     Blocks Edit/Write when the last MDX edit introduced console errors
  * @description PreToolUse hook for Write/Edit. Reads the verification state written by
- *   mdx-render-verify.js (PostToolUse). If the last MDX edit FAILED verification (new
- *   console errors detected), this hook BLOCKS all subsequent Edit/Write calls unless
- *   the agent is editing the same file that failed (allowing it to fix the problem).
- *   Exempt paths (workspace/, .claude/, session files) are always allowed.
- * @mode read-only
- * @pipeline PreToolUse hook → read state → allow or block
- * @scope .claude/settings.json PreToolUse hook (Write|Edit matcher)
- * @usage Called automatically by Claude Code PreToolUse hook. Not invoked directly.
- * @policy Governance enforcement — do not bypass
+ * @mode        read-only
+ * @pipeline    PreToolUse hook → read state → allow or block
+ * @scope       .claude/settings.json PreToolUse hook (Write|Edit matcher)
+ * @usage       Called automatically by Claude Code PreToolUse hook. Not invoked directly.
  */
 
 const fs = require('fs');

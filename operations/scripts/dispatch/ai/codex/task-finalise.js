@@ -1,16 +1,15 @@
 #!/usr/bin/env node
 /**
  * @script      codex/task-finalize
- * @type        dispatch
- * @concern     ai
- * @niche       codex
+ * @type        
+ * @concern     
+ * @niche       
  * @purpose     governance:agent-governance
  * @description Codex task finaliser — enforces task completion requirements before closing
- * @mode        execute
+ * @mode        read-only
  * @pipeline    manual — interactive developer tool, not suited for automated pipelines
  * @scope       operations/scripts/codex, operations/scripts/validate-codex-task-contract.js, operations/scripts/verify-pay-orc-gate-finalize.sh
  * @usage       node operations/scripts/dispatch/ai/codex/task-finalise.js [flags]
- * @policy      R-R27, R-R30
  */
 
 const { spawnSync } = require('child_process');

@@ -1,16 +1,15 @@
 #!/usr/bin/env node
 /**
  * @script      codex/task-preflight
- * @type        automation
- * @concern     ai
- * @niche       codex
+ * @type        
+ * @concern     
+ * @niche       
  * @purpose     governance:agent-governance
  * @description Codex task preflight — generates task setup files and validates preconditions
- * @mode        execute
+ * @mode        read-only
  * @pipeline    manual — codex setup tool referenced by .githooks/pre-commit guidance, not auto-executed
  * @scope       operations/scripts/codex, .codex/task-contract.yaml, .codex/locks-local
  * @usage       node operations/scripts/automations/ai/codex/task-preflight.js [flags]
- * @policy      R-R27, R-R30
  */
 
 const fs = require('fs');

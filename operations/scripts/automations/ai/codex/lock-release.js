@@ -1,16 +1,15 @@
 #!/usr/bin/env node
 /**
  * @script      codex/lock-release
- * @type        automation
- * @concern     ai
- * @niche       codex
+ * @type        
+ * @concern     
+ * @niche       
  * @purpose     governance:agent-governance
  * @description Codex lock release utility — releases stale codex lock files
- * @mode        execute
+ * @mode        read-only
  * @pipeline    manual — interactive developer tool, not suited for automated pipelines
  * @scope       operations/scripts/codex, .codex/locks-local, .codex/task-contract.yaml
  * @usage       node operations/scripts/automations/ai/codex/lock-release.js [flags]
- * @policy      R-R27, R-R30
  */
 
 const fs = require('fs');

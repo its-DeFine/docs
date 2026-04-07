@@ -1,16 +1,15 @@
 #!/usr/bin/env node
 /**
  * @script      codex/task-cleanup
- * @type        automation
- * @concern     ai
- * @niche       codex
+ * @type        
+ * @concern     
+ * @niche       
  * @purpose     governance:agent-governance
  * @description Codex task cleanup utility — reports and prunes merged clean worktrees plus stale local codex branches after merge
- * @mode        execute
+ * @mode        read-only
  * @pipeline    manual — interactive developer tool, not suited for automated pipelines
  * @scope       operations/scripts/codex, .codex/locks-local, .codex/task-contract.yaml
  * @usage       node operations/scripts/automations/ai/codex/task-cleanup.js [flags]
- * @policy      R-R27, R-R30
  */
 
 const fs = require('fs');

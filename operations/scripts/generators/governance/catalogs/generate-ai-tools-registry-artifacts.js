@@ -1,20 +1,16 @@
 #!/usr/bin/env node
 /**
  * @script      generate-ai-tools-registry-artifacts
- * @category    generator
- * @type        generator
- * @concern     governance
- * @niche       catalogs
+ * @type        
+ * @concern     
+ * @niche       
  * @purpose     governance:agent-governance
- * @description Syncs missing AI-tools registry artifact entries for canonical skill templates, exported portable skills, and repo-local skill roots from the live filesystem.
- * @mode        write
- * @domain      docs
- * @needs       R-R14, R-R29
- * @purpose-statement Keep ai-tools/registry/ai-tools-registry.json aligned with live skill/template/export files so ownerless governance coverage stays complete.
+ * @description Keep ai-tools/registry/ai-tools-registry.json aligned with live skill/template/export files so ownerless governance coverage stays complete.
+ * @mode        read-only
  * @pipeline    manual -- bounded registry sync
  * @scope       operations/scripts, ai-tools/registry, ai-tools/ai-skills/templates, ai-tools/ai-skills, ai-tools/agent-packs/skills, tools/lib/ai/ai-tools-registry.js, operations/tests/unit/ai-tools-registry.test.js
  * @usage       node operations/scripts/generators/governance/catalogs/generate-ai-tools-registry-artifacts.js [--write|--check]
- * @policy      Do not hand-maintain missing template/export/local-skill registry entries. Regenerate from the live filesystem and re-run AI-tools registry validation.
+ * @policy      R-R14, R-R29
  */
 
 'use strict';

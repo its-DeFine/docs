@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script            repair-governance-artifacts
- * @type              remediator
- * @concern           governance
- * @niche             compliance
- * @purpose           governance:self-remediation
- * @description       Regenerates governance map, updates lastVerified dates on verified frameworks, and reports unfixable issues
- * @mode              edit
- * @pipeline          manual, post-merge -> governance markers, frameworks -> GOVERNANCE_MAP_LATEST.json, framework frontmatter
- * @scope             all GOVERNANCE.md markers, docs-guide/frameworks/, workspace/reports/repo-ops/
- * @usage             node operations/scripts/remediators/governance/compliance/repair-governance-artifacts.js [--dry-run|--write]
+ * @script      repair-governance-artifacts
+ * @type        
+ * @concern     
+ * @niche       
+ * @purpose     governance:self-remediation
+ * @description Regenerates governance map, updates lastVerified dates on verified frameworks, and reports unfixable issues
+ * @mode        read-only
+ * @pipeline    manual, post-merge -> governance markers, frameworks -> GOVERNANCE_MAP_LATEST.json, framework frontmatter
+ * @scope       all GOVERNANCE.md markers, docs-guide/frameworks/, workspace/reports/repo-ops/
+ * @usage       node operations/scripts/remediators/governance/compliance/repair-governance-artifacts.js [--dry-run|--write]
  */
 'use strict';
 

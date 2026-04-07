@@ -9,7 +9,6 @@
 # @pipeline    manual — developer tool
 # @scope       full-repo
 # @usage       bash tools/dev/preview/mint-dev.sh [flags]
-# @policy      E-C6, F-C1
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"

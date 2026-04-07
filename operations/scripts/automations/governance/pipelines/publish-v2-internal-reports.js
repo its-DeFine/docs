@@ -1,16 +1,15 @@
 #!/usr/bin/env node
 /**
  * @script      publish-v2-internal-reports
- * @type        automation
- * @concern     governance
- * @niche       pipelines
+ * @type        
+ * @concern     
+ * @niche       
  * @purpose     qa:repo-health
  * @description Report publisher — publishes v2 internal audit reports to configured output locations
- * @mode        execute
+ * @mode        read-only
  * @pipeline    manual — not yet in pipeline
  * @scope       operations/scripts, tools/config, v2/internal, docs.json, workspace/reports, operations/tests/reports
  * @usage       node operations/scripts/automations/governance/pipelines/publish-v2-internal-reports.js [flags]
- * @policy      E-C1, R-R14
  */
 
 const fs = require('fs');

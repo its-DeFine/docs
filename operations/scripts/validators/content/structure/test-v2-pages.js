@@ -9,6 +9,9 @@
  * @purpose-statement V2 page tester — validates v2 pages via Puppeteer browser rendering
  * @pipeline          P2, P3
  * @usage             node operations/scripts/validators/content/structure/test-v2-pages.js [flags]
+ * @type        validator
+ * @description test v2 pages
+ * @mode        read-only
  */
 
 /**
