@@ -1156,3 +1156,7 @@ FILES CHANGED (not committed):
 - snippets/data/showcase-feed/showcaseDataPopulated.jsx
 - v2/home/solutions/showcase-populated.mdx
 - docs.json
+
+=== 2026-04-07 ===
+Stream: Merge docs-v2-dev → docs-v2
+Flag: Verification phase skipped running actual tests (dev server, test suite) — went straight to file-level checks instead. Plan requirement was: npm run dev, spot-check 10 key pages, run test suite. Correcting now.

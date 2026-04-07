@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-04-06T06:14:02.221Z",
+  "generated": "2026-04-07T11:45:36.269Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -98,7 +98,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 385,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T18:57:30+10:00",
       "headings": [
         {
           "level": 2,
@@ -133,7 +133,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 509,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T18:57:30+10:00",
       "headings": [
         {
           "level": 2,
@@ -317,6 +317,31 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/home/solutions/showcase-populated",
+      "title": "Creative Projects Built with Livepeer",
+      "description": "Be inspired by this collection of creative ecosystem use cases re-inventing their industries with Livepeer.",
+      "section": "home",
+      "tags": [
+        "livepeer",
+        "built-on-livepeer",
+        "livepeer-projects",
+        "livepeer-ecosystem",
+        "livepeer-apps",
+        "livepeer-applications",
+        "livepeer-use-cases",
+        "home",
+        "solutions",
+        "showcase-populated"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 29,
+      "lastVerified": "2026-04-07T20:37:23+10:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
       "url": "https://docs.livepeer.org/v2/home/solutions/showcase",
       "title": "Creative Projects Built with Livepeer",
       "description": "Be inspired by this collection of creative ecosystem use cases re-inventing their industries with Livepeer.",
@@ -411,6 +436,55 @@
         {
           "level": 2,
           "text": "**Products that wouldn’t exist without video**"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/home/resources/glossary",
+      "title": "Home Glossary",
+      "description": "Key terms and concepts from the Livepeer home section — network overview, protocol roles, and ecosystem terminology.",
+      "section": "home",
+      "tags": [
+        "livepeer",
+        "glossary",
+        "home",
+        "terminology",
+        "resources"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 2229,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Livepeer Protocol Terms"
+        },
+        {
+          "level": 2,
+          "text": "AI Terms"
+        },
+        {
+          "level": 2,
+          "text": "Web3 Terms"
+        },
+        {
+          "level": 2,
+          "text": "Economic Terms"
+        },
+        {
+          "level": 2,
+          "text": "Video Terms"
+        },
+        {
+          "level": 2,
+          "text": "Technical Terms"
+        },
+        {
+          "level": 2,
+          "text": "Operational Terms"
         }
       ],
       "codeLanguages": []
@@ -579,7 +653,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 594,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:57:30+10:00",
       "headings": [
         {
           "level": 3,
@@ -637,7 +711,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 895,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:44:19+10:00",
       "headings": [
         {
           "level": 1,
@@ -828,7 +902,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 781,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:57:30+10:00",
       "headings": [
         {
           "level": 2,
@@ -904,7 +978,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1070,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:44:19+10:00",
       "headings": [
         {
           "level": 2,
@@ -965,7 +1039,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 757,
-      "lastVerified": "2026-04-05T22:04:34+10:00",
+      "lastVerified": "2026-04-07T18:44:19+10:00",
       "headings": [
         {
           "level": 2,
@@ -1255,7 +1329,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 238,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:57:30+10:00",
       "headings": [
         {
           "level": 2,
@@ -1356,7 +1430,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 145,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:44:19+10:00",
       "headings": [
         {
           "level": 2,
@@ -1401,7 +1475,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 124,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:44:19+10:00",
       "headings": [
         {
           "level": 2,
@@ -1444,7 +1518,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 153,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:44:19+10:00",
       "headings": [
         {
           "level": 2,
@@ -1491,7 +1565,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 153,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:44:19+10:00",
       "headings": [
         {
           "level": 2,
@@ -1689,7 +1763,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 725,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:44:19+10:00",
       "headings": [
         {
           "level": 3,
@@ -1802,7 +1876,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 18,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:44:19+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -1825,7 +1899,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 20,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:44:19+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -1848,7 +1922,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 17,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:44:19+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -1869,7 +1943,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 24,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:44:19+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -1937,349 +2011,6 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/about/resources/livepeer-glossary",
-      "title": "Livepeer Glossary",
-      "description": "A comprehensive glossary of terms used in the Livepeer Real-time AI & Video Network",
-      "section": "about",
-      "tags": [
-        "livepeer",
-        "resources",
-        "livepeer-glossary",
-        "glossary",
-        "comprehensive",
-        "terms",
-        "about"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 1678,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "===="
-        },
-        {
-          "level": 1,
-          "text": "Livepeer Core Terms"
-        },
-        {
-          "level": 3,
-          "text": "Livepeer Protocol"
-        },
-        {
-          "level": 3,
-          "text": "Livepeer Network"
-        },
-        {
-          "level": 3,
-          "text": "Protocol Actor"
-        },
-        {
-          "level": 3,
-          "text": "Livepeer Actor"
-        },
-        {
-          "level": 3,
-          "text": "Network Participant"
-        },
-        {
-          "level": 3,
-          "text": "Livepeer Ecosystem"
-        },
-        {
-          "level": 3,
-          "text": "Ecosystem Partner"
-        },
-        {
-          "level": 3,
-          "text": "Developer Platform"
-        },
-        {
-          "level": 1,
-          "text": "Actors & Network Roles"
-        },
-        {
-          "level": 3,
-          "text": "**Gateway**"
-        },
-        {
-          "level": 3,
-          "text": "**Orchestrator (GPU Node)**"
-        },
-        {
-          "level": 3,
-          "text": "**Transcoder (Worker)**"
-        },
-        {
-          "level": 3,
-          "text": "**Delegator**"
-        },
-        {
-          "level": 3,
-          "text": "**Developer**"
-        },
-        {
-          "level": 3,
-          "text": "**Broadcaster (-> Gateway)**"
-        },
-        {
-          "level": 3,
-          "text": "**Verifier**"
-        },
-        {
-          "level": 3,
-          "text": "**Protocol**"
-        },
-        {
-          "level": 1,
-          "text": "Core Network Concepts"
-        },
-        {
-          "level": 3,
-          "text": "**Job**"
-        },
-        {
-          "level": 3,
-          "text": "**Segment**"
-        },
-        {
-          "level": 3,
-          "text": "**Ticket / Payment Ticket**"
-        },
-        {
-          "level": 3,
-          "text": "**Rounds**"
-        },
-        {
-          "level": 3,
-          "text": "**Slashing**"
-        },
-        {
-          "level": 3,
-          "text": "**Inflation**"
-        },
-        {
-          "level": 3,
-          "text": "**Reputation**"
-        },
-        {
-          "level": 1,
-          "text": "Web3 Terms"
-        },
-        {
-          "level": 3,
-          "text": "**Ethereum Address (Wallet Public Address)**"
-        },
-        {
-          "level": 3,
-          "text": "**Block Timestanps**"
-        },
-        {
-          "level": 3,
-          "text": "**DePIN**"
-        },
-        {
-          "level": 3,
-          "text": "**LPT (Livepeer Token)**"
-        },
-        {
-          "level": 3,
-          "text": "Tokenomics (Token Economics)"
-        },
-        {
-          "level": 3,
-          "text": "Game Theory"
-        },
-        {
-          "level": 3,
-          "text": "On-chain"
-        },
-        {
-          "level": 3,
-          "text": "Off-chain"
-        },
-        {
-          "level": 3,
-          "text": "**ETH**"
-        },
-        {
-          "level": 3,
-          "text": "**ARB**"
-        },
-        {
-          "level": 3,
-          "text": "**Layer 2**"
-        },
-        {
-          "level": 3,
-          "text": "**Staking**"
-        },
-        {
-          "level": 3,
-          "text": "**Gas**"
-        },
-        {
-          "level": 3,
-          "text": "**Slashing Conditions**"
-        },
-        {
-          "level": 3,
-          "text": "Bridging"
-        },
-        {
-          "level": 3,
-          "text": "Rollups"
-        },
-        {
-          "level": 3,
-          "text": "Optimistic Rollup"
-        },
-        {
-          "level": 3,
-          "text": "Retryable Ticket"
-        },
-        {
-          "level": 1,
-          "text": "Video Engineering Terms"
-        },
-        {
-          "level": 3,
-          "text": "**Transcoding**"
-        },
-        {
-          "level": 3,
-          "text": "**Ingest**"
-        },
-        {
-          "level": 3,
-          "text": "**Delivery**"
-        },
-        {
-          "level": 3,
-          "text": "**Streaming**"
-        },
-        {
-          "level": 3,
-          "text": "**RTMP**"
-        },
-        {
-          "level": 3,
-          "text": "**HLS**"
-        },
-        {
-          "level": 3,
-          "text": "**Bitrate**"
-        },
-        {
-          "level": 3,
-          "text": "**RTMP**"
-        },
-        {
-          "level": 1,
-          "text": "AI Terms"
-        },
-        {
-          "level": 3,
-          "text": "**Inference**"
-        },
-        {
-          "level": 3,
-          "text": "**Model**"
-        },
-        {
-          "level": 3,
-          "text": "**Pipeline**"
-        },
-        {
-          "level": 3,
-          "text": "**Real-Time AI**"
-        },
-        {
-          "level": 3,
-          "text": "**World Model**"
-        },
-        {
-          "level": 3,
-          "text": "**Agent**"
-        },
-        {
-          "level": 3,
-          "text": "**TensorRT**"
-        },
-        {
-          "level": 3,
-          "text": "**ControlNet**"
-        },
-        {
-          "level": 1,
-          "text": "Payments & Economics"
-        },
-        {
-          "level": 3,
-          "text": "**Fee Pool**"
-        },
-        {
-          "level": 3,
-          "text": "**Reward Cut**"
-        },
-        {
-          "level": 3,
-          "text": "**Fee Cut**"
-        },
-        {
-          "level": 3,
-          "text": "**Delegator Rewards**"
-        },
-        {
-          "level": 1,
-          "text": "Operational Terms"
-        },
-        {
-          "level": 3,
-          "text": "**Node**"
-        },
-        {
-          "level": 3,
-          "text": "**CLI**"
-        },
-        {
-          "level": 3,
-          "text": "**Configuration Parameters**"
-        },
-        {
-          "level": 3,
-          "text": "**Health Check**"
-        },
-        {
-          "level": 1,
-          "text": "Other Terms"
-        },
-        {
-          "level": 3,
-          "text": "**Decentralized GPU Network**"
-        },
-        {
-          "level": 3,
-          "text": "**Open Source**"
-        },
-        {
-          "level": 3,
-          "text": "**Edge Compute**"
-        },
-        {
-          "level": 3,
-          "text": "**Latency**"
-        },
-        {
-          "level": 3,
-          "text": "**Quality Ladder**"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
       "url": "https://docs.livepeer.org/v2/about/resources/knowledge-hub/livepeer-whitepaper",
       "title": "Livepeer Whitepaper",
       "description": "Read the original Livepeer whitepaper and understand how its decentralised video vision evolved into the current network.",
@@ -2331,7 +2062,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 184,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:57:30+10:00",
       "headings": [
         {
           "level": 2,
@@ -2437,7 +2168,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 18,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T18:57:30+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -2704,7 +2435,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 465,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T20:37:23+10:00",
       "headings": [
         {
           "level": 2,
@@ -2930,7 +2661,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 344,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T18:57:30+10:00",
       "headings": [
         {
           "level": 2,
@@ -3127,7 +2858,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/solutions/resources/compendium/glossary",
+      "url": "https://docs.livepeer.org/v2/solutions/resources/glossary",
       "title": "Solutions Glossary",
       "description": "Key terms from the Livepeer Solutions section — use cases, product offerings, AI pipelines, video infrastructure, and integration patterns.",
       "section": "solutions",
@@ -3136,8 +2867,7 @@
         "glossary",
         "solutions",
         "terminology",
-        "resources",
-        "compendium"
+        "resources"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -8589,6 +8319,53 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/developers/resources/glossary",
+      "title": "Developer Glossary",
+      "description": "Key terms for Livepeer developers — SDKs, APIs, AI pipelines, streaming protocols, and integration concepts.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "glossary",
+        "developers",
+        "terminology",
+        "resources"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 2889,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Livepeer Protocol Terms"
+        },
+        {
+          "level": 2,
+          "text": "AI Terms"
+        },
+        {
+          "level": 2,
+          "text": "Video Terms"
+        },
+        {
+          "level": 2,
+          "text": "Web3 Terms"
+        },
+        {
+          "level": 2,
+          "text": "Technical Terms"
+        },
+        {
+          "level": 2,
+          "text": "Operational Terms"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
       "url": "https://docs.livepeer.org/v2/developers/resources/reference/sdks",
       "title": "SDKs",
       "description": "All official Livepeer SDKs: Studio SDK (TypeScript, Python, Go), AI SDK, and React UI Kit. Versions, install commands, and links to full reference.",
@@ -8841,54 +8618,6 @@
         "bash",
         "python"
       ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/developers/resources/compendium/glossary",
-      "title": "Developer Glossary",
-      "description": "Key terms for Livepeer developers — SDKs, APIs, AI pipelines, streaming protocols, and integration concepts.",
-      "section": "developers",
-      "tags": [
-        "livepeer",
-        "glossary",
-        "developers",
-        "terminology",
-        "resources",
-        "compendium"
-      ],
-      "entities": [
-        "developer"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 2889,
-      "lastVerified": "2026-03",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Livepeer Protocol Terms"
-        },
-        {
-          "level": 2,
-          "text": "AI Terms"
-        },
-        {
-          "level": 2,
-          "text": "Video Terms"
-        },
-        {
-          "level": 2,
-          "text": "Web3 Terms"
-        },
-        {
-          "level": 2,
-          "text": "Technical Terms"
-        },
-        {
-          "level": 2,
-          "text": "Operational Terms"
-        }
-      ],
-      "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/v2/developers/resources/compendium/resources",
@@ -9285,7 +9014,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 869,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -9349,7 +9078,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 942,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -9445,7 +9174,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 745,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -9506,7 +9235,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "guide",
+        "run-a-gateway",
         "quickstart",
         "quickstart-a-gateway",
         "gateway",
@@ -9572,7 +9301,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1300,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -9625,7 +9354,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "guide",
+        "run-a-gateway",
         "quickstart",
         "get-ai-to-setup-the-gateway",
         "setup",
@@ -9639,7 +9368,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 86,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": [
         "markdown"
@@ -9653,12 +9382,13 @@
       "tags": [
         "livepeer",
         "gateways",
-        "guide",
+        "run-a-gateway",
         "gateway",
         "connect",
         "applications",
         "video",
-        "setup"
+        "setup",
+        "guide"
       ],
       "entities": [
         "gateway"
@@ -9666,7 +9396,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 605,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:23:19+10:00",
       "headings": [
         {
           "level": 2,
@@ -9690,499 +9420,51 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/requirements/setup",
-      "title": "Gateway Node Requirements",
-      "description": "Learn about the hardware, network, and software requirements for running a Livepeer Gateway.",
+      "url": "https://docs.livepeer.org/v2/gateways/setup/prepare",
+      "title": "Prepare to Run a Livepeer Gateway",
+      "description": "Hardware, network, and software requirements for running a Livepeer Gateway. Choose off-chain or on-chain deployment and prepare your environment.",
       "section": "gateways",
       "tags": [
         "livepeer",
         "gateways",
-        "guide",
         "requirements",
-        "setup",
-        "gateway",
-        "node",
-        "learn",
+        "prepare",
         "hardware",
-        "network"
+        "network",
+        "rpc",
+        "wallet",
+        "keystore",
+        "off-chain",
+        "on-chain",
+        "setup"
       ],
       "entities": [
         "gateway"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 597,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
+      "wordCount": 770,
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
-        {
-          "level": 2,
-          "text": "Deployment Modes"
-        },
-        {
-          "level": 2,
-          "text": "Gateway Capabilities"
-        },
-        {
-          "level": 2,
-          "text": "Quick OS Table"
-        },
-        {
-          "level": 2,
-          "text": "Setup Requirements"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/requirements/on-chain-setup/on-chain",
-      "title": "On-Chain Setup Requirements",
-      "description": "This page will take you through setting up the additional requirements for running a Gateway in On-Chain mode including finding an RPC URL, and creating an Ethereum account and keystore.",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "guide",
-        "requirements",
-        "on-chain-setup",
-        "on-chain",
-        "chain",
-        "setup",
-        "through",
-        "setting"
-      ],
-      "entities": [
-        "gateway",
-        "ai"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 1790,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Overview"
-        },
-        {
-          "level": 2,
-          "text": "ETH Account Setup"
-        },
-        {
-          "level": 4,
-          "text": "Required On-Chain Flags"
-        },
-        {
-          "level": 2,
-          "text": "Security Notes"
-        },
-        {
-          "level": 2,
-          "text": "<Icon icon=\"fast-forward\" size={24} /> Easy Setup with Livepeer Tooling"
-        },
-        {
-          "level": 3,
-          "text": "Account Data Default Folders"
-        },
         {
           "level": 1,
-          "text": "Comprehensive On-Chain Setup Guide"
-        }
-      ],
-      "codeLanguages": [
-        "bash",
-        "javascript",
-        "json",
-        "text",
-        "jsx"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/install/install-overview",
-      "title": "Installation Overview",
-      "description": "An overview of the installation process for Livepeer Gateways",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "guide",
-        "install",
-        "install-overview",
-        "installation",
-        "overview",
-        "process",
-        "setup"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "beginner",
-      "wordCount": 214,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Installation Methods"
+          "text": "<Icon icon=\"clipboard-check\" size={26} /> Prepare Your Environment"
         },
         {
           "level": 2,
-          "text": "Gateway Modes"
+          "text": "Hardware Requirements"
         },
         {
           "level": 2,
-          "text": "Gateway Capabilities"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/install/install-review-view",
-      "title": "Installation Review: View",
-      "description": "Review the consolidated Livepeer Gateway installation content using Mintlify View sections.",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "install",
-        "installation-review",
-        "view",
-        "setup",
-        "install-review-view"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 49,
-      "lastVerified": "2026-04-06T06:07:34.218Z",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/install/install-review-tabs",
-      "title": "Installation Review: Tabs",
-      "description": "Review the consolidated Livepeer Gateway installation content using Mintlify Tabs.",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "install",
-        "installation-review",
-        "tabs",
-        "setup",
-        "install-review-tabs"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 18,
-      "lastVerified": "2026-04-06T06:07:34.218Z",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/install/install-review-codegroup",
-      "title": "Installation Review: CodeGroup",
-      "description": "Review the consolidated Livepeer Gateway installation content using a CodeGroup-led comparison page.",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "install",
-        "installation-review",
-        "codegroup",
-        "setup",
-        "install-review-codegroup"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 45,
-      "lastVerified": "2026-04-06T06:07:34.218Z",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Entry Commands"
+          "text": "Network Requirements"
         },
         {
           "level": 2,
-          "text": "Docker"
+          "text": "OS Compatibility"
         },
         {
           "level": 2,
-          "text": "Linux"
-        },
-        {
-          "level": 2,
-          "text": "Windows"
-        }
-      ],
-      "codeLanguages": [
-        "bash",
-        "powershell"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/install/docker-install",
-      "title": "Docker Install",
-      "description": "Install and run a Livepeer transcoding gateway using Docker",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "guide",
-        "install",
-        "docker-install",
-        "docker",
-        "gateway",
-        "transcoding",
-        "rtmp",
-        "setup"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 0,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/install/linux-install",
-      "title": "Linux Install",
-      "description": "How to install a Livepeer Gateway from source binary",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "guide",
-        "install",
-        "linux-install",
-        "linux",
-        "gateway",
-        "setup"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 0,
-      "lastVerified": "2026-04-05T15:39:57+10:00",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/install/windows-install",
-      "title": "Windows Install",
-      "description": "How to install a Livepeer Gateway using Windows",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "guide",
-        "install",
-        "windows-install",
-        "windows",
-        "gateway",
-        "setup"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 0,
-      "lastVerified": "2026-04-05T15:39:57+10:00",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/configure/configuration-overview",
-      "title": "Configuration Overview",
-      "description": "Overview of configuring a Livepeer Gateway including running & pricing AI & Video services",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "guide",
-        "configure",
-        "configuration-overview",
-        "configuration",
-        "overview",
-        "configuring",
-        "setup"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "beginner",
-      "wordCount": 180,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Introduction"
-        },
-        {
-          "level": 2,
-          "text": "Configuration Methods"
-        },
-        {
-          "level": 2,
-          "text": "Configuration Options"
-        },
-        {
-          "level": 2,
-          "text": "Launch Pad <Icon icon=\"arrow-up-right\" size={18} color={\"#909391\"}/>"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/configure/video-configuration",
-      "title": "Video Configuration",
-      "description": "Configure Video Services on a Livepeer Gateway",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "guide",
-        "configure",
-        "video-configuration",
-        "video",
-        "configuration",
-        "services",
-        "setup"
-      ],
-      "entities": [
-        "gateway",
-        "video"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 500,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "TL;DR Configuration"
-        },
-        {
-          "level": 2,
-          "text": "Essential Configuration Flags"
-        },
-        {
-          "level": 4,
-          "text": "Required Flags"
-        },
-        {
-          "level": 4,
-          "text": "Network Configuration"
-        },
-        {
-          "level": 4,
-          "text": "Transcoding Configuration"
-        },
-        {
-          "level": 4,
-          "text": "Additional On-Chain Flags"
-        },
-        {
-          "level": 2,
-          "text": "Comprehensive Configuration Guide"
-        },
-        {
-          "level": 3,
-          "text": "Configuration Methods"
-        },
-        {
-          "level": 3,
-          "text": "Configuration Examples"
-        },
-        {
-          "level": 2,
-          "text": "Transcoding Options JSON"
-        },
-        {
-          "level": 4,
-          "text": "Notes"
-        },
-        {
-          "level": 2,
-          "text": "Full Configuration Flag Reference"
-        },
-        {
-          "level": 3,
-          "text": "Essential Changes"
-        },
-        {
-          "level": 3,
-          "text": "Network Configuration"
-        },
-        {
-          "level": 3,
-          "text": "Transcoding Settings"
-        },
-        {
-          "level": 3,
-          "text": "Production Considerations"
-        }
-      ],
-      "codeLanguages": [
-        "bash",
-        "mermaid",
-        "json"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/configure/ai-configuration",
-      "title": "AI Configuration",
-      "description": "Configure AI Inference Services on a Livepeer Gateway",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "guide",
-        "configure",
-        "ai-configuration",
-        "configuration",
-        "inference",
-        "services",
-        "setup"
-      ],
-      "entities": [
-        "gateway",
-        "ai"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 500,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Gateway Modes"
-        },
-        {
-          "level": 2,
-          "text": "Deploy a Gateway for AI Inference Services"
-        },
-        {
-          "level": 2,
-          "text": "<BlinkingIcon size={20} /> Deploy an AI Gateway"
-        },
-        {
-          "level": 2,
-          "text": "Gateway Code Links"
+          "text": "Choose Deployment Mode"
         }
       ],
       "codeLanguages": [
@@ -10190,21 +9472,46 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/configure/dual-configuration",
-      "title": "Configure AI & Video Dual Gateway Services",
-      "description": "Configure Dual AI & Video Services on a Livepeer Gateway",
+      "url": "https://docs.livepeer.org/v2/gateways/setup/install",
+      "title": "Install go-livepeer on Docker, Linux, or Windows",
+      "description": "Install a Livepeer Gateway on Docker, Linux, or Windows from one consolidated page.",
       "section": "gateways",
       "tags": [
-        "ai--video",
         "livepeer",
         "gateways",
-        "guide",
+        "install",
+        "docker",
+        "linux",
+        "windows",
+        "setup"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 63,
+      "lastVerified": "2026-04-07T01:11:31+10:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "<Icon icon=\"face-grin-wink\" size={26} /> Let's Go(-Livepeer) !"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/setup/configure",
+      "title": "Configure AI, Video, or Dual Gateway Services",
+      "description": "Configure a Livepeer Gateway for AI inference, video transcoding, or both from one consolidated setup page.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateways",
         "configure",
-        "dual-configuration",
+        "ai",
         "video",
         "dual",
-        "gateway",
-        "services",
         "setup"
       ],
       "entities": [
@@ -10212,103 +9519,34 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 479,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Overview"
-        },
-        {
-          "level": 2,
-          "text": "Configuration"
-        },
-        {
-          "level": 3,
-          "text": "AI-Specific Configuration"
-        },
-        {
-          "level": 3,
-          "text": "Transcoding Configuration"
-        },
-        {
-          "level": 2,
-          "text": "Deployment"
-        },
-        {
-          "level": 2,
-          "text": "Combined Gateway/Orchestrator AI-Enabled Deployment"
-        },
-        {
-          "level": 2,
-          "text": "Troubleshooting"
-        },
-        {
-          "level": 2,
-          "text": "Example Setup"
-        }
-      ],
-      "codeLanguages": [
-        "mermaid",
-        "go",
-        "bash"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/connect/lp-marketplace",
-      "title": "Livepeer Marketplace Overview",
-      "description": "This page provides an overview of the Livepeer Marketplace, including what offerings Orchestrators publish, in order to provide Gateway operators the context they need to discover & route application requests",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "guide",
-        "connect",
-        "lp-marketplace",
-        "marketplace",
-        "overview",
-        "provides",
-        "setup"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 120,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "wordCount": 59,
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 1,
-          "text": "What is the Marketplace?"
+          "text": "<Icon icon=\"gear\" size={26} /> Configure Your Gateway"
         },
         {
           "level": 2,
-          "text": "Orchestrator Offering Details"
+          "text": "Configuration Methods"
         }
       ],
-      "codeLanguages": [
-        "mermaid",
-        "protobuf",
-        "text"
-      ]
+      "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/connect/discover-offerings",
-      "title": "Discover Marketplace Offerings",
-      "description": "This page explains how to discover AI & Video compute services offered by Orchestrators via your Gateway. for Livepeer Application consumption.",
+      "url": "https://docs.livepeer.org/v2/gateways/setup/verify",
+      "title": "Verify your Livepeer Gateway on Docker, Linux, or Windows",
+      "description": "Confirm your Livepeer Gateway is running correctly. Health checks, end-to-end tests, and on-chain verification for video, AI, and dual-mode nodes.",
       "section": "gateways",
       "tags": [
         "livepeer",
         "gateways",
-        "guide",
-        "connect",
-        "discover-offerings",
-        "discover",
-        "marketplace",
-        "offerings",
-        "explains",
-        "video",
+        "verify",
+        "health-check",
+        "test",
+        "docker",
+        "linux",
+        "windows",
         "setup"
       ],
       "entities": [
@@ -10316,127 +9554,73 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 131,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Discovery Process"
-        },
-        {
-          "level": 2,
-          "text": "Find All Orchestrators & Offerings"
-        },
-        {
-          "level": 2,
-          "text": "Gateway"
-        },
-        {
-          "level": 3,
-          "text": "**1. Supported Models**"
-        },
-        {
-          "level": 3,
-          "text": "**2. Supported Pipelines**"
-        },
-        {
-          "level": 3,
-          "text": "**3. Pricing**"
-        },
-        {
-          "level": 3,
-          "text": "**4. Regions**"
-        },
-        {
-          "level": 3,
-          "text": "**5. Reliability Scores**"
-        }
-      ],
-      "codeLanguages": [
-        "go"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/connect/connect-with-offerings",
-      "title": "Discover & Connect Marketplace Compute Services",
-      "description": "This page explains how to find and broker Orchestrator AI & Video Offerings via your Gateway for Livepeer Application consumption.",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "guide",
-        "connect",
-        "connect-with-offerings",
-        "discover",
-        "marketplace",
-        "compute",
-        "services",
-        "explains",
-        "setup"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 172,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "wordCount": 78,
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 1,
-          "text": "How to Discover & Connect Marketplace Offerings"
-        },
-        {
-          "level": 2,
-          "text": "Discovery Process"
-        },
-        {
-          "level": 2,
-          "text": "Find All Orchestrators & Offerings"
-        },
-        {
-          "level": 2,
-          "text": "Gateway"
-        },
-        {
-          "level": 3,
-          "text": "**1. Supported Models**"
-        },
-        {
-          "level": 3,
-          "text": "**2. Supported Pipelines**"
-        },
-        {
-          "level": 3,
-          "text": "**3. Pricing**"
-        },
-        {
-          "level": 3,
-          "text": "**4. Regions**"
-        },
-        {
-          "level": 3,
-          "text": "**5. Reliability Scores**"
+          "text": "<Icon icon=\"circle-check\" size={26} /> Verify Your Gateway"
         }
       ],
-      "codeLanguages": [
-        "go"
-      ]
+      "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/setup/monitor/monitor-and-optimise",
-      "title": "Monitor & Optimise Gateway Services",
-      "description": "Monitor & Optimise Gateway Services",
+      "url": "https://docs.livepeer.org/v2/gateways/setup/connect",
+      "title": "Connect a Livepeer Gateway on Docker, Linux, or Windows",
+      "description": "Connect your Livepeer Gateway to the network. Orchestrator discovery, selection tuning, and service publication for Docker, Linux, and Windows.",
       "section": "gateways",
       "tags": [
         "livepeer",
         "gateways",
-        "guide",
+        "connect",
+        "orchestrator-discovery",
+        "orchaddr",
+        "network",
+        "docker",
+        "linux",
+        "windows",
+        "setup"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 299,
+      "lastVerified": "2026-04-07T01:11:31+10:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "<Icon icon=\"plug\" size={26} /> Connect Your Gateway"
+        },
+        {
+          "level": 2,
+          "text": "Orchestrator Discovery Overview"
+        },
+        {
+          "level": 2,
+          "text": "Related Pages"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/setup/monitor",
+      "title": "Monitor a Livepeer Gateway on Docker, Linux, or Windows",
+      "description": "Set up production monitoring for a Livepeer Gateway - Prometheus, Grafana, log monitoring, Explorer, and automated alerts on Docker, Linux, or Windows.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateways",
         "monitor",
-        "monitor-and-optimise",
-        "optimise",
-        "gateway",
-        "services",
+        "prometheus",
+        "grafana",
+        "metrics",
+        "alerting",
+        "explorer",
+        "docker",
+        "linux",
+        "windows",
         "setup"
       ],
       "entities": [
@@ -10444,52 +9628,50 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 313,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "wordCount": 793,
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
-          "level": 2,
-          "text": "Request Routing"
-        },
-        {
-          "level": 4,
-          "text": "Transcoding Requests"
-        },
-        {
-          "level": 4,
-          "text": "AI Requests"
+          "level": 1,
+          "text": "<Icon icon=\"chart-line\" size={26} /> Production Monitoring"
         },
         {
           "level": 2,
-          "text": "Payment Models"
+          "text": "Livepeer Explorer"
         },
         {
-          "level": 4,
-          "text": "Transcoding Payments"
-        },
-        {
-          "level": 4,
-          "text": "AI Payments"
+          "level": 3,
+          "text": "Explorer columns"
         },
         {
           "level": 2,
-          "text": "Operational Considerations"
+          "text": "Key Metrics Reference"
         },
         {
-          "level": 4,
-          "text": "Resource Allocation"
+          "level": 2,
+          "text": "Grafana Dashboards"
         },
         {
-          "level": 4,
-          "text": "Monitoring"
+          "level": 2,
+          "text": "Alert Rules"
         },
         {
-          "level": 4,
-          "text": "Scaling Strategies"
+          "level": 3,
+          "text": "<Icon icon=\"circle\" iconType=\"solid\" color=\"red\" /> Critical"
+        },
+        {
+          "level": 3,
+          "text": "<Icon icon=\"circle\" iconType=\"solid\" color=\"orange\" /> Warning"
+        },
+        {
+          "level": 2,
+          "text": "Related Pages"
         }
       ],
       "codeLanguages": [
-        "mermaid"
+        "promql",
+        "bash",
+        "yaml"
       ]
     },
     {
@@ -10785,7 +9967,7 @@
         "beta",
         "livepeer",
         "gateways",
-        "guide",
+        "run-a-gateway",
         "install",
         "community-projects",
         "easy",
@@ -10802,7 +9984,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 173,
-      "lastVerified": "2026-04-06T06:04:26.028Z",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 1,
@@ -11435,7 +10617,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "guide",
+        "run-a-gateway",
         "requirements",
         "on-chain-setup",
         "fund-gateway",
@@ -11450,7 +10632,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 864,
-      "lastVerified": "2026-04-06T06:11:02.875Z",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 1,
@@ -11526,7 +10708,7 @@
       "tags": [
         "livepeer",
         "gateways",
-        "guide",
+        "run-a-gateway",
         "configure",
         "pricing-configuration",
         "pricing",
@@ -11540,7 +10722,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 589,
-      "lastVerified": "2026-04-06T06:11:02.881Z",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -12899,6 +12081,61 @@
       ]
     },
     {
+      "url": "https://docs.livepeer.org/v2/gateways/resources/glossary",
+      "title": "Gateway Glossary",
+      "description": "Key terms for Livepeer gateway operators - deployment modes, payment mechanics, orchestrator routing, and node configuration.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "glossary",
+        "gateways",
+        "terminology",
+        "resources"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 3442,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Livepeer Protocol Terms"
+        },
+        {
+          "level": 2,
+          "text": "Economic Terms"
+        },
+        {
+          "level": 2,
+          "text": "Video Terms"
+        },
+        {
+          "level": 2,
+          "text": "AI Terms"
+        },
+        {
+          "level": 2,
+          "text": "Web3 Terms"
+        },
+        {
+          "level": 2,
+          "text": "Technical Terms"
+        },
+        {
+          "level": 2,
+          "text": "Hardware Terms"
+        },
+        {
+          "level": 2,
+          "text": "Operational Terms"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/faq",
       "title": "Gateway FAQ",
       "description": "Frequently asked questions for Livepeer gateway operators - the -broadcaster rename, ETH requirements, AI limitations, pricing, orchestrator discovery, and port configuration.",
@@ -13023,9 +12260,9 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/resources/reference/glossary",
-      "title": "Gateway Terminology Glossary",
-      "description": "Terminology and concept definitions for Livepeer gateways - operational modes, setup types, node types, and key infrastructure terms.",
+      "url": "https://docs.livepeer.org/v2/gateways/resources/deployment-terms",
+      "title": "Gateway Deployment Terms",
+      "description": "Terminology and concept definitions for Livepeer gateways - operational modes, setup types, node types, and key deployment terms.",
       "section": "gateways",
       "tags": [
         "livepeer",
@@ -13038,14 +12275,13 @@
         "gateway-terminology",
         "gateways",
         "resources",
-        "reference",
-        "glossary"
+        "deployment-terms"
       ],
       "entities": [
         "gateway"
       ],
       "apiEndpoints": [],
-      "difficulty": "advanced",
+      "difficulty": "intermediate",
       "wordCount": 846,
       "lastVerified": "2026-03-14",
       "headings": [
@@ -13081,62 +12317,6 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/resources/compendium/glossary",
-      "title": "Gateway Glossary",
-      "description": "Key terms for Livepeer gateway operators - deployment modes, payment mechanics, orchestrator routing, and node configuration.",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "glossary",
-        "gateways",
-        "terminology",
-        "resources",
-        "compendium"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 3442,
-      "lastVerified": "2026-03",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Livepeer Protocol Terms"
-        },
-        {
-          "level": 2,
-          "text": "Economic Terms"
-        },
-        {
-          "level": 2,
-          "text": "Video Terms"
-        },
-        {
-          "level": 2,
-          "text": "AI Terms"
-        },
-        {
-          "level": 2,
-          "text": "Web3 Terms"
-        },
-        {
-          "level": 2,
-          "text": "Technical Terms"
-        },
-        {
-          "level": 2,
-          "text": "Hardware Terms"
-        },
-        {
-          "level": 2,
-          "text": "Operational Terms"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
       "url": "https://docs.livepeer.org/v2/gateways/resources/reference/technical/technical-architecture",
       "title": "Technical Architecture",
       "description": "Technical Architecture Diagrams and References",
@@ -13158,7 +12338,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 0,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 3,
@@ -13190,7 +12370,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 36,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -13224,7 +12404,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 0,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13250,7 +12430,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 517,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 1,
@@ -13321,7 +12501,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 165,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -13364,7 +12544,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 57,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13394,7 +12574,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 69,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13425,7 +12605,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 57,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13455,7 +12635,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 51,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13485,7 +12665,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 68,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13515,7 +12695,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 57,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13545,7 +12725,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 51,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13575,7 +12755,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 68,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13606,7 +12786,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 60,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13636,7 +12816,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 57,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13666,7 +12846,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 63,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13696,7 +12876,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 65,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13726,7 +12906,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 62,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13755,7 +12935,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 235,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -13825,7 +13005,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 51,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13854,7 +13034,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 51,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13884,7 +13064,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 53,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13913,7 +13093,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 55,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13942,7 +13122,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 59,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -13971,7 +13151,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 51,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -14000,7 +13180,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 53,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -14029,7 +13209,7 @@
       ],
       "difficulty": "advanced",
       "wordCount": 53,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -14051,7 +13231,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 332,
-      "lastVerified": "2026-03-28T11:50:11+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -14112,7 +13292,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 298,
-      "lastVerified": "2026-03-28T11:50:11+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -14139,7 +13319,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 905,
-      "lastVerified": "2026-03-28T11:50:11+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -14240,7 +13420,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 63,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -14274,7 +13454,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 64,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -14305,7 +13485,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 6,
-      "lastVerified": "2026-04-05T21:31:42+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -14411,7 +13591,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 965,
-      "lastVerified": "2026-04-05T21:08:17+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -15125,7 +14305,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 232,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -15170,7 +14350,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 158,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -15215,8 +14395,7 @@
         "cuda",
         "linux",
         "orchestrators",
-        "setup",
-        "install"
+        "setup"
       ],
       "entities": [
         "orchestrator"
@@ -15224,7 +14403,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 569,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -15334,8 +14513,7 @@
         "activate",
         "service-uri",
         "orchestrators",
-        "setup",
-        "connect"
+        "setup"
       ],
       "entities": [
         "orchestrator"
@@ -15421,7 +14599,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 199,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -16611,7 +15789,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1637,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -16824,7 +16002,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 1765,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -18826,6 +18004,61 @@
       ]
     },
     {
+      "url": "https://docs.livepeer.org/v2/orchestrators/resources/glossary",
+      "title": "Orchestrator Glossary",
+      "description": "Key terms for Livepeer orchestrator operators — GPU setup, AI pipelines, staking, payment mechanics, monitoring, and protocol roles.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "glossary",
+        "orchestrators",
+        "terminology",
+        "resources"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 5141,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Livepeer Protocol Terms"
+        },
+        {
+          "level": 2,
+          "text": "AI Terms"
+        },
+        {
+          "level": 2,
+          "text": "Economic Terms"
+        },
+        {
+          "level": 2,
+          "text": "Video Terms"
+        },
+        {
+          "level": 2,
+          "text": "Web3 Terms"
+        },
+        {
+          "level": 2,
+          "text": "Hardware Terms"
+        },
+        {
+          "level": 2,
+          "text": "Technical Terms"
+        },
+        {
+          "level": 2,
+          "text": "Operational Terms"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
       "url": "https://docs.livepeer.org/v2/orchestrators/resources/reference/faq",
       "title": "FAQ and Troubleshooting",
       "description": "Answers to common orchestrator questions and step-by-step fixes for the most frequent errors — installation, networking, job routing, AI pipelines, and earnings.",
@@ -18887,9 +18120,9 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/resources/reference/glossary",
-      "title": "Orchestrator Terminology Glossary",
-      "description": "Terminology and concept definitions for Livepeer orchestrators - deployment axes, node modes, staking terms, and key infrastructure concepts.",
+      "url": "https://docs.livepeer.org/v2/orchestrators/resources/operator-terms",
+      "title": "Orchestrator Operator Terms",
+      "description": "Terminology and concept definitions for Livepeer orchestrators - deployment axes, node modes, staking terms, and key operator concepts.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
@@ -18902,14 +18135,13 @@
         "terminology",
         "orchestrators",
         "resources",
-        "reference",
-        "glossary"
+        "operator-terms"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
-      "difficulty": "advanced",
+      "difficulty": "intermediate",
       "wordCount": 1929,
       "lastVerified": "2026-03-16",
       "headings": [
@@ -19048,7 +18280,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 637,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -19202,63 +18434,6 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/resources/reference/compendium/glossary",
-      "title": "Orchestrator Glossary",
-      "description": "Key terms for Livepeer orchestrator operators — GPU setup, AI pipelines, staking, payment mechanics, monitoring, and protocol roles.",
-      "section": "orchestrators",
-      "tags": [
-        "livepeer",
-        "glossary",
-        "orchestrators",
-        "terminology",
-        "resources",
-        "reference",
-        "compendium"
-      ],
-      "entities": [
-        "orchestrator"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "advanced",
-      "wordCount": 5141,
-      "lastVerified": "2026-03",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Livepeer Protocol Terms"
-        },
-        {
-          "level": 2,
-          "text": "AI Terms"
-        },
-        {
-          "level": 2,
-          "text": "Economic Terms"
-        },
-        {
-          "level": 2,
-          "text": "Video Terms"
-        },
-        {
-          "level": 2,
-          "text": "Web3 Terms"
-        },
-        {
-          "level": 2,
-          "text": "Hardware Terms"
-        },
-        {
-          "level": 2,
-          "text": "Technical Terms"
-        },
-        {
-          "level": 2,
-          "text": "Operational Terms"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
       "url": "https://docs.livepeer.org/v2/orchestrators/resources/knowledge-hub/community-guides",
       "title": "Community Guides & Tutorials",
       "description": "Curated external tutorials, video walkthroughs, and community-maintained resources for Livepeer orchestrators — from setup through advanced operations.",
@@ -19367,7 +18542,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 166,
-      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -19481,7 +18656,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1205,
-      "lastVerified": "2026-04-06T00:24:12+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -19594,7 +18769,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 563,
-      "lastVerified": "2026-04-06T00:24:12+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -19662,7 +18837,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 298,
-      "lastVerified": "2026-04-06T00:24:12+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -19706,7 +18881,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 526,
-      "lastVerified": "2026-04-06T00:11:31.183Z",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -19763,7 +18938,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 526,
-      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -19818,7 +18993,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 558,
-      "lastVerified": "2026-04-06T00:24:12+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -19884,7 +19059,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 639,
-      "lastVerified": "2026-04-06T00:24:12+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -19955,7 +19130,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 380,
-      "lastVerified": "2026-04-06T00:13:29.378Z",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -19997,7 +19172,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 543,
-      "lastVerified": "2026-04-06T00:24:12+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -20716,7 +19891,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 267,
-      "lastVerified": "2026-04-06T00:13:29.378Z",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -20758,7 +19933,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 219,
-      "lastVerified": "2026-04-06T00:13:29.378Z",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -21524,7 +20699,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/resources/compendium/glossary",
+      "url": "https://docs.livepeer.org/v2/community/resources/glossary",
       "title": "Community Glossary",
       "description": "Key terms for the Livepeer community — governance, treasury, grants, delegation, voting, and ecosystem participation.",
       "section": "community",
@@ -21533,8 +20708,7 @@
         "glossary",
         "community",
         "terminology",
-        "resources",
-        "compendium"
+        "resources"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -21616,6 +20790,38 @@
       "wordCount": 703,
       "lastVerified": "2026-03-02",
       "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/resources/portal",
+      "title": "Resource Portal",
+      "description": "Livepeer Resource Compendium",
+      "section": "resources",
+      "tags": [
+        "home",
+        "index",
+        "landing",
+        "help",
+        "support",
+        "contact",
+        "faq",
+        "resource",
+        "resources",
+        "reference",
+        "references",
+        "compendium"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 10,
+      "lastVerified": "2026-04-07T21:11:01+10:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Resources Portal"
+        }
+      ],
       "codeLanguages": []
     },
     {
@@ -21870,7 +21076,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2399,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T21:33:41+10:00",
       "headings": [
         {
           "level": 2,
@@ -22682,7 +21888,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 469,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -24239,7 +23445,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 41,
-      "lastVerified": "2026-04-06T00:40:49+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -24463,8 +23669,130 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/resources/compendium/glossary",
-      "title": "Resources Glossary",
+      "url": "https://docs.livepeer.org/v2/resources/glossary",
+      "title": "Livepeer Glossary",
+      "description": "Complete glossary of terms used across the Livepeer Real-time AI & Video Network — protocol, video, AI, web3, and operational terminology.",
+      "section": "resources",
+      "tags": [
+        "livepeer",
+        "glossary",
+        "terminology",
+        "definitions",
+        "reference",
+        "resources"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 20420,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "A"
+        },
+        {
+          "level": 2,
+          "text": "B"
+        },
+        {
+          "level": 2,
+          "text": "C"
+        },
+        {
+          "level": 2,
+          "text": "D"
+        },
+        {
+          "level": 2,
+          "text": "E"
+        },
+        {
+          "level": 2,
+          "text": "F"
+        },
+        {
+          "level": 2,
+          "text": "G"
+        },
+        {
+          "level": 2,
+          "text": "H"
+        },
+        {
+          "level": 2,
+          "text": "I"
+        },
+        {
+          "level": 2,
+          "text": "J"
+        },
+        {
+          "level": 2,
+          "text": "K"
+        },
+        {
+          "level": 2,
+          "text": "L"
+        },
+        {
+          "level": 2,
+          "text": "M"
+        },
+        {
+          "level": 2,
+          "text": "N"
+        },
+        {
+          "level": 2,
+          "text": "O"
+        },
+        {
+          "level": 2,
+          "text": "P"
+        },
+        {
+          "level": 2,
+          "text": "Q"
+        },
+        {
+          "level": 2,
+          "text": "R"
+        },
+        {
+          "level": 2,
+          "text": "S"
+        },
+        {
+          "level": 2,
+          "text": "T"
+        },
+        {
+          "level": 2,
+          "text": "U"
+        },
+        {
+          "level": 2,
+          "text": "V"
+        },
+        {
+          "level": 2,
+          "text": "W"
+        },
+        {
+          "level": 2,
+          "text": "Y"
+        },
+        {
+          "level": 2,
+          "text": "Z"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/resources/resource-hub-terms",
+      "title": "Resource Hub Terms",
       "description": "Key terms from the Livepeer Resources section — protocol references, external tools, research, community resources, and cross-network concepts.",
       "section": "resources",
       "tags": [
@@ -24472,7 +23800,7 @@
         "glossary",
         "resources",
         "terminology",
-        "compendium"
+        "resource-hub-terms"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -26327,7 +25655,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 522,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T21:11:01+10:00",
       "headings": [
         {
           "level": 1,
@@ -26526,7 +25854,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1947,
-      "lastVerified": "2026-04-05T17:17:29+10:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 2,
@@ -27305,7 +26633,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1412,
-      "lastVerified": "2026-04-05T01:48:52+11:00",
+      "lastVerified": "2026-04-07T01:11:31+10:00",
       "headings": [
         {
           "level": 1,
@@ -29084,7 +28412,7 @@
         },
         {
           "level": 3,
-          "text": "v2/orchestrators/setup/prepare"
+          "text": "v2/orchestrators/setup/rcs-requirements"
         },
         {
           "level": 3,

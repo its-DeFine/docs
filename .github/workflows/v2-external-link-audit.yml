@@ -5,6 +5,10 @@ on:
     - cron: '0 4 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   v2-external-link-audit:
     name: v2-external-link-audit
@@ -19,7 +23,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '20'
 
       - name: Run V2 external link audit (advisory)
         id: link-audit
@@ -48,12 +52,66 @@ jobs:
         run: |
           echo "## V2 External Link Audit (Advisory)" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Workflow mode: advisory" >> "$GITHUB_STEP_SUMMARY"
           echo "- Audit step outcome: ${{ steps.link-audit.outcome }}" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
 
           if [ -f /tmp/page-links-audit-external.json ]; then
-            node -e "const fs=require('fs'); const p='/tmp/page-links-audit-external.json'; const j=JSON.parse(fs.readFileSync(p,'utf8')); const e=j.aggregate?.external||{}; const out=[]; out.push('- Files analyzed: '+(j.aggregate?.filesAnalyzed ?? 0)); out.push('- Total refs: '+(j.aggregate?.totalRefs ?? 0)); out.push('- External eligible refs: '+(e.eligibleRefCount ?? 0)); out.push('- External unique URLs: '+(e.uniqueUrlCount ?? 0)); out.push('- External unique hosts: '+(e.uniqueHostCount ?? 0)); const classes=e.urlClassCounts||{}; out.push('- URL classes: '+JSON.stringify(classes)); fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, out.join('\n')+'\n');"
+            node -e "const fs=require('fs'); const p='/tmp/page-links-audit-external.json'; const j=JSON.parse(fs.readFileSync(p,'utf8')); const e=j.aggregate?.external||{}; const out=[]; out.push('- Files analyzed: '+(j.aggregate?.filesAnalyzed ?? 0)); out.push('- External eligible refs: '+(e.eligibleRefCount ?? 0)); out.push('- External unique URLs: '+(e.uniqueUrlCount ?? 0)); const classes=e.urlClassCounts||{}; out.push('- URL classes: '+JSON.stringify(classes)); fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, out.join('\n')+'\n');"
           else
             echo "- JSON report missing; check run logs." >> "$GITHUB_STEP_SUMMARY"
           fi
+
+      - name: Create or update rolling issue for broken links
+        if: steps.link-audit.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const { owner, repo } = context.repo;
+            const LABEL = 'health:external-links';
+            const TITLE = 'External Link Audit: broken links detected';
+
+            let body = '## External Link Audit\n\nBroken external links detected by scheduled audit.\n\n';
+            const reportPath = '/tmp/page-links-audit-external.md';
+            if (fs.existsSync(reportPath)) {
+              body += fs.readFileSync(reportPath, 'utf8').slice(0, 60000);
+            } else {
+              body += 'Report file not available. Check workflow run artifacts.\n';
+            }
+            body += `\n\n---\nWorkflow run: ${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+
+            const existing = await github.rest.issues.listForRepo({
+              owner, repo, state: 'open', labels: LABEL, per_page: 1
+            });
+
+            if (existing.data.length > 0) {
+              await github.rest.issues.update({
+                owner, repo, issue_number: existing.data[0].number, body
+              });
+              core.info(`Updated issue #${existing.data[0].number}`);
+            } else {
+              const created = await github.rest.issues.create({
+                owner, repo, title: TITLE, body, labels: [LABEL, 'automated']
+              });
+              core.info(`Created issue #${created.data.number}`);
+            }
+
+      - name: Close rolling issue if clean
+        if: steps.link-audit.outcome == 'success'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { owner, repo } = context.repo;
+            const existing = await github.rest.issues.listForRepo({
+              owner, repo, state: 'open', labels: 'health:external-links', per_page: 1
+            });
+            if (existing.data.length > 0) {
+              await github.rest.issues.update({
+                owner, repo, issue_number: existing.data[0].number,
+                state: 'closed', state_reason: 'completed',
+                body: existing.data[0].body + '\n\n---\n**Resolved:** All external links clean as of ' + new Date().toISOString()
+              });
+              core.info(`Closed issue #${existing.data[0].number} (all clean)`);
+            }

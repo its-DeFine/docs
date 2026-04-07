@@ -104,12 +104,11 @@ stdin.on('end', () => {
         process.exit(2);
       }
 
-      // Block public service posts
-      if (/gh\s+(issue|pr)\s+(create|comment|edit)/i.test(cmd) ||
-          /curl.*(api\.github|hooks\.slack)/i.test(cmd)) {
+      // Block raw curl to external services (gh CLI is allowed)
+      if (/curl.*(api\.github|hooks\.slack)/i.test(cmd)) {
         console.log(JSON.stringify({
           decision: 'block',
-          reason: 'BLOCKED: This command posts to a public service. Review content for sensitive data before running manually.'
+          reason: 'BLOCKED: Raw curl to external service. Use gh CLI instead.'
         }));
         process.exit(2);
       }

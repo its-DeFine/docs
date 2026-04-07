@@ -407,9 +407,9 @@ function getCanonicalMap(normalizedRoute) {
   const route = normalizeRoute(normalizedRoute);
   const map = {
     'v2/pages/03_developers/building-on-livepeer/index': ['v2/pages/03_developers/developer-portal'],
-    'v2/resources/redirect': ['v2/resources/resources-portal'],
-    'v2/pages/08_help/redirect': ['v2/pages/08_help/README', 'v2/resources/resources-portal'],
-    'v2/pages/08_help/README': ['v2/resources/resources-portal'],
+    'v2/resources/redirect': ['v2/resources/portal'],
+    'v2/pages/08_help/redirect': ['v2/pages/08_help/README', 'v2/resources/portal'],
+    'v2/pages/08_help/README': ['v2/resources/portal'],
     'v2/pages/010_streamplace/introduction/streamplace-funding-model': [
       'v2/pages/010_streamplace/introduction/streamplace-funding-model'
     ],
