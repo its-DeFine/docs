@@ -1156,7 +1156,7 @@ All discovered scripts meet the required script template rules.
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `operations/scripts/automations/content/data/fetching/fetch-external-docs.sh`
+### `operations/scripts/integrators/content/data/fetching/fetch-external-docs.sh`
 - Purpose: External docs fetcher — pulls doc fragments from external GitHub repos into snippets/data/ for inclusion in builds
 - Template compliance: PASS
 - Role tags: ci, enforcement, generator, sync

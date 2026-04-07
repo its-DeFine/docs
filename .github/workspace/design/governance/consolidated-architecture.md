@@ -291,7 +291,7 @@ See Appendix A for the complete table.
 
 | Current | Target | Notes |
 |---|---|---|
-| .github/scripts/fetch-contract-addresses.js | Keep (CLI entrypoint delegates to operations/scripts/automations/content/data/contracts/) | Already has pipeline modules |
+| .github/scripts/fetch-contract-addresses.js | Keep (CLI entrypoint delegates to operations/scripts/integrators/content/data/contracts/) | Already has pipeline modules |
 | .github/scripts/fetch-discord-announcements.js | operations/scripts/integrators/copy/social-feeds/ | Create directory |
 | .github/scripts/fetch-forum-data.js | operations/scripts/integrators/copy/social-feeds/ | |
 | .github/scripts/fetch-ghost-blog-data.js | operations/scripts/integrators/copy/social-feeds/ | |
