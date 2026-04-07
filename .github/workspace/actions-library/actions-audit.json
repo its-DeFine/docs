@@ -416,10 +416,10 @@
         "workflow_dispatch"
       ],
       "scripts": [
-        "operations/scripts/automations/content/language-translation/translate-docs.js",
-        "operations/scripts/automations/content/language-translation/generate-localized-docs-json.js",
+        "operations/scripts/integrators/content/language-translation/translate-docs.js",
+        "operations/scripts/integrators/content/language-translation/generate-localized-docs-json.js",
         "operations/scripts/generators/content/catalogs/generate-docs-index.js",
-        "operations/scripts/automations/content/language-translation/validate-generated.js",
+        "operations/scripts/integrators/content/language-translation/validate-generated.js",
         "operations/tests/unit/docs-navigation.test.js"
       ],
       "has_inline_script": false,
