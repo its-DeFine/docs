@@ -27,7 +27,7 @@ export const Subtitle = ({
       style={{
         fontSize: style.fontSize ? style.fontSize : '1rem',
         fontStyle: style.fontStyle ? style.fontStyle : 'italic',
-        color: style.color ? style.color : 'var(--accent)',
+        color: style.color ? style.color : 'var(--lp-color-accent)',
         marginBottom: style.marginBottom ? style.marginBottom : 0,
         ...style,
       }}
@@ -74,8 +74,8 @@ export const CopyText = ({
         borderRadius: '4px',
         fontSize: '0.85rem',
         fontFamily: 'monospace',
-        backgroundColor: 'var(--card-background)',
-        border: '1px solid var(--border)',
+        backgroundColor: 'var(--lp-color-bg-card)',
+        border: '1px solid var(--lp-color-border-default)',
         minWidth: 0,
         overflow: 'hidden',
         ...style,
@@ -95,7 +95,7 @@ export const CopyText = ({
           padding: '0 0 0 0.4rem',
           display: 'inline-flex',
           alignItems: 'center',
-          color: 'var(--text)',
+          color: 'var(--lp-color-text-secondary)',
           flexShrink: 0,
         }}
         title="Copy to clipboard"
@@ -161,7 +161,7 @@ export const CardTitleTextWithArrow = ({
             {' '}
             {children}{' '}
             <span style={{ margin: '0 -1rem 0.2rem 0.75rem' }}>
-              <Icon icon="arrow-up-right" size={16} color="var(--text)" />
+              <Icon icon="arrow-up-right" size={16} color="var(--lp-color-text-secondary)" />
             </span>
           </span>
         }
@@ -180,7 +180,7 @@ export const CardTitleTextWithArrow = ({
   //     {" "}
   //     {children}{" "}
   //     <span style={{ margin: "0 -1rem 0.2rem 0.75rem" }}>
-  //       <Icon icon="arrow-up-right" size={16} color="var(--text)" />
+  //       <Icon icon="arrow-up-right" size={16} color="var(--lp-color-text-secondary)" />
   //     </span>
   //   </span>
   // );
@@ -195,7 +195,7 @@ export const CardTitleTextWithArrow = ({
  * @aiDiscoverability none
  * @param {any} text - text prop.
  * @param {any} children - children prop.
- * @param {string} [color="var(--text)"] - color prop.
+ * @param {string} [color="var(--lp-color-text-secondary)"] - color prop.
  * @example
  * <AccordionTitleWithArrow text="example">Example content</AccordionTitleWithArrow>
  * @param {string} [className=''] - Optional CSS class override.
@@ -204,7 +204,7 @@ export const CardTitleTextWithArrow = ({
 export const AccordionTitleWithArrow = ({
   text,
   children,
-  color = 'var(--text)',
+  color = 'var(--lp-color-text-secondary)',
   className = '',
   style = {},
   ...rest
@@ -228,7 +228,7 @@ export const AccordionTitleWithArrow = ({
     >
       {label}
       <span style={{ alignSelf: 'flex-end' }}>
-        <Icon icon="arrow-up-right" size={14} color="var(--text)" />
+        <Icon icon="arrow-up-right" size={14} color="var(--lp-color-text-secondary)" />
       </span>
     </span>
   )

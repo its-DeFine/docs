@@ -116,7 +116,7 @@ export const BlogCard = ({
 
   const titleStyle = {
     alignItems: 'center',
-    color: 'var(--accent)',
+    color: 'var(--lp-color-accent)',
     fontSize: '1.25rem',
     marginLeft: '-2px',
     marginBottom: '0.5rem',
@@ -130,7 +130,7 @@ export const BlogCard = ({
   const authorStyle = {
     display: 'flex',
     fontSize: 13,
-    color: 'var(--hero-text)',
+    color: 'var(--lp-color-text-primary)',
     gap: 6,
   }
 
@@ -138,7 +138,7 @@ export const BlogCard = ({
     display: 'flex',
     alignItems: 'center',
     fontSize: 12,
-    color: 'var(--hero-text)',
+    color: 'var(--lp-color-text-primary)',
     gap: 6,
   }
 
@@ -147,13 +147,13 @@ export const BlogCard = ({
     marginTop: 0,
     alignItems: 'center',
     fontSize: 12,
-    color: 'var(--hero-text)',
+    color: 'var(--lp-color-text-primary)',
     gap: 6,
   }
 
   const contentBgStyle = {
     height: 1,
-    backgroundColor: 'var(--border)',
+    backgroundColor: 'var(--lp-color-border-default)',
     margin: '12px 0',
   }
 
@@ -167,7 +167,7 @@ export const BlogCard = ({
 
   const scrollHintStyle = {
     fontSize: 11,
-    color: 'var(--muted-text)',
+    color: 'var(--lp-color-text-muted)',
     textAlign: 'center',
     marginTop: 10,
     marginBottom: 0,
@@ -182,7 +182,7 @@ export const BlogCard = ({
       title={
         <span style={titleStyle}>
           <span style={{ alignSelf: 'top' }}>
-            <Icon icon={icon} size={20} color="var(--accent)" />
+            <Icon icon={icon} size={20} color="var(--lp-color-accent)" />
           </span>
           <span style={{ marginLeft: '0.5rem' }}>{title}</span>
         </span>
@@ -382,7 +382,7 @@ export const RssBlogCard = ({
       title={
         <span style={{
           alignItems: 'center',
-          color: 'var(--accent)',
+          color: 'var(--lp-color-accent)',
           fontSize: '1.25rem',
           marginLeft: '-2px',
           marginBottom: '0.5rem',
@@ -393,7 +393,7 @@ export const RssBlogCard = ({
           textOverflow: 'ellipsis',
         }}>
           <span style={{ alignSelf: 'top' }}>
-            <Icon icon={icon} size={20} color="var(--accent)" />
+            <Icon icon={icon} size={20} color="var(--lp-color-accent)" />
           </span>
           <span style={{ marginLeft: '0.5rem' }}>{title}</span>
         </span>
@@ -410,7 +410,7 @@ export const RssBlogCard = ({
             display: 'flex',
             alignItems: 'center',
             fontSize: 12,
-            color: 'var(--hero-text)',
+            color: 'var(--lp-color-text-primary)',
             gap: 6,
           }}>
             <span><Icon icon="calendar" size={14} /></span>
@@ -423,7 +423,7 @@ export const RssBlogCard = ({
             marginTop: 0,
             alignItems: 'center',
             fontSize: 12,
-            color: 'var(--hero-text)',
+            color: 'var(--lp-color-text-primary)',
             gap: 6,
           }}>
             <span><Icon icon="clock" size={14} /></span>
@@ -431,7 +431,7 @@ export const RssBlogCard = ({
           </div>
         )}
       </div>
-      <div style={{ height: 1, backgroundColor: 'var(--border)', margin: '12px 0' }} />
+      <div style={{ height: 1, backgroundColor: 'var(--lp-color-border-default)', margin: '12px 0' }} />
       <div
         style={{
           maxHeight: 200,
@@ -454,7 +454,7 @@ export const RssBlogCard = ({
       {showScrollHint && (
         <div style={{
           fontSize: 11,
-          color: 'var(--muted-text)',
+          color: 'var(--lp-color-text-muted)',
           textAlign: 'center',
           marginTop: 10,
           marginBottom: 0,
@@ -607,7 +607,7 @@ export const PostCard = ({
             display: 'flex',
             marginTop: '12px',
             fontSize: 13,
-            color: 'var(--text)',
+            color: 'var(--lp-color-text-secondary)',
             gap: 8,
           }}
         >
@@ -623,7 +623,7 @@ export const PostCard = ({
             display: 'flex',
             marginTop: '10px',
             fontSize: 12,
-            color: 'var(--text)',
+            color: 'var(--lp-color-text-secondary)',
             gap: 8,
           }}
         >
@@ -793,7 +793,7 @@ export const ForumLatestLayout = ({
           alt="Livepeer Forum"
           noZoom
           style={{
-            border: '1px solid var(--border)',
+            border: '1px solid var(--lp-color-border-default)',
             borderRadius: '0.5rem',
             marginBottom: '0',
             paddingBottom: '0',
@@ -872,7 +872,7 @@ export const DiscordAnnouncements = ({
         display: 'flex',
         flexDirection: 'column',
         gap: '1rem',
-        border: '1px solid var(--accent)',
+        border: '1px solid var(--lp-color-accent)',
         borderRadius: '0.5rem',
         padding: '1rem',
         ...style,
@@ -904,17 +904,17 @@ export const DiscordAnnouncements = ({
             <span
               style={{
                 fontWeight: 600,
-                color: 'var(--accent)',
+                color: 'var(--lp-color-accent)',
                 fontSize: 'medium',
               }}
             >
               {serverName}
               {/* {announcement.author} */}
             </span>
-            <span style={{ color: 'var(--text)' }}>•</span>
+            <span style={{ color: 'var(--lp-color-text-secondary)' }}>•</span>
             <time
               dateTime={announcement.timestamp}
-              style={{ color: 'var(--text)' }}
+              style={{ color: 'var(--lp-color-text-secondary)' }}
             >
               {new Date(announcement.timestamp).toLocaleDateString('en-US', {
                 month: 'short',
@@ -930,13 +930,13 @@ export const DiscordAnnouncements = ({
               }}
             >
               View in Discord{' '}
-              <Icon icon="arrow-up-right" size={12} color="var(--accent)" />
+              <Icon icon="arrow-up-right" size={12} color="var(--lp-color-accent)" />
             </span>
           </div>
           <ScrollBox maxHeight={scrollMaxHeight} ariaLabel={`Announcement from ${serverName}`}>
             <div
               style={{
-                color: 'var(--text)',
+                color: 'var(--lp-color-text-secondary)',
                 fontSize: 'small',
               }}
               dangerouslySetInnerHTML={{
@@ -949,7 +949,7 @@ export const DiscordAnnouncements = ({
               <hr
                 style={{
                   border: 'none',
-                  borderBottom: '1px solid var(--border)',
+                  borderBottom: '1px solid var(--lp-color-border-default)',
                   margin: '0',
                 }}
               />
@@ -1071,7 +1071,7 @@ export const LumaEvents = ({
               style={{
                 marginTop: '1rem',
                 fontSize: '0.875rem',
-                color: 'var(--accent)',
+                color: 'var(--lp-color-accent)',
                 textDecoration: 'none',
                 width: 'fit-content',
               }}

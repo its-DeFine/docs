@@ -44,11 +44,11 @@ export const SocialLinks = ({
   // Brand colors — resolvedIconColor overrides all when iconColor prop is passed
   const colors = {
     discord: resolvedIconColor || "var(--lp-color-brand-discord)",
-    twitter: resolvedIconColor || "var(--hero-text)",
+    twitter: resolvedIconColor || "var(--lp-color-text-primary)",
     github: resolvedIconColor || "var(--lp-color-brand-github)",
     forum: resolvedIconColor || "var(--lp-color-brand-forum)",
-    website: resolvedIconColor || "var(--accent)",
-    blog: resolvedIconColor || "var(--accent)",
+    website: resolvedIconColor || "var(--lp-color-accent)",
+    blog: resolvedIconColor || "var(--lp-color-accent)",
     globe: resolvedIconColor || "var(--lp-color-brand-globe)",
     twitch: resolvedIconColor || "var(--lp-color-brand-twitch)",
     youtube: resolvedIconColor || "var(--lp-color-brand-youtube)",
@@ -102,7 +102,7 @@ export const SocialLinks = ({
         {items.map((item, i) => (
           <a key={i} href={item.href} target="_blank" rel="noopener noreferrer" aria-label={item.label} style={linkStyle}>
             <Tooltip headline={item.label}>
-              <Icon icon={item.icon} size={size} color={colors[iconColorMap[item.icon] || "website"] || "var(--accent)"} aria-hidden="true" />
+              <Icon icon={item.icon} size={size} color={colors[iconColorMap[item.icon] || "website"] || "var(--lp-color-accent)"} aria-hidden="true" />
             </Tooltip>
           </a>
         ))}

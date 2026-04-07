@@ -10,7 +10,7 @@
  * @param {React.ReactNode} children - Content rendered inside the component.
  * @param {string} [icon="arrows-spin"] - Icon configuration used by the component.
  * @param {number} [iconSize=50] - Icon configuration used by the component.
- * @param {string} [iconColor="var(--accent)"] - Icon configuration used by the component.
+ * @param {string} [iconColor="var(--lp-color-accent)"] - Icon configuration used by the component.
  * @param {string} [spinDuration="10s"] - Spin duration used by the component.
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
@@ -19,7 +19,7 @@ export const QuadGrid = ({
   children,
   icon = "arrows-spin",
   iconSize = 50,
-  iconColor = "var(--accent)",
+  iconColor = "var(--lp-color-accent)",
   spinDuration = "10s",
   className = "",
   style = {},
@@ -52,7 +52,7 @@ export const QuadGrid = ({
         zIndex: 10,
       }}>
         <div style={{
-          backgroundColor: "var(--background)",
+          backgroundColor: "var(--lp-color-bg-page)",
           borderRadius: "50%",
           padding: "0.5rem",
           animation: `quadGridSpin ${spinDuration} linear infinite`,

@@ -25,20 +25,20 @@ export const BorderedBox = ({
 }) => {
   const variants = {
     default: {
-      border: "1px solid var(--border)",
-      backgroundColor: "var(--card-background)",
+      border: "1px solid var(--lp-color-border-default)",
+      backgroundColor: "var(--lp-color-bg-card)",
     },
     accent: {
-      border: "1px solid var(--accent)",
-      backgroundColor: "var(--card-background)",
+      border: "1px solid var(--lp-color-accent)",
+      backgroundColor: "var(--lp-color-bg-card)",
     },
     muted: {
-      border: "1px solid var(--border)",
+      border: "1px solid var(--lp-color-border-default)",
       backgroundColor: "transparent",
     },
   };
   const accentBarColors = {
-    accent: "var(--accent)",
+    accent: "var(--lp-color-accent)",
     positive: "var(--green-9)",
   };
 

@@ -14,7 +14,7 @@
 import { ArbitrumIcon } from '/snippets/components/elements/icons/Icons.jsx'
 
 export const HistoricalContractTable = ({ category = "core", sourceData = {} }) => {
-  const hp = {padding:"0.3rem 0.4rem",borderBottom:"1px solid var(--border)",backgroundColor:"transparent",color:"var(--text)",fontWeight:600,fontSize:"0.75rem"}
+  const hp = {padding:"0.3rem 0.4rem",borderBottom:"1px solid var(--lp-color-border-default)",backgroundColor:"transparent",color:"var(--lp-color-text-secondary)",fontWeight:600,fontSize:"0.75rem"}
   const cp = {padding:"0.3rem 0.4rem",border:"none",fontSize:"0.8rem",minWidth:0}
   const ap = {padding:"0.3rem 0.5rem",border:"none",minWidth:0}
   const hs = {display:"inline-flex",alignItems:"center",gap:"0.3rem",whiteSpace:"nowrap"}
@@ -102,11 +102,11 @@ export const HistoricalContractTable = ({ category = "core", sourceData = {} }) 
           <h4 style={{margin:"0.5rem 0"}}>{series.name}</h4>
           {series.entriesByChain.map(({ chainKey, entries }) => (
             <div key={`${series.name}:${chainKey}`} style={{marginBottom:"0.9rem"}}>
-              <div style={{margin:"0.35rem 0 0.4rem", fontWeight:600, color:"var(--hero-text)"}}>
+              <div style={{margin:"0.35rem 0 0.4rem", fontWeight:600, color:"var(--lp-color-text-primary)"}}>
                 <span style={hs}>
                   {chainKey === "arbitrumOne"
-                    ? <><ArbitrumIcon color="var(--arbitrum)" size={13} /> Arbitrum One</>
-                    : <><Icon icon="ethereum" color="var(--hero-text)" size={13} /> Ethereum Mainnet</>}
+                    ? <><ArbitrumIcon color="var(--lp-color-arbitrum)" size={13} /> Arbitrum One</>
+                    : <><Icon icon="ethereum" color="var(--lp-color-text-primary)" size={13} /> Ethereum Mainnet</>}
                 </span>
               </div>
               <table style={{width:"100%",tableLayout:"fixed",borderCollapse:"collapse",borderSpacing:0}}>
@@ -120,7 +120,7 @@ export const HistoricalContractTable = ({ category = "core", sourceData = {} }) 
                       <td style={ap}>
                         <span style={as_}>
                           <a href={c.explorer} target="_blank" rel="noopener noreferrer" style={lk}>
-                            <Icon icon="arrow-up-right" size={12} color="var(--accent)" />
+                            <Icon icon="arrow-up-right" size={12} color="var(--lp-color-accent)" />
                             <code style={cs}>{c.addr}</code>
                           </a>
                         </span>

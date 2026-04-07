@@ -82,12 +82,12 @@ export const CardCarousel = ({
             onClick={goPrev}
             aria-label="Previous"
             style={{
-              border: "1px solid var(--accent)",
-              background: "var(--card-background)",
+              border: "1px solid var(--lp-color-accent)",
+              background: "var(--lp-color-bg-card)",
               borderRadius: 8,
               padding: "6px 10px",
               cursor: "pointer",
-              color: "var(--text)",
+              color: "var(--lp-color-text-secondary)",
             }}
           >
             ←
@@ -104,8 +104,8 @@ export const CardCarousel = ({
                     borderRadius: 999,
                     background:
                       index === pageIndex
-                        ? "var(--accent)"
-                        : "var(--border)",
+                        ? "var(--lp-color-accent)"
+                        : "var(--lp-color-border-default)",
                   }}
                 />
               ))}
@@ -117,12 +117,12 @@ export const CardCarousel = ({
             onClick={goNext}
             aria-label="Next"
             style={{
-              border: "1px solid var(--accent)",
-              background: "var(--card-background)",
+              border: "1px solid var(--lp-color-accent)",
+              background: "var(--lp-color-bg-card)",
               borderRadius: 8,
               padding: "6px 10px",
               cursor: "pointer",
-              color: "var(--text)",
+              color: "var(--lp-color-text-secondary)",
             }}
           >
             →

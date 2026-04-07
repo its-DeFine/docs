@@ -28,7 +28,7 @@ export const ExternalContent = ({
     <div
       className={className}
       style={{
-        border: "1px solid var(--accent)",
+        border: "1px solid var(--lp-color-accent)",
           borderRadius: "8px",
           overflow: "hidden",
           marginTop: "1rem",
@@ -38,9 +38,9 @@ export const ExternalContent = ({
       >
         <div
           style={{
-            backgroundColor: "var(--card-background)",
+            backgroundColor: "var(--lp-color-bg-card)",
             padding: "0.75rem 1rem",
-            borderBottom: "1px solid var(--accent)",
+            borderBottom: "1px solid var(--lp-color-accent)",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -56,7 +56,7 @@ export const ExternalContent = ({
             href={githubUrl}
             target="_blank" rel="noopener noreferrer"
             style={{
-              color: "var(--accent)",
+              color: "var(--lp-color-accent)",
               fontSize: "0.875rem",
               display: "flex",
               alignItems: "center",

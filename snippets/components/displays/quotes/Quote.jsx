@@ -15,8 +15,8 @@ export const Quote = ({ children, className = "", style = {}, ...rest }) => {
     textAlign: 'center',
     opacity: 1,
     fontStyle: 'italic',
-    color: 'var(--accent)',
-    border: '1px solid var(--border)',
+    color: 'var(--lp-color-accent)',
+    border: '1px solid var(--lp-color-border-default)',
     borderRadius: '8px',
     padding: '1rem',
     margin: '1rem 0',
@@ -77,7 +77,7 @@ export const FrameQuote = ({
     >
       <div
         style={{
-          borderLeft: `4px solid var(--accent)`,
+          borderLeft: `4px solid var(--lp-color-accent)`,
           paddingLeft: '1rem',
           fontStyle: 'italic',
         }}
@@ -109,13 +109,13 @@ export const FrameQuote = ({
                     style={{
                       opacity: 0.7,
                       fontStyle: 'italic',
-                      borderBottom: '1px solid var(--accent)',
+                      borderBottom: '1px solid var(--lp-color-accent)',
                       fontSize: '1rem',
                     }}
                   >
                     {source}
                   </span>{' '}
-                  <Icon icon="arrow-up-right" size={12} color="var(--accent)" />
+                  <Icon icon="arrow-up-right" size={12} color="var(--lp-color-accent)" />
                 </a>
               ) : (
                 <span

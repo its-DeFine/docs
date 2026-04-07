@@ -320,7 +320,7 @@ const PortalHeroContent = ({
                 fontSize: "1.5rem",
                 fontWeight: "500",
                 opacity: 1,
-                color: subtitleColor || "var(--accent)",
+                color: subtitleColor || "var(--lp-color-accent)",
               }}
             >
               {subtitle} {/* flipped icon */}
@@ -349,7 +349,7 @@ const PortalHeroContent = ({
               width: "80%",
               margin: "0 auto",
               fontSize: "1.1rem",
-              color: "var(--text)",
+              color: "var(--lp-color-text-secondary)",
               paddingTop: "3rem",
             }}
           >
@@ -386,7 +386,7 @@ const PortalHeroContent = ({
               width: "80%",
               margin: "0 auto",
               fontSize: "1.1rem",
-              color: "var(--text)",
+              color: "var(--lp-color-text-secondary)",
             }}
           >
             {overview}
@@ -531,7 +531,7 @@ const LogoHeroContainer = ({
             top: "100%",
             right: "0",
             fontSize: "2rem",
-            color: "var(--accent)",
+            color: "var(--lp-color-accent)",
             fontWeight: "500",
             lineHeight: "1",
             paddingTop:"0.5rem"

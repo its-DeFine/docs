@@ -182,7 +182,7 @@ export const SearchTable = ({
           }}
         >
           <CopyText text={value} style={{ flex: 1 }} />
-          {href && <LinkIcon href={href} color="var(--accent)" />}
+          {href && <LinkIcon href={href} color="var(--lp-color-accent)" />}
         </div>
       )
     }
@@ -230,9 +230,9 @@ export const SearchTable = ({
     minWidth: '150px',
     padding: '8px 12px',
     borderRadius: '8px',
-    border: '1px solid var(--border)',
-    background: 'var(--background)',
-    color: 'var(--text)',
+    border: '1px solid var(--lp-color-border-default)',
+    background: 'var(--lp-color-bg-page)',
+    color: 'var(--lp-color-text-secondary)',
   }
 
   const updateSelection = (col, colIndex, value) => {
@@ -266,9 +266,9 @@ export const SearchTable = ({
             maxWidth: '420px',
             padding: '8px 12px',
             borderRadius: '8px',
-            border: '1px solid var(--border)',
-            background: 'var(--background)',
-            color: 'var(--text)',
+            border: '1px solid var(--lp-color-border-default)',
+            background: 'var(--lp-color-bg-page)',
+            color: 'var(--lp-color-text-secondary)',
           }}
         />
         {allFilterCols.map((col, colIndex) => {
@@ -497,7 +497,7 @@ export const SearchTableV2 = ({
           }}
         >
           <CopyText text={value} style={{ flex: 1 }} />
-          {href && <LinkIcon href={href} color="var(--accent)" />}
+          {href && <LinkIcon href={href} color="var(--lp-color-accent)" />}
         </div>
       )
     }
@@ -567,9 +567,9 @@ export const SearchTableV2 = ({
     minWidth: '150px',
     padding: '8px 12px',
     borderRadius: '8px',
-    border: '1px solid var(--border)',
-    background: 'var(--background)',
-    color: 'var(--text)',
+    border: '1px solid var(--lp-color-border-default)',
+    background: 'var(--lp-color-bg-page)',
+    color: 'var(--lp-color-text-secondary)',
   }
 
   const updateSelection = (col, colIndex, value) => {
@@ -602,9 +602,9 @@ export const SearchTableV2 = ({
             maxWidth: '420px',
             padding: '8px 12px',
             borderRadius: '8px',
-            border: '1px solid var(--border)',
-            background: 'var(--background)',
-            color: 'var(--text)',
+            border: '1px solid var(--lp-color-border-default)',
+            background: 'var(--lp-color-bg-page)',
+            color: 'var(--lp-color-text-secondary)',
           }}
         />
         {allFilterCols.map((col, colIndex) => {

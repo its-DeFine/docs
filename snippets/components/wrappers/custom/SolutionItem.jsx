@@ -14,7 +14,7 @@
  * @example
  * <SolutionItem
  *   link={<LinkArrow href="https://daydream.live" label="Daydream" />}
- *   iconWrapper={<IconBadgeWrapper items={daydreamInfra} iconColor="var(--accent)" size={12} />}
+ *   iconWrapper={<IconBadgeWrapper items={daydreamInfra} iconColor="var(--lp-color-accent)" size={12} />}
  *   description="Real-time AI video, world models"
  *   divider={true}
  * />
@@ -45,7 +45,7 @@ export const SolutionItem = ({
   }
   const dividerStyle = {
     marginTop: '0.75rem',
-    borderBottom: '1px solid var(--border)',
+    borderBottom: '1px solid var(--lp-color-border-default)',
   }
 
   return (

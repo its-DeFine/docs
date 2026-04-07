@@ -47,10 +47,10 @@ export const ScrollableDiagram = ({
   const containerStyle = {
     overflow: 'auto',
     maxHeight,
-    border: '1px solid var(--border)',
+    border: '1px solid var(--lp-color-border-default)',
     borderRadius: '8px',
     padding: '1rem',
-    background: 'var(--card-background)',
+    background: 'var(--lp-color-bg-card)',
     position: 'relative',
   }
 
@@ -61,7 +61,7 @@ export const ScrollableDiagram = ({
           style={{
             textAlign: 'center',
             fontStyle: 'italic',
-            color: 'var(--text)',
+            color: 'var(--lp-color-text-secondary)',
             marginBottom: '0.5rem',
             fontSize: '0.875rem',
           }}
@@ -84,9 +84,9 @@ export const ScrollableDiagram = ({
             transform: scale(${zoomLevel.value});
           }
           #${diagramKey}-${zoomLevel.label.replace('%', '')}:checked ~ [data-docs-diagram-controls] label[for="${diagramKey}-${zoomLevel.label.replace('%', '')}"] {
-            background: var(--accent);
-            color: var(--button-text);
-            border-color: var(--accent);
+            background: var(--lp-color-accent);
+            color: var(--lp-color-on-accent);
+            border-color: var(--lp-color-accent);
           }`
             )
             .join('\n')}
@@ -141,7 +141,7 @@ export const ScrollableDiagram = ({
           <span
             style={{
               fontSize: '0.75rem',
-              color: 'var(--muted-text)',
+              color: 'var(--lp-color-text-muted)',
               marginRight: 'auto',
             }}
           >
@@ -155,8 +155,8 @@ export const ScrollableDiagram = ({
                 htmlFor={inputId}
                 style={{
                   background: 'transparent',
-                  color: 'var(--text)',
-                  border: '1px solid var(--border)',
+                  color: 'var(--lp-color-text-secondary)',
+                  border: '1px solid var(--lp-color-border-default)',
                   borderRadius: '4px',
                   padding: '4px 10px',
                   cursor: 'pointer',

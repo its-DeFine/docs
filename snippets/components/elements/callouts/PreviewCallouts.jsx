@@ -31,7 +31,7 @@ const ComingSoonCallout = ({ type = "page", className = "", style = {}, ...rest 
     alignItems: "center",
   };
   const linkStyle = {
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     display: "inline-flex",
     alignItems: "center",
     gap: "4px",
@@ -119,7 +119,7 @@ const PreviewCallout = ({ className = "", style = {}, ...rest }) => {
     flex: 1,
   };
   const linkStyle = {
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     display: "inline-flex",
     alignItems: "center",
     gap: "4px",
@@ -200,7 +200,7 @@ const ReviewCallout = ({ className = "", style = {}, ...rest }) => {
  * @param {string} [type="tip"] - Mintlify callout type: "tip", "info", "warning", "note", "check"
  * @param {string} header - Bold header text displayed at the top of the callout
  * @param {React.ReactNode} children - Description content below the header
- * @param {string} [headerColor="var(--hero-text)"] - Header text colour
+ * @param {string} [headerColor="var(--lp-color-text-primary)"] - Header text colour
  * @param {string} [headerSize="0.9rem"] - Header font size
  * @param {string} [className=""] - CSS class name
  * @param {object} [style={}] - Inline style overrides
@@ -213,7 +213,7 @@ const CalloutWrapper = ({
   type = "tip",
   header = "",
   children,
-  headerColor = "var(--hero-text)",
+  headerColor = "var(--lp-color-text-primary)",
   headerSize = "0.9rem",
   className = "",
   style = {},

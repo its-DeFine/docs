@@ -55,7 +55,7 @@ export const InteractiveCard = ({
           />
         ) : null}
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-          <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--text)" }}>
+          <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--lp-color-text-secondary)" }}>
             {title}
           </div>
           {subtitle ? <Subtitle text={subtitle} style={{ color: "var(--lp-color-text-muted)" }} /> : null}
@@ -69,7 +69,7 @@ export const InteractiveCard = ({
             </div>
           ) : null}
           {description ? (
-            <p style={{ margin: 0, color: "var(--text)" }}>{description}</p>
+            <p style={{ margin: 0, color: "var(--lp-color-text-secondary)" }}>{description}</p>
           ) : null}
           {safeProductTags.length > 0 ? (
             <div style={{ fontSize: "0.8rem", color: "var(--lp-color-text-muted)" }}>
@@ -374,14 +374,14 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
       flexDirection: "row",
     };
     const subtitleStyle = {
-      color: "var(--hero-text)",
+      color: "var(--lp-color-text-primary)",
       width: "100%",
       fontStyle: "normal",
       fontWeight: "bold",
       fontSize: "1rem",
     };
     const scrollBoxStyle = {
-      color: "var(--text)",
+      color: "var(--lp-color-text-secondary)",
       fontStyle: "italic",
     };
     const linkIconContainerStyle = {
@@ -422,7 +422,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
     };
     const productTagStyle = {
       borderBottom: "none",
-      color: "var(--accent)",
+      color: "var(--lp-color-accent)",
       fontWeight: "bold",
       fontSize: "11px",
       marginLeft: "0.25rem",
@@ -518,7 +518,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
                   icon={linkIcons[key] || "link"}
                   iconType="solid"
                   size={16}
-                  color="var(--text)"
+                  color="var(--lp-color-text-secondary)"
                 />
               </Tooltip>
             </a>
@@ -542,7 +542,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
               icon="arrow-up-right"
               iconType="solid"
               size={10}
-              color="var(--text)"
+              color="var(--lp-color-text-secondary)"
             />
           </a>
         ))}
@@ -588,20 +588,20 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
     flex: "1 1 200px",
     padding: "0.5rem 0.75rem",
     borderRadius: "6px",
-    border: "1px solid var(--border)",
-    background: "var(--background)",
-    color: "var(--text)",
+    border: "1px solid var(--lp-color-border-default)",
+    background: "var(--lp-color-bg-page)",
+    color: "var(--lp-color-text-secondary)",
     fontSize: "0.875rem",
-    outline: "none",
+    outline: "revert",
   };
   const selectStyle = {
     padding: "0.5rem 0.75rem",
     borderRadius: "6px",
-    border: "1px solid var(--border)",
-    background: "var(--background)",
-    color: "var(--text)",
+    border: "1px solid var(--lp-color-border-default)",
+    background: "var(--lp-color-bg-page)",
+    color: "var(--lp-color-text-secondary)",
     fontSize: "0.875rem",
-    outline: "none",
+    outline: "revert",
     cursor: "pointer",
   };
   const paginationStyle = {
@@ -614,9 +614,9 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
   const pageButtonStyle = (disabled) => ({
     padding: "0.4rem 1rem",
     borderRadius: "6px",
-    border: "1px solid var(--border)",
-    background: disabled ? "transparent" : "var(--background)",
-    color: disabled ? "var(--border)" : "var(--text)",
+    border: "1px solid var(--lp-color-border-default)",
+    background: disabled ? "transparent" : "var(--lp-color-bg-page)",
+    color: disabled ? "var(--lp-color-border-default)" : "var(--lp-color-text-secondary)",
     cursor: disabled ? "default" : "pointer",
     fontSize: "0.875rem",
     opacity: disabled ? 0.5 : 1,
@@ -663,7 +663,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
           style={{
             textAlign: "center",
             padding: "2rem",
-            color: "var(--text)",
+            color: "var(--lp-color-text-secondary)",
             opacity: 0.6,
           }}
         >
@@ -685,7 +685,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
           >
             ← Prev
           </button>
-          <span style={{ fontSize: "0.875rem", color: "var(--text)" }}>
+          <span style={{ fontSize: "0.875rem", color: "var(--lp-color-text-secondary)" }}>
             Page {safePage} of {totalPages}
           </span>
           <button

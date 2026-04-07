@@ -26,7 +26,7 @@
  * @param {string|React.ReactNode} icon - Font Awesome icon name (string) or React component.
  * @param {React.ReactNode} title - Title text.
  * @param {React.ReactNode} [description] - Optional subtitle shown below the title in italic.
- * @param {string} [descriptionColor="var(--text)"] - Description text colour.
+ * @param {string} [descriptionColor="var(--lp-color-text-secondary)"] - Description text colour.
  * @param {string} [descriptionSize="0.85em"] - Description font size.
  * @param {object} [style={}] - Inline style overrides on the wrapper.
  * @param {string} [className=""] - CSS class name.
@@ -34,7 +34,7 @@
  * @example
  * <AccordionTitle icon="gear" title="Core" description="Staking, payments, and service discovery" />
  */
-export const AccordionTitle = ({ icon, title, description, descriptionColor = "var(--text)", descriptionSize = "0.85em", style = {}, className = "", ...rest }) => (
+export const AccordionTitle = ({ icon, title, description, descriptionColor = "var(--lp-color-text-secondary)", descriptionSize = "0.85em", style = {}, className = "", ...rest }) => (
   <span className={className} style={{ display: "block", ...style }} {...rest}>
     <CustomCardTitle variant="accordion" icon={icon} title={title} />
     {description && (
@@ -47,7 +47,7 @@ export const AccordionTitle = ({ icon, title, description, descriptionColor = "v
 
 export const CustomCardTitle = ({ icon, title, variant = "card", iconSize, style = {}, className = "", ...rest }) => {
   const variants = {
-    card: { display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: 'var(--hero-text)', fontSize: '1rem', fontWeight: 600 },
+    card: { display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: 'var(--lp-color-text-primary)', fontSize: '1rem', fontWeight: 600 },
     accordion: { display: 'inline-flex', alignItems: 'center', gap: '0.5rem' },
     tab: { display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.875rem' },
   }
@@ -57,12 +57,12 @@ export const CustomCardTitle = ({ icon, title, variant = "card", iconSize, style
 
   return variant === 'card' ? (
     <div className={className} style={{ ...baseStyle, ...style }} {...rest}>
-      {typeof icon === 'string' ? <Icon icon={icon} size={size} color="var(--accent)" /> : icon}
+      {typeof icon === 'string' ? <Icon icon={icon} size={size} color="var(--lp-color-accent)" /> : icon}
       {title}
     </div>
   ) : (
     <span className={className} style={{ ...baseStyle, ...style }} {...rest}>
-      {typeof icon === 'string' ? <Icon icon={icon} size={size} color="var(--accent)" /> : icon}
+      {typeof icon === 'string' ? <Icon icon={icon} size={size} color="var(--lp-color-accent)" /> : icon}
       {title}
     </span>
   )

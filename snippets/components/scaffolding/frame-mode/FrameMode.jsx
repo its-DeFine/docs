@@ -62,7 +62,7 @@ const PageHeader = ({
           lineHeight: "1.2",
           margin: "2rem 0 1rem 0",
           opacity: 1,
-          color: titleColor || "var(--hero-text)",
+          color: titleColor || "var(--lp-color-text-primary)",
         }}
       >
         {title}
@@ -73,7 +73,7 @@ const PageHeader = ({
             fontSize: "1.5rem",
             fontWeight: "500",
             opacity: 1,
-          color: subtitleColor || "var(--accent)",
+          color: subtitleColor || "var(--lp-color-accent)",
           }}
         >
           {subtitle}
@@ -128,7 +128,7 @@ const H1 = ({
   style = {},
   ...rest
 }) => {
-  const resolvedIconColor = iconColor || "var(--accent)";
+  const resolvedIconColor = iconColor || "var(--lp-color-accent)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -148,7 +148,7 @@ const H1 = ({
     fontSize: "2.5rem",
     fontWeight: "bold",
     lineHeight: "1.2",
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     opacity: 1,
   };
 
@@ -187,7 +187,7 @@ const H2 = ({
   style = {},
   ...rest
 }) => {
-  const resolvedIconColor = iconColor || "var(--accent)";
+  const resolvedIconColor = iconColor || "var(--lp-color-accent)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -207,7 +207,7 @@ const H2 = ({
     margin: 0,
     fontSize: "1.875rem",
     fontWeight: "bold",
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     opacity: 1,
   };
 
@@ -246,7 +246,7 @@ const H3 = ({
   style = {},
   ...rest
 }) => {
-  const resolvedIconColor = iconColor || "var(--accent)";
+  const resolvedIconColor = iconColor || "var(--lp-color-accent)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -266,7 +266,7 @@ const H3 = ({
     margin: 0,
     fontSize: "1.5rem",
     fontWeight: "bold",
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     opacity: 1,
   };
 
@@ -305,7 +305,7 @@ const H4 = ({
   style = {},
   ...rest
 }) => {
-  const resolvedIconColor = iconColor || "var(--accent)";
+  const resolvedIconColor = iconColor || "var(--lp-color-accent)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -325,7 +325,7 @@ const H4 = ({
     margin: 0,
     fontSize: "1.25rem",
     fontWeight: "bold",
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     opacity: 1,
   };
 
@@ -364,7 +364,7 @@ const H5 = ({
   style = {},
   ...rest
 }) => {
-  const resolvedIconColor = iconColor || "var(--accent)";
+  const resolvedIconColor = iconColor || "var(--lp-color-accent)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -384,7 +384,7 @@ const H5 = ({
     margin: 0,
     fontSize: "1.125rem",
     fontWeight: "bold",
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     opacity: 1,
   };
 
@@ -423,7 +423,7 @@ const H6 = ({
   style = {},
   ...rest
 }) => {
-  const resolvedIconColor = iconColor || "var(--accent)";
+  const resolvedIconColor = iconColor || "var(--lp-color-accent)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -443,7 +443,7 @@ const H6 = ({
     margin: 0,
     fontSize: "1rem",
     fontWeight: "bold",
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     opacity: 1,
   };
 
@@ -499,7 +499,7 @@ const P = ({
 
   const paragraphStyle = {
     margin: 0,
-    color: "var(--text)",
+    color: "var(--lp-color-text-secondary)",
     opacity: 1,
   };
 
@@ -530,7 +530,7 @@ const Divider = ({ color, margin = "1.5rem 0", opacity = 0.2, className = "", st
       className={className}
       style={{
         border: "none",
-        borderTop: `1px solid ${color || "var(--border)"}`,
+        borderTop: `1px solid ${color || "var(--lp-color-border-default)"}`,
         margin: margin,
         opacity: opacity,
         ...style,

@@ -54,7 +54,7 @@ export const SolidityEmbed = ({
   const styles = {
     titleBar: {
       padding: '0.5rem 0',
-      borderBottom: '1px solid var(--border)',
+      borderBottom: '1px solid var(--lp-color-border-default)',
       fontSize: '0.8rem',
       color: 'var(--text-secondary)',
       fontFamily: 'monospace',
@@ -204,7 +204,7 @@ export const TwitterTimeline = ({ className = '', style = {}, ...rest }) => {
     <div
       className={className}
       style={{
-        border: '3px solid var(--accent)',
+        border: '3px solid var(--lp-color-accent)',
         borderRadius: '12px',
         overflow: 'hidden',
         height: '600px',

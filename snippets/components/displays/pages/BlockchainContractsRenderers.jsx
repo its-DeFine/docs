@@ -9,7 +9,7 @@ export const RenderFactLine = function RenderFactLine(contract) {
   return (
     <div style={{ margin: '0.2rem 0 0.8rem 0' }}>
       {text ? (
-        <span style={{ fontStyle: 'italic', color: 'var(--text)' }}>{text}</span>
+        <span style={{ fontStyle: 'italic', color: 'var(--lp-color-text-secondary)' }}>{text}</span>
       ) : null}
       {contract.unsupportedNote ? (
         <div style={{ marginTop: text ? '0.45rem' : 0, color: 'var(--text-secondary)' }}>
@@ -24,7 +24,7 @@ export const RenderAddressLine = function RenderAddressLine(label, contract, add
   if (!contract?.[addressKey]) return null
   return (
     <div style={{ marginBottom: '0.8rem' }}>
-      <div style={{ fontWeight: 700, color: 'var(--hero-text)', marginBottom: '0.35rem' }}>
+      <div style={{ fontWeight: 700, color: 'var(--lp-color-text-primary)', marginBottom: '0.35rem' }}>
         {label}:
       </div>
       <AddressLinks
@@ -62,9 +62,9 @@ export const RenderGeneratedFunctionFields = function RenderGeneratedFunctionFie
         style={{
           margin: '0.6rem 0 0.8rem',
           padding: '0.65rem 0.8rem',
-          border: '1px solid var(--border)',
+          border: '1px solid var(--lp-color-border-default)',
           borderRadius: '0.75rem',
-          background: 'var(--card-background)',
+          background: 'var(--lp-color-bg-card)',
           color: 'var(--text-secondary)',
         }}
       >
@@ -94,9 +94,9 @@ export const RenderContractEmbed = function RenderContractEmbed(contract) {
         style={{
           margin: '0.6rem 0 0.8rem',
           padding: '0.65rem 0.8rem',
-          border: '1px solid var(--border)',
+          border: '1px solid var(--lp-color-border-default)',
           borderRadius: '0.75rem',
-          background: 'var(--card-background)',
+          background: 'var(--lp-color-bg-card)',
           color: 'var(--text-secondary)',
         }}
       >

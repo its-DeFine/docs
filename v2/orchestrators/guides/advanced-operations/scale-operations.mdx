@@ -56,7 +56,7 @@ go-livepeer supports running multiple orchestrator nodes behind a single on-chai
 The key insight: **each orchestrator node has its own keypair and accepts payments on behalf of the same on-chain registered Ethereum address.** Node separation allows you to assign specific functions to specific nodes:
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#18794E', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3CB540', 'lineColor': '#3CB540', 'mainBkg': '#18794E', 'nodeBorder': '#3CB540', 'clusterBkg': 'transparent', 'clusterBorder': '#3CB540', 'titleColor': '#3CB540', 'edgeLabelBackground': 'transparent', 'textColor': '#3CB540', 'nodeTextColor': '#fff'}}}%%
 graph TD
     GW["Gateways"] --> LB["Load Balancer\n(optional)"]
     LB --> O1["Orchestrator Node A\n(workload processing)"]

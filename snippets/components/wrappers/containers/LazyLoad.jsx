@@ -53,7 +53,7 @@ export const LazyLoad = ({ children, height = "200px", offset = "200px", fadeDur
         alignItems: "center",
         justifyContent: "center",
         minHeight: height,
-        color: "var(--text)",
+        color: "var(--lp-color-text-secondary)",
         opacity: 0.4,
         fontSize: "0.85rem",
         fontFamily: "inherit",

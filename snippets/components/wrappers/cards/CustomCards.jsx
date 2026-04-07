@@ -8,7 +8,7 @@
  * @param {string} icon - Icon configuration used by the component.
  * @param {React.ReactNode} title - Title text rendered by the component.
  * @param {object} style - Style used by the component.
- * @param {string} [background='var(--card-background)'] - Background used by the component.
+ * @param {string} [background='var(--lp-color-bg-card)'] - Background used by the component.
  * @param {React.ReactNode} children - Content rendered inside the component.
  * @param {string} [className=""] - CSS class name.
  */
@@ -16,7 +16,7 @@ export const DisplayCard = ({
   icon,
   title,
   style,
-  background = 'var(--card-background)',
+  background = 'var(--lp-color-bg-card)',
   children,
   className = "",
   ...rest
@@ -30,11 +30,11 @@ export const DisplayCard = ({
     display: 'flex',
     flexDirection: 'column',
     height: 'calc(100% - 1rem)',
-    border: '1px solid var(--accent)',
+    border: '1px solid var(--lp-color-accent)',
     borderRadius: '8px',
     padding: '1rem',
     marginBottom: '1rem',
-    backgroundColor: 'var(--background)',
+    backgroundColor: 'var(--lp-color-bg-page)',
     gap: '1rem',
   }
   const titleStyle = {
@@ -42,7 +42,7 @@ export const DisplayCard = ({
     alignItems: 'center',
     gap: '0.5rem',
     marginBottom: '0',
-    color: 'var(--hero-text)',
+    color: 'var(--lp-color-text-primary)',
     fontSize: '1rem',
     fontWeight: 600,
     ...style,
@@ -59,7 +59,7 @@ export const DisplayCard = ({
   return (
     <div className={className} style={cardStyle} {...rest}>
       <div style={titleStyle}>
-        <Icon icon={icon} size={20} color="var(--accent)" />
+        <Icon icon={icon} size={20} color="var(--lp-color-accent)" />
         {title}
       </div>
       <div style={bodyStyle}>{children}</div>

@@ -30,7 +30,7 @@ const CustomCallout = ({
   ...rest
 }) => {
   // Use theme accent if no color specified
-  const resolvedColor = color || 'var(--accent)'
+  const resolvedColor = color || 'var(--lp-color-accent)'
   const resolvedTextColor = textColor || resolvedColor
 
   // Convert hex to rgba for proper opacity
@@ -99,7 +99,7 @@ const BlinkingIcon = ({
   style = {},
   ...rest
 }) => {
-  const resolvedColor = color || 'var(--accent)'
+  const resolvedColor = color || 'var(--lp-color-accent)'
   return (
     <span
       className={className}
@@ -164,7 +164,7 @@ const DoubleIconLink = ({
   iconLeft = 'github',
   iconLeftColor,
   iconRight = 'arrow-up-right',
-  iconRightColor = 'var(--accent)',
+  iconRightColor = 'var(--lp-color-accent)',
   className = '',
   style = {},
   ...rest
@@ -308,7 +308,7 @@ const TipWithArrow = ({
   ...rest
 }) => {
   // Use theme accent if no color specified
-  const resolvedColor = color || 'var(--accent)'
+  const resolvedColor = color || 'var(--lp-color-accent)'
 
   // Convert hex to rgba for proper opacity
   const hexToRgba = (hex, alpha) => {
@@ -407,7 +407,7 @@ const LinkArrow = ({
         <a href={href} target="_blank" rel="noopener noreferrer">
           {label}
         </a>
-        <Icon icon="arrow-up-right" size={14} color="var(--accent)" />
+        <Icon icon="arrow-up-right" size={14} color="var(--lp-color-accent)" />
       </span>
       {description && description}
       {description && <div style={{ height: '0.75rem' }} />}
@@ -481,8 +481,8 @@ const AddressLinks = ({
     <span className={className} style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', ...style }} {...rest}>
       <CopyText text={address} />
       <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.2rem' }}>
-        {blockchainHref && <LinkIcon color="var(--text)" href={blockchainHref} />}
-        {githubHref && <LinkIcon icon="github" size={14} color="var(--text)" href={githubHref} />}
+        {blockchainHref && <LinkIcon color="var(--lp-color-text-secondary)" href={blockchainHref} />}
+        {githubHref && <LinkIcon icon="github" size={14} color="var(--lp-color-text-secondary)" href={githubHref} />}
       </span>
     </span>
   )

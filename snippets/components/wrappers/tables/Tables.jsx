@@ -13,13 +13,13 @@
 export const StyledTable = ({ children, variant = "default", style = {}, className = "", ...rest }) => {
   const wrapperVariants = {
     default: {
-      border: "1px solid var(--border)",
-      backgroundColor: "var(--card-background)",
+      border: "1px solid var(--lp-color-border-default)",
+      backgroundColor: "var(--lp-color-bg-card)",
       overflow: "hidden",
     },
     bordered: {
-      border: "2px solid var(--accent)",
-      backgroundColor: "var(--background)",
+      border: "2px solid var(--lp-color-accent)",
+      backgroundColor: "var(--lp-color-bg-page)",
       overflow: "hidden",
     },
     minimal: {
@@ -87,7 +87,7 @@ export const TableRow = ({
       {hover && (
         <style>{`
           #${rowId}:hover {
-            background-color: var(--card-background);
+            background-color: var(--lp-color-bg-card);
           }
         `}</style>
       )}
@@ -96,8 +96,8 @@ export const TableRow = ({
         className={className}
         style={{
           ...(header && {
-            backgroundColor: "var(--accent-dark)",
-            color: "var(--button-text)",
+            backgroundColor: "var(--lp-color-accent-strong)",
+            color: "var(--lp-color-on-accent)",
             fontWeight: "bold",
           }),
           ...style,
@@ -139,7 +139,7 @@ export const TableCell = ({
       style={{
         padding: "0.75rem 1rem",
         textAlign: align,
-        border: header ? "none" : "1px solid var(--border)",
+        border: header ? "none" : "1px solid var(--lp-color-border-default)",
         ...style,
       }}
       {...rest}

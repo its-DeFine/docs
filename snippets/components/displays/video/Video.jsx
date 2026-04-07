@@ -209,7 +209,7 @@ export const Video = ({
                   <Icon icon="microphone" size={16} />
                   <span
                     style={{
-                      borderBottom: "2px solid var(--accent)",
+                      borderBottom: "2px solid var(--lp-color-accent)",
                       marginLeft: "0.2rem",
                     }}
                   >
@@ -219,7 +219,7 @@ export const Video = ({
                     <Icon
                       icon="arrow-up-right"
                       size={12}
-                      color="var(--accent)"
+                      color="var(--lp-color-accent)"
                     />
                   </span>
                 </a>
@@ -262,8 +262,8 @@ export const Video = ({
             alignItems: "center",
             justifyContent: "center",
             padding: "6px",
-            background: linkHovered ? "var(--border)" : "transparent",
-            border: `1.5px solid ${linkHovered ? "var(--accent)" : "var(--hero-text)"}`,
+            background: linkHovered ? "var(--lp-color-border-default)" : "transparent",
+            border: `1.5px solid ${linkHovered ? "var(--lp-color-accent)" : "var(--lp-color-text-primary)"}`,
             borderRadius: "6px",
             textDecoration: "none",
             lineHeight: 0,
@@ -271,7 +271,7 @@ export const Video = ({
             transition: "all 0.15s ease",
           }}
         >
-          <Icon icon="arrow-up-right" size={14} color={linkHovered ? "var(--accent)" : "var(--hero-text)"} />
+          <Icon icon="arrow-up-right" size={14} color={linkHovered ? "var(--lp-color-accent)" : "var(--lp-color-text-primary)"} />
         </a>
       )}
       <Frame className={className} style={style} {...(captionContent ? { caption: captionContent } : {})} {...rest}>

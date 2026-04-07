@@ -63,7 +63,7 @@ export const BadgeWrapper = ({
  * @example
  * <IconBadgeWrapper items={daydreamInfraTags} />
  * @example
- * <IconBadgeWrapper items={daydreamInfraTags} iconColor="var(--accent)" />
+ * <IconBadgeWrapper items={daydreamInfraTags} iconColor="var(--lp-color-accent)" />
  */
 export const IconBadgeWrapper = ({
   items = [],
@@ -87,7 +87,7 @@ export const IconBadgeWrapper = ({
     alignItems: 'center',
     gap: '0.25rem',
     fontSize: `${size}px`,
-    color: 'var(--hero-text)',
+    color: 'var(--lp-color-text-primary)',
   }
 
   return (
