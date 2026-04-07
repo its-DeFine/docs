@@ -589,3 +589,36 @@ img[alt="US"][src*="flags/US.svg"]::before {
   top: 0.75rem;
   right: 0.75rem;
 } */
+
+/* ============================================
+   ACCESSIBILITY — Focus indicators
+   ============================================ */
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px;
+}
+
+/* ============================================
+   ACCESSIBILITY — Responsive breakpoints
+   ============================================ */
+
+@media (max-width: 767px) {
+  .frame-mode-hero-full {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  #content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
