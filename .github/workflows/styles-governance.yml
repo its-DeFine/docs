@@ -1,3 +1,6 @@
+# type: remediator
+# concern: brand
+# pipeline: P6
 name: Styles Governance
 on:
   schedule:
