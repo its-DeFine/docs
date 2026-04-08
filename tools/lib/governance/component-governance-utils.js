@@ -904,9 +904,15 @@ function formatJsDocTagLine(tag, value) {
 }
 
 function updateJSDocTags(blockText, replacements = {}) {
-  const orderedTags = GOVERNANCE_FIELDS.filter((field) =>
+  // Accept both migrated (type/subniche) and legacy (category/subcategory) field names
+  const ALL_KNOWN_FIELDS = [...GOVERNANCE_FIELDS, ...OPTIONAL_GOVERNANCE_FIELDS, 'category', 'subcategory'];
+  const orderedTags = ALL_KNOWN_FIELDS.filter((field) =>
     Object.prototype.hasOwnProperty.call(replacements, field)
   );
+  // Also include any replacement key that exists as a @tag in the block but isn't in the known list
+  Object.keys(replacements).forEach((key) => {
+    if (!orderedTags.includes(key)) orderedTags.push(key);
+  });
   if (!orderedTags.length) return String(blockText || '');
 
   const lineBreak = String(blockText || '').includes('\r\n') ? '\r\n' : '\n';

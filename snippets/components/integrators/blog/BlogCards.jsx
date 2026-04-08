@@ -64,6 +64,9 @@ function sanitiseHTML(html) {
  * @description Blog post card with scrollable content, metadata, and CTA.
  * @dataSource automation/blog
  * @aiDiscoverability none
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/solutions/trending.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} title - title prop.
  * @param {any} content - content prop.
  * @param {any} href - href prop.
@@ -262,6 +265,9 @@ export const BlogCard = ({
  * @description Grid layout rendering BlogCards from an items array.
  * @dataSource automation/blog
  * @aiDiscoverability none
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/solutions/trending.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {Array} [items=[]] - items prop.
  * @param {any} limit - limit prop.
  * @param {string} [className=''] - Optional CSS class override.
@@ -301,6 +307,9 @@ export const CardBlogDataLayout = ({
  * @description Multi-column BlogCard layout using Mintlify Columns.
  * @dataSource automation/blog
  * @aiDiscoverability none
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/solutions/trending.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {Array} [items=[]] - items prop.
  * @param {number} [cols=2] - cols prop.
  * @param {any} limit - limit prop.
@@ -342,6 +351,9 @@ export const ColumnsBlogCardLayout = ({
  * @description Blog card for RSS feed data. Matches BlogCard visual quality with icon title, metadata row, scrollable plain text excerpt, and scroll hint. Use for non-Ghost blog sources (Daydream, Streamplace, etc.).
  * @dataSource automation/rss
  * @aiDiscoverability none
+ * @usedIn v2/solutions/daydream/community.mdx, v2/solutions/livepeer-studio/community.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  */
 export const RssBlogCard = ({
   title,
@@ -474,6 +486,9 @@ export const RssBlogCard = ({
  * @description Multi-column RssBlogCard layout. Use for RSS blog data (non-Ghost sources).
  * @dataSource automation/rss
  * @aiDiscoverability none
+ * @usedIn v2/solutions/daydream/community.mdx, v2/solutions/livepeer-studio/community.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  */
 export const RssBlogCardLayout = ({
   items = [],
@@ -510,6 +525,8 @@ export const RssBlogCardLayout = ({
  * @description Single-column BlogCard stack.
  * @dataSource automation/blog
  * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {Array} [items=[]] - items prop.
  * @param {any} limit - limit prop.
  * @param {string} [className=''] - Optional CSS class override.
@@ -540,6 +557,9 @@ export const BlogDataLayout = ({
  * @description Post card with gradient header, scrollable content, and metadata.
  * @dataSource automation/blog
  * @aiDiscoverability none
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/solutions/trending.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} title - title prop.
  * @param {any} content - content prop.
  * @param {any} href - href prop.
@@ -700,6 +720,9 @@ export const PostCard = ({
  * @description Multi-column PostCard layout.
  * @dataSource automation/blog
  * @aiDiscoverability none
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/solutions/trending.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {number} [cols=2] - cols prop.
  * @param {Array} [items=[]] - items prop.
  * @param {any} limit - limit prop.
@@ -735,6 +758,8 @@ export const CardColumnsPostLayout = ({
  * @description PostCards rendered inside Card wrappers.
  * @dataSource automation/blog
  * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {Array} [items=[]] - items prop.
  * @param {any} limit - limit prop.
  * @param {string} [className=''] - Optional CSS class override.
@@ -769,6 +794,9 @@ export const CardInCardLayout = ({
  * @description Latest forum topics with banner image and topic cards.
  * @dataSource automation/forum
  * @aiDiscoverability none
+ * @usedIn v2/community/livepeer-community/livepeer-latest-topics.mdx, v2/community/livepeer-community/trending-topics.mdx, v2/home/solutions/trending.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {Array} [items=[]] - items prop.
  * @param {any} limit - limit prop.
  * @param {string} [className=''] - Optional CSS class override.
@@ -814,6 +842,9 @@ export const ForumLatestLayout = ({
  * @description Discord announcement feed with parsed markdown content. Sanitised HTML.
  * @dataSource automation/discord
  * @aiDiscoverability none
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/solutions/trending.mdx, v2/solutions/daydream/community.mdx, v2/solutions/embody/community.mdx, v2/solutions/frameworks/community.mdx, v2/solutions/livepeer-studio/community.mdx, v2/solutions/streamplace/community.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {Array} [items=[]] - items prop.
  * @param {any} limit - limit prop.
  * @param {string} [className=''] - Optional CSS class override.
@@ -969,6 +1000,9 @@ export const DiscordAnnouncements = ({
  * @description Upcoming/past event cards from Luma calendar data.
  * @dataSource Luma API
  * @aiDiscoverability none
+ * @usedIn v2/community/livepeer-connect/events-and-community-streams.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} data - data prop.
  * @param {any} limit - limit prop.
  * @param {string} [type="upcoming"] - type prop.

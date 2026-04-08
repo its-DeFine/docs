@@ -5,6 +5,9 @@
  * @status stable
  * @description Bordered container with configurable radius and background.
   * @aiDiscoverability none
+ * @usedIn v2/about/protocol/blockchain-contracts.mdx, v2/about/protocol/core-mechanisms.mdx, v2/community/livepeer-community/community-guidelines.mdx, v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx, v2/delegators/delegation/delegate-your-lpt.mdx, v2/developers/build/workload-fit.mdx, v2/developers/guides/opportunities/bug-bounties.mdx, v2/developers/guides/opportunities/grants-and-programmes.mdx, v2/developers/guides/opportunities/oss-contributions.mdx, v2/developers/guides/opportunities/overview.mdx, v2/developers/guides/opportunities/rfps-and-proposals.mdx, v2/gateways/guides/advanced-operations/gateway-discoverability.mdx, v2/gateways/guides/advanced-operations/gateway-middleware.mdx, v2/gateways/guides/advanced-operations/orchestrator-selection.mdx, v2/gateways/guides/deployment-details/setup-options.mdx, v2/gateways/guides/deployment-details/setup-requirements.mdx, v2/gateways/guides/monitoring-and-tooling/health-checks.mdx, v2/gateways/guides/monitoring-and-tooling/monitoring-setup.mdx, v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards.mdx, v2/gateways/guides/node-pipelines/pipeline-configuration.mdx, v2/gateways/guides/operator-considerations/business-case.mdx, v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx, v2/gateways/guides/payments-and-pricing/payment-guide.mdx, v2/gateways/guides/payments-and-pricing/pricing-strategy.mdx, v2/gateways/guides/roadmap-and-funding/naap-multi-tenancy.mdx, v2/gateways/guides/roadmap-and-funding/operator-support.mdx, v2/gateways/guides/roadmap-and-funding/spe-grant-model.mdx, v2/gateways/navigator.mdx, v2/gateways/setup/configure.mdx, v2/gateways/setup/connect.mdx, v2/gateways/setup/install.mdx, v2/gateways/setup/monitor.mdx, v2/gateways/setup/monitor/monitoring-setup.mdx, v2/gateways/setup/prepare.mdx, v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx, v2/gateways/setup/requirements/setup.mdx, v2/gateways/setup/verify.mdx, v2/home/about-livepeer/ecosystem.mdx, v2/home/about-livepeer/roadmap.mdx, v2/orchestrators/concepts/architecture.mdx, v2/orchestrators/concepts/capabilities.mdx, v2/orchestrators/concepts/incentive-model.mdx, v2/orchestrators/guides/advanced-operations/gateway-orchestrator-interface.mdx, v2/orchestrators/guides/advanced-operations/pool-operators.mdx, v2/orchestrators/guides/ai-and-job-workloads/ai-inference-operations.mdx, v2/orchestrators/guides/ai-and-job-workloads/audio-and-vision-pipelines.mdx, v2/orchestrators/guides/config-and-optimisation/ai-model-management.mdx, v2/orchestrators/guides/config-and-optimisation/pricing-strategy.mdx, v2/orchestrators/guides/deployment-details/dual-mode-configuration.mdx, v2/orchestrators/guides/monitoring-and-tooling/troubleshooting.mdx, v2/orchestrators/guides/operator-considerations/business-case.mdx, v2/orchestrators/guides/operator-considerations/operator-impact.mdx, v2/orchestrators/guides/operator-considerations/operator-rationale.mdx, v2/orchestrators/guides/tutorials/add-ai-to-video-node.mdx, v2/orchestrators/navigator.mdx, v2/solutions/daydream/changelog.mdx, v2/solutions/daydream/community.mdx, v2/solutions/daydream/overview.mdx, v2/solutions/embody/changelog.mdx, v2/solutions/embody/community.mdx, v2/solutions/embody/overview.mdx, v2/solutions/frameworks/changelog.mdx, v2/solutions/frameworks/community.mdx, v2/solutions/frameworks/overview.mdx, v2/solutions/livepeer-studio/changelog.mdx, v2/solutions/livepeer-studio/community.mdx, v2/solutions/livepeer-studio/overview.mdx, v2/solutions/solution-providers.mdx, v2/solutions/streamplace/changelog.mdx, v2/solutions/streamplace/community.mdx, v2/solutions/streamplace/overview.mdx
+ * @breakingChangeRisk high
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} children - children prop.
  * @param {string} [variant="default"] - variant prop.
  * @param {string} [padding="var(--lp-spacing-4)"] - padding prop.
@@ -70,6 +73,9 @@ export const BorderedBox = ({
  * @status stable
  * @description Horizontally centred container with configurable max-width.
   * @aiDiscoverability none
+ * @usedIn v2/about/protocol/blockchain-contracts.mdx, v2/developers/build/sdk-gateway.mdx, v2/developers/concepts/video-on-livepeer.mdx, v2/developers/get-started/contributor-quickstart.mdx, v2/developers/get-started/setup-paths.mdx, v2/developers/get-started/video-quickstart.mdx, v2/developers/guides/ai/authentication.mdx, v2/developers/guides/ai/production-checklist.mdx, v2/developers/guides/ai/troubleshooting.mdx, v2/developers/guides/tutorials/build-an-ai-agent-on-livepeer.mdx, v2/developers/guides/tutorials/ipfs-video-integration.mdx, v2/developers/guides/tutorials/token-gated-video.mdx, v2/developers/guides/video/access-control.mdx, v2/developers/guides/video/create-livestream.mdx, v2/developers/guides/video/monitor-stream-health.mdx, v2/developers/guides/video/playback.mdx, v2/developers/guides/video/upload-asset.mdx, v2/developers/guides/video/webhooks.mdx, v2/developers/navigator.mdx, v2/developers/resources/reference/apis.mdx, v2/developers/resources/reference/pricing-rate-limits.mdx, v2/developers/resources/reference/pytrickle.mdx, v2/developers/resources/reference/sdks.mdx, v2/gateways/concepts/business-model.mdx, v2/gateways/concepts/capabilities.mdx, v2/gateways/concepts/role.mdx, v2/gateways/guides/advanced-operations/scaling.mdx, v2/gateways/guides/deployment-details/setup-requirements.mdx, v2/gateways/guides/node-pipelines/pipeline-configuration.mdx, v2/gateways/guides/operator-considerations/business-case.mdx, v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx, v2/gateways/navigator.mdx, v2/gateways/setup/guide.mdx, v2/gateways/setup/publish/connect-with-offerings.mdx, v2/home/primer.mdx, v2/orchestrators/concepts/architecture.mdx, v2/orchestrators/concepts/capabilities.mdx, v2/orchestrators/concepts/incentive-model.mdx, v2/orchestrators/concepts/role.mdx, v2/orchestrators/guides/operator-considerations/business-case.mdx, v2/orchestrators/guides/operator-considerations/operator-impact.mdx, v2/orchestrators/guides/operator-considerations/operator-rationale.mdx, v2/resources/compendium/media-kit.mdx, v2/solutions/daydream/community.mdx, v2/solutions/daydream/overview.mdx, v2/solutions/embody/community.mdx, v2/solutions/embody/overview.mdx, v2/solutions/frameworks/community.mdx, v2/solutions/frameworks/overview.mdx, v2/solutions/livepeer-studio/community.mdx, v2/solutions/livepeer-studio/overview.mdx, v2/solutions/streamplace/community.mdx, v2/solutions/streamplace/overview.mdx
+ * @breakingChangeRisk high
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} children - children prop.
  * @param {string} [maxWidth="800px"] - max Width prop.
  * @param {string} [padding="0"] - padding prop.
@@ -149,6 +155,8 @@ export const CenteredContainer = ({
  * @status stable
  * @description Full-viewport-width container that breaks out of parent padding.
   * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} children - children prop.
  * @param {any} backgroundColor - background Color prop.
  * @param {object} [style={}] - style prop.
@@ -188,6 +196,9 @@ export const FullWidthContainer = ({
  * @status stable
  * @description Flexbox container with configurable direction, gap, and alignment.
  * @aiDiscoverability none
+ * @usedIn v2/about/protocol/core-mechanisms.mdx, v2/community/livepeer-community/community-guidelines.mdx, v2/developers/build/workload-fit.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/setup/guide.mdx, v2/gateways/setup/publish/connect-with-offerings.mdx, v2/home/about-livepeer/vision.mdx, v2/resources/compendium/media-kit.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} children - children prop.
  * @param {string} [direction="row"] - direction prop.
  * @param {string} [gap="var(--lp-spacing-4)"] - gap prop.
@@ -240,6 +251,8 @@ export const FlexContainer = ({
  * @status stable
  * @description CSS Grid container with configurable columns and gap.
  * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} children - children prop.
  * @param {any} columns - columns prop.
  * @param {string} [gap="var(--lp-spacing-4)"] - gap prop.
@@ -283,6 +296,8 @@ export const GridContainer = ({
  * @status stable
  * @description Wraps Mintlify callout types (Tip, Info, Warning, Note, Check) with a styled header and description.
  * @aiDiscoverability props-extracted
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} [type="tip"] - Mintlify callout type: "tip", "info", "warning", "note", "check"
  * @param {string} header - Bold header text displayed at the top of the callout
  * @param {React.ReactNode} children - Description content below the header

@@ -7,6 +7,9 @@
  * @description Sortable table of exchanges listing a token. Keyboard-accessible sort headers.
  * @dataSource CoinGecko API
  * @aiDiscoverability snapshot
+ * @usedIn v2/gateways/resources/compendium/arbitrum-exchanges.mdx, v2/gateways/resources/compendium/livepeer-exchanges.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-08
  * @param {string} [coinId="arbitrum"] - coin Id prop.
   * @param {string} [className=''] - Optional CSS class override.
   * @param {object} [style={}] - Optional inline style override.

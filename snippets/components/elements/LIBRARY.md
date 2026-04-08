@@ -1,289 +1,40 @@
 <!-- GENERATED FILE — DO NOT EDIT DIRECTLY -->
 <!-- Generator: operations/scripts/generators/components/library/generate-component-library.js -->
-<!-- Generated: 2026-04-08T11:04:58.585Z -->
+<!-- Generated: 2026-04-08T15:37:55.987Z -->
 <!-- Regenerate: node operations/scripts/generators/components/library/generate-component-library.js --category elements -->
 
 # Elements Component Library
 
 Smallest visual atoms — no children, no fetching, no arrangement.
 
-**Components:** 33 | **Stable:** 29 | **Experimental:** 0 | **Deprecated:** 4
+**Components:** 32 | **Stable:** 28 | **Experimental:** 0 | **Deprecated:** 4
 
 ---
 
-## other
+## a11y
 
-### 🟢 AccordionTitle
+### 🟢 FocusableScrollRegions
 
-> Accordion title with icon, name, and optional description subtitle. Wraps CustomCardTitle with an italic description line underneath.
+> Makes scroll regions keyboard-focusable by adding tabindex to matching selectors.
 
-**Import:** `import { AccordionTitle } from "/snippets/components/elements/text/Text.jsx";`
-**Status:** stable | **Imports:** 0
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `icon` | `string\|React.ReactNode` | — | Font Awesome icon name (string) or React component. |
-| `title` | `React.ReactNode` | — | Title text. |
-| `description` | `React.ReactNode` | — | Optional subtitle shown below the title in italic. |
-| `descriptionColor` | `string` | "var(--text)" | Description text colour. |
-| `descriptionSize` | `string` | "0.85em" | Description font size. |
-| `style` | `object` | {} | Inline style overrides on the wrapper. |
-| `className` | `string` | "" | CSS class name. |
-
-#### Usage
-
-```jsx
-<AccordionTitle icon="gear" title="Core" description="Staking, payments, and service discovery" />
-```
-
----
-
-### 🟢 AddressLinks
-
-> Copyable contract address with blockchain explorer and GitHub links.
-
-**Import:** `import { AddressLinks } from "/snippets/components/elements/links/Links.jsx";`
+**Import:** `import { FocusableScrollRegions } from "/snippets/components/elements/a11y/FocusableScrollRegion.jsx";`
 **Status:** stable | **Imports:** 1
 
 #### Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `address` | `string` | — | Contract address to display and copy. |
-| `blockchainHref` | `string` | — | Blockchain explorer URL (e.g. Arbiscan). |
-| `githubHref` | `string` | — | GitHub source URL. |
-| `style` | `object` | {} | Inline style overrides. |
-| `className` | `string` | "" | CSS class name. |
+| `selectors` | `any` | — | selectors prop. |
 
 #### Usage
 
 ```jsx
-<AddressLinks address={controller} blockchainHref={`${arb}${controller}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/Controller.sol" />
+<FocusableScrollRegions selectors="example" />
 ```
 
 ---
 
-### 🟢 ArbitrumIcon
-
-> Arbitrum logo rendered identically to Mintlify FA icons using mask-image technique.
-
-**Import:** `import { ArbitrumIcon } from "/snippets/components/elements/icons/Icons.jsx";`
-**Status:** stable | **Imports:** 1
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `number` | 16 | Icon size in pixels. |
-| `color` | `string` | — | Override colour. Accepts CSS values including var() custom properties. Default is theme-aware (dark in light mode, light in dark mode). |
-| `style` | `object` | {} | Inline style overrides. |
-| `className` | `string` | "" | CSS class name. |
-
-#### Usage
-
-```jsx
-<ArbitrumIcon size={16} />
-<ArbitrumIcon color="var(--accent)" />
-```
-
----
-
-### 🟢 ArbitrumSVG
-
-> Inline Arbitrum logo as SVG with currentColor fill.
-
-**Import:** `import { ArbitrumSVG } from "/snippets/components/elements/icons/Icons.jsx";`
-**Status:** stable | **Imports:** 1
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `size` | `number` | 24 | size prop. |
-| `props` | `any` | — | props prop. |
-
-#### Usage
-
-```jsx
-<ArbitrumSVG size={24} />
-```
-
----
-
-### 🟢 BadgeWrapper
-
-> Flex row wrapper for Badge elements. Pass a `badges` array of {color, label} objects for auto-rendering, or use children for manual JSX.
-
-**Import:** `import { BadgeWrapper } from "/snippets/components/wrappers/badges/Badges.jsx";`
-**Status:** stable | **Imports:** 7
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `badges` | `Array` | — | Array of {color, label} objects. Rendered automatically as Badge elements. |
-| `children` | `ReactNode` | — | Manual Badge JSX. Used if badges prop is omitted. |
-| `gap` | `string` | "0.4rem" | Gap between badges. |
-| `style` | `object` | {} | Inline style overrides (merged with defaults). |
-| `className` | `string` | "" | CSS class name. |
-
-#### Usage
-
-```jsx
-<BadgeWrapper badges={daydreamCategoryBadges} />
-<BadgeWrapper>
-  <Badge color="blue">video</Badge>
-  <Badge color="green">stable</Badge>
-</BadgeWrapper>
-```
-
----
-
-### 🟢 BlinkingIcon
-
-> Animated icon with pulsing opacity. Respects prefers-reduced-motion.
-
-**Import:** `import { BlinkingIcon } from "/snippets/components/elements/icons/Icons.jsx";`
-**Status:** stable | **Imports:** 10
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `icon` | `string` | "terminal" | Icon name to display |
-| `size` | `number` | 16 | Size of the icon in pixels |
-| `color` | `string` | — | Color of the icon (defaults to theme accent) |
-| `className` | `string` | '' | Optional CSS class override. |
-| `style` | `object` | {} | Optional inline style override. |
-
-#### Usage
-
-```jsx
-<BlinkingIcon color="var(--accent)" />
-```
-
----
-
-### 🟢 CardTitleTextWithArrow
-
-> Card title with trailing arrow icon for navigation indication.
-
-**Import:** `import { CardTitleTextWithArrow } from "/snippets/components/elements/text/Text.jsx";`
-**Status:** stable | **Imports:** 6
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `children` | `any` | — | children prop. |
-| `cardProps` | `any` | — | card Props prop. |
-| `className` | `string` | '' | Optional CSS class override. |
-| `style` | `object` | {} | Optional inline style override. |
-
-#### Usage
-
-```jsx
-<CardTitleTextWithArrow cardProps="example">Example content</CardTitleTextWithArrow>
-```
-
----
-
-### 🟠 ComingSoonCallout
-
-> Banner indicating a feature or page is coming soon. Deprecated wrapper around StatusCallout.
-
-**Import:** `import { ComingSoonCallout } from "/snippets/components/elements/callouts/Callouts.jsx";`
-**Status:** deprecated | **Imports:** 2
-
----
-
-### 🟢 CopyText
-
-> Text with a click-to-copy button that copies content to clipboard.
-
-**Import:** `import { CopyText } from "/snippets/components/elements/text/Text.jsx";`
-**Status:** stable | **Imports:** 1
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `text` | `any` | — | text prop. |
-| `label` | `any` | — | label prop. |
-| `className` | `string` | '' | Optional CSS class override. |
-| `style` | `object` | {} | Optional inline style override. |
-
-#### Usage
-
-```jsx
-<CopyText text="example" label="example" />
-```
-
----
-
-### 🟠 CustomCallout
-
-> Styled callout box. Deprecated alias for IconCallout.
-
-**Import:** `import { CustomCallout } from "/snippets/components/elements/callouts/Callouts.jsx";`
-**Status:** deprecated | **Imports:** 2
-
----
-
-### 🟢 CustomCardTitle
-
-> Title row with icon and text, using flexbox alignment. Accepts Font Awesome strings or React components as icon. Variant prop controls styling context.
-
-**Import:** `import { CustomCardTitle } from "/snippets/components/elements/text/Text.jsx";`
-**Status:** stable | **Imports:** 15
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `icon` | `string\|React.ReactNode` | — | Font Awesome icon name (string) or React component (e.g. ArbitrumIcon). |
-| `title` | `React.ReactNode` | — | Title text rendered by the component. |
-| `variant` | `string` | "card" | Styling context: "card" (default, opinionated), "accordion" (inline, inherits parent styles), "tab" (inline, smaller). |
-| `iconSize` | `number` | — | Icon size in pixels (applies to Font Awesome icons only). Defaults per variant: card=20, accordion=18, tab=14. |
-| `style` | `object` | {} | Inline style overrides. |
-| `className` | `string` | "" | CSS class name. |
-
-#### Usage
-
-```jsx
-<CustomCardTitle icon="sparkles" title="Example" />
-```
-
----
-
-### 🟢 DoubleIconLink
-
-> Inline link with icons on both sides.
-
-**Import:** `import { DoubleIconLink } from "/snippets/components/elements/links/Links.jsx";`
-**Status:** stable | **Imports:** 32
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `label` | `string` | "" | Link text/label |
-| `href` | `string` | "#" | Link URL |
-| `text` | `string` | "" | Optional text to display before the link |
-| `iconLeft` | `string` | "github" | Icon to display on the left |
-| `iconRight` | `string` | "arrow-up-right" | Icon to display on the right |
-| `className` | `string` | '' | Optional CSS class override. |
-| `style` | `object` | {} | Optional inline style override. |
-
-#### Usage
-
-```jsx
-<DoubleIconLink />
-```
-
----
+## buttons
 
 ### 🟢 DownloadButton
 
@@ -338,23 +89,327 @@ Smallest visual atoms — no children, no fetching, no arrangement.
 
 ---
 
-### 🟢 FocusableScrollRegions
+## callouts
 
-> Makes scroll regions keyboard-focusable by adding tabindex to matching selectors.
+### 🟠 ComingSoonCallout
 
-**Import:** `import { FocusableScrollRegions } from "/snippets/components/elements/a11y/FocusableScrollRegion.jsx";`
+> Banner indicating a feature or page is coming soon. Deprecated wrapper around StatusCallout.
+
+**Import:** `import { ComingSoonCallout } from "/snippets/components/elements/callouts/Callouts.jsx";`
+**Status:** deprecated | **Imports:** 2
+
+---
+
+### 🟠 CustomCallout
+
+> Styled callout box. Deprecated alias for IconCallout.
+
+**Import:** `import { CustomCallout } from "/snippets/components/elements/callouts/Callouts.jsx";`
+**Status:** deprecated | **Imports:** 2
+
+---
+
+### 🟢 IconCallout
+
+> Styled callout box with icon, custom colour, and optional corner arrow indicator.
+
+**Import:** `import { IconCallout } from "/snippets/components/elements/callouts/Callouts.jsx";`
+**Status:** stable | **Imports:** 0
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `children` | `React.ReactNode` | — | Content to display in the callout. |
+| `icon` | `string` | "lightbulb" | Icon name to display. |
+| `color` | `string` | — | Primary colour for icon, border, and background (defaults to theme accent). |
+| `iconSize` | `number` | 16 | Size of the main icon in pixels. |
+| `textSize` | `string` | "0.875rem" | Font size for the text content. |
+| `textColor` | `string` | — | Text colour (defaults to match icon colour). |
+| `showArrow` | `boolean` | false | Show an arrow icon in the top-right corner. |
+| `arrowIcon` | `string` | "arrow-up-right" | Arrow icon name (when showArrow is true). |
+| `arrowSize` | `number` | 16 | Size of the arrow icon in pixels. |
+| `className` | `string` | '' | Optional CSS class override. |
+| `style` | `object` | {} | Optional inline style override. |
+
+#### Usage
+
+```jsx
+<IconCallout color="#4a9eff">Tip content here</IconCallout>
+<IconCallout color="#4a9eff" showArrow>Linked tip content</IconCallout>
+```
+
+---
+
+### 🟠 PreviewCallout
+
+> Banner indicating content is in preview state. Deprecated wrapper around StatusCallout.
+
+**Import:** `import { PreviewCallout } from "/snippets/components/elements/callouts/Callouts.jsx";`
+**Status:** deprecated | **Imports:** 1
+
+---
+
+### 🟢 ReviewCallout
+
+> Banner indicating content is under technical review.
+
+**Import:** `import { ReviewCallout } from "/snippets/components/elements/callouts/Callouts.jsx";`
+**Status:** stable | **Imports:** 0
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `className` | `string` | "" | CSS class name. |
+| `style` | `object` | {} | Inline style overrides. |
+
+#### Usage
+
+```jsx
+<ReviewCallout />
+```
+
+---
+
+### 🟢 StatusCallout
+
+> Banner indicating page/feature status (coming soon or preview) with feedback links.
+
+**Import:** `import { StatusCallout } from "/snippets/components/elements/callouts/Callouts.jsx";`
+**Status:** stable | **Imports:** 0
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `string` | "coming-soon" | Status variant: "coming-soon" or "preview". |
+| `type` | `string` | "page" | Context type: "page" or "tab-group" (affects title text for coming-soon variant). |
+| `className` | `string` | "" | CSS class name. |
+| `style` | `object` | {} | Inline style overrides. |
+
+#### Usage
+
+```jsx
+<StatusCallout variant="coming-soon" />
+<StatusCallout variant="preview" />
+```
+
+---
+
+### 🟠 TipWithArrow
+
+> Callout with arrow. Deprecated wrapper around IconCallout.
+
+**Import:** `import { TipWithArrow } from "/snippets/components/elements/callouts/Callouts.jsx";`
+**Status:** deprecated | **Imports:** 2
+
+---
+
+## icons
+
+### 🟢 ArbitrumIcon
+
+> Arbitrum logo rendered identically to Mintlify FA icons using mask-image technique.
+
+**Import:** `import { ArbitrumIcon } from "/snippets/components/elements/icons/Icons.jsx";`
 **Status:** stable | **Imports:** 1
 
 #### Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `selectors` | `any` | — | selectors prop. |
+| `size` | `number` | 16 | Icon size in pixels. |
+| `color` | `string` | — | Override colour. Accepts CSS values including var() custom properties. Default is theme-aware (dark in light mode, light in dark mode). |
+| `style` | `object` | {} | Inline style overrides. |
+| `className` | `string` | "" | CSS class name. |
 
 #### Usage
 
 ```jsx
-<FocusableScrollRegions selectors="example" />
+<ArbitrumIcon size={16} />
+<ArbitrumIcon color="var(--lp-color-accent)" />
+```
+
+---
+
+### 🟢 ArbitrumSVG
+
+> Inline Arbitrum logo as SVG with currentColor fill.
+
+**Import:** `import { ArbitrumSVG } from "/snippets/components/elements/icons/Icons.jsx";`
+**Status:** stable | **Imports:** 1
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `number` | 24 | size prop. |
+| `props` | `any` | — | props prop. |
+
+#### Usage
+
+```jsx
+<ArbitrumSVG size={24} />
+```
+
+---
+
+### 🟢 BlinkingIcon
+
+> Animated icon with pulsing opacity. Respects prefers-reduced-motion.
+
+**Import:** `import { BlinkingIcon } from "/snippets/components/elements/icons/Icons.jsx";`
+**Status:** stable | **Imports:** 10
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `icon` | `string` | "terminal" | Icon name to display |
+| `size` | `number` | 16 | Size of the icon in pixels |
+| `color` | `string` | — | Color of the icon (defaults to theme accent) |
+| `className` | `string` | '' | Optional CSS class override. |
+| `style` | `object` | {} | Optional inline style override. |
+
+#### Usage
+
+```jsx
+<BlinkingIcon color="var(--lp-color-accent)" />
+```
+
+---
+
+### 🟢 LivepeerSVG
+
+> Inline Livepeer logo as SVG with currentColor fill.
+
+**Import:** `import { LivepeerSVG } from "/snippets/components/elements/icons/Icons.jsx";`
+**Status:** stable | **Imports:** 1
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `number` | 24 | size prop. |
+| `props` | `any` | — | props prop. |
+
+#### Usage
+
+```jsx
+<LivepeerSVG props="example" />
+```
+
+---
+
+## images
+
+### 🟢 Image
+
+> Framed image with optional caption and full-width toggle.
+
+**Import:** `import { Image } from "/snippets/components/elements/images/Image.jsx";`
+**Status:** stable | **Imports:** 6
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `src` | `any` | — | src prop. |
+| `alt` | `any` | — | alt prop. |
+| `caption` | `any` | — | caption prop. |
+| `icon` | `any` | — | icon prop. |
+| `hint` | `any` | — | hint prop. |
+| `fullwidth` | `boolean` | true | fullwidth prop. |
+| `className` | `string` | '' | Optional CSS class override. |
+| `style` | `object` | {} | Optional inline style override. |
+
+#### Usage
+
+```jsx
+<Image src="example" alt="example" />
+```
+
+---
+
+### 🟢 LinkImage
+
+> Clickable framed image that opens a URL in a new tab.
+
+**Import:** `import { LinkImage } from "/snippets/components/elements/images/Image.jsx";`
+**Status:** stable | **Imports:** 0
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `src` | `any` | — | src prop. |
+| `alt` | `any` | — | alt prop. |
+| `caption` | `any` | — | caption prop. |
+| `icon` | `any` | — | icon prop. |
+| `hint` | `any` | — | hint prop. |
+| `href` | `any` | — | href prop. |
+| `className` | `string` | '' | Optional CSS class override. |
+| `style` | `object` | {} | Optional inline style override. |
+
+#### Usage
+
+```jsx
+<LinkImage src="example" alt="example" />
+```
+
+---
+
+## links
+
+### 🟢 AddressLinks
+
+> Copyable contract address with blockchain explorer and GitHub links.
+
+**Import:** `import { AddressLinks } from "/snippets/components/elements/links/Links.jsx";`
+**Status:** stable | **Imports:** 1
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `address` | `string` | — | Contract address to display and copy. |
+| `blockchainHref` | `string` | — | Blockchain explorer URL (e.g. Arbiscan). |
+| `githubHref` | `string` | — | GitHub source URL. |
+| `style` | `object` | {} | Inline style overrides. |
+| `className` | `string` | "" | CSS class name. |
+
+#### Usage
+
+```jsx
+<AddressLinks address={controller} blockchainHref={`${arb}${controller}`} githubHref="https://github.com/livepeer/protocol/blob/delta/contracts/Controller.sol" />
+```
+
+---
+
+### 🟢 DoubleIconLink
+
+> Inline link with icons on both sides.
+
+**Import:** `import { DoubleIconLink } from "/snippets/components/elements/links/Links.jsx";`
+**Status:** stable | **Imports:** 32
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `label` | `string` | "" | Link text/label |
+| `href` | `string` | "#" | Link URL |
+| `text` | `string` | "" | Optional text to display before the link |
+| `iconLeft` | `string` | "github" | Icon to display on the left |
+| `iconRight` | `string` | "arrow-up-right" | Icon to display on the right |
+| `className` | `string` | '' | Optional CSS class override. |
+| `style` | `object` | {} | Optional inline style override. |
+
+#### Usage
+
+```jsx
+<DoubleIconLink />
 ```
 
 ---
@@ -364,7 +419,7 @@ Smallest visual atoms — no children, no fetching, no arrangement.
 > Card-style navigation link wrapping Mintlify Card component.
 
 **Import:** `import { GotoCard } from "/snippets/components/elements/links/Links.jsx";`
-**Status:** stable | **Imports:** 12
+**Status:** stable | **Imports:** 11
 
 #### Props
 
@@ -413,126 +468,12 @@ Smallest visual atoms — no children, no fetching, no arrangement.
 
 ---
 
-### 🟢 IconBadgeWrapper
-
-> Flex row wrapper for icon+label tag items. Pass an `items` array of {icon, label} objects. Icons are uncoloured by default — pass `iconColor` to override.
-
-**Import:** `import { IconBadgeWrapper } from "/snippets/components/wrappers/badges/Badges.jsx";`
-**Status:** stable | **Imports:** 7
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `items` | `Array` | — | Array of {icon, label} objects. |
-| `iconColor` | `string` | — | Colour applied to all icons. Defaults to currentColor if omitted. |
-| `size` | `number` | 12 | Icon size in px. |
-| `gap` | `string` | "0.75rem" | Gap between items. |
-| `style` | `object` | {} | Inline style overrides for the wrapper. |
-| `className` | `string` | "" | CSS class name. |
-
-#### Usage
-
-```jsx
-<IconBadgeWrapper items={daydreamInfraTags} />
-<IconBadgeWrapper items={daydreamInfraTags} iconColor="var(--accent)" />
-```
-
----
-
-### 🟢 IconCallout
-
-> Styled callout box with icon, custom colour, and optional corner arrow indicator.
-
-**Import:** `import { IconCallout } from "/snippets/components/elements/callouts/Callouts.jsx";`
-**Status:** stable | **Imports:** 0
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `children` | `React.ReactNode` | — | Content to display in the callout. |
-| `icon` | `string` | "lightbulb" | Icon name to display. |
-| `color` | `string` | — | Primary colour for icon, border, and background (defaults to theme accent). |
-| `iconSize` | `number` | 16 | Size of the main icon in pixels. |
-| `textSize` | `string` | "0.875rem" | Font size for the text content. |
-| `textColor` | `string` | — | Text colour (defaults to match icon colour). |
-| `showArrow` | `boolean` | false | Show an arrow icon in the top-right corner. |
-| `arrowIcon` | `string` | "arrow-up-right" | Arrow icon name (when showArrow is true). |
-| `arrowSize` | `number` | 16 | Size of the arrow icon in pixels. |
-| `className` | `string` | '' | Optional CSS class override. |
-| `style` | `object` | {} | Optional inline style override. |
-
-#### Usage
-
-```jsx
-<IconCallout color="#4a9eff">Tip content here</IconCallout>
-<IconCallout color="#4a9eff" showArrow>Linked tip content</IconCallout>
-```
-
----
-
-### 🟢 Image
-
-> Framed image with optional caption and full-width toggle.
-
-**Import:** `import { Image } from "/snippets/components/elements/images/Image.jsx";`
-**Status:** stable | **Imports:** 6
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `src` | `any` | — | src prop. |
-| `alt` | `any` | — | alt prop. |
-| `caption` | `any` | — | caption prop. |
-| `icon` | `any` | — | icon prop. |
-| `hint` | `any` | — | hint prop. |
-| `fullwidth` | `boolean` | true | fullwidth prop. |
-| `className` | `string` | '' | Optional CSS class override. |
-| `style` | `object` | {} | Optional inline style override. |
-
-#### Usage
-
-```jsx
-<Image src="example" alt="example" />
-```
-
----
-
-### 🟢 InlineDivider
-
-> Lightweight horizontal rule with controllable margin, padding, colour, and opacity. Use inside accordions, steps, or anywhere markdown `---` gives no spacing control.
-
-**Import:** `import { InlineDivider } from "/snippets/components/elements/spacing/Divider.jsx";`
-**Status:** stable | **Imports:** 0
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `margin` | `string` | "0.75rem 0" | Margin around the divider. |
-| `padding` | `string` | "0" | Padding around the divider. |
-| `color` | `string` | "var(--border)" | Line colour. |
-| `opacity` | `number` | 0.4 | Line opacity. |
-| `height` | `string` | "1px" | Line thickness. |
-| `className` | `string` | '' | Optional CSS class override. |
-| `style` | `object` | {} | Optional inline style override. |
-
-#### Usage
-
-```jsx
-<InlineDivider margin="0.5rem 0" />
-```
-
----
-
 ### 🟢 LinkArrow
 
 > External link with arrow icon, optional description, and line break control.
 
 **Import:** `import { LinkArrow } from "/snippets/components/elements/links/Links.jsx";`
-**Status:** stable | **Imports:** 120
+**Status:** stable | **Imports:** 119
 
 #### Props
 
@@ -559,7 +500,7 @@ Smallest visual atoms — no children, no fetching, no arrangement.
 > Wraps a Mintlify Icon in an anchor tag. Strips default Mintlify link styling (border-bottom).
 
 **Import:** `import { LinkIcon } from "/snippets/components/elements/links/Links.jsx";`
-**Status:** stable | **Imports:** 1
+**Status:** stable | **Imports:** 11
 
 #### Props
 
@@ -576,55 +517,35 @@ Smallest visual atoms — no children, no fetching, no arrangement.
 
 ---
 
-### 🟢 LinkImage
+### 🟢 SocialLinks
 
-> Clickable framed image that opens a URL in a new tab.
+> Row of icon-only social media links with tooltips and aria-labels. Pass a links array to customise per product; omit for Livepeer defaults.
 
-**Import:** `import { LinkImage } from "/snippets/components/elements/images/Image.jsx";`
-**Status:** stable | **Imports:** 0
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `src` | `any` | — | src prop. |
-| `alt` | `any` | — | alt prop. |
-| `caption` | `any` | — | caption prop. |
-| `icon` | `any` | — | icon prop. |
-| `hint` | `any` | — | hint prop. |
-| `href` | `any` | — | href prop. |
-| `className` | `string` | '' | Optional CSS class override. |
-| `style` | `object` | {} | Optional inline style override. |
-
-#### Usage
-
-```jsx
-<LinkImage src="example" alt="example" />
-```
-
----
-
-### 🟢 LivepeerSVG
-
-> Inline Livepeer logo as SVG with currentColor fill.
-
-**Import:** `import { LivepeerSVG } from "/snippets/components/elements/icons/Icons.jsx";`
-**Status:** stable | **Imports:** 1
+**Import:** `import { SocialLinks } from "/snippets/components/elements/links/Links.jsx";`
+**Status:** stable | **Imports:** 12
 
 #### Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `size` | `number` | 24 | size prop. |
-| `props` | `any` | — | props prop. |
+| `links` | `Array` | — | Array of {icon, href, label} objects. Falls back to Livepeer defaults if omitted. |
+| `size` | `number` | 20 | Icon size in pixels. |
+| `gap` | `string` | "var(--lp-spacing-3)" | Gap between icons. |
+| `justify` | `string` | "center" | Flex justify-content value. |
+| `iconColor` | `string` | — | Override all icons to a single colour. |
+| `color` | `string` | — | Alias for iconColor (backwards compat). |
+| `className` | `string` | "" | CSS class name. |
+| `style` | `object` | {} | Inline style overrides. |
 
 #### Usage
 
 ```jsx
-<LivepeerSVG props="example" />
+<SocialLinks />
 ```
 
 ---
+
+## math
 
 ### 🟢 MathBlock
 
@@ -674,61 +595,31 @@ Smallest visual atoms — no children, no fetching, no arrangement.
 
 ---
 
-### 🟠 PreviewCallout
+## spacing
 
-> Banner indicating content is in preview state. Deprecated wrapper around StatusCallout.
+### 🟢 InlineDivider
 
-**Import:** `import { PreviewCallout } from "/snippets/components/elements/callouts/Callouts.jsx";`
-**Status:** deprecated | **Imports:** 1
+> Lightweight horizontal rule with controllable margin, padding, colour, and opacity. Use inside accordions, steps, or anywhere markdown `---` gives no spacing control.
 
----
-
-### 🟢 ReviewCallout
-
-> Banner indicating content is under technical review.
-
-**Import:** `import { ReviewCallout } from "/snippets/components/elements/callouts/Callouts.jsx";`
-**Status:** stable | **Imports:** 0
+**Import:** `import { InlineDivider } from "/snippets/components/elements/spacing/Divider.jsx";`
+**Status:** stable | **Imports:** 23
 
 #### Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `className` | `string` | "" | CSS class name. |
-| `style` | `object` | {} | Inline style overrides. |
+| `margin` | `string` | "0.75rem 0" | Margin around the divider. |
+| `padding` | `string` | "0" | Padding around the divider. |
+| `color` | `string` | "var(--lp-color-border-default)" | Line colour. |
+| `opacity` | `number` | 0.4 | Line opacity. |
+| `height` | `string` | "1px" | Line thickness. |
+| `className` | `string` | '' | Optional CSS class override. |
+| `style` | `object` | {} | Optional inline style override. |
 
 #### Usage
 
 ```jsx
-<ReviewCallout />
-```
-
----
-
-### 🟢 SocialLinks
-
-> Row of icon-only social media links with tooltips and aria-labels. Pass a links array to customise per product; omit for Livepeer defaults.
-
-**Import:** `import { SocialLinks } from "/snippets/components/elements/links/Links.jsx";`
-**Status:** stable | **Imports:** 11
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `links` | `Array` | — | Array of {icon, href, label} objects. Falls back to Livepeer defaults if omitted. |
-| `size` | `number` | 20 | Icon size in pixels. |
-| `gap` | `string` | "0.75rem" | Gap between icons. |
-| `justify` | `string` | "center" | Flex justify-content value. |
-| `iconColor` | `string` | — | Override all icons to a single colour. |
-| `color` | `string` | — | Alias for iconColor (backwards compat). |
-| `className` | `string` | "" | CSS class name. |
-| `style` | `object` | {} | Inline style overrides. |
-
-#### Usage
-
-```jsx
-<SocialLinks />
+<InlineDivider margin="0.5rem 0" />
 ```
 
 ---
@@ -744,7 +635,7 @@ Smallest visual atoms — no children, no fetching, no arrangement.
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `size` | `string` | "1rem" | Size used by the component. |
+| `size` | `string` | "var(--lp-spacing-4)" | Size used by the component. |
 | `direction` | `string` | "vertical" | Direction used by the component. |
 | `className` | `string` | '' | Optional CSS class override. |
 | `style` | `object` | {} | Optional inline style override. |
@@ -757,36 +648,120 @@ Smallest visual atoms — no children, no fetching, no arrangement.
 
 ---
 
-### 🟢 StatusCallout
+## text
 
-> Banner indicating page/feature status (coming soon or preview) with feedback links.
+### 🟢 AccordionTitle
 
-**Import:** `import { StatusCallout } from "/snippets/components/elements/callouts/Callouts.jsx";`
+> Accordion title with icon, name, and optional description subtitle. Wraps CustomCardTitle with an italic description line underneath.
+
+**Import:** `import { AccordionTitle } from "/snippets/components/elements/text/Text.jsx";`
 **Status:** stable | **Imports:** 0
 
 #### Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `variant` | `string` | "coming-soon" | Status variant: "coming-soon" or "preview". |
-| `type` | `string` | "page" | Context type: "page" or "tab-group" (affects title text for coming-soon variant). |
+| `icon` | `string\|React.ReactNode` | — | Font Awesome icon name (string) or React component. |
+| `title` | `React.ReactNode` | — | Title text. |
+| `description` | `React.ReactNode` | — | Optional subtitle shown below the title in italic. |
+| `descriptionColor` | `string` | "var(--lp-color-text-secondary)" | Description text colour. |
+| `descriptionSize` | `string` | "0.85em" | Description font size. |
+| `style` | `object` | {} | Inline style overrides on the wrapper. |
 | `className` | `string` | "" | CSS class name. |
-| `style` | `object` | {} | Inline style overrides. |
 
 #### Usage
 
 ```jsx
-<StatusCallout variant="coming-soon" />
-<StatusCallout variant="preview" />
+<AccordionTitle icon="gear" title="Core" description="Staking, payments, and service discovery" />
 ```
 
 ---
 
-### 🟠 TipWithArrow
+### 🟢 CardTitleTextWithArrow
 
-> Callout with arrow. Deprecated wrapper around IconCallout.
+> Card title with trailing arrow icon for navigation indication.
 
-**Import:** `import { TipWithArrow } from "/snippets/components/elements/callouts/Callouts.jsx";`
-**Status:** deprecated | **Imports:** 2
+**Import:** `import { CardTitleTextWithArrow } from "/snippets/components/elements/text/Text.jsx";`
+**Status:** stable | **Imports:** 6
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `children` | `any` | — | children prop. |
+| `cardProps` | `any` | — | card Props prop. |
+| `className` | `string` | '' | Optional CSS class override. |
+| `style` | `object` | {} | Optional inline style override. |
+
+#### Usage
+
+```jsx
+<CardTitleTextWithArrow cardProps="example">Example content</CardTitleTextWithArrow>
+```
+
+---
+
+### 🟢 CopyText
+
+> Text with a click-to-copy button that copies content to clipboard.
+
+**Import:** `import { CopyText } from "/snippets/components/elements/text/Text.jsx";`
+**Status:** stable | **Imports:** 11
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `text` | `any` | — | text prop. |
+| `label` | `any` | — | label prop. |
+| `className` | `string` | '' | Optional CSS class override. |
+| `style` | `object` | {} | Optional inline style override. |
+
+#### Usage
+
+```jsx
+<CopyText text="example" label="example" />
+```
+
+---
+
+### 🟢 CustomCardTitle
+
+> Title row with icon and text, using flexbox alignment. Accepts Font Awesome strings or React components as icon. Variant prop controls styling context.
+
+**Import:** `import { CustomCardTitle } from "/snippets/components/elements/text/Text.jsx";`
+**Status:** stable | **Imports:** 40
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `icon` | `string\|React.ReactNode` | — | Font Awesome icon name (string) or React component (e.g. ArbitrumIcon). |
+| `title` | `React.ReactNode` | — | Title text rendered by the component. |
+| `variant` | `string` | "card" | Styling context: "card" (default, opinionated), "accordion" (inline, inherits parent styles), "tab" (inline, smaller). |
+| `iconSize` | `number` | — | Icon size in pixels (applies to Font Awesome icons only). Defaults per variant: card=20, accordion=18, tab=14. |
+| `style` | `object` | {} | Inline style overrides. |
+| `className` | `string` | "" | CSS class name. |
+
+#### Usage
+
+```jsx
+<CustomCardTitle icon="sparkles" title="Example" />
+```
+
+---
+
+### 🟢 DataWrap
+
+> Transparent wrapper that renders a data value inline. Used to surface pipeline-generated values (e.g. lastVerified dates) in MDX without additional markup.
+
+**Import:** `import { DataWrap } from "/snippets/components/elements/text/DataWrap.jsx";`
+**Status:** stable | **Imports:** 1
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `string\|number` | — | The data value to render. |
 
 ---

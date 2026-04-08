@@ -4,11 +4,14 @@
 
 /**
  * @component DisplayCard
- * @category wrappers
+ * @category displays
  * @subcategory cards
  * @status stable
  * @description Card with icon, custom title row, and body content.
   * @aiDiscoverability none
+ * @usedIn v2/community/livepeer-community/community-guidelines.mdx, v2/developers/guides/opportunities/bug-bounties.mdx, v2/developers/guides/opportunities/grants-and-programmes.mdx, v2/developers/guides/opportunities/oss-contributions.mdx, v2/developers/guides/opportunities/overview.mdx, v2/developers/guides/opportunities/rfps-and-proposals.mdx, v2/home/about-livepeer/vision.mdx, v2/home/solutions/applications.mdx, v2/internal/rfp/problem-statements.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} icon - Icon configuration used by the component.
  * @param {React.ReactNode} title - Title text rendered by the component.
  * @param {object} style - Style used by the component.
@@ -73,11 +76,14 @@ export const DisplayCard = ({
 
 /**
  * @component WidthCard
- * @category wrappers
+ * @category displays
  * @subcategory cards
  * @status stable
  * @description Width-constrained card wrapper with configurable percentage width.
   * @aiDiscoverability none
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/roadmap.mdx, v2/resources/compendium/media-kit.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} [width='80%'] - Width used by the component.
  * @param {React.ReactNode} children - Content rendered inside the component.
  * @param {object} [cardProps] - Forwarded Card props.
@@ -105,11 +111,14 @@ export const WidthCard = ({ width = '80%', children, cardProps, className = "", 
 
 /**
  * @component InlineImageCard
- * @category wrappers
+ * @category displays
  * @subcategory cards
  * @status stable
  * @description Card with inline image alongside content, using negative margin breakout.
   * @aiDiscoverability none
+ * @usedIn v2/resources/compendium/media-kit.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {React.ReactNode} children - Content rendered inside the component.
  * @param {object} imgProps - Img props used by the component.
  * @param {object} imgStyle - Img style used by the component.
@@ -168,11 +177,13 @@ export const InlineImageCard = ({
 
 /**
  * @component InteractiveCard
- * @category wrappers
+ * @category displays
  * @subcategory cards
  * @status stable
  * @description Single interactive card with hover effects.
   * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} [mediaSrc=""] - media Src prop.
  * @param {string} [logo=""] - logo prop.
  * @param {string} [title="Untitled project"] - title prop.
@@ -269,11 +280,13 @@ export const InteractiveCard = ({
 
 /**
  * @component InteractiveCards
- * @category wrappers
+ * @category displays
  * @subcategory cards
  * @status stable
  * @description Multi-column layout of interactive cards.
   * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {Array} [items=[]] - items prop.
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
@@ -309,11 +322,14 @@ export const InteractiveCards = ({ items = [], className = "", style = {}, ...re
 
 /**
  * @component ShowcaseCards
- * @category wrappers
+ * @category displays
  * @subcategory cards
  * @status stable
  * @description Paginated card layout with search, category, and product filtering.
   * @aiDiscoverability none
+ * @usedIn v2/home/solutions/showcase.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {Array} [items=[]] - items prop.
  * @param {any} [limit=null] - limit prop.
  * @param {number} [pageSize=10] - page Size prop.
@@ -871,7 +887,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
 
 /**
  * @component SolutionCard
- * @category wrappers
+ * @category displays
  * @subcategory cards
  * @status stable
  * @description Card body for Solutions Portal product cards. Accepts pre-rendered JSX slots for badges,
@@ -881,6 +897,9 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
  *       ScrollBox is passed as a component reference and called internally to wrap blurb text.
  *       Mintlify does not resolve cross-JSX imports — all sub-components are sourced from the parent MDX page.
  *
+ * @usedIn v2/solutions/portal.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {ReactNode}  [badges]      - Pre-rendered <BadgeWrapper badges={...} />
  * @param {string}     [logoSrc]     - Path to the product logo image.
  * @param {string}     [logoAlt]     - Alt text for the logo image.
@@ -978,11 +997,14 @@ export const SolutionCard = ({
 
 /**
  * @component SolutionItem
- * @category wrappers
- * @subcategory custom
+ * @category displays
+ * @subcategory cards
  * @status stable
  * @description Renders a solution entry with link, icon badges, and description. Designed for solution listing pages.
  * @aiDiscoverability props-extracted
+ * @usedIn v2/solutions/solution-providers.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {React.ReactNode} link - Link element (e.g. <LinkArrow />), rendered as the heading
  * @param {React.ReactNode} [iconWrapper=null] - Icon badges element (e.g. <IconBadgeWrapper />)
  * @param {React.ReactNode} [description=null] - Description text or element

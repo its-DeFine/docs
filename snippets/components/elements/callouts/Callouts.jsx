@@ -36,6 +36,8 @@ const STATUS_VARIANTS = {
  * @status stable
  * @description Banner indicating page/feature status (coming soon or preview) with feedback links.
  * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} [variant="coming-soon"] - Status variant: "coming-soon" or "preview".
  * @param {string} [type="page"] - Context type: "page" or "tab-group" (affects title text for coming-soon variant).
  * @param {string} [className=""] - CSS class name.
@@ -123,6 +125,8 @@ export const StatusCallout = ({ variant = 'coming-soon', type = 'page', classNam
  * @status stable
  * @description Styled callout box with icon, custom colour, and optional corner arrow indicator.
  * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {React.ReactNode} children - Content to display in the callout.
  * @param {string} [icon="lightbulb"] - Icon name to display.
  * @param {string} color - Primary colour for icon, border, and background (defaults to theme accent).
@@ -222,6 +226,8 @@ export const IconCallout = ({
  * @status stable
  * @description Banner indicating content is under technical review.
  * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  * @example
@@ -247,6 +253,9 @@ export const ReviewCallout = ({ className = '', style = {}, ...rest }) => {
  * @category elements
  * @subcategory callouts
  * @status deprecated
+ * @usedIn v2/resources/changelog/migration-guide.mdx, v2/resources/help-center.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @deprecated Use StatusCallout with variant="coming-soon" instead.
  * @see StatusCallout
  * @description Banner indicating a feature or page is coming soon. Deprecated wrapper around StatusCallout.
@@ -259,6 +268,9 @@ export const ComingSoonCallout = (props) => <StatusCallout variant="coming-soon"
  * @category elements
  * @subcategory callouts
  * @status deprecated
+ * @usedIn v2/resources/concepts/brief-history-of-video.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @deprecated Use StatusCallout with variant="preview" instead.
  * @see StatusCallout
  * @description Banner indicating content is in preview state. Deprecated wrapper around StatusCallout.
@@ -271,6 +283,9 @@ export const PreviewCallout = (props) => <StatusCallout variant="preview" {...pr
  * @category elements
  * @subcategory callouts
  * @status deprecated
+ * @usedIn v2/gateways/setup/connect/connect-with-offerings.mdx, v2/gateways/setup/publish/connect-with-offerings.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @deprecated Use IconCallout instead.
  * @see IconCallout
  * @description Styled callout box. Deprecated alias for IconCallout.
@@ -283,6 +298,9 @@ export const CustomCallout = IconCallout;
  * @category elements
  * @subcategory callouts
  * @status deprecated
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/setup/install.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @deprecated Use IconCallout with showArrow instead.
  * @see IconCallout
  * @description Callout with arrow. Deprecated wrapper around IconCallout.

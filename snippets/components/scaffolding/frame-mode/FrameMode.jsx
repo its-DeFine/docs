@@ -21,6 +21,8 @@
  * @status stable
  * @description Page-level header with icon, title, and subtitle for frame-mode pages.
   * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} title - title prop.
  * @param {any} subtitle - subtitle prop.
  * @param {any} description - description prop.
@@ -108,6 +110,9 @@ const PageHeader = ({
  * @status stable
  * @description Heading override with optional icon prefix for frame-mode pages.
   * @aiDiscoverability none
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} children - children prop.
  * @param {any} icon - icon prop.
  * @param {number} [iconSize=32] - icon Size prop.
@@ -167,6 +172,9 @@ const H1 = ({
  * @status stable
  * @description Heading override with optional icon prefix for frame-mode pages.
   * @aiDiscoverability none
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} children - The heading text
  * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} [iconSize=28] - Size of the icon (default: 28)
@@ -226,6 +234,9 @@ const H2 = ({
  * @status stable
  * @description Heading override with optional icon prefix for frame-mode pages.
   * @aiDiscoverability none
+ * @usedIn v2/community/community-portal.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} children - The heading text
  * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} [iconSize=24] - Size of the icon (default: 24)
@@ -285,6 +296,8 @@ const H3 = ({
  * @status stable
  * @description Heading override with optional icon prefix for frame-mode pages.
   * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} children - The heading text
  * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} [iconSize=20] - Size of the icon (default: 20)
@@ -344,6 +357,9 @@ const H4 = ({
  * @status stable
  * @description Heading override with optional icon prefix for frame-mode pages.
   * @aiDiscoverability none
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} children - The heading text
  * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} [iconSize=18] - Size of the icon (default: 18)
@@ -403,6 +419,8 @@ const H5 = ({
  * @status stable
  * @description Heading override with optional icon prefix for frame-mode pages.
   * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} children - The heading text
  * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} [iconSize=16] - Size of the icon (default: 16)
@@ -462,6 +480,9 @@ const H6 = ({
  * @status stable
  * @description Paragraph override with optional icon prefix for frame-mode pages.
   * @aiDiscoverability none
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} children - The paragraph text
  * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} [iconSize=16] - Size of the icon (default: 16)
@@ -518,6 +539,8 @@ const P = ({
  * @status stable
  * @description Horizontal rule divider for frame-mode pages. Distinct from elements/spacing/Divider.
  * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} color - Custom color for the divider (optional, defaults to theme border color)
  * @param {string} [margin="1.5rem 0"] - Vertical margin (default: "1.5rem 0")
  * @param {string} [opacity=0.2] - Opacity of the divider (default: 0.2)
@@ -545,6 +568,8 @@ const FrameModeDivider = ({ color, margin = "1.5rem 0", opacity = 0.2, className
  * @category scaffolding
  * @subcategory frame-mode
  * @status deprecated
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @deprecated Use FrameModeDivider to avoid collision with elements/spacing/Divider.
  * @see FrameModeDivider
  * @description Deprecated alias for FrameModeDivider. Maintained for backwards compatibility.

@@ -2,11 +2,13 @@
 
 /**
  * @component CardCarousel
- * @category wrappers
+ * @category displays
  * @subcategory grids
  * @status stable
  * @description Paginated horizontal carousel with prev/next navigation and dot indicators.
  * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {React.ReactNode} children - Content rendered inside the component.
  * @param {number} [visibleCount=3] - Visible count used by the component.
  * @param {string} [gap="var(--lp-spacing-6)"] - Gap used by the component.
@@ -139,11 +141,14 @@ export const CardCarousel = ({
 
 /**
  * @component QuadGrid
- * @category wrappers
+ * @category displays
  * @subcategory grids
  * @status stable
  * @description 2x2 grid with centred rotating icon overlay. Respects prefers-reduced-motion.
   * @aiDiscoverability none
+ * @usedIn v2/about/concepts/livepeer-overview.mdx, v2/home/about-livepeer/ecosystem.mdx, v2/home/about-livepeer/vision.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {React.ReactNode} children - Content rendered inside the component.
  * @param {string} [icon="arrows-spin"] - Icon configuration used by the component.
  * @param {number} [iconSize=50] - Icon configuration used by the component.

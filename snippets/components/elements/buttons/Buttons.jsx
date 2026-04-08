@@ -5,6 +5,8 @@
  * @status stable
  * @description Icon button that opens an external link in a new tab. Bordered with rounded corners, hover colour transition.
  * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-08
  * @param {string} href - URL to open on click.
  * @param {string} [icon='arrow-up-right'] - Icon name to display.
  * @param {number} [size=14] - Icon size in pixels.
@@ -66,6 +68,9 @@ export const ExternalLinkButton = ({
  * @status stable
  * @description Lazy-loaded download button with icon that renders on viewport intersection.
  * @aiDiscoverability none
+ * @usedIn v2/resources/compendium/media-kit.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-08
  * @param {string} [label='Download'] - label prop.
  * @param {string} [icon='download'] - icon prop.
  * @param {any} downloadLink - download Link prop.

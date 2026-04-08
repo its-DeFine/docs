@@ -5,11 +5,14 @@ import { InlineDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 /**
  * @component StyledSteps
- * @category wrappers
+ * @category displays
  * @subcategory steps
  * @status stable
  * @description Wrapper around Mintlify Steps with custom icon styling via injected CSS.
  * @aiDiscoverability none
+ * @usedIn v2/about/navigator.mdx, v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx, v2/delegators/delegation/delegate-your-lpt.mdx, v2/developers/get-started/contributor-quickstart.mdx, v2/developers/guides/tutorials/build-an-ai-agent-on-livepeer.mdx, v2/developers/guides/tutorials/ipfs-video-integration.mdx, v2/developers/guides/tutorials/token-gated-video.mdx, v2/gateways/custom/views/setup/configure/ai-configuration-content.mdx, v2/gateways/guides/advanced-operations/gateway-discoverability.mdx, v2/gateways/guides/advanced-operations/gateway-middleware.mdx, v2/gateways/guides/advanced-operations/scaling.mdx, v2/gateways/guides/monitoring-and-tooling/on-chain-metrics.mdx, v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx, v2/gateways/guides/payments-and-pricing/fund-gateway.mdx, v2/gateways/guides/payments-and-pricing/remote-signers.mdx, v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test.mdx, v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline.mdx, v2/gateways/navigator.mdx, v2/gateways/setup/connect.mdx, v2/gateways/setup/connect/discover-offerings.mdx, v2/gateways/setup/guide.mdx, v2/gateways/setup/install.mdx, v2/gateways/setup/monitor.mdx, v2/gateways/setup/prepare.mdx, v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx, v2/gateways/setup/requirements/setup.mdx, v2/gateways/setup/verify.mdx, v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx, v2/orchestrators/guides/ai-and-job-workloads/llm-pipeline-setup.mdx, v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup.mdx, v2/orchestrators/guides/ai-and-job-workloads/video-transcoding-operations.mdx, v2/orchestrators/guides/config-and-optimisation/capacity-planning.mdx, v2/orchestrators/guides/deployment-details/dual-mode-configuration.mdx, v2/orchestrators/guides/deployment-details/join-a-pool.mdx, v2/orchestrators/guides/deployment-details/siphon-setup.mdx, v2/orchestrators/guides/operator-considerations/requirements.mdx, v2/orchestrators/guides/payments-and-pricing/payments.mdx, v2/orchestrators/guides/staking-and-rewards/delegate-operations.mdx, v2/orchestrators/guides/staking-and-rewards/network-participation.mdx, v2/orchestrators/guides/tutorials/add-ai-to-video-node.mdx, v2/orchestrators/guides/tutorials/ai-earning-quickstart.mdx, v2/orchestrators/guides/tutorials/byoc-cpu-smoke-test.mdx, v2/orchestrators/guides/tutorials/full-ai-pipeline-tutorial.mdx, v2/orchestrators/guides/tutorials/realtime-ai-tutorial.mdx, v2/orchestrators/guides/tutorials/zero-to-first-reward.mdx, v2/orchestrators/quickstart/video-transcoding.mdx, v2/orchestrators/setup/connect.mdx, v2/orchestrators/setup/verify.mdx, v2/solutions/daydream/overview.mdx, v2/solutions/embody/overview.mdx, v2/solutions/frameworks/overview.mdx, v2/solutions/livepeer-studio/overview.mdx, v2/solutions/streamplace/overview.mdx
+ * @breakingChangeRisk high
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} children - children prop.
  * @param {any} iconColor - icon Color prop.
  * @param {any} titleColor - title Color prop.
@@ -69,7 +72,7 @@ export const StyledSteps = ({
 
 /**
  * @component StyledStep
- * @category wrappers
+ * @category displays
  * @subcategory steps
  * @status stable
  * @description Single step with configurable icon, size, and per-step colour overrides.
@@ -77,6 +80,9 @@ export const StyledSteps = ({
  *              takes precedence over the parent StyledSteps colours for this step only.
  *              When neither is set, behaves identically to a plain Step pass-through.
  * @aiDiscoverability none
+ * @usedIn v2/about/navigator.mdx, v2/delegators/delegation/bridge-lpt-to-arbitrum.mdx, v2/delegators/delegation/delegate-your-lpt.mdx, v2/developers/get-started/contributor-quickstart.mdx, v2/developers/guides/tutorials/build-an-ai-agent-on-livepeer.mdx, v2/developers/guides/tutorials/ipfs-video-integration.mdx, v2/developers/guides/tutorials/token-gated-video.mdx, v2/gateways/custom/views/setup/configure/ai-configuration-content.mdx, v2/gateways/guides/advanced-operations/gateway-discoverability.mdx, v2/gateways/guides/advanced-operations/gateway-middleware.mdx, v2/gateways/guides/advanced-operations/scaling.mdx, v2/gateways/guides/monitoring-and-tooling/on-chain-metrics.mdx, v2/gateways/guides/payments-and-pricing/clearinghouse-guide.mdx, v2/gateways/guides/payments-and-pricing/fund-gateway.mdx, v2/gateways/guides/payments-and-pricing/remote-signers.mdx, v2/gateways/guides/tutorials/tutorial-1-offchain-transcoding-test.mdx, v2/gateways/guides/tutorials/tutorial-2-byoc-cpu-pipeline.mdx, v2/gateways/navigator.mdx, v2/gateways/setup/connect.mdx, v2/gateways/setup/connect/discover-offerings.mdx, v2/gateways/setup/guide.mdx, v2/gateways/setup/install.mdx, v2/gateways/setup/monitor.mdx, v2/gateways/setup/prepare.mdx, v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx, v2/gateways/setup/requirements/setup.mdx, v2/gateways/setup/verify.mdx, v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx, v2/orchestrators/guides/ai-and-job-workloads/llm-pipeline-setup.mdx, v2/orchestrators/guides/ai-and-job-workloads/realtime-ai-setup.mdx, v2/orchestrators/guides/ai-and-job-workloads/video-transcoding-operations.mdx, v2/orchestrators/guides/config-and-optimisation/capacity-planning.mdx, v2/orchestrators/guides/deployment-details/dual-mode-configuration.mdx, v2/orchestrators/guides/deployment-details/join-a-pool.mdx, v2/orchestrators/guides/deployment-details/siphon-setup.mdx, v2/orchestrators/guides/operator-considerations/requirements.mdx, v2/orchestrators/guides/payments-and-pricing/payments.mdx, v2/orchestrators/guides/staking-and-rewards/delegate-operations.mdx, v2/orchestrators/guides/staking-and-rewards/network-participation.mdx, v2/orchestrators/guides/tutorials/add-ai-to-video-node.mdx, v2/orchestrators/guides/tutorials/ai-earning-quickstart.mdx, v2/orchestrators/guides/tutorials/byoc-cpu-smoke-test.mdx, v2/orchestrators/guides/tutorials/full-ai-pipeline-tutorial.mdx, v2/orchestrators/guides/tutorials/realtime-ai-tutorial.mdx, v2/orchestrators/guides/tutorials/zero-to-first-reward.mdx, v2/orchestrators/quickstart/video-transcoding.mdx, v2/orchestrators/setup/connect.mdx, v2/orchestrators/setup/verify.mdx, v2/solutions/daydream/overview.mdx, v2/solutions/embody/overview.mdx, v2/solutions/frameworks/overview.mdx, v2/solutions/livepeer-studio/overview.mdx, v2/solutions/streamplace/overview.mdx
+ * @breakingChangeRisk high
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} title - title prop.
  * @param {any} icon - icon prop.
  * @param {string} [titleSize="h3"] - title Size prop.
@@ -123,11 +129,13 @@ export const StyledStep = ({
 
 /**
  * @component ListSteps
- * @category wrappers
- * @subcategory lists
+ * @category displays
+ * @subcategory steps
  * @status stable
  * @description Renders an array of step items inside Mintlify Steps component.
   * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {Array} listItems - Collection data rendered by the component.
  * @param {object} [stepsConfig={}] - Steps config used by the component.
  * @param {string} [className=""] - CSS class name.
@@ -156,11 +164,14 @@ export const ListSteps = ({ listItems, stepsConfig = {}, className = "", style =
 
 /**
  * @component BasicList
- * @category wrappers
- * @subcategory lists
+ * @category displays
+ * @subcategory steps
  * @status planned
  * @description Planned list component — not yet implemented.
   * @aiDiscoverability none
+ * @usedIn v2/home/primer.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} listItems - list Items prop.
  */
 export const BasicList = ({ listItems: array }) => {
@@ -169,11 +180,14 @@ export const BasicList = ({ listItems: array }) => {
 
 /**
  * @component IconList
- * @category wrappers
- * @subcategory lists
+ * @category displays
+ * @subcategory steps
  * @status planned
  * @description Planned icon list component — not yet implemented.
   * @aiDiscoverability none
+ * @usedIn v2/home/primer.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} listItems - list Items prop.
  */
 export const IconList = ({ listItems: array }) => {
@@ -182,11 +196,14 @@ export const IconList = ({ listItems: array }) => {
 
 /**
  * @component StepList
- * @category wrappers
- * @subcategory lists
+ * @category displays
+ * @subcategory steps
  * @status stable
  * @description Renders listItems as Mintlify Steps with title, icon, and content.
   * @aiDiscoverability none
+ * @usedIn v2/home/primer.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} listItems - list Items prop.
   * @param {string} [className=''] - Optional CSS class override.
   * @param {object} [style={}] - Optional inline style override.
@@ -205,11 +222,14 @@ export const StepList = ({ listItems, className = "", style = {}, ...rest }) => 
 
 /**
  * @component StepLinkList
- * @category wrappers
- * @subcategory lists
+ * @category displays
+ * @subcategory steps
  * @status stable
  * @description Renders listItems as Mintlify Steps with GotoLink navigation.
   * @aiDiscoverability none
+ * @usedIn v2/home/primer.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} listItems - list Items prop.
   * @param {string} [className=''] - Optional CSS class override.
   * @param {object} [style={}] - Optional inline style override.
@@ -228,11 +248,14 @@ export const StepLinkList = ({ listItems, className = "", style = {}, ...rest })
 
 /**
  * @component UpdateList
- * @category wrappers
- * @subcategory lists
+ * @category displays
+ * @subcategory steps
  * @status planned
  * @description Planned update list component — not yet implemented.
   * @aiDiscoverability none
+ * @usedIn v2/home/primer.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} listItems - list Items prop.
  */
 export const UpdateList = ({ listItems: array }) => {
@@ -248,11 +271,14 @@ export const UpdateList = ({ listItems: array }) => {
 
 /**
  * @component UpdateLinkList
- * @category wrappers
- * @subcategory lists
+ * @category displays
+ * @subcategory steps
  * @status stable
  * @description Renders update items as linked entries inside Mintlify Update component.
   * @aiDiscoverability none
+ * @usedIn v2/home/primer.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} listItems - list Items prop.
  */
 export const UpdateLinkList = ({ listItems: array }) => {

@@ -1,9 +1,13 @@
 /**
  * @component BadgeWrapper
- * @category elements
+ * @category wrappers
  * @subcategory badges
  * @status stable
  * @description Flex row wrapper for Badge elements. Pass a `badges` array of {color, label} objects for auto-rendering, or use children for manual JSX.
+ * @aiDiscoverability none
+ * @usedIn v2/solutions/daydream/overview.mdx, v2/solutions/embody/overview.mdx, v2/solutions/frameworks/overview.mdx, v2/solutions/livepeer-studio/overview.mdx, v2/solutions/portal.mdx, v2/solutions/solution-providers.mdx, v2/solutions/streamplace/overview.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {Array} [badges] - Array of {color, label} objects. Rendered automatically as Badge elements.
  * @param {ReactNode} [children] - Manual Badge JSX. Used if badges prop is omitted.
  * @param {string} [gap="0.4rem"] - Gap between badges.
@@ -49,10 +53,14 @@ export const BadgeWrapper = ({
 
 /**
  * @component IconBadgeWrapper
- * @category elements
+ * @category wrappers
  * @subcategory badges
  * @status stable
  * @description Flex row wrapper for icon+label tag items. Pass an `items` array of {icon, label} objects. Icons are uncoloured by default — pass `iconColor` to override.
+ * @aiDiscoverability none
+ * @usedIn v2/solutions/daydream/overview.mdx, v2/solutions/embody/overview.mdx, v2/solutions/frameworks/overview.mdx, v2/solutions/livepeer-studio/overview.mdx, v2/solutions/portal.mdx, v2/solutions/solution-providers.mdx, v2/solutions/streamplace/overview.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {Array} items - Array of {icon, label} objects.
  * @param {string} [iconColor] - Colour applied to all icons. Defaults to currentColor if omitted.
  * @param {number} [size=12] - Icon size in px.
@@ -114,6 +122,8 @@ export const IconBadgeWrapper = ({
  * @description Unified badge row with variant prop. "text" renders Badge elements from a badges array.
  *              "icon" renders icon+label tags from an items array.
  * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} [variant="text"] - Display variant: "text" for Badge elements, "icon" for icon+label tags.
  * @param {Array} [badges] - Array of {color, label} objects (variant="text").
  * @param {Array} [items] - Array of {icon, label} objects (variant="icon").

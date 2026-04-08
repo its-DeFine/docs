@@ -22,6 +22,9 @@ import { BorderedBox } from '/snippets/components/wrappers/containers/Containers
  * @description Fetches and renders a remote Solidity file with syntax highlighting inside a styled container. Lazy-loaded.
  * @dataSource fetch(url) — raw GitHub .sol file
  * @aiDiscoverability snapshot
+ * @usedIn v2/about/protocol/blockchain-contracts.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} url - Raw GitHub URL to the .sol file.
  * @param {React.ReactNode} [title] - Optional title displayed above the code block. Accepts strings or components.
  * @param {string} [filename] - Filename shown on the CodeBlock header.
@@ -160,6 +163,9 @@ export const MarkdownEmbed = ({ url, className = '', style = {}, ...rest }) => {
  * @description Embeds a PDF in a framed iframe with caption.
  * @dataSource iframe(src)
  * @aiDiscoverability none
+ * @usedIn v2/delegators/guides/treasury/overview.mdx, v2/internal/rfp/aims.mdx, v2/resources/compendium/media-kit.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {React.ReactNode} title - Title text rendered by the component.
  * @param {string} src - Asset or embed source used by the component.
  * @param {string} [height='700px'] - Height used by the component.
@@ -196,6 +202,9 @@ export const PdfEmbed = ({
  * @dataSource feed.mikle.com widget
  * @aiDiscoverability none
  * @aiDiscoverabilityNote 3rd-party iframe widget (mikle.com) — no static data in HTML, no API access for snapshot. Twitter feed content is not crawlable. No companion file possible.
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/solutions/trending.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  */
@@ -237,6 +246,8 @@ export const TwitterTimeline = ({ className = '', style = {}, ...rest }) => {
  * @description Fetches and renders external markdown with scrollable container and source link.
  * @dataSource fetch(url)
   * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} repoName - Repo name used by the component.
  * @param {string} githubUrl - Github url used by the component.
  * @param {string} [maxHeight="1000px"] - Max height used by the component.

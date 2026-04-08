@@ -137,7 +137,7 @@ function buildRegistry() {
         category: jsDoc.type || jsDoc.category,
         status: jsDoc.status,
         description: jsDoc.description,
-        subniche: jsDoc.subniche,
+        subniche: jsDoc.subniche || jsDoc.subcategory,
         accepts: jsDoc.accepts,
         dataSource: jsDoc.dataSource,
         aiDiscoverability: jsDoc.aiDiscoverability || '',

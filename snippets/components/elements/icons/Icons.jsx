@@ -5,6 +5,9 @@
  * @status stable
  * @description Inline Livepeer logo as SVG with currentColor fill.
  * @aiDiscoverability none
+ * @usedIn v2/about/protocol/blockchain-contracts.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {number} [size=24] - size prop.
  * @param {any} props - props prop.
  * @example
@@ -51,6 +54,9 @@ export const LivepeerSVG = ({ size = 24, ...props }) => {
  * @status stable
  * @description Inline Arbitrum logo as SVG with currentColor fill.
  * @aiDiscoverability none
+ * @usedIn v2/about/protocol/blockchain-contracts.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {number} [size=24] - size prop.
  * @param {any} props - props prop.
  * @example
@@ -83,6 +89,9 @@ export const ArbitrumSVG = ({ size = 24, ...props }) => {
  * @status stable
  * @description Arbitrum logo rendered identically to Mintlify FA icons using mask-image technique.
  * @aiDiscoverability none
+ * @usedIn v2/about/protocol/blockchain-contracts.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {number} [size=16] - Icon size in pixels.
  * @param {string} [color] - Override colour. Accepts CSS values including var() custom properties. Default is theme-aware (dark in light mode, light in dark mode).
  * @param {object} [style={}] - Inline style overrides.
@@ -139,6 +148,9 @@ export const ArbitrumIcon = ({
  * @status stable
  * @description Animated icon with pulsing opacity. Respects prefers-reduced-motion.
  * @aiDiscoverability none
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/custom/views/setup/configure/ai-configuration-content.mdx, v2/gateways/portal.mdx, v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk medium
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} [icon="terminal"] - Icon name to display
  * @param {number} [size=16] - Size of the icon in pixels
  * @param {string} color - Color of the icon (defaults to theme accent)

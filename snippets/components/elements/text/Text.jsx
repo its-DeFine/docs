@@ -61,6 +61,9 @@ export const Subtitle = ({
  * @status stable
  * @description Text with a click-to-copy button that copies content to clipboard.
  * @aiDiscoverability none
+ * @usedIn v2/about/protocol/blockchain-contracts.mdx, v2/about/resources/glossary.mdx, v2/community/resources/glossary.mdx, v2/delegators/resources/glossary.mdx, v2/developers/resources/glossary.mdx, v2/gateways/resources/glossary.mdx, v2/home/resources/glossary.mdx, v2/orchestrators/resources/glossary.mdx, v2/resources/resource-hub-terms.mdx, v2/solutions/resources/glossary.mdx, v2/solutions/solution-providers.mdx
+ * @breakingChangeRisk medium
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} text - text prop.
  * @param {any} label - label prop.
  * @example
@@ -138,6 +141,9 @@ export const CopyText = ({
  * @status stable
  * @description Card title with trailing arrow icon for navigation indication.
  * @aiDiscoverability none
+ * @usedIn v2/about/protocol/core-mechanisms.mdx, v2/about/protocol/governance-model.mdx, v2/about/protocol/livepeer-token.mdx, v2/about/protocol/overview.mdx, v2/about/protocol/technical-architecture.mdx, v2/about/protocol/treasury.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} children - children prop.
  * @param {any} cardProps - card Props prop.
  * @example
@@ -223,6 +229,9 @@ export const CardTitleTextWithArrow = ({
  * @status stable
  * @description Title row with icon and text, using flexbox alignment. Accepts Font Awesome strings or React components as icon. Variant prop controls styling context.
  * @aiDiscoverability none
+ * @usedIn v2/about/protocol/blockchain-contracts.mdx, v2/about/protocol/core-mechanisms.mdx, v2/gateways/custom/views/setup/install/docker-install-content.mdx, v2/gateways/custom/views/setup/install/linux-install-content.mdx, v2/gateways/portal.mdx, v2/gateways/setup/guide.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/ecosystem.mdx, v2/home/primer.mdx, v2/resources/changelog/ai-compute/ai-runner.mdx, v2/resources/changelog/ai-compute/comfystream.mdx, v2/resources/changelog/ai-compute/pytrickle.mdx, v2/resources/changelog/apis-sdks/livepeer-ai-go.mdx, v2/resources/changelog/apis-sdks/livepeer-ai-js.mdx, v2/resources/changelog/apis-sdks/livepeer-ai-python.mdx, v2/resources/changelog/apis-sdks/livepeer-js.mdx, v2/resources/changelog/apis-sdks/livepeer-python.mdx, v2/resources/changelog/docs.mdx, v2/resources/changelog/ecosystem/awesome-livepeer.mdx, v2/resources/changelog/ecosystem/website.mdx, v2/resources/changelog/protocol/go-livepeer.mdx, v2/resources/changelog/protocol/lips.mdx, v2/resources/changelog/protocol/naap.mdx, v2/resources/changelog/protocol/subgraph.mdx, v2/resources/changelog/tooling/explorer.mdx, v2/resources/changelog/tooling/livepeer-data.mdx, v2/resources/changelog/tooling/livepeer-python-gateway.mdx, v2/resources/portal.mdx, v2/solutions/daydream/changelog.mdx, v2/solutions/daydream/overview.mdx, v2/solutions/embody/changelog.mdx, v2/solutions/embody/overview.mdx, v2/solutions/frameworks/changelog.mdx, v2/solutions/frameworks/overview.mdx, v2/solutions/livepeer-studio/changelog.mdx, v2/solutions/livepeer-studio/overview.mdx, v2/solutions/portal.mdx, v2/solutions/solution-providers.mdx, v2/solutions/streamplace/changelog.mdx, v2/solutions/streamplace/overview.mdx
+ * @breakingChangeRisk high
+ * @lastMeaningfulChange 2026-04-09
  * @param {string|React.ReactNode} icon - Font Awesome icon name (string) or React component (e.g. ArbitrumIcon).
  * @param {React.ReactNode} title - Title text rendered by the component.
  * @param {string} [variant="card"] - Styling context: "card" (default, opinionated), "accordion" (inline, inherits parent styles), "tab" (inline, smaller).
@@ -262,6 +271,8 @@ export const CustomCardTitle = ({ icon, title, variant = "card", iconSize, style
  * @status stable
  * @description Accordion title with icon, name, and optional description subtitle. Wraps CustomCardTitle with an italic description line underneath.
  * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string|React.ReactNode} icon - Font Awesome icon name (string) or React component.
  * @param {React.ReactNode} title - Title text.
  * @param {React.ReactNode} [description] - Optional subtitle shown below the title in italic.

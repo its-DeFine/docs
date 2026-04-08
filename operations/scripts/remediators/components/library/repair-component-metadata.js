@@ -58,8 +58,8 @@ function printHelp() {
       '  --staged       Limit processing to staged component files.',
       '',
       'Auto-issue:',
-      '  --verify      After --fix, re-run validators on fixed files. Exit 1 if verify fails.
-      --auto-issue   Create GitHub issues for non-remediable problems (missing @description)',
+      '  --verify      After --fix, re-run validators on fixed files. Exit 1 if verify fails.',
+      '  --auto-issue   Create GitHub issues for non-remediable problems (missing @description)',
       '                 and assign to @copilot. Requires GH_TOKEN or gh CLI auth.',
       '',
       'Safety:',

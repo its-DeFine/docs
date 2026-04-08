@@ -6,6 +6,9 @@
  * @status stable
  * @description Code block with optional pre/post notes and expandable wrapper.
   * @aiDiscoverability none
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/setup/install.mdx, v2/orchestrators/portal.mdx, v2/orchestrators/quickstart/video-transcoding.mdx, v2/orchestrators/setup/install.mdx, v2/orchestrators/setup/monitor.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-08
  * @param {any} filename - filename prop.
  * @param {any} icon - icon prop.
  * @param {any} language - language prop.
@@ -109,6 +112,8 @@ export const CustomCodeBlock = ({
  * @status stable
  * @description Simple code block with title and language syntax highlighting.
   * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-08
  * @param {string} [filename=""] - filename prop.
  * @param {string} [icon="terminal"] - icon prop.
  * @param {string} [language=""] - language prop.
@@ -161,6 +166,9 @@ export const CodeComponent = ({
  * @status stable
  * @description Code block with both pre-note and post-note sections.
   * @aiDiscoverability none
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-08
  * @param {any} filename - filename prop.
  * @param {any} icon - icon prop.
  * @param {any} language - language prop.
@@ -237,6 +245,9 @@ export const ComplexCodeBlock = ({
  * @status stable
  * @description Expandable code section with title header.
   * @aiDiscoverability none
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-08
  * @param {object} [fields={}] - fields prop.
   * @param {string} [className=''] - Optional CSS class override.
   * @param {object} [style={}] - Optional inline style override.

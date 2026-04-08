@@ -249,27 +249,36 @@ if (WRITE && VERIFY && modifiedFiles.length > 0) {
   console.log(`\nVerify: re-checking ${modifiedFiles.length} patched file(s)...`);
 
   let verifyFails = 0;
+  let verifyWarns = 0;
   for (const filePath of modifiedFiles) {
     const content = fs.readFileSync(filePath, 'utf8');
     const type = extractTagValue(content, 'type');
     const concern = extractTagValue(content, 'concern');
     const niche = extractTagValue(content, 'niche');
-    const blanks = [];
-    if (!type) blanks.push('@type');
-    if (!concern) blanks.push('@concern');
-    if (!niche) blanks.push('@niche');
-    if (blanks.length > 0) {
-      const rel = path.relative(REPO, filePath);
+    const rel = path.relative(REPO, filePath);
+    // @type and @concern are required — blank is a failure
+    if (!type || !concern) {
+      const blanks = [];
+      if (!type) blanks.push('@type');
+      if (!concern) blanks.push('@concern');
       console.log(`  FAIL: ${rel} — still blank: ${blanks.join(', ')}`);
       verifyFails++;
     }
+    // @niche is advisory — blank is a warning, not a failure
+    if (!niche) {
+      console.log(`  WARN: ${rel} — @niche blank (path has no niche folder)`);
+      verifyWarns++;
+    }
   }
 
+  if (verifyWarns > 0) {
+    console.log(`\n${verifyWarns} warning(s): @niche could not be derived from path structure.`);
+  }
   if (verifyFails > 0) {
-    console.log(`\nVERIFY FAILED — ${verifyFails} file(s) still have blank fields.`);
+    console.log(`VERIFY FAILED — ${verifyFails} file(s) still have blank required fields.`);
     process.exit(1);
   }
-  console.log('VERIFY PASSED — all patched fields filled.');
+  console.log('VERIFY PASSED — all required fields (@type, @concern) filled.');
 }
 
 process.exit(errors.length > 0 ? 2 : 0);
