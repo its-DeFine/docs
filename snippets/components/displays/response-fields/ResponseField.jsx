@@ -102,6 +102,7 @@ const CustomResponseField = ({ description, className = "", style = {}, ...props
  * @subcategory response-fields
  * @status deprecated
  * @deprecated Use ResponseFieldGroup with component="expandable" instead.
+ * @see ResponseFieldGroup
  * @description Expandable response field that reveals nested content on click.
   * @aiDiscoverability none
  * @param {object} [fields={}] - Fields used by the component.
@@ -130,6 +131,7 @@ const ResponseFieldExpandable = ({ fields = {}, className = "", style = {}, ...p
  * @subcategory response-fields
  * @status deprecated
  * @deprecated Use ResponseFieldGroup with component="accordion" instead.
+ * @see ResponseFieldGroup
  * @description Accordion-style response field with collapsible detail section.
   * @aiDiscoverability none
  * @param {object} [fields={}] - Fields used by the component.

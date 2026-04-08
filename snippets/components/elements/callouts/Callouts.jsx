@@ -242,14 +242,50 @@ export const ReviewCallout = ({ className = '', style = {}, ...rest }) => {
 // Deprecated re-exports — backwards compatibility
 // ---------------------------------------------------------------------------
 
-/** @deprecated Use StatusCallout with variant="coming-soon" instead. */
+/**
+ * @component ComingSoonCallout
+ * @category elements
+ * @subcategory callouts
+ * @status deprecated
+ * @deprecated Use StatusCallout with variant="coming-soon" instead.
+ * @see StatusCallout
+ * @description Banner indicating a feature or page is coming soon. Deprecated wrapper around StatusCallout.
+ * @aiDiscoverability none
+ */
 export const ComingSoonCallout = (props) => <StatusCallout variant="coming-soon" {...props} />;
 
-/** @deprecated Use StatusCallout with variant="preview" instead. */
+/**
+ * @component PreviewCallout
+ * @category elements
+ * @subcategory callouts
+ * @status deprecated
+ * @deprecated Use StatusCallout with variant="preview" instead.
+ * @see StatusCallout
+ * @description Banner indicating content is in preview state. Deprecated wrapper around StatusCallout.
+ * @aiDiscoverability none
+ */
 export const PreviewCallout = (props) => <StatusCallout variant="preview" {...props} />;
 
-/** @deprecated Use IconCallout instead. */
+/**
+ * @component CustomCallout
+ * @category elements
+ * @subcategory callouts
+ * @status deprecated
+ * @deprecated Use IconCallout instead.
+ * @see IconCallout
+ * @description Styled callout box. Deprecated alias for IconCallout.
+ * @aiDiscoverability none
+ */
 export const CustomCallout = IconCallout;
 
-/** @deprecated Use IconCallout with showArrow instead. */
+/**
+ * @component TipWithArrow
+ * @category elements
+ * @subcategory callouts
+ * @status deprecated
+ * @deprecated Use IconCallout with showArrow instead.
+ * @see IconCallout
+ * @description Callout with arrow. Deprecated wrapper around IconCallout.
+ * @aiDiscoverability none
+ */
 export const TipWithArrow = (props) => <IconCallout showArrow {...props} />;

@@ -116,6 +116,7 @@ export const TitledVideo = ({
  * @subcategory video
  * @status deprecated
  * @deprecated Use TitledVideo with variant="showcase" instead.
+ * @see TitledVideo
  * @description Full-width video with negative-margin breakout and rounded frame.
   * @aiDiscoverability none
  * @param {any} src - src prop.
@@ -383,6 +384,7 @@ export const YouTubeVideo = ({
  * @subcategory video
  * @status deprecated
  * @deprecated Duplicate — canonical version is in integrators/video-data/VideoData.jsx.
+ * @see VideoData.jsx
  * @description Renders a columned grid of YouTubeVideo embeds from an items array.
   * @aiDiscoverability none
  * @param {Array} [items=[]] - items prop.

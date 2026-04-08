@@ -245,3 +245,24 @@
 
 ### Propagation
 - 344 files updated
+
+## 2026-04-08 — scaffolding/ + integrators/ + cross-cutting (component-naming-audit)
+
+### scaffolding/
+- `HeroGif.jsx` -> `StarfieldCanvas.jsx` (45 imports propagated)
+- FrameMode `Divider` renamed to `FrameModeDivider` (deprecated alias kept)
+
+### integrators/
+- `Data.jsx` -> `BlogCards.jsx` (87 imports propagated)
+- `ExternalContent.jsx` merged into `DataEmbed.jsx`
+- `contractVerifierData.js` archived (dead — 0 imports)
+- `ShowcaseCards.jsx` archived (duplicate — redirected to displays/cards/Cards.jsx)
+
+### cross-cutting fixes
+- `component-governance-utils.js`: bridge @category/@subcategory <-> @type/@subniche tag migration gap
+- `@accepts` moved from required to optional governance fields
+- Category folder mismatch downgraded from error to warning (pending batch tag update)
+- Deprecated components given full JSDoc + @see tags
+
+### Known issue
+- `generate-component-registry.js` cannot regenerate — 19 pre-existing missing JSDoc blocks across re-exports and legacy components block generation. Registry frozen at 2026-03-22 data. Requires a batch JSDoc repair pass (separate thread).
