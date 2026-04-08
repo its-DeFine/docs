@@ -1,6 +1,6 @@
 <!-- GENERATED FILE — DO NOT EDIT DIRECTLY -->
 <!-- Generator: operations/scripts/generators/components/library/generate-component-index.js -->
-<!-- Generated: 2026-04-08T00:17:42.910Z -->
+<!-- Generated: 2026-04-08T00:51:53.666Z -->
 <!-- Components: 27 | Category: elements -->
 
 # Elements — Component Index

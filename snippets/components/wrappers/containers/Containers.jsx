@@ -180,3 +180,166 @@ export const FullWidthContainer = ({
     </div>
   );
 };
+
+/**
+ * @component FlexContainer
+ * @category wrappers
+ * @subcategory containers
+ * @status stable
+ * @description Flexbox container with configurable direction, gap, and alignment.
+ * @aiDiscoverability none
+ * @param {any} children - children prop.
+ * @param {string} [direction="row"] - direction prop.
+ * @param {string} [gap="1rem"] - gap prop.
+ * @param {string} [align="flex-start"] - align prop.
+ * @param {string} [justify="flex-start"] - justify prop.
+ * @param {boolean} [wrap=false] - wrap prop.
+ * @param {string} [marginTop=""] - Optional top margin override.
+ * @param {string} [marginBottom=""] - Optional bottom margin override.
+ * @param {object} [style={}] - style prop.
+ * @param {string} [className=''] - Optional CSS class override.
+ */
+export const FlexContainer = ({
+  children,
+  direction = "row",
+  gap = "1rem",
+  align = "flex-start",
+  justify = "flex-start",
+  wrap = false,
+  marginTop = "",
+  marginBottom = "",
+  style = {},
+  className = "",
+  ...rest
+}) => {
+  return (
+    <div
+      className={className}
+      style={{
+        display: "flex",
+        flexDirection: direction,
+        gap: gap,
+        alignItems: align,
+        justifyContent: justify,
+        flexWrap: wrap ? "wrap" : "nowrap",
+        ...(marginTop ? { marginTop } : {}),
+        ...(marginBottom ? { marginBottom } : {}),
+        ...style,
+      }}
+      {...rest}
+    >
+      {children}
+    </div>
+  );
+};
+
+/**
+ * @component GridContainer
+ * @category wrappers
+ * @subcategory containers
+ * @status stable
+ * @description CSS Grid container with configurable columns and gap.
+ * @aiDiscoverability none
+ * @param {any} children - children prop.
+ * @param {any} columns - columns prop.
+ * @param {string} [gap="1rem"] - gap prop.
+ * @param {object} [style={}] - style prop.
+ * @param {string} [className=''] - Optional CSS class override.
+ */
+export const GridContainer = ({
+  children,
+  columns,
+  gap = "1rem",
+  style = {},
+  className = "",
+  ...rest
+}) => {
+  const gridTemplateColumns = columns
+    ? typeof columns === "number"
+      ? `repeat(${columns}, 1fr)`
+      : columns
+    : "1fr";
+
+  return (
+    <div
+      className={className}
+      style={{
+        display: "grid",
+        gridTemplateColumns: gridTemplateColumns,
+        gap: gap,
+        ...style,
+      }}
+      {...rest}
+    >
+      {children}
+    </div>
+  );
+};
+
+/**
+ * @component CalloutWrapper
+ * @category wrappers
+ * @subcategory containers
+ * @status stable
+ * @description Wraps Mintlify callout types (Tip, Info, Warning, Note, Check) with a styled header and description.
+ * @aiDiscoverability props-extracted
+ * @param {string} [type="tip"] - Mintlify callout type: "tip", "info", "warning", "note", "check"
+ * @param {string} header - Bold header text displayed at the top of the callout
+ * @param {React.ReactNode} children - Description content below the header
+ * @param {string} [headerColor="var(--hero-text)"] - Header text colour
+ * @param {string} [headerSize="0.9rem"] - Header font size
+ * @param {string} [className=""] - CSS class name
+ * @param {object} [style={}] - Inline style overrides
+ * @example
+ * <CalloutWrapper type="tip" header="Are you a Solution Provider?">
+ *   Submit a PR to add your solution here!
+ * </CalloutWrapper>
+ */
+export const CalloutWrapper = ({
+  type = "tip",
+  header = "",
+  children,
+  headerColor = "var(--hero-text)",
+  headerSize = "0.9rem",
+  className = "",
+  style = {},
+  ...rest
+}) => {
+  const headerEl = header ? (
+    <div style={{ color: headerColor, fontSize: headerSize, fontWeight: 700, marginBottom: "0.2rem" }}>
+      {header}
+    </div>
+  ) : null;
+
+  const bodyEl = children ? (
+    <span style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "0.25rem" }}>
+      {children}
+    </span>
+  ) : null;
+
+  const content = (
+    <>
+      {headerEl}
+      {bodyEl}
+    </>
+  );
+
+  const types = {
+    tip: Tip,
+    info: Info,
+    warning: Warning,
+    note: Note,
+    check: Check,
+  };
+
+  const Component = types[type] || Tip;
+
+  return (
+    <Component className={className} style={style} {...rest}>
+      {content}
+    </Component>
+  );
+};
+
+/** @deprecated Spacer has moved to elements/spacing/Divider.jsx. This re-export maintains backwards compatibility. */
+export { Spacer } from '/snippets/components/elements/spacing/Divider.jsx';

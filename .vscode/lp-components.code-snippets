@@ -181,7 +181,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-add-AccordionGroupList",
     "body": [
-      "import { AccordionGroupList } from \"/snippets/components/wrappers/accordions/AccordionGroupList.jsx\";",
+      "import { AccordionGroupList } from \"/snippets/components/displays/accordions/AccordionGroupList.jsx\";",
       "",
       "<AccordionGroupList />"
     ],
@@ -191,7 +191,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-wrap-AccordionLayout",
     "body": [
-      "import { AccordionLayout } from \"/snippets/components/wrappers/accordions/AccordionLayout.jsx\";",
+      "import { AccordionLayout } from \"/snippets/components/displays/accordions/AccordionLayout.jsx\";",
       "",
       "<AccordionLayout>",
       "  ${TM_SELECTED_TEXT}$0",
@@ -203,7 +203,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-wrap-DisplayCard",
     "body": [
-      "import { DisplayCard } from \"/snippets/components/wrappers/cards/CustomCards.jsx\";",
+      "import { DisplayCard } from \"/snippets/components/displays/cards/CustomCards.jsx\";",
       "",
       "<DisplayCard>",
       "  ${TM_SELECTED_TEXT}$0",
@@ -215,7 +215,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-wrap-WidthCard",
     "body": [
-      "import { WidthCard } from \"/snippets/components/wrappers/cards/CustomCards.jsx\";",
+      "import { WidthCard } from \"/snippets/components/displays/cards/CustomCards.jsx\";",
       "",
       "<WidthCard>",
       "  ${TM_SELECTED_TEXT}$0",
@@ -227,7 +227,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-wrap-InlineImageCard",
     "body": [
-      "import { InlineImageCard } from \"/snippets/components/wrappers/cards/CustomCards.jsx\";",
+      "import { InlineImageCard } from \"/snippets/components/displays/cards/CustomCards.jsx\";",
       "",
       "<InlineImageCard>",
       "  ${TM_SELECTED_TEXT}$0",
@@ -299,7 +299,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-wrap-ScrollBox",
     "body": [
-      "import { ScrollBox } from \"/snippets/components/wrappers/containers/ScrollBox.jsx\";",
+      "import { ScrollBox } from \"/snippets/components/wrappers/containers/Layout.jsx\";",
       "",
       "<ScrollBox>",
       "  ${TM_SELECTED_TEXT}$0",
@@ -311,7 +311,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-wrap-CardCarousel",
     "body": [
-      "import { CardCarousel } from \"/snippets/components/wrappers/grids/CardCarousel.jsx\";",
+      "import { CardCarousel } from \"/snippets/components/displays/grids/CardCarousel.jsx\";",
       "",
       "<CardCarousel>",
       "  ${TM_SELECTED_TEXT}$0",
@@ -323,7 +323,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-wrap-QuadGrid",
     "body": [
-      "import { QuadGrid } from \"/snippets/components/wrappers/grids/QuadGrid.jsx\";",
+      "import { QuadGrid } from \"/snippets/components/displays/grids/QuadGrid.jsx\";",
       "",
       "<QuadGrid>",
       "  ${TM_SELECTED_TEXT}$0",
@@ -335,7 +335,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-wrap-ListSteps",
     "body": [
-      "import { ListSteps } from \"/snippets/components/wrappers/lists/ListSteps.jsx\";",
+      "import { ListSteps } from \"/snippets/components/displays/steps/ListSteps.jsx\";",
       "",
       "<ListSteps>",
       "  ${TM_SELECTED_TEXT}$0",
@@ -347,7 +347,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-wrap-StyledSteps",
     "body": [
-      "import { StyledSteps } from \"/snippets/components/wrappers/steps/Steps.jsx\";",
+      "import { StyledSteps } from \"/snippets/components/displays/steps/Steps.jsx\";",
       "",
       "<StyledSteps>",
       "  ${TM_SELECTED_TEXT}$0",
@@ -359,7 +359,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-wrap-StyledStep",
     "body": [
-      "import { StyledStep } from \"/snippets/components/wrappers/steps/Steps.jsx\";",
+      "import { StyledStep } from \"/snippets/components/displays/steps/Steps.jsx\";",
       "",
       "<StyledStep>",
       "  ${TM_SELECTED_TEXT}$0",
@@ -371,7 +371,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-add-SearchTable",
     "body": [
-      "import { SearchTable } from \"/snippets/components/wrappers/tables/SearchTable.jsx\";",
+      "import { SearchTable } from \"/snippets/components/displays/tables/SearchTable.jsx\";",
       "",
       "<SearchTable searchPlaceholder=\"$1\" categoryLabel=\"$2\" />"
     ],
@@ -381,7 +381,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-add-DynamicTable",
     "body": [
-      "import { DynamicTable } from \"/snippets/components/wrappers/tables/Table.jsx\";",
+      "import { DynamicTable } from \"/snippets/components/displays/tables/Table.jsx\";",
       "",
       "<DynamicTable />"
     ],
@@ -391,7 +391,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-wrap-StyledTable",
     "body": [
-      "import { StyledTable } from \"/snippets/components/wrappers/tables/Tables.jsx\";",
+      "import { StyledTable } from \"/snippets/components/displays/tables/Tables.jsx\";",
       "",
       "<StyledTable>",
       "  ${TM_SELECTED_TEXT}$0",
@@ -403,7 +403,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-wrap-TableRow",
     "body": [
-      "import { TableRow } from \"/snippets/components/wrappers/tables/Tables.jsx\";",
+      "import { TableRow } from \"/snippets/components/displays/tables/Tables.jsx\";",
       "",
       "<TableRow>",
       "  ${TM_SELECTED_TEXT}$0",
@@ -415,7 +415,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-wrap-TableCell",
     "body": [
-      "import { TableCell } from \"/snippets/components/wrappers/tables/Tables.jsx\";",
+      "import { TableCell } from \"/snippets/components/displays/tables/Tables.jsx\";",
       "",
       "<TableCell>",
       "  ${TM_SELECTED_TEXT}$0",
@@ -1025,7 +1025,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-import-AccordionGroupList",
     "body": [
-      "import { AccordionGroupList } from \"/snippets/components/wrappers/accordions/AccordionGroupList.jsx\";"
+      "import { AccordionGroupList } from \"/snippets/components/displays/accordions/AccordionGroupList.jsx\";"
     ],
     "description": "wrappers/accordions — all exports from AccordionGroupList.jsx"
   },
@@ -1033,7 +1033,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-import-AccordionLayout",
     "body": [
-      "import { AccordionLayout } from \"/snippets/components/wrappers/accordions/AccordionLayout.jsx\";"
+      "import { AccordionLayout } from \"/snippets/components/displays/accordions/AccordionLayout.jsx\";"
     ],
     "description": "wrappers/accordions — all exports from AccordionLayout.jsx"
   },
@@ -1041,7 +1041,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-import-CustomCards",
     "body": [
-      "import { DisplayCard, WidthCard, InlineImageCard } from \"/snippets/components/wrappers/cards/CustomCards.jsx\";"
+      "import { DisplayCard, WidthCard, InlineImageCard } from \"/snippets/components/displays/cards/CustomCards.jsx\";"
     ],
     "description": "wrappers/cards — all exports from CustomCards.jsx"
   },
@@ -1065,7 +1065,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-import-ScrollBox",
     "body": [
-      "import { ScrollBox } from \"/snippets/components/wrappers/containers/ScrollBox.jsx\";"
+      "import { ScrollBox } from \"/snippets/components/wrappers/containers/Layout.jsx\";"
     ],
     "description": "wrappers/containers — all exports from ScrollBox.jsx"
   },
@@ -1073,7 +1073,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-import-CardCarousel",
     "body": [
-      "import { CardCarousel } from \"/snippets/components/wrappers/grids/CardCarousel.jsx\";"
+      "import { CardCarousel } from \"/snippets/components/displays/grids/CardCarousel.jsx\";"
     ],
     "description": "wrappers/grids — all exports from CardCarousel.jsx"
   },
@@ -1081,7 +1081,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-import-QuadGrid",
     "body": [
-      "import { QuadGrid } from \"/snippets/components/wrappers/grids/QuadGrid.jsx\";"
+      "import { QuadGrid } from \"/snippets/components/displays/grids/QuadGrid.jsx\";"
     ],
     "description": "wrappers/grids — all exports from QuadGrid.jsx"
   },
@@ -1089,7 +1089,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-import-ListSteps",
     "body": [
-      "import { ListSteps } from \"/snippets/components/wrappers/lists/ListSteps.jsx\";"
+      "import { ListSteps } from \"/snippets/components/displays/steps/ListSteps.jsx\";"
     ],
     "description": "wrappers/lists — all exports from ListSteps.jsx"
   },
@@ -1097,7 +1097,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-import-Lists",
     "body": [
-      "import { BasicList, IconList, StepList, UpdateList } from \"/snippets/components/wrappers/lists/Lists.jsx\";"
+      "import { BasicList, IconList, StepList, UpdateList } from \"/snippets/components/displays/steps/Lists.jsx\";"
     ],
     "description": "wrappers/lists — high-use exports from Lists.jsx"
   },
@@ -1105,7 +1105,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-import-Steps",
     "body": [
-      "import { StyledSteps, StyledStep } from \"/snippets/components/wrappers/steps/Steps.jsx\";"
+      "import { StyledSteps, StyledStep } from \"/snippets/components/displays/steps/Steps.jsx\";"
     ],
     "description": "wrappers/steps — all exports from Steps.jsx"
   },
@@ -1113,7 +1113,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-import-SearchTable",
     "body": [
-      "import { SearchTable } from \"/snippets/components/wrappers/tables/SearchTable.jsx\";"
+      "import { SearchTable } from \"/snippets/components/displays/tables/SearchTable.jsx\";"
     ],
     "description": "wrappers/tables — all exports from SearchTable.jsx"
   },
@@ -1121,7 +1121,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-import-Table",
     "body": [
-      "import { DynamicTable } from \"/snippets/components/wrappers/tables/Table.jsx\";"
+      "import { DynamicTable } from \"/snippets/components/displays/tables/Table.jsx\";"
     ],
     "description": "wrappers/tables — all exports from Table.jsx"
   },
@@ -1129,7 +1129,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-import-Tables",
     "body": [
-      "import { StyledTable, TableRow, TableCell } from \"/snippets/components/wrappers/tables/Tables.jsx\";"
+      "import { StyledTable, TableRow, TableCell } from \"/snippets/components/displays/tables/Tables.jsx\";"
     ],
     "description": "wrappers/tables — all exports from Tables.jsx"
   },

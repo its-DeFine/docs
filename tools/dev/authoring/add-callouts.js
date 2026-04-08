@@ -134,7 +134,7 @@ function hasCallout(content) {
  * @returns {string} - Updated content
  */
 function cleanupPreviewCalloutImports(content, usage) {
-  const importRegex = /^\s*import\s+\{([^}]*)\}\s+from\s+(['"])\/snippets\/components\/primitives\/previewCallouts\.jsx\2;?\s*$/;
+  const importRegex = /^\s*import\s+\{([^}]*)\}\s+from\s+(['"])\/snippets\/components\/(?:primitives\/previewCallouts|elements\/callouts\/Callouts)\.jsx\2;?\s*$/;
 
   return content
     .split('\n')
@@ -177,7 +177,7 @@ function removeTopLevelCallout(content) {
   const afterMetadata = parts.slice(2).join('---');
 
   const lines = afterMetadata.split('\n');
-  const importRegex = /^\s*import\s+\{[^}]*\}\s+from\s+['"]\/snippets\/components\/primitives\/previewCallouts\.jsx['"];?\s*$/;
+  const importRegex = /^\s*import\s+\{[^}]*\}\s+from\s+['"]\/snippets\/components\/(?:primitives\/previewCallouts|elements\/callouts\/Callouts)\.jsx['"];?\s*$/;
   const calloutRegex = /^\s*<\s*(PreviewCallout|ComingSoonCallout)\b[^>]*\/>\s*$/;
 
   let firstNonImportIndex = -1;

@@ -11,7 +11,7 @@
  * @param {object} [style={}] - Inline style overrides.
  */
 'use client'
-import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
+import { LazyLoad } from '/snippets/components/wrappers/containers/Layout.jsx'
 import { BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
 
 /**

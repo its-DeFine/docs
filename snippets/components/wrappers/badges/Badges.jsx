@@ -105,3 +105,62 @@ export const IconBadgeWrapper = ({
     </div>
   )
 }
+
+/**
+ * @component BadgeRow
+ * @category wrappers
+ * @subcategory badges
+ * @status stable
+ * @description Unified badge row with variant prop. "text" renders Badge elements from a badges array.
+ *              "icon" renders icon+label tags from an items array.
+ * @aiDiscoverability none
+ * @param {string} [variant="text"] - Display variant: "text" for Badge elements, "icon" for icon+label tags.
+ * @param {Array} [badges] - Array of {color, label} objects (variant="text").
+ * @param {Array} [items] - Array of {icon, label} objects (variant="icon").
+ * @param {React.ReactNode} [children] - Manual JSX children (variant="text" fallback).
+ * @param {string} [iconColor] - Colour applied to all icons (variant="icon").
+ * @param {number} [size=14] - Icon size in px (variant="icon").
+ * @param {string} [gap="0.4rem"] - Gap between items.
+ * @param {object} [style={}] - Inline style overrides.
+ * @param {string} [className=""] - CSS class name.
+ * @example
+ * <BadgeRow variant="text" badges={[{color: "blue", label: "video"}]} />
+ * <BadgeRow variant="icon" items={[{icon: "globe", label: "Web"}]} />
+ */
+export const BadgeRow = ({
+  variant = 'text',
+  badges,
+  items,
+  children,
+  iconColor,
+  size = 14,
+  gap = '0.4rem',
+  style = {},
+  className = '',
+  ...rest
+}) => {
+  if (variant === 'icon') {
+    return (
+      <IconBadgeWrapper
+        items={items || []}
+        iconColor={iconColor}
+        size={size}
+        gap={gap}
+        style={style}
+        className={className}
+        {...rest}
+      />
+    );
+  }
+  return (
+    <BadgeWrapper
+      badges={badges}
+      gap={gap}
+      style={style}
+      className={className}
+      {...rest}
+    >
+      {children}
+    </BadgeWrapper>
+  );
+};

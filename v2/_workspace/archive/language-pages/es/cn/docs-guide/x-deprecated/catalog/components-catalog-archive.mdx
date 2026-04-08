@@ -7,8 +7,8 @@ keywords: ['livepeer', 'components index', 'aggregate inventory', 'repository', 
 ---
 
 {/* codex-i18n: eyJraW5kIjoiY29kZXgtaTE4biIsInZlcnNpb24iOjEsInNvdXJjZVBhdGgiOiJkb2NzLWd1aWRlL2NhdGFsb2cvY29tcG9uZW50cy1jYXRhbG9nLm1keCIsInNvdXJjZVJvdXRlIjoiZG9jcy1ndWlkZS9jYXRhbG9nL2NvbXBvbmVudHMtY2F0YWxvZyIsInNvdXJjZUhhc2giOiIwNWVjMjA0Y2RmZmIzZTdlZTI0ZjExMjFlM2U2YjNmMjliMzdkMmM5NzkxMTRlYWExZWViMDNkNGQ5MzYxYzY0IiwibGFuZ3VhZ2UiOiJjbiIsInByb3ZpZGVyIjoib3BlbnJvdXRlciIsIm1vZGVsIjoicXdlbi9xd2VuLXR1cmJvIiwiZ2VuZXJhdGVkQXQiOiIyMDI2LTAzLTAxVDE3OjI2OjQ0LjU0M1oifQ== */}
-import { SearchTable } from "/snippets/components/wrappers/tables/SearchTable.jsx";
-import { DynamicTable } from "/snippets/components/wrappers/tables/Table.jsx";
+import { SearchTable } from "/snippets/components/displays/tables/SearchTable.jsx";
+import { DynamicTable } from "/snippets/components/displays/tables/Table.jsx";
 
 {/*
 generated-file-banner: generated-file-banner:v1
@@ -482,7 +482,7 @@ import { Subtitle } from "/snippets/components/elements/text/Text.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { ApiBaseUrlsTable } from "/snippets/components/wrappers/tables/ApiBaseUrlsTable.mdx";
+import { ApiBaseUrlsTable } from "/snippets/components/displays/tables/ApiBaseUrlsTable.mdx";
 
 <ApiBaseUrlsTable
   urls={"<value>"}
@@ -498,7 +498,7 @@ import { ApiBaseUrlsTable } from "/snippets/components/wrappers/tables/ApiBaseUr
 
       <CodeGroup>
 ```jsx lines Example
-import { CardCarousel } from "/snippets/components/wrappers/grids/CardCarousel.jsx";
+import { CardCarousel } from "/snippets/components/displays/grids/CardCarousel.jsx";
 
 <CardCarousel
   visibleCount={3}
@@ -517,7 +517,7 @@ import { CardCarousel } from "/snippets/components/wrappers/grids/CardCarousel.j
 
       <CodeGroup>
 ```jsx lines Example
-import { ScrollBox } from "/snippets/components/wrappers/containers/ScrollBox.jsx";
+import { ScrollBox } from "/snippets/components/wrappers/containers/Layout.jsx";
 
 <ScrollBox
   maxHeight={300}
@@ -629,7 +629,7 @@ import { TabsContainer } from "/snippets/components/wrappers/containers/Containe
 
       <CodeGroup>
 ```jsx lines Example
-import { DisplayCard } from "/snippets/components/wrappers/cards/CustomCards.jsx";
+import { DisplayCard } from "/snippets/components/displays/cards/CustomCards.jsx";
 
 <DisplayCard
   icon={"<value>"}
@@ -646,7 +646,7 @@ import { DisplayCard } from "/snippets/components/wrappers/cards/CustomCards.jsx
 
       <CodeGroup>
 ```jsx lines Example
-import { InlineImageCard } from "/snippets/components/wrappers/cards/CustomCards.jsx";
+import { InlineImageCard } from "/snippets/components/displays/cards/CustomCards.jsx";
 
 <InlineImageCard
   imgProps={{}}
@@ -663,7 +663,7 @@ import { InlineImageCard } from "/snippets/components/wrappers/cards/CustomCards
 
       <CodeGroup>
 ```jsx lines Example
-import { WidthCard } from "/snippets/components/wrappers/cards/CustomCards.jsx";
+import { WidthCard } from "/snippets/components/displays/cards/CustomCards.jsx";
 
 <WidthCard
   width={'80%'}
@@ -716,7 +716,7 @@ import { GridContainer } from "/snippets/components/wrappers/containers/Layout.j
 
       <CodeGroup>
 ```jsx lines Example
-import { BasicList } from "/snippets/components/wrappers/lists/Lists.jsx";
+import { BasicList } from "/snippets/components/displays/steps/Lists.jsx";
 
 <BasicList
   listItems={[]}
@@ -730,7 +730,7 @@ import { BasicList } from "/snippets/components/wrappers/lists/Lists.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { IconList } from "/snippets/components/wrappers/lists/Lists.jsx";
+import { IconList } from "/snippets/components/displays/steps/Lists.jsx";
 
 <IconList
   listItems={[]}
@@ -744,7 +744,7 @@ import { IconList } from "/snippets/components/wrappers/lists/Lists.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { StepLinkList } from "/snippets/components/wrappers/lists/Lists.jsx";
+import { StepLinkList } from "/snippets/components/displays/steps/Lists.jsx";
 
 <StepLinkList
   listItems={[]}
@@ -758,7 +758,7 @@ import { StepLinkList } from "/snippets/components/wrappers/lists/Lists.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { StepList } from "/snippets/components/wrappers/lists/Lists.jsx";
+import { StepList } from "/snippets/components/displays/steps/Lists.jsx";
 
 <StepList
   listItems={[]}
@@ -772,7 +772,7 @@ import { StepList } from "/snippets/components/wrappers/lists/Lists.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { UpdateLinkList } from "/snippets/components/wrappers/lists/Lists.jsx";
+import { UpdateLinkList } from "/snippets/components/displays/steps/Lists.jsx";
 
 <UpdateLinkList
   listItems={[]}
@@ -786,7 +786,7 @@ import { UpdateLinkList } from "/snippets/components/wrappers/lists/Lists.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { UpdateList } from "/snippets/components/wrappers/lists/Lists.jsx";
+import { UpdateList } from "/snippets/components/displays/steps/Lists.jsx";
 
 <UpdateList
   listItems={[]}
@@ -802,7 +802,7 @@ import { UpdateList } from "/snippets/components/wrappers/lists/Lists.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { ListSteps } from "/snippets/components/wrappers/lists/ListSteps.jsx";
+import { ListSteps } from "/snippets/components/displays/steps/ListSteps.jsx";
 
 <ListSteps
   listItems={[]}
@@ -819,7 +819,7 @@ import { ListSteps } from "/snippets/components/wrappers/lists/ListSteps.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { QuadGrid } from "/snippets/components/wrappers/grids/QuadGrid.jsx";
+import { QuadGrid } from "/snippets/components/displays/grids/QuadGrid.jsx";
 
 <QuadGrid
   icon={"arrows-spin"}
@@ -838,7 +838,7 @@ import { QuadGrid } from "/snippets/components/wrappers/grids/QuadGrid.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { SearchTable } from "/snippets/components/wrappers/tables/SearchTable.jsx";
+import { SearchTable } from "/snippets/components/displays/tables/SearchTable.jsx";
 
 <SearchTable
   TableComponent={null}
@@ -862,7 +862,7 @@ import { SearchTable } from "/snippets/components/wrappers/tables/SearchTable.js
 
       <CodeGroup>
 ```jsx lines Example
-import { StyledStep } from "/snippets/components/wrappers/steps/Steps.jsx";
+import { StyledStep } from "/snippets/components/displays/steps/Steps.jsx";
 
 <StyledStep
   title={"<value>"}
@@ -878,7 +878,7 @@ import { StyledStep } from "/snippets/components/wrappers/steps/Steps.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { StyledSteps } from "/snippets/components/wrappers/steps/Steps.jsx";
+import { StyledSteps } from "/snippets/components/displays/steps/Steps.jsx";
 
 <StyledSteps
   iconColor={"<value>"}
@@ -897,7 +897,7 @@ import { StyledSteps } from "/snippets/components/wrappers/steps/Steps.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { DynamicTable } from "/snippets/components/wrappers/tables/Table.jsx";
+import { DynamicTable } from "/snippets/components/displays/tables/Table.jsx";
 
 <DynamicTable
   tableTitle={null}
@@ -917,7 +917,7 @@ import { DynamicTable } from "/snippets/components/wrappers/tables/Table.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { StyledTable } from "/snippets/components/wrappers/tables/Tables.jsx";
+import { StyledTable } from "/snippets/components/displays/tables/Tables.jsx";
 
 <StyledTable
   variant={"default"}
@@ -932,7 +932,7 @@ import { StyledTable } from "/snippets/components/wrappers/tables/Tables.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { TableCell } from "/snippets/components/wrappers/tables/Tables.jsx";
+import { TableCell } from "/snippets/components/displays/tables/Tables.jsx";
 
 <TableCell
   align={"left"}
@@ -948,7 +948,7 @@ import { TableCell } from "/snippets/components/wrappers/tables/Tables.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { TableRow } from "/snippets/components/wrappers/tables/Tables.jsx";
+import { TableRow } from "/snippets/components/displays/tables/Tables.jsx";
 
 <TableRow
   header={false}
@@ -966,7 +966,7 @@ import { TableRow } from "/snippets/components/wrappers/tables/Tables.jsx";
 
       <CodeGroup>
 ```jsx lines Example
-import { AccordionLayout } from "/snippets/components/wrappers/accordions/AccordionLayout.jsx";
+import { AccordionLayout } from "/snippets/components/displays/accordions/AccordionLayout.jsx";
 
 <AccordionLayout />
 ```

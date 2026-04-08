@@ -161,3 +161,34 @@
 | Governance scripts updated | 4 |
 | Scripts archived | 3 |
 | Lines of dead code archived | 3,021+ |
+
+## 2026-04-08 — elements/ consolidation (component-naming-audit)
+
+### File consolidations
+- `Spacer.jsx` → merged into `Divider.jsx` (single spacing file)
+- `CustomCardTitle.jsx` → merged into `Text.jsx` (single text file)  
+- `BlinkingIcon` → moved from `Links.jsx` to `Icons.jsx` (all icons in one file)
+- `SocialLinks.jsx` → merged into `Links.jsx` (all links in one file)
+- `CustomCallout` + `TipWithArrow` → moved from `Links.jsx` to new `Callouts.jsx`
+- `CalloutWrapper` → moved to `wrappers/callouts/CalloutWrapper.jsx`
+- `A11y.jsx` → renamed to `FocusableScrollRegion.jsx`
+- `PreviewCallouts.jsx` → renamed to `Callouts.jsx`
+
+### Component merges
+- `StatusCallout` (variant="coming-soon" | "preview") replaces `ComingSoonCallout` + `PreviewCallout`
+- `IconCallout` (showArrow prop) replaces `CustomCallout` + `TipWithArrow`
+
+### Deletions
+- `BlinkingTerminal` — pure alias for BlinkingIcon, zero imports
+
+### Backwards compatibility
+- All old export names maintained as deprecated re-exports
+- 146 files updated with new import paths
+- VS Code snippets updated (.vscode/lp-components, components, templates)
+- tools/dev/authoring/add-callouts.js updated from legacy paths
+
+### Archived
+- `snippets/components/x-archive/elements-spacing/Spacer.jsx`
+- `snippets/components/x-archive/elements-text/CustomCardTitle.jsx`
+- `snippets/components/x-archive/elements-callouts/PreviewCallouts.jsx`
+- `snippets/components/x-archive/elements-social/SocialLinks.jsx`

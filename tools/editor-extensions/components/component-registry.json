@@ -304,7 +304,7 @@
     "category": "wrappers",
     "subniche": "accordions",
     "file": "AccordionGroupList.jsx",
-    "importPath": "/snippets/components/wrappers/accordions/AccordionGroupList.jsx",
+    "importPath": "/snippets/components/displays/accordions/AccordionGroupList.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Generates N numbered accordion sections inside an AccordionGroup."
@@ -314,7 +314,7 @@
     "category": "wrappers",
     "subniche": "accordions",
     "file": "AccordionLayout.jsx",
-    "importPath": "/snippets/components/wrappers/accordions/AccordionLayout.jsx",
+    "importPath": "/snippets/components/displays/accordions/AccordionLayout.jsx",
     "hasChildren": true,
     "status": "stable",
     "description": "Vertical stack layout with small gap, designed for accordion content sections."
@@ -324,7 +324,7 @@
     "category": "wrappers",
     "subniche": "cards",
     "file": "CustomCards.jsx",
-    "importPath": "/snippets/components/wrappers/cards/CustomCards.jsx",
+    "importPath": "/snippets/components/displays/cards/CustomCards.jsx",
     "hasChildren": true,
     "status": "stable",
     "description": "Card with icon, custom title row, and body content."
@@ -334,7 +334,7 @@
     "category": "wrappers",
     "subniche": "cards",
     "file": "CustomCards.jsx",
-    "importPath": "/snippets/components/wrappers/cards/CustomCards.jsx",
+    "importPath": "/snippets/components/displays/cards/CustomCards.jsx",
     "hasChildren": true,
     "status": "stable",
     "description": "Width-constrained card wrapper with configurable percentage width."
@@ -344,7 +344,7 @@
     "category": "wrappers",
     "subniche": "cards",
     "file": "CustomCards.jsx",
-    "importPath": "/snippets/components/wrappers/cards/CustomCards.jsx",
+    "importPath": "/snippets/components/displays/cards/CustomCards.jsx",
     "hasChildren": true,
     "status": "stable",
     "description": "Card with inline image alongside content, using negative margin breakout."
@@ -354,7 +354,7 @@
     "category": "wrappers",
     "subniche": "cards",
     "file": "ShowcaseCards.jsx",
-    "importPath": "/snippets/components/wrappers/cards/ShowcaseCards.jsx",
+    "importPath": "/snippets/components/displays/cards/ShowcaseCards.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": ""
@@ -364,7 +364,7 @@
     "category": "wrappers",
     "subniche": "cards",
     "file": "ShowcaseCards.jsx",
-    "importPath": "/snippets/components/wrappers/cards/ShowcaseCards.jsx",
+    "importPath": "/snippets/components/displays/cards/ShowcaseCards.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Multi-column layout of interactive cards."
@@ -374,7 +374,7 @@
     "category": "wrappers",
     "subniche": "cards",
     "file": "ShowcaseCards.jsx",
-    "importPath": "/snippets/components/wrappers/cards/ShowcaseCards.jsx",
+    "importPath": "/snippets/components/displays/cards/ShowcaseCards.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Paginated card layout with search, category, and product filtering."
@@ -444,7 +444,7 @@
     "category": "wrappers",
     "subniche": "containers",
     "file": "ScrollBox.jsx",
-    "importPath": "/snippets/components/wrappers/containers/ScrollBox.jsx",
+    "importPath": "/snippets/components/wrappers/containers/Layout.jsx",
     "hasChildren": true,
     "status": "stable",
     "description": "Scrollable container with max-height, overflow hint, and accessible region role."
@@ -454,7 +454,7 @@
     "category": "wrappers",
     "subniche": "grids",
     "file": "CardCarousel.jsx",
-    "importPath": "/snippets/components/wrappers/grids/CardCarousel.jsx",
+    "importPath": "/snippets/components/displays/grids/CardCarousel.jsx",
     "hasChildren": true,
     "status": "stable",
     "description": "Paginated horizontal carousel with prev/next navigation and dot indicators."
@@ -464,7 +464,7 @@
     "category": "wrappers",
     "subniche": "grids",
     "file": "QuadGrid.jsx",
-    "importPath": "/snippets/components/wrappers/grids/QuadGrid.jsx",
+    "importPath": "/snippets/components/displays/grids/QuadGrid.jsx",
     "hasChildren": true,
     "status": "stable",
     "description": ""
@@ -474,7 +474,7 @@
     "category": "wrappers",
     "subniche": "lists",
     "file": "ListSteps.jsx",
-    "importPath": "/snippets/components/wrappers/lists/ListSteps.jsx",
+    "importPath": "/snippets/components/displays/steps/ListSteps.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Renders an array of step items inside Mintlify Steps component."
@@ -484,7 +484,7 @@
     "category": "wrappers",
     "subniche": "lists",
     "file": "Lists.jsx",
-    "importPath": "/snippets/components/wrappers/lists/Lists.jsx",
+    "importPath": "/snippets/components/displays/steps/Lists.jsx",
     "hasChildren": false,
     "status": "broken",
     "description": "Non-functional stub — returns empty fragment."
@@ -494,7 +494,7 @@
     "category": "wrappers",
     "subniche": "lists",
     "file": "Lists.jsx",
-    "importPath": "/snippets/components/wrappers/lists/Lists.jsx",
+    "importPath": "/snippets/components/displays/steps/Lists.jsx",
     "hasChildren": false,
     "status": "broken",
     "description": "Non-functional stub — returns empty fragment."
@@ -504,7 +504,7 @@
     "category": "wrappers",
     "subniche": "lists",
     "file": "Lists.jsx",
-    "importPath": "/snippets/components/wrappers/lists/Lists.jsx",
+    "importPath": "/snippets/components/displays/steps/Lists.jsx",
     "hasChildren": false,
     "status": "broken",
     "description": "Non-functional stub — returns empty fragment."
@@ -514,7 +514,7 @@
     "category": "wrappers",
     "subniche": "lists",
     "file": "Lists.jsx",
-    "importPath": "/snippets/components/wrappers/lists/Lists.jsx",
+    "importPath": "/snippets/components/displays/steps/Lists.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Renders listItems as Mintlify Steps with GotoLink navigation."
@@ -524,7 +524,7 @@
     "category": "wrappers",
     "subniche": "lists",
     "file": "Lists.jsx",
-    "importPath": "/snippets/components/wrappers/lists/Lists.jsx",
+    "importPath": "/snippets/components/displays/steps/Lists.jsx",
     "hasChildren": false,
     "status": "broken",
     "description": "Non-functional — ignores props, renders hardcoded static content."
@@ -534,7 +534,7 @@
     "category": "wrappers",
     "subniche": "lists",
     "file": "Lists.jsx",
-    "importPath": "/snippets/components/wrappers/lists/Lists.jsx",
+    "importPath": "/snippets/components/displays/steps/Lists.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Renders update items as linked entries inside Mintlify Update component."
@@ -544,7 +544,7 @@
     "category": "wrappers",
     "subniche": "steps",
     "file": "Steps.jsx",
-    "importPath": "/snippets/components/wrappers/steps/Steps.jsx",
+    "importPath": "/snippets/components/displays/steps/Steps.jsx",
     "hasChildren": true,
     "status": "stable",
     "description": "Wrapper around Mintlify Steps with custom icon styling via injected CSS."
@@ -554,7 +554,7 @@
     "category": "wrappers",
     "subniche": "steps",
     "file": "Steps.jsx",
-    "importPath": "/snippets/components/wrappers/steps/Steps.jsx",
+    "importPath": "/snippets/components/displays/steps/Steps.jsx",
     "hasChildren": true,
     "status": "stable",
     "description": "Wrapper around Mintlify Steps with custom icon styling via injected CSS."
@@ -564,7 +564,7 @@
     "category": "wrappers",
     "subniche": "tables",
     "file": "SearchTable.jsx",
-    "importPath": "/snippets/components/wrappers/tables/SearchTable.jsx",
+    "importPath": "/snippets/components/displays/tables/SearchTable.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": ""
@@ -574,7 +574,7 @@
     "category": "wrappers",
     "subniche": "tables",
     "file": "Table.jsx",
-    "importPath": "/snippets/components/wrappers/tables/Table.jsx",
+    "importPath": "/snippets/components/displays/tables/Table.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Renders structured data as a scrollable table with section separators and accessible region."
@@ -584,7 +584,7 @@
     "category": "wrappers",
     "subniche": "tables",
     "file": "Tables.jsx",
-    "importPath": "/snippets/components/wrappers/tables/Tables.jsx",
+    "importPath": "/snippets/components/displays/tables/Tables.jsx",
     "hasChildren": true,
     "status": "stable",
     "description": "Full-width table with header row styling and rounded container."
@@ -594,7 +594,7 @@
     "category": "wrappers",
     "subniche": "tables",
     "file": "Tables.jsx",
-    "importPath": "/snippets/components/wrappers/tables/Tables.jsx",
+    "importPath": "/snippets/components/displays/tables/Tables.jsx",
     "hasChildren": true,
     "status": "stable",
     "description": "Table row with optional header styling and hover effect."
@@ -604,7 +604,7 @@
     "category": "wrappers",
     "subniche": "tables",
     "file": "Tables.jsx",
-    "importPath": "/snippets/components/wrappers/tables/Tables.jsx",
+    "importPath": "/snippets/components/displays/tables/Tables.jsx",
     "hasChildren": true,
     "status": "stable",
     "description": "Table cell that switches between th and td based on header prop."
