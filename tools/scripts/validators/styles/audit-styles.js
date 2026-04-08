@@ -241,7 +241,8 @@ function isInsideMermaidBlock(content, matchIndex) {
 
 function scanHardcodedHexMdx(filePath, content) {
   const violations = [];
-  const regex = /#[0-9a-fA-F]{3,8}\b/g;
+  // Require at least one hex letter (a-f) to exclude issue/PR numbers like #207, #3822
+  const regex = /#(?=[0-9a-fA-F]*[a-fA-F])[0-9a-fA-F]{3,8}\b/g;
   let match;
   while ((match = regex.exec(content)) !== null) {
     if (isInsideCodeBlock(content, match.index)) continue;
