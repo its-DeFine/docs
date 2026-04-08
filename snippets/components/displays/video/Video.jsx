@@ -5,6 +5,9 @@
  * @status stable
  * @description Auto-playing video with title/subtitle overlay. Respects prefers-reduced-motion.
   * @aiDiscoverability none
+ * @usedIn v2/home/solutions/showcase.mdx, v2/solutions/daydream/overview.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} src - src prop.
  * @param {any} title - title prop.
  * @param {any} subtitle - subtitle prop.
@@ -114,7 +117,12 @@ export const TitledVideo = ({
  * @component ShowcaseVideo
  * @category displays
  * @subcategory video
- * @status stable
+ * @status deprecated
+ * @usedIn v2/home/solutions/showcase.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
+ * @deprecated Use TitledVideo with variant="showcase" instead.
+ * @see TitledVideo
  * @description Full-width video with negative-margin breakout and rounded frame.
   * @aiDiscoverability none
  * @param {any} src - src prop.
@@ -151,6 +159,9 @@ export const ShowcaseVideo = ({ src, title, subtitle, className = "", style = {}
  * @status stable
  * @description Basic framed video player with caption support.
   * @aiDiscoverability none
+ * @usedIn v2/solutions/daydream/overview.mdx, v2/solutions/embody/overview.mdx, v2/solutions/frameworks/overview.mdx, v2/solutions/livepeer-studio/overview.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} src - src prop.
  * @param {string} [title=""] - title prop.
  * @param {string} [author=""] - author prop.
@@ -298,6 +309,9 @@ export const Video = ({
  * @status stable
  * @description YouTube embed via responsive iframe with aspect-ratio preservation.
   * @aiDiscoverability none
+ * @usedIn v2/community/community-portal.mdx, v2/community/livepeer-community/trending-topics.mdx, v2/gateways/guides/deployment-details/gwid-single-click-deploy.mdx, v2/gateways/guides/deployment-details/setup-options.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/evolution.mdx, v2/home/about-livepeer/vision.mdx, v2/home/primer.mdx, v2/home/solutions/trending.mdx, v2/internal/rfp/aims.mdx, v2/solutions/daydream/community.mdx, v2/solutions/daydream/overview.mdx, v2/solutions/embody/community.mdx, v2/solutions/embody/overview.mdx, v2/solutions/frameworks/community.mdx, v2/solutions/frameworks/overview.mdx, v2/solutions/livepeer-studio/community.mdx, v2/solutions/livepeer-studio/overview.mdx, v2/solutions/portal.mdx, v2/solutions/streamplace/community.mdx, v2/solutions/streamplace/overview.mdx
+ * @breakingChangeRisk medium
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} embedUrl - embed Url prop.
  * @param {string} [title=""] - title prop.
  * @param {string} [author=""] - author prop.
@@ -380,7 +394,12 @@ export const YouTubeVideo = ({
  * @component YouTubeVideoData
  * @category displays
  * @subcategory video
- * @status stable
+ * @status deprecated
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/solutions/trending.mdx, v2/solutions/daydream/community.mdx, v2/solutions/embody/community.mdx, v2/solutions/frameworks/community.mdx, v2/solutions/livepeer-studio/community.mdx, v2/solutions/streamplace/community.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
+ * @deprecated Duplicate — canonical version is in integrators/video-data/VideoData.jsx.
+ * @see VideoData.jsx
  * @description Renders a columned grid of YouTubeVideo embeds from an items array.
   * @aiDiscoverability none
  * @param {Array} [items=[]] - items prop.
@@ -430,6 +449,8 @@ export const YouTubeVideoData = ({ items = [], limit, cols = 2 }) => {
  * @status stable
  * @description LinkedIn post embed via responsive iframe with compact layout.
   * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} embedUrl - embed Url prop.
  * @param {string} [title="Embedded post"] - title prop.
  * @param {string} [hint=""] - hint prop.
@@ -474,8 +495,12 @@ export const LinkedInEmbed = ({
  * @component YouTubeVideoDownload
  * @category displays
  * @subcategory video
- * @status stable
- * @description YouTube embed with download hint text below.
+ * @status broken
+ * @usedIn v2/home/primer.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
+ * @deprecated Content is commented out — non-functional. Remove in next cleanup pass.
+ * @description YouTube embed with download hint text below (BROKEN — render content commented out).
   * @aiDiscoverability none
  * @param {any} embedUrl - embed Url prop.
  * @param {any} title - title prop.
@@ -538,6 +563,9 @@ export const YouTubeVideoDownload = ({
  * @status stable
  * @description YouTube embed inside a Card wrapper with aspect-ratio iframe.
   * @aiDiscoverability none
+ * @usedIn v2/home/primer.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {any} embedUrl - embed Url prop.
  * @param {any} title - title prop.
  * @param {any} style - style prop.

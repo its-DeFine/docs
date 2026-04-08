@@ -5,6 +5,9 @@
  * @status stable
  * @description Pannable diagram container with deterministic preset zoom controls rendered without client-side React state.
  * @aiDiscoverability none
+ * @usedIn v2/about/protocol/blockchain-contracts.mdx, v2/about/protocol/livepeer-token.mdx, v2/about/protocol/technical-architecture.mdx, v2/gateways/concepts/architecture.mdx, v2/gateways/concepts/role.mdx, v2/gateways/guides/advanced-operations/gateway-middleware.mdx, v2/gateways/resources/reference/technical/technical-architecture.mdx, v2/gateways/setup/configure.mdx, v2/gateways/setup/connect/connect-with-offerings.mdx, v2/gateways/setup/connect/lp-marketplace.mdx, v2/gateways/setup/guide.mdx, v2/gateways/setup/monitor/monitor-and-optimise.mdx, v2/gateways/setup/publish/connect-with-offerings.mdx, v2/orchestrators/concepts/architecture.mdx, v2/orchestrators/concepts/capabilities.mdx, v2/orchestrators/concepts/incentive-model.mdx, v2/orchestrators/concepts/role.mdx, v2/orchestrators/guides/deployment-details/orchestrator-transcoder-setup.mdx, v2/orchestrators/guides/deployment-details/siphon-setup.mdx, v2/orchestrators/guides/operator-considerations/business-case.mdx, v2/orchestrators/guides/operator-considerations/operator-impact.mdx, v2/orchestrators/guides/operator-considerations/operator-rationale.mdx
+ * @breakingChangeRisk medium
+ * @lastMeaningfulChange 2026-04-09
  * @param {React.ReactNode} children - Content rendered inside the component.
  * @param {string} [title=""] - Title text rendered by the component.
  * @param {string} [maxHeight="500px"] - Max height used by the component.

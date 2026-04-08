@@ -5,6 +5,9 @@
  * @status stable
  * @description Animated canvas starfield background with floating Livepeer logos. Respects prefers-reduced-motion.
   * @aiDiscoverability none
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-08
  * @param {number} [density=1.1] - Density used by the component.
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.

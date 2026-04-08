@@ -21,6 +21,9 @@
  * @status stable
  * @description Lightweight horizontal rule with controllable margin, padding, colour, and opacity. Use inside accordions, steps, or anywhere markdown `---` gives no spacing control.
  * @aiDiscoverability none
+ * @usedIn v2/resources/changelog/ai-compute/ai-runner.mdx, v2/resources/changelog/ai-compute/comfystream.mdx, v2/resources/changelog/ai-compute/pytrickle.mdx, v2/resources/changelog/apis-sdks/livepeer-ai-go.mdx, v2/resources/changelog/apis-sdks/livepeer-ai-js.mdx, v2/resources/changelog/apis-sdks/livepeer-ai-python.mdx, v2/resources/changelog/apis-sdks/livepeer-js.mdx, v2/resources/changelog/apis-sdks/livepeer-python.mdx, v2/resources/changelog/docs.mdx, v2/resources/changelog/ecosystem/awesome-livepeer.mdx, v2/resources/changelog/ecosystem/website.mdx, v2/resources/changelog/protocol/go-livepeer.mdx, v2/resources/changelog/protocol/lips.mdx, v2/resources/changelog/protocol/naap.mdx, v2/resources/changelog/protocol/subgraph.mdx, v2/resources/changelog/tooling/explorer.mdx, v2/resources/changelog/tooling/livepeer-data.mdx, v2/resources/changelog/tooling/livepeer-python-gateway.mdx, v2/solutions/daydream/changelog.mdx, v2/solutions/embody/changelog.mdx, v2/solutions/frameworks/changelog.mdx, v2/solutions/livepeer-studio/changelog.mdx, v2/solutions/streamplace/changelog.mdx
+ * @breakingChangeRisk medium
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} [margin="0.75rem 0"] - Margin around the divider.
  * @param {string} [padding="0"] - Padding around the divider.
  * @param {string} [color="var(--lp-color-border-default)"] - Line colour.
@@ -148,5 +151,36 @@ export const CustomDivider = ({
         </span>
       </span>
     </div>
+  );
+};
+
+/**
+ * @component Spacer
+ * @category elements
+ * @subcategory spacing
+ * @status stable
+ * @description Empty spacer div with configurable size and direction.
+ * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
+ * @param {string} [size="var(--lp-spacing-4)"] - Size used by the component.
+ * @param {string} [direction="vertical"] - Direction used by the component.
+ * @param {string} [className=''] - Optional CSS class override.
+ * @param {object} [style={}] - Optional inline style override.
+ * @example
+ * <Spacer />
+ */
+export const Spacer = ({ size = "var(--lp-spacing-4)", direction = "vertical", className = "", style = {}, ...rest }) => {
+  return (
+    <div
+      className={className}
+      style={{
+        ...(direction === "vertical"
+          ? { height: size, width: "100%" }
+          : { width: size, height: "100%" }),
+        ...style,
+      }}
+      {...rest}
+    />
   );
 };

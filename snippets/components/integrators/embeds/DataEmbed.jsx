@@ -11,7 +11,7 @@
  * @param {object} [style={}] - Inline style overrides.
  */
 'use client'
-import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
+import { LazyLoad } from '/snippets/components/wrappers/containers/Layout.jsx'
 import { BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
 
 /**
@@ -22,6 +22,9 @@ import { BorderedBox } from '/snippets/components/wrappers/containers/Containers
  * @description Fetches and renders a remote Solidity file with syntax highlighting inside a styled container. Lazy-loaded.
  * @dataSource fetch(url) — raw GitHub .sol file
  * @aiDiscoverability snapshot
+ * @usedIn v2/about/protocol/blockchain-contracts.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} url - Raw GitHub URL to the .sol file.
  * @param {React.ReactNode} [title] - Optional title displayed above the code block. Accepts strings or components.
  * @param {string} [filename] - Filename shown on the CodeBlock header.
@@ -160,6 +163,9 @@ export const MarkdownEmbed = ({ url, className = '', style = {}, ...rest }) => {
  * @description Embeds a PDF in a framed iframe with caption.
  * @dataSource iframe(src)
  * @aiDiscoverability none
+ * @usedIn v2/delegators/guides/treasury/overview.mdx, v2/internal/rfp/aims.mdx, v2/resources/compendium/media-kit.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {React.ReactNode} title - Title text rendered by the component.
  * @param {string} src - Asset or embed source used by the component.
  * @param {string} [height='700px'] - Height used by the component.
@@ -196,6 +202,9 @@ export const PdfEmbed = ({
  * @dataSource feed.mikle.com widget
  * @aiDiscoverability none
  * @aiDiscoverabilityNote 3rd-party iframe widget (mikle.com) — no static data in HTML, no API access for snapshot. Twitter feed content is not crawlable. No companion file possible.
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/solutions/trending.mdx
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  */
@@ -229,3 +238,88 @@ export const TwitterTimeline = ({ className = '', style = {}, ...rest }) => {
     </div>
   )
 }
+/**
+ * @component ExternalContent
+ * @category integrators
+ * @subcategory embeds
+ * @status stable
+ * @description Fetches and renders external markdown with scrollable container and source link.
+ * @dataSource fetch(url)
+  * @aiDiscoverability none
+ * @breakingChangeRisk low
+ * @lastMeaningfulChange 2026-04-09
+ * @param {string} repoName - Repo name used by the component.
+ * @param {string} githubUrl - Github url used by the component.
+ * @param {string} [maxHeight="1000px"] - Max height used by the component.
+ * @param {string} [icon="github"] - Icon configuration used by the component.
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} [className=""] - CSS class name.
+ * @param {object} [style={}] - Inline style overrides.
+ */
+export const ExternalContent = ({
+  repoName,
+  githubUrl,
+  maxHeight = "1000px",
+  icon = "github",
+  children,
+  className = "",
+  style = {},
+  ...rest
+}) => {
+  return (
+    <div
+      className={className}
+      style={{
+        border: "1px solid var(--lp-color-accent)",
+          borderRadius: "8px",
+          overflow: "hidden",
+          marginTop: "var(--lp-spacing-4)",
+          ...style,
+        }}
+      {...rest}
+      >
+        <div
+          style={{
+            backgroundColor: "var(--lp-color-bg-card)",
+            padding: "0.75rem 1rem",
+            borderBottom: "1px solid var(--lp-color-accent)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <span
+            style={{ display: "flex", alignItems: "center", gap: "var(--lp-spacing-2)" }}
+          >
+            <Icon icon={icon} size={16} />
+            <strong>{repoName}</strong>
+          </span>
+          <a
+            href={githubUrl}
+            target="_blank" rel="noopener noreferrer"
+            style={{
+              color: "var(--lp-color-accent)",
+              fontSize: "0.875rem",
+              display: "flex",
+              alignItems: "center",
+              gap: "var(--lp-spacing-1)",
+            }}
+          >
+            View on GitHub <Icon icon="arrow-up-right-from-square" size={12} />
+          </a>
+        </div>
+        <div
+          style={{
+            maxHeight: maxHeight,
+            overflowY: "auto",
+            padding: "0 1rem",
+          }}
+          role="region"
+          tabIndex={0}
+          aria-label={repoName ? `Scrollable content for ${repoName}` : "Scrollable content"}
+        >
+          {children}
+        </div>
+      </div>
+  );
+};

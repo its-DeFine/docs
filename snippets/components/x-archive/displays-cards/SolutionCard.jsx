@@ -22,8 +22,8 @@
  *
  * @example
  * import { BadgeWrapper, IconBadgeWrapper } from '/snippets/components/wrappers/badges/Badges.jsx'
- * import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
- * import { SocialLinks } from '/snippets/components/elements/social/SocialLinks.jsx'
+ * import { ScrollBox } from '/snippets/components/wrappers/containers/Layout.jsx'
+ * import { SocialLinks } from '/snippets/components/elements/links/Links.jsx'
  *
  * <SolutionCard
  *   badges={<BadgeWrapper badges={daydreamBadges} />}

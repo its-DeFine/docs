@@ -48,16 +48,16 @@ This category currently contains **27** governed export(s).
 | --- | --- | --- | --- |
 | AccordionTitleWithArrow | `stable` | `/snippets/components/elements/text/Text.jsx` | Accordion header text with trailing arrow icon. |
 | BlinkingIcon | `stable` | `/snippets/components/elements/links/Links.jsx` | Animated icon with pulsing opacity. Respects prefers-reduced-motion. |
-| BlinkingTerminal | `stable` | `/snippets/components/elements/links/Links.jsx` | Preset blinking terminal icon (alias for BlinkingIcon with terminal defaults). |
+| BlinkingIcon | `stable` | `/snippets/components/elements/links/Links.jsx` | Preset blinking terminal icon (alias for BlinkingIcon with terminal defaults). |
 | CardTitleTextWithArrow | `stable` | `/snippets/components/elements/text/Text.jsx` | Card title with trailing arrow icon for navigation indication. |
-| ComingSoonCallout | `stable` | `/snippets/components/elements/callouts/PreviewCallouts.jsx` | Banner indicating a feature or page is coming soon, with links to related resources. |
+| ComingSoonCallout | `stable` | `/snippets/components/elements/callouts/Callouts.jsx` | Banner indicating a feature or page is coming soon, with links to related resources. |
 | CopyText | `stable` | `/snippets/components/elements/text/Text.jsx` | Text with a click-to-copy button that copies content to clipboard. |
 | CustomCallout | `stable` | `/snippets/components/elements/links/Links.jsx` | Styled callout box with icon, custom colour, and child content. |
-| CustomCardTitle | `stable` | `/snippets/components/elements/text/CustomCardTitle.jsx` | Card title row with icon and text, using flexbox alignment. |
+| CustomCardTitle | `stable` | `/snippets/components/elements/text/Text.jsx` | Card title row with icon and text, using flexbox alignment. |
 | CustomDivider | `stable` | `/snippets/components/elements/spacing/Divider.jsx` | Themed horizontal divider with optional centre text and Livepeer logo accents. |
 | DoubleIconLink | `stable` | `/snippets/components/elements/links/Links.jsx` | Inline link with icons on both sides. |
 | DownloadButton | `stable` | `/snippets/components/elements/buttons/Buttons.jsx` | Lazy-loaded download button with icon that renders on viewport intersection. |
-| FocusableScrollRegions | `stable` | `/snippets/components/elements/a11y/A11y.jsx` | Makes scroll regions keyboard-focusable by adding tabindex to matching selectors. |
+| FocusableScrollRegions | `stable` | `/snippets/components/elements/a11y/FocusableScrollRegion.jsx` | Makes scroll regions keyboard-focusable by adding tabindex to matching selectors. |
 | GotoCard | `stable` | `/snippets/components/elements/links/Links.jsx` | Card-style navigation link wrapping Mintlify Card component. |
 | GotoLink | `stable` | `/snippets/components/elements/links/Links.jsx` | Inline navigation link with icon prefix and label. |
 | Image | `stable` | `/snippets/components/elements/images/Image.jsx` | Framed image with optional caption and full-width toggle. |
@@ -67,10 +67,10 @@ This category currently contains **27** governed export(s).
 | LivepeerSVG | `stable` | `/snippets/components/elements/icons/Icons.jsx` | Inline Livepeer logo as SVG with currentColor fill. |
 | MathBlock | `stable` | `/snippets/components/elements/math/Math.jsx` | Renders LaTeX as a block-level math expression using KaTeX. |
 | MathInline | `stable` | `/snippets/components/elements/math/Math.jsx` | Renders LaTeX as inline math using KaTeX. |
-| PreviewCallout | `stable` | `/snippets/components/elements/callouts/PreviewCallouts.jsx` | Banner indicating content is in preview/draft state with feedback links. |
-| ReviewCallout | `stable` | `/snippets/components/elements/callouts/PreviewCallouts.jsx` | Banner indicating content is under review with status links. |
-| SocialLinks | `stable` | `/snippets/components/elements/social/SocialLinks.jsx` | Row of icon-only social media links with tooltips and aria-labels. |
-| Spacer | `stable` | `/snippets/components/elements/spacing/Spacer.jsx` | Empty spacer div with configurable size and direction. |
+| PreviewCallout | `stable` | `/snippets/components/elements/callouts/Callouts.jsx` | Banner indicating content is in preview/draft state with feedback links. |
+| ReviewCallout | `stable` | `/snippets/components/elements/callouts/Callouts.jsx` | Banner indicating content is under review with status links. |
+| SocialLinks | `stable` | `/snippets/components/elements/links/Links.jsx` | Row of icon-only social media links with tooltips and aria-labels. |
+| Spacer | `stable` | `/snippets/components/elements/spacing/Divider.jsx` | Empty spacer div with configurable size and direction. |
 | Subtitle | `stable` | `/snippets/components/elements/text/Text.jsx` | Styled subtitle text with configurable colour, size, and alignment. |
 | TipWithArrow | `stable` | `/snippets/components/elements/links/Links.jsx` | Callout box with tip icon and corner arrow indicator. |
 
@@ -132,12 +132,12 @@ import { BlinkingIcon } from '/snippets/components/elements/links/Links.jsx'
 
 <CustomDivider />
 
-### BlinkingTerminal
-Use **BlinkingTerminal** when you need preset blinking terminal icon (alias for BlinkingIcon with terminal defaults).. Accepts: style, className, ...rest.
+### BlinkingIcon
+Use **BlinkingIcon** when you need preset blinking terminal icon (alias for BlinkingIcon with terminal defaults).. Accepts: style, className, ...rest.
 Source description: Preset blinking terminal icon (alias for BlinkingIcon with terminal defaults).
 **Import path**
 ```jsx
-import { BlinkingTerminal } from '/snippets/components/elements/links/Links.jsx'
+import { BlinkingIcon } from '/snippets/components/elements/links/Links.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -149,7 +149,7 @@ No documented props.
 **Code example**
 
 ```jsx
-<BlinkingTerminal />
+<BlinkingIcon />
 ```
 
 <CustomDivider />
@@ -186,7 +186,7 @@ Use **ComingSoonCallout** when you need banner indicating a feature or page is c
 Source description: Banner indicating a feature or page is coming soon, with links to related resources.
 **Import path**
 ```jsx
-import { ComingSoonCallout } from '/snippets/components/elements/callouts/PreviewCallouts.jsx'
+import { ComingSoonCallout } from '/snippets/components/elements/callouts/Callouts.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -270,7 +270,7 @@ Use **CustomCardTitle** when you need card title row with icon and text, using f
 Source description: Card title row with icon and text, using flexbox alignment.
 **Import path**
 ```jsx
-import { CustomCardTitle } from '/snippets/components/elements/text/CustomCardTitle.jsx'
+import { CustomCardTitle } from '/snippets/components/elements/text/Text.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -385,7 +385,7 @@ Use **FocusableScrollRegions** when you need makes scroll regions keyboard-focus
 Source description: Makes scroll regions keyboard-focusable by adding tabindex to matching selectors.
 **Import path**
 ```jsx
-import { FocusableScrollRegions } from '/snippets/components/elements/a11y/A11y.jsx'
+import { FocusableScrollRegions } from '/snippets/components/elements/a11y/FocusableScrollRegion.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -666,7 +666,7 @@ Use **PreviewCallout** when you need banner indicating content is in preview/dra
 Source description: Banner indicating content is in preview/draft state with feedback links.
 **Import path**
 ```jsx
-import { PreviewCallout } from '/snippets/components/elements/callouts/PreviewCallouts.jsx'
+import { PreviewCallout } from '/snippets/components/elements/callouts/Callouts.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -691,7 +691,7 @@ Use **ReviewCallout** when you need banner indicating content is under review wi
 Source description: Banner indicating content is under review with status links.
 **Import path**
 ```jsx
-import { ReviewCallout } from '/snippets/components/elements/callouts/PreviewCallouts.jsx'
+import { ReviewCallout } from '/snippets/components/elements/callouts/Callouts.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -716,7 +716,7 @@ Use **SocialLinks** when you need row of icon-only social media links with toolt
 Source description: Row of icon-only social media links with tooltips and aria-labels.
 **Import path**
 ```jsx
-import { SocialLinks } from '/snippets/components/elements/social/SocialLinks.jsx'
+import { SocialLinks } from '/snippets/components/elements/links/Links.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -745,7 +745,7 @@ Use **Spacer** when you need empty spacer div with configurable size and directi
 Source description: Empty spacer div with configurable size and direction.
 **Import path**
 ```jsx
-import { Spacer } from '/snippets/components/elements/spacing/Spacer.jsx'
+import { Spacer } from '/snippets/components/elements/spacing/Divider.jsx'
 ```
 **Metadata**
 - Status: `stable`
