@@ -178,14 +178,16 @@ function addMissingFields(frontmatterRaw, relPath) {
 }
 
 function parseArgs(argv) {
-  const args = { write: false };
+  const args = { write: false, verify: false };
   for (const token of argv) {
     if (token === '--write') args.write = true;
     else if (token === '--dry-run') args.write = false;
+    else if (token === '--verify') args.verify = true;
     else if (token === '--help' || token === '-h') {
-      console.log('Usage: node normalise-frontmatter-keys.js [--dry-run | --write]');
+      console.log('Usage: node normalise-frontmatter-keys.js [--dry-run | --write] [--verify]');
       console.log('  --dry-run  Report changes without writing (default)');
       console.log('  --write    Apply changes to files');
+      console.log('  --verify   Re-audit after repair, revert regressions');
       process.exit(0);
     }
   }

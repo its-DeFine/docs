@@ -13,6 +13,8 @@
  * @policy      E-R12, E-R14
  */
 
+// Post-remediation verification support (D-GOV-03)
+const VERIFY_MODE = process.argv.includes('--verify');
 const canonical = require('./repair-page-links');
 
 if (require.main === module) {

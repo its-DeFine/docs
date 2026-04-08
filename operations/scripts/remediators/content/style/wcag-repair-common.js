@@ -12,6 +12,8 @@
  * @usage       node operations/scripts/remediators/content/style/wcag-repair-common.js [flags]
  */
 
+// Post-remediation verification support (D-GOV-03)
+const VERIFY_MODE = process.argv.includes('--verify');
 const path = require('path');
 
 const REPO_ROOT = process.cwd();

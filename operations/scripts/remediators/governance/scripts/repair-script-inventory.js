@@ -12,6 +12,8 @@
  * @usage       node operations/scripts/remediators/governance/scripts/repair-script-inventory.js [--dry-run] [--staged-only] [--files <path,...>] [--json] [--md] [--output <dir>]
  */
 
+// Post-remediation verification support (D-GOV-03)
+const VERIFY_MODE = process.argv.includes('--verify');
 const { spawnSync } = require('child_process');
 const REPO_ROOT = process.cwd();
 const AUDIT_SCRIPT = 'operations/scripts/validators/governance/pr/audit-script-inventory.js';

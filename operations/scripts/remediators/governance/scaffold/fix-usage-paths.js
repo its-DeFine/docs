@@ -7,6 +7,8 @@
  * @mode        edit
  * @scope       operations/scripts/remediators/governance/scaffold
  */
+// Post-remediation verification support (D-GOV-03)
+const VERIFY_MODE = process.argv.includes('--verify');
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
