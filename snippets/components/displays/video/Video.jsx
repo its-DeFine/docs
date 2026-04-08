@@ -114,7 +114,8 @@ export const TitledVideo = ({
  * @component ShowcaseVideo
  * @category displays
  * @subcategory video
- * @status stable
+ * @status deprecated
+ * @deprecated Use TitledVideo with variant="showcase" instead.
  * @description Full-width video with negative-margin breakout and rounded frame.
   * @aiDiscoverability none
  * @param {any} src - src prop.
@@ -380,7 +381,8 @@ export const YouTubeVideo = ({
  * @component YouTubeVideoData
  * @category displays
  * @subcategory video
- * @status stable
+ * @status deprecated
+ * @deprecated Duplicate — canonical version is in integrators/video-data/VideoData.jsx.
  * @description Renders a columned grid of YouTubeVideo embeds from an items array.
   * @aiDiscoverability none
  * @param {Array} [items=[]] - items prop.
@@ -474,8 +476,9 @@ export const LinkedInEmbed = ({
  * @component YouTubeVideoDownload
  * @category displays
  * @subcategory video
- * @status stable
- * @description YouTube embed with download hint text below.
+ * @status broken
+ * @deprecated Content is commented out — non-functional. Remove in next cleanup pass.
+ * @description YouTube embed with download hint text below (BROKEN — render content commented out).
   * @aiDiscoverability none
  * @param {any} embedUrl - embed Url prop.
  * @param {any} title - title prop.

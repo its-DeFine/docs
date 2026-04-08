@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "generated": "2026-04-08T00:51:53.622Z",
+    "generated": "2026-04-08T01:43:29.651Z",
     "generator": "operations/scripts/audits/components/library/scan-component-imports.js",
-    "componentCount": 152,
+    "componentCount": 147,
     "canonicalUsagePolicy": "english-only-jsdoc"
   },
   "components": [
@@ -30,7 +30,7 @@
     },
     {
       "name": "AccordionGroupList",
-      "file": "snippets/components/displays/accordions/AccordionGroupList.jsx",
+      "file": "snippets/components/displays/accordions/Accordions.jsx",
       "category": "displays",
       "count": 0,
       "pages": [],
@@ -52,7 +52,7 @@
     },
     {
       "name": "AccordionLayout",
-      "file": "snippets/components/displays/accordions/AccordionLayout.jsx",
+      "file": "snippets/components/displays/accordions/Accordions.jsx",
       "category": "displays",
       "count": 1,
       "pages": [
@@ -80,7 +80,7 @@
     },
     {
       "name": "BasicList",
-      "file": "snippets/components/displays/steps/Lists.jsx",
+      "file": "snippets/components/displays/steps/Steps.jsx",
       "category": "displays",
       "count": 1,
       "pages": [
@@ -108,7 +108,7 @@
     },
     {
       "name": "CardCarousel",
-      "file": "snippets/components/displays/grids/CardCarousel.jsx",
+      "file": "snippets/components/displays/grids/Grids.jsx",
       "category": "displays",
       "count": 0,
       "pages": [],
@@ -307,7 +307,7 @@
     },
     {
       "name": "DisplayCard",
-      "file": "snippets/components/displays/cards/CustomCards.jsx",
+      "file": "snippets/components/displays/cards/Cards.jsx",
       "category": "displays",
       "count": 10,
       "pages": [
@@ -362,7 +362,7 @@
     },
     {
       "name": "DynamicTable",
-      "file": "snippets/components/displays/tables/Table.jsx",
+      "file": "snippets/components/displays/tables/Tables.jsx",
       "category": "displays",
       "count": 27,
       "pages": [
@@ -468,7 +468,7 @@
     },
     {
       "name": "DynamicTableV2",
-      "file": "snippets/components/displays/tables/Table.jsx",
+      "file": "snippets/components/displays/tables/Tables.jsx",
       "category": "displays",
       "count": 0,
       "pages": [],
@@ -557,30 +557,8 @@
       }
     },
     {
-      "name": "HistoricalContractTable",
-      "file": "snippets/components/displays/tables/HistoricalContractTable.jsx",
-      "category": "displays",
-      "count": 0,
-      "pages": [],
-      "localeBreakdown": {
-        "en": 0,
-        "es": 0,
-        "fr": 0,
-        "cn": 0,
-        "other": 0
-      },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
-      "declaredUsedIn": [],
-      "declaredUsedInEnglish": [],
-      "drift": {
-        "missingFromJsDoc": [],
-        "staleInJsDoc": []
-      }
-    },
-    {
       "name": "IconList",
-      "file": "snippets/components/displays/steps/Lists.jsx",
+      "file": "snippets/components/displays/steps/Steps.jsx",
       "category": "displays",
       "count": 1,
       "pages": [
@@ -608,7 +586,7 @@
     },
     {
       "name": "InlineImageCard",
-      "file": "snippets/components/displays/cards/CustomCards.jsx",
+      "file": "snippets/components/displays/cards/Cards.jsx",
       "category": "displays",
       "count": 1,
       "pages": [
@@ -636,7 +614,7 @@
     },
     {
       "name": "InteractiveCard",
-      "file": "snippets/components/displays/cards/ShowcaseCards.jsx",
+      "file": "snippets/components/displays/cards/Cards.jsx",
       "category": "displays",
       "count": 0,
       "pages": [],
@@ -658,7 +636,7 @@
     },
     {
       "name": "InteractiveCards",
-      "file": "snippets/components/displays/cards/ShowcaseCards.jsx",
+      "file": "snippets/components/displays/cards/Cards.jsx",
       "category": "displays",
       "count": 0,
       "pages": [],
@@ -702,7 +680,7 @@
     },
     {
       "name": "ListSteps",
-      "file": "snippets/components/displays/steps/ListSteps.jsx",
+      "file": "snippets/components/displays/steps/Steps.jsx",
       "category": "displays",
       "count": 0,
       "pages": [],
@@ -724,7 +702,7 @@
     },
     {
       "name": "QuadGrid",
-      "file": "snippets/components/displays/grids/QuadGrid.jsx",
+      "file": "snippets/components/displays/grids/Grids.jsx",
       "category": "displays",
       "count": 3,
       "pages": [
@@ -818,116 +796,6 @@
       }
     },
     {
-      "name": "RenderAddressLine",
-      "file": "snippets/components/displays/pages/BlockchainContractsRenderers.jsx",
-      "category": "displays",
-      "count": 0,
-      "pages": [],
-      "localeBreakdown": {
-        "en": 0,
-        "es": 0,
-        "fr": 0,
-        "cn": 0,
-        "other": 0
-      },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
-      "declaredUsedIn": [],
-      "declaredUsedInEnglish": [],
-      "drift": {
-        "missingFromJsDoc": [],
-        "staleInJsDoc": []
-      }
-    },
-    {
-      "name": "RenderContractEmbed",
-      "file": "snippets/components/displays/pages/BlockchainContractsRenderers.jsx",
-      "category": "displays",
-      "count": 0,
-      "pages": [],
-      "localeBreakdown": {
-        "en": 0,
-        "es": 0,
-        "fr": 0,
-        "cn": 0,
-        "other": 0
-      },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
-      "declaredUsedIn": [],
-      "declaredUsedInEnglish": [],
-      "drift": {
-        "missingFromJsDoc": [],
-        "staleInJsDoc": []
-      }
-    },
-    {
-      "name": "RenderFactLine",
-      "file": "snippets/components/displays/pages/BlockchainContractsRenderers.jsx",
-      "category": "displays",
-      "count": 0,
-      "pages": [],
-      "localeBreakdown": {
-        "en": 0,
-        "es": 0,
-        "fr": 0,
-        "cn": 0,
-        "other": 0
-      },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
-      "declaredUsedIn": [],
-      "declaredUsedInEnglish": [],
-      "drift": {
-        "missingFromJsDoc": [],
-        "staleInJsDoc": []
-      }
-    },
-    {
-      "name": "RenderGeneratedFunctionFields",
-      "file": "snippets/components/displays/pages/BlockchainContractsRenderers.jsx",
-      "category": "displays",
-      "count": 0,
-      "pages": [],
-      "localeBreakdown": {
-        "en": 0,
-        "es": 0,
-        "fr": 0,
-        "cn": 0,
-        "other": 0
-      },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
-      "declaredUsedIn": [],
-      "declaredUsedInEnglish": [],
-      "drift": {
-        "missingFromJsDoc": [],
-        "staleInJsDoc": []
-      }
-    },
-    {
-      "name": "RenderSourceInheritance",
-      "file": "snippets/components/displays/pages/BlockchainContractsRenderers.jsx",
-      "category": "displays",
-      "count": 0,
-      "pages": [],
-      "localeBreakdown": {
-        "en": 0,
-        "es": 0,
-        "fr": 0,
-        "cn": 0,
-        "other": 0
-      },
-      "englishCanonicalCount": 0,
-      "englishCanonicalPages": [],
-      "declaredUsedIn": [],
-      "declaredUsedInEnglish": [],
-      "drift": {
-        "missingFromJsDoc": [],
-        "staleInJsDoc": []
-      }
-    },
-    {
       "name": "ResponseFieldAccordion",
       "file": "snippets/components/displays/response-fields/ResponseField.jsx",
       "category": "displays",
@@ -1007,7 +875,7 @@
     },
     {
       "name": "ScrollableDiagram",
-      "file": "snippets/components/displays/diagrams/ZoomableDiagram.jsx",
+      "file": "snippets/components/displays/diagrams/ScrollableDiagram.jsx",
       "category": "displays",
       "count": 22,
       "pages": [
@@ -1098,7 +966,7 @@
     },
     {
       "name": "SearchTable",
-      "file": "snippets/components/displays/tables/SearchTable.jsx",
+      "file": "snippets/components/displays/tables/Tables.jsx",
       "category": "displays",
       "count": 11,
       "pages": [
@@ -1156,7 +1024,7 @@
     },
     {
       "name": "SearchTableV2",
-      "file": "snippets/components/displays/tables/SearchTable.jsx",
+      "file": "snippets/components/displays/tables/Tables.jsx",
       "category": "displays",
       "count": 0,
       "pages": [],
@@ -1178,7 +1046,7 @@
     },
     {
       "name": "ShowcaseCards",
-      "file": "snippets/components/displays/cards/ShowcaseCards.jsx",
+      "file": "snippets/components/displays/cards/Cards.jsx",
       "category": "displays",
       "count": 2,
       "pages": [
@@ -1237,7 +1105,7 @@
     },
     {
       "name": "SolutionCard",
-      "file": "snippets/components/displays/cards/SolutionCard.jsx",
+      "file": "snippets/components/displays/cards/Cards.jsx",
       "category": "displays",
       "count": 1,
       "pages": [
@@ -1265,7 +1133,7 @@
     },
     {
       "name": "SolutionItem",
-      "file": "snippets/components/displays/cards/SolutionItem.jsx",
+      "file": "snippets/components/displays/cards/Cards.jsx",
       "category": "displays",
       "count": 1,
       "pages": [
@@ -1293,7 +1161,7 @@
     },
     {
       "name": "StepLinkList",
-      "file": "snippets/components/displays/steps/Lists.jsx",
+      "file": "snippets/components/displays/steps/Steps.jsx",
       "category": "displays",
       "count": 1,
       "pages": [
@@ -1321,7 +1189,7 @@
     },
     {
       "name": "StepList",
-      "file": "snippets/components/displays/steps/Lists.jsx",
+      "file": "snippets/components/displays/steps/Steps.jsx",
       "category": "displays",
       "count": 1,
       "pages": [
@@ -2882,7 +2750,7 @@
     },
     {
       "name": "UpdateLinkList",
-      "file": "snippets/components/displays/steps/Lists.jsx",
+      "file": "snippets/components/displays/steps/Steps.jsx",
       "category": "displays",
       "count": 1,
       "pages": [
@@ -2910,7 +2778,7 @@
     },
     {
       "name": "UpdateList",
-      "file": "snippets/components/displays/steps/Lists.jsx",
+      "file": "snippets/components/displays/steps/Steps.jsx",
       "category": "displays",
       "count": 1,
       "pages": [
@@ -3009,7 +2877,7 @@
     },
     {
       "name": "WidthCard",
-      "file": "snippets/components/displays/cards/CustomCards.jsx",
+      "file": "snippets/components/displays/cards/Cards.jsx",
       "category": "displays",
       "count": 4,
       "pages": [
@@ -5948,6 +5816,28 @@
       }
     },
     {
+      "name": "HistoricalContractTable",
+      "file": "snippets/components/integrators/feeds/HistoricalContractTable.jsx",
+      "category": "integrators",
+      "count": 0,
+      "pages": [],
+      "localeBreakdown": {
+        "en": 0,
+        "es": 0,
+        "fr": 0,
+        "cn": 0,
+        "other": 0
+      },
+      "englishCanonicalCount": 0,
+      "englishCanonicalPages": [],
+      "declaredUsedIn": [],
+      "declaredUsedInEnglish": [],
+      "drift": {
+        "missingFromJsDoc": [],
+        "staleInJsDoc": []
+      }
+    },
+    {
       "name": "LatestVersion",
       "file": "snippets/components/integrators/feeds/Release.jsx",
       "category": "integrators",
@@ -8072,12 +7962,12 @@
     },
     {
       "name": "AccordionGroupList",
-      "file": "snippets/components/displays/accordions/AccordionGroupList.jsx",
+      "file": "snippets/components/displays/accordions/Accordions.jsx",
       "category": "displays"
     },
     {
       "name": "CardCarousel",
-      "file": "snippets/components/displays/grids/CardCarousel.jsx",
+      "file": "snippets/components/displays/grids/Grids.jsx",
       "category": "displays"
     },
     {
@@ -8087,22 +7977,17 @@
     },
     {
       "name": "DynamicTableV2",
-      "file": "snippets/components/displays/tables/Table.jsx",
-      "category": "displays"
-    },
-    {
-      "name": "HistoricalContractTable",
-      "file": "snippets/components/displays/tables/HistoricalContractTable.jsx",
+      "file": "snippets/components/displays/tables/Tables.jsx",
       "category": "displays"
     },
     {
       "name": "InteractiveCard",
-      "file": "snippets/components/displays/cards/ShowcaseCards.jsx",
+      "file": "snippets/components/displays/cards/Cards.jsx",
       "category": "displays"
     },
     {
       "name": "InteractiveCards",
-      "file": "snippets/components/displays/cards/ShowcaseCards.jsx",
+      "file": "snippets/components/displays/cards/Cards.jsx",
       "category": "displays"
     },
     {
@@ -8112,32 +7997,7 @@
     },
     {
       "name": "ListSteps",
-      "file": "snippets/components/displays/steps/ListSteps.jsx",
-      "category": "displays"
-    },
-    {
-      "name": "RenderAddressLine",
-      "file": "snippets/components/displays/pages/BlockchainContractsRenderers.jsx",
-      "category": "displays"
-    },
-    {
-      "name": "RenderContractEmbed",
-      "file": "snippets/components/displays/pages/BlockchainContractsRenderers.jsx",
-      "category": "displays"
-    },
-    {
-      "name": "RenderFactLine",
-      "file": "snippets/components/displays/pages/BlockchainContractsRenderers.jsx",
-      "category": "displays"
-    },
-    {
-      "name": "RenderGeneratedFunctionFields",
-      "file": "snippets/components/displays/pages/BlockchainContractsRenderers.jsx",
-      "category": "displays"
-    },
-    {
-      "name": "RenderSourceInheritance",
-      "file": "snippets/components/displays/pages/BlockchainContractsRenderers.jsx",
+      "file": "snippets/components/displays/steps/Steps.jsx",
       "category": "displays"
     },
     {
@@ -8147,7 +8007,7 @@
     },
     {
       "name": "SearchTableV2",
-      "file": "snippets/components/displays/tables/SearchTable.jsx",
+      "file": "snippets/components/displays/tables/Tables.jsx",
       "category": "displays"
     },
     {
@@ -8208,6 +8068,11 @@
     {
       "name": "ExternalContent",
       "file": "snippets/components/integrators/embeds/ExternalContent.jsx",
+      "category": "integrators"
+    },
+    {
+      "name": "HistoricalContractTable",
+      "file": "snippets/components/integrators/feeds/HistoricalContractTable.jsx",
       "category": "integrators"
     },
     {

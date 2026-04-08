@@ -1,6 +1,6 @@
 <!-- GENERATED FILE — DO NOT EDIT DIRECTLY -->
 <!-- Generator: operations/scripts/generators/components/library/generate-component-library.js -->
-<!-- Generated: 2026-04-08T00:51:53.711Z -->
+<!-- Generated: 2026-04-08T01:43:29.747Z -->
 <!-- Regenerate: node operations/scripts/generators/components/library/generate-component-library.js --category displays -->
 
 # Displays Component Library
@@ -110,7 +110,7 @@ Renders authored content into a specific visual format.
 
 > Pannable, zoomable diagram container with zoom controls and accessible buttons.
 
-**Import:** `import { ScrollableDiagram } from "/snippets/components/displays/diagrams/ZoomableDiagram.jsx";`
+**Import:** `import { ScrollableDiagram } from "/snippets/components/displays/diagrams/ScrollableDiagram.jsx";`
 **Status:** stable | **Imports:** 22
 
 #### Props

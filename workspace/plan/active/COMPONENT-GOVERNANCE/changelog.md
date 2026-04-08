@@ -192,3 +192,31 @@
 - `snippets/components/x-archive/elements-text/CustomCardTitle.jsx`
 - `snippets/components/x-archive/elements-callouts/PreviewCallouts.jsx`
 - `snippets/components/x-archive/elements-social/SocialLinks.jsx`
+
+## 2026-04-08 — wrappers/ restructuring (component-naming-audit)
+
+### Moved to displays/
+- `tables/` (Tables.jsx, Table.jsx, SearchTable.jsx, ApiBaseUrlsTable.mdx)
+- `cards/` (CustomCards.jsx, ShowcaseCards.jsx, SolutionCard.jsx, SolutionItem.jsx)
+- `grids/` (CardCarousel.jsx, QuadGrid.jsx)
+- `accordions/` (AccordionGroupList.jsx, AccordionLayout.jsx)
+- `steps/` (Steps.jsx, ListSteps.jsx, Lists.jsx)
+
+### Containers consolidation
+- `Containers.jsx`: absorbed FlexContainer, GridContainer (from Layout.jsx), CalloutWrapper
+- `Layout.jsx`: now houses LazyLoad + ScrollBox (behaviour utilities)
+
+### New components
+- `BadgeRow` in Badges.jsx (variant="text"|"icon", replaces BadgeWrapper+IconBadgeWrapper)
+
+### Moved to elements/
+- `DataWrap` → `elements/text/DataWrap.jsx`
+
+### Archived
+- `x-archive/wrappers-containers/LazyLoad.jsx`
+- `x-archive/wrappers-containers/ScrollBox.jsx`
+- `x-archive/wrappers-containers/CalloutWrapper.jsx`
+
+### Propagation
+- 611 files updated with new import paths
+- VS Code snippets (4 files), tools/dev, editor-extensions updated

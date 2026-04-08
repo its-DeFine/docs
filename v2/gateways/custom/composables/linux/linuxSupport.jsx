@@ -1,4 +1,4 @@
-import { DynamicTable } from '/snippets/components/displays/tables/Table.jsx'
+import { DynamicTable } from '/snippets/components/displays/tables/Tables.jsx'
 import { CustomCardTitle } from '/snippets/components/elements/text/Text.jsx'
 
 import {

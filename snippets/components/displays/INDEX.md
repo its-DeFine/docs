@@ -1,6 +1,6 @@
 <!-- GENERATED FILE — DO NOT EDIT DIRECTLY -->
 <!-- Generator: operations/scripts/generators/components/library/generate-component-index.js -->
-<!-- Generated: 2026-04-08T00:51:53.669Z -->
+<!-- Generated: 2026-04-08T01:43:29.702Z -->
 <!-- Components: 20 | Category: displays -->
 
 # Displays — Component Index
@@ -21,7 +21,7 @@ Quick-reference table. For full documentation see [LIBRARY.md](LIBRARY.md).
 | 10 | **ResponseFieldAccordion** | `ResponseField.jsx` | response-fields | 🟢 stable | 1 | Accordion-style response field with collapsible detail section. |
 | 11 | **ResponseFieldExpandable** | `ResponseField.jsx` | response-fields | 🟢 stable | 1 | Expandable response field that reveals nested content on click. |
 | 12 | **ResponseFieldGroup** | `ResponseField.jsx` | response-fields | 🟢 stable | 0 | Container for grouping multiple response fields with consistent spacing. |
-| 13 | **ScrollableDiagram** | `ZoomableDiagram.jsx` | diagrams | 🟢 stable | 22 | Pannable, zoomable diagram container with zoom controls and accessible buttons. |
+| 13 | **ScrollableDiagram** | `ScrollableDiagram.jsx` | diagrams | 🟢 stable | 22 | Pannable, zoomable diagram container with zoom controls and accessible buttons. |
 | 14 | **ShowcaseVideo** | `Video.jsx` | video | 🟢 stable | 1 | Full-width video with negative-margin breakout and rounded frame. |
 | 15 | **TitledVideo** | `Video.jsx` | video | 🟢 stable | 2 | Auto-playing video with title/subtitle overlay. Respects prefers-reduced-motion. |
 | 16 | **ValueResponseField** | `ResponseField.jsx` | response-fields | 🟢 stable | 3 | API response field with name, type, and value display. |

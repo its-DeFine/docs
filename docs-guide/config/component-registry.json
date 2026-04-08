@@ -772,7 +772,7 @@
     },
     {
       "name": "ScrollableDiagram",
-      "file": "snippets/components/displays/diagrams/ZoomableDiagram.jsx",
+      "file": "snippets/components/displays/diagrams/ScrollableDiagram.jsx",
       "category": "displays",
       "status": "stable",
       "description": "Pannable, zoomable diagram container with zoom controls and accessible buttons.",

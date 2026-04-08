@@ -1,3 +1,8 @@
+// ─── Steps — all step and list-step components ─── //
+
+import { GotoLink } from '/snippets/components/elements/links/Links.jsx'
+import { InlineDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+
 /**
  * @component StyledSteps
  * @category wrappers
@@ -84,7 +89,6 @@ export const StyledSteps = ({
  * @param {object} [style={}] - Optional inline style override.
  */
 
-import { InlineDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 export const StyledStep = ({
   title,
   icon,
@@ -116,3 +120,152 @@ export const StyledStep = ({
     </Step>
   )
 }
+
+/**
+ * @component ListSteps
+ * @category wrappers
+ * @subcategory lists
+ * @status stable
+ * @description Renders an array of step items inside Mintlify Steps component.
+  * @aiDiscoverability none
+ * @param {Array} listItems - Collection data rendered by the component.
+ * @param {object} [stepsConfig={}] - Steps config used by the component.
+ * @param {string} [className=""] - CSS class name.
+ * @param {object} [style={}] - Inline style overrides.
+ */
+export const ListSteps = ({ listItems, stepsConfig = {}, className = "", style = {}, ...rest }) => {
+  const safeItems = Array.isArray(listItems) ? listItems : [];
+  if (safeItems.length === 0) {
+    console.warn("[ListSteps] Missing required prop: listItems");
+    return null;
+  }
+
+  return (
+    <Steps className={className} style={style} {...stepsConfig} {...rest}>
+      {safeItems.map(({ title, icon, children, ...props }, idx) => (
+        <Step key={idx} title={title} icon={icon} {...props}>
+          {children}
+        </Step>
+      ))}
+    </Steps>
+  );
+};
+
+// ─── List-based Steps (from Lists.jsx) ─── //
+
+
+/**
+ * @component BasicList
+ * @category wrappers
+ * @subcategory lists
+ * @status planned
+ * @description Planned list component — not yet implemented.
+  * @aiDiscoverability none
+ * @param {any} listItems - list Items prop.
+ */
+export const BasicList = ({ listItems: array }) => {
+  return <></>;
+};
+
+/**
+ * @component IconList
+ * @category wrappers
+ * @subcategory lists
+ * @status planned
+ * @description Planned icon list component — not yet implemented.
+  * @aiDiscoverability none
+ * @param {any} listItems - list Items prop.
+ */
+export const IconList = ({ listItems: array }) => {
+  return <></>;
+};
+
+/**
+ * @component StepList
+ * @category wrappers
+ * @subcategory lists
+ * @status stable
+ * @description Renders listItems as Mintlify Steps with title, icon, and content.
+  * @aiDiscoverability none
+ * @param {any} listItems - list Items prop.
+  * @param {string} [className=''] - Optional CSS class override.
+  * @param {object} [style={}] - Optional inline style override.
+ */
+export const StepList = ({ listItems, className = "", style = {}, ...rest }) => {
+  return (
+    <Steps className={className} style={style} {...rest}>
+      {listItems.map(({ title, icon, content }, idx) => (
+        <Step key={idx} title={title} icon={icon}>
+          {content}
+        </Step>
+      ))}
+    </Steps>
+  );
+};
+
+/**
+ * @component StepLinkList
+ * @category wrappers
+ * @subcategory lists
+ * @status stable
+ * @description Renders listItems as Mintlify Steps with GotoLink navigation.
+  * @aiDiscoverability none
+ * @param {any} listItems - list Items prop.
+  * @param {string} [className=''] - Optional CSS class override.
+  * @param {object} [style={}] - Optional inline style override.
+ */
+export const StepLinkList = ({ listItems, className = "", style = {}, ...rest }) => {
+  return (
+    <Steps className={className} style={style} {...rest}>
+      {listItems.map(({ title, icon, content, link }, idx) => (
+        <Step key={idx} title={title} icon={icon}>
+          <GotoLink label={content} relativePath={link} />
+        </Step>
+      ))}
+    </Steps>
+  );
+};
+
+/**
+ * @component UpdateList
+ * @category wrappers
+ * @subcategory lists
+ * @status planned
+ * @description Planned update list component — not yet implemented.
+  * @aiDiscoverability none
+ * @param {any} listItems - list Items prop.
+ */
+export const UpdateList = ({ listItems: array }) => {
+  return (
+    <Update label="New Users">
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        Learn what Livepeer is and how it can benefit you
+        <Icon icon="new" /> [About Livepeer](../../01_about/about-home/)
+      </div>
+    </Update>
+  );
+};
+
+/**
+ * @component UpdateLinkList
+ * @category wrappers
+ * @subcategory lists
+ * @status stable
+ * @description Renders update items as linked entries inside Mintlify Update component.
+  * @aiDiscoverability none
+ * @param {any} listItems - list Items prop.
+ */
+export const UpdateLinkList = ({ listItems: array }) => {
+  return (
+    <>
+      {array.map(({ title, icon, content, link }, idx) => (
+        <Update key={idx} label={title}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            {content}
+            <GotoLink label={title} relativePath={link} icon={icon} />
+          </div>
+        </Update>
+      ))}
+    </>
+  );
+};

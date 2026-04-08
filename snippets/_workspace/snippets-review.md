@@ -119,7 +119,7 @@ deprecated / folded in elsewhere / unclassified now
           <Tree.File name="Code.jsx" />
         </Tree.Folder>
         <Tree.Folder name="diagrams">
-          <Tree.File name="ZoomableDiagram.jsx" />
+          <Tree.File name="ScrollableDiagram.jsx" />
         </Tree.Folder>
         <Tree.Folder name="examples">
           <Tree.File name="code-examples.mdx" />
