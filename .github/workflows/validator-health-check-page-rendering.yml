@@ -45,7 +45,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y jq
 
       - name: Fetch external snippets
-        run: bash operations/scripts/automations/content/data/fetching/fetch-external-docs.sh
+        run: bash operations/scripts/integrators/content/data/fetching/fetch-external-docs.sh
 
       - name: Start Mintlify dev server
         run: |
@@ -70,11 +70,10 @@ jobs:
           tail -50 /tmp/mint-dev.log || true
           exit 1
 
-      - name: Run V2 pages test
+      - name: Run V2 pages test (baseline diff mode)
         id: test-pages
-        continue-on-error: true
         run: |
-          cd tools && npm run test:v2-pages
+          cd tools && MINT_BASE_URL=http://localhost:3000 node ../operations/scripts/validators/content/structure/test-v2-pages.js --baseline
           TEST_EXIT_CODE=$?
           echo "exit_code=$TEST_EXIT_CODE" >> $GITHUB_OUTPUT
           echo "test_exit_code=$TEST_EXIT_CODE" >> $GITHUB_OUTPUT

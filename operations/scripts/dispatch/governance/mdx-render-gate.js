@@ -1,19 +1,14 @@
 /**
- * @script mdx-render-gate
- * @type dispatch
- * @concern governance
- * @niche pipelines
- * @purpose Blocks Edit/Write when the last MDX edit introduced console errors
+ * @script      mdx-render-gate
+ * @type        
+ * @concern     
+ * @niche       
+ * @purpose     Blocks Edit/Write when the last MDX edit introduced console errors
  * @description PreToolUse hook for Write/Edit. Reads the verification state written by
- *   mdx-render-verify.js (PostToolUse). If the last MDX edit FAILED verification (new
- *   console errors detected), this hook BLOCKS all subsequent Edit/Write calls unless
- *   the agent is editing the same file that failed (allowing it to fix the problem).
- *   Exempt paths (workspace/, .claude/, session files) are always allowed.
- * @mode read-only
- * @pipeline PreToolUse hook → read state → allow or block
- * @scope .claude/settings.json PreToolUse hook (Write|Edit matcher)
- * @usage Called automatically by Claude Code PreToolUse hook. Not invoked directly.
- * @policy Governance enforcement — do not bypass
+ * @mode        read-only
+ * @pipeline    PreToolUse hook → read state → allow or block
+ * @scope       .claude/settings.json PreToolUse hook (Write|Edit matcher)
+ * @usage       Called automatically by Claude Code PreToolUse hook. Not invoked directly.
  */
 
 const fs = require('fs');
@@ -116,44 +111,391 @@ const ERROR_TO_REMEDIATOR = [
     script: 'operations/scripts/remediators/governance/compliance/repair-governance-artifacts.js',
     label: 'Governance artifact repair',
     usage: 'node operations/scripts/remediators/governance/compliance/repair-governance-artifacts.js --dry-run'
+  },
+  // --- Remediators added 2026-04-08 (render-gate-remediation-gap-report.md Gap A) ---
+  {
+    pattern: /relative.*href|\.\/|\.\.\/|href.*relative/i,
+    script: 'operations/scripts/remediators/content/repair/repair-relative-page-hrefs.js',
+    label: 'Relative href canonicalisation',
+    usage: 'node operations/scripts/remediators/content/repair/repair-relative-page-hrefs.js'
+  },
+  {
+    pattern: /docs-path|moved|renamed|stale.*path/i,
+    script: 'operations/scripts/remediators/content/repair/sync-docs-paths.js',
+    label: 'Docs-path sync after file moves',
+    usage: 'node operations/scripts/remediators/content/repair/sync-docs-paths.js --staged --dry-run'
+  },
+  {
+    pattern: /mintlify.*consumer|registry.*drift|canonical.*sync/i,
+    script: 'operations/scripts/remediators/content/repair/sync-mintlify-canonical-consumers.js',
+    label: 'Mintlify consumer registry sync',
+    usage: 'node operations/scripts/remediators/content/repair/sync-mintlify-canonical-consumers.js --check'
+  },
+  {
+    pattern: /ownerless|passive.*voice|unclear.*ownership/i,
+    script: 'operations/scripts/remediators/content/style/repair-ownerless-language.js',
+    label: 'Ownerless language repair',
+    usage: 'node operations/scripts/remediators/content/style/repair-ownerless-language.js --check --files <file>'
+  },
+  {
+    pattern: /accessibility|wcag|aria|alt.*text|contrast/i,
+    script: 'operations/scripts/remediators/content/style/wcag-repair-common.js',
+    label: 'WCAG accessibility repair',
+    usage: 'node operations/scripts/remediators/content/style/wcag-repair-common.js --files <file>'
+  },
+  {
+    pattern: /seo|og:image|meta.*description|open.*graph/i,
+    script: 'operations/scripts/remediators/content/seo/generate-seo.js',
+    label: 'SEO metadata generation',
+    usage: 'node operations/scripts/remediators/content/seo/generate-seo.js --dry-run --files <file>'
+  },
+  {
+    pattern: /component.*registry|component.*metadata|export.*not.*found/i,
+    script: 'operations/scripts/remediators/components/library/repair-component-metadata.js',
+    label: 'Component metadata repair',
+    usage: 'node operations/scripts/remediators/components/library/repair-component-metadata.js --dry-run'
+  },
+  {
+    pattern: /framework.*header|missing.*classification/i,
+    script: 'operations/scripts/remediators/content/classification/add-framework-headers.js',
+    label: 'Framework classification header repair',
+    usage: 'node operations/scripts/remediators/content/classification/add-framework-headers.js --dry-run'
+  },
+  {
+    pattern: /pageType|missing.*frontmatter.*type/i,
+    script: 'operations/scripts/remediators/content/classification/add-pagetype-mechanical.js',
+    label: 'pageType frontmatter repair',
+    usage: 'node operations/scripts/remediators/content/classification/add-pagetype-mechanical.js --dry-run'
+  },
+  {
+    pattern: /purpose|missing.*metadata|classification/i,
+    script: 'operations/scripts/remediators/content/classification/assign-purpose-metadata.js',
+    label: 'Purpose metadata assignment',
+    usage: 'node operations/scripts/remediators/content/classification/assign-purpose-metadata.js --dry-run --files <file>'
+  },
+  {
+    pattern: /workflow.*header|workflow.*governance/i,
+    script: 'operations/scripts/remediators/governance/compliance/add-workflow-governance-headers.js',
+    label: 'Workflow governance header repair',
+    usage: 'node operations/scripts/remediators/governance/compliance/add-workflow-governance-headers.js --dry-run'
+  },
+  {
+    pattern: /jsdoc|script.*header|missing.*@script/i,
+    script: 'operations/scripts/remediators/governance/scaffold/update-jsdoc-headers.js',
+    label: 'JSDoc header repair',
+    usage: 'node operations/scripts/remediators/governance/scaffold/update-jsdoc-headers.js --dry-run'
+  },
+  {
+    pattern: /usage.*path|scaffold|broken.*reference/i,
+    script: 'operations/scripts/remediators/governance/scaffold/fix-usage-paths.js',
+    label: 'Usage path repair',
+    usage: 'node operations/scripts/remediators/governance/scaffold/fix-usage-paths.js'
+  },
+  {
+    pattern: /script.*inventory|registry.*mismatch/i,
+    script: 'operations/scripts/remediators/governance/scripts/repair-script-inventory.js',
+    label: 'Script inventory repair',
+    usage: 'node operations/scripts/remediators/governance/scripts/repair-script-inventory.js --dry-run'
+  },
+  {
+    pattern: /quarantine|deprecated|cleanup.*risk/i,
+    script: 'operations/scripts/remediators/content/repair/quarantine-manager.js',
+    label: 'Quarantine manager (safe cleanup)',
+    usage: 'node operations/scripts/remediators/content/repair/quarantine-manager.js'
   }
 ];
 
+// ---------------------------------------------------------------------------
+// Validator lookup — suggest diagnostic scripts to understand error scope
+// ---------------------------------------------------------------------------
+
+const ERROR_TO_VALIDATOR = [
+  {
+    pattern: /frontmatter|pageType|purpose|missing.*field|stale.*content/i,
+    script: 'operations/scripts/validators/content/structure/lint-structure.js',
+    label: 'Structure linter (frontmatter, staleness, structural issues)',
+    usage: 'node operations/scripts/validators/content/structure/lint-structure.js <file>'
+  },
+  {
+    pattern: /banned.*word|prohibited|copy.*quality/i,
+    script: 'operations/scripts/validators/content/copy/lint-copy.js',
+    label: 'Copy linter (banned words, prohibited phrases)',
+    usage: 'node operations/scripts/validators/content/copy/lint-copy.js <file>'
+  },
+  {
+    pattern: /conditional|negation|weakened|pattern/i,
+    script: 'operations/scripts/validators/content/copy/lint-patterns.js',
+    label: 'Copy pattern linter (tier 2 patterns)',
+    usage: 'node operations/scripts/validators/content/copy/lint-patterns.js <file>'
+  },
+  {
+    pattern: /component.*import|component.*export|component.*error/i,
+    script: 'operations/scripts/validators/components/library/check-component-health.js',
+    label: 'Component health check',
+    usage: 'node operations/scripts/validators/components/library/check-component-health.js'
+  },
+  {
+    pattern: /markdown|mdx.*unsafe|html.*comment|angle.*bracket/i,
+    script: 'operations/scripts/validators/content/structure/check-mdx-safe-markdown.js',
+    label: 'MDX-safe markdown check',
+    usage: 'node operations/scripts/validators/content/structure/check-mdx-safe-markdown.js <file>'
+  },
+  {
+    pattern: /react.*error|console.*error|hydration|minified/i,
+    script: 'operations/scripts/validators/content/structure/sweep-console-errors.js',
+    label: 'Console error sweep (all pages)',
+    usage: 'node operations/scripts/validators/content/structure/sweep-console-errors.js'
+  },
+  {
+    pattern: /duplicate.*h1|duplicate.*h2|double.*header|heading/i,
+    script: 'operations/scripts/validators/content/structure/check-double-headers.js',
+    label: 'Double header check',
+    usage: 'node operations/scripts/validators/content/structure/check-double-headers.js <file>'
+  },
+  {
+    pattern: /anchor|broken.*anchor|hash.*link/i,
+    script: 'operations/scripts/validators/content/structure/check-anchor-usage.js',
+    label: 'Anchor usage check',
+    usage: 'node operations/scripts/validators/content/structure/check-anchor-usage.js <file>'
+  },
+  {
+    pattern: /truncated|malformed.*end|page.*ending/i,
+    script: 'operations/scripts/validators/content/structure/check-page-endings.js',
+    label: 'Page endings check',
+    usage: 'node operations/scripts/validators/content/structure/check-page-endings.js <file>'
+  },
+  {
+    pattern: /description.*quality|meta.*description|seo.*description/i,
+    script: 'operations/scripts/validators/content/structure/check-description-quality.js',
+    label: 'Description quality check',
+    usage: 'node operations/scripts/validators/content/structure/check-description-quality.js <file>'
+  },
+  {
+    pattern: /docs.*path|path.*sync|route.*mismatch/i,
+    script: 'operations/scripts/validators/content/structure/check-docs-path-sync.js',
+    label: 'Docs path sync check',
+    usage: 'node operations/scripts/validators/content/structure/check-docs-path-sync.js'
+  },
+  {
+    pattern: /grammar|en-gb|british.*english/i,
+    script: 'operations/scripts/validators/content/grammar/check-grammar-en-gb.js',
+    label: 'EN-GB grammar check',
+    usage: 'node operations/scripts/validators/content/grammar/check-grammar-en-gb.js <file>'
+  },
+  {
+    pattern: /proper.*noun|capitalisation|capitalization/i,
+    script: 'operations/scripts/validators/content/grammar/check-proper-nouns.js',
+    label: 'Proper noun check',
+    usage: 'node operations/scripts/validators/content/grammar/check-proper-nouns.js <file>'
+  },
+  {
+    pattern: /voice.*register|tone|audience.*mismatch/i,
+    script: 'operations/scripts/validators/content/copy/check-voice-register.js',
+    label: 'Voice register check',
+    usage: 'node operations/scripts/validators/content/copy/check-voice-register.js <file>'
+  }
+];
+
+// ---------------------------------------------------------------------------
+// Workflow references — suggest GitHub Actions for batch operations
+// ---------------------------------------------------------------------------
+
+const WORKFLOW_REFERENCES = [
+  // Remediator workflows
+  {
+    pattern: /voice|copy|spell|en-gb|grammar|style/i,
+    workflow: 'remediator-brand-repair-en-gb-style.yml',
+    label: 'EN-GB style homogenisation (creates PR)',
+    usage: 'gh workflow run remediator-brand-repair-en-gb-style.yml -f scope=changed'
+  },
+  {
+    pattern: /governance|GOVERNANCE\.md|lastVerified|marker/i,
+    workflow: 'remediator-governance-repair-pipelines.yml',
+    label: 'Governance pipeline repair (creates PR)',
+    usage: 'gh workflow run remediator-governance-repair-pipelines.yml -f mode=dry-run'
+  },
+  {
+    pattern: /seo|og:image|meta.*description|open.*graph/i,
+    workflow: 'remediator-discoverability-repair-seo-metadata.yml',
+    label: 'SEO metadata refresh (creates PR)',
+    usage: 'gh workflow run remediator-discoverability-repair-seo-metadata.yml -f dry_run=true'
+  },
+  // Validator workflows
+  {
+    pattern: /banned.*word|copy.*standard|grammar|proper.*noun/i,
+    workflow: 'validator-brand-check-copy-standards.yml',
+    label: 'Copy standards suite (lint-copy + patterns + grammar + nouns)',
+    usage: 'gh workflow run validator-brand-check-copy-standards.yml'
+  },
+  {
+    pattern: /content.*quality|browser.*test|pr.*check/i,
+    workflow: 'validator-copy-check-content-quality-suite.yml',
+    label: 'Content quality suite (P2 hard gate + browser tests)',
+    usage: 'gh workflow run validator-copy-check-content-quality-suite.yml'
+  },
+  {
+    pattern: /ai.*sitemap|sitemap.*ai/i,
+    workflow: 'validator-discoverability-check-ai-sitemap.yml',
+    label: 'AI sitemap verification',
+    usage: 'gh workflow run validator-discoverability-check-ai-sitemap.yml'
+  },
+  {
+    pattern: /companion|ai.*companion|manifest/i,
+    workflow: 'validator-discoverability-check-companions.yml',
+    label: 'AI companion files check',
+    usage: 'gh workflow run validator-discoverability-check-companions.yml'
+  },
+  {
+    pattern: /llms\.txt|llm.*file/i,
+    workflow: 'validator-discoverability-check-llms-files.yml',
+    label: 'llms.txt verification',
+    usage: 'gh workflow run validator-discoverability-check-llms-files.yml'
+  },
+  {
+    pattern: /codex|codex.*branch|task.*contract/i,
+    workflow: 'validator-governance-check-codex-compliance.yml',
+    label: 'Codex governance check',
+    usage: 'gh workflow run validator-governance-check-codex-compliance.yml'
+  },
+  {
+    pattern: /governance.*map|governance.*marker|governance.*sync/i,
+    workflow: 'validator-governance-check-governance-map.yml',
+    label: 'Governance map validation',
+    usage: 'gh workflow run validator-governance-check-governance-map.yml'
+  },
+  {
+    pattern: /broken.*link|dead.*link|404/i,
+    workflow: 'validator-health-check-broken-links.yml',
+    label: 'Broken links check (mintlify CLI)',
+    usage: 'gh workflow run validator-health-check-broken-links.yml'
+  },
+  {
+    pattern: /openapi|api.*spec|swagger/i,
+    workflow: 'validator-health-check-openapi-reference.yml',
+    label: 'OpenAPI reference audit',
+    usage: 'gh workflow run validator-health-check-openapi-reference.yml'
+  },
+  {
+    pattern: /render|browser|react.*error|console.*error|hydration/i,
+    workflow: 'validator-health-check-page-rendering.yml',
+    label: 'Full browser rendering sweep (all pages)',
+    usage: 'gh workflow run validator-health-check-page-rendering.yml'
+  },
+  {
+    pattern: /structure|header|anchor|ending|description/i,
+    workflow: 'validator-health-check-page-structure.yml',
+    label: 'Page structure suite (6 validators)',
+    usage: 'gh workflow run validator-health-check-page-structure.yml'
+  },
+  {
+    pattern: /catalog|docs.*guide.*catalog/i,
+    workflow: 'validator-maintenance-check-catalogs.yml',
+    label: 'Docs guide catalog check',
+    usage: 'gh workflow run validator-maintenance-check-catalogs.yml'
+  },
+  {
+    pattern: /docs.*index|index.*json/i,
+    workflow: 'validator-maintenance-check-docs-index.yml',
+    label: 'Docs index check',
+    usage: 'gh workflow run validator-maintenance-check-docs-index.yml'
+  }
+];
+
+// ---------------------------------------------------------------------------
+// Pipeline doc references — link to docs-guide pipeline documentation
+// ---------------------------------------------------------------------------
+
+const PIPELINE_DOC_REFERENCES = [
+  {
+    pattern: /component|registry|export|import.*component/i,
+    doc: 'docs-guide/docs-library/pipelines/component-health.mdx',
+    label: 'Component Health Pipeline'
+  },
+  {
+    pattern: /content.*quality|freshness|staleness|quality.*gate/i,
+    doc: 'docs-guide/docs-library/pipelines/content-quality.mdx',
+    label: 'Content Quality Pipeline'
+  },
+  {
+    pattern: /copy|voice|brand|grammar|banned.*word|en-gb/i,
+    doc: 'docs-guide/docs-library/pipelines/copy-brand.mdx',
+    label: 'Copy and Brand Pipeline'
+  },
+  {
+    pattern: /data.*integration|social.*feed|discord|youtube|rss|changelog/i,
+    doc: 'docs-guide/docs-library/pipelines/data-integration.mdx',
+    label: 'Data Integration Pipeline'
+  },
+  {
+    pattern: /discover|seo|ai.*sitemap|llms\.txt|companion|crawl/i,
+    doc: 'docs-guide/docs-library/pipelines/discoverability.mdx',
+    label: 'Discoverability Pipeline'
+  },
+  {
+    pattern: /governance|compliance|GOVERNANCE\.md|codex|marker/i,
+    doc: 'docs-guide/docs-library/pipelines/governance-compliance.mdx',
+    label: 'Governance and Compliance Pipeline'
+  }
+];
+
+function matchRegistry(registry, errorText, failedFile, pathKey) {
+  const matches = [];
+  for (const entry of registry) {
+    if (entry.pattern.test(errorText) || entry.pattern.test(failedFile)) {
+      if (pathKey && entry[pathKey]) {
+        try {
+          const absPath = path.resolve(__dirname, '..', '..', '..', '..', entry[pathKey]);
+          if (!fs.existsSync(absPath)) continue;
+        } catch (_) {
+          continue;
+        }
+      }
+      matches.push(entry);
+    }
+  }
+  return matches;
+}
+
 function findRemediation(failedFile, errors) {
   const errorText = errors.join(' ');
-  const matches = [];
+  const sections = [];
 
-  for (const entry of ERROR_TO_REMEDIATOR) {
-    if (entry.pattern.test(errorText) || entry.pattern.test(failedFile)) {
-      try {
-        const absPath = path.resolve(__dirname, '..', '..', '..', '..', entry.script);
-        if (fs.existsSync(absPath)) {
-          matches.push(entry);
-        }
-      } catch (_) {
-        // Script missing — skip
-      }
-    }
-  }
-
-  // Always check if any remediator exists for the file extension
-  if (matches.length === 0 && failedFile.endsWith('.mdx')) {
+  // Layer 1: Remediator scripts (fix the problem)
+  const remediators = matchRegistry(ERROR_TO_REMEDIATOR, errorText, failedFile, 'script');
+  if (remediators.length === 0 && failedFile.endsWith('.mdx')) {
     try {
       if (fs.existsSync(REMEDIATOR_DIR)) {
-        matches.push({
+        remediators.push({
           label: 'Manual inspection',
-          usage: `ls operations/scripts/remediators/ — check for applicable fix scripts`
+          usage: 'ls operations/scripts/remediators/ — check for applicable fix scripts'
         });
       }
-    } catch (_) {
-      // No remediator dir
-    }
+    } catch (_) {}
+  }
+  if (remediators.length > 0) {
+    sections.push('Remediators (fix):\n' + remediators.map((m) => `  → ${m.label}: ${m.usage}`).join('\n'));
   }
 
-  if (matches.length === 0) return '';
+  // Layer 2: Validator scripts (diagnose scope)
+  const validators = matchRegistry(ERROR_TO_VALIDATOR, errorText, failedFile, 'script');
+  if (validators.length > 0) {
+    sections.push('Validators (diagnose):\n' + validators.map((m) => `  → ${m.label}: ${m.usage}`).join('\n'));
+  }
 
-  const lines = matches.map((m) => `  → ${m.label}: ${m.usage}`);
-  return `\n\nAvailable remediators:\n${lines.join('\n')}`;
+  // Layer 3: GitHub Actions workflows (batch operations)
+  const workflows = matchRegistry(WORKFLOW_REFERENCES, errorText, failedFile, null);
+  if (workflows.length > 0) {
+    sections.push('Workflows (batch/CI):\n' + workflows.slice(0, 3).map((m) => `  → ${m.label}: ${m.usage}`).join('\n'));
+  }
+
+  // Layer 4: Pipeline docs (context)
+  const pipelines = matchRegistry(PIPELINE_DOC_REFERENCES, errorText, failedFile, null);
+  if (pipelines.length > 0) {
+    sections.push('Pipeline docs:\n' + pipelines.map((m) => `  → ${m.label}: ${m.doc}`).join('\n'));
+  }
+
+  if (sections.length === 0) return '';
+  return '\n\n' + sections.join('\n\n');
 }
 
 // ---------------------------------------------------------------------------

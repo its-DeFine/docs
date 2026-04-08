@@ -1,6 +1,6 @@
 /**
  * @script            fetch-forum-data
- * @category          automation
+ * @category          integrator
  * @purpose           infrastructure:data-feeds
  * @scope             .github/scripts
  * @owner             docs
@@ -8,6 +8,9 @@
  * @purpose-statement Fetches latest topics and posts from Livepeer Forum API, writes to snippets/data/social-feeds/
  * @pipeline          P5, P6
  * @usage             node .github/scripts/fetch-forum-data.js [flags]
+ * @type        integrator
+ * @description fetch forum data
+ * @mode        execute
  */
 const https = require("https");
 const fs = require("fs");

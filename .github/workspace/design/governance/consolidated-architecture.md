@@ -96,19 +96,19 @@ See Appendix A for the complete rename table.
 | agent-governance-framework.mdx | YES | Reconciled |
 | generated-artifact-and-hook-governance.mdx | YES | Current |
 | script-governance.mdx | YES | Stale (4 concerns) |
-| infrastructure-principles.mdx | NOT IN ARCHITECTURE | Current |
-| quality-gates.mdx | NOT IN ARCHITECTURE | Current |
-| source-of-truth-policy.mdx | NOT IN ARCHITECTURE | Current |
-| component-layout-decisions.mdx | NOT IN ARCHITECTURE | Current |
-| docs-guide-structure-policy.mdx | NOT IN ARCHITECTURE | Current |
-| v2-folder-governance.mdx | NOT IN ARCHITECTURE | Current |
-| cleanup-quarantine-policy.mdx | NOT IN ARCHITECTURE | Current |
-| snippets-assets-policy.mdx | NOT IN ARCHITECTURE | Current |
-| audit-system-overview.mdx | NOT IN ARCHITECTURE | Current |
-| skill-pipeline-map.mdx | NOT IN ARCHITECTURE | Current |
-| workspace-lifecycle-policy.mdx | NOT IN ARCHITECTURE | Current |
+| infrastructure-principles.mdx | Via source-of-truth-guide.mdx | Current |
+| quality-gates.mdx | Via source-of-truth-guide.mdx | Current |
+| source-of-truth-policy.mdx | Via source-of-truth-guide.mdx + governance-index.mdx | Current |
+| component-layout-decisions.mdx | Via source-of-truth-guide.mdx | Current |
+| docs-guide-structure-policy.mdx | Via source-of-truth-guide.mdx + governance-index.mdx | Current |
+| v2-folder-governance.mdx | Via source-of-truth-guide.mdx + governance-index.mdx | Current |
+| cleanup-quarantine-policy.mdx | Via source-of-truth-guide.mdx | Current |
+| snippets-assets-policy.mdx | Via source-of-truth-guide.mdx | Current |
+| audit-system-overview.mdx | Via source-of-truth-guide.mdx | Current |
+| skill-pipeline-map.mdx | Via source-of-truth-guide.mdx + ai-tools.mdx | Current |
+| workspace-lifecycle-policy.mdx | Via source-of-truth-guide.mdx | Current |
 
-**GAP: 10 policy docs not referenced in architecture.** These need to be verified as current and added to the governance surface map, or marked as superseded.
+**RESOLVED (2026-04-08):** All 11 policies verified as current with operational paths. Referenced in the human governance model via `docs-guide/canonical/source-of-truth-guide.mdx`. The enforcement layer (hooks/workflows/gates) and the human governance model (read-before-you-write policies) are complementary systems — both are covered.
 
 ### 1.6 Governance config (operations/governance/config/)
 
@@ -291,7 +291,7 @@ See Appendix A for the complete table.
 
 | Current | Target | Notes |
 |---|---|---|
-| .github/scripts/fetch-contract-addresses.js | Keep (CLI entrypoint delegates to operations/scripts/automations/content/data/contracts/) | Already has pipeline modules |
+| .github/scripts/fetch-contract-addresses.js | Keep (CLI entrypoint delegates to operations/scripts/integrators/content/data/contracts/) | Already has pipeline modules |
 | .github/scripts/fetch-discord-announcements.js | operations/scripts/integrators/copy/social-feeds/ | Create directory |
 | .github/scripts/fetch-forum-data.js | operations/scripts/integrators/copy/social-feeds/ | |
 | .github/scripts/fetch-ghost-blog-data.js | operations/scripts/integrators/copy/social-feeds/ | |
@@ -361,7 +361,7 @@ See Appendix A for the complete table.
 
 | Gap | What's needed |
 |---|---|
-| 10 policy docs not referenced in architecture | Verify current, add to governance map |
+| ~~10 policy docs not referenced in architecture~~ | ~~RESOLVED 2026-04-08: all referenced via source-of-truth-guide.mdx~~ |
 | PR workflows have no fix instructions (70%) | Add step summary with fix guidance |
 | Generators have no concurrency control | Add concurrency groups |
 | Labels hardcoded in 3 workflows | Centralise to config file |

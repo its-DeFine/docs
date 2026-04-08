@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script            check-governance-markers
- * @type              validator
- * @concern           governance
- * @niche             compliance
- * @purpose           governance:marker-compliance
- * @description       Validates GOVERNANCE.md presence in all required folders and checks link integrity
- * @mode              read-only
- * @pipeline          pr-changed -> all GOVERNANCE.md markers -> exit-code, stdout:violations
- * @scope             v2/, snippets/, operations/, ai-tools/, tools/, docs-guide/, .github/, .claude/, workspace/, .githooks/
- * @usage             node operations/scripts/validators/governance/compliance/check-governance-markers.js [--json]
+ * @script      check-governance-markers
+ * @type        
+ * @concern     
+ * @niche       
+ * @purpose     governance:marker-compliance
+ * @description Validates GOVERNANCE.md presence in all required folders and checks link integrity
+ * @mode        read-only
+ * @pipeline    pr-changed -> all GOVERNANCE.md markers -> exit-code, stdout:violations
+ * @scope       v2/, snippets/, operations/, ai-tools/, tools/, docs-guide/, .github/, .claude/, workspace/, .githooks/
+ * @usage       node operations/scripts/validators/governance/compliance/check-governance-markers.js [--json]
  */
 'use strict';
 

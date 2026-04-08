@@ -17,7 +17,7 @@ lastUpdated: 2026-04-07
 
 ## Governed Surfaces
 
-Ten areas of this repo are governed. Each has a canonical framework document, a root path, and a staleness status.
+Twelve areas of this repo are governed. Each has a canonical framework document, a root path, and a staleness status.
 
 | # | Area | Root path | Framework | Status |
 |---|------|-----------|-----------|--------|
@@ -182,6 +182,38 @@ Governance-sensitive workflow PRs also require the production approval gate:
 - Archived context: `.github/workspace/outcomes.md` (visual maps and Mermaid diagrams)
 
 **Status:** Current. Phases 1-5 complete. Phase 6 (workflow renames, inline script extraction, consolidation) pending.
+
+---
+
+## 11. Site Configuration (docs.json)
+
+**Root path:** `docs.json`
+
+**Maintained by:** Hand-edited (human only). No generator.
+
+The canonical Mintlify configuration file. Controls navigation, routing, branding, tabs, anchors, redirects, and all site-level config. Changes deploy to `docs.livepeer.org` on merge to `docs-v2`.
+
+**Validation:** Mintlify build (implicit). Pre-commit hard gate validates redirect integrity against `tools/config/scoped-navigation/docs-gate-orch.json`. Root allowlist protects against accidental deletion.
+
+**Policy:** Changes to navigation structure, redirects, or tab config should be reviewed for downstream impact on generated surfaces (llms.txt, sitemap, AI sitemap, docs-index).
+
+**Status:** Current. Hand-maintained, critical infrastructure.
+
+---
+
+## 12. Web Contracts (robots.txt)
+
+**Root path:** `robots.txt`
+
+**Maintained by:** Hand-edited. Custom override of Mintlify auto-generated robots.txt (see file header comment).
+
+Explicitly allows AI search and retrieval crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended, Amazonbot, cohere-ai) for AEO (Answer Engine Optimisation). References the canonical sitemap at `https://docs.livepeer.org/sitemap.xml`.
+
+**Validation:** No automated validator. Changes should be reviewed for SEO/AEO impact.
+
+**Policy:** This file is a web contract. Changes affect which crawlers can index the live site. Do not restrict AI crawlers without explicit approval.
+
+**Status:** Current. Hand-maintained.
 
 ---
 

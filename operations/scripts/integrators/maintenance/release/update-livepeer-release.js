@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * @script            update-livepeer-release
- * @category          automation
+ * @category          integrator
  * @purpose           qa:data-refresh
  * @scope             .github/workflows, snippets/data/globals
  * @owner             docs
@@ -9,6 +9,9 @@
  * @purpose-statement Fetches or accepts the latest go-livepeer release tag and writes the canonical release data module.
  * @pipeline          P2
  * @usage             node .github/scripts/update-livepeer-release.js [--version <tag>]
+ * @type        integrator
+ * @description update livepeer release
+ * @mode        execute
  */
 
 const fs = require('fs');

@@ -1,6 +1,6 @@
 /**
  * @script            fetch-youtube-data
- * @category          automation
+ * @category          integrator
  * @purpose           infrastructure:data-feeds
  * @scope             .github/scripts
  * @owner             docs
@@ -8,6 +8,9 @@
  * @purpose-statement Fetches video data from YouTube Data API, writes to snippets/data/social-feeds/
  * @pipeline          P5, P6
  * @usage             node .github/scripts/fetch-youtube-data.js [flags]
+ * @type        integrator
+ * @description fetch youtube data
+ * @mode        execute
  */
 const https = require("https");
 const fs = require("fs");

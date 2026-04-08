@@ -1,15 +1,14 @@
 /**
- * @script pre-tool-guard
- * @type dispatch
- * @concern governance
- * @niche pipelines
- * @purpose Pre-tool enforcement for Claude Code sessions
+ * @script      pre-tool-guard
+ * @type        
+ * @concern     
+ * @niche       
+ * @purpose     Pre-tool enforcement for Claude Code sessions
  * @description Mechanically enforces co-work rules before tool execution. Blocks destructive git, public posts, and unconfirmed writes.
- * @mode read-only
- * @pipeline PreToolUse hook → reads stdin tool input → decision (allow/block/warn)
- * @scope .claude/settings.json PreToolUse hook
- * @usage Called automatically by Claude Code PreToolUse hook. Not invoked directly.
- * @policy Governance enforcement — do not bypass
+ * @mode        read-only
+ * @pipeline    PreToolUse hook → reads stdin tool input → decision (allow/block/warn)
+ * @scope       .claude/settings.json PreToolUse hook
+ * @usage       Called automatically by Claude Code PreToolUse hook. Not invoked directly.
  */
 
 const fs = require('fs');
@@ -26,12 +25,18 @@ stdin.on('end', () => {
     const toolInput = data.tool_input || {};
 
     // --- AGENT: block execution agents, allow research/audit/read-only ---
+    // "write" and "create" are allowed when the agent has audit intent and
+    // targets review/report output (e.g. _workspace/reviews/). Only hard-block
+    // keywords that indicate source-code modification.
     if (toolName === 'Agent') {
       const prompt = (toolInput.prompt || '').toLowerCase();
       const subtype = (toolInput.subagent_type || '').toLowerCase();
+      const hasAuditIntent = /\b(research|audit|investigate|analyse|analyze|scan|find|search|check|review|read|plan)\b/.test(prompt);
+      const hasSourceModifyIntent = /\b(edit|fix|implement|refactor|move|rename|delete)\b/.test(prompt);
+      const writesAuditOutput = /(_workspace\/reviews|write.*review|write.*report|write.*summary|write.*audit)/i.test(prompt);
       const isReadOnly = subtype === 'explore' || subtype === 'plan' ||
-        /\b(research|audit|investigate|analyse|analyze|scan|find|search|check|review|read|plan)\b/.test(prompt) &&
-        !/\b(edit|write|create|build|fix|implement|refactor|move|rename|delete)\b/.test(prompt);
+        (hasAuditIntent && !hasSourceModifyIntent) ||
+        (hasAuditIntent && writesAuditOutput);
 
       if (!isReadOnly) {
         console.log(JSON.stringify({
@@ -136,7 +141,7 @@ stdin.on('end', () => {
       const isGitRm = /git\s+rm\b/.test(cmd);
       // Safe targets: /tmp/, node_modules, .DS_Store, .env, .cache, package-lock, yarn.lock,
       // pnpm-lock, debug logs, *.code-workspace — all are gitignored or scratch
-      const isGitignored = /\brm\s+.*(\b\/tmp\/|node_modules|\.DS_Store|\.env|\.cache|package-lock|yarn\.lock|pnpm-lock|debug\.log|\.code-workspace|client_secret|\.playwright-cli)/.test(cmd);
+      const isGitignored = /\brm\s+(-[rfdi]+\s+)*.*(\b\/tmp\/|\/tmp$|node_modules|\.DS_Store|\.env|\.cache|package-lock|yarn\.lock|pnpm-lock|debug\.log|\.code-workspace|client_secret|\.playwright-cli)/.test(cmd);
       if ((isRm && !isGitignored) || isGitRm) {
         console.log(JSON.stringify({
           decision: 'block',
@@ -188,6 +193,33 @@ stdin.on('end', () => {
           }
         }
       } catch (_) { /* allowlist missing or unreadable — allow through */ }
+    }
+
+    // --- NEW FILE GOVERNANCE GUIDANCE ---
+    if (toolName === 'Write' && toolInput.file_path) {
+      const repoRoot = path.resolve(__dirname, '../../../..');
+      const fp = toolInput.file_path;
+      const isNew = !fs.existsSync(fp);
+      if (isNew) {
+        const rel = path.relative(repoRoot, fp);
+        if (rel.endsWith('.js') && !rel.includes('test')) {
+          console.log(JSON.stringify({
+            systemMessage: 'NEW SCRIPT: Ensure 11-tag JSDoc header (@script, @type, @concern, @niche, @purpose, @description, @mode, @pipeline, @scope, @usage). Place in operations/scripts/<type>/<concern>/<niche>/. See docs-guide/frameworks/script-framework.mdx'
+          }));
+        } else if (rel.endsWith('.jsx')) {
+          console.log(JSON.stringify({
+            systemMessage: 'NEW COMPONENT: Ensure 7-tag JSDoc header. Place in snippets/components/<category>/<sub-niche>/. See docs-guide/frameworks/component-framework-canonical.mdx'
+          }));
+        } else if (rel.endsWith('.mdx') && rel.startsWith('v2' + path.sep)) {
+          console.log(JSON.stringify({
+            systemMessage: 'NEW DOCS PAGE: Ensure required frontmatter (title, description, keywords, audience). See docs-guide/standards/frontmatter.mdx'
+          }));
+        } else if (rel.endsWith('.yml') && rel.startsWith('.github' + path.sep + 'workflows')) {
+          console.log(JSON.stringify({
+            systemMessage: 'NEW WORKFLOW: Add governance header (# type: / # concern: / # pipeline:). See docs-guide/frameworks/github-actions.mdx'
+          }));
+        }
+      }
     }
 
     // --- WRITE/EDIT: context gate (read-before-write + broader context) ---

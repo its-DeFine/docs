@@ -1,9 +1,9 @@
 # type: validator
 # concern: brand
-# pipeline: P3
+# pipeline: P2
 # validator-brand-check-copy-standards.yml
-# P3 advisory: reports copy/brand violations but does not block merge.
-# Promotes to P2 after baseline violations cleared (D-GOV-05).
+# P2 hard gate: blocks merge on copy/brand violations.
+# Promoted from P3 advisory per D-GOV-05 (2026-04-08).
 # Decision: D-GOV-03 (every detection must self-repair or escalate)
 name: Check Copy Standards
 
@@ -43,16 +43,40 @@ jobs:
 
       - name: Run ${{ matrix.name }}
         id: check
-        continue-on-error: true
         run: node ${{ matrix.script }}
 
       - name: Step summary
         if: always()
         run: |
           if [ "${{ steps.check.outcome }}" = "failure" ]; then
-            echo "## ${{ matrix.name }}: issues found" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "This check is advisory (P3). Fix violations to promote to P2 hard gate." >> $GITHUB_STEP_SUMMARY
+            echo "## ${{ matrix.name }}: FAILED" >> $GITHUB_STEP_SUMMARY
           else
             echo "## ${{ matrix.name }}: clean" >> $GITHUB_STEP_SUMMARY
           fi
+
+  auto-repair:
+    name: Auto-repair EN-GB style
+    needs: copy-lint
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: cd tools && npm ci
+
+      - name: Run EN-GB style homogeniser on changed files
+        run: node operations/scripts/audits/content/style/style-and-language-homogenizer-en-gb.js --scope changed
+
+      - name: Create repair PR
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: 'fix(copy): auto-repair EN-GB style violations'
+          title: 'fix(copy): auto-repair EN-GB style violations'
+          body: 'Automated EN-GB style repair triggered by brand check failure. Review before merging.'
+          branch: fix/auto-repair-en-gb-style
+          labels: copy, automated

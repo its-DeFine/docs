@@ -241,9 +241,9 @@ If the sidebar is broken: run `full-repair.sh --dry-run` first, then without `--
 | `workspace/plan/active/CONTENT-WRITING/decisions/tab-status.md` | Per-tab gate status |
 | `workspace/plan/active/CONTENT-WRITING/decisions/blocking-items.md` | Items blocking phases |
 | `workspace/plan/active/CONTENT-WRITING/plan-canonical.md` | Full execution plan, phases, dependency graph |
-| `workspace/plan/active/CONTENT-WRITING/Prompts/voice-rules.md` | Voice rules for all 7 audiences |
-| `workspace/plan/active/CONTENTI-PIPLEINE/00-TRACKER.md` | Orchestrators pipeline tracker |
-| `v2/orchestrators/_workspace/canonical/Frameworks.mdx` | Full taxonomy/voice/content frameworks |
+| `docs-guide/standards/voice-and-copy.mdx` | Voice and copy standards (UK English, banned words, per-audience rules) |
+| `docs-guide/docs-library/index.mdx` | Docs library: pipeline diagrams, script inventories, gap analysis |
+| `workspace/reports/governance/gap-report.mdx` | Governance gap report (17 original, 11 resolved, 6 remaining) |
 | `docs.json` | Mintlify navigation and routing config |
 | `docs-guide/policies/governance-index.mdx` | Canonical governance index — all governed surfaces, what to read before writing |
 | `docs-guide/frameworks/` | Published governance frameworks (13 files) — promoted from workspace/plan/ |

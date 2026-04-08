@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script            add-workflow-governance-headers
- * @type              remediator
- * @concern           governance
- * @niche             compliance
- * @purpose           governance:workflow-headers
- * @description       Adds governance comment headers to GitHub Actions workflow YAML files based on their governed filename pattern
- * @mode              edit
- * @pipeline          manual -> .github/workflows/*.yml -> edited workflow files
- * @scope             .github/workflows/
- * @usage             node operations/scripts/remediators/governance/compliance/add-workflow-governance-headers.js [--dry-run|--write]
+ * @script      add-workflow-governance-headers
+ * @type        
+ * @concern     
+ * @niche       
+ * @purpose     governance:workflow-headers
+ * @description Adds governance comment headers to GitHub Actions workflow YAML files based on their governed filename pattern
+ * @mode        read-only
+ * @pipeline    manual -> .github/workflows/*.yml -> edited workflow files
+ * @scope       .github/workflows/
+ * @usage       node operations/scripts/remediators/governance/compliance/add-workflow-governance-headers.js [--dry-run|--write]
  */
 'use strict';
 

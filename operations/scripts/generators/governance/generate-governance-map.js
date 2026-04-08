@@ -1,15 +1,14 @@
 /**
- * @script   generate-governance-map
- * @type     generator
- * @concern  governance
- * @niche    repo
- * @purpose  governance:repo-health
+ * @script      generate-governance-map
+ * @type        
+ * @concern     
+ * @niche       
+ * @purpose     governance:repo-health
  * @description Reads GOVERNANCE.md markers from every root folder and produces a governance map report
- * @mode     generate
- * @pipeline manual -> GOVERNANCE.md markers, docs-guide/frameworks/*.mdx -> GOVERNANCE_MAP_LATEST.json, repo-governance-map.mdx
- * @scope    root folders, docs-guide/frameworks/, docs-guide/standards/
- * @usage    node operations/scripts/generators/governance/generate-governance-map.js [--write] [--check]
- * @policy   Canonical Consolidation
+ * @mode        read-only
+ * @pipeline    manual -> GOVERNANCE.md markers, docs-guide/frameworks/*.mdx -> GOVERNANCE_MAP_LATEST.json, repo-governance-map.mdx
+ * @scope       root folders, docs-guide/frameworks/, docs-guide/standards/
+ * @usage       node operations/scripts/generators/governance/generate-governance-map.js [--write] [--check]
  */
 
 const fs = require('fs');

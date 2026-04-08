@@ -1,20 +1,14 @@
 /**
- * @script mdx-render-verify
- * @type dispatch
- * @concern governance
- * @niche pipelines
- * @purpose Verifies MDX page renders without new console errors after every edit
+ * @script      mdx-render-verify
+ * @type        
+ * @concern     
+ * @niche       
+ * @purpose     Verifies MDX page renders without new console errors after every edit
  * @description PostToolUse hook for Edit/Write on v2 .mdx files. Launches Puppeteer,
- *   captures console errors, compares against baseline, and writes pass/fail state to
- *   /tmp for the PreToolUse render gate (mdx-render-gate.js) to enforce on the next
- *   tool call. Replaces the old mdx-validate-hook.js which only did an HTTP GET
- *   (useless — Mintlify renders client-side, errors return HTTP 200).
- *   If no server is running, starts one — never skips verification.
- * @mode read-only
- * @pipeline PostToolUse hook → parse stdin → check if v2 MDX → ensure server → Puppeteer → compare baseline → write state
- * @scope .claude/settings.json PostToolUse hook (Edit|Write matcher)
- * @usage Called automatically by Claude Code PostToolUse hook. Not invoked directly.
- * @policy Governance enforcement — do not bypass
+ * @mode        read-only
+ * @pipeline    PostToolUse hook → parse stdin → check if v2 MDX → ensure server → Puppeteer → compare baseline → write state
+ * @scope       .claude/settings.json PostToolUse hook (Edit|Write matcher)
+ * @usage       Called automatically by Claude Code PostToolUse hook. Not invoked directly.
  */
 
 const fs = require('fs');

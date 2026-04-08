@@ -1,19 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script sweep-console-errors
- * @type validator
- * @concern content
- * @niche structure
- * @purpose Generates console error baseline for all v2 routes via Puppeteer
+ * @script      sweep-console-errors
+ * @type        
+ * @concern     
+ * @niche       
+ * @purpose     Generates console error baseline for all v2 routes via Puppeteer
  * @description Visits every v2 route registered in docs.json, captures HTTP status,
- *   console errors, body metrics, and error boundary state. Writes a baseline JSON
- *   file that downstream hooks use to distinguish pre-existing errors from new
- *   regressions introduced by agents.
- * @mode read-only
- * @pipeline manual — run once to generate baseline, re-run to update after verified fixes
- * @scope operations/tests/baselines/console-baseline.json
- * @usage node operations/scripts/validators/content/structure/sweep-console-errors.js [--update-baseline] [--routes /v2/a,/v2/b] [--base-url http://localhost:3000]
- * @policy Governance enforcement — do not bypass
+ * @mode        read-only
+ * @pipeline    manual — run once to generate baseline, re-run to update after verified fixes
+ * @scope       operations/tests/baselines/console-baseline.json
+ * @usage       node operations/scripts/validators/content/structure/sweep-console-errors.js [--update-baseline] [--routes /v2/a,/v2/b] [--base-url http://localhost:3000]
  */
 
 const fs = require('fs');

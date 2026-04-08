@@ -68,7 +68,7 @@ jobs:
         run: npm ci -g mintlify
 
       - name: Fetch external snippets
-        run: bash operations/scripts/automations/content/data/fetching/fetch-external-docs.sh
+        run: bash operations/scripts/integrators/content/data/fetching/fetch-external-docs.sh
 
       - name: Start Mintlify dev server
         continue-on-error: false
@@ -165,15 +165,12 @@ jobs:
 
       - name: Component CSS standards
         run: node operations/scripts/validators/components/library/check-component-css.js
-        continue-on-error: true
 
       - name: Component documentation
         run: node operations/scripts/validators/components/documentation/check-component-docs.js
-        continue-on-error: true
 
       - name: Component immutability
         run: node operations/scripts/validators/governance/pr/check-component-immutability.js --base-ref origin/${{ github.base_ref }}
 
       - name: Validate component registry
         run: node operations/scripts/generators/components/library/generate-component-registry.js --validate-only
-        continue-on-error: true

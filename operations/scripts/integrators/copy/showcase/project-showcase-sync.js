@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * @script            project-showcase-sync
- * @category          automation
+ * @category          integrator
  * @purpose           infrastructure:data-feeds
  * @scope             .github/scripts
  * @owner             docs
@@ -9,6 +9,9 @@
  * @purpose-statement Fetches project showcase data from external source, writes to snippets/data/showcase-feed/
  * @pipeline          P5, P6
  * @usage             node .github/scripts/project-showcase-sync.js [flags]
+ * @type        integrator
+ * @description project showcase sync
+ * @mode        execute
  */
 /*
  * Project Showcase sync job for GitHub Actions.

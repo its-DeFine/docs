@@ -1,6 +1,6 @@
 /**
  * @script            generate-changelog
- * @type              automation
+ * @type              integrator
  * @concern           content
  * @niche             data/changelog
  * @purpose           infrastructure:data-feeds
