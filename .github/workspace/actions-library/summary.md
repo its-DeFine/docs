@@ -1,6 +1,6 @@
 # Actions Library Summary
 
-> 51 workflows | 7 types | 6 concerns | P2–P7 pipeline tiers
+> 55 workflows | 7 types | 6 concerns | P2–P7 pipeline tiers
 > Generated 2026-04-08
 
 ---

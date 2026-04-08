@@ -1,3 +1,6 @@
+# type: integrator
+# concern: maintenance
+# pipeline: P5-auto
 name: Update Configuration Flags
 on:
   schedule:
