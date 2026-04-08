@@ -177,12 +177,14 @@ When creating or modifying components, verify:
 
 ## Baseline Metrics
 
-| Metric | Initial (2026-04-07) | After remediation | Target |
+| Metric | Initial (2026-04-07) | Final (2026-04-08) | Reduction |
 |---|---|---|---|
-| Total violations | 7,711 | 1,701 | 0 (aspirational) |
-| Inline styles in MDX | 4,432 | 1,120 | 0 (long-tail: content passes) |
-| Hardcoded hex in MDX | 2,670 | 423 | 0 (expand hex map) |
-| Legacy CSS tokens | 165 | 1 | 0 |
-| Mermaid hardcoded | 124 | 0 | 0 |
-| Outline removal | 2 | 0 | 0 |
-| Literal spacing | 318 | 157 | 0 (expand token scale) |
+| Total violations | 3,986 | 74 | 98.1% |
+| Inline styles in MDX | 2,115 | 5 | 99.8% |
+| Legacy CSS tokens | 262 | 0 | 100% |
+| Hardcoded hex in MDX | 1,045 | 0 | 100% |
+| Outline removal (WCAG) | 4 | 0 | 100% |
+| Literal spacing | 474 | 0 | 100% |
+| Mermaid hardcoded | 86 | 69 | 19.8% (deferred) |
+
+**Remaining 74:** 5 irreducible inline styles (single-prop CSS vars in composable files without import scope) + 69 mermaid variant colour schemes (non-standard palettes, deferred for individual review).
