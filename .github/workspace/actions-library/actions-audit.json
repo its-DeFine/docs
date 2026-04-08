@@ -934,6 +934,63 @@
       "has_concurrency": false,
       "has_auto_commit": false,
       "status": "active"
+    },
+    {
+      "file": "generator-discoverability-generate-og-images.yml",
+      "name": "Generate OG Images",
+      "type": "generator",
+      "concern": "discoverability",
+      "pipeline_tag": "P4",
+      "triggers": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "scripts": [
+        "operations/scripts/generators/content/seo/generate-og-images.js"
+      ],
+      "has_inline_script": false,
+      "has_permissions": true,
+      "has_concurrency": false,
+      "has_auto_commit": true,
+      "status": "active"
+    },
+    {
+      "file": "project-showcase-sync.yml",
+      "name": "Project Showcase Sync",
+      "type": "integrator",
+      "concern": "copy",
+      "pipeline_tag": "P5-auto",
+      "triggers": [
+        "workflow_dispatch",
+        "repository_dispatch"
+      ],
+      "scripts": [
+        "operations/scripts/integrators/copy/showcase/project-showcase-sync.js"
+      ],
+      "has_inline_script": false,
+      "has_permissions": true,
+      "has_concurrency": false,
+      "has_auto_commit": true,
+      "status": "disabled"
+    },
+    {
+      "file": "generator-governance-generate-action-docs.yml",
+      "name": "Generate Action Documentation",
+      "type": "generator",
+      "concern": "governance",
+      "pipeline_tag": "P4",
+      "triggers": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "scripts": [
+        ".github/workspace/actions-library/generate-action-pages.js"
+      ],
+      "has_inline_script": false,
+      "has_permissions": true,
+      "has_concurrency": true,
+      "has_auto_commit": true,
+      "status": "active"
     }
   ]
 }
