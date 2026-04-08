@@ -248,9 +248,18 @@ function scanHardcodedHexMdx(filePath, content) {
     if (isInsideCodeBlock(content, match.index)) continue;
     if (isInsideInlineCode(content, match.index)) continue;
     if (isInsideMermaidBlock(content, match.index)) continue;
+    if (isInsideJsxComment(content, match.index)) continue;
     // Skip frontmatter
     const frontmatterEnd = content.indexOf('---', 3);
     if (frontmatterEnd > 0 && match.index < frontmatterEnd + 3) continue;
+    // Skip colour swatch displays (e.g. <Color.Item value="#hex" />)
+    const lineStart2 = content.lastIndexOf('\n', match.index) + 1;
+    const hexLine = content.slice(lineStart2, content.indexOf('\n', match.index));
+    if (hexLine.includes('Color.Item') || hexLine.includes('value=')) continue;
+    // Skip mermaid hex in JSX chart props (chart={`%%{init:...`})
+    if (hexLine.includes('chart={') || hexLine.includes('themeVariables') || hexLine.includes('%%{init:')) continue;
+    // Skip classDef and style directives in mermaid (classDef default fill:#hex)
+    if (hexLine.includes('classDef') || hexLine.match(/^\s*style\s+\w/)) continue;
     violations.push({
       category: CATEGORIES.HARDCODED_HEX_MDX,
       file: path.relative(REPO_ROOT, filePath),
@@ -263,16 +272,25 @@ function scanHardcodedHexMdx(filePath, content) {
 
 function scanLiteralSpacing(filePath, content) {
   const violations = [];
+  // Only flag values that have a spacing token equivalent (0.25-2rem)
+  const spacingValues = ['0.25rem', '0.5rem', '0.75rem', '1rem', '1.5rem', '2rem'];
   const regex = /["'](\d+\.?\d*)(rem|px|em)["']/g;
   let match;
   while ((match = regex.exec(content)) !== null) {
     if (isInsideCodeBlock(content, match.index)) continue;
+    const value = match[1] + match[2];
+    // Only flag values that have a spacing token AND are used for layout (not font/UI sizing)
+    if (!spacingValues.includes(value)) continue;
+    // Skip font-related properties
+    const lineStart = content.lastIndexOf('\n', match.index) + 1;
+    const lineBefore = content.slice(lineStart, match.index);
+    if (/fontSize|lineHeight|fontWeight|fontFamily|letterSpacing|borderRadius|borderWidth|maxHeight|maxWidth|minHeight|minWidth|width|height/i.test(lineBefore)) continue;
     violations.push({
       category: CATEGORIES.LITERAL_SPACING,
       file: path.relative(REPO_ROOT, filePath),
       line: getLineNumber(content, match.index),
       snippet: match[0],
-      value: match[1] + match[2],
+      value: value,
     });
   }
   return violations;
