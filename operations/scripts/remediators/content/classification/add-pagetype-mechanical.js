@@ -54,7 +54,9 @@ function parseArgs(argv) {
       printUsage();
       process.exit(0);
     }
-    throw new Error(`Unknown argument: ${token}`);
+    if (token === '--verify') { args.verify = true; continue; }
+
+        throw new Error(`Unknown argument: ${token}`);
   }
 
   return args;

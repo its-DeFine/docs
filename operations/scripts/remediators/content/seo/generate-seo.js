@@ -75,6 +75,7 @@ const DOMAIN_IMAGES = {
 
 // Parse command line arguments
 const args = process.argv.slice(2);
+  const verifyMode = args.includes('--verify');
 const isDryRun = args.includes("--dry-run");
 const specificFile = args
   .find((arg) => arg.startsWith("--file="))

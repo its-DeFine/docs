@@ -27,6 +27,7 @@ const REPO_ROOT = process.cwd();
 const COMPONENTS_DIR = path.join(REPO_ROOT, 'snippets', 'components');
 
 const args = process.argv.slice(2);
+  const verifyMode = args.includes('--verify');
 const writeMode = args.includes('--write');
 const staged = args.includes('--staged');
 const helpFlag = args.includes('--help') || args.includes('-h');

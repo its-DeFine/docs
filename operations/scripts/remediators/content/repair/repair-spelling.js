@@ -57,7 +57,8 @@ function parseArgs(argv) {
     mode: 'dry-run',
     stagedOnly: false,
     files: [],
-    help: false
+    help: false,
+    verify: false
   };
 
   let explicitModeCount = 0;
@@ -104,7 +105,9 @@ function parseArgs(argv) {
       continue;
     }
 
-    throw new Error(`Unknown argument: ${token}`);
+    if (token === '--verify') { args.verify = true; continue; }
+
+        throw new Error(`Unknown argument: ${token}`);
   }
 
   if (explicitModeCount > 1) {

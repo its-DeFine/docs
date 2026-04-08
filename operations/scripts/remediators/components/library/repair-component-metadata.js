@@ -66,7 +66,8 @@ function parseArgs(argv) {
   const args = {
     mode: 'dry-run',
     staged: false,
-    help: false
+    help: false,
+    verify: false
   };
 
   let explicitModeCount = 0;
@@ -90,7 +91,9 @@ function parseArgs(argv) {
       args.staged = true;
       return;
     }
-    throw new Error(`Unknown argument: ${token}`);
+    if (token === '--verify') { args.verify = true; continue; }
+
+        throw new Error(`Unknown argument: ${token}`);
   });
 
   if (explicitModeCount > 1) {

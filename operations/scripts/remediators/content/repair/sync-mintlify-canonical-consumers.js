@@ -20,6 +20,7 @@ function parseArgs(argv) {
     mode: 'check',
     stagedOnly: false,
     stage: false,
+    verify: false,
     json: false
   };
   let explicitModeCount = 0;

@@ -15,7 +15,8 @@
 const sync = require('../../../config/docs-path-sync');
 
 function parseArgs(argv) {
-  const args = { mode: 'dry-run', staged: true, stage: false, json: false, help: false, from: '', to: '' };
+  const args = { mode: 'dry-run', staged: true, stage: false,
+    verify: false, json: false, help: false, from: '', to: '' };
   let explicitModeCount = 0;
   for (let index = 0; index < argv.length; index += 1) {
     const token = argv[index];

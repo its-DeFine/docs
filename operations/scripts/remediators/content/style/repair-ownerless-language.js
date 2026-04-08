@@ -99,7 +99,9 @@ function parseArgs(argv) {
       args.help = true;
       continue;
     }
-    throw new Error(`Unknown argument: ${token}`);
+    if (token === '--verify') { args.verify = true; continue; }
+
+        throw new Error(`Unknown argument: ${token}`);
   }
   return args;
 }

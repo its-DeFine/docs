@@ -21,7 +21,8 @@ const V2_DIR = path.join(REPO_ROOT, 'v2');
 
 // ── Args ────────────────────────────────
 function parseArgs(argv) {
-  const args = { mode: 'dry-run', help: false };
+  const args = { mode: 'dry-run', help: false,
+    verify: false };
   argv.forEach((token) => {
     if (token === '--write') { args.mode = 'write'; return; }
     if (token === '--dry-run') { args.mode = 'dry-run'; return; }

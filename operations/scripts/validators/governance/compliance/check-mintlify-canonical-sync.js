@@ -18,15 +18,19 @@ const sync = require('../../../config/mintlify-canonical-sync');
 function parseArgs(argv) {
   const args = {
     stagedOnly: false,
-    json: false
+    json: false,
+    files: []
   };
 
-  argv.forEach((token) => {
+  for (let i = 0; i < argv.length; i++) {
+    const token = argv[i];
     if (token === '--staged') args.stagedOnly = true;
     else if (token === '--json') args.json = true;
     else if (token === '--help' || token === '-h') args.help = true;
+    else if (token === '--files' && argv[i + 1]) { argv[++i].split(',').map((f) => f.trim()).filter(Boolean).forEach((f) => args.files.push(f)); }
+    else if (token.startsWith('--files=')) { token.slice('--files='.length).split(',').map((f) => f.trim()).filter(Boolean).forEach((f) => args.files.push(f)); }
     else throw new Error(`Unknown argument: ${token}`);
-  });
+  }
 
   return args;
 }

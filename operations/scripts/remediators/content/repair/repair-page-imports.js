@@ -30,6 +30,7 @@ function parseArgs(argv) {
     report: DEFAULT_REPORT,
     reportJson: DEFAULT_REPORT_JSON,
     json: false,
+    verify: false,
     help: false
   };
   let reportExplicit = false;
@@ -87,7 +88,9 @@ function parseArgs(argv) {
       index += 1;
       continue;
     }
-    throw new Error(`Unknown argument: ${token}`);
+    if (token === '--verify') { args.verify = true; continue; }
+
+        throw new Error(`Unknown argument: ${token}`);
   }
 
   if (explicitModeCount > 1) {

@@ -54,6 +54,7 @@ function parseArgs(argv) {
     stagedOnly: false,
     files: [],
     stage: false,
+    verify: false,
     help: false
   };
 
@@ -113,6 +114,11 @@ function parseArgs(argv) {
       continue;
     }
 
+    if (token === '--verify') {
+      args.verify = true;
+      continue;
+    }
+
     throw new Error(`Unknown argument: ${token}`);
   }
 
@@ -165,6 +171,13 @@ function run(options = {}) {
         files: args.files
       });
 
+  // Snapshot pre-repair state for per-file revert on regression
+  let preRepairSnapshot = null;
+  if (args.verify && args.mode === 'write') {
+    const { snapshotFiles } = require('../../dispatch/governance/post-remediation-verify');
+    preRepairSnapshot = snapshotFiles(REPO_ROOT, files);
+  }
+
   const repairs = [];
   const changedFiles = [];
 
@@ -189,6 +202,24 @@ function run(options = {}) {
 
   if (args.mode === 'write' && args.stage && changedFiles.length > 0) {
     stageFiles(changedFiles);
+  }
+
+  // Post-remediation verification: re-audit affected files, revert regressions
+  let verification = null;
+  if (args.verify && args.mode === 'write' && changedFiles.length > 0) {
+    const { runVerification } = require('../../dispatch/governance/post-remediation-verify');
+    verification = runVerification({
+      remediator: __filename,
+      files: changedFiles.map((f) => path.relative(REPO_ROOT, f)),
+      revertOnFail: true,
+      snapshots: preRepairSnapshot,
+      repoRoot: REPO_ROOT,
+    });
+    if (!verification.passed && !quiet) {
+      console.log(`\nVerification: ${verification.reverted_files.length} file(s) reverted, ${verification.kept_files.length} fixes kept`);
+    } else if (!quiet) {
+      console.log('\nVerification: PASS');
+    }
   }
 
   const byRule = summariseRepairsByRule(repairs);

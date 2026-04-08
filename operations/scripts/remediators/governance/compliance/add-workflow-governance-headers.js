@@ -53,7 +53,8 @@ const PIPELINE_OVERRIDES = {
 const GOVERNANCE_KEYWORDS = ['# type:', '# concern:', '# pipeline:'];
 
 function parseArgs(argv) {
-  const args = { mode: 'dry-run', help: false };
+  const args = { mode: 'dry-run', help: false,
+    verify: false };
   argv.forEach((token) => {
     if (token === '--write') { args.mode = 'write'; return; }
     if (token === '--dry-run') { args.mode = 'dry-run'; return; }

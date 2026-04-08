@@ -85,6 +85,7 @@ function parseArgs(argv) {
     files: [],
     reportDir: '',
     json: false,
+    verify: false,
     help: false
   };
 
@@ -150,7 +151,9 @@ function parseArgs(argv) {
       continue;
     }
 
-    throw new Error(`Unknown argument: ${token}`);
+    if (token === '--verify') { args.verify = true; continue; }
+
+        throw new Error(`Unknown argument: ${token}`);
   }
 
   if (explicitModeCount > 1) {
