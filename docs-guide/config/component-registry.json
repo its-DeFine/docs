@@ -2673,7 +2673,7 @@
     },
     {
       "name": "BlogCard",
-      "file": "snippets/components/integrators/blog/Data.jsx",
+      "file": "snippets/components/integrators/blog/BlogCards.jsx",
       "category": "integrators",
       "status": "stable",
       "description": "Blog post card with scrollable content, metadata, and CTA.",
@@ -2787,7 +2787,7 @@
     },
     {
       "name": "BlogDataLayout",
-      "file": "snippets/components/integrators/blog/Data.jsx",
+      "file": "snippets/components/integrators/blog/BlogCards.jsx",
       "category": "integrators",
       "status": "stable",
       "description": "Single-column BlogCard stack.",
@@ -2831,7 +2831,7 @@
     },
     {
       "name": "CardBlogDataLayout",
-      "file": "snippets/components/integrators/blog/Data.jsx",
+      "file": "snippets/components/integrators/blog/BlogCards.jsx",
       "category": "integrators",
       "status": "stable",
       "description": "Grid layout rendering BlogCards from an items array.",
@@ -2875,7 +2875,7 @@
     },
     {
       "name": "CardColumnsPostLayout",
-      "file": "snippets/components/integrators/blog/Data.jsx",
+      "file": "snippets/components/integrators/blog/BlogCards.jsx",
       "category": "integrators",
       "status": "stable",
       "description": "Multi-column PostCard layout.",
@@ -2926,7 +2926,7 @@
     },
     {
       "name": "CardInCardLayout",
-      "file": "snippets/components/integrators/blog/Data.jsx",
+      "file": "snippets/components/integrators/blog/BlogCards.jsx",
       "category": "integrators",
       "status": "stable",
       "description": "PostCards rendered inside Card wrappers.",
@@ -3007,7 +3007,7 @@
     },
     {
       "name": "ColumnsBlogCardLayout",
-      "file": "snippets/components/integrators/blog/Data.jsx",
+      "file": "snippets/components/integrators/blog/BlogCards.jsx",
       "category": "integrators",
       "status": "stable",
       "description": "Multi-column BlogCard layout using Mintlify Columns.",
@@ -3058,7 +3058,7 @@
     },
     {
       "name": "DiscordAnnouncements",
-      "file": "snippets/components/integrators/blog/Data.jsx",
+      "file": "snippets/components/integrators/blog/BlogCards.jsx",
       "category": "integrators",
       "status": "stable",
       "description": "Discord announcement feed with parsed markdown content. Sanitised HTML.",
@@ -3102,7 +3102,7 @@
     },
     {
       "name": "ExternalContent",
-      "file": "snippets/components/integrators/embeds/ExternalContent.jsx",
+      "file": "snippets/components/integrators/embeds/DataEmbed.jsx",
       "category": "integrators",
       "status": "stable",
       "description": "Fetches and renders external markdown with scrollable container and source link.",
@@ -3167,7 +3167,7 @@
     },
     {
       "name": "ForumLatestLayout",
-      "file": "snippets/components/integrators/blog/Data.jsx",
+      "file": "snippets/components/integrators/blog/BlogCards.jsx",
       "category": "integrators",
       "status": "stable",
       "description": "Latest forum topics with banner image and topic cards.",
@@ -3248,7 +3248,7 @@
     },
     {
       "name": "LumaEvents",
-      "file": "snippets/components/integrators/blog/Data.jsx",
+      "file": "snippets/components/integrators/blog/BlogCards.jsx",
       "category": "integrators",
       "status": "stable",
       "description": "Upcoming/past event cards from Luma calendar data.",
@@ -3394,7 +3394,7 @@
     },
     {
       "name": "PostCard",
-      "file": "snippets/components/integrators/blog/Data.jsx",
+      "file": "snippets/components/integrators/blog/BlogCards.jsx",
       "category": "integrators",
       "status": "stable",
       "description": "Post card with gradient header, scrollable content, and metadata.",
@@ -3501,7 +3501,7 @@
     },
     {
       "name": "ShowcaseCards",
-      "file": "snippets/components/integrators/feeds/ShowcaseCards.jsx",
+      "file": "snippets/components/displays/cards/Cards.jsx",
       "category": "integrators",
       "status": "experimental",
       "description": "Paginated project showcase with search, filtering, and media cards.",

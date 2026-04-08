@@ -72,22 +72,22 @@ export const componentTableData = [
   { Name: 'Spacer', Category: 'elements', Status: 'stable', File: 'snippets/components/elements/spacing/Spacer.jsx' },
   { Name: 'Subtitle', Category: 'elements', Status: 'stable', File: 'snippets/components/elements/text/Text.jsx' },
   { Name: 'TipWithArrow', Category: 'elements', Status: 'stable', File: 'snippets/components/elements/links/Links.jsx' },
-  { Name: 'BlogCard', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/Data.jsx' },
-  { Name: 'BlogDataLayout', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/Data.jsx' },
-  { Name: 'CardBlogDataLayout', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/Data.jsx' },
-  { Name: 'CardColumnsPostLayout', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/Data.jsx' },
-  { Name: 'CardInCardLayout', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/Data.jsx' },
+  { Name: 'BlogCard', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/BlogCards.jsx' },
+  { Name: 'BlogDataLayout', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/BlogCards.jsx' },
+  { Name: 'CardBlogDataLayout', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/BlogCards.jsx' },
+  { Name: 'CardColumnsPostLayout', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/BlogCards.jsx' },
+  { Name: 'CardInCardLayout', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/BlogCards.jsx' },
   { Name: 'CoinGeckoExchanges', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/feeds/Coingecko.jsx' },
-  { Name: 'ColumnsBlogCardLayout', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/Data.jsx' },
-  { Name: 'DiscordAnnouncements', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/Data.jsx' },
-  { Name: 'ExternalContent', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/embeds/ExternalContent.jsx' },
-  { Name: 'ForumLatestLayout', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/Data.jsx' },
+  { Name: 'ColumnsBlogCardLayout', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/BlogCards.jsx' },
+  { Name: 'DiscordAnnouncements', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/BlogCards.jsx' },
+  { Name: 'ExternalContent', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/embeds/DataEmbed.jsx' },
+  { Name: 'ForumLatestLayout', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/BlogCards.jsx' },
   { Name: 'LatestVersion', Category: 'integrators', Status: 'experimental', File: 'snippets/components/integrators/feeds/Release.jsx' },
-  { Name: 'LumaEvents', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/Data.jsx' },
+  { Name: 'LumaEvents', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/BlogCards.jsx' },
   { Name: 'MarkdownEmbed', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/embeds/DataEmbed.jsx' },
   { Name: 'PdfEmbed', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/embeds/DataEmbed.jsx' },
-  { Name: 'PostCard', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/Data.jsx' },
-  { Name: 'ShowcaseCards', Category: 'integrators', Status: 'experimental', File: 'snippets/components/integrators/feeds/ShowcaseCards.jsx' },
+  { Name: 'PostCard', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/blog/BlogCards.jsx' },
+  { Name: 'ShowcaseCards', Category: 'integrators', Status: 'experimental', File: 'snippets/components/displays/cards/Cards.jsx' },
   { Name: 'TwitterTimeline', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/embeds/DataEmbed.jsx' },
   { Name: 'YouTubeVideoData', Category: 'integrators', Status: 'stable', File: 'snippets/components/integrators/video-data/VideoData.jsx' },
   { Name: 'Divider', Category: 'scaffolding', Status: 'stable', File: 'snippets/components/scaffolding/frame-mode/FrameMode.jsx' },
@@ -1019,35 +1019,35 @@ The governed component library currently exposes **121** named export(s).
 <Accordion title="🟢 BlogCard">
 <ResponseField name="status" type="string">`stable`</ResponseField>
 <ResponseField name="description" type="string">Blog post card with scrollable content, metadata, and CTA.</ResponseField>
-<ResponseField name="file" type="string">`/snippets/components/integrators/blog/Data.jsx`</ResponseField>
+<ResponseField name="file" type="string">`/snippets/components/integrators/blog/BlogCards.jsx`</ResponseField>
 <ResponseField name="usage" type="string">in use</ResponseField>
 </Accordion>
 
 <Accordion title="🟢 BlogDataLayout">
 <ResponseField name="status" type="string">`stable`</ResponseField>
 <ResponseField name="description" type="string">Single-column BlogCard stack.</ResponseField>
-<ResponseField name="file" type="string">`/snippets/components/integrators/blog/Data.jsx`</ResponseField>
+<ResponseField name="file" type="string">`/snippets/components/integrators/blog/BlogCards.jsx`</ResponseField>
 <ResponseField name="usage" type="string">in use</ResponseField>
 </Accordion>
 
 <Accordion title="🟢 CardBlogDataLayout">
 <ResponseField name="status" type="string">`stable`</ResponseField>
 <ResponseField name="description" type="string">Grid layout rendering BlogCards from an items array.</ResponseField>
-<ResponseField name="file" type="string">`/snippets/components/integrators/blog/Data.jsx`</ResponseField>
+<ResponseField name="file" type="string">`/snippets/components/integrators/blog/BlogCards.jsx`</ResponseField>
 <ResponseField name="usage" type="string">in use</ResponseField>
 </Accordion>
 
 <Accordion title="🟢 CardColumnsPostLayout">
 <ResponseField name="status" type="string">`stable`</ResponseField>
 <ResponseField name="description" type="string">Multi-column PostCard layout.</ResponseField>
-<ResponseField name="file" type="string">`/snippets/components/integrators/blog/Data.jsx`</ResponseField>
+<ResponseField name="file" type="string">`/snippets/components/integrators/blog/BlogCards.jsx`</ResponseField>
 <ResponseField name="usage" type="string">in use</ResponseField>
 </Accordion>
 
 <Accordion title="🟢 CardInCardLayout">
 <ResponseField name="status" type="string">`stable`</ResponseField>
 <ResponseField name="description" type="string">PostCards rendered inside Card wrappers.</ResponseField>
-<ResponseField name="file" type="string">`/snippets/components/integrators/blog/Data.jsx`</ResponseField>
+<ResponseField name="file" type="string">`/snippets/components/integrators/blog/BlogCards.jsx`</ResponseField>
 <ResponseField name="usage" type="string">in use</ResponseField>
 </Accordion>
 
@@ -1061,14 +1061,14 @@ The governed component library currently exposes **121** named export(s).
 <Accordion title="🟢 ColumnsBlogCardLayout">
 <ResponseField name="status" type="string">`stable`</ResponseField>
 <ResponseField name="description" type="string">Multi-column BlogCard layout using Mintlify Columns.</ResponseField>
-<ResponseField name="file" type="string">`/snippets/components/integrators/blog/Data.jsx`</ResponseField>
+<ResponseField name="file" type="string">`/snippets/components/integrators/blog/BlogCards.jsx`</ResponseField>
 <ResponseField name="usage" type="string">in use</ResponseField>
 </Accordion>
 
 <Accordion title="🟢 DiscordAnnouncements">
 <ResponseField name="status" type="string">`stable`</ResponseField>
 <ResponseField name="description" type="string">Discord announcement feed with parsed markdown content. Sanitised HTML.</ResponseField>
-<ResponseField name="file" type="string">`/snippets/components/integrators/blog/Data.jsx`</ResponseField>
+<ResponseField name="file" type="string">`/snippets/components/integrators/blog/BlogCards.jsx`</ResponseField>
 <ResponseField name="usage" type="string">in use</ResponseField>
 </Accordion>
 
@@ -1082,14 +1082,14 @@ The governed component library currently exposes **121** named export(s).
 <Accordion title="🟢 ExternalContent">
 <ResponseField name="status" type="string">`stable`</ResponseField>
 <ResponseField name="description" type="string">Fetches and renders external markdown with scrollable container and source link.</ResponseField>
-<ResponseField name="file" type="string">`/snippets/components/integrators/embeds/ExternalContent.jsx`</ResponseField>
+<ResponseField name="file" type="string">`/snippets/components/integrators/embeds/DataEmbed.jsx`</ResponseField>
 <ResponseField name="usage" type="string">in use</ResponseField>
 </Accordion>
 
 <Accordion title="🟢 ForumLatestLayout">
 <ResponseField name="status" type="string">`stable`</ResponseField>
 <ResponseField name="description" type="string">Latest forum topics with banner image and topic cards.</ResponseField>
-<ResponseField name="file" type="string">`/snippets/components/integrators/blog/Data.jsx`</ResponseField>
+<ResponseField name="file" type="string">`/snippets/components/integrators/blog/BlogCards.jsx`</ResponseField>
 <ResponseField name="usage" type="string">in use</ResponseField>
 </Accordion>
 
@@ -1103,7 +1103,7 @@ The governed component library currently exposes **121** named export(s).
 <Accordion title="🟢 LumaEvents">
 <ResponseField name="status" type="string">`stable`</ResponseField>
 <ResponseField name="description" type="string">Upcoming/past event cards from Luma calendar data.</ResponseField>
-<ResponseField name="file" type="string">`/snippets/components/integrators/blog/Data.jsx`</ResponseField>
+<ResponseField name="file" type="string">`/snippets/components/integrators/blog/BlogCards.jsx`</ResponseField>
 <ResponseField name="usage" type="string">in use</ResponseField>
 </Accordion>
 
@@ -1124,14 +1124,14 @@ The governed component library currently exposes **121** named export(s).
 <Accordion title="🟢 PostCard">
 <ResponseField name="status" type="string">`stable`</ResponseField>
 <ResponseField name="description" type="string">Post card with gradient header, scrollable content, and metadata.</ResponseField>
-<ResponseField name="file" type="string">`/snippets/components/integrators/blog/Data.jsx`</ResponseField>
+<ResponseField name="file" type="string">`/snippets/components/integrators/blog/BlogCards.jsx`</ResponseField>
 <ResponseField name="usage" type="string">in use</ResponseField>
 </Accordion>
 
 <Accordion title="🧪 ShowcaseCards">
 <ResponseField name="status" type="string">`experimental`</ResponseField>
 <ResponseField name="description" type="string">Paginated project showcase with search, filtering, and media cards.</ResponseField>
-<ResponseField name="file" type="string">`/snippets/components/integrators/feeds/ShowcaseCards.jsx`</ResponseField>
+<ResponseField name="file" type="string">`/snippets/components/displays/cards/Cards.jsx`</ResponseField>
 <ResponseField name="usage" type="string">in use</ResponseField>
 </Accordion>
 

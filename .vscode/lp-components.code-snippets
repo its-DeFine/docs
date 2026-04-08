@@ -799,7 +799,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-add-BlogCard",
     "body": [
-      "import { BlogCard } from \"/snippets/components/integrators/blog/Data.jsx\";",
+      "import { BlogCard } from \"/snippets/components/integrators/blog/BlogCards.jsx\";",
       "",
       "<BlogCard />"
     ],
@@ -809,7 +809,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-add-CardBlogDataLayout",
     "body": [
-      "import { CardBlogDataLayout } from \"/snippets/components/integrators/blog/Data.jsx\";",
+      "import { CardBlogDataLayout } from \"/snippets/components/integrators/blog/BlogCards.jsx\";",
       "",
       "<CardBlogDataLayout />"
     ],
@@ -819,7 +819,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-add-ColumnsBlogCardLayout",
     "body": [
-      "import { ColumnsBlogCardLayout } from \"/snippets/components/integrators/blog/Data.jsx\";",
+      "import { ColumnsBlogCardLayout } from \"/snippets/components/integrators/blog/BlogCards.jsx\";",
       "",
       "<ColumnsBlogCardLayout />"
     ],
@@ -829,7 +829,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-add-BlogDataLayout",
     "body": [
-      "import { BlogDataLayout } from \"/snippets/components/integrators/blog/Data.jsx\";",
+      "import { BlogDataLayout } from \"/snippets/components/integrators/blog/BlogCards.jsx\";",
       "",
       "<BlogDataLayout />"
     ],
@@ -839,7 +839,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-add-PostCard",
     "body": [
-      "import { PostCard } from \"/snippets/components/integrators/blog/Data.jsx\";",
+      "import { PostCard } from \"/snippets/components/integrators/blog/BlogCards.jsx\";",
       "",
       "<PostCard />"
     ],
@@ -849,7 +849,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-add-CardColumnsPostLayout",
     "body": [
-      "import { CardColumnsPostLayout } from \"/snippets/components/integrators/blog/Data.jsx\";",
+      "import { CardColumnsPostLayout } from \"/snippets/components/integrators/blog/BlogCards.jsx\";",
       "",
       "<CardColumnsPostLayout />"
     ],
@@ -859,7 +859,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-add-CardInCardLayout",
     "body": [
-      "import { CardInCardLayout } from \"/snippets/components/integrators/blog/Data.jsx\";",
+      "import { CardInCardLayout } from \"/snippets/components/integrators/blog/BlogCards.jsx\";",
       "",
       "<CardInCardLayout />"
     ],
@@ -869,7 +869,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-add-ForumLatestLayout",
     "body": [
-      "import { ForumLatestLayout } from \"/snippets/components/integrators/blog/Data.jsx\";",
+      "import { ForumLatestLayout } from \"/snippets/components/integrators/blog/BlogCards.jsx\";",
       "",
       "<ForumLatestLayout />"
     ],
@@ -879,7 +879,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-add-DiscordAnnouncements",
     "body": [
-      "import { DiscordAnnouncements } from \"/snippets/components/integrators/blog/Data.jsx\";",
+      "import { DiscordAnnouncements } from \"/snippets/components/integrators/blog/BlogCards.jsx\";",
       "",
       "<DiscordAnnouncements />"
     ],
@@ -889,7 +889,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-add-LumaEvents",
     "body": [
-      "import { LumaEvents } from \"/snippets/components/integrators/blog/Data.jsx\";",
+      "import { LumaEvents } from \"/snippets/components/integrators/blog/BlogCards.jsx\";",
       "",
       "<LumaEvents />"
     ],
@@ -929,7 +929,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-wrap-ExternalContent",
     "body": [
-      "import { ExternalContent } from \"/snippets/components/integrators/embeds/ExternalContent.jsx\";",
+      "import { ExternalContent } from \"/snippets/components/integrators/embeds/DataEmbed.jsx\";",
       "",
       "<ExternalContent>",
       "  ${TM_SELECTED_TEXT}$0",
@@ -1193,7 +1193,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-import-Data",
     "body": [
-      "import { BlogCard, CardBlogDataLayout, ColumnsBlogCardLayout, BlogDataLayout, PostCard, CardColumnsPostLayout, CardInCardLayout, ForumLatestLayout, DiscordAnnouncements, LumaEvents } from \"/snippets/components/integrators/blog/Data.jsx\";"
+      "import { BlogCard, CardBlogDataLayout, ColumnsBlogCardLayout, BlogDataLayout, PostCard, CardColumnsPostLayout, CardInCardLayout, ForumLatestLayout, DiscordAnnouncements, LumaEvents } from \"/snippets/components/integrators/blog/BlogCards.jsx\";"
     ],
     "description": "integrators/blog — all exports from Data.jsx"
   },
@@ -1209,7 +1209,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-import-ExternalContent",
     "body": [
-      "import { ExternalContent } from \"/snippets/components/integrators/embeds/ExternalContent.jsx\";"
+      "import { ExternalContent } from \"/snippets/components/integrators/embeds/DataEmbed.jsx\";"
     ],
     "description": "integrators/embeds — all exports from ExternalContent.jsx"
   },

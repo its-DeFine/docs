@@ -1014,7 +1014,7 @@
     "category": "integrators",
     "subniche": "blog",
     "file": "Data.jsx",
-    "importPath": "/snippets/components/integrators/blog/Data.jsx",
+    "importPath": "/snippets/components/integrators/blog/BlogCards.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": ""
@@ -1024,7 +1024,7 @@
     "category": "integrators",
     "subniche": "blog",
     "file": "Data.jsx",
-    "importPath": "/snippets/components/integrators/blog/Data.jsx",
+    "importPath": "/snippets/components/integrators/blog/BlogCards.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Grid layout rendering BlogCards from an items array."
@@ -1034,7 +1034,7 @@
     "category": "integrators",
     "subniche": "blog",
     "file": "Data.jsx",
-    "importPath": "/snippets/components/integrators/blog/Data.jsx",
+    "importPath": "/snippets/components/integrators/blog/BlogCards.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Multi-column BlogCard layout using Mintlify Columns."
@@ -1044,7 +1044,7 @@
     "category": "integrators",
     "subniche": "blog",
     "file": "Data.jsx",
-    "importPath": "/snippets/components/integrators/blog/Data.jsx",
+    "importPath": "/snippets/components/integrators/blog/BlogCards.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Single-column BlogCard stack."
@@ -1054,7 +1054,7 @@
     "category": "integrators",
     "subniche": "blog",
     "file": "Data.jsx",
-    "importPath": "/snippets/components/integrators/blog/Data.jsx",
+    "importPath": "/snippets/components/integrators/blog/BlogCards.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": ""
@@ -1064,7 +1064,7 @@
     "category": "integrators",
     "subniche": "blog",
     "file": "Data.jsx",
-    "importPath": "/snippets/components/integrators/blog/Data.jsx",
+    "importPath": "/snippets/components/integrators/blog/BlogCards.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Multi-column PostCard layout."
@@ -1074,7 +1074,7 @@
     "category": "integrators",
     "subniche": "blog",
     "file": "Data.jsx",
-    "importPath": "/snippets/components/integrators/blog/Data.jsx",
+    "importPath": "/snippets/components/integrators/blog/BlogCards.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "PostCards rendered inside Card wrappers."
@@ -1084,7 +1084,7 @@
     "category": "integrators",
     "subniche": "blog",
     "file": "Data.jsx",
-    "importPath": "/snippets/components/integrators/blog/Data.jsx",
+    "importPath": "/snippets/components/integrators/blog/BlogCards.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Latest forum topics with banner image and topic cards."
@@ -1094,7 +1094,7 @@
     "category": "integrators",
     "subniche": "blog",
     "file": "Data.jsx",
-    "importPath": "/snippets/components/integrators/blog/Data.jsx",
+    "importPath": "/snippets/components/integrators/blog/BlogCards.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Discord announcement feed with parsed markdown content. Sanitised HTML."
@@ -1104,7 +1104,7 @@
     "category": "integrators",
     "subniche": "blog",
     "file": "Data.jsx",
-    "importPath": "/snippets/components/integrators/blog/Data.jsx",
+    "importPath": "/snippets/components/integrators/blog/BlogCards.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Upcoming/past event cards from Luma calendar data."
@@ -1154,7 +1154,7 @@
     "category": "integrators",
     "subniche": "embeds",
     "file": "ExternalContent.jsx",
-    "importPath": "/snippets/components/integrators/embeds/ExternalContent.jsx",
+    "importPath": "/snippets/components/integrators/embeds/DataEmbed.jsx",
     "hasChildren": true,
     "status": "stable",
     "description": ""
@@ -1184,7 +1184,7 @@
     "category": "integrators",
     "subniche": "feeds",
     "file": "ShowcaseCards.jsx",
-    "importPath": "/snippets/components/integrators/feeds/ShowcaseCards.jsx",
+    "importPath": "/snippets/components/displays/cards/Cards.jsx",
     "hasChildren": false,
     "status": "experimental",
     "description": "Paginated project showcase with search, filtering, and media cards."

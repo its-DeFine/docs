@@ -1,6 +1,6 @@
 <!-- GENERATED FILE — DO NOT EDIT DIRECTLY -->
 <!-- Generator: operations/scripts/generators/components/library/generate-component-library.js -->
-<!-- Generated: 2026-04-08T02:07:46.703Z -->
+<!-- Generated: 2026-04-08T05:36:24.935Z -->
 <!-- Regenerate: node operations/scripts/generators/components/library/generate-component-library.js --category integrators -->
 
 # Integrators Component Library
@@ -17,7 +17,7 @@ Fetches, embeds, or binds to external or third-party data.
 
 > Blog post card with scrollable content, metadata, and CTA.
 
-**Import:** `import { BlogCard } from "/snippets/components/integrators/blog/Data.jsx";`
+**Import:** `import { BlogCard } from "/snippets/components/integrators/blog/BlogCards.jsx";`
 **Status:** stable | **Imports:** 2
 
 #### Props
@@ -45,7 +45,7 @@ Fetches, embeds, or binds to external or third-party data.
 
 > Single-column BlogCard stack.
 
-**Import:** `import { BlogDataLayout } from "/snippets/components/integrators/blog/Data.jsx";`
+**Import:** `import { BlogDataLayout } from "/snippets/components/integrators/blog/BlogCards.jsx";`
 **Status:** stable | **Imports:** 0
 
 #### Props
@@ -63,7 +63,7 @@ Fetches, embeds, or binds to external or third-party data.
 
 > Grid layout rendering BlogCards from an items array.
 
-**Import:** `import { CardBlogDataLayout } from "/snippets/components/integrators/blog/Data.jsx";`
+**Import:** `import { CardBlogDataLayout } from "/snippets/components/integrators/blog/BlogCards.jsx";`
 **Status:** stable | **Imports:** 2
 
 #### Props
@@ -81,7 +81,7 @@ Fetches, embeds, or binds to external or third-party data.
 
 > Multi-column PostCard layout.
 
-**Import:** `import { CardColumnsPostLayout } from "/snippets/components/integrators/blog/Data.jsx";`
+**Import:** `import { CardColumnsPostLayout } from "/snippets/components/integrators/blog/BlogCards.jsx";`
 **Status:** stable | **Imports:** 2
 
 #### Props
@@ -100,7 +100,7 @@ Fetches, embeds, or binds to external or third-party data.
 
 > PostCards rendered inside Card wrappers.
 
-**Import:** `import { CardInCardLayout } from "/snippets/components/integrators/blog/Data.jsx";`
+**Import:** `import { CardInCardLayout } from "/snippets/components/integrators/blog/BlogCards.jsx";`
 **Status:** stable | **Imports:** 0
 
 #### Props
@@ -118,7 +118,7 @@ Fetches, embeds, or binds to external or third-party data.
 
 > Multi-column BlogCard layout using Mintlify Columns.
 
-**Import:** `import { ColumnsBlogCardLayout } from "/snippets/components/integrators/blog/Data.jsx";`
+**Import:** `import { ColumnsBlogCardLayout } from "/snippets/components/integrators/blog/BlogCards.jsx";`
 **Status:** stable | **Imports:** 2
 
 #### Props
@@ -137,7 +137,7 @@ Fetches, embeds, or binds to external or third-party data.
 
 > Discord announcement feed with parsed markdown content. Sanitised HTML.
 
-**Import:** `import { DiscordAnnouncements } from "/snippets/components/integrators/blog/Data.jsx";`
+**Import:** `import { DiscordAnnouncements } from "/snippets/components/integrators/blog/BlogCards.jsx";`
 **Status:** stable | **Imports:** 7
 
 #### Props
@@ -155,7 +155,7 @@ Fetches, embeds, or binds to external or third-party data.
 
 > Latest forum topics with banner image and topic cards.
 
-**Import:** `import { ForumLatestLayout } from "/snippets/components/integrators/blog/Data.jsx";`
+**Import:** `import { ForumLatestLayout } from "/snippets/components/integrators/blog/BlogCards.jsx";`
 **Status:** stable | **Imports:** 3
 
 #### Props
@@ -173,7 +173,7 @@ Fetches, embeds, or binds to external or third-party data.
 
 > Upcoming/past event cards from Luma calendar data.
 
-**Import:** `import { LumaEvents } from "/snippets/components/integrators/blog/Data.jsx";`
+**Import:** `import { LumaEvents } from "/snippets/components/integrators/blog/BlogCards.jsx";`
 **Status:** stable | **Imports:** 1
 
 #### Props
@@ -192,7 +192,7 @@ Fetches, embeds, or binds to external or third-party data.
 
 > Post card with gradient header, scrollable content, and metadata.
 
-**Import:** `import { PostCard } from "/snippets/components/integrators/blog/Data.jsx";`
+**Import:** `import { PostCard } from "/snippets/components/integrators/blog/BlogCards.jsx";`
 **Status:** stable | **Imports:** 2
 
 #### Props
@@ -221,7 +221,7 @@ Fetches, embeds, or binds to external or third-party data.
 
 > Fetches and renders external markdown with scrollable container and source link.
 
-**Import:** `import { ExternalContent } from "/snippets/components/integrators/embeds/ExternalContent.jsx";`
+**Import:** `import { ExternalContent } from "/snippets/components/integrators/embeds/DataEmbed.jsx";`
 **Status:** stable | **Imports:** 0
 
 #### Props
@@ -331,7 +331,7 @@ Fetches, embeds, or binds to external or third-party data.
 
 > Paginated project showcase with search, filtering, and media cards.
 
-**Import:** `import { ShowcaseCards } from "/snippets/components/integrators/feeds/ShowcaseCards.jsx";`
+**Import:** `import { ShowcaseCards } from "/snippets/components/displays/cards/Cards.jsx";`
 **Status:** experimental | **Imports:** 2
 
 #### Props
