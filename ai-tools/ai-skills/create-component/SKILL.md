@@ -63,9 +63,9 @@ The agent must provide ALL inputs before scaffolding begins. Do not ask one at a
 
 | Category | Valid subcategories |
 |---|---|
-| `elements` | `a11y`, `buttons`, `callouts`, `icons`, `images`, `links`, `math`, `social`, `spacing`, `text` |
-| `wrappers` | `accordions`, `badges`, `cards`, `containers`, `grids`, `lists`, `steps`, `tables` |
-| `displays` | `code`, `diagrams`, `quotes`, `response-fields`, `video` |
+| `elements` | `a11y`, `badges`, `buttons`, `callouts`, `icons`, `images`, `links`, `math`, `spacing`, `text` |
+| `wrappers` | `containers` |
+| `displays` | `accordions`, `cards`, `code`, `diagrams`, `grids`, `quotes`, `response-fields`, `steps`, `tables`, `video` |
 | `scaffolding` | `frame-mode`, `heroes`, `page-containers`, `portals` |
 | `integrators` | `blog`, `embeds`, `feeds`, `video-data` |
 | `config` | (none — top-level `config/` folder) |
@@ -119,7 +119,7 @@ export const {componentName} = ({ prop1 = default1, prop2 = default2, style = {}
       display: "flex",
       flexDirection: "column",
       gap: "0.75rem",
-      color: "var(--foreground)",
+      color: "var(--lp-color-text-primary)",
       ...style,
     },
   };
@@ -139,7 +139,7 @@ export const {componentName} = ({ prop1 = default1, prop2 = default2, style = {}
 2. **Arrow function export only.** Never `export default function`. Mintlify does not support the `function` keyword in snippets (confirmed by Mintlify docs).
 3. **NO React imports.** Mintlify provides React globally. Do not `import React from 'react'`.
 4. **NO Mintlify platform global imports.** `Card`, `Tabs`, `Accordion`, `Steps`, `Badge`, `Icon` are globally available — use them directly without importing.
-5. **CSS custom properties only.** Never hardcode hex (`#1a1a2e`), `rgb()`, `hsl()`, or named colours. Use `var(--border)`, `var(--foreground)`, `var(--background)`, etc. from `style.css`.
+5. **CSS custom properties only.** Never hardcode hex (`#1a1a2e`), `rgb()`, `hsl()`, or named colours. Use `var(--lp-color-border-default)`, `var(--lp-color-text-primary)`, `var(--lp-color-bg-page)`, `var(--lp-color-accent)`, `var(--lp-color-bg-card)`, etc. Never use legacy tokens (`var(--border)`, `var(--accent)`, `var(--text)`, `var(--background)`).
 6. **Styles as named const before return.** Never inline style objects in JSX: `<div style={{ ... }}>`. Always: `const styles = { wrapper: { ... } }` then `<div style={styles.wrapper}>`.
 7. **Spread `...style` at end of styles object** for consumer overrides.
 8. **No hardcoded data.** All variable content must be a prop.
@@ -213,11 +213,13 @@ module.exports = { runTests };
 ## Step 4: Run validators
 
 ```bash
+node operations/scripts/validators/components/library/validate-component-creation.js --files snippets/components/{category}/{subcategory}/{componentName}.jsx
 node operations/scripts/validators/components/library/check-component-health.js
 node operations/scripts/validators/components/library/check-naming-conventions.js
+node operations/scripts/remediators/components/library/repair-component-metadata.js --dry-run
 ```
 
-Both must exit 0. If either fails, read the error output and fix the component before proceeding.
+All must exit 0. `validate-component-creation.js` checks JSDoc 7-tag compliance, PascalCase naming, and folder placement. `repair-component-metadata.js --dry-run` should show zero repairs needed for a well-authored component. If any fail, read the error output and fix the component before proceeding.
 
 ---
 
@@ -229,6 +231,10 @@ node operations/scripts/generators/components/library/generate-component-registr
 
 # Regenerate VS Code snippets from updated registry
 node operations/scripts/generators/components/library/generate-component-snippets.js --write
+
+# Regenerate per-grouping documentation
+node operations/scripts/generators/components/library/generate-component-library.js --category {category}
+node operations/scripts/generators/components/library/generate-component-index.js --category {category}
 ```
 
 ---
@@ -238,17 +244,22 @@ node operations/scripts/generators/components/library/generate-component-snippet
 1. Confirm the new component appears in `docs-guide/config/component-registry.json`
 2. Confirm the new snippet appears in `.vscode/components.code-snippets`
 3. Confirm all validators from Step 4 pass
+4. Confirm `snippets/components/{category}/LIBRARY.md` includes the new component
+5. Confirm `snippets/components/{category}/INDEX.md` includes the new component
 
 **Report to the user:**
 
 ```
 Created: snippets/components/{category}/{subcategory}/{componentName}.jsx
 Test:    operations/tests/unit/components/{componentName}.test.js
-Registry: ✅ Updated (N+1 components)
-Snippets: ✅ Updated
-Validators: ✅ Pass
+Registry: Updated (N+1 components)
+Snippets: Updated
+Library:  Updated ({category}/LIBRARY.md)
+Index:    Updated ({category}/INDEX.md)
+Validators: Pass
 ```
 
+**If `@description` is missing**, the CI pipeline will auto-create a GitHub issue assigned to Copilot.
 ---
 
 ## Forbidden JSDoc tags
@@ -256,10 +267,14 @@ Validators: ✅ Pass
 These tags were removed from the standard and MUST NOT appear:
 
 `@owner`, `@tier`, `@accepts`, `@contentAffinity`, `@decision`, `@duplicates`,
-`@lastMeaningfulChange`, `@breakingChangeRisk`, `@dependencies`, `@usedIn`, `@example`
+`@lastMeaningfulChange`, `@breakingChangeRisk`, `@dependencies`, `@usedIn`
 
 ---
 
+
+## Default tags
+
+Every component MUST include `@aiDiscoverability none` unless it uses hooks that hide content from crawlers. This is not optional — the CI pipeline validates it.
 ## Reference files
 
 | File | Purpose |
