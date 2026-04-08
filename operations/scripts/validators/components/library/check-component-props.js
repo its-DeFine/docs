@@ -2,11 +2,11 @@
 /**
  * @script      check-component-props
  * @type        validator
- * @concern     components
+ * @concern     maintenance
  * @niche       library
  * @purpose     qa:repo-health
  * @description Component prop governance validator. Checks Tab/Accordion icon props, code block metadata, Card CustomCardTitle usage, inline styles, CustomDivider placement, Mermaid colour governance, and import ordering across v2 MDX pages (checks 5.18-5.20, 5.22, 5.26-5.28, 5.34).
- * @mode        read-only
+ * @mode        check
  * @pipeline    manual
  * @scope       v2/ (all MDX files)
  * @usage       node operations/scripts/validators/components/library/check-component-props.js [--scope=full|changed] [--json] [--md] [--help]

@@ -2,11 +2,11 @@
 /**
  * @script      remediate-voice-violations
  * @type        remediator
- * @concern     content
+ * @concern     brand
  * @niche       copy
  * @purpose     content:voice-compliance
  * @description Self-remediates voice register violations by deleting self-referential phrases and audience-specific prohibited constructions
- * @mode        edit
+ * @mode        repair
  * @pipeline    manual -> v2/*.mdx -> edited pages with violations removed
  * @scope       v2/
  * @usage       node operations/scripts/remediators/content/copy/remediate-voice-violations.js [--dry-run|--write]

@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      check-jsdoc-headers
- * @type        
- * @concern     
- * @niche       
- * @purpose     governance:script-compliance
+ * @type        validator
+ * @concern     governance
+ * @niche       compliance
+ * @purpose     
  * @description Validates that all JS files in governed locations have core JSDoc tags
- * @mode        read-only
+ * @mode        check
  * @pipeline    pr-changed -> governed JS files -> exit-code, stdout:violations
  * @scope       operations/scripts/, .github/scripts/, .githooks/
  * @usage       node operations/scripts/validators/governance/compliance/check-jsdoc-headers.js [--json]

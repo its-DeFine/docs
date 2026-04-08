@@ -1,17 +1,15 @@
 /**
- * @script            check-workflow-governance
- * @type              validator
- * @concern           governance
- * @niche             workflow-lifecycle
- * @purpose           Validates all workflow YAML files have required governance headers and docs pages
- * @description       Checks every .github/workflows/*.yml for: (1) governance comment headers
- *                    (# type:, # concern:, # pipeline:), (2) valid type/concern/pipeline values,
- *                    (3) matching actions-library documentation page, (4) concurrency block on
- *                    generators. Reports violations as structured JSON or markdown.
- * @mode              check
- * @scope             .github/workflows/
- * @usage             node operations/scripts/validators/governance/pr/check-workflow-governance.js [--check|--json|--fix-audit]
- * @policy            D-ACT-04 (naming), D-ACT-08 (dispatchers), D-GOV-04 (tooling makes correct the default)
+ * @script      check-workflow-governance
+ * @type        validator
+ * @concern     governance
+ * @niche       pr
+ * @purpose     Validates all workflow YAML files have required governance headers and docs pages
+ * @description Checks every .github/workflows/*.yml for: (1) governance comment headers
+ * @mode        check
+ * @pipeline    manual
+ * @scope       .github/workflows/
+ * @usage       node operations/scripts/validators/governance/pr/check-workflow-governance.js [--check|--json|--fix-audit]
+ * @policy      D-ACT-04 (naming), D-ACT-08 (dispatchers), D-GOV-04 (tooling makes correct the default)
  */
 
 'use strict';

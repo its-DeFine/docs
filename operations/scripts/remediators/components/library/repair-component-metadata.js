@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      repair-component-metadata
- * @type        
- * @concern     
- * @niche       
- * @purpose     governance:repo-health
+ * @type        remediator
+ * @concern     maintenance
+ * @niche       library
+ * @purpose     
  * @description Auto-repairs derived JSDoc metadata fields from repo state. Safe fields only. Mirrors AUDIT-00 --fix pattern for components.
- * @mode        read-only
+ * @mode        repair
  * @pipeline    manual, P6, manual
  * @scope       single-domain
  * @usage       node operations/scripts/remediators/components/library/repair-component-metadata.js [--dry-run] [--fix] [--staged]

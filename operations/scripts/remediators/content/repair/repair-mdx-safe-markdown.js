@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      repair-mdx-safe-markdown
- * @type        
- * @concern     
- * @niche       
- * @purpose     qa:content-quality
+ * @type        remediator
+ * @concern     health
+ * @niche       repair
+ * @purpose     
  * @description Auto-repairs deterministic MDX-unsafe markdown patterns across first-party markdown and MDX content.
- * @mode        read-only
+ * @mode        repair
  * @pipeline    manual
  * @scope       full-repo
  * @usage       node operations/scripts/remediators/content/repair/repair-mdx-safe-markdown.js --dry-run [--staged|--files a,b]

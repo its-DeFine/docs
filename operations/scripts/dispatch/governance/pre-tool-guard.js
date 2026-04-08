@@ -1,11 +1,11 @@
 /**
  * @script      pre-tool-guard
- * @type        
- * @concern     
+ * @type        dispatch
+ * @concern     governance
  * @niche       
- * @purpose     Pre-tool enforcement for Claude Code sessions
+ * @purpose     
  * @description Mechanically enforces co-work rules before tool execution. Blocks destructive git, public posts, and unconfirmed writes.
- * @mode        read-only
+ * @mode        dispatch
  * @pipeline    PreToolUse hook → reads stdin tool input → decision (allow/block/warn)
  * @scope       .claude/settings.json PreToolUse hook
  * @usage       Called automatically by Claude Code PreToolUse hook. Not invoked directly.

@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      check-description-quality
- * @type        
- * @concern     
- * @niche       
- * @purpose     qa:content-quality
+ * @type        validator
+ * @concern     health
+ * @niche       structure
+ * @purpose     
  * @description Validates English v2 frontmatter descriptions for SEO length, boilerplate openings, and duplicate reuse
- * @mode        read-only
+ * @mode        check
  * @pipeline    manual — diagnostic/investigation tool, run on-demand only
  * @scope       operations/scripts/validators/content, v2
  * @usage       node operations/scripts/validators/content/structure/check-description-quality.js [--path <repo-path>] [--strict]

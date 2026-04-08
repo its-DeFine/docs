@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      sync-docs-paths
- * @type        
- * @concern     
- * @niche       
- * @purpose     qa:repo-health
+ * @type        remediator
+ * @concern     health
+ * @niche       repair
+ * @purpose     
  * @description Docs path sync remediator — applies deterministic docs.json and governed reference rewrites for moved docs pages.
- * @mode        read-only
+ * @mode        repair
  * @pipeline    manual
  * @scope       staged
  * @usage       node operations/scripts/remediators/content/repair/sync-docs-paths.js --staged --dry-run

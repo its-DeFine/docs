@@ -1,16 +1,15 @@
 /**
- * @script            post-remediation-verify
- * @type              dispatch
- * @concern           governance
- * @niche             verification
- * @purpose           Orchestrates post-remediation verification by running paired validators
- * @description       Looks up validators for a given remediator from the registry, runs them
- *                    scoped to affected files, and optionally reverts only regressed files
- *                    (successful fixes remain on disk).
- * @mode              check
- * @scope             operations/scripts/remediators/, operations/scripts/validators/
- * @usage             node operations/scripts/dispatch/governance/post-remediation-verify.js --remediator <path> --files <a,b,c> [--revert-on-fail] [--json]
- * @policy            D-GOV-03 (every detection must self-repair or escalate → verify)
+ * @script      post-remediation-verify
+ * @type        dispatch
+ * @concern     governance
+ * @niche       
+ * @purpose     Orchestrates post-remediation verification by running paired validators
+ * @description Looks up validators for a given remediator from the registry, runs them
+ * @mode        dispatch
+ * @pipeline    manual
+ * @scope       operations/scripts/remediators/, operations/scripts/validators/
+ * @usage       node operations/scripts/dispatch/governance/post-remediation-verify.js --remediator <path> --files <a,b,c> [--revert-on-fail] [--json]
+ * @policy      D-GOV-03 (every detection must self-repair or escalate → verify)
  */
 
 'use strict';

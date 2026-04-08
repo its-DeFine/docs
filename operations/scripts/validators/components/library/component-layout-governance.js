@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      component-layout-governance
- * @type        
- * @concern     
- * @niche       
- * @purpose     qa:repo-health
+ * @type        validator
+ * @concern     maintenance
+ * @niche       library
+ * @purpose     
  * @description Component layout governance validator — checks v2 page layouts against approved component contracts
- * @mode        read-only
+ * @mode        check
  * @pipeline    manual
  * @scope       operations/scripts, v2, tools/config/quality/component-layout-profile.json
  * @usage       node operations/scripts/validators/components/library/component-layout-governance.js [flags]

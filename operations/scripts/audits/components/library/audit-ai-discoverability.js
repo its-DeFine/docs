@@ -2,11 +2,11 @@
 /**
  * @script      audit-ai-discoverability
  * @type        audit
- * @concern     components
+ * @concern     maintenance
  * @niche       library
  * @purpose     qa:component-quality
  * @description Audit JSX components for AI discoverability compliance: missing tags on hook-using components, missing companion JSON files.
- * @mode        read-only
+ * @mode        scan
  * @pipeline    manual > snippets/components (all .jsx) > stdout:report
  * @scope       snippets/components, snippets/data/snapshots
  * @usage       node operations/scripts/audits/components/library/audit-ai-discoverability.js [--json] [--md] [--staged]

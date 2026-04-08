@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 /**
  * @script      ${scriptName}`,
- * @type        
- * @concern     
- * @niche       
+ * @type        remediator
+ * @concern     governance
+ * @niche       scaffold
  * @purpose     ${purpose}`,
  * @description ${desc}`,
- * @mode        read-only
+ * @mode        repair
  * @pipeline    ${pipeline}`,
  * @scope       ${scope}`,
  * @usage       ${usage}`,
+ * @policy      ${policy}`);
  */
 
 // Post-remediation verification support (D-GOV-03)
@@ -44,7 +45,26 @@ const LEGACY_CONCERN_MAP = {
   components: 'maintenance',
   ai: 'discoverability',
   governance: 'governance',
-  // content: null — requires manual mapping (copy/health/maintenance/discoverability)
+  // content: mapped by niche (see CONTENT_NICHE_TO_CONCERN)
+};
+
+// Niche-based concern mapping for scripts under content/
+const CONTENT_NICHE_TO_CONCERN = {
+  health: 'health',
+  quality: 'health',
+  structure: 'health',
+  repair: 'health',
+  veracity: 'health',
+  style: 'brand',
+  grammar: 'brand',
+  copy: 'brand',
+  data: 'integrations',
+  'language-translation': 'integrations',
+  seo: 'discoverability',
+  reference: 'maintenance',
+  catalogs: 'maintenance',
+  reconciliation: 'maintenance',
+  classification: 'governance',
 };
 
 // Canonical concern list (7-concern taxonomy)
@@ -98,11 +118,6 @@ function getTaxonomy(filePath) {
   const rel = path.relative(REPO, filePath);
   const parts = rel.split(path.sep);
 
-  // operations/scripts/<type>/<concern>/<niche>/script.js
-  // tools/dev/script.js
-  // .githooks/script.js
-  // operations/scripts/config/script.js
-
   if (parts[0] === '.githooks') {
     return { type: 'dispatch', concern: 'governance', niche: 'hooks', location: 'hooks' };
   }
@@ -117,20 +132,21 @@ function getTaxonomy(filePath) {
   if (parts[0] === 'operations' && parts[1] === 'scripts') {
     const typeDir = parts[2];
     let type = TYPE_MAP[typeDir] || typeDir;
-    // Apply legacy type mapping
     if (LEGACY_TYPE_MAP[type]) type = LEGACY_TYPE_MAP[type];
 
     let concern = CONCERN_LIST.includes(parts[3]) ? parts[3] : '';
-    // Apply legacy concern mapping (components → maintenance, ai → discoverability)
-    if (concern && LEGACY_CONCERN_MAP[concern] !== undefined) {
-      const mapped = LEGACY_CONCERN_MAP[concern];
-      if (mapped) concern = mapped;
-      // If null (content), leave as-is — requires manual classification
-    }
-
-    // Niche is the folder after concern, or empty
     const nicheIndex = concern ? 4 : 3;
     const niche = parts.length > nicheIndex + 1 ? parts[nicheIndex] : '';
+
+    // Apply legacy concern mapping
+    if (concern === 'content' && niche && CONTENT_NICHE_TO_CONCERN[niche]) {
+      // Map content/ scripts by their niche subfolder
+      concern = CONTENT_NICHE_TO_CONCERN[niche];
+    } else if (concern && LEGACY_CONCERN_MAP[concern] !== undefined) {
+      const mapped = LEGACY_CONCERN_MAP[concern];
+      if (mapped) concern = mapped;
+    }
+
     return { type, concern, niche, location: 'scripts' };
   }
 
@@ -141,7 +157,6 @@ function getTaxonomy(filePath) {
 function extractOldTags(content) {
   const tags = {};
   const re = /\*\s*@(\w[\w-]*)\s+(.*)/g;
-  // Also handle shell-style: # @tag value
   const reShell = /#\s*@(\w[\w-]*)\s+(.*)/g;
   let m;
   while ((m = re.exec(content)) !== null) {
@@ -169,20 +184,16 @@ function buildNewHeader(filePath, oldTags, taxonomy) {
   const mode = MODE_HEURISTICS[type] || 'read-only';
   const scope = oldTags.scope || '';
   const usage = oldTags.usage || '';
-  const policy = oldTags.needs || '';
+  const policy = oldTags.needs || oldTags.policy || '';
 
-  // Build pipeline from old pipeline tag or infer
   let pipeline = oldTags.pipeline || 'manual';
-  // Clean up old P1/P5 style
   pipeline = pipeline
     .replace(/^P\d+\s*[,(]\s*/i, '')
     .replace(/^P\d+/i, 'manual')
     .replace(/indirect/i, 'manual');
 
-  const pad = (tag, len) => tag.padEnd(len);
-
   if (isShell || isPython) {
-    const comment = isShell ? '#' : '#';
+    const comment = '#';
     const lines = [
       `${comment} @script      ${scriptName}`,
       `${comment} @type        ${type}`,
@@ -222,7 +233,6 @@ function replaceHeader(content, filePath, newHeaderLines) {
   const isPython = ext === '.py';
 
   if (isShell || isPython) {
-    // Find block of consecutive # @tag lines
     const lines = content.split('\n');
     let start = -1;
     let end = -1;
@@ -234,13 +244,12 @@ function replaceHeader(content, filePath, newHeaderLines) {
         break;
       }
     }
-    if (start === -1) return null; // no header found
+    if (start === -1) return null;
     const before = lines.slice(0, start);
     const after = lines.slice(end + 1);
     return [...before, ...newHeaderLines, ...after].join('\n');
   }
 
-  // JS: find the /** ... */ block containing @script
   const jsDocRe = /\/\*\*[\s\S]*?\*\//;
   const match = content.match(jsDocRe);
   if (!match) return null;
@@ -248,7 +257,6 @@ function replaceHeader(content, filePath, newHeaderLines) {
   const oldBlock = match[0];
   if (!/@script/.test(oldBlock)) return null;
 
-  // Build new block
   const newBlock = `/**\n${newHeaderLines.join('\n')}\n */`;
   return content.replace(oldBlock, newBlock);
 }

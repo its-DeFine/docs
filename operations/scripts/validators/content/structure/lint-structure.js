@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      lint-structure
- * @type        
- * @concern     
- * @niche       
- * @purpose     qa:content-quality
+ * @type        validator
+ * @concern     health
+ * @niche       structure
+ * @purpose     
  * @description Enforce structural rules on MDX content files.
- * @mode        read-only
+ * @mode        check
  * @pipeline    manual
  * @scope       staged, changed, v2-content, single-file
  * @usage       node operations/scripts/validators/content/structure/lint-structure.js [file] [flags]

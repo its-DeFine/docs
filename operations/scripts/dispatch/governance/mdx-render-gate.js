@@ -1,11 +1,11 @@
 /**
  * @script      mdx-render-gate
- * @type        
- * @concern     
+ * @type        dispatch
+ * @concern     governance
  * @niche       
- * @purpose     Blocks Edit/Write when the last MDX edit introduced console errors
+ * @purpose     
  * @description PreToolUse hook for Write/Edit. Reads the verification state written by
- * @mode        read-only
+ * @mode        dispatch
  * @pipeline    PreToolUse hook → read state → allow or block
  * @scope       .claude/settings.json PreToolUse hook (Write|Edit matcher)
  * @usage       Called automatically by Claude Code PreToolUse hook. Not invoked directly.

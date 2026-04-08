@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      repair-relative-page-hrefs
- * @type        
- * @concern     
- * @niche       
- * @purpose     qa:link-integrity
+ * @type        remediator
+ * @concern     health
+ * @niche       repair
+ * @purpose     
  * @description Preserve the legacy relative-href repair command while the canonical implementation lives under repair-page-links.js.
- * @mode        read-only
+ * @mode        repair
  * @pipeline    manual
  * @scope       operations/scripts/remediators/content/repair, operations/reports/health/page-links
  * @usage       node operations/scripts/remediators/content/repair/repair-relative-page-hrefs.js [flags]

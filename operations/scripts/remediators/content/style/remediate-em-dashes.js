@@ -2,11 +2,11 @@
 /**
  * @script      remediate-em-dashes
  * @type        remediator
- * @concern     content
+ * @concern     brand
  * @niche       style
  * @purpose     qa:content-quality
  * @description Replaces em-dashes (U+2014) with en-dashes (U+2013) in routable v2 MDX content text only. Skips frontmatter, code blocks, inline code, JSX comments, import/export lines, and JSX attribute values.
- * @mode        read-write
+ * @mode        repair
  * @pipeline    manual — batch remediation utility, run with --dry-run first
  * @scope       v2/ (published routable MDX pages, excluding _workspace, x-archived, x-deprecated, locales)
  * @usage       node operations/scripts/remediators/content/style/remediate-em-dashes.js [--dry-run|--write|--write --verify]

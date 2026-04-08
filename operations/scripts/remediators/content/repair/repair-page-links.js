@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      repair-page-links
- * @type        
- * @concern     
- * @niche       
- * @purpose     qa:link-integrity
+ * @type        remediator
+ * @concern     health
+ * @niche       repair
+ * @purpose     
  * @description Repair deterministic page-link path issues from canonical operations scripts while leaving ambiguous targets unchanged for review.
- * @mode        read-only
+ * @mode        repair
  * @pipeline    manual
  * @scope       v2 publishable docs pages, operations/reports/health/page-links
  * @usage       node operations/scripts/remediators/content/repair/repair-page-links.js --dry-run --files v2/about --report-dir operations/reports/health/page-links

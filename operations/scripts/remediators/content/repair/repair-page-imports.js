@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      repair-page-imports
- * @type        
- * @concern     
- * @niche       
- * @purpose     qa:import-integrity
+ * @type        remediator
+ * @concern     health
+ * @niche       repair
+ * @purpose     
  * @description Repair only proven-safe page import failures from canonical operations scripts while leaving ambiguous import issues unchanged for review.
- * @mode        read-only
+ * @mode        repair
  * @pipeline    manual
  * @scope       operations/scripts, operations/reports/health/page-imports
  * @usage       node operations/scripts/remediators/content/repair/repair-page-imports.js [--dry-run|--write] [--files <paths>] [--output-dir <dir>]

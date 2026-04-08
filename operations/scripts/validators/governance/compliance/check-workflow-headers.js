@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      check-workflow-headers
- * @type        
- * @concern     
- * @niche       
- * @purpose     governance:workflow-compliance
+ * @type        validator
+ * @concern     governance
+ * @niche       compliance
+ * @purpose     
  * @description Validates that GitHub Actions workflow YAML files have governance comment headers
- * @mode        read-only
+ * @mode        check
  * @pipeline    pr-changed -> .github/workflows/*.yml -> exit-code, stdout:violations
  * @scope       .github/workflows/
  * @usage       node operations/scripts/validators/governance/compliance/check-workflow-headers.js [--json]

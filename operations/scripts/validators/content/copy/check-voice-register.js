@@ -2,11 +2,11 @@
 /**
  * @script      check-voice-register
  * @type        validator
- * @concern     content
+ * @concern     brand
  * @niche       copy
  * @purpose     content:voice-compliance
  * @description Checks MDX pages with audience frontmatter for prohibited phrases from the wrong voice register
- * @mode        read-only
+ * @mode        check
  * @pipeline    pr-changed -> v2/*.mdx with audience frontmatter -> exit-code, stdout:violations
  * @scope       v2/
  * @usage       node operations/scripts/validators/content/copy/check-voice-register.js [--json]

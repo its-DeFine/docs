@@ -2,11 +2,11 @@
 /**
  * @script      normalise-frontmatter-keys
  * @type        remediator
- * @concern     content-quality
- * @niche       frontmatter
+ * @concern     governance
+ * @niche       classification
  * @purpose     qa:content-quality
  * @description Normalises capitalised frontmatter YAML keys to lowercase canonical form across v2 MDX pages.
- * @mode        read-write
+ * @mode        repair
  * @pipeline    manual — batch remediation utility, run with --dry-run first
  * @scope       v2/ (all MDX files, excluding _workspace, x-archived, translations)
  * @usage       node operations/scripts/remediators/content/classification/normalise-frontmatter-keys.js [--dry-run] [--write]

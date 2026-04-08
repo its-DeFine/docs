@@ -2,11 +2,11 @@
 /**
  * @script      remediate-us-spelling
  * @type        remediator
- * @concern     content
+ * @concern     brand
  * @niche       style
  * @purpose     qa:content-quality
  * @description Converts US English spellings to UK English in routable v2 MDX content text only. Skips frontmatter, code blocks, inline code, JSX comments, import/export lines, URLs, and JSX attribute values.
- * @mode        read-write
+ * @mode        repair
  * @pipeline    manual — batch remediation utility, run with --dry-run first
  * @scope       v2/ (published routable MDX pages, excluding _workspace, x-archived, x-deprecated, locales)
  * @usage       node operations/scripts/remediators/content/style/remediate-us-spelling.js [--dry-run|--write] [--verify] [--verify]

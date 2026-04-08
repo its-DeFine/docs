@@ -1,10 +1,10 @@
 # Component Layout Governance Audit
 
-- Generated: 2026-04-08T15:26:16.587Z
+- Generated: 2026-04-08T15:55:05.409Z
 - Scope: full
 - Stage ID: component-layout-governance
 - Profile: tools/config/quality/component-layout-profile.json
-- Files analyzed: 1916
+- Files analyzed: 1917
 - Matched page types: 1338
 
 ## Severity Summary

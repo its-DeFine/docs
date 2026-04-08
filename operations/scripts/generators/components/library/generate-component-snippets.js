@@ -2,7 +2,7 @@
 /**
  * @script      generate-component-snippets
  * @type        generator
- * @concern     components
+ * @concern     maintenance
  * @niche       library
  * @purpose     tooling:dev-tools
  * @description Generate VS Code snippet definitions from component-registry.json.

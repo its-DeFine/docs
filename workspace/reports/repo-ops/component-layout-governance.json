@@ -1,9 +1,9 @@
 {
   "stage_id": "component-layout-governance",
-  "generated_at": "2026-04-08T15:26:16.587Z",
+  "generated_at": "2026-04-08T15:55:05.409Z",
   "profile": "tools/config/quality/component-layout-profile.json",
   "scope": "full",
-  "analyzed_file_count": 1916,
+  "analyzed_file_count": 1917,
   "matched_page_type_count": 1338,
   "issues": [
     {
