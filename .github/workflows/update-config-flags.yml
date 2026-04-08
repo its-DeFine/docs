@@ -43,13 +43,13 @@ jobs:
         if: inputs.dry_run != 'true'
         id: git-check
         run: |
-          git diff --exit-code snippets/automations/config/ || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --exit-code snippets/data/gateways/ || echo "changed=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push if changed
         if: steps.git-check.outputs.changed == 'true'
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add snippets/automations/config/
+          git add snippets/data/gateways/
           git commit -m "chore: update config flags from go-livepeer@${{ env.GO_LIVEPEER_BRANCH }} - $(date -u +'%Y-%m-%dT%H:%M:%SZ') [skip ci]"
           git push

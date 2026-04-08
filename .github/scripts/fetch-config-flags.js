@@ -18,7 +18,7 @@ const path = require('path');
 
 const REPO = process.env.GO_LIVEPEER_REPO || 'livepeer/go-livepeer';
 const BRANCH = process.env.GO_LIVEPEER_BRANCH || 'master';
-const OUTPUT_PATH = path.resolve(__dirname, '../../snippets/automations/config/configFlagsData.jsx');
+const OUTPUT_PATH = path.resolve(__dirname, '../../snippets/data/gateways/configFlagsData.jsx');
 
 const DRY_RUN = process.argv.includes('--dry-run');
 
