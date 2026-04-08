@@ -903,8 +903,8 @@
     "name": "Starfield",
     "category": "scaffolding",
     "subniche": "heroes",
-    "file": "HeroGif.jsx",
-    "importPath": "/snippets/components/scaffolding/heroes/HeroGif.jsx",
+    "file": "StarfieldCanvas.jsx",
+    "importPath": "/snippets/components/scaffolding/heroes/StarfieldCanvas.jsx",
     "hasChildren": false,
     "status": "stable",
     "description": "Animated canvas starfield background with floating Livepeer logos. Respects prefers-reduced-motion."

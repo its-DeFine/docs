@@ -1,6 +1,6 @@
 <!-- GENERATED FILE — DO NOT EDIT DIRECTLY -->
 <!-- Generator: operations/scripts/generators/components/library/generate-component-library.js -->
-<!-- Generated: 2026-04-08T01:43:29.749Z -->
+<!-- Generated: 2026-04-08T02:07:46.703Z -->
 <!-- Regenerate: node operations/scripts/generators/components/library/generate-component-library.js --category scaffolding -->
 
 # Scaffolding Component Library
@@ -215,7 +215,7 @@ One-per-page structural skeleton — heroes, portals, frame-mode.
 
 > Animated canvas starfield background with floating Livepeer logos. Respects prefers-reduced-motion.
 
-**Import:** `import { Starfield } from "/snippets/components/scaffolding/heroes/HeroGif.jsx";`
+**Import:** `import { Starfield } from "/snippets/components/scaffolding/heroes/StarfieldCanvas.jsx";`
 **Status:** stable | **Imports:** 8
 
 #### Props

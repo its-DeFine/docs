@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "generated": "2026-04-08T01:43:29.651Z",
+    "generated": "2026-04-08T02:07:46.604Z",
     "generator": "operations/scripts/audits/components/library/scan-component-imports.js",
-    "componentCount": 147,
+    "componentCount": 148,
     "canonicalUsagePolicy": "english-only-jsdoc"
   },
   "components": [
@@ -6213,6 +6213,28 @@
       }
     },
     {
+      "name": "FrameModeDivider",
+      "file": "snippets/components/scaffolding/frame-mode/FrameMode.jsx",
+      "category": "scaffolding",
+      "count": 0,
+      "pages": [],
+      "localeBreakdown": {
+        "en": 0,
+        "es": 0,
+        "fr": 0,
+        "cn": 0,
+        "other": 0
+      },
+      "englishCanonicalCount": 0,
+      "englishCanonicalPages": [],
+      "declaredUsedIn": [],
+      "declaredUsedInEnglish": [],
+      "drift": {
+        "missingFromJsDoc": [],
+        "staleInJsDoc": []
+      }
+    },
+    {
       "name": "H1",
       "file": "snippets/components/scaffolding/frame-mode/FrameMode.jsx",
       "category": "scaffolding",
@@ -6916,7 +6938,7 @@
     },
     {
       "name": "Starfield",
-      "file": "snippets/components/scaffolding/heroes/HeroGif.jsx",
+      "file": "snippets/components/scaffolding/heroes/StarfieldCanvas.jsx",
       "category": "scaffolding",
       "count": 8,
       "pages": [
@@ -8082,6 +8104,11 @@
     },
     {
       "name": "Divider",
+      "file": "snippets/components/scaffolding/frame-mode/FrameMode.jsx",
+      "category": "scaffolding"
+    },
+    {
+      "name": "FrameModeDivider",
       "file": "snippets/components/scaffolding/frame-mode/FrameMode.jsx",
       "category": "scaffolding"
     },

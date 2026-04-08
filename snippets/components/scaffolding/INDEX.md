@@ -1,6 +1,6 @@
 <!-- GENERATED FILE — DO NOT EDIT DIRECTLY -->
 <!-- Generator: operations/scripts/generators/components/library/generate-component-index.js -->
-<!-- Generated: 2026-04-08T01:43:29.702Z -->
+<!-- Generated: 2026-04-08T02:07:46.653Z -->
 <!-- Components: 20 | Category: scaffolding -->
 
 # Scaffolding — Component Index
@@ -28,7 +28,7 @@ Quick-reference table. For full documentation see [LIBRARY.md](LIBRARY.md).
 | 17 | **PortalHeroContent** | `Portals.jsx` | portals | 🟢 stable | 8 | Hero content with logo, title, tagline, description, and card grid. |
 | 18 | **PortalSectionHeader** | `Portals.jsx` | portals | 🟢 stable | 1 | Section header with icon, title, and horizontal rule. |
 | 19 | **RefCardContainer** | `Portals.jsx` | portals | 🟢 stable | 0 | Container for reference cards with configurable column count. |
-| 20 | **Starfield** | `HeroGif.jsx` | heroes | 🟢 stable | 8 | Animated canvas starfield background with floating Livepeer logos. Respects pref... |
+| 20 | **Starfield** | `StarfieldCanvas.jsx` | heroes | 🟢 stable | 8 | Animated canvas starfield background with floating Livepeer logos. Respects pref... |
 
 ---
 

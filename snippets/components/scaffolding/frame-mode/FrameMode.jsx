@@ -512,19 +512,19 @@ const P = ({
 };
 
 /**
- * @component Divider
+ * @component FrameModeDivider
  * @category scaffolding
  * @subcategory frame-mode
  * @status stable
- * @description Horizontal rule divider for frame-mode pages.
-  * @aiDiscoverability none
+ * @description Horizontal rule divider for frame-mode pages. Distinct from elements/spacing/Divider.
+ * @aiDiscoverability none
  * @param {string} color - Custom color for the divider (optional, defaults to theme border color)
  * @param {string} [margin="1.5rem 0"] - Vertical margin (default: "1.5rem 0")
  * @param {string} [opacity=0.2] - Opacity of the divider (default: 0.2)
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  */
-const Divider = ({ color, margin = "1.5rem 0", opacity = 0.2, className = "", style = {}, ...rest }) => {
+const FrameModeDivider = ({ color, margin = "1.5rem 0", opacity = 0.2, className = "", style = {}, ...rest }) => {
   return (
     <hr
       className={className}
@@ -540,4 +540,7 @@ const Divider = ({ color, margin = "1.5rem 0", opacity = 0.2, className = "", st
   );
 };
 
-export { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider };
+/** @deprecated Use FrameModeDivider to avoid collision with elements/spacing/Divider. */
+const Divider = FrameModeDivider;
+
+export { PageHeader, H1, H2, H3, H4, H5, H6, P, FrameModeDivider, Divider };

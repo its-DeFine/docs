@@ -237,7 +237,7 @@ deprecated / folded in elsewhere / unclassified now
           <Tree.File name="FrameMode.jsx" />
         </Tree.Folder>
         <Tree.Folder name="heroes">
-          <Tree.File name="HeroGif.jsx" />
+          <Tree.File name="StarfieldCanvas.jsx" />
         </Tree.Folder>
         <Tree.Folder name="page-containers" />
         <Tree.Folder name="portals">

@@ -220,3 +220,28 @@
 ### Propagation
 - 611 files updated with new import paths
 - VS Code snippets (4 files), tools/dev, editor-extensions updated
+
+## 2026-04-08 — displays/ consolidation (component-naming-audit)
+
+### File consolidations (single file per category)
+- `Tables.jsx`: absorbed Table.jsx (DynamicTable/V2) + SearchTable.jsx (SearchTable/V2) — 1291 lines
+- `Cards.jsx`: absorbed CustomCards + ShowcaseCards + SolutionCard + SolutionItem
+- `Grids.jsx`: absorbed CardCarousel + QuadGrid
+- `Accordions.jsx`: absorbed AccordionGroupList + AccordionLayout
+- `Steps.jsx`: absorbed ListSteps.jsx + Lists.jsx (StepList, StepLinkList, UpdateLinkList)
+
+### Renames
+- `ZoomableDiagram.jsx` → `ScrollableDiagram.jsx` (131 imports propagated)
+
+### Moves
+- `HistoricalContractTable.jsx` → `integrators/feeds/` (data-driven feed)
+
+### Deletions
+- `BlockchainContractsRenderers.jsx` (dead — 0 imports)
+
+### Deprecations
+- ShowcaseVideo, YouTubeVideoDownload (broken), YouTubeVideoData (duplicate)
+- ResponseFieldExpandable, ResponseFieldAccordion (superseded by ResponseFieldGroup)
+
+### Propagation
+- 344 files updated

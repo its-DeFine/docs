@@ -69,12 +69,12 @@ const HeroSectionContainer = ({ children, minHeight = "fit-content", className =
  * A container component for the background of a portal page hero section.
  * The background sits behind the hero header.
  * The background is fixed and will not scroll with the page.
- * Currently a gif is generated looking like a starfield using HeroGif.jsx
+ * Currently a gif is generated looking like a starfield using StarfieldCanvas.jsx
  * This component should sit in a className="frame-mode-hero-full" element.
  *
  * @param {React.ReactNode} children:
  * The background image component. Defaults to <Starfield />
- * <Starfield /> is created in components/domain/SHARED/HeroGif.jsx
+ * <Starfield /> is created in components/domain/SHARED/StarfieldCanvas.jsx
  *
  * @author Alison Haire
  */

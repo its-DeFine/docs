@@ -689,7 +689,7 @@
     "scope": "mdx,markdown",
     "prefix": "lp-add-Starfield",
     "body": [
-      "import { Starfield } from \"/snippets/components/scaffolding/heroes/HeroGif.jsx\";",
+      "import { Starfield } from \"/snippets/components/scaffolding/heroes/StarfieldCanvas.jsx\";",
       "",
       "<Starfield />"
     ],
@@ -1173,13 +1173,13 @@
     ],
     "description": "scaffolding/frame-mode — all exports from FrameMode.jsx"
   },
-  "lp-import-HeroGif": {
+  "lp-import-StarfieldCanvas": {
     "scope": "mdx,markdown",
-    "prefix": "lp-import-HeroGif",
+    "prefix": "lp-import-StarfieldCanvas",
     "body": [
-      "import { Starfield } from \"/snippets/components/scaffolding/heroes/HeroGif.jsx\";"
+      "import { Starfield } from \"/snippets/components/scaffolding/heroes/StarfieldCanvas.jsx\";"
     ],
-    "description": "scaffolding/heroes — all exports from HeroGif.jsx"
+    "description": "scaffolding/heroes — all exports from StarfieldCanvas.jsx"
   },
   "lp-import-Portals": {
     "scope": "mdx,markdown",

@@ -95,7 +95,7 @@ components/
 | File | Sub-niche | Key Exports | Description |
 |---|---|---|---|
 | `FrameMode.jsx` | frame-mode | `PageHeader`, `H1`–`H6`, `P`, `Divider` | Frame mode heading overrides |
-| `HeroGif.jsx` | heroes | `Starfield` | Hero animation |
+| `StarfieldCanvas.jsx` | heroes | `Starfield` | Hero animation |
 | `Portals.jsx` | portals | `HeroSectionContainer`, `HeroContentContainer`, `PortalHeroContent`, `PortalCardsHeader`, `PortalSectionHeader`, `LogoHeroContainer` | Portal page layout components |
 
 ### integrators/

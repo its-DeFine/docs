@@ -138,7 +138,7 @@ Inline styles cannot be responsive (no media queries in `style={{}}`). The style
 
 | Pattern | Status |
 |---|---|
-| `prefers-reduced-motion` | Respected in QuadGrid, BlinkingIcon, HeroGif, video components |
+| `prefers-reduced-motion` | Respected in QuadGrid, BlinkingIcon, StarfieldCanvas, video components |
 | ARIA roles on scroll regions | DynamicTable, ShowcaseCards correctly annotated |
 | Social links | Proper `aria-label` + `aria-hidden` on decorative icons |
 | Semantic tables | `<table>`, `<thead>`, `<th>` used correctly |
