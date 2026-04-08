@@ -2,11 +2,11 @@
 /**
  * @script      audit-component-styles
  * @type        audit
- * @concern     components
+ * @concern     maintenance
  * @niche       library
  * @purpose     qa:component-quality
  * @description Audit JSX components for style pattern violations: inline styles, top-level constants, missing named style objects.
- * @mode        read-only
+ * @mode        scan
  * @pipeline    manual > snippets/components (all .jsx) > stdout:report
  * @scope       snippets/components
  * @usage       node operations/scripts/audits/components/library/audit-component-styles.js [--json] [--md] [--staged] [--fix-preview]

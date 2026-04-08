@@ -220,7 +220,7 @@ The research workflow is advisory-first. It complements the existing MDX, style,
 
 ### Automatic Page Index Generation
 
-The repository includes an internal docs feature that keeps `v2/` index files synchronized with the current folder and markdown file structure.
+The repository includes an internal docs feature that keeps `v2/` index files synchronised with the current folder and markdown file structure.
 
 What it generates:
 
@@ -238,11 +238,11 @@ Format rules:
 Validation and cleanup rules:
 
 - `docs.json` is treated as a read-only route allowlist for warning markers.
-- Matching is strict after normalization (remove `.md`/`.mdx`, remove trailing `/index`, trim trailing `/`).
+- Matching is strict after normalisation (remove `.md`/`.mdx`, remove trailing `/index`, trim trailing `/`).
 - Nested `index.mdx` / `index.md` files under top-level sections are automatically removed in `--write` mode.
 - In verify mode (no `--write`), nested indexes cause a failure until removed.
 
-Automation behavior:
+Automation behaviour:
 
 - Runs in pre-commit when staged files include `v2/` changes:
   `node operations/scripts/generate-pages-index.js --staged --write --stage`

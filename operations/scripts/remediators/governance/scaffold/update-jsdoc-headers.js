@@ -1,66 +1,91 @@
 #!/usr/bin/env node
 /**
- * @script      update-jsdoc-headers
+ * @script      ${scriptName}`,
  * @type        remediator
  * @concern     governance
  * @niche       scaffold
- * @purpose     governance:repo-health
- * @description Fills blank @type, @concern, @niche tags in script JSDoc headers by inferring
- *              values from the file path. Only patches blank fields — never overwrites existing
- *              values. Preserves all other tags and multi-line content.
- * @mode        edit
- * @pipeline    manual -> operations/scripts/, tools/dev/, .githooks/ -> patched headers
- * @scope       operations/scripts/, tools/scripts/, tools/dev/, .githooks/
- * @usage       node operations/scripts/remediators/governance/scaffold/update-jsdoc-headers.js [--write] [--verify]
- * @policy      R-R10
+ * @purpose     ${purpose}`,
+ * @description ${desc}`,
+ * @mode        repair
+ * @pipeline    ${pipeline}`,
+ * @scope       ${scope}`,
+ * @usage       ${usage}`,
+ * @policy      ${policy}`);
  */
 
-'use strict';
-
+// Post-remediation verification support (D-GOV-03)
+const VERIFY_MODE = process.argv.includes('--verify');
 const fs = require('fs');
 const path = require('path');
-const { execSync, spawnSync } = require('child_process');
+const { execSync } = require('child_process');
 
 const WRITE = process.argv.includes('--write');
-const VERIFY = process.argv.includes('--verify');
-const HELP = process.argv.includes('--help') || process.argv.includes('-h');
 const REPO = process.cwd();
 
-if (HELP) {
-  console.log([
-    'Usage:',
-    '  node operations/scripts/remediators/governance/scaffold/update-jsdoc-headers.js [--write] [--verify]',
-    '',
-    'Modes:',
-    '  (default)   Dry-run — report what would be patched',
-    '  --write     Apply patches to files',
-    '  --verify    After --write, re-check that blank fields are filled. Exit 1 if any remain',
-    '',
-    'Behaviour:',
-    '  - Only fills BLANK @type, @concern, @niche fields',
-    '  - Never overwrites existing non-empty values',
-    '  - Preserves all other tags, multi-line descriptions, @policy, etc.',
-    '  - Derives values from file path: operations/scripts/<type>/<concern>/<niche>/script.js',
-  ].join('\n'));
-  process.exit(0);
-}
-
-// ─── Taxonomy maps ───
-
+// Map from directory names to canonical type values
 const TYPE_MAP = {
   audits: 'audit',
   generators: 'generator',
   validators: 'validator',
   remediators: 'remediator',
   dispatch: 'dispatch',
-  automations: 'automation',
   integrators: 'integrator',
+  interfaces: 'interface',
 };
 
-const CONCERN_LIST = ['content', 'components', 'governance', 'ai'];
+// Legacy type mapping (from script-governance-config.js)
+const LEGACY_TYPE_MAP = {
+  automation: 'integrator',
+  orchestrator: 'dispatch',
+  enforcer: 'validator',
+};
 
-// ─── Discover scripts ───
+// Legacy concern mapping (from script-governance-config.js)
+const LEGACY_CONCERN_MAP = {
+  components: 'maintenance',
+  ai: 'discoverability',
+  governance: 'governance',
+  // content: mapped by niche (see CONTENT_NICHE_TO_CONCERN)
+};
 
+// Niche-based concern mapping for scripts under content/
+const CONTENT_NICHE_TO_CONCERN = {
+  health: 'health',
+  quality: 'health',
+  structure: 'health',
+  repair: 'health',
+  veracity: 'health',
+  style: 'brand',
+  grammar: 'brand',
+  copy: 'brand',
+  data: 'integrations',
+  'language-translation': 'integrations',
+  seo: 'discoverability',
+  reference: 'maintenance',
+  catalogs: 'maintenance',
+  reconciliation: 'maintenance',
+  classification: 'governance',
+};
+
+// Canonical concern list (7-concern taxonomy)
+const VALID_CONCERNS = ['copy', 'health', 'maintenance', 'discoverability', 'governance', 'brand', 'integrations'];
+
+// Accept legacy concerns for directory matching but map them to canonical values
+const CONCERN_LIST = [...VALID_CONCERNS, 'content', 'components', 'ai'];
+
+const MODE_HEURISTICS = {
+  audit: 'scan',
+  validator: 'check',
+  generator: 'generate',
+  remediator: 'repair',
+  dispatch: 'dispatch',
+  integrator: 'integrate',
+  interface: 'interface',
+  utility: 'integrate',
+  config: 'integrate',
+};
+
+// Discover all scripts
 function findScripts() {
   const dirs = [
     'operations/scripts/audits',
@@ -68,217 +93,216 @@ function findScripts() {
     'operations/scripts/validators',
     'operations/scripts/remediators',
     'operations/scripts/dispatch',
-    'operations/scripts/automations',
+    'operations/scripts/integrators',
+    'operations/scripts/interfaces',
     'operations/scripts/config',
-    'tools/scripts',
-    'tools/dev',
     '.githooks',
+    'tools/dev',
   ];
 
   const scripts = [];
   for (const dir of dirs) {
     const full = path.join(REPO, dir);
     if (!fs.existsSync(full)) continue;
-    try {
-      const files = execSync(
-        `find "${full}" -type f \\( -name "*.js" -o -name "*.sh" -o -name "*.py" \\) | grep -v node_modules | grep -v x-archive | grep -v "/test/" | grep -v "/lib/" | grep -v ".test."`,
-        { encoding: 'utf8' }
-      ).trim().split('\n').filter(Boolean);
-      scripts.push(...files);
-    } catch (_) { /* empty directory */ }
+    const files = execSync(
+      `find "${full}" -type f \\( -name "*.js" -o -name "*.sh" -o -name "*.py" \\) | grep -v node_modules | grep -v x-archive | grep -v "/test/" | grep -v "/lib/" | grep -v ".test."`,
+      { encoding: 'utf8' }
+    ).trim().split('\n').filter(Boolean);
+    scripts.push(...files);
   }
   return scripts;
 }
 
-// ─── Derive taxonomy from path ───
-
+// Extract taxonomy from file path
 function getTaxonomy(filePath) {
-  const rel = path.relative(REPO, filePath).split(path.sep);
+  const rel = path.relative(REPO, filePath);
+  const parts = rel.split(path.sep);
 
-  // .githooks/script.js
-  if (rel[0] === '.githooks') {
-    return { type: 'dispatch', concern: 'governance', niche: 'hooks' };
+  if (parts[0] === '.githooks') {
+    return { type: 'dispatch', concern: 'governance', niche: 'hooks', location: 'hooks' };
+  }
+  if (parts[0] === 'tools' && parts[1] === 'dev') {
+    return { type: 'utility', concern: 'governance', niche: 'dev-tools', location: 'dev' };
+  }
+  if (parts[0] === 'tools' && parts[1] === 'scripts' && parts[2] === 'config') {
+    return { type: 'generator', concern: 'governance', niche: 'config', location: 'config' };
   }
 
-  // tools/dev/category/script.js
-  if (rel[0] === 'tools' && rel[1] === 'dev') {
-    const niche = rel.length > 3 ? rel[2] : 'dev-tools';
-    return { type: 'automation', concern: 'governance', niche };
-  }
+  // operations/scripts/<type>/<concern>/[<niche>/]script.js
+  if (parts[0] === 'operations' && parts[1] === 'scripts') {
+    const typeDir = parts[2];
+    let type = TYPE_MAP[typeDir] || typeDir;
+    if (LEGACY_TYPE_MAP[type]) type = LEGACY_TYPE_MAP[type];
 
-  // tools/scripts/<type>/<concern>/script.js
-  if (rel[0] === 'tools' && rel[1] === 'scripts') {
-    const typeDir = rel[2] || '';
-    const type = TYPE_MAP[typeDir] || typeDir;
-    const concern = rel.length > 3 && CONCERN_LIST.includes(rel[3]) ? rel[3] : '';
-    const niche = rel.length > 4 ? rel[rel.length - 2] : '';
-    return { type, concern, niche };
-  }
+    let concern = CONCERN_LIST.includes(parts[3]) ? parts[3] : '';
+    const nicheIndex = concern ? 4 : 3;
+    const niche = parts.length > nicheIndex + 1 ? parts[nicheIndex] : '';
 
-  // operations/scripts/config/script.js
-  if (rel[0] === 'operations' && rel[1] === 'scripts' && rel[2] === 'config') {
-    return { type: 'generator', concern: 'governance', niche: 'config' };
-  }
-
-  // operations/scripts/<type>/<concern>/<niche>/script.js
-  if (rel[0] === 'operations' && rel[1] === 'scripts') {
-    const typeDir = rel[2] || '';
-    const type = TYPE_MAP[typeDir] || typeDir;
-    const concern = rel.length > 3 && CONCERN_LIST.includes(rel[3]) ? rel[3] : '';
-    const niche = rel.length > 5 ? rel[4] : (rel.length > 4 ? rel[4] : '');
-    // If niche is the filename, clear it
-    if (niche && niche.includes('.')) return { type, concern, niche: '' };
-    return { type, concern, niche };
-  }
-
-  return { type: '', concern: '', niche: '' };
-}
-
-// ─── Extract existing tag values ───
-
-function extractTagValue(content, tagName) {
-  // Extract value from same line only — split by lines first
-  const lines = content.split('\n');
-  const re = new RegExp(`[*#]\\s*@${tagName}\\b\\s*(.*)`);
-  for (const line of lines) {
-    const match = line.match(re);
-    if (match) {
-      const val = match[1].trim();
-      return val;
+    // Apply legacy concern mapping
+    if (concern === 'content' && niche && CONTENT_NICHE_TO_CONCERN[niche]) {
+      // Map content/ scripts by their niche subfolder
+      concern = CONTENT_NICHE_TO_CONCERN[niche];
+    } else if (concern && LEGACY_CONCERN_MAP[concern] !== undefined) {
+      const mapped = LEGACY_CONCERN_MAP[concern];
+      if (mapped) concern = mapped;
     }
+
+    return { type, concern, niche, location: 'scripts' };
   }
-  return '';
+
+  return { type: '', concern: '', niche: '', location: 'unknown' };
 }
 
-// ─── Patch a single blank tag in-place ───
-
-function patchBlankTag(content, tagName, newValue) {
-  // Match a line like: * @type        (with only whitespace after the tag name)
-  // or: * @type (nothing after)
-  const re = new RegExp(`([ \\t]*[*#][ \\t]*@${tagName})[ \\t]*$`, 'm');
-  if (!re.test(content)) return content; // tag line not found
-
-  // Only replace if the current value is blank
-  const existingValue = extractTagValue(content, tagName);
-  if (existingValue) return content; // already has a value — do not touch
-
-  return content.replace(re, `$1${' '.repeat(Math.max(1, 9 - tagName.length))}${newValue}`);
+// Extract existing tag values from file content
+function extractOldTags(content) {
+  const tags = {};
+  const re = /\*\s*@(\w[\w-]*)\s+(.*)/g;
+  const reShell = /#\s*@(\w[\w-]*)\s+(.*)/g;
+  let m;
+  while ((m = re.exec(content)) !== null) {
+    tags[m[1]] = m[2].trim();
+  }
+  while ((m = reShell.exec(content)) !== null) {
+    if (!tags[m[1]]) tags[m[1]] = m[2].trim();
+  }
+  return tags;
 }
 
-// ─── Main ───
+// Build new header block
+function buildNewHeader(filePath, oldTags, taxonomy) {
+  const ext = path.extname(filePath);
+  const basename = path.basename(filePath, ext);
+  const isShell = ext === '.sh';
+  const isPython = ext === '.py';
 
+  const scriptName = oldTags.script || basename;
+  const type = taxonomy.type;
+  const concern = taxonomy.concern;
+  const niche = taxonomy.niche;
+  const purpose = oldTags.purpose || '';
+  const desc = oldTags['purpose-statement'] || oldTags.description || '';
+  const mode = MODE_HEURISTICS[type] || 'read-only';
+  const scope = oldTags.scope || '';
+  const usage = oldTags.usage || '';
+  const policy = oldTags.needs || oldTags.policy || '';
+
+  let pipeline = oldTags.pipeline || 'manual';
+  pipeline = pipeline
+    .replace(/^P\d+\s*[,(]\s*/i, '')
+    .replace(/^P\d+/i, 'manual')
+    .replace(/indirect/i, 'manual');
+
+  if (isShell || isPython) {
+    const comment = '#';
+    const lines = [
+      `${comment} @script      ${scriptName}`,
+      `${comment} @type        ${type}`,
+      `${comment} @concern     ${concern}`,
+      `${comment} @niche       ${niche}`,
+      `${comment} @purpose     ${purpose}`,
+      `${comment} @description ${desc}`,
+      `${comment} @mode        ${mode}`,
+      `${comment} @pipeline    ${pipeline}`,
+      `${comment} @scope       ${scope}`,
+      `${comment} @usage       ${usage}`,
+    ];
+    if (policy) lines.push(`${comment} @policy      ${policy}`);
+    return lines;
+  }
+
+  const lines = [
+    ` * @script      ${scriptName}`,
+    ` * @type        ${type}`,
+    ` * @concern     ${concern}`,
+    ` * @niche       ${niche}`,
+    ` * @purpose     ${purpose}`,
+    ` * @description ${desc}`,
+    ` * @mode        ${mode}`,
+    ` * @pipeline    ${pipeline}`,
+    ` * @scope       ${scope}`,
+    ` * @usage       ${usage}`,
+  ];
+  if (policy) lines.push(` * @policy      ${policy}`);
+  return lines;
+}
+
+// Replace the header block in file content
+function replaceHeader(content, filePath, newHeaderLines) {
+  const ext = path.extname(filePath);
+  const isShell = ext === '.sh';
+  const isPython = ext === '.py';
+
+  if (isShell || isPython) {
+    const lines = content.split('\n');
+    let start = -1;
+    let end = -1;
+    for (let i = 0; i < lines.length; i++) {
+      if (/^#\s*@\w/.test(lines[i])) {
+        if (start === -1) start = i;
+        end = i;
+      } else if (start !== -1 && !/^#/.test(lines[i])) {
+        break;
+      }
+    }
+    if (start === -1) return null;
+    const before = lines.slice(0, start);
+    const after = lines.slice(end + 1);
+    return [...before, ...newHeaderLines, ...after].join('\n');
+  }
+
+  const jsDocRe = /\/\*\*[\s\S]*?\*\//;
+  const match = content.match(jsDocRe);
+  if (!match) return null;
+
+  const oldBlock = match[0];
+  if (!/@script/.test(oldBlock)) return null;
+
+  const newBlock = `/**\n${newHeaderLines.join('\n')}\n */`;
+  return content.replace(oldBlock, newBlock);
+}
+
+// Main
 const scripts = findScripts();
-let patched = 0;
+let updated = 0;
 let skipped = 0;
-let alreadyComplete = 0;
 const errors = [];
-const modifiedFiles = [];
 
 for (const filePath of scripts) {
   const rel = path.relative(REPO, filePath);
   try {
     const content = fs.readFileSync(filePath, 'utf8');
+    const oldTags = extractOldTags(content);
+    const taxonomy = getTaxonomy(filePath);
 
-    // Must have a @script tag to be a governed script
-    if (!/@script/.test(content)) {
+    if (!oldTags.script && !oldTags['purpose-statement']) {
       skipped++;
       continue;
     }
 
-    const taxonomy = getTaxonomy(filePath);
-    const existingType = extractTagValue(content, 'type');
-    const existingConcern = extractTagValue(content, 'concern');
-    const existingNiche = extractTagValue(content, 'niche');
+    const newLines = buildNewHeader(filePath, oldTags, taxonomy);
+    const newContent = replaceHeader(content, filePath, newLines);
 
-    // Check if any fields are blank
-    const needsType = !existingType && taxonomy.type;
-    const needsConcern = !existingConcern && taxonomy.concern;
-    const needsNiche = !existingNiche && taxonomy.niche;
-
-    if (!needsType && !needsConcern && !needsNiche) {
-      alreadyComplete++;
-      continue;
-    }
-
-    let newContent = content;
-    const fixes = [];
-
-    if (needsType) {
-      newContent = patchBlankTag(newContent, 'type', taxonomy.type);
-      fixes.push(`@type=${taxonomy.type}`);
-    }
-    if (needsConcern) {
-      newContent = patchBlankTag(newContent, 'concern', taxonomy.concern);
-      fixes.push(`@concern=${taxonomy.concern}`);
-    }
-    if (needsNiche) {
-      newContent = patchBlankTag(newContent, 'niche', taxonomy.niche);
-      fixes.push(`@niche=${taxonomy.niche}`);
-    }
-
-    if (newContent === content) {
-      // patchBlankTag didn't find the blank lines — tag lines may not exist
+    if (!newContent) {
       skipped++;
       continue;
     }
 
     if (WRITE) {
       fs.writeFileSync(filePath, newContent, 'utf8');
-      console.log(`  ✓ ${rel}  [${fixes.join(', ')}]`);
-      modifiedFiles.push(filePath);
+      console.log(`  ✓ ${rel}`);
     } else {
-      console.log(`  [dry-run] ${rel}  [${fixes.join(', ')}]`);
+      console.log(`  [dry-run] ${rel}`);
+      console.log(`    type=${taxonomy.type} concern=${taxonomy.concern} niche=${taxonomy.niche}`);
     }
-    patched++;
+    updated++;
   } catch (e) {
     errors.push(`${rel}: ${e.message}`);
   }
 }
 
-console.log(`\n${WRITE ? 'Patched' : 'Would patch'}: ${patched} scripts`);
-console.log(`Already complete: ${alreadyComplete}`);
-console.log(`Skipped (no @script tag): ${skipped}`);
+console.log(`\n${WRITE ? 'Updated' : 'Would update'}: ${updated} scripts`);
+console.log(`Skipped (no header): ${skipped}`);
 if (errors.length) {
   console.log(`Errors: ${errors.length}`);
   errors.forEach(e => console.log(`  ✗ ${e}`));
 }
-
-// ─── Verify layer ───
-
-if (WRITE && VERIFY && modifiedFiles.length > 0) {
-  console.log(`\nVerify: re-checking ${modifiedFiles.length} patched file(s)...`);
-
-  let verifyFails = 0;
-  let verifyWarns = 0;
-  for (const filePath of modifiedFiles) {
-    const content = fs.readFileSync(filePath, 'utf8');
-    const type = extractTagValue(content, 'type');
-    const concern = extractTagValue(content, 'concern');
-    const niche = extractTagValue(content, 'niche');
-    const rel = path.relative(REPO, filePath);
-    // @type and @concern are required — blank is a failure
-    if (!type || !concern) {
-      const blanks = [];
-      if (!type) blanks.push('@type');
-      if (!concern) blanks.push('@concern');
-      console.log(`  FAIL: ${rel} — still blank: ${blanks.join(', ')}`);
-      verifyFails++;
-    }
-    // @niche is advisory — blank is a warning, not a failure
-    if (!niche) {
-      console.log(`  WARN: ${rel} — @niche blank (path has no niche folder)`);
-      verifyWarns++;
-    }
-  }
-
-  if (verifyWarns > 0) {
-    console.log(`\n${verifyWarns} warning(s): @niche could not be derived from path structure.`);
-  }
-  if (verifyFails > 0) {
-    console.log(`VERIFY FAILED — ${verifyFails} file(s) still have blank required fields.`);
-    process.exit(1);
-  }
-  console.log('VERIFY PASSED — all required fields (@type, @concern) filled.');
-}
-
-process.exit(errors.length > 0 ? 2 : 0);

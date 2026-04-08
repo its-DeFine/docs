@@ -43,7 +43,7 @@ Single-node operation is appropriate for most orchestrators. You are in fleet te
 
 - Your workload requires more GPU capacity than fits in one machine
 - You need geographic distribution for latency-sensitive AI workloads
-- You want to separate concerns — one node for reward calling, one for ticket redemption, separate GPU workers
+- You want to separate concerns – one node for reward calling, one for ticket redemption, separate GPU workers
 - You are operating at data-centre scale with SLA commitments to gateway operators
 
 Start with a single node unless one of these conditions already applies. Fleet architecture adds operational complexity, and the gains only justify that overhead once scale pressure is already present.
@@ -87,7 +87,7 @@ graph TD
   <TableRow>
     <TableCell>Reward node</TableCell>
     <TableCell>Calls `reward()` each round</TableCell>
-    <TableCell>Reward safety — dedicated stable machine, not affected by workload disruption</TableCell>
+    <TableCell>Reward safety – dedicated stable machine, not affected by workload disruption</TableCell>
   </TableRow>
   <TableRow>
     <TableCell>Redeemer node</TableCell>
@@ -121,7 +121,7 @@ Whether you are running a single orchestrator or a fleet, GPU workers scale hori
      -nvidia 0,1,2 \
      -maxSessions 10
    ```
-4. The orchestrator immediately begins routing to the new worker — no configuration change on the orchestrator required
+4. The orchestrator immediately begins routing to the new worker – no configuration change on the orchestrator required
 
 Orchestrator logs confirm each new connection:
 ``` icon="terminal"
@@ -132,7 +132,7 @@ Got a RegisterTranscoder request from transcoder=10.3.27.5 capacity=10
 
 ## Capacity management at fleet scale
 
-Each worker advertises its capacity (the `-maxSessions` value). The orchestrator tracks capacity across all connected workers and routes jobs accordingly. There is no manual load balancing step — go-livepeer handles distribution internally.
+Each worker advertises its capacity (the `-maxSessions` value). The orchestrator tracks capacity across all connected workers and routes jobs accordingly. There is no manual load balancing step – go-livepeer handles distribution internally.
 
 **What to monitor fleet-wide:**
 
@@ -147,7 +147,7 @@ Each worker advertises its capacity (the `-maxSessions` value). The orchestrator
   </TableRow>
   <TableRow>
     <TableCell>Workers at max sessions</TableCell>
-    <TableCell>Your fleet is at capacity — add workers or increase per-worker `maxSessions`</TableCell>
+    <TableCell>Your fleet is at capacity – add workers or increase per-worker `maxSessions`</TableCell>
   </TableRow>
   <TableRow>
     <TableCell>Worker disconnections</TableCell>
@@ -195,10 +195,10 @@ Fleet operations introduce key management complexity that does not exist on sing
 
 **Key considerations:**
 
-- Each orchestrator node needs access to the same Ethereum keystore to accept payments on behalf of your on-chain address. Distribute the keystore file carefully — only over encrypted channels, with restricted file permissions on each machine.
+- Each orchestrator node needs access to the same Ethereum keystore to accept payments on behalf of your on-chain address. Distribute the keystore file carefully – only over encrypted channels, with restricted file permissions on each machine.
 - For reward calling, you want exactly **one** node calling `reward()` per round. Running reward calling on multiple nodes risks duplicate submissions and wasted gas. Designate a single node for reward calling and set `-reward=false` on all others.
 - For ticket redemption, the Redeemer can be run as a separate process. See `doc/redeemer.md` in the go-livepeer repository.
-- Static IPs or stable DNS names are essential at fleet scale — your service URI is stored on-chain and must resolve consistently.
+- Static IPs or stable DNS names are essential at fleet scale – your service URI is stored on-chain and must resolve consistently.
 
 <CustomDivider />
 
@@ -216,7 +216,7 @@ The SPE (Special Purpose Entity) programme is the primary pathway for profession
 
 <CardGroup cols={2}>
   <Card title="Run a Pool" icon="server" href="/v2/orchestrators/guides/advanced-operations/pool-operators">
-    Pool operations — accepting worker connections and managing off-chain payouts.
+    Pool operations – accepting worker connections and managing off-chain payouts.
   </Card>
   <Card title="Split O-T Setup" icon="plug" href="/v2/orchestrators/guides/deployment-details/siphon-setup">
     The foundational split between orchestrator and transcoder processes.

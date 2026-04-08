@@ -40,43 +40,43 @@ This category currently contains **31** governed export(s).
 2. Part of the page's outer structure, typically used once? → `scaffolding/`
 3. Takes content and presents it in a formatted way? → `displays/`
 4. Exists to hold, group, or arrange other things? → `wrappers/`
-5. Single visual piece — no wrapping, no arranging, no fetching? → `elements/`
+5. Single visual piece – no wrapping, no arranging, no fetching? → `elements/`
 
 ### Summary Table
 
 | Component | Status | Import path | Description |
 | --- | --- | --- | --- |
-| AccordionGroupList | `stable` | `/snippets/components/displays/accordions/Accordions.jsx` | Generates N numbered accordion sections inside an AccordionGroup. |
-| AccordionLayout | `stable` | `/snippets/components/displays/accordions/Accordions.jsx` | Vertical stack layout with small gap, designed for accordion content sections. |
-| BasicList | `planned` | `/snippets/components/displays/steps/Steps.jsx` | Planned list component — not yet implemented. |
+| AccordionGroupList | `stable` | `/snippets/components/wrappers/accordions/AccordionGroupList.jsx` | Generates N numbered accordion sections inside an AccordionGroup. |
+| AccordionLayout | `stable` | `/snippets/components/wrappers/accordions/AccordionLayout.jsx` | Vertical stack layout with small gap, designed for accordion content sections. |
+| BasicList | `planned` | `/snippets/components/wrappers/lists/Lists.jsx` | Planned list component – not yet implemented. |
 | BorderedBox | `stable` | `/snippets/components/wrappers/containers/Containers.jsx` | Bordered container with configurable radius and background. |
-| CardCarousel | `stable` | `/snippets/components/displays/grids/Grids.jsx` | Paginated horizontal carousel with prev/next navigation and dot indicators. |
+| CardCarousel | `stable` | `/snippets/components/wrappers/grids/CardCarousel.jsx` | Paginated horizontal carousel with prev/next navigation and dot indicators. |
 | CenteredContainer | `stable` | `/snippets/components/wrappers/containers/Containers.jsx` | Horizontally centred container with configurable max-width. |
-| DisplayCard | `stable` | `/snippets/components/displays/cards/Cards.jsx` | Card with icon, custom title row, and body content. |
-| DynamicTable | `stable` | `/snippets/components/displays/tables/Tables.jsx` | Renders structured data as a scrollable table with section separators and accessible region. |
+| DisplayCard | `stable` | `/snippets/components/wrappers/cards/CustomCards.jsx` | Card with icon, custom title row, and body content. |
+| DynamicTable | `stable` | `/snippets/components/wrappers/tables/Table.jsx` | Renders structured data as a scrollable table with section separators and accessible region. |
 | FlexContainer | `stable` | `/snippets/components/wrappers/containers/Layout.jsx` | Flexbox container with configurable direction, gap, and alignment. |
 | FullWidthContainer | `stable` | `/snippets/components/wrappers/containers/Containers.jsx` | Full-viewport-width container that breaks out of parent padding. |
 | GridContainer | `stable` | `/snippets/components/wrappers/containers/Layout.jsx` | CSS Grid container with configurable columns and gap. |
-| IconList | `planned` | `/snippets/components/displays/steps/Steps.jsx` | Planned icon list component — not yet implemented. |
-| InlineImageCard | `stable` | `/snippets/components/displays/cards/Cards.jsx` | Card with inline image alongside content, using negative margin breakout. |
-| InteractiveCard | `stable` | `/snippets/components/displays/cards/Cards.jsx` | Single interactive card with hover effects. |
-| InteractiveCards | `stable` | `/snippets/components/displays/cards/Cards.jsx` | Multi-column layout of interactive cards. |
-| ListSteps | `stable` | `/snippets/components/displays/steps/Steps.jsx` | Renders an array of step items inside Mintlify Steps component. |
-| QuadGrid | `stable` | `/snippets/components/displays/grids/Grids.jsx` | 2x2 grid with centred rotating icon overlay. Respects prefers-reduced-motion. |
-| ScrollBox | `stable` | `/snippets/components/wrappers/containers/Layout.jsx` | Scrollable container with max-height, overflow hint, and accessible region role. |
-| SearchTable | `stable` | `/snippets/components/displays/tables/Tables.jsx` | Filterable table wrapper with search input and category dropdown. |
-| ShowcaseCards | `stable` | `/snippets/components/displays/cards/Cards.jsx` | Paginated card layout with search, category, and product filtering. |
+| IconList | `planned` | `/snippets/components/wrappers/lists/Lists.jsx` | Planned icon list component – not yet implemented. |
+| InlineImageCard | `stable` | `/snippets/components/wrappers/cards/CustomCards.jsx` | Card with inline image alongside content, using negative margin breakout. |
+| InteractiveCard | `stable` | `/snippets/components/wrappers/cards/ShowcaseCards.jsx` | Single interactive card with hover effects. |
+| InteractiveCards | `stable` | `/snippets/components/wrappers/cards/ShowcaseCards.jsx` | Multi-column layout of interactive cards. |
+| ListSteps | `stable` | `/snippets/components/wrappers/lists/ListSteps.jsx` | Renders an array of step items inside Mintlify Steps component. |
+| QuadGrid | `stable` | `/snippets/components/wrappers/grids/QuadGrid.jsx` | 2x2 grid with centred rotating icon overlay. Respects prefers-reduced-motion. |
+| ScrollBox | `stable` | `/snippets/components/wrappers/containers/ScrollBox.jsx` | Scrollable container with max-height, overflow hint, and accessible region role. |
+| SearchTable | `stable` | `/snippets/components/wrappers/tables/SearchTable.jsx` | Filterable table wrapper with search input and category dropdown. |
+| ShowcaseCards | `stable` | `/snippets/components/wrappers/cards/ShowcaseCards.jsx` | Paginated card layout with search, category, and product filtering. |
 | Spacer | `stable` | `/snippets/components/wrappers/containers/Layout.jsx` | Spacer element with configurable size. |
-| StepLinkList | `stable` | `/snippets/components/displays/steps/Steps.jsx` | Renders listItems as Mintlify Steps with GotoLink navigation. |
-| StepList | `stable` | `/snippets/components/displays/steps/Steps.jsx` | Renders listItems as Mintlify Steps with title, icon, and content. |
-| StyledStep | `stable` | `/snippets/components/displays/steps/Steps.jsx` | Single step with configurable icon, size, and colour. |
-| StyledSteps | `stable` | `/snippets/components/displays/steps/Steps.jsx` | Wrapper around Mintlify Steps with custom icon styling via injected CSS. |
-| StyledTable | `stable` | `/snippets/components/displays/tables/Tables.jsx` | Full-width table with header row styling and rounded container. |
-| TableCell | `stable` | `/snippets/components/displays/tables/Tables.jsx` | Table cell that switches between th and td based on header prop. |
-| TableRow | `stable` | `/snippets/components/displays/tables/Tables.jsx` | Table row with optional header styling and hover effect. |
-| UpdateLinkList | `stable` | `/snippets/components/displays/steps/Steps.jsx` | Renders update items as linked entries inside Mintlify Update component. |
-| UpdateList | `planned` | `/snippets/components/displays/steps/Steps.jsx` | Planned update list component — not yet implemented. |
-| WidthCard | `stable` | `/snippets/components/displays/cards/Cards.jsx` | Width-constrained card wrapper with configurable percentage width. |
+| StepLinkList | `stable` | `/snippets/components/wrappers/lists/Lists.jsx` | Renders listItems as Mintlify Steps with GotoLink navigation. |
+| StepList | `stable` | `/snippets/components/wrappers/lists/Lists.jsx` | Renders listItems as Mintlify Steps with title, icon, and content. |
+| StyledStep | `stable` | `/snippets/components/wrappers/steps/Steps.jsx` | Single step with configurable icon, size, and colour. |
+| StyledSteps | `stable` | `/snippets/components/wrappers/steps/Steps.jsx` | Wrapper around Mintlify Steps with custom icon styling via injected CSS. |
+| StyledTable | `stable` | `/snippets/components/wrappers/tables/Tables.jsx` | Full-width table with header row styling and rounded container. |
+| TableCell | `stable` | `/snippets/components/wrappers/tables/Tables.jsx` | Table cell that switches between th and td based on header prop. |
+| TableRow | `stable` | `/snippets/components/wrappers/tables/Tables.jsx` | Table row with optional header styling and hover effect. |
+| UpdateLinkList | `stable` | `/snippets/components/wrappers/lists/Lists.jsx` | Renders update items as linked entries inside Mintlify Update component. |
+| UpdateList | `planned` | `/snippets/components/wrappers/lists/Lists.jsx` | Planned update list component – not yet implemented. |
+| WidthCard | `stable` | `/snippets/components/wrappers/cards/CustomCards.jsx` | Width-constrained card wrapper with configurable percentage width. |
 
 ## Component Reference
 
@@ -85,7 +85,7 @@ Use **AccordionGroupList** when you need generates N numbered accordion sections
 Source description: Generates N numbered accordion sections inside an AccordionGroup.
 **Import path**
 ```jsx
-import { AccordionGroupList } from '/snippets/components/displays/accordions/Accordions.jsx'
+import { AccordionGroupList } from '/snippets/components/wrappers/accordions/AccordionGroupList.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -106,7 +106,7 @@ Use **AccordionLayout** when you need vertical stack layout with small gap, desi
 Source description: Vertical stack layout with small gap, designed for accordion content sections.
 **Import path**
 ```jsx
-import { AccordionLayout } from '/snippets/components/displays/accordions/Accordions.jsx'
+import { AccordionLayout } from '/snippets/components/wrappers/accordions/AccordionLayout.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -123,11 +123,11 @@ import { AccordionLayout } from '/snippets/components/displays/accordions/Accord
 <CustomDivider />
 
 ### BasicList
-Use **BasicList** when you need planned list component — not yet implemented.. Accepts: none.
-Source description: Planned list component — not yet implemented.
+Use **BasicList** when you need planned list component – not yet implemented.. Accepts: none.
+Source description: Planned list component – not yet implemented.
 **Import path**
 ```jsx
-import { BasicList } from '/snippets/components/displays/steps/Steps.jsx'
+import { BasicList } from '/snippets/components/wrappers/lists/Lists.jsx'
 ```
 **Metadata**
 - Status: `planned`
@@ -171,7 +171,7 @@ Use **CardCarousel** when you need paginated horizontal carousel with prev/next 
 Source description: Paginated horizontal carousel with prev/next navigation and dot indicators.
 **Import path**
 ```jsx
-import { CardCarousel } from '/snippets/components/displays/grids/Grids.jsx'
+import { CardCarousel } from '/snippets/components/wrappers/grids/CardCarousel.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -224,7 +224,7 @@ Use **DisplayCard** when you need card with icon, custom title row, and body con
 Source description: Card with icon, custom title row, and body content.
 **Import path**
 ```jsx
-import { DisplayCard } from '/snippets/components/displays/cards/Cards.jsx'
+import { DisplayCard } from '/snippets/components/wrappers/cards/CustomCards.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -248,7 +248,7 @@ Use **DynamicTable** when you need renders structured data as a scrollable table
 Source description: Renders structured data as a scrollable table with section separators and accessible region.
 **Import path**
 ```jsx
-import { DynamicTable } from '/snippets/components/displays/tables/Tables.jsx'
+import { DynamicTable } from '/snippets/components/wrappers/tables/Table.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -342,11 +342,11 @@ import { GridContainer } from '/snippets/components/wrappers/containers/Layout.j
 <CustomDivider />
 
 ### IconList
-Use **IconList** when you need planned icon list component — not yet implemented.. Accepts: none.
-Source description: Planned icon list component — not yet implemented.
+Use **IconList** when you need planned icon list component – not yet implemented.. Accepts: none.
+Source description: Planned icon list component – not yet implemented.
 **Import path**
 ```jsx
-import { IconList } from '/snippets/components/displays/steps/Steps.jsx'
+import { IconList } from '/snippets/components/wrappers/lists/Lists.jsx'
 ```
 **Metadata**
 - Status: `planned`
@@ -365,7 +365,7 @@ Use **InlineImageCard** when you need card with inline image alongside content, 
 Source description: Card with inline image alongside content, using negative margin breakout.
 **Import path**
 ```jsx
-import { InlineImageCard } from '/snippets/components/displays/cards/Cards.jsx'
+import { InlineImageCard } from '/snippets/components/wrappers/cards/CustomCards.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -389,7 +389,7 @@ Use **InteractiveCard** when you need single interactive card with hover effects
 Source description: Single interactive card with hover effects.
 **Import path**
 ```jsx
-import { InteractiveCard } from '/snippets/components/displays/cards/Cards.jsx'
+import { InteractiveCard } from '/snippets/components/wrappers/cards/ShowcaseCards.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -419,7 +419,7 @@ Use **InteractiveCards** when you need multi-column layout of interactive cards.
 Source description: Multi-column layout of interactive cards.
 **Import path**
 ```jsx
-import { InteractiveCards } from '/snippets/components/displays/cards/Cards.jsx'
+import { InteractiveCards } from '/snippets/components/wrappers/cards/ShowcaseCards.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -440,7 +440,7 @@ Use **ListSteps** when you need renders an array of step items inside Mintlify S
 Source description: Renders an array of step items inside Mintlify Steps component.
 **Import path**
 ```jsx
-import { ListSteps } from '/snippets/components/displays/steps/Steps.jsx'
+import { ListSteps } from '/snippets/components/wrappers/lists/ListSteps.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -462,7 +462,7 @@ Use **QuadGrid** when you need 2x2 grid with centred rotating icon overlay. Resp
 Source description: 2x2 grid with centred rotating icon overlay. Respects prefers-reduced-motion.
 **Import path**
 ```jsx
-import { QuadGrid } from '/snippets/components/displays/grids/Grids.jsx'
+import { QuadGrid } from '/snippets/components/wrappers/grids/QuadGrid.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -487,7 +487,7 @@ Use **ScrollBox** when you need scrollable container with max-height, overflow h
 Source description: Scrollable container with max-height, overflow hint, and accessible region role.
 **Import path**
 ```jsx
-import { ScrollBox } from '/snippets/components/wrappers/containers/Layout.jsx'
+import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -511,7 +511,7 @@ Use **SearchTable** when you need filterable table wrapper with search input and
 Source description: Filterable table wrapper with search input and category dropdown.
 **Import path**
 ```jsx
-import { SearchTable } from '/snippets/components/displays/tables/Tables.jsx'
+import { SearchTable } from '/snippets/components/wrappers/tables/SearchTable.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -540,7 +540,7 @@ Use **ShowcaseCards** when you need paginated card layout with search, category,
 Source description: Paginated card layout with search, category, and product filtering.
 **Import path**
 ```jsx
-import { ShowcaseCards } from '/snippets/components/displays/cards/Cards.jsx'
+import { ShowcaseCards } from '/snippets/components/wrappers/cards/ShowcaseCards.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -585,7 +585,7 @@ Use **StepLinkList** when you need renders listItems as Mintlify Steps with Goto
 Source description: Renders listItems as Mintlify Steps with GotoLink navigation.
 **Import path**
 ```jsx
-import { StepLinkList } from '/snippets/components/displays/steps/Steps.jsx'
+import { StepLinkList } from '/snippets/components/wrappers/lists/Lists.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -606,7 +606,7 @@ Use **StepList** when you need renders listItems as Mintlify Steps with title, i
 Source description: Renders listItems as Mintlify Steps with title, icon, and content.
 **Import path**
 ```jsx
-import { StepList } from '/snippets/components/displays/steps/Steps.jsx'
+import { StepList } from '/snippets/components/wrappers/lists/Lists.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -627,7 +627,7 @@ Use **StyledStep** when you need single step with configurable icon, size, and c
 Source description: Single step with configurable icon, size, and colour.
 **Import path**
 ```jsx
-import { StyledStep } from '/snippets/components/displays/steps/Steps.jsx'
+import { StyledStep } from '/snippets/components/wrappers/steps/Steps.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -651,7 +651,7 @@ Use **StyledSteps** when you need wrapper around Mintlify Steps with custom icon
 Source description: Wrapper around Mintlify Steps with custom icon styling via injected CSS.
 **Import path**
 ```jsx
-import { StyledSteps } from '/snippets/components/displays/steps/Steps.jsx'
+import { StyledSteps } from '/snippets/components/wrappers/steps/Steps.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -676,7 +676,7 @@ Use **StyledTable** when you need full-width table with header row styling and r
 Source description: Full-width table with header row styling and rounded container.
 **Import path**
 ```jsx
-import { StyledTable } from '/snippets/components/displays/tables/Tables.jsx'
+import { StyledTable } from '/snippets/components/wrappers/tables/Tables.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -698,7 +698,7 @@ Use **TableCell** when you need table cell that switches between th and td based
 Source description: Table cell that switches between th and td based on header prop.
 **Import path**
 ```jsx
-import { TableCell } from '/snippets/components/displays/tables/Tables.jsx'
+import { TableCell } from '/snippets/components/wrappers/tables/Tables.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -721,7 +721,7 @@ Use **TableRow** when you need table row with optional header styling and hover 
 Source description: Table row with optional header styling and hover effect.
 **Import path**
 ```jsx
-import { TableRow } from '/snippets/components/displays/tables/Tables.jsx'
+import { TableRow } from '/snippets/components/wrappers/tables/Tables.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -744,7 +744,7 @@ Use **UpdateLinkList** when you need renders update items as linked entries insi
 Source description: Renders update items as linked entries inside Mintlify Update component.
 **Import path**
 ```jsx
-import { UpdateLinkList } from '/snippets/components/displays/steps/Steps.jsx'
+import { UpdateLinkList } from '/snippets/components/wrappers/lists/Lists.jsx'
 ```
 **Metadata**
 - Status: `stable`
@@ -759,11 +759,11 @@ import { UpdateLinkList } from '/snippets/components/displays/steps/Steps.jsx'
 <CustomDivider />
 
 ### UpdateList
-Use **UpdateList** when you need planned update list component — not yet implemented.. Accepts: none.
-Source description: Planned update list component — not yet implemented.
+Use **UpdateList** when you need planned update list component – not yet implemented.. Accepts: none.
+Source description: Planned update list component – not yet implemented.
 **Import path**
 ```jsx
-import { UpdateList } from '/snippets/components/displays/steps/Steps.jsx'
+import { UpdateList } from '/snippets/components/wrappers/lists/Lists.jsx'
 ```
 **Metadata**
 - Status: `planned`
@@ -782,7 +782,7 @@ Use **WidthCard** when you need width-constrained card wrapper with configurable
 Source description: Width-constrained card wrapper with configurable percentage width.
 **Import path**
 ```jsx
-import { WidthCard } from '/snippets/components/displays/cards/Cards.jsx'
+import { WidthCard } from '/snippets/components/wrappers/cards/CustomCards.jsx'
 ```
 **Metadata**
 - Status: `stable`

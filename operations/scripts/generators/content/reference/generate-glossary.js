@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      generate-glossary
- * @type     generator
- * @concern  content
- * @niche    reference
- * @purpose     tooling:dev-tools
+ * @type        generator
+ * @concern     maintenance
+ * @niche       reference
+ * @purpose     
  * @description Glossary generator — produces glossary data file from terminology sources
- * @mode        read-only
+ * @mode        generate
  * @pipeline    manual — not yet in pipeline
  * @scope       operations/scripts
  * @usage       node operations/scripts/generators/content/reference/generate-glossary.js [flags]
