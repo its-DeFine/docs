@@ -80,6 +80,7 @@ import { SolidityEmbed } from '/snippets/components/integrators/embeds/DataEmbed
 import { FunctionField as FField } from '/snippets/components/displays/response-fields/ResponseField.jsx'
 import { DataWrap } from '/snippets/components/wrappers/data/workflows.jsx'
 import { blockchainContractsPageData } from '/snippets/data/contract-addresses/blockchainContractsPageData.jsx'
+import { FlexContainer } from '/snippets/components/wrappers/containers/Layout.jsx'
 import {
   contractsRoutes,
   getBlockchainContract,
@@ -99,8 +100,8 @@ import {
 
 <Tip>
   Addresses on this page are automatically updated via a GitHub Action workflow. <br/>
-  <span className="lp-inline-flex" style={{marginTop: "0.2rem"}}> Data is recovered from live chain state, upstream source provenance, and explorer verification before it is published on the canonical contracts page. </span> <br/>
-  <span className="lp-text-muted" style={{marginTop: "0.5rem"}}> Last Verified: <DataWrap value={getBlockchainLastVerifiedDate(blockchainContractsPageData)} /> </span>
+  <FlexContainer align="center" marginTop="0.2rem"> Data is recovered from live chain state, upstream source provenance, and explorer verification before it is published on the canonical contracts page. </FlexContainer> <br/>
+  <Subtitle style={{marginTop: "0.5rem"}}> Last Verified: <DataWrap value={getBlockchainLastVerifiedDate(blockchainContractsPageData)} /> </Subtitle>
 </Tip>
 
 <Columns cols={2}>
@@ -710,7 +711,7 @@ Holds MINTER_ROLE on the L1 LivepeerToken. Called by the bridge when LPT is tran
 
 <Info>
   `BridgeMinter.sol` is an Ethereum Mainnet contract predating the Delta upgrade.
-  <span className="lp-inline-flex" style={{marginTop: "0.5rem"}}> See <DoubleIconLink label="BridgeMinter.sol" href={getBlockchainCodeHref(blockchainContractsPageData, 'ethereumMainnet', 'BridgeMinter')}/> on the `streamflow` branch of `livepeer/protocol`</span>
+  <FlexContainer align="center" marginTop="0.5rem"> See <DoubleIconLink label="BridgeMinter.sol" href={getBlockchainCodeHref(blockchainContractsPageData, 'ethereumMainnet', 'BridgeMinter')}/> on the `streamflow` branch of `livepeer/protocol`</FlexContainer>
 </Info>
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<Icon icon="ethereum" color="var(--hero-text)"/>} title="BridgeMinter" />}>

@@ -31,6 +31,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 import { BlinkingIcon } from '/snippets/components/elements/links/Links.jsx'
 import { Starfield } from "/snippets/components/scaffolding/heroes/HeroGif.jsx";
 import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
+import { CustomCardTitle } from '/snippets/components/elements/text/CustomCardTitle.jsx'
 
 <HeroSectionContainer>
 
@@ -63,12 +64,7 @@ import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
       <YouTubeVideo
             embedUrl="https://www.youtube.com/embed/LmZNEaOOb9I?si=ZWhKc31ynnj_bsi4"
             title={
-              <span className="lp-inline-flex-gap" style={{color: "var(--lp-color-text-primary)"}}>
-                <a href="https://discord.com/events/423160867534929930/1394387788568203274" className="lp-link-underline" >
-                  Join the weekly Watercooler Chat on Discord
-                </a>
-                  <Icon icon="arrow-up-right" size={14} color="var(--accent)" iconType="solid" />
-              </span>}
+              <CustomCardTitle variant="tab" icon="arrow-up-right" title={<a href="https://discord.com/events/423160867534929930/1394387788568203274" className="lp-link-underline">Join the weekly Watercooler Chat on Discord</a>} />}
       />
     </PortalHeroContent>
   </HeroContentContainer>
