@@ -14,7 +14,7 @@
  * @param {string}     [logoSrc]     - Path to the product logo image.
  * @param {string}     [logoAlt]     - Alt text for the logo image.
  * @param {string}     [subtitle]    - Bold italic one-line product subtitle.
- * @param {ReactNode}  [infraTags]   - Pre-rendered <IconBadgeWrapper items={...} iconColor="var(--accent)" size={12} />
+ * @param {ReactNode}  [infraTags]   - Pre-rendered <IconBadgeWrapper items={...} iconColor="var(--lp-color-accent)" size={12} />
  * @param {string}     [blurb]       - Product description text. Rendered inside ScrollBox.
  * @param {Component}  [ScrollBox]   - ScrollBox component reference, passed from parent MDX.
  * @param {string}     [logoHeight]  - Override logo container height (default '60px').
@@ -30,10 +30,10 @@
  *   logoSrc="/snippets/assets/logos/products/daydream-logo-dark.svg"
  *   logoAlt="Daydream Logo"
  *   subtitle="Open-Source Toolkit For World Models and Real-time AI Video"
- *   infraTags={<IconBadgeWrapper items={daydreamInfra} iconColor="var(--accent)" size={12} />}
+ *   infraTags={<IconBadgeWrapper items={daydreamInfra} iconColor="var(--lp-color-accent)" size={12} />}
  *   blurb="Description here."
  *   ScrollBox={ScrollBox}
- *   socialLinks={<SocialLinks links={daydreamSocials} justify="center" style={{ marginTop: '1rem', marginBottom: '-1rem' }} />}
+ *   socialLinks={<SocialLinks links={daydreamSocials} justify="center" style={{ marginTop: "var(--lp-spacing-4)", marginBottom: '-1rem' }} />}
  * />
  */
 
@@ -69,7 +69,7 @@ export const SolutionCard = ({
               width: 'auto',
               maxWidth: '100%',
               objectFit: 'contain',
-              marginTop: '0.25rem',
+              marginTop: "var(--lp-spacing-1)",
             }}
           />
         </div>
@@ -80,7 +80,7 @@ export const SolutionCard = ({
           <style>{`.solution-card-subtitle { color: white !important; font-style: italic }`}</style>
           <div
             className="solution-card-subtitle"
-            style={{ fontWeight: 700, fontSize: '1rem' }}
+            style={{ fontWeight: 700, fontSize: "1rem" }}
           >
             {subtitle}
           </div>

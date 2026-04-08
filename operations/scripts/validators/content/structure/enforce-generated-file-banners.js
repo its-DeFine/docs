@@ -15,8 +15,8 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process'); // retained for getStagedFiles
-const { loadI18nConfig } = require('../../../automations/content/language-translation/lib/config');
-const { parseProvenanceComment } = require('../../../automations/content/language-translation/lib/provenance');
+const { loadI18nConfig } = require('../../../integrators/content/language-translation/lib/config');
+const { parseProvenanceComment } = require('../../../integrators/content/language-translation/lib/provenance');
 const {
   GENERATED_HIDDEN_MARKER,
   parseGeneratedHiddenBanner,

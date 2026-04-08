@@ -7,7 +7,7 @@
  * @aiDiscoverability none
  * @param {Array} [links] - Array of {icon, href, label} objects. Falls back to Livepeer defaults if omitted.
  * @param {number} [size=20] - Size used by the component.
- * @param {string} [gap="0.75rem"] - Gap used by the component.
+ * @param {string} [gap="var(--lp-spacing-3)"] - Gap used by the component.
  * @param {string} [justify="center"] - Justify used by the component.
  * @param {string} [iconColor] - Override all icons to a single colour. If omitted, brand colours are used per icon.
  * @param {string} [color] - Alias for iconColor (backwards compat).
@@ -25,7 +25,7 @@
 export const SocialLinks = ({
   links,
   size = 20,
-  gap = "0.75rem",
+  gap = "var(--lp-spacing-3)",
   justify = "center",
   iconColor,
   color,
@@ -44,11 +44,11 @@ export const SocialLinks = ({
   // Brand colors — resolvedIconColor overrides all when iconColor prop is passed
   const colors = {
     discord: resolvedIconColor || "var(--lp-color-brand-discord)",
-    twitter: resolvedIconColor || "var(--hero-text)",
+    twitter: resolvedIconColor || "var(--lp-color-text-primary)",
     github: resolvedIconColor || "var(--lp-color-brand-github)",
     forum: resolvedIconColor || "var(--lp-color-brand-forum)",
-    website: resolvedIconColor || "var(--accent)",
-    blog: resolvedIconColor || "var(--accent)",
+    website: resolvedIconColor || "var(--lp-color-accent)",
+    blog: resolvedIconColor || "var(--lp-color-accent)",
     globe: resolvedIconColor || "var(--lp-color-brand-globe)",
     twitch: resolvedIconColor || "var(--lp-color-brand-twitch)",
     youtube: resolvedIconColor || "var(--lp-color-brand-youtube)",
@@ -96,13 +96,13 @@ export const SocialLinks = ({
           display: "flex",
           justifyContent: justify,
           gap: gap,
-          marginTop: "0.5rem",
+          marginTop: "var(--lp-spacing-2)",
         }}
       >
         {items.map((item, i) => (
           <a key={i} href={item.href} target="_blank" rel="noopener noreferrer" aria-label={item.label} style={linkStyle}>
             <Tooltip headline={item.label}>
-              <Icon icon={item.icon} size={size} color={colors[iconColorMap[item.icon] || "website"] || "var(--accent)"} aria-hidden="true" />
+              <Icon icon={item.icon} size={size} color={colors[iconColorMap[item.icon] || "website"] || "var(--lp-color-accent)"} aria-hidden="true" />
             </Tooltip>
           </a>
         ))}

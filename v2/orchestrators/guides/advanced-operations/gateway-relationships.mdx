@@ -2,10 +2,11 @@
 title: Gateway Relationships
 sidebarTitle: Gateway Relationships
 description: >-
-  How gateways discover and select your orchestrator — the discovery mechanisms,
-  multi-factor selection algorithm, what you can do to receive more work, and
-  how to use the gateway Loki API to understand routing decisions.
-Keywords:
+  How gateways discover and select your orchestrator — the discovery mechanisms, multi-factor selection algorithm, what
+  you can do to receive more work, and how to use the gateway Loki API to understand routing decisions.
+lifecycleStage: operate
+complexity: advanced
+keywords:
   - livepeer
   - orchestrator
   - gateway
@@ -27,7 +28,7 @@ pageType: concept
 audience: orchestrator
 purpose: explain
 status: published
-lastVerified: 2026-03-13
+lastVerified: 2026-03-13T00:00:00.000Z
 ---
 {/* Draft note: keep this page focused on gateway discovery and selection from the orchestrator side, route unresolved fact checks to internal comments only, and keep operational actions concrete. */}
 
@@ -92,7 +93,7 @@ The `capabilities` field declares what transcoding profiles and output formats y
 Discovery gives a gateway a list of candidates. Selection narrows that list to one (or a few) nodes that actually receive a given job. The selection algorithm is multi-factor:
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#18794E', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3CB540', 'lineColor': '#3CB540', 'mainBkg': '#18794E', 'nodeBorder': '#3CB540', 'clusterBkg': 'transparent', 'clusterBorder': '#3CB540', 'titleColor': '#3CB540', 'edgeLabelBackground': 'transparent', 'textColor': '#3CB540', 'nodeTextColor': '#fff'}}}%%
 flowchart TD
     A["All registered orchestrators"] --> B["Capability match?\n(supports requested pipeline/resolution)"]
     B -->|No| X1["Excluded"]
@@ -251,7 +252,7 @@ The API uses [Grafana Loki query syntax](https://grafana.com/docs/loki/latest/qu
 Use this checklist when you are in the active set and job flow stays at zero:
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#18794E', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3CB540', 'lineColor': '#3CB540', 'mainBkg': '#18794E', 'nodeBorder': '#3CB540', 'clusterBkg': 'transparent', 'clusterBorder': '#3CB540', 'titleColor': '#3CB540', 'edgeLabelBackground': 'transparent', 'textColor': '#3CB540', 'nodeTextColor': '#fff'}}}%%
 flowchart TD
     A["In active set but no jobs"] --> B{"Service URI reachable?\ncurl -v https://uri:8935/status"}
     B -->|No| C["Fix: update IP/firewall\nupdate on-chain URI"]

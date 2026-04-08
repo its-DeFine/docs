@@ -1410,7 +1410,7 @@ All executable open items from the AI-Tools Governance backlog are done. Stale `
 | CDA-7: Tier 2 component page template guidance | Low | Depends on page template system being finalised | `plan2.md` Task 3.2 |
 | Showcase-data.json AI companion | Low | Showcase content not finalised | Showcase content completion |
 | Skill consolidation (4 skills → 2) | Low | Human decision gate | `plan2.md` Task 3.2 |
-| `.github/AGENTS.md` stale content (checkpoint branch fiction, `tools/scripts/` refs) | Low | Separate focused commit; Codex commands need path verification first | Verify `operations/scripts/automations/ai/codex/` paths |
+| `.github/AGENTS.md` stale content (checkpoint branch fiction, `tools/scripts/` refs) | Low | Separate focused commit; Codex commands need path verification first | Verify `operations/scripts/integrators/ai/codex/` paths |
 
 ---
 
@@ -3799,7 +3799,7 @@ The v2 `Delegators` rename is now merged on `docs-v2-dev` and validated as a pat
 
 ### Recommendations
 1. **Start the deferred hardening work in a fresh worktree** — the remaining staged-suite failures are now real debt and can be triaged cleanly without mixing with the rename or harness fix.
-2. **Commit the harness repair separately from the active parallel contracts/actions work** — `tools/lib/repo-node-paths.js`, `operations/tests/run-all.js`, `operations/tests/run-pr-checks.js`, and `operations/scripts/automations/content/language-translation/lib/mdx-parser.js` should be staged intentionally.
+2. **Commit the harness repair separately from the active parallel contracts/actions work** — `tools/lib/repo-node-paths.js`, `operations/tests/run-all.js`, `operations/tests/run-pr-checks.js`, and `operations/scripts/integrators/content/language-translation/lib/mdx-parser.js` should be staged intentionally.
 3. **Review cleanup for `.playwright-cli/` before the next browser task** — it is leftover tooling debris, not a deliverable.
 
 ### Artifacts
@@ -3810,7 +3810,7 @@ The v2 `Delegators` rename is now merged on `docs-v2-dev` and validated as a pat
 | `tools/lib/repo-node-paths.js` | Utility (new) | Shared repo dependency resolver and child-process environment bootstrap |
 | `operations/tests/run-all.js` | Test runner (modified) | Bootstraps repo dependency roots for staged/full test execution |
 | `operations/tests/run-pr-checks.js` | Test runner (modified) | Bootstraps dependency roots, passes env to child checks, and fixes stale validator paths |
-| `operations/scripts/automations/content/language-translation/lib/mdx-parser.js` | Utility (modified) | Resolves ESM parser dependencies through repo-owned installs |
+| `operations/scripts/integrators/content/language-translation/lib/mdx-parser.js` | Utility (modified) | Resolves ESM parser dependencies through repo-owned installs |
 
 ---
 
@@ -3892,7 +3892,7 @@ The contracts redesign is now merged into the local `docs-v2-dev` branch and the
 - Rebased the isolated `codex/20260403-contracts-surface-redesign` worktree onto the latest `docs-v2-dev` tip and fast-forward merged it into the local `docs-v2-dev` checkout at `30715f5a805630fb9acc764af78b58893e575fdd`.
 - Split the public contracts surface into a thin canonical registry page at `v2/about/resources/livepeer-contract-addresses.mdx` and a dedicated verifier page at `v2/about/resources/verify-contract-addresses.mdx`.
 - Introduced the shared contracts view-model layer in `snippets/data/contract-addresses/view-model.js` and rewired the blockchain concept page to consume shared helpers instead of redefining lookup logic inline.
-- Centralized contract-family catalog ownership in `operations/scripts/automations/content/data/contracts/catalog-config.js` and derived the blockchain-page spec from the canonical contracts catalog instead of maintaining a separate hardcoded roster.
+- Centralized contract-family catalog ownership in `operations/scripts/integrators/content/data/contracts/catalog-config.js` and derived the blockchain-page spec from the canonical contracts catalog instead of maintaining a separate hardcoded roster.
 
 **Contracts documentation and recovery records:**
 - Wrote the contracts data-path reference at `workspace/plan/active/CONTRACTS/Canonical/workflow-data.mdx` so the worktree-created ownership boundaries and rationale are repeatable for future generated reference surfaces.
@@ -3946,7 +3946,7 @@ The contracts redesign is now merged into the local `docs-v2-dev` branch and the
 | `v2/about/resources/verify-contract-addresses.mdx` | Page | Dedicated verifier route and manual verification walkthrough |
 | `v2/about/livepeer-protocol/blockchain-contracts.mdx` | Page | Blockchain contracts concept page rewired to generated/shared data |
 | `snippets/data/contract-addresses/view-model.js` | Shared helper | Pure contracts view-model used by multiple page consumers |
-| `operations/scripts/automations/content/data/contracts/catalog-config.js` | Pipeline config | Canonical contract family and blockchain-page section declaration surface |
+| `operations/scripts/integrators/content/data/contracts/catalog-config.js` | Pipeline config | Canonical contract family and blockchain-page section declaration surface |
 | `operations/tests/unit/contracts-view-model.test.js` | Test | Focused unit coverage for shared contracts shaping logic |
 | `workspace/plan/active/CONTRACTS/Canonical/workflow-data.mdx` | Internal reference | End-to-end documentation of the redesign data path and rationale |
 
@@ -3986,7 +3986,7 @@ The contracts surface migration was completed in an isolated `docs-v2` worktree 
 
 | Item | Priority | Reason | Dependency |
 |---|---|---|---|
-| Add script-governance headers to the new `operations/scripts/automations/content/data/contracts/*.js` modules | P1 | The migration is shipped, but the new pipeline helper modules were added without the canonical script metadata header block | Governance follow-up thread |
+| Add script-governance headers to the new `operations/scripts/integrators/content/data/contracts/*.js` modules | P1 | The migration is shipped, but the new pipeline helper modules were added without the canonical script metadata header block | Governance follow-up thread |
 | Register or document missing contracts UI surfaces in the component registry (`ContractVerifier`, `HistoricalContractTable`, `ZoomableDiagram`) | P1 | The contracts migration relies on these components, but the regenerated registry did not surface them | Component governance follow-up thread |
 
 ### Dependencies & Downstream Effects
@@ -4443,7 +4443,7 @@ The About, Gateways, and Delegators v2 surfaces now match their intended on-disk
 | `node operations/scripts/validators/content/structure/lint-structure.js --check` | ✅ Clean | No route-structure regression detected in the changed scope |
 | `node operations/tests/unit/docs-navigation.test.js` | ✅ Clean with warnings | Passed; warnings are the repo’s existing “page exists on disk but not in docs.json” set |
 | `node operations/tests/unit/docs-path-sync.test.js` | ✅ Clean | Path-sync migration helpers pass on the moved route set |
-| `node operations/scripts/automations/content/language-translation/test/docs-json-localizer.test.js` | ✅ Clean | Localizer path rewriting still passes |
+| `node operations/scripts/integrators/content/language-translation/test/docs-json-localizer.test.js` | ✅ Clean | Localizer path rewriting still passes |
 | `node operations/scripts/generators/content/catalogs/generate-pages-index.js --check` | ✅ Clean | Section/root indexes synced after the path moves |
 | `node operations/scripts/generators/content/catalogs/generate-docs-index.js --check` | ✅ Clean | Public docs index regenerated and verified |
 | `node operations/scripts/generators/ai/llm/generate-llms-files.js --check` | ✅ Clean | `llms.txt` refreshed to the new routes |
@@ -4922,3 +4922,50 @@ Built a 3-layer governance spine (published in docs-guide/, enforcement in opera
 | .github/workflows/generator-discoverability-generate-og-images.yml | workflow | OG image generation (P4, post-merge) |
 | */GOVERNANCE.md (18 files) | markers | Folder governance markers |
 | .claude/plans/spicy-percolating-conway.md | plan | Full 3-phase plan with architecture diagrams |
+
+---
+
+## Agent Creation Skills — 2026-04-08
+
+**Plans**: `.claude/plans/zany-petting-wind.md`
+**Scope**: Three agent skills for scaffolding governed components, scripts, and GitHub Actions workflows, plus a VS Code snippet generator.
+**Outcome**: Met
+
+### Summary
+The repo had mature governance frameworks for components (7-tag JSDoc), scripts (11-tag JSDoc), and GitHub Actions (dispatcher model) — but no skills existed for creating new instances. Agents had to read 50KB+ framework docs to scaffold a compliant artifact. This session created three skills that encode all governance rules into step-by-step procedures with input validation, correct scaffolding, self-documenting pipeline triggers, and tooling updates. A new snippet generator script replaces manual maintenance of 1,245-line VS Code snippets file.
+
+### Completed
+- **Research phase**: Parallel exploration of all three governance surfaces — component framework, script framework, GitHub Actions framework. Verified Mintlify constraints externally (arrow function exports confirmed mandatory by Mintlify docs)
+- **Design phase**: Plan agent designed skill architecture with input tables, validation rules, scaffold templates, pipeline integration, and composability model (`/create-action` dispatches `/create-script`)
+- **Implementation**: 5 deliverables — 3 SKILL.md files, 1 generator script, 1 config update
+- **Validation**: Snippet generator passes `--check`/`--write`, `script-docs.test.js` passes, all skill frontmatter valid
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| VS Code snippets auto-generated from registry | Manual maintenance of 110+ entries does not scale; self-documenting pipeline keeps snippets in sync with component JSDoc |
+| `/create-action` mandates `actions-audit.json` update | Fills identified gap where the published framework does not mandate doc registration |
+| Concurrency groups included by default in workflow scaffold | All 7 existing generator workflows lack concurrency control — new skill prevents this gap from recurring |
+| Constants inside function body enforced in component scaffold | Mintlify runtime constraint (2026-03-28 discovery) — top-level constants outside exports throw ReferenceError |
+
+### Dependencies & Downstream Effects
+- **VS Code snippets**: Now auto-generated. Any future component creation should run `generate-component-snippets.js --write` to keep snippets current
+- **Action library**: New workflows created via `/create-action` will automatically appear in the action catalog — previously a manual step that was frequently skipped
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| generate-component-snippets.js --write | Pass | 114 snippets written |
+| generate-component-snippets.js --check | Pass | Snippets match registry |
+| script-docs.test.js | Pass | New generator script has valid 11-tag header |
+| Skill frontmatter validation | Pass | All 3 skills match repo pattern (name, description, metadata.version/category/status) |
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| ai-tools/ai-skills/create-component/SKILL.md | skill | Component scaffold skill — 7-tag JSDoc, Mintlify constraints, category decision tree, snippet pipeline |
+| ai-tools/ai-skills/create-script/SKILL.md | skill | Script scaffold skill — 11-tag JSDoc, type/concern/niche taxonomy, file layout standard, catalog pipeline |
+| ai-tools/ai-skills/create-action/SKILL.md | skill | Actions scaffold skill — dispatcher model, backing script via /create-script, audit.json, generate/verify pairs |
+| operations/scripts/generators/components/library/generate-component-snippets.js | script | VS Code snippet generator — reads component-registry.json, writes .vscode/components.code-snippets |
+| operations/governance/config/generated-artifacts.json | config | Updated — .vscode/components.code-snippets registered as generated artifact |
+| .claude/plans/zany-petting-wind.md | plan | Full implementation plan with research findings and critical file references |

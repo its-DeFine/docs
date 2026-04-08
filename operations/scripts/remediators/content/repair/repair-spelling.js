@@ -19,7 +19,7 @@ const { spawnSync } = require('child_process');
 
 const { getMdxFiles, getStagedDocsPageFiles } = require('../../../../../operations/tests/utils/file-walker');
 const { resolveCspellConfig } = require('../../../../../operations/tests/utils/spell-checker');
-const { parseMdx } = require('../../../automations/content/language-translation/lib/mdx-parser');
+const { parseMdx } = require('../../../integrators/content/language-translation/lib/mdx-parser');
 
 const REPO_ROOT = process.cwd();
 const URL_REGEX = /\b(?:https?:\/\/|mailto:)[^\s<`)"']+/gi;

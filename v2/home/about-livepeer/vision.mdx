@@ -3,9 +3,11 @@ mode: wide
 title: Livepeer Story
 sidebarTitle: Vision
 description: >-
-  How Livepeer began with video streaming and grew to become the open
-  AI-infrastructure for real-time Interactive Video & world models.
-Purpose: concept
+  How Livepeer began with video streaming and grew to become the open AI-infrastructure for real-time Interactive Video
+  & world models.
+lifecycleStage: discover
+complexity: intermediate
+purpose: concept
 pageType: concept
 keywords:
   - livepeer
@@ -25,7 +27,7 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: everyone
-lastVerified: 2026-03-17
+lastVerified: 2026-03-17T00:00:00.000Z
 ---
 {/* The story, founder vision & Livepeer Mission */}
 
@@ -34,12 +36,13 @@ import { Image } from '/snippets/components/elements/images/Image.jsx'
 import { LinkArrow, GotoLink, GotoCard } from '/snippets/components/elements/links/Links.jsx'
 import { Quote, FrameQuote } from '/snippets/components/displays/quotes/Quote.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
-import { QuadGrid } from '/snippets/components/displays/grids/Grids.jsx'
-import { DisplayCard } from '/snippets/components/displays/cards/Cards.jsx'
+import { QuadGrid } from '/snippets/components/wrappers/grids/QuadGrid.jsx'
+import { DisplayCard } from '/snippets/components/wrappers/cards/CustomCards.jsx'
+import { FlexContainer } from '/snippets/components/wrappers/containers/Layout.jsx'
 
 {/* Video of Doug talking about Livepeer */}
 <Frame >
-  <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+  <FlexContainer direction="column">
     <video
       controls
       className="w-full aspect-video rounded-xl"
@@ -53,7 +56,7 @@ import { DisplayCard } from '/snippets/components/displays/cards/Cards.jsx'
  Livepeer was founded on the belief that a decentralized network could power the future of video infrastructure at _internet scale_. <br/><br/>
  That vision is now more relevant than ever - with the rise of realtime AI video workloads. <br/>
     </FrameQuote>
-  </div>
+  </FlexContainer>
 </Frame>
 
 <CustomDivider />
@@ -61,7 +64,6 @@ import { DisplayCard } from '/snippets/components/displays/cards/Cards.jsx'
 Livepeer was [founded](https://medium.com/livepeer-blog/the-livepeer-development-stack-technology-behind-live-streaming-built-on-ethereum-d6a06158d5e2) in 2017 by entrepreneurs
 [Doug Petkanics](https://www.linkedin.com/in/doug-petkanics/) and [Eric Tang](https://www.linkedin.com/in/erictang/), who,
 frustrated by the high costs and rigid infrastructure of existing video streaming solutions, wondered:
-
 
 <Quote>
  What if video - the most captivating, expressive medium online - ran on open, permissionless infrastructure instead of expensive, proprietary systems?
@@ -89,7 +91,6 @@ As video becomes increasingly real-time, interactive, and AI-driven, Livepeer is
 > That vision is now more relevant than ever - with the rise of realtime AI video workloads. <br/>
 > Doug Petkanics - Founder */}
 
-
 {/* That vision remains unchanged today, as Livepeer continues to evolve from a video streaming network to a full-stack AI infrastructure. Livepeer's mission is to enable next-generation applications in interactive media, AI training, and digital creativity.
 Livepeer’s end goal is to [serve](https://medium.com/livepeer-blog/livepeer-for-beginners-3b49945c24a7?source=collection_home---------163----------------------------)
 as the infrastructure service layer for decentralised streaming & AI, [making](https://livepeer.org/primer) video streaming more reliable and affordable, & AI more accessible. */}
@@ -114,7 +115,6 @@ Livepeer is on a mission to give innovators and creators the tools they need to 
 
 This mission drives the why's of Livepeer and informs its competitive edge and business advantage.
 The network's strategy is built upon a foundation of core value propositions and messaging pillars derived from this mission:
-
 
 <QuadGrid icon="arrows-spin" iconSize={50}>
   <DisplayCard title="Real-time Performance" icon="bolt">
@@ -150,7 +150,6 @@ The network's strategy is built upon a foundation of core value propositions and
 - Verifiable and auditable jobs (which AI loves)
 - Permissionless, open network - you don't need to talk to sales to try it out or join the innvoation economy */}
 
-
 {/* ## Livepeer Values
 
 Livepeer is driven by a set of core values that guide its development, operations, and community interactions.
@@ -159,13 +158,11 @@ Livepeer is driven by a set of core values that guide its development, operation
 - **Collaboration**: Build with and for the community, fostering open dialogue and shared ownership.
 - **Accessibility**: Make cutting-edge video and AI tools available to everyone, regardless of technical background. */}
 
-
 {/* <GotoCard
   label="Read More in this blog post"
   relativePath="https://blog.livepeer.org/introducing-livepeer-cascade-a-vision-for-livepeers-future-in-the-age-of-real-time-ai-video/"
   text=""
 /> */}
-
 
 {/* ## Future of Livepeer */}
 {/*

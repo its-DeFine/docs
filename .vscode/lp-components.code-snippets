@@ -965,13 +965,13 @@
     ],
     "description": "elements/buttons — all exports from Buttons.jsx"
   },
-  "lp-import-PreviewCallouts": {
+  "lp-import-Callouts": {
     "scope": "mdx,markdown",
-    "prefix": "lp-import-PreviewCallouts",
+    "prefix": "lp-import-Callouts",
     "body": [
       "import { ComingSoonCallout, PreviewCallout, ReviewCallout } from \"/snippets/components/elements/callouts/Callouts.jsx\";"
     ],
-    "description": "elements/callouts — all exports from PreviewCallouts.jsx"
+    "description": "elements/callouts — all exports from Callouts.jsx"
   },
   "lp-import-Icons": {
     "scope": "mdx,markdown",

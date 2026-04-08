@@ -49,7 +49,7 @@ const PageHeader = ({
       className={className}
       style={{
         textAlign: "center",
-        marginTop: "2rem",
+        marginTop: "var(--lp-spacing-8)",
         marginBottom: "3rem",
         ...style,
       }}
@@ -62,7 +62,7 @@ const PageHeader = ({
           lineHeight: "1.2",
           margin: "2rem 0 1rem 0",
           opacity: 1,
-          color: titleColor || "var(--hero-text)",
+          color: titleColor || "var(--lp-color-text-primary)",
         }}
       >
         {title}
@@ -73,7 +73,7 @@ const PageHeader = ({
             fontSize: "1.5rem",
             fontWeight: "500",
             opacity: 1,
-          color: subtitleColor || "var(--accent)",
+          color: subtitleColor || "var(--lp-color-accent)",
           }}
         >
           {subtitle}
@@ -83,7 +83,7 @@ const PageHeader = ({
         <h5
           style={{
             fontSize: "1.1rem",
-            marginTop: "1.5rem",
+            marginTop: "var(--lp-spacing-6)",
             // maxWidth: "800px",
             // margin: "1.5rem auto 0",
             opacity: 1,
@@ -113,7 +113,7 @@ const PageHeader = ({
  * @param {number} [iconSize=32] - icon Size prop.
  * @param {any} iconColor - icon Color prop.
  * @param {string} [align="left"] - align prop.
- * @param {string} [gap="0.75rem"] - gap prop.
+ * @param {string} [gap="var(--lp-spacing-3)"] - gap prop.
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  */
@@ -123,12 +123,12 @@ const H1 = ({
   iconSize = 32,
   iconColor,
   align = "left",
-  gap = "0.75rem",
+  gap = "var(--lp-spacing-3)",
   className = "",
   style = {},
   ...rest
 }) => {
-  const resolvedIconColor = iconColor || "var(--accent)";
+  const resolvedIconColor = iconColor || "var(--lp-color-accent)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -148,7 +148,7 @@ const H1 = ({
     fontSize: "2.5rem",
     fontWeight: "bold",
     lineHeight: "1.2",
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     opacity: 1,
   };
 
@@ -172,7 +172,7 @@ const H1 = ({
  * @param {number} [iconSize=28] - Size of the icon (default: 28)
  * @param {string} iconColor - Color of the icon (default: theme-aware accent color)
  * @param {string} [align="left"] - Text alignment: "left", "center", "right" (default: "left")
- * @param {string} [gap="0.75rem"] - Gap between icon and text (default: "0.75rem")
+ * @param {string} [gap="var(--lp-spacing-3)"] - Gap between icon and text (default: "var(--lp-spacing-3)")
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  */
@@ -182,12 +182,12 @@ const H2 = ({
   iconSize = 28,
   iconColor,
   align = "left",
-  gap = "0.75rem",
+  gap = "var(--lp-spacing-3)",
   className = "",
   style = {},
   ...rest
 }) => {
-  const resolvedIconColor = iconColor || "var(--accent)";
+  const resolvedIconColor = iconColor || "var(--lp-color-accent)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -200,14 +200,14 @@ const H2 = ({
           ? "flex-end"
           : "flex-start",
     textAlign: align,
-    marginBottom: "1rem",
+    marginBottom: "var(--lp-spacing-4)",
   };
 
   const headingStyle = {
     margin: 0,
     fontSize: "1.875rem",
     fontWeight: "bold",
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     opacity: 1,
   };
 
@@ -231,7 +231,7 @@ const H2 = ({
  * @param {number} [iconSize=24] - Size of the icon (default: 24)
  * @param {string} iconColor - Color of the icon (default: theme-aware accent color)
  * @param {string} [align="left"] - Text alignment: "left", "center", "right" (default: "left")
- * @param {string} [gap="0.5rem"] - Gap between icon and text (default: "0.5rem")
+ * @param {string} [gap="var(--lp-spacing-2)"] - Gap between icon and text (default: "var(--lp-spacing-2)")
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  */
@@ -241,12 +241,12 @@ const H3 = ({
   iconSize = 24,
   iconColor,
   align = "left",
-  gap = "0.5rem",
+  gap = "var(--lp-spacing-2)",
   className = "",
   style = {},
   ...rest
 }) => {
-  const resolvedIconColor = iconColor || "var(--accent)";
+  const resolvedIconColor = iconColor || "var(--lp-color-accent)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -259,14 +259,14 @@ const H3 = ({
           ? "flex-end"
           : "flex-start",
     textAlign: align,
-    marginBottom: "0.75rem",
+    marginBottom: "var(--lp-spacing-3)",
   };
 
   const headingStyle = {
     margin: 0,
     fontSize: "1.5rem",
     fontWeight: "bold",
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     opacity: 1,
   };
 
@@ -290,7 +290,7 @@ const H3 = ({
  * @param {number} [iconSize=20] - Size of the icon (default: 20)
  * @param {string} iconColor - Color of the icon (default: theme-aware accent color)
  * @param {string} [align="left"] - Text alignment: "left", "center", "right" (default: "left")
- * @param {string} [gap="0.5rem"] - Gap between icon and text (default: "0.5rem")
+ * @param {string} [gap="var(--lp-spacing-2)"] - Gap between icon and text (default: "var(--lp-spacing-2)")
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  */
@@ -300,12 +300,12 @@ const H4 = ({
   iconSize = 20,
   iconColor,
   align = "left",
-  gap = "0.5rem",
+  gap = "var(--lp-spacing-2)",
   className = "",
   style = {},
   ...rest
 }) => {
-  const resolvedIconColor = iconColor || "var(--accent)";
+  const resolvedIconColor = iconColor || "var(--lp-color-accent)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -318,14 +318,14 @@ const H4 = ({
           ? "flex-end"
           : "flex-start",
     textAlign: align,
-    marginBottom: "0.75rem",
+    marginBottom: "var(--lp-spacing-3)",
   };
 
   const headingStyle = {
     margin: 0,
     fontSize: "1.25rem",
     fontWeight: "bold",
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     opacity: 1,
   };
 
@@ -349,7 +349,7 @@ const H4 = ({
  * @param {number} [iconSize=18] - Size of the icon (default: 18)
  * @param {string} iconColor - Color of the icon (default: theme-aware accent color)
  * @param {string} [align="left"] - Text alignment: "left", "center", "right" (default: "left")
- * @param {string} [gap="0.5rem"] - Gap between icon and text (default: "0.5rem")
+ * @param {string} [gap="var(--lp-spacing-2)"] - Gap between icon and text (default: "var(--lp-spacing-2)")
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  */
@@ -359,12 +359,12 @@ const H5 = ({
   iconSize = 18,
   iconColor,
   align = "left",
-  gap = "0.5rem",
+  gap = "var(--lp-spacing-2)",
   className = "",
   style = {},
   ...rest
 }) => {
-  const resolvedIconColor = iconColor || "var(--accent)";
+  const resolvedIconColor = iconColor || "var(--lp-color-accent)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -377,14 +377,14 @@ const H5 = ({
           ? "flex-end"
           : "flex-start",
     textAlign: align,
-    marginBottom: "0.5rem",
+    marginBottom: "var(--lp-spacing-2)",
   };
 
   const headingStyle = {
     margin: 0,
     fontSize: "1.125rem",
     fontWeight: "bold",
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     opacity: 1,
   };
 
@@ -408,7 +408,7 @@ const H5 = ({
  * @param {number} [iconSize=16] - Size of the icon (default: 16)
  * @param {string} iconColor - Color of the icon (default: theme-aware accent color)
  * @param {string} [align="left"] - Text alignment: "left", "center", "right" (default: "left")
- * @param {string} [gap="0.5rem"] - Gap between icon and text (default: "0.5rem")
+ * @param {string} [gap="var(--lp-spacing-2)"] - Gap between icon and text (default: "var(--lp-spacing-2)")
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  */
@@ -418,12 +418,12 @@ const H6 = ({
   iconSize = 16,
   iconColor,
   align = "left",
-  gap = "0.5rem",
+  gap = "var(--lp-spacing-2)",
   className = "",
   style = {},
   ...rest
 }) => {
-  const resolvedIconColor = iconColor || "var(--accent)";
+  const resolvedIconColor = iconColor || "var(--lp-color-accent)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -436,14 +436,14 @@ const H6 = ({
           ? "flex-end"
           : "flex-start",
     textAlign: align,
-    marginBottom: "0.5rem",
+    marginBottom: "var(--lp-spacing-2)",
   };
 
   const headingStyle = {
     margin: 0,
     fontSize: "1rem",
     fontWeight: "bold",
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     opacity: 1,
   };
 
@@ -467,7 +467,7 @@ const H6 = ({
  * @param {number} [iconSize=16] - Size of the icon (default: 16)
  * @param {string} iconColor - Color of the icon (default: theme-aware accent color)
  * @param {string} [align="left"] - Text alignment: "left", "center", "right" (default: "left")
- * @param {string} [gap="0.5rem"] - Gap between icon and text (default: "0.5rem")
+ * @param {string} [gap="var(--lp-spacing-2)"] - Gap between icon and text (default: "var(--lp-spacing-2)")
  * @param {string} [className=""] - CSS class name.
  * @param {object} [style={}] - Inline style overrides.
  */
@@ -477,7 +477,7 @@ const P = ({
   iconSize = 16,
   iconColor,
   align = "left",
-  gap = "0.5rem",
+  gap = "var(--lp-spacing-2)",
   className = "",
   style = {},
   ...rest
@@ -499,7 +499,7 @@ const P = ({
 
   const paragraphStyle = {
     margin: 0,
-    color: "var(--text)",
+    color: "var(--lp-color-text-secondary)",
     opacity: 1,
   };
 
@@ -530,7 +530,7 @@ const FrameModeDivider = ({ color, margin = "1.5rem 0", opacity = 0.2, className
       className={className}
       style={{
         border: "none",
-        borderTop: `1px solid ${color || "var(--border)"}`,
+        borderTop: `1px solid ${color || "var(--lp-color-border-default)"}`,
         margin: margin,
         opacity: opacity,
         ...style,

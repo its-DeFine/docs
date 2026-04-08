@@ -405,9 +405,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/ai/agents/cross-agent-packager.js",
+    "path": "operations/scripts/integrators/ai/agents/cross-agent-packager.js",
     "name": "cross-agent-packager.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "ai",
     "niche": "agents",
     "purpose": "governance:agent-governance",
@@ -415,14 +415,14 @@
     "mode": "execute",
     "pipeline": "manual — not yet in pipeline",
     "scope": "operations/scripts, ai-tools/ai-skills/catalog, ai-tools/agent-packs",
-    "usage": "node operations/scripts/automations/ai/agents/cross-agent-packager.js [flags]",
+    "usage": "node operations/scripts/integrators/ai/agents/cross-agent-packager.js [flags]",
     "policy": "R-R27, R-R30",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/ai/agents/export-portable-skills.js",
+    "path": "operations/scripts/integrators/ai/agents/export-portable-skills.js",
     "name": "export-portable-skills.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "ai",
     "niche": "agents",
     "purpose": "governance:agent-governance",
@@ -430,14 +430,14 @@
     "mode": "execute",
     "pipeline": "manual — not yet in pipeline",
     "scope": "operations/scripts, ai-tools/ai-skills/templates, ai-tools/agent-packs, too../../../../lib/codex-skill-templates.js operations/tests/unit/export-portable-skills.test.js",
-    "usage": "node operations/scripts/automations/ai/agents/export-portable-skills.js --write|--check [--skills name[,name...]]",
+    "usage": "node operations/scripts/integrators/ai/agents/export-portable-skills.js --write|--check [--skills name[,name...]]",
     "policy": "R-R27, R-R30",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/ai/agents/sync-codex-skills.js",
+    "path": "operations/scripts/integrators/ai/agents/sync-codex-skills.js",
     "name": "sync-codex-skills.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "ai",
     "niche": "agents",
     "purpose": "governance:agent-governance",
@@ -445,14 +445,14 @@
     "mode": "execute",
     "pipeline": "manual — not yet in pipeline",
     "scope": "operations/scripts, ai-tools/ai-skills/templates operations/tests/unit/codex-skill-sync.test.js",
-    "usage": "node operations/scripts/automations/ai/agents/sync-codex-skills.js [flags]",
+    "usage": "node operations/scripts/integrators/ai/agents/sync-codex-skills.js [flags]",
     "policy": "R-R27, R-R30",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/ai/codex/lock-release.js",
+    "path": "operations/scripts/integrators/ai/codex/lock-release.js",
     "name": "lock-release.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "ai",
     "niche": "codex",
     "purpose": "governance:agent-governance",
@@ -460,14 +460,14 @@
     "mode": "execute",
     "pipeline": "manual — interactive developer tool, not suited for automated pipelines",
     "scope": "operations/scripts/codex, .codex/locks-local, .codex/task-contract.yaml",
-    "usage": "node operations/scripts/automations/ai/codex/lock-release.js [flags]",
+    "usage": "node operations/scripts/integrators/ai/codex/lock-release.js [flags]",
     "policy": "R-R27, R-R30",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/ai/codex/task-cleanup.js",
+    "path": "operations/scripts/integrators/ai/codex/task-cleanup.js",
     "name": "task-cleanup.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "ai",
     "niche": "codex",
     "purpose": "governance:agent-governance",
@@ -475,14 +475,14 @@
     "mode": "execute",
     "pipeline": "manual — interactive developer tool, not suited for automated pipelines",
     "scope": "operations/scripts/codex, .codex/locks-local, .codex/task-contract.yaml",
-    "usage": "node operations/scripts/automations/ai/codex/task-cleanup.js [flags]",
+    "usage": "node operations/scripts/integrators/ai/codex/task-cleanup.js [flags]",
     "policy": "R-R27, R-R30",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/ai/codex/task-preflight.js",
+    "path": "operations/scripts/integrators/ai/codex/task-preflight.js",
     "name": "task-preflight.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "ai",
     "niche": "codex",
     "purpose": "governance:agent-governance",
@@ -490,14 +490,14 @@
     "mode": "execute",
     "pipeline": "manual — codex setup tool referenced by .githooks/pre-commit guidance, not auto-executed",
     "scope": "operations/scripts/codex, .codex/task-contract.yaml, .codex/locks-local",
-    "usage": "node operations/scripts/automations/ai/codex/task-preflight.js [flags]",
+    "usage": "node operations/scripts/integrators/ai/codex/task-preflight.js [flags]",
     "policy": "R-R27, R-R30",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/contracts/blockchain-page-spec.js",
+    "path": "operations/scripts/integrators/content/data/contracts/blockchain-page-spec.js",
     "name": "blockchain-page-spec.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "",
@@ -510,9 +510,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/contracts/branch-watch.js",
+    "path": "operations/scripts/integrators/content/data/contracts/branch-watch.js",
     "name": "branch-watch.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "",
@@ -525,9 +525,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/contracts/catalog-config.js",
+    "path": "operations/scripts/integrators/content/data/contracts/catalog-config.js",
     "name": "catalog-config.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "",
@@ -540,9 +540,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/contracts/constants.js",
+    "path": "operations/scripts/integrators/content/data/contracts/constants.js",
     "name": "constants.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "",
@@ -555,9 +555,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/contracts/incidents.js",
+    "path": "operations/scripts/integrators/content/data/contracts/incidents.js",
     "name": "incidents.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "",
@@ -570,9 +570,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/contracts/pipeline.js",
+    "path": "operations/scripts/integrators/content/data/contracts/pipeline.js",
     "name": "pipeline.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "",
@@ -585,9 +585,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/contracts/solidity-parser.js",
+    "path": "operations/scripts/integrators/content/data/contracts/solidity-parser.js",
     "name": "solidity-parser.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "",
@@ -600,9 +600,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/contracts/spec.js",
+    "path": "operations/scripts/integrators/content/data/contracts/spec.js",
     "name": "spec.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "",
@@ -615,54 +615,54 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/fetching/fetch-external-docs.sh",
+    "path": "operations/scripts/integrators/content/data/fetching/fetch-external-docs.sh",
     "name": "fetch-external-docs.sh",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "infrastructure:data-feeds",
     "description": "External docs fetcher — pulls doc fragments from external GitHub repos into snippets/composables/pages/shared/ for inclusion in builds",
     "mode": "execute",
     "pipeline": "manual",
-    "scope": "operations/scripts/automations/content/data/fetching",
-    "usage": "bash operations/scripts/automations/content/data/fetching/fetch-external-docs.sh [flags]",
+    "scope": "operations/scripts/integrators/content/data/fetching",
+    "usage": "bash operations/scripts/integrators/content/data/fetching/fetch-external-docs.sh [flags]",
     "policy": "F-R1",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/fetching/fetch-lpt-exchanges.sh",
+    "path": "operations/scripts/integrators/content/data/fetching/fetch-lpt-exchanges.sh",
     "name": "fetch-lpt-exchanges.sh",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "infrastructure:data-feeds",
     "description": "LPT exchange data fetcher — pulls exchange listing data for LPT token pages",
     "mode": "execute",
     "pipeline": "manual — not yet in pipeline",
-    "scope": "operations/scripts/automations/content/data/fetching",
-    "usage": "bash operations/scripts/automations/content/data/fetching/fetch-lpt-exchanges.sh [flags]",
+    "scope": "operations/scripts/integrators/content/data/fetching",
+    "usage": "bash operations/scripts/integrators/content/data/fetching/fetch-lpt-exchanges.sh [flags]",
     "policy": "F-R1",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/fetching/fetch-openapi-specs.sh",
+    "path": "operations/scripts/integrators/content/data/fetching/fetch-openapi-specs.sh",
     "name": "fetch-openapi-specs.sh",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "tooling:api-spec",
     "description": "OpenAPI spec fetcher — pulls latest OpenAPI specs from Livepeer services for reference pages",
     "mode": "execute",
     "pipeline": "manual — not yet in pipeline",
-    "scope": "operations/scripts/automations/content/data/fetching",
-    "usage": "bash operations/scripts/automations/content/data/fetching/fetch-openapi-specs.sh [flags]",
+    "scope": "operations/scripts/integrators/content/data/fetching",
+    "usage": "bash operations/scripts/integrators/content/data/fetching/fetch-openapi-specs.sh [flags]",
     "policy": "F-R17",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/test/contract-address-routes.test.js",
+    "path": "operations/scripts/integrators/content/data/test/contract-address-routes.test.js",
     "name": "contract-address-routes.test.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "",
@@ -675,9 +675,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/test/contract-verifier.test.js",
+    "path": "operations/scripts/integrators/content/data/test/contract-verifier.test.js",
     "name": "contract-verifier.test.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "",
@@ -690,9 +690,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/test/fetch-contract-addresses.test.js",
+    "path": "operations/scripts/integrators/content/data/test/fetch-contract-addresses.test.js",
     "name": "fetch-contract-addresses.test.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "",
@@ -705,9 +705,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/data/transforms/convert-rss-to-mdx.js",
+    "path": "operations/scripts/integrators/content/data/transforms/convert-rss-to-mdx.js",
     "name": "convert-rss-to-mdx.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data",
     "purpose": "infrastructure:data-feeds",
@@ -715,14 +715,14 @@
     "mode": "execute",
     "pipeline": "manual — not yet in pipeline",
     "scope": "operations/scripts, v2/internal/assets/transcripts",
-    "usage": "node operations/scripts/automations/content/data/transforms/convert-rss-to-mdx.js [flags]",
+    "usage": "node operations/scripts/integrators/content/data/transforms/convert-rss-to-mdx.js [flags]",
     "policy": "F-R1",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/generate-localized-docs-json.js",
+    "path": "operations/scripts/integrators/content/language-translation/generate-localized-docs-json.js",
     "name": "generate-localized-docs-json.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "language-translation",
     "purpose": "feature:translation",
@@ -730,14 +730,14 @@
     "mode": "execute",
     "pipeline": "on-demand, translation pipeline)",
     "scope": "docs.json, operations/scripts/i18n",
-    "usage": "node operations/scripts/automations/content/language-translation/generate-localized-docs-json.js [flags]",
+    "usage": "node operations/scripts/integrators/content/language-translation/generate-localized-docs-json.js [flags]",
     "policy": "F-R6, F-R7",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/lib/common.js",
+    "path": "operations/scripts/integrators/content/language-translation/lib/common.js",
     "name": "common.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "language-translation",
     "purpose": "feature:translation",
@@ -750,9 +750,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/lib/config.js",
+    "path": "operations/scripts/integrators/content/language-translation/lib/config.js",
     "name": "config.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "language-translation",
     "purpose": "feature:translation",
@@ -765,9 +765,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/lib/docs-json-localizer.js",
+    "path": "operations/scripts/integrators/content/language-translation/lib/docs-json-localizer.js",
     "name": "docs-json-localizer.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "language-translation",
     "purpose": "feature:translation",
@@ -780,9 +780,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/lib/docs-routes.js",
+    "path": "operations/scripts/integrators/content/language-translation/lib/docs-routes.js",
     "name": "docs-routes.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "language-translation",
     "purpose": "feature:translation",
@@ -795,9 +795,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/lib/frontmatter.js",
+    "path": "operations/scripts/integrators/content/language-translation/lib/frontmatter.js",
     "name": "frontmatter.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "copy",
     "niche": "translation",
     "purpose": "feature:translation",
@@ -810,9 +810,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/lib/mdx-parser.js",
+    "path": "operations/scripts/integrators/content/language-translation/lib/mdx-parser.js",
     "name": "mdx-parser.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "language-translation",
     "purpose": "feature:translation",
@@ -825,9 +825,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/lib/mdx-translate.js",
+    "path": "operations/scripts/integrators/content/language-translation/lib/mdx-translate.js",
     "name": "mdx-translate.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "language-translation",
     "purpose": "feature:translation",
@@ -840,9 +840,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/lib/path-utils.js",
+    "path": "operations/scripts/integrators/content/language-translation/lib/path-utils.js",
     "name": "path-utils.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "language-translation",
     "purpose": "feature:translation",
@@ -855,9 +855,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/lib/provenance.js",
+    "path": "operations/scripts/integrators/content/language-translation/lib/provenance.js",
     "name": "provenance.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "language-translation",
     "purpose": "feature:translation",
@@ -870,9 +870,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/lib/provider-mock.js",
+    "path": "operations/scripts/integrators/content/language-translation/lib/provider-mock.js",
     "name": "provider-mock.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "language-translation",
     "purpose": "feature:translation",
@@ -885,9 +885,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/lib/provider-openrouter.js",
+    "path": "operations/scripts/integrators/content/language-translation/lib/provider-openrouter.js",
     "name": "provider-openrouter.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "language-translation",
     "purpose": "feature:translation",
@@ -900,9 +900,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/lib/providers.js",
+    "path": "operations/scripts/integrators/content/language-translation/lib/providers.js",
     "name": "providers.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "language-translation",
     "purpose": "feature:translation",
@@ -915,7 +915,7 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/test/cli-guardrails.test.js",
+    "path": "operations/scripts/integrators/content/language-translation/test/cli-guardrails.test.js",
     "name": "cli-guardrails.test.js",
     "type": "validator",
     "concern": "content",
@@ -930,7 +930,7 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/test/docs-json-localizer.test.js",
+    "path": "operations/scripts/integrators/content/language-translation/test/docs-json-localizer.test.js",
     "name": "docs-json-localizer.test.js",
     "type": "validator",
     "concern": "content",
@@ -945,7 +945,7 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/test/frontmatter.test.js",
+    "path": "operations/scripts/integrators/content/language-translation/test/frontmatter.test.js",
     "name": "frontmatter.test.js",
     "type": "validator",
     "concern": "content",
@@ -960,7 +960,7 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/test/mdx-translate.test.js",
+    "path": "operations/scripts/integrators/content/language-translation/test/mdx-translate.test.js",
     "name": "mdx-translate.test.js",
     "type": "validator",
     "concern": "content",
@@ -975,7 +975,7 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/test/provenance.test.js",
+    "path": "operations/scripts/integrators/content/language-translation/test/provenance.test.js",
     "name": "provenance.test.js",
     "type": "validator",
     "concern": "content",
@@ -990,7 +990,7 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/test/provider-openrouter.test.js",
+    "path": "operations/scripts/integrators/content/language-translation/test/provider-openrouter.test.js",
     "name": "provider-openrouter.test.js",
     "type": "validator",
     "concern": "content",
@@ -1005,9 +1005,9 @@
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/translate-docs.js",
+    "path": "operations/scripts/integrators/content/language-translation/translate-docs.js",
     "name": "translate-docs.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "language-translation",
     "purpose": "feature:translation",
@@ -1015,14 +1015,14 @@
     "mode": "execute",
     "pipeline": "on-demand, translation pipeline)",
     "scope": "operations/scripts/i18n, docs.json, v2",
-    "usage": "node operations/scripts/automations/content/language-translation/translate-docs.js [flags]",
+    "usage": "node operations/scripts/integrators/content/language-translation/translate-docs.js [flags]",
     "policy": "F-R6, F-R7",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/language-translation/validate-generated.js",
+    "path": "operations/scripts/integrators/content/language-translation/validate-generated.js",
     "name": "validate-generated.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "language-translation",
     "purpose": "feature:translation",
@@ -1030,14 +1030,14 @@
     "mode": "execute",
     "pipeline": "manual",
     "scope": "operations/scripts/i18n, v2",
-    "usage": "node operations/scripts/automations/content/language-translation/validate-generated.js [flags]",
+    "usage": "node operations/scripts/integrators/content/language-translation/validate-generated.js [flags]",
     "policy": "F-R6, F-R7",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/content/studio-docs-migration.js",
+    "path": "operations/scripts/integrators/content/studio-docs-migration.js",
     "name": "studio-docs-migration.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "studio-docs-migration.js",
     "purpose": "",
@@ -1045,29 +1045,29 @@
     "mode": "",
     "pipeline": "",
     "scope": "",
-    "usage": "node operations/scripts/automations/content/studio-docs-migration.js [--write]",
+    "usage": "node operations/scripts/integrators/content/studio-docs-migration.js [--write]",
     "policy": "",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/governance/cleanup-local-dev-sessions.js",
+    "path": "operations/scripts/integrators/governance/cleanup-local-dev-sessions.js",
     "name": "cleanup-local-dev-sessions.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "governance",
     "niche": "dev-tools",
     "purpose": "tooling:dev-tools",
     "description": "Local dev session cleanup — preserves Mint on port 3333 and terminates stale Playwright plus non-3333 Mint session trees",
     "mode": "execute",
     "pipeline": "manual — local developer automation, with optional user cron installation",
-    "scope": "operations/scripts/automations/governance, local user process table, local user crontab",
-    "usage": "node operations/scripts/automations/governance/cleanup-local-dev-sessions.js [--apply] [--install-cron] [--remove-cron] [--keep-port 3333]",
+    "scope": "operations/scripts/integrators/governance, local user process table, local user crontab",
+    "usage": "node operations/scripts/integrators/governance/cleanup-local-dev-sessions.js [--apply] [--install-cron] [--remove-cron] [--keep-port 3333]",
     "policy": "E-C6, F-C1",
     "status": "active"
   },
   {
-    "path": "operations/scripts/automations/governance/pipelines/publish-v2-internal-reports.js",
+    "path": "operations/scripts/integrators/governance/pipelines/publish-v2-internal-reports.js",
     "name": "publish-v2-internal-reports.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "governance",
     "niche": "pipelines",
     "purpose": "qa:repo-health",
@@ -1075,7 +1075,7 @@
     "mode": "execute",
     "pipeline": "manual — not yet in pipeline",
     "scope": "operations/scripts, tools/config, v2/internal, docs.json, workspace/reports, operations/tests/reports",
-    "usage": "node operations/scripts/automations/governance/pipelines/publish-v2-internal-reports.js [flags]",
+    "usage": "node operations/scripts/integrators/governance/pipelines/publish-v2-internal-reports.js [flags]",
     "policy": "E-C1, R-R14",
     "status": "active"
   },
@@ -2087,7 +2087,7 @@
   {
     "path": "operations/scripts/integrators/copy/changelogs/generate-changelog.js",
     "name": "generate-changelog.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data/changelog",
     "purpose": "infrastructure:data-feeds",
@@ -2102,7 +2102,7 @@
   {
     "path": "operations/scripts/integrators/copy/showcase/project-showcase-sync.js",
     "name": "project-showcase-sync.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "copy",
     "niche": "showcase",
     "purpose": "infrastructure:data-feeds",
@@ -2117,7 +2117,7 @@
   {
     "path": "operations/scripts/integrators/copy/social-feeds/fetch-discord-announcements.js",
     "name": "fetch-discord-announcements.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data/fetching",
     "purpose": "infrastructure:data-feeds",
@@ -2132,7 +2132,7 @@
   {
     "path": "operations/scripts/integrators/copy/social-feeds/fetch-forum-data.js",
     "name": "fetch-forum-data.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "copy",
     "niche": "social-feeds",
     "purpose": "infrastructure:data-feeds",
@@ -2147,7 +2147,7 @@
   {
     "path": "operations/scripts/integrators/copy/social-feeds/fetch-ghost-blog-data.js",
     "name": "fetch-ghost-blog-data.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data/fetching",
     "purpose": "infrastructure:data-feeds",
@@ -2162,7 +2162,7 @@
   {
     "path": "operations/scripts/integrators/copy/social-feeds/fetch-github-discussions.js",
     "name": "fetch-github-discussions.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data/fetching",
     "purpose": "infrastructure:data-feeds",
@@ -2177,7 +2177,7 @@
   {
     "path": "operations/scripts/integrators/copy/social-feeds/fetch-github-releases.js",
     "name": "fetch-github-releases.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data/fetching",
     "purpose": "infrastructure:data-feeds",
@@ -2192,7 +2192,7 @@
   {
     "path": "operations/scripts/integrators/copy/social-feeds/fetch-rss-blog-data.js",
     "name": "fetch-rss-blog-data.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data/fetching",
     "purpose": "infrastructure:data-feeds",
@@ -2207,7 +2207,7 @@
   {
     "path": "operations/scripts/integrators/copy/social-feeds/fetch-youtube-data.js",
     "name": "fetch-youtube-data.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "copy",
     "niche": "social-feeds",
     "purpose": "infrastructure:data-feeds",
@@ -2222,14 +2222,14 @@
   {
     "path": "operations/scripts/integrators/maintenance/contracts/fetch-contract-addresses.js",
     "name": "fetch-contract-addresses.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "content",
     "niche": "data/blockchain",
     "purpose": "infrastructure:data-feeds",
     "description": "Thin CLI entrypoint for the chain-first contracts pipeline.",
     "mode": "generate",
     "pipeline": "",
-    "scope": ".github/scripts, operations/scripts/automations/content/data/contracts/, snippets/data/contract-addresses/, snippets/composables/pages/canonical/",
+    "scope": ".github/scripts, operations/scripts/integrators/content/data/contracts/, snippets/data/contract-addresses/, snippets/composables/pages/canonical/",
     "usage": "node .github/scripts/fetch-contract-addresses.js [--dry-run] [--check] [--skip-verify]",
     "policy": "Docs-local files do not define publishable contract truth.",
     "status": "active"
@@ -2237,7 +2237,7 @@
   {
     "path": "operations/scripts/integrators/maintenance/release/update-livepeer-release.js",
     "name": "update-livepeer-release.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "maintenance",
     "niche": "release",
     "purpose": "qa:data-refresh",
@@ -3362,7 +3362,7 @@
   {
     "path": "operations/tests/contracts-browser-harness.js",
     "name": "contracts-browser-harness.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "testing",
     "niche": "render/page",
     "purpose": "",
@@ -3512,7 +3512,7 @@
   {
     "path": "operations/tests/playwright-blockchain-contracts.js",
     "name": "playwright-blockchain-contracts.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "testing",
     "niche": "render/page",
     "purpose": "",
@@ -3542,7 +3542,7 @@
   {
     "path": "operations/tests/playwright-contract-addresses.js",
     "name": "playwright-contract-addresses.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "testing",
     "niche": "render/page",
     "purpose": "",
@@ -3714,7 +3714,7 @@
     "description": "Tests cleanup-local-dev-sessions.js — preserves Mint on 3333 while targeting non-3333 Mint and Playwright process trees",
     "mode": "",
     "pipeline": "manual — developer tool",
-    "scope": "tests/unit, operations/scripts/automations/governance/cleanup-local-dev-sessions.js",
+    "scope": "tests/unit, operations/scripts/integrators/governance/cleanup-local-dev-sessions.js",
     "usage": "node operations/tests/unit/cleanup-local-dev-sessions.test.js",
     "policy": "E-C6, F-C1",
     "status": "active"
@@ -3759,7 +3759,7 @@
     "description": "Tests sync-codex-skills.js — validates skill file and companion bundle synchronisation between sources",
     "mode": "",
     "pipeline": "manual — not yet in pipeline",
-    "scope": "operations/tests/unit, operations/scripts/automations/ai/agents/sync-codex-skills.js, ai-tools/ai-skills/templates",
+    "scope": "operations/tests/unit, operations/scripts/integrators/ai/agents/sync-codex-skills.js, ai-tools/ai-skills/templates",
     "usage": "node operations/tests/unit/codex-skill-sync.test.js [flags]",
     "policy": "R-R27, R-R30",
     "status": "active"
@@ -3774,7 +3774,7 @@
     "description": "Tests codex/task-cleanup.js — verifies safe worktree pruning, dirty-worktree preservation, branch pruning, and repo-root protection",
     "mode": "",
     "pipeline": "manual — developer tool",
-    "scope": "tests/unit, operations/scripts/automations/ai/codex/task-cleanup.js",
+    "scope": "tests/unit, operations/scripts/integrators/ai/codex/task-cleanup.js",
     "usage": "node operations/tests/unit/codex-task-cleanup.test.js [flags]",
     "policy": "R-R27, R-R30",
     "status": "active"
@@ -3789,7 +3789,7 @@
     "description": "Tests codex/task-preflight.js — verifies managed worktree default behavior and the explicit in-place override",
     "mode": "",
     "pipeline": "manual — developer tool",
-    "scope": "tests/unit, operations/scripts/automations/ai/codex/task-preflight.js",
+    "scope": "tests/unit, operations/scripts/integrators/ai/codex/task-preflight.js",
     "usage": "node operations/tests/unit/codex-task-preflight.test.js [flags]",
     "policy": "R-R27, R-R30",
     "status": "active"
@@ -3849,7 +3849,7 @@
     "description": "Regression tests for the contracts proof catalog, generated registry output, shared contracts surface wiring, blocking anomaly behavior, workflow cadence alignment, and route freshness dependencies.",
     "mode": "",
     "pipeline": "P1 (commit, via run-all)",
-    "scope": "tests/unit, .github/scripts/fetch-contract-addresses.js, operations/scripts/automations/content/data/contracts/, .github/workflows/update-contract-addresses*.yml, operations/scripts/generators/content/seo/generate-ai-sitemap.js, snippets/components/integrators/feeds/ContractVerifier.jsx, snippets/data/contract-addresses/, v2/about",
+    "scope": "tests/unit, .github/scripts/fetch-contract-addresses.js, operations/scripts/integrators/content/data/contracts/, .github/workflows/update-contract-addresses*.yml, operations/scripts/generators/content/seo/generate-ai-sitemap.js, snippets/components/integrators/feeds/ContractVerifier.jsx, snippets/data/contract-addresses/, v2/about",
     "usage": "node operations/tests/unit/contracts-addresses-pipeline.test.js",
     "policy": "E-R12, E-R14",
     "status": "active"
@@ -4074,7 +4074,7 @@
     "description": "Tests export-portable-skills.js — validates portable skill export packs from canonical templates.",
     "mode": "",
     "pipeline": "P1, P3",
-    "scope": "tests/unit, operations/scripts/automations/ai/agents/export-portable-skills.js, tools/lib/ai/codex-skill-templates.js, ai-tools/agent-packs/skills",
+    "scope": "tests/unit, operations/scripts/integrators/ai/agents/export-portable-skills.js, tools/lib/ai/codex-skill-templates.js, ai-tools/agent-packs/skills",
     "usage": "node operations/tests/unit/export-portable-skills.test.js [flags]",
     "policy": "R-R27, R-R30",
     "status": "active"
@@ -4877,7 +4877,7 @@
   {
     "path": "tools/dev/authoring/add-callouts.js",
     "name": "add-callouts.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "governance",
     "niche": "dev-tools",
     "purpose": "qa:content-quality",
@@ -4892,7 +4892,7 @@
   {
     "path": "tools/dev/authoring/format-mdx.js",
     "name": "format-mdx.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "governance",
     "niche": "dev-tools",
     "purpose": "tooling:dev-tools",
@@ -4907,7 +4907,7 @@
   {
     "path": "tools/dev/editor/rename-vscode-codex-chat.js",
     "name": "rename-vscode-codex-chat.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "governance",
     "niche": "dev-tools",
     "purpose": "tooling:dev-tools",
@@ -4922,7 +4922,7 @@
   {
     "path": "tools/dev/integrations/notion/1-read-notion-to-csv.js",
     "name": "1-read-notion-to-csv.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "",
     "niche": "",
     "purpose": "tooling:dev-tools",
@@ -4982,7 +4982,7 @@
   {
     "path": "tools/dev/integrations/notion/5-export-to-notion.js",
     "name": "5-export-to-notion.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "",
     "niche": "",
     "purpose": "tooling:dev-tools",
@@ -5072,7 +5072,7 @@
   {
     "path": "tools/dev/preview/debug-mint-dev.js",
     "name": "debug-mint-dev.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "governance",
     "niche": "dev-tools",
     "purpose": "tooling:dev-tools",
@@ -5087,7 +5087,7 @@
   {
     "path": "tools/dev/preview/ensure-mint-watcher-patch.sh",
     "name": "ensure-mint-watcher-patch.sh",
-    "type": "automation",
+    "type": "integrator",
     "concern": "governance",
     "niche": "dev-tools",
     "purpose": "tooling:dev-tools",
@@ -5102,7 +5102,7 @@
   {
     "path": "tools/dev/preview/generate-mint-dev-scope.js",
     "name": "generate-mint-dev-scope.js",
-    "type": "automation",
+    "type": "integrator",
     "concern": "governance",
     "niche": "dev-tools",
     "purpose": "tooling:dev-tools",
@@ -5132,7 +5132,7 @@
   {
     "path": "tools/dev/preview/mint-custom-loader.sh",
     "name": "mint-custom-loader.sh",
-    "type": "automation",
+    "type": "integrator",
     "concern": "governance",
     "niche": "dev-tools",
     "purpose": "tooling:dev-tools",
@@ -5147,7 +5147,7 @@
   {
     "path": "tools/dev/preview/mint-dev.sh",
     "name": "mint-dev.sh",
-    "type": "automation",
+    "type": "integrator",
     "concern": "governance",
     "niche": "dev-tools",
     "purpose": "tooling:dev-tools",
@@ -5184,7 +5184,7 @@
     "description": "Shared helper for validating, selecting, and loading canonical Codex skill templates.",
     "mode": "",
     "pipeline": "indirect -- library module",
-    "scope": "tools/lib, ai-tools/ai-skills/templates, operations/scripts/automations/ai/agents/sync-codex-skills.js, operations/scripts/automations/ai/agents/export-portable-skills.js",
+    "scope": "tools/lib, ai-tools/ai-skills/templates, operations/scripts/integrators/ai/agents/sync-codex-skills.js, operations/scripts/integrators/ai/agents/export-portable-skills.js",
     "usage": "const { discoverTemplates } = require('../../tools/lib/ai/codex-skill-templates');",
     "policy": "R-R27, R-R30",
     "status": "active"

@@ -20,18 +20,18 @@ const ComingSoonCallout = ({ type = "page", className = "", style = {}, ...rest 
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    gap: "1rem",
+    gap: "var(--lp-spacing-4)",
   };
   const colStyle = {
     display: "flex",
     flexDirection: "column",
-    gap: "0.5rem",
+    gap: "var(--lp-spacing-2)",
     fontSize: "1.0rem",
     flex: 1,
     alignItems: "center",
   };
   const linkStyle = {
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     display: "inline-flex",
     alignItems: "center",
     gap: "4px",
@@ -78,7 +78,7 @@ const ComingSoonCallout = ({ type = "page", className = "", style = {}, ...rest 
             </a>
           </span>
         </div>
-        <div style={{ flexShrink: 0, paddingRight: "1.5rem" }}>
+        <div style={{ flexShrink: 0, paddingRight: "var(--lp-spacing-6)" }}>
           <Icon
             icon="cauldron"
             size={30}
@@ -108,18 +108,18 @@ const PreviewCallout = ({ className = "", style = {}, ...rest }) => {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    gap: "1rem",
+    gap: "var(--lp-spacing-4)",
   };
   const colStyle = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: "0.5rem",
+    gap: "var(--lp-spacing-2)",
     fontSize: "1.0rem",
     flex: 1,
   };
   const linkStyle = {
-    color: "var(--hero-text)",
+    color: "var(--lp-color-text-primary)",
     display: "inline-flex",
     alignItems: "center",
     gap: "4px",
@@ -159,7 +159,7 @@ const PreviewCallout = ({ className = "", style = {}, ...rest }) => {
             </a>
           </span>
         </div>
-        <div style={{ flexShrink: 0, paddingRight: "1.5rem" }}>
+        <div style={{ flexShrink: 0, paddingRight: "var(--lp-spacing-6)" }}>
           <Icon icon="tools" size={30} color="var(--lp-color-callout-review)" />
         </div>
       </div>
@@ -200,7 +200,7 @@ const ReviewCallout = ({ className = "", style = {}, ...rest }) => {
  * @param {string} [type="tip"] - Mintlify callout type: "tip", "info", "warning", "note", "check"
  * @param {string} header - Bold header text displayed at the top of the callout
  * @param {React.ReactNode} children - Description content below the header
- * @param {string} [headerColor="var(--hero-text)"] - Header text colour
+ * @param {string} [headerColor="var(--lp-color-text-primary)"] - Header text colour
  * @param {string} [headerSize="0.9rem"] - Header font size
  * @param {string} [className=""] - CSS class name
  * @param {object} [style={}] - Inline style overrides
@@ -213,7 +213,7 @@ const CalloutWrapper = ({
   type = "tip",
   header = "",
   children,
-  headerColor = "var(--hero-text)",
+  headerColor = "var(--lp-color-text-primary)",
   headerSize = "0.9rem",
   className = "",
   style = {},
@@ -226,7 +226,7 @@ const CalloutWrapper = ({
   ) : null;
 
   const bodyEl = children ? (
-    <span style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "0.25rem" }}>
+    <span style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "var(--lp-spacing-1)" }}>
       {children}
     </span>
   ) : null;

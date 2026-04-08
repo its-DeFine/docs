@@ -1,9 +1,10 @@
 ---
 sidebarTitle: NaaP
-title: "NaaP Changelog"
-description: >-
-  Commit history for NaaP (Network as a Platform), the plugin platform for the Livepeer AI Compute Network.
-Keywords:
+title: NaaP Changelog
+description: 'Commit history for NaaP (Network as a Platform), the plugin platform for the Livepeer AI Compute Network.'
+lifecycleStage: discover
+complexity: intermediate
+keywords:
   - naap
   - livepeer
   - changelog
@@ -11,14 +12,14 @@ Keywords:
   - plugins
   - AI compute
 'og:image': /snippets/assets/media/og-images/fallback.png
-'og:image:alt': "NaaP Docs social preview image"
+'og:image:alt': NaaP Docs social preview image
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
 pageType: changelog
 purpose: changelog
 audience: builder
-lastVerified: 2026-03-30
+lastVerified: 2026-03-30T00:00:00.000Z
 ---
 
 {/*
@@ -33,12 +34,15 @@ lastVerified: 2026-03-30
 
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { LinkArrow, DoubleIconLink } from '/snippets/components/elements/links/Links.jsx'
-import { ScrollBox } from '/snippets/components/wrappers/containers/Layout.jsx'
-import { LazyLoad } from '/snippets/components/wrappers/containers/Layout.jsx'
+import { ScrollBox } from '/snippets/components/wrappers/containers/ScrollBox.jsx'
+import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
+import { Subtitle } from '/snippets/components/elements/text/Text.jsx'
+import { CustomCardTitle } from '/snippets/components/elements/text/CustomCardTitle.jsx'
+import { InlineDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 
 <Tip>
   This page is an automated workflow.
-  <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--hero-text)", marginTop: "0.25rem" }}>Subscribe to this changelog's <LinkArrow label="RSS Feed" href="/v2/resources/changelog/naap/rss.xml" newline={false} /></div>
+  <Subtitle variant="changelog" style={{fontSize: "0.95rem", marginTop: "0.25rem"}}>Subscribe to this changelog's <LinkArrow label="RSS Feed" href="/v2/resources/changelog/naap/rss.xml" newline={false} /></Subtitle>
 </Tip>
 
 <CustomDivider style={{margin: "-0.5rem 0 -1.5rem 0"}} />
@@ -51,7 +55,7 @@ Track changes to <LinkArrow label="NaaP" href="https://github.com/livepeer/naap"
   AUTOMATION ZONE -- entries below are populated by workflow.
   ────────────────────────────────────────────── */}
 
-<Update label="feat(gateway): add ClickHouse HTTP query connector with s..." tags={["Commit"]} rss={{ title: "NaaP: feat(gateway): add ClickHouse HTTP query connector with s...", description: "feat(gateway): add ClickHouse HTTP query connector with static query support (#212)" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>March 2026</div>}>
+<Update label="feat(gateway): add ClickHouse HTTP query connector with s..." tags={["Commit"]} rss={{ title: "NaaP: feat(gateway): add ClickHouse HTTP query connector with s...", description: "feat(gateway): add ClickHouse HTTP query connector with static query support (#212)" }} description={<Subtitle variant="changelog">March 2026</Subtitle>}>
   ## feat(gateway): add ClickHouse HTTP query connector with s...
 
   <ScrollBox maxHeight="150px" showHint={false}>
@@ -99,7 +103,7 @@ Track changes to <LinkArrow label="NaaP" href="https://github.com/livepeer/naap"
   <DoubleIconLink label="View commit on GitHub" href="https://github.com/livepeer/naap/commit/1c097832d4f4a7a4a01e9dd3e861f85ac1c4b9b7" iconLeft="github" />
 </Update>
 
-<Update label="fix: migrate docker-compose v1 to docker compose v2 (#207)" tags={["Commit"]} rss={{ title: "NaaP: fix: migrate docker-compose v1 to docker compose v2 (#207)", description: "fix: migrate docker-compose v1 to docker compose v2 (#207)" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>March 2026</div>}>
+<Update label="fix: migrate docker-compose v1 to docker compose v2 (#207)" tags={["Commit"]} rss={{ title: "NaaP: fix: migrate docker-compose v1 to docker compose v2 (#207)", description: "fix: migrate docker-compose v1 to docker compose v2 (#207)" }} description={<Subtitle variant="changelog">March 2026</Subtitle>}>
   ## fix: migrate docker-compose v1 to docker compose v2 (#207)
 
   <ScrollBox maxHeight="150px" showHint={false}>
@@ -120,7 +124,7 @@ Track changes to <LinkArrow label="NaaP" href="https://github.com/livepeer/naap"
   <DoubleIconLink label="View commit on GitHub" href="https://github.com/livepeer/naap/commit/74282977defcc758c0ef014f8539204787447f91" iconLeft="github" />
 </Update>
 
-<Update label="fix: remove deployment-manager plugin accidentally commit..." tags={["Commit"]} rss={{ title: "NaaP: fix: remove deployment-manager plugin accidentally commit...", description: "fix: remove deployment-manager plugin accidentally committed to main (#217)" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>March 2026</div>}>
+<Update label="fix: remove deployment-manager plugin accidentally commit..." tags={["Commit"]} rss={{ title: "NaaP: fix: remove deployment-manager plugin accidentally commit...", description: "fix: remove deployment-manager plugin accidentally committed to main (#217)" }} description={<Subtitle variant="changelog">March 2026</Subtitle>}>
   ## fix: remove deployment-manager plugin accidentally commit...
 
   <ScrollBox maxHeight="150px" showHint={false}>
@@ -141,7 +145,7 @@ Track changes to <LinkArrow label="NaaP" href="https://github.com/livepeer/naap"
   <DoubleIconLink label="View commit on GitHub" href="https://github.com/livepeer/naap/commit/ae132cce42d8aa82649dc3868644e700e7d2232d" iconLeft="github" />
 </Update>
 
-<Update label="chore: sync lockfile and fix CI Vercel build (Corepack + ..." tags={["Commit"]} rss={{ title: "NaaP: chore: sync lockfile and fix CI Vercel build (Corepack + ...", description: "chore: sync lockfile and fix CI Vercel build (Corepack + DB guard) (#215)" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>March 2026</div>}>
+<Update label="chore: sync lockfile and fix CI Vercel build (Corepack + ..." tags={["Commit"]} rss={{ title: "NaaP: chore: sync lockfile and fix CI Vercel build (Corepack + ...", description: "chore: sync lockfile and fix CI Vercel build (Corepack + DB guard) (#215)" }} description={<Subtitle variant="changelog">March 2026</Subtitle>}>
   ## chore: sync lockfile and fix CI Vercel build (Corepack + ...
 
   <ScrollBox maxHeight="150px" showHint={false}>
@@ -160,7 +164,7 @@ Track changes to <LinkArrow label="NaaP" href="https://github.com/livepeer/naap"
   <DoubleIconLink label="View commit on GitHub" href="https://github.com/livepeer/naap/commit/4d1853d9dd9cc3a2b1c2aa746597e15627edbc59" iconLeft="github" />
 </Update>
 
-<Update label="feat(gateway): Agent Tool Interface — discovery, pricing,..." tags={["Commit"]} rss={{ title: "NaaP: feat(gateway): Agent Tool Interface — discovery, pricing,...", description: "feat(gateway): Agent Tool Interface — discovery, pricing, MCP, metrics, and master keys (#201)" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>March 2026</div>}>
+<Update label="feat(gateway): Agent Tool Interface — discovery, pricing,..." tags={["Commit"]} rss={{ title: "NaaP: feat(gateway): Agent Tool Interface — discovery, pricing,...", description: "feat(gateway): Agent Tool Interface — discovery, pricing, MCP, metrics, and master keys (#201)" }} description={<Subtitle variant="changelog">March 2026</Subtitle>}>
   ## feat(gateway): Agent Tool Interface — discovery, pricing,...
 
   <ScrollBox maxHeight="150px" showHint={false}>
@@ -374,7 +378,7 @@ Track changes to <LinkArrow label="NaaP" href="https://github.com/livepeer/naap"
   <DoubleIconLink label="View commit on GitHub" href="https://github.com/livepeer/naap/commit/b5284afcc9f1c400ff739ee745c9ac5c590eddd7" iconLeft="github" />
 </Update>
 
-<Update label="feat: add plugin development skill guide for agent-driven..." tags={["Commit"]} rss={{ title: "NaaP: feat: add plugin development skill guide for agent-driven...", description: "feat: add plugin development skill guide for agent-driven plugin creation (#204)" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>March 2026</div>}>
+<Update label="feat: add plugin development skill guide for agent-driven..." tags={["Commit"]} rss={{ title: "NaaP: feat: add plugin development skill guide for agent-driven...", description: "feat: add plugin development skill guide for agent-driven plugin creation (#204)" }} description={<Subtitle variant="changelog">March 2026</Subtitle>}>
   ## feat: add plugin development skill guide for agent-driven...
 
   <ScrollBox maxHeight="150px" showHint={false}>
@@ -432,7 +436,7 @@ Track changes to <LinkArrow label="NaaP" href="https://github.com/livepeer/naap"
   <DoubleIconLink label="View commit on GitHub" href="https://github.com/livepeer/naap/commit/2accd6701f24cd24317bfd019bbe59c7298adeee" iconLeft="github" />
 </Update>
 
-<Update label="chore: remove deprecated plugins (gateway-manager, orches..." tags={["Commit"]} rss={{ title: "NaaP: chore: remove deprecated plugins (gateway-manager, orches...", description: "chore: remove deprecated plugins (gateway-manager, orchestrator-manager, network-analytics, hello-world, todo-list) (#205)" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>March 2026</div>}>
+<Update label="chore: remove deprecated plugins (gateway-manager, orches..." tags={["Commit"]} rss={{ title: "NaaP: chore: remove deprecated plugins (gateway-manager, orches...", description: "chore: remove deprecated plugins (gateway-manager, orchestrator-manager, network-analytics, hello-world, todo-list) (#205)" }} description={<Subtitle variant="changelog">March 2026</Subtitle>}>
   ## chore: remove deprecated plugins (gateway-manager, orches...
 
   <ScrollBox maxHeight="150px" showHint={false}>
@@ -500,7 +504,7 @@ Track changes to <LinkArrow label="NaaP" href="https://github.com/livepeer/naap"
   <DoubleIconLink label="View commit on GitHub" href="https://github.com/livepeer/naap/commit/21cfb0dc70d96022a9f539080d9de90dc862f5e3" iconLeft="github" />
 </Update>
 
-<Update label="fix(auth): enhance middleware and auth context for better..." tags={["Commit"]} rss={{ title: "NaaP: fix(auth): enhance middleware and auth context for better...", description: "fix(auth): enhance middleware and auth context for better session management (#199)" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>March 2026</div>}>
+<Update label="fix(auth): enhance middleware and auth context for better..." tags={["Commit"]} rss={{ title: "NaaP: fix(auth): enhance middleware and auth context for better...", description: "fix(auth): enhance middleware and auth context for better session management (#199)" }} description={<Subtitle variant="changelog">March 2026</Subtitle>}>
   ## fix(auth): enhance middleware and auth context for better...
 
   <ScrollBox maxHeight="150px" showHint={false}>
@@ -515,7 +519,7 @@ Track changes to <LinkArrow label="NaaP" href="https://github.com/livepeer/naap"
   <DoubleIconLink label="View commit on GitHub" href="https://github.com/livepeer/naap/commit/3a8930f36a24bd0174a1c4fe8e7477ae6970d90a" iconLeft="github" />
 </Update>
 
-<Update label="fix(auth): handle missing user data in auth context (#194)" tags={["Commit"]} rss={{ title: "NaaP: fix(auth): handle missing user data in auth context (#194)", description: "fix(auth): handle missing user data in auth context (#194)" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>March 2026</div>}>
+<Update label="fix(auth): handle missing user data in auth context (#194)" tags={["Commit"]} rss={{ title: "NaaP: fix(auth): handle missing user data in auth context (#194)", description: "fix(auth): handle missing user data in auth context (#194)" }} description={<Subtitle variant="changelog">March 2026</Subtitle>}>
   ## fix(auth): handle missing user data in auth context (#194)
 
   <ScrollBox maxHeight="150px" showHint={false}>
@@ -530,7 +534,7 @@ Track changes to <LinkArrow label="NaaP" href="https://github.com/livepeer/naap"
   <DoubleIconLink label="View commit on GitHub" href="https://github.com/livepeer/naap/commit/ff96d3e3a00bd5bb372f34897744bc7a866adcec" iconLeft="github" />
 </Update>
 
-<Update label="fix(gateway): fix TDZ error preventing connector detail p..." tags={["Commit"]} rss={{ title: "NaaP: fix(gateway): fix TDZ error preventing connector detail p...", description: "fix(gateway): fix TDZ error preventing connector detail page from rendering (#197)" }} description={<div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>March 2026</div>}>
+<Update label="fix(gateway): fix TDZ error preventing connector detail p..." tags={["Commit"]} rss={{ title: "NaaP: fix(gateway): fix TDZ error preventing connector detail p...", description: "fix(gateway): fix TDZ error preventing connector detail page from rendering (#197)" }} description={<Subtitle variant="changelog">March 2026</Subtitle>}>
   ## fix(gateway): fix TDZ error preventing connector detail p...
 
   <ScrollBox maxHeight="150px" showHint={false}>

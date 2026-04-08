@@ -40,8 +40,8 @@ export const ExternalLinkButton = ({
         alignItems: "center",
         justifyContent: "center",
         padding: "6px",
-        background: hovered ? "var(--border)" : "transparent",
-        border: `1.5px solid ${hovered ? "var(--accent)" : "var(--hero-text)"}`,
+        background: hovered ? "var(--lp-color-border-default)" : "transparent",
+        border: `1.5px solid ${hovered ? "var(--lp-color-accent)" : "var(--lp-color-text-primary)"}`,
         borderRadius: "6px",
         cursor: "pointer",
         transition: "all 0.15s ease",
@@ -53,7 +53,7 @@ export const ExternalLinkButton = ({
       <Icon
         icon={icon}
         size={size}
-        color={hovered ? "var(--accent)" : "var(--hero-text)"}
+        color={hovered ? "var(--lp-color-accent)" : "var(--lp-color-text-primary)"}
       />
     </button>
   );
@@ -142,7 +142,7 @@ export const DownloadButton = ({
       }}
       {...rest}
     >
-      <Icon icon={icon} size={18} color="var(--accent)" />
+      <Icon icon={icon} size={18} color="var(--lp-color-accent)" />
       <button
         onClick={handleDownload}
         style={{
@@ -164,7 +164,7 @@ export const DownloadButton = ({
           icon={rightIcon}
           style={{ marginLeft: 8 }}
           size={18}
-          color="var(--accent)"
+          color="var(--lp-color-accent)"
         />
       )}
     </span>

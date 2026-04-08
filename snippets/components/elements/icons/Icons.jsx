@@ -89,7 +89,7 @@ export const ArbitrumSVG = ({ size = 24, ...props }) => {
  * @param {string} [className=""] - CSS class name.
  * @example
  * <ArbitrumIcon size={16} />
- * <ArbitrumIcon color="var(--accent)" />
+ * <ArbitrumIcon color="var(--lp-color-accent)" />
  */
 export const ArbitrumIcon = ({
   size = 16,
@@ -130,7 +130,7 @@ export const ArbitrumIcon = ({
  * @param {string} [className=""] - CSS class name.
  * @example
  * <LivepeerIcon size={16} />
- * <LivepeerIcon color="var(--accent)" />
+ * <LivepeerIcon color="var(--lp-color-accent)" />
  */
 /**
  * @component BlinkingIcon

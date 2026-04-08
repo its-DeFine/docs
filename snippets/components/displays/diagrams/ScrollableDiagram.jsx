@@ -47,22 +47,22 @@ export const ScrollableDiagram = ({
   const containerStyle = {
     overflow: 'auto',
     maxHeight,
-    border: '1px solid var(--border)',
+    border: '1px solid var(--lp-color-border-default)',
     borderRadius: '8px',
-    padding: '1rem',
-    background: 'var(--card-background)',
+    padding: "var(--lp-spacing-4)",
+    background: 'var(--lp-color-bg-card)',
     position: 'relative',
   }
 
   return (
-    <div className={className} style={{ position: 'relative', marginBottom: '1rem', ...style }} {...rest}>
+    <div className={className} style={{ position: 'relative', marginBottom: "var(--lp-spacing-4)", ...style }} {...rest}>
       {title && (
         <p
           style={{
             textAlign: 'center',
             fontStyle: 'italic',
-            color: 'var(--text)',
-            marginBottom: '0.5rem',
+            color: 'var(--lp-color-text-secondary)',
+            marginBottom: "var(--lp-spacing-2)",
             fontSize: '0.875rem',
           }}
         >
@@ -84,9 +84,9 @@ export const ScrollableDiagram = ({
             transform: scale(${zoomLevel.value});
           }
           #${diagramKey}-${zoomLevel.label.replace('%', '')}:checked ~ [data-docs-diagram-controls] label[for="${diagramKey}-${zoomLevel.label.replace('%', '')}"] {
-            background: var(--accent);
-            color: var(--button-text);
-            border-color: var(--accent);
+            background: var(--lp-color-accent);
+            color: var(--lp-color-on-accent);
+            border-color: var(--lp-color-accent);
           }`
             )
             .join('\n')}
@@ -133,15 +133,15 @@ export const ScrollableDiagram = ({
             display: 'flex',
             justifyContent: 'flex-end',
             alignItems: 'center',
-            gap: '0.5rem',
-            marginTop: '0.5rem',
+            gap: "var(--lp-spacing-2)",
+            marginTop: "var(--lp-spacing-2)",
             flexWrap: 'wrap',
           }}
         >
           <span
             style={{
-              fontSize: '0.75rem',
-              color: 'var(--muted-text)',
+              fontSize: "0.75rem",
+              color: 'var(--lp-color-text-muted)',
               marginRight: 'auto',
             }}
           >
@@ -155,12 +155,12 @@ export const ScrollableDiagram = ({
                 htmlFor={inputId}
                 style={{
                   background: 'transparent',
-                  color: 'var(--text)',
-                  border: '1px solid var(--border)',
+                  color: 'var(--lp-color-text-secondary)',
+                  border: '1px solid var(--lp-color-border-default)',
                   borderRadius: '4px',
                   padding: '4px 10px',
                   cursor: 'pointer',
-                  fontSize: '0.75rem',
+                  fontSize: "0.75rem",
                   fontWeight: '600',
                 }}
               >

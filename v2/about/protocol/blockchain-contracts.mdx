@@ -1,11 +1,12 @@
 ---
 title: Blockchain Contracts
 sidebarTitle: Blockchain Contracts
-description:
-  Architecture overview of all Livepeer protocol smart contracts on Arbitrum
-  One and Ethereum Mainnet. What each contract does, how contracts interact,
-  and how upgrades work through governance.
-Keywords:
+description: >-
+  Architecture overview of all Livepeer protocol smart contracts on Arbitrum One and Ethereum Mainnet. What each
+  contract does, how contracts interact, and how upgrades work through governance.
+lifecycleStage: discover
+complexity: intermediate
+keywords:
   - livepeer
   - livepeer protocol
   - livepeer smart contracts
@@ -25,10 +26,10 @@ Keywords:
   - ethereum contracts
   - smart contract upgrade
   - governance upgrade
-'og:title': "Livepeer Blockchain Contracts Architecture Overview"
+'og:title': Livepeer Blockchain Contracts Architecture Overview
 'og:description': >-
-  How Livepeer protocol smart contracts work on Arbitrum One and Ethereum
-  Mainnet. Staking, payments, governance, and service discovery.
+  How Livepeer protocol smart contracts work on Arbitrum One and Ethereum Mainnet. Staking, payments, governance, and
+  service discovery.
 'twitter:card': summary_large_image
 'og:image': /snippets/assets/media/og-images/en/page-blockchain-contracts.png
 'og:image:alt': Livepeer Docs social preview image for Blockchain Contracts
@@ -38,7 +39,7 @@ Keywords:
 audience: general
 pageType: concept
 purpose: concept
-lastVerified: 2026-04-03
+lastVerified: 2026-04-03T00:00:00.000Z
 ---
 
 {/*
@@ -98,8 +99,8 @@ import {
 
 <Tip>
   Addresses on this page are automatically updated via a GitHub Action workflow. <br/>
-  <span style={{display: "flex", alignItems: "center", marginTop: "0.2rem"}}> Data is recovered from live chain state, upstream source provenance, and explorer verification before it is published on the canonical contracts page. </span> <br/>
-  <span style={{color: "var(--text)", marginTop: "0.5rem"}}> Last Verified: <DataWrap value={getBlockchainLastVerifiedDate(blockchainContractsPageData)} /> </span>
+  <span className="lp-inline-flex" style={{marginTop: "0.2rem"}}> Data is recovered from live chain state, upstream source provenance, and explorer verification before it is published on the canonical contracts page. </span> <br/>
+  <span className="lp-text-muted" style={{marginTop: "0.5rem"}}> Last Verified: <DataWrap value={getBlockchainLastVerifiedDate(blockchainContractsPageData)} /> </span>
 </Tip>
 
 <Columns cols={2}>
@@ -709,7 +710,7 @@ Holds MINTER_ROLE on the L1 LivepeerToken. Called by the bridge when LPT is tran
 
 <Info>
   `BridgeMinter.sol` is an Ethereum Mainnet contract predating the Delta upgrade.
-  <span style={{display: "flex", alignItems: "center", marginTop: "0.5rem"}}> See <DoubleIconLink label="BridgeMinter.sol" href={getBlockchainCodeHref(blockchainContractsPageData, 'ethereumMainnet', 'BridgeMinter')}/> on the `streamflow` branch of `livepeer/protocol`</span>
+  <span className="lp-inline-flex" style={{marginTop: "0.5rem"}}> See <DoubleIconLink label="BridgeMinter.sol" href={getBlockchainCodeHref(blockchainContractsPageData, 'ethereumMainnet', 'BridgeMinter')}/> on the `streamflow` branch of `livepeer/protocol`</span>
 </Info>
 
 <Accordion title={<CustomCardTitle variant="accordion" icon={<Icon icon="ethereum" color="var(--hero-text)"/>} title="BridgeMinter" />}>
@@ -1096,7 +1097,7 @@ Stores Merkle roots used to verify stake snapshots taken at the time of the Conf
 
 For the complete list of all current, paused, migration-residual, legacy-operational, and historical contract addresses across Arbitrum One and Ethereum Mainnet, see the [Contract Addresses](/v2/about/resources/reference/livepeer-contract-addresses) reference page.
 
-<Icon icon="check" color="var(--text)"/> <span style={{fontStyle: "italic", color: "var(--text)"}}>Last Verified {<DataWrap value={blockchainContractsPageData.meta.lastVerified} />}</span>
+<Icon icon="check" color="var(--lp-color-text-secondary)"/> <span className="lp-text-italic-muted">Last Verified {<DataWrap value={blockchainContractsPageData.meta.lastVerified} />}</span>
 
 <Card
     href="/v2/about/resources/reference/livepeer-contract-addresses"

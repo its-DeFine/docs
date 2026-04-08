@@ -290,7 +290,7 @@ graph LR
 | check-component-docs.js | operations/scripts/validators/ | validator | Yes | |
 | check-component-immutability.js | operations/scripts/validators/ | validator | Yes | |
 | generate-component-registry.js | operations/scripts/generators/ | generator | Yes | Shared with maintenance pipeline |
-| fetch-external-docs.sh | operations/scripts/automations/ | utility | Yes | Shared with health pipelines |
+| fetch-external-docs.sh | operations/scripts/integrators/ | utility | Yes | Shared with health pipelines |
 
 **Audit findings:** None. This is a well-structured pipeline.
 

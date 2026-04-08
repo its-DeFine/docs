@@ -56,20 +56,20 @@ export const BadgeWrapper = ({
  * @param {Array} items - Array of {icon, label} objects.
  * @param {string} [iconColor] - Colour applied to all icons. Defaults to currentColor if omitted.
  * @param {number} [size=12] - Icon size in px.
- * @param {string} [gap="0.75rem"] - Gap between items.
+ * @param {string} [gap="var(--lp-spacing-3)"] - Gap between items.
  * @param {object} [style={}] - Inline style overrides for the wrapper.
  * @param {string} [className=""] - CSS class name.
  *
  * @example
  * <IconBadgeWrapper items={daydreamInfraTags} />
  * @example
- * <IconBadgeWrapper items={daydreamInfraTags} iconColor="var(--accent)" />
+ * <IconBadgeWrapper items={daydreamInfraTags} iconColor="var(--lp-color-accent)" />
  */
 export const IconBadgeWrapper = ({
   items = [],
   iconColor,
   size = 14,
-  gap = '0.75rem',
+  gap = "var(--lp-spacing-3)",
   style = {},
   className = '',
   ...rest
@@ -85,9 +85,9 @@ export const IconBadgeWrapper = ({
   const tagStyle = {
     display: 'inline-flex',
     alignItems: 'center',
-    gap: '0.25rem',
+    gap: "var(--lp-spacing-1)",
     fontSize: `${size}px`,
-    color: 'var(--hero-text)',
+    color: 'var(--lp-color-text-primary)',
   }
 
   return (

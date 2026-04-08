@@ -86,9 +86,9 @@ export const DynamicTable = ({
           <thead>
             <tr
               style={{
-                backgroundColor: "var(--accent)",
+                backgroundColor: "var(--lp-color-accent)",
                 color: "var(--lp-color-on-accent)",
-                borderBottom: "1px solid var(--border)",
+                borderBottom: "1px solid var(--lp-color-border-default)",
               }}
             >
               {headerList.map((header, index) => (
@@ -113,9 +113,9 @@ export const DynamicTable = ({
                 <tr
                   key={rowIndex}
                   style={{
-                    backgroundColor: "var(--accent)",
+                    backgroundColor: "var(--lp-color-accent)",
                     color: "var(--lp-color-on-accent)",
-                    borderBottom: "1px solid var(--accent)",
+                    borderBottom: "1px solid var(--lp-color-accent)",
                   }}
                 >
                   <td
@@ -133,7 +133,7 @@ export const DynamicTable = ({
               ) : (
                 <tr
                   key={rowIndex}
-                  style={{ borderBottom: "1px solid var(--border)" }}
+                  style={{ borderBottom: "1px solid var(--lp-color-border-default)" }}
                 >
                   {headerList.map((header, colIndex) => {
                     const value =
@@ -393,9 +393,9 @@ export const DynamicTableV2 = ({
           <thead>
             <tr
               style={{
-                backgroundColor: 'var(--accent)',
+                backgroundColor: 'var(--lp-color-accent)',
                 color: 'var(--lp-color-on-accent)',
-                borderBottom: '1px solid var(--border)',
+                borderBottom: '1px solid var(--lp-color-border-default)',
               }}
             >
               {headerList.map((header, index) => (
@@ -424,9 +424,9 @@ export const DynamicTableV2 = ({
                   <tr
                     key={rowIndex}
                     style={{
-                      backgroundColor: 'var(--accent)',
+                      backgroundColor: 'var(--lp-color-accent)',
                       color: 'var(--lp-color-on-accent)',
-                      borderBottom: '1px solid var(--accent)',
+                      borderBottom: '1px solid var(--lp-color-accent)',
                     }}
                   >
                     <td
@@ -444,7 +444,7 @@ export const DynamicTableV2 = ({
                 ) : (
                   <tr
                     key={rowIndex}
-                    style={{ borderBottom: '1px solid var(--border)' }}
+                    style={{ borderBottom: '1px solid var(--lp-color-border-default)' }}
                   >
                     {headerList.map((header, colIndex) => {
                       const value =

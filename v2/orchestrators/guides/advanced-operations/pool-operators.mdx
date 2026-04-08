@@ -2,10 +2,11 @@
 title: Pool Operators
 sidebarTitle: Pool Operators
 description: >-
-  How to operate a Livepeer GPU pool — accept external worker connections,
-  manage job routing across multiple GPUs, handle off-chain fee distribution,
-  and maintain operational transparency.
-Keywords:
+  How to operate a Livepeer GPU pool — accept external worker connections, manage job routing across multiple GPUs,
+  handle off-chain fee distribution, and maintain operational transparency.
+lifecycleStage: operate
+complexity: advanced
+keywords:
   - livepeer
   - orchestrator
   - pool
@@ -25,7 +26,7 @@ pageType: guide
 audience: orchestrator
 purpose: guide
 status: published
-lastVerified: 2026-03-13
+lastVerified: 2026-03-13T00:00:00.000Z
 ---
 {/* Draft note: keep this page focused on pool architecture, worker management, and off-chain payout responsibility; route unresolved fact checks to internal comments only. */}
 
@@ -46,7 +47,7 @@ The Livepeer protocol sees only one entity: your orchestrator. It has a single o
 In a pool, the orchestrator node accepts connections from remote transcoders (workers). When a gateway routes a job to your orchestrator, go-livepeer dispatches it to an available worker via gRPC streaming RPC. Workers process the segment and return results — the orchestrator handles all protocol-level interaction, the workers handle the compute.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#18794E', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3CB540', 'lineColor': '#3CB540', 'mainBkg': '#18794E', 'nodeBorder': '#3CB540', 'clusterBkg': 'transparent', 'clusterBorder': '#3CB540', 'titleColor': '#3CB540', 'edgeLabelBackground': 'transparent', 'textColor': '#3CB540', 'nodeTextColor': '#fff'}}}%%
 graph LR
   G["Gateway"] --> O["Orchestrator\n(on-chain, LPT staked)"]
   O --> W1["Worker 1\nGPU"]

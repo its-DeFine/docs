@@ -6,7 +6,7 @@
  * @status stable
  * @description Themed horizontal divider with optional centre text and Livepeer logo accents.
   * @aiDiscoverability none
- * @param {string} [color="var(--border)"] - color prop.
+ * @param {string} [color="var(--lp-color-border-default)"] - color prop.
  * @param {string} [middleText=""] - middle Text prop.
  * @param {string} [spacing="default"] - Named spacing preset for authored page layouts.
  * @param {object} [style={}] - style prop.
@@ -23,7 +23,7 @@
  * @aiDiscoverability none
  * @param {string} [margin="0.75rem 0"] - Margin around the divider.
  * @param {string} [padding="0"] - Padding around the divider.
- * @param {string} [color="var(--border)"] - Line colour.
+ * @param {string} [color="var(--lp-color-border-default)"] - Line colour.
  * @param {number} [opacity=0.4] - Line opacity.
  * @param {string} [height="1px"] - Line thickness.
  * @param {string} [className=''] - Optional CSS class override.
@@ -34,7 +34,7 @@
 export const InlineDivider = ({
   margin = "0.75rem 0",
   padding = "0",
-  color = "var(--border)",
+  color = "var(--lp-color-border-default)",
   opacity = 0.4,
   height = "1px",
   className = "",
@@ -58,7 +58,7 @@ export const InlineDivider = ({
 );
 
 export const CustomDivider = ({
-  color = "var(--border)",
+  color = "var(--lp-color-border-default)",
   middleText = "",
   spacing = "default",
   style = {},
@@ -114,7 +114,7 @@ export const CustomDivider = ({
         style={{
           flex: 1,
           height: "1px",
-          background: "var(--border)",
+          background: "var(--lp-color-border-default)",
           opacity: 0.4,
         }}
       ></div>
@@ -138,7 +138,7 @@ export const CustomDivider = ({
         style={{
           flex: 1,
           height: "1px",
-          background: "var(--border)",
+          background: "var(--lp-color-border-default)",
           opacity: 0.4,
         }}
       ></div>

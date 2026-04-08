@@ -52,7 +52,7 @@ const HeroSectionContainer = ({ children, minHeight = "fit-content", className =
   return (
     <div
       className={["frame-mode-hero-full", className].filter(Boolean).join(" ")}
-      style={{ minHeight: minHeight, marginBottom: "0.5rem", ...style }}
+      style={{ minHeight: minHeight, marginBottom: "var(--lp-spacing-2)", ...style }}
       {...rest}
     >
       {children}
@@ -178,7 +178,7 @@ const HeroOverviewContent = ({ children, className = "", style = {}, ...rest }) 
         width: "80%",
         margin: "0 auto",
         fontSize: "1.1rem",
-        color: "var(--page-header-description-color)",
+        color: "var(--lp-color-text-secondary)",
         ...style,
       }}
       {...rest}
@@ -217,7 +217,7 @@ const HeroOverviewContent = ({ children, className = "", style = {}, ...rest }) 
 const PortalContentContainer = ({ children, className = "", style = {}, ...rest }) => {
     return (
         <div className={["frame-mode-container", className].filter(Boolean).join(" ")} style={style} {...rest}>
-            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>   
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--lp-spacing-4)" }}>   
                 {children}
             </div>
         </div>
@@ -288,8 +288,8 @@ const PortalHeroContent = ({
       <div
         style={{
           textAlign: "center",
-          marginTop: "2rem",
-          marginBottom: "1rem",
+          marginTop: "var(--lp-spacing-8)",
+          marginBottom: "var(--lp-spacing-4)",
         }}
       >
         <H1 align="center"
@@ -303,13 +303,13 @@ const PortalHeroContent = ({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: "0.5rem",
+              gap: "var(--lp-spacing-2)",
             }}
           >
             {subtitleIcon && (
               <span
                 style={{
-                  marginRight: "0.5rem",
+                  marginRight: "var(--lp-spacing-2)",
                 }}
               >
                 <Icon icon={subtitleIcon} size={20} />
@@ -320,7 +320,7 @@ const PortalHeroContent = ({
                 fontSize: "1.5rem",
                 fontWeight: "500",
                 opacity: 1,
-                color: subtitleColor || "var(--accent)",
+                color: subtitleColor || "var(--lp-color-accent)",
               }}
             >
               {subtitle} {/* flipped icon */}
@@ -329,7 +329,7 @@ const PortalHeroContent = ({
                   style={{
                     display: "inline-block",
                     transform: "scaleX(-1)",
-                    marginLeft: "0.5rem",
+                    marginLeft: "var(--lp-spacing-2)",
                   }}
                 >
                   <Icon icon={subtitleIcon} size={20} />
@@ -349,7 +349,7 @@ const PortalHeroContent = ({
               width: "80%",
               margin: "0 auto",
               fontSize: "1.1rem",
-              color: "var(--text)",
+              color: "var(--lp-color-text-secondary)",
               paddingTop: "3rem",
             }}
           >
@@ -364,13 +364,13 @@ const PortalHeroContent = ({
               justifyContent: "center",
               width: "fit-content",
               margin: "0 auto",
-              marginTop: "1rem",
+              marginTop: "var(--lp-spacing-4)",
             }}
            >
             {refCardLink}
           </div>
               )}
-         <div style={{ width: "80%", margin: "0 auto", paddingBottom: "1rem" }}>
+         <div style={{ width: "80%", margin: "0 auto", paddingBottom: "var(--lp-spacing-4)" }}>
           {callout && callout}
           {divider ? <CustomDivider /> : null }
           {/* <CustomDivider /> */}
@@ -386,13 +386,13 @@ const PortalHeroContent = ({
               width: "80%",
               margin: "0 auto",
               fontSize: "1.1rem",
-              color: "var(--text)",
+              color: "var(--lp-color-text-secondary)",
             }}
           >
             {overview}
           </div>
               )}
-        <div style={{ width: "80%", margin: "0 auto", paddingTop: "1.5rem", paddingBottom: "0.1rem" }}>
+        <div style={{ width: "80%", margin: "0 auto", paddingTop: "var(--lp-spacing-6)", paddingBottom: "0.1rem" }}>
           {children ? <>{children}<CustomDivider /></> :  <CustomDivider />}
         </div>
         </div>
@@ -420,7 +420,7 @@ const PortalCardsHeader = ({ children, title, className = "", style = {}, ...res
             {title}
         </H2>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.1rem" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "var(--lp-spacing-2)", marginBottom: "0.1rem" }}>
                 <span style={{ lineHeight: "1", color: "var(--text-primary)", opacity: 1, fontStyle: "italic", fontSize: "1.2rem" }}>
                     Choose Your Mission:
                 </span>
@@ -531,10 +531,10 @@ const LogoHeroContainer = ({
             top: "100%",
             right: "0",
             fontSize: "2rem",
-            color: "var(--accent)",
+            color: "var(--lp-color-accent)",
             fontWeight: "500",
             lineHeight: "1",
-            paddingTop:"0.5rem"
+            paddingTop:"var(--lp-spacing-2)"
           }}>
             {children}
           </div>
@@ -564,7 +564,7 @@ const RefCardContainer = ({ children, className = "", style = {}, ...rest }) => 
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        gap: "1rem",
+        gap: "var(--lp-spacing-4)",
         ...style,
       }}
       {...rest}

@@ -60,7 +60,7 @@ export const TitledVideo = ({
             right: "0",
             bottom: "0",
             display: "flex",
-            paddingTop: "0.5rem",
+            paddingTop: "var(--lp-spacing-2)",
             alignItems: "flex-start",
             justifyContent: "center",
             zIndex: "10",
@@ -93,8 +93,8 @@ export const TitledVideo = ({
             right: "0",
             bottom: "0",
             display: "flex",
-            paddingTop: "0.5rem",
-            paddingRight: "0.5rem",
+            paddingTop: "var(--lp-spacing-2)",
+            paddingRight: "var(--lp-spacing-2)",
             alignItems: "flex-start",
             justifyContent: "right",
             zIndex: "10",
@@ -204,14 +204,14 @@ export const Video = ({
                   display: "flex",
                   width: "100%",
                   height: "fit-content",
-                  gap: "0.5rem",
+                  gap: "var(--lp-spacing-2)",
                 }}
               >
                 <a href={href} target="_blank" rel="noopener noreferrer">
                   <Icon icon="microphone" size={16} />
                   <span
                     style={{
-                      borderBottom: "2px solid var(--accent)",
+                      borderBottom: "2px solid var(--lp-color-accent)",
                       marginLeft: "0.2rem",
                     }}
                   >
@@ -221,7 +221,7 @@ export const Video = ({
                     <Icon
                       icon="arrow-up-right"
                       size={12}
-                      color="var(--accent)"
+                      color="var(--lp-color-accent)"
                     />
                   </span>
                 </a>
@@ -234,7 +234,7 @@ export const Video = ({
           {author && title ? ` • ${title}` : title}
         </span>
         {caption && (
-          <span style={{ marginTop: "0.5rem", fontStyle: "italic" }}>
+          <span style={{ marginTop: "var(--lp-spacing-2)", fontStyle: "italic" }}>
             {caption}
           </span>
         )}
@@ -257,15 +257,15 @@ export const Video = ({
           onMouseLeave={() => setLinkHovered(false)}
           style={{
             position: "absolute",
-            top: "0.5rem",
-            right: "0.75rem",
+            top: "var(--lp-spacing-2)",
+            right: "var(--lp-spacing-3)",
             zIndex: "2",
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
             padding: "6px",
-            background: linkHovered ? "var(--border)" : "transparent",
-            border: `1.5px solid ${linkHovered ? "var(--accent)" : "var(--hero-text)"}`,
+            background: linkHovered ? "var(--lp-color-border-default)" : "transparent",
+            border: `1.5px solid ${linkHovered ? "var(--lp-color-accent)" : "var(--lp-color-text-primary)"}`,
             borderRadius: "6px",
             textDecoration: "none",
             lineHeight: 0,
@@ -273,7 +273,7 @@ export const Video = ({
             transition: "all 0.15s ease",
           }}
         >
-          <Icon icon="arrow-up-right" size={14} color={linkHovered ? "var(--accent)" : "var(--hero-text)"} />
+          <Icon icon="arrow-up-right" size={14} color={linkHovered ? "var(--lp-color-accent)" : "var(--lp-color-text-primary)"} />
         </a>
       )}
       <Frame className={className} style={style} {...(captionContent ? { caption: captionContent } : {})} {...rest}>

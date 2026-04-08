@@ -29,7 +29,7 @@ const {
   buildProvenanceComment,
   injectOrReplaceProvenanceComment,
   parseProvenanceComment
-} = require('../../../automations/content/language-translation/lib/provenance');
+} = require('../../../integrators/content/language-translation/lib/provenance');
 
 const REPO_ROOT = process.cwd();
 const REGISTRY_PATH = path.join(REPO_ROOT, 'docs-guide', 'config', 'component-registry.json');

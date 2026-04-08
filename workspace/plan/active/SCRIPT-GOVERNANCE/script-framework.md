@@ -1213,7 +1213,7 @@ main();
  * @mode        write
  * @pipeline    {trigger} → {inputs} → {outputs}
  * @scope       {file-scope}
- * @usage       node operations/scripts/automations/{concern}/{niche}/{script-name}.js [flags]
+ * @usage       node operations/scripts/integrators/{concern}/{niche}/{script-name}.js [flags]
  * @policy      {requirement-ids}
  */
 

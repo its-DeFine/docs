@@ -28,26 +28,26 @@ export const ExternalContent = ({
     <div
       className={className}
       style={{
-        border: "1px solid var(--accent)",
+        border: "1px solid var(--lp-color-accent)",
           borderRadius: "8px",
           overflow: "hidden",
-          marginTop: "1rem",
+          marginTop: "var(--lp-spacing-4)",
           ...style,
         }}
       {...rest}
       >
         <div
           style={{
-            backgroundColor: "var(--card-background)",
+            backgroundColor: "var(--lp-color-bg-card)",
             padding: "0.75rem 1rem",
-            borderBottom: "1px solid var(--accent)",
+            borderBottom: "1px solid var(--lp-color-accent)",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
           }}
         >
           <span
-            style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+            style={{ display: "flex", alignItems: "center", gap: "var(--lp-spacing-2)" }}
           >
             <Icon icon={icon} size={16} />
             <strong>{repoName}</strong>
@@ -56,11 +56,11 @@ export const ExternalContent = ({
             href={githubUrl}
             target="_blank" rel="noopener noreferrer"
             style={{
-              color: "var(--accent)",
+              color: "var(--lp-color-accent)",
               fontSize: "0.875rem",
               display: "flex",
               alignItems: "center",
-              gap: "0.25rem",
+              gap: "var(--lp-spacing-1)",
             }}
           >
             View on GitHub <Icon icon="arrow-up-right-from-square" size={12} />

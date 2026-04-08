@@ -39,8 +39,8 @@ export const YouTubeVideoData = ({ items = [], limit, cols = 2, className = "", 
         const needsSpacer = idx > 0 && idx % cols === 0;
         return (
           <>
-            {needsSpacer && <div key={`spacer-${idx}`} style={{ height: "1.5rem", width: "100%" }} />}
-            {needsSpacer && <div key={`spacer2-${idx}`} style={{ height: "1.5rem", width: "100%" }} />}
+            {needsSpacer && <div key={`spacer-${idx}`} style={{ height: "var(--lp-spacing-6)", width: "100%" }} />}
+            {needsSpacer && <div key={`spacer2-${idx}`} style={{ height: "var(--lp-spacing-6)", width: "100%" }} />}
             <YouTubeVideo
               key={item.href || idx}
               embedUrl={getEmbedUrl(item.href)}

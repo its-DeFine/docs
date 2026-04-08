@@ -14,7 +14,7 @@
  * @example
  * <SolutionItem
  *   link={<LinkArrow href="https://daydream.live" label="Daydream" />}
- *   iconWrapper={<IconBadgeWrapper items={daydreamInfra} iconColor="var(--accent)" size={12} />}
+ *   iconWrapper={<IconBadgeWrapper items={daydreamInfra} iconColor="var(--lp-color-accent)" size={12} />}
  *   description="Real-time AI video, world models"
  *   divider={true}
  * />
@@ -29,23 +29,23 @@ export const SolutionItem = ({
   ...rest
 }) => {
   const containerStyle = {
-    paddingBottom: divider ? '0.75rem' : '0.25rem',
+    paddingBottom: divider ? "var(--lp-spacing-3)" : "var(--lp-spacing-1)",
     ...style,
   }
   const spanStyle = {
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'center',
-    gap: '0.5rem',
+    gap: "var(--lp-spacing-2)",
   }
   const descriptionStyle = {
     fontSize: '0.9rem',
     color: 'var(--text-secondary)',
-    marginTop: '0.25rem',
+    marginTop: "var(--lp-spacing-1)",
   }
   const dividerStyle = {
-    marginTop: '0.75rem',
-    borderBottom: '1px solid var(--border)',
+    marginTop: "var(--lp-spacing-3)",
+    borderBottom: '1px solid var(--lp-color-border-default)',
   }
 
   return (

@@ -7,7 +7,7 @@
   * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {string} [variant="default"] - variant prop.
- * @param {string} [padding="1rem"] - padding prop.
+ * @param {string} [padding="var(--lp-spacing-4)"] - padding prop.
  * @param {string} [borderRadius="8px"] - border Radius prop.
  * @param {string} [accentBar=""] - Optional accent border token applied to the left edge.
  * @param {object} [style={}] - style prop.
@@ -16,7 +16,7 @@
 export const BorderedBox = ({
   children,
   variant = "default",
-  padding = "1rem",
+  padding = "var(--lp-spacing-4)",
   borderRadius = "8px",
   accentBar = "",
   style = {},
@@ -25,20 +25,20 @@ export const BorderedBox = ({
 }) => {
   const variants = {
     default: {
-      border: "1px solid var(--border)",
-      backgroundColor: "var(--card-background)",
+      border: "1px solid var(--lp-color-border-default)",
+      backgroundColor: "var(--lp-color-bg-card)",
     },
     accent: {
-      border: "1px solid var(--accent)",
-      backgroundColor: "var(--card-background)",
+      border: "1px solid var(--lp-color-accent)",
+      backgroundColor: "var(--lp-color-bg-card)",
     },
     muted: {
-      border: "1px solid var(--border)",
+      border: "1px solid var(--lp-color-border-default)",
       backgroundColor: "transparent",
     },
   };
   const accentBarColors = {
-    accent: "var(--accent)",
+    accent: "var(--lp-color-accent)",
     positive: "var(--green-9)",
   };
 

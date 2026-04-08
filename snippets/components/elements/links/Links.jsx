@@ -1,8 +1,149 @@
 import { CopyText } from '/snippets/components/elements/text/Text.jsx'
 
+<<<<<<< HEAD
 // Re-exports for consumers that import these from Links.jsx
 export { BlinkingIcon } from '/snippets/components/elements/icons/Icons.jsx';
 export { CustomCallout, TipWithArrow } from '/snippets/components/elements/callouts/Callouts.jsx';
+=======
+/**
+ * @component CustomCallout
+ * @category elements
+ * @subcategory links
+ * @status stable
+ * @description Styled callout box with icon, custom colour, and child content.
+ * @aiDiscoverability none
+ * @param {React.ReactNode} children - Content to display in the callout
+ * @param {string} [icon="lightbulb"] - Icon name to display
+ * @param {string} color - Primary color for icon, border, and background (defaults to theme accent)
+ * @param {number} [iconSize=16] - Size of the icon in pixels
+ * @param {string} [textSize="0.875rem"] - Font size for the text content
+ * @param {string} textColor - Text color (defaults to match icon color)
+ * @example
+ * <CustomCallout color="example" textColor="example">Example content</CustomCallout>
+ * @param {string} [className=''] - Optional CSS class override.
+ * @param {object} [style={}] - Optional inline style override.
+ */
+const CustomCallout = ({
+  children,
+  icon = 'lightbulb',
+  color,
+  iconSize = 16,
+  textSize = '0.875rem',
+  textColor,
+  className = '',
+  style = {},
+  ...rest
+}) => {
+  // Use theme accent if no color specified
+  const resolvedColor = color || 'var(--lp-color-accent)'
+  const resolvedTextColor = textColor || resolvedColor
+
+  // Convert hex to rgba for proper opacity
+  const hexToRgba = (hex, alpha) => {
+    const r = parseInt(hex.slice(1, 3), 16)
+    const g = parseInt(hex.slice(3, 5), 16)
+    const b = parseInt(hex.slice(5, 7), 16)
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`
+  }
+
+  return (
+    <div
+      className={className}
+      style={{
+        display: 'flex',
+        alignItems: 'flex-start',
+        gap: '12px',
+        padding: '16px 20px',
+        borderRadius: '16px',
+        border: `1px solid ${hexToRgba(resolvedColor, 0.2)}`,
+        backgroundColor: hexToRgba(resolvedColor, 0.1),
+        marginTop: '16px',
+        marginBottom: '16px',
+        overflow: 'hidden',
+        ...style,
+      }}
+      {...rest}
+    >
+      <div style={{ marginTop: '2px', width: iconSize, flexShrink: 0 }}>
+        <Icon icon={icon} size={iconSize} color={resolvedColor} />
+      </div>
+      <div
+        style={{
+          fontSize: textSize,
+          color: resolvedTextColor,
+          minWidth: 0,
+          width: '100%',
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  )
+}
+
+/**
+ * @component BlinkingIcon
+ * @category elements
+ * @subcategory links
+ * @status stable
+ * @description Animated icon with pulsing opacity. Respects prefers-reduced-motion.
+ * @aiDiscoverability none
+ * @param {string} [icon="terminal"] - Icon name to display
+ * @param {number} [size=16] - Size of the icon in pixels
+ * @param {string} color - Color of the icon (defaults to theme accent)
+ * @example
+ * <BlinkingIcon color="example" />
+ * @param {string} [className=''] - Optional CSS class override.
+ * @param {object} [style={}] - Optional inline style override.
+ */
+const BlinkingIcon = ({
+  icon = 'terminal',
+  size = 16,
+  color,
+  className = '',
+  style = {},
+  ...rest
+}) => {
+  const resolvedColor = color || 'var(--lp-color-accent)'
+  return (
+    <span
+      className={className}
+      style={{ display: 'inline-flex', ...style }}
+      {...rest}
+    >
+      <style>{`
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.3; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          * { animation: none !important; }
+        }
+      `}</style>
+      <span
+        style={{
+          display: 'inline-flex',
+          animation: 'blink 3s ease-in-out infinite',
+        }}
+      >
+        <Icon icon={icon} size={size} color={resolvedColor} />
+      </span>
+    </span>
+  )
+}
+
+/**
+ * @component BlinkingTerminal
+ * @category elements
+ * @subcategory links
+ * @status stable
+ * @description Preset blinking terminal icon (alias for BlinkingIcon with terminal defaults).
+ * @aiDiscoverability none
+ * @example
+ * <BlinkingTerminal />
+ */
+const BlinkingTerminal = BlinkingIcon
+>>>>>>> docs-v2-dev
 
 /**
  * @component DoubleIconLink
@@ -29,7 +170,7 @@ const DoubleIconLink = ({
   iconLeft = 'github',
   iconLeftColor,
   iconRight = 'arrow-up-right',
-  iconRightColor = 'var(--accent)',
+  iconRightColor = 'var(--lp-color-accent)',
   className = '',
   style = {},
   ...rest
@@ -41,7 +182,7 @@ const DoubleIconLink = ({
         whiteSpace: 'nowrap',
         display: 'inline-flex',
         alignItems: 'center',
-        gap: '0.25rem',
+        gap: "var(--lp-spacing-1)",
         marginLeft: '0.3rem',
         ...style,
       }}
@@ -144,6 +285,96 @@ const GotoCard = ({
 }
 
 /**
+<<<<<<< HEAD
+=======
+ * @component TipWithArrow
+ * @category elements
+ * @subcategory links
+ * @status stable
+ * @description Callout box with tip icon and corner arrow indicator.
+ * @aiDiscoverability none
+ * @param {React.ReactNode} children - Content to display in the tip
+ * @param {string} [icon="lightbulb"] - Main icon to display on the left
+ * @param {string} [arrowIcon="arrow-up-right"] - Arrow icon to display in top-right
+ * @param {string} color - Primary color for icons, border, and background (defaults to theme accent)
+ * @param {number} [iconSize=16] - Size of the main icon in pixels
+ * @param {number} [arrowSize=16] - Size of the arrow icon in pixels
+ * @example
+ * <TipWithArrow color="example">Example content</TipWithArrow>
+ * @param {string} [className=''] - Optional CSS class override.
+ * @param {object} [style={}] - Optional inline style override.
+ */
+const TipWithArrow = ({
+  children,
+  icon = 'lightbulb',
+  arrowIcon = 'arrow-up-right',
+  color,
+  iconSize = 16,
+  arrowSize = 16,
+  className = '',
+  style = {},
+  ...rest
+}) => {
+  // Use theme accent if no color specified
+  const resolvedColor = color || 'var(--lp-color-accent)'
+
+  // Convert hex to rgba for proper opacity
+  const hexToRgba = (hex, alpha) => {
+    const r = parseInt(hex.slice(1, 3), 16)
+    const g = parseInt(hex.slice(3, 5), 16)
+    const b = parseInt(hex.slice(5, 7), 16)
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`
+  }
+
+  return (
+    <div
+      className={className}
+      style={{
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'flex-start',
+        gap: '12px',
+        padding: '16px 20px',
+        paddingRight: '48px', // Extra space for the arrow
+        borderRadius: '16px',
+        border: `1px solid ${hexToRgba(resolvedColor, 0.2)}`,
+        backgroundColor: hexToRgba(resolvedColor, 0.1),
+        marginTop: '16px',
+        marginBottom: '16px',
+        overflow: 'hidden',
+        ...style,
+      }}
+      {...rest}
+    >
+      <div style={{ marginTop: '2px', width: iconSize, flexShrink: 0 }}>
+        <Icon icon={icon} size={iconSize} color={resolvedColor} />
+      </div>
+      <div
+        style={{
+          fontSize: '0.875rem',
+          color: resolvedColor,
+          minWidth: 0,
+          width: '100%',
+        }}
+      >
+        {children}
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          top: '16px',
+          right: '16px',
+          opacity: 0.6,
+        }}
+      >
+        <Icon icon={arrowIcon} size={arrowSize} color={resolvedColor} />
+      </div>
+    </div>
+  )
+}
+
+/**
+>>>>>>> docs-v2-dev
  * @component LinkArrow
  * @category elements
  * @subcategory links
@@ -174,7 +405,7 @@ const LinkArrow = ({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '0.25rem',
+    gap: "var(--lp-spacing-1)",
     width: 'fit-content',
     ...(borderColor && { borderColor }),
   }
@@ -185,10 +416,10 @@ const LinkArrow = ({
         <a href={href} target="_blank" rel="noopener noreferrer">
           {label}
         </a>
-        <Icon icon="arrow-up-right" size={14} color="var(--accent)" />
+        <Icon icon="arrow-up-right" size={14} color="var(--lp-color-accent)" />
       </span>
       {description && description}
-      {description && <div style={{ height: '0.75rem' }} />}
+      {description && <div style={{ height: "var(--lp-spacing-3)" }} />}
     </span>
   )
 }
@@ -258,9 +489,9 @@ const AddressLinks = ({
   return (
     <span className={className} style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', ...style }} {...rest}>
       <CopyText text={address} />
-      <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.2rem' }}>
-        {blockchainHref && <LinkIcon color="var(--text)" href={blockchainHref} />}
-        {githubHref && <LinkIcon icon="github" size={14} color="var(--text)" href={githubHref} />}
+      <span style={{ display: 'flex', alignItems: 'center', gap: "var(--lp-spacing-2)", marginBottom: '0.2rem' }}>
+        {blockchainHref && <LinkIcon color="var(--lp-color-text-secondary)" href={blockchainHref} />}
+        {githubHref && <LinkIcon icon="github" size={14} color="var(--lp-color-text-secondary)" href={githubHref} />}
       </span>
     </span>
   )

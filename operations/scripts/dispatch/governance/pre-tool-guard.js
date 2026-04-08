@@ -25,12 +25,18 @@ stdin.on('end', () => {
     const toolInput = data.tool_input || {};
 
     // --- AGENT: block execution agents, allow research/audit/read-only ---
+    // "write" and "create" are allowed when the agent has audit intent and
+    // targets review/report output (e.g. _workspace/reviews/). Only hard-block
+    // keywords that indicate source-code modification.
     if (toolName === 'Agent') {
       const prompt = (toolInput.prompt || '').toLowerCase();
       const subtype = (toolInput.subagent_type || '').toLowerCase();
+      const hasAuditIntent = /\b(research|audit|investigate|analyse|analyze|scan|find|search|check|review|read|plan)\b/.test(prompt);
+      const hasSourceModifyIntent = /\b(edit|fix|implement|refactor|move|rename|delete)\b/.test(prompt);
+      const writesAuditOutput = /(_workspace\/reviews|write.*review|write.*report|write.*summary|write.*audit)/i.test(prompt);
       const isReadOnly = subtype === 'explore' || subtype === 'plan' ||
-        /\b(research|audit|investigate|analyse|analyze|scan|find|search|check|review|read|plan)\b/.test(prompt) &&
-        !/\b(edit|write|create|build|fix|implement|refactor|move|rename|delete)\b/.test(prompt);
+        (hasAuditIntent && !hasSourceModifyIntent) ||
+        (hasAuditIntent && writesAuditOutput);
 
       if (!isReadOnly) {
         console.log(JSON.stringify({
