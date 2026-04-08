@@ -21,25 +21,48 @@ const { execSync } = require('child_process');
 const WRITE = process.argv.includes('--write');
 const REPO = process.cwd();
 
-// Map from path segments to taxonomy values
+// Map from directory names to canonical type values
 const TYPE_MAP = {
   audits: 'audit',
   generators: 'generator',
   validators: 'validator',
   remediators: 'remediator',
   dispatch: 'dispatch',
-  automations: 'automation',
+  integrators: 'integrator',
+  interfaces: 'interface',
 };
 
-const CONCERN_LIST = ['content', 'components', 'governance', 'ai'];
+// Legacy type mapping (from script-governance-config.js)
+const LEGACY_TYPE_MAP = {
+  automation: 'integrator',
+  orchestrator: 'dispatch',
+  enforcer: 'validator',
+};
+
+// Legacy concern mapping (from script-governance-config.js)
+const LEGACY_CONCERN_MAP = {
+  components: 'maintenance',
+  ai: 'discoverability',
+  governance: 'governance',
+  // content: null — requires manual mapping (copy/health/maintenance/discoverability)
+};
+
+// Canonical concern list (7-concern taxonomy)
+const VALID_CONCERNS = ['copy', 'health', 'maintenance', 'discoverability', 'governance', 'brand', 'integrations'];
+
+// Accept legacy concerns for directory matching but map them to canonical values
+const CONCERN_LIST = [...VALID_CONCERNS, 'content', 'components', 'ai'];
 
 const MODE_HEURISTICS = {
-  audit: 'read-only',
-  validator: 'read-only',
+  audit: 'scan',
+  validator: 'check',
   generator: 'generate',
-  remediator: 'edit',
-  dispatch: 'execute',
-  automation: 'execute',
+  remediator: 'repair',
+  dispatch: 'dispatch',
+  integrator: 'integrate',
+  interface: 'interface',
+  utility: 'integrate',
+  config: 'integrate',
 };
 
 // Discover all scripts
@@ -50,7 +73,8 @@ function findScripts() {
     'operations/scripts/validators',
     'operations/scripts/remediators',
     'operations/scripts/dispatch',
-    'operations/scripts/automations',
+    'operations/scripts/integrators',
+    'operations/scripts/interfaces',
     'operations/scripts/config',
     '.githooks',
     'tools/dev',
@@ -83,19 +107,28 @@ function getTaxonomy(filePath) {
     return { type: 'dispatch', concern: 'governance', niche: 'hooks', location: 'hooks' };
   }
   if (parts[0] === 'tools' && parts[1] === 'dev') {
-    return { type: 'automation', concern: 'governance', niche: 'dev-tools', location: 'dev' };
+    return { type: 'utility', concern: 'governance', niche: 'dev-tools', location: 'dev' };
   }
   if (parts[0] === 'tools' && parts[1] === 'scripts' && parts[2] === 'config') {
     return { type: 'generator', concern: 'governance', niche: 'config', location: 'config' };
   }
 
   // operations/scripts/<type>/<concern>/[<niche>/]script.js
-  if (parts[0] === 'tools' && parts[1] === 'scripts') {
+  if (parts[0] === 'operations' && parts[1] === 'scripts') {
     const typeDir = parts[2];
-    const type = TYPE_MAP[typeDir] || typeDir;
-    const concern = CONCERN_LIST.includes(parts[3]) ? parts[3] : '';
+    let type = TYPE_MAP[typeDir] || typeDir;
+    // Apply legacy type mapping
+    if (LEGACY_TYPE_MAP[type]) type = LEGACY_TYPE_MAP[type];
+
+    let concern = CONCERN_LIST.includes(parts[3]) ? parts[3] : '';
+    // Apply legacy concern mapping (components → maintenance, ai → discoverability)
+    if (concern && LEGACY_CONCERN_MAP[concern] !== undefined) {
+      const mapped = LEGACY_CONCERN_MAP[concern];
+      if (mapped) concern = mapped;
+      // If null (content), leave as-is — requires manual classification
+    }
+
     // Niche is the folder after concern, or empty
-    const fileName = parts[parts.length - 1];
     const nicheIndex = concern ? 4 : 3;
     const niche = parts.length > nicheIndex + 1 ? parts[nicheIndex] : '';
     return { type, concern, niche, location: 'scripts' };

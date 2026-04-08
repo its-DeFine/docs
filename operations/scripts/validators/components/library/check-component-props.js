@@ -297,49 +297,55 @@ function checkCustomDividerPlacement(content, filePath, issues) {
   const cleaned = stripCodeBlocks(stripJsxComments(content));
   const lines = cleaned.split('\n');
 
+  // Track frontmatter boundaries (two --- markers)
+  let fmDashCount = 0;
   let pastFrontmatter = false;
-  let pastImports = false;
   let foundFirstDivider = false;
   let firstH2Line = -1;
-  let lastDividerBeforeH2 = -1;
   let hasRelatedPages = false;
   let relatedPagesLine = -1;
   let lastDividerLine = -1;
 
   for (let i = 0; i < lines.length; i += 1) {
     const trimmed = lines[i].trim();
-    if (trimmed === '---' && !pastFrontmatter) { pastFrontmatter = true; continue; }
-    if (trimmed === '---' && pastFrontmatter && i < 5) continue;
-    if (/^import\b/.test(trimmed) || /^"import\b/.test(trimmed)) { pastImports = true; continue; }
+
+    // Track frontmatter: first --- opens, second --- closes
+    if (trimmed === '---' && fmDashCount < 2) {
+      fmDashCount += 1;
+      if (fmDashCount === 2) pastFrontmatter = true;
+      continue;
+    }
+
+    // Skip lines inside frontmatter
+    if (!pastFrontmatter) continue;
+
+    // Skip import lines and empty lines
+    if (/^import\b/.test(trimmed) || /^"import\b/.test(trimmed)) continue;
     if (!trimmed) continue;
 
-    if (pastImports || pastFrontmatter) {
-      if (!foundFirstDivider && /^<CustomDivider/.test(trimmed)) {
+    // First non-empty, non-import line after frontmatter/imports
+    if (!foundFirstDivider) {
+      if (/^<CustomDivider/.test(trimmed)) {
         foundFirstDivider = true;
         lastDividerLine = i + 1;
         continue;
       }
-      if (!foundFirstDivider && trimmed && !/^import\b/.test(trimmed) && !/^"import\b/.test(trimmed) && trimmed !== '---') {
-        addIssue(issues, {
-          id: 'prop-divider-missing-opening', check: '5.26',
-          title: 'Missing opening CustomDivider',
-          severity: 'high', path: filePath, line: i + 1,
-          evidence: `First content element is not <CustomDivider>. Found: ${trimmed.slice(0, 50)}`,
-          recommendation: 'Add <CustomDivider /> as the first visual element after imports.'
-        });
-        foundFirstDivider = true;
-      }
+      // First content element is not a CustomDivider
+      addIssue(issues, {
+        id: 'prop-divider-missing-opening', check: '5.26',
+        title: 'Missing opening CustomDivider',
+        severity: 'high', path: filePath, line: i + 1,
+        evidence: `First content element is not <CustomDivider>. Found: ${trimmed.slice(0, 50)}`,
+        recommendation: 'Add <CustomDivider /> as the first visual element after imports.'
+      });
+      foundFirstDivider = true;
     }
 
     if (/^## /.test(trimmed) && firstH2Line === -1) {
       firstH2Line = i + 1;
-      if (lastDividerBeforeH2 > 0 && lastDividerBeforeH2 !== lastDividerLine) {
-        // Additional divider between intro and first H2
-      }
     }
 
     if (/^<CustomDivider/.test(trimmed)) {
-      if (firstH2Line === -1) lastDividerBeforeH2 = i + 1;
       lastDividerLine = i + 1;
     }
 
