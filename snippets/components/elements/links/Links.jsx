@@ -1,134 +1,14 @@
 import { CopyText } from '/snippets/components/elements/text/Text.jsx'
+import { BlinkingIcon as BaseBlinkingIcon } from '/snippets/components/elements/icons/Icons.jsx'
+import {
+  CustomCallout as BaseCustomCallout,
+  TipWithArrow as BaseTipWithArrow,
+} from '/snippets/components/elements/callouts/Callouts.jsx'
 
-// Re-exports for consumers that import these from Links.jsx
-export { BlinkingIcon } from '/snippets/components/elements/icons/Icons.jsx';
-export { CustomCallout, TipWithArrow } from '/snippets/components/elements/callouts/Callouts.jsx';
-
-/*
-const CustomCallout = ({
-  children,
-  icon = 'lightbulb',
-  color,
-  iconSize = 16,
-  textSize = '0.875rem',
-  textColor,
-  className = '',
-  style = {},
-  ...rest
-}) => {
-  // Use theme accent if no color specified
-  const resolvedColor = color || 'var(--lp-color-accent)'
-  const resolvedTextColor = textColor || resolvedColor
-
-  // Convert hex to rgba for proper opacity
-  const hexToRgba = (hex, alpha) => {
-    const r = parseInt(hex.slice(1, 3), 16)
-    const g = parseInt(hex.slice(3, 5), 16)
-    const b = parseInt(hex.slice(5, 7), 16)
-    return `rgba(${r}, ${g}, ${b}, ${alpha})`
-  }
-
-  return (
-    <div
-      className={className}
-      style={{
-        display: 'flex',
-        alignItems: 'flex-start',
-        gap: "var(--lp-spacing-px-12)",
-        padding: '16px 20px',
-        borderRadius: '16px',
-        border: `1px solid ${hexToRgba(resolvedColor, 0.2)}`,
-        backgroundColor: hexToRgba(resolvedColor, 0.1),
-        marginTop: '16px',
-        marginBottom: '16px',
-        overflow: 'hidden',
-        ...style,
-      }}
-      {...rest}
-    >
-      <div style={{ marginTop: '2px', width: iconSize, flexShrink: 0 }}>
-        <Icon icon={icon} size={iconSize} color={resolvedColor} />
-      </div>
-      <div
-        style={{
-          fontSize: textSize,
-          color: resolvedTextColor,
-          minWidth: 0,
-          width: '100%',
-        }}
-      >
-        {children}
-      </div>
-    </div>
-  )
-}
-
-/**
- * @component BlinkingIcon
- * @category elements
- * @subcategory links
- * @status stable
- * @description Animated icon with pulsing opacity. Respects prefers-reduced-motion.
- * @aiDiscoverability none
- * @param {string} [icon="terminal"] - Icon name to display
- * @param {number} [size=16] - Size of the icon in pixels
- * @param {string} color - Color of the icon (defaults to theme accent)
- * @example
- * <BlinkingIcon color="example" />
- * @param {string} [className=''] - Optional CSS class override.
- * @param {object} [style={}] - Optional inline style override.
- */
-const BlinkingIcon = ({
-  icon = 'terminal',
-  size = 16,
-  color,
-  className = '',
-  style = {},
-  ...rest
-}) => {
-  const resolvedColor = color || 'var(--lp-color-accent)'
-  return (
-    <span
-      className={className}
-      style={{ display: 'inline-flex', ...style }}
-      {...rest}
-    >
-      <style>{`
-        @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.3; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          * { animation: none !important; }
-        }
-      `}</style>
-      <span
-        style={{
-          display: 'inline-flex',
-          animation: 'blink 3s ease-in-out infinite',
-        }}
-      >
-        <Icon icon={icon} size={size} color={resolvedColor} />
-      </span>
-    </span>
-  )
-}
-
-/**
- * @component BlinkingTerminal
- * @category elements
- * @subcategory links
- * @status stable
- * @description Preset blinking terminal icon (alias for BlinkingIcon with terminal defaults).
- * @aiDiscoverability none
- * @example
- * <BlinkingTerminal />
- */
-const BlinkingTerminal = BlinkingIcon
-=======
-// Re-exports for consumers that import these from Links.jsx
-export { BlinkingIcon } from '/snippets/components/elements/icons/Icons.jsx';
-export { CustomCallout, TipWithArrow } from '/snippets/components/elements/callouts/Callouts.jsx';
+// Mint's snippet resolver handles local exports more reliably than re-export-only modules.
+export const BlinkingIcon = BaseBlinkingIcon
+export const CustomCallout = BaseCustomCallout
+export const TipWithArrow = BaseTipWithArrow
 
 /**
  * @component DoubleIconLink
@@ -528,4 +408,3 @@ export {
   AddressLinks,
   SocialLinks,
 }
-

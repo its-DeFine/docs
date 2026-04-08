@@ -21,7 +21,12 @@ export const LinuxOffChainTab = ({
     <GatewayOffChainWarning />
     <Steps titleSize="h3">
       <Step title="Install Gateway Software">
-        <Subtitle style={{fontSize: '1.0rem'}}> *Latest* <a href={latestReleasePageUrl}>go-livepeer</a> *version:* <Badge color="green"><span>{latestVersion}</Subtitle></Badge> </span>
+        <Subtitle style={{ fontSize: '1.0rem' }}>
+          <span>
+            Latest <a href={latestReleasePageUrl}>go-livepeer</a>
+            version:<Badge color="green">{latestVersion} </Badge>
+          </span>
+        </Subtitle>
         <br />
         <CustomCodeBlock
           {...LINUX_CODE.downloadBinary}
