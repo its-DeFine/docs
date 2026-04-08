@@ -59,7 +59,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: styles-audit-report
-          path: tasks/reports/styles/styles-audit-report.json
+          path: workspace/reports/styles/styles-audit-report.json
 
   styles-remediate:
     if: inputs.mode == 'remediate-dry-run' || inputs.mode == 'remediate-write'
