@@ -43,7 +43,8 @@ function usage() {
 function parseArgs(argv) {
   const options = {
     targetPath: '',
-    strict: false
+    strict: false,
+    files: []
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -67,6 +68,17 @@ function parseArgs(argv) {
 
     if (token.startsWith('--path=')) {
       options.targetPath = token.slice('--path='.length).trim();
+      continue;
+    }
+
+    if (token === '--files') {
+      (String(argv[index + 1] || '')).split(',').map((f) => f.trim()).filter(Boolean).forEach((f) => options.files.push(f));
+      index += 1;
+      continue;
+    }
+
+    if (token.startsWith('--files=')) {
+      token.slice('--files='.length).split(',').map((f) => f.trim()).filter(Boolean).forEach((f) => options.files.push(f));
       continue;
     }
 
@@ -413,7 +425,9 @@ function printFindings(findings, level, label) {
 
 function main() {
   const options = parseArgs(process.argv.slice(2));
-  const files = options.targetPath ? loadTargetFiles(options.targetPath) : loadDefaultFiles();
+  const files = options.files.length > 0
+    ? options.files.filter((f) => fs.existsSync(f))
+    : options.targetPath ? loadTargetFiles(options.targetPath) : loadDefaultFiles();
 
   if (files.length === 0) {
     console.log('No eligible English v2 docs files found for description quality validation.');
