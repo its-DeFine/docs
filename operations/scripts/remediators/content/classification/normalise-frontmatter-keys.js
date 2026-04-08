@@ -93,13 +93,88 @@ function normaliseKeys(frontmatterRaw) {
 
   for (const { pattern, from, to } of KEY_PATTERNS) {
     if (pattern.test(result)) {
-      // Replace the key at the start of the line, preserving the value
       result = result.replace(new RegExp(`^${from}(\\s*:)`, 'm'), `${to}$1`);
       changes.push({ from, to });
     }
   }
 
   return { result, changes };
+}
+
+// --- Missing field inference (complexity + lifecycleStage) ---
+
+function hasField(frontmatterRaw, fieldName) {
+  return new RegExp(`^${fieldName}\\s*:`, 'm').test(frontmatterRaw);
+}
+
+function inferComplexity(relPath) {
+  const p = relPath.toLowerCase();
+  const base = path.basename(p);
+  if (/\/quickstart\//.test(p) || /quickstart\.mdx$/.test(base)) return 'beginner';
+  if (/\/get-started\//.test(p) || /get-started\.mdx$/.test(base)) return 'beginner';
+  if (/\/concepts?\//.test(p)) return 'beginner';
+  if (/overview\.mdx$/.test(base)) return 'beginner';
+  if (/portal\.mdx$/.test(base)) return 'beginner';
+  if (/navigator\.mdx$/.test(base)) return 'beginner';
+  if (/primer\.mdx$/.test(base)) return 'beginner';
+  if (/glossary\.mdx$/.test(base)) return 'beginner';
+  if (/faq\.mdx$/.test(base)) return 'beginner';
+  if (/index\.mdx$/.test(base)) return 'beginner';
+  if (/\/advanced-operations\//.test(p)) return 'advanced';
+  if (/\/economics?\//.test(p)) return 'advanced';
+  if (/optimi[sz]e/.test(base)) return 'advanced';
+  if (/scaling/.test(base)) return 'advanced';
+  if (/\/setup\//.test(p) || /\/install\//.test(p) || /\/configure\//.test(p)) return 'intermediate';
+  if (/\/guides?\//.test(p)) return 'intermediate';
+  if (/\/build\//.test(p)) return 'intermediate';
+  if (/\/resources?\//.test(p)) return 'intermediate';
+  if (/\/references?\//.test(p)) return 'intermediate';
+  return 'intermediate';
+}
+
+function inferLifecycleStage(relPath) {
+  const p = relPath.toLowerCase();
+  const base = path.basename(p);
+  if (/portal\.mdx$/.test(base)) return 'discover';
+  if (/navigator\.mdx$/.test(base)) return 'discover';
+  if (/index\.mdx$/.test(base)) return 'discover';
+  if (/overview\.mdx$/.test(base)) return 'discover';
+  if (/\/concepts?\//.test(p)) return 'discover';
+  if (/primer\.mdx$/.test(base)) return 'discover';
+  if (/glossary\.mdx$/.test(base)) return 'discover';
+  if (/evaluating/.test(base)) return 'evaluate';
+  if (/\/quickstart\//.test(p) || /quickstart\.mdx$/.test(base)) return 'setup';
+  if (/\/get-started\//.test(p) || /get-started\.mdx$/.test(base)) return 'setup';
+  if (/\/setup\//.test(p) || /\/install\//.test(p)) return 'setup';
+  if (/\/configure\//.test(p) || /configure\.mdx$/.test(base)) return 'setup';
+  if (/\/build\//.test(p)) return 'build';
+  if (/\/guides?\//.test(p)) return 'operate';
+  if (/\/advanced-operations\//.test(p)) return 'operate';
+  if (/\/economics?\//.test(p)) return 'operate';
+  if (/troubleshoot/.test(base)) return 'troubleshoot';
+  if (/faq\.mdx$/.test(base)) return 'troubleshoot';
+  if (/optimi[sz]e/.test(base)) return 'optimise';
+  if (/changelog|release-notes/.test(base)) return 'operate';
+  return 'discover';
+}
+
+function addMissingFields(frontmatterRaw, relPath) {
+  const additions = [];
+  let result = frontmatterRaw;
+
+  if (!hasField(result, 'complexity')) {
+    const val = inferComplexity(relPath);
+    result += `\ncomplexity: ${val}`;
+    additions.push(`+complexity: ${val}`);
+  }
+
+  if (!hasField(result, 'lifecycleStage')) {
+    const val = inferLifecycleStage(relPath);
+    result += `\nlifecycleStage: ${val}`;
+    additions.push(`+lifecycleStage: ${val}`);
+  }
+
+  return { result, additions };
 }
 
 function parseArgs(argv) {
@@ -129,16 +204,21 @@ function main() {
     const fm = extractFrontmatter(content);
     if (!fm) continue;
 
-    const { result, changes } = normaliseKeys(fm.raw);
-    if (changes.length === 0) continue;
+    const { result: keysFixed, changes } = normaliseKeys(fm.raw);
+    const { result: fieldsAdded, additions } = addMissingFields(keysFixed, relPath);
+
+    if (changes.length === 0 && additions.length === 0) continue;
 
     filesChanged++;
-    totalChanges += changes.length;
-    const changeDesc = changes.map(c => `${c.from}→${c.to}`).join(', ');
-    report.push({ relPath, changes: changeDesc, count: changes.length });
+    totalChanges += changes.length + additions.length;
+    const allChanges = [
+      ...changes.map(c => `${c.from}→${c.to}`),
+      ...additions
+    ].join(', ');
+    report.push({ relPath, changes: allChanges, count: changes.length + additions.length });
 
     if (args.write) {
-      const newContent = fm.before + result + fm.after + fm.body;
+      const newContent = fm.before + fieldsAdded + fm.after + fm.body;
       fs.writeFileSync(fullPath, newContent, 'utf8');
     }
   }
