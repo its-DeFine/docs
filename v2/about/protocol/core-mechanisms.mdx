@@ -57,7 +57,7 @@ import { BorderedBox } from '/snippets/components/wrappers/containers/Containers
 ## Mechanism Objectives
 Livepeer’s core mechanisms are designed to:
 
-- **Incentivise honest behavior** among participants (Orchestrators, Delegators, Gateways/Broadcasters)
+- **Incentivise honest behaviour** among participants (Orchestrators, Delegators, Gateways/Broadcasters)
 
 - **Scale supply capacity** by rewarding infrastructure providers proportionally
 
@@ -80,7 +80,7 @@ Core features of the Livepeer Protocol include:
    <Accordion title="Consensus & Finality" icon="handshake">
       #### Consensus & Finality
  Livepeer does not use its own consensus; it relies on Arbitrum’s optimistic rollup.
- Blocks (called rounds) occur roughly every 24 hrs, and after a ~7-day challenge window the state is finalized on Ethereum.
+ Blocks (called rounds) occur roughly every 24 hrs, and after a ~7-day challenge window the state is finalised on Ethereum.
 
  This means trust assumptions are similar to other Ethereum Layer-2s: Arbitrum’s rollup validators and Ethereum miners secure the chain; fraud proofs protect against invalid blocks.
    </Accordion>
@@ -89,7 +89,7 @@ Core features of the Livepeer Protocol include:
  Livepeer’s core contracts are on an Ethereum Layer-2 (Arbitrum One), which inherits Ethereum-level security via optimistic rollup.
 
  LPT stakers (orchestrators and delegators) provide economic collateral against misbehavior.
- Protocol rules penalize malfeasance by slashing stake (e.g. Losing part or all delegated tokens).
+ Protocol rules penalise malfeasance by slashing stake (e.g. Losing part or all delegated tokens).
 
  Off-chain video verification and optional arbitration ensure correct transcoding.
    </Accordion>
@@ -171,7 +171,7 @@ Note that Staking, Rewards and Payments operate differently for AI pipelines
 
  **Mechanism**
       1. Rounds have a fixed length in blocks (configured in `RoundsManager`)
-      2. New rounds must be initialized by calling `initializeRound()`
+      2. New rounds must be initialised by calling `initializeRound()`
  3. Multiple protocol operations are only valid during specific times in a round
       4. Parameter updates are restricted during "locked" periods of a round
       5. Rewards can only be claimed once per round by a transcoder

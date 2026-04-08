@@ -51,7 +51,7 @@ Human:
 import { StyledTable, TableRow, TableCell } from '/snippets/components/wrappers/tables/Tables.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 
-Livepeer orchestrators require an Arbitrum One RPC endpoint to interact with the protocol — staking, reward calls, ticket redemption, and service registration all happen on Arbitrum. The endpoint is configured via the `-ethUrl` flag.
+Livepeer orchestrators require an Arbitrum One RPC endpoint to interact with the protocol – staking, reward calls, ticket redemption, and service registration all happen on Arbitrum. The endpoint is configured via the `-ethUrl` flag.
 
 <CustomDivider />
 
@@ -59,9 +59,9 @@ Livepeer orchestrators require an Arbitrum One RPC endpoint to interact with the
 
 Your RPC endpoint must:
 
-- Connect to **Arbitrum One** (chain ID `42161` / `0xa4b1`) — not Ethereum L1
+- Connect to **Arbitrum One** (chain ID `42161` / `0xa4b1`) – not Ethereum L1
 - Support standard JSON-RPC methods (`eth_call`, `eth_sendRawTransaction`, `eth_getBlockByNumber`, `eth_getLogs`)
-- Handle the request volume your orchestrator generates — active orchestrators with frequent reward calls and ticket redemptions may exceed free-tier limits
+- Handle the request volume your orchestrator generates – active orchestrators with frequent reward calls and ticket redemptions may exceed free-tier limits
 
 <CustomDivider />
 
@@ -108,7 +108,7 @@ Your RPC endpoint must:
     <TableCell>[Public Arbitrum RPC](https://arb1.arbitrum.io/rpc)</TableCell>
     <TableCell>Yes</TableCell>
     <TableCell>Shared, rate-limited</TableCell>
-    <TableCell>Official Arbitrum public endpoint. Suitable for testing only — not recommended for production orchestrators.</TableCell>
+    <TableCell>Official Arbitrum public endpoint. Suitable for testing only – not recommended for production orchestrators.</TableCell>
   </TableRow>
 </StyledTable>
 <CustomDivider />

@@ -36,7 +36,7 @@ Choose based on whether you need real-time interaction (WebRTC) or maximum compa
 ## Lowest latency: WebRTC playback
 
 - Use **WebRTC** for playback (e.g. Livepeer Player with default settings).
-- In-browser broadcasts are already optimized for low latency.
+- In-browser broadcasts are already optimised for low latency.
 - **If the stream has B-frames, WebRTC playback is not available** and the player falls back to HLS. So for WebRTC:
   - With **OBS**: set keyframe interval to **1** and disable B-frames (`bframes=0`). Use the Livepeer Studio preset in OBS if available.
   - See [Stream via OBS](stream-via-obs) for recommended settings.

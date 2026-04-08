@@ -59,7 +59,7 @@ To become an orchestrator, a node must:
 - Call `Transcoder(rewardCut, feeShare)` with commission parameters
 - Register service URI via `SetServiceURI()`
 
-The transcoder pool maintains orchestrators sorted by delegated stake as a linked list, with hints optimizing insertions.
+The transcoder pool maintains orchestrators sorted by delegated stake as a linked list, with hints optimising insertions.
 
 ### 2. **Reward Flow (Minter → Orchestrators → Delegators)**
 
@@ -78,7 +78,7 @@ Delegators must call `ClaimEarnings(endRound)` to realize their accumulated rewa
 
 ### 3. **Payment Flow (Broadcasters → Orchestrators)**
 
-The payment system uses probabilistic micropayments to minimize on-chain transactions:
+The payment system uses probabilistic micropayments to minimise on-chain transactions:
 
 **Step 1: Broadcaster Deposits**
 Broadcasters fund their account via `FundDepositAndReserve()`:
