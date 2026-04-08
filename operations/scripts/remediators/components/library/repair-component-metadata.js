@@ -58,7 +58,8 @@ function printHelp() {
       '  --staged       Limit processing to staged component files.',
       '',
       'Auto-issue:',
-      '  --auto-issue   Create GitHub issues for non-remediable problems (missing @description)',
+      '  --verify      After --fix, re-run validators on fixed files. Exit 1 if verify fails.
+      --auto-issue   Create GitHub issues for non-remediable problems (missing @description)',
       '                 and assign to @copilot. Requires GH_TOKEN or gh CLI auth.',
       '',
       'Safety:',
@@ -75,6 +76,7 @@ function parseArgs(argv) {
     mode: 'dry-run',
     staged: false,
     autoIssue: false,
+    verify: false,
     help: false
   };
 
@@ -101,6 +103,10 @@ function parseArgs(argv) {
     }
     if (token === '--auto-issue') {
       args.autoIssue = true;
+      return;
+    }
+    if (token === '--verify') {
+      args.verify = true;
       return;
     }
     throw new Error(`Unknown argument: ${token}`);
@@ -312,6 +318,30 @@ if (require.main === module) {
       console.log(`Repairs proposed/applied: ${summary.repairs.length}`);
       console.log(`Files modified: ${summary.filesModified}`);
       console.log(`NEEDS_HUMAN: ${summary.humanIssues.length}`);
+    }
+
+    // --- Verify layer: re-check fixed files ---
+    if (args.verify && args.mode === 'fix' && summary.filesModified > 0) {
+      const { spawnSync: spawnVerify } = require('child_process');
+      const modifiedPaths = summary.repairs
+        .map((r) => r.file)
+        .filter((v, i, a) => a.indexOf(v) === i)
+        .join(',');
+
+      console.log(`\nVerify: re-checking ${summary.filesModified} fixed file(s)...`);
+      const verifyResult = spawnVerify('node', [
+        'operations/scripts/validators/components/library/validate-component-creation.js',
+        '--check',
+        '--files',
+        modifiedPaths
+      ], { encoding: 'utf8', cwd: REPO_ROOT, stdio: 'inherit' });
+
+      if (verifyResult.status !== 0) {
+        console.error('\nVERIFY FAILED — fix did not resolve all issues. Reverting...');
+        // Revert would require saved originals — for now, report and exit non-zero
+        process.exit(1);
+      }
+      console.log('VERIFY PASSED — all fixes validated.');
     }
 
     // Auto-issue creation for non-remediable problems

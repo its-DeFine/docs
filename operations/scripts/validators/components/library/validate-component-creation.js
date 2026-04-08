@@ -7,11 +7,11 @@
  * @purpose     governance:quality-gate
  * @description Validates new/modified .jsx files in snippets/components/ for 7-tag JSDoc presence,
  *              PascalCase naming, and folder placement. Self-remediates missing tags where inferable.
- *              Blocks commit only on non-remediable violations.
+ *              Blocks commit only on non-remediable violations. --verify re-checks after --fix.
  * @mode        read-write
  * @pipeline    pre-commit, pr-workflow -> snippets/components/ -> exit-code, stdout:violations
  * @scope       snippets/components/
- * @usage       node operations/scripts/validators/components/library/validate-component-creation.js [--check] [--fix] [--dry-run] [--staged] [--files path,path]
+ * @usage       node operations/scripts/validators/components/library/validate-component-creation.js [--check] [--fix] [--fix --verify] [--dry-run] [--staged] [--files path,path]
  * @policy      R-R10
  */
 
@@ -41,11 +41,6 @@ const RESET = '\x1b[0m';
 const PASCAL_CASE_FILE_RE = /^[A-Z][a-zA-Z0-9]*\.jsx$/;
 const PASCAL_CASE_EXPORT_RE = /^[A-Z][a-zA-Z0-9]*$/;
 
-/**
- * Required governance tags — checks both current (@category/@subcategory) and
- * migrated (@type/@subniche) tag names. Writes @category/@subcategory since
- * that is what production components use.
- */
 const REQUIRED_TAGS = ['component', 'status', 'description'];
 const CATEGORY_TAGS = ['category', 'type'];
 const SUBCATEGORY_TAGS = ['subcategory', 'subniche'];
@@ -59,23 +54,28 @@ function printHelp() {
       'Options:',
       '  --check      Validate only, exit 1 on violations (default)',
       '  --fix        Apply auto-remediations and write files',
+      '  --verify     After --fix, re-run check on affected files. Revert if check fails',
       '  --dry-run    Show what --fix would do without writing',
       '  --staged     Only check git-staged .jsx files (for pre-commit)',
       '  --files      Comma-separated file paths to validate',
       '  --help, -h   Show this help message',
       '',
       'Self-remediates:',
-      '  Missing @component        → set to export name',
-      '  Missing @category/@type   → infer from folder path',
-      '  Missing @subcategory      → infer from folder path',
-      '  Missing @status           → set to "stable"',
-      '  Missing @aiDiscoverability → set to "none"',
+      '  Missing @component        -> set to export name',
+      '  Missing @category/@type   -> infer from folder path',
+      '  Missing @subcategory      -> infer from folder path',
+      '  Missing @status           -> set to "stable"',
+      '  Missing @aiDiscoverability -> set to "none"',
       '',
       'Non-remediable (blocks commit):',
       '  Missing @description',
       '  @component does not match export name',
       '  @category does not match folder category',
-      '  @subcategory does not match folder subcategory'
+      '  @subcategory does not match folder subcategory',
+      '',
+      'Verify layer:',
+      '  --fix --verify   Apply fixes, then re-validate. If validation fails,',
+      '                   revert all changes and exit 1. Ensures "fix actually fixed."'
     ].join('\n')
   );
 }
@@ -83,6 +83,7 @@ function printHelp() {
 function parseArgs(argv) {
   const args = {
     mode: 'check',
+    verify: false,
     staged: false,
     files: [],
     help: false
@@ -96,6 +97,8 @@ function parseArgs(argv) {
       args.mode = 'check';
     } else if (token === '--fix') {
       args.mode = 'fix';
+    } else if (token === '--verify') {
+      args.verify = true;
     } else if (token === '--dry-run') {
       args.mode = 'dry-run';
     } else if (token === '--staged') {
@@ -347,6 +350,63 @@ function validateFile(filePath, mode) {
   return result;
 }
 
+function runValidation(files, mode) {
+  let totalExports = 0;
+  let totalErrors = 0;
+  let totalWarnings = 0;
+  let totalRemediations = 0;
+  let filesRemediated = 0;
+  const modifiedFiles = [];
+
+  for (const { absolutePath, displayPath } of files) {
+    const result = validateFile(absolutePath, mode);
+    totalExports += result.exports;
+    totalErrors += result.errors.length;
+    totalWarnings += result.warnings.length;
+    totalRemediations += result.remediations.length;
+
+    const hasIssues = result.errors.length > 0 || result.warnings.length > 0 || result.remediations.length > 0;
+
+    if (hasIssues) {
+      console.log(`${BOLD}${displayPath}${RESET}`);
+
+      for (const err of result.errors) {
+        const prefix = err.export ? `  ${err.export}: ` : '  ';
+        console.log(`  ${RED}ERROR${RESET} ${prefix}${err.message}`);
+      }
+
+      for (const warn of result.warnings) {
+        const prefix = warn.export ? `  ${warn.export}: ` : '  ';
+        console.log(`  ${YELLOW}WARN${RESET}  ${prefix}${warn.message}`);
+      }
+
+      for (const rem of result.remediations) {
+        const action = mode === 'check' ? 'WOULD FIX' : 'REMEDIATED';
+        console.log(`  ${GREEN}${action}${RESET}  ${rem.export}: ${rem.tag} -> "${rem.value}"`);
+      }
+
+      if (result.fixedContent !== null && mode === 'fix') {
+        try {
+          fs.writeFileSync(absolutePath, result.fixedContent, 'utf8');
+          filesRemediated++;
+          modifiedFiles.push({ absolutePath, displayPath });
+          console.log(`  ${GREEN}✓ File updated${RESET}`);
+        } catch (err) {
+          console.log(`  ${RED}✗ Failed to write: ${err.message}${RESET}`);
+          totalErrors++;
+        }
+      } else if (result.fixedContent !== null && mode === 'dry-run') {
+        filesRemediated++;
+        console.log(`  ${DIM}(dry-run — would update file)${RESET}`);
+      }
+
+      console.log('');
+    }
+  }
+
+  return { totalExports, totalErrors, totalWarnings, totalRemediations, filesRemediated, modifiedFiles };
+}
+
 function main() {
   const args = parseArgs(process.argv.slice(2));
 
@@ -374,77 +434,68 @@ function main() {
   }
 
   console.log(`\n${BOLD}Component Governance Validator${RESET}`);
-  console.log('═'.repeat(40));
-  console.log(`${DIM}Mode: ${args.mode} | Files: ${files.length}${RESET}\n`);
+  console.log('='.repeat(40));
+  console.log(`${DIM}Mode: ${args.mode}${args.verify ? ' +verify' : ''} | Files: ${files.length}${RESET}\n`);
 
-  let totalExports = 0;
-  let totalErrors = 0;
-  let totalWarnings = 0;
-  let totalRemediations = 0;
-  let filesRemediated = 0;
-
-  for (const { absolutePath, displayPath } of files) {
-    const result = validateFile(absolutePath, args.mode);
-    totalExports += result.exports;
-    totalErrors += result.errors.length;
-    totalWarnings += result.warnings.length;
-    totalRemediations += result.remediations.length;
-
-    const hasIssues = result.errors.length > 0 || result.warnings.length > 0 || result.remediations.length > 0;
-
-    if (hasIssues) {
-      console.log(`${BOLD}${displayPath}${RESET}`);
-
-      for (const err of result.errors) {
-        const prefix = err.export ? `  ${err.export}: ` : '  ';
-        console.log(`  ${RED}ERROR${RESET} ${prefix}${err.message}`);
-      }
-
-      for (const warn of result.warnings) {
-        const prefix = warn.export ? `  ${warn.export}: ` : '  ';
-        console.log(`  ${YELLOW}WARN${RESET}  ${prefix}${warn.message}`);
-      }
-
-      for (const rem of result.remediations) {
-        const action = args.mode === 'check' ? 'WOULD FIX' : 'REMEDIATED';
-        console.log(`  ${GREEN}${action}${RESET}  ${rem.export}: ${rem.tag} → "${rem.value}"`);
-      }
-
-      if (result.fixedContent !== null && args.mode === 'fix') {
-        try {
-          fs.writeFileSync(absolutePath, result.fixedContent, 'utf8');
-          filesRemediated++;
-          console.log(`  ${GREEN}✓ File updated${RESET}`);
-        } catch (err) {
-          console.log(`  ${RED}✗ Failed to write: ${err.message}${RESET}`);
-          totalErrors++;
-        }
-      } else if (result.fixedContent !== null && args.mode === 'dry-run') {
-        filesRemediated++;
-        console.log(`  ${DIM}(dry-run — would update file)${RESET}`);
-      }
-
-      console.log('');
+  // --- Save originals for --verify revert ---
+  const originals = new Map();
+  if (args.mode === 'fix' && args.verify) {
+    for (const { absolutePath } of files) {
+      try {
+        originals.set(absolutePath, fs.readFileSync(absolutePath, 'utf8'));
+      } catch (_) { /* file may not exist yet */ }
     }
   }
 
-  console.log('─'.repeat(40));
+  const result = runValidation(files, args.mode);
+
+  console.log('-'.repeat(40));
   console.log(`Files checked:      ${files.length}`);
-  console.log(`Exports validated:  ${totalExports}`);
-  if (totalRemediations > 0) {
+  console.log(`Exports validated:  ${result.totalExports}`);
+  if (result.totalRemediations > 0) {
     const verb = args.mode === 'fix' ? 'Auto-remediated' : 'Would remediate';
-    console.log(`${verb}:     ${totalRemediations} tags across ${filesRemediated} files`);
+    console.log(`${verb}:     ${result.totalRemediations} tags across ${result.filesRemediated} files`);
   }
-  if (totalErrors > 0) {
-    console.log(`${RED}Errors (blocking):  ${totalErrors}${RESET}`);
+  if (result.totalErrors > 0) {
+    console.log(`${RED}Errors (blocking):  ${result.totalErrors}${RESET}`);
   }
-  if (totalWarnings > 0) {
-    console.log(`${YELLOW}Warnings:           ${totalWarnings}${RESET}`);
+  if (result.totalWarnings > 0) {
+    console.log(`${YELLOW}Warnings:           ${result.totalWarnings}${RESET}`);
   }
+
+  // --- Verify layer: re-check fixed files ---
+  if (args.mode === 'fix' && args.verify && result.modifiedFiles.length > 0) {
+    console.log(`\n${BOLD}Verify: re-checking ${result.modifiedFiles.length} fixed file(s)...${RESET}`);
+
+    const verifyResult = runValidation(result.modifiedFiles, 'check');
+
+    if (verifyResult.totalErrors > 0) {
+      console.log(`\n${RED}${BOLD}VERIFY FAILED${RESET} — fix did not resolve all issues. Reverting ${result.modifiedFiles.length} file(s).\n`);
+
+      let revertCount = 0;
+      for (const { absolutePath } of result.modifiedFiles) {
+        const original = originals.get(absolutePath);
+        if (original !== undefined) {
+          try {
+            fs.writeFileSync(absolutePath, original, 'utf8');
+            revertCount++;
+          } catch (err) {
+            console.error(`${RED}Failed to revert ${absolutePath}: ${err.message}${RESET}`);
+          }
+        }
+      }
+      console.log(`Reverted ${revertCount} file(s) to pre-fix state.`);
+      process.exit(1);
+    }
+
+    console.log(`${GREEN}${BOLD}VERIFY PASSED${RESET} — all fixes validated.\n`);
+    process.exit(0);
+  }
+
   console.log('');
 
-  if (totalErrors > 0) {
-    console.log(`${RED}${BOLD}FAIL${RESET} — ${totalErrors} non-remediable violation(s) found\n`);
+  if (result.totalErrors > 0) {
+    console.log(`${RED}${BOLD}FAIL${RESET} — ${result.totalErrors} non-remediable violation(s) found\n`);
     process.exit(1);
   }
 
