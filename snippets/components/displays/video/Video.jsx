@@ -9,7 +9,7 @@
  * @param {any} title - title prop.
  * @param {any} subtitle - subtitle prop.
  * @param {boolean} [arrow=false] - arrow prop.
- * @param {string} [borderRadius="12px"] - border Radius prop.
+ * @param {string} [borderRadius="var(--lp-spacing-px-12)"] - border Radius prop.
  * @param {object} [style={}] - style prop.
   * @param {string} [className=''] - Optional CSS class override.
  */
@@ -18,7 +18,7 @@ export const TitledVideo = ({
   title,
   subtitle,
   arrow = false,
-  borderRadius = "12px",
+  borderRadius = "var(--lp-spacing-px-12)",
   style = {},
   className = "",
   ...rest
@@ -215,7 +215,7 @@ export const Video = ({
                   >
                     <strong>{author}</strong>
                   </span>
-                  <span style={{ alignSelf: "flex-end", marginLeft: "6px" }}>
+                  <span style={{ alignSelf: "flex-end", marginLeft: "var(--lp-spacing-px-6)" }}>
                     <Icon
                       icon="arrow-up-right"
                       size={12}
@@ -261,7 +261,7 @@ export const Video = ({
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: "6px",
+            padding: "var(--lp-spacing-px-6)",
             background: linkHovered ? "var(--lp-color-border-default)" : "transparent",
             border: `1.5px solid ${linkHovered ? "var(--lp-color-accent)" : "var(--lp-color-text-primary)"}`,
             borderRadius: "6px",

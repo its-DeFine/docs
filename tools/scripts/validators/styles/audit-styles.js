@@ -296,11 +296,23 @@ function scanLiteralSpacing(filePath, content) {
   return violations;
 }
 
+// Accepted mermaid init signatures — standard LP green + dark-mode variant
+const MERMAID_ACCEPTED_SIGNATURES = [
+  // Standard LP green (from MermaidColours.jsx)
+  "'primaryColor': '#18794E', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3CB540'",
+  // Dark-mode variant (dark backgrounds with LP green accents)
+  "'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67'",
+  // Alt dark variant
+  "'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3CB540'",
+];
+
 function scanMermaidHardcoded(filePath, content) {
   const violations = [];
   const regex = /%%\{init:.*?themeVariables.*?%%/gs;
   let match;
   while ((match = regex.exec(content)) !== null) {
+    // Skip if matches any accepted signature
+    if (MERMAID_ACCEPTED_SIGNATURES.some(sig => match[0].includes(sig))) continue;
     violations.push({
       category: CATEGORIES.MERMAID_HARDCODED,
       file: path.relative(REPO_ROOT, filePath),

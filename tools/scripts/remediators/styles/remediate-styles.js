@@ -67,6 +67,9 @@ const HEX_TO_VAR = {
   '#22C55E': 'var(--lp-color-status-good)',
   '#FBBF24': 'var(--lp-color-status-warn)',
   '#EF4444': 'var(--lp-color-status-bad)',
+  '#ff9a0e': 'var(--lp-color-brand-linux)',
+  '#14bbf7': 'var(--lp-color-brand-windows)',
+  '#60ba47': 'var(--lp-color-brand-macos)',
 };
 
 // Files that MUST use hex literals (mermaid config, colour palettes)
@@ -83,6 +86,11 @@ const SPACING_MAP = {
   '1rem': 'var(--lp-spacing-4)',
   '1.5rem': 'var(--lp-spacing-6)',
   '2rem': 'var(--lp-spacing-8)',
+  '3px': 'var(--lp-spacing-px-3)',
+  '4px': 'var(--lp-spacing-px-4)',
+  '6px': 'var(--lp-spacing-px-6)',
+  '8px': 'var(--lp-spacing-px-8)',
+  '12px': 'var(--lp-spacing-px-12)',
 };
 
 /* ============================================
@@ -323,7 +331,7 @@ function remediateLiteralSpacing(filePath, content) {
       // Skip font-related properties — spacing tokens are for margin/padding/gap only
       const lineStart = content.lastIndexOf('\n', match.index) + 1;
       const lineBefore = content.slice(lineStart, match.index);
-      if (/fontSize|lineHeight|fontWeight|fontFamily|letterSpacing/i.test(lineBefore)) continue;
+      if (/fontSize|lineHeight|fontWeight|fontFamily|letterSpacing|borderRadius|borderWidth|maxHeight|maxWidth|minHeight|minWidth|width|height|top|right|bottom|left/i.test(lineBefore)) continue;
       allMatches.push({
         index: match.index,
         length: match[0].length,
@@ -345,6 +353,201 @@ function remediateLiteralSpacing(filePath, content) {
       before: m.original,
       after: m.replacement,
     });
+  }
+
+  return { modified, fixes };
+}
+
+/* ============================================
+   COMPONENT MIGRATION REMEDIATORS (MDX)
+   Smart parser: finds opening tag, extracts props,
+   locates matching closing tag, replaces both.
+   ============================================ */
+
+// Utility: find the matching closing tag for an opening tag at a given index
+function findClosingDiv(content, openIndex) {
+  let depth = 0;
+  let i = openIndex;
+  // Skip past the opening >
+  while (i < content.length && content[i] !== '>') i++;
+  i++; // past >
+  while (i < content.length) {
+    if (content[i] === '<') {
+      if (content.slice(i, i + 6) === '</div>') {
+        if (depth === 0) return i;
+        depth--;
+      } else if (content.slice(i, i + 4) === '<div') {
+        depth++;
+      }
+    }
+    i++;
+  }
+  return -1;
+}
+
+// Utility: find matching closing tag for any component
+function findClosingTag(content, openIndex, tagName) {
+  let depth = 0;
+  let i = openIndex;
+  const openTag = `<${tagName}`;
+  const closeTag = `</${tagName}>`;
+  while (i < content.length && content[i] !== '>') i++;
+  i++;
+  while (i < content.length) {
+    if (content.startsWith(closeTag, i)) {
+      if (depth === 0) return i;
+      depth--;
+    } else if (content.startsWith(openTag, i)) {
+      depth++;
+    }
+    i++;
+  }
+  return -1;
+}
+
+const COMPONENT_PATTERNS = [
+  // #1: Flex center div → FlexContainer
+  {
+    type: 'flex-center-to-component',
+    regex: /<div\s+style=\{\{\s*display:\s*["']flex["'],\s*justifyContent:\s*["']center["']\s*\}\}>/g,
+    replacement: '<FlexContainer justify="center">',
+    closeOld: '</div>',
+    closeNew: '</FlexContainer>',
+    importLine: "import { FlexContainer } from '/snippets/components/wrappers/containers/Layout.jsx'",
+    importName: 'FlexContainer',
+  },
+  // #2: Flex column div → FlexContainer
+  {
+    type: 'flex-column-to-component',
+    regex: /<div\s+style=\{\{\s*display:\s*["']flex["'],\s*flexDirection:\s*["']column["'],\s*gap:\s*["'][^"']*["']\s*\}\}>/g,
+    replacement: '<FlexContainer direction="column">',
+    closeOld: '</div>',
+    closeNew: '</FlexContainer>',
+    importLine: "import { FlexContainer } from '/snippets/components/wrappers/containers/Layout.jsx'",
+    importName: 'FlexContainer',
+  },
+  // #3: Centred fit-content div → CenteredContainer
+  {
+    type: 'centered-fit-to-component',
+    regex: /<div\s+style=\{\{\s*display:\s*["']flex["'],\s*justifyContent:\s*["']center["'],\s*width:\s*["']fit-content["'],\s*margin:\s*["']0 auto["']\s*\}\}>/g,
+    replacement: '<CenteredContainer preset="fitContent">',
+    closeOld: '</div>',
+    closeNew: '</CenteredContainer>',
+    importLine: "import { CenteredContainer } from '/snippets/components/wrappers/containers/Containers.jsx'",
+    importName: 'CenteredContainer',
+  },
+  // #7: Inline span divider → InlineDivider
+  {
+    type: 'span-divider-to-component',
+    regex: /<span\s+style=\{\{\s*display:\s*["']block["'],\s*borderBottom:\s*["']1px solid var\(--[^)]*\)["'],\s*margin:\s*["'][^"']*["']\s*\}\}\s*\/>/g,
+    replacement: '<InlineDivider margin="1rem 0" />',
+    closeOld: null, // self-closing
+    closeNew: null,
+    importLine: "import { InlineDivider } from '/snippets/components/elements/spacing/Divider.jsx'",
+    importName: 'InlineDivider',
+  },
+  // #8: Bordered div → BorderedBox
+  {
+    type: 'bordered-div-to-component',
+    regex: /<div\s+style=\{\{\s*border:\s*["']1px solid var\(--[^)]*\)["'],\s*borderRadius:\s*["']8px["'],\s*padding:\s*["'][^"']*["']\s*\}\}>/g,
+    replacement: '<BorderedBox variant="accent">',
+    closeOld: '</div>',
+    closeNew: '</BorderedBox>',
+    importLine: "import { BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'",
+    importName: 'BorderedBox',
+  },
+  // #9: StyledSteps fallback hex
+  {
+    type: 'styledsteps-fallback',
+    regex: /var\(--accent-dark,\s*#18794E\)/gi,
+    replacement: 'var(--lp-color-accent-strong)',
+    closeOld: null,
+    closeNew: null,
+    importLine: null,
+    importName: null,
+  },
+];
+
+function remediateComponentPatterns(filePath, content) {
+  const fixes = [];
+  let modified = content;
+  const importsNeeded = new Set();
+
+  for (const pattern of COMPONENT_PATTERNS) {
+    const allMatches = [];
+    let match;
+    const regex = new RegExp(pattern.regex.source, pattern.regex.flags);
+
+    while ((match = regex.exec(modified)) !== null) {
+      if (isInsideCodeBlock(modified, match.index)) continue;
+
+      allMatches.push({
+        index: match.index,
+        length: match[0].length,
+        original: match[0],
+        line: getLineNumber(modified, match.index),
+      });
+    }
+
+    // Process in reverse order
+    allMatches.sort((a, b) => b.index - a.index);
+
+    for (const m of allMatches) {
+      let newContent = modified;
+
+      if (pattern.closeOld && pattern.closeNew) {
+        // Find and replace closing tag
+        const closeIndex = findClosingDiv(modified, m.index);
+        if (closeIndex === -1) continue; // can't find closing tag, skip
+
+        // Replace closing tag first (it's after the opening)
+        newContent = modified.slice(0, closeIndex) + pattern.closeNew + modified.slice(closeIndex + pattern.closeOld.length);
+        // Replace opening tag
+        newContent = newContent.slice(0, m.index) + pattern.replacement + newContent.slice(m.index + m.length);
+      } else {
+        // Simple replacement (self-closing or string replace)
+        newContent = modified.slice(0, m.index) + pattern.replacement + modified.slice(m.index + m.length);
+      }
+
+      modified = newContent;
+
+      if (pattern.importName) {
+        importsNeeded.add(pattern.importLine);
+      }
+
+      fixes.push({
+        type: pattern.type,
+        file: path.relative(REPO_ROOT, filePath),
+        line: m.line,
+        before: m.original.slice(0, 60),
+        after: pattern.replacement.slice(0, 60),
+      });
+    }
+  }
+
+  // Add missing imports
+  if (importsNeeded.size > 0) {
+    const lines = modified.split('\n');
+    // Find last import line
+    let lastImportIdx = -1;
+    for (let i = 0; i < lines.length; i++) {
+      if (lines[i].startsWith('import ')) lastImportIdx = i;
+    }
+
+    if (lastImportIdx >= 0) {
+      const existingImports = modified;
+      const newImports = [];
+      for (const imp of importsNeeded) {
+        const name = imp.match(/\{ (\w+)/)?.[1];
+        if (name && !existingImports.includes(`import { ${name}`) && !existingImports.includes(`import {${name}`)) {
+          newImports.push(imp);
+        }
+      }
+      if (newImports.length > 0) {
+        lines.splice(lastImportIdx + 1, 0, ...newImports);
+        modified = lines.join('\n');
+      }
+    }
   }
 
   return { modified, fixes };
@@ -451,6 +654,24 @@ function runRemediation(options = {}) {
     }
   }
 
+  // MDX: component pattern migrations (inline styles → components)
+  if (!category || category.includes('component-migration')) {
+    for (const file of mdxFiles) {
+      const content = fs.readFileSync(file, 'utf8');
+      const result = remediateComponentPatterns(file, content);
+
+      if (result.fixes.length > 0) {
+        allFixes.push(...result.fixes);
+        if (mode === 'write') {
+          fs.writeFileSync(file, result.modified, 'utf8');
+          if (!filesModified.includes(path.relative(REPO_ROOT, file))) {
+            filesModified.push(path.relative(REPO_ROOT, file));
+          }
+        }
+      }
+    }
+  }
+
   return {
     timestamp: new Date().toISOString(),
     mode,
@@ -462,6 +683,7 @@ function runRemediation(options = {}) {
       'mermaid-hardcoded': allFixes.filter(f => f.type === 'mermaid-hardcoded').length,
       'hardcoded-hex': allFixes.filter(f => f.type === 'hardcoded-hex').length,
       'literal-spacing': allFixes.filter(f => f.type === 'literal-spacing').length,
+      'component-migration': allFixes.filter(f => COMPONENT_PATTERNS.some(p => p.type === f.type)).length,
     },
     fixes: allFixes,
     modifiedFiles: filesModified,

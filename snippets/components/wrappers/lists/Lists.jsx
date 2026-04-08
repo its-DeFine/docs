@@ -106,7 +106,7 @@ export const UpdateLinkList = ({ listItems: array }) => {
     <>
       {array.map(({ title, icon, content, link }, idx) => (
         <Update key={idx} label={title}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--lp-spacing-px-8)" }}>
             {content}
             <GotoLink label={title} relativePath={link} icon={icon} />
           </div>

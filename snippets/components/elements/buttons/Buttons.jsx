@@ -39,7 +39,7 @@ export const ExternalLinkButton = ({
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "6px",
+        padding: "var(--lp-spacing-px-6)",
         background: hovered ? "var(--lp-color-border-default)" : "transparent",
         border: `1.5px solid ${hovered ? "var(--lp-color-accent)" : "var(--lp-color-text-primary)"}`,
         borderRadius: "6px",
@@ -132,7 +132,7 @@ export const DownloadButton = ({
         ...(border
           ? {
               border: '1px solid grey',
-              borderRadius: '6px',
+              borderRadius: "6px",
               padding: '6px 10px',
               display: 'inline-block',
               cursor: 'pointer',

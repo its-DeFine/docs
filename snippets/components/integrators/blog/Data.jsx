@@ -605,7 +605,7 @@ export const PostCard = ({
         <div
           style={{
             display: 'flex',
-            marginTop: '12px',
+            marginTop: "var(--lp-spacing-px-12)",
             fontSize: 13,
             color: 'var(--lp-color-text-secondary)',
             gap: 8,

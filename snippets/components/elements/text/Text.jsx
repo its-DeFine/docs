@@ -86,7 +86,7 @@ export const CopyText = ({
         display: 'flex',
         alignItems: 'center',
         padding: '0.2rem 0.4rem',
-        borderRadius: '4px',
+        borderRadius: "4px",
         fontSize: '0.85rem',
         fontFamily: 'monospace',
         backgroundColor: 'var(--lp-color-bg-card)',

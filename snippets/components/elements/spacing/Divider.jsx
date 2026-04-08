@@ -104,7 +104,7 @@ export const CustomDivider = ({
     >
       <span
         style={{
-          marginRight: "8px",
+          marginRight: "var(--lp-spacing-px-8)",
           opacity: 0.2,
         }}
       >
@@ -142,7 +142,7 @@ export const CustomDivider = ({
           opacity: 0.4,
         }}
       ></div>
-      <span style={{ marginLeft: "8px", opacity: 0.2 }}>
+      <span style={{ marginLeft: "var(--lp-spacing-px-8)", opacity: 0.2 }}>
         <span style={{ display: "inline-block", transform: "scaleX(-1)" }}>
           <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg" />
         </span>

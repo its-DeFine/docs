@@ -47,7 +47,7 @@ const CustomCallout = ({
       style={{
         display: 'flex',
         alignItems: 'flex-start',
-        gap: '12px',
+        gap: "var(--lp-spacing-px-12)",
         padding: '16px 20px',
         borderRadius: '16px',
         border: `1px solid ${hexToRgba(resolvedColor, 0.2)}`,
@@ -325,7 +325,7 @@ const TipWithArrow = ({
         position: 'relative',
         display: 'flex',
         alignItems: 'flex-start',
-        gap: '12px',
+        gap: "var(--lp-spacing-px-12)",
         padding: '16px 20px',
         paddingRight: '48px', // Extra space for the arrow
         borderRadius: '16px',

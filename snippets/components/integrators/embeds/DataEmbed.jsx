@@ -205,7 +205,7 @@ export const TwitterTimeline = ({ className = '', style = {}, ...rest }) => {
       className={className}
       style={{
         border: '3px solid var(--lp-color-accent)',
-        borderRadius: '12px',
+        borderRadius: "12px",
         overflow: 'hidden',
         height: '600px',
         ...style,

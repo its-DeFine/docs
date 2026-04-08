@@ -192,7 +192,7 @@ export const ShowcaseCards = ({
       fontSize: '18px',
       fontWeight: '800',
       padding: '6px 16px',
-      borderRadius: '6px',
+      borderRadius: "6px",
       border: '1px solid var(--lp-color-border-inverse-subtle)',
       ...style,
     }
@@ -204,7 +204,7 @@ export const ShowcaseCards = ({
       objectFit: 'contain',
       alignSelf: 'flex-end',
       opacity: 0.8,
-      borderRadius: '6px',
+      borderRadius: "6px",
       margin: 0,
       padding: 0,
       marginBottom: 'var(--lp-spacing-2)',
@@ -219,7 +219,7 @@ export const ShowcaseCards = ({
       alignSelf: 'center',
       justifySelf: 'center',
       opacity: 1,
-      borderRadius: '6px',
+      borderRadius: "6px",
       margin: 0,
       padding: 0,
       marginBottom: 'var(--lp-spacing-2)',
@@ -450,7 +450,7 @@ export const ShowcaseCards = ({
   const inputStyle = {
     flex: '1 1 200px',
     padding: '0.5rem 0.75rem',
-    borderRadius: '6px',
+    borderRadius: "6px",
     border: '1px solid var(--lp-color-border-default)',
     background: 'var(--lp-color-bg-page)',
     color: 'var(--lp-color-text-secondary)',
@@ -459,7 +459,7 @@ export const ShowcaseCards = ({
   }
   const selectStyle = {
     padding: '0.5rem 0.75rem',
-    borderRadius: '6px',
+    borderRadius: "6px",
     border: '1px solid var(--lp-color-border-default)',
     background: 'var(--lp-color-bg-page)',
     color: 'var(--lp-color-text-secondary)',
@@ -476,7 +476,7 @@ export const ShowcaseCards = ({
   }
   const pageButtonStyle = (disabled) => ({
     padding: '0.4rem 1rem',
-    borderRadius: '6px',
+    borderRadius: "6px",
     border: '1px solid var(--lp-color-border-default)',
     background: disabled ? 'transparent' : 'var(--lp-color-bg-page)',
     color: disabled

@@ -79,7 +79,8 @@ See https://coolors.co/073b3a-1a794e-f61067-08a045-6bbf59
   --lp-color-brand-coming-soon: #ef1a73;
   --lp-color-brand-linux: #ff9a0e;
   --lp-color-brand-windows: #14bbf7;
-  --lp-color-brand-macos: #60ba47;  --lp-color-status-good: #22c55e;
+  --lp-color-brand-macos: #60ba47;
+  --lp-color-status-good: #22c55e;
   --lp-color-status-warn: #fbbf24;
   --lp-color-status-bad: #ef4444;
   --lp-spacing-1: 0.25rem;
@@ -88,6 +89,11 @@ See https://coolors.co/073b3a-1a794e-f61067-08a045-6bbf59
   --lp-spacing-4: 1rem;
   --lp-spacing-6: 1.5rem;
   --lp-spacing-8: 2rem;
+  --lp-spacing-px-3: 3px;
+  --lp-spacing-px-4: 4px;
+  --lp-spacing-px-6: 6px;
+  --lp-spacing-px-8: 8px;
+  --lp-spacing-px-12: 12px;
   --lp-font-sans: 'Inter', 'Segoe UI', sans-serif;
   --lp-font-mono: 'SFMono-Regular', 'SF Mono', 'Menlo', monospace;
   --lp-radius-sm: 0.25rem;

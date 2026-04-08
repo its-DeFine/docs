@@ -34,7 +34,7 @@ const ComingSoonCallout = ({ type = "page", className = "", style = {}, ...rest 
     color: "var(--lp-color-text-primary)",
     display: "inline-flex",
     alignItems: "center",
-    gap: "4px",
+    gap: "var(--lp-spacing-px-4)",
     paddingTop: "0.2rem",
   };
   const titleStyle = {
@@ -122,7 +122,7 @@ const PreviewCallout = ({ className = "", style = {}, ...rest }) => {
     color: "var(--lp-color-text-primary)",
     display: "inline-flex",
     alignItems: "center",
-    gap: "4px",
+    gap: "var(--lp-spacing-px-4)",
     paddingTop: "0.2rem",
   };
   const titleStyle = {

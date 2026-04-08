@@ -604,7 +604,7 @@ export const ContractVerifier = ({
     tabBase: {
       padding: '0.5rem 1rem',
       border: '1px solid var(--lp-color-border-default)',
-      borderRadius: '4px',
+      borderRadius: "4px",
       cursor: 'pointer',
       fontSize: '0.9rem',
       fontWeight: 600,
@@ -628,7 +628,7 @@ export const ContractVerifier = ({
     select: {
       padding: '0.5rem 0.75rem',
       border: '1px solid var(--lp-color-border-default)',
-      borderRadius: '4px',
+      borderRadius: "4px",
       background: 'var(--lp-color-bg-page)',
       color: 'var(--foreground)',
       fontSize: '0.9rem',
@@ -637,7 +637,7 @@ export const ContractVerifier = ({
     input: {
       padding: '0.5rem 0.75rem',
       border: '1px solid var(--lp-color-border-default)',
-      borderRadius: '4px',
+      borderRadius: "4px",
       background: 'var(--lp-color-bg-page)',
       color: 'var(--foreground)',
       fontSize: '0.9rem',
@@ -648,7 +648,7 @@ export const ContractVerifier = ({
     button: {
       padding: '0.5rem 1.25rem',
       border: 'none',
-      borderRadius: '4px',
+      borderRadius: "4px",
       background: 'var(--lp-color-accent)',
       color: 'var(--lp-color-on-accent)',
       fontSize: '0.9rem',
@@ -662,7 +662,7 @@ export const ContractVerifier = ({
     },
     card: {
       border: '1px solid var(--lp-color-border-default)',
-      borderRadius: '4px',
+      borderRadius: "4px",
       padding: "var(--lp-spacing-4)",
       display: 'flex',
       flexDirection: 'column',
@@ -725,7 +725,7 @@ export const ContractVerifier = ({
     badgeMatch: {
       display: 'inline-block',
       padding: '0.15rem 0.5rem',
-      borderRadius: '4px',
+      borderRadius: "4px",
       fontSize: '0.8rem',
       fontWeight: 700,
       background: 'var(--lp-color-status-good)',
@@ -734,7 +734,7 @@ export const ContractVerifier = ({
     badgeMismatch: {
       display: 'inline-block',
       padding: '0.15rem 0.5rem',
-      borderRadius: '4px',
+      borderRadius: "4px",
       fontSize: '0.8rem',
       fontWeight: 700,
       background: 'var(--lp-color-status-bad)',
@@ -743,7 +743,7 @@ export const ContractVerifier = ({
     badgeWarn: {
       display: 'inline-block',
       padding: '0.15rem 0.5rem',
-      borderRadius: '4px',
+      borderRadius: "4px",
       fontSize: '0.8rem',
       fontWeight: 700,
       background: 'var(--lp-color-status-warn)',
@@ -752,7 +752,7 @@ export const ContractVerifier = ({
     badgeGood: {
       display: 'inline-block',
       padding: '0.15rem 0.5rem',
-      borderRadius: '4px',
+      borderRadius: "4px",
       fontSize: '0.8rem',
       fontWeight: 700,
       background: 'var(--lp-color-status-good)',
@@ -773,7 +773,7 @@ export const ContractVerifier = ({
       background: 'var(--lp-color-bg-page)',
       color: 'var(--foreground)',
       border: '1px solid var(--lp-color-border-default)',
-      borderRadius: '4px',
+      borderRadius: "4px",
       padding: '0.75rem 1rem',
       fontSize: '0.85rem',
       fontFamily: 'monospace',

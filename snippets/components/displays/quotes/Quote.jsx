@@ -17,7 +17,7 @@ export const Quote = ({ children, className = "", style = {}, ...rest }) => {
     fontStyle: 'italic',
     color: 'var(--lp-color-accent)',
     border: '1px solid var(--lp-color-border-default)',
-    borderRadius: '8px',
+    borderRadius: "8px",
     padding: "var(--lp-spacing-4)",
     margin: '1rem 0',
     ...style,
@@ -139,7 +139,7 @@ export const FrameQuote = ({
       className={className}
       style={{
         border: borderColor ? `1px solid ${borderColor}` : 'none',
-        borderRadius: '8px',
+        borderRadius: "8px",
         overflow: 'hidden',
         ...style,
       }}

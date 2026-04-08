@@ -8,7 +8,7 @@
  * @param {any} children - children prop.
  * @param {string} [variant="default"] - variant prop.
  * @param {string} [padding="var(--lp-spacing-4)"] - padding prop.
- * @param {string} [borderRadius="8px"] - border Radius prop.
+ * @param {string} [borderRadius="var(--lp-spacing-px-8)"] - border Radius prop.
  * @param {string} [accentBar=""] - Optional accent border token applied to the left edge.
  * @param {object} [style={}] - style prop.
   * @param {string} [className=''] - Optional CSS class override.
@@ -17,7 +17,7 @@ export const BorderedBox = ({
   children,
   variant = "default",
   padding = "var(--lp-spacing-4)",
-  borderRadius = "8px",
+  borderRadius = "var(--lp-spacing-px-8)",
   accentBar = "",
   style = {},
   className = "",
