@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-08T15:34:06.500Z",
+  "generatedAt": "2026-04-08T15:47:59.010Z",
   "mode": "write",
   "filesArg": [],
   "scannedFiles": 652,
   "generatedFiles": 19,
-  "scannedMatches": 42,
-  "rewriteCount": 14,
-  "unresolvedCount": 28,
+  "scannedMatches": 28,
+  "rewriteCount": 4,
+  "unresolvedCount": 24,
   "generatorOwnedCount": 0,
   "skippedCount": 0,
   "statusCounts": {
-    "direct": 14,
-    "unresolved": 28
+    "folder-to-first-nav-page": 4,
+    "unresolved": 24
   },
   "files": [
     {
@@ -727,28 +727,9 @@
     {
       "file": "v2/delegators/delegation/choose-an-orchestrator.mdx",
       "generated": false,
-      "scannedMatches": 2,
-      "written": true,
-      "rewrites": [
-        {
-          "line": 157,
-          "column": 53,
-          "rawHref": "./delegate-your-lpt",
-          "replacement": "/v2/delegators/delegation/delegate-your-lpt",
-          "status": "direct",
-          "reason": "",
-          "confidence": null
-        },
-        {
-          "line": 160,
-          "column": 62,
-          "rawHref": "./delegation-economics",
-          "replacement": "/v2/delegators/delegation/delegation-economics",
-          "status": "direct",
-          "reason": "",
-          "confidence": null
-        }
-      ],
+      "scannedMatches": 0,
+      "written": false,
+      "rewrites": [],
       "unresolved": [],
       "skipped": [],
       "generatorOwned": []
@@ -766,28 +747,9 @@
     {
       "file": "v2/delegators/delegation/delegation-economics.mdx",
       "generated": false,
-      "scannedMatches": 2,
-      "written": true,
-      "rewrites": [
-        {
-          "line": 134,
-          "column": 64,
-          "rawHref": "./choose-an-orchestrator",
-          "replacement": "/v2/delegators/delegation/choose-an-orchestrator",
-          "status": "direct",
-          "reason": "",
-          "confidence": null
-        },
-        {
-          "line": 140,
-          "column": 59,
-          "rawHref": "./manage-your-delegation",
-          "replacement": "/v2/delegators/delegation/manage-your-delegation",
-          "status": "direct",
-          "reason": "",
-          "confidence": null
-        }
-      ],
+      "scannedMatches": 0,
+      "written": false,
+      "rewrites": [],
       "unresolved": [],
       "skipped": [],
       "generatorOwned": []
@@ -795,28 +757,9 @@
     {
       "file": "v2/delegators/delegation/manage-your-delegation.mdx",
       "generated": false,
-      "scannedMatches": 2,
-      "written": true,
-      "rewrites": [
-        {
-          "line": 139,
-          "column": 64,
-          "rawHref": "./choose-an-orchestrator",
-          "replacement": "/v2/delegators/delegation/choose-an-orchestrator",
-          "status": "direct",
-          "reason": "",
-          "confidence": null
-        },
-        {
-          "line": 142,
-          "column": 62,
-          "rawHref": "./delegation-economics",
-          "replacement": "/v2/delegators/delegation/delegation-economics",
-          "status": "direct",
-          "reason": "",
-          "confidence": null
-        }
-      ],
+      "scannedMatches": 0,
+      "written": false,
+      "rewrites": [],
       "unresolved": [],
       "skipped": [],
       "generatorOwned": []
@@ -2284,157 +2227,47 @@
     {
       "file": "v2/gateways/portal.mdx",
       "generated": false,
-      "scannedMatches": 5,
+      "scannedMatches": 4,
       "written": true,
       "rewrites": [
-        {
-          "line": 153,
-          "column": 15,
-          "rawHref": "./resources/knowledge-hub/resources",
-          "replacement": "/v2/gateways/resources/knowledge-hub/resources",
-          "status": "direct",
-          "reason": "",
-          "confidence": null
-        }
-      ],
-      "unresolved": [
         {
           "line": 110,
           "column": 15,
           "rawHref": "./concepts/",
-          "resolvedRoute": "/v2/gateways/concepts",
-          "status": "unresolved",
-          "suggestions": [
-            {
-              "href": "/v2/gateways/concepts/architecture",
-              "reason": "high path similarity",
-              "score": 0.75
-            },
-            {
-              "href": "/v2/gateways/concepts/business-model",
-              "reason": "high path similarity",
-              "score": 0.75
-            },
-            {
-              "href": "/v2/gateways/concepts/capabilities",
-              "reason": "high path similarity",
-              "score": 0.75
-            },
-            {
-              "href": "/v2/gateways/concepts/role",
-              "reason": "high path similarity",
-              "score": 0.75
-            },
-            {
-              "href": "/v2/gateways",
-              "reason": "high path similarity",
-              "score": 0.6667
-            }
-          ]
+          "replacement": "/v2/gateways/concepts/role",
+          "status": "folder-to-first-nav-page",
+          "reason": "",
+          "confidence": null
         },
         {
           "line": 114,
           "column": 26,
           "rawHref": "./concepts/",
-          "resolvedRoute": "/v2/gateways/concepts",
-          "status": "unresolved",
-          "suggestions": [
-            {
-              "href": "/v2/gateways/concepts/architecture",
-              "reason": "high path similarity",
-              "score": 0.75
-            },
-            {
-              "href": "/v2/gateways/concepts/business-model",
-              "reason": "high path similarity",
-              "score": 0.75
-            },
-            {
-              "href": "/v2/gateways/concepts/capabilities",
-              "reason": "high path similarity",
-              "score": 0.75
-            },
-            {
-              "href": "/v2/gateways/concepts/role",
-              "reason": "high path similarity",
-              "score": 0.75
-            },
-            {
-              "href": "/v2/gateways",
-              "reason": "high path similarity",
-              "score": 0.6667
-            }
-          ]
+          "replacement": "/v2/gateways/concepts/role",
+          "status": "folder-to-first-nav-page",
+          "reason": "",
+          "confidence": null
         },
         {
           "line": 135,
           "column": 15,
           "rawHref": "./setup",
-          "resolvedRoute": "/v2/gateways/setup",
-          "status": "unresolved",
-          "suggestions": [
-            {
-              "href": "/v2/gateways/setup/requirements/setup",
-              "reason": "same leaf segment match",
-              "score": 0.65
-            },
-            {
-              "href": "/v2/gateways/setup/configure",
-              "reason": "high path similarity",
-              "score": 0.75
-            },
-            {
-              "href": "/v2/gateways/setup/connect",
-              "reason": "high path similarity",
-              "score": 0.75
-            },
-            {
-              "href": "/v2/gateways/setup/guide",
-              "reason": "high path similarity",
-              "score": 0.75
-            },
-            {
-              "href": "/v2/gateways/setup/install",
-              "reason": "high path similarity",
-              "score": 0.75
-            }
-          ]
+          "replacement": "/v2/gateways/setup/guide",
+          "status": "folder-to-first-nav-page",
+          "reason": "",
+          "confidence": null
         },
         {
           "line": 146,
           "column": 15,
           "rawHref": "./guides/",
-          "resolvedRoute": "/v2/gateways/guides",
-          "status": "unresolved",
-          "suggestions": [
-            {
-              "href": "/v2/community/resources/guides",
-              "reason": "same leaf segment match",
-              "score": 0.65
-            },
-            {
-              "href": "/v2/gateways/resources/knowledge-hub/guides",
-              "reason": "same leaf segment match",
-              "score": 0.65
-            },
-            {
-              "href": "/v2/gateways",
-              "reason": "high path similarity",
-              "score": 0.6667
-            },
-            {
-              "href": "/v2/gateways/GOVERNANCE",
-              "reason": "high path similarity",
-              "score": 0.6667
-            },
-            {
-              "href": "/v2/gateways/navigator",
-              "reason": "high path similarity",
-              "score": 0.6667
-            }
-          ]
+          "replacement": "/v2/gateways/guides/tutorials/byoc-cpu-tutorial",
+          "status": "folder-to-first-nav-page",
+          "reason": "",
+          "confidence": null
         }
       ],
+      "unresolved": [],
       "skipped": [],
       "generatorOwned": []
     },
@@ -2451,46 +2284,9 @@
     {
       "file": "v2/gateways/quickstart/gateway-setup.mdx",
       "generated": false,
-      "scannedMatches": 4,
-      "written": true,
-      "rewrites": [
-        {
-          "line": 148,
-          "column": 13,
-          "rawHref": "../resources/reference/technical/configuration-flags",
-          "replacement": "/v2/gateways/resources/reference/technical/configuration-flags",
-          "status": "direct",
-          "reason": "",
-          "confidence": null
-        },
-        {
-          "line": 198,
-          "column": 13,
-          "rawHref": "../resources/reference/technical/configuration-flags",
-          "replacement": "/v2/gateways/resources/reference/technical/configuration-flags",
-          "status": "direct",
-          "reason": "",
-          "confidence": null
-        },
-        {
-          "line": 228,
-          "column": 13,
-          "rawHref": "../resources/reference/technical/configuration-flags",
-          "replacement": "/v2/gateways/resources/reference/technical/configuration-flags",
-          "status": "direct",
-          "reason": "",
-          "confidence": null
-        },
-        {
-          "line": 278,
-          "column": 9,
-          "rawHref": "../resources/reference/faq",
-          "replacement": "/v2/gateways/resources/reference/faq",
-          "status": "direct",
-          "reason": "",
-          "confidence": null
-        }
-      ],
+      "scannedMatches": 0,
+      "written": false,
+      "rewrites": [],
       "unresolved": [],
       "skipped": [],
       "generatorOwned": []
@@ -3218,37 +3014,9 @@
     {
       "file": "v2/gateways/setup/guide.mdx",
       "generated": false,
-      "scannedMatches": 3,
-      "written": true,
-      "rewrites": [
-        {
-          "line": 323,
-          "column": 15,
-          "rawHref": "../guides/deployment-details/setup-options",
-          "replacement": "/v2/gateways/guides/deployment-details/setup-options",
-          "status": "direct",
-          "reason": "",
-          "confidence": null
-        },
-        {
-          "line": 335,
-          "column": 15,
-          "rawHref": "../guides/tutorials/tutorials-resources",
-          "replacement": "/v2/gateways/guides/tutorials/tutorials-resources",
-          "status": "direct",
-          "reason": "",
-          "confidence": null
-        },
-        {
-          "line": 359,
-          "column": 15,
-          "rawHref": "../guides/node-pipelines/ai-pipelines",
-          "replacement": "/v2/gateways/guides/node-pipelines/ai-pipelines",
-          "status": "direct",
-          "reason": "",
-          "confidence": null
-        }
-      ],
+      "scannedMatches": 0,
+      "written": false,
+      "rewrites": [],
       "unresolved": [],
       "skipped": [],
       "generatorOwned": []

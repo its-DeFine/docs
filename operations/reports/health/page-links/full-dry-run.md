@@ -4,66 +4,26 @@
 - Mode: dry-run
 - Files scanned: 652
 - Generated pages scanned: 19
-- Relative href literals scanned: 42
-- Planned rewrites: 14
-- Unresolved links: 28
+- Relative href literals scanned: 28
+- Planned rewrites: 4
+- Unresolved links: 24
 - Generator-owned findings: 0
 - Skipped non-page/non-v2 hrefs: 0
 
 ## Status Counts
 | status | count |
 | --- | ---: |
-| direct | 14 |
-| unresolved | 28 |
+| folder-to-first-nav-page | 4 |
+| unresolved | 24 |
 
 ## Planned Rewrites
-- v2/delegators/delegation/choose-an-orchestrator.mdx
-  - L157: ./delegate-your-lpt -> /v2/delegators/delegation/delegate-your-lpt [direct]
-  - L160: ./delegation-economics -> /v2/delegators/delegation/delegation-economics [direct]
-- v2/delegators/delegation/delegation-economics.mdx
-  - L134: ./choose-an-orchestrator -> /v2/delegators/delegation/choose-an-orchestrator [direct]
-  - L140: ./manage-your-delegation -> /v2/delegators/delegation/manage-your-delegation [direct]
-- v2/delegators/delegation/manage-your-delegation.mdx
-  - L139: ./choose-an-orchestrator -> /v2/delegators/delegation/choose-an-orchestrator [direct]
-  - L142: ./delegation-economics -> /v2/delegators/delegation/delegation-economics [direct]
 - v2/gateways/portal.mdx
-  - L153: ./resources/knowledge-hub/resources -> /v2/gateways/resources/knowledge-hub/resources [direct]
-- v2/gateways/quickstart/gateway-setup.mdx
-  - L148: ../resources/reference/technical/configuration-flags -> /v2/gateways/resources/reference/technical/configuration-flags [direct]
-  - L198: ../resources/reference/technical/configuration-flags -> /v2/gateways/resources/reference/technical/configuration-flags [direct]
-  - L228: ../resources/reference/technical/configuration-flags -> /v2/gateways/resources/reference/technical/configuration-flags [direct]
-  - L278: ../resources/reference/faq -> /v2/gateways/resources/reference/faq [direct]
-- v2/gateways/setup/guide.mdx
-  - L323: ../guides/deployment-details/setup-options -> /v2/gateways/guides/deployment-details/setup-options [direct]
-  - L335: ../guides/tutorials/tutorials-resources -> /v2/gateways/guides/tutorials/tutorials-resources [direct]
-  - L359: ../guides/node-pipelines/ai-pipelines -> /v2/gateways/guides/node-pipelines/ai-pipelines [direct]
+  - L110: ./concepts/ -> /v2/gateways/concepts/role [folder-to-first-nav-page]
+  - L114: ./concepts/ -> /v2/gateways/concepts/role [folder-to-first-nav-page]
+  - L135: ./setup -> /v2/gateways/setup/guide [folder-to-first-nav-page]
+  - L146: ./guides/ -> /v2/gateways/guides/tutorials/byoc-cpu-tutorial [folder-to-first-nav-page]
 
 ## Unresolved
-- v2/gateways/portal.mdx
-  - L110: ./concepts/
-    - suggestion: /v2/gateways/concepts/architecture (high path similarity, score 0.75)
-    - suggestion: /v2/gateways/concepts/business-model (high path similarity, score 0.75)
-    - suggestion: /v2/gateways/concepts/capabilities (high path similarity, score 0.75)
-    - suggestion: /v2/gateways/concepts/role (high path similarity, score 0.75)
-    - suggestion: /v2/gateways (high path similarity, score 0.6667)
-  - L114: ./concepts/
-    - suggestion: /v2/gateways/concepts/architecture (high path similarity, score 0.75)
-    - suggestion: /v2/gateways/concepts/business-model (high path similarity, score 0.75)
-    - suggestion: /v2/gateways/concepts/capabilities (high path similarity, score 0.75)
-    - suggestion: /v2/gateways/concepts/role (high path similarity, score 0.75)
-    - suggestion: /v2/gateways (high path similarity, score 0.6667)
-  - L135: ./setup
-    - suggestion: /v2/gateways/setup/requirements/setup (same leaf segment match, score 0.65)
-    - suggestion: /v2/gateways/setup/configure (high path similarity, score 0.75)
-    - suggestion: /v2/gateways/setup/connect (high path similarity, score 0.75)
-    - suggestion: /v2/gateways/setup/guide (high path similarity, score 0.75)
-    - suggestion: /v2/gateways/setup/install (high path similarity, score 0.75)
-  - L146: ./guides/
-    - suggestion: /v2/community/resources/guides (same leaf segment match, score 0.65)
-    - suggestion: /v2/gateways/resources/knowledge-hub/guides (same leaf segment match, score 0.65)
-    - suggestion: /v2/gateways (high path similarity, score 0.6667)
-    - suggestion: /v2/gateways/GOVERNANCE (high path similarity, score 0.6667)
-    - suggestion: /v2/gateways/navigator (high path similarity, score 0.6667)
 - v2/internal/internal-overview.mdx
   - L37: ./docs-philosophy
     - suggestion: /v2/internal/overview/docs-philosophy (same leaf segment match, score 0.65)
