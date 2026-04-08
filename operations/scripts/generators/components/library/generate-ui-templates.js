@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-ui-templates
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  components
+ * @niche    library
  * @purpose     governance:index-management
  * @description Generates the UI template catalog and VS Code snippets from canonical template/component sources.
  * @mode        read-only

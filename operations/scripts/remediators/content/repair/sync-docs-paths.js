@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      sync-docs-paths
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  content
+ * @niche    repair
  * @purpose     qa:repo-health
  * @description Docs path sync remediator — applies deterministic docs.json and governed reference rewrites for moved docs pages.
  * @mode        read-only

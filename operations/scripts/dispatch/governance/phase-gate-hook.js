@@ -1,7 +1,7 @@
 /**
  * @script      phase-gate-hook
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Enforces phase checkpoint verification before allowing work to proceed
  * @description PostToolUse hook for Edit/Write. Reads phase-gate.jsonl and emits unverified

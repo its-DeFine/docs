@@ -1,7 +1,7 @@
 /**
  * @script      blast-radius-scanner
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Scans for consumers after editing shared files (components, templates, config)
  * @description PostToolUse hook for Edit/Write. When a file in snippets/components/,

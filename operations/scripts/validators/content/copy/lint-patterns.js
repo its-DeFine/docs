@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      lint-patterns
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  content
+ * @niche    copy
  * @purpose     qa:content-quality
  * @description Enforce Tier 2 copy pattern rules on MDX content files.
  * @mode        read-only

@@ -1,8 +1,8 @@
 /**
  * @script      audit-component-usage
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  components
+ * @niche    documentation
  * @purpose     qa:repo-health
  * @description Component usage auditor — scans pages for component usage patterns and reports statistics
  * @mode        read-only

@@ -1,8 +1,8 @@
 #!/bin/bash
 #
 # @script      headless-batch
-# @type        
-# @concern     
+# @type     dispatch
+# @concern  governance
 # @niche       
 # @purpose     Run Claude Code headless for safe batch operations
 # @description Executes a prompt against files non-interactively with restricted tools. Use for bulk quality checks, changelog regeneration, stale reference scans, and other well-defined batch tasks.

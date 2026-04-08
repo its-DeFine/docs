@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      enforce-generated-file-banners
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  content
+ * @niche    structure
  * @purpose     governance:index-management
  * @description Validates "do not edit" banners and i18n parity on generated MDX files. Generator dispatch split to sync-generated-files.js.
  * @mode        read-only

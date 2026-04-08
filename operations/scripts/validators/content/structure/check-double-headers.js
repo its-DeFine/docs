@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-double-headers
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  content
+ * @niche    structure
  * @purpose     qa:content-quality
  * @description Detects duplicate body H1 headings and opening paragraphs that repeat frontmatter title or description content.
  * @mode        read-only

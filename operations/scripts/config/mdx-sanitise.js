@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      mdx-sanitise
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  governance
+ * @niche    config
  * @purpose     infrastructure:shared-lib
  * @description Shared sanitisation utilities for all scripts that write content consumed by MDX pages.
  * @mode        read-only

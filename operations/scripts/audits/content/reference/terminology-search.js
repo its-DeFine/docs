@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      terminology-search
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  content
+ * @niche    reference
  * @purpose     tooling:dev-tools
  * @description Terminology search — searches glossary/terminology data for definitions
  * @mode        read-only

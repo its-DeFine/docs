@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-governance-map
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  governance
+ * @niche    map
  * @purpose     governance:map-management
  * @description Walks all GOVERNANCE.md markers, validates links, detects staleness, and generates the governance map
  * @mode        read-only

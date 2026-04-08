@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      migrate-assets-to-branch
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  content
+ * @niche    repair
  * @purpose     governance:repo-health
  * @description Reads the media-audit manifest, migrates flagged assets to docs-v2-assets, and rewrites MDX/JSX references to raw GitHub URLs.
  * @mode        read-only

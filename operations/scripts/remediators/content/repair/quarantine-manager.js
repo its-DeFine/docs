@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      cleanup-quarantine-manager
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  content
+ * @niche    repair
  * @purpose     qa:repo-health
  * @description Quarantine manager — classifies files for quarantine (default) or applies quarantine moves (--apply)
  * @mode        read-only

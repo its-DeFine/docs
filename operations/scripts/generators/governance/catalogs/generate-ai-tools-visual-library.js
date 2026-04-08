@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-ai-tools-visual-library
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  governance
+ * @niche    catalogs
  * @purpose     governance:ai-tools-visual-library
  * @description Generates the canonical AI-tools visual library for GitHub workflows and dispatcher actions, plus staged audit outputs.
  * @mode        read-only

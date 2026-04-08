@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      mintlify-canonical-sync
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  governance
+ * @niche    config
  * @purpose     governance:agent-governance
  * @description Shared Mintlify canonical sync library — validates archived-source cleanup, consumer references, and deterministic rewrite plans for the canonical Mintlify governance surface.
  * @mode        read-only

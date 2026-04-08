@@ -1,7 +1,7 @@
 /**
  * @script      post-tool-verify
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Post-tool verification for Claude Code sessions
  * @description Tracks consecutive failures for circuit breaker. Fires after tool use failures.

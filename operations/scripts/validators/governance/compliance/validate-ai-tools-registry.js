@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      validate-ai-tools-registry
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  governance
+ * @niche    compliance
  * @purpose     governance:agent-governance
  * @description Validate the AI-tools registry contract and coverage so ownerless governance and AI subsystem inventory stay aligned.
  * @mode        read-only

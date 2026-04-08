@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      repo-audit-orchestrator
- * @type        
- * @concern     
- * @niche       
+ * @type     dispatch
+ * @concern  governance
+ * @niche    repo
  * @purpose     infrastructure:pipeline-orchestration
  * @description Repo audit orchestrator — dispatches all static analysis validators in sequence. Supports --mode (static/full), --scope (full/changed), --quarantine, --agent-pack.
  * @mode        read-only

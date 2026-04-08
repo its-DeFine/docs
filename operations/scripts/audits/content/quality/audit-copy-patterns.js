@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      pattern-observer
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  content
+ * @niche    quality
  * @purpose     tooling:dev-tools
  * @description Aggregate copy pattern violations across a tab or full v2 tree and emit a diagnostic report.
  * @mode        read-only

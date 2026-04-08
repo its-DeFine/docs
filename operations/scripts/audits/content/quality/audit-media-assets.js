@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      audit-media-assets
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  content
+ * @niche    quality
  * @purpose     governance:repo-health
  * @description Audits repo media assets, references, ignore leakage, and externalized asset branch inventory.
  * @mode        read-only

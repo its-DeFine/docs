@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-component-css
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  components
+ * @niche    library
  * @purpose     qa:repo-health
  * @description Validates component files against component governance styling rules.
  * @mode        read-only

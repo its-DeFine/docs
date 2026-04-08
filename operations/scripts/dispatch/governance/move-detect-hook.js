@@ -1,7 +1,7 @@
 /**
  * @script      move-detect-hook
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     governance:move-propagation
  * @description PostToolUse hook on Bash. Detects mv/git mv commands targeting v2/ paths,

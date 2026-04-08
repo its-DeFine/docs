@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      docs-page-research
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  content
+ * @niche    veracity
  * @purpose     governance:agent-governance
  * @description Docs page research runner — extracts factual claims from docs pages, checks evidence sources, detects contradictions across related pages, and emits manual-first research reports.
  * @mode        read-only

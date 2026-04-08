@@ -1,8 +1,8 @@
 /**
  * @script      verify-all-pages
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  content
+ * @niche    structure
  * @purpose     qa:repo-health
  * @description Loads component-library routes in a headless browser and fails on render, console, or 404 issues.
  * @mode        read-only

@@ -1,7 +1,7 @@
 /**
  * @script      grep-loop-guard
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Detects repeated empty Grep results and fires a circuit-breaker warning
  * @description Tracks consecutive Grep calls that return no results. At 3 in a row,

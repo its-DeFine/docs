@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-glossary
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  content
+ * @niche    reference
  * @purpose     tooling:dev-tools
  * @description Glossary generator — produces glossary data file from terminology sources
  * @mode        read-only

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-anchor-usage
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  content
+ * @niche    structure
  * @purpose     qa:content-quality
  * @description Validates same-page anchor links in maintained v2 MDX files against heading IDs on the same page
  * @mode        read-only

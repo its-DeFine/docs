@@ -1,7 +1,7 @@
 /**
  * @script      pre-tool-guard
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Pre-tool enforcement for Claude Code sessions
  * @description Mechanically enforces co-work rules before tool execution. Blocks destructive git, public posts, and unconfirmed writes.

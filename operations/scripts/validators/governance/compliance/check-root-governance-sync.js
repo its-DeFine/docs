@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-root-governance-sync
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  governance
+ * @niche    compliance
  * @purpose     governance:root-management
  * @description Validates that root-governance generated outputs, required documentation references, and public root artifact declarations stay aligned with the canonical manifest.
  * @mode        read-only

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-repo-governance-status
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  governance
+ * @niche    reports
  * @purpose     governance:ownerless-governance
  * @description Generates the top-level repo-governance map and status reports from the canonical steady-state registry.
  * @mode        read-only

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-component-registry
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  components
+ * @niche    library
  * @purpose     governance:index-management
  * @description Parses JSDoc from all component exports and produces component-registry.json.
  * @mode        read-only

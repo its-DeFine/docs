@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      docs-research-packet
- * @type        
- * @concern     
- * @niche       
+ * @type     dispatch
+ * @concern  content
+ * @niche    veracity
  * @purpose     tooling:dev-tools
  * @description Docs research packet generator — derives nav, manifest, or explicit path scope; runs the research stack tranche-by-tranche; and writes reusable packet reports plus a master rollup.
  * @mode        read-only

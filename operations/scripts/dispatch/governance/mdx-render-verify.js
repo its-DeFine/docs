@@ -1,7 +1,7 @@
 /**
  * @script      mdx-render-verify
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Verifies MDX page renders without new console errors after every edit
  * @description PostToolUse hook for Edit/Write on v2 .mdx files. Launches Puppeteer,

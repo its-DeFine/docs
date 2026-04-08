@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      sweep-console-errors
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  content
+ * @niche    structure
  * @purpose     Generates console error baseline for all v2 routes via Puppeteer
  * @description Visits every v2 route registered in docs.json, captures HTTP status,
  * @mode        read-only

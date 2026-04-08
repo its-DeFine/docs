@@ -1,7 +1,7 @@
 /**
  * @script      message-backup
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Backs up substantial user messages to prevent data loss from command typos
  * @description UserPromptSubmit hook. If a message is longer than 200 chars, saves it to

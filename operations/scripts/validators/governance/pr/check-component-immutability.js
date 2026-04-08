@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-component-immutability
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  governance
+ * @niche    pr
  * @purpose     governance:repo-health
  * @description Flags modifications to existing component files in PR context. New files allowed. Modifications require approval label.
  * @mode        read-only

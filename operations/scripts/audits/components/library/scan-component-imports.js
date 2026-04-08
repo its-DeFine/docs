@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      scan-component-imports
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  components
+ * @niche    library
  * @purpose     governance:index-management
  * @description Scans MDX imports to produce component-usage-map.json and detect @usedIn drift.
  * @mode        read-only

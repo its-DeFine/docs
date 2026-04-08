@@ -1,7 +1,7 @@
 /**
  * @script      server-lifecycle
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Ensures Mintlify dev server is running for render verification
  * @description SessionStart hook + CLI tool. Auto-starts the Mintlify dev server via

@@ -1,7 +1,7 @@
 /**
  * @script      generate-governance-map
- * @type        
- * @concern     
+ * @type     generator
+ * @concern  governance
  * @niche       
  * @purpose     governance:repo-health
  * @description Reads GOVERNANCE.md markers from every root folder and produces a governance map report

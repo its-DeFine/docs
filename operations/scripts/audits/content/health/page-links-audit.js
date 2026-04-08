@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      page-links-audit
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  content
+ * @niche    health
  * @purpose     qa:link-integrity
  * @description Audit page-facing link health from canonical operations scripts, with stable outputs under operations/reports/health/page-links.
  * @mode        read-only

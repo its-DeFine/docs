@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-naming-conventions
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  components
+ * @niche    library
  * @purpose     qa:repo-health
  * @description Validates active component filenames against directory-aware file naming and PascalCase exports under snippets/components.
  * @mode        read-only

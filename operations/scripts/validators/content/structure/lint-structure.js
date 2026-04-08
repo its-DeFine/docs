@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      lint-structure
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  content
+ * @niche    structure
  * @purpose     qa:content-quality
  * @description Enforce structural rules on MDX content files.
  * @mode        read-only

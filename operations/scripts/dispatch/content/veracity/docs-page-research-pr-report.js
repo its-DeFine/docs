@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      docs-page-research-pr-report
- * @type        
- * @concern     
- * @niche       
+ * @type     dispatch
+ * @concern  content
+ * @niche    veracity
  * @purpose     governance:agent-governance
  * @description Docs page research PR report — runs the fact-check research runner on changed docs pages and emits an advisory PR artifact summarizing claim families, contradictions, unresolved factual risk, and propagation follow-up.
  * @mode        read-only

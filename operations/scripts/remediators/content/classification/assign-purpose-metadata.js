@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      assign-purpose-metadata
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  content
+ * @niche    classification
  * @purpose     qa:content-quality
  * @description Purpose metadata assigner — fills purpose and audience frontmatter for routable v2 pages
  * @mode        read-only

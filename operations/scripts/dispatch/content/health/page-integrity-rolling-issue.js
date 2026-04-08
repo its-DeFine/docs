@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      page-integrity-rolling-issue
- * @type        
- * @concern     
- * @niche       
+ * @type     dispatch
+ * @concern  content
+ * @niche    health
  * @purpose     qa:repo-health
  * @description Provide a stable rolling-issue contract for page-integrity dispatch runs so unresolved link and import failures stay visible in GitHub automation.
  * @mode        read-only

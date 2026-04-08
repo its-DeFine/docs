@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      orchestrator-guides-research-review
- * @type        
- * @concern     
- * @niche       
+ * @type     dispatch
+ * @concern  content
+ * @niche    veracity
  * @purpose     tooling:dev-tools
  * @description Orchestrator guides research review packet wrapper — delegates to the generic docs-research-packet engine with the live Orchestrators Guides nav scope and legacy default output root.
  * @mode        read-only

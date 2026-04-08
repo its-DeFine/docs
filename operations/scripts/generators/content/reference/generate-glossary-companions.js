@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-glossary-companions
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  content
+ * @niche    reference
  * @purpose     tooling:dev-tools
  * @description Companion JSON generator — extracts SearchTable itemsList data from glossary MDX pages
  * @mode        read-only

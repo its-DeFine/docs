@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-component-docs
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  components
+ * @niche    documentation
  * @purpose     qa:repo-health
  * @description Validates component JSDoc coverage, prop documentation, docs-entry coverage, and governance metadata.
  * @mode        read-only

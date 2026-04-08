@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-jsdoc-headers
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  governance
+ * @niche    compliance
  * @purpose     governance:script-compliance
  * @description Validates that all JS files in governed locations have core JSDoc tags
  * @mode        read-only

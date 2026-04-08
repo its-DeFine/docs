@@ -1,7 +1,7 @@
 /**
  * @script      mdx-constraints-injector
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Auto-injects Mintlify MDX constraints when user messages involve page/component editing
  * @description UserPromptSubmit hook. Keyword-matches the user message for MDX/component/page

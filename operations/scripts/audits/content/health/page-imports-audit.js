@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      page-imports-audit
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  content
+ * @niche    health
  * @purpose     qa:import-integrity
  * @description Audit page-reachable import health from canonical operations scripts, with stable outputs under operations/reports/health/page-imports.
  * @mode        read-only

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      sync-generated-files
- * @type        
- * @concern     
- * @niche       
+ * @type     dispatch
+ * @concern  governance
+ * @niche    pipelines
  * @purpose     governance:index-management
  * @description Dispatches generator scripts to sync generated catalog/index files, then validates banners.
  * @mode        read-only

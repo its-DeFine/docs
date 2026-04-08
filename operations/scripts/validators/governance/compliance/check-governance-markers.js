@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-governance-markers
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  governance
+ * @niche    compliance
  * @purpose     governance:marker-compliance
  * @description Validates GOVERNANCE.md presence in all required folders and checks link integrity
  * @mode        read-only

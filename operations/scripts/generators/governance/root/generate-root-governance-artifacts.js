@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-root-governance-artifacts
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  governance
+ * @niche    root
  * @purpose     governance:root-management
  * @description Generates root-governance projections from the canonical manifest, including .allowlist, the generated root map, and sync reports.
  * @mode        read-only

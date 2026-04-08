@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      codex/validate-locks
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  ai
+ * @niche    codex
  * @purpose     governance:agent-governance
  * @description Codex lock validator — checks for stale or conflicting lock files before push
  * @mode        read-only

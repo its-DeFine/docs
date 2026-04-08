@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      create-codex-pr
- * @type        
- * @concern     
- * @niche       
+ * @type     dispatch
+ * @concern  ai
+ * @niche    codex
  * @purpose     governance:agent-governance
  * @description Codex PR creator — generates codex PR with correct branch naming, labels, and body template
  * @mode        read-only

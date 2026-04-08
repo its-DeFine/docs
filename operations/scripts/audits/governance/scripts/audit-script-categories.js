@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      audit-scripts
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  governance
+ * @niche    scripts
  * @purpose     qa:repo-health
  * @description Script auditor — analyses all repo scripts, categorises usage/overlap, generates SCRIPT_AUDIT reports
  * @mode        read-only

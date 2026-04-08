@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # @script      audit-python
-# @type        
-# @concern     
-# @niche       
+# @type     audit
+# @concern  content
+# @niche    quality
 # @purpose     qa:content-quality
 # @description Python page audit utility — validates routed docs files, snippet imports, and internal links, then writes page-audit reports
 # @mode        read-only

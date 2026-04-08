@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      wcag-repair-common
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  content
+ * @niche    style
  * @purpose     qa:content-quality
  * @description WCAG repair shared logic — common repair functions used by WCAG audit fix mode
  * @mode        read-only

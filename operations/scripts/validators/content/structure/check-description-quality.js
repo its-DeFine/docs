@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-description-quality
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  content
+ * @niche    structure
  * @purpose     qa:content-quality
  * @description Validates English v2 frontmatter descriptions for SEO length, boilerplate openings, and duplicate reuse
  * @mode        read-only

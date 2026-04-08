@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-ai-sitemap
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  content
+ * @niche    seo
  * @purpose     governance:index-management
  * @description AI sitemap generator — produces AI-optimised sitemap files. Dual-mode: --check (enforcer) / --write (generator).
  * @mode        read-only

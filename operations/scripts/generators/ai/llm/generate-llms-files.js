@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-llms-files
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  ai
+ * @niche    llm
  * @purpose     
  * @description 
  * @mode        read-only

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-og-images
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  content
+ * @niche    seo
  * @purpose     seo:og-image-assets
  * @description Generate canonical site-level Open Graph image assets and manifest for fallback and section-level social previews.
  * @mode        read-only

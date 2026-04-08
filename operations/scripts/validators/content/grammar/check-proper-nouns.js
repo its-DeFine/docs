@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-proper-nouns
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  content
+ * @niche    grammar
  * @purpose     qa:content-quality
  * @description Detects and fixes incorrect proper noun capitalisation in prose while skipping code, frontmatter, URLs, and path-like tokens.
  * @mode        read-only

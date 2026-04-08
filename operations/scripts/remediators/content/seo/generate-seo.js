@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-seo
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  content
+ * @niche    seo
  * @purpose     feature:seo
  * @description SEO generator — generates SEO metadata (title, description, keywords) for v2 pages from content analysis
  * @mode        read-only

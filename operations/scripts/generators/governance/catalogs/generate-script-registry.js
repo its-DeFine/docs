@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-script-registry
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  governance
+ * @niche    catalogs
  * @purpose     governance:index-management
  * @description Generate the governed script registry from script headers so classification, catalogs, and script-docs enforcement share one derived source of truth.
  * @mode        read-only

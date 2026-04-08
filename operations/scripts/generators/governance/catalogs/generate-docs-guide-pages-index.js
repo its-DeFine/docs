@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-docs-guide-pages-index
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  governance
+ * @niche    catalogs
  * @purpose     governance:index-management
  * @description Generates the docs-guide pages catalog
  * @mode        read-only

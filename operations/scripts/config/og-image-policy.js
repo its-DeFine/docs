@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      og-image-policy
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  governance
+ * @niche    config
  * @purpose     seo:og-image-governance
  * @description OG image policy helper — resolves authored MDX pages to canonical section or fallback social images and metadata.
  * @mode        read-only

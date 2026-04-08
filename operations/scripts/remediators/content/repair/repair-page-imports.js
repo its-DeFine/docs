@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      repair-page-imports
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  content
+ * @niche    repair
  * @purpose     qa:import-integrity
  * @description Repair only proven-safe page import failures from canonical operations scripts while leaving ambiguous import issues unchanged for review.
  * @mode        read-only

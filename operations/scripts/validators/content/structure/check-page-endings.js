@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-page-endings
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  content
+ * @niche    structure
  * @purpose     qa:content-quality
  * @description Validates that English v2 MDX pages end with an approved navigational or closing element
  * @mode        read-only

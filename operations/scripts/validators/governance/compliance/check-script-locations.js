@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-script-locations
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  governance
+ * @niche    compliance
  * @purpose     governance:script-placement
  * @description Validates all JS files are in governed locations per the script framework
  * @mode        read-only

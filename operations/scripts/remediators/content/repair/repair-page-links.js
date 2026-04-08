@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      repair-page-links
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  content
+ * @niche    repair
  * @purpose     qa:link-integrity
  * @description Repair deterministic page-link path issues from canonical operations scripts while leaving ambiguous targets unchanged for review.
  * @mode        read-only

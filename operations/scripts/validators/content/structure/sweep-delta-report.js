@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      sweep-delta-report
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  content
+ * @niche    structure
  * @purpose     Compares current console error state against baseline and produces a delta report
  * @description Runs a full-site (or targeted) Puppeteer sweep, loads the existing baseline,
  * @mode        read-only

@@ -1,7 +1,7 @@
 /**
  * @script      pre-compact-checkpoint
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Preserves critical session state before context compaction
  * @description Fires before Claude Code compacts context in long sessions. Reads the

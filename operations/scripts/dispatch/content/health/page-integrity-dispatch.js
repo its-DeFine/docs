@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      page-integrity-dispatch
- * @type        
- * @concern     
- * @niche       
+ * @type     dispatch
+ * @concern  content
+ * @niche    health
  * @purpose     infrastructure:pipeline-orchestration
  * @description Orchestrate the page-integrity family from canonical operations scripts so audit, repair, rerun, and report publication share one stable workflow contract.
  * @mode        read-only

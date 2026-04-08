@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      audit-v2-usefulness
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  content
+ * @niche    quality
  * @purpose     qa:content-quality
  * @description Usefulness auditor — scores v2 MDX pages on human and agent usefulness with source-weighted 2026 accuracy verification
  * @mode        read-only

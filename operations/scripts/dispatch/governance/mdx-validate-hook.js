@@ -1,7 +1,7 @@
 /**
  * @script      mdx-validate-hook
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Validates MDX files after edit using the server-manager (port 3145)
  * @description PostToolUse hook for Edit/Write on .mdx files. Uses the shared

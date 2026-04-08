@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-ai-tools-registry-artifacts
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  governance
+ * @niche    catalogs
  * @purpose     governance:agent-governance
  * @description Keep ai-tools/registry/ai-tools-registry.json aligned with live skill/template/export files so ownerless governance coverage stays complete.
  * @mode        read-only

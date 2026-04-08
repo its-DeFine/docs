@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      style-and-language-homogenizer-en-gb
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  content
+ * @niche    style
  * @purpose     tooling:dev-tools
  * @description EN-GB style homogeniser — finds and fixes American English spellings, style guide violations, and formatting inconsistencies across v2 content
  * @mode        read-only

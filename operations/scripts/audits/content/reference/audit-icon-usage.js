@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      audit-icon-usage
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  content
+ * @niche    reference
  * @purpose     tooling:dev-tools
  * @description Icon usage auditor — scans v2 and docs-guide MDX pages for icon prop
  * @mode        read-only

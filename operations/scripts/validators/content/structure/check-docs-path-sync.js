@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-docs-path-sync
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  content
+ * @niche    structure
  * @purpose     qa:repo-health
  * @description Docs path sync validator — detects staged page moves that require docs.json or governed path reference rewrites.
  * @mode        read-only

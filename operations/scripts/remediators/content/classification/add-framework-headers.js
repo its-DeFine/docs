@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      add-framework-headers
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  content
+ * @niche    classification
  * @purpose     governance:repo-health
  * @description Inserts or extends framework headers on all repo scripts from classification data.
  * @mode        read-only

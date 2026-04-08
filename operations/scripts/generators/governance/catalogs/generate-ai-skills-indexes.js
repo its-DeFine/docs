@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-ai-skills-indexes
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  governance
+ * @niche    catalogs
  * @purpose     
  * @description 
  * @mode        read-only

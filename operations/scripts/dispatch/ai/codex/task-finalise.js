@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      codex/task-finalize
- * @type        
- * @concern     
- * @niche       
+ * @type     dispatch
+ * @concern  ai
+ * @niche    codex
  * @purpose     governance:agent-governance
  * @description Codex task finaliser — enforces task completion requirements before closing
  * @mode        read-only

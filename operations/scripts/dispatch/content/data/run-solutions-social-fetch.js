@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      run-solutions-social-fetch
- * @type        
- * @concern     
- * @niche       
+ * @type     dispatch
+ * @concern  content
+ * @niche    data
  * @purpose     infrastructure:data-feeds
  * @description Runs the solutions social fetch suite locally so all per-solution social-feed modules under snippets/data/social-feed-solutions/ can be regenerated from config and env-backed APIs.
  * @mode        read-only

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      validate-codex-task-contract
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  governance
+ * @niche    compliance
  * @purpose     governance:agent-governance
  * @description Codex task contract enforcer — validates branch naming, task files, PR body, and issue state for codex branches
  * @mode        read-only

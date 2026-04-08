@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      repair-governance
- * @type        
- * @concern     
- * @niche       
+ * @type     dispatch
+ * @concern  governance
+ * @niche    pipelines
  * @purpose     governance:repo-health
  * @description Run the bounded governance repair pipeline and regenerate the active repo-ops governance reports.
  * @mode        read-only

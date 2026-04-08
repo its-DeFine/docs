@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      repair-governance-artifacts
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  governance
+ * @niche    compliance
  * @purpose     governance:self-remediation
  * @description Regenerates governance map, updates lastVerified dates on verified frameworks, and reports unfixable issues
  * @mode        read-only

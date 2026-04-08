@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      review-governance-repair-checklist
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  governance
+ * @niche    compliance
  * @purpose     governance:repo-health
  * @description Generates a review checklist for dry-run governance repair proposals that require human approval before fix mode is applied.
  * @mode        read-only

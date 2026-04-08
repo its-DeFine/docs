@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-agent-docs-freshness
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  governance
+ * @niche    compliance
  * @purpose     
  * @description 
  * @mode        read-only

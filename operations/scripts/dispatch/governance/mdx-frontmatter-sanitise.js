@@ -1,7 +1,7 @@
 /**
  * @script      mdx-frontmatter-sanitise
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Auto-fixes known frontmatter errors in MDX files after edit
  * @description PostToolUse hook for Edit/Write on ANY .mdx file (not just v2/).

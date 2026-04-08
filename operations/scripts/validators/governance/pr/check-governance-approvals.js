@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-governance-approvals
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  governance
+ * @niche    pr
  * @purpose     governance:repo-health
  * @description Validate governance-sensitive PR changes against the canonical approval policy, required labels, and PR-body evidence.
  * @mode        read-only

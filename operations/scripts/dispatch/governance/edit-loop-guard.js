@@ -1,7 +1,7 @@
 /**
  * @script      edit-loop-guard
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Detects repeated edits to the same file and requires hypothesis before continuing
  * @description PostToolUse hook for Edit/Write. Tracks per-file edit counts within a session.

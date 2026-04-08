@@ -1,7 +1,7 @@
 /**
  * @script      scope-checkpoint
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Injects periodic scope checks to prevent session drift from thread outcome
  * @description PostToolUse hook for Edit/Write. Tracks total edit count per session.

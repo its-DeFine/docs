@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-mdx-component-scope
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  components
+ * @niche    library
  * @purpose     qa:repo-health
  * @description Validates MDX-facing component modules do not depend on private file-scope helper bindings from exported components.
  * @mode        read-only

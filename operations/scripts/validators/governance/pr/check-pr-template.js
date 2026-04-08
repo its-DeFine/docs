@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-pr-template
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  governance
+ * @niche    pr
  * @purpose     governance:repo-health
  * @description Enforces that PR descriptions include required change and rationale sections before merge
  * @mode        read-only

@@ -1,7 +1,7 @@
 /**
  * @script      mdx-render-gate
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Blocks Edit/Write when the last MDX edit introduced console errors
  * @description PreToolUse hook for Write/Edit. Reads the verification state written by

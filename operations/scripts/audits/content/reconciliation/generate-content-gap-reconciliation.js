@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-content-gap-reconciliation
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  content
+ * @niche    reconciliation
  * @purpose     governance:index-management
  * @description Content-gap reconciliation generator — compares blueprint coverage against v2 MDX and writes reconciliation artefacts
  * @mode        read-only

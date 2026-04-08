@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-component-docs
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  components
+ * @niche    documentation
  * @purpose     governance:index-management
  * @description Generates published component library MDX pages from the registry. Replaces update-component-library.sh.
  * @mode        read-only

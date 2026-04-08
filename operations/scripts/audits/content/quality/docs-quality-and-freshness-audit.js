@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      docs-quality-and-freshness-audit
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  content
+ * @niche    quality
  * @purpose     qa:content-quality
  * @description Content freshness audit — checks for TODO/TBD/Coming Soon markers, thin pages, stale content
  * @mode        read-only

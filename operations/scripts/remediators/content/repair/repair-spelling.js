@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      repair-spelling
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  content
+ * @niche    repair
  * @purpose     qa:content-quality
  * @description Auto-corrects spelling errors using the shared cspell configuration. Safe, dictionary-based corrections only.
  * @mode        read-only

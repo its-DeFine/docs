@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      repair-ownerless-language
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  content
+ * @niche    style
  * @purpose     governance:agent-governance
  * @description Applies deterministic wording repairs that remove human-owner dependency from governed GitHub and contributor surfaces.
  * @mode        read-only

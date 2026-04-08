@@ -1,7 +1,7 @@
 /**
  * @script      completion-gate
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Blocks writing to completion artifacts while render verification is failing
  * @description PreToolUse hook for Write/Edit. Detects writes to session-log.txt,

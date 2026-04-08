@@ -1,7 +1,7 @@
 /**
  * @script      session-register
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Registers active sessions and tracks which files each session touches
  * @description SessionStart hook that registers this session in a shared registry file.

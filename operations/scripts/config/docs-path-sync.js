@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      docs-path-sync
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  governance
+ * @niche    config
  * @purpose     qa:repo-health
  * @description Shared docs path sync library — detects staged page moves, plans deterministic route rewrites, and applies governed docs.json/path reference updates.
  * @mode        read-only

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-ai-tools-inventory
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  governance
+ * @niche    reports
  * @purpose     governance:ai-tools-inventory
  * @description Generates the AI tools inventory report from the registry. Split from validate-ai-tools-registry.js.
  * @mode        read-only

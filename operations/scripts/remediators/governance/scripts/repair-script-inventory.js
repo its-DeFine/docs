@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      repair-script-inventory
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  governance
+ * @niche    scripts
  * @purpose     governance:script-header-repair
  * @description Repairs script headers and classification data. Thin wrapper that runs audit-script-inventory with --fix. Split from audit-script-inventory.js.
  * @mode        read-only

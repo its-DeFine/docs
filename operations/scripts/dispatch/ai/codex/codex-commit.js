@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      codex-commit
- * @type        
- * @concern     
- * @niche       
+ * @type     dispatch
+ * @concern  ai
+ * @niche    codex
  * @purpose     governance:agent-governance
  * @description Codex commit helper — audits codex branch state and generates compliant commit messages
  * @mode        read-only

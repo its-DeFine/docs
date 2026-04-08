@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      regression-bisect
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  content
+ * @niche    structure
  * @purpose     Finds the exact commit that introduced a console error on a given route
  * @description Uses git bisect with an automated Puppeteer test to binary-search
  * @mode        read-only

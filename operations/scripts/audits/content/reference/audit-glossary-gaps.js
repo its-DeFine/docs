@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      audit-glossary-gaps
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  content
+ * @niche    reference
  * @purpose     tooling:dev-tools
  * @description Glossary gap auditor — scans v2 MDX pages for terminology candidates not
  * @mode        read-only

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      add-pagetype-mechanical
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  content
+ * @niche    classification
  * @purpose     qa:content-quality
  * @description Mechanically assigns pageType frontmatter to eligible v2 MDX pages.
  * @mode        read-only

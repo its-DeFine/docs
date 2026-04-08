@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-codex-pr-overlap
- * @type        
- * @concern     
- * @niche       
+ * @type     dispatch
+ * @concern  ai
+ * @niche    codex
  * @purpose     governance:agent-governance
  * @description PR enforcer — checks for conflicting codex PRs targeting the same files/branches
  * @mode        read-only

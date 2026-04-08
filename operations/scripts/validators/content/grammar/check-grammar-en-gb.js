@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-grammar-en-gb
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  content
+ * @niche    grammar
  * @purpose     qa:content-quality
  * @description Deterministic UK English grammar checker for prose content with optional conservative autofix for safe rules.
  * @mode        read-only

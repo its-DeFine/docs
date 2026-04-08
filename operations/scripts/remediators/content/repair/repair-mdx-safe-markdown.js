@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      repair-mdx-safe-markdown
- * @type        
- * @concern     
- * @niche       
+ * @type     remediator
+ * @concern  content
+ * @niche    repair
  * @purpose     qa:content-quality
  * @description Auto-repairs deterministic MDX-unsafe markdown patterns across first-party markdown and MDX content.
  * @mode        read-only

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # @script      verify-pay-orc-gate-finalize
-# @type        
-# @concern     
-# @niche       
+# @type     validator
+# @concern  governance
+# @niche    compliance
 # @purpose     qa:repo-health
 # @description Payment/orchestrator gate verifier — checks payment and orchestrator documentation gate conditions
 # @mode        read-only

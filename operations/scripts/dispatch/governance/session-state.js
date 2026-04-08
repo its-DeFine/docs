@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
  * @script      session-state
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     governance:session-start
  * @description Reads ALL active plans and live project state. Run at session start.

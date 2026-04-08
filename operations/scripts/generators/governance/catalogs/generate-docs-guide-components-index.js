@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      generate-docs-guide-components-index
- * @type        
- * @concern     
- * @niche       
+ * @type     generator
+ * @concern  governance
+ * @niche    catalogs
  * @purpose     governance:index-management
  * @description Generates components-catalog.mdx in docs-guide/catalog/ from component-registry.json and component-usage-map.json.
  * @mode        read-only

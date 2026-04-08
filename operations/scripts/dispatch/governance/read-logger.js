@@ -1,7 +1,7 @@
 /**
  * @script      read-logger
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Tracks which files Claude reads per session for context-gate enforcement
  * @description PostToolUse hook on Read. Logs file paths to a session-scoped temp file.

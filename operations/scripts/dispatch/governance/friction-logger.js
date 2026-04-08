@@ -1,7 +1,7 @@
 /**
  * @script      friction-logger
- * @type        
- * @concern     
+ * @type     dispatch
+ * @concern  governance
  * @niche       
  * @purpose     Detects and logs friction signals from user messages in real-time
  * @description UserPromptSubmit hook. Scans user messages for frustration indicators

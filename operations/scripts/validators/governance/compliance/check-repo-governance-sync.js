@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-repo-governance-sync
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  governance
+ * @niche    compliance
  * @purpose     governance:ownerless-governance
  * @description Validates the canonical repo-governance registry, generated outputs, and referenced ownerless steady-state paths.
  * @mode        read-only

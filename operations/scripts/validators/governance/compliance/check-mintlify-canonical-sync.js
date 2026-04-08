@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      check-mintlify-canonical-sync
- * @type        
- * @concern     
- * @niche       
+ * @type     validator
+ * @concern  governance
+ * @niche    compliance
  * @purpose     governance:agent-governance
  * @description Enforce the Mintlify canonical-sync contract so archived legacy sources stay moved, registered consumers stay updated, and retained-source logs match the registry.
  * @mode        read-only

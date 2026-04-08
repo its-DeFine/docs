@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script      docs-research-adjudication
- * @type        
- * @concern     
- * @niche       
+ * @type     audit
+ * @concern  content
+ * @niche    veracity
  * @purpose     governance:agent-governance
  * @description Docs research adjudication ledger — validates, records, and summarizes measured review outcomes for the page-content research workflow so trust decisions are based on real usage rather than intuition.
  * @mode        read-only
