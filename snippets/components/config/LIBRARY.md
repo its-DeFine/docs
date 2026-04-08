@@ -1,6 +1,6 @@
 <!-- GENERATED FILE — DO NOT EDIT DIRECTLY -->
 <!-- Generator: operations/scripts/generators/components/library/generate-component-library.js -->
-<!-- Generated: 2026-04-08T05:43:09.156Z -->
+<!-- Generated: 2026-04-08T11:04:58.600Z -->
 <!-- Regenerate: node operations/scripts/generators/components/library/generate-component-library.js --category config -->
 
 # Config Component Library
@@ -11,7 +11,7 @@ Non-component configuration objects.
 
 ---
 
-## none
+## other
 
 ### 🟢 MermaidColours
 

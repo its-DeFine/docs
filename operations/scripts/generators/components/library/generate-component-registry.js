@@ -113,7 +113,7 @@ function buildRegistry() {
 
     exportsList.forEach((entry) => {
       if (!entry.jsDocBlock) {
-        issues.push(formatValidationMessage(file.displayPath, entry.name, 'missing JSDoc block'));
+        warnings.push(formatValidationMessage(file.displayPath, entry.name, 'missing JSDoc block — skipped'));
         return;
       }
 

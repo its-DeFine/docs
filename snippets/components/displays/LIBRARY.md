@@ -1,17 +1,35 @@
 <!-- GENERATED FILE — DO NOT EDIT DIRECTLY -->
 <!-- Generator: operations/scripts/generators/components/library/generate-component-library.js -->
-<!-- Generated: 2026-04-08T05:43:09.154Z -->
+<!-- Generated: 2026-04-08T11:04:58.596Z -->
 <!-- Regenerate: node operations/scripts/generators/components/library/generate-component-library.js --category displays -->
 
 # Displays Component Library
 
 Renders authored content into a specific visual format.
 
-**Components:** 20 | **Stable:** 20 | **Experimental:** 0 | **Deprecated:** 0
+**Components:** 21 | **Stable:** 16 | **Experimental:** 0 | **Deprecated:** 4
 
 ---
 
-## code
+## other
+
+### 🟢 CardVideo
+
+> YouTube embed inside a Card wrapper with aspect-ratio iframe.
+
+**Import:** `import { CardVideo } from "/snippets/components/displays/video/Video.jsx";`
+**Status:** stable | **Imports:** 1
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `embedUrl` | `any` | — | embed Url prop. |
+| `title` | `any` | — | title prop. |
+| `style` | `any` | — | style prop. |
+| `className` | `string` | '' | Optional CSS class override. |
+
+---
 
 ### 🟢 CodeComponent
 
@@ -104,30 +122,23 @@ Renders authored content into a specific visual format.
 
 ---
 
-## diagrams
+### 🟢 CustomResponseField
 
-### 🟢 ScrollableDiagram
+> Custom-styled API response field with configurable margin.
 
-> Pannable, zoomable diagram container with zoom controls and accessible buttons.
-
-**Import:** `import { ScrollableDiagram } from "/snippets/components/displays/diagrams/ScrollableDiagram.jsx";`
-**Status:** stable | **Imports:** 22
+**Import:** `import { CustomResponseField } from "/snippets/components/displays/response-fields/ResponseField.jsx";`
+**Status:** stable | **Imports:** 1
 
 #### Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `children` | `React.ReactNode` | — | Content rendered inside the component. |
-| `title` | `string` | "" | Title text rendered by the component. |
-| `maxHeight` | `string` | "500px" | Max height used by the component. |
-| `minWidth` | `string` | "100%" | Min width used by the component. |
-| `showControls` | `boolean` | false | Boolean flag that controls component behaviour. |
+| `description` | `React.ReactNode` | — | Primary content rendered by the component. |
+| `props` | `object` | — | Additional props forwarded to ResponseField. |
 | `className` | `string` | "" | CSS class name. |
 | `style` | `object` | {} | Inline style overrides. |
 
 ---
-
-## quotes
 
 ### 🟢 FrameQuote
 
@@ -155,6 +166,46 @@ Renders authored content into a specific visual format.
 
 ---
 
+### 🟢 FunctionField
+
+> Solidity function signature field with typed parameter pairs and optional return type.
+
+**Import:** `import { FunctionField } from "/snippets/components/displays/response-fields/ResponseField.jsx";`
+**Status:** stable | **Imports:** 1
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `name` | `string` | — | Function name. |
+| `params` | `string[]` | [ | ] - Parameter strings in "type name" format (e.g. "bytes32 _id"). |
+| `returns` | `string` | — | Return type (e.g. "address", "uint256"). |
+| `children` | `React.ReactNode` | — | Description of the function. |
+| `line` | `boolean` | true | Show bottom border. |
+| `style` | `object` | {} | Inline style overrides. |
+| `className` | `string` | "" | CSS class name. |
+
+---
+
+### 🟢 LinkedInEmbed
+
+> LinkedIn post embed via responsive iframe with compact layout.
+
+**Import:** `import { LinkedInEmbed } from "/snippets/components/displays/video/Video.jsx";`
+**Status:** stable | **Imports:** 0
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `embedUrl` | `any` | — | embed Url prop. |
+| `title` | `string` | "Embedded post" | title prop. |
+| `hint` | `string` | "" | hint prop. |
+| `caption` | `any` | — | caption prop. |
+| `height` | `string` | "399" | height prop. |
+
+---
+
 ### 🟢 Quote
 
 > Styled blockquote with accent border and centred italic text.
@@ -172,32 +223,12 @@ Renders authored content into a specific visual format.
 
 ---
 
-## response-fields
-
-### 🟢 CustomResponseField
-
-> Custom-styled API response field with configurable margin.
-
-**Import:** `import { CustomResponseField } from "/snippets/components/displays/response-fields/ResponseField.jsx";`
-**Status:** stable | **Imports:** 1
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `description` | `React.ReactNode` | — | Primary content rendered by the component. |
-| `props` | `object` | — | Additional props forwarded to ResponseField. |
-| `className` | `string` | "" | CSS class name. |
-| `style` | `object` | {} | Inline style overrides. |
-
----
-
-### 🟢 ResponseFieldAccordion
+### 🟠 ResponseFieldAccordion
 
 > Accordion-style response field with collapsible detail section.
 
 **Import:** `import { ResponseFieldAccordion } from "/snippets/components/displays/response-fields/ResponseField.jsx";`
-**Status:** stable | **Imports:** 1
+**Status:** deprecated | **Imports:** 1
 
 #### Props
 
@@ -210,12 +241,12 @@ Renders authored content into a specific visual format.
 
 ---
 
-### 🟢 ResponseFieldExpandable
+### 🟠 ResponseFieldExpandable
 
 > Expandable response field that reveals nested content on click.
 
 **Import:** `import { ResponseFieldExpandable } from "/snippets/components/displays/response-fields/ResponseField.jsx";`
-**Status:** stable | **Imports:** 1
+**Status:** deprecated | **Imports:** 1
 
 #### Props
 
@@ -247,73 +278,33 @@ Renders authored content into a specific visual format.
 
 ---
 
-### 🟢 ValueResponseField
+### 🟢 ScrollableDiagram
 
-> API response field with name, type, and value display.
+> Pannable diagram container with deterministic preset zoom controls rendered without client-side React state.
 
-**Import:** `import { ValueResponseField } from "/snippets/components/displays/response-fields/ResponseField.jsx";`
-**Status:** stable | **Imports:** 3
+**Import:** `import { ScrollableDiagram } from "/snippets/components/displays/diagrams/ScrollableDiagram.jsx";`
+**Status:** stable | **Imports:** 22
 
 #### Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `description` | `React.ReactNode` | — | Primary content rendered by the component. |
-| `post` | `string` | null | Post used by the component. |
-| `label` | `string` | "value" | Label text rendered by the component. |
-| `line` | `boolean` | true | Boolean flag that controls component behaviour. |
 | `children` | `React.ReactNode` | — | Content rendered inside the component. |
-| `props` | `object` | — | Additional props forwarded to ResponseField. |
+| `title` | `string` | "" | Title text rendered by the component. |
+| `maxHeight` | `string` | "500px" | Max height used by the component. |
+| `minWidth` | `string` | "100%" | Min width used by the component. |
+| `showControls` | `boolean` | false | When true, renders preset zoom controls. |
 | `className` | `string` | "" | CSS class name. |
 | `style` | `object` | {} | Inline style overrides. |
 
 ---
 
-## video
-
-### 🟢 CardVideo
-
-> YouTube embed inside a Card wrapper with aspect-ratio iframe.
-
-**Import:** `import { CardVideo } from "/snippets/components/displays/video/Video.jsx";`
-**Status:** stable | **Imports:** 1
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `embedUrl` | `any` | — | embed Url prop. |
-| `title` | `any` | — | title prop. |
-| `style` | `any` | — | style prop. |
-| `className` | `string` | '' | Optional CSS class override. |
-
----
-
-### 🟢 LinkedInEmbed
-
-> LinkedIn post embed via responsive iframe with compact layout.
-
-**Import:** `import { LinkedInEmbed } from "/snippets/components/displays/video/Video.jsx";`
-**Status:** stable | **Imports:** 0
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `embedUrl` | `any` | — | embed Url prop. |
-| `title` | `string` | "Embedded post" | title prop. |
-| `hint` | `string` | "" | hint prop. |
-| `caption` | `any` | — | caption prop. |
-| `height` | `string` | "399" | height prop. |
-
----
-
-### 🟢 ShowcaseVideo
+### 🟠 ShowcaseVideo
 
 > Full-width video with negative-margin breakout and rounded frame.
 
 **Import:** `import { ShowcaseVideo } from "/snippets/components/displays/video/Video.jsx";`
-**Status:** stable | **Imports:** 1
+**Status:** deprecated | **Imports:** 1
 
 #### Props
 
@@ -345,6 +336,28 @@ Renders authored content into a specific visual format.
 | `borderRadius` | `string` | "12px" | border Radius prop. |
 | `style` | `object` | {} | style prop. |
 | `className` | `string` | '' | Optional CSS class override. |
+
+---
+
+### 🟢 ValueResponseField
+
+> API response field with name, type, and value display.
+
+**Import:** `import { ValueResponseField } from "/snippets/components/displays/response-fields/ResponseField.jsx";`
+**Status:** stable | **Imports:** 3
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `description` | `React.ReactNode` | — | Primary content rendered by the component. |
+| `post` | `string` | null | Post used by the component. |
+| `label` | `string` | "value" | Label text rendered by the component. |
+| `line` | `boolean` | true | Boolean flag that controls component behaviour. |
+| `children` | `React.ReactNode` | — | Content rendered inside the component. |
+| `props` | `object` | — | Additional props forwarded to ResponseField. |
+| `className` | `string` | "" | CSS class name. |
+| `style` | `object` | {} | Inline style overrides. |
 
 ---
 
@@ -395,12 +408,12 @@ Renders authored content into a specific visual format.
 
 ---
 
-### 🟢 YouTubeVideoData
+### 🟠 YouTubeVideoData
 
 > Renders a columned grid of YouTubeVideo embeds from an items array.
 
 **Import:** `import { YouTubeVideoData } from "/snippets/components/displays/video/Video.jsx";`
-**Status:** stable | **Imports:** 7
+**Status:** deprecated | **Imports:** 7
 
 #### Props
 
@@ -412,12 +425,12 @@ Renders authored content into a specific visual format.
 
 ---
 
-### 🟢 YouTubeVideoDownload
+### 🔴 YouTubeVideoDownload
 
-> YouTube embed with download hint text below.
+> YouTube embed with download hint text below (BROKEN — render content commented out).
 
 **Import:** `import { YouTubeVideoDownload } from "/snippets/components/displays/video/Video.jsx";`
-**Status:** stable | **Imports:** 1
+**Status:** broken | **Imports:** 1
 
 #### Props
 

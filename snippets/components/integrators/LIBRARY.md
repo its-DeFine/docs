@@ -1,17 +1,17 @@
 <!-- GENERATED FILE — DO NOT EDIT DIRECTLY -->
 <!-- Generator: operations/scripts/generators/components/library/generate-component-library.js -->
-<!-- Generated: 2026-04-08T05:43:09.155Z -->
+<!-- Generated: 2026-04-08T11:04:58.599Z -->
 <!-- Regenerate: node operations/scripts/generators/components/library/generate-component-library.js --category integrators -->
 
 # Integrators Component Library
 
 Fetches, embeds, or binds to external or third-party data.
 
-**Components:** 18 | **Stable:** 16 | **Experimental:** 2 | **Deprecated:** 0
+**Components:** 19 | **Stable:** 18 | **Experimental:** 1 | **Deprecated:** 0
 
 ---
 
-## blog
+## other
 
 ### 🟢 BlogCard
 
@@ -114,6 +114,23 @@ Fetches, embeds, or binds to external or third-party data.
 
 ---
 
+### 🟢 CoinGeckoExchanges
+
+> Sortable table of exchanges listing a token. Keyboard-accessible sort headers.
+
+**Import:** `import { CoinGeckoExchanges } from "/snippets/components/integrators/feeds/Coingecko.jsx";`
+**Status:** stable | **Imports:** 2
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `coinId` | `string` | "arbitrum" | coin Id prop. |
+| `className` | `string` | '' | Optional CSS class override. |
+| `style` | `object` | {} | Optional inline style override. |
+
+---
+
 ### 🟢 ColumnsBlogCardLayout
 
 > Multi-column BlogCard layout using Mintlify Columns.
@@ -151,6 +168,27 @@ Fetches, embeds, or binds to external or third-party data.
 
 ---
 
+### 🟢 ExternalContent
+
+> Fetches and renders external markdown with scrollable container and source link.
+
+**Import:** `import { ExternalContent } from "/snippets/components/integrators/embeds/DataEmbed.jsx";`
+**Status:** stable | **Imports:** 0
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `repoName` | `string` | — | Repo name used by the component. |
+| `githubUrl` | `string` | — | Github url used by the component. |
+| `maxHeight` | `string` | "1000px" | Max height used by the component. |
+| `icon` | `string` | "github" | Icon configuration used by the component. |
+| `children` | `React.ReactNode` | — | Content rendered inside the component. |
+| `className` | `string` | "" | CSS class name. |
+| `style` | `object` | {} | Inline style overrides. |
+
+---
+
 ### 🟢 ForumLatestLayout
 
 > Latest forum topics with banner image and topic cards.
@@ -164,6 +202,23 @@ Fetches, embeds, or binds to external or third-party data.
 |---|---|---|---|
 | `items` | `Array` | [ | ] - items prop. |
 | `limit` | `any` | — | limit prop. |
+| `className` | `string` | '' | Optional CSS class override. |
+| `style` | `object` | {} | Optional inline style override. |
+
+---
+
+### 🧪 LatestVersion
+
+> Displays the latest release version string from automation data.
+
+**Import:** `import { LatestVersion } from "/snippets/components/integrators/feeds/Release.jsx";`
+**Status:** experimental | **Imports:** 0
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `version` | `any` | — | version prop. |
 | `className` | `string` | '' | Optional CSS class override. |
 | `style` | `object` | {} | Optional inline style override. |
 
@@ -185,6 +240,26 @@ Fetches, embeds, or binds to external or third-party data.
 | `type` | `string` | "upcoming" | type prop. |
 | `className` | `string` | '' | Optional CSS class override. |
 | `style` | `object` | {} | Optional inline style override. |
+
+---
+
+### 🟢 PdfEmbed
+
+> Embeds a PDF in a framed iframe with caption.
+
+**Import:** `import { PdfEmbed } from "/snippets/components/integrators/embeds/DataEmbed.jsx";`
+**Status:** stable | **Imports:** 3
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `title` | `React.ReactNode` | — | Title text rendered by the component. |
+| `src` | `string` | — | Asset or embed source used by the component. |
+| `height` | `string` | '700px' | Height used by the component. |
+| `width` | `string` | '100%' | Width used by the component. |
+| `className` | `string` | "" | CSS class name. |
+| `style` | `object` | {} | Inline style overrides. |
 
 ---
 
@@ -215,63 +290,41 @@ Fetches, embeds, or binds to external or third-party data.
 
 ---
 
-## embeds
+### 🟢 RssBlogCard
 
-### 🟢 ExternalContent
+> Blog card for RSS feed data. Matches BlogCard visual quality with icon title, metadata row, scrollable plain text excerpt, and scroll hint. Use for non-Ghost blog sources (Daydream, Streamplace, etc.).
 
-> Fetches and renders external markdown with scrollable container and source link.
-
-**Import:** `import { ExternalContent } from "/snippets/components/integrators/embeds/DataEmbed.jsx";`
-**Status:** stable | **Imports:** 0
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `repoName` | `string` | — | Repo name used by the component. |
-| `githubUrl` | `string` | — | Github url used by the component. |
-| `maxHeight` | `string` | "1000px" | Max height used by the component. |
-| `icon` | `string` | "github" | Icon configuration used by the component. |
-| `children` | `React.ReactNode` | — | Content rendered inside the component. |
-| `className` | `string` | "" | CSS class name. |
-| `style` | `object` | {} | Inline style overrides. |
+**Import:** `import { RssBlogCard } from "/snippets/components/integrators/blog/BlogCards.jsx";`
+**Status:** stable | **Imports:** 2
 
 ---
 
-### 🟢 MarkdownEmbed
+### 🟢 RssBlogCardLayout
 
-> Fetches and renders remote markdown content.
+> Multi-column RssBlogCard layout. Use for RSS blog data (non-Ghost sources).
 
-**Import:** `import { MarkdownEmbed } from "/snippets/components/integrators/embeds/DataEmbed.jsx";`
-**Status:** stable | **Imports:** 5
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `url` | `string` | — | Destination URL used by the component. |
-| `className` | `string` | "" | CSS class name. |
-| `style` | `object` | {} | Inline style overrides. |
+**Import:** `import { RssBlogCardLayout } from "/snippets/components/integrators/blog/BlogCards.jsx";`
+**Status:** stable | **Imports:** 2
 
 ---
 
-### 🟢 PdfEmbed
+### 🟢 SolidityEmbed
 
-> Embeds a PDF in a framed iframe with caption.
+> Fetches and renders a remote Solidity file with syntax highlighting inside a styled container. Lazy-loaded.
 
-**Import:** `import { PdfEmbed } from "/snippets/components/integrators/embeds/DataEmbed.jsx";`
-**Status:** stable | **Imports:** 3
+**Import:** `import { SolidityEmbed } from "/snippets/components/integrators/embeds/DataEmbed.jsx";`
+**Status:** stable | **Imports:** 1
 
 #### Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `title` | `React.ReactNode` | — | Title text rendered by the component. |
-| `src` | `string` | — | Asset or embed source used by the component. |
-| `height` | `string` | '700px' | Height used by the component. |
-| `width` | `string` | '100%' | Width used by the component. |
-| `className` | `string` | "" | CSS class name. |
+| `url` | `string` | — | Raw GitHub URL to the .sol file. |
+| `title` | `React.ReactNode` | — | Optional title displayed above the code block. Accepts strings or components. |
+| `filename` | `string` | — | Filename shown on the CodeBlock header. |
+| `maxHeight` | `string` | "500px" | Max height of the code container. |
 | `style` | `object` | {} | Inline style overrides. |
+| `className` | `string` | "" | CSS class name. |
 
 ---
 
@@ -290,63 +343,6 @@ Fetches, embeds, or binds to external or third-party data.
 | `style` | `object` | {} | Inline style overrides. |
 
 ---
-
-## feeds
-
-### 🟢 CoinGeckoExchanges
-
-> Sortable table of exchanges listing a token. Keyboard-accessible sort headers.
-
-**Import:** `import { CoinGeckoExchanges } from "/snippets/components/integrators/feeds/Coingecko.jsx";`
-**Status:** stable | **Imports:** 2
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `coinId` | `string` | "arbitrum" | coin Id prop. |
-| `className` | `string` | '' | Optional CSS class override. |
-| `style` | `object` | {} | Optional inline style override. |
-
----
-
-### 🧪 LatestVersion
-
-> Displays the latest release version string from automation data.
-
-**Import:** `import { LatestVersion } from "/snippets/components/integrators/feeds/Release.jsx";`
-**Status:** experimental | **Imports:** 0
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `version` | `any` | — | version prop. |
-| `className` | `string` | '' | Optional CSS class override. |
-| `style` | `object` | {} | Optional inline style override. |
-
----
-
-### 🧪 ShowcaseCards
-
-> Paginated project showcase with search, filtering, and media cards.
-
-**Import:** `import { ShowcaseCards } from "/snippets/components/displays/cards/Cards.jsx";`
-**Status:** experimental | **Imports:** 2
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `items` | `Array` | [ | ] - Collection data rendered by the component. |
-| `limit` | `number` | null | Limit used by the component. |
-| `pageSize` | `number` | 10 | Page size used by the component. |
-| `className` | `string` | "" | CSS class name. |
-| `style` | `object` | {} | Inline style overrides. |
-
----
-
-## video-data
 
 ### 🟢 YouTubeVideoData
 

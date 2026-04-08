@@ -145,11 +145,16 @@ Run these commands to verify the component is governance-compliant:
 node operations/scripts/validators/components/library/validate-component-creation.js \
   --files snippets/components/{category}/{subcategory}/{ComponentName}.jsx
 
+# Check what auto-repair would fix (should be nothing for a well-authored component)
+node operations/scripts/remediators/components/library/repair-component-metadata.js --dry-run
+
 # Regenerate registry (verify new component appears)
 node operations/scripts/generators/components/library/generate-component-registry.js --validate-only
 ```
 
-Both must exit 0. If the validator reports issues, fix them before declaring the component complete.
+All must exit 0. If the validator reports issues, fix them before declaring the component complete.
+
+**If `@description` is missing**, the CI pipeline will auto-create a GitHub issue assigned to Copilot. Don't leave it blank — write one sentence explaining what the component renders and when to use it.
 
 ---
 

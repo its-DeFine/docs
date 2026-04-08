@@ -341,5 +341,3 @@ export const CalloutWrapper = ({
   );
 };
 
-/** @deprecated Spacer has moved to elements/spacing/Divider.jsx. This re-export maintains backwards compatibility. */
-export { Spacer } from '/snippets/components/elements/spacing/Divider.jsx';

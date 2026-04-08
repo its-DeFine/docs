@@ -540,7 +540,16 @@ const FrameModeDivider = ({ color, margin = "1.5rem 0", opacity = 0.2, className
   );
 };
 
-/** @deprecated Use FrameModeDivider to avoid collision with elements/spacing/Divider. */
+/**
+ * @component Divider
+ * @category scaffolding
+ * @subcategory frame-mode
+ * @status deprecated
+ * @deprecated Use FrameModeDivider to avoid collision with elements/spacing/Divider.
+ * @see FrameModeDivider
+ * @description Deprecated alias for FrameModeDivider. Maintained for backwards compatibility.
+ * @aiDiscoverability none
+ */
 const Divider = FrameModeDivider;
 
 export { PageHeader, H1, H2, H3, H4, H5, H6, P, FrameModeDivider, Divider };

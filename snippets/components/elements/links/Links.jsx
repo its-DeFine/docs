@@ -1,8 +1,8 @@
 import { CopyText } from '/snippets/components/elements/text/Text.jsx'
-import { BlinkingIcon } from '/snippets/components/elements/icons/Icons.jsx'
-import { CustomCallout, TipWithArrow } from '/snippets/components/elements/callouts/Callouts.jsx'
 
-/** @deprecated CustomCallout and TipWithArrow have moved to elements/callouts/Callouts.jsx. These re-exports maintain backwards compatibility. */
+// Re-exports for consumers that import these from Links.jsx
+export { BlinkingIcon } from '/snippets/components/elements/icons/Icons.jsx';
+export { CustomCallout, TipWithArrow } from '/snippets/components/elements/callouts/Callouts.jsx';
 
 /**
  * @component DoubleIconLink
@@ -373,12 +373,9 @@ const SocialLinks = ({
 };
 
 export {
-  CustomCallout,
-  BlinkingIcon,
   DoubleIconLink,
   GotoLink,
   GotoCard,
-  TipWithArrow,
   LinkArrow,
   LinkIcon,
   AddressLinks,

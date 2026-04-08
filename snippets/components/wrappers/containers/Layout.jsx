@@ -1,16 +1,9 @@
 /**
  * Layout utilities — LazyLoad and ScrollBox.
- *
- * FlexContainer and GridContainer have moved to Containers.jsx.
- * Deprecated re-exports below maintain backwards compatibility.
  */
 
-/** @deprecated FlexContainer has moved to Containers.jsx. */
-export { FlexContainer } from '/snippets/components/wrappers/containers/Containers.jsx';
-/** @deprecated GridContainer has moved to Containers.jsx. */
-export { GridContainer } from '/snippets/components/wrappers/containers/Containers.jsx';
-/** @deprecated Spacer has moved to elements/spacing/Divider.jsx. */
-export { Spacer } from '/snippets/components/elements/spacing/Divider.jsx';
+// Re-exports for consumers that import these from Layout.jsx
+export { FlexContainer, GridContainer } from '/snippets/components/wrappers/containers/Containers.jsx';
 
 /**
  * @component LazyLoad

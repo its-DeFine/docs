@@ -36,6 +36,9 @@ const {
 const SAFE_FIELDS = new Set([
   'component',
   'category',
+  'subcategory',
+  'status',
+  'aiDiscoverability',
   'usedIn',
   'breakingChangeRisk',
   'lastMeaningfulChange'
@@ -45,17 +48,22 @@ function printHelp() {
   console.log(
     [
       'Usage:',
-      '  node operations/scripts/remediators/components/repair-component-metadata.js [--dry-run|--fix] [--staged]',
+      '  node operations/scripts/remediators/components/repair-component-metadata.js [--dry-run|--fix] [--staged] [--auto-issue]',
       '',
       'Modes:',
-      '  --dry-run   Report safe metadata repairs without writing files (default).',
-      '  --fix       Apply safe metadata repairs.',
+      '  --dry-run      Report safe metadata repairs without writing files (default).',
+      '  --fix          Apply safe metadata repairs.',
       '',
       'Scope:',
-      '  --staged    Limit processing to staged component files.',
+      '  --staged       Limit processing to staged component files.',
+      '',
+      'Auto-issue:',
+      '  --auto-issue   Create GitHub issues for non-remediable problems (missing @description)',
+      '                 and assign to @copilot. Requires GH_TOKEN or gh CLI auth.',
       '',
       'Safety:',
-      '  - Repairs only @usedIn, @lastMeaningfulChange, @breakingChangeRisk, @component, and @category.',
+      '  - Repairs @component, @category, @subcategory, @status, @aiDiscoverability,',
+      '    @usedIn, @lastMeaningfulChange, @breakingChangeRisk.',
       '  - Reports all non-derivable metadata problems as NEEDS_HUMAN.',
       '  - Verifies export code segments are byte-identical before writing.'
     ].join('\n')
@@ -66,6 +74,7 @@ function parseArgs(argv) {
   const args = {
     mode: 'dry-run',
     staged: false,
+    autoIssue: false,
     help: false
   };
 
@@ -88,6 +97,10 @@ function parseArgs(argv) {
     }
     if (token === '--staged') {
       args.staged = true;
+      return;
+    }
+    if (token === '--auto-issue') {
+      args.autoIssue = true;
       return;
     }
     throw new Error(`Unknown argument: ${token}`);
@@ -178,9 +191,18 @@ function run(options = {}) {
       });
 
       const usage = buildComponentUsageSummary(importMap, entry.name);
+      const subcategoryFromPath = (() => {
+        const posix = file.displayPath.replace(/\\/g, '/');
+        const match = posix.match(/snippets\/components\/[^/]+\/([^/]+)\//);
+        return match ? match[1] : '';
+      })();
+
       const desired = {
         component: entry.name,
         category: getCategoryFromPath(file.displayPath),
+        subcategory: subcategoryFromPath,
+        status: compactWhitespace(jsDoc.status) || 'stable',
+        aiDiscoverability: compactWhitespace(jsDoc.aiDiscoverability) || 'none',
         usedIn: serializeCsvField(usage.englishCanonicalPages),
         breakingChangeRisk: deriveBreakingChangeRisk(usage.englishCanonicalPages.length),
         lastMeaningfulChange: resolveLastMeaningfulChange(file.displayPath, jsDoc.lastMeaningfulChange)
@@ -189,6 +211,9 @@ function run(options = {}) {
       const current = {
         component: compactWhitespace(jsDoc.component),
         category: compactWhitespace(jsDoc.category),
+        subcategory: compactWhitespace(jsDoc.subcategory),
+        status: compactWhitespace(jsDoc.status),
+        aiDiscoverability: compactWhitespace(jsDoc.aiDiscoverability),
         usedIn: serializeCsvField(jsDoc.usedIn, { publishedOnly: true }),
         breakingChangeRisk: compactWhitespace(jsDoc.breakingChangeRisk),
         lastMeaningfulChange: compactWhitespace(jsDoc.lastMeaningfulChange)
@@ -287,6 +312,58 @@ if (require.main === module) {
       console.log(`Repairs proposed/applied: ${summary.repairs.length}`);
       console.log(`Files modified: ${summary.filesModified}`);
       console.log(`NEEDS_HUMAN: ${summary.humanIssues.length}`);
+    }
+
+    // Auto-issue creation for non-remediable problems
+    if (args.autoIssue && summary.humanIssues.length > 0) {
+      const { spawnSync } = require('child_process');
+      const descriptionIssues = summary.humanIssues.filter((issue) =>
+        /missing @description|@description/i.test(issue.message)
+      );
+
+      for (const issue of descriptionIssues) {
+        const title = `[component-governance] Missing @description: ${issue.exportName} in ${issue.file}`;
+        const searchResult = spawnSync('gh', ['issue', 'list', '--search', title, '--json', 'number', '--limit', '1'], {
+          encoding: 'utf8',
+          cwd: REPO_ROOT
+        });
+
+        const existing = JSON.parse(String(searchResult.stdout || '[]').trim() || '[]');
+        if (existing.length > 0) {
+          console.log(`ISSUE_EXISTS: #${existing[0].number} — ${title}`);
+          continue;
+        }
+
+        const body = [
+          `## Missing \`@description\` tag`,
+          '',
+          `**File:** \`${issue.file}\``,
+          `**Export:** \`${issue.exportName}\``,
+          '',
+          '### What to do',
+          `1. Open \`${issue.file}\``,
+          `2. Find the JSDoc block for \`${issue.exportName}\``,
+          '3. Add a one-line `@description` that explains what the component renders and when to use it',
+          '4. Run: `node operations/scripts/validators/components/library/validate-component-creation.js --files ${issue.file}`',
+          '',
+          '_Auto-generated by `repair-component-metadata.js --auto-issue`_'
+        ].join('\n');
+
+        const createResult = spawnSync('gh', [
+          'issue', 'create',
+          '--title', title,
+          '--body', body,
+          '--label', 'automated,component-governance',
+          '--assignee', 'copilot'
+        ], { encoding: 'utf8', cwd: REPO_ROOT });
+
+        if (createResult.status === 0) {
+          const url = String(createResult.stdout || '').trim();
+          console.log(`ISSUE_CREATED: ${url} — ${title}`);
+        } else {
+          console.warn(`ISSUE_FAILED: ${title} — ${String(createResult.stderr || '').trim()}`);
+        }
+      }
     }
 
     if (args.mode === 'dry-run') {

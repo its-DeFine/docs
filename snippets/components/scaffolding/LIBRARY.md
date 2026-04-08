@@ -1,23 +1,32 @@
 <!-- GENERATED FILE — DO NOT EDIT DIRECTLY -->
 <!-- Generator: operations/scripts/generators/components/library/generate-component-library.js -->
-<!-- Generated: 2026-04-08T05:43:09.155Z -->
+<!-- Generated: 2026-04-08T11:04:58.598Z -->
 <!-- Regenerate: node operations/scripts/generators/components/library/generate-component-library.js --category scaffolding -->
 
 # Scaffolding Component Library
 
 One-per-page structural skeleton — heroes, portals, frame-mode.
 
-**Components:** 20 | **Stable:** 20 | **Experimental:** 0 | **Deprecated:** 0
+**Components:** 21 | **Stable:** 20 | **Experimental:** 0 | **Deprecated:** 1
 
 ---
 
-## frame-mode
+## other
 
-### 🟢 Divider
+### 🟠 Divider
 
-> Horizontal rule divider for frame-mode pages.
+> Deprecated alias for FrameModeDivider. Maintained for backwards compatibility.
 
 **Import:** `import { Divider } from "/snippets/components/scaffolding/frame-mode/FrameMode.jsx";`
+**Status:** deprecated | **Imports:** 0
+
+---
+
+### 🟢 FrameModeDivider
+
+> Horizontal rule divider for frame-mode pages. Distinct from elements/spacing/Divider.
+
+**Import:** `import { FrameModeDivider } from "/snippets/components/scaffolding/frame-mode/FrameMode.jsx";`
 **Status:** stable | **Imports:** 0
 
 #### Props
@@ -164,72 +173,6 @@ One-per-page structural skeleton — heroes, portals, frame-mode.
 
 ---
 
-### 🟢 P
-
-> Paragraph override with optional icon prefix for frame-mode pages.
-
-**Import:** `import { P } from "/snippets/components/scaffolding/frame-mode/FrameMode.jsx";`
-**Status:** stable | **Imports:** 8
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `children` | `string` | — | The paragraph text |
-| `icon` | `string` | — | Optional icon name or path to theme-aware SVG |
-| `iconSize` | `number` | 16 | Size of the icon (default: 16) |
-| `iconColor` | `string` | — | Color of the icon (default: theme-aware accent color) |
-| `align` | `string` | "left" | Text alignment: "left", "center", "right" (default: "left") |
-| `gap` | `string` | "0.5rem" | Gap between icon and text (default: "0.5rem") |
-| `className` | `string` | "" | CSS class name. |
-| `style` | `object` | {} | Inline style overrides. |
-
----
-
-### 🟢 PageHeader
-
-> Page-level header with icon, title, and subtitle for frame-mode pages.
-
-**Import:** `import { PageHeader } from "/snippets/components/scaffolding/frame-mode/FrameMode.jsx";`
-**Status:** stable | **Imports:** 0
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `title` | `any` | — | title prop. |
-| `subtitle` | `any` | — | subtitle prop. |
-| `description` | `any` | — | description prop. |
-| `children` | `string` | — | The heading text |
-| `titleColor` | `any` | — | title Color prop. |
-| `subtitleColor` | `any` | — | subtitle Color prop. |
-| `descriptionColor` | `any` | — | description Color prop. |
-| `className` | `string` | "" | CSS class name. |
-| `style` | `object` | {} | Inline style overrides. |
-
----
-
-## heroes
-
-### 🟢 Starfield
-
-> Animated canvas starfield background with floating Livepeer logos. Respects prefers-reduced-motion.
-
-**Import:** `import { Starfield } from "/snippets/components/scaffolding/heroes/StarfieldCanvas.jsx";`
-**Status:** stable | **Imports:** 8
-
-#### Props
-
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `density` | `number` | 1.1 | Density used by the component. |
-| `className` | `string` | "" | CSS class name. |
-| `style` | `object` | {} | Inline style overrides. |
-
----
-
-## portals
-
 ### 🟢 HeroContentContainer
 
 > Centred content container inside hero sections.
@@ -320,6 +263,51 @@ One-per-page structural skeleton — heroes, portals, frame-mode.
 | `children` | `any` | — | children prop. |
 | `className` | `string` | '' | Optional CSS class override. |
 | `style` | `object` | {} | Optional inline style override. |
+
+---
+
+### 🟢 P
+
+> Paragraph override with optional icon prefix for frame-mode pages.
+
+**Import:** `import { P } from "/snippets/components/scaffolding/frame-mode/FrameMode.jsx";`
+**Status:** stable | **Imports:** 8
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `children` | `string` | — | The paragraph text |
+| `icon` | `string` | — | Optional icon name or path to theme-aware SVG |
+| `iconSize` | `number` | 16 | Size of the icon (default: 16) |
+| `iconColor` | `string` | — | Color of the icon (default: theme-aware accent color) |
+| `align` | `string` | "left" | Text alignment: "left", "center", "right" (default: "left") |
+| `gap` | `string` | "0.5rem" | Gap between icon and text (default: "0.5rem") |
+| `className` | `string` | "" | CSS class name. |
+| `style` | `object` | {} | Inline style overrides. |
+
+---
+
+### 🟢 PageHeader
+
+> Page-level header with icon, title, and subtitle for frame-mode pages.
+
+**Import:** `import { PageHeader } from "/snippets/components/scaffolding/frame-mode/FrameMode.jsx";`
+**Status:** stable | **Imports:** 0
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `title` | `any` | — | title prop. |
+| `subtitle` | `any` | — | subtitle prop. |
+| `description` | `any` | — | description prop. |
+| `children` | `string` | — | The heading text |
+| `titleColor` | `any` | — | title Color prop. |
+| `subtitleColor` | `any` | — | subtitle Color prop. |
+| `descriptionColor` | `any` | — | description Color prop. |
+| `className` | `string` | "" | CSS class name. |
+| `style` | `object` | {} | Inline style overrides. |
 
 ---
 
@@ -419,5 +407,22 @@ One-per-page structural skeleton — heroes, portals, frame-mode.
 | `children` | `any` | — | children prop. |
 | `className` | `string` | '' | Optional CSS class override. |
 | `style` | `object` | {} | Optional inline style override. |
+
+---
+
+### 🟢 Starfield
+
+> Animated canvas starfield background with floating Livepeer logos. Respects prefers-reduced-motion.
+
+**Import:** `import { Starfield } from "/snippets/components/scaffolding/heroes/StarfieldCanvas.jsx";`
+**Status:** stable | **Imports:** 8
+
+#### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `density` | `number` | 1.1 | Density used by the component. |
+| `className` | `string` | "" | CSS class name. |
+| `style` | `object` | {} | Inline style overrides. |
 
 ---
