@@ -79,7 +79,7 @@ jobs:
 
       - name: Run styles remediation
         run: |
-          MODE="${{ inputs.mode == 'remediate-write' && '--write' || '--dry-run' }}"
+          MODE="${{ inputs.mode == 'remediate-write' && '--write --verify' || '--dry-run' }}"
           ARGS="$MODE"
           if [ "${{ inputs.category }}" != "" ]; then
             ARGS="$ARGS --category ${{ inputs.category }}"
@@ -89,6 +89,21 @@ jobs:
       - name: Run audit (after remediation)
         if: inputs.mode == 'remediate-write'
         run: node tools/scripts/validators/styles/audit-styles.js --json --verbose
+
+      - name: Regression check
+        if: inputs.mode == 'remediate-write'
+        id: regression
+        run: |
+          CHANGED=$(git diff --name-only)
+          if [ -n "$CHANGED" ]; then
+            echo "Changed files: $(echo "$CHANGED" | wc -l)"
+            # Broader validation on changed files
+            mint validate 2>&1 | grep -i "error" | grep -v "parsing error" && echo "regression=true" >> $GITHUB_OUTPUT || echo "regression=false" >> $GITHUB_OUTPUT
+          else
+            echo "No changes to validate"
+            echo "regression=false" >> $GITHUB_OUTPUT
+          fi
+        continue-on-error: true
 
       - name: Create PR with fixes
         if: inputs.mode == 'remediate-write'

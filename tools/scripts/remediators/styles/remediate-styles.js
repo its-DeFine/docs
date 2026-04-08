@@ -466,6 +466,49 @@ const COMPONENT_PATTERNS = [
     importLine: null,
     importName: null,
   },
+  // #5: Icon+label span → CustomCardTitle
+  // <span style={{display: "flex", alignItems: "center", gap: "..."}}>
+  //   <Icon icon="X" size={14} /> Text
+  // </span>
+  // → <CustomCardTitle variant="tab" icon="X" title="Text" />
+  {
+    type: 'icon-label-to-customcardtitle',
+    // Match the full pattern including Icon and text, capture icon name and text
+    regex: /<span\s+style=\{\{\s*display:\s*["'](?:inline-)?flex["'],\s*alignItems:\s*["']center["'],\s*gap:\s*["'][^"']*["']\s*\}\}>\s*<Icon\s+icon=["']([^"']+)["']\s+size=\{[^}]+\}\s*\/>\s*([^<]+)<\/span>/g,
+    // Dynamic replacement — handled specially in the processor
+    replacement: null,
+    closeOld: null,
+    closeNew: null,
+    importLine: "import { CustomCardTitle } from '/snippets/components/elements/text/CustomCardTitle.jsx'",
+    importName: 'CustomCardTitle',
+    dynamicReplacement: (match, icon, text) => `<CustomCardTitle variant="tab" icon="${icon.trim()}" title="${text.trim()}" />`,
+  },
+  // #6: Bold coloured text span → Subtitle
+  // <span style={{color: "var(--hero-text)", fontWeight: "bold"}}>Text</span>
+  // → <Subtitle variant="changelog">Text</Subtitle>
+  {
+    type: 'bold-text-to-subtitle',
+    regex: /<span\s+style=\{\{\s*color:\s*["']var\(--(?:hero-text|lp-color-text-primary)\)["'],\s*fontWeight:\s*["']bold["']\s*\}\}>([^<]+)<\/span>/g,
+    replacement: null,
+    closeOld: null,
+    closeNew: null,
+    importLine: "import { Subtitle } from '/snippets/components/elements/text/Text.jsx'",
+    importName: 'Subtitle',
+    dynamicReplacement: (match, text) => `<Subtitle variant="changelog">${text}</Subtitle>`,
+  },
+  // #10: Changelog date label div → Subtitle
+  // <div style={{fontSize: "0.8rem", fontWeight: 700, color: "var(--hero-text)"}}>March 2026</div>
+  // → <Subtitle variant="changelog">March 2026</Subtitle>
+  {
+    type: 'date-label-to-subtitle',
+    regex: /<div\s+style=\{\{\s*fontSize:\s*["']0\.8rem["'],\s*fontWeight:\s*700,\s*color:\s*["']var\(--(?:hero-text|lp-color-text-primary)\)["']\s*\}\}>([^<]+)<\/div>/g,
+    replacement: null,
+    closeOld: null,
+    closeNew: null,
+    importLine: "import { Subtitle } from '/snippets/components/elements/text/Text.jsx'",
+    importName: 'Subtitle',
+    dynamicReplacement: (match, text) => `<Subtitle variant="changelog">${text}</Subtitle>`,
+  },
 ];
 
 function remediateComponentPatterns(filePath, content) {
@@ -486,6 +529,7 @@ function remediateComponentPatterns(filePath, content) {
         length: match[0].length,
         original: match[0],
         line: getLineNumber(modified, match.index),
+        captures: [...match], // preserve capture groups for dynamicReplacement
       });
     }
 
@@ -494,19 +538,26 @@ function remediateComponentPatterns(filePath, content) {
 
     for (const m of allMatches) {
       let newContent = modified;
+      let replacementText;
 
-      if (pattern.closeOld && pattern.closeNew) {
+      if (pattern.dynamicReplacement) {
+        // Dynamic: call function with captures to build replacement
+        replacementText = pattern.dynamicReplacement(...m.captures);
+        newContent = modified.slice(0, m.index) + replacementText + modified.slice(m.index + m.length);
+      } else if (pattern.closeOld && pattern.closeNew) {
         // Find and replace closing tag
         const closeIndex = findClosingDiv(modified, m.index);
         if (closeIndex === -1) continue; // can't find closing tag, skip
 
+        replacementText = pattern.replacement;
         // Replace closing tag first (it's after the opening)
         newContent = modified.slice(0, closeIndex) + pattern.closeNew + modified.slice(closeIndex + pattern.closeOld.length);
         // Replace opening tag
-        newContent = newContent.slice(0, m.index) + pattern.replacement + newContent.slice(m.index + m.length);
+        newContent = newContent.slice(0, m.index) + replacementText + newContent.slice(m.index + m.length);
       } else {
         // Simple replacement (self-closing or string replace)
-        newContent = modified.slice(0, m.index) + pattern.replacement + modified.slice(m.index + m.length);
+        replacementText = pattern.replacement;
+        newContent = modified.slice(0, m.index) + replacementText + modified.slice(m.index + m.length);
       }
 
       modified = newContent;
@@ -695,16 +746,95 @@ function runRemediation(options = {}) {
    ============================================ */
 
 function parseArgs(argv) {
-  const args = { mode: 'dry-run', category: null, files: [], help: false };
+  const args = { mode: 'dry-run', category: null, files: [], help: false, verify: false };
   for (let i = 0; i < argv.length; i++) {
     const token = argv[i];
     if (token === '--help' || token === '-h') args.help = true;
     else if (token === '--dry-run') args.mode = 'dry-run';
     else if (token === '--write') args.mode = 'write';
+    else if (token === '--verify') args.verify = true;
     else if (token === '--category' && argv[i + 1]) args.category = argv[++i].split(',');
     else if (token === '--files' && argv[i + 1]) args.files = argv[++i].split(',').map(f => path.resolve(REPO_ROOT, f));
   }
   return args;
+}
+
+/* ============================================
+   VERIFY — post-write regression check
+   ============================================ */
+
+function verifyModifiedFiles(modifiedFiles) {
+  const { execSync } = require('child_process');
+  const fullPaths = modifiedFiles.map(f => path.resolve(REPO_ROOT, f));
+  let failed = false;
+
+  // Layer 1: Re-run style audit on modified files only
+  console.log('\n🔍 Verify: re-running audit on modified files...');
+  const auditScript = path.join(REPO_ROOT, 'tools/scripts/validators/styles/audit-styles.js');
+  try {
+    const result = execSync(
+      `node "${auditScript}" --files ${fullPaths.join(',')} --exit-code`,
+      { cwd: REPO_ROOT, encoding: 'utf8', timeout: 30000 }
+    );
+    console.log('  ✅ Audit passed on modified files');
+  } catch (e) {
+    console.log('  ❌ Audit found HIGH violations in modified files');
+    failed = true;
+  }
+
+  // Layer 2: MDX parse check via mint validate (if available)
+  const mdxFiles = fullPaths.filter(f => f.endsWith('.mdx'));
+  if (mdxFiles.length > 0) {
+    console.log('🔍 Verify: checking MDX parse validity...');
+    for (const file of mdxFiles) {
+      const content = fs.readFileSync(file, 'utf8');
+      // Quick parse checks
+      const openTags = (content.match(/<[A-Z]\w+/g) || []).length;
+      const closeTags = (content.match(/<\/[A-Z]\w+>/g) || []).length;
+      // Check for conflict markers
+      if (content.includes('<<<<<<<') || content.includes('>>>>>>>')) {
+        console.log(`  ❌ Conflict markers found in ${path.relative(REPO_ROOT, file)}`);
+        failed = true;
+      }
+      // Check imports have blank line after
+      const lines = content.split('\n');
+      for (let i = 0; i < lines.length; i++) {
+        if (lines[i].startsWith('import ') && i + 1 < lines.length) {
+          const next = lines[i + 1];
+          if (next && !next.startsWith('import ') && next.trim() && !next.trim().startsWith('{/*')) {
+            // Check if there's a blank line between last import and content
+            // Only flag if this IS the last import
+            if (i + 1 < lines.length && !lines[i + 1].startsWith('import ')) {
+              if (lines[i + 1].trim() !== '' && !lines[i + 1].startsWith('\n')) {
+                // This might be the missing blank line issue
+                // Only flag if the next non-import line is JSX (starts with <)
+                if (lines[i + 1].trim().startsWith('<')) {
+                  console.log(`  ⚠️  Missing blank line after imports at ${path.relative(REPO_ROOT, file)}:${i + 2}`);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    if (!failed) console.log('  ✅ MDX parse checks passed');
+  }
+
+  if (failed) {
+    console.log('\n❌ Verification FAILED — reverting changes...');
+    for (const file of fullPaths) {
+      try {
+        execSync(`git checkout -- "${file}"`, { cwd: REPO_ROOT });
+      } catch (e) {
+        console.error(`  Failed to revert ${file}: ${e.message}`);
+      }
+    }
+    console.log('  Changes reverted.');
+    return false;
+  }
+
+  console.log('\n✅ All verification checks passed.');
+  return true;
 }
 
 function printHelp() {
@@ -766,6 +896,15 @@ function main() {
     console.log('Modified files:');
     for (const f of report.modifiedFiles) {
       console.log(`  ${f}`);
+    }
+
+    // --verify: post-write regression check
+    if (args.verify) {
+      const passed = verifyModifiedFiles(report.modifiedFiles);
+      if (!passed) {
+        console.log('\n❌ Verification failed. All changes reverted. Exiting with error.');
+        process.exit(1);
+      }
     }
   } else if (report.mode === 'dry-run' && report.totalFixes > 0) {
     console.log(`\n💡 Run with --write to apply ${report.totalFixes} fix(es).`);

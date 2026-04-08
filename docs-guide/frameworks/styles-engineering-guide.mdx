@@ -109,21 +109,47 @@ node tools/scripts/remediators/styles/remediate-styles.js --write --category leg
 node tools/scripts/remediators/styles/remediate-styles.js --write --files snippets/components/display/quote.jsx
 ```
 
-**What it fixes:**
+**What it fixes (14 capabilities):**
 
-| Type | Before | After |
-|---|---|---|
-| `legacy-token` | `var(--accent)` | `var(--lp-color-accent)` |
-| `outline-removal` | `outline: "none"` | `outline: "revert"` |
-| `mermaid-hardcoded` | Custom init directive | Standard MermaidColours init |
-| `hardcoded-hex` | `"#3CB540"` | `"var(--lp-color-accent)"` |
-| `literal-spacing` | `"1rem"` | `"var(--lp-spacing-4)"` |
+| Type | Before | After | Scope |
+|---|---|---|---|
+| `legacy-token` | `var(--accent)` | `var(--lp-color-accent)` | JSX |
+| `outline-removal` | `outline: "none"` | `outline: "revert"` | JSX |
+| `mermaid-hardcoded` | Custom init directive | Standard MermaidColours init | MDX |
+| `hardcoded-hex` | `"#3CB540"` | `"var(--lp-color-accent)"` | JSX + MDX |
+| `literal-spacing` | `"1rem"`, `"4px"` | `"var(--lp-spacing-4)"`, `"var(--lp-spacing-px-4)"` | JSX |
+| `flex-center-to-component` | `<div style={{display: "flex", justifyContent: "center"}}>` | `<FlexContainer justify="center">` | MDX |
+| `flex-column-to-component` | `<div style={{display: "flex", flexDirection: "column"}}>` | `<FlexContainer direction="column">` | MDX |
+| `centered-fit-to-component` | `<div style={{...width: "fit-content", margin: "0 auto"}}>` | `<CenteredContainer preset="fitContent">` | MDX |
+| `span-divider-to-component` | `<span style={{display: "block", borderBottom: ...}} />` | `<InlineDivider margin="1rem 0" />` | MDX |
+| `bordered-div-to-component` | `<div style={{border: "1px solid ...", borderRadius: "8px"}}>` | `<BorderedBox variant="accent">` | MDX |
+| `styledsteps-fallback` | `var(--accent-dark, #18794E)` | `var(--lp-color-accent-strong)` | MDX |
+| `icon-label-to-customcardtitle` | `<span style={{...flex...}}><Icon.../> Text</span>` | `<CustomCardTitle variant="tab" icon="X" title="Text" />` | MDX |
+| `bold-text-to-subtitle` | `<span style={{color: "var(--hero-text)", fontWeight: "bold"}}>` | `<Subtitle variant="changelog">` | MDX |
+| `date-label-to-subtitle` | `<div style={{fontSize: "0.8rem", fontWeight: 700}}>` | `<Subtitle variant="changelog">` | MDX |
+
+**Verification (`--verify` flag):**
+
+```bash
+# Apply fixes + verify no regressions
+node tools/scripts/remediators/styles/remediate-styles.js --write --verify
+```
+
+When `--verify` is passed with `--write`:
+1. After applying fixes, re-runs audit on modified files only
+2. Checks MDX files for parse issues (conflict markers, missing import blank lines)
+3. If any check fails, reverts ALL changes and exits non-zero
 
 **Safety:**
 - Reverse-offset replacement (processes matches from end to start)
-- Never modifies code blocks
+- Never modifies code blocks, inline code, JSX comments, frontmatter
 - Skips exempt files (MermaidColours.jsx, style.css)
+- Skips non-layout properties for spacing (fontSize, borderRadius, width, height, etc.)
 - Standard mermaid signature check prevents re-processing compliant inits
+- Component migration finds matching closing tags via depth-aware parser
+- Dynamic replacement extracts icon names and text content from regex captures
+
+**Self-documenting:** Run `node tools/scripts/generators/styles/generate-styles-docs.js --check` to verify documentation matches source code.
 
 <CustomDivider />
 
@@ -133,7 +159,7 @@ node tools/scripts/remediators/styles/remediate-styles.js --write --files snippe
 
 **Script:** `.github/scripts/fetch-exchanges-data.js`
 **Workflow:** `.github/workflows/update-exchanges-data.yml`
-**Output:** `snippets/automations/exchanges/exchangesData.jsx`
+**Output:** `snippets/data/exchanges/exchangesData.jsx`
 **Schedule:** Weekly Monday 03:00 UTC
 **API:** CoinGecko `/coins/livepeer/tickers` (no API key required for free tier)
 
@@ -141,7 +167,7 @@ node tools/scripts/remediators/styles/remediate-styles.js --write --files snippe
 
 **Script:** `.github/scripts/fetch-config-flags.js`
 **Workflow:** `.github/workflows/update-config-flags.yml`
-**Output:** `snippets/automations/config/configFlagsData.jsx`
+**Output:** `snippets/data/gateways/configFlagsData.jsx`
 **Schedule:** Weekly Monday 04:00 UTC
 **Source:** Parses `cmd/livepeer/starter/flags.go` from GitHub raw content
 
