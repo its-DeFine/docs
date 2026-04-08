@@ -27,14 +27,42 @@ lastVerified: 2026-03-17T00:00:00.000Z
 purpose: overview
 ---
 import { DisplayCard } from '/snippets/components/wrappers/cards/CustomCards.jsx'
+import { LazyLoad } from '/snippets/components/wrappers/containers/LazyLoad.jsx'
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 
-Video is integral to the success of many of the applications we use daily. <br />
+<Columns cols={3}>
+  <LazyLoad height="350px">
+    <iframe
+      src="https://platform.twitter.com/embed/Tweet.html?id=1983846299586683236&theme=dark"
+      style={{border: "2px solid var(--accent)", borderRadius: "2.5%", width: "100%", maxWidth: "550px", overflowX: "hidden", height: "350px", backgroundColor: "var(--text)"}}
+      title="MyLordBebo on X"
+    />
+  </LazyLoad>
+  <LazyLoad height="350px">
+    <iframe
+      src="https://platform.twitter.com/embed/Tweet.html?id=1983585881865982149&theme=dark"
+      style={{border: "2px solid var(--accent)", borderRadius: "2.5%", width: "100%", maxWidth: "550px", overflowX: "hidden", height: "350px", backgroundColor: "var(--text)"}}
+      title="skalskip92 on X"
+    />
+  </LazyLoad>
+  <LazyLoad height="350px">
+    <iframe
+      src="https://platform.twitter.com/embed/Tweet.html?id=1981406315693187430&theme=dark"
+      style={{border: "2px solid var(--accent)", borderRadius: "2.5%", width: "100%", maxWidth: "550px", overflowX: "hidden", height: "350px", backgroundColor: "var(--text)"}}
+      title="mattshumer_ on X"
+    />
+  </LazyLoad>
+</Columns>
+
+<CustomDivider margin= "0 0 -2rem 0" />
 
 {/* ### Livepeer Domains */}
 {/* -> The verticals livepeer works for */}
 {/* Livepeer is built for everyone. */}
 
-### **Verticals where video is now essential**&#x20;
+## **Verticals where video is now essential**&#x20;
+
+Video is integral to the success of many of the applications we use daily. <br />
 {/*
 1. **Social media** - video posts, livestreams, creator economy apps.
 2. **Events & conferences -** hybrid attendance, global livestreaming.
@@ -84,7 +112,6 @@ Video is integral to the success of many of the applications we use daily. <br /
     </DisplayCard>
 
 </Columns>
-
 
 ## **Products that wouldn’t exist without video**
 
