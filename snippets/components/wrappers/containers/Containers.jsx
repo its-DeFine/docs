@@ -190,7 +190,7 @@ export const FullWidthContainer = ({
  * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {string} [direction="row"] - direction prop.
- * @param {string} [gap="1rem"] - gap prop.
+ * @param {string} [gap="var(--lp-spacing-4)"] - gap prop.
  * @param {string} [align="flex-start"] - align prop.
  * @param {string} [justify="flex-start"] - justify prop.
  * @param {boolean} [wrap=false] - wrap prop.
@@ -202,7 +202,7 @@ export const FullWidthContainer = ({
 export const FlexContainer = ({
   children,
   direction = "row",
-  gap = "1rem",
+  gap = "var(--lp-spacing-4)",
   align = "flex-start",
   justify = "flex-start",
   wrap = false,
@@ -242,14 +242,14 @@ export const FlexContainer = ({
  * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {any} columns - columns prop.
- * @param {string} [gap="1rem"] - gap prop.
+ * @param {string} [gap="var(--lp-spacing-4)"] - gap prop.
  * @param {object} [style={}] - style prop.
  * @param {string} [className=''] - Optional CSS class override.
  */
 export const GridContainer = ({
   children,
   columns,
-  gap = "1rem",
+  gap = "var(--lp-spacing-4)",
   style = {},
   className = "",
   ...rest
@@ -286,7 +286,7 @@ export const GridContainer = ({
  * @param {string} [type="tip"] - Mintlify callout type: "tip", "info", "warning", "note", "check"
  * @param {string} header - Bold header text displayed at the top of the callout
  * @param {React.ReactNode} children - Description content below the header
- * @param {string} [headerColor="var(--hero-text)"] - Header text colour
+ * @param {string} [headerColor="var(--lp-color-text-primary)"] - Header text colour
  * @param {string} [headerSize="0.9rem"] - Header font size
  * @param {string} [className=""] - CSS class name
  * @param {object} [style={}] - Inline style overrides
@@ -299,7 +299,7 @@ export const CalloutWrapper = ({
   type = "tip",
   header = "",
   children,
-  headerColor = "var(--hero-text)",
+  headerColor = "var(--lp-color-text-primary)",
   headerSize = "0.9rem",
   className = "",
   style = {},
@@ -312,7 +312,7 @@ export const CalloutWrapper = ({
   ) : null;
 
   const bodyEl = children ? (
-    <span style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "0.25rem" }}>
+    <span style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "var(--lp-spacing-1)" }}>
       {children}
     </span>
   ) : null;

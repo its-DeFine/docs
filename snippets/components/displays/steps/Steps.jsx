@@ -29,8 +29,8 @@ export const StyledSteps = ({
   ...rest
 }) => {
   const resolvedIconColor = iconColor || 'var(--accent-dark, #18794E)'
-  const resolvedTitleColor = titleColor || 'var(--accent)'
-  const resolvedLineColor = lineColor || 'var(--accent)'
+  const resolvedTitleColor = titleColor || 'var(--lp-color-accent)'
+  const resolvedLineColor = lineColor || 'var(--lp-color-accent)'
 
   return (
     <div

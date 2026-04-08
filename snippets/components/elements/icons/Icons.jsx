@@ -145,7 +145,7 @@ export const ArbitrumIcon = ({
  * @param {string} [className=''] - Optional CSS class override.
  * @param {object} [style={}] - Optional inline style override.
  * @example
- * <BlinkingIcon color="var(--accent)" />
+ * <BlinkingIcon color="var(--lp-color-accent)" />
  */
 export const BlinkingIcon = ({
   icon = 'terminal',
@@ -155,7 +155,7 @@ export const BlinkingIcon = ({
   style = {},
   ...rest
 }) => {
-  const resolvedColor = color || 'var(--accent)'
+  const resolvedColor = color || 'var(--lp-color-accent)'
   return (
     <span
       className={className}

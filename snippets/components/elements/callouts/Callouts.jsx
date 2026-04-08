@@ -52,18 +52,18 @@ export const StatusCallout = ({ variant = 'coming-soon', type = 'page', classNam
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    gap: '1rem',
+    gap: "var(--lp-spacing-4)",
   };
   const colStyle = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    gap: '0.5rem',
+    gap: "var(--lp-spacing-2)",
     fontSize: '1.0rem',
     flex: 1,
   };
   const linkStyle = {
-    color: 'var(--hero-text)',
+    color: 'var(--lp-color-text-primary)',
     display: 'inline-flex',
     alignItems: 'center',
     gap: '4px',
@@ -104,7 +104,7 @@ export const StatusCallout = ({ variant = 'coming-soon', type = 'page', classNam
             </a>
           </span>
         </div>
-        <div style={{ flexShrink: 0, paddingRight: '1.5rem' }}>
+        <div style={{ flexShrink: 0, paddingRight: "var(--lp-spacing-6)" }}>
           <Icon icon={config.icon} size={30} color={config.color} />
         </div>
       </div>
@@ -152,7 +152,7 @@ export const IconCallout = ({
   style = {},
   ...rest
 }) => {
-  const resolvedColor = color || 'var(--accent)';
+  const resolvedColor = color || 'var(--lp-color-accent)';
   const resolvedTextColor = textColor || resolvedColor;
 
   const hexToRgba = (hex, alpha) => {

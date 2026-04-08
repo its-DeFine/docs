@@ -39,8 +39,8 @@ export const AccordionLayout = ({ children, className = "", style = {}, ...rest 
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "0.25rem",
-        marginTop: "0.25rem",
+        gap: "var(--lp-spacing-1)",
+        marginTop: "var(--lp-spacing-1)",
         ...style,
       }}
       {...rest}

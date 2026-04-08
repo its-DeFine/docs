@@ -20,13 +20,13 @@ import { CopyText } from '/snippets/components/elements/text/Text.jsx'
 export const StyledTable = ({ children, variant = "default", style = {}, className = "", ...rest }) => {
   const wrapperVariants = {
     default: {
-      border: "1px solid var(--border)",
-      backgroundColor: "var(--card-background)",
+      border: "1px solid var(--lp-color-border-default)",
+      backgroundColor: "var(--lp-color-bg-card)",
       overflow: "hidden",
     },
     bordered: {
-      border: "2px solid var(--accent)",
-      backgroundColor: "var(--background)",
+      border: "2px solid var(--lp-color-accent)",
+      backgroundColor: "var(--lp-color-bg-page)",
       overflow: "hidden",
     },
     minimal: {
@@ -94,7 +94,7 @@ export const TableRow = ({
       {hover && (
         <style>{`
           #${rowId}:hover {
-            background-color: var(--card-background);
+            background-color: var(--lp-color-bg-card);
           }
         `}</style>
       )}
@@ -103,8 +103,8 @@ export const TableRow = ({
         className={className}
         style={{
           ...(header && {
-            backgroundColor: "var(--accent-dark)",
-            color: "var(--button-text)",
+            backgroundColor: "var(--lp-color-accent-strong)",
+            color: "var(--lp-color-on-accent)",
             fontWeight: "bold",
           }),
           ...style,
@@ -146,7 +146,7 @@ export const TableCell = ({
       style={{
         padding: "0.75rem 1rem",
         textAlign: align,
-        border: header ? "none" : "1px solid var(--border)",
+        border: header ? "none" : "1px solid var(--lp-color-border-default)",
         ...style,
       }}
       {...rest}
@@ -245,9 +245,9 @@ export const DynamicTable = ({
           <thead>
             <tr
               style={{
-                backgroundColor: "var(--accent)",
+                backgroundColor: "var(--lp-color-accent)",
                 color: "var(--lp-color-on-accent)",
-                borderBottom: "1px solid var(--border)",
+                borderBottom: "1px solid var(--lp-color-border-default)",
               }}
             >
               {headerList.map((header, index) => (
@@ -272,9 +272,9 @@ export const DynamicTable = ({
                 <tr
                   key={rowIndex}
                   style={{
-                    backgroundColor: "var(--accent)",
+                    backgroundColor: "var(--lp-color-accent)",
                     color: "var(--lp-color-on-accent)",
-                    borderBottom: "1px solid var(--accent)",
+                    borderBottom: "1px solid var(--lp-color-accent)",
                   }}
                 >
                   <td
@@ -292,7 +292,7 @@ export const DynamicTable = ({
               ) : (
                 <tr
                   key={rowIndex}
-                  style={{ borderBottom: "1px solid var(--border)" }}
+                  style={{ borderBottom: "1px solid var(--lp-color-border-default)" }}
                 >
                   {headerList.map((header, colIndex) => {
                     const value =
@@ -552,9 +552,9 @@ export const DynamicTableV2 = ({
           <thead>
             <tr
               style={{
-                backgroundColor: 'var(--accent)',
+                backgroundColor: 'var(--lp-color-accent)',
                 color: 'var(--lp-color-on-accent)',
-                borderBottom: '1px solid var(--border)',
+                borderBottom: '1px solid var(--lp-color-border-default)',
               }}
             >
               {headerList.map((header, index) => (
@@ -583,9 +583,9 @@ export const DynamicTableV2 = ({
                   <tr
                     key={rowIndex}
                     style={{
-                      backgroundColor: 'var(--accent)',
+                      backgroundColor: 'var(--lp-color-accent)',
                       color: 'var(--lp-color-on-accent)',
-                      borderBottom: '1px solid var(--accent)',
+                      borderBottom: '1px solid var(--lp-color-accent)',
                     }}
                   >
                     <td
@@ -603,7 +603,7 @@ export const DynamicTableV2 = ({
                 ) : (
                   <tr
                     key={rowIndex}
-                    style={{ borderBottom: '1px solid var(--border)' }}
+                    style={{ borderBottom: '1px solid var(--lp-color-border-default)' }}
                   >
                     {headerList.map((header, colIndex) => {
                       const value =
@@ -821,7 +821,7 @@ export const SearchTable = ({
           }}
         >
           <CopyText text={value} style={{ flex: 1 }} />
-          {href && <LinkIcon href={href} color="var(--accent)" />}
+          {href && <LinkIcon href={href} color="var(--lp-color-accent)" />}
         </div>
       )
     }
@@ -869,9 +869,9 @@ export const SearchTable = ({
     minWidth: '150px',
     padding: '8px 12px',
     borderRadius: '8px',
-    border: '1px solid var(--border)',
-    background: 'var(--background)',
-    color: 'var(--text)',
+    border: '1px solid var(--lp-color-border-default)',
+    background: 'var(--lp-color-bg-page)',
+    color: 'var(--lp-color-text-secondary)',
   }
 
   const updateSelection = (col, colIndex, value) => {
@@ -887,10 +887,10 @@ export const SearchTable = ({
     <div className={className} style={style}>
       <div
         style={{
-          marginBottom: '0.5rem',
+          marginBottom: "var(--lp-spacing-2)",
           display: 'flex',
           flexWrap: 'wrap',
-          gap: '0.5rem',
+          gap: "var(--lp-spacing-2)",
           alignItems: 'center',
         }}
       >
@@ -905,9 +905,9 @@ export const SearchTable = ({
             maxWidth: '420px',
             padding: '8px 12px',
             borderRadius: '8px',
-            border: '1px solid var(--border)',
-            background: 'var(--background)',
-            color: 'var(--text)',
+            border: '1px solid var(--lp-color-border-default)',
+            background: 'var(--lp-color-bg-page)',
+            color: 'var(--lp-color-text-secondary)',
           }}
         />
         {allFilterCols.map((col, colIndex) => {
@@ -1136,7 +1136,7 @@ export const SearchTableV2 = ({
           }}
         >
           <CopyText text={value} style={{ flex: 1 }} />
-          {href && <LinkIcon href={href} color="var(--accent)" />}
+          {href && <LinkIcon href={href} color="var(--lp-color-accent)" />}
         </div>
       )
     }
@@ -1206,9 +1206,9 @@ export const SearchTableV2 = ({
     minWidth: '150px',
     padding: '8px 12px',
     borderRadius: '8px',
-    border: '1px solid var(--border)',
-    background: 'var(--background)',
-    color: 'var(--text)',
+    border: '1px solid var(--lp-color-border-default)',
+    background: 'var(--lp-color-bg-page)',
+    color: 'var(--lp-color-text-secondary)',
   }
 
   const updateSelection = (col, colIndex, value) => {
@@ -1223,10 +1223,10 @@ export const SearchTableV2 = ({
     <div className={className} style={style}>
       <div
         style={{
-          marginBottom: '0.5rem',
+          marginBottom: "var(--lp-spacing-2)",
           display: 'flex',
           flexWrap: 'wrap',
-          gap: '0.5rem',
+          gap: "var(--lp-spacing-2)",
           alignItems: 'center',
         }}
       >
@@ -1241,9 +1241,9 @@ export const SearchTableV2 = ({
             maxWidth: '420px',
             padding: '8px 12px',
             borderRadius: '8px',
-            border: '1px solid var(--border)',
-            background: 'var(--background)',
-            color: 'var(--text)',
+            border: '1px solid var(--lp-color-border-default)',
+            background: 'var(--lp-color-bg-page)',
+            color: 'var(--lp-color-text-secondary)',
           }}
         />
         {allFilterCols.map((col, colIndex) => {
