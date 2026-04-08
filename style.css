@@ -77,7 +77,9 @@ See https://coolors.co/073b3a-1a794e-f61067-08a045-6bbf59
   --lp-color-brand-linkedin: #0189df;
   --lp-color-brand-preview: #b636dd;
   --lp-color-brand-coming-soon: #ef1a73;
-  --lp-color-status-good: #22c55e;
+  --lp-color-brand-linux: #ff9a0e;
+  --lp-color-brand-windows: #14bbf7;
+  --lp-color-brand-macos: #60ba47;  --lp-color-status-good: #22c55e;
   --lp-color-status-warn: #fbbf24;
   --lp-color-status-bad: #ef4444;
   --lp-spacing-1: 0.25rem;
@@ -621,4 +623,36 @@ a:focus-visible,
     padding-left: 1rem;
     padding-right: 1rem;
   }
+}
+
+/* ============================================
+   UTILITY CLASSES — inline element styling
+   Used where components can't replace inline spans
+   (e.g., inside Mintlify <Tip>, <Info> components)
+   ============================================ */
+
+.lp-inline-flex {
+  display: flex;
+  align-items: center;
+}
+
+.lp-text-muted {
+  color: var(--lp-color-text-secondary);
+}
+
+.lp-text-italic-muted {
+  font-style: italic;
+  color: var(--lp-color-text-secondary);
+}
+
+.lp-inline-flex-gap {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.lp-link-underline {
+  border-bottom: 1.5px solid var(--lp-color-text-primary);
+  color: var(--lp-color-text-primary);
+  padding-bottom: 0.25rem;
 }

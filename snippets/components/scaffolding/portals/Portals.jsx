@@ -178,7 +178,7 @@ const HeroOverviewContent = ({ children, className = "", style = {}, ...rest }) 
         width: "80%",
         margin: "0 auto",
         fontSize: "1.1rem",
-        color: "var(--page-header-description-color)",
+        color: "var(--lp-color-text-secondary)",
         ...style,
       }}
       {...rest}
