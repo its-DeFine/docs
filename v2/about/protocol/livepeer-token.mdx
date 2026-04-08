@@ -43,21 +43,21 @@ import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { DynamicTable } from '/snippets/components/wrappers/tables/Table.jsx'
 import { ScrollableDiagram } from '/snippets/components/displays/diagrams/ZoomableDiagram.jsx'
 
-<div style={{ display: "flex", justifyContent: "center"}}>
+<FlexContainer justify="center">
  <CardTitleTextWithArrow icon="hand-holding-dollar" horizontal href="https://www.livepeer.org/lpt"> Livepeer Token </CardTitleTextWithArrow>
-</div>
+</FlexContainer>
 
-<div style={{ display: "flex", margin: "0 1rem" }}>
+<FlexContainer style={{margin: "0 1rem"}}>
    <Tip>
-      <span style={{fontSize: '1.0rem'}}>
+      <Subtitle style={{fontSize: '1.0rem'}}>
  _**Did you know?**_
-      </span>
+      </Subtitle>
  Livepeer’s token distribution had no [ICO](https://messari.io/report/merkle-mine). <br/> <br/>
  Instead, the initial 10 million LPT supply was distributed via a community [Merkle Mine](https://github.com/livepeer/merkle-mine),
  allowing a wide set of participants to claim tokens at network launch.
  <Icon icon="github" size={18}/> {" "} <LinkArrow label={<span style={{color: "var(--hero-text)"}}>View the github code</span>} href="https://github.com/livepeer/merkle-mine" newline={false} borderColor="var(--accent)" />
    </Tip>
-</div>
+</FlexContainer>
 {/* <Quote>
 The **Livepeer Token (LPT)** is the staking and coordination token of the Livepeer protocol. LPT underpins protocol security, work selection, reward distribution, and decentralised governance incentivising optimal network service outcomes.
 </Quote> */}
@@ -67,14 +67,14 @@ The **Livepeer Token (LPT)** is the staking and coordination token of the Livepe
 ## LP Token
 Livepeer is a utility token and core component of the Livepeer Protocol. Used to secure and incentivise the decentralised network to deliver its key value proposition of reliable, cost-efficient, powerful AI and video streaming workflows.
 
-<div style={{ display: "flex", justifyContent: "center", width: "fit-content", margin: "0 auto" }}>
+<CenteredContainer preset="fitContent">
    <Accordion title={<div style={{color: "var(--accent)"}}>ELI5: Livepeer Token</div>} icon="user-crown">
  LPT is akin to a membership key for Liveper or LPT is like the loyalty token for useful network participants.
          - You need it to join and earn in the Livepeer system.
          - If you hold LPT, you can rent out your GPU (participate) or vote on network rules.
          - Over time, the network prints new LPT (adds to the money supply) to reward people who help run it. Those who have put their LPT into the system (staked) get extra tokens.
    </Accordion>
-</div>
+</CenteredContainer>
 
 One of the biggest competitive advantages of Livepeer is its decentralisation - creating free markets and competitive pricing. This network of decentralised nodes, orchestrators, gateways and broadcasters, and the flow of payments in the network for doing useful work, is underpinned by the Livepeer Token (LPT).
 
@@ -97,7 +97,7 @@ The Livepeer Token (LPT) has multiple key functions within the protocol:
  <Info>LPT is **not used** for service payments for video and AI compute (e.g. Transcoding, AI inference) -> those are paid in ETH or other currencies via separate payment channels. </Info>
 
 <DynamicTable
-  tableTitle={<span style={{fontSize: '0.9rem'}}>LPT Usage</span>}
+  tableTitle={<Subtitle style={{fontSize: '0.9rem'}}>LPT Usage</Subtitle>}
   headerList={["Use Case", "LPT Functionality"]}
   itemsList={[
     { "Use Case": "Protocol Security", "LPT Functionality": "Bonded stake determines active Orchestrators" },

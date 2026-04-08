@@ -42,10 +42,10 @@ This page describes:
 ---BUT ONLY BRIEFLY -> POINTS TO OTHER SECTIONS
 */}
 
-<div style={{ display: "flex", justifyContent: "center", width: "fit-content", margin: "0 auto" }}>
+<CenteredContainer preset="fitContent">
  <CardTitleTextWithArrow icon="github" href="https://github.com/livepeer/lips" horizontal> livepeer-lips </CardTitleTextWithArrow>
  {/* <Card title="On-Chain Voting Explorer" icon="check-to-slot" href="https://explorer.livepeer.org/voting" horizontal arrow /> */}
-</div>
+</CenteredContainer>
 <Quote>
 Livepeer is a community-driven protocol, where token holders have the ability to vote on proposals to upgrade protocol mechanisms or to spend from the treasury.
 Voting is conducted on-chain via the Livepeer Governor contract, with the protocol contracts enforcing the outcome.
@@ -57,7 +57,7 @@ Livepeer is committed to open-source, transparent, community governance.
 It uses a hybrid on‑chain/off‑chain governance model that combines open community discussion with binding on‑chain votes.
 This model ensures that the community (token holders) collectively controls upgrades and spending, with the protocol enforcing the outcome.
 
-<div style={{ display: "flex", justifyContent: "center", width: "fit-content", margin: "0 auto" }}>
+<CenteredContainer preset="fitContent">
 <Accordion title={<div style={{color: "var(--accent)"}}>ELI5: Governance Model</div>} icon="user-crown">
  Imagine a community garden run by people who own shares (tokens).
 
@@ -67,7 +67,7 @@ This model ensures that the community (token holders) collectively controls upgr
 
  Rules are set by token holders: stake some tokens to propose, everyone votes, and a rule only passes if enough people say yes.
 </Accordion>
-</div>
+</CenteredContainer>
 
 
 ### Governance Functions
