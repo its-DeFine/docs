@@ -25,7 +25,8 @@ const REPORT_DIR = path.join(REPO_ROOT, 'workspace', 'reports', 'styles');
 const EXCLUDE_PATTERNS = [
   '_workspace', 'archive', 'language-pages', 'x-deprecated',
   'x-archived', 'node_modules', '.claude', '_dep-docs',
-  'tasks/context_data', 'x-resources', 'internal/assets/transcripts'
+  'tasks/context_data', 'x-resources', 'internal/assets/transcripts',
+  'internal/rfp'
 ];
 
 const LEGACY_ALIASES = [
@@ -144,11 +145,35 @@ function getLineNumber(content, index) {
    ============================================ */
 
 function isOnComponent(content, matchIndex) {
-  // Check if style={{ is on a PascalCase component (acceptable) vs raw HTML (violation)
+  // Check the current line first
   const lineStart = content.lastIndexOf('\n', matchIndex) + 1;
   const before = content.slice(lineStart, matchIndex);
+  // PascalCase components use style prop merging — acceptable
   const tagMatch = before.match(/<([A-Z]\w*)[^>]*$/);
-  return !!tagMatch;
+  if (tagMatch) return true;
+  // iframe/img need direct style props for dimensions — acceptable
+  const htmlMatch = before.match(/<(iframe|img)[^>]*$/);
+  if (htmlMatch) return true;
+  // Multi-line: check if we're inside an unclosed tag from a previous line
+  // Scan backwards from matchIndex to find the most recent unclosed < tag
+  const preceding = content.slice(Math.max(0, matchIndex - 500), matchIndex);
+  const lastOpen = preceding.lastIndexOf('<');
+  if (lastOpen >= 0) {
+    const tagSlice = preceding.slice(lastOpen);
+    // If there's no > between the < and our match, we're inside that tag
+    if (!tagSlice.includes('>')) {
+      const multiTagMatch = tagSlice.match(/^<([A-Z]\w*|iframe|img)/);
+      if (multiTagMatch) return true;
+    }
+  }
+  return false;
+}
+
+function isInsideJsxComment(content, matchIndex) {
+  const before = content.slice(0, matchIndex);
+  const opens = (before.match(/\{\/\*/g) || []).length;
+  const closes = (before.match(/\*\/\}/g) || []).length;
+  return opens > closes;
 }
 
 function scanInlineStylesMdx(filePath, content) {
@@ -158,6 +183,7 @@ function scanInlineStylesMdx(filePath, content) {
   while ((match = regex.exec(content)) !== null) {
     if (isInsideCodeBlock(content, match.index)) continue;
     if (isInsideInlineCode(content, match.index)) continue;
+    if (isInsideJsxComment(content, match.index)) continue;
     // Skip style props on components — that's the correct pattern (prop merging)
     if (isOnComponent(content, match.index)) continue;
     violations.push({

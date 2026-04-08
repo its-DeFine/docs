@@ -32,8 +32,9 @@ import { SolutionItem } from '/snippets/components/wrappers/custom/SolutionItem.
 import { daydreamBadges, studioBadges, frameworksBadges, streamplaceBadges, embodyBadges } from './data/badges.jsx'
 import { daydreamInfra, studioInfra, frameworksInfra, streamplaceInfra, embodyInfra } from './data/infra.jsx'
 import { solutionIcons } from "./data/solutionData.jsx"
+import { Subtitle } from '/snippets/components/elements/text/Text.jsx'
 
-<Tip> <div style={{color: "var(--hero-text)", textSize:"0.9rem", marginBottom: "0.2rem"}}>**Are you a Solution Provider?**</div> <span style={{display:"flex", alignContent: "center"}}>  Submit a PR to the <DoubleIconLink label="Livepeer Docs Github" href="https://github.com/livepeer/docs" newline={false} iconRightColor="var(--hero-text)" /> to add your solution here! </span></Tip>
+<Tip> <Subtitle variant="changelog" style={{marginBottom: "0.2rem"}}>**Are you a Solution Provider?**</Subtitle> Submit a PR to the <DoubleIconLink label="Livepeer Docs Github" href="https://github.com/livepeer/docs" newline={false} iconRightColor="var(--hero-text)" /> to add your solution here!</Tip>
 
 Livepeer Solutions are ready-to-use video and AI products built on the Livepeer protocol. Stream live video, run AI pipelines, deploy interactive avatars, or add decentralised video to your app - each product handles the infrastructure so you can focus on building.
 

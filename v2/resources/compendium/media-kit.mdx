@@ -21,6 +21,8 @@ import { PdfEmbed } from '/snippets/components/integrators/embeds/DataEmbed.jsx'
 import { DownloadButton } from "/snippets/components/elements/buttons/Buttons.jsx";
 import { WidthCard, InlineImageCard } from '/snippets/components/wrappers/cards/CustomCards.jsx'
 import { FlexContainer } from '/snippets/components/wrappers/containers/Layout.jsx'
+import { CenteredContainer } from '/snippets/components/wrappers/containers/Containers.jsx'
+import { CenteredContainer } from '/snippets/components/wrappers/containers/Containers.jsx'
 
 <WidthCard title="Visit the Media Page" href="https://www.livepeer.org/media-kit" icon="aperture" horizontal width="60%"/>
 
@@ -64,14 +66,14 @@ import { FlexContainer } from '/snippets/components/wrappers/containers/Layout.j
 <PdfEmbed title="Livepeer Brand Guidelines" src="https://www.dropbox.com/scl/fi/tblvrdl3chfklvujhri19/Livepeer-Brand-Guidelines.pdf?rlkey=mfp3zj8kbp8aw3z0kqhez8wn9&st=or62duey&raw=1" />
 
 <br/>
-<div style={{ display: 'flex', justifyContent: 'center', margin: '0 auto', width: '80%', minWidth: 'fit-content' }}>
+<CenteredContainer preset="readable80" style={{minWidth: 'fit-content'}}>
     <DownloadButton
     label="Download Brand Guidelines"
     downloadLink="https://www.dropbox.com/scl/fi/tblvrdl3chfklvujhri19/Livepeer-Brand-Guidelines.pdf?rlkey=mfp3zj8kbp8aw3z0kqhez8wn9&e=1&st=or62duey&dl=0"
     icon="file-powerpoint"
     border={true}
     />
-</div>
+</CenteredContainer>
 
 ## Colours
 <FlexContainer align="flex-start">

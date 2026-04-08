@@ -7,6 +7,7 @@ purpose: build
 status: current
 ---
 import { LINUX_CODE } from '../../data/linux/code.jsx';
+import { Subtitle } from '/snippets/components/elements/text/Text.jsx'
 
 export const LinuxOffChainTab = ({
   latestVersion,
@@ -18,7 +19,7 @@ export const LinuxOffChainTab = ({
     <GatewayOffChainWarning />
     <Steps titleSize="h3">
       <Step title="Install Gateway Software">
-        <span style={{ fontSize: '1.0rem' }}> *Latest* <a href={latestReleasePageUrl}>go-livepeer</a> *version:* <Badge color="green"><span>{latestVersion}</span></Badge> </span>
+        <Subtitle style={{fontSize: '1.0rem'}}> *Latest* <a href={latestReleasePageUrl}>go-livepeer</a> *version:* <Badge color="green"><span>{latestVersion}</Subtitle></Badge> </span>
         <br />
         <CustomCodeBlock
           {...LINUX_CODE.downloadBinary}
