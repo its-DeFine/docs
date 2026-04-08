@@ -2,11 +2,11 @@
 /**
  * @script      normalise-frontmatter-keys
  * @type        remediator
- * @concern     content-quality
- * @niche       frontmatter
+ * @concern     governance
+ * @niche       classification
  * @purpose     qa:content-quality
  * @description Normalises capitalised frontmatter YAML keys to lowercase canonical form across v2 MDX pages.
- * @mode        read-write
+ * @mode        repair
  * @pipeline    manual — batch remediation utility, run with --dry-run first
  * @scope       v2/ (all MDX files, excluding _workspace, x-archived, translations)
  * @usage       node operations/scripts/remediators/content/classification/normalise-frontmatter-keys.js [--dry-run] [--write]
@@ -178,14 +178,16 @@ function addMissingFields(frontmatterRaw, relPath) {
 }
 
 function parseArgs(argv) {
-  const args = { write: false };
+  const args = { write: false, verify: false };
   for (const token of argv) {
     if (token === '--write') args.write = true;
     else if (token === '--dry-run') args.write = false;
+    else if (token === '--verify') args.verify = true;
     else if (token === '--help' || token === '-h') {
-      console.log('Usage: node normalise-frontmatter-keys.js [--dry-run | --write]');
+      console.log('Usage: node normalise-frontmatter-keys.js [--dry-run | --write] [--verify]');
       console.log('  --dry-run  Report changes without writing (default)');
       console.log('  --write    Apply changes to files');
+      console.log('  --verify   Re-audit after repair, revert regressions');
       process.exit(0);
     }
   }

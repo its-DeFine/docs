@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      add-pagetype-mechanical
- * @type        
- * @concern     
- * @niche       
- * @purpose     qa:content-quality
+ * @type        remediator
+ * @concern     governance
+ * @niche       classification
+ * @purpose     
  * @description Mechanically assigns pageType frontmatter to eligible v2 MDX pages.
- * @mode        read-only
+ * @mode        repair
  * @pipeline    manual — deterministic metadata rollout utility for v2 docs
  * @scope       operations/scripts, v2, workspace/reports
  * @usage       node operations/scripts/remediators/content/classification/add-pagetype-mechanical.js [flags]
@@ -54,7 +54,9 @@ function parseArgs(argv) {
       printUsage();
       process.exit(0);
     }
-    throw new Error(`Unknown argument: ${token}`);
+    if (token === '--verify') { args.verify = true; continue; }
+
+        throw new Error(`Unknown argument: ${token}`);
   }
 
   return args;

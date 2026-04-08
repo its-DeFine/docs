@@ -2,11 +2,11 @@
 /**
  * @script      repair-component-styles
  * @type        remediator
- * @concern     components
+ * @concern     maintenance
  * @niche       library
  * @purpose     qa:component-quality
  * @description Repair JSX component style violations: extract inline styles to named const, move top-level constants inside function body.
- * @mode        edit
+ * @mode        repair
  * @pipeline    manual > snippets/components (all .jsx) > repaired files
  * @scope       snippets/components
  * @usage       node operations/scripts/remediators/components/library/repair-component-styles.js [--dry-run] [--write] [--staged]
@@ -27,6 +27,7 @@ const REPO_ROOT = process.cwd();
 const COMPONENTS_DIR = path.join(REPO_ROOT, 'snippets', 'components');
 
 const args = process.argv.slice(2);
+  const verifyMode = args.includes('--verify');
 const writeMode = args.includes('--write');
 const staged = args.includes('--staged');
 const helpFlag = args.includes('--help') || args.includes('-h');

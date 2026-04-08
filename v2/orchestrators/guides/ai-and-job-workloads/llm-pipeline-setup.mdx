@@ -36,7 +36,7 @@ import { StyledTable, TableRow, TableCell } from '/snippets/components/wrappers/
 import { StyledSteps, StyledStep } from '/snippets/components/wrappers/steps/Steps.jsx'
 
 <Tip>
-  The `llm` pipeline is the entry point for operators with older or smaller GPUs. A quantised 8B parameter model runs within 8 GB VRAM — opening AI participation to cards that cannot run diffusion models at all.
+  The `llm` pipeline is the entry point for operators with older or smaller GPUs. A quantised 8B parameter model runs within 8 GB VRAM – opening AI participation to cards that cannot run diffusion models at all.
 </Tip>
 
 ---
@@ -58,8 +58,8 @@ go-livepeer reaches the LLM stack over HTTP instead of managing model weights di
 All other batch AI pipelines (text-to-image, audio-to-text, segment-anything-2, text-to-speech) use the `livepeer/ai-runner` container. Go-livepeer spawns that container automatically based on `aiModels.json` and manages its lifecycle.
 
 The `llm` pipeline requires you to run the Ollama stack manually:
-- **Ollama container** — the model runtime that loads and serves quantised LLM weights
-- **livepeer-ollama-runner** — a shim container that translates between go-livepeer's AI worker protocol and the Ollama API
+- **Ollama container** – the model runtime that loads and serves quantised LLM weights
+- **livepeer-ollama-runner** – a shim container that translates between go-livepeer's AI worker protocol and the Ollama API
 
 go-livepeer connects to the `livepeer-ollama-runner` via the `url` field. The runner must be reachable on a shared Docker network.
 
@@ -126,7 +126,7 @@ go-livepeer connects to the `livepeer-ollama-runner` via the `url` field. The ru
         external: true
     ```
 
-    The `livepeer-ai` network must be the same network your go-livepeer container is on. The runner uses the Docker service name `llm_runner` as the hostname — go-livepeer resolves this via the shared network.
+    The `livepeer-ai` network must be the same network your go-livepeer container is on. The runner uses the Docker service name `llm_runner` as the hostname – go-livepeer resolves this via the shared network.
 
   </StyledStep>
 

@@ -2,11 +2,11 @@
 /**
  * @script      repair-ai-discoverability
  * @type        remediator
- * @concern     components
+ * @concern     maintenance
  * @niche       library
  * @purpose     qa:component-quality
  * @description Repair AI discoverability compliance: add missing @aiDiscoverability tags to hook-using components, create placeholder companion JSON files.
- * @mode        edit
+ * @mode        repair
  * @pipeline    manual > snippets/components (all .jsx) > repaired files, placeholder JSONs
  * @scope       snippets/components, snippets/data/snapshots
  * @usage       node operations/scripts/remediators/components/library/repair-ai-discoverability.js [--dry-run] [--write] [--staged]
@@ -28,6 +28,7 @@ const COMPONENTS_DIR = path.join(REPO_ROOT, 'snippets', 'components');
 const SNAPSHOTS_DIR = path.join(REPO_ROOT, 'snippets', 'data', 'snapshots');
 
 const args = process.argv.slice(2);
+  const verifyMode = args.includes('--verify');
 const writeMode = args.includes('--write');
 const staged = args.includes('--staged');
 const helpFlag = args.includes('--help') || args.includes('-h');

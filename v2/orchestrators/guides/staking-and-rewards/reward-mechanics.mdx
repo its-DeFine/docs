@@ -56,7 +56,7 @@ Each orchestrator calls Reward() on-chain to claim their share
 Reward distributes: rewardCut % to you, remainder to delegators
 ```
 
-Your share of each round's issuance is proportional to `(your total stake / total active stake in the network)`. The more stake you have bonded — your own plus delegated — the more LPT you receive per round.
+Your share of each round's issuance is proportional to `(your total stake / total active stake in the network)`. The more stake you have bonded – your own plus delegated – the more LPT you receive per round.
 
 **You only earn for rounds in which you successfully call `Reward()`.** There is no catch-up mechanism. A missed round is a permanently forfeited allocation.
 
@@ -66,13 +66,13 @@ The inflation rate is a dynamic protocol parameter:
 
 - **Increases** each round when bonded LPT is below ~50% of total supply
 - **Decreases** each round when bonded LPT is above ~50% of total supply
-- **Current direction (2026):** declining — bonded participation has exceeded 50%, so the rate falls by a small amount each round towards its minimum floor
+- **Current direction (2026):** declining – bonded participation has exceeded 50%, so the rate falls by a small amount each round towards its minimum floor
 
 The Explorer shows current inflation rate and target participation at [explorer.livepeer.org](https://explorer.livepeer.org/orchestrators).
 
 <CustomDivider />
 
-## Calling Reward() — your options
+## Calling Reward() – your options
 
 ### Option 1: Automatic (default, recommended)
 
@@ -114,9 +114,9 @@ livepeer \
 
 Gather three inputs:
 
-1. **Current gas price on Arbitrum** — check [arbiscan.io](https://arbiscan.io/gastracker) for current L2 gas prices
-2. **Gas used per reward call** — typically **350,000 to 450,000 gas** on Arbitrum
-3. **LPT value you'd receive** — visible in Explorer on your orchestrator page under "Estimated Reward This Round"
+1. **Current gas price on Arbitrum** – check [arbiscan.io](https://arbiscan.io/gastracker) for current L2 gas prices
+2. **Gas used per reward call** – typically **350,000 to 450,000 gas** on Arbitrum
+3. **LPT value you'd receive** – visible in Explorer on your orchestrator page under "Estimated Reward This Round"
 
 ``` icon="terminal" title="Reward profitability formula"
 ETH cost = gas_used × gas_price_in_ETH
@@ -134,7 +134,7 @@ Arbitrum gas is low compared to mainnet, so the threshold is typically reached a
 livepeer_cli
 ```
 
-From the menu, select the option corresponding to **"Invoke reward"** and confirm the transaction. Wait for on-chain confirmation — you will see a log line similar to:
+From the menu, select the option corresponding to **"Invoke reward"** and confirm the transaction. Wait for on-chain confirmation – you will see a log line similar to:
 
 ``` icon="terminal" title="Manual reward call log example"
 Invoking transaction: "reward". Hash: "0x..."
@@ -201,8 +201,8 @@ livepeer_cli
 ```
 
 Select the option for **"Set orchestrator config"** to update:
-- `rewardCut` — the percentage of LPT inflation you keep (0–100%)
-- `feeShare` — the percentage of ETH fees shared with delegators (0–100%)
+- `rewardCut` – the percentage of LPT inflation you keep (0–100%)
+- `feeShare` – the percentage of ETH fees shared with delegators (0–100%)
 
 ### Commission rate strategy
 

@@ -128,33 +128,33 @@ Track releases for <LinkArrow label="Frameworks" href="https://github.com/livepe
     * Harden cluster/node reconciliation and stale routing recovery
     * Harden DLQ and service-event observability (preserve event_id/event_type, surface tenant drops)
     * Harden mixed-version analytics compatibility for proto decoding and billing queries
-    * Harden federation degraded-mode handling and normalize HTTP retry policy
-    * Harden DNS reconciliation cleanup and Cloudflare idempotent retry behavior
+    * Harden federation degraded-mode handling and normalise HTTP retry policy
+    * Harden DNS reconciliation cleanup and Cloudflare idempotent retry behaviour
     * Fix hostname source-of-truth drift in edge preregistration/bootstrap
     * Privateer mesh and local resolver convergence
     * Peer discovery and lifecycle correctness
     * Harden federation PeerChannel identity checks and stale peer cache cleanup
     * Fix federation reconciliation cleanup and destination-node validation
     * Harden enrollment token tenant and cluster binding
-    * Fail-open/fail-closed behavior for control-plane dependency outages audit
+    * Fail-open/fail-closed behaviour for control-plane dependency outages audit
     * Harden origin-pull coordination and loop prevention
     * Artifact federation correctness and metadata consistency audit
     * Multi-cluster ingest coverage and fallback semantics audit
     * Harden Send* relay forwarding and add relay oneof wiring tests
-    * Harden relay conn_owner lifecycle and relay failure behavior
+    * Harden relay conn_owner lifecycle and relay failure behaviour
     * Fix PushOperationalMode propagation for canonical node ownership in HA Foghorn
     * Harden BootstrapService advertise host derivation and node-cluster safety
     * Service registration lifecycle consistency
     * Service discovery consumers after address derivation changes
     * Tenant operation fan-out correctness
     * Harden federation forwarded artifact command safety checks
-    * Harden cluster-aware Commodore routing and ingest cache behavior
+    * Harden cluster-aware Commodore routing and ingest cache behaviour
     * Docker-compose HA relay test completeness
     * Graceful shutdown and conn_owner cleanup correctness
     * Relay observability and diagnosability
     * Harden mixed-version cluster routing and relay compatibility paths
     * Harden active ingest cluster freshness and clip routing fallback
-    * Add frontend GraphQL codegen drift check and normalize explorer history types
+    * Add frontend GraphQL codegen drift check and normalise explorer history types
     * Route type safety and ID semantics correctness
     * Align EmptyState shared prop contract and add regression coverage
     * origin_cluster_id correctness across artifact lifecycle
@@ -203,7 +203,7 @@ Track releases for <LinkArrow label="Frameworks" href="https://github.com/livepe
     * Fix QoE stream health mappings
     * Improve routing analytics attribution (bootstrap, caching, retry)
     * Fix periscope ingest lifecycle handling
-    * Normalize internal_name handling; use vod_hash for VOD and add filename column
+    * Normalise internal_name handling; use vod_hash for VOD and add filename column
     * Add node maintenance/drain modes to Foghorn
     * Fix geo edge handling in routing
     * storage/analytics: validate tenant/stream IDs, attribute snapshots, harmonize lifecycle naming, remove audit doc
@@ -217,7 +217,7 @@ Track releases for <LinkArrow label="Frameworks" href="https://github.com/livepe
     * fix(playback): unify /play errors and reuse resolved live data
     * Harden billing enforcement cache handling
     * Improve playback diagnostics for blacklisted protocols
-    * Harden ingest normalization and service event guards
+    * Harden ingest normalisation and service event guards
     * Use player+protocol+URL combos for fallback and caching
     * Preserve stream source NodeID and add deferred DVR stop registry with decklog emissions
     * Fix artifact lifecycle transitions and events
@@ -247,7 +247,7 @@ Track releases for <LinkArrow label="Frameworks" href="https://github.com/livepe
     * Harden GraphQL complexity/depth: cap page size, multiply connection cost, fragment-aware depth, and add analytics costs
     * Improve cursor stability with dedupe and collision logging
     * Scope stream context & Commodore caches by tenant
-    * Fix x402 settlement behavior, enforce cent-alignment, and add gas wallet low-balance metric
+    * Fix x402 settlement behaviour, enforce cent-alignment, and add gas wallet low-balance metric
     * Harden Signalman subscription auth and tenant isolation
     * Add gRPC error sanitizer and GraphQL error presenter; sanitize auth flows
     * Enforce tenant checks for VOD relay resolution
@@ -326,7 +326,7 @@ Track releases for <LinkArrow label="Frameworks" href="https://github.com/livepe
     * Improve DLQ payload tenant metadata and add unit tests
     * Codex-generated pull request
     * Harden periscope-ingest Kafka commit semantics and ClickHouse batch handling
-    * Prevent draft updates after finalized invoice and add Purser invoice tests
+    * Prevent draft updates after finalised invoice and add Purser invoice tests
     * Add Foghorn playback fallback tests and guard HOST template resolution
     * test(gateway): expand tests for rate limits, request lifecycle, IP trust, introspection and cursors
     * Codex-generated pull request
@@ -364,7 +364,7 @@ Track releases for <LinkArrow label="Frameworks" href="https://github.com/livepe
     * Bump the go-service-deps group across 5 directories with 11 updates by @dependabot[bot] in https://github.com/Livepeer-FrameWorks/monorepo/pull/279
     * Add Cloudflare DNS error-path tests
     * Add unit tests for sidecar handler helpers and storage utilities
-    * Honor splitRatio in layouts and tighten renderer filter tests
+    * Honour splitRatio in layouts and tighten renderer filter tests
     * Bump axios from 1.13.4 to 1.13.5 by @dependabot[bot] in https://github.com/Livepeer-FrameWorks/monorepo/pull/284
 
     ## New Contributors

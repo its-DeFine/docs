@@ -2,7 +2,7 @@
 /**
  * @script      generate-component-examples
  * @type        generator
- * @concern     components
+ * @concern     maintenance
  * @niche       library
  * @purpose     governance:index-management
  * @description Keeps per-file example MDX files in sync with the component registry

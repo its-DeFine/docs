@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * @script      repair-component-metadata
- * @type        
- * @concern     
- * @niche       
- * @purpose     governance:repo-health
+ * @type        remediator
+ * @concern     maintenance
+ * @niche       library
+ * @purpose     
  * @description Auto-repairs derived JSDoc metadata fields from repo state. Safe fields only. Mirrors AUDIT-00 --fix pattern for components.
- * @mode        read-only
+ * @mode        repair
  * @pipeline    manual, P6, manual
  * @scope       single-domain
  * @usage       node operations/scripts/remediators/components/library/repair-component-metadata.js [--dry-run] [--fix] [--staged]
@@ -66,7 +66,8 @@ function parseArgs(argv) {
   const args = {
     mode: 'dry-run',
     staged: false,
-    help: false
+    help: false,
+    verify: false
   };
 
   let explicitModeCount = 0;
@@ -90,7 +91,9 @@ function parseArgs(argv) {
       args.staged = true;
       return;
     }
-    throw new Error(`Unknown argument: ${token}`);
+    if (token === '--verify') { args.verify = true; continue; }
+
+        throw new Error(`Unknown argument: ${token}`);
   });
 
   if (explicitModeCount > 1) {
