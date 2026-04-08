@@ -2,7 +2,7 @@
 /**
  * @script      studio-docs-migration
  * @type        integrator
- * @concern     content
+ * @concern     copy
  * @niche       
  * @purpose     
  * @description Migrates livepeer-studio subfolder path references after moving

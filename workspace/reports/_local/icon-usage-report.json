@@ -1,23 +1,10 @@
 {
   "generated": "2026-04-08",
   "scannedFiles": 777,
-  "canonicalMapSize": 87,
+  "canonicalMapSize": 88,
   "minCount": 10,
   "totalUnique": 74,
-  "mappedCount": 73,
-  "unmappedCount": 1,
-  "icons": [
-    {
-      "icon": "pen-to-square",
-      "count": 34,
-      "mapped": false,
-      "section": null,
-      "sectionTitle": null,
-      "label": null,
-      "pageCount": 1,
-      "topPages": [
-        "v2/solutions/daydream/changelog.mdx"
-      ]
-    }
-  ]
+  "mappedCount": 74,
+  "unmappedCount": 0,
+  "icons": []
 }

@@ -1205,6 +1205,19 @@ export const iconMapSections = [
           'v2/gateways/guides/advanced-operations/production-hardening.mdx',
         ],
       },
+      {
+        icon: 'pen-to-square',
+        label: 'Edit / changelog entry / content update',
+        scanCount: 34,
+        useFor:
+          'Changelog entry accordions, edit actions, and content-update indicators.',
+        avoid:
+          'Avoid for general writing or authoring surfaces (use `file-lines`). Use `pen-to-square` specifically for edit/update semantics.',
+        components: ['Accordion', 'Card', 'changelog entry'],
+        examples: [
+          'v2/solutions/daydream/changelog.mdx',
+        ],
+      },
     ],
   },
   {
