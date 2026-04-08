@@ -1,6 +1,6 @@
 <!-- GENERATED FILE — DO NOT EDIT DIRECTLY -->
 <!-- Generator: operations/scripts/generators/components/library/generate-component-library.js -->
-<!-- Generated: 2026-04-07T17:24:31.284Z -->
+<!-- Generated: 2026-04-08T00:17:42.955Z -->
 <!-- Regenerate: node operations/scripts/generators/components/library/generate-component-library.js --category wrappers -->
 
 # Wrappers Component Library

@@ -28,9 +28,9 @@ const path = require('path');
 const REPO_ROOT = path.join(__dirname, '../../../');
 const DOCS_JSON_PATH = path.join(REPO_ROOT, 'docs.json');
 
-const COMING_SOON_IMPORT = "import {ComingSoonCallout} from '/snippets/components/primitives/previewCallouts.jsx'";
+const COMING_SOON_IMPORT = "import { ComingSoonCallout } from '/snippets/components/elements/callouts/Callouts.jsx'";
 const COMING_SOON_COMPONENT = '<ComingSoonCallout />';
-const PREVIEW_IMPORT = "import { PreviewCallout } from '/snippets/components/primitives/previewCallouts.jsx'";
+const PREVIEW_IMPORT = "import { PreviewCallout } from '/snippets/components/elements/callouts/Callouts.jsx'";
 const PREVIEW_COMPONENT = '<PreviewCallout />';
 
 /**
@@ -157,7 +157,7 @@ function cleanupPreviewCalloutImports(content, usage) {
 
       if (filtered.length === 0) return null;
 
-      return `import { ${filtered.join(', ')} } from ${quote}/snippets/components/primitives/previewCallouts.jsx${quote}${hasSemicolon ? ';' : ''}`;
+      return `import { ${filtered.join(', ')} } from ${quote}/snippets/components/elements/callouts/Callouts.jsx${quote}${hasSemicolon ? ';' : ''}`;
     })
     .filter((line) => line !== null)
     .join('\n');

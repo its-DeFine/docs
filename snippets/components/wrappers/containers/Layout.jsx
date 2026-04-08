@@ -93,29 +93,5 @@ export const GridContainer = ({
   );
 };
 
-/**
- * @component Spacer
- * @category wrappers
- * @subcategory containers
- * @status stable
- * @description Spacer element with configurable size.
-  * @aiDiscoverability none
- * @param {string} [size="1rem"] - size prop.
- * @param {string} [direction="vertical"] - direction prop.
-  * @param {string} [className=''] - Optional CSS class override.
-  * @param {object} [style={}] - Optional inline style override.
- */
-export const Spacer = ({ size = "1rem", direction = "vertical", className = "", style = {}, ...rest }) => {
-  return (
-    <div
-      className={className}
-      style={{
-        ...(direction === "vertical"
-          ? { height: size, width: "100%" }
-          : { width: size, height: "100%" }),
-        ...style,
-      }}
-      {...rest}
-    />
-  );
-};
+/** @deprecated Spacer has moved to elements/spacing/Divider.jsx. This re-export maintains backwards compatibility. */
+export { Spacer } from '/snippets/components/elements/spacing/Divider.jsx';

@@ -1,6 +1,6 @@
 <!-- GENERATED FILE — DO NOT EDIT DIRECTLY -->
 <!-- Generator: operations/scripts/generators/components/library/generate-component-library.js -->
-<!-- Generated: 2026-04-07T17:24:31.285Z -->
+<!-- Generated: 2026-04-08T00:17:42.959Z -->
 <!-- Regenerate: node operations/scripts/generators/components/library/generate-component-library.js --category integrators -->
 
 # Integrators Component Library

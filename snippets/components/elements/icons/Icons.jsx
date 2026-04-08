@@ -132,6 +132,57 @@ export const ArbitrumIcon = ({
  * <LivepeerIcon size={16} />
  * <LivepeerIcon color="var(--accent)" />
  */
+/**
+ * @component BlinkingIcon
+ * @category elements
+ * @subcategory icons
+ * @status stable
+ * @description Animated icon with pulsing opacity. Respects prefers-reduced-motion.
+ * @aiDiscoverability none
+ * @param {string} [icon="terminal"] - Icon name to display
+ * @param {number} [size=16] - Size of the icon in pixels
+ * @param {string} color - Color of the icon (defaults to theme accent)
+ * @param {string} [className=''] - Optional CSS class override.
+ * @param {object} [style={}] - Optional inline style override.
+ * @example
+ * <BlinkingIcon color="var(--accent)" />
+ */
+export const BlinkingIcon = ({
+  icon = 'terminal',
+  size = 16,
+  color,
+  className = '',
+  style = {},
+  ...rest
+}) => {
+  const resolvedColor = color || 'var(--accent)'
+  return (
+    <span
+      className={className}
+      style={{ display: 'inline-flex', ...style }}
+      {...rest}
+    >
+      <style>{`
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.3; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          * { animation: none !important; }
+        }
+      `}</style>
+      <span
+        style={{
+          display: 'inline-flex',
+          animation: 'blink 3s ease-in-out infinite',
+        }}
+      >
+        <Icon icon={icon} size={size} color={resolvedColor} />
+      </span>
+    </span>
+  )
+}
+
 export const LivepeerIcon = ({
   size = 16,
   color,

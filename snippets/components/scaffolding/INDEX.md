@@ -1,6 +1,6 @@
 <!-- GENERATED FILE — DO NOT EDIT DIRECTLY -->
 <!-- Generator: operations/scripts/generators/components/library/generate-component-index.js -->
-<!-- Generated: 2026-04-07T17:24:26.414Z -->
+<!-- Generated: 2026-04-08T00:17:42.914Z -->
 <!-- Components: 20 | Category: scaffolding -->
 
 # Scaffolding — Component Index
