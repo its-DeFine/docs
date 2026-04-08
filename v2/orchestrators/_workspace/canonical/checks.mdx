@@ -398,10 +398,10 @@ Every link clicked works. Every page loads fully. No console errors. No missing 
 |---|-------|---------------|
 | 9.1 | **Human sign-off recorded** | Page has been explicitly approved by a human. Agent self-reporting does not count |
 | 9.2 | **All consuming decisions in registry** | Any structural decision the page depends on exists in `decisions/decision-registry.md` with date and sign-off |
-| 9.3 | **Gate prerequisites met** | Page did not skip gates: IA Approved → Terminology Locked → Content Scan Done → Structure Approved → Content Pass Open → Veracity Done → Layout Done |
-| 9.4 | **Phase ordering respected** | Phase 8 (naming) ran BEFORE Phase 7 (veracity). No orphaned veracity markers from post-naming heading changes |
+| 9.3 | **Gate prerequisites met** | Page did not skip gates. Per-tab canonical review files (01-07) approved before content work. Content pass context block filled. Veracity pass run. Layout pass run. Per `_MY_PROCESS/` RUNBOOKs (00-08). |
+| 9.4 | **Phase ordering respected** | Phase ordering per `_MY_PROCESS/` RUNBOOKs: 00 (audience) -> 01 (research) -> 02 (content gathering) -> 03 (IA) -> 04 (briefs) -> 05 (journey validation) -> 06 (copy/voice) -> 07 (veracity) -> 08 (layout). No phase skipped. |
 | 9.5 | **Findings gathered before fixes** | Page went through structured review (findings report → scope approval → execution). Not fixed ad hoc |
-| 9.6 | **Feedback routed** | Any corrections found during review are routed through `decisions/feedback-routing-map.md` — not just fixed locally |
+| 9.6 | **Feedback routed** | Any corrections found during review are routed through `decisions/feedback-routing-map.md` AND `_MY_PROCESS/FEEDBACK/RUNBOOK.md`. Not just fixed locally. Corrections that affect voice rules, terminology, or templates update the canonical source. |
 
 ### What success looks like
 
@@ -416,6 +416,13 @@ Every shipped page has a traceable provenance: who approved it, what gates it pa
 | Feedback routing | `workspace/plan/active/CONTENT-WRITING/decisions/feedback-routing-map.md` | Correction → standards routing |
 | Session start protocol | `workspace/plan/active/CONTENT-WRITING/READ-EVERY-TIME/PROJECT-MANAGEMENT-CANONICAL.md` | Mandatory pre-work steps |
 | Plan canonical | `workspace/plan/active/CONTENT-WRITING/plan-canonical.md` | Phase ordering, gate definitions |
+| Pipeline RUNBOOKs (00-08) | `workspace/plan/active/_MY_PROCESS/00_*` through `08_*/RUNBOOK.md` | Per-phase instructions, inputs, outputs, gate conditions |
+| Feedback loop | `workspace/plan/active/_MY_PROCESS/FEEDBACK/RUNBOOK.md` | Post-tab correction capture and framework update |
+| docs-guide governance index | `docs-guide/policies/governance-index.mdx` | Master governance policy index |
+| docs-guide standards | `docs-guide/standards/` | authoring-standard, frontmatter, naming-conventions, voice-and-copy, voice-rules |
+| Agent governance | `docs-guide/policies/agent-governance-framework.mdx` | Agent behaviour rules |
+| Source of truth policy | `docs-guide/policies/source-of-truth-policy.mdx` | Canonical source designation |
+| Skill pipeline map | `docs-guide/policies/skill-pipeline-map.mdx` | Skill to pipeline mapping |
 | What agents must never do | `workspace/plan/active/CONTENT-WRITING/READ-EVERY-TIME/PROJECT-MANAGEMENT-CANONICAL.md` §6 | 12 hard prohibitions |
 
 ---
@@ -467,15 +474,17 @@ Based on `docs-review-prompt-tiers.md` Tier 3 (Single Page):
 6. Note the page's position in the journey (what comes before/after) — read `docs.json` to confirm the navigation sequence, do not infer from memory
 
 ### Review pass order
-1. **Frontmatter** (Category 1) — all fields present, all values canonical
-2. **Structure** (Category 4) — one purpose, one job, prerequisites, handoffs
-3. **Headings** (Category 3) — score each ≥20/25
-4. **Voice & copy** (Category 2) — banned words, register, UK English, opening order
-5. **Layout & components** (Category 5) — correct template, approved components
-6. **Veracity** (Category 6) — claims sourced, code tested, REVIEW flags placed
-7. **Links & rendering** (Category 8) — everything resolves, page renders clean
-8. **Navigation** (Category 7) — in docs.json, reachable, no dead ends
-9. **Spelling/typo pass** — scan all visible text: headings, link text, prose, card descriptions, table cells
+1. **Frontmatter** (Category 1) -- all 10+ fields present, all values canonical
+2. **Structure** (Category 4) -- one purpose, one job, Discord test, min size, prerequisites, handoffs, trade-offs
+3. **Headings** (Category 3) -- score each 20/25+, per-pageType naming, per-audience register, domain-anchor
+4. **Voice and copy** (Category 2) -- banned words/phrases/constructions, entity-led, no hedging, no em-dashes, no self-ref description, UK English, register, deprecated terms, terminology
+5. **Layout and components** (Category 5) -- gold-standard template, section blocks, ordering, multi-view, data imports, Related Pages or Next Step CTA
+6. **Veracity** (Category 6) -- claims sourced per authority tiers, code tested, REVIEW flags, glossary definitions match universal terms
+7. **Links and rendering** (Category 8) -- everything resolves, page renders, no TODO/TBD
+8. **Navigation** (Category 7) -- in docs.json, reachable, no dead ends, no stubs in nav, guides scope
+9. **Completeness** (Category 10) -- question coverage, zero-to-hero, persona paths, scope boundaries, self-containment
+10. **Process** (Category 9) -- human sign-off, decisions in registry, gates met, phases ordered, feedback routed
+11. **Spelling and typo pass** -- scan all visible text: headings, link text, prose, card descriptions, table cells
 
 ### Verdict scale
 
@@ -487,10 +496,18 @@ Based on `docs-review-prompt-tiers.md` Tier 3 (Single Page):
 
 ### Self-check (after review)
 - [ ] Introduction opens with subject, not caveat
-- [ ] No "this page" self-reference anywhere
+- [ ] No "this page" self-reference anywhere (body or description)
+- [ ] No em-dashes
+- [ ] No hedging verbs in value claims
+- [ ] No deprecated terms (Broadcaster, Pool worker, Combined mode, Hybrid)
 - [ ] Every section has a clear handoff to the next
+- [ ] Related Pages or Next Step CTA at page end
+- [ ] Page follows gold-standard template for its pageType
+- [ ] Page passes the Discord test (complete answer to its question)
+- [ ] Page is above 2KB minimum (5KB+ for concept/guide)
 - [ ] Volatile content has REVIEW flag
 - [ ] All corrections routed through feedback map
+- [ ] All terminology matches TERMINOLOGY-COLLATE canonical
 
 ---
 
