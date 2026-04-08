@@ -7,7 +7,7 @@
   * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {string} [direction="row"] - direction prop.
- * @param {string} [gap="1rem"] - gap prop.
+ * @param {string} [gap="var(--lp-spacing-4)"] - gap prop.
  * @param {string} [align="flex-start"] - align prop.
  * @param {string} [justify="flex-start"] - justify prop.
  * @param {boolean} [wrap=false] - wrap prop.
@@ -19,7 +19,7 @@
 export const FlexContainer = ({
   children,
   direction = "row",
-  gap = "1rem",
+  gap = "var(--lp-spacing-4)",
   align = "flex-start",
   justify = "flex-start",
   wrap = false,
@@ -59,14 +59,14 @@ export const FlexContainer = ({
   * @aiDiscoverability none
  * @param {any} children - children prop.
  * @param {any} columns - columns prop.
- * @param {string} [gap="1rem"] - gap prop.
+ * @param {string} [gap="var(--lp-spacing-4)"] - gap prop.
  * @param {object} [style={}] - style prop.
   * @param {string} [className=''] - Optional CSS class override.
  */
 export const GridContainer = ({
   children,
   columns,
-  gap = "1rem",
+  gap = "var(--lp-spacing-4)",
   style = {},
   className = "",
   ...rest
@@ -100,12 +100,12 @@ export const GridContainer = ({
  * @status stable
  * @description Spacer element with configurable size.
   * @aiDiscoverability none
- * @param {string} [size="1rem"] - size prop.
+ * @param {string} [size="var(--lp-spacing-4)"] - size prop.
  * @param {string} [direction="vertical"] - direction prop.
   * @param {string} [className=''] - Optional CSS class override.
   * @param {object} [style={}] - Optional inline style override.
  */
-export const Spacer = ({ size = "1rem", direction = "vertical", className = "", style = {}, ...rest }) => {
+export const Spacer = ({ size = "var(--lp-spacing-4)", direction = "vertical", className = "", style = {}, ...rest }) => {
   return (
     <div
       className={className}

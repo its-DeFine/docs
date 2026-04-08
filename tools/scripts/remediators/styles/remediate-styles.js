@@ -35,6 +35,57 @@ const TOKEN_MAP = {
 };
 
 /* ============================================
+   HEX COLOUR → CSS VARIABLE MAP
+   ============================================ */
+
+const HEX_TO_VAR = {
+  '#3CB540': 'var(--lp-color-accent)',
+  '#3cb540': 'var(--lp-color-accent)',
+  '#18794E': 'var(--lp-color-accent-strong)',
+  '#18794e': 'var(--lp-color-accent-strong)',
+  '#2b9a66': 'var(--lp-color-accent)',
+  '#2d9a67': 'var(--lp-color-accent)',
+  '#181C18': 'var(--lp-color-text-primary)',
+  '#181c18': 'var(--lp-color-text-primary)',
+  '#717571': 'var(--lp-color-text-secondary)',
+  '#E0E4E0': 'var(--lp-color-text-primary)',
+  '#e0e4e0': 'var(--lp-color-text-primary)',
+  '#ffffff': 'var(--lp-color-bg-page)',
+  '#FFFFFF': 'var(--lp-color-bg-page)',
+  '#fff': 'var(--lp-color-on-accent)',
+  '#0d0d0d': 'var(--lp-color-bg-page)',
+  '#f9fafb': 'var(--lp-color-bg-card)',
+  '#F9FAFB': 'var(--lp-color-bg-card)',
+  '#1a1a1a': 'var(--lp-color-bg-card)',
+  '#e5e7eb': 'var(--lp-color-border-default)',
+  '#E5E7EB': 'var(--lp-color-border-default)',
+  '#333333': 'var(--lp-color-border-default)',
+  '#3EA6F8': 'var(--lp-color-arbitrum)',
+  '#3ea6f8': 'var(--lp-color-arbitrum)',
+  '#6BBF59': 'var(--lp-color-accent-soft)',
+  '#6bbf59': 'var(--lp-color-accent-soft)',
+  '#22C55E': 'var(--lp-color-status-good)',
+  '#FBBF24': 'var(--lp-color-status-warn)',
+  '#EF4444': 'var(--lp-color-status-bad)',
+};
+
+// Files that MUST use hex literals (mermaid config, colour palettes)
+const HEX_EXEMPT_FILES = ['MermaidColours.jsx', 'style.css'];
+
+/* ============================================
+   SPACING TOKEN MAP
+   ============================================ */
+
+const SPACING_MAP = {
+  '0.25rem': 'var(--lp-spacing-1)',
+  '0.5rem': 'var(--lp-spacing-2)',
+  '0.75rem': 'var(--lp-spacing-3)',
+  '1rem': 'var(--lp-spacing-4)',
+  '1.5rem': 'var(--lp-spacing-6)',
+  '2rem': 'var(--lp-spacing-8)',
+};
+
+/* ============================================
    STANDARD MERMAID INIT (from MermaidColours.jsx)
    ============================================ */
 
@@ -201,6 +252,104 @@ function remediateMermaidInit(filePath, content) {
   return { modified, fixes };
 }
 
+function remediateHexColours(filePath, content) {
+  const fixes = [];
+  let modified = content;
+
+  const basename = path.basename(filePath);
+  if (HEX_EXEMPT_FILES.includes(basename)) return { modified, fixes };
+
+  const allMatches = [];
+  for (const [hex, cssVar] of Object.entries(HEX_TO_VAR)) {
+    const escaped = hex.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`["']${escaped}["']`, 'gi');
+    let match;
+    while ((match = regex.exec(content)) !== null) {
+      if (isInsideCodeBlock(content, match.index)) continue;
+      // Skip inside mermaid init directives
+      const lineStart = content.lastIndexOf('\n', match.index) + 1;
+      const line = content.slice(lineStart, content.indexOf('\n', match.index));
+      if (line.includes('%%{init:') || line.includes('themeVariables')) continue;
+      // Skip frontmatter
+      const fmEnd = content.indexOf('---', 3);
+      if (fmEnd > 0 && match.index < fmEnd + 3) continue;
+
+      allMatches.push({
+        index: match.index,
+        length: match[0].length,
+        original: match[0],
+        replacement: `"${cssVar}"`,
+        line: getLineNumber(content, match.index),
+      });
+    }
+  }
+
+  // Deduplicate
+  const seen = new Set();
+  const deduped = allMatches.filter(m => {
+    const key = `${m.index}:${m.length}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+  deduped.sort((a, b) => b.index - a.index);
+
+  for (const m of deduped) {
+    modified = modified.slice(0, m.index) + m.replacement + modified.slice(m.index + m.length);
+    fixes.push({
+      type: 'hardcoded-hex',
+      file: path.relative(REPO_ROOT, filePath),
+      line: m.line,
+      before: m.original,
+      after: m.replacement,
+    });
+  }
+
+  return { modified, fixes };
+}
+
+function remediateLiteralSpacing(filePath, content) {
+  const fixes = [];
+  let modified = content;
+  const allMatches = [];
+
+  for (const [literal, token] of Object.entries(SPACING_MAP)) {
+    const escaped = literal.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`["']${escaped}["']`, 'g');
+    let match;
+    while ((match = regex.exec(content)) !== null) {
+      if (isInsideCodeBlock(content, match.index)) continue;
+      // Skip font-related properties — spacing tokens are for margin/padding/gap only
+      const lineStart = content.lastIndexOf('\n', match.index) + 1;
+      const lineBefore = content.slice(lineStart, match.index);
+      if (/fontSize|lineHeight|fontWeight|fontFamily|letterSpacing/i.test(lineBefore)) continue;
+      allMatches.push({
+        index: match.index,
+        length: match[0].length,
+        original: match[0],
+        replacement: `"${token}"`,
+        line: getLineNumber(content, match.index),
+      });
+    }
+  }
+
+  allMatches.sort((a, b) => b.index - a.index);
+
+  for (const m of allMatches) {
+    modified = modified.slice(0, m.index) + m.replacement + modified.slice(m.index + m.length);
+    fixes.push({
+      type: 'literal-spacing',
+      file: path.relative(REPO_ROOT, filePath),
+      line: m.line,
+      before: m.original,
+      after: m.replacement,
+    });
+  }
+
+  return { modified, fixes };
+}
+
 /* ============================================
    ORCHESTRATOR
    ============================================ */
@@ -258,7 +407,45 @@ function runRemediation(options = {}) {
         allFixes.push(...result.fixes);
         if (mode === 'write') {
           fs.writeFileSync(file, result.modified, 'utf8');
-          filesModified.push(path.relative(REPO_ROOT, file));
+          if (!filesModified.includes(path.relative(REPO_ROOT, file))) {
+            filesModified.push(path.relative(REPO_ROOT, file));
+          }
+        }
+      }
+    }
+  }
+
+  // JSX + MDX: hardcoded hex colours → CSS variables
+  if (!category || category.includes('hardcoded-hex')) {
+    for (const file of [...jsxFiles, ...mdxFiles]) {
+      const content = fs.readFileSync(file, 'utf8');
+      const result = remediateHexColours(file, content);
+
+      if (result.fixes.length > 0) {
+        allFixes.push(...result.fixes);
+        if (mode === 'write') {
+          fs.writeFileSync(file, result.modified, 'utf8');
+          if (!filesModified.includes(path.relative(REPO_ROOT, file))) {
+            filesModified.push(path.relative(REPO_ROOT, file));
+          }
+        }
+      }
+    }
+  }
+
+  // JSX: literal spacing → --lp-spacing-* tokens
+  if (!category || category.includes('literal-spacing')) {
+    for (const file of jsxFiles) {
+      const content = fs.readFileSync(file, 'utf8');
+      const result = remediateLiteralSpacing(file, content);
+
+      if (result.fixes.length > 0) {
+        allFixes.push(...result.fixes);
+        if (mode === 'write') {
+          fs.writeFileSync(file, result.modified, 'utf8');
+          if (!filesModified.includes(path.relative(REPO_ROOT, file))) {
+            filesModified.push(path.relative(REPO_ROOT, file));
+          }
         }
       }
     }
@@ -273,6 +460,8 @@ function runRemediation(options = {}) {
       'legacy-token': allFixes.filter(f => f.type === 'legacy-token').length,
       'outline-removal': allFixes.filter(f => f.type === 'outline-removal').length,
       'mermaid-hardcoded': allFixes.filter(f => f.type === 'mermaid-hardcoded').length,
+      'hardcoded-hex': allFixes.filter(f => f.type === 'hardcoded-hex').length,
+      'literal-spacing': allFixes.filter(f => f.type === 'literal-spacing').length,
     },
     fixes: allFixes,
     modifiedFiles: filesModified,

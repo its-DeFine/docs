@@ -32,18 +32,18 @@ export const DisplayCard = ({
     height: 'calc(100% - 1rem)',
     border: '1px solid var(--lp-color-accent)',
     borderRadius: '8px',
-    padding: '1rem',
-    marginBottom: '1rem',
+    padding: "var(--lp-spacing-4)",
+    marginBottom: "var(--lp-spacing-4)",
     backgroundColor: 'var(--lp-color-bg-page)',
-    gap: '1rem',
+    gap: "var(--lp-spacing-4)",
   }
   const titleStyle = {
     display: 'flex',
     alignItems: 'center',
-    gap: '0.5rem',
+    gap: "var(--lp-spacing-2)",
     marginBottom: '0',
     color: 'var(--lp-color-text-primary)',
-    fontSize: '1rem',
+    fontSize: "1rem",
     fontWeight: 600,
     ...style,
   }
@@ -53,7 +53,7 @@ export const DisplayCard = ({
     backgroundColor: background,
     borderRadius: '8px',
     flex: 1,
-    padding: '0.5rem',
+    padding: "var(--lp-spacing-2)",
     margin: 0,
   }
   return (

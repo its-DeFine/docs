@@ -248,10 +248,10 @@ export const SearchTable = ({
     <div className={className} style={style}>
       <div
         style={{
-          marginBottom: '0.5rem',
+          marginBottom: "var(--lp-spacing-2)",
           display: 'flex',
           flexWrap: 'wrap',
-          gap: '0.5rem',
+          gap: "var(--lp-spacing-2)",
           alignItems: 'center',
         }}
       >
@@ -584,10 +584,10 @@ export const SearchTableV2 = ({
     <div className={className} style={style}>
       <div
         style={{
-          marginBottom: '0.5rem',
+          marginBottom: "var(--lp-spacing-2)",
           display: 'flex',
           flexWrap: 'wrap',
-          gap: '0.5rem',
+          gap: "var(--lp-spacing-2)",
           alignItems: 'center',
         }}
       >

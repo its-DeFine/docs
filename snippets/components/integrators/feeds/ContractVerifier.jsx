@@ -593,13 +593,13 @@ export const ContractVerifier = ({
     wrapper: {
       display: 'flex',
       flexDirection: 'column',
-      gap: '1rem',
+      gap: "var(--lp-spacing-4)",
       color: 'var(--foreground)',
       ...style,
     },
     tabRow: {
       display: 'flex',
-      gap: '0.5rem',
+      gap: "var(--lp-spacing-2)",
     },
     tabBase: {
       padding: '0.5rem 1rem',
@@ -621,7 +621,7 @@ export const ContractVerifier = ({
     },
     formRow: {
       display: 'flex',
-      gap: '0.5rem',
+      gap: "var(--lp-spacing-2)",
       alignItems: 'center',
       flexWrap: 'wrap',
     },
@@ -663,10 +663,10 @@ export const ContractVerifier = ({
     card: {
       border: '1px solid var(--lp-color-border-default)',
       borderRadius: '4px',
-      padding: '1rem',
+      padding: "var(--lp-spacing-4)",
       display: 'flex',
       flexDirection: 'column',
-      gap: '0.75rem',
+      gap: "var(--lp-spacing-3)",
     },
     identityBlock: {
       display: 'flex',
@@ -676,7 +676,7 @@ export const ContractVerifier = ({
     titleRow: {
       display: 'flex',
       alignItems: 'center',
-      gap: '0.5rem',
+      gap: "var(--lp-spacing-2)",
       flexWrap: 'wrap',
     },
     chainRow: {
@@ -687,7 +687,7 @@ export const ContractVerifier = ({
     },
     titleText: {
       fontWeight: 700,
-      fontSize: '1rem',
+      fontSize: "1rem",
       lineHeight: 1.3,
     },
     chainText: {
@@ -701,7 +701,7 @@ export const ContractVerifier = ({
     categoryRow: {
       display: 'flex',
       alignItems: 'center',
-      gap: '0.5rem',
+      gap: "var(--lp-spacing-2)",
       flexWrap: 'wrap',
     },
     metaLabel: {
@@ -760,10 +760,10 @@ export const ContractVerifier = ({
     },
     links: {
       display: 'flex',
-      gap: '1rem',
+      gap: "var(--lp-spacing-4)",
       flexWrap: 'wrap',
       fontSize: '0.85rem',
-      marginTop: '0.25rem',
+      marginTop: "var(--lp-spacing-1)",
     },
     link: {
       color: 'var(--lp-color-accent)',
@@ -788,7 +788,7 @@ export const ContractVerifier = ({
     signalRow: {
       display: 'flex',
       alignItems: 'center',
-      gap: '0.5rem',
+      gap: "var(--lp-spacing-2)",
       fontSize: '0.9rem',
     },
     verificationBlock: {
@@ -809,7 +809,7 @@ export const ContractVerifier = ({
       paddingLeft: '1.1rem',
       display: 'flex',
       flexDirection: 'column',
-      gap: '0.25rem',
+      gap: "var(--lp-spacing-1)",
       fontSize: '0.9rem',
       color: 'var(--foreground)',
     },
@@ -818,17 +818,17 @@ export const ContractVerifier = ({
       maxWidth: '100%',
       display: 'flex',
       flexDirection: 'column',
-      gap: '0.5rem',
+      gap: "var(--lp-spacing-2)",
     },
     mismatchNote: {
       fontSize: '0.85rem',
       color: 'var(--lp-color-status-warn)',
-      marginTop: '0.25rem',
+      marginTop: "var(--lp-spacing-1)",
     },
     resultStack: {
       display: 'flex',
       flexDirection: 'column',
-      gap: '0.75rem',
+      gap: "var(--lp-spacing-3)",
     },
   }
 
@@ -1164,15 +1164,15 @@ export const ContractVerifier = ({
           <div>
             <div style={styles.errorText}>{error}</div>
             {tab === 'lookup' && selectedName && (
-              <div style={{ marginTop: '0.75rem' }}>
-                <div style={{ fontSize: '0.85rem', marginBottom: '0.5rem' }}>
+              <div style={{ marginTop: "var(--lp-spacing-3)" }}>
+                <div style={{ fontSize: '0.85rem', marginBottom: "var(--lp-spacing-2)" }}>
                   Verify manually with the Foundry CLI:
                 </div>
                 <pre style={styles.pre}>{castFallback(selectedName)}</pre>
               </div>
             )}
             {tab === 'verify' && (
-              <div style={{ marginTop: '0.5rem', fontSize: '0.85rem' }}>
+              <div style={{ marginTop: "var(--lp-spacing-2)", fontSize: '0.85rem' }}>
                 Try inspecting this address directly on{' '}
                 <a
                   href={CHAINS.arbitrumOne.etherscan}

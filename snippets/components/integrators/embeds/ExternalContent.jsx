@@ -31,7 +31,7 @@ export const ExternalContent = ({
         border: "1px solid var(--lp-color-accent)",
           borderRadius: "8px",
           overflow: "hidden",
-          marginTop: "1rem",
+          marginTop: "var(--lp-spacing-4)",
           ...style,
         }}
       {...rest}
@@ -47,7 +47,7 @@ export const ExternalContent = ({
           }}
         >
           <span
-            style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+            style={{ display: "flex", alignItems: "center", gap: "var(--lp-spacing-2)" }}
           >
             <Icon icon={icon} size={16} />
             <strong>{repoName}</strong>
@@ -60,7 +60,7 @@ export const ExternalContent = ({
               fontSize: "0.875rem",
               display: "flex",
               alignItems: "center",
-              gap: "0.25rem",
+              gap: "var(--lp-spacing-1)",
             }}
           >
             View on GitHub <Icon icon="arrow-up-right-from-square" size={12} />

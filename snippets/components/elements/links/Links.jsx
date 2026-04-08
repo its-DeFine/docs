@@ -176,7 +176,7 @@ const DoubleIconLink = ({
         whiteSpace: 'nowrap',
         display: 'inline-flex',
         alignItems: 'center',
-        gap: '0.25rem',
+        gap: "var(--lp-spacing-1)",
         marginLeft: '0.3rem',
         ...style,
       }}
@@ -396,7 +396,7 @@ const LinkArrow = ({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '0.25rem',
+    gap: "var(--lp-spacing-1)",
     width: 'fit-content',
     ...(borderColor && { borderColor }),
   }
@@ -410,7 +410,7 @@ const LinkArrow = ({
         <Icon icon="arrow-up-right" size={14} color="var(--lp-color-accent)" />
       </span>
       {description && description}
-      {description && <div style={{ height: '0.75rem' }} />}
+      {description && <div style={{ height: "var(--lp-spacing-3)" }} />}
     </span>
   )
 }
@@ -480,7 +480,7 @@ const AddressLinks = ({
   return (
     <span className={className} style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', ...style }} {...rest}>
       <CopyText text={address} />
-      <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.2rem' }}>
+      <span style={{ display: 'flex', alignItems: 'center', gap: "var(--lp-spacing-2)", marginBottom: '0.2rem' }}>
         {blockchainHref && <LinkIcon color="var(--lp-color-text-secondary)" href={blockchainHref} />}
         {githubHref && <LinkIcon icon="github" size={14} color="var(--lp-color-text-secondary)" href={githubHref} />}
       </span>

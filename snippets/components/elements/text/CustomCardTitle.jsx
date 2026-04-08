@@ -47,8 +47,8 @@ export const AccordionTitle = ({ icon, title, description, descriptionColor = "v
 
 export const CustomCardTitle = ({ icon, title, variant = "card", iconSize, style = {}, className = "", ...rest }) => {
   const variants = {
-    card: { display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: 'var(--lp-color-text-primary)', fontSize: '1rem', fontWeight: 600 },
-    accordion: { display: 'inline-flex', alignItems: 'center', gap: '0.5rem' },
+    card: { display: 'flex', alignItems: 'center', gap: "var(--lp-spacing-2)", marginBottom: "var(--lp-spacing-3)", color: 'var(--lp-color-text-primary)', fontSize: "1rem", fontWeight: 600 },
+    accordion: { display: 'inline-flex', alignItems: 'center', gap: "var(--lp-spacing-2)" },
     tab: { display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.875rem' },
   }
   const sizes = { card: 20, accordion: 18, tab: 14 }

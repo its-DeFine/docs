@@ -54,7 +54,7 @@ export const QuadGrid = ({
         <div style={{
           backgroundColor: "var(--lp-color-bg-page)",
           borderRadius: "50%",
-          padding: "0.5rem",
+          padding: "var(--lp-spacing-2)",
           animation: `quadGridSpin ${spinDuration} linear infinite`,
         }}>
           <Icon icon={icon} size={iconSize} color={iconColor} />

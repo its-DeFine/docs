@@ -5,7 +5,7 @@
  * @status stable
  * @description Empty spacer div with configurable size and direction.
   * @aiDiscoverability none
- * @param {string} [size="1rem"] - Size used by the component.
+ * @param {string} [size="var(--lp-spacing-4)"] - Size used by the component.
  * @param {string} [direction="vertical"] - Direction used by the component.
  *
  * @example
@@ -13,7 +13,7 @@
   * @param {string} [className=''] - Optional CSS class override.
   * @param {object} [style={}] - Optional inline style override.
  */
-export const Spacer = ({ size = "1rem", direction = "vertical", className = "", style = {}, ...rest }) => {
+export const Spacer = ({ size = "var(--lp-spacing-4)", direction = "vertical", className = "", style = {}, ...rest }) => {
   return (
     <div
       className={className}

@@ -7,7 +7,7 @@
  * @aiDiscoverability none
  * @param {Array} [links] - Array of {icon, href, label} objects. Falls back to Livepeer defaults if omitted.
  * @param {number} [size=20] - Size used by the component.
- * @param {string} [gap="0.75rem"] - Gap used by the component.
+ * @param {string} [gap="var(--lp-spacing-3)"] - Gap used by the component.
  * @param {string} [justify="center"] - Justify used by the component.
  * @param {string} [iconColor] - Override all icons to a single colour. If omitted, brand colours are used per icon.
  * @param {string} [color] - Alias for iconColor (backwards compat).
@@ -25,7 +25,7 @@
 export const SocialLinks = ({
   links,
   size = 20,
-  gap = "0.75rem",
+  gap = "var(--lp-spacing-3)",
   justify = "center",
   iconColor,
   color,
@@ -96,7 +96,7 @@ export const SocialLinks = ({
           display: "flex",
           justifyContent: justify,
           gap: gap,
-          marginTop: "0.5rem",
+          marginTop: "var(--lp-spacing-2)",
         }}
       >
         {items.map((item, i) => (

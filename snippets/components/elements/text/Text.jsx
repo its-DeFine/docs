@@ -97,7 +97,7 @@ export const CopyText = ({
       }}
       {...rest}
     >
-      {label && <strong style={{ flexShrink: 0, marginRight: '0.5rem' }}>{label}</strong>}
+      {label && <strong style={{ flexShrink: 0, marginRight: "var(--lp-spacing-2)" }}>{label}</strong>}
       <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1, minWidth: 0 }}>
         {text}
       </span>
@@ -234,7 +234,7 @@ export const AccordionTitleWithArrow = ({
         color: color,
         display: 'flex',
         alignItems: 'center',
-        gap: '0.5rem',
+        gap: "var(--lp-spacing-2)",
         padding: '0.25rem 0',
         minHeight: 44,
         ...style,

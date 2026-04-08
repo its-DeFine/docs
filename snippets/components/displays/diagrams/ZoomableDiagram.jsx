@@ -49,20 +49,20 @@ export const ScrollableDiagram = ({
     maxHeight,
     border: '1px solid var(--lp-color-border-default)',
     borderRadius: '8px',
-    padding: '1rem',
+    padding: "var(--lp-spacing-4)",
     background: 'var(--lp-color-bg-card)',
     position: 'relative',
   }
 
   return (
-    <div className={className} style={{ position: 'relative', marginBottom: '1rem', ...style }} {...rest}>
+    <div className={className} style={{ position: 'relative', marginBottom: "var(--lp-spacing-4)", ...style }} {...rest}>
       {title && (
         <p
           style={{
             textAlign: 'center',
             fontStyle: 'italic',
             color: 'var(--lp-color-text-secondary)',
-            marginBottom: '0.5rem',
+            marginBottom: "var(--lp-spacing-2)",
             fontSize: '0.875rem',
           }}
         >
@@ -133,14 +133,14 @@ export const ScrollableDiagram = ({
             display: 'flex',
             justifyContent: 'flex-end',
             alignItems: 'center',
-            gap: '0.5rem',
-            marginTop: '0.5rem',
+            gap: "var(--lp-spacing-2)",
+            marginTop: "var(--lp-spacing-2)",
             flexWrap: 'wrap',
           }}
         >
           <span
             style={{
-              fontSize: '0.75rem',
+              fontSize: "0.75rem",
               color: 'var(--lp-color-text-muted)',
               marginRight: 'auto',
             }}
@@ -160,7 +160,7 @@ export const ScrollableDiagram = ({
                   borderRadius: '4px',
                   padding: '4px 10px',
                   cursor: 'pointer',
-                  fontSize: '0.75rem',
+                  fontSize: "0.75rem",
                   fontWeight: '600',
                 }}
               >

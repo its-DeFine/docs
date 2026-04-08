@@ -40,7 +40,7 @@ export const RenderSourceInheritance = function RenderSourceInheritance(contract
   const bases = contract?.sourceInheritance || []
   if (!bases.length) return null
   return (
-    <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
+    <p style={{ color: 'var(--text-secondary)', marginTop: "var(--lp-spacing-2)" }}>
       Commit-pinned source inherits from:{' '}
       {bases.map(function renderBase(base, index) {
         return (
@@ -63,7 +63,7 @@ export const RenderGeneratedFunctionFields = function RenderGeneratedFunctionFie
           margin: '0.6rem 0 0.8rem',
           padding: '0.65rem 0.8rem',
           border: '1px solid var(--lp-color-border-default)',
-          borderRadius: '0.75rem',
+          borderRadius: "var(--lp-spacing-3)",
           background: 'var(--lp-color-bg-card)',
           color: 'var(--text-secondary)',
         }}
@@ -95,7 +95,7 @@ export const RenderContractEmbed = function RenderContractEmbed(contract) {
           margin: '0.6rem 0 0.8rem',
           padding: '0.65rem 0.8rem',
           border: '1px solid var(--lp-color-border-default)',
-          borderRadius: '0.75rem',
+          borderRadius: "var(--lp-spacing-3)",
           background: 'var(--lp-color-bg-card)',
           color: 'var(--text-secondary)',
         }}

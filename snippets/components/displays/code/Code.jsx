@@ -44,7 +44,7 @@ export const CustomCodeBlock = ({
       {preNote && (
         <div
           style={{
-            marginBottom: "0.5rem",
+            marginBottom: "var(--lp-spacing-2)",
             fontSize: "0.875rem",
             color: "var(--lp-color-text-muted)",
           }}
@@ -66,7 +66,7 @@ export const CustomCodeBlock = ({
       {postNote && (
         <div
           style={{
-            marginTop: "0.5rem",
+            marginTop: "var(--lp-spacing-2)",
             fontSize: "0.875rem",
             color: "var(--lp-color-text-muted)",
             fontStyle: "italic",
@@ -196,7 +196,7 @@ export const ComplexCodeBlock = ({
       {preNote && (
         <div
           style={{
-            marginBottom: "0.5rem",
+            marginBottom: "var(--lp-spacing-2)",
             fontSize: "0.875rem",
             color: "var(--lp-color-text-muted)",
           }}
@@ -218,7 +218,7 @@ export const ComplexCodeBlock = ({
       {postNote && (
         <div
           style={{
-            marginTop: "0.5rem",
+            marginTop: "var(--lp-spacing-2)",
             fontSize: "0.875rem",
             color: "var(--lp-color-text-muted)",
           }}

@@ -64,7 +64,7 @@ export const SolidityEmbed = ({
       overflowY: 'auto',
     },
     message: {
-      padding: '1rem',
+      padding: "var(--lp-spacing-4)",
       color: 'var(--text-secondary)',
     },
   }

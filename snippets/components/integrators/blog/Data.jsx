@@ -119,7 +119,7 @@ export const BlogCard = ({
     color: 'var(--lp-color-accent)',
     fontSize: '1.25rem',
     marginLeft: '-2px',
-    marginBottom: '0.5rem',
+    marginBottom: "var(--lp-spacing-2)",
     display: '-webkit-box',
     WebkitLineClamp: 2,
     WebkitBoxOrient: 'vertical',
@@ -184,7 +184,7 @@ export const BlogCard = ({
           <span style={{ alignSelf: 'top' }}>
             <Icon icon={icon} size={20} color="var(--lp-color-accent)" />
           </span>
-          <span style={{ marginLeft: '0.5rem' }}>{title}</span>
+          <span style={{ marginLeft: "var(--lp-spacing-2)" }}>{title}</span>
         </span>
       }
       href={href}
@@ -193,7 +193,7 @@ export const BlogCard = ({
       arrow
       {...rest}
     >
-      {/* <div style={{ display: "flex", flexDirection: "row", gap: "0.5rem" }}> */}
+      {/* <div style={{ display: "flex", flexDirection: "row", gap: "var(--lp-spacing-2)" }}> */}
       <div style={{ flex: 1 }}>
         {/* {author && (
         <div
@@ -385,7 +385,7 @@ export const RssBlogCard = ({
           color: 'var(--lp-color-accent)',
           fontSize: '1.25rem',
           marginLeft: '-2px',
-          marginBottom: '0.5rem',
+          marginBottom: "var(--lp-spacing-2)",
           display: '-webkit-box',
           WebkitLineClamp: 2,
           WebkitBoxOrient: 'vertical',
@@ -395,7 +395,7 @@ export const RssBlogCard = ({
           <span style={{ alignSelf: 'top' }}>
             <Icon icon={icon} size={20} color="var(--lp-color-accent)" />
           </span>
-          <span style={{ marginLeft: '0.5rem' }}>{title}</span>
+          <span style={{ marginLeft: "var(--lp-spacing-2)" }}>{title}</span>
         </span>
       }
       href={href}
@@ -794,7 +794,7 @@ export const ForumLatestLayout = ({
           noZoom
           style={{
             border: '1px solid var(--lp-color-border-default)',
-            borderRadius: '0.5rem',
+            borderRadius: "var(--lp-spacing-2)",
             marginBottom: '0',
             paddingBottom: '0',
           }}
@@ -871,10 +871,10 @@ export const DiscordAnnouncements = ({
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '1rem',
+        gap: "var(--lp-spacing-4)",
         border: '1px solid var(--lp-color-accent)',
-        borderRadius: '0.5rem',
-        padding: '1rem',
+        borderRadius: "var(--lp-spacing-2)",
+        padding: "var(--lp-spacing-4)",
         ...style,
       }}
       {...rest}
@@ -890,9 +890,9 @@ export const DiscordAnnouncements = ({
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '0.5rem',
+              gap: "var(--lp-spacing-2)",
               fontSize: '0.875rem',
-              marginBottom: '0.75rem',
+              marginBottom: "var(--lp-spacing-3)",
               width: '100%',
             }}
           >
@@ -945,7 +945,7 @@ export const DiscordAnnouncements = ({
             />
           </ScrollBox>
           {index < displayItems.length - 1 && (
-            <div style={{ marginTop: '0.75rem' }}>
+            <div style={{ marginTop: "var(--lp-spacing-3)" }}>
               <hr
                 style={{
                   border: 'none',
@@ -1010,7 +1010,7 @@ export const LumaEvents = ({
     //   style={{
     //     display: "grid",
     //     gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-    //     gap: "1rem",
+    //     gap: "var(--lp-spacing-4)",
     //   }}
     // >
     <Columns cols={3} className={className} style={style} {...rest}>
@@ -1025,7 +1025,7 @@ export const LumaEvents = ({
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '0.5rem',
+              gap: "var(--lp-spacing-2)",
               flex: 1,
               justifyContent: 'space-between',
             }}
@@ -1034,7 +1034,7 @@ export const LumaEvents = ({
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '0.5rem',
+                gap: "var(--lp-spacing-2)",
               }}
             >
               <h3 style={{ margin: 0, fontSize: '1.125rem', fontWeight: 600 }}>
@@ -1044,7 +1044,7 @@ export const LumaEvents = ({
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.5rem',
+                  gap: "var(--lp-spacing-2)",
                   fontSize: '0.875rem',
                   color: 'var(--text-secondary)',
                 }}
@@ -1057,7 +1057,7 @@ export const LumaEvents = ({
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.5rem',
+                    gap: "var(--lp-spacing-2)",
                     fontSize: '0.875rem',
                     color: 'var(--text-secondary)',
                   }}
@@ -1069,7 +1069,7 @@ export const LumaEvents = ({
             </div>
             <a
               style={{
-                marginTop: '1rem',
+                marginTop: "var(--lp-spacing-4)",
                 fontSize: '0.875rem',
                 color: 'var(--lp-color-accent)',
                 textDecoration: 'none',

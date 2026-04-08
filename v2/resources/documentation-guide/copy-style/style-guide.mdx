@@ -477,7 +477,7 @@ When writing MDX pages, use this table to find the correct approach for common l
 | Responsive grid | `<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">` | `style={{ display: "grid" }}` |
 | Spacing between sections | `<Spacer size="2rem" />` or `className="mt-8"` | `style={{ marginTop: "2rem" }}` |
 | Bordered container | `<BorderedBox variant="accent">` | `style={{ border: "1px solid var(--accent)" }}` |
-| Brand colour text | `<span style={{ color: "var(--lp-color-accent)" }}>` | `style={{ color: "#3CB540" }}` |
+| Brand colour text | `<span style={{ color: "var(--lp-color-accent)" }}>` | `style={{ color: "var(--lp-color-accent)" }}` |
 | Show/hide for dark mode | `<div className="block dark:hidden">` / `<div className="hidden dark:block">` | JavaScript theme detection |
 
 **Rule:** Single-property CSS variable usage inline is acceptable (e.g. `style={{ color: "var(--lp-color-accent)" }}`). Multi-property layout styles must use a component or Tailwind classes.

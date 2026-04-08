@@ -7,7 +7,7 @@
  * @aiDiscoverability none
  * @param {React.ReactNode} children - Content rendered inside the component.
  * @param {number} [visibleCount=3] - Visible count used by the component.
- * @param {string} [gap="1.5rem"] - Gap used by the component.
+ * @param {string} [gap="var(--lp-spacing-6)"] - Gap used by the component.
  * @param {boolean} [showDots=true] - Boolean flag that controls component behaviour.
  * @param {object} style - Style used by the component.
  * @param {string} [className=""] - CSS class name.
@@ -15,7 +15,7 @@
 export const CardCarousel = ({
   children,
   visibleCount = 3,
-  gap = "1.5rem",
+  gap = "var(--lp-spacing-6)",
   showDots = true,
   style = {},
   className = "",
@@ -52,7 +52,7 @@ export const CardCarousel = ({
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "0.75rem",
+        gap: "var(--lp-spacing-3)",
         width: "100%",
         ...style,
       }}
@@ -74,7 +74,7 @@ export const CardCarousel = ({
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            gap: "1rem",
+            gap: "var(--lp-spacing-4)",
           }}
         >
           <button

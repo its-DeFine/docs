@@ -98,7 +98,7 @@ export const HistoricalContractTable = ({ category = "core", sourceData = {} }) 
   return (
     <>
       {visibleSeries.map((series) => (
-        <div key={series.name} style={{marginBottom:"1rem"}}>
+        <div key={series.name} style={{marginBottom:"var(--lp-spacing-4)"}}>
           <h4 style={{margin:"0.5rem 0"}}>{series.name}</h4>
           {series.entriesByChain.map(({ chainKey, entries }) => (
             <div key={`${series.name}:${chainKey}`} style={{marginBottom:"0.9rem"}}>

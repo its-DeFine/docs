@@ -33,7 +33,7 @@
  *   infraTags={<IconBadgeWrapper items={daydreamInfra} iconColor="var(--lp-color-accent)" size={12} />}
  *   blurb="Description here."
  *   ScrollBox={ScrollBox}
- *   socialLinks={<SocialLinks links={daydreamSocials} justify="center" style={{ marginTop: '1rem', marginBottom: '-1rem' }} />}
+ *   socialLinks={<SocialLinks links={daydreamSocials} justify="center" style={{ marginTop: "var(--lp-spacing-4)", marginBottom: '-1rem' }} />}
  * />
  */
 
@@ -69,7 +69,7 @@ export const SolutionCard = ({
               width: 'auto',
               maxWidth: '100%',
               objectFit: 'contain',
-              marginTop: '0.25rem',
+              marginTop: "var(--lp-spacing-1)",
             }}
           />
         </div>
@@ -80,7 +80,7 @@ export const SolutionCard = ({
           <style>{`.solution-card-subtitle { color: white !important; font-style: italic }`}</style>
           <div
             className="solution-card-subtitle"
-            style={{ fontWeight: 700, fontSize: '1rem' }}
+            style={{ fontWeight: 700, fontSize: "1rem" }}
           >
             {subtitle}
           </div>

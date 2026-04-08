@@ -41,7 +41,7 @@ export const InteractiveCard = ({
 
   return (
     <Card href={href} arrow={false} className={className} {...cardProps}>
-      <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", ...style }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--lp-spacing-3)", ...style }}>
         {previewSrc ? (
           <img
             src={previewSrc}
@@ -54,7 +54,7 @@ export const InteractiveCard = ({
             }}
           />
         ) : null}
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--lp-spacing-2)" }}>
           <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--lp-color-text-secondary)" }}>
             {title}
           </div>
@@ -77,7 +77,7 @@ export const InteractiveCard = ({
             </div>
           ) : null}
           {safeLinks.length > 0 ? (
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--lp-spacing-3)" }}>
               {safeLinks.map((link, index) => {
                 const [label, value] = Object.entries(link || {})[0] || [];
                 if (!label || !value) return null;
@@ -318,7 +318,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
     const titleStyle = {
       position: "absolute",
       top: "0",
-      marginTop: "0.5rem",
+      marginTop: "var(--lp-spacing-2)",
       background: "var(--lp-color-bg-overlay)",
       color: "var(--lp-color-on-accent)",
       fontSize: "18px",
@@ -340,7 +340,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
       // border: "1px solid rgba(255, 255, 255, 0.5)",
       margin: 0,
       padding: 0,
-      marginBottom: "0.5rem",
+      marginBottom: "var(--lp-spacing-2)",
     };
     const logoMediaStyle = {
       position: "absolute",
@@ -356,12 +356,12 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
       // border: "1px solid rgba(255, 255, 255, 0.5)",
       margin: 0,
       padding: 0,
-      marginBottom: "0.5rem",
+      marginBottom: "var(--lp-spacing-2)",
     };
     const subtitleContainerStyle = {
       display: "flex",
       flexDirection: "column",
-      gap: "1rem",
+      gap: "var(--lp-spacing-4)",
       margin: "1rem 0",
       width: "calc(100% + 1.5rem)",
       marginRight: "-1.5rem",
@@ -387,9 +387,9 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
     const linkIconContainerStyle = {
       display: "flex",
       justifyContent: "center",
-      gap: "0.5rem",
-      marginTop: "1rem",
-      paddingTop: "0.5rem",
+      gap: "var(--lp-spacing-2)",
+      marginTop: "var(--lp-spacing-4)",
+      paddingTop: "var(--lp-spacing-2)",
       width: "fit-content",
       justifySelf: "center",
     };
@@ -397,7 +397,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
       borderBottom: "none",
       fontWeight: "bold",
       fontSize: "11px",
-      marginLeft: "0.25rem",
+      marginLeft: "var(--lp-spacing-1)",
     };
     const dividerStyle = {
       margin: 0,
@@ -425,7 +425,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
       color: "var(--lp-color-accent)",
       fontWeight: "bold",
       fontSize: "11px",
-      marginLeft: "0.25rem",
+      marginLeft: "var(--lp-spacing-1)",
     };
     //HELPER FUNCTIONS
     const isDefaultMedia = mediaSrc === defaultMedia;
@@ -479,7 +479,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
     );
     // Category Tags
     const renderCategoryTags = (
-      <div style={{ display: "flex", flexWrap: "nowrap", gap: "0.25rem" }}>
+      <div style={{ display: "flex", flexWrap: "nowrap", gap: "var(--lp-spacing-1)" }}>
         {categoryTags.map((tag) => (
           <Badge
             key={tag}
@@ -580,9 +580,9 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
   const filterBarStyle = {
     display: "flex",
     flexWrap: "wrap",
-    gap: "0.5rem",
+    gap: "var(--lp-spacing-2)",
     alignItems: "center",
-    marginBottom: "1rem",
+    marginBottom: "var(--lp-spacing-4)",
   };
   const inputStyle = {
     flex: "1 1 200px",
@@ -608,8 +608,8 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    gap: "0.75rem",
-    marginTop: "1.5rem",
+    gap: "var(--lp-spacing-3)",
+    marginTop: "var(--lp-spacing-6)",
   };
   const pageButtonStyle = (disabled) => ({
     padding: "0.4rem 1rem",
@@ -662,7 +662,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10, classNa
         <div
           style={{
             textAlign: "center",
-            padding: "2rem",
+            padding: "var(--lp-spacing-8)",
             color: "var(--lp-color-text-secondary)",
             opacity: 0.6,
           }}
