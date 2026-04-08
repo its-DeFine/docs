@@ -170,6 +170,66 @@ function loadDocsJson(repoRoot) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
+// ── Git rename map ──────────────────────
+// Builds a map of old route → current route from git rename history.
+// Only includes renames where the destination still exists as a published page.
+function buildGitRenameMap(repoRoot, knownRoutesSet) {
+  const map = new Map(); // oldRoute → newRoute
+  try {
+    const raw = execSync(
+      'git log --diff-filter=R --name-status --find-renames --pretty=format:"" -- "v2/"',
+      { cwd: repoRoot, encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 }
+    );
+    for (const line of raw.split('\n')) {
+      const match = line.match(/^R\d+\t(.+)\t(.+)$/);
+      if (!match) continue;
+      const oldPath = normalizeRepoPath(match[1]).replace(/\.(md|mdx)$/i, '');
+      const newPath = normalizeRepoPath(match[2]).replace(/\.(md|mdx)$/i, '');
+      const oldRoute = normalizeRoute(oldPath);
+      const newRoute = normalizeRoute(newPath);
+      if (oldRoute && newRoute && knownRoutesSet.has(newRoute)) {
+        map.set(oldRoute, newRoute);
+      }
+    }
+  } catch (_) {
+    // git not available or failed — degrade gracefully
+  }
+  return map;
+}
+
+// ── Folder-link resolution ──────────────
+// When an href points to a folder (e.g. ./concepts/), find the first page
+// in that folder from docs.json navigation order.
+function resolvefolderToFirstNavPage(folderRoute, docsJson, knownRoutesSet) {
+  const normalized = normalizeRoute(folderRoute).replace(/\/+$/, '');
+  if (!normalized) return null;
+
+  // Recursively collect all page strings from docs.json nav
+  function collectPages(node) {
+    const pages = [];
+    if (typeof node === 'string') {
+      pages.push(node);
+    } else if (Array.isArray(node)) {
+      for (const item of node) pages.push(...collectPages(item));
+    } else if (node && typeof node === 'object') {
+      if (node.pages) pages.push(...collectPages(node.pages));
+      if (node.groups) pages.push(...collectPages(node.groups));
+    }
+    return pages;
+  }
+
+  const allNavPages = collectPages(docsJson.navigation || docsJson.tabs || []);
+
+  // Find first page whose route starts with the folder path
+  for (const page of allNavPages) {
+    const pageRoute = normalizeRoute(page);
+    if (pageRoute.startsWith(normalized + '/') && knownRoutesSet.has(pageRoute)) {
+      return pageRoute;
+    }
+  }
+  return null;
+}
+
 function isPageFilePath(repoPath) {
   const normalized = normalizeRepoPath(repoPath);
   return normalized.startsWith('v2/') && DOC_EXTENSIONS.has(path.extname(normalized).toLowerCase());
