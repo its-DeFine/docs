@@ -21,11 +21,20 @@ lifecycleStage: discover
 
 import { PdfEmbed } from '/snippets/components/integrators/embeds/DataEmbed.jsx'
 import { DownloadButton } from "/snippets/components/elements/buttons/Buttons.jsx";
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { WidthCard, InlineImageCard } from '/snippets/components/displays/cards/Cards.jsx'
 import { FlexContainer } from '/snippets/components/wrappers/containers/Containers.jsx'
 import { CenteredContainer } from '/snippets/components/wrappers/containers/Containers.jsx'
 
-<WidthCard width="60%" cardProps={{ title: "Visit the Media Page", href: "https://www.livepeer.org/media-kit", icon: "aperture", horizontal: true }} />
+<WidthCard width="60%" cardProps={{ title: "Visit the Media Page", href: "https://www.livepeer.org/media-kit", icon: "photo-film", horizontal: true }} />
+
+<CustomDivider />
+
+## Livepeer Brand
+
+<iframe src="https://livepeer.org/brand" title="Livepeer Brand" width="100%" height="800px" style={{ border: "none", borderRadius: "8px" }} />
+
+<CustomDivider />
 
 ## Logos
 
@@ -47,11 +56,13 @@ import { CenteredContainer } from '/snippets/components/wrappers/containers/Cont
     </InlineImageCard>
 </Columns>
 
+<CustomDivider />
+
 ## Brand Guidelines
 <PdfEmbed title="Livepeer Brand Guidelines" src="https://www.dropbox.com/scl/fi/tblvrdl3chfklvujhri19/Livepeer-Brand-Guidelines.pdf?rlkey=mfp3zj8kbp8aw3z0kqhez8wn9&st=or62duey&raw=1" />
 
 <br/>
-<CenteredContainer preset="readable80" style={{minWidth: 'fit-content'}}>
+<CenteredContainer preset="readable80" textAlign="center">
     <DownloadButton
     label="Download Brand Guidelines"
     downloadLink="https://www.dropbox.com/scl/fi/tblvrdl3chfklvujhri19/Livepeer-Brand-Guidelines.pdf?rlkey=mfp3zj8kbp8aw3z0kqhez8wn9&e=1&st=or62duey&dl=0"
@@ -60,10 +71,10 @@ import { CenteredContainer } from '/snippets/components/wrappers/containers/Cont
     />
 </CenteredContainer>
 
+<CustomDivider />
+
 ## Colours
-<FlexContainer align="flex-start">
- <Note> Click to Copy to Clipboard </Note>
-</FlexContainer>
+<Tip> Click to Copy to Clipboard </Tip>
 
 ### Light Theme
 
@@ -113,18 +124,20 @@ import { CenteredContainer } from '/snippets/components/wrappers/containers/Cont
   <Color.Item name="Razzmatazz Pink" value="#F61067" />
 </Color>
 
+<CustomDivider />
+
 ## Solution Logos
 <Columns cols={2}>
-    <InlineImageCard cardProps={{ title: "Daydream Logo (SVG)" }} imgProps={{ src: "/snippets/assets/logos/products/daydream-logo-dark.svg", alt: "Daydream Logo" }} imgStyle={{ width: "100%" }}>
+    <InlineImageCard cardProps={{ title: "Daydream Logo (SVG)" }} imgProps={{ src: "/snippets/assets/logos/products/daydream-logo-dark.svg", alt: "Daydream Logo" }} imgStyle={{ height: "40px", width: "auto", objectFit: "contain" }}>
         <DownloadButton label="Download SVG" downloadLink="/snippets/assets/logos/products/daydream-logo-dark.svg" icon="file-image" />
     </InlineImageCard>
-    <InlineImageCard cardProps={{ title: "Livepeer Studio Logo (SVG)" }} imgProps={{ src: "/snippets/assets/logos/products/livepeer-studio-logo.svg", alt: "Livepeer Studio Logo" }} imgStyle={{ width: "100%" }}>
+    <InlineImageCard cardProps={{ title: "Livepeer Studio Logo (SVG)" }} imgProps={{ src: "/snippets/assets/logos/products/livepeer-studio-logo.svg", alt: "Livepeer Studio Logo" }} imgStyle={{ height: "40px", width: "auto", objectFit: "contain" }}>
         <DownloadButton label="Download SVG" downloadLink="/snippets/assets/logos/products/livepeer-studio-logo.svg" icon="file-image" />
     </InlineImageCard>
-    <InlineImageCard cardProps={{ title: "Frameworks Logo (SVG)" }} imgProps={{ src: "/snippets/assets/logos/products/frameworks-logo.svg", alt: "Frameworks Logo" }} imgStyle={{ width: "100%" }}>
+    <InlineImageCard cardProps={{ title: "Frameworks Logo (SVG)" }} imgProps={{ src: "/snippets/assets/logos/products/frameworks-logo.svg", alt: "Frameworks Logo" }} imgStyle={{ height: "40px", width: "auto", objectFit: "contain" }}>
         <DownloadButton label="Download SVG" downloadLink="/snippets/assets/logos/products/frameworks-logo.svg" icon="file-image" />
     </InlineImageCard>
-    <InlineImageCard cardProps={{ title: "Stream.place Logo (SVG)" }} imgProps={{ src: "/snippets/assets/logos/products/streamplace-logo.svg", alt: "Stream.place Logo" }} imgStyle={{ width: "100%" }}>
+    <InlineImageCard cardProps={{ title: "Stream.place Logo (SVG)" }} imgProps={{ src: "/snippets/assets/logos/products/streamplace-logo.svg", alt: "Stream.place Logo" }} imgStyle={{ height: "40px", width: "auto", objectFit: "contain" }}>
         <DownloadButton label="Download SVG" downloadLink="/snippets/assets/logos/products/streamplace-logo.svg" icon="file-image" />
     </InlineImageCard>
 </Columns>
