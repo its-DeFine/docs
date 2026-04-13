@@ -9,7 +9,7 @@
     <ai:tags>livepeer, livepeer contracts, livepeer contract address, livepeer contract addresses, LPT contract address, LPT token address, livepeer token address, livepeer smart contract address, livepeer arbitrum contract address, livepeer ethereum contract address, livepeer official contract, livepeer protocol contracts, contract addresses, arbitrum, ethereum, blockchain, smart contracts, canonical, reference, livepeer BondingManager, livepeer TicketBroker, livepeer Controller, livepeer RoundsManager, livepeer Governor, livepeer verified contracts, livepeer arbiscan, official livepeer addresses, 0x289ba1701C2F088cf0faf8B3705246331cB8A839, 0x58b6a8a3302369daec383334672404ee733ab239</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/community-portal</loc>
+    <loc>https://docs.livepeer.org/v2/community/portal</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>220</ai:wordCount>
@@ -25,7 +25,7 @@
     <ai:tags>livepeer, community, faq, frequently, asked, questions, about, governance, ecosystem, participation</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/livepeer-community/community-guidelines</loc>
+    <loc>https://docs.livepeer.org/v2/community/connect/guidelines</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>1741</ai:wordCount>
@@ -33,7 +33,7 @@
     <ai:tags>livepeer, community, community guidelines, code of conduct, contributing, conduct, rules, standards, OSS</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/livepeer-community/governance-and-foundation</loc>
+    <loc>https://docs.livepeer.org/v2/community/ecosystem/governance</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>1472</ai:wordCount>
@@ -41,7 +41,7 @@
     <ai:tags>livepeer, community, livepeer community, governance and foundation, governance, foundation, governed, treasury, works, participate</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/livepeer-community/livepeer-latest-topics</loc>
+    <loc>https://docs.livepeer.org/v2/community/community/livepeer-latest-topics</loc>
     <lastmod>2026-04-05T15:39:57+10:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>218</ai:wordCount>
@@ -49,7 +49,7 @@
     <ai:tags>livepeer, community, livepeer community, livepeer latest topics, what, happening, curated, ecosystem, highlights, live</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/livepeer-community/roadmap</loc>
+    <loc>https://docs.livepeer.org/v2/community/community/roadmap</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>74</ai:wordCount>
@@ -57,7 +57,7 @@
     <ai:tags>livepeer, livepeer roadmap, livepeer timeline, livepeer future, livepeer plans, livepeer vision, livepeer goals, livepeer objectives, livepeer targets, livepeer aspirations, livepeer ambitions</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/livepeer-community/trending-topics</loc>
+    <loc>https://docs.livepeer.org/v2/community/community/trending-topics</loc>
     <lastmod>2026-04-05T15:39:57+10:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>82</ai:wordCount>
@@ -65,7 +65,7 @@
     <ai:tags>trending, topics, livepeer, real-time AI, Daydream</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/livepeer-connect/events-and-community-streams</loc>
+    <loc>https://docs.livepeer.org/v2/community/connect/events-and-streams</loc>
     <lastmod>2026-04-05T15:39:57+10:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>27</ai:wordCount>
@@ -73,7 +73,7 @@
     <ai:tags>livepeer, community, livepeer connect, events and community streams, events, live, streams</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/livepeer-connect/forums-and-discussions</loc>
+    <loc>https://docs.livepeer.org/v2/community/connect/connect-channels</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>606</ai:wordCount>
@@ -81,7 +81,7 @@
     <ai:tags>livepeer, community, livepeer connect, forums and discussions, connect, channels, where, find, forums, discord</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/livepeer-connect/news-and-socials</loc>
+    <loc>https://docs.livepeer.org/v2/community/connect/news-and-socials</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>20</ai:wordCount>
@@ -89,7 +89,7 @@
     <ai:tags>livepeer, community, livepeer connect, news and socials, news, socials, latest</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/livepeer-contribute/build-livepeer</loc>
+    <loc>https://docs.livepeer.org/v2/community/contribute/build-livepeer</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>21</ai:wordCount>
@@ -97,7 +97,7 @@
     <ai:tags>livepeer, community, livepeer contribute, build livepeer, build</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/livepeer-contribute/contribute</loc>
+    <loc>https://docs.livepeer.org/v2/community/contribute/contribute</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>20</ai:wordCount>
@@ -105,7 +105,7 @@
     <ai:tags>livepeer, community, livepeer contribute, contribute, build, future, realtime</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/livepeer-contribute/opportunities</loc>
+    <loc>https://docs.livepeer.org/v2/community/contribute/opportunities</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>19</ai:wordCount>
@@ -152,7 +152,7 @@
     <ai:tags>livepeer, gateway, pipelines, job types, video transcoding, ai inference, byoc, routing, overview</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/home/about-livepeer/benefits</loc>
+    <loc>https://docs.livepeer.org/v2/home/about/benefits</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>525</ai:wordCount>
@@ -160,7 +160,7 @@
     <ai:tags>livepeer, home, project showcase, why livepeer, best choice, next project</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/home/about-livepeer/ecosystem</loc>
+    <loc>https://docs.livepeer.org/v2/home/about/ecosystem</loc>
     <lastmod>2026-04-05T22:04:34+10:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>1883</ai:wordCount>
@@ -168,7 +168,7 @@
     <ai:tags>livepeer, home, introduction, livepeer ecosystem, ecosystem, grown, robust</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/home/about-livepeer/evolution</loc>
+    <loc>https://docs.livepeer.org/v2/home/about/evolution</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>509</ai:wordCount>
@@ -176,7 +176,7 @@
     <ai:tags>livepeer, livepeer vision, livepeer mission, livepeer goals, livepeer objectives, livepeer targets, livepeer aspirations, livepeer ambitions</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/home/about-livepeer/roadmap</loc>
+    <loc>https://docs.livepeer.org/v2/home/about/roadmap</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>71</ai:wordCount>
@@ -184,7 +184,7 @@
     <ai:tags>livepeer, livepeer roadmap, livepeer timeline, livepeer future, livepeer plans, livepeer vision, livepeer goals, livepeer objectives, livepeer targets, livepeer aspirations, livepeer ambitions</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/home/about-livepeer/vision</loc>
+    <loc>https://docs.livepeer.org/v2/home/about/vision</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>385</ai:wordCount>

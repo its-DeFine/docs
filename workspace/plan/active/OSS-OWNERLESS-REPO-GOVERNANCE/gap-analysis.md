@@ -132,7 +132,7 @@ Each migrating and advisory surface needs the following to graduate:
 | `agent-governance-framework.mdx` (AI governance) | Referenced in planning docs; location not confirmed from audit |
 | `governance.mdx` (ownership model, SLAs, triage) | `v2/internal/overview/governance.mdx` |
 | `contribute-to-the-docs.mdx` (public-facing contributor guide) | `v2/resources/documentation-guide/contribute-to-the-docs.mdx` |
-| `community-guidelines.mdx` | `v2/community/livepeer-community/community-guidelines.mdx` |
+| `guidelines.mdx` | `v2/community/connect/guidelines.mdx` |
 | `.cursorrules` | `.cursorrules` |
 
 ### Missing

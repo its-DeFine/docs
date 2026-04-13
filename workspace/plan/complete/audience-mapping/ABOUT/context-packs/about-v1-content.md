@@ -1,6 +1,6 @@
 ---
 CONTEXT PACK: About V1 Content
-Source: _dep-docs/about/ and _dep-docs/home/about-livepeer/
+Source: _dep-docs/about/ and _dep-docs/home/about/
 Generated: 2026-03-23
 Total files: 41
 ---
@@ -2556,7 +2556,7 @@ keywords:
 ===END FILE===
 
 ---
-FILE: /Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/_dep-docs/home/about-livepeer/ecosystem.mdx
+FILE: /Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/_dep-docs/home/about/ecosystem.mdx
 ---
 ---
 title: Livepeer Organisational Structure
@@ -2681,7 +2681,7 @@ Notable SPEs:
 ===END FILE===
 
 ---
-FILE: /Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/_dep-docs/home/about-livepeer/vision.mdx
+FILE: /Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/_dep-docs/home/about/vision.mdx
 ---
 ---
 mode: wide
@@ -2749,7 +2749,7 @@ This mission drives the why's of Livepeer and informs its competitive edge and b
 ===END FILE===
 
 ---
-FILE: /Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/_dep-docs/home/about-livepeer/evolution.mdx
+FILE: /Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/_dep-docs/home/about/evolution.mdx
 ---
 ---
 mode: wide
@@ -2814,7 +2814,7 @@ Livepeer's development has been marked by six key phases:
 ===END FILE===
 
 ---
-FILE: /Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/_dep-docs/home/about-livepeer/roadmap.mdx
+FILE: /Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/_dep-docs/home/about/roadmap.mdx
 ---
 ---
 mode: wide
@@ -3684,7 +3684,7 @@ Features: Rate limiting, region scoring, health probes, fallback Orchestrators, 
 ===END FILE===
 
 ---
-FILE: /Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/_dep-docs/home/about-livepeer/benefits.mdx
+FILE: /Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/_dep-docs/home/about/benefits.mdx
 ---
 ---
 mode: wide

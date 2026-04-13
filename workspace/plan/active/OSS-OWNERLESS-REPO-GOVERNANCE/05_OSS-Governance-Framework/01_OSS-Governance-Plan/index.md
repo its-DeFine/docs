@@ -148,7 +148,7 @@ The contribute/ directory contains:
 
 The contribute-to-the-docs.mdx page provides a public-facing contributor guide at v2/resources/documentation-guide/contribute-to-the-docs.mdx with small/medium/large change workflows, recognition policy, and links to CODEOWNERS and style guide.
 
-The community-guidelines.mdx page at v2/community/livepeer-community/community-guidelines.mdx covers values (openness, transparency, constructive disagreement, accountability), moderation escalation paths, and contribution principles (read before you build, keep PRs focused, conventional commits).
+The guidelines.mdx page at v2/community/connect/guidelines.mdx covers values (openness, transparency, constructive disagreement, accountability), moderation escalation paths, and contribution principles (read before you build, keep PRs focused, conventional commits).
 
 ## **3.2 Governance Model**
 

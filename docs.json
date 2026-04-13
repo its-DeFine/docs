@@ -2080,11 +2080,11 @@
                     "group": "Livepeer",
                     "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
                     "pages": [
-                      "v2/home/about-livepeer/vision",
-                      "v2/home/about-livepeer/evolution",
-                      "v2/home/about-livepeer/benefits",
-                      "v2/home/about-livepeer/ecosystem",
-                      "v2/home/about-livepeer/roadmap"
+                      "v2/home/about/vision",
+                      "v2/home/about/evolution",
+                      "v2/home/about/benefits",
+                      "v2/home/about/ecosystem",
+                      "v2/home/about/roadmap"
                     ]
                   },
                   {
@@ -3056,35 +3056,40 @@
                     "group": "Livepeer Community",
                     "icon": "people-group",
                     "pages": [
-                      "v2/community/community-portal",
-                      "v2/community/livepeer-community/community-guidelines",
-                      "v2/community/livepeer-community/governance-and-foundation",
-                      "v2/community/livepeer-community/trending-topics",
-                      "v2/community/livepeer-community/livepeer-latest-topics",
-                      "v2/community/livepeer-community/roadmap"
+                      "v2/community/portal",
+                      "v2/community/connect/guidelines"
+                    ]
+                  },
+                  {
+                    "group": "Livepeer Ecosystem",
+                    "icon": "space-station-moon",
+                    "pages": [
+                      "v2/community/ecosystem/ecosystem",
+                      "v2/community/ecosystem/governance",
+                      "v2/community/community/roadmap"
                     ]
                   },
                   {
                     "group": "Livepeer Connect",
                     "icon": "hashtag",
                     "pages": [
-                      "v2/community/livepeer-connect/forums-and-discussions",
-                      "v2/community/livepeer-connect/news-and-socials",
-                      "v2/community/livepeer-connect/events-and-community-streams"
+                      "v2/community/community/trending-topics",
+                      "v2/community/connect/connect-channels",
+                      "v2/community/connect/events-and-streams"
                     ]
                   },
                   {
                     "group": "Livepeer Contribute",
-                    "icon": "door-open",
+                    "icon": "user-plus",
                     "pages": [
-                      "v2/community/livepeer-contribute/contribute",
-                      "v2/community/livepeer-contribute/opportunities",
-                      "v2/community/livepeer-contribute/build-livepeer"
+                      "v2/community/contribute/opportunities",
+                      "v2/community/contribute/contribute",
+                      "v2/community/contribute/build-livepeer"
                     ]
                   },
                   {
-                    "group": "Resources",
-                    "icon": "books",
+                    "group": "More Livepeer",
+                    "icon": "photo-film",
                     "pages": [
                       "v2/community/resources/awesome-livepeer",
                       "v2/community/resources/guides",
@@ -3093,22 +3098,36 @@
                     ]
                   },
                   {
-                    "group": "Help Center",
+                    "group": "Resources",
                     "icon": "comments-question-check",
-                    "pages": ["v2/community/faq"]
+                    "pages": [
+                      "v2/community/resources/glossary",
+                      "v2/community/resources/compendium/media-kit",
+                      {
+                        "group": "Compendium",
+                        "pages": ["v2/community/faq"]
+                      },
+                      {
+                        "group": "Knowledge Hub",
+                        "pages": []
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "tab": "Resource HUB",
-                "hidden": false,
                 "icon": "books",
                 "groups": [
                   {
+                    "group": "Resource Hub",
+                    "icon": "books",
+                    "pages": ["v2/resources/portal"]
+                  },
+                  {
                     "group": "Documentation Guide",
-                    "icon": "book-open",
+                    "icon": "map",
                     "pages": [
-                      "v2/resources/portal",
                       "v2/resources/documentation-guide/documentation-overview",
                       "v2/resources/documentation-guide/documentation-guide",
                       {
@@ -3134,7 +3153,7 @@
                         ]
                       },
                       {
-                        "group": "Copy & Style",
+                        "group": "UX & Style",
                         "pages": [
                           "v2/resources/documentation-guide/copy-style/style-guide",
                           "v2/resources/documentation-guide/copy-style/authoring-guide",
@@ -3143,7 +3162,6 @@
                       },
                       {
                         "group": "Component Library",
-                        "icon": "puzzle-piece",
                         "pages": [
                           "v2/resources/documentation-guide/component-library/overview",
                           "v2/resources/documentation-guide/component-library/component-library",
@@ -3163,7 +3181,7 @@
                         ]
                       },
                       {
-                        "group": "Catalogs",
+                        "group": "Registry",
                         "pages": [
                           "docs-guide/catalog/pages-catalog",
                           "docs-guide/catalog/components-catalog",
@@ -3179,7 +3197,31 @@
                     "group": "Technical References",
                     "icon": "code",
                     "pages": [
-                      "v2/about/resources/reference/livepeer-contract-addresses"
+                      "v2/about/resources/reference/livepeer-contract-addresses",
+                      {
+                        "group": "AI",
+                        "pages": []
+                      },
+                      {
+                        "group": "Video",
+                        "pages": []
+                      },
+                      {
+                        "group": "Protocol",
+                        "pages": []
+                      },
+                      {
+                        "group": "Orchestrators",
+                        "pages": []
+                      },
+                      {
+                        "group": "Delegators",
+                        "pages": []
+                      },
+                      {
+                        "group": "General",
+                        "pages": []
+                      }
                     ]
                   },
                   {
@@ -3187,7 +3229,8 @@
                     "icon": "book-bookmark",
                     "pages": [
                       "v2/resources/glossary",
-                      "v2/resources/resource-hub-terms"
+                      "v2/resources/resource-hub-terms",
+                      "v2/resources/help-center"
                     ]
                   },
                   {
@@ -3240,12 +3283,7 @@
                     ]
                   },
                   {
-                    "group": "Help Center",
-                    "icon": "comments-question-check",
-                    "pages": ["v2/resources/help-center"]
-                  },
-                  {
-                    "group": "Guides",
+                    "group": "Knowledge Hub",
                     "icon": "wand-magic-sparkles",
                     "pages": ["v2/gateways/guides/node-pipelines/guide"]
                   }
@@ -3498,6 +3536,94 @@
     }
   },
   "redirects": [
+    {
+      "source": "/v2/community/connect/forums-and-discussions",
+      "destination": "/v2/community/connect/connect-channels"
+    },
+    {
+      "source": "/v2/community/connect/events-and-community-streams",
+      "destination": "/v2/community/connect/events-and-streams"
+    },
+    {
+      "source": "/v2/community/community/guidelines",
+      "destination": "/v2/community/connect/guidelines"
+    },
+    {
+      "source": "/v2/community/community/governance-and-foundation",
+      "destination": "/v2/community/ecosystem/governance"
+    },
+    {
+      "source": "/v2/community/community/community-guidelines",
+      "destination": "/v2/community/connect/guidelines"
+    },
+    {
+      "source": "/v2/community/livepeer-community/guidelines",
+      "destination": "/v2/community/connect/guidelines"
+    },
+    {
+      "source": "/v2/community/livepeer-community/governance-and-foundation",
+      "destination": "/v2/community/ecosystem/governance"
+    },
+    {
+      "source": "/v2/community/livepeer-community/trending-topics",
+      "destination": "/v2/community/community/trending-topics"
+    },
+    {
+      "source": "/v2/community/livepeer-community/livepeer-latest-topics",
+      "destination": "/v2/community/community/livepeer-latest-topics"
+    },
+    {
+      "source": "/v2/community/livepeer-community/roadmap",
+      "destination": "/v2/community/community/roadmap"
+    },
+    {
+      "source": "/v2/community/community-portal",
+      "destination": "/v2/community/portal"
+    },
+    {
+      "source": "/v2/community/livepeer-connect/connect-channels",
+      "destination": "/v2/community/connect/connect-channels"
+    },
+    {
+      "source": "/v2/community/livepeer-connect/news-and-socials",
+      "destination": "/v2/community/connect/news-and-socials"
+    },
+    {
+      "source": "/v2/community/livepeer-connect/events-and-streams",
+      "destination": "/v2/community/connect/events-and-streams"
+    },
+    {
+      "source": "/v2/community/livepeer-contribute/contribute",
+      "destination": "/v2/community/contribute/contribute"
+    },
+    {
+      "source": "/v2/community/livepeer-contribute/opportunities",
+      "destination": "/v2/community/contribute/opportunities"
+    },
+    {
+      "source": "/v2/community/livepeer-contribute/build-livepeer",
+      "destination": "/v2/community/contribute/build-livepeer"
+    },
+    {
+      "source": "/v2/home/about-livepeer/vision",
+      "destination": "/v2/home/about/vision"
+    },
+    {
+      "source": "/v2/home/about-livepeer/evolution",
+      "destination": "/v2/home/about/evolution"
+    },
+    {
+      "source": "/v2/home/about-livepeer/benefits",
+      "destination": "/v2/home/about/benefits"
+    },
+    {
+      "source": "/v2/home/about-livepeer/ecosystem",
+      "destination": "/v2/home/about/ecosystem"
+    },
+    {
+      "source": "/v2/home/about-livepeer/roadmap",
+      "destination": "/v2/home/about/roadmap"
+    },
     {
       "source": "/v2/orchestrators/setup/rcs-requirements",
       "destination": "/v2/orchestrators/setup/prepare"

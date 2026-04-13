@@ -30,11 +30,11 @@
 | home/get-started.mdx | (none) | tutorial | Role-based navigation hub ("new/developer/GPU/creator/LPT") | navigation | landing | choose |
 | home/primer.mdx | tutorial | tutorial | Intro explainer: what Livepeer is, why it matters. No steps. | concept | (none) | explain |
 | home/trending.mdx | (none) | (none) | Aggregation page pulling live data feeds (YouTube, Forum, Discord, X) | resource | (none) | update |
-| home/about-livepeer/vision.mdx | concept | concept | Founder story with video, quotes, mission narrative | concept | (none) | explain |
-| home/about-livepeer/evolution.mdx | concept | concept | Timeline of key achievements 2016-present | reference | changelog | learn |
-| home/about-livepeer/roadmap.mdx | overview | overview | Links to external roadmap site. Thin pointer page. | resource | (none) | update |
-| home/about-livepeer/benefits.mdx | concept | concept | "Why Livepeer" value proposition: cost, performance, open, trust | concept | (none) | choose |
-| home/about-livepeer/ecosystem.mdx | concept | concept | Livepeer org structure: Foundation, Inc, SPEs, governance | concept | (none) | explain |
+| home/about/vision.mdx | concept | concept | Founder story with video, quotes, mission narrative | concept | (none) | explain |
+| home/about/evolution.mdx | concept | concept | Timeline of key achievements 2016-present | reference | changelog | learn |
+| home/about/roadmap.mdx | overview | overview | Links to external roadmap site. Thin pointer page. | resource | (none) | update |
+| home/about/benefits.mdx | concept | concept | "Why Livepeer" value proposition: cost, performance, open, trust | concept | (none) | choose |
+| home/about/ecosystem.mdx | concept | concept | Livepeer org structure: Foundation, Inc, SPEs, governance | concept | (none) | explain |
 | home/solutions/showcase.mdx | overview | overview | Gallery of creative projects built on Livepeer | resource | (none) | learn |
 | home/solutions/landscape.mdx | (none) | (none) | STUB — single quote about DeAI. Essentially empty. | concept | (none) | explain |
 | home/solutions/verticals.mdx | overview | overview | Industry verticals: Media, Gaming, Robotics, Analytics | concept | (none) | choose |
@@ -327,19 +327,19 @@
 
 | Path | Current pageType | Current purpose | Actual Function | Rec. pageType | Rec. variant | Rec. purpose |
 |---|---|---|---|---|---|---|
-| community/community-portal.mdx | landing | landing | Hero portal with cards to community sections | navigation | landing | orient |
+| community/portal.mdx | landing | landing | Hero portal with cards to community sections | navigation | landing | orient |
 | community/faq.mdx | reference | faq | Accordion FAQ: Foundation, SPEs, voting, inflation | reference | compendium | reference |
-| community/livepeer-community/community-guidelines.mdx | guide | concept | Code of conduct, participation norms | guide | (none) | operate |
-| community/livepeer-community/governance-and-foundation.mdx | guide | how_to | Foundation structure, SPE process, treasury, how to participate | guide | (none) | operate |
-| community/livepeer-community/livepeer-latest-topics.mdx | reference | reference | Ecosystem highlights + live forum feed | resource | (none) | update |
-| community/livepeer-community/roadmap.mdx | overview | overview | Embeds roadmap.livepeer.org iframe | overview | (none) | orient |
-| community/livepeer-community/trending-topics.mdx | landing | landing | Aggregates YouTube, forum, Discord, X, blog feeds | resource | (none) | update |
-| community/livepeer-connect/events-and-community-streams.mdx | guide | operations | Luma events calendar embed | resource | (none) | learn |
-| community/livepeer-connect/forums-and-discussions.mdx | guide | concept | Directory of community channels | reference | compendium | reference |
-| community/livepeer-connect/news-and-socials.mdx | landing | landing | STUB — empty headers only | resource | (none) | update |
-| community/livepeer-contribute/build-livepeer.mdx | guide | operations | STUB — single Info callout only | guide | (none) | build |
-| community/livepeer-contribute/contribute.mdx | landing | landing | STUB — single Info callout only | guide | (none) | build |
-| community/livepeer-contribute/opportunities.mdx | guide | operations | STUB — single Info callout only | resource | (none) | learn |
+| community/connect/guidelines.mdx | guide | concept | Code of conduct, participation norms | guide | (none) | operate |
+| community/ecosystem/governance.mdx | guide | how_to | Foundation structure, SPE process, treasury, how to participate | guide | (none) | operate |
+| community/community/livepeer-latest-topics.mdx | reference | reference | Ecosystem highlights + live forum feed | resource | (none) | update |
+| community/community/roadmap.mdx | overview | overview | Embeds roadmap.livepeer.org iframe | overview | (none) | orient |
+| community/community/trending-topics.mdx | landing | landing | Aggregates YouTube, forum, Discord, X, blog feeds | resource | (none) | update |
+| community/connect/events-and-streams.mdx | guide | operations | Luma events calendar embed | resource | (none) | learn |
+| community/connect/connect-channels.mdx | guide | concept | Directory of community channels | reference | compendium | reference |
+| community/connect/news-and-socials.mdx | landing | landing | STUB — empty headers only | resource | (none) | update |
+| community/contribute/build-livepeer.mdx | guide | operations | STUB — single Info callout only | guide | (none) | build |
+| community/contribute/contribute.mdx | landing | landing | STUB — single Info callout only | guide | (none) | build |
+| community/contribute/opportunities.mdx | guide | operations | STUB — single Info callout only | resource | (none) | learn |
 | community/resources/awesome-livepeer.mdx | reference | concept | Curated ecosystem tools by category | reference | compendium | reference |
 | community/resources/dashboards.mdx | reference | landing | STUB — single card to GitHub | reference | compendium | reference |
 | community/resources/guides.mdx | reference | concept | Cards organized by role: delegator, gateway, orchestrator | reference | compendium | reference |

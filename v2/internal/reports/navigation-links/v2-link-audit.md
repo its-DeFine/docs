@@ -123,20 +123,20 @@ _Tabular data omitted in the published page. Use the repository report artifact 
     - ⚠️ Livepeer 白皮书 (cn/about/resources/livepeer-whitepaper.mdx)
     - ⚠️ Technical Roadmap (cn/about/resources/technical-roadmap.mdx)
 - ### Community
-  - ⚠️ Livepeer Community Portal (cn/community/community-portal.mdx)
+  - ⚠️ Livepeer Community Portal (cn/community/portal.mdx)
   - #### Livepeer Community
-    - ⚠️ Livepeer 社区准则 (cn/community/livepeer-community/community-guidelines.mdx)
-    - ⚠️ Livepeer 热门话题与更新 (cn/community/livepeer-community/livepeer-latest-topics.mdx)
-    - ⚠️ Livepeer Foundation Roadmap (cn/community/livepeer-community/roadmap.mdx)
-    - ⚠️ 热门话题 (cn/community/livepeer-community/trending-topics.mdx)
+    - ⚠️ Livepeer 社区准则 (cn/community/connect/guidelines.mdx)
+    - ⚠️ Livepeer 热门话题与更新 (cn/community/community/livepeer-latest-topics.mdx)
+    - ⚠️ Livepeer Foundation Roadmap (cn/community/community/roadmap.mdx)
+    - ⚠️ 热门话题 (cn/community/community/trending-topics.mdx)
   - #### Livepeer Connect
-    - ⚠️ 事件与直播 (cn/community/livepeer-connect/events-and-community-streams.mdx)
-    - ⚠️ 论坛与讨论 (cn/community/livepeer-connect/forums-and-discussions.mdx)
-    - ⚠️ 新闻与社交 (cn/community/livepeer-connect/news-and-socials.mdx)
+    - ⚠️ 事件与直播 (cn/community/connect/events-and-streams.mdx)
+    - ⚠️ 论坛与讨论 (cn/community/connect/connect-channels.mdx)
+    - ⚠️ 新闻与社交 (cn/community/connect/news-and-socials.mdx)
   - #### Livepeer Contribute
-    - ⚠️ 构建 Livepeer (cn/community/livepeer-contribute/build-livepeer.mdx)
-    - ⚠️ 为 Livepeer 做贡献 (cn/community/livepeer-contribute/contribute.mdx)
-    - ⚠️ Livepeer 机会 (cn/community/livepeer-contribute/opportunities.mdx)
+    - ⚠️ 构建 Livepeer (cn/community/contribute/build-livepeer.mdx)
+    - ⚠️ 为 Livepeer 做贡献 (cn/community/contribute/contribute.mdx)
+    - ⚠️ Livepeer 机会 (cn/community/contribute/opportunities.mdx)
 - ### Contribute
   - #### CONTRIBUTING
     - ⚠️ AGENT INSTRUCTIONS (cn/contribute/CONTRIBUTING/AGENT-INSTRUCTIONS.md)
@@ -300,11 +300,11 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - ⚠️ 欢迎来到 Livepeer 任务控制中心 (cn/home/mission-control.mdx)
   - ⚠️ Livepeer 入门 (cn/home/primer.mdx)
   - #### About Livepeer
-    - ⚠️ The Livepeer Advantage (cn/home/about-livepeer/benefits.mdx)
-    - ⚠️ Livepeer 组织结构 (cn/home/about-livepeer/ecosystem.mdx)
-    - ⚠️ Livepeer 演变 (cn/home/about-livepeer/evolution.mdx)
-    - ⚠️ Livepeer 的下一步是什么？ (cn/home/about-livepeer/roadmap.mdx)
-    - ⚠️ Livepeer 故事 (cn/home/about-livepeer/vision.mdx)
+    - ⚠️ The Livepeer Advantage (cn/home/about/benefits.mdx)
+    - ⚠️ Livepeer 组织结构 (cn/home/about/ecosystem.mdx)
+    - ⚠️ Livepeer 演变 (cn/home/about/evolution.mdx)
+    - ⚠️ Livepeer 的下一步是什么？ (cn/home/about/roadmap.mdx)
+    - ⚠️ Livepeer 故事 (cn/home/about/vision.mdx)
   - #### Solutions
 
 _Published page truncated for site reliability. Use the repository report artifact for the full output._

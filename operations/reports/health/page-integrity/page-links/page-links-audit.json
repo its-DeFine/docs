@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:37:10.921Z",
+  "generatedAt": "2026-04-08T17:57:15.349Z",
   "args": {
     "mode": "files",
     "strict": false,
@@ -61,19 +61,19 @@
       "v2/about/resources/reference/livepeer-contract-addresses.mdx",
       "v2/about/resources/reference/network-metrics.mdx",
       "v2/about/resources/reference/technical-roadmap.mdx",
-      "v2/community/community-portal.mdx",
+      "v2/community/portal.mdx",
       "v2/community/faq.mdx",
-      "v2/community/livepeer-community/community-guidelines.mdx",
-      "v2/community/livepeer-community/governance-and-foundation.mdx",
-      "v2/community/livepeer-community/livepeer-latest-topics.mdx",
-      "v2/community/livepeer-community/roadmap.mdx",
-      "v2/community/livepeer-community/trending-topics.mdx",
-      "v2/community/livepeer-connect/events-and-community-streams.mdx",
-      "v2/community/livepeer-connect/forums-and-discussions.mdx",
-      "v2/community/livepeer-connect/news-and-socials.mdx",
-      "v2/community/livepeer-contribute/build-livepeer.mdx",
-      "v2/community/livepeer-contribute/contribute.mdx",
-      "v2/community/livepeer-contribute/opportunities.mdx",
+      "v2/community/connect/guidelines.mdx",
+      "v2/community/ecosystem/governance.mdx",
+      "v2/community/community/livepeer-latest-topics.mdx",
+      "v2/community/community/roadmap.mdx",
+      "v2/community/community/trending-topics.mdx",
+      "v2/community/connect/events-and-streams.mdx",
+      "v2/community/connect/connect-channels.mdx",
+      "v2/community/connect/news-and-socials.mdx",
+      "v2/community/contribute/build-livepeer.mdx",
+      "v2/community/contribute/contribute.mdx",
+      "v2/community/contribute/opportunities.mdx",
       "v2/community/resources/awesome-livepeer.mdx",
       "v2/community/resources/dashboards.mdx",
       "v2/community/resources/glossary.mdx",
@@ -240,11 +240,11 @@
       "v2/gateways/setup/monitor.mdx",
       "v2/gateways/setup/prepare.mdx",
       "v2/gateways/setup/verify.mdx",
-      "v2/home/about-livepeer/benefits.mdx",
-      "v2/home/about-livepeer/ecosystem.mdx",
-      "v2/home/about-livepeer/evolution.mdx",
-      "v2/home/about-livepeer/roadmap.mdx",
-      "v2/home/about-livepeer/vision.mdx",
+      "v2/home/about/benefits.mdx",
+      "v2/home/about/ecosystem.mdx",
+      "v2/home/about/evolution.mdx",
+      "v2/home/about/roadmap.mdx",
+      "v2/home/about/vision.mdx",
       "v2/home/mission-control.mdx",
       "v2/home/primer.mdx",
       "v2/home/resources/glossary.mdx",
@@ -3614,8 +3614,8 @@
           "linkType": "internal-rooted",
           "line": 178,
           "column": 3,
-          "rawPath": "/v2/home/about-livepeer/ecosystem#livepeer-foundation",
-          "resolvedPath": "v2/home/about-livepeer/ecosystem.mdx",
+          "rawPath": "/v2/home/about/ecosystem#livepeer-foundation",
+          "resolvedPath": "v2/home/about/ecosystem.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -3626,8 +3626,8 @@
           "linkType": "internal-rooted",
           "line": 179,
           "column": 83,
-          "rawPath": "/v2/home/about-livepeer/ecosystem#special-purpose-entities",
-          "resolvedPath": "v2/home/about-livepeer/ecosystem.mdx",
+          "rawPath": "/v2/home/about/ecosystem#special-purpose-entities",
+          "resolvedPath": "v2/home/about/ecosystem.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -5384,7 +5384,7 @@
       "refs": []
     },
     {
-      "file": "v2/community/community-portal.mdx",
+      "file": "v2/community/portal.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -5445,8 +5445,8 @@
           "linkType": "internal-rooted",
           "line": 100,
           "column": 7,
-          "rawPath": "/v2/community/livepeer-community/governance-and-foundation",
-          "resolvedPath": "v2/community/livepeer-community/governance-and-foundation.mdx",
+          "rawPath": "/v2/community/ecosystem/governance",
+          "resolvedPath": "v2/community/ecosystem/governance.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -5587,8 +5587,8 @@
           "linkType": "internal-rooted",
           "line": 40,
           "column": 23,
-          "rawPath": "/v2/community/livepeer-community/governance-and-foundation",
-          "resolvedPath": "v2/community/livepeer-community/governance-and-foundation.mdx",
+          "rawPath": "/v2/community/ecosystem/governance",
+          "resolvedPath": "v2/community/ecosystem/governance.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -5611,8 +5611,8 @@
           "linkType": "internal-rooted",
           "line": 48,
           "column": 10,
-          "rawPath": "/v2/community/livepeer-community/governance-and-foundation#how-to-propose-an-spe",
-          "resolvedPath": "v2/community/livepeer-community/governance-and-foundation.mdx",
+          "rawPath": "/v2/community/ecosystem/governance#how-to-propose-an-spe",
+          "resolvedPath": "v2/community/ecosystem/governance.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -5836,7 +5836,7 @@
       ]
     },
     {
-      "file": "v2/community/livepeer-community/community-guidelines.mdx",
+      "file": "v2/community/connect/guidelines.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -6029,8 +6029,8 @@
           "linkType": "internal-rooted",
           "line": 270,
           "column": 48,
-          "rawPath": "/v2/community/livepeer-contribute/contribute",
-          "resolvedPath": "v2/community/livepeer-contribute/contribute.mdx",
+          "rawPath": "/v2/community/contribute/contribute",
+          "resolvedPath": "v2/community/contribute/contribute.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -6149,8 +6149,8 @@
           "linkType": "internal-rooted",
           "line": 438,
           "column": 3,
-          "rawPath": "/v2/community/livepeer-contribute/contribute",
-          "resolvedPath": "v2/community/livepeer-contribute/contribute.mdx",
+          "rawPath": "/v2/community/contribute/contribute",
+          "resolvedPath": "v2/community/contribute/contribute.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -6161,8 +6161,8 @@
           "linkType": "internal-rooted",
           "line": 447,
           "column": 3,
-          "rawPath": "/v2/community/livepeer-connect/forums-and-discussions",
-          "resolvedPath": "v2/community/livepeer-connect/forums-and-discussions.mdx",
+          "rawPath": "/v2/community/connect/connect-channels",
+          "resolvedPath": "v2/community/connect/connect-channels.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -6218,7 +6218,7 @@
       ]
     },
     {
-      "file": "v2/community/livepeer-community/governance-and-foundation.mdx",
+      "file": "v2/community/ecosystem/governance.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -6432,7 +6432,7 @@
       ]
     },
     {
-      "file": "v2/community/livepeer-community/livepeer-latest-topics.mdx",
+      "file": "v2/community/community/livepeer-latest-topics.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -6598,7 +6598,7 @@
       ]
     },
     {
-      "file": "v2/community/livepeer-community/roadmap.mdx",
+      "file": "v2/community/community/roadmap.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -6656,7 +6656,7 @@
       ]
     },
     {
-      "file": "v2/community/livepeer-community/trending-topics.mdx",
+      "file": "v2/community/community/trending-topics.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -6858,7 +6858,7 @@
       ]
     },
     {
-      "file": "v2/community/livepeer-connect/events-and-community-streams.mdx",
+      "file": "v2/community/connect/events-and-streams.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -6892,7 +6892,7 @@
       ]
     },
     {
-      "file": "v2/community/livepeer-connect/forums-and-discussions.mdx",
+      "file": "v2/community/connect/connect-channels.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -7118,7 +7118,7 @@
       ]
     },
     {
-      "file": "v2/community/livepeer-connect/news-and-socials.mdx",
+      "file": "v2/community/connect/news-and-socials.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -7127,7 +7127,7 @@
       "refs": []
     },
     {
-      "file": "v2/community/livepeer-contribute/build-livepeer.mdx",
+      "file": "v2/community/contribute/build-livepeer.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -7136,7 +7136,7 @@
       "refs": []
     },
     {
-      "file": "v2/community/livepeer-contribute/contribute.mdx",
+      "file": "v2/community/contribute/contribute.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -7145,7 +7145,7 @@
       "refs": []
     },
     {
-      "file": "v2/community/livepeer-contribute/opportunities.mdx",
+      "file": "v2/community/contribute/opportunities.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -8169,8 +8169,8 @@
           "linkType": "internal-rooted",
           "line": 53,
           "column": 71,
-          "rawPath": "/v2/community/livepeer-community/governance-and-foundation#how-to-propose-an-spe",
-          "resolvedPath": "v2/community/livepeer-community/governance-and-foundation.mdx",
+          "rawPath": "/v2/community/ecosystem/governance#how-to-propose-an-spe",
+          "resolvedPath": "v2/community/ecosystem/governance.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -8277,8 +8277,8 @@
           "linkType": "internal-rooted",
           "line": 101,
           "column": 60,
-          "rawPath": "/v2/community/livepeer-community/governance-and-foundation#how-to-propose-an-spe",
-          "resolvedPath": "v2/community/livepeer-community/governance-and-foundation.mdx",
+          "rawPath": "/v2/community/ecosystem/governance#how-to-propose-an-spe",
+          "resolvedPath": "v2/community/ecosystem/governance.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -9162,8 +9162,8 @@
           "linkType": "internal-rooted",
           "line": 35,
           "column": 100,
-          "rawPath": "/v2/community/livepeer-community/governance-and-foundation",
-          "resolvedPath": "v2/community/livepeer-community/governance-and-foundation.mdx",
+          "rawPath": "/v2/community/ecosystem/governance",
+          "resolvedPath": "v2/community/ecosystem/governance.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -9384,7 +9384,7 @@
           "linkType": "external-https",
           "line": 38,
           "column": 57,
-          "rawPath": "https://paragraph.com/@livepeer-2/using-the-livepeer-community-treasury",
+          "rawPath": "https://paragraph.com/@livepeer-2/using-the-community-treasury",
           "resolvedPath": "",
           "exists": null,
           "status": "🟡 untested-external",
@@ -13532,8 +13532,8 @@
           "linkType": "internal-rooted",
           "line": 306,
           "column": 55,
-          "rawPath": "/v2/community/livepeer-community/community-guidelines",
-          "resolvedPath": "v2/community/livepeer-community/community-guidelines.mdx",
+          "rawPath": "/v2/community/connect/guidelines",
+          "resolvedPath": "v2/community/connect/guidelines.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -24305,7 +24305,7 @@
           "sourceType": "markdown-link",
           "attr": "",
           "linkType": "external-https",
-          "line": 82,
+          "line": 83,
           "column": 73,
           "rawPath": "https://docs.docker.com/get-docker/",
           "resolvedPath": "",
@@ -24317,7 +24317,7 @@
           "sourceType": "markdown-link",
           "attr": "",
           "linkType": "external-https",
-          "line": 84,
+          "line": 85,
           "column": 77,
           "rawPath": "https://linux.org",
           "resolvedPath": "",
@@ -24329,7 +24329,7 @@
           "sourceType": "markdown-link",
           "attr": "",
           "linkType": "internal-rooted",
-          "line": 317,
+          "line": 318,
           "column": 55,
           "rawPath": "/v2/gateways/setup/guide",
           "resolvedPath": "v2/gateways/setup/guide.mdx",
@@ -24341,7 +24341,7 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "external-https",
-          "line": 68,
+          "line": 69,
           "column": 32,
           "rawPath": "https://github.com/livepeer/go-livepeer",
           "resolvedPath": "",
@@ -24353,7 +24353,7 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "line": 140,
+          "line": 141,
           "column": 7,
           "rawPath": "/v2/gateways/setup/install/docker-install",
           "resolvedPath": "v2/gateways/setup/install/docker-install",
@@ -24369,7 +24369,7 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "line": 148,
+          "line": 149,
           "column": 7,
           "rawPath": "/v2/gateways/resources/reference/technical/configuration-flags",
           "resolvedPath": "v2/gateways/resources/reference/technical/configuration-flags.mdx",
@@ -24381,7 +24381,7 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "line": 190,
+          "line": 191,
           "column": 7,
           "rawPath": "/v2/gateways/setup/install/linux-install",
           "resolvedPath": "v2/gateways/setup/install/linux-install",
@@ -24397,7 +24397,7 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "line": 198,
+          "line": 199,
           "column": 7,
           "rawPath": "/v2/gateways/resources/reference/technical/configuration-flags",
           "resolvedPath": "v2/gateways/resources/reference/technical/configuration-flags.mdx",
@@ -24409,7 +24409,7 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "line": 220,
+          "line": 221,
           "column": 7,
           "rawPath": "/v2/gateways/setup/install/windows-install",
           "resolvedPath": "v2/gateways/setup/install/windows-install",
@@ -24425,7 +24425,7 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "line": 228,
+          "line": 229,
           "column": 7,
           "rawPath": "/v2/gateways/resources/reference/technical/configuration-flags",
           "resolvedPath": "v2/gateways/resources/reference/technical/configuration-flags.mdx",
@@ -24437,7 +24437,7 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "line": 264,
+          "line": 265,
           "column": 3,
           "rawPath": "/v2/orchestrators/quickstart/guide",
           "resolvedPath": "v2/orchestrators/quickstart/guide.mdx",
@@ -24449,7 +24449,7 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "line": 276,
+          "line": 277,
           "column": 3,
           "rawPath": "/v2/gateways/resources/reference/faq",
           "resolvedPath": "v2/gateways/resources/reference/faq.mdx",
@@ -24461,7 +24461,7 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "line": 288,
+          "line": 289,
           "column": 33,
           "rawPath": "/v2/gateways/setup/requirements/setup",
           "resolvedPath": "v2/gateways/setup/requirements/setup.mdx",
@@ -24473,7 +24473,7 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "line": 292,
+          "line": 293,
           "column": 32,
           "rawPath": "/v2/gateways/setup/requirements/on-chain-setup/on-chain",
           "resolvedPath": "v2/gateways/setup/requirements/on-chain-setup/on-chain.mdx",
@@ -24485,7 +24485,7 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "line": 295,
+          "line": 296,
           "column": 31,
           "rawPath": "/v2/gateways/setup/guide",
           "resolvedPath": "v2/gateways/setup/guide.mdx",
@@ -24497,7 +24497,7 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "line": 300,
+          "line": 301,
           "column": 5,
           "rawPath": "/v2/orchestrators/portal",
           "resolvedPath": "v2/orchestrators/portal.mdx",
@@ -28900,7 +28900,7 @@
       ]
     },
     {
-      "file": "v2/home/about-livepeer/benefits.mdx",
+      "file": "v2/home/about/benefits.mdx",
       "isRootPage": true,
       "domains": [
         "home"
@@ -28982,7 +28982,7 @@
       ]
     },
     {
-      "file": "v2/home/about-livepeer/ecosystem.mdx",
+      "file": "v2/home/about/ecosystem.mdx",
       "isRootPage": true,
       "domains": [
         "home"
@@ -29604,7 +29604,7 @@
       ]
     },
     {
-      "file": "v2/home/about-livepeer/evolution.mdx",
+      "file": "v2/home/about/evolution.mdx",
       "isRootPage": true,
       "domains": [
         "home"
@@ -29821,8 +29821,8 @@
           "linkType": "internal-rooted",
           "line": 129,
           "column": 3,
-          "rawPath": "/v2/home/about-livepeer/roadmap",
-          "resolvedPath": "v2/home/about-livepeer/roadmap.mdx",
+          "rawPath": "/v2/home/about/roadmap",
+          "resolvedPath": "v2/home/about/roadmap.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -29830,7 +29830,7 @@
       ]
     },
     {
-      "file": "v2/home/about-livepeer/roadmap.mdx",
+      "file": "v2/home/about/roadmap.mdx",
       "isRootPage": true,
       "domains": [
         "home"
@@ -29876,7 +29876,7 @@
       ]
     },
     {
-      "file": "v2/home/about-livepeer/vision.mdx",
+      "file": "v2/home/about/vision.mdx",
       "isRootPage": true,
       "domains": [
         "home"
@@ -29961,8 +29961,8 @@
           "linkType": "internal-rooted",
           "line": 176,
           "column": 3,
-          "rawPath": "/v2/home/about-livepeer/roadmap",
-          "resolvedPath": "v2/home/about-livepeer/roadmap.mdx",
+          "rawPath": "/v2/home/about/roadmap",
+          "resolvedPath": "v2/home/about/roadmap.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -30043,8 +30043,8 @@
           "linkType": "internal-rooted",
           "line": 127,
           "column": 7,
-          "rawPath": "/v2/community/community-portal",
-          "resolvedPath": "v2/community/community-portal.mdx",
+          "rawPath": "/v2/community/portal",
+          "resolvedPath": "v2/community/portal.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -30281,8 +30281,8 @@
           "linkType": "internal-rooted",
           "line": 40,
           "column": 5,
-          "rawPath": "/v2/community/community-portal",
-          "resolvedPath": "v2/community/community-portal.mdx",
+          "rawPath": "/v2/community/portal",
+          "resolvedPath": "v2/community/portal.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -30365,8 +30365,8 @@
           "linkType": "internal-rooted",
           "line": 126,
           "column": 40,
-          "rawPath": "/v2/community/community-portal",
-          "resolvedPath": "v2/community/community-portal.mdx",
+          "rawPath": "/v2/community/portal",
+          "resolvedPath": "v2/community/portal.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -40275,8 +40275,8 @@
           "linkType": "internal-rooted",
           "line": 236,
           "column": 16,
-          "rawPath": "/v2/community/livepeer-connect/events-and-community-streams",
-          "resolvedPath": "v2/community/livepeer-connect/events-and-community-streams.mdx",
+          "rawPath": "/v2/community/connect/events-and-streams",
+          "resolvedPath": "v2/community/connect/events-and-streams.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []

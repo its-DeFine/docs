@@ -111,8 +111,8 @@ The pipeline operates across two parallel systems:
 | Page | Data Imports |
 |------|-------------|
 | `v2/home/trending.mdx` | `forumData`, `ghostData`, `youtubeData`, `discordAnnouncementsData` |
-| `v2/community/livepeer-community/trending-topics.mdx` | `forumData`, `ghostData`, `youtubeData`, `discordAnnouncementsData` |
-| `v2/community/livepeer-community/livepeer-latest-topics.mdx` | `forumData` |
+| `v2/community/community/trending-topics.mdx` | `forumData`, `ghostData`, `youtubeData`, `discordAnnouncementsData` |
+| `v2/community/community/livepeer-latest-topics.mdx` | `forumData` |
 | `v2/solutions/daydream/community.mdx` | `youtubeData` (Daydream), `daydreamBlogData`, `daydreamDiscordData`, `discordAnnouncementsData` |
 | `v2/solutions/livepeer-studio/community.mdx` | `youtubeData`, `ghostData`, `forumData`, `discordAnnouncementsData` |
 

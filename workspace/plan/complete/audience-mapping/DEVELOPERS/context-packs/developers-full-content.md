@@ -3150,21 +3150,21 @@ Run command: node tools/scripts/generate-pages-index.js --write
 - [⚠️ Video Streaming 101](livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx)
 
 ## Moved To About Livepeer Protocol
-- [⚠️ Livepeer Governance](moved-to-about-livepeer-protocol/livepeer-governance.mdx)
-- [⚠️ Livepeer Token Economics](moved-to-about-livepeer-protocol/livepeer-token-economics.mdx)
-- [⚠️ Technical Roadmap](moved-to-about-livepeer-protocol/technical-roadmap.mdx)
+- [⚠️ Livepeer Governance](moved-to-about-protocol/livepeer-governance.mdx)
+- [⚠️ Livepeer Token Economics](moved-to-about-protocol/livepeer-token-economics.mdx)
+- [⚠️ Technical Roadmap](moved-to-about-protocol/technical-roadmap.mdx)
 
 ### Livepeer Actors
-- [⚠️ Delegators](moved-to-about-livepeer-protocol/livepeer-actors/delegators.mdx)
-- [⚠️ End Users](moved-to-about-livepeer-protocol/livepeer-actors/end-users.mdx)
-- [⚠️ Gateways](moved-to-about-livepeer-protocol/livepeer-actors/gateways.mdx)
-- [⚠️ Orchestrators](moved-to-about-livepeer-protocol/livepeer-actors/orchestrators.mdx)
-- [⚠️ README](moved-to-about-livepeer-protocol/livepeer-actors/README.mdx)
+- [⚠️ Delegators](moved-to-about-protocol/livepeer-actors/delegators.mdx)
+- [⚠️ End Users](moved-to-about-protocol/livepeer-actors/end-users.mdx)
+- [⚠️ Gateways](moved-to-about-protocol/livepeer-actors/gateways.mdx)
+- [⚠️ Orchestrators](moved-to-about-protocol/livepeer-actors/orchestrators.mdx)
+- [⚠️ README](moved-to-about-protocol/livepeer-actors/README.mdx)
 
 ### Livepeer Protocol
-- [⚠️ Livepeer Whitepaper](moved-to-about-livepeer-protocol/livepeer-protocol/livepeer-whitepaper.mdx)
-- [⚠️ Livepeer Protocol](moved-to-about-livepeer-protocol/livepeer-protocol/README.mdx)
-- [⚠️ Technical Overview](moved-to-about-livepeer-protocol/livepeer-protocol/technical-overview.mdx)
+- [⚠️ Livepeer Whitepaper](moved-to-about-protocol/livepeer-protocol/livepeer-whitepaper.mdx)
+- [⚠️ Livepeer Protocol](moved-to-about-protocol/livepeer-protocol/README.mdx)
+- [⚠️ Technical Overview](moved-to-about-protocol/livepeer-protocol/technical-overview.mdx)
 
 ## Quickstart
 
@@ -3933,7 +3933,7 @@ Livepeer is a multi-layered ecosystem that includes a public, open-source, and p
     <Card title="Livepeer Ecosystem Projects" icon="puzzle-piece" href="#livepeer-ecosystem-projects" arrow>
  Livepeer Ecosystem Projects are built on top of the Livepeer Network and use its infrastructure to provide specialized services.
     </Card>
-    <Card title="Livepeer Community" icon="people-group" href="#livepeer-community" arrow>
+    <Card title="Livepeer Community" icon="people-group" href="#community" arrow>
  The Livepeer Community is a diverse and vibrant group of individuals and organizations that are passionate about the Livepeer Real-time Video AI Network.
     </Card>
 </Columns>
@@ -4602,7 +4602,7 @@ Livepeer is a multi-layered ecosystem that includes a public, open-source, and p
     <Card title="Livepeer Ecosystem Projects" icon="puzzle-piece" href="#livepeer-ecosystem-projects" arrow>
         Livepeer Ecosystem Projects are built on top of the Livepeer Network and use its infrastructure to provide specialized services.
     </Card>
-    <Card title="Livepeer Community" icon="people-group" href="#livepeer-community" arrow>
+    <Card title="Livepeer Community" icon="people-group" href="#community" arrow>
         The Livepeer Community is a diverse and vibrant group of individuals and organizations that are passionate about the Livepeer Real-time Video AI Network.
     </Card>
 </Columns>
@@ -6255,7 +6255,7 @@ import { Starfield } from "/snippets/components/scaffolding/heroes/HeroGif.jsx";
     <Card
       title="Contribute to the Ecosystem"
       icon="hands-holding-circle"
-      href="/community/livepeer-contribute/contribute"
+      href="/community/contribute/contribute"
       arrow
     >
  Contribute to the Livepeer Ecosystem and find opportunities to earn rewards through grants, RFPs, and more.
@@ -11252,7 +11252,7 @@ All Livepeer repositories follow a community code of conduct based on the [Contr
   <Card title="Contribute to the Docs" icon="book" href="/v2/resources/documentation-guide/contribute-to-the-docs" arrow>
  Full PR workflow, review process, and style guide for the documentation repository.
   </Card>
-  <Card title="Community Guidelines" icon="handshake" href="/v2/community/livepeer-community/community-guidelines" arrow>
+  <Card title="Community Guidelines" icon="handshake" href="/v2/community/connect/guidelines" arrow>
  The values and conduct standards that apply across all Livepeer community spaces.
   </Card>
 </CardGroup>
@@ -11780,7 +11780,7 @@ import { Starfield } from "/snippets/components/scaffolding/heroes/HeroGif.jsx";
     <Card
       title="Contribute to the Ecosystem"
       icon="hands-holding-circle"
-      href="/community/livepeer-contribute/contribute"
+      href="/community/contribute/contribute"
       arrow
     >
  Contribute to the Livepeer Ecosystem and find opportunities to earn rewards through grants, RFPs, and more.

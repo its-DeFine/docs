@@ -76,7 +76,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/home/about-livepeer/vision",
+      "url": "https://docs.livepeer.org/v2/home/about/vision",
       "title": "Livepeer Story",
       "description": "How Livepeer began with video streaming and grew to become the open AI-infrastructure for real-time Interactive Video & world models.",
       "section": "home",
@@ -112,7 +112,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/home/about-livepeer/evolution",
+      "url": "https://docs.livepeer.org/v2/home/about/evolution",
       "title": "Livepeer Evolution",
       "description": "A look at the Livepeer evolution from video to AI, to participatory governance and community driven development.",
       "section": "home",
@@ -126,7 +126,7 @@
         "livepeer-aspirations",
         "livepeer-ambitions",
         "home",
-        "about-livepeer",
+        "about",
         "evolution"
       ],
       "entities": [],
@@ -147,7 +147,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/home/about-livepeer/benefits",
+      "url": "https://docs.livepeer.org/v2/home/about/benefits",
       "title": "The Livepeer Advantage",
       "description": "Livepeer offers an open, cost-effective, performant, and scalable trusted execution layer for the interactive AI-first internet.",
       "section": "home",
@@ -158,7 +158,7 @@
         "why-livepeer",
         "best-choice",
         "next-project",
-        "about-livepeer",
+        "about",
         "benefits"
       ],
       "entities": [],
@@ -183,7 +183,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/home/about-livepeer/ecosystem",
+      "url": "https://docs.livepeer.org/v2/home/about/ecosystem",
       "title": "Livepeer Organisational Structure",
       "description": "A look at the Livepeer organisational structure, including the Livepeer Foundation, Livepeer Inc., and the key role of the Livepeer Community in governing the future of network.",
       "section": "home",
@@ -195,7 +195,7 @@
         "ecosystem",
         "grown",
         "robust",
-        "about-livepeer"
+        "about"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -285,7 +285,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/home/about-livepeer/roadmap",
+      "url": "https://docs.livepeer.org/v2/home/about/roadmap",
       "title": "What's Next for Livepeer?",
       "description": "What's next for Livepeer? A look at the Livepeer Foundation Roadmap - get involved!",
       "section": "home",
@@ -498,15 +498,15 @@
         "start-here",
         "livepeer",
         "about",
-        "about-livepeer",
+        "about",
         "about-portal",
-        "about-livepeer-portal",
-        "about-livepeer-network",
-        "about-livepeer-protocol",
-        "about-livepeer-token",
-        "about-livepeer-governance",
-        "about-livepeer-actors",
-        "about-livepeer-economics"
+        "about-portal",
+        "about-network",
+        "about-protocol",
+        "about-token",
+        "about-governance",
+        "about-actors",
+        "about-economics"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -2241,15 +2241,15 @@
         "start-here",
         "livepeer",
         "about",
-        "about-livepeer",
+        "about",
         "about-portal",
-        "about-livepeer-portal",
-        "about-livepeer-network",
-        "about-livepeer-protocol",
-        "about-livepeer-token",
-        "about-livepeer-governance",
-        "about-livepeer-actors",
-        "about-livepeer-economics"
+        "about-portal",
+        "about-network",
+        "about-protocol",
+        "about-token",
+        "about-governance",
+        "about-actors",
+        "about-economics"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -20063,7 +20063,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/community-portal",
+      "url": "https://docs.livepeer.org/v2/community/portal",
       "title": "Livepeer Community Portal",
       "description": "Welcome To The Community Portal: Explore, Connect, Contribute",
       "section": "community",
@@ -20077,7 +20077,7 @@
         "help",
         "index",
         "landing",
-        "community-portal"
+        "portal"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -20088,21 +20088,21 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/livepeer-community/community-guidelines",
+      "url": "https://docs.livepeer.org/v2/community/connect/guidelines",
       "title": "Community Guidelines",
       "description": "How we show up for each other - standards, conduct, and contribution norms for the Livepeer community.",
       "section": "community",
       "tags": [
         "livepeer",
         "community",
-        "community-guidelines",
+        "guidelines",
         "code-of-conduct",
         "contributing",
         "conduct",
         "rules",
         "standards",
         "oss",
-        "livepeer-community"
+        "community"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -20174,15 +20174,15 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/livepeer-community/governance-and-foundation",
+      "url": "https://docs.livepeer.org/v2/community/ecosystem/governance",
       "title": "Governance & the Livepeer Foundation",
       "description": "How Livepeer is governed, who the Livepeer Foundation is, how the treasury works, and how to participate in decisions that shape the network.",
       "section": "community",
       "tags": [
         "livepeer",
         "community",
-        "livepeer-community",
-        "governance-and-foundation",
+        "community",
+        "governance",
         "governance",
         "foundation",
         "governed",
@@ -20236,7 +20236,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/livepeer-community/trending-topics",
+      "url": "https://docs.livepeer.org/v2/community/community/trending-topics",
       "title": "Trending Topics",
       "description": "Trending Topics at Livepeer from across the forum, blogs and community.",
       "section": "community",
@@ -20247,7 +20247,7 @@
         "real-time-ai",
         "daydream",
         "community",
-        "livepeer-community",
+        "community",
         "trending-topics"
       ],
       "entities": [],
@@ -20316,14 +20316,14 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/livepeer-community/livepeer-latest-topics",
+      "url": "https://docs.livepeer.org/v2/community/community/livepeer-latest-topics",
       "title": "What's Happening in Livepeer",
       "description": "Curated ecosystem highlights and a live feed of the latest topics from the Livepeer Forum.",
       "section": "community",
       "tags": [
         "livepeer",
         "community",
-        "livepeer-community",
+        "community",
         "livepeer-latest-topics",
         "what",
         "happening",
@@ -20354,7 +20354,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/livepeer-community/roadmap",
+      "url": "https://docs.livepeer.org/v2/community/community/roadmap",
       "title": "Livepeer Foundation Roadmap",
       "description": "What's next for Livepeer? A look at the Livepeer Foundation Roadmap - get involved!",
       "section": "community",
@@ -20390,15 +20390,15 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/livepeer-connect/forums-and-discussions",
+      "url": "https://docs.livepeer.org/v2/community/connect/connect-channels",
       "title": "Connect & Channels",
       "description": "Where to find the Livepeer community - forums, Discord, Telegram, social media, and recurring community calls.",
       "section": "community",
       "tags": [
         "livepeer",
         "community",
-        "livepeer-connect",
-        "forums-and-discussions",
+        "connect",
+        "connect-channels",
         "connect",
         "channels",
         "where",
@@ -20444,14 +20444,14 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/livepeer-connect/news-and-socials",
+      "url": "https://docs.livepeer.org/v2/community/connect/news-and-socials",
       "title": "News & Socials",
       "description": "Stay up to date with the latest news and socials from the Livepeer Community",
       "section": "community",
       "tags": [
         "livepeer",
         "community",
-        "livepeer-connect",
+        "connect",
         "news-and-socials",
         "news",
         "socials",
@@ -20475,15 +20475,15 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/livepeer-connect/events-and-community-streams",
+      "url": "https://docs.livepeer.org/v2/community/connect/events-and-streams",
       "title": "Events & Live Streams",
       "description": "Upcoming and past Livepeer community events and streams from the shared Livepeer calendar.",
       "section": "community",
       "tags": [
         "livepeer",
         "community",
-        "livepeer-connect",
-        "events-and-community-streams",
+        "connect",
+        "events-and-streams",
         "events",
         "live",
         "streams"
@@ -20514,14 +20514,14 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/livepeer-contribute/contribute",
+      "url": "https://docs.livepeer.org/v2/community/contribute/contribute",
       "title": "Contribute to Livepeer",
       "description": "Help us build the future of open realtime AI & video - it takes a village!",
       "section": "community",
       "tags": [
         "livepeer",
         "community",
-        "livepeer-contribute",
+        "contribute",
         "contribute",
         "build",
         "future",
@@ -20536,14 +20536,14 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/livepeer-contribute/opportunities",
+      "url": "https://docs.livepeer.org/v2/community/contribute/opportunities",
       "title": "Livepeer Opportunities",
       "description": "Current opportunities to participate in Livepeer through grants, programs, and community initiatives.",
       "section": "community",
       "tags": [
         "livepeer",
         "community",
-        "livepeer-contribute",
+        "contribute",
         "opportunities"
       ],
       "entities": [],
@@ -20555,14 +20555,14 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/livepeer-contribute/build-livepeer",
+      "url": "https://docs.livepeer.org/v2/community/contribute/build-livepeer",
       "title": "Build Livepeer",
       "description": "Ways builders can contribute code, tooling, and ecosystem projects to Livepeer.",
       "section": "community",
       "tags": [
         "livepeer",
         "community",
-        "livepeer-contribute",
+        "contribute",
         "build-livepeer",
         "build"
       ],
@@ -28398,7 +28398,7 @@
         },
         {
           "level": 3,
-          "text": "v2/home/about-livepeer/ecosystem"
+          "text": "v2/home/about/ecosystem"
         },
         {
           "level": 3,

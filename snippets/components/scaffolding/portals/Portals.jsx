@@ -43,7 +43,7 @@
  * @status stable
  * @description Full-width hero section wrapper with min-height and gradient background.
   * @aiDiscoverability none
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk low
  * @lastMeaningfulChange 2026-04-09
  * @param {any} children - children prop.
@@ -88,7 +88,7 @@ const HeroSectionContainer = ({ children, minHeight = "fit-content", className =
  * @status stable
  * @description Hero background with image overlay and gradient.
   * @aiDiscoverability none
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk low
  * @lastMeaningfulChange 2026-04-09
  * @param {any} children - children prop.
@@ -137,7 +137,7 @@ const HeroImageBackgroundComponent = ({ children, className = "", style = {}, ..
  * @status stable
  * @description Centred content container inside hero sections.
   * @aiDiscoverability none
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk low
  * @lastMeaningfulChange 2026-04-09
  * @param {any} children - children prop.
@@ -221,7 +221,7 @@ const HeroOverviewContent = ({ children, className = "", style = {}, ...rest }) 
  * @status stable
  * @description Outer container for portal page content below the hero.
   * @aiDiscoverability none
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk low
  * @lastMeaningfulChange 2026-04-09
  * @param {any} children - children prop.
@@ -264,7 +264,7 @@ const PortalContentContainer = ({ children, className = "", style = {}, ...rest 
  * @status stable
  * @description Hero content with logo, title, tagline, description, and card grid.
   * @aiDiscoverability none
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk low
  * @lastMeaningfulChange 2026-04-09
  * @param {boolean} [zIndex=true] - z Index prop.
@@ -425,7 +425,7 @@ const PortalHeroContent = ({
  * @status stable
  * @description Section header with mission label and optional subtitle.
   * @aiDiscoverability none
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk low
  * @lastMeaningfulChange 2026-04-09
  * @param {any} children - children prop.
@@ -457,7 +457,7 @@ const PortalCardsHeader = ({ children, title, className = "", style = {}, ...res
  * @status stable
  * @description Section header with icon, title, and horizontal rule.
   * @aiDiscoverability none
- * @usedIn v2/community/community-portal.mdx
+ * @usedIn v2/community/portal.mdx
  * @breakingChangeRisk low
  * @lastMeaningfulChange 2026-04-09
  * @param {any} children - children prop.
@@ -504,7 +504,7 @@ const PortalSectionHeader = ({ children, title, icon, className = "", style = {}
  * @status stable
  * @description Hero banner with centred logo image, title, and subtitle.
   * @aiDiscoverability none
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/portal.mdx, v2/developers/portal.mdx, v2/gateways/portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/portal.mdx, v2/resources/portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk low
  * @lastMeaningfulChange 2026-04-09
  * @param {string} [src="/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg"] - src prop.

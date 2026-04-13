@@ -1345,3 +1345,16 @@ Session started: 2026-04-08 23:41:15
 Session started: 2026-04-08 23:41:27
 Session started: 2026-04-08 23:49:28
 Session started: 2026-04-09 00:57:11
+
+=== 2026-04-09 03:54 ===
+Stream: docs-v2-dev into docs-v2 merge PR
+Outcome: Partially met
+Done:
+- Created and pushed the dedicated merge-branch review surface as PR #876 from a separate merge worktree
+- Restored the consolidation `Links.jsx` export form and canonicalized page/template imports for `BlinkingIcon`, `TipWithArrow`, and `CustomCallout`
+- Rebases/merge updates against latest `docs-v2` were applied so the active PR branch is conflict-resolved
+Next: Rerun final scoped browser validation on PR #876, rerun `docs-v2-dev` PR checks to completion, and close superseded PRs #874/#875 if #876 is confirmed as the active review surface
+Session started: 2026-04-13 16:41:08
+Session started: 2026-04-13 17:09:42
+Session started: 2026-04-13 17:42:33
+Session started: 2026-04-13 18:04:12

@@ -30,11 +30,11 @@ Outputs:
 - `v2/home/mission-control`
 - `v2/home/get-started`
 - `v2/home/primer`
-- `v2/home/about-livepeer/vision`
-- `v2/home/about-livepeer/evolution`
-- `v2/home/about-livepeer/benefits`
-- `v2/home/about-livepeer/ecosystem`
-- `v2/home/about-livepeer/roadmap`
+- `v2/home/about/vision`
+- `v2/home/about/evolution`
+- `v2/home/about/benefits`
+- `v2/home/about/ecosystem`
+- `v2/home/about/roadmap`
 - `v2/home/solutions/showcase`
 - `v2/home/solutions/verticals`
 - `v2/home/solutions/applications`

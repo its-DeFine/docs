@@ -296,7 +296,7 @@ From scanning `snippets/templates/pages/`:
 | File | Change |
 |------|--------|
 | `docs.json` | Added community page to each product nav group |
-| `v2/community/livepeer-community/trending-topics.mdx` | Added Product Communities CardGroup (cols={2}, 5 cards) |
+| `v2/community/community/trending-topics.mdx` | Added Product Communities CardGroup (cols={2}, 5 cards) |
 | `v2/solutions/streamplace/overview.mdx` | Fixed GitHub URL (streamplace/overview → streamplace/streamplace) |
 
 ### Secrets & Handover Documentation (`docs-guide/repo-ops/`)

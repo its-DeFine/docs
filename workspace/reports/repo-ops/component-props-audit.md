@@ -204,20 +204,20 @@
 | high | 5.26 | Missing opening CustomDivider | v2/about/resources/reference/livepeer-contract-addresses.mdx | 2 | First content element is not <CustomDivider>. Found: sidebarTitle: Contract Addresses |
 | high | 5.26 | Missing opening CustomDivider | v2/about/resources/reference/network-metrics.mdx | 2 | First content element is not <CustomDivider>. Found: title: Network Metrics |
 | high | 5.26 | Missing opening CustomDivider | v2/about/resources/reference/technical-roadmap.mdx | 2 | First content element is not <CustomDivider>. Found: description: Review the current Livepeer roadmap p |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community-portal.mdx | 49 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community-portal.mdx | 84 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community-portal.mdx | 92 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community-portal.mdx | 100 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community-portal.mdx | 108 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community-portal.mdx | 116 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community-portal.mdx | 124 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community-portal.mdx | 132 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community-portal.mdx | 140 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community-portal.mdx | 148 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community-portal.mdx | 164 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community-portal.mdx | 172 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.34 | Inline style in MDX content | v2/community/community-portal.mdx | 66 | Found style={{...}} in MDX page content. |
-| high | 5.26 | Missing opening CustomDivider | v2/community/community-portal.mdx | 2 | First content element is not <CustomDivider>. Found: mode: frame |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/portal.mdx | 49 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/portal.mdx | 84 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/portal.mdx | 92 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/portal.mdx | 100 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/portal.mdx | 108 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/portal.mdx | 116 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/portal.mdx | 124 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/portal.mdx | 132 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/portal.mdx | 140 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/portal.mdx | 148 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/portal.mdx | 164 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/portal.mdx | 172 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.34 | Inline style in MDX content | v2/community/portal.mdx | 66 | Found style={{...}} in MDX page content. |
+| high | 5.26 | Missing opening CustomDivider | v2/community/portal.mdx | 2 | First content element is not <CustomDivider>. Found: mode: frame |
 | medium | 5.19 | Accordion missing icon prop | v2/community/faq.mdx | 35 | <Accordion title="What is the Livepeer Foundation?"> has no icon prop. |
 | medium | 5.19 | Accordion missing icon prop | v2/community/faq.mdx | 43 | <Accordion title="What is a Special Purpose Entity (SPE)?"> has no icon prop. |
 | medium | 5.19 | Accordion missing icon prop | v2/community/faq.mdx | 51 | <Accordion title="How do I vote on a treasury or governance proposal?"> has no icon prop. |
@@ -232,70 +232,70 @@
 | medium | 5.19 | Accordion missing icon prop | v2/community/faq.mdx | 113 | <Accordion title="Where can I find community calls and events?"> has no icon prop. |
 | high | 5.26 | Missing opening CustomDivider | v2/community/faq.mdx | 2 | First content element is not <CustomDivider>. Found: title: Community FAQ |
 | high | 5.26 | Missing opening CustomDivider | v2/community/index.mdx | 2 | First content element is not <CustomDivider>. Found: title: 'Community Index' |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/community-guidelines.mdx | 167 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/community-guidelines.mdx | 177 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/community-guidelines.mdx | 187 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/community-guidelines.mdx | 197 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/community-guidelines.mdx | 206 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/community-guidelines.mdx | 215 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/community-guidelines.mdx | 339 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/community-guidelines.mdx | 348 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/community-guidelines.mdx | 435 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/community-guidelines.mdx | 444 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/community-guidelines.mdx | 453 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/community-guidelines.mdx | 462 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/community-guidelines.mdx | 471 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/community-guidelines.mdx | 480 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| high | 5.26 | Missing opening CustomDivider | v2/community/livepeer-community/community-guidelines.mdx | 2 | First content element is not <CustomDivider>. Found: title: Community Guidelines |
-| medium | 5.18 | Tab missing icon prop | v2/community/livepeer-community/governance-and-foundation.mdx | 108 | <Tab title="Brand & Communication"> has no icon prop. |
-| medium | 5.18 | Tab missing icon prop | v2/community/livepeer-community/governance-and-foundation.mdx | 113 | <Tab title="Livepeer Builders"> has no icon prop. |
-| medium | 5.18 | Tab missing icon prop | v2/community/livepeer-community/governance-and-foundation.mdx | 118 | <Tab title="Core Contributor Coordination"> has no icon prop. |
-| medium | 5.18 | Tab missing icon prop | v2/community/livepeer-community/governance-and-foundation.mdx | 123 | <Tab title="Ecosystem Data & Tooling"> has no icon prop. |
-| medium | 5.18 | Tab missing icon prop | v2/community/livepeer-community/governance-and-foundation.mdx | 128 | <Tab title="LPT Participation"> has no icon prop. |
-| medium | 5.18 | Tab missing icon prop | v2/community/livepeer-community/governance-and-foundation.mdx | 133 | <Tab title="Core R&D"> has no icon prop. |
-| medium | 5.18 | Tab missing icon prop | v2/community/livepeer-community/governance-and-foundation.mdx | 138 | <Tab title="Real-Time Video AI"> has no icon prop. |
-| medium | 5.18 | Tab missing icon prop | v2/community/livepeer-community/governance-and-foundation.mdx | 143 | <Tab title="Compute Marketplace"> has no icon prop. |
-| medium | 5.18 | Tab missing icon prop | v2/community/livepeer-community/governance-and-foundation.mdx | 148 | <Tab title="Active Capital Management"> has no icon prop. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/governance-and-foundation.mdx | 155 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/governance-and-foundation.mdx | 210 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/governance-and-foundation.mdx | 213 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/governance-and-foundation.mdx | 216 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/governance-and-foundation.mdx | 219 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/governance-and-foundation.mdx | 251 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| high | 5.26 | Missing opening CustomDivider | v2/community/livepeer-community/governance-and-foundation.mdx | 2 | First content element is not <CustomDivider>. Found: title: Governance & the Livepeer Foundation |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/livepeer-latest-topics.mdx | 43 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/livepeer-latest-topics.mdx | 46 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/livepeer-latest-topics.mdx | 49 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/livepeer-latest-topics.mdx | 52 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/livepeer-latest-topics.mdx | 55 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/livepeer-latest-topics.mdx | 58 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/livepeer-latest-topics.mdx | 78 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/livepeer-latest-topics.mdx | 81 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/livepeer-latest-topics.mdx | 84 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| high | 5.26 | Missing opening CustomDivider | v2/community/livepeer-community/livepeer-latest-topics.mdx | 2 | First content element is not <CustomDivider>. Found: title: What's Happening in Livepeer |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/roadmap.mdx | 35 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.34 | Inline style in MDX content | v2/community/livepeer-community/roadmap.mdx | 60 | Found style={{...}} in MDX page content. |
-| high | 5.26 | Missing opening CustomDivider | v2/community/livepeer-community/roadmap.mdx | 2 | First content element is not <CustomDivider>. Found: mode: wide |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/trending-topics.mdx | 66 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/trending-topics.mdx | 69 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/trending-topics.mdx | 72 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/trending-topics.mdx | 75 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-community/trending-topics.mdx | 78 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| high | 5.26 | Missing opening CustomDivider | v2/community/livepeer-community/trending-topics.mdx | 2 | First content element is not <CustomDivider>. Found: title: Trending Topics |
-| high | 5.26 | Missing opening CustomDivider | v2/community/livepeer-connect/events-and-community-streams.mdx | 2 | First content element is not <CustomDivider>. Found: mode: wide |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-connect/forums-and-discussions.mdx | 40 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-connect/forums-and-discussions.mdx | 43 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-connect/forums-and-discussions.mdx | 46 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-connect/forums-and-discussions.mdx | 49 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-connect/forums-and-discussions.mdx | 115 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-connect/forums-and-discussions.mdx | 118 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-connect/forums-and-discussions.mdx | 121 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/livepeer-connect/forums-and-discussions.mdx | 124 | Card with href uses plain title instead of CustomCardTitle with icon. |
-| high | 5.26 | Missing opening CustomDivider | v2/community/livepeer-connect/forums-and-discussions.mdx | 2 | First content element is not <CustomDivider>. Found: title: Connect & Channels |
-| high | 5.26 | Missing opening CustomDivider | v2/community/livepeer-connect/news-and-socials.mdx | 2 | First content element is not <CustomDivider>. Found: title: News & Socials |
-| high | 5.26 | Missing opening CustomDivider | v2/community/livepeer-contribute/build-livepeer.mdx | 2 | First content element is not <CustomDivider>. Found: title: Build Livepeer |
-| high | 5.26 | Missing opening CustomDivider | v2/community/livepeer-contribute/contribute.mdx | 2 | First content element is not <CustomDivider>. Found: title: Contribute to Livepeer |
-| high | 5.26 | Missing opening CustomDivider | v2/community/livepeer-contribute/opportunities.mdx | 2 | First content element is not <CustomDivider>. Found: title: Livepeer Opportunities |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/guidelines.mdx | 167 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/guidelines.mdx | 177 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/guidelines.mdx | 187 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/guidelines.mdx | 197 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/guidelines.mdx | 206 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/guidelines.mdx | 215 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/guidelines.mdx | 339 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/guidelines.mdx | 348 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/guidelines.mdx | 435 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/guidelines.mdx | 444 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/guidelines.mdx | 453 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/guidelines.mdx | 462 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/guidelines.mdx | 471 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/guidelines.mdx | 480 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| high | 5.26 | Missing opening CustomDivider | v2/community/connect/guidelines.mdx | 2 | First content element is not <CustomDivider>. Found: title: Community Guidelines |
+| medium | 5.18 | Tab missing icon prop | v2/community/ecosystem/governance.mdx | 108 | <Tab title="Brand & Communication"> has no icon prop. |
+| medium | 5.18 | Tab missing icon prop | v2/community/ecosystem/governance.mdx | 113 | <Tab title="Livepeer Builders"> has no icon prop. |
+| medium | 5.18 | Tab missing icon prop | v2/community/ecosystem/governance.mdx | 118 | <Tab title="Core Contributor Coordination"> has no icon prop. |
+| medium | 5.18 | Tab missing icon prop | v2/community/ecosystem/governance.mdx | 123 | <Tab title="Ecosystem Data & Tooling"> has no icon prop. |
+| medium | 5.18 | Tab missing icon prop | v2/community/ecosystem/governance.mdx | 128 | <Tab title="LPT Participation"> has no icon prop. |
+| medium | 5.18 | Tab missing icon prop | v2/community/ecosystem/governance.mdx | 133 | <Tab title="Core R&D"> has no icon prop. |
+| medium | 5.18 | Tab missing icon prop | v2/community/ecosystem/governance.mdx | 138 | <Tab title="Real-Time Video AI"> has no icon prop. |
+| medium | 5.18 | Tab missing icon prop | v2/community/ecosystem/governance.mdx | 143 | <Tab title="Compute Marketplace"> has no icon prop. |
+| medium | 5.18 | Tab missing icon prop | v2/community/ecosystem/governance.mdx | 148 | <Tab title="Active Capital Management"> has no icon prop. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/ecosystem/governance.mdx | 155 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/ecosystem/governance.mdx | 210 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/ecosystem/governance.mdx | 213 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/ecosystem/governance.mdx | 216 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/ecosystem/governance.mdx | 219 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/ecosystem/governance.mdx | 251 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| high | 5.26 | Missing opening CustomDivider | v2/community/ecosystem/governance.mdx | 2 | First content element is not <CustomDivider>. Found: title: Governance & the Livepeer Foundation |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/livepeer-latest-topics.mdx | 43 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/livepeer-latest-topics.mdx | 46 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/livepeer-latest-topics.mdx | 49 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/livepeer-latest-topics.mdx | 52 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/livepeer-latest-topics.mdx | 55 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/livepeer-latest-topics.mdx | 58 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/livepeer-latest-topics.mdx | 78 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/livepeer-latest-topics.mdx | 81 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/livepeer-latest-topics.mdx | 84 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| high | 5.26 | Missing opening CustomDivider | v2/community/community/livepeer-latest-topics.mdx | 2 | First content element is not <CustomDivider>. Found: title: What's Happening in Livepeer |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/roadmap.mdx | 35 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.34 | Inline style in MDX content | v2/community/community/roadmap.mdx | 60 | Found style={{...}} in MDX page content. |
+| high | 5.26 | Missing opening CustomDivider | v2/community/community/roadmap.mdx | 2 | First content element is not <CustomDivider>. Found: mode: wide |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/trending-topics.mdx | 66 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/trending-topics.mdx | 69 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/trending-topics.mdx | 72 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/trending-topics.mdx | 75 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/community/trending-topics.mdx | 78 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| high | 5.26 | Missing opening CustomDivider | v2/community/community/trending-topics.mdx | 2 | First content element is not <CustomDivider>. Found: title: Trending Topics |
+| high | 5.26 | Missing opening CustomDivider | v2/community/connect/events-and-streams.mdx | 2 | First content element is not <CustomDivider>. Found: mode: wide |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/connect-channels.mdx | 40 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/connect-channels.mdx | 43 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/connect-channels.mdx | 46 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/connect-channels.mdx | 49 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/connect-channels.mdx | 115 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/connect-channels.mdx | 118 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/connect-channels.mdx | 121 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/connect/connect-channels.mdx | 124 | Card with href uses plain title instead of CustomCardTitle with icon. |
+| high | 5.26 | Missing opening CustomDivider | v2/community/connect/connect-channels.mdx | 2 | First content element is not <CustomDivider>. Found: title: Connect & Channels |
+| high | 5.26 | Missing opening CustomDivider | v2/community/connect/news-and-socials.mdx | 2 | First content element is not <CustomDivider>. Found: title: News & Socials |
+| high | 5.26 | Missing opening CustomDivider | v2/community/contribute/build-livepeer.mdx | 2 | First content element is not <CustomDivider>. Found: title: Build Livepeer |
+| high | 5.26 | Missing opening CustomDivider | v2/community/contribute/contribute.mdx | 2 | First content element is not <CustomDivider>. Found: title: Contribute to Livepeer |
+| high | 5.26 | Missing opening CustomDivider | v2/community/contribute/opportunities.mdx | 2 | First content element is not <CustomDivider>. Found: title: Livepeer Opportunities |
 | medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/resources/awesome-livepeer.mdx | 44 | Card with href uses plain title instead of CustomCardTitle with icon. |
 | medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/resources/awesome-livepeer.mdx | 50 | Card with href uses plain title instead of CustomCardTitle with icon. |
 | medium | 5.22 | Navigation Card missing CustomCardTitle | v2/community/resources/awesome-livepeer.mdx | 53 | Card with href uses plain title instead of CustomCardTitle with icon. |

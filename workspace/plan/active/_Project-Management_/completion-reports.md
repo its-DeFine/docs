@@ -2111,7 +2111,7 @@ Built a full social data pipeline infrastructure bringing YouTube videos, blog p
 | `v2/solutions/livepeer-studio/data/socials.jsx` | new | Livepeer Studio social links data |
 | `v2/solutions/streamplace/community.mdx` | new | Streamplace community page |
 | `v2/solutions/streamplace/data/socials.jsx` | new | Streamplace social links data |
-| `v2/community/livepeer-community/trending-topics.mdx` | modified | ScrollBox Discord, Product Communities CardGroup |
+| `v2/community/community/trending-topics.mdx` | modified | ScrollBox Discord, Product Communities CardGroup |
 | `docs.json` | modified | 5 community pages added to Solutions nav |
 | `docs-guide/repo-ops/secrets/solutions-secrets.mdx` | new | Pipeline secrets documentation |
 | `docs-guide/repo-ops/config/.env.example` | new | Full repo env var reference |
@@ -4969,3 +4969,58 @@ The repo had mature governance frameworks for components (7-tag JSDoc), scripts 
 | operations/scripts/generators/components/library/generate-component-snippets.js | script | VS Code snippet generator — reads component-registry.json, writes .vscode/components.code-snippets |
 | operations/governance/config/generated-artifacts.json | config | Updated — .vscode/components.code-snippets registered as generated artifact |
 | .claude/plans/zany-petting-wind.md | plan | Full implementation plan with research findings and critical file references |
+
+## Docs-v2-dev Into Docs-v2 Merge PR — 2026-04-09
+
+**Plans**: `/Users/alisonhaire/.claude/plans/soft-gliding-falcon.md`
+**Scope**: Create a dedicated merge-worktree PR from `docs-v2-dev` into `docs-v2`, repair the broken `Links.jsx`/import surface, and document the remaining validation state.
+**Outcome**: Partially met
+
+### Summary
+A dedicated merge worktree was used to build and push a conflict-resolved merge branch from `docs-v2-dev` into `docs-v2`. The session repaired the merge-branch `Links.jsx` surface, canonicalized `BlinkingIcon`, `TipWithArrow`, and `CustomCallout` imports on `docs-v2-dev`, carried those import fixes into the merge worktree, and opened draft PR `#876`. The merge PR exists and is rebased onto current `docs-v2`, but final merge readiness is still blocked on a clean rerun of browser validation and source-branch PR checks after the last branch update.
+
+### Completed
+- **Merge branch orchestration**: Created and maintained the dedicated merge worktree at `/Users/alisonhaire/Documents/Livepeer/Docs-v2-merge-20260409`, resolved merge conflicts with `docs-v2-dev` treated as source of truth, and pushed the refreshed merge branch behind PR `#876`.
+- **Runtime/import repair**: Restored the consolidation export form in `snippets/components/elements/links/Links.jsx` on both the source branch and merge branch, then replaced wrong-path imports so `BlinkingIcon` comes from `Icons.jsx` and `TipWithArrow` / `CustomCallout` come from `Callouts.jsx`.
+- **PR preparation**: Opened draft PR `#876` from `codex/20260409-docs-v2-dev-into-docs-v2-import-fixes` into `docs-v2` and updated the merge branch to include latest `docs-v2` content.
+
+### Decisions Made
+| Decision | Rationale |
+|---|---|
+| `docs-v2-dev` remains the source of truth for conflict resolution | User explicitly set the branch contract for this merge |
+| `Links.jsx` was restored to the consolidation re-export form on the merge surface | The alias-export version produced real browser/runtime failures (`BaseBlinkingIcon is not defined`) |
+| Symbol imports were canonicalized on the pages/templates instead of continuing to rely on `Links.jsx` as a symbol aggregator | Mint repeatedly reported unresolved exports for `BlinkingIcon`, `TipWithArrow`, and `CustomCallout` when pages imported those symbols from `Links.jsx` |
+
+### Deferred Items
+| Item | Priority | Reason | Dependency |
+|---|---|---|---|
+| Rerun final scoped browser validation on PR `#876` after the last merge-branch update | P0 | The branch changed again after the last scoped browser pass | Merge worktree branch `codex/20260409-docs-v2-dev-into-docs-v2-import-fixes` |
+| Rerun `node operations/tests/run-pr-checks.js --base-ref docs-v2` on `docs-v2-dev` and capture the terminal failure set cleanly | P0 | Earlier runs showed broad style/copy debt, but the last closeout state was not captured as a finished final report | Source branch `docs-v2-dev` |
+| Close superseded PRs `#874` and `#875` | P2 | `#876` is the current draft review surface | Human review/cleanup |
+
+### Dependencies & Downstream Effects
+- **PR `#876`**: The current review surface is `https://github.com/livepeer/docs/pull/876`; older PRs `#874` and `#875` are now superseded.
+- **Source branch**: `docs-v2-dev` now contains commit `2ad9bb5d0 fix import issues`, which is the source commit for the canonical import-path repair.
+- **Merge branch**: `codex/20260409-docs-v2-dev-into-docs-v2-import-fixes` now includes merge commit `37d39ce80 merge: update import-fix branch with docs-v2`.
+
+### Test / Validation State
+| Check | Result | Notes |
+|---|---|---|
+| `git status` in `/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev` | Pass | Clean at session close |
+| `git status` in `/Users/alisonhaire/Documents/Livepeer/Docs-v2-merge-20260409` | Pass | Clean at session close |
+| Scoped `lpd dev` browser pass on merge worktree | Partial | Portal-family routes returned `200`, and `BaseBlinkingIcon` runtime error was cleared before the final PR branch refresh; a fresh post-refresh rerun is still required |
+| `mint validate` after import rewrites on `docs-v2-dev` | Incomplete | Started but no terminal success/failure record was captured in this session |
+| `node operations/tests/run-pr-checks.js --base-ref docs-v2` on `docs-v2-dev` | Failing evidence observed | Earlier runs showed broad style/copy/MDX-safe debt and generated report artifacts; a clean final rerun/report is still required |
+
+### Recommendations
+1. **Rerun scoped browser validation on PR `#876` immediately** — Confirms the post-rebase merge branch still renders the fixed portal/import surface before review proceeds.
+2. **Rerun `docs-v2-dev` PR checks to completion and record the failing lanes** — Separates remaining repo debt from merge-specific issues and gives the PR an accurate review note.
+3. **Close PRs `#874` and `#875` after confirming `#876` is the active review surface** — Prevents reviewers from landing on superseded merge attempts.
+
+### Artifacts
+| File | Type | Description |
+|---|---|---|
+| `snippets/components/elements/links/Links.jsx` | component | Restored to the consolidation export form on both source and merge surfaces |
+| `v2/**` + `snippets/templates/**` import-touch set | docs | Canonicalized `BlinkingIcon`, `TipWithArrow`, and `CustomCallout` import paths |
+| `/Users/alisonhaire/Documents/Livepeer/Docs-v2-merge-20260409` | worktree | Dedicated merge worktree used for the branch-promotion PR |
+| `https://github.com/livepeer/docs/pull/876` | pull request | Current draft merge PR from the dedicated merge branch |

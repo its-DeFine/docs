@@ -78,9 +78,9 @@ Files moving OUT of snippets/automations:
 | Page | Current import path | New import path |
 |---|---|---|
 | `v2/home/trending.mdx` | `automations/discord/discordAnnouncementsData` | `automations/socials-data/discord/discordAnnouncementsData` |
-| `v2/community/livepeer-community/trending-topics.mdx` | `automations/discord/...`, `automations/youtube/...`, `automations/forum/...`, `automations/blog/...` | all → `automations/socials-data/...` |
-| `v2/community/livepeer-community/livepeer-latest-topics.mdx` | `automations/forum/forumData` | `automations/socials-data/forum/forumData` |
-| `v2/community/livepeer-connect/events-and-community-streams.mdx` | `automations/luma/lumaEventsData` | `automations/socials-data/luma/lumaEventsData` |
+| `v2/community/community/trending-topics.mdx` | `automations/discord/...`, `automations/youtube/...`, `automations/forum/...`, `automations/blog/...` | all → `automations/socials-data/...` |
+| `v2/community/community/livepeer-latest-topics.mdx` | `automations/forum/forumData` | `automations/socials-data/forum/forumData` |
+| `v2/community/connect/events-and-streams.mdx` | `automations/luma/lumaEventsData` | `automations/socials-data/luma/lumaEventsData` |
 | `v2/home/solutions/showcase.mdx` | `automations/showcase/showcaseData` | `automations/showcase-data/showcaseData` |
 | `v2/solutions/daydream/community.mdx` | `automations/solutions/daydream/...` | `automations/product-data/daydream/...` |
 | `v2/solutions/livepeer-studio/community.mdx` | `automations/discord/discordAnnouncementsData`, `automations/solutions/livepeer-studio/...` | `socials-data/discord/...`, `product-data/livepeer-studio/...` |

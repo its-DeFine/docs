@@ -9268,8 +9268,8 @@
           "sourceType": "markdown-link",
           "attr": "",
           "linkType": "internal-rooted",
-          "rawPath": "/v2/community/livepeer-connect/events-and-community-streams",
-          "resolvedPath": "v2/community/livepeer-connect/events-and-community-streams.mdx",
+          "rawPath": "/v2/community/connect/events-and-streams",
+          "resolvedPath": "v2/community/connect/events-and-streams.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []

@@ -134,7 +134,7 @@ Outputs:
 - `/solutions/streamplace/introduction/streamplace-integration` - file_not_found
   - Expected: `v2/pages/solutions/streamplace/introduction/streamplace-integration`
 
-### v2/home/about-livepeer/ecosystem
+### v2/home/about/ecosystem
 
 - `/v2/lpt/treasury/overview` - file_not_found
   - Expected: `v2/pages/v2/lpt/treasury/overview`
@@ -221,8 +221,8 @@ Outputs:
   - Expected: `v2/pages/v2/orchestrators/guides/advanced-operations/pool-operators`
 - `/v2/orchestrators/guides/deployment-details/join-a-pool` - file_not_found
   - Expected: `v2/pages/v2/orchestrators/guides/deployment-details/join-a-pool`
-- `/v2/community/livepeer-connect/events-and-community-streams` - file_not_found
-  - Expected: `v2/pages/v2/community/livepeer-connect/events-and-community-streams`
+- `/v2/community/connect/events-and-streams` - file_not_found
+  - Expected: `v2/pages/v2/community/connect/events-and-streams`
 - `/v2/developers/resources/awesome-livepeer` - file_not_found
   - Expected: `v2/pages/v2/developers/resources/awesome-livepeer`
 - `/v2/orchestrators/resources/faq` - file_not_found

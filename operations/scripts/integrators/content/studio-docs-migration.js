@@ -49,7 +49,7 @@ const TIER_2 = [
   'v2/developers/resources/reference/apis.mdx',
   'v2/developers/resources/reference/sdks.mdx',
   'v2/home/get-started.mdx',
-  'v2/community/livepeer-community/trending-topics.mdx',
+  'v2/community/community/trending-topics.mdx',
   'docs-guide/tooling/reference-maps/icon-map.mdx',
   // JSX data files
   'snippets/data/solutions/hrefs.jsx',

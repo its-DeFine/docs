@@ -1545,7 +1545,7 @@ The Livepeer Treasury is the governance-controlled pool of protocol-managed asse
 
 ## Using the Treasury
 
-Embedded resource: "Using the Livepeer Community Treasury" — https://paragraph.com/@livepeer-2/using-the-livepeer-community-treasury
+Embedded resource: "Using the Livepeer Community Treasury" — https://paragraph.com/@livepeer-2/using-the-community-treasury
 
 ## 1. Formal Definition
 

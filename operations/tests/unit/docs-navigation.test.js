@@ -461,7 +461,7 @@ function getCanonicalMap(normalizedRoute) {
     'v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers': [
       'v2/orchestrators/setup/data-centres-and-large-scale-hardware-providers'
     ],
-    'v2/pages/02_community/livepeer-community/media-kit': ['v2/resources/media-kit'],
+    'v2/pages/02_community/community/media-kit': ['v2/resources/media-kit'],
     'v2/pages/01_about/livepeer-network/actors': ['v2/about/network/actors'],
     'v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory': [
       'v2/developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory'

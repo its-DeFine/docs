@@ -146,7 +146,7 @@ export const CardCarousel = ({
  * @status stable
  * @description 2x2 grid with centred rotating icon overlay. Respects prefers-reduced-motion.
   * @aiDiscoverability none
- * @usedIn v2/about/concepts/livepeer-overview.mdx, v2/home/about-livepeer/ecosystem.mdx, v2/home/about-livepeer/vision.mdx
+ * @usedIn v2/about/concepts/livepeer-overview.mdx, v2/home/about/ecosystem.mdx, v2/home/about/vision.mdx
  * @breakingChangeRisk low
  * @lastMeaningfulChange 2026-04-09
  * @param {React.ReactNode} children - Content rendered inside the component.
