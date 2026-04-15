@@ -1,7 +1,7 @@
 ---
-title: 'Update Configuration Flags'
-sidebarTitle: 'Configuration Flags'
-description: 'Update Configuration Flags'
+title: 'Update Exchanges Data'
+sidebarTitle: 'Exchanges Data'
+description: 'Update Exchanges Data'
 pageType: reference
 purpose: reference
 audience: internal
@@ -12,7 +12,7 @@ keywords:
   - github-actions
   - integrator
   - maintenance
-  - update-config-flags
+  - update-exchanges-data
 ---
 
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
@@ -21,8 +21,8 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 | Field | Value |
 |---|---|
-| **Current file** | `.github/workflows/update-config-flags.yml` |
-| **New name** | `update-config-flags.yml` |
+| **Current file** | `.github/workflows/integrator-maintenance-update-exchanges-data.yml` |
+| **New name** | `integrator-maintenance-update-exchanges-data.yml` |
 | **Type** | `integrator` |
 | **Concern** | `maintenance` |
 | **Pipeline tag** | P5-auto (scheduled + auto-commit) |
@@ -42,7 +42,7 @@ import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx
 
 ```mermaid
 graph LR
-    TRIGGER["schedule, workflow_dispatch"] --> WF["update-config-flags"]
+    TRIGGER["schedule, workflow_dispatch"] --> WF["update-exchanges-data"]
     WF --> OUTPUT["output"]
 ```
 
@@ -60,11 +60,11 @@ graph LR
 ## Dependencies
 
 **Scripts:**
-- `operations/scripts/integrators/maintenance/data-feeds/fetch-config-flags.js`
+- `operations/scripts/integrators/maintenance/data-feeds/fetch-exchanges-data.js`
 
 **CLI equivalent:**
 ```bash
-node operations/scripts/integrators/maintenance/data-feeds/fetch-config-flags.js --dry-run
+node operations/scripts/integrators/maintenance/data-feeds/fetch-exchanges-data.js --dry-run
 ```
 
 <CustomDivider />

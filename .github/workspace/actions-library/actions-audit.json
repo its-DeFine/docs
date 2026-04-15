@@ -936,7 +936,7 @@
       "status": "active"
     },
     {
-      "file": "project-showcase-sync.yml",
+      "file": "integrator-copy-update-showcase-submissions.yml",
       "name": "Project Showcase Sync",
       "type": "integrator",
       "concern": "copy",
@@ -955,7 +955,7 @@
       "status": "disabled"
     },
     {
-      "file": "styles-governance.yml",
+      "file": "remediator-brand-repair-style-tokens.yml",
       "name": "Styles Governance",
       "type": "remediator",
       "concern": "brand",
@@ -972,7 +972,7 @@
       "status": "active"
     },
     {
-      "file": "update-config-flags.yml",
+      "file": "integrator-maintenance-update-config-flags.yml",
       "name": "Update Configuration Flags",
       "type": "integrator",
       "concern": "maintenance",
@@ -991,7 +991,7 @@
       "status": "active"
     },
     {
-      "file": "update-exchanges-data.yml",
+      "file": "integrator-maintenance-update-exchanges-data.yml",
       "name": "Update Exchanges Data",
       "type": "integrator",
       "concern": "maintenance",
