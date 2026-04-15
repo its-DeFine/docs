@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 /**
  * @script            fetch-exchanges-data
- * @category          automation
- * @purpose           infrastructure:data-feeds
- * @scope             .github/scripts
+ * @type              integrator
+ * @concern           maintenance
+ * @niche             data-feeds
+ * @scope             operations/scripts/integrators/maintenance/data-feeds
  * @owner             docs
  * @needs             F-R1
  * @purpose-statement Fetches LPT exchange tickers from CoinGecko API, classifies CEX/DEX, writes structured JSX data for SearchTable consumption.
- * @pipeline          P5 (scheduled, weekly)
+ * @pipeline          P5-auto (scheduled, weekly)
  * @dualmode          --dry-run (fetch + preview, no write) | default (fetch + write)
- * @usage             node .github/scripts/fetch-exchanges-data.js [--dry-run]
+ * @usage             node operations/scripts/integrators/maintenance/data-feeds/fetch-exchanges-data.js [--dry-run]
  */
 
 const https = require('https');
@@ -18,7 +19,7 @@ const path = require('path');
 
 const COIN_ID = process.env.COINGECKO_COIN_ID || 'livepeer';
 const API_BASE = 'https://api.coingecko.com/api/v3';
-const OUTPUT_PATH = path.resolve(__dirname, '../../snippets/data/exchanges/exchangesData.jsx');
+const OUTPUT_PATH = path.resolve(process.cwd(), 'snippets/data/exchanges/exchangesData.jsx');
 
 const DRY_RUN = process.argv.includes('--dry-run');
 

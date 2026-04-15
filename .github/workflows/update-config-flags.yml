@@ -40,7 +40,7 @@ jobs:
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             FLAGS="--dry-run"
           fi
-          node .github/scripts/fetch-config-flags.js $FLAGS
+          node operations/scripts/integrators/maintenance/data-feeds/fetch-config-flags.js $FLAGS
 
       - name: Check for changes
         if: inputs.dry_run != 'true'

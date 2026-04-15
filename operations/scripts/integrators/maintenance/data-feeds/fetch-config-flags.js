@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 /**
  * @script            fetch-config-flags
- * @category          automation
- * @purpose           infrastructure:data-feeds
- * @scope             .github/scripts
+ * @type              integrator
+ * @concern           maintenance
+ * @niche             data-feeds
+ * @scope             operations/scripts/integrators/maintenance/data-feeds
  * @owner             docs
  * @needs             F-R1
  * @purpose-statement Fetches go-livepeer CLI flags from source code on GitHub, parses flag definitions, writes structured JSX data for SearchTable consumption.
- * @pipeline          P5 (scheduled, weekly)
+ * @pipeline          P5-auto (scheduled, weekly)
  * @dualmode          --dry-run (fetch + preview, no write) | default (fetch + write)
- * @usage             node .github/scripts/fetch-config-flags.js [--dry-run]
+ * @usage             node operations/scripts/integrators/maintenance/data-feeds/fetch-config-flags.js [--dry-run]
  */
 
 const https = require('https');
@@ -18,7 +19,7 @@ const path = require('path');
 
 const REPO = process.env.GO_LIVEPEER_REPO || 'livepeer/go-livepeer';
 const BRANCH = process.env.GO_LIVEPEER_BRANCH || 'master';
-const OUTPUT_PATH = path.resolve(__dirname, '../../snippets/data/gateways/configFlagsData.jsx');
+const OUTPUT_PATH = path.resolve(process.cwd(), 'snippets/data/gateways/configFlagsData.jsx');
 
 const DRY_RUN = process.argv.includes('--dry-run');
 

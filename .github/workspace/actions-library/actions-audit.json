@@ -960,7 +960,10 @@
       "type": "remediator",
       "concern": "brand",
       "pipeline_tag": "P6",
-      "triggers": ["schedule", "workflow_dispatch"],
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
       "scripts": [],
       "has_inline_script": false,
       "has_permissions": true,
@@ -974,8 +977,13 @@
       "type": "integrator",
       "concern": "maintenance",
       "pipeline_tag": "P5-auto",
-      "triggers": ["schedule", "workflow_dispatch"],
-      "scripts": [],
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "scripts": [
+        "operations/scripts/integrators/maintenance/data-feeds/fetch-config-flags.js"
+      ],
       "has_inline_script": false,
       "has_permissions": true,
       "has_concurrency": false,
@@ -988,8 +996,13 @@
       "type": "integrator",
       "concern": "maintenance",
       "pipeline_tag": "P5-auto",
-      "triggers": ["schedule", "workflow_dispatch"],
-      "scripts": [],
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "scripts": [
+        "operations/scripts/integrators/maintenance/data-feeds/fetch-exchanges-data.js"
+      ],
       "has_inline_script": false,
       "has_permissions": true,
       "has_concurrency": false,
@@ -1002,8 +1015,13 @@
       "type": "validator",
       "concern": "governance",
       "pipeline_tag": "P3",
-      "triggers": ["pull_request", "workflow_dispatch"],
-      "scripts": ["operations/scripts/validators/governance/pr/check-workflow-governance.js"],
+      "triggers": [
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "scripts": [
+        "operations/scripts/validators/governance/pr/check-workflow-governance.js"
+      ],
       "has_inline_script": false,
       "has_permissions": true,
       "has_concurrency": true,
